@@ -29,9 +29,11 @@ This easily configured feature enables maximizing resource usage on a smaller nu
 
 ## Enable parallel task execution
 
-Configuring the compute nodes in your Batch solution for parallel task execution is done at the pool level. When working with the Batch REST API, the [maxTasksPerNode][maxtasks_rest] element is set in the request body during pool creation. In the Batch .NET API, the [CloudPool.MaxTasksPerComputeNode][maxtasts_net] property is set when creating a pool.
+Configuring the compute nodes in your Batch solution for parallel task execution is done at the pool level. When working with the Batch REST API, the [maxTasksPerNode][maxtasks_rest] element is set in the request body during pool creation. In the Batch .NET API, the [CloudPool.MaxTasksPerComputeNode][maxtasks_net] property is set when creating a pool.
 
 Azure Batch allows a maximum tasks per node setting of up to four times (4x) the number of node cores. For example, if the pool is configured with nodes of size "Large" (four cores) then `maxTasksPerNode` may be set to sixteen. Details on the number of cores for each of the node sizes can be found in [Sizes for virtual machines](../virtual-machines/virtual-machines-size-specs.md), and more information on service limits can be found in [Azure Subscription and Service Limits, Quotas, and Constraints](../azure-subscription-service-limits.md).
+
+> [AZURE.TIP] Be sure to take into account the `maxTasksPerNode` value when constructing an [autoscale formula][enable_autoscaling] for your pool. For example, a formula that evaluates `$RunningTasks` could be dramatically affected by an increase in tasks per node. See [Automatically scale compute nodes in an Azure Batch pool](batch-automatic-scaling.md) for more information.
 
 ## Batch REST example
 
@@ -58,11 +60,11 @@ This [Batch .NET][api_net] API code snippet shows a request to create a pool con
         pool.MaxTasksPerComputeNode = 4;
         pool.Commit();
 
-> [AZURE.NOTE] The `maxTasksPerNode` element and [MaxTasksPerComputeNode][maxtasts_net] property may only be set at pool creation time. It cannot be modified after a pool has already been created.
+> [AZURE.NOTE] The `maxTasksPerNode` element and [MaxTasksPerComputeNode][maxtasks_net] property may only be set at pool creation time. It cannot be modified after a pool has already been created.
 
 ## Explore the sample project
 
-Check out the [ParallelNodeTasks][parallel_tasks_sample] project on GitHub, a working code sample illustrating the use of [CloudPool.MaxTasksPerComputeNode][maxtasts_net]. This C# console application uses the [Batch .NET][api_net] library to create a pool with one or more compute nodes and executes a configurable number of tasks on those nodes to simulate variable load. Output from the application details which nodes executed each task, as well as a summary of the job parameters and duration. The summary portion of the output from two different runs of the sample application appears below.
+Check out the [ParallelNodeTasks][parallel_tasks_sample] project on GitHub, a working code sample illustrating the use of [CloudPool.MaxTasksPerComputeNode][maxtasks_net]. This C# console application uses the [Batch .NET][api_net] library to create a pool with one or more compute nodes and executes a configurable number of tasks on those nodes to simulate variable load. Output from the application details which nodes executed each task, as well as a summary of the job parameters and duration. The summary portion of the output from two different runs of the sample application appears below.
 
 ```
 Nodes: 1
@@ -87,9 +89,10 @@ The second run of the sample shows a significant decrease in job duration due to
 > [AZURE.NOTE] The job durations in the summaries above do not include pool creation time. Each of the jobs above were submitted to previously created pools whose compute nodes were in the Active state at submission time.
 
  [maxtasks_rest]: https://msdn.microsoft.com/library/azure/dn820174.aspx
- [maxtasts_net]: http://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.maxtaskspercomputenode.aspx  
+ [maxtasks_net]: http://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.maxtaskspercomputenode.aspx  
  [api_rest]: http://msdn.microsoft.com/library/azure/dn820158.aspx
  [api_net]: http://msdn.microsoft.com/library/azure/mt348682.aspx
  [cloudpool]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.aspx
  [poolcreate_net]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.pooloperations.createpool.aspx
  [parallel_tasks_sample]: http://URL_GOES_HERE
+ [enable_autoscaling]: https://msdn.microsoft.com/library/azure/dn820173.aspx
