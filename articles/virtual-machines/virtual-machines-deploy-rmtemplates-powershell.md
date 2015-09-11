@@ -78,13 +78,11 @@ In the following command, replace *deployment name* with the name that you want 
 
 	New-AzureResourceGroupDeployment -Name "deployment name" -ResourceGroupName "resource group name" -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-simple-windows-vm/azuredeploy.json"
 
-When you run the **New-AzureResourceGroupDeployment** command, you are prompted to supply the values of parameters in the "parameters" section of the JSON file. When you have specified all the needed parameter values, the command creates the resource group and the virtual machine.
-
 Here is an example.
 
 	New-AzureResourceGroupDeployment -Name "TestDeployment" -ResourceGroupName "TestRG" -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-simple-windows-vm/azuredeploy.json"
 
-You will see something like this:
+You are prompted to supply the values of parameters in the "parameters" section of the JSON file:
 
 	cmdlet New-AzureResourceGroupDeployment at command pipeline position 1
 	Supply values for the following parameters:
@@ -93,6 +91,9 @@ You will see something like this:
 	adminUsername: WinAdmin1
 	adminPassword: *********
 	dnsNameForPublicIP: contoso
+
+It returns something like this:
+
 	VERBOSE: 10:56:59 AM - Template is valid.
 	VERBOSE: 10:56:59 AM - Create template deployment 'TestDeployment'.
 	VERBOSE: 10:57:08 AM - Resource Microsoft.Network/virtualNetworks 'MyVNET' provisioning status is succeeded
@@ -136,13 +137,11 @@ In the following command, replace *deployment name* with the name that you want 
 
 	New-AzureResourceGroupDeployment -Name "deployment name" -ResourceGroupName "resource group name" -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vm-from-specialized-vhd/azuredeploy.json"
 
-You are prompted to supply the values of parameters in the "parameters" section of the JSON file. When you have specified all the parameter values, Azure Resource Manager creates the virtual machine.
-
 Here is an example:
 
 	New-AzureResourceGroupDeployment -Name "TestDeployment" -ResourceGroupName "TestRG" -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vm-from-specialized-vhd/azuredeploy.json"
 
-You will receive the following type of information:
+You are prompted to supply the values of parameters in the "parameters" section of the JSON file:
 
 	cmdlet New-AzureResourceGroup at command pipeline position 1
 	Supply values for the following parameters:
@@ -169,9 +168,7 @@ In the following command, replace *deployment name* with the name that you want 
 
 	New-AzureResourceGroupDeployment -Name "deployment name" -ResourceGroupName "resource group name" -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-2-vms-loadbalancer-lbrules/azuredeploy.json"
 
-When you run the **New-AzureResourceGroupDeployment** command, you will be prompted to supply the values of parameters of the JSON file. When you have specified all the parameter values, the command creates the resource group and the deployment.
-
-You would see something like this.
+You're prompted to supply the values of parameters in the "parameters" section of the JSON file:
 
 	cmdlet New-AzureResourceGroup at command pipeline position 1
 	Supply values for the following parameters:
@@ -190,13 +187,13 @@ If you would like to see a video of this task being done, take a look at this:
 
 ## <a id="removerg"></a>TASK: Remove a resource group
 
-Replace *resource group name* in the following command with the name of the resource group that you want to remove, and then run it:
+In the following command, replace *resource group name* with the name of the resource group that you want to remove, and then run it:
 
 	Remove-AzureResourceGroup  -Name "resource group name"
 
 > [AZURE.NOTE] You can use the **-Force** parameter to skip the confirmation prompt.
 
-You will see information like this:
+You're asked for confirmation if you didn't use the -Force parameter:
 
 	Confirm
 	Are you sure you want to remove resource group 'BuildRG'
@@ -212,7 +209,7 @@ In the following command, replace *resource group name* with the name of the res
 
 	Get-AzureVM -ResourceGroupName "resource group name" -Name "VM name"
 
-You should see something like this:
+It returns something like this:
 
 	AvailabilitySetReference : null
 	Extensions               : []
@@ -283,7 +280,7 @@ In the following command, replace *resource group name* with the name of the res
 
 	Start-AzureVM -ResourceGroupName "resource group name" -Name "VM name"
 
-You should see something like this:
+It returns something like this:
 
 	EndTime             : 4/28/2015 11:11:41 AM -07:00
 	Error               :
@@ -304,12 +301,13 @@ In the following command, replace *resource group name* with the name of the res
 
 	Stop-AzureVM -ResourceGroupName "resource group name" -Name "VM name"
 
-You will see information like this:
+You're asked for confirmation:
 
 	Virtual machine stopping operation
 	This cmdlet will stop the specified virtual machine. Do you want to continue?
 	[Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"):
 
+It returns something like this:
 
 	EndTime             : 4/28/2015 11:09:08 AM -07:00
 	Error               :
@@ -330,7 +328,7 @@ In the following command, replace *resource group name* with the name of the res
 
 	Restart-AzureVM -ResourceGroupName "resource group name" -Name "VM name"
 
-You will see information like this:
+It returns something like this:
 
 	EndTime             : 4/28/2015 11:16:26 AM -07:00
 	Error               :
@@ -353,12 +351,13 @@ In the following command, replace *resource group name* with the name of the res
 
 > [AZURE.NOTE] You can use the **-Force** parameter to skip the confirmation prompt.
 
-You will see information like this:
+You're asked for confirmation if you didn't use the -Force parameter:
 
 	Virtual machine removal operation
 	This cmdlet will remove the specified virtual machine. Do you want to continue?
 	[Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"):
 
+It returns something like this:
 
 	EndTime             : 4/28/2015 11:21:55 AM -07:00
 	Error               :
