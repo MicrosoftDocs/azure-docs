@@ -205,12 +205,14 @@ If you need to change the prefixes for your local site, use the instructions bel
 ### Add or remove prefixes without a VPN gateway connection
 
 
-**To add** additional address prefixes to a local site that you created, but that doesn't yet have a VPN gateway connection, use the example below.
+- **To add** additional address prefixes to a local site that you created, but that doesn't yet have a VPN gateway connection, use the example below.
 
 		$local = Get-AzureLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg
 		Set-AzureLocalNetworkGateway -LocalNetworkGateway $local -AddressPrefix @('10.0.0.0/24','20.0.0.0/24','30.0.0.0/24')
 
-**To remove** an address prefix from a local site that doesn't have a VPN connection, use the example below. Leave out the prefixes that you no longer need. In this example, we no longer need prefix 20.0.0.0/24 (from the previous example), so we will update the local site and exclude that prefix.
+
+
+- **To remove** an address prefix from a local site that doesn't have a VPN connection, use the example below. Leave out the prefixes that you no longer need. In this example, we no longer need prefix 20.0.0.0/24 (from the previous example), so we will update the local site and exclude that prefix.
 
 		local = Get-AzureLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg
 		Set-AzureLocalNetworkGateway -LocalNetworkGateway $local -AddressPrefix @('10.0.0.0/24','30.0.0.0/24')
