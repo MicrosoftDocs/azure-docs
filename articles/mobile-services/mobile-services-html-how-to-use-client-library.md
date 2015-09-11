@@ -16,7 +16,6 @@
 	ms.date="09/09/2015" 
 	ms.author="glenga"/>
 
-
 # How to use an HTML/JavaScript client for Azure Mobile Services
 
 [AZURE.INCLUDE [mobile-services-selector-client-library](../../includes/mobile-services-selector-client-library.md)]
