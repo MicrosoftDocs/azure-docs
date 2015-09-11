@@ -93,10 +93,8 @@ Next, you'll configure the virtual network gateway in order to create a secure s
 
 You can learn more about virtual network cross-premises connectivity in this article: [About secure cross-premises connectivity for virtual networks](vpn-gateway-cross-premises-options.md).
 
-If you want to configure a point-to-site VPN connection, see [Configure a Point-to-Site VPN connection](vpn-gateway-point-to-site-create.md).
+If you want to configure a point-to-site VPN connection, see [Configure a point-to-site VPN connection](vpn-gateway-point-to-site-create.md).
 
 You can add virtual machines to your virtual network. See [How to create a custom virtual machine](../virtual-machines/virtual-machines-create-custom.md).
-
-If you want to configure a VNet connection using RRAS, see [Configure a Site-to-Site VPN using Windows Server 2012 Routing and Remote Access Service (RRAS)](https://msdn.microsoft.com/library/dn636917.aspx).
 
 If you want to configure a connection between your classic virtual network and a virtual network created using the Azure Resource Manager mode, see [Connecting classic VNets to Azure Resource Manager VNets](../virtual-network/virtual-networks-arm-asm-s2s-howto.md).
