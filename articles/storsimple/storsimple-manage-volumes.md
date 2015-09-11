@@ -88,7 +88,10 @@ Your new volume is now ready to use.
 
 Modify a volume when you need to expand it or change the hosts that access the volume.
 
-> [AZURE.IMPORTANT] If you modify the volume size on the device, the volume size needs to be changed on the host as well. The host-side steps described here are for Windows Server 2012 (2012R2). Procedures for Linux or other host operating systems will be different. Refer to your host operating system instructions when modifying the volume on a host running another operating system. 
+> [AZURE.IMPORTANT] 
+>
+> - If you modify the volume size on the device, the volume size needs to be changed on the host as well. 
+> - The host-side steps described here are for Windows Server 2012 (2012R2). Procedures for Linux or other host operating systems will be different. Refer to your host operating system instructions when modifying the volume on a host running another operating system. 
 
 ### To modify a volume
 
