@@ -1,6 +1,6 @@
 <properties 
-    pageTitle="Change the pricing tier of an Azure SQL database using PowerShell" 
-    description="Change the pricing tier of an Azure SQL database using PowerShell" 
+    pageTitle="Change the service tier and performance level of an Azure SQL database using PowerShell" 
+    description="Change the service tier and performance level of an Azure SQL database using PowerShell" 
 	services="sql-database"
 	documentationCenter=""
 	authors="stevestein"
@@ -10,14 +10,14 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="09/05/2015"
+	ms.date="09/10/2015"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
 	ms.tgt_pltfrm="NA"/>
 
 
-# Change the pricing tier of a SQL database using PowerShell
+# Change the service tier and performance level of a SQL database using PowerShell
 
 **Single database**
 
@@ -26,11 +26,11 @@
 - [PowerShell](sql-database-scale-up-powershell.md)
 
 
-This article shows you how to change the pricing tier (scale up or down) of your SQL database with PowerShell.
+This article shows you how to change the service tier and performance level (pricing tier) of your SQL database with PowerShell.
 
 
 
-> [AZURE.IMPORTANT] Changing the pricing tier of a SQL database is an online operation. The database will remain online and available during the entire scaling operation.
+> [AZURE.IMPORTANT] Changing the service tier and performance level of a SQL database is an online operation. The database will remain online and available during the entire scaling operation.
 
 - To downgrade a database, the database should be smaller than the maximum allowed size of the target service tier. 
 - When upgrading a database with [Standard Geo-Replication](https://msdn.microsoft.com/library/azure/dn758204.aspx) or [Active Geo-Replication](https://msdn.microsoft.com/library/azure/dn741339.aspx) enabled, you must first upgrade its secondary databases to the desired performance tier before upgrading the primary database.
@@ -47,7 +47,13 @@ This article shows you how to change the pricing tier (scale up or down) of your
 - An Azure SQL database. If you do not have a SQL database, create one following the steps in this article: [Create your first Azure SQL Database](sql-database-get-started.md).
 - Azure PowerShell. You can download and install the Azure PowerShell modules by running the [Microsoft Web Platform Installer](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409). For detailed information, see [How to install and configure Azure PowerShell](powershell-install-configure.md).
 
+The cmdlets for changing the service tier of Azure SQL databases are located in the Azure Resource Manager module. When you start Azure PowerShell, the cmdlets in the Azure module are imported by default. To switch to the Azure Resource Manager module, use the Switch-AzureMode cmdlet.
 
+	Switch-AzureMode -Name AzureResourceManager
+
+If you run the **Switch-AzureMode** and see warning: The *Switch-AzureMode cmdlet is deprecated and will be removed in a future release*, that's okay; just go to the next step to configure your credentials.
+
+For detailed information, see [Using Windows PowerShell with Resource Manager](powershell-azure-resource-manager.md).
 
 ## Configure your credentials and select your subscription
 
@@ -71,7 +77,7 @@ After successfully running **Select-AzureSubscription** you are returned to the 
  
 
 
-## Change the pricing tier for your database
+## Change the service tier and performance level of your database
 
 Run the **Set-AzureSqlDatabase** cmdlet and set the **-RequestedServiceObjectiveName** to the performance level of the desired pricing tier; for example *S0*, *S1*, *S2*, *S3*, *P1*, *P2*, ...
 
@@ -79,9 +85,11 @@ Run the **Set-AzureSqlDatabase** cmdlet and set the **-RequestedServiceObjective
     
     $ServerName = "serverName"
     $DatabaseName = "databaseName"
+
+    $NewEdition = "Standard"
     $NewPricingTier = "S2"
 
-    $ScaleRequest = Set-AzureSqlDatabase -DatabaseName $DatabaseName -ServerName $ServerName -ResourceGroupName $ResourceGroupName -Edition Standard -RequestedServiceObjectiveName $NewPricingTier
+    $ScaleRequest = Set-AzureSqlDatabase -DatabaseName $DatabaseName -ServerName $ServerName -ResourceGroupName $ResourceGroupName -Edition $NewEdition -RequestedServiceObjectiveName $NewPricingTier
 
 
   
@@ -89,20 +97,21 @@ Run the **Set-AzureSqlDatabase** cmdlet and set the **-RequestedServiceObjective
    
 
 
-## Change SQL database pricing tier
+## Change SQL database service tier and performance level
 
     
-
+	Switch-AzureMode -Name AzureResourceManager
     
-    $SubscriptionId = "eaae4ba7-5d93-4661-95fd-0c64d23367f0"
+    $SubscriptionId = "4cac86b0-1e56-bbbb-aaaa-000000000000"
     
-    $ResourceGroupName = "ResourceGroup829"
+    $ResourceGroupName = "resourceGroupName"
     $Location = "Japan West"
     
-    $ServerName = "sstein1"
-    $DatabaseName = "AdventureWorksLT"
+    $ServerName = "serverName"
+    $DatabaseName = "databaseName"
     
-    $NewPricingTier = "S0"
+    $NewEdition = "Standard"
+    $NewPricingTier = "S2"
     
     Add-AzureAccount
     Select-AzureSubscription -SubscriptionId $SubscriptionId
@@ -116,11 +125,11 @@ Run the **Set-AzureSqlDatabase** cmdlet and set the **-RequestedServiceObjective
 
 ## Next steps
 
-- [Import an Azure SQL database](sql-database-import-powershell.md)
-
+- [Scale out and in](sql-database-elastic-scale-get-started.md)
+- [Connect and query a SQL database with SSMS](sql-database-connect-query-ssms.md)
+- [Export an Azure SQL database](sql-database-export-powershell.md)
 
 ## Additional resources
 
 - [Business Continuity Overview](sql-database-business-continuity.md)
-- [Disaster Recovery Drills](sql-database-disaster-recovery-drills.md)
 - [SQL Database documentation](https://azure.microsoft.com/documentation/services/sql-database/)

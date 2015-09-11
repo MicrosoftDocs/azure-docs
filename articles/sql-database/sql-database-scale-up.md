@@ -10,7 +10,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="09/05/2015"
+	ms.date="09/10/2015"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -43,15 +43,13 @@ This article shows how to change the pricing tier (scale up or down) of your SQL
 - The new properties for the database are not applied until the changes are complete.
 
 
-To complete this article you need the following:
+**To complete this article you need the following:**
 
 - An Azure subscription. If you need an Azure subscription simply click **FREE TRIAL** at the top of this page, and then come back to finish this article.
 - An Azure SQL database. If you do not have a SQL database, create one following the steps in this article: [Create your first Azure SQL Database](sql-database-get-started.md).
 
 
 ## Change the pricing tier of your database
-
-
 
 
 Open the SQL Database blade for the database you want to scale up or down:
@@ -88,14 +86,13 @@ Open the SQL Database blade for the database you want to scale up or down:
 
 ## Next steps
 
-- [Import an Azure SQL database](sql-database-import.md)
-
-
+- [Scale out and in](sql-database-elastic-scale-get-started.md)
+- [Connect and query a SQL database with SSMS](sql-database-connect-query-ssms.md)
+- [Export an Azure SQL database](sql-database-export.md)
 
 ## Additional resources
 
 - [Business Continuity Overview](sql-database-business-continuity.md)
-- [Disaster Recovery Drills](sql-database-disaster-recovery-drills.md)
 - [SQL Database documentation](https://azure.microsoft.com/documentation/services/sql-database/)
 
 
