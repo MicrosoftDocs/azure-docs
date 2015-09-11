@@ -13,10 +13,18 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="08/20/2015" 
+	ms.date="09/08/2015" 
 	ms.author="jeffstok"/>
 
 #Microsoft Stream Analytic release notes
+
+## Notes for 09/10/2015 release of Stream Analytics ##
+
+This release contains the following updates.
+
+Title|Description
+---|---
+Support for PowerBI groups|To enabling sharing data with other Power BI users, Stream Analytics jobs can now write to groups inside your Power BI account.
 
 ## Notes for 08/20/2015 release of Stream Analytics ##
 

@@ -77,17 +77,30 @@ On the overview page in Application Insights, there's a chart that shows a varie
 Browser page load time is derived from telemetry sent directly from web pages. Server response time, server request count and failed request count are all measured in the web server and sent to Application Insights from there.
 
 
+
+
 The Failed Request count indicates cases where users have seen an error - typically following an exception thrown in the code. Maybe they see a message saying "Sorry we couldn't update your details right now" or, at absolute embarrassing worst, a stack dump on the user's screen, courtesy of the web server.
 
 
 Marcela likes to look at these charts from time to time. The absence of failed requests is encouraging, although when she changes the range of the chart to cover the past week, occasional failures appear. This is an acceptable level in a busy server.  But if there is a sudden jump in failures, or in some of the other metrics such as server response time, Marcela wants to know about it immediately. It might indicate an unforeseen problem caused by a code release, or a failure in a dependency such as a database, or maybe an ungraceful reaction to a high load of requests.
+
+
+Marcela doesn't just sit around waiting for alerts. Soon after every redeployment, she takes a look at [response times][perf] - both the overall figure and the table of slowest requests, as well as exception counts.  
+
+
+
+![Response time graph and grid of server response times.](./media/app-insights-detect-triage-diagnose-java/09-dependencies.png)
+
+She can assess the performance effect of every deployment, typically comparing each week with the last. If there's a sudden worsening, she raises that with the relevant developers.
+
+There are also charts for dependencies, performance counters, exceptions, usage data, and many more metrics and events.
 
 #### Alerts
 
 So she sets two [alerts][metrics]: one for response times greater than a typical threshold, and another for a rate of failed requests greater than the current background.
 
 
-Together with the availability alert, these give her confidence that she'll know about it as soon as anything unusual happens.  
+Together with the availability alerts, these give her confidence that she'll know about it as soon as anything unusual happens.  
 
 
 It's also possible to set alerts on a wide variety of other metrics. For example, you can receive emails if the exception count becomes high, or the available memory goes low, or if there is a peak in client requests.
@@ -98,11 +111,13 @@ It's also possible to set alerts on a wide variety of other metrics. For example
 
 
 
-
 ## Detecting exceptions
 
 
-Uncaught exceptions are reported to Application Insights automatically. They can also be reported explicitly by inserting calls to [trackException()](app-insights-api-custom-events-metrics.md#track-exception) into the handler:  
+Uncaught exceptions are reported to Application Insights automatically. 
+
+
+In addition, you can send reports of exceptions that you catch by inserting calls to [trackException()](app-insights-api-custom-events-metrics.md#track-exception) into the handler:  
 
 ``` Java
 
@@ -134,33 +149,6 @@ Exceptions and events show up in the [Diagnostic Search][diagnostic] blade. You 
 ![In Diagnostic Search, use filters to show particular types of data](./media/app-insights-detect-triage-diagnose-java/appinsights-333facets.png)
 
 
-
-## Monitoring user activity
-
-When response time is consistently good and there are few exceptions, the dev team can think about how to improve the users' experience, and how to encourage more users to achieve the desired goals.
-
-
-For example, a typical user journey through the web site has a clear 'funnel': Many customers look at the rates of different types of loan; some of them fill in the quotation form; and of those who get a quotation, a few go ahead and take out the loan.
-
-![](./media/app-insights-detect-triage-diagnose-java/12-funnel.png)
-
-By considering where the greatest numbers of customers drop out, the business can work out how to get more users through to the bottom of the funnel. In some cases there might be a user experience (UX) failure - for example, the 'next' button is hard to find, or the instructions aren't obvious. More likely, there are more significant business reasons for drop-outs: maybe the loan rates are too high.
-
-Whatever the reasons, the data helps the team work out what users are doing. More tracking calls can be inserted to work out more detail. trackEvent() can be used to count any user actions, from the fine detail of individual button clicks to significant achievements such as paying off a loan.
-
-The team is getting used to having information about user activity. Nowadays, whenever they design a new feature, they work out how they will get feedback about its usage. They design tracking calls into the feature from the start. They use the feedback to improve the feature in each development cycle.
-
-
-## Proactive monitoring  
-
-
-Marcela doesn't just sit around waiting for alerts. Soon after every redeployment, she takes a look at [response times][perf] - both the overall figure and the table of slowest requests, as well as exception counts.  
-
-
-
-![Response time graph and grid of server response times.](./media/app-insights-detect-triage-diagnose-java/09-dependencies.png)
-
-She can assess the performance effect of every deployment, typically comparing each week with the last. If there's a sudden worsening, she raises that with the relevant developers.
 
 
 ## Triage
@@ -233,6 +221,26 @@ Fabrikam Bank's development team take a more structured approach to performance 
 ## Usage
 
 Application Insights can also be used to learn what users do with an app. Once it's running smoothly, the team would like to know which features are the most popular, what users like or have difficulty with, and how often they come back. That will help them prioritize their upcoming work. And they can plan to measure the success of each feature as part of the development cycle. [Read more][usage].
+
+
+
+## Monitoring user activity
+
+When response time is consistently good and there are few exceptions, the dev team can think about how to improve the users' experience, and how to encourage more users to achieve the desired goals.
+
+
+For example, a typical user journey through the web site has a clear 'funnel': Many customers look at the rates of different types of loan; some of them fill in the quotation form; and of those who get a quotation, a few go ahead and take out the loan.
+
+![](./media/app-insights-detect-triage-diagnose-java/12-funnel.png)
+
+By considering where the greatest numbers of customers drop out, the business can work out how to get more users through to the bottom of the funnel. In some cases there might be a user experience (UX) failure - for example, the 'next' button is hard to find, or the instructions aren't obvious. More likely, there are more significant business reasons for drop-outs: maybe the loan rates are too high.
+
+Whatever the reasons, the data helps the team work out what users are doing. More tracking calls can be inserted to work out more detail. trackEvent() can be used to count any user actions, from the fine detail of individual button clicks to significant achievements such as paying off a loan.
+
+The team is getting used to having information about user activity. Nowadays, whenever they design a new feature, they work out how they will get feedback about its usage. They design tracking calls into the feature from the start. They use the feedback to improve the feature in each development cycle.
+
+
+
 
 ## Your applications
 

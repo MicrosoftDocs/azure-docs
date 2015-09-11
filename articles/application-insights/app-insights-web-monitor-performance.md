@@ -32,12 +32,19 @@ On the client side, Application Insights can take telemetry from web pages and a
 If you haven't yet added Application Insights to your project (that is, if it doesn't have ApplicationInsights.config), choose one of these ways to get started:
 
 * [ASP.NET web apps](app-insights-asp-net.md)
+ * [Add exception monitoring](app-insights-asp-net-exceptions.md)
+ * [Add dependency monitoring](app-insights-monitor-performance-live-website-now.md)
 * [J2EE web apps](app-insights-java-get-started.md)
+ * [Add dependency monitoring](app-insights-java-agent.md)
 
 
-## <a name="view"></a>Exploring metrics
+## <a name="view"></a>Exploring performance metrics
 
-Click any  to see more detail, and to see results for a longer period. For example, click the Requests tile and then select a time range:
+In [the Azure portal](https://portal.azure.com), browse to the Application Insights resource that you set up for your application. The overview blade shows basic performance data:
+
+
+
+Click any chart to see more detail, and to see results for a longer period. For example, click the Requests tile and then select a time range:
 
 
 ![Click through to more data and select a time range](./media/app-insights-web-monitor-performance/appinsights-48metrics.png)
@@ -134,7 +141,12 @@ If you prefer, you can write code to have the same effect:
     perfCollector.Initialize(TelemetryConfiguration.Active);
     TelemetryConfiguration.Active.TelemetryModules.Add(perfCollector);
 
+### Exception counts
 
+*What's the difference between the Exception rate and Exceptions metrics?*
+
+* *Exception rate* is a system performance counter. The CLR counts all the handled and unhandled exceptions that are thrown, and divides the total in a sampling interval by the length of the interval. The Application Insights SDK collects this result and sends it to the portal.
+* *Exceptions* is a count of the TrackException reports received by the portal in the sampling interval of the chart. It includes only the handled exceptions where you have written TrackException calls in your code, and doesn't include all [unhandled exceptions](app-insights-asp-net-exceptions.md). 
 
 ## Set alerts
 
