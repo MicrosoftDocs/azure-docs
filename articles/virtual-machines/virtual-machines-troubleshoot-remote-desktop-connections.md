@@ -19,7 +19,20 @@
 
 # Troubleshoot Remote Desktop connections to an Azure virtual machine
 
-Having trouble connecting to your Azure virtual machine running Windows? Use the steps in this article to find out the cause and correct it.
+You might sometimes have trouble connecting to your Azure virtual machine running Windows via Remote Desktop (RDP). This article will help you find out the cause and correct it.  
+
+## Azure Customer Support
+
+If you need more help at any point in this article, you can contact the Azure experts on [the MSDN Azure and the Stack Overflow forums](http://azure.microsoft.com/support/forums/).
+
+Alternatively, you can also file an Azure support incident. Go to the [Azure Support site](http://azure.microsoft.com/support/options/) and click on **Get Support**. For information about using Azure Support, read the [Microsoft Azure Support FAQ](http://azure.microsoft.com/support/faq/).
+
+
+## Most common RDP errors
+
+There could be various reasons causing connectivity failures on RDP, on client side, network or the host. The following are the most common errors you might encounter when trying to Remote Desktop to your virtual machine:
+
+1. [Remote Desktop connection error: The remote session was disconnected because there are no Remote Desktop License Servers available to provide a license.](virtual-machines-troubleshoot-remote-desktop-connections#rdplicense)
 
 To start with, run the [Azure IaaS (Windows) diagnostics package](http://support.microsoft.com/kb/2976864) if you are troubleshooting from a computer running Windows 8, Windows 8.1, Windows Server 2012, or Windows Server 2012 R2.
 
@@ -28,7 +41,7 @@ To start with, run the [Azure IaaS (Windows) diagnostics package](http://support
 3.	When prompted, authenticate to your Azure subscription in the pop-up window. Follow along with the prompts.
 4.	On the **Which of the following issues are you experiencing with your Azure VM?** page, select the **RDP connectivity to an Azure VM (Reboot Required)** issue.
 
-If the diagnostic package did not help you fix the RDP problem, or if you are on a non-Windows machine, follow these steps for manual troubleshooting.
+If the diagnostic package did not help you fix the RDP problem, or if you are on a non-Windows machine, follow the next steps for manual troubleshooting.
 
 ## Remote Desktop connection error: The remote session was disconnected because there are no Remote Desktop License Servers available to provide a license.
 
