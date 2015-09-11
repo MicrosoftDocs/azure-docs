@@ -78,11 +78,11 @@ In the following command, replace *deployment name* with the name that you want 
 
 	New-AzureResourceGroupDeployment -Name "deployment name" -ResourceGroupName "resource group name" -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-simple-windows-vm/azuredeploy.json"
 
-Here is an example.
+Here's an example:
 
 	New-AzureResourceGroupDeployment -Name "TestDeployment" -ResourceGroupName "TestRG" -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-simple-windows-vm/azuredeploy.json"
 
-You are prompted to supply the values of parameters in the "parameters" section of the JSON file:
+You're prompted to supply the values of parameters in the "parameters" section of the JSON file:
 
 	cmdlet New-AzureResourceGroupDeployment at command pipeline position 1
 	Supply values for the following parameters:
@@ -123,8 +123,6 @@ It returns something like this:
 
 	Outputs           :
 
-You now have a new Windows virtual machine named MyWindowsVM in your new resource group.
-
 If you would like to see a video of this task being done, take a look at this:
 
 [AZURE.VIDEO deploy-a-windows-virtual-machine-with-azure-resource-manager-templates-and-powershell]
@@ -137,11 +135,11 @@ In the following command, replace *deployment name* with the name that you want 
 
 	New-AzureResourceGroupDeployment -Name "deployment name" -ResourceGroupName "resource group name" -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vm-from-specialized-vhd/azuredeploy.json"
 
-Here is an example:
+Here's an example:
 
 	New-AzureResourceGroupDeployment -Name "TestDeployment" -ResourceGroupName "TestRG" -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vm-from-specialized-vhd/azuredeploy.json"
 
-You are prompted to supply the values of parameters in the "parameters" section of the JSON file:
+You're prompted to supply the values of parameters in the "parameters" section of the JSON file:
 
 	cmdlet New-AzureResourceGroup at command pipeline position 1
 	Supply values for the following parameters:
