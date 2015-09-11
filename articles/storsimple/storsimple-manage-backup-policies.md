@@ -53,6 +53,10 @@ Add a backup policy to automatically schedule your backups. Perform the followin
 
 [AZURE.INCLUDE [storsimple-add-backup-policy](../../includes/storsimple-add-backup-policy.md)]
 
+![Video available](./media/storsimple-manage-backup-policies/Video_icon.png) **Video available**
+
+To watch a video that demonstrates how to create a local or cloud backup policy, click [here](http://azure.microsoft.com/documentation/videos/create-storsimple-backup-policies/).
+
 
 ## Add or modify a schedule
 
@@ -78,10 +82,6 @@ Perform the following steps in the Management Portal to create an on-demand (man
 Perform the following steps in the Management Portal to create a custom backup policy that has multiple volumes and schedules.
 
 [AZURE.INCLUDE [storsimple-create-custom-backup-policy](../../includes/storsimple-create-custom-backup-policy.md)]
-
-![Video available](./media/storsimple-manage-backup-policies/Video_icon.png) **Video available**
-
-To watch a video that demonstrates how to create a local or cloud backup policy, click [here](http://azure.microsoft.com/documentation/videos/create-storsimple-backup-policies/).
 
 
 ## Next steps
