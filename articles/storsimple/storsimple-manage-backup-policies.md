@@ -49,7 +49,7 @@ The frequently used operations that you can perform from this page are:
 
 ## Add a backup policy
 
-Add a backup policy to automatically schedule your backups. Perform the following steps in the Management Portal to add a backup policy for your StorSimple device. After you add the policy, you can define a schedule (see [Add or modify a schedule](#add-or-modify-a-schedule).
+Add a backup policy to automatically schedule your backups. Perform the following steps in the Management Portal to add a backup policy for your StorSimple device. After you add the policy, you can define a schedule (see [Add or modify a schedule](#add-or-modify-a-schedule)).
 
 [AZURE.INCLUDE [storsimple-add-backup-policy](../../includes/storsimple-add-backup-policy.md)]
 
