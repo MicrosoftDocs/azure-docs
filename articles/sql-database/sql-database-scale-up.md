@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Change the service tier and performance level of an Azure SQL database"
-	description="Change the service tier and performance level (pricing tier) of an Azure SQL database shows how to scale your SQL database up or down."
+	description="Change the service tier and performance level of an Azure SQL database shows how to scale your SQL database up or down. Changing the pricing tier of an Azure SQL database."
 	services="sql-database"
 	documentationCenter=""
 	authors="stevestein"
@@ -17,7 +17,7 @@
 	ms.tgt_pltfrm="NA"/>
 
 
-# Change the pricing tier of a SQL database
+# Change the service tier and performance level (pricing tier) of a SQL database
 
 **Single database**
 
@@ -25,11 +25,11 @@
 - [Azure Preview Portal](sql-database-scale-up.md)
 - [PowerShell](sql-database-scale-up-powershell.md)
 
-This article shows how to change the pricing tier (scale up or down) of your SQL database with the [Azure preview portal](https://portal.azure.com). 
+This article shows how to change the service tier and performance level of your SQL database with the [Azure preview portal](https://portal.azure.com). 
 
 
 
-> [AZURE.IMPORTANT] Changing the service tier and performance level of a SQL database is an online operation. The database will remain online and available during the entire scaling operation.
+> [AZURE.IMPORTANT] Changing the service tier and performance level of a SQL database is an online operation. This means your database will remain online and available during the entire operation with no downtime.
 
 - To downgrade a database, the database should be smaller than the maximum allowed size of the target service tier. 
 - When upgrading a database with [Standard Geo-Replication](https://msdn.microsoft.com/library/azure/dn758204.aspx) or [Active Geo-Replication](https://msdn.microsoft.com/library/azure/dn741339.aspx) enabled, you must first upgrade its secondary databases to the desired performance tier before upgrading the primary database.
