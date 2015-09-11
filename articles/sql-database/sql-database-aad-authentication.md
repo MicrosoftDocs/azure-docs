@@ -156,7 +156,7 @@ To later remove an Admin, at the top of the **Active directory admin** blade, cl
 
 ### Provision an Azure AD administrator for Azure SQL Server by using PowerShell 
 
-To continue, you must install and configure at least version 0.9.8 of Azure PowerShell. For more information, see [How to install and configure Azure PowerShell](https://azure.microsoft.com/en-us/documentation/articles/powershell-install-configure/#Install).
+To continue, you must install and configure at least version 0.9.8 of Azure PowerShell. For more information, see [How to install and configure Azure PowerShell](powershell-install-configure.md#Install).
 
 To provision an Azure AD admin you must execute the following Azure PowerShell commands:
 
