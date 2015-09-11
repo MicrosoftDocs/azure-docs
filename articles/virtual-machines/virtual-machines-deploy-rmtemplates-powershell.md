@@ -82,7 +82,7 @@ Here's an example:
 
 	New-AzureResourceGroupDeployment -Name "TestDeployment" -ResourceGroupName "TestRG" -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-simple-windows-vm/azuredeploy.json"
 
-You're prompted to supply the values of parameters in the *parameters* section of the JSON file:
+You're prompted to supply the values of parameters in the **parameters** section of the JSON file:
 
 	cmdlet New-AzureResourceGroupDeployment at command pipeline position 1
 	Supply values for the following parameters:
@@ -139,7 +139,7 @@ Here's an example:
 
 	New-AzureResourceGroupDeployment -Name "TestDeployment" -ResourceGroupName "TestRG" -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vm-from-specialized-vhd/azuredeploy.json"
 
-You're prompted to supply the values of parameters in the "parameters" section of the JSON file:
+You're prompted to supply the values of parameters in the **parameters** section of the JSON file:
 
 	cmdlet New-AzureResourceGroup at command pipeline position 1
 	Supply values for the following parameters:
@@ -166,7 +166,7 @@ In the following command, replace *deployment name* with the name that you want 
 
 	New-AzureResourceGroupDeployment -Name "deployment name" -ResourceGroupName "resource group name" -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-2-vms-loadbalancer-lbrules/azuredeploy.json"
 
-You're prompted to supply the values of parameters in the "parameters" section of the JSON file:
+You're prompted to supply the values of parameters in the **parameters** section of the JSON file:
 
 	cmdlet New-AzureResourceGroup at command pipeline position 1
 	Supply values for the following parameters:
