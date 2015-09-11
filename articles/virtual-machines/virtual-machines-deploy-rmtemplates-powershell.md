@@ -87,7 +87,7 @@ You're prompted to supply the values of parameters in the **parameters** section
 	cmdlet New-AzureResourceGroupDeployment at command pipeline position 1
 	Supply values for the following parameters:
 	(Type !? for Help.)
-	newStorageAccountName: newsaacct
+	newStorageAccountName: saacct
 	adminUsername: WinAdmin1
 	adminPassword: *********
 	dnsNameForPublicIP: contoso
@@ -115,7 +115,7 @@ It returns something like this:
 	Parameters        :
                     	Name             Type                       Value
 	                    ===============  =========================  ==========
-	                    newStorageAccountName  String                     newsaacct
+	                    newStorageAccountName  String                     saacct
 	                    adminUsername    String                     WinAdmin1
 	                    adminPassword    SecureString
 	                    dnsNameForPublicIP  String                     contoso9875
@@ -214,7 +214,7 @@ It returns something like this:
 	HardwareProfile          : {
 	                             "VirtualMachineSize": "Standard_D1"
 	                           }
-	Id                       : /subscriptions/fd92919d-eeca-4f5b-840a-e45c6770d92e/resourceGroups/BuildRG/providers/Microso
+	Id                       : /subscriptions/{subscription-id}/resourceGroups/BuildRG/providers/Microso
 	                           ft.Compute/virtualMachines/MyWindowsVM
 	InstanceView             : null
 	Location                 : westus
@@ -223,7 +223,7 @@ It returns something like this:
 	                             "NetworkInterfaces": [
 	                               {
 	                                 "Primary": null,
-	                                 "ReferenceUri": "/subscriptions/fd92919d-eeca-4f5b-840a-e45c6770d92e/resourceGroups/Bu
+	                                 "ReferenceUri": "/subscriptions/{subscription-id}/resourceGroups/Bu
 	                           ildRG/providers/Microsoft.Network/networkInterfaces/myVMNic"
 	                               }
 	                             ]
@@ -260,7 +260,7 @@ It returns something like this:
 	                               "Name": "osdisk",
 	                               "SourceImage": null,
 	                               "VirtualHardDisk": {
-	                                 "Uri": "http://buildsaacct.blob.core.windows.net/vhds/osdiskforwindowssimple.vhd"
+	                                 "Uri": "http://saacct.blob.core.windows.net/vhds/osdiskforwindowssimple.vhd"
 	                               }
 	                             },
 	                             "SourceImage": null
