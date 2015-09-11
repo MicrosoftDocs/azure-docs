@@ -26,12 +26,12 @@ If you want to define security policies for traffic (both incoming and outgoing)
 ### Azure RemoteApp cloud collection with VNET
  ![Azure RemoteApp - Cloud collection with a VNET](./media/remoteapp-planvpn/remoteapp-cloudvpn.png)
 
-This represents an Azure RemoteApp collection where all the resources that the RemoteApp session hosts in that collection need to access are deployed in Azure. They can be in the same VNET as the RemoteApp VNET or a different VNET in Azure.
+This represents an Azure RemoteApp collection where all the resources that the RemoteApp session hosts need to access are deployed in Azure. They can be in the same VNET as the RemoteApp VNET or a different VNET in Azure.
 
 ### Azure RemoteApp hybrid collection with VNET
 ![Azure RemoteApp - Hybrid collection with a VNET](./media/remoteapp-planvpn/remoteapp-hybridvpn.png)
 
-This represents an Azure RemoteApp collection where some of the resources that the RemoteApp session hosts in that collection need to access are deployed on-premises. The RemoteApp VNET is linked to the on-premises network using Azure hybrid technologies like site-to-site VPN or Express Route.
+This represents an Azure RemoteApp collection where some of the resources that the RemoteApp session hosts need to access are deployed on-premises. The RemoteApp VNET is linked to the on-premises network using Azure hybrid technologies like site-to-site VPN or Express Route.
 
 
 ## How the system works
@@ -39,7 +39,7 @@ This represents an Azure RemoteApp collection where some of the resources that t
 Under the covers Azure RemoteApp deploys Azure virtual machines (with your uploaded image) to the virtual network subnet that you chose during provisioning. If you opted for a hybrid collection, we try to resolve the FQDN of the domain controller you entered in the provisioning workflow with the DNS server provided in the virtual network.  
 If you are connecting to an existing virtual network, make sure to expose the necessary ports in your network security groups in your Azure RemoteApp subnet. 
 
-We recommend you use a [large enough  subnet for Azure RemoteApp](remoteapp-vnetsizing.md). The largest supported by Azure Virtual network is /8(using CIDR subnet definitions). Your subnet should be large enough to accommodate all the Azure RemoteApp VMs during scale-up when more users are accessing the apps. 
+We recommend you use a [large enough  subnet for Azure RemoteApp](remoteapp-vnetsizing.md). The largest supported by Azure Virtual network is /8 (using CIDR subnet definitions). Your subnet should be large enough to accommodate all the Azure RemoteApp VMs during scale-up when more users are accessing the apps. 
 
 Following are the things you will need to enable on your virtual network subnet: 
 
