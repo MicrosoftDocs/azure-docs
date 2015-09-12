@@ -7,7 +7,7 @@ To create a VNet by using PowerShell, follow the steps below.
 
 		Switch-AzureMode AzureResourceManager
 	
-	Here is the expected output for the command above:
+	Expected output:
 
 		WARNING: The Switch-AzureMode cmdlet is deprecated and will be removed in a future release.
 
@@ -17,7 +17,7 @@ To create a VNet by using PowerShell, follow the steps below.
 
 		New-AzureResourceGroup -Name TestRG -Location centralus
 
-	Here is the expected output for the command above:
+	Expected output:
 	
 		ResourceGroupName : TestRG
 		Location          : centralus
@@ -35,7 +35,7 @@ To create a VNet by using PowerShell, follow the steps below.
 		New-AzureVirtualNetwork -ResourceGroupName TestRG -Name TestVNet `
 			-AddressPrefix 192.168.0.0/16 -Location centralus	
 		
-	Here is the expected output for the command above:
+	Expected output:
 
 		Name              : TestVNet
 		ResourceGroupName : TestRG
@@ -66,7 +66,7 @@ To create a VNet by using PowerShell, follow the steps below.
 		Add-AzureVirtualNetworkSubnetConfig -Name FrontEnd `
 			-VirtualNetwork $vnet -AddressPrefix 192.168.1.0/24
 		
-	Here is the expected output for the command above:
+	Expected output:
 
 		Name              : TestVNet
 		ResourceGroupName : TestRG
@@ -106,7 +106,7 @@ To create a VNet by using PowerShell, follow the steps below.
 
 		Set-AzureVirtualNetwork -VirtualNetwork $vnet	
 		
-	Here is the expected output for the command above:
+	Expected output:
 
 		Name              : TestVNet
 		ResourceGroupName : TestRG
