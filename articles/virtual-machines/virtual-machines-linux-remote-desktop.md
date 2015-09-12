@@ -66,7 +66,7 @@ For OpenSUSE, use:
 > [AZURE.NOTE] Update the OpenSUSE version with the version you are using into below command, below is an example command for `OpenSUSE 13.2`.
 
 	#sudo zypper in http://download.opensuse.org/repositories/X11:/RemoteDesktop/openSUSE_13.2/x86_64/xrdp-0.9.0git.1401423964-2.1.x86_64.rpm
-        #sudo zypper install tigervnc xorg-x11-Xvnc xterm remmina-plugin-vnc
+    #sudo zypper install tigervnc xorg-x11-Xvnc xterm remmina-plugin-vnc
 
 
 ##Start xrdp and set xdrp service at boot-up
