@@ -23,7 +23,7 @@
 
 RDP(Remote Desktop Protocol) is however a proprietary protocol used for Windows, how can we use RDP to connect Linux VM(virtual machine) remotely?
 
-This guidance will give you the answer! It will help you to install and config xrdp on your Microsoft Azure Linux VM, and you are able to connect it with Remote Desktop from a Windows machine. We will use Linux VM running ubuntu and OpenSUSE as the examples in this guidance.
+This guidance will give you the answer! It will help you to install and config xrdp on your Microsoft Azure Linux VM, and you are able to connect it with Remote Desktop from a Windows machine. We will use Linux VM running ubuntu or OpenSUSE as the example in this guidance.
 
 Xrdp is an open source RDP server, which allows you to connect your Linux server with Remote Desktop from a Windows machine. It performs much nicer than VNC (Virtual Network Computing). VNC has this streak of “JPEG” quality and slow behavior, whereas RDP is fast and crystal clear.
  
@@ -55,7 +55,6 @@ For OpenSUSE, use:
 
 	#sudo zypper install gnome-session
 
-
 ##Install xrdp
 
 For Ubuntu, use:
@@ -76,11 +75,12 @@ For OpenSUSE, use:
 
 	#sudo systemctl start xrdp
 	#sudo systemctl enable xrdp
- 
+
+For Ubuntu, xrdp will be started and eanbled at boot-up automatically after installation.
 
 ##Using xfce if you are using Ubuntu version later than Ubuntu 12.04LTS
 
-Because current `xrdp` could not support the Gnome Desktop from Ubuntu version later than Ubuntu 12.04LTS, we will use `xfce` Desktop instead.
+Because current xrdp could not support the Gnome Desktop from Ubuntu version later than Ubuntu 12.04LTS, we will use `xfce` Desktop instead.
 
 Install `xfce`, use:
 
