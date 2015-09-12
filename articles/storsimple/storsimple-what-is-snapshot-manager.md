@@ -1,6 +1,6 @@
 <properties 
    pageTitle="What is StorSimple Snapshot Manager? | Microsoft Azure"
-   description="Describes StorSimple Snapshot Manager, its architecture, and its features."
+   description="Describes the StorSimple Snapshot Manager, its architecture, and its features."
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="07/13/2015"
+   ms.date="09/04/2015"
    ms.author="v-sharos" />
 
 # What is StorSimple Snapshot Manager?

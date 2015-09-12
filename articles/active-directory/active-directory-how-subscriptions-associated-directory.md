@@ -93,7 +93,7 @@ You have user accounts with the same name, one in Azure AD and the other in the 
 
 ## Manage the directory for your Office 365 subscription in Azure
 
-Let's say you signed up for Office 365 before you sign up for Azure. Now you want to manage the directory for the Office 365 subscription in the Management Portal. There's two ways to do this, depending on whether you have signed up for Azure or you have not.
+Let's say you signed up for Office 365 before you sign up for Azure. Now you want to manage the directory for the Office 365 subscription in the Management Portal. There are two ways to do this, depending on whether you have signed up for Azure or you have not.
 
 ### I do not have a subscription for Azure
 

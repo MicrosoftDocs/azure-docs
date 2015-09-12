@@ -1,10 +1,10 @@
 <properties 
    pageTitle="StorSimple security | Microsoft Azure" 
-   description="Describes the security and privacy features that protect your StorSimple service, device, and data." 
+   description="Describes the security and privacy features that protect your StorSimple service, device, and data on premises and in the cloud." 
    services="storsimple" 
    documentationCenter="NA" 
    authors="SharS" 
-   manager="AdinaH" 
+   manager="Carolz" 
    editor=""/>
 
 <tags
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="08/17/2015"
+   ms.date="09/10/2015"
    ms.author="v-sharos"/>
 
-# StorSimple security 
+# StorSimple security and data protection
 
 ## Overview
 
@@ -56,6 +56,7 @@ To authorize a device, you must register it with the StorSimple Manager service 
 > 
 > * If the service registration key is lost after you register your first device, you can generate a new key from the StorSimple Manager service. This will not affect the operation of existing devices. 
 > * After a device is registered, it uses tokens to communicate with Microsoft Azure. The service registration key is not used after device registration.
+> * We recommend that you regnerate the service registration key after every use.
 
 ## Protect your StorSimple solution via passwords
 
@@ -83,7 +84,7 @@ After you use Windows PowerShell for StorSimple to connect to the device, you wi
 
 ### Challenge Handshake Authentication Protocol (CHAP) initiator and target passwords
 
-CHAP is an authentication scheme used by the StorSimple device to validate the identity of remote clients. The verification is based on a shared password. CHAP can be one-way (unidirectional) or mutual (bidirectional). With one-way CHAP, the target (the StorSimple device) authenticates an initiator (host). Mutual CHAP requires that the target authenticate the initiator and then the initiator authenticate the target. Azure StorSimple can be configured to use either method.
+CHAP is an authentication scheme used by the StorSimple device to validate the identity of remote clients. The verification is based on a shared password. CHAP can be one-way (unidirectional) or mutual (bidirectional). With one-way CHAP, the target (the StorSimple device) authenticates an initiator (host). Mutual or reverse CHAP requires that the target authenticate the initiator and then the initiator authenticate the target. Your StorSimple can be configured to use either method.
 
 > [AZURE.IMPORTANT] 
 > 
@@ -107,7 +108,7 @@ When you configure a device to use the StorSimple Snapshot Manager, you will be 
 
 We recommend that you use the following guidelines to help ensure that Azure StorSimple passwords are strong and well-protected:
 
-- Change your passwords every three months.
+- Change your passwords every three months. Changing the passwords is enforced annually.
 - Use strong passwords. For more information, go to [Create stronger passwords and protect them](http://blogs.microsoft.com/cybertrust/2014/08/25/create-stronger-passwords-and-protect-them/).
 - Always use different passwords for different access mechanisms; each of the passwords you specify should be unique.
 - Do not share passwords with anyone who is not authorized to access the StorSimple device.
@@ -138,7 +139,7 @@ The primary purpose of the StorSimple Manager service is to manage and configure
 > * You can change the service data encryption key and the corresponding data encryption certificate by selecting the **Change service data encryption key** option on the service dashboard. Changing the encryption keys requires that all devices be updated with the new key. Therefore, we recommend that you change the key when all devices are online. If devices are offline, their keys can be changed at a different time. The devices with out-of-date keys will still be able to run backups, but they will not be able to restore data until the key is updated. For more information, go to [Use the StorSimple Manager service dashboard](storsimple-service-dashboard.md).
 > * To ensure that data security is not compromised, you must use a physical StorSimple device to change the service data encryption key.
 > * If the service data encryption key is lost, a Microsoft support person can help you to retrieve it provided that you have at least one device in an online state. We recommend that you change the service data encryption key after it is retrieved. For instructions, go to [Change the service data encryption key](storsimple-service-dashboard.md#change-the-service-data-encryption-key).
-> * The service data encryption key and the data encryption certificate do not expire. However, we recommend that you change the service data encryption key on a regular schedule to help prevent key compromise.</li></ul>
+> * The service data encryption key and the data encryption certificate do not expire. However, we recommend that you change the service data encryption key annually to help prevent key compromise. </li></ul>
 
 
 ## Protect data at rest
@@ -150,10 +151,9 @@ The StorSimple device manages data by storing it in tiers locally and in the clo
 - When you enter the cloud storage encryption key in the StorSimple Manager service, the key is encrypted using the public portion of the service data encryption key and then sent to the device.
 - The cloud storage encryption key is not stored anywhere in the service and is known only to the device.
 - Specifying a cloud storage encryption key is optional. You can send data that has been encrypted at the host to the device.
+- We recommend that you rotate cloud storage encryption key quarterly. The rotation of these keys will not be enforced.
 
 ### Additional security best practices
-
-- To implement redundancy, use multipathing (MPIO) to avoid a single point of failure in the iSCSI SAN. For detailed instructions, see [Configure MPIO for your StorSimple device](storsimple-configure-mpio-windows-server.md).
 
 - Split traffic: isolate your iSCSI SAN from user traffic on a corporate LAN by deploying a totally separated network and using VLANs where physical isolation is not an option. A dedicated network for iSCSI storage will guarantee the safety and performance of your business-critical data. Mixing storage and user traffic over a corporate LAN is not recommended and can increase latency and cause network failures.
 
