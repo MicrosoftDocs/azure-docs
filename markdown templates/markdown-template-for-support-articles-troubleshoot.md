@@ -17,7 +17,7 @@
    ms.date="mm/dd/yyyy"
    ms.author="Your MSFT alias or your full email address;semicolon separates two or more"/>
 
-# Markdown template (article Heading 1 or H1): Heading at the top of the article
+# This is the title that will be displayed on the web page and the article index on ACOM
 
 To copy the markdown from this template, copy the article in your local repo, or click the Raw button in the GitHub UI and copy the markdown.
 
@@ -25,13 +25,13 @@ To copy the markdown from this template, copy the article in your local repo, or
 
 Intro paragraph: Lorem dolor amet, adipiscing elit. Phasellus interdum nulla risus, lacinia porta nisl imperdiet sed. Mauris dolor mauris, tempus sed lacinia nec, euismod non felis. Nunc semper porta ultrices. Maecenas neque nulla, condimentum vitae ipsum sit amet, dignissim aliquet nisi.
 
-## Azure Customer Support
+## Contact Azure Customer Support
 
 If you need more help at any point in this article, you can contact the Azure experts on [the MSDN Azure and the Stack Overflow forums](http://azure.microsoft.com/support/forums/).
 
 Alternatively, you can also file an Azure support incident. Go to the [Azure Support site](http://azure.microsoft.com/support/options/) and click on **Get Support**. For information about using Azure Support, read the [Microsoft Azure Support FAQ](http://azure.microsoft.com/support/faq/).
 
-## H2 Heading
+## First troubleshooting section
 
 Aenean sit amet leo nec purus placerat fermentum ac gravida odio. Aenean tellus lectus, faucibus in rhoncus in, faucibus sed urna.  volutpat mi id purus ultrices iaculis nec non neque. [Link text for link outside of azure.microsoft.com](http://weblogs.asp.net/scottgu). Nullam dictum dolor at aliquam pharetra. Vivamus ac hendrerit mauris [example link text for link to an article in a service folder](../articles/expressroute/expressroute-bandwidth-upgrade.md).
 
@@ -52,7 +52,7 @@ I get 10 times more traffic from [Google] [gog] than from [Yahoo] [yah] or [MSN]
 
 Suspendisse volutpat mi id purus ultrices iaculis nec non neque. Nullam dictum dolor at aliquam pharetra. Vivamus ac hendrerit mauris. Otrus informatus: [Link 1 to another azure.microsoft.com documentation topic](virtual-machines-windows-tutorial.md)
 
-## H2 heading
+## Second troubleshooting section
 
 Ut eu pretium lacus. Nullam purus est, iaculis sed est vel, euismod vehicula odio.
 
@@ -67,6 +67,8 @@ Ut eu pretium lacus. Nullam purus est, iaculis sed est vel, euismod vehicula odi
   	![Alt text; do not leave blank. Example of a Channel 9 video.][4]
 
 3. Quisque felis enim, fermentum ut aliquam nec, pellentesque pulvinar magna.
+
+<!-- Add more such troubleshooting sections as needed -->
 
 <!-- Add links to additional resources at the end -->
 ## Additional resources

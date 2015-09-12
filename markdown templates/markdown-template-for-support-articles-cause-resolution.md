@@ -17,22 +17,20 @@
    ms.date="mm/dd/yyyy"
    ms.author="Your MSFT alias or your full email address;semicolon separates two or more"/>
 
-# H1 heading at the top of the article: Describe the problem statement here
+# This is the title that will be displayed on the web page and the article index on ACOM: Describe the problem statement here
 
-To copy the markdown from this template, copy the article in your local repo, or click the Raw button in the GitHub UI and copy the markdown.
-
-Intro or summary paragraph: Lorem dolor amet, adipiscing elit. Phasellus interdum nulla risus, lacinia porta nisl imperdiet sed. Mauris dolor mauris, tempus sed lacinia nec, euismod non felis. Nunc semper porta ultrices. Maecenas neque nulla, condimentum vitae ipsum sit amet, dignissim aliquet nisi. May or may not include image.
+Add a summary for the problem.
 
 ![Alt text; do not leave blank. Describe image.][1]
 
 
 ## Symptoms
 
-Aenean sit amet leo nec purus placerat fermentum ac gravida odio. Aenean tellus lectus, faucibus in rhoncus in, faucibus sed urna.  volutpat mi id purus ultrices iaculis nec non neque. [Link text for link outside of azure.microsoft.com](http://weblogs.asp.net/scottgu). Nullam dictum dolor at aliquam pharetra. Vivamus ac hendrerit mauris [example link text for link to an article in a service folder](../articles/expressroute/expressroute-bandwidth-upgrade.md).
+Aenean sit amet leo nec purus placerat fermentum ac gravida odio. [Link text for link outside of azure.microsoft.com](http://weblogs.asp.net/scottgu). Nullam dictum dolor at aliquam pharetra [example link text for link to an article in a service folder](../articles/expressroute/expressroute-bandwidth-upgrade.md).
 
 I get 10 times more traffic from [Google] [gog] than from [Yahoo] [yah] or [MSN] [msn].
 
-> [AZURE.NOTE] Indented note text.  The word 'note' will be added during publication. Ut eu pretium lacus. Nullam purus est, iaculis sed est vel, euismod vehicula odio. Curabitur lacinia, erat tristique iaculis rutrum, erat sem sodales nisi, eu condimentum turpis nisi a purus.
+> [AZURE.NOTE] Indented note text.  The word 'note' will be added during publication. Ut eu pretium lacus.
 
 1. Aenean sit amet leo nec **Purus** placerat fermentum ac gravida odio.
 
@@ -49,7 +47,7 @@ Suspendisse volutpat mi id purus ultrices iaculis nec non neque. Nullam dictum d
 
 ## Cause
 
-Ut eu pretium lacus. Nullam purus est, iaculis sed est vel, euismod vehicula odio.
+You can add H3 header sections here which are completely optional.
 
 ### Error message 1
 
@@ -59,11 +57,8 @@ Nullam purus est, iaculis sed est vel, euismod vehicula odio.
 
 Nullam purus est, iaculis sed est vel, euismod vehicula odio.
 
-### Error message 3
+And so on.
 
-Nullam purus est, iaculis sed est vel, euismod vehicula odio. And so on.
-
-Quisque commodo eros vel lectus euismod auctor eget sit amet leo. Proin faucibus suscipit tellus dignissim ultrices.
 
 ## Resolution
 
@@ -85,10 +80,10 @@ Quisque felis enim, fermentum ut aliquam nec, pellentesque pulvinar magna.
     Indented content will appear in a greyed box.
     This can be used for highlighting code sections..
 
+<!-- Add links to additional resources or references here -->
+## Additional resources
 
-## References
-
-Vestibul ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nullam ultricies, ipsum vitae volutpat hendrerit, purus diam pretium eros, vitae tincidunt nulla lorem sed turpis: [Link 3 to another azure.microsoft.com documentation topic](storage-whatis-account.md).
+Vestibul ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae: [Link 3 to another azure.microsoft.com documentation topic](storage-whatis-account.md).
 
 <!-- The following sections will not appear in the content -->
 <!--Image references-->
