@@ -18,7 +18,7 @@
 
 # Securing data stored in Azure Data Lake
 
-Securing data in Azure Data Lake is a two-pronged approach.
+Securing data in Azure Data Lake is a three-step approach.
 
 1. Start by creating security groups in Azure Active Directory (AAD). These security groups are used to implement role-based access control (RBAC) in Azure Portal. For more information see [Role-based Access Control in Microsoft Azure](role-based-access-control-configure.md).
 
@@ -36,61 +36,103 @@ Before you begin this tutorial, you must have the following:
 
 ## Create security groups in Azure Active Directory
 
-For instructions on how to create AAD security groups, see [Managing security groups in Azure Active Directory](active-directory-accessmanagement-manage-groups.md).
+For instructions on how to create AAD security groups and how to add users to the group, see [Managing security groups in Azure Active Directory](active-directory-accessmanagement-manage-groups.md).
 
 ## Assign the security group to Azure Data Lake accounts
 
 When you assign security groups to Azure Data Lake accounts, you control the management operations on the account using the Azure portal and Azure Resource Manager APIs. In this section, you assign a security group to an Azure Data Lake account. 
 
-1. Open the Data Lake account that you just created. From the left pane, click **Browse All**, click **Data Lake**, and then from the Data Lake blade, click the account name to which you want to assign a security group.
+1. Open the Data Lake account that you just created. From the left pane, click **Browse**, click **Data Lake**, and then from the Data Lake blade, click the account name to which you want to assign a security group.
 
 2. In your Data Lake account blade, click the user icon.
 
 	![Assign security group to Azure Data Lake account](./media/azure-data-lake-secure-data/adl.select.user.icon.png "Assign security group to Azure Data Lake account")
 
-3. In your Data Lake account blade, click the user icon.
+3. The **User** blade by default lists **Subscription admins** group as an owner. 
+
+	![Add users and roles](./media/azure-data-lake-secure-data/adl.add.group.roles.png "Add users and roles")
+ 
+	There are two ways to add a group and assign relevant roles.
+
+	* Add a group to the account and then assign a role, or
+	* Add a role and then assign groups to role.
+
+	In this section, we look at the first approach, adding a group and then assigning roles. You can perform similar steps to first select a role and then assign groups to that role.
 	
-	![Create directories in Data Lake account](./media/azure-data-lake-get-started-portal/ADL.Folder.Name.png "Create directories in Data Lake account")
-	
-	The newly created directory will be listed in the **Data Explorer** blade. You can create nested directories upto any level.
+4. In the **Users** blade, click **Add** to open the **Add access** blade. In the **Add access** blade, click **Select a role**, and then select a role for the user group.
 
-	![Create directories in Data Lake account](./media/azure-data-lake-get-started-portal/ADL.New.Directory.png "Create directories in Data Lake account")
+	 ![Add a role for the user](./media/azure-data-lake-secure-data/adl.add.user.1.png "Add a role for the user")
 
+5. In the **Add access** blade, click **Add users** to open the **Add users** blade. In this blade, look for the security group you created earlier in Azure Active Directory. If you have a lot of groups to search from, use the text box at the top to filter on the group name.
 
-## Upload data to your Azure Data Lake account
+	![Add a security group](./media/azure-data-lake-secure-data/adl.add.user.2.png "Add a security group")
 
-You can upload your data to an Azure Data Lake account directly at the root level or to a directory that you created within the account. In the screen capture below, follow the steps to upload a file to a sub-directory from the **Data Explorer** blade. In this screen capture, the file is uploaded to a sub-directory shown in the breadcrumbs (marked in a red box).
+	If you want to add a group/user that is not listed, you can invite them by using the **Invite** icon and specifying the e-mail address for the user/group.
 
-![Upload data](./media/azure-data-lake-get-started-portal/ADL.New.Upload.File.png "Upload data")
+6. Click **Select** and then click **OK**. You should see the security group added as shown below.
 
+	![Security group added](./media/azure-data-lake-secure-data/adl.add.user.3.png "Security group added")
 
-## Properties and actions available on the stored data
+7. Your security group now has access to the Azure Data Lake account. If you want to provide access to specific users, you can add them to the security group. Similarly, if you want to revoke access for a user, you can remove them from the security group. You can also assign multiple security groups. 
 
-Click the newly added file to open the **Properties** blade. The properties associated with the file and the actions you can perform on the file are available in this blade. You can also copy the full path to file in your Azure Data Lake account, highlighted in the red box in the screen capture below. [ TBD: Talk about swebhdfs ]
+## Assign security group as ACLs to the Azure Data Lake file system
 
-![Properties on the data](./media/azure-data-lake-get-started-portal/ADL.File.Properties.png "Properties on the data")
+By assigning security groups to the Azure Data Lake file system, you set access control on the data stored in Azure Data Lake. In the current release, you can only provide ACLs only at the root node of your file system.
 
-* Click **Preview** to see a preview of the file, directly from the browser. You can specify the format of the preview as well. Click Preview, click Format in the File Preview blade, and in the File Preview Format blade specify the options such as number of rows to display, encoding to use, delimiter to use, etc.
+1. In your Data Lake account blade, click **Data Explorer**.
 
-  ![File preview format](./media/azure-data-lake-get-started-portal/ADL.File.Preview.png "File preview format")
+	![Create directories in Data Lake account](./media/azure-data-lake-secure-data/adl.start.data.explorer.png "Create directories in Data Lake account")
 
-* Click **Download** to download the file to your computer.
+2. In the **Data Explorer** blade, click the root of your account, and then in your account blade, click the **Access** icon.
 
-* Click **Rename** to rename the file.
+	![Set ACLs on Data Lake file system](./media/azure-data-lake-secure-data/adl.acl.1.png "Set ACLs on Data Lake file system")
 
-* Click **Delete** to delete the file.
+3. The **Access** blade lists the standard access (read-only) and custom access already assigned to the root. Click the **Add** icon to add custom-level ACLs.
 
+	![List standard and custom access](./media/azure-data-lake-secure-data/adl.acl.2.png "List standard and custom access")
 
-## Secure your data
+4. Click the **Add** icon to open the **Add Custom Access** blade. In this blade, click **Select User or Group**, and then in **Select User or Group** blade, look for the security group you created earlier in Azure Active Directory. If you have a lot of groups to search from, use the text box at the top to filter on the group name. Click the group you want to add and then click **Select**.
 
-You can secure the data stored in your Azure Data Lake account by using access control and providing expiry settings on the data. For instructions on how to do that, see [ TBD: Link to topic ].
+	![Add a group](./media/azure-data-lake-secure-data/adl.acl.3.png "Add a group")
 
+5. Click **Select Permissions**, select the permissions you want to assign to that group, and then click **OK**.
 
-## Delete your Azure Data Lake account
+	![Assign permissions to group](./media/azure-data-lake-secure-data/adl.acl.4.png "Assign permissions to group")
 
-To delete an Azure Data Lake account, from your Data Lake blade, click Delete. As a confirmation, you'll be prompted to enter the name of the account you wish to delete. Enter the name of the account, and then click **Delete**.
+6. in the **Add Custom Access** blade, click **OK**. The newly added group, with the associated permissions, will now be listed in the **Access** blade.
 
-![Delete Data Lake account](./media/azure-data-lake-get-started-portal/ADL.Delete.Account.png "Delete Data Lake account")
+	![Assign permissions to group](./media/azure-data-lake-secure-data/adl.acl.5.png "Assign permissions to group")
+
+7. If required, you can also modify the access permissions after you have added the group. Just clear or select the check box for each permission type (Read, Write, Execute) based on whether you want to remove or assign that permission to the security group. Click **Save** to save the changes, or **Discard** to undo the changes.
+
+## Remove security groups for an Azure Data Lake account
+
+1. In your Data Lake account blade, click the user icon.
+
+	![Assign security group to Azure Data Lake account](./media/azure-data-lake-secure-data/adl.select.user.icon.png "Assign security group to Azure Data Lake account")
+
+2. In the **Users** blade click the security group you want to remove.
+
+	![Security group to remove](./media/azure-data-lake-secure-data/adl.add.user.3.png "Security group to remove")
+
+3. In the blade for the security group, click **Remove**.
+
+	![Security group removed](./media/azure-data-lake-secure-data/adl.remove.group.png "Security group removed")
+
+## Remove security group ACLs from Azure Data Lake file system
+
+1. In your Data Lake account blade, click **Data Explorer**.
+
+	![Create directories in Data Lake account](./media/azure-data-lake-secure-data/adl.start.data.explorer.png "Create directories in Data Lake account")
+
+2. In the **Data Explorer** blade, click the root of your account, and then in your account blade, click the **Access** icon.
+
+	![Set ACLs on Data Lake file system](./media/azure-data-lake-secure-data/adl.acl.1.png "Set ACLs on Data Lake file system")
+
+3. In the **Access** blade, from the **Custom Access** section, click the security group you want to remove. In the **Custom Access** blade, click **Remove** and then click **OK**.
+
+	![Assign permissions to group](./media/azure-data-lake-secure-data/adl.remove.acl.png "Assign permissions to group")
+
 
 ## See also
 
