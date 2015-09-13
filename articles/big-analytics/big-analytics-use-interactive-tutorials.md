@@ -1,4 +1,23 @@
-# Analyze Website logs using Azure Big Analytics
+<properties 
+   pageTitle="Learn Big Analytics and U-SQL using the Azure Preview portal Interactive tutorials | Azure" 
+   description="Quick start with learning Big Analytics and U-SQL. " 
+   services="big-analytics" 
+   documentationCenter="" 
+   authors="mumian" 
+   manager="paulettm" 
+   editor="cgronlun"/>
+ 
+<tags
+   ms.service="big-analytics"
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="big-data" 
+   ms.date="09/29/2015"
+   ms.author="jgao"/>
+
+
+# Learn Big Analytics and U-SQL using the Azure Preview portal Interactive tutorials
 
 The Azure preview portal provides several interactive tutorial for you to get started with Big Analytics. This articles shows you how to go through one of the tutorials for analyzing website logs.
 
@@ -12,11 +31,6 @@ For other tutorials, see:
 Alan's presentation:
 
 	https://microsoft.sharepoint.com/teams/DPGBigDataTeam/_layouts/15/WopiFrame.aspx?sourcedoc={A142F9B5-CE82-405C-9F6D-133C01B89F67}&file=Web_Site_Log_Analysis.pptx&action=default
-
-
-Basic Big Analytics process:
-
-[image here] inbound data --> Big Analytics Job processing --> outbound results
 
 
 **Prerequisites**
@@ -51,8 +65,6 @@ A Big Analytics account has an [Azure Data Lake]() account dependency.  You can 
 	- **Subscription**: Enter the Azure subscription that you want to associate with this Big Analytics account.
 	- **Resource Group**. Select an existing Azure Resource Group or create a new one. Applications are typically made up of many components, for example a web app, database, database server, storage, and 3rd party services. Azure Resource Manager (ARM) enables you to work with the resources in your application as a group, referred to as an Azure Resource Group. You can deploy, update, monitor or delete all of the resources for your application in a single, coordinated operation. You use a template for deployment and that template can work for different environments such as testing, staging and production. You can clarify billing for your organization by viewing the rolled-up costs for the entire group. For more information, see [Azure Resource Manager Overview](resource-group-overview.md). 
 	- **Location**. Select a data center for Big Analytics account.
-
-	![](../img/Portal/AzureKonaCreate.png)
 
 7. Select **Pin to Startboard**. This is required for following this tutorial.
 8. Click **Create**. It takes you to the HOME page of the portal. A new tile is added to the Home page. It takes a few moments to create a Big Analytics account. When the account is created, the portal shows the account on a blade.

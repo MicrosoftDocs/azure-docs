@@ -1,3 +1,21 @@
+<properties 
+   pageTitle="Overview of Microsoft Azure Big Analytics | Azure" 
+   description="Big Analytics is an Azure Big Data computation service that lets you use data to drive your business using the insights gained from your data in the cloud, regardless of where it is and regardless of its size. Big Analytics enables this in the simplest, most scalable, and most economical way possible. " 
+   services="big-analytics" 
+   documentationCenter="" 
+   authors="mumian" 
+   manager="paulettm" 
+   editor="cgronlun"/>
+ 
+<tags
+   ms.service="big-analytics"
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="big-data" 
+   ms.date="09/29/2015"
+   ms.author="jgao"/>
+
 # Overview of Microsoft Azure Big Analytics
 
 ## What is Azure Big Analytics
@@ -54,3 +72,32 @@ Browse the following pages:
 * Tutorials
     * [SQLIP Developer Guide](../SQLIP/DeveloperGuide)
     * [Terminology](../Terminology)
+
+
+## additional thoughts
+
+ - What is Kona
+ 
+ 	- How is Kona related to Hadoop in HDInsight in addition to service vs. cluster?
+	- Is Kona based on Hadoop?
+	- Performance comparison
+
+ - the data storage supported by Kona
+	 - Kona Catalog / Kona store?
+	 - Cabo HDFS store / Azure Data Lake?
+	 - Azure Blob storage
+	 - Azure SQL database
+
+ - the languages supported by kona
+	 - SQLIP
+	 - Hive (Future?)
+	 - Pig (Future)
+
+ - The process
+	 - upload data
+	 - run job
+	 - donwload the job results
+
+ - The tools
+	 - SQLIP studio / SCOPE studio
+	 - HDI studio (Is this Visual Studio tools for HDI?)

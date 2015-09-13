@@ -1,3 +1,21 @@
+<properties 
+   pageTitle="Get started with Azure Big Analytics using Azure PowerShell | Azure" 
+   description="Learn how to use the Azure PowerShell to create a Big Analytics account, create a Big Analytics job using U-SQL, and submit the job. " 
+   services="big-analytics" 
+   documentationCenter="" 
+   authors="mumian" 
+   manager="paulettm" 
+   editor="cgronlun"/>
+ 
+<tags
+   ms.service="big-analytics"
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="big-data" 
+   ms.date="09/29/2015"
+   ms.author="jgao"/>
+
 # Get Started with Azure Big Analytics using Azure PowerShell
 
 Learn how to use the Azure PowerShell to create a Big Analytics account, create a Big Analytics job using [U-SQL], and submit the job.  For more information about Big Analytics, see [Azure Big Analytics overview](big-analytics-overview.md).
