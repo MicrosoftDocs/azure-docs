@@ -32,12 +32,12 @@ The address that forms the user name should be on your domain and controlled by 
  - Use AzureStore@yourcompany.com as the email address
  - Your MSA ID is now AzureStore@yourcompany.com
 
-    ![drawing](media/marketplace-publishing-dev-services-pre-requisites-creating-msa-account-msa-live.jpg)
+    ![drawing][img-msalive]
 
 4. When registering, use a valid phone number. The system will send a verification code as a text message or an automated call if identify verification is required.
 5. Verify the email address sent to the DL
 
-  ![drawing](media/marketplace-publishing-dev-services-pre-requisites-creating-msa-account-msa-verifyemail.jpg)
+  ![drawing][img-email]
 
 6. You’re now ready to use the new MSA in the Seller Dashboard.
 >**NOTE**: Using the DL allows multiple people to receive email notifications that are important reporting of payout information, and also insures that ownership of the MSA can be transferred and isn’t tied to a single individual.
@@ -49,42 +49,42 @@ The Microsoft Seller Dashboard is used to register the company information once.
 
 2. Go to http://sellerdashboard.microsoft.com
 
-  ![drawing](media/marketplace-publishing-dev-services-pre-requisites-seller-dashboard-incognito.jpg)
+  ![drawing][img-sd-url]
 
 3. Sign in with your company registration Microsoft Account (MSA) (i.e. AzureStore@yourcompany.com)
 
-  ![drawing](media/marketplace-publishing-dev-services-pre-requisites-seller-dashboard-login.jpg)
+  ![drawing][img-signin]
 
 4. Complete the "Help us protect your account" wizard, which will verify your identity via phone number or email address.
 
-  ![drawing](media/marketplace-publishing-dev-services-pre-requisites-seller-dashboard-verify.jpg)
+  ![drawing][img-verify]
 
 5. Go to Account Details. On this screen, you will enter your PERSONAL information, which is only used for identity verification. That means your name, email address, residential address, and personal phone number. This information is not shared with anyone outside of Microsoft.
 
-  ![drawing](media/marketplace-publishing-dev-services-pre-requisites-seller-dashboard-personal-acc-details.jpg)
+  ![drawing][img-sd-top]
 
-  ![drawing](media/marketplace-publishing-dev-services-pre-requisites-seller-dashboard-personal.jpg)
+  ![drawing][img-sd-info]
 
 6. Register on behalf of your company by designating your account type as Company, NOT Individual. Click Next.
 
-  ![drawing](media/marketplace-publishing-dev-services-pre-requisites-seller-dashboard-personal-acc-type.JPG)
+  ![drawing][img-sd-type]
 
 7. Fill in the Company details. This needs to be accurate information – headquarters, reference, will all be checked by a team at Microsoft.
 
-  ![drawing](media/marketplace-publishing-dev-services-pre-requisites-seller-dashboard-personal-comp-det1.jpg)
+  ![drawing][img-sd-mktg1]
 
 8. Company name in below details is used by publisher portal hence should be accurate
 
-      ![drawing](media/marketplace-publishing-dev-services-pre-requisites-seller-dashboard-personal-comp-det2.jpg)
+      ![drawing][img-sd-mktg2]
 9. Use the address of your company head quarters
 
-      ![drawing](media/marketplace-publishing-dev-services-pre-requisites-seller-dashboard-personal-comp-add.JPG)
+      ![drawing][img-sd-addr]
 10. Use reference that will be accessible & recognizable as a company representative
 
-      ![drawing](media/marketplace-publishing-dev-services-pre-requisites-seller-dashboard-personal-cmp.JPG)
+      ![drawing][img-sd-legal]
 11. Click Submit for Approval and you are done.
 
-      ![drawing](media/marketplace-publishing-dev-services-pre-requisites-seller-dashboard-approval.JPG)
+      ![drawing][img-sd-submit]
 
 <!--
 8. You must provide payout and tax information and submit it for validation. In order to add payout and tax information, go to Account > Payout & Tax and click Add. Enter your company's information. You will be required to provide a Tax Identification Number and other tax information matching the country in which your business is headquartered.
@@ -103,12 +103,32 @@ The Azure Publishing Portal is used to publish and manage your offer(s). Think o
 
 ## Next Steps
 Now that your account is created and registered, click on the type of artifact (virtual machine, developer service, data service, solution template) that you would like to publish to the Azure Marketplace. Visit one of the following articles to learn how to publish your respective offer:
- - [Publish a virtual machine][0]
- - [Publish a developer service][0]
- - [Publish a data service][0]
- - [Publish a solution template][0]
+ - [Virtual Machine Onboarding Guide][link-vm-guide]
+ - [Developer Service Onboarding Guide][link-devsvc-guide]
+ - [Data Service Onboarding Guide][link-datasvc-guide]
+ - [Solution Template Onboarding Guide][link-template-guide]
+
+[img-msalive]:media/marketplace-publishing-dev-services-pre-requisites-creating-msa-account-msa-live.jpg
+[img-email]:media/marketplace-publishing-dev-services-pre-requisites-creating-msa-account-msa-verifyemail.jpg
+[img-sd-url]:media/marketplace-publishing-dev-services-pre-requisites-seller-dashboard-incognito.jpg
+[img-signin]:media/marketplace-publishing-dev-services-pre-requisites-seller-dashboard-login.jpg
+[img-verify]:media/marketplace-publishing-dev-services-pre-requisites-seller-dashboard-verify.jpg
+[img-sd-top]:media/marketplace-publishing-dev-services-pre-requisites-seller-dashboard-personal-acc-details.jpg
+[img-sd-info]:media/marketplace-publishing-dev-services-pre-requisites-seller-dashboard-personal.jpg
+[img-sd-type]:media/marketplace-publishing-dev-services-pre-requisites-seller-dashboard-personal-acc-type.JPG
+[img-sd-mktg1]:media/marketplace-publishing-dev-services-pre-requisites-seller-dashboard-personal-comp-det1.jpg
+[img-sd-mktg2]:media/marketplace-publishing-dev-services-pre-requisites-seller-dashboard-personal-comp-det2.jpg
+[img-sd-addr]:media/marketplace-publishing-dev-services-pre-requisites-seller-dashboard-personal-comp-add.JPG
+[img-sd-legal]:media/marketplace-publishing-dev-services-pre-requisites-seller-dashboard-personal-cmp.JPG
+[img-sd-submit]:media/marketplace-publishing-dev-services-pre-requisites-seller-dashboard-approval.JPG
+
+
 
 [0]: http://.
 [link-msdndoc]: https://msdn.microsoft.com/en-us/library/jj552460.aspx
 [link-sellerdashboard]: http://sellerdashboard.microsoft.com/
 [link-pubportal]: https://publish.windowsazure.com
+[link-devsvc-guide]: marketplace-publishing-dev-services-pre-requisites.md
+[link-datasvc-guide]:.
+[link-template-guide]:.
+[link-vm-guide]:.
