@@ -18,6 +18,9 @@
 
 # Developer Service On-boarding Guide - Deploying a Resource Provider#
 
+## Previous Step
+- [Developer Service Onboarding Guide - Building a Resource Provider (Technical)][link-devsvc-guide-create-rp]
+
 ## Deploy Resource Provider as Azure Websites
 
 1. Navigate to the [Azure Management Portal](https://portal.azure.com/).
@@ -29,12 +32,12 @@
 7.	Provide the required Azure Storage settings/configurations such as website name subscription etc.
 8.	For Developer Service Plan, create new
 9.	Fill in the required details, but make sure you select a plan higher than Free or Shared.
-    ![drawing](media/marketplace-publishing-dev-services-create-and-deploy-resource-provider-deploy-resourceprovider-as-azurewebsites.JPG)
+    ![drawing][img-site-details]
 10. Create the website.
 
 ## Enabling SSL on Azure Websites
 
-The steps to enable SSL on azure websites is given [here.](http://azure.microsoft.com/blog/2015/07/02/enabling-client-certificate-authentication-for-an-azure-web-app/)
+The steps to enable SSL on azure websites is given [here.][link-ssl]
 
 **Overview**
 
@@ -62,4 +65,10 @@ Accessing the Client Certificate From Your Web App
 When your web app is configured to use client certificate authentication, the client cert will be available in your app through a base64 encoded value in the "X-ARR-ClientCert" request header. Your application can create a certificate from this value and then use it for authentication and authorization purposes in your application.
 
 ## Next Steps
-[]()
+- [Developer Service Onboarding Guide - Publishing Your Offer][link-devsvc-publish-offer]
+
+[img-site-details]:media/marketplace-publishing-dev-services-create-and-deploy-resource-provider-deploy-resourceprovider-as-azurewebsites.JPG
+
+[link-devsvc-guide-create-rp]:marketplace-publishing-dev-services-create-resourceprovider.md
+[link-devsvc-guide-publish]:marketplace-publishing-dev-services-publish-offer.md
+[link-ssl]:http://azure.microsoft.com/blog/2015/07/02/enabling-client-certificate-authentication-for-an-azure-web-app/
