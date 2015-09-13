@@ -21,7 +21,9 @@
 ## Previous Steps
 - [Create an organizational MSA Account][link-acct-creation]
 - [Submit Microsoft Seller application][link-acct-creation]
-<!-- * Add Tax and Payout Information. -->
+<!--
+* Add Tax and Payout Information.
+-->
 - [Register account in the Publishing Portal][link-acct-creation]
 
 > You must be an approved seller to complete the publishing process of an offering into the Azure Marketplace and receive payout. If you have already released an app you may already be an approved seller. You only need one approved seller account to sell apps and services in Microsoft Marketplaces. [Learn more about Microsoft Seller Dashboard][link-sd-msdn]
@@ -58,7 +60,15 @@ Money talks, and the Azure Marketplace gives you the control you need to send th
 Using the information from Offer Profile Metadata (.xlsx) above navigate to Publisher Portal: https://publish.windowsazure.com/
 -->
 
+## Next Steps
+- [Developer Service Onboarding Guide - Marketing Content][link-devsvc-guide-mktg]
+- [Developer Service Onboarding Guide - Pricing Model Sample][link-devsvc-guide-pricing]
+- [Developer Service Onboaring Guide - Building a Resource Provider][link-devsvc-guide-create-rp]
+
 [link-acct-creation]:marketplace-publishing-accounts-creation-registration.md
 [link-sd-msdn]:https://msdn.microsoft.com/en-us/library/dn188471.aspx
 [link-acctportal]:https://account.windowsazure.com/signup?offer=ms-azr-0003p
 [link-payg]:https://azure.microsoft.com/en-us/offers/MS-AZR-0003P/
+[link-devsvc-guide-mktg]:marketplace-publishing-dev-services-pre-requisites-marketing-content-guide.md
+[link-devsvc-guide-pricing]:mmarketplace-publishing-dev-services-pre-requisites-pricing-model-sample.md
+[link-devsvc-guide-create-rp]:mmarketplace-publishing-dev-services-create-resource-provider.md
