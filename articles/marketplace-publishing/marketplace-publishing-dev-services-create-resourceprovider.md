@@ -16,12 +16,11 @@
    ms.date="09/13/2015"
    ms.author="hascipio"/>
 
-# Developer Service Onboarding Guide - Creating a Resource Provider
+# Developer Service Onboarding Guide - Creating a Resource Provider (Technical)
 
-> ## PRE-REQUISITES
-1. Need to have Visual Studio 2013 Ultimate or higher
-1. Need to have service PatchVS2013.4 or higher
-1. Azure SDK 2.3 or higher
+## Previous Steps
+- [Create and register account][link-acct-creation]
+- [Developer Service Onboarding Guide - Pre-requisits][link-devsvc-guide]
 
 ## Install VSIX
 
@@ -68,7 +67,7 @@ Download Azure Storage Explorer:  http://azurestorageexplorer.codeplex.com/  to 
 
 ## CREATE C# RESOURCE PROVIDER
 
-### Pre-requisites
+### Requirements
 
 *	VS2013 (with VS2013.4 Patch) or higher
 *	Azure Resource Provider Template (.vsix)
@@ -102,4 +101,8 @@ Note – you can always update these values in the “Global.asax” file.
 	>	Call the validate contracts method in Mock tool.
 
 ## Next Step
-Once Mock Tool tests have passed, [deploy your solution to Azure Websites](marketplace-publishing-dev-services-deploy-resourceprovider-as-azurewebsites.md) and test the validate contracts against azure website endpoint.
+Once Mock Tool tests have passed, [deploy your solution to Azure Websites][link-devsvc-guide-deploy-rp] and test the validate contracts against azure website endpoint.
+
+[link-acct-creation]:marketplace-publishing-accounts-creation-registration.md
+[link-devsvc-guide]:mmarketplace-publishing-dev-services-pre-requisites.md
+[link-devsvc-guide-deploy-rp]:marketplace-publishing-dev-services-deploy-resourceprovider-as-azurewebsites.md
