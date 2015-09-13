@@ -41,5 +41,10 @@
 * Request for approval once on-boarding team notifies
 * Once the offer goes live, test the customer scenarios to validate all the contracts work properly.
 
+## Next Steps
+** Congratulations! **
+At this point, you have successfully built and deployed your offer to the Azure Marketplace.
+
+
 [1]:(marketplace-publishing-dev-services-deploy-resourceprovider-as-azurewebsites)
 [2]:(marketplace-publishing-dev-services-create-resource-provider)
