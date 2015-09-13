@@ -57,4 +57,4 @@ Below is the detailed view of how the publisher portal offer marketing details a
 [link-acct-creation]:marketplace-publishing-accounts-creation-registration.md
 [link-devsvc-guide]:marketplace-publishing-dev-services-pre-requisites.md
 [link-devsvc-guide-pricing]:marketplace-publishing-dev-services-pricing-model-sample.md
-[link-devsvc-guide-create-rp]:marketplace-publishing-dev-services-create-resource-provider.md
+[link-devsvc-guide-create-rp]:marketplace-publishing-dev-services-create-resourceprovider.md
