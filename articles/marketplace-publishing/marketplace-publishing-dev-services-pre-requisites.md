@@ -72,5 +72,5 @@ Using the information from Offer Profile Metadata (.xlsx) above navigate to Publ
 [link-acctportal]:https://account.windowsazure.com/signup?offer=ms-azr-0003p
 [link-payg]:https://azure.microsoft.com/en-us/offers/MS-AZR-0003P/
 [link-devsvc-guide-mktg]:marketplace-publishing-dev-services-marketing-content-guide.md
-[link-devsvc-guide-pricing]:marketplace-publishing-dev-services-pre-requisites-pricing-model-sample.md
+[link-devsvc-guide-pricing]:marketplace-publishing-dev-services-pricing-model-sample.md
 [link-devsvc-guide-create-rp]:marketplace-publishing-dev-services-create-resource-provider.md
