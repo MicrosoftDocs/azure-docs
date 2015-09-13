@@ -21,10 +21,12 @@
 ## Previous Steps
 - [Create an organizational MSA Account][link-acct-creation]
 - [Submit Microsoft Seller application][link-acct-creation]
+- [Register account in the Publishing Portal][link-acct-creation]
+
 <!--
 * Add Tax and Payout Information.
 -->
-- [Register account in the Publishing Portal][link-acct-creation]
+
 
 > You must be an approved seller to complete the publishing process of an offering into the Azure Marketplace and receive payout. If you have already released an app you may already be an approved seller. You only need one approved seller account to sell apps and services in Microsoft Marketplaces. [Learn more about Microsoft Seller Dashboard][link-sd-msdn]
 
