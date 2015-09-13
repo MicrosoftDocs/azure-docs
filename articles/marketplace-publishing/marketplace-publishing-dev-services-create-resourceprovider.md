@@ -20,7 +20,7 @@
 
 ## Previous Steps
 - [Create and register account][link-acct-creation]
-- [Developer Service Onboarding Guide - Pre-requisits][link-devsvc-guide]
+- [Developer Service Onboarding Guide - Pre-requisites][link-devsvc-guide]
 
 ## Install VSIX
 
@@ -104,5 +104,5 @@ Note – you can always update these values in the “Global.asax” file.
 Once Mock Tool tests have passed, [deploy your solution to Azure Websites][link-devsvc-guide-deploy-rp] and test the validate contracts against azure website endpoint.
 
 [link-acct-creation]:marketplace-publishing-accounts-creation-registration.md
-[link-devsvc-guide]:mmarketplace-publishing-dev-services-pre-requisites.md
+[link-devsvc-guide]:marketplace-publishing-dev-services-pre-requisites.md
 [link-devsvc-guide-deploy-rp]:marketplace-publishing-dev-services-deploy-resourceprovider-as-azurewebsites.md
