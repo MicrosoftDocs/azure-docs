@@ -19,7 +19,6 @@
 # Developer Service Onboarding Guide - Creating a Resource Provider (Technical)
 
 ## Previous Steps
-- [Create and register account][link-acct-creation]
 - [Developer Service Onboarding Guide - Pre-requisites][link-devsvc-guide]
 
 ## Install VSIX
@@ -102,6 +101,7 @@ Note – you can always update these values in the “Global.asax” file.
 
 ## Next Step
 Once Mock Tool tests have passed, [deploy your solution to Azure Websites][link-devsvc-guide-deploy-rp] and test the validate contracts against azure website endpoint.
+- [Developer Service Onboarding Guide - Deploying Resource Provider as an Azure Website][link-devsvc-guide-deploy-rp]
 
 [link-acct-creation]:marketplace-publishing-accounts-creation-registration.md
 [link-devsvc-guide]:marketplace-publishing-dev-services-pre-requisites.md
