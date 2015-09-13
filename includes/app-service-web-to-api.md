@@ -1,1 +1,1 @@
-> AZURE.NOTE Although this article refers to web apps, it also applies to API apps.
+> [AZURE.NOTE] Although this article refers to web apps, it also applies to API apps.

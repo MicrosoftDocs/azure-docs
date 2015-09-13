@@ -21,8 +21,6 @@
 
 In this tutorial, you will learn how to create high-scale complex applications with [Azure App Service](/services/app-service/) in a way that supports [agile software development](https://en.wikipedia.org/wiki/Agile_software_development). It assumes that you already know how to [deploy complex applications predictably in Azure](app-service-deploy-complex-application-predictably.md).
 
-[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
-
 Limitations in technical processes can often stand in the way of successful implementation of agile methodologies. Azure App Service with features such as [continuous publishing](web-sites-publish-source-control.md), [staging environments](web-sites-staged-publishing.md) (slots), and [monitoring](web-sites-monitor.md), when coupled wisely with the orchestration and management of deployment in [Azure Resource Manager](resource-group-overview.md), can be part of a great solution for developers who embrace agile software development.
 
 The following table is a short list of requirements associated with agile development, and how Azure services enables each of them.
@@ -34,6 +32,8 @@ The following table is a short list of requirements associated with agile develo
 | - Perform tests in a clone of production environment | Azure Resource Manager templates can be used to create clones of the Azure production environment (including app settings, connection string templates, scaling, etc.) for testing quickly and predictably.|
 | - View result of latest build easily | Continuous deployment to Azure from a repository means that you can test new code in a live application immediately after you commit your changes. |
 | - Commit to the main branch every day<br>- Automate deployment | Continuous integration of a production application with a repository’s main branch automatically deploys every commit/merge to the main branch to production. |
+
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 ## What you will do ##
 
