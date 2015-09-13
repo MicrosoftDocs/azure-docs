@@ -98,8 +98,12 @@ The Azure Publishing Portal is used to publish and manage your offer(s). Think o
 
 1.	Open a new Chrome Incognito or IE InPrivate browsing session to ensure that you’re not logged into a personal account
 2.	Go to http://publish.windowsazure.com
-3.	 Sign in with your company registration Microsoft Account (MSA) (i.e. AzureStore@yourcompany.com)
-4.	Read & agree to the terms of the publishing portal and you are done here.*
+3.	 Sign in with your company registration Microsoft Account (MSA) (i.e. AzureStore@yourcompany.com) and you can add co-admins as necessary.
+4.	Read & accept the terms of the Publisher Agreement (first time logging into Publishing Portal) and you are done here.
+  > **Note**: The participation policies are mentioned [here](http://azure.microsoft.com/en-us/support/legal/marketplace/participation-policies/).
+
+  > The Publisher Portal is how you will manage the details of your Add-on, including marketing copy, pricing and endpoints for your Resource Provider. Read the Publisher Portal Guide to get started. This step can be done in parallel with Steps 1, 3 and 4.
+
 
 ## Next Steps
 Now that your account is created and registered, click on the type of artifact (virtual machine, developer service, data service, solution template) that you would like to publish to the Azure Marketplace. Visit one of the following articles to learn how to publish your respective offer:
