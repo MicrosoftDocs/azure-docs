@@ -65,7 +65,7 @@ Using the information from Offer Profile Metadata (.xlsx) above navigate to Publ
 ## Next Steps
 - [Developer Service Onboarding Guide - Marketing Content][link-devsvc-guide-mktg]
 - [Developer Service Onboarding Guide - Pricing Model Sample][link-devsvc-guide-pricing]
-- [Developer Service Onboaring Guide - Building a Resource Provider][link-devsvc-guide-create-rp]
+- [Developer Service Onboarding Guide - Building a Resource Provider][link-devsvc-guide-create-rp]
 
 [link-acct-creation]:marketplace-publishing-accounts-creation-registration.md
 [link-sd-msdn]:https://msdn.microsoft.com/en-us/library/dn188471.aspx
