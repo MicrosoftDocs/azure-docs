@@ -5,7 +5,7 @@
 	authors="mattchenderson"
 	manager="dwrede"
 	editor="na"
-	services="app-service\mobile"/>
+	services="app-service\mobile,app-service\web,app-service\api"/>
 
 <tags
 	ms.service="app-service-mobile"
@@ -19,6 +19,8 @@
 # Connect your mobile app to SaaS APIs
 
 In this tutorial, you will connect your mobile app to an enterprise software-as-a-service (SaaS) solution. You will update the app from the [Authenticate your app with Azure Active Directory Authentication Library Single Sign-On] to create a Microsoft Word document in SharePoint Online whenever a new TodoItem is added.
+
+[AZURE.INCLUDE [app-service-mobile-to-web-and-api](../../includes/app-service-mobile-to-web-and-api.md)] 
 
 This tutorial requires the following:
 
