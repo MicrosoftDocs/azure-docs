@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <properties 
 	pageTitle="Application Insights API for custom events and metrics" 
 	description="Insert a few lines of code in your device or desktop app, web page or service, to track usage and diagnose issues." 
