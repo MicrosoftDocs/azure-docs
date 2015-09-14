@@ -1,32 +1,32 @@
 <properties
-	pageTitle="Azure Active Directory B2C | Microsoft Azure"
-	description="Developing consumer-facing applications with Azure AD B2C"
-	services="active-directory"
+	pageTitle="Azure Active Directory B2C preview: Overview | Microsoft Azure"
+	description="Developing consumer-facing applications with Azure Active Directory B2C"
+	services="active-directory-b2c"
 	documentationCenter=""
 	authors="swkrish"
 	manager="mbaldwin"
 	editor=""/>
 
 <tags
-	ms.service="active-directory"
+	ms.service="active-directory-b2c"
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/20/2015"
+	ms.date="09/15/2015"
 	ms.author="swkrish"/>
 
-# Azure Active Directory B2C preview: Sign up & sign in consumers in your applications
+# Azure Active Directory B2C preview: Sign up & Sign in Consumers in your Applications
 
 **Azure Active Directory B2C** is a comprehensive cloud identity management solution for your consumer-facing web and mobile applications. It is a highly available global service that scales to hundreds of millions of consumer identities. Built on an enterprise-grade secure platform, Azure Active Directory B2C keeps your applications, your business and your consumers protected.
 
 In the past, application developers who wanted to sign up and sign in consumers into their applications would have to use with on-premises databases or systems and write all of the identity management code themselves. Azure Active Directory B2C offers developers a better way to integrate consumer identity management into their applications with the help of a standards-based platform and a rich set of extensible policies. Using Azure Active Directory B2C allows your consumers to sign-up for your applications using their existing social accounts (Facebook, Google, Amazon, LinkedIn) or by creating new credentials (email address & password or username & password); we call the latter "local accounts".
 
-Azure Active Directory B2C is in preview. During this time, we are eager to hear your feedback and experience as you try things out. Based on that feedback, we may make breaking changes in the interest of improving the service.  You should not release a production app using the preview during this period.
+Azure Active Directory B2C is in preview. During this time, we are eager to hear your feedback and experience as you try things out. Based on that feedback, we may make breaking changes in the interest of improving the service.  You should not release a production application using the preview during this period. Give us your thoughts using [User Voice](http://feedback.azure.com/forums/169401-azure-active-directory).
 
 ## Getting Started
 
-To build an application that accepts consumer sign up & sign in, you'll first need to register it with Azure Active Directory B2C. To do this, you will need a [directory](active-directory-get-started.md).
+To build an application that accepts consumer sign up & sign in, you'll first need to register it with an Azure Active Directory B2C directory. Get your own directory using the steps outlined in this [article](active-directory-b2c-get-started.md).
 
 You can write your application against the Azure Active Directory B2C service by either choosing to send protocol messages directly, using [OAuth 2.0](active-directory-b2c-protocols.md#oauth2-authorization-code-flow) or [Open ID Connect](active-directory-b2c-protocols.md#openid-connect-sign-in-flow) or by using our libraries to do the work for you (choose your favorite platform below and get started).
 
@@ -36,7 +36,7 @@ You can write your application against the Azure Active Directory B2C service by
 
 Check back here often to learn about future changes to the Azure Active Directory B2C preview. We'll also tweet about any updates using @AzureAD.
 
-- Learn about our [extensible policy framework](active-directory-b2c-policies.md) and about the types of policies that you can create & use in your applications.
+- Learn about our [extensible policy framework](active-directory-b2c-reference-policies.md) and about the types of policies that you can create & use in your applications.
 - Current [preview limitations, restrictions and constraints](active-directory-b2c-limitations.md).
 
 ## HOWTOs

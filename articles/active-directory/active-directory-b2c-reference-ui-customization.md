@@ -1,59 +1,61 @@
 <properties
-	pageTitle="Azure AD B2C preview | Microsoft Azure"
-	description="A topic on the UI customization features in Azure AD B2C"
-	services="active-directory"
+	pageTitle="Azure Active Directory B2C preview: User interface (UI) customization | Microsoft Azure"
+	description="A topic on the User interface (UI) customization features in Azure Active Directory B2C"
+	services="active-directory-b2c"
 	documentationCenter=""
 	authors="swkrish"
 	manager="msmbaldwin"
 	editor="curtand"/>
 
 <tags
-	ms.service="active-directory"
+	ms.service="active-directory-b2c"
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/13/2015"
+	ms.date="09/15/2015"
 	ms.author="swkrish"/>
 
-# Azure AD B2C preview: How to customize the UI of pages (and other elements) served by the Azure AD B2C service
+# Azure Active Directory (AD) B2C preview: How to Customize the Azure AD B2C User Interface (UI)
 
-User experience is paramount in a consumer-facing application. It is the difference between a good application and a great one, and between merely active users and truly engaged ones. Azure AD B2C allows you to customize user sign up, sign in (*see note below*) and profile editing pages with pixel-perfect control.
+User experience is paramount in a consumer-facing application. It is the difference between a good application and a great one, and between merely active users and truly engaged ones. Azure AD B2C allows you to customize consumer sign-up, sign-in (*see note below*) and profile editing pages with pixel-perfect control.
 
 > [AZURE.NOTE]
-Currently, local account sign-in pages, verification emails and self-service password reset pages are only customizable using the [company branding feature](active-directory-add-company-branding.md).
+Currently, local account sign-in pages, verification emails and self-service password reset pages are only customizable using the [company branding feature](active-directory-add-company-branding.md) and not by the mechanisms described in this article.
 
 In this article, you will read about:
 
-- Overview of the page UI customization feature.
-- A sample demonstrating the page UI customization feature.
+- Overview of the page user interface (UI) customization feature.
+- A helper tool that will help you test the page UI customization feature using our sample content.
 - The core UI elements in each type of page.
 - Best practices when exercising this feature.
-- Other UI elements that can be customized.
+- UI customization that can be done without using custom content.
 
-## The page UI customization feature
+## The Page User Interface (UI) Customization feature
 
-The page UI customization feature allows you to customize the look-and-feel of your sign up, sign in and profile editing pages (by configuring policies). Your users will have consistent experiences when navigating between your application and pages served by the Azure AD B2C service.
+The page UI customization feature allows you to customize the look-and-feel of consumer sign-up, sign-in and profile editing pages (by configuring policies). Your consumers will have consistent experiences when navigating between your application and pages served by the Azure AD B2C service.
 
 > [AZURE.NOTE]
-Policies define interfaces and behaviors that users experience when signing up for, signing into and editing profiles in your application that has been secured by Azure AD B2C.
+Policies define interfaces and behaviors that users experience when signing up for, signing into and editing profiles in your application which has been secured by Azure AD B2C.
 
-Unlike other services where options are limited or are only available via APIs, Azure AD B2C uses a different (and simpler) approach to page UI customization. Here's how it works: Azure AD B2C runs code in your user's browser and uses a modern approach called [Cross-Origin Resource Sharing (CORS)](http://www.w3.org/TR/cors/) to load content from a URL that you specify in a policy. You can specify different URLs for different pages. The code merges Azure AD B2C's content (called UI elements) and the content loaded from your URL, and displays the page to your user. All you need to do is create well-formed HTML5 content with a `<div id="api"></div>` element located somewhere in the `<body>` - this is where the Azure AD B2C's content gets merged into. And host this content on an HTTPS endpoint with CORS allowed. You can also fully style Azure AD B2C's UI elements.
+Unlike other services where options are limited or are only available via APIs, Azure AD B2C uses a different (and simpler) approach to page UI customization. Here's how it works: Azure AD B2C runs code in your user's browser and uses a modern approach called [Cross-Origin Resource Sharing (CORS)](http://www.w3.org/TR/cors/) to load content from a URL that you specify in a policy. You can specify different URLs for different pages. The code merges Azure AD B2C's content (called UI elements) and the content loaded from your URL, and displays the page to your user. All you need to do is create well-formed HTML5 content with a `<div id="api"></div>` element located somewhere in the `<body>` - this is where the Azure AD B2C's content gets merged into. And host this content on an HTTPS endpoint (with CORS allowed). You can also fully style Azure AD B2C's UI elements.
 
-This approach allows you to go from the default sign-up page provided by Azure AD B2C (image on the left) to something as delightful (and custom) as the image on the right.
+This approach allows you to go from the default sign-up page provided by Azure AD B2C (the first image) to something as delightful as the second image.
 
-## Sample demonstrating the feature
+TBD - SCREENSHOTS
 
-If you are interested in trying out the page UI customization feature using our sample content, check out [this tutorial](active-directory-b2c-reference-ui-customization-tutorial).
+## A Helper Tool that will help you Test the Page UI Customization Feature with our Sample Content
 
-## The core UI elements in each type of page
+Use [our helper tool](active-directory-b2c-reference-ui-customization-helper-tool) to try out the page UI customization feature using our sample content.
+
+## The core UI Elements in each Type of Page
 
 In this section you will find examples of HTML5 fragments (for each type of page) that Azure AD B2C merges into the `<div id="api"></div>` element located in your content. You can use style sheets to customize these UI elements.
 
 > [AZURE.NOTE]
 For brevity, only some of the HTML5 code is shown below. Inspect the source code of default pages for more information.
 
-### Identity provider selection page
+### Identity Provider Selection Page
 
 This page contains a list of identity providers that the user can choose from during sign up or sign in. These are either social identity providers such as Facebook and Google+ or local accounts (email address- or username-based).
 
@@ -77,7 +79,7 @@ This page contains a list of identity providers that the user can choose from du
 
 ```
 
-### Local account sign-up page
+### Local Account Sign-up Page
 
 This page contains a sign-up form that the user has to fill in when signing up using an email address- or username-based local account. The form can contain different input controls such as text input box, password entry box, radio button, single-select drop-down and multi-select check boxes.
 
@@ -169,11 +171,11 @@ This page contains a sign-up form that the user has to fill in when signing up u
 
 ```
 
-### Social account sign-up page
+### Social Account Sign-up Page
 
 This page contains a sign-up form that the user has to fill in when signing up using an existing account from a social identity provider such as Facebook or Google+. This page is similar to the local account sign-up page with the exception of the password entry fields.
 
-### Multi-factor authentication page
+### Multi-factor Authentication Page
 
 This page enables users to verify their phone numbers (using text or voice) during sign up or sign in.
 
@@ -203,11 +205,11 @@ This page enables users to verify their phone numbers (using text or voice) duri
 
 ```
 
-### Error page
+### Error Page
 
-TBD.
+TBD -- 
 
-## Things to remember when building your own content
+## Things to remember when building your own Content
 
 If you are planning to use the page UI customization feature, please review the following best practices:
 
@@ -216,7 +218,7 @@ If you are planning to use the page UI customization feature, please review the 
 - Don't duplicate Azure AD B2C's content in your own. This causes JavaScript binding issues during run time.
 - Supported browser versions: TBD.
 
-## Other UI elements that can be customized (independent of your own content pages)
+## UI Customization that can be done without using Custom Content
 
 TBD.
 Email: Mention about "from:" field
