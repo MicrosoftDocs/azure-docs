@@ -1,7 +1,7 @@
 |RESOURCE|FREE (PREVIEW)|DEVELOPER|BASIC|STANDARD|PREMIUM|
-|-|-|-|
+|---|---|---|---|---|---|
 |Scale out|N/A|N/A|Yes, in increments of 1 Basic Unit |Yes, in increments of 1 Standard Unit |Yes, in increments of 1 Premium Unit |
-|Scale Limit|N/A|N/A|Up to 8 units |Up to 8 units |Up to 8 units |
+|Scale Limit|N/A|N/A|Up to 8 units |Up to 8 units |Up to 8 units|
 |EAI Bridges per Unit|N/A|25|25|125|500|
 |EDI Agreements per Unit|N/A|10|50|250|1000|
 |Hybrid Connections per Unit|5|5|10|50|100|

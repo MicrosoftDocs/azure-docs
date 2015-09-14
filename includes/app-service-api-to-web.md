@@ -1,0 +1,1 @@
+> [AZURE.NOTE] Although this article refers to API apps, it also applies to web apps.

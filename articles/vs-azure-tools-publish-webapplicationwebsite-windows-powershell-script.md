@@ -1,4 +1,4 @@
-<properties 
+<properties
    pageTitle="Publish-WebApplicationWebSite (Windows PowerShell script)"
    description="Learn how to publish a web project to an Azure website. This script creates the required resources in your Azure subscription if they don't exist."
    services="visual-studio-online"
@@ -6,7 +6,7 @@
    authors="kempb"
    manager="douge"
    editor="tglee" />
-<tags 
+<tags
    ms.service="multiple"
    ms.devlang="dotnet"
    ms.topic="article"
@@ -22,13 +22,13 @@
 Publishes a web project to an Azure website. The script creates the required resources in your Azure subscription if they don't exist.
 
 	Publish-WebApplicationWebSite
-	–Configuration <configuration> 
+	–Configuration <configuration>
 	-SubscriptionName <subscriptionName>
 	-WebDeployPackage <packageName>
 	-DatabaseServerPassword @{Name = "name"; Password = "password"}
 	-SendHostMessagesToOutput
 	-Verbose
-	
+
 
 ## Configuration
 
@@ -68,14 +68,14 @@ The path to the web deployment package to publish to the website. You can create
 |Default value|none|
 |Accept pipeline input?|false|
 |Accept wildcard characters?|false|
-	
+
 ## DatabaseServerPassword
 
 The username and password for the SQL database in Azure.
 
 |Parameter|Default value|
-|Aliases|none|
 |---|---|
+|Aliases|none|
 |Required?|false|
 |Position|named|
 |Default value|none|
@@ -128,6 +128,3 @@ You can edit the JSON configuration file to change what is deployed. A webSite s
 ## Next steps
 
 [Publish-WebApplicationVM (Windows PowerShell script)](https://msdn.microsoft.com/library/azure/dn689112.aspx)
-
-
-
