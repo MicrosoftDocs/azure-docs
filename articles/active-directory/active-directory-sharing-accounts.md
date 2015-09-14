@@ -48,12 +48,12 @@ Azure AD supports shared accounts for any Enterprise Mobility Suite (EMS), Premi
 To use Azure AD to share an account you will need to:
 - Add an application [app gallery]() or [custom application]()
 - Configure the application for password Single Sign-On (SSO)
-- Use [group based assignment](https://azure.microsoft.com/en-us/documentation/articles/active-directory-accessmanagement-group-saasapps/) and select the option enter a shared credential
+- Use [group based assignment](active-directory-accessmanagement-group-saasapps.md) and select the option enter a shared credential
 - Optional: in some applications you can enable the option automatic password rollover.  
 
-You can even share an account for an on-premises application by using the [Azure AD Cloud Application Proxy](https://azure.microsoft.com/en-us/documentation/articles/active-directory-application-proxy-get-started/) to publish an on-premises application. In this case you would set the on-premises application to use pass-through authentication. Then, you can add a [custom SSO app]() by using the external proxy URL.
+You can even share an account for an on-premises application by using the [Azure AD Cloud Application Proxy](active-directory-application-proxy-get-started.md) to publish an on-premises application. In this case you would set the on-premises application to use pass-through authentication. Then, you can add a [custom SSO app]() by using the external proxy URL.
 
-Using Azure AD you can make your shared account more secure with Multi-Factor Authentication (MFA) (learn more about [securing applications with Azure AD](https://azure.microsoft.com/en-us/documentation/articles/multi-factor-authentication-get-started/)) and you can delegate the ability to manage who has access to the application using [Azure AD Self-service](https://azure.microsoft.com/en-us/documentation/articles/active-directory-accessmanagement-self-service-group-management/) Group Management.
+Using Azure AD you can make your shared account more secure with Multi-Factor Authentication (MFA) (learn more about [securing applications with Azure AD](multi-factor-authentication-get-started.md)) and you can delegate the ability to manage who has access to the application using [Azure AD Self-service](active-directory-accessmanagement-self-service-group-management.md) Group Management.
 
 ## How can I get started?
 
@@ -61,15 +61,15 @@ First, if you aren't already using Azure AD and you are an IT admin:
  - [Try it out!](https://azure.microsoft.com/trial/get-started-active-directory/) - you can sign up for a free 30 trial today and deploy your first cloud solution in under 5 minutes using this link
 
 Azure AD features that enable account sharing include:
-- [Password single sign-on](https://azure.microsoft.com/en-us/documentation/articles/active-directory-passwords-getting-started/)
+- [Password single sign-on](active-directory-passwords-getting-started.md)
 - [Password single sign-on agent]()
-- [Group assignment](https://azure.microsoft.com/en-us/documentation/articles/active-directory-accessmanagement-self-service-group-management/)
+- [Group assignment](active-directory-accessmanagement-self-service-group-management.md)
 - [Custom Password apps]()
-- [App usage dashboard/reports](active-directory-passwords-get-insights)
+- [App usage dashboard/reports](active-directory-passwords-get-insights.md)
 - [End user access portals]()
-- [App proxy](https://azure.microsoft.com/en-us/documentation/articles/active-directory-application-proxy-get-started/)
+- [App proxy](active-directory-application-proxy-get-started.md)
 
 ## Where can I learn more?
 
-- [Protecting apps with conditional access](https://azure.microsoft.com/en-us/documentation/articles/active-directory-conditional-access/)
-- [Self-service group management/SSAA]https://azure.microsoft.com/en-us/documentation/articles/active-directory-accessmanagement-self-service-group-management/)
+- [Protecting apps with conditional access](active-directory-conditional-access.md)
+- [Self-service group management/SSAA](active-directory-accessmanagement-self-service-group-management.md)
