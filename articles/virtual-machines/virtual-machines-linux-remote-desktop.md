@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Using Remote Desktop through xrdp to connect a Microsoft Azure Linux VM."
+	pageTitle="Using Remote Desktop to connect a Microsoft Azure Linux VM."
 	description="Learn how to Install and Config Remote Desktop on a Microsoft Azure Linux VM."
 	services="virtual-machines"
 	documentationCenter=""
@@ -13,17 +13,17 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/31/2015"
+	ms.date="09/14/2015"
 	ms.author="mingzhan"/>
 
 
-#Using Remote Desktop through xrdp to connect a Microsoft Azure Linux VM
+#Using Remote Desktop to connect a Microsoft Azure Linux VM
 
 ##Overview
 
-RDP(Remote Desktop Protocol) is however a proprietary protocol used for Windows, how can we use RDP to connect Linux VM remotely?
+RDP(Remote Desktop Protocol) is a proprietary protocol used for Windows, how can we use RDP to connect Linux VM(virtual machine) remotely?
 
-This guidance will give you the answer! It will help you to install and config xrdp on your Microsoft Azure Linux VM(virtual machine), and you are able to connect it with Remote Desktop from a Windows machine.
+This guidance will give you the answer! It will help you to install and config xrdp on your Microsoft Azure Linux VM, and you are able to connect it with Remote Desktop from a Windows machine. We will use Linux VM running Ubuntu or OpenSUSE as the example in this guidance.
 
 Xrdp is an open source RDP server, which allows you to connect your Linux server with Remote Desktop from a Windows machine. It performs much nicer than VNC (Virtual Network Computing). VNC has this streak of “JPEG” quality and slow behavior, whereas RDP is fast and crystal clear.
  
@@ -45,11 +45,7 @@ if you didn't know how to set up endpoint to your VM, see [guidance](virtual-mac
 
 Connect to your Linux VM through putty, and install `Gnome Desktop`.
 
-For Red Hat family Linux, use:
-
-	#sudo yum install gnome* "xorg*" -y
-
-For Debian and Ubuntu, use:
+For Ubuntu, use:
 
 	#sudo apt-get update
 	#sudo apt-get install ubuntu-desktop
@@ -57,20 +53,13 @@ For Debian and Ubuntu, use:
 
 For OpenSUSE, use:
 
-	#sudo zypper -y install gnome-session
-
+	#sudo zypper install gnome-session
 
 ##Install xrdp
 
-For Red Hat family Linux, you need add EPEL repository in your Linux VM first in order to install the xrdp package through `yum`, use:
-
-	#sudo rpm -ivh http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
-	#sudo yum -y install xrdp tigervnc-server tigervnc-server-module xterm
-
-For Debian and Ubuntu Linux, use:
+For Ubuntu, use:
 
 	#sudo apt-get install xrdp
-
 
 For OpenSUSE, use:
 
@@ -82,28 +71,16 @@ For OpenSUSE, use:
 
 ##Start xrdp and set xdrp service at boot-up
 
-For Red Hat family Linux, use:
-
-	#sudo service xrdp start
-	#sudo chkconfig xrdp on
-
-
 For OpenSUSE, use:
 
 	#sudo systemctl start xrdp
 	#sudo systemctl enable xrdp
- 
 
-##Disable iptables if you are using Red Hat family Linux 
-
-Use:
-
-	#sudo service iptables stop
-
+For Ubuntu, xrdp will be started and eanbled at boot-up automatically after installation.
 
 ##Using xfce if you are using Ubuntu version later than Ubuntu 12.04LTS
 
-Because current xrop could not support the Gnome Desktop from Ubuntu version later than Ubuntu 12.04LTS, we will use `xfce` Desktop instead.
+Because current xrdp could not support the Gnome Desktop from Ubuntu version later than Ubuntu 12.04LTS, we will use `xfce` Desktop instead.
 
 Install `xfce`, use:
 
@@ -125,11 +102,11 @@ Restart xrdp service, use:
 
 
 ##Connect your Linux VM from a Windows machine
-In a Windows machine, start the remote desktop client, input your Linux VM DNS name or go to `Dashboard` of your VM in Azure portal and click `Connect`, you will see below login window:
+In a Windows machine, start the remote desktop client, input your Linux VM DNS name, or go to `Dashboard` of your VM in Azure portal and click `Connect` to connect your Linux VM, you will see below login window:
 
 ![image](./media/virtual-machines-linux-remote-desktop/no2.png)
 
-Login with the `user` & `password` for your Linux VM, and enjoy the Remote Desktop from your Microsoft Azure Linux VM right now!
+Login with the `user` & `password` of your Linux VM, and enjoy the Remote Desktop from your Microsoft Azure Linux VM right now!
 
 
 ##Next
