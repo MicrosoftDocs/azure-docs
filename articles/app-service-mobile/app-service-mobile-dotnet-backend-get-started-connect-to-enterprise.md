@@ -20,13 +20,13 @@
 
 In this tutorial, you will connect your mobile app to an enterprise software-as-a-service (SaaS) solution. You will update the app from the [Authenticate your app with Azure Active Directory Authentication Library Single Sign-On] to create a Microsoft Word document in SharePoint Online whenever a new TodoItem is added.
 
-[AZURE.INCLUDE [app-service-mobile-to-web-and-api](../../includes/app-service-mobile-to-web-and-api.md)] 
-
 This tutorial requires the following:
 
 * Visual Studio 2013 running on Windows 8.1
 * An active [SharePoint Online] subscription
 * Completion of the [Authenticate your app with Active Directory Authentication Library Single Sign-On] tutorial. You should use the tenant provided by your SharePoint subscription.
+
+[AZURE.INCLUDE [app-service-mobile-to-web-and-api](../../includes/app-service-mobile-to-web-and-api.md)] 
 
 ## <a name="configure-permissions"></a>Configure your application for delegated access to SharePoint
 By default, the token you receive from AAD has limited permissions. In order to access a third-party resource or SaaS application such as SharePoint Online, you must explicitly allow it.
