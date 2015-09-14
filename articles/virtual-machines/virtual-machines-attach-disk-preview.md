@@ -1,6 +1,6 @@
 <properties
-	pageTitle="How To Attach  Data Disk in the Azure Preview Portal"
-	description="How to attach empty and existing data disks in Azure"
+	pageTitle="How to attach a data disk in the Azure preview portal"
+	description="How to attach new and existing data disks in in the Azure preview portal | Microsoft Azure"
 	services="virtual-machines"
 	documentationCenter=""
 	authors="KBDAzure"
@@ -17,7 +17,7 @@
 	ms.date="09/14/2015"
 	ms.author="kathydav"/>
 
-# How To Attach a Data Disk in the Azure Preview Portal
+# How to attach a data disk in the Azure preview portal
 
 This article shows you how to attach both new and existing disks to a virtual machine through the Azure preview portal. Before you do this, review these tips:
 
@@ -72,6 +72,13 @@ Continue by following instructions for attaching either a new disk or an existin
 5.	Under **Attach existing disk**, the file you just selected is listed under **VHD File**. Click **OK**.
 
 6.	After Azure attaches the disk to the virtual machine, it's listed in the virtual machine's disk settings under **Data Disks**.
+
+## Next steps
+
+After the disk is added, you need to prepare it for use in the virtual machine's operating system:
+
+- For Linux, see "How to: Initialize a new data disk in Linux" in this [article](virtual-machines-linux-how-to-attach-disk.md).
+- For Windows, see "How to: initialize a new data disk in Windows Server" in this [article](storage-windows-attach-disk.md).
 
 ## Additional resources
 
