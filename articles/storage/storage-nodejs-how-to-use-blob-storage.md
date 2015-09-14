@@ -24,7 +24,7 @@
 
 ## Overview
 
-This article shows you how to perform common scenarios using the Azure Blob service. The samples are written via the Node.js API. The scenarios covered include how to uploade, list download and delete blobs.
+This article shows you how to perform common scenarios using the Azure Blob service. The samples are written via the Node.js API. The scenarios covered include how to upload, list, download, and delete blobs.
 
 [AZURE.INCLUDE [storage-blob-concepts-include](../../includes/storage-blob-concepts-include.md)]
 
@@ -32,7 +32,7 @@ This article shows you how to perform common scenarios using the Azure Blob serv
 
 ## Create a Node.js application
 
-For instructions on how to create a Node.js application, see [Create and deploy a Node.js application to an Azure website], [Node.js Cloud Service][Node.js Cloud Service] (using Windows PowerShell), or [Website with WebMatrix].
+For instructions on how to create a Node.js application, see [Create and deploy a Node.js application to an Azure website], [Node.js Cloud Service][Node.js Cloud Service] (using Windows PowerShell), or [Web app with WebMatrix].
 
 ## Configure your application to access storage
 
@@ -67,7 +67,7 @@ Using Notepad or another text editor, add the following to the top of the **serv
 
 The Azure module will read the environment variables `AZURE_STORAGE_ACCOUNT` and `AZURE_STORAGE_ACCESS_KEY`, or `AZURE_STORAGE_CONNECTION_STRING`, for information required to connect to your Azure storage account. If these environment variables are not set, you must specify the account information when calling **createBlobService**.
 
-For an example of setting the environment variables in the Azure portal for an Azure Website, see [Node.js Web Application with Storage]
+For an example of setting the environment variables in the Azure portal for an Azure web app, see [Node.js Web Application with Storage]
 
 ## Create a container
 
@@ -276,11 +276,11 @@ To remove a lease, use **releaseLease**. To break a lease, but prevent others fr
 
 ## Work with shared access signatures
 
-Shared access signatures (SAS) are a secure way to provide granular access to blobs and containers without providing your storage account name or keys. shared access signatures are often used to provide limited access to your data, such as allowing a mobile app to access blobs.
+Shared access signatures (SAS) are a secure way to provide granular access to blobs and containers without providing your storage account name or keys. Shared access signatures are often used to provide limited access to your data, such as allowing a mobile app to access blobs.
 
 > [AZURE.NOTE] While you can also allow anonymous access to blobs, shared access signatures allow you to provide more controlled access, as you must generate the SAS.
 
-A trusted application such as a cloud-based service generates shared access signatures using the **generateSharedAccessSignature** of the **BlobService**, and provides it to an untrusted or semi-trusted application such as a mobile app. The shared access signatures are generated using a policy, which describes the start and end dates during which the shared access signatures are valid, as well as the access level granted to the shared access signatures holder.
+A trusted application such as a cloud-based service generates shared access signatures using the **generateSharedAccessSignature** of the **BlobService**, and provides it to an untrusted or semi-trusted application such as a mobile app. Shared access signatures are generated using a policy, which describes the start and end dates during which the shared access signatures are valid, as well as the access level granted to the shared access signatures holder.
 
 The following code example generates a new shared access policy that allows the shared access signatures holder to perform read operations on the **myblob** blob, and expires 100 minutes after the time it is created.
 
@@ -369,7 +369,7 @@ For more information on how to do more complex storage tasks, see the following 
 [Create and deploy a Node.js application to an Azure Web Site]: /develop/nodejs/tutorials/create-a-website-(mac)/
 [Node.js Cloud Service with Storage]: ../storage-nodejs-use-table-storage-cloud-service-app.md
 [Node.js Web Application with Storage]: ../storage-nodejs-use-table-storage-web-site.md
-[Website with WebMatrix]: ../web-sites-nodejs-use-webmatrix.md
+[Web app with WebMatrix]: ../web-sites-nodejs-use-webmatrix.md
 [Using the REST API]: http://msdn.microsoft.com/library/azure/hh264518.aspx
 [Azure portal]: http://manage.windowsazure.com
 [Node.js Cloud Service]: ../cloud-services-nodejs-develop-deploy-app.md
