@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="How to set a static private IP in ARM mode using PowerShell| Microsoft Azure"
-   description="Understanding static IPs (DIPs) and how to manage them in ARM mode using PowerShell"
+   pageTitle="How to create NSGs in ARM mode using PowerShell| Microsoft Azure"
+   description="Learn how to create and deploy NSGs in ARM using PowerShell"
    services="virtual-network"
    documentationCenter="na"
    authors="telmosampaio"
@@ -14,23 +14,23 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/08/2015"
+   ms.date="09/11/2015"
    ms.author="telmos" />
 
-# How to set a static private IP address in PowerShell
+# How to create NSGs in PowerShell
 
-[AZURE.INCLUDE [virtual-networks-static-private-ip-selectors-arm-include](../../includes/virtual-networks-static-private-ip-selectors-arm-include.md)]
+[AZURE.INCLUDE [virtual-networks-create-nsg-selectors-arm-include](../../includes/virtual-networks-create-nsg-selectors-arm-include.md)]
 
-[AZURE.INCLUDE [virtual-networks-static-private-ip-intro-include](../../includes/virtual-networks-static-private-ip-intro-include.md)]
+[AZURE.INCLUDE [virtual-networks-create-nsg-intro-include](../../includes/virtual-networks-create-nsg-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)] This article covers the Resource Manager deployment model. You can also [manage static private IP address in the classic deployment model](virtual-networks-static-private-ip-classic-ps.md).
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)] This article covers the Resource Manager deployment model. You can also [create NSGs in the classic deployment model](virtual-networks-nsg-classic-ps.md).
 
-[AZURE.INCLUDE [virtual-networks-static-ip-scenario-include](../../includes/virtual-networks-static-ip-scenario-include.md)]
+[AZURE.INCLUDE [virtual-networks-create-nsg-scenario-include](../../includes/virtual-networks-create-nsg-scenario-include.md)]
 
 The sample PowerShell commands below expect a simple environment already created based on the scenario above. If you want to run the commands as they are displayed in this document, first build the test environment described in [create a vnet](virtual-networks-create-vnet-arm-ps.md).
 
-## How to specify a static private IP address when creating a VM
-To create a VM named *DNS01* in the *FrontEnd* subnet of a VNet named *TestVNet* with a static private IP of *192.168.1.101*, follow the steps below:
+## How to create the NSG for the front end subnet
+To create an NSG named named *NSG-FrontEnd* based on the scenario above, follow the steps below:
 
 1. If you have never used Azure PowerShell, see [How to Install and Configure Azure PowerShell](powershell-install-configure.md) and follow the instructions all the way to the end to sign into Azure and select your subscription.
 2. From an Azure PowerShell prompt, run the  **Switch-AzureMode** cmdlet to switch to Resource Manager mode, as shown below.
@@ -42,35 +42,77 @@ To create a VM named *DNS01* in the *FrontEnd* subnet of a VNet named *TestVNet*
 		WARNING: The Switch-AzureMode cmdlet is deprecated and will be removed in a future release.
 
 	>[AZURE.WARNING] The Switch-AzureMode cmdlet will be deprecated soon. When that happens, all Resource Manager cmdlets will be renamed.
-1. Set variables for the storage account, location, resource group, and credentials to be used. You will need to enter a user name and password for the VM. The storage account and resource group must already exist.
 
-		$stName = "vnetstorage"
-		$locName = "Central US"
-		$rgName = "TestRG"
-	    $cred = Get-Credential -Message "Type the name and password of the local administrator account."
+3. Create a security rule allowing access from the Internet to port 3389.
 
-3. Retrieve the virtual network and subnet you want to create the VM in.
+		$rule1 = New-AzureNetworkSecurityRuleConfig -Name rdp-rule -Description "Allow RDP" `
+		    -Access Allow -Protocol Tcp -Direction Inbound -Priority 100 `
+		    -SourceAddressPrefix Internet -SourcePortRange * `
+		    -DestinationAddressPrefix * -DestinationPortRange 3389
 
-	    $vnet = Get-AzureVirtualNetwork -ResourceGroupName TestRG -Name TestVNet	
-	    $subnet = $vnet.Subnets[0].Id
+4. Create a security rule allowing access from the Internet to port 80. 
 
-4. If necessary, create a public IP address to access the VM from the Internet.
+		$rule2 = New-AzureNetworkSecurityRuleConfig -Name web-rule -Description "Allow HTTP" `
+		    -Access Allow -Protocol Tcp -Direction Inbound -Priority 101 `
+		    -SourceAddressPrefix Internet -SourcePortRange * `
+		    -DestinationAddressPrefix * -DestinationPortRange 80
 
-		$pip = New-AzurePublicIpAddress -Name TestPIP -ResourceGroupName $rgName -Location $locName -AllocationMethod Dynamic
+5. Add the rules created above to a new NSG named **NSG-FrontEnd**.
 
-5. Create a NIC using the static private IP address you want to assign to the VM. Make sure the IP is from the subnet range you are adding the VM to. This is the main step for this article, where you set the private IP to be static.
+		New-AzureNetworkSecurityGroup -ResourceGroupName TestRG -Location westus -Name "NSG-FrontEnd" `
+			-SecurityRules $rule1,$rule2
 
-		$nic = New-AzureNetworkInterface -Name TestNIC -ResourceGroupName $rgName -Location $locName -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id -PrivateIpAddress 192.168.1.101
+	Expected output:
 
-6. Create the VM using the NIC created above.
+		Name                 : NSG-FrontEnd
+		ResourceGroupName    : TestRG
+		Location             : westus
+		Id                   : /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/providers/Microsoft.Network/networkSecurityGroup
+		                       s/NSG-FrontEnd
+		Etag                 : W/"6e0d0b50-5b92-4a21-9517-aa7ee8d3b398"
+		ProvisioningState    : Succeeded
+		Tags                 : 
+		SecurityRules        : [	
+		                         {
+		                           "Name": "rdp-rule",
+		                           "Etag": "W/\"6e0d0b50-5b92-4a21-9517-aa7ee8d3b398\"",
+		                           "Id": "/subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/providers/Microsoft.Network/networkSe
+		                       curityGroups/NSG-FrontEnd/securityRules/rdp-rule",
+		                           "Description": "Allow RDP",
+		                           "Protocol": "Tcp",
+		                           "SourcePortRange": "*",
+		                           "DestinationPortRange": "3389",
+		                           "SourceAddressPrefix": "Internet",
+		                           "DestinationAddressPrefix": "*",
+		                           "Access": "Allow",
+		                           "Priority": 100,
+		                           "Direction": "Inbound",
+		                           "ProvisioningState": "Succeeded"
+		                         },
+		                         {
+		                           "Name": "web-rule",
+		                           "Etag": "W/\"6e0d0b50-5b92-4a21-9517-aa7ee8d3b398\"",
+		                           "Id": "/subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/providers/Microsoft.Network/networkSe
+		                       curityGroups/NSG-FrontEnd/securityRules/web-rule",
+		                           "Description": "Allow HTTP",
+		                           "Protocol": "Tcp",
+		                           "SourcePortRange": "*",
+		                           "DestinationPortRange": "80",
+		                           "SourceAddressPrefix": "Internet",
+		                           "DestinationAddressPrefix": "*",
+		                           "Access": "Allow",
+		                           "Priority": 101,
+		                           "Direction": "Inbound",
+		                           "ProvisioningState": "Succeeded"
+		                         }
+		                       ]
+		DefaultSecurityRules : [ ... ]
+		NetworkInterfaces    : []
+		Subnets              : []		
 
-		$vm = New-AzureVMConfig -VMName DNS01 -VMSize "Standard_A1"
-		$vm = Set-AzureVMOperatingSystem -VM $vm -Windows -ComputerName DNS01  -Credential $cred -ProvisionVMAgent -EnableAutoUpdate
-		$vm = Set-AzureVMSourceImage -VM $vm -PublisherName MicrosoftWindowsServer -Offer WindowsServer -Skus 2012-R2-Datacenter -Version "latest"
-		$vm = Add-AzureVMNetworkInterface -VM $vm -Id $nic.Id
-		$osDiskUri = $storageAcc.PrimaryEndpoints.Blob.ToString() + "vhds/WindowsVMosDisk.vhd"
-		$vm = Set-AzureVMOSDisk -VM $vm -Name "windowsvmosdisk" -VhdUri $osDiskUri -CreateOption fromImage
-		New-AzureVM -ResourceGroupName $rgName -Location $locName -VM $vm 
+6. Associate the NSG created above to the *FrontEnd* subnet.
+
+		Set-AzureNetworkSecurityGroupToSubnet -Name NSG-FrontEnd -VirtualNetworkName TestVNet -SubnetName FrontEnd
 
 	Expected output:
 
