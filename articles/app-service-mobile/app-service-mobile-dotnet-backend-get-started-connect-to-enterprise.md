@@ -8,7 +8,7 @@
 	services="app-service\mobile,app-service\web,app-service\api"/>
 
 <tags
-	ms.service="app-service"
+	ms.service="app-service-mobile"
 	ms.workload="mobile"
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
