@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Azure Site Recovery network mapping | Microsoft Azure"
-	description="Azure Site Recovery coordinates the replication, failover, and recovery of virtual machines and physical servers located on on-premises to Azure or to a secondary on-premises site."
+	description="Azure Site Recovery coordinates the replication, failover, and recovery of virtual machines and physical servers located on-premises to Azure or to a secondary on-premises site."
 	services="site-recovery"
 	documentationCenter=""
 	authors="rayne-wiselman"
@@ -20,7 +20,7 @@
 # Azure Site Recovery network mapping
 
 
-Site Recovery contributes to your business continuity and disaster recovery (BCDR) strategy by orchestrating replication, failover, and recovery of virtual machines and physical servers. Read about possible deployment scenarios in the [Site Recovery overview](site-recovery-overview.md).
+Azure Site Recovery contributes to your business continuity and disaster recovery (BCDR) strategy by orchestrating replication, failover, and recovery of virtual machines and physical servers. Read about possible deployment scenarios in the [Site Recovery overview](site-recovery-overview.md).
 
 
 ## About this article
@@ -45,11 +45,11 @@ The way in which you set up network mapping depends on your Site Recovery deploy
 - **On-premises VMM server to Azure**—Network mapping maps between VM networks on the source VMM server and target Azure networks to do the following:
 	- **Connect virtual machines after failover**—All machines which failover on the same network can connect to each other, irrespective of which recovery plan they are in.
 	- **Network gateway**—If a network gateway is set up on the target Azure network, virtual machines can connect to other on-premises virtual machines.
-	- **No network mapping**—If you don’t configure network mapping only virtual machines that failover in the same recovery plan will be able to connect to each other after failover to Azure.
+	- **No network mapping**—If you don’t configure network mapping, only virtual machines that failover in the same recovery plan will be able to connect to each other after fail over to Azure.
 
 ## VM networks
 
-VMM logical network provides an abstract view of the physical network infrastructure. VM networks provide a network interface so that virtual machines can connect to logical networks. A logical network needs at least one VM network. When you place a virtual machine in a cloud for protection it must be connected to a VM network that links to a logical network associated with the cloud. Learn more at:
+A VMM logical network provides an abstract view of the physical network infrastructure. VM networks provide a network interface so that virtual machines can connect to logical networks. A logical network needs at least one VM network. When you place a virtual machine in a cloud for protection, it must be connected to a VM network that links to a logical network associated with the cloud. Learn more at:
 
 - [Logical Networks (Part 1)](http://blogs.technet.com/b/scvmm/archive/2013/02/14/networking-in-vmm-2012-sp1-logical-networks-part-i.aspx)
 - [Virtual Networking in VMM 2012 SP1](http://blogs.technet.com/b/scvmm/archive/2013/01/08/virtual-networking-in-vmm-2012-sp1.aspx)
@@ -121,16 +121,16 @@ To see what happens in the case of failback (reverse replication), let’s assum
 VM1 | VMNetwork1-Network
 VM2 (replica of VM1) | VMNetwork1-Chicago
 
-With these settings let's review what happens in a couple of possible scenarios.
+With these settings, let's review what happens in a couple of possible scenarios.
 
 **Scenario** | **Outcome**
 ---|---
-No change in the network properties of VM-2 after failover | VM-1 remains connected to the source network.
-Network properties of VM-2 are changed after failover and is disconnected | VM-1 is disconnected
-Network properties of VM-2 are changed after failover and is connected to VMNetwork2-Chicago | If VMNetwork2-Chicago isn’t mapped, VM-1 will be disconnected
-Network mapping of VMNetwork1-Chicago is changed | VM-1 will be connected to the network now mapped to VMNetwork1-Chicago
+No change in the network properties of VM-2 after failover. | VM-1 remains connected to the source network.
+Network properties of VM-2 are changed after failover and is disconnected. | VM-1 is disconnected.
+Network properties of VM-2 are changed after failover and is connected to VMNetwork2-Chicago. | If VMNetwork2-Chicago isn’t mapped, VM-1 will be disconnected.
+Network mapping of VMNetwork1-Chicago is changed. | VM-1 will be connected to the network now mapped to VMNetwork1-Chicago.
 
 
 ## Next steps
 
-Now that you have a better understanding of network mapping start reading the [best practices](site-recovery-best-practices.md) to prepare for deployment.
+Now that you have a better understanding of network mapping, start reading the [best practices](site-recovery-best-practices.md) to prepare for deployment.
