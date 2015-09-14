@@ -31,7 +31,7 @@ The following are some administrative and prerequisite steps you should follow b
 
 ### Create a service namespace and obtain a SAS key
 
-1. To create a service namespace, follow the steps outlined in [How To: Create or Modify a Service Bus Service Namespace](https://msdn.microsoft.com/en-us/library/azure/hh690931.aspx).
+1. To create a service namespace, follow the steps outlined in [How To: Create or Modify a Service Bus Service Namespace](https://msdn.microsoft.com/library/azure/hh690931.aspx).
 
 1. In the main window of the Azure portal, click the name of the namespace you created in the previous step.
 
