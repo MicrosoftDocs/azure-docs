@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/28/2015"
+   ms.date="09/11/2015"
    ms.author="v-sharos" />
 
 # Restore a StorSimple volume from a backup set
@@ -77,6 +77,10 @@ You can use the **Backup Catalog** page to restore your StorSimple volume from a
 7. Review the restore information and click the check icon ![check icon](./media/storsimple-restore-from-backup-set/HCS_CheckIcon.png). This will initiate a restore job that you can view by accessing the **Jobs** page. 
 
 8. After the restore is complete, you can verify that the contents of your volumes are replaced by volumes from the backup.
+
+![Video available](./media/storsimple-restore-from-backup-set/Video_icon.png) **Video available**
+
+To watch a video that demonstrates how you can use the clone and restore features in StorSimple to recover deleted files, click [here](http://azure.microsoft.com/documentation/videos/storsimple-recover-deleted-files-with-storsimple/).
 
 ## Next steps
 

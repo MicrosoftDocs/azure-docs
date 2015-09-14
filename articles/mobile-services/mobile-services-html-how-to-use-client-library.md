@@ -16,7 +16,6 @@
 	ms.date="09/09/2015" 
 	ms.author="glenga"/>
 
-
 # How to use an HTML/JavaScript client for Azure Mobile Services
 
 [AZURE.INCLUDE [mobile-services-selector-client-library](../../includes/mobile-services-selector-client-library.md)]
@@ -368,7 +367,7 @@ In a Windows Store app, the results of a query can be used to create a [WinJS.Bi
 
 ##<a name="#custom-api"></a>How to: Call a custom API
 
-A custom API enables you to define custom endpoints that expose server functionality that does not map to an insert, update, delete, or read operation. By using a custom API, you can have more control over messaging, including reading and setting HTTP message headers and defining a message body format other than JSON. For a complete example, including how to create a custom API in your mobile service, see [Call a custom API from the client].
+A custom API enables you to define custom endpoints that expose server functionality that does not map to an insert, update, delete, or read operation. By using a custom API, you can have more control over messaging, including reading and setting HTTP message headers and defining a message body format other than JSON. For an example of how to create a custom API in your mobile service, see [How to: define a custom API endpoint](mobile-services-dotnet-backend-define-custom-api.md).
 
 You call a custom API from the client by calling the [invokeApi](https://github.com/Azure/azure-mobile-services/blob/master/sdk/Javascript/src/MobileServiceClient.js#L337) method on **MobileServiceClient**. For example, the following line of code sends a POST request to the **completeAll** API on the mobile service:
 
