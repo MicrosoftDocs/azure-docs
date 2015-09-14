@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Customize the developer portal in Azure API Management" | Microsoft Azure
-	description="Customizing the developer portal in Azure API Management."
+	pageTitle="Customize the developer portal in Azure API Management | Microsoft Azure"
+	description="Learn how to customize the developer portal in Azure API Management."
 	services="api-management"
 	documentationCenter=""
 	authors="steved0x"
@@ -74,7 +74,7 @@ To see the list of all existing content pages, click **Content** from the **Deve
 
 Click the **Welcome** page to edit what is displayed on the home page of the developer portal. Make the changes you want, preview them if necessary, and then click **Publish Now** to make them visible to everyone.
 
-> The home page uses a special layout which allows it to display a banner at the top. This banner is not editable from the **Content** section. To edit this banner, click **Widgets** from the **Developer portal** menu, select **Home page** from the **Current Layer** drop-down list box, and then open the **Banner** item under the **Featured section**. The contents of this widget are editable just like any other page.
+> The home page uses a special layout which allows it to display a banner at the top. This banner is not editable from the **Content** section. To edit this banner, click **Widgets** from the **Developer portal** menu, select **Home page** from the **Current Layer** drop-down list, and then open the **Banner** item under the **Featured section**. The contents of this widget are editable just like any other page.
 
 ## <a name="next-steps"> </a>Next steps
 
@@ -85,7 +85,7 @@ Click the **Welcome** page to edit what is displayed on the home page of the dev
 [Edit the contents of a page]: #edit-page-contents
 [Next steps]: #next-steps
 
-Azure portal]: https://manage.windowsazure.com/
+[Azure portal]: https://manage.windowsazure.com/
 
 [api-management-management-console]: ./media/api-management-customize-portal/api-management-management-console.png
 [api-management-widgets-header]: ./media/api-management-customize-portal/api-management-widgets-header.png
