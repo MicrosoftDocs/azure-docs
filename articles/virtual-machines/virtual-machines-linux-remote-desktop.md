@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Using Remote Desktop through xrdp to connect a Microsoft Azure Linux VM."
+	pageTitle="Using Remote Desktop to connect a Microsoft Azure Linux VM."
 	description="Learn how to Install and Config Remote Desktop on a Microsoft Azure Linux VM."
 	services="virtual-machines"
 	documentationCenter=""
@@ -13,15 +13,15 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/12/2015"
+	ms.date="09/14/2015"
 	ms.author="mingzhan"/>
 
 
-#Using Remote Desktop through xrdp to connect a Microsoft Azure Linux VM
+#Using Remote Desktop to connect a Microsoft Azure Linux VM
 
 ##Overview
 
-RDP(Remote Desktop Protocol) is however a proprietary protocol used for Windows, how can we use RDP to connect Linux VM(virtual machine) remotely?
+RDP(Remote Desktop Protocol) is a proprietary protocol used for Windows, how can we use RDP to connect Linux VM(virtual machine) remotely?
 
 This guidance will give you the answer! It will help you to install and config xrdp on your Microsoft Azure Linux VM, and you are able to connect it with Remote Desktop from a Windows machine. We will use Linux VM running Ubuntu or OpenSUSE as the example in this guidance.
 
