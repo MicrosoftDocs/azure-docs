@@ -57,7 +57,7 @@ Before you begin this tutorial, you must have the following:
 
 You can create directories under your Azure Data Lake account to manage and store data.
 
-1. Open the Data Lake account that you just created. From the left pane, click **Browse All**, click **Data Lake**, and then from the Data Lake blade, click the account name under which you want to create directories. If you pinned the Data Lake account to the startboard, click that tile.
+1. Open the Data Lake account that you just created. From the left pane, click **Browse**, click **Data Lake**, and then from the Data Lake blade, click the account name under which you want to create directories. If you pinned the Data Lake account to the startboard, click that tile.
 
 2. In your Data Lake account blade, click **Data Explorer**.
 
