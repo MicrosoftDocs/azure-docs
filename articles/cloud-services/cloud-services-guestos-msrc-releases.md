@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd" 
-   ms.date="08/24/2015"
+   ms.date="09/14/2015"
    ms.author="yuemlu"/>
 
 # Azure Guest OS 
@@ -24,10 +24,14 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 
 | Bulletin ID | Parent KB Article   | Vulnerability Description                                                   | Guest OS         | Date First Introduced |
 | ----------- | ------------------- | --------------------------------------------------------------------------- | ---------------- | --------------------- |
-|      | [] |   | 4.24, 3.31, 2.43 | September 8, 2015 |
-|      | [] |   | 4.24, 3.31, 2.43 | September 8, 2015 |
-|      | [] |   | 4.24, 3.31, 2.43 | September 8, 2015 |
-|      | [] |   | 4.24, 3.31, 2.43 | September 8, 2015 ||      | [] |   | 4.24, 3.31, 2.43 | September 8, 2015 |
+| MS15-093     | [3088903] | Security Update for Internet Explorer  | 4.24, 3.31, 2.43 | September 8, 2015 |
+| MS15-094     | [3089548] | Cumulative Security Update for Internet Explorer  | 4.24, 3.31, 2.43 | September 8, 2015 |
+| MS15-096     | [3072595] | Vulnerability in Active Directory Service Could Allow Denial of Service  | 4.24, 3.31, 2.43 | September 8, 2015 |
+| MS15-097     | [3089656] | Vulnerabilities in Microsoft Graphics Component Could Allow Elevation of Privilege  | 4.24, 3.31, 2.43 | September 8, 2015 |
+| MS15-098     | [3089669] | Vulnerabilities in Windows Journal Could Allow Remote Code Execution  | 4.24, 3.31, 2.43 | September 8, 2015 |
+| MS15-101     | [3089662] | Vulnerabilities in .NET Framework Could Allow Elevation of Privilege  | 4.24, 3.31, 2.43 | September 8, 2015 |
+| MS15-102     | [3089657] | Vulnerabilities in Windows Task Management Could Allow Elevation of Privilege  | 4.24, 3.31, 2.43 | September 8, 2015 |
+| MS15-105     | [3091287] | Vulnerability in Windows Hyper-V Could Allow Security Feature Bypass  | 4.24 | September 8, 2015 |
 
 
 ## August Guest OS
