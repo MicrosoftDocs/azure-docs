@@ -5,9 +5,11 @@ Azure uses an xml file to define all VNets available to a subscription. You can 
 To create a VNet using a netcfg file using PowerShell, follow the steps below.
 
 1. If you have never used Azure PowerShell, see [How to Install and Configure Azure PowerShell](powershell-install-configure.md) and follow the instructions all the way to the end to sign into Azure and select your subscription.
-2. From the Azure PowerShell console, use the **Get-AzureVnetConfig** cmdlet to download the network configuration file by running the command below. Notice the output under the command.
+2. From the Azure PowerShell console, use the **Get-AzureVnetConfig** cmdlet to download the network configuration file by running the command below. 
 
 		Get-AzureVNetConfig -ExportToFile c:\NetworkConfig.xml
+
+	Expected output:
 
 		XMLConfiguration                                                                                                     
 		----------------                                                                                                     
@@ -35,13 +37,17 @@ To create a VNet using a netcfg file using PowerShell, follow the steps below.
 
 		Set-AzureVNetConfig -ConfigurationPath c:\NetworkConfig.xml
 
+	Here is the expected output for the command above:
+
 		OperationDescription OperationId                          OperationStatus
 		-------------------- -----------                          ---------------
 		Set-AzureVNetConfig  49579cb9-3f49-07c3-ada2-7abd0e28c4e4 Succeeded 
 	
-11. From the Azure PowerShell console, use the **Get-AzureVnetSite** cmdlet to verify that the new network was added by running the command below. Notice the output with the properties of your new VNet.
+11. From the Azure PowerShell console, use the **Get-AzureVnetSite** cmdlet to verify that the new network was added by running the command below. 
 
 		Get-AzureVNetSite -VNetName TestVNet
+
+	Here is the expected output for the command above:
 
 		AddressSpacePrefixes : {192.168.0.0/16}
 		Location             : Central US

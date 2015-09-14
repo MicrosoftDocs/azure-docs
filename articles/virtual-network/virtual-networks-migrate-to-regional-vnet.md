@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/29/2015"
+   ms.date="09/02/2015"
    ms.author="telmos" />
 
 # How to migrate from Affinity Groups to a Regional Virtual Network (VNet)

@@ -120,9 +120,27 @@ This makes the following helpers available for use in your script:
 
 This section provides guidance on implementing some of the common usage patterns that you might run into while writing your own custom script.
 
+### Passing parameters to a script
+
+In some cases, your script may require parameters. For example, you may need the admin password for the cluster in order to retrieve information from the Ambari REST API.
+
+Parameters passed to the script are known as _positional parameters_, and are assigned to `$1` for the first parameter, `$2` for the second, and so-on. `$0` contains the name of the script itself.
+
+Values passed to the script as parameters should be enclosed by single quotes (') so that the passed value is treated as a literal, and special treatment isn't given to included characters such as '!'.
+
 ### Setting environment variables
 
-In some cases, you may need to add system wide environment variables so that users connecting via SSH can use the components installed by your script. You can accomplish this by adding the environment variable to `/etc/environment`. For example, the following adds __HADOOP\_CONF\_DIR__:
+Setting an environment variable is performed by the following:
+
+    VARIABLENAME=value
+
+Where VARIABLENAME is the name of the variable. To access the variable after this, use `$VARIABLENAME`. For example, to assign a value provided by a positional parameter as an environment variable named PASSWORD, you would use the following:
+
+    PASSWORD=$1
+
+Subsequent access to the information could then use `$PASSWORD`.
+
+Environment variables set within the script only exist within the scope of the script. In some cases, you may need to add system wide environment variables that will persist after the script has finished. Usually this is so that users connecting to the cluster via SSH can use the components installed by your script. You can accomplish this by adding the environment variable to `/etc/environment`. For example, the following adds __HADOOP\_CONF\_DIR__:
 
     echo "HADOOP_CONF_DIR=/etc/hadoop/conf" | sudo tee -a /etc/environment
 

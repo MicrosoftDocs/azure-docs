@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Get started with authentication (Android) | Microsoft Azure"
-	description="Learn how to use Mobile Services to authenticate users of your Android app through a variety of identity providers, including Google, Facebook, Twitter, and Microsoft."
+	pageTitle="Get started with authentication on Android (JavaScript backend) | Microsoft Azure"
+	description="Learn how to use Mobile Services to authenticate users of your Android app through a variety of identity providers, including Google, Facebook, Twitter, and Microsoft  (JavaScript backend)."
 	services="mobile-services"
 	documentationCenter="android"
 	authors="RickSaling"
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="06/16/2015"
+	ms.date="09/04/2015"
 	ms.author="ricksal"/>
 
-# Add authentication to your Mobile Services Android app
+# Add authentication to your Mobile Services Android app (JavaScript backend)
 
 [AZURE.INCLUDE [mobile-services-selector-get-started-users](../../includes/mobile-services-selector-get-started-users.md)]
 
