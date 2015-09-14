@@ -30,7 +30,7 @@ To recover data from another DPM server:
 
 2. Provide the **vault credentials** associated with the DPM server, whose data is being recovered, choose the **DPM server** from the list of DPM servers registered with the backup vault, and provide the **encryption passphrase** associated with the DPM server whose data is being recovered.
 
- ![External DPM Credentials](./media/backup-azure-alternate-dpm-server/external_dpm_credentials.png)
+    ![External DPM Credentials](./media/backup-azure-alternate-dpm-server/external_dpm_credentials.png)
 
     >[AZURE.NOTE] Only DPM servers associated with the same registration vault can recover each other’s data.
 
@@ -48,7 +48,7 @@ To recover data from another DPM server:
 
 5. Right click the appropriate item and click **Recover**.
 
-  ![External DPM recovery](./media/backup-azure-alternate-dpm-server/recover.png)
+    ![External DPM recovery](./media/backup-azure-alternate-dpm-server/recover.png)
 
 6. Review the **Recover Selection**. Verify the data and time of the backup copy being recovered, as well as the source from which the backup copy was created. If the selection is incorrect, click **Cancel** to navigate back to recovery tab to select appropriate recovery point. If the selection is correct, click **Next**.
 
