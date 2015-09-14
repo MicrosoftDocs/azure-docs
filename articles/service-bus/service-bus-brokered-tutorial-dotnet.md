@@ -630,7 +630,7 @@ In Visual Studio, from the **Build** menu, click **Build Solution**, or press F6
 
 ### Run the QueueSample application
 
-1. Before you run the application, you must ensure that you have created a service namespace and obtained a SAS key, as described in [Introduction and Prerequsites](#Introduction-and-prerequisites).
+1. Before you run the application, you must ensure that you have created a service namespace and obtained a SAS key, as described in [Introduction and Prerequsites](#introduction-and-prerequisites).
 
 1. Open a browser and go to the [Azure portal](http://manage.windowsazure.com).
 
