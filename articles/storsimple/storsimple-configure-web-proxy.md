@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Configure web proxy for your device | Microsoft Azure"
-   description="Learn how to configure web proxy for your StorSimple device using Windows PowerShell for StorSimple"
+   pageTitle="Set up web proxy for a StorSimple device | Microsoft Azure"
+   description="Learn how to use Windows PowerShell for StorSimple to configure web proxy settings for your StorSimple device."
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
@@ -12,16 +12,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/29/2015"
+   ms.date="08/31/2015"
    ms.author="alkohli" />
 
-# Configure web proxy for your device
+# Configure web proxy for your StorSimple device
 
 ## Overview
 
-This tutorial describes how to use the Windows PowerShell for StorSimple to configure and view web proxy settings for your StorSimple device. The web proxy settings are used by the StorSimple device when communicating with the cloud. A web proxy server is used to add another layer of security, filter content, cache to ease bandwidth requirements or even help with analytics.
+This tutorial describes how to use Windows PowerShell for StorSimple to configure and view web proxy settings for your StorSimple device. The web proxy settings are used by the StorSimple device when communicating with the cloud. A web proxy server is used to add another layer of security, filter content, cache to ease bandwidth requirements or even help with analytics.
 
-Web proxy is an optional configuration for your StorSimple device. You can configure web proxy only via the Windows PowerShell for StorSimple. The configuration is a two-step process as follows:
+Web proxy is an optional configuration for your StorSimple device. You can configure web proxy only via Windows PowerShell for StorSimple. The configuration is a two-step process as follows:
 
 1. You first configure web proxy settings through the setup wizard or Windows PowerShell for StorSimple cmdlets.
 

@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Get started with data (Android) | Microsoft Azure" 
-	description="Learn how to get started using Mobile Services to leverage data in your Android app." 
+	pageTitle="Get started with data on Android  (JavaScript backend) | Microsoft Azure" 
+	description="Learn how to get started using Mobile Services to leverage data in your Android app  (JavaScript backend)." 
 	services="mobile-services" 
 	documentationCenter="android" 
 	authors="RickSaling" 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="mobile-android" 
 	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="08/18/2015" 
+	ms.date="09/04/2015" 
 	ms.author="ricksal"/>
 
-# Add Mobile Services to an existing Android app
+# Add Mobile Services to an existing Android app (JavaScript backend)
 
 [AZURE.INCLUDE [mobile-services-selector-get-started-data](../../includes/mobile-services-selector-get-started-data.md)]
 

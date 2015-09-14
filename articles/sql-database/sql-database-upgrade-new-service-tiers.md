@@ -67,8 +67,7 @@ The ‘Basic’ tier is primarily used for very small, low activity databases. S
 
 The new service tier's features and performance levels are summarized and compared in the following table:
 
-![Service Tier feature comparison][1]
-
+[AZURE.INCLUDE [SQL DB service tiers table](../../includes/sql-database-service-tiers-table.md)]
 
 **Additional resources for comparing service tiers and performance levels:**
 
@@ -305,7 +304,6 @@ Azure SQL Database service provides telemetry data and tools to evaluate your We
 
 
 <!--Image references-->
-[1]: ./media/sql-database-upgrade-new-service-tiers/service-tier-features.png
 [2]: ./media/sql-database-upgrade-new-service-tiers/portal-dtus.JPG
 [3]: ./media/sql-database-upgrade-new-service-tiers/web-business-noisy-neighbor.png
 [4]: ./media/sql-database-upgrade-new-service-tiers/resource_consumption.png
