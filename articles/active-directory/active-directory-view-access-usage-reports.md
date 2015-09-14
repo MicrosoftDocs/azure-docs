@@ -76,7 +76,7 @@ In the Azure Management Portal, reports are categorized in the following ways:
 |	Users with anomalous sign in activity				|			|		|	✓			|
 |	Users with leaked credentials						|			|		|	✓			|
 |	**Activity logs**
-|	Audit report										|	✓		|		|				|
+|	Audit report										|	✓		|	✓	|	✓			|
 |	Password reset activity								|			|		|	✓			|
 |	Password reset registration activity				|			|		|	✓			|
 |	Self service groups activity						|			|		|	✓			|
@@ -100,7 +100,8 @@ In the Azure Management Portal, reports are categorized in the following ways:
 
 
 ## Anomalous activity reports
-The anomalous sign in activity reports contain suspicious sign in activity to the Azure Management Portal, Azure AD Access Panel, Office365, Sharepoint Online, Dynamics CRM Online, and other Microsoft online services, regardless of the federation provider. 
+<p>The anomalous sign in activity reports flag suspicious sign in activity to Office365, Azure Management Portal, Azure AD Access Panel, Sharepoint Online, Dynamics CRM Online, and other Microsoft online services.</p>
+<p>All of these reports, except the "Sign ins after multiple failures" report, also flag suspicious <i>federated</i> sign ins to the aforementioned services, regardless of the federation provider. </p>
 <p>The following reports are available: </p><ul>
 <li>[Sign ins from unknown sources](active-directory-reporting-sign-ins-from-unknown-sources.md).</li>
 <li>[Sign ins after multiple failures](active-directory-reporting-sign-ins-after-multiple-failures.md).</li>

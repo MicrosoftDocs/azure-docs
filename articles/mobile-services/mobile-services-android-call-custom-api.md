@@ -1,7 +1,7 @@
 <properties
 	writer="ricksal"
-	pageTitle="Call a custom API from an Android client | Microsoft Azure"
-	description="Learn how to define a custom API and then call it from an Android app that uses Azure Mobile Services."
+	pageTitle="Call a custom API from an Android client (JavaScript backend) | Microsoft Azure"
+	description="Learn how to define a custom API and then call it from an Android app that uses Azure Mobile Services (JavaScript backend)."
 	services="mobile-services"
 	documentationCenter="android"
 	authors="RickSaling"
@@ -14,10 +14,10 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="06/16/2015"
+	ms.date="09/03/2015"
 	ms.author="ricksal"/>
 
-# Call a custom API from the client
+# Call a custom API from an Android client (JavaScript backend)
 
 [AZURE.INCLUDE [mobile-services-selector-call-custom-api](../../includes/mobile-services-selector-call-custom-api.md)]
 

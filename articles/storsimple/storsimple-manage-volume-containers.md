@@ -12,10 +12,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/14/2015"
+   ms.date="09/02/2015"
    ms.author="v-sharos" />
 
-# Manage your StorSimple volume containers
+# Use the StorSimple Manager service to manage StorSimple volume containers
 
 ## Overview
 
