@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Site Recovery storage mapping | Microsoft Azure"
-	description="Azure Site Recovery coordinates the replication, failover, and recovery of virtual machines and physical servers located on on-premises to Azure or to a secondary on-premises site."
+	description="Azure Site Recovery coordinates the replication, failover, and recovery of virtual machines and physical servers located on-premises to Azure or to a secondary on-premises site."
 	services="site-recovery"
 	documentationCenter=""
 	authors="rayne-wiselman"
@@ -101,8 +101,8 @@ VM1 | C:\ClusterStorage\SourceVolume1 | GOLD | <p>C:\ClusterStorage\SourceVolume
 VM2 | \\FileServer\SourceShare1 | GOLD | <p>C:\ClusterStorage\SourceVolume1</p><p>\\FileServer\SourceShare1</p> <p>Both GOLD_TARGET</p>
 VM3 | C:\ClusterStorage\SourceVolume2 | SILVER | <p>C:\ClusterStorage\SourceVolume2</p><p>\FileServer\SourceShare2</p>
 VM4 | \FileServer\SourceShare2 | SILVER |<p>C:\ClusterStorage\SourceVolume2</p><p>\\FileServer\SourceShare2</p><p>Both SILVER_TARGET</p>
-VM5 | C:\ClusterStorage\SourceVolume3 | N/A | No mapping so default storage location of the Hyper-V host is used
+VM5 | C:\ClusterStorage\SourceVolume3 | N/A | No mapping, so the default storage location of the Hyper-V host is used
 
 ## Next steps
 
-Now that you have a better understanding of storage mapping start reading the [best practices](site-recovery-best-practices.md) to prepare for deployment.
+Now that you have a better understanding of storage mapping, start reading the [best practices](site-recovery-best-practices.md) to prepare for deployment.
