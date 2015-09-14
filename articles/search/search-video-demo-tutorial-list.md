@@ -50,33 +50,34 @@ Link|Description
 Walkthrough|Description
 -----------|-----------
 [How to use Azure Search with D3.js to Build Interactive Data Visualizations](https://azure.microsoft.com/blog/2015/07/14/how-to-use-azure-search-with-d3-js-to-build-interactive-data-visualizations/)|Blog post and sample code that demonstrates how to add visual search capabilities to your custom app.
-[Get started with Azure Search in .NET](search-get-started-dotnet.md)|Tutorial for learning how to work with Azure Search in managed code.
-[Get started with Azure Search in NodeJS](search-get-started-nodejs.md)|Tutorial for learning how to work with Azure Search in NodeJS.
+[Get started with Azure Search in .NET](search-get-started-dotnet.md)|Learn how to work with Azure Search in managed code.
+[Get started with Azure Search in NodeJS](search-get-started-nodejs.md)|Learn how to work with Azure Search in NodeJS.
 [Get started with Azure Search in Java](search-get-started-java.md)|Tutorial for Java programmers using Eclipse and Apache Tomcat server to build and run a sample application that uses Azure Search.
 [Azure Search scenarios and capabilities](http://azure.microsoft.com/blog/2014/08/28/azure-search-scenarios-and-capabilities/)|Blog post covering the primary scenarios enabled by the current functionality.
-[How to use Azure Search in .NET](search-howto-dotnet-sdk.md)|How to configure and run a sample Visual Studio web application that integrates with Azure Search.
+[How to use Azure Search in .NET](search-howto-dotnet-sdk.md)|Configure and run a sample Visual Studio web application that integrates with Azure Search.
 [How to Add Suggestions to your Search Applications](http://azure.microsoft.com/blog/2015/01/20/azure-search-how-to-add-suggestions-auto-complete-to-your-search-applications/)|Learn how to implement suggestions, commonly called auto complete. This demo walks through a number of topics including creating an MVC4 applications that leverages Azure Search suggestions, use of the Twitter typeahead.js library to build out an effective autosuggest component in JavaScript, and using fuzzy suggestions to allow you to bring back suggestions even if the user misspells the word.
 [TechNet Virtual Lab: Building a Microsoft Azure Search Application](http://go.microsoft.com/?linkid=9874663)|Virtual lab that provides a development environment, tools, documentation, and data. You will need an Azure account, either a trial subscription or your personal Azure subscription, to complete the lab.
 [Geospatial search app development using Azure Search](search-create-geospatial.md)|Use Bing maps and coordinates to support geospatial searches.
 [Synchronize SQL Server Data with Azure Search](http://azure.microsoft.com/blog/2014/11/10/how-to-sync-sql-server-data-with-azure-search/)|Blog post that explains how to load data from SQL Server relational databases to an Azure Search index.
 [Scoring profiles tutorial](search-get-started-scoring-profiles.md)|Test-drive scoring profiles using a console app.
-[Azure Search Management REST API tutorial](search-get-started-management-api.md)|How to use the Management REST API to provision and configure the service.
+[Azure Search Management REST API tutorial](search-get-started-management-api.md)|How to use the Management REST API to provision the service and manage admin or query api-keys.
 
 ##Code samples
 
 [**https://github.com/AzureSearch**](https://github.com/AzureSearch) is a GitHub repository for Azure Search containing code samples created by the Azure Search development team. You can browse the repository to see what it contains, or click links below to go directly to specific samples. 
 
-- [**JavaIndexerDemo**](https://github.com/AzureSearch/AzureSearchJavaIndexerDemo) on GitHub.
-- [**NodeJSIndexerDemo**](https://github.com/AzureSearch/AzureSearchNodeJSIndexerDemo) on GitHub.
-- [**.NET-2015-02-28-Sample**](https://github.com/AzureSearch/.NET-2015-02-28-Sample) on GitHub.
-- [**AzureSearch-Microsoft Virtual Academy Training Materials**](https://github.com/MicrosoftLearning/AzureSearch-MVA) on GitHub.
+- [**JavaIndexerDemo**](https://github.com/AzureSearch/AzureSearchJavaIndexerDemo)
+- [**NodeJSIndexerDemo**](https://github.com/AzureSearch/AzureSearchNodeJSIndexerDemo)
+- [**.NET-2015-02-28-Sample**](https://github.com/AzureSearch/.NET-2015-02-28-Sample) is an ASP.NET MVC 5 application that uses the .NET client library for search operations.
+
+A separate GitHub repo is used for [**AzureSearch-Microsoft Virtual Academy Training Materials**](https://github.com/MicrosoftLearning/AzureSearch-MVA). It includes several samples used in the 7-part course.
 
 On CodePlex, you can find several samples published during the public preview that are still relevant in the current version.
 
-- [**Management REST API Demo**](https://azuresearchmgmtapi.codeplex.com/) on CodePlex.
-- [**AdventureWorks Demo**](https://azuresearchadventureworksdemo.codeplex.com/) on CodePlex.
-- [**Suggestions Demo**](https://azsearchsuggestions.codeplex.com/SourceControl/latest) on CodePlex.
-- [**GeoSearch sample**](https://azuresearchgeospatial.codeplex.com/) on CodePlex.
-- [**SQL Server to Azure Search Sync Sample**](http://sqlserver2azuresearch.codeplex.com/) on CodePlex.
-- [**Scoring Profiles Demo**](https://azuresearchscoringprofiles.codeplex.com/) on CodePlex.
+- [**Management REST API Demo**](https://azuresearchmgmtapi.codeplex.com/) is a Windows console application that uses the Management REST API.
+- [**AdventureWorks Demo**](https://azuresearchadventureworksdemo.codeplex.com/) is an ASP.NET MVC 4 application.
+- [**Suggestions Demo**](https://azsearchsuggestions.codeplex.com/SourceControl/latest) is an ASP.NET MVC 4 application.
+- [**GeoSearch sample**](https://azuresearchgeospatial.codeplex.com/) is an ASP.NET MVC 4  application.
+- [**SQL Server to Azure Search Sync Sample**](http://sqlserver2azuresearch.codeplex.com/) is a Windows console application that loads a SQL Server rowset from an embedded local database.
+- [**Scoring Profiles Demo**](https://azuresearchscoringprofiles.codeplex.com/) is a Windows console application that defines, executes, and updates a scoring profile for tuning search results.
 

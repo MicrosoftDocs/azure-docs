@@ -180,6 +180,11 @@ For example, if your vault name is **ContosoKeyVault** and the application you w
 
 
 	Set-AzureKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -ServicePrincipalName 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed -PermissionsToKeys decrypt,sign
+	
+If you want to authorize that same application to read secrets in your vault, run the following:
+
+
+	Set-AzureKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -ServicePrincipalName 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed -PermissionsToSecrets Get
 
 ## <a id="HSM"></a>If you want to use a hardware security module (HSM) ##
 

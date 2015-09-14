@@ -12,7 +12,7 @@
  ms.topic="article" 
  ms.tgt_pltfrm="vm-multiple" 
  ms.workload="infrastructure-services"
- ms.date="10/31/2014" 
+ ms.date="08/25/2015" 
  ms.author="rasquill"/>
 #About virtual machine extensions and features
 Microsoft Azure provides VM Extensions built by both Microsoft and by trusted third-party providers to enable security, runtime, debugging, management, and other features you can take advantage of to increase your productivity with Azure Virtual Machines. This topic describes the various features that Azure VM Extensions provide to both Windows and Linux Virtual Machines for your use and points toward documentation for each one.

@@ -17,7 +17,7 @@
 
 # SQL Server Data Warehousing and Transactional Workloads in Azure Virtual Machines
 
-To use SQL Server for data warehousing or transactional workloads in an Azure Virtual Machine, we recommend using one of the preconfigured virtual machine images in the Azure Virtual Machines Gallery. These images have been optimized based on the recommendations in [Performance Best Practices for SQL Server in Azure Virtual Machines](https://msdn.microsoft.com/library/azure/dn133149.aspx).
+To use SQL Server for data warehousing or transactional workloads in an Azure Virtual Machine, we recommend using one of the preconfigured virtual machine images in the Azure Virtual Machines Gallery. These images have been optimized based on the recommendations in [Performance Best Practices for SQL Server in Azure Virtual Machines](virtual-machines-sql-server-performance-best-practices.md).
 
 This article focuses on running these workloads on Azure Virtual Machines (this is also known as Infrastructure-as-a-Service or IaaS). You can also run data warehousing and transactional workloads as a service in Azure. For more information, see [Azure SQL Data Warehouse Preview](http://azure.microsoft.com/documentation/services/sql-data-warehouse/) and [Azure SQL Database](http://azure.microsoft.com/documentation/services/sql-database/).
 
@@ -75,20 +75,23 @@ For more information about creating images with PowerShell, see [Use Azure Power
 
 ## Specific Configurations Included in the Transactional/DW Images
 
-The optimizations included in the images are based on the [Performance Best Practices for SQL Server in Azure Virtual Machines](https://msdn.microsoft.com/library/azure/dn133149.aspx). Specifically, the configuration for these images include the following optimizations.
+The optimizations included in the images are based on the [Performance Best Practices for SQL Server in Azure Virtual Machines](virtual-machines-sql-server-performance-best-practices.md). Specifically, the configuration for these images include the following optimizations.
 
 >[AZURE.NOTE] If you are bringing your own license and creating a Data Warehousing or Transactional virtual machine from scratch, you can base your optimizations on the performance article and the example of the optimizations in the preconfigured gallery images below.
 
 ### Disk Configurations
 
-
+|Configuration|Setting|
 |---|---|
 |Number of data disks attached|15|
-|Storage spaces|Two storage pools:<br/>-- 1 data pool with 12 data disks; fixed size 12 TB; Column = 12<br/>-- 1 log pool with 3 data disks; fixed size 3 TB; Column = 3<br/><br/>One data disk remaining for the user to attach and determine the usage.<br/><br/>**DW**: Stripe size = 256 KB<br/>**Transactional**: Stripe size = 64 KB|
-|Disk sizes, caching, allocation size|1 TB each, HostCache=None, NTFS Allocation Unit Size = 64KB|
+|Storage spaces|Two storage pools:<br/>--1 data pool with 12 data disks; fixed size 12 TB; Column = 12<br/>--1 log pool with 3 data disks; fixed size 3 TB; Column = 3<br/><br/>One data disk remaining for the user to attach and determine the usage.<br/><br/>**DW**: Stripe size = 256 KB<br/>**Transactional**: Stripe size = 64 KB|
+|Disk sizes|1 TB each|
+|Caching|HostCache=None|
+|Allocation size|NTFS Allocation Unit Size = 64KB|
 
 ### SQL Server Configurations
 
+|Configuration|Setting|
 |---|---|
 |Startup Parameters|-T1117 to help keep data files the same size in case the database needs to autogrow<br/><br/>-T1118 to assist in tempdb scalability (For more information, see [SQL Server (2005 and 2008) Trace Flag 1118 (-T1118) Usage](http://blogs.msdn.com/b/psssql/archive/2008/12/17/sql-server-2005-and-2008-trace-flag-1118-t1118-usage.aspx?WT.mc_id=Blog_SQL_Announce_Announce).)|
 |Recovery model|**DW**: Set to SIMPLE for model database using ALTER DATABASE<br/>**Transactional**: No change|

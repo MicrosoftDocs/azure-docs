@@ -7,7 +7,7 @@ Concurrent TCP connections for a virtual machine or role instance | 500K
 Access Control Lists (ACLs) per endpoint | 50
 Local network sites per virtual network | 10
 
-### Networking Limits - Azure Resource Manager
+#### Networking Limits - Azure Resource Manager
 
 The following limits apply only for networking resources managed through Azure Resource Manager.
 

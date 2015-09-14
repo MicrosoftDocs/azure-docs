@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Line of Business Application Workload Phase 1: Configure Azure" 
-	description="In this first phase of deploying a high-availability line of business application in Azure infrastructure services, you create the Azure virtual network and other Azure infrastructure elements." 
+	pageTitle="Line of business application Phase 1 | Microsoft Azure" 
+	description="Create the virtual network and other Azure infrastructure elements in Phase 1 of the line of business application in Azure." 
 	documentationCenter=""
 	services="virtual-machines" 
 	authors="JoeDavies-MSFT" 
@@ -60,7 +60,7 @@ Item | Subnet name | Subnet address space | Purpose
 
 **Table S: Subnets in the virtual network**
 
-> [AZURE.NOTE] This pre-defined architecture uses a single subnet for simplicity. If you want to overlay a set of traffic filters to emulate subnet isolation, you can use Azure [Network Security Groups](https://msdn.microsoft.com/library/azure/dn848316.aspx).
+> [AZURE.NOTE] This pre-defined architecture uses a single subnet for simplicity. If you want to overlay a set of traffic filters to emulate subnet isolation, you can use Azure [Network Security Groups](virtual-networks-nsg.md).
 
 For the two on-premises DNS servers that you want to use when initially setting up the domain controllers in your virtual network, fill in Table D. Give each DNS server a friendly name and a single IP address. This friendly name does not need to match the host name or computer name of the DNS server. Note that two blank entries are listed, but you can add more. Work with your IT department to determine this list. 
 

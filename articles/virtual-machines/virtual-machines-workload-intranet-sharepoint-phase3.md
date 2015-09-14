@@ -1,6 +1,6 @@
 <properties
-	pageTitle="SharePoint Intranet Farm Workload Phase 3: Configure SQL Server Infrastructure"
-	description="In this third phase of deploying an intranet-only SharePoint 2013 farm with SQL Server AlwaysOn Availability Groups in Azure infrastructure services, you create the SQL Server cluster computers and the cluster itself."
+	pageTitle="SharePoint Server 2013 farm Phase 3 | Microsoft Azure"
+	description="Create the computers and the SQL Server cluster and enable Availability Groups in Phase 3 of the SharePoint Server 2013 farm in Azure."
 	documentationCenter=""
 	services="virtual-machines"
 	authors="JoeDavies-MSFT"
@@ -44,7 +44,7 @@ When you have supplied all the proper values, run the resulting block at the Azu
 	$vmSize="<Table M – Item 3 - Minimum size column, specify one: Small, Medium, Large, ExtraLarge, A5, A6, A7, A8, A9>"
 	$availSet="<Table A – Item 2 – Availability set name column>"
 
-	$image= Get-AzureVMImage | where { $_.ImageFamily -eq "SQL Server 2014 RTM Standard on Windows Server 2012 R2" } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
+	$image= Get-AzureVMImage | where { $_.ImageFamily -eq "SQL Server 2014 RTM Enterprise on Windows Server 2012 R2" } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
 	$vm1=New-AzureVMConfig -Name $vmName -InstanceSize $vmSize -ImageName $image -AvailabilitySetName $availSet
 
 	$cred1=Get-Credential –Message "Type the name and password of the local administrator account for the first SQL Server computer."
@@ -143,7 +143,7 @@ SQL Server requires a port that clients use to access the database server. It al
 
 For each of the SQL server virtual machines, sign out as the local administrator.
 
-For information about optimizing SQL Server performance in Azure, see [Performance Best Practices for SQL Server in Azure Virtual Machines](https://msdn.microsoft.com/library/azure/dn133149.aspx). You can also disable Geo Redundant Storage (GRS) for the SharePoint farm storage account and use storage spaces to optimize IOPs.
+For information about optimizing SQL Server performance in Azure, see [Performance Best Practices for SQL Server in Azure Virtual Machines](virtual-machines-sql-server-performance-best-practices.md). You can also disable Geo Redundant Storage (GRS) for the SharePoint farm storage account and use storage spaces to optimize IOPs.
 
 ## Configure the cluster majority node server
 
