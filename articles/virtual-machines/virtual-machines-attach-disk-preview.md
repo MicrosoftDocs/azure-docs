@@ -14,16 +14,16 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/10/2015"
+	ms.date="09/14/2015"
 	ms.author="kathydav"/>
 
 # How To Attach a Data Disk in the Azure Preview Portal
 
-This article shows you how to attach both new and existing disks to a virtual machine through the Azure preview portal. Here's what you need to know before you do this:
+This article shows you how to attach both new and existing disks to a virtual machine through the Azure preview portal. Before you do this, review these tips:
 
 - The size of the virtual machine controls how many data disks you can attach. For details, see [Sizes for virtual machines](virtual-machines-size-specs.md).
-- Disks attached to virtual machines are actually .vhd files that reside in an Azure storage account. For details, see [About disks and VHDs for virtual machines](virtual-machines-disks-vhds.md).
-- If you're attaching a disk to a DS-series VM, you can use either a premium or a standard storage account. Premium storage is available for DS-series virtual machines in certain regions. For details, see [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](http://azure.microsoft.com/en-us/documentation/articles/storage-premium-storage-preview-portal/).
+- To use Premium storage, you'll need a DS-series or GS-series virtual machine. You can use disks from both Premium and Standard storage accounts with these virtual machines. Premium storage is available in certain regions. For details, see [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](../storage/storage-premium-storage-preview-portal.md).
+- Disks attached to virtual machines are actually .vhd files in an Azure storage account. For details, see [About disks and VHDs for virtual machines](virtual-machines-disks-vhds.md).
 - For a new disk, you don't need to create it first because Azure creates it when you attach it.
 - For an existing disk, the .vhd file must be available in an Azure storage account. You can use one that's already there, if it's not attached to another virtual machine, or upload your own .vhd file to the storage account.
 
@@ -39,11 +39,11 @@ This article shows you how to attach both new and existing disks to a virtual ma
 
 4.	Select the virtual machine from the list.
 
-5. To the right, under Essentials, click **All settings**, and then click **Disks**.
+5. To the right, under **Essentials**, click **All settings**, and then click **Disks**.
 
 	![Open disk settings](./media/virtual-machines-attach-disk-preview/find-disk-settings.png)
 
-Proceed by following instructions for attaching either a new disk or an existing disk.
+Continue by following instructions for attaching either a new disk or an existing disk.
 
 ## Option 1: Attach an Empty Disk
 
@@ -53,7 +53,7 @@ Proceed by following instructions for attaching either a new disk or an existing
 
  	![Review disk settings](./media/virtual-machines-attach-disk-preview/attach-new.png)
 
-3.	After Azure creates the disk and attaches it to the virtual machine, it's listed in the portal under **Data Disks**.
+3.	After Azure creates the disk and attaches it to the virtual machine, it's listed in the virtual machine's disk settings under **Data Disks**.
 
 ## Option 2: Attach an Existing Disk
 
@@ -69,10 +69,9 @@ Proceed by following instructions for attaching either a new disk or an existing
 
 4.	Select the .vhd file.
 
-5. Under **Attach existing disk**, the file you just selected is listed under **VHD File**. Click **OK**.
+5.	Under **Attach existing disk**, the file you just selected is listed under **VHD File**. Click **OK**.
 
-6.	After Azure attaches the disk to the virtual machine, it's listed in the portal under **Data Disks**.
-
+6.	After Azure attaches the disk to the virtual machine, it's listed in the virtual machine's disk settings under **Data Disks**.
 
 ## Additional resources
 
