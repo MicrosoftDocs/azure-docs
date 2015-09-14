@@ -176,7 +176,7 @@ The template files ProdAndStage.json and Dev.json already specify the source con
 
 		git checkout Dev
 
-2.	Make a simple change to the app’s UI layer by changing the code to use [Bootstrap](http://getbootstrap.com/components/) lists. Open *&lt;repository_root>*\src\MultiChannelToDo.Web\app\index.cshtml and make the highlighted change below:
+2.	Make a simple change to the app’s UI layer by changing the code to use [Bootstrap](http://getbootstrap.com/components/) lists. Open *&lt;repository_root>*\src\MultiChannelToDo.Web\index.cshtml and make the highlighted change below:
 
 	![](./media/app-service-agile-software-development/commit-1-changes.png)
 
