@@ -76,4 +76,4 @@ You can view the operation logs by clicking the operation logs link available in
 
 - Learn how to [troubleshoot a StorSimple device](storsimple-troubleshoot-operational-device.md).
 
-- Return to the [StorSimple Manager service administration page](storsimple-manager-service-administration.md).
+- Learn more about how to use the StorSimple Manager service to [administer your StorSimple device](storsimple-manager-service-administration.md).

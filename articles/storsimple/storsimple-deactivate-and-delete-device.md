@@ -92,4 +92,4 @@ It may take a few minutes for the device to be deleted.
 
 - For technical assistance, [contact Microsoft Support](storsimple-contact-microsoft-support.md).
 
-- Return to the [StorSimple Manager service administration page](storsimple-manager-service-administration.md). 
+- To learn more about how to use the StorSimple Manager service, go to [Use the StorSimple Manager service to administer your StorSimple device](storsimple-manager-service-administration.md). 

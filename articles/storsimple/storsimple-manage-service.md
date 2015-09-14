@@ -111,6 +111,6 @@ Perform the following steps to regenerate a service registration key.
 
 - Learn more about [managing your StorSimple storage account](storsimple-manage-storage-accounts.md).
 
-- Return to the [StorSimple Manager service administration page](storsimple-manager-service-administration.md).
+- Learn more about how to use the StorSimple Manager service to [administer your StorSimple device](storsimple-manager-service-administration.md).
 
  
