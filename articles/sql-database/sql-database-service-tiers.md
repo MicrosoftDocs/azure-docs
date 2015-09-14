@@ -19,7 +19,7 @@
 # Service Tiers
 
 ## Overview
-[SQL Database](sql-database-technical-overview.md) Azure SQL Database provides multiple service tiers to handle different types of workloads. You have the option of creating a single database with defined characteristics and pricing. Or you can create multiple databases in an elastic database pool. In both cases, the tiers include **Basic**, **Standard**, and **Premium**. But the characteristics of these tiers vary based on whether you are creating an individual database or a database within an elastic database pool. This article provides an overview of service tiers in both contexts.
+[Azure SQL Database](sql-database-technical-overview.md) provides multiple service tiers to handle different types of workloads. You have the option of creating a single database with defined characteristics and pricing. Or you can create multiple databases in an elastic database pool. In both cases, the tiers include **Basic**, **Standard**, and **Premium**. But the characteristics of these tiers vary based on whether you are creating an individual database or a database within an elastic database pool. This article provides an overview of service tiers in both contexts.
 
 ## Service tiers
 Basic, Standard, and Premium service tiers all have an uptime SLA of 99.99% and offer predictable performance, flexible business continuity options, security features, and hourly billing. The following table provides examples of the tiers best suited for different application workloads.
@@ -48,7 +48,7 @@ The following table describes the characteristics of the elastic database pool s
 
 [AZURE.INCLUDE [SQL DB service tiers table for elastic databases](../../includes/sql-database-service-tiers-table-elastic-db-pools.md)]
 
->[AZURE.NOTE] Unless otherwise stated, the limits above relate to the shared resources for the pool. For example, the Basic pool has a max sessions of 2400 – 28800 for the pool, but an individual database within that pool has a database limit of 300 sessions (the Basic limit for a single database as specified in the previous section of this topic).
+>[AZURE.NOTE] Each database within a pool also adheres to the single-database characteristics for that tier. For example, the Basic pool has a limit for max sessions per pool of 2400 – 28800, but an individual database within that pool has a database limit of 300 sessions (the limit for a single Basic database as specified in the previous section).
 
 ## Understanding DTUs
 
