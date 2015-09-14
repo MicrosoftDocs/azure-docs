@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/03/2015"
+	ms.date="09/10/2015"
 	ms.author="juliako"/>
 
 #Media Encoder Standard Formats and Codecs
@@ -36,6 +36,7 @@ MP4 (.mp4, .m4a, .m4v)/ISMV (.isma, .ismv)|Yes
 [Microsoft Digital Video Recording(DVR-MS)](https://msdn.microsoft.com/library/windows/desktop/dd692984) (.dvr-ms) |Yes 
 Matroska/WebM (.mkv)		|Yes 
 WAVE/WAV (.wav)	|Yes 
+QuickTime (.mov) |Yes
  
 
 ##Input Video Codecs
@@ -53,6 +54,13 @@ Canopus HQ/HQX										|No
 MPEG-4 Part 2										|Yes 
 [Theora](https://en.wikipedia.org/wiki/Theora)		|Yes 
 YUV420 uncompressed, or mezzanine					|Yes
+Apple ProRes 422									|Yes
+Apple ProRes 422 LT	|Yes
+Apple ProRes 422 HQ |Yes
+Apple ProRes Proxy|Yes
+Apple ProRes 4444 |Yes
+Apple ProRes 4444 XQ |Yes
+
 
 
 ##Input Audio Codecs
