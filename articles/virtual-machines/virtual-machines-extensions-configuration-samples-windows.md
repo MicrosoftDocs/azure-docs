@@ -164,8 +164,8 @@ Before deploying the extension please check the latest extension version and rep
               "settings": {
                 "workspace_name" : "Workspace Name : The Workspace ID is available from within the Direct Agent Configuration section of the Azure Operational Insights portal"
               }
-               "protectedSettings": {
-              "workspace_key"  : "The Workspace Key is a string that is available from within the Direct Agent Configuration section of the Azure Operational Insights portal"
+              "protectedSettings": {
+                "workspace_key"  : "The Workspace Key is a string that is available from within the Direct Agent Configuration section of the Azure Operational Insights portal"
               }
           }
             }
