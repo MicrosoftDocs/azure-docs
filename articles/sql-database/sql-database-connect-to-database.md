@@ -39,7 +39,7 @@ To connect to your database you need the full name  of the server (***servername
 
     ![fully qualified server name][6]
 
-    Use the fully qualified server name in step 2 below.
+    Use the fully qualified server name in step 3 below.
 
 
 
