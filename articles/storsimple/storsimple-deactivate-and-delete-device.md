@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Deactivate and delete a StorSimple device | Microsoft Azure"
-   description="Describes how to remove StorSimple device from service by deactivating and then deleting it."
+   description="Describes how to remove StorSimple device from service by  first deactivating it and then deleting it."
    services="storsimple"
    documentationCenter=""
    authors="SharS"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/12/2015"
+   ms.date="09/01/2015"
    ms.author="v-sharos" />
 
 # Deactivate and delete a StorSimple device
