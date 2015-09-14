@@ -26,11 +26,11 @@ To recover data from another DPM server:
 
 1. From the **Recovery** tab of the DPM management console, click **'Add External DPM'** (at the top left of the screen).
 
-    ![Ad External DPM](./media/backup-azure-alternate-dpm-server/add_external_dpm.png)
+    ![Ad External DPM](./media/backup-azure-alternate-dpm-server/add-external-dpm.png)
 
 2. Provide the **vault credentials** associated with the DPM server, whose data is being recovered, choose the **DPM server** from the list of DPM servers registered with the backup vault, and provide the **encryption passphrase** associated with the DPM server whose data is being recovered.
 
-    ![External DPM Credentials](./media/backup-azure-alternate-dpm-server/external_dpm_credentials.png)
+    ![External DPM Credentials](./media/backup-azure-alternate-dpm-server/external-dpm-credentials.png)
 
     >[AZURE.NOTE] Only DPM servers associated with the same registration vault can recover each other’s data.
 
@@ -38,13 +38,13 @@ To recover data from another DPM server:
 
 3. Browse the available list of production servers protected by the external DPM server and select the appropriate data source.
 
-    ![Browse External DPM Server](./media/backup-azure-alternate-dpm-server/browse_external_dpm.png)
+    ![Browse External DPM Server](./media/backup-azure-alternate-dpm-server/browse-external-dpm.png)
 
 4. Select **the month and year** from the **Recovery points** drop down, select the required **Recovery date** for when the recovery point was created, and select the **Recovery time**.
 
     A list of files and folders will appear in the bottom pane which can be browsed and recovered to any location.
 
-    ![External DPM Server Recovery Points](./media/backup-azure-alternate-dpm-server/external_dpm_recoverypoint.png)
+    ![External DPM Server Recovery Points](./media/backup-azure-alternate-dpm-server/external-dpm-recoverypoint.png)
 
 5. Right click the appropriate item and click **Recover**.
 
@@ -52,11 +52,11 @@ To recover data from another DPM server:
 
 6. Review the **Recover Selection**. Verify the data and time of the backup copy being recovered, as well as the source from which the backup copy was created. If the selection is incorrect, click **Cancel** to navigate back to recovery tab to select appropriate recovery point. If the selection is correct, click **Next**.
 
-    ![External DPM recovery summary](./media/backup-azure-alternate-dpm-server/external_dpm_recovery_summary.png)
+    ![External DPM recovery summary](./media/backup-azure-alternate-dpm-server/external-dpm-recovery-summary.png)
 
 7. Select **Recover to an alternate location**. **Browse** to the correct location for the recovery.
 
-    ![External DPM recovery alternate location](./media/backup-azure-alternate-dpm-server/external_dpm_recovery_alternate_location.png)
+    ![External DPM recovery alternate location](./media/backup-azure-alternate-dpm-server/external-dpm-recovery-alternate-location.png)
 
 8. Choose the option related to **create copy**, **Skip**, or **Overwrite**.
     - **Create copy** will create a copy of the file in the event there is a name collision.
@@ -67,19 +67,19 @@ To recover data from another DPM server:
 
     Identify whether a **Notification** will be sent once the recovery completes successfully.
 
-    ![External DPM Recovery Notifications](./media/backup-azure-alternate-dpm-server/external_dpm_recovery_notifications.png)
+    ![External DPM Recovery Notifications](./media/backup-azure-alternate-dpm-server/external-dpm-recovery-notifications.png)
 
 9. The **Summary** screen lists the options chosen so far. Once you click **‘Recover’**, the data will be recovered to the appropriate on-premises location.
 
-    ![External DPM Recovery Options Summary](./media/backup-azure-alternate-dpm-server/external_dpm_recovery_options_summary.png)
+    ![External DPM Recovery Options Summary](./media/backup-azure-alternate-dpm-server/external-dpm-recovery-options-summary.png)
 
     >[AZURE.NOTE] The recovery job can be monitored in the **Monitoring** tab of the DPM server.
 
-    ![Monitoring Recovery](./media/backup-azure-alternate-dpm-server/monitoring_recovery.png)
+    ![Monitoring Recovery](./media/backup-azure-alternate-dpm-server/monitoring-recovery.png)
 
 10. You can click **Clear External DPM** on the **Recovery** tab of the DPM server to remove the view of the external DPM server.
 
-    ![Clear External DPM](./media/backup-azure-alternate-dpm-server/clear_external_dpm.png)
+    ![Clear External DPM](./media/backup-azure-alternate-dpm-server/clear-external-dpm.png)
 
 ## Troubleshooting Error Messages
 |No. |	Error Message |	Troubleshooting steps |
@@ -98,7 +98,7 @@ To recover data from another DPM server:
 
     A) The Azure Backup agent minimum version to enable this feature is 2.0.8719.0.  Azure Backup agent version can be verified by navigating to Control Panel **>** All Control Panel items **>** Programs and features **>** Microsoft Azure Recovery Services Agent. If the version is less than 2.0.8719.0, download the [latest Azure Backup agent](https://go.microsoft.com/fwLink/?LinkID=288905) and install.
 
-    ![Clear External DPM](./media/backup-azure-alternate-dpm-server/external_dpm_azurebackupagentversion.png)
+    ![Clear External DPM](./media/backup-azure-alternate-dpm-server/external-dpm-azurebackupagentversion.png)
 
 ## Next Steps:
 •	[Azure Backup FAQ](backup-azure-backup-faq.md)
