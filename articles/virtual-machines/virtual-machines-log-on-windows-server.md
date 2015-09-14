@@ -24,6 +24,8 @@ You'll use the **Connect** button in the Azure portal to start a Remote Desktop 
 
 ## How to log on
 
+Here's a walkthrough of the steps in this tutorial.
+
 [AZURE.VIDEO logging-on-to-vm-running-windows-server-on-azure]
 
 1. If you haven't already done so, sign in to the [Azure portal](http://manage.windowsazure.com).

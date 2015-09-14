@@ -41,4 +41,4 @@ You'll use the **Connect** button in the Azure preview portal to start a Remote 
 
 ## Troubleshooting
 
-If following the tips for user name and password don't help, you'll need to do more extensive troubleshooting. For instructions, see [Troubleshoot Remote Desktop connections to a Windows-based Azure Virtual Machine](virtual-machines-troubleshoot-remote-desktop-connections.md).
+If following the tips in the step for user name and password don't help, you'll need to do more extensive troubleshooting. For instructions, see [Troubleshoot Remote Desktop connections to a Windows-based Azure Virtual Machine](virtual-machines-troubleshoot-remote-desktop-connections.md).
