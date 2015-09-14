@@ -24,20 +24,20 @@ This article will walk you through resetting your Azure VPN gateway using PowerS
 
 Resetting the Azure VPN gateway is helpful if you lose cross-premises VPN connectivity on one or more S2S VPN tunnels. In this situation, your on-premises VPN devices are all working correctly, but are not able to establish IPsec tunnels with the Azure VPN gateways. Resetting the VPN gateways should be the last resort in your troubleshooting process and the *Reset-AzureVNetGateway* cmdlet is provided as a tool to help you restore your cross-premises VPN connectivity to Azure virtual networks. When you use the *Reset-AzureVNetGateway* cmdlet, it will reboot your gateway, and then re-apply the cross-premises configurations to it. 
 
-Before you reset your gateway, verify the key items below for each IPsec S2S VPN tunnel. Any mismatch in the items below will result in disconnect of S2S VPN tunnels. Verifying and correcting configuration on either the on-premises, or Azure VPN gateways will save you from unnecessary reboots and disruptions to other working connections on the gateways.
+Before you reset your gateway, verify the key items below for each IPsec S2S VPN tunnel. Any mismatch in the items below will result in disconnect of S2S VPN tunnels. Verifying and correcting configuration for either the on-premises, or Azure VPN gateways will save you from unnecessary reboots and disruptions to other working connections on the gateways.
 
 Verify the following items before resetting your gateway.
 
-- The Internet IP addresses (VIPs) for both the Azure VPN gateway and the on premises VPN gateway are configured correctly in both Azure and on-premises VPN policy.
+- The Internet IP addresses (VIPs) for both the Azure VPN gateway and the on-premises VPN gateway are configured correctly in both the Azure and the on-premises VPN policies.
 - The pre-shared key must be the same on both Azure and on-premises VPN gateways.
-- If you apply specific IPsec/IKE configuration, such as encryption, hashing algorithms, PFS (Perfect Forward Secrecy), etc., please ensure both the Azure and on premises VPN gateways have the same configurations.
+- If you apply specific IPsec/IKE configuration, such as encryption, hashing algorithms, PFS (Perfect Forward Secrecy), etc., please ensure both the Azure and on-premises VPN gateways have the same configurations.
 
 
 ## Reset a VPN Gateway using PowerShell
 
 The PowerShell cmdlet for resetting Azure VPN gateway is *Reset-AzureVNetGateway*. 
 
-1. Use the *Reset-AzureVNetGateway* cmdlet to reset the gateway. Each Azure VPN gateway is composed of two VM instances running in active-standby configuration. Once the command is issued, the current active instance of the Azure VPN gateway will be rebooted immediately. There will be a brief gap during the failover from the active instance (being rebooted) to the standby instance. The gap should be less than one minute. 
+Use the *Reset-AzureVNetGateway* cmdlet to reset the gateway. Each Azure VPN gateway is composed of two VM instances running in active-standby configuration. Once the command is issued, the current active instance of the Azure VPN gateway will be rebooted immediately. There will be a brief gap during the failover from the active instance (being rebooted) to the standby instance. The gap should be less than one minute. 
 
 The following example will reset the Azure VPN gateway for the virtual network called "ContosoVNet":
  
@@ -50,10 +50,10 @@ The following example will reset the Azure VPN gateway for the virtual network c
 			RequestId      : 9ca273de2c4d01e986480ce1ffa4d6d9
 			StatusCode     : OK
 
-2. If the connection is not restored after the first reboot, issue the same command again to reboot the second VM instance (the new active gateway). 
-Note: If the two reboots are requested back to back, there will be a slightly longer there will be a slightly longer period where both VM instances (active and standby) are in reboot. This case will cause a longer gap on the VPN connectivity, up to 2 to 4 minutes for VMs to complete the reboots.
 
-If you are still experiencing cross-premises connectivity problems after two reboots, please open a support ticket from the Portal to contact Microsoft Azure Support.
+If the connection is not restored after the first reboot, issue the same command again to reboot the second VM instance (the new active gateway). If the two reboots are requested back to back, there will be a slightly longer there will be a slightly longer period where both VM instances (active and standby) are in reboot. This case will cause a longer gap on the VPN connectivity, up to 2 to 4 minutes for VMs to complete the reboots.
+
+After two reboots, if you are still experiencing cross-premises connectivity problems, please open a support ticket from the Portal to contact Microsoft Azure Support.
 
 
 ## Next steps
