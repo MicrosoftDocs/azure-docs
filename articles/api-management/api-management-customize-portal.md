@@ -18,7 +18,7 @@
 
 # Customize the developer portal in Azure API Management
 
-This guide shows you how to modify the appearance of the developer portal in API Management for consistency with your brand.
+This guide shows you how to modify the look and feel of the developer portal in Azure API Management for consistency with your brand.
 
 ## <a name="change-page-headers"> </a>Change the text or logo in the page header
 
@@ -34,7 +34,7 @@ The developer portal is based on a content management system or CMS. The header 
 
 The contents of the header is editable from within the **Body** field. Change the text to "Fabrikam Developer Portal", and then click **Save** at the bottom of the page.
 
-Now you should be able to see the new header on every page within the developer portal!
+Now you should be able to see the new header on every page within the developer portal.
 
 > To open the developer portal while in the publisher portal, click **Developer portal** in the top bar.
 
@@ -48,7 +48,7 @@ Your browser switches to a hidden page within the developer portal that contains
 
 There are two main modes of editing styling rules - **Edit all rules** displays a list of all the style rules used anywhere, while **Pick element** allows you to select an element from the page you are on and displays styles only for that element.
 
-In this section, we want to change the styling of only the headers. Click the **Pick element** option from the styling editor toolbar, and then click **Select an element to customize**. Elements now become highlighted as you hover over them with the mouse to signify what element's styles you would start editing if you clicked. Move the mouse over the text representing the company name in the header ("Fabrikam Developer Portal" if you followed the instructions in the previous section), and then click it. A set of named and categorized styling rules appears within the styling editor.
+In this section, we want to change the styling of only the headers. Click the **Pick element** option from the styling editor toolbar, and then click **Select an element to customize**. Elements now become highlighted as you hover over them with the mouse to signify what element's styles you would start editing if you clicked. Move the mouse over the text that represents the company name in the header ("Fabrikam Developer Portal" if you followed the instructions in the previous section), and then click it. A set of named and categorized styling rules appears within the styling editor.
 
 Each rule represents a styling property of the selected element. For example, for the header text selected above, the size of the text is in @font-size-h1 while the name of the font with alternatives is in @headings-font-family.
 
@@ -58,7 +58,7 @@ Let's change the color of the heading text. Select the entry in the **@headings-
 
 ![Color picker][api-management-customization-toolbar-color-picker]
 
-When you are done making changes to the styles of the selected element, click **Preview Changes** to see the results on the screen. At this time, they are only visible to administrators. To make these changes visible to everyone, click the **Publish** button in the styling editor and confirm the changes.
+When you are done making changes to the styles of the selected element, click **Preview Changes** to see the results on the screen. At this time, they are visible only to administrators. To make these changes visible to everyone, click the **Publish** button in the styling editor and confirm the changes.
 
 ![Publish menu][api-management-customization-toolbar-publish-form]
 
@@ -74,7 +74,7 @@ To see the list of all existing content pages, click **Content** from the **Deve
 
 Click the **Welcome** page to edit what is displayed on the home page of the developer portal. Make the changes you want, preview them if necessary, and then click **Publish Now** to make them visible to everyone.
 
-> The home page uses a special layout which allows it to display a banner at the top. This banner is not editable from the **Content** section. To edit this banner, click **Widgets** from the **Developer portal** menu, select **Home page** from the **Current Layer** drop-down list, and then open the **Banner** item under the **Featured section**. The contents of this widget are editable just like any other page.
+> The home page uses a special layout that allows it to display a banner at the top. This banner is not editable from the **Content** section. To edit this banner, click **Widgets** from the **Developer portal** menu, select **Home page** from the **Current Layer** drop-down list, and then open the **Banner** item under the **Featured section**. The contents of this widget are editable just like any other page.
 
 ## <a name="next-steps"> </a>Next steps
 
