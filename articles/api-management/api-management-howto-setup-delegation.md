@@ -127,8 +127,6 @@ Then ensure the delegation endpoint performs the following actions:
 
 4. On successfully subscribing the user to the product on your side, subscribe the user to the API Management product by [calling the REST API for product subscription].
 
-5. Redirect the user back to the **returnUrl** provided when receiving the request.
-
 ## <a name="delegate-example-code"> </a> Example Code ##
 
 These code samples show how to take the *delegation validation key*, which is set in the Delegation screen of the API Management portal, to create a HMAC which is then used to validate the signature, proving the validity of the passed returnUrl. The same code works for the productId and userId with slight modification.
