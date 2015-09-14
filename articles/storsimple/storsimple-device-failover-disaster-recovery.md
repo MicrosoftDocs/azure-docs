@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/11/2015"
+   ms.date="09/14/2015"
    ms.author="alkohli" />
 
 # Failover and disaster recovery for your StorSimple device

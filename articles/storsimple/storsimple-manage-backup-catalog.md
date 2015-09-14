@@ -113,4 +113,6 @@ Delete a backup when you no longer wish to retain the data associated with it. P
 
 ## Next steps
 
-Learn how to use the backup catalog to [restore your device from a backup set](storsimple-restore-from-backup-set.md).
+- Learn how to use the backup catalog to [restore your device from a backup set](storsimple-restore-from-backup-set.md).
+
+- Return to the [StorSimple Manager service administration page](storsimple-manager-service-administration.md).

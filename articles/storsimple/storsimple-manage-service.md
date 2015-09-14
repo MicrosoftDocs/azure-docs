@@ -107,10 +107,10 @@ Perform the following steps to regenerate a service registration key.
 
 ## Next steps
 
-Learn more about the [StorSimple deployment process](storsimple-deployment-walkthrough.md).
+- Learn more about the [StorSimple deployment process](storsimple-deployment-walkthrough.md).
 
-Learn more about [managing your StorSimple storage account](storsimple-manage-storage-accounts.md).
+- Learn more about [managing your StorSimple storage account](storsimple-manage-storage-accounts.md).
 
-Return to the [StorSimple Manager service administration page](storsimple-manager-service-administration.md).
+- Return to the [StorSimple Manager service administration page](storsimple-manager-service-administration.md).
 
  

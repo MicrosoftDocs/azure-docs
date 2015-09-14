@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/02/2015"
+   ms.date="09/14/2015"
    ms.author="v-sharos" />
 
 # Use the StorSimple Manager service dashboard
@@ -74,4 +74,6 @@ You can view the operation logs by clicking the operation logs link available in
 
 ## Next steps
 
-[Learn how to troubleshoot a StorSimple device](storsimple-troubleshoot-operational-device.md).
+- Learn how to [troubleshoot a StorSimple device](storsimple-troubleshoot-operational-device.md).
+
+- Return to the [StorSimple Manager service administration page](storsimple-manager-service-administration.md).
