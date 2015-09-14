@@ -3,7 +3,7 @@
    description="Provision a SQL Data Warehouse by following these steps and guidelines."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="jrowlandjones"
+   authors="lodipalm"
    manager="barbkess"
    editor=""/>
 
@@ -25,7 +25,7 @@ This article is a guide to help you provision a SQL Data Warehouse in Azure. By 
 3. Set an Azure firewall rule to enable external client access.
 
 ## Azure free trial ##
-You will need to have an Azure subscription to complete the following tasks. If you do not already have access to an Azure subscription then resolving this is actually your first step!
+You will need to have an Azure subscription and approval to the SQL Data Warehouse Preview to complete the following tasks. If you do not already have access to an Azure subscription then resolving this is actually your first step!
 
 You can get a [free trial][] that allows you to try any of the Azure services, including SQL Data Warehouse.
 
@@ -40,13 +40,13 @@ In this next series of steps we will quickly spin up a brand new logical server 
 
 The first thing we have to do is locate the SQL Data Warehouse service in the Azure portal.
 
-In the bottom left corner of the Azure Portal is the new button. The new button is the starting point for creating any new service within Azure.
+In the upper left corner of the Azure Portal is the New button. The New button is the starting point for creating any new service within Azure.
 
 - Click the new button now.
 
 ### Data + Storage
 
-Clicking the new button has opened up all the service categories within Azure. SQL Data Warehouse lives in the "Data + Storage" category.
+Clicking the New button opens up all the Azure service categories. SQL Data Warehouse lives in the "Data + Storage" category.
 
 - Click **Data + Storage** to drill in and see the services offered by Azure for this category.
 
@@ -54,7 +54,12 @@ Clicking the new button has opened up all the service categories within Azure. S
 
 As you can see Azure offers lots of data and storage engines. However, this getting started guide is for SQL Data Warehouse.
 
-- Go ahead and select **SQL Data Warehouse**.
+- Go ahead and select **SQL Data Warehouse**. 
+
+##Admission to the Preview
+Before you can start the setup process you must be admitted to the Preview program. Click the sign up for the Preview and submit. You will be notified by email when your submission has been approved.
+
+Once you receieve approval, you can proceed to the next steps. Note: Approval may take several days to process.
 
 ## Configure SQL Data Warehouse
 
