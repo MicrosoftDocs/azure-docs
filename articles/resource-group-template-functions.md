@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/21/2015"
+   ms.date="09/14/2015"
    ms.author="tomfitz"/>
 
 # Azure Resource Manager Template Functions
@@ -116,7 +116,7 @@ Returns the number of elements in an array. Typically, used to specify the numbe
 
 ## listKeys
 
-**listKeys (resourceName or resourceIdentifier, [apiVersion])**
+**listKeys (resourceName or resourceIdentifier, apiVersion)**
 
 Returns the keys of a storage account. The resourceId can be specified by using the [resourceId function](./#resourceid) or by using the format **providerNamespace/resourceType/resourceName**. You can use the function to get the primaryKey and secondaryKey.
   
@@ -129,7 +129,7 @@ The following example shows how to return the keys from a storage account in the
 
     "outputs": { 
       "exampleOutput": { 
-        "value": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName')), providers('Microsoft.Storage', 'storageAccounts').apiVersions[0])]", 
+        "value": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName')), '2015-05-01-preview')]", 
         "type" : "object" 
       } 
     } 
@@ -206,9 +206,9 @@ The following example shows a simplified use of the parameters function.
        }
     ]
 
-## provider
+## providers
 
-**provider (providerNamespace, [resourceType])**
+**providers (providerNamespace, [resourceType])**
 
 Return information about a resource provider and its supported resource types. If not type is provided, all of the supported types are returned.
 
