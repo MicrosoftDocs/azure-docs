@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Use Windows PowerShell for StorSimple to administer your StorSimple device | Microsoft Azure"
-   description="Learn how to manage your StorSimple device using the Windows PowerShell for StorSimple"
+   pageTitle="PowerShell for StorSimple device management | Microsoft Azure"
+   description="Learn how to use Windows PowerShell for StorSimple to manage your StorSimple device."
    services="storsimple"
    documentationCenter="NA"
    authors="alkohli"
@@ -12,24 +12,24 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/19/2015"
+   ms.date="08/28/2015"
    ms.author="alkohli@microsoft.com" />
 
 # Use Windows PowerShell for StorSimple to administer your device
 
 ## Overview
+
 Windows PowerShell for StorSimple provides a command-line interface that you can use to manage your Microsoft Azure StorSimple device. As the name suggests, it is a Windows PowerShell-based, command-line interface that is built in a constrained runspace. From the perspective of the user at the command line, a constrained runspace appears as a restricted version of Windows PowerShell. While maintaining some of the basic capabilities of Windows PowerShell, this interface has additional dedicated cmdlets that are geared towards managing your Microsoft Azure StorSimple device. 
 
-This article describes the features in Windows PowerShell for StorSimple including how you can connect to this interface and links out to step-by-step procedures of workflows that can be performed using this interface. The workflows include how to register your device, configure the network interface on your device, install updates that require the device to be in maintenance mode, change the device state, and troubleshoot any issues that you may experience.
+This article describes the Windows PowerShell for StorSimple features, including how you can connect to this interface, and contains links to step-by-step procedures or workflows that you can perform using this interface. The workflows include how to register your device, configure the network interface on your device, install updates that require the device to be in maintenance mode, change the device state, and troubleshoot any issues that you may experience.
 
 After reading this article, you will be able to:
 
+- Connect to your StorSimple device using Windows PowerShell for StorSimple.
 
-- Connect to your StorSimple device using Windows PowerShell for StorSimple
+- Administer your StorSimple device using Windows PowerShell for StorSimple.
 
-- Administer your StorSimple device using Windows PowerShell for StorSimple
-
-- Get help in Windows PowerShell for StorSimple
+- Get help in Windows PowerShell for StorSimple.
 
 >[AZURE.NOTE] 	
 
@@ -68,7 +68,7 @@ You can choose from the following settings:
 
 1. **Log in with full access**
 This option allows you to connect (with the proper credentials) to the **SSAdminConsole** runspace on the local controller. (The local controller is the controller that you are currently accessing through the serial console of your StorSimple device.) 
-This option can also be used to allow Microsoft Support to access unrestricted runspace (a support session) to troubleshoot any possible device issues. After you use option 1 to log on, you can allow the Microsoft Support engineer to access unrestricted runspace by running a specific cmdlet. For details, refer to [Start a support session](storsimple-contact-microsoft-support.md#start-a-support-session-in-windows-powershell-for-storsimple). This option connects to a runspace on the local controller.
+This option can also be used to allow Microsoft Support to access unrestricted runspace (a support session) to troubleshoot any possible device issues. After you use option 1 to log on, you can allow the Microsoft Support engineer to access unrestricted runspace by running a specific cmdlet. For details, refer to [Start a support session](storsimple-contact-microsoft-support.md#start-a-support-session-in-windows-powershell-for-storsimple).
 
 1. **Log in to peer controller with full access**
 This option is the same as option 1, except that you can connect (with the proper credentials) to the **SSAdminConsole** runspace on the peer controller. Because the StorSimple device is a high availability device with two controllers in an active-passive configuration, peer refers to the other controller in the device that you are accessing through the serial console).
@@ -129,7 +129,7 @@ You can now use PuTTY to connect to the device serial console by doing the follo
 ## Connect remotely to StorSimple using Windows PowerShell for StorSimple
 You can use Windows PowerShell remoting to connect to your StorSimple device. When you connect this way, you will not see a menu. (You see a menu only if you use the serial console on the device to connect.) With Windows PowerShell remoting, you connect to a specific runspace. You can also specify the display language. 
 
-The display language is independent of the language that you set by using the Change Language option in the serial console menu. Remote PowerShell will automatically pick up the locale of the device you are connecting from if none is specified.
+The display language is independent of the language that you set by using the **Change Language** option in the serial console menu. Remote PowerShell will automatically pick up the locale of the device you are connecting from if none is specified.
 
 >[AZURE.NOTE] If you are working with Microsoft Azure virtual hosts and StorSimple virtual devices, you can use Windows PowerShell remoting and the virtual host to connect to the virtual device. If you have set up a share location on the host on which to save information from the Windows PowerShell session you should be aware that the Everyone principal includes only authenticated users. Therefore, if you have set the share up to allow access by Everyone and you connect without specifying credentials, the unauthenticated Anonymous principal will be used and you will see an error. To fix this issue, on the share host you must enable the Guest account and then give the Guest account full access to the share or you must specify valid credentials along with the Windows PowerShell cmdlet.
 

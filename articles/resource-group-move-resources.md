@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/20/2015" 
+	ms.date="09/08/2015" 
 	ms.author="tomfitz"/>
 
 # Move resources to new resource group or subscription
@@ -40,13 +40,15 @@ Not all services currently support the ability to move resources.
 For now, the services that support moving to both a new resource group and subscription are:
 
 - API Management
+- Azure DocumentDB
 - Azure Search
+- Azure Web Apps (some [limitations](app-service-web/app-service-move-resources.md) apply)
 - Data Factory
 - Key Vault
 - Mobile Engagement
 - Operational Insights
 - Redis Cache
-- Azure Web Apps (some [limitations](app-service-web/app-service-move-resources.md) apply)
+- SQL Database
 
 The services that support moving to a new resource group but not a new subscription are:
 

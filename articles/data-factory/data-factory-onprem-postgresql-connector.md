@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="PostgreSQL Connector - Move data From PostgreSQL" 
-	description="Learn about PostgreSQL Connector for the Data Factory service that lets you move data from PostgreSQL Database" 
+	pageTitle="Move data From PostgreSQL | Azure Data Factory" 
+	description="Learn about how to move data from PostgreSQL Database using Azure Data Factory." 
 	services="data-factory" 
 	documentationCenter="" 
 	authors="spelluru" 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/29/2015" 
+	ms.date="08/26/2015" 
 	ms.author="spelluru"/>
 
-# PostgreSQL Connector - Move data from PostgreSQL using Azure Data Factory
+# Move data from PostgreSQL using Azure Data Factory
 
 This article outlines how you can use the Copy Activity in an Azure data factory to move data from PostgreSQL to another data store. This article builds on the [data movement activities](data-factory-data-movement-activities.md) article which presents a general overview of data movement with copy activity and supported data store combinations.
 
@@ -34,11 +34,11 @@ For Data Management Gateway to connect to the PostgreSQL Database, you need to i
 
 The sample below shows:
 
-1.	A linked service of type OnPremisesPostgreSql.
-2.	A linked service of type AzureStorage.
-3.	An input dataset of type RelationalTable.
-4.	An output dataset of type BlobSink.
-4.	The pipeline with Copy Activity that uses RelationalSource and BlobSink. 
+1.	A linked service of type [OnPremisesPostgreSql](data-factory-onprem-postgresql-connector.md#postgresql-linked-service-properties).
+2.	A linked service of type [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties).
+3.	An input [dataset](data-factory-create-datasets.md) of type [RelationalTable](data-factory-onprem-postgresql-connector.md#postgresql-dataset-type-properties).
+4.	An output [dataset](data-factory-create-datasets.md) of type [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
+4.	The [pipeline](data-factory-create-pipelines.md) with Copy Activity that uses [RelationalSource](data-factory-onprem-postgresql-connector.md#postgresql-copy-activity-type-properties) and [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties). 
 
 The sample copies data from a query result in PostgreSQL database to a blob every hour. The JSON properties used in these samples are described in sections following the samples. 
 
@@ -222,6 +222,8 @@ authenticationType | Type of authentication used to connect to the PostgreSQL da
 username | Specify user name if you are using Basic or Windows authentication. | No 
 password | Specify password for the user account you specified for the username. | No 
 gatewayName | Name of the gateway that the Data Factory service should use to connect to the on-premises PostgreSQL database. | Yes 
+
+See [Setting Credentials and Security](data-factory-move-data-between-onprem-and-cloud.md#setting-credentials-and-security) for details about setting credentials for an on-premises PostgreSQL data source.
 
 ## PostgreSQL Dataset type properties
 

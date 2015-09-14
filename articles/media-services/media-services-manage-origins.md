@@ -14,11 +14,15 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/20/2015"
+	ms.date="09/07/2015"
 	ms.author="juliako"/>
 
 
 #<a id="managemediaservicesorigins"></a>How to Manage Streaming Endpoints in a Media Services Account
+
+> [AZURE.SELECTOR]
+- [Portal](media-services-manage-origins.md)
+- [Java](https://github.com/southworkscom/azure-sdk-for-media-services-java-samples)
 
 In Microsoft Azure Media Services, a **Streaming Endpoint** represents a streaming service that can deliver content directly to a client player application, or to a Content Delivery Network (CDN) for further distribution. Media Services also provides seamless Azure CDN integration. The outbound stream from a StreamingEndpoint service can be a live stream, or a video on demand Asset in your Media Services account.  
 
@@ -129,6 +133,14 @@ Once it is enabled, the following configurations get disabled: **Custom Host Nam
  
 
 For more information see, [Announcing Azure Media Services integration with Azure CDN (Content Delivery Network)](http://azure.microsoft.com/blog/2015/03/17/announcing-azure-media-services-integration-with-azure-cdn-content-delivery-network/).
+
+
+##Media Services learning paths
+
+You can view AMS learning paths here:
+
+- [AMS Live Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [AMS on Demand Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
 
 [streaming-endpoint-enable-cdn]: ./media/media-services-manage-origins/media-services-origins-enable-cdn.png

@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Copy output data from tutorial to an on-premises SQL Server database" 
-	description="The walkthrough in this tutorial extends the data factory tutorial to copy marketing campaign effectiveness data to an on-premises SQL Server database."
+	pageTitle="Copy output data to an on-premises SQL Server database (Azure PowerShell)" 
+	description="This walkthrough extends the tutorial using Azure PowerShell such that the pipeline copies output data to a SQL Server database."
 	services="data-factory" 
 	documentationCenter="" 
 	authors="spelluru" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/07/2015" 
+	ms.date="08/25/2015" 
 	ms.author="spelluru"/>
 
 
@@ -152,8 +152,7 @@ Congratulations! You have successfully gone through the walkthrough to use your 
 [datafactorytutorial]: data-factory-tutorial-using-powershell.md
 [adfgetstarted]: data-factory-get-started.md
 [adfintroduction]: data-factory-introduction.md
-[useonpremisesdatasources]: data-factory-use-onpremises-datasources.md
-[usepigandhive]: data-factory-pig-hive-activities.md
+[useonpremisesdatasources]: data-factory-move-data-between-onprem-and-cloud.md
 
 [azure-preview-portal]: http://portal.azure.com
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/

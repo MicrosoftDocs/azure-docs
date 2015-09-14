@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd"
-   ms.date="07/21/2015"
+   ms.date="09/10/2015"
    ms.author="banders" />
 
 # Search for data in Operational Insights
@@ -626,7 +626,7 @@ You can chain the Date/Time math operators together, for example:
 The following table lists the supported Date/Time units.
 
 Date/Time unit|Description
----|--- 
+---|---
 YEAR, YEARS|Rounds to current year, or offsets by the specified number of years.
 MONTH, MONTHS|Rounds to current month, or offsets by the specified number of months.
 DAY, DAYS, DATE|Rounds to current day of the month, or offsets by the specified number of days.

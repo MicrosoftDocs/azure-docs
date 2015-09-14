@@ -15,12 +15,16 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/29/2015"
+	ms.date="09/01/2015"
 	ms.author="mohabib;xibingao;bradsev" />
 
 # Data Science Virtual machines in Azure
 
-Several types of Azure virtual machines can be provisioned and configured to be used as part of a cloud-based data science environment. The decision about which flavor of virtual machine to use depends on the type and quantity of data to be modeled with machine learning, and the target destination for that data in the cloud. For guidance on the questions to consider when making this decision, see [Plan Your Azure Machine Learning Data Science Environment](machine-learning-data-science-plan-your-environment.md). For a catalog of some of the scenarios you might encounter when doing advanced analytics, see [Scenarios for the Advanced Analytics Process and Technology in Azure Machine Learning](../machine-learning-data-science-plan-sample-scenarios.md)
+Several types of Azure virtual machines can be provisioned and configured to be used as part of a cloud-based data science environment. The decision about which flavor of virtual machine to use depends on the type and quantity of data to be modeled with machine learning, and the target destination for that data in the cloud. 
+
+
+* For guidance on the questions to consider when making this decision, see [Plan Your Azure Machine Learning Data Science Environment](machine-learning-data-science-plan-your-environment.md). 
+* For a catalog of some of the scenarios you might encounter when doing advanced analytics, see [Scenarios for the Advanced Analytics Process and Technology in Azure Machine Learning](../machine-learning-data-science-plan-sample-scenarios.md)
 
 Instructions are provided that describe how to set up an Azure VM and an Azure VM with SQL Service as IPython Notebook servers. The Windows virtual machine is configured with supporting tools such as IPython Notebook, Azure Storage Explorer and AzCopy, as well as other utilities that are useful for data science projects. Azure Storage Explorer and AzCopy, for example, provide convenient ways to upload data to Azure storage from your local machine or to download it to your local machine from storage. Two sets of instructions are provided:
 
