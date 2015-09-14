@@ -21,7 +21,7 @@
 
 # Connect with SQL Server Management Studio (SSMS)
 
-Use the following steps to install SQL Server Management Studio (SSMS) and then use SSMS to connect and query your SQL Database.
+Use the following steps to connect and query your SQL database using SQL Server Management Studio (SSMS).
 
 ## Prerequisites
 
