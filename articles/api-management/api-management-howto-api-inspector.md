@@ -24,7 +24,7 @@ In addition to tracing operations, API Inspector also traces [policy expression]
 
 This guide provides a walk-through of using API Inspector.
 
->[AZURE.NOTE] API Inspector traces are only generated and made available for requests containing subscription keys that belong to the [administrators](api-management-howto-create-groups.md) account.
+>[AZURE.NOTE] API Inspector traces are only generated and made available for requests containing subscription keys that belong to the [administrator](api-management-howto-create-groups.md) account.
 
 ## <a name="trace-call"> </a> Use API Inspector to trace a call
 
