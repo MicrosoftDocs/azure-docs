@@ -84,7 +84,7 @@ The sample below creates a virtual network named *testvnet* and two subnets, one
 
 This step is required only if you need to add a gateway subnet to a VNet.
 
-If you already have an existing virtual network and you want to add a gateway subnet to it, you can create your gateway subnet by using the sample below. Be sure to name the gateway subnet 'GatewaySubnet. If you name it something else, you'll create a subnet, but it won't be seen by Azure as a gateway subnet.
+If you already have an existing virtual network and you want to add a gateway subnet to it, you can create your gateway subnet by using the sample below. Be sure to name the gateway subnet 'GatewaySubnet'. If you name it something else, you'll create a subnet, but it won't be seen by Azure as a gateway subnet.
 
 		$vnet = Get-AzureVirtualNetwork -ResourceGroupName testrg -Name testvnet
 		Add-AzureVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.0.3.0/28 -VirtualNetwork $vnet
