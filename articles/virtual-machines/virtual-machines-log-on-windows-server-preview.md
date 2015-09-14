@@ -29,20 +29,16 @@ You'll use the **Connect** button in the Azure preview portal to start a Remote 
 
 3.	On the search blade, scroll down and click **Virtual Machines**.
 
+	![Search for virtual machines](./media/virtual-machines-log-on-windows-server-preview/search-blade-preview-portal.png)
+
 4.	Select the virtual machine from the list.
 
-3. On the blade for the virtual machine, click **Connect**.
+5. On the blade for the virtual machine, click **Connect**.
 
-	![Connect to the virtual machine](./media/virtual-machines-log-on-win-server/connectwindows.png)
+	![Connect to the virtual machine](./media/virtual-machines-log-on-windows-server-preview/preview-portal-connect.png)
 
 [AZURE.INCLUDE [virtual-machines-log-on-win-server](../../includes/virtual-machines-log-on-win-server.md)]
 
-## Troubleshooting tips
+## Troubleshooting
 
-Here are a few things to try quickly:
-
-For problems with the Remote Desktop connection, try resetting the configuration from the portal. From the virtual machine dashboard, under **Quick Glance**, click **Reset remote configuration**.
-
-For problems with your password, try resetting it from the portal. From the virtual machine dashboard, under **Quick Glance**, click **Reset password**.
-
-If those don't work, you'll need to do more extensive troubleshooting. For instructions, see [Troubleshoot Remote Desktop connections to a Windows-based Azure Virtual Machine](virtual-machines-troubleshoot-remote-desktop-connections.md).
+If following the tips for user name and password don't help, you'll need to do more extensive troubleshooting. For instructions, see [Troubleshoot Remote Desktop connections to a Windows-based Azure Virtual Machine](virtual-machines-troubleshoot-remote-desktop-connections.md).
