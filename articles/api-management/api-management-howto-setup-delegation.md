@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/18/2015" 
+	ms.date="09/14/2015" 
 	ms.author="antonba"/>
 
 # How to delegate user registration and product subscription
@@ -94,7 +94,7 @@ Delegating product subscription works similarly to delegating user sign-in/-up. 
 1. Developer selects a product in the API Management developer portal and clicks on the Subscribe button
 2. Browser is redirected to the delegation endpoint
 3. Delegation endpoint performs required product subscription steps - this is up to you and may entail redirecting to another page to request billing information, asking additional questions, or simply storing the information and not requiring any user action
-4. On success, the user is redirected back to the API Management developer portal page they started from
+
 
 To enable the functionality, on the **Delegation** page click **Delegate product subscription**.
 
