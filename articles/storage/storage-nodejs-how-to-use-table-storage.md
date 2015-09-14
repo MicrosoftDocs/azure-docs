@@ -1,6 +1,6 @@
 <properties
-	pageTitle="How to use Azure Table Storage from Node.js | Microsoft Azure"
-	description="Learn how to use Azure Table Storage. Code samples are written using the Node.js API."
+	pageTitle="How to use Azure Table storage from Node.js | Microsoft Azure"
+	description="Learn how to use Azure Table storage. Code samples are written using the Node.js API."
 	services="storage"
 	documentationCenter="nodejs"
 	authors="MikeWasson"
@@ -17,7 +17,7 @@
 	ms.author="mwasson"/>
 
 
-# How to use Azure Table Storage from Node.js
+# How to use Azure Table storage from Node.js
 
 [AZURE.INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
 
@@ -28,8 +28,8 @@ This topic shows how to perform common scenarios using the Azure Table service i
 
 The code examples in this topic assume you already have a Node.js application. For information about how to create a Node.js application in Azure, see any of these topics:
 
-- [Build and deploy a Node.js website to Azure](Create and deploy a Node.js application to an Azure Web Site)
-- [Build and deploy a Node.js website to Azure using WebMatrix]CWeb Site with WebMatrix)
+- [Build and deploy a Node.js website to Azure](Create and deploy a Node.js application to an Azure website)
+- [Build and deploy a Node.js website to Azure using WebMatrix](Create and deploy a Node.js application with WebMatrix)
 - [Build and deploy a Node.js application to an Azure Cloud Service](Node.js Cloud Service) (using Windows PowerShell)
 
 
@@ -72,7 +72,7 @@ Add the following code to the top of the **server.js** file in your application:
 
 The azure module will read the environment variables AZURE\_STORAGE\_ACCOUNT and AZURE\_STORAGE\_ACCESS\_KEY, or AZURE\_STORAGE\_CONNECTION\_STRING for information required to connect to your Azure storage account. If these environment variables are not set, you must specify the account information when calling **TableService**.
 
-For an example of setting the environment variables in the Portal for an Azure Website, see [Node.js Web application with Storage]
+For an example of setting the environment variables in the Azure portal for an Azure Website, see [Node.js web application with Storage]
 
 ## Create a table
 
@@ -96,11 +96,11 @@ Optional filtering operations can be applied to operations performed using **Tab
 
 		function handle (requestOptions, next)
 
-After doing its preprocessing on the request options, the method needs to call "next" passing a callback with the following signature:
+After doing its preprocessing on the request options, the method needs to call "next", passing a callback with the following signature:
 
 		function (returnObject, finalCallback, next)
 
-In this callback, and after processing the returnObject (the response from the request to the server), the callback needs to either invoke next if it exists to continue processing other filters or simply invoke finalCallback otherwise to end up the service invocation.
+In this callback, and after processing the returnObject (the response from the request to the server), the callback needs to either invoke next if it exists to continue processing other filters or simply invoke finalCallback otherwise to end the service invocation.
 
 Two filters that implement retry logic are included with the Azure SDK for Node.js, **ExponentialRetryPolicyFilter** and **LinearRetryPolicyFilter**. The following creates a **TableService** object that uses the **ExponentialRetryPolicyFilter**:
 
@@ -186,7 +186,7 @@ The following example demonstrates updating an entity using **updateEntity**:
 >    
 > 3. Perform the update operation. If the entity has been modified since you retrieved the ETag value, such as another instance of your application, an `error` will be returned stating that the update condition specified in the request was not satisfied.
 
-With **updateEntity** and **mergeEntity**, if the entity that is being updated doesn't exist then the update operation will fail. Therefore if you wish to store an entity regardless of whether it already exists, use **insertOrReplaceEntity** or **insertOrMergeEntity**.
+With **updateEntity** and **mergeEntity**, if the entity that is being updated doesn't exist, then the update operation will fail. Therefore if you wish to store an entity regardless of whether it already exists, use **insertOrReplaceEntity** or **insertOrMergeEntity**.
 
 The `result` for successful update operations will contain the **Etag** of the updated entity.
 
@@ -224,7 +224,7 @@ For successful batch operations, `result` will contain information for each oper
 
 ### Work with batched operations
 
-Operations added to a batch can be inspected by viewing the `operations` property. You can also use the following methods to work with operations.
+Operations added to a batch can be inspected by viewing the `operations` property. You can also use the following methods to work with operations:
 
 * **clear** - clears all operations from a batch
 
@@ -246,7 +246,7 @@ To return a specific entity based on the **PartitionKey** and **RowKey**, use th
 	  }
     });
 
-Once this operation completes, `result` will contain the entity.
+Once this operation is complete, `result` will contain the entity.
 
 ## Query a set of entities
 
@@ -263,7 +263,7 @@ To query a table, use the **TableQuery** object to build up a query expression u
 * **top** - the number of items to fetch
 
 
-The following example builds a query that will return the top 5 items with a PartitionKey of 'hometasks'.
+The following example builds a query that will return the top five items with a PartitionKey of 'hometasks'.
 
 	var query = new azure.TableQuery()
 	  .top(5)
@@ -282,7 +282,7 @@ If successful, `result.entries` will contain an array of entities that match the
 ### Query a subset of entity properties
 
 A query to a table can retrieve just a few fields from an entity.
-This reduces bandwidth and can improve query performance, especially for large entities. Use the **select** clause and pass the names of the fields to be returned. For example, the following query will only return the **description** and **dueDate** fields.
+This reduces bandwidth and can improve query performance, especially for large entities. Use the **select** clause and pass the names of the fields to be returned. For example, the following query will return only the **description** and **dueDate** fields.
 
 	var query = new azure.TableQuery()
 	  .select(['description', 'dueDate'])
@@ -304,7 +304,7 @@ You can delete an entity using its partition and row keys. In this example, the 
 	  }
 	});
 
-> [AZURE.NOTE] Consider using ETags when deleting items, to ensure that the item hasn't been modified by another process. See [Update an entity](#update-an-entity) for information in using ETags.
+> [AZURE.NOTE] Consider using ETags when deleting items, to ensure that the item hasn't been modified by another process. See [Update an entity](#update-an-entity) for information on using ETags.
 
 ## Delete a table
 
@@ -323,7 +323,7 @@ If you are uncertain whether the table exists, use **deleteTableIfExists**.
 When you are querying tables for large amounts of results, look for continuation tokens. There may be large amounts of data available for your query that you might not realize if you do not build to recognize when a
 continuation token is present.
 
-The results object returned when querying entities sets a `continuationToken` property when such a token is present. You can then use this when performing a query to continue to move across the partition and table entities.
+The results object returned during querying entities sets a `continuationToken` property when such a token is present. You can then use this when performing a query to continue to move across the partition and table entities.
 
 When querying, a continuationToken parameter may be provided between the query object instance and the callback function:
 
@@ -344,15 +344,15 @@ dc.table.queryEntities(tableName,
     });
 ```
 
-If you inspect the `continuationToken` object, you will find properties such as `nextPartitionKey`, `nextRowKey` and `targetLocation` which can be used to iterate through all the results.
+If you inspect the `continuationToken` object, you will find properties such as `nextPartitionKey`, `nextRowKey` and `targetLocation`, which can be used to iterate through all the results.
 
-There is also a continuation sample within the Azure Storage Node.js repo on GitHub, look for `examples/samples/continuationsample.js`.
+There is also a continuation sample within the Azure Storage Node.js repo on GitHub. Look for `examples/samples/continuationsample.js`.
 
-## Work with Shared Access Signatures
+## Work with shared access signatures
 
-Shared Access Signatures (SAS) are a secure way to provide granular access to tables without providing your storage account name or keys. SAS are often used to provide limited access to your data, such as allowing a mobile app to query records.
+Shared access signatures (SAS) are a secure way to provide granular access to tables without providing your storage account name or keys. SAS are often used to provide limited access to your data, such as allowing a mobile app to query records.
 
-A trusted application such as a cloud-based service generates a SAS using the **generateSharedAccessSignature** of the **TableService**, and provides it to an untrusted or semi-trusted application. For example, a mobile app. The SAS is generated using a policy, which describes the start and end dates during which the SAS is valid, as well as the access level granted to the SAS holder.
+A trusted application such as a cloud-based service generates a SAS using the **generateSharedAccessSignature** of the **TableService**, and provides it to an untrusted or semi-trusted application such as a mobile app. The SAS is generated using a policy, which describes the start and end dates during which the SAS is valid, as well as the access level granted to the SAS holder.
 
 The following example generates a new shared access policy that will allow the SAS holder to query ('r') the table, and expires 100 minutes after the time it is created.
 
@@ -392,7 +392,7 @@ Since the SAS was generated with only query access, if an attempt were made to i
 
 You can also use an Access Control List (ACL) to set the access policy for a SAS. This is useful if you wish to allow multiple clients to access the table, but provide different access policies for each client.
 
-An ACL is implemented using an array of access policies, with an ID associated with each policy. The following example defines two policies; one for 'user1' and one for 'user2':
+An ACL is implemented using an array of access policies, with an ID associated with each policy. The following example defines two policies, one for 'user1' and one for 'user2':
 
 	var sharedAccessPolicy = [
 	  {
@@ -413,7 +413,7 @@ An ACL is implemented using an array of access policies, with an ID associated w
 	  }
 	];
 
-The following example gets the current ACL for the **hometasks** table, then adds the new policies using **setTableAcl**. This approach allows:
+The following example gets the current ACL for the **hometasks** table, and then adds the new policies using **setTableAcl**. This approach allows:
 
 	tableSvc.getTableAcl('hometasks', function(error, result, response) {
       if(!error){
@@ -442,12 +442,12 @@ To learn how to do more complex storage tasks, follow these links:
   [Azure Storage SDK for Node]: https://github.com/Azure/azure-storage-node
   [OData.org]: http://www.odata.org/
   [Using the REST API]: http://msdn.microsoft.com/library/azure/hh264518.aspx
-  [Azure Portal]: http://manage.windowsazure.com
+  [Azure portal]: http://manage.windowsazure.com
 
   [Node.js Cloud Service]: ../cloud-services-nodejs-develop-deploy-app.md
   [Storing and accessing data in Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
   [Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
   [Website with WebMatrix]: ../web-sites-nodejs-use-webmatrix.md
   [Node.js Cloud Service with Storage]: ../storage-nodejs-use-table-storage-cloud-service-app.md
-  [Node.js Web application with Storage]: ../storage-nodejs-use-table-storage-web-site.md
+  [Node.js web application with Storage]: ../storage-nodejs-use-table-storage-web-site.md
   [Create and deploy a Node.js application to an Azure website]: ../web-sites-nodejs-develop-deploy-mac.md
