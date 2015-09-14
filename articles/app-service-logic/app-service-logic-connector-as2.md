@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Using the AS2 Connector in Microsoft Azure App Service" 
-   description="How to use the AS2 Connector" 
+   pageTitle="Using the AS2 Connector in Logic Apps | Microsoft Azure App Service" 
+   description="How to create and configure the AS2 connector or API app and use it in a logic app in Azure App Service" 
    services="app-service\logic" 
    documentationCenter=".net,nodejs,java" 
    authors="rajeshramabathiran" 
@@ -13,11 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="08/19/2015"
+   ms.date="08/23/2015"
    ms.author="rajram"/>
 
-# Microsoft AS2 Connector
-Microsoft Azure AS2 Connector lets you receive and send messages over the AS2 (Applicability Statement 2) transport protocol in business-to-business communications. Data is transported securely and reliably over the Internet. Security is achieved using digital certificates and encryption.
+# Get started with the AS2 Connector and add it to your Logic App
+Use the AS2 Connector to receive and send messages over the AS2 (Applicability Statement 2) transport protocol in business-to-business communications. Data is transported securely and reliably over the Internet. Security is achieved using digital certificates and encryption.
+
+You can add the AS2 Connecto to your business workflow and process data as part of a business-to-business workflow within a Logic App. 
 
 ## Triggers and Actions
 A Trigger starts a new instance based on a specific event, like the arrival of an AS2 message from a partner. An Action is the result, like after receiving an AS2 message, then send the message using AS2.

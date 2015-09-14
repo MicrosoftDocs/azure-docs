@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd"
-   ms.date="07/21/2015"
+   ms.date="09/10/2015"
    ms.author="banders" />
 
 
@@ -31,14 +31,13 @@ The Azure Resource Manager can be used via a [Library for .NET](https://msdn.mic
 
 ### To use the ARM Client
 
-1. Install [Chocolatey](https://chocolatey.org/), which is an an Open Source Machine Package Manager for Windows.
-2. Open a PowerShell window as administrator and then run the following command:
+1. Install [Chocolatey](https://chocolatey.org/), which is an an Open Source Machine Package Manager for Windows. Open a command prompt window as administrator and then run the following command:
 
     ```
     @powershell -NoProfile -ExecutionPolicy unrestricted -Command "iex ((new-object net.webclient).DownloadString('https://chocolatey.org/install.ps1'))" && SET PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin
     ```
 
-3. Install the ARMClient by opening a new command prompt and run the following command:
+2. Install the ARMClient by running the following command:
 
     ```
     choco install armclient
@@ -66,7 +65,7 @@ The Azure Resource Manager can be used via a [Library for .NET](https://msdn.mic
 2. Get the Operations Management Suite Workspaces. For example:
 
     ```
-    armclient get /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces?api-version=2014-10-10
+    armclient get /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces?api-version=2015-03-20
     ```
 
     A successful Get call would output all workspaces tied to the subscription. For example:
@@ -90,12 +89,12 @@ The Azure Resource Manager can be used via a [Library for .NET](https://msdn.mic
 3. Create your search variable. For example:
 
     ```
-    $mySearch = "{ 'top':150, 'query':'Error'}”;
+    $mySearch = "{ 'top':150, 'query':'Error'}";
     ```
 4. Search using your new search variable. For example:
 
     ```
-    armclient post /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{WORKSPACE NAME}/search?api-version=2014-10-10 $mySearch
+    armclient post /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{WORKSPACE NAME}/search?api-version=2015-03-20 $mySearch
     ```
 
 ## Search API reference examples
@@ -106,7 +105,7 @@ The following examples show you how you can use the Search API.
 **Sample Url:**
 
 ```
-	/subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroupId}/providers/Microsoft.OperationalInsights/workspaces/{WorkspaceName}/search?api-version=2014-10-10
+	/subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroupId}/providers/Microsoft.OperationalInsights/workspaces/{WorkspaceName}/search?api-version=2015-03-20
 ```
 
 **Request:**
@@ -123,7 +122,7 @@ The following examples show you how you can use the Search API.
 	  "start":"2015-02-04T21:03:29.231Z",
 	  "end":"2015-02-11T21:03:29.231Z"
 	}
-	armclient post /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace ID}/search?api-version=2014-10-10 $searchParametersJson
+	armclient post /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace ID}/search?api-version=2015-03-20 $searchParametersJson
 ```
 The following table describes the properties that are available.
 
@@ -194,7 +193,7 @@ The following table describes the properties that are available.
 **Request the contents of a Saved Search:**
 
 ```
-	armclient post /subscriptions/{SubId}/resourceGroups/{ResourceGroupId}/providers/Microsoft.OperationalInsights/workspaces/{WorkspaceName}/search/{SearchId}?api-version=2014-10-10
+	armclient post /subscriptions/{SubId}/resourceGroups/{ResourceGroupId}/providers/Microsoft.OperationalInsights/workspaces/{WorkspaceName}/search/{SearchId}?api-version=2015-03-20
 ```
 
 >[AZURE.NOTE] If the search returns with a ‘Pending’ status, then polling the updated results can be done through this API. After 6 min, the result of the search will be dropped from the cache and Http Gone will be returned. If the initial search request returned a ‘Successful’ status immediately, it will not be added to the cache causing this API to return Http Gone if queried. The contents of an Http 200 result will be in the same format as the initial search request just with updated values.
@@ -204,7 +203,7 @@ The following table describes the properties that are available.
 **Request List of Saved Searches:**
 
 ```
-	armclient get /subscriptions/{SubId}/resourceGroups/{ResourceGroupId}/providers/Microsoft.OperationalInsights/workspaces/{WorkspaceName}/savedSearches?api-version=2014-10-10
+	armclient get /subscriptions/{SubId}/resourceGroups/{ResourceGroupId}/providers/Microsoft.OperationalInsights/workspaces/{WorkspaceName}/savedSearches?api-version=2015-03-20
 ```
 
 Supported methods: GET PUT DELETE
@@ -228,7 +227,7 @@ The following table describes the properties that are available.
 **Request:**
 
 ```
-	armclient delete /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace ID}/savedSearches/thisIsMyId?api-version=2014-10-10
+	armclient delete /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace ID}/savedSearches/thisIsMyId?api-version=2015-03-20
 ```
 
 ### Update saved searches
@@ -237,7 +236,7 @@ The following table describes the properties that are available.
 
 ```
 	$savedSearchParametersJson = "{'etag': 'W/`"datetime\'2015-04-16T23%3A35%3A35.3182423Z\'`"', 'properties': { 'Category': 'myCategory', 'DisplayName':'myDisplayName', 'Query':'* | measure Count() by Source', 'Version':'1'  }"
-	armclient put /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace ID}/savedSearches/thisIsMyId?api-version=2014-10-10 $savedSearchParametersJson
+	armclient put /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace ID}/savedSearches/thisIsMyId?api-version=2015-03-20 $savedSearchParametersJson
 ```
 
 ### Metadata - JSON only
@@ -247,7 +246,7 @@ Here’s a way to see the fields for all log types for the data collected in you
 **Request for Fields:**
 
 ```
-	armclient get /subscriptions/{SubId}/resourceGroups/{ResourceGroupId}/providers/Microsoft.OperationalInsights/workspaces/{WorkspaceName}/schema?api-version=2014-10-10
+	armclient get /subscriptions/{SubId}/resourceGroups/{ResourceGroupId}/providers/Microsoft.OperationalInsights/workspaces/{WorkspaceName}/schema?api-version=2015-03-20
 ```
 
 **Response:**
@@ -317,7 +316,7 @@ You may specify the start and end markers that will be used by search to wrap th
 	  "start":"2015-02-04T21:03:29.231Z",
 	  "end":"2015-02-11T21:03:29.231Z"
 	}
-	armclient post /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace ID}/search?api-version=2014-10-10 $searchParametersJson
+	armclient post /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace ID}/search?api-version=2015-03-20 $searchParametersJson
 ```
 
 **Sample result:**

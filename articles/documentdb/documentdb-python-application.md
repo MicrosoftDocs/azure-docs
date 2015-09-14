@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="python"
     ms.topic="hero-article"
-    ms.date="07/07/2015"
+    ms.date="09/03/2015"
     ms.author="ryancraw"/>
 
 # Build a web application with Python and Flask (MVC) using DocumentDB
@@ -373,7 +373,9 @@ running in Azure!
 ## Next steps
 
 Congratulations! You have just built your first Python application using
-Azure DocumentDB and published it to Azure Websites.
+Azure DocumentDB and published it to Azure Websites. 
+
+We update and improve this topic frequently based on your feedback.  Once you've completed the tutorial, please using the voting buttons at the top and bottom of this page, and be sure to include your feedback on what improvements you want to see made. If you'd like us to contact you directly, feel free to include your email address in your comments.
 
 To add additional functionality to your application, review the APIs available in the [DocumentDB Python SDK](https://pypi.python.org/pypi/pydocumentdb).
 

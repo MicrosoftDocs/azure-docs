@@ -77,7 +77,7 @@ At this time the following client libraries are known to work with Service Bus:
 | C        | Apache Qpid Proton-C                                                          |
 | PHP      | Apache Qpid Proton-PHP                                                        |
 | Python   | Apache Qpid Proton-Python                                                     |
-
+| C#   	   | AMQP .Net Lite                                                                |
 
 **Figure 2: Table of AMQP 1.0 client libraries**
 

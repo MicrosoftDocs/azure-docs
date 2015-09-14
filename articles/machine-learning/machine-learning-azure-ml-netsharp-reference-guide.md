@@ -20,7 +20,7 @@
 
 # Guide to Net# neural network specification language for Azure Machine Learning
 
-##Overview
+## Overview
 Net# is a language developed by Microsoft that is used to define neural network architectures for neural network modules in Microsoft Azure Machine Learning. In this article, you will learn:  
 
 -	Basic concepts related to neural networks
@@ -30,7 +30,7 @@ Net# is a language developed by Microsoft that is used to define neural network 
 	
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]  
 
-##Neural network basics
+## Neural network basics
 A neural network structure consists of ***nodes*** that are organized in ***layers***, and weighted ***connections*** (or ***edges***) between the nodes. The connections are directional, and each connection has a ***source*** node and a ***destination*** node.  
 
 Each ***trainable layer*** (a hidden or an output layer) has one or more ***connection bundles***. A connection bundle consists of a source layer and a specification of the connections from that source layer. All the connections in a given bundle share the same ***source layer*** and the same ***destination layer***. In Net#, a connection bundle is considered as belonging to the bundle's destination layer.  
@@ -47,7 +47,7 @@ Additionally, Net# supports the following four kinds of advanced connection bund
 
 Using Net# to define the structure of a neural network makes it possible to define complex structures such as deep neural networks or convolutions of arbitrary dimensions, which are known to improve learning on data such as image, audio, or video.  
 
-##Supported customizations
+## Supported customizations
 The architecture of neural network models that you create in Azure Machine Learning can be extensively customized by using Net#. You can:  
 
 -	Create hidden layers and control the number of nodes in each layer.
@@ -55,11 +55,11 @@ The architecture of neural network models that you create in Azure Machine Learn
 -	Define special connectivity structures, such as convolutions and weight sharing bundles.
 -	Specify different activation functions.  
 
-For details of the specification language syntax, see Structure Specification.  
+For details of the specification language syntax, see [Structure Specification](#Structure-specifications).  
  
-For examples of defining neural networks for some common machine learning tasks, from simplex to complex, see Examples.  
+For examples of defining neural networks for some common machine learning tasks, from simplex to complex, see [Examples](#Examples-of-Net#-usage).  
 
-##General requirements
+## General requirements
 -	There must be exactly one output layer, at least one input layer, and zero or more hidden layers. 
 -	Each layer has a fixed number of nodes, conceptually arranged in a rectangular array of arbitrary dimensions. 
 -	Input layers have no associated trained parameters and represent the point where instance data enters the network. 
@@ -68,10 +68,10 @@ For examples of defining neural networks for some common machine learning tasks,
 -	Connections must be acyclic; in other words, there cannot be a chain of connections leading back to the initial source node.
 -	The output layer cannot be a source layer of a connection bundle.  
 
-##Structure specifications
+## Structure specifications
 A neural network structure specification is composed of three sections: the **constant declaration**, the **layer declaration**, the **connection declaration**. There is also an optional **share declaration** section. The sections can be specified in any order.  
 
-##Constant declaration 
+## Constant declaration 
 A constant declaration is optional. It provides a means to define values used elsewhere in the neural network definition. The declaration statement consists of an identifier followed by an equal sign and a value expression.   
 
 For example, the following statement defines a constant **x**:  
@@ -87,17 +87,17 @@ The right-hand side of each assignment expression can be an integer, a real numb
 
 	Const { X = 17 * 2; Y = true; }  
 
-##Layer declaration
+## Layer declaration
 The layer declaration is required. It defines the size and source of the layer, including its connection bundles and attributes. The declaration statement starts with the name of the layer (input, hidden, or output), followed by the dimensions of the layer (a tuple of positive integers). For example:  
 
-	input Data[784];
+	input Data auto;
 	hidden Hidden[5,20] from Data all;
 	output Result[2] from Hidden all;  
 
 -	The product of the dimensions is the number of nodes in the layer. In this example, there are two dimensions [5,20], which means there are  100 nodes in the layer.
 -	The layers can be declared in any order, with one exception: If more than one input layer is defined, the order in which they are declared must match the order of features in the input data.  
 
-<!-- REMOVED THIS CONTENT UNTIL THIS FEATURE IS SUPPORTED IN THE PRODUCT
+
 To specify that the number of nodes in a layer be determined automatically, use the **auto** keyword. The **auto** keyword has different effects, depending on the layer:  
 
 -	In an input layer declaration, the number of nodes is the number of features in the input data.
@@ -109,9 +109,11 @@ For example, the following network definition allows the size of all layers to b
 	input Data auto;
 	hidden Hidden auto from Data all;
 	output Result auto from Hidden all;  
--->
 
-A layer declaration for a trainable layer (the hidden or output layers) can optionally include the output function (also called an activation function), which defaults to **sigmoid**. The following output functions are supported:  
+
+A layer declaration for a trainable layer (the hidden or output layers) can optionally include the output function (also called an activation function), which defaults to **sigmoid** for classification models, and **linear** for regression models. (Even if you use the default, you can explicitly state the activation function, if desired for clarity.)
+
+The following output functions are supported:  
 
 -	sigmoid
 -	linear
@@ -128,7 +130,7 @@ For example, the following declaration uses the **softmax** function:
 
 	output Result [100] softmax from Hidden all;  
 
-##Connection declaration
+## Connection declaration
 Immediately after defining the trainable layer, you must declare connections among the layers you have defined. The connection bundle declaration starts with the keyword **from**, followed by the name of the bundle's source layer and the kind of connection bundle to create.   
 
 Currently, five kinds of connection bundles are supported:  
@@ -139,25 +141,25 @@ Currently, five kinds of connection bundles are supported:
 -	**Pooling** bundles, indicated by the keywords **max pool** or **mean pool**
 -	**Response normalization** bundles, indicated by the keyword **response norm**  	
 
-##Full bundles  
+## Full bundles  
 
 A full connection bundle includes a connection from each node in the source layer to each node in the destination layer. This is the default network connection type.  
 
-##Filtered bundles
+## Filtered bundles
 A filtered connection bundle specification includes a predicate, expressed syntactically, much like a C# lambda expression. The following example defines two filtered bundles:  
 
 	input Pixels [10, 20];
 	hidden ByRow[10, 12] from Pixels where (s,d) => s[0] == d[0];
 	hidden ByCol[5, 20] from Pixels where (s,d) => abs(s[1] - d[1]) <= 1;  
 
--	In the predicate for ByRow, **s** is a parameter representing an index into the rectangular array of nodes of the input layer, Pixels, and **d** is a parameter representing an index into the array of nodes of the hidden layer, ByRow. The type of both **s** and **d** is a tuple of integers of length two. Conceptually, **s** ranges over all pairs of integers with _0 <= s[0] < 10_ and _0 <= s[1] < 20_, and **d** ranges over all pairs of integers, with _0 <= d[0] < 10_ and _0 <= d[1] < 12_. 
+-	In the predicate for _ByRow_, **s** is a parameter representing an index into the rectangular array of nodes of the input layer, _Pixels_, and **d** is a parameter representing an index into the array of nodes of the hidden layer, _ByRow_. The type of both **s** and **d** is a tuple of integers of length two. Conceptually, **s** ranges over all pairs of integers with _0 <= s[0] < 10_ and _0 <= s[1] < 20_, and **d** ranges over all pairs of integers, with _0 <= d[0] < 10_ and _0 <= d[1] < 12_. 
 -	On the right-hand side of the predicate expression, there is a condition. In this example, for every value of **s** and **d** such that the condition is True, there is an edge from the source layer node to the destination layer node. Thus, this filter expression indicates that the bundle includes a connection from the node defined by **s** to the node defined by **d** in all cases where s[0] is equal to d[0].  
 
 Optionally, you can specify a set of weights for a filtered bundle. The value for the **Weights** attribute must be a tuple of floating point values with a length that matches the number of connections defined by the bundle. By default, weights are randomly generated.  
 
 Weight values are grouped by the destination node index. That is, if the first destination node is connected to K source nodes, the first _K_ elements of the **Weights** tuple are the weights for the first destination node, in source index order. The same applies for the remaining destination nodes.  
 
-##Convolutional bundles
+## Convolutional bundles
 When the training data has a homogeneous structure, convolutional connections are commonly used to learn high-level features of the data. For example, in image, audio, or video data, spatial or temporal dimensionality can be fairly uniform.  
 
 Convolutional bundles employ rectangular **kernels** that are slid through the dimensions. Essentially, each kernel defines a set of weights applied in local neighborhoods, referred to as **kernel applications**. Each kernel application corresponds to a node in the source layer, which is referred to as the **central node**. The weights of a kernel are shared among many connections. In a convolutional bundle, each kernel is rectangular and all kernel applications are the same size.  
@@ -190,7 +192,7 @@ For more information about convolutional networks and their applications, see th
 -	[http://research.microsoft.com/pubs/68920/icdar03.pdf](http://research.microsoft.com/pubs/68920/icdar03.pdf) 
 -	[http://people.csail.mit.edu/jvb/papers/cnn_tutorial.pdf](http://people.csail.mit.edu/jvb/papers/cnn_tutorial.pdf)  
 
-##Pooling bundles
+## Pooling bundles
 A **pooling bundle** applies geometry similar to convolutional connectivity, but it uses predefined functions to source node values to derive the destination node value. Hence, pooling bundles have no trainable state (weights or biases). Pooling bundles support all the convolutional attributes except **Sharing**, **MapCount**, and **Weights**.  
 
 Typically, the kernels summarized by adjacent pooling units do not overlap. If Stride[d] is equal to KernelShape[d] in each dimension, the layer obtained is the traditional local pooling layer, which is commonly employed in convolutional neural networks. Each destination node computes the maximum or the mean of the activities of its kernel in the source layer.  
@@ -215,8 +217,8 @@ For more information about pooling layers, see these articles:
 -	[http://cs.nyu.edu/~koray/publis/lecun-iscas-10.pdf](http://cs.nyu.edu/~koray/publis/lecun-iscas-10.pdf) 
 -	[http://cs.nyu.edu/~koray/publis/jarrett-iccv-09.pdf](http://cs.nyu.edu/~koray/publis/jarrett-iccv-09.pdf)
 	
-##Response normalization bundles
-**Response normalization** is a local normalization scheme that was first introduced by Geoffrey Hinton, et al, in a paper titled ImageNet Classiﬁcation with Deep Convolutional Neural Networks (see section 3.3). Response normalization is used to aid generalization in neural nets. When one neuron is firing at a very high activation level, a local response normalization layer suppresses the activation level of the surrounding neurons. This is done by using three parameters (***α***, ***β***, and ***k***) and a convolutional structure (or neighborhood shape). Every neuron in the destination layer ***y*** corresponds to a neuron ***x*** in the source layer. The activation level of ***y*** is given by the following formula, where ***f*** is the activation level of a neuron, and ***Nx*** is the kernel (or the set that contains the neurons in the neighborhood of ***x***), as defined by the following convolutional structure:  
+## Response normalization bundles
+**Response normalization** is a local normalization scheme that was first introduced by Geoffrey Hinton, et al, in the paper [ImageNet Classiﬁcation with Deep Convolutional Neural Networks](http://www.cs.toronto.edu/~hinton/absps/imagenet.pdf). Response normalization is used to aid generalization in neural nets. When one neuron is firing at a very high activation level, a local response normalization layer suppresses the activation level of the surrounding neurons. This is done by using three parameters (***α***, ***β***, and ***k***) and a convolutional structure (or neighborhood shape). Every neuron in the destination layer ***y*** corresponds to a neuron ***x*** in the source layer. The activation level of ***y*** is given by the following formula, where ***f*** is the activation level of a neuron, and ***Nx*** is the kernel (or the set that contains the neurons in the neighborhood of ***x***), as defined by the following convolutional structure:  
 
 ![][1]  
 
@@ -249,7 +251,7 @@ The following example defines a response normalization bundle using these attrib
 -	The value of **KernelShape** indicates that this is a same map normalization layer, where the neighborhood is a 3x3 rectangle. 
 -	The default value of **Padding** is False, thus the destination layer has only 10 nodes in each dimension. To include one node in the destination layer that corresponds to every node in the source layer, add Padding = [true, true, true]; and change the size of RN1 to [5, 12, 12].  
 
-##Share declaration 
+## Share declaration 
 Net# optionally supports defining multiple bundles with shared weights. The weights of any two bundles can be shared if their structures are the same. The following syntax defines bundles with shared weights:  
 
 	share-declaration:
@@ -300,7 +302,7 @@ For example, the following share-declaration specifies the layer names, indicati
 
 -	The input features are partitioned into two equal sized input layers. 
 -	The hidden layers then compute higher level features on the two input layers. 
--	The share-declaration specifies that H1 and H2 must be computed in the same way from their respective inputs.  
+-	The share-declaration specifies that _H1_ and _H2_ must be computed in the same way from their respective inputs.  
  
 Alternatively, this could be specified with two separate share-declarations as follows:  
 
@@ -312,23 +314,23 @@ Alternatively, this could be specified with two separate share-declarations as f
 
 You can use the short form only when the layers contain a single bundle. In general, sharing is possible only when the relevant structure is identical, meaning that they have the same size, same convolutional geometry, and so forth.  
 
-##Examples of Net# usage
+## Examples of Net# usage
 This section provides some examples of how you can use Net# to add hidden layers, define the way that hidden layers interact with other layers, and build convolutional networks.   
 
-###Define a simple custom neural network: "Hello World" example
+### Define a simple custom neural network: "Hello World" example
 This simple example demonstrates how to create a neural network model that has a single hidden layer.  
 
-	input Data [100];
+	input Data auto;
 	hidden H [200] from Data all;
 	output Out [10] sigmoid from H all;  
 
 The example illustrates some basic commands as follows:  
 
--	The first line defines the input layer (named Data), which has 100 nodes, and each node represents a feature in the input examples.
--	The second line creates the hidden layer. The name H is assigned to the hidden layer, which has 200 nodes. This layer is fully connected to the input layer.
--	The third line defines the output layer (named O), and it contains 10 output nodes. For classification neural networks, there is one output node per class. The keyword **sigmoid** indicates that the output function is applied to the output layer.   
+-	The first line defines the input layer (named _Data_). When you use the  **auto** keyword, the neural network automatically includes all feature columns in the input examples. 
+-	The second line creates the hidden layer. The name _H_ is assigned to the hidden layer, which has 200 nodes. This layer is fully connected to the input layer.
+-	The third line defines the output layer (named _O_), which contains 10 output nodes. If the neural network is used for classification, there is one output node per class. The keyword **sigmoid** indicates that the output function is applied to the output layer.   
 
-###Define multiple hidden layers: computer vision example
+### Define multiple hidden layers: computer vision example
 The following example demonstrates how to define a slightly more complex neural network, with multiple custom hidden layers.  
 
 	// Define the input layers 
@@ -355,13 +357,13 @@ The following example demonstrates how to define a slightly more complex neural 
 
 This example illustrates several features of the neural networks specification language:  
 
--	The structure has two input layers, Pixels and MetaData.
--	The Pixels layer is a source layer for two connection bundles, with destination layers, ByRow and ByCol.
--	The layers, Gather and Result, are destination layers in multiple connection bundles.
--	The output layer, Result, is a destination layer in two connection bundles; one with the second level hidden (Gather) as a destination layer, and the other with the input layer (MetaData) as a destination layer.
--	The hidden layers, ByRow and ByCol, specify filtered connectivity by using predicate expressions. More precisely, the node in ByRow at [x, y] is connected to those nodes in Pixels by having the first index coordinate equal to the node's first coordinate, x. Similarly, the node in ByCol at [x, y] is connected to those nodes in Pixels by having the second index coordinate within one of the node's second coordinate, y.  
+-	The structure has two input layers, _Pixels_ and _MetaData_.
+-	The _Pixels_ layer is a source layer for two connection bundles, with destination layers, _ByRow_ and _ByCol_.
+-	The layers _Gather_ and _Result_ are destination layers in multiple connection bundles.
+-	The output layer, _Result_, is a destination layer in two connection bundles; one with the second level hidden (Gather) as a destination layer, and the other with the input layer (MetaData) as a destination layer.
+-	The hidden layers, _ByRow_ and _ByCol_, specify filtered connectivity by using predicate expressions. More precisely, the node in _ByRow_ at [x, y] is connected to the nodes in _Pixels_ that have the first index coordinate equal to the node's first coordinate, x. Similarly, the node in _ByCol at [x, y] is connected to the nodes in _Pixels_ that have the second index coordinate within one of the node's second coordinate, y.  
 
-###Define a convolutional network for multiclass classification: digit recognition example
+### Define a convolutional network for multiclass classification: digit recognition example
 The definition of the following network is designed to recognize numbers, and it illustrates some advanced techniques for customizing a neural network.  
 
 	input Image [29, 29];
@@ -385,10 +387,10 @@ The definition of the following network is designed to recognize numbers, and it
 	output Digit [10] from Hid3 all;  
 
 
--	The structure has a single input layer, Image.
--	The keyword **convolve** indicates that Conv1 and Conv2 are convolutional layers. Each of these layer declarations is followed by a list of the convolution attributes.
--	The net has a third hidden layer, Hid3, which is fully connected to the second hidden layer, Conv2.
--	The output layer, Digit, is connected only to the third hidden layer, Hid3. The keyword **all** indicates that the output layer is fully connected to Hid3.
+-	The structure has a single input layer, _Image_.
+-	The keyword **convolve** indicates that the layers named _Conv1_ and _Conv2_ are convolutional layers. Each of these layer declarations is followed by a list of the convolution attributes.
+-	The net has a third hidden layer, _Hid3_, which is fully connected to the second hidden layer, _Conv2_.
+-	The output layer, _Digit_, is connected only to the third hidden layer, _Hid3_. The keyword **all** indicates that the output layer is fully connected to _Hid3_.
 -	The arity of the convolution is three (the length of the tuples **InputShape**, **KernelShape**, **Stride**, and **Sharing**). 
 -	The number of weights per kernel is _1 + **KernelShape**\[0] * **KernelShape**\[1] * **KernelShape**\[2] = 1 + 1 * 5 * 5 = 26. Or 26 * 50 = 1300_.
 -	You can calculate the nodes in each hidden layer as follows:
@@ -397,6 +399,12 @@ The definition of the following network is designed to recognize numbers, and it
 	-	**NodeCount**\[2] = (13 - 5) / 2 + 1 = 5. 
 -	The total number of nodes can be calculated by using the declared dimensionality of the layer, [50, 5, 5], as follows: _**MapCount** * **NodeCount**\[0] * **NodeCount**\[1] * **NodeCount**\[2] = 10 * 5 * 5 * 5_
 -	Because **Sharing**[d] is False only for _d == 0_, the number of kernels is _**MapCount** * **NodeCount**\[0] = 10 * 5 = 50_. 
+
+
+## Acknowledgements
+
+The Net# language for customizing the architecture of neural networks was developed at Microsoft by Shon Katzenberger (Architect, Machine Learning) and Alexey Kamenev (Software Engineer, Microsoft Research). It is used internally for machine learning projects and applications ranging from image detection to text analytics. For more information, see [Neural Nets in Azure ML - Introduction to Net#](http://blogs.technet.com/b/machinelearning/archive/2015/02/16/neural-nets-in-azure-ml-introduction-to-net.aspx)
+
 
 [1]:./media/machine-learning-azure-ml-netsharp-reference-guide/formula_large.gif
  
