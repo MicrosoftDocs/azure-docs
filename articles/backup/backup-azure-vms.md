@@ -144,6 +144,8 @@ Once protected, the virtual machine count also increases in the **Dashboard** pa
 
 ![Status of backup in Dashboard page](./media/backup-azure-vms/dashboard-protectedvms.png)
 
+>[AZURE.NOTE] Values in the dashboard are refreshed once every 24 hours.
+
 ### Long term retention
 Retention policy specifies the duration for which the backup must be stored. Rather than just specifying a “flat retention” for all backup points, customers can specify different retention policies based on when the backup is taken. For example, the backup point taken at the end of each quarter may need to be preserved for a longer duration for audit purposes while the backup point taken daily, which serves as an operational recovery point, needs to be preserved for 90 days.
 

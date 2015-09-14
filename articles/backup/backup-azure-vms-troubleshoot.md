@@ -3,7 +3,7 @@
 	description="Find information to troubleshoot backup and restore of Azure virtual machine"
 	services="backup"
 	documentationCenter=""
-	authors="aashishr"
+	authors="trinadhk"
 	manager="shreeshd"
 	editor=""/>
 
