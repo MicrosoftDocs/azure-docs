@@ -58,9 +58,11 @@ Using Azure AD you can make your shared account more secure with Multi-Factor Au
 ## How can I get started?
 
 First, if you aren't already using Azure AD and you are an IT admin:
+
  - [Try it out!](https://azure.microsoft.com/trial/get-started-active-directory/) - you can sign up for a free 30 trial today and deploy your first cloud solution in under 5 minutes using this link
 
 Azure AD features that enable account sharing include:
+
 - [Password single sign-on](active-directory-passwords-getting-started.md)
 - [Password single sign-on agent]()
 - [Group assignment](active-directory-accessmanagement-self-service-group-management.md)
