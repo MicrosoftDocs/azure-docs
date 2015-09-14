@@ -33,15 +33,15 @@ You must have the following to successfully complete this Apache Storm tutorial:
 
 ## Create a Storm cluster
 
-Storm on HDInsight uses Azure Blob storage for storing log files and topologies submitted to the cluster. Use the following steps to create an Azure Storage account for use with your cluster:
+Storm on HDInsight uses Azure Blob storage for storing log files and topologies submitted to the cluster. Use the following steps to create an Azure storage account for use with your cluster:
 
-1. Sign in to the [Azure Preview Portal][preview-portal].
+1. Sign in to the [Azure preview portal][preview-portal].
 
-2. Select **NEW**, select __Data Analytics__, and then select __HDInsight__
+2. Select **NEW**, select __Data Analytics__, and then select __HDInsight__.
 
-	![Creating a new cluster in the Azure Preview Portal](./media/hdinsight-apache-storm-tutorial-get-started/new-cluster.png)
+	![Create a new cluster in the Azure preview portal](./media/hdinsight-apache-storm-tutorial-get-started/new-cluster.png)
 
-3. Enter a __Cluster Name__, then select __Storm__ for the __Cluster Type__. A green check appears beside the __Cluster Name__ if it is available.
+3. Enter a __Cluster Name__, and then select __Storm__ for the __Cluster Type__. A green check appears beside the __Cluster Name__ if it is available.
 
 	![Cluster name, cluster type, and OS Type](./media/hdinsight-apache-storm-tutorial-get-started/clustername.png)
 
@@ -51,7 +51,7 @@ Storm on HDInsight uses Azure Blob storage for storing log files and topologies 
 
 	> [AZURE.NOTE] This entry defaults to one of your existing resource groups, if any are available.
 
-6. Select __Credentials__, then enter a __Cluster Login Username__ and __Cluster Login Password__. Finally, use  __Select__ to set the credentials. Remote desktop will not be used in this document, so you can leave it disabled.
+6. Select __Credentials__, and then enter a __Cluster Login Username__ and __Cluster Login Password__. Finally, use  __Select__ to set the credentials. Remote desktop will not be used in this document, so you can leave it disabled.
 
 	![Cluster credentials blade](./media/hdinsight-apache-storm-tutorial-get-started/clustercredentials.png)
 
@@ -59,7 +59,7 @@ Storm on HDInsight uses Azure Blob storage for storing log files and topologies 
 
 	![Data source blade](./media/hdinsight-apache-storm-tutorial-get-started/datasource.png)
 
-	Currently you can select an Azure Storage Account as the data source for an HDInsight cluster. Use the following to understand the entries on the __Data Source__ blade.
+	Currently you can select an Azure storage account as the data source for an HDInsight cluster. Use the following to understand the entries on the __Data Source__ blade.
 
 	- __Selection Method__: Set this to __From all subscriptions__ to enable browsing of storage accounts on your subscriptions. Set to __Access Key__ if you want to enter the __Storage Name__ and __Access Key__ of an existing storage account.
 
@@ -83,13 +83,13 @@ Storm on HDInsight uses Azure Blob storage for storing log files and topologies 
 
 	![Optional configuration blade](./media/hdinsight-apache-storm-tutorial-get-started/optionalconfiguration.png)
 
-9. Ensure that __Pin to Startboard__ is selected, and then select __Create__. This creates the cluster and add a tile for it to the Startboard of your Azure Portal. The icon indicates that the cluster is provisioning, and changes to display the HDInsight icon once provisioning has completed.
+9. Ensure that __Pin to Startboard__ is selected, and then select __Create__. This creates the cluster and adds a tile for it to the Startboard of your Azure portal. The icon indicates that the cluster is provisioning, and changes to display the HDInsight icon once provisioning has completed.
 
 	| While provisioning | Provisioning complete |
 	| ------------------ | --------------------- |
 	| ![Provisioning indicator on Startboard](./media/hdinsight-apache-storm-tutorial-get-started/provisioning.png) | ![Provisioned cluster tile](./media/hdinsight-apache-storm-tutorial-get-started/provisioned.png) |
 
-	> [AZURE.NOTE] It takes some time for the cluster to be created, usually around 15 minutes. Use the tile on the Startboard, or the __Notifications__ entry on the left of the page to check on the provisioning process.
+	> [AZURE.NOTE] It takes some time for the cluster to be created, usually around 15 minutes. Use the tile on the Startboard, or the __Notifications__ entry on the left of the page, to check on the provisioning process.
 
 ## Run a Storm Starter sample on HDInsight
 
@@ -109,7 +109,7 @@ Once the Storm Dashboard has loaded, you will see the **Submit Topology** form.
 
 ![Submit your Storm Starter topology with the Storm Dashboard.](./media/hdinsight-apache-storm-tutorial-get-started/submit.png)
 
-The **Submit Topology** form can be used to upload and run .jar files containing Storm topologies. It also includes several basic samples that are provided with the cluster.
+The **Submit Topology** form can be used to upload and run .jar files that contain Storm topologies. It also includes several basic samples that are provided with the cluster.
 
 ### <a id="run"></a>Run the word-count sample from the Storm Starter project in GitHub
 
@@ -121,8 +121,8 @@ Perform the following steps to run a Storm Starter sample:
 
 	![Storm Starter WordCount selected on Storm Dashboard.](./media/hdinsight-apache-storm-tutorial-get-started/submit.png)
 
-	* **Class Name**&#151;The class in the .jar file that submits the topology.
-	* **Additional Parameters**&#151;Any parameters required by the topology. In this example, the field is used to provide a friendly name for the submitted topology.
+	* **Class Name** - The class in the .jar file that submits the topology.
+	* **Additional Parameters** - Any parameters required by the topology. In this example, the field is used to provide a friendly name for the submitted topology.
 
 2. Click  **Submit**. After a moment, the **Result** field displays the command used to submit the job, as well as the results of the command. The **Error** field displays any errors that occur in submitting the topology.
 
@@ -148,25 +148,25 @@ The Storm UI can be used to monitor the topology.
 
 	This page provides the following information:
 
-	* **Topology stats**&#151;Basic information on the topology performance, organized into time windows.
+	* **Topology stats** - Basic information on the topology performance, organized into time windows.
 
 		> [AZURE.NOTE] Selecting a specific time window changes the time window for information displayed in other sections of the page.
 
-	* **Spouts**&#151;Basic information about spouts, including the last error returned by each spout.
+	* **Spouts** - Basic information about spouts, including the last error returned by each spout.
 
-	* **Bolts**&#151;Basic information about bolts.
+	* **Bolts** - Basic information about bolts.
 
-	* **Topology configuration**&#151;Detailed information about the topology configuration.
+	* **Topology configuration** - Detailed information about the topology configuration.
 
 	This page also provides actions that can be taken on the topology:
 
-	* **Activate**&#151;Resumes processing of a deactivated topology.
+	* **Activate** - Resumes processing of a deactivated topology.
 
-	* **Deactivate**&#151;Pauses a running topology.
+	* **Deactivate** - Pauses a running topology.
 
-	* **Rebalance**&#151;Adjusts the parallelism of the topology. You should rebalance running topologies after you have changed the number of nodes in the cluster. This allows the topology to adjust parallelism to compensate for the increased/decreased number of nodes in the cluster. For more information, see [Understanding the parallelism of a Storm topology](http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html).
+	* **Rebalance** - Adjusts the parallelism of the topology. You should rebalance running topologies after you have changed the number of nodes in the cluster. This allows the topology to adjust parallelism to compensate for the increased/decreased number of nodes in the cluster. For more information, see [Understanding the parallelism of a Storm topology](http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html).
 
-	* **Kill**&#151;Terminates a Storm topology after the specified timeout.
+	* **Kill** - Terminates a Storm topology after the specified timeout.
 
 5. From this page, select an entry from the **Spouts** or **Bolts** section. This displays information about the selected component.
 
@@ -174,17 +174,17 @@ The Storm UI can be used to monitor the topology.
 
 	This page displays the following information:
 
-	* **Spout/Bolt stats**&#151;Basic information on the component performance, organized into time windows.
+	* **Spout/Bolt stats** - Basic information on the component performance, organized into time windows.
 
 		> [AZURE.NOTE] Selecting a specific time window changes the time window for information displayed in other sections of the page.
 
-	* **Input stats** (bolt only)&#151;Information on components that produce data consumed by the bolt.
+	* **Input stats** (bolt only) - Information on components that produce data consumed by the bolt.
 
-	* **Output stats**&#151;Information on data emitted by this bolt.
+	* **Output stats** - Information on data emitted by this bolt.
 
-	* **Executors**&#151;Information on instances of this component.
+	* **Executors** - Information on instances of this component.
 
-	* **Errors**&#151;Errors produced by this component.
+	* **Errors** - Errors produced by this component.
 
 5. When viewing the details of a spout or bolt, select an entry from the **Port** column in the **Executors** section to view details for a specific instance of the component.
 
@@ -197,7 +197,7 @@ The Storm UI can be used to monitor the topology.
 		2015-01-27 14:18:02 b.s.d.executor [INFO] Processing received message source: split:21, stream: default, id: {}, [seven]
 		2015-01-27 14:18:02 b.s.d.task [INFO] Emitting: count default [seven, 1493957]
 
-	From this data you can see that the word **seven** has occurred 1493957 times. That is how many times it has been encountered since this topology was started.
+	From this data, you can see that the word **seven** has occurred 1,493,957 times. That is how many times it has been encountered since this topology was started.
 
 ### Stop the topology
 
@@ -209,11 +209,11 @@ In this Apache Storm tutorial, you used the Storm Starter to learn how to create
 
 ## <a id="next"></a>Next steps
 
-* **HDInsight Tools for Visual Studio**&#151;HDInsight Tools allows you to use Visual Studio to submit, monitor, and manage Storm topologies similar to the Storm Dashboard mentioned earlier. HDInsight Tools also provides the ability to create C# Storm topologies, and includes sample topologies that you can deploy and run on your cluster.
+* **HDInsight Tools for Visual Studio** - HDInsight Tools allows you to use Visual Studio to submit, monitor, and manage Storm topologies similar to the Storm Dashboard mentioned earlier. HDInsight Tools also provides the ability to create C# Storm topologies, and includes sample topologies that you can deploy and run on your cluster.
 
 	For more information, see [Get Started using the HDInsight Tools for Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md).
 
-* **Sample files**&#151;The HDInsight Storm cluster provides several examples in the **%STORM_HOME%\contrib** directory. Each example should contain the following:
+* **Sample files** - The HDInsight Storm cluster provides several examples in the **%STORM_HOME%\contrib** directory. Each example should contain the following:
 
 	* The source code - for example, storm-starter-0.9.1.2.1.5.0-2057-sources.jar
 
