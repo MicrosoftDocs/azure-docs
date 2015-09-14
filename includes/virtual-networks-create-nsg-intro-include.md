@@ -1,1 +1,0 @@
-You can use an NSG to control traffic to one or more virtual machine (VM) instances in your virtual network. An NSG contains access control rules that allow or deny traffic based on traffic direction, protocol, source address and port, and destination address and port. The rules of an NSG can be changed at any time, and changes are applied to all associated instances.
