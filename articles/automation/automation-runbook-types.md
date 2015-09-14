@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/09/2015"
+   ms.date="09/14/2015"
    ms.author="bwren" />
 
 # Azure Automation runbook types
@@ -24,7 +24,7 @@ Azure Automation supports three types of runbooks that are  briefly described in
 |:---|:---|
 | [Graph](#graph-runbooks) | Based on Windows PowerShell Workflow and created and edited completely in graphical editor in Azure portal. | 
 | [PowerShell Workflow](powershell-workflow-runbooks) | Text runbook based on Windows PowerShell Workflow. |
-| [PowerShell Script](powershell-script-runbooks) | Text runbook based on Windows PowerShell script. |
+| [PowerShell](powershell-runbooks) | Text runbook based on Windows PowerShell script. |
 
 ## Graph runbooks
 
@@ -41,7 +41,7 @@ Azure Automation supports three types of runbooks that are  briefly described in
 - Can't view or directly edit the PowerShell Workflow code.
 - Can't use [parallel processing](automation-powershell-workflow.md#parallel_processing) with graphical activities.
 - May require a [Workflow Script Control](automation-powershell-workflow.md#activities) containing PowerShell Workflow code to perform complex logic.
-- Runbook takes longer to start than PowerShell Script runbooks since it needs to be compiled before running.
+- Runbook takes longer to start than PowerShell runbooks since it needs to be compiled before running.
 
 ## PowerShell Workflow runbooks
 
@@ -57,11 +57,11 @@ PowerShell Workflow runbooks are text runbooks based on [Windows PowerShell Work
 
 - Author must be familiar with PowerShell Workflow.
 - Runbook must deal with the additional complexity of PowerShell Workflow such as [deserialized objects](automation-powershell-workflow.md#code-changes).
-- Runbook takes longer to start than PowerShell Script runbooks since it needs to be compiled before running.
+- Runbook takes longer to start than PowerShell runbooks since it needs to be compiled before running.
 
-## PowerShell Script runbooks
+## PowerShell runbooks
 
-PowerShell Script runbooks are based on Windows PowerShell.  You directly edit the code of the runbook using the text editor in the Azure portal.  You can also use any offline text editor and [import the runbook](http://msdn.microsoft.com/library/azure/dn643637.aspx) into Azure Automation.
+PowerShell runbooks are based on Windows PowerShell.  You directly edit the code of the runbook using the text editor in the Azure portal.  You can also use any offline text editor and [import the runbook](http://msdn.microsoft.com/library/azure/dn643637.aspx) into Azure Automation.
 
 ### Advantages
 
@@ -81,8 +81,9 @@ PowerShell Script runbooks are based on Windows PowerShell.  You directly edit t
 You should take into account the following additional considerations when determining which type to use for a particular runbook.
 
 - You can't convert runbooks from one type to another.
-- You can't use a PowerShell Workflow runbook or a Graph runbook as a [child](automation-child-runbooks) in a PowerShell script runbook.  Similarly, you can't use a PowerShell script runbook as a child in a PowerShell Workflow runbook or a Graph runbook.  PowerShell Script runbooks can only use another PowerShell Script as a child.  Graph and PowerShell Workflow runbooks can use each other as child runbooks. 
-- [Hybrid Runbook Workers](automation-hybrid-runbook-worker.md) cannot run PowerShell Script runbooks.  You must use Graph or PowerShell Workflow runbooks.
+- [Hybrid Runbook Workers](automation-hybrid-runbook-worker.md) cannot run PowerShell runbooks.  You must use Graph or PowerShell Workflow runbooks.
+- You can't use a PowerShell Workflow runbook or a Graph runbook as a [child](automation-child-runbooks) in a PowerShell runbook.  Similarly, you can't use a PowerShell runbook as a child in a PowerShell Workflow runbook or a Graph runbook.  PowerShell runbooks can only use another PowerShell as a child.  Graph and PowerShell Workflow runbooks can use each other as child runbooks. 
+
   
 ## Related articles
 

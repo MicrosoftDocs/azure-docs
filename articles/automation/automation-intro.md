@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article" 
-	ms.date="09/10/2015"
+	ms.date="09/14/2015"
 	ms.author="bwren"/>
 
 # What is Azure Automation?
@@ -33,7 +33,7 @@ For example, you might have an existing manual process for provisioning a new vi
 
 ## What can runbooks automate?
 
-Runbooks in Azure Automation are based on Windows PowerShell script or Windows PowerShell Workflow, so they do anything that PowerShell can do.  If an application or service has an API, then a runbook can work with it.  If you have a PowerShell module for it, then you can load that module into Azure Automation and include those cmdlets in your runbook.  Azure Automation runbooks run in the Azure cloud so that can access any resources in the cloud or external resources that can be accessed from the cloud.  Using [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md), runbooks can run in your local data center to manage local resources.
+Runbooks in Azure Automation are based on Windows PowerShell or Windows PowerShell Workflow, so they do anything that PowerShell can do.  If an application or service has an API, then a runbook can work with it.  If you have a PowerShell module for it, then you can load that module into Azure Automation and include those cmdlets in your runbook.  Azure Automation runbooks run in the Azure cloud so that can access any resources in the cloud or external resources that can be accessed from the cloud.  Using [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md), runbooks can run in your local data center to manage local resources.
 
 
 ## Where do I get runbooks?
