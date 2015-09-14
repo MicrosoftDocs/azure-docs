@@ -4,7 +4,7 @@
 	description="Learn how you can use your Office 365 subscription in Azure RemoteApp to share Office apps."
 	services="remoteapp"
 	documentationCenter="" 
-	authors="lizap" 
+	authors="piotrci" 
 	manager="mbaldwin" />
 
 <tags 
