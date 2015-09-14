@@ -100,5 +100,5 @@ To recover data from another DPM server:
 
     ![Clear External DPM](./media/backup-azure-alternate-dpm-server/external_dpm_azurebackupagentversion.png)
 
-### Next Steps:
+## Next Steps:
 •	[Azure Backup FAQ](backup-azure-backup-faq.md)
