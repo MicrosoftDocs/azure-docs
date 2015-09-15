@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
    pageTitle="Azure Automation DSC Overview" 
    description="An Overview of Azure Automation Desired State Configuration (DSC), its terms, and known issues" 
    services="automation" 
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="powershell"
    ms.workload="TBD" 
-   ms.date="08/18/2015"
+   ms.date="09/04/2015"
    ms.author="coreyp"/>
 
 # Azure Automation DSC Overview #
@@ -192,6 +192,12 @@ Azure Automation DSC currently provides the following cmdlets in the [Azure Reso
 -	`Get-AzureAutomationDscCompilationJob`
 -	`Get-AzureAutomationDscCompilationJobOutput`
 -	`Start-AzureAutomationDscCompilationJob`
+
+
+##Azure Automation DSC LifeCycle##
+Going from an empty automation account to a managed set of correctly configured nodes involves a set of processes for defining configurations, turning those configurations into node configurations, and onboarding nodes to Azure Automation DSC and to those node configurations. The following diagram illustrates the Azure Automation DSC lifecycle:
+
+![alt text](./media/automation-dsc-overview/DSCLifecycle.png)
 
 ##Gotchas / Known Issues:##
 

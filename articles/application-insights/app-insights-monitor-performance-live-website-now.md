@@ -4,7 +4,7 @@
 	services="application-insights"
     documentationCenter=".net"
 	authors="alancameronwills"
-	manager="ronmart"/>
+	manager="douge"/>
 
 <tags
 	ms.service="application-insights"
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="04/27/2015"
+	ms.date="09/10/2015"
 	ms.author="awills"/>
 
 
@@ -55,6 +55,8 @@ You have a choice of three ways to apply Application Insights to your IIS web ap
 4. In the installation wizard, sign in to Microsoft Azure.
 
     ![Sign into Azure with your Microsoft account credentials](./media/app-insights-monitor-performance-live-website-now/appinsights-035-signin.png)
+
+    *Connection errors? See [Troubleshooting](#troubleshooting).*
 
 5. Pick the installed web application or website that you want to monitor, then configure the resource in which you want to see the results in the Application Insights portal.
 
@@ -114,6 +116,32 @@ Click any performance counter chart to change what it shows. Or you can add a ne
 You can drill down to specific exceptions (from the last seven days) and get stack traces and context data.
 
 
+## Troubleshooting
+
+### Connection errors
+
+You need to open some outgoing ports in your server's firewall to allow Status Monitor to work:
+
++ Telemetry - these are needed all the time:
+ +	`dc.services.visualstudio.com:80`
+ +	`f5.services.visualstudio.com:80`
+ +	`dc.services.visualstudio.com:443`
+ +	`f5.services.visualstudio.com:443`
+ +	`dc.services.vsallin.net:443`
++ Configuration - needed only when making changes:
+ -	`management.core.windows.net:443`
+ -	`management.azure.com:443`
+ -	`login.windows.net:443`
+ -	`login.microsoftonline.com:443`
+ -	`secure.aadcdn.microsoftonline-p.com:443`
+ -	`auth.gfx.ms:443`
+ -	`login.live.com:443`
++ Installation:
+ +	`packages.nuget.org:443`
+ +	`appinsightsstatusmonitor.blob.core.windows.net:80`
+
+This list may change from time to time.
+
 ### No telemetry?
 
   * Use your site, to generate some data.
@@ -123,7 +151,7 @@ You can drill down to specific exceptions (from the last seven days) and get sta
 
   ![](./media/app-insights-monitor-performance-live-website-now/appinsights-status-monitor-diagnostics-message.png)
 
-  * Make sure your server firewall allows outgoing traffic on port 443 to dc.services.visualstudio.com.
+  * Make sure your server firewall allows outgoing traffic on the ports listed above.
   * On the server, if you see a message about "insufficient permissions", try the following:
     * In IIS Manager, select your application pool, open **Advanced Settings**, and under **Process Model** note the identity.
     * In Computer management control panel, add this identity to the Performance Monitor Users group.

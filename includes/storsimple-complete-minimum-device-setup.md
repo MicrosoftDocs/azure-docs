@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/07/2015"
+   ms.date="09/10/2015"
    ms.author="v-sharos" />
 
 #### To complete the minimum StorSimple device setup
@@ -50,3 +50,7 @@
   You will return to the device **Quick Start** page.
 
  > [AZURE.NOTE] You can modify all the other device settings at any time by accessing the **Configure** page.
+
+![Video available](./media/storsimple-complete-minimum-device-setup/Video_icon.png) **Video available**
+
+To watch a video that demonstrates how to complete the minimum device setup, click [here](http://azure.microsoft.com/documentation/videos/minimum-storsimple-device-setup/).

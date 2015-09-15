@@ -16,11 +16,14 @@
    ms.author="mbaldwin" />
 
 # Integrating Applications with Azure Active Directory
+
+[AZURE.INCLUDE [active-directory-devguide](../../includes/active-directory-devguide.md)]
+
 Enterprise developers and software-as-a-service (SaaS) providers can develop commercial cloud services or line of business applications that can be integrated with Azure Active Directory (Azure AD) to provide secure sign in and authorization for their services. To integrate an application or service with Azure AD, a developer must first register the details about their application with Azure AD by using the Azure Management Portal.
 
 This article shows you how to add, update, or remove an application in Azure AD. You will learn about the different types of applications that can be integrated with Azure AD, how to configure your applications to access other resources such as web APIs, and more.
 
-To more information about app properties, see [Application Objects and Service Principal Objects](active-directory-application-objects.md); to learn the branding guidelines you should use when developing applications with Azure Active Directory, see [Branding Guidelines for Integrated Apps](active-directory-branding-guidelines.md).
+To more information about app properties, see [Application Objects and Service Principal Objects](active-directory-application-objects.md); to learn the branding guidelines you should use when developing applications with Azure Active Directory, see [Branding Guidelines for Integrated Apps](active-directory-branding-guidelines.md); application manifests are explained in [Understanding the Azure Active Directory application manifest](active-directory-application-manifest.md).
 
 ## Adding an Application
 
@@ -106,7 +109,7 @@ Using the consent framework described above, you can configure your application 
 
 ### Exposing Web APIs to Other Applications
 
-You can develop a web API and make it available to other organizations by exposing your permission scopes to other application developers. A correctly configured web API is made available just like the other Microsoft web APIs, including the Graph API and the Office 365 APIs. Your web API is made available by configuring an application manifest, which is a JSON file that represents your application’s identity configuration. You can expose your permission scopes by navigating to your application in the Azure Management Portal and clicking on the Application Manifest button on the command bar.
+You can develop a web API and make it available to other organizations by exposing your permission scopes to other application developers. A correctly configured web API is made available just like the other Microsoft web APIs, including the Graph API and the Office 365 APIs. Your web API is made available by configuring an [application manifest](active-directory-application-manifest.md), which is a JSON file that represents your application’s identity configuration. You can expose your permission scopes by navigating to your application in the Azure Management Portal and clicking on the Application Manifest button on the command bar.  For more information, see [Understanding the Azure Active Directory application manifest](active-directory-application-manifest.md).
 
 #### To expose a web API to other applications
 
@@ -215,7 +218,7 @@ Alternatively, your web application may also offer an experience that allows adm
 
 #### Enabling OAuth 2.0 Implicit Grant for Single Page Applications
 
-Single Page Application’s (SPAs) are typically structured with a JavaScript-heavy front end that runs in the browser, which calls the application’s web API back end to perform its business logic. For SPAs hosted in Azure AD, you use OAuth 2.0 Implicit Grant to authenticate the user with Azure AD and obtain a token that you can use to secure calls from the application's JavaScript client to its back end web API. After the user has granted consent, this same authentication protocol can be used to obtain tokens to secure calls between the client and other web API resources configured for the application. By default, OAuth 2.0 Implicit Grant is disabled for applications. You can enable OAuth 2.0 Implicit Grant for your application by setting the `oauth2AllowImplicitFlow`”` value in its application manifest, which is a JSON file that represents your application's identity configuration.
+Single Page Application’s (SPAs) are typically structured with a JavaScript-heavy front end that runs in the browser, which calls the application’s web API back end to perform its business logic. For SPAs hosted in Azure AD, you use OAuth 2.0 Implicit Grant to authenticate the user with Azure AD and obtain a token that you can use to secure calls from the application's JavaScript client to its back end web API. After the user has granted consent, this same authentication protocol can be used to obtain tokens to secure calls between the client and other web API resources configured for the application. By default, OAuth 2.0 Implicit Grant is disabled for applications. You can enable OAuth 2.0 Implicit Grant for your application by setting the `oauth2AllowImplicitFlow`”` value in its [application manifest](active-directory-application-manifest.md), which is a JSON file that represents your application's identity configuration.
 
 ##### To enable OAuth 2.0 Implicit Grant
 
@@ -344,5 +347,7 @@ In order for a company administrator to remove an app’s access to their direct
 - See the [Branding Guidelines for Integrated Apps](active-directory-branding-guidelines.md)
 
 - Learn about [Application Objects and Service Principal Objects](active-directory-application-objects.md)
+
+- Understand the [Azure Active Directory application manifest](active-directory-application-manifest.md)
 
 - Visit the [Active Directory developer's guide](active-directory-developer's guide.md)

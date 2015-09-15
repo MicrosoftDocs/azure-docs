@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/01/2015"
-	ms.author="aashishr"/>
+	ms.date="09/14/2015"
+	ms.author="trinadhk";"aashishr" />
 
 
 # Deploy and manage backup for Azure VMs using PowerShell
@@ -29,7 +29,16 @@ In order to use PowerShell effectively, it is necessary to understand the hierar
 
 The 2 most important flows are enabling protection for a VM, and restoring data from a recovery point. The focus of this article is to help you become adept at working with the PowerShell commandlets to enable these two scenarios.
 
+
 ## Setup and Registration
+To begin:
+1. [Download latest PowerShell](https://github.com/Azure/azure-powershell/releases) (minimum version required is : 0.9.8)
+2. Enable the Azure Backup commandlets by switching to *AzureResourceManager* mode by using the **Switch-AzureMode** commandlet:
+
+```
+PS C:\> Switch-AzureMode AzureResourceManager
+```
+
 The following setup and registration tasks can be automated with PowerShell:
 
 - Create a backup vault
@@ -57,7 +66,7 @@ The first step towards configuring backup with Azure Backup is to register your 
 Registering your VM with the Azure Backup service creates a top-level container object. A container typically contains multiple items that can be backed up, but in the case of VMs there will be only one backup item for the container.
 
 ```
-PS C:\> $job = Register-AzureRMBackupContainer -Vault $backupvault -Name "testvm" -ServiceName "testvm"
+PS C:\> $registerjob = Register-AzureRMBackupContainer -Vault $backupvault -Name "testvm" -ServiceName "testvm"
 ```
 
 ## Backup Azure VMs
@@ -98,8 +107,8 @@ The backup schedule will take care of doing the full initial copy for the item a
 
 ```
 PS C:\> $container = Get-AzureRMBackupContainer -Vault $backupvault -type AzureVM -name "testvm"
-PS C:\> $job = Get-AzureRMBackupItem -Container $container | Backup-AzureRMBackupItem
-PS C:\> $job
+PS C:\> $backupjob = Get-AzureRMBackupItem -Container $container | Backup-AzureRMBackupItem
+PS C:\> $backupjob
 
 WorkloadName    Operation       Status          StartTime              EndTime
 ------------    ---------       ------          ---------              -------
@@ -112,7 +121,7 @@ Most long running operations in Azure Backup are modelled as a job. This makes i
 To get the latest status of an in-progress job, use the **Get-AzureRMBackupJob** commandlet.
 
 ```
-PS C:\> $joblist = Get-AzureRMBackupJob -Vault $v -Status InProgress
+PS C:\> $joblist = Get-AzureRMBackupJob -Vault $backupvault -Status InProgress
 PS C:\> $joblist[0]
 
 WorkloadName    Operation       Status          StartTime              EndTime
@@ -171,7 +180,7 @@ You can get the details of the restore operation using the **Get-AzureRMBackupJo
 
 ```
 PS C:\> $restorejob = Get-AzureRMBackupJob -Job $restorejob
-PS C:\> $details = Get-AzureBackupJobDetails -Job $restorejob
+PS C:\> $details = Get-AzureRMBackupJobDetails -Job $restorejob
 ```
 
 ### Build the VM
@@ -184,6 +193,8 @@ Building the VM out of the restored disks can be done using the older Azure Serv
  $storageAccountName = $properties["TargetStorageAccountName"]
  $containerName = $properties["TargetContainerName"]
  $blobName = $properties["TargetBlobName"]
+
+ Switch-AzureMode AzureServiceManagement
 
  $keys = Get-AzureStorageKey -StorageAccountName $storageAccountName
  $storageAccountKey = $keys.Primary
