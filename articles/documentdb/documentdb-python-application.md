@@ -50,13 +50,14 @@ that you have the following installed:
 - Python Tools for Visual Studio from [here][].
 - Azure SDK for Visual Studio 2013, version 2.4 or higher available from
 [here][1].
-- Python 2.7 from [here][2].l
-- 
+- Python 2.7 from [here][2].
 - Microsoft Visual C++ Compiler for Python 2.7 from [here][3].
 
 ## Step 1: Create a DocumentDB database account
 
 Let's start by creating a DocumentDB account. If you already have an account, you can skip to [Step 2: Create a new Python Flask web application](#Step-2:-Create-a-new-Python-Flask-Web-Application).
+
+[AZURE.INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
 [AZURE.INCLUDE [documentdb-keys](../../includes/documentdb-keys.md)]
 
