@@ -72,7 +72,7 @@ There are two different sets of procedures to choose from in order to configure 
 This procedure will walk you through creating a virtual network, as well as creating Site-to-Site and ExpressRoute connections that will coexist.
 
 1. Verify that you have the latest version of the PowerShell cmdlets. You can download and install the latest PowerShell cmdlets from the PowerShell section of the [Download page](http://azure.microsoft.com/downloads/).
-2. Create a schema for your virtual network. For more information about working with the network configuration file, see [Configure a virtual network using a network configuration file](../virtual-network/virtual-networks-using-network-configuration-file.md). For more information about the configuration schema, see [Azure Virtual Network Configuration Schema](https://msdn.microsoft.com/library/azure/jj157100.aspx).
+2. Create a schema for your virtual network. For more information about working with the network configuration file, see [How to create a VNet using a network configuration file](../virtual-network/virtual-networks-create-vnet-classic-portal.md#how-to-create-a-vnet-using-a-network-config-file-in-the-azure-portal). For more information about the configuration schema, see [Azure Virtual Network Configuration Schema](https://msdn.microsoft.com/library/azure/jj157100.aspx).
 
 	When you create your schema, make sure you use the following values:
 
@@ -192,7 +192,7 @@ If you have an existing virtual network connected via either ExpressRoute or Sit
 2. Export the virtual network schema. Use the following PowerShell cmdlet, replacing the values with your own.
 
 	`Get-AzureVNetConfig –ExportToFile “C:\NetworkConfig.xml”`
-3. Edit the network configuration file schema so that the gateway subnet is /27 (or a shorter prefix). See the following example. For more information about working with the network configuration file, see [Configure a Virtual Network using a network configuration file](../virtual-network/virtual-networks-using-network-configuration-file.md). For more information about the configuration schema, see [Azure Virtual Network Configuration Schema](https://msdn.microsoft.com/library/azure/jj157100.aspx).
+3. Edit the network configuration file schema so that the gateway subnet is /27 (or a shorter prefix). See the following example. For more information about working with the network configuration file, see [How to create a VNet using a network configuration file](../virtual-network/virtual-networks-create-vnet-classic-portal.md#how-to-create-a-vnet-using-a-network-config-file-in-the-azure-portal). For more information about the configuration schema, see [Azure Virtual Network Configuration Schema](https://msdn.microsoft.com/library/azure/jj157100.aspx).
 
 
           <Subnet name="GatewaySubnet">
