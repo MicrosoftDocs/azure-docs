@@ -16,7 +16,7 @@
 	ms.date="07/17/2015"
 	ms.author="brandwe"/>
 
-# Azure AD B2C Preview: Calling a Web API from an iOS application
+# Azure AD B2C Preview: Calling a Web API from an Android application
 
 With Azure AD B2C, you can add powerful self-service identity managment features to your iOS apps and web apis in a few short steps.  This article will show you how to create an Android "To-Do List" app that calls a node.js web API using OAuth 2.0 bearer tokens. Both the iOS app and web api use Azure AD B2C to manage user identities
 and authenticate users.
