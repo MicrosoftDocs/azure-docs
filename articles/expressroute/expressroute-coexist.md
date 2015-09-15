@@ -22,7 +22,7 @@ You can connect ExpressRoute and Site-to-Site VPNs to the same virtual network. 
 
 ## Scenarios
 
-There are two different scenarios where you might want to use coexisting connections.
+There are two different scenarios where you might want to use coexisting connections.[Scenario 1](#scenario-1) uses an ExpressRoute active link and S2s as a backup connection. In [Scenario 2](#scenario-2), both links are active.
 
 ### Scenario 1
 
