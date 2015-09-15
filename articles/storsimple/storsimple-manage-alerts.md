@@ -232,4 +232,4 @@ If cloud connectivity fails on your StorSimple production device, then depending
 ## Next steps
 
 - Learn more about [StorSimple errors](storsimple-troubleshoot-operational-device.md).
-- Learn more about [using the StorSimple Manager service to manage your StorSimple device](storsimple-manager-service-administration.md).
+- Learn more about [using the StorSimple Manager service to administer your StorSimple device](storsimple-manager-service-administration.md).

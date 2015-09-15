@@ -64,4 +64,4 @@ A volume container has volumes within it. It can be deleted only if all the volu
 ## Next steps
 
 - Learn more about [managing StorSimple volumes](storsimple-manage-volumes.md). 
-- Learn more about [using the StorSimple Manager service to manage your StorSimple device](storsimple-manager-service-administration.md).
+- Learn more about [using the StorSimple Manager service to administer your StorSimple device](storsimple-manager-service-administration.md).
