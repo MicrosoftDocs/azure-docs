@@ -22,9 +22,9 @@
 
 Azure Service Bus now supports the Advanced Message Queuing Protocol (AMQP) 1.0 for Azure Service Bus **Partitioned Queues and Topics**.
 
-**AMQP** is an open standard message queuing protocol that enables developing cross-platform applications using different programing languages.  More information about Service Bus general support of AMQP can be found at: [AMQP 1.0 support in Service Bus](https://azure.microsoft.com/en-us/documentation/articles/service-bus-amqp-overview).
+**AMQP** is an open standard message queuing protocol that enables developing cross-platform applications using different programing languages.  More information about Service Bus general support of AMQP can be found at: [AMQP 1.0 support in Service Bus](https://azure.microsoft.com/documentation/articles/service-bus-amqp-overview).
 
-Partitioned queues and topics offer higher availability, reliability and throughput over non-partitioned queues and topics. More details about partitioned entities can be found at: [Partitioning Messaging Entities](https://msdn.microsoft.com/en-us/library/azure/dn520246.aspx).
+Partitioned queues and topics offer higher availability, reliability and throughput over non-partitioned queues and topics. More details about partitioned entities can be found at: [Partitioning Messaging Entities](https://msdn.microsoft.com/library/azure/dn520246.aspx).
 
 ### Using AMQP with partitioned queues
 #### Creating partitioned queues
@@ -82,7 +82,7 @@ Partitioned queues and topics offer higher availability, reliability and through
 
 *    [Partitioning Messaging Entities](https://msdn.microsoft.com/library/azure/dn520246.aspx)
 *    [OASIS Advanced Message Queuing Protocol (AMQP) Version 1.0](http://docs.oasis-open.org/amqp/core/v1.0/os/amqp-core-complete-v1.0-os.pdf)
-*    [AMQP 1.0 support in Service Bus](https://azure.microsoft.com/en-us/documentation/articles/service-bus-amqp-overview/)
+*    [AMQP 1.0 support in Service Bus](https://azure.microsoft.com/documentation/articles/service-bus-amqp-overview/)
 *    [Service Bus AMQP: Developer's Guide]("https://msdn.microsoft.com/library/azure/jj841071.aspx")
 *    [How to use the Java Message Service (JMS) API with Service Bus and AMQP 1.0](https://azure.microsoft.com/documentation/articles/service-bus-java-how-to-use-jms-api-amqp/)
 *    [How to use AMQP 1.0 with the Service Bus .NET API](https://azure.microsoft.com/documentation/articles/service-bus-dotnet-advanced-message-queuing/)
