@@ -34,7 +34,7 @@ Alternatively, you can also file an Azure support incident. Go to the [Azure Sup
 
 Sometimes you might see this error message in the Remote Desktop Connection message window: _Remote Desktop cannot connect to the remote computer for one of these reasons…_
 
-This error happens when the Remote Desktop client cannot reach the Remote Desktop Services service on the virtual machine. There can be many root causes for this error.
+This error happens when the Remote Desktop client cannot reach the Remote Desktop service on the virtual machine. There can be various reasons for this error.
 
 Here is the set of components involved.
 
@@ -129,7 +129,7 @@ The last set of possible problems is on the Azure virtual machine itself.
 
 ![](./media/virtual-machines-rdp-detailed-troubleshoot/tshootrdp_5.png)
 
-The basic Remote Desktop troubleshooting article [here] describes how to use the [Azure IaaS (Windows) diagnostics package](https://home.diagnostics.support.microsoft.com/SelfHelp?knowledgebaseArticleFilter=2976864). If this diagnostics package was unable to solve the **RDP connectivity to an Azure VM (Reboot Required)** issue, follow the instructions in [this article](virtual-machines-windows-reset-password.md) to reset the Remote Desktop Services service on the virtual machine. This will:
+The [basic Remote Desktop troubleshooting article](virtual-machines-troubleshoot-remote-desktop-connections.md) describes how to use the [Azure IaaS (Windows) diagnostics package](https://home.diagnostics.support.microsoft.com/SelfHelp?knowledgebaseArticleFilter=2976864). If this diagnostics package was unable to solve the **RDP connectivity to an Azure VM (Reboot Required)** issue, follow the instructions in [this article](virtual-machines-windows-reset-password.md) to reset the Remote Desktop Services service on the virtual machine. This will:
 
 - Enable the "Remote Desktop" Windows Firewall default rule (TCP port 3389).
 - Enable Remote Desktop connections by setting the HKLM\System\CurrentControlSet\Control\Terminal Server\fDenyTSConnections registry value to 0.
