@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="How To Control Inbound Traffic to an App Service Environment" 
 	description="Learn about how to configure network security rules to control inbound traffic to an App Service Environment." 
-	services="app-service\web" 
+	services="app-service\web,app-service\api,app-service\mobile" 
 	documentationCenter="" 
 	authors="ccompy" 
 	manager="wpickett" 
@@ -26,6 +26,8 @@ An App Service Environment must always be created within a subnet because a subn
 Inbound and outbound network traffic on a subnet is controlled using a [network security group][NetworkSecurityGroups].  Controlling inbound traffic requires creating network security rules in a network security group, and then assigning the network security group the subnet containing the App Service Environment.
 
 Once a network security group is assigned to a subnet, inbound traffic to apps in the App Service Environment is allowed/blocked based on the allow and deny rules defined in the network security group.
+
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)] 
 
 ## Network Ports Used in an App Service Environment ##
 Before locking down inbound network traffic with a network security group, it is important to know the set of required and optional network ports used by an App Service Environment.  Accidentally closing off traffic to some ports can result in loss of functionality in an App Service Environment.

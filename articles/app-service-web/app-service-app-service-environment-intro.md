@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Introduction to App Service Environment" 
 	description="Learn about the App Service Environment feature that provides secure, VNet-joined, dedicated scale units for running all of your apps." 
-	services="app-service\web" 
+	services="app-service\web,app-service\api,app-service\mobile" 
 	documentationCenter="" 
 	authors="ccompy" 
 	manager="wpickett" 
@@ -22,6 +22,8 @@
 An App Service Environment is a [Premium][PremiumTier] service plan option of Azure App Service that provides a fully isolated and dedicated environment for securely running all of your apps.  This includes [Web Apps][WebApps], [Mobile Apps][MobileApps], [API Apps][APIApps] and [Logic Apps][LogicApps] with expanded scaling options.  
 
 Compute resources for an App Service Environment are exclusively dedicated to running only your apps.  An App Service Environment is always created in a regional classic "v1" virtual network, which gives your apps new options for network isolation.  Furthermore an App Service Environment supports additional scaling options, with up to fifty (50) compute resources available to run your apps.  Outside of an App Service Environment there is a limit of 20 compute resources to host your apps. 
+
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)] 
 
 ## Virtual Network Support ##
 An App Service Environment can either be created in a pre-existing regional classic "v1" virtual network, or a new regional classic "v1" virtual network ([more info on virtual networks][MoreInfoOnVirtualNetworks]).  Since an App Service Environment always exists in a regional virtual network, and more precisely within a subnet of a regional virtual network, you can leverage the security features of virtual networks to control both inbound and outbound network communications.  
