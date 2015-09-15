@@ -1,6 +1,7 @@
 <properties 
     pageTitle="DocumentDB Indexing Policies | Microsoft Azure" 
-    description="Understand how indexing works in DocumentDB and learn how to configure and change the indexing policy." 
+    description="Understand how indexing works in DocumentDB learn how to configure and change the indexing policy. Configure the indexing policy withing DocumentDB for automatic indexing and greater performance." 
+	keywords="how indexing works, automatic indexing, indexing database, documentdb, azure, Microsoft azure"
     services="documentdb" 
     documentationCenter="" 
     authors="arramac" 
@@ -19,7 +20,7 @@
 
 # DocumentDB indexing policies
 
-While many customers are happy to let DocumentDB automatically handle [all aspects of indexing](documentdb-indexing.md), DocumentDB also supports specifying a custom **indexing policy** for collections during creation. Indexing policies in DocumentDB are more flexible and powerful than secondary indexes offered in other database platforms, in that they let you design and customize the shape of the index without sacrificing schema flexibility. By managing indexing policy, you can make fine-grained tradeoffs between index storage overhead, write and query throughput, and query consistency.  
+While many customers are happy to let DocumentDB automatically handle [all aspects of indexing](documentdb-indexing.md), DocumentDB also supports specifying a custom **indexing policy** for collections during creation. Indexing policies in DocumentDB are more flexible and powerful than secondary indexes offered in other indexing database platforms, in that they let you design and customize the shape of the index without sacrificing schema flexibility. To learn how indexing works within DocumentDB, you must understand that by managing indexing policy, you can make fine-grained tradeoffs between index storage overhead, write and query throughput, and query consistency.  
 
 In this article, we take a close look at DocumentDB indexing policies, how you can customize indexing policy, and the associated trade-offs. 
 
@@ -62,7 +63,7 @@ The following .NET code snippet shows how to set a custom indexing policy during
 >
 >By default, DocumentDB indexes all string properties within documents consistently with a Hash index, and numeric properties with a Range index.  
 
-### Indexing modes
+### Database indexing modes
 
 DocumentDB supports three indexing modes which can be configured via the indexing policy on a DocumentDB collection – Consistent, Lazy and None.
 
@@ -610,7 +611,7 @@ DocumentDB allows you to make changes to the indexing policy of a collection on 
 
 **Online Index Transformations**
 
-![Online Index Transformations](media/documentdb-indexing-policies/index-transformations.png)
+![How indexing works – DocumentDB online index transformations](media/documentdb-indexing-policies/index-transformations.png)
 
 Index transformations are made online, meaning that the documents indexed per the old policy are efficiently transformed per the new policy **without affecting the write availability or the provisioned throughput** of the collection. The consistency of read and write operations made using the REST API, SDKs or from within stored procedures and triggers is not impacted during index transformation. This means that there is no performance degradation or downtime to your apps when you make an indexing policy change.
 

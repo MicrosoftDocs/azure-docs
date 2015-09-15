@@ -13,7 +13,7 @@ Provisioned document storage / collection|10 GB
 Maximum collections per database account*|100
 Maximum document storage per database (100 collections)* |1 TB
 Maximum Length of the Id property|255 characters
-Maximum items per page|1000
+Maximum items per page|No practical limit
 Maximum request size of document and attachment |512KB
 Maximum request size of stored procedure, trigger and UDF|512KB
 Maximum response size|1MB

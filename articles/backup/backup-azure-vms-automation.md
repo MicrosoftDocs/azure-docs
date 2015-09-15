@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/01/2015"
-	ms.author="aashishr"/>
+	ms.date="09/14/2015"
+	ms.author="trinadhk";"aashishr" />
 
 
 # Deploy and manage backup for Azure VMs using PowerShell
@@ -31,7 +31,9 @@ The 2 most important flows are enabling protection for a VM, and restoring data 
 
 
 ## Setup and Registration
-To begin, enable the Azure Backup commandlets by switching to *AzureResourceManager* mode by using the **Switch-AzureMode** commandlet:
+To begin:
+1. [Download latest PowerShell](https://github.com/Azure/azure-powershell/releases) (minimum version required is : 0.9.8)
+2. Enable the Azure Backup commandlets by switching to *AzureResourceManager* mode by using the **Switch-AzureMode** commandlet:
 
 ```
 PS C:\> Switch-AzureMode AzureResourceManager
