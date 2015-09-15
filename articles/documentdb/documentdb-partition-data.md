@@ -1,7 +1,8 @@
 <properties      
-    pageTitle="Partitioning data in DocumentDB | Microsoft Azure"      
-    description="Learn about how to partition data in DocumentDB, and when to use Hash, Range and Lookup partitioning."          
-    services="documentdb"      
+    pageTitle="Partition and Scale Data in DocumentDB with Sharding | Microsoft Azure"      
+    description="Review how to scale data with a technique called sharding. Learn about shards, how to partition data in DocumentDB, and when to use Hash, Range and Lookup partitioning."         
+    keywords="Scale data, shard, sharding, documentdb, azure, Microsoft azure"
+	services="documentdb"      
     authors="arramac"      
     manager="jhubbard"      
     editor="monicar"      
@@ -15,13 +16,13 @@
     ms.date="05/28/2015"      
     ms.author="arramac"/> 
 
-# Partitioning data in DocumentDB
+# Partition and scale data in DocumentDB
 
 [Microsoft Azure DocumentDB](../../services/documentdb/) is designed to help you achieve fast, predictable performance and *scale-out* seamlessly along with your application as it grows. DocumentDB has been used to power high-scale production services at Microsoft like the User Data Store that powers the MSN suite of web and mobile apps. 
 
 You can achieve near-infinite scale in terms of storage and throughput for your DocumentDB application by horizontally partitioning your data - a concept commonly referred to as **sharding**.  DocumentDB accounts can be scaled linearly with cost via stackable units a.k.a. **collections**. How you best partition your data across collections will depend on your data format and access patterns. 
 
-After reading this article you will be able to answer the following questions:   
+After reading this article on data scaling you will be able to answer the following questions:   
 
  - What is hash, range and lookup partitioning?
  - When would you use each partitioning technique and why?
@@ -31,7 +32,7 @@ This article presents some concepts about sharding. If you're ready to write cod
 
 ## Collections = Partitions
 
-Before we dive deeper on data partitioning techniques, it is important to understand what a collection is and what it isn't. As you may already know, a collection is a container for your JSON documents. Collections in DocumentDB are not just *logical* containers, but also *physical* containers. They are the transaction boundary for stored procedures and triggers, and the entry point to queries and CRUD operations. Each collection is assigned a reserved amount of throughput which is not shared with other collections in the same account. Therefore you can scale out your application both in terms of storage and throughput by adding more collections, and then distributing your documents across them.
+Before we dive deeper on data scaling and partitioning techniques, it is important to understand what a collection is and what it isn't. As you may already know, a collection is a container for your JSON documents. Collections in DocumentDB are not just *logical* containers, but also *physical* containers. They are the transaction boundary for stored procedures and triggers, and the entry point to queries and CRUD operations. Each collection is assigned a reserved amount of throughput which is not shared with other collections in the same account. Therefore you can scale out your application both in terms of storage and throughput by adding more collections, and then distributing your documents across them.
 
 Collections are not the same as tables in relational databases. Collections do not enforce schema. Therefore you can store different types of documents with diverse schemas in the same collection. You can however choose to use collections to store objects of a single type like you would with tables. The best model depends only on how the data appears together in queries and transactions.
 
@@ -90,7 +91,7 @@ You also need to decide how you will store your partition map, how your clients 
 
 If not, you can store it in any persistent store. A common design pattern we've seen in production is to serialize partition maps as JSON, and store them within DocumentDB collections as well. Clients can then cache the map in order to avoid the extra round trips, and then poll for changes periodically. If your clients might modify the shard map, ensure that they use a consistent naming schema and use optimistic concurrency (eTags) to allow consistent updates to the partition map.
 
-## Adding and removing partitions
+## Adding and removing partitions to scale data
 
 With DocumentDB, you can add and remove collections at any time and use them to store new incoming data or re-balance data available on existing collections. Review the [Limits](documentdb-limits.md) page for the number of collections. You can always call us to increase these limits.
 
