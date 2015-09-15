@@ -39,7 +39,7 @@ Verify the following items before resetting your gateway.
 
 The PowerShell cmdlet for resetting Azure VPN gateway is *Reset-AzureVNetGateway*. Each Azure VPN gateway is composed of two VM instances running in an active-standby configuration. Once the command is issued, the current active instance of the Azure VPN gateway will be rebooted immediately. There will be a brief gap during the failover from the active instance (being rebooted) to the standby instance. The gap should be less than one minute. 
 
-The following example will reset the Azure VPN gateway for the virtual network called "ContosoVNet":
+The following example will reset the Azure VPN gateway for the virtual network called "ContosoVNet".
  
 			D:\PS> Reset-AzureVNetGateway –VnetName “ContosoVNet” 
 
