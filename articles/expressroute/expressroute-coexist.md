@@ -1,6 +1,6 @@
 <properties
    pageTitle="Configure Expressroute and Site-to-Site VPN connections that can coexist | Microsoft Azure"
-   description="This tutorial walks you through configuring ExpressRoute and a Site-to-Site VPN connection that can coexist."
+   description="This article walks you through configuring ExpressRoute and a Site-to-Site VPN connection that can coexist."
    documentationCenter="na"
    services="expressroute"
    authors="cherylmc"
