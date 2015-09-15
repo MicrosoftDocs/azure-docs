@@ -58,8 +58,6 @@ that you have the following installed:
 
 Let's start by creating a DocumentDB account. If you already have an account, you can skip to [Step 2: Create a new Python Flask web application](#Step-2:-Create-a-new-Python-Flask-Web-Application).
 
-[AZURE.INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
-
 [AZURE.INCLUDE [documentdb-keys](../../includes/documentdb-keys.md)]
 
 <br/>
