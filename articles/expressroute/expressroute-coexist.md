@@ -18,11 +18,11 @@
 
 # Configure Azure ExpressRoute and Site-to-Site VPN connections that coexist
 
-You can now connect ExpressRoute and Site-to-Site VPNs to the same virtual network.
-There are two different scenarios and two different configuration procedures to choose from.
-This article applies to VNets using the classic deployment model. This is not yet available for VNets using the Resource Manager deployment model.
+You can connect ExpressRoute and Site-to-Site VPNs to the same virtual network. This article applies to VNets using the classic deployment model. This type of coexisting connection is not yet available for VNets using the Resource Manager deployment model.
 
 ## Scenarios
+
+There are two different scenarios and two different configuration procedures to choose from.
 
 ### Scenario 1
 
