@@ -76,7 +76,7 @@ This procedure will walk you through creating a virtual network, as well as crea
 
 	When you create your schema, make sure you use the following values:
 
-	- The network prefix length of the gateway subnet for the virtual network must be 27 or smaller (26, 25, etc.).
+	- The network prefix length of the gateway subnet for the virtual network must be 27 or smaller (/26, /25, etc.).
 	- The gateway connection type is "Dedicated".
 
 		      <VirtualNetworkSite name="MyAzureVNET" Location="Central US">
