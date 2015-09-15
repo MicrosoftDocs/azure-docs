@@ -16,7 +16,7 @@
 	ms.date="09/15/2015"
 	ms.author="brandwe"/>
 
-# App Model v2.0 Preview: Secure a Web API using node.js
+# B2C Preview: Secure a Web API using node.js
 
 > [AZURE.NOTE]
 	This information applies to the Azure AD B2C preview.  For information on how to integrate with the generally available Azure AD service, 
