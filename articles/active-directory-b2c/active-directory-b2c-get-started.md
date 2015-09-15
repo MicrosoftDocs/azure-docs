@@ -34,13 +34,13 @@ Use the following steps to create a new Azure AD B2C directory. Currently B2C fe
 1. Sign into the [Azure portal](https://manage.windowsazure.com/) as the Subscription Administrator. This is the same work or school account or the same Microsoft Account that you used to sign up for Azure.
 2. Click **New** > **App Services** > **Active Directory** > **Directory** > **Custom Create**.
 
-    ![Create directory](../media/active-directory-b2c/new-directory.png)
+    ![Create directory](./media/active-directory-b2c-get-started/new-directory.png)
 
 3. Choose the **name**, **domain name** and **country or region** for your directory.
 4. Check the option that says "**This is a B2C directory**".
 5. Click the check mark to complete the action.
 
-    ![Create B2C directory](../media/active-directory-b2c/create-b2c-directory.png)
+    ![Create B2C directory](./media/active-directory-b2c-get-started/create-b2c-directory.png)
 
 6. Your directory is now created and will appear in the Active Directory extension. You are also made a Global Administrator of the directory. You can add other Global Administrators as required.
 
@@ -54,12 +54,12 @@ Use the following steps to create a new Azure AD B2C directory. Currently B2C fe
 3. Click on the **Configure** tab.
 4. Click on the **Manage B2C settings** link in the **B2C administration** section.
 
-    ![Create B2C directory](../media/active-directory-b2c/b2c-directory-configure-tab.png)
+    ![Create B2C directory](./media/active-directory-b2c-get-started/b2c-directory-configure-tab.png)
 
 4. The [Azure preview portal](https://portal.azure.com/) with the B2C features blade will open in a new browser tab or window.
 5. Pin this blade (see top right corner) to your Startboard for easy access.
 
-    ![B2C features blade](../media/active-directory-b2c/b2c-features-blade.png)
+    ![B2C features blade](./media/active-directory-b2c-get-started/b2c-features-blade.png)
 
     > [AZURE.NOTE]
     You can manage users & groups, self-service password reset configuration and company branding features of your directory on the [Azure portal](https://manage.windowsazure.com/).

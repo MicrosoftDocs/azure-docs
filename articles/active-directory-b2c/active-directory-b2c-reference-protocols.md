@@ -1,14 +1,14 @@
 <properties
 	pageTitle="Azure AD B2C Preview | Microsoft Azure"
 	description="How to build apps directly using the protocols supported by the Azure AD B2C preview."
-	services="active-directory"
+	services="active-directory-b2c"
 	documentationCenter=""
 	authors="dstrockis"
 	manager="mbaldwin"
 	editor=""/>
 
 <tags
-	ms.service="active-directory"
+	ms.service="active-directory-b2c"
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
@@ -42,7 +42,7 @@ https://login.microsoftonline.com/common/oauth2/v2.0/token
 
 In nearly all OAuth & OpenID Connect flows, there are four parties involved in the exchange:
 
-![OAuth 2.0 Roles](../media/active-directory-v2-flows/protocols_roles.png)
+![OAuth 2.0 Roles](./media/active-directory-b2c-reference-protocols/protocols_roles.png)
 
 - The **Authorization Server** is the Azure AD v2.0 Endpoint.  It is responsible for ensuring the user's identity, granting and revoking access to resources, and issuing tokens.  It is also known as the identity provider - it securely handles anything to do with the user's information, their access, and the trust relationships between parties in an flow.
 - The **Resource Owner** is typically the end-user.  It is the party that owns the data, and has the power to allow third parties to access that data, or resource.

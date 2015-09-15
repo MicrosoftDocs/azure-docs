@@ -1,14 +1,14 @@
 <properties
 	pageTitle="Azure AD B2C Preview | Microsoft Azure"
 	description="How to build a .NET Web API using Azure AD B2C, secured using OAuth 2.0 access tokens for authentication."
-	services="active-directory"
+	services="active-directory-b2c"
 	documentationCenter=".net"
 	authors="dstrockis"
 	manager="mbaldwin"
 	editor=""/>
 
 <tags
-	ms.service="active-directory"
+	ms.service="active-directory-b2c"
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"

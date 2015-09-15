@@ -26,22 +26,22 @@ To use Facebook as an identity provider in Azure AD B2C, you will first need to 
 2. If you have not already done so, click **Apps** then click **Register as a Developer**, accept the policy and follow the registration steps.
 3. Click **Apps** and then **Add a new App**. Then choose **Website** as the platform, and then click **Skip and Create App ID**.
 
-    ![FB - Add a new app](../media/active-directory-b2c/fb-add-new-app.png)
+    ![FB - Add a new app](./media/active-directory-b2c-setup-fb-app/fb-add-new-app.png)
 
-    ![FB - Add a new app - Website](../media/active-directory-b2c/fb-add-new-app-website.png)
+    ![FB - Add a new app - Website](./media/active-directory-b2c-setup-fb-app/fb-add-new-app-website.png)
 
-    ![FB - Create app ID](../media/active-directory-b2c/fb-new-app-skip.png)
+    ![FB - Create app ID](./media/active-directory-b2c-setup-fb-app/fb-new-app-skip.png)
 
 4. On the form, provide a **Display Name**, choose the appropriate **Category** and click **Create App ID**. Note: This requires you to accept Facebook Platform Policies and complete an online Security Check.
 
-    ![FB - Create app ID](../media/active-directory-b2c/fb-create-app-id.png)
+    ![FB - Create app ID](./media/active-directory-b2c-setup-fb-app/fb-create-app-id.png)
 
 5. Click **Settings** on the left hand navigation. Enter a valid **Contact Email**.
 6. Click on **+Add Platform** and then select **Website**.
 
-    ![FB - Settings](../media/active-directory-b2c/fb-settings.png)
+    ![FB - Settings](./media/active-directory-b2c-setup-fb-app/fb-settings.png)
 
-    ![FB - Settings](../media/active-directory-b2c/fb-website.png)
+    ![FB - Settings](./media/active-directory-b2c-setup-fb-app/fb-website.png)
 
 7. Enter [https://login.microsoftonline.com/](https://login.microsoftonline.com/) in the **Site URL** field and then click **Save Changes**.
 8. Copy the value of **App ID**. Click **Show** and copy the value of **App Secret**. You will need both of them to configure Facebook as an identity provider in your directory.
@@ -49,15 +49,15 @@ To use Facebook as an identity provider in Azure AD B2C, you will first need to 
     > [AZURE.NOTE]
     **App Secret** is an important security credential.
 
-    ![FB - Site URL](../media/active-directory-b2c/fb-site-url.png)
+    ![FB - Site URL](./media/active-directory-b2c-setup-fb-app/fb-site-url.png)
 
 9. Click the **Advanced** tab at the top, and then enter [https://login.microsoftonline.com/te/{directory}/oauth2/authresp](https://login.microsoftonline.com/te/{directory}/oauth2/authresp) in the **Valid OAuth redirect URIs** field (in the **Security** section), where **{directory}** is to be replaced with your directory's name (for example, contosob2c.onmicrosoft.com). Click **Save Changes** at the bottom of the page.
 
-    ![FB - OAuth Redirect URI](../media/active-directory-b2c/fb-oauth-redirect-URI.png)
+    ![FB - OAuth Redirect URI](./media/active-directory-b2c-setup-fb-app/fb-oauth-redirect-URI.png)
 
 10. To make your Facebook application usable by Azure AD B2C, you need to make it publicly available. You can do this by clicking on **Status & Review** on the left navigation and turning the switch at the top of the page to **YES**. And click **Confirm**.
 
-    ![FB - OAuth Redirect URI](../media/active-directory-b2c/fb-app-public.png)
+    ![FB - OAuth Redirect URI](./media/active-directory-b2c-setup-fb-app/fb-app-public.png)
 
 ## Configure Facebook as an Identity Provider in your Directory
 

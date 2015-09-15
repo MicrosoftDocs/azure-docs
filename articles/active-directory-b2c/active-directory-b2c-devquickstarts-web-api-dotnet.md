@@ -1,14 +1,14 @@
 <properties
 	pageTitle="Azure AD B2C Preview | Microsoft Azure"
 	description="How to build a web application that calls a web API using Azure AD B2C."
-	services="active-directory"
+	services="active-directory-b2c"
 	documentationCenter=".net"
 	authors="dstrockis"
 	manager="mbaldwin"
 	editor=""/>
 
 <tags
-	ms.service="active-directory"
+	ms.service="active-directory-b2c"
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"

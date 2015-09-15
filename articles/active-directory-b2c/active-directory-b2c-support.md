@@ -26,11 +26,11 @@ You can file support requests for Azure AD B2C on the Azure preview portal using
     > [AZURE.IMPORTANT]
     This step is required. The process will fail if you don't do this step.
 
-    ![Support - Switch directories](../media/active-directory-b2c/support-switch-dir.png)
+    ![Support - Switch directories](./media/active-directory-b2c-support/support-switch-dir.png)
 
 3. After switching directories, click on **Help + support**.
 
-    ![Support - Support](../media/active-directory-b2c/support-support.png)
+    ![Support - Support](./media/active-directory-b2c-support/support-support.png)
 
 4. Follow the steps outlined in [this article](http://blogs.msdn.com/b/mast/archive/2013/10/24/windows-azure-technical-support-for-msdn-technet-or-mpn-users-and-partners.aspx) to file a support request against Azure AD B2C. Use these details to complete the steps:
 
@@ -48,4 +48,4 @@ If you missed step 2 outlined above and try to create a support request in the c
 > [AZURE.IMPORTANT]
 Don't attempt to sign up for a new Azure subscription in your B2C directory.
 
-![Support - No subscription](../media/active-directory-b2c/support-no-sub.png)
+![Support - No subscription](./media/active-directory-b2c-support/support-no-sub.png)

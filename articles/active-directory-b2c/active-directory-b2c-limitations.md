@@ -64,6 +64,6 @@ B2C features are accessible on the Azure preview portal. However, you can use th
 
 - For a local account user (i.e., a consumer who signs up with an email address & password or a username & password), the **User Name** field doesn't correspond to the sign-in identifier (email address or username) used during sign-up. This is because the field displayed on the Azure portal is actually the User Principal Name (UPN), which is unused in B2C scenarios. To view the sign-in identifier of the local account, find the user object in [Graph Explorer](https://graphexplorer.cloudapp.net/). You will find the same issue with a social account user (i.e., a consumer who signs up with Facebook, Google+, etc.), but in that case, there is no sign-in identifier to speak of.
 
-    ![Local account - UPN](../media/active-directory-b2c/limitations-user-mgmt.png)
+    ![Local account - UPN](./media/active-directory-b2c-limitations/limitations-user-mgmt.png)
 
 - For a local account user, you will not able to edit any of the fields and save changes on the **Profile** tab. We will fix this soon.

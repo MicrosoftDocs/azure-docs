@@ -1,14 +1,14 @@
 <properties
 	pageTitle="Azure AD B2C Preview | Microsoft Azure"
 	description="Building web applications using Azure AD's implementation of the OpenID Connect authentication protocol."
-	services="active-directory"
+	services="active-directory-b2c"
 	documentationCenter=""
 	authors="dstrockis"
 	manager="mbaldwin"
 	editor=""/>
 
 <tags
-	ms.service="active-directory"
+	ms.service="active-directory-b2c"
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
@@ -26,7 +26,7 @@
 The OAuth 2.0 authorization code flow is described in in [section 4.1 of the OAuth 2.0 specification](http://tools.ietf.org/html/rfc6749).  It is used to perform authentication and authorization in the majority of  app types, including [web apps](active-directory-v2-flows.md#web-apps) and [natively installed  apps](active-directory-v2-flows.md#mobile-and-native-apps).  It enables apps to securely acquire access_tokens which can be used to access resources that are secured using the v2.0 app model.  
 
 Here is the entire flow for a native  app; each request is detailed in the sections below:
-![OAuth Auth Code Flow](../media/active-directory-v2-flows/convergence_scenarios_native.png)
+![OAuth Auth Code Flow](./media/active-directory-b2c-reference-oauth-code/convergence_scenarios_native.png)
 
 #### Request an Authorization Code
 The authorization code flow begins with the client directing the user to the `/authorize` endpoint.  In this request, the client indicates the permissions it needs to acquire from the user:

@@ -26,25 +26,25 @@ To use Amazon as an identity provider in Azure AD B2C, you will first need to cr
 2. If you have not already done so, click **Sign Up**, follow the developer registration steps and accept the policy.
 3. Click **Register new application**.
 
-    ![Amazon - New app](../media/active-directory-b2c/amzn-new-app.png)
+    ![Amazon - New app](./media/active-directory-b2c-setup-amzn-app/amzn-new-app.png)
 
 4. Provide application information (**Name**, **Description** and **Privacy Notice URL**) and click **Save**.
 
-    ![Amazon - Register app](../media/active-directory-b2c/amzn-register-app.png)
+    ![Amazon - Register app](./media/active-directory-b2c-setup-amzn-app/amzn-register-app.png)
 
 5. In the **Web Settings** section, copy the values of **Client ID** and **Client secret** (you will need to click the **Show Secret** button to see this). You will need both of them to configure Amazon as an identity provider in your directory. Click **Edit** at the bottom of the section.
 
     > [AZURE.NOTE]
     **Client secret** is an important security credential.
 
-    ![Amazon - Client secret](../media/active-directory-b2c/amzn-client-secret.png)
+    ![Amazon - Client secret](./media/active-directory-b2c-setup-amzn-app/amzn-client-secret.png)
 
 6. Enter [https://login.microsoftonline.com](https://login.microsoftonline.com) in the **Allowed JavaScript origins** field and [https://login.microsoftonline.com/te/{directory}/oauth2/authresp](https://login.microsoftonline.com/te/{directory}/oauth2/authresp) in the **Allowed Return URLs** field, where **{directory}** is to be replaced with your directory's name (for example, contoso.onmicrosoft.com). Click **Save**.
 
     > [AZURE.NOTE]
     The **{directory}** value is case-sensitive.
 
-    ![Amazon - URLs](../media/active-directory-b2c/amzn-urls.png)
+    ![Amazon - URLs](./media/active-directory-b2c-setup-amzn-app/amzn-urls.png)
 
 ## Configure Amazon as an Identity Provider in your Directory
 

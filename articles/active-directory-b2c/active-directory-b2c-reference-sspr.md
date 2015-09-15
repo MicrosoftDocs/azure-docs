@@ -26,7 +26,7 @@ This feature allows your consumers (who have signed up for local accounts) to re
 4. Click on the **Configure** tab.
 5. Scroll down to the **user password reset policy** section and toggle the **users enabled for password reset** option to **YES**. Notice that the **Alternate Email Address** option is checked; leave it as-is.
 
-    ![Self-service password reset](../media/active-directory-b2c/sspr.png)
+    ![Self-service password reset](./media/active-directory-b2c-sspr/sspr.png)
  
 6. Click **Save** at the bottom of the page. You're done!
 
