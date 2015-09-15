@@ -25,7 +25,7 @@ The first step is to create a service namespace, and to obtain a [Shared Access 
 
 ### Create a namespace and obtain a shared secret key
 
-1. For complete information about how to create a service namespace, see the topic [How To: Create or Modify a Service Bus Service Namespace](https://msdn.microsoft.com/en-us/library/azure/hh690931.aspx) in the [Managing Service Bus Service Namespaces](https://msdn.microsoft.com/en-us/library/azure/hh690928.aspx) section.
+1. For complete information about how to create a service namespace, see the topic [How To: Create or Modify a Service Bus Service Namespace](https://msdn.microsoft.com/library/azure/hh690931.aspx) in the [Managing Service Bus Service Namespaces](https://msdn.microsoft.com/library/azure/hh690928.aspx) section.
 
 1. In the main window of the Azure portal, click the name of the namespace you created in the previous step.
 
