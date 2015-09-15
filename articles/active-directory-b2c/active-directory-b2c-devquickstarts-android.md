@@ -18,7 +18,7 @@
 
 # Azure AD B2C Preview: Calling a Web API from an Android application
 
-With Azure AD B2C, you can add powerful self-service identity managment features to your iOS apps and web apis in a few short steps.  This article will show you how to create an Android "To-Do List" app that calls a node.js web API using OAuth 2.0 bearer tokens. Both the iOS app and web api use Azure AD B2C to manage user identities
+With Azure AD B2C, you can add powerful self-service identity managment features to your iOS apps and web apis in a few short steps.  This article will show you how to create an Android "To-Do List" app that calls a node.js web API using OAuth 2.0 bearer tokens. Both the Android app and web api use Azure AD B2C to manage user identities
 and authenticate users.
 
 > [AZURE.NOTE]
@@ -81,7 +81,7 @@ The code for this tutorial is maintained [on GitHub](https://github.com/AzureADQ
 git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-NativeClient-Android.git
 ```
 
-> [AZURE.NOTE] **Downloading the skeleton is required for completing this tutorial.** Due to the complexity of implementing a fully functioning application on iOS, the **skeleton** has UX code that will run once you've completed the tutorial below. This is a time saving measure for the developer. The UX code is not germane to the topic of adding B2C to an iOS application.
+> [AZURE.NOTE] **Downloading the skeleton is required for completing this tutorial.** Due to the complexity of implementing a fully functioning application on Android, the **skeleton** has UX code that will run once you've completed the tutorial below. This is a time saving measure for the developer. The UX code is not germane to the topic of adding B2C to an Android application.
 
 The completed app is also [available as a .zip](https://github.com/AzureADQuickStarts/B2C-NativeClient-Android/archive/complete.zip) or on the
 `complete` branch of the same repo.
