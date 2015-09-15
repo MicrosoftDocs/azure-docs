@@ -22,7 +22,7 @@ You can connect ExpressRoute and Site-to-Site VPNs to the same virtual network. 
 
 ## Scenarios
 
-There are two different scenarios and two different configuration procedures to choose from.
+There are two different scenarios where you might want to use coexisting connections.
 
 ### Scenario 1
 
