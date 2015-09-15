@@ -1,7 +1,7 @@
 <properties 
-    pageTitle="How to Index: DocumentDB Indexing Policies | Microsoft Azure" 
-    description="Understand how indexing works in DocumentDB and learn how to index. Configure the indexing policy withing DocumentDB for automatic indexing and greater performance." 
-	keywords="How to index, how indexing works, automatic indexing, indexing database, documentdb, azure, Microsoft azure"
+    pageTitle="DocumentDB Indexing Policies | Microsoft Azure" 
+    description="Understand how indexing works in DocumentDB learn how to configure and change the indexing policy. Configure the indexing policy withing DocumentDB for automatic indexing and greater performance." 
+	keywords="how indexing works, automatic indexing, indexing database, documentdb, azure, Microsoft azure"
     services="documentdb" 
     documentationCenter="" 
     authors="arramac" 
@@ -18,11 +18,11 @@
     ms.author="mimig"/>
 
 
-# How to index: DocumentDB indexing policies
+# DocumentDB indexing policies
 
 While many customers are happy to let DocumentDB automatically handle [all aspects of indexing](documentdb-indexing.md), DocumentDB also supports specifying a custom **indexing policy** for collections during creation. Indexing policies in DocumentDB are more flexible and powerful than secondary indexes offered in other indexing database platforms, in that they let you design and customize the shape of the index without sacrificing schema flexibility. To learn how indexing works within DocumentDB, you must understand that by managing indexing policy, you can make fine-grained tradeoffs between index storage overhead, write and query throughput, and query consistency.  
 
-In this article, we take a close look at DocumentDB indexing policies, how you can customize indexing policy and the associated trade-offs, and you'll learn how to index information. 
+In this article, we take a close look at DocumentDB indexing policies, how you can customize indexing policy and the associated trade-offs. 
 
 After reading this article, you'll be able to answer the following questions:
 
