@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/01/2015" 
+	ms.date="09/14/2015" 
 	ms.author="LuisCa"/>
 
 #Azure Machine Learning Recommendations API Documentation
@@ -366,7 +366,7 @@ The table below depicts the value that each key represents.
 | MaxUserLength | Maximal number of distinct items for a user. |
 | MinItemLength | Maximal number of distinct users for an item. |
 | MinUserLength | Minimal number of distinct items for a user. |
-| RawNumberOfItems | Number of items before pruning items that cannot be modelled. |
+| RawNumberOfItems | Number of items in the usage files. |
 | RawNumberOfUsers | Number of usage points before any pruning. |
 | RawNumberOfRecords | Number of usage points before any pruning. |
 | SamplingNumberOfItems | N/A |
