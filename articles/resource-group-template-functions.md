@@ -108,6 +108,25 @@ Returns the integer division of the two provided integers.
 | operand1                           |   Yes    | Number being divided.
 | operand2                           |   Yes    | Number which is used to divide, has to be different from 0.
 
+## int
+
+**int(valueToConvert)**
+
+Converts the specified value to Integer.
+
+| Parameter                          | Required | Description
+| :--------------------------------: | :------: | :----------
+| valueToConvert                     |   Yes    | The value to convert to Integer. The type of value can only be String or Integer.
+
+The following example converts the user-provided parameter value to Integer.
+
+    "parameters": {
+        "appId": { "type": "string" }
+    },
+    "variables": { 
+        "intValue": "[int(parameters('appId'))]"
+    }
+
 ## length
 
 **length(array)**
@@ -384,6 +403,25 @@ The following example splits the input string with a comma.
     },
     "variables": { 
         "stringPieces": "[split(parameters('inputString'), ',')]"
+    }
+
+## string
+
+**string(valueToConvert)**
+
+Converts the specified value to String.
+
+| Parameter                          | Required | Description
+| :--------------------------------: | :------: | :----------
+| valueToConvert                     |   Yes    | The value to convert to String. The type of value can only be Boolean, Integer or String.
+
+The following example converts the user-provided parameter value to String.
+
+    "parameters": {
+        "appId": { "type": "int" }
+    },
+    "variables": { 
+        "stringValue": "[string(parameters('appId'))]"
     }
 
 ## sub
