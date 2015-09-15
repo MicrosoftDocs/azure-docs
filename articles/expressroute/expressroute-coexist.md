@@ -5,20 +5,22 @@
    services="expressroute"
    authors="cherylmc"
    manager="carolz"
-   editor="tysonn" />
+   editor=""
+   tags="azure-service-management"/>
 <tags
    ms.service="expressroute"
    ms.devlang="na"
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/05/2015"
+   ms.date="09/15/2015"
    ms.author="cherylmc"/>
 
 # Configure Azure ExpressRoute and Site-to-Site VPN connections that coexist
 
-You can now connect ExpressRoute and Site-to-Site VPN to the same virtual network.
+You can now connect ExpressRoute and Site-to-Site VPNs to the same virtual network.
 There are two different scenarios and two different configuration procedures to choose from.
+This article applies to VNets using the classic deployment model. This is not yet available for VNets using the Resource Manager deployment model.
 
 ## Scenarios
 
@@ -74,7 +76,7 @@ This procedure will walk you through creating a virtual network, as well as crea
 
 	When you create your schema, make sure you use the following values:
 
-	- The gateway subnet for the virtual network must be /27 (or a shorter prefix).
+	- The network prefix length of the gateway subnet for the virtual network must be 27 or smaller (26, 25, etc.).
 	- The gateway connection type is "Dedicated".
 
 		      <VirtualNetworkSite name="MyAzureVNET" Location="Central US">
