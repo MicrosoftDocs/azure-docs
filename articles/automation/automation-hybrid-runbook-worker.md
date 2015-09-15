@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/09/2015"
+   ms.date="09/14/2015"
    ms.author="bwren" />
 
 # Azure Automation Hybrid Runbook Workers
@@ -112,7 +112,7 @@ Use the **RunOn** parameter  You could use the following command to start a runb
 
 >[AZURE.NOTE] The **RunOn** parameter was added to the **Start-AzureAutomationRunbook** cmdlet in version 0.9.1 of Microsoft Azure PowerShell.  You should [download the latest version](http://azure.microsoft.com/downloads) if you have an earlier one installed.  You only need to install this version on a workstation where you will be starting the runbook from Windows PowerShell.  You do not need to install it on the worker computer unless you intend to start runbooks from that computer.  You cannot currently start a runbook on a Hybrid Runbook Worker from another runbook since this would require the latest version of Azure Powershell to be installed in your Automation account.  The latest version will be automatically updated in Azure Automation and automatically pushed down to the workers soon.
 
->[AZURE.NOTE] Hybrid Runbook Worker can only run [Graphical and PowerShell Workflow runbooks](automation-runbook-types.md).  You cannot currently start a [PowerShell runbook](automation-runbook-types.md) on a Hybrid Runbook Worker. 
+>[AZURE.NOTE] Hybrid Runbook Worker can only run [Graph and PowerShell Workflow runbooks](automation-runbook-types.md).  You cannot currently start a [PowerShell runbook](automation-runbook-types.md) on a Hybrid Runbook Worker. 
 
 ## Troubleshooting runbooks on Hybrid Runbook Worker
 

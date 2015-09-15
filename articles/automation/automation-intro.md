@@ -26,7 +26,7 @@ Azure Automation saves time and increases the reliability of the regular adminis
 
 ## What is a runbook?
 
-A runbook is a set of tasks that perform some automated process in Azure Automation.  It may be a simple process such as starting a virtual machine or creating a log entry, or you may have a complex runbook that combines other smaller runbooks to perform a complex process across multiple resources or even multiple clouds.   
+A runbook is a set of tasks that perform some automated process in Azure Automation.  It may be a simple process such as starting a virtual machine or creating a log entry, or you may have a complex runbook that combines other smaller runbooks to perform a complex process across multiple resources or even multiple clouds. 
 
 For example, you might have an existing manual process for provisioning a new virtual machine that includes multiple steps such as creating the virtual machine, connecting it to a network, assigning it an IP address, and then notifying a user that it's ready.  Instead of manually performing each of these steps, you could create a runbook that would perform all of these tasks as a single process.  You would start the runbook, provide the required information such as the virtual machine name, IP address, and recipient e-mail and then sit back while the process completes without you. 
 
@@ -43,7 +43,7 @@ The [Runbook Gallery](http://msdn.microsoft.com/library/azure/dn781422.aspx) con
 
 ## How do I create my own runbooks?
 
-You can [create your own runbooks](http://msdn.microsoft.com/library/azure/dn643637.aspx) from scratch or modify runbooks from the [Runbook Gallery](http://msdn.microsoft.com/library/azure/dn781422.aspx) for your own requirements.  If you prefer to work directly with the PowerShell code, you can [edit the runbook using the textual editor](http://msdn.microsoft.com/library/azure/dn879137.aspx) in the Azure portal or edit if offline.  If you prefer to edit a runbook without being exposed to the underlying code, then you can use the [graphical editor](automation-graphical-authoring-intro.md) in the Azure preview portal.
+You can [create your own runbooks](http://msdn.microsoft.com/library/azure/dn643637.aspx) from scratch or modify runbooks from the [Runbook Gallery](http://msdn.microsoft.com/library/azure/dn781422.aspx) for your own requirements.  There are three different [runbook types](automation-runbook-types.md) that you can choose from based on your requirements and PowerShell experience.  If you prefer to work directly with the PowerShell code, then you can use a [PowerShell runbook](automation-runbook-types.md#powershell-runbooks) or [PowerShell Workflow runbook](automation-runbook-types.md#powershell-workflow-runbooks) that you edit offline or [using the textual editor](http://msdn.microsoft.com/library/azure/dn879137.aspx) in the Azure portal.  If you prefer to edit a runbook without being exposed to the underlying code, then you can create a [Graph runbook](automation-runbook-types.md#graph-runbooks) using the [graphical editor](automation-graphical-authoring-intro.md)  in the Azure preview portal.
 
 
 ## How does Azure Automation relate to other automation tools?

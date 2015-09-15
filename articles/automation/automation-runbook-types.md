@@ -33,13 +33,13 @@ Azure Automation supports three types of runbooks that are  briefly described in
 ### Advantages
 
 - Create runbooks with minimal knowledge of [PowerShell Workflow](automation-powershell-workflow.md).
+- Use [parallel processing](automation-powershell-workflow.md#parallel_processing) to perform mulitple activities in a single branch in parallel. 
 - Use [checkpoints](automation-powershell-workflow.md#checkpoints) to resume runbook in case of error.
 
 ### Limitations
 
 - Can't edit runbook outside of Azure portal.
 - Can't view or directly edit the PowerShell Workflow code.
-- Can't use [parallel processing](automation-powershell-workflow.md#parallel_processing) with graphical activities.
 - May require a [Workflow Script Control](automation-powershell-workflow.md#activities) containing PowerShell Workflow code to perform complex logic.
 - Runbook takes longer to start than PowerShell runbooks since it needs to be compiled before running.
 
@@ -71,18 +71,26 @@ PowerShell runbooks are based on Windows PowerShell.  You directly edit the code
 ### Limitations
 
 - Must be familiar with PowerShell scripting.
-- Can't use [parallel processing].
+- Can't use [parallel processing](automation-powershell-workflow.md#parallel_processing) to perform multiple actions in parallel.
 - Can't use [checkpoints](automation-powershell-workflow.md#checkpoints) to resume runbook in case of error.
-- Can't run runbooks on Hybrid Runbook Worker.
+- Can't run runbooks on [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md).
 
+### Known Issues
+Following are current known issues with PowerShell runbooks.
+
+- PowerShell runbooks cannot cannot retrieve an unencrypted [variable asset](automation-variables.md) with a null value.
+- PowerShell runbooks cannot retrieve a [variable asset](automation-variables.md) with *~* in the name.
+- Get-Process in a loop in a PowerShell runbook may crash after about 80 iterations. 
+-  A PowerShell runbook may fail if it attempts to write a very large amount of data to the output stream. 
 
 ## Considerations
 
 You should take into account the following additional considerations when determining which type to use for a particular runbook.
 
 - You can't convert runbooks from one type to another.
-- [Hybrid Runbook Workers](automation-hybrid-runbook-worker.md) cannot run PowerShell runbooks.  You must use Graph or PowerShell Workflow runbooks.
-- You can't use a PowerShell Workflow runbook or a Graph runbook as a [child](automation-child-runbooks) in a PowerShell runbook.  Similarly, you can't use a PowerShell runbook as a child in a PowerShell Workflow runbook or a Graph runbook.  PowerShell runbooks can only use another PowerShell as a child.  Graph and PowerShell Workflow runbooks can use each other as child runbooks. 
+- There are limitations using runbooks of different types as a child runbook.  See [Child runbooks in Azure Automation](automation-child-runbooks.md) for more information.
+
+
 
   
 ## Related articles
