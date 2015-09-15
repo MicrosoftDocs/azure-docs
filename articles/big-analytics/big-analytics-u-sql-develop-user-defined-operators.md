@@ -1,6 +1,23 @@
+<properties 
+   pageTitle="Develop U-SQL User defined operators for Azure Big Analytics jobs | Azure" 
+   description="Learn how to develop user defined operators to be used and reused in Big Analytics jobs. " 
+   services="big-analytics" 
+   documentationCenter="" 
+   authors="mumian" 
+   manager="paulettm" 
+   editor="cgronlun"/>
+ 
+<tags
+   ms.service="big-analytics"
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="big-data" 
+   ms.date="09/29/2015"
+   ms.author="jgao"/>
 
 
-# Develop U-SQL User defined operators
+# Develop U-SQL User defined operators for Azure Big Analytics jobs
 
 Learn how to develop user defined operators to be used and reused in Big Analytics jobs. You will develop a custom operator to calculate a score for each athlete based on the medals using the following formula: 
 

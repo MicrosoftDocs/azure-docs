@@ -1,3 +1,21 @@
+<properties 
+   pageTitle="Get Started with Azure Big Analytics using Azure Preview Portal | Azure" 
+   description="Learn how to use the Azure Preview portal to create a Big Analytics account, create a Big Analytics job using U-SQL, and submit the job. For more information about Big Analytics. " 
+   services="big-analytics" 
+   documentationCenter="" 
+   authors="mumian" 
+   manager="paulettm" 
+   editor="cgronlun"/>
+ 
+<tags
+   ms.service="big-analytics"
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="big-data" 
+   ms.date="09/29/2015"
+   ms.author="jgao"/>
+
 # Get Started with Azure Big Analytics using Azure Preview Portal
 
 Learn how to use the Azure Preview portal to create a Big Analytics account, create a Big Analytics job using [U-SQL], and submit the job.  For more information about Big Analytics, see [Azure Big Analytics overview](big-analytics-overview.md).
@@ -91,6 +109,9 @@ You can download a data file from [Github](https://github.com/MicrosoftBigData/P
 2. Click the tile with your Big Analytics account name.  It was pinned here when the account was created.
 3. Click **New Job** from the top menu.
 4. Enter a Job name, and the following U-SQL script:
+
+	![create Azure Big Analytics U-SQL jobs](./media/big-analytics-get-started-portal/big-analytics-new-job.png)
+
 
 		@athletes =
 		    EXTRACT
