@@ -45,7 +45,7 @@ This article shows you how to attach both new and existing disks to a virtual ma
 
 Continue by following instructions for attaching either a new disk or an existing disk.
 
-## Option 1: Attach an Empty Disk
+## Option 1: Attach a new disk
 
 1.	On the **Disks** blade, click **Attach new**.
 
@@ -53,9 +53,9 @@ Continue by following instructions for attaching either a new disk or an existin
 
  	![Review disk settings](./media/virtual-machines-attach-disk-preview/attach-new.png)
 
-3.	After Azure creates the disk and attaches it to the virtual machine, it's listed in the virtual machine's disk settings under **Data Disks**.
+3.	After Azure creates the disk and attaches it to the virtual machine, the new disk is listed in the virtual machine's disk settings under **Data Disks**.
 
-## Option 2: Attach an Existing Disk
+## Option 2: Attach an existing disk
 
 1.	On the **Disks** blade, click **Attach existing**.
 
