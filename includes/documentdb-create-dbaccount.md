@@ -1,12 +1,6 @@
 1.	Sign in to the online [Microsoft Azure Preview portal](https://portal.azure.com/).
 2.	In the Jumpbar, click **New**, then click **Data + Storage**, and then click **Azure DocumentDB**. 
-
-	![Screen shot of the Azure preview portal  to create a database, highlighting the New button, Data + storage in the Create blade, and Azure DocumentDB in the Data + Storage blade][1]   
-
-	<!-- Alternatively, from the Startboard, you can browse the Azure Marketplace, select **Data + storage**, choose **DocumentDB**, and then click **Create**.  -->
-	
-	<!-- ![Screen shot of the Azure preview portal, showing the Marketplace blade with the DocumentDB tile highlighted, and the DocumentDB blade with the Create database button highlighted][2]    -->
-   
+  
 
 3. In the **New DocumentDB account** blade, specify the desired configuration for the DocumentDB account. 
  
