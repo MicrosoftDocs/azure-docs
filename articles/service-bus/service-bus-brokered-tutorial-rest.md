@@ -59,7 +59,7 @@ After obtaining the service namespace and credentials in the first step, you nex
 
 1. Create a new console application project. Click the **File** menu and click **New**, then click **Project**. In the **New Project** dialog box, click **Visual C#** (if **Visual C#** does not appear, look under **Other Languages**), select the **Console Application** template, and name it **Microsoft.ServiceBus.Samples**. Use the default Location. Click **OK** to create the project.
 
-1. In Program.cs, make sure your using statements appear as follows:
+1. In Program.cs, make sure your `using` statements appear as follows:
 
 	```
 	using System;
@@ -180,7 +180,7 @@ private static string GetSASToken(string SASKeyName, string SASKeyValue)
 
 The next step is to write a method that uses the REST-style HTTP PUT command to create a queue.
 
-Paste the following code directly beneath the `GetToken()` code you added in the previous step:
+Paste the following code directly after the `GetToken()` code you added in the previous step:
 
 ```
 // Uses HTTP PUT to create the queueprivatestaticstring CreateQueue(string queueName, string token)
@@ -294,7 +294,7 @@ private static string CreateTopic(string topicName)
 
 ### Create a subscription
 
-The following code creates a subscription to the topic you created in the previous step. Add the following code directly beneath the `CreateTopic()` definition:
+The following code creates a subscription to the topic you created in the previous step. Add the following code directly after the `CreateTopic()` definition:
 
 ```
 private static string CreateSubscription(string topicName, string subscriptionName)
@@ -323,7 +323,7 @@ In this step, you add code that retrieves the message properties, then deletes t
 
 ### Retrieve an Atom feed with the specified resources
 
-Add the following code directly beneath the CreateSubscription() method you added in the previous step:
+Add the following code directly after the `CreateSubscription()` method you added in the previous step:
 
 ```
 private static string GetResources(string resourceAddress)
