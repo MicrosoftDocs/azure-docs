@@ -20,9 +20,7 @@
 
 You can connect ExpressRoute and Site-to-Site VPNs to the same virtual network. This article applies to VNets using the classic deployment model. This type of coexisting connection is not yet available for VNets using the Resource Manager deployment model.
 
-## Scenarios
-
-There are two different scenarios where you might want to use coexisting connections.[Scenario 1](#scenario-1) uses an ExpressRoute active link and S2s as a backup connection. In [Scenario 2](#scenario-2), both links are active.
+There are two different scenarios where you might want to use coexisting connections. [Scenario 1](#scenario-1) uses an ExpressRoute active link and S2s as a backup connection. In [Scenario 2](#scenario-2), both links are active.
 
 ### Scenario 1
 
