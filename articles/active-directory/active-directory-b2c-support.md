@@ -46,6 +46,6 @@ You can file support requests for Azure AD B2C on the Azure preview portal using
 If you missed step 2 outlined above and try to create a support request in the context of your B2C directory, you will see the following error.
 
 > [AZURE.IMPORTANT]
-Don't attempt to sign up for a new subscription in your B2C directory. It is currently not possible to do so.
+Don't attempt to sign up for a new Azure subscription in your B2C directory.
 
 ![Support - No subscription](../media/active-directory-b2c/support-no-sub.png)

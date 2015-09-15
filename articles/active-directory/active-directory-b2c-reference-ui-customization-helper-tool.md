@@ -18,7 +18,7 @@
 
 # Azure Active Directory (AD) B2C preview: A Helper Tool used to demonstrate the Page User Interface (UI) Customization feature
 
-This article is a companion to the [main one](active-directory-b2c-reference-ui-customization) about the page user interface (UI) customization feature in Azure AD B2C.
+This article is a companion to the [main one](active-directory-b2c-reference-ui-customization) about the page user interface (UI) customization feature in Azure Active Directory (AD) B2C.
 
 Following the steps given below will allow you to exercise the page UI customization feature using our sample content. Just for the purposes of demonstration, our sample content is **static** HTML5.
 

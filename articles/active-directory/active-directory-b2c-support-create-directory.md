@@ -16,7 +16,7 @@
 	ms.date="09/15/2015"
 	ms.author="swkrish"/>
 
-# Creating an Azure Active Directory (AD) Directory or an Azure AD B2C Directory - Issues & Resolutions
+# Creating an Azure Active Directory (Azure AD) or an Azure Active Directory B2C (Azure AD B2C) Directory - Issues & Resolutions
 
 ### Creating an Azure AD Directory
 
@@ -24,7 +24,7 @@ If you can't create an Azure AD directory the first time, please try again. If t
 
 ### Creating an Azure AD B2C Directory (preview)
 
-There are known issues that you may encounter during the [creation an Azure AD B2C directory](active-directory-b2c-get-started).
+There are known issues that you may encounter during the [creation of an Azure AD B2C directory](active-directory-b2c-get-started).
 
 - If the Azure AD B2C directory doesn't show up in your list of directories, please try again.
 - If the Azure AD B2C directory does show up in your list of directories, but you see an error message that says, "Could not complete the creation of the B2C directory 'contosob2c'. Please visit this [link](http://go.microsoft.com/fwlink/?LinkID=624192&clcid=0x409) for more guidance.", then do one of the following:
