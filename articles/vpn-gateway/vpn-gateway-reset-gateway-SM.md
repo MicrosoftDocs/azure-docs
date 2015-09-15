@@ -17,7 +17,7 @@
    ms.date="09/15/2015"
    ms.author="cherylmc"/>
 
-# Resetting an Azure VPN Gateway using PowerShell
+# Reset an Azure VPN Gateway using PowerShell
 
 
 This article will walk you through resetting your Azure VPN Gateway using PowerShell cmdlets. These instructions apply to the classic deployment model (Service Management).  We do not yet have a cmdlet or REST API to reset a VPN gateway for virtual networks created using the Resource Manager deployment model. These are in process. You can tell if your VPN gateway was created using the classic deployment model by viewing your virtual network in the preview portal. Virtual networks that were created using the classic deployment model are shown in the Virtual Network (classic) portion of the preview portal.
