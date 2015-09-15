@@ -148,9 +148,18 @@ When you've delivered a new user story, you'd like to know how much your custome
 
 If you haven't yet published your app (since you added Application Insights), do that now. Watch the data grow in the charts as people use your app.
 
+
+#### No data after you publish to your server?
+
+Open these ports for outgoing traffic in your server's firewall:
+
++ `dc.services.visualstudio.com:443`
++ `f5.services.visualstudio.com:443`
+
 ### Keep separate resources for dev, test and release
 
 For a major application, it's advisable to send telemetry data from debugging, testing and production into [separate resources](app-insights-separate-resources.md). 
+
 
 
 
@@ -166,7 +175,7 @@ This step also enables [reporting of performance counters](app-insights-web-moni
 
 Login to your server with admin rights, and install [Application Insights Status Monitor](http://go.microsoft.com/fwlink/?LinkId=506648). 
 
-(You can also use Status Monitor to [instrument an app that's already running](app-insights-monitor-performance-live-website-now.md), even if it hasn't been built with the SDK.)
+You have to make sure some [additional ports are open in your server's firewall](app-insights-monitor-performance-live-website-now.md#troubleshooting).
 
 #### If your app is an Azure Web App
 
