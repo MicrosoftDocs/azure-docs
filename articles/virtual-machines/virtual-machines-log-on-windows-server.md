@@ -34,16 +34,15 @@ Here's a walkthrough of the steps in this tutorial.
 
 3. On the command bar, click **Connect**.
 
-	![Log on to the virtual machine](./media/virtual-machines-log-on-win-server/connectwindows.png)
+	![Log on to the virtual machine](./media/virtual-machines-log-on-windows-server/connectwindows.png)
 
 [AZURE.INCLUDE [virtual-machines-log-on-win-server](../../includes/virtual-machines-log-on-win-server.md)]
 
 ## Troubleshooting tips
 
-Here are a few things to try quickly:
+Here are a few things to try quickly in the portal:
 
-For problems with the Remote Desktop connection, try resetting the configuration from the portal. From the virtual machine dashboard, under **Quick Glance**, click **Reset remote configuration**.
-
-For problems with your password, try resetting it from the portal. From the virtual machine dashboard, under **Quick Glance**, click **Reset password**.
+-	For problems with the Remote Desktop connection, try resetting the configuration. From the virtual machine dashboard, under **Quick Glance**, click **Reset remote configuration**.
+-	For problems with your password, try resetting it. From the virtual machine dashboard, under **Quick Glance**, click **Reset password**.
 
 If those don't work, you'll need to do more extensive troubleshooting. For instructions, see [Troubleshoot Remote Desktop connections to a Windows-based Azure Virtual Machine](virtual-machines-troubleshoot-remote-desktop-connections.md).
