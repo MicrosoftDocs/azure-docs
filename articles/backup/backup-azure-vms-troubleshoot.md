@@ -107,7 +107,7 @@ For Windows VMs:
 
 For Linux VMs:
 
-- Follow the instructions on [Updating Linux VM Agent ](https://azure.microsoft.com/en-in/documentation/articles/virtual-machines-linux-update-agent/). 
+- Follow the instructions on [Updating Linux VM Agent ](../virtual-machines-linux-update-agent.md). 
 
 
 ### Validating VM Agent installation
