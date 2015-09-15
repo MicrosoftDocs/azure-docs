@@ -32,6 +32,14 @@ See [Get started with Application Insights for Windows Phone and Store apps](app
 * Compare the old and new versions of ApplicationInsights.config. Merge back any customizations you made to the old version.
 * Rebuild your solution.
 
+## Version 1.2
+- First version of Application Insights SDK shipped from [github](http://github.com/microsoft/ApplicationInsights-dotnet)
+
+## Version 1.1
+
+- SDK now introduces new telemetry type ```DependencyTelemetry``` which contains information about dependency call from application
+- New method ```TelemetryClient.TrackDependency``` allows to send information about dependency calls from application
+
 ## Version 1.0.0
 
 ### Windows App SDK
