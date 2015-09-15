@@ -38,7 +38,7 @@ This error happens when the Remote Desktop client cannot reach the Remote Deskto
 
 Here is the set of components involved.
 
-![](./media/virtual-machines-troubleshoot-remote-desktop-connections/tshootrdp_0.png)
+![](./media/virtual-machines-rdp-detailed-troubleshoot/tshootrdp_0.png)
 
 Before diving into a step-by-step troubleshooting process, it is helpful to mentally review what has changed since you were able to successfully create Remote Desktop connections and use that change as a basis for correcting the problem. For example:
 
@@ -73,7 +73,7 @@ The Remote Desktop client may not be able to reach the Remote Desktop service on
 
 To eliminate your computer as being the source of issues or misconfiguration, verify that your computer can make Remote Desktop connections to another on-premises, Windows-based computer.
 
-![](./media/virtual-machines-troubleshoot-remote-desktop-connections/tshootrdp_1.png)
+![](./media/virtual-machines-rdp-detailed-troubleshoot/tshootrdp_1.png)
 
 If you cannot, check for these on your computer:
 
@@ -88,7 +88,7 @@ In all of these cases, try to temporarily disable the software and attempt a Rem
 
 To eliminate your organization intranet edge device as being the source of issues or misconfiguration, verify that a computer directly connected to the Internet can make Remote Desktop connections to your Azure virtual machine.
 
-![](./media/virtual-machines-troubleshoot-remote-desktop-connections/tshootrdp_2.png)
+![](./media/virtual-machines-rdp-detailed-troubleshoot/tshootrdp_2.png)
 
 If you do not have a computer that is directly connected to the Internet, you can easily create a new Azure virtual machine in its own resource group or cloud service, and use it. For more information, see [Create a virtual machine running Windows in Azure](virtual-machines-windows-tutorial.md). Delete the resource group or the virtual machine and cloud service when you are done with your testing.
 
@@ -104,7 +104,7 @@ Work with your network administrator to correct the settings of your organizatio
 
 To eliminate the cloud service endpoint and ACL as being the source of issues or misconfiguration for virtual machines created using the Service Management API, verify that another Azure virtual machine that is in the same cloud service or virtual network can make Remote Desktop connections to your Azure virtual machine.
 
-![](./media/virtual-machines-troubleshoot-remote-desktop-connections/tshootrdp_3.png)
+![](./media/virtual-machines-rdp-detailed-troubleshoot/tshootrdp_3.png)
 
 > [AZURE.NOTE] For virtual machines created in Resource Manager, skip to [Source 4: Network Security Groups](#nsgs).
 
@@ -127,7 +127,7 @@ For more information, see [What is a Network Security Group (NSG)?](../virtual-n
 
 The last set of possible problems is on the Azure virtual machine itself.
 
-![](./media/virtual-machines-troubleshoot-remote-desktop-connections/tshootrdp_5.png)
+![](./media/virtual-machines-rdp-detailed-troubleshoot/tshootrdp_5.png)
 
 The basic Remote Desktop troubleshooting article [here] describes how to use the [Azure IaaS (Windows) diagnostics package](https://home.diagnostics.support.microsoft.com/SelfHelp?knowledgebaseArticleFilter=2976864). If this diagnostics package was unable to solve the **RDP connectivity to an Azure VM (Reboot Required)** issue, follow the instructions in [this article](virtual-machines-windows-reset-password.md) to reset the Remote Desktop Services service on the virtual machine. This will:
 
