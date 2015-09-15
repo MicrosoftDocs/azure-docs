@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Get started with Azure Notification Hubs | Microsoft Azure"
-	description="In this tutorial, you learn how to use Azure Notification Hubs to push notifications to Android devices."
+	pageTitle="Get started with Azure Notification Hubs using Baidu | Microsoft Azure"
+	description="In this tutorial, you learn how to use Azure Notification Hubs to push notifications to Android devices using Baidu."
 	services="notification-hubs"
 	documentationCenter="android"
 	authors="wesmc7777"
@@ -13,10 +13,10 @@
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="mobile-baidu"
 	ms.workload="mobile"
-	ms.date="06/16/2015"
+	ms.date="09/03/2015"
 	ms.author="wesmc"/>
 
-# Get started with Notification Hubs
+# Get started with Notification Hubs using Baidu
 
 [AZURE.INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 

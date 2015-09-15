@@ -97,6 +97,10 @@ To see the specifics of the Elastic Database pool, see [Price and performance co
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 
+### Feedback please!
+What can we do better? Does this topic explain the feature clearly? Or are you puzzled by any bit of it? We aim to please, so use the voting buttons, and tell us how we failed (or succeeded). And if you want us to contact you, include your email in your feedback.
+
+
 <!--Anchors-->
 <!--Image references-->
 [1]:./media/sql-database-elastic-scale-introduction/tools.png

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Configure AlwaysOn Availability Groups in Azure (PowerShell)"
+	pageTitle="Configure AlwaysOn Availability Groups in Azure VM (PowerShell)"
 	description="Use PowerShell to create an AlwaysOn Availability Group in Azure."
 	services="virtual-machines"
 	documentationCenter="na"
@@ -15,7 +15,7 @@
 	ms.date="08/14/2015"
 	ms.author="jroth" />
 
-# Configure AlwaysOn Availability Groups in Azure (PowerShell)
+# Configure AlwaysOn Availability Groups in Azure VM (PowerShell)
 
 >[AZURE.NOTE] For the GUI-based tutorial of the same scenario, see [Configure AlwaysOn Availability Groups in Azure (GUI)](virtual-machines-sql-server-alwayson-availability-groups-gui.md).
 

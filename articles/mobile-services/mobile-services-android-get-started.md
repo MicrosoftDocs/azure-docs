@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Get Started with Azure Mobile Services for Android apps"
-	description="Follow this tutorial to get started using Azure Mobile Services for Android development."
+	pageTitle="Get Started with Azure Mobile Services for Android apps (JavaScript backend)"
+	description="Follow this tutorial to get started using Azure Mobile Services for Android development (JavaScript backend)."
 	services="mobile-services"
 	documentationCenter="android"
 	authors="RickSaling"
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="06/16/2015"
+	ms.date="09/04/2015"
 	ms.author="ricksal"/>
 
-# Get started with Mobile Services
+# Get started with Mobile Services for Android  (JavaScript backend)
 
 [AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]
 
