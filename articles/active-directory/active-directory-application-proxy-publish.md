@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="rkarlin"
-	manager="terrylan"
+	manager="msStevenPo"
 	editor=""/>
 
 <tags
@@ -12,14 +12,14 @@
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="hero-article"
-	ms.date="06/02/2015"
+	ms.topic="article"
+	ms.date="09/09/2015"
 	ms.author="rkarlin"/>
 
 
 # Publish applications using Azure AD Application Proxy
 
-> [AZURE.NOTE] Application Proxy is a feature that is available only if you upgraded to the Premium or Basic edition of Azure Active Directory. For more information, see [Azure Active Directory editions](https://msdn.microsoft.com/library/azure/dn532272.aspx).
+> [AZURE.NOTE] Application Proxy is a feature that is available only if you upgraded to the Premium or Basic edition of Azure Active Directory. For more information, see [Azure Active Directory editions](active-directory-edition.md).
 
 After you enable Microsoft Azure AD Application Proxy, you can publish applications to make them accessible for your users outside your private network.
 
@@ -86,4 +86,3 @@ To delete an application, select an application in the list, and then click **De
 ## Additional resources
 
 * [About Kerberos constrained delegation](http://technet.microsoft.com/library/cc995228.aspx)
-

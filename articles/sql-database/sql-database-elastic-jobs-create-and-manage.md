@@ -13,12 +13,17 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/25/2015"
-	ms.author="sidneyh"/>
+	ms.date="07/21/2015"
+	ms.author="ddove; sidneyh"/>
 
-# Creating and managing Elastic Database jobs
+# Create and manage a SQL Database elastic jobs with Portal (preview)
 
-**Elastic Database pools** provide a predictable model for deploying large numbers of databases. You can set minimum the Data Throughput Units (DTUs) for each database at a set cost. Managing common objects in these databases can most easily accomplished using **Elastic Database jobs**. The service allows you to run T-SQL scripts against all of the databases in the pool in a single operation. For example, you can set the policy on each database to allow only a person with the right credentials to view sensitive data.
+> [AZURE.SELECTOR]
+- [Azure portal](sql-database-elastic-jobs-create-and-manage.md)
+- [PowerShell](sql-database-elastic-jobs-powershell.md)
+
+
+**Elastic Database jobs** enables easily and reliable management of a group of databases, by simplifying the execution of administrative operations such as schema changes, credentials management, reference data updates, performance data collection or tenant (customer) telemetry collection. Elastic Database jobs is currently available through the Azure portal and PowerShell cmdlets. However, the Azure portal surfaces reduced functionality limited to execution across all databases in an [Elastic Database pool (preview)](sql-database-elastic-pool.md). To access additional features and execution of scripts across a group of databases including a custom-defined collection or a shard set (created using [Elastic Database client library](sql-database-elastic-scale-introduction.md)), see [Creating and managing jobs using PowerShell](sql-database-elastic-jobs-powershell.md). For more information about jobs, see [Elastic Database jobs overview](sql-database-elastic-jobs-overview.md). 
 
 ## Prerequisites
 
@@ -28,7 +33,7 @@
 
 ## Creating jobs
 
-1. In the elastic database job pool blade, click **Create job**.
+1. Using the [Azure portal](https://portal.azure.com), from an existing elastic database job pool, click **Create job**.
 2. Type in the username and password of the database administrator (created at installation of Jobs) for the jobs control database (metadata storage for jobs).
 
 	![Name the job, type or paste in code, and click Run][1]

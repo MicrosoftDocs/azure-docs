@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Deactivate and delete a StorSimple device | Microsoft Azure"
-   description="Describes how to remove StorSimple device from service by deactivating and then deleting it."
+   description="Describes how to remove StorSimple device from service by  first deactivating it and then deleting it."
    services="storsimple"
    documentationCenter=""
    authors="SharS"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/09/2015"
+   ms.date="09/14/2015"
    ms.author="v-sharos" />
 
 # Deactivate and delete a StorSimple device
@@ -47,7 +47,7 @@ If you are interested in deleting the device but want to retain the device data,
 
 1. Deactivate the device. All the volume containers and the snapshots of the device will remain. Go to [Steps to deactivate](#steps-to-deactivate) for instructions.
 
-2. You can now fail over the volume containers and the associated snapshots. For procedures, go to [Failover and disaster recovery for your StorSimple device](storsimple-device-failover-disaster-recovery.md)
+2. You can now fail over the volume containers and the associated snapshots. For procedures, go to [Failover and disaster recovery for your StorSimple device](storsimple-device-failover-disaster-recovery.md).
 
 3. After deactivation and failover, you can delete the device completely. Go to [Delete a device](#delete-a-device) for instructions.
 
@@ -88,6 +88,8 @@ You can delete only those devices that have been deactivated. Deleting a device 
 It may take a few minutes for the device to be deleted.
 
 ## Next steps
-To restore the deactivated device to factory defaults, go to [Reset the device to factory default settings](https://msdn.microsoft.com/library/dn772373.aspx).
+- To restore the deactivated device to factory defaults, go to [Reset the device to factory default settings](storsimple-manage-device-controller.md#reset-the-device-to-factory-default-settings).
 
-For technical assistance, [contact Microsoft Support](https://msdn.microsoft.com/library/azure/dn757750.aspx).
+- For technical assistance, [contact Microsoft Support](storsimple-contact-microsoft-support.md).
+
+- To learn more about how to use the StorSimple Manager service, go to [Use the StorSimple Manager service to administer your StorSimple device](storsimple-manager-service-administration.md). 

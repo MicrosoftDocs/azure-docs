@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="How to use Service Bus queues (PHP) - Azure" 
+	pageTitle="How to use Service Bus queues (PHP) | Microsoft Azure" 
 	description="Learn how to use Service Bus queues in Azure. Code samples written in PHP." 
 	services="service-bus" 
 	documentationCenter="php" 
@@ -199,7 +199,7 @@ In the event that the application crashes after processing the message but befor
 
 ## Next steps
 
-Now that you've learned the basics of Service Bus queues, see the MSDN topic [Queues, Topics, and Subscriptions][] for more information.
+Now that you've learned the basics of Service Bus queues, see the topic [Queues, Topics, and Subscriptions][] for more information.
 
 [Service Bus Queue Diagram]: ../../../DevCenter/Java/Media/SvcBusQueues_01_FlowDiagram.jpg
 [Azure Management Portal]: http://manage.windowsazure.com/
@@ -209,7 +209,7 @@ Now that you've learned the basics of Service Bus queues, see the MSDN topic [Qu
 [Namespace List screenshot]: ../../../DevCenter/Java/Media/SvcBusQueues_05_NamespaceList.jpg
 [Properties Pane screenshot]: ../../../DevCenter/Java/Media/SvcBusQueues_06_PropertiesPane.jpg
 [Default Key screenshot]: ../../../DevCenter/Java/Media/SvcBusQueues_07_DefaultKey.jpg
-[Queues, Topics, and Subscriptions]: http://msdn.microsoft.com/library/azure/hh367516.aspx
+[Queues, Topics, and Subscriptions]: service-bus-queues-topics-subscriptions.md
 [require_once]: http://php.net/require_once
 
  

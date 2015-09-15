@@ -3,7 +3,7 @@
 	description="Create an API app on Microsoft Azure and connect it to an on-premises SQL Server database"
 	services="app-service\api" 
 	documentationCenter="" 
-	authors="tarcher" 
+	authors="TomArcher" 
 	manager="wpickett" 
 	editor="jimbe"/>
 
@@ -22,7 +22,7 @@ Hybrid Connections can connect [Azure App Service](http://go.microsoft.com/fwlin
 
 In this tutorial, you will learn how to create an App Service API app in the [Azure preview](http://go.microsoft.com/fwlink/?LinkId=529715) that connects to a local on-premises SQL Server database using the new Hybrid Connection feature. The tutorial assumes no prior experience using Azure or SQL Server.
 
-[AZURE.INCLUDE app-service-web-try-app-service.md]
+>[AZURE.NOTE] If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
 
 ## Prerequisites
 
@@ -31,8 +31,6 @@ To complete this tutorial, you'll need the following products. All are available
 - **Azure subscription** - For a free subscription, see [Azure Free Trial](/pricing/free-trial/). 
 
 - **Visual Studio** - To download a free trial version of Visual Studio 2013 or Visual Studio 2015, see [Visual Studio Downloads](http://www.visualstudio.com/downloads/download-visual-studio-vs). Install one of these before continuing. (The screen shots in this tutorial were taken using Visual Studio 2013)
-
-- **Microsoft .NET Framework 3.5 Service Pack 1** - If your operating system is Windows 8.1, Windows Server 2012 R2, Windows 8, Windows Server 2012, Windows 7, or Windows Server 2008 R2, you can enable this in Control Panel > Programs and Features > Turn Windows features on or off. Otherwise, you can download it from the [Microsoft Download Center](http://www.microsoft.com/download/en/details.aspx?displaylang=en&id=22).
 
 - **SQL Server 2014 Express with Tools** - download Microsoft SQL Server Express for free at the [Microsoft Web Platform Database page](https://www.microsoft.com/en-us/download/details.aspx?id=42299). Later in this tutorial, you'll see how to [install SQL Server](#InstallSQLDB) to ensure that it is properly configured.
 

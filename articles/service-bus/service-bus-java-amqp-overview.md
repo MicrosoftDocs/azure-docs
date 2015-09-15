@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Service Bus AMQP overview (Java) - Azure" 
+	pageTitle="Service Bus AMQP overview (Java) | Microsoft Azure" 
 	description="Learn about using the Advanced Message Queuing Protocol (AMQP) 1.0 in Azure." 
 	services="service-bus" 
 	documentationCenter="java" 

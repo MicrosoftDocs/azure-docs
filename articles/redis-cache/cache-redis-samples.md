@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="05/19/2015" 
+	ms.date="08/25/2015" 
 	ms.author="sdanie"/>
 
 # Azure Redis Cache samples 
@@ -37,10 +37,6 @@ This sample shows how to:
 -	Use Redis sets to implement tagging
 
 For more information, see the [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) documentation on github, and for more usage scenarios see the [StackExchange.Redis.Tests](https://github.com/StackExchange/StackExchange.Redis/tree/master/StackExchange.Redis.Tests) unit tests.
-
-[How to use Azure Redis Cache with Node.js](cache-nodejs-get-started.md) shows you how to get started with Azure Redis Cache using Node.js and the [node_redis](https://github.com/mranney/node_redis) client.
-
-[How to use Azure Redis Cache with Java](cache-java-get-started.md) shows you how to get started with Azure Redis Cache using Java and the [Jedis](https://github.com/xetorthio/jedis) client.
 
 [How to use Azure Redis Cache with Python](cache-python-get-started.md) shows how to get started with Azure Redis Cache using Python and the [redis-py](https://github.com/andymccurdy/redis-py) client.
 
@@ -69,7 +65,7 @@ The [Manage Azure Redis Cache using Azure Management Libraries](https://github.c
 
 ## Custom monitoring sample
 
-The [Access Redis Cache Monitoring data](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring) sample demonstrates how you can access monitoring data for your Azure Redis Cache outside of the Azure portal.
+The [Access Redis Cache Monitoring data](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring) sample demonstrates how you can access monitoring data for your Azure Redis Cache outside of the Azure  preview portal.
 
 ## A Twitter-style clone written using PHP and Redis
 

@@ -1,23 +1,23 @@
-<properties 
-	writer="ricksal" 
-	pageTitle="Call a custom API from an Android client | Mobile Dev Center" 
-	description="Learn how to define a custom API and then call it from an Android app that uses Azure Mobile Services." 
-	services="mobile-services" 
-	documentationCenter="android" 
-	authors="RickSaling" 
-	manager="dwrede" 
+<properties
+	writer="ricksal"
+	pageTitle="Call a custom API from an Android client (JavaScript backend) | Microsoft Azure"
+	description="Learn how to define a custom API and then call it from an Android app that uses Azure Mobile Services (JavaScript backend)."
+	services="mobile-services"
+	documentationCenter="android"
+	authors="RickSaling"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-android" 
-	ms.devlang="java" 
-	ms.topic="article" 
-	ms.date="06/01/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-android"
+	ms.devlang="java"
+	ms.topic="article"
+	ms.date="09/03/2015"
 	ms.author="ricksal"/>
 
-# Call a custom API from the client
+# Call a custom API from an Android client (JavaScript backend)
 
 [AZURE.INCLUDE [mobile-services-selector-call-custom-api](../../includes/mobile-services-selector-call-custom-api.md)]
 
@@ -25,7 +25,7 @@ This topic shows you how to call a custom API from an Android app. A custom API 
 
 The custom API created in this topic enables you to send a single POST request that sets the *completed* flag to `true` for all the todo items in your mobile service's table. Without this custom API, the client would have to send individual requests to update the flag for each todo item in the table.
 
-You will add this functionality to the app that you created when you completed either the [Get started with Mobile Services] or the [Get started with data] tutorial. 
+You will add this functionality to the app that you created when you completed either the [Get started with Mobile Services] or the [Get started with data] tutorial.
 
 
 >[AZURE.NOTE] If you would like to see the source code of the completed app, go <a href="https://github.com/RickSaling/mobile-services-samples/tree/futures/CallCustomApi/Android" target="_blank">here</a>.
@@ -70,4 +70,3 @@ Also, consider finding out more about the following Mobile Services topics:
 [Get started with push notifications]: ../mobile-services-android-get-started-push.md
 
 [Store server scripts in source control]: mobile-services-store-scripts-source-control.md
- 

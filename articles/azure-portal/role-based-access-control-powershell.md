@@ -3,8 +3,8 @@
 	description="Managing role-based access control with Windows PowerShell"
 	services="azure-portal"
 	documentationCenter="na"
-	authors="Justinha"
-	manager="terrylan"
+	authors="IHenkel"
+	manager="stevenpo"
 	editor="mollybos"/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="powershell"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/11/2015"
-	ms.author="justinha"/>
+	ms.date="08/14/2015"
+	ms.author="inhenk"/>
 
 # Managing Role-Based Access Control with Windows PowerShell #
 
@@ -163,4 +163,3 @@ To learn more about managing role-based access control with Windows PowerShell, 
 - ["Hey, Scripting Guy!" Blog](http://blogs.technet.com/b/heyscriptingguy/): Get real-world tips and tricks from the Windows PowerShell community.
 - [Configure role based access control using Azure CLI](role-based-access-control-xplat-cli.md)
 - [Troubleshooting role based access control](role-based-access-control-troubleshooting.md)
- 

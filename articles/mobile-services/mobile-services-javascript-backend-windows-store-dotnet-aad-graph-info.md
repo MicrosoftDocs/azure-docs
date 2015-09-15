@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Accessing Azure Active Directory Graph Information (Windows Store) | Mobile Dev Center" 
-	description="Learn how to access Azure Active Directory information using the Graph API in your Windows Store application." 
+	pageTitle="Accessing Azure Active Directory Graph Information using a Mobile Service with a JavaScript backend (Windows Store) | Microsoft Azure" 
+	description="Learn how to access Azure Active Directory information in your JavaScript backend Mobile Service using the Graph API." 
 	documentationCenter="windows" 
 	authors="wesmc7777" 
 	manager="dwrede" 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="multiple" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="06/18/2015" 
+	ms.date="09/03/2015" 
 	ms.author="wesmc"/>
 
-# Accessing Azure Active Directory Graph Information
+# Accessing Azure Active Directory Graph Information using a Mobile Service with a JavaScript backend
 
 
 [AZURE.INCLUDE [mobile-services-selector-aad-graph](../../includes/mobile-services-selector-aad-graph.md)]

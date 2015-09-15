@@ -1,26 +1,23 @@
-<properties 
-	pageTitle="Build Realtime Apps with Pusher (iOS) - Mobile Services" 
-	description="Learn how to use Pusher to send notifications to your Azure Media Services app on iOS." 
-	services="mobile-services" 
-	documentationCenter="ios" 
-	authors="lindydonna" 
-	manager="dwrede" 
+<properties
+	pageTitle="Build Realtime Apps with Pusher (iOS) - Mobile Services"
+	description="Learn how to use Pusher to send notifications to your Azure Media Services app on iOS."
+	services="mobile-services"
+	documentationCenter="ios"
+	authors="lindydonna"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="ios" 
-	ms.devlang="objective-c" 
-	ms.topic="article" 
-	ms.date="06/05/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="ios"
+	ms.devlang="objective-c"
+	ms.topic="article"
+	ms.date="06/16/2015" 
 	ms.author="donnam"/>
 
 
 # Build Real-time Apps with Mobile Services and Pusher
-<div class="dev-center-tutorial-selector sublanding">
-	<a href="" title="iOS" class="current">iOS</a>
-</div>
 
 This topic shows you how can add real-time functionality to your Azure Mobile Services-based app. When completed, your TodoList data is synchronized, in real-time, across all running instances of your app.
 
@@ -442,4 +439,3 @@ To learn more about registering and using server scripts, see [Mobile Services s
 [Azure Management Portal]: https://manage.windowsazure.com/
 
 [Mobile Services server script reference]: http://go.microsoft.com/fwlink/p/?LinkId=262293
- 

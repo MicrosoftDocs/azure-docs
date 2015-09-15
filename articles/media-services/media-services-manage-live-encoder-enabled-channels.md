@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="05/27/2015" 
+	ms.date="09/07/2015"
 	ms.author="juliako"/>
 
 #Working with Channels that are Enabled to Perform Live Encoding with Azure Media Services (Preview)
@@ -278,16 +278,16 @@ Specifies the preset to be used by the live encoder within this Channel. Current
 
 ####Output Video Stream
 
-<table border="1">
-<tr><th>BitRate</th><th>Width</th><th>Height</th><th>MaxFPS</th><th>Profile</th><th>Output Stream Name</th></tr>
-<tr><td>3500</td><td>1280</td><td>720</td><td>30</td><td>High</td><td>Video_1280x720_30fps_3500kbps</td></tr>
-<tr><td>2200</td><td>960</td><td>540</td><td>30</td><td>Main</td><td>Video_960x540_30fps_2200kbps</td></tr>
-<tr><td>1350</td><td>704</td><td>396</td><td>30</td><td>Main</td><td>Video_704x396_30fps_1350kbps</td></tr>
-<tr><td>850</td><td>512</td><td>288</td><td>30</td><td>Main</td><td>Video_512x288_30fps_850kbps</td></tr>
-<tr><td>550</td><td>384</td><td>216</td><td>30</td><td>Main</td><td>Video_384x216_30fps_550kbps</td></tr>
-<tr><td>350</td><td>340</td><td>192</td><td>30</td><td>Baseline</td><td>Video_340x192_30fps_350kbps</td></tr>
-<tr><td>200</td><td>340</td><td>192</td><td>30</td><td>Baseline</td><td>Video_340x192_30fps_200kbps</td></tr>
-</table>
+BitRate|Width|Height|MaxFPS|Profile|Output Stream Name
+---|---|---|---|---|---
+3500|1280|720|30|High|Video_1280x720_30fps_3500kbps
+2200|960|540|30|Main|Video_960x540_30fps_2200kbps
+1350|704|396|30|Main|Video_704x396_30fps_1350kbps
+850|512|288|30|Main|Video_512x288_30fps_850kbps
+550|384|216|30|Main|Video_384x216_30fps_550kbps
+350|340|192|30|Baseline|Video_340x192_30fps_350kbps
+200|340|192|30|Baseline|Video_340x192_30fps_200kbps
+
 
 ####Output Audio Stream
 
@@ -385,13 +385,12 @@ The current state of a Channel. Possible values include:
 
 The following table shows how Channel states map to the billing mode. 
  
-<table border="1">
-<tr><th>Channel state</th><th>Portal UI Indicators</th><th>Billed?</th></tr>
-<tr><td>Starting</td><td>Starting</td><td>No (transient state)</td></tr>
-<tr><td>Running</td><td>Ready (no running programs)<br/>or<br/>Streaming (at least one running program)</td><td>Yes</td></tr>
-<tr><td>Stopping</td><td>Stopping</td><td>No (transient state)</td></tr>
-<tr><td>Stopped</td><td>Stopped</td><td>No</td></tr>
-</table>
+Channel state|Portal UI Indicators|Billed?
+---|---|---
+Starting|Starting|No (transient state)
+Running|Ready (no running programs)<br/>or<br/>Streaming (at least one running program)|Yes
+Stopping|Stopping|No (transient state)
+Stopped|Stopped|No
 
 
 >[AZURE.NOTE] Currently in Preview, the Channel start can take up to 20+ minutes. Channel reset can take up to 5 minutes.
@@ -412,30 +411,7 @@ The following table shows how Channel states map to the billing mode.
 - RTP support is catered towards professional broadcasters. Please review the notes on RTP in [this](http://azure.microsoft.com/blog/2015/04/13/an-introduction-to-live-encoding-with-azure-media-services/) blog.
 - Slate images should conform to restrictions described [here](media-services-manage-live-encoder-enabled-channels.md#default_slate). If you attempt create a Channel with a default slate that is larger than 1920x1080, the request will eventually error out.
 
-
-##<a id="tasks"></a>Tasks related to Live Streaming
-
-###Creating a Media Services account
-
-[Create Azure Media Services Account](media-services-create-account.md).
-
-###Configuring streaming endpoints
-
-For an overview about streaming endpoints and information on how to manage them, see [How to Manage Streaming Endpoints in a Media Services Account](media-services-manage-origins.md)
-
-###Setting up development environment  
-
-Choose **.NET** or **REST API** for your development environment.
-
-[AZURE.INCLUDE [media-services-selector-setup](../../includes/media-services-selector-setup.md)]
-
-###Connecting programmatically  
-
-Choose **.NET** or **REST API** to programmatically connect to Azure Media Services.
-
-[AZURE.INCLUDE [media-services-selector-connect](../../includes/media-services-selector-connect.md)]
-
-###Creating Channels that perform live encoding from a singe bitrate to adaptive bitrate stream 
+###How to create channels that perform live encoding from a singe bitrate to adaptive bitrate stream 
 
 Choose **Portal**, **.NET**, **REST API** to see how to create and manage channels and programs.
 
@@ -444,57 +420,13 @@ Choose **Portal**, **.NET**, **REST API** to see how to create and manage channe
 - [.NET SDK](media-services-dotnet-creating-live-encoder-enabled-channel.md)
 - [REST API](https://msdn.microsoft.com/library/azure/dn783458.aspx)
 
-###Protecting assets
 
-**Overview**: 
+##Media Services learning paths
 
-[Content Protection Overview](media-services-content-protection-overview.md)
+You can view AMS learning paths here:
 
-If you want to encrypt an asset associate with a program with Advanced Encryption Standard (AES) (using 128-bit encryption keys) or PlayReady DRM, you need to create a content key.
-
-Use **.NET** or **REST API** to create keys.
-
-[AZURE.INCLUDE [media-services-selector-create-contentkey](../../includes/media-services-selector-create-contentkey.md)]
-
-Once you create the content key, you can configure key authorization policy using **.NET** or **REST API**.
-
-[AZURE.INCLUDE [media-services-selector-content-key-auth-policy](../../includes/media-services-selector-content-key-auth-policy.md)]
-
-####Integrating with partners
-
-[Using castLabs to deliver DRM licenses to Azure Media Services](media-services-castlabs-integration.md)
-
-
-###Publishing and delivering assets
-
-**Overview**: 
-
-- [Dynamic Packaging Overview](../media-services-dynamic-overview.md)
-
-
-Configure asset delivery policy using **.NET** or **REST API**.
-
-[AZURE.INCLUDE [media-services-selector-asset-delivery-policy](../../includes/media-services-selector-asset-delivery-policy.md)]
-
-Publish assets (by creating Locators) using **Azure Management Portal** or **.NET**.
-
-[AZURE.INCLUDE [media-services-selector-publish](../../includes/media-services-selector-publish.md)]
-
-
-Deliver Content 
-
-> [AZURE.SELECTOR]
-- [Overview](media-services-deliver-content-overview.md)
-
-###Enabling Azure CDN
-
-Media Services supports integration with Azure CDN. For information on how to enable Azure CDN, see [How to Manage Streaming Endpoints in a Media Services Account](media-services-manage-origins.md#enable_cdn).
-
-###Scaling a Media Services account
-
-You can scale **Media Services** by specifying the number of **Streaming Reserved Units** you would like your account to be provisioned with. 
-
-For information about scaling streaming units, see: [How to scale streaming units](media-services-manage-origins.md#scale_streaming_endpoints.md).
+- [AMS Live Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [AMS on Demand Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
 ##Related topics
 

@@ -11,7 +11,7 @@
 <tags
 	ms.service="virtual-machines"
 	ms.devlang="na"
-	ms.topic="article"
+	ms.topic="get-started-article"
 	ms.tgt_pltfrm="vm-multiple"
 	ms.workload="infrastructure-services"
 	ms.date="07/28/2015"
@@ -46,7 +46,7 @@ This is a list of articles for working with virtual machines in Azure Service Ma
 
 [Azure infrastructure services implementation guidelines](virtual-machines-infrastructure-services-implementation-guidelines.md)
 
-[Do I need a virtual network?](https://msdn.microsoft.com/library/azure/jj156007.aspx)
+[Do I need a virtual network?](../virtual-network/virtual-networks-overview.md)
 
 ## Create
 

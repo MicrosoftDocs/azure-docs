@@ -13,12 +13,24 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/27/2015"
+   ms.date="09/14/2015"
    ms.author="tomfitz"/>
 
 # Azure Resource Manager Template Functions
 
 This topic describes all of the functions you can use in an Azure Resource Manager template.
+
+## add
+
+**add(operand1, operand2)**
+
+Returns the sum of the two provided integers.
+
+| Parameter                          | Required | Description
+| :--------------------------------: | :------: | :----------
+| operand1                           |   Yes    | First operand to use.
+| operand2                           |   Yes    | Second operand to use.
+
 
 ## base64
 
@@ -85,9 +97,45 @@ The following example shows how to return deployment information in the outputs 
       }
     }
 
+## div
+
+**div(operand1, operand2)**
+
+Returns the integer division of the two provided integers.
+
+| Parameter                          | Required | Description
+| :--------------------------------: | :------: | :----------
+| operand1                           |   Yes    | Number being divided.
+| operand2                           |   Yes    | Number which is used to divide, has to be different from 0.
+
+## int
+
+**int(valueToConvert)**
+
+Converts the specified value to Integer.
+
+| Parameter                          | Required | Description
+| :--------------------------------: | :------: | :----------
+| valueToConvert                     |   Yes    | The value to convert to Integer. The type of value can only be String or Integer.
+
+The following example converts the user-provided parameter value to Integer.
+
+    "parameters": {
+        "appId": { "type": "string" }
+    },
+    "variables": { 
+        "intValue": "[int(parameters('appId'))]"
+    }
+
+## length
+
+**length(array)**
+
+Returns the number of elements in an array. Typically, used to specify the number of iterations when creating resources. For an example of using this function, see [Create multiple instances of resources in Azure Resource Manager](resource-group-create-multiple.md).
+
 ## listKeys
 
-**listKeys (resourceName or resourceIdentifier, [apiVersion])**
+**listKeys (resourceName or resourceIdentifier, apiVersion)**
 
 Returns the keys of a storage account. The resourceId can be specified by using the [resourceId function](./#resourceid) or by using the format **providerNamespace/resourceType/resourceName**. You can use the function to get the primaryKey and secondaryKey.
   
@@ -100,10 +148,34 @@ The following example shows how to return the keys from a storage account in the
 
     "outputs": { 
       "exampleOutput": { 
-        "value": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName')), providers('Microsoft.Storage', 'storageAccounts').apiVersions[0])]", 
+        "value": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName')), '2015-05-01-preview')]", 
         "type" : "object" 
       } 
     } 
+
+## mod
+
+**mod(operand1, operand2)**
+
+Returns the remainder of the integer division using the two provided integers.
+
+| Parameter                          | Required | Description
+| :--------------------------------: | :------: | :----------
+| operand1                           |   Yes    | Number being divided.
+| operand2                           |   Yes    | Number which is used to divide, has to be different from 0.
+
+
+## mul
+
+**mul(operand1, operand2)**
+
+Returns the multiplication of the two provided integers.
+
+| Parameter                          | Required | Description
+| :--------------------------------: | :------: | :----------
+| operand1                           |   Yes    | First operand to use.
+| operand2                           |   Yes    | Second operand to use.
+
 
 ## padLeft
 
@@ -153,9 +225,9 @@ The following example shows a simplified use of the parameters function.
        }
     ]
 
-## provider
+## providers
 
-**provider (providerNamespace, [resourceType])**
+**providers (providerNamespace, [resourceType])**
 
 Return information about a resource provider and its supported resource types. If not type is provided, all of the supported types are returned.
 
@@ -311,6 +383,57 @@ Often, you need to use this function when using a storage account or virtual net
            }
       }]
     }
+
+## split
+
+**split(inputString, delimiter)**
+**split(inputString, [delimiters])**
+
+Returns an array of strings that contains the substrings of the input string that are delimited by the sent delimiters.
+
+| Parameter                          | Required | Description
+| :--------------------------------: | :------: | :----------
+| inputString                        |   Yes    | The string to to be splitted.
+| delimiter                          |   Yes    | The delimiter to use, can be a single string or an array of strings.
+
+The following example splits the input string with a comma.
+
+    "parameters": {
+        "inputString": { "type": "string" }
+    },
+    "variables": { 
+        "stringPieces": "[split(parameters('inputString'), ',')]"
+    }
+
+## string
+
+**string(valueToConvert)**
+
+Converts the specified value to String.
+
+| Parameter                          | Required | Description
+| :--------------------------------: | :------: | :----------
+| valueToConvert                     |   Yes    | The value to convert to String. The type of value can only be Boolean, Integer or String.
+
+The following example converts the user-provided parameter value to String.
+
+    "parameters": {
+        "appId": { "type": "int" }
+    },
+    "variables": { 
+        "stringValue": "[string(parameters('appId'))]"
+    }
+
+## sub
+
+**sub(operand1, operand2)**
+
+Returns the subtraction of the two provided integers.
+
+| Parameter                          | Required | Description
+| :--------------------------------: | :------: | :----------
+| operand1                           |   Yes    | Number which is to be subtracted from.
+| operand2                           |   Yes    | Number to be subtracted.
 
 
 ## subscription

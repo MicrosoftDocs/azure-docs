@@ -1,10 +1,10 @@
 <properties
     pageTitle="Azure SQL Database - elastic database tools"
-    description="Easily scale database resources in the cloud using elastic database tools."
+    description="Software as a Service (SaaS) developers can easily create elastic, scalable databases in the cloud using these tools"
     services="sql-database"
     documentationCenter=""
     manager="jeffreyg"
-    authors="sidneyh"
+    authors="ddove"
     editor=""/>
 
 <tags
@@ -13,21 +13,23 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="07/29/2015"
+    ms.date="08/27/2015"
     ms.author="sidneyh"/>
 
 # Elastic Database features overview
 
 **Elastic Database** features enables you to use the virtually unlimited database resources of **Azure SQL Database** to create solutions for transactional workloads, and especially Software as a Service (SaaS) applications. Elastic Database features are composed of the following:
 
-* Elastic Database tools: These two tools simplify development and management of sharded database solutions. The tools are: the [Elastic Database client library](sql-database-elastic-client-overview.md) and the [Elastic Database split-merge tool](sql-database-elastic-scale-overview-split-and-merge.md). 
+* Elastic Database tools: These two tools simplify development and management of sharded database solutions. The tools are: the [Elastic Database client library](sql-database-elastic-database-client-library.md) and the [Elastic Database split-merge tool](sql-database-elastic-scale-overview-split-and-merge.md). 
 * [Elastic Database pools](sql-database-elastic-pool-guidance.md) (preview): A pool is a collection of databases to which you can add or remove databases at any time. The databases in the pool share a fixed amount of resources (known as database throughput units, or DTUs). You pay a fixed price for the resources, which enables you to easily calculate costs while managing performance. 
-* [Elastic Database jobs](sql-database-elastic-jobs-overview.md) (preview): Use jobs to manage large numbers of Azure SQL databases. A **job** is an idempotent T-SQL script that is run against a predefined set of databases. Failures are automatically retried (configurable) and all errors are logged for debugging. 
+* [Elastic Database jobs](sql-database-elastic-jobs-overview.md) (preview): Use jobs to manage large numbers of Azure SQL databases. Easily perform administrative operations such as schema changes, credentials management, reference data updates, performance data collection or tenant (customer) telemetry collection using jobs.
 * [Elastic Database query](sql-database-elastic-query-overview.md) (preview): Enables you to run a Transact-SQL query that spans multiple databases. This enables connection to reporting tools such as Excel, PowerBI, Tableau, etc.
 
 The graphic below shows an architecture that includes the **Elastic Database features** in relation to a collection of databases. 
 
 ![Elastic Database tools][1]
+
+For a printable version of this graphic, go to [Elastic database overview download](http://aka.ms/axmybc).
 
 In this graphic, colors of the database represent schemas. Databases with the same color share the same schemas.
 
@@ -55,7 +57,7 @@ The figure below shows the horizontal and vertical dimensions of scaling, which 
 
 Horizontal scaling refers to adding or removing databases in order to adjust capacity or overall performance. This is also called “scaling out”. Sharding, in which data is partitioned across a collection of identically structured databases, is a common way to implement horizontal scaling.  
 
-Vertical scaling refers to increasing or decreasing the performance level of an individual database—this is also known as “scaling up”.
+Vertical scaling refers to increasing or decreasing the performance level of an individual database—this is also known as “scaling up.”
 
 Most cloud-scale database applications will use a combination of these two strategies. For example, a Software as a Service application may use horizontal scaling to provision new end-customers and vertical scaling to allow each end-customer’s database to grow or shrink resources as needed by the workload.
 
@@ -94,6 +96,10 @@ To use the split-merge tool, you must [configure security](sql-database-elastic-
 To see the specifics of the Elastic Database pool, see [Price and performance considerations for an elastic database pool](sql-database-elastic-pool-guidance.md), or create a new pool with the [tutorial](sql-database-elastic-pool-portal.md).  
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
+
+### Feedback please!
+What can we do better? Does this topic explain the feature clearly? Or are you puzzled by any bit of it? We aim to please, so use the voting buttons, and tell us how we failed (or succeeded). And if you want us to contact you, include your email in your feedback.
+
 
 <!--Anchors-->
 <!--Image references-->

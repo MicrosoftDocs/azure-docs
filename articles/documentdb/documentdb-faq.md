@@ -1,6 +1,7 @@
 <properties 
-	pageTitle="Frequently asked questions about DocumentDB | Microsoft Azure" 
-	description="Answers to frequently asked questions related about Azure DocumentDB, a NoSQL document database service." 
+	pageTitle="DocumentDB Database Questions - Frequently Asked Questions | Microsoft Azure" 
+	description="Get answers to frequently asked questions about Azure DocumentDB NoSql document database service. Answer database questions about capacity, performance levels, and scaling." 
+	keywords="Database questions, frequently asked questions, documentdb, azure, Microsoft azure"
 	services="documentdb" 
 	authors="mimig1" 
 	manager="jhubbard" 
@@ -13,18 +14,18 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/29/2015" 
+	ms.date="09/01/2015" 
 	ms.author="mimig"/>
 
 
 #Frequently asked questions about DocumentDB
 
-## Microsoft Azure DocumentDB fundamentals
+## Database questions about Microsoft Azure DocumentDB fundamentals
 
 ### What is Microsoft Azure DocumentDB? 
 Microsoft Azure DocumentDB is a highly-scalable NoSQL document database-as-a-service that offers rich querying over schema-free data, helps deliver configurable and reliable performance, and enables rapid development, all through a managed platform backed by the power and reach of Microsoft Azure. DocumentDB is the right solution for web and mobile applications when predictable throughput, low latency, and a schema-free data model are key requirements. DocumentDB delivers schema flexibility and rich indexing via a native JSON data model, and includes multi-document transactional support with integrated JavaScript.  
   
-For instructions on deploying and using this service, see the [DocumentDB documentation page](http://azure.microsoft.com/documentation/services/documentdb/).
+For more database questions, answers, and instructions on deploying and using this service, see the [DocumentDB documentation page](http://azure.microsoft.com/documentation/services/documentdb/).
 
 ### What kind of database is DocumentDB?
 DocumentDB is a NoSQL document oriented database that stores data in JSON format.  DocumentDB supports nested, self-contained-data structures that can be queried through a rich DocumentDB [SQL query grammar](documentdb-sql-query.md). DocumentDB provides high performance transactional processing of server side JavaScript through [stored procedures, triggers, and user defined functions](documentdb-programming.md). The database also supports developer tunable consistency levels with associated [performance levels](documentdb-performance-levels.md).
@@ -48,7 +49,7 @@ DocumentDB accounts can be scaled in terms of storage and throughput by adding c
 Please refer to the [DocumentDB pricing details](http://go.microsoft.com/fwlink/p/?LinkID=402317) page for details. DocumentDB usage charges are determined by the number of collections in use, the number of hours the collections were online, and the [performance level](documentdb-performance-levels.md) of each collection. 
 
 ### Is there a free trial available?
-If you are new to Azure, you can sign up for an [Azure free trial](https://azure.microsoft.com/en-us/pricing/free-trial/), which gives you 30 days and $200 to try all the Azure services. If you have an MSDN subscription, you are eligible for [$150 in free Azure credits per month](http://azure.microsoft.com/pricing/member-offers/msdn-benefits/?WT.mc_id=azurebg_US_sem_bing_BR_BRMSDN_Nontest_MSDN_msdnazure&WT.srch=1) to use on any Azure service. If you would like to try DocumentDB free for 30 days, with no credit card required, send an email to askdocdb@microsoft.com with a subject line of Documentation FAQ, Azure Trial and we’ll respond with a promo code while supplies last. 
+If you are new to Azure, you can sign up for an [Azure free trial](https://azure.microsoft.com/pricing/free-trial/), which gives you 30 days and $200 to try all the Azure services. Or, if you have an MSDN subscription, you are eligible for [$150 in free Azure credits per month](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) to use on any Azure service.  
 
 ### How can I get additional help with DocumentDB?
 If you need any help, please reach out to us on [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-documentdb), the [Azure DocumentDB MSDN Developer Forums](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureDocumentDB), or schedule a [1:1 chat with the DocumentDB engineering team](http://www.askdocdb.com/). To stay up to date on the latest DocumentDB news and features, follow us on [Twitter](https://twitter.com/DocumentDB).
@@ -67,7 +68,7 @@ You can create databases using the [Azure Preview portal]() as described in [Cre
 ### What is a collection?
 A collection is a container of JSON documents and the associated JavaScript application logic. Queries and transactions are scoped to collections. You can store a set of heterogeneous JSON documents within a single collection, all which are automatically indexed. 
 
-Collections are also the billing entities for DocumentDB. Your monthly DocumentDB usage charges are determined by the number of collections in use, the number of hours the collections were online, and the [performance level](documentdb-performance-levels.md) of each collection. For more information, see [DocumentDB pricing](https://azure.microsoft.com/en-us/pricing/details/documentdb/).  
+Collections are also the billing entities for DocumentDB. Your monthly DocumentDB usage charges are determined by the number of collections in use, the number of hours the collections were online, and the [performance level](documentdb-performance-levels.md) of each collection. For more information, see [DocumentDB pricing](https://azure.microsoft.com/pricing/details/documentdb/).  
 
 ### Are there any limits on databases and collections?
 Each collection comes with an allocation of database storage and provisioned throughput at one of the supported [performance levels](documentdb-performance-levels.md).  Quotas are also in place for each resource managed by the service. For a list of all limits, see [DocumentDB limits](documentdb-limits.md). To request a change to your account limits, see [Request increased DocumentDB account limits](documentdb-increase-limits.md).  
@@ -75,7 +76,7 @@ Each collection comes with an allocation of database storage and provisioned thr
 ### How do I set up users and permissions?
 You can create users and permissions using one of the [DocumentDB SDKs](https://msdn.microsoft.com/library/azure/dn781482.aspx) or through the [REST APIs](https://msdn.microsoft.com/library/azure/dn781481.aspx).   
 
-## Develop against Microsoft Azure DocumentDB
+## Database questions about developing against Microsoft Azure DocumentDB
 
 ### How to do I start developing against DocumentDB?
 [SDKs](https://msdn.microsoft.com/library/azure/dn781482.aspx) are available for .NET, Python, Node.js, JavaScript, and Java.  Developers can also leverage the [RESTful HTTP APIs](https://msdn.microsoft.com/library/azure/dn781481.aspx) to interact with DocumentDB resources from a variety of platforms and languages. 
