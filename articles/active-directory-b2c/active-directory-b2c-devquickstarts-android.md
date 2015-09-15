@@ -1,5 +1,5 @@
 <properties
-	pageTitle="pageTitle="Azure AD B2C Preview | Microsoft Azure""
+	pageTitle="pageTitle="Azure AD B2C Preview | Microsoft Azure"
 	description="HHow to build an Android application that calls a web API using Azure AD B2C."
 	services="active-directory"
 	documentationCenter="android"
