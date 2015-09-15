@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/27/2015" 
+	ms.date="09/11/2015" 
 	ms.author="ccompy"/>
 
 # Configuring an App Service Environment #
@@ -27,7 +27,7 @@ At a high level an App Service Environment consists of several major components:
 - Compute resources running in the Azure App Environment Hosted Service
 - Storage
 - Database
-- Virtual Network with at least one subnet
+- A classic "v1" Virtual Network with at least one subnet
 - subnet with the Azure App Environment hosted service running in it
 
 To help manage and monitor your App Service Environments you can access UI for that purpose from Browse -> App Service Environments in the Azure preview portal. The initial release does have what you need to manage the system and will continue to improve with additional capabilities in coming weeks.  
@@ -90,8 +90,8 @@ This is much less disruptive to running apps than changing the compute resource 
 
 The [Virtual Network][virtualnetwork] and subnet are all under user control.  App Service Environments does have a few network requirements but the rest is up to the user to control.  Those ASE requirements are:
 
-- a VNET with at least 512 addresses
-- a subnet with at least 256 addresses 
+- a classic "v1" VNET with at least 512 addresses
+- a subnet with at least 8 addresses 
 - the VNET must be a regional VNET  
  
 Administering your VNET is done through the normal Virtual Network UI.

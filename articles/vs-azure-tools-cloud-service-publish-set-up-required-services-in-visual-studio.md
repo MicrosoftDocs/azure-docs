@@ -1,4 +1,4 @@
-<properties 
+<properties
    pageTitle="Setting up services required to publish a cloud service from Visual Studio"
    description="Learn the procedures to set up cloud and storage account services and configure your Azure application"
    services="visual-studio-online"
@@ -6,18 +6,18 @@
    authors="kempb"
    manager="douge"
    editor="tglee" />
-<tags 
+<tags
    ms.service="multiple"
    ms.devlang="dotnet"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="08/13/2015"
+   ms.date="09/08/2015"
    ms.author="kempb" />
 
 # Setting up services required to publish a cloud service from Visual Studio
 
-##Overview
+## Overview
 
 Before you can publish a cloud service project, you must set up the following services:
 
@@ -132,7 +132,7 @@ You must configure any role that accesses storage services to use the Azure stor
 
     >[AZURE.NOTE] Log into the Management Portal, and then choose the **Storage** button. The portal shows a list of storage accounts. If you choose an account, a page for it opens. You can copy the name of the storage account from this page. If you are using a previous version of the Management Portal, the name of your storage account appears in the **Storage Accounts** view of the Management Portal. To copy this name, highlight it in the **Properties** window of this view, and then choose the Ctrl-C keys. To paste the name into Visual Studio, choose the **Account name** text box, and then choose the Ctrl+V keys.
 
-1. In the **Account key** box, enter your primary key, or copy and paste it from the [Management Portal](http://go.microsoft.com/fwlink/?LinkID=213885). 
+1. In the **Account key** box, enter your primary key, or copy and paste it from the [Management Portal](http://go.microsoft.com/fwlink/?LinkID=213885).
     To copy this key from the Management Portal:
 
     1. At the bottom of the page for the appropriate storage account, choose the **Manage Keys** button.
@@ -144,7 +144,7 @@ You must configure any role that accesses storage services to use the Azure stor
     1. You must select one of the following options to determine how the service will access the storage account:
         - **Use HTTP**. This is the standard option. For example, `http://<account name>.blob.core.windows.net`.
         - **Use HTTPS** for a secure connection. For example, `https://<accountname>.blob.core.windows.net`.
-        - **Specify custom endpoints** for each of the three services. You can then type these endpoints into the field for the specific service. 
+        - **Specify custom endpoints** for each of the three services. You can then type these endpoints into the field for the specific service.
 
         >[AZURE.NOTE] If you create custom endpoints, you can create a more complex connection string. When you use this string format, you can specify storage service endpoints that include a custom domain name that you have registered for your storage account with the Blob service. Also you can grant access only to blob resources in a single container through a shared access signature. For more information about how to create custom endpoints, see [Configure Azure Storage Connection Strings](https://azure.microsoft.com/documentation/articles/storage-configure-connection-string/).
 
@@ -153,4 +153,3 @@ You must configure any role that accesses storage services to use the Azure stor
 ## Additional resources
 
 [Publishing to an Azure Cloud Service from Visual Studio](https://msdn.microsoft.com/library/azure/ee460772.aspx)
-

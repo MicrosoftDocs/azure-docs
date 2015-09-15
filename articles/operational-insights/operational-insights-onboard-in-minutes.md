@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="hero-article"
-    ms.date="08/27/2015"
+    ms.date="09/10/2015"
     ms.author="banders"/>
 
 # Onboard to Azure Operational Insights in minutes

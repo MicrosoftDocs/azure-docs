@@ -74,9 +74,9 @@ Construct an instance of TelemetryClient (except in JavaScript in web pages):
 
     private TelemetryClient telemetry = new TelemetryClient();
 
-We recommend you use one instance of `TelemetryClient` for each request in a web app, or for each session in other apps. You can set properties such as `TelemetryClient.Context.User.Id` to track users and sessions. This information is attached to all events sent by the instance.
+TelemetryClient is thread-safe. 
 
-TelemetryClient is thread-safe.
+Contructing of  `TelemetryClient` is a cheap operation if you use default constructor or re-use the same `TelemetryConfiguration` when constructing it. We recommend to use a single `TelemetryClient` per telemetry producing module. For instance, you may have one `TelemetryClient` in log adaptor to send traces and another in HttpModule or middleware class to report incoming http requests. You can set global properties such as `TelemetryClient.Context.Device.Id` to identify computer that sends telemetry. This information is attached to all events sent by the instance.
 
 
 

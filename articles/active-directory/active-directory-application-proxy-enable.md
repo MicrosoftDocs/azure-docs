@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="rkarlin"
-	manager="terrylan"
+	manager="msStevenPo"
 	editor=""/>
 
 <tags
@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/07/2015"
+	ms.date="09/09/2015"
 	ms.author="rkarlin"/>
 
 # Enabling Azure AD Application Proxy
-> [AZURE.NOTE] Application Proxy is a feature that is available only if you upgraded to the Premium or Basic edition of Azure Active Directory. For more information, see [Azure Active Directory editions](https://msdn.microsoft.com/library/azure/dn532272.aspx).
+> [AZURE.NOTE] Application Proxy is a feature that is available only if you upgraded to the Premium or Basic edition of Azure Active Directory. For more information, see [Azure Active Directory editions](active-directory-editions.md).
 
 Microsoft Azure AD Application Proxy lets you publish applications, such as SharePoint sites, Outlook Web Access and IIS-based apps, inside your private network and provides secure access to users outside your network. Employees can log into your apps from home, on their own devices and authenticate through this cloud-based proxy
 
@@ -74,3 +74,4 @@ If you want to uninstall the Connector, after uninstalling the Connector service
 
 * [Sign up for Azure as an organization](..sign-up-organization.md)
 * [Azure Identity](..fundamentals-identity.md)
+* [Publish Applications with Application Proxy](active-directory-application-proxy-publish.md)
