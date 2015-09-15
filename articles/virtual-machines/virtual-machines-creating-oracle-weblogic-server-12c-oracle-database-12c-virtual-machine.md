@@ -21,7 +21,7 @@ This article shows how to create a virtual machine based on a Microsoft-provided
 
 7.	Choose a **Pricing Tier**.  Note that the recommended pricing tiers are displayed by default. To see all configuration options, click **View all** on the top right.
 
-8. Set the optional configurations as needed (see [About Azure virtual machine configuration settings](https://msdn.microsoft.com/library/azure/dn763935.aspx). Follow these considerations:
+8. Set the optional configurations as needed. Follow these considerations:
 
 	a. Leave **Storage Account** as-is to create a new storage account with the virtual machine name.
 

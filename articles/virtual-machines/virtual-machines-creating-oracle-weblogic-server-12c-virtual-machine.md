@@ -19,7 +19,7 @@ The following example shows you how you can create a Virtual Machine based on a 
 
 7.	Choose a **Pricing Tier**.  Note that Recommended Pricing Tiers are displayed by default, to see all configuration options, click **View all** on the top right.
 
-8.	Set [Optional Configuration](https://msdn.microsoft.com/library/azure/dn763935.aspx) as needed, with these considerations:
+8.	Set the optional configuration as needed, with these considerations:
 	1. Leave **Storage Account** as-is to create a new storage account with the VM name.
 	2. Leave **Availability Set** as “Not Configured”.
 	3. Do not add any **endpoints** at this time.
