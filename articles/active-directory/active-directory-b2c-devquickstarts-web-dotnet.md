@@ -129,6 +129,8 @@ public partial class Startup
 {
     // The ACR claim is used to indicate which policy was executed
     public const string AcrClaimType = "http://schemas.microsoft.com/claims/authnclassreference";
+    public const string PolicyKey = "b2cpolicy";
+    public const string OIDCMetadataSuffix = "/.well-known/openid-configuration";
 
     // App config settings
     private static string clientId = ConfigurationManager.AppSettings["ida:ClientId"];
@@ -144,9 +146,9 @@ public partial class Startup
     public void ConfigureAuth(IAppBuilder app)
     {
         app.SetDefaultSignInAsAuthenticationType(CookieAuthenticationDefaults.AuthenticationType);
-    
+
         app.UseCookieAuthentication(new CookieAuthenticationOptions());
-    
+
         OpenIdConnectAuthenticationOptions options = new OpenIdConnectAuthenticationOptions
         {
             // These are standard OpenID Connect parameters, with values pulled from web.config
@@ -156,32 +158,30 @@ public partial class Startup
             Notifications = new OpenIdConnectAuthenticationNotifications
             { 
                 AuthenticationFailed = AuthenticationFailed,
+                RedirectToIdentityProvider = OnRedirectToIdentityProvider,
             },
             Scope = "openid",
             ResponseType = "id_token",
-    
+
             // The PolicyConfigurationManager takes care of getting the correct Azure AD authentication
             // endpoints from the OpenID Connect metadata endpoint.  It is included in the PolicyAuthHelpers folder.
-            ConfigurationManager = new PolicyConfigurationManager("https://login.microsoftonline.com/" + tenant + "/v2.0/.well-known/openid-configuration"),
-    
+            // The first parameter is the metadata URL of your B2C directory
+            // The second parameter is an array of the policies that your app will use.
+            ConfigurationManager = new PolicyConfigurationManager(
+                String.Format(CultureInfo.InvariantCulture, aadInstance, tenant, "/v2.0", OIDCMetadataSuffix),
+                new string[] { SignUpPolicyId, SignInPolicyId, ProfilePolicyId }),
+
             // This piece is optional - it is used for displaying the user's name in the navigation bar.
             TokenValidationParameters = new TokenValidationParameters
             {  
                 NameClaimType = "name",
             },
         };
-    
-        // The PolicyOpenIdConnectAuthenticationMiddleware is a small extension of the default OpenIdConnectMiddleware
-        // included in OWIN.  It is included in this sample in the PolicyAuthHelpers folder, along with a few other
-        // supplementary classes related to policies.
-        app.Use(typeof(PolicyOpenIdConnectAuthenticationMiddleware), app, options);
+
+        app.UseOpenIdConnectAuthentication(options);
             
     }
 ```
-
-If you're familiar with OWIN and OpenID Connect, you might notice that we've extended the default OpenID Connect middleware into a class called 
-`PolicyOpenIdConnectAuthenticationMiddleware`.  This class and a few others are included in the `PolicyAuthHelpers` folder - they are included to make
-interacting with Azure AD B2C a bit easier for you, but you are not required to use them.  
 
 ## 5. Send authentication requests to Azure AD
 Your app is now properly configured to communicate with Azure AD B2C using the OpenID Connect authentication protocol.  OWIN has taken care of all of the ugly details
@@ -198,12 +198,17 @@ public void SignIn()
     if (!Request.IsAuthenticated)
     {
         // To execute a policy, you simply need to trigger an OWIN challenge.
-        // You can indicate which policy to use by adding it to the response header using the PolicyKey provided.
-        // The PolicyOpenIdConnectAuthenticationMiddleware will pick it up and send the right request.
-
-        Response.Headers.Add(PolicyOpenIdConnectAuthenticationHandler.PolicyKey, Startup.SignInPolicyId);
+        // You can indicate which policy to use by adding it to the AuthenticationProperties using the PolicyKey provided.
+    
         HttpContext.GetOwinContext().Authentication.Challenge(
-            new AuthenticationProperties { RedirectUri = "/" }, OpenIdConnectAuthenticationDefaults.AuthenticationType);
+            new AuthenticationProperties (
+                new Dictionary<string, string> 
+                { 
+                    {Startup.PolicyKey, Startup.SignInPolicyId}
+                })
+            { 
+                RedirectUri = "/", 
+            }, OpenIdConnectAuthenticationDefaults.AuthenticationType);
     }
 }
 
@@ -211,9 +216,15 @@ public void SignUp()
 {
     if (!Request.IsAuthenticated)
     {
-        Response.Headers.Add(PolicyOpenIdConnectAuthenticationHandler.PolicyKey, Startup.SignUpPolicyId);
         HttpContext.GetOwinContext().Authentication.Challenge(
-            new AuthenticationProperties { RedirectUri = "/" }, OpenIdConnectAuthenticationDefaults.AuthenticationType);
+            new AuthenticationProperties(
+                new Dictionary<string, string> 
+                { 
+                    {Startup.PolicyKey, Startup.SignUpPolicyId}
+                })
+            {
+                RedirectUri = "/",
+            }, OpenIdConnectAuthenticationDefaults.AuthenticationType);
     }
 }
 
@@ -222,9 +233,15 @@ public void Profile()
 {
     if (Request.IsAuthenticated)
     {
-        Response.Headers.Add(PolicyOpenIdConnectAuthenticationHandler.PolicyKey, Startup.ProfilePolicyId);
         HttpContext.GetOwinContext().Authentication.Challenge(
-            new AuthenticationProperties { RedirectUri = "/" }, OpenIdConnectAuthenticationDefaults.AuthenticationType);
+            new AuthenticationProperties(
+                new Dictionary<string, string> 
+                { 
+                    {Startup.PolicyKey, Startup.ProfilePolicyId}
+                })
+            {
+                RedirectUri = "/",
+            }, OpenIdConnectAuthenticationDefaults.AuthenticationType);
     }
 }
 ```
@@ -243,20 +260,46 @@ public ActionResult Claims()
   ...
 ```
 
-Finally, you can use OWIN to sign the user out of the app as well.  Back in `Controllers\AccountController.cs`:  
+You can use OWIN to sign the user out of the app as well.  Back in `Controllers\AccountController.cs`:  
 
 ```C#
 // Controllers\AccountController.cs
 
 public void SignOut()
 {
-	// To sign out the user, you should issue an OpenIDConnect sign out request using the last policy that the user executed.
-	// This is as easy as looking up the current value of the ACR claim, adding it to the response header, and making an OWIN SignOut call.
+    // To sign out the user, you should issue an OpenIDConnect sign out request using the last policy that the user executed.
+    // This is as easy as looking up the current value of the ACR claim, adding it to the AuthenticationProperties, and making an OWIN SignOut call.
 
-	Response.Headers.Add(PolicyOpenIdConnectAuthenticationHandler.PolicyKey, ClaimsPrincipal.Current.FindFirst(Startup.AcrClaimType).Value);
-	HttpContext.GetOwinContext().Authentication.SignOut(OpenIdConnectAuthenticationDefaults.AuthenticationType, CookieAuthenticationDefaults.AuthenticationType);
+    HttpContext.GetOwinContext().Authentication.SignOut(
+        new AuthenticationProperties(
+            new Dictionary<string, string> 
+            { 
+                {Startup.PolicyKey, ClaimsPrincipal.Current.FindFirst(Startup.AcrClaimType).Value}
+            }), OpenIdConnectAuthenticationDefaults.AuthenticationType, CookieAuthenticationDefaults.AuthenticationType);
 }
 ```
+
+By default, OWIN will not send the policies you specified in the `AuthenticationProperties` to Azure AD.  However, you can edit the requests that OWIN generates in the `RedirectToIdentityProvider` notification.
+Use this notification in `App_Start\Startup.Auth.cs` to fetch the right endpoint for each policy from the policy's metadata.  This will ensure that the correct request is sent to Azure AD for each policy that your app wants to execute.   
+
+```C#
+// App_Start\Startup.Auth.cs
+
+private async Task OnRedirectToIdentityProvider(RedirectToIdentityProviderNotification<OpenIdConnectMessage, OpenIdConnectAuthenticationOptions> notification)
+{
+    PolicyConfigurationManager mgr = notification.Options.ConfigurationManager as PolicyConfigurationManager;
+    if (notification.ProtocolMessage.RequestType == OpenIdConnectRequestType.LogoutRequest)
+    {
+        OpenIdConnectConfiguration config = await mgr.GetConfigurationByPolicyAsync(CancellationToken.None, notification.OwinContext.Authentication.AuthenticationResponseRevoke.Properties.Dictionary[Startup.PolicyKey]);
+        notification.ProtocolMessage.IssuerAddress = config.EndSessionEndpoint;
+    }
+    else
+    {
+        OpenIdConnectConfiguration config = await mgr.GetConfigurationByPolicyAsync(CancellationToken.None, notification.OwinContext.Authentication.AuthenticationResponseChallenge.Properties.Dictionary[Startup.PolicyKey]);
+        notification.ProtocolMessage.IssuerAddress = config.AuthorizationEndpoint;
+    }
+}
+``` 
 
 ## 6. Display user information
 When authenticating users with OpenID Connect, Azure AD returns an id_token to the app that contains **claims**, or assertions about the user.  You can use these claims to personalize your app.  
