@@ -19,9 +19,9 @@
 
 # How to Log on to a virtual machine running Windows Server#
 
-You'll use the **Connect** button in the Azure preview portal to start a Remote Desktop session. (Want to connect to a Linux VM? See [How to log on to a virtual machine running Linux](virtual-machines-linux-how-to-log-on.md).)
+You'll use the **Connect** button in the Azure preview portal to start a Remote Desktop session. First you'll connect to the virtual machine, then you'll log on.
 
-## How to log on
+## Connect to the virtual machine
 
 1. If you haven't already done so, sign in to the [Azure preview portal](https://portal.azure.com/).
 
@@ -36,6 +36,8 @@ You'll use the **Connect** button in the Azure preview portal to start a Remote 
 5. On the blade for the virtual machine, click **Connect**.
 
 	![Connect to the virtual machine](./media/virtual-machines-log-on-windows-server-preview/preview-portal-connect.png)
+
+## Log on to the virtual machine
 
 [AZURE.INCLUDE [virtual-machines-log-on-win-server](../../includes/virtual-machines-log-on-win-server.md)]
 
