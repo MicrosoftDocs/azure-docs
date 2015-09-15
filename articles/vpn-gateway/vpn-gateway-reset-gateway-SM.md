@@ -26,7 +26,7 @@ Resetting the Azure VPN gateway is helpful if you lose cross-premises VPN connec
 
 When you use the *Reset-AzureVNetGateway* cmdlet, it will reboot your gateway, and then re-apply the cross-premises configurations to it. The gateway will keep the public IP address it already has. This means you won’t need to update the VPN router configuration with a new public IP address for Azure, as you would if you deleted and re-created a new gateway manually.
 
-Before you reset your gateway, verify the key items below for each IPsec S2S VPN tunnel. Any mismatch in the items below will result in disconnect of S2S VPN tunnels. Verifying and correcting configuration for either the on-premises, or Azure VPN gateways will save you from unnecessary reboots and disruptions to other working connections on the gateways.
+Before you reset your gateway, verify the key items below for each IPsec S2S VPN tunnel. Any mismatch in the items below will result in disconnect of S2S VPN tunnels. Verifying and correcting the configuration for your on-premises or Azure VPN gateway will save you from unnecessary reboots and disruptions for the other working connections on the gateways.
 
 Verify the following items before resetting your gateway.
 
