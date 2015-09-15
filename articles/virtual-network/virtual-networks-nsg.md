@@ -17,7 +17,7 @@
 
 # What is a Network Security Group (NSG)?
 
-You can use an NSG to control traffic to one or more virtual machine (VM) instances in your virtual network. A network security group is a top level object that is associated to your subscription An NSG contains access control rules that allow or deny traffic to VM instances. The rules of an NSG can be changed at any time, and changes are applied to all associated instances. To use an NSG, you must have a VNet that is associated with a region (location). 
+You can use an NSG to control traffic to one or more virtual machine (VM) instances in your virtual network. An NSG contains access control rules that allow or deny traffic based on traffic direction, protocol, source address and port, and destination address and port. The rules of an NSG can be changed at any time, and changes are applied to all associated instances. To use an NSG, you must have a regional VNet. 
 
 >[AZURE.WARNING] NSGs are not compatible with VNets that are associated with an affinity group. If you don’t have a regional VNet and you want to control traffic to your endpoints, please see [What is a Network Access Control List (ACL)?](./virtual-networks-acl.md). You can also [migrate your VNet to a regional VNet](./virtual-networks-migrate-to-regional-vnet.md).
 

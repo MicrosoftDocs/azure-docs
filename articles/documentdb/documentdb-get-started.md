@@ -1,6 +1,7 @@
 <properties
-	pageTitle="Get started with the DocumentDB .NET SDK | Microsoft Azure"
-	description="Learn how to create and configure an Azure DocumentDB account, create databases, create collections, and store JSON documents within your NoSQL document database account."
+	pageTitle="NoSQL Databases - Get started with the DocumentDB .NET SDK | Microsoft Azure"
+	description="Learn how to create a database and configure an Azure DocumentDB account. Create databases, collections, and store JSON documents within your NoSQL database account."
+	keywords="Create a database, create database, nosql database, nosql databases, nuget, documentdb, azure, Microsoft azure"
 	services="documentdb"
 	documentationCenter=".net"
 	authors="AndrewHoh"
@@ -459,7 +460,7 @@ You should now see the output of your get started app. The output will show the 
 
 Contratulations! You've created your first DocumentDB app! 
 
-##<a id="GetSolution"></a> Get the complete solution
+##<a id="GetSolution"></a> Get the complete NuGet package solution
 To build the GetStarted solution that contains all the samples in this article, you will need the following:
 
 -   [DocumentDB account][documentdb-create-account].

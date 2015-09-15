@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/27/2015"
+   ms.date="09/15/2015"
    ms.author="v-sharos" />
 
 # Use the StorSimple Manager service to manage your storage account
@@ -148,4 +148,5 @@ To inform the StorSimple Manager service of the change, you will need to access 
 
 ## Next steps
 
-Learn more about [StorSimple security](storsimple-security.md).
+- Learn more about [StorSimple security](storsimple-security.md).
+- Learn more about [using the StorSimple Manager service to administer your StorSimple device](storsimple-manager-service-administration.md).

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="How to create a hybrid collection for Azure RemoteApp" 
+	pageTitle="How to create a hybrid collection for Azure RemoteApp | Microsoft Azure" 
 	description="Learn how to create a deployment of RemoteApp that connects to your internal network." 
 	services="remoteapp" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/02/2015" 
+	ms.date="09/11/2015" 
 	ms.author="elizapo"/>
 
 # How to create a hybrid collection for Azure RemoteApp
@@ -29,7 +29,7 @@ There are two kinds of RemoteApp collections:
 This tutorial walks you through the process of creating a hybrid collection. There are eight steps: 
 
 1.	Decide what [image](remoteapp-imageoptions.md) to use for your collection. You can create a custom image or use one of the Microsoft images included with your subscription.
-2. Set up your virtual network.
+2. Set up your virtual network. Check out the [VNET planning](remoteapp-planvpn.md) and [sizing](remoteapp-vnetsizing.md) information.
 2.	Create a RemoteApp collection.
 2.	Join your collection to your local domain.
 3.	Add a template image to your collection.
@@ -55,7 +55,7 @@ You need to do the following before creating the collection:
 ## Step 1: Set up your virtual network
 You can deploy a hybrid RemoteApp collection that uses an existing Azure virtual network, or you can create a new virtual network. A virtual network lets your users access data on your local network through RemoteApp remote resources. Using an Azure virtual network gives your collection direct network access to other Azure services and virtual machines deployed to that virtual network.
 
-Make sure you review the [VNET size](remoteapp-vnetsizing.md) information before you create your VNET.
+Make sure you review the [VNET planning](remoteapp-planvpn.md) and [VNET size](remoteapp-vnetsizing.md) information before you create your VNET.
 
 ### Create an Azure VNET and join it to your Active Directory deployment
 
@@ -121,7 +121,7 @@ A RemoteApp app is the app or program that you provide to your users. It is loca
 
 Before your users can access RemoteApp apps, you need to publish them to the end-user feed – a list of available apps that your users access through the Remote Desktop client.
  
-You can publish multiple apps to your RemoteApp collection. From the RemoteApp publishing page, click **Publish** to add an app. You can either publish from the Start menu of the template image or by specifying the path on the template image for the app. If you choose to add from the Start menu, choose the program to app. If you choose to provide the path to the app, provide a name for the app and the path to where it is installed on the template image.
+You can publish multiple apps to your RemoteApp collection. From the RemoteApp publishing page, click **Publish** to add an app. You can either publish from the **Start** menu of the template image or by specifying the path on the template image for the app. If you choose to add from the **Start** menu, choose the program to add. If you choose to provide the path to the app, provide a name for the app and the path to where it is installed on the template image.
 
 ## Step 7: Configure user access ##
 
