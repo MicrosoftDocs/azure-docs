@@ -21,6 +21,8 @@
 In this topic, you will learn how to create an Azure Resource Manager template that deploys an Azure Redis Cache. The cache can be used with an existing storage account to keep diagnostic data. You will learn how to define which resources are deployed and 
 how to define parameters that are specified when the deployment is executed. You can use this template for your own deployments, or customize it to meet your requirements.
 
+Currently, diagnostic settings are shared for all caches in the same region for a subscription. Updating one cache in the region will affect all other caches in the region.
+
 For more information about creating templates, see [Authoring Azure Resource Manager Templates](../resource-group-authoring-templates.md).
 
 For the complete template, see [Redis Cache template](https://github.com/Azure/azure-quickstart-templates/blob/master/101-redis-cache/azuredeploy.json).
@@ -53,7 +55,7 @@ The location of the Redics Cache. For best perfomance, use the same location as 
 
 ### diagnosticsStorageAccountName
 
-The name of the existing storage account to use for diagnostics.
+The name of the existing storage account to use for diagnostics. 
 
     "diagnosticsStorageAccountName": {
       "type": "string"
