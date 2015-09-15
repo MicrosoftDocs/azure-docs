@@ -37,7 +37,7 @@ Verify the following items before resetting your gateway.
 
 ## Reset a VPN Gateway using PowerShell
 
-The PowerShell cmdlet for resetting Azure VPN gateway is *Reset-AzureVNetGateway*. Each Azure VPN gateway is composed of two VM instances running in active-standby configuration. Once the command is issued, the current active instance of the Azure VPN gateway will be rebooted immediately. There will be a brief gap during the failover from the active instance (being rebooted) to the standby instance. The gap should be less than one minute. 
+The PowerShell cmdlet for resetting Azure VPN gateway is *Reset-AzureVNetGateway*. Each Azure VPN gateway is composed of two VM instances running in an active-standby configuration. Once the command is issued, the current active instance of the Azure VPN gateway will be rebooted immediately. There will be a brief gap during the failover from the active instance (being rebooted) to the standby instance. The gap should be less than one minute. 
 
 The following example will reset the Azure VPN gateway for the virtual network called "ContosoVNet":
  
@@ -51,7 +51,7 @@ The following example will reset the Azure VPN gateway for the virtual network c
 			StatusCode     : OK
 
 
-If the connection is not restored after the first reboot, issue the same command again to reboot the second VM instance (the new active gateway). If the two reboots are requested back to back, there will be a slightly longer there will be a slightly longer period where both VM instances (active and standby) are in reboot. This case will cause a longer gap on the VPN connectivity, up to 2 to 4 minutes for VMs to complete the reboots.
+If the connection is not restored after the first reboot, issue the same command again to reboot the second VM instance (the new active gateway). If the two reboots are requested back to back, there will be a slightly longer there will be a slightly longer period where both VM instances (active and standby) are being rebooted. This case will cause a longer gap on the VPN connectivity, up to 2 to 4 minutes for VMs to complete the reboots.
 
 After two reboots, if you are still experiencing cross-premises connectivity problems, please open a support ticket from the Azure portal to contact Microsoft Azure Support.
 
