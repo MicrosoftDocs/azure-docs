@@ -40,7 +40,7 @@ Each request that is sent to Azure AD B2C specifies a **policy**.  A policy cont
 
 Every app's interaction with the v2.0 endpoint will follow a similar high level pattern:
 
-1. The app directs the end-user to the v2.0 endpoint to execute a policy.
+1. The app directs the end-user to the v2.0 endpoint to execute a [policy](active-directory-b2c-reference-policies.md).
 2. The user completes the policy according to the policy definition.
 4. The app receives a security token of some sort from the v2.0 endpoint.
 5. The app uses the security token to access protected information, or a resource.
@@ -68,7 +68,7 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6ImtyaU1QZG1Cd...
 
 You can learn about all of the types of tokens and claims available to an app in the [B2C token reference](active-directory-b2c-reference-tokens.md).
 
-In web apps, each execution of a policy takes these high level steps:
+In web apps, each execution of a [policy](active-directory-b2c-reference-policies.md) takes these high level steps:
 
 ![Web App Swimlanes Image](./media/active-directory-b2c-apps/webapp.png)
 
@@ -76,10 +76,12 @@ The validation of the id_token using a public signing key received from the Azur
 
 To see this scenario in action, try out one of the web app sign-in code samples in our [Getting Started](active-directory-b2c-overview.md#getting-started) section.
 
-In addition to simple sign-in, a web server app might also need to access some backend web service.  In this case the web app can perform a slightly different [OpenID Connect flow](active-directory-b2c-reference-oidc.md), and acquire tokens using authorization codes and refresh tokens. This scenario is depicted below in the [Web APIs section](#web-apis).<!--, and in our [WebApp-WebAPI Getting Started topic](active-directory-b2c-devquickstarts-web-api-dotnet.md).-->
+In addition to simple sign-in, a web server app might also need to access some backend web service.  In this case the web app can perform a slightly different [OpenID Connect flow](active-directory-b2c-reference-oidc.md), and acquire tokens using authorization codes and refresh tokens. This scenario is depicted below in the [Web APIs section](#web-apis).
+
+<!--, and in our [WebApp-WebAPI Getting Started topic](active-directory-b2c-devquickstarts-web-api-dotnet.md).-->
 
 ## Web APIs
-You can also user Azure AD B2C to secure web services as well, such as your app's RESTful Web API.  Web APIs can use OAuth 2.0 to secure their data and authenticate incoming HTTP requests using tokens.  The caller of a Web API appends a token in the authorization header of an HTTP request:
+You can also use Azure AD B2C to secure web services, such as your app's RESTful Web API.  Web APIs can use OAuth 2.0 to secure their data and authenticate incoming HTTP requests using tokens.  The caller of a Web API appends a token in the authorization header of an HTTP request:
 
 ```
 GET /api/items HTTP/1.1
@@ -105,7 +107,7 @@ To learn how to secure a Web API with Azure AD B2C, check out the Web API tutori
 ## Mobile and Native Apps
 Apps that are installed on a device, such as mobile and desktop apps, often need to access backend services or Web APIs on behalf of a user.  You can add customized identity management experiences to your native apps and securely call backend services using Azure AD B2C and the [OAuth 2.0 Authorization Code flow](active-directory-b2c-reference-oauth-code.md).  
 
-In this flow, the app executes policies and receives an authorization_code from Azure AD after the user completes the policy.  The authorization_code represents the app's permission to call backend services on behalf of the currently signed-in user.  The app can then exchange the authoriztion_code in the background for an id_token and a refresh_token.  The app can use the id_token to authenticate to a backend Web API in HTTP requests, and can use the refresh_token to get new id_tokens when older ones expire.
+In this flow, the app executes [policies](active-directory-b2c-reference-policies.md) and receives an authorization_code from Azure AD after the user completes the policy.  The authorization_code represents the app's permission to call backend services on behalf of the currently signed-in user.  The app can then exchange the authoriztion_code in the background for an id_token and a refresh_token.  The app can use the id_token to authenticate to a backend Web API in HTTP requests, and can use the refresh_token to get new id_tokens when older ones expire.
 
 > [AZURE.NOTE]
 	The Azure AD B2C preview currently only supports getting id_tokens that are used to access an app's own backend web service.  For instance, your complete app may include an iOS app, and Android app, and a backend Web API.  This architecture is fully supported.  What is not currently supported is allowing your iOS app to access a third party web API using OAuth 2.0 access_tokens.  In effect, each component of your complete app must all share a single Application ID.
