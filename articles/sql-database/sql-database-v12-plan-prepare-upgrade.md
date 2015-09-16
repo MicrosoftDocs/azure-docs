@@ -14,14 +14,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/15/2015"
+	ms.date="09/16/2015"
 	ms.author="genemi"/>
 
 
 # Plan and prepare to upgrade to SQL Database V12
 
 
-This topic describes the planning and preparations you must perform to upgrade your Azure SQL databases from version V11 to V12 ([at preview in some regions](sql-database-v12-whats-new.md#V12AzureSqlDbPreviewGaTable)).
+This topic describes the planning and preparations you must perform to upgrade your Azure SQL databases from version V11 to V12.
 
 
 A new [Azure preview portal](http://portal.azure.com/) is available to support your upgrade to V12.
@@ -179,7 +179,7 @@ The V11 database remains available for data access during the upgrade to V12. Ye
 | :--- | :--- |
 | Cannot revert to V11 | After an upgrade in-place, the result cannot be reverted or undone. |
 | Web or Business tier | Once the upgrade starts, the server for the new V12 database can no longer recognize or accept the Web or Business service tier. |
-| 50% discount not reflected in the pricing tier cards in the Azure portal | During the preview period, there is a 50% preview discount* on databases enrolled in the latest Azure SQL database preview update (V12). Even if the discount is not shown in the preview portal on the service pricing tier blade, the discount is in force.<br/><br/> The 50% discount remains in effect in all geographic regions until **2015-March-31**, when it expires for all regions. The discount is effect even in regions that have been announced at general availability (GA) status.<br/><br/> (* Use of latest Azure SQL Database Update V12 feature is subject to the preview terms in your license agreement (e.g., the Enterprise Agreement, Microsoft Azure Agreement, or Microsoft Online Subscription Agreement), as well as any applicable [Supplemental Terms of Use for Microsoft Azure Previews](http://azure.microsoft.com/support/legal/preview-supplemental-terms/).  For the duration of the preview, Microsoft will bill you (or your reseller, as applicable) for all databases enrolled in this preview at half the general availability (GA) rate to achieve a 50% preview discount. Microsoft will provide 30 days notice via email prior to the expiration of the preview period and the discounted preview rate.) |
+
 
 
 ### Export and import *after* upgrade to V12
