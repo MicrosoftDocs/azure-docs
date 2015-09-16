@@ -3,7 +3,7 @@
 	description="Learn to detach a disk from a virtual machine in Azure."
 	services="virtual-machines, storage"
 	documentationCenter=""
-	authors="KBDAzure"
+	authors="cynthn"
 	manager="timlt"
 	editor=""
 	tags="azure-service-management"/>
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/14/2015"
-	ms.author="kathydav"/>
+	ms.author="cynthn"/>
 
 
 

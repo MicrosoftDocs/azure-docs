@@ -3,9 +3,10 @@
 	description="How to use the Azure Preview Portal or the VMAccess extension for Linux to reset passwords and SSH keys, to reset SSH configurations, and delete Linux users."
 	services="virtual-machines"
 	documentationCenter=""
-	authors="KBDAzure"
+	authors="cynthn"
 	manager="timlt"
-	editor=""/>
+	editor=""
+	tags="azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -13,12 +14,12 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/07/2015"
-	ms.author="kathydav"/>
+	ms.date="08/28/2015"
+	ms.author="cynthn"/>
 
 # How to Reset a Password or SSH for Linux Virtual Machines #
 
-If you can't connect to a Linux virtual machine because of a forgotten password, an incorrect Secure Shell (SSH) key, or a problem with the SSH configuration, use the Azure Preview Portal or the  VMAccessForLinux extension to reset the password or SSH key or fix the SSH configuration.
+If you can't connect to a Linux virtual machine because of a forgotten password, an incorrect Secure Shell (SSH) key, or a problem with the SSH configuration, use the Azure Preview Portal or the  VMAccessForLinux extension to reset the password or SSH key or fix the SSH configuration. Note that this article applies to the virtual machines created using the **Classic** deployment model.
 
 ## Azure Preview Portal
 
@@ -261,4 +262,3 @@ To display the status of the VMAccess extension, run this command.
 [How to install and configure Azure PowerShell]: ../install-configure-powershell.md
 [Azure VM Extensions and Features]: http://msdn.microsoft.com/library/azure/dn606311.aspx
 [Connect to an Azure virtual machine with RDP or SSH]: http://msdn.microsoft.com/library/azure/dn535788.aspx
- 

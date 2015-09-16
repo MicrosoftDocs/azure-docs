@@ -13,13 +13,19 @@
 	ms.workload="data-management" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="NA" 
-	ms.date="04/14/2015" 
+	ms.date="09/11/2015" 
 	ms.author="sstein"/>
 
 
 # Managing Azure SQL Databases using the Azure Management Portal
 
-The [Azure management portal][Management Portal] allows you to create, monitor and manage Azure SQL databases and servers. This article will highlight the database operations that can be accomplished using the management portal. You can learn more about the other Azure SQL database management tools [here][AzureDb management overview].
+
+> [AZURE.SELECTOR]
+- [Azure Preview Portal](sql-database-manage-portal.md)
+- [SSMS](sql-database-manage-azure-ssms.md)
+- [PowerShell](sql-database-command-line-tools.md)
+
+The [Azure management portal][Management Portal] allows you to create, monitor and manage Azure SQL databases and servers. This article will highlight the database operations that can be accomplished using the management portal.
 
 >[AZURE.NOTE] If you are unfamiliar with the Azure management portal, this [video tour provides a quick overview][Azure Portal Tour] of its general features and concepts.
 
@@ -29,6 +35,10 @@ The [Azure management portal][Management Portal] allows you to create, monitor a
 ![Db management actions](./media/sql-database-manage-portal/sqldatabase_actions.png)
 
 The Azure management portal provides a set of common database actions accessible at the top of a database blade. You can restore a database to a previous point in time, open a database in Visual Studio, copy a database to a new server, and export the database to an Azure storage account. 
+
+- [Restoring a SQL database](sql-database-point-in-time-restore-tutorial-management-portal.md)
+- [Open a SQL database in Visual Studio](sql-database-connect-query.md)
+- [Export a SQL database](sql-database-export.md)
 
 ## 2. Database monitoring
 ![Database monitoring](./media/sql-database-manage-portal/sqldatabase_monitoring.png)
@@ -40,18 +50,28 @@ Additionally, alert rules can be setup to monitor a specified metric and alert a
 ## 3. Database security & auditing
 ![Database security](./media/sql-database-manage-portal/sqldatabase_security.png)
 
-Azure SQL databases can be configured to track all database events and write them to an audit log in your Azure storage account. This feature can help you maintain regulatory compliance, understand database activity, and gain insight into discrepancies that could indicate business concerns or suspected security violations. More information on Azure SQL database auditing can be found [here][AzureDb Auditing]
+Azure SQL databases can be configured to track all database events and write them to an audit log in your Azure storage account. This feature can help you maintain regulatory compliance, understand database activity, and gain insight into discrepancies that could indicate business concerns or suspected security violations. 
 
-Azure SQL databases can also be configured to mask sensitive data to non-priviledged users. More information on the Dynamic data masking feature of Azure SQL databases can be found [here][AzureDb datamasking]
+- [SQL Database Auditing](sql-database-auditing-get-started.md)
+
+Azure SQL databases can also be configured to mask sensitive data to non-priviledged users. 
+
+- [Dynamic Data Masking](sql-database-dynamic-data-masking-get-started.md)
+
 
 ## 4. Geo-replication
 ![Geo-replication](./media/sql-database-manage-portal/sqldatabase_georeplication.png)
 
-Azure SQL databases can be configured to asynchronously replicate committed transactions to a secondary database. The geo-replication part on the management portal allows you to select the Azure region you would like the secondary database to reside in. More information on database geo-replication in Azure can be found [here][Database geo-replication]
+Azure SQL databases can be configured to asynchronously replicate committed transactions to a secondary database. The geo-replication part on the management portal allows you to select the Azure region you would like the secondary database to reside in. 
+
+- [Geo-Replication](https://msdn.microsoft.com/library/azure/dn783447.aspx)
+
+
+
+
 
 ##Additional resources
-* [Introducing SQL Database][]   
-* [Managing Azure SQL Database using SQL Server Management Studio][]   
+* [SQL Database](sql-database-technical-overview.md)   
 * [Monitoring SQL Database using Dynamic Management Views][]   
 * [Transact-SQL Reference (SQL Database)][]
   

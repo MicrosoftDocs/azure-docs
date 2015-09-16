@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/22/2015"
+   ms.date="09/09/2015"
    ms.author="lodipalm"/>
 
 # Use Azure Data Factory with SQL Data Warehouse
@@ -44,7 +44,7 @@ For more development tips, see [SQL Data Warehouse development overview][].
 
 <!--Article references-->
 
-[Copy data with Azure Data Factory]: ./data-factory-copy-activity/
+[Copy data with Azure Data Factory]: ./data-factory-data-movement-activities/#copyactivity
 [SQL Data Warehouse development overview]:  ./sql-data-warehouse-overview-develop/
 [SQL Data Warehouse integration overview]:  ./sql-data-warehouse-overview-integration/
 

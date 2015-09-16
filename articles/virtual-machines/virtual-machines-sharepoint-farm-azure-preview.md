@@ -1,6 +1,6 @@
 <properties
-	pageTitle="SharePoint Server Farm"
-	description="You can quickly create a new SharePoint Server 2013 farm using the SharePoint Server Farm feature in the Azure Preview Portal."
+	pageTitle="SharePoint Server Farm | Microsoft Azure"
+	description="Quickly create a new basic or highly-available SharePoint Server 2013 farm using SharePoint Server Farm in the Azure Preview portal."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="JoeDavies-MSFT"
@@ -34,6 +34,8 @@ The high-availability SharePoint farm consists of nine virtual machines in this 
 You can use this farm configuration to test higher client loads, high availability of the external SharePoint site, and SQL Server AlwaysOn for a SharePoint farm. You can also use this configuration for SharePoint app development in a high-availability environment.
 
 For the configuration details for both of these farms, see [SharePoint Server Farm Configuration Details](virtual-machines-sharepoint-farm-config-azure-preview.md).
+
+> [AZURE.NOTE] Microsoft has released the SharePoint Server 2016 IT Preview. To make this preview easy to install and test, you can use an Azure virtual machine gallery image with SharePoint Server 2016 IT Preview and its prerequisites pre-installed. For more information, see [Test the SharePoint Server 2016 IT Preview in Azure](http://azure.microsoft.com/blog/test-sharepoint-server-2016-it-preview-4/).
 
 ## Stepping through configuration
 
@@ -83,7 +85,7 @@ Notes:
 
 ## Azure Resource Manager
 
-The SharePoint Server Farm feature of the Azure Preview Portal creates virtual machines in Service Management. To create SharePoint Server 2013 farms in Resource Manager, see [Deploy SharePoint Farms with Azure Resource Manager Templates](virtual-machines-workload-template-sharepoint.md).
+The SharePoint Server Farm feature of the Azure Preview Portal creates virtual machines with the classic deployment model. To create SharePoint Server 2013 farms with the Resource Manager deployment model, see [Deploy SharePoint Farms with Azure Resource Manager Templates](virtual-machines-workload-template-sharepoint.md).
 
 ## Additional resources
 

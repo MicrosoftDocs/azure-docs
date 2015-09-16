@@ -11,10 +11,10 @@ All Azure technical articles contain two metadata sections - a properties sectio
 
 ##Syntax
 
-The properties section uses this syntax:
+The properties section uses the following syntax:
 
     <properties
-       pageTitle="Page title that displays in search results and the browser tab | Microsoft Aure"
+       pageTitle="Page title that displays in search results and the browser tab | Microsoft Azure"
        description="Article description that will be displayed on landing pages and in most search results"
        services="service-name"
        documentationCenter="dev-center-name"
@@ -23,7 +23,7 @@ The properties section uses this syntax:
        editor=""
        tags=""/>
 
-The tags section uses this syntax:
+The tags section uses the following syntax:
 
     <tags
        ms.service="required"
@@ -123,7 +123,7 @@ The tags section uses this syntax:
 
 ![](./media/article-metadata/checkmark-small.png)**authors**: Required, one value only. List the GitHub account for the primary author or article SME. This attribute drives the byline on the published article. List only one, in spite of the plural name of the attribute.
 
-![](./media/article-metadata/checkmark-small.png)**manager**: Required if you are a Microsoft contributor. List the alias of the content publishing manager for the technology area. If you are a community contributor, include the attribute but leave it empty so we can fill it out.
+![](./media/article-metadata/checkmark-small.png)**manager**: Required if you are a Microsoft contributor. List the email alias of the content publishing manager for the technology area. If you are a community contributor, include the attribute but leave it empty so we can fill it out.
 
 ![](./media/article-metadata/checkmark-small.png)**editor**: Not used. Do not use it for other purposes.
 

@@ -3,7 +3,7 @@
 	description="Provides answers to some of the most common questions about Azure virtual machines"
 	services="virtual-machines"
 	documentationCenter=""
-	authors="KBDAzure"
+	authors="cynthn"
 	manager="timlt"
 	editor=""
 	tags="azure-service-management"/>
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/17/2015"
-	ms.author="kathydav"/>
+	ms.author="cynthn"/>
 
 # Azure Virtual Machines FAQ
 
@@ -59,7 +59,7 @@ In many ways they’re similar to “Generation 1” Hyper-V VMs, but they’re 
 
 ## Can these virtual machines use my existing, on-premises networking infrastructure?
 
-For virtual machines created in Service Management, you can use Azure Virtual Network to extend your existing infrastructure. The approach is like setting up a branch office. You can provision and manage virtual private networks (VPNs) in Azure as well as securely connect these to on-premises IT infrastructure. For details, see [Virtual Network Overview](https://msdn.microsoft.com/library/jj156007.aspx).
+For virtual machines created in Service Management, you can use Azure Virtual Network to extend your existing infrastructure. The approach is like setting up a branch office. You can provision and manage virtual private networks (VPNs) in Azure as well as securely connect these to on-premises IT infrastructure. For details, see [Virtual Network Overview](../virtual-network/virtual-networks-overview.md).
 
 You’ll need to specify the network that you want the virtual machine to belong to when you create the virtual machine. This means, for example, that you can’t join an existing virtual machine to a virtual network. However, you can work around this by detaching the virtual hard disk (VHD) from the existing virtual machine, and then use it to create a new virtual machine with the networking configuration you want.
 

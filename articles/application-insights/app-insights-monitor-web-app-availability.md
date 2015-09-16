@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="07/08/2015"
+	ms.date="09/08/2015"
 	ms.author="awills"/>
 
 # Monitor availability and responsiveness of any web site
@@ -127,9 +127,11 @@ You can monitor a scenario that involves a sequence of URLs. For example, if you
 
 To create a multi-step test, you record the scenario by using Visual Studio, and then upload the recording to Application Insights. Application Insights will replay the scenario at intervals and verify the responses.
 
+Note that you can't use coded functions in your tests: the scenario steps must be contained as a script in the .webtest file.
+
 #### 1. Record a scenario
 
-Use Visual Studio Ultimate to record a web session.
+Use Visual Studio Enterprise or Ultimate to record a web session. 
 
 1. Create a web performance test project.
 
@@ -145,14 +147,18 @@ Use Visual Studio Ultimate to record a web session.
 
     Don't make a long scenario. There's a limit of 100 steps and 2 minutes.
 
-4. Run the test in Visual Studio to make sure it works.
+4. Edit the test to:
+ - Add validations to check the received text and response codes.
+ - Remove any superfluous interactions. You could also remove dependent requests for pictures or to ad or tracking sites.
+
+    Remember that you can only edit the test script - you can't add custom code or call other web tests. Don't insert loops in the test. You can use standard web test plug-ins.
+
+5. Run the test in Visual Studio to make sure it works.
 
     The web test runner opens a web browser and repeats the actions you recorded. Make sure it works as you expect.
 
     ![In Visual Studio, open the .webtest file and click Run.](./media/app-insights-monitor-web-app-availability/appinsights-71webtest-multi-vs-run.png)
 
-
-(Don't insert loops in your web test code.)
 
 #### 2. Upload the web test to Application Insights
 
@@ -169,6 +175,8 @@ View your test results and any failures in the same way as for single-url tests.
 A common reason for failure is that the test runs too long. It mustn't run longer than two minutes.
 
 Don't forget that all the resources of a page must load correctly for the test to succeed, including scripts, style sheets, images and so forth.
+
+Note that the web test must be entirely contained in the .webtest file: you can't use coded functions in the test.
 
 
 ### Plugging time and random numbers into your multi-step test
@@ -207,13 +215,14 @@ You might want to disable web tests while you are performing maintenance on your
 
 ## Questions? Problems?
 
-* I get an error about "invalid characters" when I
 
-* *Is there a difference between "web tests" and "availability"?
+* *Is there a difference between "web tests" and "availability"?*
 
     We use the two terms interchangeably.
 
+* *Can I call code from my web test?*
 
+    No. The steps of the test must be in the .webtest file. And you can't call other web tests or use loops. But there are a number of plug-ins that you might find helpful.
 
 ## <a name="video"></a>Video
 

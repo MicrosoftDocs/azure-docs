@@ -92,7 +92,7 @@ The script below creates a new cloud service named *TestService2* with a new VM 
 	Set-AzureReservedIPAssociation -ReservedIPName MyReservedIP -ServiceName TestService2
 
 ## How to associate a reserved IP to a cloud service by using a service configuration file
-You can also associate a reserved IP to a cloud service by sing a service configuration (CSCFG) file. The sample xml below shows how to configure a cloud service to use a reserved VIP named *MyReservedIP*: 
+You can also associate a reserved IP to a cloud service by using a service configuration (CSCFG) file. The sample xml below shows how to configure a cloud service to use a reserved VIP named *MyReservedIP*: 
 	
 	<?xml version="1.0" encoding="utf-8"?>
 	<ServiceConfiguration serviceName="ReservedIPSample" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceConfiguration" osFamily="4" osVersion="*" schemaVersion="2014-01.2.3">

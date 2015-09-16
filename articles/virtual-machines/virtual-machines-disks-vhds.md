@@ -3,7 +3,7 @@
 	description="Learn about the basics of disks and VHDs for virtual machines in Azure."
 	services="virtual-machines"
 	documentationCenter=""
-	authors="KBDAzure"
+	authors="cynthn"
 	manager="timlt"
 	editor="tysonn"
 	tags="azure-resource-manager,azure-service-management"/>
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="06/30/2015"
-	ms.author="kathydav"/>
+	ms.author="cynthn"/>
 
 # About disks and VHDs for virtual machines
 
