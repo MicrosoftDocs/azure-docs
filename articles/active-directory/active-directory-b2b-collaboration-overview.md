@@ -18,7 +18,7 @@
 
 # Azure Active Directory business-to-business (B2B) collaboration
 
-Azure AD B2B lets you use Azure Active Directory (AD) to enable your business partners to access your corporate applications in a simpler and more secure manner.
+Azure AD B2B collaboration lets you use Azure Active Directory (AD) to enable your business partners to access your corporate applications in a simpler and more secure manner.
 
 -   Your business partners use their own sign-in credentials, which frees you from managing an external partner directory, and from needing to remove access when users leave the partner organization.
 -   Azure AD allows you to manage trust relationships in the cloud, freeing you from the complexity of managing per-partner
