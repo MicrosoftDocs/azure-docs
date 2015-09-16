@@ -358,6 +358,8 @@ or you can clone it from GitHub:
 
 ```git clone --branch complete https://github.com/AzureADQuickStarts/B2C-NativeClient-DotNet.git```
 
+<!--
+
 ## Next Steps
 
 You can now move onto more advanced B2C topics.  You may want to try:
@@ -366,3 +368,4 @@ You can now move onto more advanced B2C topics.  You may want to try:
 
 [Customizing the your B2C App's UX >>]()
 
+-->

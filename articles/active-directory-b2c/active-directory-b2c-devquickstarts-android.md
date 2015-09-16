@@ -376,6 +376,9 @@ or you can clone it from GitHub:
 
 ```git clone --branch complete https://github.com/AzureADQuickStarts/B2C-NativeClient-Android```
 
+
+<!--
+
 ### Next Steps
 
 You can now move onto more advanced B2C topics.  You may want to try:
@@ -383,6 +386,8 @@ You can now move onto more advanced B2C topics.  You may want to try:
 [Calling a node.js Web API from a node.js Web App >>]()
 
 [Customizing the your B2C App's UX >>]()
+
+-->
 
 ### Important Information
 

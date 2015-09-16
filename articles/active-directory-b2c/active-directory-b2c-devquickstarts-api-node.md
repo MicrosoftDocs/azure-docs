@@ -882,16 +882,13 @@ You've went as far as you can with this server without using an OAuth2 compatibl
 
 If you were just looking for information on how to implement a REST API using Restify and OAuth2, you have more than enough code to keep developing your service and learning how to build on this example.
 
-## Next Steps
-
 For reference, the completed sample (without your configuration values) [is provided as a .zip here](https://github.com/AzureADQuickStarts/B2C-WebAPI-nodejs/archive/complete.zip), or you can clone it from GitHub:
 
 ```git clone --branch complete https://github.com/AzureADQuickStarts/B2C-WebAPI-nodejs.git```
 
+
+## Next Steps
+
 You can now move onto more advanced topics.  You may want to try:
 
 [Connect to a Web-API using iOS with B2C >>](active-directory-b2c-devquickstarts-ios.md)
-
-For additional resources, check out:
-- [The App Model v2.0 Preview >>](active-directory-b2c-overview.md)
-- [StackOverflow "azure-active-directory" tag >>](http://stackoverflow.com/questions/tagged/azure-active-directory)

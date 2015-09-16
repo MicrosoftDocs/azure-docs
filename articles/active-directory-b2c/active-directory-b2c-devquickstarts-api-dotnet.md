@@ -218,6 +218,8 @@ Now that you have an API secured with Azure AD B2C, you can play around with you
 to the policies, allowing you users to sign into the Task Client using social accounts.  You can also -->manipulate the **application claims** in the policies, and change
 the user information that is available in the Web API.  Any additional claims you add will be available to your .NET MVC web api in the `ClaimsPrincipal` object, as described above.
 
+<!--
+
 ## Next Steps
 
 You can now move onto more advanced B2C topics.  You may want to try:
@@ -225,3 +227,5 @@ You can now move onto more advanced B2C topics.  You may want to try:
 [Calling a Web API from a Web App >>]()
 
 [Customizing the your B2C App's UX >>]()
+
+-->
