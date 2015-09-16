@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="09/10/2015"
+	ms.date="09/14/2015"
 	ms.author="trinadhk"; "aashishr"; "jimpark"/>
 
 
@@ -143,6 +143,8 @@ Once the initial backup is completed, the *Protection Status* of the virtual mac
 Once protected, the virtual machine count also increases in the **Dashboard** page summary. In addition, the **Dashboard** page shows the number of jobs from the last 24 hours that were successful, have failed, and are still in progress. Clicking on any one category will drill down into that category in the **Jobs** page.
 
 ![Status of backup in Dashboard page](./media/backup-azure-vms/dashboard-protectedvms.png)
+
+>[AZURE.NOTE] Values in the dashboard are refreshed once every 24 hours.
 
 ### Long term retention
 Retention policy specifies the duration for which the backup must be stored. Rather than just specifying a “flat retention” for all backup points, customers can specify different retention policies based on when the backup is taken. For example, the backup point taken at the end of each quarter may need to be preserved for a longer duration for audit purposes while the backup point taken daily, which serves as an operational recovery point, needs to be preserved for 90 days.

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/11/2015"
+   ms.date="09/15/2015"
    ms.author="alkohli" />
 
 # Use the StorSimple Manager service to clone a volume
@@ -89,7 +89,8 @@ You need to verify a testing bug in the production environment. You create a clo
 
 
 ## Next steps
-Learn how to [restore a StorSimple volume from a backup set](storsimple-restore-from-backup-set.md).
+- Learn how to [restore a StorSimple volume from a backup set](storsimple-restore-from-backup-set.md).
 
+- Learn how to [use the StorSimple Manager service to administer your StorSimple device](storsimple-manager-service-administration.md).
 
  
