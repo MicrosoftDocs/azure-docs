@@ -27,7 +27,7 @@
 
 [AZURE.INCLUDE [virtual-networks-create-nsg-scenario-include](../../includes/virtual-networks-create-nsg-scenario-include.md)]
 
-The sample Azure CLI commands below expect a simple environment already created based on the scenario above. If you want to run the commands as they are displayed in this document, first build the test environment by deploying [this template](https://github.com/Azure/azure-quickstart-templates/tree/master/ACOM-VNet-Storage-VMs).
+The sample Azure CLI commands below expect a simple environment already created based on the scenario above. If you want to run the commands as they are displayed in this document, first build the test environment by [creating a VNet](virtual-networks-create-vnet-classic-cli).
 
 ## How to create the NSG for the front end subnet
 To create an NSG named named *NSG-FrontEnd* based on the scenario above, follow the steps below.
