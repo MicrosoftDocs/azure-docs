@@ -139,7 +139,7 @@ Search for **Template Deployment**, and select it from the returned list.
 
 ![search template deployment](./media/resource-group-portal/search-template.png)
 
-After launching the template deploymnet, you can create the custom template and set values for the deployment.
+After launching the template deployment, you can create the custom template and set values for the deployment.
 
 ![create template](./media/resource-group-portal/show-custom-template.png)
 
