@@ -55,8 +55,8 @@ The following diagram represents a live streaming workflow where a channel recei
 
 - Overview of a [common live streaming scenario](media-services-manage-live-encoder-enabled-channels.md#scenario)
 - [Description of a Channel and its related components](media-services-manage-live-encoder-enabled-channels.md#channel)
-- [Considerations](media-services-manage-live-encoder-enabled-channels.md#considerations)
-- [Tasks related to Live Streaming](media-services-manage-live-encoder-enabled-channels.md#tasks)
+- [Considerations](media-services-manage-live-encoder-enabled-channels.md#Considerations)
+
 
 ##<a id="scenario"></a>Common Live Streaming Scenario
 
