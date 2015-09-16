@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/26/2015"
+   ms.date="09/16/2015"
    ms.author="alkohli" />
 
 # Unpack, rack-mount, and cable your StorSimple 8100 device
