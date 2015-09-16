@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="cynthn"
-	ms.author="kathydav"/>
+	ms.date="07/16/2015"
+	ms.author="cynthn"/>
 
 #How to capture a Windows virtual machine to use as an image#
 
