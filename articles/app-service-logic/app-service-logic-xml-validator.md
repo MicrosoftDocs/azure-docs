@@ -21,7 +21,8 @@
 BizTalk XML Validate connector helps your app validate XML data against predefined XML schemas. Users can use either existing schemas or generate schemas based out of a flat file instance, JSON instance or existing connectors.
 
 ##Using the BizTalk XML Validator
-1. To use the BizTalk XML Validator, you need to first create an instance of the BizTalk XML Validator API app. This can be done either inline while creating a logic app or by selecting the BizTalk XML Validator API app from the Azure Marketplace.
+
+To use the BizTalk XML Validator, you need to first create an instance of the BizTalk XML Validator API app. This can be done either inline while creating a logic app or by selecting the BizTalk XML Validator API app from the Azure Marketplace.
 
 ###Configure BizTalk XML Validator
 BizTalk XML Validator takes schemas as part of its configuration. User can launch the API App configuration blade by either launching the API App directly from the Azure portal, or through by double clicking the API App on the designer surface.
@@ -54,7 +55,6 @@ Input Xml|string|Input Xml to be validated
 
 The action returns the output as an object. Output contains the model representing response of Xml Validator. It consists of result, schema name, root node and error description.
 
-![6]
 
 <!-- References -->
 [1]: ./media/app-service-logic-xml-validator/XmlValidator.ClickToConfigure.PNG
@@ -62,5 +62,4 @@ The action returns the output as an object. Output contains the model representi
 [3]: ./media/app-service-logic-xml-validator/XmlValidator.SchemaUpload.PNG
 [4]: ./media/app-service-logic-xml-validator/XmlValidator.ListOfActions.PNG
 [5]: ./media/app-service-logic-xml-validator/XmlValidator.ValidateXml.PNG
-[6]: ./media/app-service-logic-xml-validator/img1.PNG
  
