@@ -8,7 +8,7 @@
 	editor=""/>
 
 <tags 
-	ms.service="app-service-web" 
+	ms.service="app-service" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
@@ -19,6 +19,8 @@
 # How to Create an App Service Environment #
 
 App Service Environments (ASE) are a Premium service option of Azure App Service that is currently in Preview.  It delivers an enhanced configuration capability that is not available in the multi-tenant stamps.  To gain a greater understanding of the capabilities offered by App Service Environments read the [What is an App Service Environment][WhatisASE] documentation.
+
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)] 
 
 ### Overview ###
 

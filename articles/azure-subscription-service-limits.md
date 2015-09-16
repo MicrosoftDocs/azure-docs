@@ -49,6 +49,7 @@ As a result, you may find it useful to consider deciding what your Azure Resourc
 - [CDN](#cdn-limits)
 - [Cloud Services](#cloud-services-limits)
 - [Data Factory](#data-factory-limits)
+- [DNS](#dns-limits)
 - [DocumentDB](#documentdb-limits)
 - [Key Vault](#key-vault-limits)
 - [Media Services](#media-services-limits)
@@ -68,6 +69,7 @@ As a result, you may find it useful to consider deciding what your Azure Resourc
 - [StorSimple System](#storsimple-system-limits)
 - [Stream Analytics](#stream-analytics-limits)
 - [Subscription](#subscription-limits)
+- [Traffic Manager](#traffic-manager-limits)
 - [Virtual Machines](#virtual-machines-limits)
 
 
