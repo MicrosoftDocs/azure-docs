@@ -23,8 +23,8 @@ Azure Automation supports three types of runbooks that are  briefly described in
 | Type |  Description |
 |:---|:---|
 | [Graph](#graph-runbooks) | Based on Windows PowerShell Workflow and created and edited completely in graphical editor in Azure portal. | 
-| [PowerShell Workflow](powershell-workflow-runbooks) | Text runbook based on Windows PowerShell Workflow. |
-| [PowerShell](powershell-runbooks) | Text runbook based on Windows PowerShell script. |
+| [PowerShell Workflow](#powershell-workflow-runbooks) | Text runbook based on Windows PowerShell Workflow. |
+| [PowerShell](#powershell-runbooks) | Text runbook based on Windows PowerShell script. |
 
 ## Graph runbooks
 
@@ -33,7 +33,7 @@ Azure Automation supports three types of runbooks that are  briefly described in
 ### Advantages
 
 - Create runbooks with minimal knowledge of [PowerShell Workflow](automation-powershell-workflow.md).
-- Use [parallel processing](automation-powershell-workflow.md#parallel_processing) to perform mulitple activities in a single branch in parallel. 
+- Use [parallel processing](automation-powershell-workflow.md#parallel-processing) to perform mulitple activities in a single branch in parallel. 
 - Use [checkpoints](automation-powershell-workflow.md#checkpoints) to resume runbook in case of error.
 
 ### Limitations
@@ -51,7 +51,7 @@ PowerShell Workflow runbooks are text runbooks based on [Windows PowerShell Work
 
 - Implement all complex logic with PowerShell Workflow code.
 - Use [checkpoints](automation-powershell-workflow.md#checkpoints) to resume runbook in case of error.
-- Use [parallel processing](automation-powershell-workflow.md#parallel_processing) to perform multiple actions in parallel.
+- Use [parallel processing](automation-powershell-workflow.md#parallel-processing) to perform multiple actions in parallel.
 
 ### Limitations
 
@@ -71,7 +71,7 @@ PowerShell runbooks are based on Windows PowerShell.  You directly edit the code
 ### Limitations
 
 - Must be familiar with PowerShell scripting.
-- Can't use [parallel processing](automation-powershell-workflow.md#parallel_processing) to perform multiple actions in parallel.
+- Can't use [parallel processing](automation-powershell-workflow.md#parallel-processing) to perform multiple actions in parallel.
 - Can't use [checkpoints](automation-powershell-workflow.md#checkpoints) to resume runbook in case of error.
 - Can't run runbooks on [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md).
 
