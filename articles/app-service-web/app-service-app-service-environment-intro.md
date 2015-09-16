@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Introduction to App Service Environment" 
 	description="Learn about the App Service Environment feature that provides secure, VNet-joined, dedicated scale units for running all of your apps." 
-	services="app-service\web,app-service\api,app-service\mobile" 
+	services="app-service\web" 
 	documentationCenter="" 
 	authors="ccompy" 
 	manager="wpickett" 

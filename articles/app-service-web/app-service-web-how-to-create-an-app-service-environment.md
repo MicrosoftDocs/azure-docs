@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="How to Create an App Service Environment" 
 	description="Creation flow description for app service environments" 
-	services="app-service\web,app-service\api,app-service\mobile" 
+	services="app-service\web" 
 	documentationCenter="" 
 	authors="ccompy" 
 	manager="stefsch" 

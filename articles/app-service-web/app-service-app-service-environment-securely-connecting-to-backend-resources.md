@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Securely Connecting to BackEnd Resources from an App Service Environment" 
 	description="Learn about how to securely connect to backend resources from an App Service Environment." 
-	services="app-service\web,app-service\api,app-service\mobile" 
+	services="app-service\web" 
 	documentationCenter="" 
 	authors="ccompy" 
 	manager="wpickett" 

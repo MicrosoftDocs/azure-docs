@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Network Configuration Details for Working with Express Route" 
 	description="Network configuration details for running App Service Environments in a Virtual Networks connected to an ExpressRoute Circuit." 
-	services="app-service\web,app-service\api,app-service\mobile" 
+	services="app-service\web" 
 	documentationCenter="" 
 	authors="stefsch" 
 	manager="nirma" 

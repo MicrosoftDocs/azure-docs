@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="How to Configure an App Service Environment" 
 	description="Configuration, management and monitoring of App Service Environments" 
-	services="app-service\web,app-service\api,app-service\mobile" 
+	services="app-service\web" 
 	documentationCenter="" 
 	authors="ccompy" 
 	manager="stefsch" 
