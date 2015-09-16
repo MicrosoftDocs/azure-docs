@@ -32,8 +32,11 @@ Azure Active Directory B2B collaboration is easy to configure with simplified si
 
 The process:
 1. Azure AD B2B collaboration allows a company administrator to invite and authorize a set of external users by uploading a comma-separated values (CSV) file of no more than 2000 lines to the B2B collaboration portal.
+
 - The portal will send email invitations to these external users.
+
 - The invited user will either sign in to an existing work account with Microsoft (managed in Azure AD), or get a new work account in Azure AD.
+
 - Once signed in, the user will be redirected to the app that was shared with them.
 
 Invitations to consumer email addresses (for example, gmail or [*comcast.net*](http://comcast.net/)) are not currently supported.
