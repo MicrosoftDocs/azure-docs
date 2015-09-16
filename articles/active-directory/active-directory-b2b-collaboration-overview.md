@@ -18,13 +18,13 @@
 
 # Azure Active Directory business-to-business (B2B) collaboration
 
-Azure AD B2B lets you use Azure Active Directory to enable your business partners to access your corporate applications in a simpler and more secure manner.
+Azure AD B2B lets you use Azure Active Directory (AD) to enable your business partners to access your corporate applications in a simpler and more secure manner.
 
 -   Your business partners use their own sign-in credentials, which frees you from managing an external partner directory, and from needing to remove access when users leave the partner organization.
 -   Azure AD allows you to manage trust relationships in the cloud, freeing you from the complexity of managing per-partner
     federation relationships.
 -   You manage access independently of your business partner's account lifecycle. This means, for example, that you can revoke access to your apps without having to ask the IT department of your business partner to do anything.
--   Azure AD allows you to setup business-to-business collaboration with partners of any size, whether they already Azure AD accounts or not.
+-   Azure AD allows you to set up business-to-business collaboration with partners of any size, whether they already have Azure AD accounts or not.
 
 ## Capabilities
 
@@ -38,10 +38,10 @@ The CSV file follows the format below.
 |-------|------------|
 | Email | Email address for invited user. |
 | DisplayName | Display name for invited user (typically, first and last name). |
-| InviteAppID | Application to use for branding the email invite and acceptance pages. |
+| InviteAppID | The ID for the application to use for branding the email invite and acceptance pages. |
 | InviteReplyURL | URL to direct invited user to after invite acceptance. This should be a company-specific URL (such as [*contoso.my.salesforce.com*](http://contoso.my.salesforce.com/)). |
-| InviteAppResources | AppIDs to which applications can assign users. AppIDs are retrievable by calling `Get-MsolServicePrincipal | fl DisplayName, AppPrincipalId.\` |
-| InviteGroupResources | ObjectIDs for groups to add user to. ObjectIDs are retrievable by calling `Get-MsolGroup | fl DisplayName, ObjectId.\` |
+| InviteAppResources | AppIDs to which applications can assign users. AppIDs are retrievable by calling `Get-MsolServicePrincipal fl DisplayName, AppPrincipalId.\` |
+| InviteGroupResources | ObjectIDs for groups to add user to. ObjectIDs are retrievable by calling `Get-MsolGroup fl DisplayName, ObjectId.\` |
 | InviteContactUsUrl | "Contact Us" URL to include in email invitations in case the invited user wants to contact your organization. |
 
 ## Sample CSV file
