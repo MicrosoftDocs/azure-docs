@@ -13,28 +13,22 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="08/28/2015"
+   ms.date="09/04/2015"
    ms.author="maroche"/>
 
 # Azure Data Catalog release notes
 
-## Notes for the 28 August 2015 release of Azure Data Catalog
+## Notes for the September 4, 2015 release of Azure Data Catalog
 
-### Data profile missing for some registered data assets
+### Data profile may be missing for some registered data assets
 
-When registering data sources with the data profiling option selected in the data source registration tool, the data profile information may not be included in the following scenarios:
+When registering data sources with the data profiling option selected in the data source registration tool, the data profile information may not be included when registering Oracle tables and views with multi-byte characters in column names.
 
-* Azure SQL Database tables
-* SQL Server tables and views where there are multiple objects with the same name in different schemas
-* SQL Server tables and views with column names greater than 118 characters
-* Oracle tables and views with column names greater than 20 characters
-* Oracle tables and views with spaces or multu-byte characters in column names
+These restrictions are due to a known issue in the September 4 release, and will be addressed in a future update to Azure Data Catalog.
 
-These restrictions are due to a known issue in the August 28 release, and will be addressed in a future update to Azure Data Catalog.
+## Notes for the July 13, 2015 release of Azure Data Catalog
 
-## Notes for the 13 July 2015 release of Azure Data Catalog
-
-### Registering and Connecting to Oracle Database
+### Registering and connecting to Oracle Database
 
 When connecting to Oracle Database data sources users must have installed the correct Oracle drivers that match the bitness (32-bit or 64-bit) of the software being used.
 
@@ -63,14 +57,14 @@ Users may encounter a situation where they can log on to the Azure Data Catalog 
 
 There are two potential causes for this problem behavior:
 
-**Cause 1: Active Directory Federation Services Configuration**
+**Cause 1: Active Directory Federation Services configuration**
 The data source registration tool uses Forms Authentication to validate user logons against Active Directory. For successful logon, Forms Authentication must be enabled in the Global Authentication Policy by an Active Directory administrator.
 
 In some situations, this error behavior may occur only when the user is on the company network, or only when the user is connecting from outside the company network. The Global Authentication Policy allows authentication methods to be enabled separately for intranet and extranet connections. Logon errors may occur if Forms Authentication is not enabled for the network from which the user is connecting.
 
-For more information, see [Configuring intranet forms-based authentication for devices that do not support WIA](https://technet.microsoft.com/library/dn727110.aspx).
+For more information, see [Configuring Authentication Policies](https://technet.microsoft.com/en-us/library/dn486781.aspx).
 
-**Cause 2: Network Proxy Configuration**
+**Cause 2: Network proxy configuration**
 If the corporate network uses a proxy server, the registration tool may not be able to connect to Azure Active Directory through the proxy. Users can ensure that the registration tool by editing the tool’s configuration file, adding this section to the file:
 
 

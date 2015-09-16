@@ -12,8 +12,8 @@
 	ms.workload="identity" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/25/2015" 
+	ms.topic="get-started-article" 
+	ms.date="09/11/2015" 
 	ms.author="cabailey"/>
 
 

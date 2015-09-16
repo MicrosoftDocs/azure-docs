@@ -3,7 +3,7 @@
 	description="Create an Azure virtual machine running Windows Server 2012 R2, and then install and configure the MySQL database on it."
 	services="virtual-machines"
 	documentationCenter=""
-	authors="KBDAzure"
+	authors="cynthn"
 	manager="timlt"
 	editor="tysonn"
 	tags="azure-service-management"/>
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/10/2015"
-	ms.author="kathydav"/>
+	ms.author="cynthn"/>
 
 
 # Install MySQL on a virtual machine running Windows Server 2012 R2 in Azure

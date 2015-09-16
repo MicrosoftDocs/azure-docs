@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Configure AlwaysOn Availability Groups in Azure (GUI)"
+	pageTitle="Configure AlwaysOn Availability Groups in Azure VM (GUI)"
 	description="Create an AlwaysOn Availability Group in Azure Virtual Machines. This tutorial primarily uses the user interface and tools rather than scripting."
 	services="virtual-machines"
 	documentationCenter="na"
@@ -15,7 +15,7 @@
 	ms.date="08/12/2015"
 	ms.author="jroth" />
 
-# Configure AlwaysOn Availability Groups in Azure (GUI)
+# Configure AlwaysOn Availability Groups in Azure VM (GUI)
 
 This end-to-end tutorial shows you how to implement Availability Groups using SQL Server AlwaysOn running on Azure virtual machines.
 

@@ -24,7 +24,6 @@ The following documentation provides information on using the custom installatio
 For information on an Express Installation see [Express Installation](active-directory-aadconnect.md#getting-started-with-azure-ad-connect).   For information on upgrading from DirSync to Azure AD Connect see [Upgrading DirSync to Azure Active Directory Connect.](active-directory-aadconnect-dirsync-upgrade-get-started.md)
 
 
-
 ## Install required components
 
 When you install the synchronization services, you can leave the optional configuration section unchecked and Azure AD Connect will set everything up automatically.  This includes setting up a SQL Server 2012 Express instance and creating the appropriate groups and assigning them permissions.  If you wish to change the defaults you can use the table below to understand the optional configuration options that are available.
@@ -176,7 +175,7 @@ Before you can run the PowerShell cmdlet it must be imported first.
 
 In order to do this you will need Active Directory and MSOnline PowerShell installed locally.
 
-
+For additional information see [Enabling device writeback in Azure AD Connect](active-directory-aadconnect-get-started-custom-device-writeback.md)
 
 ## Staging mode
 With staging mode the process to setup a new sync server in parallel with an existing server is possible. It is only supported to have one sync server connected to one directory in the cloud. But if we want to move from another server, for example one running DirSync, then we can enable Azure AD Connect in staging mode. When enabled the sync engine will import and synchronize data as normal, but it will not export anything to Azure AD and will turn off password sync and password writeback. 
@@ -186,19 +185,6 @@ With staging mode the process to setup a new sync server in parallel with an exi
 
 While in staging mode, it is possible to make required changes to the sync engine and review what is about to be exported. When the configuration looks good, run the installation wizard again and disable staging mode. This will enable data to be exported to Azure AD. Make sure to disable the other server at the same time so only one server is actively exporting.
 
-### Preventing accidental deletions
-When installing Azure AD Connect the feature preventing accidental deletions will be enabled by default and configured to not allow an export with more than 500 deletes. The 500 is a default value and can be changed. With this feature enabled, if there are too many deletes, the export will not continue and you will receive an email like this:
-
-![Sync Filtering](./media/active-directory-aadconnect-get-started-custom/email.png)
-
-
-If this was unexpected, then investigate and take any corrective actions. 
-
-To temporarily disable this protection and let these deletes go through, run:
-Disable-ADSyncExportDeletionThreshold
-
-To re-enable the protection or to change the default threshold setting, run:
-Enable-ADSyncExportDeletionThreshold
 
 
 ## Configuring Federation with AD FS
