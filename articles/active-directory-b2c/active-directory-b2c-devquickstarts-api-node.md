@@ -1,14 +1,14 @@
 <properties
-	pageTitle="Azure AD B2C Preview | Microsoft Azure"
-	description="How to build a NodeJS Web API accepts tokens from a B2C tenant."
-	services="active-directory"
-	documentationCenter="nodejs"
+	pageTitle="B2C Preview: Secure a Web API using node.js | Microsoft Azure"
+	description="How to build a NodeJS Web API that accepts tokens from a B2C tenant"
+	services="active-directory-b2c"
+	documentationCenter=""
 	authors="brandwe"
 	manager="msmbaldwin"
 	editor=""/>
 
 <tags
-	ms.service="active-directory"
+	ms.service="active-directory-b2c"
 	ms.workload="identity"
   	ms.tgt_pltfrm="na"
 	ms.devlang="javascript"
