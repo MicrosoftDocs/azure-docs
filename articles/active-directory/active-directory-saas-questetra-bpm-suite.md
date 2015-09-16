@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="markusvi"
-	manager="stevenpo"
+	manager="msStevenPo"
 	editor=""/>
 
 <tags
@@ -124,24 +124,24 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
 
 8. On you **Questetra BPM Suite** company site, perform the following steps: <br><br>![Configure Single Sign-On][15]
 
-     a. Select **Enable Single Sign-On**.
+    a. Select **Enable Single Sign-On**.
      
-     b. On the Azure portal, copy the **Issuer URL** value, and then paste it into the **Entity ID** textbox.
+    b. On the Azure portal, copy the **Issuer URL** value, and then paste it into the **Entity ID** textbox.
 
-     c. On the Azure portal, copy the **Single Sign-On Service URL** value, and then paste it into the **Sign-in page URL** textbox.
+    c. On the Azure portal, copy the **Single Sign-On Service URL** value, and then paste it into the **Sign-in page URL** textbox.
 
-     d. On the Azure portal, copy the **Single Sign-Out Service URL** value, and then paste it into the **Sign-out page URL** textbox.
+    d. On the Azure portal, copy the **Single Sign-Out Service URL** value, and then paste it into the **Sign-out page URL** textbox.
 
-     e. In the **NameID format** textbox, type **urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress**.
+    e. In the **NameID format** textbox, type **urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress**.
 
 
-     f. Create a base-64 encoded file from your downloaded certificate. 
+    f. Create a base-64 encoded file from your downloaded certificate. 
 
     >[AZURE.TIP] For more details, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o).
 
-     g. Open your base-64 encoded certificate in notepad, copy the content of it into your clipboard, and then paste it into the **Validation certificate** textbox. 
+    g. Open your base-64 encoded certificate in notepad, copy the content of it into your clipboard, and then paste it into the **Validation certificate** textbox. 
 
-     h. Click **Save**.
+    h. Click **Save**.
 
 
 9. On the Azure AD portal, select the single sign-on configuration confirmation, and then click **Next**. <br><br>![What is Azure AD Connect][17]
@@ -171,23 +171,23 @@ The objective of this section is to create a test user in the Azure portal calle
 5. On the **Tell us about this user** dialog page, perform the following steps:
 <br><br>![Create Azure AD test user][103]
  
-     a. As **Type Of User**, select **New user in your organization**.
+    a. As **Type Of User**, select **New user in your organization**.
   
-     b. In the User Name **textbox**, type **BrittaSimon**.
+    b. In the User Name **textbox**, type **BrittaSimon**.
 
-     c. Click Next.
+    c. Click Next.
 6.  On the **User Profile** dialog page, perform the following steps: 
 <br><br>![Create Azure AD test user][104] 
   
-     a. In the **First Name** textbox, type **Britta**. 
+    a. In the **First Name** textbox, type **Britta**. 
  
-     b. In the **Last Name** textbox, type, **Simon**.
+    b. In the **Last Name** textbox, type, **Simon**.
 
-     c. In the **Display Name** textbox, type **Britta Simon**.
+    c. In the **Display Name** textbox, type **Britta Simon**.
 
-     d. In the **Role** list, select **User**.
+    d. In the **Role** list, select **User**.
 
-     e. Click **Next**.
+    e. Click **Next**.
 
 7. On the **Get temporary password** dialog page, click **create**.
 <br><br>![Create Azure AD test user][105]  
