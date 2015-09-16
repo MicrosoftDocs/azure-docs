@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Plan and prepare to upgrade to SQL Database V12"
+	pageTitle="Plan your upgrade to SQL Database V12 | Microsoft Azure"
 	description="Describes the preparations and limitations involved in upgrading to version V12 of Azure SQL Database."
 	services="sql-database"
 	documentationCenter=""
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/15/2015"
+	ms.date="09/15/2015"
 	ms.author="genemi"/>
 
 
@@ -105,6 +105,17 @@ The upgrade to V12 cannot run if geo-replication is active on your database. You
 
 
 After the upgrade completes you can configure your database to again use geo-replication.
+
+
+### Client on an Azure VM
+
+
+If your client program connects to SQL Database V12 while your client runs on an Azure virtual machine (VM), you must open the following port ranges on the VM:
+- 11000-11999
+- 14000-14999
+
+
+Click [here](sql-database-develop-direct-route-ports-adonet-v12.md) for details about the ports for SQL Database V12. The ports are needed by performance enhancements in SQL Database V12.
 
 
 ##<a id="limitations"></a>Limitations during and after upgrade to V12

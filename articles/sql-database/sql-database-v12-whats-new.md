@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="08/10/2015" 
+	ms.date="09/15/2015" 
 	ms.author="genemi"/>
 
 
@@ -41,8 +41,8 @@ A key goal for SQL Database V12 was to improve the compatibility with Microsoft 
 
 
 - [Common Language Runtime (CLR) assemblies](http://msdn.microsoft.com/library/ms189524.aspx)
-- [Window functions](https://msdn.microsoft.com/library/bb934097.aspx), with [OVER](http://msdn.microsoft.com/library/ms189461.aspx) 
-- [XML indexes](https://msdn.microsoft.com/library/bb934097.aspx) and [selective XML indexes](http://msdn.microsoft.com/library/jj670104.aspx)
+- [Window functions](http://msdn.microsoft.com/library/bb934097.aspx), with [OVER](http://msdn.microsoft.com/library/ms189461.aspx) 
+- [XML indexes](http://msdn.microsoft.com/library/bb934097.aspx) and [selective XML indexes](http://msdn.microsoft.com/library/jj670104.aspx)
 - [Change tracking](http://msdn.microsoft.com/library/bb933875.aspx)
 - [SELECT...INTO](http://msdn.microsoft.com/library/ms188029.aspx)
 - [Full-text search](http://msdn.microsoft.com/library/ms142571.aspx)
@@ -59,7 +59,18 @@ In V12, we increased the database throughput units (DTUs) allocated to all Premi
 
 - Support for in-memory [columnstore indexes](http://msdn.microsoft.com/library/gg492153.aspx).
 - [Table partitioning by rows](http://msdn.microsoft.com/library/ms187802.aspx) with related enhancements to [TRUNCATE TABLE](http://msdn.microsoft.com/library/ms177570.aspx).
-- The availability of dynamic management views [(DMVs)](http://msdn.microsoft.com/library/ms188754.aspx) and Extended Events[(XEvents)](https://msdn.microsoft.com/library/bb630282.aspx) to help monitor and tune performance.
+- The availability of dynamic management views [(DMVs)](http://msdn.microsoft.com/library/ms188754.aspx) to help monitor and tune performance.
+
+
+### Reliable performance
+
+
+If your client program connects to SQL Database V12 while your client runs on an Azure virtual machine (VM), you must open the following port ranges on the VM:
+- 11000-11999
+- 14000-14999
+
+
+Click [here](sql-database-develop-direct-route-ports-adonet-v12.md) for details about the ports for SQL Database V12. The ports are needed by performance enhancements in SQL Database V12.
 
 
 ## Better support for cloud SaaS vendors
@@ -99,7 +110,7 @@ V12 offers significantly improved recovery point objectives (RPOs) and estimated
 | Active geo-replication | • RPO < 5 minutes.<br/>• ERT < 1 hour. | • RPO < 5 seconds.<br/>• ERT < 30 seconds. |
 
 
-See [SQL Database business continuity](https://msdn.microsoft.com/library/azure/hh852669.aspx) for more information.
+See [SQL Database business continuity](http://msdn.microsoft.com/library/azure/hh852669.aspx) for more information.
 
 
 ## More reasons to upgrade now
