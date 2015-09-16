@@ -31,7 +31,7 @@ Verify the following items before resetting your gateway.
 
 - The Internet IP addresses (VIPs) for both the Azure VPN gateway and the on-premises VPN gateway are configured correctly in both the Azure and the on-premises VPN policies.
 - The pre-shared key must be the same on both Azure and on-premises VPN gateways.
-- If you apply specific IPsec/IKE configuration, such as encryption, hashing algorithms, PFS (Perfect Forward Secrecy), etc., please ensure both the Azure and on-premises VPN gateways have the same configurations.
+- If you apply specific IPsec/IKE configuration, such as encryption, hashing algorithms, and PFS (Perfect Forward Secrecy), please ensure both the Azure and on-premises VPN gateways have the same configurations.
 
 
 ## Reset a VPN Gateway using PowerShell
