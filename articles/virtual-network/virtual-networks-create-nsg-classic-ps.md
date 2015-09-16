@@ -36,7 +36,7 @@ To create an NSG named named *NSG-FrontEnd* based on the scenario above, follow 
 
 3. Create a network security group named **NSG-FrontEnd**.
 
-		New-AzureNetworkSecurityGroup -Name "NSG-FrontEnd" -Location uscentral `
+		New-AzureNetworkSecurityGroup -Name "NSG-FrontEnd" -Location uswest `
 		    -Label "Front end subnet NSG"
 
 	Expected output:
@@ -125,7 +125,7 @@ To create an NSG named named *NSG-FrontEnd* based on the scenario above, follow 
 ## How to create the NSG for the back end subnet
 3. Create a network security group named **NSG-BackEnd**.
 
-		New-AzureNetworkSecurityGroup -Name "NSG-BackEnd" -Location uscentral `
+		New-AzureNetworkSecurityGroup -Name "NSG-BackEnd" -Location uswest `
 		    -Label "Back end subnet NSG"
 
 	Expected output:
@@ -176,7 +176,7 @@ To create an NSG named named *NSG-FrontEnd* based on the scenario above, follow 
 
 		Get-AzureNetworkSecurityGroup -Name "NSG-BackEnd" `
 		| Set-AzureNetworkSecurityRule -Name block-internet `
-		    -Action Deny -Protocol '*' -Type Outbound -Priority 100 `
+		    -Action Deny -Protocol '*' -Type Outbound -Priority 200 `
 		    -SourceAddressPrefix '*'  -SourcePortRange '*' `
 		    -DestinationAddressPrefix Internet -DestinationPortRange '*' 
 
@@ -204,7 +204,7 @@ To create an NSG named named *NSG-FrontEnd* based on the scenario above, follow 
 		           Name                 Priority  Action   Source Address  Source Port   Destination      Destination    Protocol
 		                                                   Prefix          Range         Address Prefix   Port Range             
 		           ----                 --------  ------   --------------- ------------- ---------------- -------------- --------
-		           block-internet       100       Deny     *               *             INTERNET         *              *       
+		           block-internet       200       Deny     *               *             INTERNET         *              *       
 		           ALLOW VNET OUTBOUND  65000     Allow    VIRTUAL_NETWORK *             VIRTUAL_NETWORK  *              *       
 		           ALLOW INTERNET       65001     Allow    *               *             INTERNET         *              *       
 		           OUTBOUND                                                                                                      
