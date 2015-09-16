@@ -1,4 +1,4 @@
-<properties
+﻿<properties
    pageTitle="Azure Active Directory developer's guide | Microsoft Azure"
    description="This article provides a comprehensive guide to developer-oriented resources for Azure Active Directory."
    services="active-directory"
@@ -10,7 +10,7 @@
 <tags
    ms.service="active-directory"
    ms.devlang="na"
-   ms.topic="hero-article"
+   ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
    ms.date="09/02/2015"
@@ -71,8 +71,8 @@ These articles describe how to perform specific tasks by using Azure Active Dire
 - [Understand the Azure Active Directory application manifest](active-directory-application-manifest.md)
 - [Create an app with Office 365 APIs](https://msdn.microsoft.com/office/office365/howto/getting-started-Office-365-APIs)
 - [Submit web apps for Office 365 to the Seller Dashboard](https://msdn.microsoft.com/office/office365/howto/submit-web-apps-seller-dashboard)
-- [Preview: Build apps that sign users in with both personal & work or school accounts](active-directory-appmodel-v2-overview.md)
-
+- [Preview: How to build apps that sign users in with both personal & work or school accounts](active-directory-appmodel-v2-overview.md)
+- [Preview: How to build apps that sign up & sign in consumers](active-directory-b2c-overview.md)
 
 ## Reference
 

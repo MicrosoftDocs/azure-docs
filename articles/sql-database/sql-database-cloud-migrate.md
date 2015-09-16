@@ -49,7 +49,7 @@ If your on-premises SQL Server database is not compatible or to determine if it 
 ## Migration tools
 Tools used include SQL Server Management Studio (SSMS) and the SQL Server tooling in Visual Studio (VS, SSDT), as well the Azure portal.
 
-> Be sure to install the latest versions of the client tools as earlier versions are not compatible with the Azure SQL Database V12.
+> [AZURE.IMPORTANT] Be sure to install the latest versions of the client tools as earlier versions are not compatible with the Azure SQL Database V12.
 
 ### SQL Server Management Studio (SSMS)
 SSMS can be used to deploy a compatible database directly to Azure SQL Database or to export a logical backup of the database as a BACPAC, which can then be imported, still using SSMS, to create a new Azure SQL Database.  
