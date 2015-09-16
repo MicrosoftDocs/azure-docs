@@ -28,16 +28,16 @@ This topic shows you how to synchronize data and handle conflicts when using the
 
 ## Download iOS Project
 
-For this tutorial, download [an updated Xcode project from Github](https://github.com/Azure/mobile-services-samples/tree/master/TodoOffline/iOS). We've  used the Xcode project from the end of [Get Started with Offline Data] tutorial as a starting point, and then updated it to allow the editing of items.
+For this tutorial, download [an updated Xcode project from Github](https://github.com/Azure/mobile-services-samples/tree/master/TodoOffline/iOS). We've  used the Xcode project from the end of [Get Started with Offline Data] tutorial as a starting point, and then updated it to allow the editing of items. We've also added supporting classes and methods so we can add a conflict handler in the next section.
 
 At the end of this tutorial, if you you run this app on two phones, change the same item on both phones locally, and push the changes back to the server, you'll allow the user on each phone to choose which version to keep:
   * keep the client version (which overrides the version on the server),
   * keep the server version (which updates the client local table), or
   * keep neither version (cancels push and leaves the operation pending).
 
-Let's add the conflict handler to enable this capability.
+Now, let's add the conflict handler to enable this capability.
 
-### <a name="add-conflict-handling"></a>Add Conflict Handler to Todo List View Controller
+## <a name="add-conflict-handling"></a>Add Conflict Handler to Todo List View Controller
 
 1. In **QSTodoListViewController.m**, edit **viewDidLoad**. Replace the call to **defaultService** with a call to **defaultServiceWithDelegate** instead:
 
@@ -96,7 +96,7 @@ Let's add the conflict handler to enable this capability.
             }];
         }
 
-### <a name="test-app"></a>Test the App
+## <a name="test-app"></a>Test the App
 
 Let's test the application with conflicts! Edit the same item in two different instances of the app running at the same time, or using the app and a REST client.
 
