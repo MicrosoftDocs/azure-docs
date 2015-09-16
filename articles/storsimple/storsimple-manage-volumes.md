@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/09/2015"
+   ms.date="09/15/2015"
    ms.author="v-sharos" />
 
 # Use the StorSimple Manager service to manage volumes
@@ -124,6 +124,10 @@ Modify a volume when you need to expand it or change the hosts that access the v
    3. In the list of disks, select the volume that you updated, right-click, and then select **Extend Volume**. The Extend Volume wizard starts. Click **Next**.
    4. Complete the wizard, accepting the default values. After the wizard is finished, the volume should show the increased size.
 
+![Video available](./media/storsimple-manage-volumes/Video_icon.png) **Video available**
+
+To watch a video that demonstrates how to expand a volume, click [here](http://azure.microsoft.com/documentation/videos/expand-a-storsimple-volume).
+
 ## Take a volume offline
 
 You may need to take a volume offline when you are planning to modify it or delete it. When a volume is offline, it is not available for read-write access. You will need to take the volume offline on the host as well as on the device. Perform the following steps to take a volume offline.
@@ -183,11 +187,10 @@ Perform the following steps to enable or disable monitoring for a volume.
 
     ![Modify a volume Basic Settings](./media/storsimple-manage-volumes/HCS_MonitorVolumeM.png)
 
+
 ## Next steps
 
-Watch a video that shows how to [expand a StorSimple volume](http://azure.microsoft.com/documentation/videos/expand-a-storsimple-volume).
-
-Learn how to [clone a StorSimple volume](storsimple-clone-volume.md).
-
+- Learn how to [clone a StorSimple volume](storsimple-clone-volume.md).
+- Learn how to [use the StorSimple Manager service to administer your StorSimple device](storsimple-manager-service-administration.md).
 
  
