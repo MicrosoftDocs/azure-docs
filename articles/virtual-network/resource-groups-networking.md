@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Network Resource Provider"
-   description="Network Resource Provider"
+   pageTitle="Network Resource Provider Overview | Microsoft Azure"
+   description="Learn about the new Network Resource Provider in Azure Resource Manager"
    services="virtual-network"
    documentationCenter="na"
    authors="telmosampaio"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/23/2015"
+   ms.date="09/14/2015"
    ms.author="telmos" />
 
 # Network Resource Provider
@@ -222,6 +222,8 @@ Network Interface Card, or NIC, represents a network interface that can be assoc
 Key properties of a NIC resource include:
 
 - IP settings
+- Internal DNS name
+- DNS servers
 
 A NIC can also be associated with the following network resources:
 
@@ -240,6 +242,7 @@ Key properties of a VNET resource include:
 - IP address space (CIDR block) 
 - VNET name
 - subnets
+- DNS servers
 
 A VNET can also be associated with the following network resources:
 

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Configure AlwaysOn Availability Groups in Azure (PowerShell)"
+	pageTitle="Configure AlwaysOn Availability Groups in Azure VM (PowerShell)"
 	description="Use PowerShell to create an AlwaysOn Availability Group in Azure."
 	services="virtual-machines"
 	documentationCenter="na"
@@ -15,7 +15,7 @@
 	ms.date="08/14/2015"
 	ms.author="jroth" />
 
-# Configure AlwaysOn Availability Groups in Azure (PowerShell)
+# Configure AlwaysOn Availability Groups in Azure VM (PowerShell)
 
 >[AZURE.NOTE] For the GUI-based tutorial of the same scenario, see [Configure AlwaysOn Availability Groups in Azure (GUI)](virtual-machines-sql-server-alwayson-availability-groups-gui.md).
 
@@ -528,7 +528,7 @@ Finally, you are ready to configure the availability group. You will use the SQL
 		$svc2.Start(); 
 		$svc2.WaitForStatus([System.ServiceProcess.ServiceControllerStatus]::Running,$timeout)
 
-1. Download **CreateAzureFailoverCluster.ps1** from [Create WSFC Cluster for AlwaysOn Availability Groups in Azure VM](http://gallery.technet.microsoft.com/scriptcenter/Create-WSFC-Cluster-for-7c207d3a) to the local working directory. You will use this script to help you create a functional WSFC cluster. For important information on how WSFC interacts with the Azure network, see [High Availability and Disaster Recovery for SQL Server in Azure Virtual Machines](https://msdn.microsoft.com/en-us/library/azure/jj870962.aspx).
+1. Download **CreateAzureFailoverCluster.ps1** from [Create WSFC Cluster for AlwaysOn Availability Groups in Azure VM](http://gallery.technet.microsoft.com/scriptcenter/Create-WSFC-Cluster-for-7c207d3a) to the local working directory. You will use this script to help you create a functional WSFC cluster. For important information on how WSFC interacts with the Azure network, see [High Availability and Disaster Recovery for SQL Server in Azure Virtual Machines](virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions.md).
 
 1. Change to your working directory and create the WSFC cluster with the downloaded script.
 

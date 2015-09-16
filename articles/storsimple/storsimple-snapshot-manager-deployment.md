@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Deploy StorSimple Snapshot Manager | Microsoft Azure"
-   description="Describes how to download and install the StorSimple Snapshot Manager."
+   description="Learn how to download and install the StorSimple Snapshot Manager, an MMC snap-in for managing StorSimple data protection and backup features."
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
@@ -12,10 +12,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/17/2015"
+   ms.date="09/15/2015"
    ms.author="v-sharos" />
 
-# Deploy StorSimple Snapshot Manager
+# Deploy the StorSimple Snapshot Manager MMC snap-in
 
 ## Overview
 
@@ -49,7 +49,7 @@ The following steps provide a high-level overview of configuration tasks that yo
     - Windows Server 2012
     - Windows Server 2012 R2
  
-    > [AZURE.NOTE] For a StorSimple virtual device, the host must be a Microsoft Azure Virtual Machine. 
+    >[AZURE.NOTE] For a StorSimple virtual device, the host must be a Microsoft Azure Virtual Machine. 
 
 3. Make sure that you meet all the Microsoft Azure StorSimple configuration requirements. For details, go to [Deployment prerequisites](storsimple-deployment-walkthrough.md#deployment-prerequisites).
 
@@ -95,7 +95,7 @@ Use the following steps to install StorSimple Snapshot Manager.
 
 3. In the **Extract Compressed (Zipped) Folders** window, in the **Select a destination and extract files** box, type or browse to the path where you would like to file to be extracted. 
 
-      >[AZURE.IMPORTANT] You must install StorSimple Snapshot Manager on the C: drive.
+       >[AZURE.IMPORTANT] You must install StorSimple Snapshot Manager on the C: drive.
  
 4. Select the **Show extracted files when complete** check box, and then click **Extract**.
 
@@ -251,6 +251,8 @@ To reinstall StorSimple Snapshot Manager, follow the steps in [Install a new Sto
 
 ## Next steps
 
-To learn more about StorSimple Snapshot Manager, go to [What is StorSimple Snapshot Manager?](storsimple-what-is-snapshot-manager.md)
+- To learn more about StorSimple Snapshot Manager, go to [What is StorSimple Snapshot Manager?](storsimple-what-is-snapshot-manager.md).
 
-To learn more about the StorSimple Snapshot Manager user interface, go to [StorSimple Snapshot Manager user interface](storsimple-use-snapshot-manager.md).
+- To learn more about the StorSimple Snapshot Manager user interface, go to [StorSimple Snapshot Manager user interface](storsimple-use-snapshot-manager.md).
+
+- To learn more about using StorSimple Snapshot Manager, go to [Use StorSimple Snapshot Manager to administer your StorSimple solution](storsimple-snapshot-manager-admin.md).

@@ -15,7 +15,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="command-line-interface"
    ms.workload="infrastructure"
-   ms.date="05/29/2015"
+   ms.date="08/25/2015"
    ms.author="rasquill"/>
 
 # Navigate and select Azure virtual machine images with Windows PowerShell and the Azure CLI
