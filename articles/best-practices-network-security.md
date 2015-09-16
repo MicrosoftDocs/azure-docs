@@ -36,7 +36,7 @@ Examples for adding VNet to VNet connections, high availability, and service cha
 Microsoft has taken a leadership position supporting compliance initiatives required by enterprise customers. The following are some of the compliance certifications for Azure:
 ![Azure Compliance Badges][1]
 
-More details can be found at: [http://azure.microsoft.com/en-us/support/trust-center/compliance/](http://azure.microsoft.com/en-us/support/trust-center/compliance/)
+More details can be found at: [http://azure.microsoft.com/support/trust-center/compliance/](http://azure.microsoft.com/support/trust-center/compliance/)
 
 Microsoft has a comprehensive approach to protect cloud infrastructure needed to run hyper-scale global services. Microsoft cloud infrastructure includes hardware, software, networks, administrative and operations staff, as well as the physical data centers.
 
@@ -479,13 +479,13 @@ can be found at the [detailed build instructions][Example6] page.
 ## References
 ### Helpful Websites and Documentation
 - Access Azure with ARM: 
-- Accessing Azure with PowerShell: [https://azure.microsoft.com/en-us/documentation/articles/powershell-install-configure/](https://azure.microsoft.com/en-us/documentation/articles/powershell-install-configure/)
-- Virtual Networking Documentation: [https://azure.microsoft.com/en-us/documentation/services/virtual-network/](https://azure.microsoft.com/en-us/documentation/services/virtual-network/)
-- Network Security Group Documentation: [https://azure.microsoft.com/en-us/documentation/articles/virtual-networks-nsg/](https://azure.microsoft.com/en-us/documentation/articles/virtual-networks-nsg/)
-- User Defined Routing Documentation: [https://azure.microsoft.com/en-us/documentation/articles/virtual-networks-udr-overview/](https://azure.microsoft.com/en-us/documentation/articles/virtual-networks-udr-overview/)
-- Azure Virtual Gateways: [https://azure.microsoft.com/en-us/documentation/services/vpn-gateway/](https://azure.microsoft.com/en-us/documentation/services/vpn-gateway/)
-- Site-to-Site VPNs: [https://azure.microsoft.com/en-us/documentation/articles/vpn-gateway-site-to-site-create/](https://azure.microsoft.com/en-us/documentation/articles/vpn-gateway-site-to-site-create/)
-- ExpressRoute Documentation (be sure to check out the “Getting Started” and “How To” sections): [https://azure.microsoft.com/en-us/documentation/services/expressroute/](https://azure.microsoft.com/en-us/documentation/services/expressroute/)
+- Accessing Azure with PowerShell: [https://azure.microsoft.com/documentation/articles/powershell-install-configure/](./powershell-install-configure.md)
+- Virtual Networking Documentation: [https://azure.microsoft.com/documentation/services/virtual-network/](https://azure.microsoft.com/documentation/services/virtual-network/)
+- Network Security Group Documentation: [https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/](./virtual-network/virtual-networks-nsg.md)
+- User Defined Routing Documentation: [https://azure.microsoft.com/documentation/articles/virtual-networks-udr-overview/](./virtual-network/virtual-networks-udr-overview.md)
+- Azure Virtual Gateways: [https://azure.microsoft.com/documentation/services/vpn-gateway/](https://azure.microsoft.com/documentation/services/vpn-gateway/)
+- Site-to-Site VPNs: [https://azure.microsoft.com/documentation/articles/vpn-gateway-site-to-site-create/](./virtual-network/vpn-gateway-site-to-site-create.md)
+- ExpressRoute Documentation (be sure to check out the “Getting Started” and “How To” sections): [https://azure.microsoft.com/documentation/services/expressroute/](https://azure.microsoft.com/documentation/services/expressroute/)
 
 <!--Image References-->
 [0]: ./media/best-practices-network-security/Flowchart.png "Security Options Flowchart"
