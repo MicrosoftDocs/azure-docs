@@ -3,7 +3,7 @@
 	description="Learn how to capture an image of an Azure virtual machine (VM) running Windows Server."
 	services="virtual-machines"
 	documentationCenter=""
-	authors="KBDAzure"
+	authors="cynthn"
 	manager="timlt"
 	editor="tysonn"
 	tags="azure-service-management"/>
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/16/2015"
+	ms.date="cynthn"
 	ms.author="kathydav"/>
 
 #How to capture a Windows virtual machine to use as an image#
