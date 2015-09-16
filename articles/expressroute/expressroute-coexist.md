@@ -207,7 +207,7 @@ If you have an existing virtual network connected via either ExpressRoute or Sit
 		            </LocalNetworkSiteRef>
 		          </ConnectionsToLocalNetwork>
 		        </Gateway>
-5. At this point, you'll have a VNet with no gateways. You can proceed with **Step 3** in the article, [Create a new virtual network and connections](#create-a-new-virtual-network-and-connections-that-coexist), in order to create new gateways and complete your connections.
+5. At this point, you'll have a VNet with no gateways. You can proceed with **Step 3** in the article, [Create a new VNet with coexisting connections](#create-a-new-vnet-with-coexisting-connections), in order to create new gateways and complete your connections.
 
 
 
