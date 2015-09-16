@@ -1,24 +1,26 @@
 <properties
 	pageTitle="How to Create a Web App in an App Service Environment"
 	description="Creation flow for web apps and app service plans examined for an app service environment"
-	services="app-service\web"
+	services="app-service\web,app-service\api,app-service\mobile"
 	documentationCenter=""
 	authors="ccompy"
 	manager="stefsch"
-	editor=""/>
+	editor="jimbe"/>
 
 <tags
-	ms.service="app-service-web"
+	ms.service="app-service"
 	ms.workload="web"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="04/27/2015"
+	ms.date="09/15/2015"
 	ms.author="ccompy"/>
 
 # How to Create a Web App in an App Service Environment #
 
 Creating web apps is nearly the same in an App Service Environments (ASE) as it is normally.  If you are unfamiliar with the App Service Environment capability then read the document here [What is an App Service Environment](app-service-app-service-environment-intro.md).
+
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)] 
 
 To create an web app in an ASE you need to first start by having an ASE.   For details around creating an ASE read the document here: [How to Create an App Service Environment](app-service-web-how-to-create-an-app-service-environment.md).
 

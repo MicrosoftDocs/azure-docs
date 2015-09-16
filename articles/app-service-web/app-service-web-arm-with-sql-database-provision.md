@@ -1,19 +1,19 @@
 <properties 
 	pageTitle="Provision a web app that uses a SQL Database" 
 	description="Use an Azure Resource Manager template to deploy a web app that includes a SQL Database." 
-	services="app-service\web" 
+	services="app-service\web,app-service\api,app-service\mobile" 
 	documentationCenter="" 
 	authors="tfitzmac" 
 	manager="wpickett" 
-	editor=""/>
+	editor="jimbe"/>
 
 <tags 
-	ms.service="app-service-web" 
+	ms.service="app-service" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/11/2015" 
+	ms.date="09/15/2015" 
 	ms.author="tomfitz"/>
 
 # Provision a web app with a SQL Database
@@ -26,6 +26,8 @@ For more information about creating templates, see [Authoring Azure Resource Man
 For more information about deploying apps, see [Deploy a complex application predictably in Azure](app-service-deploy-complex-application-predictably.md).
 
 For the complete template, see [Web App With SQL Database template](https://github.com/Azure/azure-quickstart-templates/blob/master/201-web-app-sql-database/azuredeploy.json).
+
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)] 
 
 ## What you will deploy
 
