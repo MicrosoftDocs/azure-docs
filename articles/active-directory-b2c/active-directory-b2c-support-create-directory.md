@@ -16,7 +16,7 @@
 	ms.date="09/15/2015"
 	ms.author="swkrish"/>
 
-# Creating an Azure Active Directory (Azure AD) or an Azure Active Directory B2C (Azure AD B2C) Directory - Issues & Resolutions
+# Creating an Azure AD directory or an Azure AD B2C directory - Issues & Resolutions
 
 ### Creating an Azure AD Directory
 

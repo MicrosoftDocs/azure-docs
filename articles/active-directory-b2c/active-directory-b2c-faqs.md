@@ -42,10 +42,10 @@ We currently support Facebook, Google+, LinkedIn and Amazon. We will add support
 
 No, but this feature is on our roadmap. The default set of scopes for our supported social identity providers are as follows:
 
-- Facebook:
-- Google+:
-- Amazon:
-- LinkedIn: 
+- Facebook: email
+- Google+: email
+- Amazon: profile
+- LinkedIn: r_emailaddress r_basicprofile
 
 ### Does my Application have to be hosted on Azure for it work with Azure AD B2C?
 

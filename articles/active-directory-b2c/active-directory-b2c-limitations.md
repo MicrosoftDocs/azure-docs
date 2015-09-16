@@ -67,3 +67,8 @@ B2C features are accessible on the Azure preview portal. However, you can use th
     ![Local account - UPN](./media/active-directory-b2c-limitations/limitations-user-mgmt.png)
 
 - For a local account user, you will not able to edit any of the fields and save changes on the **Profile** tab. We will fix this soon.
+
+## Restriction on Deletion of Azure AD B2C Directories
+
+You won't be able to delete an Azure AD B2C directory in the Azure portal.
+

@@ -16,11 +16,11 @@
 	ms.date="09/15/2015"
 	ms.author="swkrish"/>
 
-# Azure Active Directory (AD) B2C preview: Provide Sign up and Sign in to Consumers with Facebook Accounts
+# Azure Active Directory B2C preview: Provide Sign up and Sign in to Consumers with Facebook Accounts
 
 ## Create a Facebook Application
 
-To use Facebook as an identity provider in Azure AD B2C, you will first need to create a Facebook application and supply it with the right parameters. You will need a Facebook account to do this; if you don’t have one, you can get it at [https://www.facebook.com/](https://www.facebook.com/).
+To use Facebook as an identity provider in Azure Active Directory (AD) B2C, you will first need to create a Facebook application and supply it with the right parameters. You will need a Facebook account to do this; if you don’t have one, you can get it at [https://www.facebook.com/](https://www.facebook.com/).
 
 1. Go to the [Facebook Developers website](https://developers.facebook.com/) and sign in with your Facebook account credentials.
 2. If you have not already done so, click **Apps** then click **Register as a Developer**, accept the policy and follow the registration steps.
@@ -53,7 +53,7 @@ To use Facebook as an identity provider in Azure AD B2C, you will first need to 
 
 9. Click the **Advanced** tab at the top, and then enter [https://login.microsoftonline.com/te/{directory}/oauth2/authresp](https://login.microsoftonline.com/te/{directory}/oauth2/authresp) in the **Valid OAuth redirect URIs** field (in the **Security** section), where **{directory}** is to be replaced with your directory's name (for example, contosob2c.onmicrosoft.com). Click **Save Changes** at the bottom of the page.
 
-    ![FB - OAuth Redirect URI](./media/active-directory-b2c-setup-fb-app/fb-oauth-redirect-uri.png)
+    ![FB - OAuth Redirect URI](./media/active-directory-b2c-setup-fb-app/fb-oauth-redirect-URI.png)
 
 10. To make your Facebook application usable by Azure AD B2C, you need to make it publicly available. You can do this by clicking on **Status & Review** on the left navigation and turning the switch at the top of the page to **YES**. And click **Confirm**.
 
