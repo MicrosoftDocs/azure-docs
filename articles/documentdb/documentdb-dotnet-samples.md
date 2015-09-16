@@ -21,7 +21,7 @@
 
 Samples for common operations on DocumentDB resources are included in the [azure-documentdb-net](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples) GitHub repository.
 
-## Prerequisite
+## Prerequisites
 
 1. [An Azure DocumentDB account](https://azure.microsoft.com/en-us/documentation/articles/documentdb-create-account/)
 2. [Microsoft.Azure.DocumentDB NuGet package](http://www.nuget.org/packages/Microsoft.Azure.DocumentDB/) 
