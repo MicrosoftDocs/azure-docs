@@ -38,16 +38,16 @@ In an Azure AD B2C directory, most apps want the user to sign in with any arbitr
 
 We currently support Facebook, Google+, LinkedIn and Amazon. We will add support for Microsoft Account and other popular social identity providers based on customer demand.
 
-### Can I configure 'Scopes' to gather more information about consumers from various Social Identity Providers?
+### Can I configure 'Scopes' to gather more Information about Consumers from various Social Identity Providers?
 
-No, but this feature is on our roadmap. The default set of scopes for our supported social identity providers are as follows:
+No, but this feature is on our roadmap. The default scopes used for our supported set of social identity providers are:
 
-- Facebook:
-- Google+:
-- Amazon:
-- LinkedIn: 
+- Facebook: email
+- Google+: email
+- Amazon: profile
+- LinkedIn: r_emailaddress r_basicprofile
 
-### Does my Application have to be hosted on Azure for it work with Azure AD B2C?
+### Does my Application have to be run on Azure for it work with Azure AD B2C?
 
 No, you can host your application anywhere (in the cloud or on-premises). All it needs in order to interact with Azure AD B2C is the ability to send and recieve HTTP requests on publicly-accessible endpoints.
 
@@ -59,11 +59,11 @@ Each Azure AD B2C directory has its own B2C features blade on the Azure preview 
 
 Read [this article on UI customization](active-directory-b2c-reference-ui-customization.md) for more details.
 
-### How can I migrate my existing Usernames, Passwords & Profiles from my Database to Azure AD B2C?
+### How can I Migrate my existing Usernames, Passwords & Profiles from my Database to Azure AD B2C?
 
 You can use Azure AD Graph API (see our sample [here](active-directory-b2c-devquickstarts-graph-dotnet.md)) to write your migration tool. We will provide various migration options and tools out-of-the-box in the future.
 
-### Can I use Azure AD Connect to migrate Consumer Identities stored on my On-premises Active Directory to Azure AD B2C?
+### Can I use Azure AD Connect to Migrate Consumer Identities stored on my On-premises Active Directory to Azure AD B2C?
 
 No, Azure AD Connect is not designed to work with Azure AD B2C. We will provide various migration options and tools out-of-the-box in the future.
 
