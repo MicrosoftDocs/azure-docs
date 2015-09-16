@@ -20,13 +20,13 @@
 
 ## Introduction
  
-This tutorial covers how to make use of client-side storage encryption - currently in preview - with Azure Key Vault - also currently in preview. It walks you through how to encrypt and decrypt a blob in a console application using these technologies. 
+This tutorial covers how to make use of client-side storage encryption with Azure Key Vault. It walks you through how to encrypt and decrypt a blob in a console application using these technologies. 
 
 **Estimated time to complete:** 20 minutes
 
 For overview information about Azure Key Vault, see [What is Azure Key Vault?](key-vault/key-vault-whatis.md)
 
-For overview information about client-side encryption for Azure Storage, see [Client-Side Encryption for Microsoft Azure Storage – Preview](http://blogs.msdn.com/b/windowsazurestorage/archive/2015/04/28/client-side-encryption-for-microsoft-azure-storage-preview.aspx)
+For overview information about client-side encryption for Azure Storage, see [Get Started with Client-Side Encryption for Microsoft Azure Storage](storage-client-side-encryption.md)
 
 
 ## Prerequisites
@@ -38,7 +38,7 @@ To complete this tutorial, you must have the following:
 - Azure PowerShell 
 
 
-## Overview of the Client-Side Encryption process
+## Overview of Client-Side Encryption
 
 For an overview of Client-Side Encryption for Microsoft Azure Storage, see [http://blogs.msdn.com/b/windowsazurestorage/archive/2015/04/29/getting-started-with-client-side-encryption-for-microsoft-azure-storage.aspx](http://blogs.msdn.com/b/windowsazurestorage/archive/2015/04/29/getting-started-with-client-side-encryption-for-microsoft-azure-storage.aspx "Getting Started with Client-Side Encryption for Microsoft Azure Storage")
 
