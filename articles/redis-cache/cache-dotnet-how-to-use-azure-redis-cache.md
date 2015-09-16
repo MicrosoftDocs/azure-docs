@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="How to Use Azure Redis Cache" 
 	description="Learn how to improve the performance of your Azure applications with Azure Redis Cache" 
-	services="redis-cache" 
+	services="redis-cache,app-service" 
 	documentationCenter="" 
 	authors="steved0x" 
 	manager="dwrede" 
