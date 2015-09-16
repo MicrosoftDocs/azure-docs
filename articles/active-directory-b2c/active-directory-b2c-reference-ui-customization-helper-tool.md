@@ -30,6 +30,8 @@ Before you get started:
 - Build one of the Azure AD B2C Quick Start Applications listed [here](active-directory-b2c-overview.md). As part of doing this, you will create a sign-up policy that you will modify here.
 - Download the helper tool from [here](https://github.com/AzureADSamples/B2C-AzureBlobStorage-Client).
 
+[AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
+
 ### Step 1: Upload our sample content in the right locations
 
 1. Sign in to the [Azure preview portal](https://portal.azure.com/).

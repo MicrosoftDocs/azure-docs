@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Connect your Azure Mobile App to an on-premises SQL Server using Hybrid Connections | Microsoft Azure"
 	description="Learn how to connect to an on-premises SQL Server from a App Service Mobile App using Hybrid Connections"
-	services="app-service\mobile,app-service\web,app-service\api"
+	services="app-service\mobile"
 	documentationCenter=""
 	authors="ggailey777"
 	manager="dwrede"

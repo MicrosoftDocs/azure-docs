@@ -21,9 +21,7 @@
 With Azure AD B2C, you can add powerful self-service identity managment features to your Android apps and web apis in a few short steps.  This article will show you how to create an Android "To-Do List" app that calls a node.js web API using OAuth 2.0 bearer tokens. Both the Android app and web api use Azure AD B2C to manage user identities
 and authenticate users.
 
-> [AZURE.NOTE]
-	This information applies to the Azure AD B2C preview.  For information on how to integrate with the generally available Azure AD service, 
-	please refer to the [Azure Active Directory Developer Guide](active-directory-developers-guide.md).
+[AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
 	
 > [AZURE.NOTE]
 	This quickstart has a pre-requisite that you have a Web API protected by Azure AD with B2C in order to work fully. We have built one for both .Net and node.js for you to use. This walk-through assumes the node.js Web-API sample is configured. 
@@ -431,8 +429,8 @@ private void getTasks() {
         }
         return endpoint;
     }
-    
-```
+
+    ```
 
 
 Note that we add the access token to the request in the following code:
@@ -455,7 +453,9 @@ Let's write those now:
     }
     
 ```
+
 And now manage our dialog callbacks:
+
 
 ```
 /**
@@ -482,7 +482,7 @@ And now manage our dialog callbacks:
         builder.create().show();
     }
     
-    ```
+ ```
     
 
 

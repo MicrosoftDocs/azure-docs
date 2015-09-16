@@ -20,6 +20,8 @@
 
 There are several features & functionalities of Azure Active Directory (AD) B2C that are not yet supported during the preview. Many of these limitations will be removed before Azure AD B2C reaches general availability, but you should be aware of them if you are building consumer-facing applications using Azure AD B2C during preview.
 
+[AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
+
 ## Issues during Creation of Azure AD B2C Directories
 
 There are known issues that you may encounter during the [creation of an Azure AD B2C directory](active-directory-b2c-get-started). Check out this [article](active-directory-b2c-support-create-directory.md) for guidance.

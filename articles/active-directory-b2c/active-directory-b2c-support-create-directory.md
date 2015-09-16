@@ -18,6 +18,8 @@
 
 # Creating an Azure AD directory or an Azure AD B2C directory - Issues & Resolutions
 
+[AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
+
 ## Creating an Azure AD Directory
 
 If you can't create an Azure AD directory the first time, please try again. If the problem persists, contact Support.

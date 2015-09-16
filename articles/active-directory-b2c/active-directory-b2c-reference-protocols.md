@@ -22,9 +22,7 @@ Azure AD B2C provides identity-as-a-service for your apps by supporting two indu
 
 <!-- TODO: Need link to libraries above -->
 
-> [AZURE.NOTE]
-	This information applies to the Azure AD B2C preview.  For information on how to integrate with the generally available Azure AD service, 
-	please refer to the [Azure Active Directory Developer Guide](active-directory-developers-guide.md).
+[AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
 	
 ## The Basics
 Every app that uses Azure AD B2C will need to be registered your B2C directory in the [Azure Portal](https://portal.azure.com).  The app registration process will collect & assign a few values to your app:
