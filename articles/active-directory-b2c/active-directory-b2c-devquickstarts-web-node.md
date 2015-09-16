@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter="nodejs"
 	authors="brandwe"
-	manager="mbaldwin"
+	manager="msmbaldwin"
 	editor=""/>
 
 <tags
