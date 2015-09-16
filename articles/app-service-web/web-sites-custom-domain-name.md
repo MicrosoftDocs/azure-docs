@@ -32,8 +32,6 @@ For a production web app, you probably want users to see a custom domain name. T
 
 [AZURE.INCLUDE [introfooter](../../includes/custom-dns-web-site-intro-notes.md)]
 
-[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)] 
-
 ## Overview
 
 If you have a domain name already, or you want reserve domain from other domain registrars, here are the general steps to bring a custom domain name for web app:
