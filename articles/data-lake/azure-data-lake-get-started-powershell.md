@@ -83,7 +83,7 @@ You can create directories under your Azure Data Lake account to manage and stor
 
 1. Specify a root directory.
 
-		$myrootdir = "swebhdfs://<Data Lake account name>.azuredatalake.net"
+		$myrootdir = "swebhdfs://$dataLakeAccountName.azuredatalake.net"
 
 2. Create a new directory called **mynewdirectory** under the specified root.
 
@@ -104,7 +104,7 @@ You can upload your data to an Azure Data Lake account directly at the root leve
 
 If you are looking for some sample data to upload, you can get the **OlympicAthletes.tsv** file from the [AzureDataLake Git Repository](https://github.com/MicrosoftBigData/AzureDataLake/raw/master/Samples/SampleData/OlympicAthletes.tsv). Download the file and store it in a local directory on your computer, such as  C:\sampledata\.
 
-	Import-AzureDataLakeItem -AccountName <Data Lake account> -Path "C:\sampledata\OlympicAthletes.tsv" -Destination $myrootdir\mynewdirectory\OlympicAthletes.tsv
+	Import-AzureDataLakeItem -AccountName $dataLakeAccountName -Path "C:\sampledata\OlympicAthletes.tsv" -Destination $myrootdir\mynewdirectory\OlympicAthletes.tsv
 
 You can upload more than one file from the source folder to the destination folder by giving the path to the folder name and omitting the file name. For example, the following command will upload all files in C:\sampledata\ to **mynewdirectory** in your Azure Data Lake account.
 

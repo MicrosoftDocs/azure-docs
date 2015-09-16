@@ -22,7 +22,7 @@ A Data Lake is an enterprise-wide repository of every type of data collected in 
 
 ## What is Azure Data Lake?
 
-Azure Data Lake is Microsoft’s Data Lake offering hosted in Azure, described as a hyper scale repository for big data analytic workloads. Organizations can use Azure Data Lake to store, secure, and scale their data for massive parallel big data analytics in the cloud. Some of the key capabilities of the Azure Data Lake include the following. 
+Azure Data Lake is Microsoft’s Data Lake offering hosted in Azure, described as a hyper scale repository for big data analytic workloads. Azure Data Lake can be accessed using the WebHDFS Open Standards. Organizations can use Azure Data Lake to store, secure, and scale their data for massive parallel big data analytics in the cloud. Some of the key capabilities of the Azure Data Lake include the following. 
 
 [ TBD: include an illustration here ]
 
@@ -59,6 +59,10 @@ Azure Storage is a generic storage repository that allows you to store data for 
 | Data access protocol				     | --              | --            |
 | Authentication						 | --			   | --			   | 
 
+
+## Securing data in Azure Data Lake
+
+Access to Azure Data Lake is authenticated through Azure Active Directory (AAD).
 
 ## Applications compatible with Azure Data Lake
 
