@@ -3,7 +3,7 @@
 	description="Learn how to attach a data disk to an Azure virtual machine and initialize it so it's ready for use."
 	services="virtual-machines, storage"
 	documentationCenter=""
-	authors="KBDAzure"
+	authors="cynthn"
 	manager="timlt"
 	editor="tysonn"
 	tags="azure-service-management"/>
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/16/2015"
-	ms.author="kathydav"/>
+	ms.author="cynthn"/>
 
 # How to attach a data disk to a Windows virtual machine
 
@@ -27,7 +27,7 @@ You can attach empty disks and disks with data. In both cases, the disks are act
 
 Here's a walkthrough of the steps in this tutorial.
 
-[AZURE.VIDEO attaching-a-data-disk-to-a-windows-vm] 
+[AZURE.VIDEO attaching-a-data-disk-to-a-windows-vm]
 
 [AZURE.INCLUDE [howto-attach-disk-windows-linux](../../includes/howto-attach-disk-windows-linux.md)]
 
