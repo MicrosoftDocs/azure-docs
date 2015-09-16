@@ -16,9 +16,9 @@
 	ms.date="09/15/2015"
 	ms.author="swkrish"/>
 
-# Azure Active Directory (AD) B2C preview: How to File Support Requests for Azure AD B2C
+# Azure Active Directory B2C preview: How to File Support Requests for Azure Active Directory B2C
 
-You can file support requests for Azure AD B2C on the Azure preview portal using the following steps:
+You can file support requests for Azure Active Directory (AD) B2C on the Azure preview portal using the following steps:
 
 1. [Navigate to the B2C features blade on the Azure preview portal](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
 2. Switch from your B2C directory to another directory that has an Azure subscription associated with it. Typically, the latter is your employee directory or the default directory created for you when you had signed up for an Azure subscription. Read [this article](active-directory-how-subscriptions-associated-directory.md#how-an-azure-subscription-is-related-to-azure-ad) to learn more about the relationship between Azure subscriptions and Azure AD directories.
@@ -41,7 +41,7 @@ You can file support requests for Azure AD B2C on the Azure preview portal using
 
 5. After submitting your support request, you can monitor it by clicking on **Help + support** on the Startboard and then **Manage support requests**.
 
-### Known Issue: Filing a Support Request in the Context of a B2C Directory
+## Known Issue: Filing a Support Request in the Context of a B2C Directory
 
 If you missed step 2 outlined above and try to create a support request in the context of your B2C directory, you will see the following error.
 
