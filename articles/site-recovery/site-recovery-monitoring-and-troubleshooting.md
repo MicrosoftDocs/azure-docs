@@ -102,12 +102,12 @@ In case virtual machine migrates a new Hyper-V host (within the cluster or a sta
 
 ### Event Log
 
-| Scenarios               	| Event Sources                                                                                                                                                                                        	|
+| Event  Sources               	| Details                                                                                                                                                                                        	|
 |-------------------------	|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	|
-| VMM Site Protection  	|  VMM Server <ul><li> **Applications and Service Logs/Microsoft/VirtualMachineManager/Server/Admin** </li></ul> |
-| **Applications and Service Logs/MicrosoftAzureRecoveryServices/Replication** (Hyper-V Host)	| ![Event source for Hyper-V host](media/site-recovery-monitoring-and-troubleshooting/eventviewer03.png) |
-| **Applications and Service Logs/Microsoft/Azure Site Recovery/Provider/Operational** (Hyper-V Host)	| ![Event source for Hyper-V host](media/site-recovery-monitoring-and-troubleshooting/eventviewer02.png) |
-| **Applications and Service Logs/Microsoft/Windows/Hyper-V-VMMS/Admin** (Hyper-V Host)	| ![Event source for Hyper-V host](media/site-recovery-monitoring-and-troubleshooting/eventviewer01.png) |
+| **Applications and Service Logs/Microsoft/VirtualMachineManager/Server/Admin** (VMM Server)	|  This provides useful logging for troubleshooting many different VMM issues. |
+| **Applications and Service Logs/MicrosoftAzureRecoveryServices/Replication** (Hyper-V Host)	| This provides useful logging for troubleshooting many Microsoft Azure Recovery Services Agent issues. ![Event source for Hyper-V host](media/site-recovery-monitoring-and-troubleshooting/eventviewer03.png) |
+| **Applications and Service Logs/Microsoft/Azure Site Recovery/Provider/Operational** (Hyper-V Host)	| This provides useful logging for troubleshooting many Microsoft Azure Site Recovery Service issues. ![Event source for Hyper-V host](media/site-recovery-monitoring-and-troubleshooting/eventviewer02.png) |
+| **Applications and Service Logs/Microsoft/Windows/Hyper-V-VMMS/Admin** (Hyper-V Host)	| This provides useful logging for troubleshooting many Hyper-V virtual machine management issues. ![Event source for Hyper-V host](media/site-recovery-monitoring-and-troubleshooting/eventviewer01.png) |
 
 
 ### Hyper-V Replication Logging Options
