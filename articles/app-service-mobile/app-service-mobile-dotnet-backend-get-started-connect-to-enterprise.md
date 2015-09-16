@@ -5,7 +5,7 @@
 	authors="mattchenderson"
 	manager="dwrede"
 	editor="na"
-	services="app-service\mobile,app-service\web,app-service\api"/>
+	services="app-service\mobile"/>
 
 <tags
 	ms.service="app-service-mobile"
