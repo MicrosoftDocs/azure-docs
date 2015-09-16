@@ -134,6 +134,22 @@ As is the case for Tomcat, customers can upload their own instances for Jetty. I
 
 The Jetty configuration needs to be changed in the start.ini to set `java.net.preferIPv4Stack=true`.
 
+### Springboot
+In order to get a Springboot application running you need to upload your JAR or WAR file and add the following web.config file. The web.config file goes into the wwwroot folder. In the web.config adjust the arguments to point to your JAR file, in the following example the JAR file is located in the wwwroot folder as well.  
+
+	<?xml version="1.0" encoding="UTF-8"?>
+	<configuration>
+	  <system.webServer>
+	    <handlers>
+	      <add name="httpPlatformHandler" path="*" verb="*" modules="httpPlatformHandler" resourceType="Unspecified" />
+	    </handlers>
+	    <httpPlatform processPath="%JAVA_HOME%\bin\java.exe"
+	        arguments="-Djava.net.preferIPv4Stack=true -Dserver.port=%HTTP_PLATFORM_PORT% -jar &quot;%HOME%\site\wwwroot\my-web-project.jar&quot;">
+	    </httpPlatform>
+	  </system.webServer>
+	</configuration>
+
+
 ### Hudson
 
 Our test used the Hudson 3.1.2 war and the default Tomcat 7.0.50 instance but without using the UI to set things up.  Because Hudson is a software build tool, it is advised to install it on dedicated instances where the **AlwaysOn** flag can be set on the web app.
