@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Tutorial: Azure Active Directory integration with Questetra BPM Suite"
+	pageTitle="Tutorial: Azure Active Directory integration with Questetra BPM Suite | Microsoft Aure"
 	description="Learn how to configure single sign-on between Azure Active Directory and Questetra BPM Suite."
 	services="active-directory"
 	documentationCenter=""
@@ -110,35 +110,38 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
 
 6. In the Azure portal, on the **Configure App Settings** dialog page, perform the following steps: <br><br>![Configure App Settings][13]
  
-     6.1. On you **Questetra BPM Suite** company site, copy the **Entity ID**, and then paste it into the **Issuer URL** textbox and the **Reply URL** textbox.
+    a. On you **Questetra BPM Suite** company site, in the SP Information section, copy the **ACS URL**, and then paste it into the **Sign On URL** textbox.
 
-     6.2. On you **Questetra BPM Suite** company site, copy the **ACS URL**, and then paste it into the **Sign On URL** textbox.
+    b. On you **Questetra BPM Suite** company site, in the SP Information section, copy the **Entity ID**, and then paste it into the **Issuer URL** textbox and the **Reply URL** textbox.
 
-     6.3. Click **Next**.
+    c. On you **Questetra BPM Suite** company site, in the SP Information section, copy the **Entity ID**, and then paste it into the **Reply URL** textbox and the **Reply URL** textbox.
+
+    d. Click **Next**.
+
  
 7. On the **Configure single sign-on at Questetra BPM Suite** page, click **Download certificate**, and then save the certificate file locally on your computer.<br><br>![Configure Single Sign-On][14]
 
 
 8. On you **Questetra BPM Suite** company site, perform the following steps: <br><br>![Configure Single Sign-On][15]
 
-     8.1. Select **Enable Single Sign-On**.
+     a. Select **Enable Single Sign-On**.
      
-     8.1. On the Azure portal, copy the **Issuer URL** value, and then paste it into the **Entity ID** textbox.
+     b. On the Azure portal, copy the **Issuer URL** value, and then paste it into the **Entity ID** textbox.
 
-     8.2. On the Azure portal, copy the **Single Sign-On Service URL** value, and then paste it into the **Sign-in page URL** textbox.
+     c. On the Azure portal, copy the **Single Sign-On Service URL** value, and then paste it into the **Sign-in page URL** textbox.
 
-     8.3. On the Azure portal, copy the **Single Sign-Out Service URL** value, and then paste it into the **Sign-out page URL** textbox.
+     d. On the Azure portal, copy the **Single Sign-Out Service URL** value, and then paste it into the **Sign-out page URL** textbox.
 
-     8.4. In the **NameID format** textbox, type **urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress**.
+     e. In the **NameID format** textbox, type **urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress**.
 
 
-     8.5. Create a base-64 encoded file from your downloaded certificate. 
+     f. Create a base-64 encoded file from your downloaded certificate. 
 
     >[AZURE.TIP] For more details, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o).
 
-     8.6. Open your base-64 encoded certificate in notepad, copy the content of it into your clipboard, and then paste it into the **Validation certificate** textbox. 
+     g. Open your base-64 encoded certificate in notepad, copy the content of it into your clipboard, and then paste it into the **Validation certificate** textbox. 
 
-     8.7. Click **Save**.
+     h. Click **Save**.
 
 
 9. On the Azure AD portal, select the single sign-on configuration confirmation, and then click **Next**. <br><br>![What is Azure AD Connect][17]
@@ -168,19 +171,23 @@ The objective of this section is to create a test user in the Azure portal calle
 5. On the **Tell us about this user** dialog page, perform the following steps:
 <br><br>![Create Azure AD test user][103]
  
-     5.1. As **Type Of User**, select **New user in your organization**.
+     a. As **Type Of User**, select **New user in your organization**.
   
-     5.2. In the User Name **textbox**, type **BrittaSimon**.
+     b. In the User Name **textbox**, type **BrittaSimon**.
 
-     5.3. Click Next.
+     c. Click Next.
 6.  On the **User Profile** dialog page, perform the following steps: 
 <br><br>![Create Azure AD test user][104] 
   
-     6.1 In the **First Name** textbox, type **Britta**.  
-     6.2. In the **Last Name** txtbox, type, **Simon**.
-     6.3. In the **Display Name** textbox, type **Britta Simon**.
-     6.4. In the **Role** list, select **User**.
-     6.5. Click **Next**.
+     a. In the **First Name** textbox, type **Britta**. 
+ 
+     b. In the **Last Name** textbox, type, **Simon**.
+
+     c. In the **Display Name** textbox, type **Britta Simon**.
+
+     d. In the **Role** list, select **User**.
+
+     e. Click **Next**.
 
 7. On the **Get temporary password** dialog page, click **create**.
 <br><br>![Create Azure AD test user][105]  
@@ -201,11 +208,11 @@ The objective of this section is to create a user called Britta Simon in Questet
 2.	Go to **System Settings > User List > New User**. 
 3.	On the New User dialog, perform the following steps: <br><br>![Create test user][300] 
 
-     3.1. In the **Name** textbox, type Britta's user name in Azure AD.
+    a. In the **Name** textbox, type Britta's user name in Azure AD.
 
-     3.2. In the **Email** textbox, type Britta's user name in Azure AD.
+    b. In the **Email** textbox, type Britta's user name in Azure AD.
 
-     3.3. In the **Password** textbox, type a password.
+    c. In the **Password** textbox, type a password.
 
 4.	Click **Add new user**.
 
