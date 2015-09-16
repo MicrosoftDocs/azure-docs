@@ -24,6 +24,14 @@ There are several features & functionalities of Azure Active Directory (AD) B2C 
 
 There are known issues that you may encounter during the [creation of an Azure AD B2C directory](active-directory-b2c-get-started). Check out this [article](active-directory-b2c-support-create-directory.md) for guidance.
 
+## Branding issue on the Local Account Sign In Page
+
+The default template on the Local Account Sign In page will contain "Microsoft Azure" branding elements. We are actively working to resolve this issue. You can change the branding on this page using the [company branding feature](./active-directory/active-directory-add-company-branding.md).
+
+## Issues with Local Account Sign Out
+
+Currently local account sign out doesn't work. We are actively working to resolve this issue. The workaround is to close the browser or clear cookies.
+
 ## Support for Production Applications
 
 Applications that integrate with Azure AD B2C should not be released to the public as production level applications. Azure AD B2C is in preview at this time - breaking changes may be introduced at any point in time, and there is no SLA guaranteed by the service. Support will not be provided for any incidents that may occur. If you are willing to accept the risks of taking a dependency on a service that is still in development, you must tweet us @AzureAD to discuss the scope of your application or service.
@@ -56,7 +64,7 @@ Azure AD B2C preview supports OpenID Connect and OAuth 2.0. However, not all fea
 
 ## Restriction on Tokens
 
-Many of the tokens issued by Azure AD B2C preview are implemented as JSON Web Tokens, or JWTs. However, not all information contained in JWTs (known as "claims") are done as yet. Some examples include the "sub" and the  "preferred_username" claims. To better understand the tokens emitted by the Azure AD B2C service, read through our [token reference](active-directory-b2c-tokens.md).
+Many of the tokens issued by Azure AD B2C preview are implemented as JSON Web Tokens, or JWTs. However, not all information contained in JWTs (known as "claims") is quite as it should be or is missing. Some examples include the "sub" and the "preferred_username" claims. You should expect things here to change quite a bit during the preview. To better understand the tokens emitted currently by the Azure AD B2C service, read through our [token reference](active-directory-b2c-tokens.md).
 
 ## Issues with User Management on the Azure Portal
 
@@ -67,3 +75,7 @@ B2C features are accessible on the Azure preview portal. However, you can use th
     ![Local account - UPN](./media/active-directory-b2c-limitations/limitations-user-mgmt.png)
 
 - For a local account user, you will not able to edit any of the fields and save changes on the **Profile** tab. We will fix this soon.
+
+## Restriction on Deletion of Azure AD B2C Directories
+
+You won't be able to delete an Azure AD B2C directory in the Azure portal.

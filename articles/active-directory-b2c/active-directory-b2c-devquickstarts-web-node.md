@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter="nodejs"
 	authors="brandwe"
-	manager="mbaldwin"
+	manager="msmbaldwin"
 	editor=""/>
 
 <tags
@@ -423,10 +423,14 @@ You can now move onto more advanced topics.  You may want to try:
 
 [Secure a Web API with B2C model in node.js >>](active-directory-b2c-devquickstarts-webapi-nodejs.md)
 
+<!--
+
 For additional resources, check out:
 You can now move onto more advanced B2C topics.  You may want to try:
 
 [Calling a node.js Web API from a node.js Web App >>]()
 
 [Customizing the your B2C App's UX >>]()
+
+-->
 

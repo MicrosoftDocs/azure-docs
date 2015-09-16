@@ -4,7 +4,7 @@
 	services="active-directory-b2c"
 	documentationCenter=".net"
 	authors="dstrockis"
-	manager="mbaldwin"
+	manager="msmbaldwin"
 	editor=""/>
 
 <tags
@@ -48,7 +48,7 @@ In Azure AD B2C, every user experience is defined by a [**policy**](active-direc
 identity experiences - sign-up, sign-in, and edit profile.  You will need to create one policy of each type, as described in the 
 [policy reference article](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy).  When creating your three policies, be sure to:
 
-- Choose **User ID signup** or **Email signup** in the identity providers blade.
+- Choose either **User ID signup** or **Email signup** in the identity providers blade.  **Do not** choose any social identity providers in your policies.
 - Choose the **Display Name** and a few other sign-up attributes in your sign-up policy.
 - Choose the **Display Name** and **Object ID** claims as an application claim in every policy.  You can choose other claims as well.
 - Copy down the **Name** of each policy after you create it.  It should have the prefix `b2c_1_`.  You'll need those policy names shortly. 
@@ -214,9 +214,11 @@ and notice how they are persisted in the API even after you stop and restart the
 
 ## 8. Edit your policies
 
-Now that you have an API secured with Azure AD B2C, you can play around with your app's policies and view the effect (or lack thereof) on the API.  You can add **identity providers**
-to the policies, allowing you users to sign into the Task Client using social accounts.  You can also manipulate the **application claims** in the policies, and change
+Now that you have an API secured with Azure AD B2C, you can play around with your app's policies and view the effect (or lack thereof) on the API.  You can <!--add **identity providers**
+to the policies, allowing you users to sign into the Task Client using social accounts.  You can also -->manipulate the **application claims** in the policies, and change
 the user information that is available in the Web API.  Any additional claims you add will be available to your .NET MVC web api in the `ClaimsPrincipal` object, as described above.
+
+<!--
 
 ## Next Steps
 
@@ -225,3 +227,5 @@ You can now move onto more advanced B2C topics.  You may want to try:
 [Calling a Web API from a Web App >>]()
 
 [Customizing the your B2C App's UX >>]()
+
+-->
