@@ -18,7 +18,7 @@
 
 # Azure Active Directory B2B collaboration
 
-Azure Active Directory B2B collaboration lets you enable access to your corporate applications from partner-managed identities. You can create cross-company relationships by inviting and authorizing users from partner companies to access your resources. Complexity is reduced because each company federates once with Azure AD and each user is represented by a single Azure AD account. Security is increased because access is lost when partner users are terminated from their organizations and unintended access is not granted by membership in internal directories. For business partners who don't already have Azure AD, B2B collaboration has a streamlined signup experience to provide Azure AD accounts to your business partners.
+Azure Active Directory B2B collaboration lets you enable access to your corporate applications from partner-managed identities. You can create cross-company relationships by inviting and authorizing users from partner companies to access your resources. Complexity is reduced because each company federates once with Azure Active Directory (Azure AD) and each user is represented by a single Azure AD account. Security is increased because access is revoked when partner users are terminated from their organizations, and unintended access via membership in internal directories is prevented. For business partners who don't already have Azure AD, B2B collaboration has a streamlined sign-up experience to provide Azure AD accounts to your business partners.
 
 -   Your business partners use their own sign-in credentials, which frees you from managing an external partner directory, and from the need to remove access when users leave the partner organization.
 
@@ -26,9 +26,9 @@ Azure Active Directory B2B collaboration lets you enable access to your corporat
 
 ## Capabilities
 
-B2B collaboration simplifies management and improves security of partner access to corporate resources including SaaS apps such as Office 365, Salesforce and more, Azure Services and every mobile, cloud and on-premises claims-aware application. B2B collaboration enables partners manage their own accounts and enterprises can apply security policies to partner access.
+B2B collaboration simplifies management and improves security of partner access to corporate resources including SaaS apps such as Office 365, Salesforce, Azure Services, and every mobile, cloud and on-premises claims-aware application. B2B collaboration enables partners manage their own accounts and enterprises can apply security policies to partner access.
 
-Azure Active Directory B2B collaboration is easy to configure with simplified signup for partners of all sizes even if they don’t have their own Azure Active Directory via an email-verified process. It is also easy to maintain with no external directories or per partner federation configurations.
+Azure Active Directory B2B collaboration is easy to configure with simplified sign-up for partners of all sizes even if they don’t have their own Azure Active Directory via an email-verified process. It is also easy to maintain with no external directories or per partner federation configurations.
 
 The process:
 
