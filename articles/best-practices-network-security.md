@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="09/16/2015"
-   ms.author="jonor;sivae"/>
+   ms.author="jonor;sivae;"/>
 
 # Microsoft Cloud Services and Network Security
 ## Overview
