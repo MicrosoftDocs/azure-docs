@@ -41,7 +41,7 @@ You can file support requests for Azure Active Directory (AD) B2C on the Azure p
 
 5. After submitting your support request, you can monitor it by clicking on **Help + support** on the Startboard and then **Manage support requests**.
 
-### Known Issue: Filing a Support Request in the Context of a B2C Directory
+## Known Issue: Filing a Support Request in the Context of a B2C Directory
 
 If you missed step 2 outlined above and try to create a support request in the context of your B2C directory, you will see the following error.
 

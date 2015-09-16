@@ -18,11 +18,11 @@
 
 # Creating an Azure AD directory or an Azure AD B2C directory - Issues & Resolutions
 
-### Creating an Azure AD Directory
+## Creating an Azure AD Directory
 
 If you can't create an Azure AD directory the first time, please try again. If the problem persists, contact Support.
 
-### Creating an Azure AD B2C Directory (preview)
+## Creating an Azure AD B2C Directory (preview)
 
 There are known issues that you may encounter during the [creation of an Azure AD B2C directory](active-directory-b2c-get-started).
 
