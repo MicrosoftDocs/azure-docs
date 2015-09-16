@@ -87,3 +87,5 @@ scriptPath | Path to folder that contains the U-SQL script.
 scriptLinkedService | Linked service that links the storage that contains the script to the data factory
 degreeOfParallelism | Also known as BAUs (Big Analytics Units), or the maximum number of nodes that will be used simultaneously to run the job.
 priority | Determines which jobs out of all that are queued should be selected to run first. The lower the number, the higher the priority.
+
+

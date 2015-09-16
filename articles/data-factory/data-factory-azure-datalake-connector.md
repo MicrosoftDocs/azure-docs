@@ -444,6 +444,25 @@ You can link an Azure storage account to an Azure data factory using an Azure St
 | subscriptionId | Azure subscription Id. | No (If not specified, subscription of the data factory is used). | 
 | resourceGroupName |  Azure resource group name | No (If not specified, resource group of the data factory is used). | 
 
+### JSON Example
+
+	{
+	    "name": "LinkedService-AzureDataLake",
+	    "properties":
+	    {
+	        "type": "AzureDataLake",
+	        "typeProperties":
+	        {
+	            "authorization": "authCode",
+	            "sessionId": "sessionId",
+	            "dataLakeUri" : "https://account.azuredatalake.net/webhdfs/v1",
+	            "accountName" : "account",
+	            "subscriptionId": "subId",
+	            "resourceGroupName":  "resourceGroup"
+	        }
+	    }
+	}
+
 
 ## Azure Data Link Dataset type properties
 
@@ -454,7 +473,7 @@ The **typeProperties** section is different for each type of dataset and provide
 | Property | Description | Required |
 | -------- | ----------- | -------- | 
 | path | Path to the container and folder in the Azure data lake. | Yes |
-| partitionedBy | partitionedBy is an optional property. You can use it to specify a dynamic folderPath and filename for time series data. For example, folderPath can be parameterized for every hour of data. See the Leverage partitionedBy property section below for details and examples. | No | 
+| partitionedBy | partitionedBy is an optional property. You can use it to specify a dynamic folderPath and filename for time series data. For example, folderPath can be parameterized for every hour of data. See the Leveraging partitionedBy property section below for details and examples. | No | 
 
 ### Leveraging partitionedBy property
 As mentioned above, you can specify a dynamic folderPath and filename for time series data with the **partitionedBy** section, Data Factory macros and the system variables: SliceStart and SliceEnd, which indicate start and end times for a given data slice.

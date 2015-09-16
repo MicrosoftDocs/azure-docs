@@ -240,13 +240,13 @@ You create an Azure Big Analytics linked service to link an Azure Big Analytics 
 ### Example
 
 	{
-	    "name": "BigAnalyticsLinkedService",
+	    "name": "AzureBigAnalyticsLinkedService",
 	    "properties": {
-	        "type": "BigAnalytics",
+	        "type": "AzureBigAnalytics",
 	        "typeProperties": {
 	            "accountName": "adftestaccount",
-	            "konaUri": "microsoftbiganalyticscompute.net",
-	            "authorization": "**********",
+	            "bigAnalyticsUri": "microsoftbiganalyticscompute.net",
+	            "authorization": "<authcode>",
 				"sessionId": "<session ID> 
 	            "subscriptionId": "<subscription id>",
 	            "resourceGroupName": "<resource group name>"
@@ -261,7 +261,7 @@ Property | Description | Required
 -------- | ----------- | --------
 Type | The type property should be set to: **BigAnalytics**. | Yes
 accountName | Azure Big Analytics Account Name. | Yes
-konaUri | Azure Big Analytics URI. Enter ‘microsoftbiganalyticscompute.net’. |  No 
+bigAnalyticsUri | Azure Big Analytics URI. Enter ‘microsoftbiganalyticscompute.net’. |  No 
 authorization | Authorization code is automatically retrieved after clicking ‘Authorize’ and completing the OAuth login. | Yes 
 subscriptionId | Azure subscription id | No (If not specified, subscription of the data factory is used). 
 resourceGroupName | Azure resource group name |  No (If not specified, resource group of the data factory is used).
