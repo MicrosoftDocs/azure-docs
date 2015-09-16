@@ -21,7 +21,7 @@
 User experience is paramount in a consumer-facing application. It is the difference between a good application and a great one, and between merely active consumers and truly engaged ones. Azure Active Directory (AD) B2C allows you to customize consumer sign-up, sign-in (*see note below*) and profile editing pages with pixel-perfect control.
 
 > [AZURE.NOTE]
-Currently, local account sign-in pages, verification emails and self-service password reset pages are only customizable using the [company branding feature](active-directory-add-company-branding.md) and not by the mechanisms described in this article.
+Currently, local account sign-in pages, verification emails and self-service password reset pages are only customizable using the [company branding feature](./active-directory/active-directory-add-company-branding.md) and not by the mechanisms described in this article.
 
 In this article, you will read about:
 
@@ -42,10 +42,10 @@ Use our helper tool (Coming soon) to try out the page UI customization feature u
 
 ## The core UI Elements in each Type of Page
 
-In this section you will find the HTML5 fragments (for each type of page) that Azure AD B2C merges into the `<div id="api"></div>` element located in your content. You can use style sheets to customize these UI elements.
+In this section you will find the HTML5 fragments (for each type of page) that Azure AD B2C merges into the `<div id="api"></div>` element located in your content. You can use style sheets to customize these UI elements. These style sheets can override the default style sheets that we add into these page types in the `<head>` fragments.
 
 > [AZURE.IMPORTANT]
-Inspect the source code of default pages for more information. During preview, expect the exact UI elements to change as we learn and adapt from your feedback.
+During preview, expect the exact UI elements to change as we learn and adapt from your feedback. Inspect the source code of default pages for details on all of the following.
 
 ### Identity Provider Selection Page
 

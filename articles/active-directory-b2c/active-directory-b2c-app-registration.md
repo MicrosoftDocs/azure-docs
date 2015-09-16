@@ -18,19 +18,23 @@
 
 # Azure Active Directory B2C preview: how to Register your Application
 
+## Pre-requisite
+
 To build an application that accepts consumer sign up & sign in, you'll first need to register it with an Azure Active Directory B2C directory. Get your own directory using the steps outlined in this [article](active-directory-get-started.md).
 
 ## Navigate to the B2C Features Blade
 
-### Directly on the Azure Preview Portal
+You can get to the B2C features blade in one of the following two ways. Only a Global Administrator of the B2C directory can access the B2C features blade.
 
-If you followed the steps in this [article](active-directory-b2c-get-started.md) while creating the Azure AD B2C directory, you should have the B2C features blade pinned to your Startboard when you sign in to the [Azure preview portal](https://portal.azure.com/) as the Global Administrator of your directory.
+### 1. Directly on the Azure Preview Portal
 
-You can also access the B2C features blade directly by navigating to [https://portal.azure.com/{directory}.onmicrosoft.com/?Microsoft_AAD_B2CAdmin=true#blade/Microsoft_AAD_B2CAdmin/TenantManagementBlade/id/{directory}.onmicrosoft.com](https://portal.azure.com/{directory}.onmicrosoft.com/?Microsoft_AAD_B2CAdmin=true#blade/Microsoft_AAD_B2CAdmin/TenantManagementBlade/id/{directory}.onmicrosoft.com) where **{directory}** is to be replaced by the name used at directory creation time (for example, contosob2c), and sign in as the Global Administrator. Bookmark this link for future reference.
+If you followed the steps in this [article](active-directory-b2c-get-started.md) while creating the Azure AD B2C directory, you should have the B2C features blade pinned to your Startboard when you sign in to the [Azure preview portal](https://portal.azure.com/).
 
-### Access via the Azure Portal
+You can also access the B2C features blade directly by navigating to [https://portal.azure.com/{directory}.onmicrosoft.com/?Microsoft_AAD_B2CAdmin=true#blade/Microsoft_AAD_B2CAdmin/TenantManagementBlade/id/{directory}.onmicrosoft.com](https://portal.azure.com/{directory}.onmicrosoft.com/?Microsoft_AAD_B2CAdmin=true#blade/Microsoft_AAD_B2CAdmin/TenantManagementBlade/id/{directory}.onmicrosoft.com) where **{directory}** is to be replaced by the name used at directory creation time (for example, contosob2c). You can bookmark this link for future reference.
 
-Sign in to the [Azure portal](https://manage.windowsazure.com/) as the Global Administrator of your directory. On the **Quick Start** tab, click on **Manage B2C settings** under **Administer**. This will open up the B2C features blade in a new browser window or tab.
+### 2. Access via the Azure Portal
+
+Sign in to the [Azure portal](https://manage.windowsazure.com/). On the **Quick Start** tab, click on **Manage B2C settings** under **Administer**. This will open up the B2C features blade in a new browser window or tab.
 
 You can also find the **Manage B2C settings** link (under **B2C Administration**) in the **Configure** tab.
 
