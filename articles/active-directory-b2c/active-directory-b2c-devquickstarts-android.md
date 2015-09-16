@@ -429,8 +429,8 @@ private void getTasks() {
         }
         return endpoint;
     }
-    
-```
+
+    ```
 
 
 Note that we add the access token to the request in the following code:
@@ -453,7 +453,9 @@ Let's write those now:
     }
     
 ```
+
 And now manage our dialog callbacks:
+
 
 ```
 /**
@@ -480,7 +482,7 @@ And now manage our dialog callbacks:
         builder.create().show();
     }
     
-    ```
+ ```
     
 
 
