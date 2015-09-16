@@ -18,7 +18,7 @@
 
 # Configure Azure ExpressRoute and Site-to-Site VPN connections that coexist
 
-You can connect ExpressRoute and Site-to-Site VPNs to the same virtual network. There are two different scenarios where you might want to use coexisting connections. [Scenario 1](#scenario-1) uses ExpressRoute as the active link, and the Site-to-Site connection as the backup connection. In [Scenario 2](#scenario-2), both connections are active. 
+You can connect ExpressRoute and Site-to-Site VPNs to the same virtual network. There are two different scenarios where you might want to use coexisting connections. Scenario 1 uses ExpressRoute as the active link, and the Site-to-Site connection as the backup connection. In Scenario 2, both connections are active. 
 
 The steps in this article apply to VNets using the classic deployment model. This type of coexisting connection is not yet available for VNets using the Resource Manager deployment model.
 
@@ -45,11 +45,11 @@ There are two different sets of procedures to choose from in order to configure 
 
 - **Create a new virtual network and connections that coexist:**
 
-	If you don’t already have a virtual network, this procedure will walk you through creating a new virtual network and creating new ExpressRoute and Site-to-Site VPN connections. To configure, follow the steps to [Create a new virtual network and connections](#create-a-new-VNet-with-coexisting-connections).
+	If you don’t already have a virtual network, this procedure will walk you through creating a new virtual network and creating new ExpressRoute and Site-to-Site VPN connections. To configure, follow the steps to [Create a new VNet with coexisting connections](#create-a-new-vnet-with-coexisting-connections).
 
 - **Configure your existing virtual network for coexisting connections:**
 
-	You may already have a virtual network in place with an existing Site-to-Site VPN connection or ExpressRoute connection. The [Configure connections that coexist for your existing virtual network](#configure-coexisting-connections-for-an-existing-VNet) procedure will walk you through deleting the gateway, and then creating new ExpressRoute and Site-to-Site VPN connections. Note that when creating the new connections, the steps must be completed in a very specific order. Don't use the instructions in other articles to create your gateways and connections.
+	You may already have a virtual network in place with an existing Site-to-Site VPN connection or ExpressRoute connection. The [Configure connections that coexist for your existing virtual network](#configure-coexisting-connections-for-an-existing-vnet) procedure will walk you through deleting the gateway, and then creating new ExpressRoute and Site-to-Site VPN connections. Note that when creating the new connections, the steps must be completed in a very specific order. Don't use the instructions in other articles to create your gateways and connections.
 
 	In this procedure, creating connections that can coexist will require you to delete your gateway, and then configure new gateways. This means you will have downtime for your cross-premises connections while you delete and recreate your gateway and connections, but you will not need to migrate any of your VMs or services to a new virtual network. Your VMs and services would still be able to communicate out through the load balancer while you configure your gateway if they are configured to do so.
 
@@ -215,4 +215,4 @@ If you have an existing virtual network connected via either ExpressRoute or Sit
 
 Learn more about ExpressRoute. See the [ExpressRoute overview](expressroute-introduction.md).
 
-Learn more about VPN Gateways. See [About VPN Gateways](../vpn-gateway/vpn-gateway-about-vpngateways.md).
+Learn more about VPN Gateways. See [About VPN gateways](../vpn-gateway/vpn-gateway-about-vpngateways.md).
