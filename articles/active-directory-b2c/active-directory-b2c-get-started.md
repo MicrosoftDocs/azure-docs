@@ -20,6 +20,8 @@
 
 To start using Azure Active Directory (AD) B2C, follow the 3 steps outlined below.
 
+[AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
+
 ## Step 1: Sign up for an Azure Subscription
 
 If you already have an Azure subscription move on to the next step. If not, sign up for [an Azure subscription](sign-up-organization.md) and get access to Azure AD B2C.

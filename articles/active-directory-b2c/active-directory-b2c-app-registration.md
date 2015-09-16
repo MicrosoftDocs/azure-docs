@@ -18,6 +18,8 @@
 
 # Azure Active Directory B2C preview: how to Register your Application
 
+[AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
+
 ## Pre-requisite
 
 To build an application that accepts consumer sign up & sign in, you'll first need to register it with an Azure Active Directory B2C directory. Get your own directory using the steps outlined in this [article](active-directory-b2c-get-started.md).

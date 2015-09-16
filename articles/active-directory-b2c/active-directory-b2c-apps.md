@@ -20,9 +20,7 @@
 
 Azure AD B2C supports authentication for a variety of modern app architectures, all of which are based on the industry standard protocols [OAuth 2.0](active-directory-b2c-reference-protocols.md) and/or [OpenID Connect](active-directory-b2c-reference-protocols.md).  This doc briefly describes the types of apps you can build, independent of the language or platform you prefer.  It will help you understand the high level scenarios before you [jump right into the code](active-directory-b2c-overview.md#getting-started).
 
-> [AZURE.NOTE]
-	This information applies to the Azure AD B2C preview.  For information on how to integrate with the generally available Azure AD service, 
-	please refer to the [Azure Active Directory Developer Guide](active-directory-developers-guide.md).
+[AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
 
 ## The Basics
 Every app that uses Azure AD B2C will need to be registered in your [B2C directory](active-directory-b2c-get-started.md) via the [Azure Preview Portal](https://portal.azure.com).  The app registration process will collect & assign a few values to your app:

@@ -18,6 +18,8 @@
 
 # Azure Active Directory B2C preview: Extensible Policy Framework
 
+[AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
+
 ## The Basics
 
 Azure Active Directory (AD) B2C's extensible policy framework is the core strength of the service. Policies fully describe consumer identity experiences such as sign up, sign in or profile editing. For instance, a sign-up policy allows you to control behaviors by configuring the following settings:

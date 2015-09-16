@@ -19,9 +19,7 @@
 # B2C Preview: Add sign-in to a nodeJS Web App
 
 
-> [AZURE.NOTE]
-	This information applies to the Azure AD B2C preview.  For information on how to integrate with the generally available Azure AD service, 
-	please refer to the [Azure Active Directory Developer Guide](active-directory-developers-guide.md).
+[AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
 
 > [AZURE.NOTE]
 	This article does not cover how to implement sign-in, sign-up and profile management with Azure AD B2C.  It focuses on calling web APIs after the user is already authenticated.

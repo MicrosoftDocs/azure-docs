@@ -24,9 +24,7 @@ With Azure AD B2C, you can secure a web API using OAuth 2.0 access tokens, enabl
 to create a .NET MVC "To-Do List" app that includes user sign-up, sign-in, and profile management.  Each user's to-do list will be stored by a Task Service - a web API that allows authenticated
 users to create and read tasks in their to-do list.
 
-> [AZURE.NOTE]
-	This information applies to the Azure AD B2C preview.  For information on how to integrate with the generally available Azure AD service, 
-	please refer to the [Azure Active Directory Developer Guide](active-directory-developers-guide.md).
+[AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
 
 ## 1. Get an Azure AD B2C directory
 
