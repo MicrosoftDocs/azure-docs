@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/11/2015"
+   ms.date="09/15/2015"
    ms.author="v-sharos" />
 
 # Use the StorSimple Manager service to manage volumes
@@ -190,7 +190,7 @@ Perform the following steps to enable or disable monitoring for a volume.
 
 ## Next steps
 
-Learn how to [clone a StorSimple volume](storsimple-clone-volume.md).
-
+- Learn how to [clone a StorSimple volume](storsimple-clone-volume.md).
+- Learn how to [use the StorSimple Manager service to administer your StorSimple device](storsimple-manager-service-administration.md).
 
  
