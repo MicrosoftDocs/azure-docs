@@ -30,7 +30,7 @@ Using Azure PowerShell and Resource Manager templates provides you with a lot of
 These tasks use a Resource Manager template and PowerShell:
 
 - [Create a virtual machine](#windowsvm)
-- [Create a virtual machine with an existing operating system disk](#customvm)
+- [Create a virtual machine with a specialized disk](#customvm)
 - [Create a multiple virtual machines in a virtual network with an external load balancer](#multivm)
 
 These tasks use only PowerShell:
@@ -127,7 +127,7 @@ If you would like to see a video of this task being done, take a look at this:
 
 [AZURE.VIDEO deploy-a-windows-virtual-machine-with-azure-resource-manager-templates-and-powershell]
 
-## <a id="customvm"></a>TASK: Create a virtual machine with an existing operating system disk
+## <a id="customvm"></a>TASK: Create a virtual machine with a specialized disk
 
 This task uses a template from the template gallery. To learn more about the template, see [Create a VM from a specialized VHD disk](https://azure.microsoft.com/documentation/templates/201-vm-from-specialized-vhd/).
 
