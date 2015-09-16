@@ -4,8 +4,8 @@
 	services="active-directory-b2c"
 	documentationCenter=""
 	authors="swkrish"
-	manager="msmbaldwin"
-	editor=""/>
+	manager="mbaldwin"
+	editor="bryanla"/>
 
 <tags
 	ms.service="active-directory-b2c"
@@ -22,15 +22,15 @@
 
 ## Pre-requisite
 
-To build an application that accepts consumer sign up & sign in, you'll first need to register it with an Azure Active Directory B2C directory. Get your own directory using the steps outlined [here](active-directory-get-started.md).
+To build an application that accepts consumer sign up & sign in, you'll first need to register it with an Azure Active Directory B2C directory. Get your own directory using the steps outlined [here](active-directory-get-started.md). If you followed all the steps in that article, you should have the B2C features blade pinned to your Startboard.
 
 ## Navigate to the B2C Features Blade
 
-You can get to the B2C features blade in one of the following two ways. Note that only a Global Administrator of the B2C directory can access the B2C features blade.
+You can navigate to the B2C features blade in one of the following two ways.
 
 ### 1. Directly on the Azure Preview Portal
 
-If you followed all the steps in this [article](active-directory-b2c-get-started.md) while creating the Azure AD B2C directory, you should have the B2C features blade pinned to your Startboard. You will see it as soon as you sign in to the [Azure preview portal](https://portal.azure.com/) as the Global Administrator of the B2C directory.
+If you have the B2C features blade pinned to your Startboard, you will see it as soon as you sign in to the [Azure preview portal](https://portal.azure.com/) as the Global Administrator of the B2C directory.
 
 You can also access the B2C features blade directly by navigating to [https://portal.azure.com/{directory}.onmicrosoft.com/?Microsoft_AAD_B2CAdmin=true#blade/Microsoft_AAD_B2CAdmin/TenantManagementBlade/id/{directory}.onmicrosoft.com](https://portal.azure.com/{directory}.onmicrosoft.com/?Microsoft_AAD_B2CAdmin=true#blade/Microsoft_AAD_B2CAdmin/TenantManagementBlade/id/{directory}.onmicrosoft.com) where **{directory}** is to be replaced by the name used at directory creation time (for example, contosob2c) and signing in as the Global Administrator of the B2C directory. You can bookmark this link for future reference.
 
