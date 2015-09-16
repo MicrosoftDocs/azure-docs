@@ -111,6 +111,7 @@ After the upgrade completes you can configure your database to again use geo-rep
 
 
 If your client program connects to SQL Database V12 while your client runs on an Azure virtual machine (VM), you must open the following port ranges on the VM:
+
 - 11000-11999
 - 14000-14999
 

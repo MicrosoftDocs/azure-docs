@@ -66,6 +66,7 @@ In V12, we increased the database throughput units (DTUs) allocated to all Premi
 
 
 If your client program connects to SQL Database V12 while your client runs on an Azure virtual machine (VM), you must open the following port ranges on the VM:
+
 - 11000-11999
 - 14000-14999
 
