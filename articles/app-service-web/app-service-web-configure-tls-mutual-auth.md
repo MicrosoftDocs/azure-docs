@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="How To Configure TLS Mutual Authentication for Web App" 
 	description="Learn how to configure your web app to use client certificate authentication on TLS." 
-	services="app-service\web,app-service\api,app-service\mobile" 
+	services="app-service\web" 
 	documentationCenter="" 
 	authors="naziml" 
 	manager="wpickett" 

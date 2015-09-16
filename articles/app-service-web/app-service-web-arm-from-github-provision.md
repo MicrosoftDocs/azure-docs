@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Deploy a web app that is linked to a GitHub repository" 
 	description="Use an Azure Resource Manager template to deploy a web app that contains a project from a GitHub repository." 
-	services="app-service\web,app-service\api,app-service\mobile" 
+	services="app-service\web" 
 	documentationCenter="" 
 	authors="tfitzmac" 
 	manager="wpickett" 

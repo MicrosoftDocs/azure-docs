@@ -5,7 +5,7 @@
 	writer="yochayk" 
 	editor="yochayk" 
 	manager="nirma" 
-	services="app-service\web,app-service\api,app-service\mobile" 
+	services="app-service\web" 
 	documentationCenter=""/>
 
 <tags 

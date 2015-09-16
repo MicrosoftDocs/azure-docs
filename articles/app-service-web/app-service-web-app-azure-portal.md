@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Reference for navigating the Azure portal"
 	description="Learn the different user experiences for App Service Web between the management portal and the Azure Portal"
-	services="app-service\web,app-service\api,app-service\mobile"
+	services="app-service\web"
 	documentationCenter=""
 	authors="jaime-espinosa"
 	manager="wpickett"

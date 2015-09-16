@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Configuring a Web Application Firewall (WAF) for App Service Environment" 
 	description="Learn how to configure a web application firewall in front of your App Service Environment." 
-	services="app-service\web,app-service\api,app-service\mobile" 
+	services="app-service\web" 
 	documentationCenter="" 
 	authors="naziml" 
 	manager="wpickett" 

@@ -1,7 +1,7 @@
 <properties
 	pageTitle="How to Create a Web App in an App Service Environment"
 	description="Creation flow for web apps and app service plans examined for an app service environment"
-	services="app-service\web,app-service\api,app-service\mobile"
+	services="app-service\web"
 	documentationCenter=""
 	authors="ccompy"
 	manager="stefsch"
