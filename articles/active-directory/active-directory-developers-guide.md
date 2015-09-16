@@ -1,4 +1,4 @@
-<properties
+﻿<properties
    pageTitle="Azure Active Directory developer's guide | Microsoft Azure"
    description="This article provides a comprehensive guide to developer-oriented resources for Azure Active Directory."
    services="active-directory"
@@ -135,4 +135,4 @@ These overview presentations on developing apps by using Azure Active Directory 
 
 - [Cloud Identity](http://www.cloudidentity.net): Thoughts on identity management as a service, from a principal Azure Active Directory PM.  
 
-- [Azure Active Directory on Twitter](https://twitter.com/azuread): Azure Active Directory announcements in 140 characters or fewer.    
+- [Azure Active Directory on Twitter](https://twitter.com/azuread): Azure Active Directory announcements in 140 characters or fewer.
