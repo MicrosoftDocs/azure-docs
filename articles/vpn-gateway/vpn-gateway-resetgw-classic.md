@@ -14,13 +14,13 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/15/2015"
+   ms.date="09/16/2015"
    ms.author="cherylmc"/>
 
 # Reset an Azure VPN Gateway using PowerShell
 
 
-This article will walk you through resetting your Azure VPN Gateway using PowerShell cmdlets. These instructions apply to the classic deployment model (Service Management).  We do not yet have a cmdlet or REST API to reset a VPN gateway for virtual networks created using the Resource Manager deployment model. These are in process. You can tell if your VPN gateway was created using the classic deployment model by viewing your virtual network in the preview portal. Virtual networks that were created using the classic deployment model are shown in the Virtual Network (classic) portion of the preview portal.
+This article will walk you through resetting your Azure VPN Gateway using PowerShell cmdlets. These instructions apply to the classic deployment model.  We do not yet have a cmdlet or REST API to reset a VPN gateway for virtual networks created using the Resource Manager deployment model. These are in process. You can tell if your VPN gateway was created using the classic deployment model by viewing your virtual network in the preview portal. Virtual networks that were created using the classic deployment model are shown in the Virtual Network (classic) portion of the preview portal.
 
 Resetting the Azure VPN gateway is helpful if you lose cross-premises VPN connectivity on one or more S2S VPN tunnels. In this situation, your on-premises VPN devices are all working correctly, but are not able to establish IPsec tunnels with the Azure VPN gateways. When you use the *Reset-AzureVNetGateway* cmdlet, it will reboot the gateway, and then re-apply the cross-premises configurations to it. The gateway will keep the public IP address it already has. This means you won’t need to update the VPN router configuration with a new public IP address for Azure VPN gateway.  
 
