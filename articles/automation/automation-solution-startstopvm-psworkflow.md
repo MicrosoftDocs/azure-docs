@@ -80,7 +80,7 @@ The following sample commands uses Windows PowerShell to run **StartAzureVMs** t
 
 ### Output
 
-The runbooks will [output a message](https://azure.microsoft.com/documentation/articles/automation-runbook-output-and-messages) for each virtual machine indicating whether or not the start or stop instruction was successfully submitted.  You can look for a specific string in the output to determine the result for each runbook.  The possible output strings are listed in the following table.
+The runbooks will [output a message](automation-runbook-output-and-messages.md) for each virtual machine indicating whether or not the start or stop instruction was successfully submitted.  You can look for a specific string in the output to determine the result for each runbook.  The possible output strings are listed in the following table.
 
 | Runbook | Condition | Message |
 |:---|:---|:---|
@@ -128,7 +128,7 @@ The workflow starts by getting the values for the [input parameters](#using-the-
     # Returns strings with status messages
     [OutputType([String])]
 
-This line declares that the output of the runbook will be a string.  This is not required but is a best practice for when the runbook is used as a [child runbook](http://azure.microsoft.com/documentation/articles/automation-child-runbooks) so that a parent runbook will know the output type to expect.
+This line declares that the output of the runbook will be a string.  This is not required but is a best practice for when the runbook is used as a [child runbook](automation-child-runbooks.md) so that a parent runbook will know the output type to expect.
 
 ### Authentication
 
@@ -191,5 +191,5 @@ The next lines step through each virtual machine.  First the **PowerState** of t
 
 ## Related articles
 
-- [Child runbooks in Azure Automation](https://azure.microsoft.com/documentation/articles/automation-child-runbooks/) 
-- [Runbook output and messages in Azure Automation](https://azure.microsoft.com/documentation/articles/automation-runbook-output-and-messages/)
+- [Child runbooks in Azure Automation](automation-child-runbooks.md) 
+- [Runbook output and messages in Azure Automation](automation-runbook-output-and-messages.md)

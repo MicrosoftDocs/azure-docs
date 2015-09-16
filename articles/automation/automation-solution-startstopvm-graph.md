@@ -55,8 +55,8 @@ The runbooks require the following assets that you must create and populate with
 
 | Asset Type | Default Name | Description |
 |:---|:---|:---|
-| [Credential](https://azure.microsoft.com/documentation/articles/automation-credentials) | AzureCredential | Contains credentials for an account that has authority to start and stop virtual machines in the Azure subscription.  |
-| [Variable](https://azure.microsoft.com/documentation/articles/automation-variables) | AzureSubscriptionId | Contains the subscription ID of your Azure subscription. |
+| [Credential](automation-credentials.md) | AzureCredential | Contains credentials for an account that has authority to start and stop virtual machines in the Azure subscription.  |
+| [Variable](automation-variables.md) | AzureSubscriptionId | Contains the subscription ID of your Azure subscription. |
 
 ## Using the solution
 
@@ -81,7 +81,7 @@ The following sample commands uses Windows PowerShell to run **StartAzureClassic
 
 ### Output
 
-The runbooks will [output a message](https://azure.microsoft.com/documentation/articles/automation-runbook-output-and-messages) for each virtual machine indicating whether or not the start or stop instruction was successfully submitted.  You can look for a specific string in the output to determine the result for each runbook.  The possible output strings are listed in the following table.
+The runbooks will [output a message](automation-runbook-output-and-messages.md) for each virtual machine indicating whether or not the start or stop instruction was successfully submitted.  You can look for a specific string in the output to determine the result for each runbook.  The possible output strings are listed in the following table.
 
 | Runbook | Condition | Message |
 |:---|:---|:---|
@@ -93,7 +93,7 @@ The runbooks will [output a message](https://azure.microsoft.com/documentation/a
 | StopAzureClassicVM | Start request for virtual machine failed  | MyVM failed to start |
 
 
-Following is an image of using the **StartAzureClassicVM** as a [child runbook](https://azure.microsoft.com/documentation/articles/automation-child-runbooks) in a sample graph runbook.  This uses the conditional links in the following table.
+Following is an image of using the **StartAzureClassicVM** as a [child runbook](automation-child-runbooks.md) in a sample graph runbook.  This uses the conditional links in the following table.
 
 | Link | Criteria |
 |:---|:---|
@@ -149,6 +149,6 @@ The final step in the runbook is to send output whether the start or stop reques
 
 ## Related articles
 
-- [Graphical authoring in Azure Automation](https://azure.microsoft.com/documentation/articles/automation-graphical-authoring-intro/)
-- [Child runbooks in Azure Automation](https://azure.microsoft.com/documentation/articles/automation-child-runbooks) 
-- [Runbook output and messages in Azure Automation](https://azure.microsoft.com/documentation/articles/automation-runbook-output-and-messages)
+- [Graphical authoring in Azure Automation](automation-graphical-authoring-intro.md)
+- [Child runbooks in Azure Automation](automation-child-runbooks.md) 
+- [Runbook output and messages in Azure Automation](automation-runbook-output-and-messages.md)
