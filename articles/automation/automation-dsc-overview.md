@@ -125,3 +125,10 @@ A compilation job in Azure Automation DSC is an instance of compilation of a con
 - When onboarding an Azure VM for management with Azure Automation DSC using `Register-AzureAutomationDscNode`, `Set-AzureVMExtension`, or the Azure Automation DSC VM extension in the Azure preview portal, if registration fails with **The computer name was not specified and the configuration directory does not have any configuration files**, this is a false alarm and the VM registration actually succeeded. Successful registration can be verified using the `Get-AzureAutomationDscNode` cmdlet.
 
 - When onboarding an Azure VM for management with Azure Automation DSC using `Register-AzureAutomationDscNode`, `Set-AzureVMExtension`, or the Azure Automation DSC VM extension in the Azure preview portal, it could take up to an hour for the VM to show up as a DSC node in Azure Automation. This is due to the installation of Windows Management Framework 5.0 on the VM by the Azure VM DSC extension, which is required to onboard the VM to Azure Automation DSC.
+
+- Registering nodes involves nodes automatically negotiating a certificate to use for that specific node's authentication to Azure Automation DSC, post-registration. This certificate has an expiration of one year from creation, and currently the PS DSC pull protocol has no method for issuing a new certificate when that certificate is near expiration. For this reason, nodes will need to be reregistered with Azure Automation DSC after a year’s time, until this protocol is implemented in an upcoming version of WMF (hopefully less than a year from now).
+
+##Related Articles##
+
+- [Azure Automation DSC cmdlets] (https://msdn.microsoft.com/en-us/library/mt244122.aspx)
+- [Azure Automation DSC pricing] (http://azure.microsoft.com/en-us/pricing/details/automation/)
