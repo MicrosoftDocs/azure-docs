@@ -3,7 +3,7 @@
    description="An overview of configuring service descriptions for the Resource Balancer to use"
    services="service-fabric"
    documentationCenter=".net"
-   authors="GaugeField"
+   authors="masnider"
    manager="timlt"
    editor=""/>
 
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="09/03/2015"
+   ms.date="09/15/2015"
    ms.author="masnider"/>
 
 # Service Description Overview
@@ -203,6 +203,7 @@ The code example shows ServiceTemplates definitions via the application manifest
  </ServiceTemplates>
 ```
 The code example shows the DefaultServices definitions via application manifest.
+
 ``` xml
 <DefaultServices>
   <Service Name="QueueServiceInstance">
