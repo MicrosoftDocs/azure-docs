@@ -45,7 +45,7 @@ Use the following steps to create a new Azure AD B2C directory. Currently B2C fe
 6. Your directory is now created and will appear in the Active Directory extension. You are also made a Global Administrator of the directory. You can add other Global Administrators as required.
 
     > [AZURE.IMPORTANT]
-    It can take up to a minute for your directory to be created. If you face issues during directory creation, check out this [article](active-directory-b2c-support-create-directory.md) for guidance.
+    It can take up to two minutes for your directory to be created. If you face issues during directory creation, check out this [article](active-directory-b2c-support-create-directory.md) for guidance.
 
 ## Step 3: Navigate to the B2C Features blade on the Azure Preview Portal
 
