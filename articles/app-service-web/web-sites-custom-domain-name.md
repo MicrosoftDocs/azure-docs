@@ -5,15 +5,15 @@
 	documentationCenter=""
 	authors="MikeWasson"
 	manager="wpickett"
-	editor=""/>
+	editor="jimbe"/>
 
 <tags
-	ms.service="app-service-web"
+	ms.service="app-service"
 	ms.workload="web"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/13/2015"
+	ms.date="09/16/2015"
 	ms.author="mwasson"/>
 
 # Configure a custom domain name in Azure App Service
@@ -32,6 +32,7 @@ For a production web app, you probably want users to see a custom domain name. T
 
 [AZURE.INCLUDE [introfooter](../../includes/custom-dns-web-site-intro-notes.md)]
 
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)] 
 
 ## Overview
 

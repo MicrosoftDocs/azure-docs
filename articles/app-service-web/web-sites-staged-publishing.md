@@ -9,12 +9,12 @@
 	editor="mollybos"/>
 
 <tags
-	ms.service="app-service-web"
+	ms.service="app-service"
 	ms.workload="web"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/03/2015"
+	ms.date="09/16/2015"
 	ms.author="cephalin"/>
 
 # Set up staging environments for web apps in Azure App Service
@@ -37,6 +37,8 @@ Each App Service plan mode supports a different number of deployment slots. To f
 - Linked resource management is not supported for non-production slots.
 
 	> [AZURE.NOTE] In the [Azure preview portal](http://go.microsoft.com/fwlink/?LinkId=529715) only, you can avoid this potential impact on a production slot by temporarily moving the non-production slot to a different App Service plan mode. Note that the non-production slot must once again share the same mode with the production slot before you can swap the two slots.
+
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 <a name="Add"></a>
 ## Add a deployment slot to a web app ##

@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="erikre"
 	manager="wpickett"
-	editor=""/>
+	editor="jimbe"/>
 
 <tags
 	ms.service="app-service-web"
@@ -13,13 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/18/2015"
+	ms.date="09/16/2015"
 	ms.author="erikre"/>
 
 # Configure a custom domain name in Azure App Service (Purchased directly from GoDaddy)
 
 [AZURE.INCLUDE [web-selector](../../includes/websites-custom-domain-selector.md)]
 
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 [AZURE.INCLUDE [websites-cloud-services-css-guided-walkthrough](../../includes/websites-cloud-services-css-guided-walkthrough.md)]
 
