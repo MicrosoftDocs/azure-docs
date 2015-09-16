@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/15/2015"
+   ms.date="09/16/2015"
    ms.author="cherylmc"/>
 
 # Configure Azure ExpressRoute and Site-to-Site VPN connections that coexist
