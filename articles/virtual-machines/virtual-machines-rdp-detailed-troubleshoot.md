@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/14/2015"
+	ms.date="09/16/2015"
 	ms.author="dkshir"/>
 
 # Detailed troubleshooting for Remote Desktop connections to Windows based Azure virtual machines
