@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="09/07/2015"
+	ms.date="09/16/2015"
 	ms.author="juliako"/>
 
 #Working with Channels that are Enabled to Perform Live Encoding with Azure Media Services (Preview)
@@ -398,6 +398,7 @@ Stopped|Stopped|No
 
 ##<a id="Considerations"></a>Considerations
 
+- When a Channel of **Standard** encoding type experiences a loss of input source/contribution feed, it compensates for it by replacing the source video/audio with an error slate and silence. The Channel will continue to emit a slate until the input/contribution feed resumes. We recommend that a live channel not be left in such a state for longer than 2 hours. Beyond that point, the behavior of the Channel on input reconnection is not guaranteed, neither is its behavior in response to a Reset command. You will have to stop the Channel, delete it and create a new one.
 - You cannot change the input protocol while the Channel or its associated programs are running. If you require different protocols, you should create separate channels for each input protocol. 
 - Every time you reconfigure the live encoder, call the **Reset** method on the channel. Before you reset the channel, you have to stop the program. After you reset the channel, restart the program. 
 - A channel can be stopped only when it is in the Running state, and all programs on the channel have been stopped.
