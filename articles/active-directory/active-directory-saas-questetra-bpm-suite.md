@@ -225,11 +225,10 @@ The objective of this section is to enabling Britta Simon to use Azure single si
 
 **To assign Britta Simon to Questetra BPM Suite, perform the following steps:**
 
-1. On the Azure portal, to open the applications view, in the directory view, click **Applications** in the top menu.<br>
-<br><br>![What is Azure AD Connect][201]
+1. On the Azure portal, to open the applications view, in the directory view, click **Applications** in the top menu.<br><br>![What is Azure AD Connect][201]
 2. In the applications list, select **Questetra BPM Suite**.
 <br><br>![What is Azure AD Connect][205]
-1. In the menu on the top, click **Users**.<br>
+1. In the menu on the top, click **Users**.
 <br><br>![What is Azure AD Connect][202]
 1. In the Users list, select **Britta Simon**.
 <br><br>![What is Azure AD Connect][203]
