@@ -18,6 +18,8 @@
 
 # Azure Active Directory B2C preview: How to File Support Requests for Azure Active Directory B2C
 
+[AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
+
 You can file support requests for Azure Active Directory (AD) B2C on the Azure preview portal using the following steps:
 
 1. [Navigate to the B2C features blade on the Azure preview portal](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).

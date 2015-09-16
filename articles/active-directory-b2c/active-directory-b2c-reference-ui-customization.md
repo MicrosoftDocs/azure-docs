@@ -30,6 +30,8 @@ In this article, you will read about:
 - The core UI elements in each type of page.
 - Best practices when exercising this feature.
 
+[AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
+
 ## The Page User Interface (UI) Customization feature
 
 The page UI customization feature allows you to customize the look-and-feel of consumer sign-up, sign-in and profile editing pages (by configuring [policies](active-directory-b2c-references.policies.md)). Your consumers will have consistent experiences when navigating between your application and pages served by the Azure AD B2C service.

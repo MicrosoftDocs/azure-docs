@@ -18,29 +18,31 @@
 
 # Azure Active Directory B2C preview: how to Register your Application
 
+[AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
+
 ## Pre-requisite
 
-To build an application that accepts consumer sign up & sign in, you'll first need to register it with an Azure Active Directory B2C directory. Get your own directory using the steps outlined in this [article](active-directory-get-started.md).
+To build an application that accepts consumer sign up & sign in, you'll first need to register it with an Azure Active Directory B2C directory. Get your own directory using the steps outlined [here](active-directory-get-started.md).
 
 ## Navigate to the B2C Features Blade
 
-You can get to the B2C features blade in one of the following two ways. Only a Global Administrator of the B2C directory can access the B2C features blade.
+You can get to the B2C features blade in one of the following two ways. Note that only a Global Administrator of the B2C directory can access the B2C features blade.
 
 ### 1. Directly on the Azure Preview Portal
 
-If you followed the steps in this [article](active-directory-b2c-get-started.md) while creating the Azure AD B2C directory, you should have the B2C features blade pinned to your Startboard when you sign in to the [Azure preview portal](https://portal.azure.com/).
+If you followed all the steps in this [article](active-directory-b2c-get-started.md) while creating the Azure AD B2C directory, you should have the B2C features blade pinned to your Startboard. You will see it as soon as you sign in to the [Azure preview portal](https://portal.azure.com/) as the Global Administrator of the B2C directory.
 
-You can also access the B2C features blade directly by navigating to [https://portal.azure.com/{directory}.onmicrosoft.com/?Microsoft_AAD_B2CAdmin=true#blade/Microsoft_AAD_B2CAdmin/TenantManagementBlade/id/{directory}.onmicrosoft.com](https://portal.azure.com/{directory}.onmicrosoft.com/?Microsoft_AAD_B2CAdmin=true#blade/Microsoft_AAD_B2CAdmin/TenantManagementBlade/id/{directory}.onmicrosoft.com) where **{directory}** is to be replaced by the name used at directory creation time (for example, contosob2c). You can bookmark this link for future reference.
+You can also access the B2C features blade directly by navigating to [https://portal.azure.com/{directory}.onmicrosoft.com/?Microsoft_AAD_B2CAdmin=true#blade/Microsoft_AAD_B2CAdmin/TenantManagementBlade/id/{directory}.onmicrosoft.com](https://portal.azure.com/{directory}.onmicrosoft.com/?Microsoft_AAD_B2CAdmin=true#blade/Microsoft_AAD_B2CAdmin/TenantManagementBlade/id/{directory}.onmicrosoft.com) where **{directory}** is to be replaced by the name used at directory creation time (for example, contosob2c) and signing in as the Global Administrator of the B2C directory. You can bookmark this link for future reference.
 
 ### 2. Access via the Azure Portal
 
-Sign in to the [Azure portal](https://manage.windowsazure.com/). On the **Quick Start** tab, click on **Manage B2C settings** under **Administer**. This will open up the B2C features blade in a new browser window or tab.
+Sign in to the [Azure portal](https://manage.windowsazure.com/) as the Subscription Administrator (this is the same work or school account or the same Microsoft Account that you used to sign up for Azure). Navigate to the Active Directory extension on the left and click on your B2C directory. On the **Quick Start** tab (the first tab that opens up), click on **Manage B2C settings** under **Administer**. This will open up the B2C features blade in a new browser window or tab.
 
-You can also find the **Manage B2C settings** link (under **B2C Administration**) in the **Configure** tab.
+You can also find the **Manage B2C settings** link (in the **B2C Administration** section) on the **Configure** tab.
 
 ## Register an Application
 
-1. On the B2C features blade on the [Azure preview portal](https://portal.azure.com/), click on **Applications**.
+1. On the B2C features blade on the Azure preview portal, click on **Applications**.
 2. Click **+Add** at the top of the blade.
 3. The **Name** of the application will describe your application to consumers. For example, enter "Contoso B2C app".
 4. If you are writing a web-based application, toggle the **Include web app / web API** switch to **Yes**. The **Reply URLs** are endpoints where Azure AD B2C will return any tokens your application requests. For example, enter `https://localhost:44321/`. If your application includes a server-side component (API) that needs to be secured, you'll want to create (and copy) an **Application Secret** as well by clicking the **Generate Key** button.
