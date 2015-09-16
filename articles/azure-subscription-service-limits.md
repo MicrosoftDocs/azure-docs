@@ -151,6 +151,7 @@ The following App Service limits include limits for Web Apps, Mobile Apps, API A
 [AZURE.INCLUDE [azure-batch-limits](../includes/azure-batch-limits.md)]
 
 ###BizTalk Services Limits
+The following table shows the limits for Azure Biztalk Services.
 
 [AZURE.INCLUDE [biztalk-services-service-limits](../includes/biztalk-services-service-limits.md)]
 
