@@ -1,5 +1,3 @@
-#Enable HTTPS for a web app in Azure App Service
-
 > [AZURE.NOTE]
 > Get going faster--use the NEW Azure [guided walkthrough](http://support.microsoft.com/kb/2990804)!  It makes associating a custom domain name AND securing communication (SSL) with Azure Cloud Services or [App Service](http://go.microsoft.com/fwlink/?LinkId=529714) a snap.
 
