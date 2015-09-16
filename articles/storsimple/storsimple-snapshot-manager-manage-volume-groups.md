@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/04/2015"
+   ms.date="09/15/2015"
    ms.author="v-sharos" />
 
 # Use StorSimple Snapshot Manager to create and manage volume groups
@@ -140,4 +140,5 @@ Use the following procedure to delete a volume group.
 
 ## Next steps
 
-[Use StorSimple Snapshot Manager to create and manage backup policies](storsimple-snapshot-manager-manage-backup-policies.md).
+- Learn how to [use StorSimple Snapshot Manager to administer your StorSimple solution](storsimple-snapshot-manager-admin.md).
+- Learn how to [use StorSimple Snapshot Manager to create and manage backup policies](storsimple-snapshot-manager-manage-backup-policies.md).

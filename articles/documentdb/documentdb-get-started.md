@@ -460,7 +460,7 @@ You should now see the output of your get started app. The output will show the 
 
 Contratulations! You've created your first DocumentDB app! 
 
-##<a id="GetSolution"></a> Get the complete NuGet package solution
+##<a id="GetSolution"></a> Get the complete solution
 To build the GetStarted solution that contains all the samples in this article, you will need the following:
 
 -   [DocumentDB account][documentdb-create-account].

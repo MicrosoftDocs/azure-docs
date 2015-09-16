@@ -94,10 +94,20 @@ This version was the public preview release for Azure Search, providing the foll
 
 - Provisioning in the preview version of the [Azure management portal](https://portal.azure.com ). Azure Search was one of the few services that has only been available in the new portal.
 
+##Management api-version 2015-08-19
+**Released: 2015 September 11**
+
+[Management REST API](https://msdn.microsoft.com/library/azure/dn832684.aspx) includes the following updates.
+
+- checkNameAvailability checks whether a given service name is already in use.
+- Replica range was previously 1-6 and is now 1-12.
+- SKU property was moved from the property bag to the top level of the service payload.
+- Response body of the Create Search Service operation was updated to accommodate the relocation of the SKU setting.
+
 ##Management api-version 2015-02-28
 **Released: 2015 March 5**
 
-[Management REST API](https://msdn.microsoft.com/library/azure/dn832684.aspx) marks the first version of the management API belonging to the generally available release of Azure Search. There are no feature differences between the earlier preview and this one.
+[Management REST API](search-management-api-2014-02-28.md) marks the first version of the management API belonging to the generally available release of Azure Search. There are no feature differences between the earlier preview and this one.
 
 ##Management api-version 2014-07-31-Preview
 **Released: 2014 October**

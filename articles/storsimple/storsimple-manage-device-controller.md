@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/01/2015"
+   ms.date="09/15/2015"
    ms.author="alkohli" />
 
 # Manage your StorSimple device controllers
@@ -220,4 +220,6 @@ In this section, we have summarized some of the frequently asked questions regar
 
 ## Next steps
 
-If you encounter any issues with your StorSimple device controllers that you cannot resolve by using the procedures listed in this tutorial, [contact Microsoft Support](storsimple-contact-microsoft-support.md).
+- If you encounter any issues with your StorSimple device controllers that you cannot resolve by using the procedures listed in this tutorial, [contact Microsoft Support](storsimple-contact-microsoft-support.md).
+
+- To learn more about using the StorSimple Manager service, go to [Use the StorSimple Manager service to administer your StorSimple device](storsimple-manager-service-administration.md).
