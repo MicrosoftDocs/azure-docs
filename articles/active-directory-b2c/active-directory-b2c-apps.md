@@ -78,7 +78,7 @@ The validation of the id_token using a public signing key received from the Azur
 
 To see this scenario in action, try out one of the web app sign-in code samples in our [Getting Started](active-directory-b2c-overview.md#getting-started) section.
 
-In addition to simple sign-in, a web server app might also need to access some backend web service.  In this case the web app can perform a slightly different OpenID Connect flow (active-directory-b2c-reference-oidc.md), and acquire tokens using authorization codes and refresh tokens. This scenario is depicted below in the [Web APIs section](#web-apis), and in our [WebApp-WebAPI Getting Started topic](active-directory-b2c-devquickstarts-web-api-dotnet.md).
+In addition to simple sign-in, a web server app might also need to access some backend web service.  In this case the web app can perform a slightly different [OpenID Connect flow](active-directory-b2c-reference-oidc.md), and acquire tokens using authorization codes and refresh tokens. This scenario is depicted below in the [Web APIs section](#web-apis).<!--, and in our [WebApp-WebAPI Getting Started topic](active-directory-b2c-devquickstarts-web-api-dotnet.md).-->
 
 ## Web APIs
 You can also user Azure AD B2C to secure web services as well, such as your app's RESTful Web API.  Web APIs can use OAuth 2.0 to secure their data and authenticate incoming HTTP requests using tokens.  The caller of a Web API appends a token in the authorization header of an HTTP request:
