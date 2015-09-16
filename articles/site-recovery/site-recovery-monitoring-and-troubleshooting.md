@@ -83,14 +83,6 @@ As shown above in-case the virtual machine HEALTH is critical – you can click 
 
 Note: If there are any active operations which are in-progress or failed then navigate to the JOBS view as mentioned earlier to view the JOB specific error.
 
-## Event Log
-
-| Scenarios               	| Event Sources                                                                                                                                                                                        	|
-|-------------------------	|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	|
-| VMM Site Protection     	|  VMM Server <ul><li> **Applications and Service Logs/Microsoft/VirtualMachineManager/Server/Admin** </li></ul> Hyper-V Host <ul><li> **Applications and Service Logs/MicrosoftAzureRecoveryServices/Replication** (For Azure as Target)</li><li> **Applications and Service Logs/Microsoft/Windows/Hyper-V-VMMS/Admin** </li></ul> |
-| Hyper-V Site Protection 	| <ul><li> **Applications and Service Logs/MicrosoftAzureRecoveryServices/Replication** </li><li> **Applications and Service Logs/Microsoft/Azure Site Recovery/Provider/Operational** </li><li>	**Applications and Service Logs/Microsoft/Windows/Hyper-V-VMMS/Admin** </li><ul>|
-
-
 ## Troubleshoot on-premises Hyper-V issues
 
 Connect to the on-premises Hyper-V manager console, select the virtual
@@ -107,6 +99,15 @@ For cases where replication is paused for the virtual machine, right-click Selec
 ![Troubleshoot on-premises Hyper-V issues](media/site-recovery-monitoring-and-troubleshooting/image19.png)
 
 In case virtual machine migrates a new Hyper-V host (within the cluster or a standalone machine), which has been configured through ASR, replication for the virtual machine wouldn't be impacted. Ensure that the new Hyper-V host meets all the per-requisites and is configured using ASR.
+
+### Event Log
+
+| Scenarios               	| Event Sources                                                                                                                                                                                        	|
+|-------------------------	|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	|
+| VMM Site Protection     	|  VMM Server <ul><li> **Applications and Service Logs/Microsoft/VirtualMachineManager/Server/Admin** </li></ul> Hyper-V Host <ul><li> **Applications and Service Logs/MicrosoftAzureRecoveryServices/Replication** (For Azure as Target)</li><li> **Applications and Service Logs/Microsoft/Windows/Hyper-V-VMMS/Admin** </li></ul> |
+| Hyper-V Site Protection 	| <ul><li> **Applications and Service Logs/MicrosoftAzureRecoveryServices/Replication** </li><li> **Applications and Service Logs/Microsoft/Azure Site Recovery/Provider/Operational** </li><li>	**Applications and Service Logs/Microsoft/Windows/Hyper-V-VMMS/Admin** </li><ul>|
+
+![Troubleshoot on-premises Hyper-V issues](media/site-recovery-monitoring-and-troubleshooting/eventviewer01.png) ![Troubleshoot on-premises Hyper-V issues](media/site-recovery-monitoring-and-troubleshooting/eventviewer02.png) ![Troubleshoot on-premises Hyper-V issues](media/site-recovery-monitoring-and-troubleshooting/eventviewer03.png) ![Troubleshoot on-premises Hyper-V issues](media/site-recovery-monitoring-and-troubleshooting/eventviewer04.png)
 
 ### Hyper-V Replication Logging Options
 
@@ -125,6 +126,8 @@ under **Data Collector Sets.**
 ![Troubleshoot on-premises Hyper-V issues](media/site-recovery-monitoring-and-troubleshooting/image16.png)
 
 To view the information collected, first stop the tracing session by disabling the log, and then save the log and re-open it in Event Viewer or use other tools to convert it as desired.
+
+
 
 ## Reaching out for Microsoft Support
 
