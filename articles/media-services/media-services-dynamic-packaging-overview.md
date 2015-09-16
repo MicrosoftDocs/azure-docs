@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/15/2015" 
+	ms.date="09/07/2015" 
 	ms.author="juliako"/>
 
 
@@ -95,4 +95,14 @@ Publish assets (by creating Locators) using **Azure Management Portal** or **.NE
 The following source file formats are not supported by dynamic packaging.
 
 - Dolby digital plus mp4 files.
-- Dolby digital plus smooth files. 
+- Dolby digital plus smooth files.
+
+
+##Media Services learning paths
+
+You can view AMS learning paths here:
+
+- [AMS Live Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [AMS on Demand Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
+ 

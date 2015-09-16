@@ -1,5 +1,5 @@
 <properties 
-    pageTitle="Common DocumentDB use cases | Azure" 
+    pageTitle="Common DocumentDB use cases | Microsoft Azure" 
     description="Learn about the top five use cases for DocumentDB: user generated content, event logging, catalog data, user preferences data, and  Internet of Things (IoT)." 
     services="documentdb" 
     authors="h0n" 

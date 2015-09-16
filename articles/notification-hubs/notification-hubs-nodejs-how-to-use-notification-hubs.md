@@ -13,13 +13,15 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="06/02/2015"
+	ms.date="06/16/2015"
 	ms.author="wesmc"/>
 
 # How to use Notification Hubs from Node.js
-<div class="dev-center-tutorial-selector sublanding">
-    	<a href="/documentation/articles/notification-hubs-java-backend-how-to/" title="Java">Java</a><a href="/documentation/articles/notification-hubs-php-backend-how-to/" title="PHP">PHP</a><a href="/documentation/articles/notification-hubs-python-backend-how-to/" title="Python">Python</a><a href="/documentation/articles/notification-hubs-nodejs-how-to-use-notification-hubs/" title="Node.js" class="current">Node.js</a>
-</div>
+
+> [AZURE.SELECTOR]
+- [Java](notification-hubs-java-backend-how-to.md)
+- [PHP](notification-hubs-php-backend-how-to.md)
+- [Python](notification-hubs-python-backend-how-to)
 
 ##Overview
 
@@ -226,4 +228,3 @@ links to learn more.
   [nodejswebsite]: /develop/nodejs/tutorials/create-a-website-(mac)/
   [Node.js Cloud Service with Storage]: /develop/nodejs/tutorials/web-app-with-storage/
   [Node.js Web Application with Storage]: /develop/nodejs/tutorials/web-site-with-storage/
- 

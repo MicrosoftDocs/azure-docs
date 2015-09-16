@@ -1,7 +1,7 @@
 <properties
-	pageTitle=""
-	description="Describes what was changed in your Visual Studio project after you ran the Azure Active Directory wizard"
-	services="active-directory"
+	pageTitle="What happened to my WebApi project (Visual Studio Azure Active Directory connected service) |Microsoft Azure "
+	description="Describes what happens to your MVC project WebApi you connect to Azure AD by using Visual Studio services="active-directory"
+    services="active-directory"
 	documentationCenter=""
 	authors="patshea123"
 	manager="douge"
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="vs-what-happened"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/22/2015"
-	ms.author="patshea123"/>
+	ms.date="09/03/2015"
+	ms.author="patshea"/>
 
-# What happened to my project?
+# What happened to my WebApi project (Visual Studio Azure Active Directory connected service)
 
 > [AZURE.SELECTOR]
 > - [Getting Started](vs-active-directory-webapi-getting-started.md)
@@ -60,12 +60,13 @@ If you already had a Startup class in your project, the **Configuration** method
 ###Your app.config or web.config file has new configuration values.
 
 The following configuration entries have been added.
-	<pre>
+```
 	`<appSettings>
     		<add key="ida:ClientId" value="ClientId from the new Azure AD App" />
     		<add key="ida:Tenant" value="Your selected Azure AD Tenant" />
     		<add key="ida:Audience" value="The App ID Uri from the wizard" />
-	</appSettings>` </pre>
+	</appSettings>`
+```
 
 ###An Azure AD App was created
 
@@ -104,10 +105,12 @@ Each of following files was backed up before being replaced. Backup files are lo
 ###Additional changes were made to your app.config or web.config
 
 The following additional configuration entries have been added.
-	<pre>
+
+```
 	`<appSettings>
 	    <add key="ida:Password" value="Your Azure AD App's new password" />
-	</appSettings>` </pre>
+	</appSettings>`
+```
 
 ###Your Azure Active Directory App was updated
 Your Azure Active Directory App was updated to include the *Read directory data* permission and an additional key was created which was then used as the *ida:Password* in the `web.config` file.

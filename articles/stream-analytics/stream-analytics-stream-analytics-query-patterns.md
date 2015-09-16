@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Azure Stream Analytics Query Patterns | Microsoft Azure"
-	description="Azure Stream Analytics Sample Query Language Guide"
+	description="Common Azure Stream Analytics Query Patterns "
 	keywords="stream analytics, sample, query, language, guide, patterns"
 	services="stream-analytics"
 	documentationCenter=""
@@ -14,11 +14,11 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="07/30/2015"
+	ms.date="08/19/2015"
 	ms.author="jeffstok"/>
 
 
-# Azure Stream Analytics Sample Query Language Guide #
+# Common Azure Stream Analytics Query Patterns  #
 
 ## Introduction ##
 Queries in Azure Stream Analytics are expressed in a SQL-like query language, which is documented [here](https://msdn.microsoft.com/library/azure/dn834998.aspx).  This document outlines solutions to several common query patterns based on real world scenarios.  It is a work in progress and will continue to be updated with new patterns on an ongoing basis.
@@ -277,22 +277,22 @@ Use LAG to peek into the input stream one event back and get the Make value. The
 
 **Input**:
 
-| License plate | Make | Time |
+| LicensePlate | Make | Time |
 | --- | --- | --- |
-| DXE 5291 | Honda | 2015-07-27T07:00:00:05.0000000Z |
-| YZK 5704 | Ford | 2015-07-27T07:00:02:17.0000000Z |
-| RMV 8282 | Honda | 2015-07-27T07:00:05:01.0000000Z |
-| YHN 6970 | Toyota | 2015-07-27T07:00:06:00.0000000Z |
-| VFE 1616 | Toyota | 2015-07-27T07:00:09:31.0000000Z |
-| QYF 9358 | Honda | 2015-07-27T07:00:12:02.0000000Z |
-| MDR 6128 | BMW | 2015-07-27T07:00:13:45.0000000Z |
+| DXE 5291 | Honda | 2015-07-27T00:00:05.0000000Z |
+| YZK 5704 | Ford | 2015-07-27T00:02:17.0000000Z |
+| RMV 8282 | Honda | 2015-07-27T00:05:01.0000000Z |
+| YHN 6970 | Toyota | 2015-07-27T00:06:00.0000000Z |
+| VFE 1616 | Toyota | 2015-07-27T00:09:31.0000000Z |
+| QYF 9358 | Honda | 2015-07-27T00:12:02.0000000Z |
+| MDR 6128 | BMW | 2015-07-27T00:13:45.0000000Z |
 
 **Output**:
 
-| License plate | Make | Time |
+| LicensePlate | Make | Time |
 | --- | --- | --- |
-| DXE 5291 | Honda | 2015-07-27T07:00:05.000Z |
-| QYF 9358 | Honda | 2015-07-27T07:12:02.000Z |
+| DXE 5291 | Honda | 2015-07-27T00:00:05.0000000Z |
+| QYF 9358 | Honda | 2015-07-27T00:12:02.0000000Z |
 
 **Solution**:
 
@@ -307,13 +307,13 @@ Use LAG to peek into the input stream one event back and get the Make value. The
 
 Now let’s change the problem and find first car of particular Make in every 10 minute interval.
 
-| License plate | Make | Time |
+| LicensePlate | Make | Time |
 | --- | --- | --- |
-| DXE 5291 | Honda | 2015-07-27T07:00:05.000Z |
-| YZK 5704 | Ford | 2015-07-27T07:02:17.000Z |
-| YHN 6970 | Toyota | 2015-07-27T07:06:00.000Z |
-| QYF 9358 | Honda | 2015-07-27T07:12:02.000Z |
-| MDR 6128 | BMW | 2015-07-27T07:13:45.000Z |
+| DXE 5291 | Honda | 2015-07-27T00:00:05.0000000Z |
+| YZK 5704 | Ford | 2015-07-27T00:02:17.0000000Z |
+| YHN 6970 | Toyota | 2015-07-27T00:06:00.0000000Z |
+| QYF 9358 | Honda | 2015-07-27T00:12:02.0000000Z |
+| MDR 6128 | BMW | 2015-07-27T00:13:45.0000000Z |
 
 **Solution**:
 
@@ -331,22 +331,22 @@ Now let’s change the problem and find first car of particular Make in every 10
 
 **Input**:
 
-| License plate | Make | Time |
+| LicensePlate | Make | Time |
 | --- | --- | --- |
-| DXE 5291 | Honda | 2015-07-27T07:00:00:05.0000000Z |
-| YZK 5704 | Ford | 2015-07-27T07:00:02:17.0000000Z |
-| RMV 8282 | Honda | 2015-07-27T07:00:05:01.0000000Z |
-| YHN 6970 | Toyota | 2015-07-27T07:00:06:00.0000000Z |
-| VFE 1616 | Toyota | 2015-07-27T07:00:09:31.0000000Z |
-| QYF 9358 | Honda | 2015-07-27T07:00:12:02.0000000Z |
-| MDR 6128 | BMW | 2015-07-27T07:00:13:45.0000000Z |
+| DXE 5291 | Honda | 2015-07-27T00:00:05.0000000Z |
+| YZK 5704 | Ford | 2015-07-27T00:02:17.0000000Z |
+| RMV 8282 | Honda | 2015-07-27T00:05:01.0000000Z |
+| YHN 6970 | Toyota | 2015-07-27T00:06:00.0000000Z |
+| VFE 1616 | Toyota | 2015-07-27T00:09:31.0000000Z |
+| QYF 9358 | Honda | 2015-07-27T00:12:02.0000000Z |
+| MDR 6128 | BMW | 2015-07-27T00:13:45.0000000Z |
 
 **Output**:
 
-| License plate | Make | Time |
+| LicensePlate | Make | Time |
 | --- | --- | --- |
-| VFE 1616 | Toyota | 2015-07-27T07:09:31.000Z |
-| MDR 6128 | BMW | 2015-07-27T07:13:45.000Z |
+| VFE 1616 | Toyota | 2015-07-27T00:09:31.0000000Z |
+| MDR 6128 | BMW | 2015-07-27T00:13:45.0000000Z |
 
 **Solution**:
 
@@ -378,7 +378,7 @@ e.g. Have 2 consecutive cars from the same make entered the toll road within 90 
 
 **Input**:
 
-| Make | License plate | Time |
+| Make | LicensePlate | Time |
 | --- | --- | --- |
 | Honda | ABC-123 | 2015-01-01T00:00:01.0000000Z |
 | Honda | AAA-999 | 2015-01-01T00:00:02.0000000Z |

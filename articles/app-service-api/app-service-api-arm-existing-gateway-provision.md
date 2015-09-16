@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/08/2015" 
+	ms.date="08/04/2015" 
 	ms.author="tomfitz"/>
 
 # Provision an API app with an existing gateway
@@ -41,7 +41,7 @@ To run the deployment automatically, click the following button:
 
 ### hostingPlanId
 
-The identifier of the existing hosting plan.
+The identifier of the existing App Service hosting plan.
 
     "hostingPlanId": {
       "type": "string"
@@ -66,7 +66,7 @@ This template defines a variable which is used when deploying the resources.
       "packageId": "Microsoft.ApiApp"
     }
     
-The value is used below as **variables('packageId')**.
+The value is used below as **variables('packageId')**. It contains the NuGet package Id for API apps.
 
 ## Resources to deploy
 
@@ -74,8 +74,8 @@ The value is used below as **variables('packageId')**.
 
 Creates a web app that hosts the API app. 
 
-Notice that **kind** is set to **apiApp** which notifies the Azure portal that this web app is hosting a gateway. The portal will hide the web app from the browse web app blade. The app includes an extension 
-to install the default empty API app package. A link is defined between the API app and the hosting web app. The app settings section includes necessary values for hosting the API app.
+Notice that **kind** is set to **apiApp** which notifies the Azure portal that this web app is hosting an API app. The portal will hide the web app from the browse web apps blade. The app includes an extension 
+to install the default empty API app package. A link is defined between the API app and the hosting web app. The app settings section includes necessary values for hosting the API app. The **serverFarmId** property is set to the value you provided in the **hostingPlanId** parameter.
 
     {
       "type": "Microsoft.Web/sites",

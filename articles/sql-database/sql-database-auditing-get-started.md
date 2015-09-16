@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Get started with SQL database auditing | Azure" 
+	pageTitle="Get started with SQL database auditing | Microsoft Azure" 
 	description="Get started with SQL database auditing" 
 	services="sql-database" 
 	documentationCenter="" 

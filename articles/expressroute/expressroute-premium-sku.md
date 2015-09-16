@@ -4,15 +4,15 @@
    services="expressroute"
    documentationCenter="na"
    authors="cherylmc"
-   manager="jdial"
-   editor="tysonn" />
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="expressroute"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/02/2015"
+   ms.date="08/25/2015"
    ms.author="cherylmc" />
 
 # Configure the ExpressRoute Premium add-on for your ExpressRoute circuit
@@ -173,7 +173,7 @@ You can disable the ExpressRoute Premium add-on for an ExpressRoute circuit that
 		Sku                              : Premium
 		Status                           : Standard
 
-	Your circuit will now have the ExpressRoute Premium add-on disabled.
+	The Premium add-on is now disabled for your circuit.
 
 
  

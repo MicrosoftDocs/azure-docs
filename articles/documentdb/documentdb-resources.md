@@ -1,6 +1,7 @@
 <properties 
-	pageTitle="DocumentDB resource model and concepts | Azure" 
-	description="Microsoft Azure DocumentDB is a fully-managed NoSQL document database that uses a hierarchichal model of database accounts, databases, collections, stored procedures, triggers, UDFs, documents, attachments, media, users, and permissions to manage resources."  
+	pageTitle="DocumentDB hierarchical resource model and concepts | Microsoft Azure" 
+	description="Learn about DocumentDB’s hierarchical model of databases, collections, user defined function (UDF), documents, permissions to manage resources, and more."
+	keywords="Hierarchical Model, documentdb, azure, Microsoft azure"	
 	services="documentdb" 
 	documentationCenter="" 
 	authors="mimig1" 
@@ -13,28 +14,28 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/11/2015" 
+	ms.date="08/03/2015" 
 	ms.author="anhoh"/>
 
-#DocumentDB resource model and concepts
+# DocumentDB hierarchical resource model and concepts
 
 The database entities that DocumentDB manages are referred to as **resources**. Each resource is uniquely identified by a logical URI. You can interact with the resources using standard HTTP verbs, request/response headers and status codes. 
 
 By reading this article, you'll be able to answer the following questions:
 
 - What are the DocumentDB resources?
-- What is the hierarchy of DocumentDB resources?
+- What is hierarchical model of DocumentDB resources?
 - What are system defined resources versus user defined resources?
 - How do I address a resource?
 - How do I work with collections?
 - How do I work with stored procedures, triggers and User Defined Functions (UDFs)?
 
 ##Hierarchical resource model
-As the following diagram illustrates, the DocumentDB **resource model** consists of sets of resources under a database account, each addressable via a logical and stable URI. A set of resources will be referred to as a **feed** in this article. 
+As the following diagram illustrates, the DocumentDB hierarchical **resource model** consists of sets of resources under a database account, each addressable via a logical and stable URI. A set of resources will be referred to as a **feed** in this article. 
 
 >[AZURE.NOTE] DocumentDB offers a highly efficient TCP protocol which is also RESTful in its communication model, available through the [.NET client SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx).
 
-![][1]  
+![DocumentDB hierarchical resource model][1]  
 **Hierarchical resource model under a database account**   
 
 To start working with resources, you must [create a DocumentDB database account](documentdb-create-account.md) using your Azure subscription. A database account can consist of a set of **databases**, each containing multiple **collections**, each of which in-turn contain **stored procedures, triggers, UDFs, documents** and related **attachments** (preview feature). A database also has associated **users**, each with a set of **permissions** to access collections, stored procedures, triggers, UDFs, documents or attachments. While databases, users, permissions and collections are system-defined resources with well-known schemas, documents and attachments contain arbitrary, user defined JSON content.  
@@ -59,46 +60,13 @@ Resources such as database accounts, databases, collections, users, permissions,
 >[AZURE.NOTE] Note that all system generated properties in a resource are prefixed with an underscore (_) in their JSON representation.  
 
 
-<table width="500"> 
-<tbody>
-<tr>
-<td valign="top" ><p><b>Property </b></p></td>
-<td valign="top" ><p><b>User settable or system generated?</b></p></td>
-<td valign="top" ><p><b>Purpose</b></p></td>
-</tr>
-
-<tr>
-<td valign="top" ><p>_rid</p></td>
-<td valign="top" ><p>System generated</p></td>
-<td valign="top" ><p>System generated, unique and hierarchical identifier of the resource.</p></td>
-</tr>
-
-<tr>
-<td valign="top" ><p>_etag</p></td>
-<td valign="top" ><p>System generated</p></td>
-<td valign="top" ><p>etag of the resource required for optimistic concurrency control.</p></td>
-</tr>
-
-<tr>
-<td valign="top" ><p>_ts</p></td>
-<td valign="top" ><p>System generated</p></td>
-<td valign="top" ><p>Last updated timestamp of the resource.</p></td>
-</tr>
-
-<tr>
-<td valign="top" ><p>_self</p></td>
-<td valign="top" ><p>System generated</p></td>
-<td valign="top" ><p>Unique addressable URI of the resource.</p></td>
-</tr>
-
-<tr>
-<td valign="top" ><p>id</p></td>
-<td valign="top" ><p>User settable</p></td>
-<td valign="top" ><p>User defined unique name of the resource.</p></td>
-</tr>
-
-</tbody>
-</table>  
+Property |User settable or system generated?|Purpose
+---|---|---
+_rid|System generated|System generated, unique and hierarchical identifier of the resource.
+_etag|System generated|etag of the resource required for optimistic concurrency control.
+_ts|System generated|Last updated timestamp of the resource.
+_self|System generated|Unique addressable URI of the resource.
+id|User settable|User defined unique name of the resource.
 
 ###Wire representation of resources
 DocumentDB does not mandate any proprietary extensions to the JSON standard or special encodings; it works with standard compliant JSON documents.  
@@ -131,44 +99,19 @@ You can [create and manage DocumentDB database accounts](documentdb-create-accou
 ###Database account properties
 As part of provisioning and managing a database account you can configure and read the following properties:  
 
-<table border="1" cellspacing="0" cellpadding="0" > 
-<tbody>
-<tr>
-<td valign="top" ><p><b>Property Name</b></p></td>
-<td valign="top" ><p><b>Description</b></p></td>
-</tr>
-
-<tr>
-<td valign="top" ><p>Consistency Policy</p></td>
-<td valign="top" ><p>Set this property to configure the default consistency level for all the collections under your database account. You can override the consistency level on a per request basis using the [x-ms-consistency-level] request header. In the future, we may support overriding the consistency level on a per collection basis. </p>
-
-<p>Note that this property only applies to the <i>user defined resources</i>. All system defined resources are configured to support reads/queries with strong consistency.</p></td>
-</tr>
-
-<tr>
-<td valign="top" ><p>Primary Key and Secondary Key</p></td>
-<td valign="top" ><p>These are the primary and secondary keys that provide administrative access to all of the resources under the database account.</p></td>
-</tr>
-
-<tr>
-<td valign="top" ><p>MaxMediaStorageUsageInMB (READ)</p></td>
-<td valign="top" ><p>Maximum amount of media storage available for the database account.</p></td>
-</tr>
-
-<tr>
-<td valign="top" ><p>MediaStorageUsageInMB (READ)</p></td>
-<td valign="top" ><p>Current usage of media storage for the database account.</p></td>
-</tr>
-
-</tbody>
-</table>
+Property Name|Description
+---|---
+Consistency Policy|Set this property to configure the default consistency level for all the collections under your database account. You can override the consistency level on a per request basis using the [x-ms-consistency-level] request header. In the future, we may support overriding the consistency level on a per collection basis. <p><p>Note that this property only applies to the <i>user defined resources</i>. All system defined resources are configured to support reads/queries with strong consistency.
+Primary Key and Secondary Key|These are the primary and secondary keys that provide administrative access to all of the resources under the database account.
+MaxMediaStorageUsageInMB (READ)|Maximum amount of media storage available for the database account.
+MediaStorageUsageInMB (READ)|Current usage of media storage for the database account.
 
 Note that in addition to provisioning, configuring and managing your database account from the Azure portal, you can also programmatically create and manage DocumentDB database accounts by using the [Azure DocumentDB REST APIs](https://msdn.microsoft.com/library/azure/dn781481.aspx) as well as [client SDKs](https://msdn.microsoft.com/library/azure/dn781482.aspx).  
 
 ##Databases
 A DocumentDB database is a logical container of one or more collections and users, as shown in the following diagram. You can create any number of databases under a DocumentDB database account subject to offer limits.  
 
-![][2]  
+![Database account and collections hierarchical model][2]  
 **A Database is a logical container of users and collections**
 
 A database can contain virtually unlimited document storage partitioned by collections, which form the transaction domains for the documents contained within them. 
@@ -283,7 +226,7 @@ Stored procedures and triggers interact with a collection and the documents in a
 
 Collections in DocumentDB can be created, deleted, read or enumerated easily using either the [Azure DocumentDB REST APIs](https://msdn.microsoft.com/library/azure/dn781481.aspx) or any of the [client SDKs](https://msdn.microsoft.com/library/azure/dn781482.aspx). DocumentDB always provides strong consistency for reading or querying the metadata of a collection. Deleting a collection automatically ensures that you cannot access any of the documents, attachments, stored procedures, triggers, and UDFs contained within it.   
  
-##Stored procedures, triggers and UDFs
+##Stored procedures, triggers and User Defined Functions (UDF)
 As described in the previous section, you can write application logic to run directly within a transaction inside of the database engine. The application logic can be written entirely in JavaScript and can be modeled as a stored procedure, trigger or a UDF. The JavaScript code within a stored procedure or a trigger can insert, replace, delete, read or query documents within a collection. On the other hand, the JavaScript within a UDF can only perform side effect free computation by enumerating the documents of the result set of the query and produce another result set. For multi-tenancy, DocumentDB enforces a strict reservation based resource governance. Each stored procedure, trigger or a UDF gets a fixed quantum of operating system resources to do its work. Further, stored procedures, triggers or UDFs cannot link against external JavaScript libraries and are blacklisted if they exceed the resource budgets allocated to them. You can register, unregister stored procedures, triggers or UDFs with a collection by using the REST APIs.  Upon registration a stored procedure, trigger, or a UDF is pre-compiled and stored as byte code which gets executed later. The following section illustrate how you can use the DocumentDB JavaScript SDK to register, execute, and unregister a stored procedure, trigger, and a UDF. The JavaScript SDK is a simple wrapper over the [DocumentDB REST APIs](https://msdn.microsoft.com/library/azure/dn781481.aspx). 
 
 ###Registering a stored procedure
@@ -452,7 +395,7 @@ As your applications need to scale with your user growth, you can adopt various 
 
 Regardless of the specific sharding strategy you choose, you can model your actual users as users in DocumentDB database and associate fine grained permissions to each user.  
 
-![][3]  
+![User collections][3]  
 **Sharding strategies and modeling users**
 
 Like all other resources, users in DocumentDB can be created, replaced, deleted, read or enumerated easily using either REST APIs or any of the client SDKs. DocumentDB always provides strong consistency for reading or querying the metadata of a user resource. It is worth pointing out that deleting a user automatically ensures that you cannot access any of the permissions contained within it. Even though the DocumentDB reclaims the quota of the permissions as part of the deleted user in the background, the deleted permissions is available instantly again for you to use.  

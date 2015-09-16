@@ -1,6 +1,7 @@
 <properties
-	pageTitle="Get started with the DocumentDB .NET SDK | Azure"
-	description="Learn how to create and configure an Azure DocumentDB account, create databases, create collections, and store JSON documents within your NoSQL document database account."
+	pageTitle="NoSQL Databases - Get started with the DocumentDB .NET SDK | Microsoft Azure"
+	description="Learn how to create a database and configure an Azure DocumentDB account. Create databases, collections, and store JSON documents within your NoSQL database account."
+	keywords="Create a database, create database, nosql database, nosql databases, nuget, documentdb, azure, Microsoft azure"
 	services="documentdb"
 	documentationCenter=".net"
 	authors="AndrewHoh"
@@ -12,8 +13,8 @@
 	ms.workload="data-services"
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
-	ms.topic="get-started-article" 
-	ms.date="05/19/2015"
+	ms.topic="hero-article" 
+	ms.date="09/03/2015"
 	ms.author="anhoh"/>
 
 #Get started with the DocumentDB .NET SDK  
@@ -32,7 +33,9 @@ The following scenarios are covered in this article:
 - Querying resources
 - Deleting databases
 
-Don't have time to complete the tutorial and just want to get the working solution? No worries. The complete solution is available on [GitHub](https://github.com/Azure/azure-documentdb-net/tree/master/tutorials/get-started). See [Get the complete solution](#GetSolution) for quick instructions.
+Don't have time to complete the tutorial and just want to get the working solution? No worries. The complete solution is available on [GitHub](https://github.com/Azure/azure-documentdb-net/tree/master/tutorials/get-started). See [Get the complete solution](#GetSolution) for quick instructions. 
+
+We update and improve this topic frequently based on your feedback.  Once you've completed the tutorial, please using the voting buttons at the top and bottom of this page, and be sure to include your feedback on what improvements you want to see made. If you'd like us to contact you directly, feel free to include your email address in your comments.   
 
 ## Prerequisites
 
@@ -455,6 +458,8 @@ You should now see the output of your get started app. The output will show the 
 
 > [AZURE.NOTE] If you run the application multiple times without removing the database, you might run into the issue of creating a new database with an id already in use. To avoid this, you can check to see if a database, collection, or document with the same id already exists. For a reference on how this can be achieved, visit our [GitHub page](https://github.com/Azure/azure-documentdb-net/tree/master/tutorials/get-started).
 
+Contratulations! You've created your first DocumentDB app! 
+
 ##<a id="GetSolution"></a> Get the complete solution
 To build the GetStarted solution that contains all the samples in this article, you will need the following:
 
@@ -464,6 +469,7 @@ To build the GetStarted solution that contains all the samples in this article, 
 To restore the references to the DocumentDB .NET SDK in Visual Studio 2013, right-click the **GetStarted** solution in Solution Explorer, and then click **Enable NuGet Package Restore**. Next, in the App.config file, update the EndpointUrl and AuthorizationKey values as described in [Connect to a DocumentDB account](#Connect).
 
 ## Next steps
+
 -   Want a more complex ASP.NET MVC sample? See [Build a web application with ASP.NET MVC using DocumentDB](documentdb-dotnet-application.md).
 -	Learn how to [monitor a DocumentDB account](documentdb-monitor-accounts.md).
 -	Run queries against our sample dataset in the [Query Playground](https://www.documentdb.com/sql/demo).

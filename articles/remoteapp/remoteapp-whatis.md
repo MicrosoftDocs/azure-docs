@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="What is RemoteApp?" 
+	pageTitle="What is Azure RemoteApp?" 
 	description="Learn about Azure RemoteApp." 
 	services="remoteapp" 
 	documentationCenter="" 
@@ -12,8 +12,8 @@
 	ms.workload="compute" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/30/2015" 
+	ms.topic="get-started-article" 
+	ms.date="08/05/2015" 
 	ms.author="elizapo"/>
 
 # What is Azure RemoteApp?

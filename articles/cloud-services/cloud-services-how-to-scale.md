@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="How to scale a cloud service | Azure" 
-	description="Learn how to scale a cloud service and linked resources in Azure." 
+	pageTitle="Configure autoscale for a cloud service | Microsoft Azure" 
+	description="Learn how to use the portal to configure autoscale rules for a cloud service and linked resources in Azure." 
 	services="cloud-services" 
 	documentationCenter="" 
 	authors="Thraka" 
@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/16/2015"
+	ms.date="09/08/2015"
 	ms.author="adegeo"/>
 
 
 
 
 
-# How to Scale an Application
+# How to Autoscale an Application
 
 On the Scale page of the Azure Management Portal, you can manually scale your application or you can set parameters to automatically scale it. You can scale applications that are running Web Roles, Worker Roles, or Virtual Machines. To scale an application that is running instances of Web Roles or Worker Roles, you add or remove role instances to accommodate the work load.
 

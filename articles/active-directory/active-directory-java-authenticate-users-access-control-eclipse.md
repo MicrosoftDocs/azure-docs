@@ -1,5 +1,5 @@
 <properties
-    pageTitle="How to use Access Control (Java) - Azure feature guide"
+    pageTitle="How to use Access Control (Java) | Microsoft Azure"
     description="Learn how to develop and use Access Control with Java in Azure."
 	services="active-directory" 
     documentationCenter="java"

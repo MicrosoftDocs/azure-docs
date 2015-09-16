@@ -1,10 +1,10 @@
 <properties 
-   pageTitle="Use StorSimple Snapshot Manager to create and manage volume groups | Microsoft Azure"
+   pageTitle="StorSimple Snapshot Manager volume groups | Microsoft Azure"
    description="Describes how to use the StorSimple Snapshot Manager MMC snap-in to create and manage volume groups."
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
-   manager="adinah"
+   manager="carolz"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="07/09/2015"
+   ms.date="09/04/2015"
    ms.author="v-sharos" />
 
 # Use StorSimple Snapshot Manager to create and manage volume groups

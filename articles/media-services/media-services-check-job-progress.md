@@ -13,12 +13,15 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="05/25/2015" 
+	ms.date="09/07/2015"   
 	ms.author="juliako"/>
 
 #How to: Check Job Progress
 
-This article is part of the [Media Services Video on Demand workflow](media-services-video-on-demand-workflow.md) series. 
+> [AZURE.SELECTOR]
+- [Portal](media-services-portal-check-job-progress.md)
+- [.NET](media-services-check-job-progress.md)
+- [REST](media-services-rest-check-job-progress.md)
 
 When you run jobs, you often require a way to track job progress. You can check the progress by [defining a StateChanged event handler](#statechange_event_handler) or [using Azure Queue storage to monitor Media Services job notifications](#check_progress_with_queues). Both methods are described in this topic. 
 
@@ -426,3 +429,10 @@ The example above produced the following output. You values will vary.
 	State: Finished
 	
  
+##Media Services learning paths
+
+You can view AMS learning paths here:
+
+- [AMS Live Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [AMS on Demand Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+

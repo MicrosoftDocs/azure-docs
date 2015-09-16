@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Push notifications to users (Android ) | Mobile Dev Center" 
+	pageTitle="Push notifications to users (Android ) | Microsoft Azure" 
 	description="Learn how to use Mobile Services to push notifications to users of your Android app." 
 	services="mobile-services" 
 	documentationCenter="android" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="android" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="04/14/2015" 
+	ms.date="07/29/2015" 
 	ms.author="ricksal"/>
 
 # Push notifications to users using Mobile Services

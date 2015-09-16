@@ -12,8 +12,8 @@
 	ms.workload="tbd"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="get-started-article" 
-	ms.date="07/06/2015"
+	ms.topic="article" 
+	ms.date="09/03/2015"
 	ms.author="bwren"/>
 
 # What is Azure Automation?
@@ -58,7 +58,7 @@ A variety of resources are available for you to learn more about Azure Automatio
 
 - **Azure Automation Library** is where you are right now.  The articles in this library provide complete documentation on the configuration and administration of Azure Automation and for authoring your own runbooks.
 - [Azure PowerShell cmdlets](http://msdn.microsoft.com/library/jj156055.aspx) provides information for automating Azure operations using Windows PowerShell.  Runbooks use these cmdlets to work with Azure resources.
-- [Azure Automation Blog](http://azure.microsoft.com/blog/tag/azure-automation) provides the latest information on Azure Automation from Microsoft.  You should subscribe to this blog to stay up to date with the latest from the Azure Automation team.
+- [Management Blog](http://azure.microsoft.com/blog/topics/management) provides the latest information on Azure Automation and other management technologies from Microsoft.  You should subscribe to this blog to stay up to date with the latest from the Azure Automation team.
 - [Automation Forum](http://go.microsoft.com/fwlink/p/?LinkId=390561) allows you to post questions about Azure Automation to be addressed by Microsoft and the Automation community.
 
 ## Can I provide feedback?

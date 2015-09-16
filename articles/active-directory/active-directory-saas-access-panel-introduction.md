@@ -140,29 +140,22 @@ If you are an Azure administrator and you are signed into the Azure Management P
 2. Go to the Access Panel at **http://myapps.microsoft.com**.
 
 3. In the sign in page, enter the username and password for the account in your directory that you want to test.
-
-
-
  
 ## Launching Applications
 
 There are several types of applications that can appear on the Access Panel.
  
-
 ### Office 365 applications
 
 If an organization is using Office 365 applications and the user is licensed for them, then the Office 365 applications will appear on the user’s Access Panel.
 
 When a user clicks on an application tile for an Office 365 application, they are redirected to that application and automatically signed in.
- 
-
 
 ### Microsoft and third-party applications configured with Federation-based SSO
 
 These are applications that the administrator has added in the Active Directory section of the Azure Management Portal with the single sign-on mode set to “*Azure AD Single Sign-On*”. A user will only see these applications if they have been explicitly granted access to the application by the administrator.
 
 When a user clicks on an application tile for one of these applications, they are redirected to that application and automatically signed in.
- 
 
 ### Password-based SSO without identity provisioning
 
@@ -174,10 +167,6 @@ The first time a user clicks on an application tile for one of these application
 The next time a user clicks on the application tile, they will be automatically signed into the application without needing to enter the credentials again and without needing to install the Password SSO plugin again.
 
 If a user’s credentials have changed in the target third-party application, then the user must also update their credentials which are stored in Azure AD. To update credentials, a user must select the icon in the lower-right of the application tile, and select “update credentials” to re-enter the username and password for that application.
- 
-
-
-
 
 ### Password-based SSO with identity provisioning
 
@@ -193,16 +182,10 @@ When configuring single sign-on for an application, the Azure management portal 
 For example, if there is an application that is configured to authenticate users using Active Directory Federation Services 2.0, an administrator can use the “Existing Single Sign-On” option to create a link to it on the access panel. When users access the link, they are authenticated using Active Directory Federation Services 2.0, or whatever existing single sign-on solution is provided by the application.
 
 
-
-
-
-## Additional Resources
-
-* [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+[AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
 
 <!--Image references-->
 [1]: ./media/active-directory-saas-access-panel-introduction/ic767166.png
 [2]: ./media/active-directory-saas-access-panel-introduction/ic767167.png
 [3]: ./media/active-directory-saas-access-panel-introduction/ic767168.png
 [4]: ./media/active-directory-saas-access-panel-introduction/ic767169.png
- 

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/22/2015"
+   ms.date="08/05/2015"
    ms.author="jesseb"/>
 
 # Managing your Service Fabric applications in Visual Studio
@@ -68,10 +68,10 @@ You can remove an application from your local cluster using Server Explorer.  Th
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Next steps
 
-- [Service Fabric application model](../service-fabric-application-model)
-- [Service Fabric application deployment](../service-fabric-deploy-remove-applications)
-- [Debugging your Service Fabric application](../service-fabric-debugging-your-application)
-- [Visualizing your cluster using Service Fabric Explorer](../service-fabric-visualizing-your-cluster)
+- [Service Fabric application model](service-fabric-application-model.md)
+- [Service Fabric application deployment](service-fabric-deploy-remove-applications.md)
+- [Debugging your Service Fabric application](service-fabric-debugging-your-application.md)
+- [Visualizing your cluster using Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)
 
 <!--Image references-->
 [addserviceproject]:./media/service-fabric-manage-application-in-visual-studio/addserviceproject.png

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="How to partition data in DocumentDB with the .NET SDK" 
+	pageTitle="How to partition data in DocumentDB with the .NET SDK | Microsoft Azure" 
 	description="Learn how to use the Azure DocumentDB .NET SDK to partition (shard) data and route requests across multiple collections" 
 	services="documentdb" 
 	authors="arramac" 

@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Get started with data (Android) | Mobile Dev Center" 
-	description="Learn how to get started using Mobile Services to leverage data in your Android app." 
+	pageTitle="Get started with data on Android  (JavaScript backend) | Microsoft Azure" 
+	description="Learn how to get started using Mobile Services to leverage data in your Android app  (JavaScript backend)." 
 	services="mobile-services" 
 	documentationCenter="android" 
 	authors="RickSaling" 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="mobile-android" 
 	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="05/15/2015" 
+	ms.date="09/04/2015" 
 	ms.author="ricksal"/>
 
-# Add Mobile Services to an existing Android app
+# Add Mobile Services to an existing Android app (JavaScript backend)
 
 [AZURE.INCLUDE [mobile-services-selector-get-started-data](../../includes/mobile-services-selector-get-started-data.md)]
 
@@ -102,7 +102,7 @@ This concludes the **Get started with data** tutorial for Android.
 ## Older Code Versions
 
 If you would like to see the Eclipse version of this tutorial, go to 
-[Get started with data using Eclipse](mobile-services-android-get-started-data-EC.md).
+[Get started with data using Eclipse](mobile-services-android-get-started-data-ec.md).
 
 To see a completed version of the source code in an Eclipse project, go <a href="https://github.com/Azure/mobile-services-samples/tree/master/GettingStartedWithData/Android">here</a>.
 

@@ -1,9 +1,9 @@
 <properties 
-	pageTitle="Learn how to secure access to data in DocumentDB | Azure" 
+	pageTitle="Learn how to secure access to data in DocumentDB | Microsoft Azure" 
 	description="Learn about access control concepts in DocumentDB, including master keys, read-only keys, users, and permissions." 
 	services="documentdb" 
 	authors="stephbaron" 
-	manager="johnmac" 
+	manager="jhubbard" 
 	editor="monicar" 
 	documentationCenter=""/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/22/2015" 
+	ms.date="09/01/2015" 
 	ms.author="stbaro"/>
 
 # Securing access to DocumentDB data #

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article" 
-	ms.date="06/15/2015"
+	ms.date="08/04/2015"
 	ms.author="tamram"/>
 
 # How to use Queue storage from .NET
@@ -28,7 +28,7 @@ and use the Azure Storage Client for .NET. The scenarios covered include **inser
 **peeking**, **getting**, and **deleting** queue messages, as well as
 **creating and deleting queues**.
 
-> [AZURE.NOTE] This guide targets the Azure .NET Storage Client Library 2.x and above. The recommended version is Storage Client Library 4.x, which is available via [NuGet](https://www.nuget.org/packages/WindowsAzure.Storage/) or as part of the [Azure SDK for .NET](/downloads/). See [Programmatically access Queue storage](#programmatically-access-queue-storage) below for more details on obtaining the Storage Client Library.
+[AZURE.INCLUDE [storage-dotnet-client-library-version-include](../../includes/storage-dotnet-client-library-version-include.md)]
 
 [AZURE.INCLUDE [storage-queue-concepts-include](../../includes/storage-queue-concepts-include.md)]
 
@@ -292,24 +292,15 @@ To delete a queue and all the messages contained in it, call the
 Now that you've learned the basics of Queue storage, follow these links
 to learn about more complex storage tasks.
 
-<ul>
-<li>View the Queue service reference documentation for complete details about available APIs:
-  <ul>
-    <li><a href="http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409">Storage Client Library for .NET reference</a>
-    </li>
-    <li><a href="http://msdn.microsoft.com/library/azure/dd179355">REST API reference</a></li>
-  </ul>
-</li>
-<li>Learn about more advanced tasks you can perform with Azure Storage at <a href="http://msdn.microsoft.com/library/azure/gg433040.aspx">Storing and Accessing Data in Azure</a>.</li>
-<li>Learn how to simplify the code you write to work with Azure Storage by using the <a href="../websites-dotnet-webjobs-sdk/">Azure WebJobs SDK.</li>
-<li>View more feature guides to learn about additional options for storing data in Azure.
-  <ul>
-    <li>Use <a href="/documentation/articles/storage-dotnet-how-to-use-tables/">Table Storage</a> to store structured data.</li>
-    <li>Use <a href="/documentation/articles/storage-dotnet-how-to-use-blobs/">Blob Storage</a> to store unstructured data.</li>
-    <li>Use <a href="/documentation/articles/sql-database-dotnet-how-to-use/">SQL Database</a> to store relational data.</li>
-  </ul>
-</li>
-</ul>
+- View the Queue service reference documentation for complete details about available APIs:
+    - [Storage Client Library for .NET reference](http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
+    - [REST API reference](http://msdn.microsoft.com/library/azure/dd179355)
+- Learn about more advanced tasks you can perform with Azure Storage at [Storing and Accessing Data in Azure](http://msdn.microsoft.com/library/azure/gg433040.aspx)
+- Learn how to simplify the code you write to work with Azure Storage by using the [Azure WebJobs SDK](../websites-dotnet-webjobs-sdk/).
+- View more feature guides to learn about additional options for storing data in Azure.
+    - Use [Table Storage](storage-dotnet-how-to-use-tables.md) to store structured data. 
+    - Use [Blob Storage](storage-dotnet-how-to-use-blobs.md) to store unstructured data.
+    - Use [SQL Database](sql-database-dotnet-how-to-use.md) to store relational data.
 
   [Download and install the Azure SDK for .NET]: /develop/net/
   [.NET client library reference]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
