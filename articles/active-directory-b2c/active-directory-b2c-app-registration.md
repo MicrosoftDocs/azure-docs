@@ -20,7 +20,7 @@
 
 ## Pre-requisite
 
-To build an application that accepts consumer sign up & sign in, you'll first need to register it with an Azure Active Directory B2C directory. Get your own directory using the steps outlined in this [article](active-directory-get-started.md).
+To build an application that accepts consumer sign up & sign in, you'll first need to register it with an Azure Active Directory B2C directory. Get your own directory using the steps outlined in this [article](active-directory-b2c-get-started.md).
 
 ## Navigate to the B2C Features Blade
 
@@ -34,7 +34,7 @@ You can also access the B2C features blade directly by navigating to [https://po
 
 ### 2. Access via the Azure Portal
 
-Sign in to the [Azure portal](https://manage.windowsazure.com/). On the **Quick Start** tab, click on **Manage B2C settings** under **Administer**. This will open up the B2C features blade in a new browser window or tab.
+Sign in to the [Azure portal](https://manage.windowsazure.com/), and navigate to your B2C directory. On the **Quick Start** tab, click on **Manage B2C settings** under **Administer**. This will open up the B2C features blade in a new browser window or tab.
 
 You can also find the **Manage B2C settings** link (under **B2C Administration**) in the **Configure** tab.
 

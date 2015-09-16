@@ -25,7 +25,7 @@ Azure AD B2C supports authentication for a variety of modern app architectures, 
 	please refer to the [Azure Active Directory Developer Guide](active-directory-developers-guide.md).
 
 ## The Basics
-Every app that uses Azure AD B2C will need to be registered in your [B2C directory](active-directory-b2c-get-started.md) via the [Azure Portal](https://portal.azure.com).  The app registration process will collect & assign a few values to your app:
+Every app that uses Azure AD B2C will need to be registered in your [B2C directory](active-directory-b2c-get-started.md) via the [Azure Preview Portal](https://portal.azure.com).  The app registration process will collect & assign a few values to your app:
 
 - An **Application Id** that uniquely identifies your app
 - A **Redirect URI** that can be used to direct responses back to your app
@@ -38,7 +38,7 @@ https://login.microsoftonline.com/common/oauth2/v2.0/authorize
 https://login.microsoftonline.com/common/oauth2/v2.0/token
 ```
 
-Each request that is sent to Azure AD B2C specifies a **policy**.  A policy controls the behavior of Azure AD, and allows you to use these endpoints to create a highly customizeable set of user experiences.  Some common policies include sign-up policies, sign-in policies, and profile edit policies.  If you are not familiar with polices, you should read about Azure AD B2C's [extensible policy framework](active-directory-b2c-reference-policies.md) before reading on. 
+Each request that is sent to Azure AD B2C specifies a **policy**.  A policy controls the behavior of Azure AD, and allows you to use these endpoints to create a highly customizable set of user experiences.  Some common policies include sign-up policies, sign-in policies, and profile edit policies.  If you are not familiar with polices, you should read about Azure AD B2C's [extensible policy framework](active-directory-b2c-reference-policies.md) before reading on. 
 
 Every app's interaction with the v2.0 endpoint will follow a similar high level pattern:
 
