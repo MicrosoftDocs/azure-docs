@@ -1,24 +1,24 @@
 <properties
-	pageTitle="pageTitle="Azure AD B2C Preview | Microsoft Azure"
-	description="HHow to build an Android application that calls a web API using Azure AD B2C."
-	services="active-directory"
+	pageTitle="Azure AD B2C Preview: Calling a Web API from an Android application | Microsoft Azure"
+	description="This article will show you how to create an Android "To-Do List" app that calls a node.js web API using OAuth 2.0 bearer tokens. Both the Android app and web api use Azure AD B2C to manage user identities and authenticate users."
+	services="active-directory-b2c"
 	documentationCenter="android"
 	authors="brandwe"
 	manager="msmbaldwin"
 	editor=""/>
 
 <tags
-	ms.service="active-directory"
+	ms.service="active-directory-b2c"
 	ms.workload="identity"
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="07/17/2015"
+	ms.date="09/16/2015"
 	ms.author="brandwe"/>
 
 # Azure AD B2C Preview: Calling a Web API from an Android application
 
-With Azure AD B2C, you can add powerful self-service identity managment features to your iOS apps and web apis in a few short steps.  This article will show you how to create an Android "To-Do List" app that calls a node.js web API using OAuth 2.0 bearer tokens. Both the Android app and web api use Azure AD B2C to manage user identities
+With Azure AD B2C, you can add powerful self-service identity managment features to your Android apps and web apis in a few short steps.  This article will show you how to create an Android "To-Do List" app that calls a node.js web API using OAuth 2.0 bearer tokens. Both the Android app and web api use Azure AD B2C to manage user identities
 and authenticate users.
 
 > [AZURE.NOTE]
@@ -107,18 +107,16 @@ We've made it easy for you to have multiple options to use this library in your 
 * You can use the source code to import this library into Eclipse and link to your application.
 * If using Android Studio, you can use *aar* package format and reference the binaries.
 
-####Option 1: Source Zip
-
-To download a copy of the source code, click "Download ZIP" on the right side of the page or click [here](https://github.com/AzureAD/azure-activedirectory-library-for-android/archive/v1.1.9.tar.gz).
-
-####Option 2: Source via Git
+####Option 1: Source via Git
 
 To get the source code of the SDK via git just type:
 
     git clone git@github.com:AzureAD/azure-activedirectory-library-for-android.git
     cd ./azure-activedirectory-library-for-android/src
+    
+    use the branch "convergence"
 
-####Option 3: Binaries via Gradle
+####Option 2: Binaries via Gradle
 
 You can get the binaries from Maven central repo. AAR package can be included as follows in your project in AndroidStudio:
 
@@ -140,7 +138,7 @@ dependencies {
 }
 ```
 
-####Option 4: aar via Maven
+####Option 3: aar via Maven
 
 If you are using the m2e plugin in Eclipse, you can specify the dependency in your pom.xml file:
 

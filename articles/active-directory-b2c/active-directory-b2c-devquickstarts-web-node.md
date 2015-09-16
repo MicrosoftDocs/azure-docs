@@ -1,14 +1,14 @@
 <properties
-	pageTitle="Azure AD B2C Preview | Microsoft Azure"
-	description="How to build a Node JS web app that signs users with a B2C tenant."
-	services="active-directory"
-	documentationCenter="nodejs"
+	pageTitle="Add sign-in to a nodeJS Web App for Azure B2C preview| Microsoft Azure"
+	description="How to build a Node.js Web App that signs-in users with a B2C tenant."
+	services="active-directory-b2c"
+	documentationCenter=""
 	authors="brandwe"
 	manager="msmbaldwin"
 	editor=""/>
 
 <tags
-	ms.service="active-directory"
+	ms.service="active-directory-b2c"
 	ms.workload="identity"
   ms.tgt_pltfrm="na"
 	ms.devlang="javascript"
