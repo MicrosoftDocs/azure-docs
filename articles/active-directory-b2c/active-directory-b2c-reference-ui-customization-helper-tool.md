@@ -16,7 +16,7 @@
 	ms.date="09/15/2015"
 	ms.author="swkrish"/>
 
-# Azure Active Directory (AD) B2C preview: A Helper Tool used to demonstrate the Page User Interface (UI) Customization feature
+# Azure Active Directory B2C preview: A Helper Tool used to demonstrate the Page User Interface (UI) Customization feature
 
 This article is a companion to the [main one](active-directory-b2c-reference-ui-customization) about the page user interface (UI) customization feature in Azure Active Directory (AD) B2C.
 
@@ -29,6 +29,8 @@ Before you get started:
 
 - Build one of the Azure AD B2C Quick Start Applications listed [here](active-directory-b2c-overview.md). As part of doing this, you will create a sign-up policy that you will modify here.
 - Download the helper tool from [here](https://github.com/AzureADSamples/B2C-AzureBlobStorage-Client).
+
+[AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
 
 ### Step 1: Upload our sample content in the right locations
 

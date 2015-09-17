@@ -8,7 +8,7 @@
 	editor=""/>
 
 <tags 
-	ms.service="app-service-web" 
+	ms.service="app-service" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
@@ -33,6 +33,8 @@ At a high level an App Service Environment consists of several major components:
 To help manage and monitor your App Service Environments you can access UI for that purpose from Browse -> App Service Environments in the Azure preview portal. The initial release does have what you need to manage the system and will continue to improve with additional capabilities in coming weeks.  
 
 ![][1]
+
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)] 
 
 ## Monitoring ##
 

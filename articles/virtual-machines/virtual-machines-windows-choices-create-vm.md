@@ -3,7 +3,7 @@
 	description="Lists the different ways to create a Windows virtual machine and gives links to instructions."
 	services="virtual-machines"
 	documentationCenter=""
-	authors="KBDAzure"
+	authors="cynthn"
 	manager="timlt"
 	editor=""
 	tags="azure-resource-manager,azure-service-management"/>
@@ -14,8 +14,8 @@
 	ms.topic="index-page"
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="infrastructure-services"
-	ms.date="07/15/2015"
-	ms.author="kathydav"/>
+	ms.date="09/15/2015"
+	ms.author="cynthn"/>
 
 # Different ways to create a Windows virtual machine
 
@@ -67,8 +67,6 @@ Use an image based on an existing Azure virtual machine by *capturing* that virt
 [Attach a data disk][]
 
 ## Additional resources
-[About Azure virtual machine configuration settings][]
-
 [Base configuration test environment][]
 
 [Azure hybrid cloud test environments][]
@@ -96,8 +94,6 @@ Use an image based on an existing Azure virtual machine by *capturing* that virt
 [Sign in to the virtual machine]: virtual-machines-log-on-windows-server.md
 
 [Attach a data disk]: storage-windows-attach-disk.md
-
-[About Azure virtual machine configuration settings]: http://msdn.microsoft.com/library/azure/dn763935.aspx
 
 [Base configuration test environment]: virtual-machines-base-configuration-test-environment.md
 

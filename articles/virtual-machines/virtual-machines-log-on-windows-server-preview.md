@@ -3,7 +3,7 @@
 	description="Learn to use the Azure preview portal to log on to a virtual machine running Windows Server."
 	services="virtual-machines"
 	documentationCenter=""
-	authors="KBDAzure"
+	authors="cynthn"
 	manager="timlt"
 	editor="tysonn"
 	tags="azure-resource-manager"/>
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/15/2015"
-	ms.author="kathydav"/>
+	ms.author="cynthn"/>
 
 # How to Log on to a virtual machine running Windows Server#
 

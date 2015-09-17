@@ -3,7 +3,7 @@
 	description="How to attach new and existing data disks in in the Azure preview portal | Microsoft Azure"
 	services="virtual-machines"
 	documentationCenter=""
-	authors="KBDAzure"
+	authors="cynthn"
 	manager="timlt"
 	editor=""
 	tags="azure-resource-manager"/>
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/14/2015"
-	ms.author="kathydav"/>
+	ms.author="cynthn"/>
 
 # How to attach a data disk in the Azure preview portal
 

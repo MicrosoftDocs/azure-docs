@@ -20,6 +20,8 @@
 
 To start using Azure Active Directory (AD) B2C, follow the 3 steps outlined below.
 
+[AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
+
 ## Step 1: Sign up for an Azure Subscription
 
 If you already have an Azure subscription move on to the next step. If not, sign up for [an Azure subscription](sign-up-organization.md) and get access to Azure AD B2C.
@@ -45,7 +47,7 @@ Use the following steps to create a new Azure AD B2C directory. Currently B2C fe
 6. Your directory is now created and will appear in the Active Directory extension. You are also made a Global Administrator of the directory. You can add other Global Administrators as required.
 
     > [AZURE.IMPORTANT]
-    It can take up to a minute for your directory to be created. If you face issues during directory creation, check out this [article](active-directory-b2c-support-create-directory.md) for guidance.
+    It can take up to two minutes for your directory to be created. If you face issues during directory creation, check out this [article](active-directory-b2c-support-create-directory.md) for guidance.
 
 ## Step 3: Navigate to the B2C Features blade on the Azure Preview Portal
 
