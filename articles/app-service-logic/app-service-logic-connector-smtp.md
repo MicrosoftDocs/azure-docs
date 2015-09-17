@@ -54,6 +54,8 @@ A connector can be created within a logic app or be created directly from the Az
 
 6. Select **Create**.
 
+> [AZURE.IMPORTANT] Some SMTP Servers may have issues with how this connector works (SendGrid and Gmail).  If you wish to send mail from SendGrid our [GitHub repository](https://github.com/logicappsio/SendGridAPI) has a custom API which will interface directly with SendGrid APIs.
+
 ## Using the SMTP Connector in your Logic App
 Once your connector is created, you can now use the SMTP connector as an action for your Logic App. To do this:
 

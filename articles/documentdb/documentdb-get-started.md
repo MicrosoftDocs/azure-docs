@@ -1,6 +1,7 @@
 <properties
-	pageTitle="Get started with the DocumentDB .NET SDK | Microsoft Azure"
-	description="Learn how to create and configure an Azure DocumentDB account, create databases, create collections, and store JSON documents within your NoSQL document database account."
+	pageTitle="NoSQL Databases - Get started with the DocumentDB .NET SDK | Microsoft Azure"
+	description="Learn how to create a database and configure an Azure DocumentDB account. Create databases, collections, and store JSON documents within your NoSQL database account."
+	keywords="Create a database, create database, nosql database, nosql databases, nuget, documentdb, azure, Microsoft azure"
 	services="documentdb"
 	documentationCenter=".net"
 	authors="AndrewHoh"

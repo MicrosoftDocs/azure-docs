@@ -3,7 +3,7 @@
 	description="Learn how to use Azure PowerShell to create and preconfigure Windows-based virtual machines in Azure."
 	services="virtual-machines"
 	documentationCenter=""
-	authors="KBDAzure"
+	authors="cynthn"
 	manager="timlt"
 	editor=""
 	tags="azure-service-management"/>
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="06/10/2015"
-	ms.author="kathydav"/>
+	ms.author="cynthn"/>
 
 # Use Azure PowerShell to create and preconfigure Windows-based Virtual Machines
 

@@ -6,7 +6,7 @@
    authors="Blackmist"
    manager="paulettm"
    editor="cgronlun"
-	tags="azure-portal"/>
+   tags="azure-portal"/>
 
 <tags
    ms.service="hdinsight"
@@ -184,11 +184,12 @@ The different cluster types are affected by scaling as follows:
 
 		2. From the list of services on the left of the page, select __Storm__. Then select __Storm UI__ from __Quick Links__.
 
-			![Storm UI entry in quick links](./media/hdinsight-storm-deploy-monitor-topology-linux/ambari-storm.png)
+
+			![Storm UI entry in quick links](./media/hdinsight-hadoop-linux-information/ambari-storm.png)
 
 			This will display the Storm UI:
 
-			![the storm ui](./media/hdinsight-storm-deploy-monitor-topology-linux/storm-ui.png)
+			![the storm ui](./media/hdinsight-hadoop-linux-information/storm-ui.png)
 
 		3. Select the topology you wish to rebalance, then select the __Rebalance__ button. Enter the delay before the rebalance operation is performed.
 
