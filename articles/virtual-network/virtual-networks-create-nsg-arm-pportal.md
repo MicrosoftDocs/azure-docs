@@ -29,7 +29,7 @@
 
 ## Deploy the ARM template by using click to deploy
 
-At this time, you cannot create an NSG from the preview. However, you manage existing NSGs. Before you can manage NSGs, use the sample template available in the public repository to create the resources described in the scenario above. Deploy [this this template](https://portal.azure.com/#create/Microsoft.Template/uri/https://raw.githubusercontent.com/telmosampaio/azure-templates/master/201-IaaS-WebFrontEnd-SQLBackEnd-NSG/azuredeploy.json), and replace the default parameter values if necessary.
+At this time, you cannot create an NSG from the preview. However, you manage existing NSGs. Before you can manage NSGs, use the sample template available in the public repository to create the resources described in the scenario above. Deploy [this this template](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Ftelmosampaio%2Fazure-templates%2Fmaster%2F201-IaaS-WebFrontEnd-SQLBackEnd-NSG%2Fazuredeploy.json), and replace the default parameter values if necessary.
 
 ## Create rules in an existing NSG
 
