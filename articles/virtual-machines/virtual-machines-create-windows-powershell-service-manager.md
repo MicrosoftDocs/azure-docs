@@ -17,9 +17,9 @@
 	ms.date="07/09/2015"
 	ms.author="cynthn"/>
 
-# Create and manage a Windows-based virtual machine in Service Management by using Azure PowerShell
+# Create and manage a Windows virtual machine using Azure PowerShell
 
-This article describes how to create and manage Windows-based Azure virtual machines in Service Management by using Azure PowerShell.
+This article describes how to create and manage Windows virtual machines using Azure PowerShell.
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)] This article covers creating a Windows VM with the classic deployment model. You can also create a Windows VM with the [Resource Manager deployment model](virtual-machines-deploy-rmtemplates-powershell.md).
 
