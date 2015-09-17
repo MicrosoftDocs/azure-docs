@@ -6,7 +6,7 @@
    authors="davidmu1"
    manager="timlt"
    editor=""
-   tags="azure-resource-manager"/>
+   tags="azure-resource-manager,azure-service-management"/>
 
 <tags
 	ms.service="azure-resource-manager"
@@ -16,6 +16,8 @@
 	ms.topic="article"
 	ms.date="08/25/2015"
 	ms.author="davidmu"/>
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
 
 # Azure Resource Manager Architecture
 
