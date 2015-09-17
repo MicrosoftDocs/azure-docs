@@ -1,11 +1,12 @@
-<properties 
+<properties
 	pageTitle="Create and upload a Linux VHD in Azure"
 	description="Learn to create and upload an Azure virtual hard disk (VHD) that contains a Linux operating system."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="szarkos"
 	manager="timlt"
-	editor="tysonn"/>
+	editor="tysonn"
+	tags="azure-resource-manager,azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -16,6 +17,7 @@
 	ms.date="05/15/2015"
 	ms.author="szarkos"/>
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)] 
 
 # <a id="nonendorsed"> </a>Information for Non-Endorsed Distributions #
 
