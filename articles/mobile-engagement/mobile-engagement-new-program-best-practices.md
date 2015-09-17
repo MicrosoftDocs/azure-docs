@@ -181,11 +181,15 @@ For example, the user of a sports related app might receive the following push n
 
 #### The 3W approach
 
+
+![](./media/mobile-engagement-new-program-best-practices/who-what-when.png)
+
+
 Mastering the different push sequences will help you engage with end-users. However, you still need to use the 3W approach for personalizing your notifications. The 3W approach should address who, what and when. 
 
 ####### Who: The user segment that will receive messages
 
-Pushing notifications to your user should be considered a very sensitive communication channel. Make sure the notifications you aim to send for to a user segment are well scoped to the interests of that user segment. An incorrectly routed notification is very likely to have a negative affect on a user. 
+Pushing notifications to your users should be considered a very sensitive communication channel. Make sure the notifications you aim to send for to a user segment are well scoped to the interests of that user segment. An incorrectly routed notification is very likely to have a negative affect on a user. 
 
 Use a combination of specific technical and behavioral criteria when defining user segments that will receive notifications. A simple example defining a user segment could be similar to the following statement:
 
@@ -193,9 +197,12 @@ Use a combination of specific technical and behavioral criteria when defining us
  
 That statement helps identify the data you would need to collect to support the scenario. The requirements are:
 
--	The “first seen”, technical data to get the “3 days ago” (does not require to build a segment).
--	The activity “Login page” with an occurrence at least 2 (require to build a segment).
--	An app-info “log-in = false” to know the status (does not require to build a segment).
+
+**Still trying to make sense of this**
+
+	-	The “first seen”, technical data to get the “3 days ago” (does not require to build a segment).
+	-	The activity “Login page” with an occurrence at least 2 (require to build a segment).
+	-	An app-info “log-in = false” to know the status (does not require to build a segment).
 
 
 ####### What: The message that you will send
@@ -218,21 +225,16 @@ Azure Mobile Engagement provides two ways to help avoid your communications bein
 #### Playbook Part 2: Create your engagement program
 
 
-Within the playbook, the “Engagement Program” section helps to create your engagement program. Spend some time to summarize your objectives and specify all the campaigns you would like to play using a specific sequence and answering to each question of the 3W approach.
+**Still reviewing this for updates**
 
-Look at our Media Playbook Template to find out some example.
 
 
 
 
 ## Step 3: Integration and Setup
 
-Well, congratulations you are ready to move forward and create your tag plan.  With your tag plan you will be able to see your analytics in real-time, to segment your audience and then start to send smart targeted push notification to engage with end-users. 
 
-Before to start building it, a quick view on basic concept as it’s defined in Azure Mobile Engagement.
-A summary is also provided in the “Playbook”.
-
-
+**Still reviewing this for updates**
 
 
 
@@ -287,16 +289,70 @@ Events, errors, activities and jobs can be enhanced with parameters. This is ext
 #### Creating a tag plan
 
 
+**Still reviewing this for updates**
 
 
 #### Tag and SDK integration 
 
+The step by step [Engagement SDK Integration](https://azure.microsoft.com/documentation/articles/mobile-engagement-windows-store-integrate-engagement/) documentation on Azure website is the best guide for integrating the Azure Mobile Enagagement SDK. Follow that link and choose your client platform at the top.
+
+For IT teams, we recommend creating a project with two apps built on top of Azure Mobile Engagement. One would be an app for development stage, the other one for production staging. The IT team can make their change on the ‘app test’ and switch on ‘app prod’ when the user acceptance testing is ok .
+
+
+
 #### User acceptance testing (UAT)
+
+User acceptance testing (UAT) involves making you sure that everything works as designed. Work flows can be completed and should be gathering your required data based on your tag plan:
+ 
+•	Information tagging should be in place according to documented AZME concepts
+•	All information you need is collected (including Extra info value, App info value)
+•	Nomenclature is the same that you defined it on your Tag Plan
+•	There is no duplicate data
+
+You must test all the types of notification behavior you have embedded:
+
+•	Announcements, Polls, Data pushes out of app and in-app
+•	Text/Web views
+•	Badge update, Categories
+
+
 
 #### Setup
 
+Setting up Azure Mobile Engagement is very simple. All the documentation related to the user interface is available on the Azure Mobile Engagement website: [How to navigate the user interface](https://azure.microsoft.com/documentation/articles/mobile-engagement-user-interface-navigation/).
+
+It is recommended that you start by setting up the right roles and role memberships for the users of your project. This helps you manage proper access to the platform.
+
+- Administrators
+- Developers
+- Viewers 
+
+Afterwards:
+- Register your deviceID to make test on your own devices.
+- Go to the settings of your account and set up the time zone to have charts and notification delivery time set for your time zone.
+- Go to the settings of your application and register the “App-info” you need to target end-user within Reach.
+
+For more information on how to run your first push notification campaign review [How to get started using and managing pushes to reach out to your end users](https://azure.microsoft.com/documentation/articles/mobile-engagement-how-tos/).
+
+
 
 ## Conclusion
+
+
+You are set to run Azure Mobile Engagement, but it is important to bear in mind that Engagement Programs are iterative and you should improve your as you experiment with what works best for your app. 
+
+Initially, as you developing experience with engagement strategies don't try to build a global engagement strategy. Proceed step by step and identify your KPIs and how to leverage them. 
+
+After you have developed some experience consider the following:
+
+- Tracking:  You acquire users and you probably define data-collection sources. Azure mobile Engagement can be linked to data-collection sources. It allows you to monitor performances of each source. This information will be interesting to maximize your acquisition investment. 
+
+- A/B testing: This is an essential part of Engagement program. Each Database has its own specifics. A/B testing you can improve your Engagement program.
+
+- Geo-location: This is a big opportunity for brands. Thanks to this feature you can reach at the right place and time. We recommend verifying you have gathered enough end-user behavior data before starting to use geo-location.
+
+- Data push: Data push is an invisible push. Data push allows customizing your application based on end-user behavior. For example, a user segment often consults regarding high-tech products. When he launches the app I send a data push, which will personalize his home page with high-tech content.
+
 
 
 
