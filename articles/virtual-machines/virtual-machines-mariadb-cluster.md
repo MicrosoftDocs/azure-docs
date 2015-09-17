@@ -5,7 +5,8 @@
 	documentationCenter=""
 	authors="sabbour"
 	manager="timlt"
-	editor=""/>
+	editor=""
+	tags="azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -15,6 +16,8 @@
 	ms.workload="infrastructure-services"
 	ms.date="04/15/2015"
 	ms.author="v-ahsab"/>
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)] This article covers creating a MariaDB cluster with the Classic deployment model.
 
 # MariaDB (MySQL) cluster - Azure tutorial
 
@@ -372,4 +375,3 @@ You may want to take a look at [another way to cluster MySQL on Linux] and ways 
 [optimize and test MySQL performance on Azure Linux VMs]:http://azure.microsoft.com/documentation/articles/virtual-machines-linux-optimize-mysql-perf/
 [issue #1268 in the Azure CLI]:https://github.com/Azure/azure-xplat-cli/issues/1268
 [another way to cluster MySQL on Linux]: http://azure.microsoft.com/documentation/articles/virtual-machines-linux-mysql-cluster/
- 
