@@ -152,7 +152,30 @@ To get the source code of the SDK via git just type:
     use the branch "convergence"
 
 
-### Step 6: Add references to Android ADAL to your project
+### Step 6: Set up your configruation file
+
+We'll be using the configuration that you set up in the B2C portal above to configure the Android project.
+
+Open up `helpes/Constants.java` and fill in the values for the following:
+
+```
+
+    public static String AUTHORITY_URL = "https://login.microsoftonline.com/<your tenant name>.onmicrosoft.com/";
+    public static String CLIENT_ID = "<your Application ID>";
+    public static String[] SCOPES = {"<your Application ID>"};
+    public static String[] ADDITIONAL_SCOPES = {""};
+    public static String REDIRECT_URL = "urn:ietf:wg:oauth:2.0:oob";
+    public static String FB_POLICY = "<your facebook sign-in policy";
+    public static String EMAIL_SIGNIN_POLICY = "<your email sign-in policy";
+    public static String EMAIL_SIGNUP_POLICY = "<your email sign-up policy";
+    public static AuthenticationResult CURRENT_RESULT = null;
+    // Endpoint we are targeting for the deployed WebAPI service
+    public static String SERVICE_URL = "http://localhost:3000/tasks";
+
+```
+
+
+### Step 7: Add references to Android ADAL to your project
 
 
 > [AZURE.NOTE]	ADAL for Android uses an Intent based model to invoke Authentication. Intents lay "over" the app to do work. This entire sample, and indeed all of using ADAL for Android, is managing intents and passing information between them. 
@@ -220,7 +243,7 @@ As you can see, we define 6 activities which we will be using.
 
 
 
-### Step 7: Create the Login Activiity
+### Step 8: Create the Login Activiity
 
 Let's create a main Activity and call it `LoginActivity`. 
 
@@ -309,7 +332,7 @@ public class LoginActivity extends Activity {
 ```
 What we've done is create buttons that call our ToDoActivity intent (which will call ADAL when we need a token) with our own Activity as a reference and an extra parameter. This extra parameter is passed by the `intent.putExtra()` method. You see here we define "thePolicy" as what you specified in `Constants.java`. This allows the intent to know what policy to invoke during authentication.
 
-### Step 8: Create the Settings Activity
+### Step 9: Create the Settings Activity
 
 This is just an Activity that populates our Settings UI. 
 
@@ -433,7 +456,7 @@ public class SettingsActivity extends Activity {
 }
 ```
 
-### Step 8: Create the AddTask Activity
+### Step 10: Create the AddTask Activity
 
 This will allow us to add a Task to our REST API endpoint. Again, rather simple.
 
@@ -486,7 +509,7 @@ public class AddTaskActivity extends Activity {
 
 ```
 
-### Step 9: Create the ToDoList Activity
+### Step 11: Create the ToDoList Activity
 
 Now we have the most important Activity, one that allows us to get a token from Azure AD for policy and then use that token to call the Task REST API server.
 
@@ -688,7 +711,7 @@ private void getToken(final AuthenticationCallback callback) {
 ```
 
 
-### Step 10: Call the Task API
+### Step 12: Call the Task API
 
 Now that we have our Activity wired up and ready to go to do the heavy lifting of grabbing tokens, let's write our API to access the task server.
 
@@ -766,7 +789,7 @@ private void getTasks() {
 
 Note that we add the access token to the request in the following code:
 
-### Step 11: Let's write some UX methods
+### Step 13: Let's write some UX methods
 
 Android requires us to handle some callbacks in order to operate the app. These are `createAndShowDialog` and `onResume()`. This is pretty simple and very familiar if you've written Android code before. 
 
@@ -823,7 +846,7 @@ That's it! You should have a `ToDoActivity.java` file that compiles. The entire 
     
 
 
-### Step 12: Run the sample app
+### Step 14: Run the sample app
 
 Finally, build and run both the app in Android Studio or Eclipse.  Sign up or sign into the app, and create tasks for the signed in user.  Sign out, and sign back in as a different user, creating tasks for that user.
 
