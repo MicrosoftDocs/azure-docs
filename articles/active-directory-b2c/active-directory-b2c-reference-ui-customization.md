@@ -44,10 +44,10 @@ Use our helper tool (Coming soon) to try out the page UI customization feature u
 
 ## The core UI Elements in each Type of Page
 
-In this section you will find the HTML5 fragments (for each type of page) that Azure AD B2C merges into the `<div id="api"></div>` element located in your content. You can use style sheets to customize these UI elements. These style sheets can override the default style sheets that we add into these page types in the `<head>` fragments.
+In this section you will find examples of HTML5 fragments (for each type of page) that Azure AD B2C merges into the <div id="api"></div> element located in your content. You can use your own style sheets to customize these UI elements. These style sheets will have to override the default style sheets that we add into these pages in the <head> fragments.
 
-> [AZURE.IMPORTANT]
-During preview, expect the exact UI elements to change as we learn and adapt from your feedback. Inspect the source code of default pages for details on all of the following.
+    > [AZURE.IMPORTANT]
+	During preview, expect the exact UI elements to change as we learn and adapt from your feedback. Always inspect the source code of default pages for the latest updates. In fact, the first change being considered is the removal of our default style sheets; this will mean that you will always have to supply your own style sheets for these UI elements in your content.
 
 ### Identity Provider Selection Page
 
