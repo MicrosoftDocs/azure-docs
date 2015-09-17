@@ -1,11 +1,13 @@
 <properties
-	pageTitle="IPython Notebook | Microsoft Azure"
-	description="A tutorial that shows how to deploy the IPython Notebook on Azure, using Linux or Windows virtual machines (VMs)."
-	services="virtual-machines"
+	pageTitle="Create an IPython Notebook on Azure | Microsoft Azure"
+	description="Learn how to deploy the IPython Notebook on Azure on a Linux or Windows virtual machine."
+	services="virtua-lmachines"
 	documentationCenter="python"
 	authors="huguesv"
 	manager="wpickett"
-	editor=""/>
+	editor=""
+	tags=“azure-service-management,azure-resource-manager"/>
+/>
 
 <tags
 	ms.service="virtual-machines"
@@ -16,6 +18,7 @@
 	ms.date="05/20/2015"
 	ms.author="huvalo"/>
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)].
 
 # IPython Notebook on Azure
 
