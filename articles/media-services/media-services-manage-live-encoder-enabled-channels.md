@@ -41,15 +41,6 @@ The following diagram represents a live streaming workflow where a channel recei
 
 ![Live workflow][live-overview]
 
->[AZURE.NOTE]Not all data centers support Live Encoding with Azure Media Services. 
->
->If you are using Azure Management Portal to create Channels, you will have two Channel encoding type options available: **None** and **Standard**. If you only see the **None** option, it means your data center does not support Live Encoding with AMS.
->
->If you are using .NET SDK or REST API, do the following to check:
->
->1. Try to create a Channel with encoding type set to Standard. 
->2. If the returned result HTTP Error Code 412 (Precondition Failed) with the following message: *"Live encoding is not supported in this region; EncodingType must be set to 'None'."*, your data center does not support Live Encoding.
-
 
 ##In this topic
 
