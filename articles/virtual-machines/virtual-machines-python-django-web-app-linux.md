@@ -1,23 +1,23 @@
 <properties 
-	pageTitle="Python web app with Django on Mac | Microsoft Azure" 
-	description="A tutorial that shows how to host a Django-based website on Azure using a Linux virtual machine." 
+	pageTitle="Python web app with Django on Linux | Microsoft Azure" 
+	description="Learn how to host a Django-based web application on Azure using a Linux virtual machine." 
 	services="virtual-machines" 
 	documentationCenter="python" 
 	authors="huguesv" 
 	manager="wpickett" 
-	editor=""/>
+	editor=""
+	tags=“azure-service-management,azure-resource-manager"/>
 
 <tags 
 	ms.service="virtual-machines" 
 	ms.workload="web" 
-	ms.tgt_pltfrm="vm-linux" 
+	ms.tgt_pltfrm="Linux" 
 	ms.devlang="python" 
 	ms.topic="article" 
 	ms.date="05/20/2015" 
 	ms.author="huvalo"/>
 
-
-
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)].
 
 
 # Django Hello World Web Application (mac-linux)
