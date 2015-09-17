@@ -214,35 +214,42 @@ public class ToDoActivity extends Activity {
         setContentView(R.layout.activity_list_todo_items);
         Toast.makeText(getApplicationContext(), TAG + "LifeCycle: OnCreate", Toast.LENGTH_SHORT)
                 .show();
+```
 
-        Button button = (Button) findViewById(R.id.switchUserButton);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(ToDoActivity.this, UsersListActivity.class);
-                startActivity(intent);
-            }
-        });
+Next, in the same class (don't close the bracket yet) add our buttons for the UI. You'll see we add buttons for Facebook Signin and Email Signin. This will use our policies defined in our `constants.java` file:
 
-        button = (Button) findViewById(R.id.addTaskButton);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(ToDoActivity.this, AddTaskActivity.class);
-                startActivity(intent);
-            }
-        });
-
-        button = (Button) findViewById(R.id.appSettingsButton);
+```
+        Button button = (Button) findViewById(R.id.signin_facebook);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(ToDoActivity.this, SettingsActivity.class);
                 startActivity(intent);
+
             }
         });
-```
 
+        button = (Button) findViewById(R.id.signin_email);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ToDoActivity.this, SettingsActivity.class);
+                startActivity(intent);
+
+            }
+        });
+
+        button = (Button) findViewById(R.id.signup_email);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ToDoActivity.this, SettingsActivity.class);
+                startActivity(intent);
+
+            }
+        });
+
+    ```
 Create an instance of AuthenticationContext at your main Activity:
 
     ```Java
@@ -275,7 +282,7 @@ Create an instance of AuthenticationContext at your main Activity:
 Next, let's define our callback:
 
     ```Java
-    mAuthContext.acquireToken(ToDoActivity.this, Connstants.SCOPES, Constants.ADDITIONAL_SCOPES, Constants.POLICY, Constants.CLIENT_ID, Constants.REDIRECT_URL, Constants.USER_HINT, Constants.PROMPT,
+    mAuthContext.acquireToken(ToDoActivity.this, Constants.SCOPES, Constants.ADDITIONAL_SCOPES, Constants.POLICY, Constants.CLIENT_ID, Constants.REDIRECT_URL, Constants.USER_HINT, Constants.PROMPT,
                     "nux=1&" + Constants.EXTRA_QP,
                     new AuthenticationCallback<AuthenticationResult>() {
 
