@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Oracle software hosted on Azure virtual machines"
-	description="Get to the key topics that describe how to set up Oracle software on Windows-based or Linux-based Azure virtual machines."
+	pageTitle="Oracle on Azure VMs | Microsoft Azure"
+	description="Find the articles that describe how to set up Oracle software on Windows-based or Linux-based Azure virtual machines."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="JoeDavies-MSFT"
