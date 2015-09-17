@@ -50,7 +50,7 @@ Now you need to create an app in your B2C directory, which gives Azure AD some i
 follow [these instructions](active-directory-b2c-app-registration.md).  Be sure to
 
 - Include a **web app/web api** in the application
-- Enter `http://localhost:3000/auth/openid/return` as a **Reply URL** - it is the default URL for this code sample.
+- Enter `urn:ietf:wg:oauth:2.0:oob` as a **Reply URL** - it is the default URL for this code sample.
 - Create an **Application Secret** for your application and copy it down.  You will need it shortly.
 - Copy down the **Application ID** that is assigned to your app.  You will also need it shortly.
 
