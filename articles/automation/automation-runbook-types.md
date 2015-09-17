@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/14/2015"
+   ms.date="09/17/2015"
    ms.author="bwren" />
 
 # Azure Automation runbook types
@@ -22,13 +22,13 @@ Azure Automation supports three types of runbooks that are  briefly described in
 
 | Type |  Description |
 |:---|:---|
-| [Graph](#graph-runbooks) | Based on Windows PowerShell Workflow and created and edited completely in graphical editor in Azure portal. | 
+| [Graphical](#graphical-runbooks) | Based on Windows PowerShell Workflow and created and edited completely in graphical editor in Azure portal. | 
 | [PowerShell Workflow](#powershell-workflow-runbooks) | Text runbook based on Windows PowerShell Workflow. |
 | [PowerShell](#powershell-runbooks) | Text runbook based on Windows PowerShell script. |
 
-## Graph runbooks
+## Graphical runbooks
 
-[Graph runbooks](automation-runbook-types.md#graph-runbooks) are created and edited with the graphical editor in the Azure portal.  You can export them to a file and then import them into another automation account, but you cannot create or edit them with another tool.  Graph runbooks generate PowerShell Workflow code, but you can't directly view or modify the code. Graph runbooks cannot be converted to one of the [text formats](automation-runbook-types.md), nor can a text runbook be converted to graph format.
+[Graphical runbooks](automation-runbook-types.md#graphical-runbooks) are created and edited with the graphical editor in the Azure portal.  You can export them to a file and then import them into another automation account, but you cannot create or edit them with another tool.  Graphical runbooks generate PowerShell Workflow code, but you can't directly view or modify the code. Graphical runbooks cannot be converted to one of the [text formats](automation-runbook-types.md), nor can a text runbook be converted to graphical format.
 
 ### Advantages
 
@@ -66,7 +66,7 @@ PowerShell runbooks are based on Windows PowerShell.  You directly edit the code
 ### Advantages
 
 - Implement all complex logic with PowerShell code without the additional complexities of PowerShell Workflow. 
-- Runbook starts faster than Graph or PowerShell Workflow runbooks since it doesn't need to be compiled before running.
+- Runbook starts faster than Graphical or PowerShell Workflow runbooks since it doesn't need to be compiled before running.
 
 ### Limitations
 

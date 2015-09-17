@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article" 
-	ms.date="09/14/2015"
+	ms.date="09/17/2015"
 	ms.author="bwren"/>
 
 # What is Azure Automation?
@@ -43,7 +43,7 @@ The [Runbook Gallery](http://msdn.microsoft.com/library/azure/dn781422.aspx) con
 
 ## How do I create my own runbooks?
 
-You can [create your own runbooks](http://msdn.microsoft.com/library/azure/dn643637.aspx) from scratch or modify runbooks from the [Runbook Gallery](http://msdn.microsoft.com/library/azure/dn781422.aspx) for your own requirements.  There are three different [runbook types](automation-runbook-types.md) that you can choose from based on your requirements and PowerShell experience.  If you prefer to work directly with the PowerShell code, then you can use a [PowerShell runbook](automation-runbook-types.md#powershell-runbooks) or [PowerShell Workflow runbook](automation-runbook-types.md#powershell-workflow-runbooks) that you edit offline or [using the textual editor](http://msdn.microsoft.com/library/azure/dn879137.aspx) in the Azure portal.  If you prefer to edit a runbook without being exposed to the underlying code, then you can create a [Graph runbook](automation-runbook-types.md#graph-runbooks) using the [graphical editor](automation-graphical-authoring-intro.md)  in the Azure preview portal.
+You can [create your own runbooks](http://msdn.microsoft.com/library/azure/dn643637.aspx) from scratch or modify runbooks from the [Runbook Gallery](http://msdn.microsoft.com/library/azure/dn781422.aspx) for your own requirements.  There are three different [runbook types](automation-runbook-types.md) that you can choose from based on your requirements and PowerShell experience.  If you prefer to work directly with the PowerShell code, then you can use a [PowerShell runbook](automation-runbook-types.md#powershell-runbooks) or [PowerShell Workflow runbook](automation-runbook-types.md#powershell-workflow-runbooks) that you edit offline or [using the textual editor](http://msdn.microsoft.com/library/azure/dn879137.aspx) in the Azure portal.  If you prefer to edit a runbook without being exposed to the underlying code, then you can create a [Graphical runbook](automation-runbook-types.md#graphical-runbooks) using the [graphical editor](automation-graphical-authoring-intro.md)  in the Azure preview portal.
 
 
 ## How does Azure Automation relate to other automation tools?

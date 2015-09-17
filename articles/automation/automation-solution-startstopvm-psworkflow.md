@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/09/2015"
+   ms.date="09/17/2015"
    ms.author="bwren" />
 
 # Azure Automation solution - starting and stopping virtual machines
@@ -25,19 +25,19 @@ This Azure Automation solution includes runbooks to start and stop classic virtu
 - Use the runbooks as tutorials to learn runbook authoring concepts. 
 
 > [AZURE.SELECTOR]
-- [Graph](automation-solutions-startstopvm-graphical.md)
+- [Graphical](automation-solutions-startstopvm-graphical.md)
 - [PowerShell Workflow](automation-solutions-startstopvm-psworkflow.md)
 
-This is the PowerShell Workflow runbook version of this solution. It is also available using [graph runbooks](automation-solutions-startstopvm-graphical.md).
+This is the PowerShell Workflow runbook version of this solution. It is also available using [graphical runbooks](automation-solutions-startstopvm-graphical.md).
 
 ## Getting the solution
 
-This solution consists of two PowerShell Workflow runbooks that you can download from the following links.  See the [graphical version](automation-solutions-startstopvm-graphical.md) of this solution for links to the graph runbooks.
+This solution consists of two PowerShell Workflow runbooks that you can download from the following links.  See the [graphical version](automation-solutions-startstopvm-graphical.md) of this solution for links to the graphical runbooks.
 
 | Runbook | Link | Type | Description |
 |:---|:---|:---|
-| StartAzureVM | | PowerShell Workflow | Starts all classic virtual machines in an Azure subscriptionor all virtual machines with a particular service name. |
-| StopAzureVM | | PowerShell Workflow | Stops all virtual machines in an automation account or all virtual machines with a particular service name.  |
+| Start-AzureVMs | [Start Azure Classic VMs](https://gallery.technet.microsoft.com/Start-Azure-Classic-VMs-86ef746b) | PowerShell Workflow | Starts all classic virtual machines in an Azure subscriptionor all virtual machines with a particular service name. |
+| Stop-AzureVMs | [Stop Azure Classic VMs](https://gallery.technet.microsoft.com/Stop-Azure-Classic-VMs-7a4ae43e) | PowerShell Workflow | Stops all virtual machines in an automation account or all virtual machines with a particular service name.  |
 
 
 ## Installing the solution
@@ -76,7 +76,7 @@ You can use any of the methods in [Starting a runbook in Azure Automation](autom
 The following sample commands uses Windows PowerShell to run **StartAzureVMs** to start all virtual machines with the service name *MyVMService*.
 
 	$params = @{"ServiceName"="MyVMService"}
-	Start-AzureAutomationRunbook –AutomationAccountName "MyAutomationAccount" –Name "StartAzureVMs" –Parameters $params
+	Start-AzureAutomationRunbook –AutomationAccountName "MyAutomationAccount" –Name "Start-AzureVMs" –Parameters $params
 
 ### Output
 
@@ -84,12 +84,12 @@ The runbooks will [output a message](automation-runbook-output-and-messages.md) 
 
 | Runbook | Condition | Message |
 |:---|:---|:---|
-| StartAzureVMs | Virtual machine is already running  | MyVM is already running |
-| StartAzureVMs | Start request for virtual machine successfully submitted | MyVM has been started |
-| StartAzureVMs | Start request for virtual machine failed  | MyVM failed to start |
-| StopAzureVMs | Virtual machine is already running  | MyVM is already stopped |
-| StopAzureVMs | Start request for virtual machine successfully submitted | MyVM has been started |
-| StopAzureVMs | Start request for virtual machine failed  | MyVM failed to start |
+| Start-AzureVMs | Virtual machine is already running  | MyVM is already running |
+| Start-AzureVMs | Start request for virtual machine successfully submitted | MyVM has been started |
+| Start-AzureVMs | Start request for virtual machine failed  | MyVM failed to start |
+| Stop-AzureVMs | Virtual machine is already running  | MyVM is already stopped |
+| Stop-AzureVMs | Start request for virtual machine successfully submitted | MyVM has been started |
+| Stop-AzureVMs | Start request for virtual machine failed  | MyVM failed to start |
 
 For example, the following code snippet from a runbook attempts to start all virtual machines with the service name *MyServiceName*.  If any of the start requests fail, then error actions can be taken. 
 

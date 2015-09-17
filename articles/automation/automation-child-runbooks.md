@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/14/2015"
+   ms.date="09/17/2015"
    ms.author="bwren" />
 
 # Child runbooks in Azure Automation
@@ -32,9 +32,9 @@ The parameters of a child runbook called inline can be any data type including c
 
 ### Runbook types
 
-You can't use a [PowerShell Workflow runbook](automation-runbook-types.md#powershell-workflow-runbooks) or a [Graph runbook](automation-runbook-types.md#graph-runbooks) as a child in a [PowerShell runbook](automation-runbook-types.md#powershell-runbooks) using inline execution.  Similarly, you can't use a PowerShell runbook as a child with inline execution in a PowerShell Workflow runbook or a Graph runbook.  PowerShell runbooks can only use another PowerShell as a child.  Graph and PowerShell Workflow runbooks can use each other as child runbooks.
+You can't use a [PowerShell Workflow runbook](automation-runbook-types.md#powershell-workflow-runbooks) or a [Graphical runbook](automation-runbook-types.md#graphical-runbooks) as a child in a [PowerShell runbook](automation-runbook-types.md#powershell-runbooks) using inline execution.  Similarly, you can't use a PowerShell runbook as a child with inline execution in a PowerShell Workflow runbook or a Graph icalrunbook.  PowerShell runbooks can only use another PowerShell as a child.  Graphical and PowerShell Workflow runbooks can use each other as child runbooks.
 
-When you call a Graph or PowerShell Workflow child runbook using inline execution, you just use the name of the runbook.  When you call a PowerShell child runbook, you must preceded its name with *.\\* to specify that the script is located in the local directory. 
+When you call a Graphical or PowerShell Workflow child runbook using inline execution, you just use the name of the runbook.  When you call a PowerShell child runbook, you must preceded its name with *.\\* to specify that the script is located in the local directory. 
 
 ### Example
 
