@@ -284,11 +284,10 @@ Create a `config.js` file in our favorite editor and add the following informati
 // Don't commit this file to your public repos. This config is for first-run
 exports.creds = {
 mongoose_auth_local: 'mongodb://localhost/tasklist', // Your mongo auth uri goes here
-issuer: 'https://sts.windows.net/**<your application id>**/',
-audience: '<your redirect URI>',
+audience: '<your audience URI>',
 identityMetadata: 'https://login.microsoftonline.com/common/.well-known/openid-configuration' // For using Microsoft you should never need to change this.
 tenantName:'<tenant name>',
-policyName:'<policy>',
+policyName:'b2c_1_<sign in policy name>',
 };
 
 ```
@@ -297,14 +296,13 @@ policyName:'<policy>',
 
 *IdentityMetadata*: This is where passport-azure-ad will look for your configuration data for the IdP as well as the keys to validate the JWT tokens. You probably do not want to change this if using Azure Active Directory.
 
-*audience*: Your redirect URI from the portal. Our sample uses: `http://localhost/TodoListService`
+*audience*: Your URI from the portal that identifies your service. Our sample uses: `http://localhost/TodoListService`
 
-*tenantName*: Your tenant name (e.g. contoso.microsoftonline.com)
+*tenantName*: Your tenant name (e.g. contoso.onmicrosoft.com)
 
-*policyName*: The policy that you want to validate the tokens coming in to your server as. This should be the same policy as you'd use on the client application.
+*policyName*: The policy that you want to validate the tokens coming in to your server. This should be the same policy as you'd use on the client application for sign in.
 
-> [AZURE.NOTE] 
-We roll our keys at frequent intervals. Please ensure that you are always pulling from the "openid_keys" URL and that the app can access the internet.
+> [AZURE.NOTE] For our B2C preview you use the same policies across both client and server setups. If you've already went through a walk-through and created these policies there is no need to do so again. Since you've went through this walk-through, you shouldn't need to set up new policeis when you do any client walk-throughs on this site.
 
 
 ## 11: Add configuration to your server.js file
