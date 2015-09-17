@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Install MySQL on a virtual machine running OpenSUSE Linux in Azure"
+	pageTitle="Install MySQL on a OpenSUSE Linux VM in Microsoft Azure"
 	description="Learn to install MySQL on a virtual machine in Azure."
 	services="virtual-machines"
 	documentationCenter=""
