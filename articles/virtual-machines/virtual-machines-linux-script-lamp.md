@@ -23,7 +23,7 @@ The Microsoft Azure CustomScript Extension for Linux provides a way to customize
 
 You can deploy the CustomScript Extension using the Azure Portal, Windows PowerShell, or the Azure Command-Line Interface (Azure CLI).
 
-In this article we'll use Azure CLI deploy a simple LAMP application to an Ubuntu VM created using the Classic deployment model.
+In this article we'll use the Azure CLI to deploy a simple LAMP application to an Ubuntu VM created using the Classic deployment model.
 
 ## Prerequisites
 
