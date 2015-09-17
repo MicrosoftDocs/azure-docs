@@ -29,8 +29,8 @@ Following these steps will allow you to exercise the page UI customization featu
 
 Before you get started:
 
-- Build one of the Azure AD B2C Quick Start Applications listed [here](active-directory-b2c-overview.md). As part of doing this, you will create a [sign-up policy](active-directory-b2c-reference-ui-customization.md) that you will modify here.
-  - For demo purposes, select Local Account ("Email address"), Facebook and Google+ as **Identity Providers**. And "Country/Region", "Display Name" and "Postal Code" as **Sign-up attributes**.
+- Build one of the Azure AD B2C Quick Start Applications listed [here](active-directory-b2c-overview.md). As part of doing that, you will have created a [sign-up policy](active-directory-b2c-reference-ui-customization.md) that you will modify here.
+  - For demo purposes, select Local Account (Email address), Facebook and Google+ as **Identity Providers**. And "Country/Region", "Display Name" and "Postal Code" as **Sign-up attributes**.
 - Download the helper tool from [here](https://github.com/AzureADSamples/B2C-AzureBlobStorage-Client).
 
 [AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
