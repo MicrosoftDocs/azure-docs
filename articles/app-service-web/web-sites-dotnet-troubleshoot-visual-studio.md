@@ -5,15 +5,15 @@
 	documentationCenter=".net" 
 	authors="tdykstra" 
 	manager="wpickett" 
-	editor=""/>
+	editor="jimbe"/>
 
 <tags 
-	ms.service="app-service-web" 
+	ms.service="app-service" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/10/2015" 
+	ms.date="09/16/2015" 
 	ms.author="tdykstra"/>
 
 # Troubleshoot a web app in Azure App Service using Visual Studio
@@ -21,6 +21,8 @@
 ## Overview
 
 This tutorial shows how to use Visual Studio tools that help debug a web app while it runs in [App Service](http://go.microsoft.com/fwlink/?LinkId=529714), by running in [debug mode](http://www.visualstudio.com/en-us/get-started/debug-your-app-vs.aspx) remotely or by viewing application logs and web server logs.
+
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 You'll learn:
 
