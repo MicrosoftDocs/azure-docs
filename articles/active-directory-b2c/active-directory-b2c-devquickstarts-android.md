@@ -231,7 +231,7 @@ Update your project's AndroidManifest.xml file to include all of our intents:
     
 ```
 
-As you can see, we define 6 activities which we will be using.
+As you can see, we define 5 activities which we will be using.
 
 **AuthenticationActivity** - comes from ADAL and is what provides the login webview
 
