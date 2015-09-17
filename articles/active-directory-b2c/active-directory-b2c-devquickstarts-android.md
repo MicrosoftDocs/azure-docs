@@ -21,9 +21,7 @@
 With Azure AD B2C, you can add powerful self-service identity managment features to your Android apps and web apis in a few short steps.  This article will show you how to create an Android "To-Do List" app that calls a node.js web API using OAuth 2.0 bearer tokens. Both the Android app and web api use Azure AD B2C to manage user identities
 and authenticate users.
 
-> [AZURE.NOTE]
-	This information applies to the Azure AD B2C preview.  For information on how to integrate with the generally available Azure AD service, 
-	please refer to the [Azure Active Directory Developer Guide](active-directory-developers-guide.md).
+[AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
 	
 > [AZURE.NOTE]
 	This quickstart has a pre-requisite that you have a Web API protected by Azure AD with B2C in order to work fully. We have built one for both .Net and node.js for you to use. This walk-through assumes the node.js Web-API sample is configured. 
@@ -216,35 +214,42 @@ public class ToDoActivity extends Activity {
         setContentView(R.layout.activity_list_todo_items);
         Toast.makeText(getApplicationContext(), TAG + "LifeCycle: OnCreate", Toast.LENGTH_SHORT)
                 .show();
+```
 
-        Button button = (Button) findViewById(R.id.switchUserButton);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(ToDoActivity.this, UsersListActivity.class);
-                startActivity(intent);
-            }
-        });
+Next, in the same class (don't close the bracket yet) add our buttons for the UI. You'll see we add buttons for Facebook Signin and Email Signin. This will use our policies defined in our `constants.java` file:
 
-        button = (Button) findViewById(R.id.addTaskButton);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(ToDoActivity.this, AddTaskActivity.class);
-                startActivity(intent);
-            }
-        });
-
-        button = (Button) findViewById(R.id.appSettingsButton);
+```
+        Button button = (Button) findViewById(R.id.signin_facebook);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(ToDoActivity.this, SettingsActivity.class);
                 startActivity(intent);
+
             }
         });
-```
 
+        button = (Button) findViewById(R.id.signin_email);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ToDoActivity.this, SettingsActivity.class);
+                startActivity(intent);
+
+            }
+        });
+
+        button = (Button) findViewById(R.id.signup_email);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ToDoActivity.this, SettingsActivity.class);
+                startActivity(intent);
+
+            }
+        });
+
+    ```
 Create an instance of AuthenticationContext at your main Activity:
 
     ```Java
@@ -277,7 +282,7 @@ Create an instance of AuthenticationContext at your main Activity:
 Next, let's define our callback:
 
     ```Java
-    mAuthContext.acquireToken(ToDoActivity.this, Connstants.SCOPES, Constants.ADDITIONAL_SCOPES, Constants.POLICY, Constants.CLIENT_ID, Constants.REDIRECT_URL, Constants.USER_HINT, Constants.PROMPT,
+    mAuthContext.acquireToken(ToDoActivity.this, Constants.SCOPES, Constants.ADDITIONAL_SCOPES, Constants.POLICY, Constants.CLIENT_ID, Constants.REDIRECT_URL, Constants.USER_HINT, Constants.PROMPT,
                     "nux=1&" + Constants.EXTRA_QP,
                     new AuthenticationCallback<AuthenticationResult>() {
 
@@ -431,8 +436,8 @@ private void getTasks() {
         }
         return endpoint;
     }
-    
-```
+
+    ```
 
 
 Note that we add the access token to the request in the following code:
@@ -455,7 +460,9 @@ Let's write those now:
     }
     
 ```
+
 And now manage our dialog callbacks:
+
 
 ```
 /**
@@ -482,7 +489,7 @@ And now manage our dialog callbacks:
         builder.create().show();
     }
     
-    ```
+ ```
     
 
 

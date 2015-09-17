@@ -3,7 +3,7 @@
 	description="Gives the steps to configure an availability set for a new or existing virtual machine in Azure using the Azure portal and Azure PowerShell commands"
 	services="virtual-machines"
 	documentationCenter=""
-	authors="KBDAzure"
+	authors="cynthn"
 	manager="timlt"
 	editor=""
 	tags="azure-service-management"/>
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/10/2015"
-	ms.author="kathydav"/>
+	ms.author="cynthn"/>
 
 # How to configure an availability set for virtual machines
 

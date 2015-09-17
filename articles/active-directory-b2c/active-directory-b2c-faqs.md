@@ -20,6 +20,8 @@
 
 This page answers frequently asked questions about the Azure Active Directory (AD) B2C preview. Keep checking back for updates.
 
+[AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
+
 ### Can I use Azure AD B2C in my existing, Employee-based Azure AD Directory?
 
 Currently Azure AD B2C features can't be turned on in your existing Azure AD directory. It is recommended that you create a separate directory to use Azure AD B2C features, i.e., to manage your consumers.
