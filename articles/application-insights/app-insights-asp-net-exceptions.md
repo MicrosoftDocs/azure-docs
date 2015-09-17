@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/11/2015" 
+	ms.date="09/10/2015" 
 	ms.author="awills"/>
  
 # Diagnose failures and exceptions in ASP.NET apps with Application Insights  
@@ -50,7 +50,7 @@ From there you can look at the stack trace and detailed properties of each excep
 
 A *dependency* is a service that your application calls, typically through a REST API or database connection. [Application Insights Status Monitor][redfield] automatically monitors a variety of types of dependency call, measuring call duration and success or failure. 
 
-To get dependency data, you have to [install Status Monitor][redfield] on your IIS server, or if your app is an Azure Web App, use the [Application Insights Extension][azure]. You can do this either 
+To get dependency data, you have to [install Status Monitor][redfield] on your IIS server, or if your app is an Azure Web App, use the [Application Insights Extension][azure]. 
 
 Failed calls to dependencies are listed on the Failures blade, and you can also find them under Related Items in the request details and exception details.
 
@@ -426,7 +426,15 @@ Add the attribute to the service implementations:
 
 [Sample](https://github.com/AppInsightsSamples/WCFUnhandledExceptions)
 
+## Exception performance counters
 
+If you have [installed Status Monitor][redfield] on your server, you can get a chart of the exceptions rate, measured by .NET. This includes both handled and unhandled .NET exceptions.
+
+Open a Metric Explorer blade, add a new chart, and select **Exception rate**, listed under Performance Counters. 
+
+The .NET framework calculates the rate by counting the number of exceptions in an interval and dividing by the length of the interval. 
+
+Note that it will be different from the 'Exceptions' count calculated by the Application Insights portal by counting TrackException reports. The sampling intervals are different, and the SDK doesn't send TrackException reports for all handled and unhandled exceptions.
 
 <!--Link references-->
 

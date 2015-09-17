@@ -61,7 +61,6 @@ Certreq.exe is Windows utility for creating certificate requests. It has been pa
 		MachineKeySet = True
 		ProviderName = "Microsoft RSA SChannel Cryptographic Provider"
 		ProviderType = 12
-		RequestType = CMC
 
 		[EnhancedKeyUsageExtension]
 		OID=1.3.6.1.5.5.7.3.1

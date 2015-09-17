@@ -22,8 +22,6 @@ This article provides sample configuration for configuring Azure VM Extensions f
 
 To learn more about these extensions click here : [Azure VM Extensions Overview.](https://msdn.microsoft.com/library/azure/dn606311.aspx)
 
-To learn more about these extensions click here : [Azure VM Extensions Overview.](https://msdn.microsoft.com/library/azure/dn606311.aspx)
-
 To learn more about authoring extension templates click here : [Authoring Extension Templates.](virtual-machines-extensions-authoring-templates.md)
 
 This article lists expected configuration values for some of the Windows Extensions.
@@ -164,9 +162,12 @@ Before deploying the extension please check the latest extension version and rep
               "type": "MicrosoftMonitoringAgent",
               "typeHandlerVersion": "1.0",
               "settings": {
-                "workspace_name" : "Workspace Name : The Workspace ID is available from within the Direct Agent Configuration section of the Azure Operational Insights portal",
+                "workspace_name" : "Workspace Name : The Workspace ID is available from within the Direct Agent Configuration section of the Azure Operational Insights portal"
+              }
+              "protectedSettings": {
                 "workspace_key"  : "The Workspace Key is a string that is available from within the Direct Agent Configuration section of the Azure Operational Insights portal"
               }
+          }
             }
 
 ### McAfee EndpointSecurity

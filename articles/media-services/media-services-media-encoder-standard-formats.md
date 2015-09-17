@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/03/2015"
+	ms.date="09/14/2015"
 	ms.author="juliako"/>
 
 #Media Encoder Standard Formats and Codecs
@@ -36,7 +36,18 @@ MP4 (.mp4, .m4a, .m4v)/ISMV (.isma, .ismv)|Yes
 [Microsoft Digital Video Recording(DVR-MS)](https://msdn.microsoft.com/library/windows/desktop/dd692984) (.dvr-ms) |Yes 
 Matroska/WebM (.mkv)		|Yes 
 WAVE/WAV (.wav)	|Yes 
+QuickTime (.mov) |Yes
  
+Media Encoder Standard supports carrying the following audio formats in input containers:
+
+- MXF, GXF and QuickTime files which have audio tracks with interleaved stereo or 5.1 samples
+
+or
+
+- MXF, GXF and QuickTime files where the audio is carried as separate PCM tracks but the channel mapping (to stereo or 5.1) can be deduced from the file metadata
+
+Note that support for explicit/user-supplied channel mapping will be provided in the near future.
+
 
 ##Input Video Codecs
 
@@ -53,6 +64,13 @@ Canopus HQ/HQX										|No
 MPEG-4 Part 2										|Yes 
 [Theora](https://en.wikipedia.org/wiki/Theora)		|Yes 
 YUV420 uncompressed, or mezzanine					|Yes
+Apple ProRes 422									|Yes
+Apple ProRes 422 LT	|Yes
+Apple ProRes 422 HQ |Yes
+Apple ProRes Proxy|Yes
+Apple ProRes 4444 |Yes
+Apple ProRes 4444 XQ |Yes
+
 
 
 ##Input Audio Codecs
@@ -89,8 +107,8 @@ MPEG2-TS |H.264 (High, Main, and Baseline Profiles)|AAC-LC, HE-AAC v1, HE-AAC v2
 
 You can view AMS learning paths here:
 
-- [AMS on Demand Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
-- [AMS Live Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+- [AMS Live Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [AMS on Demand Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
 ##See also
 

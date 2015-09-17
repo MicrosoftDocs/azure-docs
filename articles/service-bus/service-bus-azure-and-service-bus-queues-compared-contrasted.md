@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd"
-   ms.date="09/09/2015"
+   ms.date="09/11/2015"
    ms.author="sethm" />
 
 # Azure Queues and Service Bus queues - compared and contrasted
@@ -273,7 +273,7 @@ This section compares Azure Queues and Service Bus queues from a cost perspectiv
 
 |Comparison Criteria|Azure Queues|Service Bus Queues|
 |---|---|---|
-|Queue transaction cost|**$0.0005**<br/><br/>(per 10,000 transactions)|**Basic tier**: **$0.05**<br/><br/>(per million operations)|
+|Queue transaction cost|**$0.0036**<br/><br/>(per 100,000 transactions)|**Basic tier**: **$0.05**<br/><br/>(per million operations)|
 |Billable operations|**All**|**Send/Receive only**<br/><br/>(no charge for other operations)|
 |Idle transactions|**Billable**<br/><br/>(querying an empty queue is counted as a billable transaction)|**Billable**<br/><br/>(a receive against an empty queue is considered a billable message)|
 |Storage cost|**$0.07**<br/><br/>(per GB/month)|**$0.00**|
@@ -289,7 +289,7 @@ This section compares Azure Queues and Service Bus queues from a cost perspectiv
 
 - Given the support for long polling, using Service Bus queues can be cost effective in situations where low-latency delivery is required.
 
->[AZURE.NOTE] All costs are subject to change. This table reflects current pricing as of the writing of this article and does not include any promotional offers that may currently be available. For up-to-date information about Azure pricing, see the [Azure pricing](http://azure.microsoft.com/pricing/) page. For more information about Service Bus pricing, see [Service Bus pricing]((http://azure.microsoft.com/pricing/details/service-bus/).
+>[AZURE.NOTE] All costs are subject to change. This table reflects current pricing as of the writing of this article and does not include any promotional offers that may currently be available. For up-to-date information about Azure pricing, see the [Azure pricing](http://azure.microsoft.com/pricing/) page. For more information about Service Bus pricing, see [Service Bus pricing](http://azure.microsoft.com/pricing/details/service-bus/).
 
 ## Conclusion
 
