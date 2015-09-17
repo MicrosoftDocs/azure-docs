@@ -294,7 +294,7 @@ Events, errors, activities and jobs can be enhanced with parameters. This is ext
 
 #### Tag and SDK integration 
 
-The step by step [Engagement SDK Integration](https://azure.microsoft.com/documentation/articles/mobile-engagement-windows-store-integrate-engagement/) documentation on Azure website is the best guide for integrating the Azure Mobile Enagagement SDK. Follow that link and choose your client platform at the top.
+The step by step [Engagement SDK Integration](mobile-engagement-windows-store-integrate-engagement.md) documentation on Azure website is the best guide for integrating the Azure Mobile Enagagement SDK. Follow that link and choose your client platform at the top.
 
 For IT teams, we recommend creating a project with two apps built on top of Azure Mobile Engagement. One would be an app for development stage, the other one for production staging. The IT team can make their change on the ‘app test’ and switch on ‘app prod’ when the user acceptance testing is ok .
 
@@ -319,7 +319,7 @@ You must test all the types of notification behavior you have embedded:
 
 #### Setup
 
-Setting up Azure Mobile Engagement is very simple. All the documentation related to the user interface is available on the Azure Mobile Engagement website: [How to navigate the user interface](https://azure.microsoft.com/documentation/articles/mobile-engagement-user-interface-navigation/).
+Setting up Azure Mobile Engagement is very simple. All the documentation related to the user interface is available on the Azure Mobile Engagement website: [How to navigate the user interface](mobile-engagement-user-interface-navigation.md).
 
 It is recommended that you start by setting up the right roles and role memberships for the users of your project. This helps you manage proper access to the platform.
 
@@ -332,7 +332,7 @@ Afterwards:
 - Go to the settings of your account and set up the time zone to have charts and notification delivery time set for your time zone.
 - Go to the settings of your application and register the “App-info” you need to target end-user within Reach.
 
-For more information on how to run your first push notification campaign review [How to get started using and managing pushes to reach out to your end users](https://azure.microsoft.com/documentation/articles/mobile-engagement-how-tos/).
+For more information on how to run your first push notification campaign review [How to get started using and managing pushes to reach out to your end users](mobile-engagement-how-tos.md).
 
 
 
