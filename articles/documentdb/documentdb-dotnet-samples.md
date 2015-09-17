@@ -41,11 +41,11 @@ Samples for the following database tasks are included in the [azure-documentdb-n
 
 Task | Method
 --- | ---
-Create a database | [DocumentClient.CreateDatabaseAsync](https://msdn.microsoft.com/en-us/library/azure/microsoft.azure.documents.client.documentclient.createdatabaseasync.aspx#M:Microsoft.Azure.Documents.Client.DocumentClient.CreateDatabaseAsync(Microsoft.Azure.Documents.Database,Microsoft.Azure.Documents.Client.RequestOptions))
-Retrieve a database | [DocumentQueryable.CreateDatabaseQuery](https://msdn.microsoft.com/en-us/library/azure/microsoft.azure.documents.linq.documentqueryable.createdatabasequery.aspx)
-List databases for an account | [DocumentClient.ReadDatabaseFeedAsync](https://msdn.microsoft.com/en-us/library/azure/microsoft.azure.documents.client.documentclient.readdatabasefeedasync.aspx)
-Retrieve the DocumentDB endpointUrl, primary and secondary authorization keys | [ConfigurationManager.AppSettings](https://msdn.microsoft.com/en-us/library/system.configuration.configurationmanager.appsettings%28v=vs.110%29.aspx)
-Delete a database | [DeleteDatabaseAsync](https://msdn.microsoft.com/en-us/library/azure/microsoft.azure.documents.client.documentclient.deletedatabaseasync.aspx#M:Microsoft.Azure.Documents.Client.DocumentClient.DeleteDatabaseAsync)
+Create a database | [DocumentClient.CreateDatabaseAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createdatabaseasync.aspx#M:Microsoft.Azure.Documents.Client.DocumentClient.CreateDatabaseAsync(Microsoft.Azure.Documents.Database,Microsoft.Azure.Documents.Client.RequestOptions))
+Retrieve a database | [DocumentQueryable.CreateDatabaseQuery](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.linq.documentqueryable.createdatabasequery.aspx)
+List databases for an account | [DocumentClient.ReadDatabaseFeedAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.readdatabasefeedasync.aspx)
+Retrieve the DocumentDB endpointUrl, primary and secondary authorization keys | [ConfigurationManager.AppSettings](https://msdn.microsoft.com/library/system.configuration.configurationmanager.appsettings%28v=vs.110%29.aspx)
+Delete a database | [DeleteDatabaseAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.deletedatabaseasync.aspx#M:Microsoft.Azure.Documents.Client.DocumentClient.DeleteDatabaseAsync)
 
 ## Collection samples 
 
@@ -61,20 +61,20 @@ Samples for the following collection tasks are included in the [azure-documentdb
 
 The document sample file, [azure-documentdb-net/samples/code-samples/DocumentManagement/Program.cs](https://github.com/Azure/azure-documentdb-net/blob/master/samples/code-samples/DocumentManagement/Program.cs), shows how to do the following:
 
-- Create a list of plain old clr objects (POCOs) and insert into collection by using [DocumentClient.CreateDocumentAsync](https://msdn.microsoft.com/en-us/library/azure/microsoft.azure.documents.client.documentclient.createattachmentasync.aspx)
-- Read a document by using [DocumentClient.CreateDocumentQuery](https://msdn.microsoft.com/en-us/library/azure/microsoft.azure.documents.client.documentclient.createdocumentquery.aspx) 
-- Update a document by using [DocumentClient.ReplaceDocumentAsync](https://msdn.microsoft.com/en-us/library/azure/microsoft.azure.documents.client.documentclient.replacedocumentasync.aspx).
-- Create a document attachment by using [DocumentClient.CreateAttachmentAsync](https://msdn.microsoft.com/en-us/library/azure/microsoft.azure.documents.client.documentclient.createattachmentasync.aspx). 
-- Query the document for attachments by using [DocumentClient.CreateAttachmentQuery](https://msdn.microsoft.com/en-us/library/azure/microsoft.azure.documents.client.documentclient.createattachmentquery.aspx). 
-- Read media content by using [DocumentClient.ReadMediaAsync](https://msdn.microsoft.com/en-us/library/azure/microsoft.azure.documents.client.documentclient.readmediaasync.aspx). 
+- Create a list of plain old clr objects (POCOs) and insert into collection by using [DocumentClient.CreateDocumentAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createattachmentasync.aspx)
+- Read a document by using [DocumentClient.CreateDocumentQuery](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createdocumentquery.aspx) 
+- Update a document by using [DocumentClient.ReplaceDocumentAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.replacedocumentasync.aspx).
+- Create a document attachment by using [DocumentClient.CreateAttachmentAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createattachmentasync.aspx). 
+- Query the document for attachments by using [DocumentClient.CreateAttachmentQuery](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createattachmentquery.aspx). 
+- Read media content by using [DocumentClient.ReadMediaAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.readmediaasync.aspx). 
 
 ## Indexing samples
 
 The indexing sample file, [azure-documentdb-net/samples/code-samples/IndexManagement/Program.cs](https://github.com/Azure/azure-documentdb-net/blob/master/samples/code-samples/IndexManagement/Program.cs), shows how to do the following:
 
-- Exclude a document from automatic indexing by using [CreateDocumentAsync](https://msdn.microsoft.com/en-us/library/azure/microsoft.azure.documents.client.documentclient.createattachmentasync.aspx) and [IndexingDirective.Exclude](https://msdn.microsoft.com/en-us/library/azure/microsoft.azure.documents.indexingdirective.aspx).
-- Opt-in indexing of documents with manual indexing policy by using [CreateDocumentAsync](https://msdn.microsoft.com/en-us/library/azure/microsoft.azure.documents.client.documentclient.createattachmentasync.aspx).
-- Use lazy indexing for bulk import or read heavy collections by instantiating a new [DocumentCollection](https://msdn.microsoft.com/en-us/library/azure/microsoft.azure.documents.documentcollection.documentcollection.aspx#M:Microsoft.Azure.Documents.DocumentCollection) and using [IndexingMode.Lazy](https://msdn.microsoft.com/en-us/library/azure/microsoft.azure.documents.indexingmode.aspx).
+- Exclude a document from automatic indexing by using [CreateDocumentAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createattachmentasync.aspx) and [IndexingDirective.Exclude](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.indexingdirective.aspx).
+- Opt-in indexing of documents with manual indexing policy by using [CreateDocumentAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createattachmentasync.aspx).
+- Use lazy indexing for bulk import or read heavy collections by instantiating a new [DocumentCollection](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.documentcollection.documentcollection.aspx#M:Microsoft.Azure.Documents.DocumentCollection) and using [IndexingMode.Lazy](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.indexingmode.aspx).
 - Use range indexing over strings in order to support Order by ...
 - Exclude certain paths from indexing ...
 - Force a range-based scan on a Hash index...
