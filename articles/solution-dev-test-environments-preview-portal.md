@@ -24,7 +24,7 @@ Custom applications are typically deployed to multiple development and testing e
 
 When you provision development and test environments in Microsoft Azure, you only pay for the resources you use.  This article explains how quickly and consistently you can create, maintain, and delete development and test environments using Azure Resource Manager templates and parameter files, as illustrated below.
 
-![Scenario](media/solution-dev-test-environments-preview-portal/scenario1.png)
+![Scenario](./media/solution-dev-test-environments-preview-portal/scenario1.png)
 
 Three development and testing environments are shown above.  Each has a web application and SQL database.  The names of the application and database in each environment are different.  This article explains how you can use a template to deploy the same resource across environments, and use unique parameter files to specify different configurations for the resources across the environments.
 
@@ -305,11 +305,11 @@ Throughout development, configuration of the Azure resources in the different en
 
   **Step 7:** Change the environments. Open the [Azure Preview Portal](https://portal.azure.com) and sign into it with the same account you used to complete the steps above. As shown in the picture below, click Browse All-->Resource groups (you may need to scroll down in the Browse blade to see Resource groups). You'll see all three resource groups you created using one of the methods from previous steps.  Click on the TestApp1-Development resource group as shown below.
 
-  ![Portal](/media/solution-dev-test-environments-preview-portal/portal01.png)
+  ![Portal](./media/solution-dev-test-environments-preview-portal/portal01.png)
 
   After clicking the TestApp1-Development resource group you'll see the blade that lists the resources created by the template in the resource group deployment you completed in a previous step.  Delete the TestApp1Dev Web App resource by clicking TestApp1Dev-->Delete as shown below.
 
-  ![Portal](/media/solution-dev-test-environments-preview-portal/portal02.png)
+  ![Portal](./media/solution-dev-test-environments-preview-portal/portal02.png)
 
   Click "Yes" when the portal prompts you as to whether you're sure you want to delete the resource.  The contents of the resource group are now different than they should be. You can further experiment by deleting multiple resources from multiple resource groups or even changing configuration settings for some of the resources.
 
@@ -317,7 +317,7 @@ Throughout development, configuration of the Azure resources in the different en
 
   **Step 8:** Re-deploy the environments to the resource groups using the same commands you used in Step 6, but replace "Deployment1" with "Deployment2." As shown in the Summary section of the picture below, you'll see that all of the resources from the template exist in the TestApp1-Development resource group again. One of the advantages of deploying your environments with Azure Resource Manager templates is that you can easily re-deploy the environments back to a known state at any time.
 
-  ![Portal](/media/solution-dev-test-environments-preview-portal/portal03.png)
+  ![Portal](./media/solution-dev-test-environments-preview-portal/portal03.png)
 
   If you click on the text under "Last deployment" in the picture, you'll see a blade that shows the deployment history for the resource group.  Since you used the name "Deployment1" for the first deployment and "Deployment2" for the second deployment, you'll have two entries.  Clicking on a deployment will display a blade that shows the results for each deployment.
 
