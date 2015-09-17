@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Azure Automation DSC Overview" 
+   pageTitle="Azure Automation DSC Overview | Microsoft Azure" 
    description="An Overview of Azure Automation Desired State Configuration (DSC), its terms, and known issues" 
    services="automation" 
    documentationCenter="dev-center-name" 
@@ -105,9 +105,6 @@ A compilation job in Azure Automation DSC is an instance of compilation of a con
 
 >[AZURE.NOTE] Just like runbooks, configurations can be published. This is not related to putting DSC items onto the Azure Automation DSC pull server. Compilation jobs cause DSC items to be placed on the Azure Automation DSC pull server. For more information on “publishing” in Azure Automation, see [Publishing a Runbook](https://msdn.microsoft.com/library/dn903765.aspx).
 
-
-<<<<<<< HEAD
-=======
 Azure Automation DSC currently provides the following cmdlets in the [Azure Resource Manager PowerShell module](https://msdn.microsoft.com/library/mt244122.aspx) for management of compilation jobs:
 
 -	`Get-AzureAutomationDscCompilationJob`
@@ -120,7 +117,7 @@ Going from an empty automation account to a managed set of correctly configured 
 
 ![alt text](./media/automation-dsc-overview/DSCLifecycle.png)
 
->>>>>>> 64a02d627e732d4ed91530b7a40cb9fd6465da89
+
 ##Gotchas / Known Issues:##
 
 - Azure Automation DSC does not support partial or composite DSC configurations at this time.
