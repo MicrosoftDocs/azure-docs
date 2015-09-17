@@ -11,7 +11,7 @@
 <tags 
 	ms.service="virtual-machines" 
 	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
+	ms.tgt_pltfrm="Windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="08/11/2015" 
@@ -115,6 +115,8 @@ When you have supplied all the proper values, run the resulting block at the Azu
 	$osDiskUri=$storageAcc.PrimaryEndpoints.Blob.ToString() + "vhds/" + $vmName + "-OSDisk.vhd"
 	$vm=Set-AzureVMOSDisk -VM $vm -Name "OSDisk" -VhdUri $osDiskUri -CreateOption fromImage
 	New-AzureVM -ResourceGroupName $rgName -Location $locName -VM $vm
+
+> [AZURE.NOTE] Because these virtual machines are for an intranet application, they are not assigned a public IP address or a DNS domain name label and exposed to the Internet. However, this also means that you cannot connect to them from the Azure Preview portal. The **Connect** button will be unavailable when you view the properties of the virtual machine.
 
 Use the remote desktop client of your choice and create a remote desktop connection to each web server virtual machine. Use its intranet DNS or computer name and the credentials of the local administrator account.
 

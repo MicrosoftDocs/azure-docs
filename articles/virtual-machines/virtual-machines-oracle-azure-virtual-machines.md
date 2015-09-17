@@ -11,13 +11,15 @@
 <tags
 	ms.service="virtual-machines"
 	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="na"
+	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
-	ms.topic="article"
+	ms.topic="index-page"
 	ms.date="07/09/2015"
 	ms.author="josephd"/>
 
 # Oracle software hosted on Azure virtual machines
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)] This article covers creating resources with the classic deployment model. 
 
 Set up your first or next dev/test or production Oracle database running on a virtual machine in Azure infrastructure services. Take advantage of ease of configuration and the ability to quickly expand the Oracle database workload to include new capacity.
 
