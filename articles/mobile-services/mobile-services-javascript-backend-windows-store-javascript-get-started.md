@@ -22,9 +22,7 @@
 
 This tutorial shows you how to add a cloud-based backend service to a Windows Store JavaScript app using Azure Mobile Services.
 
-In this tutorial, you will create both a new mobile service and a simple *To do list* app that stores app data in the new mobile service. The mobile service that you will create uses JavaScript for server-side business logic. To create a mobile service that lets you write your server-side business logic in the supported .NET languages using Visual Studio, see the .NET backend version of this topic.
-
-[AZURE.INCLUDE [mobile-services-windows-universal-get-started](../../includes/mobile-services-windows-universal-get-started.md)]
+In this tutorial, you will create both a new mobile service and a simple *To do list* app that stores app data in the new mobile service. The mobile service that you will create uses JavaScript for server-side business logic. To create a mobile service that lets you write your server-side business logic in the supported .NET languages using Visual Studio, see the [.NET backend version of this topic](mobile-services-dotnet-backend-windows-store-dotnet-get-started.md).
 
 To complete this tutorial, you need the following:
 
