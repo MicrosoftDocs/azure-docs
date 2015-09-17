@@ -1,5 +1,5 @@
 <properties
-	pageTitle="3-server SharePoint farm Resource Manager template | Microsoft Azure"
+	pageTitle="3-server SharePoint farm ARM template | Microsoft Azure"
 	description="Step through the structure of the Azure Resource Manager template for the three-server SharePoint farm."
 	services="virtual-machines"
 	documentationCenter=""
