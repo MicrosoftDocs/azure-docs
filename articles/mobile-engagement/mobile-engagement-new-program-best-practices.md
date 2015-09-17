@@ -360,10 +360,8 @@ After you have developed some experience consider the following:
   
 
 <!--Image references-->
-[1]: ./media/mobile-engagement-how-tos/First1.png
 
 
 <!--Link references-->
-[Link 1]: mobile-engagement-user-interface.md
 
  
