@@ -23,10 +23,10 @@
 ## Overview
 These PowerShell scripts can be run locally on the IIS01 and AppVM01 servers to install and setup a very simple web application that displays an html page from the front end IIS01 server with content from the backend AppVM01 server.
 
-This will app provides a simple testing environement for many of the DMZ Examples and how changes on the Endpoints, NSGs, UDR, and Firewall rules can effect traffic flows.
+This will app provides a simple testing environment for many of the DMZ Examples and how changes on the Endpoints, NSGs, UDR, and Firewall rules can effect traffic flows.
 
-## Firewall Rule to Allow ICMP (Ping)
-This simple powershell statement can be run on any Windows VM to allow ICMP, or Ping, traffic. This will allow for easier testing and troubleshooting by allowing the ping protocol to pass trhough the windows firewall.
+## Firewall Rule to Allow ICMP
+This simple PowerShell statement can be run on any Windows VM to allow ICMP (Ping) traffic. This will allow for easier testing and troubleshooting by allowing the ping protocol to pass trhough the windows firewall.
 
 	# Turn On ICMPv4
 	New-NetFirewallRule -Name Allow_ICMPv4 -DisplayName "Allow ICMPv4" `
@@ -34,6 +34,7 @@ This simple powershell statement can be run on any Windows VM to allow ICMP, or 
 
 ## IIS01 - Web Application Installation Script
 This script will;
+
 1.	Open IMCPv4 (Ping) on the local server windows firewall for easier testing
 2.	Install IIS
 3.	Create an ASP.NET web page and a Web.config file

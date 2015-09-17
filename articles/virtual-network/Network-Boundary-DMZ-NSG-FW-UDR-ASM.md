@@ -52,7 +52,7 @@ Once the script runs successfully the following post-script steps may be taken;
 
 Once the script runs successfully the firewall rules will need to be completed, this is covered in the section titled: Firewall Rules.
 
-## User Defined Routing (UDR) Description
+## User Defined Routing (UDR)
 By default, the following system routes are defined as:
 
         Effective routes : 
@@ -135,7 +135,7 @@ For this example, the following commands are used to build the route table, add 
 		   -SubnetName $BESubnet `
 		   -RouteTableName $BERouteTableName
 
-## IP Forwarding Description
+## IP Forwarding
 A companion feature to UDR, is IP Forwarding. This is a setting on a Virtual Appliance that allows it to receive traffic not specifically addressed to the appliance and then forward that traffic to its ultimate destination.
 
 As an example, if traffic from AppVM01 makes a request to the DNS01 server, UDR would route this to the firewall. With IP Forwarding enabled, the traffic for the DNS01 destination (10.0.2.4) will be accepted by the appliance (10.0.0.4) and then forwarded to its ultimate destination (10.0.2.4). Without IP Forwarding enabled on the Firewall, traffic would not be accepted by the appliance even though the route table has the firewall as the next hop. 
@@ -149,7 +149,7 @@ Setting up IP Forwarding is a single command and can be done at VM creation time
 		Get-AzureVM -Name $VMName[0] -ServiceName $ServiceName[0] `
 		   |Set-AzureIPForwarding -Enable
 
-## Network Security Group (NSG) Description
+## Network Security Groups (NSG)
 In this example, a NSG group is built and then loaded with a single rule. This group is then bound only to the Frontend and Backend subnets (not the SecNet). Declaratively the following rule is being built:
 
 1.	Any traffic (all ports) from the Internet to the entire VNet (all subnets) is Denied
@@ -182,7 +182,7 @@ On the firewall, forwarding rules will need to be created. Since the firewall is
 
 >[AZURE.NOTE] Based on the Network Virtual Appliance used, the management ports will vary. In this example a Barracuda NG Firewall is referenced which uses ports 22, 801, and 807. Please consult the appliance vendor documentation to find the exact ports used for management of the device being used.
 
-### Firewall Rules Description
+### Logical Rule Description
 In the logical diagram above, the security subnet is not shown since the firewall is the only resource on that subnet, and this diagram is showing the firewall rules and how they logically allow or deny traffic flows and not the actual routed path. Also, the external ports selected for the RDP traffic are higher ranged ports (8014 – 8026) and were selected to somewhat align with the last two octets of the local IP address for easier readability (e.g. local server address 10.0.1.4 is associated with external port 8014), however any higher non-conflicting ports could be used.
 
 For this example, we need 7 types of rules, these rule types are described as follows:
@@ -204,7 +204,7 @@ For this example, we need 7 types of rules, these rule types are described as fo
 
 >[AZURE.IMPORTANT] Once all of the above rules are created, it’s important to review the priority of each rule to ensure traffic will be allowed or denied as desired. For this example, the rules are in priority order. It's easy to be locked out of the firewall due to mis-ordered rules. At a minimum, ensure the management for the firewall itself is always the absolute highest priority rule.
 
-### Firewall Rules Prerequisites
+### Rule Prerequisites
 One prerequisite for the Virtual Machine running the firewall are public endpoints. For the firewall to process traffic the appropriate public endpoints must be open. There are three types of traffic in this example; 1) Management traffic to control the firewall and firewall rules, 2) RDP traffic to control the windows servers, and 3) Application Traffic. These are the three columns of traffic types in the upper half of logical view of the firewall rules above.
 
 >[AZURE.IMPORTANT] A key takeway here is to remember that **all** traffic will come through the firewall. So to remote desktop to the IIS01 server, even though it's in the Front End Cloud Service and on the Front End subnet, to access this server we will need to RDP to the firewall on port 8014, and then allow the firewall to route the RDP request internally to the IIS01 RDP Port. The Azure portal's "Connect" button won't work becuase there is no direct RDP path to IIS01 (as far as the portal can see).
@@ -302,7 +302,7 @@ There are four critical fields needed to create this rule:
 	**Note**: In this screen shot an “<explicit-dest>” is used in the Destination field to signify 10.0.2.5 as the destination. This could be either explicit as shown or a named Network Object (as was done in the prerequisites for the DNS server). This is up to the creator of the firewall as to which method will be used.
 
 >[AZURE.TIP] This rule uses the service “Any” to make the sample application easier to setup and use, this will also allow ICMPv4 (ping) in a single rule. However, this is not a recommended practice. The ports and protocols (“Services”) should be narrowed to the minimum possible that allows application operation to reduce the attack surface across this boundary.
-
+<p></p>
 >[AZURE.TIP] Although this rule shows an explicit-dest reference being used, a consistent approach should be used throughout the firewall configuration. It is recommended that the named Network Object be used throughout for easier readability and supportability. The explicit-dest is used here only to show an alternative reference method and is not generally recommended (especially for complex configurations).
 
 - **Outbound to Internet Rule**: This Pass rule will allow traffic from any Source network to pass to the selected Destination networks. This rule is a default rule usually already on the Barracuda NG firewall, but is in a disabled state. Right-clicking on this rule can access the Activate Rule command. The rule shown here has been modified to add the two local subnets that were created as references in the prerequisite section of this document to the Source attribute of this rule.
@@ -327,7 +327,7 @@ There are four critical fields needed to create this rule:
 
 >[AZURE.IMPORTANT] Once all of the above rules are created, it’s important to review the priority of each rule to ensure traffic will be allowed or denied as desired. For this example, the rules are in the order they should appear in the Main Grid of forwarding rules in the Barracuda Management Client.
 
-## Firewall Rules Activation
+## Rule Activation
 With the ruleset modified to the specification of the logic diagram, the ruleset must be uploaded to the firewall and then activated.
 
 ![Firewall Rule Activation][18]
@@ -336,7 +336,7 @@ In the upper right hand corner of the management client are a cluster of buttons
  
 With the activation of the firewall ruleset this example environment build is complete.
 
-## Traffic Scenarios for Example 3
+## Traffic Scenarios
 For these scenarios, the following firewall rules should be in place:
 
 1.	Firewall Management

@@ -49,10 +49,10 @@ Once the script runs successfully additional optional steps may be taken, in the
 
 The following sections will provide a detailed description of Network Security Groups and how they function for this example by walking through key lines of the PowerShell script.
 
-## Network Security Group (NSG) Description
+## Network Security Groups (NSG)
 For this example, a NSG group is built and then loaded with six rules. 
 
->AZURE.TIP Generally speaking, you should create your specific “Allow” rules first and then the more generic “Deny” rules last. The assigned priority dictates which rules are evaluated first. Once traffic is found to apply to a specific rule, no further rules are evaluated. NSG rules can apply in either in the inbound or outbound direction (from the perspective of the subnet).
+>[AZURE.TIP] Generally speaking, you should create your specific “Allow” rules first and then the more generic “Deny” rules last. The assigned priority dictates which rules are evaluated first. Once traffic is found to apply to a specific rule, no further rules are evaluated. NSG rules can apply in either in the inbound or outbound direction (from the perspective of the subnet).
 
 Declaratively, the following rules are being built for inbound traffic:
 
@@ -140,8 +140,7 @@ Each rule is discussed in more detail as follows (Note; any item in the below li
     		-DestinationPortRange '*' `
     		-Protocol * 
 
-## Traffic Scenarios for Example 1
-
+## Traffic Scenarios
 #### (*Allowed*) Web to Web Server
 1.	Internet user requests HTTP page from FrontEnd001.CloudApp.Net (Internet Facing Cloud Service)
 2.	Cloud service passes traffic through open endpoint on port 80 towards IIS01 (the web server)
@@ -234,7 +233,7 @@ More examples and an overview of network security boundaries can be found [here]
 
 ## References
 ### Main Script and Network Config
-Save the Full Script in a PowerShell script file. Save the Network Config into a file named “NSGIsoConf.xml”.
+Save the Full Script in a PowerShell script file. Save the Network Config into a file named “NetworkConf1.xml”.
 Modify the user defined variables as needed. Run the script, then follow the Firewall rule setup instruction contained in the Example 1 section above.
 
 #### Full Script
@@ -318,7 +317,7 @@ This PowerShell script should be run locally on an internet connected PC or serv
 	    $FEPrefix = "10.0.1.0/24"
 	    $BESubnet = "BackEnd"
 	    $BEPrefix = "10.0.2.0/24"
-	    $NetworkConfigFile = "C:\Scripts\NetworkConf.xml"
+	    $NetworkConfigFile = "C:\Scripts\NetworkConf1.xml"
 	
 	  # VM Base Disk Image Details
 	    $SrvImg = Get-AzureVMImage | Where {$_.ImageFamily -match 'Windows Server 2012 R2 Datacenter'} | sort PublishedDate -Descending | Select ImageName -First 1 | ForEach {$_.ImageName}

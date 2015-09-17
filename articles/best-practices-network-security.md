@@ -238,7 +238,7 @@ There are further details to build this example (it provides both scripts and an
 #### Network Security Group (NSG) Description
 In this example, a NSG group is built and then loaded with six rules.
 
->AZURE.TIP Generally speaking, you should create your specific “Allow” rules first and then the more generic “Deny” rules last. The given priority dictates which rules are evaluated first. Once traffic is found to apply to a specific rule, no further rules are evaluated. NSG rules can apply in either in the inbound or outbound direction (from the perspective of the subnet).
+>[AZURE.TIP] Generally speaking, you should create your specific “Allow” rules first and then the more generic “Deny” rules last. The given priority dictates which rules are evaluated first. Once traffic is found to apply to a specific rule, no further rules are evaluated. NSG rules can apply in either in the inbound or outbound direction (from the perspective of the subnet).
 
 Declaratively the following rules are being built for inbound traffic:
 
