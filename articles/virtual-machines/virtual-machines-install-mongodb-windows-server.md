@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Install MongoDB on a Windows Server virtual machine"
+	pageTitle="Install MongoDB on a Windows Server virtual machine | Microsoft Azure"
 	description="Learn how to install MongoDB on an Azure VM running Windows Server."
 	services="virtual-machines"
 	documentationCenter=""
