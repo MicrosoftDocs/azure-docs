@@ -5,8 +5,7 @@
    documentationCenter="na"
    authors="jimdial"
    manager="carolz"
-   editor=""
-   tags="azure-resource-manager"/>
+   editor=""/>
 
 <tags
    ms.service="azure-resource-manager"
@@ -25,7 +24,7 @@ Custom applications are typically deployed to multiple development and testing e
 
 When you provision development and test environments in Microsoft Azure, you only pay for the resources you use.  This article explains how quickly and consistently you can create, maintain, and delete development and test environments using Azure Resource Manager templates and parameter files, as illustrated below.
 
-! [solution-dev-test-environments] [media/solution-dev-test-environments/scenario.png]
+! [solution-dev-test-environments] (media/solution-dev-test-environments/scenario.png)
 
 Three development and testing environments are shown above.  Each has a web application and SQL database.  The names of the application and database in each environment are different.  This article explains how you can use a template to deploy the same resource across environments, and use unique parameter files to specify different configurations for the resources across the environments.
 
@@ -44,7 +43,7 @@ An Azure Resource Manager template defines all of the Azure resources that your 
 
 In the list you'll see a "[201-web-app-sql-database](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-sql-database)" folder. Since many custom applications include a web application and SQL database, this template is used as an example in the remainder of this article to help you understand how to use templates. It's beyond the scope of this article to fully explain everything this template creates and configures, but if you plan to use it to create actual environments in your organization, you'll want to fully understand it by reading the [Provision a web app with a SQL Database](app-service-web/app-service-web-arm-with-sql-database-provision.md) article.
 
-	> [Azure.Note] You can deploy the template to Azure directly by clicking the "Deploy to Azure" button on the [Provision a Web App with a SQL Database](http://azure.microsoft.com/documentation/templates/201-web-app-sql-database/) article.  You might find this helpful to learning about templates, but doing so does not enable you to edit, version, and save your template and parmeter values with your application code. The steps in this article explain how you can save and version your template and parameter values with your application code.  
+> [AZURE.NOTE] You can deploy the template to Azure directly by clicking the "Deploy to Azure" button on the [Provision a Web App with a SQL Database](http://azure.microsoft.com/documentation/templates/201-web-app-sql-database/) article.  You might find this helpful to learning about templates, but doing so does not enable you to edit, version, and save your template and parmeter values with your application code. The steps in this article explain how you can save and version your template and parameter values with your application code.
 
   **Step 1:** View the contents of the [azuredeploy.json](https://github.com/Azure/azure-quickstart-templates/blob/master/201-web-app-sql-database/azuredeploy.json) file in the 201-web-app-sql-database folder. This is the Azure Resource Manager template file. In the view mode, click the "[Raw](https://github.com/Azure/azure-quickstart-templates/raw/master/201-web-app-sql-database/azuredeploy.json)" button. With your mouse, select the entire contents of this file and save it to your computer as a file named "TestApp1-Template.json." 
 
@@ -68,29 +67,29 @@ You'll probably want the same Azure resources created in each environment, but y
 
   --TestApp1-Parameters-Development.json--
 
-	| Parameter | Description |
-	|---|---|
-	| **siteName** | TestApp1Dev |
-	| **hostingPlanName** | TestApp1PlanDev |
-	| **siteLocation** | Central US |
-	| **serverName** | testapp1dev |
-	| **serverLocation** | Central US |
-	| **administratorLogin** | testapp1Admin |
-	| **administratorLoginPassword** | #testapp1XYZ |
-	| **databaseName** | testapp1dev |
+| Parameter | Description |
+|---|---|
+| **siteName** | TestApp1Dev |
+| **hostingPlanName** | TestApp1PlanDev |
+| **siteLocation** | Central US |
+| **serverName** | testapp1dev |
+| **serverLocation** | Central US |
+| **administratorLogin** | testapp1Admin |
+| **administratorLoginPassword** | #testapp1XYZ |
+| **databaseName** | testapp1dev |
 
 --TestApp1-Parameters-Test.json--
 
-	| Parameter | Description |
-	|---|---|
-	| **siteName** | TestApp1Test |
-	| **hostingPlanName** | TestApp1PlanTest |
-	| **siteLocation** | Central US |
-	| **serverName** | testapp1test |
-	| **serverLocation** | Central US |
-	| **administratorLogin** | testapp1Admin |
-	| **administratorLoginPassword** | #testapp1XYZ |
-	| **databaseName** | testapp1test |
+| Parameter | Description |
+|---|---|
+| **siteName** | TestApp1Test |
+| **hostingPlanName** | TestApp1PlanTest |
+| **siteLocation** | Central US |
+| **serverName** | testapp1test |
+| **serverLocation** | Central US |
+| **administratorLogin** | testapp1Admin |
+| **administratorLoginPassword** | #testapp1XYZ |
+| **databaseName** | testapp1test |
 
 In Step 6, these parameter files will be used to create unique configurations for the Azure Web App and Azure SQL Database resources in the Development and Test environments.
 
@@ -139,10 +138,10 @@ The reason non-default values are used for these parameters in the Pre-Productio
 
 The table below lists the default values for these parameters specified in the template and the values that are used instead of the default values in the Pre-Production parameters file.
 
-	| Parameter | Default value | Parameter file value |
-	|---|---|---|
-	| **sku** | Free | Standard |
-	| **requestedServiceObjectiveName** | S0 | S1 |
+| Parameter | Default value | Parameter file value |
+|---|---|---|
+| **sku** | Free | Standard |
+| **requestedServiceObjectiveName** | S0 | S1 |
 
 ## Create environments
 All Azure resources must be created within an [Azure Resource Group](azure-portal/resource-group-portal.md). Resource groups enable you to group Azure resources so they can be managed collectively.  [Permissions](azure-portal/resource-group-rbac.md) can be assigned to resource groups such that specific people within your organization can create, modify, delete, or view them and the resources within them.  Alerts and billing information for resources in the Resource Group can be viewed in the [Azure Preview Portal](https://portal.azure.com). Resource groups are created in an Azure [location](http://azure.microsoft.com/regions/).  In this article, all resources are created in the Central US location. When you start creating actual environments, you'll choose the location that best meets your requirements. 
@@ -306,19 +305,19 @@ Throughout development, configuration of the Azure resources in the different en
 
   **Step 7:** Change the environments. Open the [Azure Preview Portal](https://portal.azure.com) and sign into it with the same account you used to complete the steps above. As shown in the picture below, click Browse All-->Resource groups (you may need to scroll down in the Browse blade to see Resource groups). You'll see all three resource groups you created using one of the methods from previous steps.  Click on the TestApp1-Development resource group as shown below.
 
-  ! [Solution-Dev-Test-Environments] [/media/solution-dev-test-environments/portal1.png]
+  ! [Solution-Dev-Test-Environments] (/media/solution-dev-test-environments/portal1.png)
 
   After clicking the TestApp1-Development resource group you'll see the blade that lists the resources created by the template in the resource group deployment you completed in a previous step.  Delete the TestApp1Dev Web App resource by clicking TestApp1Dev-->Delete as shown below.
 
-  ! [Solution-Dev-Test-Environments] [/media/solution-dev-test-environments/portal2.png]
+  ! [Solution-Dev-Test-Environments] (/media/solution-dev-test-environments/portal2.png)
 
   Click "Yes" when the portal prompts you as to whether you're sure you want to delete the resource.  The contents of the resource group are now different than they should be. You can further experiment by deleting multiple resources from multiple resource groups or even changing configuration settings for some of the resources.
 
-	> [Azure.Note] Instead of using the Azure Preview Portal to delete a resource from a resource group, you could use the PowerShell [Remove-AzureResource](https://msdn.microsoft.com/library/azure/dn757676.aspx) command or the or "azure resource delete" command from the CLI to accomplish the same task.  
+> [AZURE.NOTE] Instead of using the Azure Preview Portal to delete a resource from a resource group, you could use the PowerShell [Remove-AzureResource](https://msdn.microsoft.com/library/azure/dn757676.aspx) command or the or "azure resource delete" command from the CLI to accomplish the same task.  
 
-  **Step 8:** Re-deploy the environments to the resource groups using the same commands you used in Step 6, but replace "Deployment1" with "Deployment2." As shown in the Summary section of the picture below, you'll see that all of the resources from the template exist in the TestApp1-Development resource group again. One of the advantages of deploying your environments with Azure Resource Manager templates is that you can easily re-deploy the environments back to a known state at any time.  
+  **Step 8:** Re-deploy the environments to the resource groups using the same commands you used in Step 6, but replace "Deployment1" with "Deployment2." As shown in the Summary section of the picture below, you'll see that all of the resources from the template exist in the TestApp1-Development resource group again. One of the advantages of deploying your environments with Azure Resource Manager templates is that you can easily re-deploy the environments back to a known state at any time.
 
-  ! [Solution-Dev-Test-Environments] [/media/solution-dev-test-environments/portal3.png]
+  ! [Solution-Dev-Test-Environments] (/media/solution-dev-test-environments/portal3.png)
 
   If you click on the text under "Last deployment" in the picture, you'll see a blade that shows the deployment history for the resource group.  Since you used the name "Deployment1" for the first deployment and "Deployment2" for the second deployment, you'll have two entries.  Clicking on a deployment will display a blade that shows the results for each deployment.
 
@@ -373,7 +372,7 @@ Now that you've experienced how easy it is to create, maintain, and delete devel
 
 ## Next steps
 
-- [Delegate administrative control](role-based-access-control-configure.md) to different resources in each environment by assigning Windows Azure AD groups or users to specific roles that have the ability to perform a subset of operations on Azure resources.
+- [Delegate administrative control](role-based-access-control-configure.md) to different resources in each environment by assigning Microsoft Azure AD groups or users to specific roles that have the ability to perform a subset of operations on Azure resources.
 - [Assign tags](resource-group-using-tags.md) to the resource groups for each environment and/or the individual resources. You might add an "Environment" tag to your resource groups and set its value to correspond to your environment names. Tags can be particularly helpful when you need to organize resources for billing or management.
 - Monitor alerts and billing for resource group resources in the [Azure Preview Portal](https://portal.azure.com).
 
