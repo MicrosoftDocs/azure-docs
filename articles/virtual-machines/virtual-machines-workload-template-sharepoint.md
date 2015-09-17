@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Deploy SharePoint farms with Resource Manager templates | Microsoft Azure"
+	pageTitle="Deploy SharePoint farms with ARM templates | Microsoft Azure"
 	description="Easily deploy 3-server or 9-server SharePoint farm with Resource Manager templates and the Azure portal, Azure PowerShell, or the Azure CLI."
 	services="virtual-machines"
 	documentationCenter=""
