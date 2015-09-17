@@ -108,14 +108,14 @@ Define these KPIs to help measure app performance and pinpoint potential bugs. T
 #### Playbook Part 1: Create your KPI dashboard
 
 
-What tha.....
+**Still reviewing the playbook to make sense of this**
 
-On a mobile marketing strategy, defining your KPIs, first serves a main objective: clearly designed data you need to collect to monitor your app and understand your end-users behavior. Step by step you build a dashboard which contains the below information
-1.	What are my KPIs?
-2.	What data I need to build this KPI?
-3.	Where these data is located on my application (i.e. screen, settings, system…)?
-4.	Can I play an Engagement sequence for this KPI?
-Look at our Media Playbook Template to find out some example.
+	On a mobile marketing strategy, defining your KPIs, first serves a main objective: clearly designed data you need to collect to monitor your app and understand your end-users behavior. Step by step you build a dashboard which contains the below information
+	1.	What are my KPIs?
+	2.	What data I need to build this KPI?
+	3.	Where these data is located on my application (i.e. screen, settings, system…)?
+	4.	Can I play an Engagement sequence for this KPI?
+	Look at our Media Playbook Template to find out some example.
 
 
 
@@ -131,7 +131,9 @@ Push notifications are the best way to engage early with your users. However, gr
 
 Once users are actively engaged, then your engagement program can help drive other aspects of the app.
 
-- **Not following this:** *For instance, having a high stickiness impacts usage and business but it also leverage your rank in the stores. Hence you can get organic download increase too and have a direct cost reduction.*
+**Not following this:** 
+	
+		For instance, having a high stickiness impacts usage and business but it also leverage your rank in the stores. Hence you can get organic download increase too and have a direct cost reduction.*
 
 
 
@@ -143,7 +145,7 @@ Once users are actively engaged, then your engagement program can help drive oth
 A global Engagement Program includes different engagement sequences. Each sequence aims to reach several objectives.
 
 
-####### Life push sequence
+###### Life push sequence
 
 
 The objectives for a Life push sequence are different depending on the lifetime of the user’s engagement with the app. A particular user may be new, inactive, or very active. At different stages of an engagement lifetime, users may benefit from tips and engaging. 
@@ -153,7 +155,7 @@ For example a new user may need help getting oriented to an app or benefit from 
 *"Glad to have you onboard! Remember to login to get your 1st month free!"*
 
 
-####### Behavioral push sequence
+###### Behavioral push sequence
 
 The behavioral push sequence aims to increase usage based on user behavior collected for the app.  
 
@@ -162,7 +164,7 @@ For example, a very active user of a fantasy football app might benefit from bei
 *"John you are a serious football fan! Log in to our NFL section and win free access to the SuperBowl!"*
 
 
-####### Alerting push sequence
+###### Alerting push sequence
 
 Users will appreciated relevant news focused on their interests. An alert push sequence enhances engagement by sending alerts based on interests they have clearly shown.
 
@@ -170,7 +172,7 @@ For example, the user of an E-Commerce app may regularly buy a specific brand of
  
 *"Hi Wes, One of your favorite brands of coffee will be on sale 25% off the first week of September 2015. We appreciate you as a customer and wanted to make sure you were aware."*
 
-####### Rentention push sequence
+###### Rentention push sequence
 
 This sequence aims to retain users using a repetitive push notification campaigns to help drive a regular habit of engaging with the app. This can help increase app retention if the user enjoys the interactions. 
 
@@ -187,7 +189,7 @@ For example, the user of a sports related app might receive the following push n
 
 Mastering the different push sequences will help you engage with end-users. However, you still need to use the 3W approach for personalizing your notifications. The 3W approach should address who, what and when. 
 
-####### Who: The user segment that will receive messages
+###### Who: The user segment that will receive messages
 
 Pushing notifications to your users should be considered a very sensitive communication channel. Make sure the notifications you aim to send for to a user segment are well scoped to the interests of that user segment. An incorrectly routed notification is very likely to have a negative affect on a user. 
 
@@ -205,10 +207,10 @@ That statement helps identify the data you would need to collect to support the 
 	-	An app-info “log-in = false” to know the status (does not require to build a segment).
 
 
-####### What: The message that you will send
+###### What: The message that you will send
 
 
-####### When: The timing of your campaign
+###### When: The timing of your campaign
 
 When is the best time to activate the campaign triggering the push notification? Should it be manually, automatically, from time to time or every day? Determining the right time or frequency can essential to engaging users with the best results. For each engagement sequence and scenario, you must specify when will be the best time to send push notifications. Here are some possible examples:
 
@@ -240,22 +242,22 @@ Azure Mobile Engagement provides two ways to help avoid your communications bein
 
 #### Data Types
 
-####### Devices and users
+###### Devices and users
 
 Azure Mobile Engagement identifies users by generating a unique identifier for each device. This identifier is called the device identifier (or deviceid). It is generated in such a way that all applications running on that same device share the same device identifier.
 
-####### Sessions and activities
+###### Sessions and activities
 
 A session is one instance of the app being run by a user. The session spans from the time the user starts the app, until it stops.
 
 An activity is a logic grouping of a set of things the app during a session. It is usually a particular screen in the app, but it can be anything defined y the logic of the application. At a minimum you should tag each Activity for your app. This will allow you to  understand the user-path.
 
 
-####### Events
+###### Events
 
 Events are used to report user interaction with the app. They can be instant actions (like sharing content or launching a video. Tagging events will provide you with data collections that show how users interact with the app. 
 
-####### Jobs
+###### Jobs
 
 Jobs are used to report actions having a duration. Some examples would include:
 
@@ -266,20 +268,20 @@ Jobs are used to report actions having a duration. Some examples would include:
 - Playing a video to the end
 
 
-####### Errors
+###### Errors
 
 Errors are used to report issues detected by the app. For example, incorrect user actions, or API call failures.
 
-####### Application information
+###### Application information
 
 Applications information (or App-Info) is used to tag users. It associates some data to the users of an application. For a given key, Azure Mobile Engagement only keeps track of the latest value (no history). App-info reveals the status of your app or your end-users. For example the log-in status, or the favorite product group for a user.
 
-####### Crash data
+###### Crash data
 
 Crash data automatically collected by the Mobile Engagement SDK to report application failures not handled by the application. For example an unhandled exception that occurs.
 
 
-####### Extra data
+###### Extra data
 
 Events, errors, activities and jobs can be enhanced with parameters. This is extra-information in Mobile Engagement used to support gathering dynamic data from the application. This is important to for defining fine-grained segmentation. For instance, a media application may contain extra-info such as “category_news” within an activity. “article” will allow you to segment end-users based on the categories of articles they read. Extra-info always comes with a set of pair key/value. In the example for this media application, the extra-info name should be “category_news” and the value, a string providing the extra information for that category. For example “sports", "economy", or "political".
 
