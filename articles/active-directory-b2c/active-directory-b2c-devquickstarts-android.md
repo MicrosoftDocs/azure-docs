@@ -580,9 +580,12 @@ public class ToDoActivity extends Activity {
         Toast.makeText(getApplicationContext(), TAG + "LifeCycle: OnCreate", Toast.LENGTH_SHORT)
                 .show();
 
+        // Get the polict passed to us
+        
         String policy = getIntent().getStringExtra("thePolicy");
-        Button zbutton = (Button) findViewById(R.id.switchUserButton);
-        zbutton.setOnClickListener(new View.OnClickListener() {
+        
+        Button button = (Button) findViewById(R.id.switchUserButton);
+        button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(ToDoActivity.this, UsersListActivity.class);
@@ -590,8 +593,8 @@ public class ToDoActivity extends Activity {
             }
         });
 
-        Button mbutton = (Button) findViewById(R.id.addTaskButton);
-        mbutton.setOnClickListener(new View.OnClickListener() {
+        button = (Button) findViewById(R.id.addTaskButton);
+        button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(ToDoActivity.this, AddTaskActivity.class);
@@ -599,8 +602,8 @@ public class ToDoActivity extends Activity {
             }
         });
 
-        Button abutton = (Button) findViewById(R.id.appSettingsButton);
-        abutton.setOnClickListener(new View.OnClickListener() {
+        button = (Button) findViewById(R.id.appSettingsButton);
+        button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(ToDoActivity.this, SettingsActivity.class);
@@ -696,6 +699,10 @@ Next, let's create some helper methods that will get the token alone during our 
 ```
 private void getToken(final AuthenticationCallback callback) {
 
+        // Get the polict passed to us
+        
+        String policy = getIntent().getStringExtra("thePolicy");
+        
         // one of the acquireToken overloads
         mAuthContext.acquireToken(onnstants.SCOPES, Constants.ADDITIONAL_SCOPES, Constants.POLICY,
                 Constants.CLIENT_ID, Constants.REDIRECT_URL, Constants.USER_HINT, Constants.PROMPT,
