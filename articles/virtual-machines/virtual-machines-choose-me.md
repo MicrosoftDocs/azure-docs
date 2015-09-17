@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Are virtual machines on Azure the compute option I want?"
-	description="Learn about Azure compute hosting options and how they work: App Service, Cloud Services, and Virtual Machines"
+	pageTitle="Should I Choose Azure VMs? | Microsoft Azure"
+	description="Learn Azure VMs and how they compare to the different application hosting models on Azure."
 	headerExpose=""
 	footerExpose=""
 	services="virtual-machines"
@@ -10,7 +10,7 @@
 	tags=azure-resource-manager, azure-service-management/>
 
 <tags
-	ms.service="multiple"
+	ms.service="virtual-machines"
 	ms.workload="multiple"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
@@ -30,3 +30,6 @@ Learn more about [Virtual Machines](https://msdn.microsoft.com/library/azure/jj1
 [App Service]: app-service-choose-me.md
 [Virtual Machines]: #tellmevm
 [Cloud Services]: cloud-services-choose-me.md
+
+
+
