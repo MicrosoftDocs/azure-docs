@@ -29,7 +29,7 @@
 
 ## NSG resources in a template file
 
-You can view and download the [sample template](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-front-end-sql-backend-dmz-IaaS).
+You can view and download the [sample template](https://raw.githubusercontent.com/telmosampaio/azure-templates/master/201-IaaS-WebFrontEnd-SQLBackEnd/).
 
 The section below shows the definition of the front end NSG, based on the scenario above.
 
@@ -90,7 +90,7 @@ Notice the same being done for the back end NSG and the back end subnet in the t
 
 ## Deploy the ARM template by using click to deploy
 
-The sample template available in the public repository uses a parameter file containing the default values used to generate the scenario described above. To deploy this template using click to deploy, follow [this link](https://portal.azure.com/#create/Microsoft.Template/uri/https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-web-front-end-sql-backend-dmz-IaaS/azuredeploy.json), replace the default values if necessary, and follow the instructions in the portal.
+The sample template available in the public repository uses a parameter file containing the default values used to generate the scenario described above. To deploy this template using click to deploy, follow [this link](https://portal.azure.com/#create/Microsoft.Template/uri/https://raw.githubusercontent.com/telmosampaio/azure-templates/master/201-IaaS-WebFrontEnd-SQLBackEnd/azuredeploy.json), replace the default parameter values if necessary, and follow the instructions in the portal.
 
 ## Deploy the ARM template by using PowerShell
 
@@ -110,8 +110,8 @@ To deploy the ARM template you downloaded by using PowerShell, follow the steps 
 3. Run the **New-AzureResourceGroup** cmdlet to create a resource group using the template.
 
 		New-AzureResourceGroup -Name TestRG -Location uswest `
-		    -TemplateFile 'https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-web-front-end-sql-backend-dmz-IaaS/azuredeploy.json' `
-		    -TemplateParameterFile 'https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-web-front-end-sql-backend-dmz-IaaS/azuredeploy-parameters.json'	
+		    -TemplateFile 'https://raw.githubusercontent.com/telmosampaio/azure-templates/master/201-IaaS-WebFrontEnd-SQLBackEnd/azuredeploy.json' `
+		    -TemplateParameterFile 'https://raw.githubusercontent.com/telmosampaio/azure-templates/master/201-IaaS-WebFrontEnd-SQLBackEnd/azuredeploy.parameters.json'	
 
 	Expected output:
 
@@ -164,7 +164,7 @@ To deploy the ARM template by using the Azure CLI, follow the steps below.
 
 4. Run the **azure group deployment create** cmdlet to deploy the new VNet by using the template and parameter files you downloaded and modified above. The list shown after the output explains the parameters used.
 
-		azure group create -n TestRG -l westus -f 'https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-web-front-end-sql-backend-dmz-IaaS/azuredeploy.json' -e 'https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-web-front-end-sql-backend-dmz-IaaS/azuredeploy-parameters.json'
+		azure group create -n TestRG -l westus -f 'https://raw.githubusercontent.com/telmosampaio/azure-templates/master/201-IaaS-WebFrontEnd-SQLBackEnd/azuredeploy.json' -e 'https://raw.githubusercontent.com/telmosampaio/azure-templates/master/201-IaaS-WebFrontEnd-SQLBackEnd/azuredeploy.parameters.json'
 
 	Expected output:
 

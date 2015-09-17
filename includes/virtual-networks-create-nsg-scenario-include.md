@@ -1,6 +1,6 @@
 ## Scenario
 
-To better illustrate how to create a NSGs, this document will use the scenario below.
+To better illustrate how to create NSGs, this document will use the scenario below.
 
 ![VNet scenario](./media/virtual-networks-create-nsg-scenario-include/figure1.png)
 
