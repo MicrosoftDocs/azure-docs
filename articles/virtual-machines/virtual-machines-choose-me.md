@@ -20,6 +20,8 @@
 
 # Should I Choose Azure Virtual Machines?
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
+
 Azure provides different hosting models for running applications. Each one provides a different set of services, so which one you choose depends on exactly what you're trying to do. Is an Azure VM the choice for you?
 
 [AZURE.INCLUDE [virtual-machines-choose-me-content](../../includes/virtual-machines-choose-me-content.md)]
