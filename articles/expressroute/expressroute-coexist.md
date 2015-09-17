@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/16/2015"
+   ms.date="09/17/2015"
    ms.author="cherylmc"/>
 
 # Configure Azure ExpressRoute and Site-to-Site VPN connections that coexist
@@ -192,7 +192,7 @@ If you have an existing virtual network connected via either ExpressRoute or Sit
 2. Export the virtual network schema. Use the following PowerShell cmdlet, replacing the values with your own.
 
 	`Get-AzureVNetConfig –ExportToFile “C:\NetworkConfig.xml”`
-3. Edit the network configuration file schema so that the gateway subnet is /27 (or a shorter prefix). See the following example. For more information about working with the network configuration file, see [How to create a VNet using a network configuration file](../virtual-network/virtual-networks-create-vnet-classic-portal.md#how-to-create-a-vnet-using-a-network-config-file-in-the-azure-portal). For more information about the configuration schema, see [Azure Virtual Network Configuration Schema](https://msdn.microsoft.com/library/azure/jj157100.aspx).
+3. Edit the network configuration file schema so that the gateway subnet is /27 or smaller (/26, /25 etc.). See the following example. For more information about working with the network configuration file, see [How to create a VNet using a network configuration file](../virtual-network/virtual-networks-create-vnet-classic-portal.md#how-to-create-a-vnet-using-a-network-config-file-in-the-azure-portal). For more information about the configuration schema, see [Azure Virtual Network Configuration Schema](https://msdn.microsoft.com/library/azure/jj157100.aspx).
 
 
           <Subnet name="GatewaySubnet">
