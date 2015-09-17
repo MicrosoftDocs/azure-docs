@@ -1,9 +1,7 @@
 <properties 
-	title="Virtual Machines and Containers | Microsoft Azure" 
-	pageTitle="Virtual Machines and Containers in Azure" 
+	pageTitle="Virtual Machines and Containers | Microsoft Azure" 
 	description="Describes Virtual Machines, Docker and Linux containers, and their usage in groups of each in Azure, including the benefits of each and scenarios in which each approach works very well." 
 	services="virtual-machines" 
-	solutions="infrastructure" 
 	documentationCenter="virtual-machines" 
 	authors="squillace" 
 	manager="timlt"
