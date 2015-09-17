@@ -306,16 +306,16 @@ For IT teams, we recommend creating a project with two apps built on top of Azur
 
 User acceptance testing (UAT) involves making you sure that everything works as designed. Work flows can be completed and should be gathering your required data based on your tag plan:
  
-•	Information tagging should be in place according to documented AZME concepts
-•	All information you need is collected (including Extra info value, App info value)
-•	Nomenclature is the same that you defined it on your Tag Plan
-•	There is no duplicate data
+- Information tagging should be in place according to documented AZME concepts
+- All information you need is collected (including Extra info value, App info value)
+- Nomenclature is the same that you defined it on your Tag Plan
+- There is no duplicate data
 
-You must test all the types of notification behavior you have embedded:
+You must test all the types of notification behavior you have embedded
 
-•	Announcements, Polls, Data pushes out of app and in-app
-•	Text/Web views
-•	Badge update, Categories
+- Announcements, Polls, Data pushes out of app and in-app
+- Text/Web views
+- Badge update, Categories
 
 
 
