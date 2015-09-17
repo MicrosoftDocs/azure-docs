@@ -5,7 +5,8 @@
 	documentationCenter=""
 	authors="timwieman"
 	manager="timlt"
-	editor="tysonn"/>
+	editor="tysonn"
+	tags="azure-resource-manager"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -15,6 +16,8 @@
 	ms.topic="article"
 	ms.date="05/04/2015"
 	ms.author="twieman"/>
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)] This article covers creating a Redis cluster with the Resource Manager deployment model. 
 
 # Redis cluster with a Resource Manager template
 
