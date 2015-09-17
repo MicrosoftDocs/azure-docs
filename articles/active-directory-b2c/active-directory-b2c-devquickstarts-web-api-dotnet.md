@@ -91,7 +91,7 @@ of the project and replace the values in the `<appSettings>` section:
     <add key="ida:Tenant" value="{Enter the name of your B2C tenant - it usually looks like constoso.onmicrosoft.com}" />
     <add key="ida:ClientId" value="{Enter the Application ID assigned to your app by the Azure Portal}" />
     <add key="ida:PolicyId" value="{Enter the name of one of the policies you created, like `b2c_1_my_sign_in_policy`}" />
-  </appSettings>
+</appSettings>
   ```
 
 This article will not cover the details of securing the `TaskService`.  If you want to learn how a web API securely authenticates requests using Azure AD B2C, check out our
@@ -142,7 +142,7 @@ public class TasksController : Controller
 ## 7. Get access tokens and call the task API
 
 This section will show how to complete an OAuth 2.0 token exchange in a web app using Microsoft's libraries and frameworks.  If you are
-unfamiliar with **authorization codes** and **access tokens**, it may be a good idea to skim through the [OAuth 2.0 protocol reference](active-directory-b2c-reference-protocols.md).
+unfamiliar with **authorization codes** and **access tokens**, it may be a good idea to skim through the [OpenID Connect protocol reference](active-directory-b2c-reference-protocols.md).
 
 #### Get an authorization code
 
@@ -166,8 +166,9 @@ and the application you created:
 
 public partial class Startup
 {
-	private const string discoverySuffix = "/.well-known/openid-configuration";
 	public const string AcrClaimType = "http://schemas.microsoft.com/claims/authnclassreference";
+	public const string PolicyKey = "b2cpolicy";
+	public const string OIDCMetadataSuffix = "/.well-known/openid-configuration";
 
 	// App config settings
 	public static string clientId = ConfigurationManager.AppSettings["ida:ClientId"];
@@ -189,35 +190,32 @@ public partial class Startup
 
 		OpenIdConnectAuthenticationOptions options = new OpenIdConnectAuthenticationOptions
 		{
-			// Standard OWIN OpenID Connect parameters
+			// These are standard OpenID Connect parameters, with values pulled from web.config
 			ClientId = clientId,
 			RedirectUri = redirectUri,
 			PostLogoutRedirectUri = redirectUri,
 			Notifications = new OpenIdConnectAuthenticationNotifications
-			{ 
+			{
 				AuthenticationFailed = OnAuthenticationFailed,
+				RedirectToIdentityProvider = OnRedirectToIdentityProvider,
 				AuthorizationCodeReceived = OnAuthorizationCodeReceived,
 			},
-
-			// Required for AAD B2C
 			Scope = "openid offline_access",
 
 			// The PolicyConfigurationManager takes care of getting the correct Azure AD authentication
 			// endpoints from the OpenID Connect metadata endpoint.  It is included in the PolicyAuthHelpers folder.
-			ConfigurationManager = new PolicyConfigurationManager(String.Format(aadInstance, tenant, "/v2.0", discoverySuffix)),
+			ConfigurationManager = new PolicyConfigurationManager(
+				String.Format(CultureInfo.InvariantCulture, aadInstance, tenant, "/v2.0", OIDCMetadataSuffix),
+				new string[] { SignUpPolicyId, SignInPolicyId, ProfilePolicyId }),
 
-			// Optional - used for displaying the user's name in the navigation bar when signed in.
+			// This piece is optional - it is used for displaying the user's name in the navigation bar.
 			TokenValidationParameters = new System.IdentityModel.Tokens.TokenValidationParameters
-			{  
+			{
 				NameClaimType = "name",
 			},
 		};
 
-		// The PolicyOpenIdConnectAuthenticationMiddleware is a small extension of the default OpenIdConnectMiddleware
-		// included in OWIN.  It is included in this sample in the PolicyAuthHelpers folder, along with a few other
-		// supplementary classes related to policies.
-		app.Use(typeof(PolicyOpenIdConnectAuthenticationMiddleware), app, options);
-			
+		app.UseOpenIdConnectAuthentication(options);
 	}
 	...
 }
@@ -381,8 +379,12 @@ public void SignOut()
 		AuthenticationContext authContext = new AuthenticationContext(authority, new NaiveSessionCache(userObjectID));
 		authContext.TokenCache.Clear();
 
-		Response.Headers.Add(PolicyOpenIdConnectAuthenticationHandler.PolicyKey, ClaimsPrincipal.Current.FindFirst(Startup.AcrClaimType).Value);
-		HttpContext.GetOwinContext().Authentication.SignOut(OpenIdConnectAuthenticationDefaults.AuthenticationType, CookieAuthenticationDefaults.AuthenticationType);
+		HttpContext.GetOwinContext().Authentication.SignOut(
+		new AuthenticationProperties(
+			new Dictionary<string, string> 
+			{ 
+				{Startup.PolicyKey, ClaimsPrincipal.Current.FindFirst(Startup.AcrClaimType).Value}
+			}), OpenIdConnectAuthenticationDefaults.AuthenticationType, CookieAuthenticationDefaults.AuthenticationType);
 	}
 }
 ```
