@@ -10,9 +10,9 @@
 <tags
    ms.service="AzureStore"
    ms.devlang="en-us"
-   ms.topic="Build a resource provider for a Developer Service"
+   ms.topic="article"
    ms.tgt_pltfrm="Azure"
-   ms.workload=""
+   ms.workload="na"
    ms.date="09/13/2015"
    ms.author="hascipio"/>
 

@@ -10,9 +10,9 @@
 <tags
    ms.service="AzureStore"
    ms.devlang="en-us"
-   ms.topic="Seller Account Creation and Registration"
+   ms.topic="article"
    ms.tgt_pltfrm="Azure"
-   ms.workload=""
+   ms.workload="na"
    ms.date="09/09/2015"
    ms.author="hascipio"/>
 
@@ -112,19 +112,19 @@ Now that your account is created and registered, click on the type of artifact (
  - [Data Service Onboarding Guide][link-datasvc-guide]
  - [Solution Template Onboarding Guide][link-template-guide]
 
-[img-msalive]:media/marketplace-publishing-dev-services-pre-requisites-creating-msa-account-msa-live.jpg
-[img-email]:media/marketplace-publishing-dev-services-pre-requisites-creating-msa-account-msa-verifyemail.jpg
-[img-sd-url]:media/marketplace-publishing-dev-services-pre-requisites-seller-dashboard-incognito.jpg
-[img-signin]:media/marketplace-publishing-dev-services-pre-requisites-seller-dashboard-login.jpg
-[img-verify]:media/marketplace-publishing-dev-services-pre-requisites-seller-dashboard-verify.jpg
-[img-sd-top]:media/marketplace-publishing-dev-services-pre-requisites-seller-dashboard-personal-acc-details.jpg
-[img-sd-info]:media/marketplace-publishing-dev-services-pre-requisites-seller-dashboard-personal.jpg
-[img-sd-type]:media/marketplace-publishing-dev-services-pre-requisites-seller-dashboard-personal-acc-type.JPG
-[img-sd-mktg1]:media/marketplace-publishing-dev-services-pre-requisites-seller-dashboard-personal-comp-det1.jpg
-[img-sd-mktg2]:media/marketplace-publishing-dev-services-pre-requisites-seller-dashboard-personal-comp-det2.jpg
-[img-sd-addr]:media/marketplace-publishing-dev-services-pre-requisites-seller-dashboard-personal-comp-add.JPG
-[img-sd-legal]:media/marketplace-publishing-dev-services-pre-requisites-seller-dashboard-personal-cmp.JPG
-[img-sd-submit]:media/marketplace-publishing-dev-services-pre-requisites-seller-dashboard-approval.JPG
+[img-msalive]:media/dev-services-pre-requisites-creating-msa-account-msa-live.jpg
+[img-email]:media/dev-services-pre-requisites-creating-msa-account-msa-verifyemail.jpg
+[img-sd-url]:media/dev-services-pre-requisites-seller-dashboard-incognito.jpg
+[img-signin]:media/dev-services-pre-requisites-seller-dashboard-login.jpg
+[img-verify]:media/dev-services-pre-requisites-seller-dashboard-verify.jpg
+[img-sd-top]:media/dev-services-pre-requisites-seller-dashboard-personal-acc-details.jpg
+[img-sd-info]:media/dev-services-pre-requisites-seller-dashboard-personal.jpg
+[img-sd-type]:media/dev-services-pre-requisites-seller-dashboard-personal-acc-type.JPG
+[img-sd-mktg1]:media/dev-services-pre-requisites-seller-dashboard-personal-comp-det1.jpg
+[img-sd-mktg2]:media/dev-services-pre-requisites-seller-dashboard-personal-comp-det2.jpg
+[img-sd-addr]:media/dev-services-pre-requisites-seller-dashboard-personal-comp-add.JPG
+[img-sd-legal]:media/dev-services-pre-requisites-seller-dashboard-personal-cmp.JPG
+[img-sd-submit]:media/dev-services-pre-requisites-seller-dashboard-approval.JPG
 
 
 

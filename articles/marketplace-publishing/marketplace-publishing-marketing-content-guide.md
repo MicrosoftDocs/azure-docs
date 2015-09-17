@@ -48,11 +48,11 @@ Below is the detailed view of how the publisher portal offer marketing details a
 - [Developer Service Onboarding Guide - Pricing Model Sample (Non-Technical)][link-devsvc-guide-pricing]
 - [Developer Service Onboarding Guide - Building a Resource Provider (Technical)][link-devsvc-guide-create-rp]
 
-[img-map-desc]:media/marketplace-publishing-dev-services-pre-requisites-marketing-content-guide-acom.JPG
-[img-map-details]:media/marketplace-publishing-dev-services-pre-requisites-marketing-content-guide-portal-offer-map.JPG
-[img-map-link]:media/marketplace-publishing-dev-services-pre-requisites-marketing-content-guide-links.jpg
-[img-map-logo]:media/marketplace-publishing-dev-services-pre-requisites-marketing-content-guide-logos.jpg
-[img-map-title]:media/marketplace-publishing-dev-services-pre-requisites-marketing-content-guide-publisher-offer.png
+[img-map-desc]:media/dev-services-pre-requisites-marketing-content-guide-acom.JPG
+[img-map-details]:media/dev-services-pre-requisites-marketing-content-guide-portal-offer-map.JPG
+[img-map-link]:media/dev-services-pre-requisites-marketing-content-guide-links.jpg
+[img-map-logo]:media/dev-services-pre-requisites-marketing-content-guide-logos.jpg
+[img-map-title]:media/dev-services-pre-requisites-marketing-content-guide-publisher-offer.png
 
 [link-acct-creation]:marketplace-publishing-accounts-creation-registration.md
 [link-devsvc-guide]:marketplace-publishing-dev-services-pre-requisites.md
