@@ -17,9 +17,9 @@
 	ms.date="04/15/2015"
 	ms.author="v-ahsab"/>
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)] This article covers creating a MariaDB cluster with the Classic deployment model.
-
 # MariaDB (MySQL) cluster - Azure tutorial
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)] This article covers creating a MariaDB cluster with the Classic deployment model.
 
 We're creating a multi-Master [Galera](http://galeracluster.com/products/) cluster of [MariaDBs](https://mariadb.org/en/about/), a robust, scalable, and reliable drop-in replacement for MySQL, to work in a highly available environment on Azure Virtual Machines.
 
