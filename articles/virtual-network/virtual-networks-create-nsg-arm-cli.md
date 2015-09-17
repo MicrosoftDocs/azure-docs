@@ -27,7 +27,7 @@
 
 [AZURE.INCLUDE [virtual-networks-create-nsg-scenario-include](../../includes/virtual-networks-create-nsg-scenario-include.md)]
 
-The sample Azure CLI commands below expect a simple environment already created based on the scenario above. If you want to run the commands as they are displayed in this document, first build the test environment by deploying [this template](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Ftelmosampaio%2Fazure-templates%2Fmaster%2F201-IaaS-WebFrontEnd-SQLBackEnd%2Fazuredeploy.json), and replace the default parameter values if necessary.
+The sample Azure CLI commands below expect a simple environment already created based on the scenario above. If you want to run the commands as they are displayed in this document, first build the test environment by deploying [this template](http://github.com/telmosampaio/azure-templates/tree/master/201-IaaS-WebFrontEnd-SQLBackEnd), click **Click to Deploy**, replace the default parameter values if necessary, and then follow the instructions in the portal.
 
 ## How to create the NSG for the front end subnet
 To create an NSG named named *NSG-FrontEnd* based on the scenario above, follow the steps below.
