@@ -1,8 +1,6 @@
 <properties 
-	title="Create and manage Elastic Database jobs using PowerShell" 
 	pageTitle="Create and manage Elastic Database jobs using PowerShell" 
 	description="PowerShell used to manage Azure SQL Database pools" 
-	metaKeywords="azure sql database elastic databases" 
 	services="sql-database" documentationCenter=""  
 	manager="jeffreyg" 
 	authors="ddove"/>
