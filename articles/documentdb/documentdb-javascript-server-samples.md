@@ -17,7 +17,7 @@
 	ms.author="mimig"/>
 
 
-# JavaScript server-side samples
+# DocumentDB JavaScript server-side samples
 
 > [AZURE.SELECTOR]
 - [.NET samples](documentdb-dotnet-samples.md)
@@ -25,8 +25,9 @@
 - [Java samples](documentdb-java-samples.md)
 - [Python samples](documentdb-python-samples.md)
 - [JavaScript client-side samples](documentdb-javascript-client-samples.md)
+- [JavaScript server-side samples](documentdb-javascript-server-samples.md)
 
-Samples for common operations on DocumentDB resources are included in the [azure-documentdb-js-server](https://github.com/Azure/azure-documentdb-js-server) GitHub repository.
+Sample projects that perform common operations on DocumentDB resources are included in the [azure-documentdb-js-server](https://github.com/Azure/azure-documentdb-js-server) GitHub repository. This article lists the tasks performed on each resource in the sample, and provides links to the related reference content.
 
 **Prerequisites**
 
