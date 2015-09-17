@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
    pageTitle="Azure Automation DSC Overview | Microsoft Azure" 
    description="An Overview of Azure Automation Desired State Configuration (DSC), its terms, and known issues" 
    services="automation" 
@@ -141,5 +141,5 @@ Going from an empty automation account to a managed set of correctly configured 
 
 ##Related Articles##
 
-- [Azure Automation DSC cmdlets] (https://msdn.microsoft.com/en-us/library/mt244122.aspx)
-- [Azure Automation DSC pricing] (http://azure.microsoft.com/en-us/pricing/details/automation/)
+- [Azure Automation DSC cmdlets] (https://msdn.microsoft.com/library/mt244122.aspx)
+- [Azure Automation DSC pricing] (http://azure.microsoft.com/pricing/details/automation/)
