@@ -28,7 +28,7 @@ There are known issues that you may encounter during the [creation of an Azure A
 
 ## Branding issue on the Local Account Sign In Page
 
-The default template on the Local Account Sign In page will contain "Microsoft Azure" branding elements. We are actively working to resolve this issue. You can change the branding on this page using the [company branding feature](./active-directory/active-directory-add-company-branding.md).
+The default local account sign in and self-service password reset pages contain "Microsoft" and Azure" branding elements. We are working to resolve these issues. You can change the branding on these page using the [company branding feature](./active-directory/active-directory-add-company-branding.md), upon which these branding elements will not appear.
 
 ## Issues with Local Account Sign Out
 
