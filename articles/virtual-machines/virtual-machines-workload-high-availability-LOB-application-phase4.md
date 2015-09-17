@@ -18,7 +18,7 @@
 	ms.author="josephd"/>
 
 # Line of Business Application Workload Phase 4: Configure web servers
-
+ 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)] This article covers creating resources with the Resource Manager deployment model. 
 
 In this phase of deploying a high availability line of business application in Azure infrastructure services, you build out the web servers and load your line of business application on them.

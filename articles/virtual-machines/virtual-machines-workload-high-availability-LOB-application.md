@@ -18,7 +18,7 @@
 	ms.author="josephd"/>
 
 # Azure Infrastructure Services Workload: High-availability line of business application
-
+ 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)] This article covers creating resources with the Resource Manager deployment model. 
 
 Set up your first or next web-based, intranet-only line of business application in Microsoft Azure and take advantage of ease of configuration and the ability to quickly expand the application to include new capacity.
