@@ -5,7 +5,8 @@
 	documentationCenter="" 
 	authors="szarkos" 
 	manager="timlt" 
-	editor="tysonn"/>
+	editor="tysonn"
+		tags="azure-resource-manager,azure-service-management"/>
 
 <tags 
 	ms.service="virtual-machines" 
@@ -15,6 +16,8 @@
 	ms.topic="article" 
 	ms.date="05/15/2015" 
 	ms.author="szarkos"/>
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)] 
 
 # Prepare a CentOS-Based Virtual Machine for Azure
 
