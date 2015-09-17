@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Extend on-premises AlwaysOn Availability Groups to Azure | Microsoft Azure
+   pageTitle="Extend on-premises AlwaysOn Availability Groups to Azure | Microsoft Azure"
    description="This tutorial uses resources created with  the classic deployment model, and describes how to use the Add Replica wizard in SQL Server Management Studio (SSMS) to add an AlwaysOn Availability Group replica in Azure."
    services="virtual-machines"
    documentationCenter="na"
