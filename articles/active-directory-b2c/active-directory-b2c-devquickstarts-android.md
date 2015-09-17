@@ -111,7 +111,7 @@ We've made it easy for you to have multiple options to use this library in your 
 
 ####Option 1: Binaries via Gradle (recommended)
 
-You can get the binaries from Maven central repo. AAR package can be included as follows in your project in AndroidStudio:
+You can get the binaries from Maven central repo. AAR package can be included as follows in your project in AndroidStudio (example: in `build.gradle`):
 
 ```gradle
 repositories {
@@ -133,7 +133,7 @@ dependencies {
 
 ####Option 2: aar via Maven
 
-If you are using the m2e plugin in Eclipse, you can specify the dependency in your pom.xml file:
+If you are using the m2e plugin in Eclipse, you can specify the dependency in your `pom.xml` file:
 
 ```xml
 <dependency>
@@ -162,17 +162,43 @@ Open up `helpes/Constants.java` and fill in the values for the following:
 
 ```
 
-    public static String AUTHORITY_URL = "https://login.microsoftonline.com/<your tenant name>.onmicrosoft.com/";
-    public static String CLIENT_ID = "<your Application ID>";
-    public static String[] SCOPES = {"<your Application ID>"};
+package com.microsoft.aad.taskapplication.helpers;
+
+import com.microsoft.aad.adal.AuthenticationResult;
+
+public class Constants {
+
+    public static final String SDK_VERSION = "1.0";
+    public static final String UTF8_ENCODING = "UTF-8";
+    public static final String HEADER_AUTHORIZATION = "Authorization";
+    public static final String HEADER_AUTHORIZATION_VALUE_PREFIX = "Bearer ";
+
+    // -------------------------------AAD
+    // PARAMETERS----------------------------------
+    public static String AUTHORITY_URL = "https://login.microsoftonline.com/hypercubeb2c.onmicrosoft.com/";
+    public static String CLIENT_ID = "52688c65-e70f-4d3f-b2ab-ea7005b76504";
+    public static String[] SCOPES = {"<52688c65-e70f-4d3f-b2ab-ea7005b76504"};
     public static String[] ADDITIONAL_SCOPES = {""};
     public static String REDIRECT_URL = "urn:ietf:wg:oauth:2.0:oob";
-    public static String FB_POLICY = "<your facebook sign-in policy";
-    public static String EMAIL_SIGNIN_POLICY = "<your email sign-in policy";
-    public static String EMAIL_SIGNUP_POLICY = "<your email sign-up policy";
+    public static String CORRELATION_ID = "";
+    public static String USER_HINT = "";
+    public static String EXTRA_QP = "";
+    public static String FB_POLICY = "B2C_1_todo_fb_signin";
+    public static String EMAIL_SIGNIN_POLICY = "B2C_1_todo_email_signin";
+    public static String EMAIL_SIGNUP_POLICY = "B2C_1_todo_email_signup";
+    public static boolean FULL_SCREEN = true;
     public static AuthenticationResult CURRENT_RESULT = null;
     // Endpoint we are targeting for the deployed WebAPI service
-    public static String SERVICE_URL = "http://localhost:3000/tasks";
+    public static String SERVICE_URL = "https://kidventus.com/todoserver/tasks";
+
+    // ------------------------------------------------------------------------------------------
+
+    static final String TABLE_WORKITEM = "WorkItem";
+    public static final String SHARED_PREFERENCE_NAME = "com.example.com.test.settings";
+
+
+}
+
 
 ```
 
@@ -188,6 +214,12 @@ The first thing we have to do is tell Android about the layout of our applicatio
 Update your project's AndroidManifest.xml file to include all of our intents:
 
 ```
+   <?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.microsoft.aad.taskapplication"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
     <uses-sdk
         android:minSdkVersion="11"
         android:targetSdkVersion="19" />
@@ -216,6 +248,10 @@ Update your project's AndroidManifest.xml file to include all of our intents:
             </intent-filter>
         </activity>
         <activity
+            android:name="com.microsoft.aad.taskapplication.UsersListActivity"
+            android:label="@string/title_activity_feed" >
+        </activity>
+        <activity
             android:name="com.microsoft.aad.taskapplication.SettingsActivity"
             android:label="@string/title_activity_settings" >
         </activity>
@@ -228,7 +264,8 @@ Update your project's AndroidManifest.xml file to include all of our intents:
             android:label="@string/app_name" >
         </activity>
     </application>
-    
+
+</manifest>    
 ```
 
 As you can see, we define 5 activities which we will be using.
