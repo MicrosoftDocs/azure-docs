@@ -33,11 +33,9 @@ To complete this tutorial, you need the following:
 
 [AZURE.INCLUDE [mobile-services-create-new-service](../../includes/mobile-services-create-new-service.md)]
 
-## Create a new universal Windows app
+## Create a new Windows Store app
 
-Once you have created your mobile service, you can follow an easy quickstart in the Management Portal to either create a new universal Windows app or modify an existing Windows Store or Windows Phone app project to connect to your mobile service.
-
-In this section you will create a new universal Windows app that is connected to your mobile service.
+Once you have created your mobile service, you can follow an easy quickstart in the Management Portal to create a new Windows Store 8.1 JavaScript app that connects to your mobile service.
 
 1.  In the Management Portal, click **Mobile Services**, and then click the mobile service that you just created.
 
@@ -56,7 +54,21 @@ In this section you will create a new universal Windows app that is connected to
 
 ## Run your Windows app
 
-[AZURE.INCLUDE [mobile-services-javascript-backend-run-app](../../includes/mobile-services-javascript-backend-run-app.md)]
+The final stage of this tutorial is to build and run your new app.
+
+1. Browse to the location where you saved the compressed project files, expand the files on your computer, and open the solution file in Visual Studio.
+
+2. Press the **F5** key to rebuild the project and start the app.
+
+3. In the app, type meaningful text, such as *Complete the tutorial*, in **Insert a TodoItem**, and then click **Save**.
+
+   	This sends a POST request to the new mobile service hosted in Azure. Data from the request is inserted into the TodoItem table. Items stored in the table are returned by the mobile service, and the data is displayed in the second column in the app.
+
+4. (Optional) Run the app again, and notice that data saved from the previous step is loaded from the mobile service after the app starts.
+ 
+4. Back in the Management Portal, click the **Data** tab and then click the **TodoItems** table.
+
+   	This lets you browse the data inserted by the app into the table.
 
 >[AZURE.NOTE]You can review the code that accesses your mobile service to query and insert data, which is found in the default.js file.
 
