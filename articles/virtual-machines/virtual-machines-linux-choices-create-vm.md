@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Different ways to create a Linux virtual machine"
-	description="Lists the different ways to create a Linux virtual machine and gives links to instructions."
+	pageTitle="Different ways to create a Linux VM | Microsoft Azure"
+	description="Lists the different ways to create a Linux virtual machine on Azure and gives links to further instructions."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="dsk-2015"
