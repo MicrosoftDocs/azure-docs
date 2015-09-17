@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Frequently asked questions for Azure Virtual Machines"
-	description="Provides answers to some of the most common questions about Azure virtual machines"
+	pageTitle="Frequently asked questions for VMs | Microsoft Azure"
+	description="Provides answers to some of the common questions about Azure virtual machines created with the classic deployment model."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="cynthn"
@@ -17,9 +17,11 @@
 	ms.date="07/17/2015"
 	ms.author="cynthn"/>
 
-# Azure Virtual Machines FAQ
+# Frequently asked question about Azure Virtual Machines created with the classic deployment model
 
-This article addresses some common questions users ask about Azure virtual machines, based on input from the Azure VM Support team, as well as from forums, newsgroups, and comments in other articles. For basic information, start with [About Virtual Machines](virtual-machines-about.md).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)] This article covers answering question about resources created with the classic deployment model.
+
+This article addresses some common questions users ask about Azure virtual machines created with the classic deployment model, based on input from the Azure VM Support team, as well as from forums, newsgroups, and comments in other articles. For basic information, start with [About Virtual Machines](virtual-machines-about.md).
 
 ## What can I run on an Azure VM?
 
