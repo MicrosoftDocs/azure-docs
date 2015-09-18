@@ -223,7 +223,7 @@ In your console application, you can use the same call as before to retrieve thi
     	"https://contosokeyvault.vault.azure.net/secrets/TestSecret2/",
         CancellationToken.None).GetAwaiter().GetResult();
 
-That's it. Enjoy.
+That's it. Enjoy!
 
 ## Next steps
 
