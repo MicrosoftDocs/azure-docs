@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="" 
+	pageTitle="What happened to my Cordova project after adding Mobile Services with Viual Studio Connected Services | Microsoft Azure" 
 	description="Describes what happened to your Azure Mobile Service project in Cordova" 
 	services="mobile-services" 
 	documentationCenter="" 
@@ -36,5 +36,3 @@ Under `services\mobileServices\settings`, a new JavaScript (.js) file with a **M
 	        "<your mobile service name>.azure-mobile.net",
 	        "<insert your key>"
 	    );
-
-[Learn more about mobile services](http://azure.microsoft.com/documentation/services/mobile-services/) 
