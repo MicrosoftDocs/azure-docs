@@ -59,7 +59,7 @@ To achieve resilience against datacenter outages when using brokered messaging, 
 
 If the application does not require permanent sender-to-receiver communication, the application can implement a durable client-side queue to prevent message loss and to shield the sender from any transient Service Bus errors.
 
-### Active replication
+## Active replication
 
 Active replication uses entities in both service namespaces for every operation. Any client that sends a message sends two copies of the same message. The first copy is sent to the primary entity (for example, **contosoPrimary.servicebus.windows.net/sales**), and the second copy of the message is sent to the secondary entity (for example, **contosoSecondary.servicebus.windows.net/sales**).
 
@@ -69,7 +69,7 @@ The [Geo-replication with Service Bus Brokered Messages][] sample demonstrates a
 
 > [AZURE.NOTE] The active replication approach doubles the number of operations, therefore this approach can lead to higher cost.
 
-### Passive replication
+## Passive replication
 
 In the fault-free case, passive replication uses only one of the two messaging entities. A client sends the message to the active entity. If the operation on the active entity fails with an error code that indicates the datacenter that hosts the active entity might be unavailable, the client sends a copy of the message to the backup entity. At that point the active and the backup entities switch roles: the sending client considers the old active entity to be the new backup entity, and the old backup entity is the new active entity. If both send operations fail, the roles of the two entities remain unchanged and an error is returned.
 
@@ -85,7 +85,7 @@ When using passive replication, in the following scenarios messages can be lost 
 
 The [Geo-replication with Service Bus Brokered Messages][] sample demonstrates passive replication of messaging entities.
 
-### Durable client-side queue
+## Durable client-side queue
 
 If the application can tolerate a Service Bus entity being unavailable, but must not lose messages, the sender can employ a durable client-side queue that locally stores all messages that cannot be sent to Service Bus. Once the Service Bus entity becomes available again, all buffered messages are sent to that entity. The [Durable Message Sender][] sample implements such a queue with the help of MSMQ. Alternatively, the messages can be written to the local disk.
 

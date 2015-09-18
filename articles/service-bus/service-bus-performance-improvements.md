@@ -21,21 +21,19 @@ This topic describes how to use Azure Service Bus to optimize performance when e
 
 Throughout this topic, the term "client" refers to any entity that accesses Service Bus. A client can take the role of a sender or a receiver. The term "sender" is used for a Service Bus queue or topic client that sends messages to a Service Bus queue or topic. The term "receiver" refers to a Service Bus queue or subscription client that receives messages from a Service Bus queue or subscription.
 
-## Mechanisms
+These sections introduce several concepts that Service Bus uses to help boost performance.
 
-This section introduces several concepts that Service Bus uses to help boost performance.
-
-### Protocols
+## Protocols
 
 Service Bus enables clients to send and receive messages via two protocols: the Service Bus client protocol, and HTTP (REST). The Service Bus client protocol is more efficient, because it maintains the connection to the Service Bus service as long as the messaging factory exists. It also implements batching and prefetching. The Service Bus client protocol is available for .NET applications using the .NET APIs.
 
 Unless explicitly mentioned, all content in this topic assumes the use of the Service Bus client protocol.
 
-### Reusing factories and clients
+## Reusing factories and clients
 
 Service Bus client objects, such as [QueueClient][] or [MessageSender][], are created through a [MessagingFactory][] object, which also provides internal management of connections. You should not close messaging factories or queue, topic, and subscription clients after you send a message, and then re-create them when you send the next message. Closing a messaging factory deletes the connection to the Service Bus service, and a new connection is established when recreating the factory. Establishing a connection is an expensive operation that you can avoid by re-using the same factory and client objects for multiple operations.
 
-### Concurrent operations
+## Concurrent operations
 
 Performing an operation (send, receive, delete, etc.) takes some time. This time includes the processing of the operation by the Service Bus service in addition to the latency of the request and the reply. To increase the number of operations per time, operations must execute concurrently. You can do this in several different ways:
 
@@ -77,7 +75,7 @@ Performing an operation (send, receive, delete, etc.) takes some time. This time
 
 -   **Multiple factories**: all clients (senders in addition to receivers) that are created by the same factory share one TCP connection. The maximum message throughput is limited by the number of operations that can go through this TCP connection. The throughput that can be obtained with a single factory varies greatly with TCP round-trip times and message size. To obtain higher throughput rates, you should use multiple messaging factories.
 
-### Receive mode
+## Receive mode
 
 When creating a queue or subscription client, you can specify a receive mode: *Peek-lock* or *Receive and Delete*. The default receive mode is [PeekLock][]. When operating in this mode, the client sends a request to receive a message from Service Bus. After the client has received the message, it sends a request to complete the message.
 
@@ -85,7 +83,7 @@ When setting the receive mode to [ReceiveAndDelete][], both steps are combined i
 
 Service Bus does not support transactions for receive-and-delete operations. In addition, peek-lock semantics are required for any scenarios in which the client wants to defer or deadletter a message.
 
-### Client-side batching
+## Client-side batching
 
 Client-side batching enables a queue or topic client to delay the sending of a message for a certain period of time. If the client sends additional messages during this time period, it transmits the messages in a single batch. Client-side batching also causes a queue/subscription client to batch multiple **Complete** requests into a single request. Batching is only available for asynchronous **Send** and **Complete** operations. Synchronous operations are immediately sent to the Service Bus service. Batching does not occur for peek or receive operations, nor does batching occur across clients.
 
@@ -102,7 +100,7 @@ MessagingFactory messagingFactory = MessagingFactory.Create(namespaceUri, mfs);
 
 Batching does not affect the number of billable messaging operations, and is available only for the Service Bus client protocol. The HTTP protocol does not support batching.
 
-### Batching store access
+## Batching store access
 
 To increase the throughput of a queue/topic/subscription, Service Bus batches multiple messages when it writes to its internal store. If enabled on a queue or topic, writing messages into the store will be batched. If enabled on a queue or subscription, deleting messages from the store will be batched. If batched store access is enabled for an entity, Service Bus delays a store write operation regarding that entity by up to 20ms. Additional store operations that occur during this interval are added to the batch. Batched store access only affects **Send** and **Complete** operations; receive operations are not affected. Batched store access is a property on an entity. Batching occurs across all entities that enable batched store access.
 
@@ -116,7 +114,7 @@ Queue q = namespaceManager.CreateQueue(qd);
 
 Batched store access does not affect the number of billable messaging operations, and is a property of a queue, topic, or subscription. It is independent of the receive mode and the protocol that is used between a client and the Service Bus service.
 
-### Prefetching
+## Prefetching
 
 Prefetching enables the queue or subscription client to load additional messages from the service when it performs a receive operation. The client stores these messages in a local cache. The size of the cache is determined by the [QueueClient.PrefetchCount][] and [SubscriptionClient.PrefetchCount][] properties. Each client that enables prefetching maintains its own cache. A cache is not shared across clients. If the client initiates a receive operation and its cache is empty, the service transmits a batch of messages. The size of the batch equals the size of the cache or 256KB, whichever is smaller. If the client initiates a receive operation and the cache contains a message, the message is taken from the cache.
 
@@ -130,7 +128,7 @@ The time-to-live (TTL) property of a message is checked by the server at the tim
 
 Prefetching does not affect the number of billable messaging operations, and is available only for the Service Bus client protocol. The HTTP protocol does not support prefetching. Prefetching is available for both synchronous and asynchronous receive operations.
 
-### Express queues and topics
+## Express queues and topics
 
 Express entities enable high throughput and reduced latency scenarios. With express entities, if a message is sent to a queue or topic is, it is not immediately stored in the messaging store. Instead, the message is cached in memory. If a message remains in the queue for more than a few seconds, it is automatically written to stable storage, thus protecting it against loss due to an outage. Writing the message into a memory cache increases throughput and reduces latency because there is no access to stable storage at the time the message is sent. Messages that are consumed within a few seconds are not written to the messaging store. The following example creates an express topic.
 
@@ -142,7 +140,7 @@ namespaceManager.CreateTopic(td);
 
 If a message containing critical information that must not be lost is sent to an express entity, the sender can force Service Bus to immediately persist the message to stable storage by setting the [ForcePersistence][] property to **true**.
 
-### Use of partitioned queues or topics
+## Use of partitioned queues or topics
 
 Internally, Service Bus uses the same node and messaging store to process and store all messages for a messaging entity (queue or topic). A partitioned queue or topic, on the other hand, is distributed across multiple nodes and messaging stores. Partitioned queues and topics not only yield a higher throughput than regular queues and topics, they also exhibit superior availability. To create a partitioned entity, set the [EnablePartitioning][] property to **true**, as shown in the following example. For more information about partitioned entities, see [Partitioning Messaging Entities][].
 
@@ -153,7 +151,7 @@ qd.EnablePartitioning = true;
 namespaceManager.CreateQueue(qd);
 ```
 
-### Use of multiple queues
+## Use of multiple queues
 
 If it is not possible to use a partitioned queue or topic, or the expected load cannot be handled by a single partitioned queue or topic, you must use multiple messaging entities. When using multiple entities, create a dedicated client for each entity, instead of using the same client for all entities.
 
