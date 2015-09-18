@@ -131,7 +131,7 @@ Note that you can't use coded functions in your tests: the scenario steps must b
 
 #### 1. Record a scenario
 
-Use Visual Studio Ultimate to record a web session. 
+Use Visual Studio Enterprise or Ultimate to record a web session. 
 
 1. Create a web performance test project.
 
@@ -147,14 +147,18 @@ Use Visual Studio Ultimate to record a web session.
 
     Don't make a long scenario. There's a limit of 100 steps and 2 minutes.
 
-4. Run the test in Visual Studio to make sure it works.
+4. Edit the test to:
+ - Add validations to check the received text and response codes.
+ - Remove any superfluous interactions. You could also remove dependent requests for pictures or to ad or tracking sites.
+
+    Remember that you can only edit the test script - you can't add custom code or call other web tests. Don't insert loops in the test. You can use standard web test plug-ins.
+
+5. Run the test in Visual Studio to make sure it works.
 
     The web test runner opens a web browser and repeats the actions you recorded. Make sure it works as you expect.
 
     ![In Visual Studio, open the .webtest file and click Run.](./media/app-insights-monitor-web-app-availability/appinsights-71webtest-multi-vs-run.png)
 
-
-(Don't insert loops in your web test.)
 
 #### 2. Upload the web test to Application Insights
 
@@ -218,7 +222,7 @@ You might want to disable web tests while you are performing maintenance on your
 
 * *Can I call code from my web test?*
 
-    No. The steps of the test must be in the .webtest file. There are a number of plug-ins that you might find helpful.
+    No. The steps of the test must be in the .webtest file. And you can't call other web tests or use loops. But there are a number of plug-ins that you might find helpful.
 
 ## <a name="video"></a>Video
 

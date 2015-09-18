@@ -115,7 +115,7 @@ Azure AD Connect supports all flavors of Microsoft SQL Server from SQL Server 20
     		<defaultProxy>
       		<proxy
         	usesystemdefault="true"
-        	proxyaddress=http://<PROXYIP>:80"
+        	proxyaddress="http://<PROXYIP>:80"
         	bypassonlocal="true"
      		 />
     		</defaultProxy>

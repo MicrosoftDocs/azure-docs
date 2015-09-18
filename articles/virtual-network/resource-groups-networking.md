@@ -1,6 +1,6 @@
-﻿<properties 
-   pageTitle="Network Resource Provider"
-   description="Network Resource Provider"
+<properties 
+   pageTitle="Network Resource Provider Overview | Microsoft Azure"
+   description="Learn about the new Network Resource Provider in Azure Resource Manager"
    services="virtual-network"
    documentationCenter="na"
    authors="telmosampaio"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/23/2015"
+   ms.date="09/14/2015"
    ms.author="telmos" />
 
 # Network Resource Provider
