@@ -380,7 +380,7 @@ Hybrid networking using a Network Virtual Appliance (NVA) can be added to any of
 
 As shown in the figure above, a VPN connection over the Internet (Site-to-Site) is used to connect an on-premise network to an Azure Virtual Network via a Network Virtual Appliance.
 
->[AZURE.NOTE] If you use ExpressRoute with the Azure Public Peering option enabled, a static route will need to be created to route to the VPN IP address out your corporate Internet edge and not via the ExpressRoute edge. This is due to the NAT required on the ExpressRoute Azure Public Peering option that will most likely break the VPN session (IPSec generally doesn't like NATs).
+>[AZURE.NOTE] If you use ExpressRoute with the Azure Public Peering option enabled, a static route will need to be created to route to the NVA VPN IP address out your corporate Internet edge and not via the ExpressRoute WAN edge. This is due to the NAT required on the ExpressRoute Azure Public Peering option that will most likely break the VPN session (IPSec generally doesn't like NATs).
 
 Once the VPN is in-place, the NVA becomes the central “hub” for all networks and subnets. The firewall forwarding rules determine which traffic flows are allowed, are NAT’d, are redirected, or are dropped (even for traffic flows between the on-premise network and Azure if the flows as designed that way).
 
@@ -411,18 +411,13 @@ will be available soon and linked from this page.
 ![DMZ with Gateway connected hybrid network][14]
 
 #### Environment Setup
-Hybrid networking using an Azure Virtual Gateway can be added to either DMZ type described in Example 1 and 2.
+Hybrid networking using an Azure VPN Gateway can be added to either DMZ type described in Example 1 and 2.
 
->[AZURE.NOTE] There is a limitation using User Defined Routing (UDR) and ExpressRoute due to the complexity of dynamic routing used on the Azure Virtual Gateway. This capability will be enabled in a future Azure release.
+As shown in the figure above, a VPN connection over the Internet (Site-to-Site) is used to connect an on-premise network to an Azure Virtual Network via an Azure VPN Gateway.
 
-As shown in the figure above, one of two options may be used to connect an on-premise network to an Azure Virtual Network via an Azure Virtual Gateway:
+>[AZURE.NOTE] If you use ExpressRoute with the Azure Public Peering option enabled, a static route will need to be created to route to the Azure VPN Gateway IP address out your corporate Internet edge and not via the ExpressRoute WAN edge. This is due to the NAT required on the ExpressRoute Azure Public Peering option that will most likely break the VPN session (IPSec generally doesn't like NATs).
 
-1.	A VPN connection over the Internet (Site-to-Site)
-2.	A direct connection (ExpressRoute)
-
->[AZURE.TIP] Using the ExpressRoute option keeps the corporate network traffic off of the internet for better security and performance, and allows for SLAs from your ExpressRoute provider.
-
-As shown below, with this option the environment now has two network edges, the NVA and NSGs control traffic flows for intra-Azure networks and between Azure and the internet, while the Azure Gateway is a completely separate and isolated network edge between on-premises and Azure.
+As shown below, with this option the environment now has two network edges. On the first edge, the NVA and NSGs control traffic flows for intra-Azure networks and between Azure and the internet, while the second edge is the Azure VPN Gateway which is a completely separate and isolated network edge between on-premises and Azure.
 
 This should be considered carefully as traffic flows can be optimized or degraded by this design pattern depending on the specific use case.
 
@@ -431,7 +426,7 @@ Using the environment built in DMZ Example 1 – Protecting your web application
 ![DMZ with Gateway connected using an ExpressRoute connection][15]
 
 #### Conclusion
-The addition of a hybrid network connection to an Azure Virtual Network, can extend the on-premise network into Azure in a secure manner. In using the native Azure Gateway your traffic is encrypted and can route either via the internet or on ExpressRoute avoiding the internet (using the Azure Public Peering option in ExpressRoute). Using the native Azure Gateway, as was done in this example, provides a lower cost option (no additional licensing cost as with third party Network Virtual Appliances). This is even more economical for example 1 where no virtual appliance is used. More information on this example such as the following:
+The addition of a hybrid network connection to an Azure Virtual Network, can extend the on-premise network into Azure in a secure manner. In using the native Azure VPN Gateway your traffic is encrypted and can route either via the internet or on ExpressRoute avoiding the internet (using the Azure Public Peering option in ExpressRoute). Using the native Azure VPN Gateway, as was done in this example, provides a lower cost option (no additional licensing cost as with third party Network Virtual Appliances). This is even more economical for example 1 where no virtual appliance is used. More information on this example such as the following:
 
 - How to build this example DMZ with PowerShell scripts
 - How to build this example with an ARM template
