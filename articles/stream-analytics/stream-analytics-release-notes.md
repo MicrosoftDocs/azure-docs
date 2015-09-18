@@ -13,10 +13,23 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="09/16/2015" 
+	ms.date="09/18/2015" 
 	ms.author="jeffstok"/>
 
 #Microsoft Stream Analytic release notes
+
+## Notes for 09/29/2015 release of Stream Analytics ##
+
+This release contains the following updates.
+
+Title | Description
+---|---
+Azure IoT Suite Public Preview | Stream Analytics is included in the Public Preview of the Azure IoT Suite **(needs link)**.
+Azure Preview portal integration | In addition to continued presence in the Azure Management portal, Stream Analytics is now integrated in the [Azure Preview portal](http://azure.microsoft.com/overview/preview-portal/).
+Support for DocumentDB output | Stream Analytics jobs can now output to [DocumentDB](http://azure.microsoft.com/services/documentdb/).
+Support for IoT Hub input | Stream Analytics jobs can now ingest data from IoT Hubs **(needs link)**.
+TIMESTAMP BY for heterogeneous events | When a single data stream contains multiple event types having timestamps in different fields, you can use [TIMESTAMP BY](http://msdn.microsoft.com/library/mt573293.aspx) to specify different timestamp fields for each case.
+Added ABS function | Added the mathematical function [ABS](https://msdn.microsoft.com/library/mt574054.aspx) for calculating the absolute value of numeric expressions.
 
 ## Notes for 09/10/2015 release of Stream Analytics ##
 
