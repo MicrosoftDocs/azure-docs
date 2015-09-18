@@ -114,3 +114,4 @@ SAP is a leading enterprise resource planning (ERP) software that is used by a l
 - Ease SAP application development and testing by creating a production-like copy on-demand for testing and debugging.
 
 Refer the linked document for detailed guidance about [deploying Azure Site Recovery for SAP NetWeaver](http://aka.ms/asr-sap)
+
