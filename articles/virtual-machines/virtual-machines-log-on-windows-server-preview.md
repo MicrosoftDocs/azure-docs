@@ -1,9 +1,9 @@
 <properties
-	pageTitle="Log on to a virtual machine running Windows Server"
-	description="Learn to use the Azure preview portal to log on to a virtual machine running Windows Server."
+	pageTitle="Log on to a Windows Server VM | Microsoft Azure"
+	description="Learn how to log on to a Windows Server VM using the Azure preview portal and the Resource Manager deployment model."
 	services="virtual-machines"
 	documentationCenter=""
-	authors="KBDAzure"
+	authors="cynthn"
 	manager="timlt"
 	editor="tysonn"
 	tags="azure-resource-manager"/>
@@ -15,9 +15,11 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/15/2015"
-	ms.author="kathydav"/>
+	ms.author="cynthn"/>
 
-# How to Log on to a virtual machine running Windows Server#
+# How to log on to a virtual machine running Windows Server 
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)] This article covers logging on to a Windows VM using Resource Manager deployment model. You can also create a resource with the [classic deployment model](virtual-machines-log-on-windows-server.md).
 
 You'll use the **Connect** button in the Azure preview portal to start a Remote Desktop session. First you'll connect to the virtual machine, then you'll log on.
 

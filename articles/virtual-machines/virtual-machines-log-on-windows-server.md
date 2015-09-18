@@ -1,9 +1,9 @@
 <properties
-	pageTitle="Log on to a virtual machine running Windows Server"
-	description="Learn to use the Azure portal to log on to a virtual machine running Windows Server."
+	pageTitle="Log on to a VM | Microsoft Azure"
+	description="Use the portal to log on to a Windows virtual machine created with the classic deployment model."
 	services="virtual-machines"
 	documentationCenter=""
-	authors="KBDAzure"
+	authors="cynthn"
 	manager="timlt"
 	editor="tysonn"
 	tags="azure-service-management"/>
@@ -15,14 +15,16 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/15/2015"
-	ms.author="kathydav"/>
+	ms.author="cynthn"/>
 
 
-# How to Log on to a virtual machine running Windows Server#
+# Log on to a Windows virtual machine created with the classic deployment model
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)] This article covers managing resources with the classic deployment model.
 
 You'll use the **Connect** button in the Azure preview portal to start a Remote Desktop session. First you'll connect to the virtual machine, then you'll log on.
 
-Want to connect to a Linux VM? See [How to log on to a virtual machine running Linux](virtual-machines-linux-how-to-log-on.md).
+Do you want to connect to a Linux VM? See [How to log on to a virtual machine running Linux](virtual-machines-linux-how-to-log-on.md).
 
 ## Connect to the virtual machine
 

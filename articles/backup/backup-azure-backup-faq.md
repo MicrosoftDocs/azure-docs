@@ -14,7 +14,7 @@
 	 ms.devlang="na"
 	 ms.topic="article"
 	 ms.date="08/26/2015"
-	 ms.author="giridham"; "arunak"; "jimpark"; "aashishr"/>
+	 ms.author="trinadhk";"giridham"; "arunak"; "jimpark"; "aashishr"/>
 
 # Azure Backup - FAQ
 The following is a list of commonly asked questions about Azure Backup. If you have any additional questions about Azure Backup, please go to the the [discussion forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup) and post your questions. Someone from our community will help you get your answers. If a question is commonly asked, we will add it to this article so that it can be found quickly and easily.
@@ -54,7 +54,7 @@ A5. Yes. As of July 2015, you can create 25 vaults per subscription. If you need
 A6. Though it is possible to get a detailed bill for each vault, we highly recommend that you consider an Azure subscription as a billing entity. It is consistent across all services and is easier to manage.
 
 **Q7. Are there any limits on the number of servers/machines that can be registered against each vault?** <br/>
-A7. Yes, you can register upto 50 machines per vault. If you need to register more machines, create a new vault.
+A7. Yes, you can register upto 50 machines per vault. For Azure IaaS virtual machines, limit is 100 VMs per vault. If you need to register more machines, create a new vault. 
 
 **Q8. Are there any limits on the amount of data that can be backed up from a Windows server/client or SCDPM server?** <br/>
 A8. No.
@@ -143,7 +143,7 @@ The datasource size is measured as mentioned below
 |BMR/System State|Each individual copy of BMR or system state of the machine being backed up|
 
 **Q2. Is there are limit on the number of times backup can be scheduled per day?**<br/>
-A2. Yes, Azure Backup enables 3 backup copies per day through Windows Server/Client and 2 backup copies per day through SCDPM.
+A2. Yes, Azure Backup enables 3 backup copies per day through Windows Server/Client, 2 backup copies per day through SCDPM and once a day backup for IaaS VMs.
 
 **Q3. Is there a difference between DPM’s and Azure Backup’s (i.e on Windows Server without DPM) backup scheduling policy?** <br/>
 A3. Yes. Using DPM, you can specify daily, weekly, monthly, yearly scheduling while from a Windows Server (without DPM), you can specify only daily, weekly schedules.
@@ -170,15 +170,10 @@ A8. No – the time taken to recovery the oldest or the latest point is one and 
 A9.  Typical long term retention point products store backup data as full points. However, these are storage inefficient but are easier and faster to restore. Incremental copies are storage efficient but require you to restore a chain of data which impacts your recovery time. Azure Backup’s unique storage architecture gives you the best of both worlds by optimally storing data for fast restores and incurring low storage costs. This approach ensures that your (ingress and egress) bandwidth is efficiently used, storage is kept to the minimum and the time taken to recover is kept to the minimum.
 
 **Q10. Is there a limit on the number of recovery points that can be created?**<br/>
-A10. As of April 2015, you can have upto 366 recovery points. You can use any permutation to arrive at a number which is less than 366. Eg – the retention points in the below picture add to 354. <br/>
+A10. No. We have eliminated limits on recovery points. You can create as many recovery points as you desire. 
 
-![Retention screen](./media/backup-azure-backup-faq/RetentionScreen1.png)
-
-**Q11. Once Microsoft improves the limit from 366, will I need to upgrade the agent or reseed the initial backup?** <br/>
-A11. No. Once we make the change in our service, you will be notified through our social media outlets (blogs, Azure announcements, portal etc). Based on your needs, you would then be required to only change the retention policy.
-
-**Q12. Why is the amount of data transferred in backup not equal to the amount of data I backed up?**<br/>
-A12. All the data that is backed up is compressed and encrypted before being transferred. You can expect 30-40% compression benefits depending on the type of data being backed up.
+**Q11. Why is the amount of data transferred in backup not equal to the amount of data I backed up?**<br/>
+A11. All the data that is backed up is compressed and encrypted before being transferred. You can expect 30-40% compression benefits depending on the type of data being backed up.
 
 ## Recovery
 **Q1. How many recoveries can I perform on the data that is backed up to Azure?**<br/>
@@ -216,8 +211,8 @@ A4. The key used to encrypt the backup data is present only on the customer prem
 
 	| Registry path | Registry Key | Value |
 	| ------ | ------- | ------ |
-	| HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config |  ScratchLocation | <i>New cache folder location</i> |
-	| HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider | ScratchLocation | <i>New cache folder location</i> |
+	| `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config` |  ScratchLocation | <i>New cache folder location</i> |
+	| `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider` | ScratchLocation | <i>New cache folder location</i> |
 
 
 + Start the OBEngine by executing the below command in an elevated command prompt:

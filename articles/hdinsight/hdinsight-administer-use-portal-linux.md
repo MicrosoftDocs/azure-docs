@@ -66,8 +66,12 @@ You can provision HDInsight clusters from the Azure portal by using the followin
 6. Select __Credentials__, then enter a __Cluster Login Password__ for the __Cluster Login Username__. You must also enter an __SSH Username__ and either a __PASSWORD__ or __PUBLIC KEY__, which will be used to authenticate the SSH user. Finally, use the __Select__ button to set the credentials. Remote desktop will not be used in this document, so you can leave it disabled.
 
 	![Cluster credentials blade](./media/hdinsight-administer-use-portal-linux/clustercredentials.png)
+    
+    > [AZURE.NOTE] SSH is used to remotely access the HDInsight cluster using a command-line. The user name and password or public key you use here will be used when connecting to the cluster through SSH. Also, the SSH user name must be unique, as it creates a user account on all the HDInsight cluster nodes. The following are some of the account names reserved for use by services on the cluster, and __should not__ be used as your SSH user name:
+    >
+    > root, hdiuser, storm, hbase, ubuntu, zookeeper, hdfs, yarn, mapred, hbase, hive, oozie, falcon, sqoop, admin, tez, hcat, hdinsight-zookeeper.
 
-	For more information on using SSH with HDInsight, see one of the following articles:
+    For more information on using SSH with HDInsight, see one of the following articles:
 
 	* [Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
 
