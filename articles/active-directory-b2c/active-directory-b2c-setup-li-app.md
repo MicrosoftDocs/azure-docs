@@ -18,6 +18,8 @@
 
 # Azure Active Directory (AD) B2C preview: Provide Sign up and Sign in to Consumers with LinkedIn Accounts
 
+[AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
+
 ## Create a LinkedIn Application
 
 To use LinkedIn as an identity provider in Azure Active Directory (AD) B2C, you will first need to create a LinkedIn application and supply it with the right parameters. You will need a LinkedIn account to do this; if you don’t have one, you can get it at [https://www.linkedin.com/](https://www.linkedin.com/).
