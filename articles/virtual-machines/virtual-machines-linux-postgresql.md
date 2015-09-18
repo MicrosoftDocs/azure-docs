@@ -6,7 +6,7 @@
 	authors="SuperScottz"
 	manager="timlt"
 	editor=""
-  tags="azure-service-management, azure-resource-manager"/>
+ 	tags="azure-resource-manager,azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines"
