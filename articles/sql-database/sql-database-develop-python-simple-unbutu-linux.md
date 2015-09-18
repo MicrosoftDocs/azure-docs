@@ -14,11 +14,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="python" 
 	ms.topic="article" 
-	ms.date="04/27/2015" 
+	ms.date="04/28/2015" 
 	ms.author="genemi"/>
 
 
-# Connect to SQL Database by using Python on Ubuntu Linux
+# Connect to Azure SQL Database by using Python on Ubuntu Linux
 
 
 [AZURE.INCLUDE [sql-database-develop-includes-selector-language-platform-depth](../../includes/sql-database-develop-includes-selector-language-platform-depth.md)]
