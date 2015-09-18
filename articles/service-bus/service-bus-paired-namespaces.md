@@ -37,7 +37,7 @@ At a high level, the feature works as follows: when the primary entity is health
 
 The following figures depict the sequence. First, the sender sends messages.
 
-![Paired Namespaces][]
+![Paired Namespaces][0]
 
 Upon failure to send to the primary queue, the sender begins sending messages to a randomly chosen backlog queue. Simultaneously, it starts a ping task.
 
@@ -117,7 +117,7 @@ See [Asynchronous messaging patterns and high availability] for a detailed discu
   [MessagingException]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingexception.aspx
   [TimeoutException]: https://msdn.microsoft.com/library/azure/system.timeoutexception.aspx
   [BrokeredMessage]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx
-  [Paired Namespaces]: ./media/service-bus-paired-namespaces/IC673405.png
+  [0]: ./media/service-bus-paired-namespaces/IC673405.png
   [1]: ./media/service-bus-paired-namespaces/IC673406.png
   [2]: ./media/service-bus-paired-namespaces/IC673407.png
   [QueueDescription]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.aspx
