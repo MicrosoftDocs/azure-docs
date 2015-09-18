@@ -21,7 +21,7 @@
 
 This article describes how to install the Azure Command-Line Interface (Azure CLI). The Azure CLI provides a set of open-source shell-based commands for creating and managing resources in Microsoft Azure.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)] This article covers creating and managing resources with the Resource Manager deployment model or the classic deployment model. 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)] This article covers creating and managing resources with the Resource Manager deployment model or the classic deployment model.
 
 The Azure CLI is written in JavaScript, and requires [Node.js](https://nodejs.org). It is implemented using the [Azure SDK for Node](https://github.com/azure/azure-sdk-for-node), and released under an Apache 2.0 license. The project repository is located at [https://github.com/azure/azure-xplat-cli](https://github.com/azure/azure-xplat-cli).
 > [AZURE.NOTE] If you've already installed the Azure CLI, connect it with your Azure resources. For more, see [How to connect to your Azure Subscription](xplat-cli-connect.md#configure).
@@ -88,7 +88,7 @@ Installing node.js on RPM-based distributions requires enabling the EPEL reposit
 
 ### Install node.js and npm on Windows and Mac OS X
 
-You can install node.js and npm on Windows and OS X using the installers from [Nodejs.org](https://nodejs.org/download/). You might need to restart the computer to complete the installation. Check if node and npm were installed properly by opening command prompt and typing
+You can install node.js and npm on Windows and OS X using the installers from [Nodejs.org](https://nodejs.org/download/). You might need to restart the computer to complete the installation. Check if node and npm were installed properly by opening a Command window and typing
 
 	npm -v
 
@@ -118,16 +118,16 @@ Once the Azure CLI has been installed, you will be able to use the **azure** com
 
 >[AZURE.NOTE] For Linux systems, you can also install the Azure CLI by building it from the [source](http://go.microsoft.com/fwlink/?linkid=253472). For more information on building from source, see the INSTALL file included in the archive.
 
-## Using Docker Container
+## Using Docker container
 
 In a Docker host, run:
 ```
 	docker run -it microsoft/azure-cli
 ```
 
-## Executing Azure CLI Commands
+## Executing Azure CLI commands
 
-Once the Azure CLI has been installed, you will be able to use the **azure** command from your command-line user interface (Bash, Terminal, Command prompt, and so on) to access the Azure CLI commands.  For example to execute the help command in Windows launch a Command window (cmd.exe) with Administrator privileges (required for some versions of the Azure CLI):
+Once the Azure CLI has been installed, you will be able to use the **azure** command from your command-line user interface (Bash, Terminal, Command prompt, and so on) to access the Azure CLI commands. For example, to execute the help command in Windows launch a Command window (cmd.exe) with Administrator privileges (required for some versions of the Azure CLI):
 ```
 	c:\> azure help
 ```

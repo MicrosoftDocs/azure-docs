@@ -60,7 +60,7 @@ The log in method only works with a work or school account, also called an *orga
 ### Multi-factor authentication
 Starting with Azure CLI version 0.9.9, you can log in with an organizational account that uses multi-factor authentication (authentication with a password and one or more additional verification methods such as trusted device or other personal data).
 
-After you run `azure login` with the user name and password for the account, the CLI provides the address of web page you need to open and directs you to enter a code on that page to continue the authentication. After the authentication policy is satisfied, the Azure CLI completes the log in.
+After you run `azure login` with the user name and password for the account, the CLI provides the address of a web page you need to open. The instructions direct you to enter a code on that page to continue the authentication. After the authentication policy is satisfied, the Azure CLI completes the log in.
 
 
 ### Create an organizational account
