@@ -35,7 +35,7 @@ This is the PowerShell Workflow runbook version of this solution. It is also ava
 This solution consists of two PowerShell Workflow runbooks that you can download from the following links.  See the [graphical version](automation-solutions-startstopvm-graphical.md) of this solution for links to the graphical runbooks.
 
 | Runbook | Link | Type | Description |
-|:---|:---|:---|
+|:---|:---|:---|:---|
 | Start-AzureVMs | [Start Azure Classic VMs](https://gallery.technet.microsoft.com/Start-Azure-Classic-VMs-86ef746b) | PowerShell Workflow | Starts all classic virtual machines in an Azure subscriptionor all virtual machines with a particular service name. |
 | Stop-AzureVMs | [Stop Azure Classic VMs](https://gallery.technet.microsoft.com/Stop-Azure-Classic-VMs-7a4ae43e) | PowerShell Workflow | Stops all virtual machines in an automation account or all virtual machines with a particular service name.  |
 
