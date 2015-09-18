@@ -13,12 +13,12 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/23/2015"
+   ms.date="09/09/2015"
    ms.author="JRJ@BigBangData.co.uk;barbkess"/>
 
 # Get started: Provision a SQL Data Warehouse #
 
-This article is an accelerated guide to help you provision a SQL Data Warehouse in Azure. By following this guide, you will perform these tasks:
+This article is a guide to help you provision a SQL Data Warehouse in Azure. By following this guide, you will perform these tasks:
 
 1. Create a new SQL Data Warehouse database.
 2. Configure a new logical server.
@@ -27,7 +27,7 @@ This article is an accelerated guide to help you provision a SQL Data Warehouse 
 ## Azure free trial ##
 You will need to have an Azure subscription to complete the following tasks. If you do not already have access to an Azure subscription then resolving this is actually your first step!
 
-You can get access to a [free trial][] that allows you to try any of the services in Azure, including SQL Data Warehouse.
+You can get a [free trial][] that allows you to try any of the Azure services, including SQL Data Warehouse.
 
 
 ## Log in to the Azure portal ##
@@ -76,7 +76,7 @@ The first configuration is to name the database.
 
 The performance option is an *important* one. SQL Data Warehouse provides scalable power via this slider. You can increase or decrease your performance at any time - not just when you configure the data warehouse. The further you slide to the right the greater the resources at your disposal. If those resources are no longer needed then you can immediately move the slider back; saving on cost. SQL Data Warehouse lets you change your performance profile on demand without having to re-create the data warehouse or move data.
 
-- Use the slider now to see how the data warehouse units increase as you slide to the right and decrease as you move back to the left.
+- Use the slider now to see how the data warehouse units (DWU) increase as you slide to the right and decrease as you move back to the left.
 
 - Before leaving this step make sure you have returned the slider back to the left. Your new data warehouse is small,  so we don't need too much; save your resources for the rest of your trial!
 
@@ -159,8 +159,7 @@ Now that you have configured the firewall you will be able to make connections f
 ## Next steps
 
 Now the SQL Data Warehouse service has been successfully provisioned we can move on to learn how to use it.
-
-The next steps are therefore to learn how to:
+Next steps:
 
 1. [Connect and query][] the data warehouse.
 2. Load [sample data].

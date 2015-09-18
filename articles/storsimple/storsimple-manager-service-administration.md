@@ -93,7 +93,7 @@ For more information about each workflow, click the appropriate procedure in the
 |Modify device settings</br>Modify time settings</br>Modify DNS.md settings</br>Configure network interfaces|StorSimple Manager service → Devices → Configure|[Modify device configuration for your StorSimple device](storsimple-modify-device-config.md)|
 |View web proxy settings|StorSimple Manager service → Devices → Configure|[Configure web proxy for your device](storsimple-configure-web-proxy.md)|
 |Modify device administrator password</br>Modify StorSimple Snapshot Manager password|StorSimple Manager service → Devices → Configure|[Change StorSimple passwords](storsimple-change-passwords.md)|
-|Configure remote management|StorSimple Manager service → Devices → Configure|[Connect remotely to your StorSimple device](https://msdn.microsoft.com/library/azure/dn772393.aspx)|
+|Configure remote management|StorSimple Manager service → Devices → Configure|[Connect remotely to your StorSimple device](storsimple-remote-connect.md)|
 |Configure alert settings|StorSimple Manager service → Devices → Configure|[View and manage StorSimple alerts](storsimple-manage-alerts.md)|
 |Configure CHAP for your StorSimple device|StorSimple Manager service → Devices → Configure|[Configure CHAP for your StorSimple device](storsimple-configure-chap.md)|
 |Add a backup policy</br>Add or modify a schedule</br>Delete a backup policy</br>Take a manual backup</br>Create a custom backup policy with multiple volumes and schedules|StorSimple Manager service → Devices → Backup policies|[Manage backup policies](storsimple-manage-backup-policies.md)|
