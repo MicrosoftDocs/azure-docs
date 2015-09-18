@@ -9,12 +9,12 @@
 
 <tags
    ms.service="best-practice"
-   ms.devlang="rest-api"
+   ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="09/16/2015"
-   ms.author="jonor;sivae;"/>
+   ms.author="jonor;sivae"/>
 
 # Microsoft Cloud Services and Network Security
 ## Overview
@@ -192,7 +192,7 @@ There are further details to build this example (it provides both scripts and an
 #### Network Security Group (NSG) Description
 In this example, a NSG group is built and then loaded with six rules. 
 
->AZURE.TIP Generally speaking, you should create your specific “Allow” rules first and then the more generic “Deny” rules last. The given priority dictates which rules are evaluated first. Once traffic is found to apply to a specific rule, no further rules are evaluated. NSG rules can apply in either in the inbound or outbound direction (from the perspective of the subnet).
+>[AZURE.TIP] Generally speaking, you should create your specific “Allow” rules first and then the more generic “Deny” rules last. The given priority dictates which rules are evaluated first. Once traffic is found to apply to a specific rule, no further rules are evaluated. NSG rules can apply in either in the inbound or outbound direction (from the perspective of the subnet).
 
 Declaratively, the following rules are being built for inbound traffic:
 
@@ -371,23 +371,18 @@ This is a more complex but more complete way of protecting and isolating the net
 can be found at the [detailed build instructions][Example3] page.
 
 ### <a name="Example4"></a>Example 4 – Adding a Hybrid Connection with a Site-to-Site, Virtual Appliance VPN
-[Back to Fast Start](#Top) | [Detailed Build Instructions For This Example][Example4]
+[Back to Fast Start](#Top) | Detailed Build Instructions Will be Available Soon
 
 ![DMZ with NVA connected hybrid network][11]
 
 #### Environment Setup
 Hybrid networking using a Network Virtual Appliance (NVA) can be added to any of the DMZ types described in Example 1, 2, or 3.
 
-As shown in the figure above, one of two options may be used to connect an on-premise network to an Azure Virtual Network via a Network Virtual Appliance:
+As shown in the figure above, a VPN connection over the Internet (Site-to-Site) is used to connect an on-premise network to an Azure Virtual Network via a Network Virtual Appliance.
 
-1.	VPN connection over the Internet (Site-to-Site)
-2.	VPN connection over a dedicated network (using ExpressRoute Public Peering)
+>[AZURE.NOTE] If you use ExpressRoute with the Azure Public Peering option enabled, a static route will need to be created to route to the VPN IP address out your corporate Internet edge and not via the ExpressRoute edge. This is due to the NAT required on the ExpressRoute Azure Public Peering option that will most likely break the VPN session (IPSec generally doesn't like NATs).
 
->[AZURE.TIP] Using the ExpressRoute option keeps the corporate network traffic off of the internet which provides for better security, performance, and allows for SLAs from your ExpressRoute connectivity service provider.
-
-To use ExpressRoute in this design, it is important to note that the Azure Public Peering feature of ExpressRoute will need to be used. This feature allows the VPN connection to happen to the exact same ***public IP address***, but the routing enabled by Azure Public Peering will ensure that the VPN traffic flows from the on-premise network, across private network circuits (your ExpressRoute circuit), to the public IP address of the NVA. Never routing on the public internet.
-
-With this option the NVA becomes the central “hub” for all networks and subnets. The firewall forwarding rules determine which traffic flows are allowed, are NAT’d, are redirected, or are dropped (even for traffic flows between the on-premise network and Azure).
+Once the VPN is in-place, the NVA becomes the central “hub” for all networks and subnets. The firewall forwarding rules determine which traffic flows are allowed, are NAT’d, are redirected, or are dropped (even for traffic flows between the on-premise network and Azure if the flows as designed that way).
 
 This should be considered carefully as traffic flows can be optimized or degraded by this design pattern depending on the specific use case.
 
@@ -408,10 +403,10 @@ The addition of a hybrid network connection to an Azure Virtual Network, can ext
 - How to build this example with an ARM template
 - Detailed traffic flow scenarios, showing how traffic flows through this design
 
-can be found at the [detailed build instructions][Example4] page.
+will be available soon and linked from this page.
 
 ### <a name="Example5"></a>Example 5 – Adding a hybrid connection with a Site-to-Site, Azure Gateway VPN
-[Back to Fast Start](#Top) | [Detailed Build Instructions][Example5]
+[Back to Fast Start](#Top) | Detailed Build Instructions Will be Available Soon
 
 ![DMZ with Gateway connected hybrid network][14]
 
@@ -442,11 +437,11 @@ The addition of a hybrid network connection to an Azure Virtual Network, can ext
 - How to build this example with an ARM template
 - Detailed traffic flow scenarios, showing how traffic flows through this design
 
-can be found at the [detailed build instructions][Example5] page.
+will be available soon and linked from this page.
 
 
 ### <a name="Example6"></a>Example 6 - Adding a hybrid with ExpressRoute
-[Back to Fast Start](#Top) | [Detailed Build Instructions For This Example][Example6]
+[Back to Fast Start](#Top) | Detailed Build Instructions Will be Available Soon
 
 ![DMZ with Gateway connected hybrid network][16]
 
@@ -474,7 +469,7 @@ The addition of an ExpressRoute Private Peering network connection can extend th
 - How to build this example with an ARM template
 - Detailed traffic flow scenarios, showing how traffic flows through this design
 
-can be found at the [detailed build instructions][Example6] page.
+will be available soon and linked from this page.
 
 ## References
 ### Helpful Websites and Documentation
