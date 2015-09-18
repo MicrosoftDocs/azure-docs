@@ -54,7 +54,7 @@ In the Azure preview portal:
 
 To verify network connectivity, analyze the configured endpoints and determine if you can reach the virtual machine through another protocol, such as HTTP or another known service.
 
-If needed, [Restart the virtual machine](https://msdn.microsoft.com/library/azure/dn763934.aspx) or [Resize the virtual machine](https://msdn.microsoft.com/library/dn168976.aspx).
+If needed, restart the virtual machine or [resize the virtual machine](virtual-machines-size-specs.md).
 
 After these steps, try the SSH connection again.
 

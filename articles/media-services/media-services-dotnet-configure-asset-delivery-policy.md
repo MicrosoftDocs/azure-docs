@@ -287,8 +287,12 @@ For information on what values you can specify when creating an AssetDeliveryPol
         /// The initialization vector to use for envelope encryption.
         /// </summary>
         EnvelopeEncryptionIV,
-    } 
 
+        /// <summary>
+        /// Widevine DRM acquisition url
+        /// </summary>
+        WidevineLicenseAcquisitionUrl
+    }
 
 ##Media Services learning paths
 
