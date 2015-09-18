@@ -16,7 +16,7 @@
  ms.date="09/04/2015"
  ms.author="dobett"/>
 
-[AZURE.INCLUDE [iot-azure-and-iot](../includes/iot-azure-and-iot.md)]
+[AZURE.INCLUDE [iot-azure-and-iot](../../includes/iot-azure-and-iot.md)]
 
 ## Scope of this documentation
 These Azure and IoT articles focus on two collections of resources that can help you to implement your own IoT solution based on the Microsoft IoT reference architecture.
