@@ -57,15 +57,19 @@ For example, a setting of 120 means your database has access to the subset of fe
 ### Read the compatibility level
 
 
-	SELECT d.name, d.compatibility_level
-		FROM sys.databases AS d
-		WHERE d.name = db_name()';
+```
+SELECT d.name, d.compatibility_level
+	FROM sys.databases AS d
+	WHERE d.name = db_name();
+```
 
 
 ### Set the compatibility level
 
 
-	ALTER DATABASE YourDatabaseName SET COMPATIBILITY_LEVEL = 130;
+```
+ALTER DATABASE YourDatabaseName SET COMPATIBILITY_LEVEL = 130;
+```
 
 
 For more information, see:
