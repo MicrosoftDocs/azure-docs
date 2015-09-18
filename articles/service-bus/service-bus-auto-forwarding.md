@@ -33,11 +33,11 @@ The destination entity must exist at the time the source entity is created. If t
 
 You can use auto-forwarding to scale out an individual topic. Service Bus limits the number of subscriptions on a given topic. You can accommodate additional subscriptions by creating second-level topics. Note that even if you are not bound by the Service Bus limitation on the number of subscriptions, adding a second level of topics can improve the overall throughput of your topic.
 
-![Auto-forwarding scenario][]
+![Auto-forwarding scenario][0]
 
 You can also use auto-forwarding to decouple message senders from receivers. For example, consider an ERP system that consists of three modules: Order Processing, Inventory Management, and Customer Relations Management. Each of these modules generates messages that are enqueued into a corresponding topic. Alice and Bob are sales representatives that are interested in all messages that relate to their customers. To receive those messages, Alice and Bob each create a personal queue and a subscription on each of the ERP topics that automatically forward all messages to their queue.
 
-![Auto-forwarding scenario2][]
+![Auto-forwarding scenario][1]
 
 If Alice goes on vacation, her personal queue, rather than the ERP topic, fills up. In this scenario, because a sales representative has not received any messages, none of the ERP topics ever reach quota.
 
@@ -65,6 +65,6 @@ To learn more about Service Bus performance improvements, see [Partitioning Mess
   [SubscriptionDescription.ForwardTo]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptiondescription.forwardto.aspx
   [QueueDescription]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.aspx
   [SubscriptionDescription]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptiondescription.aspx
-  [Auto-forwarding scenario]: ./media/service-bus-auto-forwarding/IC628631.gif
-  [Auto-forwarding scenario2]: ./media/service-bus-auto-forwarding/IC628632.gif
+  [0]: ./media/service-bus-auto-forwarding/IC628631.gif
+  [1]: ./media/service-bus-auto-forwarding/IC628632.gif
   [Partitioning Messaging Entities]: service-bus-partitioning.md
