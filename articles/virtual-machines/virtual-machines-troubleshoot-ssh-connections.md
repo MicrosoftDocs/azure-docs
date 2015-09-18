@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Troubleshoot Secure Shell (SSH) connections to a Linux-based Azure virtual machine"
-	description="If you can't connect your Linux-based Azure virtual machine, use these steps to isolate the source of the problem."
+	pageTitle="Troubleshoot Secure Shell (SSH) connections to a Linux-based VM | Microsoft Azure"
+	description="If you can't connect your Linux-based Azure Virtual Machine, use these steps to isolate the source of the problem."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="dsk-2015"
@@ -20,7 +20,7 @@
 
 # Troubleshoot Secure Shell (SSH) connections to a Linux-based Azure virtual machine
 
-If you can't connect to Linux-based Azure virtual machines, this article describes a methodical approach for isolating and correcting the problem.
+If you can't connect to Linux-based Azure virtual machines, this article describes a methodical approach for isolating and correcting the problem. This applies to both Resource Manager and Classic deployment models.
 
 ## Step 1: Reset the SSH configuration, key, or password
 
