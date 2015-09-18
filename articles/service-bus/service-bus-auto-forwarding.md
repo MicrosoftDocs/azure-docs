@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Auto-forwarding Service Bus messaging entities"
+   pageTitle="Auto-forwarding Service Bus messaging entities | Microsoft Azure"
    description="Describes how to chain a queue or subscription to another queue or topic that is part of the same namespace."
    services="service-bus"
    documentationCenter="na"
