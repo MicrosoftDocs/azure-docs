@@ -1,17 +1,18 @@
 <properties
-   pageTitle="Troubleshooting resource group deployments in Azure"
-   description="Describes common problems deploying resources in Azure, and shows how to use the Azure portal, the Azure Command-Line Interface for Mac, Linux, and Windows (Azure CLI), and PowerShell to examine deployments and detect issues."
+   pageTitle="Troubleshooting resource group deployments | Microsoft Azure"
+   description="Describes common problems deploying resources created using Resource Manager deployment model, and shows how to detect and fix these issues."
    services="virtual-machines"
    documentationCenter=""
    authors="squillace"
    manager="timlt"
-   editor=""/>
+   editor=""
+   tags="azure-resource-manager"/>
 
 <tags
    ms.service="virtual-machines"
    ms.devlang="na"
    ms.topic="article"
-   ms.tgt_pltfrm="command-line-interface"
+   ms.tgt_pltfrm="vm-multiple"
    ms.workload="infrastructure"
    ms.date="08/26/2015"
    ms.author="rasquill"/>
@@ -19,6 +20,9 @@
 # Troubleshooting resource group deployments in Azure
 
 Deployments can fail for any number of reasons. It is far better to prevent deployment errors by checking a few things in advance. This document describes tools and operations to prevent simple mistakes, to download template files, and to examine deployment logs. It also discusses the main areas to think about when examining deployment logs for failures.
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)] This article covers troubleshooting resource groups created with the Resource Manager deployment model. You can't create resource groups with the classic deployment model.
+
 
 ## Useful tools to interact with Azure
 When you work with your Azure resources from the command-line, you will collect tools that help you do your work. Azure resource group templates are JSON documents, and the Azure Resource Manager API accepts and returns JSON, so JSON parsing tools are some of the first things you will use to help you navigate information about your resources and to design or interact with templates and template parameter files.
