@@ -151,7 +151,7 @@ Once connected you can begin designing your tables. Please refer to the [table d
 <!--Image references-->
 
 <!--Azure.com references-->
-[connect and query]: sql-data-warehouse-connect-query.md
+[connect and query]: sql-data-warehouse-get-started-connect-query.md
 [table design]: sql-data-warehouse-develop-table-design.md
 
 <!--MSDN references-->
