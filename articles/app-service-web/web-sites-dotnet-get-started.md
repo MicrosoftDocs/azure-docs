@@ -50,7 +50,7 @@ In this video, Scott Hanselman shows how easy it is to sign up for a free trial 
 
 ## Create a project and a web app
 
-Your first step is to create a web project in Visual Studio and a web app in Azure App Service. When that's done, you'll deploy the project to the web app to make it available on the Internet. These steps 
+Your first step is to create a web project in Visual Studio and a web app in Azure App Service. When that's done, you'll deploy the project to the web app to make it available on the Internet. 
 
 The diagram illustrates what you're doing in the create and deploy steps.
 
