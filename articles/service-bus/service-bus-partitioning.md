@@ -125,7 +125,7 @@ In its current implementation, Service Bus imposes the following limitations on 
 
 ## Next steps
 
-See the discussion of [AMQP 1.0 support for Service Bus partitioned queues and topics][] to learn more about paritioning messaging entities. 
+See the discussion of AMQP 1.0 support for Service Bus partitioned queues and topics (coming soon!) to learn more about paritioning messaging entities. 
 
   [Service Bus Architecture]: service-bus-architecture.md
   [Azure portal]: http://manage.windowsazure.com
