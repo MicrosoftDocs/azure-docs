@@ -92,7 +92,7 @@ Windows Server Remote Desktop Services (RDS) accelerates and extends desktop and
 
 With ASR, you can enable protection of managed or unmanaged pooled virtual desktops to a secondary site and remote applications and sessions to a secondary site or Azure.
 
-Refer the linked document for detailed guidance about [deploying Azure Site Recovery for RDS/VDI](http://aka.ms/as-rds)
+Refer the linked document for detailed guidance about [deploying Azure Site Recovery for RDS/VDI](http://aka.ms/asr-rds)
 
 
 ## Exchange
