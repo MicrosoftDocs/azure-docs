@@ -1,4 +1,4 @@
-<properties 
+<properties
 	pageTitle="Configure AlwaysOn Availability Groups in an Azure VM | Microsoft Azure"
 	description="This tutorial uses resources created with  the classic deployment model, and uses PowerShell to create an AlwaysOn Availability Group in Azure."
 	services="virtual-machines"
@@ -23,8 +23,6 @@
 - [PowerShell](virtual-machines-sql-server-alwayson-availability-groups-powershell.md)
 
 <br/>
-
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)] This article covers creating a resource with the classic deployment model.
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)] This article covers creating a resource with the classic deployment model.
 
