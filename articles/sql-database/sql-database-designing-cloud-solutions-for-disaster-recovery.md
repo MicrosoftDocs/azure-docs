@@ -20,7 +20,7 @@
 
 There are several ways you can take advantage of the SQL Database Geo-Replication feature when designing your application for business continuity. The choice depends on several factors, but the main goal is to optimize it for your specific application. The factors that will guide your design choice include the application deployment topology, the service level agreement you are targeting, traffic latency and costs. In this article we look at the common application patterns and discuss the trade-offs of the different options.
 
-## Design pattern 1: Active-passive deployment for disaster recovery with co-located database access
+## Design pattern 1: Active-passive deployment for disaster recovery with co-located database
 
 This option is best suited for applications with the following characteristics:
 
@@ -33,9 +33,13 @@ In this case the application deployment topology is optimized for handling regio
 The following diagram shows this configuration before the outage. Traffic manager is configured with a failover profile and directs the user connections to the application instance in the primary region.
 ![Figure 1](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/pattern1-1.png)
 
-After the outage traffic manager detects the connectivity failure in the primary region and switches the user traffic to the application instance in the secondary region. It is important that you initiate the database failover as soon as the outage is detected. After failover the application will process the user requests in the secondary region but will remain co-located with the database because the primary database will now be in the same region. This is illustrated by the next diagram.	
-![Figure 2](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/pattern1-2.png)
 > [AZURE.NOTE] [Azure traffic manager](https://azure.microsoft.com/en-us/documentation/articles/traffic-manager-overview/) is used here for illustration purposes only. You can use any load balancing solution. 
+
+After the outage traffic manager detects that connectivity in the primary region failed and switches the user traffic to the application instance in the secondary region. In the meantime you initiate the database failover as soon as the database outage is detected. After failover the application will process the user requests in the secondary region but will remain co-located with the database because the primary database will now be in the same region. This is illustrated by the next diagram.	
+![Figure 2](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/pattern1-2.png)
+
+
+> [AZURE.NOTE] To detect database outage you can configure an [Elastic database job](https://azure.microsoft.com/en-us/documentation/articles/sql-database-elastic-jobs-overview/) running in the secondary region to check connectivity and responsiveness of the primary database.
 
 The key **advantage** of this approach is that the SQL connection is configured once during the application deployment in each region and it doesn’t change after failover.  The main **tradeoff** is that the redundant application instance in the secondary region is only used for disaster recovery. 
 
@@ -48,6 +52,7 @@ This option is best suited for applications with the following characteristics:
 + the read-only logic does not depend on the data being fully synchronized with the latest version  
 
 If your applications has these characteristics load balancing the end user connections across multiple application instances in different regions can improve performance and end-user experience. To achieve that each region should have an active instance of the application with the read-write (RW) logic connected to the primary database in the primary region. The read-only (RO) logic should be connected to a secondary database in the same region as the application instance. 
+
 > [AZURE.NOTE] Because this pattern requires read-only access to the secondary it can only be implemented using [Active geo-replication](https://msdn.microsoft.com/library/azure/dn741339.aspx). 
 
 Traffic manager should be configured with a performance profile to direct the user connections to the application instance closest to the user's geographic location. The following diagram illustrates this configuration before the outage. 
@@ -57,6 +62,7 @@ After the outage is detected you initiate the database failover to one of the se
 ![Figure 4](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/pattern2-2.png)
 
 The key **advantage** of this approach is that you can scale the application logic to any number of instance to achieve the optimal end user performance. The main **tradeoff** is that the traffic between the application instances and database have varying latency and cost. In addition, the application instances must be able to dynamically change the SQL connection string after the database failover.  
+
 > [AZURE.NOTE] A similar approach can be used to offload specialized workloads such as reporting jobs, business intelligence tools and backups. Typically these workloads consume significant database resources therefore it is recommended that you designate one of the secondary databases for them. It may also be necessary to configure this secondary with a higher performance objective to ensure the necessary resources are available. This secondary database should not be shared by the primary application workload. 
 
 ## Design pattern 3: Active-passive deployment for data preservation  
@@ -70,7 +76,7 @@ In this pattern the application relies on the read-only secondary when operating
 As in the first pattern, traffic manager is configured with a failover profile and directs the user traffic to the active deployment in the primary region. The following diagram illustrates this configuration before the outage. 
 ![Figure 5](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/pattern3-1.png)
 
-After the outage traffic manager detects the connectivity failure to the primary region and switches the user traffic to the application instance in the secondary region. It is important that you do not initiate the database failover after the outage is detected. The application in the secondary region is activated and operates in read-only mode using the secondary database. This is illustrated by the following diagram.
+After the outage traffic manager detects the connectivity failure to the primary region and switches the user traffic to the application instance in the secondary region. It is important that you **do not** initiate the database failover after the outage is detected. The application in the secondary region is activated and operates in read-only mode using the secondary database. This is illustrated by the following diagram.
 
 ![Figure 6](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/pattern3-2.png)
 
