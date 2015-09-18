@@ -37,7 +37,7 @@ Please note that there are limits on how many disks you can add for different vi
 This article assumes you have already created a Linux virtual machine and have MYSQL installed and configured. For more information on getting started please refer to How to install MySQL on Azure.  
 
 ###Setting up RAID on Azure
-The following steps show how to create RAID on Azure using the Windows Azure Management Portal. You can also set up RAID using Windows PowerShell scripts.
+The following steps show how to create RAID on Azure using the Azure Management Portal. You can also set up RAID using Windows PowerShell scripts.
 In this example we will configure RAID 0 with 4 disks.  
 
 ####Step 1: Add a Data Disk to your Virtual Machine  
@@ -70,7 +70,7 @@ You can see the added drives in the virtual machine by looking at the kernel mes
 ####Step 2: Create RAID with the additional disks
 Follow this article for detailed RAID setup steps:  
 
-[http://azure.microsoft.com/documentation/articles/virtual-machines-linux-configure-RAID/](http://azure.microsoft.com/documentation/articles/virtual-machines-linux-configure-RAID/)
+[Configure software RAID on Linux](virtual-machines-linux-configure-RAID.md)
 
 >[AZURE.NOTE] If you are using the XFS file system, follow the steps below after you have created RAID.
 
