@@ -233,7 +233,7 @@ You define resources with the following structure:
 
 If the resource name is not unique, you can use the **resourceId** helper function (described below) to get the unique identifier for any resource.
 
-The values for the **properties** element are exactly the same as the values you provide in the request body for the REST API operation (PUT method) to create the resource. See [Azure reference](https://msdn.microsoft.com/library/azure/mt420159.aspx) for REST API for the resource you wish to provide.
+The values for the **properties** element are exactly the same as the values you provide in the request body for the REST API operation (PUT method) to create the resource. See [Azure reference](https://msdn.microsoft.com/library/azure/mt420159.aspx) for the REST API operations for the resource you wish to deploy.
 
 The following example shows a **Microsoft.Web/serverfarms** resource and a **Microsoft.Web/sites** resource with a nested **Extensions** resource:
 
