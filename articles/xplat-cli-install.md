@@ -24,6 +24,7 @@ This article describes how to install the Azure Command-Line Interface (Azure CL
 [AZURE.INCLUDE [learn-about-deployment-models](../includes/learn-about-deployment-models-include.md)] This article covers creating and managing resources with the Resource Manager deployment model or the classic deployment model.
 
 The Azure CLI is written in JavaScript, and requires [Node.js](https://nodejs.org). It is implemented using the [Azure SDK for Node](https://github.com/azure/azure-sdk-for-node), and released under an Apache 2.0 license. The project repository is located at [https://github.com/azure/azure-xplat-cli](https://github.com/azure/azure-xplat-cli).
+
 > [AZURE.NOTE] If you've already installed the Azure CLI, connect it with your Azure resources. For more, see [How to connect to your Azure Subscription](xplat-cli-connect.md#configure).
 
 <a id="install"></a>
