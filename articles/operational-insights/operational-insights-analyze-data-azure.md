@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/05/2015"
+   ms.date="09/10/2015"
    ms.author="banders"/>
 # Analyze data from servers in Microsoft Azure
 
@@ -59,7 +59,7 @@ If you prefer scripting to make changes to your Azure virtual machines, then you
 
 The Microsoft Monitoring Agent is an [Azure virtual machine extension](https://msdn.microsoft.com/library/azure/dn832621.aspx) and you can manage it using PowerShell, as shown in the examples below.
 
-For "classic" Azure virtual machines use this PowerShell: 
+For "classic" Azure virtual machines use this PowerShell:
 
 ```powershell
 Add-AzureAccount

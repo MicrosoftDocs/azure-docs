@@ -17,7 +17,7 @@
    ms.date="09/08/2015"
    ms.author="telmos" />
 
-# How to set a static private IP address in PowerShell
+# How to set a static private IP address (classic) in PowerShell
 
 [AZURE.INCLUDE [virtual-networks-static-private-ip-selectors-classic-include](../../includes/virtual-networks-static-private-ip-selectors-classic-include.md)]
 

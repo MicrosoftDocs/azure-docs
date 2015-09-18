@@ -1,22 +1,22 @@
-<properties 
-	pageTitle="Are virtual machines on Azure the compute option I want?" 
-	description="Learn about Azure compute hosting options and how they work: App Service, Cloud Services, and Virtual Machines" 
-	headerExpose="" 
-	footerExpose="" 
+<properties
+	pageTitle="Are virtual machines on Azure the compute option I want?"
+	description="Learn about Azure compute hosting options and how they work: App Service, Cloud Services, and Virtual Machines"
+	headerExpose=""
+	footerExpose=""
 	services="virtual-machines"
-	authors="KBDAzure" 
+	authors="cynthn"
 	documentationCenter=""
 	manager="timlt"
 	tags=azure-resource-manager, azure-service-management/>
 
-<tags 
-	ms.service="multiple" 
-	ms.workload="multiple" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/19/2015" 
-	ms.author="kathydav"/>
+<tags
+	ms.service="multiple"
+	ms.workload="multiple"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="06/19/2015"
+	ms.author="cynthn"/>
 
 # Should I Choose Azure Virtual Machines?
 

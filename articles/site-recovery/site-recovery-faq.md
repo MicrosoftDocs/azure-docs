@@ -201,6 +201,15 @@ When using (SAN) array-based replication to enable replication and protection be
 
 Your arrays also need to be discovered by SCVMM using an updated SMI-S provider that is made available by your respective storage vendors.
 
+## Deploy between VMware and Azure
+
+### I have a cloned VMware VM. Can I protect the cloned VM to Azure?
+You cannot clone a protected VM. You can protect a cloned VMware VM to Azure as long as cloned VM does not have the mobility service installed in it.  You can clone the VM before installing the mobility service to avoid duplicate entry as both VMs will report with the same GUID which will impact the replication. 
+
+### Can I clone Process Server VM?
+No, you should not clone Process Server.  When Process Server is deployed, it creates its own unique ID. If cloned, the two Process Servers will have the same GUID that will impact the existing replication. 
+
+
 ## Deploy between physical servers and Azure
 
 ### Can I protect my physical on-premises server to Azure?

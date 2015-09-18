@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/09/2015"
+   ms.date="09/15/2015"
    ms.author="v-sharos" />
 
 # Use the StorSimple Manager service to manage volumes
@@ -88,7 +88,10 @@ Your new volume is now ready to use.
 
 Modify a volume when you need to expand it or change the hosts that access the volume.
 
-> [AZURE.IMPORTANT] If you modify the volume size on the device, the volume size needs to be changed on the host as well. The host-side steps described here are for Windows Server 2012 (2012R2). Procedures for Linux or other host operating systems will be different. Refer to your host operating system instructions when modifying the volume on a host running another operating system. 
+> [AZURE.IMPORTANT] 
+>
+> - If you modify the volume size on the device, the volume size needs to be changed on the host as well. 
+> - The host-side steps described here are for Windows Server 2012 (2012R2). Procedures for Linux or other host operating systems will be different. Refer to your host operating system instructions when modifying the volume on a host running another operating system. 
 
 ### To modify a volume
 
@@ -120,6 +123,10 @@ Modify a volume when you need to expand it or change the hosts that access the v
    2. Right-click **Disk Management** and select **Rescan Disks**.
    3. In the list of disks, select the volume that you updated, right-click, and then select **Extend Volume**. The Extend Volume wizard starts. Click **Next**.
    4. Complete the wizard, accepting the default values. After the wizard is finished, the volume should show the increased size.
+
+![Video available](./media/storsimple-manage-volumes/Video_icon.png) **Video available**
+
+To watch a video that demonstrates how to expand a volume, click [here](http://azure.microsoft.com/documentation/videos/expand-a-storsimple-volume).
 
 ## Take a volume offline
 
@@ -180,11 +187,10 @@ Perform the following steps to enable or disable monitoring for a volume.
 
     ![Modify a volume Basic Settings](./media/storsimple-manage-volumes/HCS_MonitorVolumeM.png)
 
+
 ## Next steps
 
-Watch a video that shows how to [expand a StorSimple volume](http://azure.microsoft.com/documentation/videos/expand-a-storsimple-volume).
-
-Learn how to [clone a StorSimple volume](storsimple-clone-volume.md).
-
+- Learn how to [clone a StorSimple volume](storsimple-clone-volume.md).
+- Learn how to [use the StorSimple Manager service to administer your StorSimple device](storsimple-manager-service-administration.md).
 
  

@@ -121,6 +121,13 @@ Now deploy your application to IIS or to Azure and watch the data accumulate.
 
 When you run in debug mode, telemetry is expedited through the pipeline, so that you should see data appearing within seconds. When you deploy your app, data accumulates more slowly.
 
+#### No data after you publish to your server?
+
+Open these ports for outgoing traffic in your server's firewall:
+
++ `dc.services.visualstudio.com:443`
++ `f5.services.visualstudio.com:443`
+
 
 #### Trouble on your build server?
 
@@ -130,13 +137,13 @@ Please see [this Troubleshooting item](app-insights-troubleshoot-faq.md#NuGetBui
 
 The SDK needs a little help to get access to some data. In particular, you'll need this additional step in order to automatically measure calls from your app to databases, REST APIs, and other external components. These dependency metrics can be invaluable to help you diagnose performance issues.
 
-This step also enables [reporting of performance counters](app-insights-web-monitor-performance.md#system-performance-counters) such as CPU, memory, network occupancy.
-
 #### If your app runs in your IIS server
 
 Sign in to your server with admin rights, and install [Application Insights Status Monitor](http://go.microsoft.com/fwlink/?LinkId=506648).
 
-(You can also use Status Monitor to [instrument an app that's already running](app-insights-monitor-performance-live-website-now.md), even if it hasn't been built with the SDK.)
+You might need to [open additional outgoing ports in your firewall](app-insights-monitor-performance-live-website-now.md#troubleshooting).
+
+This step also enables [reporting of performance counters](app-insights-web-monitor-performance.md#system-performance-counters) such as CPU, memory, network occupancy.
 
 #### If your app is an Azure Web App
 

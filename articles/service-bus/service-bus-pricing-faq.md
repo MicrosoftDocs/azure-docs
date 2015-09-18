@@ -21,18 +21,18 @@ This section answers some frequently-asked questions about the Service Bus prici
 
 >[AZURE.NOTE] The pricing structure for Event Hubs is described in the [Event Hubs availability and support FAQ](event-hubs-availability-and-support-faq.md) topic, with more information in the [Event Hubs pricing](http://azure.microsoft.com/pricing/details/event-hubs/) topic.
 
-- [How do you charge for Service Bus?](#How-do-you-charge-for-Service-Bus?)
-- [What usage of Service Bus is subject to data transfer? What is not?](#What-usage-of-Service-Bus-is-subject-to-data-transfer?-What-is-not?)
-- [What exactly is a Service Bus “relay”?](#What-exactly-is-a-Service-Bus-"relay"?)
-- [How is the Relay Hours meter calculated?](#How-is-the-Relay-Hours-meter-calculated?)
-- [What if I have more than one listener connected to a given relay?](#What-if-I-have-more-than-one-listener-connected-to-a-given-relay?)
-- [How is the Messages meter calculated for relays?](#How-is-the-Messages-meter-calculated-for-relays?)
-- [Does Service Bus charge for storage?](#Does-Service-Bus-charge-for-storage?)
-- [Does Service Bus have any usage quotas?](#Does-Service-Bus-have-any-usage-quotas?)
+- [How do you charge for Service Bus?](#how-do-you-charge-for-service-bus)
+- [What usage of Service Bus is subject to data transfer? What is not?](#what-usage-of-service-bus-is-subject-to-data-transfer-what-is-not)
+- [What exactly is a Service Bus “relay”?](#what-exactly-is-a-service-bus-quotrelayquot)
+- [How is the Relay Hours meter calculated?](#how-is-the-relay-hours-meter-calculated)
+- [What if I have more than one listener connected to a given relay?](#what-if-i-have-more-than-one-listener-connected-to-a-given-relay)
+- [How is the Messages meter calculated for relays?](#how-is-the-messages-meter-calculated-for-relays)
+- [Does Service Bus charge for storage?](#does-service-bus-charge-for-storage)
+- [Does Service Bus have any usage quotas?](#does-service-bus-have-any-usage-quotas)
 
 ## How do you charge for Service Bus?
 
-For complete information about Service Bus pricing, see [Service Bus Pricing and Billing](https://msdn.microsoft.com/library/dn831889.aspx) and [Service Bus Pricing Details](http://azure.microsoft.com/pricing/details/service-bus/). In addition to the prices noted, you are charged for associated data transfers for egress outside of the data center in which your application is provisioned. You can find more details in the [What usage of Service Bus is subject to data transfer? What is not?](#What-usage-of-Service-Bus-is-subject-to-data-transfer?-What-is-not?) section below.
+For complete information about Service Bus pricing, see [Service Bus Pricing and Billing](https://msdn.microsoft.com/library/dn831889.aspx) and [Service Bus Pricing Details](http://azure.microsoft.com/pricing/details/service-bus/). In addition to the prices noted, you are charged for associated data transfers for egress outside of the data center in which your application is provisioned. You can find more details in the [What usage of Service Bus is subject to data transfer? What is not?](#what-usage-of-service-bus-is-subject-to-data-transfer-what-is-not) section below.
 
 ## What usage of Service Bus is subject to data transfer? What is not?
 
