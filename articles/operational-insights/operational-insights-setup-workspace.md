@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="08/05/2015"
+    ms.date="09/10/2015"
     ms.author="banders"/>
 
 # Set up your workspace and manage settings
@@ -196,7 +196,7 @@ It is possible to create a workspace from [microsoft.com/oms](https://microsoft.
 
 ## Upgrade workspace to a paid data plan
 
-There are three workspace data plan types for Operational Insights: **Free**, **Standard** and **Premium**.  If you are on a *free* plan, you may have hit your data cap of 500MB.  You will need to upgrade your workspace to a '**pay-as-you-go plan**' in order to collect data beyond this limit. At any time your can convert your plan type.  For more information on Operational Insights pricing, see [Pricing Details](http://azure.microsoft.com/pricing/operational-insights/)
+There are three workspace data plan types for Operational Insights: **Free**, **Standard** and **Premium**.  If you are on a *free* plan, you may have hit your data cap of 500MB.  You will need to upgrade your workspace to a '**pay-as-you-go plan**' in order to collect data beyond this limit. At any time your can convert your plan type.  For more information on Operational Insights pricing, see [Pricing Details](https://azure.microsoft.com/en-us/pricing/details/operational-insights/)
 
 >[AZURE.IMPORTANT] Workspace plans can only be changed if they are *linked* to an Azure subscription.  If you created your workspace in Azure or if you've *already* linked your workspace, you can ignore this message.  If you created your workspace from [opinsights.azure.com](http://opinsights.azure.com), you will need to follow the steps at [Link an existing workspace to an Azure subscription](#link-an-existing-workspace-to-an-Azure-subscription).
 

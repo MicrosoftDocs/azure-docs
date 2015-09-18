@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="08/18/2015"
+	ms.date="09/18/2015"
 	ms.author="juliako"/>
 
 
@@ -420,13 +420,14 @@ To stream you video, use [Azure Media Services Player](http://amsplayer.azureweb
 
 To test progressive download, paste a URL into a browser (for example, Internet Explorer, Chrome, or Safari).
 
-##Next step
 
-To learn more about building Video-on-Demand applications, see [Build VoD applications](media-services-video-on-demand-workflow.md).
 
-###Additional resources
-- <a href="http://channel9.msdn.com/Shows/Azure-Friday/Azure-Media-Services-101-Get-your-video-online-now-">Azure Media Services 101 - Get your video online now!</a>
-- <a href="http://channel9.msdn.com/Shows/Azure-Friday/Azure-Media-Services-102-Dynamic-Packaging-and-Mobile-Devices">Azure Media Services 102 - Dynamic packaging and mobile devices</a>
+##Media Services learning paths
+
+You can view AMS learning paths here:
+
+- [AMS Live Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [AMS on Demand Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
 
 <!-- Anchors. -->

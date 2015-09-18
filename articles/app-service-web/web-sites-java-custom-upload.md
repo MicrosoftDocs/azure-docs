@@ -106,7 +106,7 @@ While there are two variations on Tomcat that are supplied with App Service Web 
 On the Tomcat side, there are a few configuration changes that need to be made. The server.xml needs to be edited to set:
 
 -	Shutdown port = -1
--	HTTP connector port = {port.http}
+-	HTTP connector port = ${port.http}
 -	HTTP connector address = "127.0.0.1"
 -	Comment out HTTPS and AJP connectors
 -	The IPv4 setting can also be set in the catalina.properties file where you can add     `java.net.preferIPv4Stack=true`

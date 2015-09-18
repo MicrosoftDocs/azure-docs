@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Step 3: Create a new Machine Learning experiment | Microsoft Azure" 
-	description="Step 3 of the Develop a predictive solution walkthrough: Create a new training experiment in Azure Machine Learning Studio." 
-	services="machine-learning" 
-	documentationCenter="" 
-	authors="garyericson" 
-	manager="paulettm" 
+<properties
+	pageTitle="Step 3: Create a new Machine Learning experiment | Microsoft Azure"
+	description="Step 3 of the Develop a predictive solution walkthrough: Create a new training experiment in Azure Machine Learning Studio."
+	services="machine-learning"
+	documentationCenter=""
+	authors="garyericson"
+	manager="paulettm"
 	editor="cgronlun"/>
 
-<tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/10/2015" 
+<tags
+	ms.service="machine-learning"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/08/2015" 
 	ms.author="garye"/>
 
 
@@ -26,7 +26,7 @@ This is the third step of the walkthrough, [Developing a Predictive Solution wit
 2.	[Upload existing data](machine-learning-walkthrough-2-upload-data.md)
 3.	**Create a new experiment**
 4.	[Train and evaluate the models](machine-learning-walkthrough-4-train-and-evaluate-models.md)
-5.	[Publish the web service](machine-learning-walkthrough-5-publish-web-service.md)
+5.	[Deploy the web service](machine-learning-walkthrough-5-publish-web-service.md)
 6.	[Access the web service](machine-learning-walkthrough-6-access-web-service.md)
 
 ----------
@@ -56,10 +56,10 @@ The [Metadata Editor][metadata-editor] module is used to change the metadata ass
 5.	In the **Select columns** dialog, set the **Begin With** field to "All columns".
 6.	The row beneath **Begin With** allows you to include or exclude specific columns for the [Metadata Editor][metadata-editor] to modify. Since we want to modify all columns, delete this row by clicking the minus sign ("-") to the right of the row. The dialog should look like this:
     ![Column Selector with all columns selected][4]
-7.	Click the **OK** checkmark. 
+7.	Click the **OK** checkmark.
 8.	Back in the **Properties** pane, look for the **New column names** parameter. In this field, enter a list of names for the 21 columns in the dataset, separated by commas and in column order. You can obtain the columns names from the dataset documentation on the UCI website, or for convenience you can copy and paste the following:  
 
-<!-- try the same thing without upper-case 
+<!-- try the same thing without upper-case
 		Status of checking account, Duration in months, Credit history, Purpose, Credit amount, Savings account/bond, Present employment since, Installment rate in percentage of disposable income, Personal status and sex, Other debtors, Present residence since, Property, Age in years, Other installment plans, Housing, Number of existing credits, Job, Number of people providing maintenance for, Telephone, Foreign worker, Credit risk  
 -->
 
@@ -67,21 +67,21 @@ The [Metadata Editor][metadata-editor] module is used to change the metadata ass
 
 The Properties pane will look like this:
 
-![Properties for Metadata Editor][1] 
+![Properties for Metadata Editor][1]
 
 > [AZURE.TIP] If you want to verify the column headings, run the experiment (click **RUN** below the experiment canvas), click the output port of the [Metadata Editor][metadata-editor] module, and select **View Results**. You can view the output of any module in the same way to view the progress of the data through the experiment.
 
 The experiment should now look something like this:  
 
 ![Adding Metadata Editor][2]
- 
+
 ##Create training and test datasets
 The next step of the experiment is to generate separate datasets that will be used for training and testing our model. To do this, we use the [Split][split] module.  
 
 1.	Find the [Split][split] module, drag it onto the canvas, and connect it to the last [Metadata Editor][metadata-editor] module.
 2.	By default, the split ratio is 0.5 and the **Randomized split** parameter is set. This means that a random half of the data will be output through one port of the [Split][split] module, and half out the other. You can adjust these, as well as the **Random seed** parameter, to change the split between training and scoring data. For this example we'll leave them as-is.
 	> [AZURE.TIP] The split ratio essentially determines how much of the data is output through the left output port. For instance, if you set the ratio to 0.7, then 70% of the data is output through the left port and 30% through the right port.  
-	
+
 We can use the outputs of the [Split][split] module however we like, but let's choose to use the left output as training data and the right output as scoring data.  
 
 As mentioned on the UCI website, the cost of misclassifying a high credit risk as low is 5 times larger than the cost of misclassifying a low credit risk as high. To account for this, we'll generate a new dataset that reflects this cost function. In the new dataset, each high example is replicated 5 times, while each low example is not replicated.   
@@ -89,7 +89,7 @@ As mentioned on the UCI website, the cost of misclassifying a high credit risk a
 We can do this replication using R code:  
 
 1.	Find and drag the [Execute R Script][execute-r-script] module onto the experiment canvas and connect the left output port of the [Split][split] module to the first input port ("Dataset1") of the [Execute R Script][execute-r-script] module.
-2.	In the **Properties** pane, delete the default text in the **R Script** parameter and enter this script: 
+2.	In the **Properties** pane, delete the default text in the **R Script** parameter and enter this script:
 
 		dataset1 <- maml.mapInputPort(1)
 		data.set<-dataset1[dataset1[,21]==1,]
@@ -107,7 +107,7 @@ We need to do this same replication operation for each output of the [Split][spl
 > [AZURE.TIP] The copy of the Execute R Script module contains the same script as the original module. When you copy and paste a module on the canvas, the copy retains all the properties of the original.  
 >
 Our experiment now looks something like this:
- 
+
 ![Adding Split module and R scripts][3]
 
 For more information on using R scripts in your experiments, see [Extend your experiment with R](machine-learning-extend-your-experiment-with-r.md).
@@ -125,4 +125,3 @@ For more information on using R scripts in your experiments, see [Extend your ex
 [execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
 [metadata-editor]: https://msdn.microsoft.com/library/azure/370b6676-c11c-486f-bf73-35349f842a66/
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
- 
