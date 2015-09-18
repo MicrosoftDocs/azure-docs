@@ -3,7 +3,7 @@
 	description="Presents a Python code sample you can use to connect to Azure SQL Database. The sample runs on an Ubuntu Linux client computer."
 	services="sql-database" 
 	documentationCenter="" 
-	authors="meet-bhagdev" 
+	authors="MightyPen" 
 	manager="jeffreyg" 
 	editor=""/>
 
@@ -14,11 +14,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="python" 
 	ms.topic="article" 
-	ms.date="04/27/2015" 
-	ms.author="mebha"/>
+	ms.date="04/28/2015" 
+	ms.author="genemi"/>
 
 
-# Connect to SQL Database by using Python on Ubuntu Linux
+# Connect to Azure SQL Database by using Python on Ubuntu Linux
 
 
 [AZURE.INCLUDE [sql-database-develop-includes-selector-language-platform-depth](../../includes/sql-database-develop-includes-selector-language-platform-depth.md)]
