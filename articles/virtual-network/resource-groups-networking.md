@@ -44,6 +44,16 @@ A conceptual view of a sample deployment involving a multi-tiered application is
 
 ![Network resource model](./media/resource-groups-networking/Figure2.png)
 
+Every resource contains a common set of properties, and their individual property set. The common properties are:
+
+|Property|Description|Sample values|
+|---|---|---|
+|**name**|Unique resource name. Each resource type has its own naming restrictions.|PIP01, VM01, NIC01|
+|**location**|Azure region in which the resource resides|westus, eastus|
+|**id**|Unique URI based identification|/subscriptions/<subGUID>/resourceGroups/TestRG/providers/Microsoft.Network/publicIPAddresses/TestPIP|
+
+You can check the individual properties of resources in the sections below.
+
 [AZURE.INCLUDE [virtual-networks-nrp-pip-include](../../includes/virtual-networks-nrp-pip-include.md)]
 
 [AZURE.INCLUDE [virtual-networks-nrp-vnet-include](../../includes/virtual-networks-nrp-vnet-include.md)]
