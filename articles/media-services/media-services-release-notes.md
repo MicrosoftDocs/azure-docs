@@ -80,9 +80,9 @@ For information about the Media Services REST API version history, see [Azure Me
 
 	You can use [AMS .NET SDK](https://www.nuget.org/packages/windowsazure.mediaservices/) (starting with the version 3.5.1) or REST API to configure your AssetDeliveryConfiguration to use Widevine.  
 
-- AMS added support for Apple ProRes videos. You can now upload your QuickTime source videos files that use Apple ProRes or other codecs. For more information, see [this blog](http://azure.microsoft.com/en-us/blog/announcing-support-for-apple-prores-videos-in-azure-media-services/).
+- AMS added support for Apple ProRes videos. You can now upload your QuickTime source videos files that use Apple ProRes or other codecs. For more information, see [this blog](http://azure.microsoft.com/blog/announcing-support-for-apple-prores-videos-in-azure-media-services/).
 
-- You can now use Media Encoder Standard to do sub-clipping and live archive extraction. For more information, see [this blog](http://azure.microsoft.com/en-us/blog/sub-clipping-and-live-archive-extraction-with-media-encoder-standard/).
+- You can now use Media Encoder Standard to do sub-clipping and live archive extraction. For more information, see [this blog](http://azure.microsoft.com/blog/sub-clipping-and-live-archive-extraction-with-media-encoder-standard/).
 
 ##<a id="august_changes_15"></a>August 2015 Release
 
