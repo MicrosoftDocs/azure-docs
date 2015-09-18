@@ -36,7 +36,7 @@ If you don't have an Azure account, you can create a free trial account in just 
 
 ## Use the log in method
 
-The log in method only works with a work or school account, also called an *organizational account*. This account is managed by your organization, and defined in your organization's Azure Active Directory. You can [create an orgnizational account](#Create-an-organizational-account) if you don't have one.
+The log in method only works with a work or school account, also called an *organizational account*. This account is managed by your organization, and defined in your organization's Azure Active Directory. You can [create an orgnizational account](#create-an-organizational-account) if you don't have one.
 
 
 * **To log in** from the Azure CLI using a work or school account, use the following command:
