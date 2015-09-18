@@ -1,5 +1,5 @@
 <properties
-   pageTitle="DMZ Example – Build a Simple DMZ with NSGs"
+   pageTitle="DMZ Example – Build a Simple DMZ with NSGs | Microsoft Azure"
    description="Build a DMZ with Network Security Groups (NSG)"
    services="virtual-network"
    documentationCenter="na"
@@ -22,6 +22,8 @@
 - [PowerShell Classic](Network-Boundary-DMZ-NSG-ASM.md)
 
 [Return to the Security Boundary Best Practices Page][HOME]
+
+This example will create a simple DMZ with four windows servers and Network Security Groups. It will also walk through each of the relevant commands to provide a deeper understanding of each step. There is a also a Traffic Scenario section to provide a in-depth step-by-step how traffic proceeds through the layers of defense in the DMZ. Finally, in the references section is the complete code and instruction to build this environment to test and experiment with various scenarios. 
 
 ![Inbound DMZ with NSG][1]
 

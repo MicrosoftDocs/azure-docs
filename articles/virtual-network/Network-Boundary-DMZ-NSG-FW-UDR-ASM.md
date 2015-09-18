@@ -1,5 +1,5 @@
 <properties
-   pageTitle="DMZ Example – Build a DMZ to Protect Networks with a Firewall, UDR, and NSG"
+   pageTitle="DMZ Example – Build a DMZ to Protect Networks with a Firewall, UDR, and NSG | Microsoft Azure"
    description="Build a DMZ with a Firewall, User Defined Routing (UDR), and Network Security Groups (NSG)"
    services="virtual-network"
    documentationCenter="na"
@@ -22,6 +22,8 @@
 - [PowerShell Classic](Network-Boundary-DMZ-NSG-FW-UDR-ASM.md)
 
 [Return to the Security Boundary Best Practices Page][HOME]
+
+This example will create a DMZ with a firewall, four windows servers, User Defined Routing, IP Forwarding, and Network Security Groups. It will also walk through each of the relevant commands to provide a deeper understanding of each step. There is a also a Traffic Scenario section to provide a in-depth step-by-step how traffic proceeds through the layers of defense in the DMZ. Finally, in the references section is the complete code and instruction to build this environment to test and experiment with various scenarios. 
 
 ![Bi-directional DMZ with NVA, NSG, and UDR][1]
 
