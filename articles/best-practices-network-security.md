@@ -506,10 +506,10 @@ will be available soon and linked from this page.
 [Example6]: ./virtual-network/Network-Boundary-Hybrid-ExpressRoute-ASM
 [Example7]: ./virtual-network/Network-Boundary-VNet2VNet-Direct-ASM
 [Example8]: ./virtual-network/Network-Boundary-VNet2Vnet-Transit-ASM
-[LocalExample1]: ./best-practices-network-security/#Example-1-Build-a-Simple-DMZ-with-NSG
-[LocalExample2]: ./best-practices-network-security/#Example-2-Build-a-DMZ-to-protect-applications-with-a-Firewall-and-NSGs
-[LocalExample3]: ./best-practices-network-security/#Example-3-Build-a-DMZ-to-Protect-Networks-with-a-Firewall,-UDR,-and-NSG
-[LocalExample4]: ./best-practices-network-security/#Example-4-Adding-a-Hybrid-Connection-with-a-Site-to-Site,-Virtual-Appliance-VPN
-[LocalExample5]: ./best-practices-network-security/#Example-5-Adding-a-hybrid-connection-with-a-Site-to-Site,-Azure-Gateway-VPN
-[LocalExample6]: ./best-practices-network-security/#Example-6-Adding-a-hybrid-with-ExpressRoute
-[Top]: ./best-practices-network-security/#Fast-Start
+[LocalExample1]: ./best-practices-network-security#Example-1-Build-a-Simple-DMZ-with-NSG
+[LocalExample2]: ./best-practices-network-security#Example-2-Build-a-DMZ-to-protect-applications-with-a-Firewall-and-NSGs
+[LocalExample3]: ./best-practices-network-security#Example-3-Build-a-DMZ-to-Protect-Networks-with-a-Firewall,-UDR,-and-NSG
+[LocalExample4]: ./best-practices-network-security#Example-4-Adding-a-Hybrid-Connection-with-a-Site-to-Site,-Virtual-Appliance-VPN
+[LocalExample5]: ./best-practices-network-security#Example-5-Adding-a-hybrid-connection-with-a-Site-to-Site,-Azure-Gateway-VPN
+[LocalExample6]: ./best-practices-network-security#Example-6-Adding-a-hybrid-with-ExpressRoute
+[Top]: ./best-practices-network-security#Fast-Start
