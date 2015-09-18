@@ -1,24 +1,27 @@
 <properties
-   pageTitle="Sample Configuration for Azure VM Extensions | Microsoft Azure"
-   description="Sample Configuration for authoring Templates with Extensions"
+   pageTitle="Sample configuration for Linux VM extensions | Microsoft Azure"
+   description="Sample configuration for authoring templates with extensions for Linux VMs"
    services="virtual-machines"
    documentationCenter=""
    authors="kundanap"
    manager="timlt"
-   editor=""/>
+   editor=""
+   tags="azure-resource-manager"/>
 
 <tags
    ms.service="virtual-machines"
    ms.devlang="na"
    ms.topic="article"
-   ms.tgt_pltfrm="na"
+   ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure-services"
    ms.date="09/01/2015"
    ms.author="kundanap"/>
 
-# Azure Linux VM Extension Configuration Samples.
+# Linux VM extension configuration samples
 
-This article provides sample configuration for configuring Azure VM Extensions for Azure IaaS Linux VMs.
+This article provides sample configuration for configuring Azure VM extensions for Linux VMs.
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)] 
 
 To learn more about these extensions click here : [Azure VM Extensions Overview.](https://msdn.microsoft.com/library/azure/dn606311.aspx)
 
