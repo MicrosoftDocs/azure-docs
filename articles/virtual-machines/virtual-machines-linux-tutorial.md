@@ -6,7 +6,7 @@
 	authors="squillace"
 	manager="timlt"
 	editor="tysonn"
-	tags="azure-resource-management" />
+	tags="azure-resource-manager" />
 
 <tags
 	ms.service="virtual-machines"
@@ -303,7 +303,4 @@ To learn more about Linux on Azure, see:
 
 - [Deploy a LAMP app using the Azure CustomScript Extension for Linux](virtual-machines-linux-script-lamp.md)
 
-- [About Azure VM configuration settings](http://msdn.microsoft.com/library/azure/dn763935.aspx)
-
 - [The Docker Virtual Machine Extension for Linux on Azure](virtual-machines-docker-vm-extension.md)
- 

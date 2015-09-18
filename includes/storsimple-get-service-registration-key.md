@@ -1,20 +1,4 @@
-<properties 
-   pageTitle="Get the service registration key"
-   description="Explains how to get the registration key used to register all StorSimple devices."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="carolz"
-   editor="" />
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="09/10/2015"
-   ms.author="v-sharos" />
-
+<!--author=alkohli last changed: 9/17/15-->
 
 #### To get the StorSimple service registration key
 

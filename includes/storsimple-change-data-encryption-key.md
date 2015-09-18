@@ -1,19 +1,4 @@
-<properties 
-   pageTitle="Change the StorSimple data encryption key"
-   description="Describes how to authorize a StorSimple device so that it can change the data encryption key, and then explains the key change process."
-   services="storsimple"
-   documentationCenter=""
-   authors="SharS"
-   manager="carolz"
-   editor="tysonn" />
-<tags 
-   ms.service="storsimple"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="06/17/2015"
-   ms.author="v-sharos" />
+<!--author=SharS last changed: 9/17/15-->
 
 ### Step 1: Authorize a device to change the service data encryption key in the Management Portal
 

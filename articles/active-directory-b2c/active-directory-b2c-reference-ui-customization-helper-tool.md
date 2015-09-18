@@ -16,19 +16,24 @@
 	ms.date="09/15/2015"
 	ms.author="swkrish"/>
 
-# Azure Active Directory (AD) B2C preview: A Helper Tool used to demonstrate the Page User Interface (UI) Customization feature
+# Azure Active Directory B2C preview: A Helper Tool used to demonstrate the Page User Interface (UI) Customization feature
 
-This article is a companion to the [main one](active-directory-b2c-reference-ui-customization) about the page user interface (UI) customization feature in Azure Active Directory (AD) B2C.
+This article is a companion to the [main one](active-directory-b2c-reference-ui-customization) on the page user interface (UI) customization feature in Azure Active Directory (AD) B2C.
 
-Following the steps given below will allow you to exercise the page UI customization feature using our sample content. Just for the purposes of demonstration, our sample content is **static** HTML5.
+Following these steps will allow you to exercise the page UI customization feature using our sample content. For demo purposes, our sample content is only **static** HTML5.
 
 1. Upload our sample content to [Azure Blob Storage](http://azure.microsoft.com/documentation/services/storage/), make it publicly accessible via HTTPS and turn on CORS (Cross-Origin Resource Sharing) on those URLs.
-2. Modify the page UI customization settings in your existing sign-up policy and specify the above URLs.
+2. Modify the page UI customization settings in your existing sign-up policy and point to the above URLs.
+
+## Pre-requisites
 
 Before you get started:
 
-- Build one of the Azure AD B2C Quick Start Applications listed [here](active-directory-b2c-overview.md). As part of doing this, you will create a sign-up policy that you will modify here.
+- Build one of the Azure AD B2C Quick Start Applications listed [here](active-directory-b2c-overview.md). As part of doing that, you will have created a [sign-up policy](active-directory-b2c-reference-ui-customization.md) that you will modify here.
+  - For demo purposes, select Local Account (Email address), Facebook and Google+ as **Identity Providers**. And "Country/Region", "Display Name" and "Postal Code" as **Sign-up attributes**.
 - Download the helper tool from [here](https://github.com/AzureADSamples/B2C-AzureBlobStorage-Client).
+
+[AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
 
 ### Step 1: Upload our sample content in the right locations
 
