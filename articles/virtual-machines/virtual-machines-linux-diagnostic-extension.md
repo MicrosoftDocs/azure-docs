@@ -7,7 +7,7 @@
   		authors="NingKuang"
 		manager="timlt"
 		editor=""
-  	tags="azure-service-management"/>
+  		tags="azure-service-management"/>
 
 <tags
 		ms.service="virtual-machines"
