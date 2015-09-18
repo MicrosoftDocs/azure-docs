@@ -25,8 +25,8 @@ This Azure Automation solution includes runbooks to start and stop classic virtu
 - Use the runbooks as tutorials to learn runbook authoring concepts. 
 
 > [AZURE.SELECTOR]
-- [Graphical](automation-solutions-startstopvm-graphical.md)
-- [PowerShell Workflow](automation-solutions-startstopvm-psworkflow.md)
+- [Graphical](automation-solution-startstopvm-graphical.md)
+- [PowerShell Workflow](automation-solution-startstopvm-psworkflow.md)
 
 This is the graphical runbook version of this solution. It is also available using [PowerShell Workflow runbooks](automation-solutions-startstopvm-psworkflow.md).
 
