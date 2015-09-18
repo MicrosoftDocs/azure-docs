@@ -82,7 +82,7 @@ The portal should now have your application selected.
 
      ![save][13]
 
-   The saved key is displayed and you can copy it.
+     The saved key is displayed and you can copy it.
 
      ![saved key][8]
 
