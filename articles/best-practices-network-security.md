@@ -20,16 +20,16 @@
 
 Microsoft Cloud services deliver hyper-scale services and infrastructure, enterprise grade capabilities, and many choices for hybrid connectivity. Customers can choose to access these services either via the Internet or with ExpressRoute, which provides private network connectivity. The Microsoft Azure platform allows customers to seamlessly extend their infrastructure into the cloud and build multi-tier architectures. To complement Microsoft’s services, third parties can enable enhanced capabilities by offering security services and virtual appliances. This white paper provides an overview of security and architectural issues that customers should consider when using Microsoft Cloud services accessed via ExpressRoute as well as creating secure services in Microsoft Azure’s Virtual Network.
 
-## <a name="Top"></a>Fast Start
+## Fast Start
 The below logic chart can direct you to a specific example of the many security techniques available with the Microsoft Azure platform. Use this to find exactly what is needed fast, or read the document from the beginning to get an explanation of many of the available options.
 ![Security Options Flowchart][0]
 
-[Example 1 – Build a DMZ to protect applications with NSGs](#LocalExample1)</br>
-[Example 2 – Build a DMZ to protect applications with a Firewall and NSGs](#LocalExample2)</br>
-[Example 3 – Build a DMZ to protect networks with a Firewall, UDR, and NSG](#LocalExample3)</br>
-[Example 4 – Adding a hybrid connection with a Site-to-Site, Virtual Appliance VPN](#LocalExample4)</br>
-[Example 5 – Adding a hybrid connection with a Site-to-Site, Azure Gateway VPN](#LocalExample5)</br>
-[Example 6 – Adding a hybrid connection with ExpressRoute](#LocalExample6)</br>
+[Example 1 – Build a DMZ to protect applications with NSGs][LocalExample1]</br>
+[Example 2 – Build a DMZ to protect applications with a Firewall and NSGs][LocalExample2]</br>
+[Example 3 – Build a DMZ to protect networks with a Firewall, UDR, and NSG][LocalExample3]</br>
+[Example 4 – Adding a hybrid connection with a Site-to-Site, Virtual Appliance VPN][LocalExample4]</br>
+[Example 5 – Adding a hybrid connection with a Site-to-Site, Azure Gateway VPN][LocalExample5]</br>
+[Example 6 – Adding a hybrid connection with ExpressRoute][LocalExample6]</br>
 Examples for adding VNet to VNet connections, high availability, and service chaining will be added to this document over the next few months. 
 
 ## Microsoft Compliance and Infrastructure Protection
@@ -169,11 +169,11 @@ Another key implementation decision point is how to connect the on-premise netwo
 
 Additionally, VNet to VNet traffic within Azure may be needed, these scenarios are covered in greater detail in Examples 7 and 8 below.
 
-Once answers are know to the above questions, the [Fast Start](#Top) section above can help identify which examples are most appropriate for a given scenario.
+Once answers are know to the above questions, the [Fast Start][Top] section above can help identify which examples are most appropriate for a given scenario.
 
 ## Building Security Boundaries with Azure Virtual Networks
 ### Example 1 – Build a Simple DMZ with NSGs
-[Back to Fast Start](#Top) | [Detailed Build Instructions For This Example][Example1]
+[Back to Fast Start][Top] | [Detailed Build Instructions For This Example][Example1]
 
 ![Inbound DMZ with NSG][7]
 
@@ -218,7 +218,7 @@ This is a relatively simple and straight forward way of isolating the back end s
 can be found at the [detailed build instructions][Example1] page.
 
 ### Example 2 – Build a DMZ to protect applications with a Firewall and NSGs
-[Back to Fast Start](#Top) | [Detailed Build Instructions For This Example][Example2]
+[Back to Fast Start][Top] | [Detailed Build Instructions For This Example][Example2]
 
 ![Inbound DMZ with NVA and NSG][8]
 
@@ -269,7 +269,7 @@ This is a relatively straight forward way of protecting your application with a 
 can be found at the [detailed build instructions][Example2] page.
 
 ### Example 3 – Build a DMZ to Protect Networks with a Firewall, UDR, and NSG
-[Back to Fast Start](#Top) | [Detailed Build Instructions For This Example][Example3]
+[Back to Fast Start][Top] | [Detailed Build Instructions For This Example][Example3]
 
 ![Bi-directional DMZ with NVA, NSG, and UDR][9]
 
@@ -371,7 +371,7 @@ This is a more complex but more complete way of protecting and isolating the net
 can be found at the [detailed build instructions][Example3] page.
 
 ### Example 4 – Adding a Hybrid Connection with a Site-to-Site, Virtual Appliance VPN
-[Back to Fast Start](#Top) | Detailed Build Instructions Will be Available Soon
+[Back to Fast Start][Top] | Detailed Build Instructions Will be Available Soon
 
 ![DMZ with NVA connected hybrid network][11]
 
@@ -406,7 +406,7 @@ The addition of a hybrid network connection to an Azure Virtual Network, can ext
 will be available soon and linked from this page.
 
 ### Example 5 – Adding a hybrid connection with a Site-to-Site, Azure Gateway VPN
-[Back to Fast Start](#Top) | Detailed Build Instructions Will be Available Soon
+[Back to Fast Start][Top] | Detailed Build Instructions Will be Available Soon
 
 ![DMZ with Gateway connected hybrid network][14]
 
@@ -436,7 +436,7 @@ will be available soon and linked from this page.
 
 
 ### Example 6 - Adding a hybrid with ExpressRoute
-[Back to Fast Start](#Top) | Detailed Build Instructions Will be Available Soon
+[Back to Fast Start][Top] | Detailed Build Instructions Will be Available Soon
 
 ![DMZ with Gateway connected hybrid network][16]
 
@@ -498,17 +498,18 @@ will be available soon and linked from this page.
 [17]: ./media/best-practices-network-security/Example6DesignExpressRoute.png "DMZ with Azure Gateway Using an ExpressRoute Connection"
 
 <!--Link References-->
-[Example1]: ./virtual-network/Network-Boundary-DMZ-NSG-ASM.md
-[Example2]: ./virtual-network/Network-Boundary-DMZ-NSG-FW-ASM.md
-[Example3]: ./virtual-network/Network-Boundary-DMZ-NSG-FW-UDR-ASM.md
-[Example4]: ./virtual-network/Network-Boundary-Hybrid-S2S-NVA-ASM.md
-[Example5]: ./virtual-network/Network-Boundary-Hybrid-S2S-AGW-ASM.md
-[Example6]: ./virtual-network/Network-Boundary-Hybrid-ExpressRoute-ASM.md
-[Example7]: ./virtual-network/Network-Boundary-VNet2VNet-Direct-ASM.md
-[Example8]: ./virtual-network/Network-Boundary-VNet2Vnet-Transit-ASM.md
-[LocalExample1]: ./best-practices-network-security.md/#Example-1-Build-a-Simple-DMZ-with-NSG
-[LocalExample2]: ./best-practices-network-security.md/#Example-2-Build-a-DMZ-to-protect-applications-with-a-Firewall-and-NSGs
-[LocalExample3]: ./best-practices-network-security.md/#Example-3-Build-a-DMZ-to-Protect-Networks-with-a-Firewall,-UDR,-and-NSG
-[LocalExample4]: ./best-practices-network-security.md/#Example-4-Adding-a-Hybrid-Connection-with-a-Site-to-Site,-Virtual-Appliance-VPN
-[LocalExample5]: ./best-practices-network-security.md/#Example-5-Adding-a-hybrid-connection-with-a-Site-to-Site,-Azure-Gateway-VPN
-[LocalExample6]: ./best-practices-network-security.md/#Example-6-Adding-a-hybrid-with-ExpressRoute
+[Example1]: ./virtual-network/Network-Boundary-DMZ-NSG-ASM
+[Example2]: ./virtual-network/Network-Boundary-DMZ-NSG-FW-ASM
+[Example3]: ./virtual-network/Network-Boundary-DMZ-NSG-FW-UDR-ASM
+[Example4]: ./virtual-network/Network-Boundary-Hybrid-S2S-NVA-ASM
+[Example5]: ./virtual-network/Network-Boundary-Hybrid-S2S-AGW-ASM
+[Example6]: ./virtual-network/Network-Boundary-Hybrid-ExpressRoute-ASM
+[Example7]: ./virtual-network/Network-Boundary-VNet2VNet-Direct-ASM
+[Example8]: ./virtual-network/Network-Boundary-VNet2Vnet-Transit-ASM
+[LocalExample1]: ./best-practices-network-security/#Example-1-Build-a-Simple-DMZ-with-NSG
+[LocalExample2]: ./best-practices-network-security/#Example-2-Build-a-DMZ-to-protect-applications-with-a-Firewall-and-NSGs
+[LocalExample3]: ./best-practices-network-security/#Example-3-Build-a-DMZ-to-Protect-Networks-with-a-Firewall,-UDR,-and-NSG
+[LocalExample4]: ./best-practices-network-security/#Example-4-Adding-a-Hybrid-Connection-with-a-Site-to-Site,-Virtual-Appliance-VPN
+[LocalExample5]: ./best-practices-network-security/#Example-5-Adding-a-hybrid-connection-with-a-Site-to-Site,-Azure-Gateway-VPN
+[LocalExample6]: ./best-practices-network-security/#Example-6-Adding-a-hybrid-with-ExpressRoute
+[Top]: ./best-practices-network-security/#Fast-Start
