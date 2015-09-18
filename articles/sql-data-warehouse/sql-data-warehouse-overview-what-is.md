@@ -13,13 +13,9 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-<<<<<<< HEAD
-   ms.date="09/03/2015"
-   ms.author="barbkess;JRJ@BigBangData.co.uk;"/>
-=======
-   ms.date="09/09/2015"
+   ms.date="09/18/2015"
    ms.author="barbkess;twounder;JRJ@BigBangData.co.uk;"/>
->>>>>>> 3d4daad17760830907a1d902d739303e50b39545
+
 
 # What is Azure SQL Data Warehouse?
 

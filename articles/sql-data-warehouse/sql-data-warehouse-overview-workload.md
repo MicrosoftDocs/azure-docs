@@ -13,13 +13,9 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-<<<<<<< HEAD
-   ms.date="09/03/2015"
-   ms.author="barbkess;JRJ@BigBangData.co.uk"/>
-=======
-   ms.date="09/04/2015"
+   ms.date="09/18/2015"
    ms.author="barbkess;twounder;JRJ@BigBangData.co.uk"/>
->>>>>>> 3d4daad17760830907a1d902d739303e50b39545
+
 
 # Data warehouse workload
 A data warehouse workload refers to all of the operations that transpire against a data warehouse. The data warehouse workload encompasses the entire process of loading data into the warehouse, performing analysis and reporting on the data warehouse, managing data in the data warehouse, and exporting data from the data warehouse. The depth and breadth of these components are often commensurate with the maturity level of the data warehouse.

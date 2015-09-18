@@ -13,11 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-<<<<<<< HEAD
-   ms.date="09/03/2015"
-=======
-   ms.date="09/02/2015"
->>>>>>> 3d4daad17760830907a1d902d739303e50b39545
+   ms.date="09/18/2015"
    ms.author="sahajs;barbkess"/>
 
 
