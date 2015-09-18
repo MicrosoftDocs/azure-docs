@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="How to create NSGs in ARM mode using teh preview portal| Microsoft Azure"
+   pageTitle="How to create NSGs in ARM mode using the preview portal | Microsoft Azure"
    description="Learn how to create and deploy NSGs in ARM using the preview portal"
    services="virtual-network"
    documentationCenter="na"
