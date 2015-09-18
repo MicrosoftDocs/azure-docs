@@ -1,6 +1,6 @@
 <properties
 	pageTitle="About Azure Virtual Machines | Microsoft Azure"
-	description="Learn about the basics of virtual machines."
+	description="Learn about the basics of virtual machines in Azure."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="cynthn"
