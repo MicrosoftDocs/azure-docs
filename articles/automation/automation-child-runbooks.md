@@ -46,7 +46,7 @@ The following example invokes a test child runbook that accepts three parameters
 Following is the same example using a PowerShell runbook as the child.
 
 	$vm = Get-AzureVM –ServiceName "MyVM" –Name "MyVM"
-	$output = .\Test-ChildRunbook –VM $vm –RepeatCount 2 –Restart $true
+	$output = .\Test-ChildRunbook.ps1 –VM $vm –RepeatCount 2 –Restart $true
 
 
 ##  Starting a child runbook using cmdlet
