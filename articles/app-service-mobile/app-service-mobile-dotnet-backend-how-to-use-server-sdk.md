@@ -147,7 +147,7 @@ For an example of a table controller that uses Entity Framework to access data f
 
 ## How to: Add authentication to a server project
 
-You can add authentication to your server project by extending the **MobileAppConfiguration** object and configuring OWIN middleware. When you install the [Microsoft.Azure.Mobile.Server.Quickstart] package and call the **UseDefaultConfiguration** extension method, you can skip to step 4.
+You can add authentication to your server project by extending the **MobileAppConfiguration** object and configuring OWIN middleware. When you install the [Microsoft.Azure.Mobile.Server.Quickstart] package and call the **UseDefaultConfiguration** extension method, you can skip to step 3.
 
 1. In Visual Studio, install the [Microsoft.Azure.Mobile.Server.Authentication] package. 
 
