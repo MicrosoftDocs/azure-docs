@@ -2,7 +2,7 @@
 
 In this section, you'll write a Windows console app that simulates a device sending device-to-cloud messages to an IoT hub.
 
-1. In the current Visual Studio solution, create a new Visual C# Desktop App project using the **Console  Application** project template. Name the project **SimulatedDevice**.
+1. In the current Visual Studio solution, click **File->Add->Project** to create a new Visual C# Desktop App project using the **Console  Application** project template. Name the project **SimulatedDevice**.
 
    	![][30]
 
