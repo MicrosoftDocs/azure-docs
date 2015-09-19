@@ -13,7 +13,7 @@
   	ms.tgt_pltfrm="na"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="09/15/2015"
+	ms.date="09/19/2015"
 	ms.author="brandwe"/>
 
 # B2C Preview: Secure a Web API using node.js
@@ -60,13 +60,13 @@ follow [these instructions](active-directory-b2c-app-registration.md).  Be sure 
 
 ## 3. Create your policies
 
-In Azure AD B2C, every user experience is defined by a [**policy**](active-directory-b2c-reference-policies.md).  This app contains three 
-identity experiences - sign-up, sign-in, and sign-in with Facebook.  You will need to create one policy of each type, as described in the 
+In Azure AD B2C, every user experience is defined by a [**policy**](active-directory-b2c-reference-policies.md).  This app contains three
+identity experiences - sign-up, sign-in, and sign-in with Facebook.  You will need to create one policy of each type, as described in the
 [policy reference article](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy).  When creating your three policies, be sure to:
 
 - Choose the **Display Name** and a few other sign-up attributes in your sign-up policy.
 - Choose the **Display Name** and **Object ID** application claims in every policy.  You can choose other claims as well.
-- Copy down the **Name** of each policy after you create it.  It should have the prefix `b2c_1_`.  You'll need those policy names shortly. 
+- Copy down the **Name** of each policy after you create it.  It should have the prefix `b2c_1_`.  You'll need those policy names shortly.
 
 Once you have your three policies successfully created, you're ready to build your app.
 
@@ -264,7 +264,7 @@ var bunyan = require('bunyan');
 var restify = require('restify');
 var config = require('./config');
 var passport = require('passport');
-var OIDCBearerStrategy = require('passport-azure-ad').OIDCStrategy;
+var OIDCBearerStrategy = require('passport-azure-ad').BearerStategy;
 ```
 
 Save the file. We will return to it shortly.
@@ -749,7 +749,7 @@ server.use(passport.initialize()); // Starts passport
 server.use(passport.session()); // Provides session support
 ```
 
-> [AZURE.TIP] 
+> [AZURE.TIP]
 When writing APIs you should always link the data to something unique from the token that the user can’t spoof. When this server stores TODO items, it stores them based on the object ID of the user in the token (called through token.oid) which we put in the “owner” field. This ensures that only that user can access his TODOs and no one else can access the TODOs entered. There is no exposure in the API of “owner” so an external user can request other’s TODOs even if they are authenticated.
 
 Next, let’s use the Open ID Connect Bearer strategy that comes with passport-azure-ad. Just look at the code for now, I’ll explain it shortly. Put this after what you pated above:
@@ -799,7 +799,7 @@ passport.use(oidcStrategy);
 
 Passport uses a similar pattern for all it’s Strategies (Twitter, Facebook, etc.) that all Strategy writers adhere to. Looking at the strategy you see we pass it a function() that has a token and a done as the parameters. The strategy will dutifully come back to us once it does all it’s work. Once it does we’ll want to store the user and stash the token so we won’t need to ask for it again.
 
-> [AZURE.IMPORTANT] 
+> [AZURE.IMPORTANT]
 The code above takes any user that happens to authenticate to our server. This is known as auto registration. In production servers you wouldn’t want to let anyone in without first having them go through a registration process you decide. This is usually the pattern you see in consumer apps who allow you to register with Facebook but then ask you to fill out additional information. If this wasn’t a command line program, we could have just extracted the email from the token object that is returned and then asked them to fill out additional information. Since this is a test server we simply add them to the in-memory database.
 
 ### 2. Finally, protect some endpoints
@@ -809,34 +809,34 @@ You protect endpoints by specifying the passport.authenticate() call with the pr
 Let’s edit our route in our server code to do something more interesting:
 
 ```Javascript
-server.get('/tasks', passport.authenticate('oidc-bearer', {
+server.get('/tasks', passport.authenticate('oauth-bearer', {
 session: false
 }), listTasks);
-server.get('/tasks', passport.authenticate('oidc-bearer', {
+server.get('/tasks', passport.authenticate('oauth-bearer', {
 session: false
 }), listTasks);
-server.get('/tasks/:owner', passport.authenticate('oidc-bearer', {
+server.get('/tasks/:owner', passport.authenticate('oauth-bearer', {
 session: false
 }), getTask);
-server.head('/tasks/:owner', passport.authenticate('oidc-bearer', {
+server.head('/tasks/:owner', passport.authenticate('oauth-bearer', {
 session: false
 }), getTask);
-server.post('/tasks/:owner/:task', passport.authenticate('oidc-bearer', {
+server.post('/tasks/:owner/:task', passport.authenticate('oauth-bearer', {
 session: false
 }), createTask);
-server.post('/tasks', passport.authenticate('oidc-bearer', {
+server.post('/tasks', passport.authenticate('oauth-bearer', {
 session: false
 }), createTask);
-server.del('/tasks/:owner/:task', passport.authenticate('oidc-bearer', {
+server.del('/tasks/:owner/:task', passport.authenticate('oauth-bearer', {
 session: false
 }), removeTask);
-server.del('/tasks/:owner', passport.authenticate('oidc-bearer', {
+server.del('/tasks/:owner', passport.authenticate('oauth-bearer', {
 session: false
 }), removeTask);
-server.del('/tasks', passport.authenticate('oidc-bearer', {
+server.del('/tasks', passport.authenticate('oauth-bearer', {
 session: false
 }), removeTask);
-server.del('/tasks', passport.authenticate('oidc-bearer', {
+server.del('/tasks', passport.authenticate('oauth-bearer', {
 session: false
 }), removeAll, function respond(req, res, next) {
 res.send(204);
