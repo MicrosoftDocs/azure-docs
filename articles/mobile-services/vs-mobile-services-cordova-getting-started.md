@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Get Started with a Visual Studio Cordova mobile services project (Connected Services)" 
-	description="Describes the first steps you can take after connecting your Cordova project to Azure Mobile Services after conin a Cordova project using Visual Studio Connected Services." 
+	pageTitle="Getting Started with a Cordova mobile services project (Visual Studio Connected Services)" 
+	description="Describes the first steps you can take after connecting your Cordova project to Azure Mobile Services by using Visual Studio Connected Services." 
 	services="mobile-services" 
 	documentationCenter="" 
 	authors="patshea123" 
@@ -91,7 +91,5 @@ Delete a row in a data table using the **del** method. Call the **done** method 
     todoTable.del(todoItem).done(function (item) {
         items.splice(items.indexOf(todoItem), 1);
     });
-
-##Next steps##
 
 [Learn more about mobile services](http://azure.microsoft.com/documentation/services/mobile-services/)
