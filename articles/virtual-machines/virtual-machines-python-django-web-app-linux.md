@@ -1,30 +1,28 @@
 <properties 
-	pageTitle="Python web app with Django on Mac | Microsoft Azure" 
-	description="A tutorial that shows how to host a Django-based website on Azure using a Linux virtual machine." 
+	pageTitle="Python web app with Django on Linux | Microsoft Azure" 
+	description="Learn how to host a Django-based web application on Azure using a Linux virtual machine." 
 	services="virtual-machines" 
 	documentationCenter="python" 
 	authors="huguesv" 
 	manager="wpickett" 
-	editor=""/>
+	editor=""
+	tags=“azure-service-management,azure-resource-manager"/>
 
 <tags 
 	ms.service="virtual-machines" 
 	ms.workload="web" 
-	ms.tgt_pltfrm="vm-linux" 
+	ms.tgt_pltfrm="Linux" 
 	ms.devlang="python" 
 	ms.topic="article" 
 	ms.date="05/20/2015" 
 	ms.author="huvalo"/>
-
-
-
-
-
 # Django Hello World Web Application (mac-linux)
 
 > [AZURE.SELECTOR]
 - [Windows](web-app-with-django.md)
 - [Mac/Linux](django-hello-world-(maclinux).md)
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)].
 
 This tutorial describes how to host a Django-based website on Microsoft 
 Azure using a Linux virtual machine. This tutorial assumes you have no prior experience using Azure. Upon completing this guide, you will have a Django-based application up and running in the cloud.

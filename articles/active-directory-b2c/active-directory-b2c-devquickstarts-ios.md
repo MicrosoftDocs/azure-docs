@@ -51,6 +51,8 @@ follow [these instructions](active-directory-b2c-app-registration.md).  Be sure 
 
 ## 3. Create your policies
 
+> [AZURE.NOTE] For our B2C preview you use the same policies across both client and server setups. If you've already went through a walk-through and created these policies there is no need to do so again. You may reuse the policies you've preveiously created in the portal if they match the requirements of the application.
+
 In Azure AD B2C, every user experience is defined by a [**policy**](active-directory-b2c-reference-policies.md).  This app contains three 
 identity experiences - sign-up, sign-in, and sign-in with Facebook.  You will need to create one policy of each type, as described in the 
 [policy reference article](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy).  When creating your three policies, be sure to:

@@ -71,7 +71,7 @@ To enable sign up on your application, you will need to create a Sign-up policy.
 3. Click **+Add** at the top of the blade.
 4. The **Name** determines the sign-up policy name used by your application. For example, enter "SiUp".
 5. Click **Identity providers** and select "Email address". Optionally, you can also select social identity providers, if already configured. Click **OK**.
-6. Click **Sign-up attributes**. Here you choose attributes that you want to collect from the consumer during sign up. For example, select "City", "Display Name" and "Postal Code". Click **OK**.
+6. Click **Sign-up attributes**. Here you choose attributes that you want to collect from the consumer during sign up. For example, select "Country/Region", "Display Name" and "Postal Code". Click **OK**.
 7. Click **Application claims**. Here you can choose the claims that you want returned in the tokens back to your application after a successful sign up experience. For example, select "Display Name", "Identity Provider", "Postal Code", "User is new" and "User's Object ID".
 8. Click **Create**. Note that the policy just created appears as "**B2C_1_SiUp**" (the **B2C\_1\_** fragment is automatically pre-pending) in the **Sign-up policies** blade.
 9. Open the policy by clicking on "**B2C_1_SiUp**".
@@ -106,7 +106,7 @@ To enable profile editing on your application, you will need to create a Profile
 3. Click **+Add** at the top of the blade.
 4. The **Name** determines the profile editing policy name used by your application. For example, enter "SiPe".
 5. Click **Identity providers** and select "Email address". Optionally, you can also select social identity providers, if already configured. Click **OK**.
-6. Click **Profile attributes**. Here you choose attributes that the consumer can view & edit. For example, select "City", "Display Name" and "Postal Code". Click **OK**.
+6. Click **Profile attributes**. Here you choose attributes that the consumer can view & edit. For example, select "Country/Region", "Display Name" and "Postal Code". Click **OK**.
 7. Click **Application claims**. Here you can choose the claims that you want returned in the tokens back to your application after a successful profile editing experience. For example, select "Display Name" and "Postal Code".
 8. Click **Create**. Note that the policy just created appears as "**B2C_1_SiPe**" (the **B2C\_1\_** fragment is automatically pre-pending) in the **Profile editing policies** blade.
 9. Open the policy by clicking on "**B2C_1_SiPe**".
