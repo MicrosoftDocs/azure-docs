@@ -128,7 +128,8 @@ In a Docker host, run:
 
 ## Executing Azure CLI commands
 
-Once the Azure CLI has been installed, you will be able to use the **azure** command from your command-line user interface (Bash, Terminal, Command prompt, and so on) to access the Azure CLI commands. For example, to execute the help command in Windows launch a Command window (cmd.exe) with Administrator privileges (required for some versions of the Azure CLI):
+Once the Azure CLI has been installed, you will be able to use the **azure** command from your command-line user interface (Bash, Terminal, Command prompt, and so on) to access the Azure CLI commands. For example, to execute the help command in Windows launch a Command window and type the following:
+
 ```
 	c:\> azure help
 ```
