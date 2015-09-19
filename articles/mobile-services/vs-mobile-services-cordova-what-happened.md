@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="09/17/015" 
+	ms.date="09/17/2015" 
 	ms.author="patshea"/>
 
 # What happened to my Azure Cordova project after adding Azure Mobile Services by using Visual Studio Connected Services?
