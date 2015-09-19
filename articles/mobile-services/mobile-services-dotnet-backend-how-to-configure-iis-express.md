@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Configure IIS Express for local testing of Mobile Service"
+	pageTitle="Configure IIS Express for local mobile service testing | Azure Mobile Services"
 	description="Learn how to configure IIS Express to allow connections to a local mobile service project for testing."
 	authors="ggailey777"
 	manager="dwrede"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="06/16/2015"
+	ms.date="09/16/2015"
 	ms.author="glenga"/>
 
 # Configure the local web server to allow connections to a local mobile service

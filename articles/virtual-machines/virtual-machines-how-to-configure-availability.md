@@ -1,9 +1,9 @@
 <properties
-	pageTitle="How to configure an availability set for virtual machines"
-	description="Gives the steps to configure an availability set for a new or existing virtual machine in Azure using the Azure portal and Azure PowerShell commands"
+	pageTitle="Configure an availability set for VMs | Microsoft Azure"
+	description="Configure an availability set for a new or existing virtual machine in the classic deployment model using the Azure portal and Azure PowerShell."
 	services="virtual-machines"
 	documentationCenter=""
-	authors="KBDAzure"
+	authors="cynthn"
 	manager="timlt"
 	editor=""
 	tags="azure-service-management"/>
@@ -15,9 +15,11 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/10/2015"
-	ms.author="kathydav"/>
+	ms.author="cynthn"/>
 
-#How to configure an availability set for virtual machines#
+# How to configure an availability set for virtual machines in the classic deployment model
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)] This article covers creating resources with the classic deployment model.
 
 An availability set helps keep your virtual machines available during downtime, such as during maintenance. Placing two or more similarly configured virtual machines in an availability set creates the redundancy needed to maintain availability of the applications or services that your virtual machine runs. For details about how this works, see [Manage the availability of virtual machines] [].
 
@@ -96,9 +98,9 @@ To use Azure PowerShell commands, open an administrator-level Azure PowerShell s
 
 >[AZURE.NOTE] The virtual machine might have to be restarted to finish adding it to the availability set.
 
-##Additional resources
+## Additional resources
 
-[About Azure virtual machine configuration settings]
+[Articles for virtual machines in Service Management]
 
 <!-- LINKS -->
 [Option 1: Create a virtual machine and an availability set at the same time]: #createset
@@ -108,4 +110,4 @@ To use Azure PowerShell commands, open an administrator-level Azure PowerShell s
 [Manage the availability of virtual machines]: virtual-machines-manage-availability.md
 [Create a virtual machine running Windows]: virtual-machines-windows-tutorial.md
 [Virtual Network overview]: virtual-networks-overview.md
-[About Azure virtual machine configuration settings]: http://msdn.microsoft.com/library/azure/dn763935.aspx
+[Articles for virtual machines in Service Management]: virtual-machines-service-management-articles.md

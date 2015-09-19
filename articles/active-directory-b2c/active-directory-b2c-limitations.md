@@ -26,9 +26,9 @@ There are several features & functionalities of Azure Active Directory (AD) B2C 
 
 There are known issues that you may encounter during the [creation of an Azure AD B2C directory](active-directory-b2c-get-started). Check out this [article](active-directory-b2c-support-create-directory.md) for guidance.
 
-## Branding issue on the Local Account Sign In Page
+## Branding issues on the Local Account Sign In and Self-service Password Reset Pages
 
-The default template on the Local Account Sign In page will contain "Microsoft Azure" branding elements. We are actively working to resolve this issue. You can change the branding on this page using the [company branding feature](./active-directory/active-directory-add-company-branding.md).
+The default local account sign in and self-service password reset pages contain "Microsoft" and "Azure" branding elements. We are working to resolve these issues. You can change the branding on these pages using the [company branding feature](./active-directory/active-directory-add-company-branding.md), upon which these branding elements will not appear.
 
 ## Issues with Local Account Sign Out
 
