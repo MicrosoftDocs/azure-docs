@@ -25,8 +25,8 @@ The below logic chart can direct you to a specific example of the many security 
 ![Security Options Flowchart][0]
 
 [Example 1 – Build a DMZ to protect applications with NSGs](#example-1-build-a-simple-dmz-with-nsgs)</br>
-[Example 2 – Build a DMZ to protect applications with a Firewall and NSGs](#example-2-build-a-DMZ-to-protect-applications-with-a-Firewall-and-NSGs)</br>
-[Example 3 – Build a DMZ to protect networks with a Firewall, UDR, and NSG](#example3–build-a-dmz-to-protect-networks-with-a-firewall-udr-and-nsg)</br>
+[Example 2 – Build a DMZ to protect applications with a Firewall and NSGs](#example-2-build-a-dmz-to-protect-applications-with-a-firewall-and-nsgs)</br>
+[Example 3 – Build a DMZ to protect networks with a Firewall, UDR, and NSG](#example-3-build-a-dmz-to-protect-networks-with-a-firewall-udr-and-nsg)</br>
 [Example 4 – Adding a hybrid connection with a Site-to-Site, Virtual Appliance VPN](#Example4)</br>
 [Example 5 – Adding a hybrid connection with a Site-to-Site, Azure Gateway VPN](#Example5)</br>
 [Example 6 – Adding a hybrid connection with ExpressRoute](#Example6)</br>
