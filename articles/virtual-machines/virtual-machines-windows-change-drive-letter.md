@@ -1,6 +1,6 @@
 <properties
-	pageTitle="How To Change the Drive Letter of the Windows Temporary Disk"
-	description="Describes how to remap the temporary disk on a Windows-based VM in Azure"
+	pageTitle="Change the drive letter of the temporary disk | Microsoft Azure"
+	description="Change the drive letter of the temporary disk on a Windows virtual machine created with the classic deployment model."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="cynthn
@@ -18,7 +18,9 @@
 	ms.date="05/27/2015"
 	ms.author="cynthn"/>
 
-#How to change the drive letter of the Windows temporary disk
+#Change the drive letter of the Windows temporary disk on a virtual machine created with the classic deployment model
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)] This article covers creating resources with the classic deployment model.
 
 If you need to use the D drive to store data, follow these instructions to use a different drive for the temporary disk. Never use the temporary disk to store data that you need to keep.
 

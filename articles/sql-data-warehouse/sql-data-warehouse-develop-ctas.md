@@ -363,6 +363,6 @@ For more development tips, see [development overview][].
 [development overview]: sql-data-warehouse-overview-develop.md
 
 <!--MSDN references-->
-[CTAS]: https://msdnstage.redmond.corp.microsoft.com/en-us/library/mt204041.aspx
+[CTAS]: https://msdn.microsoft.com/en-us/library/mt204041.aspx
 
 <!--Other Web references-->
