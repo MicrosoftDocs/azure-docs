@@ -25,8 +25,8 @@ The below logic chart can direct you to a specific example of the many security 
 ![Security Options Flowchart][0]
 
 [Example 1 – Build a DMZ to protect applications with NSGs](#example-1-build-a-simple-dmz-with-nsgs)</br>
-[Example 2 – Build a DMZ to protect applications with a Firewall and NSGs](#Example2)</br>
-[Example 3 – Build a DMZ to protect networks with a Firewall, UDR, and NSG](#Example3)</br>
+[Example 2 – Build a DMZ to protect applications with a Firewall and NSGs](#example-2-build-a-DMZ-to-protect-applications-with-a-Firewall-and-NSGs)</br>
+[Example 3 – Build a DMZ to protect networks with a Firewall, UDR, and NSG](#example3–build-a-dmz-to-protect-networks-with-a-firewall-udr-and-nsg)</br>
 [Example 4 – Adding a hybrid connection with a Site-to-Site, Virtual Appliance VPN](#Example4)</br>
 [Example 5 – Adding a hybrid connection with a Site-to-Site, Azure Gateway VPN](#Example5)</br>
 [Example 6 – Adding a hybrid connection with ExpressRoute](#Example6)</br>
@@ -217,7 +217,7 @@ This is a relatively simple and straight forward way of isolating the back end s
 
 can be found at the [detailed build instructions][Example1] page.
 
-### <a name="Example2"></a>Example 2 – Build a DMZ to protect applications with a Firewall and NSGs
+### Example 2 – Build a DMZ to protect applications with a Firewall and NSGs
 [Back to Fast Start](#fast-start) | [Detailed Build Instructions For This Example][Example2]
 
 ![Inbound DMZ with NVA and NSG][8]
@@ -268,7 +268,7 @@ This is a relatively straight forward way of protecting your application with a 
 
 can be found at the [detailed build instructions][Example2] page.
 
-### <a name="Example3"></a>Example 3 – Build a DMZ to Protect Networks with a Firewall, UDR, and NSG
+### Example 3 – Build a DMZ to Protect Networks with a Firewall, UDR, and NSG
 [Back to Fast Start](#fast-start) | [Detailed Build Instructions For This Example][Example3]
 
 ![Bi-directional DMZ with NVA, NSG, and UDR][9]
