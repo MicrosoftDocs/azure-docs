@@ -384,9 +384,9 @@ As shown in the figure above, a VPN connection over the Internet (Site-to-Site) 
 
 Once the VPN is in-place, the NVA becomes the central “hub” for all networks and subnets. The firewall forwarding rules determine which traffic flows are allowed, are NAT’d, are redirected, or are dropped (even for traffic flows between the on-premise network and Azure if the flows as designed that way).
 
-This should be considered carefully as traffic flows can be optimized or degraded by this design pattern depending on the specific use case.
+Traffic flows should be considered carefully as they can be optimized or degraded by this design pattern depending on the specific use case.
 
-As an example, using the DMZ environment built in Example 3 (using a firewall, NSG, and UDR) and then adding a hybrid network would produce the following design:
+Using the environment built in Example 3, "Build a DMZ to Protect Networks with a Firewall, UDR, and NSG", and then adding a Site-to-Site VPN hybrid network connection would produce the following design:
 
 ![DMZ with NVA connected using a Site-to-Site VPN][12]
 
@@ -397,7 +397,7 @@ Logically to the NVA, the network looks like four separate “security zones” 
 ![Logical Network from NVA perspective][13]
 
 #### Conclusion
-The addition of a hybrid network connection to an Azure Virtual Network, can extend the on-premise network into Azure in a secure manner. In using a VPN connection your traffic is encrypted and can route either via the internet or on ExpressRoute avoiding the internet (using the Azure Public Peering option in ExpressRoute). Using the NVA, as was done in this example, provides a central location to enforce and manage the security policy. More information on this example such as the following:
+The addition of a Site-to-Site VPN hybrid network connection to an Azure Virtual Network, can extend the on-premise network into Azure in a secure manner. In using a VPN connection your traffic is encrypted and routes via the internet. Using the NVA, as was done in this example, provides a central location to enforce and manage the security policy. More information on this example such as the following:
 
 - How to build this example DMZ with PowerShell scripts
 - How to build this example with an ARM template
@@ -419,14 +419,14 @@ As shown in the figure above, a VPN connection over the Internet (Site-to-Site) 
 
 As shown below, with this option the environment now has two network edges. On the first edge, the NVA and NSGs control traffic flows for intra-Azure networks and between Azure and the internet, while the second edge is the Azure VPN Gateway which is a completely separate and isolated network edge between on-premises and Azure.
 
-This should be considered carefully as traffic flows can be optimized or degraded by this design pattern depending on the specific use case.
+Traffic flows should be considered carefully as they can be optimized or degraded by this design pattern depending on the specific use case.
 
-Using the environment built in DMZ Example 1 – Protecting your web application with a Firewall and NSG’s for inbound traffic, and then adding an ExpressRoute hybrid network connection would produce the following design:
+Using the environment built in Example 1, "Build a DMZ to protect applications with NSGs", and then adding a Site-to-Site VPN hybrid network connection would produce the following design:
 
 ![DMZ with Gateway connected using an ExpressRoute connection][15]
 
 #### Conclusion
-The addition of a hybrid network connection to an Azure Virtual Network, can extend the on-premise network into Azure in a secure manner. In using the native Azure VPN Gateway your traffic is encrypted and can route either via the internet or on ExpressRoute avoiding the internet (using the Azure Public Peering option in ExpressRoute). Using the native Azure VPN Gateway, as was done in this example, provides a lower cost option (no additional licensing cost as with third party Network Virtual Appliances). This is even more economical for example 1 where no virtual appliance is used. More information on this example such as the following:
+The addition of a Site-to-Site VPN hybrid network connection to an Azure Virtual Network, can extend the on-premise network into Azure in a secure manner. Using the native Azure VPN Gateway your traffic is IPSec encrypted and routes via the internet. Also, using the Azure VPN Gateway can provides a lower cost option (no additional licensing cost as with third party Network Virtual Appliances). This is most economical in Example 1 where no network virtual appliance is used. More information on this example such as the following:
 
 - How to build this example DMZ with PowerShell scripts
 - How to build this example with an ARM template
@@ -440,24 +440,25 @@ will be available soon and linked from this page.
 ![DMZ with Gateway connected hybrid network][16]
 
 #### Environment Setup
-Hybrid networking using an ExpressRoute private peering connection can be added to either DMZ type described in Example 1 and 2.
-
->[AZURE.NOTE] There is a limitation using User Defined Routing (UDR) and ExpressRoute due to the complexity of dynamic routing used on the Azure Virtual Gateway. This capability will be enabled in a future Azure release.
+Hybrid networking using an ExpressRoute private peering connection can be added to either DMZ type described in Example 1 or 2.
 
 As shown in the figure above, ExpressRoute private peering provides a direct connection between your on-premise network and the Azure Virtual Network. Traffic transits only the service provider network and the Microsoft/Azure network, never touching the internet.
 
->[AZURE.TIP] Using ExpressRoute keeps corporate network traffic off of the internet for better security and performance, and allows for SLAs from your ExpressRoute provider.
+>[AZURE.NOTE] There is a limitation using User Defined Routing (UDR) and ExpressRoute due to the complexity of dynamic routing used on the Azure Virtual Gateway. Subnets communicating to the Azure Gateway providing the ExpressRoute connection should not have UDR applied. Also, the Azure Gateway cannot be the NextHop device for other UDR bound subnets. The ability to fully integrate UDR and ExpressRoute will be enabled in a future Azure release.
 
-As seen in the diagram below, with this option the environment now has two network edges, the NVA and NSG control traffic flows for intra-Azure networks and between Azure and the internet, while the gateway is a completely separate and isolated network edge between on-premises and Azure.
+</br>
+>[AZURE.TIP] Using ExpressRoute keeps corporate network traffic off of the internet for better security, significantly increased performance, and allows for SLAs from your ExpressRoute provider. As it relates to ExpressRoute performance, the Azure Gateway can pass up to 2Gbps with ExpressRoute, whereas with Site-to-Site VPNs the Azure Gateway maximum throughput is 200Mbps.
 
-This should be considered carefully as traffic flows can be optimized or degraded by this design pattern depending on the specific use case.
+As seen in the diagram below, with this option the environment now has two network edges, the NVA and NSG control traffic flows for intra-Azure networks and between Azure and the internet, while the gateway is a completely separate and isolated network edge between on-premise and Azure.
 
-Using the environment built in DMZ Example 1 – Protecting your web application with a Firewall and NSGs for inbound traffic, and then adding an ExpressRoute hybrid network connection would produce the following design:
+Traffic flows should be considered carefully as they can be optimized or degraded by this design pattern depending on the specific use case.
+
+Using the environment built in Example 1, "Build a Simple DMZ with NSGs", and then adding an ExpressRoute hybrid network connection would produce the following design:
 
 ![DMZ with Gateway connected using an ExpressRoute connection][17]
 
 #### Conclusion
-The addition of an ExpressRoute Private Peering network connection can extend the on-premise network into Azure in a secure, lower latency, higher performing manner. Also, using the native Azure Gateway, as was done in this example, provides a lower cost option (no additional licensing cost as with third party Network Virtual Appliances). More information on this example such as the following:
+The addition of an ExpressRoute Private Peering network connection can extend the on-premise network into Azure in a secure, lower latency, higher performing manner. Also, using the native Azure Gateway, as was done in this example, provides a lower cost option (no additional licensing as with third party Network Virtual Appliances). More information on this example such as the following:
 
 - How to build this example DMZ with PowerShell scripts
 - How to build this example with an ARM template
