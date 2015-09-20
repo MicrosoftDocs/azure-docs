@@ -20,7 +20,7 @@
 
 Microsoft Cloud services deliver hyper-scale services and infrastructure, enterprise grade capabilities, and many choices for hybrid connectivity. Customers can choose to access these services either via the Internet or with ExpressRoute, which provides private network connectivity. The Microsoft Azure platform allows customers to seamlessly extend their infrastructure into the cloud and build multi-tier architectures. To complement Microsoft’s services, third parties can enable enhanced capabilities by offering security services and virtual appliances. This white paper provides an overview of security and architectural issues that customers should consider when using Microsoft Cloud services accessed via ExpressRoute as well as creating secure services in Microsoft Azure’s Virtual Network.
 
-## <a name="Top"></a>Fast Start
+## Fast Start
 The below logic chart can direct you to a specific example of the many security techniques available with the Microsoft Azure platform. Use this to find exactly what is needed fast, or read the document from the beginning to get an explanation of many of the available options.
 ![Security Options Flowchart][0]
 
@@ -173,7 +173,7 @@ Once answers are know to the above questions, the [Fast Start](#Top) section abo
 
 ## Building Security Boundaries with Azure Virtual Networks
 ### <a name="Example1"></a>Example 1 – Build a Simple DMZ with NSGs
-[Back to Fast Start](#Top) | [Detailed Build Instructions For This Example][Example1]
+[Back to Fast Start](#fast-start) | [Detailed Build Instructions For This Example][Example1]
 
 ![Inbound DMZ with NSG][7]
 
