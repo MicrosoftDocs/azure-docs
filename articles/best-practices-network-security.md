@@ -29,7 +29,7 @@ The below logic chart can direct you to a specific example of the many security 
 [Example 3 – Build a DMZ to protect networks with a Firewall, UDR, and NSG](#example-3-build-a-dmz-to-protect-networks-with-a-firewall-udr-and-nsg)</br>
 [Example 4 – Adding a hybrid connection with a Site-to-Site, Virtual Appliance VPN](#example-4-adding-a-hybrid-connection-with-a-site-to-site-virtual-appliance-vpn)</br>
 [Example 5 – Adding a hybrid connection with a Site-to-Site, Azure Gateway VPN](#example-5-adding-a-hybrid-connection-with-a-site-to-site-azure-gateway-vpn)</br>
-[Example 6 – Adding a hybrid connection with ExpressRoute](#example-6-adding-a-hybrid-conneciton-with-ExpressRoute)</br>
+[Example 6 – Adding a hybrid connection with ExpressRoute](#example-6-adding-a-hybrid-conneciton-with-expressroute)</br>
 Examples for adding VNet to VNet connections, high availability, and service chaining will be added to this document over the next few months. 
 
 ## Microsoft Compliance and Infrastructure Protection
