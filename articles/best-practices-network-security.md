@@ -434,8 +434,7 @@ The addition of a hybrid network connection to an Azure Virtual Network, can ext
 
 will be available soon and linked from this page.
 
-
-### Example 6 - Adding a Hybrid Connection with ExpressRoute
+### Example 6 – Adding a Hybrid Connection with ExpressRoute
 [Back to Fast Start](#fast-start) | Detailed Build Instructions Will be Available Soon
 
 ![DMZ with Gateway connected hybrid network][16]
