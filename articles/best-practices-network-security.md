@@ -24,7 +24,7 @@ Microsoft Cloud services deliver hyper-scale services and infrastructure, enterp
 The below logic chart can direct you to a specific example of the many security techniques available with the Microsoft Azure platform. Use this to find exactly what is needed fast, or read the document from the beginning to get an explanation of many of the available options.
 ![Security Options Flowchart][0]
 
-[Example 1 – Build a DMZ to protect applications with NSGs](#Example1)</br>
+[Example 1 – Build a DMZ to protect applications with NSGs](#example-1-build-a-simple-dmz-with-nsgs)</br>
 [Example 2 – Build a DMZ to protect applications with a Firewall and NSGs](#Example2)</br>
 [Example 3 – Build a DMZ to protect networks with a Firewall, UDR, and NSG](#Example3)</br>
 [Example 4 – Adding a hybrid connection with a Site-to-Site, Virtual Appliance VPN](#Example4)</br>
@@ -169,10 +169,10 @@ Another key implementation decision point is how to connect the on-premise netwo
 
 Additionally, VNet to VNet traffic within Azure may be needed, these scenarios are covered in greater detail in Examples 7 and 8 below.
 
-Once answers are know to the above questions, the [Fast Start](#Top) section above can help identify which examples are most appropriate for a given scenario.
+Once answers are know to the above questions, the [Fast Start](#fast-start) section above can help identify which examples are most appropriate for a given scenario.
 
 ## Building Security Boundaries with Azure Virtual Networks
-### <a name="Example1"></a>Example 1 – Build a Simple DMZ with NSGs
+### Example 1 – Build a Simple DMZ with NSGs
 [Back to Fast Start](#fast-start) | [Detailed Build Instructions For This Example][Example1]
 
 ![Inbound DMZ with NSG][7]
@@ -218,7 +218,7 @@ This is a relatively simple and straight forward way of isolating the back end s
 can be found at the [detailed build instructions][Example1] page.
 
 ### <a name="Example2"></a>Example 2 – Build a DMZ to protect applications with a Firewall and NSGs
-[Back to Fast Start](#Top) | [Detailed Build Instructions For This Example][Example2]
+[Back to Fast Start](#fast-start) | [Detailed Build Instructions For This Example][Example2]
 
 ![Inbound DMZ with NVA and NSG][8]
 
@@ -269,7 +269,7 @@ This is a relatively straight forward way of protecting your application with a 
 can be found at the [detailed build instructions][Example2] page.
 
 ### <a name="Example3"></a>Example 3 – Build a DMZ to Protect Networks with a Firewall, UDR, and NSG
-[Back to Fast Start](#Top) | [Detailed Build Instructions For This Example][Example3]
+[Back to Fast Start](#fast-start) | [Detailed Build Instructions For This Example][Example3]
 
 ![Bi-directional DMZ with NVA, NSG, and UDR][9]
 
@@ -371,7 +371,7 @@ This is a more complex but more complete way of protecting and isolating the net
 can be found at the [detailed build instructions][Example3] page.
 
 ### <a name="Example4"></a>Example 4 – Adding a Hybrid Connection with a Site-to-Site, Virtual Appliance VPN
-[Back to Fast Start](#Top) | Detailed Build Instructions Will be Available Soon
+[Back to Fast Start](#fast-start) | Detailed Build Instructions Will be Available Soon
 
 ![DMZ with NVA connected hybrid network][11]
 
@@ -406,7 +406,7 @@ The addition of a hybrid network connection to an Azure Virtual Network, can ext
 will be available soon and linked from this page.
 
 ### <a name="Example5"></a>Example 5 – Adding a hybrid connection with a Site-to-Site, Azure Gateway VPN
-[Back to Fast Start](#Top) | Detailed Build Instructions Will be Available Soon
+[Back to Fast Start](#fast-start) | Detailed Build Instructions Will be Available Soon
 
 ![DMZ with Gateway connected hybrid network][14]
 
@@ -436,7 +436,7 @@ will be available soon and linked from this page.
 
 
 ### <a name="Example6"></a>Example 6 - Adding a hybrid with ExpressRoute
-[Back to Fast Start](#Top) | Detailed Build Instructions Will be Available Soon
+[Back to Fast Start](#fast-start) | Detailed Build Instructions Will be Available Soon
 
 ![DMZ with Gateway connected hybrid network][16]
 
