@@ -73,6 +73,7 @@ In this release the following updates were made to Web Tools Extensions. For mor
 
 Web App deployment slot nodes don’t appear under the Slots node in Server Explorer, and Web App deployment slot child nodes don’t load under Cloud Explorer. This issue has been resolved and prepared for the next SDK release. 
 
+LightSwitch projects are not compatibile with this release. This issue will be resolved with the next SDK release.
 
 ###<a id="cloud_explorer"></a>Cloud Explorer for Visual Studio 2015
 
