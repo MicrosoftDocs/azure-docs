@@ -27,9 +27,9 @@ The below logic chart can direct you to a specific example of the many security 
 [Example 1 – Build a DMZ to protect applications with NSGs](#example-1-build-a-simple-dmz-with-nsgs)</br>
 [Example 2 – Build a DMZ to protect applications with a Firewall and NSGs](#example-2-build-a-dmz-to-protect-applications-with-a-firewall-and-nsgs)</br>
 [Example 3 – Build a DMZ to protect networks with a Firewall, UDR, and NSG](#example-3-build-a-dmz-to-protect-networks-with-a-firewall-udr-and-nsg)</br>
-[Example 4 – Adding a hybrid connection with a Site-to-Site, Virtual Appliance VPN](#Example4)</br>
-[Example 5 – Adding a hybrid connection with a Site-to-Site, Azure Gateway VPN](#Example5)</br>
-[Example 6 – Adding a hybrid connection with ExpressRoute](#Example6)</br>
+[Example 4 – Adding a hybrid connection with a Site-to-Site, Virtual Appliance VPN](#example-4-adding-a-hybrid-connection-with-a-site-to-site-virtual-appliance-vpn)</br>
+[Example 5 – Adding a hybrid connection with a Site-to-Site, Azure Gateway VPN](#example-5-adding-a-hybrid-connection-with-a-site-to-site-azure-gateway-vpn)</br>
+[Example 6 – Adding a hybrid connection with ExpressRoute](#example-6-adding-a-hybrid-conneciton-with-ExpressRoute)</br>
 Examples for adding VNet to VNet connections, high availability, and service chaining will be added to this document over the next few months. 
 
 ## Microsoft Compliance and Infrastructure Protection
@@ -370,7 +370,7 @@ This is a more complex but more complete way of protecting and isolating the net
 
 can be found at the [detailed build instructions][Example3] page.
 
-### <a name="Example4"></a>Example 4 – Adding a Hybrid Connection with a Site-to-Site, Virtual Appliance VPN
+### Example 4 – Adding a Hybrid Connection with a Site-to-Site, Virtual Appliance VPN
 [Back to Fast Start](#fast-start) | Detailed Build Instructions Will be Available Soon
 
 ![DMZ with NVA connected hybrid network][11]
@@ -405,7 +405,7 @@ The addition of a hybrid network connection to an Azure Virtual Network, can ext
 
 will be available soon and linked from this page.
 
-### <a name="Example5"></a>Example 5 – Adding a hybrid connection with a Site-to-Site, Azure Gateway VPN
+### Example 5 – Adding a Hybrid Connection with a Site-to-Site, Azure Gateway VPN
 [Back to Fast Start](#fast-start) | Detailed Build Instructions Will be Available Soon
 
 ![DMZ with Gateway connected hybrid network][14]
@@ -435,7 +435,7 @@ The addition of a hybrid network connection to an Azure Virtual Network, can ext
 will be available soon and linked from this page.
 
 
-### <a name="Example6"></a>Example 6 - Adding a hybrid with ExpressRoute
+### Example 6 - Adding a Hybrid Connection with ExpressRoute
 [Back to Fast Start](#fast-start) | Detailed Build Instructions Will be Available Soon
 
 ![DMZ with Gateway connected hybrid network][16]
