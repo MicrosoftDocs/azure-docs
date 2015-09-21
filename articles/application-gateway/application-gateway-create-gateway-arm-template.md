@@ -1,7 +1,7 @@
 
 <properties 
-   pageTitle="Create, start, or delete an Application Gateway using Azure Resource Manager | Microsoft Azure"
-   description="This page provides instructions to create, configure, start, and delete an Azure Application Gateway using Azure Resource Manager"
+   pageTitle="Create Application Gateway using Azure Resource Manager templates| Microsoft Azure"
+   description="This page provides instructions to create an Azure Application Gateway using Azure Resource Manager template"
    documentationCenter="na"
    services="application-gateway"
    authors="joaoma"
@@ -26,7 +26,6 @@ Application Gateway is load balancer layer 7. It provides failover, performance 
 You will learn how to download and modify and existing ARM template from GitHub, and deploy the template from GitHub, PowerShell, and the Azure CLI.
 
 If you are simply deploying the ARM template directly from GitHub, without any changes, skip to deploy a template from github.
-
 
 
 ## Scenario
