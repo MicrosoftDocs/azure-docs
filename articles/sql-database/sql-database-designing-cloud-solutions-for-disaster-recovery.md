@@ -38,7 +38,7 @@ The following diagram shows this configuration before an outage. Traffic manager
 
 After an outage in the primary region traffic manager detects that connectivity in the primary region failed and switches the user traffic to the application instance in the secondary region. In the meantime you initiate the database failover as soon as the database outage is detected. After failover the application will process the user requests in the secondary region but will remain co-located with the database because the primary database will now be in the secondary region. This is illustrated by the next diagram.	
 
-> [AZURE.NOTE] To detect database outage you can configure an [Elastic database job](https://azure.microsoft.com/en-us/documentation/articles/sql-database-elastic-jobs-overview/) running in either region region to cross-check connectivity and responsiveness of the primary and secondary databases. If you need to perform additional non-SQL operation as part of each probe you may want to deploy a web role to periodically call a custom script.  
+> [AZURE.NOTE] To detect database outage you can configure an [Elastic database job](https://azure.microsoft.com/en-us/documentation/articles/sql-database-elastic-jobs-overview/) running in either region to cross-check connectivity and responsiveness of the primary and secondary databases. If you need to perform additional non-SQL operation as part of each probe you may want to deploy a web role to periodically call a custom script.  
 
 ![Figure 2](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/pattern1-2.png)
 
@@ -68,6 +68,7 @@ If a database outage is detected in the primary region you initiate failover of 
 ![Figure 4](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/pattern2-2.png)
 
 In case of an outage in one of the secondary regions traffic manager will automatically remove the application instance's end-point in that region from the routing table. The replication channel to the secondary database in that region will be suspended. Because of the lost capacity the application instances in the remaining regions will have additional user traffic so the application's performance will be impacted during the outage. Once the outage is mitigated the secondary database in the impacted region will be immediately synchronized with the primary. During synchronization performance of the primary could be slightly impacted depending on the amount of data that needs to be synchronized. The following diagram illustrates an outage in one of the secondary regions.
+
 ![Figure 4](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/pattern2-3.png)
 
 The key **advantage** of this this design pattern is that you can scale the application logic to any number of instance to achieve the optimal end user performance. The **tradeoffs** of this option are:
@@ -76,7 +77,7 @@ The key **advantage** of this this design pattern is that you can scale the appl
 + the application performance is impacted during the outage
 + the application instances must be able to dynamically change the SQL connection string after the database failover.  
 
-> [AZURE.NOTE] A similar approach can be used to offload specialized workloads such as reporting jobs, business intelligence tools and backups. Typically these workloads consume significant database resources therefore it is recommended that you designate one of the secondary databases for them. It may also be necessary to configure this secondary with a higher performance objective to ensure the necessary resources are available. This secondary database should not be shared by the primary application workload. 
+> [AZURE.NOTE] A similar approach can be used to offload specialized workloads such as reporting jobs, business intelligence tools or backups. Typically these workloads consume significant database resources therefore it is recommended that you designate one of the secondary databases for them with the performance level matched to the anticipated workload. 
 
 ## Design pattern 3: Active-passive deployment for data preservation  
 This option is best suited for applications with the following characteristics:
@@ -94,7 +95,8 @@ If traffic manager detects a connectivity failure to the primary region it switc
 ![Figure 6](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/pattern3-2.png)
 
 Once the outage in the primary region is mitigated traffic manager will detect the restoration of connectivity in the primary region and will switch user traffic back to the application instance in the primary region. That application instance resumes and operates in read-write mode using the primary database. 
-> [AZURE.NOTE] Because this pattern requires read-only access to the secondary it can only be implemented using [Active geo-replication](https://msdn.microsoft.com/library/azure/dn741339.aspx). 
+
+> [AZURE.NOTE] Because this pattern requires read-only access to the secondary it requires [Active geo-replication](https://msdn.microsoft.com/library/azure/dn741339.aspx). 
 
 In case of an outage in the secondary region traffic manager will mark the application end-point in the primary region as degraded and the replication channel will be suspended. However it will not impact the application's performance during the outage. Once the outage is mitigated the secondary database will be immediately synchronized with the primary. During synchronization performance of the primary could be slightly impacted depending on the amount of data that needs to be synchronized. This behavior is identical to design pattern 1.
 
