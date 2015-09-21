@@ -16,6 +16,8 @@
 	ms.date="08/30/2015"
 	ms.author="huguesv"/>
 
+# Django and MySQL on Azure with Python Tools 2.2 for Visual Studio 
+
 > [AZURE.SELECTOR]
 - [.Net](web-sites-dotnet-get-started.md)
 - [Node.js](web-sites-nodejs-develop-deploy-mac.md)
@@ -23,8 +25,6 @@
 - [PHP - Git](web-sites-php-mysql-deploy-use-git.md)
 - [PHP - FTP](web-sites-php-mysql-deploy-use-ftp.md)
 - [Python](web-sites-python-ptvs-django-mysql.md)
-
-# Django and MySQL on Azure with Python Tools 2.2 for Visual Studio 
 
 In this tutorial, we'll use [Python Tools for Visual Studio] to create a simple polls web app using one of the PTVS sample templates. This tutorial is also available as a [video](https://www.youtube.com/watch?v=oKCApIrS0Lo).
 
