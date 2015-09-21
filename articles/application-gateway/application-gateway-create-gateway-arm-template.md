@@ -231,6 +231,26 @@ Here is the expected output for the command above:
 
 **-e (or --parameters-file)**. Path to your ARM parameters file.
 
+## Deploy ARM template using click to deploy
+
+Click to deploy is another way to use ARM templates. It's an easy way to use templates with the Azure portal. 
+
+
+### Step 1 
+Using the link [Click to deploy Application Gateway](http://azure.microsoft.com/en-us/documentation/templates/101-create-applicationgateway-publicip/) will redirect you to the portal template page for Application Gateway.
+
+
+### Step 2 
+
+Click in "deploy to Azure"
+
+![arm-scenario](./media/application-gateway-create-gateway-arm-template/deploytoazure.png)
+
+### Step 3
+
+Fill out the parameters for the deployment template on the portal
+
+![arm-scenario](./media/application-gateway-create-gateway-arm-template/ibiza1.png)
 
 ## Next steps
 
