@@ -32,9 +32,11 @@ These instructions use Microsoft Azure PowerShell.  Be sure to update to the lat
 The following steps need to be completed before you can manage Azure DNS using Azure PowerShell.
 
 ### Step 1
- Azure DNS uses Azure Resource Manager (ARM). Make sure you switch PowerShell mode to use the ARM cmdlets. More info is available at [Using Windows Powershell with Resource Manager](powershell-azure-resource-manager.md).<BR><BR>
+Azure DNS uses Azure Resource Manager (ARM). Make sure you switch PowerShell mode to use the ARM cmdlets. More info is available at [Using Windows Powershell with Resource Manager](powershell-azure-resource-manager.md).<BR><BR>
 
 		PS C:\> Switch-AzureMode -Name AzureResourceManager
+
+You may see a warning message "The Switch-AzureMode cmdlet is deprecated and will be removed in a future release."  This should be ignored.
 
 ### Step 2
  Log in to your Azure account.<BR><BR>

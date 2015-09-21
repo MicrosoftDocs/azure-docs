@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/21/2015" 
+	ms.date="09/11/2015" 
 	ms.author="nitinme"/>
 
 # Install and use Hue on HDInsight Hadoop clusters
@@ -38,7 +38,9 @@ The [https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv01/inst
 
 > [AZURE.NOTE] You can also use Azure PowerShell or the HDInsight .NET SDK to create a cluster using this script. For more information on using these methods, see [Customize HDInsight clusters with Script Actions](hdinsight-hadoop-customize-cluster-linux.md).
 
-1. Start provisioning a cluster by using the steps in [Provision HDInsight clusters on Linux](hdinsight-provision-linux-clusters.md#portal), but do not complete provisioning.
+1. Start provisioning a cluster by using the steps in [Provision HDInsight clusters on Linux](hdinsight-hadoop-provision-linux-clusters.md#portal), but do not complete provisioning.
+
+	> [AZURE.NOTE] To install Hue on HDInsight clusters, the recommended headnode size is at least A4 (8 cores, 14 GB memory).
 
 2. On the **Optional Configuration** blade, select **Script Actions**, and provide the information below:
 
@@ -47,12 +49,12 @@ The [https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv01/inst
 	* __HEAD__: Check this option
 	* __WORKER__: Leave this blank.
 	* __ZOOKEEPER__: Leave this blank.
-	* __PARAMETERS__: The script expects the cluster admin password as a parameter. Specify the password within single quotes.
+	* __PARAMETERS__: The script expects the **cluster admin password** as a parameter. This is the password you specified while provisioning the cluster. You must specify the password within single quotes.
 
 
 3. At the bottom of the **Script Actions**, use the **Select** button to save the configuration. Finally, use the **Select** button at the bottom of the **Optional Configuration** blade to save the optional configuration information.
 
-4. Continue provisining the cluster as described in [Provision HDInsight clusters on Linux](hdinsight-provision-linux-clusters.md#portal).
+4. Continue provisioning the cluster as described in [Provision HDInsight clusters on Linux](hdinsight-hadoop-provision-linux-clusters.md#portal).
 
 ## Use Hue with HDInsight clusters
 

@@ -105,3 +105,15 @@ If your account is in the US, you can now do this easily in the Microsoft Azure 
 -   **Can the recipient use a different payment mechanism?**
 
     Yes, and in fact you can use this mechanism to change the payment method on your subscription from invoice to credit card. Just transfer to another account you own, and enter your credit card while receiving the subscription. There are limitations here: now the subscription billing history is split across two accounts. But the advantage is that you can do this without having to [contact Support](http://go.microsoft.com/fwlink/?LinkID=619338).
+
+## Next steps after accepting ownership of a subscription
+
+1. You are now the Account Administrator. Review and update the Service Administrator and Co-Administrators. Manage admins in the [Azure management portal](https://manage.windowsazure.com) by going to Settings. [Learn more](http://go.microsoft.com/fwlink/?LinkID=533293). 
+2. You can also use role-based access control (RBAC) for your subscription and services. Visit the [Azure preview portal](https://portal.azure.com) [Learn more about RBAC](http://go.microsoft.com/fwlink/?LinkID=544802)
+3. Update credentials associated with this subscription's services. These include: 
+    -   Management certificates that grant the user admin rights to subscription resources. For more information, see [Create and Upload a Management Certificate for Azure](https://msdn.microsoft.com/library/azure/gg551722.aspx)
+    -	Access keys for services like Storage. For more information, see [View, copy, and regenerate storage access keys](storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys)
+    -	Remote Access credentials for services like Azure Virtual Machines
+4. Update billing alerts for this subscription, at the [Azure Account Center](https://account.windowsazure.com/Subscriptions)  [Learn more](http://go.microsoft.com/fwlink/?LinkID=533292)
+5. 	If you’re working with a partner, consider updating the partner ID on this subscription. You can do this in the [Azure Account Center](https://account.windowsazure.com/Subscriptions).
+

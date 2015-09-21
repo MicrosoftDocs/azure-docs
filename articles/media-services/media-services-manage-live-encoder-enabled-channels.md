@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="08/20/2015" 
+	ms.date="09/16/2015"
 	ms.author="juliako"/>
 
 #Working with Channels that are Enabled to Perform Live Encoding with Azure Media Services (Preview)
@@ -41,22 +41,13 @@ The following diagram represents a live streaming workflow where a channel recei
 
 ![Live workflow][live-overview]
 
->[AZURE.NOTE]Not all data centers support Live Encoding with Azure Media Services. 
->
->If you are using Azure Management Portal to create Channels, you will have two Channel encoding type options available: **None** and **Standard**. If you only see the **None** option, it means your data center does not support Live Encoding with AMS.
->
->If you are using .NET SDK or REST API, do the following to check:
->
->1. Try to create a Channel with encoding type set to Standard. 
->2. If the returned result HTTP Error Code 412 (Precondition Failed) with the following message: *"Live encoding is not supported in this region; EncodingType must be set to 'None'."*, your data center does not support Live Encoding.
-
 
 ##In this topic
 
 - Overview of a [common live streaming scenario](media-services-manage-live-encoder-enabled-channels.md#scenario)
 - [Description of a Channel and its related components](media-services-manage-live-encoder-enabled-channels.md#channel)
-- [Considerations](media-services-manage-live-encoder-enabled-channels.md#considerations)
-- [Tasks related to Live Streaming](media-services-manage-live-encoder-enabled-channels.md#tasks)
+- [Considerations](media-services-manage-live-encoder-enabled-channels.md#Considerations)
+
 
 ##<a id="scenario"></a>Common Live Streaming Scenario
 
@@ -398,6 +389,7 @@ Stopped|Stopped|No
 
 ##<a id="Considerations"></a>Considerations
 
+- When a Channel of **Standard** encoding type experiences a loss of input source/contribution feed, it compensates for it by replacing the source video/audio with an error slate and silence. The Channel will continue to emit a slate until the input/contribution feed resumes. We recommend that a live channel not be left in such a state for longer than 2 hours. Beyond that point, the behavior of the Channel on input reconnection is not guaranteed, neither is its behavior in response to a Reset command. You will have to stop the Channel, delete it and create a new one.
 - You cannot change the input protocol while the Channel or its associated programs are running. If you require different protocols, you should create separate channels for each input protocol. 
 - Every time you reconfigure the live encoder, call the **Reset** method on the channel. Before you reset the channel, you have to stop the program. After you reset the channel, restart the program. 
 - A channel can be stopped only when it is in the Running state, and all programs on the channel have been stopped.
@@ -419,6 +411,14 @@ Choose **Portal**, **.NET**, **REST API** to see how to create and manage channe
 - [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
 - [.NET SDK](media-services-dotnet-creating-live-encoder-enabled-channel.md)
 - [REST API](https://msdn.microsoft.com/library/azure/dn783458.aspx)
+
+
+##Media Services learning paths
+
+You can view AMS learning paths here:
+
+- [AMS Live Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [AMS on Demand Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
 ##Related topics
 

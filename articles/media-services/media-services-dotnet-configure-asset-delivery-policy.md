@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="08/11/2015"  
+	ms.date="09/07/2015"  
 	ms.author="juliako"/>
 
 #How to: Configure Asset Delivery Policies
@@ -287,4 +287,17 @@ For information on what values you can specify when creating an AssetDeliveryPol
         /// The initialization vector to use for envelope encryption.
         /// </summary>
         EnvelopeEncryptionIV,
-    } 
+
+        /// <summary>
+        /// Widevine DRM acquisition url
+        /// </summary>
+        WidevineLicenseAcquisitionUrl
+    }
+
+##Media Services learning paths
+
+You can view AMS learning paths here:
+
+- [AMS Live Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [AMS on Demand Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+

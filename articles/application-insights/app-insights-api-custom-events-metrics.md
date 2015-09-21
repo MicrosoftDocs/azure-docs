@@ -74,17 +74,16 @@ Construct an instance of TelemetryClient (except in JavaScript in web pages):
 
     private TelemetryClient telemetry = new TelemetryClient();
 
-We recommend you use one instance of `TelemetryClient` for each request in a web app, or for each session in other apps. You can set properties such as `TelemetryClient.Context.User.Id` to track users and sessions. This information is attached to all events sent by the instance.
-
 TelemetryClient is thread-safe.
 
+We recommend you use an instance of `TelemetryClient` for each module of your app. For instance, you may have one `TelemetryClient` in your web service to report incoming http requests, and another in a middleware class to report business logic events. You can set properties such as `TelemetryClient.Context.User.Id` to track users and sessions, or `TelemetryClient.Context.Device.Id` to identify the machine. This information is attached to all events sent by the instance.
 
 
 ## Track Event
 
-Events can be displayed in [Metrics Explorer][metrics] as an aggregated count, and you can also display individual occurrences in [Diagnostic Search][diagnostic].  
+In Application Insights, a *custom event* is a data point that you can display both in in [Metrics Explorer][metrics] as an aggregated count, and also as individual occurrences in [Diagnostic Search][diagnostic]. (It isn't related to MVC or other framework "events.") 
 
-Insert events in your code to count how often they use a particular feature, how often they achieve particular goals, or make particular choices. 
+Insert TrackEvent calls in your code to count how often users choose a particular feature, how often they achieve particular goals, or maybe make particular types of mistake. 
 
 For example, in a game app, send an event whenever a user wins the game: 
 
@@ -105,14 +104,12 @@ For example, in a game app, send an event whenever a user wins the game:
 
     telemetry.trackEvent("WinGame");
 
-
-Click the Custom Events tile on the overview blade:
+Here, "WinGame" is the name that appears in the Application Insights portal. Click the Custom Events tile on the overview blade:
 
 ![Browse to your application resource in portal.azure.com](./media/app-insights-api-custom-events-metrics/01-custom.png)
 
-Click through to see an overview chart and a complete list.
 
-Select the chart and group it by Event name to see the relative contributions of the most significant events.
+The chart is grouped by Event name so that you can see the relative contributions of the most significant events. To control this, select the chart and use the Grouping control.
 
 ![Select the chart and set Grouping](./media/app-insights-api-custom-events-metrics/02-segment.png)
 
@@ -203,7 +200,7 @@ There are some [limits on the number of properties, property values, and metrics
 
 ![Open metric explorer, select the chart, and select the metric](./media/app-insights-api-custom-events-metrics/03-track-custom.png)
 
-*If your metric doesn't appear, close the selection blade, wait a while, and click Refresh.*
+*If your metric doesn't appear, or if the Custom heading isn't there, close the selection blade and try later. It can sometimes take an hour for metrics to be aggregated through the pipeline.*
 
 **If you used properties and metrics**, segment the metric by the property:
 
@@ -525,96 +522,10 @@ Individual telemetry calls can override the default values in their property dic
     // ...
 
 
-## <a name="default-properties"></a>Context initializers - Set default properties for all telemetry
-
-You can set up a universal initializer so that all new TelemetryClients automatically use your context. This includes standard telemetry sent by the platform-specific telemetry modules, such as web server request tracking.
-
-A typical use is to identify telemetry coming from different versions or components of your app. In the portal, you can filter or group results by the "Application Version" property.
-
-**Define your initializer**
-
-
-*C#*
-
-```C#
-
-    using System;
-    using Microsoft.ApplicationInsights.Channel;
-    using Microsoft.ApplicationInsights.DataContracts;
-    using Microsoft.ApplicationInsights.Extensibility;
-
-    namespace MyNamespace
-    {
-      // Context initializer class
-      public class MyContextInitializer : IContextInitializer
-      {
-        public void Initialize (TelemetryContext context)
-        {
-            if (context == null) return;
-
-            context.Component.Version = "v2.1";
-        }
-      }
-    }
-```
-
-*Java*
-
-```Java
-
-    import com.microsoft.applicationinsights.extensibility.ContextInitializer;
-    import com.microsoft.applicationinsights.telemetry.TelemetryContext;
-
-    public class MyContextInitializer implements ContextInitializer {
-      @Override
-      public void initialize(TelemetryContext context) {
-        context.Component.Version = "2.1";
-      }
-    }
-```
-
-**Load your initializer**
-
-In ApplicationInsights.config:
-
-    <ApplicationInsights>
-      <ContextInitializers>
-        <!-- Fully qualified type name, assembly name: -->
-        <Add Type="MyNamespace.MyContextInitializer, MyAssemblyName"/> 
-        ...
-      </ContextInitializers>
-    </ApplicationInsights>
-
-*Alternatively,* you can instantiate the initializer in code:
-
-*C#*
-
-```C#
-
-    protected void Application_Start()
-    {
-        // ...
-        TelemetryConfiguration.Active.ContextInitializers
-        .Add(new MyContextInitializer());
-    }
-```
-
-*Java*
-
-```Java
-
-    // load the context initializer
-    TelemetryConfiguration.getActive().getContextInitializers().add(new MyContextInitializer());
-```
-
-
-### JavaScript web client
-
-For JavaScript web clients, [use telemetry initializers to set default values](#js-initializer).
 
 ## Telemetry Initializers
 
-Use telemetry initializers to override selected behavior of the standard telemetry modules. 
+Use telemetry initializers to define global properties that are sent with all telemetry; and to override selected behavior of the standard telemetry modules. 
 
 For example, the Application Insights for Web package collects telemetry about HTTP requests. By default, it flags as failed any request with a response code >= 400. But if you want to treat 400 as a success, you can provide a telemetry initilizer that sets the Success property.
 
@@ -828,6 +739,91 @@ If you set any of these values yourself, consider removing the relevant line fro
 * **Properties** Properties that are sent with all telemetry data. Can be overridden in individual Track* calls.
 * **Session** Identifies the user's session. The Id is set to a generated value, which is changed when the user has not been active for a while.
 * **User** User information. 
+
+
+## <a name="default-properties"></a>Context initializers - Set default properties for all telemetry
+
+You can set up a universal initializer so that all new TelemetryClients automatically use your context. This includes standard telemetry sent by the platform-specific telemetry modules, such as web server request tracking.
+
+A typical use is to identify telemetry coming from different versions or components of your app. In the portal, you can filter or group results by the "Application Version" property.
+
+In general, [we recommend that you use telemetry initializers rather than context initializers](http://apmtips.com/blog/2015/06/09/do-not-use-context-initializers/).
+
+#### Define a context initializer
+
+
+*C#*
+
+```C#
+
+    using System;
+    using Microsoft.ApplicationInsights.Channel;
+    using Microsoft.ApplicationInsights.DataContracts;
+    using Microsoft.ApplicationInsights.Extensibility;
+
+    namespace MyNamespace
+    {
+      // Context initializer class
+      public class MyContextInitializer : IContextInitializer
+      {
+        public void Initialize (TelemetryContext context)
+        {
+            if (context == null) return;
+
+            context.Component.Version = "v2.1";
+        }
+      }
+    }
+```
+
+*Java*
+
+```Java
+
+    import com.microsoft.applicationinsights.extensibility.ContextInitializer;
+    import com.microsoft.applicationinsights.telemetry.TelemetryContext;
+
+    public class MyContextInitializer implements ContextInitializer {
+      @Override
+      public void initialize(TelemetryContext context) {
+        context.Component.Version = "2.1";
+      }
+    }
+```
+
+#### Load your context initializer
+
+In ApplicationInsights.config:
+
+    <ApplicationInsights>
+      <ContextInitializers>
+        <!-- Fully qualified type name, assembly name: -->
+        <Add Type="MyNamespace.MyContextInitializer, MyAssemblyName"/> 
+        ...
+      </ContextInitializers>
+    </ApplicationInsights>
+
+*Alternatively,* you can instantiate the initializer in code:
+
+*C#*
+
+```C#
+
+    protected void Application_Start()
+    {
+        // ...
+        TelemetryConfiguration.Active.ContextInitializers
+        .Add(new MyContextInitializer());
+    }
+```
+
+*Java*
+
+```Java
+
+    // load the context initializer
+    TelemetryConfiguration.getActive().getContextInitializers().add(new MyContextInitializer());
+```
 
 
 
