@@ -210,7 +210,7 @@ Remove-AzureSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23" 
 On all client machines, from which your applications or users connect to Azure SQL Database using Azure AD identities, you must install the following software:
 
 - .NET Framework 4.6 or later from [https://msdn.microsoft.com/library/5a4x27ek.aspx](https://msdn.microsoft.com/library/5a4x27ek.aspx).
-- Azure Active Directory Authentication Library for SQL Server (**ADALSQL.DLL**) is available in multiple languages (both x89 and amd64) from the download center at [Microsoft Active Directory Authentication Library for Microsoft SQL Server](http://www.microsoft.com/download/details.aspx?id=48742).
+- Azure Active Directory Authentication Library for SQL Server (**ADALSQL.DLL**) is available in multiple languages (both x86 and amd64) from the download center at [Microsoft Active Directory Authentication Library for Microsoft SQL Server](http://www.microsoft.com/download/details.aspx?id=48742).
 
 ### Tools
 
@@ -259,7 +259,7 @@ To create an Azure AD based contained database user (other than the server admin
 	FROM EXTERNAL PROVIDER;
 
 
-*Azure_AD_principal_name* can be the user principal name of an Azure AD user or the display name for an Azure AD group or application.
+*Azure_AD_principal_name* can be the user principal name of an Azure AD user or the display name for an Azure AD group.
 
 **Examples:**
 To create a contained database user representing an Azure AD federated or managed domain user:
@@ -277,7 +277,7 @@ For more information about creating contained database users based on Azure Acti
 When you create a database user, that user receives the **CONNECT** permission and can connect to that database as a member of the **PUBLIC** role. Initially the only permissions available to the user are any permissions granted to the **PUBLIC** role, or any permissions granted to any Windows groups that they are a member of. Once you provision an Azure AD-based contained database user, you can grant the user additional permissions, the same way as you grant permission to any other type of user. Typically grant permissions to database roles, and add users to roles. For more information, see [Database Engine Permission Basics](http://social.technet.microsoft.com/wiki/contents/articles/4433.database-engine-permission-basics.aspx). For more information about special SQL Database roles, see [Managing Databases and Logins in Azure SQL Database](sql-database-manage-logins.md).
 A federated domain user that is imported into a manage domain, must use the managed domain identity.
 
-> [AZURE.NOTE] Azure AD users are marked in the database metadata with type E (EXTERNAL_USER) and for groups or applications with type X (EXTERNAL_GROUPS). For more information, see [sys.database_principals](https://msdn.microsoft.com/library/ms187328.aspx).
+> [AZURE.NOTE] Azure AD users are marked in the database metadata with type E (EXTERNAL_USER) and for groups with type X (EXTERNAL_GROUPS). For more information, see [sys.database_principals](https://msdn.microsoft.com/library/ms187328.aspx).
 
 
 ## 7. Connect to your database by using Azure Active Directory identities
@@ -309,6 +309,8 @@ To connect to a database using integrated authentication and an Azure AD identit
 	conn.Open();
 
 For specific code examples related to Azure AD authentication see the [SQL Server Security Blog](http://blogs.msdn.com/b/sqlsecurity/) on MSDN.
+
+Windows Azure. 
 
 ## See also
 
