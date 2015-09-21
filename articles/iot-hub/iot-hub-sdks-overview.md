@@ -18,6 +18,8 @@
 
 # Azure IoT Hub SDKs Overview
 
+**NOTE: This is a placeholder article. Content now resides in SDK GitHub repo.**
+
 This article provides an overview of the Azure IoT SDKs you can use to develop your Azure IoT solutions. For each IoT SDK, the article describes its key features, suggested use cases, and provides links to reference documentation.
 
 The article describes the following IoT SDKs:

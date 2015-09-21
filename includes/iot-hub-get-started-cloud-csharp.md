@@ -6,11 +6,11 @@ In this section, you'll write a Windows console app that creates a new device id
 
    	![][10]
 
-2. In Solution Explorer, right-click the solution, and then click **Manage NuGet Packages for Solution...**. 
+2. In Solution Explorer, right-click the solution, and then click **Manage NuGet Packages for Solution...**.
 
 	This displays the Manage NuGet Packages window.
 
-3. Search for `Microsoft Azure Devices`, click **Install**, and accept the terms of use. 
+3. Search for `Microsoft Azure Devices`, click **Install**, and accept the terms of use.
 
 	This downloads, installs, and adds a reference to the [Azure IoT - Service SDK NuGet package].
 
@@ -153,7 +153,7 @@ In order to use [EventProcessorHost], you must have an [Azure Storage account]. 
             eventProcessorHost.UnregisterEventProcessorAsync().Wait();
         }
 
-> [AZURE.NOTE] For simplicity's sake, this tutorial uses a single instance of [EventProcessorHost]. Please refer to [Event Hubs Programming Guide][Event Hubs Programming Guide] and the [Process device-to-cloud messages] tutorial for more information on processing device-to-cloud messages.
+> [AZURE.NOTE] For simplicity's sake, this tutorial uses a single instance of [EventProcessorHost]. Please refer to [Event Hubs Programming Guide] and the [Process device-to-cloud messages] tutorial for more information on processing device-to-cloud messages.
 
 <!-- Links -->
 
@@ -161,6 +161,7 @@ In order to use [EventProcessorHost], you must have an [Azure Storage account]. 
 
 [Get Started with Event Hubs]: event-hubs-csharp-ephcs-getstarted.md
 [IoT Hub Developer Guide - Identity Registry]: iot-hub-devguide.md#identityregistry
+[Event Hubs Programming Guide]: event-hubs-programming-guide.md
 
 [Event Hubs Overview]: event-hubs-overview.md
 [Scaled out event processing]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-45f43fc3
@@ -177,7 +178,3 @@ In order to use [EventProcessorHost], you must have an [Azure Storage account]. 
 [20]: ./media/iot-hub-getstarted-cloud-csharp/create-storage1.png
 [21]: ./media/iot-hub-getstarted-cloud-csharp/create-storage2.png
 [22]: ./media/iot-hub-getstarted-cloud-csharp/create-storage3.png
-
-
-
-
