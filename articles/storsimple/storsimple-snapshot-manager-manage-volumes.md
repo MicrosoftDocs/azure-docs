@@ -144,7 +144,7 @@ Use the following procedure to rescan the volumes connected to StorSimple Snapsh
  
     This procedure synchronizes the volume list with StorSimple Snapshot Manager. Any changes, such as new volumes or deleted volumes, will be reflected in the results.
 
-## Configure backup of a basic volume
+## Configure and back up a basic volume
 
 Use the following procedure to configure a backup of a basic volume, and then either start a backup immediately or create a policy for scheduled backups.
 
