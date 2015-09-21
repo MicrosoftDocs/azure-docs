@@ -96,7 +96,7 @@ A credential represents the user ID and password that the elastic database query
      [;]
 Ensure that the &lt;shard\_map_username> does not include any “@servername” suffix.
 
-Information about credentials is visible in the sys.database_scoped.credentials catalog view.
+Information about credentials is visible in the sys.database_scoped_credentials catalog view.
 
 You can use the following syntax to drop the master key and credentials:
 
