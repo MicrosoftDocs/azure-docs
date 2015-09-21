@@ -26,7 +26,15 @@ Azure IoT Hub enables:
 * Reliable device-to-cloud and cloud-to-device hyper-scale messaging, and
 * Includes device libraries for the most popular languages and platforms.
 
-*[TBD Expand this intro with a simple diagram that includes at least endpoints, messaging, resistry, and if possible annotations about security. Use to reference other sections of dev guide]*
+The following diagram summarizes the areas covered in the document:
+
+![IoT Hub development][img-summary]
+
+- [Endpoints](#endpoints). IoT Hub and the Device identity registry expose various endpoints that enable devices, backend services, and service management application to connect with your IoT hub.
+- [Security](#security). You use the device identity registry to manage access to your IoT hub by your devices. You use access controls and authentication to configure management access to the hub.
+- [Device identity registry](#identityregistry). You can provision and manage your devices using the device identity registry.
+- [Messaging](#messaging). Devices can send device-to-cloud messages to an IoT hub which then makes those messages available to backend services. You can use a service management application to send cloud-to-device messages from your IoT hub to your devices.
+- [Quotas and throttling](#throttling). This section summarizes the quotas that apply to your use of IoT Hub.
 
 ## Endpoints <a id="endpoints"></a>
 
@@ -433,10 +441,20 @@ Here is the list of enforced throttles. Values refer to an individual hub.
 **Note**. At any given time, it is possible to increase quotas or throttle limits by increasing the provisioned units in an IoT hub.
 
 ## Next steps
-*[TBD links to the next sections in the devguide]*
 
+Now you've seen an overview of developing for IoT Hub, follow these links to learn more:
+
+- [Get started with IoT Hubs (Tutorial)][lnk-get-started]
+- [OS Platforms and hardware compatibility][lnk-compatibility]
+- [Plan your IoT implementation][lnk-guidance]
+
+[img-summary]: media/iot-hub-devguide/summary.png
 [img-endpoints]: media/iot-hub-devguide/endpoints.png
 [img-lifecycle]: media/iot-hub-devguide/lifecycle.png
+
+[lnk-get-started]: TBD
+[lnk-compatibility]: TBD
+[lnk-guidance]: TBD
 
 [lnk-amqp]: https://www.amqp.org/
 [lnk-apis-sdks]: TBD
