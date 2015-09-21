@@ -47,8 +47,8 @@ This information is provided to help you publish your software solution into the
 [link-vm-publication]:marketplace-publishing-virtual-machine-publication.md
 [link-vm-publication-prereq]:marketplace-publishing-virtual-machine-publication-prerequisites.md
 [link-datasvc-publication]:marketplace-publishing-data-service-publication.md
-[link-datasvc-publication-prereq]:marketplace-publishing-data-service-publication-pre-requisites.md
+[link-datasvc-publication-prereq]:marketplace-publishing-data-service-publication-prerequisites.md
 [link-devsvc-publication]:marketplace-publishing-developer-service-publication.md
-[link-devsvc-publication-prereq]:marketplace-publishing-developer-service-publication-pre-requisites.md
+[link-devsvc-publication-prereq]:marketplace-publishing-developer-service-publication-prerequisites.md
 [link-soltempl-publication]:marketplace-publishing-solution-template-publication.md
-[link-soltempl-publication-prereq]:marketplace-publishing-solution-template-publication-pre-requisites.md
+[link-soltempl-publication-prereq]:marketplace-publishing-solution-template-publication-prerequisites.md

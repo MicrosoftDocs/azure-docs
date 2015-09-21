@@ -131,11 +131,11 @@ Now that your account is created and registered, click on the type of artifact (
 [link-msdndoc]: https://msdn.microsoft.com/en-us/library/jj552460.aspx
 [link-sellerdashboard]: http://sellerdashboard.microsoft.com/
 [link-pubportal]: https://publish.windowsazure.com
-[link-vm-publication]:marketplace-publishing-vm-image-publication.md
-[link-vm-publication-prereq]:marketplace-publishing-vm-image-publication-prerequisites.md
+[link-vm-publication]:marketplace-publishing-virtual-machine-publication.md
+[link-vm-publication-prereq]:marketplace-publishing-virtual-machine-publication-prerequisites.md
 [link-datasvc-publication]:marketplace-publishing-data-service-publication.md
-[link-datasvc-publication-prereq]:marketplace-publishing-data-service-publication-pre-requisites.md
-[link-devsvc-publication]:marketplace-publishing-dev-service-publication.md
-[link-devsvc-publication-prereq]:marketplace-publishing-dev-service-publication-pre-requisites.md
+[link-datasvc-publication-prereq]:marketplace-publishing-data-service-publication-prerequisites.md
+[link-devsvc-publication]:marketplace-publishing-developer-service-publication.md
+[link-devsvc-publication-prereq]:marketplace-publishing-developer-service-publication-prerequisites.md
 [link-soltempl-publication]:marketplace-publishing-solution-template-publication.md
-[link-soltempl-publication-prereq]:marketplace-publishing-solution-template-publication-pre-requisites.md
+[link-soltempl-publication-prereq]:marketplace-publishing-solution-template-publication-prerequisites.md
