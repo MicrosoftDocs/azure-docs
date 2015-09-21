@@ -146,7 +146,7 @@ Use the following procedure to rescan the volumes connected to StorSimple Snapsh
  
     This procedure synchronizes the volume list with StorSimple Snapshot Manager. Any changes, such as new volumes or deleted volumes, will be reflected in the results.
 
-## Configure backup of a basic volume
+## Configure backup for a basic volume
 
 Use the following procedure to configure a backup of a basic volume, and then either start a backup immediately or create a policy for scheduled backups.
 
@@ -158,7 +158,7 @@ Before you begin:
 
 - Install and configure StorSimple Snapshot Manager. For more information, go to [Deploy StorSimple Snapshot Manager](storsimple-snapshot-manager-deployment.md).
 
-#### To configure backup of a basic volume
+#### To configure backup for a basic volume
 
 1. Create a basic volume on the StorSimple device.
 
@@ -184,13 +184,13 @@ Before you begin:
 
 9. To confirm that the backup job has started, expand the **Jobs** node in the **Scope** pane, and then click the **Running** node. The list of currently running jobs appears in the **Results** pane. 
 
-## Configure back up of a dynamic mirrored volume
+## Configure back up for a dynamic mirrored volume
 
 Complete the following steps to configure backup for a dynamic mirrored volume:
 
-- Step 1: Use Disk Management to create a dynamic mirrored volume 
+- Step 1: Use Disk Management to create a dynamic mirrored volume. 
 
-- Step 2: Use StorSimple Snapshot Manager to configure backup 
+- Step 2: Use StorSimple Snapshot Manager to configure backup.
 
 ### Prerequisites
 
@@ -244,7 +244,7 @@ Disk Management is a system utility for managing hard disks and the volumes or p
 
 Use the following procedure to configure a dynamic mirrored volume, and then either start a backup immediately or create a policy for scheduled backups.
 
-#### To configure backup of a dynamic mirrored volume
+#### To configure backup for a dynamic mirrored volume
 
 1. Click the StorSimple Snapshot Manager icon on your desktop. The StorSimple Snapshot Manager window appears. 
 
