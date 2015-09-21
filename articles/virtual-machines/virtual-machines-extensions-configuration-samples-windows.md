@@ -1,24 +1,27 @@
 <properties
-   pageTitle="Sample Configuration for Azure VM Extensions | Microsoft Azure"
-   description="Sample Configuration for authoring Templates with Extensions"
+   pageTitle="Sample configuration for Windows VM extensions | Microsoft Azure"
+   description="Sample configuration for authoring templates with extensions"
    services="virtual-machines"
    documentationCenter=""
    authors="kundanap"
    manager="timlt"
-   editor=""/>
+   editor=""
+   tags="azure-resource-manager"/>
 
 <tags
    ms.service="virtual-machines"
    ms.devlang="na"
    ms.topic="article"
-   ms.tgt_pltfrm="na"
+   ms.tgt_pltfrm="vm-windows"
    ms.workload="infrastructure-services"
    ms.date="09/01/2015"
    ms.author="kundanap"/>
 
 # Azure Windows VM Extension Configuration Samples.
 
-This article provides sample configuration for configuring Azure VM Extensions for Azure IaaS Windows VMs.
+This article provides sample configuration for configuring Azure VM Extensions for Windows VMs.
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)] 
 
 To learn more about these extensions click here : [Azure VM Extensions Overview.](https://msdn.microsoft.com/library/azure/dn606311.aspx)
 
