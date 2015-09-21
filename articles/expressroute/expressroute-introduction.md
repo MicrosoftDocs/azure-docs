@@ -23,29 +23,27 @@ Microsoft Azure ExpressRoute lets you extend your on-premises networks into the 
 
 **Key benefits include**
 
-- Layer 3 connectivity between your on-premises network and the Microsoft Cloud through a connectivity provider. Connectivity can be from an any-to-any (IPVPN) network, a point-to-point Ethernet connection or through a virtual cross-connection via an Ethernet exchange.
+- Layer 3 connectivity between your on-premises network and the Microsoft Cloud through a connectivity provider. Connectivity can be from an any-to-any (IPVPN) network, a point-to-point Ethernet connection, or through a virtual cross-connection via an Ethernet exchange.
 - Connectivity to Microsoft cloud services across all regions in the geopolitical region.
 - Global connectivity to Microsoft services across all regions with ExpressRoute premium add-on.
 - Dynamic routing between your network and Microsoft over industry standard protocols (BGP).
-- Built in redundancy in every peering location for higher reliability.
-- Connection up time [SLA](http://azure.microsoft.com/support/legal/sla/).
+- Built-in redundancy in every peering location for higher reliability.
+- Connection uptime [SLA](http://azure.microsoft.com/support/legal/sla/).
 - QoS and support for multiple classes of service for special applications, such as Skype for Business.
 
 See the [ExpressRoute FAQ](expressroute-faqs.md) for more details.
 
 ## How can I connect my network to Microsoft using ExpressRoute?
 
-You can create a connection between your on-premises network and the Microsoft cloud in 3 different ways
+You can create a connection between your on-premises network and the Microsoft cloud in three different ways
 
 1. **Co-located at a Cloud Exchange.** If you are co-located in a facility with a cloud exchange, you can order virtual cross-connections to the Microsoft cloud through the co-location provider’s Ethernet exchange. Co-location providers can offer either layer 2 cross-connections, or managed layer 3 cross-connections between your infrastructure in the co-location facility and the Microsoft cloud.
 2.	**Point-to-point Ethernet connections.** You can connect your on-premises datacenters/offices to the Microsoft cloud through point-to-point Ethernet links. Point-to-point Ethernet providers can offer layer 2 connections, or managed layer 3 connections between your site and the Microsoft cloud.
 3.	**Any-to-any (IPVPN) networks.** You can integrate your WAN with the Microsoft cloud. IPVPN providers (typically MPLS VPN) offer any-to-any connectivity between your branch offices and datacenters. The Microsoft cloud can be interconnected to your WAN to make it look just like any other branch office. WAN providers typically offer managed layer 3 connectivity.
 
-
 ![](./media/expressroute-introduction/expressroute-connectivitymodels.png)
 
 ExpressRoute capabilities and features are all identical across all of the above connectivity models. Connectivity providers can offer one or more connectivity models from the above list. You can work with your connectivity provider to pick the model that works best for you.
-
 
 ## ExpressRoute features
 
@@ -70,21 +68,26 @@ ExpressRoute connections enable access to the following services
 You can visit the [ExpressRoute FAQ](expressroute-faqs.md) page for a detailed list of services supported over ExpressRoute.
 
 ### Connectivity to all regions within a geopolitical region
+
 You can connect to Microsoft in one of our [peering locations](expressroute-locations.md) and have access to all regions within the geopolitical region. 
 
 For example, if you connected to Microsoft in Amsterdam through ExpressRoute, you will have access to all Microsoft cloud services hosted in Northern Europe and Western Europe. Refer to the [ExpressRoute locations and providers](expressroute-locations.md) article for an overview of the geopolitical regions, associated Microsoft cloud regions, and corresponding ExpressRoute peering locations.
 
 ### Global connectivity with ExpressRoute premium add-on
-You can enable the ExpressRoute premium add-on feature to extend connectivity across geopolitical boundaries. For example, if you are connected to Microsoft in Amsterdam through ExpressRoute, you will have access to all Microsoft cloud services hosted in all regions across the world (National clouds are excluded). You can access services deployed in South America or Australia the same way you access the North and West Europe regions.
+
+You can enable the ExpressRoute premium add-on feature to extend connectivity across geopolitical boundaries. For example, if you are connected to Microsoft in Amsterdam through ExpressRoute, you will have access to all Microsoft cloud services hosted in all regions across the world. (National clouds are excluded.) You can access services deployed in South America or Australia the same way you access the North and West Europe regions.
 
 ### Rich connectivity partner ecosystem
+
 ExpressRoute has a constantly growing ecosystem of connectivity providers and SI partners. You can refer to the [ExpressRoute providers and locations](expressroute-locations.md) article for the latest information.
 
-### Connectivity to National clouds
+### Connectivity to national clouds
+
 Microsoft operates isolated cloud environments for special geopolitical regions and customer segments. Refer to the [ExpressRoute providers and locations](expressroute-locations.md) page for a list of national clouds and providers.
 
 ### Supported bandwidth options
-You can purchase ExpressRoute circuits for a wide range of bandwidths. The list of supported bandwidths are as follows:
+
+You can purchase ExpressRoute circuits for a wide range of bandwidths. The list of supported bandwidths are listed below. Be sure to check with your connectivity provider to determine the list of supported bandwidths they provide.
 
 - 50 Mbps
 - 100 Mbps
@@ -95,26 +98,20 @@ You can purchase ExpressRoute circuits for a wide range of bandwidths. The list 
 - 5 Gbps
 - 10 Gbps
 
-Note: You  must check with your connectivity provider to determine the list of supported bandwidths they provide.
-
 ### Dynamic scaling of bandwidth
+
 You have the ability to increase the ExpressRoute circuit bandwidth (on a best effort basis) without having to tear down your connections. 
 
 ### Flexible billing models
-You can pick a billing model that works best for you. You can choose between the following.
+
+You can pick a billing model that works best for you. Choose between the billing models listed below. Refer to the [ExpressRoute FAQ](expressroute-faqs.md) page for more details. 
 
 - **Unlimited data**. The ExpressRoute circuit is charged based on a monthly fee, and all inbound and outbound data transfer is included free of charge. 
-
 - **Metered data**. The ExpressRoute circuit is charged based on a monthly fee. All inbound data transfer is free of charge. Outbound data transfer is charged per GB of data transfer. Data transfer rates vary by region.
-
 - **ExpressRoute premium add-on**. The ExpressRoute premium is an add-on over the ExpressRoute circuit. The ExpressRoute premium add-on provides the following capabilities: 
-
 	- Increased route limits for Azure public and Azure private peering from 4,000 routes to 10,000 routes.
 	- Global connectivity for services. An ExpressRoute circuit created in any region (excluding National clouds) will have access to resources across any other region in the world. For example, a virtual network created in West Europe can be accessed through an ExpressRoute circuit provisioned in Silicon Valley.
 	- Increased number of VNet links per ExpressRoute circuit from 10, to a larger limit (depending on the bandwidth of the circuit).
-
-Refer to the [ExpressRoute FAQ](expressroute-faqs.md) page for more details.
-
 
 ## Next steps
 
