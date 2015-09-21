@@ -59,7 +59,7 @@ All the enterprise applications such as SharePoint, Dynamics AX and SAP depend o
 
 Using Azure Site Recovery, you can create a complete automated disaster recovery plan for your AD. In case you have an AD for multiple applications such as SharePoint and SAP in your primary site and you decide to failover the complete site, you can failover AD first using AD recovery plan and then failover the other applications using application specific recovery plans.
 
-Refer the linked document for detailed guidance about [deploying Azure Site Recovery for AD](http://aka.ms/asr-ad)
+Refer the linked document for detailed guidance about [deploying Azure Site Recovery for AD](http://aka.ms/asr-ad) 
 
 ##SQL Server
 Microsoft SQL Server is the foundation for many enterprise-grade first party, third party and custom line of business applications that run inside a customer’s on-premises datacenter. Applications such as SharePoint, Dynamics, and SAP use SQL Server to provide data services. Azure Site Recovery and SQL Server HA/DR technologies are complementary and can be used to provide end to end protection for multi-tiered enterprise applications.
