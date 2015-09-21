@@ -158,7 +158,7 @@ Before you begin:
 
 - Install and configure StorSimple Snapshot Manager. For more information, go to [Deploy StorSimple Snapshot Manager](storsimple-snapshot-manager-deployment.md).
 
-#### To configure a backup of a basic volume
+#### To configure backup of a basic volume
 
 1. Create a basic volume on the StorSimple device.
 
@@ -184,7 +184,7 @@ Before you begin:
 
 9. To confirm that the backup job has started, expand the **Jobs** node in the **Scope** pane, and then click the **Running** node. The list of currently running jobs appears in the **Results** pane. 
 
-## Configure back up of a dynamic mirrored volume
+## Configure and back up a dynamic mirrored volume
 
 Complete the following steps to configure backup of a dynamic mirrored volume:
 
@@ -244,7 +244,7 @@ Disk Management is a system utility for managing hard disks and the volumes or p
 
 Use the following procedure to configure a dynamic mirrored volume, and then either start a backup immediately or create a policy for scheduled backups.
 
-#### To configure a backup of a dynamic mirrored volume
+#### To configure backup of a dynamic mirrored volume
 
 1. Click the StorSimple Snapshot Manager icon on your desktop. The StorSimple Snapshot Manager window appears. 
 
