@@ -120,9 +120,6 @@ Now that you have completed the quickstart, learn how to perform additional impo
 * **[Get started with data]**
   <br/>Learn more about storing and querying data using Mobile Services.
 
-* **[Call a custom API from an HTML application]**
-  <br/>Connect your HTML application with a custom API hosted on Mobile Services.
-
 * **[Get started with authentication]**
   <br/>Learn how to authenticate users of your app with an identity provider.
 
@@ -150,7 +147,6 @@ Now that you have completed the quickstart, learn how to perform additional impo
 <!-- URLs. -->
 [Get started with data]: mobile-services-html-get-started-data.md
 [Get started with authentication]: mobile-services-html-get-started-users.md
-[Call a custom API from an HTML application]: mobile-services-html-call-custom-api.md
 
 [Management Portal]: https://manage.windowsazure.com/
 [Microsoft Web Platform Installer]:  http://go.microsoft.com/fwlink/p/?LinkId=286333

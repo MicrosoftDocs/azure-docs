@@ -246,9 +246,6 @@ This concludes the **Get started with data** tutorial.
 
 This tutorial demonstrated the basics of enabling a Windows Phone 8 app to work with data in Mobile Services that are built using the .Net runtime. Next, try one of these other tutorials:
 
-* [Get started with authentication]
-  <br/>Learn how to authenticate users of your app.
-
 * [Add push notifications to your app]()
   <br/>Learn how to send a very basic push notification to your app.
 
@@ -262,8 +259,6 @@ This tutorial demonstrated the basics of enabling a Windows Phone 8 app to work 
 <!-- URLs. -->
 [Get started with Mobile Services]: ../mobile-services-dotnet-backend-windows-phone-get-started.md
 [Get started with data]: mobile-services-dotnet-backend-windows-phone-get-started-data.md
-[Get started with authentication]: mobile-services-dotnet-backend-windows-phone-get-started-users.md
-[Get started with push notifications]: mobile-services-dotnet-backend-windows-phone-get-started-push.md
 
 [Windows Phone 8 SDK]: http://go.microsoft.com/fwlink/p/?linkid=268374
 [Azure Management Portal]: https://manage.windowsazure.com/

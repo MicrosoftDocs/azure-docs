@@ -433,7 +433,7 @@ The following example uses the Live SDK, which supports single-sign-on for Windo
 	      });
 	});
 
-This simplified example gets a token from Live Connect, which is supplied to Mobile Services by calling the [login] function. For a more complete example of how to use Microsoft Account to provide a single sign-in experience, see [Authenticate your app with single sign-in].
+This simplified example gets a token from Live Connect, which is supplied to Mobile Services by calling the [login] function. 
 
 When you are using the Facebook or Google APIs for client authentication, the example changes slightly.
 
@@ -605,8 +605,6 @@ To control which websites are allowed to interact with and send requests to your
 [ListView]: http://msdn.microsoft.com/library/windows/apps/br211837.aspx
 [Data binding (Windows Store apps using JavaScript and HTML)]: http://msdn.microsoft.com/library/windows/apps/hh758311.aspx
 [login]: https://github.com/Azure/azure-mobile-services/blob/master/sdk/Javascript/src/MobileServiceClient.js#L301
-[Authenticate your app with single sign-in]: mobile-services-windows-store-javascript-single-sign-on.md
 [ASCII control codes C0 and C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
 [OData system query options reference]: http://go.microsoft.com/fwlink/p/?LinkId=444502
-[Call a custom API from the client]: mobile-services-html-call-custom-api.md
  

@@ -3,7 +3,6 @@
 - [(iOS | JavaScript)](../articles/mobile-services-ios-get-started-users.md)
 - [(Windows Runtime 8.1 universal C# | .NET)](../articles/mobile-services-dotnet-backend-windows-universal-dotnet-get-started-users.md)
 - [(Windows Runtime 8.1 universal C# | Javascript)](../articles/mobile-services-javascript-backend-windows-universal-dotnet-get-started-users.md)
-- [(Windows Phone Silverlight 8.x | .NET)](../articles/mobile-services-dotnet-backend-windows-phone-get-started-users.md)
 - [(Windows Phone Silverlight 8.x | Javascript)](../articles/mobile-services-windows-phone-get-started-users.md)
 - [(Android | Javascript)](../articles/mobile-services-android-get-started-users.md)
 - [(Xamarin.iOS | .NET)](../articles/mobile-services-dotnet-backend-xamarin-ios-get-started-users.md)
