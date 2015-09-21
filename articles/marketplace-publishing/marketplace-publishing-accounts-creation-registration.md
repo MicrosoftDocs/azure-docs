@@ -111,7 +111,7 @@ Now that your account is created and registered, click on the type of artifact (
 | Virtual Machine Image | Developer Service | Data Service | Solution Template |
 |----|---|----|----|
 |[VM Image Publishing Guide Pre-requisites][link-vm-publication-prereq] | [Developer Service Publishing Pre-requisites][link-devsvc-publication-prereq] | Data Service Publishing Pre-requisites  | [Solution Template Publishing Pre-requisites][link-soltempl-publication-prereq] |
-| [VM Image Publishing Guide][link-vm-publication] | [Developer Service Publishing Guide][link-devsvc-publication] | Data Service Publishing Guide | Solution Template Publishing Guide |
+| [VM Image Publishing Guide][link-vm-publication] | [Developer Service Publishing Guide][link-devsvc-publication] | Data Service Publishing Guide | [Solution Template Publishing Guide][link-soltempl-publication] |
 
 [img-msalive]:media/dev-services-pre-requisites-creating-msa-account-msa-live.jpg
 [img-email]:media/dev-services-pre-requisites-creating-msa-account-msa-verifyemail.jpg
