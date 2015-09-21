@@ -22,12 +22,8 @@ This section walks you through creating your resource provider which is the foun
 
 > **Note:** You must be an approved seller to complete the publishing process of an offering into the Azure Marketplace and receive payout. If you have already released an app you may already be an approved seller. You only need one approved seller account to sell apps and services in Microsoft Marketplaces. [Learn more about Microsoft Seller Dashboard][link-sd-msdn]
 
-## 3.1 Define Offers and SKUs
-### 3.1.1 Add an offer
-### 3.1.2 Define SKU(s)
-
-## 3.2 Create a resource provider
-### 3.2.1 Create Azure Storage & Queues for RP & Usage
+## 3.1 Create a resource provider
+### 3.1.1 Create Azure Storage & Queues for RP & Usage
 1. Navigate to https://portal.azure.com/.
 2.	Sign in with MSA and Azure Subscription (from Part 1 – Non-Technical steps).
 3.	(Once Portal Loads) Confirm in the top right that the Azure Subscription and Tenant (aka Directory) selected is correct.
@@ -61,7 +57,7 @@ This section walks you through creating your resource provider which is the foun
 >**Note**:
 Download Azure Storage Explorer:  http://azurestorageexplorer.codeplex.com/  to manage your storage account.
 
-### 3.2.2 Create a C# Resource Provider
+### 3.1.2 Create a C# Resource Provider
 **Requirements**
 
 *	VS2013 (with VS2013.4 Patch) or higher
@@ -97,8 +93,8 @@ Note – you can always update these values in the “Global.asax” file.
 
 Once Mock Tool tests have passed, to Step 3.3 and test the validate contracts against Azure website endpoint.
 
-## 3.3 Deploy resource provider
-### 3.3.1 Deploy resource provider as Azure websites
+## 3.2 Deploy resource provider
+### 3.2.1 Deploy resource provider as Azure websites
 1. Navigate to the [Azure Management Portal](https://portal.azure.com/).
 2.	Sign in with MSA and Azure Subscription (from Part 1 – Non-Technical steps).
 3.	(Once Portal Loads) Confirm in the top right that the Azure Subscription and Tenant (aka Directory) selected is correct.
@@ -111,7 +107,7 @@ Once Mock Tool tests have passed, to Step 3.3 and test the validate contracts ag
     ![drawing][img-site-details]
 10. Create the website.
 
-### 3.3.2 Enabling SSL on Azue Websites
+### 3.2.2 Enabling SSL on Azue Websites
 The steps to enable SSL on azure websites is given [here.][link-ssl]
 
 **Overview**
@@ -140,3 +136,4 @@ Accessing the Client Certificate From Your Web App
 When your web app is configured to use client certificate authentication, the client cert will be available in your app through a base64 encoded value in the "X-ARR-ClientCert" request header. Your application can create a certificate from this value and then use it for authentication and authorization purposes in your application.
 
 ## Next Step
+Now that you created and deployed your Resource Provider, you can move forward with [Step 4: Getting Staging](.) which entails business process of setting marketing content.
