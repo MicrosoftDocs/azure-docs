@@ -44,7 +44,7 @@ The following table provides a list of DSCP markings used by Skype for Business.
 ## Next steps
 
 - Refer to [routing](expressroute-routing.md) and [NAT](expressroute-nat.md) requirements.
-- Create and configure your ExpressRoute circuit.
+- Configure your ExpressRoute connection.
 	- [Create an ExpressRoute circuit](expressroute-howto-circuit-classic.md)
 	- [Configure routing](expressroute-howto-routing-classic.md)
 	- [Link a VNet to an ExpressRoute circuit](expressroute-howto-linkvnet-classic.md)
