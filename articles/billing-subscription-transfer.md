@@ -4,7 +4,7 @@
    services="billing"
    documentationCenter=""
    authors="curtand"
-   manager="msStevenPo"
+   manager="stevenpo"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="billing"
-   ms.date="09/16/2015"
+   ms.date="09/21/2015"
    ms.author="curtand;kareni;ruchic"/>
 
 # Transferring an Azure subscription
