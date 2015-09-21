@@ -53,6 +53,13 @@ Dynamics CRM | Y | Coming soon | Y | Coming soon
 Oracle | Y (tested by Microsoft) | Y (tested by Microsoft) | Y (tested by Microsoft) | Y (tested by Microsoft)
 Windows File Server | Y | Y | Y | Y
 
+##Active Directory and DNS
+
+All the enterprise applications such as SharePoint, Dynamics AX and SAP depend on AD and DNS infrastructure to function correctly. While creating a disaster recovery (DR) solution for any such application, it is important to protect and recover AD before the other components of the application come up in the event of a disruption.
+
+Using Azure Site Recovery, you can create a complete automated disaster recovery plan for your AD. In case you have an AD for multiple applications such as SharePoint and SAP in your primary site and you decide to failover the complete site, you can failover AD first using AD recovery plan and then failover the other applications using application specific recovery plans.
+
+Refer the linked document for detailed guidance about [deploying Azure Site Recovery for AD](http://aka.ms/asr-ad)
 
 ##SQL Server
 Microsoft SQL Server is the foundation for many enterprise-grade first party, third party and custom line of business applications that run inside a customer’s on-premises datacenter. Applications such as SharePoint, Dynamics, and SAP use SQL Server to provide data services. Azure Site Recovery and SQL Server HA/DR technologies are complementary and can be used to provide end to end protection for multi-tiered enterprise applications.
