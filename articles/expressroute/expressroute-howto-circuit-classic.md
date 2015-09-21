@@ -91,7 +91,7 @@ This article walks you through the steps to create an ExpressRoute circuit using
 		Zayo Group           Washington DC                  200Mbps:200, 500Mbps:500, 1Gbps:1000, 10Gbps:10000                                                                                                                                                           
     	
 
-3. **Create an ExpressRoute circuit**
+3. **Create an ExpressRoute circuit.**
 
 	The example below shows how to create a 200 Mbps ExpressRoute circuit through Equinix in Silicon Valley. If you are using a different provider and different settings, substitute that information when making your request.
 
@@ -116,7 +116,7 @@ This article walks you through the steps to create an ExpressRoute circuit using
 
 		get-help new-azurededicatedcircuit -detailed 
 
-4. **List all ExpressRoute circuits**
+4. **List all ExpressRoute circuits.**
 
 	You can run the following command to get a list of all ExpressRoute circuits you created by running the following command:
 
@@ -151,7 +151,7 @@ This article walks you through the steps to create an ExpressRoute circuit using
 
 		get-help get-azurededicatedcircuit -detailed 
 
-5. **Send the Service Key to your connectivity provider for provisioning**
+5. **Send the Service Key to your connectivity provider for provisioning.**
 
 	When you create a new ExpressRoute circuit, the circuit will be the following state:
 	
@@ -173,7 +173,7 @@ This article walks you through the steps to create an ExpressRoute circuit using
 
 
 
-5. **Periodically check the status and the state of the circuit key**
+5. **Periodically check the status and the state of the circuit key.**
 
 	This lets you know when your provider has enabled your circuit. Once the circuit has been configured, the *ServiceProviderProvisioningState* will display as *Provisioned* as shown in the example below.
 
@@ -188,11 +188,11 @@ This article walks you through the steps to create an ExpressRoute circuit using
 		Sku                              : Standard
 		Status                           : Enabled
 
-6. **Create your routing configuration**
+6. **Create your routing configuration.**
 	
 	Refer to the [ExpressRoute circuit routing configuration](expressroute-howto-routing-classic.md) page for step by step instructions. 
 
-7. **Link a VNet to an ExpressRoute circuit** 
+7. **Link a VNet to an ExpressRoute circuit.** 
 
 	Next, link a VNet to your ExpressRoute circuit. Refer to [Linking ExpressRoute circuits to vnets](expressroute-howto-linkvnet-classic.md) for step by step instructions. If you need to create a virtual network for ExpressRoute, see [Creating a virtual network for ExpressRoute](expressroute-howto-createvnet-classic.md) for instructions.
 
@@ -318,7 +318,7 @@ Note that you must unlink all virtual networks from the ExpressRoute for this op
 
 If the ExpressRoute circuit service provider provisioning state is enabled, the status will move to disabling from enabled state. You must work with your service provider to deprovision the circuit on their side. We will continue to reserve resources and bill you till the service provider completes deprovisioning the circuit and sends us a notification.
 
-If the service provider has deprovisioned the circuit (service provider provisioning state is set to not provisioned), before you run the above comdlet, we will deprovision the circuit and stop billing you. 
+If the service provider has deprovisioned the circuit (service provider provisioning state is set to not provisioned), before you run the above cmdlet, we will deprovision the circuit and stop billing you. 
 
 
 ## Next steps
