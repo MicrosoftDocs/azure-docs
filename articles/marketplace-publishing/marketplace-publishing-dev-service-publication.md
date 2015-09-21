@@ -20,7 +20,7 @@
 
 This section walks you through creating your resource provider which is the foundation of your developer service offer that you will publish into the Microsoft Azure Martketplace.  This process can be performed in parallel with [Account Creation and Registration][link-acct-creation].
 
-> **Note:** You must be an approved seller to complete the publishing process of an offering into the Azure Marketplace and receive payout. If you have already released an app you may already be an approved seller. You only need one approved seller account to sell apps and services in Microsoft Marketplaces. [Learn more about Microsoft Seller Dashboard][link-sd-msdn]
+> **Note:** You must be an approved seller to complete the publishing process of an offering into the Azure Marketplace and receive payout. If you have already released an app you may already be an approved seller. You only need one approved seller account to sell apps and services in Microsoft Marketplaces.
 
 ## 3.1 Create a resource provider
 ### 3.1.1 Create Azure Storage & Queues for RP & Usage
@@ -104,10 +104,12 @@ Once Mock Tool tests have passed, to Step 3.3 and test the validate contracts ag
 7.	Provide the required Azure Storage settings/configurations such as website name subscription etc.
 8.	For Developer Service Plan, create new
 9.	Fill in the required details, but make sure you select a plan higher than Free or Shared.
+
     ![drawing][img-site-details]
+
 10. Create the website.
 
-### 3.2.2 Enabling SSL on Azue Websites
+### 3.2.2 Enabling SSL on Azure Websites
 The steps to enable SSL on azure websites is given [here.][link-ssl]
 
 **Overview**
@@ -137,3 +139,7 @@ When your web app is configured to use client certificate authentication, the cl
 
 ## Next Step
 Now that you created and deployed your Resource Provider, you can move forward with [Step 4: Getting Staging](.) which entails business process of setting marketing content.
+
+[img-site-details]:media/dev-services-create-and-deploy-resourceprovider-as-azurewebsites.jpg
+[link-ssl]:http://azure.microsoft.com/blog/2015/07/02/enabling-client-certificate-authentication-for-an-azure-web-app/
+[link-acct-creation]:marketplace-publishing-accounts-creation-registration.md
