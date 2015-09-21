@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-phonegap"
 	ms.devlang="js"
 	ms.topic="article" 
-	ms.date="07/02/2015"
+	ms.date="09/21/2015"
 	ms.author="piyushjo" />
 
 # Get Started with Azure Mobile Engagement for Cordova/Phonegap
