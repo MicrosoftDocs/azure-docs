@@ -48,9 +48,9 @@ In this video, Scott Hanselman shows how easy it is to sign up for a free trial 
 
 [AZURE.INCLUDE [install-sdk-2015-2013](../../includes/install-sdk-2015-2013.md)]
 
-## Create an ASP.NET web application
+## Create a project and a web app
 
-Your first step is to create a web project in Visual Studio and a web app in Azure App Service. When that's done, you'll deploy the project to the web app to make it available on the Internet.
+Your first step is to create a web project in Visual Studio and a web app in Azure App Service. When that's done, you'll deploy the project to the web app to make it available on the Internet. 
 
 The diagram illustrates what you're doing in the create and deploy steps.
 
@@ -144,7 +144,11 @@ The diagram illustrates what you're doing in the create and deploy steps.
 
 	![Web app created](./media/web-sites-dotnet-get-started/siteinse.png)
 
-## Deploy the application to Azure
+## Deploy the project to the web app
+
+In this section you deploy web project to the web app, as illustrated in step 2 of the diagram.
+
+![Create and deploy](./media/web-sites-dotnet-get-started/Create_App.png)
 
 7. In the **Azure App Service Activity** window, click **Publish MyExample to this Web App now**.
 
