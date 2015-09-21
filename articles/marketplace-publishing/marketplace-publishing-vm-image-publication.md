@@ -433,9 +433,7 @@ To deploy a large VM, from the generalized VM Image just created, the following 
 ## 3.5  Obtain certification for your VM Image
 The next step in preparing your VM Image for the Azure Store is to have it certified.
 
-This process includes running a
-special certification tool, uploading the verification results to the Azure container where your VHDs reside, adding an
-offer, defining your SKU, and submitting your VM Image for certification.
+This process includes running a special certification tool, uploading the verification results to the Azure container where your VHDs reside, adding an offer, defining your SKU, and submitting your VM Image for certification.
 
 ### 3.5.1 Download and run the Microsoft Azure Certification Tool
 The Microsoft Azure Certification Tool will run against a running VM, provisioned from your user VM Image, to ensure that the VM Image is compatible with Microsoft Azure. It will verify that the guidance and requirements about preparing your VHD have been met. The output of the tool is a compatibility report, which should be uploaded on Publishing Portal while requesting for Certification.
@@ -484,7 +482,6 @@ Following the automated test, you will be asked to provide additional input on y
 Once you have completed the questionnaire, you can provide additional information like SSH access information for Linux VM Image and explanation for the failed assessments. You can download the test results and log files for the executed test cases as well as your answers to the questionnaire. Save the results in the same container as your VHDs .
 
 ![Save certification test results][img-cert-vm-results]
-
 
 ### 3.5.2 Get the Shared Access Signature Uniform Resource Identifier (URI) for your VM Images
 
@@ -549,10 +546,12 @@ Instead of generating a shared access key using code, you can also use storage t
 
 ### 3.5.3 Provide information about the VM Image and request certification in the Publishing Portal
 Once you have created your offer and SKU, you should enter the image details associated with that SKU.
+
 1. Go to [Publishing Portal][link-pubportal] and log in with your seller account.
 2. Select the **VM Images** tab
 3. The identifier listed at the top of the page is actually the offer identifier and NOT the SKU identifier.
 4. Fill out the properties under the SKUs section.
+
   ![drawing][img-pubportal-vm-skus]
 5. Under **Operating System Family**, select the operating system type associated with the OS VHD.
 6. Under **Operating System**, describe the operating system. Consider a format such as Operating System Family, Type, Version, and Updates. An example is Windows Server Datacenter 2014 R2.
