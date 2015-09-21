@@ -38,7 +38,7 @@ In this example there is a subscription that contains the following:
 - Two windows servers that represent application back end servers (“AppVM01”, “AppVM02”)
 - A Windows server that represents a DNS server (“DNS01”)
 
->[AZURE.NOTE] Although this example uses a Barracuda NG Firewall, many of the different Network Virtual Appliances could be used in this example.
+>[AZURE.NOTE] Although this example uses a Barracuda NG Firewall, many of the different Network Virtual Appliances could be used for this example.
 
 In the references section below there is a PowerShell script that will build most of the environment described above. Building the VMs and Virtual Networks, although are done by the example script, are not described in detail in this document.
  
@@ -52,7 +52,7 @@ To build the environment;
 
 Once the script runs successfully the following post-script steps may be taken;
 
-1.	Set up the firewall rules, this is covered in the section below titled: Firewall Rule Description.
+1.	Set up the firewall rules, this is covered in the section below titled: Firewall Rules.
 2.	Optionally in the references section are two scripts to set up the web server and app server with a simple web application to allow testing with this DMZ configuration.
 
 The next section explains most of the scripts statements relative to Network Security Groups.
@@ -75,7 +75,7 @@ With these rules bound to each subnet, if a HTTP request was inbound from the In
 
 There is a default outbound rule that allows traffic out to the internet. For this example, we’re allowing outbound traffic and not modifying any outbound rules. To lock down traffic in both directions, User Defined Routing is required, this is explored in a different example that can found in the [main security boundary document][HOME].
 
-The above discussed NSG rules are very similar to the NSG rules in [Example 1 - A simple DMZ with NSG][Example1]. Please review the NSG Description in that document for a detailed look at each NSG rule and it's attributes.
+The above discussed NSG rules are very similar to the NSG rules in [Example 1 - Build a Simple DMZ with NSGs][Example1]. Please review the NSG Description in that document for a detailed look at each NSG rule and it's attributes.
 
 ## Firewall Rules
 On the firewall, forwarding rules will need to be created. Since this example only routes internet traffic in-bound to the firewall and then to the web server, only one forwarding NAT rule is needed. On the Barracuda NG firewall used in this example the rule would be a Destination NAT rule (“Dst NAT”) to pass this traffic.
@@ -546,6 +546,7 @@ If you wish to install a sample application for this, and other DMZ Examples, on
 [2]: ./media/Network-Boundary-DMZ-NSG-FW-ASM/DstNATIcon.png "Destination NAT Icon"
 [3]: ./media/Network-Boundary-DMZ-NSG-FW-ASM/FirewallRule.png "Firewall Rule"
 [4]: ./media/Network-Boundary-DMZ-NSG-FW-ASM/FirewallRuleActivate.png "Firewall Rule Activation"
+
 <!--Link References-->
 [HOME]: ../best-practices-network-security.md
 [SampleApp]: ./Network-Boundary-Sample-App.md

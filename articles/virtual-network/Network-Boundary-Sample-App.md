@@ -25,11 +25,13 @@ These PowerShell scripts can be run locally on the IIS01 and AppVM01 servers to 
 This will app provides a simple testing environment for many of the DMZ Examples and how changes on the Endpoints, NSGs, UDR, and Firewall rules can effect traffic flows.
 
 ## Firewall Rule to Allow ICMP
-This simple PowerShell statement can be run on any Windows VM to allow ICMP (Ping) traffic. This will allow for easier testing and troubleshooting by allowing the ping protocol to pass trhough the windows firewall.
+This simple PowerShell statement can be run on any Windows VM to allow ICMP (Ping) traffic. This will allow for easier testing and troubleshooting by allowing the ping protocol to pass through the windows firewall (for most Linux distros ICMP is on by default).
 
 	# Turn On ICMPv4
 	New-NetFirewallRule -Name Allow_ICMPv4 -DisplayName "Allow ICMPv4" `
 		-Protocol ICMPv4 -Enabled True -Profile Any -Action Allow
+
+**Note:** If you use the below scripts, this firewall rule addition is the first statement.
 
 ## IIS01 - Web Application Installation Script
 This script will;
@@ -113,7 +115,9 @@ This script sets up the back end for this simple application. This script will;
 2.	Create a new directory
 3.	Create a text file to be remotely access by the web page above
 4.	Set permissions on the directory and file to allow access
-5.	Turn off IE Enhanced Security to allow easier browsing from this server (Best Practice: never do this on a production server)
+5.	Turn off IE Enhanced Security to allow easier browsing from this server 
+
+>[AZURE.IMPORTANT] **Best Practice**: Never turn off IE Enhanced Security on a production server, it's generally a bad idea to surf the web from a production server.)
 
 This PowerShell script should be run locally while RDP’d into AppVM01. PowerShell is required to be run as Administrator to ensure successful execution.
 	

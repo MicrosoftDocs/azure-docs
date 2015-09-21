@@ -83,7 +83,7 @@ If there are two identical prefixes in the route table, the following is the ord
 2.	“VPNGateway” = A Dynamic Route (BGP when used with hybrid networks), added by a dynamic network protocol, these routes may change over time as the dynamic protocol automatically reflects changes in peered network
 3.	“Default” = The System Routes, the local VNet and the static entries as shown in the route table above.
 
->[AZURE.NOTE] There are currently limitations with UDR and hybrid networks. Specifically, the Azure Network Gateway currently can't be designated as the NextHop destination for a User Defined Route. This is being resolved in a future release.
+>[AZURE.NOTE] There is a limitation using User Defined Routing (UDR) and ExpressRoute due to the complexity of dynamic routing used on the Azure Virtual Gateway. Subnets communicating to the Azure Gateway providing the ExpressRoute connection should not have UDR applied. Also, the Azure Gateway cannot be the NextHop device for other UDR bound subnets. The ability to fully integrate UDR and ExpressRoute will be enabled in a future Azure release.
 
 #### Creating the local routes
 
