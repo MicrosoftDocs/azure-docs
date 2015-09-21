@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="Azure"
    ms.workload="na"
-   ms.date="09/09/2015"
+   ms.date="09/20/2015"
    ms.author="hascipio"/>
 
 # Publisher Account Creation & Registration Process
@@ -107,10 +107,11 @@ The Azure Publishing Portal is used to publish and manage your offer(s). Think o
 
 ## Next Steps
 Now that your account is created and registered, click on the type of artifact (virtual machine, developer service, data service, solution template) that you would like to publish to the Azure Marketplace. Visit one of the following articles to learn how to publish your respective offer:
- - [Virtual Machine Onboarding Guide][link-vm-guide]
- - [Developer Service Onboarding Guide][link-devsvc-guide]
- - [Data Service Onboarding Guide][link-datasvc-guide]
- - [Solution Template Onboarding Guide][link-template-guide]
+
+| Virtual Machine Image | Developer Service | Data Service | Solution Template |
+|----|---|----|----|
+|VM Image Publishing Guide Pre-requisites | [Developer Service Publishing Pre-requisites][link-devsvc-publication-prereq] | Data Service Publishing Pre-requisites  | [Solution Template Publishing Pre-requisites][link-soltempl-publication-prereq] |
+| [VM Image Publishing Guide][link-vm-publication] | [Developer Service Publishing Guide][link-devsvc-publication] | Data Service Publishing Guide | Solution Template Publishing Guide |
 
 [img-msalive]:media/dev-services-pre-requisites-creating-msa-account-msa-live.jpg
 [img-email]:media/dev-services-pre-requisites-creating-msa-account-msa-verifyemail.jpg
@@ -126,13 +127,15 @@ Now that your account is created and registered, click on the type of artifact (
 [img-sd-legal]:media/dev-services-pre-requisites-seller-dashboard-personal-cmp.JPG
 [img-sd-submit]:media/dev-services-pre-requisites-seller-dashboard-approval.JPG
 
-
-
 [0]: http://.
 [link-msdndoc]: https://msdn.microsoft.com/en-us/library/jj552460.aspx
 [link-sellerdashboard]: http://sellerdashboard.microsoft.com/
 [link-pubportal]: https://publish.windowsazure.com
-[link-devsvc-guide]: marketplace-publishing-dev-services-pre-requisites.md
-[link-datasvc-guide]:.
-[link-template-guide]:.
-[link-vm-guide]:.
+[link-vm-publication]:marketplace-publishing-virtual-machine-publication.md
+[link-vm-publication-prereq]:marketplace-publishing-virtual-machine-publication-pre-requisites.md
+[link-datasvc-publication]:marketplace-publishing-data-service-publication.md
+[link-datasvc-publication-prereq]:marketplace-publishing-data-service-publication-pre-requisites.md
+[link-devsvc-publication]:marketplace-publishing-developer-service-publication.md
+[link-devsvc-publication-prereq]:marketplace-publishing-developer-service-publication-pre-requisites.md
+[link-soltempl-publication]:marketplace-publishing-solution-template-publication.md
+[link-soltempl-publication-prereq]:marketplace-publishing-solution-template-publication-pre-requisites.md
