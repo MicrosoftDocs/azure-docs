@@ -76,7 +76,7 @@ Azure IoT Hub mediates the interactions between your devices and your applicatio
 - Bi-directional communication for devices that are connected sporadically due to power or connectivity concerns may be facilitated through holding commands and notifications to the devices until they connect to pick those up. Azure IoT Hub maintains device specific queues for the commands it sends to devices.
 - Application payload data may be separately secured for protected transit through gateways to a particular service.
 
-# Next steps
+## Next steps
 
 *[TBD update this section with links etc]*
 

@@ -17,6 +17,7 @@
  ms.author="dobett"/>
 
 # Devices supported by the Azure IoT device SDKs
+**NOTE: This is a placeholder article. Content now resides in SDK GitHub repo.**
 
 This article provides a list of the device, operating system, and language combinations that are supported by the Azure IoT device SDKs. The IoT device SDKs help you to connect to an IoT hub, send device-to-cloud telemetry data, and receive cloud-to-device commands.
 

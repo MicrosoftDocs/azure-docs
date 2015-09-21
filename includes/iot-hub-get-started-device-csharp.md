@@ -6,11 +6,11 @@ In this section, you'll write a Windows console app that simulates a device send
 
    	![][30]
 
-2. In Solution Explorer, right-click the solution, and then click **Manage NuGet Packages for Solution...**. 
+2. In Solution Explorer, right-click the solution, and then click **Manage NuGet Packages for Solution...**.
 
 	This displays the Manage NuGet Packages window.
 
-3. Search for `Microsoft Azure Devices Client`, click **Install**, and accept the terms of use. 
+3. Search for `Microsoft Azure Devices Client`, click **Install**, and accept the terms of use.
 
 	This downloads, installs, and adds a reference to the [Azure IoT - Device SDK NuGet package].
 
@@ -71,10 +71,3 @@ In this section, you'll write a Windows console app that simulates a device send
 
 <!-- Images -->
 [30]: ./media/iot-hub-getstarted-device-csharp/create-identity-csharp1.png
-
-
-
-
-
-
-
