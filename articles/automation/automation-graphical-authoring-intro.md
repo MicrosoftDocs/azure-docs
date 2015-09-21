@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/10/2015"
+   ms.date="09/04/2015"
    ms.author="bwren" />
 
 # Graphical authoring in Azure Automation
@@ -61,6 +61,17 @@ The Configuration control is where you provide details for an object selected on
 The Test control is not displayed when the graphical editor is first started. It is opened when you interactively [test a graphical runbook](#graphical-runbook-procedures).  
 
 ## Graphical runbook procedures 
+
+### Exporting and importing a graphical runbook
+
+You can only export the published version of a graphical runbook.  If the runbook has not yet been published, then the **Export published** button will be disabled.  When you click the **Export published** button, the runbook is downloaded to your local computer.  The name of the file matches the name of the runbook with a *graphrunbook* extension.
+
+![Export published](media/automation-graphical-authoring-intro/runbook-export.png)
+
+You can import a graphical runbook file by selecting the **Import** option when adding a runbook.   When you select the file to import, you can keep the same **Name** or provide a new one.
+
+![Import runbook](media/automation-graphical-authoring-intro/runbook-import.png)
+
 
 ### Testing a graphical runbook
 
