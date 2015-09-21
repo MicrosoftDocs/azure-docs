@@ -1,6 +1,6 @@
 <properties 
    pageTitle="StorSimple Snapshot Manager and volumes | Microsoft Azure"
-   description="Describes how to use the StorSimple Snapshot Manager MMC snap-in to view and manage volumes."
+   description="Describes how to use the StorSimple Snapshot Manager MMC snap-in to view and manage volumes and to configure backups."
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/15/2015"
+   ms.date="09/21/2015"
    ms.author="v-sharos" />
 
 # Use StorSimple Snapshot Manager to view and manage volumes
@@ -146,7 +146,7 @@ Use the following procedure to rescan the volumes connected to StorSimple Snapsh
  
     This procedure synchronizes the volume list with StorSimple Snapshot Manager. Any changes, such as new volumes or deleted volumes, will be reflected in the results.
 
-## Configure and back up a basic volume
+## Configure backup of a basic volume
 
 Use the following procedure to configure a backup of a basic volume, and then either start a backup immediately or create a policy for scheduled backups.
 
@@ -184,7 +184,7 @@ Before you begin:
 
 9. To confirm that the backup job has started, expand the **Jobs** node in the **Scope** pane, and then click the **Running** node. The list of currently running jobs appears in the **Results** pane. 
 
-## Configure and back up a dynamic mirrored volume
+## Configure back up for a dynamic mirrored volume
 
 Complete the following steps to configure backup for a dynamic mirrored volume:
 
