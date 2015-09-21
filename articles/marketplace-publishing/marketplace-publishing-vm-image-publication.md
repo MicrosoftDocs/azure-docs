@@ -407,14 +407,17 @@ By running this script, you create a user VM Image with the name you provided to
 To deploy a VM from a user VM Image, you can use the current [Azure Management Portal](https://manage.windowsazure.com) or PowerShell.
 
 **Deploy a VM from the current Azure Management Portal**
+
 1. Go to **New > Compute > VM > From Gallery**.
 
   ![drawing][img-manage-vm-new]
+
 2. Go to **My Images** and select the VM Image from which to deploy a VM.
   1. Pay close attention to which image you select, since the 'My Images' view lists both OS Images and VM Images.
   2. Looking at the number of disks can help determine what type of image you are deploying, since the majority of VM Images will have more than one disk. However, it is still possible to have a VM Image with only a single OS disk, which would then have a 'number of disks' set to one.
 
     ![drawing][img-manage-vm-select]
+
 3. Follow the VM creation wizard, specifying the VN name, VM size, location, username, and password.
 
 **Deploy a VM from PowerShell**
