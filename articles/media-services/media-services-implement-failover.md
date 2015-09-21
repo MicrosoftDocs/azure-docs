@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Implementing Failover Streaming Scenario" 
+	pageTitle="Implementing Failover Streaming Scenario | Microsoft Azure" 
 	description="This topic shows how to implement failover streaming scenario." 
 	services="media-services" 
 	documentationCenter="" 
