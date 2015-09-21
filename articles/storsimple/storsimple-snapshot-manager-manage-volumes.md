@@ -25,8 +25,6 @@ For more information about supported volumes, go to [Support for multiple volume
 
 ![Volume list in Results pane](./media/storsimple-snapshot-manager-manage-volumes/HCS_SSM_Volume_node.png)
 
-**Figure 1: StorSimple Snapshot Manager Volumes node** 
-
 The **Volumes** node also lets you rescan or delete volumes after StorSimple Snapshot Manager discovers them. 
 
 This tutorial explains how you can mount, initialize, and format volumes and then use StorSimple Snapshot Manager to:
