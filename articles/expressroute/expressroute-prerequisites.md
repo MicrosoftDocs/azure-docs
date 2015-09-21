@@ -79,5 +79,5 @@ Review the following resources for more information about Office 365 requirement
 - Refer to [routing](expressroute-routing.md), [NAT](expressroute-nat.md) and [QoS](expressroute-qos.md) requirements.
 - Create and configure your ExpressRoute circuit.
 	1.  [Create an ExpressRoute circuit](expressroute-howto-circuit-classic.md)
-	2.   [Configure routing](expressroute-howto-routing-classic.md)
-	3.   [Link a VNet to an ExpressRoute circuit](expressroute-howto-linkvnet-classic.md)
+	2.  [Configure routing](expressroute-howto-routing-classic.md)
+	3.  [Link a VNet to an ExpressRoute circuit](expressroute-howto-linkvnet-classic.md)

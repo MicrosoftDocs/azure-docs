@@ -21,7 +21,7 @@ Skype for Business has various workloads that require differentiated QoS treatme
 
 ![](./media/expressroute-qos/expressroute-qos.png)
 
-**Note** QoS requirements apply to the Microsoft peering only.
+**Note:** QoS requirements apply to the Microsoft peering only.
 
 The following table provides a list of DSCP markings used by Skype for Business. Refer to [Managing QoS for Skype for Business](https://technet.microsoft.com/library/gg405409.aspx) for more information.
 
@@ -35,16 +35,16 @@ The following table provides a list of DSCP markings used by Skype for Business.
 |   | CS0 (0) | Anything else| 
 
 
-You must classify the workloads and mark the right DSCP values. Follow the guidance provided [here](??) on how to set DSCP markings in your network.
+- You must classify the workloads and mark the right DSCP values. Follow the guidance provided [here](https://technet.microsoft.com/library/gg405409.aspx) on how to set DSCP markings in your network.
 
-You must configure and support multiple QoS queues within your network. Voice must be a standalone class and receive the EF treatment specified in RFC 3246. 
+- You must configure and support multiple QoS queues within your network. Voice must be a standalone class and receive the EF treatment specified in RFC 3246. 
 
-You can decide the queuing mechanism, congestion detection policy, and bandwidth allocation per traffic class. But, the DSCP marking for Skype for Business workloads must be preserved. If you are using DSCP markings not listed above, e.g. AF31 (26), you must rewrite this DSCP value to 0 before sending the packet to Microsoft. Microsoft only sends packets marked with the DSCP value shown in the above table. 
+- You can decide the queuing mechanism, congestion detection policy, and bandwidth allocation per traffic class. But, the DSCP marking for Skype for Business workloads must be preserved. If you are using DSCP markings not listed above, e.g. AF31 (26), you must rewrite this DSCP value to 0 before sending the packet to Microsoft. Microsoft only sends packets marked with the DSCP value shown in the above table. 
 
 ## Next steps
 
 - Refer to [routing](expressroute-routing.md) and [NAT](expressroute-nat.md) requirements.
 - Create and configure your ExpressRoute circuit.
 	1.  [Create an ExpressRoute circuit](expressroute-howto-circuit-classic.md)
-	2.   [Configure routing](expressroute-howto-routing-classic.md)
-	3.   [Link a VNet to an ExpressRoute circuit](expressroute-howto-linkvnet-classic.md)
+	2.  [Configure routing](expressroute-howto-routing-classic.md)
+	3.  [Link a VNet to an ExpressRoute circuit](expressroute-howto-linkvnet-classic.md)
