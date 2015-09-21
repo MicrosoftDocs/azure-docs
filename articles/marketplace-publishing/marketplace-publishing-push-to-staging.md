@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Developer Service Publishing Guide - Deploying the Offer"
-   description="Detailed instructions on how to deploy a developer service offering."
+   pageTitle="Pushing an offer to staging"
+   description="Detailed instructions on how to push an offer to staging."
    services="Azure Marketplace"
    documentationCenter=""
    authors="HannibalSII"
@@ -10,19 +10,13 @@
 <tags
    ms.service="AzureStore"
    ms.devlang="en-us"
-   ms.topic="Deploy a Developer Service offer"
+   ms.topic="article"
    ms.tgt_pltfrm="Azure"
-   ms.workload=""
-   ms.date="09/13/2015"
+   ms.workload="na"
+   ms.date="09/20/2015"
    ms.author="hascipio"/>
 
-# Developer Service On-boarding Guide - Publishing your offer
-
-## Previous Steps
-- [Build a Resource Provider][2]
-- [Deploy Resource Provider as Azure Website][1]
-
-## Push to staging
+# Push to staging
 
 * Navigate to publisher portal. Go to “Publish” tab and click on “Push to Staging”. It will pop-up a box and ask for subscriptions you want to white list for Staged offer. Add the pay-as-you-go subscription you create in earlier.
 

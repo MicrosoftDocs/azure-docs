@@ -10,70 +10,45 @@
 <tags
    ms.service="required"
    ms.devlang="may be required"
-   ms.topic="Table of Content: Publishing an offer on the Microsoft Azure Marketplace"
+   ms.topic="article"
    ms.tgt_pltfrm="may be required"
-   ms.workload="required"
-   ms.date="09/08/2015"
-   ms.author="hascipio
+   ms.workload="na"
+   ms.date="09/20/2015"
+   ms.author="hascipio" />
 
 # Publishing an Offer on the Microsoft Azure Marketplace
 This information is provided to help you publish your software solution into the Azure Marketplace for other Azure customers to purchase.
 
-## Account Creation & Registration
+## Step 1. Get approved
+- Azure Certification Process
+
+## Step 2. Register your company account
 - [Seller Account Creation & Registration Process][link-accts]
 
-## Virtual Machine Publication and Management
-- Azure Certification (coming soon)
-- Publishing Process (coming soon)
-- Update an Offer (coming soon)
-- Reporting (coming soon)
-- Payouts (coming soon)
-- Troubleshooting (coming soon)
+## Step 3. Offer Creation
 
-## Developer Service Offer Publication and Management
-- Azure Certification (coming soon)
-- Publishing Process (coming soon)
-- Update an Offer (coming soon)
-- Reporting (coming soon)
-- Payouts (coming soon)
+| Virtual Machine Image | Developer Service | Data Service | Solution Template |
+|----|---|----|----|
+|VM Image Publishing Guide Pre-requisites | [Developer Service Publishing Pre-requisites][link-devsvc-publication-prereq] | Data Service Publishing Pre-requisites  | [Solution Template Publishing Pre-requisites][link-soltempl-publication-prereq] |
+| [VM Image Publishing Guide][link-vm-publication] | [Developer Service Publishing Guide][link-devsvc-publication] | Data Service Publishing Guide | Solution Template Publishing Guide |
 
-## Data Service Offer Publication and Management
-- Publishing Process (coming soon)
-- Update an Offer (coming soon)
-- Reporting (coming soon)
-- Payouts (coming soon)
+## Step 4. Getting to staging
+- Offer Marketing Content Guide
 
-## Solution Template Offer Publication and Management
-- Azure Certification (coming soon)
-- Publishing Process (coming soon)
-- Update an Offer (coming soon)
-- Reporting (coming soon)
+## Step 5. Publish
 
-Payouts (coming soon)
-## Get Support
-- Get Support as a Publisher (coming soon)
-- Get Support as a Developer (coming soon)
-- Get Support for your Customer (coming soon)
-
-## Frequently Asked Questions (tenative)
-## Troubleshooting (tentative)
+### Appendix 1: Support
+### Appendix 2: Setting up Azure PowerShell
+### Appendix 3: Instructions for developing on-premises
 
 [1]:.
 [link-accts]:marketplace-publishing-microsoft-accounts-creation-registration.md
 [link-certification]:marketplace-publishing-azure-certification.md
 [link-vm-publication]:marketplace-publishing-virtual-machine-publication.md
-[link-vm-updating]:marketplace-publishing-virtual-machine-updating.md
-[link-vm-reporting]:marketplace-publishing-virtual-machine-reporting.md
-[link-vm-payout]:marketplace-publishing-virtual-machine-payout.md
+[link-vm-publication-prereq]:marketplace-publishing-virtual-machine-publication-pre-requisites.md
 [link-datasvc-publication]:marketplace-publishing-data-service-publication.md
-[link-datasvc-updating]:marketplace-publishing-data-service-updating.md
-[link-datasvc-reporting]:marketplace-publishing-data-service-reporting.md
-[link-datasvc-payout]:marketplace-publishing-data-service-payout.md
+[link-datasvc-publication-prereq]:marketplace-publishing-data-service-publication-pre-requisites.md
 [link-devsvc-publication]:marketplace-publishing-developer-service-publication.md
-[link-devsvc-updating]:marketplace-publishing-developer-service-updating.md
-[link-devsvc-reporting]:marketplace-publishing-developer-service-reporting.md
-[link-devsvc-payout]:marketplace-publishing-developer-service-payout.md
+[link-devsvc-publication-prereq]:marketplace-publishing-developer-service-publication-pre-requisites.md
 [link-soltempl-publication]:marketplace-publishing-solution-template-publication.md
-[link-soltempl-reporting]:marketplace-publishing-solution-template-reporting.md
-[link-soltempl-updating]:marketplace-publishing-solution-template-updating.md
-[link-soltempl-payout]:marketplace-publishing-solution-template-payout.md
+[link-soltempl-publication-prereq]:marketplace-publishing-solution-template-publication-pre-requisites.md

@@ -17,35 +17,32 @@
    ms.author="hascipio"/>
 
 # Developer Service Onboarding Guide - Pre-requisites
-
-## Previous Steps
-- [Create an organizational MSA Account][link-acct-creation]
-- [Submit Microsoft Seller application][link-acct-creation]
-- [Register account in the Publishing Portal][link-acct-creation]
-
-<!--
-* Add Tax and Payout Information.
--->
-
-
 > You must be an approved seller to complete the publishing process of an offering into the Azure Marketplace and receive payout. If you have already released an app you may already be an approved seller. You only need one approved seller account to sell apps and services in Microsoft Marketplaces. [Learn more about Microsoft Seller Dashboard][link-sd-msdn]
 
-## Get Access to an active Azure ‘Pay-As-You-Go’ Subscription (non-Microsoft subscription)
+### Get Access to an active Azure ‘Pay-As-You-Go’ Subscription (non-Microsoft subscription)
 
 Navigate to [Azure Accounts Portal][link-acctportal] (and sign in with MSA from above).
 
-> **Note**: This will be used for testing your offer scenarios in Staging and Production.[Learn more Pay-as-you-Go (PAYG) Azure Subscriptions][link-payg]
+> **Note**: This will be used for testing your offer scenarios in Staging and Production. [Learn more Pay-as-you-Go (PAYG) Azure Subscriptions][link-payg]
 
-## Install IDE that supports C#, .VSIX packages, .Net4.5 or greater, publishing to Microsoft Azure Cloud Service
+### Install IDE that supports C#, .VSIX packages, .Net4.5 or greater, publishing to Microsoft Azure Cloud Service
 
 1. Need to have Visual Studio 2013 Ultimate or higher
 1. Need to have service PatchVS2013.4 or higher
 1. Azure SDK 2.3 or higher
 
+
+### Install VSIX
+
+Please contact the Azure Certified team for downloading VSIX.
+
+>**Note**: If already installed, then uninstall and reinstall (to make sure you have latest version):
+VS Menu Bar --> Tools --> Extensions and Updates… --> Remove “Application Services Resource Provider”
+
 <!--
 ## Review the Publisher portal Offer marketing Data
 
-You need to feel certain marketing details about your offering in Markeplace such as description of your product, cpmpany logo's, price plans, details of plans etc. This information is used as marketing content in our azure portal. Please find some of the marketing data mappings [here](marketplace-publishing-dev-services-pre-requisites-marketing-content-guide.md).
+You need to feel certain marketing details about your offering in Marketplace such as description of your product, cpmpany logo's, price plans, details of plans etc. This information is used as marketing content in our azure portal. Please find some of the marketing data mappings [here](marketplace-publishing-dev-services-pre-requisites-marketing-content-guide.md).
 
 ## Define Pricing Model for your Offering (section: Pricing & Billing)
 
