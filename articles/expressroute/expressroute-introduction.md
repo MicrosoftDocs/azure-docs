@@ -120,7 +120,7 @@ You can pick a billing model that works best for you. Choose between the billing
 - Ensure that all prerequisites are met. See [ExpressRoute prerequisites](expressroute-prerequisites.md).
 - Refer to [Routing](expressroute-routing.md), [NAT](expressroute-nat.md) and [QoS](expressroute-qos.md) requirements.
 - Refer to [routing](expressroute-routing.md) and [NAT](expressroute-nat.md) requirements.
-- Create and configure your ExpressRoute circuit.
+- Configure your ExpressRoute connection.
 	- [Create an ExpressRoute circuit](expressroute-howto-circuit-classic.md)
 	- [Configure routing](expressroute-howto-routing-classic.md)
 	- [Link a VNet to an ExpressRoute circuit](expressroute-howto-linkvnet-classic.md)
