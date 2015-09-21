@@ -1,11 +1,13 @@
 <properties 
-	pageTitle="Performance best practices for SQL Server in Azure Virtual Machines"
+	pageTitle="Performance best practices for SQL Server | Microsoft Azure"
 	description="Provides best practices for optimizing SQL Server performance in Microsoft Azure VMs."
 	services="virtual-machines"
 	documentationCenter="na"
 	authors="rothja"
 	manager="jeffreyg"
-	editor="monicar" />
+	editor="monicar" 
+	tags="azure-service-management" />
+	
 <tags 
 	ms.service="virtual-machines"
 	ms.devlang="na"
@@ -16,6 +18,8 @@
 	ms.author="jroth" />
 
 # Performance best practices for SQL Server in Azure Virtual Machines
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)] This article covers creating a resource with the classic deployment model. 
 
 ## Overview
 

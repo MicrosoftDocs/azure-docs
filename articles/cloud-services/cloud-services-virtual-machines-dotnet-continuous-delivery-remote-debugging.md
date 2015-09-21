@@ -29,7 +29,7 @@ In this topic:
 
 1. On the build agent, set up the initial environment for Azure as outlined in [Command-Line Build for Azure](http://msdn.microsoft.com/library/hh535755.aspx).
 2. Because the remote debug runtime (msvsmon.exe) is required for the package, install the [Remote Tools for Visual Studio 2015 RC](http://www.microsoft.com/download/details.aspx?id=46874) (or the [Remote Tools for Visual Studio 2013 Update 5 RC](https://www.microsoft.com/en-us/download/details.aspx?id=46870) if you’re using Visual Studio 2013). As an alternative, you can copy the remote debug binaries from a system that has Visual Studio installed.
-3. Create a certificate as outlined in [Create a Service Certificate for Azure](http://msdn.microsoft.com/library/azure/gg432987.aspx). Keep the .pfx and RDP certificate thumbprint and upload the certificate to the target cloud service.
+3. Create a certificate as outlined in [Create a Service Certificate for Azure](cloud-services-certs-create.md). Keep the .pfx and RDP certificate thumbprint and upload the certificate to the target cloud service.
 4. Use the following options in the MSBuild command line to build and package with remote debug enabled. (Substitute actual paths to your system and project files for the angle-bracketed items.)
 
 		msbuild /TARGET:PUBLISH /PROPERTY:Configuration=Debug;EnableRemoteDebugger=true;VSX64RemoteDebuggerPath="<remote tools path>";RemoteDebuggerConnectorCertificateThumbprint="<thumbprint of the certificate added to the cloud service>";RemoteDebuggerConnectorVersion="2.6" "<path to your VS solution file>"
@@ -43,7 +43,7 @@ In this topic:
 
 1. Create an Azure virtual machine. See [Create a Virtual Machine Running Windows Server](../virtual-machines-windows-tutorial.md) or [Creating Azure Virtual Machines in Visual Studio](http://msdn.microsoft.com/library/azure/dn569263.aspx).
 2. On the [Azure portal page](http://go.microsoft.com/fwlink/p/?LinkID=269851), view the virtual machine dashboard to see the virtual machine’s “RDP Certificate Thumbprint”. This is used for the `ServerThumbprint` value in the extension configuration.
-3. Create a client certificate as outlined in [Create a Service Certificate for Azure](http://msdn.microsoft.com/library/azure/gg432987.aspx) (keep the .pfx and RDP certificate thumbprint).
+3. Create a client certificate as outlined in [Create a Service Certificate for Azure](cloud-services-certs-create.md) (keep the .pfx and RDP certificate thumbprint).
 4. Install [Azure Powershell](http://go.microsoft.com/?linkid=9811175&clcid=0x409) (version 0.7.4 or later) from the Microsoft Download Center.
 5. Run the following script to enable the RemoteDebug extension. Replace the paths and personal data with your own, such as your subscription name, service name, and thumbprint. (NOTE: This script is configured for Visual Studio 2015 RC. If you’re using Visual Studio 2013, use "RemoteDebugVS2013" for ReferenceName and ExtensionName.)
 
@@ -93,4 +93,3 @@ In this topic:
 	</pre>
 
 6. Import the certificate (.pfx) to the machine that has Visual Studio with Azure SDK for .NET installed.
- 

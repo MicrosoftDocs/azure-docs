@@ -207,7 +207,7 @@ private bool PutCbsToken(Connection connection, string sasToken)
     // construct the put-token message
     var request = new Message(sasToken);
     request.Properties = new Properties();
-    request.Properties.MessageId = "1";
+    request.Properties.MessageId = Guid.NewGuid().ToString();
     request.Properties.ReplyTo = cbsClientAddress;
     request.ApplicationProperties = new ApplicationProperties();
     request.ApplicationProperties["operation"] = "put-token";

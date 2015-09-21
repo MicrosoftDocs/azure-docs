@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="ne"
 	ms.topic="get-started-article"
-	ms.date="09/05/2015"
+	ms.date="09/18/2015"
 	ms.author="juliako"/>
 
 
