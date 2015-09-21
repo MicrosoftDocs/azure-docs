@@ -16,8 +16,8 @@
    ms.date="09/20/2015"
    ms.author="hascipio"/>
 
-# Publisher Account Creation & Registration Process
-## Create a Microsoft Account
+# Step 2: Publisher Account Creation & Registration Process
+## 2.1 Create a Microsoft Account
 > Important: In order to complete the publishing process, you will need to create a Microsoft account. This account will be used to register for and to log in to both the Publishing Portal and the Seller Dashboard. You should only have one Microsoft Account for your Azure Marketplace offerings. They should not be specific to individual VMs.
 
 The address that forms the user name should be on your domain and controlled by your IT team (such as azurepublishing@yourcompany.com). Payment, tax information, and reporting will be routed through this account.
@@ -42,7 +42,7 @@ The address that forms the user name should be on your domain and controlled by 
 6. You’re now ready to use the new MSA in the Seller Dashboard.
 >**NOTE**: Using the DL allows multiple people to receive email notifications that are important reporting of payout information, and also insures that ownership of the MSA can be transferred and isn’t tied to a single individual.
 
-## Create your Seller Dashboard account
+## 2.2 Create your Seller Dashboard account
 The Microsoft Seller Dashboard is used to register the company information once. The registrant must be a valid representative of the company, and must provide their personal information as a way to validate their identity. The person registering must use a Microsoft account (MSA) that is shared for the company, and the same account must be used in the Azure Publishing Portal. You should check to make sure your company does not already have a Seller Dashboard account before attempting to create one. During the process, we will collect bank account information, tax information, and company address information. These are typically obtainable from finance or business contacts. For complete instructions on how to create a Seller Dashboard account, see [Create Your Account and Add Payout Information in the Microsoft][link-msdndoc].
 
 1. Open a new  IE InPrivate or Chrome Incognito browsing session to ensure that you’re not logged into a personal account
@@ -91,7 +91,7 @@ The Microsoft Seller Dashboard is used to register the company information once.
 -->
 Once you register your company, you can continue working in parallel while the verification of your registration is completed by the Seller Dashboard team. You can monitor the status of your approvals via the [Azure Publishing Portal][link-pubportal].
 
-## Register your account in the Publishing Portal
+## 2.3 Register your account in the Publishing Portal
 The Azure Publishing Portal is used to publish and manage your offer(s). Think of it as the CMS for your offerings/artifacts. All remaining work is completed here.
 
 > Important: The same company Microsoft Account that was used in the Seller Dashboard registration MUST be used here. Additional users can be added to assist once the master publisher account has been created.
