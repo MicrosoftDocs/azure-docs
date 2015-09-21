@@ -1,10 +1,10 @@
 <properties
 	pageTitle="What are the next steps I can take using Azure Active Directory?"
-	description="Advanced tasks such as managing passwords, managing users, namaging groups, and conditional access using Azure Active Directory"
+	description="Advanced tasks such as managing passwords, managing users, managing groups, and conditional access using Azure Active Directory"
 	services="active-directory"
 	documentationCenter=""
 	authors="curtand"
-	manager="msStevenPo"
+	manager="stevenpo"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/16/2015"
+	ms.date="09/21/2015"
 	ms.author="curtand"/>
 
 # What are the next steps I can take using Azure AD?
