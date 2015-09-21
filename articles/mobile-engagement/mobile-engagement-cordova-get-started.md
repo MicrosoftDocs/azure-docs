@@ -105,34 +105,13 @@ We will create a basic app with Cordova to demonstrate the integration:
 1. Install the Azure Mobile Engagement Cordova plugin while providing the variable values to configure the plugin:
 
 		cordova plugin add cordova-plugin-ms-azure-mobile-engagement    
-			--variable AZME_IOS_COLLECTION=<iOSAppCollectionName>.device.mobileengagement.windows.net
-	        --variable AZME_IOS_SDKKEY=... 
-	        --variable AZME_IOS_APPID=... 
+			 --variable AZME_IOS_CONNECTION_STRING=<iOS Connection String> 
 	        --variable AZME_IOS_REACH_ICON=... (icon name WITH extension) 
-	        --variable AZME_ANDROID_COLLECTION=<AndroidAppCollectionName>.device.mobileengagement.windows.net
-	        --variable AZME_ANDROID_SDKKEY=...
-	        --variable AZME_ANDROID_APPID=...
+	        --variable AZME_ANDROID_CONNECTION_STRING=<Android Connection String> 
 			--variable AZME_ANDROID_REACH_ICON=... (icon name WITHOUT extension)       
 	        --variable AZME_ANDROID_GOOGLE_PROJECT_NUMBER=... (From your Google Cloud console for sending push notifications) 
 	        --variable AZME_REDIRECT_URL=... (URL scheme which triggers the app for deep linking)
 	        --variable AZME_ENABLE_LOG=true|false
-
-	For example: 
-
-		cordova plugin add cordova-plugin-ms-azure-mobile-engagement   
-			--variable AZME_IOS_COLLECTION=apps-Collection.device.mobileengagement.windows.net
-	        --variable AZME_IOS_SDKKEY=26dxxxxxxxxxxxxb794 
-	        --variable AZME_IOS_APPID=piyxxxxxx
-	        --variable AZME_IOS_REACH_ICON=icon.png 
-			--variable AZME_ANDROID_COLLECTION=apps-Collection.device.mobileengagement.windows.net
-	        --variable AZME_ANDROID_SDKKEY=c3d296xxxxxxxxxxc6540
-	        --variable AZME_ANDROID_APPID=piyxxxxxxx
-			--variable AZME_ANDROID_REACH_ICON=icon   
-	        --variable AZME_ANDROID_GOOGLE_PROJECT_NUMBER=393xxxxxxx718
-			--variable AZME_REDIRECT_URL=myapp 
-			--variable AZME_ENABLE_LOG=true
-
-> [AZURE.TIP] The AppId, SDKKey and Collection can be retrieved from the connection string  **Endpoint={YourAppCollection.Domain};SdkKey={YourSDKKey};AppId={YourAppId}** 
 
 ##<a id="monitor"></a>Enabling real-time monitoring
 
