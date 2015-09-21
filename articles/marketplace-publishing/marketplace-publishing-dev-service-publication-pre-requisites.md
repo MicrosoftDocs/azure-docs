@@ -16,11 +16,9 @@
    ms.date="09/10/2015"
    ms.author="hascipio"/>
 
-# Developer Service Onboarding Guide - Pre-requisites
+# Step 3: Developer Service Onboarding Guide - Pre-requisites
 
----
 This document outlines the necessary pre-requisites e.g. accounts, tools, etc. to move forward with publishing a Developer Service offer on the Azure Marketplace.
----
 
 > **Important:** You must be an approved seller to complete the publishing process of an offering into the Azure Marketplace and receive payout. If you have already released an app you may already be an approved seller. You only need one approved seller account to sell apps and services in Microsoft Marketplaces. [Learn more about creating a seller account with Microsoft][link-acct-creation]
 
@@ -65,9 +63,12 @@ Using the information from Offer Profile Metadata (.xlsx) above navigate to Publ
 -->
 
 ## Next Steps
+Now that you reviewed the pre-requisites and completed the necessary tasks, you can move forward with the creating your Developer Service offer as detailed in the [Developer Service Publishing Guide](marketplace-publishing-dev-service-publication.md)
+<!--
 - [Developer Service Onboarding Guide - Marketing Content][link-devsvc-guide-mktg]
 - [Developer Service Onboarding Guide - Pricing Model Sample][link-devsvc-guide-pricing]
 - [Developer Service Onboarding Guide - Building a Resource Provider][link-devsvc-guide-create-rp]
+-->
 
 [link-acct-creation]:marketplace-publishing-accounts-creation-registration.md
 [link-sd-msdn]:https://msdn.microsoft.com/en-us/library/dn188471.aspx
