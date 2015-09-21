@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="ExpressRoute Circuit and Routing Domains | Microsoft Azure"
+   pageTitle="ExpressRoute circuits and routing domains | Microsoft Azure"
    description="This page provides an overview of ExpressRoute circuits and the routing domains."
    documentationCenter="na"
    services="expressroute"
