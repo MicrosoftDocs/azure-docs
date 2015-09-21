@@ -20,6 +20,15 @@
 
 Updates to **Azure Data Catalog** are released on a regular basis. Not every release will include new user-facing features, as some releases are focused on back-end service capabilities. This page will highlight new user-facing capabilities added to the **Azure Data Catalog** service.
 
+## What's new for the week of September 18, 2015 release
+
+As of the week of September 18, 2015, the following capabilities have been added to **Azure Data Catalog**:
+
+- A new "getting started" data source discovery experience in the **Azure Data Catalog** portal. When users enter the "discover" page of the  **Azure Data Catalog** portal without entering a search term, they will be presented with an overview of the catalog contents including the most frequently used tags, as well as experts, data source types and object types.
+- Support for registering and discovering Azure SQL Data Warehouse objects and databases. For additional information on Azure SQL Data Warehouse, see [SQL Data Warehouse](http://azure.microsoft.com/services/sql-data-warehouse/).
+- Support for registering and discovering SQL Server Analysis Services models and SQL Server Reporting Services servers as containers. When registering SSAS and SSRS objects, **Azure Data Catalog** will create an entry for the SSAS model and SSRS server as well as for the reports and other objects. The containers can be discovered and annotated using the **Azure Data Catalog** portal. Users can also search and filter the contents of a model or server in addition to searching and filtering the contents of the catalog.
+
+> [AZURE.NOTE] SSAS and SSRS objects that have been registered prior to the September 18 release must be re-registered using the data source registration tool before the model or server entry will be added to the catalog. Re-registering a data source does not affect any annotations that have been added by users in the **Azure Data Catalog** portal.
 
 ## What's new for the week of September 11, 2015 release
 

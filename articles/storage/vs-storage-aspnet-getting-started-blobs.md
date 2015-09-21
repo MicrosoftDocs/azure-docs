@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/03/2015"
-	ms.author="patshea123"/>
+	ms.author="patshea"/>
 
 # Get started with blob storage and Visual Studio connected services (ASP.NET)
 
