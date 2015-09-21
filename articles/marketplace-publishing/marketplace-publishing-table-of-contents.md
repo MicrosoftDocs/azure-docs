@@ -28,8 +28,8 @@ This information is provided to help you publish your software solution into the
 ## Step 3. Offer Creation
 
 | Virtual Machine Image | Developer Service | Data Service | Solution Template |
-|----|---|----|----|
-|VM Image Publishing Guide Pre-requisites | [Developer Service Publishing Pre-requisites][link-devsvc-publication-prereq] | Data Service Publishing Pre-requisites  | [Solution Template Publishing Pre-requisites][link-soltempl-publication-prereq] |
+|-----|-----|-----|-----|
+| [VM Image Publishing Guide Pre-requisites][link-vm-publication-prereq] | [Developer Service Publishing Pre-requisites][link-devsvc-publication-prereq] | Data Service Publishing Pre-requisites  | [Solution Template Publishing Pre-requisites][link-soltempl-publication-prereq] |
 | [VM Image Publishing Guide][link-vm-publication] | [Developer Service Publishing Guide][link-devsvc-publication] | Data Service Publishing Guide | Solution Template Publishing Guide |
 
 ## Step 4. Getting to staging

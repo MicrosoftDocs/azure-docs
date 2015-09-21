@@ -17,7 +17,12 @@
    ms.author="hascipio"/>
 
 # Developer Service Onboarding Guide - Pre-requisites
-> You must be an approved seller to complete the publishing process of an offering into the Azure Marketplace and receive payout. If you have already released an app you may already be an approved seller. You only need one approved seller account to sell apps and services in Microsoft Marketplaces. [Learn more about Microsoft Seller Dashboard][link-sd-msdn]
+
+---
+This document outlines the necessary pre-requisites e.g. accounts, tools, etc. to move forward with publishing a Developer Service offer on the Azure Marketplace.
+---
+
+> **Important:** You must be an approved seller to complete the publishing process of an offering into the Azure Marketplace and receive payout. If you have already released an app you may already be an approved seller. You only need one approved seller account to sell apps and services in Microsoft Marketplaces. [Learn more about creating a seller account with Microsoft][link-acct-creation]
 
 ### Get Access to an active Azure ‘Pay-As-You-Go’ Subscription (non-Microsoft subscription)
 
