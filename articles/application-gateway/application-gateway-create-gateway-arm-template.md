@@ -29,12 +29,14 @@ Application Gateway is load balancer layer 7. It provides failover, performance 
 
 <BR>
 
-
->[AZURE.IMPORTANT] Before you work with Azure resources, it's important to understand that Azure currently has two deployment models: Resource Manager, and classic. Make sure you understand [deployment models and tools](azure-classic-rm.md) before working with any Azure resource. You can view the documentation for different tools by clicking the tabs at the top of this article.This document will cover creating an Application Gateway using Azure Resource Manager. To use the classic version, go to [create an Application Gateway classic deployment using PowerShell](application-gateway-create-gateway.md).
-
 You will learn how to download and modify and existing ARM template from GitHub, and deploy the template from GitHub, PowerShell, and the Azure CLI.
 
 If you are simply deploying the ARM template directly from GitHub, without any changes, skip to deploy a template from github.
+
+
+>[AZURE.IMPORTANT] Before you work with Azure resources, it's important to understand that Azure currently has two deployment models: Resource Manager, and classic. Make sure you understand [deployment models and tools](azure-classic-rm.md) before working with any Azure resource. You can view the documentation for different tools by clicking the tabs at the top of this article.This document will cover creating an Application Gateway using Azure Resource Manager. To use the classic version, go to [create an Application Gateway classic deployment using PowerShell](application-gateway-create-gateway.md).
+
+
 
 
 ## Scenario
@@ -248,10 +250,20 @@ Click in "deploy to Azure"
 
 ### Step 3
 
-Fill out the parameters for the deployment template on the portal
+Fill out the parameters for the deployment template on the portal and click OK
 
 ![arm-scenario](./media/application-gateway-create-gateway-arm-template/ibiza1.png)
 
+### Step 4
+
+Select "Legal terms" and click "buy"
+
+### Step 5
+
+On "custom deployment" blade, click "create".
+
+
+ 
 ## Next steps
 
 If you want to configure SSL offload, see [Configure Application Gateway for SSL offload](application-gateway-ssl.md).
