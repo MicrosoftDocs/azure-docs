@@ -184,7 +184,7 @@ Before you begin:
 
 9. To confirm that the backup job has started, expand the **Jobs** node in the **Scope** pane, and then click the **Running** node. The list of currently running jobs appears in the **Results** pane. 
 
-## Configure back up for a dynamic mirrored volume
+## Configure back up of a dynamic mirrored volume
 
 Complete the following steps to configure backup for a dynamic mirrored volume:
 
