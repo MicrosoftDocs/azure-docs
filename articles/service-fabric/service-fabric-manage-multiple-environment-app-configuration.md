@@ -1,6 +1,6 @@
 <properties
    pageTitle="Manage multiple environments in Service Fabric | Microsoft Azure"
-   description="Service Fabric applications can be run on clusters ranging in size from one machine to thousands of machines. In some cases, you will want to configure your application differently for those varied environments. This article covers how to define different application instance parameters per environment."
+   description="Service Fabric applications can be run on clusters ranging in size from one machine to thousands of machines. In some cases, you will want to configure your application differently for those varied environments. This article covers how to define different application parameters per environment."
    services="service-fabric"
    documentationCenter=".net"
    authors="seanmck"
@@ -24,7 +24,7 @@ As a simple example, consider the `InstanceCount` for a stateless service. When 
 
 ## Specifying environment-specific parameters
 
-The solution to this is a set of parameterized default services and application instance definition files that fill in those parameter values for a given environment.
+The solution to this is a set of parameterized default services and application parameters files that fill in those parameter values for a given environment.
 
 ### Default services
 
@@ -78,15 +78,15 @@ To override this value for a specific application/environment pair, create a `Co
      </ConfigOverride>
   </ConfigOverrides>
 
-This parameter can then be configured by environment as shown above, by declaring it in the parameters section of the application manifest and specifying environment-specific values in the app instance definition files.
+This parameter can then be configured by environment as shown above, by declaring it in the parameters section of the application manifest and specifying environment-specific values in the application parameters files.
 
->[AZURE.NOTE] In the case of service configuration settings, there are three places where the value of a key can be set: the service configuration package, the application manifest, and the application instance file. Service Fabric will always choose from the application instance file first (if specified), then the application manifest, and finally the configuration package.
+>[AZURE.NOTE] In the case of service configuration settings, there are three places where the value of a key can be set: the service configuration package, the application manifest, and the application parameters file. Service Fabric will always choose from the application parameters file first (if specified), then the application manifest, and finally the configuration package.
 
-### Application instance definition files
+### Application parameter files
 
-The Service Fabric application project can include one or more application instance definition files, each of which defines the specific values for the parameters defined in the application manifest:
+The Service Fabric application project can include one or more application parameter files, each of which defines the specific values for the parameters defined in the application manifest:
 
-    <!-- AppInstanceDefinition.Local.xml -->
+    <!-- ApplicationParameters\Local.xml -->
 
     <Application Name="fabric:/Application1" xmlns="http://schemas.microsoft.com/2011/01/fabric">
         <Parameters>
@@ -96,21 +96,25 @@ The Service Fabric application project can include one or more application insta
         </Parameters>
     </Application>
 
-To create a new instance definition file, simply copy and past an existing one and give it a new name.
+By default, a new application includes two parameters files, named Local.xml and Cloud.xml:
+
+![Application parameters files in Solution Explorer][app-parameters-solution-explorer]
+
+To create a new parameters file, simply copy and past an existing one and give it a new name.
 
 ## Identifying environment-specific parameters during deployment
 
-At deployment time, you need to choose the appropriate definition file to apply with your application. You can do this through the Publish dialog in Visual Studio or in PowerShell.
+At deployment time, you need to choose the appropriate parameters file to apply with your application. You can do this through the Publish dialog in Visual Studio or in PowerShell.
 
 ### Deploying from Visual Studio
 
-You can choose from the list of available instance definition files when publishing your application in Visual Studio.
+You can choose from the list of available parameters files when publishing your application in Visual Studio.
 
-![Choose an instance definition file in the Publish dialog][publishdialog]
+![Choose a parameters file in the Publish dialog][publishdialog]
 
 ### Deploying from PowerShell
 
-The `DeployCreate-FabricApplication.ps1` PowerShell script accepts an instance definition file as a paramater.
+The `DeployCreate-FabricApplication.ps1` PowerShell script accepts an parameters file as a paramater.
 
     ./DeployCreate-FabricApplication -ApplicationPackagePath <app_package_path> -ApplicationDefinitionFilePath <app_instance_definition_path>
 
@@ -121,3 +125,4 @@ To learn more about some of the core concepts discussed in this topic, see the [
 <!-- Image references -->
 
 [publishdialog]: ./media/service-fabric-manage-multiple-environment-app-configuration/publish-dialog-choose-app-config.png
+[app-parameters-solution-explorer]:./media/service-fabric-manage-multiple-environment-app-configuration/app-parameters-in-solution-explorer.png
