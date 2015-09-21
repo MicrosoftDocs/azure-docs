@@ -47,7 +47,7 @@ The log in method only works with a work or school account, also called an *orga
 
 	Enter your password when prompted.
 
-	If this is your first time logging in with these credentials, you are asked to verify that you wish to cache an authentication token. This prompt also occurs if you have previously used the `azure logout` command (described below). To bypass this prompt for automation scenarios, run `azure login`with use the `-q` parameter.
+	If this is your first time logging in with these credentials, you are asked to verify that you wish to cache an authentication token. This prompt also occurs if you have previously used the `azure logout` command (described below). To bypass this prompt for automation scenarios, run `azure login` with the `-q` parameter.
 
 * **To log out**, use the following command:
 
@@ -58,7 +58,7 @@ The log in method only works with a work or school account, also called an *orga
 	If the subscriptions associated with the account were only authenticated with Active Directory, logging out deletes the subscription information from the local profile. However, if a publish settings file had also been imported for the subscriptions, logging out only deletes Active Directory related information from the local profile.
 
 ### Multi-factor authentication
-Starting with Azure CLI version 0.9.9, you can log in with an organizational account that uses multi-factor authentication (authentication with a password and one or more additional verification methods such as trusted device or other personal data).
+Starting with Azure CLI version 0.9.9, you can log in with an organizational account that uses multi-factor authentication (authentication with a password and one or more additional verification methods such as a trusted device or providing other personal data).
 
 After you run `azure login` with the user name and password for the account, the CLI provides the address of a web page you need to open. The instructions direct you to enter a code on that page to continue the authentication. After the authentication policy is satisfied, the Azure CLI completes the log in.
 
@@ -142,7 +142,7 @@ Whether you log in with a work or school account or import publish settings, you
 
 * [Using the Azure CLI with the Service Management (classic) commands][cliasm]
 
-* [Using the Azure CLI with the Resource Managemer commands][cliarm]
+* [Using the Azure CLI with the Resource Manager commands][cliarm]
 
 * To learn more about the Azure CLI, download source code, report problems, or contribute to the project, visit the [GitHub repository for the Azure CLI](https://github.com/azure/azure-xplat-cli).
 
