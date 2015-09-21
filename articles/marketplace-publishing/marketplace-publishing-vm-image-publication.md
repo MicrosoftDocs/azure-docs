@@ -259,8 +259,7 @@ You can use the Invoke-WebRequest cmdlet to create a VM Image from PowerShell. T
         $certificate = $subscription.Certificate
         $SubId = $subscription.SubscriptionId
         $body =  
-        "<VMImage xmlns=`"http://schemas.microsoft.com/windowsazure`" xmlns:i=`"http://www.w3.org/2001/XMLSchema-instance`">" +
-        "<Name>" + $ImageName + "</Name>" +
+        "<VMImage xmlns=`"http://schemas.microsoft.com/windowsazure`" xmlns:i=`"http://www.w3.org/2001/XMLSchema-instance`">" + Name>" + $ImageName + "</Name>" +
         "<Label>" + $Label + "</Label>" +
         "<Description>" + $Description + "</Description>" + "<OSDiskConfiguration>" +
         "<HostCaching>" + $osCaching + "</HostCaching>" +
@@ -358,6 +357,7 @@ This API is an asynchronous operation and responds with a 202 accepted.  In orde
         $response2 = Invoke-WebRequest -Uri $uri2 -ContentType "application/xml" Certificate $certificate -Headers $headers -Method GET
 
 To create a VM Image from an OS VHD and an additional empty data disks (you do not have the VHD for this disk created), with the Create VM Image API, use the following script:
+
         # Image Parameters to Specify
         $ImageName=’myVMImage’
         $Label='IMAGE_LABEL'
@@ -401,6 +401,7 @@ To create a VM Image from an OS VHD and an additional empty data disks (you do n
         }
 
 By running this script, you create a user VM Image with the name you provided to the ImageName parameter “myVMImage”.  It consists of one OS disk, based on the VHD you passed, and one empty 32 GB data disk.
+
 ### 3.4.2 Deploy VM from a a user VM Image
 
 To deploy a VM from a user VM Image, you can use the current [Azure Management Portal](https://manage.windowsazure.com) or PowerShell.
