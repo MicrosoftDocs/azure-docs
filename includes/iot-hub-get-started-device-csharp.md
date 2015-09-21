@@ -66,30 +66,8 @@ In this section, you'll write a Windows console app that simulates a device send
 
 <!-- Links -->
 
-<<<<<<< HEAD
-[Get Started with Event Hubs]: event-hubs-csharp-ephcs-getstarted.md
-
-[Event Hubs Programming Guide]: event-hubs-programming-guide.md
-
-[IoT Hub Developer Guide - Identity Registry]: iot-hub-devguide.md#identityregistry
-[Azure IoT - Service SDK NuGet package]: http://toadd
-=======
 [Azure IoT - Device SDK NuGet package]: http://toadd
 [Transient Fault Handling]: https://msdn.microsoft.com/en-us/library/hh680901(v=pandp.50).aspx
->>>>>>> 1f7740b532d3bf5ee46706c7d99e0184084fbeb7
 
 <!-- Images -->
 [30]: ./media/iot-hub-getstarted-device-csharp/create-identity-csharp1.png
-
-
-
-<<<<<<< HEAD
-[20]: ./media/iot-hub-getstarted-cloud-csharp/create-storage1.png
-[21]: ./media/iot-hub-getstarted-cloud-csharp/create-storage2.png
-[22]: ./media/iot-hub-getstarted-cloud-csharp/create-storage3.png
-=======
-
-
-
-
->>>>>>> 1f7740b532d3bf5ee46706c7d99e0184084fbeb7
