@@ -1,6 +1,6 @@
 <properties 
    pageTitle="StorSimple Snapshot Manager and volumes | Microsoft Azure"
-   description="Describes how to use the StorSimple Snapshot Manager MMC snap-in to view and manage volumes."
+   description="Describes how to use the StorSimple Snapshot Manager MMC snap-in to view and manage volumes and to configure backups."
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/15/2015"
+   ms.date="09/21/2015"
    ms.author="v-sharos" />
 
 # Use StorSimple Snapshot Manager to view and manage volumes
@@ -24,8 +24,6 @@ You can use the StorSimple Snapshot Manager **Volumes** node (on the **Scope** p
 For more information about supported volumes, go to [Support for multiple volume types](storsimple-what-is-snapshot-manager.md#support-for-multiple-volume-types).
 
 ![Volume list in Results pane](./media/storsimple-snapshot-manager-manage-volumes/HCS_SSM_Volume_node.png)
-
-**Figure 1: StorSimple Snapshot Manager Volumes node** 
 
 The **Volumes** node also lets you rescan or delete volumes after StorSimple Snapshot Manager discovers them. 
 
@@ -186,11 +184,11 @@ Before you begin:
 
 ## Configure and back up a dynamic mirrored volume
 
-Complete the following steps to configure backup for a dynamic mirrored volume:
+Complete the following steps to configure backup of a dynamic mirrored volume:
 
-- Step 1: Use Disk Management to create a dynamic mirrored volume 
+- Step 1: Use Disk Management to create a dynamic mirrored volume. 
 
-- Step 2: Use StorSimple Snapshot Manager to configure backup 
+- Step 2: Use StorSimple Snapshot Manager to configure backup.
 
 ### Prerequisites
 
