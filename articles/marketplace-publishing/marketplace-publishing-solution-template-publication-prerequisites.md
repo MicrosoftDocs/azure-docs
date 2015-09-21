@@ -16,9 +16,9 @@
    ms.date="09/20/2015"
    ms.author="hascipio" />
 
-# Multi Virtual Machine Images Solution Template Publishing Guide - Pre-requisites
+# Step 3: Multi Virtual Machine Images Solution Template Publishing Guide - Pre-requisites
 
-## Ensure you are registered as a seller with Microsoft
+## A. Ensure you are registered as a seller with Microsoft
 A company can register only once as seller with Microsoft.
 - If you don't know the seller registration stats of your company, please contact us through your Sharepoint site ('Need help?' section) or you can email us at AzureMarketOnboard@microsoft.com
 - If you are already registered, find out who in your company owns it? Alternatively, which credentials were used to register? This information can be obtained form your Finance or Marketing Team
@@ -37,11 +37,11 @@ For instructions on creating and submitting a Microsoft seller profile, visit [M
 3. Choose "Registering for a developer account"
 4. Choose contact method
 
-## Acquire an Azure "pay-as-you-go" Subscription
+## B. Acquire an Azure "pay-as-you-go" Subscription
 
 This is the subscription you will use to create your VM images and hand over the images to [Azure Marketplace](http://azure.microsoft.com/marketplace). If you do not have an existing subscription, then please sign up here, https://account.windowsazure.com/signup?offer=ms-azr-0003p
 
-## Create an Azure compatible solution
+## C. Create an Azure compatible solution
 1. Identifying topology and platform evaluation
   For each type of deployment - Evaluation, Proof of Concept, Dev/Test, and Production - think through the exact layout and topology needed for your application. Questions to ask:
   - What are the different tiers?
@@ -59,3 +59,6 @@ This is the subscription you will use to create your VM images and hand over the
   - Build and iterate on the template
   - Perform rigorous stress testing and performance testing
   For detailed information on the guidance, best practices and requirements for Multi-VM solutions please refer to the document [Template Solutions in the Marketplace](https://microsoft.sharepoint.com/teams/AzureMarketplaceOnboarding/_layouts/15/start.aspx#/Onboarding%20Resources/Forms/AllItems.aspx?RootFolder=%2Fteams%2FAzureMarketplaceOnboarding%2FOnboarding%20Resources%2FMulti%20VM&FolderCTID=0x01200022453DD82E509544B11C9F5367F6105B&View=%7BEC6E631C%2DEFA1%2D4E67%2D87C6%2D4FCA489A2F92%7D&InitialTabId=Rib).
+
+## Next Steps
+Now that you reviewed the pre-requisites and completed the necessary tasks, you can move forward with the creating your Multi-VM Solution Template offer as detailed in the [Solution Template Publishing Guide](marketplace-publishing-solution-template-publication.md)
