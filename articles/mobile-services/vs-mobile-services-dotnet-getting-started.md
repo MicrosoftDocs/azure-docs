@@ -14,7 +14,7 @@
 	ms.devlang="dotnet"
 	ms.topic="article"
 	ms.date="09/17/2015" 
-	ms.author="patshea123"/>
+	ms.author="patshea"/>
 
 # Getting Started with Mobile Services (.NET Projects)
 

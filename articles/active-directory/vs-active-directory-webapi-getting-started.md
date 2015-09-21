@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="09/03/2015" 
-	ms.author="patshea123"/>
+	ms.author="patshea"/>
 
 # Get Started with Azure Active Directory and Visual Studio connected services (WebApi projects)
 
