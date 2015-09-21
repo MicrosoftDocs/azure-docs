@@ -16,8 +16,13 @@
 	ms.date="08/30/2015"
 	ms.author="huguesv"/>
 
-
-
+> [AZURE.SELECTOR]
+- [.Net](web-sites-dotnet-get-started.md)
+- [Node.js](web-sites-nodejs-develop-deploy-mac.md)
+- [Java](web-sites-java-get-started.md)
+- [PHP - Git](web-sites-php-mysql-deploy-use-git.md)
+- [PHP - FTP](web-sites-php-mysql-deploy-use-ftp.md)
+- [Python](web-sites-python-ptvs-django-mysql.md)
 
 # Django and MySQL on Azure with Python Tools 2.2 for Visual Studio 
 
