@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="web"
-   ms.date="9/24/2015"
+   ms.date="09/24/2015"
    ms.author="sumuth@microsoft.com"/>
 
 # Use DevOps environments effectively for your web app
