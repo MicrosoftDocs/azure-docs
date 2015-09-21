@@ -684,9 +684,11 @@ Explanation of the parameters:
 
  A Developer can skip the broker user with:
 
-    ```java
-     AuthenticationSettings.Instance.setSkipBroker(true);
-    ```
+
+```java
+  AuthenticationSettings.Instance.setSkipBroker(true);
+```
+
 > [AZURE.WARNING] In order to reduce the complexity of this B2C Quickstart, we have opted in our sample to skip the broker. However, this is not recommended.
 
 Next, let's create some helper methods that will get the token alone during our authentication calls to the Task API.
@@ -769,7 +771,7 @@ private void getTasks() {
  
  You'll see that this code requires some additional methods to do it's work. Let's write those now.
  
- ### Create endpoint URL generator
+### Create endpoint URL generator
  
  We need to generate the endpoint URL that we'll be connecting to. Let's do that in the same class file:
  
