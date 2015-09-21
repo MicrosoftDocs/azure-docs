@@ -45,7 +45,7 @@ This information is provided to help you publish your software solution into the
 [link-accts]:marketplace-publishing-microsoft-accounts-creation-registration.md
 [link-certification]:marketplace-publishing-azure-certification.md
 [link-vm-publication]:marketplace-publishing-virtual-machine-publication.md
-[link-vm-publication-prereq]:marketplace-publishing-virtual-machine-publication-pre-requisites.md
+[link-vm-publication-prereq]:marketplace-publishing-virtual-machine-publication-prerequisites.md
 [link-datasvc-publication]:marketplace-publishing-data-service-publication.md
 [link-datasvc-publication-prereq]:marketplace-publishing-data-service-publication-pre-requisites.md
 [link-devsvc-publication]:marketplace-publishing-developer-service-publication.md

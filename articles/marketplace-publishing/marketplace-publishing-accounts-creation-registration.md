@@ -132,7 +132,7 @@ Now that your account is created and registered, click on the type of artifact (
 [link-sellerdashboard]: http://sellerdashboard.microsoft.com/
 [link-pubportal]: https://publish.windowsazure.com
 [link-vm-publication]:marketplace-publishing-vm-image-publication.md
-[link-vm-publication-prereq]:marketplace-publishing-vm-image-publication-pre-requisites.md
+[link-vm-publication-prereq]:marketplace-publishing-vm-image-publication-prerequisites.md
 [link-datasvc-publication]:marketplace-publishing-data-service-publication.md
 [link-datasvc-publication-prereq]:marketplace-publishing-data-service-publication-pre-requisites.md
 [link-devsvc-publication]:marketplace-publishing-dev-service-publication.md
