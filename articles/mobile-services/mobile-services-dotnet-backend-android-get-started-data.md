@@ -100,9 +100,6 @@ This tutorial demonstrated the basics of enabling an Android app to work with da
 
 Next, try one of these other tutorials:
 
-* [Get started with authentication]
-  <br/>Learn how to authenticate users of your app.
-
 * [Get started with push notifications] 
   <br/>Learn how to send a very basic push notification to your app.
 
@@ -127,7 +124,6 @@ Next, try one of these other tutorials:
 <!-- URLs. -->
 [Get started with data (Eclipse)]: mobile-services-dotnet-backend-android-get-started-data-ec.md
 [Get started with Mobile Services]: mobile-services-dotnet-backend-windows-store-dotnet-get-started.md
-[Get started with authentication]: mobile-services-dotnet-backend-android-get-started-users.md
 [Get started with push notifications]: mobile-services-dotnet-backend-android-get-started-push.md
 
 [Azure Management Portal]: https://manage.windowsazure.com/
