@@ -57,6 +57,8 @@ The total number of “retention points” (points from which a customer can res
 
 The total number of recovery points is 56.
 
+> [AZURE.NOTE] Azure backup doesn't have a restriction on number of recovery points. 
+
 ## Advanced configuration
 By clicking **Modify** in the above screen, customers have further flexibility in specifying retention schedules.
 

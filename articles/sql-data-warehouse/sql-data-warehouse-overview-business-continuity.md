@@ -13,13 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/25/2015"
+   ms.date="09/15/2015"
    ms.author="sahajs"/>
 
 
 # Planning for business Continuity in SQL Data Warehouse
 
-This article walks through the basics of planning business continuity and disaster recovery with the SQL Data Warehouse. Data warehouses are the central repository of information for businesses and they play a critical role in the day-to-day operations for analytics and business intelligence at all levels of the organization. It is therefore essential that your data warehouse is reliable and allows for recoverability and continuous operation. In particular, this article will show you how SQL Data Warehouse allows you to recover from user errors and disasters using Point-in-Time Restore and Geo-Restore.
+This article walks through the basics of planning business continuity and disaster recovery with the SQL Data Warehouse. Data warehouses are the central repository of information for businesses and they play a critical role in the day-to-day operations for analytics and business intelligence at all levels of the organization. It is therefore essential that your data warehouse is reliable and allows for recoverability and continuous operation. In particular, this article will show you how SQL Data Warehouse allows you to recover from user errors and disasters using Database Restore and Geo-Restore.
 
 ## Concepts
 

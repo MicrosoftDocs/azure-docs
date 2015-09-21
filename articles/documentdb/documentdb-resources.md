@@ -1,6 +1,7 @@
 <properties 
-	pageTitle="DocumentDB resource model and concepts | Microsoft Azure" 
-	description="Microsoft Azure DocumentDB is a fully-managed NoSQL document database that uses a hierarchichal model of database accounts, databases, collections, stored procedures, triggers, UDFs, documents, attachments, media, users, and permissions to manage resources."  
+	pageTitle="DocumentDB hierarchical resource model and concepts | Microsoft Azure" 
+	description="Learn about DocumentDB’s hierarchical model of databases, collections, user defined function (UDF), documents, permissions to manage resources, and more."
+	keywords="Hierarchical Model, documentdb, azure, Microsoft azure"	
 	services="documentdb" 
 	documentationCenter="" 
 	authors="mimig1" 
@@ -16,25 +17,25 @@
 	ms.date="08/03/2015" 
 	ms.author="anhoh"/>
 
-#DocumentDB resource model and concepts
+# DocumentDB hierarchical resource model and concepts
 
 The database entities that DocumentDB manages are referred to as **resources**. Each resource is uniquely identified by a logical URI. You can interact with the resources using standard HTTP verbs, request/response headers and status codes. 
 
 By reading this article, you'll be able to answer the following questions:
 
 - What are the DocumentDB resources?
-- What is the hierarchy of DocumentDB resources?
+- What is hierarchical model of DocumentDB resources?
 - What are system defined resources versus user defined resources?
 - How do I address a resource?
 - How do I work with collections?
 - How do I work with stored procedures, triggers and User Defined Functions (UDFs)?
 
 ##Hierarchical resource model
-As the following diagram illustrates, the DocumentDB **resource model** consists of sets of resources under a database account, each addressable via a logical and stable URI. A set of resources will be referred to as a **feed** in this article. 
+As the following diagram illustrates, the DocumentDB hierarchical **resource model** consists of sets of resources under a database account, each addressable via a logical and stable URI. A set of resources will be referred to as a **feed** in this article. 
 
 >[AZURE.NOTE] DocumentDB offers a highly efficient TCP protocol which is also RESTful in its communication model, available through the [.NET client SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx).
 
-![][1]  
+![DocumentDB hierarchical resource model][1]  
 **Hierarchical resource model under a database account**   
 
 To start working with resources, you must [create a DocumentDB database account](documentdb-create-account.md) using your Azure subscription. A database account can consist of a set of **databases**, each containing multiple **collections**, each of which in-turn contain **stored procedures, triggers, UDFs, documents** and related **attachments** (preview feature). A database also has associated **users**, each with a set of **permissions** to access collections, stored procedures, triggers, UDFs, documents or attachments. While databases, users, permissions and collections are system-defined resources with well-known schemas, documents and attachments contain arbitrary, user defined JSON content.  
@@ -110,7 +111,7 @@ Note that in addition to provisioning, configuring and managing your database ac
 ##Databases
 A DocumentDB database is a logical container of one or more collections and users, as shown in the following diagram. You can create any number of databases under a DocumentDB database account subject to offer limits.  
 
-![][2]  
+![Database account and collections hierarchical model][2]  
 **A Database is a logical container of users and collections**
 
 A database can contain virtually unlimited document storage partitioned by collections, which form the transaction domains for the documents contained within them. 
@@ -225,7 +226,7 @@ Stored procedures and triggers interact with a collection and the documents in a
 
 Collections in DocumentDB can be created, deleted, read or enumerated easily using either the [Azure DocumentDB REST APIs](https://msdn.microsoft.com/library/azure/dn781481.aspx) or any of the [client SDKs](https://msdn.microsoft.com/library/azure/dn781482.aspx). DocumentDB always provides strong consistency for reading or querying the metadata of a collection. Deleting a collection automatically ensures that you cannot access any of the documents, attachments, stored procedures, triggers, and UDFs contained within it.   
  
-##Stored procedures, triggers and UDFs
+##Stored procedures, triggers and User Defined Functions (UDF)
 As described in the previous section, you can write application logic to run directly within a transaction inside of the database engine. The application logic can be written entirely in JavaScript and can be modeled as a stored procedure, trigger or a UDF. The JavaScript code within a stored procedure or a trigger can insert, replace, delete, read or query documents within a collection. On the other hand, the JavaScript within a UDF can only perform side effect free computation by enumerating the documents of the result set of the query and produce another result set. For multi-tenancy, DocumentDB enforces a strict reservation based resource governance. Each stored procedure, trigger or a UDF gets a fixed quantum of operating system resources to do its work. Further, stored procedures, triggers or UDFs cannot link against external JavaScript libraries and are blacklisted if they exceed the resource budgets allocated to them. You can register, unregister stored procedures, triggers or UDFs with a collection by using the REST APIs.  Upon registration a stored procedure, trigger, or a UDF is pre-compiled and stored as byte code which gets executed later. The following section illustrate how you can use the DocumentDB JavaScript SDK to register, execute, and unregister a stored procedure, trigger, and a UDF. The JavaScript SDK is a simple wrapper over the [DocumentDB REST APIs](https://msdn.microsoft.com/library/azure/dn781481.aspx). 
 
 ###Registering a stored procedure
@@ -394,7 +395,7 @@ As your applications need to scale with your user growth, you can adopt various 
 
 Regardless of the specific sharding strategy you choose, you can model your actual users as users in DocumentDB database and associate fine grained permissions to each user.  
 
-![][3]  
+![User collections][3]  
 **Sharding strategies and modeling users**
 
 Like all other resources, users in DocumentDB can be created, replaced, deleted, read or enumerated easily using either REST APIs or any of the client SDKs. DocumentDB always provides strong consistency for reading or querying the metadata of a user resource. It is worth pointing out that deleting a user automatically ensures that you cannot access any of the permissions contained within it. Even though the DocumentDB reclaims the quota of the permissions as part of the deleted user in the background, the deleted permissions is available instantly again for you to use.  
