@@ -260,13 +260,13 @@ In this section you will create and set up a C# Console Application project.
 		    // Get a media processor reference, and pass to it the name of the 
 		    // processor to use for the specific task.
 		    IMediaProcessor processor = GetLatestMediaProcessorByName(context,
-		                                            "Windows Azure Media Encoder");
+		                                            "Media Encoder Standard");
 		
 		    // Create a task with the encoding details, using a string preset.
-		    // In this case "H264 Adaptive Bitrate MP4 Set 720p" preset is used.
+		    // In this case "H264 Multiple Bitrate 720p" preset is used.
 		    ITask task = job.Tasks.AddNew("My encoding task",
 		        processor,
-		        "H264 Adaptive Bitrate MP4 Set 720p",
+		        "H264 Multiple Bitrate 720p",
 		        TaskOptions.ProtectedConfiguration);
 		
 		    // Specify the input asset to be encoded.
@@ -517,13 +517,7 @@ In this section you will create and set up a C# Console Application project.
 		}
 		private static IMediaProcessor GetLatestMediaProcessorByName(CloudMediaContext context, string mediaProcessorName)
 		{
-		    // The possible strings that can be passed into the 
-		    // method for the mediaProcessor parameter:
-		    // Windows Azure Media Encoder
-		    // Windows Azure Media Packager
-		    // Windows Azure Media Encryptor
-		    //   Storage Decryption
-		
+	
 		    var processor = context.MediaProcessors.Where(p => p.Name == mediaProcessorName).
 		        ToList().OrderBy(p => new Version(p.Version)).LastOrDefault();
 		
