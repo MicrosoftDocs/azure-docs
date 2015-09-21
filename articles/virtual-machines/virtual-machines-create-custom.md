@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Create a custom virtual machine in Azure"
+	pageTitle="Create a custom virtual machine from Azure Portal"
 	description="Learn how to create a custom virtual machine in Azure."
 	services="virtual-machines"
 	documentationCenter=""
