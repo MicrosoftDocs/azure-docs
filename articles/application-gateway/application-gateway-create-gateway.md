@@ -12,17 +12,17 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/29/2015"
+   ms.date="09/21/2015"
    ms.author="joaoma"/>
 
 # Create, start, or delete an Application Gateway
 
 In this release, you can create an Application Gateway by using PowerShell or REST API calls. Azure portal and CLI support will be provided in an upcoming release.
 This article walks you through the steps to create and configure, start, and delete an Application Gateway.
-
 > [AZURE.SELECTOR]
-- [Azure classic steps](application-gateway-create-gateway.md)
-- [Resource Manager Powershell steps](application-gateway-create-gateway-arm.md)
+- [Azure Classic Powershell steps](application-gateway-create-gateway.md)
+- [Azure Resource Manager Powershell steps](application-gateway-create-gateway-arm.md)
+- [Azure Resource Manager template steps](application-gateway-create-gateway-arm-template.md)
 
 
 
