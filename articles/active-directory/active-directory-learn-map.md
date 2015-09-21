@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="curtand"
-	manager="terrylan"
+	manager="stevenpo"
 	editor=""/>
 
 <tags
@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/02/2015"
+	ms.date="09/21/2015"
 	ms.author="curtand"/>
 
 # Learn more about Azure AD
 
-###Other articles on this topic
+### Other articles on this topic
 [What is Azure AD?](active-directory-whatis.md)<br>
 [How does it work?](active-directory-works.md)<br>
 [Get started](active-directory-get-started.md)<br>
@@ -40,4 +40,3 @@ To understand usage constraints and other service limits for the Azure Active Di
 
 * [Sign up for Azure as an organization](sign-up-organization.md)
 * [Azure Identity](fundamentals-identity.md)
- 
