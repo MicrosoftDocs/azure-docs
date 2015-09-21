@@ -310,8 +310,6 @@ To connect to a database using integrated authentication and an Azure AD identit
 
 For specific code examples related to Azure AD authentication see the [SQL Server Security Blog](http://blogs.msdn.com/b/sqlsecurity/) on MSDN.
 
-Windows Azure. 
-
 ## See also
 
 [Managing Databases and Logins in Azure SQL Database](sql-database-manage-logins.md)
@@ -321,6 +319,7 @@ Windows Azure.
 [CREATE USER (Transact-SQL)](http://msdn.microsoft.com/library/ms173463.aspx)
 
 <!--Image references-->
+
 [1]: ./media/sql-database-aad-authentication/1aad-auth-diagram.png
 [2]: ./media/sql-database-aad-authentication/2subscription-relationship.png
 [3]: ./media/sql-database-aad-authentication/3admin-structure.png
@@ -331,4 +330,4 @@ Windows Azure.
 [8]: ./media/sql-database-aad-authentication/8choose-ad.png
 [9]: ./media/sql-database-aad-authentication/9ad-settings.png
 [10]: ./media/sql-database-aad-authentication/10choose-admin.png
-<!--anchors-->
+
