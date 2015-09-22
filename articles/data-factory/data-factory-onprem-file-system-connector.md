@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/26/2015" 
+	ms.date="09/22/2015" 
 	ms.author="spelluru"/>
 
 # Move data to and from On-premises File System using Azure Data Factory
@@ -562,7 +562,14 @@ To use Avro format in a subsequent Hive table, refer to [Apache Hive’s tutoria
 
 ## File Share Copy Activity type properties
 
-**FileSystemSource** and **FileSystemSink** do not support any properties at this time.
+**FileSystemSource** does not support any properties at this time.
+
+The **FileSystemSink** supports the following properties:  
+
+| Property | Description | Allowed values | Required |
+| -------- | ----------- | -------------- | -------- |
+| copyBehavior | Defines the copy behavior when the source is BlobSource or FileSystem. | <p>There are three possible values for the copyBehavior property. </p><ul><li>**PreserveHierarchy:** preserves the file hierarchy in the target folder, i.e., the relative path of source file to source folder is identical to the relative path of target file to target folder.</li><li>**FlattenHierarchy:** all files from the source folder will be in the first level of target folder. The target files will have auto generated name. </li><li>**MergeFiles:** merges all files from the source folder to one file. If the File/Blob Name is specified, the merged file name would be the specified name; otherwise, would be auto-generated file name.</li></ul> | No |
+
 
 [AZURE.INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
 
