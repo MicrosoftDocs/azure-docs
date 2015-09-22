@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/26/2015"
+   ms.date="09/21/2015"
    ms.author="sahajs"/>
 
 # Recover a database from user error in SQL Data Warehouse
@@ -59,7 +59,7 @@ $RestoreRequest = Start-AzureSqlDatabaseRestore -SourceServerName "<YourServerNa
 Get-AzureSqlDatabaseOperation -ServerName "<YourServerName>" –OperationGuid $RestoreRequest.RequestID
 ```
 
-Note that if your server is foo.database.windows.net, use "foo" as the -ServerName in the powershell cmdlets.
+Note that if your server is foo.database.windows.net, use "foo" as the -ServerName in the above powershell cmdlets.
 
 ### REST API
 Use REST to programmatically perform database restore.
@@ -91,6 +91,8 @@ $RestoreRequest = Start-AzureSqlDatabaseRestore -SourceRestorableDroppedDatabase
 
 Get-AzureSqlDatabaseOperation –ServerName "<YourServerName>" –OperationGuid $RestoreRequest.RequestID
 ```
+
+Note that if your server is foo.database.windows.net, use "foo" as the -ServerName in the above powershell cmdlets.
 
 ### REST API
 Use REST to programmatically perform database restore.
