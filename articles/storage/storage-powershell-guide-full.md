@@ -595,7 +595,7 @@ Your code de-queues a message from a queue in two steps. When you call the [Micr
     $Queue.CloudQueue.DeleteMessage($QueueMessage)
 
 ## How to manage Azure file shares and files
-Azure File storage offers shared storage for applications using the standard SMB 2.1 protocol. Microsoft Azure virtual machines and cloud services can share file data across application components via mounted shares, and on-premises applications can access file data in a share via the File storage API or Azure PowerShell.
+Azure File storage offers shared storage for applications using the standard SMB protocol. Microsoft Azure virtual machines and cloud services can share file data across application components via mounted shares, and on-premises applications can access file data in a share via the File storage API or Azure PowerShell.
 
 For more information on Azure File storage, see [How to use Azure File storage](storage-dotnet-how-to-use-files.md) and [File Service REST API](http://msdn.microsoft.com/library/azure/dn167006.aspx).
 

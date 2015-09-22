@@ -65,7 +65,7 @@ Next, we'll use Azure PowerShell to create a file share. Once the file share has
 
 To prepare to use PowerShell, download and install the Azure PowerShell cmdlets. See [How to install and configure Azure PowerShell](../install-configure-powershell.md) for the install point and installation instructions.
 
-> [AZURE.NOTE] The latest PowerShell cmdlets for File storage are available only in the latest Azure PowerShell module, version ??? and later. It's recommended that you download and install or upgrade to the latest Azure PowerShell module.
+> [AZURE.NOTE] It's recommended that you download and install or upgrade to the latest Azure PowerShell module.
 
 Open an Azure PowerShell window by clicking **Start** and typing **Azure PowerShell**. The Azure PowerShell window loads the Azure Powershell module for you.
 
@@ -186,7 +186,7 @@ To mount the file share from an on-premise client, you must first take these ste
 
 ## Develop with File storage
 
-To work with File storage programmatically, you can use the storage client libraries for .NET, Java, or C++ (???do we support any others yet???), or the Azure Storage REST API. The example in this section demonstrates how to work with a file share by using the [Azure .NET Storage Client Library](http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409) from a simple console application running on the desktop.
+To work with File storage programmatically, you can use the storage client libraries for .NET and Java, or the Azure Storage REST API. The example in this section demonstrates how to work with a file share by using the [Azure .NET Storage Client Library](http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409) from a simple console application running on the desktop.
 
 ### Create the console application and obtain the assembly
 
