@@ -115,7 +115,7 @@ The following code example uses Media Services .NET SDK to perform the following
 
 ##<a id="json"></a>Thumbnail JSON preset
 
-For information about schema, see [this](https://msdn.microsoft.com/en-us/library/mt269962.aspx) topic.
+For information about schema, see [this](https://msdn.microsoft.com/library/mt269962.aspx) topic.
 
 	{
 	  "Version": 1.0,
@@ -286,7 +286,7 @@ For information about schema, see [this](https://msdn.microsoft.com/en-us/librar
 
 ##<a id="xml"></a>Thumbnail XML preset
 
-For information about schema, see [this](https://msdn.microsoft.com/en-us/library/mt269962.aspx) topic.
+For information about schema, see [this](https://msdn.microsoft.com/library/mt269962.aspx) topic.
 
 	<?xml version="1.0" encoding="utf-16"?>
 	<Preset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">

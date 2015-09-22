@@ -123,4 +123,5 @@ You can view AMS learning paths here:
 
 ##See Also 
 
+[How to generate thumbnail using Media Encoder Standard with .NET](media-services-dotnet-generate-thumbnail-with-mes.md)
 [Media Services Encoding Overview](media-services-encode-asset.md)
