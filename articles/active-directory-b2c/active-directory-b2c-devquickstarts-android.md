@@ -176,20 +176,20 @@ public class Constants {
     // -------------------------------AAD
     // PARAMETERS----------------------------------
     public static String AUTHORITY_URL = "https://login.microsoftonline.com/hypercubeb2c.onmicrosoft.com/";
-    public static String CLIENT_ID = "52688c65-e70f-4d3f-b2ab-ea7005b76504";
-    public static String[] SCOPES = {"<52688c65-e70f-4d3f-b2ab-ea7005b76504"};
+    public static String CLIENT_ID = "<your application id>";
+    public static String[] SCOPES = {"<your application id>"};
     public static String[] ADDITIONAL_SCOPES = {""};
-    public static String REDIRECT_URL = "urn:ietf:wg:oauth:2.0:oob";
+    public static String REDIRECT_URL = "<redirect uri>";
     public static String CORRELATION_ID = "";
     public static String USER_HINT = "";
     public static String EXTRA_QP = "";
-    public static String FB_POLICY = "B2C_1_todo_fb_signin";
-    public static String EMAIL_SIGNIN_POLICY = "B2C_1_todo_email_signin";
-    public static String EMAIL_SIGNUP_POLICY = "B2C_1_todo_email_signup";
+    public static String FB_POLICY = "B2C_1_<your policy>";
+    public static String EMAIL_SIGNIN_POLICY = "B2C_1_<your policy>";
+    public static String EMAIL_SIGNUP_POLICY = "B2C_1_<your policy>";
     public static boolean FULL_SCREEN = true;
     public static AuthenticationResult CURRENT_RESULT = null;
     // Endpoint we are targeting for the deployed WebAPI service
-    public static String SERVICE_URL = "https://kidventus.com/todoserver/tasks";
+    public static String SERVICE_URL = "http://localhost:3000/tasks";
 
     // ------------------------------------------------------------------------------------------
 
@@ -201,7 +201,14 @@ public class Constants {
 
 
 ```
-
+**SCOPES** - is the scopes that we pass to the server that we wish to request from the server for the user logging in. For B2C Preview we pass the client_id. However this will change to read scopes in the future. This document will be updated then.
+**ADDITIONAL_SCOPES** - these are additional scopes you may want to use for your application. This will be used in the future
+**CLIENT_ID** - application ID you got from the portal
+**REDIRECT_URL** - the redirect where we expect the token to be posted back.
+**EXTRA_QP** - anything extra you want to pass to the server in URL encoded format.
+**FB_POLICY** - the policy you are invoking. The post important part for this walk-through.
+**EMAIL_SIGNIN_POLICY** - the policy you are invoking. The post important part for this walk-through.
+**EMAIL_SIGNUP_POLICY** - the policy you are invoking. The post important part for this walk-through.
 
 ### Step 7: Add references to Android ADAL to your project
 
@@ -564,9 +571,12 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
+import android.webkit.CookieManager;
+import android.webkit.CookieSyncManager;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
@@ -576,14 +586,21 @@ import android.widget.Toast;
 import com.microsoft.aad.adal.AuthenticationCallback;
 import com.microsoft.aad.adal.AuthenticationContext;
 import com.microsoft.aad.adal.AuthenticationResult;
+import com.microsoft.aad.adal.AuthenticationSettings;
+import com.microsoft.aad.adal.UserIdentifier;
 import com.microsoft.aad.adal.PromptBehavior;
 import com.microsoft.aad.taskapplication.helpers.Constants;
 import com.microsoft.aad.taskapplication.helpers.InMemoryCacheStore;
 import com.microsoft.aad.taskapplication.helpers.TodoListHttpService;
+import com.microsoft.aad.taskapplication.helpers.Utils;
 import com.microsoft.aad.taskapplication.helpers.WorkItemAdapter;
 
+
+import java.io.UnsupportedEncodingException;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.security.NoSuchAlgorithmException;
+import java.security.spec.InvalidKeySpecException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -591,9 +608,11 @@ import java.util.UUID;
 public class ToDoActivity extends Activity {
 
 
+
     private final static String TAG = "ToDoActivity";
 
     private AuthenticationContext mAuthContext;
+    private static AuthenticationResult sResult;
 
     /**
      * Adapter to sync the items list with the view
@@ -614,23 +633,19 @@ public class ToDoActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_todo_items);
+        CookieSyncManager.createInstance(getApplicationContext());
         Toast.makeText(getApplicationContext(), TAG + "LifeCycle: OnCreate", Toast.LENGTH_SHORT)
                 .show();
 
-        // Get the polict passed to us
-        
-        String policy = getIntent().getStringExtra("thePolicy");
-        
-        Button button = (Button) findViewById(R.id.switchUserButton);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(ToDoActivity.this, UsersListActivity.class);
-                startActivity(intent);
+        // Clear previous sessions
+        clearSessionCookie();
+        try {
+            // Provide key info for Encryption
+            if (Build.VERSION.SDK_INT < 18) {
+                Utils.setupKeyForSample();
             }
-        });
 
-        button = (Button) findViewById(R.id.addTaskButton);
+        Button button = (Button) findViewById(R.id.addTaskButton);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -649,8 +664,18 @@ public class ToDoActivity extends Activity {
             }
         });
 
+        button = (Button) findViewById(R.id.switchUserButton);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ToDoActivity.this, LoginActivity.class);
+                startActivity(intent);
+
+            }
+        });
 
 
+        final TextView name = (TextView)findViewById(R.id.userLoggedIn);
 
 
         mLoginProgressDialog = new ProgressDialog(this);
@@ -660,16 +685,18 @@ public class ToDoActivity extends Activity {
         // Ask for token and provide callback
         try {
             mAuthContext = new AuthenticationContext(ToDoActivity.this, Constants.AUTHORITY_URL,
-                    false, InMemoryCacheStore.getInstance());
-            mAuthContext.getCache();
+                    false);
+            String policy = getIntent().getStringExtra("thePolicy");
 
             if(Constants.CORRELATION_ID != null &&
                     Constants.CORRELATION_ID.trim().length() !=0){
                 mAuthContext.setRequestCorrelationId(UUID.fromString(Constants.CORRELATION_ID));
             }
 
+            AuthenticationSettings.INSTANCE.setSkipBroker(true);
+
             mAuthContext.acquireToken(ToDoActivity.this, Constants.SCOPES, Constants.ADDITIONAL_SCOPES, policy, Constants.CLIENT_ID,
-                    Constants.REDIRECT_URL, null, PromptBehavior.Always,
+                    Constants.REDIRECT_URL, getUserInfo(), PromptBehavior.Always,
                     "nux=1&" + Constants.EXTRA_QP,
                     new AuthenticationCallback<AuthenticationResult>() {
 
@@ -688,10 +715,20 @@ public class ToDoActivity extends Activity {
                                 mLoginProgressDialog.dismiss();
                             }
 
-                            if (result != null && !result.getAccessToken().isEmpty()) {
+                            if (result != null && !result.getToken().isEmpty()) {
                                 setLocalToken(result);
                                 updateLoggedInUser();
                                 getTasks();
+                                ToDoActivity.sResult = result;
+                                Toast.makeText(getApplicationContext(), "Token is returned", Toast.LENGTH_SHORT)
+                                        .show();
+
+                                if (sResult.getUserInfo() != null) {
+                                    name.setText(result.getUserInfo().getDisplayableId());
+                                    Toast.makeText(getApplicationContext(),
+                                            "User:" + sResult.getUserInfo().getDisplayableId(), Toast.LENGTH_SHORT)
+                                            .show();
+                                }
                             } else {
                                 //TODO: popup error alert
                             }
@@ -701,12 +738,18 @@ public class ToDoActivity extends Activity {
             SimpleAlertDialog.showAlertDialog(ToDoActivity.this, "Exception caught", e.getMessage());
         }
         Toast.makeText(ToDoActivity.this, TAG + "done", Toast.LENGTH_SHORT).show();
-    }
+    } catch (InvalidKeySpecException e) {
+            e.printStackTrace();
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }}
    
 ```
 
         
- You may notice that this relies on methods we haven't written yet, such as `updateLoggedInUser()` and `getTasks()`. We'll write those below.	You can safely ignore the errors in Android Studio for now.
+ You may notice that this relies on methods we haven't written yet, such as `updateLoggedInUser()`, `clearSessionCookie()` and `getTasks()`. We'll write those below.	You can safely ignore the errors in Android Studio for now.
 
 Explanation of the parameters:
 
@@ -714,8 +757,8 @@ Explanation of the parameters:
   * ***POLICY*** is the policy for while you wish to authenticate the user. 
   * ***CLIENT_ID*** is required and comes from the AzureAD Portal.
   * You can setup redirectUri as your packagename. It is not required to be provided for the acquireToken call.
-  * ***USER_HINT*** is the way we look up if the user is already in the cache and prompt the user if they are not found or the access token is invalid.
-  * ***PROMPT*** helps to ask for credentials to skip cache and cookie.
+  * ***getUserInfo()*** is the way we look up if the user is already in the cache and prompt the user if they are not found or the access token is invalid. We write this method below.
+  * ***PromptBehavior.always*** helps to ask for credentials to skip cache and cookie.
   * ***Callback*** will be called after authorization code is exchanged for a token.
 
   The Callback will have an object of AuthenticationResult which has accesstoken, date expired, and idtoken info.
@@ -727,37 +770,91 @@ Explanation of the parameters:
     ```java
      AuthenticationSettings.Instance.setSkipBroker(true);
     ```
-> [AZURE.WARNING] In order to reduce the complexity of this B2C Quickstart, we have opted in our sample to skip the broker. However, this is not recommended.
+> [AZURE.NOTE] In order to reduce the complexity of this B2C Quickstart, we have opted in our sample to skip the broker.
+
+
 
 Next, let's create some helper methods that will get the token alone during our authentication calls to the Task API.
 
 **In the same file** called `ToDoActivity.java`
 
 ```
-private void getToken(final AuthenticationCallback callback) {
+    private void getToken(final AuthenticationCallback callback) {
 
-        // Get the polict passed to us
-        
         String policy = getIntent().getStringExtra("thePolicy");
-        
+
         // one of the acquireToken overloads
-        mAuthContext.acquireToken(onnstants.SCOPES, Constants.ADDITIONAL_SCOPES, Constants.POLICY,
-                Constants.CLIENT_ID, Constants.REDIRECT_URL, Constants.USER_HINT, Constants.PROMPT,
-                "nux=1&" + Constants.EXTRA_QP, callback);
+        mAuthContext.acquireToken(ToDoActivity.this, Constants.SCOPES, Constants.ADDITIONAL_SCOPES,
+                policy, Constants.CLIENT_ID, Constants.REDIRECT_URL, getUserInfo(),
+                PromptBehavior.Always, "nux=1&" + Constants.EXTRA_QP, callback);
     }
+```
+
+Let's also add some methods that will "set" and "get" our AuthenticationResult (which has our token) in to the global CONSTANTS. This is needed because even though `ToDoActivity.java` uses **sResult** in it's flows our other activites wouldn't have access to the token to work (such as add a task in our `AddTaskActivity.java`)
+
+```
 
     private AuthenticationResult getLocalToken() {
         return Constants.CURRENT_RESULT;
     }
 
     private void setLocalToken(AuthenticationResult newToken) {
+
+
         Constants.CURRENT_RESULT = newToken;
+    }
+
+    
+```
+### Step 12: Create a method to return a UserIdentifier
+
+ADAL for Android represents the user in the form of a **UserIdentifier** object. This manages the user and allows us to know if the same user is being used in our calls so we can rely on the cache vs. making a new call to the server. In order to make this easier, we create a `getUserInfo()` which will return a UserIdentifier we can use for `acquireToken()`. We also create a getUniqueId() method which will quickly reutrn us the ID of the UserIdentifier in our cache.
+
+```
+  private String getUniqueId() {
+        if (sResult != null && sResult.getUserInfo() != null
+                && sResult.getUserInfo().getUniqueId() != null) {
+            return sResult.getUserInfo().getUniqueId();
+        }
+
+        return null;
+    }
+
+    private UserIdentifier getUserInfo() {
+
+        final TextView names = (TextView)findViewById(R.id.userLoggedIn);
+        String name = names.getText().toString();
+        return new UserIdentifier(name, UserIdentifier.UserIdentifierType.OptionalDisplayableId);
     }
     
 ```
+ 
+### Step 13: Write some helper methods
 
+We need to write some hepler methods that help us clear the cookies and provide an AuthenticationCallback. These are used purely for the sample in order to make sure we're in a clean state when calling our ToDo activity.
 
-### Step 12: Call the Task API
+**In the same file** called `ToDoActivity.java`
+
+```
+
+    private void clearSessionCookie() {
+
+        CookieManager cookieManager = CookieManager.getInstance();
+        cookieManager.removeSessionCookie();
+        CookieSyncManager.getInstance().sync();
+    }
+``` 
+
+```
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        mAuthContext.onActivityResult(requestCode, resultCode, data);
+    }
+    
+```   
+
+### Step 14: Call the Task API
 
 Now that we have our Activity wired up and ready to go to do the heavy lifting of grabbing tokens, let's write our API to access the task server.
 
@@ -768,13 +865,13 @@ Let's write our `getTask` first:
 **In the same file** called `ToDoActivity.java`
 
 ```
-private void getTasks() {
-        if (Constants.CURRENT_RESULT == null || Constants.CURRENT_RESULT.getAccessToken().isEmpty())
+    private void getTasks() {
+        if (sResult == null || sResult.getToken().isEmpty())
             return;
 
         List<String> items = new ArrayList<>();
         try {
-            items = new TodoListHttpService().getAllItems(Constants.CURRENT_RESULT.getAccessToken());
+            items = new TodoListHttpService().getAllItems(sResult.getToken());
         } catch (Exception e) {
             items = new ArrayList<>();
         }
@@ -784,22 +881,18 @@ private void getTasks() {
                 android.R.layout.simple_list_item_1, android.R.id.text1, items);
         listview.setAdapter(adapter);
     }
+
 ```
+
+
  
  Let's also write a method that will initalize our tables on frist run:
  
  **In the same file** called `ToDoActivity.java`
  
 ```
-     private void initAppTables() {
+    private void initAppTables() {
         try {
-            // Get the Mobile Service Table instance to use
-//            mToDoTable = mClient.getTable(WorkItem.class);
-//            mToDoTable.TABvLES_URL = "/api/";
-            //mTextNewToDo = (EditText)findViewById(R.id.listViewToDo);
-
-            // Create an adapter to bind the items with the view
-            //mAdapter = new WorkItemAdapter(ToDoActivity.this, R.layout.listViewToDo);
             ListView listViewToDo = (ListView) findViewById(R.id.listViewToDo);
             listViewToDo.setAdapter(mAdapter);
 
@@ -820,7 +913,7 @@ private void getTasks() {
  **In the same file** called `ToDoActivity.java`
  
  ```
-     private URL getEndpointUrl() {
+    private URL getEndpointUrl() {
         URL endpoint = null;
         try {
             endpoint = new URL(Constants.SERVICE_URL);
@@ -835,7 +928,7 @@ private void getTasks() {
 
 Note that we add the access token to the request in the following code:
 
-### Step 13: Let's write some UX methods
+### Step 15: Let's write some UX methods
 
 Android requires us to handle some callbacks in order to operate the app. These are `createAndShowDialog` and `onResume()`. This is pretty simple and very familiar if you've written Android code before. 
 
@@ -853,6 +946,7 @@ Let's write those now:
         // It should refresh list again
         getTasks();
     }
+
     
 ```
 
@@ -862,7 +956,7 @@ And now manage our dialog callbacks:
 
 
 ```
-/**
+    /**
      * Creates a dialog and shows it
      *
      * @param exception The exception to show in the dialog
@@ -892,7 +986,7 @@ That's it! You should have a `ToDoActivity.java` file that compiles. The entire 
     
 
 
-### Step 14: Run the sample app
+### Step 16: Run the sample app
 
 Finally, build and run both the app in Android Studio or Eclipse.  Sign up or sign into the app, and create tasks for the signed in user.  Sign out, and sign back in as a different user, creating tasks for that user.
 
@@ -914,7 +1008,7 @@ ADAL encrypts the tokens and store in SharedPreferences by default. You can look
 #### Session cookies in Webview
 
 Android webview does not clear session cookies after app is closed. You can handle this with sample code below:
-```java
+```
 CookieSyncManager.createInstance(getApplicationContext());
 CookieManager cookieManager = CookieManager.getInstance();
 cookieManager.removeSessionCookie();
