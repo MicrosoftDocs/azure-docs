@@ -31,14 +31,14 @@ This article walks you through the steps to create an ExpressRoute circuit using
 
 1. **Import the PowerShell module for ExpressRoute.**
 
- 	You will have to import the Azure and ExpressRoute modules into the PowerShell session to start using the ExpressRoute cmdlets. You can do so by running the following commands:  
+ 	Run the following commands in order to import the Azure and ExpressRoute modules into the PowerShell session.  
 
 	    Import-Module 'C:\Program Files (x86)\Microsoft SDKs\Azure\PowerShell\ServiceManagement\Azure\Azure.psd1'
 	    Import-Module 'C:\Program Files (x86)\Microsoft SDKs\Azure\PowerShell\ServiceManagement\Azure\ExpressRoute\ExpressRoute.psd1'
 
 2. **Get the list of providers, locations, and bandwidths supported.**
 
-	Before creating an ExpressRoute circuit, you will need a list of connectivity providers, supported locations, and bandwidth options. The PowerShell cmdlet *Get-AzureDedicatedCircuitServiceProvider* returns this information which you’ll use in later steps.
+	Before creating an ExpressRoute circuit, you will need the list of connectivity providers, supported locations, and bandwidth options. The PowerShell cmdlet *Get-AzureDedicatedCircuitServiceProvider* returns this information, which you’ll use in later steps.
 
 		PS C:\> Get-AzureDedicatedCircuitServiceProvider
 
@@ -105,20 +105,18 @@ This article walks you through the steps to create an ExpressRoute circuit using
 
 		New-AzureDedicatedCircuit -CircuitName $CircuitName -ServiceProviderName $ServiceProvider -Bandwidth $Bandwidth -Location $Location -sku Standard
 
-	You can create an ExpressRoute circuit with the premium add-on using the following command:
+	Or, if you want to create an ExpressRoute circuit with the premium add-on, use the following example below. Refer to the [ExpressRoute FAQ](expressroute-faqs.md) page for more details on the premium add-on.
 
 		New-AzureDedicatedCircuit -CircuitName $CircuitName -ServiceProviderName $ServiceProvider -Bandwidth $Bandwidth -Location $Location -sku Premium
 	
-	Refer to the [ExpressRoute FAQ](expressroute-faqs.md) page for more details on the premium add-on.
-
-
+	
 	The response will contain the service key. You can get detailed descriptions of all the parameters by running the following:
 
 		get-help new-azurededicatedcircuit -detailed 
 
 4. **List all ExpressRoute circuits.**
 
-	You can run the following command to get a list of all ExpressRoute circuits you created by running the following command:
+	You can run the *Get-AzureDedicatedCircuit* command to get a list of all ExpressRoute circuits you created.
 
 		#Getting service key
 		Get-AzureDedicatedCircuit
@@ -134,7 +132,7 @@ This article walks you through the steps to create an ExpressRoute circuit using
 		Sku                              : Standard
 		Status                           : Enabled
 
-	You can retrieve this information at any time using the Get-AzureCircuit cmdlet. Making the call without any parameters will list all circuits. Your Service Key will be listed in the *ServiceKey* field.
+	You can retrieve this information at any time using the *Get-AzureDedicatedCircuit* cmdlet. Making the call without any parameters will list all circuits. Your Service Key will be listed in the *ServiceKey* field.
 
 		PS C:\> Get-AzureDedicatedCircuit
 
@@ -307,7 +305,7 @@ Check the [ExpressRoute FAQ](expressroute-faqs.md) page for supported bandwidth 
 
 Your circuit will have been sized up on the Microsoft side. You must contact your connectivity provider to update configurations on their side to match this change. Note that we will start billing you for the updated bandwidth option from this point on.
 
->[AZURE.IMPORTANT] You cannot reduce the bandwidth of an ExpressRoute circuit without disruption. Downgrading bandwidth will require you to deprovision the ExpressRoute circuit and re-provision a new ExpressRoute circuit.
+>[AZURE.IMPORTANT] You cannot reduce the bandwidth of an ExpressRoute circuit without disruption. Downgrading bandwidth will require you to deprovision the ExpressRoute circuit, and then re-provision a new ExpressRoute circuit.
 
 ##  Deleting and deprovisioning an ExpressRoute circuit
 You can delete your ExpressRoute circuit by running the following command:
@@ -316,9 +314,9 @@ You can delete your ExpressRoute circuit by running the following command:
 
 Note that you must unlink all virtual networks from the ExpressRoute for this operation to succeed. Check if you have any virtual networks linked to the circuit if this operation fails.
 
-If the ExpressRoute circuit service provider provisioning state is enabled, the status will move to disabling from enabled state. You must work with your service provider to deprovision the circuit on their side. We will continue to reserve resources and bill you till the service provider completes deprovisioning the circuit and sends us a notification.
+If the ExpressRoute circuit service provider provisioning state is enabled, the status will move to *disabling* from enabled state. You must work with your service provider to deprovision the circuit on their side. We will continue to reserve resources and bill you until the service provider completes deprovisioning the circuit and sends us a notification.
 
-If the service provider has deprovisioned the circuit (service provider provisioning state is set to not provisioned), before you run the above cmdlet, we will deprovision the circuit and stop billing you. 
+If the service provider has deprovisioned the circuit (the service provider provisioning state is set to *not provisioned*) before you run the above cmdlet, we will deprovision the circuit and stop billing you. 
 
 
 ## Next steps
