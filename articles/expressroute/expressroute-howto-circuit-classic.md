@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Workflow for configuring an ExpressRoute circuit"
+   pageTitle="Steps for configuring an ExpressRoute circuit"
    description="This article walks you through the steps for creating and provisioning an ExpressRoute circuit. This article also shows you how to check the status, update, or delete and deprovision your circuit."
    documentationCenter="na"
    services="expressroute"
@@ -13,19 +13,19 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/21/2015"
+   ms.date="09/22/2015"
    ms.author="cherylmc"/>
 
 # Create and modify an ExpressRoute circuit
 
-This article walks you through the steps to create an ExpressRoute circuit using PowerShell cmdlets and the classic deployment model. The steps below will also show you how to check the status, update, or delete and deprovision an ExpressRoute circuit. This article applies to the classic deployment model.
+This article walks you through the steps to create an ExpressRoute circuit using PowerShell cmdlets and the classic deployment model. The steps below will also show you how to check the status, update, or delete and deprovision an ExpressRoute circuit. 
 
 >[AZURE.IMPORTANT] It's important to know that Azure currently works with two deployment models: Resource Manager, and classic. Before you begin your configuration, make sure that you understand the deployment models and tools. For information about the deployment models, see [Azure deployment models](../azure-classic-rm.md)
 
 ## Configuration prerequisites
 
-- You will need the latest version of the Azure PowerShell modules. You can download the latest PowerShell module from the PowerShell section of the [Azure Downloads page](http://azure.microsoft.com/downloads). Follow the instructions in the [How to install and configure Azure PowerShell](../powershell-install-configure.md) page for step by step guidance on how to configure your computer to use the Azure PowerShell modules. 
-- Make sure that you have reviewed the [prerequisites](expressroute-prerequisites.md) page and the [workflows](expressroute-workflows.md) page before you begin configuration.
+- You will need the latest version of the Azure PowerShell modules. You can download the latest PowerShell module from the PowerShell section of the [Azure Downloads page](http://azure.microsoft.com/downloads). Follow the instructions on the [How to install and configure Azure PowerShell](../powershell-install-configure.md) page for step-by-step guidance on how to configure your computer to use the Azure PowerShell modules. 
+- Make sure that you have reviewed the [Prerequisites](expressroute-prerequisites.md) page and the [Workflows](expressroute-workflows.md) page before you begin configuration.
 
 ## Create and provision an ExpressRoute circuit
 
@@ -188,7 +188,7 @@ This article walks you through the steps to create an ExpressRoute circuit using
 
 6. **Create your routing configuration.**
 	
-	Refer to the [ExpressRoute circuit routing configuration](expressroute-howto-routing-classic.md) page for step-by-step instructions. 
+	Refer to the [ExpressRoute circuit routing configuration (create and modify circuit peerings)](expressroute-howto-routing-classic.md) page for step-by-step instructions. 
 
 7. **Link a VNet to an ExpressRoute circuit.** 
 
@@ -321,6 +321,5 @@ If the service provider has deprovisioned the circuit (the service provider prov
 
 ## Next steps
 
-- [Configure ExpressRoute Routing](expressroute-howto-routing-classic.md)
+- [Configure ExpressRoute Routing (manage circuit peerings)](expressroute-howto-routing-classic.md)
 - [Link virtual networks to an ExpressRoute circuit](expresssroute-howto-linkvnet-classic.md) 
-- For more information about ExpressRoute, see the [ExpressRoute FAQ](expressroute-faqs.md).
