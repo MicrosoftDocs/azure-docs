@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="08/11/2015"
+   ms.date="09/22/2015"
    ms.author="mbaldwin" />
 
 # Azure Key Vault Developer's Guide
@@ -55,7 +55,7 @@ Azure Key Vault keys and secrets can also be managed using PowerShell and CLI, a
 
 - [Create and Manage Key Vaults with PowerShell](key-vault-get-started.md)
 - [Create and Manage Key Vaults with CLI](key-vault-manage-with-cli.md)
-- [How to Generate and Transfer HSM-Protected Keys for Azure Key Vault](https://msdn.microsoft.com/library/azure/dn903624.aspx)
+- [How to Generate and Transfer HSM-Protected Keys for Azure Key Vault](key-vault-hsm-protected-keys.md)
 - [About Keys and Secrets](https://msdn.microsoft.com/library/azure/dn903623.aspx)
 
 ## See also

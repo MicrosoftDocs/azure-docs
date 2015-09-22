@@ -102,6 +102,9 @@ The following limits apply when using the Azure Resource Manager and Azure Resou
 
 
 ### Networking Limits
+
+[AZURE.INCLUDE [expressroute-limits](../includes/expressroute-limits.md)]
+
 #### Networking Limits
 [AZURE.INCLUDE [azure-virtual-network-limits](../includes/azure-virtual-network-limits.md)]
 

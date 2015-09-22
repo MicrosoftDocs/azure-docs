@@ -65,6 +65,3 @@ For more advanced topics related to Service Fabric, see the following articles.
 - [Using System health reports for troubleshooting](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
 
 - [Placement Constraints Overview](service-fabric-placement-constraint.md)
-
-- [Secure Replication traffic of Stateful Services in Azure Service Fabric](service-fabric-replication-security.md)
- 

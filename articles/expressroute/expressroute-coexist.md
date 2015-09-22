@@ -150,7 +150,11 @@ This procedure will walk you through creating a virtual network, as well as crea
 
 	Use the following sample, replacing the values with your own.
 
-	`New-AzureLocalNetworkGateway -GatewayName MyLocalNetwork -IpAddress <local-network- gateway-public-IP> -AddressSpace <local-network-address-space>`
+	`New-AzureLocalNetworkGateway -Gatewayname MyLocalNetwork -IpAddress <MyLocalGatewayIp> -AddressSpace <MyLocalNetworkAddress>`
+
+	> [AZURE.IMPORTANT] If your local network has multiple routes you can pass them all in as an array. 
+	> $MyLocalNetworkAddress = @("10.1.2.0/24","10.1.3.0/24","10.2.1.0/24")
+
 
 	To retrieve the virtual network gateway settings, including the gateway ID and the public IP, use the `Get-AzureVirtualNetworkGateway` cmdlet. See the following example.
 
