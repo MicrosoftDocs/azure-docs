@@ -19,7 +19,7 @@
 
 #How to generate thumbnail using Media Encoder Standard with .NET
 
-This topic shows how to use .NET to encode an asset and generate the thumbnail at the same time using Media Encoder Strandard.
+This topic shows how to use .NET to encode an asset and generate the thumbnail at the same time using Media Encoder Standard.
 
 ##Example
 
