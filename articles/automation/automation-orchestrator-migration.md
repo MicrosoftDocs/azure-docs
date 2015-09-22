@@ -12,13 +12,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/18/2015"
+   ms.date="09/17/2015"
    ms.author="bwren" />
 
 
 # Migrating from Orchestrator to Azure Automation
 
-Runbooks in [System Center Orchestrator](http://technet.microsoft.com/library/hh237242.aspx) are based on activities from integration packs that are written specifically for Orchestrator while runbooks in Azure Automation are based on Windows PowerShell Workflows.  Graphical runbooks in Azure Automation have a similar appearance to Orchestrator runbooks with their activities representing PowerShell cmdlets, child runbooks, and assets.
+Runbooks in [System Center Orchestrator](http://technet.microsoft.com/library/hh237242.aspx) are based on activities from integration packs that are written specifically for Orchestrator while runbooks in Azure Automation are based on Windows PowerShell Workflows.  [Graphical runbooks](automation-runbook-types#graphical-runbooks) in Azure Automation have a similar appearance to Orchestrator runbooks with their activities representing PowerShell cmdlets, child runbooks, and assets.
 
 The [System Center Orchestrator Migration Toolkit](http://www.microsoft.com/download/details.aspx?id=47323&WT.mc_id=rss_alldownloads_all) includes tools to assist you in converting runbooks from Orchestrator to Azure Automation.  In addition to converting the runbooks themselves, you must convert the integration packs with the activities that they use to integration modules with Windows PowerShell cmdlets.  
 
@@ -71,7 +71,7 @@ Microsoft provides [integration packs](http://technet.microsoft.com/library/hh29
 
 ## Runbook Converter (coming soon)
 
-This tool will convert Orchestrator runbooks into graphical runbooks that can be imported into Azure Automation.  Further details on this tool will be provided here when it comes available.
+This tool will convert Orchestrator runbooks into [graphical runbooks](automation-runbook-types.md#graph-runbooks) that can be imported into Azure Automation.  Further details on this tool will be provided here when it comes available.
 
 ## Related articles
 
