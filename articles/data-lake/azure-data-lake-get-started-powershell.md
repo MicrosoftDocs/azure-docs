@@ -87,7 +87,7 @@ You can create directories under your Azure Data Lake account to manage and stor
 
 2. Create a new directory called **mynewdirectory** under the specified root.
 
-		New-AzureDataLakeItem -Folder AccountName <Data Lake account> -Path $myrootdir/mynewdirectory
+		New-AzureDataLakeItem -Folder -AccountName <Data Lake account> -Path $myrootdir/mynewdirectory
 
 3. Verify that the new directory is successfully created.
 
