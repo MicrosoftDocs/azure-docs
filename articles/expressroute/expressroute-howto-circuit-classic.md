@@ -24,7 +24,7 @@ This article walks you through the steps to create an ExpressRoute circuit using
 
 ## Configuration prerequisites
 
-- You will need the latest version of the Azure PowerShell modules. You can download the latest PowerShell module from the [Azure Downloads page](http://go.microsoft.com/?linkid=9811175&clcid=0x409). Follow the instructions in the [How to install and configure Azure PowerShell](https://azure.microsoft.com/en-us/documentation/articles/powershell-install-configure/) page for step by step guidance on how to configure your computer to use the Azure PowerShell modules. 
+- You will need the latest version of the Azure PowerShell modules. You can download the latest PowerShell module from the PowerShell section of the [Azure Downloads page](http://azure.microsoft.com/downloads). Follow the instructions in the [How to install and configure Azure PowerShell](../powershell-install-configure.md) page for step by step guidance on how to configure your computer to use the Azure PowerShell modules. 
 - Make sure that you have reviewed the [prerequisites](expressroute-prerequisites.md) page and the [workflows](expressroute-workflows.md) page before you begin configuration.
 
 ## Create and provision an ExpressRoute circuit

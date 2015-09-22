@@ -6,7 +6,7 @@
    authors="cherylmc"
    manager="carolz"
    editor=""
-   tags="azure-service-management"/
+   tags="azure-service-management"/>
 
 <tags 
    ms.service="expressroute"
@@ -63,7 +63,6 @@ These steps will walk you through configuring a virtual network and a gateway fo
 10. When the gateway starts creating, you’ll see a message letting you know that the gateway has been started. It may take up to 15 minutes for the gateway to create.
 
 11. Link your network to a circuit. Follow the instructions in the article [How to link VNets to ExpressRoute circuits](expressroute-howto-linkvnets-classic.md).
-
 
 ## Next steps
 

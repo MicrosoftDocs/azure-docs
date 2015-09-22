@@ -24,7 +24,7 @@ This article give you an overview of how to link virtual networks (VNets) to Exp
 
 ## Configuration prerequisites
 
-- You will need the latest version of the Azure PowerShell modules. You can download the latest PowerShell module from the [Azure Downloads page](http://go.microsoft.com/?linkid=9811175&clcid=0x409). Follow the instructions in the [How to install and configure Azure PowerShell](https://azure.microsoft.com/en-us/documentation/articles/powershell-install-configure/) page for step by step guidance on how to configure your computer to use the Azure PowerShell modules. 
+- You will need the latest version of the Azure PowerShell modules. You can download the latest PowerShell module from the PowerShell section of the [Azure Downloads page](http://azure.microsoft.com/downloads). Follow the instructions in the [How to install and configure Azure PowerShell](../powershell-install-configure.md) page for step by step guidance on how to configure your computer to use the Azure PowerShell modules. 
 - Make sure that you have reviewed the [prerequisites](expressroute-prerequisites.md) page, the  [routing requirements](expressroute-routing.md) page and the [workflows](expressroute-workflows.md) page before you begin configuration.
 - You must have an active ExpressRoute circuit. 
 	- Follow instructions to [create an ExpressRoute circuit](expressroute-howto-circuit-classic.md) and have the circuit enabled by your connectivity provider. 
