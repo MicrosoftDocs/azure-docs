@@ -51,7 +51,7 @@ In nearly all OAuth & OpenID Connect flows, there are four parties involved in t
 
 Arguably, Azure AD B2C **policies** are the most important feature of the service.  Azure AD B2C extends the standard OAuth 2.0 and OpenID Connect protocols by introducing policies, which allow Azure AD B2C to perform much more than simple authentication and authorization.
 Policies fully describe consumer identity experiences such as sign up, sign in or profile editing.  They can be defined in an admininstrative UI, and executed by using a special query parameter in HTTP authentication requests.  Policies are not a standard feature of OAuth 2.0
-and OpenID Connect, so you should take the time to understand them.  For more information, read the [Azure AD B2C policy reference guide](active-directory-b2c-reference-policies).
+and OpenID Connect, so you should take the time to understand them.  For more information, read the [Azure AD B2C policy reference guide](active-directory-b2c-reference-policies.md).
 
 
 ## Tokens
