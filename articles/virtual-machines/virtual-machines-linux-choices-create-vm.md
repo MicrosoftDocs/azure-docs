@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Different ways to create a Linux virtual machine"
-	description="Lists the different ways to create a Linux virtual machine and gives links to instructions."
+	pageTitle="Different ways to create a Linux VM | Microsoft Azure"
+	description="Lists the different ways to create a Linux virtual machine on Azure and gives links to further instructions."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="dsk-2015"
@@ -65,7 +65,6 @@ Use an image based on an existing Azure virtual machine by *capturing* that VM, 
 [Attach a Data Disk][]
 
 ## Additional resources
-[About Azure VM configuration settings][]
 
 [Base Configuration Test Environment][]
 
@@ -96,7 +95,6 @@ Use an image based on an existing Azure virtual machine by *capturing* that VM, 
 
 [Attach a Data Disk]: virtual-machines-linux-how-to-attach-disk.md
 
-[About Azure VM configuration settings]: http://msdn.microsoft.com/library/azure/dn763935.aspx
 [Base Configuration Test Environment]: virtual-machines-base-configuration-test-environment.md
 [Azure hybrid cloud test environments]: virtual-machines-hybrid-cloud-test-environments.md
 

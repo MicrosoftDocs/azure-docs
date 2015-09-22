@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/01/2015"
+   ms.date="09/15/2015"
    ms.author="alkohli" />
 
 # Use the StorSimple Manager service to manage StorSimple bandwidth templates
@@ -174,4 +174,5 @@ Follow these best practices for your StorSimple device:
 
 ## Next steps
 
-Read more about [StorSimple components](storsimple-components.md). 
+- Learn more about [StorSimple components](storsimple-components.md). 
+- Learn more about [using the StorSimple Manager service to administer your StorSimple device](storsimple-manager-service-administration.md).

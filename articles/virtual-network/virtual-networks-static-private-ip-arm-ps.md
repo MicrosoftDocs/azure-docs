@@ -54,15 +54,15 @@ To create a VM named *DNS01* in the *FrontEnd* subnet of a VNet named *TestVNet*
 	    $vnet = Get-AzureVirtualNetwork -ResourceGroupName TestRG -Name TestVNet	
 	    $subnet = $vnet.Subnets[0].Id
 
-4. Create a public IP address to access the VM from the Internet.
+4. If necessary, create a public IP address to access the VM from the Internet.
 
 		$pip = New-AzurePublicIpAddress -Name TestPIP -ResourceGroupName $rgName -Location $locName -AllocationMethod Dynamic
 
-5. Create a NIC using the static private IP address you want to assign to the VM. Make sure the IP is from the subnet range you are adding the VM to. 
+5. Create a NIC using the static private IP address you want to assign to the VM. Make sure the IP is from the subnet range you are adding the VM to. This is the main step for this article, where you set the private IP to be static.
 
 		$nic = New-AzureNetworkInterface -Name TestNIC -ResourceGroupName $rgName -Location $locName -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id -PrivateIpAddress 192.168.1.101
 
-6. Create the VM using the public IP and NIC created above.
+6. Create the VM using the NIC created above.
 
 		$vm = New-AzureVMConfig -VMName DNS01 -VMSize "Standard_A1"
 		$vm = Set-AzureVMOperatingSystem -VM $vm -Windows -ComputerName DNS01  -Credential $cred -ProvisionVMAgent -EnableAutoUpdate

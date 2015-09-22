@@ -14,7 +14,7 @@
    	ms.topic="article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="09/18/2015"
+   	ms.date="09/21/2015"
    	ms.author="nitinme"/>
 
 
@@ -378,53 +378,6 @@ It can take several minutes before the cluster provisioning finishes.
 
 ![HDI.CLI.Provision][image-hdi-ps-provision]
 
-###<a id="rest"></a> Using the REST API
-
-Azure services can be managed using the Azure REST API. This means you can use a utility such as curl to directly work with the API. The following steps demonstrate how to use curl to create a new HDInsight cluster.
-
-
-
-1. If it is not already installed, follow the steps in the [Install and configure the Azure CLI](../xplat-cli.md) document.
-
-    > [AZURE.IMPORTANT] The Azure CLI is used to create a new Azure Active Directory service principal, which is used to obtain the authentication token used to authenticate requests to the REST API.
-
-2. Follow the steps in the following document to create a new service principal. This will be used to generate an authentication token for use with curl requests:
-
-    > [AZURE.IMPORTANT] When performing the step that sets permission, you must set `Owner` permission instead of `Reader`.
-    >
-    > You must also save the __Application Id__ value that is returned from this process, and the __Password__ used when creating the service principal, as they will be used in the following steps.
-    
-    * [How to Authenticate a service principal with a password (Azure CLI)](resource-group-authenticate-service-principal.md/#authenticate-service-principal-with-password---azure-cli)
-
-3. Use the Azure CLI to retrieve the subscription ID and tenant ID for your Azure subscription:
-
-        azure account list
-    
-    This will return several columns of information. The ID for your subscription will be in the __ID__ column, while the tenant ID will be in the __Tenant ID__ column.
-
-4. Use the following to retrieve an authentication token:
-
-        curl -X "POST" "https://login.microsoftonline.com/TENANTID/oauth2/token" -H "Content-Type: application/x-www-form-urlencoded" --data-urlencode "client_id=APPCLICATIONID" --data-urlencode "grant_type=client_credentials" --data-urlencode "client_secret=PASSWORD" --data-urlencode "resource=https://management.core.windows.net"
-    
-    * Replace __TENANTID__ with the tenant id for your Azure Subscription.
-    * Replace __APPLICATIONID__ with the application id for the service principal you created earlier.
-    * Replace __PASSWORD__ with the password you used for the service principal.
-    
-    This should return a JSON document, with an entry named "access_token". The value of this will be a large string of random characters. This is the access token for authenticating requests to the REST API.
-    
-    > [AZURE.NOTE] The access token will expire after a period of time.
-
-5. Use the following to create a new resource group:
-
-        curl -X "PUT" "https://management.azure.com/subscriptions/SUBSCRIPTIONID/resourcegroups/GROUPNAME?api-version=2015-01-01 -H "Authorization: Bearer AUTHTOKEN" -H "Content-Type: application/json" -d $'{ "location": "LOCATION" }'
-    
-    * Replace __SUBSCRIPTIONID__ with the ID you retrieved earlier from the `azure account list` command.
-    * Replace __GROUPNAME__ with the name you wish to use for this resource group.
-    * Replace __AUTHTOKEN__ with the access token value returned in the previous step.
-    * Replace __LOCATION__ with the location that you want this group, and the HDInsight cluster and storage resources, to be created in. For example, "South Central US".
-
-6. Use the following to create a new deployment for the resource group. This deployment will use an HDInsight template stored on GitHub.
-
 
 
 ###<a id="sdk"></a> Using the HDInsight .NET SDK
@@ -432,141 +385,131 @@ The HDInsight .NET SDK provides .NET client libraries that make it easier to wor
 
 **To create a Visual Studio console application**
 
-1. Open Visual Studio 2013.
+1. Open Visual Studio 2013 or 2015.
 
 2. From the **File** menu, click **New**, and then click **Project**.
 
 3. From **New Project**, type or select the following values:
 
-	<table style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse;">
-	<tr>
-	<th style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; width:90px; padding-left:5px; padding-right:5px;">Property</th>
-	<th style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; width:90px; padding-left:5px; padding-right:5px;">Value</th></tr>
-	<tr>
-	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Category</td>
-	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px; padding-right:5px;">Templates/Visual C#/Windows</td></tr>
-	<tr>
-	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Template</td>
-	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Console Application</td></tr>
-	<tr>
-	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Name</td>
-	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">CreateHDICluster</td></tr>
-	</table>
+	|Property|Value|
+	|--------|-----|
+	|Template|Templates/Visual C#/Windows/Console Application|
+	|Name|CreateHDICluster|
 
 4. Click **OK** to create the project.
 
-5. From the **Tools** menu, click **Nuget Package Manager**, and then click **Manage Nuget Packages for Solutions**. In the Search text box within the dialog box, search for **HDInsight**. From the results that show up, install the following:
+5. From the **Tools** menu, click **Nuget Package Manager**, and then click **Package Manager Console**.
 
-	 * Microsoft.Azure.Management.HDInsight
-	 * Microsoft.Azure.Management.HDInsight.Job
+6. Run the following command in the console to install the packages:
 
-	Search for Azure Authentication and from the results that show up, install **Microsoft.Azure.Common.Authentication**.
+		Install-Package Microsoft.Azure.Common.Authentication -pre
+		Install-Package Microsoft.Azure.Management.HDInsight -Pre
+
+	These commands add .NET libraries and references to them to the current Visual Studio project.
 
 6. From Solution Explorer, double-click **Program.cs** to open it, paste the following code, and provide values for the variables:
 
-
-        using System;
-		using System.Collections.Generic;
-		using System.Diagnostics;
-		using System.Linq;
-		using System.Security;
-		using System.Text;
-		using System.Threading.Tasks;
-		using Hyak.Common;
 		using Microsoft.Azure;
 		using Microsoft.Azure.Common.Authentication;
+		using Microsoft.Azure.Common.Authentication.Factories;
 		using Microsoft.Azure.Common.Authentication.Models;
 		using Microsoft.Azure.Management.HDInsight;
-		using Microsoft.Azure.Management.HDInsight.Job;
-		using Microsoft.Azure.Management.HDInsight.Job.Models;
 		using Microsoft.Azure.Management.HDInsight.Models;
-		using Newtonsoft.Json;
-
 
 		namespace CreateHDICluster
 		{
 		    internal class Program
 		    {
-		        private static ProfileClient _profileClient;
-		        private static SubscriptionCloudCredentials _cloudCredentials;
 		        private static HDInsightManagementClient _hdiManagementClient;
+		
+		        private static Guid SubscriptionId = new Guid("<AZURE SUBSCRIPTION ID>");
+		        private const string ResourceGroupName = "<AZURE RESOURCEGROUP NAME>";
 
-		        private static Guid SubscriptionId = new Guid("<SubscriptionID>");
-		        private const string ResourceGroupName = "<ResourceGroupName>";
-		        private const string ExistingStorageName = "<storageaccountname>.blob.core.windows.net";
-		        private const string ExistingStorageKey = "<account key>";
-		        private const string ExistingContainer = "<container name>";
-		        private const string NewClusterName = "<cluster name>";
-		        private const int NewClusterNumNodes = <number of nodes>;
-		        private const string NewClusterLocation = "<location>";		//should be same as the storage account
-		        private const OSType NewClusterOsType = OSType.Linux;
-		        private const HDInsightClusterType NewClusterType = HDInsightClusterType.Hadoop;
+		        private const string NewClusterName = "<HDINSIGHT CLUSTER NAME>";
+		        private const int NewClusterNumNodes = <NUMBER OF NODES>;
+		        private const string NewClusterLocation = "<LOCATION>";  // Must match the Azure Storage account location
 		        private const string NewClusterVersion = "3.2";
-		        private const string NewClusterUsername = "admin";
-		        private const string NewClusterPassword = "<password>";
-				private const string NewClusterSshUserName = "sshuser";
-        		private const string NewClusterSshPublicKey = "<ssh public key>";
+		        private const HDInsightClusterType NewClusterType = HDInsightClusterType.Hadoop;
+		        private const OSType NewClusterOSType = OSType.Windows;
 
+		        private const string ExistingStorageName = "<STORAGE ACCOUNT NAME>.blob.core.windows.net";
+		        private const string ExistingStorageKey = "<STORAGE ACCOUNT KEY>";
+		        private const string ExistingContainer = "<DEFAULT CONTAINER NAME>"; 
+
+		        private const string NewClusterUsername = "admin";
+		        private const string NewClusterPassword = "<HTTP USER PASSWORD>";
+
+		        private const string NewClusterSshUserName = "sshuser";
+		        private const string NewClusterSshPublicKey = @"---- BEGIN SSH2 PUBLIC KEY ----
+					Comment: ""rsa-key-20150731""
+					AAAAB3NzaC1yc2EAAAABJQAAAQEA4QiCRLqT7fnmUA5OhYWZNlZo6lLaY1c+IRsp
+					gmPCsJVGQLu6O1wqcxRqiKk7keYq8bP5s30v6bIljsLZYTnyReNUa5LtFw7eauGr
+					yVt3Pve6ejfWELhbVpi0iq8uJNFA9VvRkz8IP1JmjC5jsdnJhzQZtgkIrdn3w0e6
+					WVfu15kKyY8YAiynVbdV51EB0SZaSLdMZkZQ81xi4DDtCZD7qvdtWEFwLa+EHdkd
+					pzO36Mtev5XvseLQqzXzZ6aVBdlXoppGHXkoGHAMNOtEWRXpAUtEccjpATsaZhQR
+					zZdZlzHduhM10ofS4YOYBADt9JohporbQVHM5w6qUhIgyiPo7w==
+					---- END SSH2 PUBLIC KEY ----"; //replace the public key with your own
+		
 		        private static void Main(string[] args)
 		        {
-		            System.Console.WriteLine("Start cluster provisioning");
-
-		            _profileClient = GetProfile();
-		            _cloudCredentials = GetCloudCredentials();
-		            _hdiManagementClient = new HDInsightManagementClient(_cloudCredentials);
-
-		            System.Console.WriteLine(String.Format("Creating the cluster {0}...", NewClusterName));
+		            var tokenCreds = GetTokenCloudCredentials();
+		            var subCloudCredentials = GetSubscriptionCloudCredentials(tokenCreds, SubscriptionId);
+		
+		            _hdiManagementClient = new HDInsightManagementClient(subCloudCredentials);
+		
 		            CreateCluster();
-		            System.Console.WriteLine("Done. Press any key to continue.");
-		            System.Console.ReadKey(true);
 		        }
-
+		
+		        public static SubscriptionCloudCredentials GetTokenCloudCredentials(string username = null, SecureString password = null)
+		        {
+		            var authFactory = new AuthenticationFactory();
+		
+		            var account = new AzureAccount { Type = AzureAccount.AccountType.User };
+		
+		            if (username != null && password != null)
+		                account.Id = username;
+		
+		            var env = AzureEnvironment.PublicEnvironments[EnvironmentName.AzureCloud];
+		
+		            var accessToken =
+		                authFactory.Authenticate(account, env, AuthenticationFactory.CommonAdTenant, password, ShowDialog.Auto)
+		                    .AccessToken;
+		
+		            return new TokenCloudCredentials(accessToken);
+		        }
+		
+		        public static SubscriptionCloudCredentials GetSubscriptionCloudCredentials(SubscriptionCloudCredentials creds, Guid subId)
+		        {
+		            return new TokenCloudCredentials(subId.ToString(), ((TokenCloudCredentials)creds).Token);
+		        }
+		
+		
 		        private static void CreateCluster()
 		        {
 		            var parameters = new ClusterCreateParameters
 		            {
 		                ClusterSizeInNodes = NewClusterNumNodes,
-		                UserName = NewClusterUsername,
-		                Password = NewClusterPassword,
 		                Location = NewClusterLocation,
+		                ClusterType = NewClusterType,
+		                OSType = NewClusterOSType,
+		                Version = NewClusterVersion,
+
 		                DefaultStorageAccountName = ExistingStorageName,
 		                DefaultStorageAccountKey = ExistingStorageKey,
 		                DefaultStorageContainer = ExistingContainer,
-		                ClusterType = NewClusterType,
-		                OSType = NewClusterOsType,
-						SshUserName = NewClusterSshUserName,
+
+		                UserName = NewClusterUsername,
+		                Password = NewClusterPassword,
+		                SshUserName = NewClusterSshUserName,
                 		SshPublicKey = NewClusterSshPublicKey
 		            };
-
+		
 		            _hdiManagementClient.Clusters.Create(ResourceGroupName, NewClusterName, parameters);
 		        }
-
-		        private static ProfileClient GetProfile(string username = null, SecureString password = null)
-		        {
-		            var profileClient = new ProfileClient(new AzureProfile());
-		            var env = profileClient.GetEnvironmentOrDefault(EnvironmentName.AzureCloud);
-		            var acct = new AzureAccount { Type = AzureAccount.AccountType.User };
-
-		            if (username != null && password != null)
-		                acct.Id = username;
-
-		            profileClient.AddAccountAndLoadSubscriptions(acct, env, password);
-
-		            return profileClient;
-		        }
-
-		        private static SubscriptionCloudCredentials GetCloudCredentials()
-		        {
-		            var sub = _profileClient.Profile.Subscriptions.Values.FirstOrDefault(s => s.Id.Equals(SubscriptionId));
-
-		            Debug.Assert(sub != null, "subscription != null");
-		            _profileClient.SetSubscriptionAsDefault(sub.Id, sub.Account);
-
-		            return AzureSession.AuthenticationFactory.GetSubscriptionCloudCredentials(_profileClient.Profile.Context);
-		        }
-
-		    }
+			}
 		}
+		
+10. Replace the class member values.
 
 7. Press **F5** to run the application. A console window should open and display the status of the application. You will also be prompted to enter your Azure account credentials. It can take several minutes to create an HDInsight cluster.
 

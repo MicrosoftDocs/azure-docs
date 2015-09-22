@@ -200,9 +200,7 @@ For specific information on scaling your HDInsight cluster, see:
 
 ## How do I install Hue (or other Hadoop component)?
 
-HDInsight is a managed service, which means that nodes in a cluster may be destroyed and reprovisioned automatically by Azure if a problem is detected. Because of this, it is not recommended to manually install components on the cluster nodes.
-
-Instead, use [HDInsight Script Actions](hdinsight-hadoop-customize-cluster.md).
+HDInsight is a managed service, which means that nodes in a cluster may be destroyed and reprovisioned automatically by Azure if a problem is detected. Because of this, it is not recommended to manually install services on the cluster nodes. Instead, use [HDInsight Script Actions](hdinsight-hadoop-customize-cluster.md).
 
 Script Actions are Bash scripts that are ran during cluster provisioning, and can be used to install additional components on the cluster. Example scripts are provided for installing the following components:
 
@@ -213,6 +211,10 @@ Script Actions are Bash scripts that are ran during cluster provisioning, and ca
 * [Spark](hdinsight-hadoop-spark-install-linux.md)
 
 For information on developing your own Script Actions, see [Script Action development with HDInsight](hdinsight-hadoop-script-actions-linux.md).
+
+Some Hadoop technologies are provided in self-contained jar files that are referenced as part of a job, or from inside Pig or Hive. While these can be installed using Script Actions, they often don't require any setup and can just be uploaded to the cluster after provisioning and used directly. If you want to makle sure the file survives reimaging of the cluster, you can store it in WASB.
+
+For example, if you want to use the latest version of [DataFu](http://datafu.incubator.apache.org/), you can download a jar containing the project and upload it to the HDInsight cluster. Then follow the DataFu documentation on how to use it from Pig or Hive.
 
 ## Next steps
 

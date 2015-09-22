@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="curtand"
-	manager="terrylan"
+	manager="stevenpo"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/02/2015"
+	ms.date="09/21/2015"
 	ms.author="curtand"/>
 
 
@@ -52,4 +52,3 @@ Want to understand more about how to manage Azure AD? How to get a directory? Ho
 
 * [Sign up for Azure as an organization](sign-up-organization.md)
 * [Azure Identity](fundamentals-identity.md)
- 

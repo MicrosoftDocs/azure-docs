@@ -23,6 +23,8 @@ When your enterprise transitions to the cloud, you might not be able to migrate 
 
 In this tutorial, you'll learn how to modify a Mobile App .NET backend to use a local on-premises SQL Server database instead of the default Azure SQL Database provisioned with your service.
 
+[AZURE.INCLUDE [app-service-mobile-to-web-and-api](../../includes/app-service-mobile-to-web-and-api.md)] 
+
 ## Prerequisites ##
 
 This tutorial requires you to have the following:

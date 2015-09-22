@@ -8,7 +8,7 @@
 	editor=""/>
 
 <tags 
-	ms.service="app-service-web" 
+	ms.service="app-service" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
@@ -28,6 +28,8 @@ For example, there may be a SQL Server running on a cluster of virtual machines 
 As another example, sensitive endpoints may run on-premises and be connected to Azure via either [Site-to-Site][SiteToSite] or [Azure ExpressRoute][ExpressRoute] connections.  As a result, only resources in virtual networks connected to the Site-to-Site or ExpressRoute tunnels will be able to access on-premises endpoints.
 
 For all of these scenarios, apps running on an App Service Environment will be able to securely connect to the various servers and resources.  Outbound traffic from apps running in an App Service Environment to private endpoints in the same virtual network (or connected to the same virtual network), will only flow over the virtual network.  Outbound traffic to private endpoints will not flow over the public Internet.
+
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)] 
 
 ## Outbound Connectivity and DNS Requirements ##
 Note that for an App Service Environment to function properly, it requires outbound access to Azure Storage worldwide, as well as connectivity to Sql Database in the same Azure region.  If outbound Internet access is blocked in the virtual network, App Service Environments will not be able to access these Azure endpoints.

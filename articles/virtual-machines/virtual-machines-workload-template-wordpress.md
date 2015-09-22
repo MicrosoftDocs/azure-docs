@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Deploy a WordPress server on Ubuntu with an Azure Resource Manager template"
+	pageTitle="WordPress on Ubuntu with ARM template | Microsoft Azure"
 	description="Easily deploy a single WordPress server running Ubuntu using a Resource Manager Template and the Azure Preview Portal, Azure PowerShell, or the Azure CLI."
 	services="virtual-machines"
 	documentationCenter=""
@@ -11,13 +11,15 @@
 <tags
 	ms.service="virtual-machines"
 	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="na"
+	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="06/29/2015"
 	ms.author="davidmu"/>
 
 # Deploy a WordPress server on Ubuntu with an Azure Resource Manager template
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)] This article covers creating a resource with the Resource Manager deployment model. You can't create this resource with the classic deployment model.
 
 Use the instructions in this article to deploy a WordPress server running on Ubuntu using a Resource Manager template. This template creates a single virtual machine in a new virtual network.
 
