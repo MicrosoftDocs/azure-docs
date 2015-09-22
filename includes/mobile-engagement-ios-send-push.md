@@ -4,15 +4,15 @@ To allow Mobile Engagement to send Push Notifications on your behalf, you need t
 
 1. Navigate to your Mobile Engagement portal. Ensure you're in the correct and then click on the **Engage** button at the bottom:
 
-	![][1]
+	![](./media/mobile-engagement-ios-send-push/engage-button.png)
 
 2. Click on the **Settings** page in your Engagement Portal. From there click on the **Native Push** section to upload your p12 certificate:
 
-	![][2]
+	![](./media/mobile-engagement-ios-send-push/engagement-portal.png)
 
 3. Select your p12, upload it and type your password:
 
-	![][3]
+	![](./media/mobile-engagement-ios-send-push/native-push-settings.png)
 
 ##<a id="send"></a>Send a notification to your app
 
@@ -22,11 +22,11 @@ We will now create a simple Push Notification campaign that will send a push to 
 
 2. Click **New Announcement** to create your push campaign
 
-	![][4]
+	![](./media/mobile-engagement-ios-send-push/new-announcement.png)
 
 3. Setup the first fields of your campaign:
 
-	![][5]
+	![](./media/mobile-engagement-ios-send-push/campaign-first-params.png)
 
 	- 	Provide a **Name** for your campaign 
 	- 	Select the **Delivery time** as **Out of app only**: this is the simple Apple push notification type that features some text.
@@ -35,19 +35,12 @@ We will now create a simple Push Notification campaign that will send a push to 
 
 4. Scroll down, and in the content section select **Notification only**
 
-	![][6]
+	![](./media/mobile-engagement-ios-send-push/campaign-content.png)
 
 5. You're done setting the most basic campaign. Now scroll down and click on **Create** button to save your push notification campaign. 
 
 6. Finally - click on **Activate** to send push notification. 
 
-	![][7]
+	![](./media/mobile-engagement-ios-send-push/campaign-activate.png)
 
-<!-- Images --> 
-[1]: ./media/mobile-engagement-ios-send-push/engage-button.png
-[2]: ./media/mobile-engagement-ios-send-push/engagement-portal.png
-[3]: ./media/mobile-engagement-ios-send-push/native-push-settings.png
-[4]: ./media/mobile-engagement-ios-send-push/new-announcement.png
-[5]: ./media/mobile-engagement-ios-send-push/campaign-first-params.png
-[6]: ./media/mobile-engagement-ios-send-push/campaign-content.png
-[7]: ./media/mobile-engagement-ios-send-push/campaign-activate.png
+ 

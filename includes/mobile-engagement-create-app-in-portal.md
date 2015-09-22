@@ -2,11 +2,11 @@
 
 2. Click on **App Services**, then **Mobile Engagement**, and then **Create**.
 
-   	![][1]
+   	![](./media/mobile-engagement-create-app-in-portal/create-mobile-engagement-app.png)
 
 3. In the popup that appears, enter the following information:
 
-   	![][2]
+   	![](./media/mobile-engagement-create-app-in-portal/create-azme-popup.png)
 
 	- **Application Name**: Name of your application. 
 	- **Platform**: Target platform for the app. You must create one Mobile Engagement app per platform that you are targeting for your mobile application. 
@@ -19,14 +19,9 @@
 
 5. Click on **Connection Info** in order to display the connection settings to put into your SDK integration in your mobile app.
 
-   	![][3]
+   	![](./media/mobile-engagement-create-app-in-portal/app-main-page-select-connection-info.png)
 
 6. Copy the **Connection String** - this is what you will need to identify this app in your Application code and connect with Mobile Engagement from your Phone App.
 
-   	![][4]
+   	![](./media/mobile-engagement-create-app-in-portal/app-connection-info-page.png)
 
-<!-- Images. -->
-[1]: ./media/mobile-engagement-create-app-in-portal/create-mobile-engagement-app.png
-[2]: ./media/mobile-engagement-create-app-in-portal/create-azme-popup.png
-[3]: ./media/mobile-engagement-create-app-in-portal/app-main-page-select-connection-info.png
-[4]: ./media/mobile-engagement-create-app-in-portal/app-connection-info-page.png

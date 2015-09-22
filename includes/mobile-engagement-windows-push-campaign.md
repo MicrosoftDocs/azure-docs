@@ -4,11 +4,11 @@ We will now create a simple push notification campaign that sends a push notific
 
 2. Click **New announcement** to create your push notification campaign.
 
-	![][1]
+	![](./media/mobile-engagement-windows-push-campaign/new-announcement.png)
 
 3. Set up the first field of your campaign through the following steps:
 
-	![][2]
+	![](./media/mobile-engagement-windows-push-campaign/campaign-first-params.png)
 
 	a. Name your campaign.
 
@@ -20,16 +20,12 @@ We will now create a simple push notification campaign that sends a push notific
 
 4. Scroll down, and in the **Content** section, select **Notification only**.
 
-	![][3]
+	![](./media/mobile-engagement-windows-push-campaign/campaign-content.png)
 
 5. You're done setting the most basic campaign possible. Now scroll down again and click the **Create** button to save your campaign.
 
 6. Last step: Click **Activate** to activate your campaign and to send push notifications.
 
-	![][4]
+	![](./media/mobile-engagement-windows-push-campaign/campaign-activate.png)
 
-<!-- Images -->
-[1]: ./media/mobile-engagement-windows-push-campaign/new-announcement.png
-[2]: ./media/mobile-engagement-windows-push-campaign/campaign-first-params.png
-[3]: ./media/mobile-engagement-windows-push-campaign/campaign-content.png
-[4]: ./media/mobile-engagement-windows-push-campaign/campaign-activate.png
+ 
