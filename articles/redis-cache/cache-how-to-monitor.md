@@ -24,7 +24,7 @@ When cache diagnostics are enabled, metrics for Azure Redis Cache instances are 
 
 Cache metrics are collected using the Redis [INFO](http://redis.io/commands/info) command. For more information about the different INFO commands used for each cache metric, see [Available metrics and reporting intervals](#available-metrics-and-reporting-intervals).
 
-To view cache metrics, [browse](https://msdn.microsoft.com/library/azure/cbe6d113-7bdc-4664-a59d-ff0df6f4e214#CacheSettings) to your cache instance in the [Azure preview portal](https://portal.azure.com). Metrics for Azure Redis Cache instances are accessed on the **Redis Cache** blade.
+To view cache metrics, [browse](cache-configure.md) to your cache instance in the [Azure preview portal](https://portal.azure.com). Metrics for Azure Redis Cache instances are accessed on the **Redis Cache** blade.
 
 ![Monitor][redis-cache-monitor-overview]
 
