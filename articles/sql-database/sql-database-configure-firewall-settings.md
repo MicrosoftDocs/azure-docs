@@ -1,6 +1,6 @@
 <properties
 	pageTitle="How to: Configure firewall settings | Microsoft Azure"
-	description="Leatn how to configure the firewall for IP addresses that access Azure SQL databases."
+	description="Learn how to configure the firewall for IP addresses that access Azure SQL databases."
 	services="sql-database"
 	documentationCenter=""
 	authors="BYHAM"
