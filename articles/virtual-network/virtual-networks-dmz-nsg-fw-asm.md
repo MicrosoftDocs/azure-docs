@@ -18,9 +18,6 @@
 
 # Example 2 – Build a DMZ to protect applications with a Firewall and NSGs
 
-> [AZURE.SELECTOR]
-- [PowerShell Classic](Network-Boundary-DMZ-NSG-FW-ASM.md)
-
 [Return to the Security Boundary Best Practices Page][HOME]
 
 This example will create a DMZ with a firewall, four windows servers, and Network Security Groups. It will also walk through each of the relevant commands to provide a deeper understanding of each step. There is a also a Traffic Scenario section to provide a in-depth step-by-step how traffic proceeds through the layers of defense in the DMZ. Finally, in the references section is the complete code and instruction to build this environment to test and experiment with various scenarios. 
@@ -78,6 +75,10 @@ There is a default outbound rule that allows traffic out to the internet. For th
 The above discussed NSG rules are very similar to the NSG rules in [Example 1 - Build a Simple DMZ with NSGs][Example1]. Please review the NSG Description in that document for a detailed look at each NSG rule and it's attributes.
 
 ## Firewall Rules
+A management client will need to be installed on a PC to manage the firewall and create the configurations needed. See the documentation from your firewall (or other NVA) vendor on how to manage the device. The remainder of this section will describe the configuration of the firewall itself, through the vendors management client (i.e. not the Azure portal or PowerShell).
+
+Instructions for client download and connecting to the Barracuda used in this example can be found here: [Barracuda NG Admin](https://techlib.barracuda.com/NG61/NGAdmin)
+
 On the firewall, forwarding rules will need to be created. Since this example only routes internet traffic in-bound to the firewall and then to the web server, only one forwarding NAT rule is needed. On the Barracuda NG firewall used in this example the rule would be a Destination NAT rule (“Dst NAT”) to pass this traffic.
 
 To create the following rule (or verify existing default rules), starting from the Barracuda NG Admin client dashboard, navigate to the configuration tab, in the Operational Configuration section click Ruleset. A grid called, “Main Rules” will show the existing active and deactivated rules on the firewall. In the upper right corner of this grid is a small, green “+” button, click this to create a new rule (Note: your firewall may be “locked” for changes, if you see a button marked “Lock” and you are unable to create or edit rules, click this button to “unlock” the ruleset and allow editing). If you wish to edit an existing rule, select that rule, right-click and select Edit Rule.
@@ -219,6 +220,9 @@ This script will, based on the user defined variables;
 
 This PowerShell script should be run locally on an internet connected PC or server.
 
+>[AZURE.IMPORTANT] When this script is run, there may be warnings or other informational messages that pop in PowerShell. Only error messages in red are cause for concern.
+
+
 	<# 
 	 .SYNOPSIS
 	  Example of DMZ and Network Security Groups in an isolated network (Azure only, no hybrid connections)
@@ -308,7 +312,7 @@ This PowerShell script should be run locally on an internet connected PC or serv
 	    #       VM array numbers ($i) so the NSG Rule IP addresses
 	    #       are aligned to the associated VM IP addresses.
 	
-	    # VM 0 - The Network Virtual Appliance
+	    # VM 0 - The Network Virtual Appliance (NVA)
 	      $VMName += "myFirewall"
 	      $ServiceName += $SecureService
 	      $VMFamily += "Firewall"
@@ -353,11 +357,11 @@ This PowerShell script should be run locally on an internet connected PC or serv
 	      $SubnetName += $BESubnet
 	      $VMIP += "10.0.2.4"
 	
-	# -------------------------------- #
-	# These variables and commands may #
-	# vary depending on how you access #
-	# your subscription                #
-	# -------------------------------- #
+	# ----------------------------- #
+	# No User Defined Varibles or   #
+	# Configuration past this point #
+	# ----------------------------- #
+	
 	  # Get your Azure accounts
 	    Add-AzureAccount
 	    Set-AzureSubscription –SubscriptionId $subID -ErrorAction Stop
@@ -374,11 +378,6 @@ This PowerShell script should be run locally on an internet connected PC or serv
 	    Write-Host "Updating Subscription Pointer to New Storage Account" -ForegroundColor Cyan 
 	    Set-AzureSubscription –SubscriptionId $subID -CurrentStorageAccountName $StorageAccountName -ErrorAction Stop
 	
-	# ----------------------------- #
-	# No User Defined Varibles or   #
-	# Configuration past this point #
-	# ----------------------------- #
-	
 	# Validation
 	$FatalError = $false
 	
@@ -387,14 +386,14 @@ This PowerShell script should be run locally on an internet connected PC or serv
 	     $FatalError = $true}
 	
 	If (Test-AzureName -Service -Name $FrontEndService) { 
-	    Write-Host "The FrontEndService service is already in use" -ForegroundColor Yellow
+	    Write-Host "The FrontEndService service name is already in use, please pick a different service name." -ForegroundColor Yellow
 	    $FatalError = $true}
-	Else { Write-Host "The FrontEndService service name is valid for use, please pick a different service name." -ForegroundColor Green}
+	Else { Write-Host "The FrontEndService service name is valid for use." -ForegroundColor Green}
 	
 	If (Test-AzureName -Service -Name $BackEndService) { 
-	    Write-Host "The BackEndService service is already in use" -ForegroundColor Yellow
+	    Write-Host "The BackEndService service name is already in use, please pick a different service name." -ForegroundColor Yellow
 	    $FatalError = $true}
-	Else { Write-Host "The BackEndService service name is valid for use, please pick a different service name." -ForegroundColor Green}
+	Else { Write-Host "The BackEndService service name is valid for use." -ForegroundColor Green}
 	
 	If (-Not (Test-Path $NetworkConfigFile)) { 
 	    Write-Host 'The network config file was not found, please update the $NetworkConfigFile variable to point to the network config xml file.' -ForegroundColor Yellow
@@ -422,7 +421,7 @@ This PowerShell script should be run locally on an internet connected PC or serv
 	# Build VMs
 	    $i=0
 	    $VMName | Foreach {
-	        Write-Host "Building "$VMName[$i] -ForegroundColor Cyan
+	        Write-Host "Building $($VMName[$i])" -ForegroundColor Cyan
 	        If ($VMFamily[$i] -eq "Firewall") 
 	            { 
 	            New-AzureVMConfig -Name $VMName[$i] -ImageName $img[$i] –InstanceSize $size[$i] | `
@@ -474,12 +473,12 @@ This PowerShell script should be run locally on an internet connected PC or serv
 	        -DestinationAddressPrefix VIRTUAL_NETWORK -DestinationPortRange '3389' `
 	        -Protocol *
 	
-	    Get-AzureNetworkSecurityGroup -Name $NSGName | Set-AzureNetworkSecurityRule -Name "Enable Internet to $VMName[0]" -Type Inbound -Priority 120 -Action Allow `
+	    Get-AzureNetworkSecurityGroup -Name $NSGName | Set-AzureNetworkSecurityRule -Name "Enable Internet to $($VMName[0])" -Type Inbound -Priority 120 -Action Allow `
 	        -SourceAddressPrefix Internet -SourcePortRange '*' `
 	        -DestinationAddressPrefix $VMIP[0] -DestinationPortRange '*' `
 	        -Protocol *
 	
-	    Get-AzureNetworkSecurityGroup -Name $NSGName | Set-AzureNetworkSecurityRule -Name "Enable $VMName[1] to $VMName[2]" -Type Inbound -Priority 130 -Action Allow `
+	    Get-AzureNetworkSecurityGroup -Name $NSGName | Set-AzureNetworkSecurityRule -Name "Enable $($VMName[1]) to $($VMName[2])" -Type Inbound -Priority 130 -Action Allow `
 	        -SourceAddressPrefix $VMIP[1] -SourcePortRange '*' `
 	        -DestinationAddressPrefix $VMIP[2] -DestinationPortRange '*' `
 	        -Protocol *
@@ -503,6 +502,14 @@ This PowerShell script should be run locally on an internet connected PC or serv
 	  # Configure Firewall
 	  # Install Test Web App (Run Post-Build Script on the IIS Server)
 	  # Install Backend resource (Run Post-Build Script on the AppVM01)
+	  Write-Host
+	  Write-Host "Build Complete!" -ForegroundColor Green
+	  Write-Host
+	  Write-Host "Optional Post-script Manual Configuration Steps" -ForegroundColor Gray
+	  Write-Host " - Configure Firewall" -ForegroundColor Gray
+	  Write-Host " - Install Test Web App (Run Post-Build Script on the IIS Server)" -ForegroundColor Gray
+	  Write-Host " - Install Backend resource (Run Post-Build Script on the AppVM01)" -ForegroundColor Gray
+	  Write-Host
 
 
 #### Network Config File
@@ -542,12 +549,12 @@ Save this xml file with updated location and add the link to this file to the $N
 If you wish to install a sample application for this, and other DMZ Examples, one has been provided at the following link: [Sample Application Script][SampleApp]
 
 <!--Image References-->
-[1]: ./media/Network-Boundary-DMZ-NSG-FW-ASM/Example2Design.png "Inbound DMZ with NSG"
-[2]: ./media/Network-Boundary-DMZ-NSG-FW-ASM/DstNATIcon.png "Destination NAT Icon"
-[3]: ./media/Network-Boundary-DMZ-NSG-FW-ASM/FirewallRule.png "Firewall Rule"
-[4]: ./media/Network-Boundary-DMZ-NSG-FW-ASM/FirewallRuleActivate.png "Firewall Rule Activation"
+[1]: ./media/virtual-networks-dmz-nsg-fw-asm/example2design.png "Inbound DMZ with NSG"
+[2]: ./media/virtual-networks-dmz-nsg-fw-asm/dstnaticon.png "Destination NAT Icon"
+[3]: ./media/virtual-networks-dmz-nsg-fw-asm/firewallrule.png "Firewall Rule"
+[4]: ./media/virtual-networks-dmz-nsg-fw-asm/firewallruleactivate.png "Firewall Rule Activation"
 
 <!--Link References-->
 [HOME]: ../best-practices-network-security.md
-[SampleApp]: ./Network-Boundary-Sample-App.md
-[Example1]: ./Network-Boundary-DMZ-NSG-ASM.md
+[SampleApp]: ./virtual-networks-sample-app.md
+[Example1]: ./virtual-networks-dmz-nsg-asm.md

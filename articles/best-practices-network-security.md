@@ -1,18 +1,18 @@
 <properties
    pageTitle="Microsoft Cloud Services and Network Security | Microsoft Azure"
    description="Learn some of the key features available in Azure to create secure network environments"
-   services=""
+   services="virtual-network"
    documentationCenter="na"
    authors="tracsman"
    manager="rossort"
    editor=""/>
 
 <tags
-   ms.service="best-practice"
+   ms.service="virtual-network"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="na"
+   ms.workload="infrastructure-services"
    ms.date="09/16/2015"
    ms.author="jonor;sivae"/>
 
@@ -478,32 +478,32 @@ will be available soon and linked from this page.
 - ExpressRoute Documentation (be sure to check out the “Getting Started” and “How To” sections): [https://azure.microsoft.com/documentation/services/expressroute/](https://azure.microsoft.com/documentation/services/expressroute/)
 
 <!--Image References-->
-[0]: ./media/best-practices-network-security/Flowchart.png "Security Options Flowchart"
-[1]: ./media/best-practices-network-security/ComplianceBadges.png "Azure Compliance Badges"
-[2]: ./media/best-practices-network-security/AzureSecurityFeatures.png "Azure Security Features"
-[3]: ./media/best-practices-network-security/DMZCorporate.png "A DMZ in a Corporate network"
-[4]: ./media/best-practices-network-security/AzureSecurityArchitecture.png "Azure Security Architecture"
-[5]: ./media/best-practices-network-security/DMZAzure.png "A DMZ in an Azure Virtual Network"
-[6]: ./media/best-practices-network-security/DMZHybrid.png "Hybrid Network with Three Security Boundaries"
-[7]: ./media/best-practices-network-security/Example1Design.png "Inbound DMZ with NSG"
-[8]: ./media/best-practices-network-security/Example2Design.png "Inbound DMZ with NVA and NSG"
-[9]: ./media/best-practices-network-security/Example3Design.png "Bi-directional DMZ with NVA, NSG, and UDR"
-[10]: ./media/best-practices-network-security/Example3FirewallLogical.png "Logical View of the Firewall Rules"
-[11]: ./media/best-practices-network-security/Example4DesignOptions.png "DMZ with NVA Connected Hybrid Network"
-[12]: ./media/best-practices-network-security/Example4DesignS2S.png "DMZ with NVA Connected Using a Site-to-Site VPN"
-[13]: ./media/best-practices-network-security/Example4NetworkLogical.png "Logical Network from NVA Perspective"
-[14]: ./media/best-practices-network-security/Example5DesignOptions.png "DMZ with Azure Gateway Connected Site-to-Site Hybrid Network"
-[15]: ./media/best-practices-network-security/Example5DesignS2S.png "DMZ with Azure Gateway Using Site-to-Site VPN"
-[16]: ./media/best-practices-network-security/Example6DesignOptions.png "DMZ with Azure Gateway Connected ExpressRoute Hybrid Network"
-[17]: ./media/best-practices-network-security/Example6DesignExpressRoute.png "DMZ with Azure Gateway Using an ExpressRoute Connection"
+[0]: ./media/best-practices-network-security/flowchart.png "Security Options Flowchart"
+[1]: ./media/best-practices-network-security/compliancebadges.png "Azure Compliance Badges"
+[2]: ./media/best-practices-network-security/azuresecurityfeatures.png "Azure Security Features"
+[3]: ./media/best-practices-network-security/dmzcorporate.png "A DMZ in a Corporate network"
+[4]: ./media/best-practices-network-security/azuresecurityarchitecture.png "Azure Security Architecture"
+[5]: ./media/best-practices-network-security/dmxazure.png "A DMZ in an Azure Virtual Network"
+[6]: ./media/best-practices-network-security/dmzhybrid.png "Hybrid Network with Three Security Boundaries"
+[7]: ./media/best-practices-network-security/example1design.png "Inbound DMZ with NSG"
+[8]: ./media/best-practices-network-security/example2design.png "Inbound DMZ with NVA and NSG"
+[9]: ./media/best-practices-network-security/example3design.png "Bi-directional DMZ with NVA, NSG, and UDR"
+[10]: ./media/best-practices-network-security/example3firewalllogical.png "Logical View of the Firewall Rules"
+[11]: ./media/best-practices-network-security/example4designoptions.png "DMZ with NVA Connected Hybrid Network"
+[12]: ./media/best-practices-network-security/example4designs2s.png "DMZ with NVA Connected Using a Site-to-Site VPN"
+[13]: ./media/best-practices-network-security/example4networklogical.png "Logical Network from NVA Perspective"
+[14]: ./media/best-practices-network-security/example5designoptions.png "DMZ with Azure Gateway Connected Site-to-Site Hybrid Network"
+[15]: ./media/best-practices-network-security/example5designs2s.png "DMZ with Azure Gateway Using Site-to-Site VPN"
+[16]: ./media/best-practices-network-security/example6designoptions.png "DMZ with Azure Gateway Connected ExpressRoute Hybrid Network"
+[17]: ./media/best-practices-network-security/example6designexpressroute.png "DMZ with Azure Gateway Using an ExpressRoute Connection"
 
 <!--Link References-->
-[Example1]: ./virtual-network/Network-Boundary-DMZ-NSG-ASM.md
-[Example2]: ./virtual-network/Network-Boundary-DMZ-NSG-FW-ASM.md
-[Example3]: ./virtual-network/Network-Boundary-DMZ-NSG-FW-UDR-ASM.md
-[Example4]: ./virtual-network/Network-Boundary-Hybrid-S2S-NVA-ASM.md
-[Example5]: ./virtual-network/Network-Boundary-Hybrid-S2S-AGW-ASM.md
-[Example6]: ./virtual-network/Network-Boundary-Hybrid-ExpressRoute-ASM.md
-[Example7]: ./virtual-network/Network-Boundary-VNet2VNet-Direct-ASM.md
-[Example8]: ./virtual-network/Network-Boundary-VNet2Vnet-Transit-ASM.md
+[Example1]: ./virtual-network/virtual-networks-dmz-nsg-asm.md
+[Example2]: ./virtual-network/virtual-networks-dmz-nsg-fw-asm.md
+[Example3]: ./virtual-network/virtual-networks-dmz-nsg-fw-udr-asm.md
+[Example4]: ./virtual-network/virtual-networks-hybrid-s2s-nva-asm.md
+[Example5]: ./virtual-network/virtual-networks-hybrid-s2s-agw-asm.md
+[Example6]: ./virtual-network/virtual-networks-hybrid-expressroute-asm.md
+[Example7]: ./virtual-network/virtual-networks-vnet2vnet-direct-asm.md
+[Example8]: ./virtual-network/virtual-networks-vnet2vnet-transit-asm.md
 

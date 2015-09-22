@@ -18,9 +18,6 @@
 
 # Example 1 – Build a Simple DMZ with NSGs
 
-> [AZURE.SELECTOR]
-- [PowerShell Classic](Network-Boundary-DMZ-NSG-ASM.md)
-
 [Return to the Security Boundary Best Practices Page][HOME]
 
 This example will create a simple DMZ with four windows servers and Network Security Groups. It will also walk through each of the relevant commands to provide a deeper understanding of each step. There is a also a Traffic Scenario section to provide a in-depth step-by-step how traffic proceeds through the layers of defense in the DMZ. Finally, in the references section is the complete code and instruction to build this environment to test and experiment with various scenarios. 
@@ -252,6 +249,9 @@ This script will, based on the user defined variables;
 
 This PowerShell script should be run locally on an internet connected PC or server.
 
+>[AZURE.IMPORTANT] When this script is run, there may be warnings or other informational messages that pop in PowerShell. Only error messages in red are cause for concern.
+
+
 	<# 
 	 .SYNOPSIS
 	  Example of Network Security Groups in an isolated network (Azure only, no hybrid connections)
@@ -347,7 +347,7 @@ This PowerShell script should be run locally on an internet connected PC or serv
 	      $SubnetName += $FESubnet
 	      $VMIP += "10.0.1.5"
 	
-	    # VM 1 - The First Appliaction Server
+	    # VM 1 - The First Application Server
 	      $VMName += "AppVM01"
 	      $ServiceName += $BackEndService
 	      $VMFamily += "Windows"
@@ -356,7 +356,7 @@ This PowerShell script should be run locally on an internet connected PC or serv
 	      $SubnetName += $BESubnet
 	      $VMIP += "10.0.2.5"
 	
-	    # VM 2 - The Second Appliaction Server
+	    # VM 2 - The Second Application Server
 	      $VMName += "AppVM02"
 	      $ServiceName += $BackEndService
 	      $VMFamily += "Windows"
@@ -373,14 +373,12 @@ This PowerShell script should be run locally on an internet connected PC or serv
 	      $size += "Standard_D3"
 	      $SubnetName += $BESubnet
 	      $VMIP += "10.0.2.4"
-	
-	# -------------------------------- #
-	# These variables and commands may #
-	# vary depending on how you access #
-	# your subscription                #
-	# -------------------------------- #
-	
-	
+
+	# ----------------------------- #
+	# No User Defined Varibles or   #
+	# Configuration past this point #
+	# ----------------------------- #	
+
 	  # Get your Azure accounts
 	    Add-AzureAccount
 	    Set-AzureSubscription –SubscriptionId $subID -ErrorAction Stop
@@ -397,11 +395,6 @@ This PowerShell script should be run locally on an internet connected PC or serv
 	    Write-Host "Updating Subscription Pointer to New Storage Account" -ForegroundColor Cyan 
 	    Set-AzureSubscription –SubscriptionId $subID -CurrentStorageAccountName $StorageAccountName -ErrorAction Stop
 	
-	# ----------------------------- #
-	# No User Defined Varibles or   #
-	# Configuration past this point #
-	# ----------------------------- #
-	
 	# Validation
 	$FatalError = $false
 	
@@ -410,14 +403,14 @@ This PowerShell script should be run locally on an internet connected PC or serv
 	     $FatalError = $true}
 	
 	If (Test-AzureName -Service -Name $FrontEndService) { 
-	    Write-Host "The FrontEndService service is already in use" -ForegroundColor Yellow
+	    Write-Host "The FrontEndService service name is already in use, please pick a different service name." -ForegroundColor Yellow
 	    $FatalError = $true}
-	Else { Write-Host "The FrontEndService service name is valid for use, please pick a different service name." -ForegroundColor Green}
+	Else { Write-Host "The FrontEndService service name is valid for use." -ForegroundColor Green}
 	
 	If (Test-AzureName -Service -Name $BackEndService) { 
-	    Write-Host "The BackEndService service is already in use" -ForegroundColor Yellow
+	    Write-Host "The BackEndService service name is already in use, please pick a different service name." -ForegroundColor Yellow
 	    $FatalError = $true}
-	Else { Write-Host "The BackEndService service name is valid for use, please pick a different service name." -ForegroundColor Green}
+	Else { Write-Host "The BackEndService service name is valid for use." -ForegroundColor Green}
 	
 	If (-Not (Test-Path $NetworkConfigFile)) { 
 	    Write-Host 'The network config file was not found, please update the $NetworkConfigFile variable to point to the network config xml file.' -ForegroundColor Yellow
@@ -445,7 +438,7 @@ This PowerShell script should be run locally on an internet connected PC or serv
 	# Build VMs
 	    $i=0
 	    $VMName | Foreach {
-	        Write-Host "Building "$VMName[$i] -ForegroundColor Cyan
+	        Write-Host "Building $($VMName[$i])" -ForegroundColor Cyan
 	        New-AzureVMConfig -Name $VMName[$i] -ImageName $img[$i] –InstanceSize $size[$i] | `
 	            Add-AzureProvisioningConfig -Windows -AdminUsername $LocalAdmin -Password $LocalAdminPwd  | `
 	            Set-AzureSubnet  –SubnetNames $SubnetName[$i] | `
@@ -456,6 +449,8 @@ This PowerShell script should be run locally on an internet connected PC or serv
 	            # Note: A Remote Desktop endpoint is automatically created when each VM is created.
 	        $i++
 	    }
+	    # Add HTTP Endpoint for IIS01
+	    Get-AzureVM -ServiceName $ServiceName[0] -Name $VMName[0] | Add-AzureEndpoint -Name HTTP -Protocol tcp -LocalPort 80 -PublicPort 80 | Update-AzureVM
 	
 	# Configure NSG
 	    Write-Host "Configuring the Network Security Group (NSG)" -ForegroundColor Cyan
@@ -476,12 +471,12 @@ This PowerShell script should be run locally on an internet connected PC or serv
 	        -DestinationAddressPrefix VIRTUAL_NETWORK -DestinationPortRange '3389' `
 	        -Protocol *
 	
-	    Get-AzureNetworkSecurityGroup -Name $NSGName | Set-AzureNetworkSecurityRule -Name "Enable Internet to $VMName[0]" -Type Inbound -Priority 120 -Action Allow `
+	    Get-AzureNetworkSecurityGroup -Name $NSGName | Set-AzureNetworkSecurityRule -Name "Enable Internet to $($VMName[0])" -Type Inbound -Priority 120 -Action Allow `
 	        -SourceAddressPrefix Internet -SourcePortRange '*' `
 	        -DestinationAddressPrefix $VMIP[0] -DestinationPortRange '*' `
 	        -Protocol *
 	
-	    Get-AzureNetworkSecurityGroup -Name $NSGName | Set-AzureNetworkSecurityRule -Name "Enable $VMName[0] to $VMName[1]" -Type Inbound -Priority 130 -Action Allow `
+	    Get-AzureNetworkSecurityGroup -Name $NSGName | Set-AzureNetworkSecurityRule -Name "Enable $($VMName[0]) to $($VMName[1])" -Type Inbound -Priority 130 -Action Allow `
 	        -SourceAddressPrefix $VMIP[0] -SourcePortRange '*' `
 	        -DestinationAddressPrefix $VMIP[1] -DestinationPortRange '*' `
 	        -Protocol *
@@ -504,6 +499,14 @@ This PowerShell script should be run locally on an internet connected PC or serv
 	# Optional Post-script Manual Configuration
 	  # Install Test Web App (Run Post-Build Script on the IIS Server)
 	  # Install Backend resource (Run Post-Build Script on the AppVM01)
+	  Write-Host
+	  Write-Host "Build Complete!" -ForegroundColor Green
+	  Write-Host
+	  Write-Host "Optional Post-script Manual Configuration Steps" -ForegroundColor Gray
+	  Write-Host " - Install Test Web App (Run Post-Build Script on the IIS Server)" -ForegroundColor Gray
+	  Write-Host " - Install Backend resource (Run Post-Build Script on the AppVM01)" -ForegroundColor Gray
+	  Write-Host
+	  
 
 #### Network Config File
 Save this xml file with updated location and add the link to this file to the $NetworkConfigFile variable in the script above.
@@ -542,9 +545,9 @@ Save this xml file with updated location and add the link to this file to the $N
 If you wish to install a sample application for this, and other DMZ Examples, one has been provided at the following link: [Sample Application Script][SampleApp]
 
 <!--Image References-->
-[1]: ./media/Network-Boundary-DMZ-NSG-ASM/Example1Design.png "Inbound DMZ with NSG"
+[1]: ./media/virtual-networks-dmz-nsg-asm/example1design.png "Inbound DMZ with NSG"
 
 <!--Link References-->
 [HOME]: ../best-practices-network-security.md
-[SampleApp]: ./Network-Boundary-Sample-App.md
+[SampleApp]: ./virtual-networks-sample-app.md
 

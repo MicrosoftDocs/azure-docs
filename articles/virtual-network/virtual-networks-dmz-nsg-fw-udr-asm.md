@@ -18,9 +18,6 @@
 
 # Example 3 – Build a DMZ to Protect Networks with a Firewall, UDR, and NSG
 
-> [AZURE.SELECTOR]
-- [PowerShell Classic](Network-Boundary-DMZ-NSG-FW-UDR-ASM.md)
-
 [Return to the Security Boundary Best Practices Page][HOME]
 
 This example will create a DMZ with a firewall, four windows servers, User Defined Routing, IP Forwarding, and Network Security Groups. It will also walk through each of the relevant commands to provide a deeper understanding of each step. There is a also a Traffic Scenario section to provide a in-depth step-by-step how traffic proceeds through the layers of defense in the DMZ. Finally, in the references section is the complete code and instruction to build this environment to test and experiment with various scenarios. 
@@ -221,7 +218,7 @@ Although not clearly shown here due to the use of variables, but endpoints are *
 
 A management client will need to be installed on a PC to manage the firewall and create the configurations needed. See the documentation from your firewall (or other NVA) vendor on how to manage the device. The remainder of this section and the next section, Firewall Rules Creation, will describe the configuration of the firewall itself, through the vendors management client (i.e. not the Azure portal or PowerShell).
 
-Instructions for the Barracuda used in this example can be found here: [Barracuda NG Admin](https://techlib.barracuda.com/NG61/NGAdmin)
+Instructions for client download and connecting to the Barracuda used in this example can be found here: [Barracuda NG Admin](https://techlib.barracuda.com/NG61/NGAdmin)
 
 Once logged onto the firewall but before creating firewall rules, there are two prerequisite object classes that can make creating the rules easier; Network & Service objects.
 
@@ -537,6 +534,8 @@ This script will, based on the user defined variables;
 
 This PowerShell script should be run locally on an internet connected PC or server.
 
+>[AZURE.IMPORTANT] When this script is run, there may be warnings or other informational messages that pop in PowerShell. Only error messages in red are cause for concern.
+
 	<# 
 	 .SYNOPSIS
 	  Example of DMZ and User Defined Routing in an isolated network (Azure only, no hybrid connections)
@@ -674,11 +673,11 @@ This PowerShell script should be run locally on an internet connected PC or serv
 	      $SubnetName += $BESubnet
 	      $VMIP += "10.0.2.4"
 	
-	# -------------------------------- #
-	# These variables and commands may #
-	# vary depending on how you access #
-	# your subscription                #
-	# -------------------------------- #
+	# ----------------------------- #
+	# No User Defined Varibles or   #
+	# Configuration past this point #
+	# ----------------------------- #
+	
 	  # Get your Azure accounts
 	    Add-AzureAccount
 	    Set-AzureSubscription –SubscriptionId $subID -ErrorAction Stop
@@ -695,11 +694,6 @@ This PowerShell script should be run locally on an internet connected PC or serv
 	    Write-Host "Updating Subscription Pointer to New Storage Account" -ForegroundColor Cyan 
 	    Set-AzureSubscription –SubscriptionId $subID -CurrentStorageAccountName $StorageAccountName -ErrorAction Stop
 	
-	# ----------------------------- #
-	# No User Defined Varibles or   #
-	# Configuration past this point #
-	# ----------------------------- #
-	
 	# Validation
 	$FatalError = $false
 	
@@ -708,19 +702,19 @@ This PowerShell script should be run locally on an internet connected PC or serv
 	     $FatalError = $true}
 	
 	If (Test-AzureName -Service -Name $SecureService) { 
-	    Write-Host "The SecureService service name is already in use" -ForegroundColor Yellow
+	    Write-Host "The SecureService service name is already in use, please pick a different service name." -ForegroundColor Yellow
 	    $FatalError = $true}
-	Else { Write-Host "The FrontEndService service name is valid for use, please pick a different service name." -ForegroundColor Green}
+	Else { Write-Host "The FrontEndService service name is valid for use." -ForegroundColor Green}
 	
 	If (Test-AzureName -Service -Name $FrontEndService) { 
-	    Write-Host "The FrontEndService service name is already in use" -ForegroundColor Yellow
+	    Write-Host "The FrontEndService service name is already in use, please pick a different service name." -ForegroundColor Yellow
 	    $FatalError = $true}
-	Else { Write-Host "The FrontEndService service name is valid for use, please pick a different service name." -ForegroundColor Green}
+	Else { Write-Host "The FrontEndService service name is valid for use" -ForegroundColor Green}
 	
 	If (Test-AzureName -Service -Name $BackEndService) { 
-	    Write-Host "The BackEndService service name is already in use" -ForegroundColor Yellow
+	    Write-Host "The BackEndService service name is already in use, please pick a different service name." -ForegroundColor Yellow
 	    $FatalError = $true}
-	Else { Write-Host "The BackEndService service name is valid for use, please pick a different service name." -ForegroundColor Green}
+	Else { Write-Host "The BackEndService service name is valid for use." -ForegroundColor Green}
 	
 	If (-Not (Test-Path $NetworkConfigFile)) { 
 	    Write-Host 'The network config file was not found, please update the $NetworkConfigFile variable to point to the network config xml file.' -ForegroundColor Yellow
@@ -749,7 +743,7 @@ This PowerShell script should be run locally on an internet connected PC or serv
 	# Build VMs
 	    $i=0
 	    $VMName | Foreach {
-	        Write-Host "Building "$VMName[$i] -ForegroundColor Cyan
+	        Write-Host "Building $($VMName[$i])" -ForegroundColor Cyan
 	        If ($VMFamily[$i] -eq "Firewall") 
 	            { 
 	            New-AzureVMConfig -Name $VMName[$i] -ImageName $img[$i] –InstanceSize $size[$i] | `
@@ -862,6 +856,15 @@ This PowerShell script should be run locally on an internet connected PC or serv
 	  # Configure Firewall
 	  # Install Test Web App (Run Post-Build Script on the IIS Server)
 	  # Install Backend resource (Run Post-Build Script on the AppVM01)
+	  Write-Host
+	  Write-Host "Build Complete!" -ForegroundColor Green
+	  Write-Host
+	  Write-Host "Optional Post-script Manual Configuration Steps" -ForegroundColor Gray
+	  Write-Host " - Configure Firewall" -ForegroundColor Gray
+	  Write-Host " - Install Test Web App (Run Post-Build Script on the IIS Server)" -ForegroundColor Gray
+	  Write-Host " - Install Backend resource (Run Post-Build Script on the AppVM01)" -ForegroundColor Gray
+	  Write-Host
+	
 
 #### Network Config File
 Save this xml file with updated location and add the link to this file to the $NetworkConfigFile variable in the script above.
@@ -903,25 +906,25 @@ Save this xml file with updated location and add the link to this file to the $N
 If you wish to install a sample application for this, and other DMZ Examples, one has been provided at the following link: [Sample Application Script][SampleApp]
 
 <!--Image References-->
-[1]: ./media/Network-Boundary-DMZ-NSG-FW-UDR-ASM/Example3Design.png "Bi-directional DMZ with NVA, NSG, and UDR"
-[2]: ./media/Network-Boundary-DMZ-NSG-FW-UDR-ASM/Example3FirewallLogical.png "Logical View of the Firewall Rules"
-[3]: ./media/Network-Boundary-DMZ-NSG-FW-UDR-ASM/CreateNetworkObjectFrontEnd.png "Create a FrontEnd Network Object"
-[4]: ./media/Network-Boundary-DMZ-NSG-FW-UDR-ASM/CreateNetworkObjectDNS.png "Create a DNS Server Object"
-[5]: ./media/Network-Boundary-DMZ-NSG-FW-UDR-ASM/CreateNetworkObjectRDPa.png "Copy of Default RDP Rule"
-[6]: ./media/Network-Boundary-DMZ-NSG-FW-UDR-ASM/CreateNetworkObjectRDPb.png "AppVM01 Rule"
-[7]: ./media/Network-Boundary-DMZ-NSG-FW-UDR-ASM/IconApplicationRedirect.png "Application Redirect Icon"
-[8]: ./media/Network-Boundary-DMZ-NSG-FW-UDR-ASM/IconDestinationNAT.png "Destination NAT Icon"
-[9]: ./media/Network-Boundary-DMZ-NSG-FW-UDR-ASM/IconPass.png "Pass Icon"
-[10]: ./media/Network-Boundary-DMZ-NSG-FW-UDR-ASM/RuleFirewall.png "Firewall Management Rule"
-[11]: ./media/Network-Boundary-DMZ-NSG-FW-UDR-ASM/RuleRDP.png "Firewall RDP Rule"
-[12]: ./media/Network-Boundary-DMZ-NSG-FW-UDR-ASM/RuleWeb.png "Firewall Web Rule"
-[13]: ./media/Network-Boundary-DMZ-NSG-FW-UDR-ASM/RuleAppVM01.png "Firewall AppVM01 Rule"
-[14]: ./media/Network-Boundary-DMZ-NSG-FW-UDR-ASM/RuleOutbound.png "Firewall Outbound Rule"
-[15]: ./media/Network-Boundary-DMZ-NSG-FW-UDR-ASM/RuleDNS.png "Firewall DNS Rule"
-[16]: ./media/Network-Boundary-DMZ-NSG-FW-UDR-ASM/RuleIntraVNet.png "Firewall Intra-VNet Rule"
-[17]: ./media/Network-Boundary-DMZ-NSG-FW-UDR-ASM/RuleDeny.png "Firewall Deny Rule"
-[18]: ./media/Network-Boundary-DMZ-NSG-FW-UDR-ASM/FirewallRuleActivate.png "Firewall Rule Activation"
+[1]: ./media/virtual-networks-dmz-nsg-fw-udr-asm/example3design.png "Bi-directional DMZ with NVA, NSG, and UDR"
+[2]: ./media/virtual-networks-dmz-nsg-fw-udr-asm/example3firewalllogical.png "Logical View of the Firewall Rules"
+[3]: ./media/virtual-networks-dmz-nsg-fw-udr-asm/createnetworkobjectfrontend.png "Create a FrontEnd Network Object"
+[4]: ./media/virtual-networks-dmz-nsg-fw-udr-asm/createnetworkObjectdns.png "Create a DNS Server Object"
+[5]: ./media/virtual-networks-dmz-nsg-fw-udr-asm/createnetworkObjectrdpa.png "Copy of Default RDP Rule"
+[6]: ./media/virtual-networks-dmz-nsg-fw-udr-asm/createnetworkObjectrdpb.png "AppVM01 Rule"
+[7]: ./media/virtual-networks-dmz-nsg-fw-udr-asm/iconapplicationredirect.png "Application Redirect Icon"
+[8]: ./media/virtual-networks-dmz-nsg-fw-udr-asm/icondestinationnat.png "Destination NAT Icon"
+[9]: ./media/virtual-networks-dmz-nsg-fw-udr-asm/iconpass.png "Pass Icon"
+[10]: ./media/virtual-networks-dmz-nsg-fw-udr-asm/rulefirewall.png "Firewall Management Rule"
+[11]: ./media/virtual-networks-dmz-nsg-fw-udr-asm/rulerdp.png "Firewall RDP Rule"
+[12]: ./media/virtual-networks-dmz-nsg-fw-udr-asm/ruleweb.png "Firewall Web Rule"
+[13]: ./media/virtual-networks-dmz-nsg-fw-udr-asm/ruleappvm01.png "Firewall AppVM01 Rule"
+[14]: ./media/virtual-networks-dmz-nsg-fw-udr-asm/ruleoutbound.png "Firewall Outbound Rule"
+[15]: ./media/virtual-networks-dmz-nsg-fw-udr-asm/ruledns.png "Firewall DNS Rule"
+[16]: ./media/virtual-networks-dmz-nsg-fw-udr-asm/ruleintravnet.png "Firewall Intra-VNet Rule"
+[17]: ./media/virtual-networks-dmz-nsg-fw-udr-asm/ruledeny.png "Firewall Deny Rule"
+[18]: ./media/virtual-networks-dmz-nsg-fw-udr-asm/firewallruleactivate.png "Firewall Rule Activation"
 
 <!--Link References-->
 [HOME]: ../best-practices-network-security.md
-[SampleApp]: ./Network-Boundary-Sample-App.md
+[SampleApp]: ./virtual-networks-sample-app.md
