@@ -19,7 +19,7 @@
 
 # Connecting your device to an Azure IoT Pre-configured solution
 
-The following section describes...
+The following section describe blalalbalba
 ### Prerequisites
 
 ## Sending telemetry to the preconfigured solution
