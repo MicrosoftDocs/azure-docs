@@ -9,7 +9,7 @@
 
 <tags
      ms.service="azure-iot"
-     ms.devlang="csharp"
+     ms.devlang="na"
      ms.topic="hero-article"
      ms.tgt_pltfrm="na"
      ms.workload="tbd"
