@@ -77,9 +77,9 @@ The table below compares the three routing domains.
 |**Routing Interface IP addresses**|RFC1918 and public IP addresses|Public IP addresses registered to customers / NSP in routing registries.| Public IP addresses registered to customers / NSP in routing registries.|
 |**MD5 Hash support**| Yes|Yes|Yes|
 
-You can choose to enable one or more of the routing domains as part of their dedicated circuit. You can choose to have all the routing domains put on the same VPN (when using an NSP) if you want to combine them into a single routing domain. You can also put them on different routing domains, similar to the diagram. The recommended configuration is that private peering is connected directly to the core network, and the public and Microsoft peering links are connected to your extranet.
+You can choose to enable one or more of the routing domains as part of their ExpressRoute circuit. You can choose to have all the routing domains put on the same VPN if you want to combine them into a single routing domain. You can also put them on different routing domains, similar to the diagram. The recommended configuration is that private peering is connected directly to the core network, and the public and Microsoft peering links are connected to your DMZ.
  
-If you choose to have all three peering sessions, you must have three pairs of BGP sessions (one pair for each peering type). The BGP session pairs provide a highly available link. If you are connecting through EXPs, you will be responsible for configuring and managing routing (unless EXP offers to manage routing for you). If you choose to connect through NSPs, you can rely on the NSP to manage routing for you. You can learn more by reviewing the workflows for setting up ExpressRoute.
+If you choose to have all three peering sessions, you must have three pairs of BGP sessions (one pair for each peering type). The BGP session pairs provide a highly available link. If you are connecting through layer 2 connectivity providers, you will be responsible for configuring and managing routing . You can learn more by reviewing the [workflows](expressroute-workflows.md) for setting up ExpressRoute.
 
 ## Next steps
 
