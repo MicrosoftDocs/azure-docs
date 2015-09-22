@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/04/2015" 
+	ms.date="09/15/2015" 
 	ms.author="genemi"/>
 
 
@@ -69,10 +69,12 @@ The sequence is as follows:
 3. Queries are sent directly to the database, and results are returned directly to the client.
 
 
-Ensure that the port ranges of 11000-11999 and 14000-14999 on your Azure client machine are left available for ADO.NET 4.5 client interactions with SQL database V12.
+Ensure that the port ranges of 11000-11999 and 14000-14999 on your Azure client machine are left available for ADO.NET 4.5 client interactions with SQL Database V12.
 
 - In particular, ports in the range must be free of any other outbound blockers.
-- The Windows Firewall on your Azure VM controls the port settings.
+
+- On your Azure VM, the **Windows Firewall with Advanced Security** controls the port settings.
+ - You can use the [firewall's user interface](http://msdn.microsoft.com/library/cc646023.aspx) to add a rule for which you specify the **TCP** protocol along with a port range with the syntax like **11000-11999**.
 
 
 ## Version clarifications
@@ -111,4 +113,10 @@ The client connection differences between SQL Database V11 and V12 are highlight
 
 
 - [Connecting to SQL Database: Links, Best Practices and Design Guidelines](sql-database-connect-central-recommendations.md)
+
+
+- [Azure SQL Database firewall](sql-database-firewall-configure.md)
+
+
+- [How to: Configure firewall settings on SQL Database](sql-database-configure-firewall-settings.md)
 

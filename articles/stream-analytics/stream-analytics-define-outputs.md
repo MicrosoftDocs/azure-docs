@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="09/09/2015" 
+	ms.date="09/17/2015" 
 	ms.author="jeffstok"/>
 
 # Understanding Stream Analytics outputs
@@ -47,8 +47,8 @@ The table below lists the property names and their description for creating a bl
 <table>
 <tbody>
 <tr>
-<td>Property Name</td>
-<td>Description</td>
+<td>PROPERTY NAME</td>
+<td>DESCRIPTION</td>
 </tr>
 <tr>
 <td>Output Alias</td>

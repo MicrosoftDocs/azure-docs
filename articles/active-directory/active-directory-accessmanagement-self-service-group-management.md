@@ -1,10 +1,10 @@
 <properties
 	pageTitle="Setting up Azure AD for self service application access management| Microsoft Azure"
-	description="A topic that explains how to manage groups in Azure AD."
+	description="overview of Self-service group management that enables users to create and manage security groups in Microsoft Azure Active Directory (AD) and offers users the possibility to request security group memberships"
 	services="active-directory"
 	documentationCenter=""
     authors="femila"
-	manager="swadhwa" 
+	manager="stevenpo" 
 	editor=""
 	tags="azure-classic-portal"/>
 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/13/2015"
+	ms.date="09/21/2015"
 	ms.author="femila"/>
 
 #Setting up Azure AD for self service application access management

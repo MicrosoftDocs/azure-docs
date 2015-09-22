@@ -3,7 +3,7 @@
 	description="An introduction to backing up virtual machines in Azure using the Azure Backup service"
 	services="backup"
 	documentationCenter=""
-	authors="aashishr"
+	authors="trinadhk"
 	manager="shreeshd"
 	editor=""/>
 
