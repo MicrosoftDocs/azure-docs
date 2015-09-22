@@ -4,7 +4,7 @@
 	services="active-directory-b2c"
 	documentationCenter=""
 	authors="swkrish"
-	manager="mbaldwin"
+	manager="msmbaldwin"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/15/2015"
+	ms.date="09/22/2015"
 	ms.author="swkrish"/>
 
 # Azure Active Directory B2C preview: Sign up & Sign in Consumers in your Applications
@@ -43,7 +43,7 @@ Check back here often to learn about future changes to the Azure Active Director
 
 Learn how to use specific Azure Active Directory B2C preview features:
 
-- Configure ([Facebook](active-directory-setup-fb-app.md), [Google+](active-directory-setup-goog-app.md), [Amazon](active-directory-setup-amzn-app.md) and [LinkedIn](active-directory-setup-li-app.md)) accounts for use in your consumer-facing applications.
+- Configure ([Facebook](active-directory-b2c-setup-fb-app.md), [Google+](active-directory-b2c-setup-goog-app.md), [Amazon](active-directory-b2c-setup-amzn-app.md) and [LinkedIn](active-directory-b2c-setup-li-app.md)) accounts for use in your consumer-facing applications.
 - [Use custom attributes to collect information about your consumers](active-directory-b2c-reference-custom-attr.md).
 - [Enable Multi-Factor Authentication in your consumer-facing applications](active-directory-b2c-reference-mfa.md).
 - [Setup self-service password reset for your consumers](active-directory-b2c-reference-sspr.md).
@@ -60,3 +60,4 @@ These links will be useful for exploring the service in depth:
   - [App Model v2.0 Protocol Reference](active-directory-b2c-protocols.md)
   - [App Model v2.0 Token Reference](active-directory-b2c-tokens.md)
 - [Azure Active Directory B2C FAQs](active-directory-b2c-faqs.md)
+- [File support requests against Azure Active Directory B2C](active-directory-b2c-support.md)

@@ -4,7 +4,7 @@
 	services="active-directory-b2c"
 	documentationCenter=".net"
 	authors="dstrockis"
-	manager="mbaldwin"
+	manager="msmbaldwin"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="09/03/2015"
+	ms.date="09/22/2015"
 	ms.author="dastrock"/>
 
 # Azure AD B2C Preview: Build a .NET web app
@@ -24,9 +24,7 @@ With Azure AD B2C, you can add powerful self-service identity managment features
 to create a .NET MVC web app that includes user sign-up, sign-in, and profile management.  It will include support for sign-up & sign-in with a username
 or email, as well as social accounts such as Facebook & Google.
 
-> [AZURE.NOTE]
-	This information applies to the Azure AD B2C preview.  For information on how to integrate with the generally available Azure AD service, 
-	please refer to the [Azure Active Directory Developer Guide](active-directory-developers-guide.md).
+[AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
 
 ## 1. Get an Azure AD B2C directory
 
@@ -41,6 +39,9 @@ follow [these instructions](active-directory-b2c-app-registration.md).  Be sure 
 - Include a **web app/web api** in the application
 - Enter `https://localhost:44316/` as a **Reply URL** - it is the default URL for this code sample.
 - Copy down the **Application ID** that is assigned to your app.  You will need it shortly.
+
+    > [AZURE.IMPORTANT]
+    You cannot use applications registered in the **Applications** tab on the [Azure Portal](https://manage.windowsazure.com/) for this.
 
 ## 3. Create your policies
 
@@ -352,6 +353,8 @@ or you can clone it from GitHub:
 git clone --branch complete https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIdConnect-DotNet.git
 ```
 
+<!--
+
 ## Next Steps
 
 You can now move onto more advanced B2C topics.  You may want to try:
@@ -360,3 +363,4 @@ You can now move onto more advanced B2C topics.  You may want to try:
 
 [Customizing the your B2C App's UX >>]()
 
+-->

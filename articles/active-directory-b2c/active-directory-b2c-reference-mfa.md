@@ -13,12 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/15/2015"
+	ms.date="09/22/2015"
 	ms.author="swkrish"/>
 
 # Azure Active Directory B2C preview: enable Multi-Factor Authentication in your Consumer-facing Applications
 
 Azure Active Directory (AD) B2C integrates directly with [Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md) to make it easy for you to add a second layer of security to sign-up and sign-in experiences in your consumer-facing applications. And you can do this without writing a single line of code. Currently we support phone call and text message as verification options. If you already created sign-up and sign-in policies (as described in [this article]()), you can turn on multi-factor authentication as shown in subsequent sections.
+
+[AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
 
 > [AZURE.NOTE]
 Multi-Factor Authentication can also be turned on when creating sign-up and sign-in policies, not just by editing existing policies.

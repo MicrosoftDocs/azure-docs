@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="08/26/2015"
+   ms.date="09/21/2015"
    ms.author="alkohli"/>
 
 # StorSimple software, high availability, and networking requirements
@@ -154,7 +154,8 @@ Your StorSimple device is a locked-down device. However, ports need to be opened
 | UDP 123 (NTP) | Out | WAN | In some cases; see notes. |This port is required only if you are using an Internet-based NTP server. |
 | TCP 9354 | Out | WAN | In some cases; see notes. |The outbound port is used by the StorSimple Manager service to communicate with the device. This port is required if your current network does not support using HTTP 1.1 to connect to the Internet; for instance if you are using an HTTP 1.0-based proxy server.<br> If connecting via a proxy server, refer to [service bus requirements](https://msdn.microsoft.com/library/azure/ee706729.aspx) for detailed information. |
 | 3260 (iSCSI) | In | LAN | No | This port is used to access data over iSCSI.|
-| 5985 | In | LAN | No | Inbound port is used by StorSimple Snapshot Manager to communicate with the StorSimple device.<br>This port is also used when you remotely connect to Windows PowerShell for StorSimple over HTTP or HTTPS. |
+| 5985 | In | LAN | No | Inbound port is used by StorSimple Snapshot Manager to communicate with the StorSimple device.<br>This port is also used when you remotely connect to Windows PowerShell for StorSimple over HTTP. |
+| 5986 | In | LAN | No | This port is used when you remotely connect to Windows PowerShell for StorSimple over HTTPS. |
 
 <sup>1</sup> No inbound ports need to be opened on the public Internet.
 

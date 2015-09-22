@@ -1,20 +1,20 @@
 <properties
-	pageTitle="View your access and usage reports"
-	description="A topic that explains how to view access and usage reports to gain insight into the integrity and security of your organization’s directory."
+	pageTitle="View your access and usage reports | Microsoft Azure"
+	description="Explains how to view access and usage reports to gain insight into the integrity and security of your organization’s directory."
 	services="active-directory"
 	documentationCenter=""
 	authors="kenhoff"
-	manager="TerryLan"
-	editor="LisaToft"/>
+	manager="stevenpo"
+	editor=""/>
 
 <tags
 	ms.service="active-directory"
-	ms.workload="infrastructure-services"
+	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/24/2015"
-	ms.author="kenhoff;Justinha"/>
+	ms.date="09/21/2015"
+	ms.author="kenhoff;Justinha;curtand"/>
 
 # View your access and usage reports
 
@@ -90,12 +90,6 @@ In the Azure Management Portal, reports are categorized in the following ways:
 |	Most active RMS users								|			|		|	RMS Only	|
 |	RMS device usage									|			|		|	RMS Only	|
 |	RMS enabled application usage						|			|		|	RMS Only	|
-
-
-
-
-
-
 
 
 

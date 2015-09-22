@@ -102,6 +102,9 @@ The following limits apply when using the Azure Resource Manager and Azure Resou
 
 
 ### Networking Limits
+
+[AZURE.INCLUDE [expressroute-limits](../includes/expressroute-limits.md)]
+
 #### Networking Limits
 [AZURE.INCLUDE [azure-virtual-network-limits](../includes/azure-virtual-network-limits.md)]
 
@@ -151,6 +154,7 @@ The following App Service limits include limits for Web Apps, Mobile Apps, API A
 [AZURE.INCLUDE [azure-batch-limits](../includes/azure-batch-limits.md)]
 
 ###BizTalk Services Limits
+The following table shows the limits for Azure Biztalk Services.
 
 [AZURE.INCLUDE [biztalk-services-service-limits](../includes/biztalk-services-service-limits.md)]
 
