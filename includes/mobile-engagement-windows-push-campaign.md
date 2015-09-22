@@ -12,7 +12,7 @@ We will now create a simple push notification campaign that sends a push notific
 
 	a. Name your campaign.
 
-	b. Select **Delivery time** as *Any time* to allow the app to receive a notification whether the app is started or not.
+	b. Select **Delivery time** as *Out of app only*.
 
 	d. In the notification text - type the **Title** which will be in bold in the push.
 

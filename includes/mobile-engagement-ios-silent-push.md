@@ -23,6 +23,6 @@
 	    ...
     
 7. If you are using **Xcode 7** and **iOS 9**, you have to perform the following additional steps:
-	- Set **Enable Bitcode** to **No** under Targets > Build Settings > set Enable Bitcode to Yes or No. (Make sure to select ALL from the top bar.) 
+	- Set **Enable Bitcode** to **No** under Targets > Build Settings. Make sure to select ALL from the top bar. 
 	- Enable **Push Notifications** in Targets > Your Target Name > Capabilities.
 

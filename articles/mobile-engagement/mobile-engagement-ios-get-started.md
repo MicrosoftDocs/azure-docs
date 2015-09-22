@@ -27,9 +27,7 @@
 - [Cordova](mobile-engagement-cordova-get-started.md)
 
 This topic shows you how to use Azure Mobile Engagement to understand your app usage and send push notifications to segmented users to an iOS application.
-In this tutorial, you create a blank iOS app that collects basic data and receives push notifications using Apple Push Notification System (APNS). When you have completed this tutorial, you will be able to broadcast push notifications to all the devices or target-specific users based on their devices properties.
-
-This tutorial demonstrates the simple broadcast scenario using Mobile Engagement. Be sure to follow along with the next tutorial to see how to use Mobile Engagement to address specific users and groups of devices.
+In this tutorial, you create a blank iOS app that collects basic data and receives push notifications using Apple Push Notification System (APNS).
 
 This tutorial requires the following:
 

@@ -57,6 +57,7 @@ We will create a basic app with Android Studio to demonstrate the integration.
     ![][2]
 
 3. Select the target form factor and API level, and click **Next**.
+	
 	>[AZURE.NOTE] Mobile Engagement requires API level 10 minimum (Android 2.3.3).
 
     ![][3]
@@ -132,8 +133,6 @@ Download and integrate the SDK library
 
 In order to start sending data and ensuring that the users are active, you must send at least one screen (Activity) to the Mobile Engagement backend. We will achieve this by subclassing our Activity with **EngagementActivity** our SDK provides.
 In order to to that, replace the super class of **MainActivity**, which is before **ActionBarActivity**, with **EngagementActivity**.
-
->[AZURE.NOTE] Do not forget to resolve the class if it appears in red by clicking it and pressing Alt+Enter.
 
 ##<a id="monitor"></a>Connect app with real-time monitoring
 
@@ -268,10 +267,6 @@ To allow Mobile Engagement to send push notifications on your behalf, you need t
 4. In the pop-up, paste the GCM Server Key you obtained in the section [Enable Google Cloud Messaging](#register), and then click **Ok**.
 
 	![][18]
-
-You're all set. Now we will verify that you have correctly carried out this basic integration.
-
-> [AZURE.IMPORTANT] Make sure you build, start with this new code, exit the app, and wait about 1 minute before doing the following steps.
 
 ##<a id="send"></a>Send a notification to your app
 
