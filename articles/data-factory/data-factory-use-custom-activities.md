@@ -244,18 +244,18 @@ If you have extended the [Get started with Azure Data Factory][adfgetstarted] tu
 	4. For the **version** property, specify the HDInsight version you want to use. If you exclude this property, the latest version is used.  
 	5. For the **linkedServiceName**, specify **StorageLinkedService** that you had created in the Get started tutorial. 
 
-		{
-		  "name": "HDInsightOnDemandLinkedService",
-		  "properties": {
-		    "type": "HDInsightOnDemand",
-		    "typeProperties": {
-		      "clusterSize": "1",
-		      "timeToLive": "00:05:00",
-		      "version": "3.1",
-		      "linkedServiceName": "StorageLinkedService"
-		    }
-		  }
-		}
+			{
+			  "name": "HDInsightOnDemandLinkedService",
+			  "properties": {
+			    "type": "HDInsightOnDemand",
+			    "typeProperties": {
+			      "clusterSize": "1",
+			      "timeToLive": "00:05:00",
+			      "version": "3.1",
+			      "linkedServiceName": "StorageLinkedService"
+			    }
+			  }
+			}
 
 2. Click **Deploy** on the command bar to deploy the linked service.
    
