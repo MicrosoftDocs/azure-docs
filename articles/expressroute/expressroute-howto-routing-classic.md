@@ -13,7 +13,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/21/2015"
+   ms.date="09/22/2015"
    ms.author="cherylmc"/>
 
 # Create and modify ExpressRoute routing configuration
@@ -25,9 +25,9 @@ This article walks you through the steps to create and manage routing configurat
 
 ## Configuration prerequisites
 
-- You will need the latest version of the Azure PowerShell modules. You can download the latest PowerShell module from the PowerShell section of the [Azure Downloads page](http://azure.microsoft.com/downloads). Follow the instructions in the [How to install and configure Azure PowerShell](../powershell-install-configure.md) page for step by step guidance on how to configure your computer to use the Azure PowerShell modules. 
+- You will need the latest version of the Azure PowerShell modules. You can download the latest PowerShell module from the PowerShell section of the [Azure Downloads page](http://azure.microsoft.com/downloads). Follow the instructions in the [How to install and configure Azure PowerShell](../powershell-install-configure.md) page for step-by-step guidance on how to configure your computer to use the Azure PowerShell modules. 
 - Make sure that you have reviewed the [prerequisites](expressroute-prerequisites.md) page, [routing requirements](expressroute-routing.md) page and the [workflows](expressroute-workflows.md) page before you begin configuration.
-- You must have an active ExpressRoute circuit. Follow instructions to [create an ExpressRoute circuit](expressroute-howto-circuit-classic.md) and have the circuit enabled by your connectivity provider before you proceed with instructions below. The ExpressRoute circuit must be in provisioned, enabled state for you to be able to run the cmdlets described below.
+- You must have an active ExpressRoute circuit. Follow the instructions to [create an ExpressRoute circuit](expressroute-howto-circuit-classic.md) and have the circuit enabled by your connectivity provider before you proceed with instructions below. The ExpressRoute circuit must be in a provisioned and enabled state for you to be able to run the cmdlets described below.
 
 >[AZURE.IMPORTANT] These instructions only apply for circuits created with service providers offering Layer 2 connectivity services. If you are using a service provider offering managed Layer 3 services (typically IPVPN), your connectivity provider will configure and manage routing for you. You will not be able to create or manage peerings in such cases. 
 
@@ -35,7 +35,7 @@ You can configure one, two, or all three peerings (Azure private, Azure public a
 
 ## Azure private peering
 
-This section provides instructions on how to create, get, update and delete the Azure private peering configuration for an ExpressRoute circuit. 
+This section provides instructions on how to create, get, update, and delete the Azure private peering configuration for an ExpressRoute circuit. 
 
 ### Create Azure private peering
 
@@ -46,11 +46,11 @@ This section provides instructions on how to create, get, update and delete the 
 	    Import-Module 'C:\Program Files (x86)\Microsoft SDKs\Azure\PowerShell\ServiceManagement\Azure\Azure.psd1'
 	    Import-Module 'C:\Program Files (x86)\Microsoft SDKs\Azure\PowerShell\ServiceManagement\Azure\ExpressRoute\ExpressRoute.psd1'
 
-2. **Create an ExpressRoute circuit**
+2. **Create an ExpressRoute circuit.**
 	
 	Follow the instructions to create an [ExpressRoute circuit](expressroute-howto-circuit-classic.md) and have it provisioned by the connectivity provider. If your connectivity provider offers managed Layer 3 services, you can request your connectivity provider to enable Azure private peering for you. In that case, you won't need to follow instructions listed in the next sections. However, if your connectivity provider does not manage routing for you, after creating your circuit, follow the instructions below. 
 
-3. **Check ExpressRoute circuit to ensure it is provisioned**
+3. **Check the ExpressRoute circuit to ensure it is provisioned.**
 
 	You must first check to see if the ExpressRoute circuit is Provisioned and also Enabled. See the example below.
 
@@ -71,7 +71,7 @@ This section provides instructions on how to create, get, update and delete the 
 		Status                           : Enabled
 
 
-4. **Configure Azure private peering for the circuit**
+4. **Configure Azure private peering for the circuit.**
 
 	Make sure that you have the following items before you proceed with the next steps:
 
@@ -81,15 +81,15 @@ This section provides instructions on how to create, get, update and delete the 
 	- AS number for peering. You can use both 2-byte and 4-byte AS numbers. You can use a private AS number for this peering. Ensure that you are not using 65515.
 	- MD5 hash if you choose to use one. **This is optional**.
 	
-	You can run the following cmdlet to configure Azure private pering for your circuit
+	You can run the following cmdlet to configure Azure private pering for your circuit.
 
 		New-AzureBGPPeering -AccessType Private -ServiceKey "*********************************" -PrimaryPeerSubnet "10.0.0.0/30" -SecondaryPeerSubnet "10.0.0.4/30" -PeerAsn 1234 -VlanId 100
 
-	You can use the cmdlet below if you choose to use an MD5 hash
+	You can use the cmdlet below if you choose to use an MD5 hash.
 
 		New-AzureBGPPeering -AccessType Private -ServiceKey "*********************************" -PrimaryPeerSubnet "10.0.0.0/30" -SecondaryPeerSubnet "10.0.0.4/30" -PeerAsn 1234 -VlanId 100 -SharedKey "A1B2C3D4"
 
->[AZURE.IMPORTANT] Ensure that you specify your AS Number as peering ASN, not customer ASN.
+	>[AZURE.IMPORTANT] Ensure that you specify your AS number as peering ASN, not customer ASN.
 
 ### Get Azure private peering details
 
@@ -166,7 +166,7 @@ This section provides instructions on how to create, get, update and delete the 
 
 4. **Configure Azure public peering for the circuit**
 
-	Ensure that you have the following information before you proceed further
+	Ensure that you have the following information before you proceed further.
 
 	- A /30 subnet for the primary link. This must be a valid public IPv4 prefix.
 	- A /30 subnet for the secondary link. This must be a valid public IPv4 prefix.
@@ -182,7 +182,7 @@ This section provides instructions on how to create, get, update and delete the 
 
 		New-AzureBGPPeering -AccessType Public -ServiceKey "*********************************" -PrimaryPeerSubnet "131.107.0.0/30" -SecondaryPeerSubnet "131.107.0.4/30" -PeerAsn 1234 -VlanId 200 -SharedKey "A1B2C3D4"
 
->[AZURE.IMPORTANT] Ensure that you specify your AS number as peering ASN and not customer ASN.
+	>[AZURE.IMPORTANT] Ensure that you specify your AS number as peering ASN and not customer ASN.
 
 ### Get Azure public peering details
 
@@ -237,7 +237,7 @@ This section provides instructions on how to create, get, update and delete the 
 
 3. **Check ExpressRoute circuit to ensure it is provisioned**
 
-	You must first check to see if the ExpressRoute circuit is in Provisioned, enabled state.
+	You must first check to see if the ExpressRoute circuit is in Provisioned and Enabled state.
 
 		PS C:\> Get-AzureDedicatedCircuit -ServiceKey "*********************************"
 
@@ -258,7 +258,7 @@ This section provides instructions on how to create, get, update and delete the 
 
 4. **Configure Microsoft peering for the circuit**
 
-	Ensure that you have the following information before you proceed further
+	Ensure that you have the following information before you proceed further.
 
 	- A /30 subnet for the primary link. This must be a valid public IPv4 prefix owned by you and registered in an RIR / IRR.
 	- A /30 subnet for the secondary link. This must be a valid public IPv4 prefix owned by you and registered in an RIR / IRR.
@@ -276,7 +276,7 @@ This section provides instructions on how to create, get, update and delete the 
 
 ### Get Microsoft peering details
 
-You can get configuration details using the following cmdlet
+You can get configuration details using the following cmdlet.
 
 	Get-AzureBGPPeering -AccessType Microsoft -ServiceKey "*********************************"
 	
@@ -296,13 +296,13 @@ You can get configuration details using the following cmdlet
 
 ### Update Microsoft peering configuration
 
-You can update any part of the configuration using the following cmdlet
+You can update any part of the configuration using the following cmdlet.
 
 		Set-AzureBGPPeering -AccessType Microsoft -ServiceKey "*********************************" -PrimaryPeerSubnet "131.107.0.0/30" -SecondaryPeerSubnet "131.107.0.4/30" -VlanId 300 -PeerAsn 1234 -CustomerAsn 2245 -AdvertisedPublicPrefixes "123.0.0.0/30" -RoutingRegistryName "ARIN" -SharedKey "A1B2C3D4"
 
 ### Delete Microsoft peering
 
-You can remove your peering configuration by running the following cmdlet
+You can remove your peering configuration by running the following cmdlet.
 
 	Remove-AzureBGPPeering -AccessType Microsoft -ServiceKey "*********************************"
 
