@@ -53,7 +53,7 @@ Based on your database's usage, there are currently 2 categories of recommendati
 
 Get pricing tier recommendations by selecting an existing Web or Business database and clicking on the **Pricing tier** tile. (Pricing tier recommendations are also available when you [Upgrade Azure SQL server to V12](sql-database-v12-upgrade.md).)
 
-1. Sign in to the [Azure Portal](https://portal.azure.com/).
+1. Sign in to the [Azure Preview Portal](https://portal.azure.com/).
 2. Click **BROWSE** in the left menu.
 3. Click **SQL databases** in the **Browse** blade.
 4. In the **SQL databases** blade, click the database that you want the service to analyze.
