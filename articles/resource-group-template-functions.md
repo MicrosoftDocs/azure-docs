@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/21/2015"
+   ms.date="09/14/2015"
    ms.author="tomfitz"/>
 
 # Azure Resource Manager Template Functions
@@ -108,6 +108,25 @@ Returns the integer division of the two provided integers.
 | operand1                           |   Yes    | Number being divided.
 | operand2                           |   Yes    | Number which is used to divide, has to be different from 0.
 
+## int
+
+**int(valueToConvert)**
+
+Converts the specified value to Integer.
+
+| Parameter                          | Required | Description
+| :--------------------------------: | :------: | :----------
+| valueToConvert                     |   Yes    | The value to convert to Integer. The type of value can only be String or Integer.
+
+The following example converts the user-provided parameter value to Integer.
+
+    "parameters": {
+        "appId": { "type": "string" }
+    },
+    "variables": { 
+        "intValue": "[int(parameters('appId'))]"
+    }
+
 ## length
 
 **length(array)**
@@ -116,7 +135,7 @@ Returns the number of elements in an array. Typically, used to specify the numbe
 
 ## listKeys
 
-**listKeys (resourceName or resourceIdentifier, [apiVersion])**
+**listKeys (resourceName or resourceIdentifier, apiVersion)**
 
 Returns the keys of a storage account. The resourceId can be specified by using the [resourceId function](./#resourceid) or by using the format **providerNamespace/resourceType/resourceName**. You can use the function to get the primaryKey and secondaryKey.
   
@@ -129,7 +148,7 @@ The following example shows how to return the keys from a storage account in the
 
     "outputs": { 
       "exampleOutput": { 
-        "value": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName')), providers('Microsoft.Storage', 'storageAccounts').apiVersions[0])]", 
+        "value": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName')), '2015-05-01-preview')]", 
         "type" : "object" 
       } 
     } 
@@ -206,9 +225,9 @@ The following example shows a simplified use of the parameters function.
        }
     ]
 
-## provider
+## providers
 
-**provider (providerNamespace, [resourceType])**
+**providers (providerNamespace, [resourceType])**
 
 Return information about a resource provider and its supported resource types. If not type is provided, all of the supported types are returned.
 
@@ -384,6 +403,25 @@ The following example splits the input string with a comma.
     },
     "variables": { 
         "stringPieces": "[split(parameters('inputString'), ',')]"
+    }
+
+## string
+
+**string(valueToConvert)**
+
+Converts the specified value to String.
+
+| Parameter                          | Required | Description
+| :--------------------------------: | :------: | :----------
+| valueToConvert                     |   Yes    | The value to convert to String. The type of value can only be Boolean, Integer or String.
+
+The following example converts the user-provided parameter value to String.
+
+    "parameters": {
+        "appId": { "type": "int" }
+    },
+    "variables": { 
+        "stringValue": "[string(parameters('appId'))]"
     }
 
 ## sub

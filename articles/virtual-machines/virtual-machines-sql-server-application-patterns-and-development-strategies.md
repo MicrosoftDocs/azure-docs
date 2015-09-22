@@ -1,23 +1,24 @@
-<properties 
-	pageTitle="Application Patterns and Development Strategies for SQL Server in Azure Virtual Machines"
-	description="This article covers a series of application patterns related to SQL Server running on Azure VMs. It provides solution architects and developers a foundation for good application architecture and design."
+<properties
+	pageTitle="SQL Server Application Patterns on VMs | Microsoft Azure"
+	description="This article covers application patterns for SQL Server on Azure VMs. It provides solution architects and developers a foundation for good application architecture and design."
 	services="virtual-machines"
 	documentationCenter="na"
-	authors="rothja"
+	authors="Selcin"
 	manager="jeffreyg"
-	editor="monicar" />
-<tags 
+	editor="monicar"
+	tags="azure-service-management,azure-resource-manager" />
+<tags
 	ms.service="virtual-machines"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
 	ms.date="08/20/2015"
-	ms.author="jroth" />
+	ms.author="selcint" />
 
 # Application Patterns and Development Strategies for SQL Server in Azure Virtual Machines
 
-## Summary: 
+## Summary:
 Determining which application pattern or patterns to use for your SQL Server based applications in Azure environment is an important design decision and it requires a solid understanding of how SQL Server and each infrastructure component of Azure work together. With SQL Server in Azure Infrastructure Services, you can easily migrate, maintain, and monitor your existing SQL Server applications built-on Windows Server to virtual machines in Azure.
 
 The goal of this article is to provide solution architects and developers a foundation for good application architecture and design, which they can follow when migrating existing applications to Azure as well as developing new applications in Azure.
@@ -276,13 +277,13 @@ In n-tier hybrid application pattern, you can implement the following workflow i
 1. Plan the resources and configuration needed in the Azure platform, such as storage accounts and virtual machines.
 
 1. Set up network connectivity between the corporate network on-premises and [Azure Virtual Network](../virtual-network/virtual-networks-overview.md). To set up the connection between the corporate network on-premises and a virtual machine in Azure, use one of the following two methods:
-									
+
 	1. Establish a connection between on-premises and Azure via public end points on a virtual machine in Azure. This method provides an easy setup and enables you to use SQL Server authentication in your virtual machine. In addition, set up the network access control list (ACL) on the public ports to allow for access certain IP addresses. For more information, see [Manage the ACL on an endpoint](virtual-machines-set-up-endpoints.md/#manage-the-acl-on-an-endpoint).
-	
+
 	1. Establish a connection between on-premises and Azure via Azure Virtual Private network (VPN) tunnel. This method allows you to extend domain policies to a virtual machine in Azure. In addition, you can set up firewall rules and use Windows authentication in your virtual machine. Currently, Azure supports secure site-to-site VPN and point-to-site VPN connections:
-	
+
 		- With secure site-to-site connection, you can establish network connectivity between your on-premises network and your virtual network in Azure. It is recommended for connecting your on-premises data center environment to Azure.
-		
+
 		- With secure point-to-site connection, you can establish network connectivity between your virtual network in Azure and your individual computers running anywhere. It is mostly recommended for development and test purposes.
 
 	For information on how to connect to SQL Server in Azure, see [Connect to a SQL Server Virtual Machine on Azure](virtual-machines-sql-server-connectivity.md).
@@ -292,9 +293,9 @@ In n-tier hybrid application pattern, you can implement the following workflow i
 1. Depending on your application’s needs, you can implement one of the following three common scenarios:
 
 	1. You can keep your web server, application server, and insensitive data in a database server in Azure whereas you keep the sensitive data on-premises.
-	
+
 	1. You can keep your web server and application server on-premises whereas the database server in a virtual machine in Azure.
-	
+
 	1. You can keep your database server, web server, and application server on-premises whereas you keep the database replicas in virtual machines in Azure. This setting allows the on-premises web servers or reporting applications to access the database replicas in Azure. Therefore, you can achieve to lower the workload in an on-premises database. We recommend that you implement this scenario for heavy read workloads and developmental purposes. For information on creating database replicas in Azure, see AlwaysOn Availability Groups at [High Availability and Disaster Recovery for SQL Server in Azure Virtual Machines](virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions.md).
 
 ## Comparing web development strategies in Azure

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Build a Service that uses Table storage instead of a SQL Database | Microsoft Azure" 
+	pageTitle="Build a .NET backend mobile service that uses Table storage | Azure Mobile Services" 
 	description="Learn how to use Azure Table storage with your .NET backend mobile service." 
 	services="mobile-services" 
 	documentationCenter="" 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="06/09/2015" 
+	ms.date="09/14/2015" 
 	ms.author="glenga"/>
 
-# Build a .NET backend Mobile Service that uses Table storage instead of a SQL Database
+# Build a .NET backend mobile service that uses Table storage
 
 This topic shows you how to use a non-relational data store for your .NET backend mobile service. In this tutorial, you will modify the Azure Mobile Services quickstart project to use Azure Table storage instead of the default Azure SQL Database data store.
 

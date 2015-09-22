@@ -1,4 +1,4 @@
-<properties
+﻿<properties
    pageTitle="Azure Active Directory developer's guide | Microsoft Azure"
    description="This article provides a comprehensive guide to developer-oriented resources for Azure Active Directory."
    services="active-directory"
@@ -10,10 +10,10 @@
 <tags
    ms.service="active-directory"
    ms.devlang="na"
-   ms.topic="hero-article"
+   ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="08/12/2015"
+   ms.date="09/02/2015"
    ms.author="mbaldwin"/>
 
 
@@ -23,17 +23,15 @@
 As an identity management as a service (IDMaaS) platform, Azure Active Directory provides developers an effective way to integrate identity management into their applications. The following articles provide overviews on implementation and key features of Azure Active Directory. We suggest that you read them in order, or jump to [Getting started](#getting-started) if you're ready to dig in.
 
 
-1. [Integrating with Azure Active Directory](active-directory-how-to-integrate.md): Discover why integration with Azure Active Directory offers the best solution for secure sign-in and authorization.
+1. [The benefits of Azure Active Directory integration](active-directory-how-to-integrate.md): Discover why integration with Azure Active Directory offers the best solution for secure sign-in and authorization.
 
 1. [Active Directory authentication scenarios](active-directory-authentication-scenarios.md): Take advantage of simplified authentication in Azure Active Directory to provide sign-on to your application.
 
-1. [Azure Active Directory Graph API](https://msdn.microsoft.com/library/azure/hh974476.aspx): Use the Azure Active Directory Graph API to programmatically access Azure Active Directory through REST API endpoints.
+1. [Integrating applications with Azure Active Directory](active-directory-integrating-applications.md): Learn how to add, update, and remove applications from Azure Active Directory, and about the branding guidelines for integrated apps.
 
-1. [Integrating applications in Azure Active Directory](active-directory-integrating-applications.md): Learn about registering your application and the branding guidelines for multitenant applications.
+1. [Azure Active Directory Graph API](active-directory-graph-api.md): Use the Azure Active Directory Graph API to programmatically access Azure Active Directory through REST API endpoints.
 
 1. [Azure Active Directory authentication libraries](active-directory-authentication-libraries.md): Easily authenticate users to obtain access tokens by using the Azure authentication libraries.
-
-To view Azure Active Directory overviews presented at the Build 2015 conference, see the [Videos](#videos) section below.
 
 
 ## Getting started
@@ -46,12 +44,17 @@ These tutorials are tailored for multiple platforms and can help you quickly sta
 |:--:|:--:|:--:|:--:|:--:|:--:|:--:
 |[iOS](active-directory-devquickstarts-ios.md)|[Android](active-directory-devquickstarts-android.md)|[.NET](active-directory-devquickstarts-dotnet.md)|[Windows Phone](active-directory-devquickstarts-windowsphone.md)|[Windows Store](active-directory-devquickstarts-windowsstore.md)|[Xamarin](active-directory-devquickstarts-xamarin.md)|[Cordova](active-directory-devquickstarts-cordova.md)
 
+### Web application quick-start guides
 
-### Web application and web API quick-start guides
+|[![.NET](./media/active-directory-developers-guide/net.png)](active-directory-devquickstarts-webapp-dotnet.md)|[![Javascript](./media/active-directory-developers-guide/javascript.png)](active-directory-devquickstarts-angular.md)|[![Node.js](./media/active-directory-developers-guide/nodejs.png)](active-directory-devquickstarts-openidconnect-nodejs)
+|:--:|:--:|:--:|
+|[.NET](active-directory-devquickstarts-webapp-dotnet.md)|[Javascript](active-directory-devquickstarts-angular.md)|[Node.js](active-directory-devquickstarts-openidconnect-nodejs)
 
-|[![.NET](./media/active-directory-developers-guide/net.png)](active-directory-devquickstarts-webapp-dotnet.md)|[![.NET](./media/active-directory-developers-guide/net.png)](active-directory-devquickstarts-webapi-dotnet.md)|[![Javascript](./media/active-directory-developers-guide/javascript.png)](active-directory-devquickstarts-angular.md)|[![Node.js](./media/active-directory-developers-guide/nodejs.png)](active-directory-devquickstarts-webapi-nodejs.md)
-|:--:|:--:|:--:|:--:
-|[.NET Web App](active-directory-devquickstarts-webapp-dotnet.md)|[.NET Web API](active-directory-devquickstarts-webapi-dotnet.md)|[Javascript](active-directory-devquickstarts-angular.md)|[Node.js](active-directory-devquickstarts-webapi-nodejs.md)
+### Web API quick-start guides
+
+|[![.NET](./media/active-directory-developers-guide/net.png)](active-directory-devquickstarts-webapi-dotnet.md)|[![Node.js](./media/active-directory-developers-guide/nodejs.png)](active-directory-devquickstarts-webapi-nodejs.md)
+|:--:|:--:|
+|[.NET](active-directory-devquickstarts-webapi-dotnet.md)|[Node.js](active-directory-devquickstarts-webapi-nodejs.md)
 
 ### Querying the directory quickstart guide
 
@@ -63,12 +66,13 @@ These tutorials are tailored for multiple platforms and can help you quickly sta
 
 These articles describe how to perform specific tasks by using Azure Active Directory:
 
-- [How to get an Azure Active Directory tenant](active-directory-howto-tenant.md)
-- [Listing your application in the Azure Active Directory application gallery](active-directory-app-gallery-listing.md)
+- [Get an Azure Active Directory tenant](active-directory-howto-tenant.md)
+- [List your application in the Azure Active Directory application gallery](active-directory-app-gallery-listing.md)
+- [Understand the Azure Active Directory application manifest](active-directory-application-manifest.md)
 - [Create an app with Office 365 APIs](https://msdn.microsoft.com/office/office365/howto/getting-started-Office-365-APIs)
 - [Submit web apps for Office 365 to the Seller Dashboard](https://msdn.microsoft.com/office/office365/howto/submit-web-apps-seller-dashboard)
 - [Preview: How to build apps that sign users in with both personal & work or school accounts](active-directory-appmodel-v2-overview.md)
-
+- [Preview: How to build apps that sign up & sign in consumers](active-directory-b2c-overview.md)
 
 ## Reference
 

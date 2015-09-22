@@ -1,12 +1,13 @@
-<properties 
-	pageTitle="Configure AlwaysOn Availability Groups in Azure (GUI)"
-	description="Create an AlwaysOn Availability Group in Azure Virtual Machines. This tutorial primarily uses the user interface and tools rather than scripting."
+<properties
+	pageTitle="Configure AlwaysOn Availability Groups (GUI) | Microsoft Azure"
+	description="Create an AlwaysOn Availability Group with Azure Virtual Machines. This tutorial primarily uses the user interface and tools rather than scripting."
 	services="virtual-machines"
 	documentationCenter="na"
 	authors="rothja"
 	manager="jeffreyg"
-	editor="monicar" />
-<tags 
+	editor="monicar"
+	tags="azure-service-management" />
+<tags
 	ms.service="virtual-machines"
 	ms.devlang="na"
 	ms.topic="article"
@@ -15,7 +16,15 @@
 	ms.date="08/12/2015"
 	ms.author="jroth" />
 
-# Configure AlwaysOn Availability Groups in Azure (GUI)
+# Configure AlwaysOn Availability Groups in Azure VM (GUI)
+
+> [AZURE.SELECTOR]
+- [Portal](virtual-machines-sql-server-alwayson-availability-groups-gui.md)
+- [PowerShell](virtual-machines-sql-server-alwayson-availability-groups-powershell.md)
+
+<br/>
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)] This article covers creating a resource with the classic deployment model.
 
 This end-to-end tutorial shows you how to implement Availability Groups using SQL Server AlwaysOn running on Azure virtual machines.
 
@@ -372,11 +381,11 @@ These actions can be performed in any order. Nevertheless, the steps below will 
 1. Right-click the **NT AUTHORITY\System** login, and click **Properties**.
 
 1. In the **Securables** page, for the local server, select **Grant** for the following permissions and click **OK**.
-	
+
 	- Alter any availability group
-	
+
 	- Connect SQL
-	
+
 	- View server state
 
 1. Next, add **CORP\Install** as a **sysadmin** role to the default SQL Server instance. In **Object Explorer**, right-click **Logins** and click **New Login**.

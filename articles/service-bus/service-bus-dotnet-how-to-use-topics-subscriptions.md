@@ -302,18 +302,17 @@ Deleting a topic also deletes any subscriptions that are registered with the top
 
 Now that you've learned the basics of Service Bus topics and subscriptions, follow these links to learn more.
 
--   See the MSDN Reference: [Queues, Topics, and Subscriptions][].
+-   See [Queues, Topics, and Subscriptions][].
 -   API reference for [SqlFilter][].
 -   Build a working application that sends and receives messages to and from a Service Bus queue: [Service Bus Brokered Messaging .NET Tutorial][].
--   Service Bus samples: Download from [Azure Samples][] or see the overview on [MSDN][].
+-   Service Bus samples: Download from [Azure Samples][] or see the [overview](service-bus-samples.md).
 
   [Azure portal]: http://manage.windowsazure.com
 
   [7]: ./media/service-bus-dotnet-how-to-use-topics-subscriptions/getting-started-multi-tier-13.png
 
-  [Queues, Topics, and Subscriptions]: http://msdn.microsoft.com/library/hh367516.aspx
+  [Queues, Topics, and Subscriptions]: service-bus-queues-topics-subscriptions.md
   [SqlFilter]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.aspx
   [SqlFilter.SqlExpression]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
   [Service Bus Brokered Messaging .NET Tutorial]: http://msdn.microsoft.com/library/azure/hh367512.aspx
   [Azure Samples]: https://code.msdn.microsoft.com/windowsazure/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=2
-  [MSDN]: https://msdn.microsoft.com/library/azure/dn194201.aspx

@@ -12,7 +12,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="09/02/2015"
+   ms.date="09/16/2015"
    ms.author="alkohli" />
 
 # Deploy and manage a StorSimple virtual device in Azure
@@ -114,8 +114,6 @@ After completing these procedures, you are ready to [Work with the virtual devic
 After you have created a virtual network, configured a StorSimple Manager service, and registered your physical StorSimple device with the service, you can use the following steps to create a StorSimple virtual device.
 
 Perform the following steps to create the StorSimple virtual device.
-
-
 
 1.  In the Azure portal, go to the **StorSimple Manager** service.
 
@@ -220,7 +218,6 @@ You can choose to connect over HTTP or HTTPS. For security reasons, we recommend
 
 Perform the following steps to configure remote management for your StorSimple virtual device.
 
-
 1. On your virtual device, go to **Devices > Configure**.
 
 2. Scroll down to the **Remote Management** section.
@@ -233,6 +230,9 @@ Perform the following steps to configure remote management for your StorSimple v
 
 6. Click **Save** at the bottom of the page.
 
+![Video available](./media/storsimple-virtual-device/Video_icon.png) **Video available**
+
+To watch a video that describes how to create a virtual StorSimple device in the cloud, click [here](http://azure.microsoft.com/documentation/videos/create-a-storsimple-virtual-device/).
 
 ## Work with the StorSimple virtual device
 
@@ -346,7 +346,7 @@ Disaster recovery (DR) is one of the key scenarios that the StorSimple virtual d
 
 - Repeat the previous step for all the volume containers you want to fail over to the virtual device.
 
-- On the **Device** page, select the device that you need to fail over, and then click **Failover** to open the **Device Failover** wizard.
+- On the **Device** page, select the device that you need to fail over, and then click **Failover** to open the Device Failover wizard.
 
 - In **Choose volume container to failover**, select the volume containers you would like to fail over. To be displayed in this list, the volume container must contain a cloud snapshot and be offline. If a volume container that you expected to see is not present, cancel the wizard and verify that it is offline.
 
@@ -354,9 +354,13 @@ Disaster recovery (DR) is one of the key scenarios that the StorSimple virtual d
 
 - Review all the failover settings on the **Confirm failover** page. If they are correct, click the check icon.
 
-The failover process will begin. When the failover is finished, go to the Devices page and select the virtual device that was used as the target for the failover process. Go to the Volume Containers page. All the volume containers, along with the volumes from the old device should appear.
+The failover process will begin. When the failover is finished, go to the **Devices** page and select the virtual device that was used as the target for the failover process. Go to the Volume Containers page. All the volume containers, along with the volumes from the old device should appear.
 
 >[AZURE.NOTE] The amount of storage supported on the virtual device is 30 TB.
+
+![Video available](./media/storsimple-virtual-device/Video_icon.png) **Video available**
+
+To watch a video that describes how you can restore a failed over physical device to a virtual device in the cloud, click [here](http://azure.microsoft.com/documentation/videos/storsimple-and-disaster-recovery/).
 
 ## Shut down or delete the virtual device
 
