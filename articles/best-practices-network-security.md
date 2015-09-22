@@ -483,7 +483,7 @@ will be available soon and linked from this page.
 [2]: ./media/best-practices-network-security/azuresecurityfeatures.png "Azure Security Features"
 [3]: ./media/best-practices-network-security/dmzcorporate.png "A DMZ in a Corporate network"
 [4]: ./media/best-practices-network-security/azuresecurityarchitecture.png "Azure Security Architecture"
-[5]: ./media/best-practices-network-security/dmxazure.png "A DMZ in an Azure Virtual Network"
+[5]: ./media/best-practices-network-security/dmzazure.png "A DMZ in an Azure Virtual Network"
 [6]: ./media/best-practices-network-security/dmzhybrid.png "Hybrid Network with Three Security Boundaries"
 [7]: ./media/best-practices-network-security/example1design.png "Inbound DMZ with NSG"
 [8]: ./media/best-practices-network-security/example2design.png "Inbound DMZ with NVA and NSG"
