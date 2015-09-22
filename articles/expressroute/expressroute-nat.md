@@ -1,5 +1,5 @@
 <properties
-   pageTitle="NAT requirements for ExpressRoute adoption | Microsoft Azure"
+   pageTitle="NAT requirements for ExpressRoute circuits | Microsoft Azure"
    description="This page provides detailed requirements for configuring and managing NAT for ExpressRoute circuits."
    documentationCenter="na"
    services="expressroute"
@@ -12,14 +12,14 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/21/2015"
+   ms.date="09/22/2015"
    ms.author="cherylmc"/>
 
 # ExpressRoute NAT requirements
 
 To connect to Microsoft cloud services using ExpressRoute, you’ll need to set up and manage NATs. Some connectivity providers offer setting up and managing NAT as a managed service. Check with your connectivity provider to see if they offer such a service. If not, you must adhere to the requirements described below. 
 
-Review the [ExpressRoute circuit and routing domains](expressroute-circuit-peerings.md) page to get an overview of the various routing domains. To meet the public IP address requirements for Azure public and Microsoft peering, we recommend that you set up NAT between your network and Microsoft. This section provides a detailed description of the NAT infrastructure you need to set up.
+Review the [ExpressRoute circuits and routing domains](expressroute-circuit-peerings.md) page to get an overview of the various routing domains. To meet the public IP address requirements for Azure public and Microsoft peering, we recommend that you set up NAT between your network and Microsoft. This section provides a detailed description of the NAT infrastructure you need to set up.
 
 ## NAT requirements for Azure public peering
 
@@ -29,7 +29,7 @@ The Azure public peering path enables you to connect to all services hosted in A
 
 ### NAT IP pool and route advertisements
 
-You must ensure that traffic is entering the Azure public peering path with valid public IPv4 address. Microsoft must be able to validate the ownership of the IPv4 NAT address pool against a regional routing Internet registry (RIR) or an Internet routing registry (IRR). A check will be performed based on the AS number being peered with and the IP addresses used for the NAT. Refer to the [ExpressRoute Routing Requirements](expressroute-routing.md) page for information on routing registries.
+You must ensure that traffic is entering the Azure public peering path with valid public IPv4 address. Microsoft must be able to validate the ownership of the IPv4 NAT address pool against a regional routing Internet registry (RIR) or an Internet routing registry (IRR). A check will be performed based on the AS number being peered with and the IP addresses used for the NAT. Refer to the [ExpressRoute routing requirements](expressroute-routing.md) page for information on routing registries.
  
 There are no restrictions on the length of the NAT IP prefix advertised through this peering. You must monitor the NAT pool and ensure that you are not starved off NAT sessions.
 
@@ -44,11 +44,11 @@ The Microsoft peering path lets you connect to Microsoft cloud services that are
 
 #### Traffic originating from your network destined to Microsoft
 
-- You must ensure that traffic is entering the Microsoft peering path with a valid public IPv4 address. Microsoft must be able to validate the owner of the IPv4 NAT address pool against the regional routing internet registry (RIR) or an internet routing registry (IRR). A check will be performed based on the AS number being peered with and the IP addresses used for the NAT. Refer to the [ExpressRoute Routing Requirements](expressroute-routing.md) page for information on routing registries.
+- You must ensure that traffic is entering the Microsoft peering path with a valid public IPv4 address. Microsoft must be able to validate the owner of the IPv4 NAT address pool against the regional routing internet registry (RIR) or an internet routing registry (IRR). A check will be performed based on the AS number being peered with and the IP addresses used for the NAT. Refer to the [ExpressRoute routing requirements](expressroute-routing.md) page for information on routing registries.
 
 - IP addresses used for the Azure public peering setup and other ExpressRoute circuits must not be advertised to Microsoft through the BGP session. There is no restriction on the length of the NAT IP prefix advertised through this peering.
 
->[AZURE.IMPORTANT] The NAT IP pool advertised to Microsoft must not be advertised to the internet. This will break connectivity to other Microsoft services.
+	>[AZURE.IMPORTANT] The NAT IP pool advertised to Microsoft must not be advertised to the Internet. This will break connectivity to other Microsoft services.
 
 #### Traffic originating from Microsoft destined to your network
 
@@ -58,7 +58,7 @@ The Microsoft peering path lets you connect to Microsoft cloud services that are
 
 ## Next steps
 
-- Refer to [Routing](expressroute-routing.md) and [QoS](expressroute-qos.md) requirements.
+- Refer to the requirements for Routing](expressroute-routing.md) and [QoS](expressroute-qos.md).
 - Configure your ExpressRoute connection.
 	- [Create an ExpressRoute circuit](expressroute-howto-circuit-classic.md)
 	- [Configure routing](expressroute-howto-routing-classic.md)
