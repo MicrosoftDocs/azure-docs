@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="09/18/2015"
+	ms.date="09/22/2015"
 	ms.author="ricksal"/>
 
 # Add Mobile Services to an existing Android app (JavaScript backend)
@@ -50,11 +50,6 @@ To complete this tutorial, you need the following:
 ## Sample Code
 
 To see the completed source code, go <a href="https://github.com/Azure/mobile-services-samples/tree/master/GettingStartedWithData/AndroidStudio">here</a>.
-
-To see a completed version of the source code in an Eclipse project, go <a href="https://github.com/Azure/mobile-services-samples/tree/master/GettingStartedWithData/Android">here</a>.
-
-If you would like to see the Eclipse version of this tutorial, go to
-[Get started with data using Eclipse](mobile-services-android-get-started-data-ec.md).
 
 ## Download the GetStartedWithData project
 
