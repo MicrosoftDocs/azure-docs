@@ -1,24 +1,24 @@
-<properties 
-	pageTitle="What is Azure Key Vault? | Microsoft Azure" 
-	description="Azure Key Vault helps safeguard cryptographic keys and secrets used by cloud applications and services. By using Azure Key Vault, customers can encrypt keys and secrets (such as authentication keys, storage account keys, data encryption keys, .PFX files, and passwords) by using keys that are protected by hardware security modules (HSMs)." 
-	services="key-vault" 
-	documentationCenter="" 
-	authors="cabailey" 
+<properties
+	pageTitle="What is Azure Key Vault? | Microsoft Azure"
+	description="Azure Key Vault helps safeguard cryptographic keys and secrets used by cloud applications and services. By using Azure Key Vault, customers can encrypt keys and secrets (such as authentication keys, storage account keys, data encryption keys, .PFX files, and passwords) by using keys that are protected by hardware security modules (HSMs)."
+	services="key-vault"
+	documentationCenter=""
+	authors="cabailey"
 	manager="mbaldwin"
 	tags="azure-resource-manager"/>
 
-<tags 
-	ms.service="key-vault" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="09/11/2015" 
+<tags
+	ms.service="key-vault"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="09/22/2015"
 	ms.author="cabailey"/>
 
 
 
-# What is Azure Key Vault? 
+# What is Azure Key Vault?
 
 Azure Key Vault is available in most regions. For more information, see the [Key Vault pricing page](../../../../pricing/details/key-vault/).
 
@@ -26,7 +26,7 @@ Azure Key Vault is available in most regions. For more information, see the [Key
 
 Azure Key Vault helps safeguard cryptographic keys and secrets used by cloud applications and services. By using Key Vault, you can encrypt keys and secrets (such as authentication keys, storage account keys, data encryption keys, .PFX files, and passwords) by using keys that are protected by hardware security modules (HSMs). For added assurance, you can import or generate keys in HSMs (keys never leave the HSM boundary). The HSMs are FIPS 140-2 Level 2 validated.  
 
-Key Vault streamlines the key management process and enables you to maintain control of keys that access and encrypt your data. Developers can create keys for development and testing in minutes, and then seamlessly migrate them to production keys. Security administrators can grant (and revoke) permission to keys, as needed. 
+Key Vault streamlines the key management process and enables you to maintain control of keys that access and encrypt your data. Developers can create keys for development and testing in minutes, and then seamlessly migrate them to production keys. Security administrators can grant (and revoke) permission to keys, as needed.
 
 Use the following table to better understand how Key Vault can help to meet the needs of developers and security administrators.
 
@@ -43,7 +43,7 @@ Use the following table to better understand how Key Vault can help to meet the 
 
 Anybody with an Azure subscription can create and use key vaults. Although Key Vault benefits developers and security administrators, it could be implemented and managed by an organization’s administrator who manages other Azure services for an organization. For example, this administrator would sign in with an Azure subscription, create a vault for the organization in which to store keys, and then be responsible for operational tasks, such as:
 
-+ Create or import a key or secret 
++ Create or import a key or secret
 + Revoke or delete a key or secret
 + Authorize users or applications to manage or use keys and secrets
 + Configure key usage (for example, sign or encrypt)
@@ -53,7 +53,7 @@ This administrator would then provide developers with URIs to call from their ap
 
    ![Overview of Azure Key Vault][1]
 
-Developers can also manage the keys directly, by using  APIs. For more information, see [Key Vault](https://msdn.microsoft.com/library/azure/dn903625.aspx) in the Microsoft Azure documentation library on MSDN.
+Developers can also manage the keys directly, by using  APIs. For more information, see [the Key Vault developer's guide](key-vault-developers-guide.md).
 
 ## Next Steps
 
@@ -64,6 +64,3 @@ For more information about using keys and secrets with Azure Key Vault, see [Abo
 
 <!--Image references-->
 [1]: ./media/key-vault-whatis/AzureKeyVault_overview.png
-
-
- 
