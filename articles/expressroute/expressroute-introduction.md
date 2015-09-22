@@ -12,7 +12,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="09/21/2015"
+   ms.date="09/22/2015"
    ms.author="cherylmc"/>
 
 # ExpressRoute technical overview
@@ -51,7 +51,7 @@ ExpressRoute supports the following features and capabilities.
 
 ### Layer 3 connectivity
 
-Microsoft uses industry standard dynamic routing protocol (BGP) to exchange routes between your on-premises network, your instances in Azure, and Microsoft public addresses.  We establish multiple BGP sessions with your network for different traffic profiles. More details can be found in the [ExpressRoute circuit and routing domains](expressroute-circuit-and-peerings.md) article.
+Microsoft uses industry standard dynamic routing protocol (BGP) to exchange routes between your on-premises network, your instances in Azure, and Microsoft public addresses.  We establish multiple BGP sessions with your network for different traffic profiles. More details can be found in the [ExpressRoute circuit and routing domains](expressroute-circuit-peerings.md) article.
 
 ### Redundancy
 
@@ -59,7 +59,7 @@ Each ExpressRoute circuit consists of two connections to two Microsoft Enterpris
 
 ### Connectivity to Microsoft cloud services
 
-ExpressRoute connections enable access to the following services
+ExpressRoute connections enable access to the following services.
 
 - Microsoft Azure services
 - Microsoft Office 365 services
@@ -71,11 +71,11 @@ You can visit the [ExpressRoute FAQ](expressroute-faqs.md) page for a detailed l
 
 You can connect to Microsoft in one of our [peering locations](expressroute-locations.md) and have access to all regions within the geopolitical region. 
 
-For example, if you connected to Microsoft in Amsterdam through ExpressRoute, you will have access to all Microsoft cloud services hosted in Northern Europe and Western Europe. Refer to the [ExpressRoute locations and providers](expressroute-locations.md) article for an overview of the geopolitical regions, associated Microsoft cloud regions, and corresponding ExpressRoute peering locations.
+For example, if you connected to Microsoft in Amsterdam through ExpressRoute, you will have access to all Microsoft cloud services hosted in Northern Europe and Western Europe. Refer to the [ExpressRoute partners and peering locations](expressroute-locations.md) article for an overview of the geopolitical regions, associated Microsoft cloud regions, and corresponding ExpressRoute peering locations.
 
 ### Global connectivity with ExpressRoute premium add-on
 
-You can enable the ExpressRoute premium add-on feature to extend connectivity across geopolitical boundaries. For example, if you are connected to Microsoft in Amsterdam through ExpressRoute, you will have access to all Microsoft cloud services hosted in all regions across the world. (National clouds are excluded.) You can access services deployed in South America or Australia the same way you access the North and West Europe regions.
+You can enable the ExpressRoute premium add-on feature to extend connectivity across geopolitical boundaries. For example, if you are connected to Microsoft in Amsterdam through ExpressRoute, you will have access to all Microsoft cloud services hosted in all regions across the world (national clouds are excluded). You can access services deployed in South America or Australia the same way you access the North and West Europe regions.
 
 ### Rich connectivity partner ecosystem
 
@@ -111,15 +111,14 @@ You can pick a billing model that works best for you. Choose between the billing
 - **ExpressRoute premium add-on**. The ExpressRoute premium is an add-on over the ExpressRoute circuit. The ExpressRoute premium add-on provides the following capabilities: 
 	- Increased route limits for Azure public and Azure private peering from 4,000 routes to 10,000 routes.
 	- Global connectivity for services. An ExpressRoute circuit created in any region (excluding national clouds) will have access to resources across any other region in the world. For example, a virtual network created in West Europe can be accessed through an ExpressRoute circuit provisioned in Silicon Valley.
-	- Increased number of VNet links per ExpressRoute circuit from 10, to a larger limit (depending on the bandwidth of the circuit).
+	- Increased number of VNet links per ExpressRoute circuit from 10 to a larger limit, depending on the bandwidth of the circuit.
 
 ## Next steps
 
-- Learn about ExpressRoute connections and routing domains. See [ExpressRoute circuit and routing domains](expressroute-circuit-peerings.md).
-- Find a service provider. See [ExpressRoute service providers and locations](expressroute-locations.md).
+- Learn about ExpressRoute connections and routing domains. See [ExpressRoute circuits and routing domains](expressroute-circuit-peerings.md).
+- Find a service provider. See [ExpressRoute partners and peering locations](expressroute-locations.md).
 - Ensure that all prerequisites are met. See [ExpressRoute prerequisites](expressroute-prerequisites.md).
-- Refer to [Routing](expressroute-routing.md), [NAT](expressroute-nat.md) and [QoS](expressroute-qos.md) requirements.
-- Refer to [routing](expressroute-routing.md) and [NAT](expressroute-nat.md) requirements.
+- Refer to the requirements for [Routing](expressroute-routing.md), [NAT](expressroute-nat.md) and [QoS](expressroute-qos.md).
 - Configure your ExpressRoute connection.
 	- [Create an ExpressRoute circuit](expressroute-howto-circuit-classic.md)
 	- [Configure routing](expressroute-howto-routing-classic.md)
