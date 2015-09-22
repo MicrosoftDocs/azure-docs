@@ -167,10 +167,10 @@ If you want to use SSL for a staging deployment instead of a production deployme
 
 ## Next steps
 
-* [General configuration of your cloud service](cloud-services-how-to-configure).
-* Learn how to [deploy a cloud service](cloud-services-how-to-create-deploy).
-* Configure a [custom domain name](cloud-services-custom-domain-name).
-* [Manage your cloud service](cloud-services-how-to-manage).
+* [General configuration of your cloud service](cloud-services-how-to-configure.md).
+* Learn how to [deploy a cloud service](cloud-services-how-to-create-deploy.md).
+* Configure a [custom domain name](cloud-services-custom-domain-name.md).
+* [Manage your cloud service](cloud-services-how-to-manage.md).
 
 
   [Azure Management Portal]: http://manage.windowsazure.com

@@ -90,7 +90,7 @@ Remote access cannot be configured using the **Azure Preview Portal**, you can o
 			
 ## Next steps
 
-* Learn how to [deploy a cloud service](cloud-services-how-to-create-deploy-portal).
-* Configure a [custom domain name](cloud-services-custom-domain-name-portal).
-* [Manage your cloud service](cloud-services-how-to-manage-portal).
-* Configure [ssl certificates](cloud-services-configure-ssl-certificate-portal).
+* Learn how to [deploy a cloud service](cloud-services-how-to-create-deploy-portal.md).
+* Configure a [custom domain name](cloud-services-custom-domain-name-portal.md).
+* [Manage your cloud service](cloud-services-how-to-manage-portal.md).
+* Configure [ssl certificates](cloud-services-configure-ssl-certificate-portal.md).

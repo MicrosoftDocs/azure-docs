@@ -151,7 +151,7 @@ Three cloud service features require special configurations before you export a 
  
 ## Next steps
 
-* [General configuration of your cloud service](cloud-services-how-to-configure).
-* Configure a [custom domain name](cloud-services-custom-domain-name).
-* [Manage your cloud service](cloud-services-how-to-manage).
-* Configure [ssl certificates](cloud-services-configure-ssl-certificate).
+* [General configuration of your cloud service](cloud-services-how-to-configure.md).
+* Configure a [custom domain name](cloud-services-custom-domain-name.md).
+* [Manage your cloud service](cloud-services-how-to-manage.md).
+* Configure [ssl certificates](cloud-services-configure-ssl-certificate.md).

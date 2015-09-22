@@ -160,7 +160,7 @@ Use the following procedure to delete a deployment or your cloud service.
 
 ## Next steps
 
- * [General configuration of your cloud service](cloud-services-how-to-configure).
-* Learn how to [deploy a cloud service](cloud-services-how-to-create-deploy).
-* Configure a [custom domain name](cloud-services-custom-domain-name).
-* Configure [ssl certificates](cloud-services-configure-ssl-certificate).
+ * [General configuration of your cloud service](cloud-services-how-to-configure.md).
+* Learn how to [deploy a cloud service](cloud-services-how-to-create-deploy.md).
+* Configure a [custom domain name](cloud-services-custom-domain-name.md).
+* Configure [ssl certificates](cloud-services-configure-ssl-certificate.md).

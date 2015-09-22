@@ -112,7 +112,7 @@ If your deployment package was [configured to use certificates](cloud-services-c
 
 ## Next steps
 
-* [General configuration of your cloud service](cloud-services-how-to-configure-portal).
-* Configure a [custom domain name](cloud-services-custom-domain-name-portal).
-* [Manage your cloud service](cloud-services-how-to-manage-portal).
-* Configure [ssl certificates](cloud-services-configure-ssl-certificate-portal).
+* [General configuration of your cloud service](cloud-services-how-to-configure-portal.md).
+* Configure a [custom domain name](cloud-services-custom-domain-name-portal.md).
+* [Manage your cloud service](cloud-services-how-to-manage-portal.md).
+* Configure [ssl certificates](cloud-services-configure-ssl-certificate-portal.md).

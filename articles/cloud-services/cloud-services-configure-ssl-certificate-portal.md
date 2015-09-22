@@ -172,7 +172,7 @@ connect to it using HTTPS.
 
 ## Next steps
 
-* [General configuration of your cloud service](cloud-services-how-to-configure-portal).
-* Learn how to [deploy a cloud service](cloud-services-how-to-create-deploy-portal).
-* Configure a [custom domain name](cloud-services-custom-domain-name-portal).
-* [Manage your cloud service](cloud-services-how-to-manage-portal).
+* [General configuration of your cloud service](cloud-services-how-to-configure-portal.md).
+* Learn how to [deploy a cloud service](cloud-services-how-to-create-deploy-portal.md).
+* Configure a [custom domain name](cloud-services-custom-domain-name-portal.md).
+* [Manage your cloud service](cloud-services-how-to-manage-portal.md).

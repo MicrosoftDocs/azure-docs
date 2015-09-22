@@ -144,10 +144,10 @@ This example demonstrates creating an A record for the root domain. If you wish 
 ## Next steps
 
 * [How to Manage Cloud Services](cloud-services-how-to-manage.md)
-* [How to Map CDN Content to a Custom Domain](cdn-map-content-to-custom-domain)
-* [General configuration of your cloud service](cloud-services-how-to-configure-portal).
-* Learn how to [deploy a cloud service](cloud-services-how-to-create-deploy-portal).
-* Configure [ssl certificates](cloud-services-configure-ssl-certificate-portal).
+* [How to Map CDN Content to a Custom Domain](cdn-map-content-to-custom-domain.md)
+* [General configuration of your cloud service](cloud-services-how-to-configure-portal.md).
+* Learn how to [deploy a cloud service](cloud-services-how-to-create-deploy-portal.md).
+* Configure [ssl certificates](cloud-services-configure-ssl-certificate-portal.md).
 
 [Expose Your Application on a Custom Domain]: #access-app
 [Add a CNAME Record for Your Custom Domain]: #add-cname
