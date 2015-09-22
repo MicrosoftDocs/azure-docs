@@ -2,7 +2,6 @@
 	
 	pageTitle="Upgrade to the latest elastic database client library" 
 	description="Upgrade apps and libraries using Nuget" 
-	metaKeywords="Nuget upgrade apps procedure" 
 	services="sql-database" 
 	documentationCenter="" 
 	manager="jeffreyg" 
