@@ -14,17 +14,17 @@
 
 	![][3]
 
-Once you make the change, the info.plist XML should contain the following key and value:
+6. Once you make the change, the info.plist XML should contain the following key and value:
 
-    <key>UIBackgroundModes</key>
-        <array>
-            <string>remote-notification</string>
-        </array>
-    ...
+	    <key>UIBackgroundModes</key>
+	    <array>
+	    <string>remote-notification</string>
+	    </array>
+	    ...
     
-6. If you are using Xcode 7 and iOS 9, you have to perform the following additional steps:
-• Set **Enable Bitcode** to **No** under Targets > Build Settings > set Enable Bitcode to Yes or No. (Make sure to select ALL from the top bar.) 
-• Enable **Push Notifications** in Targets > Your Target Name > Capabilities.
+7. If you are using **Xcode 7** and **iOS 9**, you have to perform the following additional steps:
+	- Set **Enable Bitcode** to **No** under Targets > Build Settings > set Enable Bitcode to Yes or No. (Make sure to select ALL from the top bar.) 
+	- Enable **Push Notifications** in Targets > Your Target Name > Capabilities.
 
 <!-- Images. -->
 [1]: ./media/mobile-engagement-ios-silent-push/xcode-plist-add-silent-push1.png

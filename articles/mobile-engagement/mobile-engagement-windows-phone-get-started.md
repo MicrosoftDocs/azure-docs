@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-phone"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="04/30/2015"
+	ms.date="09/22/2015"
 	ms.author="piyushjo" />
 
 # Get started with Azure Mobile Engagement for Windows Phone Silverlight apps
@@ -38,34 +38,9 @@ This tutorial requires the following:
 
 > [AZURE.IMPORTANT] Completing this tutorial is a prerequisite for all other Mobile Engagement tutorials for Windows Phone Silverlight apps, and to complete it, you must have an active Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Azure Free Trial</a>.
 
-##<a id="setup-azme"></a>Set up Mobile Engagement for your Windows Phone Silverlight app
+##<a id="setup-azme"></a>Setup Mobile Engagement for your Windows Phone app
 
-1. Sign in to the Azure portal, and then click **+NEW** at the bottom of the screen.
-
-2. Click **App Services**, click **Mobile Engagement**, and then click **Create**.
-
-    ![][7]
-
-3. In the pop-up that appears, enter the following information:
-
-    ![][8]
-
-  - **Application Name**: Type the name of your application. Feel free to use any character.
-  - **Platform**: Select the target platform (**Windows Phone Silverlight**) for the app (if your app targets multiple platforms, repeat this tutorial for each platform).
- - **Application Resource Name**: This is the name by which this application will be accessible via APIs and URLs. You must only use conventional URL characters. The auto-generated name should provide you a strong basis. You should also append the platform name to avoid any name clash as this name must be unique.
- - **Location**: Select the datacenter where this app (and more importantly its Collection) will be hosted.
- - **Collection**: If you have already created an application, select a previously created Collection; otherwise select **New Collection**.
- - **Collection Name**: This represents your group of applications. It also ensures that all your apps are in a group that allows aggregated calculations of metrics. You should use your company name or department here if applicable.
-
-4. Select the app you just created in the **Applications** tab.
-
-5. Click **Connection Info** to display the connection settings to put into your SDK integration in your mobile app.
-
-    ![][10]
-
-6. Copy the **Connection String** - This is what you will need to identify this app in your application code and connect with Mobile Engagement from your Phone app.
-
-    ![][11]
+[AZURE.INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal.md)]
 
 ##<a id="connecting-app"></a>Connect your app to the Mobile Engagement backend
 
@@ -79,7 +54,7 @@ We will create a basic app with Visual Studio to demonstrate the integration.
 
 2. In the pop-up, select **Store Apps** -> **Windows Phone Apps** -> **Blank App (Windows Phone Silverlight)**. Fill in the app `Name` and `Solution name`, and then click **OK**.
 
-    ![][13]
+    ![][1]
 
 3. You can choose to target either **Windows Phone 8.0** or **Windows Phone 8.1**.
 
@@ -94,11 +69,11 @@ You have now created a new Windows Phone Silverlight app into which we will inte
 		<Capability Name="ID_CAP_NETWORKING" />
 		<Capability Name="ID_CAP_IDENTITY_DEVICE" />
 
-    ![][20]
+    ![][2]
 
 3. Now paste the connection string that you copied earlier for your Mobile Engagement app and paste it in the `Resources\EngagementConfiguration.xml` file, between the `<connectionString>` and `</connectionString>` tags:
 
-    ![][21]
+    ![][3]
 
 4. In the `App.xaml.cs` file:
 
@@ -126,12 +101,12 @@ In order to start sending data and ensuring that the users are active, you must 
 
 1. Add the `using` statement:
 
-       using Microsoft.Azure.Engagement;
+    	using Microsoft.Azure.Engagement;
 
-2. Replace the super class of **MainPage**, which is before **PhoneApplicationPage**, with **EngagementPage**, as shown below:
+2. Replace the base class of **MainPage**, which is before **PhoneApplicationPage**, with **EngagementPage**.
 
-	![][22]
-
+    	class MainPage : PhoneApplicationPage 
+	
 3. In your `MainPage.xml` file:
 
 	a. Add to your namespaces declarations:
@@ -140,27 +115,9 @@ In order to start sending data and ensuring that the users are active, you must 
 
 	b. Replace `phone:PhoneApplicationPage` in the XML tag name with `engagement:EngagementPage`.
 
-###Ensure your app is connected with real-time monitoring
+##<a id="monitor"></a>Connect app with real-time monitoring
 
-This section shows you how to make sure your app connects to the Mobile Engagement backend by using the Mobile Engagement real-time monitoring feature.
-
-1. Navigate to your Mobile Engagement portal.
-
-	From your Azure portal, ensure that you're in the app we're using for this project, and then click the **Engage** button at the bottom.
-
-    ![][26]
-
-2. You will land in the **Settings** page of your Engagement portal for your app. From there, click the **Monitor** tab, as shown below.
-    ![][30]
-
-3. The monitor is ready to show you any device, in real time, that will start your app.
-
-4. Back in Visual Studio, start your app either in the emulator or in a connected device.
-
-5. If it worked, you should now see one session in the monitor!
-    ![][33]
-
-**Congratulations!** You succeeded in completing the first step of this tutorial with an app that connects to the Mobile Engagement backend, which is already sending data.
+[AZURE.INCLUDE [Connect app with real-time monitoring](../../includes/mobile-engagement-connect-app-with-monitor.md)]
 
 ##<a id="integrate-push"></a>Enable push notifications and in-app messaging
 
@@ -174,7 +131,7 @@ Add new Capabilities to your `WMAppManifest.xml` file:
 		ID_CAP_PUSH_NOTIFICATION
 		ID_CAP_WEBBROWSERCOMPONENT
 
-   ![][34]
+   ![][5]
 
 ###Initialize the REACH SDK
 
@@ -198,50 +155,19 @@ You're all set. Now we will verify that you have correctly cried out this basic 
 
 ##<a id="send"></a>Send a notification to your app
 
-We will now create a simple push notification campaign that sends a push notification to our app.
+[AZURE.INCLUDE [Create Windows Push campaign](../../includes/mobile-engagement-windows-push-campaign.md)]
 
-1. Navigate to the **REACH** tab in your Mobile Engagement portal.
+You should now see a notification on your device. 
 
-2. Click **New announcement** to create your push campaign.
-    ![][35]
-
-3. Set up the first field of your campaign through the following steps:
-    ![][36]
-
-	1. Name your campaign with any name you like.
-	2. As **Delivery time**, select *Any time* to allow the app to receive a notification whether the app is started or not.
-	3. In the notification text, type the title, which will be in bold in the push.
-	4. Then type your message.
-
-4. Scroll down, and in the **Content** section, select **Notification only**.
-    ![][37]
-
-5. You're done setting the most basic campaign possible. Now scroll down again and click the **Create** button to save your campaign.
-
-6. Last step: Click **Activate** to activate your campaign and send push notifications.
-![][39]
-
-7. Now you should see a notification on your device, **Congratulations!**:
-![][40]
+	![][6]
 
 <!-- URLs. -->
-[Mobile Engagement Windows Phone SDK]: http://go.microsoft.com/?linkid=9874664\[Mobile Engagement Windows Phone SDK documentation]: ../mobile-engagement-windows-phone-integrate-engagement/
+[Mobile Engagement Windows Phone SDK]: http://go.microsoft.com/?linkid=9874664
+[Mobile Engagement Windows Phone SDK documentation]: ../mobile-engagement-windows-phone-integrate-engagement/
 
 <!-- Images. -->
-[7]: ./media/mobile-engagement-windows-phone-get-started/create-mobile-engagement-app.png
-[8]: ./media/mobile-engagement-windows-phone-get-started/create-azme-popup.png
-[10]: ./media/mobile-engagement-windows-phone-get-started/app-main-page-select-connection-info.png
-[11]: ./media/mobile-engagement-windows-phone-get-started/app-connection-info-page.png
-[13]: ./media/mobile-engagement-windows-phone-get-started/project-properties.png
-[20]: ./media/mobile-engagement-windows-phone-get-started/wmappmanifest-capabilities.png
-[21]: ./media/mobile-engagement-windows-phone-get-started/add-connection-string.png
-[22]: ./media/mobile-engagement-windows-phone-get-started/subclassing.png
-[26]: ./media/mobile-engagement-windows-phone-get-started/engage-button.png
-[30]: ./media/mobile-engagement-windows-phone-get-started/clic-monitor-tab.png
-[33]: ./media/mobile-engagement-windows-phone-get-started/monitor.png
-[34]: ./media/mobile-engagement-windows-phone-get-started/reach-capabilities.png
-[35]: ./media/mobile-engagement-windows-phone-get-started/new-announcement.png
-[36]: ./media/mobile-engagement-windows-phone-get-started/campaign-first-params.png
-[37]: ./media/mobile-engagement-windows-phone-get-started/campaign-content.png
-[39]: ./media/mobile-engagement-windows-phone-get-started/campaign-activate.png
-[40]: ./media/mobile-engagement-windows-phone-get-started/push-screenshot.png
+[1]: ./media/mobile-engagement-windows-phone-get-started/project-properties.png
+[2]: ./media/mobile-engagement-windows-phone-get-started/wmappmanifest-capabilities.png
+[3]: ./media/mobile-engagement-windows-phone-get-started/add-connection-string.png
+[5]: ./media/mobile-engagement-windows-phone-get-started/reach-capabilities.png
+[6]: ./media/mobile-engagement-windows-phone-get-started/push-screenshot.png
