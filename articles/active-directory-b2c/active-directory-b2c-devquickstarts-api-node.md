@@ -58,6 +58,9 @@ follow [these instructions](active-directory-b2c-app-registration.md).  Be sure 
 - Create an **Application Secret** for your application and copy it down.  You will need it shortly.
 - Copy down the **Application ID** that is assigned to your app.  You will also need it shortly.
 
+    > [AZURE.IMPORTANT]
+    You cannot use applications registered in the **Applications** tab on the [Azure Portal](https://manage.windowsazure.com/) for this.
+
 ## 3. Create your policies
 
 In Azure AD B2C, every user experience is defined by a [**policy**](active-directory-b2c-reference-policies.md).  This app contains three

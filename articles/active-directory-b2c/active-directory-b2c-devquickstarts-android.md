@@ -54,6 +54,9 @@ follow [these instructions](active-directory-b2c-app-registration.md).  Be sure 
 - Create an **Application Secret** for your application and copy it down.  You will need it shortly.
 - Copy down the **Application ID** that is assigned to your app.  You will also need it shortly.
 
+    > [AZURE.IMPORTANT]
+    You cannot use applications registered in the **Applications** tab on the [Azure Portal](https://manage.windowsazure.com/) for this.
+
 ### Step 3: Create your policies
 
 > [AZURE.NOTE] For our B2C preview you use the same policies across both client and server setups. If you've already went through a walk-through and created these policies there is no need to do so again. You may reuse the policies you've preveiously created in the portal if they match the requirements of the application.
