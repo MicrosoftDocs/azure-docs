@@ -3,8 +3,8 @@
    description="Tutorials on how to configure Azure Active Directory single sign-on for a variety of third-party SaaS applications."
    services="active-directory"
    documentationCenter=""
-   authors="liviodlc"
-   manager="TerryLanfear"
+   authors="markusvi"
+   manager="stevenpo"
    editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="07/10/2015"
-   ms.author="liviodlc"/>
+   ms.date="09/22/2015"
+   ms.author="markvi"/>
 
 #List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory
 
