@@ -89,6 +89,12 @@ Follow these steps to create an Azure Data Lake account.
 
 	The output for this should be **True**.
 
+4. Upload some sample data to Azure Data Lake. We'll use this data later in this article to verify that the data is accessible from an HDInsight cluster.
+
+		
+		$myrootdir = "swebhdfs://$dataLakeAccountName.azuredatalake.net"
+		Import-AzureDataLakeItem -AccountName $dataLakeAccountName -Path "C:\<path to data>\tweets.txt" -Destination $myrootdir\tweets.txt
+
 
 ## Set up authentication for role-based access to ADL
 
@@ -98,13 +104,12 @@ To set up Active Directory authentication for Azure Data Lake, you must perform 
 
 * Create a self-signed certificate
 * Create an application in Azure Active Directory and a Service Principal
-* 
 
 ### Create a self-signed certificate
 
 Make sure you [Windows SDK](https://dev.windows.com/en-us/downloads) installed before proceeding with the steps in this section. You must have also created a directory, such as **C:\mycertdir**, where the certificate will be created. 
 
-1. Make sure Windows SDK is added to the PATH variable. Look for the following in the PATH variable definition.
+1. Make sure Windows SDK is added to the PATH variable. Look for the following in the PATH variable definition. [ TBD: Link to adding to PATH ]
 
 		C:\Program Files (x86)\Windows Kits\10\bin\x86
 
@@ -112,8 +117,8 @@ Make sure you [Windows SDK](https://dev.windows.com/en-us/downloads) installed b
 
 		$certificateFileDir = "<my certificate directory>"
 		cd $certificateFileDir
-		$startDate = (Get-Date).ToString('MM-dd-yyyy')
-		$endDate = (Get-Date).AddDays(365).ToString('MM-dd-yyyy')
+		$startDate = (Get-Date).ToString('MM/dd/yyyy')
+		$endDate = (Get-Date).AddDays(365).ToString('MM/dd/yyyy')
 
 		makecert -sv mykey.pvk -n "cn=HDI-ADL-SP" CertFile.cer -b $startDate -e $endDate -r -len 2048
 
@@ -121,7 +126,7 @@ Make sure you [Windows SDK](https://dev.windows.com/en-us/downloads) installed b
 
 4. Use the [Pvk2Pfx][pvk2pfx] utility to convert the .pvk and .cer files that MakeCert created to a .pfx file. Run the following command.
 
-		pvk2pfx -pvk mykey.pvk -spc CertFile.cer -pfx CertFile.pfx -po myPassword
+		pvk2pfx -pvk mykey.pvk -spc CertFile.cer -pfx CertFile.pfx -po Pass@word1
 
 	When prompted enter the private key password you specified earlier. The value you specify for the **-po** parameter is the password that is associated with the .pfx file. After the command successfully completes, you should also see a CertFile.pfx in the certificate directory you specified.
 
@@ -142,7 +147,7 @@ In this section, you perform the steps to create a service principal for an Azur
 		$credential = [System.Convert]::ToBase64String($rawCertificateData)
 
 		$application = New-AzureADApplication `
-					-DisplayName "HDIADL2" ` 
+					-DisplayName "HDIADL" ` 
 					-HomePage "https://myadapp.azurehdi.net" `
 					-IdentifierUris "https://myadapp.azurehdi.net" `
 					-KeyValue $credential  `
@@ -170,17 +175,14 @@ In this section, you perform the steps to create a service principal for an Azur
 
 	Once the cmdlet successfully executes, you should see an output like this:
 
-		ServicePrincipalName : https://hdidl.azurehdiadl.net
-		RoleAssignmentId     : /subscriptions/65a1016d-0f67-45d2-b838-b8f373d6d52e/resourceGroups/nitinresgrp/providers/Microso
-		                       ft.DataLake/dataLakeAccounts/nitinhdiadlacc/providers/Microsoft.Authorization/roleAssignments/0e
-		                       22ad99-14bb-4afb-9c33-13502779e037
-		DisplayName          : HDIDL
+		ServicePrincipalName : https://mycontoso.com
+		RoleAssignmentId     : /subscriptions/65a1016d-0f67-45d2-b838-b8f373d6d52e/resourceGroups/hdiadlresoucegroup/providers/Microsoft.DataLake/dataLakeAccounts/hdiadlaccount/providers/Microsoft.Authorization/roleAssignments/0bda185d-c3ae-4883-8de4-419cc6f6cdd5
+		DisplayName          : HDIADL
 		RoleDefinitionName   : Contributor
 		Actions              : {*}
 		NotActions           : {Microsoft.Authorization/*/Write, Microsoft.Authorization/*/Delete}
-		Scope                : /subscriptions/65a1016d-0f67-45d2-b838-b8f373d6d52e/resourceGroups/nitinresgrp/providers/Microso
-		                       ft.DataLake/dataLakeAccounts/nitinhdiadlacc
-		ObjectId             : 86e8fcbf-47f2-42ae-9d44-af7adbc856ee
+		Scope                : /subscriptions/65a1016d-0f67-45d2-b838-b8f373d6d52e/resourceGroups/hdiadlresoucegroup/providers/Microsoft.DataLake/dataLakeAccounts/hdiadlaccount
+		ObjectId             : 6a75a968-1c25-4f4d-8af2-98b8e9ca29e2
 
 4. Set access control on the Azure Data Lake account.
 		
@@ -222,7 +224,7 @@ In this section, we create an HDInsight cluster. For this release, the HDInsight
 	After the cmdlet successfully completes, you should see an output like this:
 
 		Name                : hdiadlcluster
-		Id                  : /subscriptions/65a1016d-0f67-45d2-b838-b8f373d6d52e/resourceGroups/myresourcegroup/providers/Microsoft.HDInsight/clusters/hdiadlcluster
+		Id                  : /subscriptions/65a1016d-0f67-45d2-b838-b8f373d6d52e/resourceGroups/hdiadlresoucegroup/providers/Microsoft.HDInsight/clusters/hdiadlcluster
 		Location            : East US 2
 		ClusterVersion      : 3.2.6.681
 		OperatingSystemType : Windows
@@ -233,7 +235,45 @@ In this section, we create an HDInsight cluster. For this release, the HDInsight
 
 ## Run test jobs on the HDInsight cluster to use the Azure Data Lake account
 
+After you have configured an HDInsight cluster, you can run test jobs on the cluster to test that the HDInsight cluster can access and store data in Azure Data Lake. To do so, we will use example jar applications available by default on an HDInsight cluster.
 
+Note that, in this release, the default storage for the cluster is still an Azure Storage Blob (WASB). So, the sample jar file, hadoop-mapreduce-examples.jar, is available under the storage container at /example/jars. We also have some sample data at example/data/gutenberg. In this job, we use the jar file to run a wordcount on sample data files, and store the output to Azure Data Lake account. Use the following cmdlet:
+
+	New-AzureHDInsightMapReduceJobDefinition `
+    -JarFile "wasb:///example/jars/hadoop-mapreduce-examples.jar" -ClassName "wordcount" `
+    -Arguments "wasb:///example/data/gutenberg/davinci.txt", "swebhdfs://$dataLakeAccountName.azuredatalake.net:443/wordcountoutput.txt" `
+	| Start-AzureHDInsightJob -ResourceGroupName $resourceGroupName -ClusterName $clusterName -ClusterCredential $httpCredentials `
+	| Wait-AzureHDInsightJob -ResourceGroupName $resourceGroupName -ClusterName $clusterName -ClusterCredential $httpCredentials
+
+Run the following PowerShell cmdlet to list the files in the Azure Data Lake account. You should see a wordcountoutput.txt there.
+
+	Get-AzureDataLakeChildItem -AccountName $dataLakeAccountName -Path $myrootdir
+
+## Access Data Lake storage using HDFS commands
+
+Once you have configured the HDInsight cluster to use Data Lake storage, you can use the HDFS shell commands to access the Data Lake storage.
+
+1. Sign on to the new [Azure preview portal](https://portal.azure.com).
+
+2. Click **Browse**, click **HDInsight clusters**, and then click the HDInsight cluster that you created.
+
+3. In the cluster blade, click **Remote Desktop**, and then in the **Remote Desktop** blade, click **Connect**.
+
+	![Remote into HDI cluster](./media/azure-data-lake-hdinsight-hadoop-use-powershell/ADL.HDI.PS.Remote.Desktop.png "Create an Azure Resource Group")
+
+	When prompted, enter the credentials you provided for the remote desktop user. 
+
+4. In the remote session, start Windows PowerShell, and use the HDFS filesystem commands to list the files in the Azure Data Lake.
+
+	 	hdfs dfs -ls swebhdfs://<Data Lake account name>.azuredatalake.net:443/
+
+	This should list the file that you uploaded earlier to the Azure Data Lake account.
+
+		15/09/17 21:41:15 INFO web.CaboWebHdfsFileSystem: Replacing original urlConnectionFactory with org.apache.hadoop.hdfs.web.URLConnectionFactory@21a728d6
+		Found 1 items
+		-rwxrwxrwx   0 NotSupportYet NotSupportYet     671388 2015-09-16 22:16 swebhdfs://hdiadlaccount.azuredatalake.net:443/tweets.txt
+
+	You can also use the `hdfs dfs -put` command to upload some files to the Azure Data Lake, and then use `hdfs dfs -ls` to verify whether the files were successfully uploaded.
 
 ## See Also
 
