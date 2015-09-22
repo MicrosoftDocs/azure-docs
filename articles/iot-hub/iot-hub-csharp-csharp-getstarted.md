@@ -59,13 +59,11 @@ In order to complete this tutorial you'll need the following:
 
    	![][4]
 
-6. Analogously, select the Shared access policy called **service**, then copy and take note of the connection string on the right blade.
+6. Analogously, select the Shared access policy called **iothubowner**, then copy and take note of the connection string on the right blade.
 
    	![][5]
 
-7. Select the Shared acce policy called **registryReadWrite**, then copy and take note of the connection string on the right blade.
-
-Your IoT hub is now created, and you have all the connection strings you need to complete this tutorial.
+Your IoT hub is now created, and you have the URI and connection string you need to complete this tutorial.
 
 [AZURE.INCLUDE [iot-hub-get-started-cloud-csharp](../../includes/iot-hub-get-started-cloud-csharp.md)]
 
