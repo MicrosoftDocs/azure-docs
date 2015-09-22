@@ -56,7 +56,7 @@ The circuit owner has the power to modify and revoke authorizations at any time.
 
 ### Circuit owner operations 
 
-#### Creating an Authorization
+#### Creating an authorization
 	
 The circuit owner authorizes the administrators of other subscriptions to use the specified circuit. In the example below, the administrator of the circuit (Contoso IT) enables the administrator of another subscription (Dev-Test), by specifying their Microsoft ID, to link up to 2 VNETs to the circuit. The cmdlet doesn't send email to the specified Microsoft ID. The circuit owner need to explicitly notify the other subscription owner that the authorization is complete.
 
@@ -93,7 +93,7 @@ The circuit owner can review all authorizations issued on a particular circuit b
 	Used                : 2 
 	
 
-#### Updating Authorizations
+#### Updating authorizations
 
 The circuit owner can modify authorizations using the following cmdlet.
 
@@ -115,7 +115,7 @@ The circuit owner can revoke/delete authorizations to the user by running the fo
 
 ### Circuit user operations
 
-#### Reviewing Authorizations
+#### Reviewing authorizations
 
 The Circuit user can review authorizations using the following cmdlet.
 
