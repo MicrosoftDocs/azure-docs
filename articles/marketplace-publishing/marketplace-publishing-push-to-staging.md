@@ -103,8 +103,11 @@ Staging means deploying your SKU in a private “sandbox” where you can test a
   *Product & Details mapping*
 
 
+## 4.6 Notify Onboarding Team
+Once you are done with testing, notify the on-boarding team for validation. On-boarding team will test the customer scenarios and also validate the marketing content.
+
 ## Next Steps
-Now that you offer is in "Staging", if validated by Microsoft and your team, finally is [Step 5: Push to Production][link-push-to-production].
+Now that you offer is in "Staging", once the onboarding team notifies, you can proceed to the final offer and/or SKU publishing phase,  [Step 5: Push to Production][link-push-to-production].
 
 [img-map-desc]:media/dev-services-pre-requisites-marketing-content-guide-acom.JPG
 [img-map-details]:media/dev-services-pre-requisites-marketing-content-guide-portal-offer-map.JPG
