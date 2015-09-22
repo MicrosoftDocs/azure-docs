@@ -77,14 +77,14 @@ We will create a basic app with Cordova to demonstrate the integration:
 
 1. Install the Azure Mobile Engagement Cordova plugin while providing the variable values to configure the plugin:
 
-		cordova plugin add cordova-plugin-ms-azure-mobile-engagement
-		--variable AZME_IOS_CONNECTION_STRING=<iOS Connection String> 
-		--variable AZME_IOS_REACH_ICON=... (icon name WITH extension) 
-		--variable AZME_ANDROID_CONNECTION_STRING=<Android Connection String> 
-		--variable AZME_ANDROID_REACH_ICON=... (icon name WITHOUT extension)   
-		--variable AZME_ANDROID_GOOGLE_PROJECT_NUMBER=... (From your Google Cloud console for sending push notifications) 
-		--variable AZME_REDIRECT_URL=... (URL scheme which triggers the app for deep linking)
-		--variable AZME_ENABLE_LOG=true|false
+		cordova plugin add cordova-plugin-ms-azure-mobile-engagement    
+			 --variable AZME_IOS_CONNECTION_STRING=<iOS Connection String> 
+	        --variable AZME_IOS_REACH_ICON=... (icon name WITH extension) 
+	        --variable AZME_ANDROID_CONNECTION_STRING=<Android Connection String> 
+			--variable AZME_ANDROID_REACH_ICON=... (icon name WITHOUT extension)       
+	        --variable AZME_ANDROID_GOOGLE_PROJECT_NUMBER=... (From your Google Cloud console for sending push notifications) 
+	        --variable AZME_REDIRECT_URL=... (URL scheme which triggers the app for deep linking)
+	        --variable AZME_ENABLE_LOG=true|false
 
 ##<a id="monitor"></a>Enabling real-time monitoring
 
