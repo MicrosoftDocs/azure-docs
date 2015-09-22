@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Azure SQL Database Index Advisor" 
-   description="Index recommendations are provided that can easily create indexes that are best suited for running an existing Azure SQL Database’s workload." 
+   description="The Azure SQL Database Index Advisor recommends new indexes for your existing SQL Databases that can improve current query performance." 
    services="sql-database" 
    documentationCenter="" 
    authors="stevestein" 
