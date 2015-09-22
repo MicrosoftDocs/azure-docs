@@ -1,6 +1,6 @@
 
 <properties
-   pageTitle="Authentication Scenarios for Azure AD"
+   pageTitle="Authentication Scenarios for Azure AD | Microsoft Azure"
    description="An overview of the five most common authentication scenarios for Azure Active Directory (AAD)"
    services="active-directory"
    documentationCenter="dev-center-name"
@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="09/02/2015"
+   ms.date="09/17/2015"
    ms.author="mbaldwin"/>
 
 # Authentication Scenarios for Azure AD

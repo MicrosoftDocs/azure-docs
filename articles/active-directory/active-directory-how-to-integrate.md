@@ -1,5 +1,5 @@
 <properties
-   pageTitle="How to Integrate with Azure Active Directory"
+   pageTitle="How to Integrate with Azure Active Directory | Microsoft Azure"
    description="A guide to benefits of and resources for integration with Azure Active Directory."
    services="active-directory"
    documentationCenter="dev-center-name"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="08/25/2015"
+   ms.date="09/17/2015"
    ms.author="mbaldwin"/>
 
 # Integrating with Azure Active Directory
