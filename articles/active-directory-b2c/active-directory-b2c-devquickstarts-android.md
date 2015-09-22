@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="09/21/2015"
+	ms.date="09/22/2015"
 	ms.author="brandwe"/>
 
 # Azure AD B2C Preview: Calling a Web API from an Android application

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="objectivec"
 	ms.topic="article"
-	ms.date="09/15/2015"
+	ms.date="09/22/2015"
 	ms.author="brandwe"/>
 
 # Azure AD B2C Preview: Calling a Web API from an iOS application
