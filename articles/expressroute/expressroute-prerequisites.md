@@ -16,7 +16,7 @@
    ms.author="cherylmc"/>
 
 
-# ExpressRoute   
+# ExpressRoute prerequisites   
 
 To connect to Microsoft cloud services using ExpressRoute, you’ll need to verify that the following requirements listed in the sections below have been met.
 

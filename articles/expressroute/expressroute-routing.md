@@ -159,6 +159,6 @@ Microsoft does not honor any BGP community values that you set. You are required
 
  - Configure your ExpressRoute circuit.
 	 - [Creating an ExpressRoute circuit](expressroute-howto-circuit-classic.md)
-	 - [Configuring routing](expressroute-howto-routing-classic.md)
+	 - [Configuring routing (circuit peerings)](expressroute-howto-routing-classic.md)
 
 

@@ -89,7 +89,7 @@ This section provides instructions on how to create, get, update and delete the 
 
 		New-AzureBGPPeering -AccessType Private -ServiceKey "*********************************" -PrimaryPeerSubnet "10.0.0.0/30" -SecondaryPeerSubnet "10.0.0.4/30" -PeerAsn 1234 -VlanId 100 -SharedKey "A1B2C3D4"
 
->[AZURE.IMPORTANT] Ensure that you specify your AS number as peering ASN, not customer ASN.
+>[AZURE.IMPORTANT] Ensure that you specify your AS Number as peering ASN, not customer ASN.
 
 ### Get Azure private peering details
 
@@ -307,3 +307,5 @@ You can remove your peering configuration by running the following cmdlet
 	Remove-AzureBGPPeering -AccessType Microsoft -ServiceKey "*********************************"
 
 ## Next steps
+
+For more information about circuit peering, see [ExpressRoute circuits and routing domains](expressroute-circuit-peerings.md)
