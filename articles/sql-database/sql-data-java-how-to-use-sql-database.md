@@ -3,7 +3,7 @@
 	description="Learn how to use the Azure SQL Database from Java code." 
 	services="sql-database" 
 	documentationCenter="java" 
-	authors="rmcmurray" 
+	authors="MightyPen" 
 	manager="jeffreyg" 
 	editor="jimbe"/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="06/03/2015" 
-	ms.author="robmcm"/>
+	ms.date="09/22/2015" 
+	ms.author="genemi"/>
 
 # How to Use Azure SQL Database in Java
 
