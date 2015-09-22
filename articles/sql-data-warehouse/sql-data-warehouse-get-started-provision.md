@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/09/2015"
+   ms.date="09/18/2015"
    ms.author="JRJ@BigBangData.co.uk;barbkess"/>
 
 # Get started: Provision a SQL Data Warehouse #
@@ -168,6 +168,8 @@ Next steps:
 
 1. [Connect and query][] the data warehouse.
 2. Load [sample data].
+
+	> [AZURE.NOTE] We want to make this article better. If you choose to answer "no" to the "Was this article helpful?" question, please include a brief suggestion about what is missing or how to improve the article. Thanks in advance!!
 
 <!--Image references-->
 

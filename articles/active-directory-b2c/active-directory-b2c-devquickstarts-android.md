@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="09/16/2015"
+	ms.date="09/21/2015"
 	ms.author="brandwe"/>
 
 # Azure AD B2C Preview: Calling a Web API from an Android application
 
-With Azure AD B2C, you can add powerful self-service identity managment features to your Android apps and web apis in a few short steps.  This article will show you how to create an Android "To-Do List" app that calls a node.js web API using OAuth 2.0 bearer tokens. Both the Android app and web api use Azure AD B2C to manage user identities
+With Azure AD B2C, you can add powerful self-service identity management features to your Android apps and web APIs in a few short steps.  This article will show you how to create an Android "To-Do List" app that calls a node.js web API using OAuth 2.0 bearer tokens. Both the Android app and web API use Azure AD B2C to manage user identities
 and authenticate users.
 
 [AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
@@ -59,7 +59,7 @@ follow [these instructions](active-directory-b2c-app-registration.md).  Be sure 
 
 ### Step 3: Create your policies
 
-> [AZURE.NOTE] For our B2C preview you use the same policies across both client and server setups. If you've already went through a walk-through and created these policies there is no need to do so again. You may reuse the policies you've preveiously created in the portal if they match the requirements of the application.
+> [AZURE.NOTE] For our B2C preview you use the same policies across both client and server setups. If you've already went through a walk-through and created these policies there is no need to do so again. You may reuse the policies you've previously created in the portal if they match the requirements of the application.
 
 In Azure AD B2C, every user experience is defined by a [**policy**](active-directory-b2c-reference-policies.md).  This app contains three 
 identity experiences - sign-up, sign-in, and sign-in with Facebook.  You will need to create one policy of each type, as described in the 
@@ -92,7 +92,7 @@ The completed app is also [available as a .zip](https://github.com/AzureADQuickS
 To build with Maven, you can use the pom.xml at top level
 
 
-  * Follow the steps at [Prerequests section to setup your maven for android](https://github.com/MSOpenTech/azure-activedirectory-library-for-android/wiki/Setting-up-maven-environment-for-Android)
+  * Follow the steps at [Prerequisites section to setup your maven for android](https://github.com/MSOpenTech/azure-activedirectory-library-for-android/wiki/Setting-up-maven-environment-for-Android)
   * Setup emulator with SDK 21
   * Go to the root folder where you cloned the repo
   * Run the command: mvn clean install
@@ -157,7 +157,7 @@ To get the source code of the SDK via git just type:
     use the branch "convergence"
 
 
-### Step 6: Set up your configruation file
+### Step 6: Set up your configuration file
 
 We'll be using the configuration that you set up in the B2C portal above to configure the Android project.
 
@@ -298,7 +298,7 @@ Let's create a main Activity and call it `LoginActivity`.
 
 Create a file called `LoginActivity.java`
 
-We need to initlize the activity and add some buttons that will control our UI. Again, this is pretty simple and very familiar if you've written Android code before:
+We need to initialize the activity and add some buttons that will control our UI. Again, this is pretty simple and very familiar if you've written Android code before:
 
 ```
 import android.app.Activity;
@@ -756,7 +756,7 @@ public class ToDoActivity extends Activity {
 
 Explanation of the parameters:
 
-  * ***SCOPES*** is required and is the scopes you are trying to reqeust access for. For the B2C preview this is the same as the Clientid but will change in the future.
+  * ***SCOPES*** is required and is the scopes you are trying to request access for. For the B2C preview this is the same as the Clientid but will change in the future.
   * ***POLICY*** is the policy for while you wish to authenticate the user. 
   * ***CLIENT_ID*** is required and comes from the AzureAD Portal.
   * You can setup redirectUri as your packagename. It is not required to be provided for the acquireToken call.
@@ -774,8 +774,6 @@ Explanation of the parameters:
      AuthenticationSettings.Instance.setSkipBroker(true);
     ```
 > [AZURE.NOTE] In order to reduce the complexity of this B2C Quickstart, we have opted in our sample to skip the broker.
-
-
 
 Next, let's create some helper methods that will get the token alone during our authentication calls to the Task API.
 
@@ -889,7 +887,7 @@ Let's write our `getTask` first:
 
 
  
- Let's also write a method that will initalize our tables on frist run:
+ Let's also write a method that will initialize our tables on first run:
  
  **In the same file** called `ToDoActivity.java`
  
@@ -909,7 +907,7 @@ Let's write our `getTask` first:
  
  You'll see that this code requires some additional methods to do it's work. Let's write those now.
  
- ### Create endpoint URL generator
+### Create endpoint URL generator
  
  We need to generate the endpoint URL that we'll be connecting to. Let's do that in the same class file:
  

@@ -1,6 +1,6 @@
 <properties
    pageTitle="Azure Active Directory business-to-business (B2B) collaboration"
-   description="Azure Active Directory B2B collaboration enables business partners to access your corporate applications"
+   description="Azure Active Directory B2B collaboration enables business partners to access your corporate applications, with each of their users represented by a single Azure AD account"
    services="active-directory"
    documentationCenter=""
    authors="curtand"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="09/16/2015"
+   ms.date="09/17/2015"
    ms.author="curtand"/>
 
 # Azure Active Directory B2B collaboration
@@ -48,12 +48,12 @@ For more on how B2B collaboration works, check out [this video](http://aka.ms/aa
 
 ## CSV File Format
 
-The CSV file follows the format below.
+The CSV file follows the format below. Add all required commas even if you don't specify one or more options.
 
 **Email:** Email address for invited user.<br/>
 **DisplayName:** Display name for invited user (typically, first and last name).<br/>
 **InviteAppID:**  The ID for the application to use for branding the email invite and acceptance pages.<br/>
-**InviteReplyURL:** URL to which to direct an invited user after invite acceptance. This should be a company-specific URL (such as [*contoso.my.salesforce.com*](http://contoso.my.salesforce.com/)).<br/>
+**InviteReplyURL:** URL to which to direct an invited user after invite acceptance. This should be a company-specific URL (such as [*contoso.my.salesforce.com*](http://contoso.my.salesforce.com/)). If this optional field is not specified, the inviting company's Access Panel URL is generated (this URL is of the form  `https://account.activedirectory.windowsazure.com/applications/default.aspx?tenantId=<TenantID>`).<br/>
 **InviteAppResources:** AppIDs to which applications can assign users. AppIDs are retrievable by calling `Get-MsolServicePrincipal | fl DisplayName, AppPrincipalId`<br/>
 **InviteGroupResources:** ObjectIDs for groups to add user to. ObjectIDs are retrievable by calling `Get-MsolGroup | fl DisplayName, ObjectId`<br/>
 **InviteContactUsUrl:** "Contact Us" URL to include in email invitations in case the invited user wants to contact your organization.<br/>
@@ -63,7 +63,7 @@ Here is a sample CSV you can modify for your purposes. Save it to any file name
 
 ```
 Email,DisplayName,InviteAppID,InviteReplyUrl,InviteAppResources,InviteGroupResources,InviteContactUsUrl
-wharp@contoso.com,Walter Harp,cd3ed3de-93ee-400b-8b19-b61ef44a0f29,http://azure.microsoft.com/services/active-directory/,,,http://azure.microsoft.com/services/active-directory/<br/>
-jsmith@contoso.com,Jeff Smith,cd3ed3de-93ee-400b-8b19-b61ef44a0f29,http://azure.microsoft.com/services/active-directory/,,,http://azure.microsoft.com/services/active-directory/<br/>
+wharp@contoso.com,Walter Harp,cd3ed3de-93ee-400b-8b19-b61ef44a0f29,http://azure.microsoft.com/services/active-directory/,,,http://azure.microsoft.com/services/active-directory/
+jsmith@contoso.com,Jeff Smith,cd3ed3de-93ee-400b-8b19-b61ef44a0f29,http://azure.microsoft.com/services/active-directory/,,,http://azure.microsoft.com/services/active-directory/
 bsmith@contoso.com,Ben Smith,cd3ed3de-93ee-400b-8b19-b61ef44a0f29,http://azure.microsoft.com/services/active-directory/,,,http://azure.microsoft.com/services/active-directory/
 ```

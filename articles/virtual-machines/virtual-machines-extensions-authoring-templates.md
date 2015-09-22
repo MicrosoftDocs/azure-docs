@@ -5,7 +5,8 @@
    documentationCenter=""
    authors="kundanap"
    manager="timlt"
-   editor=""/>
+   editor=""
+   tags="azure-resource-manager"/>
 
 <tags
    ms.service="virtual-machines"
@@ -17,6 +18,8 @@
    ms.author="kundanap"/>
 
 # Authoring Azure Resource Manager Templates with VM Extensions.
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)] This article covers using the Resource Manager deployment model. 
 
 ## Overview of Azure Resource Manager Templates.
 
