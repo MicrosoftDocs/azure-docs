@@ -24,10 +24,10 @@ This article give you an overview of how to link virtual networks (VNets) to Exp
 
 ## Configuration prerequisites
 
-- You will need the latest version of the Azure PowerShell modules. You can download the latest PowerShell module from the PowerShell section of the [Azure Downloads page](http://azure.microsoft.com/downloads). Follow the instructions in the [How to install and configure Azure PowerShell](../powershell-install-configure.md) page for step by step guidance on how to configure your computer to use the Azure PowerShell modules. 
+- You will need the latest version of the Azure PowerShell modules. You can download the latest PowerShell module from the PowerShell section of the [Azure Downloads page](http://azure.microsoft.com/downloads). Follow the instructions on the [How to install and configure Azure PowerShell](../powershell-install-configure.md) page for step-by-step guidance on how to configure your computer to use the Azure PowerShell modules. 
 - Make sure that you have reviewed the [prerequisites](expressroute-prerequisites.md) page, the  [routing requirements](expressroute-routing.md) page and the [workflows](expressroute-workflows.md) page before you begin configuration.
 - You must have an active ExpressRoute circuit. 
-	- Follow instructions to [create an ExpressRoute circuit](expressroute-howto-circuit-classic.md) and have the circuit enabled by your connectivity provider. 
+	- Follow the instructions to [create an ExpressRoute circuit](expressroute-howto-circuit-classic.md) and have the circuit enabled by your connectivity provider. 
 	- Ensure that you have Azure private peering configured for your circuit. See the [configure routing](expressroute-howto-routing-classic.md) article for routing instructions. 
 	- Azure private peering must be configured and the BGP peering between your network and Microsoft must be up for you to enable end-to-end connectivity.
 
