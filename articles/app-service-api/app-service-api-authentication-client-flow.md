@@ -112,8 +112,6 @@ In this section you add automatically generated code for a typed interface for c
 
 	Once code generation is complete, you see a new folder in **Solution Explorer**, with the name of the API app. This folder contains the code that implements the client classes and data models. 
 
-	![](./media/app-service-api-authentication-client-flow/gencode.png)
-
 10. Fix ambiguous references caused by the generated code in *ContactsList/ContactsExtensions.cs*: change the two instances of `Task.Factory.StartNew` to `System.Threading.Tasks.Task.Factory.StartNew`.
  
 ## Add code to exchange the AAD token for a Zumo token
