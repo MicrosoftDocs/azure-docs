@@ -175,7 +175,6 @@ Creates an Application Gateway will all configuration items from the steps above
 
 
 
-
 ## Start the gateway
 
 Once the gateway has been configured, use the `Start-AzureApplicationGateway` cmdlet to start the gateway. Billing for an application gateway begins after the gateway has been successfully started. 
@@ -272,7 +271,7 @@ Once the application gateway is in a Stopped state, use the `Remove-AzureApplica
 To verify that the service has been removed, you can use the `Get-AzureApplicationGateway` cmdlet. This step is not required.
 
 
-	PS C:\>Get-AzureApplicationGateway -Name appgwtest-ResourceGroupName app-rg
+	PS C:\>Get-AzureApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg
 
 	VERBOSE: 10:52:46 PM - Begin Operation: Get-AzureApplicationGateway 
 
