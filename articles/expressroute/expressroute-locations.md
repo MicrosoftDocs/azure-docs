@@ -12,10 +12,10 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/21/2015"
+   ms.date="09/22/2015"
    ms.author="cherylmc" />
 
-# Azure ExpressRoute partners and peering locations
+# ExpressRoute partners and peering locations
 
 The tables in this article provide information on ExpressRoute connectivity providers, ExpressRoute geographical coverage, Microsoft cloud services supported over ExpressRoute, and ExpressRoute System Integrators (SIs).
 
@@ -96,6 +96,7 @@ Connectivity across geopolitical regions is not supported on the standard Expres
 If your connectivity provider is not listed in previous sections, you can still create a connection.
 
 - Check with your connectivity provider to see if they are connected to any of the exchanges in the table above. You can check the following links to gather more information about services offered by exchange providers. Several connectivity providers are already connected to Ethernet exchanges.
+
 	- [Equinix Cloud Exchange](http://www.equinix.com/services/interconnection-connectivity/cloud-exchange/)
 	- [TeleCity CloudIX](http://www.telecitygroup.com/colocation-services/cloud-ix.htm)
 	- [InterXion](http://www.interxion.com/)
