@@ -18,7 +18,7 @@
 
 # Create and modify an ExpressRoute circuit
 
-This article walks you through the steps to create an ExpressRoute circuit using PowerShell cmdlets and the classic deployment model.  The steps below will also show you how to check the status, update, or delete and deprovision an ExpressRoute circuit.
+This article walks you through the steps to create an ExpressRoute circuit using PowerShell cmdlets and the classic deployment model. The steps below will also show you how to check the status, update, or delete and deprovision an ExpressRoute circuit. This article applies to the classic deployment model.
 
 >[AZURE.IMPORTANT] It's important to know that Azure currently works with two deployment models: Resource Manager, and classic. Before you begin your configuration, make sure that you understand the deployment models and tools. For information about the deployment models, see [Azure deployment models](../azure-classic-rm.md)
 
@@ -31,7 +31,7 @@ This article walks you through the steps to create an ExpressRoute circuit using
 
 1. **Import the PowerShell module for ExpressRoute.**
 
- 	Run the following commands in order to import the Azure and ExpressRoute modules into the PowerShell session.  
+ 	You must import the Azure and ExpressRoute modules into the PowerShell session in order to start using the ExpressRoute cmdlets. Run the following commands to import the Azure and ExpressRoute modules into the PowerShell session.  
 
 	    Import-Module 'C:\Program Files (x86)\Microsoft SDKs\Azure\PowerShell\ServiceManagement\Azure\Azure.psd1'
 	    Import-Module 'C:\Program Files (x86)\Microsoft SDKs\Azure\PowerShell\ServiceManagement\Azure\ExpressRoute\ExpressRoute.psd1'
@@ -188,7 +188,7 @@ This article walks you through the steps to create an ExpressRoute circuit using
 
 6. **Create your routing configuration.**
 	
-	Refer to the [ExpressRoute circuit routing configuration](expressroute-howto-routing-classic.md) page for step by step instructions. 
+	Refer to the [ExpressRoute circuit routing configuration](expressroute-howto-routing-classic.md) page for step-by-step instructions. 
 
 7. **Link a VNet to an ExpressRoute circuit.** 
 
@@ -308,6 +308,7 @@ Your circuit will have been sized up on the Microsoft side. You must contact you
 >[AZURE.IMPORTANT] You cannot reduce the bandwidth of an ExpressRoute circuit without disruption. Downgrading bandwidth will require you to deprovision the ExpressRoute circuit, and then re-provision a new ExpressRoute circuit.
 
 ##  Deleting and deprovisioning an ExpressRoute circuit
+
 You can delete your ExpressRoute circuit by running the following command:
 
 		PS C:\> Remove-AzureDedicatedCircuit -ServiceKey "*********************************"	
@@ -320,4 +321,6 @@ If the service provider has deprovisioned the circuit (the service provider prov
 
 ## Next steps
 
+- [Configure ExpressRoute Routing](expressroute-howto-routing-classic.md)
+- [Link virtual networks to an ExpressRoute circuit](expresssroute-howto-linkvnet-classic.md) 
 - For more information about ExpressRoute, see the [ExpressRoute FAQ](expressroute-faqs.md).
