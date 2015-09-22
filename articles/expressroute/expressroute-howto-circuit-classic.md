@@ -318,7 +318,6 @@ If the ExpressRoute circuit service provider provisioning state is enabled, the 
 
 If the service provider has deprovisioned the circuit (the service provider provisioning state is set to *not provisioned*) before you run the above cmdlet, we will deprovision the circuit and stop billing you. 
 
-
 ## Next steps
 
 - For more information about ExpressRoute, see the [ExpressRoute FAQ](expressroute-faqs.md).
