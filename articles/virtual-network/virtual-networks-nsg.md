@@ -157,10 +157,10 @@ You need to consider the following limits when designing your NSGs.
 |NSGs per region per subscription|100|
 |NSG rules per NSG|200|
 
-Make sure you view all the [limits related to networking services in Azure](azure-subscription-service-limits/#networking-limits) before designing your solution.
+Make sure you view all the [limits related to networking services in Azure](azure-subscription-service-limits.md/#networking-limits) before designing your solution.
 
 ## Next steps
 
 - [Deploy NSGs using PowerShell](virtual-networks-create-nsg-arm-ps.md).
-- [Deploy NSGs using Azure CLI](virtual-networks-create-nsg-arm-cli.md).
+- [Deploy NSGs using the Azure CLI](virtual-networks-create-nsg-arm-cli.md).
 - [Deploy NSGs using a template](virtual-networks-create-nsg-arm-template.md).  
