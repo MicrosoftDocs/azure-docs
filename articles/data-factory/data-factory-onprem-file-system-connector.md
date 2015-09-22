@@ -562,7 +562,11 @@ To use Avro format in a subsequent Hive table, refer to [Apache Hive’s tutoria
 
 ## File Share Copy Activity type properties
 
-**FileSystemSource** does not support any properties at this time.
+**FileSystemSource** supports the following properties:
+
+| Property | Description | Allowed values | Required |
+| -------- | ----------- | -------------- | -------- |
+| recursive | Indicates whether the data is read recursively from the sub folders or only from the specified folder. | True, False (default value)| No | 
 
 The **FileSystemSink** supports the following properties:  
 
