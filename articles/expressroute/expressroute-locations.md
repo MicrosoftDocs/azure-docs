@@ -37,6 +37,8 @@ You will have access to Azure services across all regions within a geopolitical 
 |**Australia**|Australia Southeast, Australia East|Melbourne, Sydney|
 |**India**|India West, India Central, India South|Chennai, Mumbai|
 
+
+
 The table below provides information on regions and geopolitical boundaries for national clouds.
 
 |**Geopolitical region**|**Azure regions**|**ExpressRoute locations**|
@@ -102,7 +104,7 @@ If your connectivity provider is not listed in previous sections, you can still 
 - Have your connectivity provider extend your network to the peering location of choice.
 	- Ensure that your connectivity provider extends your connectivity in a highly available manner so that there are no single points of failure.
 - Order an ExpressRoute circuit with the exchange as your connectivity provider to connect to Microsoft.
-	- Follow steps in [Configure your EXP connection](expressroute-configuring-exps.md) to set up connectivity.
+	- Follow steps in [Create an ExpressRoute circuit](expressroute-howto-circuit-classic.md) to set up connectivity.
 
 |**Connectivity provider**|**Exchange**|**Peering locations**|
 |---|---|---|
