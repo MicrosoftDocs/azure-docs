@@ -1,5 +1,18 @@
-<properties pageTitle="Tutorial: Azure Active Directory integration with Citrix GoToMeeting | Microsoft Azure" description="Learn how to use Citrix GoToMeeting with Azure Active Directory to enable single sign-on, automated provisioning, and more!." services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
+<properties 
+    pageTitle="Tutorial: Azure Active Directory integration with Citrix GoToMeeting | Microsoft Azure" description="Learn how to use Citrix GoToMeeting with Azure Active Directory to enable single sign-on, automated provisioning, and more!." 
+    services="active-directory" 
+    authors="MarkusVi"  
+    documentationCenter="na" 
+    manager="stevenpo"/>
+
+<tags 
+    ms.service="active-directory" 
+    ms.devlang="na" ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="identity" 
+    ms.date="09/22/2015" 
+    ms.author="markvi" />
+
 #Tutorial: Azure Active Directory integration with Citrix GoToMeeting  
 Applies To: Azure
 
@@ -82,7 +95,7 @@ If you are not familiar with this procedure, see [How to convert a binary certif
 
      6.3. In the Azure portal, on the **Configure single sign-on at Citrix GoToMeeting** dialog page, copy the **Sign-Out Page URL** value, and then paste it into the **Sign-out page URL** textbox.
 
-     6.4. In the **Identity Provider Entity ID** textbox,...
+     6.4. In the Azure portal, on the **Configure single sign-on at Citrix GoToMeeting** dialog page, copy the **Entity ID** value, and then paste it into the **Identity Provider Entity ID** textbox.
 
      6.5. To upload your downloaded certificate, click **Upload Certificate**.
 
@@ -109,9 +122,15 @@ The objective of this section is to outline how to enable provisioning of Active
 
     ![Configure user provisioning](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC769001.png "Configure user provisioning")
 
-2.  In the **Citrix GotoMeeting admin user name** page, type a Citrix GoToMeeting account name that has administrative rights on your Citrix GoToMeeting tenant, and then click **Next**.
+2.  On the **Settings and admin credentials** page, perform the followig steps:
 
     ![Configure user provisioning](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC769002.png "Configure user provisioning")
+
+     2.1. In the **Citrix GoToMeeting Admin User Name** textbox, type the user name of an administrator.
+
+     2.2. In the **Citrix GoToMeeting Admin Password** textbox, the administrator's password.
+
+     2.3. Click **Next**.
 
 3.  On the **Confirmation** page, click the checkmark to save your configuration.
 
