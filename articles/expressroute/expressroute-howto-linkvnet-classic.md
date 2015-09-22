@@ -117,7 +117,7 @@ The circuit owner can revoke/delete authorizations to the user by running the fo
 
 #### Reviewing authorizations
 
-The Circuit user can review authorizations using the following cmdlet.
+The circuit user can review authorizations using the following cmdlet.
 
 	PS C:\> Get-AzureAuthorizedDedicatedCircuit
 		
