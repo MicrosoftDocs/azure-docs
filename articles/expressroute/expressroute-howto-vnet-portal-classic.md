@@ -17,7 +17,7 @@
    ms.date="09/22/2015"
    ms.author="cherylmc"/>
 
-#  Configure a Virtual Network for ExpressRoute
+# Configure a Virtual Network for ExpressRoute
 
 These steps will walk you through configuring a virtual network and a gateway for use with ExpressRoute using the classic deployment model. This configuration is not currently supported for VNets and gateways created using the Resource Manager model. When it becomes available, we'll provide a link from this page to the documentation.
  
