@@ -245,10 +245,6 @@ The Stop- cmdlet means cancel, not pause. There is no way to resume an upgrade, 
 If the upgrade fails for any odd reason, your V11 database remains active and available as normal.
 
 
-> [AZURE.NOTE]
-> The pre-V12 database *remains available* for data access during the upgrade to V12.
-
-
 ## Related links
 
 
