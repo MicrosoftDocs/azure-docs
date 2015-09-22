@@ -4,7 +4,7 @@
 	services="active-directory-b2c"
 	documentationCenter=".net"
 	authors="dstrockis"
-	manager="mbaldwin"
+	manager="msmbaldwin"
 	editor=""/>
 
 <tags
@@ -24,9 +24,7 @@ With Azure AD B2C, you can add powerful self-service identity managment features
 to create a .NET WPF "To-Do List" app that includes user sign-up, sign-in, and profile management.  It will include support for sign-up & sign-in with a username
 or email, as well as social accounts such as Facebook & Google.
 
-> [AZURE.NOTE]
-	This information applies to the Azure AD B2C preview.  For information on how to integrate with the generally available Azure AD service, 
-	please refer to the [Azure Active Directory Developer Guide](active-directory-developers-guide.md).
+[AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
 
 ## 1. Get an Azure AD B2C directory
 
@@ -358,6 +356,8 @@ or you can clone it from GitHub:
 
 ```git clone --branch complete https://github.com/AzureADQuickStarts/B2C-NativeClient-DotNet.git```
 
+<!--
+
 ## Next Steps
 
 You can now move onto more advanced B2C topics.  You may want to try:
@@ -366,3 +366,4 @@ You can now move onto more advanced B2C topics.  You may want to try:
 
 [Customizing the your B2C App's UX >>]()
 
+-->

@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="python"
     ms.topic="hero-article"
-    ms.date="09/03/2015"
+    ms.date="09/21/2015"
     ms.author="ryancraw"/>
 
 # Python Flask Web Application Development with DocumentDB
@@ -50,8 +50,7 @@ that you have the following installed:
 - Python Tools for Visual Studio from [here][].
 - Azure SDK for Visual Studio 2013, version 2.4 or higher available from
 [here][1].
-- Python 2.7 from [here][2].l
-- 
+- Python 2.7 from [here][2].
 - Microsoft Visual C++ Compiler for Python 2.7 from [here][3].
 
 ## Step 1: Create a DocumentDB database account

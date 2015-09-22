@@ -1,5 +1,5 @@
 <properties
-	pageTitle="App Model v2.0 | Microsoft Azure"
+	pageTitle="App Model v2.0 Scopes, permissions, & consent | Microsoft Azure"
 	description="A description of authorization in the Azure AD v2.0 app model, including scopes, permissions, and consent."
 	services="active-directory"
 	documentationCenter=""

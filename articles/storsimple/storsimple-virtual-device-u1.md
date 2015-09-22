@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="09/02/2015"
+   ms.date="09/16/2015"
    ms.author="alkohli" />
 
 # Deploy and manage a StorSimple virtual device in Azure
@@ -122,27 +122,29 @@ Perform the following steps to create the StorSimple virtual device.
 
 2. Go to the **Devices** page. Click **Create virtual device** at the bottom of the **Devices** page.
 
-3. In the **Create Virtual Device dialog box**, specify the following:
+3. In the **Create Virtual Device dialog box**, specify the following details.
+
+     ![StorSimple create virtual device](./media/storsimple-virtual-device-u1/StorSimple_CreateVirtualDevice1.png)
 
 	1. **Name** – A unique name for your virtual device.
 
-
 	2. **Version** - Choose the version of the virtual device. This option will be absent if you only have Update 1 (or above) physical devices registered with this service. This field is presented only if you have a combination of pre-update 1 and Update 1 physical devices registered with the service. Given the version of the virtual device will determine which physical device you can failover or clone from, it is important that you create an appropriate version of the virtual device. Select:
 
-	   - Version Update 0.3 if you will failover or DR from a physical device with GA Release or Updates 0.1 to 0.3. 
-	   - Version Update 1 if you will failover or clone from a physical device with Update 1 (or above). 
-
+	   - Version Update 0.3 if you will fail over or DR from a physical device with GA Release or Updates 0.1 to 0.3. 
+	   - Version Update 1 if you will fail over or clone from a physical device with Update 1 (or above). 
  
 	3. **Virtual Network** – The name of the virtual network that you want to use with this virtual device.
 
 	4. **Subnet** – The subnet on the virtual network for use with the virtual device.
 
 	5. **Storage Account for Virtual Device Creation** – The storage account that will be used to hold the image of the virtual device during provisioning. This storage account should be in the same region as the virtual device and virtual network. It should not be used for data storage by either the physical device or the virtual device. By default, a new storage account will be created for this purpose. However, if you know that you already have a storage account that is suitable for this use, you can select it from the list. 
-	
 
     >[AZURE.NOTE] The virtual device can only work with the Azure storage accounts. Other cloud service providers such as Amazon, HP and OpenStack (that are supported for the physical device) are not supported for the StorSimple virtual device.
 	
-4. Click the check mark to indicate that you understand that the data stored on the virtual device will be hosted in a Microsoft datacenter. When you use only a physical device, your encryption key is kept with your device; therefore, Microsoft cannot decrypt it. When you use a virtual device, both the encryption key and the decryption key are stored in Microsoft Azure. For more information, see [Security considerations for using a virtual device](#security-considerations-for-using-a-virtual-device).
+4. Click the check mark to indicate that you understand that the data stored on the virtual device will be hosted in a Microsoft datacenter. When you use only a physical device, your encryption key is kept with your device; therefore, Microsoft cannot decrypt it. 
+	![StorSimple virtual device creating stage](./media/storsimple-virtual-device-u1/StorSimple_VirtualDeviceCreating1M.png)
+
+    When you use a virtual device, both the encryption key and the decryption key are stored in Microsoft Azure. For more information, see [Security considerations for using a virtual device](#security-considerations-for-using-a-virtual-device).
 
 ### Configure and register the virtual device
 
@@ -150,16 +152,24 @@ Before starting this procedure, make sure that you have a copy of the service da
 
 Perform the following steps to configure and register your StorSimple virtual device.
 
-
 1. Select the **StorSimple virtual device** you just created in the Devices page. 
 
 2. Click **complete device setup**. This starts the Configure device wizard.
+
+    ![StorSimple complete device setup in Devices page](./media/storsimple-virtual-device-u1/StorSimple_CompleteDeviceSetupSVA1M.png)
 
 3. Enter the **Service Data Encryption Key** in the space provided.
 
 4. Enter the Snapshot Manager and Device Administrator passwords of the length and settings specified.
 
 5. Click the check mark to finish the initial configuration and registration of the virtual device. 
+
+    ![StorSimple virtual device settings](./media/storsimple-virtual-device-u1/StorSimple_VirtualDeviceSettings1.png)
+
+After the configuration and registration is complete, the device will come online. (It may take several minutes for the device to come online.)
+
+![StorSimple virtual device online stage](./media/storsimple-virtual-device-u1/StorSimple_VirtualDeviceOnline1M.png)
+
 
 ### Modify the device configuration settings
 

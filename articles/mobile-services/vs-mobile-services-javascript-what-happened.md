@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="" 
+	pageTitle="What happens when you add Mobile Services to a Javvascript app by using Visual Studio Connected Services" 
 	description="Describes what happened to your Azure Mobile Services project in Visual Studio" 
 	services="mobile-services" 
 	documentationCenter="" 
@@ -16,7 +16,7 @@
 	ms.date="07/02/2015" 
 	ms.author="patshea"/>
 
-# What happened to my project?
+# What happens to my Visual Studio Azure Javascript project when I add Add Mobile Services using Connected Services?
 
 > [AZURE.SELECTOR]
 > - [Getting Started](vs-mobile-services-javascript-getting-started.md)

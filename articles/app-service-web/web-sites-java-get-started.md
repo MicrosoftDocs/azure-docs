@@ -17,6 +17,14 @@
 
 # Create a Java web app in Azure App Service
 
+> [AZURE.SELECTOR]
+- [.Net](web-sites-dotnet-get-started.md)
+- [Node.js](web-sites-nodejs-develop-deploy-mac.md)
+- [Java](web-sites-java-get-started.md)
+- [PHP - Git](web-sites-php-mysql-deploy-use-git.md)
+- [PHP - FTP](web-sites-php-mysql-deploy-use-ftp.md)
+- [Python](web-sites-python-ptvs-django-mysql.md)
+
 This tutorial shows how to create a web app on Microsoft Azure by using Java, through either the Azure Marketplace or the configuration UI in the [Web Apps feature in Azure App Service][].
 
 If you don't want to use either of those techniques—for example, if you want to customize your application container—see [Upload a custom Java web app to Azure](web-sites-java-custom-upload.md).

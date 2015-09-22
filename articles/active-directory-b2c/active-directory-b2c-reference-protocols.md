@@ -4,7 +4,7 @@
 	services="active-directory-b2c"
 	documentationCenter=""
 	authors="dstrockis"
-	manager="mbaldwin"
+	manager="msmbaldwin"
 	editor=""/>
 
 <tags
@@ -22,9 +22,7 @@ Azure AD B2C provides identity-as-a-service for your apps by supporting two indu
 
 <!-- TODO: Need link to libraries above -->
 
-> [AZURE.NOTE]
-	This information applies to the Azure AD B2C preview.  For information on how to integrate with the generally available Azure AD service, 
-	please refer to the [Azure Active Directory Developer Guide](active-directory-developers-guide.md).
+[AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
 	
 ## The Basics
 Every app that uses Azure AD B2C will need to be registered your B2C directory in the [Azure Portal](https://portal.azure.com).  The app registration process will collect & assign a few values to your app:
@@ -59,7 +57,7 @@ and OpenID Connect, so you should take the time to understand them.  For more in
 ## Tokens
 Azure AD B2C's implementation of OAuth 2.0 and OpenID Connect make extensive use of bearer tokens, including bearer tokens represented as JWTs. A bearer token is a lightweight security token that grants the “bearer” access to a protected resource. In this sense, the “bearer” is any party that can present the token. Though a party must first authenticate with Azure AD to receive the bearer token, if the required steps are not taken to secure the token in transmission and storage, it can be intercepted and used by an unintended party. While some security tokens have a built-in mechanism for preventing unauthorized parties from using them, bearer tokens do not have this mechanism and must be transported in a secure channel such as transport layer security (HTTPS). If a bearer token is transmitted in the clear, a man-in the middle attack can be used by a malicious party to acquire the token and use it for an unauthorized access to a protected resource. The same security principles apply when storing or caching bearer tokens for later use. Always ensure that your  app transmits and stores bearer tokens in a secure manner. For more security considerations on bearer tokens, see [RFC 6750 Section 5](http://tools.ietf.org/html/rfc6750).
 
-Further details of different types of tokens used in the v2.0 app model is available in [the Azure AD B2C token reference](active-directory-b2c-reference-tokens.md).
+Further details of different types of tokens used in Azure AD B2C is available in [the Azure AD token reference](active-directory-b2c-reference-tokens.md).
 
 ## Protocols
 
@@ -67,7 +65,7 @@ If you're ready to see some example requests, get started with one of the below 
 check out [the types of apps you can build with Azure AD B2C](active-directory-b2c-apps).
 
 - [Build Mobile and Native Application with OAuth 2.0](active-directory-b2c-reference-oauth-code.md)
-- [Build Web Apps with Open ID Connect](active-directory-b2c-reference-oauth-oidc.md)
+- [Build Web Apps with Open ID Connect](active-directory-b2c-reference-oidc.md)
 - Build Single Page Apps with the OAuth 2.0 Implicit Flow (coming soon)
 - Build Daemons or Server Side Processes with the OAuth 2.0 Client Credentials Flow (coming soon)
 - Get tokens using a username & password with the OAuth 2.0 Resource Owner Password Credentials Flow (coming soon)
