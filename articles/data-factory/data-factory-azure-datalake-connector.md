@@ -513,7 +513,7 @@ Properties available in the typeProperties section of the activity on the other 
 
 | Property | Description | Allowed values | Required |
 | -------- | ----------- | -------------- | -------- |
-| recursive | Specifies whether files in the folder will be read recursively. | TRUE<br/>FALSE (default) | No |
+| recursive | Indicates whether the data is read recursively from the sub folders or only from the specified folder. | True (default value), False | No | 
 
 
 
