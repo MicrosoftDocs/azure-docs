@@ -14,15 +14,17 @@ Max size of a message in a queue|64 KB
 Max size of a file share|5 TB
 Max size of a file in a file share|1 TB
 Max number of files in a file share|Only limit is the 5 TB total capacity of the file share
+Max 8 KB IOPS per share|1000
+Max number of files in a file share|Only limit is the 5 TB total capacity of the file share
 Max number of blob containers, blobs, file shares, tables, queues, entities, or messages per storage account|Only limit is the 500 TB storage account capacity
 Max number of stored access policies per container, file share, table, or queue|5
 Max 8 KB IOPS per persistent disk (Basic Tier virtual machine)|300<sup>2</sup>
 Max 8 KB IOPS per persistent disk (Standard Tier virtual machine)|500<sup>2</sup>
 Total Request Rate (assuming 1KB object size) per storage account|Up to 20,000 IOPS, entities per second, or messages per second
-Target Throughput for Single Blob|Up to 60 MB per second, or up to 500 requests per second
-Target Throughput for Single Queue (1 KB messages)|Up to 2000 messages per second
-Target Throughput for Single Table Partition (1 KB entities)|Up to 2000 entities per second
-Target Throughput for Single File Share (Preview)|Up to 60 MB per second
+Target throughput for single blob|Up to 60 MB per second, or up to 500 requests per second
+Target throughput for single queue (1 KB messages)|Up to 2000 messages per second
+Target throughput for single table [artition (1 KB entities)|Up to 2000 entities per second
+Target throughput for single file share|Up to 60 MB per second
 Max ingress<sup>3</sup> per storage account (US Regions)|10 Gbps if GRS/ZRS<sup>4</sup> enabled, 20 Gbps for LRS
 Max egress<sup>3</sup> per storage account (US Regions)|20 Gbps if RA-GRS/GRS/ZRS<sup>4</sup> enabled, 30 Gbps for LRS
 Max ingress<sup>3</sup> per storage account (European and Asian Regions)|5 Gbps if GRS/ZRS<sup>4</sup> enabled, 10 Gbps for LRS
