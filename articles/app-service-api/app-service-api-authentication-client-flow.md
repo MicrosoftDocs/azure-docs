@@ -97,6 +97,8 @@ You'll modify this page later by adding a section for displaying contact informa
 	* Use the AAD application you already created instead of creating a new one.
  
 	* Keep the same **App ID URI** that you already have for the AAD application. (Don't change it to the format specified in the Readme file.) 
+	
+	* Change other AAD application settings as directed; in particular, set the sign-on and reply URLs to the base URL for the sample app.
 
 You're keeping the same App ID URI that you created for the API app so that you can use the same AAD access token for both the web app and the API app. If you changed the App ID URI to the format prescribed by the readme, that would work for access to the web app but not for the API app.  You wouldn't be able to pass the AAD token to the API app gateway to get a Zumo token because the gateway expects a token for an App ID URI composed of the gateway URL plus "/login/aad".   
 
