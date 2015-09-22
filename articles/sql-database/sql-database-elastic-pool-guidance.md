@@ -10,7 +10,7 @@
 <tags 
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="09/21/2015" 
+	ms.date="09/22/2015" 
 	ms.author="sstein" 
 	ms.workload="data-management" 
 	ms.topic="article" 
@@ -70,7 +70,7 @@ This example is ideal for the following reasons:
 - eDTUs are shared between a large number of databases.
 
 
-The price for an elastic database pool is a function of the pool eDTUs. While the eDTU unit price for a pool at GA pricing is 1.5x greater than the DTU unit price for a single database, **pool eDTUs can be shared by many databases and so in many cases fewer total eDTUs are needed**. These distinctions in pricing and eDTU sharing are the basis of the price savings potential that pools can provide.  
+The price for an elastic database pool is a function of the pool eDTUs. While the eDTU unit price for a pool is 1.5x greater than the DTU unit price for a single database, **pool eDTUs can be shared by many databases and so in many cases fewer total eDTUs are needed**. These distinctions in pricing and eDTU sharing are the basis of the price savings potential that pools can provide.  
 
 <br>
 
@@ -120,7 +120,7 @@ The following heuristic can help estimate whether an elastic database pool is mo
 
 3. Calculate the price for the pool as follows:
 
-    pool price = (*pool eDTUs* * *pool eDTU unit price*)
+    pool price = *pool eDTUs* * *pool eDTU unit price*
 
     See [SQL Database Pricing](http://azure.microsoft.com/pricing/details/sql-database/) for pricing information.   
 
