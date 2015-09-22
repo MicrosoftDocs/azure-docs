@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="Set up a new device with Azure AD through the first-run experience| Microsoft Azure" 
+	pageTitle="Overview of Microsoft Passport and details about this new certification-based authentication.| Microsoft Azure" 
 	description="A topic that explains how users can set up Azure AD Join during their first run experience." 
 	services="active-directory" 
 	documentationCenter="" 
 	authors="femila" 
-	manager="swadhwa" 
+	manager="stevenpo" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/02/2015" 
+	ms.date="09/21/2015" 
 	ms.author="femila"/>
 
 # Authenticating identities without passwords through Microsoft Passport
@@ -68,6 +68,6 @@ At the user level
 
 ## Additional information
 
-* [Extending cloud capabilities to Windows 10 devices through Azure Active Directory Join](active-directory-azureadjoin-user-upgrade.md)
+* [Extending cloud capabilities to Windows 10 devices through Azure Active Directory Join](active-directory-azureadjoin-overview.md)
 * [Set up Azure AD Join](active-directory-azureadjoin-setup.md)
 
