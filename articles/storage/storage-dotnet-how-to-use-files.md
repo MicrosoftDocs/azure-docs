@@ -266,7 +266,7 @@ Next, add the following code to the `Main()` method (after the code shown above)
 
 Run the console application to see the output.
 
-## Set the maximum size for a file share
+### Set the maximum size for a file share
 
 Beginning with version 5.x of the Azure Storage Client Library, you can set set the quota (or maximum size) for a file share, in gigabytes. You can also check to see how much data is currently stored on the share.
 
@@ -302,7 +302,7 @@ The example below shows how to check the current usage for a share and how to se
         Console.WriteLine("Current share quota: {0} GB", share.Properties.Quota);
     }
 
-## Generate a shared access signature for a file or file share
+### Generate a shared access signature for a file or file share
 
 Beginning with version 5.x of the Azure Storage Client Library, you can generate a shared access signature (SAS) for a file share or for an individual file. You can also create a shared access policy on a file share to manage shared access signatures. Creating a shared access policy is recommended, as it provides a means of revoking the SAS if it should be compromised.
 
@@ -352,7 +352,7 @@ The following example creates a shared access policy on a share, and then uses t
 
 For more information about creating and using shared access signatures, see [Shared Access Signatures: Understanding the SAS model](storage-dotnet-shared-access-signature-part-1.md) and [Create and use a SAS with the Blob service](storage-dotnet-shared-access-signature-part-2.md).
 
-## Copy files
+### Copy files
 
 Beginning with version 5.x of the Azure Storage Client Library, you can copy a file to another file, a file to a blob, or a blob to a file. In the next sections, we demonstrate how to perform these copy operations programmatically.
 
@@ -360,7 +360,7 @@ You can also use AzCopy to copy one file to another or to copy a blob to a file 
 
 > [AZURE.NOTE] If you are copying a blob to a file, or a file to a blob, you must use a shared access signature (SAS) to authenticate the source object, even if you are copying within the same storage account.
 
-### Copy a file to another file
+**Copy a file to another file**
 
 The following example copies a file to another file in the same share. Because this copy operation copies between files in the same storage account, you can use Shared Key authentication to perform the copy.
 
@@ -405,7 +405,7 @@ The following example copies a file to another file in the same share. Because t
     }
 
 
-### Copy a file to a blob
+**Copy a file to a blob**
 
 The following example creates a file and copies it to a blob within the same storage account. The example creates a SAS for the source file, which the service uses to authenticate access to the source file during the copy operation.
 
