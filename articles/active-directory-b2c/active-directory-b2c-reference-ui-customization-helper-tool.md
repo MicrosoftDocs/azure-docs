@@ -28,7 +28,7 @@ Before you can customize anything, you will need to [get an Azure AD B2C directo
 
 ## Create a sign-up policy
 
-The sample content we've provided customizes two pages in a [sign-up policy](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy): the [IDP Selection Page](active-directory-b2c-reference-ui-customization.md#identity-provider-selection-page) and the [Local Account Sign-Up Page](active-directory-b2c-reference-ui-customization.md#local-account-sign-up-page).  When [creating your sign-up policy](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy), add Local Account (Email address), Facebook, and Google+ as **Identity Providers**.  These are the only IDPs our sample HTML content will accept.
+The sample content we've provided customizes two pages in a [sign-up policy](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy): the [IDP Selection Page](active-directory-b2c-reference-ui-customization.md#identity-provider-selection-page) and the [Local Account Sign-Up Page](active-directory-b2c-reference-ui-customization.md#local-account-sign-up-page).  When [creating your sign-up policy](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy), add Local Account (Email address), Facebook, and Google+ as **Identity providers**.  These are the only IDPs our sample HTML content will accept.
 
 ## Register an application
 
