@@ -3,8 +3,8 @@
    description=""
    services="active-directory"
    documentationCenter=""
-   authors="kgremban"
-   manager="msStevenPo"
+   authors="femila"
+   manager="stevenpo"
    editor=""/>
 
 <tags
