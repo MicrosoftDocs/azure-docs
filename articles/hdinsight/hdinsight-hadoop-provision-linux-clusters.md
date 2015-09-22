@@ -276,7 +276,13 @@ The following steps walk through the process of creating a new HDInsight cluster
 
     Once you are done, save and close the file.
 
-6. Use the following command to create the initial deployment for this resource group. Replace __PATHTOTEMPLATE__ with the path to the __azuredeploy.json__ template file. Replace __PATHTOPARAMETERSFILE__ with the path to the __azuredeploy.parameters.json__ file. Replace __RESOURCEGROUPNAME__ with a unique name for this resource group:
+5. Use the following to create an empty resource group. Replace __RESOURCEGROUPNAME__ with the name you wish to use for this group. Replace __LOCATION__ with the data center that the group should be created in:
+
+        azure group create RESOURCEGROUPNAME LOCATION
+    
+    > [AZURE.NOTE] If the location name contains spaces, put it in double quotes. For example "South Central US".
+
+6. Use the following command to create the initial deployment for this resource group. Replace __PATHTOTEMPLATE__ with the path to the __azuredeploy.json__ template file. Replace __PATHTOPARAMETERSFILE__ with the path to the __azuredeploy.parameters.json__ file. Replace __RESOURCEGROUPNAME__ with the name of the group you created in the previous step:
 
         azure group deployment create -f PATHTOTEMPLATE -e PATHTOPARAMETERSFILE -g RESOURCEGROUPNAME -n InitialDeployment
 
@@ -291,6 +297,7 @@ The following steps walk through the process of creating a new HDInsight cluster
         azure group log show -l -v RESOURCEGROUPNAME
 
 ### <a id="powershell"></a> Using Azure PowerShell
+
 Azure PowerShell is a powerful scripting environment that you can use to control and automate the deployment and management of your workloads in Azure. This section provides instructions on how to provision an HDInsight cluster by using Azure PowerShell. For information on configuring a workstation to run HDInsight Windows PowerShell cmdlets, see [Install and configure Azure PowerShell](../install-configure-powershell.md). For more information on using Azure PowerShell with HDInsight, see [Administer HDInsight using PowerShell](hdinsight-administer-use-powershell.md). For the list of the HDInsight Windows PowerShell cmdlets, see [HDInsight cmdlet reference](https://msdn.microsoft.com/library/azure/dn858087.aspx).
 
 
@@ -381,11 +388,44 @@ Azure services can be managed using the Azure REST API. This means you can use a
 
     > [AZURE.IMPORTANT] The Azure CLI is used to create a new Azure Active Directory service principal, which is used to obtain the authentication token used to authenticate requests to the REST API.
 
-2. Follow the steps in the [Authenticate a service principal with a password (Azure CLI)](resource-group-authenticate-service-principal.md/#authenticate-service-principal-with-password---azure-cli) document to create a new service principal.
+2. Follow the steps in the following document to create a new service principal. This will be used to generate an authentication token for use with curl requests:
 
     > [AZURE.IMPORTANT] When performing the step that sets permission, you must set `Owner` permission instead of `Reader`.
+    >
+    > You must also save the __Application Id__ value that is returned from this process, and the __Password__ used when creating the service principal, as they will be used in the following steps.
+    
+    * [How to Authenticate a service principal with a password (Azure CLI)](resource-group-authenticate-service-principal.md/#authenticate-service-principal-with-password---azure-cli)
 
-3. Use the following Python code to 
+3. Use the Azure CLI to retrieve the subscription ID and tenant ID for your Azure subscription:
+
+        azure account list
+    
+    This will return several columns of information. The ID for your subscription will be in the __ID__ column, while the tenant ID will be in the __Tenant ID__ column.
+
+4. Use the following to retrieve an authentication token:
+
+        curl -X "POST" "https://login.microsoftonline.com/TENANTID/oauth2/token" -H "Content-Type: application/x-www-form-urlencoded" --data-urlencode "client_id=APPCLICATIONID" --data-urlencode "grant_type=client_credentials" --data-urlencode "client_secret=PASSWORD" --data-urlencode "resource=https://management.core.windows.net"
+    
+    * Replace __TENANTID__ with the tenant id for your Azure Subscription.
+    * Replace __APPLICATIONID__ with the application id for the service principal you created earlier.
+    * Replace __PASSWORD__ with the password you used for the service principal.
+    
+    This should return a JSON document, with an entry named "access_token". The value of this will be a large string of random characters. This is the access token for authenticating requests to the REST API.
+    
+    > [AZURE.NOTE] The access token will expire after a period of time.
+
+5. Use the following to create a new resource group:
+
+        curl -X "PUT" "https://management.azure.com/subscriptions/SUBSCRIPTIONID/resourcegroups/GROUPNAME?api-version=2015-01-01 -H "Authorization: Bearer AUTHTOKEN" -H "Content-Type: application/json" -d $'{ "location": "LOCATION" }'
+    
+    * Replace __SUBSCRIPTIONID__ with the ID you retrieved earlier from the `azure account list` command.
+    * Replace __GROUPNAME__ with the name you wish to use for this resource group.
+    * Replace __AUTHTOKEN__ with the access token value returned in the previous step.
+    * Replace __LOCATION__ with the location that you want this group, and the HDInsight cluster and storage resources, to be created in. For example, "South Central US".
+
+6. Use the following to create a new deployment for the resource group. This deployment will use an HDInsight template stored on GitHub.
+
+
 
 ###<a id="sdk"></a> Using the HDInsight .NET SDK
 The HDInsight .NET SDK provides .NET client libraries that make it easier to work with HDInsight from a .NET Framework application. Follow the instructions below to create a Visual Studio console application and paste the code for creating a cluster.
