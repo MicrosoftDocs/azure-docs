@@ -33,9 +33,10 @@ This information is provided to help you publish your software solution into the
 | [VM Image Publishing Guide][link-vm-publication] | [Developer Service Publishing Guide][link-devsvc-publication] | Data Service Publishing Guide | [Solution Template Publishing Guide][link-soltempl-publication] |
 
 ## Step 4. Getting to staging
-- Offer Marketing Content Guide
+- [Azure Marketplace Marketing Content Guide][link-pushstaging]
 
 ## Step 5. Publish
+- [Ready to Go LIVE! Push to Production][link-pushprod]
 
 ### Appendix 1: Support
 ### Appendix 2: Setting up Azure PowerShell
@@ -52,3 +53,5 @@ This information is provided to help you publish your software solution into the
 [link-devsvc-publication-prereq]:marketplace-publishing-dev-service-publication-prerequisites.md
 [link-soltempl-publication]:marketplace-publishing-solution-template-publication.md
 [link-soltempl-publication-prereq]:marketplace-publishing-solution-template-publication-prerequisites.md
+[link-pushstaging]:marketplace-publishing-push-to-staging.md
+[link-pushprod]:marketplace-publishing-push-to-production.md
