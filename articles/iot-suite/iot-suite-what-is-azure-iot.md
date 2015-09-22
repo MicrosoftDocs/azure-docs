@@ -16,7 +16,7 @@
  ms.date="09/04/2015"
  ms.author="dobett"/>
 
-[AZURE.INCLUDE [iot-azure-and-iot](../includes/iot-azure-and-iot.md)]
+[AZURE.INCLUDE [iot-azure-and-iot](../../includes/iot-azure-and-iot.md)]
 
 ## Azure IoT Suite
 Azure IoT Suite enables you to simplify your billing for a bundle of Azure services that you combine in an IoT solution. Azure IoT Suite also includes a collection of preconfigured solutions for you to deploy. These preconfigured solutions:

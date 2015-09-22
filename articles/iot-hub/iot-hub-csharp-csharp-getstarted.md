@@ -16,7 +16,7 @@
      ms.date="09/08/2015"
      ms.author="dobett"/>
 
-# Get started with Event Hubs
+# Get started with IoT Hub
 
 [AZURE.INCLUDE [service-bus-selector-get-started](../../includes/iot-hub-selector-get-started.md)]
 
@@ -24,7 +24,7 @@
 
 Azure IoT Hub is a fully managed service that enables reliable and secure bi-directional communications between millions of IoT devices and an application back end. One of the largest challenges facing IoT projects is how to reliably and securely connect devices to the application back end. To simplify this scenario, Azure IoT Hub offers reliable device-to-cloud and cloud-to-device hyper-scale messaging, enables secure communications using per-device security credentials and access control, and includes device libraries for the most popular languages and platforms.
 
-This tutorial shows how to use the Azure portal to create an IoT hub. It also shows you how to create a device identity in yout IoT hub, create a simulated device that sends device-to-cloud messages, and receives these messages from your cloud back-end.
+This tutorial shows how to use the Azure portal to create an IoT hub. It also shows you how to create a device identity in your IoT hub, create a simulated device that sends device-to-cloud messages, and receives these messages from your cloud back-end.
 
 In order to complete this tutorial you'll need the following:
 
@@ -59,13 +59,11 @@ In order to complete this tutorial you'll need the following:
 
    	![][4]
 
-6. Analogously, select the Shared access policy called **service**, then copy and take note of the connection string on the right blade.
+6. Analogously, select the Shared access policy called **iothubowner**, then copy and take note of the connection string on the right blade.
 
    	![][5]
 
-7. Select the Shared acce policy called **registryReadWrite**, then copy and take note of the connection string on the right blade.
-
-Your IoT hub is now created, and you have all the connection strings you need to complete this tutorial.
+Your IoT hub is now created, and you have the URI and connection string you need to complete this tutorial.
 
 [AZURE.INCLUDE [iot-hub-get-started-cloud-csharp](../../includes/iot-hub-get-started-cloud-csharp.md)]
 
