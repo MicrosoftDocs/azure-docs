@@ -24,7 +24,7 @@ This article is the reference documentation for `api-version=2015-02-28-Preview`
 
 Azure Search service is available in multiple versions. Please refer to [Search Service Versioning](http://msdn.microsoft.com/library/azure/dn864560.aspx) for details.
 
-##APIs in this documenten
+##APIs in this document
 
 The Azure Search Service API supports two syntaxes for entity lookup: [simple](https://msdn.microsoft.com/library/dn798920.aspx) and alternate OData syntax (see [Support for OData (Azure Search API)](http://msdn.microsoft.com/library/azure/dn798932.aspx) for details). The following list shows the simple syntax.
 
