@@ -47,7 +47,7 @@ Select the Reader module and fill out the properties pane.
 
 ![][server_name]
 
-3. Database name: Type the name of a database on the server you just specified.
+3. Database name: Type the name of a database on the server you just specified. 
 4. Server user account name:  Type the user name of an account that has access permissions for the database. 
 5. Server user account password: Provide the password for the specified user account.
 6. Accept any server certificate: Use this option (less secure) if you want to skip reviewing the site certificate before you read your data.
@@ -74,6 +74,7 @@ FROM dbo.DimProduct;
 
 
 ## Create, train and score a model
+
 Now you can use this dataset to:
 -	Create a Model: Process data and define features
 -	Train the model: Choose and apply a learning algorithm
@@ -88,10 +89,13 @@ To learn more about how to create, train, score and test a machine learning mode
 We will write the result set to ProductPriceForecast table in the AdventureWorksDW database.
 
 ### Step 1
+
 Look for the Writer module in the palette of datasets and modules on the left of the experiment canvas. Drag the module to the experiment canvas.
+
 ![][drag_writer]
 
 ### Step 2
+
 Select the Writer module and fill out the properties pane.
 
 1. Select Azure SQL Database as the Data Destination.
@@ -108,29 +112,30 @@ Select the Writer module and fill out the properties pane.
 ![][writer_properties]
 
 ### Step 3
+
 1. Run the experiment by clicking Run under the experiment canvas.
 2. When the experiment finishes, all modules will have a green check mark to indicate that they completed successfully. 
 
-
-
 ## Next steps
+
 For an overview of integration, see [SQL Data Warehouse integration overview][].
+
 For more development tips, see [SQL Data Warehouse development overview][].
 
 <!--Image references-->
-[drag_reader]:./media/sql-data-warehouse-integrate-azure-machine-learning/ml-drag-reader.png
-[server_name]:./media/sql-data-warehouse-integrate-azure-machine-learning/dw-server-name.png
-[reader_properties]:./media/sql-data-warehouse-integrate-azure-machine-learning/ml-reader-properties.png
-[run]:./media/sql-data-warehouse-integrate-azure-machine-learning/ml-finished-running.png
-[model]:./media/sql-data-warehouse-integrate-azure-machine-learning/ml-create-train-score-model.png
-[drag_writer]:./media/sql-data-warehouse-integrate-azure-machine-learning/ml-drag-writer.png
-[writer_properties]:./media/sql-data-warehouse-integrate-azure-machine-learning/ml-writer-properties.png
 
+[drag_reader]: ./media/sql-data-warehouse-integrate-azure-machine-learning/ml-drag-reader.png
+[server_name]: ./media/sql-data-warehouse-integrate-azure-machine-learning/dw-server-name.png
+[reader_properties]: ./media/sql-data-warehouse-integrate-azure-machine-learning/ml-reader-properties.png
+[run]: ./media/sql-data-warehouse-integrate-azure-machine-learning/ml-finished-running.png
+[model]: ./media/sql-data-warehouse-integrate-azure-machine-learning/ml-create-train-score-model.png
+[drag_writer]: ./media/sql-data-warehouse-integrate-azure-machine-learning/ml-drag-writer.png
+[writer_properties]: ./media/sql-data-warehouse-integrate-azure-machine-learning/ml-writer-properties.png
 
 <!--Article references-->
 
-[SQL Data Warehouse development overview]:  ./sql-data-warehouse-overview-develop/
-[SQL Data Warehouse integration overview]:  ./sql-data-warehouse-overview-integration/
+[SQL Data Warehouse development overview]: ./sql-data-warehouse-overview-develop/
+[SQL Data Warehouse integration overview]: ./sql-data-warehouse-overview-integration/
 [Create experiment tutorial]: ./machine-learning-create-experiment/
 [Introduction to machine learning on Azure]: ./machine-learning-what-is-machine-learning/
 [Azure Machine Learning Studio]: https://studio.azureml.net/Home
@@ -139,5 +144,6 @@ For more development tips, see [SQL Data Warehouse development overview][].
 <!--MSDN references-->
 
 <!--Other Web references-->
+
 [Azure Machine Learning documentation]: http://azure.microsoft.com/documentation/services/machine-learning/
 
