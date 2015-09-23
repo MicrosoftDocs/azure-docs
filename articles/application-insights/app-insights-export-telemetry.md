@@ -23,6 +23,19 @@ Continuous Export is available in the free trial period and on the [Standard and
 
 (If you just want to do a [one-off export](app-insights-metrics-explorer.md#export-to-excel) of what you see on a metrics or search blade, click Export at the top of the blade.)
 
+## Create a storage account
+
+If you don't already have a "classic" storage account, create one now.
+
+
+1. Create a "classic" storage account in your subscription in the [Azure portal][portal].
+
+    ![In Azure portal, choose New, Data, Storage](./media/app-insights-export-telemetry/030.png)
+
+2. Create a container
+
+    ![In the new storage, select Containers, click the Containers tile, and then Add](./media//app-insights-export-telemetry/040.png)
+
 ## <a name="setup"></a> Set up Continuous Export
 
 On your application's Overview blade in the Application Insights portal, open Continuous Export: 
