@@ -224,8 +224,9 @@ For information about schema, see [this](https://msdn.microsoft.com/library/mt26
 	          "Height": 360,
 	        }
 	      ],
-	      "Start": "{Best}",
-	      "Range": "00:00:08",
+	      "Start": "00:00:01",
+		  "Step": "00:00:10",
+	      "Range": "00:00:58",
 	      "Type": "PngImage"
 	    },
 	    {
@@ -236,9 +237,9 @@ For information about schema, see [this](https://msdn.microsoft.com/library/mt26
 	          "Height": 360
 	        }
 	      ],
-	      "Start": "00:00:01",
-		  "Step": "00:00:10",
-	      "Range": "00:00:58",
+	      "Start": "10%",
+		  "Step": "10%",
+	      "Range": "90%",
 	      "Type": "BmpImage"
 	    },
 	    {
