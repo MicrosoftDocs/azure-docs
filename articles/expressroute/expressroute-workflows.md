@@ -103,7 +103,7 @@ If you requested the service provider to deprovision the ExpressRoute circuit fi
 
 You can choose to re-enable it if needed, or run PowerShell cmdlets to delete the circuit.
 
->[AZURE.IMPORTANT] Microsoft will continue to bill the circuit till you run the PowerShell cmdlet to deprovision the circuit.
+>[AZURE.IMPORTANT] Microsoft will continue to bill the circuit until you run the PowerShell cmdlet to deprovision the circuit.
 
 
 ## Routing session configuration state
