@@ -112,6 +112,7 @@ $table_prefix  = 'wp_';
 Setting the security keys above can help preventing your web app from being hacked, so use unique values. If you need to generate the string for security keys mentioned above, you can go the automatic generator to create new keys/values using this [link] (https://api.wordpress.org/secret-key/1.1/salt)
 
 Copy the following code in  `wp-config.azure.php`:
+
 ```
 <?php
 // MySQL settings
@@ -286,15 +287,16 @@ In a situation when you need to **rollback** , you can go to production web app 
 
 #### Summary
 To generalize the process for any application with a database
-1.	Install application on your local environment
-2.	Include environment specific configuration (local and Azure Web App )
-3.	Setup  your environments in App Service Web Apps– Staging , Production
-4.	If you have a production application already running on Azure, sync your production content (files/code + database) to local and staging environment.
-5.	Develop your application on your local environment
-6.	Place your production site under maintenance or locked mode and sync database content from production to staging  and dev environments
-7.	Deploy  to Staging environment and Test
-8.	Deploy to Production environment
-9.	Repeat  steps 4 through 6
+
+1. Install application on your local environment
+2. Include environment specific configuration (local and Azure Web App )
+3. Setup  your environments in App Service Web Apps– Staging , Production
+4. If you have a production application already running on Azure, sync your production content (files/code + database) to local and staging environment.
+5. Develop your application on your local environment
+6. Place your production site under maintenance or locked mode and sync database content from production to staging  and dev environments
+7. Deploy  to Staging environment and Test
+8. Deploy to Production environment
+9. Repeat  steps 4 through 6
 
 ### Umbraco
 In this section you will learn how to Umbraco CMS uses a custom modules to deploy from across multiple DevOps environment.This example provides you with a different approach to the managing multiple development environments.
