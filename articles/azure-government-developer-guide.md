@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="azure-government" 
-	ms.date="01/21/2014" 
+	ms.date="09/24/2014" 
 	ms.author="jharve"/>
 
 
@@ -66,6 +66,16 @@ Azure Government currently has the following services available in both US GOV I
 - Scheduler
 - Virtual Networking
 - SQL Database
+- Azure Files
+- Media Services
+- Traffic Manager
+- Service Bus
+- StorSimple
+- Redis Cache
+- Azure Backup
+- Automation
+- ExpressRoute
+- etc.
 
 Other services are available, and more services will be added on a continuous basis.  For the most current list of services, please see the [regions page](http://azure.microsoft.com/regions/#services) which will highlight each available region and their services.  
 
@@ -88,6 +98,8 @@ Queue Storage|*.queue.core.windows.net|*.queue.core.usgovcloudapi.net
 Table Storage|*.table.core.windows.net|*.table.core.usgovcloudapi.net
 Service Management|management.core.windows.net|management.core.usgovcloudapi.net
 SQL Database|*.database.windows.net|*.database.usgovcloudapi.net
+ARM Load balanced Endpoint|https://management.windows.net|https://management.usgovcloudapi.net  
+
 
 ## <a name="next"></a>Next steps
 If you are interested in learning more and about Azure Government and how your organization can qualify to access, please go to <A href="http://azure.com/gov">http://www.azure.com/gov</a>
