@@ -43,7 +43,10 @@
 
 ## Selecting and configuring an artifact
 
-After you choose **Artifacts** on the **Lab VM** blade, 
+After you choose **Artifacts** on the **Lab VM** blade, you can add one or more artifacts from the **Add Artifacts** blade.
+![Add Artifacts blade](./media/devtest-lab-add-vm-with-artifacts/devtestlab-add-artifact-blade.png)
+
+The **Add Artifacts** list contains artifacts from the Public
 
 
 
