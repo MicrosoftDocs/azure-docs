@@ -58,7 +58,7 @@ The Microsoft peering path lets you connect to Microsoft cloud services that are
 
 ## Next steps
 
-- Refer to the requirements for Routing](expressroute-routing.md) and [QoS](expressroute-qos.md).
+- Refer to the requirements for [Routing](expressroute-routing.md) and [QoS](expressroute-qos.md).
 - Configure your ExpressRoute connection.
 	- [Create an ExpressRoute circuit](expressroute-howto-circuit-classic.md)
 	- [Configure routing](expressroute-howto-routing-classic.md)
