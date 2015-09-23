@@ -18,7 +18,7 @@
 # ExpressRoute Circuit Provisioning workflows and Circuit States
 This page walks you through the service provisioning and routing configuration workflows at a high level. 
 
-![](/media/expressroute-workflows/expressroute-circuit-workflow.png)
+![](./media/expressroute-workflows/expressroute-circuit-workflow.png)
 
 The figure and corresponding steps below show the tasks you must follow in order to have an ExpressRoute circuit provisioned end-to-end. 
 
@@ -37,7 +37,7 @@ The figure and corresponding steps below show the tasks you must follow in order
 	>[AZURE.IMPORTANT] If you are enabling Microsoft peering, ensure that Azure public peering is also enabled to access Azure AD. You must ensure that you use a separate proxy / edge to connect to Microsoft than the one you use for the Internet. Using the same edge for both ExpressRoute and the Internet will cause asymmetric routing and cause connectivity outages for your network.
 
 
-	![](/media/expressroute-workflows/expressroute-routing-workflow.png)
+	![](./media/expressroute-workflows/expressroute-routing-workflow.png)
 
 5. Linking virtual networks to ExpressRoute circuits - You can link virtual networks to your ExpressRoute circuit. Follow instructions [to link VNets](expressroute-howto-linkvnets-classic.md) to your circuit. These VNets can either be in the same Azure subscription as the ExpressRoute circuit, or can be in a different subscription.
 
