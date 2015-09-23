@@ -44,10 +44,10 @@ The figure and corresponding steps below show the tasks you must follow in order
 
 ## ExpressRoute circuit provisioning states
 
-Each ExpressRoute circuit has two states
+Each ExpressRoute circuit has two states:
 
-1. Service provider provisioning state
-2. Status
+- Service provider provisioning state
+- Status
 
 Status represents Microsoft's provisioning state. This property can be in one of the following states: *Enabled*, *Enabling*, or *Disabling*. The ExpressRoute circuit must be in the Enabled state for you to be able to use it.
 
@@ -55,11 +55,11 @@ The connectivity provider provisioning state represents the state on the connect
 
 ### Possible states of an ExpressRoute circuit
 
-This section lists out the possible states an ExpressRoute circuit can be in
+This section lists out the possible states for an ExpressRoute circuit.
 
 #### At creation time
 
-You will see the ExpressRoute in the state described below as soon as you run the PowerShell cmdlet to create the ExpressRoute circuit.
+You will see the ExpressRoute circuit in the state described below as soon as you run the PowerShell cmdlet to create the ExpressRoute circuit.
 
 	ServiceProviderProvisioningState : NotProvisioned
 	Status                           : Enabled
@@ -67,7 +67,7 @@ You will see the ExpressRoute in the state described below as soon as you run th
 
 #### When connectivity provider is in the process of provisioning the circuit
 
-You will see the ExpressRoute in the state described below as soon as you pass the service key to the connectivity provider and they have started the provisioning process.
+You will see the ExpressRoute circuit in the state described below as soon as you pass the service key to the connectivity provider and they have started the provisioning process.
 
 	ServiceProviderProvisioningState : Provisioning
 	Status                           : Enabled
@@ -75,16 +75,16 @@ You will see the ExpressRoute in the state described below as soon as you pass t
 
 #### When connectivity provider has completed the provisioning process
 
-You will see the ExpressRoute in the state described below as soon as the connectivity provider has completed the provisioning process.
+You will see the ExpressRoute circuit in the state described below as soon as the connectivity provider has completed the provisioning process.
 
-	ServiceProviderProvisioningState : Provisioning
+	ServiceProviderProvisioningState : Provisioned
 	Status                           : Enabled
 
-This is the only state the circuit can be in for you to be able to use it. If you are using a Layer 2 provider, you can configure routing for your circuit only when it is in this state.
+Provisioned and Enabled is the only state the circuit can be in for you to be able to use it. If you are using a Layer 2 provider, you can configure routing for your circuit only when it is in this state.
 
 #### If deprovisioning is initiated on the Microsoft side first
 
-You will see the ExpressRoute in the state described below as soon as you run the PowerShell cmdlet to delete the ExpressRoute circuit.
+You will see the ExpressRoute circuit in the state described below as soon as you run the PowerShell cmdlet to delete the ExpressRoute circuit.
 
 	ServiceProviderProvisioningState : Provisioning
 	Status                           : Disabling
