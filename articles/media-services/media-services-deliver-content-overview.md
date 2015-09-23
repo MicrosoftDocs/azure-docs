@@ -74,7 +74,7 @@ To provide users with streaming URLs, you first must create an OnDemandOrigin lo
 Note that you can only stream over SSL if the streaming endpoint from which you deliver your content was created after September 10th, 2014. If your streaming URLs are based on the streaming endpoints created after September 10th, the URL contains “streaming.mediaservices.windows.net” (the new format). Streaming URLs that contain “origin.mediaservices.windows.net” (the old format) do not support SSL. If your URL is in the old format and you want to be able to stream over SSL, create a new streaming endpoint. Use URLs created based on the new streaming endpoint to stream your content over SSL. 
 
 
-##Streaming URL formats:
+##Streaming URL formats
 
 **MPEG DASH format**
 
