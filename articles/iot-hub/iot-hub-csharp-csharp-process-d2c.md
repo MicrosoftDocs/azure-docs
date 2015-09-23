@@ -34,6 +34,12 @@ Since IoT Hub exposes a Event Hubs-compatible endpoint to receive device-to-clou
 
 [Service Bus][Service Bus Queue] is a great way to ensure reliable processing of interactive messages, as it provides per-message checkpoints, and time window-based deduplication.
 
+At the end of this tutorial you will have run three Windows console applications:
+
+* **SimulatedDevice**, a modified version of the app created in [Get started with IoT Hub], which sends *data point* device-to-cloud messages every second, and *interactive* device-to-cloud messages every 10 seconds.
+* **ProcessDeviceToCloudMessages**, which uses [EventProcessorHost] to reliably store *data point* messages in an Azure blob and forwards *interactive* messages to a Service Bus queue, and
+* **ProcessD2cInteractiveMessages**, which dequeues messages from the queue.
+
 In order to complete this tutorial you'll need the following:
 
 + Microsoft Visual Studio 2015,
@@ -62,10 +68,8 @@ Now you are ready to run the applications.
 
 ## Next steps
 
-In this tutorial, you set up a new IoT hub, created a device identity in the hub's identity registry, and used this identity to program a simulated device that sends device-to-cloud messages. You can continue explore IoT hub features and scenario with the following tutorials:
+In this tutorial, you learned how to reliably process *data point* and *interactive* device-to-cloud messages using [EventProcessorHost]. Ananlogous message processing logic can be implemented with 
 
-- [Send Cloud-to-Device messages with IoT Hub], shows how to send messages to devices, and process the delivery feedback produced by IoT Hub.
-- [Process Device-to-Cloud messages], shows how to reliably process telemetry and interactive messages coming from devices.
 - [Uploading files from devices], describes a pattern that makes use of cloud-to-device messages to facilitate file uploads from devices.
 
 Additional information on IoT Hub:
@@ -85,6 +89,7 @@ Additional information on IoT Hub:
 [Azure Data Factory]: https://azure.microsoft.com/en-us/documentation/services/data-factory/
 [Hadoop]: https://azure.microsoft.com/en-us/documentation/services/hdinsight/
 [Service Bus Queue]: https://azure.microsoft.com/en-us/documentation/articles/service-bus-dotnet-how-to-use-queues/
+[EventProcessorHost]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost(v=azure.95).aspx
 
 [Azure Storage]: https://azure.microsoft.com/en-us/documentation/services/storage/
 [Azure Service Bus]: https://azure.microsoft.com/en-us/documentation/services/service-bus/
