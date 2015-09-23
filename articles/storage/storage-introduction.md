@@ -66,7 +66,7 @@ A standard storage account gives you access to Blob storage, Table storage, Queu
 - **Blob storage** stores file data. A blob can be any type of text or binary data, such as a document, media file, or application installer. 
 - **Table storage** stores structured datasets. Table storage is a NoSQL key-attribute data store, which allows for rapid development and fast access to large quantities of data.
 - **Queue storage** provides reliable messaging for workflow processing and for communication between components of cloud services.
-- **File storage** offers shared storage for legacy applications using the standard SMB protocol. Azure virtual machines and cloud services can share file data across application components via mounted shares, and on-premise applications can access file data in a share via the File service REST API. 
+- **File storage** offers shared storage for legacy applications using the standard SMB protocol. Azure virtual machines and cloud services can share file data across application components via mounted shares, and on-premises applications can access file data in a share via the File service REST API. 
 
 Each standard storage account can contain up to 500 TB of combined blob, queue, table, and file data. See the [Azure Storage Scalability and Performance Targets](storage-scalability-targets.md) for details about standard storage account capacity.
 
@@ -123,7 +123,7 @@ Azure File storage offers cloud-based SMB file shares, so that you can migrate l
 
 Since a File storage share is a standard SMB file share, applications running in Azure can access data in the share via file sytem I/O APIs. Developers can therefore leverage their existing code and skills to migrate existing applications. IT Pros can use PowerShell cmdlets to create, mount, and manage File storage shares as part of the administration of Azure applications.
 
-Like the other Azure storage services, File storage exposes a REST API for accessing data in a share. On-premise applications can call the File storage REST API to access data in a file share. This way, an enterprise can choose to migrate some legacy applications to Azure and continue running others from within their own organization. Note that mounting a file share is only possible for applications running in Azure; an on-premise application may only access the file share via the REST API.
+Like the other Azure storage services, File storage exposes a REST API for accessing data in a share. On-premise applications can call the File storage REST API to access data in a file share. This way, an enterprise can choose to migrate some legacy applications to Azure and continue running others from within their own organization. Note that mounting a file share is only possible for applications running in Azure; an on-premises application may only access the file share via the REST API.
 
 Distributed applications can also use File storage to store and share useful application data and development and testing tools. For example, an application may store configuration files and diagnostic data such as logs, metrics, and crash dumps in a File storage share so that they are available to multiple virtual machines or roles. Developers and administrators can store utilities that they need to build or manage an application in a File storage share that is available to all components, rather than installing them on every virtual machine or role instance.
 

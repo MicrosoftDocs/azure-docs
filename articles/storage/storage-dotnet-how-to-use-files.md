@@ -1,6 +1,6 @@
 <properties
 			pageTitle="How to use Azure File storage with PowerShell and .NET | Microsoft Azure"
-            description="Create a file share in the cloud and manage file content. Mount a file share from an Azure VM or from an on-premise application."
+            description="Create a file share in the cloud and manage file content. Mount a file share from an Azure VM or from an on-premises application."
             services="storage"
             documentationCenter=".net"
             authors="tamram"
@@ -23,7 +23,7 @@ Azure File storage offers file shares in the cloud using the standard SMB protoc
 
 You can create Azure file shares using the Azure preview portal, the Azure Storage PowerShell cmdlets, the Azure Storage client libraries, or the Azure Storage REST API. Additionally, because file shares are SMB shares, you can access them via standard and familiar file system APIs. 
 
-Applications running in Azure can easily mount file shares from Azure virtual machines. And with the latest release of File storage, you can also mount a file share from an on-premise application that supports SMB 3.0. 
+Applications running in Azure can easily mount file shares from Azure virtual machines. And with the latest release of File storage, you can also mount a file share from an on-premises application that supports SMB 3.0. 
 
 File storage is built on the same technology as Blob, Table, and Queue storage, so File storage is able to leverage the existing availability, durability, scalability, and geo-redundancy that is built into the Azure storage platform.
 
@@ -39,7 +39,7 @@ This getting started tutorial demonstrates the basics of using Microsoft Azure F
 
 - Use Azure PowerShell to show how to create a new Azure File share, add a directory, upload a local file to the share, and list the files in the directory.
 - Mount the file share from an Azure virtual machine, just as you would mount any SMB share.
-- Use the Azure Storage Client Library for .NET to access the file share from an on-premise application. Create a console application and perform these actions with the file share:
+- Use the Azure Storage Client Library for .NET to access the file share from an on-premises application. Create a console application and perform these actions with the file share:
 	- Write the contents of a file in the share to the console window.
 	- Set the quota (maximum size) for the file share.
 	- Create a shared access signature for a file that uses a shared access policy defined on the share.
@@ -126,7 +126,7 @@ With support for SMB 3.0, File storage now supports encryption and persistent ha
 
 - An Azure virtual machine in the same region (also supported by SMB 2.1)
 - An Azure virtual machine in a different region (SMB 3.0 only)
-- An on-premise client application (SMB 3.0 only) 
+- An on-premises client application (SMB 3.0 only) 
 
 When a client accesses File storage, the SMB version used depends on the SMB version supported by the operating system. The table below provides a summary of support for Windows clients. For more details, refer to << Which version of the SMB protocol blog post>>.
 
@@ -175,11 +175,11 @@ would with any other drive. You can issue standard file commands from the comman
 
 You can also mount the file share from a role running in an Azure cloud service by remoting into the role.
 
-### Mount the file share from an on-premise client running Windows 
+### Mount the file share from an on-premises client running Windows 
 
-To mount the file share from an on-premise client, you must first take these steps:
+To mount the file share from an on-premises client, you must first take these steps:
 
-- Install a version of Windows which supports SMB 3.0. Windows will leverage SMB 3.0 encryption to securely transfer data between your on-premise client and the Azure file share in the cloud. 
+- Install a version of Windows which supports SMB 3.0. Windows will leverage SMB 3.0 encryption to securely transfer data between your on-premises client and the Azure file share in the cloud. 
 - Open Internet access for port 445 (TCP Outbound) in your local network, as is required by the SMB protocol. 
 
 [AZURE.NOTE] Some Internet service providers may block port 445, so you may need to check with your service provider.
@@ -479,9 +479,9 @@ You can enable metrics for File storage from the Azure portal. You can also enab
 
 	Yes. It is free if the traffic is in the same region.
 
-5. **Does connecting from on-premise virtual machines to Azure File Storage depend on Azure ExpressRoute?** 
+5. **Does connecting from on-premises virtual machines to Azure File Storage depend on Azure ExpressRoute?** 
 
-	No. If you don’t have ExpressRoute, you can still access the file share from on-premise as long as you have port 445 (TCP Outbound) open for Internet access. However, you can use ExpressRoute with File storage if you like.
+	No. If you don’t have ExpressRoute, you can still access the file share from on-premises as long as you have port 445 (TCP Outbound) open for Internet access. However, you can use ExpressRoute with File storage if you like.
 
 6. **Is a "File Share Witness" for a failover cluster one of the use cases for Azure File Storage?**
 

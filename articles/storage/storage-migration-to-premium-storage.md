@@ -106,7 +106,7 @@ Below we walk through some scenarios for preparing your VHDs.
 
 #### Generalized Operating System VHD to create multiple VM instances
 
-If you are uploading a VHD that will be used to create multiple generic Azure VM instances, you must first generalize VHD using a sysprep utility. This applies to a VHD that is on-premise or in the cloud. Sysprep removes any machine specific information from the VHD.
+If you are uploading a VHD that will be used to create multiple generic Azure VM instances, you must first generalize VHD using a sysprep utility. This applies to a VHD that is on-premises or in the cloud. Sysprep removes any machine specific information from the VHD.
 
 >[AZURE.IMPORTANT] Take a snapshot or backup your VM before generalizing it. Running sysprep will delete the VM instance. Follow steps below to sysprep a Windows OS VHD. Note that running the Sysprep command will require you to shut down the virtual machine. For more information about Sysprep, see [Sysprep Overview](http://technet.microsoft.com/library/hh825209.aspx) or [Sysprep Technical Reference](http://technet.microsoft.com/library/cc766049(v=ws.10).aspx).
 
@@ -127,7 +127,7 @@ If you have an application running on the VM which requires the machine specific
 
 #### Data disk VHDs to be attached to VM instance(s)
 
-If you have data disks in a cloud storage to be migrated you must make sure the VMs that use these data disks must be shut down. For data disks that are on-premise, create a consistent VHD.
+If you have data disks in a cloud storage to be migrated you must make sure the VMs that use these data disks must be shut down. For data disks that are on-premises, create a consistent VHD.
 
 ## Copy VHDs to Azure Storage
 

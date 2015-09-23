@@ -169,7 +169,7 @@ To delete a blob, use the below command:
 
 ## Create and manage file shares
 
-Azure File storage offers shared storage for applications using the standard SMB protocol. Microsoft Azure virtual machines and cloud services, as well as on-premise applications, can share file data via mounted shares. You can manage file shares and file data via the Azure CLI. For more information on Azure File storage, see [How to use Azure File storage with PowerShell and .NET](storage-dotnet-how-to-use-files).
+Azure File storage offers shared storage for applications using the standard SMB protocol. Microsoft Azure virtual machines and cloud services, as well as on-premises applications, can share file data via mounted shares. You can manage file shares and file data via the Azure CLI. For more information on Azure File storage, see [How to use Azure File storage with PowerShell and .NET](storage-dotnet-how-to-use-files).
 
 ### Create a file share
 
