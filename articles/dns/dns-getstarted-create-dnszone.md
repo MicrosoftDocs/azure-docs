@@ -16,7 +16,7 @@
    ms.date="09/22/2015"
    ms.author="joaoma"/>
 
-# Get started with Azure DNS
+# Get started with Azure DNS using Powershell
 
 
 > [AZURE.SELECTOR]
