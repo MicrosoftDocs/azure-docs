@@ -89,9 +89,7 @@ You will see the ExpressRoute circuit in the state described below as soon as yo
 	ServiceProviderProvisioningState : Provisioning
 	Status                           : Disabling
 
-You must reach out to your connectivity provider to deprovision the ExpressRoute circuit.
-
->[AZURE.IMPORTANT] Microsoft will continue to bill the circuit until your service provider completes the deprovisioning process.
+You must reach out to your connectivity provider to deprovision the ExpressRoute circuit. **Important:** Microsoft will continue to bill the circuit until you run the PowerShell cmdlet to deprovision the circuit.
 
 #### If deprovisioning is initiated on the service provider side
 
@@ -101,9 +99,7 @@ If you requested the service provider to deprovision the ExpressRoute circuit fi
 	ServiceProviderProvisioningState : NotProvisioned
 	Status                           : Enabled
 
-You can choose to re-enable it if needed, or run PowerShell cmdlets to delete the circuit.
-
->[AZURE.IMPORTANT] Microsoft will continue to bill the circuit until you run the PowerShell cmdlet to deprovision the circuit.
+You can choose to re-enable it if needed, or run PowerShell cmdlets to delete the circuit. **Important:** Microsoft will continue to bill the circuit until you run the PowerShell cmdlet to deprovision the circuit.
 
 
 ## Routing session configuration state
