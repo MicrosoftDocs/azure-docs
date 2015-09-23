@@ -1,12 +1,12 @@
 <properties
 	pageTitle="Reset the password or Remote Desktop on a Windows VM | Microsoft Azure"
-	description="Reset the administrator password or Remote Desktop services on a Windows VM created with the classic deployment model."
+	description="Reset the administrator password or Remote Desktop services on a Windows VM created with the Resource Manager deployment model."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="dsk-2015"
 	manager="timlt"
 	editor=""
-	tags="azure-service-management"/>
+	tags="azure-resource-manager"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -19,7 +19,7 @@
 
 # How to reset a password or the Remote Desktop service for Windows virtual machines
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)] This article covers virtual machines created with the classic deployment model.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)] This article covers virtual machines created with the Resource Manager deployment model.
 
 If you can't connect to a Windows virtual machine because of a forgotten password or a problem with the Remote Desktop service configuration, use the Azure preview portal or the VMAccess extension to reset the local administrator password or reset the Remote Desktop service configuration.
 
