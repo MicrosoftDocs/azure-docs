@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="09/11/2015"
+	ms.date="09/21/2015"
 	ms.author="raynew"/>
 
 #  Set up protection between an on-premises VMM site and Azure
@@ -175,7 +175,7 @@ Generate a registration key in the vault. After you download the Azure Site Reco
     	C:\ASR> AzureSiteRecoveryProvider.exe /x:. /q
 >4. Install the provider by executing the following command
 >
-	C:\ASR> setupdr.exe /i
+	`C:\ASR> setupdr.exe /i`
 >5. Register the provider by running the following command
 >
     	CD C:\Program Files\Microsoft System Center 2012 R2\Virtual Machine Manager\bin
