@@ -17,9 +17,9 @@
 
 # What is a Network Security Group (NSG)?
 
-You can use an NSG to control traffic to one or more virtual machine (VM) instances in your virtual network. An NSG contains access control rules that allow or deny traffic based on traffic direction, protocol, source address and port, and destination address and port. The rules of an NSG can be changed at any time, and changes are applied to all associated instances. To use an NSG, you must have a regional VNet. 
+You can use an NSG to control traffic to one or more virtual machine (VM) instances in your virtual network. An NSG contains access control rules that allow or deny traffic based on traffic direction, protocol, source address and port, and destination address and port. The rules of an NSG can be changed at any time, and changes are applied to all associated instances. 
 
->[AZURE.WARNING] NSGs are not compatible with VNets that are associated with an affinity group. If you don’t have a regional VNet and you want to control traffic to your endpoints, please see [What is a Network Access Control List (ACL)?](./virtual-networks-acl.md). You can also [migrate your VNet to a regional VNet](./virtual-networks-migrate-to-regional-vnet.md).
+>[AZURE.WARNING] NSGs can only be used in regional VNets. If you are trying to secure endpoints in a deployment without a VNet, or that uses a VNet associated with an affinity group, please see [What is an endpoint Access Control List (ACL)?](./virtual-networks-acl.md). You can also [migrate your VNet to a regional VNet](./virtual-networks-migrate-to-regional-vnet.md).
 
 ![NSGs](./media/virtual-network-nsg-overview/figure1.png)
 
@@ -161,6 +161,5 @@ Make sure you view all the [limits related to networking services in Azure](../a
 
 ## Next steps
 
-- [Deploy NSGs using PowerShell](virtual-networks-create-nsg-arm-ps.md).
-- [Deploy NSGs using the Azure CLI](virtual-networks-create-nsg-arm-cli.md).
-- [Deploy NSGs using a template](virtual-networks-create-nsg-arm-template.md).  
+- [Deploy NSGs in the classic deployment model](virtual-networks-create-nsg-classic-ps.md).
+- [Deploy NSGs in Resource Manager](virtual-networks-create-nsg-arm-pportal.md).
