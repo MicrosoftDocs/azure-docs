@@ -250,6 +250,9 @@ constant across delivery attempts.
 
 Now that you've learned the basics of Service Bus queues, see [Queues, Topics, and Subscriptions][] for more information.
 
+For more information, see also the [Java Developer Center](/develop/java/).
+
+
   [Azure SDK for Java]: http://azure.microsoft.com/develop/java/
   [Azure Toolkit for Eclipse]: https://msdn.microsoft.com/en-us/library/azure/hh694271.aspx
   [What are Service Bus Queues?]: #what-are-service-bus-queues
