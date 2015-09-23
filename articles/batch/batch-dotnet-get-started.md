@@ -205,14 +205,21 @@ A pool of compute nodes is the first set of resources that you must create when 
 
 2. Add this code to Main that sets up the credentials for making calls to the Azure Batch service:
 
-			BatchSharedKeyCredentials cred = new BatchSharedKeyCredentials("https://[account-name].[region].batch.azure.com", "[account-name]", "[account-key]");
+			BatchSharedKeyCredentials cred = new BatchSharedKeyCredentials("[account-url]", "[account-name]", "[account-key]");
 			BatchClient client = BatchClient.Open(cred);
 
-	Replace these values:
+	Replace the following values with those associated with your Batch account:
 
-	- **[account-name]** with the name of the Batch account that you previously created.
-	- **[region]** with the region where your account is located. See [Azure Regions](http://azure.microsoft.com/regions/) to discover the available regions.
-	- **[account-key]** with the primary key of the Batch account.
+	- **[account-url]** - Your Batch account URL
+	- **[account-name]** - The name of the Batch account that you created previously
+	- **[account-key]** - The primary key of the Batch account
+
+	You can find all of these values in the Batch account blade of the [Azure Preview portal](https://portal.azure.com):
+
+	 - Log in to the [Azure Preview portal](https://portal.azure.com)
+	 - Click **Batch Accounts** > your Batch account (its name is the **[account-name]**)
+	   - **Properties** > **URL**
+	   - **Properties** > **Keys** > **Primary Access Key**
 
 3.	Add this method to the Program class that creates the pool:
 
