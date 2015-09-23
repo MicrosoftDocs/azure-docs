@@ -100,8 +100,8 @@ Download and integrate the SDK library
 
 2. Resolve the references by pressing Alt + Enter or adding the following import statements:
 
-	import com.microsoft.azure.engagement.EngagementAgent;
-	import com.microsoft.azure.engagement.EngagementConfiguration;
+		import com.microsoft.azure.engagement.EngagementAgent;
+		import com.microsoft.azure.engagement.EngagementConfiguration;
 
 3. Go back to the Azure portal in your app's **Connection Info** page and copy the **Connection String**.
 
@@ -136,9 +136,9 @@ Download and integrate the SDK library
 
 In order to start sending data and ensuring that the users are active, you must send at least one screen (Activity) to the Mobile Engagement backend. 
 
-- Go to **MainActivity.java** and add the following to replace the base class of **MainActivity** from **ActionBarActivity** to **EngagementActivity**:
+Go to **MainActivity.java** and add the following to replace the base class of **MainActivity** from **ActionBarActivity** to **EngagementActivity**:
 
-		public class MainActivity extends EngagementActivity {
+	public class MainActivity extends EngagementActivity {
 
 ##<a id="monitor"></a>Connect app with real-time monitoring
 
@@ -302,7 +302,7 @@ We will now create a simple push notification campaign that sends a push notific
 
 5. You're done setting the most basic campaign possible. Now scroll down again and click the **Create** button to save your campaign.
 
-6. Last step: Click **Activate** to activate your campaign to send push notifications.
+6. Last step: click **Activate** to activate your campaign to send push notifications.
     
 	![][24]
 

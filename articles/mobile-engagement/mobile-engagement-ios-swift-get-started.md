@@ -31,7 +31,7 @@ In this tutorial, you create a blank iOS app that collects basic data and receiv
 
 This tutorial requires the following:
 
-+ XCode, which you can install from your MAC App Store
++ XCode 6 or XCode 7, which you can install from your MAC App Store
 + the [Mobile Engagement iOS SDK]
 + Push notification certificate (.p12) that you can obtain on your Apple Dev Center
 
@@ -69,7 +69,7 @@ We will create a basic app with XCode to demonstrate the integration:
 
 	![][3]
 
-6. For **XCode 9** - add `libxml2.tbd` instead of `libxml2.dylib`.
+6. For **XCode 7** - add `libxml2.tbd` instead of `libxml2.dylib`.
 
 7. Create a Bridging header to be able to use the SDK's Objective C APIs by choosing File > New > File > iOS > Source > Header File.
 

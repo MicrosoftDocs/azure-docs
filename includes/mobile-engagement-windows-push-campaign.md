@@ -10,7 +10,7 @@ We will now create a simple push notification campaign that sends a push notific
 
 	![](./media/mobile-engagement-windows-push-campaign/campaign-first-params.png)
 
-	a. Name your campaign.
+	a. Provide a **Name** for your campaign.
 
 	b. Select **Delivery time** as *Any time*.
 

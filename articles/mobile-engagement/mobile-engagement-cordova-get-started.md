@@ -192,17 +192,22 @@ We will now create a simple Push Notification campaign that will send a push to 
 
 3. Provide inputs to create your campaign:
 
-	![][7]
-
-	- 	Provide a name for your campaign. 
-	- 	**[Android]** Select the **Delivery Type** as *System notification* - *Simple*
-	- 	Select the Delivery time as 
-		- 	For **iOS** : *"Out of app only"*
-		- 	For **Android** : *"Any Time"*
-		
-		This is the simple push notification type that features some text.
+	**[Android]**
+	- 	Provide a **Name** for your campaign. 
+	- 	Select the **Delivery Type** as *System notification* - *Simple*
+	- 	Select the Delivery time as *"Any Time"*
 	- 	Provide a **Title** for your notification which will be the first line in the push.
 	- 	Provide a **Message** for your notification which will serve as the message body. 
+
+	![][11]
+
+	**[iOS]**
+	- 	Provide a **Name** for your campaign. 
+	- 	Select the Delivery time as *"Out of app only"*
+	- 	Provide a **Title** for your notification which will be the first line in the push.
+	- 	Provide a **Message** for your notification which will serve as the message body. 
+
+	![][12]
 
 4. Scroll down, and in the content section select **Notification only**
 
@@ -231,6 +236,9 @@ We will now create a simple Push Notification campaign that will send a push to 
 [3]: ./media/mobile-engagement-cordova-get-started/native-push-settings.png
 [4]: ./media/mobile-engagement-cordova-get-started/api-key.png
 [6]: ./media/mobile-engagement-cordova-get-started/new-announcement.png
-[7]: ./media/mobile-engagement-cordova-get-started/campaign-first-params.png
 [8]: ./media/mobile-engagement-cordova-get-started/campaign-content.png
 [10]: ./media/mobile-engagement-cordova-get-started/campaign-activate.png
+
+[11]: ./media/mobile-engagement-cordova-get-started/campaign-first-params-android.png
+[12]: ./media/mobile-engagement-cordova-get-started/campaign-first-params-ios.png
+
