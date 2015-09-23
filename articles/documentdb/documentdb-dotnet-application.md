@@ -495,7 +495,7 @@ Let's add some code to  DocumentDBRepository and ItemController to persist the r
 		}
 	This code calls in to the DocumentDBRepository and uses the CreateItemAsync method to persist the new todo item to the database. 
  
-	**Security Note**: The **ValidateAntiForgeryToken** attribute is used here to help protect this application against cross-site request forgery attacks. There is more to it than just adding this attribute, your views need to work with this anti-forgery token as well. For more on the subject, and examples of how to implement this correctly, please see [Preventing Cross-Site Request Forgery][]. The source code provided on [GitHub][] has the full implementation in place.
+	**Security Note**: The **ValidateAntiForgeryToken** attribute is used here to help protect this application against cross-site request forgery attacks. There is more to it than just adding this attribute, your views need to work with this anti-forgery token as well. For more on the subject, and examples of how to implement this correctly, please see [Preventing Cross-Site Request Forgery][]. The source code provided on [GitHub](https://github.com/Azure-Samples/documentdb-net-todo-app) has the full implementation in place.
 
 	**Security Note**: We also use the **Bind** attribute on the method parameter to help protect against over-posting attacks. For more details please see [Basic CRUD Operations in ASP.NET MVC][].
 
@@ -625,7 +625,6 @@ To add additional functionality to your application, review the APIs available i
 [\*]: https://microsoft.sharepoint.com/teams/DocDB/Shared%20Documents/Documentation/Docs.LatestVersions/PicExportError
 [Visual Studio Express]: http://www.visualstudio.com/products/visual-studio-express-vs.aspx
 [Microsoft Web Platform Installer]: http://www.microsoft.com/web/downloads/platform.aspx
-[GitHub]: http://go.microsoft.com/fwlink/?LinkID=509838&clcid=0x409
 [Preventing Cross-Site Request Forgery]: http://go.microsoft.com/fwlink/?LinkID=517254
 [Basic CRUD Operations in ASP.NET MVC]: http://go.microsoft.com/fwlink/?LinkId=317598
  
