@@ -583,7 +583,7 @@ To test the application on your local machine, do the following:
 
 	![Screen shot of the todo list web application created by this database tutorial](./media/documentdb-dotnet-application/image24.png)
 
-	If you run into errors at this point, you can compare your code against the todo tutorial on [GitHub][].
+	If you run into errors at this point, you can compare your code against the sample project on [GitHub][]
 
 2. Click the **Create New** link and add values to the **Name** and **Description** fields. Leave the **Completed** check box unselected otherwise the new **Item** will be added in a completed state and will not appear on the initial list.
 
