@@ -214,7 +214,7 @@ A pool of compute nodes is the first set of resources that you must create when 
 	- **[account-name]** - The name of the Batch account that you created previously
 	- **[account-key]** - The primary key of the Batch account
 
-	You can find all of these values in the Batch account blade of the [Azure Preview portal](https://portal.azure.com):
+	You can find all of these values within the Batch account blade of the [Azure Preview portal](https://portal.azure.com):
 
 	 - Log in to the [Azure Preview portal](https://portal.azure.com)
 	 - Click **Batch Accounts** > your Batch account (its name is the **[account-name]**)
