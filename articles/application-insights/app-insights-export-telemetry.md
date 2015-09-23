@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/31/2015" 
+	ms.date="09/23/2015" 
 	ms.author="awills"/>
  
 # Export telemetry from Application Insights
@@ -34,7 +34,7 @@ If you don't already have a "classic" storage account, create one now.
 
 2. Create a container
 
-    ![In the new storage, select Containers, click the Containers tile, and then Add](./media//app-insights-export-telemetry/040.png)
+    ![In the new storage, select Containers, click the Containers tile, and then Add](./media/app-insights-export-telemetry/040.png)
 
 ## <a name="setup"></a> Set up Continuous Export
 
