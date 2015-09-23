@@ -66,9 +66,8 @@ These steps will walk you through configuring a virtual network and a gateway fo
 
 ## Next steps
 
-If you want to add virtual machines to your virtual network, see [How to Create a Custom Virtual Machine](../virtual-machines-create-custom.md).
-
-If you want to learn more about ExpressRoute, see [ExpressRoute Technical Overview](expressroute-introduction.md).
+- If you want to add virtual machines to your virtual network, see [How to Create a Custom Virtual Machine](../virtual-machines-create-custom.md).
+- If you want to learn more about ExpressRoute, see [ExpressRoute Technical Overview](expressroute-introduction.md).
 
 
  

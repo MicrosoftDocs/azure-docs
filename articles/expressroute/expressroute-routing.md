@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/21/2015"
+   ms.date="09/22/2015"
    ms.author="cherylmc"/>
 
 
@@ -20,7 +20,7 @@
 
 To connect to Microsoft cloud services using ExpressRoute, you’ll need to setup and manage routing. Some connectivity providers offer setting up and managing routing as a managed service. Check with your connectivity provider to see if they offer such a service. If not, you must adhere to the requirements described below. 
 
-Refer to the [ExpressRoute circuit and routing domains](expressroute-circuit-peerings.md) page for the description of the routing sessions that need to be setup in order to facilitate connectivity.
+Refer to the [circuit and routing domains](expressroute-circuit-peerings.md) article for a description of the routing sessions that need to be setup in order to facilitate connectivity.
 
 **Note:** Microsoft does not support any router redundancy protocols (HSRP, VRRP to name a few) for high availability configurations. We rely on a redundant pair of BGP sessions per peering for high availability.
 
@@ -42,22 +42,24 @@ You can use either private IP addresses or public IP addresses to configure the 
 
 #### Example for private peering
 
-If you choose to use a.b.c.d/29 to setup the peering, it will be split into two /30 subnets. In the example below, we will look at how the a.b.c.d/29 subnet is used. a.b.c.d/29 will be split to a.b.c.d/30 and a.b.c.d+4/30 and passed down to Microsoft through the provisioning APIs. You will use a.b.c.d+1 as the VRF IP for the Primary PE and Microsoft will consume a.b.c.d+2 as the VRF IP for the primary MSEE. You will use a.b.c.d+5 as the VRF IP for the secondary PE and Microsoft will use a.b.c.d+6 as the VRF IP for the secondary MSEE.
+If you choose to use a.b.c.d/29 to setup the peering, it will be split into two /30 subnets. In the example below, we will look at how the a.b.c.d/29 subnet is used. 
 
-Consider the case where you selected 192.168.100.128/29 to setup private peering. 192.168.100.128/29 includes addresses from 192.168.100.128 to 192.168.100.133, among which,
+a.b.c.d/29 will be split to a.b.c.d/30 and a.b.c.d+4/30 and passed down to Microsoft through the provisioning APIs. You will use a.b.c.d+1 as the VRF IP for the Primary PE and Microsoft will consume a.b.c.d+2 as the VRF IP for the primary MSEE. You will use a.b.c.d+5 as the VRF IP for the secondary PE and Microsoft will use a.b.c.d+6 as the VRF IP for the secondary MSEE.
+
+Consider the case where you selected 192.168.100.128/29 to setup private peering. 192.168.100.128/29 includes addresses from 192.168.100.128 to 192.168.100.133, among which:
 
 - 192.168.100.128/30 will be assigned to link1, with provider using 192.168.100.129 and Microsoft using 192.168.100.130.
 - 192.168.100.132/30 will be assigned to link2, with provider using 192.168.100.133 and Microsoft using 192.168.100.134.
 
-### IP addresses for Azure public and Microsoft Peering
+### IP addresses for Azure public and Microsoft peering
 
 You must use public IP addresses that you own for setting up the BGP sessions. Microsoft must be able to verify the ownership of the IP addresses through Routing Internet Registries and Internet Routing Registries. 
 
 - You must use a unique /29 subnet or two /30 subnets to setup the BGP peering for each peering per ExpressRoute circuit (if you have more than one). 
 - If a /29 subnet is used, it will be split into two /30 subnets. 
- -The first /30 subnet will be used for the primary link and the second /30 subnet will be used for the secondary link.
- - For each of the /30 subnets, you must the first IP address of the /30 subnet on your router. Microsoft will use the second IP address of the /30 subnet to setup a BGP session.
- - You must setup both BGP sessions for our [availability SLA](http://azure.microsoft.com/support/legal/sla/) to be valid.
+	- The first /30 subnet will be used for the primary link and the second /30 subnet will be used for the secondary link.
+	- For each of the /30 subnets, you must the first IP address of the /30 subnet on your router. Microsoft will use the second IP address of the /30 subnet to setup a BGP session.
+	- You must setup both BGP sessions for our [availability SLA](http://azure.microsoft.com/support/legal/sla/) to be valid.
 
 Make sure that your IP address and AS number are registered to you in one of the registries listed below.
 
@@ -110,7 +112,7 @@ If you are connecting to Microsoft through ExpressRoute at any one peering locat
 
 For example, if you connected to Microsoft in Amsterdam through ExpressRoute, you will have access to all Microsoft cloud services hosted in North Europe and West Europe. 
 
-Refer to the [ExpressRoute providers and locations](expressroute-locations.md) page for a detailed list of geopolitical regions, associated Azure regions and corresponding ExpressRoute peering locations.
+Refer to the [ExpressRoute partners and peering locations](expressroute-locations.md) page for a detailed list of geopolitical regions, associated Azure regions, and corresponding ExpressRoute peering locations.
 
 You can purchase more than one ExpressRoute circuit per geopolitical region. Having multiple connections offers you significant benefits on high availability due to geo-redundancy. In cases where you have multiple ExpressRoute circuits, you will receive the same set of prefixes advertised from Microsoft on the public peering and Microsoft peering paths. This means you will have multiple paths from their network into Microsoft. This can potentially cause sub-optimal routing decisions to be made within your network. As a result,  you may experience sub-optimal connectivity experiences to different services. 
 
@@ -139,6 +141,7 @@ Microsoft will tag prefixes advertised through public peering and Microsoft peer
 
 All routes advertised from Microsoft will be tagged with the appropriate community value. 
 
+
 In addition to the above, Microsoft will also tag prefixes based on the service they belong to. This applies only to the Microsoft peering. The table below provides a mapping of service to BGP community value.
 
 | **Service** |	**BGP community value** |
@@ -153,12 +156,13 @@ In addition to the above, Microsoft will also tag prefixes based on the service 
 
 ### Manipulating routing preferences
 
-Microsoft does not honor any BGP community values that you set. You are required to setup a pair of BGP sessions per peering to ensure that the requirements for [availability SLA](http://azure.microsoft.com/support/legal/sla/) are met. You can can, however, configure your network to prefer one link over the other by relying on standard BGP route manipulation techniques. You can apply different BGP local preferences to each link to favor one path over the other from your network to Microsoft. You can prepend the as-path on route advertisements to influence traffic flow from Microsoft into your network.
+Microsoft does not honor any BGP community values that you set. You are required to setup a pair of BGP sessions per peering to ensure that the requirements for the [availability SLA](http://azure.microsoft.com/support/legal/sla/) are met. You can can, however, configure your network to prefer one link over the other by relying on standard BGP route manipulation techniques. You can apply different BGP local preferences to each link to favor one path over the other from your network to Microsoft. You can prepend the as-path on route advertisements to influence traffic flow from Microsoft into your network.
 
 ## Next steps
 
- - Configure your ExpressRoute circuit.
-	 - [Creating an ExpressRoute circuit](expressroute-howto-circuit-classic.md)
-	 - [Configuring routing (circuit peerings)](expressroute-howto-routing-classic.md)
+- Configure your ExpressRoute connection.
+	- [Create an ExpressRoute circuit](expressroute-howto-circuit-classic.md)
+	- [Configure routing](expressroute-howto-routing-classic.md)
+	- [Link a VNet to an ExpressRoute circuit](expressroute-howto-linkvnet-classic.md)
 
 
