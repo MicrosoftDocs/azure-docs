@@ -18,10 +18,6 @@
 
 # Get started with test in production for Web Apps
 
-This article introduces you to the test in production feature in Azure App Service Web Apps.
-
-## Test in production (TiP) overview
-
 Test in production, or live-testing your web app using live customer traffic, is a test strategy that large websites increasingly integrate into their [agile development](https://en.wikipedia.org/wiki/Agile_software_development) methodology. It enables you to test the quality of your software with live user traffic in your production environment, as opposed to fake data in a test environment. By exposing your pending updates to real users, you can be informed on the real problems your app may face once it is deployed. You can verify the functionality, performance, and value of your app updates against the volume, velocity, and variety of live user traffic, which you can never approximate in a test environment.
 
 ## TiP and Traffic Routing in App Service Web Apps
