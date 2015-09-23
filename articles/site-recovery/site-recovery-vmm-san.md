@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/05/2015" 
+	ms.date="09/21/2015" 
 	ms.author="raynew"/>
 
 # Set up protection between on-premises VMM sites with SAN
@@ -198,48 +198,83 @@ Check the status bar to confirm that the vault was successfully created. The vau
 
 	![Registration key](./media/site-recovery-vmm-san/SRSAN_QuickStartRegKey.png)
 
-3. In **Prepare VMM servers**, click **Generate registration key** file. The key is valid for 5 days after it's generated. If you're not running the console on the VMM server you want to protect, download the file to a safe location that the VMM servers can access. For example to a share. Note that:
+4. On the *Quick Start* page, in **Prepare VMM servers**, click *Download Microsoft Azure Site Recovery Provider for installation on VMM servers* to obtain the latest version of the Provider installation file.
 
-- If you’re installing the Provider for the first time, install it on an active node in the cluster and finish the installation to register the VMM server in the Azure Site Recovery vault. Then install the Provider on other nodes in the cluster.
-- If you’re upgrading the Provider version, run the Provider installation on all nodes in the cluster.
+2. Run this file on the source VMM server. If VMM is deployed in a cluster and you're installing the Provider for the first time install it on an active node and finish the installation to register the VMM server in the vault. Then install the Provider on the other nodes. Note that if you're upgrading the Provider you'll need to upgrade on all nodes because they should all be running the same Provider version.
 
-4. Click **Download Microsoft Azure Site Recovery Provider for installation on VMM servers** to obtain the latest version of the Provider installation file.
-5. Run this file on the source and target VMM servers to open the Azure Site Recovery Provider Setup wizard.
-6. On the **Pre-requirements Check** page select to stop the VMM service to begin Provider setup. The service stops and will restart automatically when setup finishes. If you’re installing on a VMM cluster you’ll need to stop the Cluster role.
 
-	![Prerequisites](./media/site-recovery-vmm-san/SRSAN_ProviderPrereq.png)
+3. The Installer does a few **Pre-requirements Check** and requests permission to stop the VMM service to begin Provider setup. The VMM Service will be restarted automatically when setup finishes. If you're installing on a VMM cluster you'll be prompted to stop the Cluster role.
 
-5. In **Microsoft Update** you can opt in for updates. With this setting enabled Provider updates will be installed according to your Microsoft Update policy.
+4. In **Microsoft Update** you can opt in for updates. With this setting enabled Provider updates will be installed according to your Microsoft Update policy.
 
-After the Provider is installed continue setup to register the server in the vault.
+	![Microsoft Updates](./media/site-recovery-vmm-san/VMMASRInstallMUScreen.png)
 
-6. On the Internet Connection page specify how the Provider running on the VMM server connects to the Internet. You can select not to use a proxy, to use the default proxy configured on the VMM server, or to use a custom proxy server. Note that:
 
-	- If you want to use a custom proxy server set it up before you install the Provider.
-	- Following urls should be accessible from the VMM Server
+1.  The install location is set to **<SystemDrive>\Program Files\Microsoft System Center 2012 R2\Virtual Machine Manager\bin**. Click on the Install button to start installing the Provider.	
+	![InstallLocation](./media/site-recovery-vmm-san/VMMASRInstallLocationScreen.png)
+
+
+
+1. After the Provider is installed click 'Register' button to register the server in the vault.
+	![InstallComplete](./media/site-recovery-vmm-san/VMMASRInstallComplete.png)
+
+5. In **Internet Connection** specify how the Provider running on the VMM server connects to the Internet. Select *Use default system proxy settings* to use the default Internet connection settings configured on the server.
+
+	![Internet Settings](./media/site-recovery-vmm-san/VMMASRRegisterProxyDetailsScreen.png)
+	- If you want to use a custom proxy you should set it up before you install the Provider. When you configure custom proxy settings a test will run to check the proxy connection.
+	- If you do use a custom proxy, or your default proxy requires authentication you'll need to enter the proxy details, including the proxy address and port.
+	- Following urls should be accessible from the VMM Server and the Hyper-v hosts
 		- *.hypervrecoverymanager.windowsazure.com
 		- *.accesscontrol.windows.net
 		- *.backup.windowsazure.com
-		- *.blob.core.windows.net 
-		- *.store.core.windows.net 
-	- Allow the IP addresses described in [Azure Datacenter IP Ranges](http://go.microsoft.com/fwlink/?LinkId=511094) and HTTPS (443) protocol. You would have to white-list IP ranges of the Azure region that you plan to use and that of West US. 
-	
-	- If you choose to use a custom proxy a VMM RunAs account (DRAProxyAccount) will be created automatically using the specified proxy credentials. Configure the proxy server so that this account can authenticate successfully.
-	- The VMM RunAs account settings can be modified in the VMM console. To do this, open the Settings workspace, expand Security, click Run As Accounts, and then modify the password for DRAProxyAccount. You’ll need to restart the VMM service so that this setting takes effect.
-	- A test will run to verify the Internet connection. Any proxy errors are displayed in the VMM console.
+		- *.blob.core.windows.net
+		- *.store.core.windows.net
+	- Allow the IP addresses described in [Azure Datacenter IP Ranges](http://go.microsoft.com/fwlink/?LinkId=511094) and HTTPS (443) protocol. You would have to white-list IP ranges of the Azure region that you plan to use and that of West US.
 
-	![Internet Settings](./media/site-recovery-vmm-san/SRSAN_ProviderProxy.png)
+	- If you use a custom proxy a VMM RunAs account (DRAProxyAccount) will be created automatically using the specified proxy credentials. Configure the proxy server so that this account can authenticate successfully. The VMM RunAs account settings can be modified in the VMM console. To do this, open the Settings workspace, expand Security, click Run As Accounts, and then modify the password for DRAProxyAccount. You’ll need to restart the VMM service so that this setting takes effect.
 
-7. In **Registration Key**, select that you downloaded from Azure Site Recovery and copied to the VMM server.
-8. In **Server name**, specify a friendly name to identify the VMM server in the vault.
+6. In **Registration Key**, select that you downloaded from Azure Site Recovery and copied to the VMM server.
+7. In **Vault name**, verify the name of the vault in which the server will be registered. Click *Next*.
 
-	![Server registration](./media/site-recovery-vmm-san/SRSAN_ProviderRegKeyServerName.png)
 
-9. In **Initial cloud metadata** sync select whether you want to synchronize metadata for all clouds on the VMM server with the vault. This action only needs to happen once on each server. If you don't want to synchronize all clouds, you can leave this setting unchecked and synchronize each cloud individually in the cloud properties in the VMM console. The **Data Encryption** option isn’t relevant in this scenario. 
+	![Server registration](./media/site-recovery-vmm-san/VMMASRRegisterVaultCreds.png)
 
-	![Server registration](./media/site-recovery-vmm-san/SRSAN_ProviderSyncEncrypt.png)
+9. This setting is used only for VMM to Azure Scenario, if you are a VMM to VMM only user then you can ignore this screen.
 
-11. On the next page click **Register** to complete the process. After registration metadata from the VMM server is retrieved by Azure Site Recovery. The server is displayed on the <b>Resources</b> tab on the **Servers** page in the vault. After installation you modify Provider settings in the VMM console.	
+	![Server registration](./media/site-recovery-vmm-san/VMMASRRegisterEncryptionScreen.png)
+
+8. In **Server name**, specify a friendly name to identify the VMM server in the vault. In a cluster configuration specify the VMM cluster role name.
+
+8. In **Initial cloud metadata** sync select whether you want to synchronize metadata for all clouds on the VMM server with the vault. This action only needs to happen once on each server. If you don't want to synchronize all clouds, you can leave this setting unchecked and synchronize each cloud individually in the cloud properties in the VMM console.
+	![Server registration](./media/site-recovery-vmm-san/VMMASRRegisterFriendlyName.png)
+
+
+8. Click *Next* to complete the process. After registration, metadata from the VMM server is retrieved by Azure Site Recovery. The server is displayed on the  *VMM Servers* tab on the **Servers** page in the vault.
+
+>[AZURE.NOTE] The Azure Site Recovery Provider can also be installed using the following command line. This method can be used to install the provider one a Server CORE for Windows Server 2012 R2
+>
+>1. Download the Provider installation file and registration key to a folder say C:\ASR
+>2. Stop the System Center Virtual Machine Manager Service
+>3. Extract the Provider installer by executing the below commands from a command prompt with **Administrator** privileges 
+>
+    	C:\Windows\System32> CD C:\ASR
+    	C:\ASR> AzureSiteRecoveryProvider.exe /x:. /q
+>4. Install the provider by executing the following command
+>
+		C:\ASR> setupdr.exe /i
+>5. Register the provider by running the following command
+>
+    	CD C:\Program Files\Microsoft System Center 2012 R2\Virtual Machine Manager\bin
+    	C:\Program Files\Microsoft System Center 2012 R2\Virtual Machine Manager\bin\> DRConfigurator.exe /r  /Friendlyname <friendly name of the server> /Credentials <path of the credentials file> /EncryptionEnabled <full file name to save the encryption certificate>         
+ ####Command line Install Parameter List####
+>
+ - **/Credentials** : Mandatory parameter that specifies the location in which the registration key file is located  
+ - **/FriendlyName** : Mandatory parameter for the name of the Hyper-V host server that appears in the Azure Site Recovery portal.
+ - **/EncryptionEnabled** : Optional Parameter that you need to use only in the VMM to Azure Scenario if you need encryption of your virtual machines at at rest in Azure. Please ensure that the name of the file you provide has a **.pfx** extension.
+ - **/proxyAddress** : Optional parameter that specifies the address of the proxy server.
+ - **/proxyport** : Optional parameter that specifies the port of the proxy server.
+ - **/proxyUsername** : Optional parameter that specifies the Proxy user name (if proxy requires authentication).
+ - **/proxyPassword** :Optional parameter that specifies the Password for authenticating with the proxy server (if proxy requires authentication). 
 
 
 ## Step 4: Map storage arrays and pools
