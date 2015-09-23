@@ -1,5 +1,5 @@
 <properties
-   pageTitle="QoS Requirements for ExpressRoute adoption | Microsoft Azure"
+   pageTitle="QoS Requirements for ExpressRoute | Microsoft Azure"
    description="This page provides detailed requirements for configuring and managing QoS for ExpressRoute circuits."
    documentationCenter="na"
    services="expressroute"
@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/21/2015"
+   ms.date="09/22/2015"
    ms.author="cherylmc"/>
 
 # ExpressRoute QoS requirements
@@ -43,7 +43,7 @@ The following table provides a list of DSCP markings used by Skype for Business.
 
 ## Next steps
 
-- Refer to [routing](expressroute-routing.md) and [NAT](expressroute-nat.md) requirements.
+- Refer to the requirements for [Routing](expressroute-routing.md) and [NAT](expressroute-nat.md).
 - Configure your ExpressRoute connection.
 	- [Create an ExpressRoute circuit](expressroute-howto-circuit-classic.md)
 	- [Configure routing](expressroute-howto-routing-classic.md)
