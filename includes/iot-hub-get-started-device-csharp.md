@@ -66,7 +66,7 @@ In this section, you'll write a Windows console app that simulates a device send
 
 <!-- Links -->
 
-[Azure IoT - Device SDK NuGet package]: http://toadd
+[Azure IoT - Device SDK NuGet package]: https://www.nuget.org/packages/Microsoft.Azure.Devices.Client/
 [Transient Fault Handling]: https://msdn.microsoft.com/en-us/library/hh680901(v=pandp.50).aspx
 
 <!-- Images -->
