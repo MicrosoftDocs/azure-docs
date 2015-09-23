@@ -23,8 +23,13 @@
 ## <a name="nextsteps"></a>Next steps
 You've seen how to create and deploy a web app from the gallery. To learn more about how to create, configure, deploy, and scale Azure web apps, check out these resources:
 
+For more information, see also the [PHP Developer Center](/develop/php/).
+
+
 - [Create a PHP-MySQL Azure web app and deploy using Git](/en-us/develop/php/tutorials/website-w-mysql-and-git/)
 - [Create additional types of applications using PHP and Azure](/en-us/develop/php/tutorials/)
+
+
 
 ## What's changed
 * For a guide to the change from Websites to App Service, see [Azure App Service and its impact on existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714).
