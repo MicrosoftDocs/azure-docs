@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/08/2015" 
+	ms.date="09/17/2015" 
 	ms.author="awills"/>
  
 # Diagnosing issues with dependencies in Application Insights
@@ -48,7 +48,7 @@ Install the appropriate agent for the host server.
 Platform | Install
 ---|---
 IIS Server | [Status Monitor](app-insights-monitor-performance-live-website-now.md)
-Azure Web App | [Application Insights Extension](../insights-perf-analytics.md)
+Azure Web App | [Application Insights Extension](../azure-portal/insights-perf-analytics.md)
 Java web server | [Java web apps](app-insights-java-agent.md)
 
 The Status Monitor for IIS Servers doesn't need you to rebuild your source project with the Application Insights SDK. 
