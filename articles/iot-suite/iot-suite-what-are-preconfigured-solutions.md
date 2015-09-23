@@ -3,7 +3,7 @@
  description="A description of the Azure IoT preconfigured solutions and their architecture with links to additional resources."
  services="azure-iot"
  documentationCenter=".net"
- authors="araguila"
+ authors="aguilaaj"
  manager="kevinmil"
  editor=""/>
 
