@@ -27,7 +27,7 @@ This getting started tutorial demonstrates the basics of using Microsoft Azure F
 
 - Use Azure PowerShell to show how to create a new Azure File share, add a directory, upload a local file to the share, and list the files in the directory.
 - Mount the file share from an Azure virtual machine, just as you would mount any SMB share.
-- Use the Azure Storage Client Library for .NET to access the file share from an on-premise application. Create a console application and perform these actions with the file share:
+- Use the Azure Storage Client Library for .NET to access the file share from an on-premises application. Create a console application and perform these actions with the file share:
 	- Write the contents of a file in the share to the console window.
 	- Set the quota (maximum size) for the file share.
 	- Create a shared access signature for a file that uses a shared access policy defined on the share.
