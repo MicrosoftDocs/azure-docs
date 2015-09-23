@@ -23,7 +23,7 @@ These Azure and IoT articles focus on two collections of resources that can help
 - Azure IoT Hub
 - Azure IoT device SDKs
 
-You may also be interested in [Azure IoT Suite][lnk-iot-suite] which enables you to simplify the billing for the various Azure services your IoT solution uses and access a collection of preconfigured solutions to get started quickly with common IoT scenarios.
+You may also be interested in [Azure IoT Suite][lnk-iot-suite], an enterprise-grade solution that allows you to get started quickly through a set of extensible preconfigured solutions that address common IoT scenarios, such as remote monitoring, asset management and predictive maintenance.
 
 ### Azure IoT Hub
 IoT Hub is an Azure service that enables you to receive device-to-cloud data at scale from your devices and route that data to a stream event processor. IoT Hub can also send cloud-to-device commands to specific devices using device specific queues.

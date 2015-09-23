@@ -1,21 +1,16 @@
 # Microsoft Azure and the Internet of Things (IoT)
-A typical IoT solution requires secure, bidirectional communication between devices, possibly numbering in the millions, and an application back end.
-Microsoft provides you with a set of libraries (that support multiple languages and hardware platforms) that you can use to develop client applications to run on an IoT device. To implement your IoT back end application, you can combine multiple Azure services. To better understand how Azure enables this IoT infrastructure, it's useful to consider the Microsoft IoT reference architecture.
+A typical IoT solution requires secure, bidirectional communication between devices, possibly numbering in the millions, and an application back end. Examples of application backend functionality might include processing device-to-cloud events to uncover insights or using [Azure Machine Learning][lnk-machinelearning] for predictive analytics.
+Microsoft provides you with a set of libraries (that support multiple languages and hardware platforms) that you can use to develop client applications to run on an IoT device. To implement your IoT back end application, you can combine multiple Azure services or use one of the preconfigured solutions available through Microsoft IoT Suite. To better understand how Azure enables this IoT infrastructure, it's useful to consider the Microsoft IoT reference architecture.
 
 ## Microsoft IoT Reference Architecture
-You can watch the following video for an in-depth discussion of the Microsoft IoT reference architecture:
-
-> [AZURE.VIDEO microsoft-ignite-2015-the-microsoft-architecture-for-the-internet-of-things-iot]
-
 The diagram below is a summary of the Microsoft IoT reference architecture described in the video. Notice that it does not include the names of any specific Azure services, but describes the key elements in a generic IoT solution architecture. The following sections provide you with more information about the elements in this architecture.
 
 ![IoT Reference Architecture][img-reference-architecture]
-[_TBD_ - redraw this diagram with agreed terminology]
 
 ### Devices and data sources
 In a typical IoT scenario, devices send device-to-cloud telemetry data such as temperature readings to a cloud end-point for storage and processing. Devices can also receive and respond to cloud-to-device commands by reading messages from a cloud endpoint. For example, a device might retrieve a command that instructs it to change the frequency at which it samples data.
 
-A device or data source in an IoT solution can range from a simple network-connected sensor to a powerful, standalone computing device. A device may have limited processing capability, memory, communication bandwidth, and communication protocol support.
+A device or data source in an IoT solution can range from a simple network-connected sensor to a powerful, standalone, computing device. A device may have limited processing capability, memory, communication bandwidth, and communication protocol support.
 
 ### Data transport
 A device may communicate directly with an end-point in a cloud gateway, or through some intermediary such as a field gateway that provides a service such as protocol translation. Typical communication protocols include AMQP and HTTP.
@@ -28,4 +23,10 @@ Some IoT solutions include automatic feedback loops. For example, a machine lear
 ### Presentation
 Many IoT solutions enable users to view and analyze the data collected from their devices. These visualizations may take the form of dashboards or BI reports.
 
+You can watch the following video for an in-depth discussion of the Microsoft IoT reference architecture:
+
+> [AZURE.VIDEO microsoft-ignite-2015-the-microsoft-architecture-for-the-internet-of-things-iot]
+
 [img-reference-architecture]: media/iot-azure-and-iot/iot-reference-architecture.png
+
+[lnk-machinelearning]: http://azure.microsoft.com/en-us/services/machine-learning/

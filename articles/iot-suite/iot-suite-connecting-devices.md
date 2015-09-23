@@ -9,12 +9,12 @@
 
 <tags
    ms.service="required"
-   ms.devlang="may be required"
+   ms.devlang="na"
    ms.topic="article"
-   ms.tgt_pltfrm="may be required"
+   ms.tgt_pltfrm="na"
    ms.workload="required"
-   ms.date="mm/dd/yyyy"
-   ms.author="hegate;semicolon separates two or more"/>
+   ms.date="09/22/2015"
+   ms.author="hegate"/>
 
 
 # Connecting your device to an Azure IoT Suite Remote Monitoring solution
