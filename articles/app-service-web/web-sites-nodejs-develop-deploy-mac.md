@@ -18,6 +18,14 @@
 
 # Build and deploy a Node.js web app in Azure App Service
 
+> [AZURE.SELECTOR]
+- [.Net](web-sites-dotnet-get-started.md)
+- [Node.js](web-sites-nodejs-develop-deploy-mac.md)
+- [Java](web-sites-java-get-started.md)
+- [PHP - Git](web-sites-php-mysql-deploy-use-git.md)
+- [PHP - FTP](web-sites-php-mysql-deploy-use-ftp.md)
+- [Python](web-sites-python-ptvs-django-mysql.md)
+
 This tutorial shows you how to create a [Node] [nodejs.org] application and deploy it to the [Web Apps feature in Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) by using [Git]. The instructions in this tutorial can be followed on any operating system that is capable of running Node.
 
 A screenshot of the completed application is below:
@@ -168,6 +176,7 @@ If you encounter problems with your application after it has been deployed to Az
 
 * [Azure PowerShell](../install-configure-powershell.md)
 * [Azure Command-Line Interface](../xplat-cli.md)
+* [Node.js Developer Center](/develop/nodejs/)
 
 ## What's changed
 * For a guide to the change from Websites to App Service, see [Azure App Service and existing Azure services](http://go.microsoft.com/fwlink/?LinkId=529714).

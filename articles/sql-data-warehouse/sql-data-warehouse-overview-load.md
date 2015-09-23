@@ -13,19 +13,19 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/21/2015"
+   ms.date="09/22/2015"
    ms.author="lodipalm;barbkess"/>
 
 # Load data into SQL Data Warehouse
 SQL Data Warehouse presents numerous options for loading data including:
 
+- PolyBase
 - Azure Data Factory
 - BCP command-line utility
-- PolyBase
 - SQL Server Integration Services (SSIS)
 - 3rd party data loading tools
 
-While all of the above methods can be used with SQL Data Warehouse.  Many of our users are looking at initial loads in the 100s of Gigabytes to the 10s of Terabytes.  In the below sections, we provide some guidance on initial data loading.  
+While all of the above methods can be used with SQL Data Warehouse, PolyBase's ability to transparently parallelize loads from Azure Blob Storage will make it the fastest tool for loading data.  Check out more about how to [load with PolyBase][].  In addition, as many of our users are looking at initial loads in the 100s of Gigabytes to the 10s of Terabytes from on-premise sources, in the below sections we provide some guidance on initial data loading.  
 
 ## Initial Loading into SQL Data Warehouse from SQL Server 
 When loading into SQL Data Warehouse from an on-premise SQL Server instance, we recommend the following steps:

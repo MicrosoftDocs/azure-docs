@@ -1,12 +1,12 @@
 <properties
  pageTitle="About the A8, A9, A10, and A11 instances | Microsoft Azure"
- description="Get background information and considerations for using the Azure A8, A9, A10, and A11 compute-intensive instances."
+ description="Get background information and considerations for using the Azure A8, A9, A10, and A11 compute-intensive sizes for virtual machines and cloud services."
  services="virtual-machines, cloud-services"
  documentationCenter=""
  authors="dlepow"
  manager="timlt"
  editor=""
- tags="azure-resource-manager, azure-service-management"/>
+ tags="azure-resource-manager,azure-service-management"/>
 <tags
 ms.service="virtual-machines"
  ms.devlang="na"
@@ -17,6 +17,8 @@ ms.service="virtual-machines"
  ms.author="danlep"/>
 
 # About the A8, A9, A10, and A11 compute-intensive instances
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)] This article applies to creating a resource with the Resource Manager deployment model or the classic deployment model.
 
 This article provides background information and considerations for using the Azure A8, A9, A10, and A11 instances, also known as *compute-intensive* instances. Key features of these instances include:
 

@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/18/2015"
+   ms.date="09/22/2015"
    ms.author="JRJ@BigBangData.co.uk;barbkess"/>
 
 # Get started: Connect to Azure SQL Data Warehouse
@@ -143,13 +143,13 @@ To connect to a specific instance of SQL Data Warehouse when using sqlcmd you wi
 Therefore, to connect to a SQL Data Warehouse instance, you would enter the following:
 
 ```
-C:\>sqlcmd -U <User>@<Server Name>.database.windows.net -P <Password> -S <Server Name>.database.windows.net -d <Database> -I
+C:\>sqlcmd -S <Server Name>.database.windows.net -d <Database> -U <User> -P <Password> -I
 ```
 
 After connection, you can issue any supported Transact-SQL statements against the instance. For example, the following statement leverages the [CREATE TABLE](https://msdn.microsoft.com/library/azure/dn268335.aspx) statement to create a new table.
 
 ```
-C:\>sqlcmd -U <User>@<Server Name>.database.windows.net -P <Password> -S <Server Name>.database.windows.net -d <Database> -I
+C:\>sqlcmd -S <Server Name>.database.windows.net -d <Database> -U <User> -P <Password> -I
 1> CREATE TABLE table1 (Col1 int, Col2 varchar(20));
 2> GO
 3> QUIT
