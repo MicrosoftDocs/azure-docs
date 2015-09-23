@@ -621,37 +621,6 @@ Congratulations! You just built your first ASP.NET MVC application using Azure D
 
 To add additional functionality to your application, review the APIs available in the [Document DB .NET Library](http://msdn.microsoft.com/library/azure/dn783362.aspx) and feel free to contribute to the DocumentDB .NET Library on [GitHub][]. 
 
-##<a id="GetProject"></a>Get the solution from GitHub
-
-If you're looking to save time and just want to build the complete todo solution, and not  add the code yourself, you're in luck. The complete solution is available on GitHub and you can build it and deploy it in a few minutes using the following instructions.
-
-1. Ensure you have the [prerequisite software](#_Toc395637760) installed, which includes Visual Studio and Azure SDK for .NET version 2.3 or higher.
-
-2. Clone the azure-documentdb-net repository using Git for Windows ([http://www.git-scm.com/](http://www.git-scm.com/)), or download the zip file from [GitHub](https://github.com/Azure/azure-documentdb-net/).
-
-2. From Visual Studio, open the todo.sln file from the azure-documentdb-net/tutorials/todo directory.
-
-3. To restore the references to the DocumentDB .NET SDK in Visual Studio 2013, right-click the todo solution in **Solution Explorer**, and then click **Enable NuGet Package Restore**, which will restore the references. 
-
-4. Retrieve the **URI** and **PRIMARY KEY** or **SECONDARY KEY** values from the **Keys** blade of your DocumentDB account in the [Azure Preview portal](https://portal.azure.com/). 
-
-	
-	If you don't have an account, see [Create a database account](documentdb-create-account.md) to set one up.
-
-	![Screen shot of the Azure Preview portal, showing a DocumentDB account, with the ACTIVE hub highlighted, the Keys button highlighted on the DocumentDB account blade, and the URI, PRIMARY KEY and SECONDARY KEY values highlighted on the Keys blade](media/documentdb-dotnet-application/keys.png)
-
-5. In the Web.config file, update the default values for the **endpoint** and **authKey** keys.
-
-    	<add key="endpoint" value="~enter URI for your DocumentDB Account, from Azure Preview portal~" /> 
-		<add key="authKey" value="~enter either Primary or Secondary key for your DocumentDB Account, from Azure Preview portal~" /> 
-
-	- Copy the **URI** value from the Keys blade and paste it into the **endpoint** property value. 
-	- Copy the **PRIMARY KEY** or **SECONDARY KEY** value from the **Keys** blade and paste it into the **authKey** property value.
-	
-
-
-7. You can now [run your application locally](#_Toc395637773) and then [deploy it to Azure Websites](#_Toc395637774).
-
 
 [\*]: https://microsoft.sharepoint.com/teams/DocDB/Shared%20Documents/Documentation/Docs.LatestVersions/PicExportError
 [Visual Studio Express]: http://www.visualstudio.com/products/visual-studio-express-vs.aspx
