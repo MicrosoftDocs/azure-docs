@@ -26,7 +26,7 @@ To highlight how you can efficiently leverage Azure DocumentDB to store and quer
 
 This walk-through shows you how to use the DocumentDB service provided by Azure to store and access data from an ASP.NET MVC web application hosted on Azure.
 
-> [AZURE.TIP] This tutorial assumes that you have prior experience using ASP.NET MVC and Azure Websites. If you are new to ASP.NET or the [prerequisite tools](#_Toc395637760), we recommend downloading the complete [todo](https://github.com/Azure-Samples/documentdb-net-todo-app) sample project and following the instructions in this sample. Once you have it built, you can review this article to gain insight on the code in the context of the project.
+> [AZURE.TIP] This tutorial assumes that you have prior experience using ASP.NET MVC and Azure Websites. If you are new to ASP.NET or the [prerequisite tools](#_Toc395637760), we recommend downloading the complete sample project from [GitHub][] and following the instructions in this sample. Once you have it built, you can review this article to gain insight on the code in the context of the project.
 
 ## <a name="_Toc395637760"></a>Prerequisites for this database tutorial
 
@@ -495,7 +495,7 @@ Let's add some code to  DocumentDBRepository and ItemController to persist the r
 		}
 	This code calls in to the DocumentDBRepository and uses the CreateItemAsync method to persist the new todo item to the database. 
  
-	**Security Note**: The **ValidateAntiForgeryToken** attribute is used here to help protect this application against cross-site request forgery attacks. There is more to it than just adding this attribute, your views need to work with this anti-forgery token as well. For more on the subject, and examples of how to implement this correctly, please see [Preventing Cross-Site Request Forgery][]. The source code provided on [GitHub](https://github.com/Azure-Samples/documentdb-net-todo-app) has the full implementation in place.
+	**Security Note**: The **ValidateAntiForgeryToken** attribute is used here to help protect this application against cross-site request forgery attacks. There is more to it than just adding this attribute, your views need to work with this anti-forgery token as well. For more on the subject, and examples of how to implement this correctly, please see [Preventing Cross-Site Request Forgery][]. The source code provided on [GitHub][] has the full implementation in place.
 
 	**Security Note**: We also use the **Bind** attribute on the method parameter to help protect against over-posting attacks. For more details please see [Basic CRUD Operations in ASP.NET MVC][].
 
@@ -627,4 +627,4 @@ To add additional functionality to your application, review the APIs available i
 [Microsoft Web Platform Installer]: http://www.microsoft.com/web/downloads/platform.aspx
 [Preventing Cross-Site Request Forgery]: http://go.microsoft.com/fwlink/?LinkID=517254
 [Basic CRUD Operations in ASP.NET MVC]: http://go.microsoft.com/fwlink/?LinkId=317598
- 
+[GitHub]: https://github.com/Azure-Samples/documentdb-net-todo-app
