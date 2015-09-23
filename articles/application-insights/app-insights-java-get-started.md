@@ -271,7 +271,7 @@ Unhandled exceptions are automatically collected:
 
 To collect data on other exceptions, you have two options:
 
-* [Insert calls to TrackException in your code][apiexceptions]. 
+* [Insert calls to trackException() in your code][apiexceptions]. 
 * [Install the Java Agent on your server](app-insights-java-agent.md). You specify the methods you want to watch.
 
 
