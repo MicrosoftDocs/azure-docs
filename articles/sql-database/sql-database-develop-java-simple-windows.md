@@ -61,6 +61,10 @@ Could this instead be a #tempPerson table, so that the Java code sample could be
 The code sample creates a `Connection` object by using a connection string. You can find the connection string by using the [Azure preview portal](http://portal.azure.com/). For details about finding the connection string, see [Create your first Azure SQL Database](sql-database-get-started.md).
 
 
+> [AZURE.NOTE] JTDS JDBC driver
+> If you are using the JTDS JDBC driver, then you will need to add "ssl=require" to the URL of the connection string and you need to set the following option for the JVM "-Djsse.enableCBCProtection=false". This JVM option disables a fix for a security vulnerability, so make sure you understand what risk is involved before setting this option. 
+
+
 ## Java code sample
 
 

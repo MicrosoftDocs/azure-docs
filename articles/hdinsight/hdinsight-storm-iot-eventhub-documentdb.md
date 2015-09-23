@@ -13,7 +13,7 @@ ms.devlang="java"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="big-data"
-ms.date="07/06/2015"
+ms.date="09/23/2015"
 ms.author="larryfr"/>
 
 #Process vehicle sensor data from Azure Event Hubs using Apache Storm on HDInsight
