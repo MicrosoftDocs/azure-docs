@@ -208,7 +208,7 @@ For this example, we need 7 types of rules, these rule types are described as fo
 ### Rule Prerequisites
 One prerequisite for the Virtual Machine running the firewall are public endpoints. For the firewall to process traffic the appropriate public endpoints must be open. There are three types of traffic in this example; 1) Management traffic to control the firewall and firewall rules, 2) RDP traffic to control the windows servers, and 3) Application Traffic. These are the three columns of traffic types in the upper half of logical view of the firewall rules above.
 
->[AZURE.IMPORTANT] A key takeway here is to remember that **all** traffic will come through the firewall. So to remote desktop to the IIS01 server, even though it's in the Front End Cloud Service and on the Front End subnet, to access this server we will need to RDP to the firewall on port 8014, and then allow the firewall to route the RDP request internally to the IIS01 RDP Port. The Azure portal's "Connect" button won't work becuase there is no direct RDP path to IIS01 (as far as the portal can see).
+>[AZURE.IMPORTANT] A key takeway here is to remember that **all** traffic will come through the firewall. So to remote desktop to the IIS01 server, even though it's in the Front End Cloud Service and on the Front End subnet, to access this server we will need to RDP to the firewall on port 8014, and then allow the firewall to route the RDP request internally to the IIS01 RDP Port. The Azure portal's "Connect" button won't work because there is no direct RDP path to IIS01 (as far as the portal can see). This means all connections from the internet will be to the Security Service and a Port, e.g. secscv001.cloudapp.net:xxxx (reference the above diagram for the mapping of External Port and Internal IP and Port).
 
 An endpoint can be opened either at the time of VM creation or post build as is done in the example script and shown below in this code snippet (Note; any item beginning with a dollar sign (e.g.: $VMName[$i]) is a user defined variable from the script in the reference section of this document. The “$i” in brackets, [$i], represents the array number of a specific VM in an array of VMs):
 
@@ -280,6 +280,15 @@ There are four critical fields needed to create this rule:
 
 	![Firewall RDP Rule][11]
 
+    A total of four RDP rules will need to be created: 
+
+    |   Rule Name    | Server  |   Service   |  Target List  |
+    |----------------|---------|-------------|---------------|
+    | RDP-to-IIS01   | IIS01   | IIS01 RDP   | 10.0.1.4:3389 |
+    | RDP-to-DNS01   | DNS01   | DNS01 RDP   | 10.0.2.4:3389 |
+    | RDP-to-AppVM01 | AppVM01 | AppVM01 RDP | 10.0.2.5:3389 |
+    | RDP-to-AppVM02 | AppVM02 | AppVm02 RDP | 10.0.2.6:3389 |
+  
 >[AZURE.TIP] Narrowing down the scope of the Source and Service fields will reduce the attack surface. The most limited scope that will allow functionality should be used.
 
 - **Application Traffic Rules**: There are two Application Traffic Rules, the first for the front end web traffic, and the second for the back end traffic (eg web server to data tier). These rules will depend on the network architecture (where your servers are placed) and traffic flows (which direction the traffic flows, and which ports are used).
@@ -298,9 +307,11 @@ There are four critical fields needed to create this rule:
 
 	This Pass rule allows any IIS server on the Frontend subnet to reach the AppVM01 (IP Address 10.0.2.5) on Any port, using any Protocol to access data needed by the web application.
 
-	**Note**: The Source network in this rule is any resource on the FrontEnd subnet, if there will only be one, or a known specific number of web servers, a Network Object resource could be created to be more specific to those exact IP addresses than the entire Frontend subnet.
+	In this screen shot an "\<explicit-dest\>" is used in the Destination field to signify 10.0.2.5 as the destination. This could be either explicit as shown or a named Network Object (as was done in the prerequisites for the DNS server). This is up to the creator of the firewall as to which method will be used. To add 10.0.2.5 as an Explict Desitnation, double-click on the first blank row under <explicit-dest> and enter the address in the window that pops up.
 
-	**Note**: In this screen shot an “<explicit-dest>” is used in the Destination field to signify 10.0.2.5 as the destination. This could be either explicit as shown or a named Network Object (as was done in the prerequisites for the DNS server). This is up to the creator of the firewall as to which method will be used.
+    With this Pass Rule, no NAT is needed since this is internal traffic, so the Connection Method can be set to "No SNAT".
+
+	**Note**: The Source network in this rule is any resource on the FrontEnd subnet, if there will only be one, or a known specific number of web servers, a Network Object resource could be created to be more specific to those exact IP addresses instead of the entire Frontend subnet.
 
 >[AZURE.TIP] This rule uses the service “Any” to make the sample application easier to setup and use, this will also allow ICMPv4 (ping) in a single rule. However, this is not a recommended practice. The ports and protocols (“Services”) should be narrowed to the minimum possible that allows application operation to reduce the attack surface across this boundary.
 
@@ -340,6 +351,8 @@ In the upper right hand corner of the management client are a cluster of buttons
 With the activation of the firewall ruleset this example environment build is complete.
 
 ## Traffic Scenarios
+>[AZURE.IMPORTANT] A key takeway is to remember that **all** traffic will come through the firewall. So to remote desktop to the IIS01 server, even though it's in the Front End Cloud Service and on the Front End subnet, to access this server we will need to RDP to the firewall on port 8014, and then allow the firewall to route the RDP request internally to the IIS01 RDP Port. The Azure portal's "Connect" button won't work because there is no direct RDP path to IIS01 (as far as the portal can see). This means all connections from the internet will be to the Security Service and a Port, e.g. secscv001.cloudapp.net:xxxx.
+
 For these scenarios, the following firewall rules should be in place:
 
 1.	Firewall Management
