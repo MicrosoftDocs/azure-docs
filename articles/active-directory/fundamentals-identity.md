@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=".net"
 	authors="curtand"
-	manager="msStevenPo"
+	manager="stevenpo"
 	editor=""/>
 
 <tags
