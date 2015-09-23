@@ -84,9 +84,13 @@ We will create a basic app with XCode to demonstrate the integration.
 		- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 		{
   			[...]
+			//[EngagementAgent setTestLogEnabled:YES];
+   
   			[EngagementAgent init:@"Endpoint={YOUR_APP_COLLECTION.DOMAIN};SdkKey={YOUR_SDK_KEY};AppId={YOUR_APPID}"];
   			[...]
 		}
+
+10. `setTestLogEnabled` is an optional statement which enables SDK logs for you to identify issues. 
 
 ##<a id="monitor"></a>Enable real-time monitoring
 
@@ -96,7 +100,7 @@ In order to start sending data and ensuring that the users are active, you must 
 
     `# import "EngagementViewController.h"`
 
-2. Now replace the super class of the **ViewController** interface by **EngagementViewController**:
+2. Now replace the super class of the **ViewController** interface by `EngagementViewController`:
 
 	`@interface ViewController : EngagementViewController`
 
@@ -127,7 +131,7 @@ The following sections set up your app to receive them.
 
 		#import "AEReachModule.h"
 
-2. Inside the **application:didFinishLaunchingWithOptions** method, create a Reach module and pass it to your existing Engagement initialization line:
+2. Inside the `application:didFinishLaunchingWithOptions` method, create a Reach module and pass it to your existing Engagement initialization line:
 
 		- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 			AEReachModule * reach = [AEReachModule moduleWithNotificationIcon:[UIImage imageNamed:@"icon.png"]];
@@ -138,7 +142,7 @@ The following sections set up your app to receive them.
 
 ###Enable your app to receive APNS Push Notifications
 
-1. Add the following line to the **application:didFinishLaunchingWithOptions** method:
+1. Add the following line to the `application:didFinishLaunchingWithOptions` method:
 
 		if ([application respondsToSelector:@selector(registerUserNotificationSettings:)]) {
 			[application registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:(UIUserNotificationTypeBadge | UIUserNotificationTypeSound | UIUserNotificationTypeAlert) categories:nil]];
@@ -149,14 +153,23 @@ The following sections set up your app to receive them.
 			[application registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
 		}
 
-2. Add the **application:didRegisterForRemoteNotificationsWithDeviceToken** method as follows:
+2. Add the `application:didRegisterForRemoteNotificationsWithDeviceToken` method as follows:
 
 		- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
 		{
  			[[EngagementAgent shared] registerDeviceToken:deviceToken];
+			NSLog(@"Registered Token: %@", deviceToken);
 		}
 
-3. Add the **didReceiveRemoteNotification:fetchCompletionHandler** method as follows:
+3. Add the `didFailToRegisterForRemoteNotificationsWithError` method as follows:
+
+		- (void)application:(UIApplication*)application didFailToRegisterForRemoteNotificationsWithError:(NSError*)error
+		{
+		   
+		   NSLog(@"Failed to get token, error: %@", error);
+		}
+
+4. Add the `didReceiveRemoteNotification:fetchCompletionHandler` method as follows:
 
 		- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult result))handler
 		{
