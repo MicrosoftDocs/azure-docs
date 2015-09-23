@@ -44,7 +44,7 @@ There are many ways to setup a multiple environment for your project and the exa
 
 In this section you will learn how to setup a deployment workflow using slots for WordPress. WordPress like most CMS solutions does not support working with multiple development environments out of the box. App Service Web Apps has a few features that make it easier to store configuration settings outside of your code.
 
-Before creating a staging slot, setup your application code to support multiple environments. To support multiple environments in WordPress you need to edit ```wp-config.php``` on your local development web app add the following code at the beginning of the file. This will allows your application to pick the correct configuration based on the selected environment.
+Before creating a staging slot, setup your application code to support multiple environments. To support multiple environments in WordPress you need to edit wp-config.php on your local development web app add the following code at the beginning of the file. This will allows your application to pick the correct configuration based on the selected environment.
 
 ```
 // Support multiple environments
@@ -63,9 +63,11 @@ if (file_exists($path . $config_file)) {
 require_once $path . $config_file;
 ```
 
-Create a folder under web app root called ```config``` and add a file two files:  ```wp-config.azure.php```  and ```wp-config.local.php```  representing your azure and local environment respectively.
+Create a folder under web app root called `config` and add a file two files:  `wp-config.azure.php`  and `wp-config.local.php`  representing your azure and local environment respectively.
 
-Copy the following in ```wp-config.local.php```
+Copy the following in `wp-config.local.php` :
+
+
 ```
 <?php
 // MySQL settings
@@ -109,12 +111,11 @@ define('NONCE_SALT',       'put your unique phrase here');
  * prefix. Only numbers, letters, and underscores please!
  */
 $table_prefix  = 'wp_';
-
 ```
 
 Setting the security keys above can help preventing your web app from being hacked, so use unique values. If you need to generate the string for security keys mentioned above, you can go the automatic generator to create new keys/values using this [link] (https://api.wordpress.org/secret-key/1.1/salt)
 
-Copy the following code in  ```wp-config.azure.php```.
+Copy the following code in  `wp-config.azure.php`:
 ```
 <?php
 // MySQL settings
@@ -169,7 +170,7 @@ $table_prefix  = getenv('DB_PREFIX');
 #### Use Relative Paths
 On last thing is allow WordPress app to use relative paths. WordPress stores URL information in the database. This make moving content from one environment to another more difficult as you need to update the database every time you move from local to stage or stage to production environment. To reduce risk of issues that can be caused with deploying database every time you deploy from one environment to another use the [Relative Root links  plugin](https://wordpress.org/plugins/root-relative-urls/) which can be installed using WordPress administrator dashboard or download manually from [here](https://downloads.wordpress.org/plugin/root-relative-urls.zip).
 
-Add the following entries to your ```wp-config.php``` file before the ```"That's all, stop editing!"``` comment:
+Add the following entries to your `wp-config.php` file before the ```"That's all, stop editing!"``` comment:
 
 ```
     define('WP_HOME', 'http://' . $_SERVER ['HTTP_HOST']);
@@ -179,8 +180,9 @@ Add the following entries to your ```wp-config.php``` file before the ```"That's
 ```
 Activate the plugin through the 'Plugins' menu in WordPress Administrator dashboard.  Save your permalink settings twice in a row (Admin > Settings > Permalinks: Save Changes)
 
-#### The final ```wp-config.php``` file
-Any WordPress Core updates will not affect your ```wp-config.php``` , ```wp-config.azure.php``` and ```wp-config.local.php``` files  . In the end this how ```wp-config.php``` file will look like
+#### The final `wp-config.php` file
+Any WordPress Core updates will not affect your `wp-config.php` , `wp-config.azure.php` and `wp-config.local.php` files  . In the end this how `wp-config.php` file will look like this
+
 ```
 <?php
 /**
@@ -188,7 +190,7 @@ Any WordPress Core updates will not affect your ```wp-config.php``` , ```wp-conf
  *
  * This file has the following configurations: MySQL settings, Table Prefix,
  * Secret Keys, and ABSPATH. You can find more information by visiting
- * {@link https://codex.wordpress.org/Editing_wp-config.php Editing wp-config.php}
+ *
  * Codex page. You can get the MySQL settings from your web host.
  *
  * This file is used by the wp-config.php creation script during the
@@ -235,6 +237,7 @@ if ( !defined('ABSPATH') )
 /** Sets up WordPress vars and included files. */
 require_once(ABSPATH . 'wp-settings.php');
 ```
+
 #### Setup a Staging Environment
 Assuming you already have a WordPress web app running on Azure Web, login to [Azure Management Preview portal](http://portal.azure.com) and go to your WordPress web app. Apps If not you can create one from the marketplace. To learn more, click [here](web-sites-php-web-site-gallery).
 Click on Settings -> Deployment slots -> Add to create a deployment slot with the name stage .A deployment slot is another web application sharing the same resources as the primary web app created above.
@@ -247,7 +250,7 @@ Add another MySQL database, say wordpress-stage-db to your resource group wordpr
 Update the Connection strings for your stage deployment slot to point to newly created database, *wordpress-stage-db*. Note that your production web app (*wordpressapp-group*) and staging web app (*wordpressprodapp-stage*) must point to different databases.
 
 #### Configure environment-specific app settings
-Developers can store key-value string pairs in Azure as part of the configuration information associated with a web app called App Settings. At runtime, App Service Web Apps automatically retrieves these values for you and makes them available to code running in your web app.  From a security perspective that is a nice side benefit since sensitive information such as database connection strings with passwords never show up as clear text in a file such as ```wp-config.php```.
+Developers can store key-value string pairs in Azure as part of the configuration information associated with a web app called App Settings. At runtime, App Service Web Apps automatically retrieves these values for you and makes them available to code running in your web app.  From a security perspective that is a nice side benefit since sensitive information such as database connection strings with passwords never show up as clear text in a file such as `wp-config.php`.
 
 This process  defined below is useful when you perform as it includes both file changes and database changes for WordPress app:
 -	WordPress version upgrade
@@ -305,7 +308,7 @@ In this section you will learn how to Umbraco CMS uses a custom modules to deplo
 1. Create an Umbraco web app with Visual Studio, click [here](https://our.umbraco.org/documentation/Installation/install-umbraco-with-nuget) .
 2. To create an Umbraco web app with WebMatrix, click [here](http://umbraco.com/help-and-support/video-tutorials/getting-started/working-with-webmatrix).
 
-Always remember to remove the ```install``` folder under your application and never upload it to stage or production sites. For this tutorial, I will be using WebMatrix
+Always remember to remove the `install` folder under your application and never upload it to stage or production sites. For this tutorial, I will be using WebMatrix
 
 #### Setup a staging environment
 Create a deployment slot as mentioned above for Umbraco CMS web app, assuming you already have an Umbraco CMS web app up and running. If not you can create one from the marketplace. To learn more, click [here](web-sites-gallery-umbraco).
@@ -319,14 +322,14 @@ Click on  **Get Publish settings** for the deployment slot **stage**. This will 
 1. Open your local development web app in **WebMatrix** or **Visual Studio**. In this tutorial I am using Web Matrix and first you need to import the publish settings file for your staging web app
 ![Import Publish settings for Umbraco using Web Matrix][11webamtrixumbracoimport]
 
-2. Review changes in the dialog box and deploy your local web app to your Azure web app , *umbracositecms-1-stage*. When you deploy files directly to your staging web app you will omit any files in the ```~/app_data/TEMP/``` folder as these will be regenerated when the stage web app is first started. You should also omit the ```~/app_data/umbraco.config``` file as this, too, we be regenerated.
+2. Review changes in the dialog box and deploy your local web app to your Azure web app , *umbracositecms-1-stage*. When you deploy files directly to your staging web app you will omit any files in the `~/app_data/TEMP/` folder as these will be regenerated when the stage web app is first started. You should also omit the `~/app_data/umbraco.config` file as this, too, we be regenerated.
 ![Review Publish changes in web matrix][12umbracopublishwebmatrix]
 
 3. After successfully publishing the Umbraco local web app to staging web app , browse your staging web app and run a few tests to rule out any issues.
 
 #### Setup Courier2 deployment module
 With [Courier2](http://umbraco.com/products/more-add-ons/courier-2) module you can push content, stylesheets, development modules and more with a simple right-click from a staging web app to production web app for a more hassle free deployments and reducing risk of breaking your production web app when deploying an update.
-Purchase a license for Courier2 for the domain ```*.azurewebsites.net``` and your custom domain (say http://abc.com) Once you have purchased the license, place the downloaded license (.LIC file) in the ```bin``` folder.
+Purchase a license for Courier2 for the domain `*.azurewebsites.net` and your custom domain (say http://abc.com) Once you have purchased the license, place the downloaded license (.LIC file) in the `bin` folder.
 ![Drop license file under bin folder][13droplicenseumbraco]
 Download the Courier2 package from [here](https://our.umbraco.org/projects/umbraco-pro/umbraco-courier-2/) . Log on to your stage web app, say  http://umbracocms-site-stage.azurewebsites.net/umbraco and click on **Developer** Menu and Select **Packages** . Click on **Install** local package
 ![Umbraco Package installer][14umbracoinstallpackage]
@@ -334,7 +337,7 @@ Download the Courier2 package from [here](https://our.umbraco.org/projects/umbra
 Upload the courier2 package using the installer.
 ![Upload package for courier module][15umbracouploadpackage]
 
-To configure you need to update courier.config file under  ```Config``` folder of your web app.
+To configure you need to update courier.config file under  `Config` folder of your web app.
 
 ```
   <!-- Repository connection settings -->
@@ -350,7 +353,7 @@ To configure you need to update courier.config file under  ```Config``` folder o
            </repository>
   </repositories>
 ```
-Under ```<repositories>```, enter the production site URL and user information. If you are using default Umbraco Membership provider, then add the ID for the Administration user in <user> section . If you are using a custom Umbraco membership provider, use ```<login>```, ```<password>``` to Courier2 module know how to connect to the production site. For more details, review the [documentation](http://umbraco.com/help-and-support/customer-area/courier-2-support-and-download/developer-documentation) for Courier module.
+Under `<repositories>`, enter the production site URL and user information. If you are using default Umbraco Membership provider, then add the ID for the Administration user in <user> section . If you are using a custom Umbraco membership provider, use `<login>`,`<password>` to Courier2 module know how to connect to the production site. For more details, review the [documentation](http://umbraco.com/help-and-support/customer-area/courier-2-support-and-download/developer-documentation) for Courier module.
 
 Similarly, install Courier module on your production site and configure it point to stage web app in its respective courier.config file as shown here
 ```
@@ -364,7 +367,7 @@ Similarly, install Courier module on your production site and configure it point
            </repository>
   </repositories>
  ```
-Click on Courier2 tab in Umbraco site dashboard and select locations. You should see the repository name as mentioned in ```courier.config```.
+Click on Courier2 tab in Umbraco site dashboard and select locations. You should see the repository name as mentioned in `courier.config`.
 ![View destination web app repository][16umbracocourierlocations]
 
 Now lets deploy some content from staging site to production site. Go to Content and select an existing page or create a new page. I will select an existing page from my web app where the title of the page is changed to **Getting Started – new** and now click on **Save and Publish**.
