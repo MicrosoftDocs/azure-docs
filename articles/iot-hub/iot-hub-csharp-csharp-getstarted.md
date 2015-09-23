@@ -26,6 +26,12 @@ Azure IoT Hub is a fully managed service that enables reliable and secure bi-dir
 
 This tutorial shows how to use the Azure portal to create an IoT hub. It also shows you how to create a device identity in your IoT hub, create a simulated device that sends device-to-cloud messages, and receives these messages from your cloud back-end.
 
+At the end of this tutorial you will have created three Windows console applications:
+
+* **CreateDeviceIdentity**, which creates a device identity and associated security key to connect your simulated device,
+* **ReadDeviceToCloudMessages**, which reads device-to-cloud messages and displays their content, and
+* **SimulatedDevice**, which connects to your IoT hub with the device identity created earlier, and sends a device-to-cloud message every second.
+
 In order to complete this tutorial you'll need the following:
 
 + Microsoft Visual Studio 2015,
