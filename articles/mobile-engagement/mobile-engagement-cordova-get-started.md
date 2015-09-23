@@ -190,38 +190,38 @@ We will now create a simple Push Notification campaign that will send a push to 
 
 	![][6]
 
-3. Provide inputs to create your campaign:
-
-	**[Android]**
-	- 	Provide a **Name** for your campaign. 
-	- 	Select the **Delivery Type** as *System notification* - *Simple*
-	- 	Select the Delivery time as *"Any Time"*
-	- 	Provide a **Title** for your notification which will be the first line in the push.
-	- 	Provide a **Message** for your notification which will serve as the message body. 
+4. Provide inputs to create your campaign **[Android]**
+	
+	- Provide a **Name** for your campaign. 
+	- Select the **Delivery Type** as *System notification* *Simple*
+	- Select the Delivery time as *"Any Time"*
+	- Provide a **Title** for your notification which will be the first line in the push.
+	- Provide a **Message** for your notification which will serve as the message body. 
 
 	![][11]
 
-	**[iOS]**
-	- 	Provide a **Name** for your campaign. 
-	- 	Select the Delivery time as *"Out of app only"*
-	- 	Provide a **Title** for your notification which will be the first line in the push.
-	- 	Provide a **Message** for your notification which will serve as the message body. 
+5. Provide inputs to create your campaign **[iOS]**
 
+	- Provide a **Name** for your campaign. 
+	- Select the Delivery time as *"Out of app only"*
+	- Provide a **Title** for your notification which will be the first line in the push.
+	- Provide a **Message** for your notification which will serve as the message body. 
+ 
 	![][12]
 
-4. Scroll down, and in the content section select **Notification only**
+6. Scroll down, and in the content section select **Notification only**
 
 	![][8]
 
-5. [Optional] You can also provide an Action URL. Make sure that it uses a URL scheme provided while configuring the plugin's **AZME REDIRECT URL** variable e.g. *myapp://test*.  
+7. [Optional] You can also provide an Action URL. Make sure that it uses a URL scheme provided while configuring the plugin's **AZME REDIRECT URL** variable e.g. *myapp://test*.  
 
-6. You're done setting the most basic campaign possible. Now scroll down again and click the **Create** button to save your campaign.
+8. You're done setting the most basic campaign possible. Now scroll down again and click the **Create** button to save your campaign.
 
-7. Finally **Activate** your campaign
+9. Finally **Activate** your campaign
 	
 	![][10]
 
-8. You should now see a push notification on your device or emulator as part of this campaign. 
+10. You should now see a push notification on your device or emulator as part of this campaign. 
 
 ##<a id="next-steps"></a>Next Steps
 [Overview of all methods available with Cordova Mobile Engagement SDK](https://github.com/Azure/azure-mobile-engagement-cordova)
