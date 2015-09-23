@@ -208,18 +208,11 @@ A pool of compute nodes is the first set of resources that you must create when 
 			BatchSharedKeyCredentials cred = new BatchSharedKeyCredentials("[account-url]", "[account-name]", "[account-key]");
 			BatchClient client = BatchClient.Open(cred);
 
-	Replace the following values with those associated with your Batch account:
+	Replace the bracketed values with those associated with your Batch account, each of which can be found in the [Azure Preview portal](https://portal.azure.com). To locate these values, log in to the [Azure Preview portal](https://portal.azure.com) and:
 
-	- **[account-url]** - Your Batch account URL
-	- **[account-name]** - The name of the Batch account that you created previously
-	- **[account-key]** - The primary key of the Batch account
-
-	You can find the above values within the Batch account blade of the [Azure Preview portal](https://portal.azure.com):
-
-	- Log in to the [Azure Preview portal](https://portal.azure.com)
- 	- Click **Batch Accounts** > your Batch account (this is the [account-name])
- 	  - **Properties** > **URL**
- 	  - **Properties** > **Keys** > **Primary Access Key**
+	- **[account-name]** - Click **Batch Accounts**, select the Batch account you created earlier
+	- **[account-url]** - Within the Batch account blade, click **Properties** > **URL**
+	- **[account-key]** - Within the Batch account blade, Click **Properties** > **Keys** > **Primary Access Key**
 
 3.	Add this method to the Program class that creates the pool:
 
