@@ -62,7 +62,7 @@ Further details of different types of tokens used in Azure AD B2C is available i
 ## Protocols
 
 If you're ready to see some example requests, get started with one of the below tutorials.  Each one corresponds to a particular authentication scenario.  If you need help determining which is the right flow for you,
-check out [the types of apps you can build with Azure AD B2C](active-directory-b2c-apps).
+check out [the types of apps you can build with Azure AD B2C](active-directory-b2c-apps.md).
 
 - [Build Mobile and Native Application with OAuth 2.0](active-directory-b2c-reference-oauth-code.md)
 - [Build Web Apps with Open ID Connect](active-directory-b2c-reference-oidc.md)
