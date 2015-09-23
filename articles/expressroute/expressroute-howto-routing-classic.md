@@ -1,5 +1,5 @@
 <properties
-   pageTitle="How to configure routing for an ExpressRoute circuit"
+   pageTitle="How to configure routing for an ExpressRoute circuit | Microsoft Azure"
    description="This article walks you through the steps for creating and provisioning the private, public and Microsoft peering of an ExpressRoute circuit. This article also shows you how to check the status, update, or delete peerings for your circuit."
    documentationCenter="na"
    services="expressroute"
