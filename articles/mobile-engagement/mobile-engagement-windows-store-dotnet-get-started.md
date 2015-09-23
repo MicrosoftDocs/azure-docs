@@ -42,27 +42,29 @@ This tutorial requires the following:
 
 ##<a id="connecting-app"></a>Connect your app to the Mobile Engagement backend
 
-This tutorial presents a "basic integration," which is the minimal set required to collect data and send a push notification. The complete integration documentation can be found in the Mobile Engagement Windows Universal SDK documentation.
+This tutorial presents a "basic integration," which is the minimal set required to collect data and send a push notification. The complete integration documentation can be found in the [Mobile Engagement Windows Universal SDK integration](../mobile-engagement-windows-store-sdk-overview/).
 
 We will create a basic app with Visual Studio to demonstrate the integration.
 
 ###Create a new Windows Universal App project
 
-You can skip this step if you already have an app and are familiar with Windows Universal development.
+The following steps assume the use of Visual Studio 2015 though the steps are similar in earlier versions of Visual Studio. 
 
 1. Start Visual Studio, and in the **Home** screen, select **New Project**.
 
-2. In the pop-up, select **Store Apps** -> **Universal Apps** -> **Blank App (Universal Apps)**. Fill in the app **Name** and **Solution name**, and then click **OK**.
+2. In the pop-up, select **Windows 8** -> **Universal** -> **Blank App (Universal Windows 8.1)**. Fill in the app **Name** and **Solution name**, and then click **OK**.
 
     ![][1]
+
+> [AZURE.IMPORTANT] Azure Mobile Engagement does not support Windows 10 Universal Windows Apps yet. 
 
 You have now created a new Windows Universal App project into which we will integrate the Azure Mobile Engagement SDK.
 
 ###Connect your app to Mobile Engagement backend
 
-1. Install the [Mobile Engagement Windows Universal SDK] nuget package in your project. If you are targeting both Windows and Windows Phone platforms, you need to do this for both the projects. The same Nuget package places the correct platform-specific binaries in each project.
+1. Install the [MicrosoftAzure.MobileEngagement] nuget package in your project. If you are targeting both Windows and Windows Phone platforms, you need to do this for both the projects. The same Nuget package places the correct platform-specific binaries in each project.
 
-2. Open **Package.appxmanifest** and add the following if it isn't automatically added:
+2. Open **Package.appxmanifest** and make sure that the following capability is added there:
 
 		Internet (Client)
 
@@ -100,9 +102,9 @@ You have now created a new Windows Universal App project into which we will inte
 
 ##<a id="monitor"></a>Enable real-time monitoring
 
-In order to start sending data and ensuring that the users are active, you must send at least one screen (Activity) to the Mobile Engagement backend. We achieve this by subclassing our **MainPage** with the **EngagementPage**, which the Mobile Engagement SDK provides.
+In order to start sending data and ensuring that the users are active, you must send at least one screen (Activity) to the Mobile Engagement backend.
 
-1. 	Add the `using` statement:
+1. 	In the **MainPage.xaml.cs**, add the `using` statement:
 
 		using Microsoft.Azure.Engagement;
 
@@ -110,13 +112,13 @@ In order to start sending data and ensuring that the users are active, you must 
 
 		class MainPage : EngagementPage
 
-3. In your `MainPage.xml` file:
+3. In the `MainPage.xaml` file:
 
 	a. Add to your namespaces declarations:
 
 		xmlns:engagement="using:Microsoft.Azure.Engagement"
 
-	b. Replace the **Page** in the XML tag name with **engagement:EngagementPage**.
+	b. Replace the **Page** in the XML tag name with **engagement:EngagementPage**
 	
 > [AZURE.IMPORTANT] If your page overrides the `OnNavigatedTo` method, be sure to call `base.OnNavigatedTo(e)`. Otherwise,  the activity will not be reported (the `EngagementPage` calls `StartActivity` inside its `OnNavigatedTo` method). This is especially important in a Windows Phone project where the default template has an `OnNavigatedTo` method. 
 
@@ -169,11 +171,12 @@ You're all set for sending a toast. Now we will verify that you have correctly c
 
 [AZURE.INCLUDE [Create Windows Push campaign](../../includes/mobile-engagement-windows-push-campaign.md)]
 
-You should now see a toast notification from your campaign on your device - the app should be closed to see this toast notification. If the app was running, ensure that you have it closed for a couple of minutes before activating the campaign to be able to receive toast notification. If you want to integrate in-app notification so that the notification shows up in the app when it is opened, see [Windows Universal Apps - Overlay integration].
+You should now see a toast notification from your campaign on your device - the app should be closed to see this toast notification. If the app was running, ensure that you have it closed for a couple of minutes before activating the campaign to be able to receive toast notification. 
+If you want to integrate in-app notification so that the notification shows up in the app when it is opened, see [Windows Universal Apps - Overlay integration].
 
 <!-- URLs. -->
 [Mobile Engagement Windows Universal SDK documentation]: ../mobile-engagement-windows-store-integrate-engagement/
-[Mobile Engagement Windows Universal SDK]: http://go.microsoft.com/?linkid=9864592
+[MicrosoftAzure.MobileEngagement]: http://go.microsoft.com/?linkid=9864592
 [Windows Store Dev Center]: http://go.microsoft.com/fwlink/p/?linkid=266582&clcid=0x409
 [Windows Universal Apps - Overlay integration]: ../mobile-engagement-windows-store-integrate-engagement-reach/#overlay-integration
 

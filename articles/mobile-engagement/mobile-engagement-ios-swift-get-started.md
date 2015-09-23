@@ -43,9 +43,9 @@ Completing this tutorial is a prerequisite for all other Mobile Engagement tutor
 
 [AZURE.INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal.md)]
 
-##<a id="connecting-app"></a>Connecting your app to the Mobile Engagement backend
+##<a id="connecting-app"></a>Connect your app to the Mobile Engagement backend
 
-This tutorial presents a "basic integration" which is the minimal set required to collect data and send a push notification. The complete integration documentation can be found in the [Mobile Engagement iOS SDK documentation]
+This tutorial presents a "basic integration", which is the minimal set required to collect data and send a push notification. The complete integration documentation can be found in the [Mobile Engagement iOS SDK integration](../mobile-engagement-ios-sdk-overview/)
 
 We will create a basic app with XCode to demonstrate the integration:
 

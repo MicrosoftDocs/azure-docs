@@ -21,8 +21,8 @@
 > [AZURE.SELECTOR]
 - [Windows Universal](mobile-engagement-windows-store-dotnet-get-started.md)
 - [Windows Phone Silverlight](mobile-engagement-windows-phone-get-started.md)
-- [iOS - Obj C](mobile-engagement-ios-get-started.md)
-- [iOS - Swift](mobile-engagement-ios-swift-get-started.md)
+- [iOS | Obj C](mobile-engagement-ios-get-started.md)
+- [iOS | Swift](mobile-engagement-ios-swift-get-started.md)
 - [Android](mobile-engagement-android-get-started.md)
 - [Cordova](mobile-engagement-cordova-get-started.md)
 
@@ -42,7 +42,7 @@ This tutorial requires the following:
 
 ##<a id="connecting-app"></a>Connect your app to the Mobile Engagement backend
 
-This tutorial presents a "basic integration", which is the minimal set required to collect data and send a push notification. The complete integration documentation can be found in the [Mobile Engagement Android SDK documentation].
+This tutorial presents a "basic integration", which is the minimal set required to collect data and send a push notification. The complete integration documentation can be found in the [Mobile Engagement Android SDK integration](../mobile-engagement-android-sdk-overview/)
 
 We will create a basic app with Android Studio to demonstrate the integration.
 
@@ -52,7 +52,7 @@ We will create a basic app with Android Studio to demonstrate the integration.
 
     ![][1]
 
-2. Fill in the app name and company domain, take a note of what you are filling as you will use it later and then click **Next**.
+2. Provide an app name and company domain. Make a note of what you are filling as you will use it later. Click **Next**.
 
     ![][2]
 
@@ -92,21 +92,24 @@ Download and integrate the SDK library
 
 ###Connect your app to Mobile Engagement backend with the Connection String
 
-1. Copy the following lines of code into the activity creation (must be done only in one place of your application, usually the main activity).
+1. Copy the following lines of code into the activity creation (must be done only in one place of your application, usually the main activity). For this sample app, open up the MainActivity under src -> main -> java folder and add the following:
 
 		EngagementConfiguration engagementConfiguration = new EngagementConfiguration();
 		engagementConfiguration.setConnectionString("Endpoint={appCollection}.{domain};AppId={appId};SdkKey={sdkKey}");
 		EngagementAgent.getInstance(this).init(engagementConfiguration);
 
-2. Go back to the Azure portal in your app's **Connection Info** page and copy the **Connection String**.
+2. Resolve the references by pressing Alt + Enter or adding the following import statements:
+
+	import com.microsoft.azure.engagement.EngagementAgent;
+	import com.microsoft.azure.engagement.EngagementConfiguration;
+
+3. Go back to the Azure portal in your app's **Connection Info** page and copy the **Connection String**.
 
 	  ![][9]
 
-3. Paste it in the `setConnectionString` parameter to replace the example provided as shown below:
+4. Paste it in the `setConnectionString` parameter to replace the example provided as shown below:
 
 		engagementConfiguration.setConnectionString("Endpoint=my-company-name.device.mobileengagement.windows.net;SdkKey=********************;AppId=*********");
-
-4. If **EngagementConfiguration** and **EngagementAgent** show as unresolved (in red in the code) then click each of the unresolved classes and press Alt+Enter to automatically resolve them.
 
 ###Add permissions and a service declaration
 
@@ -131,8 +134,11 @@ Download and integrate the SDK library
 
 ###Send a screen to Mobile Engagement
 
-In order to start sending data and ensuring that the users are active, you must send at least one screen (Activity) to the Mobile Engagement backend. We will achieve this by subclassing our Activity with **EngagementActivity** our SDK provides.
-In order to to that, replace the super class of **MainActivity**, which is before **ActionBarActivity**, with **EngagementActivity**.
+In order to start sending data and ensuring that the users are active, you must send at least one screen (Activity) to the Mobile Engagement backend. 
+
+- Go to **MainActivity.java** and add the following to replace the base class of **MainActivity** from **ActionBarActivity** to **EngagementActivity**:
+
+		public class MainActivity extends EngagementActivity {
 
 ##<a id="monitor"></a>Connect app with real-time monitoring
 
@@ -200,17 +206,15 @@ The following sections sets up your app to receive them.
 
 ###Specify an icon for notifications
 
-The following code defines the icon that is used to be displayed both in app and system notifications.
-
-Although this is optional for in-app notifications, it is mandatory for system notifications. Android rejects system notifications with invalid icons.
-
-This XML snippet is to be pasted into your Manifest.xml between the `<application>` and `</application>` tags.
-
-Make sure you are using an icon that exists in one of the **drawable** folders (like ``engagement_close.png``). We don't support **mipmap** folders.
+Paste the following XML snippet in your Manifest.xml between the `<application>` and `</application>` tags.
 
 		<meta-data android:name="engagement:reach:notification:icon" android:value="engagement_close"/>
 
->[AZURE.IMPORTANT] You should not use the **launcher** icon. It has a different resolution and is usually in the mipmap folders, which we don't support.
+This defines the icon that is displayed both in system and in-app notifications. It is optional for in-app notifications however mandatory for system notifications. Android will rejects system notifications with invalid icons.
+
+Make sure you are using an icon that exists in one of the **drawable** folders (like ``engagement_close.png``). **mipmap** folder isn't supported.
+
+>[AZURE.NOTE] You should not use the **launcher** icon. It has a different resolution and is usually in the mipmap folders, which we don't support.
 
 For real apps, you can use an icon that is suitable for notifications per [Android design guidelines](http://developer.android.com/design/patterns/notifications.html).
 
@@ -219,7 +223,7 @@ Scroll down to the **Notification** section, click an icon, and then click `PNGS
 
 ###Enable your app to receive GCM push notifications
 
-1. Enter your gcm:sender metadata and copy and paste the following into your Manifest.xml between the `<application>` and `</application>` tags. The hidden value below (with stars) is the `project number` obtained from your Google Play console. The \n is intentional so make sure that you end the project number with it.
+1. Paste the following into your Manifest.xml between the `<application>` and `</application>` tags after replacing the `project number` obtained from your Google Play console. The \n is intentional so make sure that you end the project number with it.
 
 		<meta-data android:name="engagement:gcm:sender" android:value="************\n" />
 

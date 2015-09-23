@@ -45,7 +45,7 @@ Completing this tutorial is a prerequisite for all other Mobile Engagement tutor
 
 ##<a id="connecting-app"></a>Connect your app to the Mobile Engagement backend
 
-This tutorial presents a "basic integration", which is the minimal set required to collect data and send a push notification. The complete integration documentation can be found in the Mobile Engagement iOS SDK documentation.
+This tutorial presents a "basic integration", which is the minimal set required to collect data and send a push notification. The complete integration documentation can be found in the [Mobile Engagement iOS SDK integration](../mobile-engagement-ios-sdk-overview/)
 
 We will create a basic app with XCode to demonstrate the integration.
 
@@ -123,7 +123,7 @@ The following sections set up your app to receive them.
 
 ### Modify your Application Delegate
 
-1. At the top of your implementation file, import the Engagement Reach module.
+1. Back in **AppDeletegate.m** file, import the Engagement Reach module.
 
 		#import "AEReachModule.h"
 

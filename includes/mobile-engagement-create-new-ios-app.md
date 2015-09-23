@@ -1,4 +1,4 @@
-1. Start Xcode and in the pop-up, select **Create a new Xcode project**.
+1. Start **Xcode** and in the pop-up, select **Create a new Xcode project**.
 
 	![](./media/mobile-engagement-create-new-ios-app/xcode-new-project.png)
 

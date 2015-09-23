@@ -21,7 +21,7 @@
 
    	![](./media/mobile-engagement-create-app-in-portal/app-main-page-select-connection-info.png)
 
-6. Copy the **Connection String** - this is what you will need to identify this app in your Application code and connect with Mobile Engagement from your Phone App.
+6. Copy the **Connection String** - this is what you will need to identify this app in your Application code and connect with Mobile Engagement from your App.
 
    	![](./media/mobile-engagement-create-app-in-portal/app-connection-info-page.png)
 

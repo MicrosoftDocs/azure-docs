@@ -21,8 +21,8 @@
 > [AZURE.SELECTOR]
 - [Windows Universal](mobile-engagement-windows-store-dotnet-get-started.md)
 - [Windows Phone Silverlight](mobile-engagement-windows-phone-get-started.md)
-- [iOS - Obj C](mobile-engagement-ios-get-started.md)
-- [iOS - Swift](mobile-engagement-ios-swift-get-started.md)
+- [iOS | Obj C](mobile-engagement-ios-get-started.md)
+- [iOS | Swift](mobile-engagement-ios-swift-get-started.md)
 - [Android](mobile-engagement-android-get-started.md)
 - [Cordova](mobile-engagement-cordova-get-started.md)
 
@@ -44,15 +44,17 @@ This tutorial requires the following:
 
 ##<a id="connecting-app"></a>Connect your app to the Mobile Engagement backend
 
-This tutorial presents a "basic integration", which is the minimal set required to collect data and send a push notification. The complete integration documentation can be found in the [Mobile Engagement Windows Phone SDK] documentation.
+This tutorial presents a "basic integration", which is the minimal set required to collect data and send a push notification. The complete integration documentation can be found in the [Mobile Engagement Windows Phone SDK integration](../mobile-engagement-windows-phone-sdk-overview/)
 
 We will create a basic app with Visual Studio to demonstrate the integration.
 
 ###Create a new Windows Phone Silverlight project
 
+The following steps assume the use of Visual Studio 2015 though the steps are similar in earlier versions of Visual Studio. 
+
 1. Start Visual Studio, and in the **Home** screen, select **New Project**.
 
-2. In the pop-up, select **Store Apps** -> **Windows Phone Apps** -> **Blank App (Windows Phone Silverlight)**. Fill in the app `Name` and `Solution name`, and then click **OK**.
+2. In the pop-up, select **Windows 8** -> **Windows Phone** -> **Blank App (Windows Phone Silverlight)**. Fill in the app **Name** and **Solution name**, and then click **OK**.
 
     ![][1]
 
@@ -62,7 +64,7 @@ You have now created a new Windows Phone Silverlight app into which we will inte
 
 ###Connect your app to the Mobile Engagement backend
 
-1. Install the [Mobile Engagement Windows Phone SDK] nuget package in your project.
+1. Install the [MicrosoftAzure.MobileEngagement] nuget package in your project.
 
 2. Open `WMAppManifest.xml` (under the Properties folder) and make sure the following are declared (add them if they are not) in the `<Capabilities />` tag:
 
@@ -97,15 +99,15 @@ You have now created a new Windows Phone Silverlight app into which we will inte
 
 ##<a id="monitor"></a>Enable real-time monitoring
 
-In order to start sending data and ensuring that the users are active, you must send at least one screen (Activity) to the Mobile Engagement backend. We will achieve this by subclassing our `MainPage` with the `EngagementPage`, which the Mobile Engagement SDK provides.
+In order to start sending data and ensuring that the users are active, you must send at least one screen (Activity) to the Mobile Engagement backend.
 
-1. Add the `using` statement:
+1. In the MainPage.xaml.cs, add the `using` statement:
 
     	using Microsoft.Azure.Engagement;
 
 2. Replace the base class of **MainPage**, which is before **PhoneApplicationPage**, with **EngagementPage**.
 
-    	class MainPage : PhoneApplicationPage 
+    	class MainPage : EngagementPage 
 	
 3. In your `MainPage.xml` file:
 
@@ -157,12 +159,12 @@ You're all set. Now we will verify that you have correctly cried out this basic 
 
 [AZURE.INCLUDE [Create Windows Push campaign](../../includes/mobile-engagement-windows-push-campaign.md)]
 
-You should now see a notification on your device. 
+You should now see a notification on your device which will show up as an in-app notification if the app is open otherwise as a toast notification like the following: 
 
 ![][6]
 
 <!-- URLs. -->
-[Mobile Engagement Windows Phone SDK]: http://go.microsoft.com/?linkid=9874664
+[MicrosoftAzure.MobileEngagement]: http://go.microsoft.com/?linkid=9874664
 [Mobile Engagement Windows Phone SDK documentation]: ../mobile-engagement-windows-phone-integrate-engagement/
 
 <!-- Images. -->

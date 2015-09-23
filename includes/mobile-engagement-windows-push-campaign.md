@@ -12,7 +12,7 @@ We will now create a simple push notification campaign that sends a push notific
 
 	a. Name your campaign.
 
-	b. Select **Delivery time** as *Out of app only*.
+	b. Select **Delivery time** as *Any time*.
 
 	d. In the notification text - type the **Title** which will be in bold in the push.
 
