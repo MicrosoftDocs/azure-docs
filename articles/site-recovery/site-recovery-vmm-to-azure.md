@@ -180,15 +180,15 @@ Generate a registration key in the vault. After you download the Azure Site Reco
 >
     	CD C:\Program Files\Microsoft System Center 2012 R2\Virtual Machine Manager\bin
     	C:\Program Files\Microsoft System Center 2012 R2\Virtual Machine Manager\bin\> DRConfigurator.exe /r  /Friendlyname <<friendly name of the server> /Credentials <path of the credentials file> /EncryptionEnabled <full file name to save the encryption certificate>         
-> ####Command line Install Parameter List####
->>
-- **/Credentials** : Mandatory parameter that specifies the location in which the registration key file is located  
-- **/FriendlyName** : Mandatory parameter for the name of the Hyper-V host server that appears in the Azure Site Recovery portal.
-- **/EncryptionEnabled** : Optional Parameter that you need to use only in the VMM to Azure Scenario if you need encryption of your virtual machines at at rest in Azure. Please ensure that the name of the file you provide has a **.pfx** extension.
-- **/proxyAddress** : Optional parameter that specifies the address of the proxy server.
-- **/proxyport** : Optional parameter that specifies the port of the proxy server.
-- **/proxyUsername** : Optional parameter that specifies the Proxy user name (if proxy requires authentication).
-- **/proxyPassword** :Optional parameter that specifies the Password for authenticating with the proxy server (if proxy requires authentication). 
+ ####Command line Install Parameter List####
+>
+ - **/Credentials** : Mandatory parameter that specifies the location in which the registration key file is located  
+ - **/FriendlyName** : Mandatory parameter for the name of the Hyper-V host server that appears in the Azure Site Recovery portal.
+ - **/EncryptionEnabled** : Optional Parameter that you need to use only in the VMM to Azure Scenario if you need encryption of your virtual machines at at rest in Azure. Please ensure that the name of the file you provide has a **.pfx** extension.
+ - **/proxyAddress** : Optional parameter that specifies the address of the proxy server.
+ - **/proxyport** : Optional parameter that specifies the port of the proxy server.
+ - **/proxyUsername** : Optional parameter that specifies the Proxy user name (if proxy requires authentication).
+ - **/proxyPassword** :Optional parameter that specifies the Password for authenticating with the proxy server (if proxy requires authentication). 
 
   
 ## Step 4: Create an Azure storage account
