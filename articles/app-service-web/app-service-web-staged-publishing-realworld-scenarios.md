@@ -67,12 +67,10 @@ Create a folder under web app root called `config` and add a file two files:  `w
 
 Copy the following in `wp-config.local.php` :
 
-
 ```
 <?php
 // MySQL settings
 /** The name of the database for WordPress */
-
 
 define('DB_NAME', 'yourdatabasename');
 
@@ -84,11 +82,9 @@ define('DB_PASSWORD', 'yourpassword');
 
 /** MySQL hostname */
 define('DB_HOST', 'localhost');
-
 /**
  * For developers: WordPress debugging mode.
- *
- * Change this to true to enable the display of notices during development.
+ * * Change this to true to enable the display of notices during development.
  * It is strongly recommended that plugin and theme developers use WP_DEBUG
  * in their development environments.
  */
@@ -165,12 +161,12 @@ define('NONCE_SALT',   getenv('DB_NONCE_SALT'));
 * prefix. Only numbers, letters, and underscores please!
 */
 $table_prefix  = getenv('DB_PREFIX');
-
 ```
+
 #### Use Relative Paths
 On last thing is allow WordPress app to use relative paths. WordPress stores URL information in the database. This make moving content from one environment to another more difficult as you need to update the database every time you move from local to stage or stage to production environment. To reduce risk of issues that can be caused with deploying database every time you deploy from one environment to another use the [Relative Root links  plugin](https://wordpress.org/plugins/root-relative-urls/) which can be installed using WordPress administrator dashboard or download manually from [here](https://downloads.wordpress.org/plugin/root-relative-urls.zip).
 
-Add the following entries to your `wp-config.php` file before the ```"That's all, stop editing!"``` comment:
+Add the following entries to your `wp-config.php` file before the `That's all, stop editing!` comment:
 
 ```
     define('WP_HOME', 'http://' . $_SERVER ['HTTP_HOST']);
@@ -178,7 +174,7 @@ Add the following entries to your `wp-config.php` file before the ```"That's all
     define('WP_CONTENT_URL', '/wp-content');
     define('DOMAIN_CURRENT_SITE', $_SERVER['HTTP_HOST']);
 ```
-Activate the plugin through the 'Plugins' menu in WordPress Administrator dashboard.  Save your permalink settings twice in a row (Admin > Settings > Permalinks: Save Changes)
+Activate the plugin through the 'Plugins' menu in WordPress Administrator dashboard.  Save your permalink settings twice in a row (Admin -> Settings -> Permalinks: Save Changes)
 
 #### The final `wp-config.php` file
 Any WordPress Core updates will not affect your `wp-config.php` , `wp-config.azure.php` and `wp-config.local.php` files  . In the end this how `wp-config.php` file will look like this
