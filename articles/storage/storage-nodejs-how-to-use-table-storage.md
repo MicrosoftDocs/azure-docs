@@ -433,11 +433,12 @@ Once the ACL has been set, you can then create a SAS based on the ID for a polic
 
 ## Next steps
 
-To learn how to do more complex storage tasks, follow these links:
+For more information, see the following resources.
 
 -   MSDN Reference: [Storing and accessing data in Azure][].
 -   [Azure Storage Team Blog][].
 -   [Azure Storage SDK for Node][] repository on GitHub.
+-   [Node.js Developer Center](/develop/nodejs/)
 
   [Azure Storage SDK for Node]: https://github.com/Azure/azure-storage-node
   [OData.org]: http://www.odata.org/
