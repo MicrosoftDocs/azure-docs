@@ -67,15 +67,11 @@ In a typical DevOps scenario, you have an application that’s running live in A
 2.	Open a Git Shell session. If you don't have Git Shell yet, install [GitHub for Windows](https://windows.github.com/) now.
 3.	Create a local clone of your fork by executing the following command:
 
-  ```
-	git clone https://github.com/<your_fork>/ToDoApp.git
-  ```
+        git clone https://github.com/<your_fork>/ToDoApp.git
 
 4.	Once you have your local clone, navigate to *&lt;repository_root>*\ARMTemplates, and run the deploy.ps1 script with a unique suffix, as shown below:
 
-  ```
-	.\deploy.ps1 –RepoUrl https://github.com/<your_fork>/todoapp.git -ResourceGroupSuffix <your_suffix>
-  ```
+        .\deploy.ps1 –RepoUrl https://github.com/<your_fork>/todoapp.git -ResourceGroupSuffix <your_suffix>
 
 4.	When prompted, type in the desired username and password for database access. Remember your database credentials because you will need to specify it again when updating the resource group.
 
@@ -86,9 +82,7 @@ In a typical DevOps scenario, you have an application that’s running live in A
 
 6.	Back in your Git Shell session, run:
 
-  ```
-	.\swap –Name ToDoApp<your_suffix>
-  ```
+        .\swap –Name ToDoApp<your_suffix>
 
 	![](./media/app-service-web-test-in-production-controlled-test-flight/00.2-swap-to-production.png)
 
@@ -109,42 +103,38 @@ You have set up the production environment.  Now, let's imagine that you receive
 7. In the Azure preview portal, open the blade for the **MultiChannelToDo.Web** Application Insight resource. Then in the **Application health** part, click **Learn how to collect browser page load data** > copy code.
 7. Add the copied JS instrumentation code to *&lt;repository_root>*\src\MultiChannelToDo.Web\app\Index.cshtml, just before the closing `<heading>` tag:
 
-  ```
-  <script type="text/javascript">
-  var appInsights=window.appInsights||function(config){
-      function s(config){t[config]=function(){var i=arguments;t.queue.push(function(){t[config].apply(t,i)})}}var t={config:config},r=document,f=window,e="script",o=r.createElement(e),i,u;for(o.src=config.url||"//az416426.vo.msecnd.net/scripts/a/ai.0.js",r.getElementsByTagName(e)[0].parentNode.appendChild(o),t.cookie=r.cookie,t.queue=[],i=["Event","Exception","Metric","PageView","Trace"];i.length;)s("track"+i.pop());return config.disableExceptionTracking||(i="onerror",s("_"+i),u=f[i],f[i]=function(config,r,f,e,o){var s=u&&u(config,r,f,e,o);return s!==!0&&t["_"+i](config,r,f,e,o),s}),t
-  }({
-      instrumentationKey:"XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX"
-  });
-
-  window.appInsights=appInsights;
-  appInsights.trackPageView();
-  </script>
-  ```
+        <script type="text/javascript">
+        var appInsights=window.appInsights||function(config){
+            function s(config){t[config]=function(){var i=arguments;t.queue.push(function(){t[config].apply(t,i)})}}var t={config:config},r=document,f=window,e="script",o=r.createElement(e),i,u;for(o.src=config.url||"//az416426.vo.msecnd.net/scripts/a/ai.0.js",r.getElementsByTagName(e)[0].parentNode.appendChild(o),t.cookie=r.cookie,t.queue=[],i=["Event","Exception","Metric","PageView","Trace"];i.length;)s("track"+i.pop());return config.disableExceptionTracking||(i="onerror",s("_"+i),u=f[i],f[i]=function(config,r,f,e,o){var s=u&&u(config,r,f,e,o);return s!==!0&&t["_"+i](config,r,f,e,o),s}),t
+        }({
+            instrumentationKey:"XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX"
+        });
+        
+        window.appInsights=appInsights;
+        appInsights.trackPageView();
+        </script>
 
 11. Send custom events to Application Insights for mouse clicks by adding the following code to the bottom of body:
 
-  ```
-  <script>
-      $(document.body).find("*").click(function(event) {
-
-          appInsights.trackEvent(event.target.tagName + ": " + event.target.className);
-      });
-  </script>
-  ```
+        <script>
+            $(document.body).find("*").click(function(event) {
+        
+                appInsights.trackEvent(event.target.tagName + ": " + event.target.className);
+            });
+        </script>
 
   This JavaScript snippet sends a custom event to Application Insights every time a user clicks anywhere in the web app.
 
 12. In Git Shell, commit and push your changes to your fork in GitHub. Then, wait for clients to refresh browser.
 
-  ```
-  git add .
-  git commit -m "add AI configuration"
-  git push origin master
-  ```
+        git add .
+        git commit -m "add AI configuration"
+        git push origin master
 
 13. Browse to the Application Insights resource that you configured. Click Custom events.
+
   ![](./media/app-service-web-test-in-production-controlled-test-flight/01-custom-events.png)
+
   If you don't see metrics for custom events, wait a few minutes and click **Refresh**.
 
 Suppose you see a chart like below:
@@ -171,32 +161,28 @@ Since you're gathering data on client behavior, you will [add a telemetry initia
 
 1. First, add the code bewteen the two `//` comments below in the JavaScript block that you added to the `<heading>` tag earlier.
 
-  ```
-  window.appInsights = appInsights;
-
-  // Begin new code
-  appInsights.queue.push(function () {
-      appInsights.context.addTelemetryInitializer(function (envelope) {
-          var telemetryItem = envelope.data.baseData;
-          telemetryItem.properties = telemetryItem.properties || {};
-          telemetryItem.properties["Environment"] = "@System.Configuration.ConfigurationManager.AppSettings["environment"]";
-      });
-  });
-  // End new code
+        window.appInsights = appInsights;
+        
+        // Begin new code
+        appInsights.queue.push(function () {
+            appInsights.context.addTelemetryInitializer(function (envelope) {
+                var telemetryItem = envelope.data.baseData;
+                telemetryItem.properties = telemetryItem.properties || {};
+                telemetryItem.properties["Environment"] = "@System.Configuration.ConfigurationManager.AppSettings["environment"]";
+            });
+        });
+        // End new code
 
   appInsights.trackPageView();
-  ```
 
   This initializer code causes the `appInsights` object to add the a custom property called `Environment` to every piece of telemetry it sends.
 
 2. Next, add this custom property as a stick app setting for your web app in Azure. To do this, run the following commands in your Git Shell session.
 
-  ```
-  $app = Get-AzureWebsite -Name todoapp023c -Slot production
-  $app.AppSettings.Add("environment", "Production")
-  $app.SlotStickyAppSettingNames.Add("environment")
-  $app | Set-AzureWebsite -Name todoapp023c -Slot production
-  ```
+        $app = Get-AzureWebsite -Name todoapp023c -Slot production
+        $app.AppSettings.Add("environment", "Production")
+        $app.SlotStickyAppSettingNames.Add("environment")
+        $app | Set-AzureWebsite -Name todoapp023c -Slot production
 
   The Web.config in your project already defines the `environment` app setting. With this setting, when you test the app locally, your metrics will be tagged with `VS Debugger`. However, when you push your changes to Azure, Azure will find and use the `environment` app setting in the web app's configuration instead, and your metrics will be tagged with `Production`.
 
@@ -217,11 +203,9 @@ Since you're gathering data on client behavior, you will [add a telemetry initia
 
 3. In your Git Shell session, run
 
-  ```
-  git checkout -b beta
-  git push origin beta
-  .\deploy.ps1 -RepoUrl https://github.com/<your_fork>/ToDoApp.git -ResourceGroupSuffix <your_suffix> -SlotName beta -Branch beta
-  ```
+        git checkout -b beta
+        git push origin beta
+        .\deploy.ps1 -RepoUrl https://github.com/<your_fork>/ToDoApp.git -ResourceGroupSuffix <your_suffix> -SlotName beta -Branch beta
 
   Once the script finishes, all your resources in the original resource group is retained, but a new slot named "beta" is created in it with the same configuration as the "Staging" slot that was created in the beginning.
 
@@ -229,11 +213,9 @@ Since you're gathering data on client behavior, you will [add a telemetry initia
 
 If you wish, you can also create an alpha app by running
 
-```
-git checkout -b alpha
-git push origin alpha
-.\deploy.ps1 -RepoUrl https://github.com/<your_fork>/ToDoApp.git -ResourceGroupSuffix <your_suffix> -SlotName beta -Branch alpha
-```
+    git checkout -b alpha
+    git push origin alpha
+    .\deploy.ps1 -RepoUrl https://github.com/<your_fork>/ToDoApp.git -ResourceGroupSuffix <your_suffix> -SlotName beta -Branch alpha
 
 For this tutorial, you will just keep using your beta app.
 
@@ -243,9 +225,7 @@ Back to your app that you want to improve.
 
 1. Make sure you're now in your beta branch
 
-  ```
-  git checkout beta
-  ```
+        git checkout beta
 
 2. In *&lt;repository_root>*\src\MultiChannelToDo.Web\app\Index.cshtml, find the `<li>` tag and add the `style="cursor:pointer"` attribute, as shown below.
 
@@ -265,14 +245,12 @@ In this section, you will route traffic to the beta app. For sake of clarity of 
 
 1. In your Git Shell session, run the following commands to route half of the production traffic to the beta slot:
 
-  ```
-  $siteName = "ToDoApp<your suffix>"
-  $rule = New-Object Microsoft.WindowsAzure.Commands.Utilities.Websites.Services.WebEntities.RampUpRule
-  $rule.ActionHostName = "$siteName-beta.azurewebsites.net"
-  $rule.ReroutePercentage = 50
-  $rule.Name = "beta"
-  Set-AzureWebsite $siteName -Slot Production -RoutingRules $rule
-  ```
+        $siteName = "ToDoApp<your suffix>"
+        $rule = New-Object Microsoft.WindowsAzure.Commands.Utilities.Websites.Services.WebEntities.RampUpRule
+        $rule.ActionHostName = "$siteName-beta.azurewebsites.net"
+        $rule.ReroutePercentage = 50
+        $rule.Name = "beta"
+        Set-AzureWebsite $siteName -Slot Production -RoutingRules $rule
 
   The `ReroutePercentage=50` property specifies that 50% of the production traffic will be routed to the beta app's URL (specified by the `ActionHostName` property).
 
@@ -296,24 +274,18 @@ You're now ready to move your update to production. What's great is that now you
 
 1. In Git Shell, remove the traffic routing rule by running the following command:
 
-  ```
-  Set-AzureWebsite $siteName -Slot Production -RoutingRules @()
-  ```
+        Set-AzureWebsite $siteName -Slot Production -RoutingRules @()
 
 2. Run the Git commands:
 
-  ```
-  git checkout master
-  git pull origin master
-  git merge beta
-  git push origin master
-  ```
+        git checkout master
+        git pull origin master
+        git merge beta
+        git push origin master
 
 2. Wait for a few minutes for the new code to be deployed to the staging slot, then launch http://ToDoApp*&lt;your_suffix>*-staging.azurewebsites.net to verify that the new update is warmed up in the staging slot. Remember that the your fork's master branch is linked to the staging slot of your app.
 
 3. Now, swap the staging slot into production
 
-  ```
-  cd <ROOT>\ToDoApp\ARMTemplates
-  .\swap.ps1 -Name todoapp<your_suffix>
-  ```
+        cd <ROOT>\ToDoApp\ARMTemplates
+        .\swap.ps1 -Name todoapp<your_suffix>
