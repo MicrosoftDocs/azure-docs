@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/07/2015"   
+	ms.date="09/21/2015"   
 	ms.author="juliako"/>
 
 
@@ -29,12 +29,11 @@ Azure Media Indexer enables you to make content of your media files searchable a
 >[AZURE.IMPORTANT] When indexing content, make sure to use media files that have very clear speech (without background music, noise, effects, or microphone hiss). Some examples of appropriate content are: recorded meetings, lectures or presentations. The following content might not be suitable for indexing: movies, TV shows, anything with mixed audio and sound effects, poorly recorded content with background noise (hiss).
 
 
-An indexing job generates four outputs to every indexing file:
+An indexing job generates the following outputs:
 
-- Closed caption file in SAMI format.
-- Closed caption file in Timed Text Markup Language (TTML) format.
+- Closed caption files in the following formats: **SAMI**, **TTML**, and **WebVTT**.
 
-	Both SAMI and TTML include a tag called Recognizability, which scores an indexing job based on how recognizable the speech in the source video is.  You can use the value of Recognizability to screen output files for usability. A low score would mean poor indexing results due to audio quality.
+	Closed caption files include a tag called Recognizability, which scores an indexing job based on how recognizable the speech in the source video is.  You can use the value of Recognizability to screen output files for usability. A low score would mean poor indexing results due to audio quality.
 - Keyword file (XML).
 - Audio indexing blob file (AIB) for use with SQL server.
 	
@@ -164,11 +163,11 @@ To download the add-on, click <a href="http://aka.ms/indexersql">Azure Media Ind
 <br/><br/>
 It is also possible to utilize other search engines such as Apache Lucene/Solr to simply index the video based on the closed caption and keyword XML files, but this will result in less accurate search results.</td></tr>
 <tr><td>InputFileName.smi<br/>InputFileName.ttml</td>
-<td>Closed Caption (CC) files in SAMI and TTML formats.
+<td>Closed Caption (CC) files in SAMI, TTML, and WebVTT formats.
 <br/><br/>
 They can be used to make audio and video files accessible to people with hearing disability.
 <br/><br/>
-Both SAMI and TTML include a tag called <b>Recognizability</b> which scores an indexing job based on how recognizable the speech in the source video is.  You can use the value of <b>Recognizability</b> to screen output files for usability. A low score would mean poor indexing results due to audio quality.</td></tr>
+Closed Caption files include a tag called <b>Recognizability</b> which scores an indexing job based on how recognizable the speech in the source video is.  You can use the value of <b>Recognizability</b> to screen output files for usability. A low score would mean poor indexing results due to audio quality.</td></tr>
 <tr><td>InputFileName.kw.xml</td>
 <td>Keyword file.
 <br/><br/>
@@ -261,7 +260,7 @@ A manifest file with the .lst extension is created and uploading into the asset.
 
 ###Output files
 
-When there are more than one input media files, WAMI will generate a manifest file for the job outputs, named ‘JobResult.txt’. For each input media file, the resulting AIB, SAMI, TTML, and keyword files, are sequentially numbered, as listed below.
+When there are more than one input media files, WAMI will generate a manifest file for the job outputs, named ‘JobResult.txt’. For each input media file, the resulting AIB, SAMI, TTML, WebVTT, and keyword files, are sequentially numbered, as listed below.
 
 For descriptions of output files, see [Output files](#output_files). 
 
@@ -292,7 +291,7 @@ Error: indicates whether this media file is indexed successfully. 0 for succeede
 <tr><td>Media_1.aib </td>
 <td>File #0 - Audio indexing blob file.</td></tr>
 <tr><td>Media_1.smi<br/>Media_1.ttml</td>
-<td>File #0 - Closed Caption (CC) files in SAMI and TTML formats.</td></tr>
+<td>File #0 - Closed Caption (CC) files in SAMI, TTML, and WebVTT formats.</td></tr>
 <tr><td>Media_1.kw.xml</td>
 <td>File #0 - Keyword file.</td></tr>
 <tr><td>Media_2.aib </td>
@@ -306,7 +305,7 @@ If not all input media files are indexed successfully, the indexing job will fai
 If not all input media files are indexed successfully, the indexing job will fail with error code 4000. For more information, see [Error codes](#error_codes).
 
 
-The same outputs (as succeeded jobs) are generated. You can refer to the output manifest file to find out which input files are failed, according to the Error column values. For input files that are failed, the resulting AIB, SAMI, TTML, and keyword files will NOT be generated.
+The same outputs (as succeeded jobs) are generated. You can refer to the output manifest file to find out which input files are failed, according to the Error column values. For input files that failed, the resulting AIB, SAMI, TTML, WebVTT and keyword files will NOT be generated.
 
 
 ### <a id="error_codes"></a>Error codes
