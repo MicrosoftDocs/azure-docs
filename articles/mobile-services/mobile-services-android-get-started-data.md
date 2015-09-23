@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="09/22/2015"
+	ms.date="09/23/2015"
 	ms.author="ricksal"/>
 
 # Add Mobile Services to an existing Android app (JavaScript backend)
@@ -146,7 +146,6 @@ Once you have completed the data series, try these other Android tutorials:
 [Refine queries with paging]: /develop/mobile/tutorials/add-paging-to-data-android
 [Get started with Mobile Services]: /develop/mobile/tutorials/get-started-android
 [Get started with data]: /develop/mobile/tutorials/get-started-with-data-android
-[Get started with data (Eclipse)]: /documentation/articles/mobile-services-android-get-started-data-EC/
 [Get started with authentication]: /develop/mobile/tutorials/get-started-with-users-android
 [Get started with push notifications]: /develop/mobile/tutorials/get-started-with-push-android
 
