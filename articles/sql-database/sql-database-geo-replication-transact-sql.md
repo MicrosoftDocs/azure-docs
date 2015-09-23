@@ -3,7 +3,7 @@
     description="Geo-Replication for Azure SQL Database using Transact-SQL" 
     services="sql-database" 
     documentationCenter="" 
-    authors="carl" 
+    authors="carlrabeler" 
     manager="jeffreyg" 
     editor=""/>
 
