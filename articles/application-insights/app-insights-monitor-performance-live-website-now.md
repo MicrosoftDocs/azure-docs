@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Diagnose performance issues on a running website | Microsoft Azure"
+	pageTitle="Diagnose performance issues on a running IIS website | Microsoft Azure"
 	description="Monitor a website's performance without re-deploying it. Use standalone or with Application Insights SDK to get dependency telemetry."
 	services="application-insights"
     documentationCenter=".net"
@@ -12,17 +12,20 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="09/10/2015"
+	ms.date="09/23/2015"
 	ms.author="awills"/>
 
 
-# Install Application Insights Status Monitor to monitor website performance
+# Install Application Insights Status Monitor on IIS to monitor website performance
 
 *Application Insights is in preview.*
 
 The Status Monitor of Visual Studio Application Insights lets you diagnose exceptions and performance issues in web applications running in any IIS server. Just install it on your IIS web server and it will instrument the ASP.NET web apps it finds there, sending data to the Application Insights portal for you to search and analyse. You can install it on any physical or virtual server to which you have admin access.
 
 ![sample charts](./media/app-insights-monitor-performance-live-website-now/10-intro.png)
+
+> [AZURE.TIP] This article applies if your app runs on your IIS server. There are different articles for [Azure Web Apps](../insights-perf-analytics.md), [Azure Cloud Services](app-insights-cloudservices.md), and [J2EE](app-insights-java-live.md).
+
 
 You have a choice of three ways to apply Application Insights to your IIS web applications:
 
@@ -41,13 +44,11 @@ You have a choice of three ways to apply Application Insights to your IIS web ap
  * Troubleshoot any issues with the SDK and telemetry.
 
 
+## Install Application Insights Status Monitor
 
-> [AZURE.TIP] Is your app an [Azure App Service Web App](../app-service-web/websites-learning-map.md)? [Add the Application Insights SDK][greenbrown] and then [add the Application Insights extension](../insights-perf-analytics.md) from the app's control panel in Microsoft Azure.
+You need a [Microsoft Azure](http://azure.com) subscription.
 
-
-## Install Application Insights Status Monitor on your IIS web server
-
-1. You need a [Microsoft Azure](http://azure.com) subscription.
+### If your app runs on your IIS server
 
 1. On your IIS web server, login with administrator credentials.
 2. Download and run the [Status Monitor installer](http://go.microsoft.com/fwlink/?LinkId=506648).
@@ -78,11 +79,24 @@ You have a choice of three ways to apply Application Insights to your IIS web ap
 
    There are also some changes to web.config.
 
-### Want to (re)configure later?
+#### Want to (re)configure later?
 
 After you complete the wizard, you can re-configure the agent whenever you want. You can also use this if you installed the agent but there was some trouble with the initial setup.
 
 ![Click the Application Insights icon on the task bar](./media/app-insights-monitor-performance-live-website-now/appinsights-033-aicRunning.png)
+
+
+### If your app runs as an Azure Web App
+
+In the control panel of your Azure Web App, add the Application Insights extension.
+
+![In your web app, Settings, Extensions, Add, Application Insights](./media/app-insights-monitor-performance-live-website-now/05-extend.png)
+
+
+### If it's an Azure cloud services project
+
+[Add scripts to web and worker roles](app-insights-cloudservices.md).
+
 
 ## View performance telemetry
 

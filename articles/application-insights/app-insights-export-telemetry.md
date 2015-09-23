@@ -32,7 +32,7 @@ If you don't already have a "classic" storage account, create one now.
 
     ![In Azure portal, choose New, Data, Storage](./media/app-insights-export-telemetry/030.png)
 
-2. Create a container
+2. Create a container.
 
     ![In the new storage, select Containers, click the Containers tile, and then Add](./media/app-insights-export-telemetry/040.png)
 

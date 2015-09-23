@@ -200,6 +200,8 @@ By contrast, the persistence channel buffers telemetry in a file, before sending
     ``` 
 3. Use `telemetryClient.Flush()` before your app closes, to make sure data is either sent to the portal or saved to the file.
 
+    Note that Flush() is synchronous for the persistence channel, but asynchronous for other channels.
+
  
 The persistence channel is optimized for devices scenarios, where the number of events produced by application is relatively small and the connection is often unreliable. This channel will write events to the disk into reliable storage first and then attempt to send it. 
 
