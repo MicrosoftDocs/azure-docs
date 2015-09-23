@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/16/2015"
+	ms.date="09/21/2015"
 	ms.author="trinadhk";"aashishr" />
 
 
@@ -147,7 +147,7 @@ In order to restore backup data, you need to identify the backed-up Item and the
 To get the PowerShell object that identifies the right backup Item, you need to start from the Container in the vault, and work your way down object hierarchy. To select the container that represents the VM, use the **Get-AzureRMBackupContainer** commandlet and pipe that to the **Get-AzureRMBackupItem** commandlet.
 
 ```
-PS C:\> $backupitem = Get-AzureBackupContainer -Vault $backupvault -Type AzureVM -name "testvm" | Get-AzureRMBackupItem
+PS C:\> $backupitem = Get-AzureRMBackupContainer -Vault $backupvault -Type AzureVM -name "testvm" | Get-AzureRMBackupItem
 ```
 
 ### Choose a recovery point
