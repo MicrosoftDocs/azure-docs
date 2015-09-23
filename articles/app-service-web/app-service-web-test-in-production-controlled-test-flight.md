@@ -123,7 +123,7 @@ You have set up the production environment.  Now, let's imagine that you receive
             });
         </script>
 
-  This JavaScript snippet sends a custom event to Application Insights every time a user clicks anywhere in the web app.
+    This JavaScript snippet sends a custom event to Application Insights every time a user clicks anywhere in the web app.
 
 12. In Git Shell, commit and push your changes to your fork in GitHub. Then, wait for clients to refresh browser.
 
@@ -133,9 +133,9 @@ You have set up the production environment.  Now, let's imagine that you receive
 
 13. Browse to the Application Insights resource that you configured. Click Custom events.
 
-  ![](./media/app-service-web-test-in-production-controlled-test-flight/01-custom-events.png)
+    ![](./media/app-service-web-test-in-production-controlled-test-flight/01-custom-events.png)
 
-  If you don't see metrics for custom events, wait a few minutes and click **Refresh**.
+    If you don't see metrics for custom events, wait a few minutes and click **Refresh**.
 
 Suppose you see a chart like below:
 
@@ -173,9 +173,9 @@ Since you're gathering data on client behavior, you will [add a telemetry initia
         });
         // End new code
 
-  appInsights.trackPageView();
+        appInsights.trackPageView();
 
-  This initializer code causes the `appInsights` object to add the a custom property called `Environment` to every piece of telemetry it sends.
+    This initializer code causes the `appInsights` object to add the a custom property called `Environment` to every piece of telemetry it sends.
 
 2. Next, add this custom property as a stick app setting for your web app in Azure. To do this, run the following commands in your Git Shell session.
 
@@ -184,22 +184,22 @@ Since you're gathering data on client behavior, you will [add a telemetry initia
         $app.SlotStickyAppSettingNames.Add("environment")
         $app | Set-AzureWebsite -Name todoapp023c -Slot production
 
-  The Web.config in your project already defines the `environment` app setting. With this setting, when you test the app locally, your metrics will be tagged with `VS Debugger`. However, when you push your changes to Azure, Azure will find and use the `environment` app setting in the web app's configuration instead, and your metrics will be tagged with `Production`.
+    The Web.config in your project already defines the `environment` app setting. With this setting, when you test the app locally, your metrics will be tagged with `VS Debugger`. However, when you push your changes to Azure, Azure will find and use the `environment` app setting in the web app's configuration instead, and your metrics will be tagged with `Production`.
 
 3. commit update and push to your fork on GitHub and wait for your users to use the new app (need to refresh the browser). It takes about 15 minutes for the new property to show up in your Application Insights resource.
 4. Now, go to the **Custom events** blade again and filter the metrics on `Environment=Production`. You should now be able to see all the new custom events in the production slot with this filter.
 
-  ![](./media/app-service-web-test-in-production-controlled-test-flight/05-filter-on-production-environment.png)
+    ![](./media/app-service-web-test-in-production-controlled-test-flight/05-filter-on-production-environment.png)
 
 5. Click the **Favorites** button to save the current Metrics Explorer settings to something like **Custom events: Production**. You can easily switch between this view and a deployment slot view later.
 
-> [AZURE.TIP] For even more powerful analytics, consider [integrating your Application Insights resource with Power BI](app-insights-export-power-bi.md).
+    > [AZURE.TIP] For even more powerful analytics, consider [integrating your Application Insights resource with Power BI](app-insights-export-power-bi.md).
 
 ## Update: Set up your alpha/beta branches
 
 2. Open *&lt;repository_root>*\ARMTemplates\ProdAndStagetest.json and find the `"appsettings"` resource for the front end app's staging slot. Add an `"environment": "[parameters('slotName')]"` app setting.
 
-  ![](./media/app-service-web-test-in-production-controlled-test-flight/06-arm-app-setting-with-slot-name.png)
+    ![](./media/app-service-web-test-in-production-controlled-test-flight/06-arm-app-setting-with-slot-name.png)
 
 3. In your Git Shell session, run
 
@@ -207,9 +207,9 @@ Since you're gathering data on client behavior, you will [add a telemetry initia
         git push origin beta
         .\deploy.ps1 -RepoUrl https://github.com/<your_fork>/ToDoApp.git -ResourceGroupSuffix <your_suffix> -SlotName beta -Branch beta
 
-  Once the script finishes, all your resources in the original resource group is retained, but a new slot named "beta" is created in it with the same configuration as the "Staging" slot that was created in the beginning.
+    Once the script finishes, all your resources in the original resource group is retained, but a new slot named "beta" is created in it with the same configuration as the "Staging" slot that was created in the beginning.
 
-  >[AZURE.NOTE] This method of creating different environments is different from the method in [Agile software development with Azure App Service](app-service-agile-software-development.md). Here, you create environments with deployment slots, where as there you create environments with resource groups. Managing environments with resource groups enables you to keep the production environment off-limits to developers, but it's not easy to do testing in production, which you can do easily with slots.
+    >[AZURE.NOTE] This method of creating different environments is different from the method in [Agile software development with Azure App Service](app-service-agile-software-development.md). Here, you create environments with deployment slots, where as there you create environments with resource groups. Managing environments with resource groups enables you to keep the production environment off-limits to developers, but it's not easy to do testing in production, which you can do easily with slots.
 
 If you wish, you can also create an alpha app by running
 
@@ -229,13 +229,13 @@ Back to your app that you want to improve.
 
 2. In *&lt;repository_root>*\src\MultiChannelToDo.Web\app\Index.cshtml, find the `<li>` tag and add the `style="cursor:pointer"` attribute, as shown below.
 
-  ![](./media/app-service-web-test-in-production-controlled-test-flight/07-change-cursor-style-on-li.png)
+    ![](./media/app-service-web-test-in-production-controlled-test-flight/07-change-cursor-style-on-li.png)
 
 3. commit and push to Azure.
 
 4. Verify that the change is now reflected in the beta slot by navigating to http://todoapp*&lt;your_suffix>*-beta.azurewebsites.net/. If you don't see the change yet, refresh your browser to get the new javascript code.
 
-  ![](./media/app-service-web-test-in-production-controlled-test-flight/08-verify-change-in-beta-site.png)
+    ![](./media/app-service-web-test-in-production-controlled-test-flight/08-verify-change-in-beta-site.png)
 
 Now that you have your change running in the beta slot, you are ready to test in production
 
@@ -258,7 +258,7 @@ In this section, you will route traffic to the beta app. For sake of clarity of 
 
 3. In your Application Insights resource, filter the metrics by environment="beta".
 
-  > [AZURE.NOTE] If you save this filtered view as another favorite, then you can easily flip the metric explorer views between production and beta views.
+    > [AZURE.NOTE] If you save this filtered view as another favorite, then you can easily flip the metric explorer views between production and beta views.
 
 Suppose in Application Insights you see something similar to the following:
 
