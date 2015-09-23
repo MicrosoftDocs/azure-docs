@@ -23,7 +23,7 @@ An App Service environment is an isolated and dedicated environment that securel
 
 - You can use this app service environment for whatever you want. It's tied to your company, not the subscription.
 - You configure connectors and connections to be used by your PowerApps. But, you can also add web apps and mobile apps to this same app service environment. 
-- Billing is fixed and included with PowerApps. For example, you sign-up for PowerApps. When you reach max capacity, Azure automatically scales your apps with no additional costs and no additional actions by you. 
+- Billing is fixed and included with PowerApps.  
 - Scale is automatically managed for you. You don't have to monitor the environment to determine if additional compute resources are needed.
 
 The regular Azure app service environment has different features. See [Introduction to App Service Environment](../app-service-web/app-service-app-service-environment-intro.md) for those details.
