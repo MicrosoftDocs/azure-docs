@@ -381,7 +381,9 @@ You'll get charts of response times, plus email notifications if your site goes 
 
 [Troubleshooting Java](app-insights-java-troubleshoot.md)
 
+## Next steps
 
+For more information, see the [Java Developer Center](/develop/java/).
 
 <!--Link references-->
 

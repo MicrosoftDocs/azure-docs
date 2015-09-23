@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Configure a custom domain name in Cloud Services"
+	pageTitle="Configure a custom domain name in Cloud Services | Microsoft Azure"
 	description="Learn how to expose your Azure application or data on a custom domain by configuring DNS settings."
 	services="cloud-services"
 	documentationCenter=".net"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/29/2015"
+	ms.date="09/22/2015"
 	ms.author="adegeo"/>
 
 # Configuring a custom domain name for an Azure cloud service
@@ -23,7 +23,7 @@
 - [Azure Preview Portal](cloud-services-custom-domain-name-portal.md)
 
 
-When you create a Cloud Service, Azure assigns it to a subdomain of cloudapp.net. For example, if your Cloud Service is named "contoso", your users will be able to access your application on a URL like http://&lt;*contoso*>.cloudapp.net. Azure also assigns a virtual IP address.
+When you create a Cloud Service, Azure assigns it to a subdomain of cloudapp.net. For example, if your Cloud Service is named "contoso", your users will be able to access your application on a URL like http://contoso.cloudapp.net. Azure also assigns a virtual IP address.
 
 However, you can also expose your application on your own domain name, such as contoso.com. This article explains how to reserve or configure a custom domain name for Cloud Service web roles.
 
@@ -147,8 +147,14 @@ This example demonstrates creating an A record for the root domain. If you wish 
 
 ## Next steps
 
--   [How to Manage Cloud Services](cloud-services-how-to-manage.md)
--   [How to Map CDN Content to a Custom Domain](http://msdn.microsoft.com/library/windowsazure/gg680307.aspx)
+* [How to Manage Cloud Services](cloud-services-how-to-manage.md)
+* [How to Map CDN Content to a Custom Domain](cdn-map-content-to-custom-domain.md)
+* [General configuration of your cloud service](cloud-services-how-to-configure.md).
+* Learn how to [deploy a cloud service](cloud-services-how-to-create-deploy.md).
+* Configure [ssl certificates](cloud-services-configure-ssl-certificate.md).
+
+
+
 
 [Expose Your Application on a Custom Domain]: #access-app
 [Add a CNAME Record for Your Custom Domain]: #add-cname
