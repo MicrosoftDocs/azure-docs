@@ -57,6 +57,32 @@ The [IoT Hub APIs and SDKs][lnk-apis-sdks] article describes the various ways th
 
 Finally it is important to note that all IoT Hub endpoints are exposed over [TLS][lnk-tls], and no endpoint is ever exposed on unencrypted/unsecured channels.
 
+### How to read from Event Hubs-compatible endpoints. <a id="eventhubcompatible"></a>
+When using [Azure Service Bus SDK for .NET][https://www.nuget.org/packages/WindowsAzure.ServiceBus] or the [Event Hubs - Event Processor Host], you can use any IoT Hub connection strings with the correct permissions, and then use `messages/events` as event hub name.
+
+When using SDKs (or product integrations) that are unaware of IoT Hub, you have to retrieve an Event Hubs-compatible endpoint and event hub name from the IoT Hub settings in the [Azure Preview Portal]:
+
+1. In the IoT hub blade, click **Settings**, then **Messaging**,
+2. In the **Device-to-cloud settings** section, you will find an **Event Hub-compatible endpoint**, **Event Hub-compatible name**, and **Partitions** box.
+
+    ![][img-eventhubcompatible]
+
+> [AZURE.NOTE] Sometimes the SDK requires an **Hostname** or **Namespace**, in that case, remove the scheme from the **Event Hub-compatible endpoint**. For instance, if your Event Hub-compatible endpoint is `sb://iothub-ns-myiothub-1234.servicebus.windows.net/`, the **Hostname** would be `iothub-ns-myiothub-1234.servicebus.windows.net`, and the **Namespace** would be `iothub-ns-myiothub-1234`.
+
+You can then use any shared access security policy that has **ServiceConnect** permissions to connect to the Event Hub above.
+
+In case you have to build an Event Hub connection string with the information above, you can use the following pattern:
+
+        Endpoint={Event Hub-compatible endpoint};SharedAccessKeyName={iot hub policy name};SharedAccessKey={iot hub policy key}
+
+
+Here is a list of SDKs and integration that can be used with IoT Hub:
+
+* [Java Event Hubs client][https://github.com/hdinsight/eventhubs-client]
+* [Apache Storm spout][https://azure.microsoft.com/en-us/documentation/articles/hdinsight-storm-develop-csharp-event-hub-topology/], you can find the link to the spout source [here][https://github.com/apache/storm/tree/master/external/storm-eventhubs]
+* [Apache Spark integration][https://azure.microsoft.com/en-us/documentation/articles/hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming/]
+
+
 ## Security <a id="security"></a>
 
 This section describes the options for securing Azure IoT Hub.
@@ -88,7 +114,7 @@ For guidance on IoT Hub security topics, refer to the security section of [Azure
 Azure IoT Hub grants access to endpoints by verifying a token against the shared access policies and device identity registry security credentials.
 Security credentials, such as symmetric keys, are never sent on the wire.
 
-**Note**: The Azure IoT Hub resource provider is secured through your Azure subscription, as all providers in the [Azure Resource Manager][lnk-azure-resource-manager].
+> [AZURE.NOTE] The Azure IoT Hub resource provider is secured through your Azure subscription, as all providers in the [Azure Resource Manager][lnk-azure-resource-manager].
 
 #### Security token format <a id="tokenformat"></a>
 The security token has the following format:
@@ -172,7 +198,7 @@ The Azure IoT Hub device identity registry exposes the following operations:
 
 All the above operations allow the use optimistic concurrency as specified in [RFC7232][lnk-rfc7232].
 
-**Important**: The only way to retrieve all identities in a hub's identity registry is to use the [Import/Export](#importexport) functionality.
+> [AZURE.IMPORTANT] The only way to retrieve all identities in a hub's identity registry is to use the [Export](#importexport) functionality.
 
 A hub's device identity registry does not contain any application metadata, can be accessed like a dictionary (using the **deviceId** as the key), and has no support for expressive queries. Any IoT solution will have a solution-specific *device registry*, which contains application specific metadata such as the deployed room, for a temperature sensor in a smart building solution. Refer to [Azure IoT Reference Architecture][lnk-reference-architecture] for more information on how to integrate an identity registry into your IoT solution.
 
@@ -182,43 +208,40 @@ You can disable devices by updating the **status** property of an identity in th
 1. During a provisioning orchestration process. Refer to [Azure IoT Hub Guidance - Provisioning][lnk-guidance-provisioning] for more information.
 2. If, for any reason, you consider a device is  compromised or temporarily unauthorized.
 
-### Import/Export device identities <a id="importexport"></a>
-You can import and export device identities in bulk from an IoT hub's identity registry. This is currently done with asynchronous operations on the Azure IoT Hub Resource provider endpoint ([Endpoints](#endpoints)).
+### Export device identities <a id="importexport"></a>
+You can export device identities in bulk from an IoT hub's identity registry. This is currently done with asynchronous operations on the Azure IoT Hub Resource provider endpoint ([Endpoints](#endpoints)).
 
-Imports and exports are long running jobs that use a customer-supplied blob container to read and write device identity data.
+Exports are long running jobs that use a customer-supplied blob container to read and write device identity data.
 
-These are the operations that are possible on import/export jobs:
+These are the operations that are possible on export jobs:
 
-* Create an import or export job
+* Create an export job
 * Retrieve the status of a running job
 * Cancel a running job
 
-**Important**: Each hub can have only a single job running at any given time.
+> [AZURE.NOTE] Each hub can have only a single job running at any given time.
 
 For detailed information on the import and export APIs, refer to [Azure IoT Hub - Resource Provider APIs][lnk-resource-provider-apis].
 
 #### Jobs
-All import/export jobs have the following properties:
+All export jobs have the following properties:
 
 | Property | Options | Description |
 | -------- | ------- | ----------- |
 | jobId | system-generated, ignored at creation | |
 | creationTime | system-generated, ignored at creation | |
 | endOfProcessingTime | system-generated, ignored at creation | |
-| type | read-only | **Import** or **Export** |
+| type | read-only | **Export** |
 | status | system-generated, ignored at creation | **Enqueued**, **Started**, **Completed**, **Failed** |
 | progress | system-generated, ignored at creation | Integer value of the percentage of completion. |
-| importBlobURI | required for import jobs | Blob Shared Access Signature URI with read access to a blob (refer to [Create and Use a SAS with the Blob Service][lnk-createuse-sas], and [Creating a Shared Access Signature in Java][lnk-sas-java]) |
-| outputBlobContainerURI | required for all jobs | Blob Shared Access Signature URI with write access to a blob container. This is used to output the status of the job and the results. |
-| includeKeysInExport | optional for export jobs, ignored for other jobs | If **true** keys are included in export output; keys are exported as null otherwise. Default: **false**. |
+| outputBlobContainerURI | required for all jobs | Blob Shared Access Signature URI with write access to a blob container (refer to [Create and Use a SAS with the Blob Service][lnk-createuse-sas], and [Creating a Shared Access Signature in Java][lnk-sas-java]). This is used to output the status of the job and the results. |
+| includeKeysInExport | optional | If **true** keys are included in export output; keys are exported as null otherwise. Default: **false**. |
 | failureReason | system-generated, ignored at creation | If status is **Failed**, a string containing the reason. |
 
-#### Import jobs
-Import jobs take, as a parameter, a blob Shared Access Signature URI that links to a blob that contains the list of device identities to import into the hub's identity registry. The signature must grant read access to the blob.
+#### Export jobs
+Export jobs take, as a parameter, a blob Shared Access Signature URI that grants write access to a blob container. This is used to output the result of the operation.
 
-Device identities are serialized in a text file, in their JSON format (as per section [Device identity properties](#deviceproperties)), one per line.
-
-The **etag** property has the following meaning. If not present, the import job will create the identity if no other identity exists. If **etag** is set to \*, then device identities will be created or overwritten, if **etag** has another value, then the identity will be created if non-existing, or updated *only* if an existing one exists with the specified **etag**.
+The output results are written in the specified blob container in a file called `job_{job_id}_devices.txt`. This file will contain device identities serialized as JSON as specified in [Device identity properties](#deviceproperties)). The security materials will be set to **null** in case the **includeKeysInExport** is set to **false**.
 
 **Example**:
 
@@ -226,16 +249,6 @@ The **etag** property has the following meaning. If not present, the import job 
     {"deviceId":"devB","auth":{"symKey":{"primaryKey":"234"}},"status":"enabled"}
     {"deviceId":"devC","auth":{"symKey":{"primaryKey":"345"}},"status":"enabled"}
     {"deviceId":"devD","auth":{"symKey":{"primaryKey":"456"}},"status":"enabled"}
-
-Import jobs also take, as a parameter, another blob Shared Access Signature URI that grants write access to a container. The job uses this container to output the results of the job.
-
-#### Results format <a id="results"></a>
-Each import job outputs in the output blob container a file called `job_{job_id}_importErrors.log`, which contains errors for individual device identity import operations.
-
-#### Export jobs
-Export jobs take, as a parameter, a blob Shared Access Signature URI that grants write access to a blob container. This is used to output the result of the operation.
-
-The output results are written in the specified blob container in a file called `job_{job_id}_devices.txt`. This file will contain device identities serialized as JSON as specified in [Device identity properties](#deviceproperties)). The security materials will be set to **null** in case the **includeKeysInExport** is set to **false**.
 
 ## Messaging
 Azure IoT Hub provides messaging primitives to communicate from an application back-end (*service* or *cloud*) to devices, and vice-versa. We refer to these functionalities as [Device-to-Cloud](#d2c) and [Cloud-to-Device](#c2d).
@@ -448,9 +461,14 @@ Now you've seen an overview of developing for IoT Hub, follow these links to lea
 - [OS Platforms and hardware compatibility][lnk-compatibility]
 - [Plan your IoT implementation][lnk-guidance]
 
+[Event Hubs - Event Processor Host]: http://blogs.msdn.com/b/servicebus/archive/2015/01/16/event-processor-host-best-practices-part-1.aspx
+
+[Azure Preview Portal]: https://ms.portal.azure.com
+
 [img-summary]: media/iot-hub-devguide/summary.png
 [img-endpoints]: media/iot-hub-devguide/endpoints.png
 [img-lifecycle]: media/iot-hub-devguide/lifecycle.png
+[img-eventhubcompatible]: media/iot-hub-devguide/eventhubcompatible.png
 
 [lnk-get-started]: TBD
 [lnk-compatibility]: TBD

@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Send Cloud-to-Device messages with IoT Hub"
-	description="Follow this tutorial to learn how to send cloud-to-device messages using Azure IoT Hub with C#."
+	pageTitle="Upload files from devices using IoT Hub"
+	description="Follow this tutorial to learn how to upload files from devices using Azure IoT Hub with C#."
 	services="iot-hub"
 	documentationCenter=".net"
 	authors="fsautomata"
@@ -16,12 +16,11 @@
      ms.date="09/29/2015"
      ms.author="fsautomata"/>
 
-# Send Cloud-to-Device messages with IoT Hub
-
-[AZURE.INCLUDE [service-bus-selector-c2d](../../includes/iot-hub-selector-c2d.md)]
+# Upload files from devices to the cloud with IoT Hub
 
 ## Introduction
 
+// STUB!!!!
 Azure IoT Hub is a fully managed service that enables reliable and secure bi-directional communications between millions of IoT devices and an application back end. The [Get started with IoT Hub] tutorial shows how to create an IoT hub, provision a device identity in it, and code a simulated device that sends device-to-cloud messages.
 
 This tutorial builds on [Get started with IoT Hub] and shows how to send cloud-to-device messages to a single device, how to request delivery acknowledgement (*feedback*) from IoT Hub, and receive it from your application cloud back-end.
