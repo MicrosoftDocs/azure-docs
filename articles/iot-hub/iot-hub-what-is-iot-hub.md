@@ -1,20 +1,20 @@
 <properties
  pageTitle="What is Azure IoT Hub | Microsoft Azure"
  description="A overview of the Azure IoT Hub service including device connectivity, communication patterns and service assisted communication pattern"
- services="azure-iot"
+ services="iot-hub"
  documentationCenter=".net"
  authors="fsautomata"
- manager="timlt"
+ manager="kevinmil"
  editor=""/>
 
 <tags
- ms.service="azure-iot"
+ ms.service="iot-hub"
  ms.devlang="na"
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="tbd"
- ms.date="09/04/2015"
- ms.author="dobett"/>
+ ms.date="09/29/2015"
+ ms.author="fsautomata"/>
 
 # What is Azure IoT Hub?
 
@@ -32,7 +32,7 @@ One of the largest challenges facing IoT projects is how to reliably and securel
 
 -   Connectivity to the application back end can be the only way to access the device.
 
--   They nay have limited power and/or processing resources.
+-   They may have limited power and/or processing resources.
 
 -   Network connectivity may be intermittent, expensive, or scarce for the device.
 
@@ -40,7 +40,7 @@ One of the largest challenges facing IoT projects is how to reliably and securel
 
 -   There is a large set of popular hardware and software platforms for creating devices.
 
-Any IoT solution must not only meet the requirements above, but it must also deliver scale, security, and reliability. All of these aspects combine in a set of connectivity requirements that are hard and time-consuming to implement using traditional technologies such as web containers and messaging brokers.
+In addition to the requirements above, any IoT solution must also deliver scale, security, and reliability. All of these aspects combine in a set of connectivity requirements that are hard and time-consuming to implement using traditional technologies such as web containers and messaging brokers.
 
 ## Why use Azure IoT Hub
 

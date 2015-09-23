@@ -1,20 +1,20 @@
 <properties
 	pageTitle="Get Started with IoT Hub"
 	description="Follow this tutorial to get started using Azure IoT Hub with C#."
-	services="azure-iot"
+	services="iot-hub"
 	documentationCenter=".net"
 	authors="fsautomata"
-	manager="timlt"
+	manager="kevinmil"
 	editor=""/>
 
 <tags
-     ms.service="azure-iot"
+     ms.service="iot-hub"
      ms.devlang="csharp"
      ms.topic="article"
      ms.tgt_pltfrm="na"
      ms.workload="tbd"
-     ms.date="09/08/2015"
-     ms.author="dobett"/>
+     ms.date="09/29/2015"
+     ms.author="fsautomata"/>
 
 # Get started with IoT Hub
 
@@ -22,7 +22,7 @@
 
 ## Introduction
 
-Azure IoT Hub is a fully managed service that enables reliable and secure bi-directional communications between millions of IoT devices and an application back end. One of the largest challenges facing IoT projects is how to reliably and securely connect devices to the application back end. To simplify this scenario, Azure IoT Hub offers reliable device-to-cloud and cloud-to-device hyper-scale messaging, enables secure communications using per-device security credentials and access control, and includes device libraries for the most popular languages and platforms.
+Azure IoT Hub is a fully managed service that enables reliable and secure bi-directional communications between millions of IoT devices and an application back end. One of the biggest challenges facing IoT projects is how to reliably and securely connect devices to the application back end. To simplify this scenario, Azure IoT Hub offers reliable device-to-cloud and cloud-to-device hyper-scale messaging, enables secure communications using per-device security credentials and access control, and includes device libraries for the most popular languages and platforms.
 
 This tutorial shows how to use the Azure portal to create an IoT hub. It also shows you how to create a device identity in your IoT hub, create a simulated device that sends device-to-cloud messages, and receives these messages from your cloud back-end.
 
@@ -50,16 +50,16 @@ In order to complete this tutorial you'll need the following:
     * Use **Location** to specify the geographic location in which to host your IoT hub.  
 
 
-4. Once the new IoT hub options are configured, click **Create**.  It can take a few minutes for the IoT hub to be created.  To check the status, you can monitor the progress on the Startboard. Or, you can monitor your progress from the Notifications hub.
+4. Once the new IoT hub options are configured, click **Create**.  It can take a few minutes for the IoT hub to be created.  To check the status, you can monitor the progress on the Startboard. Or, you can monitor your progress from the Notifications section.
 
     ![][3]
 
 
-5. After the IoT hub has been created successfully, open the blade of the new IoT hub, take note of the URI, and select **Key** icon on the top.
+5. After the IoT hub has been created successfully, open the blade of the new IoT hub, take note of the URI, and select the **Key** icon on the top.
 
    	![][4]
 
-6. Analogously, select the Shared access policy called **iothubowner**, then copy and take note of the connection string on the right blade.
+6. Select the Shared access policy called **iothubowner**, then copy and take note of the connection string on the right blade.
 
    	![][5]
 
@@ -84,7 +84,7 @@ Now you are ready to run the applications.
 
 ## Next steps
 
-In this tutorial, you set up a new IoT hub, created a device identity in the hub's identity registry, and used this identity to program a simulated device that sends device-to-cloud messages. You can continue explore IoT hub features and scenario with the following tutorials:
+In this tutorial, you set up a new IoT hub, created a device identity in the hub's identity registry, and used this identity to program a simulated device that sends device-to-cloud messages. You can continue to explore IoT hub features and scenario with the following tutorials:
 
 - [Send Cloud-to-Device messages with IoT Hub], shows how to send messages to devices, and process the delivery feedback produced by IoT Hub.
 - [Process Device-to-Cloud messages], shows how to reliably process telemetry and interactive messages coming from devices.

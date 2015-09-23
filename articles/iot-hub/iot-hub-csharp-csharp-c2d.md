@@ -1,20 +1,20 @@
 <properties
 	pageTitle="Send Cloud-to-Device messages with IoT Hub"
 	description="Follow this tutorial to learn how to send cloud-to-device messages using Azure IoT Hub with C#."
-	services="azure-iot"
+	services="iot-hub"
 	documentationCenter=".net"
 	authors="fsautomata"
-	manager="timlt"
+	manager="kevinmil"
 	editor=""/>
 
 <tags
-     ms.service="azure-iot"
+     ms.service="iot-hub"
      ms.devlang="csharp"
      ms.topic="article"
      ms.tgt_pltfrm="na"
      ms.workload="tbd"
-     ms.date="09/08/2015"
-     ms.author="dobett"/>
+     ms.date="09/29/2015"
+     ms.author="fsautomata"/>
 
 # Send Cloud-to-Device messages with IoT Hub
 
@@ -54,14 +54,6 @@ Additional information on IoT Hub:
 - [IoT Hub APIs and SDKs]
 
 <!-- Images. -->
-[1]: ./media/iot-hub-csharp-csharp-getstarted/create-iot-hub1.png
-[2]: ./media/iot-hub-csharp-csharp-getstarted/create-iot-hub2.png
-[3]: ./media/iot-hub-csharp-csharp-getstarted/create-iot-hub3.png
-[4]: ./media/iot-hub-csharp-csharp-getstarted/create-iot-hub4.png
-[5]: ./media/iot-hub-csharp-csharp-getstarted/create-iot-hub5.png
-
-[41]: ./media/iot-hub-csharp-csharp-getstarted/run-apps1.png
-[42]: ./media/iot-hub-csharp-csharp-getstarted/run-apps2.png
 
 <!-- Links -->
 
