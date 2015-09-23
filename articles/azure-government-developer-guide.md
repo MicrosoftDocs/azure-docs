@@ -102,7 +102,18 @@ ARM Load balanced Endpoint|https://management.windows.net|https://management.usg
 
 
 ## <a name="next"></a>Next steps
-If you are interested in learning more and about Azure Government and how your organization can qualify to access, please go to <A href="http://azure.com/gov">http://www.azure.com/gov</a>
+
+If you are interested in learning more and about Azure Government please leverage some of the links below.
+
+- **<A href="https://azuregov.microsoft.com/trial/azuregovtrial">Sign up for a trial</a>**
+
+- **<A href="http://azure.com/gov">Acquiring and accessing Azure Government</a>**
+
+- **<A href="/azure-government-overview">Azure Government Overview</a>**
+
+- **<A href="http://blogs.msdn.com/b/azuregov/">Azure Government Blog</a>**
+
+- **<A href="http://azure.microsoft.com/en-us/support/trust-center/compliance/">Azure Compliance</a>**
 
 <!--Anchors-->
 
