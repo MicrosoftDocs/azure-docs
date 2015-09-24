@@ -60,9 +60,9 @@ Once Traffic Routing is configured, the specified percentage of clients will be 
 
 In addition to automatic traffic routing, App Service is able to route requests to a specific slot. This is useful when you want your users to be able to opt-into or opt-out of your beta app. To do this, you use the `x-ms-routing-name` query parameter.
 
->[AZURE.NOTE] To reroute users to a specific slot using `x-ms-routing-name`, you must make sure that the slot is already added to the Traffic Routing list. You can even add it to the list with 0% routing percentage if you want the users to access the beta app only if they explicitly click on the "beta link".
->
->![](./media/app-service-web-test-in-production/06-enable-x-ms-routing-name.png)
+To reroute users to a specific slot using `x-ms-routing-name`, you must make sure that the slot is already added to the Traffic Routing list. You can even add it to the list with 0% routing percentage if you want the users to access the beta app only if they explicitly click on the "beta link".
+
+![](./media/app-service-web-test-in-production/06-enable-x-ms-routing-name.png)
 
 ### Opt users out of beta app
 
