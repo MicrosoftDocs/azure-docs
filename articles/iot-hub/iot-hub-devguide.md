@@ -56,7 +56,7 @@ The [IoT Hub APIs and SDKs][lnk-apis-sdks] article describes the various ways th
 Finally it is important to note that all IoT Hub endpoints are exposed over [TLS][lnk-tls], and no endpoint is ever exposed on unencrypted/unsecured channels.
 
 ### How to read from Event Hubs-compatible endpoints. <a id="eventhubcompatible"></a>
-When using [Azure Service Bus SDK for .NET][https://www.nuget.org/packages/WindowsAzure.ServiceBus] or the [Event Hubs - Event Processor Host], you can use any IoT Hub connection strings with the correct permissions, and then use `messages/events` as event hub name.
+When using [Azure Service Bus SDK for .NET](https://www.nuget.org/packages/WindowsAzure.ServiceBus) or the [Event Hubs - Event Processor Host], you can use any IoT Hub connection strings with the correct permissions, and then use `messages/events` as event hub name.
 
 When using SDKs (or product integrations) that are unaware of IoT Hub, you have to retrieve an Event Hubs-compatible endpoint and event hub name from the IoT Hub settings in the [Azure Preview Portal]:
 
@@ -77,8 +77,8 @@ In case you have to build an Event Hub connection string with the information ab
 Here is a list of SDKs and integration that can be used with IoT Hub:
 
 * [Java Event Hubs client](https://github.com/hdinsight/eventhubs-client)
-* [Apache Storm spout](https://azure.microsoft.com/en-us/documentation/articles/hdinsight-storm-develop-csharp-event-hub-topology/), you can find the link to the spout source [here](https://github.com/apache/storm/tree/master/external/storm-eventhubs)
-* [Apache Spark integration](https://azure.microsoft.com/en-us/documentation/articles/hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming/)
+* [Apache Storm spout](../hdinsight/hdinsight-storm-develop-csharp-event-hub-topology.md), you can find the link to the spout source [here](https://github.com/apache/storm/tree/master/external/storm-eventhubs)
+* [Apache Spark integration](../hdinsight/hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming.md)
 
 ## Device identity registry <a id="identityregistry"></a>
 Each IoT hub has a device identity registry that is used to create per-device resources in the service, such as a queue containing in-flight cloud-to-device messages, and allows access to the device-facing endpoints as explained in the [Access Control](#accesscontrol) section.
