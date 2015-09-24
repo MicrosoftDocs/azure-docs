@@ -27,7 +27,7 @@ To start using Stream Analytics, create a new Stream Analytics job.  Note that t
 
     ![Quick Create Wizard](./media/stream-analytics-create-a-job/1-stream-analytics-create-a-job.png)  
 
-   In the Azure preview portal: Click New, then click Data + Analytics, and then click Azure Stream Analytics.  
+    In the Azure preview portal: Click New, then click Data + Analytics, and then click Azure Stream Analytics.  
 
     ![Azure Portal Create Job](./media/stream-analytics-create-a-job/4-stream-analytics-create-a-job.png)  
 
