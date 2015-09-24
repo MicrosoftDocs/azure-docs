@@ -1,5 +1,5 @@
 <properties
-	pageTitle="How to install and configure Trend Micro Deep Security as a Service on an Azure VM | Microsoft Azure"
+	pageTitle="How to install and configure Trend Micro Deep Security as a Service on a VM | Microsoft Azure"
 	description="This article describes how to install and configure Trend Micro security on a VM in Azure."
 	services="virtual-machines"
 	documentationCenter=""

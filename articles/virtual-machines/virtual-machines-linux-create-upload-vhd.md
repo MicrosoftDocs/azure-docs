@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Create and upload a Linux VHD in Azure"
+	pageTitle="Create and upload a Linux VHD in Azure | Microsoft Azure"
 	description="Learn to create and upload an Azure virtual hard disk (VHD) that contains the Linux operating system."
 	services="virtual-machines"
 	documentationCenter=""
@@ -22,6 +22,8 @@
 This article shows you how to create and upload a virtual hard disk (VHD) so you can use it as your own image to create virtual machines in Azure. You'll learn how to prepare the operating system so you can use it to create multiple virtual machines based on that image. Note that this article refers to virtual machines created using the classic deployment model.
 
 [AZURE.INCLUDE [free-trial-note](../../includes/free-trial-note.md)]
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)] This article covers uploading a VHD with the Service Manager.
 
 A virtual machine in Azure runs the operating system that's based on the image you choose when you create the virtual machine. Your images are stored in VHD format, in .vhd files in a storage account. For details, see [About Disks and Images in Azure](https://msdn.microsoft.com/library/azure/jj672979.aspx).
 

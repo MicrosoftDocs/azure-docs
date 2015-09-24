@@ -574,6 +574,10 @@ Application using Azure DocumentDB and published it to Azure Websites.
 
 The source code for the complete reference application can be downloaded [here](https://github.com/Azure/azure-documentdb-node/tree/master/tutorial/todo).
 
+## Next steps
+
+For more information, see the [Node.js Developer Center](/develop/nodejs/).
+
   [Node.js]: http://nodejs.org/
   [Git]: http://git-scm.com/
  

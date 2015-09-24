@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="web" 
-	ms.date="06/29/2015" 
+	ms.date="09/22/2015" 
 	ms.author="tdykstra"/>
 
 # Deploy WebJobs using Visual Studio

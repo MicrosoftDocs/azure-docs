@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/26/2015"
+   ms.date="09/22/2015"
    ms.author="JRJ@BigBangData.co.uk;barbkess"/>
 
 # Concurrency and workload management in SQL Data Warehouse
@@ -139,19 +139,49 @@ Below is a list of statements and operations that **are** governed by resource c
 - INSERT-SELECT
 - UPDATE
 - DELETE
-- SELECT (when not exclusively querying DMVs)
+- SELECT (when querying user tables)
 - ALTER INDEX REBUILD
 - ALTER INDEX REORGANIZE
 - ALTER TABLE REBUILD
-- CREATE CLUSTERED INDEX
+- CREATE INDEX
 - CREATE CLUSTERED COLUMNSTORE INDEX
 - CREATE TABLE AS SELECT 
 - Data loading 
+- Data movement operations conducted by the Data Movement Service (DMS)
+
+The following statements **do not** honor resource classes:
+
+- CREATE TABLE
+- ALTER TABLE ... SWITCH PARTITION 
+- ALTER TABLE ... SPLIT PARTITION 
+- ALTER TABLE ... MERGE PARTITION 
+- DROP TABLE
+- ALTER INDEX DISABLE
+- DROP INDEX
+- CREATE STATISTICS
+- UPDATE STATISTICS
+- DROP STATISTICS
+- TRUNCATE TABLE
+- ALTER AUTHORIZATION
+- CREATE LOGIN
+- CREATE USER
+- ALTER USER
+- DROP USER
+- CREATE PROCEDURE
+- ALTER PROCEDURE
+- DROP PROCEDURE
+- CREATE VIEW
+- DROP VIEW
+- INSERT VALUES
+- SELECT (from system views and DMVs)
+- EXPLAIN
+- DBCC
 
 <!--
 Removed as these two are not confirmed / supported under SQLDW
 - CREATE REMOTE TABLE AS SELECT
-- CREATE EXTERNAL TABLE AS SELECT 
+- CREATE EXTERNAL TABLE AS SELECT
+- REDISTRIBUTE 
 -->
    
 > [AZURE.NOTE] It is worth highlighting that `SELECT` queries executing exclusively against dynamic management views and catalog views are **not** governed by resource classes.

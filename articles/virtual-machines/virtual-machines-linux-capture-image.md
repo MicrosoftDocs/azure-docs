@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Capture an image of a virtual machine running Linux"
-	description="Learn how to capture an image of an Azure virtual machine (VM) running Linux."
+	pageTitle="Capture an image of a virtual machine running Linux | Microsoft Azure"
+	description="Learn how to capture an image of an Azure virtual machine (VM) running Linux using the classic deployment model and Azure CLI."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="dsk-2015"
