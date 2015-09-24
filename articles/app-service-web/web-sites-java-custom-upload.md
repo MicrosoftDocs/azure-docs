@@ -228,7 +228,11 @@ It is worth noting that the JRE_HOME environnment varariable is specified in the
 
 Once you make these changes, restart your web app running Liferay, Then, open http://yourwebapp. The Liferay portal is available from the web app root. 
 
-For more information on Liferay, see [http://www.liferay.com](http://www.liferay.com).
+## Next steps
+
+For more information about Liferay, see [http://www.liferay.com](http://www.liferay.com).
+
+For more information about Java, see the [Java Developer Center](/develop/java/).
 
 [AZURE.INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
 
