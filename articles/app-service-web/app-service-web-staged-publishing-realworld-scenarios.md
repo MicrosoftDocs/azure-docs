@@ -111,7 +111,8 @@ $table_prefix  = 'wp_';
 
 Setting the security keys above can help preventing your web app from being hacked, so use unique values. If you need to generate the string for security keys mentioned above, you can go the automatic generator to create new keys/values using this [link] (https://api.wordpress.org/secret-key/1.1/salt)
 
-Copy the following code in  `wp-config.azure.php`:
+Copy the following code in `wp-config.azure.php`:
+
 
 ```
 <?php
@@ -241,7 +242,8 @@ Click on Settings -> Deployment slots -> Add to create a deployment slot with th
 
 ![Create stage deployment slot][1Setupstagewebapp]
 
-Add another MySQL database, say wordpress-stage-db to your resource group wordpressapp-group group.
+Add another MySQL database, say wordpress-stage-db to your resource group `wordpressapp-group` group.
+
  ![Add MySQL database to resourec group][2addmysqlresource]
 
 Update the Connection strings for your stage deployment slot to point to newly created database, *wordpress-stage-db*. Note that your production web app (*wordpressapp-group*) and staging web app (*wordpressprodapp-stage*) must point to different databases.
@@ -250,14 +252,16 @@ Update the Connection strings for your stage deployment slot to point to newly c
 Developers can store key-value string pairs in Azure as part of the configuration information associated with a web app called App Settings. At runtime, App Service Web Apps automatically retrieves these values for you and makes them available to code running in your web app.  From a security perspective that is a nice side benefit since sensitive information such as database connection strings with passwords never show up as clear text in a file such as `wp-config.php`.
 
 This process  defined below is useful when you perform as it includes both file changes and database changes for WordPress app:
--	WordPress version upgrade
--	Add new or edit or upgrade Plugins
--	Add new or edit or upgrade themes
 
-Configure app settings for
--	database information
--	turning on/off  WordPress logging
--	WordPress security settings
+- WordPress version upgrade
+- Add new or edit or upgrade Plugins
+- Add new or edit or upgrade themes
+
+Configure app settings for:
+
+- database information
+- turning on/off  WordPress logging
+- WordPress security settings
 
 ![App Setings for Wordpress web app][3configureappsettings]
 
