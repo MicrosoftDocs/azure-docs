@@ -19,11 +19,11 @@
 
 This tutorial shows you how to integrate alpha testing or beta testing with continuous integration and Application Insights to create a test harness that is suitable for DevOps.
 
-Live testing your alpha or beta web app is a common scenario in Test in Production and is sometimes known as "controlled test flight". Many large enterprises with a web presence uses this approach to get validation on their upcoming updates early in their [agile development](https://en.wikipedia.org/wiki/Agile_software_development) life cycle. Azure App Service enables you to integrate test in production with continous publishing and Application Insights to implement the same DevOps scenario. Benefits of this approach include:
+Live testing your alpha or beta web app is a common scenario for testing in production and is sometimes known as "controlled test flight". Many large enterprises with a web presence uses this approach to get validation on their upcoming updates early in their [agile development](https://en.wikipedia.org/wiki/Agile_software_development) life cycle. Azure App Service enables you to integrate test in production with continous publishing and Application Insights to implement the same DevOps scenario. Benefits of this approach include:
 
 - Gain real feedback _before_ updates are released - The only thing better than gaining feedback as soon as you release is gaining feedback before you release. You can test updates with real user traffic and behaviors as early as you desire in the product life cycle.
-- Enhance [continuous test-driven development (CTDD)](https://en.wikipedia.org/wiki/Continuous_test-driven_development) - By integrating test in production with continuous integration and instrumentation with Applciation Insights, user validation happens early and automatically in your product life cycle. This helps reduce time investments in manual test execution.
-- Optimizes test workflow - By automating test in production with continuous monitoring instrumentation, you can potentially accomplish the goals of various kinds of tests in a single process, such as [integration](https://en.wikipedia.org/wiki/Integration_testing), [regression](https://en.wikipedia.org/wiki/Regression_testing), [usability](https://en.wikipedia.org/wiki/Usability_testing), accessibility, localization, [performance](https://en.wikipedia.org/wiki/Software_performance_testing), [security](https://en.wikipedia.org/wiki/Security_testing), and [acceptance](https://en.wikipedia.org/wiki/Acceptance_testing).
+- Enhance [continuous test-driven development (CTDD)](https://en.wikipedia.org/wiki/Continuous_test-driven_development) - By integrating test in production with continuous integration and instrumentation with Application Insights, user validation happens early and automatically in your product life cycle. This helps reduce time investments in manual test execution.
+- Optimize test workflow - By automating test in production with continuous monitoring instrumentation, you can potentially accomplish the goals of various kinds of tests in a single process, such as [integration](https://en.wikipedia.org/wiki/Integration_testing), [regression](https://en.wikipedia.org/wiki/Regression_testing), [usability](https://en.wikipedia.org/wiki/Usability_testing), accessibility, localization, [performance](https://en.wikipedia.org/wiki/Software_performance_testing), [security](https://en.wikipedia.org/wiki/Security_testing), and [acceptance](https://en.wikipedia.org/wiki/Acceptance_testing).
 
 ## What you will do
 
@@ -32,7 +32,7 @@ In this tutorial, you will learn how to bring the following scenarios together t
 - [Route production traffic](app-service-web-test-in-production-get-start.md) to your alpha or beta app
 - [Instrument your app](app-insights-web-track-usage.md) to obtain useful metrics
 - Continuously deploy your alpha or beta app and track live app metrics
-- Compare metrics between the production app and the alpha or beta app to see how code changes translates to results
+- Compare metrics between the production app and the alpha or beta app to see how code changes translate to results
 
 ## What you will need
 
@@ -42,7 +42,7 @@ In this tutorial, you will learn how to bring the following scenarios together t
 -	Git Shell (installed with [GitHub for Windows](https://windows.github.com/)) - this enables you to run both the Git and PowerShell commands in the same session
 -	Latest [Azure PowerShell](https://github.com/Azure/azure-powershell/releases/download/v0.9.8-September2015/azure-powershell.0.9.8.msi) bits
 -	Basic understanding of the following:
-	-	[Azure Resource Manager](resource-group-overview.md) template deployment (also see [Deploy a complex application predictably in Azure](app-service-deploy-complex-application-predictably.md))
+	-	[Azure Resource Manager](resource-group-overview.md) template deployment (see [Deploy a complex application predictably in Azure](app-service-deploy-complex-application-predictably.md))
 	-	[Git](http://git-scm.com/documentation)
 	-	[PowerShell](https://technet.microsoft.com/library/bb978526.aspx)
 
@@ -58,7 +58,7 @@ In this tutorial, you will learn how to bring the following scenarios together t
 >
 >To store your GitHub credentials in Azure, create a web app in the [Azure preview portal](https://portal.azure.com) and [configure GitHub deployment](web-sites-publish-source-control.md#Step7). You only need to do this once.
 
-In a typical DevOps scenario, you have an application that’s running live in Azure, and you want to make changes to it through continuous publishing. In this scenario, you have a template that you developed, tested, and used to deploy the production environment. You will set it up in this section.
+In a typical DevOps scenario, you have an application that’s running live in Azure, and you want to make changes to it through continuous publishing. In this scenario, you will deploy to the production environment a template that you have developed and tested. 
 
 1.	Create your own fork of the [ToDoApp](https://github.com/azure-appservice-samples/ToDoApp) repository. For information on creating your fork, see [Fork a Repo](https://help.github.com/articles/fork-a-repo/). Once your fork is created, you can see it in your browser.
 
@@ -73,7 +73,7 @@ In a typical DevOps scenario, you have an application that’s running live in A
 
         .\deploy.ps1 –RepoUrl https://github.com/<your_fork>/todoapp.git -ResourceGroupSuffix <your_suffix>
 
-4.	When prompted, type in the desired username and password for database access. Remember your database credentials because you will need to specify it again when updating the resource group.
+4.	When prompted, type in the desired username and password for database access. Remember your database credentials because you will need to specify them again when updating the resource group.
 
 	You should see the provisioning progress of various Azure resources. When deployment completes, the script will launch the application in the browser and give you a friendly beep.
 	![](./media/app-service-web-test-in-production-controlled-test-flight/00.1-app-in-browser.png)
@@ -91,7 +91,7 @@ In a typical DevOps scenario, you have an application that’s running live in A
 
 	![](./media/app-service-web-test-in-production-controlled-test-flight/00.3-resource-group-view.png)
 
-You have set up the production environment.  Now, let's imagine that you receive feedback that usability is poor for the app. So you decide to investigate. You're going to instrument your app to give you this feedback.
+You have set up the production environment.  Now, let's imagine that you receive feedback that usability is poor for the app. So you decide to investigate. You're going to instrument your app to give you feedback.
 
 ## Investigate: Instrument your app for monitoring/metrics
 
@@ -99,13 +99,13 @@ You have set up the production environment.  Now, let's imagine that you receive
 6. Restore all Nuget packages by right-clicking solution > **Manage NuGet Packages for Solution** > **Restore**.
 6. Right-click **MultiChannelToDo.Web** > **Add Application Insights Telemetry** > **Configure Settings** > Change resource group to ToDoApp*&lt;your_suffix>* > **Add**.
 7. In the Azure preview portal, open the blade for the **MultiChannelToDo.Web** Application Insight resource. Then in the **Application health** part, click **Learn how to collect browser page load data** > copy code.
-7. Add the copied JS instrumentation code to *&lt;repository_root>*\src\MultiChannelToDo.Web\app\Index.cshtml, just before the closing `<heading>` tag:
+7. Add the copied JS instrumentation code to *&lt;repository_root>*\src\MultiChannelToDo.Web\app\Index.cshtml, just before the closing `<heading>` tag. It should contain the unique instrumentation key of your Application Insight resource.
 
         <script type="text/javascript">
         var appInsights=window.appInsights||function(config){
             function s(config){t[config]=function(){var i=arguments;t.queue.push(function(){t[config].apply(t,i)})}}var t={config:config},r=document,f=window,e="script",o=r.createElement(e),i,u;for(o.src=config.url||"//az416426.vo.msecnd.net/scripts/a/ai.0.js",r.getElementsByTagName(e)[0].parentNode.appendChild(o),t.cookie=r.cookie,t.queue=[],i=["Event","Exception","Metric","PageView","Trace"];i.length;)s("track"+i.pop());return config.disableExceptionTracking||(i="onerror",s("_"+i),u=f[i],f[i]=function(config,r,f,e,o){var s=u&&u(config,r,f,e,o);return s!==!0&&t["_"+i](config,r,f,e,o),s}),t
         }({
-            instrumentationKey:"XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX"
+            instrumentationKey:"<your_unique_instrumentation_key>"
         });
         
         window.appInsights=appInsights;
@@ -145,7 +145,7 @@ And the event grid below it:
 
 According to your ToDoApp application code, the **BUTTON** event corresponds to the submit button, and the **INPUT** event corresponds to the textbox. So far, things make sense. However, it looks like there's a good amount of clicks and very few clicks on the to-do items (the **LI** events).
 
-Based on this, you formed your hypothesis that some users are confused which part of the UI is clickable and it is because the cursor is styled for text selection when it hovers on the list items and their icons.
+Based on this, you form your hypothesis that some users are confused which part of the UI is clickable and it is because the cursor is styled for text selection when it hovers on the list items and their icons.
 
 ![](./media/app-service-web-test-in-production-controlled-test-flight/04-to-do-list-item-ui.png)
 
@@ -175,16 +175,21 @@ Since you're gathering data on client behavior, you will [add a telemetry initia
 
     This initializer code causes the `appInsights` object to add the a custom property called `Environment` to every piece of telemetry it sends.
 
-2. Next, add this custom property as a stick app setting for your web app in Azure. To do this, run the following commands in your Git Shell session.
+2. Next, add this custom property as a [slot setting](web-sites-staged-publishing.md#AboutConfiguration) for your web app in Azure. To do this, run the following commands in your Git Shell session.
 
-        $app = Get-AzureWebsite -Name todoapp023c -Slot production
+        $app = Get-AzureWebsite -Name todoapp<your_suffix> -Slot production
         $app.AppSettings.Add("environment", "Production")
         $app.SlotStickyAppSettingNames.Add("environment")
-        $app | Set-AzureWebsite -Name todoapp023c -Slot production
+        $app | Set-AzureWebsite -Name <your_suffix> -Slot production
 
     The Web.config in your project already defines the `environment` app setting. With this setting, when you test the app locally, your metrics will be tagged with `VS Debugger`. However, when you push your changes to Azure, Azure will find and use the `environment` app setting in the web app's configuration instead, and your metrics will be tagged with `Production`.
 
-3. commit update and push to your fork on GitHub and wait for your users to use the new app (need to refresh the browser). It takes about 15 minutes for the new property to show up in your Application Insights resource.
+3. Commit and push your code changes to your fork on GitHub, and then wait for your users to use the new app (need to refresh the browser). It takes about 15 minutes for the new property to show up in your Application Insights resource.
+
+        git add .
+        git commit -m "add environment property to AI events"
+        git push origin master
+
 4. Now, go to the **Custom events** blade again and filter the metrics on `Environment=Production`. You should now be able to see all the new custom events in the production slot with this filter.
 
     ![](./media/app-service-web-test-in-production-controlled-test-flight/05-filter-on-production-environment.png)
@@ -199,13 +204,13 @@ Since you're gathering data on client behavior, you will [add a telemetry initia
 
     ![](./media/app-service-web-test-in-production-controlled-test-flight/06-arm-app-setting-with-slot-name.png)
 
-3. In your Git Shell session, run
+3. In your Git Shell session, run the following commands with the same resource group suffix and SQL database credentials you used before.
 
         git checkout -b beta
         git push origin beta
         .\deploy.ps1 -RepoUrl https://github.com/<your_fork>/ToDoApp.git -ResourceGroupSuffix <your_suffix> -SlotName beta -Branch beta
 
-    Once the script finishes, all your resources in the original resource group is retained, but a new slot named "beta" is created in it with the same configuration as the "Staging" slot that was created in the beginning.
+    Once the script finishes, all your resources in the original resource group are retained, but a new slot named "beta" is created in it with the same configuration as the "Staging" slot that was created in the beginning.
 
     >[AZURE.NOTE] This method of creating different environments is different from the method in [Agile software development with Azure App Service](app-service-agile-software-development.md). Here, you create environments with deployment slots, where as there you create environments with resource groups. Managing environments with resource groups enables you to keep the production environment off-limits to developers, but it's not easy to do testing in production, which you can do easily with slots.
 
@@ -235,7 +240,7 @@ Back to your app that you want to improve.
 
     ![](./media/app-service-web-test-in-production-controlled-test-flight/08-verify-change-in-beta-site.png)
 
-Now that you have your change running in the beta slot, you are ready to test in production
+Now that you have your change running in the beta slot, you are ready to test in production.
 
 ## Validate: Route traffic to the beta app
 
@@ -264,11 +269,11 @@ Suppose in Application Insights you see something similar to the following:
 
 Not only is this showing that there are many more clicks on the `<li>` tags, but there seems to be a surge of clicks on `<li>` tags. You can then conclude that people have discovered the new `<li>` tags are clickable and are now clearing all their previously-completed tasks in the app.
 
-Based on this, you conclude that your new UI is ready for production.
+Based on this, you decide that your new UI is ready for production.
 
 ## Go live: Move your new code into production
 
-You're now ready to move your update to production. What's great is that now you know that your update has already been validated _before_ it is pushed to production. So now you can confidently deploy it. Since you made an update to the AngularJS client app, you only validated the client-side code. If you needed to make changes to the back-end Web API app, you could do similarly and easily.
+You're now ready to move your update to production. What's great is that now you know that your update has already been validated _before_ it is pushed to production. So now you can confidently deploy it. Since you made an update to the AngularJS client app, you only validated the client-side code. If you were to make changes to the back-end Web API app, you could validate your changes similarly and easily.
 
 1. In Git Shell, remove the traffic routing rule by running the following command:
 
