@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="08/25/2015"
+   ms.date="09/23/2015"
    ms.author="larryfr"/>
 
 

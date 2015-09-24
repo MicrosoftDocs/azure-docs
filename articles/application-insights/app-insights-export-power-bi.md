@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/08/2015" 
+	ms.date="09/23/2015" 
 	ms.author="awills"/>
  
 # Power BI views of Application Insights data
@@ -42,13 +42,13 @@ If you haven't tried it yet, now is the time to start. Application Insights can 
 
 Continuous export always outputs data to an Azure Storage account, so you need to create the storage first.
 
-1. Create a storage account in your subscription in the [Azure portal](https://portal.azure.com).
+1. Create a "classic" storage account in your subscription in the [Azure portal](https://portal.azure.com).
 
     ![In Azure portal, choose New, Data, Storage](./media/app-insights-export-power-bi/030.png)
 
 2. Create a container
 
-    ![In the new storage, select Containers and then Add](./media/app-insights-export-power-bi/040.png)
+    ![In the new storage, select Containers, click the Containers tile, and then Add](./media/app-insights-export-power-bi/040.png)
 
 3. Copy the storage access key
 

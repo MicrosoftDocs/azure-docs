@@ -270,6 +270,8 @@ In this document, you have learned how to develop a Java MapReduce job. See the 
 - [Use Pig with HDInsight][hdinsight-use-pig]
 - [Use MapReduce with HDInsight](hdinsight-use-mapreduce.md)
 
+For more information, see also the [Java Developer Center](/develop/java/).
+
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/

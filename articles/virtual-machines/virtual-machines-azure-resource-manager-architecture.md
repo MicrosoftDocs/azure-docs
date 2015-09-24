@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Azure Resource Manager Architecture"
+   pageTitle="Azure Resource Manager Architecture | Microsoft Azure"
    description="Learn about the architecture of Resource Manager and the relationships between the compute, network, and storage resource providers."
    services="virtual-machines"
    documentationCenter=""

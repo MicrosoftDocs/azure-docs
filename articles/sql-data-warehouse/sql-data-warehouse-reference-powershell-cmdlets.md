@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="08/28/2015"
+   ms.date="09/22/2015"
    ms.author="twounder;sidneyh;barbkess"/>
 
 # Getting started with Azure Data Warehouse cmdlets and REST APIs
