@@ -38,9 +38,8 @@ For information about deployment from on-premises source control systems, see th
 
 You can also automate deployment by using using command-line tools. For information about deployment by using command-line tools, see the following sections later in this article.
 
-* [FTP](#ftp)
 * [MSBuild](#msbuild)
-* [FTP scripts](#ftp2)
+* [FTP tools and scripts](#ftp)
 * [Windows PowerShell](#powershell)
 * [.NET management API](#api)
 * [Azure Command-Line Interface (Azure CLI)](#cli)
