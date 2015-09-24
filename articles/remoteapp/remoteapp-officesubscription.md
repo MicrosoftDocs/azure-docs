@@ -75,7 +75,7 @@ You can always create a custom image - you can create an [Azure VM](remoteapp-im
 
 ### Disable automatic updates for Office 365 ProPlus in your custom image - IMPORTANT
 
-Your custom image is used by Azure RemoteApp as a template for adding additional resources as the demand from your users increases. To prevent delays and connection issues, disable automatic updated for Office in the image. If you do not, then every resource created with that template will automatically update when it is started. Instead, use the standard Azure RemoteApp process for updating your custom image. That way you update the Office applications once on the template image and then let Azure RemoteApp take care of getting the updates to your users.
+Your custom image is used by Azure RemoteApp as a template for adding additional resources as the demand from your users increases. To prevent delays and connection issues, disable automatic updates for Office in the image. If you do not, then every resource created with that template will automatically update when it is started. Instead, use the standard Azure RemoteApp process for updating your custom image. That way you update the Office applications once on the template image and then let Azure RemoteApp take care of getting the updates to your users.
 
 To disable automatic updates, add the following to the Office Deployment Tool configuration file:
 
@@ -84,8 +84,8 @@ To disable automatic updates, add the following to the Office Deployment Tool co
 So now your configuration file should contain these lines:
 	
 		<Display Level="NONE" AcceptEULA="TRUE" />
-		<Propery Name="SharedComputerLicensing" Value="1" />
-		<Updated Enabled="FALSE" />
+		<Property Name="SharedComputerLicensing" Value="1" />
+		<Updates Enabled="FALSE" />
 
 ## So how can I update an image with Office 365 ProPlus?
 
