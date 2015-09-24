@@ -44,7 +44,7 @@ There are many ways to setup a multiple environment for your project and the exa
 ### WordPress
 In this section you will learn how to setup a deployment workflow using slots for WordPress. WordPress like most CMS solutions does not support working with multiple development environments out of the box. App Service Web Apps has a few features that make it easier to store configuration settings outside of your code.
 
-Before creating a staging slot, setup your application code to support multiple environments. To support multiple environments in WordPress you need to edit wp-config.php on your local development web app add the following code at the beginning of the file. This will allows your application to pick the correct configuration based on the selected environment.
+Before creating a staging slot, setup your application code to support multiple environments. To support multiple environments in WordPress you need to edit `wp-config.php` on your local development web app add the following code at the beginning of the file. This will allows your application to pick the correct configuration based on the selected environment.
 
 ```
 // Support multiple environments
@@ -176,7 +176,7 @@ Add the following entries to your `wp-config.php` file before the `That's all, s
     define('WP_CONTENT_URL', '/wp-content');
     define('DOMAIN_CURRENT_SITE', $_SERVER['HTTP_HOST']);
 ```
-Activate the plugin through the 'Plugins' menu in WordPress Administrator dashboard.  Save your permalink settings twice in a row.
+Activate the plugin through the `Plugins` menu in WordPress Administrator dashboard.  Save your permalink settings for WordPress app.
 
 #### The final `wp-config.php` file
 Any WordPress Core updates will not affect your `wp-config.php` , `wp-config.azure.php` and `wp-config.local.php` files  . In the end this how `wp-config.php` file will look like this
@@ -240,13 +240,13 @@ require_once(ABSPATH . 'wp-settings.php');
 Assuming you already have a WordPress web app running on Azure Web, login to [Azure Management Preview portal](http://portal.azure.com) and go to your WordPress web app. Apps If not you can create one from the marketplace. To learn more, click [here](web-sites-php-web-site-gallery).
 Click on Settings -> Deployment slots -> Add to create a deployment slot with the name stage .A deployment slot is another web application sharing the same resources as the primary web app created above.
 
-![Create stage deployment slot][1Setupstagewebapp]
+![Create stage deployment slot](./media/app-service-web-staged-publishing-realworld-scenarios/1Setupstagewebapp.png)
 
-Add another MySQL database, say wordpress-stage-db to your resource group `wordpressapp-group` group.
+Add another MySQL database, say `wordpress-stage-db` to your resource group `wordpressapp-group`.
 
- ![Add MySQL database to resourec group][2addmysqlresource]
+ ![Add MySQL database to resourec group](./media/app-service-web-staged-publishing-realworld-scenarios/2addmysqlresource.png)
 
-Update the Connection strings for your stage deployment slot to point to newly created database, *wordpress-stage-db*. Note that your production web app (*wordpressapp-group*) and staging web app (*wordpressprodapp-stage*) must point to different databases.
+Update the Connection strings for your stage deployment slot to point to newly created database, `wordpress-stage-db`. Note that your production web app , `wordpressapp-group` and staging web app `wordpressprodapp-stage` must point to different databases.
 
 #### Configure environment-specific app settings
 Developers can store key-value string pairs in Azure as part of the configuration information associated with a web app called App Settings. At runtime, App Service Web Apps automatically retrieves these values for you and makes them available to code running in your web app.  From a security perspective that is a nice side benefit since sensitive information such as database connection strings with passwords never show up as clear text in a file such as `wp-config.php`.
@@ -263,29 +263,33 @@ Configure app settings for:
 - turning on/off  WordPress logging
 - WordPress security settings
 
-![App Setings for Wordpress web app][3configureappsettings]
+![App Setings for Wordpress web app](./media/app-service-web-staged-publishing-realworld-scenarios/3configureappsettings.png)
 
 Make sure you have added the following app settings for your production web app and stage slot. Note that the production web app and Staging web app use different databases.
 Uncheck **Slot Setting** checkbox for all the settings parameters except WP_ENV. This will swap the configuration for your web app, along with file content and database. If **Slot Setting** is **Checked** , the web app’s app settings, connection strings configuration will NOT move across environments when doing a SWAP operation and hence if any database changes are present this will not be visible breaking your production web app.
 
 Deploy local development environment web app to stage web app and database using WebMatrix or tool(s) of your choice such as like FTP , Git, PhpMyAdmin.
 
-![Web Matrix Publish dialog for WordPress web app][4webmatrixpublishwordpress]
+![Web Matrix Publish dialog for WordPress web app](./media/app-service-web-staged-publishing-realworld-scenarios/4webmatrixpublishwordpress.png)
 
 Browse and test your staging web app. Considering a scenario where theme of the web app is to be updated, here is the staging web app.
-![Browse staging web app before swapping slots][5wordpressstagewebappbrowse]
+
+![Browse staging web app before swapping slots](./media/app-service-web-staged-publishing-realworld-scenarios/5wordpressstagewebappbrowse.png)
+
 
  If all looks good, click on **Swap** button on your staging web app settings to move your content to production environment. In this case you swap web app and the database across environments during every **Swap** operation.
 
-![Swap preview changes for wordpress][6swapwordpressslots]
+![Swap preview changes for wordpress](./media/app-service-web-staged-publishing-realworld-scenarios/6swapwordpressslots.png)
+
  > [AZURE.NOTE]
  >If you have a scenario where you need to only push files (no database updates), then **Check** the **Slot Setting** for all the database  related *app settings* and *connection strings settings* in web app setting blade within the Azure preview portal before doing the SWAP. In this case DB_NAME, DB_HOST, DB_PASSWORD, DB_USER, default connection string setting should not show up in preview changes when doing a **Swap**. At this time, when you complete the **Swap** operation the WordPress web app will have the updates files **ONLY**.
 
 Before doing a SWAP, here is the production WordPress web app
-![Production web app before swapping slots][7prodbeforeswapbrowse]
+![Production web app before swapping slots](./media/app-service-web-staged-publishing-realworld-scenarios/7prodbeforeswapbrowse.png)
 
 After the SWAP operation, the theme has been updated on your production web app.
-![Production web app after swapping slots][8prodafterswapbrowse]
+
+![Production web app after swapping slots](./media/app-service-web-staged-publishing-realworld-scenarios/8prodafterswapbrowse.png)
 
 In a situation when you need to **rollback** , you can go to production web app settings and click on **Swap** button to swap the web app and database from production to staging slot. Important thing to remember is that if database changes are included with a **Swap** operation at ay given time, then the next time you re-deploy to your staging web app you need to deploy the database changes to the current database pointed to by your staging web app which could be previous production or stage database.
 
@@ -317,15 +321,19 @@ Create a deployment slot as mentioned above for Umbraco CMS web app, assuming yo
 
 Update the Connection strings for your stage deployment slot to point to newly created database, **umbraco-stage-db**. Your production web app (umbraositecms-1) and staging web app (umbracositecms-1-stage) **MUST** point to different databases.
 
-![Update Connection string for staging web app with new staging database][9umbracosetconnectionstring]
+![Update Connection string for staging web app with new staging database](./media/app-service-web-staged-publishing-realworld-scenarios/9umbracosetconnectionstring.png)
+
 Click on  **Get Publish settings** for the deployment slot **stage**. This will download a publish settings file that store all the information required by Visual Studio or Web Matrix to publish your application from local development web app to Azure web app.
- ![Get publish settings of the staging web app][10getpublishsettings]
+
+ ![Get publish settings of the staging web app](./media/app-service-web-staged-publishing-realworld-scenarios/10getpublishsettings.png)
 
 1. Open your local development web app in **WebMatrix** or **Visual Studio**. In this tutorial I am using Web Matrix and first you need to import the publish settings file for your staging web app
-![Import Publish settings for Umbraco using Web Matrix][11webamtrixumbracoimport]
+
+![Import Publish settings for Umbraco using Web Matrix](./media/app-service-web-staged-publishing-realworld-scenarios/11webamtrixumbracoimport.png)
 
 2. Review changes in the dialog box and deploy your local web app to your Azure web app , *umbracositecms-1-stage*. When you deploy files directly to your staging web app you will omit any files in the `~/app_data/TEMP/` folder as these will be regenerated when the stage web app is first started. You should also omit the `~/app_data/umbraco.config` file as this, too, we be regenerated.
-![Review Publish changes in web matrix][12umbracopublishwebmatrix]
+
+![Review Publish changes in web matrix](./media/app-service-web-staged-publishing-realworld-scenarios/12umbracopublishwebmatrix.png)
 
 3. After successfully publishing the Umbraco local web app to staging web app , browse your staging web app and run a few tests to rule out any issues.
 
@@ -335,11 +343,11 @@ Purchase a license for Courier2 for the domain `*.azurewebsites.net` and your cu
 ![Drop license file under bin folder][13droplicenseumbraco]
 Download the Courier2 package from [here](https://our.umbraco.org/projects/umbraco-pro/umbraco-courier-2/) . Log on to your stage web app, say  http://umbracocms-site-stage.azurewebsites.net/umbraco and click on **Developer** Menu and Select **Packages** . Click on **Install** local package
 
-![Umbraco Package installer][14umbracoinstallpackage]
+![Umbraco Package installer](./media/app-service-web-staged-publishing-realworld-scenarios/14umbracoinstallpackage.png)
 
 Upload the courier2 package using the installer.
 
-![Upload package for courier module][15umbracouploadpackage]
+![Upload package for courier module](./media/app-service-web-staged-publishing-realworld-scenarios/15umbracouploadpackage.png)
 
 To configure you need to update courier.config file under  **Config** folder of your web app.
 
@@ -376,27 +384,27 @@ Similarly, install Courier module on your production site and configure it point
 
 Click on Courier2 tab in Umbraco CMS web app  dashboard and select locations. You should see the repository name as mentioned in `courier.config`.Do this on both your production and staging web apps.
 
-![View destination web app repository][16umbracocourierlocations]
+![View destination web app repository](./media/app-service-web-staged-publishing-realworld-scenarios/16umbracocourierlocations.png)
 
 Now lets deploy some content from staging site to production site. Go to Content and select an existing page or create a new page. I will select an existing page from my web app where the title of the page is changed to **Getting Started – new** and now click on **Save and Publish**.
 
-![Change Title of page and publish][17umbracochangepage]
+![Change Title of page and publish](./media/app-service-web-staged-publishing-realworld-scenarios/17umbracochangepage.png)
 
 Now select the modified page and *right click* to view all the options. Click on **Courier** and to view Deployment dialog . Click on **Deploy** to initiate deployment
 
-![Courier module deployment dialog][18umbracodeploydialog1]
+![Courier module deployment dialog](./media/app-service-web-staged-publishing-realworld-scenarios/18umbracodeploydialog1.png)
 
 Review the changes and click on Continue.
 
-![Courier module deployment dialog review changes][19umbracodeploydialog2]
+![Courier module deployment dialog review changes](./media/app-service-web-staged-publishing-realworld-scenarios/19umbracodeploydialog2.png)
 
 Deployment log shows if the deployment was successful.
 
- ![View Deployment logs from Courier module][20umbracodeploydialogsuccess]
+ ![View Deployment logs from Courier module](./media/app-service-web-staged-publishing-realworld-scenarios/20umbracodeploydialogsuccess.png)
 
 Browse your production web app to see if the changes are reflected .
 
- ![Browse production web app][21umbracochangedpage]
+ ![Browse production web app](./media/app-service-web-staged-publishing-realworld-scenarios/21umbracochangedpage.png)
 
 To learn more about how to use Courier, review the documentation .
 
@@ -412,7 +420,7 @@ For more details on how to upgrade your web app locally, follow the guidelines a
 
 Once your local development site is upgraded, publish the changes to staging web app. Test your application and if all looks good, use **Swap** button to **Swap** your staging site to production web app. When performing the **Swap** operation , you can view the changes that will be impacted in your web app's configuration. With this **Swap** operation, we are swapping the web apps and databases. This means, after the SWAP the production web app will now point to umbraco-stage-db database and staging web app will point to umbraco-prod-db database.
 
-![Swap preview for deploying Umbraco CMS][22umbracoslotswap]
+![Swap preview for deploying Umbraco CMS](./media/app-service-web-staged-publishing-realworld-scenarios/22umbracoslotswap.png)
 
 The advantage of swapping both the web app and database:
 1. Gives you the ability to roll back to the previous version of your web app with another **Swap** if there are any application issues.
