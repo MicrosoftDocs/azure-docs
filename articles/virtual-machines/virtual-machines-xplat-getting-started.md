@@ -1,11 +1,12 @@
 <properties
-   pageTitle="How to Create an Azure Virtual Machine with the Azure CLI | Microsoft Azure"
+   pageTitle="How to Create an Azure VM with the Azure CLI | Microsoft Azure"
    description="This topic describes how to install the Azure CLI on any platform, how to use it to connect to your Azure account, and how to create a VM from the Azure CLI."
    services="virtual-machines"
-   documentationCenter="virtual-machines"
+   documentationCenter=""
    authors="dlepow"
    manager="timlt"
-   editor="tysonn"/>
+   editor="tysonn"
+   tags="azure-service-management"/>
 
 <tags
    ms.service="virtual-machines"
@@ -17,6 +18,9 @@
    ms.author="danlep"/>
 
 # Creating a VM by using the Azure Command-Line Interface (Azure CLI)
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)] This article covers creating a resource with the classic deployment model. You can also create a resource with the [Resource Manager deployment model](virtual-machines-deploy-rmtemplates-azure-cli.md).
+
 The Azure CLI is a great way to manage your Azure infrastructure from any platform.
 
 Only installing the Azure CLI and having an Azure subscription will prevent you from creating a VM immediately, so let's take care of those steps. If you don't have an Azure account, [go get a free one](http://azure.microsoft.com/pricing/free-trial/).

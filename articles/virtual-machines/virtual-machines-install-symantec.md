@@ -1,6 +1,6 @@
 <properties
-	pageTitle="How to install and configure Symantec Endpoint Protection on an Azure VM"
-	description="Describes installing and configuring the Symantec Endpoint Protection security extension on a new or existing VM in Azure"
+	pageTitle="How to install and configure Symantec Endpoint Protection on a VM | Microsoft Azure"
+	description="Learn how to install and configure the Symantec Endpoint Protection security extension on a new or existing Azure VM"
 	services="virtual-machines"
 	documentationCenter=""
 	authors="dsk-2015"

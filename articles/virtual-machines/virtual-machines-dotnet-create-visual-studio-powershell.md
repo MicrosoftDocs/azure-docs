@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Creating a virtual machine for a web project using Visual Studio"
+	pageTitle="Creating a VM for a web project using Visual Studio | Microsoft Azure"
 	description="Create a virtual machine for a website"
 	services="virtual-machines"
 	documentationCenter=""
