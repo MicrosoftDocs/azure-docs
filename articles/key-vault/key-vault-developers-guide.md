@@ -33,7 +33,7 @@ Operations against key vaults are authenticated and authorized by using Azure Ac
 
 ## Programming for Key Vault
 
-The Key Vault management system for programmers consists of several interfaces, with REST as the foundation. This article in the REST reference provides core concepts, [About Keys and Secrets](https://msdn.microsoft.com/en-us/library/azure/dn903623.aspx)
+The Key Vault management system for programmers consists of several interfaces, with REST as the foundation. This article in the REST reference provides core concepts, [About Keys and Secrets](https://msdn.microsoft.com/library/azure/dn903623.aspx)
 
 ### REST
 
