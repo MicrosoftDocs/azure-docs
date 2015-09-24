@@ -61,7 +61,7 @@ Azure Key Vault containers (vaults) can be managed using PowerShell or CLI, as d
 
 The following articles provide task specific guidance:
 
-- [How to Generate and Transfer HSM-Protected Keys for Azure Key Vault](https://azure.microsoft.com/documentation/articles/key-vault-hsm-protected-keys/)
+- [How to Generate and Transfer HSM-Protected Keys for Azure Key Vault](key-vault-hsm-protected-keys.md)
 
 ## See also
 
