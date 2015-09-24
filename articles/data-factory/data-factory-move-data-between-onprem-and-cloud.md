@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/29/2015" 
+	ms.date="09/24/2015" 
 	ms.author="spelluru"/>
 
 # Move Data Between On-premises Sources and Cloud with Data Management Gateway
@@ -105,7 +105,7 @@ In this step, you use the Azure Management Portal to create an Azure Data Factor
 
 	The name of the Azure data factory must be globally unique. If you receive the error: **Data factory name “ADFTutorialOnPremDF” is not available**, change the name of the data factory (for example, yournameADFTutorialOnPremDF) and try creating again. Use this name in place of ADFTutorialOnPremDF while performing remaining steps in this tutorial.  
 
-9. Look for notifications from the creation process in the **NOTIFICATIONS** hub on the left. Click **X** to close the **NOTIFCATIONS** blade if it is open.
+9. Look for notifications from the creation process by clicking the **Notifications** button on the title bar as shown in the following image. Click on it again to close the notifications window. 
 
 	![NOTIFICATIONS hub](./media/data-factory-move-data-between-onprem-and-cloud/OnPremNotificationsHub.png)
 
@@ -114,7 +114,7 @@ In this step, you use the Azure Management Portal to create an Azure Data Factor
 	![Data Factory Home Page](./media/data-factory-move-data-between-onprem-and-cloud/OnPremDataFactoryHomePage.png)
 
 ### Step 2: Create a data management gateway
-5.	1.	In the **DATA FACTORY** blade, click **Author and deploy** tile to launch the **Editor** for the data factory.
+5. In the **DATA FACTORY** blade, click **Author and deploy** tile to launch the **Editor** for the data factory.
 
 	![Author and Deploy Tile](./media/data-factory-move-data-between-onprem-and-cloud/author-deploy-tile.png) 
 6.	In the Data Factory Editor, click **... (ellipsis)** on the toolbar and then click **New data gateway**. 
@@ -138,8 +138,7 @@ In this step, you use the Azure Management Portal to create an Azure Data Factor
 
 	>[AZURE.NOTE] You must be an administrator on the local computer to install and configure the Data Management Gateway successfully. You can add additional users to the Data Management Gateway Users local Windows group. The members of this group will be able to use the Data Management Gateway Configuration Manager tool to configure the gateway. 
 
-
-5. Wait for a couple of minutes and launch **Data Management Gateway Configuration Manager** application  on your computer. In the **Search** window, type **Data Management Gateway** to access this utility. 
+5. Wait for a couple of minutes and launch **Data Management Gateway Configuration Manager** application  on your computer. In the **Search** window, type **Data Management Gateway** to access this utility. You can also find the executable **ConfigManager.exe** in the folder: **C:\Program Files\Microsoft Data Management Gateway\1.0\Shared** 
 
 	![Gateway Configuration Manager](./media/data-factory-move-data-between-onprem-and-cloud/OnPremDMGConfigurationManager.png)
 
@@ -154,7 +153,7 @@ In this step, you use the Azure Management Portal to create an Azure Data Factor
 
 	![Gateway certificate configuration](./media/data-factory-move-data-between-onprem-and-cloud/gateway-certificate.png)
 9. In the Azure Portal, click **OK** on the **Configure** blade and then on the **New data gateway** blade.
-6. You should see **adftutorialgateway** under **Data Gateways** in the tree view on the left.  If you click on it, you should see the associated read-only JSON. 
+6. You should see **adftutorialgateway** under **Data Gateways** in the tree view on the left.  If you click on it, you should see the associated JSON. 
 	
 
 ### Step 2: Create linked services 
@@ -167,9 +166,10 @@ In this step, you will create two linked services: **StorageLinkedService** and 
 3.	In the **JSON editor**, do the following: 
 	1. For the **gatewayName**, specify **adftutorialgateway**.	
 	2. If you are using Windows authentication:
-		1. Set the **Integrated Security** to **true** in the **connectionString**.
-		2. Specify database **server name** and **database name** in the connectionString. 
-		2. Remove **User ID** and **Password** from the connectionstring. 
+		1. In the **connectionString**: 
+			1. Set the **Integrated Security** to **true**..
+			2. Specify database **server name** and **database name**. 
+			2. Remove **User ID** and **Password**. 
 		3. Specify user name and password for **userName** and **password** properties.
 		
 				"typeProperties": {
@@ -181,7 +181,7 @@ In this step, you will create two linked services: **StorageLinkedService** and 
 
 	4. If you are using SQL Authentication:
 		1. Specify database **server name**, **database name**, **User ID**, and **Password** in the **connectionString**.       
-		2. Remove last two properties **userName** and **password** from the JSON.
+		2. Remove last two JSON properties - **userName** and **password** - from the JSON.
 		3. Remove the trailing **, (comma)** at the end of the line that specifies the value for the **gatewayName** property. 
 
 				"typeProperties": {
