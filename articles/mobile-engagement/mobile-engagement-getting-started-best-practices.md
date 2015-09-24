@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.workload="mobile" 
-	ms.date="09/22/2015"
+	ms.date="09/24/2015"
 	ms.author="wesmc"/>
 
 # Azure Mobile Engagement - Getting Started Guide with Best practices
@@ -116,7 +116,7 @@ Build a KPI dashboard which contains the below information
 3.	Where is this data located for my application (i.e. screen, settings, system…)?
 4.	Can I play an Engagement sequence for this KPI?
 
-You can use the **KPI Builder** worksheet in our [Media Playbook Template][Media Playbook link] for examples.
+You can use the **KPI Builder** worksheet in our [Media Playbook Template][Media Playbook link] for examples and guidance.
 
 
 
@@ -244,21 +244,32 @@ Azure Mobile Engagement provides two ways to help avoid your communications bein
 
 #### Playbook Exercise 2: Create your engagement program
 
-Spend some time summarizing your objectives and defining the campaigns you expect to play using specific sequences. Make sure you apply the 3W approach the the notifications in your campaigns. 
+Spend some time summarizing your objectives and defining the campaigns you expect to play using specific sequences. Make sure you apply the 3W approach to the notifications in your campaigns. 
 
-Use the **Engagement Program** worksheet in the [Media Playbook Template][Media Playbook link] as a guide.
+Use the **Engagement Program** worksheet in the [Media Playbook Template][Media Playbook link] for examples and guidance.
 
 
-## Step 3: Integration and Setup
+## Step 3: App Integration
 
-This section will help you integrate and setup Azure Mobile Engagement with your app. In order to do this you will need to create a tag plan that you will integrate into your app. With your tag plan defined you will be able to see the analytics in real-time, segment your audience, and send smart, targeted, push notifications to engage end-users.
 
-Before to start building it, a quick view on basic concept as it’s defined in Azure Mobile Engagement.
+#### Create a tag plan
 
-You can review the **Tag Plan** worksheet in the [Media Playbook Template][Media Playbook link] as a guide.
+To integrate Azure Mobile Engagement into your app you will need to create a tag plan. The tag plan is the cornerstone of the project. It defines the relationship between marketing specifications, the work flow of the application, and the real tag data collected in the app to measure KPIs. It indicates what analytics you will be able to see in real-time. It also helps you define user segments, and send focused push notifications to engage your end-users. Once you have the tag plan defined, adding the code to integrate it into your app is simple using the Azure Mobile Engagement SDK.
+
+A tag plan should not tag everything in an application. It should only include tag data that is part of your mobile engagement strategy. This will likely be diverse between applications. The [Media Playbook Template][Media Playbook link] provided by Azure Mobile Engagement helps you build a tag plan with a given method. Use the **Tag Plan** worksheet as a guide to building your tag plan.
+
+When defining a tag section in the worksheet, be very specific. This is very important to avoid confusion. Detail each expected scenario in which each tag will be sent. Include the name of the activity where each tag is embedded. This should all be included in the **Informative** part of the worksheet. The tag plan worksheet should be the main reference for test verification. 
+
+In the **Data to collect** section, your development team should find the types, names, values and extra-info key/value pairs required for each tag that will be embedded in the application.
+
+We recommend reviewing the Tag plan with all teams associated with the project. Make necessary corrections and confirm everything is clear for marketing and development teams.
+
+The **Statement of work** worksheet can be used to help guide everyone involved in the project.
 
 
 #### Data Types
+
+These are common types of data support by Azure Mobile Engagement.
 
 ###### Devices and users
 
@@ -268,16 +279,16 @@ Azure Mobile Engagement identifies users by generating a unique identifier for e
 
 A session is one instance of the app being run by a user. The session spans from the time the user starts the app, until it stops.
 
-An activity is a logic grouping of a set of things the app during a session. It is usually a particular screen in the app, but it can be anything defined by the logic of the application. At a minimum you should tag each screen or Activity for your app. This will allow you to understand the user-path.
+An activity is a logical grouping of a set of things the app during a session. It is usually a particular screen in the app, but it can be anything defined by the logic of the application. At a minimum you should tag each screen or Activity for your app. This will allow you to understand the user-path.
 
 
 ###### Events
 
-Events are used to report user interaction with the app. They can be instant actions (like sharing content or launching a video. Tagging events will provide you with data collections that show how users interact with the app. 
+Events are used to report user interaction with the app. They can be instant actions, like sharing content or launching a video. Tagging events will provide you with data collections that show how users interact with the app. 
 
 ###### Jobs
 
-Jobs are used to report actions having a duration. Some examples would include:
+Jobs are used to report actions that have a duration. Some examples would include:
 
 - Execution of API calls
 - Display time of ads
@@ -292,44 +303,45 @@ Errors are used to report issues detected by the app. For example, incorrect use
 
 ###### Application information
 
-Applications information (or App-Info) is used to tag users. It associates some data to the users of an application. For a given key, Azure Mobile Engagement only keeps track of the latest value (no history). App-info reveals the status of your app or your end-users. For example the log-in status, or the favorite product group for a user.
+Application information (App-Info) is used to tag data related to a user's experience with an application. It is generated by a user's interaction with the application. 
+
+For a given app-info key, Azure Mobile Engagement only keeps track of the latest value (no history). App-info reveals the status of your app or your end-users. For example the log-in status, or a user's favorite product group.
 
 ###### Crash data
 
-Crash data automatically collected by the Mobile Engagement SDK to report application failures not handled by the application. For example an unhandled exception that occurs.
+Crash data automatically collected by the Mobile Engagement SDK reports application failures not handled by the application. For example an unhandled exception that occurs.
 
 
 ###### Extra data
 
-Events, errors, activities and jobs can be enhanced with parameters. This is extra-information in Mobile Engagement used to support gathering dynamic data from the application. This is important for defining fine-grained segmentation. For instance, a media application may contain extra-info such as “category_news” within an activity. “article” will allow you to segment end-users based on the categories of articles they read. Extra-info always comes with a set of pair key/value. In the example for this media application, the extra-info name should be “category_news” and the value, a string providing the extra information for that category. For example “sports", "economy", or "political".
+Events, errors, activities and jobs can be enhanced with parameters. This is extra-information a developer may provide as specific data from the application. This is important for defining fine-grained segmentation. 
+
+For example, the value of an “article” tag will allow you to segment end-users based on who viewed that particular article. However, that may not be enough. It may be better if that same "article" tag also included extra-info such as “news_category” within an activity. This would be useful to determine dynamically the favorite categories for the user. 
+
+Extra-info is reported as a key/value pair. In the example for this media application, the extra-info for “news_category” would be the value for that category. For example, “sports", "economy", or "politics".
 
 
 
-
-#### Creating a tag plan
-
-
-**Still reviewing this for updates**
 
 
 #### Tag and SDK integration 
 
-The step by step [Engagement SDK Integration](mobile-engagement-windows-store-integrate-engagement.md) documentation on Azure website is the best guide for integrating the Azure Mobile Enagagement SDK. Follow that link and choose your client platform at the top.
+For step by step instructions for integrating the Azure Mobile Engagement SDK into your app, follow the  [Engagement SDK Integration](mobile-engagement-windows-store-integrate-engagement.md) documentation on Azure website. Choose your target platform from the links at the top of that page.
 
-For IT teams, we recommend creating a project with two apps built on top of Azure Mobile Engagement. One would be an app for development stage, the other one for production staging. The IT team can make their change to the "test app" and switch to "production app" when the user acceptance testing is successful.
+We recommend creating projects for two apps built on top of Azure Mobile Engagement. One for development and test staging and the other for production staging. Your IT team can then promote from test staging to production when the user acceptance testing is successful.
 
 
 
 #### User acceptance testing (UAT)
 
-User acceptance testing (UAT) involves making sure that everything works as designed. Work flows can be completed and should be gathering your required data based on your tag plan:
+User acceptance testing (UAT) involves making sure that everything works as designed. Work flows can be completed and gather all required data based on your tag plan:
  
 - Information tagging should be in place according to documented AZME concepts
 - All information you need is collected (including Extra info value, App info value)
-- Nomenclature is the same that you defined it on your Tag Plan
-- There is no duplicate data
+- Nomenclature matches according to yout Tag Plan
+- There is no duplicate tags sent
 
-You must test all the types of notification behavior you have embedded
+Thoroughly test all the types of notification behavior you have embedded in your app
 
 - Announcements, Polls, Data pushes out of app and in-app
 - Text/Web views
@@ -339,9 +351,9 @@ You must test all the types of notification behavior you have embedded
 
 #### Setup
 
-Setting up Azure Mobile Engagement is very simple. All the documentation related to the user interface is available on the Azure Mobile Engagement website: [How to navigate the user interface](mobile-engagement-user-interface-navigation.md).
+Setting up Azure Mobile Engagement is very simple. All the documentation related to the user interface is available on the Azure Mobile Engagement website, [How to navigate the user interface](mobile-engagement-user-interface-navigation.md).
 
-It is recommended that you start by setting up the right roles and role memberships for the users of your project. This helps you manage proper access to the platform.
+It is recommended that you start by setting up the right roles and role memberships for the users of your project. This helps you manage proper access to the platform for all users. Your roles may include:
 
 - Administrators
 - Developers
@@ -352,18 +364,18 @@ Afterwards:
 - Go to the settings of your account and set up the time zone to have charts and notification delivery time set for your time zone.
 - Go to the settings of your application and register the “App-info” you need to target end-user within Reach.
 
-For more information on how to run your first push notification campaign review [How to get started using and managing pushes to reach out to your end users](mobile-engagement-how-tos.md).
+For more information on how to run your first push notification campaign, review [How to get started using and managing pushes to reach out to your end users](mobile-engagement-how-tos.md).
 
 
 
 ## Conclusion
 
 
-You are set to run Azure Mobile Engagement, but it is important to bear in mind that Engagement Programs are iterative and you should continuously improve as you experiment with what works best for your app. 
+Engagement Programs are iterative and you should continuously improve yours as you experiment with what works best for your app. 
 
-Initially, as you develop experience with engagement strategies don't try to build a global engagement strategy. Proceed step by step and identify your KPIs and how to leverage them as engagement strategy will be unique for each app.
+Initially, while developing experience with engagement strategies don't try to build an entire global engagement strategy. Take a step by step approach identifying your KPIs and how to leverage them. Engagement strategy will be unique for each app.
 
-After you have developed some experience consider the following:
+After you have developed some experience you might consider adding the following to your engagement programs:
 
 - Tracking:  You acquire users and you probably define data-collection sources. Azure mobile Engagement can be linked to data-collection sources. It allows you to monitor performances of each source. This information will be interesting to maximize your acquisition investment. 
 
