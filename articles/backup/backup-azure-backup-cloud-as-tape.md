@@ -12,8 +12,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="storage-backup-recovery"
-   ms.date="07/01/2015"
-   ms.author="jimpark"; "aashishr"/>
+   ms.date="09/22/2015"
+   ms.author="jimpark"; "aashishr"; "sammehta"/>
 
 # Use Azure Backup to replace your tape infrastructure
 Azure Backup and System Center Data Protection Manager customers can:
@@ -57,7 +57,7 @@ The total number of “retention points” (points from which a customer can res
 
 The total number of recovery points is 56.
 
-> [AZURE.NOTE] Azure backup doesn't have a restriction on number of recovery points. 
+> [AZURE.NOTE] Azure backup doesn't have a restriction on number of recovery points.
 
 ## Advanced configuration
 By clicking **Modify** in the above screen, customers have further flexibility in specifying retention schedules.

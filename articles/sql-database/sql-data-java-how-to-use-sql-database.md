@@ -3,7 +3,7 @@
 	description="Learn how to use the Azure SQL Database from Java code." 
 	services="sql-database" 
 	documentationCenter="java" 
-	authors="rmcmurray" 
+	authors="MightyPen" 
 	manager="jeffreyg" 
 	editor="jimbe"/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="06/03/2015" 
-	ms.author="robmcm"/>
+	ms.date="09/22/2015" 
+	ms.author="genemi"/>
 
 # How to Use Azure SQL Database in Java
 
@@ -704,6 +704,8 @@ To use SQL Database in Java within an Azure deployment, in addition to having Mi
 ## Next steps
 
 To learn more about Microsoft JDBC Driver for SQL Server, see [Overview of the JDBC Driver](http://msdn.microsoft.com/library/ms378749.aspx). To learn more about SQL Database, see [SQL Database Overview](http://msdn.microsoft.com/library/windowsazure/ee336241.aspx).
+
+For more information, see also the [Java Developer Center](/develop/java/).
 
 [Concepts]:#concepts
 [Prerequisites]:#prerequisites
