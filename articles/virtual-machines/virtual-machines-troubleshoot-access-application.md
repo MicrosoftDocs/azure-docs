@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Troubleshoot Access to an Application Running on a VM | Microsoft Azure"
+	pageTitle="Troubleshoot application access on a VM | Microsoft Azure"
 	description="If you can't access an application running on an Azure virtual machine, use these steps to isolate the source of the problem."
 	services="virtual-machines"
 	documentationCenter=""
@@ -19,7 +19,9 @@
 
 # Troubleshoot Access to an Application Running on an Azure Virtual Machine
 
-If you can't access an application running on an Azure virtual machine, this article describes a methodical approach for isolating the source of the problem and correcting it. The article applies to both the Resource Manager and Classic deployment models.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)] This article covers troubleshooting application access on a virtual machine created with the classic deployment model or the Resource Manager deployment model.
+
+If you can't access an application running on an Azure virtual machine, this article describes a methodical approach for isolating the source of the problem and correcting it.
 
 > [AZURE.NOTE]  For help in connecting to an Azure virtual machine, see [Troubleshoot Remote Desktop connections to a Windows-based Azure Virtual Machine](virtual-machines-troubleshoot-remote-desktop-connections.md) or [Troubleshoot Secure Shell (SSH) connections to a Linux-based Azure virtual machine](virtual-machines-troubleshoot-ssh-connections.md).
 
