@@ -1,14 +1,14 @@
 <properties
  pageTitle="What are the Azure IoT preconfigured solutions? | Microsoft Azure"
  description="A description of the Azure IoT preconfigured solutions and their architecture with links to additional resources."
- services="azure-iot"
+ services=""
  documentationCenter=".net"
  authors="aguilaaj"
  manager="kevinmil"
  editor=""/>
 
 <tags
- ms.service="azure-iot"
+ ms.service="na"
  ms.devlang="na"
  ms.topic="article"
  ms.tgt_pltfrm="na"

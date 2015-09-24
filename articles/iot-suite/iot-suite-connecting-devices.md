@@ -1,14 +1,14 @@
 <properties
    pageTitle="Connecting your device to the preconfigured solution"
    description="Connecting your device to the preconfigured solution"
-   services="Azure IoT Suite"
+   services=""
    documentationCenter="dev-center-name"
    authors="hegate"
    manager="jaosborn"
    editor=""/>
 
 <tags
-   ms.service="required"
+   ms.service="na"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
