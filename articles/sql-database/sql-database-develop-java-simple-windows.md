@@ -227,4 +227,7 @@ Copy-and-paste this short Java segment into the primary code sample where you se
 			+ resultSet.getString(3));
 	}
 
- 
+## Next steps
+
+For more information, see the [Java Developer Center](/develop/java/).
+
