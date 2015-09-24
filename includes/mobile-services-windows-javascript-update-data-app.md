@@ -1,25 +1,12 @@
 
 
-1. In the default.js script file just below the line of code that defines the todoItems list, add the following function definition:
- 
-        // Add a filter that adds a header to prevent caching. This makes sure that the 
-		// latest data is returned when the 'Refresh; button is clicked.        
-        var noCachingFilter = function (request, next, callback) {
-            if (request.type === 'GET' && !request.headers['If-Modified-Since']) {
-                request.headers['If-Modified-Since'] = 'Mon, 27 Mar 1972 00:00:00 GMT';
-            }
-            next(request, callback);
-        };
+1. Next, uncomment or add the following line of code and replace `<yourClient>` with the variable added to the service.js file when you connected your project to the mobile service:
 
-	This defines a filter function that adds the `If-Modified-Since` header to prevent caching on the client.
- 
-2. Next, uncomment or add the following line of code and replace `<yourClient>` with the variable added to the service.js file when you connected your project to the mobile service:
-
-		var todoTable = <yourClient>.withFilter(noCachingFilter).getTable('TodoItem');
+		var todoTable = <yourClient>.getTable('TodoItem');
 
    	This code creates a proxy object (**todoTable**) for the new database table, using the caching filter. 
 
-3. Replace the **InsertTodoItem** function with the following code:
+2. Replace the **InsertTodoItem** function with the following code:
 
 		var insertTodoItem = function (todoItem) {
 		    // Inserts a new row into the database. When the operation completes

@@ -1,18 +1,13 @@
-After you have registered your app with APNS and configured your project, you must next configure your mobile app to integrate with APNS.
 
-1. In Keychain Access, right-click the quickstart app's new certificate in **Keys** or **My Certificates**, click **Export**, name your file QuickstartPusher, select the **.p12** format, then click **Save**.
+1.  On your Mac, launch **Keychain Access**. Open **Category** > **My Certificates**. Find the SSL certificate to export (that you downloaded earlier) and disclose its contents. Select only the certificate without selecting the private key, and [export it](https://support.apple.com/kb/PH20122?locale=en_US).
 
-   	![](./media/mobile-services-apns-configure-push/mobile-services-ios-push-step18.png)
+2. In the Azure portal, click **Browse All** > **Mobile Apps** > your backend > **Settings** > **Mobile App** > **Push** > **Configure required settings** > **+ Notification Hub**, and provide a name and namespace for your notification hub, and then click the **OK** button.
 
-    Make a note of the file name and location of the exported certificate.
+  ![][1]
 
->[AZURE.NOTE] This tutorial creates a QuickstartPusher.p12 file. Your file name and location might be different.
+3. In the **Create Notification Hub** blade, click the **Create** button.
+     
+    Before you proceed to the next step, click **Notifications**, to ensure that your notification hub setup is complete. 
+4. In the Azure portal, click **Browse All** > **Mobile Apps** > your backend > **Settings** > **Mobile App** > **Push** > **Apple Push Notification Services** > **Upload Certificate**. Upload the .p12 file, selecting the correct **Mode** (corresponding to whether the client SSL certificate you generated earlier was Development or Distribution.) Your service is now configured to work with push notifications on iOS!
 
-2. Log on to the [Azure Preview Portal], select **Browse**, **Mobile Apps**, and then click your app. click on Push Notification services.
-
-3. In Apple Push Notification Service, upload your certificate with the **.p12** file, the password you associated with it, and select the desired mode.
-
-Your App Service mobile app is now configured to work with APNS.
-
-<!-- URLs. -->
-[Azure Preview Portal]: https://portal.azure.com/
+[1]: ./media/app-service-mobile-apns-configure-push-preview/mobile-push-notification-hub.png

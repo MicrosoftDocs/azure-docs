@@ -1,4 +1,4 @@
-<h2><a name="setupdevenv"></a>Set up the development environment</h2>
+## <a name="setupdevenv"></a>Set up the development environment
 
 To start, set up your development environment by installing the [Azure SDK for Visual Studio 2013][].
 
