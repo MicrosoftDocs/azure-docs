@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="big-compute"
-	ms.date="08/27/2015"
+	ms.date="09/24/2015"
 	ms.author="davidmu;v-marsma"/>
 
 # Efficient Batch list queries
@@ -38,7 +38,7 @@ It is important to note that both the number of items returned and the amount of
 - More and/or larger items will lead to increased network traffic. This will take longer to transfer and, depending on application architecture, may result in increased network charges for data transferred outside of the region of the Batch account.
 
 > [AZURE.IMPORTANT]
-> It is *highly* recommended that you *always* use filter and select clauses for your list API calls to ensure maximum efficiency and best performance for your application. These clauses and their usage are described below.
+> It is *highly* recommended that you *always* use filter and select clauses for your list API calls to ensure maximum efficiency and performance for your application. These clauses and their usage are described below.
 
 For all Batch APIs the following apply:
 
