@@ -176,7 +176,7 @@ Add the following entries to your `wp-config.php` file before the `That's all, s
     define('WP_CONTENT_URL', '/wp-content');
     define('DOMAIN_CURRENT_SITE', $_SERVER['HTTP_HOST']);
 ```
-Activate the plugin through the 'Plugins' menu in WordPress Administrator dashboard.  Save your permalink settings twice in a row (Admin -> Settings -> Permalinks: Save Changes)
+Activate the plugin through the 'Plugins' menu in WordPress Administrator dashboard.  Save your permalink settings twice in a row.
 
 #### The final `wp-config.php` file
 Any WordPress Core updates will not affect your `wp-config.php` , `wp-config.azure.php` and `wp-config.local.php` files  . In the end this how `wp-config.php` file will look like this
@@ -334,15 +334,17 @@ With [Courier2](http://umbraco.com/products/more-add-ons/courier-2) module you c
 Purchase a license for Courier2 for the domain `*.azurewebsites.net` and your custom domain (say http://abc.com) Once you have purchased the license, place the downloaded license (.LIC file) in the `bin` folder.
 ![Drop license file under bin folder][13droplicenseumbraco]
 Download the Courier2 package from [here](https://our.umbraco.org/projects/umbraco-pro/umbraco-courier-2/) . Log on to your stage web app, say  http://umbracocms-site-stage.azurewebsites.net/umbraco and click on **Developer** Menu and Select **Packages** . Click on **Install** local package
+
 ![Umbraco Package installer][14umbracoinstallpackage]
 
 Upload the courier2 package using the installer.
+
 ![Upload package for courier module][15umbracouploadpackage]
 
-To configure you need to update courier.config file under  `Config` folder of your web app.
+To configure you need to update courier.config file under  **Config** folder of your web app.
 
-```
-  <!-- Repository connection settings -->
+```xml
+<!-- Repository connection settings -->
   <!-- For each site, a custom repository must be configured, so Courier knows how to connect and authenticate-->
   <repositories>
         <!-- If a custom Umbraco Membership provider is used, specify login & password + set the passwordEncoding to clear:  -->
@@ -354,11 +356,13 @@ To configure you need to update courier.config file under  `Config` folder of yo
            <!-- <passwordEncoding>Clear</passwordEncoding>-->
            </repository>
   </repositories>
-```
+ ```
+
 Under `<repositories>`, enter the production site URL and user information. If you are using default Umbraco Membership provider, then add the ID for the Administration user in <user> section . If you are using a custom Umbraco membership provider, use `<login>`,`<password>` to Courier2 module know how to connect to the production site. For more details, review the [documentation](http://umbraco.com/help-and-support/customer-area/courier-2-support-and-download/developer-documentation) for Courier module.
 
 Similarly, install Courier module on your production site and configure it point to stage web app in its respective courier.config file as shown here
-```
+
+```xml
   <!-- Repository connection settings -->
   <!-- For each site, a custom repository must be configured, so Courier knows how to connect and authenticate-->
   <repositories>
@@ -368,31 +372,41 @@ Similarly, install Courier module on your production site and configure it point
             <user>0</user>
            </repository>
   </repositories>
- ```
+```
+
 Click on Courier2 tab in Umbraco site dashboard and select locations. You should see the repository name as mentioned in `courier.config`.
+
 ![View destination web app repository][16umbracocourierlocations]
 
 Now lets deploy some content from staging site to production site. Go to Content and select an existing page or create a new page. I will select an existing page from my web app where the title of the page is changed to **Getting Started – new** and now click on **Save and Publish**.
+
 ![Change Title of page and publish][17umbracochangepage]
 
 Now select the modified page and *right click* to view all the options. Click on **Courier** and to view Deployment dialog . Click on **Deploy** to initiate deployment
+
 ![Courier module deployment dialog][18umbracodeploydialog1]
 
 Review the changes and click on Continue.
+
 ![Courier module deployment dialog review changes][19umbracodeploydialog2]
 
 Deployment log shows if the deployment was successful.
+
  ![View Deployment logs from Courier module][20umbracodeploydialogsuccess]
 
 Browse your production web app to see if the changes are reflected .
+
  ![Browse production web app][21umbracochangedpage]
+
 To learn more about how to use Courier, review the documentation .
 
 #### How to upgrade Umbraco CMS version
 
 Courier will not deploy help with upgrading from one version of Umbraco CMS to another. When upgrading Umbraco CMS version, you must check for incompatibilities with your custom modules or third party modules and the Umbraco Core libraries. As a best practice
-•	ALWAYS backup your web app and database before doing an upgrade. On Azure Web App, you can set up automatic backups for your websites using the backup feature and restore your site if needed using restore feature. For more details, see How to back up your web app and How to restore your web app.
-•	Check if the third party packages you're using are compatible with the version you're upgrading to. On the package's download page, in the Project compatibility area, click View details to check version-specific compatibilities.
+
+1. ALWAYS backup your web app and database before doing an upgrade. On Azure Web App, you can set up automatic backups for your websites using the backup feature and restore your site if needed using restore feature. For more details, see How to back up your web app and How to restore your web app.
+
+2. Check if the third party packages you're using are compatible with the version you're upgrading to. On the package's download page, in the Project compatibility area, click View details to check version-specific compatibilities.
 For more details on how to upgrade your web app locally, follow the guidelines as mentioned here.
 Once your local development site is upgraded, publish the changes to staging web app. Test your application and if all looks good, use SWAP button to SWAP your staging site to production site. When performing the SWAP operation , you can view the changes that will be impacted in your web app's configuration. With this SWAP operation, we are swapping the websites and databases. This means, after the SWAP the production site will now point to umbraco-stage-db database and staging site will point to umbraco-prod-db database.
 
