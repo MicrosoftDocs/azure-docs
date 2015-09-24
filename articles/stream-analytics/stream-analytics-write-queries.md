@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Write Queries| Microsoft Azure" 
+	pageTitle="Write Queries | Microsoft Azure" 
 	description="Write Queries learning path segment."
 	documentationCenter=""
 	services="stream-analytics"
@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="09/09/2015" 
+	ms.date="09/29/2015" 
 	ms.author="jeffstok"/>
 
 # Write Queries
@@ -26,6 +26,8 @@ Stream processing logic in Azure Stream Analytics is implemented as a "standing 
 
     ![Select Query](./media/stream-analytics-write-queries/1-stream-analytics-write-queries.png)  
 
+    ![Select Query Preview](./media/stream-analytics-write-queries/query-preview-portal.png)  
+
 2.	New jobs have a query template to help get you started. The query template performs a "pass-through" query that projects all fields from input events into the output.  
 
     - If you have defined at least one input and output for your job, you can replace the placeholder "[YourOutputAlias]" and "[YourInputAlias]" fields with the aliases of the input and output that you wish use first. In addition, you can still author and test your query in the Azure portal without defining inputs and outputs on the job.
@@ -36,6 +38,8 @@ Stream processing logic in Azure Stream Analytics is implemented as a "standing 
 ## To test a query: ##
 
 You can test that your query behaves as expected by running it in the browser over one or more local JSON files containing test data. This will not start the job or have any billing implications.
+
+> [AZURE.NOTE] Note that in-browser query testing is currently not supported in the Azure preview portal.  
 
 1.	Make sure that there are no errors in the query (otherwise the Test button will be disabled) and then click the Test button.  
 
