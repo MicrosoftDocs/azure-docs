@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="powershell"
    ms.workload="data-management" 
-   ms.date="08/25/2015"
+   ms.date="09/23/2015"
    ms.author="adamkr; sstein"/>
 
 # Create and manage a SQL Database elastic database pool using PowerShell
