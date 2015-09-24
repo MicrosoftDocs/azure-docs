@@ -1,5 +1,5 @@
 <properties
-			pageTitle="How to use Azure File storage with PowerShell and .NET | Microsoft Azure"
+			pageTitle="How to use Azure File storage with Windows | Microsoft Azure"
             description="Create a file share in the cloud and manage file content. Mount a file share from an Azure VM or from an on-premises application."
             services="storage"
             documentationCenter=".net"
@@ -15,7 +15,7 @@
       ms.date="09/21/2015"
       ms.author="tamram" />
 
-# How to use Azure File storage with PowerShell and .NET
+# How to use Azure File storage with Windows
 
 ## Overview
 
@@ -153,6 +153,8 @@ Before mounting to the file share, first persist your storage account credential
 	cmdkey /add:<storage-account-name>.file.core.windows.net /user:<storage-account-name> /pass:<storage-account-key>
 
 Windows will now reconnect to your file share when the virtual machine reboots. You can verify that the share has been reconnected by running the `net use` command from a PowerShell window.
+
+Note that credentials are persisted only in the context in which `cmdkey` runs. If you are developing an application that runs as a service, you will need to persist your credentials in that context as well.
 
 ### Mount the file share using the persisted credentials
 
