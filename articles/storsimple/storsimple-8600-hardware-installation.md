@@ -241,8 +241,6 @@ To support this redundant controller failover, you need to cable your device net
 
 At a minimum, configure one network interface for cloud access and one for iSCSI. For high availability and performance, configure two pairs of network interfaces on each controller. See the following diagram for network cabling. (The minimum network configuration is shown by solid blue lines. For high availability and performance, additional configuration required is shown by dotted lines.)
 
-> [AZURE.NOTE] Do not configure the network interfaces on your StorSimple device in Link Aggregation Control Protocol (LACP) configuration.
-
 ![Cable your 4U device for network](./media/storsimple-8600-hardware-installation/HCSCableYour4UDeviceforNetwork.png)
 
 **Network cabling for your device**
