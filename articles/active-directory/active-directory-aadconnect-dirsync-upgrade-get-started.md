@@ -22,7 +22,7 @@ The following documentation will help you upgrade your existing DirSync installa
 
 ## Download Azure AD Connect
 
-To get started using Azure AD Connect you can download the latest version using the following: [Download Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771) 
+To get started using Azure AD Connect you can download the latest version using the following: [Download Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771)
 
 
 ## Before you install Azure AD Connect
@@ -148,7 +148,7 @@ See those options in the following UI:
 [AZURE.NOTE] Synchronization between Windows Server Active Directory and Azure Active Directory will begin, but no changes will be exported to Azure AD.  Only one synchronization tool can be actively exporting changes at a time.
 9. Click "Install".
 
-[AZURE.NOTE] We uncheck the start synchronization checkbox in order to ensure that DirSync, which is still installed and running, and Azure AD Connect do not attempt to write to AAD at the same time.    
+[AZURE.NOTE] We uncheck the start synchronization checkbox in order to ensure that DirSync, which is still installed and running, and Azure AD Connect do not attempt to write to AAD at the same time.
 
 ### Check that Azure AD Connect is ready to begin sychronization
 
