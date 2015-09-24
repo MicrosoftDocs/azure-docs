@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.workload="mobile" 
-	ms.date="09/14/2015"
+	ms.date="09/22/2015"
 	ms.author="wesmc"/>
 
 # Azure Mobile Engagement - Getting Started Guide with Best practices
@@ -43,9 +43,9 @@ In order to get the most out of Azure Mobile Engagement, you need to start with 
 ## Step 1: Define your KPIs to fit the BET model
 
 
-Correctly defining common KPIs can be a difficult task to complete. Apps designed for different sectors have their own specifics and objectives. This may tend to confuse your approach. To help avoid this, objectives and KPIs should be classified in three main categories: **Business**, **Engagement**, and **Technical**. This is what we call the **BET model**.
+Correctly defining common KPIs can be a difficult task to complete. Apps designed for different sectors have their own specifics and objectives. This may tend to confuse your approach. To help avoid this, objectives and KPIs should be classified into three main categories: **Business**, **Engagement**, and **Technical**. This is what we call the **BET model**.
 
-A good plan will generally have objectives with the KPIs that measure the successes in each of the following categories.
+A good plan will generally have objectives with the KPIs that measure the successes in each of the following categories of the BET model.
 
 
 #### Business KPIs
@@ -105,17 +105,18 @@ Here are some examples of Technical KPIs:
 Define these KPIs to help measure app performance and pinpoint potential bugs. This indicators should help reduce the time you need to deliver a fix for your customers. They could also help you define a user segment who have encountered a particular issues. You can use that user segmentation to create campaigns to deliver notifications regarding available fixes and potential promotions to help recover customer satisfaction. 
 
 
-#### Playbook Part 1: Create your KPI dashboard
+#### Playbook Exercise 1: Create your KPI dashboard
 
+When defining your marketing strategy, your KPIs should present a view for each of your main objectives. They should be clearly defined data points that will allow you to collect vital information to monitor your app and the behavior of the end-user.
 
-**Still reviewing the playbook to make sense of this**
+Build a KPI dashboard which contains the below information
 
-	On a mobile marketing strategy, defining your KPIs, first serves a main objective: clearly designed data you need to collect to monitor your app and understand your end-users behavior. Step by step you build a dashboard which contains the below information
-	1.	What are my KPIs?
-	2.	What data I need to build this KPI?
-	3.	Where these data is located on my application (i.e. screen, settings, system…)?
-	4.	Can I play an Engagement sequence for this KPI?
-	Look at our Media Playbook Template to find out some example.
+1.	What are the KPIs for the app?
+2.	What data points will I use to represent each KPI?
+3.	Where is this data located for my application (i.e. screen, settings, system…)?
+4.	Can I play an Engagement sequence for this KPI?
+
+You can use the **KPI Builder** worksheet in our [Media Playbook Template][Media Playbook link] for examples.
 
 
 
@@ -125,13 +126,13 @@ Define these KPIs to help measure app performance and pinpoint potential bugs. T
 A great mobile engagement program should be considered a key component of your app. This should absolutely include a great welcome program that executes for a user during the first days of app usage. This tends to have a very positive affect on engagement and retention of your app. Studies have shown that the majority of users stop using an app the first few days after installation. You want to strive to meet or exceed customer expectation driving interest early while the user is still focused on your app. Make sure you present the key value and benefits of your app to your customers. 
 
 
-![](./media/mobile-engagement-new-program-best-practices/unsegmented-push-notifications.png)
+![](./media/mobile-engagement-getting-started-best-practices/unsegmented-push-notifications.png)
 
 Push notifications are the best way to engage early with your users. However, great care should be taken when segmenting users for push notifications. Because once a user feels like they are receiving spam or uninteresting notifications, it can have serious affect. In few clicks, a user may delete your application never to return. The user should be receiving highly personalized in-app value instead of generic spam.
 
 Once users are actively engaged, then your engagement program can help drive other aspects of the app.
 
-For instance, you could setup a campaign that requests your active users to rate your app. Since this user segment is active, you would expect them to also be satisfied and rate your app highly. Once you have a high app rating, it can help drive up the organic download of your app as well reducing your new customer acquisition costs.
+For instance, you could setup a campaign that requests your active users to rate your app. Since this user segment is the most active and has the most experience with you app, you would expect them to give the most accurate rating. Once you have a high app rating, it can help drive up the organic download of your app as well reducing your new customer acquisition costs.
 
 
 
@@ -179,9 +180,9 @@ For example, the user of a sports related app might receive the following push n
 
 #### The 3W approach
 
-Mastering the different push sequences will help you engage with end-users. However, you still need to use the 3W approach for personalizing your notifications. The 3W approach should address who, what and when. 
+Mastering the different push sequences will help you engage with end-users. However, you still need to use the 3W approach for personalizing your notifications. The 3W approach should address who, what and when for each notification. If you clearly satisfy these three questions you notifications should be properly focused for engagement.
 
-![](./media/mobile-engagement-new-program-best-practices/who-what-when.png)
+![](./media/mobile-engagement-getting-started-best-practices/who-what-when.png)
 
 
 
@@ -206,7 +207,7 @@ In your engagements use a tone that is appropriate for your for your segmented u
 
 A push notification is not only directed to a running application. If the notification message provides a context such as broadcast news or a product promotion, this notification may deep link directly to the right content within the application. To support this, you must create a URL scheme to let the application manage the redirection. When working on your engagement sequences, this is an important step that must not be forgotten.
 
-Redirection can also be managed for other systems. For instance, with an Action URL it is possible to redirect end-users to any of the following:
+Redirection can also be managed for other systems. For instance, with an Action URL it is possible to redirect end-users many other systems including the following:
 
 - A website
 - A mailbox with email already set up
@@ -231,7 +232,7 @@ Different types and Push notification formats:
 
 When is the best time to activate a campaign triggering push notifications? Should it be manual or automatic? Should it be reoccurring? Determining the right time or frequency is essential to engage users with the best results. For each engagement sequence and scenario, you must specify when will be the best time to send push notifications. Here are some possible examples:
 
-![](./media/mobile-engagement-new-program-best-practices/campaign-timing-examples.png)
+![](./media/mobile-engagement-getting-started-best-practices/campaign-timing-examples.png)
 
 If you are sending many notifications daily, you must take serious consideration that your users may perceive your communications as spam. 
 
@@ -241,22 +242,20 @@ Azure Mobile Engagement provides two ways to help avoid your communications bein
 
 
 
-#### Playbook Part 2: Create your engagement program
+#### Playbook Exercise 2: Create your engagement program
 
+Spend some time summarizing your objectives and defining the campaigns you expect to play using specific sequences. Make sure you apply the 3W approach the the notifications in your campaigns. 
 
-Within the playbook, the “Engagement Program” section helps to create your engagement program. Spend some time to summarize your objectives and specify all the campaigns you would like to play using a specific sequence and answering to each question of the 3W approach.
-
-Look at our Media Playbook Template to find out some example.
-
-[Media Playbook template on Github](https://github.com/Azure/azure-mobile-engagement-samples)
-
+Use the **Engagement Program** worksheet in the [Media Playbook Template][Media Playbook link] as a guide.
 
 
 ## Step 3: Integration and Setup
 
+This section will help you integrate and setup Azure Mobile Engagement with your app. In order to do this you will need to create a tag plan that you will integrate into your app. With your tag plan defined you will be able to see the analytics in real-time, segment your audience, and send smart, targeted, push notifications to engage end-users.
 
-**Still reviewing this for updates**
+Before to start building it, a quick view on basic concept as it’s defined in Azure Mobile Engagement.
 
+You can review the **Tag Plan** worksheet in the [Media Playbook Template][Media Playbook link] as a guide.
 
 
 #### Data Types
@@ -388,5 +387,4 @@ After you have developed some experience consider the following:
 
 
 <!--Link references-->
-
- 
+[Media Playbook link]: https://github.com/Azure/azure-mobile-engagement-samples/tree/master/Playbooks
