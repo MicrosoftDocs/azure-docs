@@ -22,9 +22,10 @@
 
 The **Microsoft Azure Machine Learning Studio Capabilities Overview** diagram gives you a high-level overview of how you can use Machine Learning Studio to develop a predictive analytics model and operationalize it in the Azure cloud.
 
-[Azure Machine Learning Studio](https://studio.azureml.net/) has available a large number of machine learning algorithms, along with data input, output, preparation, and visualization modules. Using these tools, you can develop a predictive analytics experiment, iterate on it interactively, then use it to train your model.
+[Azure Machine Learning Studio](https://studio.azureml.net/) has available a large number of machine learning algorithms, along with modules that help with data input, output, preparation, and visualization. Using these components you can develop a predictive analytics experiment, iterate on it, and use it to train your model.
 Then with one click you can operationalize your model in the Azure cloud so that it can be used to score new data.
-This diagram shows how all these pieces fit together.
+
+This diagram shows how all those pieces fit together.
 
 > [AZURE.NOTE] See [Machine learning algorithm cheat sheet for Microsoft Azure Machine Learning Studio](machine-learning-algorithm-cheat-sheet.md) for additional help in navigating through and choosing the machine learning algorithms available in Machine Learning Studio.
 
