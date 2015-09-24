@@ -204,11 +204,13 @@ Since you're gathering data on client behavior, you will [add a telemetry initia
 
     ![](./media/app-service-web-test-in-production-controlled-test-flight/06-arm-app-setting-with-slot-name.png)
 
-3. In your Git Shell session, run the following commands with the same resource group suffix and SQL database credentials you used before.
+3. In your Git Shell session, run the following commands with the same resource group suffix that you used before.
 
         git checkout -b beta
         git push origin beta
         .\deploy.ps1 -RepoUrl https://github.com/<your_fork>/ToDoApp.git -ResourceGroupSuffix <your_suffix> -SlotName beta -Branch beta
+
+4. When prompted, specify the same SQL database credentials as before. Then, when asked to update the resource group, type `Y`, then `ENTER`. 
 
     Once the script finishes, all your resources in the original resource group are retained, but a new slot named "beta" is created in it with the same configuration as the "Staging" slot that was created in the beginning.
 
