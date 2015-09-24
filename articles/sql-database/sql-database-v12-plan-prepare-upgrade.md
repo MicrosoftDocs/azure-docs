@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/22/2015"
+	ms.date="09/23/2015"
 	ms.author="genemi"/>
 
 
@@ -170,7 +170,7 @@ The V11 database remains available for data access during the upgrade to V12. Ye
 | :--- | :--- |
 | Duration of upgrade | The duration of upgrade depends on the size, edition and number of databases in the server. The upgrade process can run for hours to days for servers especially for servers that has databases:<br/><br/>* Larger than 50 GB, or<br/>* At a non-premium service tier<br/><br/>Creation of new databases on the server during the upgrade can also increase the upgrade duration. |
 | No geo-replication | Geo-replication is not supported on a V12 server that is currently involved in an upgrade from V11. |
-| Downtime at the end of upgrade to V12 | The databases belonging to the V11 server remain available during the upgrade process. However, in the last phase the server will encounter a downtime that can range from 40 seconds to 5 minutes. For most servers, downtime is expected to be under 90 seconds. Downtime increases for servers with a large number of databases, or when the databases have heavy write workloads. |
+| Database is briefly unavailable in final phase of upgrade to V12 | The databases belonging to your V11 server remain available during the upgrade process. However, the connection to the server and databases is briefly unavailable in the final phase, when the switch over begins from V11 to the ready V12.<br/><br/>The switch over period can range from 40 seconds to 5 minutes. For most servers, switch over is expected to complete within 90 seconds. Switch over time increases for servers that have a large number of databases, or when the databases have heavy write workloads. |
 
 
 ### Limitation *after* upgrade to V12
