@@ -318,20 +318,14 @@ The HDInsight .NET SDK provides .NET client libraries that make it easier to wor
 **To create a Visual Studio console application**
 
 1. Open Visual Studio 2013 or 2015.
-
-2. From the **File** menu, click **New**, and then click **Project**.
-
-3. From **New Project**, type or select the following values:
+2. Create a new Visual Studio project with the following settings
 
 	|Property|Value|
 	|--------|-----|
 	|Template|Templates/Visual C#/Windows/Console Application|
 	|Name|CreateHDICluster|
 
-4. Click **OK** to create the project.
-
 5. From the **Tools** menu, click **Nuget Package Manager**, and then click **Package Manager Console**.
-
 6. Run the following command in the console to install the packages:
 
 		Install-Package Microsoft.Azure.Common.Authentication -pre
