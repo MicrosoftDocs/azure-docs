@@ -78,8 +78,6 @@ In a typical DevOps scenario, you have an application that’s running live in A
 	You should see the provisioning progress of various Azure resources. When deployment completes, the script will launch the application in the browser and give you a friendly beep.
 	![](./media/app-service-web-test-in-production-controlled-test-flight/00.1-app-in-browser.png)
 
-	>[AZURE.TIP] Take a look at *&lt;repository_root>*\ARMTemplates\Deploy.ps1, to see how it generates resources with unique IDs. You can use the same approach to create clones of the same deployment without worrying about conflicting resource names.
-
 6.	Back in your Git Shell session, run:
 
         .\swap –Name ToDoApp<your_suffix>

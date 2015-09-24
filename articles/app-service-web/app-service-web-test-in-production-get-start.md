@@ -45,11 +45,15 @@ At the basic level in every TiP scenario, you route a predefined percentage of y
 2. In your web app's blade, click **Settings** > **Traffic Routing**.
   ![](./media/app-service-web-test-in-production/01-traffic-routing.png)
 3. Select the slot that you want to route traffic to and the percentage of the total traffic you desire, then click **Save**.
+
 	![](./media/app-service-web-test-in-production/02-select-slot.png)
+
 4. Go to the deployment slot's blade. You should now see live traffic being routed to it.
+
 	![](./media/app-service-web-test-in-production/03-traffic-routed.png)
 
 Once Traffic Routing is configured, the specified percentage of clients will be randomly routed to your non-production slot. However, once a client is automatically routed to a specific slot, it will be "pinned" to that slot for the life of that client session. This is because Traffic Routing uses a cookie to pin the user session. If you inspect the HTTP requests, you will find a TipMix cookie in every subsequent request.
+
 ![](./media/app-service-web-test-in-production/04-tip-cookie.png)
 
 ## Force client requests to a specific slot
@@ -57,17 +61,21 @@ Once Traffic Routing is configured, the specified percentage of clients will be 
 In addition to automatic traffic routing, App Service is able to route requests to a specific slot. This is useful when you want your users to be able to opt-into or opt-out of your beta app. To do this, you use the `x-ms-routing-name` query parameter.
 
 >[AZURE.NOTE] To reroute users to a specific slot using `x-ms-routing-name`, you must make sure that the slot is already added to the Traffic Routing list. You can even add it to the list with 0% routing percentage if you want the users to access the beta app only if they explicitly click on the "beta link".
+>
 >![](./media/app-service-web-test-in-production/06-enable-x-ms-routing-name.png)
 
 ### Opt users out of beta app
+
 To let users opt out of your beta app, put this link in your web page:
 
     <webappname>.azurewebsites.net/?x-ms-routing-name=self
 
 The string `x-ms-routing-name=self` specifies the production slot. Once the client browser access the link, not only is it redirected to the production slot, but every subsequent request will contain the `x-ms-routing-name=self` cookie that pins the session to the production slot.
+
 ![](./media/app-service-web-test-in-production/05-access-production-slot.png)
 
 ### Opt users in to beta app
+
 To let users opt in to your beta app, set the same query parameter to the name of the non-production slot, for example:
 
 		<webappname>.azurewebsites.net/?x-ms-routing-name=staging
