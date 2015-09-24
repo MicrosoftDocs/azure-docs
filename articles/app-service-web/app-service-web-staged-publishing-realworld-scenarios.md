@@ -33,15 +33,15 @@ To setup a staging deployment slot, see [Set up staging environments for web app
 ## Examples of using multiple development environments
 
 Any project should follow a source code management with at least two environments, a development and production environment     but when using Content management systems, Application frameworks etc we might run into issues where the application does not support this scenario out of the box. This is true for some of the popular frameworks discussed below. Lots of questions come to mind when working with a CMS/frameworks such as
+
 1. How to break it out into different environments
 2. What files can I change and wont impact framework version updates
 3. How to manage configuration per environment
-4. How to manage modules/plugins version updates ,  core library/framework version updates
+4. How to manage modules/plugins version updates,core framework version updates
 
 There are many ways to setup a multiple environment for your project and the examples below are one just one such method the respective applications.
 
 ### WordPress
-
 In this section you will learn how to setup a deployment workflow using slots for WordPress. WordPress like most CMS solutions does not support working with multiple development environments out of the box. App Service Web Apps has a few features that make it easier to store configuration settings outside of your code.
 
 Before creating a staging slot, setup your application code to support multiple environments. To support multiple environments in WordPress you need to edit wp-config.php on your local development web app add the following code at the beginning of the file. This will allows your application to pick the correct configuration based on the selected environment.
