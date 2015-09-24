@@ -3,7 +3,7 @@
 	description="Learn how to use Mobile Services to authenticate users of your Windows Store app through a variety of identity providers, including Google, Facebook, Twitter, and Microsoft." 
 	services="mobile-services" 
 	documentationCenter="android" 
-	authors="ricksal" 
+	authors="RickSaling" 
 	manager="dwrede" 
 	editor=""/>
 
