@@ -143,7 +143,7 @@ For more information about command-line deployment using MSBuild, see the follow
 
 ##<a name="ftp"></a>FTP tools and scripts
 
-You can deploy content to your App by using [FTP](http://en.wikipedia.org/wiki/File_Transfer_Protocol) to copy files. It's easy to create FTP credentials for a web app, and you can use them in any application that works with FTP, including browsers such as Internet Explorer and full-featured free utilities such as [FileZilla](https://filezilla-project.org/). You can then use those credentials with FTP batch scripts. Web Apps also supports the more secure FTPS protocol.
+You can deploy content to your App by using [FTP](http://en.wikipedia.org/wiki/File_Transfer_Protocol) to copy files. It's easy to create FTP credentials for a web app, and you can use them in scripts or in applications that work with FTP, including browsers such as Internet Explorer and full-featured free utilities such as [FileZilla](https://filezilla-project.org/). Web Apps also supports the more secure FTPS protocol.
 
 Although it's easy to copy your web app's files to Azure using FTP utilities, they don't automatically take care of or coordinate related deployment tasks such as deploying a database or changing connection strings. Also, many FTP tools don't compare source and destination files in order to skip copying files that haven't changed. For large Apps, always copying all files can result in long deployment times even for minor updates since all files are always copied.
 
