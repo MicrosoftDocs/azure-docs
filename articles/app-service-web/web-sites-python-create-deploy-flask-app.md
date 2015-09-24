@@ -377,8 +377,6 @@ For information on using Azure Table Storage and MongoDB:
 - [Flask and MongoDB on Azure with Python Tools for Visual Studio]
 - [Flask and Azure Table Storage on Azure with Python Tools for Visual Studio]
 
-## Next steps
-
 For more information, see also the [Python Developer Center](/develop/python/).
 
 ## What's changed
