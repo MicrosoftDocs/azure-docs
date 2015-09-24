@@ -297,7 +297,7 @@ To generalize the process for any application with a database
 3. Setup  your environments in App Service Web Apps– Staging , Production
 4. If you have a production application already running on Azure, sync your production content (files/code + database) to local and staging environment.
 5. Develop your application on your local environment
-6. Place your production site under maintenance or locked mode and sync database content from production to staging  and dev environments
+6. Place your production web app under maintenance or locked mode and sync database content from production to staging  and dev environments
 7. Deploy  to Staging environment and Test
 8. Deploy to Production environment
 9. Repeat  steps 4 through 6
@@ -305,12 +305,12 @@ To generalize the process for any application with a database
 ### Umbraco
 In this section you will learn how to Umbraco CMS uses a custom modules to deploy from across multiple DevOps environment.This example provides you with a different approach to the managing multiple development environments.
 
-[Umbraco CMS](http://umbraco.com/) is one of the popular .NET CMS solutions used by many developers which provides [Courier2](http://umbraco.com/products/more-add-ons/courier-2) module to deploy from development to staging to production environments. You can easily create a local development environment for an Umbraco CMS website using Visual Studio or WebMatrix.
+[Umbraco CMS](http://umbraco.com/) is one of the popular .NET CMS solutions used by many developers which provides [Courier2](http://umbraco.com/products/more-add-ons/courier-2) module to deploy from development to staging to production environments. You can easily create a local development environment for an Umbraco CMS web app using Visual Studio or WebMatrix.
 
 1. Create an Umbraco web app with Visual Studio, click [here](https://our.umbraco.org/documentation/Installation/install-umbraco-with-nuget) .
 2. To create an Umbraco web app with WebMatrix, click [here](http://umbraco.com/help-and-support/video-tutorials/getting-started/working-with-webmatrix).
 
-Always remember to remove the `install` folder under your application and never upload it to stage or production sites. For this tutorial, I will be using WebMatrix
+Always remember to remove the `install` folder under your application and never upload it to stage or production web apps. For this tutorial, I will be using WebMatrix
 
 #### Setup a staging environment
 Create a deployment slot as mentioned above for Umbraco CMS web app, assuming you already have an Umbraco CMS web app up and running. If not you can create one from the marketplace. To learn more, click [here](web-sites-gallery-umbraco).
@@ -348,7 +348,7 @@ To configure you need to update courier.config file under  **Config** folder of 
   <!-- For each site, a custom repository must be configured, so Courier knows how to connect and authenticate-->
   <repositories>
         <!-- If a custom Umbraco Membership provider is used, specify login & password + set the passwordEncoding to clear:  -->
-        <repository name="prod site" alias="stage" type="CourierWebserviceRepositoryProvider" visible="true">
+        <repository name="production web app" alias="stage" type="CourierWebserviceRepositoryProvider" visible="true">
             <url>http://umbracositecms-1.azurewebsites.net</url>
             <user>0</user>
             <!--<login>user@email.com</login> -->
@@ -367,14 +367,14 @@ Similarly, install Courier module on your production site and configure it point
   <!-- For each site, a custom repository must be configured, so Courier knows how to connect and authenticate-->
   <repositories>
         <!-- If a custom Umbraco Membership provider is used, specify login & password + set the passwordEncoding to clear:  -->
-        <repository name="Stage site" alias="stage" type="CourierWebserviceRepositoryProvider" visible="true">
+        <repository name="Stage web app" alias="stage" type="CourierWebserviceRepositoryProvider" visible="true">
             <url>http://umbracositecms-1-stage.azurewebsites.net</url>
             <user>0</user>
            </repository>
   </repositories>
 ```
 
-Click on Courier2 tab in Umbraco site dashboard and select locations. You should see the repository name as mentioned in `courier.config`.
+Click on Courier2 tab in Umbraco CMS web app  dashboard and select locations. You should see the repository name as mentioned in `courier.config`.Do this on both your production and staging web apps.
 
 ![View destination web app repository][16umbracocourierlocations]
 
@@ -407,14 +407,16 @@ Courier will not deploy help with upgrading from one version of Umbraco CMS to a
 1. ALWAYS backup your web app and database before doing an upgrade. On Azure Web App, you can set up automatic backups for your websites using the backup feature and restore your site if needed using restore feature. For more details, see How to back up your web app and How to restore your web app.
 
 2. Check if the third party packages you're using are compatible with the version you're upgrading to. On the package's download page, in the Project compatibility area, click View details to check version-specific compatibilities.
-For more details on how to upgrade your web app locally, follow the guidelines as mentioned here.
-Once your local development site is upgraded, publish the changes to staging web app. Test your application and if all looks good, use SWAP button to SWAP your staging site to production site. When performing the SWAP operation , you can view the changes that will be impacted in your web app's configuration. With this SWAP operation, we are swapping the websites and databases. This means, after the SWAP the production site will now point to umbraco-stage-db database and staging site will point to umbraco-prod-db database.
+
+For more details on how to upgrade your web app locally, follow the guidelines as mentioned [here](https://our.umbraco.org/documentation/getting-started/setup/upgrading/general).
+
+Once your local development site is upgraded, publish the changes to staging web app. Test your application and if all looks good, use **Swap** button to **Swap** your staging site to production web app. When performing the **Swap** operation , you can view the changes that will be impacted in your web app's configuration. With this **Swap** operation, we are swapping the web apps and databases. This means, after the SWAP the production web app will now point to umbraco-stage-db database and staging web app will point to umbraco-prod-db database.
 
 ![Swap preview for deploying Umbraco CMS][22umbracoslotswap]
 
-The advantage of swapping both the site and database:
+The advantage of swapping both the web app and database:
 1. Gives you the ability to roll back to the previous version of your web app with another **Swap** if there are any application issues.
-2. For an upgrade you need to deploy files and database from staging site to production site and database. There are many things that can go wrong when deploying files and database. By using **Swap** feature of slots, we can reduces downtime during an upgrade and reduce the risk of failures that can occur when deploying changes.
+2. For an upgrade you need to deploy files and database from staging web app to production web app and database. There are many things that can go wrong when deploying files and database. By using **Swap** feature of slots, we can reduces downtime during an upgrade and reduce the risk of failures that can occur when deploying changes.
 3. Gives you the ability to do **A/B testing** using [Testing in production](http://azure.microsoft.com/documentation/videos/introduction-to-azure-websites-testing-in-production-with-galin-iliev/) feature
 
 This example shows you the flexibility of the platform where you can build custom modules similar to Umbraco Courier module to manage deployment across environments.
