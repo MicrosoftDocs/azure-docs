@@ -14,7 +14,7 @@
  ms.tgt_pltfrm="na"
  ms.workload="tbd"
  ms.date="09/29/2015"
- ms.author="fsautomata"/>
+ ms.author="elioda"/>
 
 # Azure IoT Hub - Guidance
 
@@ -33,7 +33,15 @@ The services, however, have many differences, that are detailed in the following
 In conclusion, even if the only use case is device-to-cloud telemetry ingress, IoT Hub provides a service that is specifically designed for IoT device connectivity, and will continue to expand the value propositions for these scenarios with IoT-specific features. Event Hubs is designed for event ingress at massive scale, both in the context of inter and intra-data center scenarios.
 It is not uncommon to use IoT Hub and Event Hubs in conjunction, letting the former handle the device-to-cloud communication, and the latter later-stage event ingress into real-time processing engines.
 
-## Using custom device authentication schemes/services.
+## Device provisioning <a id="provisioning"></a>
+
+// device registry (orchestration process) and bootstrap (how to import/export lots of devcie identities)
+
+## Field gateways <a id="fieldgateways"></a>
+
+// what are they (typical functionality), use device sdk, prefer AMQP. device identity. // not full guide.
+
+## Using custom device authentication schemes/services. <a id="customauth"></a>
 Azure IoT Hub allows to configure per-device security credentials and access control through the use of the [device identity registry][IoT Hub Developer Guide - identity registry].
 If an IoT solution, already has significant investment in a custom device identity registry and/or authentication scheme, it can still take advantage of other IoT Hub's features by creating a *token service* for IoT Hub.
 
@@ -53,12 +61,19 @@ The token service can set the token expiration as desired. At expiration the IoT
 It is worth specifying that the device identity still has to be created in the IoT hub, for the device to be able to connect. This also means that per-device access control (by disabling device identities as per [IoT Hub Developer Guide - identity registry], is still functinal, even if the device authenticates with a token. This mitigates the existence of long lasting tokens.
 
 ### Comparison with a custom gateway
-The token servcie pattern is the reccommended way to implement a custom identity registry/authentication scheme with IoT Hub, as it lets IoT Hub handle most of the solution traffic. There are cases, though, where the custom authentication scheme is so intertwined with the protocol (e.g. [TLS-PSK]) that a service processing all the traffic (*custom gateway*) is required.
+The token servcie pattern is the reccommended way to implement a custom identity registry/authentication scheme with IoT Hub, as it lets IoT Hub handle most of the solution traffic. There are cases, though, where the custom authentication scheme is so intertwined with the protocol (e.g. [TLS-PSK]) that a service processing all the traffic (*custom gateway*) is required. Refert to the [Protocol Gateway] article for more information.
 
-## Scaling IoT Hub
+
+
+## Scaling IoT Hub <a id="scale"></a>
 // sharding
 
 ## HA
 
-
 [img-tokenservice]: media/iot-hub-guidance/tokenservice.png
+
+
+
+[IoT Hub Developer Guide - identity registry]: iot-hub-devguide.md#identityregistry
+[IoT Hub Developer Guide - Security]: iot-hub-devguide.md#security
+[Protocol Gateway]: iot-hub-protocol-gateway.md

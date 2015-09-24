@@ -14,7 +14,7 @@
  ms.tgt_pltfrm="na"
  ms.workload="tbd"
  ms.date="09/29/2015"
- ms.author="fsautomata"/>
+ ms.author="elioda"/>
 
 # What is Azure IoT Hub?
 
@@ -48,7 +48,7 @@ Azure IoT Hub addresses the device connectivity requirements in the following wa
 
 -   **Per-device authentication and secure connectivity**. Each device can use its own security key to connect to IoT Hub. The application back end is then able to individually whitelist and blacklist each device, enabling complete control over device access.
 
--   **An extensive set of device libraries**. Azure IoT Hub device SDKs are available and supported for a variety of languages and platforms: C for many Linux distributions, Windows, and RTOS. Managed languages such as C#, Java, and JavaScript.
+-   **An extensive set of device libraries**. Azure IoT device SDKs are available and supported for a variety of languages and platforms: C for many Linux distributions, Windows, and RTOS. Managed languages such as C#, Java, and JavaScript.
 
 -   **IoT protocols and extensibility**. If your solution cannot make use of the device libraries, Azure IoT Hub exposes a public protocol that allows devices to use the HTTP 1.1 and AMQP 1.0 protocols natively. You can also extend Azure IoT Hub to provide support for MQTT v3.1.1 with the Azure IoT Protocol Gateway open source component. You can run Azure IoT Protocol Gateway in the cloud or on premise, and  extend it to support custom protocols.
 
@@ -58,13 +58,9 @@ In addition to these benefits, that are generic across many communication patter
 
 -   **Event-based device-to-cloud ingestion.** Devices can reliably send millions of events per second to be processed by your hot path event processor engine, or to be stored for cold path analytics. Azure IoT Hub retains the event data for up to 7 days in order to guarantee reliable processing and to absorb peaks in the load.
 
--   **Reliable cloud-to-device messaging (or *commands*).** The application back end can send reliable messages (with an *at-least-once* delivery guarantee) to individual devices. Each message has an individual time-to-live, and the back end can request both delivery and expiration receipts to ensure full visibility of the lifecycle of a cloud-to-device message.
+-   **Reliable cloud-to-device messaging (or *commands*).** The application back end can send reliable messages (i.e. with at-least-once delivery guarantee) to individual devices. Each message has an individual time-to-live, and the back end can request both delivery and expiration receipts to ensure full visibility of the lifecycle of a cloud-to-device message.
 
-![Why use IoT Hub?][img-why-use]
-
-Figure – placeholder (do not show dotted boxes! Add device libraries across platforms)
-
-In addition to the above communication patterns, you can implement other popular patterns such as file upload and download by taking advantage of IoT-specific features in Azure IoT Hub, such as consistent device identity management, connectivity monitoring, and scale.
+In addition to the above communication patterns, you can implement other popular patterns such as file upload and download by taking advantage of IoT specific features in Azure IoT Hub, such as consistent device identity management, connectivity monitoring, and scale.
 
 ## Service Assisted Communication Pattern
 Azure IoT Hub mediates the interactions between your devices and your application back end in an implementation of the [Service Assisted Communication][lnk-service-assisted-pattern] pattern. The goal of service assisted communication is to establish trustworthy, bi-directional communication paths between control systems (such as IoT Hub) and special-purpose devices that are deployed in untrusted physical space. To that end, the pattern establishes the following principles:
@@ -78,8 +74,6 @@ Azure IoT Hub mediates the interactions between your devices and your applicatio
 
 ## Next steps
 
-*[TBD update this section with links etc]*
-
 To learn more about Azure IoT Hub see:
 
 Dev guide – main
@@ -91,8 +85,6 @@ Tutorial – hero
 Device tutorial microsite
 
 Certified devices – root
-
-Videos
 
 [img-why-use]: media/iot-hub-what-is-iot-hub/image1.png
 [img-architecture]: media/iot-hub-what-is-iot-hub/hubarchitecture.png

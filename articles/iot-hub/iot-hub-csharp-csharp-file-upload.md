@@ -14,7 +14,7 @@
      ms.tgt_pltfrm="na"
      ms.workload="tbd"
      ms.date="09/29/2015"
-     ms.author="fsautomata"/>
+     ms.author="elioda"/>
 
 # Upload files from devices to the cloud with IoT Hub
 
