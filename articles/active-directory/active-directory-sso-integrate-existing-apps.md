@@ -16,6 +16,8 @@
    ms.date="08/20/2015"
    ms.author="kgremban; liviodlc"/>
 
+# Integrate Azure Active Directory SSO with existing apps
+
 ## Overview
 
 With cloud technology and tools becoming more readily available, organizations are using more Software as a Service (SaaS) applications for productivity. As the number of SaaS apps grows, it becomes challenging for the administrators to manage accounts and access rights, and for the users to remember their different passwords. Managing these applications individually creates extra work and is less secure. Employees who have to keep track of many passwords tend to use unsecure methods to remember them—either keeping records or using similar passwords across many accounts. And when a new employee arrives or one leaves, all their accounts must be individually provisioned or deprovisioned. Additionally, employees may start using SaaS apps for their work without going through IT.
