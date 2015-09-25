@@ -26,7 +26,7 @@ Stream processing logic in Azure Stream Analytics is implemented as a "standing 
 
     ![Select Query](./media/stream-analytics-write-queries/1-stream-analytics-write-queries.png)  
 
-    In the Azure preview portal, select **Query**.
+    In the Azure preview portal, click **Query**.
 
     ![Select Query Preview](./media/stream-analytics-write-queries/query-preview-portal.png)  
 
