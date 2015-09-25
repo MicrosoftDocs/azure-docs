@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/31/2015"
+   ms.date="09/15/2015"
    ms.author="alkohli" />
 
 # Configure web proxy for your StorSimple device
@@ -146,5 +146,7 @@ If the web proxy settings have been configured incorrectly, error messages will 
 > - Errors related to web proxy settings will not be displayed in the Management Portal in your StorSimple Manager service. If there is an issue with web proxy after the configuration is completed, the device status will change to **Offline** in the Management Portal.|
 
 ## Next Steps
-If you experience any issues while deploying your device or configuring web proxy settings, refer to [Troubleshoot your StorSimple device deployment](storsimple-troubleshoot-deployment.md).
 
+- If you experience any issues while deploying your device or configuring web proxy settings, refer to [Troubleshoot your StorSimple device deployment](storsimple-troubleshoot-deployment.md).
+
+- To learn how to use the StorSimple Manager service, go to [Use the StorSimple Manager service to administer your StorSimple device](storsimple-manager-service-administration.md).

@@ -9,7 +9,7 @@ To create a VNet using a netcfg file using PowerShell, follow the steps below.
 
 		Get-AzureVNetConfig -ExportToFile c:\NetworkConfig.xml
 
-	Here is the expected output for the command above:
+	Expected output:
 
 		XMLConfiguration                                                                                                     
 		----------------                                                                                                     

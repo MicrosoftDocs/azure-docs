@@ -1,6 +1,6 @@
 <properties
    pageTitle="Get started with Azure DNS | Microsoft Azure"
-   description="Learn how to create DNS zones for Azure DNS .This is a Step by step to get your first DNS zone created to start hosting your DNS domain."
+   description="Learn how to create DNS zones for Azure DNS .This is a Step by step to get your first DNS zone created to start hosting your DNS domain using PowerShell."
    services="dns"
    documentationCenter="na"
    authors="joaoma"
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/02/2015"
+   ms.date="09/22/2015"
    ms.author="joaoma"/>
 
-# Get started with Azure DNS
+# Get started with Azure DNS using Powershell
 
 
 > [AZURE.SELECTOR]
@@ -32,9 +32,11 @@ These instructions use Microsoft Azure PowerShell.  Be sure to update to the lat
 The following steps need to be completed before you can manage Azure DNS using Azure PowerShell.
 
 ### Step 1
- Azure DNS uses Azure Resource Manager (ARM). Make sure you switch PowerShell mode to use the ARM cmdlets. More info is available at [Using Windows Powershell with Resource Manager](powershell-azure-resource-manager.md).<BR><BR>
+Azure DNS uses Azure Resource Manager (ARM). Make sure you switch PowerShell mode to use the ARM cmdlets. More info is available at [Using Windows Powershell with Resource Manager](powershell-azure-resource-manager.md).<BR><BR>
 
 		PS C:\> Switch-AzureMode -Name AzureResourceManager
+
+You may see a warning message "The Switch-AzureMode cmdlet is deprecated and will be removed in a future release."  This should be ignored.
 
 ### Step 2
  Log in to your Azure account.<BR><BR>

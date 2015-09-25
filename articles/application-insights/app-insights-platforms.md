@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="08/05/2015"
+	ms.date="09/17/2015"
 	ms.author="awills"/>
 
 # Application Insights: languages and platforms
@@ -42,6 +42,7 @@
 + [Android](https://github.com/Microsoft/ApplicationInsights-Android)
 + [Azure web apps and VMs](../insights-perf-analytics.md)
 + [Azure Cloud Services](app-insights-cloudservices.md)&#151;including both web and worker roles
++ [CRM Online from Microsoft Dynamics](app-insights-sample-mscrm.md)
 + [iOS](https://github.com/Microsoft/ApplicationInsights-iOS)
 + [J2EE](app-insights-java-get-started.md)
 + [J2EE - already live](app-insights-java-live.md)

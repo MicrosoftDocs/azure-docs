@@ -136,7 +136,6 @@ Formerly called SQL Azure, Azure SQL Database provides all of the key features o
 
 But SQL Database isn't just a DBMS in the cloud-it's a PaaS service. You still control your data and who can access it, but SQL Database takes care of the administrative grunt work, such as managing the hardware infrastructure and automatically keeping the database and operating system software up to date. SQL Database also provides high availability, automatic backups, point-in-time restore capabilities, and can replicate copies across geographical regions.  
 
-There is also a Premium option that you can pay a little more for so you can have your own dedicated server underneath. With the Standard option, the database runs on shared hardware, which can throttle your database queries if you happen to be on a particularly busy server.  
 
 **Scenarios for SQL Database**
 
@@ -406,11 +405,11 @@ Every enterprise needs to backup and restore data. You can use Azure to backup a
 
 ### Site Recovery
  
-Azure Site Recovery (formerly Hyper-V Recovery Manager) can help you protect important applications by coordinating the replication and recovery of Hyper-V images across sites. You can back up to your own secondary site, a hoster’s site, or use Azure and avoid the expense and complexity of building and managing your own secondary location. Azure encrypts data and communications and you have the option enable encryption for data at-rest too. 
+Azure Site Recovery (formerly Hyper-V Recovery Manager) can help you protect important applications by coordinating the replication and recovery across sites. Site Recovery  provides capability to protect applications based on Hyper-v, VMWare or SAN to your own secondary site, to a hoster’s site, or to Azure and avoid the expense and complexity of building and managing your own secondary location. Azure encrypts data and communications and you have the option enable encryption for data at-rest too. 
 
 It monitors the health of your services continuously and helps automate the orderly recovery of services in the event of a site outage at the primary datacenter. Virtual machines can be brought up in an orchestrated fashion to help restore service quickly, even for complex multi-tier workloads.
 
-Site Recovery works with existing technologies such as Hyper-V Replica, System Center, and SQL Server AlwaysOn.
+Site Recovery works with existing technologies such as Hyper-V Replica, System Center, and SQL Server AlwaysOn. Check out [Azure Site Recovery overview](site-recovery/site-recovery-overview.md) for more details.
 
 ### Azure Backup
 ![Azure Backup](./media/fundamentals-introduction-to-azure/AzureBackupIntroNew.png)  

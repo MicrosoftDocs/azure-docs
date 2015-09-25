@@ -39,7 +39,7 @@ Active Directory Basic edition is a paid offering of Azure Active Directory and 
 - **Company branding** - To make the end user experience even better, you can add your company logo and color schemes to your organization’s Sign In and Access Panel pages. Once you’ve added your logo, you also have the option to add localized versions of the logo for different languages and locales.
     For more information, see [Add company branding to your Sign In and Access Panel pages](active-directory-add-company-branding.md).
 - **Group-based application access** - Use groups to provision users and assign user access in bulk to thousands of SaaS applications. These groups can either be created solely in the cloud or you can leverage existing groups that have been synced in from your on-premises Active Directory.
-    For more information, see [Assign access for a group to a SaaS application in Azure AD](https://msdn.microsoft.com/library/azure/dn621141.aspx).
+    For more information, see [Assign access for a group to a SaaS application in Azure AD](active-directory-accessmanagement-group-saasapps.md).
 - **Self-service password reset** - Azure has always allowed directory administrators to reset passwords. With Azure Active Directory Basic, you can now reduce helpdesk calls when your users forget a password by giving all users in your directory the capability to reset their password, using the same sign in experience they have for Office 365.
     For more information, see [Password Management in Azure AD](https://msdn.microsoft.com/library/azure/dn510386.aspx).
 - **Enterprise SLA of 99.9%** - We guarantee at least 99.9% availability of the Azure Active Directory Basic service.
@@ -121,7 +121,7 @@ The following features are currently in public preview and will be added soon:
 - Privileged Identity Management: Privileged identity management provides improved oversight to help meet service level agreements and regulatory compliance requirements.
 - Self-service application requests: Administrators can provide a list of SaaS apps to users from which so that users can choose the ones they want to use, and the apps either will be available immediately or after approval.
 - Azure reporting API: data for every security report of Azure Active Directory will be available to other monitoring or SIEM tools.
-
+- [Azure Active Directory B2C](http://azure.microsoft.com/services/active-directory-b2c/): A new comprehensive, high-scale, cloud-based consumer directory and identity & access management service designed to meet the growing needs of businesses looking to connect directly with their consumers.
 
 ## What's next
 

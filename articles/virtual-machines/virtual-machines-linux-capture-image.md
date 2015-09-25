@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Capture an image of a virtual machine running Linux"
-	description="Learn how to capture an image of an Azure virtual machine (VM) running Linux."
+	pageTitle="Capture an image of a Linux VM | Microsoft Azure"
+	description="Learn how to capture an image of an Azure virtual machine (VM) created with the classic deployment model running Linux."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="dsk-2015"
@@ -19,6 +19,8 @@
 
 
 # How to Capture a Linux Virtual Machine to Use as a Template
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)] This article covers capturing an image with the classic deployment model.
 
 This article shows you how to capture an Azure virtual machine running Linux so you can use it like a template to create other virtual machines. This template includes the OS disk and data disks attached to the virtual machine. It doesn't include networking configuration, so you'll need to configure that when you create the other virtual machines that use the template.
 

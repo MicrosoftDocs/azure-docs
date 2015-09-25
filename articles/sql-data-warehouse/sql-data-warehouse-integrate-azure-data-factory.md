@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/22/2015"
+   ms.date="09/23/2015"
    ms.author="lodipalm"/>
 
 # Use Azure Data Factory with SQL Data Warehouse
@@ -31,8 +31,6 @@ Azure Data Factory enables data movement between both on-premises sources and di
 
 For information on how to set up a data copy activity see [Copy data with Azure Data Factory][].
 
-> [AZURE.NOTE] At this time Azure Data Factory cannot be used to transfer data into non-nullable columns in SQL Data Warehouse. 
-
 ## Stored Procedures
  In the same way it can be used to schedule data transfer, Azure Data Factory can also be used to orchestrate the execution of stored procedures.  This allows more complex pipelines to be created and extends Azure Data Factory's ability to leverage the computational power of SQL Data Warehouse.
 
@@ -44,7 +42,7 @@ For more development tips, see [SQL Data Warehouse development overview][].
 
 <!--Article references-->
 
-[Copy data with Azure Data Factory]: ./data-factory-copy-activity/
+[Copy data with Azure Data Factory]: ./data-factory-data-movement-activities/#copyactivity
 [SQL Data Warehouse development overview]:  ./sql-data-warehouse-overview-develop/
 [SQL Data Warehouse integration overview]:  ./sql-data-warehouse-overview-integration/
 

@@ -1,6 +1,7 @@
 <properties 
 	pageTitle="DocumentDB limits and quotas | Microsoft Azure" 
-	description="Learn about the limits and quota enforcements of DocumentDB." 
+	description="Learn about the limits and quota enforcements of DocumentDB. Review quotas for using the Azure database services."
+	keywords="Quotas, database, documentdb, azure, Microsoft azure"
 	services="documentdb" 
 	authors="mimig1" 
 	manager="jhubbard" 
@@ -13,11 +14,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/11/2015" 
+	ms.date="09/23/2015" 
 	ms.author="mimig"/>
 
 
-#DocumentDB limits and quotas
+# DocumentDB limits and quotas
 
 The following table describes the limits and quota enforcements of DocumentDB. 
 

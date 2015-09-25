@@ -3,7 +3,7 @@
    description="Provision a SQL Data Warehouse by following these steps and guidelines."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="jrowlandjones"
+   authors="lodipalm"
    manager="barbkess"
    editor=""/>
 
@@ -13,21 +13,21 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/23/2015"
+   ms.date="09/22/2015"
    ms.author="JRJ@BigBangData.co.uk;barbkess"/>
 
 # Get started: Provision a SQL Data Warehouse #
 
-This article is an accelerated guide to help you provision a SQL Data Warehouse in Azure. By following this guide, you will perform these tasks:
+This article is a guide to help you provision a SQL Data Warehouse in Azure. By following this guide, you will perform these tasks:
 
 1. Create a new SQL Data Warehouse database.
 2. Configure a new logical server.
 3. Set an Azure firewall rule to enable external client access.
 
 ## Azure free trial ##
-You will need to have an Azure subscription to complete the following tasks. If you do not already have access to an Azure subscription then resolving this is actually your first step!
+You will need to have an Azure subscription and approval to the SQL Data Warehouse Preview to complete the following tasks. If you do not already have access to an Azure subscription then resolving this is actually your first step!
 
-You can get access to a [free trial][] that allows you to try any of the services in Azure, including SQL Data Warehouse.
+You can get a [free trial][] that allows you to try any of the Azure services, including SQL Data Warehouse.
 
 
 ## Log in to the Azure portal ##
@@ -40,13 +40,13 @@ In this next series of steps we will quickly spin up a brand new logical server 
 
 The first thing we have to do is locate the SQL Data Warehouse service in the Azure portal.
 
-In the bottom left corner of the Azure Portal is the new button. The new button is the starting point for creating any new service within Azure.
+In the upper left corner of the Azure Portal is the New button. The New button is the starting point for creating any new service within Azure.
 
 - Click the new button now.
 
 ### Data + Storage
 
-Clicking the new button has opened up all the service categories within Azure. SQL Data Warehouse lives in the "Data + Storage" category.
+Clicking the New button opens up all the Azure service categories. SQL Data Warehouse lives in the "Data + Storage" category.
 
 - Click **Data + Storage** to drill in and see the services offered by Azure for this category.
 
@@ -54,7 +54,12 @@ Clicking the new button has opened up all the service categories within Azure. S
 
 As you can see Azure offers lots of data and storage engines. However, this getting started guide is for SQL Data Warehouse.
 
-- Go ahead and select **SQL Data Warehouse**.
+- Go ahead and select **SQL Data Warehouse**. 
+
+##Admission to the Preview
+Before you can start the setup process you must be admitted to the Preview program. Click the sign up for the Preview and submit. You will be notified by email when your submission has been approved.
+
+Once you receieve approval, you can proceed to the next steps. Note: Approval may take several days to process.
 
 ## Configure SQL Data Warehouse
 
@@ -76,7 +81,7 @@ The first configuration is to name the database.
 
 The performance option is an *important* one. SQL Data Warehouse provides scalable power via this slider. You can increase or decrease your performance at any time - not just when you configure the data warehouse. The further you slide to the right the greater the resources at your disposal. If those resources are no longer needed then you can immediately move the slider back; saving on cost. SQL Data Warehouse lets you change your performance profile on demand without having to re-create the data warehouse or move data.
 
-- Use the slider now to see how the data warehouse units increase as you slide to the right and decrease as you move back to the left.
+- Use the slider now to see how the data warehouse units (DWU) increase as you slide to the right and decrease as you move back to the left.
 
 - Before leaving this step make sure you have returned the slider back to the left. Your new data warehouse is small,  so we don't need too much; save your resources for the rest of your trial!
 
@@ -159,11 +164,12 @@ Now that you have configured the firewall you will be able to make connections f
 ## Next steps
 
 Now the SQL Data Warehouse service has been successfully provisioned we can move on to learn how to use it.
-
-The next steps are therefore to learn how to:
+Next steps:
 
 1. [Connect and query][] the data warehouse.
 2. Load [sample data].
+
+	> [AZURE.NOTE] We want to make this article better. If you choose to answer "no" to the "Was this article helpful?" question, please include a brief suggestion about what is missing or how to improve the article. Thanks in advance!!
 
 <!--Image references-->
 

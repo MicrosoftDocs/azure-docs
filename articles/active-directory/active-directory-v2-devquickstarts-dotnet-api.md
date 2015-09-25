@@ -1,5 +1,5 @@
 <properties
-	pageTitle="App Model v2.0 | Microsoft Azure"
+	pageTitle="App Model v2.0 >Net Web API| Microsoft Azure"
 	description="How to build a .NET MVC Web Api that accepts tokens from both personal Microsoft Account and work or school accounts."
 	services="active-directory"
 	documentationCenter=".net"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="08/12/2015"
+	ms.date="09/11/2015"
 	ms.author="dastrock"/>
 
 # App model v2.0 preview: Secure an MVC web API

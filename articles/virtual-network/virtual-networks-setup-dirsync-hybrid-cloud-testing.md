@@ -11,13 +11,15 @@
 <tags 
 	ms.service="virtual-network" 
 	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
+	ms.tgt_pltfrm="Windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/08/2015" 
+	ms.date="09/10/2015" 
 	ms.author="josephd"/>
 
 # Set up Office 365 Directory Synchronization (DirSync) in a hybrid cloud for testing
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)] This article covers creating resources with the classic deployment model. 
 
 This topic steps you through creating a hybrid cloud environment for testing Office 365 Directory Synchronization (DirSync) with password synchronization hosted in Microsoft Azure. Here is the resulting configuration.
 
@@ -56,7 +58,7 @@ This is your current configuration.
 
 ## Phase 2: Configure the Office 365 FastTrack Trial
 
-To start your Office 365 FastTrack trial, you need a fictitious company name and a Microsoft account. We recommend that you use a variant of the company name Contoso for your company name, which is a fictitious company used in Microsoft sample content, but this isn’t required.
+To start your Office 365 FastTrack trial, you need a fictitious company name and a Microsoft account. We recommend that you use a variant of the company name Contoso for your company name, which is a fictitious company used in Microsoft sample content, but this isnâ€™t required.
 
 Next, sign up for a new Microsoft account. Go to **http://outlook.com** and create an account with an email address like user123@outlook.com. You will sign up for an Office 365 FastTrack trial using this account.
 
@@ -82,13 +84,13 @@ This is your current configuration.
 First, create an Azure Virtual Machine for DS1 with these commands at the Azure PowerShell command prompt on your local computer. Prior to running these commands, fill in the variable values and remove the < and > characters.
 
 	$ServiceName="<The cloud service name for your TestVNET virtual network>"
-	$cred1=Get-Credential –Message "Type the name and password of the local administrator account for DS1."
-	$cred2=Get-Credential –UserName "CORP\User1" –Message "Now type the password for the CORP\User1 account."
+	$cred1=Get-Credential â€“Message "Type the name and password of the local administrator account for DS1."
+	$cred2=Get-Credential â€“UserName "CORP\User1" â€“Message "Now type the password for the CORP\User1 account."
 	$image= Get-AzureVMImage | where { $_.ImageFamily -eq "Windows Server 2012 R2 Datacenter" } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
 	$vm1=New-AzureVMConfig -Name DS1 -InstanceSize Medium -ImageName $image
 	$vm1 | Add-AzureProvisioningConfig -AdminUsername $cred1.GetNetworkCredential().Username -Password $cred1.GetNetworkCredential().Password -WindowsDomain -Domain "CORP" -DomainUserName "User1" -DomainPassword $cred2.GetNetworkCredential().Password -JoinDomain "corp.contoso.com"
 	$vm1 | Set-AzureSubnet -SubnetNames TestSubnet
-	New-AzureVM –ServiceName $ServiceName -VMs $vm1 -VNetName TestVNET
+	New-AzureVM â€“ServiceName $ServiceName -VMs $vm1 -VNetName TestVNET
 
 Next, connect to the DS1 virtual machine.
 
@@ -136,7 +138,7 @@ Next, log on to DC1 with the CORP\User1 account and open an administrator-level 
 	New-ADUser -SamAccountName marcik -AccountPassword (Read-Host "Set user password" -AsSecureString) -name "Marci Kaufman" -enabled $true -PasswordNeverExpires $true -ChangePasswordAtLogon $false -Path "OU=contoso_users,DC=corp,DC=contoso,DC=com"
 	New-ADUser -SamAccountName lyndam -AccountPassword (Read-Host "Set user password" -AsSecureString) -name "Lynda Meyer" -enabled $true -PasswordNeverExpires $true -ChangePasswordAtLogon $false -Path "OU=contoso_users,DC=corp,DC=contoso,DC=com"
 
-When you run each Windows PowerShell command, you are prompted for the new user’s password. Record these passwords and store them in a secure location. You will need them later.
+When you run each Windows PowerShell command, you are prompted for the new userâ€™s password. Record these passwords and store them in a secure location. You will need them later.
 
 Next, configure Directory Sync on DS1.
 
@@ -167,7 +169,7 @@ Next, demonstrate Office 365 password sync with the Lynda Myer Active Directory 
 4.	Select **Microsoft Office 365 Plan E3**, and then click **Save**.
 5.	Close Internet Explorer.
 6.	Run Internet Explorer and go to **http://portal.microsoftonline.com**. 
-7.	Log on with Lynda Meyer’s Office 365 credentials. Her user name will be lyndam@<*Your Fictional Name*>.onmicrosoft.com. The password is the Lynda Meyer Active Directory user account password.
+7.	Log on with Lynda Meyerâ€™s Office 365 credentials. Her user name will be lyndam@<*Your Fictional Name*>.onmicrosoft.com. The password is the Lynda Meyer Active Directory user account password.
 8.	After the successful logon, you see the Office 365 main portal page with **Let's make a difference today**.
 
 This is your current configuration.
