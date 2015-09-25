@@ -47,7 +47,7 @@ Some steps are shared between the different types of solutions. This provides a 
 
 [link-certification]:marketplace-publishing-azure-certification.md
 [link-accts]:marketplace-publishing-microsoft-accounts-creation-registration.md
-[link-single-vm]:marketplace-publishing-virtual-machine-creation.md
+[link-single-vm]:marketplace-publishing-vm-image-creation.md
 [link-single-vm-prereq]:marketplace-publishing-vm-image-creation-prerequisites.md
 [link-multi-vm]:marketplace-publishing-solution-template-creation.md
 [link-multi-vm-prereq]:marketplace-publishing-solution-template-creation-prerequisites.md

@@ -47,7 +47,7 @@ Please refer to the document [Guidance_createuidefinition.pdf](https://microsoft
 After uploading the zip file, click on **Request Certification**. The Microsoft certification team will review the files and certify the topology.
 
 ## Next Steps
-Now that you created your Solution Template and submitted the zip file with the required files for certification, you can can continue with [Step 4: Getting to Staging](.) in parallel.
+Now that you created your Solution Template and submitted the zip file with the required files for certification, you can can continue with [Step 4: Getting to Staging](marketplace-publishing-push-to-staging.md) in parallel.
 
 [img-pubportal-menu-sol-templ]:media/marketplace-publishing-solution-template-creation/pubportal-menu-solution-templates.png
 [img-pubportal-sol-templ-new]:media/marketplace-publishing-solution-template-creation/pubportal-solution-template-new.png
