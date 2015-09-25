@@ -30,6 +30,7 @@ This page has links to overview and conceptual articles and tutorial to help you
 - [Actor lifecycle and Garbage Collection](service-fabric-reliable-actors-lifecycle.md)
 - [How Fabric Actors use the Service Fabric platform](service-fabric-reliable-actors-platform.md)
 - [Notes on Azure Service Fabric Actors type serialization](service-fabric-reliable-actors-notes-on-actor-type-serialization.md)
+- [Node.js and Reliable Actors](service-fabric-node-and-reliable-actors-an-winning-combination.md)
 
 Communicating with Actors is described in:
 
@@ -69,7 +70,6 @@ Reliable Actors emit events and performance counters, which can be used to diagn
 Reliable Services gives you a simple, powerful, top-level programming model to help you express what is important to your application. To learn more, read:
 
 - [Get started with Reliable Services](service-fabric-reliable-services-quick-start.md)
-- [Programming Model Overview](../service-fabric-reliable-services-service-overview.md)  
 - [Architecture](service-fabric-reliable-services-platform-architecture.md)
 - [Reliable Collections](service-fabric-reliable-services-reliable-collections.md)
 - [Configuring Stateful Reliable Services](../Service-Fabric/service-fabric-reliable-services-configuration.md)
