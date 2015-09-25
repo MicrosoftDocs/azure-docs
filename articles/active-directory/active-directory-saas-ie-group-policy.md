@@ -22,6 +22,8 @@ This tutorial shows how to use group policy to remotely install the Access Panel
 
 It is recommended that admins automate the deployment of this extension. Otherwise, users will have to download and install the extension themselves, which is prone to user error and requires administrator permissions. This tutorial covers one method of automating software deployments by using group policy. [Learn more about group policy.](https://technet.microsoft.com/en-us/windowsserver/bb310732.aspx)
 
+The Access Panel extension is also available for [Chrome](https://go.microsoft.com/fwLink/?LinkID=311859) and [Firefox](https://go.microsoft.com/fwLink/?LinkID=626998), neither of which require administrator permissions to install.
+
 ##Prerequisites
 
 - You have set up [Active Directory Domain Services](https://msdn.microsoft.com/en-us/library/aa362244%28v=vs.85%29.aspx), and you have joined your users' machines to your domain.
@@ -29,9 +31,18 @@ It is recommended that admins automate the deployment of this extension. Otherwi
 
 ##Step 1: Create the Distribution Point
 
-You must have a shared folder that can be accessed by all of the machines on your network. Your machines must be able to access this network location to retrieve the installation package for the extension. [Learn more here.](https://technet.microsoft.com/en-us/library/cc753175.aspx)
+First, you must place the installer package on a network location that can be accessed from all of the machines that you wish to remotely install the extension on. To do this, follow these steps:
+
+1. Log on to the server as an administrator
+2. Create a shared network folder. [Learn more about shared folders.](https://technet.microsoft.com/en-us/library/cc753175.aspx)
+3. Download the following Microsoft Windows Installer package (.msi file): [Access Panel Extension.msi](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access Panel Extension.msi)
+4. Copy the installer package to a desired location on the share.
+5. Set permissions on the share to allow access to the installer package.
+6. Verify that your client machines are able to access the installer package from the share. 
 
 ##Step 2: Create the Group Policy Object
+
+
 
 ##Step 3: Assign the Installer Package
 
