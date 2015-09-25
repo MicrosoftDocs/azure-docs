@@ -472,6 +472,7 @@ Now you've seen an overview of developing for IoT Hub, follow these links to lea
 [lnk-azure-hub-sdks]: TBD
 [lnk-pricing]: TBD
 [lnk-resource-provider-apis]: TBD
+[lnk-reference-architecture]: TBD
 
 [lnk-azure-gateway-guidance]: iot-hub-guidance.md#fieldgateways
 [lnk-guidance-provisioning]: iot-hub-guidance.md#provisioning
