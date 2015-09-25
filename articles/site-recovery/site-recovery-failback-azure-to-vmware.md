@@ -335,6 +335,8 @@ You can validate that the Master Target Server registered successfully
 with the Configuration Server by visiting the Server Details page under
 the Configuration Server page on the Azure Site Recovery vault
 
+Note: After registering the Mt, you might find that the MT is having configuration error with the possible causes - Virtual machine might be deleted from Azure or endpoints are not properly configured. This is because MT configuration is detected by the Azure Endpoints when the MT is deployed in Azure. However this does not hold true for on-premises MT and the error can be ignored. Failback will not have any issues due to this.
+
 
 ## Begin protecting the virtual machines back to on-premises
 
