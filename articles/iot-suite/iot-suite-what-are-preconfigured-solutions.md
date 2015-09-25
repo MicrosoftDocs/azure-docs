@@ -32,12 +32,13 @@ The available preconfigured solutions are:
 
 The following table shows how these preconfigured solutions map to specific IoT features:
 
-| &nbsp; | Data <br/> Ingestion | Device <br/> Identity |  Command and <br/> Control |  Rules and <br/> Actions |  Predictive <br/> Analytics |
-| ------------------------------: | :-: | :-: | :----: | :----: | :----: |
-| **Remote <br/> Monitoring**       | Yes | Yes | Yes | Yes | &nbsp; |
-| **Predictive <br/> Maintenance**  | Yes | Yes | Yes | Yes | Yes |
+| Solution               | Data Ingestion | Device Identity | Command and Control | Rules and Actions | Predictive Analytics |
+|------------------------|----------------|-----------------|---------------------|-------------------|----------------------|
+| Remote Monitoring      | Yes            | Yes             | Yes                 | Yes               | -                    |
+| Predictive Maintenance | Yes            | Yes             | Yes                 | Yes               | Yes                  |
 
 ## Remote Monitoring sample overview
+
 Remote Monitoring is the simplest of preconfigured solutions with full functionality. This section describes some of the key features of the remote monitoring preconfigured solution by way of an introduction to the full set of preconfigured solutions.
 
 The following diagram illustrates the key features of the solution and the following sections. The following sections provide more information about the elements shown in this diagram.
@@ -85,7 +86,7 @@ To get started using the Azure IoT preconfigured solutions, explore these resour
 - [Azure IoT preconfigured solutions][lnk-preconfigured-solutions-microsite]
 - [Get started with the IoT preconfigured solutions][lnk-iot-solutions-get-started]
 
-[img-remote-monitoring-arch]: media/iot-suite-what-are-preconfigured-solutions/remote-monitoring-arch.png
+[img-remote-monitoring-arch]: ./media/iot-suite-what-are-preconfigured-solutions/remote-monitoring-arch.png
 [lnk-iot-reference-architecture]: TBD
 [lnk-iot-solutions-get-started]: TBD
 [lnk-event-processor]: TBD
