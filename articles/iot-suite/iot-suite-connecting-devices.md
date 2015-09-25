@@ -82,7 +82,8 @@ Now choose which language would you like to use to continue your sample. In this
 
 1. Open the file **c/serializer/samples/serializer/remote_monitoring.c** in a text editor.
 
-2. Locate the following code in the file:
+2. Locate the following code in the file: 
+
     ```
     static const char* deviceId = "[Device Id]";
     static const char* deviceKey = "[Device Key]";
@@ -121,7 +122,8 @@ Now choose which language would you like to use to continue your sample. In this
 
 2. In Visual Studio, in **Solution Explorer**, navigate to the samples folder. In the **remote_monitoring** project, open the **remote_monitoring.c** file.
 
-2. Locate the following code in the file:
+2. Locate the following code in the file: 
+
     ```
     static const char* deviceId = "[Device Id]";
     static const char* deviceKey = "[Device Key]";
@@ -182,7 +184,8 @@ The following instructions describe the steps for connecting an [mbed-enabled Fr
 
 	![][8]
 
-- Open remote_monitoring\remote_monitoring.c, locate the following code in the file:
+- Open remote_monitoring\remote_monitoring.c, locate the following code in the file:  
+
     ```
     static const char* deviceId = "[Device Id]";
     static const char* deviceKey = "[Device Key]";
@@ -241,7 +244,7 @@ This tutorial assumes that you have completed the first tutorial, where we expla
 
 1.  Open the file **node\\samples\\simple_sample_remotemonitoring.js** in a text editor.
 
-2.  Locate the following code in the file:
+2.  Locate the following code in the file: 
 
     ```
     var deviceID = '[Device ID]';
