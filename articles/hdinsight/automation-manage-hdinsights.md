@@ -18,7 +18,7 @@
 
 
 
-#Managing Azure HDInsight using Azure Automation
+#Manage Azure HDInsight using Azure Automation
 This guide will introduce you to the Azure Automation service and how it can be used to simplify management of your clusters and automate common tasks in Azure HDInsight.
 
 ## What is Azure Automation?

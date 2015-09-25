@@ -22,21 +22,6 @@ This article describes how to use Dynamic Management Views (DMVs) to monitor you
 
 
 
-
-## Permissions
-
-In SQL Data Warehouse, querying a dynamic management view requires **VIEW DATABASE STATE** permissions. The **VIEW DATABASE STATE** permission returns information about all objects within the current database.
-To grant the **VIEW DATABASE STATE** permission to a specific database user, run the following query:
-
-```
-
-GRANT VIEW DATABASE STATE TO database_user;
-
-```
-
-
-
-
 ## Monitor Connections
 
 You can use the *sys.dm_pdw_nodes_exec_connections* view to retrieve information about the connections established to your Azure SQL Data Warehouse database. In addition, the *sys.dm_exec_sessions* view is helpful when retrieving information about all active user connections.

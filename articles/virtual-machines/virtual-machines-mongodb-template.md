@@ -3,7 +3,7 @@
   description="Create a MongoDB cluster on Ubuntu using a Azure Resource Manager template via Azure PowerShell or the Azure CLI"
   services="virtual-machines"
   documentationCenter=""
-  authors="karthmut"
+  authors="scoriani"
   manager="timlt"
   editor="tysonn"
   tags="azure-resource-manager"/>
@@ -15,7 +15,7 @@
   ms.devlang="na"
   ms.topic="article"
   ms.date="04/29/2015"
-  ms.author="karthmut"/>
+  ms.author="scoriani"/>
 
 # Create a MongoDB cluster on Ubuntu using a Azure Resource Manager template
 
