@@ -16,7 +16,7 @@
 	ms.date="09/20/2015"    
 	ms.author="juliako"/>
 
-#Configure the Elemental encoder to send a single bitrate live stream 
+#Use the Elemental encoder to send a single bitrate live stream 
 
 > [AZURE.SELECTOR]
 - [Elemental](media-services-configure-elemental-live-encoder.md)
@@ -64,7 +64,7 @@ This section shows how to configure the Elemental Live encoder that sends a sing
 
 While the channel is starting you can [configure the encoder](media-services-configure-elemental-live-encoder.md#configure_elemental_rtmp).
 
-###<a id=configure_elemental_rtmp></a>Configure Elemental to stream a single bitrate live stream over RTMP 
+###<a id=configure_elemental_rtmp></a>Configure the Elemental Live encoder 
 
 In this tutorial the following output settings are used. The rest of this section describes configuration steps in more detail. 
 
@@ -178,7 +178,7 @@ The stream is now ready to be embedded in a player, or distributed to an audienc
 
 While the channel is starting you can [configure the encoder](media-services-configure-elemental-live-encoder.md#configure_elemental_rtp).
 
-###<a id=configure_elemental_rtp></a>Configure Elemental to stream a single bitrate live stream over RTP 
+###<a id=configure_elemental_rtp></a>Configure the Elemental Live encoder 
 
 In this tutorial the following output settings are used. The rest of this section describes configuration steps in more detail. 
 
