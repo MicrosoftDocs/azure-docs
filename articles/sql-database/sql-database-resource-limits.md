@@ -71,6 +71,6 @@ Azure SQL Database has a DTU quota per logical server of currently 2000 DTUs. Th
 
 [Azure Subscription and Service Limits, Quotas, and Constraints](../azure-subscription-service-limits.md)
 
-[Azure SQL Database Service Tiers and Performance Levels](https://msdn.microsoft.com/library/azure/dn741336.aspx)
+[Azure SQL Database Service Tiers and Performance Levels](sql-database-service-tiers.md)
 
 [Error messages for SQL Database client programs](sql-database-develop-error-messages.md)
