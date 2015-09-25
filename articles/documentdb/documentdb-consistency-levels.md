@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/25/2015" 
+	ms.date="09/25/2015" 
 	ms.author="mimig"/>
 
 # Using consistency levels to maximize availability and performance in DocumentDB
@@ -56,15 +56,13 @@ Eventual consistency provides the weakest read consistency but offers the lowest
 
 ### Changing the database consistency level
 
-1.  In the [Azure Preview portal](https://portal.azure.com/), click **Browse All**.
+1.  In the [Azure Preview portal](https://portal.azure.com/), in the Jumpbar, click **DocumentDB Accounts**.
 
-2.  In the **Browse All** blade, click **DocumentDB Accounts**.
+2. In the **DocumentDB Accounts** blade, select the database account to modify.
 
-3. In the **DocumentDB Accounts** blade, select the database account to modify.
+3. In the account blade, in the **Configuration** lens, click the **Default Consistency** tile.
 
-4. In the account blade, in the **Configuration** lens, click the **Default Consistency** tile.
-
-5. Select the new consistency level and click **Save**. 
+4. In the **Default Consistency** blade, select the new consistency level and click **Save**. 
 
 	![Screen shot highlighting the Default Consistency tile, the consistency settings and the Save button](./media/documentdb-consistency-levels/database-consistency-level.png)
 
