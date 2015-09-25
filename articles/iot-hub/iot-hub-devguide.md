@@ -1,14 +1,14 @@
 <properties
  pageTitle="Azure IoT Hub developer guide | Microsoft Azure"
  description="Azure IoT Hub developer guide covering IoT Hub endpoints, security, device identity registry, and messaging"
- services="azure-iot"
+ services="iot-hub"
  documentationCenter=".net"
  authors="fsautomata"
  manager="timlt"
  editor=""/>
 
 <tags
- ms.service="azure-iot"
+ ms.service="iot-hub"
  ms.devlang="na"
  ms.topic="article"
  ms.tgt_pltfrm="na"
@@ -470,6 +470,7 @@ Now you've seen an overview of developing for IoT Hub, follow these links to lea
 [lnk-azure-hub-sdks]: TBD
 [lnk-pricing]: TBD
 [lnk-resource-provider-apis]: TBD
+[lnk-reference-architecture]: TBD
 
 [lnk-azure-gateway-guidance]: iot-hub-guidance.md#fieldgateways
 [lnk-guidance-provisioning]: iot-hub-guidance.md#provisioning
