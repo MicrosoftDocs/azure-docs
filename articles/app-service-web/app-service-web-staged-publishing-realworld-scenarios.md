@@ -327,15 +327,15 @@ Click on  **Get Publish settings** for the deployment slot **stage**. This will 
 
  ![Get publish setting of the staging web app](./media/app-service-web-staged-publishing-realworld-scenarios/10getpublishsettings.PNG)
 
-1. Open your local development web app in **WebMatrix** or **Visual Studio**. In this tutorial I am using Web Matrix and first you need to import the publish settings file for your staging web app
+- Open your local development web app in **WebMatrix** or **Visual Studio**. In this tutorial I am using Web Matrix and first you need to import the publish settings file for your staging web app
 
 ![Import Publish settings for Umbraco using Web Matrix](./media/app-service-web-staged-publishing-realworld-scenarios/11webamtrixumbracoimport.PNG)
 
-2. Review changes in the dialog box and deploy your local web app to your Azure web app , *umbracositecms-1-stage*. When you deploy files directly to your staging web app you will omit any files in the `~/app_data/TEMP/` folder as these will be regenerated when the stage web app is first started. You should also omit the `~/app_data/umbraco.config` file as this, too, we be regenerated.
+- Review changes in the dialog box and deploy your local web app to your Azure web app , *umbracositecms-1-stage*. When you deploy files directly to your staging web app you will omit any files in the `~/app_data/TEMP/` folder as these will be regenerated when the stage web app is first started. You should also omit the `~/app_data/umbraco.config` file as this, too, we be regenerated.
 
 ![Review Publish changes in web matrix](./media/app-service-web-staged-publishing-realworld-scenarios/12umbracopublishwebmatrix.png)
 
-3. After successfully publishing the Umbraco local web app to staging web app , browse your staging web app and run a few tests to rule out any issues.
+- After successfully publishing the Umbraco local web app to staging web app , browse your staging web app and run a few tests to rule out any issues.
 
 #### Setup Courier2 deployment module
 With [Courier2](http://umbraco.com/products/more-add-ons/courier-2) module you can push content, stylesheets, development modules and more with a simple right-click from a staging web app to production web app for a more hassle free deployments and reducing risk of breaking your production web app when deploying an update.
