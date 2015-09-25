@@ -1,23 +1,26 @@
-<properties 
-	pageTitle="Azure AD Connect FAQ" 
-	description="This page has frequently asked questions about Azure AD Connect." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="stevenpo" 
+<properties
+	pageTitle="Azure AD Connect FAQ"
+	description="This page has frequently asked questions about Azure AD Connect."
+	services="active-directory"
+	documentationCenter=""
+	authors="billmath"
+	manager="stevenpo"
 	editor="curtand"/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/24/2015" 
+<tags
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/24/2015"
 	ms.author="billmath"/>
 
 # Azure Active Directory Connect FAQ
 
+## Express installation
+
+## Custom installation
 
 ## Troubleshooting
 
@@ -34,7 +37,7 @@
 
 [Azure AD Connect customer support](https://manage.windowsazure.com/?getsupport=true)
 
-- Use this link to get support through the Azure portal. 
+- Use this link to get support through the Azure portal.
 
 **Q:What do I do if I receive an email that asking me to renew my Office 365 certificate**
 
