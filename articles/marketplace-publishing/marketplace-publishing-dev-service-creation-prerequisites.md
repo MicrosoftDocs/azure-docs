@@ -60,7 +60,7 @@ Money talks, and the Azure Marketplace gives you the control you need to send th
 Using the information from Offer Profile Metadata (.xlsx) above navigate to Publisher Portal: https://publish.windowsazure.com/
 
 ## Next Steps
-Now that you reviewed the pre-requisites and completed the necessary tasks, you can move forward with the creating your Developer Service offer as detailed in the guide [Developer Service Publishing Guide](marketplace-publishing-dev-service-publication.md)
+Now that you reviewed the pre-requisites and completed the necessary tasks, you can move forward with the creating your Developer Service offer as detailed in the guide [Developer Service Publishing Guide](marketplace-publishing-dev-service-creation.md)
 
 
 [link-acct-creation]:marketplace-publishing-accounts-creation-registration.md
