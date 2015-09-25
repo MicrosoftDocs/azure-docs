@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Azure Mobile Engagement Best Practices - Creating your Mobile Engagement program"
-	description="Best Practices to use when creating your Mobile Engagement programs" 
+	pageTitle="Azure Mobile Engagement Getting Started Guide with Best Practices"
+	description="Getting Started guide for Azure Mobile Engagement and Best practices for onboarding" 
 	services="mobile-engagement" 
 	documentationCenter="mobile" 
 	authors="wesmc7777"
@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.workload="mobile" 
-	ms.date="09/24/2015"
+	ms.date="09/25/2015"
 	ms.author="wesmc"/>
 
 # Azure Mobile Engagement - Getting Started Guide with Best practices
@@ -29,13 +29,13 @@ The average mobile user will install and uninstall apps with high frequency depe
 - Are in-app purchases trending upward or downward?
 - Are users failing to complete work flows because of issues with the app or lack of interest? 
 - Could you keep your app useful and relevant by pushing fresh content to your user base? 
-- Would this fresh content be the same for all users or focused on user subsets based on behavior in your app? 
+- Would this fresh content be the same for all users or focused on user segments based on behavior in your app? 
  
 Answers to questions similar to these could help extend the life and revenue from your app. They can also help you define and retain your user base. 
 
 Media related apps tend to have some of the highest retention among users. One reason for this is they are constantly providing fresh content to users. Early adoption of useful push notifications directed to a user segment tends to have a high impact on app retention. 
 
-The Azure Mobile Engagement program is designed to help you extend the life and retention of your app by providing a method to gather and analyze detailed information on the use of your app. It will help you classify your user base according to behavior, and create focused campaigns for delivering push notifications and app messages to identified user segments. Key performance indicators (KPI) measure how active your users are with different aspects of your app. Azure Mobile Engagement provides the methods you need to determine these KPIs. It helps increase the return on your investment (ROI) by providing the infrastructure you need to increase engagement with your mobile app. 
+The Azure Mobile Engagement program is designed to help you extend the life and retention of your app by providing a method to gather and analyze detailed information on the use of your app. It will help you classify your user base according to behavior, and create focused campaigns for delivering push notifications and in-app messages to identified user segments. Key performance indicators (KPI) measure how active your users are with different aspects of your app. Azure Mobile Engagement provides the methods you need to determine these KPIs. It helps increase the return on your investment (ROI) by providing the infrastructure you need to increase engagement with your mobile app. 
 
 In order to get the most out of Azure Mobile Engagement, you need to start with a well designed engagement plan. Your plan will help you identify the granular data you will need to be able to segment your user base. This can be based on behavior and in-app experiences. In order for your plan to be successful, it is a best practice to clearly define the KPI that will measure the objectives of your app. With clear performance indicators defined, you can easily embed the necessary logic in your app to collect fine grained data which you will use to analyze and evaluate your KPIs. This topic is a best practice guide for defining the KPIs that you will use with your engagement plan. 
 
@@ -128,7 +128,7 @@ A great mobile engagement program should be considered a key component of your a
 
 ![](./media/mobile-engagement-getting-started-best-practices/unsegmented-push-notifications.png)
 
-Push notifications are the best way to engage early with your users. However, great care should be taken when segmenting users for push notifications. Because once a user feels like they are receiving spam or uninteresting notifications, it can have serious affect. In few clicks, a user may delete your application never to return. The user should be receiving highly personalized in-app value instead of generic spam.
+Push notifications are the best approach to early engagements with mobile device users. However, great care should be taken when segmenting users for push notifications. Because once a user feels like they are receiving spam or uninteresting notifications, it can have serious affect. In few clicks, a user may delete your application never to return. The user should be receiving highly personalized in-app value instead of generic spam.
 
 Once users are actively engaged, then your engagement program can help drive other aspects of the app.
 
@@ -163,7 +163,7 @@ For example, a very active user of a fantasy football app might benefit from bei
 
 ###### Alerting push sequence
 
-Users will appreciate relevant news focused on their interests. An alert push sequence enhances engagement by sending alerts based on interests a user has clearly shown. This could be explicit when a user selects their own interests in the app. It could also be determined implicitly based data collected during user interaction with the app.
+Users will appreciate relevant news focused on their interests. An alert push sequence enhances engagement by sending alerts based on interests a user has clearly shown. This could be explicit when a user selects their own interests in the app. It could also be determined implicitly based on data collected during user interaction with the app.
 
 For example, the user of an E-Commerce app may regularly buy a specific brand of coffee which you have captured with a business KPI. The following alert can enhance this user's engagement with the app.
  
@@ -180,7 +180,7 @@ For example, the user of a sports related app might receive the following push n
 
 #### The 3W approach
 
-Mastering the different push sequences will help you engage with end-users. However, you still need to use the 3W approach for personalizing your notifications. The 3W approach should address who, what and when for each notification. If you clearly satisfy these three questions you notifications should be properly focused for engagement.
+Mastering the different push sequences will help you engage with end-users. However, you still need to use the 3W approach for personalizing your notifications. The 3W approach should address Who, What and When for each notification. If you clearly satisfy these three questions you notifications should be properly focused for engagement.
 
 ![](./media/mobile-engagement-getting-started-best-practices/who-what-when.png)
 
@@ -205,9 +205,9 @@ In your engagements use a tone that is appropriate for your for your segmented u
 
 **Redirection**
 
-A push notification is not only directed to a running application. If the notification message provides a context such as broadcast news or a product promotion, this notification may deep link directly to the right content within the application. To support this, you must create a URL scheme to let the application manage the redirection. When working on your engagement sequences, this is an important step that must not be forgotten.
+A push notification can be used for more than opening up the application. If the notification message provides a context such as broadcast news or a product promotion, this notification may deep link directly to the right content within the application. To support this, you must create a URL scheme to let the application manage the redirection. When working on your engagement sequences, this is an important step that must not be forgotten.
 
-Redirection can also be managed for other systems. For instance, with an Action URL it is possible to redirect end-users many other systems including the following:
+Redirection can also be managed for other systems. For instance, with an Action URL it is possible to redirect end-users to many other systems including the following:
 
 - A website
 - A mailbox with email already set up
@@ -226,11 +226,16 @@ Different types and Push notification formats:
 2. **Polls** : enabled you to gather information from end-users by asking them questions. Those answers are then available when creating criteria  to target end-users.
 3. **Data Pushes** : enables you to send a binary or base64 data file to update the app. The information contained in a data push is sent to your application to personalize the users' experience in your app. Your application needs to be designed to support the data in a data push.
 4. **Tiles (Windows Phone only)** : enabled you to use the Microsoft Push Notification Service (MPNS) to send Native Push Notification containing XML Data (Supported since SDK version 0.9.0. The final payload for tiles cannot exceed 32 kilobytes.). The message appears directly on your board’s tile.
-5. **Webview** : A web view is a pop-up containing web content. This pop-up appears when the end-user has clicked on the push notification. A web view allows you to have more interaction with the end-user. 
+5. **Webview** : A web view is a pop-up containing web content. This pop-up appears when the end-user has clicked on the push notification. A web view allows you to have more interaction with the end-user.
+ 
+>[AZURE.NOTE] Make sure that the content you are sending as push notifications complies with the respective platform (iOS, Android, Windows) guidelines for developing apps and sending push notifications.
+
+ 
+
 
 ###### When: The timing of your campaign
 
-When is the best time to activate a campaign triggering push notifications? Should it be manual or automatic? Should it be reoccurring? Determining the right time or frequency is essential to engage users with the best results. For each engagement sequence and scenario, you must specify when will be the best time to send push notifications. Here are some possible examples:
+When is the best time to activate a campaign triggering push notifications? Should it be manual or automatic? Should it be recurring? Determining the right time or frequency is essential to engage users with the best results. For each engagement sequence and scenario, you must specify when will be the best time to send push notifications. Here are some possible examples:
 
 ![](./media/mobile-engagement-getting-started-best-practices/campaign-timing-examples.png)
 
@@ -379,7 +384,7 @@ After you have developed some experience you might consider adding the following
 
 - Tracking:  You acquire users and you probably define data-collection sources. Azure mobile Engagement can be linked to data-collection sources. It allows you to monitor performances of each source. This information will be interesting to maximize your acquisition investment. 
 
-- A/B testing: This is an essential part of Engagement program. Each Database has its own specifics. A/B testing you can improve your Engagement program.
+- A/B testing: This is an essential part of Engagement program. Each app has its own specifics. With A/B testing, you can improve your engagement program.
 
 - Geo-location: This is a big opportunity for brands. Thanks to this feature you can reach at the right place and time. We recommend verifying you have gathered enough end-user behavior data before starting to use geo-location.
 
