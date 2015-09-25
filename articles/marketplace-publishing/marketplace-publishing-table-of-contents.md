@@ -38,7 +38,7 @@ Some steps are shared between the different types of solutions. This provides a 
 - [Azure Marketplace Marketing Content Guide][link-pushstaging]
 
 ## Step 5. Publish
-- [Ready to Go LIVE! Push to Production][link-pushprod]
+- [Deploy your offer to the Marketplace][link-pushprod]
 
 ## Appendix
 - Get Support
