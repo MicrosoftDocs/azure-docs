@@ -340,7 +340,9 @@ Click on  **Get Publish settings** for the deployment slot **stage**. This will 
 #### Setup Courier2 deployment module
 With [Courier2](http://umbraco.com/products/more-add-ons/courier-2) module you can push content, stylesheets, development modules and more with a simple right-click from a staging web app to production web app for a more hassle free deployments and reducing risk of breaking your production web app when deploying an update.
 Purchase a license for Courier2 for the domain `*.azurewebsites.net` and your custom domain (say http://abc.com) Once you have purchased the license, place the downloaded license (.LIC file) in the `bin` folder.
+
 ![Drop license file under bin folder][./media/app-service-web-staged-publishing-realworld-scenarios/13droplicenseumbraco.PNG]
+
 Download the Courier2 package from [here](https://our.umbraco.org/projects/umbraco-pro/umbraco-courier-2/) . Log on to your stage web app, say  http://umbracocms-site-stage.azurewebsites.net/umbraco and click on **Developer** Menu and Select **Packages** . Click on **Install** local package
 
 ![Umbraco Package installer](./media/app-service-web-staged-publishing-realworld-scenarios/14umbracoinstallpackage.PNG)
@@ -412,9 +414,9 @@ To learn more about how to use Courier, review the documentation .
 
 Courier will not deploy help with upgrading from one version of Umbraco CMS to another. When upgrading Umbraco CMS version, you must check for incompatibilities with your custom modules or third party modules and the Umbraco Core libraries. As a best practice
 
-1. ALWAYS backup your web app and database before doing an upgrade. On Azure Web App, you can set up automatic backups for your websites using the backup feature and restore your site if needed using restore feature. For more details, see How to back up your web app and How to restore your web app.
+1. ALWAYS backup your web app and database before doing an upgrade. On Azure Web App, you can set up automatic backups for your websites using the backup feature and restore your site if needed using restore feature. For more details, see [How to back up your web app](https://azure.microsoft.com/en-us/documentation/articles/web-sites-backup/) and [How to restore your web app](https://azure.microsoft.com/en-us/documentation/articles/web-sites-restore/).
 
-2. Check if the third party packages you're using are compatible with the version you're upgrading to. On the package's download page, in the Project compatibility area, click View details to check version-specific compatibilities.
+2. Check if the third party packages you're using are compatible with the version you're upgrading to. On the package's download page, review the Project compatibility with Umbraco CMS version.
 
 For more details on how to upgrade your web app locally, follow the guidelines as mentioned [here](https://our.umbraco.org/documentation/getting-started/setup/upgrading/general).
 
