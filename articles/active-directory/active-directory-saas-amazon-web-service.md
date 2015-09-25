@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Tutorial: Azure Active Directory integration with Amazon Web Service (AWS) | Microsoft Azure"
-	description="Learn how to configure single sign-on between Azure Active Directory and Amazon Web Service (AWS)."
+	description="Learn how to use Amazon Web Services (AWS) with Azure Active Directory to enable single sign-on, automated provisioning, and more!"
 	services="active-directory"
 	documentationCenter=""
 	authors="markusvi"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/27/2015"
+	ms.date="09/25/2015"
 	ms.author="markvi"/>
 
 
@@ -129,7 +129,7 @@ The following screenshot shows an example for this.
 
 10. On the **Verify Provider Information** dialog page, click **Create**. <br><br> ![Configure Single Sign-On][15]
 
-11. Go to **Roles > Create New Role**. <br><br> ![Configure Single Sign-On][16]
+11. Click **Roles**, and then click **Create New Role**. <br><br> ![Configure Single Sign-On][16]
 
 12. On the **Set Role Name** dialog, perform the following steps: <br><br> ![Configure Single Sign-On][17]
      12.1. In the **Role Name** textbox, type a role name (e.g.: *TestUser*).
@@ -143,9 +143,20 @@ The following screenshot shows an example for this.
      13.2. In the **Grant Web Single Sign-On (WebSSO) access to SAML providers** section, click **Select**.
 
 
-14. On the Establish Trust dialog, perform the following steps:  <br><br> ![Configure Single Sign-On][19]
+14. On the **Establish Trust** dialog, perform the following steps:  <br><br> ![Configure Single Sign-On][19]
+     
      14.1. As SAML provider, select the SAML provider you have created previousley (e.g.: *WAAD*) 
 
+     14.2. Click **Next Step**.
+
+
+15. On the **Verify Role Trust** dialog, click **Next Step**.  <br><br> ![Configure Single Sign-On][32]
+
+
+16. On the **Attach Policy** dialog, click **Next Step**.  <br><br> ![Configure Single Sign-On][33]
+
+
+17. On the **Review** dialog, click **Create Role**.  <br><br> ![Configure Single Sign-On][34]
 
 
 15. On the Azure AD portal, select the single sign-on configuration confirmation, and then click **Next**.<br><br>![What is Azure AD Connect][20]
@@ -302,8 +313,9 @@ When you click the Amazon Web Service (AWS) tile in the Access Panel, you should
 [29]: ./media/active-directory-saas-amazon-web-service/tutorial_general_16.png
 [30]: ./media/active-directory-saas-amazon-web-service/ic795038.png
 [31]: ./media/active-directory-saas-amazon-web-service/tutorial_general_17.png
-
-
+[32]: ./media/active-directory-saas-amazon-web-service/ic7950251.png
+[33]: ./media/active-directory-saas-amazon-web-service/ic7950252.png
+[34]: ./media/active-directory-saas-amazon-web-service/ic7950253.png
 
 
 

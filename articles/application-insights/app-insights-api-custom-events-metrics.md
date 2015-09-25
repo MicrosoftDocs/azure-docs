@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="08/28/2015" 
+	ms.date="09/23/2015" 
 	ms.author="awills"/>
 
 # Application Insights API for custom events and metrics 
@@ -696,7 +696,10 @@ Normally the SDK sends data at times chosen to minimize impact on the user. Howe
 
     telemetry.Flush();
 
-Note that the function is synchronous.
+    // Allow some time for flushing before shutdown.
+    System.Threading.Thread.Sleep(1000);
+
+Note that the function is asynchronous.
 
 
 

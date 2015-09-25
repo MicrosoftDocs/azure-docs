@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/23/2015"
+   ms.date="09/22/2015"
    ms.author="sahajs"/>
 
 # Use Azure Machine Learning with SQL Data Warehouse
@@ -40,15 +40,18 @@ Look for the Reader module in the palette of datasets and modules on the left of
 
 ### Step 3
 
-Select the Reader module and fill out the properties pane
-1. Select Azure SQL Database as the Data Source
+Select the Reader module and fill out the properties pane.
+
+1. Select Azure SQL Database as the Data Source.
 2. Database server name: Type the server name. You can use the [Azure Portal][] to find this.
+
 ![][server_name]
+
 3. Database name: Type the name of a database on the server you just specified. 
 4. Server user account name:  Type the user name of an account that has access permissions for the database. 
 5. Server user account password: Provide the password for the specified user account.
-6.	Accept any server certificate: Use this option (less secure) if you want to skip reviewing the site certificate before you read your data.
-7.	Database query: Enter a SQL statement that describes the data you want to read. In this case, we’ll read data from Product table using the following query.
+6. Accept any server certificate: Use this option (less secure) if you want to skip reviewing the site certificate before you read your data.
+7. Database query: Enter a SQL statement that describes the data you want to read. In this case, we will read data from Product table using the following query.
 
 
 ```
@@ -64,8 +67,11 @@ FROM dbo.DimProduct;
 
 1. Run the experiment by clicking Run under the experiment canvas.
 2. When the experiment finishes, the Reader module will have a green check mark to indicate that it has completed successfully. Notice also the Finished running status in the upper-right corner.
+
 ![][run]
+
 3. To see the imported data, click the output port at the bottom of the automobile dataset and select Visualize.
+
 
 ## Create, train and score a model
 
@@ -91,6 +97,7 @@ Look for the Writer module in the palette of datasets and modules on the left of
 ### Step 2
 
 Select the Writer module and fill out the properties pane.
+
 1. Select Azure SQL Database as the Data Destination.
 2. Database server name: Type the server name. You can use the [Azure Portal][] to find this. 
 3. Database name: Type the name of a database on the server you just specified. 

@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="09/08/2015"
+   ms.date="09/25/2015"
    ms.author="rickbyh"/>
 
 # Managing databases and logins in Azure SQL Database
@@ -140,7 +140,7 @@ CREATE DATABASE database1;
 
 > [AZURE.NOTE] You must use a strong password when creating a login. For more information, see [Strong Passwords](https://msdn.microsoft.com/library/ms161962.aspx).
 
-This next example shows how to create a database user named **login1User** in the database **database1** that corresponds to the login **login1**:
+This next example shows how to create a database user named **login1User** in the database **database1** that corresponds to the login **login1**. To execute the following example, you must first make a new connection to database1, using a login with the **ALTER ANY USER** permission in that database. Any user connecting as a member of the **db_owner** role will have that permission, such as the login which created the database.
 
 ```
 -- Establish a new connection to the database1 database
