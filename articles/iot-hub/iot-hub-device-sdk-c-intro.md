@@ -1,4 +1,4 @@
-****<properties
+<properties
 	pageTitle="Introducing the Azure IoT device SDK for C"
 	description="How to learn about and get started working with the sample code in the Azure IoT device SDK for C"
 	services="iot-hub"
