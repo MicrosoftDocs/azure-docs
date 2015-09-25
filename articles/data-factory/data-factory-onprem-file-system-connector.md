@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/22/2015" 
+	ms.date="09/25/2015" 
 	ms.author="spelluru"/>
 
 # Move data to and from On-premises File System using Azure Data Factory
