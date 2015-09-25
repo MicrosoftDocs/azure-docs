@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Pre-requisites of Publishing a Developer Service"
-   description="Detailed pre-requisites for publishing a developer service."
+   pageTitle="Requirements for creating a Developer Service for the Azure Marketplace | Microsoft Azure"
+   description="Learn about the requirements for creating, deploying and selling a developer service on the Azure Marketplace."
    services="Azure Marketplace"
    documentationCenter=""
    authors="HannibalSII"
@@ -9,24 +9,24 @@
 
 <tags
    ms.service="AzureStore"
-   ms.devlang="en-us"
-   ms.topic="Pre-requisites for Publishing a Developer Service"
+   ms.devlang="na"
+   ms.topic="article"
    ms.tgt_pltfrm="Azure"
-   ms.workload=""
-   ms.date="09/10/2015"
-   ms.author="hascipio"/>
+   ms.workload="na"
+   ms.date="09/25/2015"
+   ms.author="hascipio; v-shresh"/>
 
-# Step 3: Developer Service Onboarding Guide - Pre-requisites
+# Pre-requisites to creating a developer service Onboarding Guide
 
-This document outlines the necessary pre-requisites e.g. accounts, tools, etc. to move forward with publishing a Developer Service offer on the Azure Marketplace.
+This article outlines the necessary pre-requisites e.g. accounts, tools, etc. to move forward with publishing a Developer Service offer on the Azure Marketplace.
 
-> **Important:** You must be an approved seller to complete the publishing process of an offering into the Azure Marketplace and receive payout. If you have already released an app you may already be an approved seller. You only need one approved seller account to sell apps and services in Microsoft Marketplaces. [Learn more about creating a seller account with Microsoft][link-acct-creation]
+> [AZURE.WARNING] You must be an approved seller to complete the publishing process of an offering into the Azure Marketplace and receive payout. If you have already released an app you may already be an approved seller. You only need one approved seller account to sell apps and services in Microsoft Marketplaces. [Learn more about creating a seller account with Microsoft][link-acct-creation]
 
 ### A. Get Access to an active Azure ‘Pay-As-You-Go’ Subscription (non-Microsoft subscription)
 
 Navigate to [Azure Accounts Portal][link-acctportal] (and sign in with MSA from above).
 
-> **Note**: This will be used for testing your offer scenarios in Staging and Production. [Learn more Pay-as-you-Go (PAYG) Azure Subscriptions][link-payg]
+> [AZURE.NOTE] This will be used for testing your offer scenarios in Staging and Production. [Learn more Pay-as-you-Go (PAYG) Azure Subscriptions][link-payg]
 
 ### B. Install IDE that supports C#, .VSIX packages, .Net4.5 or greater, publishing to Microsoft Azure Cloud Service
 
@@ -39,7 +39,7 @@ Navigate to [Azure Accounts Portal][link-acctportal] (and sign in with MSA from 
 
 Please contact the Azure Certified team for downloading VSIX.
 
->**Note**: If already installed, then uninstall and reinstall (to make sure you have latest version):
+> [AZURE.IMPORTANT] If already installed, then uninstall and reinstall (to make sure you have latest version):
 VS Menu Bar --> Tools --> Extensions and Updates… --> Remove “Application Services Resource Provider”
 
 ## D. Review the Publisher portal Offer marketing Data
@@ -60,12 +60,8 @@ Money talks, and the Azure Marketplace gives you the control you need to send th
 Using the information from Offer Profile Metadata (.xlsx) above navigate to Publisher Portal: https://publish.windowsazure.com/
 
 ## Next Steps
-Now that you reviewed the pre-requisites and completed the necessary tasks, you can move forward with the creating your Developer Service offer as detailed in the [Developer Service Publishing Guide](marketplace-publishing-dev-service-publication.md)
-<!--
-- [Developer Service Onboarding Guide - Marketing Content][link-devsvc-guide-mktg]
-- [Developer Service Onboarding Guide - Pricing Model Sample][link-devsvc-guide-pricing]
-- [Developer Service Onboarding Guide - Building a Resource Provider][link-devsvc-guide-create-rp]
--->
+Now that you reviewed the pre-requisites and completed the necessary tasks, you can move forward with the creating your Developer Service offer as detailed in the guide [Developer Service Publishing Guide](marketplace-publishing-dev-service-publication.md)
+
 
 [link-acct-creation]:marketplace-publishing-accounts-creation-registration.md
 [link-sd-msdn]:https://msdn.microsoft.com/en-us/library/dn188471.aspx

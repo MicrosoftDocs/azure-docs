@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Page title that displays in the browser tab and search results"
-   description="Article description that will be displayed on landing pages and in most search results"
+   pageTitle="How to publish an offer to the Marketplace | Microsoft Azure"
+   description="This describes the steps a seller has to follow to sell a Virtual Machine Image, Template or Service in the Azure Marketplace"
    services="marketplace-publishing"
    documentationCenter=""
    authors="HannibalSII"
@@ -13,17 +13,19 @@
    ms.topic="article"
    ms.tgt_pltfrm="may be required"
    ms.workload="na"
-   ms.date="09/20/2015"
+   ms.date="09/25/2015"
    ms.author="hascipio" />
 
-# Publishing an Offer on the Microsoft Azure Marketplace
-This information is provided to help you publish your software solution into the Azure Marketplace for other Azure customers to purchase.
+# How to publish an offer to the Microsoft Azure Marketplace
+This article is provided to help a seller create and deploy his/her solution e.g. single virtual machine image, multi-virtual machine image solution template, developer service, or data service to the Azure Marketplace for other Azure customers and partners to purchase and utilize.
+
+Some steps are shared between the different types of solutions. This provides a short overview of what steps you will need to complete for any type of solution.
 
 ## Step 1. Get approved
-- Azure Certification Process
+- [Azure Certification Process][link-certification]
 
 ## Step 2. Register your company account
-- [Seller Account Creation & Registration Process][link-accts]
+- [Microsoft Seller Account Creation & Registration][link-accts]
 
 ## Step 3. Offer Creation
 
@@ -38,20 +40,20 @@ This information is provided to help you publish your software solution into the
 ## Step 5. Publish
 - [Ready to Go LIVE! Push to Production][link-pushprod]
 
-### Appendix 1: Support
-### Appendix 2: Setting up Azure PowerShell
-### Appendix 3: Instructions for developing on-premises
+## Appendix
+- Get Support
+- Setting up Azure PowerShell
+- VM Single Image instructions for developing on-premises
 
-[1]:.
-[link-accts]:marketplace-publishing-microsoft-accounts-creation-registration.md
 [link-certification]:marketplace-publishing-azure-certification.md
-[link-vm-publication]:marketplace-publishing-virtual-machine-publication.md
-[link-vm-publication-prereq]:marketplace-publishing-vm-image-publication-prerequisites.md
-[link-datasvc-publication]:marketplace-publishing-data-service-publication.md
-[link-datasvc-publication-prereq]:marketplace-publishing-data-service-publication-prerequisites.md
-[link-devsvc-publication]:marketplace-publishing-dev-service-publication.md
-[link-devsvc-publication-prereq]:marketplace-publishing-dev-service-publication-prerequisites.md
-[link-soltempl-publication]:marketplace-publishing-solution-template-publication.md
-[link-soltempl-publication-prereq]:marketplace-publishing-solution-template-publication-prerequisites.md
+[link-accts]:marketplace-publishing-microsoft-accounts-creation-registration.md
+[link-single-vm]:marketplace-publishing-virtual-machine-creation.md
+[link-single-vm-prereq]:marketplace-publishing-vm-image-creation-prerequisites.md
+[link-multi-vm]:marketplace-publishing-solution-template-creation.md
+[link-multi-vm-prereq]:marketplace-publishing-solution-template-creation-prerequisites.md
+[link-datasvc]:marketplace-publishing-data-service-creation.md
+[link-datasvc-prereq]:marketplace-publishing-data-service-creation-prerequisites.md
+[link-devsvc]:marketplace-publishing-dev-service-creation.md
+[link-devsvc-prereq]:marketplace-publishing-dev-service-creation-prerequisites.md
 [link-pushstaging]:marketplace-publishing-push-to-staging.md
 [link-pushprod]:marketplace-publishing-push-to-production.md

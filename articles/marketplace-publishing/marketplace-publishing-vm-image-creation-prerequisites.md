@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Pre-requisites for Publishing Virtual Machine Images"
-   description="Virtual Machine Image pre-requisites"
+   pageTitle="Pre-requisites for creating a virtual machine image for the Azure Marketplace | Microsoft Azure"
+   description="Understand the requirements for creating and deploying a virtual machine image to the Azure Marketplace for others to purchase."
    services="marketplace-publishing"
    documentationCenter=""
    authors="HannibalSII"
@@ -8,15 +8,15 @@
    editor=""/>
 
 <tags
-   ms.service="required"
-   ms.devlang="may be required"
-   ms.topic="article"
-   ms.tgt_pltfrm="may be required"
-   ms.workload="na"
-   ms.date="09/20/2015"
-   ms.author="hascipio" />
+  ms.service="AzureStore"
+  ms.devlang="na"
+  ms.topic="article"
+  ms.tgt_pltfrm="Azure"
+  ms.workload="na"
+  ms.date="09/25/2015"
+  ms.author="hascipio; v-divte"/>
 
-# Step 3: Virtual Machine Images Publishing Guide - Pre-requisites
+# Pre-requisites for creating a virtual machine image for the Azure Marketplace
 
 Read the process thoroughly before beginning and understand where and why each step is performed. You should prepare as much of your company information and other data as possible before beginning the process. This should be clear from reviewing the process itself.  
 
@@ -35,13 +35,13 @@ A company can register only once as seller with Microsoft.
 
 If you are not registered, you will need to collect the Company Tax and Payout Information (banking information) and then register your company as a seller in the [Seller Dashboard](https://sellerdashboard.microsoft.com).
 
-> **Note:** You do not have to create a seller dashboard account if you are planning to publish only free offers (or worldwide, or bring-your-own-licence).
+> [AZURE.IMPORTANT] You do not have to create a seller dashboard account if you are planning to publish only free offers (or worldwide, or bring-your-own-licence).
 
-For instructions on creating and submitting a Microsoft seller profile, visit [Microsoft Seller Account Creation & Registration][link-acct-creation]. And for more details on how to edit approved Seller Profile and filling out Tax and Payout information, refer to Seller Dashboard Help http://msdn.microsoft.com/en-us/library/dn800952.aspx
+For instructions on creating and submitting a Microsoft seller profile, visit [Microsoft Seller Account Creation & Registration][link-acct-creation]. And for more details on how to edit approved Seller Profile and filling out Tax and Payout information, refer to Seller Dashboard Help http://msdn.microsoft.com/library/dn800952.aspx
 
-> **Note:** While you company works on the Seller Profile, the developers can start working on creating the Solution Template Topologies in the [Publishing Portal](https:publishl.windowsazure.com), getting them certified and testing them in Azure Staging Environment. You will need seller approval only for the final step of publishing your offer to Marketplace.
+> [AZURE.TIP] While you company works on the Seller Profile, the developers can start working on creating the Solution Template Topologies in the [Publishing Portal](https:publishl.windowsazure.com), getting them certified and testing them in Azure Staging Environment. You will need seller approval only for the final step of publishing your offer to Marketplace.
 
-> **Note:** If you have issues with Seller Registration completion, please log a Support ticket as below:
+> [AZURE.TIP] If you have issues with Seller Registration completion, please log a Support ticket as below:
 1. Contact [Support](http://go.microsoft.com/fwlink?LinkId=272975)
 2. Choose "Seller Dashboard registration and your account"
 3. Choose "Registering for a developer account"
@@ -72,3 +72,5 @@ In order to sell your services on Microsoft Azure Marketplace (DataMarket), your
 
 ## Next Steps
 Now that you reviewed the pre-requisites and completed the necessary task, you can move forward with the creating your Virtual Machine Image offer as detailed in the [Virtual Machine Image Publishing Guide](marketplace-publishing-vm-image-publication.md)
+
+[link-acct-creation]:marketplace-publishing-accounts-creation-registration.md

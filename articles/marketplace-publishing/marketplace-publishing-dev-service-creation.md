@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Developer Service Publishing Guide"
-   description="Detailed instructions on how to publish a developer service."
+   pageTitle="Create a developer service for the Azure Marketplace | Microsoft Azure"
+   description="How to guide for creating a developer to sell in the Azure Marketplace."
    services="Azure Marketplace"
    documentationCenter=""
    authors="HannibalSII"
@@ -9,18 +9,18 @@
 
 <tags
    ms.service="AzureStore"
-   ms.devlang="en-us"
+   ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="Azure"
    ms.workload="na"
-   ms.date="09/20/2015"
-   ms.author="hascipio"/>
+   ms.date="09/25/2015"
+   ms.author="hascipio; v-shresh"/>
 
-# Step 3: Developer Service Publishing Guide
+# Guide to creating a developer service for the Azure Marketplace
 
-This section walks you through creating your resource provider which is the foundation of your developer service offer that you will publish into the Microsoft Azure Martketplace.  This process can be performed in parallel with [Account Creation and Registration][link-acct-creation].
+This articles guides you through creating your resource provider which is the foundation of your developer service offer that you will publish into the Microsoft Azure Marketplace.  This process can be performed in parallel with [Account Creation and Registration][link-acct-creation].
 
-> **Note:** You must be an approved seller to complete the publishing process of an offering into the Azure Marketplace and receive payout. If you have already released an app you may already be an approved seller. You only need one approved seller account to sell apps and services in Microsoft Marketplaces.
+> [AZURE.WARNING] You must be an approved seller to complete the publishing process of an offering into the Azure Marketplace and receive payout. If you have already released an app you may already be an approved seller. You only need one approved seller account to sell apps and services in Microsoft Marketplaces.
 
 ## 3.1 Create a resource provider
 ### 3.1.1 Create Azure Storage & Queues for RP & Usage
@@ -31,14 +31,15 @@ This section walks you through creating your resource provider which is the foun
 5.	Select “Data + Storage”
 6.	Select “Storage”
 7.	Provide the required Azure Storage settings/configurations such as Storage Account name, pricing, etcetera.
->	**Note** – when naming Azure Storage follow these naming rules http://blogs.msdn.com/b/jmstall/archive/2014/06/12/azure-storage-naming-rules.aspx
+
+  >	[AZURE.TIP] – when naming Azure Storage follow these naming rules http://blogs.msdn.com/b/jmstall/archive/2014/06/12/azure-storage-naming-rules.aspx
 
 
 >**Kind:**	Storage Account
 
->**Length Casing**:3-24
+>**Length Casing:** 3-24
 
->**Valid chars:**3-24
+>**Valid chars:** 3-24
 
 >FYI — The RP .vsix will create all the tables and queues for e.g. Usage Table, Usage Queue, Error Table, and Error Queue under the provided Azure Storage Account using these naming rules):
 
@@ -54,8 +55,7 @@ This section walks you through creating your resource provider which is the foun
 
 8. Navigate to [Publisher Portal](https://publish.windowsazure.com/) and input the correct details for the storage account under “Resource Providers” tab and “Metering Storage Account” section.  Specifically, you need a staging and production Azure Storage Account Name and Key.Note
 
->**Note**:
-Download Azure Storage Explorer:  http://azurestorageexplorer.codeplex.com/  to manage your storage account.
+> [AZURE.NOTE] Download Azure Storage Explorer:  http://azurestorageexplorer.codeplex.com/  to manage your storage account.
 
 ### 3.1.2 Create a C# Resource Provider
 **Requirements**
@@ -138,8 +138,9 @@ Accessing the Client Certificate From Your Web App
 When your web app is configured to use client certificate authentication, the client cert will be available in your app through a base64 encoded value in the "X-ARR-ClientCert" request header. Your application can create a certificate from this value and then use it for authentication and authorization purposes in your application.
 
 ## Next Step
-Now that you created and deployed your Resource Provider, you can move forward with [Step 4: Getting Staging](.) which entails business process of setting marketing content.
+Now that you have created and deployed the resource provider for your developer service, you can move forward with step 4, [Getting Your Offer to Staging][link-pushstaging] which entails business processes of setting marketing content and pricing and technical processes of testing and certification of the offer.
 
-[img-site-details]:media/dev-services-create-and-deploy-resourceprovider-as-azurewebsites.jpg
+[img-site-details]:media/marketplace-publishing-dev-service-creation/dev-services-create-and-deploy-resourceprovider-as-azurewebsites.jpg
 [link-ssl]:http://azure.microsoft.com/blog/2015/07/02/enabling-client-certificate-authentication-for-an-azure-web-app/
 [link-acct-creation]:marketplace-publishing-accounts-creation-registration.md
+[link-pushstaging]:marketplace-publishing-push-to-staging.md
