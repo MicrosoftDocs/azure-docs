@@ -21,8 +21,6 @@
 
 The Cortana Analytics Gallery is a community driven site for discovering and sharing solutions built with the Cortana Analytics Suite set of products. It is a destination for users looking to learn from others, to get started developing their own solutions, or to contribute their own work to the data science community.
 
-The Gallery also enables users to browse and copy experiments contributed by Microsoft Azure Machine Learning Team.
-
 **[TAKE ME TO THE GALLERY >>](http://gallery.cortanaanalytics.com)**
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
@@ -39,8 +37,7 @@ Sign in using your Microsoft account to enjoy additional benefits, such as:
 - Contribute and showcase your work
 
 ## Discover and learn
-You can start using Gallery to discover and learn without the need to sign in.
-Just search and browse the interesting solutions that have been contributed by Microsoft and the data science community. Use these to get a head start on solving your own data analysis problems.
+Search and browse the different types solutions that have been contributed by Microsoft and the data science community. Use these to get a head start on solving your own data analysis problems.
 
 You can easily find recently published and popular solutions in the Gallery, or you can search by name, tags, algorithms, and other attributes.
 View contributions from a particular author by clicking the author name from within any of the tiles.
@@ -54,7 +51,7 @@ The Cortana Analytics Gallery allows you to easily copy experiments to your Mach
 If you're not already signed in while browsing, you will be prompted to sign in using your Microsoft account before the experiment is copied to your workspace.
 
 ## Contribute
-As a member of the Gallery community, you can contribute your own experiments and collections so that others can benefit from the solutions you've discovered.
+When you sign-in you become a member of the Gallery community, which allows you to contribute your own experiments and collections so that others can benefit from the solutions you've discovered.
 
 ### Contribute experiments
 Follow these steps to contribute an experiment:
@@ -68,16 +65,18 @@ Follow these steps to contribute an experiment:
 Follow these steps to create and contribute a collection:
 
 - Sign in to the Gallery using your Microsoft account
-- Click your image at the top of the window and select **My Gallery page**
+- Click your image at the top of the window and click your name
 - Click **New Collection**
-- Give the collection a name, description, and tags
+- Give the collection a name, a brief summary, a description, and any tags that will help users find the collection
 - Add an image to identify the collection
 - Click **Create**
 
-You can now add items to your collection by opening the collection and clicking **Add Item**, or by opening an item in the Gallery and clicking **Add to collection**.
+Your collection is now part of the Cortana Analytics Gallery.
+
+You can add items to your collection by opening the collection, clicking **Edit**, then clicking **Add Item**. Or, if you find an item in the Gallery that you want to include, just open the item, click **Add to collection**, and specify the collection you want to add it to.
 
 You can change the summary, description, or tags of your collection by opening the collection and clicking **Edit**.
-While you're editing your collection, you can also change the order of the items in the collection using the arrow buttons next to an item to move it in the list. And you can add a note to an item to
+While you're editing your collection, you can also change the order of the items in the collection by using the arrow buttons next to an item to move it in the list. And you add notes to the items in your collection by clicking the upper-right corner of an item and selecting **Add/Edit note**.
 
 <!--
 ![Publish](./media/machine-learning-gallery-how-to-use-contribute-publish/publish.png)
