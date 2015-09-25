@@ -102,6 +102,7 @@ For articles about using native Apache Spark clusters in the Azure preview porta
 * [Generate movie recommendations by using Apache Mahout with Hadoop](hdinsight-mahout.md)
 * [Learning path: Build advanced analytics solutions](machine-learning-data-science-how-to-create-machine-learning-service.md)
 * [Learning path: Advanced data processing](machine-learning-data-science-advanced-data-processing.md)
+* [Predict taxi tips with HDInsight and Machine Learning](machine-learning-data-science-process-hive-walkthrough.md)
 
 ## Extensibility
 

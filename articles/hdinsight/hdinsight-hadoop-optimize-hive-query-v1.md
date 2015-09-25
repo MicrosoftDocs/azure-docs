@@ -8,7 +8,6 @@
    editor="cgronlun"/>
 
 <tags
-   ms.technology="hive"
    ms.service="hdinsight"
    ms.devlang="na"
    ms.topic="article"

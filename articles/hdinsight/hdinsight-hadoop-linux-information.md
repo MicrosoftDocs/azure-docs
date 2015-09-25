@@ -6,7 +6,7 @@
    authors="Blackmist"
    manager="paulettm"
    editor="cgronlun"
-	tags="azure-portal"/>
+   tags="azure-portal"/>
 
 <tags
    ms.service="hdinsight"
@@ -183,6 +183,7 @@ The different cluster types are affected by scaling as follows:
 		1. [Create an SSH tunnel to the cluster and open the Ambari web UI](hdinsight-linux-ambari-ssh-tunnel.md).
 
 		2. From the list of services on the left of the page, select __Storm__. Then select __Storm UI__ from __Quick Links__.
+
 
 			![Storm UI entry in quick links](./media/hdinsight-hadoop-linux-information/ambari-storm.png)
 
