@@ -63,6 +63,82 @@ While the channel is starting you can [configure the encoder](media-services-con
 
 >[AZURE.IMPORTANT] Note that billing starts as soon as Channel goes into a ready state. For more information, see [Channel's states](media-services-manage-live-encoder-enabled-channels.md#states).
 
+##<a id=configure_wirecast_rtmp></a>Configure the Wirecast encoder
+
+In this tutorial the following output settings are used. The rest of this section describes configuration steps in more detail. 
+
+**Video**:
+ 
+- Codec: H.264 
+- Profile: High (Level 4.0) 
+- Bitrate: 5000 kbps 
+- Keyframe: 2 seconds (60 seconds) 
+- Frame Rate: 30
+ 
+**Audio**:
+
+- Codec: AAC (LC) 
+- Bitrate: 192 kbps 
+- Sample Rate: 44.1 kHz
+
+
+###Configuration steps
+
+1. Open the Wirecast application on the machine being used, and set up for RTMP streaming.
+2. Configure the output by navigating to the **Output** tab and selecting **Output Settings…**.
+	
+	Make sure the **Output Destination** is set to **RTMP Server**.
+3. Click **OK**.
+4. On the settings page, set the **Destination** field to be **Azure Media Services**.
+ 
+	The Encoding profile is pre-selected to **Azure H.264 720p 16:9 (1280x720)**. To customize these settings, select the gear icon to the right of the drop down, and then choose **New Preset**.
+
+	![wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast3.png)
+
+5. Name the preset, and check for the following recommended settings:
+
+	**Video**
+	
+	- Encoder: MainConcept H.264
+	- Frames per Second: 30
+	- Average bit rate: 5000 kbits/sec (Can be adjusted based on network limitations)
+	- Profile: High
+	- Key frame every: 60 frames
+
+	**Audio**
+	
+	- Target bit rate: 192 kbits/sec
+	- Sample Rate: 44.100 kHz
+
+	![wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast4.png)
+
+6. Press **Save**.
+
+	The Encoding field now has the newly created profile available for selection. Make sure the new profile is selected.
+
+7. Get the channel's input URL in order to assign it to the Wirecast **RTMP Endpoint**.
+	
+	Navigate back to the AMSE tool, and check on the channel completion status. Once the State has changed from **Starting** to **Running**, you can get the input URL.
+	  
+	When the channel is running, right click the channel name, navigate down to hover over **Copy Input URL to clipboard** and then select **Primary Input 
+	URL**.  
+	
+	![wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast6.png)
+
+8. On the **Wirecast Output Settings** windows, paste this information in the **Address** field of the output section, and assign a stream name. 
+
+
+	![wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast5.png)
+
+9. Select **OK**.
+
+10. On the main **Wirecast** screen, confirm input sources for video and audio are ready and then hit **Stream** in the top left hand corner.
+
+	![wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast7.png)
+
+>[AZURE.IMPORTANT] Before you click **Stream**, you **must** ensure that the Channel is ready. 
+>Also, make sure not to leave the Channel in a ready state without an input contribution feed for longer than > 15 minutes.
+
 ##Test playback
   
 1. Navigate to the AMSE tool, and right click the channel to be tested. From the menu, hover over **Playback the Preview** and select **with Azure Media Player**.  
@@ -93,40 +169,46 @@ The stream is now ready to be embedded in a player, or distributed to an audienc
 
 ## Troubleshooting
 
-- **Problem**: There is no option for outputting a progressive stream. 
+###Problem: There is no option for outputting a progressive stream
+
+- **Potential issue**: The encoder being used doesn't automatically deinterlace. 
+
+	**Troubleshooting steps**: Look for a de-interlacing option within the encoder interface. Once de-interlacing is enabled, check again for progressive output settings. 
  
-	- **Potential issue**: The encoder being used doesn't automatically deinterlace. 
-	- **Troubleshooting steps**: Look for a de-interlacing option within the encoder interface. Once de-interlacing is enabled, check again for progressive output settings. 
+###Problem: Tried several encoder output settings and still unable to connect. 
+
+- **Potential issue**: Azure encoding channel was not properly reset. 
+
+	**Troubleshooting steps**: Make sure the encoder is no longer pushing to AMS, stop and reset the channel. Once running again, try connecting your encoder with the new settings. If this still does not correct the issue, try creating a new channel entirely, sometimes channels can become corrupt after several failed attempts.  
+
+- **Potential issue**: The GOP size or key frame settings are not optimal. 
+
+	**Troubleshooting steps**: Recommended GOP size or keyframe interval is 2 seconds. Some encoders calculate this setting in number of frames, while others use seconds. For example: When outputting 30fps, the GOP size would be 60 frames, which is equivalent to 2 seconds.  
+	 
+- **Potential issue**: Closed ports are blocking the stream. 
+
+	**Troubleshooting steps**: When streaming via RTMP, check firewall and/or proxy settings to confirm that outbound ports 1935 and 1936 are open. When using RTP streaming, confirm that outbound port 2010 is open. 
+
+
+###Problem: When configuring the encoder to stream with the RTP protocol, there is no place to enter a host name. 
+
+- **Potential issue**: Many RTP encoders do not allow for host names, and an IP address will need to be acquired.  
+
+	**Troubleshooting steps**: To find the IP address, open a command prompt on any computer. To do this in Windows, open the Run launcher (WIN + R) and type “cmd” to open.  
+
+	Once the command prompt is open, type "Ping [AMS Host Name]". 
+
+	The host name can be derived by omitting the port number from the Azure Ingest URL, as highlighted in the following example: 
+
+	rtp://test2-amstest009.rtp.channel.mediaservices.windows.net:2010/ 
+
+	![fmle](./media/media-services-fmle-live-encoder/media-services-fmle10.png)
+
+###Problem: Unable to playback the published stream.
  
-- **Problem**: Tried several encoder output settings and still unable to connect. 
+- **Potential issue**: There is no Streaming Endpoint running, or there is no streaming units (scale units) allocated. 
 
-	- **Potential issue**: Azure encoding channel was not properly reset. 
-	-  **Troubleshooting steps**: Make sure the encoder is no longer pushing to AMS, stop and reset the channel. Once running again, try connecting your encoder with the new settings. If this still does not correct the issue, try creating a new channel entirely, sometimes channels can become corrupt after several failed attempts.  
- 
-	- **Potential issue**: The GOP size or key frame settings are not optimal. 
-	-  **Troubleshooting steps**: Recommended GOP size or keyframe interval is 2 seconds. Some encoders calculate this setting in number of frames, while others use seconds. For example: When outputting 30fps, the GOP size would be 60 frames, which is equivalent to 2 seconds.  
-		 
-	- **Potential issue**: Closed ports are blocking the stream. 
-	-  **Troubleshooting steps**: When streaming via RTMP, check firewall and/or proxy settings to confirm that outbound ports 1935 and 1936 are open. When using RTP streaming, confirm that outbound port 2010 is open. 
-
-
-- **Problem**: When configuring the encoder to stream using the RTP (MPEG-TS) protocol, there is no place to enter a host name. 
-
-	- **Potential issue**: Many RTP encoders do not allow for host names, and an IP address will need to be acquired.  
-	- **Troubleshooting steps**: To find the IP address, open a command prompt on any computer. To do this in Windows, open the Run launcher (WIN + R) and type “cmd” to open.  
-	
-		Once the command prompt is open, type "Ping [AMS Host Name]". 
-	
-		The host name can be derived by omitting the port number from the Azure Ingest URL, as highlighted in the following example: 
-	
-		rtp://test2-amstest009.rtp.channel.mediaservices.windows.net:2010/ 
-
-		![wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast10.png)
-
-- **Problem**: Unable to playback the published stream.
- 
-	- **Potential issue**: There is no Streaming Endpoint running, or there is no streaming units (scale units) allocated. 
-	- **Troubleshooting steps**: Navigate to the "Streaming Endpoint" tab in the AMSE tool, and confirm there is a Streaming Endpoint running with one streaming unit. 
+	**Troubleshooting steps**: Navigate to the "Streaming Endpoint" tab in the AMSE tool, and confirm there is a Streaming Endpoint running with one streaming unit. 
 	
 >[AZURE.NOTE] If after following the troubleshooting steps you still cannot successfully stream, submit a support ticket using the Azure Management Portal.
 
