@@ -33,7 +33,8 @@ You can only import directly from the Runbook Gallery using the Azure portal or 
 ### To import a runbook from the Runbook Gallery with the Azure portal
 
 1. In the Azure Management portal, click, **New**, **App Services**, **Automation**, **Runbook**, **From Gallery**.
-2. Select a category to view related runbooks, and select a runbook to view its details. When you select the runbook you want, click the right arrow button.
+2. Select a category to view related runbooks, and select a runbook to view its details. When you select the runbook you want, click the right arrow button.<br>
+![Runbook gallery](media/automation-runbook-gallery/runbook-gallery.png)
 3. Review the contents of the runbook and note any requirements in the description. Click the right arrow button when you’re done.
 4. Enter the runbook details and then click the checkmark button. The runbook name will already be filled in.
 5. The runbook will appear on the **Runbooks** tab for the Automation Account.
@@ -42,9 +43,13 @@ You can only import directly from the Runbook Gallery using the Azure portal or 
 
 1. In the Azure Preview Portal, open your Automation account. 
 2. Click on the **Runbooks** tile to open the list of runbooks.
-3. Click on the **Browse gallery** button.
-4. Locate the gallery item you want.  You can select an item to view its details.  Click on **View source project** to view the item in the [TechNet Script Center](http://gallery.technet.microsoft.com/).
-5. To import an item, click on it to view its details and then click the **Import** button.
+3. Click **Browse gallery** button. <br>
+![Browse gallery button](media/automation-runbook-gallery/browse-gallery-button.png)
+4. Locate the gallery item you want and select it to view its details.   <br>
+![Browse gallery](media/automation-runbook-gallery/browse-gallery.png)
+4. Click on **View source project** to view the item in the [TechNet Script Center](http://gallery.technet.microsoft.com/).
+5. To import an item, click on it to view its details and then click the **Import** button.<br>
+![Import button](media/automation-runbook-gallery/gallery-item-detail.png)
 6. Optionally, change the name of the runbook and then click **OK** to import the runbook.
 5. The runbook will appear on the **Runbooks** tab for the Automation Account.
 
@@ -85,10 +90,13 @@ PowerShell modules contain cmdlets that you can use in your runbooks, and existi
 1. In the Azure Preview Portal, open your Automation account. 
 2. Click on the **Assets** tile to open the list of assets.
 3. Click on the **Modules** tile to open the list of modules.
-3. Click on the **Browse gallery** button to launch the PowerShell Gallery in another browser window.
-4. Click the **Modules** menu to access the list of available modules.
+3. Click on the **PowerShell gallery** button to launch the PowerShell Gallery in another browser window. <br>
+![PowerShell gallery](media/automation-runbook-gallery/powershell-gallery-button.png)
+4. Click the **Modules** menu to access the list of available modules.<br>
+![PowerShell gallery button](media/automation-runbook-gallery/powershell-gallery.png)
 4. Locate a module that you're interested in and select it to view its details.
-5. To install the module directly into Azure Automation, click the **Deploy to Azure Automation** button.
+5. To install the module directly into Azure Automation, click the **Deploy to Azure Automation** button.<br>
+![PowerShell gallery button](media/automation-runbook-gallery/powershell-gallery-detail.png)
 6. You are returned to the Azure preview portal in a **Custom deployment** pane.  Specify whether you will install the module in a **New or Existing Automation Account** and the **Automation Account Name**.  The **Automation Account Location** is ignored if you use an existing account. 
 7. Select **Resource group** and either specify a existing resource group or create a new one for the module.
 6. You must select **Legal terms** and click **Buy**.  Note that despite the name of this button you are not actually charged for installing a module.
@@ -98,7 +106,7 @@ PowerShell modules contain cmdlets that you can use in your runbooks, and existi
 
 ## Requesting a runbook or module
 
-You can send requests to [User Voice](http://feedback.azure.com/[forum](http://social.msdn.microsoft.com/Forums/windowsazure/en-US/home?forum=azureautomation&filter=alltypes&sort=lastpostdesc)s/246290-azure-automation).  If you need help writing a runbook or have a question about PowerShell Workflows, post a question to our [forum](http://social.msdn.microsoft.com/Forums/windowsazure/en-US/home?forum=azureautomation&filter=alltypes&sort=lastpostdesc).
+You can send requests to [User Voice](http://feedback.azure.com/[forum](http://social.msdn.microsoft.com/Forums/windowsazure/en-US/home?forum=azureautomation&filter=alltypes&sort=lastpostdesc)s/246290-azure-automation).  If you need help writing a runbook or have a question about PowerShell, post a question to our [forum](http://social.msdn.microsoft.com/Forums/windowsazure/en-US/home?forum=azureautomation&filter=alltypes&sort=lastpostdesc).
 
 ## Related articles
 
