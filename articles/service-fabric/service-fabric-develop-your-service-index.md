@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/20/2015"
+   ms.date="09/25/2015"
    ms.author="ryanwi"/>
 
 # Develop a Service Fabric service
@@ -34,7 +34,7 @@ This page has links to overview and conceptual articles and tutorial to help you
 
 Communicating with Actors is described in:
 
-- [Introduction to the Service Fabric Actor Model](service-fabric-reliable-actors-introduction.md#actor-communication).
+- [Introduction to the Service Fabric Actor Model](service-fabric-reliable-actors-introduction.md#actor-communication)
 - [Communicating with services](service-fabric-connect-and-communicate-with-services.md)
 
 These articles discuss useful design patterns and scenarios:
