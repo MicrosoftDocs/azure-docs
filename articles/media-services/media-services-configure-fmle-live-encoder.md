@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Configure the FMLE encoder to send a single bitrate live stream " 
+	pageTitle="Configure the FMLE encoder to send a single bitrate live stream" 
 	description="This topic shows how to configure the Flash Media Live Encoder (FMLE) encoder to send a single bitrate live stream to the Media Services Channel." 
 	services="media-services" 
 	documentationCenter="" 
