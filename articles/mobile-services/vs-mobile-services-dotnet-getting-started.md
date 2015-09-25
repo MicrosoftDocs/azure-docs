@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="" 
-	description="How to get started with Azure Mobile Services in a Visual Studio .NET project" 
-	services="mobile-services" 
-	documentationCenter="" 
-	authors="patshea123" 
-	manager="douge" 
+<properties
+	pageTitle="Get Started with a Visual Studio .NET mobile services project (Connected Services) | Microsoft Azure"
+	description="How to get started with Azure Mobile Services in a Visual Studio .NET project"
+	services="mobile-services"
+	documentationCenter=""
+	authors="patshea123"
+	manager="douge"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="vs-getting-started" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="05/22/2015" 
-	ms.author="patshea123"/>
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="vs-getting-started"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="09/17/2015" 
+	ms.author="patshea"/>
 
 # Getting Started with Mobile Services (.NET Projects)
 
@@ -47,22 +47,22 @@ The following code creates a reference to a table (`todoTable`) that contains da
 
 This code works if your table has permissions set to **Anybody with an Application Key**. If you change the permissions to secure your mobile service, you'll need to add user authentication support. See [Get Started with Authentication](mobile-services-dotnet-backend-windows-universal-dotnet-get-started-users.md).
 
-#####Add a table item 
+#####Add a table item
 
 Insert a new item into a data table.
 
 	TodoItem todoItem = new TodoItem() { Text = "My first to do item", Complete = false };
 	await todoTable.InsertAsync(todoItem);
 
-#####Read or query a table 
+#####Read or query a table
 
 The following code queries a table for all items. Note that it returns only the first page of data, which by default is 50 items. You can pass the page size you want, since it's an optional parameter.
 
     List<TodoItem> items;
     try
     {
-        // Query that returns all items.   
-        items = await todoTable.ToListAsync();             
+        // Query that returns all items.
+        items = await todoTable.ToListAsync();
     }
     catch (MobileServiceInvalidOperationException e)
     {
@@ -83,4 +83,4 @@ Delete a row in the database. The parameter item is the TodoItem object to be de
 	await todoTable.DeleteAsync(item);
 
 
-[Learn more about mobile services](http://azure.microsoft.com/documentation/services/mobile-services/) 
+[Learn more about mobile services](http://azure.microsoft.com/documentation/services/mobile-services/)

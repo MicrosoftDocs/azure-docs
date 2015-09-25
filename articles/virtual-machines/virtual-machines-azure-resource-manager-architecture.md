@@ -1,12 +1,12 @@
 <properties
-   pageTitle="Azure Resource Manager Architecture"
+   pageTitle="Azure Resource Manager Architecture | Microsoft Azure"
    description="Learn about the architecture of Resource Manager and the relationships between the compute, network, and storage resource providers."
    services="virtual-machines"
    documentationCenter=""
    authors="davidmu1"
    manager="timlt"
    editor=""
-   tags="azure-resource-manager"/>
+   tags="azure-resource-manager,azure-service-management"/>
 
 <tags
 	ms.service="azure-resource-manager"
@@ -18,6 +18,8 @@
 	ms.author="davidmu"/>
 
 # Azure Resource Manager Architecture
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
 
 This article provides an overview of both the Service Management and Resource Manager architectures for creating infrastructure-based applications and workloads.
 

@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="06/03/2015" 
+	ms.date="08/31/2015" 
 	ms.author="robmcm"/>
 
 # Upload a custom Java web app to Azure
 
-This topic explains how to upload a custom Java web app to [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) Web Apps. Included is information that applies to any Java website or web app, and also some examples for specific applications.
+This topic explains how to upload a custom Java web app to [Azure App Service] Web Apps. Included is information that applies to any Java website or web app, and also some examples for specific applications.
 
 Note that Azure provides a means for creating Java web apps using the Azure preview portal's configuration UI, and the Azure Marketplace, as documented at [Create a Java web app in Azure App Service](web-sites-java-get-started.md). This tutorial is for scenarios in which you do not want to use the portal configuration UI or the Azure Marketplace.  
 
@@ -50,7 +50,6 @@ Examples (shown with **processPath** included):
 
 
 **processPath** - Path to the executable or script that will launch a process listening for HTTP requests.
-
 
 Examples:
 
@@ -84,7 +83,7 @@ Java based web apps can be deployed easily through most of the same means that a
 For the following applications, a web.config file and the application configuration is provided as examples to show how to enable your Java application on App Service Web Apps.
 
 ### Tomcat
-While there are two variations on Tomcat that are supplied with App Service Web Apps, it is still quite possible to upload customer specific instances. Below is an example of an install of Tomcat with a different JVM.
+While there are two variations on Tomcat that are supplied with App Service Web Apps, it is still quite possible to upload customer specific instances. Below is an example of an install of Tomcat with a different Java Virtual Machine (JVM).
 
 	<?xml version="1.0" encoding="UTF-8"?>
 	<configuration>
@@ -107,7 +106,7 @@ While there are two variations on Tomcat that are supplied with App Service Web 
 On the Tomcat side, there are a few configuration changes that need to be made. The server.xml needs to be edited to set:
 
 -	Shutdown port = -1
--	HTTP connector port = {port.http}
+-	HTTP connector port = ${port.http}
 -	HTTP connector address = "127.0.0.1"
 -	Comment out HTTPS and AJP connectors
 -	The IPv4 setting can also be set in the catalina.properties file where you can add     `java.net.preferIPv4Stack=true`
@@ -134,6 +133,22 @@ As is the case for Tomcat, customers can upload their own instances for Jetty. I
 	</configuration>
 
 The Jetty configuration needs to be changed in the start.ini to set `java.net.preferIPv4Stack=true`.
+
+### Springboot
+In order to get a Springboot application running you need to upload your JAR or WAR file and add the following web.config file. The web.config file goes into the wwwroot folder. In the web.config adjust the arguments to point to your JAR file, in the following example the JAR file is located in the wwwroot folder as well.  
+
+	<?xml version="1.0" encoding="UTF-8"?>
+	<configuration>
+	  <system.webServer>
+	    <handlers>
+	      <add name="httpPlatformHandler" path="*" verb="*" modules="httpPlatformHandler" resourceType="Unspecified" />
+	    </handlers>
+	    <httpPlatform processPath="%JAVA_HOME%\bin\java.exe"
+	        arguments="-Djava.net.preferIPv4Stack=true -Dserver.port=%HTTP_PLATFORM_PORT% -jar &quot;%HOME%\site\wwwroot\my-web-project.jar&quot;">
+	    </httpPlatform>
+	  </system.webServer>
+	</configuration>
+
 
 ### Hudson
 
@@ -229,10 +244,16 @@ It is worth noting that the JRE_HOME environnment varariable is specified in the
 
 Once you make these changes, restart your web app running Liferay, Then, open http://yourwebapp. The Liferay portal is available from the web app root. 
 
-For more information on Liferay, see [http://www.liferay.com](http://www.liferay.com).
+## Next steps
+
+For more information about Liferay, see [http://www.liferay.com](http://www.liferay.com).
+
+For more information about Java, see the [Java Developer Center](/develop/java/).
 
 [AZURE.INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
 
 [AZURE.INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]
  
  
+<!-- External Links -->
+[Azure App Service]: http://go.microsoft.com/fwlink/?LinkId=529714

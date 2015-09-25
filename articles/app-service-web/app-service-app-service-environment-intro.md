@@ -8,23 +8,27 @@
 	editor=""/>
 
 <tags 
-	ms.service="app-service-web" 
+	ms.service="app-service" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/31/2015" 
-	ms.author="stefsh"/>	
+	ms.date="09/11/2015" 
+	ms.author="stefsch"/>	
 
 # Introduction to App Service Environment
 
 ## Overview ##
 An App Service Environment is a [Premium][PremiumTier] service plan option of Azure App Service that provides a fully isolated and dedicated environment for securely running all of your apps.  This includes [Web Apps][WebApps], [Mobile Apps][MobileApps], [API Apps][APIApps] and [Logic Apps][LogicApps] with expanded scaling options.  
 
-Compute resources for an App Service Environment are exclusively dedicated to running only your apps.  An App Service Environment is always created in a regional virtual network, which gives your apps new options for network isolation.  Furthermore an App Service Environment supports additional scaling options, with up to fifty (50) compute resources available to run your apps.  Outside of an App Service Environment there is a limit of 20 compute resources to host your apps. 
+Compute resources for an App Service Environment are exclusively dedicated to running only your apps.  An App Service Environment is always created in a regional classic "v1" virtual network, which gives your apps new options for network isolation.  Furthermore an App Service Environment supports additional scaling options, with up to fifty (50) compute resources available to run your apps.  Outside of an App Service Environment there is a limit of 20 compute resources to host your apps. 
+
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)] 
 
 ## Virtual Network Support ##
-An App Service Environment can either be created in a pre-existing regional virtual network, or a new regional virtual network ([more info on virtual networks][MoreInfoOnVirtualNetworks]).  Since an App Service Environment always exists in a regional virtual network, and more precisely within a subnet of a regional virtual network, you can leverage the security features of virtual networks to control both inbound and outbound network communications.  
+An App Service Environment can either be created in a pre-existing regional classic "v1" virtual network, or a new regional classic "v1" virtual network ([more info on virtual networks][MoreInfoOnVirtualNetworks]).  Since an App Service Environment always exists in a regional virtual network, and more precisely within a subnet of a regional virtual network, you can leverage the security features of virtual networks to control both inbound and outbound network communications.  
+
+**Note:**  An App Service Environment cannot be created in a "v2" virtual network.
 
 You can use [network security groups][NetworkSecurityGroups] to restrict inbound network communications to the subnet where an App Service Environment resides.  This allows you to run apps behind upstream devices and services such as web application firewalls, and network SaaS providers.  
 

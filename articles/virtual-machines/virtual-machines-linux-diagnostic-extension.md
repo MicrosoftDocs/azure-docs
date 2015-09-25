@@ -1,13 +1,13 @@
 
 <properties
-		pageTitle="Use the Linux Diagnostic Extension to monitor the Linux VM’s performance and diagnostic data | Microsoft Azure"
-		description="Learn how to use the Linux Diagnostic Extension to monitor the Linux VM’s performance and diagnostic data."
+		pageTitle="Monitoring a Linux VM with a VM extension | Microsoft Azure"
+		description="Learn how to use the Linux Diagnostic Extension to monitor performance and diagnostic data of a Linux VM in Azure."
 		services="virtual-machines"
 		documentationCenter=""
-  	authors="NingKuang"
+  		authors="NingKuang"
 		manager="timlt"
 		editor=""
-  	tags=""/>
+  		tags="azure-service-management"/>
 
 <tags
 		ms.service="virtual-machines"
@@ -19,7 +19,7 @@
 		ms.author="Ning"/>
 
 
-# Use the Linux Diagnostic Extension to monitor the Linux VM’s performance and diagnostic data
+# Use the Linux Diagnostic Extension to monitor the performance and diagnostic data of a Linux VM
 
 ## Introduction
 
@@ -34,6 +34,8 @@ For version 2.0, the data includes:
 - All Linux Rsyslog loggings, including system, security, and application logs.
 - All system data specified in this [document](https://scx.codeplex.com/wikipage?title=xplatproviders").
 - User specified log files.
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)] This article covers managing a resource with the classic deployment model.
 
 ## How to enable the extension
 The extension can be enabled through the [Azure portal](https://ms.portal.azure.com/#), Azure PowerShell, or Azure CLI scripts.

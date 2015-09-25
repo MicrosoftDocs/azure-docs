@@ -1,20 +1,20 @@
-<properties 
- pageTitle="Sizes for cloud services" 
- description="Lists the different sizes for Azure cloud service web and worker roles." 
- services="cloud-services" 
- documentationCenter="" 
- authors="Thraka" 
- manager="timlt" 
+<properties
+ pageTitle="Sizes for cloud services"
+ description="Lists the different sizes for Azure cloud service web and worker roles."
+ services="cloud-services"
+ documentationCenter=""
+ authors="Thraka"
+ manager="timlt"
  editor=""/>
-<tags 
- ms.service="cloud-services" 
- ms.devlang="na" 
- ms.topic="article" 
- ms.tgt_pltfrm="na" 
+<tags
+ ms.service="cloud-services"
+ ms.devlang="na"
+ ms.topic="article"
+ ms.tgt_pltfrm="na"
  ms.workload="tbd"
- ms.date="06/04/2015" 
+ ms.date="09/14/2015"
  ms.author="adegeo"/>
- 
+
 # Sizes for Cloud Services
 
 This topic describes the available sizes and options for Cloud Service role instances (web roles and worker roles). It also provides deployment considerations to be aware of when planning to use these resources.
@@ -41,26 +41,26 @@ The following considerations might help you decide on a size:
 
 |Size|CPU<br>cores|Memory|Disk sizes|
 |---|---|---|---|
-|ExtraSmall|1|768 MB|OS = Guest OS size<br/>Local resource = 19 GB<br/>Apps = approx. 1.5 GB|
-|Small|1|1.75 GB|OS = Guest OS size<br/>Local resource = 224 GB<br/>Apps = approx. 1.5 GB|
-|Medium|2|3.5 GB|OS = Guest OS size<br/>Local resource = 489 GB<br/>Apps = approx. 1.5 GB|
-|Large|4|7 GB|OS = Guest OS size<br/>Local resource = 999 GB<br/>Apps = approx. 1.5 GB|
-|ExtraLarge|8|14 GB|OS = Guest OS size<br/>Local resource = 2,039 GB<br/>Apps = approx. 1.5 GB|
-|A5|2|14 GB|OS = Guest OS size<br/>Local resource = 489 GB<br/>Apps = approx. 1.5 GB|
-|A6|4|28 GB|OS = Guest OS size<br/>Local resource = 999 GB<br/>Apps = approx. 1.5 GB|
-|A7|8|56 GB|OS = Guest OS size<br/>Local resource = 2,039 GB<br/>Apps = approx. 1.5 GB
-|A8|8|56 GB|OS = Guest OS size<br/>Local resource = 1.77 TB<br/>Apps = approx. 1.5 GB<blockquote> Note: For information and considerations about using this size, see <a href="http://go.microsoft.com/fwlink/p/?linkid=328042">About the A8, A9, A10, and A11 Compute Intensive Instances</a>.</blockquote>|
-|A9|16|112 GB|OS = Guest OS size<br/>Local resource = 1.77 TB<br/>Apps = approx. 1.5 GB<blockquote> Note: For information and considerations about using this size, see <a href="http://go.microsoft.com/fwlink/p/?linkid=328042">About the A8, A9, A10, and A11 Compute Intensive Instances</a>.</blockquote>|
-|A10|8|56 GB|OS = Guest OS size<br/>Local resource = 1.77 TB<br/>Apps = approx. 1.5 GB<blockquote> Note: For information and considerations about using this size, see <a href="http://go.microsoft.com/fwlink/p/?linkid=328042">About the A8, A9, A10, and A11 Compute Intensive Instances</a>.</blockquote>|
-|A11|16|112 GB|OS = Guest OS size<br/>Local resource = 1.77 TB<br/>Apps = approx. 1.5 GB<blockquote> Note: For information and considerations about using this size, see <a href="http://go.microsoft.com/fwlink/p/?linkid=328042">About the A8, A9, A10, and A11 Compute Intensive Instances</a>.</blockquote>|
-|Standard_D1|1|3.5 GB|OS = Guest OS size<br/>Local resource = 50 GB<br/>Apps = approx. 1.5 GB|
-|Standard_D2|2|7 GB|OS = Guest OS size<br/>Local resource = 100 GB<br/>Apps = approx. 1.5 GB|
-|Standard_D3|4|14 GB|OS = Guest OS size<br/>Local resource = 200 GB<br/>Apps = approx. 1.5 GB|
-|Standard_D4|8|28 GB|OS = Guest OS size<br/>Local resource = 400 GB<br/>Apps = approx. 1.5 GB|
-|Standard_D11|2|14 GB|OS = Guest OS size<br/>Local resource = 100 GB<br/>Apps = approx. 1.5 GB|
-|Standard_D12|4|28 GB|OS = Guest OS size<br/>Local resource = 200 GB<br/>Apps = approx. 1.5 GB|
-|Standard_D13|8|56 GB|OS = Guest OS size<br/>Local resource = 400 GB<br/>Apps = approx. 1.5 GB|
-|Standard_D14|16|112 GB|OS = Guest OS size<br/>Local resource = 800 GB<br/>Apps = approx. 1.5 GB|
+|ExtraSmall|1|768 MB|OS = Guest OS size<br/>Local resource = 15384 MB<br/>Apps = approx. 1.5 GB|
+|Small|1|1.75 GB|OS = Guest OS size<br/>Local resource = 225304 MB<br/>Apps = approx. 1.5 GB|
+|Medium|2|3.5 GB|OS = Guest OS size<br/>Local resource = 496664 MB<br/>Apps = approx. 1.5 GB|
+|Large|4|7 GB|OS = Guest OS size<br/>Local resource = 1018904 MB<br/>Apps = approx. 1.5 GB|
+|ExtraLarge|8|14 GB|OS = Guest OS size<br/>Local resource = 2083864 MB<br/>Apps = approx. 1.5 GB|
+|A5|2|14 GB|OS = Guest OS size<br/>Local resource = 496664 MB<br/>Apps = approx. 1.5 GB|
+|A6|4|28 GB|OS = Guest OS size<br/>Local resource = 1018904 MB<br/>Apps = approx. 1.5 GB|
+|A7|8|56 GB|OS = Guest OS size<br/>Local resource = 2083864 MB<br/>Apps = approx. 1.5 GB
+|A8|8|56 GB|OS = Guest OS size<br/>Local resource = 1856172 MB<br/>Apps = approx. 1.5 GB<blockquote> Note: For information and considerations about using this size, see <a href="http://go.microsoft.com/fwlink/p/?linkid=328042">About the A8, A9, A10, and A11 Compute Intensive Instances</a>.</blockquote>|
+|A9|16|112 GB|OS = Guest OS size<br/>Local resource = 1856172 MB<br/>Apps = approx. 1.5 GB<blockquote> Note: For information and considerations about using this size, see <a href="http://go.microsoft.com/fwlink/p/?linkid=328042">About the A8, A9, A10, and A11 Compute Intensive Instances</a>.</blockquote>|
+|A10|8|56 GB|OS = Guest OS size<br/>Local resource = 1856172 MB<br/>Apps = approx. 1.5 GB<blockquote> Note: For information and considerations about using this size, see <a href="http://go.microsoft.com/fwlink/p/?linkid=328042">About the A8, A9, A10, and A11 Compute Intensive Instances</a>.</blockquote>|
+|A11|16|112 GB|OS = Guest OS size<br/>Local resource = 1856172 MB<br/>Apps = approx. 1.5 GB<blockquote> Note: For information and considerations about using this size, see <a href="http://go.microsoft.com/fwlink/p/?linkid=328042">About the A8, A9, A10, and A11 Compute Intensive Instances</a>.</blockquote>|
+|Standard_D1|1|3.5 GB|OS = Guest OS size<br/>Local resource = 46104 MB<br/>Apps = approx. 1.5 GB|
+|Standard_D2|2|7 GB|OS = Guest OS size<br/>Local resource = 97304 MB<br/>Apps = approx. 1.5 GB|
+|Standard_D3|4|14 GB|OS = Guest OS size<br/>Local resource = 199704 MB<br/>Apps = approx. 1.5 GB|
+|Standard_D4|8|28 GB|OS = Guest OS size<br/>Local resource = 404504 MB<br/>Apps = approx. 1.5 GB|
+|Standard_D11|2|14 GB|OS = Guest OS size<br/>Local resource = 97304 MB<br/>Apps = approx. 1.5 GB|
+|Standard_D12|4|28 GB|OS = Guest OS size<br/>Local resource = 199704 MB<br/>Apps = approx. 1.5 GB|
+|Standard_D13|8|56 GB|OS = Guest OS size<br/>Local resource = 404504 MB<br/>Apps = approx. 1.5 GB|
+|Standard_D14|16|112 GB|OS = Guest OS size<br/>Local resource = 814104 MB<br/>Apps = approx. 1.5 GB|
 
 ## Configure sizes for Cloud Services
 
@@ -72,6 +72,8 @@ Here is an example for setting the role size to be small for a Web Role instance
     <WebRole name="WebRole1" vmsize="Small">
     …
     </WebRole>
+
+Ensure that the local resource size specified is less than or equal to the max local resource size in the table above.
 ## Next steps
 
 [Set Up a Cloud Service for Azure](https://msdn.microsoft.com/library/hh124108)  

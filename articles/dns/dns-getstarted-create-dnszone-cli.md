@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Get started with Azure DNS | Microsoft Azure"
-   description="Learn how to create DNS zones for Azure DNS step-by-step to start hosting your DNS domain using PowerShell or CLI"
+   pageTitle="Get started with Azure DNS using CLI| Microsoft Azure"
+   description="Learn how to create DNS zones for Azure DNS step-by-step to start hosting your DNS domain using CLI"
    services="dns"
    documentationCenter="na"
    authors="joaoma"
@@ -13,10 +13,11 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/28/2015"
+   ms.date="09/22/2015"
    ms.author="joaoma"/>
 
-# Get started with Azure DNS
+# Get started with Azure DNS using CLI
+
 
 
 > [AZURE.SELECTOR]
@@ -38,6 +39,9 @@ Install Azure CLI. You can install Azure CLI for Windows, Linux, or MAC. The fol
 
 	Azure network
 
+
+>[AZURE.IMPORTANT] The DNS commands require Azure CLI version 0.9.8 or above. Type `azure -v`to check which Azure CLI version is currently installed in your machine.
+ 
 ### Step 2
 
 Azure DNS uses Azure Resource Manager. Make sure you switch CLI to use arm commands and DNS.
@@ -77,13 +81,13 @@ The Azure DNS service is managed by the Microsoft.Network resource provider. You
 
 Tags are different from Etags. Tags are a list of name-value pairs, and are used by Azure Resource Manager to label resources for billing or grouping purposes. For more information about tags, see [Using tags to organize your Azure resources](resource-group-using-tags.md). Azure DNS CLI supports tags on both zones and record sets specified by using the options ‘-Tag’ parameter. The following example shows how to create a DNS zone with two tags, ‘project = demo’ and ‘env = test’:
 
-	Azure network dns-zone create -n contoso.com -g myresourcegroup -t "project=demo";"env=test"
+	Azure network dns zone create -n contoso.com -g myresourcegroup -t "project=demo";"env=test"
 
 ## Create a DNS zone
 
-A DNS zone is created using the "azure network dns-zone create" command. In the example below, you create a DNS zone called 'contoso.com' in the resource group called 'MyResourceGroup':
+A DNS zone is created using the `azure network dns zone create` command. In the example below, you create a DNS zone called 'contoso.com' in the resource group called 'MyResourceGroup':
 
-    Azure network dns-zone create -n contoso.com -g myresourcegroup
+    Azure network dns zone create -n contoso.com -g myresourcegroup
 
 
 >[AZURE.NOTE] In Azure DNS, zone names should be specified without a terminating ‘.’, for example, as ‘contoso.com’ rather than ‘contoso.com.’.
@@ -96,13 +100,13 @@ Your DNS zone has now been created in Azure DNS. Creating a DNS zone also create
 
 To view these records, use "azure network dns-record-set show":
 
-	Usage: network dns-record-set show <resource-group> <dns-zone-name> <name> <type>
+	Usage: network dns record-set show <resource-group> <dns-zone-name> <name> <type>
 
 
 In the example below, running the command with resource group "myresourcegroup", record set name "@" (for a root record) and type "SOA" will yield the following output:
  
 
-	azure network dns-record-set show myresourcegroup "contoso.com" "@" SOA
+	azure network dns record-set show myresourcegroup "contoso.com" "@" SOA
 	info:    Executing command network dns-record-set show
 	+ Looking up the DNS record set "@"
 	data:    Id                              : /subscriptions/#######################/resourceGroups/myresourcegroup/providers/Microsoft.Network/dnszones/contoso.com/SOA/@
@@ -121,7 +125,7 @@ In the example below, running the command with resource group "myresourcegroup",
 <BR>
 To view the NS records created, use the following command:
 
-	azure network dns-record-set show myresourcegroup "contoso.com" "@" NS
+	azure network dns record-set show myresourcegroup "contoso.com" "@" NS
 	info:    Executing command network dns-record-set show
 	+ Looking up the DNS record set "@"
 	data:    Id                              : /subscriptions/#######################/resourceGroups/myresourcegroup/providers/Microsoft.Network/dnszones/contoso.com/NS/@

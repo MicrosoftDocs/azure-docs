@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="05/29/2015" 
+	ms.date="09/01/2015" 
 	ms.author="mwasson"/>
 
 
@@ -109,7 +109,7 @@ instances in the cloud, disable remote desktop access using [Azure PowerShell].
 
 - [Remotely Accessing Role Instances in Azure] 
 - [Using Remote Desktop with Azure Roles]
-
+- [Node.js Developer Center](/develop/nodejs/)
 
   [Azure PowerShell]: http://go.microsoft.com/?linkid=9790229&clcid=0x409
 

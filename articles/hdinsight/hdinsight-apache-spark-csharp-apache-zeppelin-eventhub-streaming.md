@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/31/2015" 
+	ms.date="09/23/2015" 
 	ms.author="nitinme"/>
 
 
@@ -76,6 +76,22 @@ You must have the following:
 
 In this section, you create a [Zeppelin](https://zeppelin.incubator.apache.org) notebook to receive messages from the Event Hub into the Spark cluster in HDInsight.
 
+### Allocating resources to Zeppelin for streaming application
+
+You must make the following considerations while creating a streaming application using Zeppelin:
+
+* **Event hub partitions and cores allocated to Zeppelin**. In the previous steps, you created an Event Hub with some partitions. In the Zeppelin streaming application you create below, you will specify the same number of partitions again. To successfully stream the data from Event Hub using Zeppelin, the number of cores you allocate to Zeppelin must be twice the number of partitions in Event Hub.
+* **Minimum number of cores to be allocated to Zeppelin**. In your streaming application that you create below, you create a temporary table where you store the messages that are streamed by your application. You then use a Spark SQL statement to read messages from this temporary table. To successfully run the Spark SQL statement, you must make sure that you at least have two cores allocated to Zeppelin.
+
+If you combine the two requirements above, this is what you get:
+
+* The minimum number of cores you must allocate to Zeppelin is 2.
+* The number of allocated cores must always be twice the number of partitions in Event Hub. 
+
+For instructions on how to allocate resources in a Spark cluster, see [Manage resources for the Apache Spark cluster in HDInsight](hdinsight-apache-spark-resource-manager.md).
+
+### Create a streaming application using Zeppelin
+
 1. From the [Azure Preview Portal](https://ms.portal.azure.com/), from the startboard, click the tile for your Spark cluster (if you pinned it to the startboard). You can also navigate to your cluster under **Browse All** > **HDInsight Clusters**.   
 
 2. Launch the Zeppelin notebook. From the Spark cluster blade, click **Quick Links**, and then from the **Cluster Dashboard** blade, click **Zeppelin Notebook**. When prompted, enter the admin credentials for the cluster. Follow the instructions on the page that opens up to launch the notebook.
@@ -91,6 +107,8 @@ In this section, you create a [Zeppelin](https://zeppelin.incubator.apache.org) 
 	![Zeppelin notebook status](./media/hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming/HDI.Spark.NewNote.Connected.png "Zeppelin notebook status")
 
 4. In the empty paragraph that is created by default in the new notebook, paste the following snippet and replace the placeholders to use your event hub configuration. In this snippet, you receive the stream from Event Hub and register the stream into a temporary table, called **mytemptable**. In the next section, we will start the sender application. You can then read the data directly from the table.
+
+	> [AZURE.NOTE] In the snippet below, **eventhubs.checkpoint.dir** must be set to a directory in your default storage container. If the directory does not exist, the streamig application creates it. You can either specify the full path to the directory like "**wasb://container@storageaccount.blob.core.windows.net/mycheckpointdir/**" or just the relative path to the directory, such as "**/mycheckpointdir**".
 
 		import org.apache.spark.streaming.{Seconds, StreamingContext}
 		import org.apache.spark.streaming.eventhubs.EventHubsUtils

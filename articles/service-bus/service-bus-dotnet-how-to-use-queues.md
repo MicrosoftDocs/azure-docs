@@ -236,9 +236,9 @@ In the event that the application crashes after processing the message but befor
 
 Now that you've learned the basics of Service Bus queues, follow these links to learn more.
 
--   See the MSDN overview: [Queues, Topics, and Subscriptions.][]
+-   See [Queues, Topics, and Subscriptions][].
 -   Build a working application that sends and receives messages to and from a Service Bus queue: [Service Bus Brokered Messaging .NET Tutorial].
--   Service Bus samples: Download from [Azure Samples][] or see the overview on [MSDN][].
+-   Service Bus samples: Download from [Azure Samples][] or see the [overview][].
 
   [What are Service Bus Queues]: #what-queues
   [Create a Service Namespace]: #create-namespace
@@ -252,7 +252,7 @@ Now that you've learned the basics of Service Bus queues, follow these links to 
   [How to: Handle Application Crashes and Unreadable Messages]: #handle-crashes
   [Azure portal]: http://manage.windowsazure.com
   [7]: ./media/service-bus-dotnet-how-to-use-queues/getting-started-multi-tier-13.png
-  [Queues, Topics, and Subscriptions.]: http://msdn.microsoft.com/library/azure/hh367516.aspx
+  [Queues, Topics, and Subscriptions]: service-bus-queues-topics-subscriptions.md
   [Service Bus Brokered Messaging .NET Tutorial]: http://msdn.microsoft.com/library/azure/hh367512.aspx
   [Azure Samples]: https://code.msdn.microsoft.com/windowsazure/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=2
-  [MSDN]: https://msdn.microsoft.com/library/azure/dn194201.aspx
+  [overview]: service-bus-samples.md

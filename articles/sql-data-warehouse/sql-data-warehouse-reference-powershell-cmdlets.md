@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/29/2015"
-   ms.author="sidneyh;barbkess"/>
+   ms.date="09/22/2015"
+   ms.author="twounder;sidneyh;barbkess"/>
 
 # Getting started with Azure Data Warehouse cmdlets and REST APIs
 
@@ -27,8 +27,8 @@ Similarly, the REST APIs for **SQL Azure Database** can also be used for **SQL D
 ## Get and run the Azure PowerShell cmdlets
 
 1. To download the Azure PowerShell module, run [Microsoft Web Platform Installer](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409). 
-2. 2. To run the module, at the start window type **Microsoft Azure PowerShell**.
-3. If you have not already added your account to the machine, run the following cmdlet. (For more information, see [How to install and configure Azure PowerShell](powershell-install-configure/)):
+2. To run the module, at the start window type **Microsoft Azure PowerShell**.
+3. If you have not already added your account to the machine, run the following cmdlet. (For more information, see [How to install and configure Azure PowerShell]():
 
 		Add-AzureAccount
 3. Switch the mode with this cmdlet:
@@ -102,6 +102,7 @@ For more reference information, see [SQL Data Warehouse reference overview][].
 
 <!--Article references-->
 [SQL Data Warehouse reference overview]: sql-data-warehouse-overview-reference.md
+[How to install and configure Azure PowerShell]: powershell-install-configure.md
 
 <!--MSDN references-->
 

@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="07/20/2015"
-   ms.author="lvargas;barbkess"/>
+   ms.date="09/22/2015"
+   ms.author="lvargas;twounder;barbkess"/>
 
 # SQL Data Warehouse preview expectations
 
@@ -29,7 +29,7 @@ We will continuously work toward these goals before promoting SQL Data Warehouse
 
 ## Predictable and scalable performance
 
-Azure SQL Data Warehouse introduces Data Warehouse Units (DWUs) as as a way to measure the computing resources (CPUs, memory, storage I/O) available for the data warehouse. Increasing the number of DWUs increases the resources. As the number of DWUs increases, SQL Data Warehouse runs operations in parallel (e.g. data load or query) across more distributed resources. This reduces latency and improves performance.
+Azure SQL Data Warehouse introduces Data Warehouse Units (DWUs) as a way to measure the computing resources (CPUs, memory, storage I/O) available for the data warehouse. Increasing the number of DWUs increases the resources. As the number of DWUs increases, SQL Data Warehouse runs operations in parallel (e.g. data load or query) across more distributed resources. This reduces latency and improves performance.
 
 Any data warehouse has 2 fundamental performance metrics:
 
@@ -49,7 +49,7 @@ SQL Data Warehouse stores all data in Azure storage using geo-redundant blobs. T
 
 ### Backups
 
-Azure SQL Data Warehouse backs up all data every 4 hours using Azure Storage Snapshots. These snapshots are maintained for 7 days. This allows restoring the data to up to 42 points in time within the past 7 days up to the time when the last snapshot was taken. By GA, we will you to specify the retention period. You can restore data from a snapshot by using PowerShell or REST APIs. 
+Azure SQL Data Warehouse backs up all data at least every 8 hours using Azure Storage Snapshots. These snapshots are maintained for 7 days. This allows restoring the data to at least 21 points in time within the past 7 days up to the time when the last snapshot was taken. You can restore data from a snapshot by using PowerShell or REST APIs. 
 
 Snapshots are copied asynchronously to a remote Azure region for added recoverability in case of regional failures (disaster recovery). 
 
