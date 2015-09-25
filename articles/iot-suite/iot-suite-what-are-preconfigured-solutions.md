@@ -34,7 +34,6 @@ The following table shows how these preconfigured solutions map to specific IoT 
 
 | &nbsp; | Data <br/> Ingestion | Device <br/> Identity |  Command and <br/> Control |  Rules and <br/> Actions |  Predictive <br/> Analytics |
 | ------------------------------: | :-: | :-: | :----: | :----: | :----: |
-| **Building <br/> Data Ingestion <br/> Sample** | Yes | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
 | **Remote <br/> Monitoring**       | Yes | Yes | Yes | Yes | &nbsp; |
 | **Predictive <br/> Maintenance**  | Yes | Yes | Yes | Yes | Yes |
 
@@ -86,7 +85,7 @@ To get started using the Azure IoT preconfigured solutions, explore these resour
 - [Azure IoT preconfigured solutions][lnk-preconfigured-solutions-microsite]
 - [Get started with the IoT preconfigured solutions][lnk-iot-solutions-get-started]
 
-[img-remote-monitoring-arch]: media/iot-suite-what-are-preconfigured-solutions/vending-machines-overview.png
+[img-remote-monitoring-arch]: media/iot-suite-what-are-preconfigured-solutions/remote-monitoring-arch.png
 [lnk-iot-reference-architecture]: TBD
 [lnk-iot-solutions-get-started]: TBD
 [lnk-event-processor]: TBD
