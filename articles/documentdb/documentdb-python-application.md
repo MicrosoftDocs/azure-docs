@@ -379,6 +379,9 @@ We update and improve this topic frequently based on your feedback.  Once you've
 
 To add additional functionality to your web application, review the APIs available in the [DocumentDB Python SDK](https://pypi.python.org/pypi/pydocumentdb).
 
+For more information, see the [Python Developer Center](/develop/python/).
+
+
   [Click here to access Flask tutorials]: http://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world
   [Visual Studio Express]: http://www.visualstudio.com/products/visual-studio-express-vs.aspx
   [here]: http://aka.ms/ptvs
