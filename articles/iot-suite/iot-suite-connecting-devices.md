@@ -52,7 +52,7 @@ Now choose which language would you like to use to continue your sample:
 
 ### Use Node.js in my client application
 
-This tutorial assumes that you have completed the first tutorial, where we explained how to run a simple sample using our Node client libraries. If you haven't, please do so by following this [link](https://github.com/Azure/azure-iot-suite-sdks/blob/develop/node/device/doc/run_sample.md).  
+This tutorial assumes that you have completed the first tutorial, where we explained how to run a simple sample using our Node client libraries. If you haven't, please do so by following this [link](https://github.com/Azure/azure-iot-sdks/blob/develop/node/device/doc/run_sample.md).  
 
 1.  Open the file **node\\samples\\simple_sample_remotemonitoring.js** in a text editor.
 
