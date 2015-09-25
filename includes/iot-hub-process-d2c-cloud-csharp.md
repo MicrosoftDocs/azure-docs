@@ -17,7 +17,7 @@ least once every time window elapses (in this tutorial, 1 hour).
 > [AZURE.NOTE] This tutorial uses a single partitioned Service Bus queue to process all the interactive messages retrieved from IoT Hub. Depending on your solution's need, refer to [Service Bus documentation] for more information on how to use Service Bus Queues.
 
 ### Provision an Azure Storage account and a Service Bus queue
-In order to use [EventProcessorHost], you must have an [Azure Storage account]. You can use an existing one, or follow the instructions in [About Azure Storage] to create a new one. Take note of the storage account connection string.
+In order to use [EventProcessorHost], you must have an Azure Storage account. You can use an existing one, or follow the instructions in [About Azure Storage] to create a new one. Take note of the storage account connection string.
 
 You will also need a Service Bus queue to enable reliable processing of interactive messages. You can create a queue programmatically with a 1 hour deduplication window, as explained in [How to use Service Bus Queues], or use the [Azure Management Portal], following these steps:
 
@@ -297,7 +297,6 @@ In this section, you'll write a Windows console app that receives interactive me
 
 [Event Hubs Overview]: event-hubs-overview.md
 [Scaled out event processing]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-45f43fc3
-[Azure Storage account]: storage-create-storage-account.md
 [EventProcessorHost]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost(v=azure.95).aspx
 
 [Event Hubs Programming Guide]: https://azure.microsoft.com/en-us/documentation/articles/event-hubs-programming-guide/

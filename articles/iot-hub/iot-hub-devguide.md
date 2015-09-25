@@ -302,7 +302,7 @@ This has the following implications:
 * Similarly to Event Hubs *events*, device-to-cloud messages are durable and retained in an IoT hub for up to 7 days (refer to [Device-to-cloud configuration options](#d2cconfiguration)).
 * Device-to-cloud messages are partitioned in a fixed set of partitions that is set at creation time (refer to [Device-to-cloud configuration options](#d2cconfiguration)).
 * Analogously to Event Hubs, clients reading device-to-cloud messages have to handle partitions and checkpointing, see [Event Hubs - Consuming events][lnk-event-hubs-consuming-events].
-* Like Event Hubs events, device-to-cloud messages can be at most 256Kb, and can be grouped in batches to optimize sends.
+* Like Event Hubs events, device-to-cloud messages can be at most 256Kb, and can be grouped in batches to optimize sends. Batches can be at most 256Kb in size, and at most 500 messages.
 
 There are, however, a few important distinctions between IoT Hub device-to-cloud and Event Hubs:
 
@@ -313,9 +313,7 @@ There are, however, a few important distinctions between IoT Hub device-to-cloud
 
 Note that the above does not mean that IoT Hub substitutes Event Hubs in all scenarios. For instance, in some event processing computations, it might be required to repartition events with respect to a different property or field before analyzing the data streams. In that case an event hub could be used to decouple two portions of the stream processing pipeline.
 
-Please, refer to [Azure IoT Reference Architecture][lnk-reference-architecture] for more information on how to perform event processing for IoT solutions in Azure.
-
-Finally, for details on how to use device-to-cloud messaging refer to [IoT Hub APIs and SDKs][lnk-apis-sdks].
+For details on how to use device-to-cloud messaging refer to [IoT Hub APIs and SDKs][lnk-apis-sdks].
 
 #### Non-telemetry traffic
 In many cases, devices are sending not only telemetry data points to the application back-end, but also *interactive* messages and requests that require execution and handling from the application business logic layer. Good examples are critical alerts that have to trigger a specific action in the back-end, or device replies to commands.
@@ -364,7 +362,7 @@ The following picture details the lifecycle state graph for a cloud-to-device me
 
 When a message is sent by the service, it is considered *Enqueued*. When a device wants to *receive* a message, IoT Hub *locks* the message (state **Invisible**), in order to allow other threads on the same device to start receiving other messages. When a device thread has completed the processing of a device, it notifies IoT Hub by *completing* the message. It can also decide to *reject* the message, which sends it to **Deadlettered** state, or *abandon* which puts the message back in the queue (state **Enqueued**).
 
-Since a thread could fail to process a message without notifying IoT Hub, messages will automatically transition from **Invisible** back to **Enqueued** after a *visibility (or lock) timeout*. A message can transition between **Enqueued** and **Invisible** states for at most a specified number of times specified in the *max delivery count* property on IoT Hub. After that number of transitions, the message will automatically deadlettered. Similarly, a message will be automatically deadlettered after its expiration time (refer to [Time to live](#ttl)).
+Since a thread could fail to process a message without notifying IoT Hub, messages will automatically transition from **Invisible** back to **Enqueued** after a *visibility (or lock) timeout* (default: 1 minute). A message can transition between **Enqueued** and **Invisible** states for at most a specified number of times specified in the *max delivery count* property on IoT Hub. After that number of transitions, the message will automatically deadlettered. Similarly, a message will be automatically deadlettered after its expiration time (refer to [Time to live](#ttl)).
 
 Refer to [Get started with Azure IoT Hub cloud-to-device messages][lnk-getstarted-c2d-tutorial] for a tutorial on cloud-to-device messages, and to [IoT Hub APIs and SDKs][lnk-apis-sdks] for references on how different APIs and SDKs expose the cloud-to-device functionality.
 

@@ -72,19 +72,25 @@ Azure IoT Hub mediates the interactions between your devices and your applicatio
 - Bi-directional communication for devices that are connected sporadically due to power or connectivity concerns may be facilitated through holding commands and notifications to the devices until they connect to pick those up. Azure IoT Hub maintains device specific queues for the commands it sends to devices.
 - Application payload data may be separately secured for protected transit through gateways to a particular service.
 
+The service assisted communication pattern has been used successfully in the mobile industry at enourmous scale to implement push notification services, such as [Windows Notifiation Service](https://msdn.microsoft.com/en-us/library/windows/apps/mt187203.aspx), [Google cloud Messaging](https://developers.google.com/cloud-messaging/), and [Apple Push Notification service](http://go.microsoft.com/fwlink/p/?linkid=272584&clcid=0x409).
+
 ## Next steps
 
 To learn more about Azure IoT Hub see:
 
-Dev guide – main
+* [IoT Hub Developer Guide]
+* [IoT Hub Guidance]
+* [Supported device platforms and languages]
+* [Azure IoT Developer Center]
+* [Get started with IoT Hub]
 
-Guidance - root
-
-Tutorial – hero
-
-Device tutorial microsite
-
-Certified devices – root
+[IoT Hub Overview]: iot-hub-what-is-iot-hub.md
+[IoT Hub Guidance]: iot-hub-guidance.md
+[IoT Hub Developer Guide]: iot-hub-devguide.md
+[IoT Hub Supported Devices]: iot-hub-supported-devices.md
+[Get started with IoT Hub]: iot-hub-csharp-csharp-getstarted.md
+[Supported devices]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/tested_configurations.md
+[Azure IoT Developer Center]: http://www.azure.com/iotdev
 
 [img-why-use]: media/iot-hub-what-is-iot-hub/image1.png
 [img-architecture]: media/iot-hub-what-is-iot-hub/hubarchitecture.png
