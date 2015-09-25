@@ -27,7 +27,7 @@ Azure Stream Analytics jobs can be connected to one or more inputs, which define
 
 To add an input to your Stream Analytics job:
 
-1. In the Azure portal job click **Inputs** and then click **Add an Input** in your Stream Analytics job.
+1. In the Azure portal click **Inputs** and then click **Add an Input** in your Stream Analytics job.
 
     ![Add Inputs](./media/stream-analytics-add-inputs/1-stream-analytics-add-inputs.png)  
 
@@ -65,6 +65,7 @@ To add an input to your Stream Analytics job:
 
     ![Test connection](./media/stream-analytics-add-inputs/6-stream-analytics-add-inputs.png)  
 
+    ![Test Connection Azure preview portal](./media/stream-analytics-add-inputs/11-stream-analytics-add-inputs.png)  
 
 ## Get help
 For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
