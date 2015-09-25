@@ -22,9 +22,11 @@ Stream processing logic in Azure Stream Analytics is implemented as a "standing 
 
 ## To author a Stream Analytics query: ##
 
-1. In your Stream Analytics Job, click **Query**.
+1. In your Stream Analytics Job in the Azure Management portal, click **Query**.
 
     ![Select Query](./media/stream-analytics-write-queries/1-stream-analytics-write-queries.png)  
+
+    In the Azure preview portal, select **Query**.
 
     ![Select Query Preview](./media/stream-analytics-write-queries/query-preview-portal.png)  
 
@@ -39,7 +41,7 @@ Stream processing logic in Azure Stream Analytics is implemented as a "standing 
 
 You can test that your query behaves as expected by running it in the browser over one or more local JSON files containing test data. This will not start the job or have any billing implications.
 
-> [AZURE.NOTE] Note that in-browser query testing is currently not supported in the Azure preview portal.  
+> [AZURE.NOTE] Currently in-browser query testing is not supported in the Azure preview portal.  
 
 1.	Make sure that there are no errors in the query (otherwise the Test button will be disabled) and then click the Test button.  
 
