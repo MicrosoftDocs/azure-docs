@@ -341,7 +341,7 @@ Click on  **Get Publish settings** for the deployment slot **stage**. This will 
 With [Courier2](http://umbraco.com/products/more-add-ons/courier-2) module you can push content, stylesheets, development modules and more with a simple right-click from a staging web app to production web app for a more hassle free deployments and reducing risk of breaking your production web app when deploying an update.
 Purchase a license for Courier2 for the domain `*.azurewebsites.net` and your custom domain (say http://abc.com) Once you have purchased the license, place the downloaded license (.LIC file) in the `bin` folder.
 
-![Drop license file under bin folder][./media/app-service-web-staged-publishing-realworld-scenarios/13droplicenseumbraco.PNG]
+![Drop license file under bin folder](./media/app-service-web-staged-publishing-realworld-scenarios/13droplicenseumbraco.PNG)
 
 Download the Courier2 package from [here](https://our.umbraco.org/projects/umbraco-pro/umbraco-courier-2/) . Log on to your stage web app, say  http://umbracocms-site-stage.azurewebsites.net/umbraco and click on **Developer** Menu and Select **Packages** . Click on **Install** local package
 
