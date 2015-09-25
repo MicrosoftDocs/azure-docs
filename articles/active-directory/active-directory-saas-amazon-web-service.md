@@ -172,7 +172,7 @@ The following screenshot shows an example for this.
 
      19.1. In the **Attribute Name** textbox, type **https://aws.amazon.com/SAML/Attributes/Role**.
 
-     19.2. In the **Attribute Value** textbox, type **arn:aws:iam::214510765665:role/Admin,arn:aws:iam::214510765665:saml-provider/WAAD**.
+     19.2. In the **Attribute Value** textbox, type **arn:aws:iam::214510765665:role/Admin,arn:aws:iam::214510765665:saml-provider/[your provider name]**.
 
      19.3. Click **Complete** to close the **Add User Attribute** dialog.
 
@@ -183,7 +183,7 @@ The following screenshot shows an example for this.
 
      21.1. In the **Attribute Name** textbox, type **https://aws.amazon.com/SAML/Attributes/RoleSessionName**.
 
-     21.2. In the **Attribute Value** list, select **user:mail**.
+     21.2. In the **Attribute Value** textbox, type **mail**.
 
      21.3. Click **Complete** to close the **Add User Attribute** dialog.
 
