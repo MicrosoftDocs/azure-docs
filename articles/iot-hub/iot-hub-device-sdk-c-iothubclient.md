@@ -272,6 +272,6 @@ There are a couple of options that are commonly used:
 
 The batching option is important to know about. By default the library ingresses events individually (a single event is whatever you pass to **IoTHubClient\_LL\_SendEventAsync**). But if the batching option is true, the library will collect as many events as it can from the buffer (up to the maximum message size that IoT Hub will accept).  The event batch is sent to IoT Hub in a single HTTP call (the individual events are bundled into a JSON array). Turning on batching typically results in big performance gains since you’re reducing network round-trips. And it significantly reduces bandwidth since you’re sending one set of HTTP headers with an event batch rather than a set of headers for each individual event. Unless you have a specific reason to do otherwise, typically you’ll want to turn batching on.
 
-## Summary
+## Next Steps
 
 This article goes into detail on the behavior of the **IoTHubClient** library found in the **Azure IoT device SDK for C**. With this information you should have a good understanding of the capabilities of the **IoTHubClient** library. In the [next article](iot-hub-device-sdk-c-serializer.md) we'll provide similar detail on the **serializer** library.
