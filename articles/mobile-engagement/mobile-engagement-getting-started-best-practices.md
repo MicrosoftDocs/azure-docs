@@ -20,7 +20,7 @@
 
 ## Overview
 
-In 2013, a study found the average mobile device had 27 applications installed. Users typically spent 30 hours per month on their apps. Most of this time was spent on social networking and gaming (around 20 hours). By 2014, the Android market had around 1.5 million applications for users to choose from. The Apple store contained around 1.2 million apps. Mobile app use is still increasing as developers compete in this growing market. 
+**The mobile screen is a very crowded space:** In 2013, a study found the average mobile device had 27 applications installed. Users typically spent 30 hours per month on their apps. Most of this time was spent on social networking and gaming (around 20 hours). By 2014, the Android market had around 1.5 million applications for users to choose from. The Apple store contained around 1.2 million apps. Mobile app use is still increasing as developers compete in this growing market. 
 
 The average mobile user will install and uninstall apps with high frequency depending on changing interests and in-app experiences. In order to determine the success of an app it becomes vital to know more than just how many users install your app. It's important to know how useful your app is and if that usage trend is changing. The following questions become important:
 
@@ -43,7 +43,7 @@ In order to get the most out of Azure Mobile Engagement, you need to start with 
 ## Step 1: Define your KPIs to fit the BET model
 
 
-Correctly defining common KPIs can be a difficult task to complete. Apps designed for different sectors have their own specifics and objectives. This may tend to confuse your approach. To help avoid this, objectives and KPIs should be classified into three main categories: **Business**, **Engagement**, and **Technical**. This is what we call the **BET model**.
+Correctly defining KPIs can be a difficult task to complete. Apps designed for different industries have their own specifics and objectives. This may tend to confuse your approach. To help avoid this, objectives and KPIs should be classified into three main categories: **Business**, **Engagement**, and **Technical**. This is what we call the **BET model**.
 
 A good plan will generally have objectives with the KPIs that measure the successes in each of the following categories of the BET model.
 
@@ -76,13 +76,13 @@ Business KPIs should be the easiest part to build. You probably already defined 
 
 #### Engagement KPIs
 
-An Engagement KPI is a performance indicator to measure the engagement of your users. Trends in this area help determine the retention of your app. Here are a few example performance indicators for this sector:
+An Engagement KPI is a performance indicator to measure the engagement of your users. Trends in this area help determine the retention of your app. Here are a few example performance indicators for this type of KPI:
 
 - Active users in the last 7 days
 - Inactive user count for the last 7 days
 - Count of users who have not used the app in 30 days  
 
-Some obvious external factors may influence indicators in this sector. For example, you may consider a mobile device to be with a user at all times. This may or may not be true. A gaming app might tend to have higher usage around holidays when a gamer may play more while off work or out of school.   
+Some obvious external factors may influence indicators in this area. For example, you may consider a mobile device to be with a user at all times. This may or may not be true. A gaming app might tend to have higher usage around holidays when a gamer may play more while off work or out of school.   
 
 Well defined KPIs in this category should help you measure the relationship between your app and your customers.
 
@@ -123,7 +123,7 @@ You can use the **KPI Builder** worksheet in our [Media Playbook Template][Media
 ## Step 2: Your Engagement Program
 
 
-A great mobile engagement program should be considered a key component of your app. This should absolutely include a great welcome program that executes for a user during the first days of app usage. This tends to have a very positive affect on engagement and retention of your app. Studies have shown that the majority of users stop using an app the first few days after installation. You want to strive to meet or exceed customer expectation driving interest early while the user is still focused on your app. Make sure you present the key value and benefits of your app to your customers. 
+A great mobile engagement program should be considered a key component of your app. This should absolutely include a great welcome program that executes for a user during the first days of app usage. This tends to have a very positive effect on engagement and retention of your app. Studies have shown that the majority of users stop using an app the first few days after installation. You want to strive to meet or exceed customer expectation driving interest early while the user is still focused on your app. Make sure you present the key value and benefits of your app to your customers. 
 
 
 ![](./media/mobile-engagement-getting-started-best-practices/unsegmented-push-notifications.png)
@@ -259,7 +259,7 @@ Use the **Engagement Program** worksheet in the [Media Playbook Template][Media 
 
 #### Create a tag plan
 
-To integrate Azure Mobile Engagement into your app you will need to create a tag plan. The tag plan is the cornerstone of the project. It defines the relationship between marketing specifications, the work flow of the application, and the real tag data collected in the app to measure KPIs. It indicates what analytics you will be able to see in real-time. It also helps you define user segments, and send focused push notifications to engage your end-users. Once you have the tag plan defined, adding the code to integrate it into your app is simple using the Azure Mobile Engagement SDK.
+To integrate Azure Mobile Engagement into your app you will need to create a tag plan. The tag plan is the cornerstone of the project. It defines the relationship between marketing specifications, the work flow of the application, and the real tag data collected in the app to measure KPIs. It indicates what analytics you will be able to see in the portal. It also helps you define user segments, and send focused push notifications to engage your end-users. Once you have the tag plan defined, adding the code to integrate it into your app is simple using the Azure Mobile Engagement SDK.
 
 A tag plan should not tag everything in an application. It should only include tag data that is part of your mobile engagement strategy. This will likely be diverse between applications. The [Media Playbook Template][Media Playbook link] provided by Azure Mobile Engagement helps you build a tag plan with a given method. Use the **Tag Plan** worksheet as a guide to building your tag plan.
 
