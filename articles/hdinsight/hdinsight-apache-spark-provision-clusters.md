@@ -7,6 +7,7 @@
    manager="paulettm"
    editor="cgronlun"
    tags="azure-portal"/>
+
 <tags
     ms.service="hdinsight"
     ms.devlang="na"
@@ -433,6 +434,6 @@ The HDInsight .NET SDK provides .NET client libraries that make it easier to wor
 [powershell-install-configure]: ../install-configure-powershell/
 
 
-
+[azure-preview-portal]: https://portal.azure.com
 
 [89e2276a]: /documentation/articles/hdinsight-use-sqoop/ "Use Sqoop with HDInsight"
