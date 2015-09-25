@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="powershell"
     ms.workload="data-management" 
-    ms.date="09/22/2015"
+    ms.date="09/25/2015"
     ms.author="sstein"/>
 
 # Geo-Replication for Azure SQL Database using PowerShell
@@ -61,26 +61,27 @@ To select the subscription you need your subscription Id. You can copy the subsc
 After successfully running **Select-AzureSubscription** you are returned to the PowerShell prompt. If you have more than one subscription you can run **Get-AzureSubscription** and verify the subscription you selected shows **IsCurrent : True**.
 
 
-## Setup the variables for your environment
-
-There are a few variables where you need to replace the example values with the specific values for your database and server.
-
-The server name needs to be a server that currently exists in the subscription selected in the previous step.
-
-The database name is the name you want for ....
-
-    $ServerName = "servername"
-    $DatabaseName = "databasename"
 
 ## Add secondary database
+
 
 The command serves to make the local database into a Geo-Replication primary (assuming that it is not already) and begin replicating data from it to a secondary database with the same name on another "partner" server.  
 
 NOTE: If the partner database exists (for example as a result of termination of a previous geo-replication relationship) the command will fail.
 
-This cmdlet replaces Start-AzureRMSqlDatabaseCopy with the –IsContinuous parameter provided.  It will output an AzureRMSqlDatabaseSecondary object that can be used by other cmdlets to clearly identify a specific replication link. This cmdlet will return when the secondary database is created and fully seeded. Depending on the size of the database it may take from minutes to hours.
 
-Auth: To enable a secondary you must be the subscription owner or co-owner. 
+
+To enable a secondary you must be the subscription owner or co-owner. 
+
+You can use the **New-AzureRMSqlDatabaseSecondary** cmdlet to add a secondary database on a partner server to a local database on the server to which you are connected (the primary database). 
+
+This cmdlet replaces **Start-AzureRMSqlDatabaseCopy** with the **–IsContinuous** parameter.  It will output an **AzureRMSqlDatabaseSecondary** object that can be used by other cmdlets to clearly identify a specific replication link. This cmdlet will return when the secondary database is created and fully seeded. Depending on the size of the database it may take from minutes to hours.
+
+The replicated database on the secondary server will have the same name as the database on the primary server and will, by default, have the same service level. The secondary database can be readable or non-readable, and can be a single database or an elastic database. For more information, see [New-AzureRMSqlDatabaseSecondary](https://msdn.microsoft.com/library/mt163521.aspx) and [Service Tiers](sql-database-service-tiers.md).
+After the secondary is created and seeded, data will begin replicating from the primary database to the new secondary database. The steps below describe how to accomplish this task using PowerShell to create non-readable and readable secondaries, either with a single database or an elastic database.
+
+> [AZURE.NOTE] If the secondary database exists on the specified partner server (for example, because a relationship already exists as a result of termination of a previous geo-replication relationship) the command will fail.
+
 
 
 ### Add non-readable secondary (single database)
@@ -123,13 +124,16 @@ The following command creates a readable secondary of database "mydb" in the ela
 
 ## Remove secondary database
 
-The operation permanently terminates the replication to the secondary database and change the role of the secondary to the regular read-write database. If the connectivity to secondary database is broken the command succeeds but the secondary will become read-write after connectivity is restored.  
+Use the **Remove-AzureRMSqlDatabaseSecondary** cmdlet to permanently terminate the replication partnership between a secondary database and its primary. After the relationship termination, the secondary database becomes a regular read-write database. If the connectivity to secondary database is broken the command succeeds but the secondary will become read-write after connectivity is restored. For more information, see [Remove-AzureRMSqlDatabaseSecondary](https://msdn.microsoft.com/library/mt163521.aspx) and [Service Tiers](https://azure.microsoft.com/documentation/articles/sql-database-service-tiers/).
 
-This cmdlet replaces Stop-AzureRMSqlDatabaseCopy for replication.  This removal is equivalent of a forced termination that removes the replication link and leaves the former secondary as a standalone database that is not fully replicated prior to termination.  All link data will be cleaned up on both the former primary and former secondary, if or when they are available. This cmdlet will return when the replication link is removed. 
+This cmdlet replaces Stop-AzureRMSqlDatabaseCopy for replication. 
+
+This removal is equivalent of a forced termination that removes the replication link and leaves the former secondary as a standalone database that is not fully replicated prior to termination. All link data will be cleaned up on both the former primary and former secondary, if or when they are available. This cmdlet will return when the replication link is removed. 
+
 
 Auth: In order to remove secondary, users should have write access to both primary and secondary databases according to RBAC. See Role-based access control for details.
 
-The following command removes replication link of database named "mydb" to server "srv2" of the resource group "rg2". 
+The following removes replication link of database named "mydb" to server "srv2" of the resource group "rg2". 
 
     $database = Get-AzureRMSqlDatabase –DatabaseName "mydb"
     $secondaryLink = $database | Get-AzureRMSqlDatabaseReplicationLink –SecondaryResourceGroup "rg2" –PartnerServerName "srv2"
@@ -140,17 +144,22 @@ The following command removes replication link of database named "mydb" to serve
 
 ## Initiate a planned failover from the primary database to the secondary database
 
-The secondary database can be switched to primary and vice versa. It is designed for planned failover such as during the DR drills. The command performs the following workflow: 
+Use the **Set-AzureRMSqlDatabaseSecondary** cmdlet with the **-Failover** parameter to promote a secondary database to become the new primary database in a planned fashion, demoting the existing primary to become a secondary. This functionality is designed for a planned failover, such as during disaster recovery drills, and requires that the primary database be available.
 
-1. Temporarily switch replication to synchronous mode. This will cause all outstanding transactions to be flushed to the secondary; 
+The command performs the following workflow:
 
-2. Switch the roles of the two databases in the geo-replication relationship.  
+1. Temporarily switch replication to synchronous mode. This will cause all outstanding transactions to be flushed to the secondary;
 
-This sequence guarantees that no data loos will occur. There is a short period during which both databases are unavailable (on the order of 0 to 25 seconds) while the roles are switched. The entire operation should take less than a minute to complete under normal circumstances. 
+2. Switch the roles of the two databases in the geo-replication partnership.  
 
-NOTE:  If the primary database is unavailable when the command is issued it will fail with the error message indicating that the primary server is not available. In rare cases it is possible that the operation cannot complete and may appear stuck. In this case the user can call the force failover command and accept data loss. 
+This sequence guarantees that no data loss will occur. There is a short period during which both databases are unavailable (on the order of 0 to 25 seconds) while the roles are switched. The entire operation should take less than a minute to complete under normal circumstances. For more information, see [Set-AzureRMSqlDatabaseSecondary](https://msdn.microsoft.com/library/mt163521.aspx).
 
-This cmdlet is designed to perform multiple "alter" operations on the secondary, but at the moment it is limited to initiating failover. This cmdlet will return when the process of switching the secondary database to primary is completed.
+
+> [AZURE.NOTE]:  If the primary database is unavailable when the command is issued it will fail with an error message indicating that the primary server is not available. In rare cases it is possible that the operation cannot complete and may appear stuck. In this case the user can call the force failover command (unplanned failover) and accept data loss.
+
+
+
+This cmdlet will return when the process of switching the secondary database to primary is completed.
 
 The following command switches the roles of the database named "mydb” on the server "srv2” under the resource group "rg2” to primary. The original primary to which "db2” was connected to will switch to secondary after the two databases are fully synchronized.
 
@@ -161,19 +170,18 @@ The following command switches the roles of the database named "mydb” on the s
 
 ## Initiate an unplanned failover from the primary database to the secondary database
 
-### Cleanup
 
-### Allow/disallow data loss
+You can use the **Set-AzureRMSqlDatabaseSecondary** cmdlet with **–Failover** and **-AllowDataLoss** parameters to promote a secondary database to become the new primary database in an unplanned fashion, forcing the demotion of the existing primary to become a secondary at a time when the primary database is no longer available.
 
-In the case on an outage when the primary is no longer available the secondary database can be switched to primary using forced failover. It is designed for disaster recovery when restoring availability of the database is critical and some data loss is acceptable. 
-When forced failover is invoked, the specified secondary database immediately becomes a primary database and begins accepting write transactions. As soon as the original primary database is able to reconnect with this new primary database after the forced failover operation, an incremental backup is taken on the original primary database and it is made into a secondary for the new primary database; subsequently, it is merely a replica of the new primary. If the user wishes to recovery data committed to the old primary database which had not been replicated to the new primary database, then they must use the point-in-time restore feature to restore the old primary database to a time immediately preceding its change into a secondary. It may be difficult for the user themselves to determine what time they should use in order to guarantee that all data is recovered; in the minimum viable product, users will need to engage devops should they wish to retrieve this information.
-NOTE:
-1.	The user can call the geo-restore API to restore the final backup of the old primary. If Azure storage in the region hosting the old primary was not impacted by the same outage, it is possible that all data will be preserved in the final backup. Note, SQL Database does not automatically take backups of the secondary databases. 
-2.	If the command is issued when the both primary and secondary are online the old primary will become the new secondary but data synchronization will not be attempted. So some data loss may occur.
-If the primary database has multiple secondaries the command will partially succeed. The secondary on which the command was executed will become primary. The old primary however will remain primary, i.e. the two primaries will end up in inconsistent state and connected by a suspended replication link. The user will have to manually repair this configuration using a "remove secondary” API on either of these primary databases.
+This functionality is designed for disaster recovery when restoring availability of the database is critical and some data loss is acceptable. When forced failover is invoked, the specified secondary database immediately becomes the primary database and begins accepting write transactions. As soon as the original primary database is able to reconnect with this new primary database after the forced failover operation, an incremental backup is taken on the original primary database and the old primary database is made into a secondary database for the new primary database; subsequently, it is merely a replica of the new primary.
+
+But because Point In Time Restore is not supported on the secondary databases, if the user wishes to recovery data committed to the old primary database which had not been replicated to the new primary database, she has to engage CSS to restore a database to the know log backup.
+
+> [AZURE.NOTE]: If the command is issued when the both primary and secondary are online the old primary will become the new secondary but data synchronization will not be attempted. So some data loss may occur.
 
 
-The forced failover can be executed using the cmdlet Set-AzureRMSqlDatabaseSecondary described in section 4.3.2.  But because it typically done when the primary is unavailable –AllowDataLoss parameter must be specified. 
+If the primary database has multiple secondaries the command will partially succeed. The secondary on which the command was executed will become primary. The old primary however will remain primary, i.e. the two primaries will end up in inconsistent state and connected by a suspended replication link. The user will have to manually repair this configuration using a “remove secondary” API on either of these primary databases.
+
 
 The following command switches the roles of the database named "mydb” to primary when the primary is unavailable. The original primary to which "mydb” was connected to will switch to secondary after it is back online. At that point the synchronization may result in data loss
 
