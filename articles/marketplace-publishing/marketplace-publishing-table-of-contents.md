@@ -31,8 +31,8 @@ Some steps are shared between the different types of solutions. This provides a 
 
 | Virtual Machine Image | Developer Service | Data Service | Solution Template |
 |-----|-----|-----|-----|
-| [VM Image Publishing Guide Pre-requisites][link-vm-publication-prereq] | [Developer Service Publishing Pre-requisites][link-devsvc-publication-prereq] | Data Service Publishing Pre-requisites  | [Solution Template Publishing Pre-requisites][link-soltempl-publication-prereq] |
-| [VM Image Publishing Guide][link-vm-publication] | [Developer Service Publishing Guide][link-devsvc-publication] | Data Service Publishing Guide | [Solution Template Publishing Guide][link-soltempl-publication] |
+| [VM Image Publishing Guide Pre-requisites][link-vm-prereq] | [Developer Service Publishing Pre-requisites][link-devsvc-prereq] | Data Service Publishing Pre-requisites  | [Solution Template Publishing Pre-requisites][link-multi-vm-prereq] |
+| [VM Image Publishing Guide][link-single-vm] | [Developer Service Publishing Guide][link-devsvc] | Data Service Publishing Guide | [Solution Template Publishing Guide][link-multi-vm] |
 
 ## Step 4. Getting to staging
 - [Azure Marketplace Marketing Content Guide][link-pushstaging]

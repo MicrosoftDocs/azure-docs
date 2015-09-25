@@ -71,6 +71,6 @@ It is possible to develop Azure VHDs in the **cloud** or **on-premises**.
 In order to sell your services on Microsoft Azure Marketplace (DataMarket), your registered entity needs to be from one of the approved “sell from” countries. This restriction is for payout and taxation reasons. We are actively looking to expand this list of countries in the near future, so please stay tuned. For the complete list, please see section 1b of the document at link http://go.microsoft.com/fwlink/?LinkID=526833&clcid=0x409.
 
 ## Next Steps
-Now that you reviewed the pre-requisites and completed the necessary task, you can move forward with the creating your Virtual Machine Image offer as detailed in the [Virtual Machine Image Publishing Guide](marketplace-publishing-vm-image-publication.md)
+Now that you reviewed the pre-requisites and completed the necessary task, you can move forward with the creating your Virtual Machine Image offer as detailed in the [Virtual Machine Image Publishing Guide](marketplace-publishing-vm-image-creation.md)
 
 [link-acct-creation]:marketplace-publishing-accounts-creation-registration.md
