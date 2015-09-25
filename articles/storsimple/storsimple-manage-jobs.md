@@ -1,6 +1,6 @@
 <properties 
    pageTitle="View and manage StorSimple jobs | Microsoft Azure"
-   description="Describes the StorSimple Manager service Jobs page and how to use it."
+   description="Describes the StorSimple Manager service Jobs page and how to use it to track recent, current, and scheduled backup jobs."
    services="storsimple"
    documentationCenter="NA"
    authors="alkohli"
@@ -12,10 +12,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/13/2015"
+   ms.date="09/15/2015"
    ms.author="alkohli" />
 
-# View and manage StorSimple jobs
+# Use the StorSimple Manager service to view and manage StorSimple jobs
 
 ## Overview
 
@@ -87,4 +87,6 @@ This job is now canceled.
 
 ## Next steps
 
-[Learn how to manage your StorSimple backup policies](storsimple-manage-backup-policies.md).
+- Learn how to [manage your StorSimple backup policies](storsimple-manage-backup-policies.md).
+
+- Learn how to [use the StorSimple Manager service to administer your StorSimple device](storsimple-manager-service-administration.md).

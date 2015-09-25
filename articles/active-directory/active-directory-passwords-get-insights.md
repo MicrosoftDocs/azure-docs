@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Get Insights: Azure AD Password Management Reports | Microsoft Azure" 
-	description="This article describes how to use reports to get insight into Password Management operations in your organization." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="asteen" 
-	manager="kbrint" 
+<properties
+	pageTitle="Get Insights: Azure AD Password Management Reports | Microsoft Azure"
+	description="This article describes how to use reports to get insight into Password Management operations in your organization."
+	services="active-directory"
+	documentationCenter=""
+	authors="asteen"
+	manager="kbrint"
 	editor="billmath"/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/08/2015" 
+<tags
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/18/2015" 
 	ms.author="asteen"/>
 
 # How to get operational insights with Password Management reports
@@ -106,14 +106,14 @@ Details|See table below
 ### Allowed values for details column
 Below is the list of result types you may expect when using the password reset activity report:
 
-Details | Result Type 
+Details | Result Type
 ----|----
 User abandoned after completing the email verification option  | Abandoned
-User abandoned after completing the mobile SMS verification option|Abandoned 
-User abandoned after completing the mobile voice call verification option | Abandoned 
+User abandoned after completing the mobile SMS verification option|Abandoned
+User abandoned after completing the mobile voice call verification option | Abandoned
 User abandoned after completing the office voice call verification option | Abandoned
-User abandoned after completing the security questions option|Abandoned 
-User abandoned after entering their user ID| Abandoned 
+User abandoned after completing the security questions option|Abandoned
+User abandoned after entering their user ID| Abandoned
 User abandoned after starting the email verification option|Abandoned
 User abandoned after starting the mobile SMS verification option|Abandoned
 User abandoned after starting the mobile voice call verification option|Abandoned
@@ -141,7 +141,7 @@ User's password is managed on-premises. You can enable Password Writeback to res
 We could not reach your on-premises password reset service. Check your sync machine's event log|Failed
 We encountered a problem while resetting the user's on-premises password. Check your sync machine's event log | Failed
 This user is not a member of the password reset users group. Add this user to that group to resolve this.|Failed
-Password reset has been disabled entirely for this tenant. See [here](http://aka.ms/ssprtroubleshoot) to resolve this. | Failed 
+Password reset has been disabled entirely for this tenant. See [here](http://aka.ms/ssprtroubleshoot) to resolve this. | Failed
 User successfully reset password|Succeeded
 
 **Additional Resources**
@@ -162,4 +162,3 @@ User successfully reset password|Succeeded
 [001]: ./media/active-directory-passwords-get-insights/001.jpg "Image_001.jpg"
 [002]: ./media/active-directory-passwords-get-insights/002.jpg "Image_002.jpg"
 [003]: ./media/active-directory-passwords-get-insights/003.jpg "Image_003.jpg"
- 

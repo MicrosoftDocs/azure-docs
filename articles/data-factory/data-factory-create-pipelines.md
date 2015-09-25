@@ -310,7 +310,8 @@ Once a pipeline is deployed, you can manage and monitor your pipelines, slices a
 - Understand [management and monitoring in Azure Data Factory](data-factory-monitor-manage-pipelines.md).
 - [Build and deploy your fist pipeline](data-factory-build-your-first-pipeline.md). 
 
-
+## Send Feedback
+We would really appreciate your feedback on this article. Please take a few minutes to submit your feedback via [email](mailto:adfdocfeedback@microsoft.com?subject=data-factory-create-pipelines.md). 
  
 
    

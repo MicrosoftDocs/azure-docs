@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Troubleshoot Secure Shell (SSH) connections to a Linux-based Azure virtual machine"
-	description="If you can't connect your Linux-based Azure virtual machine, use these steps to isolate the source of the problem."
+	pageTitle="Troubleshoot SSH connections to a Linux VM | Microsoft Azure"
+	description="If you can't connect your Linux-based Azure Virtual Machine, use these steps to isolate the source of the problem."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="dsk-2015"
@@ -19,6 +19,8 @@
 	ms.author="dkshir"/>
 
 # Troubleshoot Secure Shell (SSH) connections to a Linux-based Azure virtual machine
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)] This article covers troubleshooting SSH connections on a virtual machine created with the classic deployment model or the Resource Manager deployment model.
 
 If you can't connect to Linux-based Azure virtual machines, this article describes a methodical approach for isolating and correcting the problem.
 
@@ -54,7 +56,7 @@ In the Azure preview portal:
 
 To verify network connectivity, analyze the configured endpoints and determine if you can reach the virtual machine through another protocol, such as HTTP or another known service.
 
-If needed, [Restart the virtual machine](https://msdn.microsoft.com/library/azure/dn763934.aspx) or [Resize the virtual machine](https://msdn.microsoft.com/library/dn168976.aspx).
+If needed, restart the virtual machine or [resize the virtual machine](virtual-machines-size-specs.md).
 
 After these steps, try the SSH connection again.
 
@@ -119,7 +121,7 @@ If you do not have another virtual machine in the same virtual network, you can 
 If you can create an SSH connection with a virtual machine in the same virtual network, check:
 
 - The endpoint configuration for SSH traffic on the target virtual machine. The private TCP port of the endpoint must match the TCP port on which the SSH service on the virtual machine is listening, which by default is 22. For virtual machines created in Azure Resource Manager using templates, verify the SSH TCP port number in the Azure preview portal with **Browse** > **Virtual machines (v2)** > *VM name* > **Settings** > **Endpoints**.
-- The ACL for the SSH traffic endpoint on the target virtual machine. ACLs allow you to specify allowed or denied incoming traffic from the Internet, based on its source IP address. Misconfigured ACLs can prevent incoming SSH traffic to the endpoint. Examine your ACLs to ensure that incoming traffic from your public IP addresses of your proxy or other edge server are allowed. For more information, see [About network access control lists (ACLs)](https://msdn.microsoft.com/library/azure/dn376541.aspx).
+- The ACL for the SSH traffic endpoint on the target virtual machine. ACLs allow you to specify allowed or denied incoming traffic from the Internet, based on its source IP address. Misconfigured ACLs can prevent incoming SSH traffic to the endpoint. Examine your ACLs to ensure that incoming traffic from your public IP addresses of your proxy or other edge server are allowed. For more information, see [About network access control lists (ACLs)](../virtual-network/virtual-networks-acl.md).
 
 To eliminate the endpoint as a source of the problem, remove the current endpoint and create a new endpoint, specifying the **SSH** name (TCP port 22 for the public and private port number). For more information, see [Set up endpoints on a virtual machine in Azure](virtual-machines-set-up-endpoints.md).
 

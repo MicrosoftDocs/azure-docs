@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/13/2015"
+   ms.date="09/15/2015"
    ms.author="tomfitz"/>
 
 # Understanding Resource Manager deployment and classic deployment
@@ -108,7 +108,7 @@ Resource Manager added the concept of the resource group. Every resource you cre
 
 
 Prior to Resource Manager, every resource you created through classic deployment did not exist within a resource group. When Resource Manager was added, all resources were retroactively added to default resource groups. If you create a resource through classic deployment now, the resource is 
-automatically created within an empty resource group even though you did not specify that resource group at deployment. However, just existing within a resource group does not mean that the resource has been converted to the Resourece Manager model. If the resource was created through classic deployment, you must continue to operate on it through classic operations. 
+automatically created within a default resource group for that service, even though you did not specify that resource group at deployment. However, just existing within a resource group does not mean that the resource has been converted to the Resourece Manager model. For Virtual Machines, Storage, and Virtual Networks, if the resource was created through classic deployment, you must continue to operate on it through classic operations. 
 
 You can move resources to a different resource group, and add new resources to an existing resource group. So, your resource group can contain a 
 mix of resources created through Resource Manager and classic deployment. This combination of resources can create unexpected results because the resources 
@@ -164,6 +164,8 @@ For a list of equivalent Azure CLI commands when transitioning from classic depl
 
 For more details about transitioning Compute, Storage, and 
 Networking resources, see [Azure Compute, Network & Storage Providers under the Azure Resource Manager](./virtual-machines/virtual-machines-azurerm-versus-azuresm.md).
+
+To learn about connecting virtual networks from different deployment models, see [Connecting classic VNets to new VNets](./virtual-network/virtual-networks-arm-asm-s2s.md).
 
 ## Next steps
 

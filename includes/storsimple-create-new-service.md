@@ -1,24 +1,9 @@
-<properties 
-   pageTitle="Create a new StorSimple Manager service"
-   description="Describes how to create a new instance of the StorSimple Manager service."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="carolz"
-   editor="" />
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="08/14/2015"
-   ms.author="v-sharos" />
+<!--author=alkohli last changed: 9/17/15-->
 
 
 #### To create a new service
 
-1. Using your Microsoft account credentials, log on to the Management Portal at this URL: [http://azure.microsoft.com/](http://azure.microsoft.com/)
+1. Using your Microsoft account credentials, log on to the Management Portal at this URL: [http://azure.microsoft.com/](http://azure.microsoft.com/).
 
 2. In the Management Portal, click **New** > **Data Services** > **StorSimple Manager** > **Quick Create**.
 
@@ -33,8 +18,12 @@
   4. Select **Create a new storage account** to automatically create a storage account with the service. This storage account will have a special name such as "storsimplebwv8c6dcnf." If you need your data in a different location, uncheck this box. 
   5. Click **Create StorSimple Manager** to create the service.
 
-   ![create a service](./media/storsimple-create-new-service/HCS_CreateAService-include.png)
+   ![Create StorSimple Manager](./media/storsimple-create-new-service/HCS_CreateAService-include.png)
 
   You will be directed to the **Service** landing page. The service creation will take a few minutes. After the service is successfully created, you will be notified appropriately and the status of the service will change to **Active**.
  
-   ![service creation](./media/storsimple-create-new-service/HCS_StorSimpleManagerServicePage-include.png)
+   ![Service creation](./media/storsimple-create-new-service/HCS_StorSimpleManagerServicePage-include.png)
+
+![Video available](./media/storsimple-create-new-service/Video_icon.png) **Video available**
+
+To watch a video that demonstrates how to create a new StorSimple Manager service, click [here](http://azure.microsoft.com/documentation/videos/create-a-storsimple-manager-service/).

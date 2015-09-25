@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/14/2015"
+   ms.date="09/14/2015"
    ms.author="v-sharos" />
 
 # Deploy the StorSimple Manager service
@@ -74,7 +74,7 @@ Perform the following steps to delete a service.
 
 ## Get the service registration key
 
-After you have successfully created a service, you will need to register your StorSimple device with the service. To register your first StorSimple device, you will need the service registration key. To register additional devices with an existing StorSimple service, you will need both the registration key and the service data encryption key (which is generated on the first device during registration). For more information about the service data encryption key, see [StorSimple Security](storsimple-security.md). You can get the registration key by accessing **Registration Key** on the **Services** page.
+After you have successfully created a service, you will need to register your StorSimple device with the service. To register your first StorSimple device, you will need the service registration key. To register additional devices with an existing StorSimple service, you will need both the registration key and the service data encryption key (which is generated on the first device during registration). For more information about the service data encryption key, see [StorSimple security](storsimple-security.md). You can get the registration key by accessing **Registration Key** on the **Services** page.
 
 Perform the following steps to get the service registration key.
 
@@ -107,8 +107,10 @@ Perform the following steps to regenerate a service registration key.
 
 ## Next steps
 
-Learn more about the [StorSimple deployment process](storsimple-deployment-walkthrough.md).
+- Learn more about the [StorSimple deployment process](storsimple-deployment-walkthrough.md).
 
-Learn more about [managing your StorSimple storage account](storsimple-manage-storage-accounts.md).
+- Learn more about [managing your StorSimple storage account](storsimple-manage-storage-accounts.md).
+
+- Learn more about how to [use the StorSimple Manager service to administer your StorSimple device](storsimple-manager-service-administration.md).
 
  

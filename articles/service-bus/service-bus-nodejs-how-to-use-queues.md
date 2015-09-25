@@ -24,7 +24,7 @@ This guide describes how to use Service Bus queues. The samples are written in J
 
 ## Create a Node.js application
 
-Create a blank Node.js application. For instructions on creating a Node.js application, see [Create and deploy a Node.js application to an Azure Web Site], [Node.js Cloud Service][Node.js Cloud Service] (using Windows PowerShell), or [Web Site with WebMatrix].
+Create a blank Node.js application. For instructions on creating a Node.js application, see [Create and deploy a Node.js application to an Azure Web Site], or [Node.js Cloud Service][Node.js Cloud Service] (using Windows PowerShell).
 
 ## Configure your application to use Service Bus
 
@@ -164,10 +164,11 @@ In the event that the application crashes after processing the message but befor
 
 ## Next steps
 
-Now that you've learned the basics of Service Bus queues, follow these links to learn more.
+For more information, see the following resources.
 
--   See the MSDN Reference: [Queues, Topics, and Subscriptions.][]
--   Visit the [Azure SDK for Node] repository on GitHub.
+-   [Queues, Topics, and Subscriptions][]
+-   [Azure SDK for Node][] repository on GitHub
+-   [Node.js Developer Center](/develop/nodejs/)
 
   [Azure SDK for Node]: https://github.com/Azure/azure-sdk-for-node
   [Next steps]: #next-steps
@@ -184,8 +185,7 @@ Now that you've learned the basics of Service Bus queues, follow these links to 
   [Azure Management Portal]: http://manage.windowsazure.com
   
   [Node.js Cloud Service]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
-  [Queues, Topics, and Subscriptions.]: http://msdn.microsoft.com/library/azure/hh367516.aspx
-  [Web Site with WebMatrix]: ../app-service-web/web-sites-dotnet-using-webmatrix.md
+  [Queues, Topics, and Subscriptions]: service-bus-queues-topics-subscriptions.md
   [Create and deploy a Node.js application to an Azure Web Site]: ../app-service-web/web-sites-nodejs-develop-deploy-mac.md
   [Node.js Cloud Service with Storage]: ../cloud-services/storage-nodejs-use-table-storage-cloud-service-app.md
   [Node.js Web Application with Storage]: ../storage/storage-nodejs-how-to-use-table-storage.md

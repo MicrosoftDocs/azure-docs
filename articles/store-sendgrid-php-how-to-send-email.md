@@ -15,23 +15,12 @@
 	ms.topic="article" 
 	ms.date="10/30/2014" 
 	ms.author="elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork; matt.bernier@sendgrid.com"/>
-
 # How to Use the SendGrid Email Service from PHP
 
 This guide demonstrates how to perform common programming tasks with the SendGrid email service on Azure. The samples are written in PHP.
-The scenarios covered include **constructing email**, **sending email**, and **adding attachments**. For more information on SendGrid and sending email, see the [Next Steps][] section.
+The scenarios covered include **constructing email**, **sending email**, and **adding attachments**. For more information on SendGrid and sending email, see the [Next Steps](#next-steps) section.
 
-## Table of Contents
-
--   [What is the SendGrid Email Service][]
--   [Create a SendGrid Account][]
--   [Using SendGrid from your PHP Application][]
--   [How To: Send an Email][]
--   [How To: Add an Attachment][]
--   [How to: Use Filters to Enable Footers, Tracking, and Analytics][]
--   [Next Steps][]
-
-## <a name="bkmk_WhatIsSendGrid"> </a>What is the SendGrid Email Service?
+## What is the SendGrid Email Service?
 
 SendGrid is a [cloud-based email service] that provides reliable
 [transactional email delivery], scalability, and real-time analytics along with flexible APIs
@@ -49,18 +38,18 @@ include:
 
 For more information, see [https://sendgrid.com][].
 
-## <a name="bkmk_CreateSendGrid"> </a>Create a SendGrid Account
+## Create a SendGrid Account
 
 [AZURE.INCLUDE [sendgrid-sign-up](../includes/sendgrid-sign-up.md)]
 
-## <a name="bkmk_UsingSendGridfromPHP"> </a>Using SendGrid from your PHP Application
+## Using SendGrid from your PHP Application
 
 Using SendGrid in an Azure PHP application requires no special
 configuration or coding. Because SendGrid is a service, it can be
 accessed in exactly the same way from a cloud application as it can from
 an on-premises application.
 
-## <a name="bkmk_HowToSendEmail"> </a>How to: Send an Email
+## How to: Send an Email
 
 You can send email using either SMTP or the Web API provided by
 SendGrid.
@@ -184,7 +173,7 @@ SendGrid's Web API is very similar to a REST API, though it is
 not truly a RESTful API since, in most calls, both GET and POST verbs
 can be used interchangeably.
 
-## <a name="bkmk_HowToAddAttachment"> </a>How to: Add an Attachment
+## How to: Add an Attachment
 
 ### SMTP API
 
@@ -318,7 +307,7 @@ Example:
      // print everything out
      print_r($response);
 
-## <a name="bkmk_HowToUseFilters"> </a>How to: Use Filters to Enable Footers, Tracking, and Analytics
+## How to: Use Filters to Enable Footers, Tracking, and Analytics
 
 SendGrid provides additional email functionality through the use of
 'filters'. These are settings that can be added to an email message to
@@ -429,7 +418,7 @@ Example:
 
      print_r($response);
 
-## <a name="bkmk_NextSteps"> </a>Next Steps
+## Next Steps
 
 Now that you've learned the basics of the SendGrid Email service, follow
 these links to learn more.
@@ -438,14 +427,9 @@ these links to learn more.
 -   SendGrid PHP library: <https://github.com/sendgrid/sendgrid-php>
 -   SendGrid special offer for Azure customers: <https://sendgrid.com/windowsazure.html>
 
-  [Next Steps]: #bkmk_NextSteps
-  [What is the SendGrid Email Service]: #bkmk_WhatIsSendGrid
-  [Create a SendGrid Account]: #bkmk_CreateSendGrid
-  [Using SendGrid from your PHP Application]: #bkmk_UsingSendGridfromPHP
-  [How To: Send an Email]: #bkmk_HowToSendEmail
-  [How To: Add an Attachment]: #bkmk_HowToAddAttachment
-  [How to: Use Filters to Enable Footers, Tracking, and Analytics]: #bkmk_HowToUseFilters
-  [How to: Use Additional SendGrid Services]: #bkmk_HowToUseAdditionalSvcs
+For more information, see also the [PHP Developer Center](/develop/php/).
+
+
   [https://sendgrid.com]: https://sendgrid.com
   [https://sendgrid.com/transactional-email/pricing]: https://sendgrid.com/transactional-email/pricing
   [special offer]: https://www.sendgrid.com/windowsazure.html

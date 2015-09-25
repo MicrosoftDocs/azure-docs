@@ -13,11 +13,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/26/2015"
+   ms.date="09/22/2015"
    ms.author="JRJ@BigBangData.co.uk;barbkess"/>
 
 # Table design in SQL Data Warehouse #
-SQL Data Warehouse is a massively parallel processing (MPP) distributed database system. Consequently, it stores data across many different locations known as **distributions**. Each **distribution** is like a bucket; storing a unique subset of the data in the data warehouse. By spreading the data and processing capability across multiple nodes SQL Data Warehouse is able to offer huge scalability - far beyond any single system.
+SQL Data Warehouse is a massively parallel processing (MPP) distributed database system. It stores data across many different locations known as **distributions**. Each **distribution** is like a bucket; storing a unique subset of the data in the data warehouse. By spreading the data and processing capability across multiple nodes, SQL Data Warehouse can offer huge scalability - far beyond any single system.
 
 When a table is created in SQL Data Warehouse, it is actually spread across all of the the distributions.
 
@@ -92,9 +92,9 @@ OR  y.[is_user_defined] = 1
 
 ```
 
-The query includes any user defined data types which are also not supported.
+The query includes any user-defined data types, which are not supported.
 
-If you have unsupported types in your database do not worry. Some alternatives you can use instead are proposed below.
+below are some alternatives you can use in place of unsupported data types.
 
 Instead of:
 
@@ -102,7 +102,7 @@ Instead of:
 - **geography**, use a varbinary type
 - **hierarchyid**, CLR type not native
 - **image**, **text**, **ntext** when text based use varchar/nvarchar (smaller the better)
-- **nvarchar(max)**, use varchar(4000) or smaller for better performance
+- **nvarchar(max)**, use nvarchar(4000) or smaller for better performance
 - **numeric**, use decimal
 - **sql_variant**, split column into several strongly typed columns
 - **sysname**, use nvarchar(128)
@@ -123,10 +123,10 @@ Partial support:
 
 There are two choices for distributing data in SQL Data Warehouse:
 
-1. Distribute data based on hashing values from a single column
-2. Distribute data evenly but randomly  
+1. Distribute data evenly but randomly 
+2. Distribute data based on hashing values from a single column
 
-Data distribution is decided at the table level. All tables are distributed so you will have the opportunity to make this decision for each table in your SQL Data Warehouse database.
+Data distribution is decided at the table level. All tables are distributed. You will assign distribution for each table in your SQL Data Warehouse database.
 
 The first option is known as **round-robin** distribution - sometimes known as the random hash. You can think of this as the default or fail safe option.
 
@@ -134,7 +134,7 @@ The second option is known as the **hash** distribution. You can consider it an 
 
 ## Round-robin distribution
 
-Round-Robin distribution is a method of spreading data as evenly as possible across all distributions. Buffers containing rows of data are allocated in turn (hence the name round robin) to each distribution. The process is repeated until all data buffers have been allocated. At no stage is the data sorted or ordered in a round robin distributed table. A round robin distribution is sometimes called a random hash for this reason. The data is simply spread as evenly as possible across the distributions.
+Round-Robin distribution is a method of spreading data as evenly as possible across all distributions. Buffers containing rows of data are allocated in turn (hence the name round robin) to each distribution. The process is repeated until all data buffers have been allocated. At no stage is the data sorted or ordered in a round robin distributed table. A round robin distribution is sometimes called a random hash for this reason. The data is spread as evenly as possible across the distributions.
 
 Below is an example of round robin distributed table:
 

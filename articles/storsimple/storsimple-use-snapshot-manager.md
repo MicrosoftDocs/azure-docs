@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/11/2015"
+   ms.date="09/15/2015"
    ms.author="v-sharos" />
 
 # StorSimple Snapshot Manager user interface
@@ -51,7 +51,7 @@ The StorSimple Snapshot Manager user interface supports the accessibility featur
 
 ## Menu bar
 
-The menu bar at the top of the console window contains [**File**](#file-menu), [**Action**](#action-menu), [**View**](#view-menu), [**Favorites**](#favorites-menu), [**Window**](#window-menu), and [**Help**](#help-menu) menus.
+The menu bar at the top of the console window contains [File](#file-menu), [Action](#action-menu), [View](#view-menu), [Favorites](#favorites-menu), [Window](#window-menu), and [Help](#help-menu) menus.
 
 Click any item on the menu bar to see a list of available commands on that menu. The following example shows the **View** menu selected on the menu bar.
 
@@ -539,4 +539,5 @@ The following tables show the shortcut key combinations for each node in the **S
  
 ## Next steps
 
-Learn how to [use StorSimple Snapshot Manager to connect and manage devices](storsimple-snapshot-manager-manage-devices.md).
+- Learn how to [use StorSimple Snapshot Manager to administer your StorSimple solution](storsimple-snapshot-manager-admin.md).
+- Learn how to [use StorSimple Snapshot Manager to connect and manage devices](storsimple-snapshot-manager-manage-devices.md).

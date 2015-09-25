@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="06/08/2015" 
+	ms.date="09/22/2015" 
 	ms.author="tdykstra"/>
 
 # How to use Azure blob storage with the WebJobs SDK

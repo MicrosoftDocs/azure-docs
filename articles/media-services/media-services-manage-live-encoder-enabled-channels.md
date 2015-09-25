@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="08/11/2015" 
+	ms.date="09/16/2015"
 	ms.author="juliako"/>
 
 #Working with Channels that are Enabled to Perform Live Encoding with Azure Media Services (Preview)
@@ -41,22 +41,13 @@ The following diagram represents a live streaming workflow where a channel recei
 
 ![Live workflow][live-overview]
 
->[AZURE.NOTE]Not all data centers support Live Encoding with Azure Media Services. 
->
->If you are using Azure Management Portal to create Channels, you will have two Channel encoding type options available: **None** and **Standard**. If you only see the **None** option, it means your data center does not support Live Encoding with AMS.
->
->If you are using .NET SDK or REST API, do the following to check:
->
->1. Try to create a Channel with encoding type set to Standard. 
->2. If the returned result HTTP Error Code 412 (Precondition Failed) with the following message: *"Live encoding is not supported in this region; EncodingType must be set to 'None'."*, your data center does not support Live Encoding.
-
 
 ##In this topic
 
 - Overview of a [common live streaming scenario](media-services-manage-live-encoder-enabled-channels.md#scenario)
 - [Description of a Channel and its related components](media-services-manage-live-encoder-enabled-channels.md#channel)
-- [Considerations](media-services-manage-live-encoder-enabled-channels.md#considerations)
-- [Tasks related to Live Streaming](media-services-manage-live-encoder-enabled-channels.md#tasks)
+- [Considerations](media-services-manage-live-encoder-enabled-channels.md#Considerations)
+
 
 ##<a id="scenario"></a>Common Live Streaming Scenario
 
@@ -398,6 +389,7 @@ Stopped|Stopped|No
 
 ##<a id="Considerations"></a>Considerations
 
+- When a Channel of **Standard** encoding type experiences a loss of input source/contribution feed, it compensates for it by replacing the source video/audio with an error slate and silence. The Channel will continue to emit a slate until the input/contribution feed resumes. We recommend that a live channel not be left in such a state for longer than 2 hours. Beyond that point, the behavior of the Channel on input reconnection is not guaranteed, neither is its behavior in response to a Reset command. You will have to stop the Channel, delete it and create a new one.
 - You cannot change the input protocol while the Channel or its associated programs are running. If you require different protocols, you should create separate channels for each input protocol. 
 - Every time you reconfigure the live encoder, call the **Reset** method on the channel. Before you reset the channel, you have to stop the program. After you reset the channel, restart the program. 
 - A channel can be stopped only when it is in the Running state, and all programs on the channel have been stopped.
@@ -411,30 +403,7 @@ Stopped|Stopped|No
 - RTP support is catered towards professional broadcasters. Please review the notes on RTP in [this](http://azure.microsoft.com/blog/2015/04/13/an-introduction-to-live-encoding-with-azure-media-services/) blog.
 - Slate images should conform to restrictions described [here](media-services-manage-live-encoder-enabled-channels.md#default_slate). If you attempt create a Channel with a default slate that is larger than 1920x1080, the request will eventually error out.
 
-
-##<a id="tasks"></a>Tasks related to Live Streaming
-
-###Creating a Media Services account
-
-[Create Azure Media Services Account](media-services-create-account.md).
-
-###Configuring streaming endpoints
-
-For an overview about streaming endpoints and information on how to manage them, see [How to Manage Streaming Endpoints in a Media Services Account](media-services-manage-origins.md)
-
-###Setting up development environment  
-
-Choose **.NET** or **REST API** for your development environment.
-
-[AZURE.INCLUDE [media-services-selector-setup](../../includes/media-services-selector-setup.md)]
-
-###Connecting programmatically  
-
-Choose **.NET** or **REST API** to programmatically connect to Azure Media Services.
-
-[AZURE.INCLUDE [media-services-selector-connect](../../includes/media-services-selector-connect.md)]
-
-###Creating Channels that perform live encoding from a singe bitrate to adaptive bitrate stream 
+###How to create channels that perform live encoding from a singe bitrate to adaptive bitrate stream 
 
 Choose **Portal**, **.NET**, **REST API** to see how to create and manage channels and programs.
 
@@ -443,57 +412,13 @@ Choose **Portal**, **.NET**, **REST API** to see how to create and manage channe
 - [.NET SDK](media-services-dotnet-creating-live-encoder-enabled-channel.md)
 - [REST API](https://msdn.microsoft.com/library/azure/dn783458.aspx)
 
-###Protecting assets
 
-**Overview**: 
+##Media Services learning paths
 
-[Content Protection Overview](media-services-content-protection-overview.md)
+You can view AMS learning paths here:
 
-If you want to encrypt an asset associate with a program with Advanced Encryption Standard (AES) (using 128-bit encryption keys) or PlayReady DRM, you need to create a content key.
-
-Use **.NET** or **REST API** to create keys.
-
-[AZURE.INCLUDE [media-services-selector-create-contentkey](../../includes/media-services-selector-create-contentkey.md)]
-
-Once you create the content key, you can configure key authorization policy using **.NET** or **REST API**.
-
-[AZURE.INCLUDE [media-services-selector-content-key-auth-policy](../../includes/media-services-selector-content-key-auth-policy.md)]
-
-####Integrating with partners
-
-[Using castLabs to deliver DRM licenses to Azure Media Services](media-services-castlabs-integration.md)
-
-
-###Publishing and delivering assets
-
-**Overview**: 
-
-- [Dynamic Packaging Overview](../media-services-dynamic-overview.md)
-
-
-Configure asset delivery policy using **.NET** or **REST API**.
-
-[AZURE.INCLUDE [media-services-selector-asset-delivery-policy](../../includes/media-services-selector-asset-delivery-policy.md)]
-
-Publish assets (by creating Locators) using **Azure Management Portal** or **.NET**.
-
-[AZURE.INCLUDE [media-services-selector-publish](../../includes/media-services-selector-publish.md)]
-
-
-Deliver Content 
-
-> [AZURE.SELECTOR]
-- [Overview](media-services-deliver-content-overview.md)
-
-###Enabling Azure CDN
-
-Media Services supports integration with Azure CDN. For information on how to enable Azure CDN, see [How to Manage Streaming Endpoints in a Media Services Account](media-services-manage-origins.md#enable_cdn).
-
-###Scaling a Media Services account
-
-You can scale **Media Services** by specifying the number of **Streaming Reserved Units** you would like your account to be provisioned with. 
-
-For information about scaling streaming units, see: [How to scale streaming units](media-services-manage-origins.md#scale_streaming_endpoints.md).
+- [AMS Live Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [AMS on Demand Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
 ##Related topics
 

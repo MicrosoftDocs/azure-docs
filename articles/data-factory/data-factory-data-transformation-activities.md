@@ -17,6 +17,8 @@
 	ms.author="spelluru"/>
 
 # Transform and analyze using Azure Data Factory
+
+## Overview
 Transformation activities in Azure Data Factory transform and process your raw data into predictions and insights. The transformation activity executes in a computing environment such as Azure HDInsight cluster or an Azure Batch. Azure Data Factory supports the following transformation activities that can be added to [pipelines](data-factory-create-pipelines.md) either individually or chained with another activity.
 
 
@@ -26,7 +28,7 @@ Transformation activity |  Compute environment
 [Pig](data-factory-pig-activity.md) | HDInsight [Hadoop]  
 [MapReduce](data-factory-map-reduce.md) | HDInsight [Hadoop]  
 [Hadoop Streaming](https://msdn.microsoft.com/library/mt185698.aspx) | HDInsight [Hadoop]
-[Machine Learning Batch Scoring](data-factory-create-predictive-pipelines.md) | Azure VM 
+[Machine Learning Batch Execution](data-factory-azure-ml-batch-execution-activity.md) | Azure VM 
 [Stored Procedure](data-factory-stored-proc-activity.md) | Azure SQL | 
 [DotNet](data-factory-use-custom-activities.md) | HDInsight [Hadoop] or Azure Batch    
 
@@ -36,3 +38,6 @@ You need to create a linked service for the compute environment and then use the
 2. **Bring Your Own**: In this case, you can register your own computing environment (for example HDInsight cluster) as a linked service in Data Factory. The computing environment is managed by you and the Data Factory service uses it to execute the activities. 
 
 See [Compute Linked Services](data-factory-compute-linked-services.md) article to learn about compute linked services supported by Data Factory. 
+
+## Send Feedback
+We would really appreciate your feedback on this article. Please take a few minutes to submit your feedback via [email](mailto:adfdocfeedback@microsoft.com?subject=data-factory-data-transformation-activities.md). 

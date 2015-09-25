@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/22/2015"
+   ms.date="09/22/2015"
    ms.author="JRJ@BigBangData.co.uk;barbkess"/>
 
 # Table partitions in SQL Data Warehouse
@@ -24,9 +24,16 @@ To migrate SQL Server partition definitions to SQL Data Warehouse:
 - Define the partitions when you create the table. Simply specify partition boundary points and whether you want the boundary point to be effective `RANGE RIGHT` or `RANGE LEFT`.
 
 ### Partition sizing
-Partition sizing is an important consideration for SQL Data Warehouse. Typically data management operations and data loading routines target individual partitions rather than tackling the whole table all at once. This is particularly relevant to clustered columnstores (CCI). CCI's can consume significant amounts of memory. Therefore, whilst we may want to revise the granularity of the partitioning plan we do not want to size the partitions to such a size that we run into memory pressure when trying to perform management tasks.
+SQL DW offers a DBA several choices for table types: heap, clustered index (CI), and clustered column-store index (CCI).   For each of these table types, the DBA can also partition the table, which means dividing it into multiple sections to improve performance.  However, creating a table with too many partitions can actually cause performance degradations or query failures under some circumstances.  These concerns are especially true for CCI tables.  For partitioning to be helpful, it is important for a DBA to understand when to use partitioning and the number of partitions to create.  These guidelines are intended to help DBAs make the best choices for their scenarios. 
 
-When deciding the granularity of the partitions it is important to remember that SQL Data Warehouse will automatically distribute the data into distributions. Consequently, data that would have normally existed in one table in one partition in an SQL Server database now exists in one partition across many tables in a SQL Data Warehouse database. To maintain a meaningful number of rows in each partition one typically changes the partition boundary size. For example, if you have used day level partitioning for your data warehouse you may want to consider something less granular such as month or quarter.
+Normally table partitions are useful in two primary ways: 
+
+1. Using partition switching to quickly truncate a section of a table.  A commonly used design is for a fact table to contain rows only for some predetermined finite period.  For example, a sales fact table might contain data only for the past 36 months.  At the end of every month, the oldest month of sales data is deleted from the table.  This could be accomplished by simply deleting all of the rows for the oldest month, but deleting a large amount of data row-by-row can take a very long time.  To optimize for this scenario, SQL DW supports partition swapping, which enables the entire set of rows in a partition to be dropped in a single fast operation.   
+
+2. Partitioning enables queries to easily exclude processing a large set of rows (i.e. a partition) if queries place a predicate on the partitioning column.  For example, if the sales fact table is partitioned into 36 months using the sales date field, then queries that filter on the sale date can skip processing partitions that don’t match the filter.   In effect, partitioning used in this way is a coarse grained index. 
+
+When creating clustered column-store indexes in SQL DW, a DBA needs to consider an additional factor: number of row.   CCI tables can achieve a high degree of compression and helps SQL DW accelerate query performance.  Due to how compression works internally in SQL DW, each partition in a CCI table needs to have a fairly large number of rows before data is compressed. In addition, SQL DW spreads data across a large number of distributions, and each distribution is further divided by partitions.  For optimal compression and performance, a minimum of 100,000 rows per distribution & partition is needed.  Using the example above, if the sales fact table contained 36 monthly partitions, and given that SQL DW has 60 distributions, then the sales fact table should contain 6 million rows per month, or 216 million rows when all months are populated.  If a table contains significantly less rows than the recommended minimum, then the DBA should consider creating the table with fewer partitions in order to make the number of rows per distribution larger.  
+
 
 To size your current database at the partition level use a query like the one below:
 

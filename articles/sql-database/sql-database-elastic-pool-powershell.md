@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="powershell"
    ms.workload="data-management" 
-   ms.date="08/12/2015"
+   ms.date="09/23/2015"
    ms.author="adamkr; sstein"/>
 
 # Create and manage a SQL Database elastic database pool using PowerShell
@@ -105,6 +105,7 @@ Now you have a resource group, a server, and a firewall rule configured so you c
 
 The pool created in the previous step is empty, it has no elastic databases in it. The following sections show how to create new elastic databases inside of the pool, and also how to add existing databases into the pool.
 
+*After creating a pool you can also use Transact-SQL for creating new elastic databases in the pool, and moving existing databases in and out of a pool. For details see, [Elastic database pool reference - Transact-SQL](sql-database-elastic-pool-reference.md#Transact-SQL).*
 
 ### Create a new elastic database inside an elastic database pool
 
@@ -117,7 +118,7 @@ To create a new database directly inside a pool, use the **New-AzureSqlDatabase*
 
 ### Move an existing database into an elastic database pool
 
-To move an existing database into a pool, use the **Set-AzurSqlDatabase** cmdlet and set the **ElasticPoolName** parameter. 
+To move an existing database into a pool, use the **Set-AzureSqlDatabase** cmdlet and set the **ElasticPoolName** parameter. 
 
 
 For demonstration, create a database that's not in an elastic database pool.

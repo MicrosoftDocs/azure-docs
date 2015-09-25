@@ -63,11 +63,11 @@ For a complete set of articles about using Linux and Linux clusters, go to the [
 * [Use C# user-defined functions with Hive and Pig streaming](hdinsight-hadoop-hive-pig-udf-dotnet-csharp.md)
 * [Develop C# Hadoop streaming programs](hdinsight-hadoop-develop-deploy-streaming-jobs.md)
 
-## HBase: NoSQL analytics
+## HBase: NoSQL database
 
 * [Configure HBase geo-replication](hdinsight-hbase-geo-replication.md)
 * [Use Maven to build Java applications that use HBase](hdinsight-hbase-build-java-maven.md)
-* [Analyze real-time Twitter sentiment with HBase](hdinsight-hbase-analyze-twitter-sentiment.md)
+* [Analyze real-time Twitter sentiment on HBase](hdinsight-hbase-analyze-twitter-sentiment.md)
 
 ## Apache Storm: Stream query
 
@@ -102,6 +102,7 @@ For articles about using native Apache Spark clusters in the Azure preview porta
 * [Generate movie recommendations by using Apache Mahout with Hadoop](hdinsight-mahout.md)
 * [Learning path: Build advanced analytics solutions](machine-learning-data-science-how-to-create-machine-learning-service.md)
 * [Learning path: Advanced data processing](machine-learning-data-science-advanced-data-processing.md)
+* [Predict taxi tips with HDInsight and Machine Learning](machine-learning-data-science-process-hive-walkthrough.md)
 
 ## Extensibility
 

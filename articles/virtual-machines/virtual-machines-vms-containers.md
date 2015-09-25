@@ -1,12 +1,11 @@
 <properties 
-	title="Virtual Machines and Containers in Azure" 
-	pageTitle="Virtual Machines and Containers in Azure" 
-	description="Describes Virtual Machines, Docker and Linux ontainers, and their usage in groups of each in Azure, including the benefits of each and scenarios in which each approach works very well." 
+	pageTitle="Virtual Machines and Containers | Microsoft Azure" 
+	description="Describes Virtual Machines, Docker and Linux containers, and their usage in groups of each in Azure, including the benefits of each and scenarios in which each approach works very well." 
 	services="virtual-machines" 
-	solutions="infrastructure" 
 	documentationCenter="virtual-machines" 
 	authors="squillace" 
-	manager="timlt" 
+	manager="timlt"
+	tags="azure-resource-manager,azure-service-management" 
 />
 	
 
@@ -22,6 +21,8 @@
 
 <!--The next line, with one pound sign at the beginning, is the page title--> 
 # Virtual Machines and Containers in Azure
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]  
 
 Azure offers you great cloud solutions, built on virtual machines&mdash;based on the emulation of physical computer hardware&mdash;to enable agile movement of software deployments and dramatically better resource consolidation than physical hardware. In the past few years, largely thanks to  the [Docker](https://www.docker.com) approach to containers and the docker ecosystem, Linux container technology has dramatically expanded the ways you can develop and manage distributed software. Application code in a container is isolated from the host Azure VM as well as other containers on the same VM, which gives you more development and deployment agility at the application level&mdash;in addition to the agility that Azure VMs already give you.
 
@@ -125,7 +126,7 @@ These abilities are often then migrated to tools like [Puppet](https://puppetlab
 
 ### Azure resource group templates
 
-More recently, Azure released the [Azure resource management](virtual-machines-azurerm-versus-azuresm.md) REST API, and updated PowerShell and Azure CLI tools to use it easily. You can deploy, modify, or redeploy entire application topologies using [Azure Resource Manager templates](https://msdn.microsoft.com/library/azure/dn835138.aspx) with the Azure resource management API using:
+More recently, Azure released the [Azure resource management](virtual-machines-azurerm-versus-azuresm.md) REST API, and updated PowerShell and Azure CLI tools to use it easily. You can deploy, modify, or redeploy entire application topologies using [Azure Resource Manager templates](../resource-group-authoring-templates.md) with the Azure resource management API using:
 
 - the [Azure preview portal using templates](https://github.com/Azure/azure-quickstart-templates)&mdash;hint, use the "DeployToAzure" button
 - the [Azure CLI](virtual-machines-deploy-rmtemplates-azure-cli.md)
@@ -237,6 +238,3 @@ Check out [Docker](https://www.docker.com) and [Windows Server Containers](https
 [microservices]: http://martinfowler.com/articles/microservices.html
 [microservice]: http://martinfowler.com/articles/microservices.html
 <!--Image references-->
-
-
-

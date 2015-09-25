@@ -19,6 +19,8 @@
 # Create Predictive Pipelines using Azure Data Factory and Azure Machine Learning 
 ## Overview
 
+> [AZURE.NOTE] See [Create predictive pipelines using Azure Machine Learning Batch Execution activity](data-factory-azure-ml-batch-execution-activity.md) article to learn about the new Machine Learning Batch Execution activity, which provides more flexibility than the Batch Scoring activity covered by this article.  
+
 Azure Data Factory enables you to easily create pipelines that leverages a published [Azure Machine Learning][azure-machine-learning] web service for predictive analytics. This enables you to use Azure Data Factory to orchestrate  data movement and processing, and then perform batch scoring using Azure Machine Learning. To achieve this, you will need to do the following:
 
 1. Use the **AzureMLBatchScoring** activity.
@@ -38,7 +40,7 @@ A **predictive pipeline** has these parts:
 ## Example
 This example uses Azure Storage to hold both the input and output data. You can also use Azure SQL Database instead of using Azure Storage. 
 
-We recommend that you go through the [Get started with Azure Data Factory][adf-getstarted] tutorial prior to going through this example and use the Data Factory Editor to create Data Factory artifacts (linked services, tables, pipeline) in this example.   
+We recommend that you go through the [Build your first pipeline with Data Factory][adf-build-1st-pipeline] tutorial prior to going through this example and use the Data Factory Editor to create Data Factory artifacts (linked services, tables, pipeline) in this example.   
  
 
 1. Create a **linked service** for your **Azure Storage**. If the scoring input and output files will be in different storage accounts, you will need two linked services. Here is a JSON example:
@@ -179,7 +181,6 @@ We recommend that you go through the [Get started with Azure Data Factory][adf-g
 		  }
 		}
 
-	Both **start** and **end** datetimes must be in [ISO format](http://en.wikipedia.org/wiki/ISO_8601). For example: 2014-10-14T16:32:41Z. The **end** time is optional. If you do not specify value for the **end** property, it is calculated as "**start + 48 hours**". To run the pipeline indefinitely, specify **9999-09-09** as the value for the **end** property. See [JSON Scripting Reference](https://msdn.microsoft.com/library/dn835050.aspx) for details about JSON properties.
 
 ## Web Service Parameters
 You can use Web service parameters that are exposed by a published Azure Machine Learning Web service in Azure Data Factory (ADF) pipelines. You can create an experiment in Azure Machine Learning and publish it as a web service, and then use that web service in multiple ADF pipelines or activities, passing in different inputs via the Web Service Parameters.
@@ -307,21 +308,8 @@ In the above JSON example:
 
 
 
-## See Also
 
-Article | Description
------- | ---------------
-[Azure Data Factory Developer Reference][developer-reference] | The Developer Reference has the comprehensive reference content for cmdlets, JSON script, .NET class library, functions, etc… 
-
-[adf-introduction]: data-factory-introduction.md
-[adf-getstarted]: data-factory-get-started.md
-[use-onpremises-datasources]: data-factory-use-onpremises-datasources.md
-[use-pig-and-hive-with-data-factory]: data-factory-pig-hive-activities.md
-[adf-tutorial]: data-factory-tutorial.md
-[use-custom-activities]: data-factory-use-custom-activities.md
-[troubleshoot]: data-factory-troubleshoot.md
-[data-factory-introduction]: data-factory-introduction.md  
-[developer-reference]: http://go.microsoft.com/fwlink/p/?LinkId=516908
+[adf-build-1st-pipeline]: data-factory-build-your-first-pipeline.md
 
 [azure-machine-learning]: http://azure.microsoft.com/services/machine-learning/
 [machine-learning-dashboard]: ./media/data-factory-create-predictive-pipelines/AzureMLDashboard.png

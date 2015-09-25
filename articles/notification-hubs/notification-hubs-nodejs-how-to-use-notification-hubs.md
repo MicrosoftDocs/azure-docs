@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="06/02/2015"
-	ms.author="wesmc"/>
+	ms.date="09/24/2015"
+	ms.author="ricksal"/>
 
 # How to use Notification Hubs from Node.js
 
@@ -228,4 +228,3 @@ links to learn more.
   [nodejswebsite]: /develop/nodejs/tutorials/create-a-website-(mac)/
   [Node.js Cloud Service with Storage]: /develop/nodejs/tutorials/web-app-with-storage/
   [Node.js Web Application with Storage]: /develop/nodejs/tutorials/web-site-with-storage/
- 

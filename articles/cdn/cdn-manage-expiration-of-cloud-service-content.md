@@ -12,7 +12,7 @@
  ms.tgt_pltfrm="na" 
  ms.devlang="dotnet" 
  ms.topic="article" 
- ms.date="04/25/2015" 
+ ms.date="09/01/2015" 
  ms.author="mazha"/>
 
 #How to Manage Expiration of Cloud Service Content in the Azure Content Delivery Network (CDN)

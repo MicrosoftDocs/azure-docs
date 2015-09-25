@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Use the StorSimple Manager service dashboard | Microsoft Azure"
-   description="Describes the service dashboard and explains how to use it to monitor the health of your StorSimple solution."
+   pageTitle="StorSimple Manager service dashboard | Microsoft Azure"
+   description="Describes the StorSimple Manager service dashboard and explains how to use it to monitor the health of your StorSimple solution."
    services="storsimple"
    documentationCenter=""
    authors="SharS"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/25/2015"
+   ms.date="09/17/2015"
    ms.author="v-sharos" />
 
 # Use the StorSimple Manager service dashboard
@@ -51,7 +51,7 @@ Clicking **Registration Key** (at the bottom of the page) opens the **Service Re
 
 Regenerating the key does not affect previously registered devices: it affects only the devices that are registered with the service after the key is regenerated.
 
-For more information about viewing and generating the service registration key, go to [Get the service registration key](storsimple-manage-service.md#get-the-service-registration-key)
+For more information about viewing and generating the service registration key, go to [Get the service registration key](storsimple-manage-service.md#get-the-service-registration-key).
 
 ## Change the service data encryption key
 
@@ -74,4 +74,6 @@ You can view the operation logs by clicking the operation logs link available in
 
 ## Next steps
 
-Learn how to [troubleshoot a StorSimple device](storsimple-troubleshoot-operational-device.md).
+- Learn how to [troubleshoot a StorSimple device](storsimple-troubleshoot-operational-device.md).
+
+- Learn more about how to [use the StorSimple Manager service to administer your StorSimple device](storsimple-manager-service-administration.md).

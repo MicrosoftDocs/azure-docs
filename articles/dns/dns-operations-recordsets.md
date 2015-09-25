@@ -13,10 +13,15 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="08/02/2015"
+   ms.date="09/22/2015"
    ms.author="joaoma"/>
 
-# How to manage DNS records
+# How to manage DNS records using PowerShell
+
+
+> [AZURE.SELECTOR]
+- [Azure CLI](dns-operations-recordsets-cli.md)
+- [Azure Powershell](dns-operations-recordsets.md)
 
 
 This guide will show how to manage record sets and records for your DNS zone.

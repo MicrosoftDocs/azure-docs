@@ -1,9 +1,9 @@
 <properties
-	pageTitle="About Azure Virtual Machines"
+	pageTitle="About Azure Virtual Machines | Microsoft Azure"
 	description="Learn about the basics of virtual machines in Azure."
 	services="virtual-machines"
 	documentationCenter=""
-	authors="KBDAzure"
+	authors="cynthn"
 	manager="timlt"
 	editor="tysonn"
 	tags="azure-resource-manager,azure-service-management"/>
@@ -15,9 +15,11 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/14/2015"
-	ms.author="kathydav"/>
+	ms.author="cynthn"/>
 
-#About Azure Virtual Machines
+#About Azure virtual machines created with both deployment models
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)] This article covers resources created with both the Resource Manager deployment model and the classic deployment model.
 
 Azure Virtual Machines is one of several types of on-demand, scalable computing resources that Azure offers. Typically, you'll choose a virtual machine instead of another option if you need more control over the computing environment than the other choices offer.
 

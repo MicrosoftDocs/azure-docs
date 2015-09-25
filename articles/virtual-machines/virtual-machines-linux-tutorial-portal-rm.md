@@ -6,7 +6,7 @@
 	authors="squillace"
 	manager="timlt"
 	editor="tysonn"
-	tags="azure-resource-management"/>
+	tags="azure-resource-manager"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -113,6 +113,8 @@ Now you can **ssh** into your Azure VM, and you're ready to go.
 
 	ops@ubuntuvm:~$
 
+
+> [AZURE.NOTE] You can also configure a fully qualified domain name (FQDN) for your virtual machine in the portal. Read more about FQDN [here](virtual-machines-create-fqdn-on-portal.md).
 
 ## Next Steps
 

@@ -1,8 +1,6 @@
 <properties
-    title="Azure SQL Database elastic database query overview"
     pageTitle="Azure SQL Database elastic database query overview"
-    description="Overview of the elastic query feature"
-    metaKeywords="azure sql database elastic database queries"
+    description="Overview of the elastic query feature"    
     services="sql-database"
     documentationCenter=""  
     manager="jeffreyg"
@@ -15,7 +13,7 @@
     ms.devlang="na"
     ms.topic="article"
     ms.date="07/09/2015"
-    ms.author="sidneyh" />
+    ms.author="sidneyh;torsteng" />
 
 # Azure SQL Database Elastic Database query (preview) overview
 
@@ -81,7 +79,7 @@ To describe the remote tables that can be accessed from an elastic database quer
 The Elastic Database query feature relies on the these four DDL statements. Typically, these DDL statements are used once or rarely when the schema of your application changes.
 
 *    [CREATE MASTER KEY](https://msdn.microsoft.com/library/ms174382.aspx)
-*    [CREATE CREDENTIAL](https://msdn.microsoft.com/library/ms189522.aspx)
+*    [CREATE DATABASE SCOPED CREDENTIAL](https://msdn.microsoft.com/library/mt270260.aspx)
 *    [CREATE/DROP EXTERNAL DATA SOURCE](https://msdn.microsoft.com/library/dn935022.aspx)
 *    [CREATE/DROP EXTERNAL TABLE](https://msdn.microsoft.com/library/dn935021.aspx)
 
@@ -90,15 +88,17 @@ The Elastic Database query feature relies on the these four DDL statements. Typi
 A credential represents the user ID and password that the elastic database query will use to connect to your elastic scale shard map and your remote databases in Azure SQL DB. You can create the required master key and credential using the following syntax:
 
     CREATE MASTER KEY ENCRYPTION BY PASSWORD = 'password';  
-    CREATE CREDENTIAL <credential_name> ON DATABASE
+    CREATE DATABASE SCOPED CREDENTIAL <credential_name>
     WITH IDENTITY = '<shard_map_username>',
     SECRET = '<shard_map_password>'
      [;]
 Ensure that the &lt;shard\_map_username> does not include any “@servername” suffix.
 
+Information about credentials is visible in the sys.database_scoped_credentials catalog view.
+
 You can use the following syntax to drop the master key and credentials:
 
-    DROP CREDENTIAL <credential_name> ON DATABASE;
+    DROP DATABASE SCOPED CREDENTIAL <credential_name>;
     DROP MASTER KEY;  
 
 ### External data sources

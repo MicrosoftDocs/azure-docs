@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Use the StorSimple Manager service to monitor your StorSimple device | Microsoft Azure"
+   pageTitle="Monitor your StorSimple device | Microsoft Azure"
    description="Describes how to use the StorSimple Manager service to monitor I/O performance, capacity utilization, network throughput, and device performance."
    services="storsimple"
    documentationCenter="NA"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/14/2015"
+   ms.date="09/15/2015"
    ms.author="alkohli" />
 
 # Use the StorSimple Manager service to monitor your StorSimple device 
@@ -61,7 +61,7 @@ The primary, cloud and device storage capacity can be described as follows:
 	![Cloud capacity utilization after cloud snapshot](./media/storsimple-monitor-device/StorSimple_CloudCapacityUtil_For_AllVolumeContainers1M.png)
 
 
-- **Device storage capacity utilization** shows the total utilization for the device, which will be more than primary storage utilization because it includes the SSD linear tier. This tier contain an amount of data that also exists on the device's other tiers. The capacity in the SSD linear tier is cycled so that when new data comes in, the old data is moved to the cloud (at which time it is deduplicated and compressed).
+- **Device storage capacity utilization** shows the total utilization for the device, which will be more than primary storage utilization because it includes the SSD linear tier. This tier contains an amount of data that also exists on the device's other tiers. The capacity in the SSD linear tier is cycled so that when new data comes in, the old data is moved to the HDD tier (at which time it is deduplicated and compressed) and subsequently to the cloud.
 
 	Over time, primary capacity utilization and device capacity utilization will most likely increase together until the data begins to be tiered to the cloud. At that point, the device capacity utilization will probably begin to plateau, but the primary capacity utilization will increase as more data is written.
 
@@ -91,4 +91,6 @@ The charts below show the network throughput for the Data 0 and Data 4, both 1 G
 
 ## Next steps
 
-[Learn how to use the StorSimple Manager service device dashboard](storsimple-device-dashboard.md).
+- Learn how to [use the StorSimple Manager service device dashboard](storsimple-device-dashboard.md).
+
+- Learn how to [use the StorSimple Manager service to administer your StorSimple device](storsimple-manager-service-administration.md).
