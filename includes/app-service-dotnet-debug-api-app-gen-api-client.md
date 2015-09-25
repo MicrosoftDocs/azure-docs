@@ -2,7 +2,7 @@
 
 The API App tools in Visual Studio make it easy to generate C# code that calls to your Azure API Apps from desktop, store, and mobile apps. 
 
-1. In Visual Studio, open the solution that contains the API app from the [Create API app](app-service-dotnet-create-api-app.md) topic. 
+1. In Visual Studio, open the solution that contains the API app from the [Create API app](../article/app-service-api/app-service-dotnet-create-api-app.md) topic. 
 
 2. From **Solution Explorer**, right-click the solution and select the **Add** > **New Project**.
 

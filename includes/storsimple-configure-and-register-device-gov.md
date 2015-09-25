@@ -1,20 +1,4 @@
-<properties 
-   pageTitle="Configure and register your device"
-   description="Explains how to use Windows PowerShell for StorSimple to configure and register a StorSimple device that is running Update 1."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="alkohli"
-   manager="adinah"
-   editor="tysonn" />
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="05/22/2015"
-   ms.author="alkohli" />
-
+<!--author=SharS last changed: 9/17/15-->
 
 ### To configure and register the device
 
@@ -52,7 +36,7 @@
 
       4. Optionally, configure your web proxy server.
 
-      > [AZURE.IMPORTANT] Although web proxy configuration is optional, be aware that if you use a web proxy, you can only configure it here. For more information, go to [Configure web proxy for your device](https://msdn.microsoft.com/library/azure/dn764937.aspx). 
+      > [AZURE.IMPORTANT] Although web proxy configuration is optional, be aware that if you use a web proxy, you can only configure it here. For more information, go to [Configure web proxy for your device](storsimple-configure-web-proxy.md). 
 
 6. Press Ctrl + C to exit the setup wizard.
  
@@ -132,7 +116,7 @@
 
 	![StorSimple registration progress](./media/storsimple-configure-and-register-device-gov/HCS_RegistrationProgress-gov-include.png)
 
-15. After the device is registered, a Service Data Encryption key will appear. Copy this key and save it in a safe location. **This key will be required with the service registration key to register additional devices with the StorSimple Manager service.** Refer to [StorSimple security](storsimple-security.md) for more information about this key.
+15. After the device is registered, a Service Data Encryption key will appear. Copy this key and save it in a safe location. **This key will be required with the service registration key to register additional devices with the StorSimple Manager service.** Refer to [StorSimple security](../articles/storsimple/storsimple-security.md) for more information about this key.
 	
 	![StorSimple register device 7](./media/storsimple-configure-and-register-device-gov/HCS_RegisterYourDevice7_gov-include.png)    
 

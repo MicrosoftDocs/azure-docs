@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Microsoft Azure preview portal overview" 
-	description="Learn how to use the Microsoft Azure preview portal." 
-	services="" 
-	documentationCenter="" 
-	authors="davidwrede" 
-	manager="dwrede" 
+<properties
+	pageTitle="Microsoft Azure preview portal overview"
+	description="Learn how to use the Microsoft Azure preview portal."
+	services=""
+	documentationCenter=""
+	authors="davidwrede"
+	manager="dwrede"
 	editor="jimbe"/>
 
-<tags 
-	ms.service="na" 
-	ms.workload="na" 
-	ms.tgt_pltfrm="na" 
+<tags
+	ms.service="na"
+	ms.workload="na"
+	ms.tgt_pltfrm="na"
 	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="04/28/2015" 
+	ms.topic="hero-article"
+	ms.date="04/28/2015"
 	ms.author="dwrede"/>
 
 # Microsoft Azure preview portal overview
@@ -28,7 +28,7 @@ The Microsoft Azure preview portal is a central place where you can provision an
 
 ## Before you get started
 
-You will need a valid Azure subscription to go through this tutorial.  If you don’t have one, then [sign up for a free trial](http://azure.microsoft.com/pricing/free-trial/) today.  Once you have a subscription, you can access the portal at [https://portal.azure.com]. 
+You will need a valid Azure subscription to go through this tutorial.  If you don’t have one, then [sign up for a free trial](http://azure.microsoft.com/pricing/free-trial/) today.  Once you have a subscription, you can access the portal at [https://portal.azure.com].
 
 ## How to create a resource
 
@@ -36,7 +36,7 @@ Azure has a marketplace with thousands of items that you can create from one pla
 
 1.	Windows Server 2012 is featured, so you can select it from the Compute category.  
 2.	Fill out some basic inputs on a form.
-3.	Click ‘Create’ and you’re VM will begin to provision immediately. 
+3.	Click ‘Create’ and you’re VM will begin to provision immediately.
 
 The notifications hub will alert you when your resource has been created and a management blade will open (you can always browse to resources later).
 
@@ -59,7 +59,7 @@ From this blade you can connect to the virtual machine using remote desktop, mon
 4.	Click ‘Add’ in the command bar.
 5.	Choose a user and a role.
 
-![Managing a Resource][ManageResource] 
+![Managing a Resource][ManageResource]
 
 ## How to customize a resource blade
 
@@ -92,8 +92,8 @@ Let’s review what you learned in this tutorial:
 The Microsoft Azure preview portal radically simplifies building and managing your applications in the cloud.  Take a look at the [management blog](http://azure.microsoft.com/blog/topics/management/) to keep up to date as we’re constantly [listening to feedback](http://feedback.azure.com/forums/223579-azure-preview-portal) and making improvements.  [ScottGu’s blog](http://weblogs.asp.net/scottgu) is another great place to look for all Azure updates.
 
 [UIOrientation]: ./media/azure-portal-how-to-use/azure_portal_1.png
-[PortalCategories]: ./media/azure-portal-how-to-use/azure_portal_2.png 
+[PortalCategories]: ./media/azure-portal-how-to-use/azure_portal_2.png
 [BrowseHub]: ./media/azure-portal-how-to-use/azure_portal_3.png
 [ManageResource]: ./media/azure-portal-how-to-use/azure_portal_4.png
 [CustomizeBlades]: ./media/azure-portal-how-to-use/azure_portal_5.png
-[HelpSupport]: ./media/azure-portal-how-to-use/azure_portal_6.png    
+[HelpSupport]: ./media/azure-portal-how-to-use/azure_portal_6.png
