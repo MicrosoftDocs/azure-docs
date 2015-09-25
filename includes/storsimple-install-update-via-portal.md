@@ -1,19 +1,4 @@
-<properties 
-   pageTitle="Install Update 1.2 from the Azure Management Portal"
-   description="Explains how to use the Management Portal to install StorSimple 8000 Series Update 1.2."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="adinah"
-   editor="" />
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="09/08/2015"
-   ms.author="v-sharos" />
+<!--author=SharS last changed: 9/17/15-->
 
 #### To install Update 1.2 from the Management Portal
 

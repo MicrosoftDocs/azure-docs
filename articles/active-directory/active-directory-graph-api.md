@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Azure Active Directory Graph API"
+   pageTitle="Azure Active Directory Graph API | Microsoft Azure"
    description="An overview and quickstart guide for the Graph API which allows programmatic access to Azure AD through REST API endpoints."
    services="active-directory"
    documentationCenter=""
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="09/08/2015"
+   ms.date="09/17/2015"
    ms.author="mbaldwin" />
 
 # Azure Active Directory Graph API

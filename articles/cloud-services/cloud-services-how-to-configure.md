@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/29/2015"
+	ms.date="09/22/2015"
 	ms.author="adegeo"/>
 
 
@@ -80,6 +80,10 @@ Azure can only ensure 99.95 percent service availability during the configuratio
     4. Click **OK** (checkmark). 
 
 
-## Additional Resources
+## Next steps
 
-[Enable Remote Desktop Connection for a Role in Azure Cloud Services](cloud-services-role-enable-remote-desktop.md)
+* Learn how to [deploy a cloud service](cloud-services-how-to-create-deploy.md).
+* Configure a [custom domain name](cloud-services-custom-domain-name.md).
+* [Manage your cloud service](cloud-services-how-to-manage.md).
+* [Enable Remote Desktop Connection for a Role in Azure Cloud Services](cloud-services-role-enable-remote-desktop.md)
+* Configure [ssl certificates](cloud-services-configure-ssl-certificate.md).

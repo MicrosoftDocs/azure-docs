@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/04/2015"
+	ms.date="09/22/2015"
 	ms.author="dastrock"/>
 
 # Azure AD B2C Preview: Authentication Protocols
@@ -51,7 +51,7 @@ In nearly all OAuth & OpenID Connect flows, there are four parties involved in t
 
 Arguably, Azure AD B2C **policies** are the most important feature of the service.  Azure AD B2C extends the standard OAuth 2.0 and OpenID Connect protocols by introducing policies, which allow Azure AD B2C to perform much more than simple authentication and authorization.
 Policies fully describe consumer identity experiences such as sign up, sign in or profile editing.  They can be defined in an admininstrative UI, and executed by using a special query parameter in HTTP authentication requests.  Policies are not a standard feature of OAuth 2.0
-and OpenID Connect, so you should take the time to understand them.  For more information, read the [Azure AD B2C policy reference guide](active-directory-b2c-reference-policies).
+and OpenID Connect, so you should take the time to understand them.  For more information, read the [Azure AD B2C policy reference guide](active-directory-b2c-reference-policies.md).
 
 
 ## Tokens
@@ -62,7 +62,7 @@ Further details of different types of tokens used in Azure AD B2C is available i
 ## Protocols
 
 If you're ready to see some example requests, get started with one of the below tutorials.  Each one corresponds to a particular authentication scenario.  If you need help determining which is the right flow for you,
-check out [the types of apps you can build with Azure AD B2C](active-directory-b2c-apps).
+check out [the types of apps you can build with Azure AD B2C](active-directory-b2c-apps.md).
 
 - [Build Mobile and Native Application with OAuth 2.0](active-directory-b2c-reference-oauth-code.md)
 - [Build Web Apps with Open ID Connect](active-directory-b2c-reference-oidc.md)

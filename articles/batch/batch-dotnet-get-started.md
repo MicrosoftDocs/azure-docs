@@ -13,7 +13,7 @@
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-compute"
-	ms.date="07/21/2015"
+	ms.date="09/23/2015"
 	ms.author="yidingz"/>
 
 # Get started with the Azure Batch Library for .NET  
@@ -205,14 +205,14 @@ A pool of compute nodes is the first set of resources that you must create when 
 
 2. Add this code to Main that sets up the credentials for making calls to the Azure Batch service:
 
-			BatchSharedKeyCredentials cred = new BatchSharedKeyCredentials("https://[account-name].[region].batch.azure.com", "[account-name]", "[account-key]");
+			BatchSharedKeyCredentials cred = new BatchSharedKeyCredentials("[account-url]", "[account-name]", "[account-key]");
 			BatchClient client = BatchClient.Open(cred);
 
-	Replace these values:
+	Replace the bracketed values with those associated with your Batch account, each of which can be found in the [Azure Preview portal](https://portal.azure.com). To locate these values, log in to the [Azure Preview portal](https://portal.azure.com) and:
 
-	- **[account-name]** with the name of the Batch account that you previously created.
-	- **[region]** with the region where your account is located. See [Azure Regions](http://azure.microsoft.com/regions/) to discover the available regions.
-	- **[account-key]** with the primary key of the Batch account.
+	- **[account-name]** - Click **Batch Accounts**, select the Batch account you created earlier
+	- **[account-url]** - Within the Batch account blade, click **Properties** > **URL**
+	- **[account-key]** - Within the Batch account blade, Click **Properties** > **Keys** > **Primary Access Key**
 
 3.	Add this method to the Program class that creates the pool:
 
