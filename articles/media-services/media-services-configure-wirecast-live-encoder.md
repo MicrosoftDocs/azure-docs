@@ -20,15 +20,15 @@
 
 > [AZURE.SELECTOR]
 - [Wirecast](media-services-configure-wirecast-live-encoder.md)
-- [Elemental](media-services-configure-elemental-live-encoder.md)
+- [Elemental Live](media-services-configure-elemental-live-encoder.md)
 - [Tricaster](media-services-configure-tricaster-live-encoder.md)
 - [FMLE](media-services-configure-fmle-live-encoder.md) 
 
-This topic shows how to configure the Wirecast live encoder to send a single bitrate live stream over RTMP to the Media Services Channel.
+This topic shows how to configure the Wirecast live encoder to send a single bitrate live stream over RTMP to the Media Services Channel.  For more information, see [Working with Channels that are Enabled to Perform Live Encoding with Azure Media Services](media-services-manage-live-encoder-enabled-channels.md).
 
 ##Prerequisites
 
-- [Create a Media Services account](media-services-create-account.md)
+- [Create an Azure Media Services account](media-services-create-account.md)
 - Ensure there is a Streaming Endpoint running with at least one streaming unit allocated. For more information, see [Manage Streaming Endpoints in a Media Services Account](media-services-manage-origins.md) 
 
 	This tutorial shows how to manage Azure Media Services (AMS) with Azure Media Services Explorer (AMSE) tool. 
@@ -38,9 +38,9 @@ This topic shows how to configure the Wirecast live encoder to send a single bit
 
 ##Tips
 
-•	Whenever possible, use a hardwired internet connection. 
-•	A good rule of thumb when determining bandwidth requirements is to double the streaming bitrates. While this is not a mandatory requirement, it will help mitigate the impact of network congestion.  
-•	When using software based encoders, close out any unnecessary programs.
+- Whenever possible, use a hardwired internet connection. 
+- A good rule of thumb when determining bandwidth requirements is to double the streaming bitrates. While this is not a mandatory requirement, it will help mitigate the impact of network congestion.  
+- When using software based encoders, close out any unnecessary programs.
 
 
 ## Create a channel
@@ -60,6 +60,8 @@ This topic shows how to configure the Wirecast live encoder to send a single bit
 >[AZURE.NOTE] The channel can take as long as 20 minutes to start.  
 
 While the channel is starting you can [configure the encoder](media-services-configure-wirecast-live-encoder.md#configure_wirecast_rtmp).
+
+>[AZURE.IMPORTANT] Note that billing starts as soon as Channel goes into a ready state. For more information, see [Channel's states](media-services-manage-live-encoder-enabled-channels.md#states).
 
 ##Test playback
   
@@ -119,13 +121,14 @@ The stream is now ready to be embedded in a player, or distributed to an audienc
 	
 		rtp://test2-amstest009.rtp.channel.mediaservices.windows.net:2010/ 
 
-		![fmle](./media/media-services-fmle-live-encoder/media-services-fmle10.png)
+		![wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast10.png)
 
 - **Problem**: Unable to playback the published stream.
  
 	- **Potential issue**: There is no Streaming Endpoint running, or there is no streaming units (scale units) allocated. 
 	- **Troubleshooting steps**: Navigate to the "Streaming Endpoint" tab in the AMSE tool, and confirm there is a Streaming Endpoint running with one streaming unit. 
 	
+>[AZURE.NOTE] If after following the troubleshooting steps you still cannot successfully stream, submit a support ticket using the Azure Management Portal.
 
 ##Media Services learning paths
 

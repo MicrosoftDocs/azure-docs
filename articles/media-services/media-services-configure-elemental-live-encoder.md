@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Configure the Elemental encoder to send a single bitrate live stream" 
-	description="This topic shows how to configure the Elemental live encoder to send a single bitrate live stream to the Media Services Channel." 
+	pageTitle="Configure the Elemental Live encoder to send a single bitrate live stream" 
+	description="This topic shows how to configure the Elemental Live encoder to send a single bitrate live stream to the Media Services Channel." 
 	services="media-services" 
 	documentationCenter="" 
 	authors="juliako" 
@@ -16,19 +16,20 @@
 	ms.date="09/20/2015"    
 	ms.author="juliako"/>
 
-#Use the Elemental encoder to send a single bitrate live stream 
+#Use the Elemental Live encoder to send a single bitrate live stream 
 
 > [AZURE.SELECTOR]
-- [Elemental](media-services-configure-elemental-live-encoder.md)
+- [Elemental Live](media-services-configure-elemental-live-encoder.md)
 - [Tricaster](media-services-configure-tricaster-live-encoder.md)
 - [Wirecast](media-services-configure-wirecast-live-encoder.md)
 - [FMLE](media-services-configure-fmle-live-encoder.md)
   
-This topic shows how to configure the Elemental live encoder to send a single bitrate live stream over RTMP and RTP to the Media Services Channel.
+This topic shows how to configure the [Elemental Live](http://www.elementaltechnologies.com/products/elemental-live) encoder to send a single bitrate live stream over RTMP and RTP to the Media Services Channel.  For more information, see [Working with Channels that are Enabled to Perform Live Encoding with Azure Media Services](media-services-manage-live-encoder-enabled-channels.md).
 
 ##Prerequisites
 
-- [Create a Media Services account](media-services-create-account.md)
+- Must have a working knowledge of using Elemental Live web interface to create live events.
+- [Create an Azure Media Services account](media-services-create-account.md)
 - Ensure there is a Streaming Endpoint running with at least one streaming unit allocated. For more information, see [Manage Streaming Endpoints in a Media Services Account](media-services-manage-origins.md) 
 
 	This tutorial shows how to manage Azure Media Services (AMS) with Azure Media Services Explorer (AMSE) tool. 
@@ -38,13 +39,13 @@ This topic shows how to configure the Elemental live encoder to send a single bi
 
 ##Tips
 
-•	Whenever possible, use a hardwired internet connection. 
-•	A good rule of thumb when determining bandwidth requirements is to double the streaming bitrates. While this is not a mandatory requirement, it will help mitigate the impact of network congestion.  
-•	When using software based encoders, close out any unnecessary programs.
+- Whenever possible, use a hardwired internet connection. 
+- A good rule of thumb when determining bandwidth requirements is to double the streaming bitrates. While this is not a mandatory requirement, it will help mitigate the impact of network congestion.  
+- When using software based encoders, close out any unnecessary programs.
 
 ##Elemental Live with RTMP ingest
 
-This section shows how to configure the Elemental Live encoder that sends a single bitrate live stream over RTMP.
+This section shows how to configure the Elemental Live encoder that sends a single bitrate live stream over RTMP. For more information, see [Single bitrate RTMP](media-services-manage-live-encoder-enabled-channels.md#channel).
  
 ### Create a channel
 
@@ -63,6 +64,8 @@ This section shows how to configure the Elemental Live encoder that sends a sing
 >[AZURE.NOTE] The channel can take as long as 20 minutes to start.  
 
 While the channel is starting you can [configure the encoder](media-services-configure-elemental-live-encoder.md#configure_elemental_rtmp).
+
+>[AZURE.IMPORTANT] Note that billing starts as soon as Channel goes into a ready state. For more information, see [Channel's states](media-services-manage-live-encoder-enabled-channels.md#states).
 
 ###<a id=configure_elemental_rtmp></a>Configure the Elemental Live encoder 
 
@@ -93,14 +96,14 @@ In this tutorial the following output settings are used. The rest of this sectio
 	
 	![Elemental](./media/media-services-elemental-live-encoder/media-services-elemental3.png)
 	
-	>[AZURE.NOTE] It is recommended that the Elemental event has the timecode set to “System Clock” to help the encoder reconnect in the case of a stream failure.
+	>[AZURE.NOTE] It is recommended that the Elemental Live event has the timecode set to "System Clock" to help the encoder reconnect in the case of a stream failure.
 
 4. Now that the Output has been created, click **Add Stream**. The output settings can now be configured. 
 5. Scroll down to the "Stream 1" that was just created, click the **Video** tab on the left and expand the **Advanced** settings section. 
 
 	![Elemental](./media/media-services-elemental-live-encoder/media-services-elemental4.png)
 
-	While Elemental has a wide range of available customizing, the following settings are recommended for getting started with streaming to AMS. 
+	While Elemental Live has a wide range of available customizing, the following settings are recommended for getting started with streaming to AMS. 
 	
 	- Resolution: 1280 x 720 
 	- Framerate: 30 
@@ -119,16 +122,20 @@ In this tutorial the following output settings are used. The rest of this sectio
 	
 	![Elemental](./media/media-services-elemental-live-encoder/media-services-elemental6.png)
 	
-1. Paste this information in the **RTMP Endpoint** field of the Elemental, and assign a stream name.  
+1. Paste this information in the **RTMP Endpoint** field of the Elemental Live, and assign a stream name.  
 
 	![Elemental](./media/media-services-elemental-live-encoder/media-services-elemental7.png)
 	
-	>[AZURE.NOTE]	For extra redundancy, repeat these steps with the Secondary Input URL by creating a separate "Output" tab for Adobe RTMP Streaming with the same settings. Note that this will double the output bandwidth requirements. 
+	For extra redundancy, repeat these steps with the Secondary Input URL by creating a separate "Output" tab for Adobe RTMP Streaming with the same settings. Note that this will double the output bandwidth requirements. 
 
 
-7. Click **Create** (if a new event was created) or **Update** (if editing a pre-existing event) and then proceed to start the encoder. 
+7. Click **Create** (if a new event was created) or **Update** (if editing a pre-existing event) and then proceed to start the encoder.
 
-After the stream has been running for 30 seconds, navigate back to the AMSE tool and test playback.  
+>[AZURE.IMPORTANT] Before you click **Start** on the Elemental Live web interface, you **must** ensure that the Channel is ready. 
+>Also, make sure not to leave the Channel in a ready state without an event for longer than > 15 minutes.
+
+After the stream has been running for 30 seconds, navigate back to the AMSE tool and test playback. 
+
 
 ###Test playback
   
@@ -160,6 +167,8 @@ The stream is now ready to be embedded in a player, or distributed to an audienc
 
 ## Elemental Live with RTP ingest
 
+This section shows how to configure the Elemental Live encoder that sends a single bitrate live stream over RTP.  For more information, see [MPEG-TS stream over RTP](media-services-manage-live-encoder-enabled-channels.md#channel).
+
 ### Create a channel
 
 1.  In the AMSE tool, navigate to the **Live** tab, and right click within the channel area. Select **Create channel…** from the menu.  
@@ -177,6 +186,8 @@ The stream is now ready to be embedded in a player, or distributed to an audienc
 >[AZURE.NOTE] The channel can take as long as 20 minutes to start.  
 
 While the channel is starting you can [configure the encoder](media-services-configure-elemental-live-encoder.md#configure_elemental_rtp).
+
+>[AZURE.IMPORTANT] Note that billing starts as soon as Channel goes into a ready state. For more information, see [Channel's states](media-services-manage-live-encoder-enabled-channels.md#states).
 
 ###<a id=configure_elemental_rtp></a>Configure the Elemental Live encoder 
 
@@ -207,14 +218,14 @@ In this tutorial the following output settings are used. The rest of this sectio
 	
 	![Elemental](./media/media-services-elemental-live-encoder/media-services-elemental13.png)
 	
-	>[AZURE.NOTE] It is recommended that the Elemental event has the timecode set to “System Clock” to help the encoder reconnect in the case of a stream failure.
+	>[AZURE.NOTE] It is recommended that the Elemental event has the timecode set to "System Clock" to help the encoder reconnect in the case of a stream failure.
 
 4. Now that the Output has been created, click **Add Stream**. The output settings can now be configured. 
 5. Scroll down to the "Stream 1" that was just created, click the **Video** tab on the left and expand the **Advanced** settings section. 
 
 	![Elemental](./media/media-services-elemental-live-encoder/media-services-elemental4.png)
 
-	While Elemental has a wide range of available customizing, the following settings are recommended for getting started with streaming to AMS. 
+	While Elemental Live has a wide range of available customizing, the following settings are recommended for getting started with streaming to AMS. 
 	
 	- Resolution: 1280 x 720 
 	- Framerate: 30 
@@ -238,9 +249,12 @@ In this tutorial the following output settings are used. The rest of this sectio
 	
 	![Elemental](./media/media-services-elemental-live-encoder/media-services-elemental14.png)
 
-	>[AZURE.NOTE] For extra redundancy, repeat these steps with the Secondary Input URL by creating a separate "Output" tab for UDP/TS Streaming.
+	For extra redundancy, repeat these steps with the Secondary Input URL by creating a separate "Output" tab for UDP/TS Streaming.
 	
 7. Click **Create** (if a new event was created) or **Update** (if editing a pre-existing event) and then proceed to start the encoder. 
+
+>[AZURE.IMPORTANT] Before you click **Start** on the Elemental Live web interface, you **must** ensure that the Channel is ready. 
+>Also, make sure not to leave the Channel in a ready state without an event for longer than > 15 minutes.
 
 After the stream has been running for 30 seconds, navigate back to the AMSE tool and test playback.  
 
@@ -308,6 +322,7 @@ The stream is now ready to be embedded in a player, or distributed to an audienc
 	- **Potential issue**: There is no Streaming Endpoint running, or there is no streaming units (scale units) allocated. 
 	- **Troubleshooting steps**: Navigate to the "Streaming Endpoint" tab in the AMSE tool, and confirm there is a Streaming Endpoint running with one streaming unit. 
 	
+>[AZURE.NOTE] If after following the troubleshooting steps you still cannot successfully stream, submit a support ticket using the Azure Management Portal.
 
 ##Media Services learning paths
 

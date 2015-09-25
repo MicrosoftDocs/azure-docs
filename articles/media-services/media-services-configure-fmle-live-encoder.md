@@ -20,15 +20,15 @@
 
 > [AZURE.SELECTOR]
 - [FMLE](media-services-configure-fmle-live-encoder.md)
-- [Elemental](media-services-configure-elemental-live-encoder.md)
+- [Elemental Live](media-services-configure-elemental-live-encoder.md)
 - [Tricaster](media-services-configure-tricaster-live-encoder.md)
 - [Wirecast](media-services-configure-wirecast-live-encoder.md)
 
-This topic shows how to configure the Flash Media Live Encoder (FMLE) live encoder to send a single bitrate live stream over RTMP to the Media Services Channel.
+This topic shows how to configure the Flash Media Live Encoder (FMLE) live encoder to send a single bitrate live stream over RTMP to the Media Services Channel. For more information, see [Working with Channels that are Enabled to Perform Live Encoding with Azure Media Services](media-services-manage-live-encoder-enabled-channels.md).
 
 ##Prerequisites
 
-- [Create a Media Services account](media-services-create-account.md)
+- [Create an Azure Media Services account](media-services-create-account.md)
 - Ensure there is a Streaming Endpoint running with at least one streaming unit allocated. For more information, see [Manage Streaming Endpoints in a Media Services Account](media-services-manage-origins.md) 
 
 	This tutorial shows how to manage Azure Media Services (AMS) with Azure Media Services Explorer (AMSE) tool. 
@@ -38,9 +38,9 @@ This topic shows how to configure the Flash Media Live Encoder (FMLE) live encod
 
 ##Tips
 
-•	Whenever possible, use a hardwired internet connection. 
-•	A good rule of thumb when determining bandwidth requirements is to double the streaming bitrates. While this is not a mandatory requirement, it will help mitigate the impact of network congestion.  
-•	When using software based encoders, close out any unnecessary programs.
+- Whenever possible, use a hardwired internet connection. 
+- A good rule of thumb when determining bandwidth requirements is to double the streaming bitrates. While this is not a mandatory requirement, it will help mitigate the impact of network congestion.  
+- When using software based encoders, close out any unnecessary programs.
  
 ## Create a channel
 
@@ -61,6 +61,7 @@ This topic shows how to configure the Flash Media Live Encoder (FMLE) live encod
 
 While the channel is starting you can [configure the encoder](media-services-configure-fmle-live-encoder.md#configure_fmle_rtmp).
 
+>[AZURE.IMPORTANT] Note that billing starts as soon as Channel goes into a ready state. For more information, see [Channel's states](media-services-manage-live-encoder-enabled-channels.md#states).
 
 ##<a id=configure_fmle_rtmp></a>Configure the FMLE encoder
 
@@ -127,7 +128,8 @@ In this tutorial the following output settings are used. The rest of this sectio
 	For extra redundancy, repeat these steps with the Secondary Input URL.
 8. Select **Connect**.
 
-
+>[AZURE.IMPORTANT] Before you click **Connect**, you **must** ensure that the Channel is ready. 
+>Also, make sure not to leave the Channel in a ready state without an event for longer than > 15 minutes.
 
 ##Test playback
   
@@ -194,6 +196,8 @@ The stream is now ready to be embedded in a player, or distributed to an audienc
 	- **Potential issue**: There is no Streaming Endpoint running, or there is no streaming units (scale units) allocated. 
 	- **Troubleshooting steps**: Navigate to the "Streaming Endpoint" tab in the AMSE tool, and confirm there is a Streaming Endpoint running with one streaming unit. 
 	
+>[AZURE.NOTE] If after following the troubleshooting steps you still cannot successfully stream, submit a support ticket using the Azure Management Portal.
+
 ##Media Services learning paths
 
 You can view AMS learning paths here:
