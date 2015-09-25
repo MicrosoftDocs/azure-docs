@@ -61,6 +61,6 @@ This is the subscription you will use to create your VM images and hand over the
   For detailed information on the guidance, best practices and requirements for Multi-VM solutions please refer to the document [Template Solutions in the Marketplace](https://microsoft.sharepoint.com/teams/AzureMarketplaceOnboarding/_layouts/15/start.aspx#/Onboarding%20Resources/Forms/AllItems.aspx?RootFolder=%2Fteams%2FAzureMarketplaceOnboarding%2FOnboarding%20Resources%2FMulti%20VM&FolderCTID=0x01200022453DD82E509544B11C9F5367F6105B&View=%7BEC6E631C%2DEFA1%2D4E67%2D87C6%2D4FCA489A2F92%7D&InitialTabId=Rib).
 
 ## Next Steps
-Now that you reviewed the pre-requisites and completed the necessary tasks, you can move forward with the creating your Multi-VM Image Solution Template offer as detailed in the [Guide to creating a multi-vm image solution template](marketplace-publishing-solution-template-publication.md)
+Now that you reviewed the pre-requisites and completed the necessary tasks, you can move forward with the creating your Multi-VM Image Solution Template offer as detailed in the [Guide to creating a multi-vm image solution template](marketplace-publishing-solution-template-creation.md)
 
 [link-acct]:marketplace-publishing-accounts-creation-registration.md
