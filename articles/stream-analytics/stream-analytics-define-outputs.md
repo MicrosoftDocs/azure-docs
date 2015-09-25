@@ -122,7 +122,7 @@ There are a few parameters that are needed to configure Event Hub data streams a
 
 ### Authorize a Power BI account
 
-1.	When Power BI is selected as an output, you will be prompted to authorize an existing Power BI User or to create a new Power BI account.  
+1.	When Power BI is selected as an output in the Azure Management portal, you will be prompted to authorize an existing Power BI User or to create a new Power BI account.  
 
     ![Authorize Power BI User](./media/stream-analytics-define-outputs/01-stream-analytics-define-outputs.png)  
 
