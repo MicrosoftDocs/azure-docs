@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="powershell"
     ms.workload="data-management" 
-    ms.date="09/18/2015"
+    ms.date="09/21/2015"
     ms.author="sstein"/>
 
 # Geo-Replication for Azure SQL Database using PowerShell
@@ -30,14 +30,13 @@ This article shows you how to configure Geo-Replication for SQL Database with Po
 
 
 
-> [AZURE.NOTE] Anything noteworthy?
+> [AZURE.NOTE] Preview note here
 
 
 To configure Geo-Replication you need the following:
 
 - An Azure subscription. If you need an Azure subscription simply click **FREE TRIAL** at the top of this page, and then come back to finish this article.
-
-
+- A SQL database - The primary database that you want to replicate to a different geographical region.
 - Azure PowerShell. You can download and install the Azure PowerShell modules by running the [Microsoft Web Platform Installer](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409). For detailed information, see [How to install and configure Azure PowerShell](powershell-install-configure.md).
 
 
