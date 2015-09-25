@@ -29,7 +29,7 @@ You can find more information on cloud-to-device messages and IoT Hub security i
 At the end of this tutorial you will run two Windows console applications:
 
 * **SimulatedDevice**, a modified version of the app created in [Send Cloud-to-Device messages with IoT Hub], which connects to your IoT hub, receives cloud-to-device messages containing Azure blob URIs. For each cloud-to-device message received, it triggers a file upload to the specified blob URI.
-* **SendCloudToDevice**, which builds an Azure blob URI (as explained in [Create and Use a SAS with the Blob Service](https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-2/), sends it in a cloud-to-device message to the simulated device through IoT Hub, and then receives its delivery aknowledgment.
+* **SendCloudToDevice**, which builds an Azure blob URI (as explained in [Create and Use a SAS with the Blob Service](../storage/storage-dotnet-shared-access-signature-part-2.md), sends it in a cloud-to-device message to the simulated device through IoT Hub, and then receives its delivery aknowledgment.
 
 In order to complete this tutorial you'll need the following:
 

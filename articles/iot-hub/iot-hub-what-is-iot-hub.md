@@ -72,7 +72,7 @@ Azure IoT Hub mediates the interactions between your devices and your applicatio
 - Bi-directional communication for devices that are connected sporadically due to power or connectivity concerns may be facilitated through holding commands and notifications to the devices until they connect to pick those up. Azure IoT Hub maintains device specific queues for the commands it sends to devices.
 - Application payload data may be separately secured for protected transit through gateways to a particular service.
 
-The service assisted communication pattern has been used successfully in the mobile industry at enourmous scale to implement push notification services, such as [Windows Notifiation Service](https://msdn.microsoft.com/en-us/library/windows/apps/mt187203.aspx), [Google cloud Messaging](https://developers.google.com/cloud-messaging/), and [Apple Push Notification service](http://go.microsoft.com/fwlink/p/?linkid=272584&clcid=0x409).
+The service assisted communication pattern has been used successfully in the mobile industry at enourmous scale to implement push notification services, such as [Windows Notifiation Service](https://msdn.microsoft.com/library/windows/apps/mt187203.aspx), [Google cloud Messaging](https://developers.google.com/cloud-messaging/), and [Apple Push Notification service](http://go.microsoft.com/fwlink/p/?linkid=272584&clcid=0x409).
 
 ## Next steps
 
