@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/04/2015" 
+	ms.date="09/23/2015" 
 	ms.author="awills"/>
  
 # Code sample: export to SQL from Application Insights using a worker role
@@ -51,13 +51,13 @@ To get started:
 
 ## Create storage in Azure
 
-1. Create a storage account in your subscription in the [Azure portal][portal].
+1. Create a "classic" storage account in your subscription in the [Azure portal][portal].
 
     ![In Azure portal, choose New, Data, Storage](./media/app-insights-code-sample-export-telemetry-sql-database/040-store.png)
 
 2. Create a container
 
-    ![In the new storage, select Containers and then Add](./media/app-insights-code-sample-export-telemetry-sql-database/050-container.png)
+    ![In the new storage, select Containers, click the Containers tile, and then Add](./media/app-insights-code-sample-export-telemetry-sql-database/050-container.png)
 
 
 ## Start continuous export to Azure storage

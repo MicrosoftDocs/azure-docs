@@ -13,12 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/15/2015"
+	ms.date="09/22/2015"
 	ms.author="swkrish"/>
 
 # Azure Active Directory B2C preview: FAQs
 
 This page answers frequently asked questions about the Azure Active Directory (AD) B2C preview. Keep checking back for updates.
+
+[AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
 
 ### Can I use Azure AD B2C in my existing, Employee-based Azure AD Directory?
 

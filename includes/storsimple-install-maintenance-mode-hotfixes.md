@@ -1,19 +1,4 @@
-<properties
-   pageTitle="Install maintenance mode hotfixes"
-   description="Explains how to use the Windows PowerShell for StorSimple to install maintenance mode hotfixes."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="carolz"
-   editor="" />
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="08/19/2015"
-   ms.author="v-sharos" />
+<!--author=SharS last changed: 9/17/15-->
 
 #### To install Maintenance mode hotfixes via Windows PowerShell for StorSimple
 

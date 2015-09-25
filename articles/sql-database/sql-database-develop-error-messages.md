@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/21/2015" 
+	ms.date="09/22/2015" 
 	ms.author="genemi"/>
 
 
@@ -61,8 +61,8 @@ Transient errors are also called transient faults. When your program catches a `
 |40501|20|The service is currently busy. Retry the request after 10 seconds. Incident ID: %ls. Code: %d.<br/><br/>*Note:* For more information about this error and how to resolve it, see:<br/>• [Azure SQL Database Throttling](http://msdn.microsoft.com/library/azure/dn338079.aspx).
 |40613|17|Database '%.&#x2a;ls' on server '%.&#x2a;ls' is not currently available. Please retry the connection later. If the problem persists, contact customer support, and provide them the session tracing ID of '%.&#x2a;ls'.|
 |49918|16|Cannot process request. Not enough resources to process request.<br/><br/>The service is currently busy. Please retry the request later. |
-|49919|16|Cannot process create or update request. Too many create or update operations in progress for subscription "%ld".<br/><br/>The service is busy processing multiple create or update requests for your subscription or server. Requests are currently blocked for resource optimization. Query [sys.dm_operation_stats](https://msdn.microsoft.com/library/dn270022.aspx) for pending operations. Wait till pending create or update requests are complete or delete one of your pending requests and retry your request later. |
-|49920|16|Cannot process request. Too many operations in progress for subscription "%ld".<br/><br/>The service is busy processing multiple requests for this subscription. Requests are currently blocked for resource optimization. Query [sys.dm_operation_stats](https://msdn.microsoft.com/library/dn270022.aspx) for operation stats. Wait until pending requests are complete or delete one of your pending requests and retry your request later. |
+|49919|16|Cannot process create or update request. Too many create or update operations in progress for subscription "%ld".<br/><br/>The service is busy processing multiple create or update requests for your subscription or server. Requests are currently blocked for resource optimization. Query [sys.dm_operation_status](https://msdn.microsoft.com/library/dn270022.aspx) for pending operations. Wait till pending create or update requests are complete or delete one of your pending requests and retry your request later. |
+|49920|16|Cannot process request. Too many operations in progress for subscription "%ld".<br/><br/>The service is busy processing multiple requests for this subscription. Requests are currently blocked for resource optimization. Query [sys.dm_operation_status](https://msdn.microsoft.com/library/dn270022.aspx) for operation status. Wait until pending requests are complete or delete one of your pending requests and retry your request later. |
 
 **Note:** Federation errors 10053 and 10054 might also deserve inclusion in your retry logic.
 

@@ -1,12 +1,12 @@
 <properties
-	pageTitle="Deploy Azure Resources by Using a Template"
+	pageTitle="Deploy Azure Resources using a template | Microsoft Azure"
 	description="Learn to use some of the available clients in the Azure Resource Management Library to deploy a virtual machine, virtual network, and storage account"
 	services="virtual-machines,virtual-networks,storage"
 	documentationCenter=""
 	authors="davidmu1"
 	manager="timlt"
 	editor="tysonn"
-	tags="azure-resource-manager/>
+	tags="azure-resource-manager"/>
 
 <tags
 	ms.service="azure-resource-manager"
@@ -17,7 +17,9 @@
 	ms.date="08/25/2015"
 	ms.author="davidmu"/>
 
-# Deploy Azure Resources Using .NET Libraries and a Template
+# Deploy Azure resources using .NET libraries and a template
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)] This article covers creating a resource with the Resource Manager deployment model.
 
 By using resource groups and templates, you're able to manage all of the resources that support your application together. This tutorial shows you how to use some of the available clients in the Azure Resource Management Library and how to build a template to deploy a virtual machine, virtual network, and storage account.
 

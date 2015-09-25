@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="big-compute"
-	ms.date="08/27/2015"
+	ms.date="09/24/2015"
 	ms.author="davidmu;v-marsma"/>
 
 # Efficient Batch list queries
@@ -37,6 +37,9 @@ It is important to note that both the number of items returned and the amount of
 - More memory will be consumed by the application calling Batch when there are more and/or larger items.
 - More and/or larger items will lead to increased network traffic. This will take longer to transfer and, depending on application architecture, may result in increased network charges for data transferred outside of the region of the Batch account.
 
+> [AZURE.IMPORTANT]
+> It is *highly* recommended that you *always* use filter and select clauses for your list API calls to ensure maximum efficiency and performance for your application. These clauses and their usage are described below.
+
 For all Batch APIs the following apply:
 
 - Each property name is a string that maps to the property of the object
@@ -50,7 +53,7 @@ For all Batch APIs the following apply:
 
 ## Efficient querying in Batch .NET
 
-The Batch .NET API provides the ability to reduce both the number of items returned in a list and the amount of information returned for each item by specifying the [DetailLevel](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.detaillevel.aspx) of a query. DetailLevel is an abstract base class, and an [ODATADetailLevel](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.odatadetaillevel.aspx) object actually needs to be created and passed as the parameter to appropriate methods.
+The Batch .NET API provides the ability to reduce both the number of items returned in a list and the amount of information returned for each item by specifying the [DetailLevel](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.detaillevel.aspx) of a query. DetailLevel is an abstract base class, and an [ODATADetailLevel][odata] object actually needs to be created and passed as the parameter to appropriate methods.
 
 An ODataDetailLevel object has three public string properties that can be specified either in the constructor or set directly:
 
@@ -124,8 +127,23 @@ Below you'll find a code snippet that uses the Batch .NET API to efficiently que
 	// detail level we configured above
 	List<CloudPool> testPools = myBatchClient.PoolOperations.ListPools(detailLevel).ToList();
 
-> [AZURE.TIP]
-> It is recommended that you *always* use filter and select clauses for your list API calls to ensure maximum efficiency and the best performance for your application.
+## Sample project
+
+Check out the [EfficientListQueries][efficient_query_sample] sample project on GitHub to see how efficient list querying can affect performance in an application. This C# console application creates and adds a large number of tasks to a job, then queries the Batch service using different [ODATADetailLevel][odata] specifications, displaying output similar to the following:
+
+		Adding 5000 tasks to job jobEffQuery...
+		5000 tasks added in 00:00:47.3467587, hit ENTER to query tasks...
+
+		4943 tasks retrieved in 00:00:04.3408081 (ExpandClause:  | FilterClause: state eq 'active' | SelectClause: id,state)
+		0 tasks retrieved in 00:00:00.2662920 (ExpandClause:  | FilterClause: state eq 'running' | SelectClause: id,state)
+		59 tasks retrieved in 00:00:00.3337760 (ExpandClause:  | FilterClause: state eq 'completed' | SelectClause: id,state)
+		5000 tasks retrieved in 00:00:04.1429881 (ExpandClause:  | FilterClause:  | SelectClause: id,state)
+		5000 tasks retrieved in 00:00:15.1016127 (ExpandClause:  | FilterClause:  | SelectClause: id,state,environmentSettings)
+		5000 tasks retrieved in 00:00:17.0548145 (ExpandClause: stats | FilterClause:  | SelectClause: )
+
+		Sample complete, hit ENTER to continue...
+
+As is shown in the elapsed time information, limiting the properties and the number of items returned can greatly lower query response times. You can find this and other sample projects in the [azure-batch-samples][github_samples] repository on GitHub.
 
 ## Next steps
 
@@ -133,3 +151,7 @@ Below you'll find a code snippet that uses the Batch .NET API to efficiently que
     - [Batch REST](https://msdn.microsoft.com/library/azure/dn820158.aspx)
     - [Batch .NET](https://msdn.microsoft.com/library/azure/dn865466.aspx)
 2. Grab the [Azure Batch samples](https://github.com/Azure/azure-batch-samples) on GitHub and dig into the code
+
+[efficient_query_sample]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/EfficientListQueries
+[github_samples]: https://github.com/Azure/azure-batch-samples
+[odata]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.odatadetaillevel.aspx

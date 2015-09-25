@@ -1,11 +1,13 @@
 <properties 
-	pageTitle="Endorsed distributions of Linux in Azure" 
-	description="Learn about Linux on Azure-endorsed distributions, including guidelines for Ubuntu, OpenLogic, and SUSE." 
+	pageTitle="Endorsed distributions of Linux | Microsoft Azure" 
+	description="Learn about Linux on Azure-endorsed distributions, including guidelines for Ubuntu, OpenLogic, Oracle, and SUSE." 
 	services="virtual-machines" 
 	documentationCenter="" 
 	authors="szarkos" 
 	manager="timlt" 
-	editor="tysonn"/>
+	editor="tysonn"
+	tags="azure-service-management,azure-resource-manager" 
+	/>
 
 <tags 
 	ms.service="virtual-machines" 

@@ -1,9 +1,9 @@
 <properties
-	pageTitle="Create and upload a Windows Server VHD to Azure"
-	description="Learn to create and upload a virtual hard disk (VHD) in Azure that has the Windows Server operating system."
+	pageTitle="Create and upload a Windows Server VHD to Azure using Powershell"
+	description="Learn to create and upload a Windows Server based virtual hard disk (VHD)  using the classic deployment model and Azure Powershell."
 	services="virtual-machines"
 	documentationCenter=""
-	authors="KBDAzure"
+	authors="cynthn"
 	manager="timlt"
 	editor="tysonn"
 	tags="azure-service-management"/>
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/10/2015"
-	ms.author="kathydav"/>
+	ms.author="cynthn"/>
 
 # Create and upload a Windows Server VHD to Azure#
 

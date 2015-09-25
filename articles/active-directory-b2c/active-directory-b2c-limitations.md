@@ -13,24 +13,22 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/15/2015"
+	ms.date="09/22/2015"
 	ms.author="swkrish"/>
 
 # Azure Active Directory B2C preview: Limitations & Restrictions
 
 There are several features & functionalities of Azure Active Directory (AD) B2C that are not yet supported during the preview. Many of these limitations will be removed before Azure AD B2C reaches general availability, but you should be aware of them if you are building consumer-facing applications using Azure AD B2C during preview.
 
+[AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
+
 ## Issues during Creation of Azure AD B2C Directories
 
 There are known issues that you may encounter during the [creation of an Azure AD B2C directory](active-directory-b2c-get-started). Check out this [article](active-directory-b2c-support-create-directory.md) for guidance.
 
-## Branding issue on the Local Account Sign In Page
+## Branding issues on Verification Emails and Self-service Password Reset Pages
 
-The default template on the Local Account Sign In page will contain "Microsoft Azure" branding elements. We are actively working to resolve this issue. You can change the branding on this page using the [company branding feature](./active-directory/active-directory-add-company-branding.md).
-
-## Issues with Local Account Sign Out
-
-Currently local account sign out doesn't work. We are actively working to resolve this issue. The workaround is to close the browser or clear cookies.
+The default verification emails and self-service password reset pages contain "Microsoft" and "Azure" branding elements. We will remove these going forward. You can change the branding on these pages using the [company branding feature](./active-directory/active-directory-add-company-branding.md), upon which these branding elements will not appear.
 
 ## Support for Production Applications
 

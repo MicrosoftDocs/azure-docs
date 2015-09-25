@@ -122,7 +122,7 @@ Some Office 365 workloads have certain restrictions to supported topologies. If 
 ## Staging server
 ![StagingServer](./media/active-directory-aadconnect-topologies/MultiForestStaging.png)
 
-Azure AD Connect supports installing a second server in “Staging mode”. A server in this mode will only read data from all connected directories and will therefore have an updated copy of the identity data. In case of a disaster where the primary server fails, it is easy to manually fail over to the second server using the Azure AD Connect wizard. This second server can preferable be located in a different datacenter since no infrastructure is shared with the primary server. Any configuration change made on the primary server must be copied to the second server by you.
+Azure AD Connect supports installing a second server in “Staging mode”. A server in this mode will only read data from all connected directories and will therefore have an updated copy of the identity data. In case of a disaster where the primary server fails, it is easy to manually fail over to the second server using the Azure AD Connect wizard. This second server can preferably be located in a different datacenter since no infrastructure is shared with the primary server. Any configuration change made on the primary server must be copied to the second server by you.
 
 A staging server can also be used if you want to test a new custom configuration and the effect it will have on your data. You can preview the changes and adjust the configuration. When you are happy with the new configuration you can make the staging server the active server and set the old active server in staging mode.
 

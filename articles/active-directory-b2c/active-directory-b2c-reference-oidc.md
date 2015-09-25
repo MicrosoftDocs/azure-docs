@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/04/2015"
+	ms.date="09/22/2015"
 	ms.author="dastrock"/>
 
 # Azure AD B2C Preview: Web sign-in with OpenID Connect
@@ -23,9 +23,7 @@ and other identity management experiences in your web applications to Azure AD. 
 
 <!-- TODO: Need link to libraries -->	
 
-> [AZURE.NOTE]
-	This information applies to the Azure AD B2C preview.  For information on how to integrate with the generally available Azure AD service, 
-	please refer to the [Azure Active Directory Developer Guide](active-directory-developers-guide.md).
+[AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
 
 [OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html) extends the OAuth 2.0 *authorization* protocol for use as an *authentication* protocol, which allows you to perform single sign-on using OAuth.  It introduces the concept of an `id_token`, which is a security token that allows the client to verify the identity of the user and obtain basic profile information about the user.  Because it extends OAuth 2.0, it also enables apps to securely acquire **access_tokens** which can be used to access resources that are secured by an [authorization server](active-directory-b2c-reference-protocols.md#the-basics).  OpenID Connect is our reccomendation if you are building a web application that is hosted on a server and accessed via a browser.  If you want to add identity management to your mobile or desktop applications using Azure AD B2C, you should use [OAuth 2.0](active-directory-b2c-reference-oauth-code.md) rather than OpenID Connect.
 
