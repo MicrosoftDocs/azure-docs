@@ -26,8 +26,8 @@
 -   [3. Sending data to the remote monitoring solution using C](#)
     -   [3.1 Running on Linux](#)
     -   [3.2 Running on Windows](#)
-    -   [3.3 Running on mbedOS](#)
--   [4. Sending data to the remote monitoring using Node.js](#e)
+    -   [3.3 Running on mbed](#)
+-   [4. Sending data to the remote monitoring using node.js](#e)
 -   [5. Command and control your device from the dashboard](#e)
 -   [6. Extending the solution](#S)
 -   [7. Links and resources](#St)
@@ -35,7 +35,7 @@
 
 ## Scenario overview
 
-In this example, we will generate external and internal temperature from the device, to match with the business scenario of our preconfigured solution. We are not using real sensors for simplicity purposes, but we encourage you as a next step to connect your favorite sensor and send real date. Please visit the resources linked on the Extending your solution section for more information.
+In this example, we will have three simulated data sources:  external temperature, internal temperature and humidity. We are not using real sensors  for simplicity purposes (data is self-generated in the client code), but we encourage you as a next step to connect your favorite sensor and send real data. Please visit the resources linked on the Extending your solution section for more information.
 
 ## Prerequisites
 
@@ -45,8 +45,10 @@ If you haven't provisioned your remote monitoring preconfigured solution yet, yo
 
 
 ##### Provision your device in the remote monitoring solution
-
-To get your device connected to the preconfigured solution, you need to get the device credentials from the dashboard. This will be then used in your client application so that your device can be identified. Follow this steps (note: if you have already provisioned a device on your solution, you can skip this step):
+```
+Note: if you have already provisioned a device on your solution, you can skip this step.
+```
+To get your device connected to the preconfigured solution, you must get the device credentials from the dashboard. This will be used in your client application so that your device can be identified. Follow this steps
 
 1.  On the lower left corner of the dashboard, click on "Add a device".
     ![][1]
@@ -56,7 +58,7 @@ To get your device connected to the preconfigured solution, you need to get the 
 3.  Choose your own Device ID by entering a name such as realdevice1, and click on Check ID to make sure that name hasn't been used yet.
 	![][3]
 
-5. Please take note of the credentials provided (Device ID, IoT Hub Hostname and Device Key). You will need them later in your client application to connect your device to the solution.
+5. Please copy your credentials provided (Device ID, IoT Hub Hostname and Device Key). You will need them later in your client application to connect your device to the solution.
 	![][4]
 6. Ensure your device is displayed correctly on the devices section. The status will be "Pending". This is expected until the device to cloud connection is established.
 
@@ -68,11 +70,9 @@ To get your device connected to the preconfigured solution, you need to get the 
 [4]: ./media/iot-suite-connecting-devices/suite3.png
 [5]: ./media/iot-suite-connecting-devices/suite5.png
 
-
-
 Now choose which language would you like to use to continue your sample. In this tutorial, we've created sample code for C and node.js but you could also implement it in C Sharp and Java.
 
-## Sending data to the remote monitoring solution using C
+## Sending device data to the remote monitoring solution using C
 
 
 ### Running your device on Linux
@@ -88,11 +88,9 @@ Now choose which language would you like to use to continue your sample. In this
     static const char* hubName = "[IoTHub Name]";
     static const char* hubSuffix = "[IoTHub Suffix, i.e. azure-devices.net]";
     ```
-3. Replace "[Device Id]", "[Device Key], with the data your device data.
+3. Replace "[Device Id]", "[Device Key], with  your device data.
 
-4. Use the IoT Hub Hostname device data to fill in IoTHub name and IoTHub Suffix. To do this, you need to split it in to like this:
-
-    If your IoT Hub Hostname is Contoso.azure-devices.net, Contoso will be your IoTHub name and everything after it will the the Suffix. It should look like this:
+4. Use the IoT Hub Hostname device data to fill in IoTHub name and IoTHub Suffix. To do this, you need to split in IoTHub + IoTHubSuffix. For example: if your IoT Hub Hostname is "Contoso.azure-devices.net", "Contoso" will be your IoTHub name and the rest is the Suffix. It should look like this:
 
     ```
     static const char* deviceId = "mydevice";
@@ -101,22 +99,26 @@ Now choose which language would you like to use to continue your sample. In this
     static const char* hubSuffix = "azure-devices.net";
     ```
 
-
 5. Save your changes and build the samples.  To build your sample you can run the the build.sh script in the **c/build_all/linux** directory.
 
 6. Run the **c/serializer/samples/remote_monitoring/linux/remote_monitoring** sample application.
 
-7. Go back to your remote monitoring solution dashboard. You should see data flowing to it. The sample is configured to send XXX internal temperature and YYY external temperature
+#### Visualize your registered device and the data
 
-8. Now go to the Command and control section (LINK) to learn how to change the temperature on your device from the remote monitoring solution.
+7. Go back to your remote monitoring solution dashboard. You should the device has changed the status to Running on the Devices list.
+![][18]
+
+8. Click on the dashboard to see data coming. The sample is configured to send 50 units for internal temperature, 55 units for external temperature and 50 for humidity. Please note that the dashboard only shows temperature and humidity by default.
+
+8. Now go to the Command and control [section](#command) to learn how to change the temperature on your device from the remote monitoring solution.
 
 
 ### Running your device on Windows
 
 
-1. Setup your environment: if you've never used our Device SDK before,  learn  how to set up your environment on Windows [here](https://github.com/Azure/azure-iot-sdks/blob/develop/c/doc/devbox_setup.md#windows).
+1. Setup your environment: if you have never used our device SDK before, learn  how to set up your environment on Windows [here](https://github.com/Azure/azure-iot-sdks/blob/develop/c/doc/devbox_setup.md#windows).
 
-1. Start a new instance of Visual Studio 2015. Open the **remote_monitoring .sln** solution in the **c\\serializer\\build\\windows** folder in your local copy of the repository.
+1. Start a new instance of Visual Studio 2015. Open the **remote_monitoring.sln** solution in the **c\\serializer\\build\\windows** folder in your local copy of the repository.
 
 2. In Visual Studio, in **Solution Explorer**, navigate to the samples folder. In the **remote_monitoring** project, open the **remote_monitoring.c** file.
 
@@ -142,11 +144,18 @@ Now choose which language would you like to use to continue your sample. In this
 
 6. In **Solution Explorer**, right-click the **remote_monitoring** project, click **Debug**, and then click **Start new instance** to build and run the sample. The console displays messages as the application sends device-to-cloud messages to IoT Hub.
 
-7. Go back to your remote monitoring solution dashboard. You should see data flowing to it. The sample is configured to send XXX internal temperature and YYY external temperature
+#### Visualize your registered device and the data
+7. Go back to your remote monitoring solution dashboard. You should the device has changed the status to Running on the Devices list.
+![][18]
 
-8. Now go to the Command and control section (LINK) to learn how to change the temperature on your device from the remote monitoring solution.
+8. Click on the dashboard to see data coming. The sample is configured to send 50 units for internal temperature, 55 units for external temperature and 50 for humidity. Please note that the dashboard only shows temperature and humidity by default.
 
-### Running your device on mbedOS
+8. Now go to the Command and control [section](#command) to learn how to change the temperature on your device from the remote monitoring solution.
+
+
+8. Now go to the Command and control section to learn how to change the temperature on your device from the remote monitoring solution.
+
+### Running your device on mbed
 
 The following instructions describe the steps for connecting an [mbed-enabled Freescale FRDM-K64F](https://developer.mbed.org/platforms/FRDM-K64F/) device to Azure IoT Hub.
 
@@ -188,7 +197,7 @@ The following instructions describe the steps for connecting an [mbed-enabled Fr
     static const char* hubName = "[IoTHub Name]";
     static const char* hubSuffix = "[IoTHub Suffix, i.e. azure-devices.net]";
     ```
-3. Replace "[Device Id]", "[Device Key], with the data your device data.
+3. Replace [Device Id] and [Device Key], with your device data.
 
 4. Use the IoT Hub Hostname device data to fill in IoTHub name and IoTHub Suffix. To do this, you need to split it in to like this:
 
@@ -217,17 +226,20 @@ The following instructions describe the steps for connecting an [mbed-enabled Fr
 
 The program starts executing. You may have to reset the board (press CTRL+Break or press on the board's reset button) if the program does not start automatically when you connect.
 
-#### Visualize your device and incoming data
-6. On the preconfigured solution portal, click on the devices section to ensure that the Status of your device has changed to "Running" and that you can see all the manufacturer data. SCREENSHOT NEEDED
+#### Visualize your registered device and the data
+7. Go back to your remote monitoring solution dashboard. You should the device has changed the status to Running on the Devices list.
+![][18]
 
-7. Click on the dashboard and select your device on "Device to View". You should now see your telemetry data being monitored on the Remote Monitoring solution.SCREENSHOT NEEDED
+8. Click on the dashboard to see data coming. The sample is configured to send 50 units for internal temperature, 55 units for external temperature and 50 for humidity. Please note that the dashboard only shows temperature and humidity by default.
+
+8. Now go to the Command and control [section](#command) to learn how to change the temperature on your device from the remote monitoring solution.
 
 
 
 [6]: ./media/iot-suite-connecting-devices/mbed1.png
 [7]: ./media/iot-suite-connecting-devices/mbed2a.png
 [8]: ./media/iot-suite-connecting-devices/mbed3a.png
-[9]: ./media/iot-suite-connecting-devices/mbed4a.png
+[9]: ./media/iot-suite-connecting-devices/suite6.png
 [10]: ./media/iot-suite-connecting-devices/mbed5a.png
 [11]: ./media/iot-suite-connecting-devices/mbed6.png
 [12]: ./media/iot-suite-connecting-devices/mbed7.png
@@ -236,17 +248,41 @@ To learn how to do command and control, please continue in the following section
 
 ## Sending device data to the remote monitoring solution using node.js
 
-This tutorial assumes that you have completed the first tutorial, where we explained how to run a simple sample using our Node client libraries. If you haven't, please do so by following this [link](https://github.com/Azure/azure-iot-sdks/blob/develop/node/device/doc/run_sample.md).  
 
-1.  Open the file **node\\samples\\simple_sample_remotemonitoring.js** in a text editor.
 
-2.  Locate the following code in the file:
+-   In our azure-iot-sdks repo, locate the following files: packages.json (under /node/common) and remote_monitoring.js under node/device/samples/). Copy them to your device and put them in the same folder.
 
-    ```
-    var deviceID = '[Device ID]';
-    var IoTHubName = '[IoT Hub Hostname]';
-    var DeviceKey = '[Device Key]';
-    ```
+- Open the remote-monitoring.js file and look for the folloing variables:
+
+
+   ```
+   static const char* deviceId = "[Device Id]";
+   static const char* deviceKey = "[Device Key]";
+   static const char* hubName = "[IoTHub Name]";
+   static const char* hubSuffix = "[IoTHub Suffix, i.e. azure-devices.net]";
+   ```
+
+-  Replace "[Device Id]", "[Device Key], with the data your device data.
+
+-  Use the IoT Hub Hostname device data to fill in IoTHub name and IoTHub Suffix. To do this, you need to split it in to like this:
+
+   If your IoT Hub Hostname is Contoso.azure-devices.net, Contoso will be your IoTHub name and everything after it will the the Suffix. It should look like this:
+
+
+   ```
+     static const char* deviceId = "mydevice";
+   static const char* deviceKey = "mykey";
+   static const char* hubName = "Contoso";
+   static const char* hubSuffix = "azure-devices.net";
+   ```
+
+
+- Save the file. Run the following command on the destination folder:
+
+```
+npm install
+node .
+```
 
 3.  Replace each of the variables with the information you gathered in the previous step. Save the changes.
 
@@ -259,14 +295,14 @@ This tutorial assumes that you have completed the first tutorial, where we expla
 
 #### Visualize your device and incoming data
 
-6. On the preconfigured solution portal, click on the devices section to ensure that the Status of your device has changed to "Running" and that you can see all the manufacturer data. SCREENSHOT NEEDED
+6. On the preconfigured solution portal, click on the devices section to ensure that the Status of your device has changed to "Running" and that you can see all the manufacturer data.
 
-7. Click on the dashboard and select your device on "Device to View". You should now see your telemetry data being monitored on the Remote Monitoring solution.SCREENSHOT NEEDED
+7. Click on the dashboard and select your device on "Device to View". You should now see your telemetry data being monitored on the Remote Monitoring solution.
 
 
-## Command and control your device from the dashboard
+## <a name="command"></a>Command and control your device from the dashboard
 
-Now that your device is connected and sending self-generated temperature data from your device, you can command and control your device remotely from IoT Hub. You can implement multiple types of commands that fit your business application. In this case, we've implemented a change in temperature, as if there was a need to control it from the solution. To send the commmand, you should:
+Now that your device is connected and sending self-generated temperature data from your device, you can command and control your device remotely from IoT Hub. You can implement multiple types of commands that fit your business application. In this case, we've implemented a change in temperature, as if there was a need to control it from the solution. To send the command, you should:
 
 -  Click on your device ID on the Devices list (you can find the device section on the left side menu).
 
@@ -274,20 +310,21 @@ Now that your device is connected and sending self-generated temperature data fr
 
 - On the right menu where device details are shown, click on "Send command"
 
-![][14]
+
 - Select the command you want to run: In this case, we choose "Set temperature", since we want to change the temperature the device is set at. Select that command and choose the temperature value. Click on Send Command and the new temperature will be pushed to the device. Note: you will see that in the command history the result of the command is "Pending". This is because, for simplicity purposes, this samples hasn't implemented any logic in the device to respond to IoT Hub. You can do this extending the solution.
 
-![][15]
+![][14]
 - Go back to the dashboard and ensure that the updated data is coming through. You should see updated statistics on temperature and the new data being displayed in the telemetry history.
-![][16]
+![][15]
 
 
 
 [13]: ./media/iot-suite-connecting-devices/suite4.png
-[14]: ./media/iot-suite-connecting-devices/mbed2a.png (placeholder for more screenshots)
-[15]: ./media/iot-suite-connecting-devices/mbed3a.png (placeholder for more screenshots)
-[16]: ./media/iot-suite-connecting-devices/mbed4a.png (placeholder for more screenshots)
-[17]: ./media/iot-suite-connecting-devices/mbed5a.png (placeholder for more screenshots)
+[14]: ./media/iot-suite-connecting-devices/suite7.png
+[15]: ./media/iot-suite-connecting-devices/suite8a.png
+[16]: ./media/iot-suite-connecting-devices/mbed4a.png
+[17]: ./media/iot-suite-connecting-devices/suite9.png
+[18]: ./media/iot-suite-connecting-devices/suite10.png
 
 
 ## Extending your solution
