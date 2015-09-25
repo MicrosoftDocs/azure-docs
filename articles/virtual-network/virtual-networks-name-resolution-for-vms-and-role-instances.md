@@ -3,7 +3,7 @@
    description="Name Resolution scenarios for Azure IaaS , hybrid solutions, between different cloud services, Active Directory and using your own DNS server "
    services="virtual-network"
    documentationCenter="na"
-   authors="joaoma"
+   authors="GarethBradshawMSFT"
    manager="jdial"
    editor="tysonn" />
 <tags 
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/10/2015"
+   ms.date="09/02/2015"
    ms.author="joaoma" />
 
 # Name Resolution for VMs and Role Instances
@@ -53,19 +53,17 @@ Although Azure-provided name resolution does not require any configuration, it i
 
 - Ease of use: No configuration is required in order to use Azure-provided name resolution.
 
+- The Azure-provided name resolution service is highly available, saving you the need to create and manage clusters of your own DNS servers.
+
 - Name resolution is provided between role instances or VMs within the same cloud service without need for a FQDN.
 
-- Name resolution is provided between VMs in ARM-based virtual networks without need for the FQDN, classic networks require the FQDN when resolving names in different cloud services. 
+- Name resolution is provided between VMs in ARM-based virtual networks without need for the FQDN, classic virtual networks require the FQDN when resolving names in different cloud services. 
 
 - You can create the hostnames that will best describe your deployments, rather than working with auto-generated names.
 
 **Considerations:**
 
-- Name resolution between virtual networks is not available.
-
-- You can only register hostnames for VMs and role instances that reside in the first 180 cloud services added to an Azure virtual network. If you have more than 180 cloud services, independent of the number of VMs and role instances in each service, you need to provide your own DNS server for name resolution.
-
-- Cross-premises name resolution is not available.
+- Name resolution between virtual networks and between Azure and on-premise machines is not available.
 
 - The Azure-created DNS suffix cannot be modified.
 
@@ -75,7 +73,57 @@ Although Azure-provided name resolution does not require any configuration, it i
 
 - Hostnames must be DNS-compatible (They must use only 0-9, a-z and '-', and cannot start or end with a '-'. See RFC 3696 section 2.)
 
-- DNS query traffic is throttled per VM. If your application performs frequent DNS queries on multiple target names, it is possible that some queries may time out. To avoid that, it is recommended to enable client caching.  This is enabled by default on Windows but some Linux distros may not have caching enabled.
+- DNS query traffic is throttled per VM. This shouldn't impact most applications.  If request throttling is observed, ensure that client-side caching is enabled.  For more details, see [Getting the most from Azure-provided name resolution](#Getting-the-most-from-Azure-provided-name-resolution).
+
+- Only VMs in the first 180 cloud services are registered for each classic virtual network.  This does not apply to ARM-based virtual networks.
+
+
+### Getting the most from Azure-provided name resolution
+**Client-side Caching:**
+
+Not every DNS query needs to be sent across the network.  Client-side caching helps reduce latency and improve resilience to network blips by resolving recurring DNS queries from a local cache.  DNS records contain a Time-To-Live (TTL) which allows the cache to store the record for as long as possible without impacting record freshness, so client-side caching is suitable for most situations.
+
+The default Windows DNS Client has a DNS cache built-in.  Some Linux distros do not include caching by default, it is recommended that one be added to each Linux VM.  There are a number of different DNS caching packages available, e.g. dnsmasq, here are the steps to install dnsmasq on the most common distros:
+
+- **Ubuntu (uses resolvconf)**:
+	- just install the dnsmasq package (“sudo apt-get install dnsmasq”).
+- **SUSE (uses netconf)**:
+	- install the dnsmasq package (“sudo zypper install dnsmasq”) 
+	- enable the dnsmasq service (“systemctl enable dnsmasq.service”) 
+	- start the dnsmasq service (“systemctl start dnsmasq.service”) 
+	- edit “/etc/sysconfig/network/config” and change NETCONFIG_DNS_FORWARDER="" to ”dnsmasq”
+	- update resolv.conf ("netconfig update") to set the cache as the local DNS resolver
+- **OpenLogic (uses NetworkManager)**:
+	- install the dnsmasq package (“sudo yum install dnsmasq”)
+	- enable the dnsmasq service (“systemctl enable dnsmasq.service”)
+	- start the dnsmasq service (“systemctl start dnsmasq.service”)
+	- add “prepend domain-name-servers 127.0.0.1;” to “/etc/dhclient-eth0.conf”
+	- restart the network service (“service network restart”) to set the cache as the local DNS resolver
+
+[AZURE.NOTE]: The 'dnsmasq' package is only one of the many DNS caches available for Linux.  Before using it, please check its suitability for your particular needs and that no other cache is installed.
+
+**Client-side Retries:**
+
+DNS is primarily a UDP protocol.  As the UDP protocol doesn't guarantee message delivery, retry logic is handled in the DNS protocol itself.  Each DNS client (operating system) can exhibit different retry logic depending on the creators preference:
+
+ - Windows operating systems retry after 1 second and then again after another 2, 4 and another 4 seconds. 
+ - The default Linux setup retries after 5 seconds.  It is recommended to change this to retry 5 times at 1 second intervals.  
+
+To check the current settings on a Linux VM, 'cat /etc/resolv.conf' and look at the 'options' line, e.g.:
+
+	options timeout:1 attempts:5
+
+The resolv.conf file is usually auto-generated and should not be edited.  The specific steps for adding the 'options' line vary by distro:
+
+- **Ubuntu** (uses resolvconf):
+	- add the options line to '/etc/resolveconf/resolv.conf.d/head' 
+	- run 'resolvconf -u' to update
+- **SUSE** (uses netconf):
+	- add 'timeout:1 attempts:5' to the NETCONFIG_DNS_RESOLVER_OPTIONS="" parameter in '/etc/sysconfig/network/config' 
+	- run 'netconfig update' to update
+- **OpenLogic** (uses NetworkManager):
+	- add 'echo "options timeout:1 attempts:5"' to '/etc/NetworkManager/dispatcher.d/11-dhclient' 
+	- run 'service network restart' to update
 
 ## Name resolution using your own DNS server
 
@@ -113,12 +161,11 @@ When you create a virtual network in the Management Portal, you can specify the 
 
 For classic virtual networks, you can specify DNS settings by using two different configuration files: the *Network Configuration* file and the *Service Configuration* file.
 
-> [AZURE.NOTE] DNS servers in the service configuration file override settings in the network configuration file. 
- 
 The network configuration file describes the virtual networks in your subscripion. When you add role instances or VMs to a cloud service in a virtual network, the DNS settings from your network configuration file are applied to each role instance or VM unless cloud-service specific DNS servers have been specified.
 
 The service configuration file is created for each cloud service that you add to Azure. When you add role instances or VMs to the cloud service, the DNS settings from your service configuration file are applied to each role instance or VM.
 
+> [AZURE.NOTE] DNS servers in the service configuration file override settings in the network configuration file. 
 
 
 ## Next steps

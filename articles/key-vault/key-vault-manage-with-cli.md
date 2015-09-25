@@ -3,8 +3,9 @@
 	description="Use this tutorial to automate common tasks in Key Vault by using the CLI"
 	services="key-vault"
 	documentationCenter=""
-	authors="msmbaldwin"
-	manager="mbaldwin"tags="azure-resource-manager"/>
+	authors="BrucePerlerMS"
+	manager="mbaldwin"
+	tags="azure-resource-manager"/>
 
 <tags
 	ms.service="key-vault"
@@ -12,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/25/2015"
+	ms.date="09/22/2015"
 	ms.author="bruceper"/>
 
 # Manage Key Vault using CLI #
@@ -185,7 +186,7 @@ To authorize the application to access the key or secret in the vault, use the `
 For example, if your vault name is ContosoKeyVault and the application you want to authorize has a client ID of 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed, and you want to authorize the application to decrypt and sign with keys in your vault, then run the following:
 
     azure keyvault set-policy --vault-name 'ContosoKeyVault' --spn 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed --perm-to-keys '[“decrypt”,”sign”]'
-    
+
 If you want to authorize that same application to read secrets in your vault, run the following:
 
 	azure keyvault set-policy --vault-name 'ContosoKeyVault' --spn 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed --perm-to-secrets '["Get"]'
@@ -212,7 +213,7 @@ The next command imports a “bring your own key" (BYOK) package. This lets you 
 
     azure keyvault key import --vault-name 'ContosoKeyVaultHSM' --key-name 'ContosoFirstHSMKey' --byok-file './ITByok.byok' --destination 'HSM'
 
-For more detailed instructions about how to generate this BYOK package, see [How to use HSM-Protected Keys with Azure Key Vault](https://msdn.microsoft.com/library/azure/dn903624.aspx).
+For more detailed instructions about how to generate this BYOK package, see [How to use HSM-Protected Keys with Azure Key Vault](key-vault-hsm-protected-keys.md).
 
 
 ## Delete the key vault and associated keys and secrets
@@ -253,4 +254,4 @@ Here's an example of how to remove a specific secret:
 
 ## Next steps
 
-For programming references, see [Azure Key Vault REST API Reference](https://msdn.microsoft.com/library/azure/dn903609.aspx) and [Azure Key Vault C# Client API Reference](https://msdn.microsoft.com/library/azure/dn903628.aspx).
+For programming references, see [the Azure Key Vault developer's guide](key-vault-developers-guide.md).

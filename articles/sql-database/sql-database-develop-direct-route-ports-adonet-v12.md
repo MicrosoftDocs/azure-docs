@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Ports beyond 1433 for ADO.NET 4.5 and SQL Database V12 | Microsoft Azure"
-	description="Client connections to Azure SQL Database V12 sometimes bypass the proxy and interact directly with the database. Ports other than 1433 become important."
+	pageTitle="Ports beyond 1433 for SQL Database | Microsoft Azure"
+	description="Client connections from ADO.NET to Azure SQL Database V12 sometimes bypass the proxy and interact directly with the database. Ports other than 1433 become important."
 	services="sql-database"
 	documentationCenter=""
 	authors="MightyPen"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/01/2015" 
+	ms.date="09/15/2015" 
 	ms.author="genemi"/>
 
 
@@ -62,38 +62,19 @@ The sequence is as follows:
 
 
 1. ADO.NET 4.5 (or later) initiates a brief interaction with the Azure cloud, and receives a dynamically identified port number.
- - The dynamically identified port number is in the range of 11000 - 11999.
+ - The dynamically identified port number is in the range of 11000-11999 or 14000-14999.
 
 2. ADO.NET then connects to the SQL Database server directly, with no middleware in between.
 
 3. Queries are sent directly to the database, and results are returned directly to the client.
 
 
-Ensure that the port range of 11000 - 11999 on your Azure client machine is left available for ADO.NET 4.5 client interactions with SQL database V12.
+Ensure that the port ranges of 11000-11999 and 14000-14999 on your Azure client machine are left available for ADO.NET 4.5 client interactions with SQL Database V12.
 
 - In particular, ports in the range must be free of any other outbound blockers.
-- The Windows Firewall on your Azure VM controls the port settings.
 
-
-## Implicit retry logic contained in the proxy route
-
-
-In a production environment, clients that connect to Azure SQL Database V11 or V12 are advised to implement retry logic in their code. This can be custom code, or can be code that leverages an API such as the Enterprise Library.
-
-
-The proxy route discussed earlier in this topic is relevant to the question of retry logic:
-
-
-- In the V11, the middleware module that acted as a proxy also provided a modest degree of retry logic to gracefully handle some transient faults.
-
-- In the V12, the proxy does not provide any retry logic.
-
-
-In both scenarios we advise that clients implement retry logic in their own code. Arguably the need for retry logic in the client is increased with the latest proxy route that provides no retry logic.
-
-
-For code samples that demonstrate retry logic, see: 
-[Client quick-start code samples to SQL Database](sql-database-develop-quick-start-client-code-samples.md).
+- On your Azure VM, the **Windows Firewall with Advanced Security** controls the port settings.
+ - You can use the [firewall's user interface](http://msdn.microsoft.com/library/cc646023.aspx) to add a rule for which you specify the **TCP** protocol along with a port range with the syntax like **11000-11999**.
 
 
 ## Version clarifications
@@ -121,12 +102,6 @@ The client connection differences between SQL Database V11 and V12 are highlight
 ## Related links
 
 
-- [What's new in SQL Database V12](sql-database-v12-whats-new.md)
-
-
-- [Connecting to SQL Database: Links, Best Practices and Design Guidelines](sql-database-connect-central-recommendations.md)
-
-
 - ADO.NET 4.6 was released on July 20, 2015. A blog announcement from the .NET team is available [here](http://blogs.msdn.com/b/dotnet/archive/2015/07/20/announcing-net-framework-4-6.aspx).
 
 
@@ -135,4 +110,13 @@ The client connection differences between SQL Database V11 and V12 are highlight
 
 
 - [TDS protocol version list](http://www.freetds.org/userguide/tdshistory.htm)
+
+
+- [Connecting to SQL Database: Links, Best Practices and Design Guidelines](sql-database-connect-central-recommendations.md)
+
+
+- [Azure SQL Database firewall](sql-database-firewall-configure.md)
+
+
+- [How to: Configure firewall settings on SQL Database](sql-database-configure-firewall-settings.md)
 

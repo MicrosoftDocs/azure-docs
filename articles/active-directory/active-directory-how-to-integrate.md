@@ -1,5 +1,5 @@
 <properties
-   pageTitle="How to Integrate with Azure Active Directory"
+   pageTitle="How to Integrate with Azure Active Directory | Microsoft Azure"
    description="A guide to benefits of and resources for integration with Azure Active Directory."
    services="active-directory"
    documentationCenter="dev-center-name"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="08/25/2015"
+   ms.date="09/24/2015"
    ms.author="mbaldwin"/>
 
 # Integrating with Azure Active Directory
@@ -34,9 +34,9 @@ There are several ways for your application to integrate with Azure AD.  Take ad
 
 ### Browse for Users, Manage User Provisioning, and Control Access to Your Application
 
-**Browse for users in the directory.**  Use the Graph API to help users search and browse for other people in their organization when inviting others or granting access, instead of requiring them to type email addresses.  Users can browse using a familiar address book style interface, including viewing the details of the organizational hierarchy.  Learn more about the [Graph API](https://msdn.microsoft.com/library/azure/hh974476.aspx).
+**Browse for users in the directory.**  Use the Graph API to help users search and browse for other people in their organization when inviting others or granting access, instead of requiring them to type email addresses.  Users can browse using a familiar address book style interface, including viewing the details of the organizational hierarchy.  Learn more about the [Graph API](active-directory-graph-api.md).
 
-**Re-use Active Directory groups and distribution lists your customer is already managing.**  Azure AD contains the groups that your customer is already using for email distribution and managing access.  Using the Graph API, re-use these groups instead of requiring your customer to create and manage a separate set of groups in your application.  Group information can also be sent to your application in sign in tokens.  Learn more about the [Graph API](https://msdn.microsoft.com/library/azure/hh974476.aspx).
+**Re-use Active Directory groups and distribution lists your customer is already managing.**  Azure AD contains the groups that your customer is already using for email distribution and managing access.  Using the Graph API, re-use these groups instead of requiring your customer to create and manage a separate set of groups in your application.  Group information can also be sent to your application in sign in tokens.  Learn more about the [Graph API](active-directory-graph-api.md).
 
 **Use Azure AD to control who has access to your application.**  Administrators and application owners in Azure AD can assigning access to applications to specific users and groups.  Using the Graph API, you can read this list and use it to control provisioning and de-provisioning of resources and access within your application.  
 
@@ -72,11 +72,11 @@ Integration with Azure AD comes with benefits that do not require you to write a
 
 **Anomalous sign in detection.**  Azure AD processes more than a billion sign-ins a day, while using machine learning algorithms to detect suspicious activity and notify IT administrators of possible problems.  By supporting Azure AD sign-in, your application gets the benefit of this protection. Learn more about [viewing Azure Active Directory access report](active-directory-view-access-usage-reports.md).
 
-**Conditional access.**  In addition to multi-factor authentication, administrators can require specific conditions be met before users can sign-in to your application.  Conditions that can be set include the IP address range of client devices, membership in specified groups, and the state of the device being used for access.  Learn more about [Azure Active Directory conditional access](https://msdn.microsoft.com/library/azure/dn906873.aspx).
+**Conditional access.**  In addition to multi-factor authentication, administrators can require specific conditions be met before users can sign-in to your application.  Conditions that can be set include the IP address range of client devices, membership in specified groups, and the state of the device being used for access.  Learn more about [Azure Active Directory conditional access](active-directory-conditional-access.md).
 
 ### Easy Development
 
-**Industry standard protocols.**  Microsoft is committed to supporting industry standards.  Azure AD supports the SAML 2.0, OpenID Connect 1.0, OAuth 2.0, and WS-Federation 1.2 authentication protocols.  The Graph API is OData 4.0 compliant.  If your application already supports the SAML 2.0 or OpenID Connect 1.0 protocols for federated sign in, adding support for Azure AD can be straightforward.  Learn more about [Azure AD supported authentication protocols](../authentication-protocols.md).
+**Industry standard protocols.**  Microsoft is committed to supporting industry standards.  Azure AD supports the SAML 2.0, OpenID Connect 1.0, OAuth 2.0, and WS-Federation 1.2 authentication protocols.  The Graph API is OData 4.0 compliant.  If your application already supports the SAML 2.0 or OpenID Connect 1.0 protocols for federated sign in, adding support for Azure AD can be straightforward.  Learn more about [Azure AD supported authentication protocols](active-directory-authentication-protocols.md).
 
 **Open source libraries.**  Microsoft provides fully supported open source libraries for popular languages and platforms to speed development.  The source code is licensed under Apache 2.0, and you are free to fork and contribute back to the projects.  Learn more about [Azure AD authentication libraries](active-directory-authentication-libraries.md).
 

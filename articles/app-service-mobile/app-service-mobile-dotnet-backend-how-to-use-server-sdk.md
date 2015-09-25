@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="08/12/2015"
+	ms.date="09/18/2015"
 	ms.author="glenga"/>
 
 # Work with the .NET backend server SDK for Azure Mobile Apps
@@ -30,10 +30,25 @@ To install the SDK, right-click on the server project in Visual Studio, select *
 
 ###Initialize the server project
 
-A .NET backend server project is initialized in the **Register** method of the **WebApiConfig** class, usually found in the App_Start folder. An **HttpConfiguration** object, which represents configuration options for the service, is used to initialize the server project. The following example initialize the server project, with no added features: 
+A .NET backend server project is initialized similar to other ASP.NET projects, by including an OWIN startup class. To add this class in Visual Studio, right-click on your server project and select **Add** -> **New Item**, then **Web** -> **General** -> **OWIN Startup class**.
 
-    new MobileAppConfiguration()
-        .ApplyTo(config);
+This will generate a class with the following attribute:
+
+    [assembly: OwinStartup(typeof(YourServiceName.YourStartupClassName))]
+
+In the `Configuration()` method of your OWIN startup class, set up the server project using an **HttpConfiguration** object which represents the configuration options for the service. The following example initialize the server project, with no added features: 
+
+	// in OWIN startup class
+	public void Configuration(IAppBuilder app)
+	{
+	    HttpConfiguration config = new HttpConfiguration();
+	   
+	    new MobileAppConfiguration()
+	        // no added features
+	        .ApplyTo(config);  
+	    
+	    app.UseWebApi(config);
+	}
 
 To enable individual features, you must call extension methods on the **MobileAppConfiguration** object before calling **ApplyTo**. For example, the following code adds the default routes to all API controllers during initialization:
 
@@ -42,6 +57,20 @@ To enable individual features, you must call extension methods on the **MobileAp
 	    .ApplyTo(config);
 
 Many of the feature extension methods are available via additional NuGet packages you can include, which are described in the section below. 
+The server quickstart from the Azure Portal calls **UseDefaultConfiguration()**. This equivalent to the following setup:
+    
+		new MobileAppConfiguration()
+			.AddMobileAppHomeController()             // from the Home package
+			.MapApiControllers()
+			.AddTables(                               // from the Tables package
+				new MobileAppTableConfiguration()
+					.MapTableControllers()
+					.AddEntityFramework()             // from the Entity package
+				)
+			.AddPushNotifications()                   // from the Notifications package
+			.MapLegacyCrossDomainController()         // from the CrossDomain package
+			.ApplyTo(config);
+
 
 ### SDK extensions
 
@@ -88,13 +117,13 @@ The custom API controller provides the most basic functionality to your Mobile A
 		      //...
 		}
 
-4. Browse to the App_Startup folder, open the WebApiConfig.cs project file and add a call to the  **MapApiControllers** extension method, as in the following example:
+4. In App_Start/Startup.MobileApp.cs file, add a call to the  **MapApiControllers** extension method, as in the following example:
 
 		new MobileAppConfiguration()
 		    .MapApiControllers()
 		    .ApplyTo(config);
-
-	Note that you do not need to call **MapApiControllers** when you call **UseDefaultConfiguration**, which initializes all features. 
+    
+	Note that you do not need to call **MapApiControllers** if you instead call **UseDefaultConfiguration**, which initializes all features. 
 
 Any controller that does not have **MobileAppControllerAttribute** applied can still be accessed by clients, but it will not be correctly consumed by clients using any Mobile App client SDK. 
 
@@ -118,24 +147,17 @@ For an example of a table controller that uses Entity Framework to access data f
 
 ## How to: Add authentication to a server project
 
-You can add authentication to your server project by extending the **MobileAppConfiguration** object and configuring OWIN middleware. When you install the [Microsoft.Azure.Mobile.Server.Quickstart] package and call the **UseDefaultConfiguration** extension method, you can skip to step 4.
+You can add authentication to your server project by extending the **MobileAppConfiguration** object and configuring OWIN middleware. When you install the [Microsoft.Azure.Mobile.Server.Quickstart] package and call the **UseDefaultConfiguration** extension method, you can skip to step 3.
 
 1. In Visual Studio, install the [Microsoft.Azure.Mobile.Server.Authentication] package. 
 
-2. Browse to the App_Startup folder, open the WebApiConfig.cs project file and add a call to the **AddAppServiceAuthentication** extension method during initialization, which looks like the following:
-
-		new MobileAppConfiguration()
-			// other features...
-			.AddAppServiceAuthentication()
-			.ApplyTo(config);
-
-3. In the Startup.cs project file,aAdd the following line of code at the beginning of the **Configuration** method:
+2. In the Startup.cs project file, add the following line of code at the beginning of the **Configuration** method:
 
 		app.UseMobileAppAuthentication(config);
 
 	This adds the OWIN middleware component that enables your Azure Mobile App to validate tokens issued by the associated App Service gateway.
 
-4. Add the `[Authorize]` attribute to any controller or method that requires authentication. Users must now be authenticated to access that endpoint or those a specific APIs.
+3. Add the `[Authorize]` attribute to any controller or method that requires authentication. Users must now be authenticated to access that endpoint or those a specific APIs.
 
 To learn about how to authenticate clients to your Mobile Apps backend, see [Add authentication to your app](app-service-mobile-dotnet-backend-ios-get-started-users-preview.md).
 
@@ -147,7 +169,7 @@ You can add push notifications to your server project by extending the **MobileA
  
 3. Repeat this step to install the `Microsoft.Azure.NotificationHubs` package, which includes the Notification Hubs client library. 
 
-2. Browse to the App_Startup folder, open the WebApiConfig.cs project file and add a call to the **AddPushNotifications** extension method during initialization, which looks like the following:
+2. In App_Start/Startup.MobileApp.cs, and add a call to the **AddPushNotifications** extension method during initialization, which looks like the following:
 
 		new MobileAppConfiguration()
 			// other features...
@@ -165,7 +187,7 @@ You can add push notifications to your server project by extending the **MobileA
 
         // Get the settings for the server project.
         HttpConfiguration config = this.Configuration;
-        ServiceSettingsDictionary settings = 
+        MobileAppSettingsDictionary settings = 
             config.GetMobileAppSettingsProvider().GetMobileAppSettings();
         
         // Get the Notification Hubs credentials for the Mobile App.

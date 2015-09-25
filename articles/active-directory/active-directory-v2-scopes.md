@@ -1,5 +1,5 @@
 <properties
-	pageTitle="App Model v2.0 | Microsoft Azure"
+	pageTitle="App Model v2.0 Scopes, permissions, & consent | Microsoft Azure"
 	description="A description of authorization in the Azure AD v2.0 app model, including scopes, permissions, and consent."
 	services="active-directory"
 	documentationCenter=""
@@ -59,7 +59,7 @@ client_id=2d4d11a2-f814-46a7-890a-274a72a7309e
 &response_mode=query
 &scope=
 https%3A%2F%2Foutlook.office.com%2Fmail.read%20
-https%3A%2F%2Fgraph.windows.net%2Fmail.send
+https%3A%2F%2Foutlook.office.com%2Fmail.send
 &state=12345
 ```
 

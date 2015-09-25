@@ -1,6 +1,6 @@
 <properties
-	pageTitle="How to create and deploy a cloud service | Microsoft Azure"
-	description="Learn how to create and deploy a cloud service using the Quick Create method in Azure."
+	pageTitle="How to create and deploy a cloud service (preview portal) | Microsoft Azure"
+	description="Learn how to create and deploy a cloud service using the Quick Create method in Azure. These examples use the Azure preview portal."
 	services="cloud-services"
 	documentationCenter=""
 	authors="Thraka"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/30/2015"
+	ms.date="09/22/2015"
 	ms.author="adegeo"/>
 
 
@@ -109,3 +109,10 @@ If your deployment package was [configured to use certificates](cloud-services-c
 
 
 [TFSTutorialForCloudService]: http://go.microsoft.com/fwlink/?LinkID=251796&clcid=0x409
+
+## Next steps
+
+* [General configuration of your cloud service](cloud-services-how-to-configure-portal.md).
+* Configure a [custom domain name](cloud-services-custom-domain-name-portal.md).
+* [Manage your cloud service](cloud-services-how-to-manage-portal.md).
+* Configure [ssl certificates](cloud-services-configure-ssl-certificate-portal.md).

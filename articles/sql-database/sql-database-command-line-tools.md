@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Manage Azure SQL Database Resources with PowerShell" 
+	pageTitle="Manage Azure SQL Database with PowerShell" 
 	description="Azure SQL Database Manage with PowerShell." 
 	services="sql-database" 
 	documentationCenter="" 
@@ -13,11 +13,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/28/2015" 
+	ms.date="09/11/2015" 
 	ms.author="vinsonyu"/>
 
-# Manage Azure SQL Database Resources with PowerShell
+# Manage Azure SQL Database with PowerShell
 
+
+> [AZURE.SELECTOR]
+- [Azure Preview Portal](sql-database-manage-portal.md)
+- [SSMS](sql-database-manage-azure-ssms.md)
+- [PowerShell](sql-database-command-line-tools.md)
 
 This topic provides PowerShell commands to perform many Azure SQL Database tasks using Azure Resource Manager cmdlets.
 

@@ -3,7 +3,7 @@
 	description="Learn how to deploy and manage Azure Backup for Data Protection Manager (DPM) using PowerShell"
 	services="backup"
 	documentationCenter=""
-	authors="SamirMehta"
+	authors="AnuragMehrotra"
 	manager="jwhit"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/18/2015"
-	ms.author="jimpark"; "aashishr"; "sammehta"/>
+	ms.date="09/21/2015"
+	ms.author="jimpark"; "aashishr"; "sammehta"; "anuragm"/>
 
 
 # Deploy and manage backup to Azure for Data Protection Manager (DPM) servers using PowerShell
@@ -42,8 +42,8 @@ Sample DPM scripts: Get-DPMSampleScript
 You can create a new backup vault using the **New-AzureBackupVault** commandlet. The backup vault is an ARM resource, so you need to place it within a Resource Group. In an elevated Azure PowerShell console, run the following commands:
 
 ```
-PS C:\> New-AzureResourceGroup –Name “test-rg” –Region “West US”
-PS C:\> $backupvault = New-AzureBackupVault –ResourceGroupName “test-rg” –Name “test-vault” –Region “West US” –Storage GRS
+PS C:\> New-AzureResourceGroup –Name “test-rg” –Location “West US”
+PS C:\> $backupvault = New-AzureRMBackupVault –ResourceGroupName “test-rg” –Name “test-vault” –Region “West US” –Storage GRS
 ```
 
 You can get a list of all the backup vaults in a given subscription using the **Get-AzureBackupVault** commandlet.
@@ -96,7 +96,7 @@ To download the vault credentials, run the **Get-AzureBackupVaultCredentials** c
 
 ```
 PS C:\> $credspath = "C:\"
-PS C:\> $credsfilename = Get-AzureBackupVaultCredentials -Vault $backupvault -TargetLocation $credspath
+PS C:\> $credsfilename = Get-AzureRMBackupVaultCredentials -Vault $backupvault -TargetLocation $credspath
 PS C:\> $credsfilename
 f5303a0b-fae4-4cdb-b44d-0e4c032dde26_backuprg_backuprn_2015-08-11--06-22-35.VaultCredentials
 ```
@@ -213,10 +213,11 @@ PS C:\> Add-DPMChildDatasource -ProtectionGroup $MPG -ChildDatasource $DS
 Repeat this step as many times as required, until you have added all the chosen datasources to the protection group. You can also start with just one datasource, and complete the workflow for creating the Protection Group, and at a later point add more datasources to the Protection Group.
 
 ### Selecting the data protection method
-Once the datasources have been added to the Protection Group, the next step is to specify the protection method using the [Set-DPMProtectionType](https://technet.microsoft.com/library/hh881725) cmdlet. In this example, the Protection Group will be setup for local disk and cloud backup.
+Once the datasources have been added to the Protection Group, the next step is to specify the protection method using the [Set-DPMProtectionType](https://technet.microsoft.com/library/hh881725) cmdlet. In this example, the Protection Group will be setup for local disk and cloud backup. You also need to specify the datasource that you want to protect to cloud using the [Add-DPMChildDatasource](https://technet.microsoft.com/en-us/library/hh881732.aspx) cmdlet with -Online flag.
 
 ```
 PS C:\> Set-DPMProtectionType -ProtectionGroup $MPG -ShortTerm Disk –LongTerm Online
+PS C:\> Add-DPMChildDatasource -ProtectionGroup $MPG -ChildDatasource $DS –Online
 ```
 
 ### Setting the retention range

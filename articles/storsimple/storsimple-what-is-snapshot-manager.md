@@ -1,10 +1,10 @@
 <properties 
    pageTitle="What is StorSimple Snapshot Manager? | Microsoft Azure"
-   description="Describes StorSimple Snapshot Manager, its architecture, and its features."
+   description="Describes the StorSimple Snapshot Manager, its architecture, and its features."
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
-   manager="adinah"
+   manager="carolz"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="07/13/2015"
+   ms.date="09/15/2015"
    ms.author="v-sharos" />
 
 # What is StorSimple Snapshot Manager?
@@ -144,6 +144,6 @@ For information about monitoring backup jobs, go to [Use StorSimple Snapshot Man
 
 ## Next steps
 
-[Learn more about StorSimple Snapshot Manager tasks and workflows](storsimple-snapshot-manager-admin.md)
+- Learn more about [using StorSimple Snapshot Manager to administer your StorSimple solution](storsimple-snapshot-manager-admin.md).
 
-[Download StorSimple Snapshot Manager](https://www.microsoft.com/download/details.aspx?id=44220).
+- Download [StorSimple Snapshot Manager](https://www.microsoft.com/download/details.aspx?id=44220).

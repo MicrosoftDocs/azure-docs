@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/11/2015"
+	ms.date="09/16/2015"
 	ms.author="juliako"/>
 
 #Media Encoder Standard Formats and Codecs
@@ -29,14 +29,27 @@ File formats (file extensions)|Supported
 FLV (with H.264 and AAC codecs) (.flv)			|Yes 
 MXF	(.mxf)					|Yes 
 GXF	(.gxf)					|Yes 
-MPEG2-PS, MPEG2-TS, 3GP (.ts, .ps, .3gp)	|Yes 
+MPEG2-PS, MPEG2-TS, 3GP (.ts, .ps, .3gp, .3gpp, .mpg)	|Yes 
 Windows Media Video (WMV)/ASF (.wmv, .asf) |Yes 
 AVI (Uncompressed 8bit/10bit) (.avi)|Yes 
-MP4/ISMV (.ismv)|Yes 
+MP4 (.mp4, .m4a, .m4v)/ISMV (.isma, .ismv)|Yes 
 [Microsoft Digital Video Recording(DVR-MS)](https://msdn.microsoft.com/library/windows/desktop/dd692984) (.dvr-ms) |Yes 
 Matroska/WebM (.mkv)		|Yes 
 WAVE/WAV (.wav)	|Yes 
+QuickTime (.mov) |Yes
  
+###Audio formats in input containers 
+
+Media Encoder Standard supports carrying the following audio formats in input containers:
+
+- MXF, GXF and QuickTime files which have audio tracks with interleaved stereo or 5.1 samples
+
+or
+
+- MXF, GXF and QuickTime files where the audio is carried as separate PCM tracks but the channel mapping (to stereo or 5.1) can be deduced from the file metadata
+
+Note that support for explicit/user-supplied channel mapping will be provided in the near future.
+
 
 ##Input Video Codecs
 
@@ -53,6 +66,13 @@ Canopus HQ/HQX										|No
 MPEG-4 Part 2										|Yes 
 [Theora](https://en.wikipedia.org/wiki/Theora)		|Yes 
 YUV420 uncompressed, or mezzanine					|Yes
+Apple ProRes 422									|Yes
+Apple ProRes 422 LT	|Yes
+Apple ProRes 422 HQ |Yes
+Apple ProRes Proxy|Yes
+Apple ProRes 4444 |Yes
+Apple ProRes 4444 XQ |Yes
+
 
 
 ##Input Audio Codecs
@@ -81,8 +101,16 @@ The following table lists the codecs and file formats that are supported for exp
 
 File Format|Video Codec|Audio Codec
 ---|---|---
-MP4 (* .mp4)<br/><br/>(including multi-bitrate MP4 containers) |H.264 (High, Main, and Baseline Profiles)|AAC-LC, HE-AAC v1, HE-AAC v2 
+MP4 <br/><br/>(including multi-bitrate MP4 containers) |H.264 (High, Main, and Baseline Profiles)|AAC-LC, HE-AAC v1, HE-AAC v2 
 MPEG2-TS |H.264 (High, Main, and Baseline Profiles)|AAC-LC, HE-AAC v1, HE-AAC v2 
+
+
+##Media Services learning paths
+
+You can view AMS learning paths here:
+
+- [AMS Live Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [AMS on Demand Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
 ##See also
 

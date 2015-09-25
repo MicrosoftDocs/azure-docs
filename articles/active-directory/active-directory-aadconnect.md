@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="08/24/2015" 
+	ms.date="09/09/2015" 
 	ms.author="billmath"/>
 
 # Integrating your on-premises identities with Azure Active Directory
@@ -103,7 +103,7 @@ Before you install Azure AD Connect with Express Settings, there are a few thing
 - An Azure AD Global Administrator account for the Azure AD tenant you wish to integrate with
 - Azure AD Connect must be installed on Windows Server 2008 or later.  This server may be a domain controller or a member server.
 - The AD schema version and forest level must be Windows Server 2003 or later. The domain controllers can run any version as long as the schema and forest level requirements are met.
-- If Active Directory Federation Services is being deployed, the servers where AD FS will be installed must be Windows Server 2012 or later.
+- If Active Directory Federation Services is being deployed, the servers where AD FS will be installed must be Windows Server 2012 R2 or later.
 - Azure AD Connect requires a SQL Server database to store identity data. By default a SQL  Server 2012 Express LocalDB (a light version of SQL Server Express) is installed and the service account for the service is created on the local machine. SQL Server Express has a 10GB size limit that enables you to manage approximately 100.000 objects.
 - If you need to manager a higher volume of directory objects, you need to point the installation process to a different version of SQL Server. 
 Azure AD Connect supports all flavors of Microsoft SQL Server from SQL Server 2008 (with SP4) to SQL Server 2014.
@@ -115,7 +115,7 @@ Azure AD Connect supports all flavors of Microsoft SQL Server from SQL Server 20
     		<defaultProxy>
       		<proxy
         	usesystemdefault="true"
-        	proxyaddress=http://<PROXYIP>:80"
+        	proxyaddress="http://<PROXYIP>:80"
         	bypassonlocal="true"
      		 />
     		</defaultProxy>
