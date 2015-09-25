@@ -22,8 +22,8 @@ The top-level resource in Azure Stream Analytics is a Stream Analytics Job.  It 
 
 To start using Stream Analytics, create a new Stream Analytics job.  Note that this action has no billing implications until the job is started.
 
-1.  Sign in on the online [Microsoft Azure portal](http://manage.windowsazure.com).
-2.  **Click New**, then click **Data Services**, and then click **Stream Analytics** and **Quick Create**.
+1.  Sign in on the online [Microsoft Azure portal](http://manage.windowsazure.com) or the Azure preview portal.
+2.  In the Azure portal: **Click New**, then click **Data Services**, and then click **Stream Analytics** and **Quick Create**.
 
     ![Quick Create Wizard](./media/stream-analytics-create-a-job/1-stream-analytics-create-a-job.png)  
 
