@@ -4,7 +4,7 @@
    services="active-directory"
    documentationCenter=""
    authors="kgremban"
-   manager="msStevenPo"
+   manager="stevenpo"
    editor=""/>
 
 <tags
@@ -16,76 +16,27 @@
    ms.date="08/20/2015"
    ms.author="kgremban; liviodlc"/>
 
-# Integrate Azure Active Directory single sign-on with existing apps
+## Overview
 
-Microsoft Azure Active Directory (Azure AD) creates a unified access management experience for Software-as-a-Service (SaaS) applications. This article focuses on taking SaaS apps that are already in use in your organization and integrating them with Azure AD single sign-on (SSO). The article contains an introduction to SSO in Azure AD, and an overview of what you need to know about your existing SaaS app before you integrate it. For information about setting up new applications, take a look at [Deploying single sign-on using Azure Active Directory for newly added SaaS apps](active-directory-single-sign-on-newly-added-saas-app.md).
+With cloud technology and tools becoming more readily available, organizations are using more Software as a Service (SaaS) applications for productivity. As the number of SaaS apps grows, it becomes challenging for the administrators to manage accounts and access rights, and for the users to remember their different passwords. Managing these applications individually creates extra work and is less secure. Employees who have to keep track of many passwords tend to use unsecure methods to remember them—either keeping records or using similar passwords across many accounts. And when a new employee arrives or one leaves, all their accounts must be individually provisioned or deprovisioned. Additionally, employees may start using SaaS apps for their work without going through IT.
 
-## How single sign-on works in Azure Active Directory
+A solution for this is a single sign-on (SSO) system. It’s the simplest way to manage multiple apps and provide users with a consistent sign-on experience. Azure Active Directory (AD) provides a robust SSO solution and has many pre-integrated applications with tutorials for how to quickly set up a new app and start provisioning users. For information about setting up new applications, take a look at [Deploying single sign-on using Azure Active Directory for newly added SaaS apps](https://acom-sandbox.azurewebsites.net/en-us/documentation/articles/active-directory-single-sign-on-newly-acquired-saas-apps/).   
 
-There are four topics you should know about when setting up SSO for applications in Azure AD:
+When you first initiate SSO, however, you want to make sure that the SaaS apps that are already in use in your organization can be managed through the same portal. This unified management experience is not just for new apps, but should include all apps.
 
-### 1. Which apps work with Azure Active Directory
+## How does Azure Active Directory integrate existing apps?
 
-The [Active Directory Marketplace] contains all the applications that are pre-integrated for single sign-on and tutorials to set each of them up. If the app you're looking for isn't in that list, you can [add it to your app directory as a custom application](http://blogs.technet.com/b/ad/archive/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-gt-now-in-preview.aspx). This works for any SaaS app that supports SAML 2.0 or has an HTML-based sign-in page.  
+Azure AD allows for the integration of your existing apps and provisioned accounts. This can be done through two approaches. If the app is one of those pre-integrated in the app gallery, you can go through that portal to set up apps and configure the settings to allow SSO. If the app is not in the gallery, you can still set up most apps in Azure AD as a custom app.  
 
-### 2. How users access the applications
+In the case where users have created their own accounts for SaaS apps that aren’t managed by IT, the [Cloud App Discovery](active-directory-cloudappdiscovery-whatis.md) tool provides a solution. This tool monitors the web traffic to identify which apps are being used throughout the organization, and the number of people using each of them. IT can use this information to learn what apps the users prefer and decide which to integrate into Azure AD for SSO.
 
-With single sign-on, there are two basic methods for users to sign-in to the app.
+When you integrate an existing app into Azure AD, you’ll be able to map the users’ established application identities to their respective Azure AD identities.
 
-1. **Service Provider (SP) initiated sign-in**: Users go directly to the app's website and sign in with their company credentials. The website sends an authentication request back to Azure AD.
+## Other considerations
 
-2. **Identity Provider (IdP) initiated sign-in**: Users sign in to a central app portal ([My Apps](myapps.microsoft.com) or [Office365](portal.office.com/myapps)) with their company credentials, then launch apps from there.  
-
-Some apps only work with one or the other method of sign-in, and this will be explained further in the next section.
-
-### 3. How applications authenticate users
-
-With single sign-on, users don't have to remember different credentials for each app they use because Azure AD provides their authentication. This can be done in a few different ways. Azure AD supports the following authentication methods:
-
-1. **Federated single sign-on**
-
- Federated SSO works because Azure AD establishes a relationship of trust between the application and your directory. When users attempt to sign into the app, they are directed through their organization's sign-in page, hosted by Azure AD.
-
- This method can be implemented with applications that support protocols such as SAML 2.0, WS-Federation, or OpenID Connect, and is the richest mode of single sign-on. See our [list of gallery apps that are already enabled for federated SSO](http://social.technet.microsoft.com/wiki/contents/articles/20235.azure-active-directory-application-gallery-federated-saas-apps.aspx).
-
- Apps that support federated SSO can be accessed with either SP-initiated sign-in or IdP-initiated sign-in. It depends on what the app will allow.
-
-2. **Password-based single sign-on**
-
- With password SSO, Azure AD acts as a password vault that securely stores users' credentials for various SaaS applications. Admins can assign passwords to individual users or have the users enter their existing credentials. When users need to access the app, users can use a [browser extension or the My Apps](active-directory-saas-access-panel-introduction.md#authentication) mobile app to automatically sign in. This method also supports shared access to apps which is important if multiple people need to use the same account.
-
- Password SSO works with almost all apps, as long as they support HTML forms-based sign in.  
-
- This method only supports IdP-initiated sign-in, so users will access the apps through an app portal.
-
-If you already have a single sign-on solution, you can still integrate your apps with Azure AD. Instead of choosing one of the above SSO methods, set up your app with **Existing SSO**, and it will be available to the end user on the central app portal.
-
-Learn more about these SSO solutions in [What is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
-
-### 4. How application accounts are provisioned
-
-Provisioning is the process of creating accounts for your users in the SaaS application. Accounts should also be deprovisioned after an employee leaves the company or changes positions. This is usually done manually, but for select apps, this process can be done automatically with [Azure AD's automated provisioning and deprovisioning](active-directory-saas-app-provisioning.md).
-
-## What you need to know to enable single sign-on for your SaaS application
-
-> [Azure.TIP]
-You can create an inventory of all the apps your organization uses, including those that IT is not monitoring, with [Cloud App Discovery](active-directory-cloudappdiscovery-whatis.md).
-
-Before you integrate a SaaS app into Azure AD, it's important to be familiar with how the app is currently configured, as that may affect how you set up SSO. You should be able to answer these questions:
-
-### Do you have administrator rights for the application?
-
-To set up SSO, you need to have global administrator rights in both Azure AD and the SaaS application. You will need to change the configuration of the app to accept SSO. The process for this varies among applications. Take a look at our [list of tutorials](active-directory-saas-tutorial-list.md) to learn how to configure different apps.
-
-### How are the users currently provisioned?
-
-Since the application is already in use, you will need to link the users' established application identities to their respective Azure AD identities. Apps can use different attributes for the unique identifier, like email addresses, Universal Personal Names (UPNs), or usernames.  It's important to know what the current unique identifier is so that you can line it up with that user's unique identifier in Azure AD.  
-
-To learn more about the steps involved in linking app identities with Azure AD identities, see [Customizing claims issued in the SAML token](http://go.microsoft.com/fwlink/?LinkId=615928&clcid=0x409) and [Customizing Attribute Mappings for Provisioning](active-directory-saas-customizing-attribute-mappings.md).
-
-### How do users currently access the application?
-
-When you integrate SSO for an application that's already in use, it's important to understand how the users are accustomed to signing in. Depending on how you set up SSO, it may cause changes to the sign-in process. If the changes are significant, like switching from SP-initiated to IdP-initiated sign-in, you may need to train the users in the new method.  
+When you integrate SSO for an application that’s already in use, it’s important to realize that the user experience will be affected. For all apps, users will start using their Azure AD credentials to sign in. Additionally, they may need to use a different portal to access the applications. SSO for some applications can be done on the app’s own website, but for other apps user will have to go through their app portal to sign in.
 
 ## Next steps
-See the [List of tutorials on how to integrate SaaS apps with Azure Active Directory](active-directory-saas-tutorial-list.md).
+- Learn more about [application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md)
+- Find [tutorials on how to integrate SaaS apps](active-directory-saas-tutorial-list.md)
+-	Add a custom app with [Azure AD Self-Service SAML configuration](http://blogs.technet.com/b/ad/archive/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-gt-now-in-preview.aspx)
