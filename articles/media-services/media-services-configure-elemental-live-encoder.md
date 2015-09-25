@@ -18,6 +18,12 @@
 
 #Configure the Elemental encoder to send a single bitrate live stream 
 
+> [AZURE.SELECTOR]
+- [Elemental](media-services-configure-elemental-live-encoder.md)
+- [Tricaster](media-services-configure-tricaster-live-encoder.md)
+- [Wirecast](media-services-configure-wirecast-live-encoder.md)
+- [FMLE](media-services-configure-fmle-live-encoder.md)
+  
 This topic shows how to configure the Elemental live encoder to send a single bitrate live stream over RTMP and RTP to the Media Services Channel.
 
 ##Prerequisites
@@ -289,7 +295,7 @@ The stream is now ready to be embedded in a player, or distributed to an audienc
 	- **Potential issue**: Many RTP encoders do not allow for host names, and an IP address will need to be acquired.  
 	- **Troubleshooting steps**: To find the IP address, open a command prompt on any computer. To do this in Windows, open the Run launcher (WIN + R) and type “cmd” to open.  
 	
-		Once the command prompt is open, type “Ping [AMS Host Name]”. 
+		Once the command prompt is open, type "Ping [AMS Host Name]". 
 	
 		The host name can be derived by omitting the port number from the Azure Ingest URL, as highlighted in the following example: 
 	
