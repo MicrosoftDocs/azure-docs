@@ -23,6 +23,8 @@ By using a persistent data store with Apache Storm, you can correlate data entri
 
 In this document, you will learn how to create a basic C# Storm topology that tracks login and logout events for user sessions, and calculates the duration of the session. The topology uses HBase as a persistent data store. HBase also allows you to perform batch queries on the historical data to produce additional insights, such as how many user sessions were started or ended during a specific time period.
 
+[AZURE.INCLUDE [windows-only](../../includes/hdinsight-windows-only.md)]
+
 ## Prerequisites
 
 -	HDInsight tools for Visual Studio: See [Get started using the HDInsight tools for Visual Studio](../HDInsight/hdinsight-hadoop-visual-studio-tools-get-started.md) for installation information.

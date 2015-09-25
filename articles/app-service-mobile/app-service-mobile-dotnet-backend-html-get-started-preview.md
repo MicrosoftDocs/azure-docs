@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-html5"
 	ms.devlang="javascript"
 	ms.topic="get-started-article"
-	ms.date="08/11/2015"
+	ms.date="09/24/2015"
 	ms.author="glenga"/>
 
 
@@ -63,17 +63,11 @@ Cross-origin resource sharing (CORS) is a way for your web-based app to indicate
 
 By default, the client quickstart project that you will download from the portal runs on localhost on port 8000. Because of this, you will next enable CORS for `http://localhost:8000` in the server project.  
 
-1. In Visual Studio in the Tools menu, click **NuGet Package Manager** > **Package Manager Console**, select Nuget.org as the **Package source** and execute the following command in the console window:
- 
-		Install-Package Microsoft.AspNet.WebApi.Cors  
-
-	This installs the CORS support required by the backend. 
-
-2. Open the App_Start/WebApiConfig.cs project file and add the following using statement:
+1. In Visual Studio, open the App_Start/Startup.MobileApp.cs project file and add the following using statement:
 
 		using System.Web.Http.Cors;
 
-3. Next, add the following code to the **WebApiConfig.Register** method after the **HttpConfiguration** is created:
+3. Next, add the following code to the **Startup.ConfigureMobileApp** method after the **HttpConfiguration** (*config*) is created:
 
         // Enable CORS support for localhost port 8000, all headers and methods.
         var cors = new EnableCorsAttribute("http://localhost:8000", "*", "*");
