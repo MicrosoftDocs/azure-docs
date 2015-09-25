@@ -58,7 +58,7 @@ Is is also assumed some knowledge of [Azure Storage] and [Azure Service Bus].
 
 Now you are ready to run the applications.
 
-1.	From within Visual Studio, right click your solution and select **Set StartUp projects...**. Select **Multiple startup projects**, then select the **Start** action for both **ProcessDeviceToCloudMessages**, **SimulatedDevice**, and **ProcessD2cInteractiveMessages** apps.
+1.	From within Visual Studio, right click your solution and select **Set StartUp projects...**. Select **Multiple startup projects**, then select the **Start** action for **ProcessDeviceToCloudMessages**, **SimulatedDevice**, and **ProcessD2cInteractiveMessages** apps.
 
 2.	Press **F5**, and you should see all applications start, and every interactive message sent by the simulated device should be processed by the interactive message processor.
 
@@ -74,10 +74,11 @@ In this tutorial, you learned how to reliably process *data point* and *interact
 
 Additional information on IoT Hub:
 
-- [IoT Hub Overview]
-- [IoT Hub Developer Guide]
-- [IoT Hub Supported Devices]
-- [IoT Hub APIs and SDKs]
+* [IoT Hub Overview]
+* [IoT Hub Developer Guide]
+* [IoT Hub Guidance]
+* [Supported device platforms and languages]
+* [Azure IoT Developer Center]
 
 <!-- Images. -->
 [50]: ./media/iot-hub-csharp-csharp-process-d2c/run1.png
@@ -101,9 +102,12 @@ Additional information on IoT Hub:
 [Uploading files from devices]: iot-hub-csharp-csharp-file-upload.md
 
 [IoT Hub Overview]: iot-hub-what-is-iot-hub.md
+[IoT Hub Guidance]: iot-hub-guidance.md
 [IoT Hub Developer Guide]: iot-hub-devguide.md
 [IoT Hub Supported Devices]: iot-hub-supported-devices.md
-[IoT Hub APIs and SDKs]: iot-hub-sdks-overview.md
+[Get started with IoT Hub]: iot-hub-csharp-csharp-getstarted.md
+[Supported devices]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/tested_configurations.md
+[Azure IoT Developer Center]: http://www.azure.com/iotdev
 
 
 
