@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/20/2015"    
+	ms.date="09/25/2015"    
 	ms.author="juliako"/>
 
 #Use the FMLE encoder to send a single bitrate live stream 
@@ -112,7 +112,7 @@ In this tutorial the following output settings are used. The rest of this sectio
 	
 	![fmle](./media/media-services-fmle-live-encoder/media-services-fmle5.png)
 
-6. Get the channel's input URL and assign it to the FMLE's **RTMP Endpoint**.
+6. Get the channel's input URL in order to assign it to the FMLE's **RTMP Endpoint**.
 	
 	Navigate back to the AMSE tool, and check on the channel completion status. Once the State has changed from **Starting** to **Running**, you can get the input URL.
 	  

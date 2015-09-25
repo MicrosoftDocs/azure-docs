@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/20/2015"    
+	ms.date="09/25/2015"    
 	ms.author="juliako"/>
 
 #Use the Wirecast encoder to send a single bitrate live stream
@@ -95,7 +95,9 @@ In this tutorial the following output settings are used. The rest of this sectio
 
 	![wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast3.png)
 
-5. Name the preset, and check for the following recommended settings:
+5. Configure encoder presets.
+
+	Name the preset, and check for the following recommended settings:
 
 	**Video**
 	
@@ -114,7 +116,9 @@ In this tutorial the following output settings are used. The rest of this sectio
 
 6. Press **Save**.
 
-	The Encoding field now has the newly created profile available for selection. Make sure the new profile is selected.
+	The Encoding field now has the newly created profile available for selection. 
+
+	Make sure the new profile is selected.
 
 7. Get the channel's input URL in order to assign it to the Wirecast **RTMP Endpoint**.
 	
@@ -125,7 +129,7 @@ In this tutorial the following output settings are used. The rest of this sectio
 	
 	![wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast6.png)
 
-8. On the **Wirecast Output Settings** windows, paste this information in the **Address** field of the output section, and assign a stream name. 
+8. On the Wirecast **Output Settings** window, paste this information in the **Address** field of the output section, and assign a stream name. 
 
 
 	![wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast5.png)

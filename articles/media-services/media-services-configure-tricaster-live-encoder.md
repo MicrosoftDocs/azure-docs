@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/20/2015"    
+	ms.date="09/25/2015"    
 	ms.author="juliako"/>
 
 #Use the Tricaster encoder to send a single bitrate live stream
@@ -84,8 +84,43 @@ In this tutorial the following output settings are used. The rest of this sectio
 
 ###Configuration steps
 
-1. Navigate to the  
+1. Create a new **Tricaster** project depending on what video input source is being used. 
+2. Once within that project, find the **Stream** button, and click the gear icon next to it to access the stream configuration menu.
 
+	![tricaster](./media/media-services-tricaster-live-encoder/media-services-tricaster3.png)
+3. Once the menu has opened, click **New** under the Connection heading. When prompted for the connection type, select **Adobe Flash**.
+
+	![tricaster](./media/media-services-tricaster-live-encoder/media-services-tricaster4.png)
+
+4. Click **OK**.
+
+5. An FMLE profile can now be imported by clicking the drop down arrow under **Streaming Profile** and navigating to **Browse**.
+6. Navigate to where the configured FMLE profile was saved.
+7. Select it, and press **OK**.
+
+	Once the profile is uploaded, proceed to the next step.
+
+6. Get the channel's input URL in order to assign it to the Tricaster **RTMP Endpoint**.
+	
+	Navigate back to the AMSE tool, and check on the channel completion status. Once the State has changed from **Starting** to **Running**, you can get the input URL.
+	  
+	When the channel is running, right click the channel name, navigate down to hover over **Copy Input URL to clipboard** and then select **Primary Input 
+	URL**.  
+	
+	![tricaster](./media/media-services-tricaster-live-encoder/media-services-tricaster6.png)
+
+7. Paste this information in the **Location** field under **Flash Server** within the Tricaster project. Also assign a stream name in the **Stream ID** field. 
+
+	If stream information was added to the FMLE profile, it can also be imported to this section by clicking **Import Settings**, navigating to the saved FMLE profile and clicking **OK**. The relevant Flash Server fields should populate with the information from FMLE.
+
+	![tricaster](./media/media-services-tricaster-live-encoder/media-services-tricaster7.png)
+
+9. When finished, click **OK** at the bottom of the screen. When video and audio inputs into the Tricaster are ready, begin streaming to AMS by clicking the **Stream** button.
+
+	![tricaster](./media/media-services-tricaster-live-encoder/media-services-tricaster11.png)
+
+>[AZURE.IMPORTANT] Before you click **Stream**, you **must** ensure that the Channel is ready. 
+>Also, make sure not to leave the Channel in a ready state without an input contribution feed for longer than > 15 minutes. 
 
 ##Test playback
   
