@@ -436,4 +436,4 @@ This example shows you the flexibility of the platform where you can build custo
 
 [Set up staging environments for web apps in Azure App Service](web-sites-staged-publishing)
 
-[Azure App Service Web App – block web access to non-production deployment slots](http://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/)
+[How to block web access to non-production deployment slots](http://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/)
