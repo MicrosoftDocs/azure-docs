@@ -143,6 +143,7 @@ To persist your diagnostics information to your Azure Storage account, you must 
 To set the connection strings:
 
 1. Open the ServiceConfiguration.Cloud.cscfg file using your favorite text editor and set the connection string for your storage. The *AccountName* and *AccountKey* values are found in the Management Portal in the storage account dashboard, under Manage Keys.
+
 ```
     <ConfigurationSettings>
        <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="DefaultEndpointsProtocol=https;AccountName=<name>;AccountKey=<key>"/>
@@ -151,6 +152,7 @@ To set the connection strings:
 2. Save the ServiceConfiguration.Cloud.cscfg file.
 
 3. Open the ServiceConfiguration.Local.cscfg file and verify that UseDevelopmentStorage is set to true.
+
 ```
     <ConfigurationSettings>
       <Settingname="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="UseDevelopmentStorage=true"/>
