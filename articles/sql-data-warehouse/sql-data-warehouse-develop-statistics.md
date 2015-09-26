@@ -263,7 +263,6 @@ WHILE @i <= @t
 BEGIN
     SET @s=(SELECT create_stat_ddl FROM #stats_ddl WHERE seq_nmbr = @i);
 
-	SELECT @s
     PRINT @s
     EXEC sp_executesql @s
     SET @i+=1;
