@@ -1,23 +1,23 @@
 <properties
-   pageTitle="Multi VM Solution Template Publishing Guide"
-   description="Detailed instructions of how to publish a Multi-VM Solution Template pre-requisites"
+   pageTitle="Guide to creating a Multi-Virtual Machine Image Solution Template for the  Marketplace | Microsoft Azure"
+   description="Detailed instructions of how to create, certify and deploy a Multi-VM Image Solution Template for purchase on the Azure Marketplace."
    services="marketplace-publishing"
    documentationCenter=""
    authors="HannibalSII"
    manager=""
    editor=""/>
 
-<tags
-   ms.service="required"
-   ms.devlang="may be required"
-   ms.topic="article"
-   ms.tgt_pltfrm="may be required"
-   ms.workload="na"
-   ms.date="09/21/2015"
-   ms.author="hascipio" />
+   <tags
+      ms.service="AzureStore"
+      ms.devlang="na"
+      ms.topic="article"
+      ms.tgt_pltfrm="na"
+      ms.workload="na"
+      ms.date="09/25/2015"
+      ms.author="hascipio; v-divte" />
 
-# Step 3: Multi-VM Solution Template Publishing Guide
-After completing the [Step 2: Account Creation and Registration][link-acct-creation], go to the [Publishing Portal][link-pubportal] where we will walkthrough the steps for creating and publishing a Solution Template to the Azure Marketplace.
+# Guide to creating a multi-VM image solution template for the Azure Marketplace
+After completing the step 2, [Account Creation and Registration][link-acct-creation], go to the [Publishing Portal][link-pubportal] where we will walkthrough the steps for creating a multi-VM Image Solution Template for the Azure Marketplace.
 
 ## 3.1 Select 'Solution Templates'
 
@@ -47,9 +47,9 @@ Please refer to the document [Guidance_createuidefinition.pdf](https://microsoft
 After uploading the zip file, click on **Request Certification**. The Microsoft certification team will review the files and certify the topology.
 
 ## Next Steps
-Now that you created your Solution Template and submitted the zip file with the required files for certification, you can can continue with [Step 4: Getting to Staging](.) in parallel.
+Now that you created your Solution Template and submitted the zip file with the required files for certification, you can can continue with [Step 4: Getting to Staging](marketplace-publishing-push-to-staging.md) in parallel.
 
-[img-pubportal-menu-sol-templ]:media/pubportal-menu-solution-templates.png
-[img-pubportal-sol-templ-new]:media/pubportal-solution-template-new.png
+[img-pubportal-menu-sol-templ]:media/marketplace-publishing-solution-template-creation/pubportal-menu-solution-templates.png
+[img-pubportal-sol-templ-new]:media/marketplace-publishing-solution-template-creation/pubportal-solution-template-new.png
 [link-acct-creation]:marketplace-publishing-microsoft-accounts-creation-registration.md
 [link-pubportal]:https://publish.windowsazure.com

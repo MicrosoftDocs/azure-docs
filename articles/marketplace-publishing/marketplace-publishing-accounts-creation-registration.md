@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Creating and Registering Publisher Account Process"
-   description="Detailed steps of creating an MSA account, establishing a seller profile, and registering as an Azure publisher."
+   pageTitle="Creating and Registering Publisher Account Process | Microsoft Azure"
+   description="Instructions for creating a Microsoft Seller account so, upon approval, one can sell various offer types on the Azure Marketplace."
    services="Azure Marketplace"
    documentationCenter=""
    authors="HannibalSII"
@@ -9,16 +9,16 @@
 
 <tags
    ms.service="AzureStore"
-   ms.devlang="en-us"
+   ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="Azure"
    ms.workload="na"
-   ms.date="09/20/2015"
+   ms.date="09/25/2015"
    ms.author="hascipio"/>
 
-# Step 2: Publisher Account Creation & Registration Process
-## 2.1 Create a Microsoft Account
-> Important: In order to complete the publishing process, you will need to create a Microsoft account. This account will be used to register for and to log in to both the Publishing Portal and the Seller Dashboard. You should only have one Microsoft Account for your Azure Marketplace offerings. They should not be specific to individual VMs.
+# Registering a Microsoft seller account
+## 1. Create a Microsoft Account (MSA)
+> [AZURE.WARNING] In order to complete the publishing process, you will need to create a Microsoft account. This account will be used to register for and to log in to both the Publishing Portal and the Seller Dashboard. You should only have one Microsoft Account for your Azure Marketplace offerings. They should not be specific to individual VMs.
 
 The address that forms the user name should be on your domain and controlled by your IT team (such as azurepublishing@yourcompany.com). Payment, tax information, and reporting will be routed through this account.
 
@@ -40,9 +40,9 @@ The address that forms the user name should be on your domain and controlled by 
   ![drawing][img-email]
 
 6. You’re now ready to use the new MSA in the Seller Dashboard.
->**NOTE**: Using the DL allows multiple people to receive email notifications that are important reporting of payout information, and also insures that ownership of the MSA can be transferred and isn’t tied to a single individual.
+> [AZURE.IMPORTANT] Using the DL allows multiple people to receive email notifications that are important reporting of payout information, and also insures that ownership of the MSA can be transferred and isn’t tied to a single individual.
 
-## 2.2 Create your Seller Dashboard account
+## 2. Create your Seller Dashboard account
 The Microsoft Seller Dashboard is used to register the company information once. The registrant must be a valid representative of the company, and must provide their personal information as a way to validate their identity. The person registering must use a Microsoft account (MSA) that is shared for the company, and the same account must be used in the Azure Publishing Portal. You should check to make sure your company does not already have a Seller Dashboard account before attempting to create one. During the process, we will collect bank account information, tax information, and company address information. These are typically obtainable from finance or business contacts. For complete instructions on how to create a Seller Dashboard account, see [Create Your Account and Add Payout Information in the Microsoft][link-msdndoc].
 
 1. Open a new  IE InPrivate or Chrome Incognito browsing session to ensure that you’re not logged into a personal account
@@ -91,18 +91,18 @@ The Microsoft Seller Dashboard is used to register the company information once.
 -->
 Once you register your company, you can continue working in parallel while the verification of your registration is completed by the Seller Dashboard team. You can monitor the status of your approvals via the [Azure Publishing Portal][link-pubportal].
 
-## 2.3 Register your account in the Publishing Portal
+## 3. Register your account in the Publishing Portal
 The Azure Publishing Portal is used to publish and manage your offer(s). Think of it as the CMS for your offerings/artifacts. All remaining work is completed here.
 
-> Important: The same company Microsoft Account that was used in the Seller Dashboard registration MUST be used here. Additional users can be added to assist once the master publisher account has been created.
+> [AZURE.WARNING] The same company Microsoft Account that was used in the Seller Dashboard registration MUST be used here. Additional users can be added to assist once the master publisher account has been created.
 
 1.	Open a new Chrome Incognito or IE InPrivate browsing session to ensure that you’re not logged into a personal account
 2.	Go to http://publish.windowsazure.com
 3.	 Sign in with your company registration Microsoft Account (MSA) (i.e. AzureStore@yourcompany.com) and you can add co-admins as necessary.
 4.	Read & accept the terms of the Publisher Agreement (first time logging into Publishing Portal) and you are done here.
-  > **Note**: The participation policies are mentioned [here](http://azure.microsoft.com/en-us/support/legal/marketplace/participation-policies/).
+  > [AZURE.IMPORTANT] The participation policies are mentioned [here](http://azure.microsoft.com/support/legal/marketplace/participation-policies/).
 
-  > The Publisher Portal is how you will manage the details of your Add-on, including marketing copy, pricing and endpoints for your Resource Provider. Read the Publisher Portal Guide to get started. This step can be done in parallel with Steps 1, 3 and 4.
+  > [AZURE.TIP] The Publisher Portal is how you will manage the details of your Add-on, including marketing copy, pricing and endpoints for your Resource Provider. Read the Publisher Portal Guide to get started. This step can be done in parallel with Steps 1, 3 and 4.
 
 
 ## Next Steps
@@ -110,32 +110,31 @@ Now that your account is created and registered, click on the type of artifact (
 
 | Virtual Machine Image | Developer Service | Data Service | Solution Template |
 |----|---|----|----|
-|[VM Image Publishing Guide Pre-requisites][link-vm-publication-prereq] | [Developer Service Publishing Pre-requisites][link-devsvc-publication-prereq] | Data Service Publishing Pre-requisites  | [Solution Template Publishing Pre-requisites][link-soltempl-publication-prereq] |
-| [VM Image Publishing Guide][link-vm-publication] | [Developer Service Publishing Guide][link-devsvc-publication] | Data Service Publishing Guide | [Solution Template Publishing Guide][link-soltempl-publication] |
+|[VM Image Publishing Guide Pre-requisites][link-single-vm-prereq] | [Developer Service Publishing Pre-requisites][link-devsvc-prereq] | Data Service Publishing Pre-requisites  | [Solution Template Publishing Pre-requisites][link-multi-vm-prereq] |
+| [VM Image Publishing Guide][link-single-vm] | [Developer Service Publishing Guide][link-devsvc] | Data Service Publishing Guide | [Solution Template Publishing Guide][link-multi-vm] |
 
-[img-msalive]:media/dev-services-pre-requisites-creating-msa-account-msa-live.jpg
-[img-email]:media/dev-services-pre-requisites-creating-msa-account-msa-verifyemail.jpg
-[img-sd-url]:media/dev-services-pre-requisites-seller-dashboard-incognito.jpg
-[img-signin]:media/dev-services-pre-requisites-seller-dashboard-login.jpg
-[img-verify]:media/dev-services-pre-requisites-seller-dashboard-verify.jpg
-[img-sd-top]:media/dev-services-pre-requisites-seller-dashboard-personal-acc-details.jpg
-[img-sd-info]:media/dev-services-pre-requisites-seller-dashboard-personal.jpg
-[img-sd-type]:media/dev-services-pre-requisites-seller-dashboard-personal-acc-type.JPG
-[img-sd-mktg1]:media/dev-services-pre-requisites-seller-dashboard-personal-comp-det1.jpg
-[img-sd-mktg2]:media/dev-services-pre-requisites-seller-dashboard-personal-comp-det2.jpg
-[img-sd-addr]:media/dev-services-pre-requisites-seller-dashboard-personal-comp-add.JPG
-[img-sd-legal]:media/dev-services-pre-requisites-seller-dashboard-personal-cmp.JPG
-[img-sd-submit]:media/dev-services-pre-requisites-seller-dashboard-approval.JPG
+[img-msalive]:media/marketplace-publishing-accounts-creation-registration/creating-msa-account-msa-live.jpg
+[img-email]:media/marketplace-publishing-accounts-creation-registration/creating-msa-account-msa-verifyemail.jpg
+[img-sd-url]:media/marketplace-publishing-accounts-creation-registration/seller-dashboard-incognito.jpg
+[img-signin]:media/marketplace-publishing-accounts-creation-registration/seller-dashboard-login.jpg
+[img-verify]:media/marketplace-publishing-accounts-creation-registration/seller-dashboard-verify.jpg
+[img-sd-top]:media/marketplace-publishing-accounts-creation-registration/seller-dashboard-personal-acc-details.jpg
+[img-sd-info]:media/marketplace-publishing-accounts-creation-registration/seller-dashboard-personal.jpg
+[img-sd-type]:media/marketplace-publishing-accounts-creation-registration/seller-dashboard-personal-acc-type.jpg
+[img-sd-mktg1]:media/marketplace-publishing-accounts-creation-registration/seller-dashboard-personal-comp-det1.jpg
+[img-sd-mktg2]:media/marketplace-publishing-accounts-creation-registration/seller-dashboard-personal-comp-det2.jpg
+[img-sd-addr]:media/marketplace-publishing-accounts-creation-registration/seller-dashboard-personal-comp-add.jpg
+[img-sd-legal]:media/marketplace-publishing-accounts-creation-registration/seller-dashboard-personal-cmp.jpg
+[img-sd-submit]:media/marketplace-publishing-accounts-creation-registration/seller-dashboard-approval.jpg
 
-[0]: http://.
 [link-msdndoc]: https://msdn.microsoft.com/en-us/library/jj552460.aspx
 [link-sellerdashboard]: http://sellerdashboard.microsoft.com/
 [link-pubportal]: https://publish.windowsazure.com
-[link-vm-publication]:marketplace-publishing-virtual-machine-publication.md
-[link-vm-publication-prereq]:marketplace-publishing-vm-image-publication-prerequisites.md
-[link-datasvc-publication]:marketplace-publishing-data-service-publication.md
-[link-datasvc-publication-prereq]:marketplace-publishing-data-service-publication-prerequisites.md
-[link-devsvc-publication]:marketplace-publishing-dev-service-publication.md
-[link-devsvc-publication-prereq]:marketplace-publishing-dev-service-publication-prerequisites.md
-[link-soltempl-publication]:marketplace-publishing-solution-template-publication.md
-[link-soltempl-publication-prereq]:marketplace-publishing-solution-template-publication-prerequisites.md
+[link-single-vm]:marketplace-publishing-virtual-machine-creation.md
+[link-single-vm-prereq]:marketplace-publishing-vm-image-creation-prerequisites.md
+[link-multi-vm]:marketplace-publishing-solution-template-creation.md
+[link-multi-vm-prereq]:marketplace-publishing-solution-template-creation-prerequisites.md
+[link-datasvc]:marketplace-publishing-data-service-creation.md
+[link-datasvc-prereq]:marketplace-publishing-data-service-creation-prerequisites.md
+[link-devsvc]:marketplace-publishing-dev-service-creation.md
+[link-devsvc-prereq]:marketplace-publishing-dev-service-creation-prerequisites.md

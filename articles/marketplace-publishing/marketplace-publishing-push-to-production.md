@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Page title that displays in the browser tab and search results"
-   description="Article description that will be displayed on landing pages and in most search results"
+   pageTitle="Deploying our offer to the Azure Marketplace | Microsoft Azure"
+   description="Learn about and walkthrough the instructions to deploy your offer e.g. virtual machine image, developer service, data service, etc. to the Azure Marketplace."
    services="marketplace-publishing"
    documentationCenter=""
    authors="HannibalSII"
@@ -8,15 +8,15 @@
    editor=""/>
 
 <tags
-   ms.service="required"
-   ms.devlang="may be required"
+   ms.service="AzureStore"
+   ms.devlang="na"
    ms.topic="article"
-   ms.tgt_pltfrm="may be required"
+   ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/21/2015"
+   ms.date="09/25/2015"
    ms.author="hascipio" />
 
-# Step 5: Publishing - Push to Production
+# Deploying your offer to the Azure Marketplace
 When you are satisfied with your offering e.g. tested customer scenarios, marketing content, etc. and you are ready to go live, request **Push to Production** in the **Publish** tab.  
 
 1.	These 4 steps on the Walkthrough page should be completed and green.
@@ -34,6 +34,6 @@ When you are satisfied with your offering e.g. tested customer scenarios, market
 ## Next steps
 Once the offer goes live, test the customer scenarios to validate all the contracts and functionality work properly in the production environment as tested and validated in the staging environment.
 
-[img-pubportal-walkthru-checked]:media/pubportal-walkthru-checked.png
-[img-pubportal-menu-publish]:media/pubportal-menu-publish.png
-[img-pubportal-publish-pushproduction]:media/pubportal-publish-pushproduction.png
+[img-pubportal-walkthru-checked]:media/marketplace-publishing-push-to-production/pubportal-walkthru-checked.png
+[img-pubportal-menu-publish]:media/marketplace-publishing-push-to-production/pubportal-menu-publish.png
+[img-pubportal-publish-pushproduction]:media/marketplace-publishing-push-to-production/pubportal-publish-pushproduction.png

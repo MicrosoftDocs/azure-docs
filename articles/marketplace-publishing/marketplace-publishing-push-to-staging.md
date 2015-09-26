@@ -1,7 +1,7 @@
 <properties
-   pageTitle="Publishing Portal Marketing Content Guide"
-   description="Detailed instructions on what marketing content is required to publish an Azure Marketplace offering"
-   services="Azure Marketplace"
+   pageTitle="Preparing and testing your offer for deployment to the Azure Marketplace | Microsoft Azure"
+   description="Detailed instructions on providing marketing content, configuring pricing plans, and testing your offer before deploying to the Azure Marketplace."
+   services="marketplace-publishing"
    documentationCenter=""
    authors="HannibalSII"
    manager=""
@@ -9,14 +9,14 @@
 
 <tags
    ms.service="AzureStore"
-   ms.devlang="en-us"
+   ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="Azure"
    ms.workload="na"
-   ms.date="09/21/2015"
+   ms.date="09/25/2015"
    ms.author="hascipio"/>
 
-# Step 4. Getting to Staging - Offer Marketing Content Guide
+# Preparing your offer for testing in Staging
 In this step, you need to provide certain marketing content and details about your offering and/or SKUs in the Azure Marketplace such as description of your product, company logos, price plans, details of plants and other information necessary to push your offer and/or SKU to staging. This information is used as marketing content in our Azure Portal. You will begin this process in the [Publishing Portal][link-pubportal].
 
 ## 4.1 Provide Azure Marketplace content
@@ -107,13 +107,13 @@ Staging means deploying your SKU in a private “sandbox” where you can test a
 Once you are done with testing, notify the on-boarding team for validation. On-boarding team will test the customer scenarios and also validate the marketing content.
 
 ## Next Steps
-Now that you offer is in "Staging", once the onboarding team notifies, you can proceed to the final offer and/or SKU publishing phase,  [Step 5: Push to Production][link-push-to-production].
+Now that you offer is in "Staging", once the onboarding team notifies, you can proceed to the final offer and/or SKU publishing phase, step 5,  [Deploying your offer to the Marketplace][link-push-to-production].
 
-[img-map-desc]:media/dev-services-pre-requisites-marketing-content-guide-acom.JPG
-[img-map-details]:media/dev-services-pre-requisites-marketing-content-guide-portal-offer-map.JPG
-[img-map-link]:media/dev-services-pre-requisites-marketing-content-guide-links.jpg
-[img-map-logo]:media/dev-services-pre-requisites-marketing-content-guide-logos.jpg
-[img-map-title]:media/dev-services-pre-requisites-marketing-content-guide-publisher-offer.png
+[img-map-desc]:media/marketplace-publishing-push-to-staging/marketing-content-guide-acom.jpg
+[img-map-details]:media/marketplace-publishing-push-to-staging/marketing-content-guide-portal-offer-map.jpg
+[img-map-link]:media/marketplace-publishing-push-to-staging/marketing-content-guide-links.jpg
+[img-map-logo]:media/marketplace-publishing-push-to-staging/marketing-content-guide-logos.jpg
+[img-map-title]:media/marketplace-publishing-push-to-staging/marketing-content-guide-publisher-offer.png
 
 [link-pubportal]:https://publish.windowsazure.com
 [link-push-to-production]:marketplace-publishing-push-to-production.md

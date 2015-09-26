@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Virtual Machine Image Publishing Guide"
-   description="Detailed instructions on how to publish a virtual machine image."
+   pageTitle="Creating a Virtual Machine Image for the Azure Marketplace | Microsoft Azure"
+   description="Detailed instructions on how to create a virtual machine image for the Azure Marketplace for others to purchase."
    services="Azure Marketplace"
    documentationCenter=""
    authors="HannibalSII"
@@ -9,16 +9,16 @@
 
 <tags
    ms.service="AzureStore"
-   ms.devlang="en-us"
+   ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="Azure"
    ms.workload="na"
-   ms.date="09/17/2015"
-   ms.author="hascipio"/>
+   ms.date="09/25/2015"
+   ms.author="hascipio; v-divte"/>
 
-# Step 3: Virtual Machine Image Publishing Guide
+# Guide to creating a virtual machine image for the Azure Marketplace
 
-This section walks you through preparing your VHDs, which are the foundation of your SKU, you will publish into the Microsoft Azure Martketplace. The process will differ depending on whether your are providing a Linux- or Windows-based SKU. This section covers both scenarios. This process can be performed in parallel with [Account Creation and Registration][link-acct-creation].
+This article will walk through preparing your VHDs, which are the foundation of your SKU, that you will deploy to the Azure Marketplace. The process will differ depending on whether your are providing a Linux- or Windows-based SKU. This section covers both scenarios. This process can be performed in parallel with [Account Creation and Registration][link-acct-creation].
 
 ## 3.1 Define Offers and SKUs
 
@@ -26,7 +26,7 @@ In this section, you will define the Offers and the SKUs underneath them.
 
 An offer is a "parent" to all of its SKUS. You can have multiple offers. How you decide to structure your offers is up to you. When an offer is pushed to staging, it is pushed along with all of its SKUs. Carefully consider your SKU identifiers, as these will be visible in the URL.
 
-- Azure.com – http://azure.microsoft.com/en-us/marketplace/partners/{PartnerNamespace}/{OfferIdentifier}-{SKUidentifier}
+- Azure.com – http://azure.microsoft.com/marketplace/partners/{PartnerNamespace}/{OfferIdentifier}-{SKUidentifier}
 
 - Ibiza Portal - https://portal.azure.com/#gallery/{PublisherNamespace}.{OfferIdentifier}{SKUIDdentifier}  
 
@@ -48,7 +48,7 @@ Once you have added an offer, you will need to define/identify your SKU(s).
 ## 3.2 Create an Azure-compatible VHDs (Linux-based)
 The following section focuses on best practices for creating a Linux-based  VM Image for the Microsoft Azure Marketplace. For a step-by-step walkthrough, refer to the following documentation: [Creating and Uploading a Virtual Hard Disk that Contains the Linux Operating System][link-azure-vm-1]
 
-> Note: Many of the following steps (e.g. agent install, kernel boot parameters) are already taken care of for Linux images available from the Microsoft Azure Image Gallery.   Thus, starting with one of these images as a base can represent a time-savings vs. configuring a non-Azure aware Linux image.
+> [AZURE.TIP] Many of the following steps (e.g. agent install, kernel boot parameters) are already taken care of for Linux images available from the Microsoft Azure Image Gallery.   Thus, starting with one of these images as a base can represent a time-savings vs. configuring a non-Azure aware Linux image.
 
 ### 3.2.1 Choose the correct VHD size
 Published SKUs (VM Images) should be designed to work with all VM sizes that support the number of disks for the SKU. You can provide guidance on recommended sizes, but these will be treated as recommendations and not enforced.
@@ -69,7 +69,7 @@ The agent configuration file will be placed at /etc/waagent.conf.
 
 ### 3.2.3 Verify that required libraries are included
 In addition to the Azure Linux Agent, the following libraries should also be included:
-1. The [Linux Integration Services][link-intsvc] Version 3.0 or higher must be enabled in your kernel. See [Linux Kernel Requirements](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-create-upload-vhd-generic/#linux-kernel-requirements)
+1. The [Linux Integration Services][link-intsvc] Version 3.0 or higher must be enabled in your kernel. See [Linux Kernel Requirements](../virtual-machines-linux-create-upload-vhd-generic/#linux-kernel-requirements)
 2. [Kernel Patch](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/drivers/scsi/storvsc_drv.c?id=5c1b10ab7f93d24f29b5630286e323d1c5802d5c) for Azure I/O stability (likely not needed for any recent kernel, but should be verified)
 3. [Python][link-python] 2.6 or above
 4. Python] pyasn1 package, if not already installed
@@ -92,7 +92,7 @@ We strongly recommend enabling SSH for the end user. If SSH Server is enabled, a
 The following are networking requirements for an Azure-compatible Linux VM Image.
 - In many cases it is best to disable NetworkManager.  One exception is with CentOS 7.x based systems (and derivatives) which should keep NetworkManager enabled.
 - Networking configuration should be controllable via the ifup/ifdown scripts.  The Linux agent may use these commands to restart networking during provisioning.
-- There should be no custom network configuration. The resolv.conf file should be deleted as a final step. This is typically done as part of deprovisioning (see [Azure Linux Agent User Guide](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-agent-user-guide/)). You can also perform this step manually with the following command:
+- There should be no custom network configuration. The resolv.conf file should be deleted as a final step. This is typically done as part of deprovisioning (see [Azure Linux Agent User Guide](../virtual-machines-linux-agent-user-guide/)). You can also perform this step manually with the following command:
 
         rm /etc/resolv.conf
 
@@ -138,7 +138,7 @@ To begin, create a VM from one of the following images, located at the [Microsof
 
 These links can also be found in the Publishing Portal under the SKU page.
 
-> Note: if you are using the current Azure Management Portal or PowerShell, Windows Server Images published on September 8, 2014 and later are approved.
+> [AZURE.TIP] if you are using the current Azure Management Portal or PowerShell, Windows Server Images published on September 8, 2014 and later are approved.
 
 ### 3.3.2 Create your Windows VM
 From the Microsoft Azure Portal, you can create your VM based on an approved base image in just a few simple steps. The following is an overview of the process.
@@ -177,7 +177,7 @@ From the Microsoft Azure Portal, you can create your VM based on an approved bas
 ### 3.3.3 Develop your VHD in the cloud
 It is strongly recommended that you develop your VHD in the cloud using Remote Desktiop Protocol (RDP). You will connect to RDP with the username and password specifid during provisioning.
 
-> Note: if you are developing your VHD on-premises (which is not recommended) see Appendix 2 for instructions on how to download the VHD to a local system. **Downloading your VHD is NOT ncessary if you are developing in the cloud**.
+> [AZURE.IMPORTANT]: if you are developing your VHD on-premises (which is not recommended) see Appendix 2 for instructions on how to download the VHD to a local system. **Downloading your VHD is NOT ncessary if you are developing in the cloud**.
 
 **Connect via RDP using the [Microsoft Azure Portal][link-azure-portal]**
 
@@ -228,7 +228,7 @@ All images in the Azure Marketplace must be re-usable in a generic fashion. In o
 
         sysprep.exe /generalize /oobe /sshutdown
 
-  Guidance on how to sysprep the operating system is provided in Step of the following MSDN article - [Create and upload a Windows Server VHD to Azure](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-create-upload-vhd-windows-server/).
+  Guidance on how to sysprep the operating system is provided in Step of the following MSDN article - [Create and upload a Windows Server VHD to Azure](../virtual-machines-create-upload-vhd-windows-server/).
 
 ## 3.4 Deploy a VM from your VHDs
 Once your VHD(s), generalized OS VHD and zero or more data disk VHDs, are uploaded to an Azure storage account, you can register them as a user VM Image with which to test. Note, since your OS VHD is generalized, you cannot directly deploy the VM by providing the VHD URL.
@@ -557,8 +557,9 @@ Once you have created your offer and SKU, you should enter the image details ass
 6. Under **Operating System**, describe the operating system. Consider a format such as Operating System Family, Type, Version, and Updates. An example is Windows Server Datacenter 2014 R2.
 7. Select 3 recommended virtual machine sizes. These are recommendations that get displayed to the end user in
 the Pricing Tier Blade in the Azure Management Portal when they decide to purchase and deploy your image.
-Note: these are only recommendations. The end user is able to select any VM size that accommodates the disks
-specified in your image.
+
+  > [AZURE.NOTE] these are only recommendations. The end user is able to select any VM size that accommodates the disks specified in your image.
+
 8. Enter the Version. The version field encapsulates a sematic version to identify the product and its updates.
   -	Versions should be of the form X.Y.Z, where X, Y, and Z are integers.
   -	Images in different SKUs can have different major and minor versions.
@@ -574,34 +575,35 @@ data disk to be mounted upon deployment.
   ![drawing][img-pubportal-vm-skus-2]
 
 ## Next Step
-[Step 4: Getting to staging](.). In this step, you will provide the content, pricing, and other information necessary to push your SKU to staging.  
+You Virtual Machine Image SKU(s) are now certified. Step 4, [Getting your offer to staging][link-pushstaging]. In this step of the, you will provide the marketing content, pricing, and other information necessary to push your SKU to staging and test various use case scenarios before launching the offer to the Azure Marketplace for public visibility and purchase.  
 
 
-[img-acom-1]:media/vm-image-acom-datacenter.png
-[img-portal-vm-size]:media/vm-image-portal-size.png
-[img-portal-vm-create]:media/vm-image-portal-create-vm.png
-[img-portal-vm-location]:media/vm-image-portal-location.png
-[img-portal-vm-rdp]:media/vm-image-portal-rdp.png
-[img-azstg-add]:media/vm-image-storage-add.png
-[img-azstg-setup-1]:media/vm-image-storage-setup.png
-[img-azstg-setup-2]:media/vm-image-storage-setup-2.png
-[img-azstg-setup-3]:media/vm-image-storage-setup-3.png
-[img-azstg-setup-4]:media/vm-image-storage-setup-4.png
-[img-azstg-setup-5]:media/vm-image-storage-setup-5.png
-[img-azstg-setup-6]:media/vm-image-storage-setup-6.png
-[img-manage-vm-new]:media/vm-image-manage-new.png
-[img-manage-vm-select]:media/vm-image-manage-select.png
-[img-cert-vm-key-lnx]:media/vm-image-certification-keyfile-linux.png
-[img-cert-vm-pswd-lnx]:media/vm-image-certification-password-linux.png
-[img-cert-vm-pswd-win]:media/vm-image-certification-password-win.png
-[img-cert-vm-test-lnx]:media/vm-image-certification-test-sample-linux.png
-[img-cert-vm-test-win]:media/vm-image-certification-test-sample-win.png
-[img-cert-vm-results]:media/vm-image-certification-results.png
-[img-cert-vm-questionnaire]:media/vm-image-certification-questionnaire.png
-[img-cert-vm-questionnaire-2]:media/vm-image-certification-questionnaire-2.png
-[img-pubportal-vm-skus]:media/vm-image-pubportal-skus.png
-[img-pubportal-vm-skus-2]:media/vm-image-pubportal-skus-2.png
+[img-acom-1]:media/marketplace-publishing-vm-image-creation/vm-image-acom-datacenter.png
+[img-portal-vm-size]:media/marketplace-publishing-vm-image-creation/vm-image-portal-size.png
+[img-portal-vm-create]:media/marketplace-publishing-vm-image-creation/vm-image-portal-create-vm.png
+[img-portal-vm-location]:media/marketplace-publishing-vm-image-creation/vm-image-portal-location.png
+[img-portal-vm-rdp]:media/marketplace-publishing-vm-image-creation/vm-image-portal-rdp.png
+[img-azstg-add]:media/marketplace-publishing-vm-image-creation/vm-image-storage-add.png
+[img-azstg-setup-1]:media/marketplace-publishing-vm-image-creation/vm-image-storage-setup.png
+[img-azstg-setup-2]:media/marketplace-publishing-vm-image-creation/vm-image-storage-setup-2.png
+[img-azstg-setup-3]:media/marketplace-publishing-vm-image-creation/vm-image-storage-setup-3.png
+[img-azstg-setup-4]:media/marketplace-publishing-vm-image-creation/vm-image-storage-setup-4.png
+[img-azstg-setup-5]:media/marketplace-publishing-vm-image-creation/vm-image-storage-setup-5.png
+[img-azstg-setup-6]:media/marketplace-publishing-vm-image-creation/vm-image-storage-setup-6.png
+[img-manage-vm-new]:media/marketplace-publishing-vm-image-creation/vm-image-manage-new.png
+[img-manage-vm-select]:media/marketplace-publishing-vm-image-creation/vm-image-manage-select.png
+[img-cert-vm-key-lnx]:media/marketplace-publishing-vm-image-creation/vm-image-certification-keyfile-linux.png
+[img-cert-vm-pswd-lnx]:media/marketplace-publishing-vm-image-creation/vm-image-certification-password-linux.png
+[img-cert-vm-pswd-win]:media/marketplace-publishing-vm-image-creation/vm-image-certification-password-win.png
+[img-cert-vm-test-lnx]:media/marketplace-publishing-vm-image-creation/vm-image-certification-test-sample-linux.png
+[img-cert-vm-test-win]:media/marketplace-publishing-vm-image-creation/vm-image-certification-test-sample-win.png
+[img-cert-vm-results]:media/marketplace-publishing-vm-image-creation/vm-image-certification-results.png
+[img-cert-vm-questionnaire]:media/marketplace-publishing-vm-image-creation/vm-image-certification-questionnaire.png
+[img-cert-vm-questionnaire-2]:media/marketplace-publishing-vm-image-creation/vm-image-certification-questionnaire-2.png
+[img-pubportal-vm-skus]:media/marketplace-publishing-vm-image-creation/vm-image-pubportal-skus.png
+[img-pubportal-vm-skus-2]:media/marketplace-publishing-vm-image-creation/vm-image-pubportal-skus-2.png
 
+[link-pushstaging]:marketplace-publishing-push-to-staging.md
 [link-github-waagent]:https://github.com/Azure/WALinuxAgent
 [link-azure-codeplex]:https://azurestorageexplorer.codeplex.com/
 [link-azure-2]:https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-2/

@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Data Service Publishing Guide"
+   pageTitle="Data Service Publishing Guide | Microsoft Azure"
    description="Detailed instructions on how to publish a data service offer to the Azure Marketplace"
    services="marketplace-publishing"
    documentationCenter=""
@@ -9,7 +9,7 @@
 
 <tags
    ms.service="required"
-   ms.devlang="may be required"
+   ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="may be required"
    ms.workload="na"

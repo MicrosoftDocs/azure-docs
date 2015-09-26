@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Pre-requisites for the Multi VM Solution Template"
-   description="Multi-VMs Solution Template pre-requisites"
+   pageTitle="Requirements for creating a Multi-Virtual Machine Image Solution Template | Microsoft Azure"
+   description="Understand the requirements for creating a Multi-VM Image Solution Template to deploy and sell on the Azure Marketplace"
    services="marketplace-publishing"
    documentationCenter=""
    authors="HannibalSII"
@@ -8,15 +8,15 @@
    editor=""/>
 
 <tags
-   ms.service="required"
-   ms.devlang="may be required"
+   ms.service="AzureStore"
+   ms.devlang="na"
    ms.topic="article"
-   ms.tgt_pltfrm="may be required"
+   ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/20/2015"
-   ms.author="hascipio" />
+   ms.date="09/25/2015"
+   ms.author="hascipio; v-divte" />
 
-# Step 3: Multi Virtual Machine Images Solution Template Publishing Guide - Pre-requisites
+# Pre-requisites for creating a multi-Virtual Machine image solution template for the Azure Marketplace
 
 ## A. Ensure you are registered as a seller with Microsoft
 A company can register only once as seller with Microsoft.
@@ -25,13 +25,13 @@ A company can register only once as seller with Microsoft.
 
 If you are not registered, you will need to collect the Company Tax and Payout Information (banking information) and then register your company as a seller in the [Seller Dashboard](https://sellerdashboard.microsoft.com).
 
-> **Note:** You do not have to create a seller dashboard account if you are planning to publish only free offers (or worldwide, or bring-your-own-licence).
+> [AZURE.TIP] You do not have to create a seller dashboard account if you are planning to publish only free offers (or worldwide, or bring-your-own-licence).
 
 For instructions on creating and submitting a Microsoft seller profile, visit [Microsoft Seller Account Creation & Registration][link-acct-creation]. And for more details on how to edit approved Seller Profile and filling out Tax and Payout information, refer to Seller Dashboard Help http://msdn.microsoft.com/en-us/library/dn800952.aspx
 
-> **Note:** While you company works on the Seller Profile, the developers can start working on creating the Solution Template Topologies in the [Publishing Portal](https:publishl.windowsazure.com), getting them certified and testing them in Azure Staging Environment. You will need seller approval only for the final step of publishing your offer to Marketplace.
+> [AZURE.TIP] While you company works on the Seller Profile, the developers can start working on creating the Solution Template Topologies in the [Publishing Portal](https:publish.windowsazure.com), getting them certified and testing them in Azure Staging Environment. You will need seller approval only for the final step of publishing your offer to Marketplace.
 
-> **Note:** IF you have issues with Seller Registration completion, please log a Support ticket as below:
+> [AZURE.TIP] IF you have issues with Seller Registration completion, please log a Support ticket as below:
 1. Contact [Support](http://go.microsoft.com/fwlink?LinkId=272975)
 2. Choose "Seller Dashboard registration and your account"
 3. Choose "Registering for a developer account"
@@ -61,4 +61,6 @@ This is the subscription you will use to create your VM images and hand over the
   For detailed information on the guidance, best practices and requirements for Multi-VM solutions please refer to the document [Template Solutions in the Marketplace](https://microsoft.sharepoint.com/teams/AzureMarketplaceOnboarding/_layouts/15/start.aspx#/Onboarding%20Resources/Forms/AllItems.aspx?RootFolder=%2Fteams%2FAzureMarketplaceOnboarding%2FOnboarding%20Resources%2FMulti%20VM&FolderCTID=0x01200022453DD82E509544B11C9F5367F6105B&View=%7BEC6E631C%2DEFA1%2D4E67%2D87C6%2D4FCA489A2F92%7D&InitialTabId=Rib).
 
 ## Next Steps
-Now that you reviewed the pre-requisites and completed the necessary tasks, you can move forward with the creating your Multi-VM Solution Template offer as detailed in the [Solution Template Publishing Guide](marketplace-publishing-solution-template-publication.md)
+Now that you reviewed the pre-requisites and completed the necessary tasks, you can move forward with the creating your Multi-VM Image Solution Template offer as detailed in the [Guide to creating a multi-vm image solution template](marketplace-publishing-solution-template-creation.md)
+
+[link-acct]:marketplace-publishing-accounts-creation-registration.md
