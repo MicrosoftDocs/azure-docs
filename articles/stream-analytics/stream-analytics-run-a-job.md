@@ -22,11 +22,11 @@ When a job input, query, and output have all been specified you can start the St
 
 To start your job:
 
-1.	In the Azure portal, from the job dashboard, click Start at the bottom of the page.
+1.	In the Azure portal, from the job dashboard, click **Start** at the bottom of the page.
 
     ![Start Button](./media/stream-analytics-run-a-job/1-stream-analytics-run-a-job.png)  
 
-    In the Azure preview portal, click Start at the top of your job page.
+    In the Azure preview portal, click **Start** at the top of your job page.
 
     ![Azure preview portal Start Button](./media/stream-analytics-run-a-job/4-stream-analytics-run-a-job.png)  
 
@@ -36,7 +36,7 @@ To start your job:
 
     ![Azure preview portal Start Time](./media/stream-analytics-run-a-job/5-stream-analytics-run-a-job.png)  
 
-3.	Confirm your selection. The job status will change to Starting and will shortly move to Running once the job has started. You can monitor the progress of the Start operation in the Notification Hub:
+3.	Confirm your selection. The job status will change to *Starting* and will shortly move to *Running* once the job has started. You can monitor the progress of the **Start** operation in the **Notification Hub**:
 
     ![Progress](./media/stream-analytics-run-a-job/3-stream-analytics-run-a-job.png)  
 
