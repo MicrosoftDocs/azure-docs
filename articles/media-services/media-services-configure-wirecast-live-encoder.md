@@ -108,10 +108,10 @@ In this tutorial the following output settings are used. The rest of this sectio
 	- Key frame every: 60 frames
 
 	**Audio**
-	
+
 	- Target bit rate: 192 kbits/sec
 	- Sample Rate: 44.100 kHz
-
+	 
 	![wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast4.png)
 
 6. Press **Save**.
@@ -129,7 +129,7 @@ In this tutorial the following output settings are used. The rest of this sectio
 	
 	![wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast6.png)
 
-8. On the Wirecast **Output Settings** window, paste this information in the **Address** field of the output section, and assign a stream name. 
+8. In the Wirecast **Output Settings** window, paste this information in the **Address** field of the output section, and assign a stream name. 
 
 
 	![wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast5.png)
