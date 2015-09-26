@@ -66,10 +66,44 @@ First, you must place the installer package on a network location that can be ac
 	- `User Configuration/Policies/Software Settings/`
 3. Right-click on **Software installation**, then select **New** > **Package...**
 	![Create a new software installation package](./media/active-directory-saas-ie-group-policy/new-package.png)
-4. Go to the shared folder that contains the .msi file from [Step 1: Create the Distribution Point](#step-1-create-the-distribution-point).
+4. Go to the shared folder that contains the installer package from [Step 1: Create the Distribution Point](#step-1-create-the-distribution-point), select the .msi file, and click **Open**.
 	> [AZURE.IMPORTANT] If the share is located on this same server, verify that you are accessing the .msi through the network file path, rather than the local file path.
 	![Select the installation package from the shared folder.](./media/active-directory-saas-ie-group-policy/select-package.png)
+5. In the **Deploy Software** prompt, select **Assigned** for your deployment method. Then click **OK**.
+	![Select Assigned, then click OK.](./media/active-directory-saas-ie-group-policy/deployment-method.png)
+
+The extension is now deployed to the OU that you selected. [Learn more about Group Policy Software Installation.](https://technet.microsoft.com/en-us/library/cc738858%28v=ws.10%29.aspx)
 
 ##Step 4: Auto-Enable the Extension for Internet Explorer 
 
+In addition to running the installer, every extension for Internet Explorer must be explicitly enabled before it can be used. Follow the steps below to enable the Access Panel Extension using group policy:
+
+1. In the **Group Policy Management Editor** window, go to either of the following paths, depending on which type of configuration you chose in [Step 3: Assign the Installation Package](#step-3-assign-the-installation-package):
+	- `Computer Configuration/Policies/Administrative Templates/Windows Components/Internet Explorer/Security Features/Add-on Management`
+	- `User Configuration/Policies/Administrative Templates/Windows Components/Internet Explorer/Security Features/Add-on Management`
+2. Right-click on **Add-on List**, and select **Edit**.
+	![Edit Add-on List.](./media/active-directory-saas-ie-group-policy/edit-add-on-list.png)
+3. In the **Add-on List** window, select **Enabled**. Then, under the **Options** section, click **Show...**.
+	![Click Enable, then click Show...](./media/active-directory-saas-ie-group-policy/edit-add-on-list-window.png)
+4. In the **Show Contents** window, perform the following steps:
+	- For the first column (the **Value Name** field), copy and paste the following Class ID: `{030E9A3F-7B18-4122-9A60-B87235E4F59E}`
+	- For the second column (the **Value** field), type in the following value: `1`
+	- Click **OK** to close the **Show Contents** window.
+	![Fill out the values as specified above.](./media/active-directory-saas-ie-group-policy/show-contents.png)
+5. Click **OK** to apply your changes and close the **Add-on List** window.
+
+The extension should now be enabled for the machines in the selected OU. [Learn more about using group policy to enable or disable Internet Explorer add-ons.](https://technet.microsoft.com/en-us/library/dn454941.aspx)
+
 ##Step 5: Testing the Deployment
+
+Follow the steps below to verify if the extension deployment was successful:
+
+1. If you deployed using **Computer Configuration**, sign into a client machine that belongs to the OU that you selected in [Step 2: Create the Group Policy Object](#step-2-create-the-group-policy-object). If you deployed using **User Configuration**, sign into a machine using a user that belongs to that OU.
+2. It may take a couple sign ins for the group policy changes to fully update with this machine. To force the update, open a **Command Prompt** window and run the following command: `gpupdate /force`
+3. You will need to restart the machine for the installation to take place. Bootup may take significantly more time than usual while the extension installs.
+4. After restarting, open **Internet Explorer**. On the upper-right corner of the window, click on **Tools** (the gear icon), and then select **Manage add-ons**.
+	![Go to Tools > Manage Add-Ons](./media/active-directory-saas-ie-group-policy/manage-add-ons.png)
+5. In the **Manage Add-ons** window, verify that the **Access Panel Extension** has been installed and that its **Status** has been set to **Enabled**.
+	![Verify that the Access Panel Extension is installed and enabled.](./media/active-directory-saas-ie-group-policy/verify-install.png)
+
+[AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
