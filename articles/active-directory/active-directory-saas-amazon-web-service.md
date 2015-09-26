@@ -156,19 +156,22 @@ The following screenshot shows an example for this.
 16. On the **Attach Policy** dialog, click **Next Step**.  <br><br> ![Configure Single Sign-On][33]
 
 
-17. On the **Review** dialog, click **Create Role**.  <br><br> ![Configure Single Sign-On][34]
+17. On the **Review** dialog, perform the following steps:   <br><br> ![Configure Single Sign-On][34]
 
+     17.1. Copy the **Role ARN** value.
 
-15. On the Azure AD portal, select the single sign-on configuration confirmation, and then click **Next**.<br><br>![What is Azure AD Connect][20]
+     17.2. Click **Create Role**. 
+
+18. On the Azure AD portal, select the single sign-on configuration confirmation, and then click **Next**.<br><br>![What is Azure AD Connect][20]
 
 16. On the **Single sign-on confirmation** page, click **Complete** to close the **Configure single sign-on** dialog.<br><br>![What is Azure AD Connect][22]
 
 
-17. In the menu on the top, click **Attributes** to open the **SAML Token Attributes** dialog. <br><br> ![Configure Single Sign-On][21]
+19. In the menu on the top, click **Attributes** to open the **SAML Token Attributes** dialog. <br><br> ![Configure Single Sign-On][21]
 
-18. Click **add user attribute**. <br><br> ![Configure Single Sign-On][23]
+20. Click **add user attribute**. <br><br> ![Configure Single Sign-On][23]
 
-19. On the Add User Attribute dialog, perform the following steps. <br><br> ![Configure Single Sign-On][24] 
+21. On the Add User Attribute dialog, perform the following steps. <br><br> ![Configure Single Sign-On][24] 
 
      19.1. In the **Attribute Name** textbox, type **https://aws.amazon.com/SAML/Attributes/Role**.
 
@@ -176,10 +179,10 @@ The following screenshot shows an example for this.
 
      19.3. Click **Complete** to close the **Add User Attribute** dialog.
 
-20. Click **add user attribute**. <br><br> ![Configure Single Sign-On][23]
+22. Click **add user attribute**. <br><br> ![Configure Single Sign-On][23]
 
 
-21. On the Add User Attribute dialog, perform the following steps. <br><br> ![Configure Single Sign-On][25] 
+23. On the Add User Attribute dialog, perform the following steps. <br><br> ![Configure Single Sign-On][25] 
 
      21.1. In the **Attribute Name** textbox, type **https://aws.amazon.com/SAML/Attributes/RoleSessionName**.
 
@@ -188,7 +191,7 @@ The following screenshot shows an example for this.
      21.3. Click **Complete** to close the **Add User Attribute** dialog.
 
 
-22. Click **Apply Changes**. <br><br> ![Configure Single Sign-On][26]
+24. Click **Apply Changes**. <br><br> ![Configure Single Sign-On][26]
 
 
 
