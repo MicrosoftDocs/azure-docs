@@ -179,6 +179,8 @@ The following screenshot shows an example for this.
 
      19.2. In the **Attribute Value** textbox, type **[the Role ARN value],[the Trusted Entity ARN value]**.
 
+     >[AZURE.TIP] These are the values you have copied from the Review dialog when you have created your role. 
+
      19.3. Click **Complete** to close the **Add User Attribute** dialog.
 
 23. Click **add user attribute**. <br><br> ![Configure Single Sign-On][23]
