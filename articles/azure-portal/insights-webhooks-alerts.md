@@ -76,6 +76,8 @@ The POST operation will contain the following JSON payload and schema for all me
 
 >[AZURE.NOTE] In our next refresh, we will add support for alerts on Events (“conditionType” : “Event”)
 
+Testing a table here.
+
 |Field|Mandatory?|Fixed Set of Value(s)?|Notes|
 |-----|-----|------|
 |status|Y|“Activated”, “Resolved”|This is how you find out what kind of alert it is. Azure automatically sends activated and resolved alerts for the condition one sets.|
@@ -107,7 +109,11 @@ The POST operation will contain the following JSON payload and schema for all me
 ## Next Steps
 
 [Integrate Azure Alerts with PagerDuty](http://go.microsoft.com/fwlink/?LinkId=627080)
+
 [Execute Azure Automation scripts (Runbooks)](http://go.microsoft.com/fwlink/?LinkId=627081)
+
 [Use Logic App to send SMS via Twilio API](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app)
+
 [Use Logic App to send Slack messages](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-slack-with-logic-app)
+
 [Use Logic App to send messages to an Azure Queue](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-queue-with-logic-app)
