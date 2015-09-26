@@ -2,18 +2,18 @@
 	pageTitle="Azure IoT device SDK for C - More about IoTHubClient"
 	description="Additional detail on the IoTHubClient library in the Azure IoT device SDK for C"
 	services="iot-hub"
-	documentationCenter=".net"
+	documentationCenter="na"
 	authors="MichelBarnett"
-	manager="andrewmc"
+	manager="timlt"
 	editor=""/>
 
 <tags
      ms.service="iot-hub"
-     ms.devlang="csharp"
-     ms.topic="Azure IoT device SDK for C"
+     ms.devlang="na"
+     ms.topic="article"
      ms.tgt_pltfrm="na"
      ms.workload="tbd"
-     ms.date="09/25/2015"
+     ms.date="09/29/2015"
      ms.author="michelb"/>
 
 # Microsoft Azure IoT device SDK for C – More about IoTHubClient
@@ -160,7 +160,7 @@ Map_AddOrUpdate(propMap, "SequenceNumber", propText);
 
 We start by calling **IoTHubMessage\_Properties** and passing it the handle of our message. What we get back is a **MAP\_HANDLE** reference that allows us to start adding properties. The latter is accomplished by calling **Map\_AddOrUpdate** which takes a reference to a MAP\_HANDLE, the property name, and the property value. With this API we can add as many properties as we like.
 
-When the event is read from **Event Hub** the receiver can enumerate the properties and retrieve their corresponding values. For example, in .NET this would be accomplished by accessing the [Properties collection on the EventData object](https://msdn.microsoft.com/en-us/library/microsoft.servicebus.messaging.eventdata.properties.aspx).
+When the event is read from **Event Hub** the receiver can enumerate the properties and retrieve their corresponding values. For example, in .NET this would be accomplished by accessing the [Properties collection on the EventData object](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.eventdata.properties.aspx).
 
 In the example above, we’re attaching properties to an event that we send to IoT Hub. But properties can also be attached to messages received from IoT Hub. If we want to retrieve properties from a message we can use code like this in our message callback function:
 

@@ -1,19 +1,19 @@
 <properties
 	pageTitle="Introducing the Azure IoT device SDK for C"
-	description="How to learn about and get started working with the sample code in the Azure IoT device SDK for C"
+	description="Learn about and get started working with the sample code in the Azure IoT device SDK for C"
 	services="iot-hub"
-	documentationCenter=".net"
+	documentationCenter="na"
 	authors="MichelBarnett"
-	manager="andrewmc"
+	manager="timlt"
 	editor=""/>
 
 <tags
      ms.service="iot-hub"
-     ms.devlang="csharp"
-     ms.topic="Azure IoT device SDK for C"
+     ms.devlang="na"
+     ms.topic="article"
      ms.tgt_pltfrm="na"
      ms.workload="tbd"
-     ms.date="09/24/2015"
+     ms.date="09/29/2015"
      ms.author="michelb"/>
 
 # Introducing the Azure IoT device SDK for C
