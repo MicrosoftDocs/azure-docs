@@ -96,11 +96,13 @@ Staging means deploying your SKU in a private “sandbox” where you can test a
 
   Below is the detailed view of how the publisher portal offer marketing details are used up on portal
 
-	![drawing][img-map-acom]
-  *Offer Name & Description mapping*
+![drawing][img-map-acom]
 
-	![drawing][img-map-portal]
-  *Product & Details mapping*
+*Offer Name & Description mapping*
+
+![drawing][img-map-portal]
+
+*Product & Details mapping*
 
 
 ## 4.6 Notify Onboarding Team
