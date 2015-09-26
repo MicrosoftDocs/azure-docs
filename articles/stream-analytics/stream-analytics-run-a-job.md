@@ -18,7 +18,7 @@
 
 # Run a job
 
-When a job input, query, and output have all been specified you can start the Stream Analytics job.
+When a job input, query and output have all been specified you can start the Stream Analytics job.
 
 To start your job:
 
