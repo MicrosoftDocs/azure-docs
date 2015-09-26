@@ -77,7 +77,7 @@ The POST operation will contain the following JSON payload and schema for all me
 >[AZURE.NOTE] In our next refresh, we will add support for alerts on Events (“conditionType” : “Event”)
 
 |Field      		|Mandatory? 		|Fixed Set of Value(s)?		|Notes|
-|-----				|-----				|------						|
+|-----|-----|------|
 |status     		|Y         			| “Activated”, “Resolved” 	|This is how you find out what kind of alert it is. Azure automatically sends activated and resolved alerts for the condition one sets.|
 |context    		|Y					|							|The alert context|
 |timestamp  		|Y					|							|The time at which the alert was triggered. The alert is triggered as soon as the metric is read from the diagnostics storage.|
