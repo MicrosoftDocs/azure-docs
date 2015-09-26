@@ -76,21 +76,9 @@ The POST operation will contain the following JSON payload and schema for all me
 
 >[AZURE.NOTE] In our next refresh, we will add support for alerts on Events (“conditionType” : “Event”)
 
-Testing a table here.
 
 | Field | Mandatory? | Fixed Set of Value(s)? | Notes |
 | :-------------| :-------------   | :-------------   | :-------------   |
-| North America | North Central US | South Central US |
-| North America | East US          | West US          |
-| North America | US East 2        | US Central       |
-| Europe        | North Europe     | West Europe      |
-| Asia          | South East Asia  | East Asia        |
-| China         | East China       | North China      |
-| Japan         | Japan East       | Japan West       |
-| Brazil        | Brazil South (1) | South Central US |
-| Australia     | Australia East   | Australia Southeast|
-| US Government | US Gov Iowa      | US Gov Virginia  |
-|status|Y|“Activated”, “Resolved”|This is how you find out what kind of alert it is. Azure automatically sends activated and resolved alerts for the condition one sets.|
 
 
 
