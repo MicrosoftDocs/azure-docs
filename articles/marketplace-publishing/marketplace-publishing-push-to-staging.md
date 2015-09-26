@@ -96,11 +96,13 @@ Staging means deploying your SKU in a private “sandbox” where you can test a
 
   Below is the detailed view of how the publisher portal offer marketing details are used up on portal
 
-	![drawing][img-map-desc]
-  *Offer Name & Description mapping*
+![drawing][img-map-acom]
 
-	![drawing][img-map-details]
-  *Product & Details mapping*
+*Offer Name & Description mapping*
+
+![drawing][img-map-portal]
+
+*Product & Details mapping*
 
 
 ## 4.6 Notify Onboarding Team
@@ -109,8 +111,8 @@ Once you are done with testing, notify the on-boarding team for validation. On-b
 ## Next Steps
 Now that you offer is in "Staging", once the onboarding team notifies, you can proceed to the final offer and/or SKU publishing phase, step 5,  [Deploying your offer to the Marketplace][link-push-to-production].
 
-[img-map-desc]:media/marketplace-publishing-push-to-staging/marketing-content-guide-acom.jpg
-[img-map-details]:media/marketplace-publishing-push-to-staging/marketing-content-guide-portal-offer-map.jpg
+[img-map-acom]:media/marketplace-publishing-push-to-staging/pubportal-mapping-acom.jpg
+[img-map-portal]:media/marketplace-publishing-push-to-staging/pubportal-mapping-azure-portal.jpg
 [img-map-link]:media/marketplace-publishing-push-to-staging/marketing-content-guide-links.jpg
 [img-map-logo]:media/marketplace-publishing-push-to-staging/marketing-content-guide-logos.jpg
 [img-map-title]:media/marketplace-publishing-push-to-staging/marketing-content-guide-publisher-offer.png
