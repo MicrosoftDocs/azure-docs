@@ -90,6 +90,8 @@ Testing a table here.
 | Brazil        | Brazil South (1) | South Central US |
 | Australia     | Australia East   | Australia Southeast|
 | US Government | US Gov Iowa      | US Gov Virginia  |
+|Field|Mandatory?|Fixed Set of Value(s)?|Notes|
+|status|Y|“Activated”, “Resolved”|This is how you find out what kind of alert it is. Azure automatically sends activated and resolved alerts for the condition one sets.|
 
 
 
