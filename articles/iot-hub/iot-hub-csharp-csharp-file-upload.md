@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Upload files from devices using IoT Hub"
+	pageTitle="Upload files from devices using IoT Hub | Microsoft Azure"
 	description="Follow this tutorial to learn how to upload files from devices using Azure IoT Hub with C#."
 	services="iot-hub"
 	documentationCenter=".net"
@@ -24,6 +24,8 @@ Azure IoT Hub is a fully managed service that enables reliable and secure bi-dir
 
 This tutorial builds on the code presented in [Send Cloud-to-Device messages with IoT Hub] to show how to use cloud-to-device messages to securely provide to the device an Azure blob URI to be used to upload the file, and how to use IoT Hub delivery acknowledgments to trigger the processing of the file from your app back-end. The advantages of this approach is the reuse of IoT Hub device identity, and of the delivery acknowledgment of cloud-to-device messages to inform the app back-end that the file has been uploaded successfully.
 
+> [AZURE.NOTE] The same approach used here can be used to securely have devices download files from the cloud.
+
 You can find more information on cloud-to-device messages and IoT Hub security in the [IoT Hub Developer Guide].
 
 At the end of this tutorial you will run two Windows console applications:
@@ -31,11 +33,13 @@ At the end of this tutorial you will run two Windows console applications:
 * **SimulatedDevice**, a modified version of the app created in [Send Cloud-to-Device messages with IoT Hub], which connects to your IoT hub, receives cloud-to-device messages containing Azure blob URIs. For each cloud-to-device message received, it triggers a file upload to the specified blob URI.
 * **SendCloudToDevice**, which builds an Azure blob URI (as explained in [Create and Use a SAS with the Blob Service](https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-2/), sends it in a cloud-to-device message to the simulated device through IoT Hub, and then receives its delivery aknowledgment.
 
+> [AZURE.NOTE] IoT Hub has SDK support for many device platforms and languages (including C, Java, and Javascript) though Azure IoT device SDKs. Refer to the [Azure IoT Developer Center] for step by step instructions on how to connect your device to this tutorial's code, and generally to Azure IoT Hub. Azure IoT service SDKs for Java and Node are coming soon.
+
 In order to complete this tutorial you'll need the following:
 
 + Microsoft Visual Studio 2015,
 
-+ An active Azure account. <br/>If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdevelop%2Fiot%2Ftutorials%2Fget-started%2F target="_blank").
++ An active Azure account. <br/>If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdevelop%2Fiot%2Ftutorials%2Ffile-upload%2F target="_blank").
 
 
 [AZURE.INCLUDE [iot-hub-file-upload-cloud-csharp](../../includes/iot-hub-file-upload-cloud-csharp.md)]
