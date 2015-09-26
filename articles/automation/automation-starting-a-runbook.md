@@ -75,6 +75,18 @@ The following table will help you determine the method to start a runbook in Azu
  </tr>
  <tr>
  <tr>
+  <td><a href="http://azure.microsoft.com/documentation/articles/automation-webhooks/">Webhook in response to Alerts</a></td>
+  <td>
+   <ul>
+    <li>Starts a runbook through an Azure alert</li>
+    <li>A valid webhook URI must be configured to the alert rule of a resource</li>
+    <li>Authenticated with either token based authentication or with username and password in the webhook URI</li>
+    <li>Currently supports alert on Metrics only</li>
+   </ul>
+  </td>
+ </tr>
+ <tr>
+ <tr>
   <td><a href="http://azure.microsoft.com/documentation/articles/automation-scheduling-a-runbook">Schedule</a></td>
   <td>
    <ul>

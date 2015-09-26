@@ -148,7 +148,7 @@ The following sample runbook accepts the previous example request and starts the
 			
 			# Collect individual headers. VMList converted from JSON.
 			$From = $WebhookHeaders.From
-			$VMList = (ConvertFrom-Json -InputObject $WebhookBody).VirtualMachines
+			$VMList = ConvertFrom-Json -InputObject $WebhookBody
 			Write-Output "Runbook started from webhook $WebhookName by $From."
 			
 			# Authenticate to Azure resources
@@ -167,7 +167,113 @@ The following sample runbook accepts the previous example request and starts the
 		} 
 	}
 
-	
+## Webhook in response to Azure alerts
+
+Webhook enabled runbooks can be used to react to [Azure alerts](https://azure.microsoft.com/en-us/documentation/articles/insights-receive-alert-notifications). Resources in Azure can be monitored by collecting the statistics like performance, availability and usage with the help of Azure alerts. You can receive an alert based on monitoring metrics or events for your Azure resources. When the value of a specified metric exceeds the threshold assigned or if the configured event is triggered then a notification is sent to the service admin or co-admins to resolve the alert, for more information on metrics and events please refer to [Azure alerts](https://azure.microsoft.com/en-us/documentation/articles/insights-receive-alert-notifications/).
+
+Besides using Azure alerts as a notification system, you can also run scripts or runbooks. Azure automation provides the capability to run webhook enabled runbooks with Azure alerts. When a metric exceeds the configured threshold value then the alert rule becomes active and triggers the automation webhook which in turn executes the runbook.
+
+![Webhooks](media/automation-webhooks/webhook-alert.jpg)
+
+### Alert Context
+
+When the alert rule becomes active and triggers the webhook enabled runbook, it sends the alert context to the runbooks. Alert context contains details like **SubscriptionID**, **ResourceGroupName**, **ResourceName**, **ResourceType**, **ResourceId** and **Timestamp** which are required for the runbook to identify the resource with which it will be working. Alert context is embedded in the body part of the **WebhookData** object sent to the runbook and it can be accessed with **Webhook.RequestBody** property
+
+### Example
+
+As we already have a runbook with a webhook enabled from the previous example, now create an [alert for the resource](https://azure.microsoft.com/en-us/documentation/articles/insights-receive-alert-notifications/) that we want to manage. In our case the resource to monitor would be a virtual machine but It can be any Azure resource. While creating the alert you have to populate the Webhook field with the URL of the webhook which was generated while creating the webhook.
+
+The following sample runbook is triggered when the alert rule becomes active and it collects the Alert context parameters which are required for the runbook to identify the resource with which it will be working.
+
+
+workflow AlertExtended
+{
+    param (  
+
+        [object]$WebhookData 
+
+    ) 
+
+    # If runbook was called from Webhook, WebhookData will not be null.
+    if ($WebhookData -ne $null) {   
+
+        # Collect properties of WebhookData. 
+
+        $WebhookName    =   $WebhookData.WebhookName 
+
+        $WebhookBody    =   $WebhookData.RequestBody 
+
+        $WebhookHeaders =   $WebhookData.RequestHeader 
+
+
+        # Outputs information on the webhook name that called This 
+
+        Write-Output "This runbook was started from webhook $WebhookName." 
+
+
+        # Obtain the WebhookBody containing the AlertContext 
+
+        $WebhookBody = (ConvertFrom-Json -InputObject $WebhookBody) 
+
+        Write-Output "`nWEBHOOK BODY" 
+
+        Write-Output "=============" 
+
+        Write-Output $WebhookBody 
+
+
+        # Obtain the AlertContext     
+        $AlertContext = [object]$WebhookBody.context
+
+
+        # Some selected AlertContext information 
+
+        Write-Output "`nALERT CONTEXT DATA" 
+
+        Write-Output "===================" 
+
+        Write-Output $AlertContext.name 
+
+        Write-Output $AlertContext.subscriptionId 
+
+        Write-Output $AlertContext.resourceGroupName 
+
+        Write-Output $AlertContext.resourceName 
+
+        Write-Output $AlertContext.resourceType 
+
+        Write-Output $AlertContext.resourceId 
+
+        Write-Output $AlertContext.timestamp 
+
+
+        # Act on the AlertContext data 
+
+        # For example, let's restart the VM. 
+
+
+        # Authenticate to your Azure subscription using OrganizationId to be able to restart that Virtual Machine. Replace  
+
+        $cred = Get-AutomationPSCredential -Name "MyAzureCredential" 
+
+        Add-AzureAccount -Credential $cred 
+
+        Select-AzureSubscription -subscriptionName "Visual Studio Ultimate with MSDN" 
+
+
+        Restart-AzureVM -ServiceName $AlertContext.resourceName -Name $AlertContext.resourceName 
+
+    } 
+
+    else  
+
+    { 
+
+        Write-Error "This runbook is meant to only be started from a webhook."  
+
+    }  
+} 
+ 
 
 ## Related articles
 
