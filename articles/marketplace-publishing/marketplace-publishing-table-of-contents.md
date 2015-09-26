@@ -46,7 +46,7 @@ Some steps are shared between the different types of solutions. This provides a 
 - VM Single Image instructions for developing on-premises
 
 [link-certification]:marketplace-publishing-azure-certification.md
-[link-accts]:marketplace-publishing-microsoft-accounts-creation-registration.md
+[link-accts]:marketplace-publishing-accounts-creation-registration.md
 [link-single-vm]:marketplace-publishing-vm-image-creation.md
 [link-single-vm-prereq]:marketplace-publishing-vm-image-creation-prerequisites.md
 [link-multi-vm]:marketplace-publishing-solution-template-creation.md
