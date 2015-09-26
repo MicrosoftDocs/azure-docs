@@ -8,9 +8,9 @@
 	tags=""/>
 <tags
 	ms.service="hdinsight"
-	ms.devlang="may be required"
+	ms.devlang="na"
 	ms.topic="article"
-	ms.tgt_pltfrm="may be required"
+	ms.tgt_pltfrm="na"
 	ms.workload="na"
 	ms.date="09/25/2015"
 	ms.author="paulettm"/>
