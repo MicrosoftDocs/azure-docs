@@ -260,7 +260,7 @@ workflow AlertExtended
 
         Select-AzureSubscription -subscriptionName "Visual Studio Ultimate with MSDN" 
 
-
+        # Restart the VM by passing VM name and Service name which are same in this case
         Restart-AzureVM -ServiceName $AlertContext.resourceName -Name $AlertContext.resourceName 
 
     } 
@@ -278,4 +278,5 @@ workflow AlertExtended
 ## Related articles
 
 - [Starting a Runbook](automation-starting-a-runbook.md)
-- [Viewing the Status of a Runbook Job](automation-viewing-the-status-of-a-runbook-job.md) 
+- [Viewing the Status of a Runbook Job](automation-viewing-the-status-of-a-runbook-job.md)
+- [Using Azure Automation to take actions on Azure Alerts](https://blogs.azure.net/using-azure-automation-to-take-actions-on-azure-alerts)
