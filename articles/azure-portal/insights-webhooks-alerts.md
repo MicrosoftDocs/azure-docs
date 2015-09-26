@@ -79,6 +79,16 @@ The POST operation will contain the following JSON payload and schema for all me
 
 | Field | Mandatory? | Fixed Set of Value(s)? | Notes |
 | :-------------| :-------------   | :-------------   | :-------------   |
+|status|Y|“Activated”, “Resolved”|This is how you find out what kind of alert it is. Azure automatically sends activated and resolved alerts for the condition one sets.|
+|context| Y | | The alert context|
+|timestamp| Y | | The time at which the alert was triggered. The alert is triggered as soon as the metric is read from the diagnostics storage.|
+|id | Y | | Every alert rule has a unique id.|
+|name|Y					|							|
+|description		|Y					|							|Description about the alert.|
+|conditionType		|Y					|“Metric”, “Event”			|Two types of alerts are supported. One based on metric and the other based on event. In the future we will support alerts for Events, so use this value to check if the alert is based on metric or event|
+|condition			|Y					|							|This will have the specific fields to check for based on the conditionType|
+|metricName			|for Metric alerts	|							|The name of the metric that defines what the rule monitors.|
+|metricUnit			|for Metric alerts	|"Bytes", "BytesPerSecond" , "Count" , "CountPerSecond" , "Percent", "Seconds"|	 The unit allowed in the metric. Allowed values: https://msdn.microsoft.com/en-us/library/microsoft.azure.insights.models.unit.aspx|
 
 
 
