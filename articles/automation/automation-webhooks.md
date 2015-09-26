@@ -177,7 +177,7 @@ Besides using Azure alerts as a notification system, you can also run scripts or
 
 ### Alert Context
 
-When the alert rule becomes active and triggers the webhook enabled runbook, it sends the alert context to the runbooks. Alert context contains details like **SubscriptionID**, **ResourceGroupName**, **ResourceName**, **ResourceType**, **ResourceId** and **Timestamp** which are required for the runbook to identify the resource with which it will be working. Alert context is embedded in the body part of the **WebhookData** object sent to the runbook and it can be accessed with **Webhook.RequestBody** property
+When the alert rule becomes active and triggers the webhook enabled runbook, it sends the alert context to the runbooks. Alert context contains details they are **SubscriptionID**, **ResourceGroupName**, **ResourceName**, **ResourceType**, **ResourceId** and **Timestamp** which are required for the runbook to identify the resource with which it will be working. Alert context is embedded in the body part of the **WebhookData** object sent to the runbook and it can be accessed with **Webhook.RequestBody** property
 
 ### Example
 
