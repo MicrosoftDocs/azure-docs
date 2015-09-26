@@ -162,7 +162,7 @@ To list the blobs in a container, first get a container reference like you did t
         e.printStackTrace();
     }
 
-The blob service has the concept of directories within containers, as well. This is so you can organize your blobs in a more folder-like structure.
+Note that you can name blobs with path information in their names. This creates a virtual directory structure that you can organize and traverse as you would a traditional file system. Note that the directory structure is virtual only - the only resources available in Blob storage are containers and blobs. However, the client library offers a **CloudBlobDirectory** object to refer to a virtual directory and simplify the process of working with blobs that are organized in this way.
 
 For example, you could have a container named "photos", in which you might upload blobs named "rootphoto1", "2010/photo1", "2010/photo2", and "2011/photo1". This would create the virtual directories "2010" and "2011" within the "photos" container. When you call **listBlobs** on the "photos" container, the collection returned will contain **CloudBlobDirectory** and **CloudBlob** objects representing the directories and blobs contained at the top level. In this case, directories "2010" and "2011", as well as photo "rootphoto1" would be returned. You can use the **instanceof** operator to distinguish these objects.
 
@@ -262,6 +262,8 @@ Now that you've learned the basics of Blob storage, follow these links to learn 
 - [Azure Storage Client SDK Reference][]
 - [Azure Storage REST API][]
 - [Azure Storage Team Blog][]
+
+For more information, see also the [Java Developer Center](/develop/java/).
 
 [Azure SDK for Java]: http://go.microsoft.com/fwlink/?LinkID=525671
 [Azure Storage SDK for Java]: https://github.com/azure/azure-storage-java

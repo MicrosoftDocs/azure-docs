@@ -1,6 +1,6 @@
 <properties
-	pageTitle="How to use blob storage from Node.js | Microsoft Azure"
-	description="Learn how to use the Azure Blob service to upload, download, list, and delete blob content. Samples written in Node.js."
+	pageTitle="How to use Blob storage from Node.js | Microsoft Azure"
+	description="Learn how to use the Azure Blob service to upload, download, list, and delete blob content. Samples are written in Node.js."
 	services="storage"
 	documentationCenter="nodejs"
 	authors="MikeWasson"
@@ -18,13 +18,13 @@
 
 
 
-# How to use blob storage from Node.js
+# How to use Blob storage from Node.js
 
 [AZURE.INCLUDE [storage-selector-blob-include](../../includes/storage-selector-blob-include.md)]
 
 ## Overview
 
-This article shows you how to perform common scenarios using the Azure Blob service. The samples are written using the Node.js API. The scenarios covered include **uploading**, **listing**, **downloading**, and **deleting** blobs.
+This article shows you how to perform common scenarios using the Azure Blob service. The samples are written via the Node.js API. The scenarios covered include how to upload, list, download, and delete blobs.
 
 [AZURE.INCLUDE [storage-blob-concepts-include](../../includes/storage-blob-concepts-include.md)]
 
@@ -32,7 +32,7 @@ This article shows you how to perform common scenarios using the Azure Blob serv
 
 ## Create a Node.js application
 
-Create a blank Node.js application. For instructions creating a Node.js application, see [Create and deploy a Node.js application to an Azure web site], [Node.js Cloud Service][Node.js Cloud Service] (using Windows PowerShell), or [Web Site with WebMatrix].
+For instructions on how to create a Node.js application, see [Create and deploy a Node.js application to an Azure website], [Node.js Cloud Service][Node.js Cloud Service] (using Windows PowerShell), or [Web app with WebMatrix].
 
 ## Configure your application to access storage
 
@@ -55,20 +55,19 @@ To use Azure storage, you need the Azure Storage SDK for Node.js, which includes
 		+-- xml2js@0.2.7 (sax@0.5.2)
 		+-- request@2.57.0 (caseless@0.10.0, aws-sign2@0.5.0, forever-agent@0.6.1, stringstream@0.0.4, oauth-sign@0.8.0, tunnel-agent@0.4.1, isstream@0.1.2, json-stringify-safe@5.0.1, bl@0.9.4, combined-stream@1.0.5, qs@3.1.0, mime-types@2.0.14, form-data@0.2.0, http-signature@0.11.0, tough-cookie@2.0.0, hawk@2.3.1, har-validator@1.8.0)
 
-3.  You can manually run the **ls** command to verify that a **node\_modules** folder was created. Inside that folder find the **azure-storage** package, which contains the libraries you need to access storage.
+3.  You can manually run the **ls** command to verify that a **node\_modules** folder was created. Inside that folder, find the **azure-storage** package, which contains the libraries that you need to access storage.
 
 ### Import the package
 
-Using Notepad or another text editor, add the following to the top the
-**server.js** file of the application where you intend to use storage:
+Using Notepad or another text editor, add the following to the top of the **server.js** file of the application where you intend to use storage:
 
     var azure = require('azure-storage');
 
 ## Set up an Azure Storage connection
 
-The Azure module will read the environment variables `AZURE_STORAGE_ACCOUNT` and `AZURE_STORAGE_ACCESS_KEY`, or `AZURE_STORAGE_CONNECTION_STRING` for information required to connect to your Azure storage account. If these environment variables are not set, you must specify the account information when calling **createBlobService**.
+The Azure module will read the environment variables `AZURE_STORAGE_ACCOUNT` and `AZURE_STORAGE_ACCESS_KEY`, or `AZURE_STORAGE_CONNECTION_STRING`, for information required to connect to your Azure storage account. If these environment variables are not set, you must specify the account information when calling **createBlobService**.
 
-For an example of setting the environment variables in the management portal for an Azure Website, see [Node.js Web Application with Storage]
+For an example of setting the environment variables in the Azure portal for an Azure web app, see [Node.js Web Application with Storage]
 
 ## Create a container
 
@@ -76,11 +75,11 @@ The **BlobService** object lets you work with containers and blobs. The followin
 
     var blobSvc = azure.createBlobService();
 
-> [AZURE.NOTE] You can access a blob anonymously by using **createBlobServiceAnonymous** and providing the host address. For example, `var blobSvc = azure.createBlobServiceAnonymous('https://myblob.blob.core.windows.net/');`.
+> [AZURE.NOTE] You can access a blob anonymously by using **createBlobServiceAnonymous** and providing the host address. For example, use `var blobSvc = azure.createBlobServiceAnonymous('https://myblob.blob.core.windows.net/');`.
 
 [AZURE.INCLUDE [storage-container-naming-rules-include](../../includes/storage-container-naming-rules-include.md)]
 
-To create a new container, use **createContainerIfNotExists**. The following code example creates a new container named 'mycontainer'
+To create a new container, use **createContainerIfNotExists**. The following code example creates a new container named 'mycontainer':
 
 	blobSvc.createContainerIfNotExists('mycontainer', function(error, result, response){
       if(!error){
@@ -94,7 +93,7 @@ If the container is newly created, `result` is true. If the container already ex
 
 ### Container security
 
-By default, new containers are private and cannot be accessed anonymously. To make the container public so that you can access them anonymously, you can set the container's access level to **blob** or **container**.
+By default, new containers are private and cannot be accessed anonymously. To make the container public so that you can access it anonymously, you can set the container's access level to **blob** or **container**.
 
 * **blob** - allows anonymous read access to blob content and metadata within this container, but not to container metadata such as listing all blobs within a container
 
@@ -124,7 +123,7 @@ You can apply optional filtering operations to operations performed using **Blob
 
 		function handle (requestOptions, next)
 
-After doing its preprocessing on the request options, the method needs to call "next" passing a callback with the following signature:
+After doing its preprocessing on the request options, the method needs to call "next", passing a callback with the following signature:
 
 		function (returnObject, finalCallback, next)
 
@@ -137,7 +136,7 @@ Two filters that implement retry logic are included with the Azure SDK for Node.
 
 ## Upload a blob into a container
 
-A blob can be either block or page based. Block blobs allow you to more efficiently upload large data, while page blobs are optimized for read/write operations. For more information, see [Understanding block blobs and page blobs](http://msdn.microsoft.com/library/azure/ee691964.aspx).
+A blob can be either block-based or page-based. Block blobs allow you to more efficiently upload large data, while page blobs are optimized for read/write operations. For more information, see [Understanding block blobs and page blobs](http://msdn.microsoft.com/library/azure/ee691964.aspx).
 
 ### Block blobs
 
@@ -187,7 +186,7 @@ The following code example uploads the contents of the **test.txt** file into **
 
 ## List the blobs in a container
 
-To list the blobs in a container, use the **listBlobsSegmented** method. If you would like to return blobs with a specific prefix, use **listBlobsSegmentedWithPrefix**.
+To list the blobs in a container, use the **listBlobsSegmented** method. If you'd like to return blobs with a specific prefix, use **listBlobsSegmentedWithPrefix**.
 
     blobSvc.listBlobsSegmented('mycontainer', null, function(error, result, response){
       if(!error){
@@ -196,7 +195,7 @@ To list the blobs in a container, use the **listBlobsSegmented** method. If you 
 	  }
 	});
 
-The `result` contains an `entries` collection, which is an array of objects describing each blob. If all blobs cannot be returned, the `result` also provides a `continuationToken`, which you may use as the second parameter to retrieve additional entries.
+The `result` contains an `entries` collection, which is an array of objects that describe each blob. If all blobs cannot be returned, the `result` also provides a `continuationToken`, which you may use as the second parameter to retrieve additional entries.
 
 ## Download blobs
 
@@ -210,7 +209,7 @@ To download data from a blob, use the following:
 
 * **createReadStream** - provides a stream to read from the blob
 
-The following code example demonstrates using **getBlobToStream** to download the contents of the **myblob** blob and store it to the **output.txt** file using a stream:
+The following code example demonstrates using **getBlobToStream** to download the contents of the **myblob** blob and store it to the **output.txt** file by using a stream:
 
     var fs = require('fs');
 	blobSvc.getBlobToStream('mycontainer', 'myblob', fs.createWriteStream('output.txt'), function(error, result, response){
@@ -241,7 +240,7 @@ To support concurrent access to a blob from multiple clients or multiple process
 
 ### ETag
 
-Use ETags if you need to allow multiple clients or instances to write to the blob simultaneously. The ETag allows you to determine if the container or blob has been modified since you initially read or created it, which allows you to avoid overwriting changes committed by another client or process.
+Use ETags if you need to allow multiple clients or instances to write to the blob simultaneously. The ETag allows you to determine if the container or blob was modified since you initially read or created it, which allows you to avoid overwriting changes committed by another client or process.
 
 You can set ETag conditions by using the optional `options.accessConditions` parameter. The following code example only uploads the **test.txt** file if the blob already exists and has the ETag value contained by `etagToMatch`.
 
@@ -251,13 +250,13 @@ You can set ETag conditions by using the optional `options.accessConditions` par
 	  }
 	});
 
-The general pattern when using ETags is:
+When you're using ETags, the general pattern is:
 
 1. Obtain the ETag as the result of a create, list, or get operation.
 
 2. Perform an action, checking that the ETag value has not been modified.
 
-If the value has been modified, this indicates that another client or instance has modified the blob or container since you obtained the ETag value.
+If the value was modified, this indicates that another client or instance modified the blob or container since you obtained the ETag value.
 
 ### Lease
 
@@ -269,21 +268,21 @@ You can acquire a new lease by using the **acquireLease** method, specifying the
 	  }
 	});
 
-Subsequent operations on **myblob** must provide `options.leaseId` parameter. The lease ID is returned as `result.id` from **acquireLease**.
+Subsequent operations on **myblob** must provide the `options.leaseId` parameter. The lease ID is returned as `result.id` from **acquireLease**.
 
-> [AZURE.NOTE] By default, the lease duration is infinite. You can specify a non-infinite duration (between 15 and 60 seconds,) by providing the `options.leaseDuration` parameter.
+> [AZURE.NOTE] By default, the lease duration is infinite. You can specify a non-infinite duration (between 15 and 60 seconds) by providing the `options.leaseDuration` parameter.
 
 To remove a lease, use **releaseLease**. To break a lease, but prevent others from obtaining a new lease until the original duration has expired, use **breakLease**.
 
 ## Work with shared access signatures
 
-Shared Access Signatures (SAS) are a secure way to provide granular access to blobs and containers without providing your storage account name or keys. SAS are often used to provide limited access to your data, such as allowing a mobile app to access blobs.
+Shared access signatures (SAS) are a secure way to provide granular access to blobs and containers without providing your storage account name or keys. Shared access signatures are often used to provide limited access to your data, such as allowing a mobile app to access blobs.
 
-> [AZURE.NOTE] While you can also allow anonymous access to blobs, SAS allows you to provide more controlled access, as you must generate the SAS.
+> [AZURE.NOTE] While you can also allow anonymous access to blobs, shared access signatures allow you to provide more controlled access, as you must generate the SAS.
 
-A trusted application such as a cloud-based service generates a SAS using the **generateSharedAccessSignature** of the **BlobService**, and provides it to an untrusted or semi-trusted application such as a mobile app. The SAS is generated using a policy, which describes the start and end dates during which the SAS is valid, as well as the access level granted to the SAS holder.
+A trusted application such as a cloud-based service generates shared access signatures using the **generateSharedAccessSignature** of the **BlobService**, and provides it to an untrusted or semi-trusted application such as a mobile app. Shared access signatures are generated using a policy, which describes the start and end dates during which the shared access signatures are valid, as well as the access level granted to the shared access signatures holder.
 
-The following code example generates a new shared access policy that allows the SAS holder to perform read operations on the **myblob** blob, and expires 100 minutes after the time it is created.
+The following code example generates a new shared access policy that allows the shared access signatures holder to perform read operations on the **myblob** blob, and expires 100 minutes after the time it is created.
 
 	var startDate = new Date();
 	var expiryDate = new Date(startDate);
@@ -301,9 +300,9 @@ The following code example generates a new shared access policy that allows the 
 	var blobSAS = blobSvc.generateSharedAccessSignature('mycontainer', 'myblob', sharedAccessPolicy);
 	var host = blobSvc.host;
 
-Note that the host information must be provided also, as it is required when the SAS holder attempts to access the container.
+Note that the host information must be provided also, as it is required when the shared access signatures holder attempts to access the container.
 
-The client application then uses the SAS with **BlobServiceWithSAS** to perform operations against the blob. The following gets information about **myblob**.
+The client application then uses shared access signatures with **BlobServiceWithSAS** to perform operations against the blob. The following gets information about **myblob**.
 
 	var sharedBlobSvc = azure.createBlobServiceWithSas(host, blobSAS);
 	sharedBlobSvc.getBlobProperties('mycontainer', 'myblob', function (error, result, response) {
@@ -312,13 +311,13 @@ The client application then uses the SAS with **BlobServiceWithSAS** to perform 
 	  }
 	});
 
-Since the SAS was generated with only read access, if an attempt were made to modify the blob, an error would be returned.
+Since the shared access signatures were generated with read-only access, if an attempt is made to modify the blob, an error will be returned.
 
 ### Access control lists
 
-You can also use an Access Control List (ACL) to set the access policy for a SAS. This is useful if you wish to allow multiple clients to access a container, but provide different access policies for each client.
+You can also use an access control list (ACL) to set the access policy for SAS. This is useful if you wish to allow multiple clients to access a container but provide different access policies for each client.
 
-An ACL is implemented using an array of access policies, with an ID associated with each policy. The following code example defines two policies; one for 'user1' and one for 'user2':
+An ACL is implemented using an array of access policies, with an ID associated with each policy. The following code example defines two policies, one for 'user1' and one for 'user2':
 
 	var sharedAccessPolicy = [
 	  {
@@ -339,7 +338,7 @@ An ACL is implemented using an array of access policies, with an ID associated w
 	  }
 	];
 
-The following code example gets the current ACL for **mycontainer**, then adds the new policies using **setBlobAcl**. This approach allows:
+The following code example gets the current ACL for **mycontainer**, and then adds the new policies using **setBlobAcl**. This approach allows:
 
 	blobSvc.getBlobAcl('mycontainer', function(error, result, response) {
       if(!error){
@@ -353,28 +352,28 @@ The following code example gets the current ACL for **mycontainer**, then adds t
 	  }
 	});
 
-Once the ACL has been set, you can then create a SAS based on the ID for a policy. The following code example creates a new SAS for 'user2':
+Once the ACL is set, you can then create shared access signatures based on the ID for a policy. The following code example creates new shared access signatures for 'user2':
 
 	blobSAS = blobSvc.generateSharedAccessSignature('mycontainer', { Id: 'user2' });
 
 ## Next steps
 
-Now that you've learned the basics of blob storage, follow these links
-to learn how to do more complex storage tasks.
+For more information, see the following resources.
 
--   Read the [Azure Storage SDK for Node API Reference][]
--   See the MSDN Reference: [Storing and accessing data in Azure][].
--   Visit the [Azure Storage Team Blog][].
--   Visit the [Azure Storage SDK for Node][] repository on GitHub.
+-   [Azure Storage SDK for Node API Reference][]
+-   MSDN Reference: [Storing and accessing data in Azure][]
+-   [Azure Storage Team Blog][]
+-   [Azure Storage SDK for Node][] repository on GitHub
+-   [Node.js Developer Center](/develop/nodejs/)
 
 [Azure Storage SDK for Node]: https://github.com/Azure/azure-storage-node
 [Create and deploy a Node.js application to an Azure Web Site]: /develop/nodejs/tutorials/create-a-website-(mac)/
 [Node.js Cloud Service with Storage]: ../storage-nodejs-use-table-storage-cloud-service-app.md
 [Node.js Web Application with Storage]: ../storage-nodejs-use-table-storage-web-site.md
-[Web Site with WebMatrix]: ../web-sites-nodejs-use-webmatrix.md
-[using the REST API]: http://msdn.microsoft.com/library/azure/hh264518.aspx
-[Azure Management Portal]: http://manage.windowsazure.com
+[Web app with WebMatrix]: ../web-sites-nodejs-use-webmatrix.md
+[Using the REST API]: http://msdn.microsoft.com/library/azure/hh264518.aspx
+[Azure portal]: http://manage.windowsazure.com
 [Node.js Cloud Service]: ../cloud-services-nodejs-develop-deploy-app.md
-[Storing and Accessing Data in Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
+[Storing and accessing data in Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
 [Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
 [Azure Storage SDK for Node API Reference]: http://dl.windowsazure.com/nodestoragedocs/index.html

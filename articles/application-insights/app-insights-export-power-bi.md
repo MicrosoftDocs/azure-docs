@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/01/2015" 
+	ms.date="09/23/2015" 
 	ms.author="awills"/>
  
 # Power BI views of Application Insights data
@@ -24,6 +24,9 @@
 In this article, we'll show how to export data from Application Insights and use Stream Analytics to move the data into Power BI. [Stream Analytics](http://azure.microsoft.com/services/stream-analytics/) is an Azure service that we'll use as an adaptor.
 
 ![Sample of Power BI view of Application Insights usage data](./media/app-insights-export-power-bi/020.png)
+
+
+> [AZURE.NOTE] You need a work or school account (MSDN organizational account) to send data from Stream Analytics to Power BI.
 
 ## Video
 
@@ -39,13 +42,13 @@ If you haven't tried it yet, now is the time to start. Application Insights can 
 
 Continuous export always outputs data to an Azure Storage account, so you need to create the storage first.
 
-1. Create a storage account in your subscription in the [Azure portal](https://portal.azure.com).
+1. Create a "classic" storage account in your subscription in the [Azure portal](https://portal.azure.com).
 
     ![In Azure portal, choose New, Data, Storage](./media/app-insights-export-power-bi/030.png)
 
 2. Create a container
 
-    ![In the new storage, select Containers and then Add](./media/app-insights-export-power-bi/040.png)
+    ![In the new storage, select Containers, click the Containers tile, and then Add](./media/app-insights-export-power-bi/040.png)
 
 3. Copy the storage access key
 
@@ -140,13 +143,15 @@ Confirm the serialization format:
 
 Close the wizard and wait for the setup to complete.
 
+> [AZURE.TIP] Use the Sample command to download some data. Keep it as a test sample to debug your query.
+
 ## Set the output
 
 Now select your job and set the output.
 
 ![Select the new channel, click Outputs, Add, Power BI](./media/app-insights-export-power-bi/160.png)
 
-Authorize Stream Analytics to access your Power BI resource, and then create a name for the output, and for the target Power BI dataset and table.
+Provide your **work or school account** to authorize Stream Analytics to access your Power BI resource. Then invent a name for the output, and for the target Power BI dataset and table.
 
 ![Invent three names](./media/app-insights-export-power-bi/170.png)
 
@@ -155,6 +160,11 @@ Authorize Stream Analytics to access your Power BI resource, and then create a n
 The query governs the translation from input to output.
 
 ![Select the job and click Query. Paste the sample below.](./media/app-insights-export-power-bi/180.png)
+
+
+Use the Test function to check that you get the right output. Give it the sample data that you took from the inputs page. 
+
+#### Query to display counts of events
 
 Paste this query:
 
@@ -173,7 +183,29 @@ Paste this query:
 
 * export-input is the alias we gave to the stream input
 * pbi-output is the output alias we defined
-* We use GetElements because the event name is in a nested JSON arrray. Then the Select picks the event name, together with a count of the number of instances with that name in the time period. The Group By clause groups the elements into time periods of 1 minute.
+* We use [OUTER APPLY GetElements](https://msdn.microsoft.com/library/azure/dn706229.aspx) because the event name is in a nested JSON arrray. Then the Select picks the event name, together with a count of the number of instances with that name in the time period. The [Group By](https://msdn.microsoft.com/library/azure/dn835023.aspx) clause groups the elements into time periods of 1 minute.
+
+
+#### Query to display metric values
+
+
+```SQL
+
+    SELECT
+      A.context.data.eventtime,
+      avg(CASE WHEN flat.arrayvalue.myMetric.value IS NULL THEN 0 ELSE  flat.arrayvalue.myMetric.value END) as myValue
+    INTO
+      [pbi-output]
+    FROM
+      [export-input] A
+    OUTER APPLY GetElements(A.context.custom.metrics) as flat
+    GROUP BY TumblingWindow(minute, 1), A.context.data.eventtime
+
+``` 
+
+* This query drills into the metrics telemetry to get the event time and the metric value. The metric values are inside an array, so we use the OUTER APPLY GetElements pattern to extract the rows. "myMetric" is the name of the metric in this case. 
+
+
 
 ## Run the job
 
@@ -185,7 +217,7 @@ Wait until the job is Running.
 
 ## See results in Power BI
 
-Open Power BI and select the dataset and table that you defined as the output of the Stream Analytics job.
+Open Power BI with your work or school account, and select the dataset and table that you defined as the output of the Stream Analytics job.
 
 ![In Power BI, select your dataset and fields.](./media/app-insights-export-power-bi/200.png)
 

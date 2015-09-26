@@ -1,17 +1,22 @@
 ## Deploy the ARM template by using the Azure CLI
 
-To deploy the ARM template you downloaded by using PowerShell, follow the steps below.
+To deploy the ARM template you downloaded by using Azure CLI, follow the steps below.
 
 1. If you have never used Azure CLI, see [Install and Configure the Azure CLI](xplat-cli.md) and follow the instructions up to the point where you select your Azure account and subscription.
 2. Run the **azure config mode** command to switch to Resource Manager mode, as shown below.
 
 		azure config mode arm
 
+	Here is the expected output for the command above:
+
 		info:    New mode is arm
 
-3. If necessary, run the **azure group create** to create a new resource group, as shown below. Notice the output of the command. The list shown after the output explains the parameters used. For more information about resource groups, visit [Azure Resource Manager Overview](resource-group-overview.md/#resource-groups).
+3. If necessary, run the **azure group create** to create a new resource group, as shown below. Notice the output of the command. The list shown after the output explains the parameters used. For more information about resource groups, visit [Azure Resource Manager Overview](resource-group-overview.md).
 
 		azure group create -n TestRG -l centralus
+
+	Here is the expected output for the command above:
+
 		info:    Executing command group create
 		+ Getting resource group TestRG
 		+ Creating resource group TestRG
@@ -30,6 +35,8 @@ To deploy the ARM template you downloaded by using PowerShell, follow the steps 
 4. Run the **azure group deployment create** cmdlet to deploy the new VNet by using the template and parameter files you downloaded and modified above. The list shown after the output explains the parameters used.
 
 		azure group deployment create -g TestRG -n TestVNetDeployment -f C:\ARM\azuredeploy.json -e C:\ARM\azuredeploy-parameters.json
+
+	Here is the expected output for the command above:
 
 		info:    Executing command group deployment create
 		+ Initializing template configurations and parameters
@@ -61,6 +68,8 @@ To deploy the ARM template you downloaded by using PowerShell, follow the steps 
 5. Run the **azure network vnet show** command to view the properties of the new vnet, as shown below.
 
 		azure network vnet show -g TestRG -n TestVNet
+
+	Here is the expected output for the command above:
 
 		info:    Executing command network vnet show
 		+ Looking up virtual network "TestVNet"

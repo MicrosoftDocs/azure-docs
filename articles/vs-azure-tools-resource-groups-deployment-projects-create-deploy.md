@@ -19,7 +19,7 @@
 
 The **Azure Resource Group** deployment project template is available in Visual Studio when Azure SDK 2.6 is installed. Azure Resource Group projects let you group together and publish multiple related Azure resources in a single deployment operation. Azure Resource Group projects use a technology called **Azure Resource Manager** to do their work. **Azure Resource Manager** is a REST API service that lets you define Azure resource groups, which contain multiple Azure resources that are typically used together and have a similar lifecycle. By using resource groups, you can operate on all the resources in a group with a single function call, instead of calling different functions for each individual resource. To learn more about Azure resource groups, see [Using resource groups to manage your Azure resources](./azure-portal/azure-preview-portal-using-resource-groups/).
 
-Azure Resource Group projects contain Azure Resource Manager JSON templates, which define the elements that are deployed to a resource group. See [Azure Resource Manager Template Language](https://msdn.microsoft.com/library/azure/dn835138.aspx) for more information.
+Azure Resource Group projects contain Azure Resource Manager JSON templates, which define the elements that are deployed to a resource group. See [Azure Resource Manager Template Language](resource-group-authoring-templates.md) for more information.
 
 Azure Resource Manager has many different resource providers available that can be used to deploy resources such as Ubuntu Server and Windows Server 2012 R2. This topic uses a **Web Apps** resource, which deploys a basic, empty website to Azure.
 
@@ -197,5 +197,3 @@ Adjustements were also made to some variable names and build tasks to better ali
 ## Next steps
 
 To learn how to add resources to your Azure Resource Group in Visual Studio, see [Adding resources to an Azure Resource Group](https://msdn.microsoft.com/library/azure/mt125415.aspx).
-
-

@@ -106,7 +106,7 @@ While there are two variations on Tomcat that are supplied with App Service Web 
 On the Tomcat side, there are a few configuration changes that need to be made. The server.xml needs to be edited to set:
 
 -	Shutdown port = -1
--	HTTP connector port = {port.http}
+-	HTTP connector port = ${port.http}
 -	HTTP connector address = "127.0.0.1"
 -	Comment out HTTPS and AJP connectors
 -	The IPv4 setting can also be set in the catalina.properties file where you can add     `java.net.preferIPv4Stack=true`
@@ -133,6 +133,22 @@ As is the case for Tomcat, customers can upload their own instances for Jetty. I
 	</configuration>
 
 The Jetty configuration needs to be changed in the start.ini to set `java.net.preferIPv4Stack=true`.
+
+### Springboot
+In order to get a Springboot application running you need to upload your JAR or WAR file and add the following web.config file. The web.config file goes into the wwwroot folder. In the web.config adjust the arguments to point to your JAR file, in the following example the JAR file is located in the wwwroot folder as well.  
+
+	<?xml version="1.0" encoding="UTF-8"?>
+	<configuration>
+	  <system.webServer>
+	    <handlers>
+	      <add name="httpPlatformHandler" path="*" verb="*" modules="httpPlatformHandler" resourceType="Unspecified" />
+	    </handlers>
+	    <httpPlatform processPath="%JAVA_HOME%\bin\java.exe"
+	        arguments="-Djava.net.preferIPv4Stack=true -Dserver.port=%HTTP_PLATFORM_PORT% -jar &quot;%HOME%\site\wwwroot\my-web-project.jar&quot;">
+	    </httpPlatform>
+	  </system.webServer>
+	</configuration>
+
 
 ### Hudson
 
@@ -228,7 +244,11 @@ It is worth noting that the JRE_HOME environnment varariable is specified in the
 
 Once you make these changes, restart your web app running Liferay, Then, open http://yourwebapp. The Liferay portal is available from the web app root. 
 
-For more information on Liferay, see [http://www.liferay.com](http://www.liferay.com).
+## Next steps
+
+For more information about Liferay, see [http://www.liferay.com](http://www.liferay.com).
+
+For more information about Java, see the [Java Developer Center](/develop/java/).
 
 [AZURE.INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
 

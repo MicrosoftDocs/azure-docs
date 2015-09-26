@@ -3,7 +3,7 @@
 	description="Binomial Distribution Suite" 
 	services="machine-learning" 
 	documentationCenter="" 
-	authors="jaymathe" 
+	authors="ireiter" 
 	manager="paulettm" 
 	editor="cgronlun"/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="09/02/2015" 
-	ms.author="jaymathe"/> 
+	ms.author="ireiter"/> 
 
 
 #Binomial Distribution Suite
