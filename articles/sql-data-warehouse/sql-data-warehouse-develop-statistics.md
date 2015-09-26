@@ -208,9 +208,9 @@ BEGIN;
 END;
 
 IF OBJECT_ID('tempdb..#stats_ddl') IS NOT NULL
-BEGIN
-	DROP TABLE #stats_ddl
-END
+BEGIN;
+	DROP TABLE #stats_ddl;
+END;
 
 CREATE TABLE #stats_ddl
 WITH    (   DISTRIBUTION    = HASH([seq_nmbr])
