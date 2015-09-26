@@ -53,10 +53,11 @@ In this tutorial, you learned how to send and receive cloud-to-device messages. 
 
 Additional information on IoT Hub:
 
-- [IoT Hub Overview]
-- [IoT Hub Developer Guide]
-- [IoT Hub Supported Devices]
-- [IoT Hub APIs and SDKs]
+* [IoT Hub Overview]
+* [IoT Hub Developer Guide]
+* [IoT Hub Guidance]
+* [Supported device platforms and languages]
+* [Azure IoT Developer Center]
 
 <!-- Images. -->
 
@@ -73,9 +74,12 @@ Additional information on IoT Hub:
 [Uploading files from devices]: iot-hub-csharp-csharp-file-upload.md
 
 [IoT Hub Overview]: iot-hub-what-is-iot-hub.md
+[IoT Hub Guidance]: iot-hub-guidance.md
 [IoT Hub Developer Guide]: iot-hub-devguide.md
 [IoT Hub Supported Devices]: iot-hub-supported-devices.md
-[IoT Hub APIs and SDKs]: iot-hub-sdks-overview.md
+[Get started with IoT Hub]: iot-hub-csharp-csharp-getstarted.md
+[Supported devices]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/tested_configurations.md
+[Azure IoT Developer Center]: http://www.azure.com/iotdev
 
 
 

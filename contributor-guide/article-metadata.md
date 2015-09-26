@@ -49,7 +49,7 @@ The tags section uses the following syntax:
 - Usually displayed as the description or abstract paragraph in search results
 - Will soon be displayed automatically on documentation landing pages as the description that appears when you click "More". It may appear in other contexts on azure.microsoft.com.
 
-![](./media/article-metadata/checkmark-small.png)**services**: Required for articles that deal with a service. List all the applicable services, separated by commas. The first service that you list will drive the navigational breadcrumbs for the page. In articles that specify both a services value and a documentationCenter value, the services value will drive the breadcrumb. Values:
+![](./media/article-metadata/checkmark-small.png)**services**: Required for articles that deal with a service. List all the applicable services, separated by commas. The first service that you list will drive the navigational breadcrumbs for the page. In articles that specify both a services value and a documentationCenter value, the services value will drive the breadcrumb. Additional values that you list will appear as tags in the published article. Values:
 
 - active-directory
 - api-management
@@ -123,7 +123,7 @@ The tags section uses the following syntax:
 
 ![](./media/article-metadata/checkmark-small.png)**authors**: Required, one value only. List the GitHub account for the primary author or article SME. This attribute drives the byline on the published article. List only one, in spite of the plural name of the attribute.
 
-![](./media/article-metadata/checkmark-small.png)**manager**: Required if you are a Microsoft contributor. List the alias of the content publishing manager for the technology area. If you are a community contributor, include the attribute but leave it empty so we can fill it out.
+![](./media/article-metadata/checkmark-small.png)**manager**: Required if you are a Microsoft contributor. List the email alias of the content publishing manager for the technology area. If you are a community contributor, include the attribute but leave it empty so we can fill it out.
 
 ![](./media/article-metadata/checkmark-small.png)**editor**: Not used. Do not use it for other purposes.
 

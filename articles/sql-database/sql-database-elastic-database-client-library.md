@@ -44,6 +44,8 @@ To install the library, go to [Elastic Database Client Library]( http://www.nuge
 
 For instructions on using the split-merge tool, see the [split-merge tool overview](sql-database-elastic-scale-overview-split-and-merge.md).
 
+[Elastic database client library is now open sourced!](http://azure.microsoft.com/blog/elastic-database-client-library-is-now-open-sourced/)
+
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 

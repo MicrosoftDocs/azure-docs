@@ -1,11 +1,12 @@
 <properties
-	pageTitle="IPython Notebook | Microsoft Azure"
-	description="A tutorial that shows how to deploy the IPython Notebook on Azure, using Linux or Windows virtual machines (VMs)."
-	services="virtual-machines"
+	pageTitle="Create an IPython Notebook | Microsoft Azure"
+	description="Learn how to deploy the IPython Notebook on a Linux or Windows virtual machine created with the classic deployment model in Azure."
+	services="virtua-lmachines"
 	documentationCenter="python"
 	authors="huguesv"
 	manager="wpickett"
-	editor=""/>
+	editor=""
+	tags=“azure-service-management,azure-resource-manager"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -16,8 +17,9 @@
 	ms.date="05/20/2015"
 	ms.author="huvalo"/>
 
-
 # IPython Notebook on Azure
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)] This article covers deploying a notebook on a virtual machine created with the classic deployment model.
 
 The [IPython project](http://ipython.org) provides a collection of tools for scientific computing that include powerful interactive shells, high-performance and easy to use parallel libraries and a web-based environment called the IPython Notebook. The Notebook provides a working environment for interactive computing that combines code execution with the creation of a live computational document. These notebook files can contain arbitrary text, mathematical formulas, input code, results, graphics, videos and any other kind of media that a modern web browser is capable of displaying.
 
@@ -326,8 +328,9 @@ from Microsoft that turns Visual Studio into an advanced Python development
 environment that includes an advanced editor with IntelliSense, debugging,
 profiling and parallel computing integration.
 
+## Next steps
 
-
+For more information, see the [Python Developer Center](/develop/python/).
 
 [Tornado]:      http://www.tornadoweb.org/          "Tornado"
 [PyZMQ]:        https://github.com/zeromq/pyzmq     "PyZMQ"

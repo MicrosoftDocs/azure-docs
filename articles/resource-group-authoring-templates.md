@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/20/2015"
+   ms.date="09/18/2015"
    ms.author="tomfitz"/>
 
 # Authoring Azure Resource Manager templates
@@ -123,6 +123,7 @@ The allowed types and values are:
 - object or secureObject - any valid JSON object
 - array - any valid JSON array
 
+To specify a parameter as optional, set its defaultValue to an empty string.
 
 >[AZURE.NOTE] All passwords, keys, and other secrets should use the **secureString** type. Template parameters with the secureString type cannot be read after resource deployment. 
 
@@ -231,6 +232,8 @@ You define resources with the following structure:
 | resources                |   No     | Child resources that depend on the resource being defined.
 
 If the resource name is not unique, you can use the **resourceId** helper function (described below) to get the unique identifier for any resource.
+
+The values for the **properties** element are exactly the same as the values you provide in the request body for the REST API operation (PUT method) to create the resource. See [Azure reference](https://msdn.microsoft.com/library/azure/mt420159.aspx) for the REST API operations for the resource you wish to deploy.
 
 The following example shows a **Microsoft.Web/serverfarms** resource and a **Microsoft.Web/sites** resource with a nested **Extensions** resource:
 

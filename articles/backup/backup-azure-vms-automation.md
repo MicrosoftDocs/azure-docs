@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/01/2015"
-	ms.author="aashishr"/>
+	ms.date="09/21/2015"
+	ms.author="trinadhk";"aashishr" />
 
 
 # Deploy and manage backup for Azure VMs using PowerShell
@@ -31,7 +31,11 @@ The 2 most important flows are enabling protection for a VM, and restoring data 
 
 
 ## Setup and Registration
-To begin, enable the Azure Backup commandlets by switching to *AzureResourceManager* mode by using the **Switch-AzureMode** commandlet:
+To begin:
+
+1. [Download latest PowerShell](https://github.com/Azure/azure-powershell/releases) (minimum version required is : 0.9.8)
+
+2. Enable the Azure Backup commandlets by switching to *AzureResourceManager* mode by using the **Switch-AzureMode** commandlet:
 
 ```
 PS C:\> Switch-AzureMode AzureResourceManager
@@ -49,8 +53,8 @@ The following setup and registration tasks can be automated with PowerShell:
 You can create a new backup vault using the **New-AzureRMBackupVault** commandlet. The backup vault is an ARM resource, so you need to place it within a Resource Group. In an elevated Azure PowerShell console, run the following commands:
 
 ```
-PS C:\> New-AzureRMResourceGroup –Name “test-rg” –Region “West US”
-PS C:\> $backupvault = New-AzureRMBackupVault –ResourceGroupName “test-rg” –Name “test-vault” –Region “West US” –Storage GRS
+PS C:\> New-AzureResourceGroup –Name “test-rg” –Region “West US”
+PS C:\> $backupvault = New-AzureRMBackupVault –ResourceGroupName “test-rg” –Name “test-vault” –Region “West US” –Storage GeoRedundant
 ```
 
 You can get a list of all the backup vaults in a given subscription using the **Get-AzureRMBackupVault** commandlet.
@@ -143,7 +147,7 @@ In order to restore backup data, you need to identify the backed-up Item and the
 To get the PowerShell object that identifies the right backup Item, you need to start from the Container in the vault, and work your way down object hierarchy. To select the container that represents the VM, use the **Get-AzureRMBackupContainer** commandlet and pipe that to the **Get-AzureRMBackupItem** commandlet.
 
 ```
-PS C:\> $backupitem = Get-AzureBackupContainer -Vault $backupvault -Type AzureVM -name "testvm" | Get-AzureRMBackupItem
+PS C:\> $backupitem = Get-AzureRMBackupContainer -Vault $backupvault -Type AzureVM -name "testvm" | Get-AzureRMBackupItem
 ```
 
 ### Choose a recovery point

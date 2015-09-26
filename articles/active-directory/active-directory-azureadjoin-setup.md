@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Setting up Azure AD Join for your users| Microsoft Azure" 
-	description="A topic that explains how administrators can set up Azure AD Join for their end users (employees, students, other users)." 
+	description="Explains how administrators can set up Azure AD Join for their end users (employees, students, other users) in their organization." 
 	services="active-directory" 
 	documentationCenter="" 
 	authors="femila" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/02/2015" 
+	ms.date="09/21/2015" 
 	ms.author="femila"/>
 
 # Setting up Azure AD Join in your organization
@@ -48,7 +48,7 @@ Following are the three scenarios how you can enable your users to set up Azure 
 - Users add work accounts to Windows on a personal device 
 
 ## Additional Information
-* [Extending cloud capabilities to Windows 10 devices through Azure Active Directory Join](active-directory-azureadjoin-user-upgrade.md)
+* [Extending cloud capabilities to Windows 10 devices through Azure Active Directory Join](active-directory-azureadjoin-overview.md)
 * [Learn about usage scenarios for Azure AD Join](active-directory-azureadjoin-deployment-aadjoindirect.md)
 * [Set up Azure AD Join](active-directory-azureadjoin-setup.md)
 

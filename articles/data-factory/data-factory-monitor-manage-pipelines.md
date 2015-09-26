@@ -290,6 +290,10 @@ To specify an alert definition, you create a JSON file describing the operations
 
 From the above JSON definition, **subStatus** can be removed if you don’t want to be alerted on a specific failure.
 
+The above example sets up the alert for all data factories in your subscription. If you want the alert to be set up for a particular data factory, you can specify data factory **resourceUri** in the **dataSource** block like below:
+
+	"resourceUri" : "/SUBSCRIPTIONS/<subscriptionId>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/DATAFACTORIES/<dataFactoryName>"
+
 The following table provides the list of available operations and statuses (and sub-statuses).
 
 Operation name | Status | Sub status

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/10/2015"
+   ms.date="09/17/2015"
    ms.author="bwren" />
 
 # Azure Automation Hybrid Runbook Workers
@@ -23,9 +23,11 @@ This functionality is illustrated in the following image.
 
 ![Hybrid Runbook Worker Overview](media/automation-hybrid-runbook-worker/automation-hybrid-runbook-worker-overview.png)
 
-You can designate one or more computers in your data center to act as a Hybrid Runbook Worker and run runbooks from Azure Automation.  Each worker requires the Microsoft Management Agent with a connection to Azure Operational Insights and the Azure Automation runbook environment.  Operational Insights is only used to install and maintain the management agent and to monitor the functionality of the worker.  The delivery of runbooks and the instruction to run them are performed by Azure Automation.
+You can designate one or more computers in your data center to act as a Hybrid Runbook Worker and run runbooks from Azure Automation.  Each worker requires the Microsoft Management Agent with a connection to Microsoft Operations Management Suite and the Azure Automation runbook environment.  Operations Management Suite is only used to install and maintain the management agent and to monitor the functionality of the worker.  The delivery of runbooks and the instruction to run them are performed by Azure Automation.
 
 ![Hybrid Runbook Worker Components](media/automation-hybrid-runbook-worker/automation-hybrid-runbook-worker-components.png)
+
+>[AZURE.NOTE] Operational Insights is in the process of being integrated into Operations Management Suite, and you may see either name used in the portal and in documentation.
 
 There are no inbound firewall requirements to support Hybrid Runbook Workers. The agent on the local computer initiates all communication with Azure Automation in the cloud. When a runbook is started, Azure Automation creates an instruction that is retrieved by agent. The agent then pulls down the runbook and any parameters before running it.  It will also retrieve any [assets](http://msdn.microsoft.com/library/dn939988.aspx) that are used by the runbook from Azure Automation.
 
@@ -35,50 +37,68 @@ Each Hybrid Runbook Worker is a member of a Hybrid Runbook Worker group that you
 
 When you start a runbook on a Hybrid Runbook Worker, you specify the group that it will run on.  The members of the group will determine which worker will service the request.  You cannot specify a particular worker.
 
+## Hybrid Runbook Worker requirements
+
+You must designate at least one on-premise computer to run hybrid runbook jobs.  This computer must have the following:
+
+- Windows Server 2012 or later
+- WIndows PowerShell 4.0 or later
+
+Consider the following recommendations for hybrid workers: 
+
+- Designate multiple hybrid workers in each group for high availability.  
+- Hybrid workers can coexist with Service Management Automation or System Center Orchestrator runbook servers.
+- Consider using a machine physically located in or near the region of your automation account since the job data is sent back to Azure Automation when a job completes.
+
 ## Installing Hybrid Runbook Worker
+The procedure below describes how to install and configure Hybrid Runbook Worker.  Perform the first two steps once for your Automation environment and then repeat the remaining steps for each worker computer.
 
-### Prepare Azure Automation environment
+### 1. Create Operations Management Suite workspace
+If you do not already have an Operations Management Suite workspace, then create one using instructions at  [Set up your Operational Insights workspace](../operational-insights/operational-insights-onboard-in-minutes.md). You can use an existing workspace if you already have one.
 
-Complete the following steps to prepare your Azure Automation environment for Hybrid Runbook Workers.
+### 2. Add Automation solution to Operations Management Suite workspace
+Solutions add functionality to Operations Management Suite.  The Automation solution adds functionality for Azure Automation including support for Hybrid Runbook Worker.  When you add the solution to your workspace, it will automatically push down worker components to the agent computer that you will install in the next step.
 
-#### 1. Create Azure Operational Insights workspace
-If you do not already have an Operational Insights workspace in your Azure account, then create one using instructions at  [Set up your Operational Insights workspace](../operational-insights/operational-insights-setup-workspace.md). You can use an existing workspace if you already have one.
+Follow the instructions at [To add a solution using the Solutions Gallery](../operational-insights/operational-insights-setup-workspace.md#1-add-solutions) to add the **Automation** solution to your Operations Management Suite workspace.
 
-#### 2. Deploy Automation solution
-The Automation solution in Operational Insights pushes down components required to configure and support the runbook environment.  Follow the instructions at [Operational Insights solutions](../operational-insights/operational-insights-setup-workspace.md#1-add-solutions) to install the **Azure Automation** pack.
+### 3. Install the Microsoft Management Agent
+The Microsoft Management Agent connects computers to Operations Management Suite.  When you install the agent on your on-premises machine and connect it to your workspace, it will automatically download the components required for Hybrid Runbook Worker.
 
-### Configure on-premises machines
-Complete the following steps for each of the on-premises machines that will act as a Hybrid Runbook Worker.
+Follow the instructions at [Connect computers directly to Operational Insights](../operational-insights/operational-insights-direct-agent.md) to install the agent on the on-premises machine.  You can repeat this process for multiple computers to add multiple workers to your environment.
 
+When the agent has successfully connected to Operations Management Suite, it will be listed on the **Connected Sources** tab of the Operations Management Suite **Settings** pane.  You can verify that the agent has correctly downloaded the Automation solution when it has a folder called **AzureAutomationFiles** in C:\Program Files\Microsoft Monitoring Agent\Agent. 
 
-#### 1. Install the Microsoft Management Agent
-The Microsoft Management Agent connects the computer to Operational Insights and allows it to run logic from solutions.  Follow the instructions at [Connect computers directly to Operational Insights](../operational-insights-direct-agent) to install the agent on the on-premises machine and connect it to the Operational Insights.
+### 4. Install the runbook environment and connect to Azure Automation
+When you add an agent to Operations Management Suite, the Automation solution pushes down the **HybridRegistration** PowerShell module which contains the **Add-HybridRunbookWorker** cmdlet.  You use this cmdlet to install the runbook environment on the computer and register it with Azure Automation.
 
-#### 2. Install the runbook environment and connect to Azure Automation
-When you add a computer to Operational Insights, the Automation solution pushes down the **HybridRegistration** PowerShell module which contains the **Add-HybridRunbookWorker** cmdlet.  You use this cmdlet to install the runbook environment on the computer and register it with Azure Automation.
+Open a PowerShell session in Administrator mode and run the following commands to import the module.
 
-Open a PowerShell session in Administrator mode and run the following command to import the module.
+	cd "C:\Program Files\Microsoft Monitoring Agent\Agent\AzureAutomation\5.2.20826.0\HybridRegistration"
+	Import-Module HybridRegistration.psd1
 
-	Import-Module HybridRegistration
-
-If you receive an error message saying that the module file was not found, then you may need to use the following command that uses the entire path to the module file.
-
-	Import-Module "C:\Program Files\Microsoft Monitoring Agent\Agent\AzureAutomationFiles\HybridRegistration\HybridRegistration.psd1"
 
 Then run the **Add-HybridRunbookWorker** cmdlet using the following syntax:
 
 	Add-HybridRunbookWorker –Name <String> -EndPoint <Url> -Token <String>
 
+You can get the information required for this cmdlet from the  **Manage Keys** blade in the Azure preview portal.  Open this blade by clicking the key icon on the Elements panel for the automation account.
+
+![Hybrid Runbook Worker Overview](media/automation-hybrid-runbook-worker/elements-panel-keys.png)
 
 - **Name** is the name of the Hybrid Runbook Worker Group. If this group already exists in the automation account, then the current computer is added to it.  If it does not already exist, then it is added.
-- **EndPoint** is the URL of the Agent service. You can obtain this from the Azure preview portal on the **Manage Keys** blade.  
-- **Token** is the **Primary Access Key** in the **Manage Keys** blade.  You can open the Manage Keys blade by clicking the key icon on the Elements panel for the automation account.<br><br>![Hybrid Runbook Worker Overview](media/automation-hybrid-runbook-worker/elements-panel-keys.png)
+- **EndPoint** is the **URL** field in the **Manage Keys** blade.
+- **Token** is the **Primary Access Key** in the **Manage Keys** blade.  
 
+Use the **-Verbose** switch with **Add-HybridRunbookWorker** to receive detailed information about the installation.
 
-#### 3. Install PowerShell modules
+### 5. Install PowerShell modules
 Runbooks can use any of the activities and cmdlets defined in the modules installed in your Azure Automation environment.  These modules are not automatically deployed to on-premises machines though, so you must install them manually.  The exception is the Azure module which is installed by default providing access to cmdlets for all Azure services and activities for Azure Automation.
 
 Since the primary purpose of the Hybrid Runbook Worker feature is to manage local resources, you will most likely need to install the modules that support these resources.  You can refer to  [Installing Modules](http://msdn.microsoft.com/library/dd878350.aspx) for information on installing Windows PowerShell modules.
+
+## Removing Hybrid Runbook Worker
+
+You can remove Hybrid Runbook Worker from an on-premise machine with by running **Remove-HybridRunbookWorker** cmdlet on that machine.  Use the **-Verbose** switch for a detailed log of the removal process.  
 
 ## Starting runbooks on Hybrid Runbook Worker
 
@@ -91,6 +111,14 @@ Use the **RunOn** parameter  You could use the following command to start a runb
 	Start-AzureAutomationRunbook –AutomationAccountName "MyAutomationAccount" –Name "Test-Runbook" -RunOn "MyHybridGroup"
 
 >[AZURE.NOTE] The **RunOn** parameter was added to the **Start-AzureAutomationRunbook** cmdlet in version 0.9.1 of Microsoft Azure PowerShell.  You should [download the latest version](http://azure.microsoft.com/downloads) if you have an earlier one installed.  You only need to install this version on a workstation where you will be starting the runbook from Windows PowerShell.  You do not need to install it on the worker computer unless you intend to start runbooks from that computer.  You cannot currently start a runbook on a Hybrid Runbook Worker from another runbook since this would require the latest version of Azure Powershell to be installed in your Automation account.  The latest version will be automatically updated in Azure Automation and automatically pushed down to the workers soon.
+
+>[AZURE.NOTE] Hybrid Runbook Worker can only run [Graphical and PowerShell Workflow runbooks](automation-runbook-types.md).  You cannot currently start a [PowerShell runbook](automation-runbook-types.md) on a Hybrid Runbook Worker. 
+
+## Troubleshooting runbooks on Hybrid Runbook Worker
+
+[Runbook output and messages](automation-runbook-output-and-messages.md) are sent to Azure Automation from hybrid workers just like runbook jobs run in the cloud.  You can also enable the Verbose and Progress streams the same way you would for other runbooks.  
+
+Logs are stored locally on each hybrid worker at C:\ProgramData\Microsoft\System Center\Orchestrator\7.2\SMA\Sandboxes.
 
 
 ## Creating runbooks for Hybrid Runbook Worker
@@ -123,7 +151,7 @@ If you are an existing SMA user, you can move your runbooks to Azure Automation 
 
 You can use the following criteria to determine whether Azure Automation with Hybrid Runbook Worker or Service Management Automation is more appropriate for your requirements.
 
-- SMA requires a local installation of Windows Azure Pack that has higher more local resources and maintenance costs than Azure Automation which only needs an agent installed on local runbook workers.  The agents are managed by Operational Insights furthering decreasing their maintenance costs.
+- SMA requires a local installation of Windows Azure Pack that has higher more local resources and maintenance costs than Azure Automation which only needs an agent installed on local runbook workers.  The agents are managed by Operations Management Suite furthering decreasing their maintenance costs.
 - Azure Automation stores its runbooks in the cloud and delivers them to on-premises Hybrid Runbooks Workers.  If your security policy does not allow this behavior then you should use SMA.
 - Windows Azure Pack is a free download while Azure Automation may incur subscription charges.
  Azure.  Must maintain multiple databases for SMA.
