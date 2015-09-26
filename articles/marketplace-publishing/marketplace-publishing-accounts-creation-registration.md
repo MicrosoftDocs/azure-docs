@@ -120,7 +120,7 @@ Now that your account is created and registered, click on the type of artifact (
 [img-verify]:media/marketplace-publishing-accounts-creation-registration/seller-dashboard-verify.jpg
 [img-sd-top]:media/marketplace-publishing-accounts-creation-registration/seller-dashboard-personal-acc-details.jpg
 [img-sd-info]:media/marketplace-publishing-accounts-creation-registration/seller-dashboard-personal.jpg
-[img-sd-type]:media/marketplace-publishing-accounts-creation-registration/seller-dashboard-personal-acc-type.JPG
+[img-sd-type]:media/marketplace-publishing-accounts-creation-registration/seller-dashboard-personal-acc-type.jpg
 [img-sd-mktg1]:media/marketplace-publishing-accounts-creation-registration/seller-dashboard-personal-comp-det1.jpg
 [img-sd-mktg2]:media/marketplace-publishing-accounts-creation-registration/seller-dashboard-personal-comp-det2.jpg
 [img-sd-addr]:media/marketplace-publishing-accounts-creation-registration/seller-dashboard-personal-comp-add.jpg
