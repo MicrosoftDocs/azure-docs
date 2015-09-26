@@ -16,7 +16,7 @@
 	ms.date="09/25/2015"
 	ms.author="robb"/>
 
-# How to configure webhook for Alerts
+# How to configure webhook for alerts
 
 Webhooks allow the user to route the Azure Alert notifications to other systems for post-processing or custom notifications. Examples of this can be routing the Alert to services that can handle an incoming web request to send SMS, log bugs, notify a team via chat/messaging services etc.
 
@@ -76,12 +76,12 @@ The POST operation will contain the following JSON payload and schema for all me
 
 >[AZURE.NOTE] In our next refresh, we will add support for alerts on Events (“conditionType” : “Event”)
 
-|Field      		|Mandatory? 		|Fixed Set of Value(s)?		|Notes|
+|Field | Mandatory? | Fixed Set of Value(s)? | Notes|
 |-----|-----|------|
-|status     		|Y         			| “Activated”, “Resolved” 	|This is how you find out what kind of alert it is. Azure automatically sends activated and resolved alerts for the condition one sets.|
-|context    		|Y					|							|The alert context|
-|timestamp  		|Y					|							|The time at which the alert was triggered. The alert is triggered as soon as the metric is read from the diagnostics storage.|
-|id         		|Y					|							|Every alert rule has a unique id.|
+| status | Y |  “Activated”, “Resolved” | This is how you find out what kind of alert it is. Azure automatically sends activated and resolved alerts for the condition one sets.|
+| context| Y | | The alert context|
+| timestamp| Y | | The time at which the alert was triggered. The alert is triggered as soon as the metric is read from the diagnostics storage.|
+| id | Y | | Every alert rule has a unique id.|
 |name				|Y					|							|
 |description		|Y					|							|Description about the alert.|
 |conditionType		|Y					|“Metric”, “Event”			|Two types of alerts are supported. One based on metric and the other based on event. In the future we will support alerts for Events, so use this value to check if the alert is based on metric or event|
