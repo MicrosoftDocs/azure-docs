@@ -101,7 +101,7 @@ The POST operation will contain the following JSON payload and schema for all me
 |resourceId	 		|Y					|							|resource id URI that uniquely identifies that resource|
 |resourceRegion	 	|Y					|							|region/location of the resource that's impacted|
 |portalLink	 		|Y					|							|direct azure portal link to the resource summary page|
-
+|properties			|N					|Optional					|Is a set of <Key, Value> pairs (i.e. Dictionary<String, String>) that includes details about the event. The properties field is optional. In a custom UI or Logic app based workflow, users can enter key/values that can be passed via the payload. The alternate way to pass custom properties back to the webhook is via the webhook uri itself (as query parameters)|
 
 
 >[AZURE.NOTE] Note: You cannot use the properties field via the Portal. In our upcoming release of the Insights SDK, you can set the properties via the Alert API.
