@@ -95,6 +95,9 @@ In this tutorial the following output settings are used. The rest of this sectio
 4. Click **OK**.
 
 5. An FMLE profile can now be imported by clicking the drop down arrow under **Streaming Profile** and navigating to **Browse**.
+
+	![tricaster](./media/media-services-tricaster-live-encoder/media-services-tricaster5.png)
+
 6. Navigate to where the configured FMLE profile was saved.
 7. Select it, and press **OK**.
 
