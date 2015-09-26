@@ -78,8 +78,8 @@ The POST operation will contain the following JSON payload and schema for all me
 
 Testing a table here.
 
-| Geography     |  Paired Regions  |                  |
-| :-------------| :-------------   | :-------------   |
+| Field | Mandatory? | Fixed Set of Value(s)? | Notes |
+| :-------------| :-------------   | :-------------   | :-------------   |
 | North America | North Central US | South Central US |
 | North America | East US          | West US          |
 | North America | US East 2        | US Central       |
@@ -90,7 +90,6 @@ Testing a table here.
 | Brazil        | Brazil South (1) | South Central US |
 | Australia     | Australia East   | Australia Southeast|
 | US Government | US Gov Iowa      | US Gov Virginia  |
-|Field|Mandatory?|Fixed Set of Value(s)?|Notes|
 |status|Y|“Activated”, “Resolved”|This is how you find out what kind of alert it is. Azure automatically sends activated and resolved alerts for the condition one sets.|
 
 
