@@ -24,7 +24,7 @@ Did you know that you can use your existing Office 365 subscription in Azure Rem
 
 ## Can I use my Office 365 subscription to run Office applications in Azure RemoteApp?
 
-Yes! In fact, using your Office 365 subscription is the only way to bring your Office applications to Azure RemoteApp. 
+Yes! In fact, using your Office 365 subscription is the only way to bring your Office applications to Azure RemoteApp.
 
 (Note: If your Azure RemoteApp deployment is delivered by a hosting partner, they may be able to provide you with Office licenses based on a [Service Provider Licensing Agreement](http://www.microsoft.com/en-us/Licensing/licensing-programs/spla-program.aspx))
 
