@@ -36,12 +36,12 @@ It is not uncommon to use IoT Hub and Event Hubs in conjunction, letting the for
 ## Device provisioning <a id="provisioning"></a>
 IoT solutions maintain device infromation in many different systems and stores, the [IoT Hub's identity registry][IoT Hub Developer Guide - identity registry] is one of them, among other stores which maintain application-specific device information. We call *provisioning* the process of creating the required device information in all of these systems.
 
-There are many requirements and strategies for device provisioning (refer to [IoT Hub device management guidance] for more information). The [IoT Hub identity registry][IoT Hub Developer Guide - identity registry] provides the APIs you need for integrating IoT Hub in your provisioning process. 
+There are many requirements and strategies for device provisioning (refer to [IoT Hub device management guidance] for more information). The [IoT Hub identity registry][IoT Hub Developer Guide - identity registry] provides the APIs you need for integrating IoT Hub in your provisioning process.
 
 ## Field gateways <a id="fieldgateways"></a>
 A field gateway is a specialized device-appliance or general-purpose software that acts as a communication enabler and potentially, as a local device control system and device data processing hub. A field gateway, can perform local processing and control functions towards the devices; on the other side it can filter or aggregate the device telemetry and thus reduce the amount of data being transferred to the backend.
- 
-A field gateway’s scope includes the field gateway itself and all devices that are attached to it. As the name implies, field gateways act outside dedicated data processing facilities and are usually location bound. 
+
+A field gateway’s scope includes the field gateway itself and all devices that are attached to it. As the name implies, field gateways act outside dedicated data processing facilities and are usually location bound.
 A field gateway is different from a mere traffic router in that it has an active role in managing access and information flow. This means it is an application-addressed entity and network connection or session terminal (for example, gateways in this context may assist in device provisioning, data transformation, protocol translation and event rules processing). NAT devices or firewalls, in contrast, do not qualify as field gateways since they are not explicit connection or session terminals, but rather route (or deny) connections or sessions made through them.
 
 ### Trasparent vs opaque field gateways
@@ -91,7 +91,7 @@ In addition to this throughput information, please remember to refer to the [IoT
 ### Device to cloud and cloud-to-device message throughput
 The best way to size an IoT Hub solution is to evaluate the traffic on a per-device basis.
 
-Device-to-cloud messages follow these sustained throughput guidelines. 
+Device-to-cloud messages follow these sustained throughput guidelines.
 
 | Tier | Sustained throughput | Sustained send rate |
 | ---- | -------------------- | ------------------- |
@@ -148,4 +148,4 @@ At a high level, in order to implement a regional failover model with IoT Hub, y
 [Disaster Recovery and High Availability for Azure Applications]: https://msdn.microsoft.com/library/azure/dn251004.aspx
 [Failsafe: Guidance for Resilient Cloud Architectures]: https://msdn.microsoft.com/library/azure/jj853352.aspx
 
-[lnk-pricing]: tbd
+[lnk-pricing]: https://azure.microsoft.com/pricing/details/iot-hub
