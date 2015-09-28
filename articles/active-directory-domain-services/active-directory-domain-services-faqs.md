@@ -45,17 +45,22 @@ The user accounts you’ve added to the administrative group (i.e. ‘AAD DC Adm
 No. Since this is a managed service, you will not be provided administrative access to the domain. This means that both ‘Domain Administrator’ as well as ‘Enterprise Administrator’ privileges will not be available within the domain. Existing domain administrator or enterprise administrator groups within your Azure AD directory will also not be granted domain/enterprise administrator privileges on the domain. 
 
 #### Can I modify group memberships using LDAP or other AD administrative tools on domains provided by Azure AD Domain Services? 
-No. Group memberships cannot be modified on domains serviced by Azure AD Domain Services. The same applies for user attributes. You may change group memberships either in Azure AD or on your on-premises domain. Such changes will be automatically synchronized to Azure AD Domain Services. 
+No. Group memberships cannot be modified on domains serviced by Azure AD Domain Services. The same applies for user attributes. You may however change group memberships or user attributes either in Azure AD or on your on-premises domain. Such changes will be automatically synchronized to Azure AD Domain Services. 
+
 
 ### 3. Billing and availability
 
 #### Is this a paid service? 
 The service is available at a special reduced price for the duration of the public preview period. Billing will commence at full price once the service is generally available (GA). See the pricing page for more information. 
 
-#### When will Azure AD Domain Services be Generally Available?
-We cannot currently share timelines for when the service will be generally available. 
+#### Is there a free trial for the service?
+This service is included in the free trial for Azure. You can sign up for a free one-month trial of Azure at https://azure.microsoft.com/en-us/pricing/free-trial/. 
 
 #### Can I get Azure AD Domain Services as part of Enterprise Mobility Suite (EMS)?
 No, Azure AD Domain Services is a pay-as-you-go Azure service and is not part of EMS.
 
+#### What Azure regions is the service available in?
+Refer to our [regions page](active-directory-domain-services-regions.md) to see a list of the Azure regions where Azure AD Domain Services are available.
 
+#### When will Azure AD Domain Services be Generally Available?
+We cannot currently share timelines for when the service will be generally available.
