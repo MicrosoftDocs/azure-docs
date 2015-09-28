@@ -21,7 +21,9 @@
 
 ## Monitor page
 
-The Azure Management portal and Azure preview portal both surface key performance metrics that can be used to monitor and troubleshoot your job. In the Azure Management portal, click on the **Monitor** tab of a running Stream Analytics job to see these metrics. There is a delay of at the most 1 minute in the performance metrics showing up in the Monitor page.  
+The Azure Management portal and Azure preview portal both surface key performance metrics that can be used to monitor and troubleshoot your job.  
+
+In the Azure Management portal, click on the **Monitor** tab of a running Stream Analytics job to see these metrics. There is a delay of at the most 1 minute in the performance metrics showing up in the Monitor page.  
 
   ![Monitoring Dashboard](./media/stream-analytics-monitoring/01-stream-analytics-monitoring.png)  
 
