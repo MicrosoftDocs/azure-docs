@@ -161,6 +161,8 @@ You're all set for sending a toast. Now we will verify that you have correctly c
 
 1. You'll have to associate your app with a Windows Store App to obtain your **Package security identifier (SID)** and your **Secret Key** (Client Secret). You can create an app from the [Windows Store Dev Center] and then make sure to use **Associate App with Store** from Visual Studio.
 
+	![][7]
+
 2. Navigate to the **Settings** of your Mobile Engagement portal, and click the **Native Push** section on the left.
 
 3. Click the **Edit** button to enter your **Package security identifier (SID)** and your **Secret Key** as shown below:
@@ -181,10 +183,11 @@ If you want to integrate in-app notification so that the notification shows up i
 [Windows Universal Apps - Overlay integration]: ../mobile-engagement-windows-store-integrate-engagement-reach/#overlay-integration
 
 <!-- Images. -->
-[1]: ./media/mobile-engagement-windows-store-dotnet-get-started/UniversalAppCreation.png
+[1]: ./media/mobile-engagement-windows-store-dotnet-get-started/universal-app-creation.png
 [2]: ./media/mobile-engagement-windows-store-dotnet-get-started/manifest-capabilities.png
 [3]: ./media/mobile-engagement-windows-store-dotnet-get-started/add-connection-info.png
 [5]: ./media/mobile-engagement-windows-store-dotnet-get-started/manifest-toast.png
 [6]: ./media/mobile-engagement-windows-store-dotnet-get-started/enter-credentials.png
+[7]: ./media/mobile-engagement-windows-store-dotnet-get-started/associate-app-store.png
 
 

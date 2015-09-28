@@ -1,15 +1,15 @@
 <properties 
 	pageTitle="Access on-premises resources using hybrid connections in Azure App Service" 
 	description="Create a connection between a web app in Azure App Service and an on-premises resource that uses a static TCP port" 
-	services="app-service\web" 
+	services="app-service" 
 	documentationCenter="" 
 	authors="cephalin" 
 	manager="wpickett" 
 	editor="mollybos"/>
 
 <tags 
-	ms.service="app-service-web" 
-	ms.workload="web" 
+	ms.service="app-service" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
