@@ -56,7 +56,7 @@ Additional information on IoT Hub:
 * [IoT Hub Overview]
 * [IoT Hub Developer Guide]
 * [IoT Hub Guidance]
-* [Supported device platforms and languages]
+* [Supported device platforms and languages][Supported devices]
 * [Azure IoT Developer Center]
 
 <!-- Images. -->

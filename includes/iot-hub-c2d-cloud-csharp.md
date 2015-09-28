@@ -47,7 +47,7 @@ In this section, you'll write a Windows console app that sends cloud-to-device m
 
 9.  Press **F5**, and you should see all three application start. Select the **SendCloudToDevice** windows and press **Enter**: you should see the message being received by the simulated app.
 
-    ![][22]
+    ![][21]
 
 ## Receiving delivery feedback
 It is possible to request delivery (or expiration) ackownledgments from IoT Hub for each cloud-to-device message. This enables the cloud back-end to easily inform retry or compensation logic. Refer to the [IoT Hub Developer Guide][IoT Hub Developer Guide - C2D] for more information on cloud-to-device feedback.
@@ -99,7 +99,7 @@ In this section, you will modify the **SendCloudToDevice** app to request feedba
 
 <!-- Images -->
 [20]: ./media/iot-hub-c2d-cloud-csharp/create-identity-csharp1.png
-[22]: ./media/iot-hub-c2d-cloud-csharp/sendc2d1.png
+[21]: ./media/iot-hub-c2d-cloud-csharp/sendc2d1.png
 [22]: ./media/iot-hub-c2d-cloud-csharp/sendc2d2.png
 
 
