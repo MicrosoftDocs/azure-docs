@@ -60,7 +60,7 @@ Azure RemoteApp supports both Microsoft accounts and Azure Active Directory acco
 |Account type | |Cloud	|Cloud + VNET| Hybrid|
 |--------------|-|------|--------|------|
 |Microsoft Account| | 	Yes| Yes|	No|
-|Azure Active Directory (Azure AD)| |	| |	
+|Azure Active Directory (Azure AD)| |	| |	|
 | |Azure AD only 	|Yes|Yes	|No	|
 | |AD Connect  with password sync	|Yes |Yes	|Yes	|
 | |AD Connect without password sync|	Yes|Yes	|No	|
