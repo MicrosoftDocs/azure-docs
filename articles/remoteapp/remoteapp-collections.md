@@ -49,7 +49,7 @@ Ok, how do I create one?
 - Provide full access to on-premises network + Azure VNET.
 - Includes domain join access for apps and data. Remote applications can authentication against your on-premises Active Directory - they can then access resources in your domain.
 - Enable advanced monitoring and management with existing System Center solutions and Windows Group Policies (through a custom image built on Windows Server 2012 R2)
-- Support [Express Route](http://azure.microsoft.com/en-us/services/expressroute/) to connect your Azure VNET to your local VNET.
+- Support [Express Route](http://azure.microsoft.com/services/expressroute/) to connect your Azure VNET to your local VNET.
 
 Create using the **Create with VNET** option and DO choose to join a domain.
 
