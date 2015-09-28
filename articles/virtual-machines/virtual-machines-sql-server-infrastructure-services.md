@@ -30,7 +30,9 @@ To create a SQL Server virtual machine in Azure, you must first obtain an Azure 
 
 ### Deploy a SQL Server instance on a single VM
 
-After signing up for a subscription, the easiest way to deploy a SQL Server virtual machine in Azure is to [provision a SQL Server machine gallery image in the Azure Management Portal](virtual-machines-provision-sql-server.md). Those images include licensing of SQL Server in the pricing for the VM. 
+After signing up for a subscription, the easiest way to deploy a SQL Server virtual machine in Azure is to [provision a SQL Server machine gallery image in the Azure Management Portal](virtual-machines-provision-sql-server.md). Those images include licensing of SQL Server in the pricing for the VM.
+
+>[AZURE.NOTE] Use the [new Portal](https://manage.windowsazure.com) to provision and manage SQL Server Virtual Machines. It defaults to using Premium Storage and offers Automated Patching, Automated Backup, and AlwaysOn configurations.
 
 The following table provides a matrix of available SQL Server images in the virtual machine gallery.
 
