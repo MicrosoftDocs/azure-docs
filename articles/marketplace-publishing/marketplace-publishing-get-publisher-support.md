@@ -1,20 +1,21 @@
 <properties
    pageTitle="Accessing publisher support for Azure Marketplace | Microsoft Azure"
    description="How to access and submit publisher support requests for Azure Marketplace"
-   services="azure-portal"
+   services="marketplace-publishing"
    documentationCenter="na"
    authors="v-jeana"
    manager="lakoch"
    editor=""/>
 
 <tags
-   ms.service="store"
-   ms.devlang="NA"
+   ms.service="marketplace-publishing"
+   ms.devlang="na"
    ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
+   ms.tgt_pltfrm="na"
+   ms.workload="na"
    ms.date="09-28-2015"
-   ms.author="v-jeana@microsoft.com"/>
+   ms.author="v-jeana; hascipio"/>
+
 
 # Accessing publisher support for Azure Marketplace
 
@@ -35,19 +36,19 @@ Microsoft provides support for a wide variety of products and services, and ensu
 - Provide Contact Information
 - Describe the problem
 
-## Step 1 - Sign-in to your Microsoft account
+## 1. Sign-in to your Microsoft account
 
 Navigate to https://publish.windowsazure.com/ and sign-in with your Microsoft account credentials
 
 ![Login screen][1]
 
-## Step 2 - Navigate to Publisher Support pages
+## 2. Navigate to Publisher Support pages
 
 From the upper right-hand menu, select "Get Support"
 
 ![Get Support][2]
 
-## Step 3 - Select Problem Type and Category
+## 3. Select Problem Type and Category
 
 ![Problem Type & Category][3]
 
@@ -61,19 +62,19 @@ Available Problem Types are as follows:
 - Seller Dashboard
 - Other
 
-## Step 4 - Request support
+## 4. Request support
 
 After selecting the Problem Type and Category, click the "Start request" button
 
 ![Start Support][4]
 
-## Step 5 - Provide contact information and describe the problem
+## 5. Provide contact information and describe the problem
 
 Describe the problem as fully as you can, and provide any files (e.g. screenshots, network traces, etc.) which may be helpful in solving your issue.
 
 ![Describe problem][5]
 
-## Step 6 - Submission confirmation
+## 6. Submission confirmation
 
 Once you have submitted your issue, we will acknowledge receipt within 24 hours, and assign your issue a priority and severity. Our dedicated team of Support Engineers will assist with its resolution according to our Service Level Agreement response times.
 
@@ -84,7 +85,7 @@ Once you have submitted your issue, we will acknowledge receipt within 24 hours,
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Additional resources
 
-To learn how to resolve specific support issues, please visit: [Troubleshoot common publishing problems in the Azure Marketplace](ResolvingSpecificSupportIssues.md).
+To learn how to resolve specific support issues, please visit: [Troubleshooting common issues on the Azure Marketplace](marketplace-publishing-support-common-issues.md).
 
 <!--Image references-->
 [1]: ./media/marketplace-publishing-get-publisher-support/step1.png
