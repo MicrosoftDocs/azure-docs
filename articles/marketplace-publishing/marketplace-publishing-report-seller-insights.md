@@ -112,15 +112,15 @@ If you have a question relating to Reports and Insights, please contact our supp
 
 
 <!--Image references-->
-[1]: ./media/marketplace-publishing-seller-insights-reporting/legal.png
-[2]: ./media/marketplace-publishing-seller-insights-reporting/readingreportbyorders.png
-[3]: ./media/marketplace-publishing-seller-insights-reporting/readingreportbyusage.png
-[4]: ./media/marketplace-publishing-seller-insights-reporting/orderdata.png
-[5]: ./media/marketplace-publishing-seller-insights-reporting/usagedata.png
-[6]: ./media/marketplace-publishing-seller-insights-reporting/customerstab.png
-[7]: ./media/marketplace-publishing-seller-insights-reporting/passwordreminder.png
-[8]: ./media/marketplace-publishing-seller-insights-reporting/selectpublisherstab.png
-[9]: ./media/marketplace-publishing-seller-insights-reporting/publisherid.png
-[10]: ./media/marketplace-publishing-seller-insights-reporting/sellerinsightsquestions.png
+[1]: ./media/marketplace-publishing-report-seller-insights/legal.png
+[2]: ./media/marketplace-publishing-report-seller-insights/readingreportbyorders.png
+[3]: ./media/marketplace-publishing-report-seller-insights/readingreportbyusage.png
+[4]: ./media/marketplace-publishing-report-seller-insights/orderdata.png
+[5]: ./media/marketplace-publishing-report-seller-insights/usagedata.png
+[6]: ./media/marketplace-publishing-report-seller-insights/customerstab.png
+[7]: ./media/marketplace-publishing-report-seller-insights/passwordreminder.png
+[8]: ./media/marketplace-publishing-report-seller-insights/selectpublisherstab.png
+[9]: ./media/marketplace-publishing-report-seller-insights/publisherid.png
+[10]: ./media/marketplace-publishing-report-seller-insights/sellerinsightsquestions.png
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->

@@ -122,13 +122,13 @@ For the following issues, please create a support request at http://go.microsoft
 
 
 <!--Image references-->
-[1]: ./media/marketplace-publishing-resolving-specific-support-issues/requestrefund1.png
-[2]: ./media/marketplace-publishing-resolving-specific-support-issues/requestrefund2.png
-[3]: ./media/marketplace-publishing-resolving-specific-support-issues/subscriptionvalidation.png
-[4]: ./media/marketplace-publishing-resolving-specific-support-issues/inprivate.png
-[5]: ./media/marketplace-publishing-resolving-specific-support-issues/signin.png
-[6]: ./media/marketplace-publishing-resolving-specific-support-issues/protectacct.png
-[7]: ./media/marketplace-publishing-resolving-specific-support-issues/acctdetails.png
-[8]: ./media/marketplace-publishing-resolving-specific-support-issues/manageadmins.png
+[1]: ./media/marketplace-publishing-support-common-issues/requestrefund1.png
+[2]: ./media/marketplace-publishing-support-common-issues/requestrefund2.png
+[3]: ./media/marketplace-publishing-support-common-issues/subscriptionvalidation.png
+[4]: ./media/marketplace-publishing-support-common-issues/inprivate.png
+[5]: ./media/marketplace-publishing-support-common-issues/signin.png
+[6]: ./media/marketplace-publishing-support-common-issues/protectacct.png
+[7]: ./media/marketplace-publishing-support-common-issues/acctdetails.png
+[8]: ./media/marketplace-publishing-support-common-issues/manageadmins.png
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->

@@ -68,10 +68,10 @@ For the following issues, please log an issue at https://portal.azure.com
 
 
 <!--Image references-->
-[1]: ./media/marketplace-publishing-payout-reporting/accessingpayoutreport.png
-[2]: ./media/marketplace-publishing-payout-reporting/readingpayoutreport.png
-[3]: ./media/marketplace-publishing-payout-reporting/financialdefinitions.png
-[4]: ./media/marketplace-publishing-payout-reporting/ledgerdefinitions.png
-[5]: ./media/marketplace-publishing-payout-reporting/payoutquestions.png
+[1]: ./media/marketplace-publishing-report-payout/accessingpayoutreport.png
+[2]: ./media/marketplace-publishing-report-payout/readingpayoutreport.png
+[3]: ./media/marketplace-publishing-report-payout/financialdefinitions.png
+[4]: ./media/marketplace-publishing-report-payout/ledgerdefinitions.png
+[5]: ./media/marketplace-publishing-report-payout/payoutquestions.png
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
