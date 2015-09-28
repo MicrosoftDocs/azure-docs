@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Configure web apps in Azure App Service" 
 	description="How to configure a web app in Azure App Services" 
-	services="app-service\web" 
+	services="app-service" 
 	documentationCenter="" 
 	authors="erikre" 
 	manager="wpickett" 
@@ -9,7 +9,7 @@
 
 <tags 
 	ms.service="app-service" 
-	ms.workload="web" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 

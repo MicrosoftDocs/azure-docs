@@ -9,7 +9,7 @@
 
 <tags
 	ms.service="app-service-api"
-	ms.workload="web"
+	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="get-started-article"
