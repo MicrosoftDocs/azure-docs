@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="tbd" 
-	ms.date="04/21/2015"
+	ms.date="09/17/2015"
 	ms.author="himad"/>
 
 
@@ -43,6 +43,5 @@ To learn more about throttling, see [Scaling API Endpoints](machine-learning-sca
 ![Create endpoint](./media/machine-learning-create-endpoint/figure-4.png)
 
 
-Once the endpoint is created, you can consume it through synchronous APIs, batch APIs, and excel worksheets.
-For more information about using Machine Learning web services, see [How to consume a published Azure Machine Learning web service](machine-learning-consume-web-services.md).
+Once the endpoint is created, you can consume it through synchronous APIs, batch APIs, and excel worksheets. In addition to adding endpoints through this UI, you can also use the Endpoint Management APIs to programmatically add endpoints. For more information about using Machine Learning web services, see [How to consume a published Azure Machine Learning web service](machine-learning-consume-web-services.md).
  

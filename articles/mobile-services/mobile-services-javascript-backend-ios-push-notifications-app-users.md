@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Send Push Notifications to Authenticated Users"
+	pageTitle="Send Push Notifications to Authenticated Users in iOS (JavaScript backend)"
 	description="Learn how to send push notifications to specific users"
 	services="mobile-services,notification-hubs"
 	documentationCenter="ios"

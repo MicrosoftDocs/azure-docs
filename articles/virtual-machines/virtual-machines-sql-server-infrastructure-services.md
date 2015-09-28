@@ -1,11 +1,12 @@
 <properties 
-	pageTitle="Overview of SQL Server on Azure VMs"
-	description="This article provides an overview of SQL Server hosted on Azure IaaS Virtual Machines. This includes links to depth content." 
+	pageTitle="Overview of SQL Server on Virtual Machines | Microsoft Azure"
+	description="This article provides an overview of SQL Server hosted on Azure Virtual Machines. This includes links to depth content." 
 	services="virtual-machines" 
 	documentationCenter="" 
 	authors="rothja" 
 	manager="jeffreyg"
-	editor=""/>
+	editor=""
+	tags="azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -17,6 +18,8 @@
 	ms.author="jroth"/>
 
 # SQL Server on Azure Virtual Machines overview
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)] This article covers creating a resource with the classic deployment model. 
 
 ## Getting started
 You can host [SQL Server on Azure Virtual Machines](http://azure.microsoft.com/services/virtual-machines/sql-server/) in a variety of configurations, ranging from a single database server to a multi-machine configuration using AlwaysOn Availability Groups and an Azure Virtual Network.

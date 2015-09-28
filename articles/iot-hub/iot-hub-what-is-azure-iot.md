@@ -1,14 +1,14 @@
 <properties
  pageTitle="Microsoft Azure IoT Hub and the Internet of Things (IoT) | Microsoft Azure"
  description="A overview of IoT on Azure including the Microsoft IoT Reference Architecture and how it relates to Azure IoT Hub, Device SDKs, and preconfigured solutions"
- services="azure-iot"
+ services="iot-hub"
  documentationCenter=".net"
  authors="dominicbetts"
  manager="timlt"
  editor=""/>
 
 <tags
- ms.service="azure-iot"
+ ms.service="iot-hub"
  ms.devlang="na"
  ms.topic="article"
  ms.tgt_pltfrm="na"

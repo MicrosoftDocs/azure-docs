@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="08/19/2015" 
+	ms.date="09/09/2015" 
 	ms.author="jeffstok" />
 
 
@@ -96,12 +96,12 @@ Depending on the input type used in the job, some additional fields with event m
 	</tr>
 </table>
 
-###Partition(s) with slow or no input data
+### Partition(s) with slow or no input data
 When reading from input sources that have multiple partitions, and one or more partitions lag behind or do not have data, the streaming job needs to decide how to handle this situation in order to keep events flowing through the system. Input setting ‘Maximum allowed arrival delay’ controls that behavior and is set by default to wait for the data indefinitely, which means events’ timestamps will not be altered, but also that events will flow based on the slowest input partition, and will stop flowing if one or more input partitions do not have data. This is useful if the data is distributed uniformly across input partitions, and time consistency among events is critical. 
 
 You can also decide to wait for only a limited time: ‘Maximum allowed arrival delay’ determines the delay after which the job will decide to move forward, leaving the lagging input partitions behind, and acting on events according to ‘Action for late events’ setting, dropping their events or adjusting their events’ timestamps if data arrives later. This is useful if latency is critical and timestamp shift is tolerated, but input may not be uniformly distributed.
 
-###Partition(s) with out of order events
+### Partition(s) with out of order events
 When streaming job query uses the TIMESTAMP BY keyword, there are no guarantees about the order in which the events will arrive to input, Some events in the same input partition may be lagging, parameter ‘Maximum allowed disorder within an input’ causes the streaming job to act on events that are outside of the order tolerance, according to ‘Action for late events’ setting, dropping their events or adjusting their events’ timestamps.
 
 ### Additional resources
@@ -142,7 +142,7 @@ The output target is where the results of the Stream Analytics job will be writt
 - Azure Table storage - Azure Table storage is a structured data store with fewer constraints on the schema. Entities with different schema and different types can be stored in the same Azure table. Azure Table storage can be used to store data for persistence and efficient retrieval. For more information, see [Introduction to Azure Storage](../storage/storage-introduction.md) and [Designing a Scalable Partitioning Strategy for Azure Table Storage](https://msdn.microsoft.com/library/azure/hh508997.aspx).
 - Azure SQL Database - This output target is appropriate for data that is relational in nature or for applications that depend on content being hosted in a database.
 
-## Streaming Units ##
+## Streaming Units
 As part of providing a more predictable performance experience for customers, Azure Stream Analytics uses Streaming Units (SUs) to represent the resources and power to execute a job. SUs provide a way to describe the relative event processing capacity based on a blended measure of CPU, memory, and read and write rates. Each streaming unit corresponds to roughly 1MB/second of throughput.  
 Each Azure Stream Analytics job needs a minimum of one streaming unit, which is the default for all jobs. To learn more about selecting the right number of SU’s for a job, see [Scale Azure Stream Analytics jobs](stream-analytics-scale-jobs.md)
 
@@ -171,8 +171,8 @@ The following metrics are available for monitoring the usage and performance of 
 - Out-of-order events - Number of events received out of order that were either dropped or given an adjusted timestamp, based on the out-of-order policy.
 - Data conversion errors - Number of data conversion errors incurred by a Stream Analytics job.
 
-### Operation logs
-The best approach to debugging or troubleshooting a Stream Analytics job is through Azure operation logs. Operation logs can be accessed in the **Management Services** section of the portal. To inspect logs for your job, set **Service Type** to **Stream Analytics** and **Service Name** to the name of your job.
+### Operation Logs
+The best approach to debugging or troubleshooting a Stream Analytics job is through Azure Operation Logs. Operation Logs can be accessed in the **Management Services** section of the portal. To inspect logs for your job, set **Service Type** to **Stream Analytics** and **Service Name** to the name of your job.
 
 
 ## Manage jobs 

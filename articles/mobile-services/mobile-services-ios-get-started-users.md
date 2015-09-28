@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Add Authentication to Existing Azure Mobile Services App (iOS) | Microsoft Azure"
+	pageTitle="Add Authentication to Existing Azure Mobile Services App (iOS) | JavaScript Backend | Microsoft Azure"
 	description="Learn how to use Mobile Services to authenticate users of your iOS app through a variety of identity providers, including Google, Facebook, Twitter, and Microsoft."
 	services="mobile-services"
 	documentationCenter="ios"

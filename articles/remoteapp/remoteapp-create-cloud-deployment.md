@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="How to create a cloud collection of Azure RemoteApp" 
+	pageTitle="How to create a cloud collection of Azure RemoteApp | Microsoft Azure" 
 	description="Learn how to create a deployment of Azure RemoteApp that saves data in the Azure cloud." 
 	services="remoteapp" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/02/2015" 
+	ms.date="09/11/2015" 
 	ms.author="elizapo"/>
 
 # How to create a cloud collection of Azure RemoteApp
@@ -41,7 +41,7 @@ You need to do the following before creating the collection:
 - This procedure assumes you are either going to use one of the template images provided as part of your subscription or that you have already uploaded the template image you want to use. If you need to upload a different template image, you can do that from the Template Images page. Just click **upload a template image** and follow the steps in the wizard. 
 - Want to use the Office 365 ProPlus image? Check out info [here](remoteapp-officesubscription.md).
 - Want to provide custom apps or LOB programs? Create a new [image](remoteapp-imageoptions.md) and use it in your cloud collection.
-- Figure out whether you need to connect to a VNET. If you choose to connect to a VNET, make sure it meets the sizing guidelines and that it can connect to RemoteApp.
+- Figure out whether you need to connect to a VNET. If you choose to connect to a VNET, make sure it meets the [sizing guidelines](remoteapp-vnetsizing.md) and that it [can connect to RemoteApp](remoteapp-vnet.md). Check out the [VNET planning article ](remoteapp-planvpn.md)for more information.
 - If you're using a VNET, decide whether you want to join it to your local Active Directory domain.
 
 ## Step 1: Create a cloud collection - with or without a VNET##

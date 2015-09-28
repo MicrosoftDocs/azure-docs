@@ -1,11 +1,12 @@
 <properties
-	pageTitle="Deploy a Linux application using the Azure CustomScript Extension"
-	description="Learn how to use the Azure CustomScript extension to deploy applications on Linux virtual machines."
+	pageTitle="Use the CustomScript Extension on a Linux VM | Microsoft Azure"
+	description="Learn how to use the CustomScript extension to deploy applications on Linux Virtual Machines in Azure created using the classic deployment model."
 	editor="tysonn"
 	manager="timlt"
 	documentationCenter=""
 	services="virtual-machines"
-	authors="gbowerman"/>
+	authors="gbowerman"
+	tags="azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -18,15 +19,17 @@
 
 #Deploy a LAMP app using the Azure CustomScript Extension for Linux#
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)] This article covers troubleshooting application access on a virtual machine created with the classic deployment model.
+
 The Microsoft Azure CustomScript Extension for Linux provides a way to customize your virtual machines (VMs) by running arbitrary code written in any scripting language supported by the VM (for example, Python, and Bash). This provides a very flexible way to automate application deployment to multiple machines.
 
 You can deploy the CustomScript Extension using the Azure Portal, Windows PowerShell, or the Azure Command-Line Interface (Azure CLI).
 
-In this article we'll deploy a simple LAMP application to Ubuntu using the Azure CLI.
+In this article we'll use the Azure CLI to deploy a simple LAMP application to an Ubuntu VM created using the classic deployment model.
 
 ## Prerequisites
 
-For the next example, first create two Azure VMs running Ubuntu 14.04. The VMs are called *script-vm* and *lamp-vm*. Use unique names when you create the VMs. One is used to run the CLI commands and one is used to deploy the LAMP app.
+For this example, first create two Azure VMs running Ubuntu 14.04 or later. The VMs are called *script-vm* and *lamp-vm*. Use unique names when you create the VMs. One is used to run the CLI commands and one is used to deploy the LAMP app.
 
 You also need an Azure Storage account and a key to access it (you can get this from the Azure Portal).
 
@@ -38,11 +41,11 @@ The script-vm VM needs to have Azure CLI installed, with a working connection to
 
 ## Upload a script
 
-In this example the CustomScript Extension runs a script on a remote VM to install the LAMP stack and create a PHP page. In order to access the script from anywhere we'll upload it as an Azure blob.
+We'll use the CustomScript Extension to run a script on a remote VM to install the LAMP stack and create a PHP page. In order to access the script from anywhere we'll upload it as an Azure blob.
 
 ### Script overview
 
-The next script example installs a LAMP stack to Ubuntu (including setting up a silent install of MySQL), writes a simple PHP file, and starts Apache.
+The script example installs a LAMP stack to Ubuntu (including setting up a silent install of MySQL), writes a simple PHP file, and starts Apache.
 
 	#!/bin/bash
 	# set up a silent install of MySQL

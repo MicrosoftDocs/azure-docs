@@ -1,19 +1,19 @@
-<properties 
-   pageTitle="Microsoft Azure AD Connect - Upgrade from Windows Azure AD sync tool (DirSync)" 
-   description="Learn how to upgrade from DirSync to Azure AD Connect.  This articles describes the steps for upgrading your current Windows Azure AD sync tool (DirSync) to Azure AD Connect." 
-   services="active-directory" 
-   documentationCenter="" 
-   authors="shoatman" 
-   manager="terrylanfear" 
+<properties
+   pageTitle="Microsoft Azure AD Connect - Upgrade from Windows Azure AD sync tool (DirSync)"
+   description="Learn how to upgrade from DirSync to Azure AD Connect.  This articles describes the steps for upgrading your current Windows Azure AD sync tool (DirSync) to Azure AD Connect."
+   services="active-directory"
+   documentationCenter=""
+   authors="shoatman"
+   manager="terrylanfear"
    editor="billmath"/>
 
-<tags 
-   ms.service="active-directory" 
-   ms.workload="identity" 
-   ms.tgt_pltfrm="na" 
-   ms.devlang="na" 
-   ms.topic="article" 
-   ms.date="05/26/2015" 
+<tags
+   ms.service="active-directory"
+   ms.workload="identity"
+   ms.tgt_pltfrm="na"
+   ms.devlang="na"
+   ms.topic="article"
+   ms.date="09/02/2015" 
    ms.author="shoatman"/>
 
 # Upgrading Windows Azure Active Directory sync (DirSync) to Azure Active Directory Connect
@@ -22,7 +22,7 @@ The following documentation will help you upgrade your existing DirSync installa
 
 ## Download Azure AD Connect
 
-To get started using Azure AD Connect you can download the latest version using the following: [Download Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771) 
+To get started using Azure AD Connect you can download the latest version using the following: [Download Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771)
 
 
 ## Before you install Azure AD Connect
@@ -143,12 +143,12 @@ See those options in the following UI:
 
 ![Enter your Azure AD credentials](./media/active-directory-aadconnect-dirsync-upgrade-get-started/advancedsettings.png)
 
-7. Click Next. 
+7. Click Next.
 8. On the "Ready to configure" page leave the "Start the synchronization process as soon as the configuration completes" checked.
 [AZURE.NOTE] Synchronization between Windows Server Active Directory and Azure Active Directory will begin, but no changes will be exported to Azure AD.  Only one synchronization tool can be actively exporting changes at a time.
 9. Click "Install".
 
-[AZURE.NOTE] We uncheck the start synchronization checkbox in order to ensure that DirSync, which is still installed and running and Azure AD Connect do not attempt to write to AAD at the same time.    
+[AZURE.NOTE] We uncheck the start synchronization checkbox in order to ensure that DirSync, which is still installed and running and Azure AD Connect do not attempt to write to AAD at the same time.
 
 ### Check that Azure AD Connect is ready to begin sychronization
 
@@ -187,7 +187,7 @@ Congratulations you've successfully migrated to Azure AD Connect using Parallel 
 
 ## Azure AD Connect supporting components
 
-The following is a list of per-requisites and supporting components that Azure AD Connect will install on the server that you set Azure AD Connect up on.  This list is for a basic Express installation.  If you choose to use a different SQL Server on the Install synchronization services page then, the SQL Server 2012 components listed below are not installed. 
+The following is a list of per-requisites and supporting components that Azure AD Connect will install on the server that you set Azure AD Connect up on.  This list is for a basic Express installation.  If you choose to use a different SQL Server on the Install synchronization services page then, the SQL Server 2012 components listed below are not installed.
 
 - Forefront Identity Manager Azure Active Directory Connector
 - Microsoft SQL Server 2012 Command Line Utilities
@@ -205,4 +205,3 @@ The following is a list of per-requisites and supporting components that Azure A
 * [Whats Next with Azure AD Connect](active-directory-aadconnect-whats-next.md)
 * [Learn More](active-directory-aadconnect-learn-more.md)
 * [Azure AD Connect on MSDN](active-directory-aadconnect.md)
- 

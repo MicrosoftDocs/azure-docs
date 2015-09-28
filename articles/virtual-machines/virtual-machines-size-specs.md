@@ -3,7 +3,7 @@
  description="Lists the different sizes for virtual machines and their capacities."
  services="virtual-machines"
  documentationCenter=""
- authors="KBDAzure"
+ authors="cynthn"
  manager="timlt"
  editor=""
  tags="azure-resource-manager,azure-service-management"/>
@@ -15,7 +15,7 @@ ms.service="virtual-machines"
  ms.tgt_pltfrm="vm-multiple"
  ms.workload="infrastructure-services"
  ms.date="09/02/2015"
- ms.author="kathydav"/>
+ ms.author="cynthn"/>
 
 # Sizes for virtual machines
 

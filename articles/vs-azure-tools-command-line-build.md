@@ -1,4 +1,4 @@
-<properties 
+<properties
    pageTitle="Command-line build for Azure"
    description="Command-line build for Azure"
    services="visual-studio-online"
@@ -6,7 +6,7 @@
    authors="kempb"
    manager="douge"
    editor="tlee" />
-<tags 
+<tags
    ms.service="multiple"
    ms.devlang="multiple"
    ms.topic="article"
@@ -17,7 +17,7 @@
 
 # Command-Line Build for Azure
 
-##Overview
+## Overview
 
 You can create a package for Azure deployment by running MSBuild at a command prompt. You can configure and define builds for debugging, staging, and production, in addition to automating some of the build process.
 
@@ -38,11 +38,11 @@ As the following procedure describes, you must install software and tools on the
 
 1. Install the [Azure Libraries for .NET](http://go.microsoft.com/fwlink/?LinkId=394616) (look for MicrosoftAzureLibsForNet-x64.msi or MicrosoftAzureLibs-x86.msi.
 
-1. Copy the Microsoft.WebApplication.targets file from a Visual Studio installation on another computer. 
+1. Copy the Microsoft.WebApplication.targets file from a Visual Studio installation on another computer.
 
     The file is located in the directory C:\Program Files (x86)\MSBuild\Microsoft\Visual Studio\v12.0\WebApplications (v11.0 for Visual Studio 2012), and you should copy it to the same directory on the build server.
 
-1. Install the [Azure Tools for Visual Studio](http://go.microsoft.com/fwlink/?LinkId=394616). 
+1. Install the [Azure Tools for Visual Studio](http://go.microsoft.com/fwlink/?LinkId=394616).
 
     Look for WindowsAzureTools.vs120.exe to build Visual Studio 2013 projects.
 
@@ -61,4 +61,3 @@ If you want to use an alternate directory for the stored package and configurati
 ## Deployment
 
 After the package is built, you can deploy it to Azure. For a tutorial that demonstrates that process, see the Azure website. For information about how to automate that process, see [Continuous Delivery for Cloud Services in Azure](../cloud-services/cloud-services-dotnet-continuous-delivery).
-

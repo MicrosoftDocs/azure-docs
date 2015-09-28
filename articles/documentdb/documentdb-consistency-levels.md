@@ -1,6 +1,7 @@
 <properties 
 	pageTitle="Consistency levels in DocumentDB | Microsoft Azure" 
-	description="DocumentDB has four consistency levels with associated performance levels to help application developers make predictable consistency-availability-latency trade-offs." 
+	description="Review how DocumentDB has four consistency levels with associated performance levels to help balance eventual consistency, availability, and latency trade-offs." 
+	keywords="eventual consistency, documentdb, azure, Microsoft azure"
 	services="documentdb" 
 	authors="mimig1" 
 	manager="jhubbard" 
@@ -13,19 +14,19 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/25/2015" 
+	ms.date="09/25/2015" 
 	ms.author="mimig"/>
 
 # Using consistency levels to maximize availability and performance in DocumentDB
 
-Developers are often faced with the challenge of choosing between the two extremes of strong and eventual consistency. The reality is that there are multiple consistency click-stops between these two extremes. In most real world scenarios, applications benefit from making fine grained trade-offs between consistency, availability, and latency. DocumentDB offers four well-defined consistency levels with associated performance levels. This allows application developers to make predictable consistency-availability-latency trade-offs.  
+Developers are often faced with the challenge of choosing between the two extremes of strong and eventual consistency. The reality is that there are multiple consistency click-stops between these two extremes. In most real world scenarios, applications benefit from making fine grained trade-offs between consistency, availability, and latency. DocumentDB offers four well-defined consistency levels with associated performance levels. This allows application developers to make predictable consistency, availability, and latency trade-offs.  
  
 All system resources, including database accounts, databases, collections, users, and permissions are always strongly consistent for reads and queries. The consistency levels apply only to the user defined resources. For queries and read operations on user defined resources, including documents, attachments, stored procedures, triggers, and UDFs, DocumentDB offers four distinct consistency levels: 
 
- - Strong
- - Bounded staleness 
- - Session
- - Eventual 
+ - Strong consistency
+ - Bounded staleness consistency
+ - Session consistency
+ - Eventual consistency
 
 These granular, well-defined consistency levels allow you to make sound trade-offs between consistency, availability, and performance. These consistency levels are backed by predictable performance levels ensuring consistent results for your application.   
 
@@ -55,15 +56,13 @@ Eventual consistency provides the weakest read consistency but offers the lowest
 
 ### Changing the database consistency level
 
-1.  In the [Azure Preview portal](https://portal.azure.com/), click **Browse All**.
+1.  In the [Azure Preview portal](https://portal.azure.com/), in the Jumpbar, click **DocumentDB Accounts**.
 
-2.  In the **Browse All** blade, click **DocumentDB Accounts**.
+2. In the **DocumentDB Accounts** blade, select the database account to modify.
 
-3. In the **DocumentDB Accounts** blade, select the database account to modify.
+3. In the account blade, in the **Configuration** lens, click the **Default Consistency** tile.
 
-4. In the account blade, in the **Configuration** lens, click the **Default Consistency** tile.
-
-5. Select the new consistency level and click **Save**. 
+4. In the **Default Consistency** blade, select the new consistency level and click **Save**. 
 
 	![Screen shot highlighting the Default Consistency tile, the consistency settings and the Save button](./media/documentdb-consistency-levels/database-consistency-level.png)
 

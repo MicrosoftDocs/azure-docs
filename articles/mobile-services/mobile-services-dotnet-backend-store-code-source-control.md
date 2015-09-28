@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Store project code in source control | Microsoft Azure"
+	pageTitle="Store you .NET backend project code in source control | Azure Mobile Services"
 	description="Learn how to store your .NET backend project in and publish from a local Git repo on your computer."
 	services="mobile-services"
 	documentationCenter=""
@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="06/16/2015"
-	ms.author="glenga"/>
+	ms.date="09/15/2015"
+	ms.author="glenga"/> 
 
-# Store project code in source control
+# Store your mobile service project code in source control
 
-> [AZURE.SELECTOR-LIST (Platform | Backend)]
-- [(Any | .NET)](mobile-services-dotnet-backend-store-code-source-control.md)
-- [(Any | Javascript)](mobile-services-store-scripts-source-control.md)
+> [AZURE.SELECTOR]
+- [.NET backend](mobile-services-dotnet-backend-store-code-source-control.md)
+- [Javascript backend](mobile-services-store-scripts-source-control.md)
 
 This topic shows you how to use the source control provided by Azure Mobile Services to store your .NET backend service project. Your project can be published by simply uploading from your local Git repository to your production mobile service.
 

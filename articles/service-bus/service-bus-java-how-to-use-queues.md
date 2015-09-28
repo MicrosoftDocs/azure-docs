@@ -248,8 +248,10 @@ constant across delivery attempts.
 
 ## Next Steps
 
-Now that you've learned the basics of Service Bus queues, see the MSDN
-topic [Queues, Topics, and Subscriptions][] for more information.
+Now that you've learned the basics of Service Bus queues, see [Queues, Topics, and Subscriptions][] for more information.
+
+For more information, see also the [Java Developer Center](/develop/java/).
+
 
   [Azure SDK for Java]: http://azure.microsoft.com/develop/java/
   [Azure Toolkit for Eclipse]: https://msdn.microsoft.com/en-us/library/azure/hh694271.aspx
@@ -263,5 +265,5 @@ topic [Queues, Topics, and Subscriptions][] for more information.
   [How to: Handle Application Crashes and Unreadable Messages]: #bkmk_HowToHandleAppCrashes
   [Next Steps]: #bkmk_NextSteps
   [Azure Management Portal]: http://manage.windowsazure.com/
-  [Queues, Topics, and Subscriptions]: http://msdn.microsoft.com/library/windowsazure/hh367516.aspx
+  [Queues, Topics, and Subscriptions]: service-bus-queues-topics-subscriptions.md
  

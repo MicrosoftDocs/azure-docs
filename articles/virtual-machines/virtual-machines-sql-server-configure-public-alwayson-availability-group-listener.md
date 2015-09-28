@@ -1,18 +1,19 @@
 <properties 
-	pageTitle="Configure an external Listener for AlwaysOn Availability Groups in Azure"
+	pageTitle="Configure an external Listener for AlwaysOn Availability Groups | Microsoft Azure"
 	description="This tutorial walks you through steps of creating an AlwaysOn Availability Group Listener in Azure that is externally accessible by using the public Virtual IP address of the associated cloud service."
 	services="virtual-machines"
 	documentationCenter="na"
 	authors="rothja"
 	manager="jeffreyg"
-	editor="mo	nicar" />
+	editor="monicar"
+	tags="azure-service-management" />
 <tags 
 	ms.service="virtual-machines"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="08/24/2015"
+	ms.date="09/16/2015"
 	ms.author="jroth" />
 
 # Configure an external listener for AlwaysOn Availability Groups in Azure
@@ -22,6 +23,8 @@
 - [External Listener](virtual-machines-sql-server-configure-public-alwayson-availability-group-listener.md)
 
 This topic shows you how to configure a listener for an AlwaysOn Availability Group that is externally accessible on the internet. This is made possible associating the cloud service's **public Virtual IP (VIP)** address with the listener.
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)] This article covers creating a resource with the classic deployment model. 
 
 Your Availability Group can contain replicas that are on-premises only, Azure only, or span both on-premises and Azure for hybrid configurations. Azure replicas can reside within the same region or across multiple regions using multiple virtual networks (VNets). The steps below assume you have already [configured an availability group](virtual-machines-sql-server-alwayson-availability-groups-gui.md) but have not configured a listener. 
 
@@ -34,8 +37,6 @@ Note the following limitations on the availability group listener in Azure when 
 - Only one availability group listener is supported per cloud service because the listener is configured to either use the cloud service VIP address. Note that this limitation is still in effect although Azure now supports the creation of multiple VIP addresses in a given cloud service.
 
 - If you are creating a listener for a hybrid environment, the on-premises network must have connectivity to the public Internet in addition to the site-to-site VPN with the Azure virtual network. When in the Azure subnet, the availability group listener is reachable only by the public IP address of the respective cloud service.
-
->[AZURE.NOTE] This tutorial focuses on using PowerShell to create a listener for an Availability Group that includes Azure replicas. For more information on how to configure listeners using SSMS or Transact-SQL, see [Create or Configure an Availability Group Listener](https://msdn.microsoft.com/library/hh213080.aspx).
 
 ## Determine the accessibility of the Listener
 

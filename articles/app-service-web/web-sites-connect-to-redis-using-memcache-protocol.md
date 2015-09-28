@@ -1,26 +1,28 @@
 <properties
-   pageTitle="Connect a web app in Azure App Service to Redis Cache via the Memcache protocol | Microsoft Azure"
-   description="Connect a web app in Azure App service to Redis Cache using the Memcache protocol"
-   services="app-service\web"
-   documentationCenter="php"
-   authors="SyntaxC4"
-   manager="wpickett"
-   editor="riande"/>
+	pageTitle="Connect a web app in Azure App Service to Redis Cache via the Memcache protocol | Microsoft Azure"
+	description="Connect a web app in Azure App service to Redis Cache using the Memcache protocol"
+	services="app-service"
+	documentationCenter="php"
+	authors="SyntaxC4"
+	manager="wpickett"
+	editor="riande"/>
 
 <tags
-   ms.service="app-service-web"
-   ms.devlang="php"
-   ms.topic="get-started-article"
-   ms.tgt_pltfrm="windows"
-   ms.workload="web"
-   ms.date="06/30/2015"
-   ms.author="cfowler"/>
+	ms.service="app-service"
+	ms.devlang="php"
+	ms.topic="get-started-article"
+	ms.tgt_pltfrm="windows"
+	ms.workload="na"
+	ms.date="09/16/2015"
+	ms.author="cfowler"/>
 
 # Connect a web app in Azure App Service to Redis Cache via the Memcache protocol
 
 In this article, you'll learn how to connect a WordPress web app in [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) to [Azure Redis Cache][12] using the [Memcache][13] protocol. If you have an existing web app that uses a Memcached server for in-memory caching, You can migrate it to Azure App Service and use the first-party caching solution in Microsoft Azure with little or no change to your application code. Furthermore, you can use your existing Memcache expertise to create highly scalable, distributed apps in Azure App Service with Azure Redis Cache for in-memory caching, while using popular application frameworks such as .NET, PHP, Node.js, Java, and Python.  
 
 App Service Web Apps enables this application scenario with the Web Apps Memcache shim, which is a local Memcached server that acts as a Memcache proxy for caching calls to Azure Redis Cache. This enables any app that communicates using the Memcache protocol to cache data with Redis Cache. This Memcache shim works at the protocol level, so it can be used by any application or application framework as long as it communicates using the Memcache protocol.
+
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)] 
 
 ## Prerequisites
 

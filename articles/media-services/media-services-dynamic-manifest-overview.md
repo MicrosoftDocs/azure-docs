@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="08/11/2015" 
+	ms.date="09/07/2015" 
 	ms.author="juliako"/>
 
 #Filters and Dynamic Manifests
@@ -111,7 +111,7 @@ As was mentioned before, when delivering your content to customers (streaming li
 - Playing back only a section of a video (instead of playing the whole video).
 - Adjust DVR presentation window.
 
-###Rendition filtering 
+##Rendition filtering 
 
 You may choose to encode your asset to multiple encoding profiles (H.264 Baseline, H.264 High, AACL, AACH, Dolby Digital Plus) and multiple quality bitrates. However, not all client devices will support all your asset's profiles and bitrates. For example, older Android devices only supports H.264 Baseline+AACL. Sending higher bitrates to a device which cannot get the benefits, wastes bandwidth and device computation. Such device must decode all the given information, only to scale it down for display.
 
@@ -124,20 +124,20 @@ In the following example, Azure Media Encoder was used to encode a mezzanine ass
 
 ![Rendition filtering][renditions1]
 
-###Removing language tracks
+##Removing language tracks
 
 Your assets might include multiple audio languages such as English, Spanish, French, etc. Usually, the Player SDK managers default audio track selection and available audio tracks per user selection. It is challenging to develop such Player SDKs, it requires different implementations across device-specific player-frameworks. Also, on some platforms, Player APIs are limited and do not include audio selection feature where users cannot select or change the default audio track. With asset filters, you can control the behavior by creating filters that only include desired audio languages.
 
 ![Language tracks filtering][language_filter]
 
 
-###Trimming start of an asset 
+##Trimming start of an asset 
 
 In most live streaming events, operators run some tests before the actual event. For example, they might include a slate like this before the start of the event: "Program will begin momentarily". If the program is archiving, the test and slate data are also archived and will be included in the presentation. However, this information should not be shown to the clients. With Dynamic Manifest, you can create a start time filter and remove the unwanted data from the manifest.
 
 ![Trimming start][trim_filter]
 
-###Creating sub-clips (views) from a live archive
+##Creating sub-clips (views) from a live archive
 
 Many live events are long running and live archive might include multiple events. After the live event ends broadcasters may want to break up the live archive into logical program start and stop sequences. Then, publish these virtual programs separately without post processing the live archive and not creating separate assets (which will not get benefit of the existing cached fragments in the CDNs). Examples of such virtual programs (sub-clips) are the quarters of a football or basketball game, the innings in baseball, or individual events of an afternoon of Olympics program.
 
@@ -149,24 +149,22 @@ Filtered Asset:
 
 ![Skiing][skiing]
 
-###Adjusting Presentation Window (DVR)
+##Adjusting Presentation Window (DVR)
 
 Currently, Azure Media Services offers circular archive where the duration can be configured between 5 minutes - 25 hours. Manifest filtering can be used to create a rolling DVR window over the top of the archive, without deleting media. There are many scenarios where broadcasters want to provide a limited DVR window which moves with the live edge and at the same time keep a bigger archiving window. A broadcaster may want to use the data that is out of the DVR window to highlight clips, or he\she may want to provide different DVR windows for different devices. For example, most of the mobile devices don’t handle big DVR windows (you can have a 2 minute DVR window for mobile devices and 1 hour for desktop clients).
 
 ![DVR window][dvr_filter]
 
-###Adjusting LiveBackoff (live position)
+##Adjusting LiveBackoff (live position)
 
 Manifest filtering can be used to remove several seconds from the live edge of a live program. This allows broadcasters to watch the presentation on the preview publication point and create advertisement insertion points before the viewers receive the stream (usually backed-off by 30 seconds). Broadcasters can then push these advertisements to their client frameworks in time for them to received and process the information before the advertisement opportunity.
 
 In addition to the advertisement support, LiveBackoff can be used for adjusting client live download position so that when clients drift and hit the live edge they can still get fragments from server instead of getting 404 or 412 HTTP errors.
 
-
-
 ![livebackoff_filter][livebackoff_filter]
 
 
-###Combining multiple rules in a single filter
+##Combining multiple rules in a single filter
 
 You can combine multiple filtering rules in a single filter. As an example you can define a range rule to remove slate from a live archive and also filter available bitrates. For multiple filtering rules the end result is the composition (intersection only) of these rules.
 
@@ -178,6 +176,10 @@ The following topic discusses Media Services entities that are related to filter
 
 [Create filters with REST APIs](media-services-rest-dynamic-manifest.md).
 
+## Combining multiple filters
+
+You can also combine multiple filters in a URL (for example, (Filter=A,B)). Up to 3 filters can be combined in a single URL. The order of the filters doesn’t matter since they all get merged and processed at the same time. You can combine global and local filters. Filter combination enables the following scenario: you can have a global Android filter and apply trimming with it (without combination you would need to add Android filter to the trimming filter).
+
 ##Know issues and limitations
 
 - Dynamic manifest operates in GOP boundaries (Key Frames) hence trimming has GOP accuracy. 
@@ -185,9 +187,16 @@ The following topic discusses Media Services entities that are related to filter
 - If you update a filter, it can take up to 2 minutes for streaming endpoint to refresh the rules. If the content was served using some filters (and cached in proxies and CDN caches), updating these filters can result in player failures. It is recommend to clear the cache after updating the filter. If this option is not possible, consider using a different filter.
 
 
+##Media Services learning paths
+
+You can view AMS learning paths here:
+
+- [AMS Live Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [AMS on Demand Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
 ##See Also
 
-
+[Delivering Content to Customers Overview](media-services-deliver-content-overview.md)
 
 [renditions1]: ./media/media-services-dynamic-manifest-overview/media-services-rendition-filter.png
 [renditions2]: ./media/media-services-dynamic-manifest-overview/media-services-rendition-filter2.png

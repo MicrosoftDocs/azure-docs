@@ -1,9 +1,9 @@
 <properties
-	pageTitle="How to Use VMAccess for Linux Virtual Machines"
-	description="How to use the Azure Preview Portal or the VMAccess extension for Linux to reset passwords and SSH keys, to reset SSH configurations, and delete Linux users."
+	pageTitle="Resetting Linux VM password from Azure CLI"
+	description="How to use VMAccess extension from Azure Portal or CLI to reset Linux VM passwords and SSH keys, SSH configurations, and delete users accounts."
 	services="virtual-machines"
 	documentationCenter=""
-	authors="KBDAzure"
+	authors="cynthn"
 	manager="timlt"
 	editor=""
 	tags="azure-service-management"/>
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/28/2015"
-	ms.author="kathydav"/>
+	ms.author="cynthn"/>
 
 # How to Reset a Password or SSH for Linux Virtual Machines #
 

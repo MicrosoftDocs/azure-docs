@@ -14,12 +14,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/05/2015"
+	ms.date="08/12/2015"
 	ms.author="larryfr"/>
 
 # Analyze Twitter data using Hive in HDInsight
 
-In this document, you will get tweets by using a Twitter streaming API and then use Apache Hive on a Linux-based HDInsight (preview) cluster to process the JSON formatted data. The result will be a list of Twitter users who sent the most tweets that contained a certain word.
+In this document, you will get tweets by using a Twitter streaming API and then use Apache Hive on a Linux-based HDInsight cluster to process the JSON formatted data. The result will be a list of Twitter users who sent the most tweets that contained a certain word.
 
 > [AZURE.NOTE] While individual pieces of this document can be used with Windows-based HDInsight clusters (Python and Hive for example,) many steps are based on using a Linux-based HDInsight cluster. For steps specific to a Windows-based cluster, see [Analyze Twitter data using Hive in HDInsight](hdinsight-analyze-twitter-data.md).
 

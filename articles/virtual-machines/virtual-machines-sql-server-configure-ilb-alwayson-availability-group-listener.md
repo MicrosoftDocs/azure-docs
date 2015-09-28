@@ -1,18 +1,19 @@
 <properties 
-	pageTitle="Configure an ILB Listener for AlwaysOn Availability Groups in Azure"
-	description="This tutorial walks you through steps of creating an AlwaysOn Availability Group Listener in Azure using an Internal Load Balancer (ILB)."
+	pageTitle="Configure an ILB Listener for AlwaysOn Availability Groups | Microsoft Azure"
+	description="This tutorial uses resources created with  the classic deployment model, and creates an AlwaysOn Availability Group Listener in Azure using an Internal Load Balancer (ILB)."
 	services="virtual-machines"
 	documentationCenter="na"
 	authors="rothja"
 	manager="jeffreyg"
-	editor="monicar" />
+	editor="monicar" 
+	tags="azure-service-management"/>
 <tags 
 	ms.service="virtual-machines"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="08/11/2015"
+	ms.date="09/16/2015"
 	ms.author="jroth" />
 
 # Configure an ILB listener for AlwaysOn Availability Groups in Azure
@@ -25,6 +26,8 @@
 
 This topic shows you how to configure a listener for an AlwaysOn Availability Group by using an **Internal Load Balancer (ILB)**. 
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)] This article covers creating a resource with the classic deployment model. 
+
 Your Availability Group can contain replicas that are on-premises only, Azure only, or span both on-premises and Azure for hybrid configurations. Azure replicas can reside within the same region or across multiple regions using multiple virtual networks (VNets). The steps below assume you have already [configured an availability group](virtual-machines-sql-server-alwayson-availability-groups-gui.md) but have not configured a listener. 
 
 Note the following limitations on the availability group listener in Azure using ILB:
@@ -34,8 +37,6 @@ Note the following limitations on the availability group listener in Azure using
 - The client application must reside on a different cloud service than the one that contains your availability group VMs. Azure does not support direct server return with client and server in the same cloud service.
 
 - Only one availability group listener is supported per cloud service because the listener is configured to either use the cloud service VIP address or the VIP address of the Internal Load Balancer. Note that this limitation is still in effect although Azure now supports the creation of multiple VIP addresses in a given cloud service.
-
->[AZURE.NOTE] This tutorial focuses on using PowerShell to create a listener for an Availability Group that includes Azure replicas. For more information on how to configure listeners using SSMS or Transact-SQL, see [Create or Configure an Availability Group Listener](https://msdn.microsoft.com/library/hh213080.aspx).
 
 ## Determine the accessibility of the Listener
 

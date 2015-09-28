@@ -1,14 +1,14 @@
 <properties
 	pageTitle="Microsoft Azure IoT Suite guidance on customizing preconfigured solutions | Microsoft Azure"
 	description="This will provide guidnace on customizing Azure IoT Suite preconfigured solutions."
-	services="iot-suite"
+	services=""
 	documentationCenter=".net"
 	authors="aguilaaj"
 	manager="kevinmil"
 	editor=""/>
 
 <tags
-     ms.service="azure-iot"
+     ms.service="na"
      ms.devlang="na"
      ms.topic="article"
      ms.tgt_pltfrm="na"

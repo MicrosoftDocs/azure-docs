@@ -1,19 +1,20 @@
-<properties 
-	pageTitle="Ruby on Rails Web App on Azure using Linux VM" 
-	description="Host a Ruby on Rails-based website on Azure using a Linux virtual machine." 
-	services="virtual-machines" 
-	documentationCenter="ruby" 
-	authors="MikeWasson" 
-	manager="wpickett" 
-	editor=""/>
+<properties
+	pageTitle="Host a Ruby on Rails website on a Linux VM | Microsoft Azure"
+	description="Set up and host a Ruby on Rails-based website on Azure using a Linux virtual machine."
+	services="virtual-machines"
+	documentationCenter="ruby"
+	authors="MikeWasson"
+	manager="wpickett"
+	editor=""
+	tags="azure-service-management"/>
 
-<tags 
-	ms.service="virtual-machines" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="vm-linux" 
-	ms.devlang="ruby" 
-	ms.topic="article" 
-	ms.date="06/09/2015" 
+<tags
+	ms.service="virtual-machines"
+	ms.workload="web"
+	ms.tgt_pltfrm="vm-linux"
+	ms.devlang="ruby"
+	ms.topic="article"
+	ms.date="06/09/2015"
 	ms.author="mwasson"/>
 
 
@@ -26,9 +27,11 @@ This tutorial shows how to host a Ruby on Rails website on Azure using a Linux v
 
 This tutorial was validated using Ubuntu Server 14.04 LTS. If you use a different Linux distribution, you might need to modify the steps to install Rails.
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)] This article covers creating a resource with the classic deployment model
+
 ## Create an Azure VM
 
-Start by creating an Azure VM with a Linux image. 
+Start by creating an Azure VM with a Linux image.
 
 To create the VM, you can use the Azure Management Portal or the Azure Command-Line Interface (CLI).
 
@@ -50,8 +53,8 @@ After the VM is provisioned, you can get the SSH endpoint by running the followi
 
 ## Install Ruby on Rails
 
-1. Use SSH to connect to the VM. 
-	
+1. Use SSH to connect to the VM.
+
 2. From the SSH session, use the following commands to install Ruby on the VM:
 
 		sudo apt-get update -y
@@ -80,7 +83,7 @@ While still logged in via SSH, run the following commands:
 
 The [new](http://guides.rubyonrails.org/command_line.html#rails-new) command creates a new Rails app. The [server](http://guides.rubyonrails.org/command_line.html#rails-server) command starts the WEBrick web server that comes with Rails. (For production use, you would probably want to use a different server, such as Unicorn or Passenger.)
 
-You should see output similar to the following. 
+You should see output similar to the following.
 
 	=> Booting WEBrick
 	=> Rails 4.2.1 application starting in development on http://0.0.0.0:3000
@@ -170,4 +173,3 @@ To use Azure services from your Ruby application, see:
 [new-endpoint]: ./media/virtual-machines-ruby-rails-web-app-linux/newendpoint.png
 
 [new-endpoint1]: ./media/virtual-machines-ruby-rails-web-app-linux/newendpoint1.png
- 

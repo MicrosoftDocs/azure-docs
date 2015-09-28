@@ -12,8 +12,8 @@
 	ms.workload="tbd"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="hero-article"
-	ms.date="05/19/2015"
+	ms.topic="hero-article" 
+	ms.date="09/08/2015"
 	ms.author="bwren"/>
 
 

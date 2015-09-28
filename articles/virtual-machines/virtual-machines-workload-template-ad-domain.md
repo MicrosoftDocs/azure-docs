@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Deploy a highly-available Active Directory Domain Services domain with an Azure Resource Manager template"
+	pageTitle="Highly-available Active Directory Domain Services ARM template | Microsoft Azure"
 	description="Easily deploy two servers acting as Active Directory Domain Services domain controllers with a Resource Manager Template and the Azure Preview portal, Azure PowerShell, or the Azure CLI."
 	services="virtual-machines"
 	documentationCenter=""
@@ -19,6 +19,8 @@
 
 
 # Deploy a highly-available Active Directory Domain Services domain with an Azure Resource Manager template
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)] This article covers creating a resource with the Resource Manager deployment model. You can't create this resource with the classic deployment model.
 
 Use the instructions in this article to deploy a highly-available Active Directory domain using a Resource Manager template. This template creates two virtual machines in a new virtual network on the same subnet.
 

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/20/2015"  
+	ms.date="09/07/2015"  
 	ms.author="juliako"/>
 
 
@@ -70,6 +70,13 @@ The following diagram shows the major parts of the AMS platform that are involve
 For more information, see [Working with Channels that Receive Multi-bitrate Live Stream from On-premises Encoders
 ](media-services-manage-channels-overview.md). 
 
+
+##Media Services learning paths
+
+You can view AMS learning paths here:
+
+- [AMS Live Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [AMS on Demand Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
 ##Related topics
 

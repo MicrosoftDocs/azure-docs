@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Set up staging environments for web apps in Azure App Service"
 	description="Learn how to use staged publishing for web apps in Azure App Service."
-	services="app-service\web"
+	services="app-service"
 	documentationCenter=""
 	authors="cephalin"
 	writer="cephalin"
@@ -9,12 +9,12 @@
 	editor="mollybos"/>
 
 <tags
-	ms.service="app-service-web"
-	ms.workload="web"
+	ms.service="app-service"
+	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/03/2015"
+	ms.date="09/21/2015"
 	ms.author="cephalin"/>
 
 # Set up staging environments for web apps in Azure App Service
@@ -34,9 +34,10 @@ Each App Service plan mode supports a different number of deployment slots. To f
 
 - Scaling is not available for non-production slots.
 
-- Linked resource management is not supported for non-production slots.
+- Linked resource management is not supported for non-production slots. In the [Azure preview portal](http://go.microsoft.com/fwlink/?LinkId=529715) only, you can avoid this potential impact on a production slot by temporarily moving the non-production slot to a different App Service plan mode. Note that the non-production slot must once again share the same mode with the production slot before you can swap the two slots.
 
-	> [AZURE.NOTE] In the [Azure preview portal](http://go.microsoft.com/fwlink/?LinkId=529715) only, you can avoid this potential impact on a production slot by temporarily moving the non-production slot to a different App Service plan mode. Note that the non-production slot must once again share the same mode with the production slot before you can swap the two slots.
+
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 <a name="Add"></a>
 ## Add a deployment slot to a web app ##
@@ -127,6 +128,11 @@ Configuring Auto Swap for a slot is easy. Follow the steps below:
 
 3. Execute a code push to that deployment slot. Auto Swap will happen after a short time and the update will be reflected at your target slot's URL.
 
+<a name="Multi-Phase"></a>
+## Use multi-phase swap for your web app ##
+
+Multi-phase swap is available to simplify validation in the context of configuration elements designed to stick to a slot such as connection strings. In these cases it may be useful to apply such configuration elements from the swap target to the swap source and validate before swap actually takes effect. Once swap target configuration elements are applied to the swap source the actions available are either completing the swap or reverting to original configuration for the swap source which also has the effect of canceling the swap. Samples for the Azure PowerShell cmdlets available for multi-phase swap are included in the Azure PowerShell cmdlets for deployment slots section.
+
 <a name="Rollback"></a>
 ## To rollback a production app after swap ##
 If any errors are identified in production after a slot swap, roll the slots back to their pre-swap states by swapping the same two slots immediately.
@@ -147,49 +153,45 @@ Azure PowerShell is a module that provides cmdlets to manage Azure through Windo
 
 - For information on installing and configuring Azure PowerShell, and on authenticating Azure PowerShell with your Azure subscription, see [How to install and configure Microsoft Azure PowerShell](../install-configure-powershell.md).  
 
-- To list the cmdlets available for Azure App Service in PowerShell, call `help AzureWebsite`.
+- In order to use the new Azure Resource Manager mode for PowerShell cmdlets start with the following: `Switch-AzureMode -Name AzureResourceManager`.
 
 ----------
 
-### Get-AzureWebsite
-The **Get-AzureWebsite** cmdlet presents information about Azure web apps for the current subscription, as in the following example.
+### Create web app
 
-`Get-AzureWebsite webappslotstest`
-
-----------
-
-### New-AzureWebsite
-You can create a deployment slot by using the **New-AzureWebsite** cmdlet and specifying the names of both the web app and slot. Also indicate the same region as the web app for deployment slot creation, as in the following example.
-
-`New-AzureWebsite webappslotstest -Slot staging -Location "West US"`
+`New-AzureWebApp -ResourceGroupName [resource group name] -Name [web app name] -Location [location] -AppServicePlan [app service plan name]`
 
 ----------
 
-### Publish-AzureWebsiteProject
-You can use the **Publish-AzureWebsiteProject** cmdlet for content deployment, as in the following example.
+### Create a deployment slot for a web app
 
-`Publish-AzureWebsiteProject -Name webappslotstest -Slot staging -Package [path].zip`
-
-----------
-
-### Show-AzureWebsite
-After content and configuration updates have been applied to the new slot, you can validate the updates by browsing to the slot using the **Show-AzureWebsite** cmdlet, as in the following example.
-
-`Show-AzureWebsite -Name webappslotstest -Slot staging`
+`New-AzureWebApp -ResourceGroupName [resource group name] -Name [web app name] -SlotName [deployment slot name] -Location [location] -AppServicePlan [app service plan name]`
 
 ----------
 
-### Switch-AzureWebsiteSlot
-The **Switch-AzureWebsiteSlot** cmdlet can perform a swap operation to make the updated deployment slot the production site, as in the following example. The production app will not experience any down time, nor will it undergo a cold start.
+### Initiate multi-phase swap and apply target slot configuration to source slot
 
-`Switch-AzureWebsiteSlot -Name webappslotstest`
+`$ParametersObject = @{targetSlot  = "[slot name – e.g. “production”]"}`
+`Invoke-AzureResourceAction -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots -ResourceName [web app name]/[slot name] -Action applySlotConfig -Parameters $ParametersObject -ApiVersion 2015-07-01`
 
 ----------
 
-### Remove-AzureWebsite
-If a deployment slot is no longer needed, it can be deleted by using the **Remove-AzureWebsite** cmdlet, as in the following example.
+### Revert the first phase of multi-phase swap and restore source slot configuration
 
-`Remove-AzureWebsite -Name webappslotstest -Slot staging`
+`Invoke-AzureResourceAction -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots -ResourceName [web app name]/[slot name] -Action resetSlotConfig -ApiVersion 2015-07-01`
+
+----------
+
+### Swap deployment slots
+
+`$ParametersObject = @{targetSlot  = "[slot name – e.g. “production”]"}`
+`Invoke-AzureResourceAction -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots -ResourceName [web app name]/[slot name] -Action slotsswap -Parameters $ParametersObject -ApiVersion 2015-07-01`
+
+----------
+
+### Delete deployment slot
+
+`Remove-AzureResource -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots –Name [web app name]/[slot name] -ApiVersion 2015-07-01`
 
 ----------
 

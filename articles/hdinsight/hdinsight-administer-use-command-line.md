@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/08/2015"
+	ms.date="09/17/2015"
 	ms.author="jgao"/>
 
 # Manage Hadoop clusters in HDInsight by using the Azure Command-line Interface (Azure CLI)
@@ -132,8 +132,11 @@ Use the following command to delete a cluster:
 
 	azure hdinsight cluster delete <ClusterName>
 
+##<a name="scaling"></a>Scale a cluster
 
+To change the Hadoop cluster size by using Azure PowerShell, run the following command from a client machine:
 
+	Set-AzureHDInsightClusterSize -ClusterSizeInNodes <NewSize> -name <clustername>
 
 ##Next steps
 In this article, you have learned how to perform different HDInsight cluster administrative tasks. To learn more, see the following articles:

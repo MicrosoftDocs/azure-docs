@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/16/2015"
+	ms.date="09/09/2015"
 	ms.author="roalexan" />
 
 
@@ -38,7 +38,7 @@ To complete this guide, you need:
 
 * An Azure account. If you don’t have an Azure account, click [here](http://azure.microsoft.com/pricing/free-trial/) for details on how to create a free trial account.
 * An AzureML account. If you don’t have an AzureML account, click [here](https://studio.azureml.net/) for details on how to create a free trial account.
-* The workspace, service, and api_key for an AzureML experiment published as a web service. Click [here](machine-learning/machine-learning-create-experiment.md) for details on how to create an AzureML experiment. Click [here](machine-learning/machine-learning-publish-a-machine-learning-web-service.md) for details on how to publish an AzureML experiment as a web service. Alternately, Appendix A has instructions for how to create and test a simple AzureML experiment and publish it as a web service.
+* The workspace, service, and api_key for an AzureML experiment deployed as a web service. Click [here](machine-learning/machine-learning-create-experiment.md) for details on how to create an AzureML experiment. Click [here](machine-learning/machine-learning-publish-a-machine-learning-web-service.md) for details on how to deploy an AzureML experiment as a web service. Alternately, Appendix A has instructions for how to create and test a simple AzureML experiment and deploy it as a web service.
 
 ##Create an API Management instance
 
@@ -148,7 +148,7 @@ After an operation is invoked, the developer portal displays the **Requested URL
 
 ###Creating the experiment
 
-Below are the steps for creating a simple AzureML experiment and publishing it as a web service. The web service takes as input a column of arbitrary text and returns a set of features represented as integers. For example:
+Below are the steps for creating a simple AzureML experiment and deploying it as a web service. The web service takes as input a column of arbitrary text and returns a set of features represented as integers. For example:
 
 Text | Hashed Text
 --- | ---

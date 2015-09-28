@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/26/2015" 
+	ms.date="09/07/2015" 
 	ms.author="juliako"/>
 
 
@@ -966,6 +966,15 @@ A Smooth Streaming presentation can contain multiple video files encoded with di
 5.	By default, all of the tracks of the video stream are selected. To experiment the bit rate changes, you can select the lowest bit rate available, and then select the highest bit rate available. You must click Submit after each change.  You can see the video quality changes.
 
 You have completed lesson 4.  In this lesson, you add the functionality to choose tracks.
+
+
+##Media Services learning paths
+
+You can view AMS learning paths here:
+
+- [AMS Live Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [AMS on Demand Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
 
 
 ##Other Resources:

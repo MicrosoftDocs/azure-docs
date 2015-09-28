@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="09/02/2015"
+    ms.date="09/09/2015"
     ms.author="cgronlun;tedway;olgali"/>
 
 
@@ -30,7 +30,7 @@ These forecasts or predictions from machine learning can make apps and devices s
 
 Azure Machine Learning is a powerful cloud-based predictive analytics service that makes it possible to quickly create and deploy predictive models as analytics solutions.
 
-Azure Machine Learning not only provides tools to model predictive analytics, but also provides a fully-managed service you can use to publish your predictive models as ready-to-consume web services. Azure Machine Learning provides tools for creating complete predictive analytics solutions in the cloud: Quickly create, test, operationalize, and manage predictive models. You do not need to buy any hardware nor manually manage virtual machines.
+Azure Machine Learning not only provides tools to model predictive analytics, but also provides a fully-managed service you can use to deploy your predictive models as ready-to-consume web services. Azure Machine Learning provides tools for creating complete predictive analytics solutions in the cloud: Quickly create, test, operationalize, and manage predictive models. You do not need to buy any hardware nor manually manage virtual machines.
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
@@ -60,7 +60,7 @@ Create predictive models in [Machine Learning Studio](machine-learning-what-is-m
 * Purchase ready-to-consume web services from [Microsoft Azure Marketplace](https://datamarket.azure.com/browse?query=machine+learning), such as Recommendations, Text Analytics, and Anomaly Detection.
 
 * Operationalize your predictive analytics models:
-    * [Publish web services](machine-learning-publish-a-machine-learning-web-service.md)
+    * [Deploy web services](machine-learning-publish-a-machine-learning-web-service.md)
     * [Train and retrain models through APIs](machine-learning-retrain-models-programmatically.md)
     * [Manage web service endpoints](machine-learning-create-endpoint.md)
     * [Scale web services](machine-learning-scaling-endpoints.md)

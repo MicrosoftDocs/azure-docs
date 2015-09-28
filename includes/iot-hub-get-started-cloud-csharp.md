@@ -129,5 +129,5 @@ In this section, you will create a Windows console app that reads device-to-clou
 
 <!-- Images -->
 [10]: ./media/iot-hub-getstarted-cloud-csharp/create-identity-csharp1.png
-[12]: ./media/iot-hub-getstarted-cloud-csharp/create-identity-csharp2.png
+[12]: ./media/iot-hub-getstarted-cloud-csharp/create-identity-csharp3.png
 

@@ -11,7 +11,7 @@
    ms.service="iot-hub"
    ms.devlang="na"
    ms.topic="article"
-   ms.tgt_pltfrm="may be required"
+   ms.tgt_pltfrm="na"
    ms.workload="required"
    ms.date="09/29/2015"
    ms.author="kdotchkoff"/>
@@ -31,28 +31,7 @@ The MQTT adapter also demonstartes the programing model for building protocl ada
 
 To learn more about Azure IoT protocol gateway and how to use and deploy it as part of your IoT solution please refer to:
 
-1. Azure IoT protocol gatway getting started guide
+* [Azure IoT protocol gateway repository on GitHub](https://github.com/Azure/azure-iot-protocol-gateway/)
+* [Azure IoT protocol gateway developer guide](https://github.com/Azure/azure-iot-protocol-gateway/blob/master/DeveloperGuide.md)
 
-    [Link 1 to the getting started guide in the GitHub repo](web-sites-custom-domain-name.md)
-    
 
-2. Azure IoT protocol gateway developer guide 
-
-    [Link 1 to the dev  guide in in the topic](web-sites-custom-domain-name.md)
-   	    
-3. Azure IoT protocol gateway repository on GitHub 
-
-    [Link 1 to the GitHub repo](web-sites-custom-domain-name.md)
-
-   
-
-<!--Image references-->
-[5]: ./media/markdown-template-for-new-articles/octocats.png
-[6]: ./media/markdown-template-for-new-articles/pretty49.png
-[7]: ./media/markdown-template-for-new-articles/channel-9.png
-[8]: ./media/markdown-template-for-new-articles/copytemplate.png
-
-<!--Reference style links - using these makes the source content way more readable than using inline links-->
-[gog]: http://google.com/        
-[yah]: http://search.yahoo.com/  
-[msn]: http://search.msn.com/    

@@ -1,4 +1,4 @@
-<properties 
+<properties
    pageTitle="Configuring Your Azure project using multiple service configurations"
    description="Configuring Your Azure project using multiple service configurations"
    services="visual-studio-online"
@@ -6,7 +6,7 @@
    authors="kempb"
    manager="douge"
    editor="tlee" />
-<tags 
+<tags
    ms.service="multiple"
    ms.devlang="multiple"
    ms.topic="article"
@@ -85,7 +85,7 @@ A worker role can have any number of HTTP, HTTPS, or TCP endpoints. Endpoints ca
 
 ## Local storage page
 
-You can use the **Local Storage** property page to reserve one or more local storage resources for a role. A local storage resource is a reserved directory in the file system of the Azure virtual machine in which an instance of a role is running. For more information about how to work with local storage resources, see [Configure Local Storage Resources](https://msdn.microsoft.com/library/azure/ee758708.aspx).
+You can use the **Local Storage** property page to reserve one or more local storage resources for a role. A local storage resource is a reserved directory in the file system of the Azure virtual machine in which an instance of a role is running. For more information about how to work with local storage resources, see [Configure Local Storage Resources](../cloud-services/cloud-services-configure-local-storage-resources.md).
 
 ## Certificates page
 
@@ -113,4 +113,3 @@ To configure settings that apply to an entire Azure cloud service project, you f
 ## See Also
 
 [Azure Tools for Microsoft Visual Studio](https://msdn.microsoft.com/library/azure/ee405484.aspx)
-

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Deploy SQL Server AlwaysOn with an Azure Resource Manager template | Microsoft Azure"
+	pageTitle="SQL Server AlwaysOn with Azure Resource Manager template | Microsoft Azure"
 	description="Easily deploy five servers that support SQL Server AlwaysOn with a Resource Manager template and the Azure preview portal, Azure PowerShell, or the Azure CLI."
 	services="virtual-machines"
 	documentationCenter=""
@@ -18,6 +18,8 @@
 	ms.author="davidmu"/>
 
 # Deploy SQL Server AlwaysOn with an Azure Resource Manager template
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)] This article covers creating a resource with the Resource Manager deployment model. You can't create this resource with the classic deployment model.
 
 Use the instructions in this article to deploy SQL Server AlwaysOn using an Azure Resource Manager template. This template creates five virtual machines in a new virtual network on two different subnets.
 

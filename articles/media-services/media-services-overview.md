@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/20/2015"
+	ms.date="09/07/2015"
 	ms.author="juliako"/>
 
 #Azure Media Services Overview and Common Scenarios
@@ -34,6 +34,14 @@ To build Media Services solutions, you can use:
 - [Media Services REST API](https://msdn.microsoft.com/library/azure/hh973617.aspx)
 - One of the available client SDKs: [Azure Media Services SDK for .NET](https://github.com/Azure/azure-sdk-for-media-services), [Azure SDK for Java](https://github.com/Azure/azure-sdk-for-java), [Azure Media Services for Node.js](https://github.com/fritzy/node-azure-media), [Azure PHP SDK](https://github.com/Azure/azure-sdk-for-php)
 - Existing tools: [Azure Management Portal](http://manage.windowsazure.com/) or [Azure-Media-Services-Explorer](https://github.com/Azure/Azure-Media-Services-Explorer).
+
+
+##Media Services learning paths
+
+You can view AMS learning paths here:
+
+- [AMS Live Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [AMS on Demand Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
 
 ##Prerequisites
@@ -213,8 +221,6 @@ You can also scale your Media Services account by adding storage accounts to it.
 - For Indexer, we will successfully service Indexer Task requests processed with an Encoding Reserved Unit 99.9% of the time.
 
 	For more information, see [Microsoft Azure SLA](http://azure.microsoft.com/support/legal/sla/).
-
-
 
 <!-- Images -->
 [overview]: ./media/media-services-overview/media-services-overview.png

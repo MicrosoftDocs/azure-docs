@@ -12,7 +12,7 @@
    ms.devlang="multiple"
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
-   ms.workload="integration"
+   ms.workload="na"
    ms.date="06/24/2015"
    ms.author="rajram"/>
 

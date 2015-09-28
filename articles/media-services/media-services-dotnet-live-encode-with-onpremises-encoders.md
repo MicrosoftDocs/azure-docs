@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/24/2015"  
+	ms.date="09/07/2015"  
 	ms.author="juliako"/>
 
 #How to perform live encoding with on-premises encoders
@@ -374,3 +374,11 @@ For information on how to configure a live encoder, see [Azure Media Services RT
 		        }
 		    }
 		}
+
+
+##Media Services learning paths
+
+You can view AMS learning paths here:
+
+- [AMS Live Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [AMS on Demand Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)

@@ -24,9 +24,9 @@ Target Throughput for Single Queue (1 KB messages)|Up to 2000 messages per secon
 Target Throughput for Single Table Partition (1 KB entities)|Up to 2000 entities per second
 Target Throughput for Single File Share (Preview)|Up to 60 MB per second
 Max ingress<sup>3</sup> per storage account (US Regions)|10 Gbps if GRS/ZRS<sup>4</sup> enabled, 20 Gbps for LRS
-Max egress<sup>3</sup> per storage account (US Regions)|20 Gbps if GRS/ZRS<sup>4</sup> enabled, 30 Gbps for LRS
+Max egress<sup>3</sup> per storage account (US Regions)|20 Gbps if RA-GRS/GRS/ZRS<sup>4</sup> enabled, 30 Gbps for LRS
 Max ingress<sup>3</sup> per storage account (European and Asian Regions)|5 Gbps if GRS/ZRS<sup>4</sup> enabled, 10 Gbps for LRS
-Max egress<sup>3</sup> per storage account (European and Asian Regions)|10 Gbps if GRS/ZRS<sup>4</sup> enabled, 15 Gbps for LRS
+Max egress<sup>3</sup> per storage account (European and Asian Regions)|10 Gbps if RA-GRS/GRS/ZRS<sup>4</sup> enabled, 15 Gbps for LRS
 
 <sup>1</sup>If you require more than 100 storage accounts, contact [Azure Support](http://azure.microsoft.com/support/faq/) for assistance.
 
@@ -36,4 +36,10 @@ You can roughly calculate the number of highly utilized disks supported by a sin
 
 <sup>3</sup>*Ingress* refers to all data (requests) being sent to a storage account. *Egress* refers to all data (responses) being received from a storage account.  
 
-<sup>4</sup>GRS refers to geo-redundant storage. ZRS refers to zone-redundant storage, and is available only for block blobs. LRS refers to locally redundant storage. 
+<sup>4</sup>Azure Storage replication options include:
+
+- **RA-GRS**: Read-access geo-redundant storage. If RA-GRS is enabled, egress targets for the secondary location are identical to those for the primary location.
+- **GRS**:  Geo-redundant storage. 
+- **ZRS**: Zone-redundant storage. Available only for block blobs. 
+- **LRS**: Locally redundant storage. 
+

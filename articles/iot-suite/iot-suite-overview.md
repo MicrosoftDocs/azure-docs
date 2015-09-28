@@ -1,14 +1,14 @@
 <properties
 	pageTitle="Microsoft Azure IoT Suite overview | Microsoft Azure"
 	description="This will provide an overview of the Azure IoT Suite."
-	services="iot-suite"
+	services=""
 	documentationCenter=".net"
 	authors="aguilaaj"
 	manager="kevinmil"
 	editor=""/>
 
 <tags
-     ms.service="azure-iot"
+     ms.service="na"
      ms.devlang="na"
      ms.topic="article"
      ms.tgt_pltfrm="na"

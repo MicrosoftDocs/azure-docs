@@ -1,24 +1,26 @@
-<properties 
-	pageTitle="Are virtual machines on Azure the compute option I want?" 
-	description="Learn about Azure compute hosting options and how they work: App Service, Cloud Services, and Virtual Machines" 
-	headerExpose="" 
-	footerExpose="" 
+<properties
+	pageTitle="Should I Choose Azure VMs? | Microsoft Azure"
+	description="Learn Azure VMs and how they compare to the different application hosting models on Azure."
+	headerExpose=""
+	footerExpose=""
 	services="virtual-machines"
-	authors="KBDAzure" 
+	authors="cynthn"
 	documentationCenter=""
 	manager="timlt"
 	tags=azure-resource-manager, azure-service-management/>
 
-<tags 
-	ms.service="multiple" 
-	ms.workload="multiple" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/19/2015" 
-	ms.author="kathydav"/>
+<tags
+	ms.service="virtual-machines"
+	ms.workload="multiple"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="06/19/2015"
+	ms.author="cynthn"/>
 
 # Should I Choose Azure Virtual Machines?
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
 
 Azure provides different hosting models for running applications. Each one provides a different set of services, so which one you choose depends on exactly what you're trying to do. Is an Azure VM the choice for you?
 
@@ -30,3 +32,6 @@ Learn more about [Virtual Machines](https://msdn.microsoft.com/library/azure/jj1
 [App Service]: app-service-choose-me.md
 [Virtual Machines]: #tellmevm
 [Cloud Services]: cloud-services-choose-me.md
+
+
+

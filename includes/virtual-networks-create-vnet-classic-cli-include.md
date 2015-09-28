@@ -3,10 +3,12 @@
 You can use the Azure CLI to manage your Azure resources from the command prompt from any computer running Windows, Linux, or OSX. To create a VNet by using the Azure CLI, follow the steps below.
 
 1. If you have never used Azure CLI, see [Install and Configure the Azure CLI](xplat-cli.md) and follow the instructions up to the point where you select your Azure account and subscription.
-2. Run the **azure network vnet create** command to create a VNet and a subnet, as shown below. Notice the output from the CLI command. The list shown after the output explains the parameters used.
+2. Run the **azure network vnet create** command to create a VNet and a subnet, as shown below. The list shown after the output explains the parameters used.
 
 			azure network vnet create --vnet TestVNet -e 192.168.0.0 -i 16 -n FrontEnd -p 192.168.1.0 -r 24 -l "Central US"
 	
+	Expected output:
+
 			info:    Executing command network vnet create
 			+ Looking up network configuration
 			+ Looking up locations
@@ -21,10 +23,12 @@ You can use the Azure CLI to manage your Azure resources from the command prompt
 	- **-r (or --subnet-cidr)**. Network mask in CIDR format for subnet. For our scenario, *24*.
 	- **-l (or --location)**. Azure region where the VNet will be created. For our scenario, *Central US*.
 
-3. Run the **azure network vnet subnet create** command to create a subnet as shown below. Notice the output of the command. The list shown after the output explains the parameters used.
+3. Run the **azure network vnet subnet create** command to create a subnet as shown below. The list shown after the output explains the parameters used.
 
 			azure network vnet subnet create -t TestVNet -n BackEnd -a 192.168.2.0/24
 	
+	Here is the expected output for the command above:
+
 			info:    Executing command network vnet subnet create
 			+ Looking up network configuration
 			+ Creating subnet "BackEnd"
@@ -42,6 +46,8 @@ You can use the Azure CLI to manage your Azure resources from the command prompt
 4. Run the **azure network vnet show** command to view the properties of the new vnet, as shown below.
 
 			azure network vnet show
+
+	Here is the expected output for the command above:
 
 			info:    Executing command network vnet show
 			Virtual network name: TestVNet
