@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/27/2015" 
+	ms.date="09/28/2015" 
 	ms.author="genemi"/>
 
 
@@ -101,7 +101,7 @@ The extended events feature is supported by several [catalog views](http://msdn.
 | **sys.database_event_session_events** | Returns a row for each event in an event session. |
 | **sys.database_event_session_fields** | Returns a row for each customize-able column that was explicitly set on events and targets. |
 | **sys.database_event_session_targets** | Returns a row for each event target for an event session. |
-| **sys.database_event_sessions** | Returns a row for each event session. |
+| **sys.database_event_sessions** | Returns a row for each event session in the SQL Database database. |
 
 
 In Microsoft SQL Server, similar catalog views have names that include *.server\_* instead of *.database\_*. The name pattern is like **sys.server_event_%**.
@@ -201,9 +201,6 @@ There are a couple security related differences befitting the cloud environment 
 
 
 ## Permission model
-
-
-The extended events feature is at Preview status on Azure SQL Database. Until the feature is announced as promoted to General Availability (GA), you must have **Control** permission on the database to issue a **CREATE EVENT SESSION** statement. The database owner (dbo) has **Control** permission.
 
 
 You must have **Control** permission on the database to issue a **CREATE EVENT SESSION** statement. The database owner (dbo) has **Control** permission.

@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/27/2015" 
+	ms.date="09/28/2015" 
 	ms.author="genemi"/>
 
 
@@ -48,7 +48,7 @@ This topic presents a two-phase code sample:
  - Optionally you can [create an **AdventureWorksLT** demonstration database](sql-database-get-started.md) in minutes.
 
 
-- SQL Server Management Studio (ssms.exe), version 2014 or later. 
+- SQL Server Management Studio (ssms.exe), its August 2015 Preview or a later version. 
 You can download the latest ssms.exe from:
  - [A link in topic.](http://msdn.microsoft.com/library/mt238290.aspx)
  - [A direct link to the download.](http://go.microsoft.com/fwlink/?linkid=616025)
