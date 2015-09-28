@@ -215,7 +215,7 @@ On all client machines, from which your applications or users connect to Azure S
 ### Tools
 
 - Installing either [SQL Server 2016 Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) or [SQL Server Data Tools for Visual Studio 2015](https://msdn.microsoft.com/library/mt204009.aspx) meets the .NET Framework 4.6 requirement. 
-- SSMS installs the x86 version of **ADALSQL.DLL**. 
+- SSMS installs the x86 version of **ADALSQL.DLL**. (At this time, SSMS fails to prompt for a required a reboot after installation. This should be fixed in a future CTP.)
 - SSDT installs the amd64 version of **ADALSQL.DLL**. Azure AD authentication is only partially supported by SSDT.
 - The latest Visual Studio from [Visual Studio Downloads](https://www.visualstudio.com/downloads/download-visual-studio-vs) meets the .NET Framework 4.6 requirement, but does not install the required amd64 version of **ADALSQL.DLL**.
 
