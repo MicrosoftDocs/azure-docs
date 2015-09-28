@@ -31,12 +31,12 @@ Rules can be setup on metrics through the portal, or can be configured [programm
 
 There are two ways to setup alerts: in the Azure Management portal:  
 
-1.	The Monitor tab of your Stream Analytics job  
+1.	The **Monitor** tab of your Stream Analytics job  
 2.	The Operations Log in the Management services  
 
 ## Alerts through the Monitor tab of the job in the portal
 
-1.	Select the metric in the monitor tab, and click on the Add Rule button in the bottom of the dashboard, and setup your rules.  
+1.	Select the metric in the monitor tab, and click on the **Add Rule** button in the bottom of the dashboard, and setup your rules.  
 
     ![Dashboard](./media/stream-analytics-set-up-alerts/01-stream-analytics-set-up-alerts.png)  
 
