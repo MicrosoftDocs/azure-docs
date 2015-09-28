@@ -46,15 +46,14 @@ The following table provides a matrix of available SQL Server images in the virt
 |SQL Server 2014 SP1|Windows Server 2012 R2|Enterprise, Standard, Web|
 |SQL Server 2016 CTP|Windows Server 2012 R2|Evaluation|
 
-In order to determine the best virtual machine configuration settings for your SQL Server image, review the [Performance best practices for SQL Server in Azure Virtual Machines](virtual-machines-sql-server-performance-best-practices.md). Note that **DS3** is the minimum recommended virtual machine size for SQL Server Enterprise edition, and **DS2** is the minimum recommended virtual machine size for Standard edition. It is possible, however, to run lighter workloads on other machine sizes.
-
 >[AZURE.NOTE] The virtual machines gallery images for data warehousing and transactional workloads (not shown above) are deprecated and will be removed from the gallery soon. Please use the standard images in the previous table and optimize performance for your specific workload.
 
 In addition to these preconfigured images, you can also [create an Azure virtual machine](virtual-machines-windows-tutorial.md) without SQL Server pre-installed. You can install any instance of SQL Server for which you have a license. You migrate your license to Azure for running SQL Server in an Azure Virtual Machine using [License Mobility through Software Assurance on Azure](http://azure.microsoft.com/pricing/license-mobility/). In this scenario, you only pay for Azure compute and storage [costs](http://azure.microsoft.com/pricing/details/virtual-machines) associated with the virtual machine.
 
-During these early stages of provisioning and configuring, common tasks include:
+In order to determine the best virtual machine configuration settings for your SQL Server image, review the [Performance best practices for SQL Server in Azure Virtual Machines](virtual-machines-sql-server-performance-best-practices.md). Note that **DS3** is the minimum recommended virtual machine size for SQL Server Enterprise edition, and **DS2** is the minimum recommended virtual machine size for Standard edition. It is possible, however, to run lighter workloads on other machine sizes.
 
-- [Review performance best practices for SQL Server in Azure VMs](virtual-machines-sql-server-performance-best-practices.md)
+In addition to reviewing performance best practices, other initial tasks include the following:
+
 - [Review security best practices for SQL Server in Azure VMs](virtual-machines-sql-server-security-considerations.md)
 - [Set up connectivity](virtual-machines-sql-server-connectivity.md)
 

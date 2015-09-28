@@ -37,7 +37,7 @@ In this tutorial, you will:
 * [Complete configuration steps to connect to the virtual machine using SQL Server Management Studio on another computer](#SSMS)
 * [Next steps](#Optional)
 
->[AZURE.NOTE] This article describes how to provision a SQL Server VM with the existing Azure Management Portal. However, it is also possible to create and manage SQL Server VMs in the [new Portal](https://manage.windowsazure.com). There are some advantages to the new portal, such as defaulting to the use of Premium Storage, Automated Patching, Automated Backup, and AlwaysOn configurations. Future content will cover step-by-step instructions.
+>[AZURE.NOTE] This article describes how to provision a SQL Server VM with the existing Azure Management Portal. However, it is also possible to create and manage SQL Server VMs in the [new Portal](https://manage.windowsazure.com). There are some advantages to the new portal, such as defaulting to the use of Premium Storage, and other options, such as Automated Patching, Automated Backup, and AlwaysOn configurations. Future content will cover step-by-step instructions.
 
 ##<a id="Provision">Provision a SQL Server virtual machine from the gallery</a>
 
