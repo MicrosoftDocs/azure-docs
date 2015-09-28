@@ -22,9 +22,9 @@ This article is a companion to the [main UI customization article](active-direct
 
 [AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
 
-## Get a B2C directory
+## Get a B2C tenant
 
-Before you can customize anything, you will need to [get an Azure AD B2C directory](active-directory-b2c-get-started.md) if you don't already have one.
+Before you can customize anything, you will need to [get an Azure AD B2C tenant](active-directory-b2c-get-started.md) if you don't already have one.
 
 ## Create a sign-up policy
 
@@ -32,10 +32,10 @@ The sample content we've provided customizes two pages in a [sign-up policy](act
 
 ## Register an application
 
-You will need to [register an application](active-directory-b2c-app-registration.md) in your B2C directory that can be used to execute your policy.  After registering your application, you have a few options you can use to actually run your sign-up policy:
+You will need to [register an application](active-directory-b2c-app-registration.md) in your B2C tenant that can be used to execute your policy.  After registering your application, you have a few options you can use to actually run your sign-up policy:
 
 - Build one of the Azure AD B2C Quick Start Applications listed [here](active-directory-b2c-overview.md#getting-started).
-- Use the pre-built [Azure AD B2C Playground](https://aadb2cplayground.azurewebsites.net) application.  If you choose to use the playground, you must register an application in your B2C directory using the **redirect URI** `https://aadb2cplayground.azurewebsites.net/`
+- Use the pre-built [Azure AD B2C Playground](https://aadb2cplayground.azurewebsites.net) application.  If you choose to use the playground, you must register an application in your B2C tenant using the **redirect URI** `https://aadb2cplayground.azurewebsites.net/`
 - Use the **Run Now** button on your policy in the [Azure Preview Portal](https://portal.azure.com).
 
 ## Customize your policy
@@ -44,7 +44,7 @@ In order to customize the look and feel of your policies, you need to first crea
 
 For the purposes of this tutorial, we've already created some sample content and hosted it on Azure Blob Storage.  The sample content is a very basic customization in the theme of our artificial company, "Contoso B2C".  To try it out in your own policy, follow these steps:
 
-1. Sign in to your directory on the [Azure preview portal](https://portal.azure.com) and navigate to the B2C features blade.
+1. Sign in to your tenant on the [Azure preview portal](https://portal.azure.com) and navigate to the B2C features blade.
 2. Click **Sign-up policies** and then click on your sign-up policy (for example, "b2c_1_sign_up").
 3. Click **Page UI customization** and then **Identity provider selection page**.
 4. Toggle the **Use custom template** switch to **Yes**. In the **Custom page URI** field, enter `https://contosob2c.blob.core.windows.net/static/Index.html`. Click **OK**.
@@ -83,7 +83,7 @@ This repo contains a `sample_templates\contoso` directory, which contains exampl
 
 #### Upload the sample files
 
-In the same repo, unzip `B2CAzureStorageClient.zip` and run the `B2CAzureStorageClient.exe` file within.  This program will simply upload all the files in the directory you specify to your storage account, and enable CORS access for those files.  If you followed the steps above, the HTML and CSS files will now be pointing to your storage account.  Note that the name of your storage account is the part that precedes `blob.core.windows.net`, e.g. `contoso`.
+In the same repo, unzip `B2CAzureStorageClient.zip` and run the `B2CAzureStorageClient.exe` file within.  This program will simply upload all the files in the directory you specify to your storage account, and enable CORS access for those files.  If you followed the steps above, the HTML and CSS files will now be pointing to your storage account.  Note that the name of your storage account is the part that precedes `blob.core.windows.net`, e.g. `contoso`.  You can verify that the content has been uploaded correctly by trying to access `https://{storage-account-name}.blob.core.windows.net/{container-name}/Index.html` on a browser. Also use http://test-cors.org/ to make sure that the content is now CORS enabled (look for XHR status: 200 in the result).
 
 #### Customize your policy, again
 

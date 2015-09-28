@@ -40,7 +40,7 @@ Unlike other services where options are limited or are only available via APIs, 
 
 ## A Helper Tool that will help you Test the Page UI Customization Feature with our Sample Content
 
-Use our helper tool (Coming soon) to try out the page UI customization feature using our sample content.
+If you want to try out the UX customization feature using our sample HTML & CSS content hosted on Azure Blob Storage, we've provided [a simple helper tool](active-directory-b2c-reference-ui-customization-helper-tool.md) to upload & configure your static content.
 
 ## The core UI Elements in each Type of Page
 
