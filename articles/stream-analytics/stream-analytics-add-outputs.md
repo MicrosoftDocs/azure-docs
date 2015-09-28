@@ -46,7 +46,7 @@ To add an output to your Stream Analytics job:
 
 4. Depending on the output type, you may need to specify how the data is serialized or formatted. The specific serialization settings for each output type are documented here.
 
-    Fill in the rest of the required connection properties to connect to your data source. These fields vary by type of input and source type and are defined in detail [here](stream-analytics-create-a-job.md.)  
+    Fill in the rest of the required connection properties to connect to your data source. These fields vary by type of input and source type and are defined in detail [here](stream-analytics-create-a-job.md).  
 
     ![Add event hub](./media/stream-analytics-add-outputs/4-stream-analytics-add-outputs.png)  
 
