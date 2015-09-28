@@ -5,12 +5,12 @@
 	writer="cephalin"
 	editor="mollybos"
 	manager="wpickett"
-	services="app-service"
+	services="app-service\web"
 	documentationCenter=""/>
 
 <tags
-	ms.service="app-service"
-	ms.workload="web"
+	ms.service="app-service-web"
+	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
