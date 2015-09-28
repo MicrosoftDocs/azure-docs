@@ -29,7 +29,7 @@ Rules can be setup on metrics through the portal, or can be configured [programm
 
 ## Setting up alerts through the Azure Portal
 
-There are two ways to setup alerts: in the Azure Management portal:  
+There are two ways to setup alerts in the Azure Management portal:  
 
 1.	The **Monitor** tab of your Stream Analytics job  
 2.	The Operations Log in the Management services  
