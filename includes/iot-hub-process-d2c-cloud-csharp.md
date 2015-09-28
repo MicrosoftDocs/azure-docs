@@ -1,4 +1,5 @@
 ## Processing device-to-cloud messages
+
 In this section, you will create a Windows console app that process device-to-cloud messages from IoT Hub. Iot Hub exposes an [Event Hubs][Event Hubs Overview]-compatible endpoint to read device-to-cloud messages. This tutorial uses [EventProcessorHost] to process these messages in a console app. For more information on how to process messages from Event Hubs you can refer to the [Get Started with Event Hubs] tutorial.
 
 The main challenge when implementing reliable storage of data point messages or forwarding of interactive ones, is that Event Hubs event processing relies on the message consumer to checkpoint its progress. Moreover, in order to achieve high throughput, when reading from Event Hubs, checkpoints should happen in large batches, creating the possibility of duplicate processing for a large number of messages. In this tutorial we show how to synchronize Azure storage writes and Service Bus deduplication windows with Event Processor Host checkpoints.
