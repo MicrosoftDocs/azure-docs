@@ -33,19 +33,19 @@ You can diagnose installation problems with the Access Panel Extension by downlo
 
 2. Open the file, and press **Extract all** button.
 
-![Press Extract All](./media/active-directory-saas-ie-troubleshooting/extract1.png)
+	![Press Extract All](./media/active-directory-saas-ie-troubleshooting/extract1.png)
 
 3. Then press the **Extract** button to continue.
 
-![Press Extract](./media/active-directory-saas-ie-troubleshooting/extract2.png)
+	![Press Extract](./media/active-directory-saas-ie-troubleshooting/extract2.png)
 
-4. To run the tool, right-click the file named **AccessPanelExtensionChecker** (or it may appear as **AccessPanelExtensionChecker.js**), then select **Open with > Microsoft Windows Based Script Host**.
+4. To run the tool, right-click the file named **AccessPanelExtensionDiagnosticTool**, then select **Open with > Microsoft Windows Based Script Host**.
 
-![Open with > Microsoft Windows Based Script Host](./media/active-directory-saas-ie-troubleshooting/open_tool.png)
+	![Open with > Microsoft Windows Based Script Host](./media/active-directory-saas-ie-troubleshooting/open_tool.png)
 
 5. You will then see the following diagnostic window, which describes what might be wrong with your installation.
 
-![A sample of the diagnostic window](./media/active-directory-saas-ie-troubleshooting/tool_preview.png)
+	![A sample of the diagnostic window](./media/active-directory-saas-ie-troubleshooting/tool_preview.png)
 
 6. Click "**YES**" to let the program fix the issues that have been found.
 
@@ -57,15 +57,15 @@ To verify that the Access Panel Extension is enabled in Internet Explorer:
 
 1. In Internet Explorer, click on the **Gear icon** on the top right corner of the window. Then select **Internet options**.<br />(In older versions of Internet Explorer you can find this under **Tools > Internet options**.
 
-![Go to Tools > Internet Options](./media/active-directory-saas-ie-troubleshooting/internetoptions.png)
+	![Go to Tools > Internet Options](./media/active-directory-saas-ie-troubleshooting/internetoptions.png)
 
 2. Click on the **Programs** tab, then click on the **Manage add-ons** button.
 
-![Click Manage Add-Ons](./media/active-directory-saas-ie-troubleshooting/internetoptions_programs.png)
+	![Click Manage Add-Ons](./media/active-directory-saas-ie-troubleshooting/internetoptions_programs.png)
 
 3. In this dialog, select **Access Panel Extension** and then click the **Enable** button.
 
-![Click Enable](./media/active-directory-saas-ie-troubleshooting/enableaddon.png)
+	![Click Enable](./media/active-directory-saas-ie-troubleshooting/enableaddon.png)
 
 4. To save these changes, close every Internet Explorer window and then open Internet Explorer again.
 
@@ -75,11 +75,11 @@ If you are using the InPrivate Browsing mode:
 
 1. In Internet Explorer, click on the **Gear icon** on the top right corner of the window. Then select **Internet options**.<br />(In older versions of Internet Explorer you can find this under **Tools > Internet options**.
 
-![A sample of the diagnostic window](./media/active-directory-saas-ie-troubleshooting/inprivateoptions.png)
+	![A sample of the diagnostic window](./media/active-directory-saas-ie-troubleshooting/inprivateoptions.png)
 
 2. Go to the **Privacy** tab, then **uncheck** the checkbox labeled **Disable toolbars and extensions when InPrivate Browsing starts**</p>
 
-![Uncheck Disable toolbars and extensions when InPrivate Browsing starts](./media/active-directory-saas-ie-troubleshooting/enabletoolbars.png)
+	![Uncheck Disable toolbars and extensions when InPrivate Browsing starts](./media/active-directory-saas-ie-troubleshooting/enabletoolbars.png)
 
 3. To save these changes, close every Internet Explorer window and then open Internet Explorer again.
 
@@ -89,15 +89,15 @@ To uninstall the Access Panel extension from your computer:
 
 1. On your keyboard, press the **Windows key** to open the Start menu. When the menu is open, you can type anything to do a search. Type "Control Panel" and then open the **Control Panel** when it appears in the search results.
 
-![Search for Control Panel](./media/active-directory-saas-ie-troubleshooting/search_sm.png)
+	![Search for Control Panel](./media/active-directory-saas-ie-troubleshooting/search_sm.png)
 
 2. In the top right corner of the Control Panel, change the **View by** option to **Large icons**. Then find and click on the **Programs and Features** button.
 
-![Chang the view to show Large Icons](./media/active-directory-saas-ie-troubleshooting/control_panel.png)
+	![Chang the view to show Large Icons](./media/active-directory-saas-ie-troubleshooting/control_panel.png)
 
 3. From the list, select **Access Panel Extension**, and the click on the **Uninstall** button.
 
-![Click Uninstall](./media/active-directory-saas-ie-troubleshooting/uninstall.png)
+	![Click Uninstall](./media/active-directory-saas-ie-troubleshooting/uninstall.png)
 
 4. You can then try to install the extension again to see if the problem has been resolved.
 
