@@ -1,4 +1,5 @@
 ## Processing device-to-cloud messages
+
 In this section, you will create a Windows console app that process device-to-cloud messages from IoT Hub. Iot Hub exposes an [Event Hubs][Event Hubs Overview]-compatible endpoint to read device-to-cloud messages. This tutorial uses [EventProcessorHost] to process these messages in a console app. For more information on how to process messages from Event Hubs you can refer to the [Get Started with Event Hubs] tutorial.
 
 The main challenge when implementing reliable storage of data point messages or forwarding of interactive ones, is that Event Hubs event processing relies on the message consumer to checkpoint its progress. Moreover, in order to achieve high throughput, when reading from Event Hubs, checkpoints should happen in large batches, creating the possibility of duplicate processing for a large number of messages. In this tutorial we show how to synchronize Azure storage writes and Service Bus deduplication windows with Event Processor Host checkpoints.
@@ -281,31 +282,33 @@ In this section, you'll write a Windows console app that receives interactive me
 
 <!-- Links -->
 
-[About Azure Storage]: https://azure.microsoft.com/en-us/documentation/articles/storage-create-storage-account/#create-a-storage-account
+[About Azure Storage]: ../storage/storage-create-storage-account.md#create-a-storage-account
 
 [Azure IoT - Service SDK NuGet package]: https://www.nuget.org/packages/Microsoft.Azure.Devices/
 
-[Get Started with Event Hubs]: event-hubs-csharp-ephcs-getstarted.md
+[Get Started with Event Hubs]: ../event-hubs/event-hubs-csharp-ephcs-getstarted.md
 [IoT Hub Developer Guide - Identity Registry]: iot-hub-devguide.md#identityregistry
 
-[Azure Storage scalability Guidelines]: https://azure.microsoft.com/en-us/documentation/articles/storage-scalability-targets/
+[Azure Storage scalability Guidelines]: ../storage/storage-scalability-targets.md
 
-[Azure Block Blobs]: https://msdn.microsoft.com/en-us/library/azure/ee691964.aspx
+[Azure Block Blobs]: https://msdn.microsoft.com/library/azure/ee691964.aspx
 
-[Service Bus documentation]: https://azure.microsoft.com/en-gb/documentation/articles/service-bus-dotnet-how-to-use-queues/
+[Service Bus documentation]: ../service-bus/service-bus-dotnet-how-to-use-queues.md
 
-[Event Hubs Overview]: ../eventhubs/event-hubs-overview.md
+[Event Hubs Overview]: ../event-hubs/event-hubs-overview.md
 [Scaled out event processing]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-45f43fc3
 
 [EventProcessorHost]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost(v=azure.95).aspx
 
-[Event Hubs Programming Guide]: ../eventhubs/event-hubs-programming-guide.md
+[Event Hubs Programming Guide]: ../event-hubs/event-hubs-programming-guide.md
 
 [Azure Preview Portal]: https://portal.azure.com/
 
-[Transient Fault Handling]: https://msdn.microsoft.com/en-us/library/hh680901(v=pandp.50).aspx
+[Transient Fault Handling]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 
 [Azure Management Portal]: https://manage.windowsazure.com/
+
+[Service Bus Queue]: ../service-bus/service-bus-dotnet-how-to-use-queues.md
 
 
 <!-- Images -->
