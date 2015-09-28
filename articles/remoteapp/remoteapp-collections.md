@@ -56,17 +56,17 @@ Create using the **Create with VNET** option and DO choose to join a domain.
 ## Authentication options
 Azure RemoteApp supports both Microsoft accounts and Azure Active Directory accounts, but not all collections support all methods. 
 
+| Account type                      |                                                             | Cloud | Cloud + VNET | Hybrd |
+|-----------------------------------|-------------------------------------------------------------|-------|--------------|-------|
+| Microsoft Account                 |                                                             | Yes   | Yes          | No    |
+| Azure Active Directory (Azure AD) |                                                             |       |              |       |
+|                                   | Azure AD only                                               | Yes   | Yes          | No    |
+|                                   | AD Connect with password sync                               | Yes   | Yes          | Yes   |
+|                                   | AD Connect without password sync                            | Yes   | Yes          | No    |
+|                                   | AD Connect with AD FS                                       | Yes   | Yes          | Yes   |
+|                                   | 3rd-party Azure-supported identity providers (such as Ping) | Yes   | Yes          | Yes   |
+| Multi-Factor Authentication       |                                                             | Yes   | Yes          |       |
 
-|Account type | |Cloud	|Cloud + VNET| Hybrid|
-|--------------|-|------|--------|------|
-|Microsoft Account| | 	Yes| Yes|	No|
-|Azure Active Directory (Azure AD)| | | | |
-| |Azure AD only 	|Yes|Yes	|No	|
-| |AD Connect  with password sync	|Yes |Yes	|Yes	|
-| |AD Connect without password sync|	Yes|Yes	|No	|
-| |AD Connect with AD FS	|Yes	|Yes	|Yes|
-| |3rd-party Azure supported identity providers  (example Ping)	|Yes	|Yes|	Yes|
-|Multi-Factor Authentication|	|Yes	|Yes	| Yes|
 
 
 ### Cloud and Cloud + VNET 
