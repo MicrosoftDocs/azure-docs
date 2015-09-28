@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Azure IoT OS Platforms and hardware compatibility | Microsoft Azure"
-	description="OS Platforms and hardware compatibility"
+	description="OS platforms and hardware compatibility"
 	services="iot-hub"
 	documentationCenter="na"
 	authors="hegate"
