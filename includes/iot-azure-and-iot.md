@@ -4,7 +4,7 @@ A typical IoT solution requires secure, bidirectional communication between devi
 Microsoft provides a set of libraries (that support multiple languages and hardware platforms) that you can use to develop client applications to run on an IoT device. To implement your IoT back end application, you can combine multiple Azure services or use one of the preconfigured solutions available through Microsoft IoT Suite. To better understand how Azure enables this IoT infrastructure, it's useful to consider a typical IoT solution architecture.
 
 ## IoT solution architecture
-The diagram below shows a typical IoT solution architecture as described in the video below. Notice that it does not include the names of any specific Azure services, but describes the key elements in a generic IoT solution architecture. The following sections provide you with more information about the elements in this solution.
+The diagram below shows a typical IoT solution architecture. Notice that it does not include the names of any specific Azure services, but describes the key elements in a generic IoT solution architecture. The following sections provide you with more information about the elements in this solution.
 
 ![IoT solution architecture][img-solution-architecture]
 
@@ -22,10 +22,6 @@ IoT solutions may include automatic feedback loops. For example, a machine learn
 
 ### Presentation
 Many IoT solutions enable users to view and analyze the data collected from their devices. These visualizations may take the form of dashboards or BI reports.
-
-You can watch the following video for an in-depth discussion of Microsoft IoT services and capabilities:
-
-> [AZURE.VIDEO microsoft-ignite-2015-the-microsoft-architecture-for-the-internet-of-things-iot]
 
 [img-solution-architecture]: media/iot-azure-and-iot/iot-reference-architecture.png
 
