@@ -35,6 +35,7 @@ Microsoft provides IoT device SDKs that enable you to implement client applicati
 
 ## Next steps
 To get started with IoT on Azure, explore these resources:
+
 - [Get started with IoT Hub][lnk-getstarted].
 - [Azure IoT Hub][lnk-iot-hub].
 - [Azure IoT Suite][lnk-iot-suite].  
