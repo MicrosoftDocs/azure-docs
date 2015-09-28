@@ -1,19 +1,19 @@
 <properties
-	pageTitle="Azure IoT device SDK for C - More about Serializer"
+	pageTitle="Azure IoT device SDK for C - More about Serializer | Microsoft Azure"
 	description="Additional detail on the Serializer library in the Azure IoT device SDK for C"
 	services="iot-hub"
-	documentationCenter=".net"
+	documentationCenter=""
 	authors="MichelBarnett"
 	manager="andrewmc"
 	editor=""/>
 
 <tags
      ms.service="iot-hub"
-     ms.devlang="csharp"
-     ms.topic="Azure IoT device SDK for C"
+     ms.devlang="na"
+     ms.topic="article"
      ms.tgt_pltfrm="na"
-     ms.workload="tbd"
-     ms.date="09/25/2015"
+     ms.workload="na"
+     ms.date="09/29/2015"
      ms.author="michelb"/>
 
 # Microsoft Azure IoT device SDK for C – More about Serializer
@@ -604,7 +604,7 @@ The main takeaway from this is that the lower level APIs work exactly the same a
 
 For an example of how the lower level APIs are used with the **serializer** library see the **simplesample\_http** application.
 
-##Additional Topics
+## Additional Topics
 
 A few other topics worth mentioning again are property handling, using alternate device credentials, and configuration options. These are all topics covered in a [previous article](iot-hub-device-sdk-c-iothubclient.md). The main point here is that all of these features work the same with the **serializer** library as they do with the **IoTHubClient** library. For example, if you want to attach properties to an event from your model, you’ll use **IoTHubMessage\_Properties** and **Map**\_**AddorUpdate** the same way as described previously:
 
@@ -636,7 +636,7 @@ serializer_deinit();
 
 Otherwise all of the other features listed above work the same in the **serializer** library as they do in the **IoTHubClient** library. For more detail on any of these topics see the [previous article](iot-hub-device-sdk-c-iothubclient.md) in this series.
 
-**Next Steps**
+## Next Steps
 
 This article goes into detail on the unique aspects of the **serializer** library contained in the **Azure IoT device SDK for C**. With the information provided you should have a good understanding of how to use models to send events and receive messages from IoT Hub.
 
