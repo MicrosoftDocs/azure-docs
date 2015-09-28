@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
 	ms.date="09/29/2015" 
-	ms.author="jeffstok"/>
+	ms.author="jeffstok"/> 
 
 # Setting up alerts
 
