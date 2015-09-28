@@ -1,6 +1,6 @@
 <properties
  pageTitle="Microsoft Azure IoT Suite and the Internet of Things (IoT) | Microsoft Azure"
- description="A overview of IoT on Azure including the Microsoft IoT Reference Architecture and how it relates to Azure IoT Hubs, Device SDKs, and preconfigured solutions"
+ description="A overview of IoT on Azure including a sample IoT solution architecture and how it relates to Azure IoT Hubs, Device SDKs, and preconfigured solutions"
  services=""
  documentationCenter=".net"
  authors="dominicbetts"
@@ -22,11 +22,11 @@
 Azure IoT Suite is an enterprise-grade solution that allows you to get started quickly through a set of extensible preconfigured solutions that address common IoT scenarios, such as *remote monitoring* and *connected devices*.
 
 The preconfigured solutions are:
+
 - Are complete, working, end-to-end solutions that include simulated devices to get you started, preconfigured Azure services such as Azure IoT Hub, Azure Event Hubs, Azure Stream Analytics, Azure Machine Learning, and Azure storage, and solution specific management consoles.
 - Contain proven, production-ready code that you can customize and extend to implement your own specific IoT scenarios.
-- Are implementations of the Microsoft IoT reference architecture.
 
-You may also be interested in the Azure IoT Hub service that many of the preconfigured solution use.The Azure IoT Hub service provides many of the "Device and event processing" capabilities defined in the reference architecture.
+You may also be interested in the Azure IoT Hub service that many of the preconfigured solution use. The Azure IoT Hub service provides many of the "Data processing and analytics" capabilities defined in the sample solution architecture.
 
 ## Next steps
 To get started with IoT on Azure, explore these resources:

@@ -21,7 +21,7 @@ You can deploy preconfigured solutions that implement common Internet of Things 
 - As a starting point for your own IoT solutions.
 - To learn about the most common patterns seen in IoT solution design and development.
 
-Each preconfigured solution implements a common IoT scenario and is a complete, end-to-end implementation based on the Microsoft IoT reference architecture.
+Each preconfigured solution implements a common IoT scenario and is a complete, end-to-end implementation.
 
 In addition to deploying and running the preconfigured solutions in Azure, you can download the complete source code to customize and extend the solution to meet your specific requirements.
 
@@ -47,24 +47,22 @@ The following diagram illustrates the key features of the solution and the follo
 ### Device
 The device that comes pre-provisioned with the remote monitoring preconfigured solution is a software simulation of a cooler that sends temperature and humidity telemetry data. The device can also respond to a set of commands sent from the solution portal through IoT Hub. The commands already implemented in the simulator are: Ping Device; Start Telemetry; Stop Telemetry; Change Set Point Temp; Diagnostic Telemetry; and Change Device State.
 
-The coolers in this preconfigured solution correspond to the **devices and data sources** in the IoT reference architecture.
+The coolers in this preconfigured solution correspond to the **devices and data sources** in a typical IoT solution architecture.
 
 ### IoT Hub
 An IoT hub receives telemetry data from the coolers at a single end-point and maintains device specific end-points where devices can retrieve commands such as the PingDevice command.
 
 The IoT hub exposes the telemetry data it receives through a consumer group end-point.
 
-The IoT Hub instance in this preconfigured solution corresponds to the **cloud gateway** and **identity and registry store** in the IoT reference architecture.
+The IoT Hub instance in this preconfigured solution corresponds to the **IoT backend application** in a typical IoT solution architecture.
 
 ### Azure Stream Analytics
 The preconfigured solution uses Azure Stream Analytics jobs to filter the stream of events from the coolers. One job sends all telemetry data to Azure storage blobs for cold storage. The second job filters the event stream for command response messages and device status update messages and sends these specific messages to an Azure Event Hub end-point.The third job filters for triggered alarms and displays these alarms in the alarm history table in the dashboard view of the solution portal.
 
-The Stream Analytics jobs in this preconfigured solution correspond to the **stream event processor** in the IoT reference architecture.
 
 ### Event Processor
 An Event Processor instance, running in a web job, processes the command response and device status data and stores this information in an Azure DocumentDB database.
 
-The event processor in this preconfigured solution corresponds in part to the **stream event processor** in the IoT reference architecture and the DocumentDB database implements the **device state store**.
 
 ### Solution Portal
 The Solution Portal is a web-based UI that enables you to:
@@ -76,7 +74,6 @@ The Solution Portal is a web-based UI that enables you to:
 
 Note: The devices view of the solution portal also keeps the IoT Hub device identity registry synchronized with the store of richer device state information in the DocumentDB database.
 
-The Solution Portal in this preconfigured solution corresponds to the **solution portal** in the IoT reference architecture.
 
 ## Next steps
 To get started using the Azure IoT preconfigured solutions, explore these resources:

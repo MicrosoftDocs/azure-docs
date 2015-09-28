@@ -1,6 +1,6 @@
 <properties
  pageTitle="Microsoft Azure IoT Hub and the Internet of Things (IoT) | Microsoft Azure"
- description="A overview of IoT on Azure including the Microsoft IoT Reference Architecture and how it relates to Azure IoT Hub, Device SDKs, and preconfigured solutions"
+ description="A overview of IoT on Azure including a sample solution architecture and how it relates to Azure IoT Hub, Device SDKs, and preconfigured solutions"
  services="iot-hub"
  documentationCenter=".net"
  authors="dominicbetts"
@@ -19,7 +19,8 @@
 [AZURE.INCLUDE [iot-azure-and-iot](../../includes/iot-azure-and-iot.md)]
 
 ## Scope of this documentation
-These Azure and IoT articles focus on two collections of resources that can help you to implement your own IoT solution based on the Microsoft IoT reference architecture.
+These Azure and IoT articles focus on two collections of resources that can help you to implement your own IoT solution based on the Microsoft IoT platform.
+
 - Azure IoT Hub
 - Azure IoT device SDKs
 
