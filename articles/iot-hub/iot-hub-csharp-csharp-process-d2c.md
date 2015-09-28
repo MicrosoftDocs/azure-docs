@@ -29,12 +29,13 @@ The first pattern is reliable storage of device-to-cloud messages in [Azure Blob
 The second pattern is reliable processing of *interactive* device-to-cloud messages. Device-to-cloud messages are called *interactive* when they are immediate triggers for a set of actions in the application back-end, as opposed to a *data point* message that is fed into an analytics engine. For instance, an alarm coming from a device that has to trigger the insertion of a ticket in a CRM system is an *interactive* device-to-cloud message, as opposed to a telemetry message containing temperature samples, which is a *data point* message.
 
 Since IoT Hub exposes a Event Hubs-compatible endpoint to receive device-to-cloud messages, this tutorial uses [EventProcessorHost] to host an event processor class, which:
+
 * Reliably store *data point* messages in Azure Blobs, and
 * Forward *interactive* device-to-cloud messages to a [Service Bus Queue] for immediate processing.
 
 [Service Bus][Service Bus Queue] is a great way to ensure reliable processing of interactive messages, as it provides per-message checkpoints, and time window-based deduplication.
 
-At the end of this tutorial you will have run three Windows console applications:
+At the end of this tutorial you will run three Windows console applications:
 
 * **SimulatedDevice**, a modified version of the app created in [Get started with IoT Hub], which sends *data point* device-to-cloud messages every second, and *interactive* device-to-cloud messages every 10 seconds.
 * **ProcessDeviceToCloudMessages**, which uses [EventProcessorHost] to reliably store *data point* messages in an Azure blob and forwards *interactive* messages to a Service Bus queue, and
@@ -81,7 +82,7 @@ Additional information on IoT Hub:
 * [IoT Hub Overview]
 * [IoT Hub Developer Guide]
 * [IoT Hub Guidance]
-* [Supported device platforms and languages]
+* [Supported device platforms and languages][Supported devices]
 * [Azure IoT Developer Center]
 
 <!-- Images. -->
@@ -95,6 +96,8 @@ Additional information on IoT Hub:
 [Hadoop]: https://azure.microsoft.com/en-us/documentation/services/hdinsight/
 [Service Bus Queue]: https://azure.microsoft.com/en-us/documentation/articles/service-bus-dotnet-how-to-use-queues/
 [EventProcessorHost]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost(v=azure.95).aspx
+
+[Transient Fault Handling]: https://msdn.microsoft.com/en-us/library/hh680901(v=pandp.50).aspx
 
 [IoT Hub Guidance - Event Hubs compatibility]: iot-hub-guidance.md#eventhubcompatible
 

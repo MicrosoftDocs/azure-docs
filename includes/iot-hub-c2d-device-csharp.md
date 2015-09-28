@@ -36,13 +36,5 @@ In this section, you'll modify the simulated device application you created in [
 [IoT Hub Developer Guide - C2D]: iot-hub-devguide.md#c2d
 
 <!-- Images -->
-[10]: ./media/iot-hub-getstarted-cloud-csharp/create-identity-csharp1.png
-[12]: ./media/iot-hub-getstarted-cloud-csharp/create-identity-csharp3.png
-
-[20]: ./media/iot-hub-getstarted-cloud-csharp/create-storage1.png
-[21]: ./media/iot-hub-getstarted-cloud-csharp/create-storage2.png
-[22]: ./media/iot-hub-getstarted-cloud-csharp/create-storage3.png
-
-
 
 
