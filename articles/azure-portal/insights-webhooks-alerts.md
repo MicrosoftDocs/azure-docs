@@ -16,13 +16,13 @@
 	ms.date="09/25/2015"
 	ms.author="robb"/>
 
-# How to configure webhook for alerts
+# How to configure webhooks for alerts
 
 Webhooks allow the user to route the Azure Alert notifications to other systems for post-processing or custom notifications. Examples of this can be routing the Alert to services that can handle an incoming web request to send SMS, log bugs, notify a team via chat/messaging services etc.
 
 The webhook uri must be a valid HTTP or HTTPS endpoint. The Azure Alert service will make a POST operation at the specified webhook, passing on a specific JSON payload and schema.
 
-## Configuring webhook via the Portal
+## Configuring webhooks via the portal
 
 In the Create/Update Alerts screen on the [Azure Portal](https://portal.azure.com/), you can add or update the webhook uri.
 
@@ -37,7 +37,7 @@ The authentication can be of two types:
 2.	**Basic Auth** - using a userid and password:
 In this case you will save the webhook uri as *https://userid:password@mysamplealert/webcallback?someparamater=somevalue&foo=bar*
 
-## Payload Schema
+## Payload schema
 
 The POST operation will contain the following JSON payload and schema for all metric based alerts.
 
@@ -106,16 +106,20 @@ The POST operation will contain the following JSON payload and schema for all me
 
 >[AZURE.NOTE] Note: You cannot use the properties field via the Portal. In our upcoming release of the Insights SDK, you can set the properties via the Alert API.
 
-## Next Steps
+## Next steps
 
-[Integrate Azure Alerts with PagerDuty](http://go.microsoft.com/fwlink/?LinkId=627080)
+For additional background, learn more about Azure Alerts and webhooks in the video [Integrate Azure Alerts with PagerDuty](http://go.microsoft.com/fwlink/?LinkId=627080)
+
+To learn how to programmatically create a webhook see [Create an Alert with Webhooks using Azure Insights SDK (C#)](https://code.msdn.microsoft.com/Create-Azure-Alerts-with-b938077a).
+
+Once you have set up your webhooks and Alerts, explore these other options to initiate an automation script.
 
 [Execute Azure Automation scripts (Runbooks)](http://go.microsoft.com/fwlink/?LinkId=627081)
+
+Use Azure Alerts to send messages to other services. Use the following example templates to get started.
 
 [Use Logic App to send SMS via Twilio API](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app)
 
 [Use Logic App to send Slack messages](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-slack-with-logic-app)
 
 [Use Logic App to send messages to an Azure Queue](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-queue-with-logic-app)
-
-[Create an Alert with Webhook using Azure Insights SDK (C#)](https://code.msdn.microsoft.com/Create-Azure-Alerts-with-b938077a)
