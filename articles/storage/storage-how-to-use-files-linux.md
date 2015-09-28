@@ -11,7 +11,7 @@
       ms.workload="storage"
       ms.tgt_pltfrm="na"
       ms.devlang="na"
-      ms.topic="get-started-article"
+      ms.topic="article"
       ms.date="09/21/2015"
       ms.author="jutang;tamram" />
 
@@ -41,7 +41,7 @@ When creating a Linux virtual machine in Azure, you can specify a Linux image wh
 
 ## Mount the file share ##
 
-To mount the file share from Linux client, you may need to install SMB/CIFS client if the distribution you are using didn't have it built-in.  This is the command from Ubuntu to install one choice cifs-utils:
+To mount the file share from a virtual machine running Linux, you may need to install an SMB/CIFS client if the distribution you are using doesn't have a built-in client. This is the command from Ubuntu to install one choice cifs-utils:
 
     sudo apt-get install cifs-utils
 
@@ -56,7 +56,6 @@ Please be noted that 0777 here represent a directory/file permission code that g
 Also to keep a file share mounted after reboot, you can add a setting like below in your /etc/fstab:
 
     //myaccountname.file.core.windows.net/mysharename /mymountpoint cifs vers=3.0,username= myaccountname,password= StorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777
-
 
 To be more specific, here is an example.
 

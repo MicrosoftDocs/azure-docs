@@ -74,7 +74,14 @@ The following table shows which operations may be called by anonymous users when
 | Get Page Ranges                                        | All                                     | All                                                  |
 
 ## Create and Use a Shared Access Signature
-A shared access signature (SAS) is a URI that grants restricted access rights to a storage resource for a specified time interval. You can create a SAS on these storage resources:
+A shared access signature (SAS) is a URI that grants restricted access rights to one or more resources in your storage account for a specified time interval. 
+
+Beginning with version 2015-04-05 of Azure Storage, you can create two types of shared access signatures:
+
+- An account-level SAS, introduced with version 2015-04-05. The account SAS delegates access to resources in one or more of the storage services. All of the operations available via a service SAS are also available via an account SAS. Additionally, with the account SAS, you can delegate access to operations that apply to a given service, such as **Get/Set Service Properties** and **Get Service Stats**. You can also delegate access to read, write, and delete operations on blob containers, tables, queues, and file shares that are not permitted with a service SAS. See [Constructing an Account SAS](https://msdn.microsoft.com/library/mt584140.aspx) for in-depth information about about constructing the account SAS token.
+- A service-level SAS. The service SAS delegates access to a resource in just one of the storage services: the Blob, Queue, Table, or File service. See [Constructing a Service SAS](https://msdn.microsoft.com/library/dn140255.aspx) and [Service SAS Examples](https://msdn.microsoft.com/library/dn140256.aspx) for in-depth information about constructing the service SAS token.
+
+You can create a SAS on these storage resources:
 
 - Containers and blobs
 - Queues
