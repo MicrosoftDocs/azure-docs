@@ -465,12 +465,12 @@ Now you've seen an overview of developing for IoT Hub, follow these links to lea
 [img-lifecycle]: media/iot-hub-devguide/lifecycle.png
 [img-eventhubcompatible]: media/iot-hub-devguide/eventhubcompatible.png
 
-[lnk-compatibility]: TBD
-[lnk-apis-sdks]: TBD
-[lnk-azure-hub-sdks]: TBD
-[lnk-pricing]: TBD
-[lnk-resource-provider-apis]: TBD
-[lnk-reference-architecture]: TBD
+[lnk-compatibility]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/tested_configurations.md
+[lnk-apis-sdks]: https://github.com/Azure/azure-iot-sdks/blob/master/readme.md
+[lnk-azure-hub-sdks]: https://msdn.microsoft.com/library/mt488521.aspx
+[lnk-pricing]: https://azure.microsoft.com/pricing/
+[lnk-resource-provider-apis]: https://msdn.microsoft.com/library/mt548492.aspx
+[lnk-reference-architecture]: iot-hub-what-is-azure-iot.md
 
 [lnk-azure-gateway-guidance]: iot-hub-guidance.md#fieldgateways
 [lnk-guidance-provisioning]: iot-hub-guidance.md#provisioning

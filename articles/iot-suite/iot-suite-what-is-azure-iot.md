@@ -30,10 +30,10 @@ You may also be interested in the Azure IoT Hub service that many of the preconf
 
 ## Next steps
 To get started with IoT on Azure, explore these resources:
-- [Azure IoT device SDKs][lnk-device-sdks].
-- [Azure IoT Hub][lnk-iot-hubs].
-- [Azure IoT preconfigured solutions][lnk-preconfigured-solutions].
+- [Overview of Azure IoT Suite][lnk-suite-overview].
+- [Get started with the IoT preconfigured solutions][lnk-preconfigured-solutions].
+- [Connecting your device to the Azure IoT Suite remote monitoring solution][lnk-connecting].
 
-[lnk-device-sdks]: TBD
-[lnk-iot-hubs]: TBD
-[lnk-preconfigured-solutions]: TBD
+[lnk-suite-overview]: iot-suite-overview.md
+[lnk-connecting]: iot-suite-connecting-devices.md
+[lnk-preconfigured-solutions]: iot-suite-getstarted-preconfigured-solutions.md
