@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Cortana Analytics Gallery | Microsoft Azure"
-	description="Share and discover Solution Accelerators, experiments, and more in the Cortana Analytics Gallery. Learn from others and make your own contributions to the community."
+	description="Share and discover analytics solutions and more in the Cortana Analytics Gallery. Learn from others and make your own contributions to the community."
 	services="machine-learning"
 	documentationCenter=""
 	authors="garyericson"
@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/24/2015"
+	ms.date="09/28/2015"
 	ms.author="chhavib;cgronlun;garye"/>
 
 
 # Share and discover solutions in the Cortana Analytics Gallery
 
-The Cortana Analytics Gallery is a community driven site for discovering and sharing solutions built with the Cortana Analytics Suite set of products. It is a destination for users looking to learn from others, to get started developing their own solutions, or to contribute their own work to the data science community.
+The Cortana Analytics Gallery is a community driven site for discovering and sharing solutions built with the Cortana Analytics Suite set of products. It is a destination for users looking to learn from others, to get started developing their own solutions, or to contribute their own work to the advanced analytics community.
 
 **[TAKE ME TO THE GALLERY >>](http://gallery.cortanaanalytics.com)**
 
@@ -34,10 +34,10 @@ Start using the Gallery to enjoy these benefits:
 Sign in using your Microsoft account to enjoy additional benefits, such as:
 
 - Download experiments to your Machine Learning Studio workspace
-- Contribute and showcase your work
+- Contribute and showcase your predictive analytic experiments and collections
 
 ## Discover and learn
-Search and browse the different types solutions that have been contributed by Microsoft and the data science community. Use these to get a head start on solving your own data analysis problems.
+Search and browse the different types solutions that have been contributed by Microsoft and the advanced analytics community. Use these to get a head start on solving your own data analysis problems.
 
 You can easily find recently published and popular solutions in the Gallery, or you can search by name, tags, algorithms, and other attributes.
 View contributions from a particular author by clicking the author name from within any of the tiles.
@@ -47,7 +47,7 @@ You can even share a solution of interest with friends or colleagues using the s
 You may also email links to these solutions to invite other users to view the pages.
 
 ## Download experiments
-The Cortana Analytics Gallery allows you to easily copy experiments to your Machine Learning Studio workspace with a single click and immediately start using it for your purpose.
+The Cortana Analytics Gallery allows you to easily copy predictive analytics experiments to your Machine Learning Studio workspace with a single click and immediately start using it for your purpose.
 If you're not already signed in while browsing, you will be prompted to sign in using your Microsoft account before the experiment is copied to your workspace.
 
 ## Contribute
