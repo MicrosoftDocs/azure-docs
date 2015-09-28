@@ -86,7 +86,7 @@ Once you have submitted your issue, we will acknowledge receipt within 24 hours,
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Next steps
 
-To learn how to resolve specific support issues, please visit: (ResolvingSpecificSupportIssues.md).
+To learn how to resolve specific support issues, please visit: [Troubleshooting common issues on the Azure Marketplace](marketplace-publishing-suppor-common-issues.md).
 
 <!--Image references-->
 [1]: ./media/marketplace-publishing-get-publisher-support/step1.png
