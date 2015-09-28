@@ -1,20 +1,20 @@
 <properties
-   pageTitle="Accessing Publisher Support"
+   pageTitle="Accessing Publisher Support | Microsoft Azure"
    description="How to access and submit Publisher support requests"
-   services="Azure Marketplace"
-   documentationCenter="dev-center-name"
+   services="marketplace-publishing"
+   documentationCenter="na"
    authors="v-jeana"
    manager="lakoch"
    editor=""/>
 
 <tags
-   ms.service="required"
-   ms.devlang="may be required"
+   ms.service="marketplace-publishing"
+   ms.devlang="na"
    ms.topic="article"
-   ms.tgt_pltfrm="may be required"
-   ms.workload="required"
-   ms.date="09-04-20015"
-   ms.author="v-jeana@microsoft.com"/>
+   ms.tgt_pltfrm="na"
+   ms.workload="na"
+   ms.date="09/27/2015"
+   ms.author="v-jeana; hascipio"/>
 
 # Accessing publisher support
 
@@ -35,19 +35,19 @@ Microsoft provides support for a wide variety of products and services, and ensu
 + Provide Contact Information
 + Describe the problem
 
-## Step 1 - Sign-in to your Microsoft account
+## 1. Sign-in to your Microsoft account
 
 Navigate to https://publish.windowsazure.com/ and sign-in with your Microsoft account credentials
 
   ![Login screen][1]
 
-## Step 2 - Navigate to Publisher Support pages
+## 2. Navigate to Publisher Support pages
 
 From the upper right-hand menu, select "Get Support"
 
   ![Get Support][2]
 
-## Step 3 - Select Problem Type and Category
+## 3. Select Problem Type and Category
 
 ![Problem Type & Category][3]
 
@@ -61,13 +61,13 @@ Available Problem Types are as follows:
 + Seller Dashboard
 + Other
 
-## Step 4 - Request support
+## 4. Request support
 
 After selecting the Problem Type and Category, click the "Start Support" button
 
 ![Start Support][4]
 
-## Step 5 - Provide contact information and describe the problem
+## 5. Provide contact information and describe the problem
 
 Describe the problem as fully as you can, and provide any files (e.g. screenshots, network traces, etc.) which may be helpful in solving your issue.
 

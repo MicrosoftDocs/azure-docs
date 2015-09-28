@@ -31,7 +31,7 @@ Some steps are shared between the different types of solutions. This provides a 
 
 | Virtual Machine Image | Developer Service | Data Service | Solution Template |
 |-----|-----|-----|-----|
-| [VM Image Publishing Guide Pre-requisites][link-single-vm-prereq] | [Developer Service Publishing Pre-requisites][link-devsvc-prereq] | Data Service Publishing Pre-requisites  | [Solution Template Publishing Pre-requisites][link-multi-vm-prereq] |
+| [VM Image Pre-requisites][link-single-vm-prereq] | [Developer Service Pre-requisites][link-devsvc-prereq] | Data Service Pre-requisites  | [Solution Template Pre-requisites][link-multi-vm-prereq] |
 | [VM Image Publishing Guide][link-single-vm] | [Developer Service Publishing Guide][link-devsvc] | Data Service Publishing Guide | [Solution Template Publishing Guide][link-multi-vm] |
 
 ## Step 4. Getting to staging
@@ -41,10 +41,19 @@ Some steps are shared between the different types of solutions. This provides a 
 - [Deploy your offer to the Marketplace][link-pushprod]
 
 ## Appendix
-- Get Support
 - Setting up Azure PowerShell
 - VM Single Image instructions for developing on-premises
 
+**Support**
+- [Get Support as a Publisher][suppt-general]
+- [Understanding Seller Insights reporting][suppt-rpt-insights]
+- [Understanding Payout reporting][suppt-rpt-payouts]
+- [Troubleshooting Common Publishing Problems in the Marketplace][suppt-common]
+
+[suppt-general]:marketplace-publishing-get-publisher-support.md
+[suppt-rpt-insights]:marketplace-publishing-report-seller-insights.md
+[suppt-rpt-payouts]:marketplace-publishing-report-payout.md
+[suppt-common]:marketplace-publishing-support-common-issues.md
 [link-certification]:marketplace-publishing-azure-certification.md
 [link-accts]:marketplace-publishing-accounts-creation-registration.md
 [link-single-vm]:marketplace-publishing-vm-image-creation.md
