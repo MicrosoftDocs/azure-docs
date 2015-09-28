@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="How to Scale a Web App in an App Service Environment" 
 	description="Scaling a web app in an App Service Environment" 
-	services="app-service\web" 
+	services="app-service" 
 	documentationCenter="" 
 	authors="ccompy" 
 	manager="stefsch" 
@@ -9,7 +9,7 @@
 
 <tags 
 	ms.service="app-service" 
-	ms.workload="web" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
