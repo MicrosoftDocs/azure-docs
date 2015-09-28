@@ -20,31 +20,18 @@
 # Connecting your device to the Azure IoT Suite remote monitoring solution
 
 
-## Table of Contents
--   [1. Scenario overview ](#Introduction)
--   [2. Prerequisites](#)
--   [3. Sending data to the remote monitoring solution using C](#)
-    -   [3.1 Running on Linux](#)
-    -   [3.2 Running on Windows](#)
-    -   [3.3 Running on mbed](#)
--   [4. Sending data to the remote monitoring using node.js](#e)
--   [5. Command and control your device from the dashboard](#e)
--   [6. Extending the solution](#S)
-
-
-
 ## Scenario overview
 
 In this example, we will have three simulated data sources:  external temperature, internal temperature and humidity. We are not using real sensors  for simplicity purposes (data is self-generated in the client code), but we encourage you as a next step to connect your favorite sensor and send real data. Please visit the resources linked on the Extending your solution section for more information.
 
 ## Prerequisites
 
-##### Provision your IoT Suite
+### Provision your IoT Suite
 
 If you haven't provisioned your remote monitoring preconfigured solution yet, you can provision it [here](www.internetofyourthings.com).
 
 
-##### Provision your device in the remote monitoring solution
+### Provision your device in the remote monitoring solution
 ```
 Note: if you have already provisioned a device on your solution, you can skip this step.
 ```
@@ -103,7 +90,7 @@ Now choose which language would you like to use to continue your sample. In this
 
 6. Run the **c/serializer/samples/remote_monitoring/linux/remote_monitoring** sample application.
 
-#### Visualize your registered device and the data
+Visualize your registered device and the data
 
 7. Go back to your remote monitoring solution dashboard. You should the device has changed the status to Running on the Devices list.
 ![][18]
@@ -144,7 +131,8 @@ Now choose which language would you like to use to continue your sample. In this
 
 6. In **Solution Explorer**, right-click the **remote_monitoring** project, click **Debug**, and then click **Start new instance** to build and run the sample. The console displays messages as the application sends device-to-cloud messages to IoT Hub.
 
-#### Visualize your registered device and the data
+Visualize your registered device and the data
+
 7. Go back to your remote monitoring solution dashboard. You should the device has changed the status to Running on the Devices list.
 ![][18]
 
@@ -160,11 +148,11 @@ Now choose which language would you like to use to continue your sample. In this
 The following instructions describe the steps for connecting an [mbed-enabled Freescale FRDM-K64F](https://developer.mbed.org/platforms/FRDM-K64F/) device to Azure IoT Hub.
 
 
-#### Requirements
+Requirements
 
 - Required hardware: [mbed-enabled Freescale K64F](https://developer.mbed.org/platforms/FRDM-K64F/) or similar.
 
-#### Connect the device
+Connect the device
 
 - Connect the board to your network using an Ethernet cable. This step is required, as the sample depends on internet access.
 
@@ -172,7 +160,7 @@ The following instructions describe the steps for connecting an [mbed-enabled Fr
 
 - Follow the [instructions on the mbed handbook](https://developer.mbed.org/handbook/SerialPC) to setup the serial connection with your device from your development machine. If you are on Windows, install the Windows serial port drivers located [here](http://developer.mbed.org/handbook/Windows-serial-configuration#1-download-the-mbed-windows-serial-port).
 
-#### Create mbed project and import the sample code
+Create mbed project and import the sample code
 
 - In your web browser, go to the mbed.org [developer site](https://developer.mbed.org/). If you haven't signed up, you will see an option to create a new account (it's free). Otherwise, log in with your account credentials. Then click on **Compiler** in the upper right-hand corner of the page. This should bring you to the Workspace Management interface.
 
@@ -210,7 +198,8 @@ The following instructions describe the steps for connecting an [mbed-enabled Fr
     static const char* hubSuffix = "azure-devices.net";
     ```
     ![][9]
-#### Build and run the program
+
+Build and run the program
 
 - Click **Compile** to build the program. You can safely ignore any warnings, but if the build generates errors, fix them before proceeding.
 
@@ -226,7 +215,7 @@ The following instructions describe the steps for connecting an [mbed-enabled Fr
 
 The program starts executing. You may have to reset the board (press CTRL+Break or press on the board's reset button) if the program does not start automatically when you connect.
 
-#### Visualize your registered device and the data
+Visualize your registered device and the data
 7. Go back to your remote monitoring solution dashboard. You should the device has changed the status to Running on the Devices list.
 ![][18]
 
@@ -244,7 +233,7 @@ The program starts executing. You may have to reset the board (press CTRL+Break 
 [11]: ./media/iot-suite-connecting-devices/mbed6.png
 [12]: ./media/iot-suite-connecting-devices/mbed7.png
 
-To learn how to do command and control, please continue in the following section (LINK TO COMMAND AND CONTROL)
+To learn how to do command and control, please go to that section below in this tutorial.
 
 ## Sending device data to the remote monitoring solution using node.js
 
@@ -293,7 +282,7 @@ node .
     node simple_sample_remotemonitoring.js
     ```
 
-#### Visualize your device and incoming data
+Visualize your device and incoming data
 
 6. On the preconfigured solution portal, click on the devices section to ensure that the Status of your device has changed to "Running" and that you can see all the manufacturer data.
 
