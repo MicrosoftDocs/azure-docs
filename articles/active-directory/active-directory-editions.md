@@ -3,8 +3,8 @@
 	description="A topic that explains choices for free and paid editions of Azure Active Directory."
 	services="active-directory"
 	documentationCenter=""
-	authors="MarkusVi"
-	manager="StevenPo"
+	authors="markusvi"
+	manager="stevenpo"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/21/2015"
+	ms.date="09/28/2015"
 	ms.author="markvi"/>
 
 # Azure Active Directory editions
