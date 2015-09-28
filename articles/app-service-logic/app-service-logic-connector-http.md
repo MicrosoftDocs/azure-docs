@@ -83,6 +83,8 @@ View the Swagger REST API reference at [Connectors and API Apps Reference](http:
 
 You can also review performance statistics and control security to the connector. See [Manage and Monitor your built-in API Apps and Connectors](app-service-logic-monitor-your-connectors.md).
 
+> [AZURE.NOTE] If you want to get started with Azure Logic Apps before signing up for an Azure account, go to [Try Logic App](https://tryappservice.azure.com/?appservice=logic), where you can immediately create a short-lived starter logic app in App Service. No credit cards required; no commitments.
+
 <!--Image references-->
 [1]: ./media/app-service-logic-connector-http/1.png
 [2]: ./media/app-service-logic-connector-http/2.png

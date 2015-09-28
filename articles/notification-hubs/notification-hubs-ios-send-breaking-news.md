@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="06/16/2015"
-	ms.author="wesmc"/>
+	ms.date="09/24/2015"
+	ms.author="ricksal"/>
 
 # Use Notification Hubs to send breaking news
 

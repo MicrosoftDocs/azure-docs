@@ -229,6 +229,7 @@ Next, create your documents within your **GetStartedDemo** async method.
 	        IsRegistered = true
 	    };
 	
+	    // id based routing for the first argument, "dbs/FamilyRegistry/colls/FamilyCollection"
 	    await client.CreateDocumentAsync("dbs/" + database.Id + "/colls/" + documentCollection.Id, andersonFamily);
 	}
 
@@ -267,6 +268,7 @@ Next, create your documents within your **GetStartedDemo** async method.
             IsRegistered = false
         };
 
+        // id based routing for the first argument, "dbs/FamilyRegistry/colls/FamilyCollection"
         await client.CreateDocumentAsync("dbs/" + database.Id + "/colls/" + documentCollection.Id, wakefieldFamily);
 	}
 
@@ -279,7 +281,7 @@ You have now created the following database, collection, and documents in your D
 DocumentDB supports rich [queries](documentdb-sql-query.md) against JSON documents stored in each collection.  The following sample code shows various queries - using both DocumentDB SQL syntax as well as LINQ - that we can run against the documents we inserted in the previous step. Add these queries to your **GetStartedDemo** async method.
 
     // Query the documents using DocumentDB SQL for the Andersen family.
-    var families = client.CreateDocumentQuery(documentCollection.DocumentsLink,
+    var families = client.CreateDocumentQuery("dbs/" + database.Id + "/colls/" + documentCollection.Id,
         "SELECT * " +
         "FROM Families f " +
         "WHERE f.id = \"AndersenFamily\"");
@@ -291,7 +293,7 @@ DocumentDB supports rich [queries](documentdb-sql-query.md) against JSON documen
 
     // Query the documents using LINQ for the Andersen family.
     families =
-        from f in client.CreateDocumentQuery(documentCollection.DocumentsLink)
+        from f in client.CreateDocumentQuery("dbs/" + database.Id + "/colls/" + documentCollection.Id)
         where f.Id == "AndersenFamily"
         select f;
 
@@ -301,7 +303,7 @@ DocumentDB supports rich [queries](documentdb-sql-query.md) against JSON documen
     }
 
     // Query the documents using LINQ lambdas for the Andersen family.
-    families = client.CreateDocumentQuery(documentCollection.DocumentsLink)
+    families = client.CreateDocumentQuery("dbs/" + database.Id + "/colls/" + documentCollection.Id)
         .Where(f => f.Id == "AndersenFamily")
         .Select(f => f);
 

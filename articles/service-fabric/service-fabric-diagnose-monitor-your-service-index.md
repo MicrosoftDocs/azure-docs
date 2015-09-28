@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/04/2015"
+   ms.date="09/25/2015"
    ms.author="ryanwi"/>
 
 # Diagnose and monitor a Service Fabric service
@@ -22,7 +22,6 @@ Monitoring, detecting, diagnosing and troubleshooting allows for services to con
 - [How to Monitor and Diagnose Services locally](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 - [Setting up Application Insights for your Service Fabric application](service-fabric-diagnostics-application-insights-setup.md)
 - [Troubleshooting Application Upgrade Failures](service-fabric-application-upgrade-troubleshooting.md)
-- [Troubleshooting a failed monitored application upgrade](../service-fabric-application-monitored-upgrade-troubleshooting.md)
 - [Diagnostics and Performance Monitoring for Reliable Actors](service-fabric-reliable-actors-diagnostics.md)
 - [Diagnostics and Performance Monitoring for Reliable Services](service-fabric-reliable-services-diagnostics.md)
 
@@ -38,4 +37,3 @@ Service Fabric introduces a health model that provides a rich, flexible and exte
 - [How to view Service Fabric health reports](service-fabric-view-entities-aggregated-health.md)
 - [Using System health reports for troubleshooting](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
 - [Adding custom Service Fabric health reports](service-fabric-report-health.md)
- 

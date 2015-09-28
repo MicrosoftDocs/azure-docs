@@ -9,7 +9,7 @@
 
 <tags
 	ms.service="app-service-logic"
-	ms.workload="integration"
+	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"

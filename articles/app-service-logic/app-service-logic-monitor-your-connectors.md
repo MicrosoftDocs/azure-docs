@@ -118,6 +118,8 @@ You can easily add users and assign them specific roles to your API App. The por
 > 
 > These properties are specific to the website that hosts your API App. When using a built-in API App or connector, most of these properties don't really apply and we recommend that you  don't update these properties. If you created your own API App in Visual Studio and deployed it to your Azure subscription, then you can use the Host and Gateway blades. [Manage API apps](../app-service-api/app-service-api-manage-in-portal.md) provides more information on what you can do in these blades with your custom-created API app. 
 
+>[AZURE.NOTE] If you want to get started with Azure Logic Apps before signing up for an Azure account, go to [Try Logic App](https://tryappservice.azure.com/?appservice=logic), where you can immediately create a short-lived starter logic app in App Service. No credit cards required; no commitments.
+
 ## Read More
 
 [Monitor your Logic Apps](app-service-logic-monitor-your-logic-apps.md)<br/>
