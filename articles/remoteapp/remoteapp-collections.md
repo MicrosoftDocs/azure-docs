@@ -65,7 +65,7 @@ Azure RemoteApp supports both Microsoft accounts and Azure Active Directory acco
 |                                   | AD Connect without password sync                            | Yes   | Yes          | No    |
 |                                   | AD Connect with AD FS                                       | Yes   | Yes          | Yes   |
 |                                   | 3rd-party Azure-supported identity providers (such as Ping) | Yes   | Yes          | Yes   |
-| Multi-Factor Authentication       |                                                             | Yes   | Yes          |       |
+| Multi-Factor Authentication       |                                                             | Yes   | Yes          | Yes   |
 
 
 
