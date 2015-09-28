@@ -9,7 +9,7 @@
 	documentationCenter=""/>
 
 <tags
-	ms.service="app-service"
+	ms.service="app-service-web"
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
