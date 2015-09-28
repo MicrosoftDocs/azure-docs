@@ -28,7 +28,7 @@ To use Microsoft Azure DocumentDB, you must have a [DocumentDB account](document
 
 3. In the **DocumentDB account** blade for the selected account, scroll down to the **Databases** lens, and then select the database in which to add a collection.
     
-	![Screen shot highlighting the Add Collection button on the Database blade, the ID box on the Add Collection blade, and the OK button](./media/documentdb-create-collection/docdb-collection-creation-4-7.png)
+	![Screen shot highlighting the Add Collection button on the Database blade, the settings on the Add Collection blade, and the OK button](./media/documentdb-create-collection/docdb-collection-creation-4-7.png)
 
 4. In the **Database** blade, click **Add collections**.
 
@@ -49,7 +49,7 @@ To use Microsoft Azure DocumentDB, you must have a [DocumentDB account](document
 
 9. The new collection now appears in the **Collections** lens on the **Database** blade.
  
-	![Screen shot of the new database in the DocumentDB Account blade](./media/documentdb-create-collection/docdb-collection-creation-8.png)
+	![Screen shot of the new collection in the Database blade](./media/documentdb-create-collection/docdb-collection-creation-8.png)
 
 ## Other ways to create a DocumentDB collection
 
