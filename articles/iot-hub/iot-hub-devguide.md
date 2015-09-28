@@ -234,7 +234,7 @@ For SASL PLAIN, the username can be:
 
 In both cases the password field contains the token as described in the [Token format](#tokenformat) section.
 
-> [AZURE.NOTE] The [Azure IoT Hub SDKs][lnk-azure-hub-sdks] automatically generate tokens when connecting to the service. In some cases, SDKs are limited in the protocol they support or the authentication method available. Please refer to the [Azure IoT Hub SDKs][lnk-azure-hub-sdks] documentation for more information.
+> [AZURE.NOTE] The [Azure IoT Hub SDKs][lnk-apis-sdks] automatically generate tokens when connecting to the service. In some cases, SDKs are limited in the protocol they support or the authentication method available. Please refer to the [Azure IoT Hub SDKs][lnk-apis-sdks] documentation for more information.
 
 #### SASL PLAIN compared to CBS
 When using SASL PLAIN, a client connecting to an IoT hub can use a single token for each TCP connection. When the token expires the TCP connection is disconnected from the service, triggering a reconnect. This behavior, while not problematic for an application back-end component, is very damaging for a device-side application for the following reasons:

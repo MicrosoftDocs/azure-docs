@@ -295,11 +295,12 @@ In this section, you'll write a Windows console app that receives interactive me
 
 [Service Bus documentation]: https://azure.microsoft.com/en-gb/documentation/articles/service-bus-dotnet-how-to-use-queues/
 
-[Event Hubs Overview]: event-hubs-overview.md
+[Event Hubs Overview]: ../eventhubs/event-hubs-overview.md
 [Scaled out event processing]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-45f43fc3
+
 [EventProcessorHost]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost(v=azure.95).aspx
 
-[Event Hubs Programming Guide]: https://azure.microsoft.com/en-us/documentation/articles/event-hubs-programming-guide/
+[Event Hubs Programming Guide]: ../eventhubs/event-hubs-programming-guide.md
 
 [Azure Preview Portal]: https://portal.azure.com/
 

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Process IoT Hub device-to-cloud messages"
+	pageTitle="Process IoT Hub device-to-cloud messages | Microsoft Azure"
 	description="Follow this tutorial to learn useful patterns to process IoT Hub device-to-cloud messages."
 	services="iot-hub"
 	documentationCenter=".net"
@@ -40,11 +40,15 @@ At the end of this tutorial you will have run three Windows console applications
 * **ProcessDeviceToCloudMessages**, which uses [EventProcessorHost] to reliably store *data point* messages in an Azure blob and forwards *interactive* messages to a Service Bus queue, and
 * **ProcessD2cInteractiveMessages**, which dequeues messages from the queue.
 
+> [AZURE.NOTE] IoT Hub has SDK support for many device platforms and languages (including C, Java, and Javascript) though Azure IoT device SDKs. Refer to the [Azure IoT Developer Center] for step by step instructions on how to connect your device to this tutorial's code, and generally to Azure IoT Hub.
+
+> [AZURE.NOTE] The content of this tutorial is directly applicable to other ways to consume Event Hubs-compatible messages, e.g. [Hadoop] projects such as Storm. Refer to [IoT Hub Guidance - Event Hubs compatibility] for more information.
+
 In order to complete this tutorial you'll need the following:
 
 + Microsoft Visual Studio 2015,
 
-+ An active Azure account. <br/>If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdevelop%2Fiot%2Ftutorials%2Fget-started%2F target="_blank").
++ An active Azure account. <br/>If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdevelop%2Fiot%2Ftutorials%2Fprocess-d2c%2F target="_blank").
 
 Is is also assumed some knowledge of [Azure Storage] and [Azure Service Bus].
 
@@ -91,6 +95,8 @@ Additional information on IoT Hub:
 [Hadoop]: https://azure.microsoft.com/en-us/documentation/services/hdinsight/
 [Service Bus Queue]: https://azure.microsoft.com/en-us/documentation/articles/service-bus-dotnet-how-to-use-queues/
 [EventProcessorHost]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost(v=azure.95).aspx
+
+[IoT Hub Guidance - Event Hubs compatibility]: iot-hub-guidance.md#eventhubcompatible
 
 [Azure Storage]: https://azure.microsoft.com/en-us/documentation/services/storage/
 [Azure Service Bus]: https://azure.microsoft.com/en-us/documentation/services/service-bus/
