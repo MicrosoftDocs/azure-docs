@@ -1,36 +1,36 @@
 <properties
-   pageTitle="Seller Insights Reporting"
-   description="Understanding your Seller Insights Report"
+   pageTitle="Understanding Azure Marketplace Seller Insights Reporting | Microsoft Azure"
+   description="As a seller on the Azure Marketplace, understand your Seller Insights Report"
    services="Azure Marketplace"
-   documentationCenter="dev-center-name"
+   documentationCenter="na"
    authors="v-jeana"
    manager="lakoch"
    editor=""/>
 
 <tags
-   ms.service="required"
-   ms.devlang="may be required"
+   ms.service="marketplace-publishing"
+   ms.devlang="na"
    ms.topic="article"
-   ms.tgt_pltfrm="may be required"
-   ms.workload="required"
-   ms.date="09-04-20015"
-   ms.author="v-jeana@microsoft.com"/>
+   ms.tgt_pltfrm="na"
+   ms.workload="na"
+   ms.date="09/27/20015"
+   ms.author="v-jeana; hascipio"/>
 
 # Understanding your Seller Insights Reports
 
 **What are Seller Insights?**
 
-All VM and Usage-based Billing Developer Services Publishers will receive monthly reports from Microsoft, if your offers are generating usage
+All VM and usage-based billing developer services publishers will receive monthly reports from Microsoft, if your offers are generating usage.
 
 **What will I receive?**
 
-+ **Welcome Email:** As a new Publisher, you will receive a Welcome Email to notify you that will you will begin receiving the Seller Insights monthly reports
+- **Welcome Email:** As a new publisher, you will receive a welcome email to notify you that will you will begin receiving the seller insights monthly reports.
 
-+ **Monthly Sales Reports:**  If you have usage, you will receive a second email attaching your reports and instructions on how to access your password
+- **Monthly Sales Reports:**  If you have usage, you will receive a second email attaching your reports and instructions on how to access your password
 
-    + If you have a VM or Usage-based Billing Developer Services SKU generating usage, your monthly report will show you details about the orders, usage, markets, and customer details for your non-BYOL offers;
-    + These files are locked with a password only you and Microsoft know in order to protect your customers’ data.
-    + We will NOT send a report if none of your offers have not generated usage during the month.
+    - If you have a VM or Usage-based Billing Developer Services SKU generating usage, your monthly report will show you details about the orders, usage, markets, and customer details for your non-BYOL offers;
+    - These files are locked with a password only you and Microsoft know in order to protect your customers’ data.
+    - We will NOT send a report if none of your offers have not generated usage during the month.
 
 ## How to read your Seller Insights Report
 
@@ -99,25 +99,28 @@ We will continue to use this as your password until further notice.
 
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
-## Next steps:  If you have a question relating to Reports and Insights, please contact our support team.
+## Next steps  
+If you have a question relating to Reports and Insights, please contact our support team.
 
-![sellerinsightsquestions][10]
 1. Navigate to the Support pages at https://publish.windowsazure.com/
 2. Select ‘Reports and Insights’
+
+  ![sellerinsightsquestions][10]
+
 3. Select ‘Questions related to reports’
 4. Click 'Start request'
 
 
 <!--Image references-->
-[1]: ./media/marketplace-publishing-seller-insights-reporting/legal.png
-[2]: ./media/marketplace-publishing-seller-insights-reporting/readingreportbyorders.png
-[3]: ./media/marketplace-publishing-seller-insights-reporting/readingreportbyusage.png
-[4]: ./media/marketplace-publishing-seller-insights-reporting/orderdata.png
-[5]: ./media/marketplace-publishing-seller-insights-reporting/usagedata.png
-[6]: ./media/marketplace-publishing-seller-insights-reporting/customerstab.png
-[7]: ./media/marketplace-publishing-seller-insights-reporting/passwordreminder.png
-[8]: ./media/marketplace-publishing-seller-insights-reporting/selectpublisherstab.png
-[9]: ./media/marketplace-publishing-seller-insights-reporting/publisherid.png
-[10]: ./media/marketplace-publishing-seller-insights-reporting/sellerinsightsquestions.png
+[1]: ./media/marketplace-publishing-report-seller-insights/legal.png
+[2]: ./media/marketplace-publishing-report-seller-insights/readingreportbyorders.png
+[3]: ./media/marketplace-publishing-report-seller-insights/readingreportbyusage.png
+[4]: ./media/marketplace-publishing-report-seller-insights/orderdata.png
+[5]: ./media/marketplace-publishing-report-seller-insights/usagedata.png
+[6]: ./media/marketplace-publishing-report-seller-insights/customerstab.png
+[7]: ./media/marketplace-publishing-report-seller-insights/passwordreminder.png
+[8]: ./media/marketplace-publishing-report-seller-insights/selectpublisherstab.png
+[9]: ./media/marketplace-publishing-report-seller-insights/publisherid.png
+[10]: ./media/marketplace-publishing-report-seller-insights/sellerinsightsquestions.png
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->

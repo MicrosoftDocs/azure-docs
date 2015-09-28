@@ -1,20 +1,20 @@
 <properties
-   pageTitle="Explore Common Publisher Support Issues"
-   description="Exploring common publisher support issues and how to get support"
-   services="Azure Marketplace"
-   documentationCenter="dev-center-name"
+   pageTitle="Troubleshooting Common Publisher Support Issues | Microsoft Azure"
+   description="Explore and troubleshoot common publisher support issues and how to get support"
+   services="marketplace-publishing"
+   documentationCenter="name"
    authors="v-jeana"
    manager="lakoch"
    editor=""/>
 
-<tags
-   ms.service="required"
-   ms.devlang="may be required"
-   ms.topic="article"
-   ms.tgt_pltfrm="may be required"
-   ms.workload="required"
-   ms.date="09-04-20015"
-   ms.author="v-jeana@microsoft.com"/>
+   <tags
+      ms.service="marketplace-publishing"
+      ms.devlang="na"
+      ms.topic="article"
+      ms.tgt_pltfrm="na"
+      ms.workload="na"
+      ms.date="09/27/2015"
+      ms.author="v-jeana; hascipio"/>
 
 # Exploring common publisher support issues
 
@@ -32,14 +32,14 @@ In some circumstances, you may need to request a credit or a refund on behalf of
 
 The following shows you to how request a credit or refund on behalf of a customer.
 
-* _NOTE:_ If a Customer or Azure Reseller contacts us to request a refund or credit, we will apply the same policies that we use for our provision of Azure services. If our policies indicate that a refund or credit is due, we will proactively issue, and you authorize us to issue on your behalf, a refund or credit to the Customer or Azure Reseller, as applicable. If our policies do not indicate that a refund or credit is due, we may invite the Customer or Azure Reseller to contact you directly.*
+* [AZURE.NOTE] If a Customer or Azure Reseller contacts us to request a refund or credit, we will apply the same policies that we use for our provision of Azure services. If our policies indicate that a refund or credit is due, we will proactively issue, and you authorize us to issue on your behalf, a refund or credit to the Customer or Azure Reseller, as applicable. If our policies do not indicate that a refund or credit is due, we may invite the Customer or Azure Reseller to contact you directly.*
 
   ![1_RequestRefund][1]
 
   1. Navigate to the support pages
-  2. Select 'Managing Customers'
-  3. Select 'Approve or request a customer refund'
-  4. Click start request
+  2. Select **Managing Customers**
+  3. Select **Approve or request a customer refund**
+  4. Click **Start Request**
 
   ![2_RequestRefund][2]
 
@@ -122,13 +122,13 @@ For the following issues, please create a support request at http://go.microsoft
 
 
 <!--Image references-->
-[1]: ./media/marketplace-publishing-resolving-specific-support-issues/requestrefund1.png
-[2]: ./media/marketplace-publishing-resolving-specific-support-issues/requestrefund2.png
-[3]: ./media/marketplace-publishing-resolving-specific-support-issues/subscriptionvalidation.png
-[4]: ./media/marketplace-publishing-resolving-specific-support-issues/inprivate.png
-[5]: ./media/marketplace-publishing-resolving-specific-support-issues/signin.png
-[6]: ./media/marketplace-publishing-resolving-specific-support-issues/protectacct.png
-[7]: ./media/marketplace-publishing-resolving-specific-support-issues/acctdetails.png
-[8]: ./media/marketplace-publishing-resolving-specific-support-issues/manageadmins.png
+[1]: ./media/marketplace-publishing-support-common-issues/requestrefund1.png
+[2]: ./media/marketplace-publishing-support-common-issues/requestrefund2.png
+[3]: ./media/marketplace-publishing-support-common-issues/subscriptionvalidation.png
+[4]: ./media/marketplace-publishing-support-common-issues/inprivate.png
+[5]: ./media/marketplace-publishing-support-common-issues/signin.png
+[6]: ./media/marketplace-publishing-support-common-issues/protectacct.png
+[7]: ./media/marketplace-publishing-support-common-issues/acctdetails.png
+[8]: ./media/marketplace-publishing-support-common-issues/manageadmins.png
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->

@@ -1,31 +1,31 @@
 <properties
-   pageTitle="Payout Reporting"
-   description="Accessing and understanding your Payout Reports"
-   services="Azure Marketplace"
-   documentationCenter="dev-center-name"
+   pageTitle="Understanding the Azure Marketplace Payout Reporting | Microsoft Azure"
+   description="Learn how to review and ingest the Azure Marketplace Payout report."
+   services="marketplace-publishing"
+   documentationCenter="na"
    authors="v-jeana"
    manager="lakoch"
    editor=""/>
 
 <tags
-   ms.service="required"
-   ms.devlang="may be required"
+   ms.service="marketplace-publishing"
+   ms.devlang="na"
    ms.topic="article"
-   ms.tgt_pltfrm="may be required"
-   ms.workload="required"
-   ms.date="09-04-20015"
-   ms.author="v-jeana@microsoft.com"/>
+   ms.tgt_pltfrm="na"
+   ms.workload="na"
+   ms.date="09/27/2015"
+   ms.author="v-jeana; hascipio"/>
 
-# Accessing and understanding your Payout Reports
+# Understanding your Azure Marketplace payout reports
 
 ## Accessing your Payout report
 
-Some of your payout reports will be available at publish.windowsazure.com. Reports are available 45 days after the close of the quarter and are calculated after any refunds.
+Some of your payout reports will be available at https://publish.windowsazure.com. Reports are available 45 days after the close of the quarter and are calculated after any refunds.
 
   ![accessingpayoutreport][1]
 
-  1. Navigate to the Publishing Portal at publish.windowsazure.com
-  2. From the ‘Publishers’ section, click on ‘Payout Reports’
+  1. Navigate to the Publishing Portal at https://publish.windowsazure.com
+  2. From the **Publishers** section, click on **Payout Reports**
   3. Clicking on the dropdown will display all available quarterly payout reports
 
 ## Reading your Payout report
@@ -57,9 +57,9 @@ If you have a question relating to your payouts, please contact our support team
 ![payoutquestions][5]
 
 1. Navigate to the Support pages
-2. Select 'Payouts'
-3. Select 'Payout related inquiries'
-4. Click 'Start request'
+2. Select **Payouts**
+3. Select **Payout related inquiries**
+4. Click **Start request**
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Next steps:  Other Support queries
@@ -68,10 +68,10 @@ For the following issues, please log an issue at https://portal.azure.com
 
 
 <!--Image references-->
-[1]: ./media/marketplace-publishing-payout-reporting/accessingpayoutreport.png
-[2]: ./media/marketplace-publishing-payout-reporting/readingpayoutreport.png
-[3]: ./media/marketplace-publishing-payout-reporting/financialdefinitions.png
-[4]: ./media/marketplace-publishing-payout-reporting/ledgerdefinitions.png
-[5]: ./media/marketplace-publishing-payout-reporting/payoutquestions.png
+[1]: ./media/marketplace-publishing-report-payout/accessingpayoutreport.png
+[2]: ./media/marketplace-publishing-report-payout/readingpayoutreport.png
+[3]: ./media/marketplace-publishing-report-payout/financialdefinitions.png
+[4]: ./media/marketplace-publishing-report-payout/ledgerdefinitions.png
+[5]: ./media/marketplace-publishing-report-payout/payoutquestions.png
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
