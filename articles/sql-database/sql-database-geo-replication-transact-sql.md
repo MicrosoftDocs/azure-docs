@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="NA"
     ms.workload="data-management"
-    ms.date="09/25/2015"
+    ms.date="09/19/2015"
     ms.author="carlrab"/>
 
 # Geo-Replication for Azure SQL Database using Transact-SQL
@@ -26,26 +26,21 @@
 - [Transact-SQL](sql-database-geo-replication-transact-sql.md)
 
 
-This article shows you how to configure Geo-Replication for SQL Database with Transact-SQL.
+This article shows you how to configure geo-replication for an Azure SQL Database using Transact-SQL.
 
+To configure geo-replication, you need the following:
 
-
-> [AZURE.NOTE] Anything noteworthy?
-
-
-To configure Geo-Replication you need the following:
-
-- An Azure subscription - If you need an Azure subscription simply click **FREE TRIAL** at the top of this page, and then come back to finish this article.
+- An Azure subscription - If you do not have an Azure subscription, simply click **FREE TRIAL** at the top of this page, and then come back to finish this article.
 - A logical Azure SQL Database server <MyLocalServer> and a SQL database <MyDB> - The primary database that you want to replicate to a different geographical region.
-- One or more logical Azure SQL Database servers <MySecondaryServer(n)> - The logical servers that will be the parter servers in which you will create geo-replication secondary databases
-- A login that is DBManager on the primary, have db_ownership of the local database, and be DBManager on the partner server.
-- Newest version of SQL Server Management Studio - To obtain the newest version of SQL Server Management Studio (SSMS), go to [Download SQL Server Management Studio] (https://msdn.microsoft.com/library/mt238290.aspx). For more information on using SQL Server Management Studio to manage an Azure SQL Database logical servers and databases, see [Managing Azure SQL Database using SQL Server Management Studio](sql-database-manage-azure-ssms.md)
+- One or more logical Azure SQL Database servers <MySecondaryServer(n)> - The logical servers that will be the parter servers in which you will create geo-replication secondary databases and a database copy.
+- A login that is DBManager on the primary, have db_ownership of the local database that you will geo-replicate, and be DBManager on the partner server(s) to which you will configure geo-replication.
+- Newest version of SQL Server Management Studio - To obtain the newest version of SQL Server Management Studio (SSMS), go to [Download SQL Server Management Studio] (https://msdn.microsoft.com/library/mt238290.aspx). For information on using SQL Server Management Studio to manage an Azure SQL Database logical servers and databases, see [Managing Azure SQL Database using SQL Server Management Studio](sql-database-manage-azure-ssms.md)
 
 
 
 ## Connect to a SQL Database logical server
 
-Connecting to SQL Database requires that you know the server name on Azure. You might need to sign in to the portal to get this information.
+Connecting to SQL Database requires that you know the server name on Azure and have created a firewall rule for the IP address of the client from which you are connecting using Management Studio. You might need to sign in to the portal to get this information and accomplish this task.
 
 1.  Sign in to the [Azure Management Portal](http://manage.windowsazure.com).
 
@@ -94,19 +89,20 @@ allow connections from your local machine. You do this by adding your local mach
 
 ## Add secondary database
 
-You can use the **ALTER DATABASE** statement to add a secondary database on a partner server to a local database on the server to which you are connected (the primary database). This statement is executed on the master database on which the intended primary database resides. The replicated database on the secondary server will have the same name as the database on the primary server and will, by default, have the same service level. The secondary database can be readable or non-readable, and can be a single database or an elastic databbase. For more information, see [ALTER DATABASE (Transact-SQL)](https://msdn.microsoft.com/library/ms174269.aspx) and [Service Tiers](sql-database-service-tiers.md).
-After the secondary is created and seeded, data will begin replicating from the primary database to the new secondary database. The steps below describe how to accomplish this task through Management Studio to create non-readable and readable secondaries, either with a single database or an elastic database.
-> [AZURE.NOTE] If the secondary database exists on the specified parther server (for example, because a relationship already exists as a result of termination of a previous geo-replication relationship) the command will fail.
-
+You can use the **ALTER DATABASE** statement to create a geo-replicated secondary database on a partner server. You execute this statement on the master database of the server containing the database to be replicated. The geo-replicated database (the "primary database") will have the same name as the database being replicated and will, by default, have the same service level as the primary database. The secondary database can be readable or non-readable, and can be a single database or an elastic databbase. For more information, see [ALTER DATABASE (Transact-SQL)](https://msdn.microsoft.com/library/mt574871.aspx) and [Service Tiers](https://azure.microsoft.com/documentation/articles/sql-database-service-tiers/).
+After the secondary database is created and seeded, data will begin replicating asynchronously from the primary database. The steps below describe how to configure geo-replication using Management Studio. Steps to create non-readable and readable secondaries, either with a single database or an elastic database, are provided.
+> [AZURE.NOTE] If the secondary database exists on the specified parther server (for example, because a geo-replication relationship currently exists or previously existed, the command will fail.
 
 
 ### Add non-readable secondary (single database)
 
-1. In Management Studio, connect to <MyLocalServer>.database.windows.net.
+Use the following steps to create a non-readable secondary as a single database.
+
+1. In Management Studio, connect to your Azure SQL Database logical server.
 
 2. Open the Databases folder, expand the **System Databases** folder, right-click on **master**, and then click **New Query**.
 
-3. Use the following **ALTER DATABASE** statement to make <MyLocalDB> into a geo-replication primary with a non-readable secondary database on <MySecondaryServer1>.
+3. Use the following **ALTER DATABASE** statement to make a local database into a geo-replication primary with a non-readable secondary database on <MySecondaryServer1>.
 
         ALTER DATABASE <MyDB>
            ADD SECONDARY ON SERVER <MySecondaryServer1> WITH ALLOW_CONNECTIONS = NO);
@@ -114,13 +110,14 @@ After the secondary is created and seeded, data will begin replicating from the 
 4. Click **Execute** to run the query.
 
 
-
 ### Add readable secondary (single database)
-1. In Management Studio, connect to <MyLocalServer>.database.windows.net.
+Use the following steps to create a readable secondary as a single database.
+
+1. In Management Studio, connect to your Azure SQL Database logical server.
 
 2. Open the Databases folder, expand the **System Databases** folder, right-click on **master**, and then click **New Query**.
 
-3. Use the following **ALTER DATABASE** statement to make <MyLocalDB> into a geo-replication primary with a readable secondary database on <MySecondaryServer2>.
+3. Use the following **ALTER DATABASE** statement to make a local database into a geo-replication primary with a readable secondary database on a secondary server.
 
         ALTER DATABASE <MyDB>
            ADD SECONDARY ON SERVER <MySecondaryServer2> WITH ALLOW_CONNECTIONS = ALL);
@@ -130,32 +127,34 @@ After the secondary is created and seeded, data will begin replicating from the 
 
 
 ### Add non-readable secondary (elastic database)
+Use the following steps to create a non-readable secondary as an elastic database.
 
-1. In Management Studio, connect to <MyLocalServer>.database.windows.net.
+1. In Management Studio, connect to your Azure SQL Database logical server.
 
 2. Open the Databases folder, expand the **System Databases** folder, right-click on **master**, and then click **New Query**.
 
-3. Use the following **ALTER DATABASE** statement to make <MyLocalDB> into a geo-replication primary with a non-readable secondary database on <MySecondaryServer3> in <ElasticPool1>.
+3. Use the following **ALTER DATABASE** statement to make a local database into a geo-replication primary with a non-readable secondary database on a secondary server in an elastic pool.
 
         ALTER DATABASE <MyDB>
            ADD SECONDARY ON SERVER <MySecondaryServer3> WITH ALLOW_CONNECTIONS = NO)
-           , ELASTIC_POOL (name = 'ElasticPool1');
+           , ELASTIC_POOL (name = 'MyElasticPool1');
 
 4. Click **Execute** to run the query.
 
 
 
 ### Add readable secondary (elastic database)
+Use the following steps to create a readable secondary as an elastic database.
 
-1. In Management Studio, connect to <MyLocalServer>.database.windows.net.
+1. In Management Studio, connect to your Azure SQL Database logical server.
 
 2. Open the Databases folder, expand the **System Databases** folder, right-click on **master**, and then click **New Query**.
 
-3. Use the following **ALTER DATABASE** statement to make <MyLocalDB> into a geo-replication primary with a readable secondary database on <MySecondaryServer4> in <ElasticPool2>.
+3. Use the following **ALTER DATABASE** statement to make a local database into a geo-replication primary with a readable secondary database on a secondary server in an elastic pool.
 
         ALTER DATABASE <MyDB>
            ADD SECONDARY ON SERVER <MySecondaryServer4> WITH ALLOW_CONNECTIONS = NO)
-           , ELASTIC_POOL (name = 'ElasticPool2');
+           , ELASTIC_POOL (name = 'MyElasticPool2');
 
 4. Click **Execute** to run the query.
 
@@ -163,13 +162,15 @@ After the secondary is created and seeded, data will begin replicating from the 
 
 ## Remove secondary database
 
-You can use the **ALTER DATABASE** statement to permanently terminate the replication partnership between a secondary database and its primary. This statement is executed on the master database on which the primary database resides. After the relationship termination, the secondary database becomes a regular read-write database. If the connectivity to secondary database is broken the command succeeds but the secondary will become read-write after connectivity is restored. For more information, see [ALTER DATABASE (Transact-SQL)](https://msdn.microsoft.com/library/ms174269.aspx) and [Service Tiers](sql-database-service-tiers.md).
+You can use the **ALTER DATABASE** statement to permanently terminate the replication partnership between a secondary database and its primary. This statement is executed on the master database on which the primary database resides. After the relationship termination, the secondary database becomes a regular read-write database. If the connectivity to secondary database is broken the command succeeds but the secondary will become read-write after connectivity is restored. For more information, see [ALTER DATABASE (Transact-SQL)](https://msdn.microsoft.com/library/mt574871.aspx) and [Service Tiers](https://azure.microsoft.com/documentation/articles/sql-database-service-tiers/).
 
-1. In Management Studio, connect to <MyLocalServer>.database.windows.net.
+Use the following steps to remove geo-replicated secondary from a geo-repliocation partnership.
+
+1. In Management Studio, connect to your Azure SQL Database logical server.
 
 2. Open the Databases folder, expand the **System Databases** folder, right-click on **master**, and then click **New Query**.
 
-3. Use the following **ALTER DATABASE** statement to make <MyLocalDB> into a geo-replication primary with a readable secondary database on <MySecondaryServer4> in <ElasticPool2>.
+3. Use the following **ALTER DATABASE** statement to remove a geo-replicated secondary.
 
         ALTER DATABASE <MyDB>
            REMOVE SECONDARY ON SERVER <MySecondaryServer1>;
@@ -177,28 +178,28 @@ You can use the **ALTER DATABASE** statement to permanently terminate the replic
 4. Click **Execute** to run the query.
 
 
-
 ## Initiate a planned failover promoting a secondary database to become the new primary
 
-You can use the **ALTER DATABASE** statement to promote a secondary database to become the new primary database in a planned fashion, demoting the existing primary to become a secondary. This statement is executed on the master database on which the primary database resides. This functionality is designed for planned failover, such as during the DR drills, and requires that the primary database be available.
+You can use the **ALTER DATABASE** statement to promote a secondary database to become the new primary database in a planned fashion, demoting the existing primary to become a secondary. This statement is executed on the master database on the Azure SQL Database logical server in which the geo-replicated secondary database that is being promoted resides. This functionality is designed for planned failover, such as during the DR drills, and requires that the primary database be available.
 
 The command performs the following workflow:
 
-1. Temporarily switch replication to synchronous mode. This will cause all outstanding transactions to be flushed to the secondary;
+1. Temporarily switches replication to synchronous mode, causing all outstanding transactions to be flushed to the secondary and blocking all new transactions;
 
-2. Switch the roles of the two databases in the geo-replication partnershiop.  
+2. Switches the roles of the two databases in the geo-replication partnership.  
 
-This sequence guarantees that no data loos will occur. There is a short period during which both databases are unavailable (on the order of 0 to 25 seconds) while the roles are switched. The entire operation should take less than a minute to complete under normal circumstances. For more information, see [ALTER DATABASE (Transact-SQL)](https://msdn.microsoft.com/library/ms174269.aspx) and [Service Tiers](sql-database-service-tiers.md).
-
-
-> [AZURE.NOTE]:  If the primary database is unavailable when the command is issued it will fail with the error message indicating that the primary server is not available. In rare cases it is possible that the operation cannot complete and may appear stuck. In this case the user can call the force failover command and accept data loss.
+This sequence guarantees that no data loss will occur. There is a short period during which both databases are unavailable (on the order of 0 to 25 seconds) while the roles are switched. The entire operation should take less than a minute to complete under normal circumstances. For more information, see [ALTER DATABASE (Transact-SQL)](https://msdn.microsoft.com/library/mt574871.aspx) and [Service Tiers](https://azure.microsoft.com/documentation/articles/sql-database-service-tiers/).
 
 
-1. In Management Studio, connect to <MyLocalServer>.database.windows.net.
+> [AZURE.NOTE]:  If the primary database is unavailable when the command is issued, the command will fail with the error message indicating that the primary server is not available. In rare cases, it is possible that the operation cannot complete and may appear stuck. In this case, the user can execute the force failover command and accept data loss.
+
+Use the following steps to initiate a planned failover.
+
+1. In Management Studio, connect to the Azure SQL Database logical server in which a geo-replicated secondary database resides.
 
 2. Open the Databases folder, expand the **System Databases** folder, right-click on **master**, and then click **New Query**.
 
-3. Use the following **ALTER DATABASE** statement to make <MyLocalDB> into a geo-replication primary with a readable secondary database on <MySecondaryServer4> in <ElasticPool2>.
+3. Use the following **ALTER DATABASE** statement to make the geo-replicated database  into a geo-replication primary with a readable secondary database on <MySecondaryServer4> in <ElasticPool2>.
 
         ALTER DATABASE <MyDB> FAILOVER;
 
@@ -208,52 +209,97 @@ This sequence guarantees that no data loos will occur. There is a short period d
 
 ## Initiate an unplanned failover from the primary database to the secondary database
 
-You can use the **ALTER DATABASE** statement to promote a secondary database to become the new primary database in an unplanned fashion, forcing the demotion of the existing primary to become a secondary at a time when the primary databse is no longer available. This statement is executed on the master database on which the secondary database that is being promoted resides.
+You can use the **ALTER DATABASE** statement to promote a secondary database to become the new primary database in an unplanned fashion, forcing the demotion of the existing primary to become a secondary at a time when the primary databse is no longer available. This statement is executed on the master database on the Azure SQL Database logical server in which the geo-replicated secondary database that is being promoted resides.
 
-This functionality is designed for disaster recovery when restoring availability of the database is critical and some data loss is acceptable. When forced failover is invoked, the specified secondary database immediately becomes the primary database and begins accepting write transactions. As soon as the original primary database is able to reconnect with this new primary database after the forced failover operation, an incremental backup is taken on the original primary database and the old primary database is made into a secondary database for the new primary database; subsequently, it is merely a replica of the new primary.
+This functionality is designed for disaster recovery when restoring availability of the database is critical and some data loss is acceptable. When forced failover is invoked, the specified secondary database immediately becomes the primary database and begins accepting write transactions. As soon as the original primary database is able to reconnect with this new primary database, an incremental backup is taken on the original primary database and the old primary database is made into a secondary database for the new primary database; subsequently, it is merely a synchronizing replica of the new primary.
 
-But because Point In Time Restore is not supported on the secondary databases, if the user wishes to recovery data committed to the old primary database which had not been replicated to the new primary database, she has to engage CSS to restore a database to the know log backup.
+However, because Point In Time Restore is not supported on the secondary databases, if the user wishes to recover data committed to the old primary database that had not been replicated to the new primary database before the forced failover occurred, the user will need to engage support to recover this lost data.
 
 > [AZURE.NOTE]: If the command is issued when the both primary and secondary are online the old primary will become the new secondary but data synchronization will not be attempted. So some data loss may occur.
 
 
-If the primary database has multiple secondaries the command will partially succeed. The secondary on which the command was executed will become primary. The old primary however will remain primary, i.e. the two primaries will end up in inconsistent state and connected by a suspended replication link. The user will have to manually repair this configuration using a “remove secondary” API on either of these primary databases.
+If the primary database has multiple secondary databases, the command will succeed only on the secondary server on which the command was executed. However, the other secondaries will not know that the forced failover occurred. The user will have to manually repair this configuration using a “remove secondary” API and then reconfigure geo-replication on these additional secondaries.
 
-1. In Management Studio, connect to <MySecondaryServer>.database.windows.net.
+Use the following steps to forcibly remove geo-replicated secondary from a geo-repliocation partnership.
+
+1. In Management Studio, connect to the Azure SQL Database logical server in which a geo-replicated secondary database resides.
 
 2. Open the Databases folder, expand the **System Databases** folder, right-click on **master**, and then click **New Query**.
 
 3. Use the following **ALTER DATABASE** statement to make <MyLocalDB> into a geo-replication primary with a readable secondary database on <MySecondaryServer4> in <ElasticPool2>.
 
-        ALTER DATABASE <MyDB> FORCE_FAILOVER_ALLOW_DATA_LOSS;
+        ALTER DATABASE <MyDB>   FORCE_FAILOVER_ALLOW_DATA_LOSS;
 
 4. Click **Execute** to run the query.
 
 ## Monitor Geo-Replication configuration and health
 
-Monitoring tasks include monitoring of the geo-replication configuration and monitoring data replication health.  
+Monitoring tasks include monitoring of the geo-replication configuration and monitoring data replication health.  You can use the **sys.dm_geo_replication_links** dynamic management view in the master database to return information about all exiting replication links for each database on the Azure SQL Database logical server. This view contains a row for each of the replication link between primary and secondary databases. You can use the **sys.dm_replication_status** dynamic management view to return a row for each Azure SQL Database that is currently engaged in a replication replication link. This includes both primary and secondary databases. If more than one continuous replication link exists for a given primary database, this table contains a row for each of the relationships. The view is created in all databases, including the logical master. However, querying this view in the logical master returns an empty set. You can use the **sys.dm_operation_status** dynamic management view to show the status for all database operations including the status of the replication links. For more information, see [sys.dm_geo_replication_links (Azure SQL Database)](https://msdn.microsoft.com/library/mt575501.aspx), [sys.dm_geo_replication_link_status (Azure SQL Database)](https://msdn.microsoft.com/library/mt575504.aspx), and [sys.dm_operation_status (Azure SQL Database)](https://msdn.microsoft.com/library/dn270022.aspx).
 
+Use the following steps to monitor a geo-repliocation partnership.
 
+1. In Management Studio, connect to your Azure SQL Database logical server.
 
+2. Open the Databases folder, expand the **System Databases** folder, right-click on **master**, and then click **New Query**.
+
+3. Use the following statement to show all databases with geo-replication links.
+
+        SELECT database_id,start_date, partner_server, partner_database,  replication_state, is_target_role, is_non_redable_secondary FROM sys.geo_replication_links;
+
+4. Click **Execute** to run the query.
+5. Open the Databases folder, expand the **System Databases** folder, right-click on **MyDB**, and then click **New Query**.
+6. Use the following statement to show the replication lags and last replication time of my secondary databases of MyDB.
+
+        SELECT link_guid, partner_server, last_replication, replication_lag_sec FROM sys.dm_ replication_status
+
+7. Click **Execute** to run the query.
+8. Use the following statement to show the most recent geo-replication operations associated with database MyDB.
+
+        SELECT * FROM sys.dm_ operation_status where major_resource_is = 'MyDB'
+        ORDER BY start_time DESC
+
+9. Click **Execute** to run the query.
 
 ## Copy a database
 
-A new database is created in the same or different logical server using a default or user selected service objective, including a named elastic pool.  
+A new database is created in the same or different logical server using a default or user selected service objective, including a named elastic pool. You can use the **CREATE DATABASE**. This statement is executed on the master database for the server on which the copy will be created. The copied database on the specified server will, by default, have the same service level as the source database. The copied database will be a standard read-write database, and can be a single database or an elastic databbase. For more information, see [CREATE DATABASE (Transact-SQL)](https://msdn.microsoft.com/library/dn268335.aspx) and [Service Tiers](https://azure.microsoft.com/documentation/articles/sql-database-service-tiers/) and [sys.dm_operation_status (Azure SQL Database)](https://msdn.microsoft.com/library/dn270022.aspx).
+
+Use the following steps to copy a database to another Azure SQL Database logical server.
+
+1. In Management Studio, connect to another Azure SQL Database logical server.
+
+2. Open the Databases folder, expand the **System Databases** folder, right-click on **master**, and then click **New Query**.
+
+3. Use the following statement to show all databases with geo-replication links.
+
+        CREATE DATABASE 'MyCopiedDB (SERVICE_OBJECTIVE = ELASTIC_POOL (name = 'MyElasticPool5))
+            AS A COPY OF MyLocalServer.MyDB;
+
+4. Click **Execute** to run the query.
 
 
 ## Monitor a database copy
 
-Since the database copy process is asynchronous the user can monitor the copy state transitions and the completion time.  
+Since the database copy process is asynchronous the user can monitor the copy state transitions and the completion time. You can use the **sys.dm_database_copy_links** dynamic management view to return information about all existing database copy links for each database on the Azure SQL Database logical server. This statement is executed on the master database for the server from which the copy is being made. You can use the **sys.dm_operation_status** dynamic management view to show the status for all database operations including the status of the replication links. For more information, see [sys.dm_database_copy_links (Azure SQL Database)](https://msdn.microsoft.com/library/mt576403.aspx)
 
+Use the following steps to monitor a database copy operation.
 
+1. In Management Studio, connect to your Azure SQL Database logical server.
 
-## Setup Geo-Replication Transact-SQL script
+2. Open the Databases folder, expand the **System Databases** folder, right-click on **master**, and then click **New Query**.
 
+3. Use the following statement to show all databases copies originating from the current server.
 
-    Some T-SQL here?
+        SELECT * FROM sys.dm_database_copy_links;
 
+4. Click **Execute** to run the query.
 
+5. Use the following statement to show most recent database copy operations associated with database 'MyDB'
 
+        SELECT * FROM sys.dm_ operation_status
+            WHERE major_resource_is = 'MyDB'
+                AND operation='CREATE DATABASE COPY'
+            ORDER BY start_time DESC
 
 
 ## Next steps
