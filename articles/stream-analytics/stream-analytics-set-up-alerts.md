@@ -50,7 +50,7 @@ There are two ways to setup alerts in the Azure Management portal:
 
 ## Setting up alerts through the Operations logs
 
-1.	Go to the **Alerts** tab in Management Services in the [Azure Portal](https://manage.windowsazure.com)  
+1.	Go to the **Alerts** tab in Management Services in the [Azure Portal](https://manage.windowsazure.com).  
 2.	Click on **Add Rule**  
 
     ![Criteria](./media/stream-analytics-set-up-alerts/04-stream-analytics-set-up-alerts.png)  
