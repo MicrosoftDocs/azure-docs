@@ -47,4 +47,4 @@ This article contains specific information for IT Pros and developers configurin
 
 [lnk-iothub]: iot-hub-what-is-iot-hub.md
 [lnk-devguide]: iot-hub-devguide.md#security
-[lnk-manage-portal]: TBD
+[lnk-manage-portal]: iot-hub-manage-through-portal.md
