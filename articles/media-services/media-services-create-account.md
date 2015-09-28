@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="09/07/2015"  
+	ms.date="09/28/2015"  
 	ms.author="juliako"/>
 
 
@@ -79,7 +79,7 @@ You can view AMS learning paths here:
 
 - [Get started with delivering Video-on-Demand (VoD) content using .NET SDK](media-services-dotnet-get-started.md)
 
-- [Use .NET SDK to create channels that perform live encoding from a single-bitrate to multi-bitrate stream (Preview)](media-services-dotnet-creating-live-encoder-enabled-channel.md)
+- [Use .NET SDK to create channels that perform live encoding from a single-bitrate to multi-bitrate stream](media-services-dotnet-creating-live-encoder-enabled-channel.md)
 
 <!-- Reusable paths. -->
 
