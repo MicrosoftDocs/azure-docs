@@ -137,7 +137,7 @@ You can browse to the IoT hub you want to delete by clicking **Browse**, and the
 
   
   [4]: ./media/iot-hub-manage-through-portal/create-iothub.png
-  [5]: ./media/iot-hub-manage-through-portal/location.png
+  [5]: ./media/iot-hub-manage-through-portal/location1.png
   [8]: ./media/iot-hub-manage-through-portal/portal-settings.png
   [10]: ./media/iot-hub-manage-through-portal/shared-access-policies.png
   [11]: ./media/iot-hub-manage-through-portal/messaging-settings.png
