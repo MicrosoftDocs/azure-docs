@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/25/2015"    
+	ms.date="09/29/2015"    
 	ms.author="juliako"/>
 
 #Use the Elemental Live encoder to send a single bitrate live stream 

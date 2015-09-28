@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/25/2015"    
+	ms.date="09/29/2015"    
 	ms.author="juliako"/>
 
 #Use the FMLE encoder to send a single bitrate live stream 
@@ -24,7 +24,7 @@
 - [Tricaster](media-services-configure-tricaster-live-encoder.md)
 - [Wirecast](media-services-configure-wirecast-live-encoder.md)
 
-This topic shows how to configure the Flash Media Live Encoder (FMLE) live encoder to send a single bitrate live stream over RTMP to the Media Services Channel. For more information, see [Working with Channels that are Enabled to Perform Live Encoding with Azure Media Services](media-services-manage-live-encoder-enabled-channels.md).
+This topic shows how to configure the [Flash Media Live Encoder](http://www.adobe.com/products/flash-media-encoder.html) (FMLE) encoder to send a single bitrate live stream over RTMP to the Media Services Channel. For more information, see [Working with Channels that are Enabled to Perform Live Encoding with Azure Media Services](media-services-manage-live-encoder-enabled-channels.md).
 
 ##Prerequisites
 
