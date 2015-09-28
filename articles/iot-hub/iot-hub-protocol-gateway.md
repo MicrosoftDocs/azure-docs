@@ -31,7 +31,7 @@ The MQTT adapter also demonstartes the programing model for building protocl ada
 
 To learn more about Azure IoT protocol gateway and how to use and deploy it as part of your IoT solution please refer to:
 
-* [Azure IoT protocol gatway getting started guide]()
-* [Azure IoT protocol gateway developer guide]()
-* [Azure IoT protocol gateway repository on GitHub]()
+* [Azure IoT protocol gateway repository on GitHub](https://github.com/Azure/azure-iot-protocol-gateway/)
+* [Azure IoT protocol gateway developer guide](https://github.com/Azure/azure-iot-protocol-gateway/blob/master/DeveloperGuide.md)
+
 
