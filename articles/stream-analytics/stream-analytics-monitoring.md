@@ -14,26 +14,26 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="09/19/2015" 
+	ms.date="09/29/2015" 
 	ms.author="jeffstok"/>
 
 # Understanding Stream Analytics job monitoring
 
 ## Monitor page
 
-The Azure Management portal and Azure preview portal both surface key performance metrics that can be used to monitor and troubleshoot your job. In the Azure Management portal, click on the **Monitor** tab of a running Stream Analytics job to see these metrics. There is a delay of at the most 1 minute in the performance metrics showing up in the Monitor page.
+The Azure Management portal and Azure preview portal both surface key performance metrics that can be used to monitor and troubleshoot your job. In the Azure Management portal, click on the **Monitor** tab of a running Stream Analytics job to see these metrics. There is a delay of at the most 1 minute in the performance metrics showing up in the Monitor page.  
 
   ![Monitoring Dashboard](./media/stream-analytics-monitoring/01-stream-analytics-monitoring.png)  
 
-In the Azure preview portal, browse to the Stream Analytics job you are interested in seeing metrics for and view the **Monitoring** section.
+In the Azure preview portal, browse to the Stream Analytics job you are interested in seeing metrics for and view the **Monitoring** section.  
 
-  ![Azure preview portal Monitoring Dashboard](./media/stream-analytics-monitoring/06-stream-analytics-monitoring.png) 
+  ![Azure preview portal Monitoring Dashboard](./media/stream-analytics-monitoring/06-stream-analytics-monitoring.png)  
 
-The first time a Stream Analytics job is created in a region, you will need to configure Diagnostics for that region. To do this, click anywhere in the **Monitoring** section and the **Diagnostics** blade will appear. Here you can enable diagnostics and specify a storage account for monitoring data.
+The first time a Stream Analytics job is created in a region, you will need to configure Diagnostics for that region. To do this, click anywhere in the **Monitoring** section and the **Diagnostics** blade will appear. Here you can enable diagnostics and specify a storage account for monitoring data.  
 
-  ![Azure preview portal Configure Diagnostics](./media/stream-analytics-monitoring/07-stream-analytics-monitoring.png) 
+  ![Azure preview portal Configure Diagnostics](./media/stream-analytics-monitoring/07-stream-analytics-monitoring.png)  
 
-## Metrics available for Stream Analytics
+## Metrics available for Stream Analytics  
 
 | Metric | Definition |
 |--------|-------------|
