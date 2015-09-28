@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/25/2015" 
+	ms.date="09/28/2015" 
 	ms.author="mimig"/>
 
 # Create a DocumentDB database using the Azure preview portal
