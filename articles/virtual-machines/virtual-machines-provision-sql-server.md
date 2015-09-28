@@ -66,13 +66,8 @@ For the most up-to-date information on the supported SQL Server images on Azure,
 
 	>[AZURE.NOTE] The size of the virtual machine is specified during provisioning:
  	>
-	> - A2 is the smallest size recommended for production workloads. 
-    > - The minimum recommended size for a virtual machine is A3 when using SQL Server Enterprise Edition.
-    > - Select A3 or higher when using SQL Server Enterprise Edition.
-   	> - Select A4 or higher when using SQL Server 2012 or 2014 Enterprise Optimized for Transactional Workloads images.  
-   	> - Select A7 or higher when using SQL Server 2012 or 2014 Enterprise Optimized for Data Warehousing Workloads images. 
-   	> - For the best performance use DS2 or DS3 with Premium Storage. For more information, see [Performance Best Practices for SQL Server in Azure Virtual Machines](virtual-machines-sql-server-performance-best-practices.md).
-   	> - The size selected limits the number of data disks you can configure. For most up-to-date information on available virtual machine sizes and the number of data disks that you can attach to a virtual machine, see [Virtual Machine Sizes for Azure](virtual-machines-size-specs.md).
+	> - For production workloads, we recommend using **DS2** for SQL Server Standard edition or **DS3** for SQL Server Enterprise edition with Premium Storage. For more information, see [Performance Best Practices for SQL Server in Azure Virtual Machines](virtual-machines-sql-server-performance-best-practices.md).
+	> - The size selected limits the number of data disks you can configure. For most up-to-date information on available virtual machine sizes and the number of data disks that you can attach to a virtual machine, see [Virtual Machine Sizes for Azure](virtual-machines-size-specs.md).
 
 5. After entering your VM configuration details, click the next arrow on the bottom right to continue.
 
