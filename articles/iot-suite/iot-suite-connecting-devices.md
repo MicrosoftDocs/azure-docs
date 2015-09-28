@@ -1,20 +1,20 @@
 <properties
    pageTitle="Connecting your device to the preconfigured solution"
    description="Connecting your device to the preconfigured solution"
-   services="Azure IoT Suite"
+   services="iot-hub"
    documentationCenter="dev-center-name"
    authors="hegate"
    manager="jamesosb"
    editor=""/>
 
 <tags
-   ms.service="required"
-   ms.devlang="may be required"
+   ms.service="iot-hub"
+   ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="may be required"
-   ms.workload="required"
-   ms.date="mm/dd/yyyy"
-   ms.author="hegate;semicolon separates two or more"/>
+   ms.workload="tbd"
+   ms.date="9/29/2015"
+   ms.author="hegate"/>
 
 
 # Connecting your device to the Azure IoT Suite remote monitoring solution
@@ -30,7 +30,7 @@
 -   [4. Sending data to the remote monitoring using node.js](#e)
 -   [5. Command and control your device from the dashboard](#e)
 -   [6. Extending the solution](#S)
--   [7. Links and resources](#St)
+
 
 
 ## Scenario overview
@@ -41,7 +41,7 @@ In this example, we will have three simulated data sources:  external temperatur
 
 ##### Provision your IoT Suite
 
-If you haven't provisioned your remote monitoring preconfigured solution yet, you can provision it [here](www.internetofyourthigns.com).
+If you haven't provisioned your remote monitoring preconfigured solution yet, you can provision it [here](www.internetofyourthings.com).
 
 
 ##### Provision your device in the remote monitoring solution
@@ -68,7 +68,7 @@ To get your device connected to the preconfigured solution, you must get the dev
 [2]: ./media/iot-suite-connecting-devices/suite1.png
 [3]: ./media/iot-suite-connecting-devices/suite2.png
 [4]: ./media/iot-suite-connecting-devices/suite3.png
-[5]: ./media/iot-suite-connecting-devices/suite5.png
+[5]: ./media/iot-suite-connecting-devices/suite5new.png
 
 Now choose which language would you like to use to continue your sample. In this tutorial, we've created sample code for C and node.js but you could also implement it in C Sharp and Java.
 
@@ -77,7 +77,7 @@ Now choose which language would you like to use to continue your sample. In this
 
 ### Running your device on Linux
 
-1. Setup your environment: if you've never used our Device SDK before,  learn  how to set up your environment on Linux [here](https://github.com/Azure/azure-iot-sdks/blob/develop/c/doc/devbox_setup.md#linux).
+1. Setup your environment: if you've never used our Device SDK before,  learn  how to set up your environment on Linux [here](https://github.com/azure/azure-iot-sdks/blob/develop/c/doc/devbox_setup.md#linux).
 
 1. Open the file **c/serializer/samples/serializer/remote_monitoring.c** in a text editor.
 
@@ -116,7 +116,7 @@ Now choose which language would you like to use to continue your sample. In this
 ### Running your device on Windows
 
 
-1. Setup your environment: if you have never used our device SDK before, learn  how to set up your environment on Windows [here](https://github.com/Azure/azure-iot-sdks/blob/develop/c/doc/devbox_setup.md#windows).
+1. Setup your environment: if you have never used our device SDK before, learn  how to set up your environment on Windows [here](https://github.com/azure/azure-iot-sdks/blob/develop/c/doc/devbox_setup.md#windows).
 
 1. Start a new instance of Visual Studio 2015. Open the **remote_monitoring.sln** solution in the **c\\serializer\\build\\windows** folder in your local copy of the repository.
 
@@ -252,7 +252,7 @@ To learn how to do command and control, please continue in the following section
 
 -   In our azure-iot-sdks repo, locate the following files: packages.json (under /node/common) and remote_monitoring.js under node/device/samples/). Copy them to your device and put them in the same folder.
 
-- Open the remote-monitoring.js file and look for the folloing variables:
+- Open the remote-monitoring.js file and look for the following variables:
 
 
    ```
@@ -330,7 +330,3 @@ Now that your device is connected and sending self-generated temperature data fr
 ## Extending your solution
 
 There are multiple ways to extend the functionality of this sample: connect real sensor to your device to send real date, implement command and control functionality, etc. Please use our guide on how to extend the remote monitoring solution to learn more about this.
-
-## Links and resources
-- Preconfigured solution guide
-- Azure IoT Suite and Hub sample galleries
