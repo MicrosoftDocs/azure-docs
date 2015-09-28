@@ -5,7 +5,7 @@
 	writer="cephalin"
 	editor="mollybos"
 	manager="wpickett"
-	services="app-service\web"
+	services="app-service"
 	documentationCenter=""/>
 
 <tags
