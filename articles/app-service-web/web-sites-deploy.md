@@ -1,15 +1,15 @@
 <properties
 	pageTitle="Deploy a web app in Azure App Service"
 	description="Learn what methods are available for deploying content to Web Apps."
-	services="app-service\web"
+	services="app-service"
 	documentationCenter=""
 	authors="tdykstra"
 	manager="wpickett"
 	editor="mollybos"/>
 
 <tags
-	ms.service="app-service-web"
-	ms.workload="web"
+	ms.service="app-service"
+	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"

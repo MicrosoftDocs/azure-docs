@@ -191,6 +191,7 @@ The following steps add the B2B API Apps to Logic Apps, Mobile Apps, or Web Apps
 
 4. Select **OK** to save your changes. 
 
+>[AZURE.NOTE] If you want to get started with Azure Logic Apps before signing up for an Azure account, go to [Try Logic App](https://tryappservice.azure.com/?appservice=logic), where you can immediately create a short-lived starter logic app in App Service. No credit cards required; no commitments.
 
 ## More B2B resources
 

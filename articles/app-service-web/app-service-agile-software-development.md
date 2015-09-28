@@ -1,15 +1,15 @@
 <properties
 	pageTitle="Agile software development with Azure App Service"
 	description="Learn how to create high-scale complex applications with Azure App Service in a way that supports agile software development."
-	services="app-service\web,app-service\api,app-service\mobile"
+	services="app-service"
 	documentationCenter=""
 	authors="cephalin"
 	manager="wpickett"
 	editor=""/>
 
 <tags
-	ms.service="app-service-web"
-	ms.workload="web"
+	ms.service="app-service"
+	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"

@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Session state with Azure Redis cache in Azure App Service" 
 	description="Learn how to use the Azure Cache Service to support ASP.NET session state caching." 
-	services="app-service\web" 
+	services="app-service" 
 	documentationCenter=".net" 
 	authors="Rick-Anderson" 
 	manager="wpickett" 
@@ -9,7 +9,7 @@
 
 <tags 
 	ms.service="app-service" 
-	ms.workload="web" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
