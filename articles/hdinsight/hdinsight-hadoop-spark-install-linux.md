@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/20/2015" 
+	ms.date="09/28/2015" 
 	ms.author="larryfr"/>
 
 # Install and use Spark on HDInsight Hadoop clusters
 
 In this document, you will learn how to install Spark by using Script Action. Script Action lets you run scripts to customize a cluster, only when the cluster is being created. For more information, see [Customize HDInsight cluster using Script Action][hdinsight-cluster-customize]. Once you have installed Spark, you'll also learn how to run a Spark query on HDInsight clusters.
 
-> [AZURE.NOTE] HDInsight also provides Spark as a cluster type, which means you can now directly provision a Spark cluster without modifying a Hadoop cluster. However, this is limited to Windows-based clusters currently. Using the Spark cluster type, you get a Windows-based HDInsight version 3.2 cluster with Spark version 1.3.1. For more information, see [Get Started with Apache Spark on HDInsight](hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql.md).
+> [AZURE.NOTE] HDInsight also provides Spark as a cluster type, which means you can now directly provision a Spark cluster without modifying a Hadoop cluster. However, this is limited to Windows-based clusters currently. Using the Spark cluster type, you get a Windows-based HDInsight version 3.2 cluster with Spark version 1.5.0. For more information, see [Get Started with Apache Spark on HDInsight](hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql.md).
 
 
 ## <a name="whatis"></a>What is Spark?
@@ -43,7 +43,7 @@ This script installs Spark version 1.3.1 into `/usr/hdp/current/spark`.
 
 ## <a name="install"></a>Install Spark using Script Actions
 
-A sample script to install Spark on an HDInsight cluster is available from a read-only Azure storage blob at [https://hdiconfigactions.blob.core.windows.net/linuxsparkconfigactionv01/spark-installer-v01.sh](https://hdiconfigactions.blob.core.windows.net/linuxsparkconfigactionv01/spark-installer-v01.sh). This section provides instructions on how to use the sample script while provisioning the cluster by using the Azure portal. 
+A sample script to install Spark on an HDInsight cluster is available from a read-only Azure storage blob at [https://hdiconfigactions.blob.core.windows.net/linuxsparkconfigactionv02/spark-installer-v02.sh](https://hdiconfigactions.blob.core.windows.net/linuxsparkconfigactionv02/spark-installer-v02.sh). This section provides instructions on how to use the sample script while provisioning the cluster by using the Azure portal. 
 
 > [AZURE.NOTE] You can also use Azure PowerShell or the HDInsight .NET SDK to create a cluster using this script. For more information on using these methods, see [Customize HDInsight clusters with Script Actions](hdinsight-hadoop-customize-cluster-linux.md).
 
@@ -52,7 +52,7 @@ A sample script to install Spark on an HDInsight cluster is available from a rea
 2. On the **Optional Configuration** blade, select **Script Actions**, and provide the information below:
 
 	* __NAME__: Enter a friendly name for the script action.
-	* __SCRIPT URI__: https://hdiconfigactions.blob.core.windows.net/linuxsparkconfigactionv01/spark-installer-v01.sh
+	* __SCRIPT URI__: https://hdiconfigactions.blob.core.windows.net/linuxsparkconfigactionv02/spark-installer-v02.sh
 	* __HEAD__: Check this option
 	* __WORKER__: Check this option
 	* __ZOOKEEPER__: Check this option to install on the Zookeeper node.

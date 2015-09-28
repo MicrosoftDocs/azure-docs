@@ -1,10 +1,10 @@
 <properties 
    pageTitle="StorSimple system limits | Microsoft Azure"
-   description="Describes system limits and recommended sizes for StorSimple components and connections."
+   description="Describes system limits and recommended sizes for StorSimple 8000 series components and connections."
    services="storsimple"
    documentationCenter="NA"
    authors="alkohli"
-   manager="adinah"
+   manager="carolz"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/17/2015"
+   ms.date="09/28/2015"
    ms.author="alkohli" />
 
 # StorSimple system limits
