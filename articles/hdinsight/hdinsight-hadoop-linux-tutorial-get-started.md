@@ -32,8 +32,15 @@ This docuent gets you started quickly with Azure HDInsight on Linux by showing y
 Before you begin this Linux tutorial for Hadoop, you must have the following:
 
 - **An Azure subscription**: See [Get Azure free trial](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+
+- **A Secure Shell (SSH) client**: Linux, Unix, and OS X systems provied an SSH client through the `ssh` command. For Windows systems, we recommend [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
+
+    > [AZURE.NOTE] The steps in this document use SSH to connect to the HDInsight cluster, as SSH is available on all client operating systems. For other methods of connecting to the HDInsight cluster, such as using the HDInsight Tools for Visual Studio or REST APIs, see the Hive, Pig, and MapReduce links in the [Next Steps](#next-steps) section of this document.
+    
 - **Secure Shell (SSH) keys** (optional): You can secure the SSH account used to connect to the cluster using either a password or a public key. Using a key is the recommended method as it is more secure, however it requires additional setup. For instructions on how to create and use SSH keys with HDInsight, refer to the following articles:
+
 	-  From a Linux computer - [Use SSH with Linux-based HDInsight (Hadoop) from Linux, Unix, or OS X](hdinsight-hadoop-linux-use-ssh-unix.md).
+    
 	-  From a Windows computer - [Use SSH with Linux-based HDInsight (Hadoop) from Windows](hdinsight-hadoop-linux-use-ssh-windows.md).
 
 ## <a name="provision"></a>Provision an HDInsight cluster on Linux
@@ -128,7 +135,7 @@ You can connect to an HDInsight cluster on Linux from a Linux computer or a Wind
 
 ###To connect from a Windows-based computer
 
-1. Download <a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html" target="_blank">PuTTY</a> for Windows-based clients.
+1. Download [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html) for Windows-based clients.
 
 2. Open PuTTY. In **Category**, click **Session**. From the **Basic options for your PuTTY session** screen, enter the SSH address of your HDInsight server in the **Host Name (or IP address)** field. The SSH address is your cluster name, followed by**-ssh.azurehdinsight.net**. For example, **myhdinsightcluster-ssh.azurehdinsight.net**.
 
