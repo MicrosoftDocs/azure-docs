@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="06/16/2015"
-	ms.author="wesmc"/>
+	ms.date="09/24/2015"
+	ms.author="ricksal"/>
 
 #Azure Notification Hubs Notify Users
 

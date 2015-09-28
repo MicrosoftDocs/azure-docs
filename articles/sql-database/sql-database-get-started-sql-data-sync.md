@@ -4,7 +4,7 @@
 	services="sql-database"
 	documentationCenter=""
 	authors="spelluru"
-	manager="jhubbard"
+	manager="JennieHubbard"
 	editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/08/2015"
-	ms.author="spelluru"/>
+	ms.date="09/24/2015"
+	ms.author="jhubbard"/>
 
 
 #Getting Started with Azure SQL Data Sync (Preview)
@@ -40,7 +40,8 @@ This tutorial assumes minimal prior experience with SQL Server and Azure SQL Dat
 
 
 ## Step 2: Add a Client Agent
-This step is required only if you are going to have an on-premises SQL Server database included in your sync group. You can skip to Step 4: Create a sync group if your sync group has only SQL Database instances.
+This step is required only if you are going to have an on-premises SQL Server database included in your sync group. 
+Skip to Step 4 if your sync group has only SQL Database instances.
 
 <a id="InstallRequiredSoftware"></a>
 ### Step 2a: Install the required software

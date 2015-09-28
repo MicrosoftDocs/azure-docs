@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Network Configuration Details for Working with Express Route" 
 	description="Network configuration details for running App Service Environments in a Virtual Networks connected to an ExpressRoute Circuit." 
-	services="app-service\web" 
+	services="app-service" 
 	documentationCenter="" 
 	authors="stefsch" 
 	manager="nirma" 
@@ -9,7 +9,7 @@
 
 <tags 
 	ms.service="app-service" 
-	ms.workload="web" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
