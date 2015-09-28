@@ -295,21 +295,21 @@ Now that your device is connected and sending self-generated temperature data fr
 
 -  Click on your device ID on the Devices list (you can find the device section on the left side menu).
 
-![][13]
+	![][13]
 
 - On the right menu where device details are shown, click on "Send command"
 
 
 - Select the command you want to run: In this case, we choose "Set temperature", since we want to change the temperature the device is set at. Select that command and choose the temperature value. Click on Send Command and the new temperature will be pushed to the device. Note: you will see that in the command history the result of the command is "Pending". This is because, for simplicity purposes, this samples hasn't implemented any logic in the device to respond to IoT Hub. You can do this extending the solution.
 
-![][14]
+	![][14]
 - Go back to the dashboard and ensure that the updated data is coming through. You should see updated statistics on temperature and the new data being displayed in the telemetry history.
-![][15]
+	![][15]
 
 
 
 [13]: ./media/iot-suite-connecting-devices/suite4.png
-[14]: ./media/iot-suite-connecting-devices/suite7.png
+[14]: ./media/iot-suite-connecting-devices/suite7-1.png
 [15]: ./media/iot-suite-connecting-devices/suite8a.png
 [16]: ./media/iot-suite-connecting-devices/mbed4a.png
 [17]: ./media/iot-suite-connecting-devices/suite9.png

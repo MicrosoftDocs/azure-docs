@@ -83,4 +83,4 @@ To get started using the Azure IoT preconfigured solutions, explore these resour
 - [Azure IoT preconfigured solutions overview](iot-suite-overview.md)
 - [Get started with the IoT preconfigured solutions](iot-suite-getstarted-preconfigured-solutions.md)
 
-[img-remote-monitoring-arch]: ./media/iot-suite-what-are-preconfigured-solutions/remote-monitoring-arch.png
+[img-remote-monitoring-arch]: ./media/iot-suite-what-are-preconfigured-solutions/remote-monitoring-arch1.png
