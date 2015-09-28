@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Enable diagnostics logging for web apps in Azure App Service"
 	description="Learn how to enable diagnostic logging and add instrumentation to your application, as well as how to access the information logged by Azure."
-	services="app-service\web"
+	services="app-service"
 	documentationCenter=".net"
 	authors="cephalin"
 	manager="wpickett"
@@ -9,7 +9,7 @@
 
 <tags
 	ms.service="app-service"
-	ms.workload="web"
+	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
