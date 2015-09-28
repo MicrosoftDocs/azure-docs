@@ -1,6 +1,6 @@
 <properties
    pageTitle="Get started with Azure DNS | Microsoft Azure"
-   description="Learn how to create DNS zones for Azure DNS .This is a Step by step to get your first DNS zone created to start hosting your DNS domain."
+   description="Learn how to create DNS zones for Azure DNS .This is a Step by step to get your first DNS zone created to start hosting your DNS domain using PowerShell."
    services="dns"
    documentationCenter="na"
    authors="joaoma"
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/02/2015"
+   ms.date="09/22/2015"
    ms.author="joaoma"/>
 
-# Get started with Azure DNS
+# Get started with Azure DNS using Powershell
 
 
 > [AZURE.SELECTOR]

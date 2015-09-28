@@ -16,22 +16,22 @@
 	ms.author="awills"/>
 
 
-# Install Application Insights Status Monitor on IIS to monitor website performance
+# Install Application Insights Status Monitor to monitor website performance
 
 *Application Insights is in preview.*
 
-The Status Monitor of Visual Studio Application Insights lets you diagnose exceptions and performance issues in web applications running in any IIS server. Just install it on your IIS web server and it will instrument the ASP.NET web apps it finds there, sending data to the Application Insights portal for you to search and analyse. You can install it on any physical or virtual server to which you have admin access.
+The Status Monitor of Visual Studio Application Insights lets you diagnose exceptions and performance issues in ASP.NET applications. 
 
 ![sample charts](./media/app-insights-monitor-performance-live-website-now/10-intro.png)
 
-> [AZURE.TIP] This article applies if your app runs on your IIS server. There are different articles for [Azure Web Apps](../insights-perf-analytics.md), [Azure Cloud Services](app-insights-cloudservices.md), and [J2EE](app-insights-java-live.md).
+> [AZURE.TIP] There are separate articles about  instrumenting [live J2EE web apps](app-insights-java-live.md) and [Azure Cloud Services](app-insights-cloudservices.md).
 
 
 You have a choice of three ways to apply Application Insights to your IIS web applications:
 
 * **Build time:** [Add the Application Insights SDK][greenbrown] to your web app code. This gives you:
  * A range of standard diagnostic and usage telemetry.
- * And you can use the [Application Insights API][api] if you want to write your own telemetry to track usage or diagnose problems.
+ * The [Application Insights API][api] lets you write your own telemetry to track detailed usage or diagnose problems.
 * **Run time:** Use Status Monitor to instrument your web app on the server.
  * Monitor web apps that are already running: no need to rebuild or republish them.
  * A range of standard diagnostic and usage telemetry.
@@ -40,7 +40,7 @@ You have a choice of three ways to apply Application Insights to your IIS web ap
 * **Both:** Compile the SDK into your web app code, and run Status Monitor on your web server.  The best of both worlds:
  * Standard diagnostic and usage telemetry.
  * Dependency diagnostics.
- * Write custom telemetry using the API.
+ * The API lets you write custom telemetry.
  * Troubleshoot any issues with the SDK and telemetry.
 
 
@@ -52,7 +52,6 @@ You need a [Microsoft Azure](http://azure.com) subscription.
 
 1. On your IIS web server, login with administrator credentials.
 2. Download and run the [Status Monitor installer](http://go.microsoft.com/fwlink/?LinkId=506648).
-
 4. In the installation wizard, sign in to Microsoft Azure.
 
     ![Sign into Azure with your Microsoft account credentials](./media/app-insights-monitor-performance-live-website-now/appinsights-035-signin.png)
@@ -104,24 +103,30 @@ Sign into [the Azure Preview portal](http://portal.azure.com), browse Applicatio
 
 ![Choose Browse, Application Insights, then select your app](./media/app-insights-monitor-performance-live-website-now/appinsights-08openApp.png)
 
-Open the Performance blade to see dependency and other data.
+Open the Performance blade to see request, response time, dependency and other data.
 
 ![Performance](./media/app-insights-monitor-performance-live-website-now/21-perf.png)
 
-Click through any chart to see more details.
+Click to adjust the details of what it displays, or add a new chart.
 
 
 ![](./media/app-insights-monitor-performance-live-website-now/appinsights-038-dependencies.png)
 
-#### Dependencies
+## Dependencies
 
-The charts labeled HTTP, SQL, AZUREBLOB show the response times and counts of calls to dependencies: that is, external services that your application uses.
+The Dependency Duration chart shows the time taken by calls from your app to external components such as databases, REST APIs, or Azure blob storage.
 
+To segment the chart by calls to different dependencies, select the chart, turn on Grouping, and then choose Dependency, Dependency Type or Dependency Performance.
 
+You can also filter the chart to look at a specific dependency, type, or performance bucket. Click Filters.
 
 #### Performance counters
 
-Click any performance counter chart to change what it shows. Or you can add a new chart.
+(Not for Azure web apps.) Click Servers on the overview blade to see charts of server performance counters such as CPU occupancy and memory usage.
+
+Add a new chart, or click any chart to change what it shows. 
+
+You can also [change the set of performance counters that are reported by the SDK](app-insights-configuration-with-applicationinsights-config.md#nuget-package-3). 
 
 #### Exceptions
 

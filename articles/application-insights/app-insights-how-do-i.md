@@ -72,7 +72,50 @@ Some points to consider:
 * To evaluate the alert, the average is taken of the received values over the preceding period. This occurs every time a metric is received, so emails can be sent more frequently than the period you set.
 * Since emails are sent both on "alert" and "healthy", you might want to consider re-thinking your one-shot event as a two-state condition. For example, instead of a "job completed" event, have a "job in progress" condition, where you get emails at the start and end of a job.
  
-## 
+## Application version filter
+
+When you publish a new version of your app, you'll want to be able to separate the telemetry from different versions.
+
+You can set the Application Version property so that you can filter [search](app-insights-diagnostic-search.md) and [metric explorer](app-insights-metrics-explorer.md) results. 
 
 
- 
+![](./media/app-insights-how-do-i/050-filter.png)
+
+There are several different methods of setting the Application Version property.
+
+* Set directly:
+
+    `telemetryClient.Context.Component.Version = typeof(MyProject.MyClass).Assembly.GetName().Version;`
+
+* Wrap that line in a [telemetry initializer](app-insights-api-custom-events-metrics.md#telemetry-initializers) to ensure that all TelemetryClient instances are set consistently.
+
+* [ASP.NET] Set the version in `BuildInfo.config`. The web module will pick up the version from the BuildLabel node. Include this file in your project and remember to set the Copy Always property in Solution Explorer.
+
+    ```XML
+
+    <?xml version="1.0" encoding="utf-8"?>
+    <DeploymentEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/VisualStudio/DeploymentEvent/2013/06">
+      <ProjectName>AppVersionExpt</ProjectName>
+      <Build type="MSBuild">
+        <MSBuild>
+          <BuildLabel kind="label">1.0.0.2</BuildLabel>
+        </MSBuild>
+      </Build>
+    </DeploymentEvent>
+
+    ```
+* [ASP.NET] Generate BuildInfo.config automatically in MSBuild. To do this, add a few lines to your .csproj file:
+
+    ```XML
+
+    <PropertyGroup>
+      <GenerateBuildInfoConfigFile>true</GenerateBuildInfoConfigFile>    <IncludeServerNameInBuildInfo>true</IncludeServerNameInBuildInfo>
+    </PropertyGroup> 
+    ```
+
+    This generates a file called *yourProjectName*.BuildInfo.config. The Publish process renames it to BuildInfo.config.
+
+    The build label contains a placeholder (AutoGen_...) when you build with Visual Studio. But when built with MSBuild, it is populated with the correct version number.
+
+    To allow MSBuild to generate version numbers, set the version like `1.0.*` in AssemblyReference.cs
+

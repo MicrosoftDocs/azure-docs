@@ -79,7 +79,7 @@ The legend at the side by default shows the aggregated value over the period of 
 
 Each data point on the chart is also an aggregate of the data values received in the preceding sampling interval or "granularity". The granularity is shown at the top of the blade, and varies with the overall timescale of the chart.
 
-Different metrics are aggregated in different ways: 
+Metrics metrics can be aggregated in different ways: 
 
  * For a metric such as response time, values are **averaged** over the period of the chart.
  * For counts of events such as failed requests, the aggregate is the **sum** of counts over the period.
