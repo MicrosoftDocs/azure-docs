@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/25/2015"    
+	ms.date="09/29/2015"    
 	ms.author="juliako"/>
 
 #Use the Wirecast encoder to send a single bitrate live stream
@@ -24,7 +24,7 @@
 - [Tricaster](media-services-configure-tricaster-live-encoder.md)
 - [FMLE](media-services-configure-fmle-live-encoder.md) 
 
-This topic shows how to configure the Wirecast live encoder to send a single bitrate live stream over RTMP to the Media Services Channel.  For more information, see [Working with Channels that are Enabled to Perform Live Encoding with Azure Media Services](media-services-manage-live-encoder-enabled-channels.md).
+This topic shows how to configure the [Telestream Wirecast](http://www.telestream.net/wirecast/overview.htm) live encoder to send a single bitrate live stream over RTMP to the Media Services Channel.  For more information, see [Working with Channels that are Enabled to Perform Live Encoding with Azure Media Services](media-services-manage-live-encoder-enabled-channels.md).
 
 ##Prerequisites
 
@@ -222,3 +222,4 @@ You can view AMS learning paths here:
 
 - [AMS Live Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
 - [AMS on Demand Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
