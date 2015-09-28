@@ -83,7 +83,7 @@ This repo contains a `sample_templates\contoso` directory, which contains exampl
 
 #### Upload the sample files
 
-In the same repo, unzip `B2CAzureStorageClient.zip` and run the `B2CAzureStorageClient.exe` file within.  This program will simply upload all the files in the directory you specify to your storage account, and enable CORS access for those files.  If you followed the steps above, the HTML and CSS files will now be pointing to your storage account.  Note that the name of your storage account is the part that precedes `blob.core.windows.net`, e.g. `contoso`.  You can verify that the content has been uploaded correctly by trying to access `https://{storage-account-name}.blob.core.windows.net/{container-name}/Index.html` on a browser. Also use http://test-cors.org/ to make sure that the content is now CORS enabled (look for XHR status: 200 in the result).
+In the same repo, unzip `B2CAzureStorageClient.zip` and run the `B2CAzureStorageClient.exe` file within.  This program will simply upload all the files in the directory you specify to your storage account, and enable CORS access for those files.  If you followed the steps above, the HTML and CSS files will now be pointing to your storage account.  Note that the name of your storage account is the part that precedes `blob.core.windows.net`, e.g. `contoso`.  You can verify that the content has been uploaded correctly by trying to access `https://{storage-account-name}.blob.core.windows.net/{container-name}/Index.html` on a browser. Also use [http://test-cors.org/](http://test-cors.org/) to make sure that the content is now CORS enabled (look for XHR status: 200 in the result).
 
 #### Customize your policy, again
 
