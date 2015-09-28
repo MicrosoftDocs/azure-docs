@@ -468,7 +468,7 @@ Now you've seen an overview of developing for IoT Hub, follow these links to lea
 [lnk-compatibility]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/tested_configurations.md
 [lnk-apis-sdks]: https://github.com/Azure/azure-iot-sdks/blob/master/readme.md
 [lnk-azure-hub-sdks]: https://msdn.microsoft.com/library/mt488521.aspx
-[lnk-pricing]: https://azure.microsoft.com/pricing/
+[lnk-pricing]: https://azure.microsoft.com/pricing/details/iot-hub
 [lnk-resource-provider-apis]: https://msdn.microsoft.com/library/mt548492.aspx
 [lnk-reference-architecture]: iot-hub-what-is-azure-iot.md
 
