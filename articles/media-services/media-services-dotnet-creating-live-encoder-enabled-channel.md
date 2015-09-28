@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="09/07/2015"
+	ms.date="09/28/2015"
 	ms.author="juliako"/>
 
 
-#Use .NET SDK to Create Channels that Perform Live Encoding from a Single-bitrate to Multi-bitrate Stream (Preview)
+#Use .NET SDK to Create Channels that Perform Live Encoding from a Single-bitrate to Multi-bitrate Stream
 
 > [AZURE.SELECTOR]
 - [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
