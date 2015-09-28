@@ -6,7 +6,6 @@
    authors="liviodlc"
    manager="stevenpo"
    editor=""/>
-
 <tags
    ms.service="active-directory"
    ms.devlang="na"
