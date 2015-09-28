@@ -443,5 +443,5 @@ Each of these three functions align with the three initialization functions desc
 
 ## Next Steps
 
-This article covers the basics of using the libraries in the **Azure IoT device SDK for C**. It should provide you with enough information to understand what’s included in the SDK, its architecture, and how to get started working with the Windows samples. The next article continues the description of the SDK by explaining [more about the IoTHubClient library](iot-hub-device-sdk-c-intro.md).
+This article covers the basics of using the libraries in the **Azure IoT device SDK for C**. It should provide you with enough information to understand what’s included in the SDK, its architecture, and how to get started working with the Windows samples. The next article continues the description of the SDK by explaining [more about the IoTHubClient library](iot-hub-device-sdk-c-iothubclient.md).
 
