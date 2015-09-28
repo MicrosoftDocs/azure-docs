@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/28/2015" 
+	ms.date="09/22/2015" 
 	ms.author="spelluru"/>
 
 # Use custom activities in an Azure Data Factory pipeline
@@ -53,7 +53,7 @@ This Walkthrough provides you with step-by-step instructions for creating a cust
 
 4. Import the Azure Storage NuGet package in to the project.
 
-		Install-Package Azure.Storage
+		Install-Package Azure.Storage -Version 4.3.0 
 
 5. Add the following **using** statements to the source file in the project.
 
@@ -244,18 +244,18 @@ If you have extended the [Get started with Azure Data Factory][adfgetstarted] tu
 	4. For the **version** property, specify the HDInsight version you want to use. If you exclude this property, the latest version is used.  
 	5. For the **linkedServiceName**, specify **StorageLinkedService** that you had created in the Get started tutorial. 
 
-		{
-		  "name": "HDInsightOnDemandLinkedService",
-		  "properties": {
-		    "type": "HDInsightOnDemand",
-		    "typeProperties": {
-		      "clusterSize": "1",
-		      "timeToLive": "00:05:00",
-		      "version": "3.1",
-		      "linkedServiceName": "StorageLinkedService"
-		    }
-		  }
-		}
+			{
+			  "name": "HDInsightOnDemandLinkedService",
+			  "properties": {
+			    "type": "HDInsightOnDemand",
+			    "typeProperties": {
+			      "clusterSize": "1",
+			      "timeToLive": "00:05:00",
+			      "version": "3.1",
+			      "linkedServiceName": "StorageLinkedService"
+			    }
+			  }
+			}
 
 2. Click **Deploy** on the command bar to deploy the linked service.
    
@@ -416,6 +416,7 @@ Here are the high-level steps for using the Azure Batch Linked Service in the wa
 		    "type": "AzureBatch",
 		    "typeProperties": {
 		      "accountName": "<Azure Batch account name>",
+			  "batchUri": "https://<region>.batch.azure.com",
 		      "accessKey": "<Azure Batch account key>",
 		      "poolName": "<Azure Batch pool name>",
 		      "linkedServiceName": "<Specify associated storage linked service reference here>"
@@ -423,11 +424,10 @@ Here are the high-level steps for using the Azure Batch Linked Service in the wa
 		  }
 		}
 
-	> [AZURE.NOTE] Append "**.<region name**" to the name of your batch account for the **accountName** property. Example: "mybatchaccount.eastus". Another option is to provide the batchUri endpoint as shown below.  
+	> [AZURE.IMPORTANT] The **URL** from the **Azure Batch account blade** is in the following format: accountname.region.batch.azure.com. For the **batchUri** property in the JSON, you will need to **remove "accountname."** from the URL and use the **accountname** for the **accountName** JSON property. 
+	  
+	For the **poolName** property, you can also specify the ID of the pool instead of the name of the pool. 
 
-		accountName: "adfteam",
-		batchUri: "https://eastus.batch.azure.com",
- 
 	See [Azure Batch Linked Service MSDN topic](https://msdn.microsoft.com/library/mt163609.aspx) for descriptions of these properties. 
 
 2.  In the Data Factory Editor, open JSON definition for the pipeline you created in the walkthrough and replace **HDInsightLinkedService** with **AzureBatchLinkedService**.

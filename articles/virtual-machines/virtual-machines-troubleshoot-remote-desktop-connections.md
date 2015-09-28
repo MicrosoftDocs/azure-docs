@@ -1,12 +1,12 @@
 ﻿<properties
-	pageTitle="Unable to connect to an Azure VM over RDP | Microsoft Azure"
+	pageTitle="Troubleshoot Remote Desktop connection on a Windows VM | Microsoft Azure"
 	description="Troubleshoot Remote Desktop or RDP connections to an Azure virtual machine running Windows."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="dsk-2015"
 	manager="timlt"
 	editor=""
-	tags="azure-service-management,azure-resource-manager"/>
+	tags="top-support-issue,azure-service-management,azure-resource-manager"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -18,6 +18,8 @@
 	ms.author="dkshir"/>
 
 # Troubleshoot Remote Desktop connections to an Azure virtual machine running Windows
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)] This article covers troubleshooting a virtual machine created with the classic deployment model or the Resource Manager deployment model.
 
 There can be various reasons for Remote Desktop (RDP) to fail connecting to your Azure virtual machine running Windows. This article will help you find out the causes and correct them.
 

@@ -12,7 +12,7 @@ ms.service="search"
 ms.devlang="rest-api" 
 ms.workload="search" ms.topic="article"  
 ms.tgt_pltfrm="na" 
-ms.date="07/08/2015" 
+ms.date="09/21/2015" 
 ms.author="heidist" />
 
 #Indexer Operations (Azure Search Service REST API: 2015-02-28-Preview)
@@ -40,7 +40,7 @@ The following data sources are currently supported:
 
 We're considering adding support for additional data sources in the future. To help us prioritize these decisions, please provide your feedback on the [Azure Search feedback forum](http://feedback.azure.com/forums/263029-azure-search).
 
-See [Limits and constraints](https://msdn.microsoft.com/library/azure/dn798934.aspx) for maximum limits related to indexer and data source resources.
+See [Service Limits](search-limits-quotas-capacity.md) for maximum limits related to indexer and data source resources.
 
 ## Typical Usage Flow
 

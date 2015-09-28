@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/15/2015"
+	ms.date="09/22/2015"
 	ms.author="swkrish"/>
 
 # Azure Active Directory B2C preview: How to Customize the Azure AD B2C User Interface (UI)
@@ -44,12 +44,12 @@ Use our helper tool (Coming soon) to try out the page UI customization feature u
 
 ## The core UI Elements in each Type of Page
 
-In this section you will find examples of HTML5 fragments (for each type of page) that Azure AD B2C merges into the <div id="api"></div> element located in your content. You can use your own style sheets to customize these UI elements. These style sheets will have to override the default style sheets that we add into these pages in the <head> fragments.
+In the below sections you will find examples of HTML5 fragments (for each type of page) that Azure AD B2C merges into the <div id="api"></div> element located in your content. You can use your own style sheets to customize these UI elements. These style sheets will have to override the default style sheets that we add into these pages in the <head> fragments.
 
-    > [AZURE.IMPORTANT]
+> [AZURE.IMPORTANT]
 	During preview, expect the exact UI elements to change as we learn and adapt from your feedback. Always inspect the source code of default pages for the latest updates. In fact, the first change being considered is the removal of our default style sheets; this will mean that you will always have to supply your own style sheets for these UI elements in your content.
 
-### Identity Provider Selection Page
+## Identity Provider Selection Page
 
 This page contains a list of identity providers that the user can choose from during sign up or sign in. These are either social identity providers such as Facebook and Google+ or local accounts (email address- or username-based).
 
@@ -77,7 +77,7 @@ This page contains a list of identity providers that the user can choose from du
 
 ```
 
-### Local Account Sign-up Page
+## Local Account Sign-up Page
 
 This page contains a sign-up form that the user has to fill in when signing up using an email address- or username-based local account. The form can contain different input controls such as text input box, password entry box, radio button, single-select drop-down and multi-select check boxes.
 
@@ -194,11 +194,11 @@ This page contains a sign-up form that the user has to fill in when signing up u
 
 ```
 
-### Social Account Sign-up Page
+## Social Account Sign-up Page
 
 This page contains a sign-up form that the consumer has to fill in when signing up using an existing account from a social identity provider such as Facebook or Google+. This page is similar to the local account sign-up page (shown in the previous section) with the exception of the password entry fields.
 
-### Multi-factor Authentication Page
+## Multi-factor Authentication Page
 
 This page enables users to verify their phone numbers (using text or voice) during sign up or sign in.
 
@@ -244,7 +244,7 @@ This page enables users to verify their phone numbers (using text or voice) duri
 
 ```
 
-### Error Page
+## Error Page
 
 
 ```HTML

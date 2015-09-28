@@ -176,6 +176,7 @@ If you encounter problems with your application after it has been deployed to Az
 
 * [Azure PowerShell](../install-configure-powershell.md)
 * [Azure Command-Line Interface](../xplat-cli.md)
+* [Node.js Developer Center](/develop/nodejs/)
 
 ## What's changed
 * For a guide to the change from Websites to App Service, see [Azure App Service and existing Azure services](http://go.microsoft.com/fwlink/?LinkId=529714).

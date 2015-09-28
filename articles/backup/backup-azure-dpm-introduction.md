@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/16/2015"
+	ms.date="09/24/2015"
 	ms.author="sammehta"; "jimpark"/>
 
-# Introduction to Azure DPM Backup
+# Preparing to back up workloads to Azure with DPM
 
 This article provides an introduction to using Microsoft Azure Backup to protect your System Center Data Protection Manager (DPM) servers and workloads. By reading it you’ll understand:
 

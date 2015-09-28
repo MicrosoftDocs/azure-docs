@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="mobile-xamarin-android"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="06/09/2015"
-	ms.author="yuaxu;wesmc"/>
+	ms.date="09/24/2015"
+	ms.author="ricksal"/>
 
 # Get started with Notification Hubs
 

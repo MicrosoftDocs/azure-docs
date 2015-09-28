@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="09/04/2015"
+	ms.date="09/22/2015"
 	ms.author="dastrock"/>
 
 # Azure AD B2C Preview: Build a Windows desktop app
@@ -39,6 +39,9 @@ follow [these instructions](active-directory-b2c-app-registration.md).  Be sure 
 - Include a **native client** in the application
 - Copy down the **Redirect Uri** `urn:ietf:wg:oauth:2.0:oob` - it is the default URL for this code sample.
 - Copy down the **Application ID** that is assigned to your app.  You will need it shortly.
+
+    > [AZURE.IMPORTANT]
+    You cannot use applications registered in the **Applications** tab on the [Azure Portal](https://manage.windowsazure.com/) for this.
 
 ## 3. Create your policies
 

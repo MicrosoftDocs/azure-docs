@@ -37,7 +37,7 @@ DocumentDB.
 
 ![Screen shot of the My Todo List application created in this Node.js tutorial](./media/documentdb-nodejs-application/image1.png)
 
-Don't have time to complete the tutorial and just want to get the complete solution from GitHub? Not a problem, get it [here](https://github.com/Azure/azure-documentdb-node/tree/master/tutorial/todo).
+Don't have time to complete the tutorial and just want to get the complete solution? Not a problem, you can get the complete sample solution from [GitHub][].
 
 ## <a name="_Toc395783176"></a>Prerequisites
 
@@ -572,8 +572,11 @@ running in Azure!
 Congratulations! You have just built your first Node.js Express Web
 Application using Azure DocumentDB and published it to Azure Websites.
 
-The source code for the complete reference application can be downloaded [here](https://github.com/Azure/azure-documentdb-node/tree/master/tutorial/todo).
+The source code for the complete reference application can be downloaded from [GitHub][].
 
-  [Node.js]: http://nodejs.org/
-  [Git]: http://git-scm.com/
+For more information, see the [Node.js Developer Center](/develop/nodejs/).
+
+[Node.js]: http://nodejs.org/
+[Git]: http://git-scm.com/
+[Github]: https://github.com/Azure-Samples/documentdb-node-todo-app
  

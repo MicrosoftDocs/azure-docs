@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Using the Microsoft Azure CLI for Mac, Linux, and Windows with Azure Resource Management | Microsoft Azure"
+	pageTitle="CLI for Mac, Linux, and Windows | Microsoft Azure"
 	description="Using the Microsoft Azure CLI for Mac, Linux, and Windows with Azure Resource Manager."
 	editor="tysonn"
 	manager="timlt"
@@ -20,8 +20,10 @@
 
 > [AZURE.SELECTOR]
 - [Azure PowerShell](../powershell-azure-resource-manager.md)
-- [Azure CLI](xplat-cli-azure-resource-manager.md)
 
+<br>
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)] This article covers managing resources with the Resource Manager deployment model.
 
 This article describes how to create, manage, and delete Azure resources and VMs using the Azure CLI for Mac, Linux, and Windows using the Azure Resource Manager mode.  
 

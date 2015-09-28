@@ -1,14 +1,14 @@
 <properties
 	pageTitle="Role-based access control in the Microsoft Azure portal"
 	description="Describes how role based access control works and how to set it up"
-	services=""
+	services="active-directory"
 	documentationCenter=""
 	authors="IHenkel"
 	manager="stevenpo"
 	editor=""/>
 
 <tags
-	ms.service="multiple"
+	ms.service="active-directory"
 	ms.devlang="dotnet"
 	ms.topic="article"
 	ms.tgt_pltfrm="Ibiza"

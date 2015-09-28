@@ -158,3 +158,4 @@ Whether you log in with a work or school account or import publish settings, you
 [signuporg]: http://azure.microsoft.com/en-us/documentation/articles/sign-up-organization/
 [cliasm]: virtual-machines/virtual-machines-command-line-tools.md
 [cliarm]: virtual-machines/xplat-cli-azure-resource-manager.md
+

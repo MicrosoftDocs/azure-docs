@@ -3,7 +3,7 @@
 	description="Learn to easily deploy a new DataStax cluster on Ubuntu VMs by using Azure PowerShell or the Azure CLI and a Resource Manager template"
 	services="virtual-machines"
 	documentationCenter=""
-	authors="karthmut"
+	authors="scoriani"
 	manager="timlt"
 	editor="tysonn"/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="04/29/2015"
-	ms.author="karthmut"/>
+	ms.author="scoriani"/>
 
 # DataStax on Ubuntu with a Resource Manager template
 
