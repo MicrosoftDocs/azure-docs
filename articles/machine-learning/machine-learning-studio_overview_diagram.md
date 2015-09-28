@@ -4,7 +4,7 @@
 	keywords="machine learning studio,overview diagram,download"
 	services="machine-learning"
 	documentationCenter=""
-	authors="garyericson"
+	authors="hning86"
 	manager="paulettm"
 	editor="cgronlun"/>
 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/24/2015"
+	ms.date="09/28/2015"
 	ms.author="haining;garye" />
 
 
