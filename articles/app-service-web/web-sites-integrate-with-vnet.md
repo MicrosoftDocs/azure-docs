@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Integrate a web app with an Azure Virtual Network" 
 	description="Shows you how to connect an Azure web app in Azure App Service to a new or existing Azure virtual network" 
-	services="app-service\web" 
+	services="app-service" 
 	documentationCenter="" 
 	authors="cephalin" 
 	manager="wpickett" 
@@ -9,7 +9,7 @@
 
 <tags 
 	ms.service="app-service" 
-	ms.workload="web" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
