@@ -35,7 +35,7 @@ Before you begin this Linux tutorial for Hadoop, you must have the following:
 
 - **A Secure Shell (SSH) client**: Linux, Unix, and OS X systems provied an SSH client through the `ssh` command. For Windows systems, we recommend [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 
-    > [AZURE.NOTE] The steps in this document use SSH to connect to the HDInsight cluster, as SSH is available on all client operating systems. For other methods of connecting to the HDInsight cluster, such as using the HDInsight Tools for Visual Studio or REST APIs, see the Hive, Pig, and MapReduce links in the [Next Steps](#nextsteps) section of this document.
+    > [AZURE.NOTE] The steps in this document use SSH to connect to the HDInsight cluster, as SSH is available for all client operating systems. For other methods of connecting to the HDInsight cluster, such as using the HDInsight Tools for Visual Studio or REST APIs, see the Hive, Pig, and MapReduce links in the [Next Steps](#nextsteps) section of this document.
     
 - **Secure Shell (SSH) keys** (optional): You can secure the SSH account used to connect to the cluster using either a password or a public key. Using a key is the recommended method as it is more secure, however it requires additional setup. For instructions on how to create and use SSH keys with HDInsight, refer to the following articles:
 
