@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="09/24/2015"
+   ms.date="09/28/2015"
    ms.author="liviodlc"/>
 
 #How to Deploy the Access Panel Extension for Internet Explorer using Group Policy
@@ -27,7 +27,7 @@ The Access Panel extension is also available for [Chrome](https://go.microsoft.c
 ##Prerequisites
 
 - You have set up [Active Directory Domain Services](https://msdn.microsoft.com/library/aa362244%28v=vs.85%29.aspx), and you have joined your users' machines to your domain.
-- You must have the "Edit settings" permission in order to edit Group Policy Objects (GPOs). By default, members of the following security groups have this permission: Domain Administrators, Enterprise Administrators, and Group Policy Creator Owners. [Learn more here.](https://technet.microsoft.com/library/cc781991%28v=ws.10%29.aspx)
+- You must have the "Edit settings" permission in order to edit Group Policy Objects (GPOs). By default, members of the following security groups have this permission: Domain Administrators, Enterprise Administrators, and Group Policy Creator Owners. [Learn more.](https://technet.microsoft.com/library/cc781991%28v=ws.10%29.aspx)
 
 ##Step 1: Create the Distribution Point
 
@@ -134,7 +134,7 @@ The extension should now be enabled for the machines in the selected OU. [Learn 
 
 Follow the steps below to verify if the extension deployment was successful:
 
-1. If you deployed using **Computer Configuration**, sign into a client machine that belongs to the OU that you selected in [Step 2: Create the Group Policy Object](#step-2-create-the-group-policy-object). If you deployed using **User Configuration**, sign into a machine using a user that belongs to that OU.
+1. If you deployed using **Computer Configuration**, sign into a client machine that belongs to the OU that you selected in [Step 2: Create the Group Policy Object](#step-2-create-the-group-policy-object). If you deployed using **User Configuration**, make sure to sign in as a user who belongs to that OU.
 
 2. It may take a couple sign ins for the group policy changes to fully update with this machine. To force the update, open a **Command Prompt** window and run the following command: `gpupdate /force`
 
