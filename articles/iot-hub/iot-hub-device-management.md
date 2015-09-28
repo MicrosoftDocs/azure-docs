@@ -18,7 +18,6 @@
 
 # IoT device management using Azure IoT Suite and Azure IoT Hub
 
-9/29/2015
 ## Introduction
 Azure IoT Suite and Azure IoT Hub provide the foundational capabilities to enable device management for IoT solutions, at scale, and for a diverse set of devices and device topologies.  Reference to device management in this article is specifically related to IoT device management.
 
