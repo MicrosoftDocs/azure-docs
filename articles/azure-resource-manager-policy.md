@@ -131,7 +131,7 @@ the location North Europe or West Europe.
 			“if” : {
 					“not” : {
 								“field” : “location”,
-							“in” : [“northeurope” , “westeurope”]
+								“in” : [“northeurope” , “westeurope”]
 							}
 					} ,
 			“then” : {
@@ -228,8 +228,8 @@ Below is an example of how the request body would look like–
 															“containsKey” : “costCenter”
 														}
 												} ,
-										“then” : {
-													 “effect” : “deny”
+											“then” : {
+													“effect” : “deny”
 												}
 									}
 		 				},
