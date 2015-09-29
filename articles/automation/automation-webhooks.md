@@ -228,7 +228,7 @@ The following sample runbook is triggered when the alert rule becomes active and
 	        Write-Output $AlertContext.timestamp 
 
 	    	# Act on the AlertContext data, in our case restarting the VM. 
-	    	# [Authenticate to your Azure subscription using Organization 				  ID](https://azure.microsoft.com/blog/azure-automation-authenticating-to-azure-using-azure-active-directory/) to be able to restart that Virtual Machine. 
+	    	# Authenticate to your Azure subscription using Organization ID to be able to restart that Virtual Machine. 
 	        $cred = Get-AutomationPSCredential -Name "MyAzureCredential" 
 	        Add-AzureAccount -Credential $cred 
 	        Select-AzureSubscription -subscriptionName "Visual Studio Ultimate with MSDN" 
