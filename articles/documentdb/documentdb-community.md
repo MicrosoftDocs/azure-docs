@@ -52,7 +52,7 @@ Are you interested in attending or presenting at a conference and/or meetup? [Le
 
 Event Name | Location | Date | Hashtag
 ---------- | -------- | ---- | -------
-[AzureCon](https://azure.microsoft.com/en-us/azurecon/) | Virtual Event | September 29, 2015 | [#AzureCon](https://twitter.com/hashtag/AzureCon)
+[AzureCon](https://azure.microsoft.com/azurecon/) | Virtual Event | September 29, 2015 | [#AzureCon](https://twitter.com/hashtag/AzureCon)
 [CloudDevelop 2015](http://www.clouddevelop.org/) | Columbus, OH | October 23, 2015 | [#CloudDevConf](https://twitter.com/hashtag/CloudDevConf)
 [PASS Summit 2015](http://www.sqlpass.org/summit/2015/Home.asp) | Seattle, WA | October 27-30, 2015 | [#Summit15](https://twitter.com/hashtag/Summit15)
 
@@ -63,7 +63,7 @@ Event Name | Location | Date | Hashtag
 
 ### Blogs
 
-You can stay up-to-date with the latest DocumentDB news and features by following [our blog](https://azure.microsoft.com/en-us/blog/tag/documentdb/).
+You can stay up-to-date with the latest DocumentDB news and features by following [our blog](https://azure.microsoft.com/blog/tag/documentdb/).
 
 Do you have a blog post, code sample, or case-study you'd like to share? [Let us know](mailto:askdocdb@microsoft.com)!
 
@@ -77,10 +77,10 @@ Follow us on twitter @DocumentDB and stay up to date with the latest conversatio
 
 ### Online Forums
 
-The easiest way to answer and ask questions is to use the Azure DocumentDB forums on [StackOverflow](http://stackoverflow.com/questions/tagged/azure-documentdb) and [MSDN](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=AzureDocumentDB).
+The easiest way to answer and ask questions is to use the Azure DocumentDB forums on [StackOverflow](http://stackoverflow.com/questions/tagged/azure-documentdb) and [MSDN](https://social.msdn.microsoft.com/Forums/home?forum=AzureDocumentDB).
 
 
-[![StackOverflow](./media/documentdb-community/stack-overflow.png)](http://stackoverflow.com/questions/tagged/azure-documentdb) | [![MSDN](./media/documentdb-community/msdn.png)](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=AzureDocumentDB)
+[![StackOverflow](./media/documentdb-community/stack-overflow.png)](http://stackoverflow.com/questions/tagged/azure-documentdb) | [![MSDN](./media/documentdb-community/msdn.png)](https://social.msdn.microsoft.com/Forums/home?forum=AzureDocumentDB)
 :-----------: | :--:
 
 
