@@ -35,7 +35,7 @@ Based on customer feedback, Azure SQL Database is introducing new service tiers 
 
 For detailed information about the new service tiers and performance model, see [Azure SQL Database Service Tiers and Performance Levels](https://msdn.microsoft.com/library/azure/dn741336.aspx). For detailed pricing information for the new service tiers, see [SQL Database pricing](http://azure.microsoft.com/pricing/details/sql-database/).
 
-## How do I provision a Basic, Standard, or Premium Database?
+## How do I provision a Basic, Standard, or Premium database?
 
 You provision Basic, Standard, and Premium databases using the [Management Portal or programmatically](https://msdn.microsoft.com/library/azure/ff394116.aspx). You can also upgrade or downgrade any database between any service tier on the database scale tab, including upgrading and downgrading between Web and Business and the new service tiers. If you need additional quota, please call customer support.
 
@@ -61,7 +61,7 @@ Yes! Customers with paid [Azure Support plans](http://azure.microsoft.com/suppor
 
 [Azure SQL Database Service Tiers and Performance Levels](https://msdn.microsoft.com/library/azure/dn741336.aspx)
 
-[[Azure SQL Database](https://msdn.microsoft.com/library/azure/ee336279.aspx)
+[Azure SQL Database](https://msdn.microsoft.com/library/azure/ee336279.aspx)
 
 [Service Tiers (Editions)](https://msdn.microsoft.com/library/azure/dn741340.aspx)
 
