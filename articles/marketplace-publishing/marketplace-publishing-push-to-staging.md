@@ -13,15 +13,17 @@
    ms.topic="article"
    ms.tgt_pltfrm="Azure"
    ms.workload="na"
-   ms.date="09/25/2015"
+   ms.date="09/29/2015"
    ms.author="hascipio"/>
 
 # Preparing your offer for testing in Staging
 In this step, you need to provide certain marketing content and details about your offering and/or SKUs in the Azure Marketplace such as description of your product, company logos, price plans, details of plants and other information necessary to push your offer and/or SKU to staging. This information is used as marketing content in our Azure Portal. You will begin this process in the [Publishing Portal][link-pubportal].
 
-## 4.1 Provide Azure Marketplace content
+## 4.1 Provide Marketplace marketing content
 English is the default and only supported language; please ensure that all information provided in the fields is in English. All information can be edited at any time until you push to staging.
-1.	Enter the offer summary, long summary, and description for your offer.
+
+### 4.1.1 Details
+1. Enter the offer summary, long summary, and description for your offer.
 
   ![drawing][img-map-title]
   *Offer Title & Description*
@@ -31,15 +33,44 @@ English is the default and only supported language; please ensure that all infor
   ![drawing][img-map-logo]
   *Logos*
 
-3.	All fields must have entries, including the images, in order to be able to push to staging.
-4.	In the links tab on the left bar, enter any links with information that may help customers. Enter a name and URL for each link.
+### 4.1.2 Links
+In the links tab on the left bar, enter any links with information that may help customers. Enter a name and URL for each link.
 
   *Links*
   ![drawing][img-map-link]
 
-5.	In the Legal tab, provide a link to your policies/terms of use. Enter or paste the terms in the large Terms of Use box.
+<!--
+### 4.1.3 Sample images
+### 4.1.4 Plans
+-->
+
+### 4.1.3 Legal
+In the Legal tab, provide a link to your policies/terms of use. Enter or paste the terms in the large Terms of Use box.
+
+> [AZURE.IMPORTANT] All fields must have entries, including the images, in order to be able to push to staging.
+
 
 ## 4.2 Set your prices
+### 4.2.1 Pricing Models
+|Pricing Model |Description |
+|---------------|------------------------------------------|
+|Monthly Only| Flat monthly rate paid at time of purchase e.g. $10/month|
+|Overage (aka Usage, Meter) Based | Pay per use, which is defined by the publisher of the offer. Overage cannot be defined per seat, per user, etc as there is no concept of a fraction of a user or capability to do proration. Usage is reported by the Partner on an hourly basis. Customer pays at the of monthly billing cycle as opposed to upfront like monthly plans. |
+|Free Trial | Customer may use for free for a limited time and then pay normal rates thereafter |
+|Free Tier | Plan is always free |
+| Migration (aka conversion or upgrade/downgrade) of Plan | Concept of a user moving from their current plan to another acceptable plan; defined by partner |
+
+> [AZURE.IMPORTANT] Availability of certain pricing models vary by offer type. See the table below.
+
+| | Base Only | Consumption Only | Base + Consumption |
+|---|---|---|---|
+| Virtual Machine Image | No | Yes | No|
+| Developer Service | Yes | Yes | Yes |
+| Data Service | Yes | No | No |
+
+### 4.2.2 Set your VM prices
+> [AZURE.NOTE] BYOL is only supported for virtual machines.
+
 1.	Under the **Pricing** tab, you will see all of the supported markets. Select the appropriate one to bring up the pricing fields.
 2.	The provided link on the Publishing Portal will show pricing information to help you in determining the prices of your offer and/or SKU(s).
 3.	If your SKU is BYOL, select the checkbox for ‘Externally-licensed (BYOL) SKU availability.
@@ -48,16 +79,8 @@ Note: If you have both BYOL as well as Hourly SKUs, then make sure both the requ
 5.	A pricing wizard will open; proceed through this to complete your pricing, including pricing for other countries, if you choose to allow purchases from outside your specified market.
 6.	Some countries are ISV Remit countries. To sell in an ISV Remit country, you must be able to charge and collect tax on your SKUs, and should calculate and pay tax to the government of the country. Microsoft is not in a position to provide legal or tax guidance.  See section ““Sell-to” countries of the Offer” under Introduction of this document for more information on “Sell To Countries”.
 
-### 4.2.1 Pricing Models
+### 4.2.3 Set your developer service prices
 Plans can be any combination of BASE + Overage, where BASE is monthly price and Overage is pay-per-use price (see below for more details)
-
-|Pricing Model |Description |
-|---------------|------------------------------------------|
-|Monthly Only| Flat monthly rate paid at time of purchase e.g. $10/month|
-|Overage (aka Usage, Meter) Based | Pay per use, which is defined by the publisher of the offer. Overage cannot be defined per seat, per user, etc as there is no concept of a fraction of a user or capability to do proration. Usage is reported by the Partner on an hourly basis. Customer pays at the of monthly billing cycle as opposed to upfront like monthly plans. |
-|Free Trial | Customer may use for free for a limited time and then pay normal rates thereafter |
-|Free Tier | Plan is always free |
-| Migration (aka conversion or upgrade/downgrade) of Plan | Concept of a user moving from their current plan to another acceptable plan; defined by partner |
 
 **Example:**  Contoso Developer Service Offering
 
@@ -71,6 +94,7 @@ Plans can be any combination of BASE + Overage, where BASE is monthly price and 
 |Silver Plus|$20/month + $0.15/meter01 + $0.01/meter02|Basic functionality and a quota of 10,000 of feature X and 100 of feature Y.  Once feature X quota is used, the customer can pay per use via meter01.  Once feature Y quota is used, the customer can pay per use via meter02|Can migrate to Bronze Plus and Gold Plans|
 |Gold|$1000/month|Quota of 10,000 of feature X, 1,000 of feature Y, and unlimited of feature Z|Can migrate to all plans except free|
 
+### 4.2.4 Set your data service prices
 
 ## 4.3 Provide support information
 Some of this information will have been completed during the certification step. You may add or edit information as in the steps below. The contact details are used for internal communications between partner and Microsoft only. Support URL will be available to the end customers.

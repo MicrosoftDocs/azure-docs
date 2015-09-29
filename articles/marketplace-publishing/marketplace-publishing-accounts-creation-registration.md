@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="Azure"
    ms.workload="na"
-   ms.date="09/25/2015"
+   ms.date="09/29/2015"
    ms.author="hascipio"/>
 
 # Registering a Microsoft seller account
@@ -104,6 +104,14 @@ The Azure Publishing Portal is used to publish and manage your offer(s). Think o
 
   > [AZURE.TIP] The Publisher Portal is how you will manage the details of your Add-on, including marketing copy, pricing and endpoints for your Resource Provider. Read the Publisher Portal Guide to get started. This step can be done in parallel with Steps 1, 3 and 4.
 
+| Seller Profile | To start draft | Staging | Publish Free | Publish Commercial |
+|---|--|--|--|--|
+|Company Registration | Must Have | Must Have | Must Have | Must Have |
+|Tax Profile ID | Optional | Optional | Optional | Must Have |
+|Bank Account | Optional | Optional | Optional | Must Have |
+
+## "Sell-from" countries of the offer
+In order to sell your services on Microsoft Azure Marketplace, your registered entity needs to be from one of the approved “sell from” countries. This restriction is for payout and taxation reasons. We are actively looking to expand this list of countries in the near future, so please stay tuned. For the complete list, please see section 1b of the document at link http://go.microsoft.com/fwlink/?LinkID=526833&clcid=0x409.
 
 ## Next Steps
 Now that your account is created and registered, click on the type of artifact (virtual machine, developer service, data service, solution template) that you would like to publish to the Azure Marketplace. Visit one of the following articles to learn how to publish your respective offer:

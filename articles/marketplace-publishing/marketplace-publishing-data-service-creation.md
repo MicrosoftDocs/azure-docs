@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Data Service Publishing Guide | Microsoft Azure"
-   description="Detailed instructions on how to publish a data service offer to the Azure Marketplace"
+   pageTitle="Creating a data service for the Marketplace | Microsoft Azure"
+   description="Detailed instructions on how to create and deploy a data service offer to the Azure Marketplace"
    services="marketplace-publishing"
    documentationCenter=""
    authors="HannibalSII"
@@ -8,12 +8,12 @@
    editor=""/>
 
 <tags
-   ms.service="required"
+   ms.service="marketplace-publishing"
    ms.devlang="na"
    ms.topic="article"
-   ms.tgt_pltfrm="may be required"
+   ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/20/2015"
+   ms.date="09/29/2015"
    ms.author="hascipio" />
 
 # Data Service Publishing Guide
