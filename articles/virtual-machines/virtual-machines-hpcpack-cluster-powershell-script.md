@@ -25,9 +25,8 @@
 
 Run the HPC Pack IaaS deployment PowerShell script on a client
 computer to deploy a complete HPC Pack cluster in Azure infrastructure
-services (IaaS). The script provides several deployment options,
-including addition of cluster compute nodes running supported Linux
-distributions.
+services (IaaS). The script provides several deployment options, and can add cluster compute nodes running supported Linux
+distributions or Windows Server operating systems.
 
 Depending on your environment and choices, the script can create all the cluster infrastructure, including the Azure virtual network, storage accounts, cloud services, domain controller, remote or local SQL databases, head node, broker nodes, compute nodes, and Azure cloud service (“burst”, or PaaS) nodes. Alternatively, the script can use pre-existing Azure infrastructure and then create the HPC cluster head node, broker nodes, compute nodes, and Azure burst nodes.
 

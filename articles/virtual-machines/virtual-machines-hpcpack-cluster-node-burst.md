@@ -118,5 +118,6 @@ Pack](http://technet.microsoft.com/library/jj159097(v=ws.10).aspx).
 * If you want a way to
 automatically grow or shrink the Azure computing resources according to
 the current workload of jobs and tasks on the cluster, see [Grow and shrink Azure compute resources in an HPC Pack cluste](virtual-machines-hpcpack-cluster-node-autogrowshrink.md).
+
 <!--Image references-->
 [burst]: ./media/virtual-machines-hpcpack-cluster-node-burst/burst.png

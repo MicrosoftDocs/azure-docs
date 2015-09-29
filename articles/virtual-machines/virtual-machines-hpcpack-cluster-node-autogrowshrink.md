@@ -30,8 +30,8 @@ To do this, use the
 HPC Pack.
 
 >[AZURE.TIP] Starting in HPC Pack 2012 R2 Update 2, HPC Pack includes a built-in
-service to automatically grow and shrink Azure “burst” nodes (PaaS) or
-Azure IaaS VM compute nodes. Configure the service with a setting in the [HPC
+service to automatically grow and shrink Azure burst nodes or
+Azure VM compute nodes. Configure the service with a setting in the [HPC
 Pack IaaS deployment script](virtual-machines-hpcpack-cluster-powershell-script.md) or manually set the **AutoGrowShrink** cluster
 property. See [What’s New in Microsoft HPC Pack 2012 R2 Update
 2](https://technet.microsoft.com/library/mt269417.aspx).
@@ -40,7 +40,7 @@ property. See [What’s New in Microsoft HPC Pack 2012 R2 Update
 
 * **HPC Pack 2012 R2 Update 1 or later cluster** - The **AzureAutoGrowShrink.ps1** script is installed in the %CCP_HOME%bin folder. The cluster head node can be deployed either on-premises or in an Azure VM. See [Set up a hybrid cluster with HPC Pack](../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md) to get started with an on-premises head node and Azure "burst" nodes. See the [HPC Pack IaaS deployment script](virtual-machines-hpcpack-cluster-powershell-script.md)) to quickly deploy a HPC Pack cluster in Azure VMs.
 
-* **For a cluster with Azure (“burst”) nodes** - Run the script on a client computer where HPC Pack is installed, or on the head node. If running on a client computer, ensure that you set the variable $env:CCP_SCHEDULER properly to point to the head node. The Azure “burst” nodes must already be added to the cluster, but they may be in the Not-Deployed state.
+* **For a cluster with Azure burst nodes** - Run the script on a client computer where HPC Pack is installed, or on the head node. If running on a client computer, ensure that you set the variable $env:CCP_SCHEDULER properly to point to the head node. The Azure “burst” nodes must already be added to the cluster, but they may be in the Not-Deployed state.
 
 
 * **For a cluster deployed in Azure VMs** - Run the script on the head node VM, because it depends on the **Start-HpcIaaSNode.ps1** and **Stop-HpcIaaSNode.ps1** scripts that are installed there. Those scripts additionally require an Azure management certificate or publish settings file (see [Manage compute nodes in an HPC Pack cluster in Azure](virtual-machines-hpcpack-cluster-node-manage.md)). Make sure all the compute node VMs you need are already added to the cluster, but they may be in the Stopped state.

@@ -48,7 +48,7 @@ Center](http://go.microsoft.com/fwlink/?LinkId=328024). Ensure that you
 select the same version of HPC Pack that is installed on the head node
 VM.
 
-* **Client computer** - You'll need a Windows or Windows Server client computer that can run HPC Pack client utilities (see [system requirements](https://technet.microsoft.com/library/dn535781.aspx)). You can use a client computer of your choice if you only want to use the HPC Pack web portal or REST API.
+* **Client computer** - You'll need a Windows or Windows Server client computer that can run HPC Pack client utilities (see [system requirements](https://technet.microsoft.com/library/dn535781.aspx)). If you only want to use the HPC Pack web portal or REST API to submit jobs, you can use a client computer of your choice.
 
 
 ## Step 1: Install and configure the web components on the head node
@@ -58,7 +58,7 @@ install and configure the HPC Pack web components on the HPC Pack head
 node, if they are not already configured. You first install the web
 components by running the HpcWebComponents.msi installation file. Then,
 configure the components by running the HPC PowerShell script
-Set-HPCWebComponents.ps1.
+**Set-HPCWebComponents.ps1**.
 
 For detailed procedures, see [Install the Microsoft HPC Pack Web
 Components](http://technet.microsoft.com/library/hh314627.aspx).
@@ -126,7 +126,7 @@ client computer. You'll need the certificate to be in .CER format.
 
 4. Right-click the certificate, click **All Tasks**, and then click **Export**.
 
-5.In the Certificate Export Wizard, click **Next**, and ensure that **No, do not export the private key** is selected.
+5. In the Certificate Export Wizard, click **Next**, and ensure that **No, do not export the private key** is selected.
 
 6. Follow the remaining steps of the wizard to export the certificate in DER encoded binary X.509 (.CER) format.
 
@@ -138,7 +138,7 @@ client computer. You'll need the certificate to be in .CER format.
 
 2. On the client computer, run certmgr.msc.
 
-3. In Certificate Manager, expand **Certificates – Current user**, expand **Trusted Root Certification Authorities**, right- click **Certificates**, click **All Tasks**, and then click **Import**.
+3. In Certificate Manager, expand **Certificates – Current user**, expand **Trusted Root Certification Authorities**, right-click **Certificates**, click **All Tasks**, and then click **Import**.
 
 4. In the Certificate Import Wizard, click **Next** and follow the steps to import the certificate that your exported from the head node.
 
