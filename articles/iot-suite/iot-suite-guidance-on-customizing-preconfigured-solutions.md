@@ -46,17 +46,17 @@ In addition to changed the preconfigured Azure Stream Analytics jobs, you can us
 ## Customizing devices
 One of the most common extension activities is working with devices specific to your scenario.  There are several methods for working with devices.  These include altering a simulated device to match your scenario, or using the Azure IoT Device SDK to connect your physical device to the solution.
 
-Please refer to the following document for a step-by-step guide to adding devices to the remote monitoring preconfigured solution ([https://azure.microsoft.com/documentation/articles/iot-suite-connecting-devices/ ](https://azure.microsoft.com/documentation/articles/iot-suite-connecting-devices/  "Iot Suite Connecting Devices"))
+Please refer to the following document for a step-by-step guide to adding devices to the remote monitoring preconfigured solution [Iot Suite Connecting Devices](https://azure.microsoft.com/documentation/articles/iot-suite-connecting-devices)
 
 ### Creating your own simulated device
 Included in the remote monitoring solution source code (referenced above), is a .Net simulator.  This simulator is the one provisioned as part of the solution and can be altered to send different metadata, telemetry or respond to different commands.
 
-Additionally, we have provided a C Sample ([https://github.com/Azure/azure-iot-sdks/c/serializer/samples/remote_monitoring](https://github.com/Azure/azure-iot-sdks/c/serializer/samples/remote_monitoring "C Sample")) that is designed to work with the remote monitoring preconfigured solution.
+Additionally, we have provided a C Sample ([C SDK Sample](https://github.com/Azure/azure-iot-sdks/c/serializer/samples/remote_monitoring) that is designed to work with the remote monitoring preconfigured solution.
 
 ### Building and using your own (physical) device
-The Azure IoT SDKs([https://github.com/Azure/azure-iot-sdks](https://github.com/Azure/azure-iot-sdks "Azure IoT SDKs")) provide libraries for connecting numerous device types (languages and operating systems) into IoT solutions.
+The [Azure IoT SDKs](https://github.com/Azure/azure-iot-sdks) provide libraries for connecting numerous device types (languages and operating systems) into IoT solutions.
 
 
-For more information on IoT devices, please refer to the IoT Developer Site ([http://azure.microsoft.com/develop/iot/](http://azure.microsoft.com/en-us/develop/iot/ "Azure IoT Developer")) to find links and documentation.
+For more information on IoT devices, please refer to the [Azure IoT Developer Site](http://azure.microsoft.com/develop/iot) to find links and documentation.
 
 
