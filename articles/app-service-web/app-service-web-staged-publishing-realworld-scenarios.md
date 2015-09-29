@@ -240,7 +240,7 @@ require_once(ABSPATH . 'wp-settings.php');
 Assuming you already have a WordPress web app running on Azure Web, login to [Azure Management Preview portal](http://portal.azure.com) and go to your WordPress web app. Apps If not you can create one from the marketplace. To learn more, click [here](web-sites-php-web-site-gallery).
 Click on Settings -> Deployment slots -> Add to create a deployment slot with the name stage .A deployment slot is another web application sharing the same resources as the primary web app created above.
 
-![Create stage deployment slot](./media/app-service-web-staged-publishing-realworld-scenarios/1setupstagewebapp.png)
+![Create stage deployment slot](./media/app-service-web-staged-publishing-realworld-scenarios/1Setupstagewebapp.png)
 
 Add another MySQL database, say `wordpress-stage-db` to your resource group `wordpressapp-group`.
 
