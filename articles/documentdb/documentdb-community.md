@@ -41,6 +41,8 @@ A client management viewer/explorer for Microsoft Azure DocumentDB service.
 
 Check it out on [Github](https://github.com/mingaliu/DocumentDBStudio).
 
+<br/><br/>
+
 <hr/>
 
 ## Recent and Upcoming Events
@@ -57,6 +59,8 @@ Check it out on [Github](https://github.com/mingaliu/DocumentDBStudio).
 
 Are you hosting an event? [Let us know](mailto:askdocdb@microsoft.com) how we can help!
 
+<br/><br/>
+
 <hr/>
 
 ## News
@@ -72,6 +76,8 @@ Do you have a blog post, code sample, or case-study you'd like to share? [Let us
 ### Social
 
 Follow us on twitter [@DocumentDB](https://twitter.com/DocumentDB) and stay up to date with the latest conversation on the [#DocumentDB](https://twitter.com/hashtag/DocumentDB) hashtag.
+
+<br/><br/>
 
 <hr/>
 
@@ -101,6 +107,8 @@ You can also shoot us an [e-mail](mailto:askdocdb@microsoft.com) or tweet us at 
 You can chat with us in real-time over IRC on `chat.freenode.net` in the `#documentdb` channel with an [IRC client](http://www.irchelp.org/) or by connecting in your web channel to the channel using Freenode's [WebChat](http://webchat.freenode.net/?channels=documentdb).
 
 We host office hours on IRC every Friday from 11am to 12pm pacific time.
+
+<br/><br/>
 
 <hr/>
 
