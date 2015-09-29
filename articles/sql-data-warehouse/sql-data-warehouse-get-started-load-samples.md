@@ -84,8 +84,8 @@ Now that we've given you some time to warm up with the sample data check out how
 [connect and query]:https://azure.microsoft.com/en-us/documentation/articles/sql-data-warehouse-get-started-connect-query/
 [migrate code]:https://azure.microsoft.com/en-us/documentation/articles/sql-data-warehouse-migrate-code/
 [load sample data manually]:https://azure.microsoft.com/en-us/documentation/articles/sql-data-warehouse-get-started-manually-load-samples/
-[Azure Portal]: portal.azure.com
-[Power BI]:www.powerbi.com
+[Azure Portal]: https://portal.azure.com
+[Power BI]: http://www.powerbi.com
 [connecting to SQL Data Warehouse]:https://azure.microsoft.com/en-us/documentation/articles/sql-data-warehouse-integrate-power-bi/
 
 <!--MSDN references-->
