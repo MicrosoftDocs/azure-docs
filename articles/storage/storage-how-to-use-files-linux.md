@@ -12,11 +12,11 @@
       ms.tgt_pltfrm="na"
       ms.devlang="na"
       ms.topic="article"
-      ms.date="09/21/2015"
+      ms.date="09/28/2015"
       ms.author="jutang;tamram" />
 
 
-# How to use Azure File Storage with Linux #
+# How to use Azure File Storage with Linux 
 
 ## Overview
 
@@ -90,7 +90,11 @@ If you use Open SUSE 13.2, you can mount the file as below:
 
 See these links for more information about Azure File storage.
 
-### Tool support for File storage
+### Conceptual articles
+
+- [How to use Azure File Storage with Windows](storage-dotnet-how-to-use-files.md)
+
+### Tooling support for File storage
 
 - [How to use AzCopy with Microsoft Azure Storage](storage-use-azcopy.md)
 - [Using the Azure CLI with Azure Storage](storage-azure-cli.md#create-and-manage-file-shares)
@@ -101,5 +105,7 @@ See these links for more information about Azure File storage.
 
 ### Blog posts
 
+- [Azure File storage is now generally available](http://go.microsoft.com/fwlink/?LinkID=626728&clcid=0x409)
+- [Deep dive with Azure File storage](http://go.microsoft.com/fwlink/?LinkID=626729&clcid=0x409) 
 - [Introducing Microsoft Azure File Service](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 - [Persisting connections to Microsoft Azure Files](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)

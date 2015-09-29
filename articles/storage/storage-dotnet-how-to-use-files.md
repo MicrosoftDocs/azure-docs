@@ -12,7 +12,7 @@
       ms.tgt_pltfrm="na"
       ms.devlang="dotnet"
       ms.topic="hero-article"
-      ms.date="09/21/2015"
+      ms.date="09/28/2015"
       ms.author="tamram" />
 
 # How to use Azure File storage with Windows
@@ -26,6 +26,8 @@ You can create Azure file shares using the Azure preview portal, the Azure Stora
 Applications running in Azure can easily mount file shares from Azure virtual machines. And with the latest release of File storage, you can also mount a file share from an on-premises application that supports SMB 3.0. 
 
 File storage is built on the same technology as Blob, Table, and Queue storage, so File storage is able to leverage the existing availability, durability, scalability, and geo-redundancy that is built into the Azure storage platform.
+
+For information on using File storage with Linux, see [How to use Azure File Storage with Linux](storage-how-to-use-files-linux.md).
 
 For information on scalability targets for File storage, see [Azure Storage Scalability and Performance Targets](storage-scalability-targets.md#scalability-targets-for-standard-storage-accounts).
 
@@ -517,7 +519,11 @@ You can enable metrics for File storage from the Azure portal. You can also enab
 
 See these links for more information about Azure File storage.
 
-### Tool support for File storage
+### Conceptual articles
+
+- [How to use Azure File Storage with Linux](storage-how-to-use-files-linux.md)
+
+### Tooling support for File storage
 
 - [Using Azure PowerShell with Azure Storage](storage-powershell-guide-full.md)
 - [How to use AzCopy with Microsoft Azure Storage](storage-use-azcopy.md)
@@ -530,5 +536,7 @@ See these links for more information about Azure File storage.
 
 ### Blog posts
 
+- [Azure File storage is now generally available](http://go.microsoft.com/fwlink/?LinkID=626728&clcid=0x409)
+- [Deep dive with Azure File storage](http://go.microsoft.com/fwlink/?LinkID=626729&clcid=0x409) 
 - [Introducing Microsoft Azure File Service](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 - [Persisting connections to Microsoft Azure Files](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
