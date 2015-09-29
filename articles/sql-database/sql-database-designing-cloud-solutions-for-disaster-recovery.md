@@ -32,7 +32,7 @@ In this case the application deployment topology is optimized for handling regio
 
 The following diagram shows this configuration before an outage. Traffic manager is configured with a failover profile and directs the user connections to the application instance in the primary region.
 
-> [AZURE.NOTE] [Azure traffic manager](https://azure.microsoft.com/en-us/documentation/articles/traffic-manager-overview/) is used here for illustration purposes only. You can use any load balancing solution. 
+> [AZURE.NOTE] [Azure traffic manager](././traffic-manager/traffic-manager-overview/) is used here for illustration purposes only. You can use any load balancing solution. 
 
 ![Figure 1](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/pattern1-1.png)
 
