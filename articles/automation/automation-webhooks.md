@@ -12,9 +12,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/04/2015"
-   ms.author="bwren"
-   ms.author= "SnehaGunda" />
+   ms.date="09/28/2015"
+   ms.author="bwren";"sngun"/>
 
 # Azure Automation webhooks
 

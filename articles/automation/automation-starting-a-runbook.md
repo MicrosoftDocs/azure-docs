@@ -12,9 +12,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/11/2015"
-   ms.author="bwren"
-   ms.author= "SnehaGunda" />
+   ms.date="09/28/2015"
+   ms.author="bwren";"sngun"/>
 
 # Starting a runbook in Azure Automation
 
@@ -73,7 +72,7 @@ The following table will help you determine the method to start a runbook in Azu
   </td>
  </tr>
  <tr>
-  <td><a href="http://azure.microsoft.com/documentation/articles/automation-webhooks/">Webhook in response to Alerts</a></td>
+  <td><a href="http://azure.microsoft.com/documentation/articles/automation-webhooks/">Respond to Azure Alert</a></td>
   <td>
    <ul>
     <li>Start a runbook in response to Azure alert.</li>
