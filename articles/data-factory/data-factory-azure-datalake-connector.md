@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Move data to and from Azure Data Lake | Azure Data Factory" 
-	description="Learn how to move data to/from Azure Data Lake using Azure Data Factory" 
+	pageTitle="Move data to and from Azure Data Lake Store | Azure Data Factory" 
+	description="Learn how to move data to/from Azure Data Lake Store using Azure Data Factory" 
 	services="data-factory" 
 	documentationCenter="" 
 	authors="spelluru" 
@@ -13,13 +13,15 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/09/2015" 
+	ms.date="09/28/2015" 
 	ms.author="spelluru"/>
 
-# Move data to and from Azure Data Lake using Azure Data Factory
-This article outlines how you can use the Copy Activity in an Azure data factory to move data to Azure Data Lake from another data store and move data from another data store to Azure Blob. This article builds on the [data movement activities](data-factory-data-movement-activities.md) article which presents a general overview of data movement with the copy activity and the supported data store combinations.
+# Move data to and from Azure Data Lake Store using Azure Data Factory
+This article outlines how you can use the Copy Activity in an Azure data factory to move data to Azure Data Lake Store from another data store and move data from another data store to Azure Blob. This article builds on the [data movement activities](data-factory-data-movement-activities.md) article which presents a general overview of data movement with the copy activity and the supported data store combinations.
 
-## Sample: Copy data from Azure Blob to Azure Data Lake
+> [AZURE.NOTE] Please review the [Build your first pipeline tutorial](data-factory-build-your-first-pipeline.md) for detailed steps to create a data factory, linked services, datasets, and a pipeline. Use the JSON snippets with Data Factory Editor or Visual Studio or Azure PowerShell to create the Data Factory entities.    
+
+## Sample: Copy data from Azure Blob to Azure Data Lake Store
 The sample below shows:
 
 1.	A linked service of type [AzureStorage](#azure-storage-linked-service-properties).
@@ -28,7 +30,7 @@ The sample below shows:
 4.	An output [dataset](data-factory-create-datasets.md) of type [AzureDataLake](#azure-data-lake-dataset-type-properties).
 4.	A [pipeline](data-factory-create-pipelines.md) with a Copy activity that uses [BlobSource](#azure-blob-copy-activity-type-properties) and [AzureDataLakeSink](#azure-data-lake-copy-activity-type-properties).
 
-The sample copies data belonging to a time series from an Azure Blob Storage to Azure Data Lake every hour. The JSON properties used in these samples are described in sections following the samples. 
+The sample copies data belonging to a time series from an Azure Blob Storage to Azure Data Lake  Store every hour. The JSON properties used in these samples are described in sections following the samples. 
 
 
 **Azure Storage linked service:**
@@ -43,8 +45,8 @@ The sample copies data belonging to a time series from an Azure Blob Storage to 
 	  }
 	}
 
-**Azure DataLake linked service:**
-
+**Azure Data Lake linked service:**
+ 
 	{
 	    "name": "AzureDataLakeLinkedService",
 	    "properties": {        
@@ -56,6 +58,21 @@ The sample copies data belonging to a time series from an Azure Blob Storage to 
 	        }
 	    }
 	}
+
+### To create Azure Data Lake Linked Service using Data Factory Editor
+The following procedure provides steps for creating an Azure Data Lake Store linked service using the Data Factory Editor. 
+
+1. Click **New data store** on the command bar and select **Azure Data Lake**. 
+
+	![Azure Data Lake linked service](./media/data-factory-azure-data-lake-connector/new-data-lake-linked-service.png)
+2. In the JSON editor, for the **datalakeUri** property, enter the URI for the data lake. 
+3. Click **Authorize** button on the command bar. You should see a pop up window.
+
+	![Authorize button](./media/data-factory-azure-data-lake-connector/authorize-button.png)
+4. Use your credentials to sign-in and the **authorization** property in the JSON should be assigned to a value now. 
+5. Specify values for optional parameters such as **accountName**, **subscriptionID** and **resourceGroupName** in the JSON. 
+6. Click **Deploy** on the command bar to deploy the linked service. 
+ 
 
 **Azure Blob input dataset:**
 
@@ -121,7 +138,7 @@ Data is picked up from a new blob every hour (frequency: hour, interval: 1). The
 
 **Azure Data Lake output dataset:**
 
-The sample copies data to Azure DataLake. New data is copies to DataLake every hour.
+The sample copies data to an Azure Data Lake store. New data is copies to Data Lake store every hour.
 
 	{
 	  "name": "AzureDataLakeOutput",
@@ -224,7 +241,7 @@ The pipeline contains a Copy Activity that is configured to use the above input 
 	   }
 	}
 
-## Sample: Copy data from Azure Data Lake to Azure Blob
+## Sample: Copy data from Azure Data Lake Store to Azure Blob
 The sample below shows:
 
 1.	A linked service of type [AzureDataLake](#azure-data-lake-linked-service-properties).
@@ -233,9 +250,9 @@ The sample below shows:
 4.	An output [dataset](data-factory-create-datasets.md) of type [AzureBlob](#azure-blob-dataset-type-properties).
 5.	A [pipeline](data-factory-create-pipelines.md) with a Copy activity that uses [AzureDataLakeSource](#azure-data-lake-copy-activity-type-properties) and [BlobSink](#azure-blob-copy-activity-type-properties)
 
-The sample copies data belonging to a time series from an Azure data lake to an Azure blob every hour. The JSON properties used in these samples are described in sections following the samples. 
+The sample copies data belonging to a time series from an Azure Data Lake store to an Azure blob every hour. The JSON properties used in these samples are described in sections following the samples. 
 
-**Azure Data Lake linked service:**
+**Azure Data Lake Store linked service:**
 
 	{
 	    "name": "AzureDataLakeLinkedService",
@@ -430,14 +447,14 @@ The pipeline contains a Copy Activity that is configured to use the above input 
 	}
 
 
-## Azure Data Lake Linked Service properties
+## Azure Data Lake Store Linked Service properties
 
 You can link an Azure storage account to an Azure data factory using an Azure Storage linked service. The following table provides description for JSON elements specific to Azure Storage linked service.
 
 | Property | Description | Required |
 | -------- | ----------- | -------- |
 | type | The type property must be set to: **AzureDataLake** | Yes |
-| dataLakeUri | Specify information about the Azure DataLake account. It is in the following format: https://<Azure DataLake account name>.azuredatalake.net/webhdfs/v1 | Yes |
+| dataLakeUri | Specify information about the Azure Data Lake Store account. It is in the following format: https://<Azure Data Lake account name>.azuredatalake.net/webhdfs/v1 | Yes |
 | authorization | In order to get the authorization URL above, login using your org/live id to the following URL: [https://login.microsoftonline.com/common/oauth2/authorize?response_type=code&client_id=a306baf0-5ad8-4f6f-babf-6a286b0142ba&redirect_uri=https://datafactory.azure.com/oauthredirect](https://login.microsoftonline.com/common/oauth2/authorize?response_type=code&client_id=a306baf0-5ad8-4f6f-babf-6a286b0142ba&redirect_uri=https://datafactory.azure.com/oauthredirect), copy the URL from the address bar of the browser and assign it to the **authorization** property in the linked service JSON. <p>**Note:** This is temporary manual step until the Data Factory OAuth UI work is done. </p> | Yes |
 | sessionId | OAuth session id from the oauth authorization session. Each session id is unique and may only be used once. | Yes |  
 | accountName | Data lake account name | No | 
@@ -472,7 +489,7 @@ The **typeProperties** section is different for each type of dataset and provide
 
 | Property | Description | Required |
 | -------- | ----------- | -------- | 
-| path | Path to the container and folder in the Azure data lake. | Yes |
+| path | Path to the container and folder in the Azure Data Lake store. | Yes |
 | partitionedBy | partitionedBy is an optional property. You can use it to specify a dynamic folderPath and filename for time series data. For example, folderPath can be parameterized for every hour of data. See the Leveraging partitionedBy property section below for details and examples. | No | 
 
 ### Leveraging partitionedBy property

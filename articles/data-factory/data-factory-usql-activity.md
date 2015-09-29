@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Invoke U-SQL script from Azure Data Factory" 
-	description="Learn how to process data by running U-SQL scripts on Azure Big Analytics compute." 
+	description="Learn how to process data by running U-SQL scripts on Azure Data Lake Analytics compute." 
 	services="data-factory" 
 	documentationCenter="" 
 	authors="spelluru" 
@@ -13,14 +13,47 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/31/2015" 
+	ms.date="09/28/2015" 
 	ms.author="spelluru"/>
 
 # Invoke U-SQL script from Data Factory
-This article describes how to run a **U-SQL** script on an Azure Big Analytics compute from an Azure Data Factory pipeline by using the **U-SQL Activity**. 
+This article describes how to run a **U-SQL** script on an Azure Data Lake Analytics compute from an Azure Data Factory pipeline by using the **U-SQL Activity**. 
 
 ## Introduction 
 A pipeline in an Azure data factory processes data in linked storage services by using linked compute services. It contains a sequence of activities where each activity performs a specific processing operation. This article describes using the U-SQL Activity.
+
+## Azure Data Lake Analytics Linked Service
+You create an Azure Data Lake Analytics linked service to link an Azure Data Lake Analytics compute service to an Azure data factory.
+
+### Example
+
+	{
+	    "name": "AzureDataLakeAnalyticsLinkedService",
+	    "properties": {
+	        "type": "AzureBigAnalytics",
+	        "typeProperties": {
+	            "accountName": "adftestaccount",
+	            "bigAnalyticsUri": "datalakeanalyticscompute.net",
+	            "authorization": "<authcode>",
+				"sessionId": "<session ID> 
+	            "subscriptionId": "<subscription id>",
+	            "resourceGroupName": "<resource group name>"
+	        }
+	    }
+	}
+
+
+### Properties
+
+Property | Description | Required
+-------- | ----------- | --------
+Type | The type property should be set to: **AzureBigAnalytics**. | Yes
+accountName | Azure Big Analytics Account Name. | Yes
+bigAnalyticsUri | Azure Big Analytics URI. Enter ‘datalakeanalyticscompute.net’. |  No 
+authorization | Authorization code is automatically retrieved after clicking ‘Authorize’ and completing the OAuth login. | Yes 
+subscriptionId | Azure subscription id | No (If not specified, subscription of the data factory is used). 
+resourceGroupName | Azure resource group name |  No (If not specified, resource group of the data factory is used).
+sessionId | OAuth session id from the oauth authorization session. Each session id is unique and may only be used once. | Yes   
  
 ## JSON for U-SQL Activity 
 
@@ -85,7 +118,7 @@ Property | Description
 type | The type property must be set to **BigAnalyticsU-SQL**.
 scriptPath | Path to folder that contains the U-SQL script. 
 scriptLinkedService | Linked service that links the storage that contains the script to the data factory
-degreeOfParallelism | Also known as BAUs (Big Analytics Units), or the maximum number of nodes that will be used simultaneously to run the job.
+degreeOfParallelism | The maximum number of nodes that will be used simultaneously to run the job.
 priority | Determines which jobs out of all that are queued should be selected to run first. The lower the number, the higher the priority.
 
 
