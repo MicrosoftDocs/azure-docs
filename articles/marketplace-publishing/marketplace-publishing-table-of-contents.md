@@ -21,23 +21,25 @@ This article is provided to help a seller create and deploy his/her solution e.g
 
 Some steps are shared between the different types of solutions. This provides a short overview of what steps you will need to complete for any type of solution.
 
+<!--
 ## Step 1. Get approved
 - [Azure Certification Process][link-certification]
+-->
 
-## Step 2. Register your company account
+## Step 1. Register your company account
 - [Microsoft Seller Account Creation & Registration][link-accts]
 
-## Step 3. Offer Creation
+## Step 2. Offer Creation
 
 | Virtual Machine Image | Developer Service | Data Service | Solution Template |
 |-----|-----|-----|-----|
 | [VM Image Pre-requisites][link-single-vm-prereq] | [Developer Service Pre-requisites][link-devsvc-prereq] | Data Service Pre-requisites  | [Solution Template Pre-requisites][link-multi-vm-prereq] |
 | [VM Image Publishing Guide][link-single-vm] | [Developer Service Publishing Guide][link-devsvc] | Data Service Publishing Guide | [Solution Template Publishing Guide][link-multi-vm] |
 
-## Step 4. Getting to staging
+## Step 3. Getting to staging
 - [Azure Marketplace Marketing Content Guide][link-pushstaging]
 
-## Step 5. Publish
+## Step 4. Publish
 - [Deploy your offer to the Marketplace][link-pushprod]
 
 ## Appendix

@@ -18,7 +18,20 @@
 
 # Pre-requisites for creating a multi-Virtual Machine image solution template for the Azure Marketplace
 
-## A. Ensure you are registered as a seller with Microsoft
+## Get Approved via Microsoft Azure Certification Program
+
+This article provides instructions of how to become Microsoft Azure Certified. For a detailed overview of the Microsoft Azure Certification program and its benefits, visit http://azure.com/certified
+
+> [AZURE.NOTE] The Azure Certification is only applicable if you are going to create a Virtual Machine or Multi-VM Solution Template to the Azure Marketplace. If you are not creating either of these artifacts, please skip this step and move forward to step 2, [Microsoft Seller Account creation](marketplace-publishing-accounts-creation-registration.md)
+
+The first step on the path to getting your application or service certified and onboarded to Azure Marketplace is to fill out the application form on the Microsoft Azure Certified web page.
+If you meet the basic eligibility criteria we will ask you to share some more details about your business and the application or service that you want to certify. When we have all the details from you we will review your application to ensure is it’s a good fit for Azure Marketplace and if your application is approved we will start working with you to onboard your solution to Azure Marketplace.
+Take these steps to get started:
+-	Visit the Microsoft Azure Certified web page: https://azure.microsoft.com/en-us/marketplace/partner-program/ to learn more about the program
+
+-	If you are working with a Partner Account Manager or a DX Partner Manager please request them to nominate you for the Azure Certification program. Or go to the Microsoft Azure Certified web page, click on “Request Information” and fill in the application form.
+
+## Ensure you are registered as a seller with Microsoft
 A company can register only once as seller with Microsoft.
 - If you don't know the seller registration stats of your company, please contact us through your Sharepoint site ('Need help?' section) or you can email us at AzureMarketOnboard@microsoft.com
 - If you are already registered, find out who in your company owns it? Alternatively, which credentials were used to register? This information can be obtained form your Finance or Marketing Team
@@ -37,11 +50,11 @@ For instructions on creating and submitting a Microsoft seller profile, visit [M
 3. Choose "Registering for a developer account"
 4. Choose contact method
 
-## B. Acquire an Azure "pay-as-you-go" Subscription
+## Acquire an Azure "pay-as-you-go" Subscription
 
 This is the subscription you will use to create your VM images and hand over the images to [Azure Marketplace](http://azure.microsoft.com/marketplace). If you do not have an existing subscription, then please sign up here, https://account.windowsazure.com/signup?offer=ms-azr-0003p
 
-## C. Create an Azure compatible solution
+## Create an Azure compatible solution
 1. Identifying topology and platform evaluation
   For each type of deployment - Evaluation, Proof of Concept, Dev/Test, and Production - think through the exact layout and topology needed for your application. Questions to ask:
   - What are the different tiers?

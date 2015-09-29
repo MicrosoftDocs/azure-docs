@@ -8,7 +8,7 @@
    editor=""/>
 
 <tags
-   ms.service="AzureStore"
+   ms.service="marketplace-publishing"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="Azure"
@@ -94,7 +94,9 @@ Plans can be any combination of BASE + Overage, where BASE is monthly price and 
 |Silver Plus|$20/month + $0.15/meter01 + $0.01/meter02|Basic functionality and a quota of 10,000 of feature X and 100 of feature Y.  Once feature X quota is used, the customer can pay per use via meter01.  Once feature Y quota is used, the customer can pay per use via meter02|Can migrate to Bronze Plus and Gold Plans|
 |Gold|$1000/month|Quota of 10,000 of feature X, 1,000 of feature Y, and unlimited of feature Z|Can migrate to all plans except free|
 
+<!--
 ### 4.2.4 Set your data service prices
+-->
 
 ## 4.3 Provide support information
 Some of this information will have been completed during the certification step. You may add or edit information as in the steps below. The contact details are used for internal communications between partner and Microsoft only. Support URL will be available to the end customers.
