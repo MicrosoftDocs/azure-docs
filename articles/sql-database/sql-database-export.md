@@ -45,7 +45,7 @@ To complete this article you need the following:
 
 Open the SQL Database blade for the database you want to export as a .bacpac file:
 
-1.	Go to the [Azure Preview Portal](https//:portal.azure.com).
+1.	Go to the [Azure Preview Portal](https://portal.azure.com).
 2.	Click **BROWSE ALL**.
 3.	Click **SQL databases**.
 2.	Click the database you want to export as a BACPAC.
