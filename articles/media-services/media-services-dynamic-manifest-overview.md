@@ -178,7 +178,7 @@ The following topic discusses Media Services entities that are related to filter
 
 ## Combining multiple filters
 
-You can also combine multiple filters in a URL (for example, (Filter=A,B)). Up to 3 filters can be combined in a single URL. The order of the filters doesn’t matter since they all get merged and processed at the same time. You can combine global and local filters. Filter combination enables the following scenario: you can have a global Android filter and apply trimming with it (without combination you would need to add Android filter to the trimming filter).
+You can also combine multiple filters in a URL (for example, (Filter=A;B)). Up to 3 filters can be combined in a single URL. The order of the filters doesn’t matter since they all get merged and processed at the same time. You can combine global and local filters. Filter combination enables the following scenario: you can have a global device filter such as Android or iPAD  to limit video qualities and apply trimming (start/end time) with a local filter and combine them together (without combination you would need to add quality filtering to the trimming filter which will make filter usage difficult).
 
 ##Know issues and limitations
 
