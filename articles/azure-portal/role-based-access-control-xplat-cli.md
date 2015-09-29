@@ -20,7 +20,7 @@
 
 > [AZURE.SELECTOR]
 - [Windows PowerShell](role-based-access-control-powershell.md)
-- [Azure CLI](/role-based-access-control-xplat-cli.md)
+- [Azure CLI](/role-based-access-control-xplat-cli-install.md)
 
 Role-based access control (RBAC) in Azure Portal and Azure Resource Manager API allows you to manage access to your subscription and resources at a fine-grained level. With this feature, you can grant access for Active Directory users, groups, or service principals by assigning some roles to them at a particular scope.
 
@@ -32,7 +32,7 @@ In this tutorial, you'll learn how to use Azure CLI to manage role based access 
 
 Before you can use Azure CLI to manage RBAC, you must have the following:
 
-- Azure CLI version 0.8.8 or later. To install the latest version and associate it with your Azure subscription, see [Install and Configure the Azure CLI](../xplat-cli.md).
+- Azure CLI version 0.8.8 or later. To install the latest version and associate it with your Azure subscription, see [Install and Configure the Azure CLI](../xplat-cli-install.md).
 - Please also read the following tutorials to get familiar with set up and using Azure Resource Manager in Azure CLI: [Using the Azure CLI with the Resource Manager](../xplat-cli-azure-resource-manager.md)
 
 ## In this tutorial ##
@@ -64,7 +64,7 @@ If you have multiple subscriptions and want to switch to another one, type:
     # Use the subscription name to select the one you want to work on.
     azure account set <subscription name>
 
-For more information, please refer to [Install and Configure the Azure CLI](../xplat-cli.md).
+For more information, please refer to [Install and Configure the Azure CLI](../xplat-cli-install.md).
 
 ## <a id="check"></a>Check existing role assignments ##
 
@@ -144,7 +144,7 @@ Then when you try to run other cmdlets like `azure group create`, you will get a
 To learn more about managing role-based access control with Azure CLI and related topics:
 
 - [Role based access control in Azure](../role-based-access-control-configure.md)
-- [Install and Configure the Azure CLI](../xplat-cli.md)
+- [Install and Configure the Azure CLI](../xplat-cli-install.md)
 - [Using the Azure CLI with the Resource Manager](../xplat-cli-azure-resource-manager.md)
 - [Using Resource groups to manage your Azure resources](../azure-preview-portal-using-resource-groups.md): Learn how to create and manage resource groups in the Azure Management Portal.
 - [Azure blog](http://blogs.msdn.com/windowsazure): Learn about new features in Azure.

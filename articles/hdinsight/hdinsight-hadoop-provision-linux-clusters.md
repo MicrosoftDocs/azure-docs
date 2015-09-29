@@ -242,7 +242,7 @@ Azure Resource Management templates are JSON documents that describe a __resourc
 
 The following steps walk through the process of creating a new HDInsight cluster using the Azure CLI and a template:
 
-1. If it is not already installed, follow the steps in the [Install and configure the Azure CLI](../xplat-cli.md) document.
+1. If it is not already installed, follow the steps in the [Install and configure the Azure CLI](../xplat-cli-install.md) document.
 
 2. From a command-line, terminal, or shell, use the following command to authenticate to your Azure subscription:
 
