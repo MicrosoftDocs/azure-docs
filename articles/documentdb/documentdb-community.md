@@ -75,9 +75,7 @@ Follow us on twitter [@DocumentDB](https://twitter.com/DocumentDB) and stay up t
 
 ### Online Forums
 
-| [![StackOverflow](./media/documentdb-community/stack-overflow.png)](http://stackoverflow.com/questions/tagged/azure-documentdb) | [![MSDN](./media/documentdb-community/msdn.png)](https://social.msdn.microsoft.com/Forums/home?forum=AzureDocumentDB) |
-| :-----------: | :--: |
-
+The easiest way to answer and ask questions is to use the Azure DocumentDB forums on [StackOverflow](http://stackoverflow.com/questions/tagged/azure-documentdb) and [MSDN](https://social.msdn.microsoft.com/Forums/home?forum=AzureDocumentDB).
 
 ### Microsoft Azure Support
 
