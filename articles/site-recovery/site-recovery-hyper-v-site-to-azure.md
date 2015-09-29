@@ -180,12 +180,12 @@ Install the Provider and agent. If you're installing on a Hyper-V cluster, perfo
 	    	CD C:\Program Files\Microsoft Azure Site Recovery Provider\
 	    	C:\Program Files\Microsoft Azure Site Recovery Provider\> DRConfigurator.exe /r  /Friendlyname <friendly name of the server> /Credentials <path of the credentials file>          
 	>####Command line Install Parameter List####
-	>- **/Credentials** : Mandatory parameter that specifies the location in which the registration key file is located  
-	>- **/FriendlyName** : Mandatory parameter for the name of the Hyper-V host server that appears in the Azure Site Recovery portal.
-	>- **/proxyAddress** : Optional parameter that specifies the address of the proxy server.
-	>- **/proxyport** : Optional parameter that specifies the port of the proxy server.
-	>- **/proxyUsername** : Optional parameter that specifies the Proxy user name (if proxy requires authentication).
-	>- **/proxyPassword** :Optional parameter that specifies the Password for authenticating with the proxy server (if proxy requires authentication).
+	> - **/Credentials** : Mandatory parameter that specifies the location in which the registration key file is located  
+	> - **/FriendlyName** : Mandatory parameter for the name of the Hyper-V host server that appears in the Azure Site Recovery portal.
+	> - **/proxyAddress** : Optional parameter that specifies the address of the proxy server.
+	> - **/proxyport** : Optional parameter that specifies the port of the proxy server.
+	> - **/proxyUsername** : Optional parameter that specifies the Proxy user name (if proxy requires authentication).
+	> - **/proxyPassword** :Optional parameter that specifies the Password for authenticating with the proxy server (if proxy requires authentication).
 
 >[AZURE.TIP]You can configure each of the individual Hyper-V host to use different network bandwidth settings to replicate virtual machines to Azure. Learn more about [How to Manage on-premises to Azure protection network bandwidth usage](https://support.microsoft.com/en-us/kb/3056159)  
 
