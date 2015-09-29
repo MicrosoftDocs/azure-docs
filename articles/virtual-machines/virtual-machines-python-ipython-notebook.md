@@ -328,8 +328,9 @@ from Microsoft that turns Visual Studio into an advanced Python development
 environment that includes an advanced editor with IntelliSense, debugging,
 profiling and parallel computing integration.
 
+## Next steps
 
-
+For more information, see the [Python Developer Center](/develop/python/).
 
 [Tornado]:      http://www.tornadoweb.org/          "Tornado"
 [PyZMQ]:        https://github.com/zeromq/pyzmq     "PyZMQ"
