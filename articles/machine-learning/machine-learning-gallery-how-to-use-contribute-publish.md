@@ -65,7 +65,7 @@ Follow these steps to contribute an experiment:
 
 ### Contribute collections
 
-A *collection* is a group of items from Cortana Analytics Gallery. You can gather together experiments, tutorials, and other Gallery items into a collection that's shared with the Gallery community.
+A *collection* is a list of items from Cortana Analytics Gallery that are grouped together for later reference, use, or sharing. They can also be used to group together multi-step experiments. Your collection can contain items that you own or items that have been contributed by the community.
 
 Follow these steps to create and contribute a collection:
 
