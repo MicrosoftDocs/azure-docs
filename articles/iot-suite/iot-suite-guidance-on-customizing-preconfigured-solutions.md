@@ -27,7 +27,7 @@ The source code for your preconfigured solution is available on Github in the fo
 This source is provided to demonstrate a pattern for implementing the core functionality of remote monitoring using Azure IoT Suite.
 
 ## Changing the preconfigured rules
-The remote monitoring solution includes two Azure Stream Analytics ([http://azure.microsoft.com/documentation/services/stream-analytics](http://azure.microsoft.com/documentation/services/stream-analytics "Azure Stream Analytics Documentation")) jobs to implement the telemetry and alarm logic displayed on the dashboard.
+The remote monitoring solution includes two [Azure Stream Analytics](http://azure.microsoft.com/documentation/services/stream-analytics) jobs to implement the telemetry and alarm logic displayed on the dashboard.
 
 The first job selects all the data from the incoming stream of telemetry and creates two different outputs.  The job will be named [solution name]-Telemetry.
 
