@@ -178,9 +178,13 @@ Install the Provider and agent. If you're installing on a Hyper-V cluster, perfo
 	>5. Register the provider by running the following command
 	>
 	    	CD C:\Program Files\Microsoft Azure Site Recovery Provider\
-	    	C:\Program Files\Microsoft Azure Site Recovery Provider\> DRConfigurator.exe /r  /Friendlyname <friendly name of the server> /Credentials <path of the credentials file>          
+	    	C:\Program Files\Microsoft Azure Site Recovery Provider\> DRConfigurator.exe /r  /Friendlyname <friendly name of the server> /Credentials <path of the credentials file>
+
+
+	>----------
+          
 	>####Command line Install Parameter List####
-	> - **/Credentials** : Mandatory parameter that specifies the location in which the registration key file is located  
+	>- **/Credentials** : Mandatory parameter that specifies the location in which the registration key file is located  
 	> - **/FriendlyName** : Mandatory parameter for the name of the Hyper-V host server that appears in the Azure Site Recovery portal.
 	> - **/proxyAddress** : Optional parameter that specifies the address of the proxy server.
 	> - **/proxyport** : Optional parameter that specifies the port of the proxy server.
