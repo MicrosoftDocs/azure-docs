@@ -16,7 +16,7 @@
    ms.date="09/24/2015"
    ms.author="sumuth"/>
 
-# Use DevOps environments effectively for your web app
+# Use DevOps environments effectively for your web apps
 
 This article shows you to setup and manage web application deployments  for multiple versions of your application such as development, staging, QA and production. Each version of your application can be considered as development environment for specific need of within your deployment process, for example QA environment can be used by your team of developers to test the quality of the application before you push the changes to production.
 Setting up multiple development environments can be a challenging task as you need to track, manage the resources (compute, web app, database, cache etc.)  Across these environments and deploy content from one environment to another.
@@ -240,7 +240,7 @@ require_once(ABSPATH . 'wp-settings.php');
 Assuming you already have a WordPress web app running on Azure Web, login to [Azure Management Preview portal](http://portal.azure.com) and go to your WordPress web app. Apps If not you can create one from the marketplace. To learn more, click [here](web-sites-php-web-site-gallery).
 Click on Settings -> Deployment slots -> Add to create a deployment slot with the name stage .A deployment slot is another web application sharing the same resources as the primary web app created above.
 
-![Create stage deployment slot](./media/app-service-web-staged-publishing-realworld-scenarios/1Setupstagewebapp.png)
+![Create stage deployment slot](./media/app-service-web-staged-publishing-realworld-scenarios/1setupstagewebapp.png)
 
 Add another MySQL database, say `wordpress-stage-db` to your resource group `wordpressapp-group`.
 
@@ -289,7 +289,7 @@ Before doing a SWAP, here is the production WordPress web app
 
 After the SWAP operation, the theme has been updated on your production web app.
 
-![Production web app after swapping slots](./media/app-service-web-staged-publishing-realworld-scenarios/8prodafterswapbrowse.png)
+![Production web app after swapping slots](./media/app-service-web-staged-publishing-realworld-scenarios/8prodafterswapbrowse1.png)
 
 In a situation when you need to **rollback** , you can go to production web app settings and click on **Swap** button to swap the web app and database from production to staging slot. Important thing to remember is that if database changes are included with a **Swap** operation at ay given time, then the next time you re-deploy to your staging web app you need to deploy the database changes to the current database pointed to by your staging web app which could be previous production or stage database.
 
