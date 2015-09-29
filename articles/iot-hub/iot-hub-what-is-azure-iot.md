@@ -44,4 +44,4 @@ To get started with IoT on Azure, explore these resources:
 
 [lnk-getstarted]: iot-hub-csharp-csharp-getstarted.md
 [lnk-iot-hub]: iot-hub-what-is-iot-hub.md
-[lnk-iot-suite]: http://azure.microsoft.com/solutions/iot-suite/
+[lnk-iot-suite]: http://azure.microsoft.com/solutions/iot/
