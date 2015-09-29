@@ -86,11 +86,11 @@ You can use the default options in the installer.
 
 When you run the **build\_proton.cmd** script from the command prompt, the script fetches the Proton source from its GitHub repository and then builds the Proton libraries.
 
-When you have completed the previous steps, you can build the Windows samples that rely on AMQP by opening the corresponding Visual Studio solution file and selecting **Build Solution** from the **Build** menu. 
+When you have completed the previous steps, you can build the Windows samples that rely on AMQP by opening the corresponding Visual Studio solution file and selecting **Build Solution** from the **Build** menu.
 
 ### Obtaining device credentials
 
-Now that your development environment is setup, the last thing to do is to get a set of device credentials.  For a device to be able to access an IoT hub, you must first add the device to the IoT hub device registry. When you add your device you'll get a set of device credentials which you'll need in order for the device to be able to connect to an IoT hub.  The sample applications that we’ll look at in the next section expect these credentials in the form of a **device connection string**.
+Now that your development environment is set up, the last thing to do is to get a set of device credentials.  For a device to be able to access an IoT hub, you must first add the device to the IoT hub device registry. When you add your device you'll get a set of device credentials which you'll need in order for the device to be able to connect to an IoT hub.  The sample applications that we’ll look at in the next section expect these credentials in the form of a **device connection string**.
 
 The [Device Explorer](https://github.com/Azure/azure-iot-sdks/tree/master/tools/DeviceExplorer) tool (included the Azure IoT device SDK) uses the Azure IoT service libraries to perform various functions on IoT Hub—including adding devices. If you use Device Explorer to add a device, you’ll get a corresponding connection string— and this  connection string is what you’ll need to make the sample applications run.
 
@@ -444,4 +444,3 @@ Each of these three functions align with the three initialization functions desc
 ## Next Steps
 
 This article covers the basics of using the libraries in the **Azure IoT device SDK for C**. It should provide you with enough information to understand what’s included in the SDK, its architecture, and how to get started working with the Windows samples. The next article continues the description of the SDK by explaining [more about the IoTHubClient library](iot-hub-device-sdk-c-iothubclient.md).
-
