@@ -1,4 +1,20 @@
+<properties
+	pageTitle="Azure Resource Manager Policy"
+	description="Describes how to use Azure Resource Manager Policy to prevent violations at different scopes like 			subscription, resource groups or individual resources."
+	services="azure-resource-manager"
+	documentationCenter="na"
+	authors="ravbhatnagar"
+	manager="ryjones"
+	editor=""/>
 
+<tags
+	ms.service="azure-resource-manager"
+	ms.devlang="na"
+	ms.topic="resource-manager-policy-article"
+	ms.tgt_pltfrm="na"
+	ms.workload="na"
+	ms.date="09/09/2015"
+	ms.author="gauravbh"/>
 
 # Overview
 
