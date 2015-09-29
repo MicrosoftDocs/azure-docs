@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/26/2015" 
+	ms.date="09/29/2015" 
 	ms.author="spelluru"/>
 
 # Move data to and from Azure SQL Data Warehouse using Azure Data Factory
@@ -372,7 +372,7 @@ The following table provides description for JSON elements specific to Azure SQL
 Property | Description | Required
 -------- | ----------- | --------
 type | The type property must be set to: **AzureSqlDW** | Yes
-**connectionString** | Specify information needed to connect to the Azure SQL Database instance for the connectionString property. | Yes
+**connectionString** | Specify information needed to connect to the Azure SQL Data Warehouse instance for the connectionString property. | Yes
 
 Note: You need to configure [Azure SQL Database Firewall](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure). You need to configure the database server to [allow Azure Services to access the server](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure). Additionally, if you are copying data to Azure SQL Data Warehouse from outside Azure including from on-premises data sources with data factory gateway you need to configure appropriate IP address range for the machine that is sending data to Azure SQL Data Warehouse. 
 
@@ -398,7 +398,7 @@ In case of Copy activity when source is of type **SqlDWSource** the following pr
 
 | Property | Description | Allowed values | Required |
 | -------- | ----------- | -------------- | -------- |
-| sqlReaderQuery | Use the custom query to read data. | SQL query string. For example: select * from MyTable. If not specified, the SQL statement that is executed: select from MyTable. | No |
+| sqlReaderQuery | Use the custom query to read data. | SQL query string. For example: select * from MyTable. If not specified, the SQL statement that is executed: select **columns defined in structure section of table JSON** from MyTable. | No |
 
 **SqlDWSink** supports the following properties:
 

@@ -168,7 +168,7 @@ For example, you can create a Windows Server based HPC cluster with [Microsoft H
 
 ![Cluster in IaaS][iaas_cluster]
 
-**Automated deployment** - To deploy a large number of Windows Server or Linux VMs you can use standard or custom VM images and Azure automation tools such as the [Azure Command-line Interface](../xplat-cli.md) or [Azure PowerShell](../powershell-install-configure.md). Examples include:
+**Automated deployment** - To deploy a large number of Windows Server or Linux VMs you can use standard or custom VM images and Azure automation tools such as the [Azure Command-line Interface](../xplat-cli-install.md) or [Azure PowerShell](../powershell-install-configure.md). Examples include:
 
 * To deploy an HPC Pack cluster in Azure infrastructure services, you can run a flexible [Azure PowerShell script](https://msdn.microsoft.com/library/azure/dn864734.aspx) from a client computer; the script uses a Windows Server VM image with HPC Pack preinstalled. You can also use an Azure [quickstart template](https://azure.microsoft.com/documentation/templates/create-hpc-cluster/) with either Azure PowerShell or the Azure CLI to deploy an HPC Pack cluster.
 

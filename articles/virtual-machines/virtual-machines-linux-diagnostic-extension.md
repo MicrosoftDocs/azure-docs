@@ -49,7 +49,7 @@ This article focuses on enabling and configuring the extension through Azure CLI
 ## Prerequisites
 - Microsoft Azure Linux Agent version 2.0.6 or later.
 Note that most Azure VM Linux gallery images include version 2.0.6 or later. You can run **WAAgent -version** to confirm the version installed in the VM. If the VM is running a version earlier than 2.0.6 you can follow these [instructions](https://github.com/Azure/WALinuxAgent "instructions") to update it.
-- [Azure CLI](./xplat-cli.md). Follow [this guidance](./xplat-cli-install.md) to set up the Azure CLI environment on your machine. After the Azure CLI is installed, you can use the **azure** command from your command-line interface (Bash, Terminal, command prompt) to access the Azure CLI commands. For example, run **azure vm extension set --help** for detailed usage, run **azure login** to log in to Azure, run **azure vm list** to list all the virtual machines you have on Azure.
+- [Azure CLI](./xplat-cli-install.md). Follow [this guidance](./xplat-cli-install.md) to set up the Azure CLI environment on your machine. After the Azure CLI is installed, you can use the **azure** command from your command-line interface (Bash, Terminal, command prompt) to access the Azure CLI commands. For example, run **azure vm extension set --help** for detailed usage, run **azure login** to log in to Azure, run **azure vm list** to list all the virtual machines you have on Azure.
 - A storage account to store the data. You will need a previously created storage account name and access key to upload the data to your storage.
 
 
