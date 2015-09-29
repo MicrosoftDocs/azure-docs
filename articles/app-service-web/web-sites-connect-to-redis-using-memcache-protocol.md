@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Connect a web app in Azure App Service to Redis Cache via the Memcache protocol | Microsoft Azure"
 	description="Connect a web app in Azure App service to Redis Cache using the Memcache protocol"
-	services="app-service\web"
+	services="app-service"
 	documentationCenter="php"
 	authors="SyntaxC4"
 	manager="wpickett"
@@ -12,7 +12,7 @@
 	ms.devlang="php"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="windows"
-	ms.workload="web"
+	ms.workload="na"
 	ms.date="09/16/2015"
 	ms.author="cfowler"/>
 

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/22/2015"
+   ms.date="09/26/2015"
    ms.author="JRJ@BigBangData.co.uk;barbkess"/>
 
 # Manage statistics in SQL Data Warehouse
@@ -207,6 +207,11 @@ BEGIN;
     SET @sample_pct = 20;
 END;
 
+IF OBJECT_ID('tempdb..#stats_ddl') IS NOT NULL
+BEGIN;
+	DROP TABLE #stats_ddl;
+END;
+
 CREATE TABLE #stats_ddl
 WITH    (   DISTRIBUTION    = HASH([seq_nmbr])
         ,   LOCATION        = USER_DB
@@ -228,7 +233,9 @@ JOIN        sys.[columns] c         ON  t.[object_id]       = c.[object_id]
 LEFT JOIN   sys.[stats_columns] l   ON  l.[object_id]       = c.[object_id]
                                     AND l.[column_id]       = c.[column_id]
                                     AND l.[stats_column_id] = 1
+LEFT JOIN	sys.[external_tables] e	ON	e.[object_id]		= t.[object_id]
 WHERE       l.[object_id] IS NULL
+AND			e.[object_id] IS NULL -- not an external table
 )
 SELECT  [table_schema_name]
 ,       [table_name]
@@ -238,11 +245,11 @@ SELECT  [table_schema_name]
 ,       [seq_nmbr]
 ,       CASE @create_type
         WHEN 1
-        THEN    'CREATE STATISTICS '+QUOTENAME('stat_'+table_schema_name+ '_' + table_name + '_'+column_name)+' ON '+QUOTENAME(table_schema_name)+'.'+QUOTENAME(table_name)+'('+QUOTENAME(column_name)+')'
+        THEN    CAST('CREATE STATISTICS '+QUOTENAME('stat_'+table_schema_name+ '_' + table_name + '_'+column_name)+' ON '+QUOTENAME(table_schema_name)+'.'+QUOTENAME(table_name)+'('+QUOTENAME(column_name)+')' AS VARCHAR(8000))
         WHEN 2
-        THEN    'CREATE STATISTICS '+QUOTENAME('stat_'+table_schema_name+ '_' + table_name + '_'+column_name)+' ON '+QUOTENAME(table_schema_name)+'.'+QUOTENAME(table_name)+'('+QUOTENAME(column_name)+') WITH FULLSCAN'
+        THEN    CAST('CREATE STATISTICS '+QUOTENAME('stat_'+table_schema_name+ '_' + table_name + '_'+column_name)+' ON '+QUOTENAME(table_schema_name)+'.'+QUOTENAME(table_name)+'('+QUOTENAME(column_name)+') WITH FULLSCAN' AS VARCHAR(8000))
         WHEN 3
-        THEN    'CREATE STATISTICS '+QUOTENAME('stat_'+table_schema_name+ '_' + table_name + '_'+column_name)+' ON '+QUOTENAME(table_schema_name)+'.'+QUOTENAME(table_name)+'('+QUOTENAME(column_name)+') WITH SAMPLE '+@sample_pct+'PERCENT'
+        THEN    CAST('CREATE STATISTICS '+QUOTENAME('stat_'+table_schema_name+ '_' + table_name + '_'+column_name)+' ON '+QUOTENAME(table_schema_name)+'.'+QUOTENAME(table_name)+'('+QUOTENAME(column_name)+') WITH SAMPLE '+@sample_pct+'PERCENT' AS VARCHAR(8000))
         END AS create_stat_ddl
 FROM T
 ;

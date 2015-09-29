@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/28/2015"
+	ms.date="09/28/2015"
 	ms.author="jgao"/>
 
 
@@ -178,7 +178,7 @@ There are also several applications that provide a graphical interface for worki
 
 | Client | Linux | OS X | Windows |
 | ------ |:-----:|:----:|:-------:|
-| [Azure Storage Explorer](http://azurestorageexplorer.codeplex.com/) | | | ✔ |
+| [Azure Storage Explorer](http://storageexplorer.com/) | ✔ | ✔ | ✔ |
 | [Cloud Storage Studio 2](http://www.cerebrata.com/Products/CloudStorageStudio/) | | | ✔ |
 | [CloudXplorer](http://clumsyleaf.com/products/cloudxplorer) | | | ✔ |
 | [Azure Explorer](http://www.cloudberrylab.com/free-microsoft-azure-explorer.aspx) | | | ✔ |
@@ -187,29 +187,27 @@ There are also several applications that provide a graphical interface for worki
 
 ###<a id="storageexplorer"></a>Azure Storage Explorer
 
-*Azure Storage Explorer* is a useful tool for inspecting and altering the data in Azure Storage. It is a free tool that can be downloaded from CodePlex: [Azure Storage Explorer](http://azurestorageexplorer.codeplex.com/ "Azure Storage Explorer").
+*Azure Storage Explorer* is a useful tool for inspecting and altering the data in blobs. It is a free, open source tool that can be downloaded from [http://storageexplorer.com/](http://storageexplorer.com/). The source code is available from this link as well.
 
 Before using the tool, you must know your Azure storage account name and account key. For instructions about getting this information, see the "How to: View, copy and regenerate storage access keys" section of [Create, manage, or delete a storage account][azure-create-storage-account].  
 
-1. Run Azure Storage Explorer.
+1. Run Azure Storage Explorer. If this is the first time you have ran the Storage Explorer, you will be prompted for the ___Storage account name__ and __Storage account key__. If you have ran it before, use the __Add__ button to add a new storage account name and key.
+
+    Enter the name and key for the storage account used by your HDinsight cluster and then select __SAVE & OPEN__.
 
 	![HDI.AzureStorageExplorer][image-azure-storage-explorer]
 
-2. Click **Add Account**. After an account is added to Azure Storage Explorer, you don't need to go through this step again.
+5. In the list of containers to the left of the interface, click the name of the container that is associated with your HDInsight cluster. By default, this is the name of the HDInsight cluster, but may be different if you entered a specific name when creating the cluster.
 
-	![HDI.ASEAddAccount][image-ase-addaccount]
+6. From the tool bar, select the upload icon.
 
-3. Enter your **Storage account name** and **Storage account key**, and then click **Add Storage Account**. You can add multiple storage accounts, and each account will be displayed on a tab.
+    ![Tool bar with upload icon highlighted](./media/hdinsight-upload-data/toolbar.png)
 
-4. Under **Storage Type**, click **Blobs**.
+7. Specify a file to upload, and then click **Open**. When prompted, select __Upload__ to upload the file to the root of the storage container. If you want to upload the file to a specific path, enter the path in the __Destination__ field and then select __Upload__.
 
-	![HDI.ASEBlob][image-ase-blob]
-
-5. Under **Container**, click the name of the container that is associated with your HDInsight cluster. When you create an HDInsight cluster, you must specify a container.  Otherwise, the cluster creation process creates one for you.
-
-6. Under **Blob**, click **Upload**.
-
-7. Specify a file to upload, and then click **Open**.
+    ![File upload dialog](./media/hdinsight-upload-data/fileupload.png)
+    
+    Once the file has finished uploading, you can use it from jobs on the HDInsight cluster.
 
 ##Mount Azure Blob Storage as Local Drive
 

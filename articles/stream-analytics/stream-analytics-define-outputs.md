@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="09/17/2015" 
+	ms.date="09/29/2015" 
 	ms.author="jeffstok"/>
 
 # Understanding Stream Analytics outputs
@@ -31,7 +31,6 @@ In order to enable a variety of application patterns, Azure Stream Analytics pro
 | Property Name | Description |
 |---------------|-------------|
 | Output Alias | This is a friendly name used in queries to direct the query output to this database. |
-| Subscription | You can choose a database from your own subscription or provide the connection information to one in another subscription |
 | Database | The name of the database where you are sending your output |
 | Server Name | The SQL Database server name |
 | Username | The Username which has access to write to the database |
@@ -53,10 +52,6 @@ The table below lists the property names and their description for creating a bl
 <tr>
 <td>Output Alias</td>
 <td>This is a friendly name used in queries to direct the query output to this blob storage.</td>
-</tr>
-<tr>
-<td>Subscription</td>
-<td>You can choose a blob storage account from your own subscription or provide the connection information to one in another subscription</td>
 </tr>
 <tr>
 <td>Storage Account</td>
@@ -92,7 +87,7 @@ The table below lists the property names and their description for creating a bl
 </tr>
 <tr>
 <td>Delimiter</td>
-<td>Stream Analytics supports a number of common delimiters for serializing CSV data. Supported values are comma, semicolon, space, tab and vertical bar.</td>
+<td>Only applicable for CSV serialization. Stream Analytics supports a number of common delimiters for serializing CSV data. Supported values are comma, semicolon, space, tab and vertical bar.</td>
 </tr>
 <tr>
 <td>Format</td>
@@ -110,7 +105,6 @@ There are a few parameters that are needed to configure Event Hub data streams a
 | Property Name | Description |
 |---------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Output Alias | This is a friendly name used in queries to direct the query output to this Event Hub. |
-| Subscription | You canchoose an Event Hub from your own subscription or provide the connection information to one in another subscription |
 | Service Bus Namespace | A Service Bus namespace is a container for a set of messaging entities. When you created a new Event Hub, you also created a Service Bus namespace |
 | Event Hub | The name of your Event Hub output |
 | Event Hub Policy Name | The shared access policy, which can be created on the Event Hub Configure tab. Each shared access policy will have a name, permissions that you set, and access keys |
@@ -118,15 +112,17 @@ There are a few parameters that are needed to configure Event Hub data streams a
 | Partition Key Column [optional] | This column contains the partition key for Event Hub output. |
 | Event Serialization Format | Serialization format for output data.  JSON, CSV, and Avro are supported. |
 | Encoding | For CSV and JSON, UTF-8 is the only supported encoding format at this time |
-| Delimiter | Stream Analytics supports a number of common delimiters for serializing data in CSV format. Supported values are comma, semicolon, space, tab and vertical bar. |
+| Delimiter | Only applicable for CSV serialization. Stream Analytics supports a number of common delimiters for serializing data in CSV format. Supported values are comma, semicolon, space, tab and vertical bar. |
 | Format | Only applicable for JSON type. Line separated specifies that the output will be formatted by having each JSON object separated by a new line. Array specifies that the output will be formatted as an array of JSON objects. |
 ## Power BI
 
 [Power BI](https://powerbi.microsoft.com/) can be used as an output for a Stream Analytics job to provide for a rich visualization experience for Stream Analytics users. This capability can be utilized for operational dashboards, report generation and metric driven reporting.
 
+> [AZURE.NOTE] At this time, creation and configuration of Power BI outputs is not supported in the Azure Preview Portal.
+
 ### Authorize a Power BI account
 
-1.	When Power BI is selected as an output, you will be prompted to authorize an existing Power BI User or to create a new Power BI account.  
+1.	When Power BI is selected as an output in the Azure Management portal, you will be prompted to authorize an existing Power BI User or to create a new Power BI account.  
 
     ![Authorize Power BI User](./media/stream-analytics-define-outputs/01-stream-analytics-define-outputs.png)  
 
@@ -168,7 +164,6 @@ The table below lists the property names and their description for creating a ta
 | Property Name | Description |
 |---------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Output Alias | This is a friendly name used in queries to direct the query output to this table storage. |
-| Subscription | You can choose a table storage account from your own subscription or provide the connection information if the storage account is from another subscription |
 | Storage Account | The name of the storage account where you are sending your output. |
 | Storage Account Key | The access key associated with the storage account. |
 | Table Name | The name of the table. The table will get created if it does not exist. |
@@ -185,14 +180,13 @@ The table below lists the property names and their description for creating a Qu
 | Property Name | Description |
 |----------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Output Alias | This is a friendly name used in queries to direct the query output to this Service Bus Queue. |
-| Subscription | You could choose a Service Bus namespace from your own subscription or provide the connection information if the namespace is from another subscription |
 | Service Bus Namespace | A Service Bus namespace is a container for a set of messaging entities. |
 | Queue Name | The name of the Service Bus Queue. |
 | Queue Policy Name | When you create a Queue, you can also create shared access policies on the Queue Configure tab. Each shared access policy will have a name, permissions that you set, and access keys. |
 | Queue Policy Key | The Shared Access key used to authenticate access to the Service Bus namespace |
 | Event Serialization Format | Serialization format for output data.  JSON, CSV, and Avro are supported. |
 | Encoding | For CSV and JSON, UTF-8 is the only supported encoding format at this time |
-| Delimiter | Stream Analytics supports a number of common delimiters for serializing data in CSV format. Supported values are comma, semicolon, space, tab and vertical bar. |
+| Delimiter | Only applicable for CSV serialization. Stream Analytics supports a number of common delimiters for serializing data in CSV format. Supported values are comma, semicolon, space, tab and vertical bar. |
 | Format | Only applicable for JSON type. Line separated specifies that the output will be formatted by having each JSON object separated by a new line. Array specifies that the output will be formatted as an array of JSON objects. |
 
 ## Service Bus Topics
@@ -204,14 +198,53 @@ The table below lists the property names and their description for creating a ta
 | Property Name | Description |
 |----------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Output Alias | This is a friendly name used in queries to direct the query output to this Service Bus Topic. |
-| Subscription | You could choose a service bus namespace from your own subscription or provide the connection string information if the namespace is from another subscription |
 | Service Bus Namespace | A Service Bus namespace is a container for a set of messaging entities. When you created a new Event Hub, you also created a Service Bus namespace |
 | Topic Name | Topics are messaging entities, similar to event hubs and queues. They're designed to collect event streams from a number of different devices and services. When a topic is created, it is also given a specific name. The messages sent to a Topic will not be available unless a subscription is created, so ensure there are one or more subscriptions under the topic |
 | Topic Policy Name | When you create a Topic, you can also create shared access policies on the Topic Configure tab. Each shared access policy will have a name, permissions that you set, and access keys |
 | Topic Policy Key | The Shared Access key used to authenticate access to the Service Bus namespace |
 | Event Serialization Format | Serialization format for output data.  JSON, CSV, and Avro are supported. |
 | Encoding | If CSV or JSON format, an encoding must be specified. UTF-8 is the only supported encoding format at this time |
-| Delimiter | Stream Analytics supports a number of common delimiters for serializing data in CSV format. Supported values are comma, semicolon, space, tab and vertical bar. |
+| Delimiter | Only applicable for CSV serialization. Stream Analytics supports a number of common delimiters for serializing data in CSV format. Supported values are comma, semicolon, space, tab and vertical bar. |
+
+## DocumentDB
+
+[Azure DocumentDB](http://azure.microsoft.com/services/documentdb/) is a fully-managed NoSQL document database service that offers query and transactions over schema-free data, predictable and reliable performance, and rapid development.
+
+The table below lists the property names and their description for creating a DocumentDB output.
+
+<table>
+<tbody>
+<tr>
+<td>PROPERTY NAME</td>
+<td>DESCRIPTION</td>
+</tr>
+<tr>
+<td>Account Name</td>
+<td>The name of the DocumentDB account.  This can also be the endpoint for the account.</td>
+</tr>
+<tr>
+<td>Account Key</td>
+<td>The shared access key for the DocumentDB account.</td>
+</tr>
+<tr>
+<td>Database</td>
+<td>The DocumentDB database name.</td>
+</tr>
+<tr>
+<td>Collection Name Pattern</td>
+<td>The collection name pattern for the collections to be used. The collection name format can be constructed using the optional {partition} token, where partitions start from 0.<BR>E.g. The followings are valid inputs:<BR>MyCollection{partition}<BR>MyCollection<BR>Note that collections must exist before the Stream Analytics job is started and will not be created automatically.</td>
+</tr>
+<tr>
+<td>Partition Key</td>
+<td>The name of the field in output events used to specify the key for partitioning output across collections.</td>
+</tr>
+<tr>
+<td>Document ID</td>
+<td>The name of the field in output events used to specify the primary key which insert or update operations are based on.</td>
+</tr>
+</tbody>
+</table>
+
 
 ## Get help
 For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
