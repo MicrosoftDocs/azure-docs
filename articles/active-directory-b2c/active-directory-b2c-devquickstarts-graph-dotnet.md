@@ -132,6 +132,8 @@ the three app settings with your own values, like so:
 </appSettings>
 ```
 
+[AZURE.INCLUDE [active-directory-b2c-devquickstarts-tenant-name](../../includes/active-directory-b2c-devquickstarts-tenant-name.md)]
+
 Now, right click on the `B2CGraphClient` solution and rebuild the sample.  If it succeeds, you should now have an executable `B2C.exe` located in `B2CGraphClient\bin\Debug`.
 
 ## User CRUD with the Graph API
