@@ -1,6 +1,6 @@
 <properties
    pageTitle="PowerShell script to deploy HPC Pack cluster | Microsoft Azure"
-   description="Run the New-HpcIaaSCluster.ps1 Windows PowerShell script to deploy a complete HPC Pack cluster in Azure infrastructure
+   description="Run a Windows PowerShell script to deploy a complete HPC Pack cluster in Azure infrastructure
    services (IaaS)"
    services="virtual-machines"
    documentationCenter=""
