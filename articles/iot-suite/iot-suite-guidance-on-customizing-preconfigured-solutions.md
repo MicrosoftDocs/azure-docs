@@ -60,6 +60,3 @@ The Azure IoT SDKs([https://github.com/Azure/azure-iot-sdks](https://github.com/
 For more information on IoT devices, please refer to the IoT Developer Site ([http://azure.microsoft.com/develop/iot/](http://azure.microsoft.com/en-us/develop/iot/ "Azure IoT Developer")) to find links and documentation.
 
 
-----------
-Not finding something you'd like to see covered? Send Feedback: [http://feedback.azure.com/forums/321918-azure-iot](http://feedback.azure.com/forums/321918-azure-iot "Send Feedback!")
-
