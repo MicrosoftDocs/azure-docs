@@ -16,6 +16,8 @@
 	ms.date="09/29/2015"
 	ms.author="mahesh-unnikrishnan"/>
 
-# Azure AD Domain Services - Getting started
+# Azure AD Domain Services *(Preview)*
 
-## Step 5: Enable password synchronization
+## Getting started
+
+### Step 5: Enable password synchronization

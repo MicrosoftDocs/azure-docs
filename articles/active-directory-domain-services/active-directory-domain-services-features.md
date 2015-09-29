@@ -16,7 +16,9 @@
 	ms.date="09/29/2015"
 	ms.author="mahesh-unnikrishnan"/>
 	
-# Azure AD Domain Services Preview: Features
+# Azure AD Domain Services *(Preview)*
+
+## Features
 The following features are available in the Azure AD Domain Services preview release.
 
 - **Simple deployment experience:** You can enable Azure AD Domain Services for your Azure AD tenant using just a few clicks. Regardless of whether your Azure AD tenant is a cloud-tenant or synchronized with your on-premises directory, your domain can be up and running quickly.
@@ -29,7 +31,7 @@ The following features are available in the Azure AD Domain Services preview rel
 
 - **Integrated with Azure AD:** You do not need to configure or manage replication to the domain controllers provided by Azure AD Domain Services. These domain controllers are automatically configured to synchronize user attributes, group memberships and user credentials (passwords) from your Azure AD directory. New users, groups or changes to attributes ocurring in your Azure AD tenant or in your on-premises directory are automatically synchronized to Azure AD Domain Services.
 
-- ** NTLM and Kerberos authentication:** With support for NTLM and Kerberos authentication, you can deploy applications that rely on Windows Integrated Authentication.
+- **NTLM and Kerberos authentication:** With support for NTLM and Kerberos authentication, you can deploy applications that rely on Windows Integrated Authentication.
 
 - **Use your corporate credentials/passwords:** Passwords for users in your Azure AD tenant are synchronized to the domain controllers provided by Azure AD Domain Services. This means users in your organization can use their corporate credentials on the domain – for domain joining machines, logging in interactively or over remote desktop, authenticating against the DC etc.
 

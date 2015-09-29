@@ -16,7 +16,7 @@
 	ms.date="09/25/2015"
 	ms.author="mahesh-unnikrishnan"/>
 	
-# Azure Active Directory Domain Services preview
+# Azure AD Domain Services *(Preview)*
 
 ## Supported Azure Regions
 Azure Active Directory Domain Services are available in the following Azure regions:

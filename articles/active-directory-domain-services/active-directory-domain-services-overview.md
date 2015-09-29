@@ -16,7 +16,9 @@
 	ms.date="09/29/2015"
 	ms.author="mahesh-unnikrishnan"/>
 
-# Azure AD Domain Services Preview: Overview
+# Azure AD Domain Services *(Preview)*
+
+## Overview
 Azure Infrastructure Services enable you to deploy a wide range of computing solutions in an agile manner. With Virtual Machines, you can deploy nearly instantaneously and you pay only by the minute. With Windows, Linux, SQL Server, Oracle, IBM, SAP, and BizTalk, you can deploy any workload, any language, on nearly any operating system. These benefits enable you to migrate legacy applications deployed on-premises to Azure, in order save on operational expenses.
 
 A key aspect of migrating on-premises applications to Azure is handling the identity needs of these applications. Directory-aware applications may rely on LDAP for read or write access to the corporate directory or rely on Windows Integrated Authentication (Kerberos or NTLM authentication). Line of business applications running on Windows Server are typically deployed on domain joined machines, so they can be managed securely using Group Policy. In order to 'lift-and-shift' on-premises applications to the cloud, these dependencies on the corporate identity infrastructure need to be resolved.
@@ -43,6 +45,7 @@ When you enable Azure AD Domain Services for your Azure AD tenant, you can selec
 
 ## Benefits
 With Azure AD Domain Services, you can enjoy the following benefits:
+
 -	**Simple** – You can satisfy the identity needs of virtual machines deployed to Azure Infrastructure services with a few simple clicks, without the need to deploy and manage identity infrastructure in Azure or setup connectivity back to your on-premises identity infrastructure.
 
 -	**Integrated** – Azure AD Domain Services is deeply integrated with your Azure AD tenant. You can now rely on Azure AD to be an integrated cloud-based enterprise directory that caters to the needs of both your modern applications as well as traditional directory-aware applications.

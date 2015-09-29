@@ -16,7 +16,9 @@
 	ms.date="09/29/2015"
 	ms.author="mahesh-unnikrishnan"/>
 
-# Azure AD Domain Services - Getting started
+# Azure AD Domain Services *(Preview)* 
+
+## Getting started
 
 ## Step 2: Create an Azure virtual network
 The next step is to create an Azure virtual network in which you would like to enable Azure AD Domain Services.
