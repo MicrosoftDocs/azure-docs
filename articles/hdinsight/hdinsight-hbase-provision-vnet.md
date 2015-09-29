@@ -17,7 +17,7 @@
    ms.date="08/12/2015"
    ms.author="jgao"/>
 
-# Provision HBase clusters on Azure Virtual Network
+# Provision HBase clusters on Azure Virtual Network 
 
 Learn how to create Azure HDInsight HBase clusters on an [Azure Virtual Network][1].
 
