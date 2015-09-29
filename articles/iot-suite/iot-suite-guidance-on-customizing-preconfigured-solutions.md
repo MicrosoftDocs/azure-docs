@@ -51,7 +51,7 @@ Please refer to the following document for a step-by-step guide to adding device
 ### Creating your own simulated device
 Included in the remote monitoring solution source code (referenced above), is a .Net simulator.  This simulator is the one provisioned as part of the solution and can be altered to send different metadata, telemetry or respond to different commands.
 
-Additionally, we have provided a C Sample ([C SDK Sample](https://github.com/Azure/azure-iot-sdks/c/serializer/samples/remote_monitoring) that is designed to work with the remote monitoring preconfigured solution.
+Additionally, we have provided a [C SDK Sample](https://github.com/Azure/azure-iot-sdks/c/serializer/samples/remote_monitoring) that is designed to work with the remote monitoring preconfigured solution.
 
 ### Building and using your own (physical) device
 The [Azure IoT SDKs](https://github.com/Azure/azure-iot-sdks) provide libraries for connecting numerous device types (languages and operating systems) into IoT solutions.
