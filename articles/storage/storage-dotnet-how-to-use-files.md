@@ -186,7 +186,7 @@ To mount the file share from an on-premises client, you must first take these st
 - Install a version of Windows which supports SMB 3.0. Windows will leverage SMB 3.0 encryption to securely transfer data between your on-premises client and the Azure file share in the cloud. 
 - Open Internet access for port 445 (TCP Outbound) in your local network, as is required by the SMB protocol. 
 
-[AZURE.NOTE] Some Internet service providers may block port 445, so you may need to check with your service provider.
+> [AZURE.NOTE] Some Internet service providers may block port 445, so you may need to check with your service provider.
 
 ## Develop with File storage
 
