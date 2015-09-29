@@ -72,7 +72,7 @@ The following table will help you determine the method to start a runbook in Azu
   </td>
  </tr>
  <tr>
-  <td>[Respond to Azure Alert](../automation-webhooks.md)</td>
+  <td><a href="http://azure.microsoft.com/documentation/articles/automation-webhooks/">Respond to Azure Alert</a></td>
   <td>
    <ul>
     <li>Start a runbook in response to Azure alert.</li>
