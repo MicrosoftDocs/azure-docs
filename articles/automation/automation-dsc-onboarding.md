@@ -233,7 +233,7 @@ Azure Automation DSC lets you easily onboard Azure Windows VMs for configuration
 
 To troubleshoot or view the status of the Azure VM Desired State Configuration extension, in the Azure preview portal navigate to the VM being onboarded, then click -> **All settings**-> **Extensions** -> **DSC**. For more details, you can click **View detailed status**.
 
-[![](./media/automation-dsc-onboarding/DSC_Onboarding.png)](https://technet.microsoft.com/library/dn249912.aspx)
+[![](./media/automation-dsc-onboarding/DSC_Onboarding_5.png)](https://technet.microsoft.com/library/dn249912.aspx)
 
 ## Certificate expiration and reregistration
 
