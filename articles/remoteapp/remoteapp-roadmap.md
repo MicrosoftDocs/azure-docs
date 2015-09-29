@@ -1,5 +1,5 @@
 <properties
-    pageTitle="What's coming in Azure RemoteApp"
+    pageTitle="What's coming in Azure RemoteApp | Microsoft Azure"
     description="Learn when new features for Azure RemoteApp will be available"
     services="remoteapp"
     documentationCenter=""
@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="NA"
     ms.devlang="NA"
     ms.topic="article"
-    ms.date="08/12/2015"
+    ms.date="09/29/2015"
     ms.author="elizapo" />
 
 # What's coming in Azure RemoteApp
@@ -28,7 +28,9 @@ We are always working to improve Azure RemoteApp based on your feedback. Here ar
 |ExpressRoute ([feedback](http://feedback.azure.com/forums/247748-azure-remoteapp/suggestions/5933123-existing-virtual-network-does-not-appear-when-tryi))| |X| | |
 |Azure RemoteApp available in the new [Azure preview portal](http://azure.microsoft.com/en-us/overview/preview-portal/)| | | |X|
 |Windows 10 Universal Application for Azure RemoteApp Preview| | |X| |
-|Ability to publish individual applications to specific users ([feedback](http://feedback.azure.com/forums/247748-azure-remoteapp/suggestions/6067043-allow-the-ability-to-publish-specific-apps-to-spec))| | |X| |
+|Ability to publish individual applications to specific users - **Public Preview** ([feedback](http://feedback.azure.com/forums/247748-azure-remoteapp/suggestions/6067043-allow-the-ability-to-publish-specific-apps-to-spec))| | ||X|
+|Windows client redistributable MSI package ([feedback](http://feedback.azure.com/forums/247748-azure-remoteapp/suggestions/6627191-client-deployment-provide-an-msi-package-to-allo))| | ||X|
+
 
 Other improvements added earlier this year:
 
