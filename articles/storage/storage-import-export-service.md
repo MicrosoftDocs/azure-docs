@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/03/2015" 
+	ms.date="09/27/2015" 
 	ms.author="tamram"/>
 
 
@@ -36,7 +36,7 @@ This article provides an overview of the Import/Export service and describes how
 
 To begin the process of importing to or exporting from Blob storage, you first create a *job*. A job can be an *import job* or an *export job*:
 
-- Create an import job when you want to transfer data you have on-premise to blobs in your Azure storage account.
+- Create an import job when you want to transfer data you have on-premises to blobs in your Azure storage account.
 - Create an export job when you want to transfer data currently stored as blobs in your storage account to hard drives that are shipped to you.
 
 When you create a job, you notify the Import/Export service that you will be shipping one or more hard drives to an Azure data center. For an import job, you'll be shipping hard drives containing file data. For an export job, you'll be shipping empty hard drives.

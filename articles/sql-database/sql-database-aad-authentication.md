@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="09/14/2015"
+   ms.date="09/28/2015"
    ms.author="rick.byham@microsoft.com"/>
 
 # Connecting to SQL Database By Using Azure Active Directory Authentication 
@@ -67,7 +67,7 @@ To create a contained database user in Azure SQL Database you must connect to th
 
 The following members of Azure Active Directory can be provisioned in Azure SQL Server:
 - Native members: A member created in Azure AD in the managed domain or in a customer domain. For more information, see [Add your own domain name to Azure AD](active-directory-add-domain.md).
-- Federated domain members: A member created in Azure AD with a federated domain. For more information, see [Windows Azure now supports federation with Windows Server Active Directory](http://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/).
+- Federated domain members: A member created in Azure AD with a federated domain. For more information, see [Microsoft Azure now supports federation with Windows Server Active Directory](http://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/).
 - Imported members from other Azure Active Directories who are native or federated domain members.
 - Active Directory groups created as security groups.
 
@@ -91,7 +91,7 @@ Create an Azure Active directory and populate it with users and groups. This inc
 - Create the initial domain Azure AD managed domain.
 - Federate an on-premises Active Directory Domain Services with Azure Active Directory.
 
-For more information, see [Add your own domain name to Azure AD](active-directory-add-domain.md), [Windows Azure now supports federation with Windows Server Active Directory](http://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/), [Administering your Azure AD directory](https://msdn.microsoft.com/library/azure/hh967611.aspx), and [Manage Azure AD using Windows PowerShell](https://msdn.microsoft.com/library/azure/jj151815.aspx).
+For more information, see [Add your own domain name to Azure AD](active-directory-add-domain.md), [Microsoft Azure now supports federation with Windows Server Active Directory](http://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/), [Administering your Azure AD directory](https://msdn.microsoft.com/library/azure/hh967611.aspx), and [Manage Azure AD using Windows PowerShell](https://msdn.microsoft.com/library/azure/jj151815.aspx).
 
 ## 2. Ensure your database is in Azure SQL Database V12
  
@@ -143,16 +143,16 @@ Each Azure SQL Server starts with a single server administrator account which is
 2. In the left banner select **SQL servers**, select your **SQL server**, and then in the **SQL Server** blade, at the top click **Settings**.
 
 	![ad settings][9]
-3. In the **Settings** blade, click **Active directory admin (preview)**, and accept the preview clause.
-4. In the **Active directory admin (preview)** blade, click to review, and then click **OK** to accept the preview terms.
-5. In the **Active directory admin (preview)** blade, click **Active directory admin**, and then at the top, click **Set admin**.
-6. In the **Add admin** blade, search for a user, select the user or group to be an administrator, and then click **Select**. (The Active Directory admin blade will show all members and groups of your Active Directory. Users or groups that are grayed out cannot be selected because they are not supported as Azure AD administrators. (See the list of supported admins in **Azure AD Features and Limitations** above.)
-7. At the top of the **Active directory admin** blade, click **SAVE**. 
+3. In the **Settings** blade, click **Active Directory admin (preview)**, and accept the preview clause.
+4. In the **Active Directory admin (preview)** blade, click to review, and then click **OK** to accept the preview terms.
+5. In the **Active Directory admin (preview)** blade, click **Active Directory admin**, and then at the top, click **Set admin**.
+6. In the **Add admin** blade, search for a user, select the user or group to be an administrator, and then click **Select**. (The Active Directory admin blade will show all members and groups of your Active Directory. Users or groups that are grayed out cannot be selected because they are not supported as Azure AD administrators. (See the list of supported admins in **Azure AD Features and Limitations** above.) Role-based access control (RBAC) applies only to the portal and is not propagated to SQL Server.
+7. At the top of the **Active Directory admin** blade, click **SAVE**. 
 	![choose admin][10]
 
-	The process of changing the administrator may take several minutes. Then the new administrator will appear in the **Active directory admin** box.
+	The process of changing the administrator may take several minutes. Then the new administrator will appear in the **Active Directory admin** box.
 
-To later remove an Admin, at the top of the **Active directory admin** blade, click **Remove admin**.
+To later remove an Admin, at the top of the **Active Directory admin** blade, click **Remove admin**.
 
 ### Provision an Azure AD administrator for Azure SQL Server by using PowerShell 
 
@@ -223,7 +223,7 @@ On all client machines, from which your applications or users connect to Azure S
 
 ### About contained database users
 
-Azure Active Directory authentication requires database users to be created as contained database users. A contained database user based on an Azure AD identity is a database user that does not have a login in the master database, and which maps to an identity in the Azure AD directory that is associated with the database. The Azure AD identity can be either an individual user account or a group. For more information about contained database users, see [Contained Database Users- Making Your Database Portable](https://msdn.microsoft.com/library/ff929188.aspx).
+Azure Active Directory authentication requires database users to be created as contained database users. A contained database user based on an Azure AD identity is a database user that does not have a login in the master database, and which maps to an identity in the Azure AD directory that is associated with the database. The Azure AD identity can be either an individual user account or a group. For more information about contained database users, see [Contained Database Users- Making Your Database Portable](https://msdn.microsoft.com/library/ff929188.aspx). Database users (with the expectation of admins) cannot be created using portal and RBAC roles are not propagated to SQL Server.
 
 ### Connect to the user database by using SQL Server Management Studio
  
