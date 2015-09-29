@@ -22,7 +22,7 @@ DataStax is a recognized industry leader in developing and delivering solutions 
 
 >[AZURE.NOTE] Unlike the Community edition, in order to deploy DataStax Enterprise, you need to have a valid DataStax account (username and password) to pass in as parameters during template deployment. Visit the [Datastax](http://www.datastax.com) website to set up your account if you don’t have one already.
 
-In addition to what is already available in Azure Marketplace, now you can also easily deploy a new Datastax Enterprise cluster on Ubuntu VMs using a Resource Manager template deployed through [Azure PowerShell](../powershell-install-configure.md) or the [Azure CLI](../xplat-cli.md).
+In addition to what is already available in Azure Marketplace, now you can also easily deploy a new Datastax Enterprise cluster on Ubuntu VMs using a Resource Manager template deployed through [Azure PowerShell](../powershell-install-configure.md) or the [Azure CLI](../xplat-cli-install.md).
 
 Newly deployed clusters based on this template will have the topology described in the following diagram, although other topologies can be easily achieved by customizing the template presented in this article.
 

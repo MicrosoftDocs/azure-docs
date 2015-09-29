@@ -154,7 +154,7 @@ In this document you have learned how Azure HDInsight provides high availability
 
 - [Ambari REST Reference](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md)
 
-- [Install and configure the Azure CLI](../xplat-cli.md)
+- [Install and configure the Azure CLI](../xplat-cli-install.md)
 
 - [Install and configure Azure PowerShell](../powershell-install-configure.md)
 
@@ -164,4 +164,4 @@ In this document you have learned how Azure HDInsight provides high availability
 
 [preview-portal]: https://portal.azure.com/
 [azure-powershell]: ../powershell-install-configure.md
-[azure-cli]: ../xplat-cli.md
+[azure-cli]: ../xplat-cli-install.md
