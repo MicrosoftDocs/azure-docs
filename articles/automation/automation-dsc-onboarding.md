@@ -20,7 +20,7 @@
 
 ## Why manage machines with Azure Automation DSC?
 
-Like [PowerShell Desired State Configuration](https://technet.microsoft.com/library/dn249912.aspx), Azure Automation DSC provides a simple, yet powerful, configuration management service for DSC nodes (physical and virtual machines) in any cloud or on-premises datacenter. With Azure Automation DSC you can manage nodes using PowerShell DSC in much the same way that you’ve been able to use Azure Automation with PowerShell scripting for some time. To learn more about the benefits of using Azure Automation DSC, see [Azure Automation DSC overview](https://azure.microsoft.com/en-us/documentation/articles/automation-dsc-overview/).
+Like [PowerShell Desired State Configuration](https://technet.microsoft.com/library/dn249912.aspx), Azure Automation DSC provides a simple, yet powerful, configuration management service for DSC nodes (physical and virtual machines) in any cloud or on-premises datacenter. With Azure Automation DSC you can manage nodes using PowerShell DSC in much the same way that you’ve been able to use Azure Automation with PowerShell scripting for some time. To learn more about the benefits of using Azure Automation DSC, see [Azure Automation DSC overview](automation-dsc-overview/).
 
 You can map configurations to DSC nodes to make them automatically conform to a specified desired state and report back on their compliance to Azure Automation.
 
@@ -132,11 +132,11 @@ Under **Configuration registration data**, enter the [PowerShell DSC Local Confi
  
 ### Azure Resource Manager templates
 
-Azure (V2) Windows VMs can be deployed and onboarded to Azure Automation DSC via Azure Resource Manager templates. See [Configure a VM via DSC extension and Azure Automation DSC](http://azure.microsoft.com/en-us/documentation/templates/dsc-extension-azure-automation-pullserver/) for an example template that onboards an existing VM to Azure Automation DSC can be found [here](http://azure.microsoft.com/en-us/documentation/templates/dsc-extension-azure-automation-pullserver/). To find the registration key and registration URL taken as input in this template, see the Secure Registration section below.
+Azure (V2) Windows VMs can be deployed and onboarded to Azure Automation DSC via Azure Resource Manager templates. See [Configure a VM via DSC extension and Azure Automation DSC](http://azure.microsoft.com/documentation/templates/dsc-extension-azure-automation-pullserver/) for an example template that onboards an existing VM to Azure Automation DSC can be found [here](http://azure.microsoft.com/documentation/templates/dsc-extension-azure-automation-pullserver/). To find the registration key and registration URL taken as input in this template, see the Secure Registration section below.
 
 ### PowerShell
 
-The [Register-AzureAutomationDscNode](https://msdn.microsoft.com/en-us/library/mt244097.aspx?f=255&MSPPError=-2147217396) cmdlet can be used to onboard Azure (V2) Windows VMs via PowerShell.
+The [Register-AzureAutomationDscNode](https://msdn.microsoft.com/library/mt244097.aspx?f=255&MSPPError=-2147217396) cmdlet can be used to onboard Azure (V2) Windows VMs via PowerShell.
 
 #### Physical / virtual Windows machines on-premises, or in a cloud other than Azure
 
@@ -240,7 +240,7 @@ To troubleshoot or view the status of the Azure VM Desired State Configuration e
 After registering, each node automatically negotiates a unique certificate for authentication that expires after one year. Currently, the PowerShell DSC registration protocol cannot automatically renew certificates when they are nearing expiration, so you need to reregister the nodes after a year’s time. Before reregistering, ensure that each node is running Windows Management Framework 5.0 RTM. If a node’s authentication certificate expires, and the node is not reregistered, the node will be unable to communicate with Azure Automation and will be marked ‘Unresponsive.’ Reregistration is performed in the same way you registered the node initially. Reregistration performed 90 days or less from the certificate expiration time, or at any point after the certificate expiration time, will result in a new certificate being generated and used.
 
 ## Related Articles
-* [Azure Automation DSC overview](https://azure.microsoft.com/en-us/documentation/articles/automation-dsc-overview/)
+* [Azure Automation DSC overview](automation-dsc-overview.md)
 * [Azure Automation DSC cmdlets](https://msdn.microsoft.com/library/mt244122.aspx)
 * [Azure Automation DSC pricing](http://azure.microsoft.com/pricing/details/automation/)
 
