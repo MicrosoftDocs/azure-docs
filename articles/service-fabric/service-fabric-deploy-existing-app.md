@@ -96,10 +96,10 @@ In order to deploy an application using, for instance, the powershell cmdlets, t
 ```
 \applicationmanifest.xml
 \MyServicePkg
-  \servicemanifest.xml
-  \code
-  \config
-  \data
+    \servicemanifest.xml
+    \code
+    \config
+    \data
 ```
 
 The root contains the applicationmanifest.xml file that defines the application. A subdirectory for each service included in the application is used to contain all the artifacts that the service requires: The servicemanifest.xml and, typically 3 directories:
@@ -188,7 +188,7 @@ Let's go over the different part of the file that you need to update:
 The CodePackage specifies the location (and version) of the service's code. 
 
 ```xml
-  <CodePackage Name="Code" Version="1.0.0.0">
+<CodePackage Name="Code" Version="1.0.0.0">
 ```
 
 The `Name` element is used to specify the name of the directory in the Application Package that contains the service's code. `CodePackage` also has the `version` attribute that can be used to specify the version of the code and, potentially, be used to upgrade the service's code by leveraging Service Fabric's Application LifeCycle Management infrastructure.
@@ -221,13 +221,13 @@ There is also another value that you can specify for the `WorkingFolder` element
 ```
 \applicationmanifest.xml
 \MyServicePkg
-  \servicemanifest.xml
-  \code
-    \bin
+    \servicemanifest.xml
+    \code
+        \bin
+        \...
+    \config
+    \data
     \...
-  \config
-  \data
-  \...
 ```
 
 
