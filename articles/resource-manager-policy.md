@@ -106,7 +106,7 @@ The supported conditions along with the syntax are listed below:
 The conditions are formed through the use of fields and sources. The
 following fields and sources are supported:
 
-Fields: **name**, **kind**, **type**, **location**, **tags**.
+Fields: **name**, **kind**, **type**, **location**, **tags**, **tags.***.
 
 Sources: **action**
 
