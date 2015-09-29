@@ -3,8 +3,8 @@
    description="Design Scalable and Performant Tables in Azure Table Storage"
    services="storage"
    documentationCenter="na"
-   authors="tamram" 
-   manager="carolz"
+   authors="jahogg" 
+   manager="tadb"
    editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="storage"
    ms.date="08/03/2015"
-   ms.author="tamram"/>
+   ms.author="jahogg"/>
 
 # Azure Storage Table Design Guide: Designing Scalable and Performant Tables
 
