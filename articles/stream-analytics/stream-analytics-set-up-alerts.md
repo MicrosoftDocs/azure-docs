@@ -17,6 +17,7 @@
 	ms.date="09/29/2015" 
 	ms.author="jeffstok"/> 
 
+
 # Setting up alerts
 
 ## Monitor page
