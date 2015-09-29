@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.workload="na"
 	ms.date="09/29/2015"
-	ms.author="gauravbh,tomfitz"/>
+	ms.author="gauravbh;tomfitz"/>
 
 # Use Resource Manager Policy to prevent access violations
 
@@ -84,10 +84,8 @@ The supported logical operators along with the syntax are listed below:
 | Operator Name		| Syntax		 |
 | :------------- | :------------- |
 | Not			 | "not" : {&lt;condition&gt;}			 |
-| And			| "allOf" : [ {&lt;condition&gt;},
-{&lt;condition&gt;}] |
-| Or						 | "anyOf" : [ {&lt;condition&gt;},
-{&lt;condition&gt;}] |
+| And			| "allOf" : [ {&lt;condition&gt;},{&lt;condition&gt;}] |
+| Or						 | "anyOf" : [ {&lt;condition&gt;},{&lt;condition&gt;}] |
 
 
 ## Conditions
@@ -99,8 +97,7 @@ The supported conditions along with the syntax are listed below:
 | Equals			 | "equals" : "&lt;value&gt;"				|
 | Like					| "like" : "&lt;value&gt;"					 |
 | Contains			| "contains" : "&lt;value&gt;"|
-| In						| "in" : [ "&lt;value1&gt;",
-"&lt;value2&gt;" ]|
+| In						| "in" : [ "&lt;value1&gt;","&lt;value2&gt;" ]|
 | ContainsKey	 | "containsKey" : "&lt;keyName&gt;" |
 
 
@@ -109,7 +106,7 @@ The supported conditions along with the syntax are listed below:
 The conditions are formed through the use of fields and sources. The
 following fields and sources are supported:
 
-Fields: **name**, **kind**, **type**, **location**, **tags**, tags.
+Fields: **name**, **kind**, **type**, **location**, **tags**.
 
 Sources: **action**
 
@@ -274,7 +271,7 @@ Below is an example of how the request body would look like-
     {
       "properties":{
         "displayName":"VM_Policy_Assignment",
-        "policyDefinitionId":"/subscriptions/########-####-####-####-############/providers/Microsoft.Authorization/policyDefinitions/testdefinition",
+        "policyDefinitionId":"/subscriptions/########/providers/Microsoft.Authorization/policyDefinitions/testdefinition",
         "scope":"/subscriptions/########-####-####-####-############"
       },
       "id":"/subscriptions/########-####-####-####-############/providers/Microsoft.Authorization/policyAssignments/VMPolicyAssignment",
