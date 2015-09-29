@@ -55,9 +55,9 @@ When you sign-in you become a member of the Gallery community, which allows you 
 
 ### Contribute experiments
 
-An *experiment* is a canvas in Machine Learning Studio that lets you construct a predictive analysis model by connecting together data with various analytical modules. You can try different ideas, do trial runs, and eventually publish your model as a web service in Azure. For an example of creating a simple experiment, see [Create your first experiment in Azure Machine Learning Studio](machine-learning-create-experiment.md). For a more complete walkthrough of creating a predictive analytics solution, see [Walkthrough: Develop a predictive analytics solution for credit risk assessment in Azure Machine Learning](machine-learning-walkthrough-develop-predictive-solution.md).
+An *experiment* is a canvas in Machine Learning Studio that lets you construct a predictive analysis model by connecting together data with various analytical modules. You can try different ideas, do trial runs, and eventually publish your model as a web service in Azure. For an example of creating a simple experiment, see [Machine learning tutorial: Create your first experiment in Azure Machine Learning Studio](machine-learning-create-experiment.md). For a more complete walkthrough of creating a predictive analytics solution, see [Walkthrough: Develop a predictive analytics solution for credit risk assessment in Azure Machine Learning](machine-learning-walkthrough-develop-predictive-solution.md).
 
-Follow these steps to contribute an experiment:
+Follow these steps to contribute an experiment to the Cortana Analytics Gallery:
 
 - Sign in to the Machine Learning Studio using your Microsoft account
 - Create your experiment and run it
@@ -67,7 +67,7 @@ Follow these steps to contribute an experiment:
 
 A *collection* is a list of items from Cortana Analytics Gallery that are grouped together for later reference, use, or sharing. They can also be used to group together multi-step experiments. Your collection can contain items that you own or items that have been contributed by the community.
 
-Follow these steps to create and contribute a collection:
+Follow these steps to create and contribute a collection to the Cortana Analytics Gallery:
 
 - Sign in to the Gallery using your Microsoft account
 - Click your image at the top of the window and click your name
