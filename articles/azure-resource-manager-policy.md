@@ -13,13 +13,13 @@
 	ms.topic="resource-manager-policy-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="na"
-	ms.date="09/09/2015"
+	ms.date="09/29/2015"
 	ms.author="gauravbh"/>
 
 # Overview
 
 Azure Resource Manager now allows you to control access through custom
-policies. A policy represents one or more violations that can be applied
+policies. A policy represents one or more violations that can be prevented
 at the desired scope. A scope in this case can be a subscription,
 resource group or an individual resource.
 
@@ -89,7 +89,7 @@ The supported logical operators along with the syntax are listed below:
 | :------------- | :------------- |
 | Not			 | “not” : {&lt;condition&gt;}			 |
 | And			| “allOf” : [ {&lt;condition&gt;},	{&lt;condition&gt;}] |
-| Or						 | "anyOf" : [ {&lt;condition&gt;},{&lt;condition&gt;}] |
+| Or						 | "anyOf" : [ {&lt;condition&gt;}, {&lt;condition&gt;}] |
 
 
 ## Conditions
@@ -114,8 +114,7 @@ following fields and sources are supported:
 
 		 Sources: action
 
-Policy Definition Examples
---------------------------
+## Policy Definition Examples
 
 Now let’s take a look how we will define the policy to achieve the
 scenarios listed above.
