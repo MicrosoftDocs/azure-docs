@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="09/22/2015"
+	ms.date="09/29/2015"
 	ms.author="spelluru"/>
 
 # Build your first pipeline using Azure Data Factory

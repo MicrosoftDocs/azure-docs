@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/25/2015" 
+	ms.date="09/29/2015" 
 	ms.author="spelluru"/>
 
 # Move data to and from Azure Blob using Azure Data Factory
@@ -390,7 +390,7 @@ As mentioned above, you can specify a dynamic folderPath and filename for time s
 
 See [Data Factory System Variables](data-factory-scheduling-and-execution.md#data-factory-system-variables) and [Data Factory Functions Reference](data-factory-scheduling-and-execution.md#data-factory-functions-reference) to learn about Data Factory system variables and functions that you can use in the partitionedBy section.   
 
-See [Creating Datasets](data-factory-create-datasets.md) and [Scheduling & Execution](data-factory-scheduling-and-execution.md) articles to understand more details on time series datasets, scheduling and slices.
+See [Creating Datasets](data-factory-create-datasets.md) and [Scheduling & Execution](data-factory-scheduling-and-execution.md) articles for more details on time series datasets, scheduling and slices.
 
 #### Sample 1
 
