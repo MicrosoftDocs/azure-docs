@@ -46,7 +46,7 @@ In addition to changed the preconfigured Azure Stream Analytics jobs, you can us
 ## Customizing devices
 One of the most common extension activities is working with devices specific to your scenario.  There are several methods for working with devices.  These include altering a simulated device to match your scenario, or using the Azure IoT Device SDK to connect your physical device to the solution.
 
-Please refer to the following document for a step-by-step guide to adding devices to the remote monitoring preconfigured solution [Iot Suite Connecting Devices](/documentation/articles/iot-suite-connecting-devices)
+Please refer to the following document for a step-by-step guide to adding devices to the remote monitoring preconfigured solution [Iot Suite Connecting Devices](iot-suite-connecting-devices.md)
 
 ### Creating your own simulated device
 Included in the remote monitoring solution source code (referenced above), is a .Net simulator.  This simulator is the one provisioned as part of the solution and can be altered to send different metadata, telemetry or respond to different commands.
