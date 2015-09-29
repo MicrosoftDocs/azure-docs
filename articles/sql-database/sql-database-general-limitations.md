@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Azure SQL Database General Limitations and Interoperability"
+   pageTitle="Azure SQL Database General Limitations and Guidelines"
    description="This page describes some general limtations for Azure SQL Database as well as areas of interoperability and support."
    services="sql-database"
    documentationCenter="na"
@@ -12,12 +12,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="08/04/2015"
+   ms.date="09/29/2015"
    ms.author="jroth" />
 
-# Azure SQL Database General Limitations and Interoperability
+# Azure SQL Database General Limitations and Guidelines
 
-This topic provides general limitations and interoperability for Azure SQL Database. For a complete understanding of quotas, resource management, and support, please see the [additional resources](#additional-guidelines) at the end of this topic.
+This topic provides general limitations and guidelines for Azure SQL Database. For a complete understanding of quotas, resource management, and support, please see the [additional resources](#additional-guidelines) at the end of this topic.
 
 ## Connectivity
 
@@ -63,7 +63,7 @@ Additionally, login and user names cannot contain the \ character (Windows Authe
 
  - In addition to the general limitations outlined in this article, SQL Database has specific resource quotas and limitations based on your service tier. To better understand this important concept, please see [Azure SQL Database Resource Limits](sql-database-limits.md).
 
- - For security related guidelines, see [Azure SQL Database Security Guidelines and Limitations](https://msdn.microsoft.com/library/azure/ff394108.aspx).
+ - For security related guidelines, see [Azure SQL Database Security Guidelines and Limitations](sql-database-security-guidelines.md).
 
  - Another related area surrounds the compatibility that Azure SQL Database has with on-premises versions of SQL Server, such as SQL Server 2014. The latest V12 version of Azure SQL Database has made many improvements in this area. For more details, see [What's new in SQL Database V12](sql-database-v12-whats-new.md).
 
