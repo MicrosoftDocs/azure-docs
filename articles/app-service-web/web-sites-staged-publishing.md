@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Set up staging environments for web apps in Azure App Service"
 	description="Learn how to use staged publishing for web apps in Azure App Service."
-	services="app-service\web"
+	services="app-service"
 	documentationCenter=""
 	authors="cephalin"
 	writer="cephalin"
@@ -10,7 +10,7 @@
 
 <tags
 	ms.service="app-service"
-	ms.workload="web"
+	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"

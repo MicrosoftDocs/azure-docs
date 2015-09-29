@@ -13,20 +13,20 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/22/2015"
+	ms.date="09/28/2015"
 	ms.author="swkrish"/>
 
 # Azure Active Directory B2C preview: Sign up & Sign in Consumers in your Applications
 
 **Azure Active Directory B2C** is a comprehensive cloud identity management solution for your consumer-facing web and mobile applications. It is a highly available global service that scales to hundreds of millions of consumer identities. Built on an enterprise-grade secure platform, Azure Active Directory B2C keeps your applications, your business and your consumers protected.
 
-In the past, application developers who wanted to sign up and sign in consumers into their applications would have to use with on-premises databases or systems and write all of the identity management code themselves. Azure Active Directory B2C offers developers a better way to integrate consumer identity management into their applications with the help of a standards-based platform and a rich set of extensible policies. Using Azure Active Directory B2C allows your consumers to sign-up for your applications using their existing social accounts (Facebook, Google, Amazon, LinkedIn) or by creating new credentials (email address & password or username & password); we call the latter "local accounts".
+In the past, application developers who wanted to sign up and sign in consumers into their applications would have written their own code. And they would have used on-premises databases or systems to store usernames and passwords. Azure Active Directory B2C offers developers a better way to integrate consumer identity management into their applications with the help of a secure, standards-based platform and a rich set of extensible policies. Using Azure Active Directory B2C allows your consumers to sign-up for your applications using their existing social accounts (Facebook, Google, Amazon, LinkedIn) or by creating new credentials (email address & password or username & password); we call the latter "local accounts".
 
 Azure Active Directory B2C is in preview. During this time, we are eager to hear your feedback and experience as you try things out. Based on that feedback, we may make breaking changes in the interest of improving the service.  You should not release a production application using the preview during this period. Give us your thoughts using [User Voice](http://feedback.azure.com/forums/169401-azure-active-directory).
 
 ## Getting Started
 
-To build an application that accepts consumer sign up & sign in, you'll first need to register it with an Azure Active Directory B2C directory. Get your own directory using the steps outlined in this [article](active-directory-b2c-get-started.md).
+To build an application that accepts consumer sign up & sign in, you'll first need to register it with an Azure Active Directory B2C tenant. Get your own tenant using the steps outlined in this [article](active-directory-b2c-get-started.md).
 
 You can write your application against the Azure Active Directory B2C service by either choosing to send protocol messages directly, using [OAuth 2.0](active-directory-b2c-protocols.md#oauth2-authorization-code-flow) or [Open ID Connect](active-directory-b2c-protocols.md#openid-connect-sign-in-flow) or by using our libraries to do the work for you (choose your favorite platform below and get started).
 
@@ -48,7 +48,7 @@ Learn how to use specific Azure Active Directory B2C preview features:
 - [Enable Multi-Factor Authentication in your consumer-facing applications](active-directory-b2c-reference-mfa.md).
 - [Setup self-service password reset for your consumers](active-directory-b2c-reference-sspr.md).
 - [Customize the look-and-feel of sign up, sign in and other consumer-facing pages](active-directory-b2c-reference-ui-customization.md) served by Azure Active Directory B2C.
-- [Use Azure Active Directory Graph API to programmatically create, read, update and delete consumers](active-directory-b2c-devquickstarts-graph-dotnet.md) in your Azure Active Directory B2C directory.
+- [Use Azure Active Directory Graph API to programmatically create, read, update and delete consumers](active-directory-b2c-devquickstarts-graph-dotnet.md) in your Azure Active Directory B2C tenant.
 
 ## Reference
 
