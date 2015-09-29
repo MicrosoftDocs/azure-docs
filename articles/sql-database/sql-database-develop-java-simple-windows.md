@@ -15,7 +15,7 @@
 	ms.devlang="java" 
 	ms.topic="article" 
 	ms.date="09/28/2015" 
-	ms.author="lbosq"/>
+	ms.author="LuisBosquez"/>
 
 
 # Connect to SQL Database by using Java with JDBC on Windows
