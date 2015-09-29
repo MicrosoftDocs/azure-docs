@@ -63,11 +63,9 @@ For details about storage account capacity and performance targets, see [Azure S
 
 	Note that you must select an affinity group when your storage account is created. You cannot move an existing account to an affinity group. For more information on affinity groups, see [Service colocation with an affinity group](#service-co-location-with-an-affinity-group) below.
 
-	>[AZURE.IMPORTANT] The new Azure Resource Manager (ARM) stack does not support currently Australia East and Southeast (or Brazil South). So you cannot currently create a storage account in these regions via the ARM stack, whether using an [Azure Resource Manager template](../resource-group-authoring-templates.md), the [Azure preview portal](https://ms.portal.azure.com/), the [Storage Resource Provider (SRP) PowerShell cmdlets](https://msdn.microsoft.com/en-us/library/mt269418.aspx), or the [SRP API](https://msdn.microsoft.com/library/azure/mt163683.aspx). For more details about Azure Resource Manager, see [Azure Resource Manager Overview](../resource-group-overview.md).
+	>[AZURE.IMPORTANT] To determine which locations are available for your subscription, you can call the [List Providers](https://msdn.microsoft.com/library/azure/dn790524.aspx) operation. To list providers from PowerShell, call [Get-AzureLocation](https://msdn.microsoft.com/library/azure/dn757693.aspx). From .NET, use the [List](https://msdn.microsoft.com/library/azure/microsoft.azure.management.resources.provideroperationsextensions.list.aspx) method of the ProviderOperationsExtensions class.
 	>
-	>The [Azure management portal](https://manage.windowsazure.com/) is based on the older Azure Service Management (ASM) stack. The Australia East and Southeast and Brazil South locations are supported via this stack, so it is possible to create a storage account in these regions via the Azure management portal. You can also create a storage account in these regions using the [Service Management PowerShell cmdlets](https://msdn.microsoft.com/library/dn806401.aspx) or [Service Management API](https://msdn.microsoft.com/library/azure/ee460790.aspx).
-	>
-	>We recommend that users move to the ARM stack if possible, as that will eventually supercede the ASM stack.
+	>Additionally, see [Azure Regions](https://azure.microsoft.com/en-us/regions/#services) for more information about what services are available in which region.
 
 
 5. If you have more than one Azure subscription, then the **Subscription** field is displayed. In **Subscription**, enter the Azure subscription that you want to use the storage account with.
