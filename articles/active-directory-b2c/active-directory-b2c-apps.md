@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/22/2015"
+	ms.date="09/28/2015"
 	ms.author="dastrock"/>
 
 # Azure AD B2C Preview: Types of Applications
@@ -126,6 +126,6 @@ Apps that contain long running processes or that operate without the presence of
 This flow is not currently supported by Azure AD B2C - which is to say that apps can only get tokens after an interactive user flow has occurred.  The client credentials flow will be added in the near future.
 
 ### Web API Chains (On-Behalf-Of)
-Many architectures include a Web API that needs to call another downstream Web API, both secured by Azure AD.  This scenario is common in native clients that have a Web API backend, which in turn calls a Microsoft Online service such as the Azure AD Graph API.
+Many architectures include a Web API that needs to call another downstream Web API, both secured by Azure AD B2C.  This scenario is common in native clients that have a Web API backend, which in turn calls a Microsoft Online service such as the Azure AD Graph API.
 
 This chained Web API scenario can be supported using the OAuth 2.0 Jwt Bearer Credential grant, otherwise known as the On-Behalf-Of Flow.  However, the On-Behalf-Of flow is not currently implemented in the Azure AD B2C preview.
