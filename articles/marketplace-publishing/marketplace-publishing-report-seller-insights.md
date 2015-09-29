@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/27/20015"
+   ms.date="09/29/2015"
    ms.author="v-jeana; hascipio"/>
 
 # Understanding your Seller Insights Reports

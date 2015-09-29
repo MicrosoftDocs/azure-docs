@@ -1,6 +1,6 @@
 <properties
-   pageTitle="How to publish an offer to the Marketplace | Microsoft Azure"
-   description="This describes the steps a seller has to follow to sell a Virtual Machine Image, Template or Service in the Azure Marketplace"
+   pageTitle="Overview of how to Create and deploy an offer to the Marketplace | Microsoft Azure"
+   description="Understand the steps required to become an approved Microsoft seller and create and deploy a virtual machine image, template, data service or developer service in the Azure Marketplace"
    services="marketplace-publishing"
    documentationCenter=""
    authors="HannibalSII"
@@ -8,12 +8,12 @@
    editor=""/>
 
 <tags
-   ms.service="required"
-   ms.devlang="may be required"
+   ms.service="marketplace-publishing"
+   ms.devlang="na"
    ms.topic="article"
-   ms.tgt_pltfrm="may be required"
+   ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/25/2015"
+   ms.date="09/29/2015"
    ms.author="hascipio" />
 
 # How to publish an offer to the Microsoft Azure Marketplace

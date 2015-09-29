@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/25/2015"
+   ms.date="09/29/2015"
    ms.author="anishk;hascipio"/>
 
 # Get Approved via Microsoft Azure Certification Program
@@ -30,6 +30,9 @@ Take these steps to get started:
 -	Visit the Microsoft Azure Certified web page: https://azure.microsoft.com/en-us/marketplace/partner-program/ to learn more about the program
 
 -	If you are working with a Partner Account Manager or a DX Partner Manager please request them to nominate you for the Azure Certification program. Or go to the Microsoft Azure Certified web page, click on “Request Information” and fill in the application form.
+
+## "Sell-from" countries of the offer
+In order to sell your services on Microsoft Azure Marketplace, your registered entity needs to be from one of the approved “sell from” countries. This restriction is for payout and taxation reasons. We are actively looking to expand this list of countries in the near future, so please stay tuned. For the complete list, please see section 1b of the document at link http://go.microsoft.com/fwlink/?LinkID=526833&clcid=0x409.
 
 ## Next Step
 In parallel to the Azure Certification process, you can continue to step 2, [Creating a Microsoft Seller Account](marketplace-publishing-accounts-creation-registration.md).
