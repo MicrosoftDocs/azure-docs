@@ -13,8 +13,8 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="09/09/2015" 
-	ms.author="jeffstok"/>
+	ms.date="09/29/2015" 
+	ms.author="jeffstok"/> 
 
 # Create a Job
 
@@ -22,23 +22,32 @@ The top-level resource in Azure Stream Analytics is a Stream Analytics Job.  It 
 
 To start using Stream Analytics, create a new Stream Analytics job.  Note that this action has no billing implications until the job is started.
 
-1.  Sign in on the online [Microsoft Azure portal](http://manage.windowsazure.com).
-2.  **Click New**, then click **Data Services**, and then click **Stream Analytics** and **Quick Create**.
+1.  Sign in on the online [Microsoft Azure portal](http://manage.windowsazure.com) or the Azure preview portal.
+2.  In the Azure portal: **Click New**, then click **Data Services**, and then click **Stream Analytics** and **Quick Create**.
 
     ![Quick Create Wizard](./media/stream-analytics-create-a-job/1-stream-analytics-create-a-job.png)  
 
+    In the Azure preview portal: Click New, then click Data + Analytics, and then click Azure Stream Analytics.  
+
+    ![Azure Portal Create Job](./media/stream-analytics-create-a-job/4-stream-analytics-create-a-job.png)  
+
 3.  Specify the desired configuration for the Stream Analytics job.
 	- In the **Job Name** box, enter a name to identify the Stream Analytics job. When the **Job Name** is validated, a green check mark appears in the Job Name box. The **Job Name** may contain only alphanumeric characters and the '-' character, and must be between 3 and 63 characters.
-	- Use **Region** to specify the geographic location where you want to run the job.
-	- In **Regional Monitoring Storage Account**, select or create a storage account. This storage account is used to store monitoring data for all Stream Analytics jobs running in this region.
+	- Use **Region** in the Azure portal or **Location** in the Azure preview portal to specify the geographic location where you want to run the job.
+	- If using the Azure portal, select or create a storage account to use as the **Regional Monitoring Storage Account**. This storage account is used to store monitoring data for all Stream Analytics jobs running in this region.
+	- If using the Azure preview portal, specify a new or existing **Resource Group** to hold related resources for your application.
 
-4.  Once the new Stream Analytics job options are configure, click **Create Stream Analytics Job**. It can take a few minutes for the Stream Analytics job to be created. To check the status, you can monitor the progress in the Notifications hub.
+4.  Once the new Stream Analytics job options are configured, click **Create Stream Analytics Job**. It can take a few minutes for the Stream Analytics job to be created. To check the status, you can monitor the progress in the Notifications hub.
 
     ![Notfications hub](./media/stream-analytics-create-a-job/2-stream-analytics-create-a-job.png)  
+
+    ![Azure Preview Portal Create Job](./media/stream-analytics-create-a-job/5-stream-analytics-create-a-job.png)  
 
 5.  The new job will be shown with a status of **Created**. Notice that the **Start** button is disabled. You must configure the job input, query, and output before you can start the job.
 
     ![Job Status](./media/stream-analytics-create-a-job/3-stream-analytics-create-a-job.png)  
+
+    ![Azure Preview Portal Job Status](./media/stream-analytics-create-a-job/6-stream-analytics-create-a-job.png)  
 
 ## Get help
 For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)

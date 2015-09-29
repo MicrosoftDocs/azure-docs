@@ -3,7 +3,7 @@
 	description="Presents a Java code sample you can use to connect to Azure SQL Database. The sample uses JDBC, and it runs on a Windows client computer."
 	services="sql-database" 
 	documentationCenter="" 
-	authors="lbosq" 
+	authors="LuisBosquez" 
 	manager="jeffreyg" 
 	editor="genemi"/>
 
