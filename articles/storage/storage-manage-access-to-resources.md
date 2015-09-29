@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Manage Access to Azure Storage Resources | Microsoft Azure" 
-	description="Learn how to manage how users access your Azure Storage resources." 
+	pageTitle="Manage anonymous access to containers and blobs | Microsoft Azure" 
+	description="Learn how to make containers and blobs available for anonymous access." 
 	services="storage" 
 	documentationCenter="" 
 	authors="tamram" 
@@ -28,7 +28,7 @@ By default, only the owner of the storage account may access storage resources w
 
 - You can use a stored access policy to manage shared access signatures for a container or its blobs, for a queue, for a table, or for a file share or its files. The stored access policy gives you an additional measure of control over your shared access signatures and also provides a straightforward means to revoke them.
 
-## Restrict Access to Containers and Blobs
+## Grant anonymous users permissions to containers and blobs
 
 By default, a container and any blobs within it may be accessed only by the owner of the storage account. To give anonymous users read permissions to a container and its blobs, you can set the container permissions to allow public access. Anonymous users can read blobs within a publicly accessible container without authenticating the request.
 
@@ -42,7 +42,8 @@ Containers provide the following options for managing container access:
 
 >[AZURE.NOTE]If your service requires that you exercise more granular control over blob resources, or if you wish to provide permissions for operations other than read operations, you can use a Shared Access Signature to make a resource accessible to users. 
 
-### Features Available to Anonymous Users
+## Features Available to Anonymous Users
+
 The following table shows which operations may be called by anonymous users when a container's ACL is set to allow public access.
 
 | REST Operation                                         | Permission with full public read access | Permission with public read access for blobs only |
