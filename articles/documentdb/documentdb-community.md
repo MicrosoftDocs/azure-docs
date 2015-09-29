@@ -13,37 +13,53 @@
   ms.topic="article"
   ms.tgt_pltfrm="na"
   ms.workload="data-services"
-  ms.date="09/27/2015"
+  ms.date="09/28/2015"
   ms.author="andrl"/>
 
 # Azure DocumentDB - Community & News
 
 ## Community Spotlight
 
+<hr/>
+
 Let us promote your project! Show us the awesome project you're working on with DocumentDB, and we will help share your genius with the world. To submit your project, send us an e-mail at: [askdocdb@microsoft.com](mailto:askdocdb@microsoft.com).
 
 
-documentdb-lumenize |
-------------------- |
-*by Larry Maccherone*<br/><br/>Aggregations (Group-by, Pivot-table, and N-dimensional Cube) and Time Series Transformations as Stored Procedures in DocumentDB.<br/><br/> Check it out on [Github](https://github.com/lmaccherone/documentdb-lumenize) and [npm](https://www.npmjs.com/package/). |
+#### documentdb-lumenize
+
+*by Larry Maccherone*
+
+Aggregations (Group-by, Pivot-table, and N-dimensional Cube) and Time Series Transformations as Stored Procedures in DocumentDB.
+
+Check it out on [Github](https://github.com/lmaccherone/documentdb-lumenize) and [npm](https://www.npmjs.com/package/).
 
 
-DocumentDB Studio |
------------------ |
-*by Ming Liu*<br/><br/> A client management viewer/explorer for Microsoft Azure DocumentDB service.<br/><br/> Check it out on [Github](https://github.com/mingaliu/DocumentDBStudio). |
+#### DocumentDB Studio
+
+*by Ming Liu*
+
+A client management viewer/explorer for Microsoft Azure DocumentDB service.
+
+Check it out on [Github](https://github.com/mingaliu/DocumentDBStudio).
 
 
 ## Recent and Upcoming Events
 
+<hr/>
+
 Are you interested in attending or presenting at a conference and/or meetup? [Let us know](mailto:askdocdb@microsoft.com); we'd love to help!
 
-* **[AzureCon](https://azure.microsoft.com/en-us/azurecon/)** - *Virtual Event* - *September 29, 2015* - *[#AzureCon](https://twitter.com/hashtag/AzureCon)*
 
-* **[CloudDevelop 2015](http://www.clouddevelop.org/)** - *Columbus, OH* - *October 23, 2015* - *[#CloudDevConf](https://twitter.com/hashtag/CloudDevConf)*
+Event Name | Location | Date | Hashtag
+---------- | -------- | ---- | -------
+[AzureCon](https://azure.microsoft.com/en-us/azurecon/) | Virtual Event | September 29, 2015 | [#AzureCon](https://twitter.com/hashtag/AzureCon)
+[CloudDevelop 2015](http://www.clouddevelop.org/) | Columbus, OH | October 23, 2015 | [#CloudDevConf](https://twitter.com/hashtag/CloudDevConf)
+[PASS Summit 2015](http://www.sqlpass.org/summit/2015/Home.asp) | Seattle, WA | October 27-30, 2015 | [#Summit15](https://twitter.com/hashtag/Summit15)
 
-* **[PASS Summit 2015](http://www.sqlpass.org/summit/2015/Home.asp)** - *Seattle, WA* - *October 27-30, 2015* - *[#Summit15](https://twitter.com/hashtag/Summit15)*
 
 ## News
+
+<hr/>
 
 ### Blogs
 
@@ -57,16 +73,16 @@ Follow us on twitter @DocumentDB and stay up to date with the latest conversatio
 
 ## Discussion
 
+<hr/>
+
 ### Online Forums
 
 The easiest way to answer and ask questions is to use the Azure DocumentDB forums on [StackOverflow](http://stackoverflow.com/questions/tagged/azure-documentdb) and [MSDN](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=AzureDocumentDB).
 
-<hr/>
 
 [![StackOverflow](./media/documentdb-community/stack-overflow.png)](http://stackoverflow.com/questions/tagged/azure-documentdb) | [![MSDN](./media/documentdb-community/msdn.png)](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=AzureDocumentDB)
------------------ | -----------
+:-----------: | :--:
 
-<hr/>
 
 ### Microsoft Azure Support
 
@@ -92,6 +108,8 @@ You can chat with us in real-time over IRC on `chat.freenode.net` in the `#docu
 We host office hours on IRC every Friday from 11am to 12pm pacific time.
 
 ## Learning Resources
+
+<hr/>
 
 Microsoft and our learning partners offer a variety of options for all audiences to develop your skills with Microsoft Azure services.
 
