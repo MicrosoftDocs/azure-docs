@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/29/2015" 
+	ms.date="09/29/2015" 
 	ms.author="spelluru"/>
 
 # Data movement activities
@@ -24,20 +24,20 @@ Copy activity copies data from a **source** data store to a **sink** data store.
 
 | **Source** | **Sink** |
 | ------ | ---- |
-| [Azure Blob](data-factory-azure-blob-connector.md) | Azure Blob, Azure Table, Azure SQL Database, On-premises SQL Server, SQL Server on IaaS, Azure DocumentDB, On-premises File System |
-| [Azure Table](data-factory-azure-table-connector.md) | Azure Blob, Azure Table, Azure SQL Database, On-premises SQL Server, SQL Server on IaaS, Azure DocumentDB |
+| [Azure Blob](data-factory-azure-blob-connector.md) | Azure Blob, Azure Table, Azure SQL Database, Azure SQL Data Warehouse, On-premises SQL Server, SQL Server on IaaS, Azure DocumentDB, On-premises File System |
+| [Azure Table](data-factory-azure-table-connector.md) | Azure Blob, Azure Table, Azure SQL Database, Azure SQL Data Warehouse, On-premises SQL Server, SQL Server on IaaS, Azure DocumentDB |
 | [Azure SQL Database](data-factory-azure-sql-connector.md) | Azure Blob, Azure Table, Azure SQL Database, Azure SQL Data Warehouse, On-premises SQL Server, SQL Server on IaaS, Azure DocumentDB |
 | [Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md) | Azure Blob, Azure Table, Azure SQL Database, Azure SQL Data Warehouse, On-premises SQL Server, SQL Server on IaaS, Azure DocumentDB |
-| [Azure DocumentDB](data-factory-azure-documentdb-connector.md) | Azure Blob, Azure Table, Azure SQL Database |
-| [SQL Server on IaaS](data-factory-sqlserver-connector.md) | Azure Blob, Azure Table, Azure SQL Database, On-premises SQL Server, SQL Server on IaaS |
-| [On-premises File System](data-factory-onprem-file-system-connector.md) | Azure Blob, Azure Table, Azure SQL Database, On-premises SQL Server, SQL Server on IaaS, On-premises File System |
-| [On-premises SQL Server](data-factory-sqlserver-connector.md) | Azure Blob, Azure Table, Azure SQL Database, On-premises SQL Server, SQL Server on IaaS |
-| [On-premises Oracle Database](data-factory-onprem-oracle-connector.md) | Azure Blob, Azure Table, Azure SQL Database, On-premises SQL Server, SQL Server on IaaS |
-| [On-premises MySQL Database](data-factory-onprem-mysql-connector.md) | Azure Blob, Azure Table, Azure SQL Database, On-premises SQL Server, SQL Server on IaaS |
-| [On-premises DB2 Database](data-factory-onprem-db2-connector.md) | Azure Blob, Azure Table, Azure SQL Database, On-premises SQL Server, SQL Server on IaaS |
-| [On-premises Teradata Database](data-factory-onprem-teradata-connector.md) | Azure Blob, Azure Table, Azure SQL Database, On-premises SQL Server, SQL Server on IaaS |
-| [On-premises Sybase Database](data-factory-onprem-sybase-connector.md) | Azure Blob, Azure Table, Azure SQL Database, On-premises SQL Server, SQL Server on IaaS |
-| [On-premises PostgreSQL Database](data-factory-onprem-postgresql-connector.md) | Azure Blob, Azure Table, Azure SQL Database, On-premises SQL Server, SQL Server on IaaS |
+| [Azure DocumentDB](data-factory-azure-documentdb-connector.md) | Azure Blob, Azure Table, Azure SQL Database, Azure SQL Data Warehouse |
+| [SQL Server on IaaS](data-factory-sqlserver-connector.md) | Azure Blob, Azure Table, Azure SQL Database, Azure SQL Data Warehouse, On-premises SQL Server, SQL Server on IaaS |
+| [On-premises File System](data-factory-onprem-file-system-connector.md) | Azure Blob, Azure Table, Azure SQL Database, Azure SQL Data Warehouse, On-premises SQL Server, SQL Server on IaaS, On-premises File System |
+| [On-premises SQL Server](data-factory-sqlserver-connector.md) | Azure Blob, Azure Table, Azure SQL Database, Azure SQL Data Warehouse, On-premises SQL Server, SQL Server on IaaS |
+| [On-premises Oracle Database](data-factory-onprem-oracle-connector.md) | Azure Blob, Azure Table, Azure SQL Database, Azure SQL Data Warehouse, On-premises SQL Server, SQL Server on IaaS |
+| [On-premises MySQL Database](data-factory-onprem-mysql-connector.md) | Azure Blob, Azure Table, Azure SQL Database, Azure SQL Data Warehouse, On-premises SQL Server, SQL Server on IaaS |
+| [On-premises DB2 Database](data-factory-onprem-db2-connector.md) | Azure Blob, Azure Table, Azure SQL Database, Azure SQL Data Warehouse, On-premises SQL Server, SQL Server on IaaS |
+| [On-premises Teradata Database](data-factory-onprem-teradata-connector.md) | Azure Blob, Azure Table, Azure SQL Database, Azure SQL Data Warehouse, On-premises SQL Server, SQL Server on IaaS |
+| [On-premises Sybase Database](data-factory-onprem-sybase-connector.md) | Azure Blob, Azure Table, Azure SQL Database, Azure SQL Data Warehouse, On-premises SQL Server, SQL Server on IaaS |
+| [On-premises PostgreSQL Database](data-factory-onprem-postgresql-connector.md) | Azure Blob, Azure Table, Azure SQL Database, Azure SQL Data Warehouse, On-premises SQL Server, SQL Server on IaaS |
 
 ## <a name="copyactivity"></a>Copy activity
 Copy activity takes one input dataset (**source**) and copies data per activity configuration to one output dataset (**sink**). Data copy is done in a batch fashion according to the schedule specified on the activity.
