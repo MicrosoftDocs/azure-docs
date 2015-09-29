@@ -33,7 +33,7 @@ You can configure an Azure cloud service project, depending on your requirements
 
 The following illustration shows how to select a configuration to use when you run or debug your cloud service locally. You can set any of the project properties that you require from this window, as shown in the illustration.
 
-![Configure a Windows Azure Project](./media/vs-azure-tools-configuring-an-azure-project/IC713462.png)
+![Configure a Microsoft Azure Project](./media/vs-azure-tools-configuring-an-azure-project/IC713462.png)
 
 ## To configure an Azure cloud service project
 
