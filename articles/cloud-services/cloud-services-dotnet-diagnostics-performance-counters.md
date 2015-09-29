@@ -215,6 +215,7 @@ Perform the following steps to create a simple custom performance counter named 
     }
     ```
 7. Update the counters within your application. The following example updates a custom performance counter on Button1_Click events:
+
     ```
     protected void Button1_Click(object sender, EventArgs e)
         {
