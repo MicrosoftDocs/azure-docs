@@ -107,7 +107,7 @@ Every time someone sends a message to the HTTP endpoint, it triggers the app and
 
 Some helpful topics:
 
-[Manage and Monitor your API Apps and Connectors](app-service-logic-monitor-your-connectors.md) 
+[Manage and Monitor your API Apps and Connectors](app-service-logic-monitor-your-connectors.md)  
 [Monitor your Logic Apps](app-service-logic-monitor-your-logic-apps.md)
 
 <!--image references -->
