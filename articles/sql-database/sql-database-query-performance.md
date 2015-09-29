@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Azure SQL Database Query Performance Insights" 
-   description="Query performance monitoring identifies the most DTU-consuming queries in an Azure SQL Database’s workload." 
+   pageTitle="Azure SQL Database Query Performance Insight" 
+   description="Query performance monitoring identifies the most DTU-consuming queries for an Azure SQL Database." 
    services="sql-database" 
    documentationCenter="" 
    authors="stevestein" 
@@ -16,38 +16,38 @@
    ms.date="09/29/2015"
    ms.author="sstein"/>
 
-# Azure SQL Database Query Performance Insights
+# Azure SQL Database Query Performance Insight
 
 
-Managing and tuning the performance of relational databases is a challenging task that requires significant expertise and time investment. Query Performance Insights allows you to spend less time troubleshooting database performance by providing the following:​
+Managing and tuning the performance of relational databases is a challenging task that requires significant expertise and time investment. Query Performance Insight allows you to spend less time troubleshooting database performance by providing the following:​
 
-- Deeper insight into your database's resource (DTU) consumption. 
+- Deeper insight into your databases resource (DTU) consumption. 
 - The top DTU consuming queries, which can potentially be tuned for improved performance. 
 - The ability to drill down into the details of a query.
 ​
 
-> [AZURE.NOTE] Query Performance Insights is currently in preview and is only available in the [preview portal](https://portal.azure.com/).
+> [AZURE.NOTE] Query Performance Insight is currently in preview and is only available in the [Azure Preview Portal](https://portal.azure.com/).
 
 
 
 ## Prerequisites
 
-- Query Performance Insights are only available with Azure SQL Database V12.
-- Query Performance Insights requires that [Query Store](https://msdn.microsoft.com/library/dn817826.aspx) is running, so it is enabled automatically when you sign up for Query Performance Insights.
+- Query Performance Insight is only available with Azure SQL Database V12.
+- Query Performance Insight requires that [Query Store](https://msdn.microsoft.com/library/dn817826.aspx) is running, so it is enabled automatically when you sign up for Query Performance Insight.
  
  
 ## Permissions
 
-The following [role-based access control](role-based-access-control-configure.md) permissions are required to use Query Performance Insights: 
+The following [role-based access control](role-based-access-control-configure.md) permissions are required to use Query Performance Insight: 
 
 - **Reader**, **Owner**, **Contributor**, **SQL DB Contributor** or **SQL Server Contributor** permissions are required to view the top resource consuming queries and charts. 
 - **Owner**, **Contributor**, **SQL DB Contributor** or **SQL Server Contributor** permissions are required to view query text.
 
 
 
-## Using Query Performance Insights
+## Using Query Performance Insight
 
-Query Performance Insights is easy to use:
+Query Performance Insight is easy to use:
 
 - Review the list of top resource-consuming queries. 
 - Select or clear the individual queries in the list to display them in the overall consumption chart.
@@ -56,7 +56,7 @@ Query Performance Insights is easy to use:
 
 
 
-> [AZURE.NOTE] A couple hours of data needs to be captured by Query Store for SQL Database to provide query performance insights. If the database has no activity or Query Store was not active during a certain time period, the charts will be empty when displaying that time period. You may enable Query Store at any time if it is not running.   
+> [AZURE.NOTE] A couple hours of data needs to be captured by Query Store for SQL Database to provide query performance insight. If the database has no activity or Query Store was not active during a certain time period, the charts will be empty when displaying that time period. You may enable Query Store at any time if it is not running.   
 
 
 
@@ -66,9 +66,9 @@ Query Performance Insights is easy to use:
 
 In the [preview portal](https://portal.azure.com) do the following:
 
-1. Browse to a SQL database and click **Query Performance Insights**. 
+1. Browse to a SQL database and click **Query Performance Insight**. 
 
-    ![Query Performance Insights][1]
+    ![Query Performance Insight][1]
 
     The top queries view opens and the list of top DTU consuming queries are listed.
 
@@ -94,7 +94,7 @@ To view query details:
 
 ## Summary
 
-Query Performance Insights helps you understand the impact of your query workload to database resource consumption. With this feature, you will learn about the top consuming queries, and easily identify the ones to fix before they become a problem. Click the **Query Performance Insights** tile on a database blade to see the top resource (DTU) consuming queries. 
+Query Performance Insight helps you understand the impact of your query workload and how it relates to database resource consumption. With this feature, you will learn about the top consuming queries, and easily identify the ones to fix before they become a problem. Click the **Query Performance Insight** tile on a database blade to see the top resource (DTU) consuming queries. 
 
 
 
