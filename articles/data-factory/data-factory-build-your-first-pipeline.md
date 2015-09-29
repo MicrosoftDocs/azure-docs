@@ -154,7 +154,7 @@ Before starting the tutorial, you need to prepare the Azure storage with files n
 
 			AzCopy /Source:. /Dest:https://<StorageAccountName>.blob.core.windows.net/script /DestKey:<Storage Key>
 
-		> [AZURE.NOTE] The above command creates a container named **script** in your Azure Blob storage and copies the **partitionweblogs.hql** file from to the container. 
+		> [AZURE.NOTE] The above command creates a container named **script** in your Azure Blob storage and copies the **partitionweblogs.hql** file from your local drive to the blob container. 
 	>
 	5. After the file has been successfully uploaded, you will see the following output from AzCopy.
 	

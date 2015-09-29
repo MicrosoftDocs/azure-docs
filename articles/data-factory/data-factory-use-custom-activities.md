@@ -53,7 +53,7 @@ This Walkthrough provides you with step-by-step instructions for creating a cust
 
 4. Import the Azure Storage NuGet package in to the project.
 
-		Install-Package Azure.Storage -Version 4.3.0 
+		Install-Package Azure.Storage
 
 5. Add the following **using** statements to the source file in the project.
 
