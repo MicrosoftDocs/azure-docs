@@ -87,7 +87,7 @@ To view query details:
     
     ![query details][3]
 
-1. Optionally, click **View Script** to see the query text, and click **Edit chart** to customize how the chart displays data.
+1. Optionally, click **View script** to see the query text, and click **Edit chart** to customize how the chart displays data.
 
 
 
