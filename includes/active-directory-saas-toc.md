@@ -3,6 +3,7 @@
 This article is part of a series on how to manage SaaS applications with Azure Active Directory. Below are all of the articles in the series:
 
 - [Introduction to Single Sign-On and Managing App Access with Azure Active Directory](active-directory-appssoaccess-whatis.md)
+	- [Managing Certificates for Federated Single Sign-On in Azure Active Directory](active-directory-sso-certs.md)
 	- [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md)
 	- [How to Deploy the Access Panel Extension for Internet Explorer using Group Policy](active-directory-saas-ie-group-policy.md)
 	- [Troubleshooting the Access Panel Extension for Internet Explorer](active-directory-saas-ie-troubleshooting.md)
