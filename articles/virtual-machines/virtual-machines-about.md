@@ -1,6 +1,6 @@
 <properties
 	pageTitle="About Azure Virtual Machines | Microsoft Azure"
-	description="Learn about the basics of virtual machines in Azure."
+	description="Learn about the basics of virtual machines in Azure using both deployment models."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="cynthn"
@@ -17,7 +17,7 @@
 	ms.date="07/14/2015"
 	ms.author="cynthn"/>
 
-#About Azure virtual machines created with both deployment models
+#About Azure virtual machines 
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)] This article covers resources created with both the Resource Manager deployment model and the classic deployment model.
 
