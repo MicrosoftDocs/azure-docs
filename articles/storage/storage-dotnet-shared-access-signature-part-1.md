@@ -144,6 +144,78 @@ The difference between the two forms is important for one key scenario: revocati
 
 ## Examples of shared access signatures
 
+Below are some examples of both types of shared access signatures, account SAS and service SAS.
+
+### Account SAS example
+
+The following code example creates an account SAS that is valid for the Blob and File services, and gives the client permissions read, write, and list permissions to access service-level APIs. The account SAS restricts the protocol to HTTPS, so the request must be made with HTTPS.
+
+    static string GetAccountSASToken()
+    {
+        // To create the account SAS, you need to use your shared key credentials.
+        CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+            Microsoft.Azure.CloudConfigurationManager.GetSetting("StorageConnectionString"));
+
+        // Create a new access policy for the account.
+        SharedAccessAccountPolicy policy = new SharedAccessAccountPolicy()
+            {
+                Permissions = SharedAccessAccountPermissions.Read | SharedAccessAccountPermissions.Write | SharedAccessAccountPermissions.List,
+                Services = SharedAccessAccountServices.Blob | SharedAccessAccountServices.File,
+                ResourceTypes = SharedAccessAccountResourceTypes.Service,
+                SharedAccessExpiryTime = DateTime.UtcNow.AddHours(24),
+                Protocols = SharedAccessProtocol.HttpsOnly
+            };
+
+        // Return the SAS token.
+        return storageAccount.GetSharedAccessSignature(policy);
+    }
+
+To use the account SAS to access service-level APIs for the Blob service, construct a Blob client object using the SAS and the Blob storage endpoint for your storage account. 
+
+    static void UseAccountSAS(string sasToken)
+    {
+        // In this case, we have access to the shared key credentials, so we'll use them
+        // to get the Blob service endpoint.
+        CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+            Microsoft.Azure.CloudConfigurationManager.GetSetting("StorageConnectionString"));
+        CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
+
+        // Create new storage credentials using the SAS token.
+        StorageCredentials accountSAS = new StorageCredentials(sasToken);
+        // Use these credentials and the Blob storage endpoint to create a new Blob service client.
+        CloudStorageAccount accountWithSAS = new CloudStorageAccount(accountSAS, blobClient.StorageUri, null, null, null);
+        CloudBlobClient blobClientWithSAS = accountWithSAS.CreateCloudBlobClient();
+
+        // Now set the service properties for the Blob client created with the SAS.
+        blobClientWithSAS.SetServiceProperties(new ServiceProperties()
+        {
+            HourMetrics = new MetricsProperties()
+            {
+                MetricsLevel = MetricsLevel.ServiceAndApi,
+                RetentionDays = 7,
+                Version = "1.0"
+            },
+            MinuteMetrics = new MetricsProperties()
+            {
+                MetricsLevel = MetricsLevel.ServiceAndApi,
+                RetentionDays = 7,
+                Version = "1.0"
+            },
+            Logging = new LoggingProperties()
+            {
+                LoggingOperations = LoggingOperations.All,
+                RetentionDays = 14,
+                Version = "1.0"
+            }
+        });
+
+        // The permissions granted by the account SAS also permit you to retrieve service properties.
+        ServiceProperties serviceProperties = blobClientWithSAS.GetServiceProperties();
+        Console.WriteLine(serviceProperties.HourMetrics.MetricsLevel);
+        Console.WriteLine(serviceProperties.HourMetrics.RetentionDays);
+        Console.WriteLine(serviceProperties.HourMetrics.Version);
+    }
+
 ### Service SAS example
 
 The following code example creates a stored access policy on a container and then generates a service SAS for the container. This SAS can then be given to clients for read-write permissions on the container:
