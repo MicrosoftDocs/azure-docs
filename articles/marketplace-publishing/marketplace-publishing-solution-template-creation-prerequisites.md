@@ -18,30 +18,53 @@
 
 # Pre-requisites for creating a multi-Virtual Machine image solution template for the Azure Marketplace
 
-## A. Ensure you are registered as a seller with Microsoft
+Read the process thoroughly before beginning and understand where and why each step is performed. You should prepare as much of your company information and other data as possible before beginning the process. This should be clear from reviewing the process itself.  
+
+## Get Approved via Microsoft Azure Certification Program
+> [AZURE.WARNING] You must be approved via the Azure Certification program to start the virtual machine image creation and publishing process. For a detailed overview of the Microsoft Azure Certification program and its benefits, visit http://azure.com/certified
+
+The first step on the path to getting your application or service certified and onboarded to Azure Marketplace is to fill out the application form on the Microsoft Azure Certified web page.
+If you meet the basic eligibility criteria we will ask you to share some more details about your business and the application or service that you want to certify. When we have all the details from you we will review your application to ensure is it’s a good fit for Azure Marketplace and if your application is approved we will start working with you to onboard your solution to Azure Marketplace.
+Take these steps to get started:
+-	Visit the Microsoft Azure Certified web page: https://azure.microsoft.com/en-us/marketplace/partner-program/ to learn more about the program
+
+-	If you are working with a Partner Account Manager or a DX Partner Manager please request them to nominate you for the Azure Certification program. Or go to the Microsoft Azure Certified web page, click on **Request Information** and fill in the application form.
+
+## Ensure you are registered as a seller with Microsoft
+For detailed instructions on registering a seller account with Microsoft, go to [Account Creation & Registration](marketplace-publishing-accounts-creation-registration.md).
+- If you are already registered, find out who in your company owns it or which credentials were used to register
+- If you are not the owner of the publishing account, you can have the account owner add your Microsoft Account as a co-admin to the Publishing portal -> Publishers -> Administrators
+- Ensure that stakeholders in the Azure publishing process receive the email that goes to this address. It must be monitored and responded to in order to complete the publishing process.
+- Avoid having the account associated with a single person. If that person leaves your company, they could impact your ability to access information about and publish your SKUs.
+
+<!--
+For instructions on creating and submitting a Microsoft seller profile, visit [Microsoft Seller Account Creation & Registration][link-acct-creation].
+-->
+<!--
+If you are not registered, you will need to collect the Company Tax and Payout Information (banking information) and then register your company as a seller in the [Seller Dashboard](https://sellerdashboard.microsoft.com).
+
 A company can register only once as seller with Microsoft.
 - If you don't know the seller registration stats of your company, please contact us through your Sharepoint site ('Need help?' section) or you can email us at AzureMarketOnboard@microsoft.com
 - If you are already registered, find out who in your company owns it? Alternatively, which credentials were used to register? This information can be obtained form your Finance or Marketing Team
+-->
 
-If you are not registered, you will need to collect the Company Tax and Payout Information (banking information) and then register your company as a seller in the [Seller Dashboard](https://sellerdashboard.microsoft.com).
+> [AZURE.IMPORTANT] You do not have to complete company tax and banking information if you are planning to publish only free offers (or bring your own license).
 
-> [AZURE.TIP] You do not have to create a seller dashboard account if you are planning to publish only free offers (or worldwide, or bring-your-own-licence).
 
-For instructions on creating and submitting a Microsoft seller profile, visit [Microsoft Seller Account Creation & Registration][link-acct]. And for more details on how to edit approved Seller Profile and filling out Tax and Payout information, refer to Seller Dashboard Help http://msdn.microsoft.com/en-us/library/dn800952.aspx
 
-> [AZURE.TIP] While you company works on the Seller Profile, the developers can start working on creating the Solution Template Topologies in the [Publishing Portal](https:publish.windowsazure.com), getting them certified and testing them in Azure Staging Environment. You will need seller approval only for the final step of publishing your offer to Marketplace.
+> [AZURE.TIP] The company registration must be completed to get started. However, while your company works on the tax and bank information in the Seller Dashboard account, the developers can start working on creating the virtual machine image in the [Publishing Portal](https:publishl.windowsazure.com), getting them certified and testing them in Azure Staging Environment. You will need the complete seller account approval only for the final step of publishing your offer to the Marketplace.
 
-> [AZURE.TIP] IF you have issues with Seller Registration completion, please log a Support ticket as below:
+> [AZURE.TIP] If you have issues with Seller Registration completion, please log a Support ticket as below:
 1. Contact [Support](http://go.microsoft.com/fwlink?LinkId=272975)
-2. Choose "Seller Dashboard registration and your account"
-3. Choose "Registering for a developer account"
-4. Choose contact method
+2. Choose **Seller Dashboard registration and your account**
+3. Choose **Registering for a developer account**
+4. Choose contact **method**
 
-## B. Acquire an Azure "pay-as-you-go" Subscription
+## Acquire an Azure "pay-as-you-go" Subscription
 
 This is the subscription you will use to create your VM images and hand over the images to [Azure Marketplace](http://azure.microsoft.com/marketplace). If you do not have an existing subscription, then please sign up here, https://account.windowsazure.com/signup?offer=ms-azr-0003p
 
-## C. Create an Azure compatible solution
+## Create an Azure compatible solution
 1. Identifying topology and platform evaluation
   For each type of deployment - Evaluation, Proof of Concept, Dev/Test, and Production - think through the exact layout and topology needed for your application. Questions to ask:
   - What are the different tiers?

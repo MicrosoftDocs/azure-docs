@@ -8,7 +8,7 @@
    editor=""/>
 
 <tags
-   ms.service="AzureStore"
+   ms.service="marketplace-publishing"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="Azure"
@@ -33,18 +33,25 @@ English is the default and only supported language; please ensure that all infor
   ![drawing][img-map-logo]
   *Logos*
 
+Below is the detailed view of how the publisher portal offer marketing details are used on the [Azure Marketplace]().
+
+![drawing][img-map-acom]
+
+*Offer Name & Description mapping*
 ### 4.1.2 Links
 In the links tab on the left bar, enter any links with information that may help customers. Enter a name and URL for each link.
 
-  *Links*
   ![drawing][img-map-link]
+  *Links*
 
-<!--
-### 4.1.3 Sample images
+### 4.1.3 Sample images (optional)
+
+
 ### 4.1.4 Plans
--->
+<Provide a description of the plan.>
+<Insert screenshot of Plan tab.>
 
-### 4.1.3 Legal
+### 4.1.5 Legal
 In the Legal tab, provide a link to your policies/terms of use. Enter or paste the terms in the large Terms of Use box.
 
 > [AZURE.IMPORTANT] All fields must have entries, including the images, in order to be able to push to staging.
@@ -94,7 +101,9 @@ Plans can be any combination of BASE + Overage, where BASE is monthly price and 
 |Silver Plus|$20/month + $0.15/meter01 + $0.01/meter02|Basic functionality and a quota of 10,000 of feature X and 100 of feature Y.  Once feature X quota is used, the customer can pay per use via meter01.  Once feature Y quota is used, the customer can pay per use via meter02|Can migrate to Bronze Plus and Gold Plans|
 |Gold|$1000/month|Quota of 10,000 of feature X, 1,000 of feature Y, and unlimited of feature Z|Can migrate to all plans except free|
 
+<!--
 ### 4.2.4 Set your data service prices
+-->
 
 ## 4.3 Provide support information
 Some of this information will have been completed during the certification step. You may add or edit information as in the steps below. The contact details are used for internal communications between partner and Microsoft only. Support URL will be available to the end customers.
@@ -110,7 +119,7 @@ In the categories tab, there will be an array of selections provided. Your offer
 Staging means deploying your SKU in a private “sandbox” where you can test and validate its functionality before publishing it. The SKU will appear in staging just as it would to a customer who has deployed it. Your SKU must be certified to be pushed to staging. To obtain certification for your SKU, see “3.6. Obtain Certification”.
 1.	Click **Push to Staging** in the **Publish** tab.
 2.	Correct any errors or discrepancies of which the service may notify you at this point.
-3.	Provide the information about the Azure subscription(s) you want to white list and enable to preview your offer. Add the pay-as-you-go subscription you crated earlier.
+3.	Provide the information about the Azure subscription(s) you want to white list and enable to preview your offer. Add the pay-as-you-go subscription you created earlier.
 4.	Your offer will remain in staging until you notify Microsoft that you are ready to push to production. This is an ideal time to have all members of the team check over everything in preparation for your offer going live.
 5.	Carry out one round of testing on below points ->
 
@@ -118,11 +127,7 @@ Staging means deploying your SKU in a private “sandbox” where you can test a
 
   b.	Validate end-to-end deployment of your offer and customer scenarios e.g. purchase, upgrade, deletion, etc.
 
-  Below is the detailed view of how the publisher portal offer marketing details are used up on portal
 
-![drawing][img-map-acom]
-
-*Offer Name & Description mapping*
 
 ![drawing][img-map-portal]
 
