@@ -289,7 +289,7 @@ Before doing a SWAP, here is the production WordPress web app
 
 After the SWAP operation, the theme has been updated on your production web app.
 
-![Production web app after swapping slots](./media/app-service-web-staged-publishing-realworld-scenarios/8prodafterswapbrowse1.png)
+![Production web app after swapping slots](./media/app-service-web-staged-publishing-realworld-scenarios/8prodafterswapwebapp.png)
 
 In a situation when you need to **rollback** , you can go to production web app settings and click on **Swap** button to swap the web app and database from production to staging slot. Important thing to remember is that if database changes are included with a **Swap** operation at ay given time, then the next time you re-deploy to your staging web app you need to deploy the database changes to the current database pointed to by your staging web app which could be previous production or stage database.
 
