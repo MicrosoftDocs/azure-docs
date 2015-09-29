@@ -22,7 +22,7 @@ The preconfigured solutions provided with the Azure IoT Suite enable customers t
 ## Finding the source code
 The source code for your preconfigured solution is available on Github in the following repositories:
 
-- Remote Monitoring: [https://www.github.com/Azure/azure-iot-remote-monitoring](https://github.com/Azure/azure-iot-remote-monitoring "github.com/Azure/azure-iot-remote-monitoring")
+- Remote Monitoring: [https://www.github.com/Azure/azure-iot-remote-monitoring](https://github.com/Azure/azure-iot-remote-monitoring)
 
 This source is provided to demonstrate a pattern for implementing the core functionality of remote monitoring using Azure IoT Suite.
 
