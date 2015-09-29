@@ -47,8 +47,6 @@ Check it out on [Github](https://github.com/mingaliu/DocumentDBStudio).
 
 <hr/>
 
-Are you interested in attending or presenting at a conference and/or meetup? [Let us know](mailto:askdocdb@microsoft.com); we'd love to help!
-
 
 Event Name | Location | Date | Hashtag
 ---------- | -------- | ---- | -------
@@ -69,7 +67,7 @@ Do you have a blog post, code sample, or case-study you'd like to share? [Let us
 
 ### Social
 
-Follow us on twitter @DocumentDB and stay up to date with the latest conversation on the #DocumentDB hashtag.
+Follow us on twitter [@DocumentDB](https://twitter.com/DocumentDB) and stay up to date with the latest conversation on the [#DocumentDB](https://twitter.com/hashtag/DocumentDB) hashtag.
 
 ## Discussion
 
@@ -77,11 +75,8 @@ Follow us on twitter @DocumentDB and stay up to date with the latest conversatio
 
 ### Online Forums
 
-The easiest way to answer and ask questions is to use the Azure DocumentDB forums on [StackOverflow](http://stackoverflow.com/questions/tagged/azure-documentdb) and [MSDN](https://social.msdn.microsoft.com/Forums/home?forum=AzureDocumentDB).
-
-
-[![StackOverflow](./media/documentdb-community/stack-overflow.png)](http://stackoverflow.com/questions/tagged/azure-documentdb) | [![MSDN](./media/documentdb-community/msdn.png)](https://social.msdn.microsoft.com/Forums/home?forum=AzureDocumentDB)
-:-----------: | :--:
+| [![StackOverflow](./media/documentdb-community/stack-overflow.png)](http://stackoverflow.com/questions/tagged/azure-documentdb) | [![MSDN](./media/documentdb-community/msdn.png)](https://social.msdn.microsoft.com/Forums/home?forum=AzureDocumentDB) |
+| :-----------: | :--: |
 
 
 ### Microsoft Azure Support
@@ -111,11 +106,8 @@ We host office hours on IRC every Friday from 11am to 12pm pacific time.
 
 <hr/>
 
-Microsoft and our learning partners offer a variety of options for all audiences to develop your skills with Microsoft Azure services.
-
-
-Learning Provider | Description
------------------ | -----------
+Learning Partner | Description
+---------------- | -----------
 [![Microsoft Virtual Academy](./media/documentdb-community/mva.png)](https://www.microsoftvirtualacademy.com/en-us/training-courses/developing-solutions-with-azure-documentdb-10554) | [**Microsoft Virtual Academy**](https://www.microsoftvirtualacademy.com/en-us/training-courses/developing-solutions-with-azure-documentdb-10554)<br/><br/>Microsoft Virtual Academy offers you training from the people who help build Azure DocumentDB.
 [![Pluralsight](./media/documentdb-community/pluralsight.png)](http://www.pluralsight.com/courses/azure-documentdb-introduction) | [**Pluralsight**](http://www.pluralsight.com/courses/azure-documentdb-introduction)<br/><br/>Pluralsight is a key Microsoft partner offering Azure training. If you are an MSDN subscriber, use your benefits to access Microsoft Azure training.
 [![OpsGility](./media/documentdb-community/opsgility.png)](https://www.opsgility.com/courses/player/introduction_to_azure_documentdb) | [**OpsGility**](https://www.opsgility.com/courses/player/introduction_to_azure_documentdb)<br/><br/>OpsGility provides deep technical training on Microsoft Azure. Get instructor-led training on-site or through a remote classroom by their industry-acknowledged trainers.
