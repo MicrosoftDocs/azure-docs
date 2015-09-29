@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Custom installation of Azure AD Connect"
+	pageTitle="Custom installation of Azure AD Connect | Microsoft Azure"
 	description="This document details the custom installation options for Azure AD Connect."
 	services="active-directory"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/24/2015"
+	ms.date="09/29/2015"
 	ms.author="billmath;andkjell"/>
 
 # Custom installation of Azure AD Connect
@@ -30,6 +30,7 @@ If you did not read the documentation on [Azure AD Connect](active-directory-aad
 | **Hardware and prerequisites** | [Azure AD Connect: Hardware and prerequisites](active-directory-aadconnect-prerequisites.md) |
 | Install using Express settings | [Express installation of Azure AD Connect](active-directory-aadconnect-get-started-express.md) |
 | Upgrade from DirSync | [Upgrade from Windows Azure AD sync tool (DirSync)](active-directory-aadconnect-dirsync-upgrade-get-started.md) |
+| After installation | [Verify the installation and assign licenses ](active-directory-aadconnect-whats-next.md) |
 | Accounts used for installation | [More about Azure AD Connect credentials and permissions](active-directory-aadconnect-account-summary.md) |
 
 
@@ -57,7 +58,7 @@ After installing the required components you will be asked to specify how the si
 
 Single Sign On option | Description
 ------------- | ------------- |
-Password Sync |Users will be able to sign into Microsoft cloud services, such as Office 365, Dynamics CRM, and Windows InTune, using the same password as they use when logging into their on-premises network.  The users password is synchronized to Azure via a password hash and authentication occurs in the cloud.
+Password Sync |Users will be able to sign into Microsoft cloud services, such as Office 365, Dynamics CRM, and Windows InTune, using the same password as they use when logging into their on-premises network.  The users password is synchronized to Azure via a password hash and authentication occurs in the cloud. See [Password synchronization](active-directory-aadconnectsync-implement-password-synchronization.md) for more information.
 Federation with AD FS|Users will be able to sign into Microsoft cloud services, such as Office 365, Dynamics CRM, and Windows InTune, using the same password as they use when logging into their on-premises network.  The users are redirected to their on-premises ad fs instance for signing in and authentication is done on-premises.
 Do not configure| Neither feature will be installed and configured.  Choose this option if you already have a 3rd party federation server or another existing solution in place.
 
@@ -115,74 +116,33 @@ This screen allows you to select the optional features for your specific scenari
 
 <center>![Optional features](./media/active-directory-aadconnect-get-started-custom/optional.png)</center>
 
+> [AZURE.WARNING] If you currently have DirSync or Azure AD Sync active, do not activate any of the writeback features in Azure AD Connect
 
 Optional Features      | Description
 -------------------    | ------------- |
-Exchange Hybrid Deployment |The Exchange Hybrid Deployment feature allows for the co-existence of Exchange mailboxes both on-premises and in Azure by synchronizing a specific set of attributes from Azure AD back into your on-premises directory.
+Exchange Hybrid Deployment |The Exchange Hybrid Deployment feature allows for the co-existence of Exchange mailboxes both on-premises and in Azure by synchronizing a specific set of [attributes](active-directory-aadconnectsync-attributes-synchronzied.md#exchange-hybrid-writeback) from Azure AD back into your on-premises directory.
 Azure AD app and attribute filtering|By enabling Azure AD app and attribute filtering, the set of synchronized attributes can be tailored to a specific set on a subsequent page of the wizard.  This opens two additional configuration pages in the wizard.  
+Password synchronization | You can enable this option if you selected federation as the sign-in solution. Password synchronization can then be used as a backup option. For additional information see [Password synchronization](active-directory-aadconnectsync-implement-password-synchronization.md).
 Password writeback|By enabling password writeback, password changes that originate with Azure AD will be written back to your on-premises directory.
-Directory extension attribute sync|By enabling directory extensions attribute sync, attributes specified will be synced to Azure AD.  This opens an additional configuration page in the wizard.  
+Group writeback |If you use the **Groups in Office 365** feature then you can have these groups in your on-premises Active Directory as a distribution group. This option is only available if you have Exchange present in your on-premises Active Directory. For additional information see [Group writeback](active-directory-aadconnect-feature-preview.md#group-writeback).
+Device writeback | Allows you to writeback device objects in Azure AD to your on-premises Active Directory for conditional access scenarios. For additional information see [Enabling device writeback in Azure AD Connect](active-directory-aadconnect-get-started-custom-device-writeback.md)
+Directory extension attribute sync|By enabling directory extensions attribute sync, additional attributes specified will be synced to Azure AD. For additional information see [Directory extensions](active-directory-aadconnect-feature-preview.md#directory-extensions).
 
+### Azure AD app and attribute filtering
+If you want to limit which attributes to synchronize to Azure AD, then start by selecting which services you are using, If you configure this page, any new service has to be selected explicitly by re-running the installation wizard.
 
+<center>![Optional features](./media/active-directory-aadconnect-get-started-custom/AzureADapps.png)</center>
+
+Based on the services selected in the previous step, this page will show all attributes which will be synchronized. This list is a combination of all object types being synchronized. If there are some particular attributes you need to not synchronize, you can unselect those. In the picture below the homePhone attribute has been unselected and will not synchronize to Azure AD.
+
+<center>![Optional features](./media/active-directory-aadconnect-get-started-custom/AzureADattributes.png)</center>
 
 ### Directory Extension attribute sync (preview)
 With directory extensions you can extend the schema in Azure AD with custom attributes added by your organization or other attributes in Active Directory. To use this feature select “Directory Extension attribute sync” on the “Optional Features” page. This will give you this page where you can select your additional attributes.
 
 ![Sync Filtering](./media/active-directory-aadconnect-get-started-custom/extension2.png)
 
-
-Only single-valued attributes are supported and the value cannot be longer than 250 characters. The metaverse and Azure AD schema will be extended with the attributes selected. In Azure AD a new application is added with the attributes.
-
-![Sync Filtering](./media/active-directory-aadconnect-get-started-custom/extension3.png)
-
-
-These attributes will now be available through Graph:
-
-![Sync Filtering](./media/active-directory-aadconnect-get-started-custom/extension4.png)
-
-
-
-
-### Group writeback (preview)
-
-> [AZURE.WARNING] If you currently have DirSync or Azure AD Sync active, do not activate any of the writeback features in Azure AD Connect
-
-The option for group writeback in optional features will allow you to writeback “Groups in Office 365” to a forest with Exchange installed. This is a new group type which is always mastered in the cloud. You can find this in outlook.office365.com or on myapps.microsoft.com as shown here:
-
-
-![Sync Filtering](./media/active-directory-aadconnect-get-started-custom/office365.png)
-
-
-
-![Sync Filtering](./media/active-directory-aadconnect-get-started-custom/myapps.png)
-
-
-This group will be represented as a distribution group in on-premises AD DS. Your on-premises Exchange server must be on Exchange 2013 cumulative update 8 (released in March 2015) to recognize this new group type.
-
-**Note**
-
-- The address book attribute is currently not populated. The easiest is to find the address book property from another group in your org and populate this outside the sync engine.  **The easiest way to do this is to use the PowerShell cmdlet update-recipient.**
-- Only forests with the Exchange schema are valid targets for groups. If no Exchange was detected, then group writeback will not be possible to enable.
-- The Group writeback feature does not currently handle security groups or distribution groups.
-
-More information can be found [here](http://blogs.office.com/2014/09/25/delivering-first-chapter-groups-office-365/ ).
-
-### Device writeback (preview)
-
-> [AZURE.WARNING] If you currently have DirSync or Azure AD Sync active, do not activate any of the writeback features in Azure AD Connect.
-
-The device writeback feature will allow you take a device registered in the cloud, for example in Intune, and have it in AD DS for conditional access. To enable the feature, AD DS must be prepared. If you install AD FS and the device registration service (DRS), DRS provides PowerShell cmdlets to prepare AD for device writeback. If you do not have DRS installed, then you can run C:\Program Files\Microsoft Azure Active Directory Connect\AdPrep\AdSyncAdPrep.psm1 as an enterprise admin.
-
-Before you can run the PowerShell cmdlet it must be imported first.
-
-	Import-Module 'C:\Program Files\Microsoft Azure Active Directory Connect\AdPrep\AdSyncPrep.psm1'
-
-In order to do this you will need Active Directory and MSOnline PowerShell installed locally.
-
-For additional information see [Enabling device writeback in Azure AD Connect](active-directory-aadconnect-get-started-custom-device-writeback.md)
-
-
-
+For additional information see [Directory extensions](active-directory-aadconnect-feature-preview.md#directory-extensions).
 
 ## Configuring federation with AD FS
 Configuring AD FS with Azure AD Connect is simple with just a few clicks. The following is required prior to setup.
@@ -262,13 +222,14 @@ You can customize the illustration and logo image for your AD FS login pages by 
 On this page the configuration will actually happen.
 
 ### Staging mode
-With staging mode the process to setup a new sync server in parallel with an existing server is possible. It is only supported to have one sync server connected to one directory in the cloud. But if we want to move from another server, for example one running DirSync, then we can enable Azure AD Connect in staging mode. When enabled the sync engine will import and synchronize data as normal, but it will not export anything to Azure AD and will turn off password sync and password writeback.
+With staging mode the process to setup a new sync server in parallel with an existing server is possible. It is only supported to have one sync server connected to one directory in the cloud. But if we want to move from another server, for example one running DirSync, then you can enable Azure AD Connect in staging mode. When enabled, the sync engine will import and synchronize data as normal, but it will not export anything to Azure AD and will turn off password sync and password writeback.
 
 ![Sync Filtering](./media/active-directory-aadconnect-get-started-custom/stagingmode.png)
 
 
 While in staging mode, it is possible to make required changes to the sync engine and review what is about to be exported. When the configuration looks good, run the installation wizard again and disable staging mode. This will enable data to be exported to Azure AD. Make sure to disable the other server at the same time so only one server is actively exporting.
 
+ For additional information see [Staging mode](active-directory-aadconnectsync-operations.md#staging-mode).
 
 ### Verify your federation configuration
 
@@ -286,4 +247,6 @@ In addition, perform the following verification steps:
 
 ## Next steps
 
-To learn more about [Azure AD Connect](active-directory-aadconnect.md)
+Learn more about [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md).
+
+Now that you have Azure AD Connect installed you can use the link [here](active-directory-aadconnect-whats-next.md) to get going with post installation tasks such as assigning your users Azure AD Premium or Enterprise Mobility licenses or configuring additional options.

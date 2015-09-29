@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="09/09/2015"
+	ms.date="09/29/2015"
 	ms.author="andkjell;billmath"/>
 
 # Integrating your on-premises identities with Azure Active Directory
@@ -46,7 +46,7 @@ Azure Active Directory Connect is made up of three primary parts.  They are the 
 <center>![Azure AD Connect Stack](./media/active-directory-aadconnect-how-it-works/AADConnectStack2.png)
 </center>
 
-- Synchronization - This part is made up of the the components and functionality previously released as Dirsync and Azure AD Sync.  This is the part that is responsible for creating users and groups.  It is also responsible for making sure that the information on users and groups in your on-premises environment, matches the cloud.
+- Synchronization - This part is made up of the components and functionality previously released as Dirsync and Azure AD Sync.  This is the part that is responsible for creating users and groups.  It is also responsible for making sure that the information on users and groups in your on-premises environment, matches the cloud.
 - AD FS - This is an optional part of Azure AD Connect and can be used to setup a hybrid environment using an on-premises AD FS infrastructure.  This part can be used by organizations to address complex deployments that include such things as domain join SSO, enforcement of AD login policy and smart card or 3rd party MFA.  For additional information on configuring SSO see [DirSync with Single-Sign On](https://msdn.microsoft.com/library/azure/dn441213.aspx).
 - Health Monitoring - For complex deployments using AD FS, Azure AD Connect Health can provide robust monitoring of your federation servers and provide a central location in the Azure portal to view this activity.  For additional information see [Azure Active Directory Connect Health](https://msdn.microsoft.com/library/azure/dn906722.aspx).
 
@@ -62,6 +62,8 @@ The majority of customers who will use Azure AD Connect will have a simple envir
 
 If you have an existing DirSync server running it can be [upgraded](active-directory-aadconnect-dirsync-upgrade-get-started.md) to Azure AD Connect. Most configuration settings can be migrated automatically.
 
+[After installation](active-directory-aadconnect-whats-next.md) you should verify it is working as expected and assign licenses to the users.
+
 If you use Express settings we will need an enterprise admin account to make required changes to you directory. With Customized settings all pre-reqs can be prepared in advance and no special accounts and permissions are required to run the actual installer.
 
 ### Next steps to Install Azure AD Connect
@@ -72,6 +74,7 @@ If you use Express settings we will need an enterprise admin account to make req
 | Install using Express settings | [Express installation of Azure AD Connect](active-directory-aadconnect-get-started-express.md) |
 | Install using Customized settings | [Custom installation of Azure AD Connect](active-directory-aadconnect-get-started-custom.md) |
 | Upgrade from DirSync | [Upgrade from Windows Azure AD sync tool (DirSync)](active-directory-aadconnect-dirsync-upgrade-get-started.md) |
+| After installation | [Verify the installation and assign licenses ](active-directory-aadconnect-whats-next.md) |
 | Accounts used for installation | [More about Azure AD Connect credentials and permissions](active-directory-aadconnect-account-summary.md) |
 
 ## Design and prepare
@@ -94,6 +97,8 @@ You also want to prepare for [operational](active-directory-aadconnectsync-opera
 ## Configure features
 Azure AD Connect comes with several features you can optionally turn on or are enabled by default. Some features might in some cases require additional configuration in certain scenarios and topologies.
 
+[Filtering](active-directory-aadconnectsync-configure-filtering.md) is used when you want to limit which objects are synchronized to Azure AD. By default all users, contacts, groups, and Windows 10 computers are synchronized, but you can limit this based on domains, OUs, or attributes.
+
 [Password synchronization](active-directory-aadconnectsync-implement-password-synchronization.md) will synchronize the password hash in Active Directory to Azure AD. This allows the user to use the same password on-premises and in the cloud but only manage it in one location. Since it will use your on-premises Active Directory it will also allow you to use your own password policy.
 
 [Device writeback](active-directory-aadconnect-get-started-custom-device-writeback.md) will allow a device registered in Azure AD to be written back to on-premises Active Directory so it can be used for conditional access.
@@ -104,7 +109,8 @@ The [prevent accidental deletes](active-directory-aadconnectsync-feature-prevent
 
 | Topic |  |
 | --------- | --------- |
-| Password synchronization | [Azure AD Connect sync - Implement password synchronization](active-directory-aadconnectsync-implement-password-synchronization.md) |
+| Configure filtering | [Azure AD Connect sync: Configure filtering](active-directory-aadconnectsync-configure-filtering.md) |
+| Password synchronization | [Azure AD Connect sync: Implement password synchronization](active-directory-aadconnectsync-implement-password-synchronization.md) |
 | Device writeback | [Enabling device writeback in Azure AD Connect](active-directory-aadconnect-get-started-custom-device-writeback.md) |
 | Prevent accidental deletes | [Azure AD Connect sync: Prevent accidental deletes](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md) |
 

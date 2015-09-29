@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="09/08/2015"
+   ms.date="09/29/2015"
    ms.author="andkjell"/>
 
 # Topologies for Azure AD Connect
@@ -170,6 +170,10 @@ Azure AD directories are by design isolated. It is unsupported to change the con
 
 It is supported to use FIM2010/MIM2016 on-premises to GALsync users between two Exchange orgs. The users in one org will show up as foreign users/contacts in the other org. These different on-premises ADs can then be synchronized to their own Azure AD directories.
 
+
 ## Next steps
 To learn how to install Azure AD Connect for these scenarios, see [Custom installation of Azure AD Connect](active-directory-aadconnect-get-started-custom.md).
-To learn more on the configuration for Azure AD Connect sync, see [Azure AD Connect sync](active-directory-aadconnectsync-whatis.md).
+
+Learn more about the [Azure AD Connect sync](active-directory-aadconnectsync-whatis.md) configuration.
+
+Learn more about [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md).

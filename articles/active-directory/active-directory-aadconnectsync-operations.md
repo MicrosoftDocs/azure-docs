@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="09/08/2015"
+   ms.date="09/29/2015"
    ms.author="andkjell"/>
 
 # Azure AD Connect sync: Operational tasks and consideration
@@ -28,7 +28,7 @@ Staging mode can be used for several scenarios, including:
 
 With a server in staging mode you can make changes to the configuration and preview the changes before you make the server active. It also allows you to run full import and full synchronization to verify that all changes are expected before you make these into your production environment.
 
-During installation you can select the server to be in *staging mode*. This will make the server active for import and synchronization, but it will not do any exports. A server in staging mode will not run password sync or enable password writeback even if you select these features. When you disable staging mode, the server will start exporting and enable password sync and password writeback (if enabled).
+During installation you can select the server to be in **staging mode**. This will make the server active for import and synchronization, but it will not do any exports. A server in staging mode will not run password sync or enable password writeback even if you select these features. When you disable staging mode, the server will start exporting and enable password sync and password writeback (if enabled).
 
 A server in staging mode will continue to receive changes from Active Directory and Azure AD. It will therefor always have a copy of the latest changes and can very fast take over the responsibilities of another server. If you make configuration changes to your primary server, it is your responsibility to make the same changes to the server(s) in staging mode.
 
@@ -44,15 +44,15 @@ To apply this method, follow these steps:
 
 **Prepare**
 
-1. Install Azure AD Connect, select *staging mode*, and unselect *start synchronization* on the last page in the installation wizard. This will allow us to run the sync engine manually.
-2. Logoff/logon and from the start menu select *Synchronization Service*.
+1. Install Azure AD Connect, select **staging mode**, and unselect **start synchronization** on the last page in the installation wizard. This will allow us to run the sync engine manually.
+2. Logoff/logon and from the start menu select **Synchronization Service**.
 
 **Import and Synchronize**
 
-1. Select *Connectors*, and select the first Connector with the type *Active Directory Domain Services*. Click on *Run*, select *Full import*, and *OK*. Do this for all Connectors of this type.
-2. Select the Connector with type *Azure Active Directory (Microsoft)*. Click on *Run*, select *Full import*, and *OK*.
-4. Make sure Connectors is still selected and for each Connector with type *Active Directory Domain Services*, click *Run*, select *Delta Synchronization*, and *OK*.
-5. Select the Connector with type *Azure Active Directory (Microsoft)*. Click *Run*, select *Delta Synchronization*, and then OK.
+1. Select **Connectors**, and select the first Connector with the type **Active Directory Domain Services**. Click on **Run**, select **Full import**, and **OK**. Do this for all Connectors of this type.
+2. Select the Connector with type **Azure Active Directory (Microsoft)**. Click on **Run**, select **Full import**, and **OK**.
+4. Make sure Connectors is still selected and for each Connector with type **Active Directory Domain Services**, click **Run**, select **Delta Synchronization**, and **OK**.
+5. Select the Connector with type **Azure Active Directory (Microsoft)**. Click **Run**, select **Delta Synchronization**, and then OK.
 
 You have now staged export changes to Azure AD and on-premises AD (if you are using Exchange hybrid deployment). The next steps will allow you to inspect what is about to change before you actually start the export to the directories.
 
@@ -89,7 +89,7 @@ Part of the implementation design is to plan for what to do in case of a disaste
 Depending on the answers to these questions and your organization’s policy one of the following strategies can be implemented:
 
 -	Rebuild when needed.
--	Have a spare standby server, known as *staging mode*.
+-	Have a spare standby server, known as **staging mode**.
 -	Use virtual machines.
 
 Since Azure AD Connect sync has a dependency on a SQL database, you should also review the SQL High Availability section if you do not use SQL Express, which is included with Azure AD Connect.
@@ -101,7 +101,7 @@ The sync engine server does not store any state about the objects so the databas
 The things you need to document and save are the configuration changes made to the server, such as filtering and synchronization rules. These must be re-applied before you start synchronizing.
 
 ### Have a spare standby server - staging mode
-If you have a more complex environment, then having one or more standby servers is recommended. During installation you can enable a server to be in *staging mode*.
+If you have a more complex environment, then having one or more standby servers is recommended. During installation you can enable a server to be in **staging mode**.
 
 For more details, see [staging mode](#staging-mode).
 
@@ -112,4 +112,6 @@ A common and supported method is to run the sync engine in a virtual machine. In
 When not using the SQL Server Express which comes with Azure AD Connect, the high availability for SQL Server should also be considered. The only high availability solution supported is SQL clustering. Unsupported solutions include mirroring and Always On.
 
 ## Next steps
-To learn more on the configuration for Azure AD Connect sync, see [Azure AD Connect sync](active-directory-aadconnectsync-whatis.md).
+Learn more about the [Azure AD Connect sync](active-directory-aadconnectsync-whatis.md) configuration.
+
+Learn more about [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md).

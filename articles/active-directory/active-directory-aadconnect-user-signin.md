@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Azure AD Connect - User Sign In" 
-	description="Azure AD Connect user sign in for custom settings." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="stevenpo" 
+	pageTitle="Azure AD Connect - User Sign In"
+	description="Azure AD Connect user sign in for custom settings."
+	services="active-directory"
+	documentationCenter=""
+	authors="billmath"
+	manager="stevenpo"
 	editor="curtand"/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/24/2015" 
+<tags
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/24/2015"
 	ms.author="billmath"/>
 
 
@@ -55,7 +55,7 @@ If you have already configured cloud sign on using an earlier version of AD FS (
 
 ### Choosing the a User sign-in method for your organization
 For most organizations who just want to enable user sign on to Office 365, SaaS applications and other Azure AD based resources, the default Password synchronization option is recommended.
-Some organizations, however, have particular reasons for using a federated sign on option such as AD FS.  These include: 
+Some organizations, however, have particular reasons for using a federated sign on option such as AD FS.  These include:
 
 - Your organization already has AD FS or a 3rd party federation provider deployed
 - Your security policy prohibits synchronizing password hashes to the cloud
@@ -64,4 +64,3 @@ Some organizations, however, have particular reasons for using a federated sign 
 	- On-premises multi-factor authentication using a third party provider or smart cards (learn about third party MFA providers for AD FS in Windows Server 2012 R2)
 	- Active Directory integration features such as soft account lockout or AD password and work hours policy
 	- Conditional access to both on-premises and cloud resources using device registration, Azure AD join, or Intune MDM policies
- 

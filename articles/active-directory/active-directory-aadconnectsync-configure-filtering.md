@@ -276,8 +276,7 @@ In this example, we will change the filtering so only users where both mail and 
 7. Perform a full sync: on the Connectors tab, right-click SourceAD, click Run, click Full Synchronization, and then click OK.
 
 
+## Next steps
+Learn more about the [Azure AD Connect sync](active-directory-aadconnectsync-whatis.md) configuration.
 
-## Additional Resources
-
-* [Azure AD Connect Sync: Customizing Synchronization options](active-directory-aadconnectsync-whatis.md)
-* [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md)
+Learn more about [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md).

@@ -410,9 +410,7 @@ These attributes are written back from Azure AD to on-premises Active Directory 
 - When using an Alternate ID, the on-premises attribute userPrincipalName will be synchronized with the Azure AD attribute onPremisesUserPrincipalName. The Alternate ID attribute, e.g. mail, will be synchronized with the Azure AD attribute userPrincipalName.
 
 
-## Additional Resources
+## Next steps
+Learn more about the [Azure AD Connect sync](active-directory-aadconnectsync-whatis.md) configuration.
 
-* [Azure AD Connect sync: Customizing Synchronization options](active-directory-aadconnectsync-whatis.md)
-* [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md)
-
-<!--Image references-->
+Learn more about [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md).
