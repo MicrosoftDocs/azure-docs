@@ -84,8 +84,8 @@ The supported logical operators along with the syntax are listed below:
 | Operator Name		| Syntax		 |
 | :------------- | :------------- |
 | Not			 | "not" : {&lt;condition&gt;}			 |
-| And			| "allOf" : [ {&lt;condition&gt;},{&lt;condition&gt;}] |
-| Or						 | "anyOf" : [ {&lt;condition&gt;},{&lt;condition&gt;}] |
+| And			| "allOf" : [ {&lt;condition1&gt;},{&lt;condition2&gt;}] |
+| Or						 | "anyOf" : [ {&lt;condition1&gt;},{&lt;condition2&gt;}] |
 
 
 ## Conditions
@@ -117,7 +117,7 @@ scenarios listed above.
 
 ### Chargeback: Require departmental tags
 
-The below policy denies all request which don’t have a tag containing
+The below policy denies all requests which don’t have a tag containing
 "costCenter" key.
 
     {
@@ -135,8 +135,7 @@ The below policy denies all request which don’t have a tag containing
 
 ### Geo Compliance: Ensure resource locations
 
-The below example shows a policy which will deny all requests outside of
-the location North Europe or West Europe.
+The below example shows a policy which will deny all requests where location is not North Europe or West Europe.
 
     {
       "if" : {
@@ -187,7 +186,7 @@ will be denied.
 
 ### Naming Convention
 
-The below example shows the use of wildcard which is supported by the
+The below example shows the use of wildcard which is supported by the condition
 "like". The condition states that if the name does match the mentioned pattern (namePrefix\*nameSuffix) then deny
 the request.
 
