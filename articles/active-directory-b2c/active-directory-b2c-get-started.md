@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/24/2015"
+	ms.date="09/28/2015"
 	ms.author="swkrish"/>
 
 # Azure Active Directory B2C preview: how to create an Azure AD B2C Tenant
@@ -58,7 +58,11 @@ Use the following steps to create a new Azure AD B2C tenant. Currently B2C featu
 
     ![Create B2C tenant](./media/active-directory-b2c-get-started/b2c-directory-configure-tab.png)
 
-4. The [Azure preview portal](https://portal.azure.com/) with the B2C features blade will open in a new browser tab or window.
+4. The Azure preview portal with the B2C features blade will open in a new browser tab or window.
+
+    > [AZURE.IMPORTANT]
+    There is a known issue where this page doesn't load properly (for a small number of tenants). Refreshing the browser should fix it. If not, please contact Support.
+
 5. Pin this blade (see top right corner) to your Startboard for easy access.
 
     ![B2C features blade](./media/active-directory-b2c-get-started/b2c-features-blade.png)

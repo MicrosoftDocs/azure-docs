@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-ios" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="06/19/2015" 
+	ms.date="09/28/2015" 
 	ms.author="mahender"/>
 
 # Authenticate your app with Active Directory Authentication Library Single Sign-On
