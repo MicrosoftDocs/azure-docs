@@ -144,20 +144,20 @@ To set the connection strings:
 
 1. Open the ServiceConfiguration.Cloud.cscfg file using your favorite text editor and set the connection string for your storage. The *AccountName* and *AccountKey* values are found in the Management Portal in the storage account dashboard, under Manage Keys.
 
-```
+    ```
     <ConfigurationSettings>
        <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="DefaultEndpointsProtocol=https;AccountName=<name>;AccountKey=<key>"/>
     </ConfigurationSettings>
-```
+    ```
 2. Save the ServiceConfiguration.Cloud.cscfg file.
 
 3. Open the ServiceConfiguration.Local.cscfg file and verify that UseDevelopmentStorage is set to true.
 
-```
+    ```
     <ConfigurationSettings>
       <Settingname="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="UseDevelopmentStorage=true"/>
     </ConfigurationSettings>
-```
+    ```
 Now that the connection strings are set, your application will persist diagnostics data to your storage account when your application is deployed.
 4. Save and build your project, then deploy your application.
 
@@ -172,21 +172,21 @@ Perform the following steps to create a simple custom performance counter named 
 1. Open the service definition file (CSDEF) for your application.
 2. Add the Runtime element to the WebRole or WorkerRole element to allow execution with elevated privileges:
 
-```
-<RuntimeexecutionContext="elevated"/>
-```
+    ```
+    <RuntimeexecutionContext="elevated"/>
+    ```
 3. Save the file.
 4. Open the diagnostics file (diagnostics.wadcfg in SDK 2.4 and below or diagnostics.wadcfgx in SDK 2.5 and above) and add the following to the DiagnosticMonitorConfiguration 
 
-```
-<PerformanceCounters bufferQuotaInMB="0" scheduledTransferPeriod="PT30M">
- <PerformanceCounterConfiguration counterSpecifier="\MyCustomCounterCategory\MyButton1Counter" sampleRate="PT30S"/>
-</PerformanceCounters>
-```
+    ```
+    <PerformanceCounters bufferQuotaInMB="0" scheduledTransferPeriod="PT30M">
+     <PerformanceCounterConfiguration counterSpecifier="\MyCustomCounterCategory\MyButton1Counter" sampleRate="PT30S"/>
+    </PerformanceCounters>
+    ```
 5. Save the file.
 6. Create the custom performance counter category in the OnStart method of your role, before invoking base.OnStart. The following C# example creates a custom category, if it does not already exist:
 
-```
+    ```
     public override bool OnStart()
     {
     if (!PerformanceCounterCategory.Exists("MyCustomCounterCategory"))
@@ -213,21 +213,21 @@ Perform the following steps to create a simple custom performance counter named 
 
     return base.OnStart();
     }
-```
+    ```
 7. Update the counters within your application. The following example updates a custom performance counter on Button1_Click events:
-```
-protected void Button1_Click(object sender, EventArgs e)
-    {
-     PerformanceCounter button1Counter = new PerformanceCounter(
-       "MyCustomCounterCategory",
-       "MyButton1Counter",
-       string.Empty,
-       false);
-     button1Counter.Increment();
-    this.Button1.Text = "Button 1 count: " +
-       button1Counter.RawValue.ToString();
-    }
-```
+    ```
+    protected void Button1_Click(object sender, EventArgs e)
+        {
+         PerformanceCounter button1Counter = new PerformanceCounter(
+           "MyCustomCounterCategory",
+           "MyButton1Counter",
+           string.Empty,
+           false);
+         button1Counter.Increment();
+        this.Button1.Text = "Button 1 count: " +
+           button1Counter.RawValue.ToString();
+        }
+    ```
 8. Save the file.  
 
 Custom performance counter data will now be collected by the Azure diagnostics monitor.
@@ -298,7 +298,7 @@ The following C# example shows a simple query against the WADPerformanceCounter
 
 Entities map to C# objects using a custom class derived from **TableEntity**. The following code defines an entity class that represents a performance counter in the **WADPerformanceCountersTable** table.
 
-```
+
     public class PerformanceCountersEntity : TableEntity
     {
        public long EventTickCount { get; set; }
@@ -308,7 +308,7 @@ Entities map to C# objects using a custom class derived from **TableEntity**. T
        public string CounterName { get; set; }
        public double CounterValue { get; set; }
     }
-```
+
 
 ## Next Steps
 

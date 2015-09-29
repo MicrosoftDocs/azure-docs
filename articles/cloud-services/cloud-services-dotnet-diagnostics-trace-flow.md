@@ -42,22 +42,23 @@ Before you complete the following procedure, you must initialize the Azure diagn
 
 1. Open the web.config or app.config file for your role.
 2. Add the following code to the file:
-```
-<system.diagnostics>
-	<trace>
-		<listeners>
-			<add type="Microsoft.WindowsAzure.Diagnostics.DiagnosticMonitorTraceListener,
-	          Microsoft.WindowsAzure.Diagnostics,
-	          Version=1.0.0.0,
-	          Culture=neutral,
-	          PublicKeyToken=31bf3856ad364e35"
-	          name="AzureDiagnostics">
-		  	  <filter type="" />
-			</add>
-		</listeners>
-	</trace>
-</system.diagnostics>
-```
+
+	```
+	<system.diagnostics>
+		<trace>
+			<listeners>
+				<add type="Microsoft.WindowsAzure.Diagnostics.DiagnosticMonitorTraceListener,
+		          Microsoft.WindowsAzure.Diagnostics,
+		          Version=1.0.0.0,
+		          Culture=neutral,
+		          PublicKeyToken=31bf3856ad364e35"
+		          name="AzureDiagnostics">
+			  	  <filter type="" />
+				</add>
+			</listeners>
+		</trace>
+	</system.diagnostics>
+	```
 3. Save the config file.
 
 For more information about listeners, see [Trace Listeners](https://msdn.microsoft.com/library/4y5y10s7.aspx).
@@ -69,8 +70,8 @@ After you complete the steps to add the listener, you can add trace statements t
 
 1. Open a source file for your application. For example, the <RoleName>.cs file for the worker role or web role.
 2. Add the following using statement if it has not already been added:
-```
-    using System.Diagnostics;
-```
+	```
+	    using System.Diagnostics;
+	```
 3. Add Trace statements where you want to capture information about the state of your application. You can use a variety of methods to format the output of the Trace statement. For more information, see [How to: Add Trace Statements to Application Code](https://msdn.microsoft.com/library/zd83saa2.aspx).
 4. Save the source file.
