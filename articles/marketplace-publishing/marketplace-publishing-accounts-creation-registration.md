@@ -43,15 +43,24 @@ The address that forms the user name should be on your domain and controlled by 
 > [AZURE.IMPORTANT] Using the DL allows multiple people to receive email notifications that are important reporting of payout information, and also insures that ownership of the MSA can be transferred and isn’t tied to a single individual.
 
 ## 2. Create your Seller Dashboard account
-The Microsoft Seller Dashboard is used to register the company information once. The registrant must be a valid representative of the company, and must provide their personal information as a way to validate their identity. The person registering must use a Microsoft account (MSA) that is shared for the company, and the same account must be used in the Azure Publishing Portal. You should check to make sure your company does not already have a Seller Dashboard account before attempting to create one. During the process, we will collect bank account information, tax information, and company address information. These are typically obtainable from finance or business contacts. For complete instructions on how to create a Seller Dashboard account, see [Create Your Account and Add Payout Information in the Microsoft][link-msdndoc].
+The Microsoft Seller Dashboard is used to register the company information once. The registrant must be a valid representative of the company, and must provide their personal information as a way to validate their identity. The person registering must use a Microsoft account (MSA) that is shared for the company, and the same account must be used in the Azure Publishing Portal. You should check to make sure your company does not already have a Seller Dashboard account before attempting to create one. During the process, we will collect bank account information, tax information, and company address information. These are typically obtainable from finance or business contacts.
 
+> [AZURE.IMPORTANT] The following seller profile components must be completed in order to progress through the various phases of offer creation and deployment.
+
+| Seller Profile | To start draft | Staging | Publish Free | Publish Commercial |
+|----|----|----|----|----|
+|Company Registration | Must Have | Must Have | Must Have | Must Have |
+|Tax Profile ID | Optional | Optional | Optional | Must Have |
+|Bank Account | Optional | Optional | Optional | Must Have |
+
+## 2.1 Register your company account
 1. Open a new  IE InPrivate or Chrome Incognito browsing session to ensure that you’re not logged into a personal account
 
 2. Go to http://sellerdashboard.microsoft.com
 
   ![drawing][img-sd-url]
 
-3. Sign in with your company registration Microsoft Account (MSA) (i.e. AzureStore@yourcompany.com)
+3. Sign in with your company registration Microsoft Account (MSA) (e.g. AzureStore@yourcompany.com)
 
   ![drawing][img-signin]
 
@@ -59,13 +68,13 @@ The Microsoft Seller Dashboard is used to register the company information once.
 
   ![drawing][img-verify]
 
-5. Go to Account Details. On this screen, you will enter your PERSONAL information, which is only used for identity verification. That means your name, email address, residential address, and personal phone number. This information is not shared with anyone outside of Microsoft.
+5. Go to **Account Details**. On this screen, you will enter your PERSONAL information, which is only used for identity verification. That means your name, email address, residential address, and personal phone number. This information is not shared with anyone outside of Microsoft.
 
   ![drawing][img-sd-top]
 
   ![drawing][img-sd-info]
 
-6. Register on behalf of your company by designating your account type as Company, NOT Individual. Click Next.
+6. Register on behalf of your company by designating your account type as Company, NOT Individual. Click **Next**.
 
   ![drawing][img-sd-type]
 
@@ -82,17 +91,49 @@ The Microsoft Seller Dashboard is used to register the company information once.
 10. Use reference that will be accessible & recognizable as a company representative
 
       ![drawing][img-sd-legal]
-11. Click Submit for Approval and you are done.
+11. Click **Submit for Approval** and you are done.
 
       ![drawing][img-sd-submit]
+
+Once you register your company, you can continue working in parallel while the verification of your registration is completed by the Seller Dashboard team. You can monitor the status of your approvals via the [Azure Publishing Portal][link-pubportal].
+
+If you are planning to publish commercial offers, you must complete tax and banking information in your Seller Dashboard account. See Section 2.2.
+
+If you are planning to publish only free offers, then you can skip to section 3, **Register your account in the Publishing Portal.**
+
+## 2.2 Add Tax and Banking information
+ If you want to offer apps or add-ins for purchase, you also need to add payout and tax information and submit it for validation in the Seller Dashboard. If you are only offering free apps or add-ins, then you do not need to add this information. You can add it later, but it takes some time to validate the tax information. If you know that you will offer apps or add-ins for purchase, we recommend that you add it as soon as possible.
+
+1. Sign in to the [Seller Dashboard](http://sellerdashboard.microsoft.com) with your Microsoft account.
+
+2. Click the **ACCOUNT** tab, and then click payout & tax.
+
+3. Click **ADD PAYOUT AND TAX INFO**.
+
+4. On the **Choose a payment method** page, under New payment method, click **Bank account** or **PayPal**.
+
+> [AZURE.IMPORTANT] If you have commercial offers that customers purchase in the Marketplace, this is the account where you will receive payout for those purchases.
+
+5. Enter details for a bank account or a PayPal account.
+
+6. Click **NEXT**.
+
+7. On the **Tax Information** page, select the country or region where you have permanent residency, then select the country or region where you hold primary citizenship, and then click NEXT.
+
+8. Enter your tax details, and then click **NEXT**.
+
+9. Click **Submit**.
+
+> [AZURE.NOTE] If you are not ready to submit your tax information for validation yet, you can click **Save** or **Save and Exit**. It takes some time to validate the tax information, so we recommend that you submit it for validation as soon as possible.
+
+> [AZURE.WARNING] You will not be able to push to production your commercial offers without completing the tax and bank account information in your Seller Dashboard account.
 
 <!--
 8. You must provide payout and tax information and submit it for validation. In order to add payout and tax information, go to Account > Payout & Tax and click Add. Enter your company's information. You will be required to provide a Tax Identification Number and other tax information matching the country in which your business is headquartered.
 -->
-Once you register your company, you can continue working in parallel while the verification of your registration is completed by the Seller Dashboard team. You can monitor the status of your approvals via the [Azure Publishing Portal][link-pubportal].
 
 ## 3. Register your account in the Publishing Portal
-The Azure Publishing Portal is used to publish and manage your offer(s). Think of it as the CMS for your offerings/artifacts. All remaining work is completed here.
+The Azure Publishing Portal is used to publish and manage your offer(s). Think of it as the CMS for your offerings/artifacts. It is how you will manage the details of your Marketplace offer, including marketing copy, pricing and endpoints for your Resource Provider, data connection, etc. Read the Publisher Portal Guide to get started. All remaining work is completed here.
 
 > [AZURE.WARNING] The same company Microsoft Account that was used in the Seller Dashboard registration MUST be used here. Additional users can be added to assist once the master publisher account has been created.
 
@@ -102,24 +143,23 @@ The Azure Publishing Portal is used to publish and manage your offer(s). Think o
 4.	Read & accept the terms of the Publisher Agreement (first time logging into Publishing Portal) and you are done here.
   > [AZURE.IMPORTANT] The participation policies are mentioned [here](http://azure.microsoft.com/support/legal/marketplace/participation-policies/).
 
-  > [AZURE.TIP] The Publisher Portal is how you will manage the details of your Add-on, including marketing copy, pricing and endpoints for your Resource Provider. Read the Publisher Portal Guide to get started. This step can be done in parallel with Steps 1, 3 and 4.
-
-| Seller Profile | To start draft | Staging | Publish Free | Publish Commercial |
-|---|--|--|--|--|
-|Company Registration | Must Have | Must Have | Must Have | Must Have |
-|Tax Profile ID | Optional | Optional | Optional | Must Have |
-|Bank Account | Optional | Optional | Optional | Must Have |
-
-## "Sell-from" countries of the offer
+**"Sell-from" Countries**
+> [AZURE.WARNING]
 In order to sell your services on Microsoft Azure Marketplace, your registered entity needs to be from one of the approved “sell from” countries. This restriction is for payout and taxation reasons. We are actively looking to expand this list of countries in the near future, so please stay tuned. For the complete list, please see section 1b of the document at link http://go.microsoft.com/fwlink/?LinkID=526833&clcid=0x409.
+
+> [AZURE.TIP] If you have issues with Seller Registration completion, please log a Support ticket as below:
+1. Contact [Support](http://go.microsoft.com/fwlink?LinkId=272975)
+2. Choose **Seller Dashboard registration and your account**
+3. Choose **Registering for a developer account**
+4. Choose contact **method**
 
 ## Next Steps
 Now that your account is created and registered, click on the type of artifact (virtual machine, developer service, data service, solution template) that you would like to publish to the Azure Marketplace. Visit one of the following articles to learn how to publish your respective offer:
 
 | Virtual Machine Image | Developer Service | Data Service | Solution Template |
-|----|---|----|----|
-|[VM Image Publishing Guide Pre-requisites][link-single-vm-prereq] | [Developer Service Publishing Pre-requisites][link-devsvc-prereq] | Data Service Publishing Pre-requisites  | [Solution Template Publishing Pre-requisites][link-multi-vm-prereq] |
-| [VM Image Publishing Guide][link-single-vm] | [Developer Service Publishing Guide][link-devsvc] | Data Service Publishing Guide | [Solution Template Publishing Guide][link-multi-vm] |
+|-----|-----|-----|-----|
+| [VM Image Pre-requisites][link-single-vm-prereq] | Developer Service Pre-requisites | Data Service Pre-requisites  | [Solution Template Pre-requisites][link-multi-vm-prereq] |
+| [VM Image Publishing Guide][link-single-vm] | Developer Service Publishing Guide | Data Service Publishing Guide | [Solution Template Publishing Guide][link-multi-vm] |
 
 [img-msalive]:media/marketplace-publishing-accounts-creation-registration/creating-msa-account-msa-live.jpg
 [img-email]:media/marketplace-publishing-accounts-creation-registration/creating-msa-account-msa-verifyemail.jpg

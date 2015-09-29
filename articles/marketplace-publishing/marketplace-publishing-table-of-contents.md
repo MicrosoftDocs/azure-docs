@@ -33,8 +33,8 @@ Some steps are shared between the different types of solutions. This provides a 
 
 | Virtual Machine Image | Developer Service | Data Service | Solution Template |
 |-----|-----|-----|-----|
-| [VM Image Pre-requisites][link-single-vm-prereq] | [Developer Service Pre-requisites][link-devsvc-prereq] | Data Service Pre-requisites  | [Solution Template Pre-requisites][link-multi-vm-prereq] |
-| [VM Image Publishing Guide][link-single-vm] | [Developer Service Publishing Guide][link-devsvc] | Data Service Publishing Guide | [Solution Template Publishing Guide][link-multi-vm] |
+| [VM Image Pre-requisites][link-single-vm-prereq] | Developer Service Pre-requisites | Data Service Pre-requisites  | [Solution Template Pre-requisites][link-multi-vm-prereq] |
+| [VM Image Publishing Guide][link-single-vm] | Developer Service Publishing Guide | Data Service Publishing Guide | [Solution Template Publishing Guide][link-multi-vm] |
 
 ## Step 3. Getting to staging
 - [Azure Marketplace Marketing Content Guide][link-pushstaging]
@@ -43,6 +43,7 @@ Some steps are shared between the different types of solutions. This provides a 
 - [Deploy your offer to the Marketplace][link-pushprod]
 
 ## Appendix
+** Virtual Machine related**
 - Setting up Azure PowerShell
 - VM Single Image instructions for developing on-premises
 

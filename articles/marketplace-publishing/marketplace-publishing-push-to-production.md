@@ -17,7 +17,7 @@
    ms.author="hascipio" />
 
 # Deploying your offer to the Azure Marketplace
-When you are satisfied with your offering e.g. tested customer scenarios, marketing content, etc. and you are ready to go live, request **Push to Production** in the **Publish** tab.  
+When you are satisfied with your offer e.g. tested customer scenarios, marketing content, etc. and you are ready to launch, request **Push to Production** in the **Publish** tab.  
 
 1.	These 4 steps on the Walkthrough page should be completed and green.
 
@@ -27,9 +27,11 @@ When you are satisfied with your offering e.g. tested customer scenarios, market
 
   ![drawing][img-pubportal-menu-publish]
 
-3. On selection of this option, below page will be displayed. Click on the option **Request approval to push to production**. Once the request is made, offer will be live and available in Marketplace shortly.
+3. On selection of this option, below page will be displayed. Click on the option **Request approval to push to production**. Once the request is made, the approval team executes a final review and then your offer will be made publically available in the  Marketplace. The status of the offer will be changed to **"Listed"**.
 
   ![drawing][img-pubportal-publish-pushproduction]
+
+> [AZURE.IMPORTANT] You can always delete the offer while it is in a **"draft"** status (i.e. never **push to staging**, **push to production**). In the **History** tab, click **Discard draft** button at the bottom of the page to delete a draft.
 
 ## Next steps
 Once the offer goes live, test the customer scenarios to validate all the contracts and functionality work properly in the production environment as tested and validated in the staging environment.
