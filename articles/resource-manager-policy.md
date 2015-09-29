@@ -16,7 +16,7 @@
 	ms.date="09/29/2015"
 	ms.author="gauravbh;tomfitz"/>
 
-# Use Resource Manager Policy to prevent access violations
+# Use Policy to manage resources and control access
 
 Azure Resource Manager now allows you to control access through custom
 policies. A policy represents one or more violations that can be prevented
@@ -142,7 +142,7 @@ the location North Europe or West Europe.
       "if" : {
         "not" : {
           "field" : "location",
-          "in" : ["northeurope" , "westeurope"]
+          "in" : ["north europe" , "west europe"]
         }
       },
       "then" : {
