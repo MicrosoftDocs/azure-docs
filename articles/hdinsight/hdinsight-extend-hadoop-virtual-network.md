@@ -64,6 +64,9 @@ For more information on Virtual Network features, benefits, and capabilities, se
 > Azure HDInsight supports only location-based virtual networks, and does not currently work with virtual networks based on affinity group.
 >
 > It is highly recommended to designate a single subnet for each cluster.
+>
+
+[AZURE.INCLUDE [linux-v1-note](../../includes/hdinsight-linux-vnet-v1.md)]
 
 For more information on provisioning an HDInsight cluster on a virtual network, see [Provisioning Hadoop clusters in HDInsight](hdinsight-provision-clusters.md).
 

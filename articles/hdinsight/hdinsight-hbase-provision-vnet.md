@@ -78,7 +78,9 @@ Before provisioning an HBase cluster, you need to have an Azure virtual network.
 2. Click **NEW**, click **Networking**, and then click **Virtual network**.
 3. In **Select a deployment model**, select **Classic**, and then click **Create**.
 
-	>[AZURE.NOTE] Windows based HDInsight cluster can only be deployed to a classic virtual network.
+	>[AZURE.NOTE] You cannot use a v1 (Classic,) Azure Virtual Network with HDInsight. The Virtual Network must be v2 (Azure Resource Manager,) in order for it to be listed as an option during the HDInsight cluster creation process in the Azure preview portal, or to be usable when creating a cluster from the Azure CLI or Azure PowerShell.
+> 
+> If you have resources on a v1 network, and you wish to make HDInsight directly accessible to those resources through a virtual network, see [Connecting classic VNets to new VNets](../virtual-network/virtual-networks-arm-asm-s2s.md) for information on how to connect a v2 Virtual Network to a v1 Virtual Network. Once this connection is established, you can create the HDInsight cluster in the v2 Virtual Network.
 
 4. Type or select the following values:
 

@@ -115,7 +115,9 @@ You can provision HDInsight clusters from the Azure portal by using the followin
 
 		> [AZURE.IMPORTANT] You must create the Azure Virtual Network before creating the HDInsight cluster, as you cannot create a new network from HDInsight configuration.
 		>
-		> Currently (8/25/2015) there is a limitation that only one Linux-based HDInsight cluster can be present on an Azure Virtual Network.
+		> Currently (8/25/2015) there is a limitation that only one Linux-based HDInsight cluster can be present on an Azure Virtual Network. 
+        
+        [AZURE.INCLUDE [linux-v1-note](../../includes/hdinsight-linux-vnet-v1.md)]
 
 	* __Script Actions__: This allows you to specify Bash scripts that customize the HDInsight cluster during provisioning. For example, there is a [script that installs Hue](hdinsight-hadoop-hue-linux.md) (a graphical client for working with Hadoop.) For more information on Script Actions, see [Customize HDInsight clusters using Script Action](hdinsight-hadoop-customize-cluster-linux.md).
 

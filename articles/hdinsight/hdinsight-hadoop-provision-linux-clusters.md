@@ -95,7 +95,9 @@ For more information on Virtual Network features, benefits, and capabilities, se
 > It is highly recommended to designate a single subnet for one cluster.
 >
 > Currently (8/25/2015,) you can only provision one Linux-based cluster in an Azure Virtual Network.
+>
 
+[AZURE.INCLUDE [linux-v1-note](../../includes/hdinsight-linux-vnet-v1.md)]
 
 ## <a id="options"></a> Options for provisioning an HDInsight Linux cluster
 
