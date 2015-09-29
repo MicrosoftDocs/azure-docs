@@ -25,7 +25,7 @@
 You want a complete code sample for a robust way to capture and report information for an extended event.
 
 
-In Microsoft SQL Server the [Event File target](http://msdn.microsoft.com/library/ff878115.aspx) is used to store event outputs into a regular plain file. But plain files are not available to Azure SQL Database. Instead we use the Azure Storage service to support the Event File target.
+In Microsoft SQL Server the [Event File target](http://msdn.microsoft.com/library/ff878115.aspx) is used to store event outputs into a local hard drive file. But such files are not available to Azure SQL Database. Instead we use the Azure Storage service to support the Event File target.
 
 
 This topic presents a two-phase code sample:
@@ -50,9 +50,9 @@ This topic presents a two-phase code sample:
 
 - SQL Server Management Studio (ssms.exe), its August 2015 Preview or a later version. 
 You can download the latest ssms.exe from:
- - [A link in topic.](http://msdn.microsoft.com/library/mt238290.aspx)
+ - Topic titled [Download SQL Server Management Studio](http://msdn.microsoft.com/library/mt238290.aspx).
  - [A direct link to the download.](http://go.microsoft.com/fwlink/?linkid=616025)
- - Microsoft recommends that you update your ssms.exe periodically.
+ - Microsoft recommends that you update your ssms.exe periodically. In some cases ssms.exe will be updated monthly.
 
 
 - You must have the [Azure PowerShell modules](http://go.microsoft.com/?linkid=9811175) installed.
@@ -72,7 +72,7 @@ The script starts with commands to clean-up after a possible previous run, and i
 
 2. Start PowerShell ISE as an Administrator.
 
-3. At the prompt, type `Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope CurrentUser`, and press Enter.
+3. At the prompt, type<br/>`Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope CurrentUser`<br/>and then press Enter.
 
 4. In PowerShell ISE, open your **.ps1** file. Run the script.
 
@@ -262,7 +262,8 @@ Take note of the few named values that the PowerShell script prints when it ends
 ## Phase 2: Transact-SQL code that uses Azure Storage container
 
 
-In phase 1 of this code sample you ran a PowerShell script to create an Azure Storage container. Next in phase 2, the following Transact-SQL script must use the container.
+- In phase 1 of this code sample you ran a PowerShell script to create an Azure Storage container.
+- Next in phase 2, the following Transact-SQL script must use the container.
 
 
 The script starts with commands to clean-up after a possible previous run, and is designed to be rerunnable.
@@ -477,9 +478,15 @@ GO
 DROP TABLE gmTabEmployee;
 GO
 
-PRINT 'Use PowerShell to delete your Azure Storage account!';
+PRINT 'Use PowerShell Remove-AzureStorageAccount to delete your Azure Storage account!';
 GO
 ```
+
+
+&nbsp;
+
+
+If the target fails to attach when you run<br/>`ALTER EVENT SESSION ... STATE = START;`<br/>you must stop and restart the event session.
 
 
 &nbsp;

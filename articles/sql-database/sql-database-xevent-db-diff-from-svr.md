@@ -48,7 +48,7 @@ This topic assumes you already have some knowledge of:
 
 
 - [Extended events](http://msdn.microsoft.com/library/bb630282.aspx) in Microsoft SQL Server.
- -The bulk of our documentation about extended events applies to both SQL Server and SQL Database.
+ - The bulk of our documentation about extended events applies to both SQL Server and SQL Database.
 
 
 Prior exposure to the following items is helpful when choosing the Event File as the [target](#AzureXEventsTargets):
