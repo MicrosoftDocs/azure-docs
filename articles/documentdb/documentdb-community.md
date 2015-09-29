@@ -25,10 +25,23 @@
 Let us promote your project! Show us the awesome project you're working on with DocumentDB, and we will help share your genius with the world. To submit your project, send us an e-mail at: [askdocdb@microsoft.com](mailto:askdocdb@microsoft.com).
 
 
-| documentdb-lumenize | DocumentDB Studio |
-| ------------------- | ----------------- |
-| *by Larry Maccherone*<br/><br/>Aggregations (Group-by, Pivot-table, and N-dimensional Cube) and Time Series Transformations as Stored Procedures in DocumentDB.<br/><br/>Check it out on [Github](https://github.com/lmaccherone/documentdb-lumenize) and [npm](https://www.npmjs.com/package/). | *by Ming Liu*<br/><br/>A client management viewer/explorer for Microsoft Azure DocumentDB service.<br/><br/>Check it out on [Github](https://github.com/mingaliu/DocumentDBStudio). |
+### documentdb-lumenize
 
+*by Larry Maccherone*
+
+Aggregations (Group-by, Pivot-table, and N-dimensional Cube) and Time Series Transformations as Stored Procedures in DocumentDB.
+
+Check it out on [Github](https://github.com/lmaccherone/documentdb-lumenize) and [npm](https://www.npmjs.com/package/).
+
+### DocumentDB Studio
+
+*by Ming Liu*
+
+A client management viewer/explorer for Microsoft Azure DocumentDB service.
+
+Check it out on [Github](https://github.com/mingaliu/DocumentDBStudio).
+
+<hr/>
 
 ## Recent and Upcoming Events
 
@@ -41,6 +54,10 @@ Let us promote your project! Show us the awesome project you're working on with 
 | [CloudDevelop 2015](http://www.clouddevelop.org/) | Columbus, OH | October 23, 2015 | [#CloudDevConf](https://twitter.com/hashtag/CloudDevConf) |
 | [PASS Summit 2015](http://www.sqlpass.org/summit/2015/Home.asp) | Seattle, WA | October 27-30, 2015 | [#Summit15](https://twitter.com/hashtag/Summit15) |
 
+
+Are you hosting an event? [Let us know](mailto:askdocdb@microsoft.com) how we can help!
+
+<hr/>
 
 ## News
 
@@ -55,6 +72,8 @@ Do you have a blog post, code sample, or case-study you'd like to share? [Let us
 ### Social
 
 Follow us on twitter [@DocumentDB](https://twitter.com/DocumentDB) and stay up to date with the latest conversation on the [#DocumentDB](https://twitter.com/hashtag/DocumentDB) hashtag.
+
+<hr/>
 
 ## Discussion
 
@@ -82,6 +101,8 @@ You can also shoot us an [e-mail](mailto:askdocdb@microsoft.com) or tweet us at 
 You can chat with us in real-time over IRC on `chat.freenode.net` in the `#documentdb` channel with an [IRC client](http://www.irchelp.org/) or by connecting in your web channel to the channel using Freenode's [WebChat](http://webchat.freenode.net/?channels=documentdb).
 
 We host office hours on IRC every Friday from 11am to 12pm pacific time.
+
+<hr/>
 
 ## Learning Resources
 
