@@ -78,7 +78,7 @@ If you want to use Azure AD accounts, you need to make sure that your Azure AD t
  
 ### Hybrid (or cloud + Azure AD + AD)
 
-Using Azure AD + on-premises Active Directory is a prereq for a hybrid collection. You need to use AD Connect to integrate the two directories. But you do have some choice when it comes to how you configure AD Connect. 
+Using Azure AD + on-premises Active Directory is a prerequisite for a hybrid collection. You need to use AD Connect to integrate the two directories. But you do have some choice when it comes to how you configure AD Connect. 
 
 There are 2 AD Connect scenarios - using password synchronization or using AD federation. Check out the [AD Connect information](active-directory-aadconnect.md) to figure out which of these works best for you.
 
@@ -89,4 +89,4 @@ Check out [Azure AD + Active Directory requirements for Azure RemoteApp](remotea
 ## Go create your collection!
 Ok, I think we've figured it out now, so there's just one thing left to do - create your first Azure RemoteApp collection.
 
-[Create a cloud collection](remoteapp-create-cloud-deployment) or [create a hybrid collection](remoteapp-create-hybrid-deployment) - just get creating.
+[Create a cloud collection](remoteapp-create-cloud-deployment.md) or [create a hybrid collection](remoteapp-create-hybrid-deployment.md) - just get creating.

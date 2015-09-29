@@ -68,7 +68,7 @@ See [Accessing your apps in Azure RemoteApp](remoteapp-clients.md) for more info
 ## Next steps
 Go! Try it out! These articles help get you started with RemoteApp:
 
-- [What kind of collection do you need for Azure RemoteApp?](remoteapp-colletions.md)
+- [What kind of collection do you need for Azure RemoteApp?](remoteapp-collections.md)
 - [Create a RemoteApp image](remoteapp-imageoptions.md)
 - [How to create a cloud collection of RemoteApp](remoteapp-create-cloud-deployment.md)
 - [How to create a hybrid collection of RemoteApp](remoteapp-create-hybrid-deployment.md)
