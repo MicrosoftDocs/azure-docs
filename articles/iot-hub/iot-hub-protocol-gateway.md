@@ -34,7 +34,8 @@ The MQTT adapter also demonstrates the programming model for building protocol a
 
 To learn more about the Azure IoT protocol gateway, and how to use and deploy it as part of your IoT solution, please see:
 
-* [Azure IoT protocol gateway repository on GitHub](https://github.com/Azure/azure-iot-protocol-gateway/)
-* [Azure IoT protocol gateway developer guide](https://github.com/Azure/azure-iot-protocol-gateway/blob/master/DeveloperGuide.md)
+* [Azure IoT protocol gateway repository on GitHub](https://github.com/Azure/azure-iot-protocol-gateway/blob/master/README.md)
+* [Azure IoT protocol gateway developer guide](https://github.com/Azure/azure-iot-protocol-gateway/blob/master/docs/DeveloperGuide.md)
+
 
 
