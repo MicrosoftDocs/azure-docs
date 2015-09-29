@@ -50,7 +50,7 @@ The following table provides a matrix of available SQL Server images in the virt
 
 In addition to these preconfigured images, you can also [create an Azure virtual machine](virtual-machines-windows-tutorial.md) without SQL Server pre-installed. You can install any instance of SQL Server for which you have a license. You migrate your license to Azure for running SQL Server in an Azure Virtual Machine using [License Mobility through Software Assurance on Azure](http://azure.microsoft.com/pricing/license-mobility/). In this scenario, you only pay for Azure compute and storage [costs](http://azure.microsoft.com/pricing/details/virtual-machines) associated with the virtual machine.
 
-In order to determine the best virtual machine configuration settings for your SQL Server image, review the [Performance best practices for SQL Server in Azure Virtual Machines](virtual-machines-sql-server-performance-best-practices.md). Note that **DS3** is the minimum recommended virtual machine size for SQL Server Enterprise edition, and **DS2** is the minimum recommended virtual machine size for Standard edition. It is possible, however, to run lighter workloads on other machine sizes.
+In order to determine the best virtual machine configuration settings for your SQL Server image, review the [Performance best practices for SQL Server in Azure Virtual Machines](virtual-machines-sql-server-performance-best-practices.md). Note that **DS3** is the minimum recommended virtual machine size for SQL Server Enterprise edition, and **DS2** is the minimum recommended virtual machine size for Standard edition.
 
 In addition to reviewing performance best practices, other initial tasks include the following:
 
