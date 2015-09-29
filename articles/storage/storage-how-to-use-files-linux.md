@@ -1,11 +1,11 @@
 <properties
-			pageTitle="How to use Azure File storage with Linux | Microsoft Azure"
-            description="Create a file share in the cloud and mount it from an Azure VM or an on-premises application running on Linux."
-            services="storage"
-            documentationCenter="na"
-            authors="jutang"
-            manager="jahogg"
-            editor="" />
+	pageTitle="How to use Azure File storage with Linux | Microsoft Azure"
+        description="Create a file share in the cloud and mount it from an Azure VM or an on-premises application running on Linux."
+        services="storage"
+        documentationCenter="na"
+        authors="jutang"
+        manager="jahogg"
+        editor="" />
 
 <tags ms.service="storage"
       ms.workload="storage"
