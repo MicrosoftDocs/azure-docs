@@ -20,7 +20,7 @@
 
 #Configuring on-premises live encoders
 
-This topic lists on-premises live encoders that you can use to capture your live events and send a single bitrate live stream to AMS Channels for further processing and delivery. The topic also links to tutorials that show how to configure listed encoders.
+This topic lists on-premises live encoders that you can use to capture your live events and send a single bitrate live stream to AMS Channels for further processing. The topic also links to tutorials that show how to configure listed encoders.
 
 
 ##Elemental Live
