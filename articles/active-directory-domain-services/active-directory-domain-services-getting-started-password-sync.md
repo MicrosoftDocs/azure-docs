@@ -29,18 +29,18 @@ The steps involved are different based on whether your organization is a cloud-o
 If your organization is a cloud-only Azure AD tenant, users that need to use Azure AD Domain Services will need to change their passwords. This step causes the credential hashes required by Azure AD Domain Services for Kerberos and NTLM authentication to be generated in Azure AD. You can either expire passwords for all users in the tenant that need to use Azure AD Domain Services or instruct these end-users to change their passwords.
 
 Here are instructions you need to provide end users in order to change their passwords:
-- Navigate to the Azure AD Access Panel page for your organization. This is typically at http://myapps.microsoft.com.
-- Select the **profile** tab on this page.
-- Click on the **Change password** tile on this page to initiate a password change.
 
+1. Navigate to the Azure AD Access Panel page for your organization. This is typically available at [http://myapps.microsoft.com](http://myapps.microsoft.com).
+2. Select the **profile** tab on this page.
+3. Click on the **Change password** tile on this page to initiate a password change.
 
-![Create a virtual network for Azure AD Domain Services.](./media/active-directory-domain-services-getting-started/user-change-password.png)
+    ![Create a virtual network for Azure AD Domain Services.](./media/active-directory-domain-services-getting-started/user-change-password.png)
 
-- This brings up the **change password** page. The user can then enter their existing (old) password and proceed to change their password.
+4. This brings up the **change password** page. The user can then enter their existing (old) password and proceed to change their password.
 
-![Create a virtual network for Azure AD Domain Services.](./media/active-directory-domain-services-getting-started/user-change-password2.png)
+    ![Create a virtual network for Azure AD Domain Services.](./media/active-directory-domain-services-getting-started/user-change-password2.png)
 
-After users have changed their password, the new password will be synchronized to Azure AD Domain Services shortly. After the password sync is complete, users can then login to the domain using their newly changed password.
+After users have changed their password, the new password will be synchronized to Azure AD Domain Services shortly. After the password synchronization is complete, users can then login to the domain using their newly changed password.
 
 
 #### Enable password synchronization for synced tenants
@@ -50,9 +50,9 @@ If the Azure AD tenant for your organization is set to synchronize with your on-
 
 You will need to install the GA release of Azure AD Connect on a domain joined computer. If you have an existing instance of Azure AD Connect setup, you will need to update it to use the Azure AD Connect GA build.
 
-*Download Azure AD Connect – (GA release only):* Download the GA release of Azure AD Connect from the following link: "http://download.microsoft.com/download/B/0/0/B00291D0-5A83-4DE7-86F5-980BC00DE05A/AzureADConnect.msi"
+  [Download Azure AD Connect – GA release)](http://download.microsoft.com/download/B/0/0/B00291D0-5A83-4DE7-86F5-980BC00DE05A/AzureADConnect.msi)
 
-> [AZURE.NOTE] You MUST install the GA release of Azure AD Connect in order to enable legacy password credentials (required for NTLM and Kerberos authentication) to sync to your Azure AD tenant. This functionality is not available in prior releases of Azure AD COnnect.
+  > [AZURE.NOTE] You MUST install the GA release of Azure AD Connect in order to enable legacy password credentials (required for NTLM and Kerberos authentication) to sync to your Azure AD tenant. This functionality is not available in prior releases of Azure AD COnnect.
 
 Installation instructions for Azure AD Connect are available in the following MSDN article - https://msdn.microsoft.com/en-us/library/azure/dn832695.aspx
 
@@ -63,10 +63,11 @@ Installation instructions for Azure AD Connect are available in the following MS
 Enable synchronization of legacy credentials required for NTLM authentication in Azure AD Domain Services. You can do this by creating the following registry key on the machine where Azure AD Connect was installed.
 
 Create the following DWORD registry key and set it to 1.
-```
-“HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\MSOLCoExistence\PasswordSync\EnableWindowsLegacyCredentialsSync”
 
-Set its value to 1.
+```
+ “HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\MSOLCoExistence\PasswordSync\EnableWindowsLegacyCredentialsSync”
+
+ Set its value to 1.
 ```
 
 **Step 3: Force full password synchronization**
