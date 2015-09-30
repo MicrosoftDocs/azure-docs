@@ -43,11 +43,9 @@ In the **SQL Data Warehouse** pane, fill in the following fields. **Server** and
 
 1. **Database name**: Enter a name for your SQL Data Warehouse database.
 
-2. **Performance**: Move the slider to the left to choose 100 DWUs. 
+2. **Performance**: You can adjust the performance that your instance will start with while you are provisioning.  We recommend starting with 400 DWU as it will let you see more of the MPP benefits that SQL Data Warehouse offers. 
      
     ![Name and DWU](./media/sql-data-warehouse-get-started-provision/name-and-dwu.png)
-
-	Since this walkthrough uses a small sample database, you only need a small number of DWUs. Save resources for the rest of your Azure trial. 
 
     > [AZURE.NOTE] We measure performance in Data Warehouse Units (DWUs). As you increase DWUs, SQL Data Warehouse increases the computing resources available for your data warehouse database operations. 
 
@@ -64,9 +62,7 @@ In the **SQL Data Warehouse** pane, fill in the following fields. **Server** and
 
     ![Create a new server](./media/sql-data-warehouse-get-started-provision/create-new-server.png)
 
-    > [AZURE.NOTE] In SQL Data Warehouse and SQL Database, a server provides a consistent way to  configure cloud-based databases. In Azure, a server is not physical hardware like it is for an on-premises instance of SQL Server; it is part of the service software. This is why we call it a logical server. 
-    > 
-    > All the databases assigned to the same logical server are physically stored in the same Azure data center. Both SQL Database and SQL Data Warehouse can have databases that belong to the same logical server.
+    >[AZURE.NOTE]  In SQL Data Warehouse and SQL Database, a server provides a consistent way to configure cloud-based databases. In Azure, even though a server is tied to a single data center, it is not physical hardware like it is for an on-premises instance of SQL Server; it is part of the service software. This is why we call it a logical server.  Please note that, unlike the real world, workloads running databases and data warehouses on the same server will not have a performance impact on each other.
 
 1. In the **New server** window, fill in the requested information. 
 
@@ -75,7 +71,7 @@ In the **SQL Data Warehouse** pane, fill in the following fields. **Server** and
 	- **Server Admin Name**. Enter a user name for the server administrator account.
 	- **Password**. Enter the server admin password. 
 	- **Location**. Choose a geographical location that is close to you. This will reduce network latency since all databases and resources that belong to your logical server will be physically located in the same location. 
-	- **Allow Azure services to access server**. Keep this checked so other Azure services can integrate with your server.
+	- **Allow Azure services to access server**. Keep this checked so other Azure services can integrate with your server.  Note that if this is not checked then you will not be able to provision your data warehouse with sample data. 
 	- **V12 server**. Choose YES. SQL Data Warehouse requires a V12 server.
 
     ![Configure new server](./media/sql-data-warehouse-get-started-provision/configure-new-server.png)
