@@ -164,13 +164,9 @@ In this section you deploy web project to the web app, as illustrated in step 2 
 
 	![Choose Publish](./media/web-sites-dotnet-get-started/choosepublish.png)
 
-	In a few seconds, the **Publish Web** wizard appears.
-
-	Settings that Visual Studio needs to deploy your project to Azure have been saved in a *publish profile*. You can use the wizard to review and change those settings.
+	In a few seconds, the **Publish Web** wizard appears. The wizard opens to a *publish profile* that has settings for deploying the web project to the new web app. If you wanted to deploy to a different web app, you could click the **Profile** tab to create a different profile. For this tutorial, you'll accept the settings that deploy to the web app that you created earlier.
 
 8. On the **Connection** tab of the **Publish Web** wizard, click **Next**.
-
-	Visual Studio provides all the settings you need to deploy to your Azure web app.
 
 	![Successfully validated connection](./media/web-sites-dotnet-get-started/GS13ValidateConnection.png)
 
