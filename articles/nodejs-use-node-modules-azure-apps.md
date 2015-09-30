@@ -73,7 +73,7 @@ Now that you understand how to use Node.js modules with Azure, learn how to [spe
 For more information, see the [Node.js Developer Center](/develop/nodejs/).
 
 [specify the Node.js version]: nodejs-specify-node-version-azure-apps.md
-[How to use the Azure Command-Line Interface for Mac and Linux]: xplat-cli.md
+[How to use the Azure Command-Line Interface for Mac and Linux]: xplat-cli-install.md
 [build and deploy a Node.js Web Site]: web-sites-nodejs-develop-deploy-mac.md
 [Node.js Web Application with Storage on MongoDB (MongoLab)]: store-mongolab-web-sites-nodejs-store-data-mongodb.md
 [Publishing with Git]: web-sites-publish-source-control.md

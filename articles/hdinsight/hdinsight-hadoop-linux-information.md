@@ -124,7 +124,7 @@ You can also find the storage information using the Azure preview portal:
 
 Other than through the Hadoop command from the cluster, there are a variety of ways to access blobs:
 
-* [Azure CLI for Mac, Linux and Windows](../xplat-cli.md): Command-Line interface commands for working with Azure. After installing, use the `azure storage` command for help on using storage, or `azure blob` for blob-specific commands.
+* [Azure CLI for Mac, Linux and Windows](../xplat-cli-install.md): Command-Line interface commands for working with Azure. After installing, use the `azure storage` command for help on using storage, or `azure blob` for blob-specific commands.
 
 * [blobxfer.py](https://github.com/Azure/azure-batch-samples/tree/master/Python/Storage): A python script for working with blobs in Azure Storage.
 

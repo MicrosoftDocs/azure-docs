@@ -14,7 +14,7 @@
 	ms.workload="search"
 	ms.topic="article" 
 	ms.tgt_pltfrm="na"
-	ms.date="09/16/2015"
+	ms.date="09/29/2015"
 	ms.author="heidist"/>
 
 #Azure Search: tutorials, video demos, and samples
@@ -31,6 +31,7 @@ Get up to speed faster with the following videos, demos, tutorials, and sample a
 
 Link|Description
 ----|-----------
+[AzureCon 2015 Best Practices for Azure Search](https://azure.microsoft.com/en-us/documentation/videos/azurecon-2015-azure-search-best-practices-for-web-and-mobile-applications/)|Practical advice on how to achieve scale, optimum performance, and coding efficiency when building apps for Web or mobile scenarios. 
 [Microsoft Virtual Academy: Adding Azure Search to your Websites and Apps](http://channel9.msdn.com/Series/Adding-Microsoft-Azure-Search-to-Your-Websites-and-Apps)|7-part series on how to add Azure Search to an application, presented by Liam Cavanagh, Janusz Lembicz, and Bernardita Torres Garayar.
 [Build 2015: Modern Data](http://channel9.msdn.com/Events/Build/2015/2-663)|At 29 minutes into the session, learn how Azure Search fits in the modern data revolution, presented by Shawn Bice and Pablo Castro.
 [Build 2015: Using Azure Search to Build Great Search Experiences in Mobile and WebApps](http://channel9.msdn.com/Events/Build/2015/2-745)|Pablo Castro presents at Microsoft Build 2015.

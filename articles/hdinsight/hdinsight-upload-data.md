@@ -62,7 +62,7 @@ Microsoft provides the following utilities to work with Azure Blob storage:
 
 The Azure CLI is a cross-platform tool that allows you to manage Azure services. Use the following steps to upload data to Azure Blob storage:
 
-1. [Install and configure the Azure CLI for Mac, Linux and Windows](../xplat-cli.md).
+1. [Install and configure the Azure CLI for Mac, Linux and Windows](../xplat-cli-install.md).
 
 2. Open a command prompt, bash, or other shell, and use the following to authenticate to your Azure subscription.
 
@@ -278,7 +278,7 @@ Now that you understand how to get data into HDInsight, read the following artic
 
 [Powershell-install-configure]: ../powershell-install-configure.md
 
-[azurecli]: ../xplat-cli.md
+[azurecli]: ../xplat-cli-install.md
 
 
 [image-azure-storage-explorer]: ./media/hdinsight-upload-data/HDI.AzureStorageExplorer.png
