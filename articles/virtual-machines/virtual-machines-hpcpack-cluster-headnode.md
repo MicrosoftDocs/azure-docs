@@ -1,6 +1,6 @@
 <properties
- pageTitle="Set up HPC Pack cluster in an Azure VM | Microsoft Azure"
- description="Learn how to use the Azure portal and the classic deployment model to create a Microsoft HPC Pack head node in an Azure VM. "
+ pageTitle="Create an HPC Pack head node in an Azure VM | Microsoft Azure"
+ description="Learn how to use the Azure portal and the classic deployment model to create a Microsoft HPC Pack head node in an Azure VM."
  services="virtual-machines"
  documentationCenter=""
  authors="dlepow"
@@ -16,7 +16,7 @@ ms.service="virtual-machines"
  ms.date="09/28/2015"
  ms.author="danlep"/>
 
-# Set up the head node of an HPC Pack cluster in an Azure VM
+# Create the head node of an HPC Pack cluster in an Azure VM with a Marketplace image
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)] This article applies to creating a resource with the classic deployment model.
 

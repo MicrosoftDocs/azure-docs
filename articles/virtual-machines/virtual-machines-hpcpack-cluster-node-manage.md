@@ -1,5 +1,5 @@
 <properties
- pageTitle="Manage compute nodes in HPC Pack cluster | Microsoft Azure"
+ pageTitle="Manage HPC Pack cluster compute nodes | Microsoft Azure"
  description="Learn about PowerShell script tools to add, remove, start, and stop HPC Pack cluster compute nodes in Azure"
  services="virtual-machines"
  documentationCenter=""
@@ -16,7 +16,7 @@ ms.service="virtual-machines"
  ms.date="09/28/2015"
  ms.author="danlep"/>
 
-# Manage compute nodes in an HPC Pack cluster in Azure
+# Manage the number and availability of compute nodes in an HPC Pack cluster in Azure
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)] This article applies to managing a resource created with the classic deployment model.
 

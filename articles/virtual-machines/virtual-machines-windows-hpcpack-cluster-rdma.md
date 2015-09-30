@@ -16,7 +16,7 @@ ms.service="virtual-machines"
  ms.date="09/28/2015"
  ms.author="danlep"/>
 
-# Set up a Windows RDMA cluster with HPC Pack to run MPI applications
+# Set up a Windows RDMA cluster with HPC Pack and A8 and A9 instances to run MPI applications
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)] This article applies to creating a resource with the classic deployment model.
 

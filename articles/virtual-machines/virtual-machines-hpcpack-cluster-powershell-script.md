@@ -16,7 +16,7 @@
    ms.date="09/29/2015"
    ms.author="danlep"/>
 
-# Create an HPC cluster with the HPC Pack IaaS deployment script
+# Create a high performance computing (HPC) cluster in Azure VMs with the HPC Pack IaaS deployment script
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)] This article applies to creating a resource with the classic deployment model.
 

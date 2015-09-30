@@ -16,7 +16,7 @@ ms.service="virtual-machines"
  ms.date="09/28/2015"
  ms.author="danlep"/>
 
-# HPC cluster options with Microsoft HPC Pack in Azure
+# Options to create and manage a high peformance computing (HPC) cluster in Azure with Microsoft HPC Pack
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)] This article applies to creating a resource with the Resource Manager deployment model or the classic deployment model.
 

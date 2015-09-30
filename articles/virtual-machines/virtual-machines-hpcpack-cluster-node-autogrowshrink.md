@@ -16,7 +16,7 @@ ms.service="virtual-machines"
  ms.date="09/28/2015"
  ms.author="danlep"/>
 
-# Grow and shrink Azure compute resources in an HPC Pack cluster
+# Automatically scale Azure compute resources up and down in an HPC Pack cluster according to the cluster workload
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)] This article applies to managing a resource created with the classic deployment model.
 

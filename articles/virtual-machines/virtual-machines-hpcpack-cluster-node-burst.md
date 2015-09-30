@@ -16,7 +16,7 @@ ms.service="virtual-machines"
  ms.date="09/28/2015"
  ms.author="danlep"/>
 
-# Add Azure "burst" nodes to an HPC Pack cluster in Azure
+# Add on-demand "burst" nodes (worker role instances) as compute resources to an HPC Pack cluster in Azure
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)] This article applies to creating a resource with the classic deployment model.
 

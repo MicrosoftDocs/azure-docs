@@ -1,6 +1,6 @@
 <properties
  pageTitle="Submit jobs to an HPC Pack cluster in Azure | Microsoft Azure"
- description="Lear how to set up an on-premises computer to submit jobs to an HPC Pack cluster in Azure"
+ description="Learn how to set up an on-premises computer to submit jobs to an HPC Pack cluster in Azure"
  services="virtual-machines"
  documentationCenter=""
  authors="dlepow"
@@ -16,7 +16,7 @@ ms.service="virtual-machines"
  ms.date="09/28/2015"
  ms.author="danlep"/>
 
-# Submit jobs to an HPC Pack cluster in Azure
+# Submit HPC jobs from an on-premises computer to an HPC Pack cluster in Azure
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)] This article applies to managing a resource created with the Resource Manager deployment model or the classic deployment model.
 
