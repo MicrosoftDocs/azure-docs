@@ -64,6 +64,7 @@ Here’s a table of contents for what follows:
 1. [Where to Put all this PowerShell?](#where-to-put-all-this-powershell?)
 1. [Creating and Maintaining Package Metadata](#creating-and-maintaining-package-metadata) 
 
+
 ## Setting up the Pull Server and Automation Account
 
 At an authenticated (Add-AzureAccount) PowerShell command line:  (can take a few minutes while the pull server is set up)
