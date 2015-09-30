@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Configuring on-premises live encoders" 
-	description="This topic lists on-premises live encoders that you can use to capture your live events and send a single bitrate live stream to AMS channels for further processing. The topic links to tutorials that show how to configure listed encoders." 
+	description="This topic lists on-premises live encoders that you can use to capture your live events and send a single bitrate live stream to AMS channels (that are live encoding enabled) for further processing. The topic links to tutorials that show how to configure listed encoders." 
 	services="media-services" 
 	documentationCenter="" 
 	authors="juliako" 
@@ -20,7 +20,7 @@
 
 #Configuring on-premises live encoders
 
-This topic lists on-premises live encoders that you can use to capture your live events and send a single bitrate live stream to AMS Channels for further processing. The topic also links to tutorials that show how to configure listed encoders.
+This topic lists on-premises live encoders that you can use to capture your live events and send a single bitrate live stream to AMS channels (that are live encoding enabled) for further processing. The topic also links to tutorials that show how to configure listed encoders.
 
 
 ##Elemental Live
@@ -35,7 +35,7 @@ For information on how to configure the [Flash Media Live Encoder](http://www.ad
 
 For information on how to configure the [Telestream Wirecast](http://www.telestream.net/wirecast/overview.htm) encoder to send a single bitrate live stream to an AMS Channel, see [Configuring Wirecast](media-services-configure-wirecast-live-encoder.md).
 
-##Tricaster
+##NewTek TriCaster
 
 For information on how to configure the [Tricaster](http://newtek.com/products/tricaster-40.html) encoder to send a single bitrate live stream to an AMS Channel, see [Configuring Tricaster](media-services-configure-tricaster-live-encoder.md).
 
@@ -46,3 +46,7 @@ You can view AMS learning paths here:
 
 - [AMS Live Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
 - [AMS on Demand Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
+## See also
+
+[Working with Channels that are Enabled to Perform Live Encoding with Azure Media Services](media-services-manage-live-encoder-enabled-channels.md).
