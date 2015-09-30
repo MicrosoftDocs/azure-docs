@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/29/2015"
+	ms.date="09/30/2015"
 	ms.author="mahesh-unnikrishnan"/>
 
 # Azure AD Domain Services *(Preview)*
@@ -50,12 +50,11 @@ If the Azure AD tenant for your organization is set to synchronize with your on-
 
 You will need to install the GA release of Azure AD Connect on a domain joined computer. If you have an existing instance of Azure AD Connect setup, you will need to update it to use the Azure AD Connect GA build.
 
-  [Download Azure AD Connect – GA release)](http://download.microsoft.com/download/B/0/0/B00291D0-5A83-4DE7-86F5-980BC00DE05A/AzureADConnect.msi)
+  [Download Azure AD Connect – GA release](http://download.microsoft.com/download/B/0/0/B00291D0-5A83-4DE7-86F5-980BC00DE05A/AzureADConnect.msi)
 
-  > [AZURE.NOTE] You MUST install the GA release of Azure AD Connect in order to enable legacy password credentials (required for NTLM and Kerberos authentication) to sync to your Azure AD tenant. This functionality is not available in prior releases of Azure AD COnnect.
+> [AZURE.WARNING] You MUST install the GA release of Azure AD Connect in order to enable legacy password credentials (required for NTLM and Kerberos authentication) to sync to your Azure AD tenant. This functionality is not available in prior releases of Azure AD COnnect.
 
-Installation instructions for Azure AD Connect are available in the following MSDN article - https://msdn.microsoft.com/en-us/library/azure/dn832695.aspx
-
+Installation instructions for Azure AD Connect are available in the following MSDN article - [https://msdn.microsoft.com/en-us/library/azure/dn832695.aspx](https://msdn.microsoft.com/en-us/library/azure/dn832695.aspx)
 
 
 **Step 2: Enable synchronization of legacy credentials to Azure AD**
