@@ -37,7 +37,7 @@ Before you begin this tutorial, you must have the following:
 
 - __Python__ and [pip](https://pypi.python.org/pypi/pip)
 
-- The __Azure CLI__. For more information, see [Install and configure the Azure CLI](../xplat-cli.md)
+- The __Azure CLI__. For more information, see [Install and configure the Azure CLI](../xplat-cli-install.md)
 
 ##Get a Twitter feed
 

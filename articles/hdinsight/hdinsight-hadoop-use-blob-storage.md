@@ -102,7 +102,7 @@ When provisioning an HDInsight cluster from the preview portal, you have the opt
 
 ###Using Azure CLI
 
-If you have [installed and configured the Azure CLI](../xplat-cli.md), the following command can be used to a storage account and container.
+If you have [installed and configured the Azure CLI](../xplat-cli-install.md), the following command can be used to a storage account and container.
 
 	azure storage account create <storageaccountname> --type LRS
 
