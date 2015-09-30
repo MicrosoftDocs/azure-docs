@@ -70,9 +70,7 @@ In the **SQL Data Warehouse** pane, fill in the following fields. **Server** and
 	- **Server Name**. Enter a name for your logical server.
 	- **Server Admin Name**. Enter a user name for the server administrator account.
 	- **Password**. Enter the server admin password. 
-	- **Location**. Choose a geographical location that is close to you. This will reduce network latency since all databases and resources that belong to your logical server will be physically located in the same location. 
-	- **Allow Azure services to access server**. Keep this checked so other Azure services can integrate with your server.  Note that if this is not checked then you will not be able to provision your data warehouse with sample data. 
-	- **V12 server**. Choose YES. SQL Data Warehouse requires a V12 server.
+	- **Location**. Choose a geographical location that is close to you or your other Azure resources. This will reduce network latency since all databases and resources that belong to your logical server will be physically located in the same region. 
 
     ![Configure new server](./media/sql-data-warehouse-get-started-provision/configure-new-server.png)
 
