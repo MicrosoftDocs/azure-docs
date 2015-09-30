@@ -45,7 +45,7 @@ In this walkthrough you will:
 
 	![Create a data warehouse](./media/sql-data-warehouse-get-started-provision/new-data-warehouse.png)
 
-## Configure the database
+## Configure performance and other basic settings
 
 In the **SQL Data Warehouse** pane, fill in the following fields. **Server** and **Source** is configured in the next sections.
 
@@ -65,6 +65,7 @@ In the **SQL Data Warehouse** pane, fill in the following fields. **Server** and
 2. **Resource group**. Keep the default values.Resource groups are containers designed to help you manage a collection of Azure resources. Learn more about [resource groups](../azure-portal/resource-group-portal.md).
 3. **Subscription**. Select the subscription to bill for this database.
 
+
 ## Configure a logical server
 
 3. Click **Server** > **Create a new server**. This creates a logical server that your database will be associated with. If you already have a V12 server that you want to use, choose your existing server and go to the next section.
@@ -75,17 +76,17 @@ In the **SQL Data Warehouse** pane, fill in the following fields. **Server** and
     > 
     > All the databases assigned to the same logical server are physically stored in the same Azure data center. Both SQL Database and SQL Data Warehouse can have databases that belong to the same logical server.
 
-1. In the **New Server** window, fill in the requested information. 
+1. In the **New server** window, fill in the requested information. 
 
-    ![Configure new server](./media/sql-data-warehouse-get-started-provision/configure-new-server.png)
-
-	Be sure to store the server name, admin name, and password somewhere.  You will need this information to log on to the server.
+    Be sure to store the server name, admin name, and password somewhere.  You will need this information to log on to the server.
 	- **Server Name**. Enter a name for your logical server.
 	- **Server Admin Name**. Enter a user name for the server administrator account.
 	- **Password**. Enter the server admin password. 
 	- **Location**. Choose a geographical location that is close to you. This will reduce network latency since all databases and resources that belong to your logical server will be physically located in the same location. 
 	- **Allow Azure services to access server**. Keep this checked so other Azure services can integrate with your server.
 	- **V12 server**. Choose YES. SQL Data Warehouse requires a V12 server.
+
+    ![Configure new server](./media/sql-data-warehouse-get-started-provision/configure-new-server.png)
 
 1. Click **OK** to save the server configuration settings.
 
@@ -95,7 +96,7 @@ In the **SQL Data Warehouse** pane, fill in the following fields. **Server** and
 
     ![Create data warehouse](./media/sql-data-warehouse-get-started-provision/create-data-warehouse.png)
 
-## Create the database
+## Finish creating the database
 
 1. Click **Create** to create your SQL Data Warehouse database. 
 
