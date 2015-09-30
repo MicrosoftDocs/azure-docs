@@ -19,10 +19,10 @@ Maximum request size of stored procedure, trigger and UDF|512KB
 Maximum response size|1MB
 String|All strings must conform to the UTF-8 encoding. Since UTF-8 is a variable width encoding, string sizes are determined using the UTF-8 bytes.
 Maximum length of property or value|No practical limit
-Maximum number of UDFs per query* |1
-Maximum number of JOINs per query* |2
-Maximum number of AND clauses per query* |5
-Maximum number of OR clauses per query* |5
+Maximum number of UDFs per query* |2
+Maximum number of JOINs per query* |5
+Maximum number of AND clauses per query* |20
+Maximum number of OR clauses per query* |10
 Maximum number of values per IN expression* |100
 Maximum number of points in a polygon argument in a ST_WITHIN query* |16
 Maximum number of collection creates per minute* |5

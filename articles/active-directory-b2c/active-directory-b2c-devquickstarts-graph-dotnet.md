@@ -52,6 +52,9 @@ Now that you have a B2C directory, you need to create your service application u
 First, download & install the [Microsoft Online Services Sign-In Assistant](http://go.microsoft.com/fwlink/?LinkID=286152).  Then you can download
 & install the [64-bit Azure Active Directory Module for Windows Powershell](http://go.microsoft.com/fwlink/p/?linkid=236297).
 
+> [AZURE.NOTE]
+	To use the Graph API with your B2C directory, you will need to register a dedicated application using powershell, following these instructions.  You can not re-use your already existing B2C applications that you registered in the Azure Portal.  This is a limitation of the Azure AD B2C preview that will be removed in the near future - at which point we will update this article. 
+
 Once you've installed the powershell module, open up Powershell and connect to your B2C directory.  After running `Get-Credential`, you will be
 prompted for a username and password - enter those of your B2C directory admin account.
 
@@ -266,7 +269,8 @@ Content-Length: 338
 	"passwordProfile": {
 		"password": "P@ssword!",
 		"forceChangePasswordNextLogin": false   // always set to false
-	}
+	},
+	"passwordPolicies": "DisablePasswordExpiration"
 }
 ```
 

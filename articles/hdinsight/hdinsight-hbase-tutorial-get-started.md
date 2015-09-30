@@ -27,9 +27,11 @@ Learn how to provision an HBase cluster in HDInsight, create HBase tables, and q
 
 * [HBase tutorial: Get started using Apache HBase with Hadoop in HDInsight](hdinsight-hbase-tutorial-get-started-v1.md)
 
-> [AZURE.NOTE] HBase (version 0.98.0) is only available for use with HDInsight 3.1 clusters on HDInsight (based on Apache Hadoop and YARN 2.4.0). For version information, see [What's new in the Hadoop cluster versions provided by HDInsight?][hdinsight-versions]
+> [AZURE.NOTE] The information in this document is specific to Windows-based HDInsight clusters. For information on using Linux-based clusters, see [hdinsight-hbase-tutorial-get-started-linux.md).
+>
+> HBase (version 0.98.0) on Windows-based HDInsight is only available for use with HDInsight 3.1 clusters (based on Apache Hadoop and YARN 2.4.0). For version information, see [What's new in the Hadoop cluster versions provided by HDInsight?][hdinsight-versions]
 
-**Prerequisites**
+##Prerequisites
 
 Before you begin this HBase tutorial, you must have the following:
 

@@ -6,7 +6,7 @@
    authors="kundanap"
    manager="timlt"
    editor=""
-   tags="azure-resource-manager"/>
+   tags="top-support-issue,azure-resource-manager"/>
 
 <tags
    ms.service="virtual-machines"

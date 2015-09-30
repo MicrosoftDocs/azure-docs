@@ -198,6 +198,10 @@ To stop the emulators, execute this command:
 
 To publish your application, you need to first import your publish settings by using the **Import-PublishSettingsFile** cmdlet. Then you can publish your application by using the [Publish-AzureServiceProject](https://msdn.microsoft.com/library/azure/dn495166.aspx) cmdlet. For information about signing in, see [How to install and configure Azure PowerShell](powershell-install-configure.md).
 
+## Next steps
+
+For more information, see the [PHP Developer Center](/develop/php/).
+
 [Azure SDK for PHP]: /develop/php/common-tasks/download-php-sdk/
 [install ps and emulators]: http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409
 [service definition (.csdef)]: http://msdn.microsoft.com/library/windowsazure/ee758711.aspx

@@ -9,11 +9,11 @@
 
 <tags
 	ms.service="app-service-web"
-	ms.workload="web"
+	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="06/29/2015"
+	ms.date="09/22/2015"
 	ms.author="tdykstra"/>
 
 # Create a .NET WebJob in Azure App Service
