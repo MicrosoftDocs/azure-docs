@@ -49,7 +49,7 @@ For more information, see [How to configure Virtual Network support for a Premiu
 ## Next steps
 
 Create a cache and explore the new premium tier features.
-Learn how to use more premium cache features.
+
 -	[How to configure persistence for a Premium Azure Redis Cache](cache-how-to-premium-persistence.md)
 -	[How to configure Virtual Network support for a Premium Azure Redis Cache](cache-how-to-premium-vnet.md)
 -	[How to configure clustering for a Premium Azure Redis Cache](cache-how-to-premium-clustering.md)
