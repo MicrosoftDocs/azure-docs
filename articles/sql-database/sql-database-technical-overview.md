@@ -1,5 +1,5 @@
 <properties
-   pageTitle="What is SQL Database"
+   pageTitle="What is SQL Database | Microsoft Azure"
    description="Discover the technical details and capabilities of Azure SQL Database, Microsoft's relational database management system (RDBMS) and PaaS solution in the cloud."
    services="sql-database"
    documentationCenter=""
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="07/17/2015"
+   ms.date="09/29/2015"
    ms.author="shkurhek"/>
 
 # Introduction to SQL Database
@@ -66,4 +66,22 @@ SQL Server has a tradition of solid  data security that SQL Database upholds  wi
 - Get started by [creating your first database](sql-database-get-started.md). Then build your first app in [C#](sql-database-connect-query.md), [Java](sql-database-develop-java-simple-windows.md), [Node.js](sql-database-develop-nodejs-simple-windows.md), [PHP](sql-database-develop-php-retry-windows.md), [Python](sql-database-develop-python-simple-windows.md), or [Ruby](sql-database-develop-ruby-simple-linux). 
 
 
+### Video
+
+
+A 30 minute video that introduces Azure SQL Database is available, recorded in September 2015 for AzureCon.
+
+- See the video at:
+ - [Watch the video in your web browser: **Get started with Azure SQL Database**](http://azure.microsoft.com/documentation/videos/azurecon-2015-get-started-with-azure-sql-database/)
+ - Same video [downloadable from Channel9](http://channel9.msdn.com/Events/Microsoft-Azure/AzureCon-2015/ACON326) 
+
+- Areas discussed in the video:
+ - Predictable pricing and performance.
+ - Elastic database pool for unpredictable workloads.
+ - Geo-replication and flexibility.
+ - Your freedom from worrying about the hardware, the operating system, updates, the back-ups, and so on.
+ - Fully compatible with Microsoft SQL Server 2014.
+ - Demo of database creation. As little as $5 per month per database.
+ - Explanation of extremely broad client programming options, with many languages on a variety of operating systems.
+ - Program demos in Python and Ruby, which are run on a Mac, and which interact with Azure SQL Database.
 
