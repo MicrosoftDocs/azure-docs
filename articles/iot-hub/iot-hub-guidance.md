@@ -75,7 +75,7 @@ It is worth specifying that the device identity still has to be created in the I
 ### Comparison with a custom gateway
 The token service pattern is the recommended way to implement a custom identity registry/authentication scheme with IoT Hub, as it lets IoT Hub handle most of the solution traffic. There are cases, though, where the custom authentication scheme is so intertwined with the protocol (e.g. [TLS-PSK]) that a service processing all the traffic (*custom gateway*) is required. Refer to the [Protocol Gateway] article for more information.
 
-## Scaling IoT Hub <a id="scale"></a>
+## Scaling IoT Hub
 IoT Hub can support up to a million simultaneously connected devices by increasing the number of IoT Hub S1 or S2 units to 2.000. Refer to [IoT Hub Pricing][lnk-pricing] for more information.
 
 Each IoT Hub unit allows a certain number of device identities in the registry, which can all be simultaneously connected, and a number of daily messages.
