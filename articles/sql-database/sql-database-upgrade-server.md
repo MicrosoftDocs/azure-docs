@@ -151,7 +151,6 @@ ElasticPoolCollection and DatabaseCollection parameters are optional:
 
 ## Related Information
 
-- 
 - [Azure SQL Database Resource Manager Cmdlets](https://msdn.microsoft.com/library/mt163521.aspx)
 - [Get-AzureSqlServerUpgrade](http://msdn.microsoft.com/library/mt143621.aspx)
 - [Start-AzureSqlServerUpgrade](http://msdn.microsoft.com/library/mt143623.aspx)
