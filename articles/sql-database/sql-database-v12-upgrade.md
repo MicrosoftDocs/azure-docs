@@ -17,7 +17,7 @@
 	ms.author="sstein"/>
 
 
-# Upgrade to SQL Database V12 server
+# Upgrade to SQL Database V12
 
 
 > [AZURE.SELECTOR]
@@ -26,6 +26,8 @@
 
 
 SQL Database V12 is the latest version of SQL Database and it has [many advantages over the previous V2 version](sql-database-v12-whats-new.md). This article shows how to upgrade V2 servers to V12 using the Azure preview portal. 
+
+During the process of upgrading to SQL Database V12 you must also [update all Web and Business databases to a new service tier](sql-database-upgrade-new-service-tiers.md). The following directions include the steps to update your Web and Business databases with pricing tier recommendations based on your database's historical usage. 
 
 
 
