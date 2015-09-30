@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/23/2015" 
+	ms.date="09/30/2015" 
 	ms.author="nitinme"/>
 
 
@@ -92,9 +92,17 @@ For instructions on how to allocate resources in a Spark cluster, see [Manage re
 
 ### Create a streaming application using Zeppelin
 
-1. From the [Azure Preview Portal](https://ms.portal.azure.com/), from the startboard, click the tile for your Spark cluster (if you pinned it to the startboard). You can also navigate to your cluster under **Browse All** > **HDInsight Clusters**.   
+1. Use the following URL to open a Zeppelin notebook. Replace __CLUSTERNAME__ with the name of your Spark cluster.
 
-2. Launch the Zeppelin notebook. From the Spark cluster blade, click **Quick Links**, and then from the **Cluster Dashboard** blade, click **Zeppelin Notebook**. When prompted, enter the admin credentials for the cluster. Follow the instructions on the page that opens up to launch the notebook.
+    https://CLUSTERNAME.azurehdinsight.net/zeppelin
+
+    When prompted, enter the admin credentials for your cluster.
+
+    > [AZURE.IMPORTANT] If your HDInsight cluster was created before 1/1/2015, you must launch the notebook from the [Azure Preview Portal](https://portal.azure.com/) by selecting your HDInsight cluster, and then __Quick Links__. From the __Cluster Dashboard__ blade that appears, select the __Zeppelin Notebook__ link.
+    >
+    > You must then follow instructions on the page that is displayed in order to start the Zeppelin Notebook.
+    >
+    > You can also use the portal to access the Zeppelin notebook on clusters created after 1/1/2015, but the linked URL will be the same as the one listed above (https://CLUSTERNAME.azurehdinsight.net/zeppelin).
 
 2. Create a new notebook. From the header pane, click **Notebook**, and from the drop-down, click **Create New Note**.
 

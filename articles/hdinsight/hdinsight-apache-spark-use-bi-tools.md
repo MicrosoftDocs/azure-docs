@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/03/2015" 
+	ms.date="09/30/2015" 
 	ms.author="nitinme"/>
 
 
@@ -40,9 +40,17 @@ In this section, we use the [Jupyter](https://jupyter.org) notebook associated w
 
 Once your data is saved as a Hive table, in the next section we will connect to the Hive table using BI tools such as Power BI and Tableau.
 
-1. From the [Azure Preview Portal](https://ms.portal.azure.com/), from the startboard, click the tile for your Spark cluster (if you pinned it to the startboard). You can also navigate to your cluster under **Browse All** > **HDInsight Clusters**. 
- 
-2. Launch the [Jupyter](https://jupyter.org) notebook. From the Spark cluster blade, click **Quick Links**, and then from the **Cluster Dashboard** blade, click **Jupyter Notebook**. When prompted, enter the admin credentials for the Spark cluster.
+1. Use the following URL to open a Jupyter notebook. Replace __CLUSTERNAME__ with the name of your Spark cluster.
+
+    https://CLUSTERNAME.azurehdinsight.net/jupyter
+
+    When prompted, enter the admin credentials for your cluster.
+
+    > [AZURE.IMPORTANT] If your HDInsight cluster was created before 1/1/2015, you must launch the notebook from the [Azure Preview Portal](https://portal.azure.com/) by selecting your HDInsight cluster, and then __Quick Links__. From the __Cluster Dashboard__ blade that appears, select the __Jupyter Notebook__ link.
+    >
+    > You must then follow instructions on the page that is displayed in order to start the Jupyter Notebook.
+    >
+    > You can also use the portal to access the Jupyter notebook on clusters created after 1/1/2015, but the linked URL will be the same as the one listed above (https://CLUSTERNAME.azurehdinsight.net/jupyter).
 
 2. Create a new notebook. Click **New**, and then click **Python 2**.
 
