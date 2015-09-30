@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/18/2015"
+   ms.date="09/22/2015"
    ms.author="JRJ@BigBangData.co.uk;barbkess"/>
 
 # Get started: Connect to Azure SQL Data Warehouse

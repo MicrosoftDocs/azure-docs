@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Configure a custom domain name in Azure App Service (GoDaddy)"
 	description="Learn how to use a domain name from GoDaddy with Azure Web Apps"
-	services="app-service\web"
+	services="app-service"
 	documentationCenter=""
 	authors="erikre"
 	manager="wpickett"
@@ -9,7 +9,7 @@
 
 <tags
 	ms.service="app-service"
-	ms.workload="web"
+	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"

@@ -24,8 +24,7 @@
 
 To build an application that accepts consumer sign up & sign in, you'll first need to register it with an Azure Active Directory B2C directory. Get your own directory using the steps outlined [here](active-directory-b2c-get-started.md). If you followed all the steps in that article, you should have the B2C features blade pinned to your Startboard.
 
-    > [AZURE.IMPORTANT]
-    You cannot use applications registered in the **Applications** tab on the [Azure Portal](https://manage.windowsazure.com/) for this.
+[AZURE.INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
 
 ## Navigate to the B2C Features Blade
 

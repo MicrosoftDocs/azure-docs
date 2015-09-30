@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="06/16/2015"
-	ms.author="wesmc"/>
+	ms.date="09/24/2015"
+	ms.author="ricksal"/>
 
 # How to use Notification Hubs from Node.js
 

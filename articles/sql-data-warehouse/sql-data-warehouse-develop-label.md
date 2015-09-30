@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/26/2015"
+   ms.date="09/22/2015"
    ms.author="JRJ@BigBangData.co.uk;barbkess"/>
 
 # Use labels to instrument queries in SQL Data Warehouse

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/25/2015" 
+	ms.date="09/22/2015" 
 	ms.author="sdanie"/>
 
 # How to monitor Azure Redis Cache
@@ -24,7 +24,7 @@ When cache diagnostics are enabled, metrics for Azure Redis Cache instances are 
 
 Cache metrics are collected using the Redis [INFO](http://redis.io/commands/info) command. For more information about the different INFO commands used for each cache metric, see [Available metrics and reporting intervals](#available-metrics-and-reporting-intervals).
 
-To view cache metrics, [browse](https://msdn.microsoft.com/library/azure/cbe6d113-7bdc-4664-a59d-ff0df6f4e214#CacheSettings) to your cache instance in the [Azure preview portal](https://portal.azure.com). Metrics for Azure Redis Cache instances are accessed on the **Redis Cache** blade.
+To view cache metrics, [browse](cache-configure.md) to your cache instance in the [Azure preview portal](https://portal.azure.com). Metrics for Azure Redis Cache instances are accessed on the **Redis Cache** blade.
 
 ![Monitor][redis-cache-monitor-overview]
 
@@ -52,15 +52,13 @@ Click the **On** button to enable cache diagnostics and display the diagnostics 
 
 Click the arrow to the right of **Storage Account** to select a storage account to hold diagnostic data. For best performance, select a storage account in the same region as your cache.
 
-Use the **Retention (days)** drop-down to select the retention period for the diagnostic data. You can also type the desired number of days into the textbox at the top of the list.
-
 Once the diagnostic settings are configured, click **Save** to save the configuration. Note that it may take a few moments for the changes to take effect.
 
 >[AZURE.IMPORTANT] Caches in the same region and subscription share the same diagnostics storage account, and when the configuration is changed it applies to all caches in the subscription that are in that region.
 
 To view the stored metrics, examine the tables in your storage account with names that start with `WADMetrics`. For more information about accessing the stored metrics outside of the preview portal, see the [Access Redis Cache Monitoring data](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring) sample.
 
->[AZURE.NOTE] Only metrics that are stored in the selected storage account are displayed in the preview portal. If you change storage accounts, the data in the previously configured storage account remains available for download, but it is not displayed in the preview portal and is not purged when the retention period interval elapses.  
+>[AZURE.NOTE] Only metrics that are stored in the selected storage account are displayed in the preview portal. If you change storage accounts, the data in the previously configured storage account remains available for download, but it is not displayed in the preview portal.  
 
 ## Available metrics and reporting intervals
 

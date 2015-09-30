@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Configuring Python with Azure App Service Web Apps" 
 	description="This tutorial describes options for authoring and configuring a basic Web server Gateway Interface (WSGI) compliant Python application on Azure App Service Web Apps." 
-	services="app-service\web" 
+	services="app-service" 
 	documentationCenter="python" 
 	tags="python"
 	authors="huguesv" 
@@ -9,8 +9,8 @@
 	editor=""/>
 
 <tags 
-	ms.service="app-service-web" 
-	ms.workload="web" 
+	ms.service="app-service" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="python" 
 	ms.topic="article" 
@@ -370,6 +370,10 @@ Contents of `ptvs_virtualenv_proxy.py`:
 ## Troubleshooting - Virtual Environment
 
 [AZURE.INCLUDE [web-sites-python-troubleshooting-virtual-environment](../../includes/web-sites-python-troubleshooting-virtual-environment.md)]
+
+## Next steps
+
+For more information, see the [Python Developer Center](/develop/python/).
 
 >[AZURE.NOTE] If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
 

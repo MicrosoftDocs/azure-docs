@@ -9,7 +9,7 @@
 
 <tags
 	ms.service="app-service-mobile"
-	ms.workload="mobile"
+	ms.workload="na"
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="hero-article"

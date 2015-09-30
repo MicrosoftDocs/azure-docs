@@ -1,19 +1,19 @@
 <properties 
-    pageTitle="StorSimple 8000 Series Update 1.2 release notes | Microsoft Azure"
-    description="Describes the new features, issues, and workarounds for StorSimple 8000 Series Update 1.2."
-    services="storsimple"
-    documentationCenter="NA"
-    authors="alkohli"
-    manager="carolz"
-    editor="" />
+   pageTitle="StorSimple 8000 Series Update 1.2 release notes | Microsoft Azure"
+   description="Describes the new features, issues, and workarounds for StorSimple 8000 Series Update 1.2."
+   services="storsimple"
+   documentationCenter="NA"
+   authors="alkohli"
+   manager="carolz"
+   editor="" />
  <tags 
-    ms.service="storsimple"
-    ms.devlang="NA"
-    ms.topic="article"
-    ms.tgt_pltfrm="NA"
-    ms.workload="TBD"
-    ms.date="09/09/2015"
-    ms.author="alkohli" />
+   ms.service="storsimple"
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD"
+   ms.date="09/09/2015"
+   ms.author="alkohli" />
 
 # StorSimple 8000 Series Update 1.2 release notes  
 

@@ -114,6 +114,8 @@ If you haven't used PowerShell with your Azure subscription before:
 
 Email me if the server's response to HTTP requests, averaged over 5 minutes, is slower than 1 second. My Application Insights resource is called IceCreamWebApp, and it is in resource group Fabrikam. I am the owner of the Azure subscription.
 
+The GUID is the subscription ID (not the instrumentation key of the application).
+
     Add-AlertRule -Name "slow responses" `
      -Description "email me if the server responds slowly" `
      -ResourceGroup "Fabrikam" `
@@ -169,7 +171,14 @@ Metric name | Screen name | Description
 `view.count`|Page views|Count of client user requests for a web page. Synthetic traffic is filtered out.
 {your custom metric name}|{Your metric name}|Your metric value reported by [TrackMetric](app-insights-api-custom-events-metrics.md#track-metric) or in the [measurements parameter of a tracking call](app-insights-api-custom-events-metrics.md#properties).
 
-   
+The metrics are sent by different telemetry modules:
+
+Metric group | Collector module
+---|---
+basicExceptionBrowser,<br/>clientPerformance,<br/>view | [Browser JavaScript](app-insights-javascript.md)
+performanceCounter | [Performance](app-insights-configuration-with-applicationinsights-config.md#nuget-package-3)
+remoteDependencyFailed| [Dependency](app-insights-configuration-with-applicationinsights-config.md#nuget-package-1)
+request,<br/>requestFailed|[Server request](app-insights-configuration-with-applicationinsights-config.md#nuget-package-2)
 
 
 <!--Link references-->

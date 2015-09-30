@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Manage your Azure VMs using the Azure CLI for Mac, Linux, and Windows | Microsoft Azure"
-   description="Describes how to create, manage, and delete your Azure VMs using the Azure CLI for Mac, Linux, and Windows."
+   pageTitle="Manage your Azure VMs using the Azure CLI | Microsoft Azure"
+   description="Describes how to manage your Azure VMs using the Azure CLI for Mac, Linux, and Windows."
    services="virtual-machines"
    documentationCenter="virtual-machines"
    authors="dlepow"
@@ -19,7 +19,7 @@
 
 # Manage your Virtual Machines using the Azure CLI for Mac, Linux, and Windows
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)] This article covers creating a resource with the classic deployment model. You can also create a resource with the [Resource Manager deployment model](virtual-machines-deploy-rmtemplates-azure-cli).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)] This article covers managing a resource created with the classic deployment model. You can also manage a resource created with the [Resource Manager deployment model](virtual-machines-how-to-automate-azure-resource-manager.md).
 
 Many tasks you do each day to manage your VMs can by automated by using the Azure CLI. This article gives you example commands for simpler tasks, and links to articles that show the commands for more complex tasks.
 

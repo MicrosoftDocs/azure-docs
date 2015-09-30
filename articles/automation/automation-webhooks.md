@@ -12,9 +12,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/04/2015"
-   ms.author="bwren"
-   ms.author= "SnehaGunda" />
+   ms.date="09/28/2015"
+   ms.author="bwren;sngun"/>
 
 # Azure Automation webhooks
 
@@ -255,4 +254,4 @@ The following sample runbook is triggered when the alert rule becomes active and
 
 - [Starting a Runbook](automation-starting-a-runbook.md)
 - [Viewing the Status of a Runbook Job](automation-viewing-the-status-of-a-runbook-job.md)
-- [Using Azure Automation to take actions on Azure Alerts](https://azure.microsoft.com/en-us/blog/using-azure-automation-to-take-actions-on-azure-alerts/)
+- [Using Azure Automation to take actions on Azure Alerts](https://azure.microsoft.com/blog/using-azure-automation-to-take-actions-on-azure-alerts/)

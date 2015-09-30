@@ -274,6 +274,9 @@ After you have connected you will be able to upload and download files as needed
 
 After uploading both `index.php` and `createtable.php`, browse to **http://[site name].azurewebsites.net/createtable.php** to create the MySQL table for the application, then browse to **http://[site name].azurewebsites.net/index.php** to begin using the application.
  
+## Next steps
+
+For more information, see the [PHP Developer Center](/develop/php/).
 
 [install-php]: http://www.php.net/manual/en/install.php
 [install-mysql]: http://dev.mysql.com/doc/refman/5.6/en/installing.html
