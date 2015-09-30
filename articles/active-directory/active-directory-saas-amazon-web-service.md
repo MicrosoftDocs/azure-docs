@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/25/2015"
+	ms.date="09/30/2015"
 	ms.author="markvi"/>
 
 
@@ -130,13 +130,13 @@ The following screenshot shows an example for this.
 9. On the **Configure Provider** dialog page, perform the following steps: 
 <br><br>![Configure Single Sign-On][14]
 
-     9.1. As **Provider Type**, select **SAML**.
+     a. As **Provider Type**, select **SAML**.
 
-     9.2. In the **Provider Name** textbox, type a provider name (e.g.: *WAAD*).
+     b. In the **Provider Name** textbox, type a provider name (e.g.: *WAAD*).
 
-     9.3. To upload your downloaded metadata file, click **Choose File**.
+     c. To upload your downloaded metadata file, click **Choose File**.
 
-     9.4. Click **Next Step**.
+     d. Click **Next Step**.
 
 
 10. On the **Verify Provider Information** dialog page, click **Create**. 
@@ -148,24 +148,24 @@ The following screenshot shows an example for this.
 12. On the **Set Role Name** dialog, perform the following steps: 
 <br><br>![Configure Single Sign-On][17]
 
-     12.1. In the **Role Name** textbox, type a role name (e.g.: *TestUser*).
+     a. In the **Role Name** textbox, type a role name (e.g.: *TestUser*).
 
-     12.2. Click **Next Step**.
+     b. Click **Next Step**.
 
 13. On the **Select Role Type** dialog, perform the following steps: 
 <br><br>![Configure Single Sign-On][18]
 
-     13.1. Select **Role For Identity Provider Access**.
+     a. Select **Role For Identity Provider Access**.
 
-     13.2. In the **Grant Web Single Sign-On (WebSSO) access to SAML providers** section, click **Select**.
+     b. In the **Grant Web Single Sign-On (WebSSO) access to SAML providers** section, click **Select**.
 
 
 14. On the **Establish Trust** dialog, perform the following steps:  
 <br><br>![Configure Single Sign-On][19]
      
-     14.1. As SAML provider, select the SAML provider you have created previousley (e.g.: *WAAD*) 
+     a. As SAML provider, select the SAML provider you have created previousley (e.g.: *WAAD*) 
 
-     14.2. Click **Next Step**.
+     b. Click **Next Step**.
 
 
 15. On the **Verify Role Trust** dialog, click **Next Step**. 
@@ -179,11 +179,11 @@ The following screenshot shows an example for this.
 17. On the **Review** dialog, perform the following steps:   
 <br><br>![Configure Single Sign-On][34]
 
-     17.1. Copy the **Role ARN** value.
+     a. Copy the **Role ARN** value.
 
-     17.2. Copy the **Trusted Entities** ARN value.
+     b. Copy the **Trusted Entities** ARN value.
 
-     17.2. Click **Create Role**. 
+     c. Click **Create Role**. 
 
 18. On the Azure AD portal, select the single sign-on configuration confirmation, and then click **Next**.
 <br><br>![What is Azure AD Connect][20]
@@ -201,13 +201,13 @@ The following screenshot shows an example for this.
 22. On the Add User Attribute dialog, perform the following steps. 
 <br><br>![Configure Single Sign-On][24] 
 
-     19.1. In the **Attribute Name** textbox, type **https://aws.amazon.com/SAML/Attributes/Role**.
+     a. In the **Attribute Name** textbox, type **https://aws.amazon.com/SAML/Attributes/Role**.
 
-     19.2. In the **Attribute Value** textbox, type **[the Role ARN value],[the Trusted Entity ARN value]**.
+     b. In the **Attribute Value** textbox, type **[the Role ARN value],[the Trusted Entity ARN value]**.
 
      >[AZURE.TIP] These are the values you have copied from the Review dialog when you have created your role. 
 
-     19.3. Click **Complete** to close the **Add User Attribute** dialog.
+     c. Click **Complete** to close the **Add User Attribute** dialog.
 
 23. Click **add user attribute**. 
 <br><br>![Configure Single Sign-On][23]
@@ -217,11 +217,11 @@ The following screenshot shows an example for this.
 <br><br>![Configure Single Sign-On][25] 
 
 
-     21.1. In the **Attribute Name** textbox, type **https://aws.amazon.com/SAML/Attributes/RoleSessionName**.
+     a. In the **Attribute Name** textbox, type **https://aws.amazon.com/SAML/Attributes/RoleSessionName**.
 
-     21.2. In the **Attribute Value** textbox, type **mail**.
+     b. In the **Attribute Value** textbox, type **mail**.
 
-     21.3. Click **Complete** to close the **Add User Attribute** dialog.
+     c. Click **Complete** to close the **Add User Attribute** dialog.
 
 
 25. Click **Apply Changes**. 
@@ -295,9 +295,9 @@ The objective of this section is to create a user called Britta Simon in Amazon 
 5. On the Create User dialog, perform the following steps: 
 <br><br>![Configure Single Sign-On][30]
 
-     5.1. In the **Enter User Names** textboxes, type Brita Simon's user name in Azure AD.
+     a. In the **Enter User Names** textboxes, type Brita Simon's user name in Azure AD.
 
-     5.2. Click **Create**.
+     b. Click **Create**.
 
 
 
