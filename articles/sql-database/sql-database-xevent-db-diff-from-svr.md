@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/28/2015" 
+	ms.date="09/30/2015" 
 	ms.author="genemi"/>
 
 
@@ -69,6 +69,7 @@ Related topics provide two code samples:
 
 - [Ring Buffer target code for extended events in SQL Database](sql-database-xevent-code-ring-buffer.md)
  - Short simple Transact-SQL script.
+ - We emphasize in the code sample topic that, when you are done with a Ring Buffer target, you should release its resources by executing an alter-drop `ALTER EVENT SESSION ... ON DATABASE DROP TARGET ...;` statement. Later you can add another instance of Ring Buffer by `ALTER EVENT SESSION ... ON DATABASE ADD TARGET ...`.
 
 
 - [Event File target code for extended events in SQL Database](sql-database-xevent-code-event-file.md)
@@ -255,11 +256,15 @@ The **Event File** target might experience network latency or failures while per
 - [CREATE EVENT SESSION (Transact-SQL)](http://msdn.microsoft.com/library/bb677289.aspx)
 
 
-- [Jonathan Kehayias' blog posts about extended events in Microsoft SQL](http://www.sqlskills.com/blogs/jonathan/category/extended-events/)
+- [Jonathan Kehayias' blog posts about extended events in Microsoft SQL Server](http://www.sqlskills.com/blogs/jonathan/category/extended-events/)
 
 
 Other code sample topics for extended events are available at the following links. However, you must routinely check any sample to see whether the sample targets Microsoft SQL Server versus Azure SQL Database. Then you can decide whether minor changes are needed to run the sample.
 
 
+<!--
+('lock_acquired' event.)
+
 - Code sample for SQL Server: [Determine Which Queries Are Holding Locks](http://msdn.microsoft.com/library/bb677357.aspx)
 - Code sample for SQL Server: [Find the Objects That Have the Most Locks Taken on Them](http://msdn.microsoft.com/library/bb630355.aspx)
+-->

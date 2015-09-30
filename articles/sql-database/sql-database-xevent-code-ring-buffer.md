@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/28/2015" 
+	ms.date="09/30/2015" 
 	ms.author="genemi"/>
 
 
@@ -234,7 +234,7 @@ To view the results, we clicked the cell under the column header **target_data_X
 Then in the results pane we clicked the cell under the column header **target_data_XML**. This created another file tab in ssms.exe in which the content of the result cell was displayed, as XML.
 
 
-The output is shown in the following block. It looks long, but notice it is just two **<event>** elements.
+The output is shown in the following block. It looks long, but it is just two **<event>** elements.
 
 
 &nbsp;
@@ -328,7 +328,32 @@ SELECT 'AFTER__Updates', EmployeeKudosCount, * FROM tabEmployee;
 ```
 
 
-&nbsp;
+#### Release resources held by your Ring Buffer
+
+
+When you are done with your Ring Buffer, you can remove it and release its resources issuing an **ALTER** like the following:
+
+
+```
+ALTER EVENT SESSION eventsession_gm_azuresqldb51
+	ON DATABASE
+	DROP TARGET package0.ring_buffer;
+GO
+```
+
+
+The definition of your event session is updated, but not dropped. Later you can add another instance of the Ring Buffer to your event session:
+
+
+```
+ALTER EVENT SESSION eventsession_gm_azuresqldb51
+	ON DATABASE
+	ADD TARGET
+		package0.ring_buffer
+			(SET
+				max_memory = 500   -- Units of KB.
+			);
+```
 
 
 ## More information
@@ -346,6 +371,9 @@ Other code sample topics for extended events are available at the following link
 - Code sample for Azure SQL Database: [Event File target code for extended events in SQL Database](sql-database-xevent-code-event-file.md)
 
 
+<!--
+('lock_acquired' event.)
+
 - Code sample for SQL Server: [Determine Which Queries Are Holding Locks](http://msdn.microsoft.com/library/bb677357.aspx)
 - Code sample for SQL Server: [Find the Objects That Have the Most Locks Taken on Them](http://msdn.microsoft.com/library/bb630355.aspx)
-
+-->

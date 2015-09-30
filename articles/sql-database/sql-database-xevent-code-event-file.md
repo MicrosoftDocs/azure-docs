@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/28/2015" 
+	ms.date="09/30/2015" 
 	ms.author="genemi"/>
 
 
@@ -449,7 +449,7 @@ GO
 -------------- Step 5.  Select the results. ----------
 
 SELECT
-		*, 'DOUBLECLICK_NEXT_CELL_TO_BROWSE_ITS_RESULTS!' as [DOUBLECLICK_NEXT_CELL_TO_BROWSE_ITS_RESULTS],
+		*, 'CLICK_NEXT_CELL_TO_BROWSE_ITS_RESULTS!' as [CLICK_NEXT_CELL_TO_BROWSE_ITS_RESULTS],
 		CAST(event_data AS XML) AS [event_data_XML]  -- TODO: In ssms.exe results grid, double-click this cell!
 	FROM
 		sys.fn_xe_file_target_read_file
@@ -486,7 +486,15 @@ GO
 &nbsp;
 
 
-If the target fails to attach when you run<br/>`ALTER EVENT SESSION ... STATE = START;`<br/>you must stop and restart the event session.
+If the target fails to attach when you run, you must stop and restart the event session:
+
+
+```
+ALTER EVENT SESSION ... STATE = STOP;
+GO
+ALTER EVENT SESSION ... STATE = START;
+GO
+```
 
 
 &nbsp;
