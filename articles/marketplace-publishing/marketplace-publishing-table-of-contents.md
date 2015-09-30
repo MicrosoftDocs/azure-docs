@@ -33,8 +33,7 @@ Some steps are shared between the different types of solutions. This provides a 
 | **Step 4. Deploy to Marketplace** | [Deploy your offer to the Marketplace][link-pushprod] | [Deploy your offer to the Marketplace][link-pushprod] | [Deploy your offer to the Marketplace][link-pushprod] | [Deploy your offer to the Marketplace][link-pushprod] |
 
 ## Appendix
-
-** Virtual Machines related**
+**Virtual Machines related**
 - Setting up Azure PowerShell
 - VM Single Image instructions for developing on-premises
 
