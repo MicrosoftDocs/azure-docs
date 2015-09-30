@@ -37,11 +37,11 @@ The following illustration shows the completed application:
 You'll learn:
 
 * How to prepare your machine for Azure development by installing the [Azure SDK for .NET](../dotnet-sdk/).
-* How to set up Visual Studio to create a new App Service web app while it creates a web project
+* How to set up Visual Studio to create a new App Service web app while it creates a web project.
 * How to deploy a web project to an App Service web app by using Visual Studio.
 * How to use the [Azure portal](/overview/preview-portal/) to monitor and manage your web app.
 
-If you want to learn how to write code for an ASP.NET web application, this isn't the right tutorial for you. For a more advanced tutorial that shows how to work with a database and authenticate users, see [Deploy a secure ASP.NET MVC app with membership, OAuth, and SQL Database to an Azure web app](/develop/net/tutorials/web-site-with-sql-database/).  
+This tutorial doesn't teach you how to write code to customize the web application. For a more advanced tutorial that shows how to work with a database and authenticate users, see [Deploy a secure ASP.NET MVC app with membership, OAuth, and SQL Database to an Azure web app](/develop/net/tutorials/web-site-with-sql-database/).  
 
 ##<a name="video"></a>Sign up for Microsoft Azure
 
