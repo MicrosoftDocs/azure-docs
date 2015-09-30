@@ -194,12 +194,9 @@ On-premises Linux machines and Linux machines in non-Azure clouds can also be on
 6.  Optionally, view and update the metaconfigurations in the output folder as needed to match the [PowerShell DSC Local Configuration Manager fields and values](http://https://technet.microsoft.com/library/dn249922.aspx?f=255&MSPPError=-2147217396) you want, if the defaults do not match your use case.
 
 7.  Remotely apply the PowerShell DSC metaconfiguration to the machines you want to onboard:
-
-  $SecurePass = ConvertTo-SecureString -string "<root password>" -AsPlainText -Force
+     $SecurePass = ConvertTo-SecureString -string "<root password>" -AsPlainText -Force
     	$Cred= New-Object System.Management.Automation.PSCredential "root", $SecurePass
-    	$Opt = New-CimSessionOption -UseSsl:$true -SkipCACheck:$true -SkipCNCheck:$true -SkipRevocationCheck:$true
-    
-    	# need a CimSession for each Linux machine to onboard
+    	$Opt = New-CimSessionOption -UseSsl:$true -SkipCACheck:$true -SkipCNCheck:$true -SkipRevocationCheck:$true # need a CimSession for each Linux machine to onboard
 
     	$Session = New-CimSession -Credential:$Cred -ComputerName:<your Linux machine> -Port:5986 -Authentication:basic -SessionOption:$Opt
     	
