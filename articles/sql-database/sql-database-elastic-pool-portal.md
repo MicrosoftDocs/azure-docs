@@ -53,7 +53,7 @@ Create an elastic database pool by adding a new pool to a server. You can add mu
 
      -or-
 
-    If you see a message saying there is a recommended pool for this server click it to easily review and create a pool that is optimized for your server's databases.
+    If you see a message saying there is a recommended pool for this server click it to easily review and create a pool that is optimized for your server's databases. For details, see [Recommended elastic database pools](sql-database-elastic-pool-portal.md#recommended-elastic-database-pools).
     
     
     ![Create Elastic Pool][1]
@@ -132,14 +132,23 @@ There are three parameters you can set that define the performance for the pool:
 
 Browse to a SQL Database V12 server and you may see a message saying there are recommended elastic database pools for the server. 
 
-Recommended pools are pre-configured with a collection of databases, Pool eDTU, database eDTU min, and database eDTU max values already set. Recommended pools cannot be modified until after creation, simply edit the pool name and click **OK**.
+Just like elastic database pool pricing tier recommendations, recommended pools are pre-configured with the following already set:
 
-- Click the message to see a list of the recommended pools. 
-- Click a pool to see the detailed recommendation settings.
+- Pricing tier for the pool.
+- Appropriate amount of pool eDTUs.
+- The database min/max eDTU settings.  
+- List of recommended databases.
 
+### Create a recommended pool
 
+1. Click the message to see a list of the recommended pools:
+ 
+     ![recommended pools][12]
+  
+1. Click a pool to see the detailed recommendation settings.
+2. Simply edit the pool name and click **OK** to create the pool. (Recommended pools cannot be modified until after creation.)
 
-![recommended pool][11]
+    ![recommended pool][11]
 
 
 
@@ -211,3 +220,4 @@ After creating an elastic database pool, you can manage the databases in the poo
 [9]: ./media/sql-database-elastic-pool-portal/pricing-tier.png
 [10]: ./media/sql-database-elastic-pool-portal/star.png
 [11]: ./media/sql-database-elastic-pool-portal/recommended-pool.png
+[12]: ./media/sql-database-elastic-pool-portal/pools-message.png
