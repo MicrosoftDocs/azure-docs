@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/16/2015" 
+	ms.date="09/30/2015" 
 	ms.author="sdanie"/>
 
 # How to create and manage Azure Redis Cache using the Azure Command-Line Interface (Azure CLI)
