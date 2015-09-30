@@ -42,16 +42,22 @@ To create an elastic database pool you need the following:
 - An Azure SQL Database V12 server. If you do not have a V12 server, create one following the steps in this article: [Create your first Azure SQL Database](sql-database-get-started.md), or [upgrade an existing server to V12](sql-database-v12-upgrade.md).
 
 
-
 ## Create an elastic database pool
 
 Create an elastic database pool by adding a new pool to a server. You can add multiple pools to a server, but only one (1) server can be associated with each pool. Additionally, all or some of the databases on a server can be added to a pool.
 
 
 1.	Select a SQL Database V12 server that contains the databases you want to add to the pool.
-2.	Create the pool by selecting **add pool** at the top of the **SQL Server** blade.
+2.	If you see a message saying there is a recommended pool for this server - click it to easily review and create a pre-configured pool that is optimized for your databases.
 
-   ![Create Elastic Pool][1]
+     -or-
+
+    Manually create a pool by selecting **Add pool** at the top of the **SQL Server** blade
+
+    ![Create Elastic Pool][1]
+
+
+
 
 ## Configure an elastic database pool
 
