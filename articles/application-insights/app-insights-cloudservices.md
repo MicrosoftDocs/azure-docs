@@ -75,6 +75,7 @@ As an alternative, you could send data from all the roles to just one resource, 
     ```
 
     See the [sample code](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/AzureEmailService/ServiceConfiguration.Cloud.cscfg).
+
  * In a suitable startup function, set the instrumentation key from the configuration setting:
 
     `TelemetryConfiguration.Active.InstrumentationKey = RoleEnvironment.GetConfigurationSettingValue("Telemetry.AI.InstrumentationKey"); `
