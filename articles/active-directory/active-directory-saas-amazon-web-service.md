@@ -100,7 +100,7 @@ Your Amazon Web Service (AWS) application expects the SAML assertions in a speci
 The following screenshot shows an example for this.
 
 
-![Configure Single Sign-On][27]
+<br><br>![Configure Single Sign-On][27]<br>
 
 **To configure Azure AD single sign-on with Amazon Web Service (AWS), perform the following steps:**
 
@@ -234,7 +234,7 @@ The following screenshot shows an example for this.
 ### Creating an Azure AD test user
 
 The objective of this section is to create a test user in the Azure portal called Britta Simon.<br>
-In the Users list, select **Britta Simon**.<br>![Creating an Azure AD test user](./media/active-directory-saas-amazon-web-service/create_aaduser_01.png)
+In the Users list, select **Britta Simon**.<br><br>![Creating an Azure AD test user](./media/active-directory-saas-amazon-web-service/create_aaduser_01.png)<br>
 
 **To create a test user in Azure AD, perform the following steps:**
 
