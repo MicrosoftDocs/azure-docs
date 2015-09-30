@@ -199,7 +199,7 @@ You should now have a running three-node CoreOS cluster on Azure. From here, you
 
 
 <!--Link references-->
-[Azure Command-line Interface (Azure CLI)]: ../xplat-cli.md
+[Azure Command-line Interface (Azure CLI)]: ../xplat-cli-install.md
 [CoreOS]: https://coreos.com/
 [CoreOS Overview]: https://coreos.com/using-coreos/
 [CoreOS with Azure]: https://coreos.com/docs/running-coreos/cloud-providers/azure/

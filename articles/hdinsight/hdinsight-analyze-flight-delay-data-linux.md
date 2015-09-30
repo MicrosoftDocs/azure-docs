@@ -33,7 +33,7 @@ Before you begin this tutorial, you must have the following:
 
 - __Azure SQL Database__. You will use an Azure SQL database as a destination data store. If you do not have a SQL Database already, see [How to create and configure an Azure SQL Database to create one](../sql-database/sql-database-create-configure.md)
 
-- __Azure CLI__. If you have not installed the Azure CLI, see [Install and Configure the Azure CLI](../xplat-cli.md) for more steps.
+- __Azure CLI__. If you have not installed the Azure CLI, see [Install and Configure the Azure CLI](../xplat-cli-install.md) for more steps.
 
 
 ##Download the flight data
