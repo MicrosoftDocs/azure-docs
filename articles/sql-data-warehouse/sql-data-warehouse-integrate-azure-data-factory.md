@@ -29,7 +29,7 @@ Azure Data Factory enables data movement between both on-premises sources and di
 + On-premises SQL Server
 + SQL Server on IaaS
 
-For information on how to set up a data copy activity see [Copy data with Azure Data Factory](data-factory-data-movement-activities).
+For information on how to set up a data copy activity see [Copy data with Azure Data Factory](../data-factory/data-factory-data-movement-activities.md).
 
 ## Stored Procedures
  In the same way it can be used to schedule data transfer, Azure Data Factory can also be used to orchestrate the execution of stored procedures.  This allows more complex pipelines to be created and extends Azure Data Factory's ability to leverage the computational power of SQL Data Warehouse.
