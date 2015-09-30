@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Parallel task execution on Azure Batch compute nodes | Microsoft Azure"
-   description="Execute parallel tasks on the compute nodes in your Azure Batch account"
+   pageTitle="Maximize Batch node use with parallel tasks | Microsoft Azure"
+   description="Increase efficiency and lower cost by using fewer compute nodes while running concurrent tasks on each node in an Azure Batch pool"
    services="batch"
    documentationCenter=".net"
    authors="mmacy"
@@ -8,19 +8,19 @@
    editor=""/>
 
    <tags
-   	ms.service="Batch"
+   	ms.service="batch"
    	ms.devlang="multiple"
    	ms.topic="article"
    	ms.tgt_pltfrm="vm-windows"
    	ms.workload="big-compute"
-   	ms.date="09/25/2015"
+   	ms.date="09/30/2015"
    	ms.author="v-marsma"/>
 
-# Parallel task execution on Batch compute nodes
+# Maximize Azure Batch compute resource usage with concurrent node tasks
 
 Large-scale parallel task execution is a core feature of Azure Batch, and this ability extends not only to multiple compute nodes running your tasks, but also to running concurrent tasks on those nodes. With Batch, parallel task execution scales up as well as out.
 
-This easily configured feature enables maximizing resource usage on a smaller number of multi-core compute nodes within a pool. While some scenarios benefit from all of a node's resources being available for allocation to a single task, a number of situations benefit from allowing multiple tasks to share those resources:
+Enabling concurrent task execution on a pool's compute nodes allows for maximizing resource usage on a smaller number of nodes within the pool. While some scenarios benefit from all of a node's resources being available for allocation to a single task, a number of situations benefit from allowing multiple tasks to share those resources:
 
  - **Minimizing data transfer** when tasks are able to share data. In this scenario, copying shared data to a smaller number of nodes and executing tasks in parallel on each node can dramatically reduce data transfer charges, especially if the data to be copied to each node must be transferred between geographic regions.
 
