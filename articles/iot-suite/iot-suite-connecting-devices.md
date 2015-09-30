@@ -64,7 +64,7 @@ Now choose which language would you like to use to continue your sample. In this
 
 ### Running your device on Linux
 
-1. Setup your environment: if you've never used our Device SDK before,  learn  how to set up your environment on Linux [here](https://github.com/azure/azure-iot-sdks/blob/develop/c/doc/devbox_setup.md#linux).
+1. Set up your environment: if you've never used our Device SDK before,  learn  how to set up your environment on Linux [here](https://github.com/azure/azure-iot-sdks/blob/develop/c/doc/devbox_setup.md#linux).
 
 1. Open the file **c/serializer/samples/serializer/remote_monitoring.c** in a text editor.
 
@@ -103,7 +103,7 @@ Visualize your registered device and the data
 ### Running your device on Windows
 
 
-1. Setup your environment: if you have never used our device SDK before, learn  how to set up your environment on Windows [here](https://github.com/azure/azure-iot-sdks/blob/develop/c/doc/devbox_setup.md#windows).
+1. Set up your environment: if you have never used our device SDK before, learn  how to set up your environment on Windows [here](https://github.com/azure/azure-iot-sdks/blob/develop/c/doc/devbox_setup.md#windows).
 
 1. Start a new instance of Visual Studio 2015. Open the **remote_monitoring.sln** solution in the **c\\serializer\\build\\windows** folder in your local copy of the repository.
 
@@ -158,7 +158,7 @@ Connect the device
 
 - Plug the device into your computer using a micro-USB cable. Be sure to attach the cable to the correct USB port on the device, as pictured [here](https://developer.mbed.org/platforms/IBMEthernetKit/), in the "Getting started" section.
 
-- Follow the [instructions on the mbed handbook](https://developer.mbed.org/handbook/SerialPC) to setup the serial connection with your device from your development machine. If you are on Windows, install the Windows serial port drivers located [here](http://developer.mbed.org/handbook/Windows-serial-configuration#1-download-the-mbed-windows-serial-port).
+- Follow the [instructions on the mbed handbook](https://developer.mbed.org/handbook/SerialPC) to set up the serial connection with your device from your development machine. If you are on Windows, install the Windows serial port drivers located [here](http://developer.mbed.org/handbook/Windows-serial-configuration#1-download-the-mbed-windows-serial-port).
 
 Create mbed project and import the sample code
 
