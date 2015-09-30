@@ -195,8 +195,7 @@ On-premises Linux machines and Linux machines in non-Azure clouds can also be on
 
 7.  Remotely apply the PowerShell DSC metaconfiguration to the machines you want to onboard:
 
-
-    $SecurePass = ConvertTo-SecureString -string "<root password>" -AsPlainText -Force
+  $SecurePass = ConvertTo-SecureString -string "<root password>" -AsPlainText -Force
     	$Cred= New-Object System.Management.Automation.PSCredential "root", $SecurePass
     	$Opt = New-CimSessionOption -UseSsl:$true -SkipCACheck:$true -SkipCNCheck:$true -SkipRevocationCheck:$true
     
