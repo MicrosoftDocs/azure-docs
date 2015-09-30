@@ -33,7 +33,12 @@ Here are instructions you need to provide end users in order to change their pas
 - Select the **profile** tab on this page.
 - Click on the **Change password** tile on this page to initiate a password change.
 
+
+![Create a virtual network for Azure AD Domain Services.](./media/active-directory-domain-services-getting-started/user-change-password.png)
+
 - This brings up the **change password** page. The user can then enter their existing (old) password and proceed to change their password.
+
+![Create a virtual network for Azure AD Domain Services.](./media/active-directory-domain-services-getting-started/user-change-password2.png)
 
 After users have changed their password, the new password will be synchronized to Azure AD Domain Services shortly. After the password sync is complete, users can then login to the domain using their newly changed password.
 

@@ -4,8 +4,8 @@
 	services="active-directory-domain-services"
 	documentationCenter=""
 	authors="mahesh-unnikrishnan"
-	manager="msmbaldwin"
-	editor="curtand"/>
+	manager="udayh"
+	editor="femila"/>
 
 <tags
 	ms.service="active-directory-domain-services"
@@ -33,3 +33,5 @@ Perform the following configuration steps in order to update the DNS server sett
 - In the **DNS servers** section, enter the IP addresses of Azure AD Domain Services.
 - Ensure that you enter both the IP addresses displayed in the **Domain Services** section on the **Configure** tab of your directory.
 - Click **Save** on the task pane at the bottom of the page in order to save the DNS server settings for this virtual network.
+
+![Update the DNS server settings for the virtual network.](./media/active-directory-domain-services-getting-started/update-dns.png)

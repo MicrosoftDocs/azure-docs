@@ -4,8 +4,8 @@
 	services="active-directory-domain-services"
 	documentationCenter=""
 	authors="mahesh-unnikrishnan"
-	manager="msmbaldwin"
-	editor="curtand"/>
+	manager="udayh"
+	editor="femila"/>
 
 <tags
 	ms.service="active-directory-domain-services"
