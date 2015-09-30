@@ -14,7 +14,7 @@
 	ms.devlang="javascript"
 	ms.topic="article"
 	ms.date="09/24/2015"
-	ms.author="ricksal"/>
+	ms.author="wesmc"/>
 
 # How to use Notification Hubs from Node.js
 
