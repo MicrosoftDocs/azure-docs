@@ -69,7 +69,7 @@ A *collection* is a list of related items from Cortana Analytics Gallery that ar
 Your collection can contain items that you own or items that have been contributed by the community.
 
 For example, you can use a collection to group together items on a specific topic, or you can group together a multi-step experiment that solves a complex problem.
-The initial collections contributed by Microsoft consist of multi-step experiment templates for solving real world problems, such as online fraud detection, text classification, retail forecasting, and predictive maintenance.
+The initial collections contributed by Microsoft consist of multi-step machine learning experiment templates for solving real world problems, such as online fraud detection, text classification, retail forecasting, and predictive maintenance.
 
 Follow these steps to create and contribute a collection to the Cortana Analytics Gallery:
 
