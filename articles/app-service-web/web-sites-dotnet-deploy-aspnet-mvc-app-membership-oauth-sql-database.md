@@ -29,7 +29,7 @@ You'll learn:
 
 * How to create a secure ASP.NET MVC 5 web project in Visual Studio.
 * How to authenticate and authorize users who log on with credentials from their Google or Facebook accounts (social provider authentication using [OAuth 2.0](http://oauth.net/2 "http://oauth.net/2")).
-* How to authenticate and authorize users who register for the application (local authentication using [ASP.NET Identity](http://asp.net/identity/)).
+* How to authenticate and authorize users who register in a database managed by the application (local authentication using [ASP.NET Identity](http://asp.net/identity/)).
 * How to use the ADO.NET Entity Framework 6 Code First to read and write data in a SQL database.
 * How to use Entity Framework Code First Migrations to deploy a database.
 * How to store relational data in the cloud by using Azure SQL Database.
