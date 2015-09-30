@@ -124,7 +124,7 @@ Once the outage in the primary region is mitigated traffic manager will detect t
 
 In case of an outage in the secondary region traffic manager will mark the application end-point in the primary region as degraded and the replication channel will be suspended. However it will not impact the application's performance during the outage. Once the outage is mitigated the secondary database will be immediately synchronized with the primary. During synchronization performance of the primary could be slightly impacted depending on the amount of data that needs to be synchronized. 
 
-![Figure 8](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/pattern3-3.png)
+![Figure 8](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/pattern-3-3.png)
 
 This design pattern has several **advantages**:
 
