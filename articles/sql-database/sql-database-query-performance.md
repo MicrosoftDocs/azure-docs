@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management" 
-   ms.date="09/29/2015"
+   ms.date="09/30/2015"
    ms.author="sstein"/>
 
 # Azure SQL Database Query Performance Insight
@@ -50,7 +50,6 @@ The following [role-based access control](role-based-access-control-configure.md
 Query Performance Insight is easy to use:
 
 - Review the list of top resource-consuming queries. 
-- Select or clear the individual queries in the list to display them in the overall consumption chart.
 - Select an individual query to view it's details.
 - **Edit chart** to customize how DTU consumption data is displayed or to show a different time period.
 
@@ -76,7 +75,7 @@ In the [preview portal](https://portal.azure.com) do the following:
 
     ![top queries][2]
 
-1. Optionally, click **Edit chart** to customize how the chart displays data.
+1. Optionally, click **Edit chart** to customize how DTU consumption data is displayed, or to show a different time period.
 
 ## Viewing individual query details
 
@@ -84,10 +83,11 @@ To view query details:
 
 1. Click any query in the list of top queries.<br>The details view opens and the queries DTU consumption is broken down over time. 
 3. Click around the chart for details.<br>The top line is overall DTU%, and the bars are DTU% consumed by the selected query.
+4. Review the data to see detailed metrics including duration, number of executions, resource utilization percentage for each interval the query was running.
     
     ![query details][3]
 
-1. Optionally, click **View script** to see the query text, and click **Edit chart** to customize how the chart displays data.
+1. Optionally, click **View script** to see the query text, and click **Edit chart** to customize how DTU consumption data is displayed, or to show a different time period.
 
 
 
