@@ -51,6 +51,10 @@ During the process of upgrading to SQL Database V12 you must also [update all We
     ![recommendations][6]
 
 
+After all databases on the server are eligible you are ready to start the upgrade
+
+## Start the upgrade
+
 3. When all the databases on the server are eligible for upgrade (after resolving all issues) you need to **TYPE THE SERVER NAME** to verify that you want to perform the upgrade, and then click **OK**. 
 
     ![verify upgrade][3]
