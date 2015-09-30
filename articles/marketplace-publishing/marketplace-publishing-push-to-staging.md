@@ -46,10 +46,14 @@ In the links tab on the left bar, enter any links with information that may help
 
 ### 4.1.3 Sample images (optional)
 
+![drawing](media/marketplace-publishing-push-to-staging/pubportal-sample-image.png)
+*Upload of sample image in Publishing Portal*
+
+![drawing](media/marketplace-publishing-push-to-staging/portal-sample-image.png)
+*Presentation of sample image in offer details*
 
 ### 4.1.4 Plans
-<Provide a description of the plan.>
-<Insert screenshot of Plan tab.>
+![drawing](media/marketplace-publishing-push-to-staging/pubportal-plans-details.png)
 
 ### 4.1.5 Legal
 In the Legal tab, provide a link to your policies/terms of use. Enter or paste the terms in the large Terms of Use box.
