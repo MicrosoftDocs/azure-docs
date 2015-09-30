@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/22/2015" 
+	ms.date="09/29/2015" 
 	ms.author="spelluru"/>
 
 # Use custom activities in an Azure Data Factory pipeline
@@ -53,7 +53,7 @@ This Walkthrough provides you with step-by-step instructions for creating a cust
 
 4. Import the Azure Storage NuGet package in to the project.
 
-		Install-Package Azure.Storage -Version 4.3.0 
+		Install-Package Azure.Storage
 
 5. Add the following **using** statements to the source file in the project.
 
