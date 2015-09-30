@@ -53,6 +53,9 @@ The Microsoft Seller Dashboard is used to register the company information once.
 |Tax Profile ID | Optional | Optional | Optional | Must Have |
 |Bank Account | Optional | Optional | Optional | Must Have |
 
+> [AZURE.NOTE] BYOL is only supported for virtual machines and is considered **FREE** offering.
+
+
 ## 2.1 Register your company account
 1. Open a new  IE InPrivate or Chrome Incognito browsing session to ensure that you’re not logged into a personal account
 

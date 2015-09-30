@@ -45,6 +45,9 @@ In the links tab on the left bar, enter any links with information that may help
   *Links*
 
 ### 4.1.3 Sample images (optional)
+> [AZURE.NOTE] Including a sample image is an optional step. You could complete the other marketing content to fulfill requirements for push to staging.
+
+In the **Sample Images** tab on the left menu, upload a new image by clicking **Upload a new image**. If you have an existing image and you would like to replace it, click **Replace image**.
 
 ![drawing](media/marketplace-publishing-push-to-staging/pubportal-sample-image.png)
 *Upload of sample image in Publishing Portal*
