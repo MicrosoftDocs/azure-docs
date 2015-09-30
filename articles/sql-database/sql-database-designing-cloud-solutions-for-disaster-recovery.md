@@ -32,7 +32,7 @@ In this case the application deployment topology is optimized for handling regio
 
 > [AZURE.NOTE] [Azure traffic manager](https://azure.microsoft.com/en-us/documentation/articles/traffic-manager-overview/) is used throughout this article for illustration purposes only. You can use any load balancing solution that supports failover routing method.    
  
-In addition to the main application instances you should consider deploying a small [Azure web application](https://azure.microsoft.com/en-us/documentation/articles/web-sites-dotnet-get-started/) that monitors your primary database by issuing periodic T-SQL read-only (RO) commands. You can use it to automatically trigger failover, to generate an alert on your application's admin console or both. To ensure that monitoring is not impacted by region-wide outages you should deploy the monitoring application instances to each region and have them connected the database in the other region but only the instance in the secondary region needs to be active.
+In addition to the main application instances you should consider deploying a small [worker role application](https://azure.microsoft.com/en-us/documentation/articles/cloud-services-choose-me/#tellmecs) that monitors your primary database by issuing periodic T-SQL read-only (RO) commands. You can use it to automatically trigger failover, to generate an alert on your application's admin console or both. To ensure that monitoring is not impacted by region-wide outages you should deploy the monitoring application instances to each region and have them connected the database in the other region but only the instance in the secondary region needs to be active.
 
 > [AZURE.NOTE] If you are using [Active geo-replication](https://msdn.microsoft.com/en-us/library/azure/dn741339.aspx) you can have both monitoring applications active and probe both primary and secondary databases. The latter can be used to detect a failure in the secondary region and alert when the application is not protected.     
 
@@ -124,7 +124,7 @@ Once the outage in the primary region is mitigated traffic manager will detect t
 
 In case of an outage in the secondary region traffic manager will mark the application end-point in the primary region as degraded and the replication channel will be suspended. However it will not impact the application's performance during the outage. Once the outage is mitigated the secondary database will be immediately synchronized with the primary. During synchronization performance of the primary could be slightly impacted depending on the amount of data that needs to be synchronized. 
 
-![Figure 8](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/pattern-3-3.png)
+![Figure 8](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/pattern3-3.png)
 
 This design pattern has several **advantages**:
 
