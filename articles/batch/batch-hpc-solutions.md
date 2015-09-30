@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Batch and HPC Solutions in the Cloud | Microsoft Azure"
+   pageTitle="Batch and HPC Solutions in the cloud | Microsoft Azure"
    description="Introduces batch and high performance computing (Big Compute) scenarios and solution options in Azure"
    services="batch, virtual-machines, cloud-services"
    documentationCenter=""
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="big-compute"
-   ms.date="07/01/2015"
+   ms.date="09/29/2015"
    ms.author="danlep"/>
 
 # Batch and HPC Solutions
@@ -164,7 +164,7 @@ You can use Azure automation tools to create an HPC cluster in Azure virtual mac
 
 >[AZURE.NOTE] Check with the vendor of your on-premises cluster solution and applications for additional requirements and best practices for running in a public cloud providing infrastructure as a service (IaaS).
 
-For example, you can create a Windows Server based HPC cluster with [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029) in Azure infrastructure services virtual machines (IaaS) to run your workloads, as shown in the following simplified figure. A cluster user can submit a job securely to the cloud cluster through standard HPC Pack job submission tools running on a client computer. See [Microsoft HPC Pack in Azure VMs](https://msdn.microsoft.com/library/azure/dn518135.aspx) for details and deployment options.
+For example, you can create an HPC cluster with [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029) in Azure infrastructure services virtual machines (IaaS) to run your Windows or Linux workloads, as shown in the following simplified figure. A cluster user can submit a job securely to the cloud cluster through standard HPC Pack job submission tools running on a client computer. See [HPC cluster options with Microsoft HPC Pack in Azure](../virtual-machines/virtual-machines-hpcpack-cluster-options.md).
 
 ![Cluster in IaaS][iaas_cluster]
 
