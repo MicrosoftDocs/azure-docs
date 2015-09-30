@@ -24,9 +24,10 @@
 - [PowerShell](sql-database-upgrade-server.md)
 
 
-This article shows you how to upgrade to SQL Database V12 using PowerShell. The examples use pricing tier and elastic pool recommendations to assist with updating any Web and Business databases on the server.
+This article shows you how to upgrade to SQL Database V12 using PowerShell. 
 
-During the process of upgrading to SQL Database V12 you must also update all Web and Business databases to a new service tier. The following directions include using pricing tier and elastic pool recommendations to assist with [updating any Web and Business databases](sql-database-upgrade-new-service-tiers.md) on the server. 
+During the process of upgrading to SQL Database V12 you must also update any Web and Business databases to a new service tier. The following directions include using pricing tier and elastic pool recommendations to assist with [updating any Web and Business databases](sql-database-upgrade-new-service-tiers.md) on the server. 
+
 
 ## Prerequisites 
 
