@@ -21,6 +21,16 @@ This article is provided to help a seller create and deploy his/her solution e.g
 
 Some steps are shared between the different types of solutions. This provides a short overview of what steps you will need to complete for any type of solution.
 
+**Before you begin any work on the Azure Marketplace, you must be pre-approved. Not applicable for data service and developer service publishers.**
+|---|Virtual Machine Image |Developer Service | Data Service| Solution Template|
+|----|----|----|----|----|
+|Get Pre-Approval | Link | n/a | n/a | Link |
+| Step 1. Registration | Link | Link | Link | Link |
+| Step 2. Offer Creation | Link | Link | Link | Link |
+|----|Link | Link | Link | Link |
+|Step 3. Staging | Link | Link | Link | Link |
+|Step 4. Deploy | Link | Link | Link | Link |
+
 <!--
 ## Step 1. Get approved
 - [Azure Certification Process][link-certification]
