@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Set up staging environments for web apps in Azure App Service"
 	description="Learn how to use staged publishing for web apps in Azure App Service."
-	services="app-service\web"
+	services="app-service"
 	documentationCenter=""
 	authors="cephalin"
 	writer="cephalin"
@@ -10,7 +10,7 @@
 
 <tags
 	ms.service="app-service"
-	ms.workload="web"
+	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
@@ -202,7 +202,7 @@ Azure PowerShell is a module that provides cmdlets to manage Azure through Windo
 
 The Azure CLI provides cross-platform commands for working with Azure, including support for managing Web App deployment slots.
 
-- For instructions on installing and configuring the Azure CLI, including information on how to connect Azure CLI to your Azure subscription, see [Install and Configure the Azure CLI](../xplat-cli.md).
+- For instructions on installing and configuring the Azure CLI, including information on how to connect Azure CLI to your Azure subscription, see [Install and Configure the Azure CLI](../xplat-cli-install.md).
 
 -  To list the commands available for Azure App Service in the Azure CLI, call `azure site -h`.
 

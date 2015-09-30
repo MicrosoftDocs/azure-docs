@@ -41,7 +41,7 @@
 
 [Creating a VM by using the Azure Command-Line Interface (Azure CLI)](virtual-machines-xplat-getting-started.md)
 
-[Create a multi-VM deployment by using the Azure CLI](virtual-machines-create-multi-vm-deployment-xplat-cli.md)
+[Create a multi-VM deployment by using the Azure CLI](virtual-machines-create-multi-vm-deployment-xplat-cli-install.md)
 
 ## Plan
 
@@ -95,7 +95,7 @@
 
 [Cassandra](virtual-machines-linux-nodejs-running-cassandra.md)
 
-[Docker](virtual-machines-docker-with-xplat-cli.md)
+[Docker](virtual-machines-docker-with-xplat-cli-install.md)
 
 [Exchange Server](https://technet.microsoft.com/library/jj619301.aspx)
 
