@@ -55,6 +55,7 @@ If you’re not starting with an ARM template, that’s also ok.  There are Powe
 ## And Now Some Details
 
 Here’s a table of contents for what follows:
+
 1. [Setting up the Pull Server and Automation Account](#setting-up-the-pull-server-and-automation-account) 
 1. [VM Extension Tweaks to the ARM Template](#vm-extension-tweaks-to-the-arm-template) 
 1. [Adding Required DSC Resources to the Pull Server](#adding-required-dsc-resources-to-the-pull-server) 
