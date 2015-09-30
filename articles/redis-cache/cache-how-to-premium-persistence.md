@@ -29,7 +29,7 @@ For information on other premium cache features, see [How to configure clusterin
 ## What is data persistence?
 Redis persistence allows you to persist data stored in Redis. You can also take snapshots and back up the data which you can load in case of a hardware failure. This is a huge advantage over Basic or Standard tier where all the data is stored in memory and there can be potential data loss in case of a failure where Cache nodes are down.
 
-Azure Redis Cache offers Redis persistence where the data is stored in a Azure storage account. For the public preview we support the RDB model and will support AOF soon.
+Azure Redis Cache offers Redis persistence where the data is stored in a Azure storage account. For the public preview we support the [RDB model](http://redis.io/topics/persistence) and will support [AOF](http://redis.io/topics/persistence) soon.
 
 ## Data persistence
 When persistence is configured, Azure Redis Cache persists a snapshot of the Redis cache in a Redis binary format to disk based on a configurable backup frequency. If a catastrophic event occurs that disables both the primary and replica cache, the cache is reconstructed using the most recent snapshot.
@@ -48,7 +48,7 @@ Once a premium pricing tier is selected, click **Redis persistence**.
 
 Click **Enabled** to enable RDB (Redis database) backup.
 
-Select a **Backup Frequency** from the drop-down list. Choices include **60 minutes**, **6 hours**, **12 hours**, and **24 hours**. This interval starts counting down after the previous backup operation completes and when it elapses a new backup is initiated.
+Select a **Backup Frequency** from the drop-down list. Choices include **60 minutes**, **6 hours**, **12 hours**, and **24 hours**. This interval starts counting down after the previous backup operation successfully completes and when it elapses a new backup is initiated.
 
 Click **Storage Account** to select the storage account to use. The **Storage Key** is automatically populated, but if the key is regenerated for the storage account you can update it here. A **Premium Storage** account is recommended because premium storage has higher throughput.
 
