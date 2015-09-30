@@ -42,12 +42,12 @@ For more development tips, see [SQL Data Warehouse development overview](sql-dat
 
 <!--Article references-->
 
-[Copy data with Azure Data Factory]: ./data-factory-data-movement-activities/#copyactivity
-[SQL Data Warehouse development overview]:  ./sql-data-warehouse-overview-develop/
-[SQL Data Warehouse integration overview]:  ./sql-data-warehouse-overview-integration/
+[Copy data with Azure Data Factory]:https://azure.microsoft.com/en-us/documentation/articles/data-factory-azure-sql-connector/ 
+[SQL Data Warehouse development overview]:https://azure.microsoft.com/en-us/documentation/articles/sql-data-warehouse-overview-develop/ 
+[SQL Data Warehouse integration overview]:https://azure.microsoft.com/en-us/documentation/articles/sql-data-warehouse-overview-integrate/
 
 <!--MSDN references-->
 
 <!--Other Web references-->
-[Azure Data Factory documentation]: https://azure.microsoft.com/documentation/services/data-factory/
+[Azure Data Factory documentation]:https://azure.microsoft.com/documentation/services/data-factory/
 [Copy data with Azure Data Factory]:https://azure.microsoft.com/en-us/documentation/articles/data-factory-data-movement-activities/
