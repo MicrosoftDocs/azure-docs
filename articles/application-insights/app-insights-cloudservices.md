@@ -4,7 +4,7 @@
    services="application-insights"
    documentationCenter=""
    authors="soubhagyadash"
-   manager="victormu"
+   manager="douge"
    editor="alancameronwills"/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="ibiza"
    ms.topic="article"
    ms.workload="tbd"
-   ms.date="06/17/2015"
+   ms.date="09/30/2015"
    ms.author="sdash"/>
 
 # Application Insights for Azure Cloud Services
@@ -65,21 +65,30 @@ As an alternative, you could send data from all the roles to just one resource, 
 
 3. Configure the SDK to send data to the Application Insights resource.
 
-    Open `ApplicationInsights.config` and insert this line:
+ * Set the instrumentation key as a configuration setting in the file `ServiceConfiguration.Cloud.cscfg`.
+ 
+    ```XML
+     
+    <Role name="WorkerRoleA"> 
+      <Setting name="Telemetry.AI.InstrumentationKey" value="YOUR IKEY" /> 
+    </Role>
+    ```
 
-    `<InstrumentationKey>` *the instrumentation key you copied* `</InstrumentationKey>`
+    See the [sample code](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/AzureEmailService/ServiceConfiguration.Cloud.cscfg).
+ * In a suitable startup function, set the instrumentation key from the configuration setting:
 
-    Use the instrumentation key you copied from the Application Insights resource.
+    `TelemetryConfiguration.Active.InstrumentationKey = RoleEnvironment.GetConfigurationSettingValue("Telemetry.AI.InstrumentationKey"); `
 
-4. Set the ApplicationInsights.config file to be copied always to the output directory. This is only required for worker roles.
+ * Do this for each role in your application. See the examples:
+ 
+  * [Web role](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/MvcWebRole/Global.asax.cs#L27)
+  * [Worker role](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/WorkerRoleA.cs#L232)
+  * [For web pages](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/MvcWebRole/Views/Shared/_Layout.cshtml#L13)   
 
+4. Set the ApplicationInsights.config file to be copied always to the output directory. 
 
-You can alternatively set the instrumentation key (iKey) in code. This is useful, for example, if you want to use Azure Service Configuration (CSCFG) settings to manage the instrumentation keys for the respective environments.
-The [sample application](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService) shows how you can set the iKey:
+    (In the .config file, you'll see messages asking you to place the instrumentation key there. However, for cloud applications it's better to set it from the .cscfg file. This ensures that the role is correctly identified in the portal.)
 
-* [Web role](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/MvcWebRole/Global.asax.cs#L27)
-* [Worker role](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/WorkerRoleA.cs#L232)
-* [For web pages](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/MvcWebRole/Views/Shared/_Layout.cshtml#L13)
 
 ## Use the SDK to report telemetry
 ### Report Requests
