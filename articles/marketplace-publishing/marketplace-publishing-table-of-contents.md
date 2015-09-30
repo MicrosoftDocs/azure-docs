@@ -27,7 +27,7 @@ Some steps are shared between the different types of solutions. This provides a 
 |----|----|----|----|----|
 | **Get Pre-Approval** | [Microsoft Azure Certification][link-certification] | [Microsoft Azure Certification][link-certification] | n/a | [Microsoft Azure Certification][link-certification] |
 | **Step 1. Account Registration** | [Microsoft Seller Account Creation & Registration][link-accts] | [Microsoft Seller Account Creation & Registration][link-accts] | [Microsoft Seller Account Creation & Registration][link-accts] | [Microsoft Seller Account Creation & Registration][link-accts] |
-| **Step 2. Offer Creation** | VM Technical Pre-requisites | Developer Service Technical Pre-requisites | Data Service Technical Pre-requisites | Template Technical Pre-requisites |
+| **Step 2. Offer Creation** | [VM Technical Pre-requisites][link-single-vm-prereq] | Developer Service Technical Pre-requisites | Data Service Technical Pre-requisites | [Template Technical Pre-requisites][link-multi-vm-prereq] |
 ||[VM Image Publishing Guide][link-single-vm] | Developer Service Publishing Guide | Data Service Publishing Guide | [Solution Template Publishing Guide][link-multi-vm] |
 | **Step 3. Staging** | [Azure Marketplace Marketing Content Guide][link-pushstaging] | [Azure Marketplace Marketing Content Guide][link-pushstaging] | [Azure Marketplace Marketing Content Guide][link-pushstaging] | [Azure Marketplace Marketing Content Guide][link-pushstaging] |
 | **Step 4. Deploy to Marketplace** | [Deploy your offer to the Marketplace][link-pushprod] | [Deploy your offer to the Marketplace][link-pushprod] | [Deploy your offer to the Marketplace][link-pushprod] | [Deploy your offer to the Marketplace][link-pushprod] |
