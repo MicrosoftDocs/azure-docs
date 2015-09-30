@@ -235,7 +235,7 @@ In this case, it doesn't add the [JavaScript SDK][client] to your web pages - we
 
 #### Setup options
 
-If this is your first time, you'll be asked sign in or sign up to Microsoft Azure Preview. (It's separate from your Visual Studio Online account.)
+If this is your first time, you'll be asked sign in or sign up to Microsoft Azure Preview. 
 
 If this app is part of a bigger application, you might want to use **Configure settings** to put it in the same resource group as the other components.
 
