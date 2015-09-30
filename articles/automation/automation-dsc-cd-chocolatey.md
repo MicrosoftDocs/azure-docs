@@ -1,113 +1,192 @@
 <properties
-   pageTitle="Page title that displays in the browser tab and search results"
-   description="Article description that will be displayed on landing pages and in most search results"
-   services="service-name"
-   documentationCenter="dev-center-name"
-   authors="GitHub-alias-of-only-one-author"
+   pageTitle="Azure Automation DSC Continuous Deployment w/Chocolatey"
+   description="DevOps continuous deployment using Azure Automation DSC and Chocolatey package manager.  Example with full JSON ARM template + PowerShell source."
+   services="automation"
+   documentationCenter=""
+   authors="sebastus"
    manager="manager-alias"
    editor=""/>
 
 <tags
-   ms.service="required"
-   ms.devlang="may be required"
+   ms.service="automation"
+   ms.devlang="multiple"
    ms.topic="article"
-   ms.tgt_pltfrm="may be required"
-   ms.workload="required"
-   ms.date="mm/dd/yyyy"
-   ms.author="Your MSFT alias or your full email address;semicolon separates two or more"/>
+   ms.tgt_pltfrm="vm-windows"
+   ms.workload="na"
+   ms.date="10/01/2015"
+   ms.author="golive@microsoft.com"/>
 
-# Markdown template (article Heading 1 or H1): Heading at the top of the article
+# Continuous Deployment to IaaS VMs Using Azure Automation DSC + Chocolatey
 
-To copy the markdown from this template, copy the article in your local repo, or click the Raw button in the GitHub UI and copy the markdown.
+In a DevOps world there are many tools to assist with various points in the Continuous Integration pipeline.  Azure Automation Desired State Configuration (DSC) is a welcome new addition to the options that DevOps teams can employ.  In this article, I will demonstrate setting up Continuous Deployment (CD) for a Windows computer.  The technique extends trivially to include as many Windows computers as necessary in the role (web site, for example), and from there to additional roles as well.
 
-  ![Alt text; do not leave blank. Describe image.][8]
+Meta: This article was written in Sept 2015.  The version of Visual Studio is 2015.  [PowerShell Tools for Visual Studio](http://adamdriscoll.github.io/poshtools/) is installed and makes working with PowerShell easier by adding syntax highlighting and Intellisense.  At the time of writing, Azure Automation DSC is in Public Preview, so changes may occur as it moves to GA status.  [Full source](https://github.com/sebastus/ARM/tree/master/CDIaaSVM) for the example is on GitHub.
 
-Intro paragraph: Lorem dolor amet, adipiscing elit. Phasellus interdum nulla risus, lacinia porta nisl imperdiet sed. Mauris dolor mauris, tempus sed lacinia nec, euismod non felis. Nunc semper porta ultrices. Maecenas neque nulla, condimentum vitae ipsum sit amet, dignissim aliquet nisi.
+![Continuous Deployment for IaaS VMs](./media/automation-dsc-cd-chocolatey/cdforiaasvm.png)
 
-## Heading 2 (H2)
+## At a High Level
 
-Aenean sit amet leo nec purus placerat fermentum ac gravida odio. Aenean tellus lectus, faucibus in rhoncus in, faucibus sed urna.  volutpat mi id purus ultrices iaculis nec non neque. [Link text for link outside of azure.microsoft.com](http://weblogs.asp.net/scottgu). Nullam dictum dolor at aliquam pharetra. Vivamus ac hendrerit mauris [example link text for link to an article in a service folder](../articles/expressroute/expressroute-bandwidth-upgrade.md).
+There is quite a bit going on here, but fortunately it can be broken into two main processes: 1) writing code and testing it, then creating and publishing installation packages for major and minor versions of the system, and 2) creating and managing VMs that will install and execute the code in the packages.  Once both of these core processes are in place, it’s a short step to automatically update the package running on any particular VM as new versions are created and deployed.
 
-I get 10 times more traffic from [Google] [gog] than from [Yahoo] [yah] or [MSN] [msn].
+## Some Background
 
-> [AZURE.NOTE] Indented note text.  The word 'note' will be added during publication. Ut eu pretium lacus. Nullam purus est, iaculis sed est vel, euismod vehicula odio. Curabitur lacinia, erat tristique iaculis rutrum, erat sem sodales nisi, eu condimentum turpis nisi a purus.
+Package managers such as [apt-get](https://en.wikipedia.org/wiki/Advanced_Packaging_Tool) are pretty well known in the Linux world, but not so much in the Windows world.  [Chocolatey](https://chocolatey.org/) is such a thing, and Scott Hanselman’s [blog](http://www.hanselman.com/blog/IsTheWindowsUserReadyForAptget.aspx) on the topic is a great intro.  In a nutshell, Chocolatey allows you to install packages from a central repository of packages into a Windows system using the command line .  You can create and manage your own repository, and Chocolatey can install packages from any number of repositories that you designate.
 
-1. Aenean sit amet leo nec **Purus** placerat fermentum ac gravida odio.
+Desired State Configuration (DSC) ([overview](https://technet.microsoft.com/en-us/library/dn249912.aspx)) is a PowerShell tool that allows you to declare the configuration that you want for a machine.  For example, you could say “I want Chocolatey installed, I want IIS installed, I want port 80 opened, I want version 1.0.0 of my website installed.”  The DSC Local Configuration Manager (LCM) “makes it so”.  A DSC Pull Server holds a repository of configurations for your machines.  The LCM on each machine checks in periodically to see if its configuration matches the stored configuration.  It can either report status or attempt to bring the machine back into alignment with the stored configuration.  You can edit the stored configuration on the pull server to cause a machine or set of machines to come into alignment with the changed configuration.
 
-2. Aenean tellus lectus, faucius in **Rhoncus** in, faucibus sed urna. Suspendisse volutpat mi id purus ultrices iaculis nec non neque.
+Azure Automation is a managed service in Microsoft Azure that allows you to automate various tasks using runbooks and other assets such as nodes, credentials and resources.  Azure Automation DSC extends this automation capability to include PowerShell DSC tools.  Here’s a great [overview](https://azure.microsoft.com/en-us/documentation/articles/automation-dsc-overview/).
 
-  	![Alt text; do not leave blank. Collector car in racing red.][5]
+A DSC Resource is a module of code that has specific capabilities, such as managing networking, Active Directory, or SQL Server.  The Chocolatey DSC Resource knows how to access a NuGet Server (among others), download packages, install packages, and so on.  There are many other DSC Resources in the [PowerShell Gallery](http://www.powershellgallery.com/packages?q=dsc+resources&prerelease=&sortOrder=package-title).  These modules are installed into your Azure Automation DSC Pull Server (by you) so they can be used by your configurations.
 
-3. Nullam dictum dolor at aliquam pharetra. Vivamus ac hendrerit mauris. Sed dolor dui, condimentum et varius a, vehicula at nisl.
+ARM templates provide a declarative way of generating your infrastructure - things like networks, subnets, network security and routing, load balancers, NICs, VMs, and so on.  Here’s an [article](https://azure.microsoft.com/en-us/documentation/articles/resource-manager-deployment-model/) that compares the ARM deployment model (declarative) with the Azure Service Management (ASM, or classic) deployment model (imperative).  And another [article](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-azurerm-versus-azuresm/) about the core resource providers, compute, storage and network.
 
-  	![Alt text; do not leave blank][6]
+One key feature of an ARM template is its ability to install a VM extension into the VM as it’s provisioned.  A VM extension has specific capabilities such as running a custom script, installing anti-virus software, or running a DSC configuration script.  There are many other types of VM extensions.
 
+## Quick Trip Around the Pictorial
 
-Suspendisse volutpat mi id purus ultrices iaculis nec non neque. Nullam dictum dolor at aliquam pharetra. Vivamus ac hendrerit mauris. Otrus informatus: [Link 1 to another azure.microsoft.com documentation topic](virtual-machines-windows-tutorial.md)
+Starting at the top, you write your code, build and test, then create an installation package.  Chocolatey can handle various types of installation packages, such as MSI, MSU, ZIP.  And you have the full power of PowerShell to do the actual installation if Chocolatey’s native capabilities aren’t quite up to it.  Put the package into someplace reachable – a package repository.  I use a public folder in my Azure blob storage account, but it can be anywhere.  Chocolatey works natively with NuGet servers and a few others for management of package metadata.  Here’s a [link](https://github.com/chocolatey/choco/wiki/How-To-Host-Feed) to an article that describes the options.  In my sample, I use NuGet.  A Nuspec is metadata about your packages.  The Nuspec’s are “compiled” into NuPkg’s and stored in a NuGet server.  When your configuration requests a package by name, and references a NuGet server, the Chocolatey DSC Resource (now on the VM) grabs the package and installs it for you.  You can also request a specific version of a package.
 
-## Heading (H2)
+In the bottom part of the picture, I start with an Azure Resource Manager (ARM) template.  In my example, the VM extension registers the VM with the Azure Automation DSC Pull Server (aka pull server) as a Node.  The configuration is stored in the pull server.  Actually, it’s stored twice: once as plain text and once compiled as an MOF file (for those that know about such things.)  In the portal, the MOF is a “node configuration” (as opposed to simply “configuration”).  It’s the artifact that’s associated with a Node so the node will know its configuration.  Details below show how to assign the node configuration to the node.
 
-Ut eu pretium lacus. Nullam purus est, iaculis sed est vel, euismod vehicula odio.
+Presumably you’re already doing the bit at the top, or most of it.  Creating the nuspec, compiling and storing it in a NuGet server is a small thing.  And you’re already managing VMs.  Taking the next step to continuous deployment requires setting up the pull server (once), registering your nodes with it (once), and creating and storing the configuration there (initially).  Then as packages are upgraded and deployed to the repository, refresh the configuration in the pull server (repeat as needed).
 
-1. Curabitur lacinia, erat tristique iaculis rutrum, erat sem sodales nisi, eu condimentum turpis nisi a purus.
+If you’re not starting with an ARM template, that’s also ok.  There are PowerShell cmdlets designed to help you register your VMs with the pull server and all of the rest.
 
-        - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:
-        (NSDictionary *)launchOptions
-        {
-            // Register for remote notifications
-            [[UIApplication sharedApplication] registerForRemoteNotificationTypes:
-            UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound];
-            return YES;
-        }
+## And Now Some Details
 
-2. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia.
+Here’s a table of contents for what follows:
+1. [Setting up the Pull Server and Automation Account](#setting-up-the-pull-server-and-automation-account) 
+1. [VM Extension Tweaks to the ARM Template](#vm-extension-tweaks-to-the-arm-template) 
+1. [Adding Required DSC Resources to the Pull Server](#adding-required-dsc-resources-to-the-pull-server) 
+1. [Adding the Node Configuration to the Pull Server](#adding-the-node-configuration-to-the-pull-server)
+1. [Assigning the Node Configuration to the Node](#assigning-the-node-configuration-to-the-node)
+1. [Where to Put all this PowerShell?](#where-to-put-all-this-powershell?)
+1. [Creating and Maintaining Package Metadata](#creating-and-maintaining-package-metadata) 
 
-   	    // Because toast alerts don't work when the app is running, the app handles them.
-        // This uses the userInfo in the payload to display a UIAlertView.
-        - (void)application:(UIApplication *)application didReceiveRemoteNotification:
-        (NSDictionary *)userInfo {
-            NSLog(@"%@", userInfo);
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Notification" message:
-            [userInfo objectForKey:@"inAppMessage"] delegate:nil cancelButtonTitle:
-            @"OK" otherButtonTitles:nil, nil];
-            [alert show];
-        }
+## Setting up the Pull Server and Automation Account
 
+At an authenticated (Add-AzureAccount) PowerShell command line:  (can take a few minutes while the pull server is set up)
 
-    > [AZURE.NOTE] Duis sed diam non <i>nisl molestie</i> pharetra eget a est. [Link 2 to another azure.microsoft.com documentation topic](web-sites-custom-domain-name.md)
+    Switch-AzureMode -Name AzureResourceManager 
+    Register-AzureProvider –ProviderNamespace Microsoft.Automation 
+    Register-AzureProviderFeature -FeatureName dsc -ProviderNamespace Microsoft.Automation 
+    New-AzureResourceGroup –Name MY-AUTOMATION-RG –Location MY-RG-LOCATION-IN-QUOTES
+    New-AzureAutomationAccount –ResourceGroupName MY-AUTOMATION-RG –Location MY-RG-LOCATION-IN-QUOTES –Name MY-AUTOMATION-ACCOUNT 
 
+You can put your automation account into any of the following regions (aka location):  Japan East, East US 2, West Europe, Southeast Asia, South Central US.  Of course, make sure your automation resource group is in the same region as your automation account.
 
-Quisque commodo eros vel lectus euismod auctor eget sit amet leo. Proin faucibus suscipit tellus dignissim ultrices.
+## VM Extension Tweaks to the ARM Template
 
-## Heading 2 (H2)
+Details for VM registration (using the PowerShell DSC VM extension) provided in this [Azure Quickstart Template](https://github.com/Azure/azure-quickstart-templates/tree/master/dsc-extension-azure-automation-pullserver).  This step registers your new VM with the pull server in the list of DSC Nodes.
 
-1. Maecenas sed condimentum nisi. Suspendisse potenti.
+## Adding Required DSC Resources to the Pull Server
 
-  + Fusce
-  + Malesuada
-  + Sem
+The PowerShell Gallery is instrumented to install DSC resources into your Azure Automation account.  Navigate to the resource you want and click the “Deploy to Azure Automation” button.
 
-2. Nullam in massa eu tellus tempus hendrerit.
+![PowerShell Gallery example](./media/automation-dsc-cd-chocolatey/cchoco.png)
 
-  	![Alt text; do not leave blank. Example of a Channel 9 video.][7]
+Or, there’s the manual approach.  The folder structure of a PowerShell Integration Module for a Windows computer is a little different from the folder structure expected by the Azure Automation DSC Pull Server.  This requires a little tweaking on your part.  But it’s not hard, and it’s done only once per resource (unless you want to upgrade it in future.)
+- Install the module that you need on your workstation, as follows:
+    - Install [Windows Management Framework, v5](http://aka.ms/wmf5latest) 
+    - Install-Module  –ModuleName MODULENAME    <—grabs the module from the PowerShell gallery 
+- Copy the module folder from c:\Program Files\WindowsPowerShell\Modules\MODULE-NAME to a temp folder 
+- Delete samples and documentation from the main folder 
+- Zip the main folder, naming the zip file exactly the same as the folder 
+- Put the zip file into a reachable http location 
+- Run this PowerShell:
 
-3. Quisque felis enim, fermentum ut aliquam nec, pellentesque pulvinar magna.
+    New-AzureAutomationModule `  
+        -ResourceGroupName MY-AUTOMATION-RG -AutomationAccountName MY-AUTOMATION-ACCOUNT `  
+        -Name MODULE-NAME –ContentLink "https://STORAGE-URI/public/MODULE-NAME.zip"
 
+I did these steps for cChoco and xNetworking for this example. 
 
+## Adding the Node Configuration to the Pull Server
 
+There’s nothing special about the first time you import your configuration into the pull server and compile.  All subsequent import/compiles of the same configuration look exactly the same.  Each time you update your package and need to push it out to production you do this step after ensuring the configuration file is correct – including the new version of your package.  Here’s the configuration file and PowerShell:
 
-<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
-## Next steps
+    Configuration ISVBoxConfig 
+    { 
+        Import-DscResource -ModuleName cChoco 
+        Import-DscResource -ModuleName xNetworking
+    
+        Node "isvbox" {   <— node must be named, $AllNodes.NodeName won’t work.
+    
+            cChocoInstaller installChoco 
+            { 
+                InstallDir = "C:\choco" 
+            }
+    
+            WindowsFeature installIIS 
+            { 
+                Ensure="Present" 
+                Name="Web-Server" 
+            }
+    
+            xFirewall WebFirewallRule 
+            { 
+                Direction = "Inbound" 
+                Name = "Web-Server-TCP-In" 
+                DisplayName = "Web Server (TCP-In)" 
+                Description = "IIS allow incoming web site traffic." 
+                DisplayGroup = "IIS Incoming Traffic" 
+                State = "Enabled" 
+                Access = "Allow" 
+                Protocol = "TCP" 
+                LocalPort = "80" 
+                Ensure = "Present" 
+            }
+    
+            cChocoPackageInstaller trivialWeb 
+            {            
+                Name = "trivialweb" 
+                Version = "1.0.0" 
+                Source = “MY-NUGET-SERVER-ADDRESS” 
+                DependsOn = "[cChocoInstaller]installChoco", 
+                "[WindowsFeature]installIIS" 
+            } 
+        }    
+    }
 
-Vestibul ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nullam ultricies, ipsum vitae volutpat hendrerit, purus diam pretium eros, vitae tincidunt nulla lorem sed turpis: [Link 3 to another azure.microsoft.com documentation topic](storage-whatis-account.md).
+    Import-AzureAutomationDscConfiguration ` 
+        -ResourceGroupName MY-AUTOMATION-RG –AutomationAccountName MY-AUTOMATION-ACCOUNT ` 
+        -SourcePath C:\temp\AzureAutomationDsc\ISVBoxConfig.ps1 ` 
+        -Published –Force
+    
+    $jobData = Start-AzureAutomationDscCompilationJob ` 
+        -ResourceGroupName MY-AUTOMATION-RG –AutomationAccountName MY-AUTOMATION-ACCOUNT ` 
+        -ConfigurationName ISVBoxConfig 
+    
+    $compilationJobId = $jobData.Id
+    
+    Get-AzureAutomationDscCompilationJob ` 
+        -ResourceGroupName MY-AUTOMATION-RG –AutomationAccountName MY-AUTOMATION-ACCOUNT ` 
+        -Id $compilationJobId
 
-<!--Image references-->
-[5]: ./media/markdown-template-for-new-articles/octocats.png
-[6]: ./media/markdown-template-for-new-articles/pretty49.png
-[7]: ./media/markdown-template-for-new-articles/channel-9.png
-[8]: ./media/markdown-template-for-new-articles/copytemplate.png
+These steps result in a new node configuration named “ISVBoxConfig.isvbox”.  The name is built as “configurationName.nodeName”.
 
-<!--Reference style links - using these makes the source content way more readable than using inline links-->
-[gog]: http://google.com/        
-[yah]: http://search.yahoo.com/  
-[msn]: http://search.msn.com/    
+## Assign the Node Configuration to your Node
+
+For this step, you need to query the pull server to get the Id of your new VM after it’s been registered.  The cmdlet to do this is Get-AzureAutomationDscNode.  It has a few filters that might work, but in the general case you’re going to want to pipe the output of this through a filter that will grab VMs with a name pattern.  If you only create VMs of a single role, then you can grab all where the NodeConfigurationName is ConfigureLCMforAAPull.isvbox.  This is the configuration name of any newly registered VM if you’re going by this example.  Once you have the list of Id’s, here’s the cmdlet:
+
+    Set-AzureAutomationDscNode ` 
+        -ResourceGroupName MY-AUTOMATION-RG -AutomationAccountName MY-AUTOMATION-ACCOUNT ` 
+        -NodeConfigurationName ISVBoxConfig.isvbox -Id $theId
+
+## Where to put all of this PowerShell?
+
+When you’re writing custom ARM templates, there’s a PowerShell script provided by Visual Studio that invokes the template.  The cmdlets that import your configuration, compile it, get the id’s of your VMs, and so on can be appended to this script.  See the source for an example on GitHub.  For the parts that get executed each time your package is updated, integrate the needed commands into your Continuous Integration pipeline.
+
+## Creating and Maintaining Package Metadata
+
+For each package that you put into the package repository, you need a nuspec that describes it.  That nuspec must be compiled and stored in your NuGet server. This process is described [here](http://docs.nuget.org/create/creating-and-publishing-a-package).  I used MyGet.org as my NuGet server.  They sell this service, but have a starter SKU that’s free.  At NuGet.org you’ll find instructions on installing your own NuGet server for your private packages.
+
+## Notes
+
+In my example, I start my VM off with a generic Windows 2012 R2 image from the Azure gallery.  I could have started it from any stored image and then proceeded to tweak from there with my DSC configuration.
+
+You don’t have to use an ARM template and the VM extension to use this technique with your VMs.  And your VMs don’t have to be on Azure to be under CD management.  All that’s necessary is that Chocolatey be installed and the LCM configured on the VM so it knows where the pull server is.  
+
+Of course, when you update a package on a VM that’s in production, you need to take that VM out of rotation while the update is installed.  How you do this varies widely.  For example, with a VM behind an Azure Load Balancer, you can add a Custom Probe.  While updating the VM, have the probe endpoint return a 400.  The tweak necessary to cause this change can be inside your configuration, as can the tweak to switch it back to returning a 200 once the update is complete.
+
+Full source for this example is in [this Visual Studio project](https://github.com/sebastus/ARM/tree/master/CDIaaSVM) on GitHub.
