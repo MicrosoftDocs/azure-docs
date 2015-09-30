@@ -57,7 +57,7 @@ For more information about working with SAS, see [Shared Access Signature Authen
 
 This section describes common tasks for event publishers.
 
-#### Acquiring a SAS token
+#### Acquire a SAS token
 
 Shared Access Signature (SAS) is the authentication mechanism for Event Hubs. Service Bus provides SAS policies at the namespace and Event Hub level. A SAS token is generated from a SAS key and is an SHA hash of a URL, encoded in a specific format. Using the name of the key (policy) and the token, Service Bus can regenerate the hash and thus authenticate the sender. Normally, SAS tokens for event publishers are created with only **send** privileges on a specific Event Hub. This SAS token URL mechanism is the basis for publisher identification introduced in the publisher policy. For more information about working with SAS, see [Shared Access Signature Authentication with Service Bus](service-bus-shared-access-signature-authentication.md).
 
@@ -108,11 +108,11 @@ Within a partition, each event includes an offset. This offset is used by consum
 
 This section describes common tasks for Event Hubs event consumers or readers. All Event Hubs consumers connect via AMQP 1.0. AMQP 1.0 is a session and state-aware bidirectional communication channel. Each partition has an AMQP 1.0 link session that facilitates the transport of events segregated by partition.
 
-##### Connecting to a partition
+##### Connect to a partition
 
 In order to consume events from an Event Hub, a consumer must connect to a partition. As mentioned previously, you always access partitions through a consumer group. As part of the partitioned consumer model, only a single reader should be active on a partition at any one time within a consumer group. It is common practice when connecting directly to partitions to use a leasing mechanism in order to coordinate reader connections to specific partitions. This way, it is possible for every partition in a consumer group to have only one active reader. Managing the position in the sequence for a reader is an important task that is achieved through checkpointing. This functionality is simplified by using the [EventProcessorHost](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.eventprocessorhost.aspx) class for .NET clients. [EventProcessorHost](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.eventprocessorhost.aspx) is an intelligent consumer agent and is described in the next section.
 
-##### Reading events
+##### Read events
 
 After an AMQP 1.0 session and link is opened for a specific partition, events are delivered to the AMQP 1.0 client by the Event Hubs service. This delivery mechanism enables higher throughput and lower latency than pull-based mechanisms such as HTTP GET. As events are sent to the client, each event data instance contains important metadata such as the offset and sequence number that are used to facilitate checkpointing on the event sequence.
 
