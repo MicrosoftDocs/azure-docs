@@ -26,7 +26,7 @@ If you already have an existing virtual network you’d prefer to use, you can s
 
 Perform the following configuration steps in order to create an Azure virtual network in which you’d like to enable Azure AD Domain Services.
 
-1. Navigate to the **Azure management portal** (https://manage.windowsazure.com).
+1. Navigate to the **Azure management portal** ([https://manage.windowsazure.com](https://manage.windowsazure.com)).
 2. Select the **Networks** node on the left pane.
 3.  Click **NEW** on the task pane at the bottom of the page.
 4.  In the **Network Services** node, select **Virtual Network**.

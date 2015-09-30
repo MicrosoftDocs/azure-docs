@@ -44,7 +44,7 @@ After users have changed their password, the new password will be synchronized t
 ### Enable password synchronization for synced tenants
 If the Azure AD tenant for your organization is set to synchronize with your on-premises directory using Azure AD Connect, you will need to configure Azure AD Connect to synchronize credential hashes required for NTLM and Kerberos authentication. These hashes are not synchronized to Azure AD by default and the following steps will enable you to enable synchronization of the hashes to your Azure AD tenant.
 
-#### Install Azure Connect (GA release)
+#### Install Azure AD Connect (GA release)
 
 You will need to install the GA release of Azure AD Connect on a domain joined computer. If you have an existing instance of Azure AD Connect setup, you will need to update it to use the Azure AD Connect GA build.
 
