@@ -31,11 +31,11 @@ You'll learn:
 * How to authenticate and authorize users who log on with credentials from their Google or Facebook accounts (social provider authentication using [OAuth 2.0](http://oauth.net/2 "http://oauth.net/2")).
 * How to authenticate and authorize users who register for the application (local authentication using [ASP.NET Identity](http://asp.net/identity/)).
 * How to use the ADO.NET Entity Framework 6 Code First to read and write data in a SQL database.
-* How to use ADO.NET Entity Framework Migrations to deploy a database along with web deployment.
-* How to use a SQL database to store data in Azure.
-* How to publish a web project that uses a database to a [web app](http://go.microsoft.com/fwlink/?LinkId=529714) in Azure App Service.
+* How to use Entity Framework Code First Migrations to deploy a database.
+* How to store relational data in the cloud by using Azure SQL Database.
+* How to deploy a web project that uses a database to a [web app](http://go.microsoft.com/fwlink/?LinkId=529714) in Azure App Service.
 
->[AZURE.NOTE] This is a long tutorial. If you are looking for a quick and simple introduction to Azure App Service Web Apps and Visual Studio web projects, see [Create an ASP.NET web app in Azure App Service](web-sites-dotnet-get-started.md).
+>[AZURE.NOTE] This is a long tutorial. If you want a quick introduction to Azure App Service and Visual Studio web projects, see [Create an ASP.NET web app in Azure App Service](web-sites-dotnet-get-started.md).
 >
 >Or if you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
 
