@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Event Hubs Overview"
+   pageTitle="Overview of Azure Event Hubs | Microsoft Azure"
    description="Introduction and overview of Azure Event Hubs."
    services="event-hubs"
    documentationCenter="na"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd"
-   ms.date="06/09/2015"
+   ms.date="09/30/2015"
    ms.author="sethm" />
 
 # Azure Event Hubs overview
@@ -41,9 +41,9 @@ Partitions retain data for a configured retention time that is set at the Event 
 
 ![Event Hubs](./media/event-hubs-overview/IC759858.png)
 
-The number of partitions is specified at the Event Hub creation time and must be between 8 and 32. Partitions are a data organization mechanism and are more related to the degree of downstream parallelism required in consuming applications than to Event Hubs throughput. This makes the choice of the number of partitions in an Event Hub directly related to the number of concurrent readers you expect to have. After Event Hub creation, the partition count is not changeable; you should consider this number in terms of long-term expected scale. You can increase the 32 partition limit by contacting the Azure Service Bus team.
+The number of partitions is specified at the Event Hub creation time and must be between 2 and 32 (the default is 4). Partitions are a data organization mechanism and are more related to the degree of downstream parallelism required in consuming applications than to Event Hubs throughput. This makes the choice of the number of partitions in an Event Hub directly related to the number of concurrent readers you expect to have. After Event Hub creation, the partition count is not changeable; you should consider this number in terms of long-term expected scale. You can increase the 32 partition limit by contacting the Azure Service Bus team.
 
-While partitions are identifiable and can be sent to directly, it is generally best to avoid sending data to specific partitions. Instead, you can use higher level constructs introduced in the [Event publisher](#Event-publisher) and [Publisher Policy](#Capacity-and-security) sections.
+While partitions are identifiable and can be sent to directly, it is generally best to avoid sending data to specific partitions. Instead, you can use higher level constructs introduced in the [Event publisher](#event-publisher) and [Publisher Policy](#capacity-and-security) sections.
 
 In the context of Event Hubs, messages are referred to as *event data*. Event data contains the body of the event, a user defined property bag, and various metadata about the event such as its offset in the partition and its number in the stream sequence. Partitions are filled with a sequence of event data.
 
@@ -51,7 +51,7 @@ In the context of Event Hubs, messages are referred to as *event data*. Event da
 
 Any entity that sends events or data to an Event Hub is an *event publisher*. Event publishers can publish events using either HTTPS or AMQP 1.0. Event publishers use a Shared Access Signature (SAS) token to identify themselves to an Event Hub, and can have a unique identity, or use a common SAS token, depending on the requirements of the scenario.
 
-For more information about working with SAS, see [Shared Access Signature Authentication with Service Bus](https://msdn.microsoft.com/library/dn170477.aspx).
+For more information about working with SAS, see [Shared Access Signature Authentication with Service Bus](service-bus-shared-access-signature-authentication.md).
 
 ### Common publisher tasks
 
@@ -59,7 +59,7 @@ This section describes common tasks for event publishers.
 
 #### Acquiring a SAS token
 
-Shared Access Signature (SAS) is the authentication mechanism for Event Hubs. Service Bus provides SAS policies at the namespace and Event Hub level. A SAS token is generated from a SAS key and is an SHA hash of a URL, encoded in a specific format. Using the name of the key (policy) and the token, Service Bus can regenerate the hash and thus authenticate the sender. Normally, SAS tokens for event publishers are created with only **send** privileges on a specific Event Hub. This SAS token URL mechanism is the basis for publisher identification introduced in the publisher policy. For more information about working with SAS, see [Shared Access Signature Authentication with Service Bus](https://msdn.microsoft.com/library/dn170477.aspx).
+Shared Access Signature (SAS) is the authentication mechanism for Event Hubs. Service Bus provides SAS policies at the namespace and Event Hub level. A SAS token is generated from a SAS key and is an SHA hash of a URL, encoded in a specific format. Using the name of the key (policy) and the token, Service Bus can regenerate the hash and thus authenticate the sender. Normally, SAS tokens for event publishers are created with only **send** privileges on a specific Event Hub. This SAS token URL mechanism is the basis for publisher identification introduced in the publisher policy. For more information about working with SAS, see [Shared Access Signature Authentication with Service Bus](service-bus-shared-access-signature-authentication.md).
 
 #### Publishing an event
 
@@ -132,7 +132,7 @@ The throughput capacity of Event Hubs is controlled by throughput units. Through
 
 - Egress: Up to 2MB per second.
 
-Ingress is throttled to the amount of capacity provided by the number of throughput units purchased. Sending data above this amount results in a "quota exceeded" exception. This amount is either 1 MB per second or 1000 events per second, whichever comes first. Egress does not produce throttling exceptions, but is limited to the amount of data transfer provided for by the purchased throughput units: 2 MB per second per throughput unit. If you receive publishing rate exceptions or are expecting to see higher egress be sure to check how many throughput units you have purchased for the namespace in which the Event Hub was created. To obtain more throughput units, you can adjust the setting on the **Namespaces** page on the **Configure** tab in the Azure management portal. You can also change this setting using the Azure APIs.
+Ingress is throttled to the amount of capacity provided by the number of throughput units purchased. Sending data above this amount results in a "quota exceeded" exception. This amount is either 1 MB per second or 1000 events per second, whichever comes first. Egress does not produce throttling exceptions, but is limited to the amount of data transfer provided for by the purchased throughput units: 2 MB per second per throughput unit. If you receive publishing rate exceptions or are expecting to see higher egress be sure to check how many throughput units you have purchased for the namespace in which the Event Hub was created. To obtain more throughput units, you can adjust the setting on the **Namespaces** page on the **Scale** tab in the Azure management portal. You can also change this setting using the Azure APIs.
 
 While partitions are a data organization concept, throughput units are purely a capacity concept. Throughput units are billed per hour and are pre-purchased. Once purchased, throughput units are billed for a minimum of one hour. Up to 20 throughput units can be purchased for a Service Bus namespace, and there is an Azure account limit of 20 throughput units. These throughput units are shared across all Event Hubs in a given namespace.
 
@@ -148,11 +148,11 @@ Event Hubs enables granular control over event producers through *publisher poli
 
 	//<my namespace>.servicebus.windows.net/<event hub name>/publishers/<my publisher name>
 
-You don't have to create publisher names ahead of time, but they must match the SAS token used when publishing an event, in order to ensure independent publisher identities. For more information about SAS, see [Shared Access Signature Authentication with Service Bus](https://msdn.microsoft.com/library/dn170477.aspx). When using publisher policies, the **PartitionKey** value is set to the publisher name. In order to work properly, these values must match.
+You don't have to create publisher names ahead of time, but they must match the SAS token used when publishing an event, in order to ensure independent publisher identities. For more information about SAS, see [Shared Access Signature Authentication with Service Bus](service-bus-shared-access-signature-authentication.md). When using publisher policies, the **PartitionKey** value is set to the publisher name. In order to work properly, these values must match.
 
 ## Summary
 
-Azure Event Hubs provides a hyper-scale event and telemetry processing service that can be used for common application and user workflow monitoring at any scale. With the ability to provide publish-subscribe capabilities with low latency and at massive scale, Event Hubs serve as the "on ramp" for Big Data. With publisher-based identity and revocation lists, these capabilities are extended into common Internet of Things scenarios. For more information about developing Event Hubs applications. see the [Event Hubs Programming Guide](https://msdn.microsoft.com/library/dn789972.aspx).
+Azure Event Hubs provides a hyper-scale event and telemetry processing service that can be used for common application and user workflow monitoring at any scale. With the ability to provide publish-subscribe capabilities with low latency and at massive scale, Event Hubs serve as the "on ramp" for Big Data. With publisher-based identity and revocation lists, these capabilities are extended into common Internet of Things scenarios. For more information about developing Event Hubs applications. see the [Event Hubs Programming Guide](event-hubs-programming-guide.md).
 
 ## Next steps
 
@@ -162,7 +162,7 @@ Now that you've learned about Event Hubs concepts, you can move on to the follow
 - A complete [sample application that uses Event Hubs].
 - A [queued messaging solution] using Service Bus queues.
 
-[Event Hubs tutorial]: service-bus-event-hubs-csharp-ephcs-getstarted.md
+[Event Hubs tutorial]: event-hubs-csharp-ephcs-getstarted.md
 [sample application that uses Event Hubs]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-286fd097
-[queued messaging solution]: ../cloud-services-dotnet-multi-tier-app-using-service-bus-queues.md
+[queued messaging solution]: ../service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
  

@@ -19,7 +19,7 @@
 
 This article summarizes some of the key Event Hubs .NET client APIs. There are two categories: management and runtime APIs. Runtime APIs consist of all operations needed to send and receive a message. Management operations enable you to manage the Event Hubs entity state by creating, updating, and deleting entities.
 
-Monitoring scenarios span both management and runtime. For detailed reference documentation on the .NET APIs, see the [.NET Class Library](https://msdn.microsoft.com/library/jj933431.aspx) and [EventProcessorHost API](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.aspx) references.
+Monitoring scenarios span both management and runtime. For detailed reference documentation on the .NET APIs, see the [.NET Class Library](https://msdn.microsoft.com/library/azure/jj933431.aspx) and [EventProcessorHost API](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.aspx) references.
 
 ## Management API
 
@@ -131,7 +131,7 @@ EventProcessorHost host = new EventProcessorHost(WorkerName, EventHubName, defau
 host.UnregisterEventProcessorAsync().Wait();   
 ```
 
-The [IEventProcessor](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.ieventprocessor.aspx) interface is defined as follows:
+The [IEventProcessor](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.ieventprocessor.aspx) interface is defined as follows:
 
 ```
 public class SimpleEventProcessor : IEventProcessor
@@ -184,5 +184,5 @@ To learn more about Event Hubs scenarios, visit these links:
 
 The .NET API references are here:
 
-- [Service Bus and Event Hubs .NET API reference](https://msdn.microsoft.com/library/jj933424.aspx)
-- [Event processor host API reference](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.eventprocessorhost.aspx)
+- [Service Bus and Event Hubs .NET API reference](https://msdn.microsoft.com/library/azure/jj933424.aspx)
+- [Event processor host API reference](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost.aspx)
