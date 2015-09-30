@@ -21,9 +21,12 @@ Azure Redis Cache has different cache offerings which provide flexibility in the
 
 The Azure Redis Cache premium tier includes clustering, persistence, and virtual network (VNET) support. A VNET is a representation of your own network in the cloud. When an Azure Redis Cache instance is configured with a VNET, it is not publicly addressable and can only be accessed from clients within the VNET. This article describes how to configure Virtual Network Support for a premium Azure Redis Cache instance.
 
-For information on other premium cache features, see [How to configure persistence for a Premium Azure Redis Cache](cache-how-to-premium-persistence.md) and [How to configure clustering support for a Premium Azure Redis Cache](cache-how-to-premium-clustering.md).
+For information on other premium cache features, see [How to configure persistence for a Premium Azure Redis Cache](cache-how-to-premium-persistence.md) and [How to configure clustering for a Premium Azure Redis Cache](cache-how-to-premium-clustering.md).
 
 >[AZURE.NOTE] The Azure Redis Cache Premium tier is currently in preview.
+
+## Why VNET?
+[Azure Virtual Network (VNET)](https://azure.microsoft.com/en-us/services/virtual-network/) deployment provides enhanced security and isolation for your Azure Redis Cache, as well as subnets, access control policies, and other features to further restrict access to Azure Redis Cache.
 
 ## Virtual network support
 Virtual Network (VNET) support is configured on the **New Redis Cache** blade during cache creation. To create a cache, sign-in to the [Azure preview portal](https://portal.azure.com) and click **New**->**Data + Storage**>**Redis Cache**.
@@ -34,15 +37,11 @@ To configure VNET support, first select one of the **Premium** caches in the **C
 
 ![Choose your pricing tier][redis-cache-premium-pricing-tier]
 
-Azure Redis Cache VNET integration is configured in the **Virtual Network** blade. From here you can select an existing VNET. To use a new VNET, first [create](..\virtual-network\virtual-networks-create-vnet-arm-pportal.md) it and then return to the **Redis Cache Virtual Network** blade to select it.
+Azure Redis Cache VNET integration is configured in the **Virtual Network** blade. From here you can select an existing VNET. To use a new VNET, floow the steps in [Create a virtual network using the Azure preview portal](..\virtual-network\virtual-networks-create-vnet-arm-pportal.md) and then return to the **Redis Cache Virtual Network** blade to select it.
 
 ![Virtual network][redis-cache-vnet]
 
 Click **Virtual Network** on the **Virtual Network** blade to select and configure your VNET.
-
-
-
-Clustering is configured on the **Redis Cluster** blade.
 
 ![Virtual network][redis-cache-vnet-select]
 

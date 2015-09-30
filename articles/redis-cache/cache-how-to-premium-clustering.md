@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="How to configure clustering for a Premium Azure Redis Cache" 
-	description="Learn how to create and manage clustering for your Premium tier Azure Redis Cache instances" 
+	pageTitle="How to configure Redis clustering for a Premium Azure Redis Cache" 
+	description="Learn how to create and manage Redis clustering for your Premium tier Azure Redis Cache instances" 
 	services="redis-cache" 
 	documentationCenter="" 
 	authors="steved0x" 
@@ -16,7 +16,7 @@
 	ms.date="09/30/2015" 
 	ms.author="sdanie"/>
 
-# How to configure clustering for a Premium Azure Redis Cache
+# How to configure Redis clustering for a Premium Azure Redis Cache
 Azure Redis Cache has different cache offerings which provide flexibility in the choice of cache size and features, including the new Premium tier, currently in preview.
 
 The Azure Redis Cache premium tier includes clustering, persistence, and virtual network support. This article describes how to configure clustering in a premium Azure Redis Cache instance.
@@ -24,6 +24,18 @@ The Azure Redis Cache premium tier includes clustering, persistence, and virtual
 For information on other premium cache features, see [How to configure persistence for a Premium Azure Redis Cache](cache-how-to-premium-persistence.md) and [How to configure Virtual Network support for a Premium Azure Redis Cache](cache-how-to-premium-vnet.md).
 
 >[AZURE.NOTE] The Azure Redis Cache Premium tier is currently in preview.
+
+## What is Redis Cluster?
+Azure Redis Cache offers Redis cluster as [implemented in Redis](http://redis.io/topics/cluster-tutorial). With Redis Cluster, you get the following benefits. 
+
+-	The ability to automatically split your dataset among multiple nodes. 
+-	The ability to continue operations when a subset of the nodes are experiencing failures or are unable to communicate with the rest of the cluster. 
+-	More throughput: Throughput increases linearly as you increase the number of shards. 
+-	More memory size: Increases linearly as you increase the number of shards.  
+
+Please see the [Azure Redis Cache FAQ](cache-faq.md#what-redis-cache-offering-and-size-should-i-use) for more details about size, throughput, and bandwidth with premium caches. 
+
+In Azure, Redis cluster is offered as a primary/replica model where each shard has a primary/replica pair with replication where the replication is managed by Azure Redis Cache service. 
 
 ## Clustering
 Clustering is configured on the **New Redis Cache** blade during cache creation. To create a cache, sign-in to the [Azure preview portal](https://portal.azure.com) and click **New**->**Data + Storage**>**Redis Cache**.
@@ -38,9 +50,9 @@ Clustering is configured on the **Redis Cluster** blade.
 
 ![Clustering][redis-cache-clustering]
 
-You can have up to 10 shards in the cluster. Each shard is a primary/replica cache pair managed by Azure, and the total size of the cache is calculated by multiplying the number of shards by the cache size selected in the pricing tier. 
+You can have up to 10 shards in the cluster. Click **Enabled** and slide the slider or type a number between 1 and 10 for **Shard count** and click **OK**.
 
-Click **Enabled** and slide the slider or type a number between 1 and 10 for **Shard count** and click **OK**.
+Each shard is a primary/replica cache pair managed by Azure, and the total size of the cache is calculated by multiplying the number of shards by the cache size selected in the pricing tier. 
 
 ![Clustering][redis-cache-clustering-selected]
 
@@ -57,6 +69,10 @@ The largest premium cache size is 53 GB. You can create up to 10 shards giving y
 ## Do all Redis clients support clustering
 
 At the present time not all clients support Redis clustering. StackExchange.Redis is one that does support for it. For more information on other clients, see the [Playing with the cluster](http://redis.io/topics/cluster-tutorial#playing-with-the-cluster) section of the [Redis cluster tutorial](http://redis.io/topics/cluster-tutorial).
+
+## How do I connect to my cache when clustering is enabled?
+
+You can connect to your cache using the same [endpoints, ports, and keys](cache-configure.md#properties) that you use when connecting to a cache that does not have clustering enabled. Redis manages the clustering on the backend so you don't have to manage it from your client.
 
 ## Can I directly connect to the individual shards of my cache?
 
