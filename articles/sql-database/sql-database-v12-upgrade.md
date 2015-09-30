@@ -40,13 +40,13 @@ During the process of upgrading to SQL Database V12 you must also [update all We
 
 2. Upgrade all Web and Business databases. If your server has any Web or Business databases you must upgrade them. To assist you with upgrading, the SQL Database service recommends an appropriate service tier and performance level (pricing tier) for each database. By analyzing the historical usage for each database, the service recommends a tier that is best suited for running your existing database’s workload. 
     
-    Select each database to review and select the recommended pricing tier to upgrade to. You can always browse the available pricing tiers and select the one that suits your environment best. 
+    Select each database to review and select the recommended pricing tier to upgrade to. You can always browse the available pricing tiers and select the one that suits your environment best.
 
      ![databases][2]
 
 
 
-7. After clicking the database you will be presented with the **Recommended pricing tiers** blade where you can click the suggested tier and then click the **Select** button to change to that tier. Select a new tier for each Web or Business database
+7. After clicking the suggested tier you will be presented with the **Choose your ricing tier** blade where you can select a tier and then click the **Select** button to change to that tier. Select a new tier for each Web or Business database
 
     ![recommendations][6]
 
@@ -55,18 +55,18 @@ After all databases on the server are eligible you are ready to start the upgrad
 
 ## Start the upgrade
 
-3. When all the databases on the server are eligible for upgrade (after resolving all issues) you need to **TYPE THE SERVER NAME** to verify that you want to perform the upgrade, and then click **OK**. 
+3. When all the databases on the server are eligible for upgrade you need to **TYPE THE SERVER NAME** to verify that you want to perform the upgrade, and then click **OK**. 
 
     ![verify upgrade][3]
 
 
-4. The upgrade starts and displays the in progress notification. The upgrade process is initiated. Upgrade can take up to 24 hours. During this time all databases on this server will remain online but server and database management actions will be restricted.
+4. The upgrade starts and displays the in progress notification. The upgrade process is initiated. Depending on the details of your specific databases upgrading to V12 can take some time. During this time all databases on the server will remain online but server and database management actions will be restricted.
 
     ![upgrade in progress][4]
 
     At the time of the actual transition to the new performance level temporary dropping of the connections to the database can happen for a very small duration (typically measured in seconds). If an application has transient fault handling (retry logic) for connection terminations then it is sufficient to protect against dropped connections at the end of the upgrade. 
 
-5. After the upgrade operation completes the SQL Datase V12 server features are enabled.
+5. After the upgrade operation completes the SQL Database V12 server features are enabled.
 
     ![V12 enabled][5]  
 
