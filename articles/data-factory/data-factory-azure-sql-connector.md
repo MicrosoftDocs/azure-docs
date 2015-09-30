@@ -393,22 +393,74 @@ For a full list of sections & properties available for defining activities, plea
 
 Properties available in the typeProperties section of the activity on the other hand vary with each activity type and in case of Copy activity they vary depending on the types of sources and sinks.
 
+### SqlSource
+
 In case of Copy activity when source is of type **SqlSource** the following properties are available in **typeProperties** section:
 
 | Property | Description | Allowed values | Required |
 | -------- | ----------- | -------------- | -------- |
 | sqlReaderQuery | Use the custom query to read data. | SQL query string.For example: select * from MyTable. If not specified, the SQL statement that is executed: select from MyTable. | No |
+| sqlReaderStoredProcedureName | Name of the stored procedure name that reads data from the source table. | Name of the stored procedure. | No |
+| storedProcedureParameters | Parameters for the stored procedure. | Name/value pairs. Names and casing of parameters must match the names and casing of the stored procedure parameters. | No | 
+
+### SqlSource Example
+
+    source: {
+        type: "SqlSource",
+        sqlReaderStoredProcedureName: "CopyTestSrcStoredProcedureWithParameters",
+        storedProcedureParameters: {
+            stringData: { value: "str3" },
+            id: { value: "$$Text.Format('{0:yyyy}', SliceStart)", type: "Int"}
+        }
+    }
+
+**The stored procedure definition:** 
+
+	CREATE PROCEDURE CopyTestSrcStoredProcedureWithParameters
+	(
+		@stringData varchar(20),
+		@id int
+	)
+	AS
+	SET NOCOUNT ON;
+	BEGIN
+	     select *
+	     from dbo.UnitTestSrcTable
+	     where dbo.UnitTestSrcTable.stringData != stringData
+	    and dbo.UnitTestSrcTable.id != id
+	END
+	GO
+
+
+### SqlSink 
 
 **SqlSink** supports the following properties:
 
 | Property | Description | Allowed values | Required |
 | -------- | ----------- | -------------- | -------- |
-| sqlWriterStoredProcedureName | User specified stored procedure name to upsert (update/insert) data into the target table. | Name of the stored procedure. | No |
-| sqlWriterTableType | User specified table type name to be used in the above stored procedure. Copy activity makes the data being moved available in a temp table with this table type. Stored procedure code can then merge the data being copied with existing data. | A table type name. | No |
 | writeBatchTimeout | Wait time for the batch insert operation to complete before it times out. | (Unit = timespan) Example: “00:30:00” (30 minutes). | No | 
 | writeBatchSize | Inserts data into the SQL table when the buffer size reaches writeBatchSize. | Integer. (unit = Row Count) | No (Default = 10000)
 | sqlWriterCleanupScript | User specified query for Copy Activity to execute such that data of a specific slice will be cleaned up. See repeatability section below for more details. | A query statement.  | No |
 | sliceIdentifierColumnName | User specified column name for Copy Activity to fill with auto generated slice identifier, which will be used to clean up data of a specific slice when rerun. See repeatability section below for more details. | Column name of a column with data type of binary(32). | No |
+| sqlWriterStoredProcedureName | Name of the stored procedure that upserts (updates/inserts) data into the target table. | Name of the stored procedure. | No |
+| storedProcedureParameters | Parameters for the stored procedure. | Name/value pairs. Names and casing of parameters must match the names and casing of the stored procedure parameters. | No | 
+| sqlWriterTableType | User specified table type name to be used in the above stored procedure. Copy activity makes the data being moved available in a temp table with this table type. Stored procedure code can then merge the data being copied with existing data. | A table type name. | No |
+
+#### SqlSink Example
+
+    sink: {
+        type: "SqlSink",
+        writeBatchSize: 1000000,
+        writeBatchTimeout: "00:05:00",
+        sqlWriterStoredProcedureName: "CopyTestStoredProcedureWithParameters",
+        sqlWriterTableType: "CopyTestTableType",
+        storedProcedureParameters: {
+            id: { value: "1", type: "Int" },
+            stringData: { value: "str1" },
+            decimalData: { value: "1", type: "Decimal" }
+        }
+    }
+
 
 [AZURE.INCLUDE [data-factory-type-repeatability-for-sql-sources](../../includes/data-factory-type-repeatability-for-sql-sources.md)] 
 
