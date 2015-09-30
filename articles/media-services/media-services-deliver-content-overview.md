@@ -100,7 +100,7 @@ Example
 
 **Apple HTTP Live Streaming (HLS) format with audio-only filter**
 
-By default audio only tracks are included in the HLS manifest. This is required for Apple store certification for cellular networks. In this case, if a client doesn’t have sufficient bandwidth or connected over a 2G connection it switches to audio only playback. This helps streaming to keep ongoing without buffering with a drawback of no video. However, in some scenarios, player buffering might be preferred over audio-only. If you want to remove audio-only track you can add (audio-only=false) to the URL and remove it.
+By default audio only tracks are included in the HLS manifest. This is required for Apple store certification for cellular networks. In this case, if a client doesn’t have sufficient bandwidth or connected over a 2G connection it switches to audio only playback. This helps to keep ongoing streaming without buffering but with a drawback of no video. However, in some scenarios, player buffering might be preferred over audio-only. If you want to remove audio-only track you can add (audio-only=false) to the URL and remove it.
 
 	http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl-v3,audio-only=false)
 
