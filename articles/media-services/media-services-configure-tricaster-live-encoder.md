@@ -154,7 +154,7 @@ The stream is now ready to be embedded in a player, or distributed to an audienc
 
 ## Troubleshooting
 
-For more information, see the [troubleshooting guide](media-services-live-encoders-overview.md#troubleshooting_guide).
+For more information, see the [troubleshooting guide](media-services-live-encoders-overview.md#troubleshooting-guide).
 
 ##Media Services learning paths
 
