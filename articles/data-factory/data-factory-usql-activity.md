@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Invoke U-SQL script from Azure Data Factory" 
-	description="Learn how to process data by running U-SQL scripts on Azure Data Lake Analytics compute." 
+	pageTitle="Run U-SQL script from Azure Data Factory" 
+	description="Learn how to process data by running U-SQL scripts on Azure Data Lake Analytics compute service." 
 	services="data-factory" 
 	documentationCenter="" 
 	authors="spelluru" 
@@ -28,7 +28,7 @@ You create an Azure Data Lake Analytics linked service to link an Azure Data Lak
 ### Example
 
 	{
-	    "name": "AzureDataLakeAnalyticsLinkedService",
+	    "name": "AzureBigAnalyticsLinkedService",
 	    "properties": {
 	        "type": "AzureBigAnalytics",
 	        "typeProperties": {
@@ -50,10 +50,12 @@ Property | Description | Required
 Type | The type property should be set to: **AzureBigAnalytics**. | Yes
 accountName | Azure Big Analytics Account Name. | Yes
 bigAnalyticsUri | Azure Big Analytics URI. Enter ‘datalakeanalyticscompute.net’. |  No 
-authorization | Authorization code is automatically retrieved after clicking ‘Authorize’ and completing the OAuth login. | Yes 
+authorization | Authorization code is automatically retrieved after clicking ‘**Authorize**’ button in the Data Factory Editor and completing the OAuth login. | Yes 
 subscriptionId | Azure subscription id | No (If not specified, subscription of the data factory is used). 
 resourceGroupName | Azure resource group name |  No (If not specified, resource group of the data factory is used).
-sessionId | OAuth session id from the oauth authorization session. Each session id is unique and may only be used once. | Yes   
+sessionId | OAuth session id from the oauth authorization session. Each session id is unique and may only be used once. | Yes
+
+   
  
 ## JSON for U-SQL Activity 
 

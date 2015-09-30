@@ -70,7 +70,7 @@ The following procedure provides steps for creating an Azure Data Lake Store lin
 
 	![Authorize button](./media/data-factory-azure-data-lake-connector/authorize-button.png)
 4. Use your credentials to sign-in and the **authorization** property in the JSON should be assigned to a value now. 
-5. Specify values for optional parameters such as **accountName**, **subscriptionID** and **resourceGroupName** in the JSON. 
+5. (optional) Specify values for optional parameters such as **accountName**, **subscriptionID** and **resourceGroupName** in the JSON (or) delete these properties from the JSON.
 6. Click **Deploy** on the command bar to deploy the linked service. 
  
 
@@ -146,41 +146,7 @@ The sample copies data to an Azure Data Lake store. New data is copies to Data L
 	    "type": "AzureDataLake",
 	    "linkedServiceName": " AzureDataLakeLinkedService",
 	    "typeProperties": {
-	      "Path": "mycontainer/myfolder/yearno={Year}/monthno={Month}/dayno={Day}",      
-	      "partitionedBy": [
-	        {
-	          "name": "Year",
-	          "value": {
-	            "type": "DateTime",
-	            "date": "SliceStart",
-	            "format": "yyyy"
-	          }
-	        },
-	        {
-	          "name": "Month",
-	          "value": {
-	            "type": "DateTime",
-	            "date": "SliceStart",
-	            "format": "MM"
-	          }
-	        },
-	        {
-	          "name": "Day",
-	          "value": {
-	            "type": "DateTime",
-	            "date": "SliceStart",
-	            "format": "dd"
-	          }
-	        },
-	        {
-	          "name": "Hour",
-	          "value": {
-	            "type": "DateTime",
-	            "date": "SliceStart",
-	            "format": "HH"
-	          }
-	        }
-	      ]
+	      "path": "datalake/input/"      
 	    },
 	    "availability": {
 	      "frequency": "Hour",
@@ -197,48 +163,50 @@ The pipeline contains a Copy Activity that is configured to use the above input 
 
 	{  
 	    "name":"SamplePipeline",
-	    "properties":{  
-	    "start":"2014-06-01T18:00:00",
-	    "end":"2014-06-01T19:00:00",
-	    "description":"pipeline with copy activity",
-	    "activities":[  
-	      {
-	        "name": "AzureBlobtoDataLake",
-	        "description": "Copy Activity",
-	        "type": "Copy",
-	        "inputs": [
-	          {
-	            "name": "AzureBlobInput"
-	          }
-	        ],
-	        "outputs": [
-	          {
-	            "name": "AzureDataLakeOutput"
-	          }
-	        ],
-	        "typeProperties": {
-	          "source": {
-	            "type": "BlobSource",
-		    	"treatEmptyAsNull": true,
-	            "blobColumnSeparators": ","
-	          },
-	          "sink": {
-	            "type": "AzureDataLakeSink"
-	          }
-	        },
-	       "scheduler": {
-	          "frequency": "Hour",
-	          "interval": 1
-	        },
-	        "policy": {
-	          "concurrency": 1,
-	          "executionPriorityOrder": "OldestFirst",
-	          "retry": 0,
-	          "timeout": "01:00:00"
-	        }
-	      }
-	      ]
-	   }
+	    "properties":
+		{  
+	    	"start":"2014-06-01T18:00:00",
+	    	"end":"2014-06-01T19:00:00",
+	    	"description":"pipeline with copy activity",
+	    	"activities":
+			[  
+	      		{
+	        		"name": "AzureBlobtoDataLake",
+		        	"description": "Copy Activity",
+		        	"type": "Copy",
+		        	"inputs": [
+		          	{
+			            "name": "AzureBlobInput"
+		          	}
+		        	],
+		        	"outputs": [
+		          	{
+			            "name": "AzureDataLakeOutput"
+		          	}
+		        	],
+		        	"typeProperties": {
+			        	"source": {
+		            		"type": "BlobSource",
+			    			"treatEmptyAsNull": true,
+		            		"blobColumnSeparators": ","
+		          		},
+		          		"sink": {
+		            		"type": "AzureDataLakeSink"
+		          		}
+		        	},
+		       		"scheduler": {
+		          		"frequency": "Hour",
+		          		"interval": 1
+		        	},
+		        	"policy": {
+		          		"concurrency": 1,
+		          		"executionPriorityOrder": "OldestFirst",
+		          		"retry": 0,
+		          		"timeout": "01:00:00"
+		        	}
+		      	}
+    		]
+		}
 	}
 
 ## Sample: Copy data from Azure Data Lake Store to Azure Blob
@@ -266,6 +234,8 @@ The sample copies data belonging to a time series from an Azure Data Lake store 
 	    }
 	}
 
+> [AZURE.NOTE] See the steps in the previous sample to obtain authorization URL.  
+
 **Azure Storage linked service:**
 
 	{
@@ -283,60 +253,27 @@ The sample copies data belonging to a time series from an Azure Data Lake store 
 Setting **"external": true** and specifying **externalData** policy informs the Azure Data Factory service that this is a table that is external to the data factory and not produced by an activity in the data factory.
 
 	{
-	  "name": "AzureDataLakeInput",
-	  "properties": {
-	    "type": "AzureDataLake",
-	    "linkedServiceName": " AzureDataLakeLinkedService",
-	    "typeProperties": {
-	      "Path": "mycontainer/myfolder/yearno={Year}/monthno={Month}/dayno={Day}",      
-	      "partitionedBy": [
-	        {
-	          "name": "Year",
-	          "value": {
-	            "type": "DateTime",
-	            "date": "SliceStart",
-	            "format": "yyyy"
-	          }
-	        },
-	        {
-	          "name": "Month",
-	          "value": {
-	            "type": "DateTime",
-	            "date": "SliceStart",
-	            "format": "MM"
-	          }
-	        },
-	        {
-	          "name": "Day",
-	          "value": {
-	            "type": "DateTime",
-	            "date": "SliceStart",
-	            "format": "dd"
-	          }
-	        },
-	        {
-	          "name": "Hour",
-	          "value": {
-	            "type": "DateTime",
-	            "date": "SliceStart",
-	            "format": "HH"
-	          }
-	        }
-	      ]
-	    },
-	    "external": true,
-	    "availability": {
-	      "frequency": "Hour",
-	      "interval": 1
-	    },
-	    "policy": {
-	      "externalData": {
-	        "retryInterval": "00:01:00",
-	        "retryTimeout": "00:10:00",
-	        "maximumRetry": 3
-	      }
-	    }
-	  }
+		"name": "AzureDataLakeInput",
+	  	"properties": 
+		{
+	    	"type": "AzureDataLake",
+	    	"linkedServiceName": " AzureDataLakeLinkedService",
+		    "typeProperties": {
+				"path": "datalake/input",      
+		    },
+		    "external": true,
+		    "availability": {
+		    	"frequency": "Hour",
+		      	"interval": 1
+	    	},
+	    	"policy": {
+	      		"externalData": {
+	        		"retryInterval": "00:01:00",
+	        		"retryTimeout": "00:10:00",
+	        		"maximumRetry": 3
+	      		}
+	    	}
+	  	}
 	}
 
 **Azure Blob output dataset:**
@@ -455,30 +392,11 @@ You can link an Azure storage account to an Azure data factory using an Azure St
 | -------- | ----------- | -------- |
 | type | The type property must be set to: **AzureDataLake** | Yes |
 | dataLakeUri | Specify information about the Azure Data Lake Store account. It is in the following format: https://<Azure Data Lake account name>.azuredatalake.net/webhdfs/v1 | Yes |
-| authorization | In order to get the authorization URL above, login using your org/live id to the following URL: [https://login.microsoftonline.com/common/oauth2/authorize?response_type=code&client_id=a306baf0-5ad8-4f6f-babf-6a286b0142ba&redirect_uri=https://datafactory.azure.com/oauthredirect](https://login.microsoftonline.com/common/oauth2/authorize?response_type=code&client_id=a306baf0-5ad8-4f6f-babf-6a286b0142ba&redirect_uri=https://datafactory.azure.com/oauthredirect), copy the URL from the address bar of the browser and assign it to the **authorization** property in the linked service JSON. <p>**Note:** This is temporary manual step until the Data Factory OAuth UI work is done. </p> | Yes |
-| sessionId | OAuth session id from the oauth authorization session. Each session id is unique and may only be used once. | Yes |  
+| authorization | Click **Authorize** button in the **Data Factory Editor** and enter your credentials, which assigns the auto-generated authorization URL to this property.  | Yes |
+| sessionId | OAuth session id from the oauth authorization session. Each session id is unique and may only be used once. This is automatically generated when you use Data Factory Editor. | Yes |  
 | accountName | Data lake account name | No | 
 | subscriptionId | Azure subscription Id. | No (If not specified, subscription of the data factory is used). | 
 | resourceGroupName |  Azure resource group name | No (If not specified, resource group of the data factory is used). | 
-
-### JSON Example
-
-	{
-	    "name": "LinkedService-AzureDataLake",
-	    "properties":
-	    {
-	        "type": "AzureDataLake",
-	        "typeProperties":
-	        {
-	            "authorization": "authCode",
-	            "sessionId": "sessionId",
-	            "dataLakeUri" : "https://account.azuredatalake.net/webhdfs/v1",
-	            "accountName" : "account",
-	            "subscriptionId": "subId",
-	            "resourceGroupName":  "resourceGroup"
-	        }
-	    }
-	}
 
 
 ## Azure Data Link Dataset type properties
