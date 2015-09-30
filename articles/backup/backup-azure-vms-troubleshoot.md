@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/14/2015"
+	ms.date="09/29/2015"
 	ms.author="trinadhk";"aashishr"/>
 
 
-# Troubleshooting errors
+# Troubleshoot Azure virtual machine backup
 You can troubleshoot errors encountered while using Azure Backup with information listed in the table below.
 
 ## Discovery
@@ -96,7 +96,7 @@ For Windows VMs:
 
 For Linux VMs:
 
-- Install latest [Linux agent](https://github.com/Azure/WALinuxAgent) from github. 
+- Install latest [Linux agent](https://github.com/Azure/WALinuxAgent) from github.
 - [Update the VM property](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) to indicate that the agent is installed.
 
 
@@ -107,7 +107,7 @@ For Windows VMs:
 
 For Linux VMs:
 
-- Follow the instructions on [Updating Linux VM Agent ](../virtual-machines-linux-update-agent.md). 
+- Follow the instructions on [Updating Linux VM Agent ](../virtual-machines-linux-update-agent.md).
 
 
 ### Validating VM Agent installation

@@ -279,6 +279,6 @@ Agile software development is a must-have for many companies who want to adopt A
 -	[Git Branching – Basic Branching and Merging](http://www.git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging)
 -	[David Ebbo’s Blog](http://blog.davidebbo.com/)
 -	[Azure PowerShell](powershell-install-configure.md)
--	[Azure Cross-Platform Command-Line Tools](xplat-cli.md)
+-	[Azure Cross-Platform Command-Line Tools](xplat-cli-install.md)
 -	[Create or edit users in Azure AD](https://msdn.microsoft.com/library/azure/hh967632.aspx#BKMK_1)
 -	[Project Kudu Wiki](https://github.com/projectkudu/kudu/wiki)
