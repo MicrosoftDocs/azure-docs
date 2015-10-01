@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Managing Azure AD Connect"
+	pageTitle="Managing Azure AD Connect | Microsoft Azure"
 	description="Learn how to extend the default configuration and operational tasks for Azure AD Connect."
 	services="active-directory"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/24/2015"
+	ms.date="10/01/2015"
 	ms.author="billmath"/>
 
 # Managing Azure AD Connect

@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Azure AD Connect sync: Operational tasks and considerations"
+   pageTitle="Azure AD Connect sync: Operational tasks and considerations | Microsoft Azure"
    description="This topic describes operational tasks for Azure AD Connect sync and how to prepare for operating this component."
    services="active-directory"
    documentationCenter=""
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="09/29/2015"
+   ms.date="10/01/2015"
    ms.author="andkjell"/>
 
 # Azure AD Connect sync: Operational tasks and consideration

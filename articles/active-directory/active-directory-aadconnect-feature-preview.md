@@ -13,16 +13,16 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="09/29/2015"
+   ms.date="10/01/2015"
    ms.author="andkjell;billmath"/>
 
 # More details about features in preview
 This topic describes how to use features currently in preview.
 
 ## User writeback
->[Azure.Important] The user writeback preview feature was temporarily removed in the August update to AAD Connect. If you have enabled it, then you should disable this feature.
+> [AZURE.IMPORTANT] The user writeback preview feature was temporarily removed in the August update to AAD Connect. If you have enabled it, then you should disable this feature.
 
->[Azure.Important] This feature should only be tested in a test environment and should not be used in an Azure AD directory used for production usage.
+> [AZURE.IMPORTANT] This feature should only be tested in a test environment and should not be used in an Azure AD directory used for production usage.
 
 User writeback is in early preview. It can only be used when Azure AD is the source for all user objects and on-premises Active Directory is empty before you enable the feature.
 
@@ -55,6 +55,7 @@ These attributes will now be available through Graph:
 
 ![Sync Filtering](./media/active-directory-aadconnect-feature-preview/extension4.png)
 
-## Next steps\
+## Next steps
+Continue your [Custom installation of Azure AD Connect](active-directory-aadconnect-get-started-custom.md).
 
-Continue your [Custom installation of Azure AD Connect](active-directory-aadconnect-get-started-custom.md)
+Learn more about [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md).

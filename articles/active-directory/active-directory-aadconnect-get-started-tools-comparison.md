@@ -1,4 +1,4 @@
-<properties 
+<properties
 	pageTitle="Directory integration tools comparison"
 	description="This is page will provide you with comprehensive tables that compare the various directory integration tools."
 	services="active-directory"
@@ -89,3 +89,6 @@ Allow minimal set of attributes to be synchronized (MinSync) | ● | ● |  |
 Allow different service templates to be applied for attribute flows |●  | ● |  |
 Allow removing attributes from flowing from AD to Azure AD | ● | ● |  |  
 Allow advanced customization for attribute flows | ● | ● |  | ●  
+
+## Next steps
+Learn more about [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md).

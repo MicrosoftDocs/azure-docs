@@ -1,4 +1,4 @@
-<properties 
+<properties
 	pageTitle="Connect your directories with Azure AD Connect"
 	description="Custom settings description of Azure AD Connect connected directories."
 	services="active-directory"

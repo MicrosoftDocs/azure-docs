@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="Identity"
-   ms.date="09/29/2015"
+   ms.date="10/01/2015"
    ms.author="andkjell"/>
 
 # Design concepts for Azure AD Connect
