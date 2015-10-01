@@ -139,8 +139,8 @@ Add an classify SANs in the VMM console:
 
 1. After SAN storage is integrated into VMM you create (provision) logical units (LUNs):
 
-- [How to select a method for creating logical units in VMM](http://go.microsoft.com/fwlink/?LinkId=518490)
-- [How to provision storage logical units in VMM](http://go.microsoft.com/fwlink/?LinkId=518491)
+	- [How to select a method for creating logical units in VMM](http://go.microsoft.com/fwlink/?LinkId=518490)
+	- [How to provision storage logical units in VMM](http://go.microsoft.com/fwlink/?LinkId=518491)
 
 2. Then allocate storage capacity to the Hyper-V host cluster so that VMM can deploy virtual machine data to the provisioned storage:
 

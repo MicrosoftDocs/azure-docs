@@ -52,7 +52,7 @@ Make sure you have everything in place before you begin.
 
 ### Virtual machine prerequisites
 
-Virtual machines you want to protect should conform with [Azure prerequisites](https://msdn.microsoft.com/library/azure/dn469078.aspx#BKMK_E2A).
+Virtual machines you want to protect should conform with [Virtual Machine prerequisites](site-recovery-best-practices.md/#virtual-machines).
 
 ### Provider and agent prerequisites
 
@@ -60,13 +60,13 @@ As part of Azure Site Recovery deployment you’ll install the Azure Site Recove
 
 - You should run the latest versions of the Provider and agent.
 - All Hyper-V servers in a vault should have the same versions.
-- The Provider will need to connect to Azure Site Recovery over the Internet. You can select to do this without a proxy, using proxy settings currently configured on the VMM server, or using custom proxy settings that you configure during Provider installation. To use an existing proxy server ensure that the URLs for connecting to Azure are allowed through the firewall:
-	- *.hypervrecoverymanager.windowsazure.com
-	- *.accesscontrol.windows.net
-	- *.backup.windowsazure.com		
-	- *.blob.core.windows.net
-	- *.store.core.windows.net
-
+- The Provider will need to connect to Azure Site Recovery over the Internet. You can select to do this without a proxy, using proxy settings currently configured on the VMM server, or using custom proxy settings that you configure during Provider installation. To use an existing proxy server ensure that the URLs for connecting to Azure are allowed through the firewall
+	1. *.hypervrecoverymanager.windowsazure.com
+	1. *.accesscontrol.windows.net
+	1. *.backup.windowsazure.com		
+	1. *.blob.core.windows.net
+	1. *.store.core.windows.net
+ 
 - To use a custom proxy set up the proxy server before installing the Provider. During Provider setup you’ll need to specify the proxy server address and port, and credentials that can be used for access. Note that HTTPS based proxy is not supported.
 
 The picture below shows the different communication channels and ports used by Azure Site Recovery for orchestration and replication
