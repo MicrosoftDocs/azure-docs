@@ -30,14 +30,11 @@ Staging means deploying your SKU in a private “sandbox” where you can test a
 5. Find your offer and validate your VM image points:
   - Marketing content is showing up correctly in the gallery
 
-    ![drawing][img-map-portal]
-   *Product & Details mapping*
+     ![img-map-portal](media/marketplace-publishing-push-to-staging/pubportal-mapping-azure-portal.jpg)
 
   - End-to-end deployment of VM image
 
  > [AZURE.NOTE] Your offer will remain in staging until you notify Microsoft that you are ready to push to production. This is an ideal time to have all members of the team check over everything in preparation for your offer going live.
-
- ![img-map-portal](media/marketplace-publishing-push-to-staging/pubportal-mapping-azure-portal.jpg)
 
  ## 2. Notify Onboarding Team
  Once you are done with testing, notify the on-boarding team for validation. On-boarding team will test the customer scenarios and also validate the marketing content.
