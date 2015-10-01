@@ -57,19 +57,23 @@ To configure the integration of CS Stars into Azure AD, you need to add CS Stars
 
 **To add CS Stars from the gallery, perform the following steps:**
 
-1. In the **Azure Management Portal**, on the left navigation pane, click **Active Directory**. <br><br>
-![Active Directory][1]
+1. In the **Azure Management Portal**, on the left navigation pane, click **Active Directory**. 
+<br><br>![Active Directory][1]<br>
 
 2. From the **Directory** list, select the directory for which you want to enable directory integration.
 
-3. To open the applications view, in the directory view, click **Applications** in the top menu.<br><br>
-![Applications][2]
-4. Click **Add** at the bottom of the page.<br><br>
-![Applications][3]
-5. On the **What do you want to do** dialog, click **Add an application from the gallery**.<br><br>
-![Applications][4]
-6. In the search box, type **CS Stars**.<br>
-![Applications][5]
+3. To open the applications view, in the directory view, click **Applications** in the top menu.
+<br><br>![Applications][2]<br>
+
+4. Click **Add** at the bottom of the page.
+<br><br>![Applications][3]<br>
+
+5. On the **What do you want to do** dialog, click **Add an application from the gallery**.
+<br><br>![Applications][4]<br>
+
+6. In the search box, type **CS Stars**.
+<br><br>![Applications][5]<br>
+
 7. In the results pane, select **CS Stars**, and then click **Complete** to add the application.<br>
 
 
@@ -94,62 +98,73 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
 
 **To configure Azure AD single sign-on with CS Stars, perform the following steps:**
 
-1. In the Azure AD portal, on the **CS Stars** application integration page, click **Configure single sign-on** to open the **Configure Single Sign-On**  dialog.<br><br>
-![Configure Single Sign-On][6]
+1. In the Azure AD portal, on the **CS Stars** application integration page, click **Configure single sign-on** to open the **Configure Single Sign-On**  dialog.
+<br><br>![Configure Single Sign-On][6]<br>
 
-2. On the **How would you like users to sign on to CS Stars** page, select **Azure AD Single Sign-On**, and then click **Next**.<br><br>
-![Azure AD Single Sign-On][7]
+2. On the **How would you like users to sign on to CS Stars** page, select **Azure AD Single Sign-On**, and then click **Next**.
+<br><br>![Azure AD Single Sign-On][7]<br>
 
-3. On the **Configure App Settings** dialog page, perform the following steps: <br><br>![Configure App Settings][8]
+3. On the **Configure App Settings** dialog page, perform the following steps: 
+<br><br>![Configure App Settings][8]<br>
  
      3.1 in the **Sign On URL** textbox, type your URL used by your users to sign on to your CS Stars application.
 
-     > [AZURE.NOTE] If you don't know what the right value is, contact the CS Stars' support team via xyz.
+     > [AZURE.NOTE] If you don't know what the right value is, contact your Marsh ClearSight representative.
 
      3.2. Click **Next**.
  
-4. On the **Configure single sign-on at CS Stars** page, click **Download metadata**, and then save the metadata file locally on your computer.<br><br>![What is Azure AD Connect][9]
+4. On the **Configure single sign-on at CS Stars** page, click **Download metadata**, and then save the metadata file locally on your computer.
+<br><br>![What is Azure AD Connect][9]<br>
 
-5. Contact the CS Stars support team via xyz, provide them with the metadata file, and them let them know that they should enable SSO for you.
+5. To get single sign-on enabled for CS Stars, contact your Marsh ClearSight representative.
 
 
-6. On the Azure AD portal, select the single sign-on configuration confirmation, and then click **Next**. <br><br>![What is Azure AD Connect][10]
+6. On the Azure AD portal, select the single sign-on configuration confirmation, and then click **Next**. 
+<br><br>![What is Azure AD Connect][10]<br>
 
-7. On the **Single sign-on confirmation** page, click **Complete**.  <br><br>![What is Azure AD Connect][11]
+7. On the **Single sign-on confirmation** page, click **Complete**.  
+<br><br>![What is Azure AD Connect][11]<br>
 
 
 
 
 ### Creating an Azure AD test user
 The objective of this section is to create a test user in the Azure portal called Britta Simon.<br>
-In the Users list, select **Britta Simon**.<br><br>![Create Azure AD User][20]<br>
+In the Users list, select **Britta Simon**.
+<br><br>![Create Azure AD User][20]<br>
 
 **To create a test user in Azure AD, perform the following steps:**
 
-1. In the **Azure Management Portal**, on the left navigation pane, click **Active Directory**.<br>
-![Creating an Azure AD test user](./media/active-directory-saas-amazon-web-service/create_aaduser_02.png) 
+1. In the **Azure Management Portal**, on the left navigation pane, click **Active Directory**.
+<br><br>![Creating an Azure AD test user](./media/active-directory-saas-amazon-web-service/create_aaduser_02.png)<br> 
 
 2. From the **Directory** list, select the directory for which you want to enable directory integration.
 
-3. To display the list of users, in the menu on the top, click **Users**.<br>![Creating an Azure AD test user](./media/active-directory-saas-amazon-web-service/create_aaduser_03.png) 
+3. To display the list of users, in the menu on the top, click **Users**.
+<br><br>![Creating an Azure AD test user](./media/active-directory-saas-amazon-web-service/create_aaduser_03.png)<br> 
  
-4. To open the **Add User** dialog, in the toolbar on the bottom, click **Add User**. <br>![Creating an Azure AD test user](./media/active-directory-saas-amazon-web-service/create_aaduser_04.png) 
+4. To open the **Add User** dialog, in the toolbar on the bottom, click **Add User**. 
+<br><br>![Creating an Azure AD test user](./media/active-directory-saas-amazon-web-service/create_aaduser_04.png)<br> 
 
-5. On the **Tell us about this user** dialog page, perform the following steps: <br>![Creating an Azure AD test user](./media/active-directory-saas-amazon-web-service/create_aaduser_05.png) 
+5. On the **Tell us about this user** dialog page, perform the following steps: 
+<br><br>![Creating an Azure AD test user](./media/active-directory-saas-amazon-web-service/create_aaduser_05.png)<br> 
   1. As Type Of User, select New user in your organization.
   2. In the User Name **textbox**, type **BrittaSimon**.
   3. Click Next.
 
-6.  On the **User Profile** dialog page, perform the following steps: <br>![Creating an Azure AD test user](./media/active-directory-saas-amazon-web-service/create_aaduser_06.png) 
+6.  On the **User Profile** dialog page, perform the following steps: 
+<br><br>![Creating an Azure AD test user](./media/active-directory-saas-amazon-web-service/create_aaduser_06.png)<br> 
   1. In the **First Name** textbox, type **Britta**.  
   2. In the **Last Name** txtbox, type, **Simon**.
   3. In the **Display Name** textbox, type **Britta Simon**.
   4. In the **Role** list, select **User**.
   5. Click **Next**.
 
-7. On the **Get temporary password** dialog page, click **create**.<br>![Creating an Azure AD test user](./media/active-directory-saas-amazon-web-service/create_aaduser_07.png) 
+7. On the **Get temporary password** dialog page, click **create**.
+<br><br>![Creating an Azure AD test user](./media/active-directory-saas-amazon-web-service/create_aaduser_07.png)<br> 
  
-8. On the **Get temporary password** dialog page, perform the following steps:<br>![Creating an Azure AD test user](./media/active-directory-saas-amazon-web-service/create_aaduser_08.png) 
+8. On the **Get temporary password** dialog page, perform the following steps:
+<br><br>![Creating an Azure AD test user](./media/active-directory-saas-amazon-web-service/create_aaduser_08.png)<br> 
   1. Write down the value of the **New Password**.
   2. Click **Complete**.   
 
@@ -161,26 +176,26 @@ The objective of this section is to create a user called Britta Simon in CS Star
 
 **To create a user called Britta Simon in CS Stars, perform the following steps:**
 
-Contact the CS Stars support team and provide them with the following information...
+1. Contact your Marsh ClearSight representative.
 
 
 ### Assigning the Azure AD test user
 
 The objective of this section is to enabling Britta Simon to use Azure single sign-on by granting her access to CS Stars.
-<br><br>![Assign User][200]
+<br><br>![Assign User][200]<br>
 
 **To assign Britta Simon to CS Stars, perform the following steps:**
 
-1. On the Azure portal, to open the applications view, in the directory view, click **Applications** in the top menu.<br>
-<br><br>![Assign User][201]
+1. On the Azure portal, to open the applications view, in the directory view, click **Applications** in the top menu.
+<br><br>![Assign User][201]<br>
 2. In the applications list, select **CS Stars**.
-<br><br>![Assign User][202]
+<br><br>![Assign User][202]<br>
 1. In the menu on the top, click **Users**.<br>
-<br><br>![Assign User][203]
+<br><br>![Assign User][203]<br>
 1. In the Users list, select **Britta Simon**.
 
 2. In the toolbar on the bottom, click **Assign**.
-<br><br>![Assign User][205]
+<br><br>![Assign User][205]<br>
 
 
 
