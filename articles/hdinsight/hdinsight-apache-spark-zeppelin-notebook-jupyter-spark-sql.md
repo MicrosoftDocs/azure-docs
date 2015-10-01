@@ -104,17 +104,13 @@ After you have provisioned a cluster, you can use a web-based Zeppelin notebook 
 
 >[AZURE.NOTE] The notebook you create by following the instructions below is also available by default on the cluster. After you have launched Zeppelin, you will find this notebook by the name **Zeppelin HVAC tutorial**.
 
-1. Use the following URL to open a Zeppelin notebook. Replace __CLUSTERNAME__ with the name of your Spark cluster.
+1. From the [Azure Preview Portal](https://portal.azure.com/), from the startboard, click the tile for your Spark cluster (if you pinned it to the startboard). You can also navigate to your cluster under **Browse All** > **HDInsight Clusters**.   
 
-    https://CLUSTERNAME.azurehdinsight.net/zeppelin
+2. From the Spark cluster blade, click **Quick Links**, and then from the **Cluster Dashboard** blade, click **Zeppelin Notebook**. If prompted, enter the admin credentials for the cluster.
 
-    When prompted, enter the admin credentials for your cluster.
-
-    > [AZURE.IMPORTANT] If your HDInsight cluster was created before 1/1/2015, you must launch the notebook from the [Azure Preview Portal](https://portal.azure.com/) by selecting your HDInsight cluster, and then __Quick Links__. From the __Cluster Dashboard__ blade that appears, select the __Zeppelin Notebook__ link.
-    >
-    > You must then follow instructions on the page that is displayed in order to start the Zeppelin Notebook.
-    >
-    > You can also use the portal to access the Zeppelin notebook on clusters created after 1/1/2015, but the linked URL will be the same as the one listed above (https://CLUSTERNAME.azurehdinsight.net/zeppelin).
+	> [AZURE.NOTE] You may also reach the Zeppelin Notebook for your cluster by opening the following URL in your browser. Replace __CLUSTERNAME__ with the name of your cluster:
+	>
+	> `https://CLUSTERNAME.azurehdinsight.net/zeppelin`
 
 2. Create a new notebook. From the header pane, click **Notebook**, and then click **Create New Note**.
 
@@ -193,17 +189,13 @@ In this section, you use a Jupyter notebook to run Spark SQL queries against a S
 
 >[AZURE.NOTE] The notebook you create by following the instructions below is also available by default on the cluster. After you have launched Jupyter, you will find this notebook by the name **HVACTutorial.ipynb**.
 
-1. Use the following URL to open a Jupyter notebook. Replace __CLUSTERNAME__ with the name of your Spark cluster.
+1. From the [Azure Preview Portal](https://portal.azure.com/), from the startboard, click the tile for your Spark cluster (if you pinned it to the startboard). You can also navigate to your cluster under **Browse All** > **HDInsight Clusters**.   
 
-    https://CLUSTERNAME.azurehdinsight.net/jupyter
+2. From the Spark cluster blade, click **Quick Links**, and then from the **Cluster Dashboard** blade, click **Jupyter Notebook**. If prompted, enter the admin credentials for the cluster.
 
-    When prompted, enter the admin credentials for your cluster.
-
-    > [AZURE.IMPORTANT] If your HDInsight cluster was created before 1/1/2015, you must launch the notebook from the [Azure Preview Portal](https://portal.azure.com/) by selecting your HDInsight cluster, and then __Quick Links__. From the __Cluster Dashboard__ blade that appears, select the __Jupyter Notebook__ link.
-    >
-    > You must then follow instructions on the page that is displayed in order to start the Jupyter Notebook.
-    >
-    > You can also use the portal to access the Jupyter notebook on clusters created after 1/1/2015, but the linked URL will be the same as the one listed above (https://CLUSTERNAME.azurehdinsight.net/jupyter).
+	> [AZURE.NOTE] You may also reach the Jupyter Notebook for your cluster by opening the following URL in your browser. Replace __CLUSTERNAME__ with the name of your cluster:
+	>
+	> `https://CLUSTERNAME.azurehdinsight.net/jupyter`
 
 2. Create a new notebook. Click **New**, and then click **Python2**.
 
