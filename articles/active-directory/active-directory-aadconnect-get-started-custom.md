@@ -115,7 +115,7 @@ To use this feature, in the customized path you will see this page:
 
 This screen allows you to select the optional features for your specific scenarios.  Below is a brief explanations of each of the individual features.
 
-<center>![Optional features](./media/active-directory-aadconnect-get-started-custom/optional.png)</center>
+![Optional features](./media/active-directory-aadconnect-get-started-custom/optional.png)
 
 > [AZURE.WARNING] If you currently have DirSync or Azure AD Sync active, do not activate any of the writeback features in Azure AD Connect
 
@@ -132,7 +132,7 @@ Directory extension attribute sync|By enabling directory extensions attribute sy
 ### Azure AD app and attribute filtering
 If you want to limit which attributes to synchronize to Azure AD, then start by selecting which services you are using, If you configure this page, any new service has to be selected explicitly by re-running the installation wizard.
 
-![Optional features](./media/active-directory-aadconnect-get-started-custom/azureadapps.png)
+![Optional features](./media/active-directory-aadconnect-get-started-custom/azureadapps2.png)
 
 Based on the services selected in the previous step, this page will show all attributes which will be synchronized. This list is a combination of all object types being synchronized. If there are some particular attributes you need to not synchronize, you can unselect those. In the picture below the homePhone attribute has been unselected and will not synchronize to Azure AD.
 
