@@ -103,7 +103,7 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
 3. On the **Configure App Settings** dialog page, perform the following steps: 
 <br><br>![Azure AD Single Sign-On][8]<br>
  
-     3.1 in the **Reply URL** textbox, type your URL used by your users to sign on to your Alcumus Info Exchange application.
+     3.1 in the **Reply URL** textbox, type the consumer URL that was setup for you by your Alcumus Info Exchange support team.
 
      > [AZURE.NOTE] If you don't know what the right value is, contact the Alcumus Info Exchange support team via [helpdesk@alcumusgroup.com](mailto:helpdesk@alcumusgroup.com).
 
