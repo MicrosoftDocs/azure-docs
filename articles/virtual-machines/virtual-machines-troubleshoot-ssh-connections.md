@@ -59,7 +59,7 @@ To resolve the more common SSH connection failures in virtual machines created u
 
 To resolve the common SSH issues for virtual machines created using the Resource Manager deployment model, try the following steps.
 
-1. Reset SSH connection to your Linux VM on the command line. Make sure you have Microsoft Azure Linux Agent version 2.0.5 or later. To update the agent, see the [Azure Linux Agent user guide](virtual-machines-linux-agent-user-guide.md).
+1. Reset SSH connection to your Linux VM on the command line. Make sure the [Microsoft Azure Linux Agent](virtual-machines-linux-agent-user-guide.md) version 2.0.5 or later is installed.
 
 	[A] Using Azure PowerShell:
 
@@ -75,7 +75,7 @@ To resolve the common SSH issues for virtual machines created using the Resource
 
 	[B] Using Azure CLI:
 
-	Step 1: If you haven't already, [install the Azure CLI and connect to your Azure subscription](../xplat-cli-install.md) using the Azure AD method.
+	Step 1: If you haven't already, [install the Azure CLI and connect to your Azure subscription](../xplat-cli-install.md) using the `azure login` command.
 
 	Step 2: Switch to the Resource Manager mode.
 
@@ -98,7 +98,8 @@ To resolve the common SSH issues for virtual machines created using the Resource
 3. Reset your password and/or the SSH key for your Linux VM on the command line. You can also create a new username/password with sudo authority as the following example.
 
 	[A] Using the Azure PowerShell:
-	Install and configure Azure PowerShell as mentioned in step 1 above. Switch to Azure mode and then run the extension as following.
+	
+	Install and configure Azure PowerShell as mentioned above. Switch to Azure mode and then run the extension as following.
 
 		$RGName = 'testRG'
 		$VmName = 'testVM'
@@ -114,7 +115,8 @@ To resolve the common SSH issues for virtual machines created using the Resource
 		Set-AzureVMExtension -ResourceGroupName $RGName -VMName $VmName -Location $Location -Name $ExtensionName -Publisher $Publisher -ExtensionType $ExtensionName -TypeHandlerVersion $Version -SettingString $PublicConf -ProtectedSettingString $PrivateConf
 
 	[B] Using the Azure CLI:
-	Install and configure Azure CLI as mentioned in step 1 above. Switch to Azure mode and then run the extension as following.
+
+	Install and configure Azure CLI as mentioned above. Switch to Azure mode and then run the extension as following.
 
 	Step 1: Create a file named PrivateConf.json with the following contents.
 
