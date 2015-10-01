@@ -13,24 +13,28 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/29/2015"
+   ms.date="09/30/2015"
    ms.author="hascipio" />
 
 # How to publish an offer to the Microsoft Azure Marketplace
-This article is provided to help a seller create and deploy his/her solution e.g. single virtual machine image, multi-virtual machine image solution template, developer service, or data service to the Azure Marketplace for other Azure customers and partners to purchase and utilize.
+This article is provided to help a seller create and deploy his/her solution e.g. single virtual machine image, solution template, developer service, or data service to the Azure Marketplace for other Azure customers and partners to purchase and utilize.
 
 Some steps are shared between the different types of solutions. This provides a short overview of what steps you will need to complete for any type of solution.
+
+<!--
+Insert table/matrix of artifacts x (portals, identities, business)
+-->
 
 **Before you begin any work on the Azure Marketplace, you must be pre-approved. Not applicable for data service publishers.**
 
 ||Virtual Machine Image |Developer Service | Data Service | Solution Template |
 |----|----|----|----|----|
 | **Get Pre-Approval** | [Microsoft Azure Certification][link-certification] | [Microsoft Azure Certification][link-certification] | n/a | [Microsoft Azure Certification][link-certification] |
-| **Step 1. Account Registration** | [Microsoft Seller Account Creation & Registration][link-accts] | [Microsoft Seller Account Creation & Registration][link-accts] | [Microsoft Seller Account Creation & Registration][link-accts] | [Microsoft Seller Account Creation & Registration][link-accts] |
-| **Step 2. Offer Creation** | [VM Technical Pre-requisites][link-single-vm-prereq] | Developer Service Technical Pre-requisites | Data Service Technical Pre-requisites | [Template Technical Pre-requisites][link-multi-vm-prereq] |
+| **Step 1. Register Seller Account** | [Microsoft Seller Account Creation & Registration][link-accts] | [Microsoft Seller Account Creation & Registration][link-accts] | [Microsoft Seller Account Creation & Registration][link-accts] | [Microsoft Seller Account Creation & Registration][link-accts] |
+| **Step 2. Create Offer** | [VM Technical Pre-requisites][link-single-vm-prereq] | Developer Service Technical Pre-requisites | Data Service Technical Pre-requisites | [Template Technical Pre-requisites][link-multi-vm-prereq] |
 ||[VM Image Publishing Guide][link-single-vm] | Developer Service Publishing Guide | Data Service Publishing Guide | [Solution Template Publishing Guide][link-multi-vm] |
-| **Step 3. Staging** | [Azure Marketplace Marketing Content Guide][link-pushstaging] | [Azure Marketplace Marketing Content Guide][link-pushstaging] | [Azure Marketplace Marketing Content Guide][link-pushstaging] | [Azure Marketplace Marketing Content Guide][link-pushstaging] |
-| **Step 4. Deploy to Marketplace** | [Deploy your offer to the Marketplace][link-pushprod] | [Deploy your offer to the Marketplace][link-pushprod] | [Deploy your offer to the Marketplace][link-pushprod] | [Deploy your offer to the Marketplace][link-pushprod] |
+| **Step 3. Push offer to Staging** | [Azure Marketplace Marketing Content Guide][link-pushstaging] | [Azure Marketplace Marketing Content Guide][link-pushstaging] | [Azure Marketplace Marketing Content Guide][link-pushstaging] | [Azure Marketplace Marketing Content Guide][link-pushstaging] |
+| **Step 4. Deploy offer to Marketplace** | [Deploy your offer to the Marketplace][link-pushprod] | [Deploy your offer to the Marketplace][link-pushprod] | [Deploy your offer to the Marketplace][link-pushprod] | [Deploy your offer to the Marketplace][link-pushprod] |
 
 ## Appendix
 **Virtual Machines related**

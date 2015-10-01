@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="Azure"
    ms.workload="na"
-   ms.date="09/29/2015"
+   ms.date="09/30/2015"
    ms.author="hascipio"/>
 
 # Registering a Microsoft seller account
