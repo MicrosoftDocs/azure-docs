@@ -1,4 +1,4 @@
-	<properties
+<properties
 	pageTitle="Integrating your on-premises identities with Azure Active Directory. | Microsoft Azure"
 	description="This is the Azure AD Connect that describes what it is and why you would use it."
 	services="active-directory"
@@ -71,7 +71,6 @@ You also want to prepare for [operational](active-directory-aadconnectsync-opera
 | Download Azure AD Connect | [Download Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771) |
 | Install using Express settings | [Express installation of Azure AD Connect](active-directory-aadconnect-get-started-express.md) |
 | Install using Customized settings | [Custom installation of Azure AD Connect](active-directory-aadconnect-get-started-custom.md) |
-
 | Upgrade from DirSync | [Upgrade from Azure AD sync tool (DirSync)](active-directory-aadconnect-dirsync-upgrade-get-started.md) |
 | After installation | [Verify the installation and assign licenses ](active-directory-aadconnect-whats-next.md) |
 
