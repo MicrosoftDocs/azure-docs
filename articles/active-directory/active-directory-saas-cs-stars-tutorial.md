@@ -107,7 +107,7 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
 3. On the **Configure App Settings** dialog page, perform the following steps: 
 <br><br>![Configure App Settings][8]<br>
  
-     3.1 in the **Sign On URL** textbox, type your URL used by your users to sign on to your CS Stars application.
+     3.1 in the **Sign On URL** textbox, type your URL used by your users to sign on to your CS Stars application (e.g.: *https://uat.csstars.com/enterprise/default.cmdx?ssoclient=C234UAT2*).
 
      > [AZURE.NOTE] If you don't know what the right value is, contact your Marsh ClearSight representative.
 
@@ -116,7 +116,7 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
 4. On the **Configure single sign-on at CS Stars** page, click **Download metadata**, and then save the metadata file locally on your computer.
 <br><br>![What is Azure AD Connect][9]<br>
 
-5. To get single sign-on enabled for CS Stars, contact your Marsh ClearSight representative.
+5. To get single sign-on enabled for CS Stars, contact your Marsh ClearSight representative and hand the metadata file over.
 
 
 6. On the Azure AD portal, select the single sign-on configuration confirmation, and then click **Next**. 
