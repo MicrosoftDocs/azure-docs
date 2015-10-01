@@ -1,14 +1,14 @@
 <properties
 	pageTitle="How to Use iOS SDK for Azure Mobile Apps"
 	description="How to Use iOS SDK for Azure Mobile Apps"
-	services="mobile-services"
+	services="app-service\mobile"
 	documentationCenter="ios"
 	authors="krisragh"
 	manager="dwrede"
 	editor=""/>
 
 <tags
-	ms.service="mobile-services"
+	ms.service="app-service-mobile"
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
