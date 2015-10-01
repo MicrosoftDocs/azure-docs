@@ -33,7 +33,7 @@ Before you begin this tutorial, you must have the following:
 
 - **An Azure subscription**: See [Get Azure free trial](get-azure-free-trial-for-testing-hadoop-in-hdinsight.md).
 
-- **Azure CLI**: For more information, see [Install and configure Azure CLI](../xplat-cli.md)
+- **Azure CLI**: For more information, see [Install and configure Azure CLI](../xplat-cli-install.md)
 
 ##Configure environment variables
 

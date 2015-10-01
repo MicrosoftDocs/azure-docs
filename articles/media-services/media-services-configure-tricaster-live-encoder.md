@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Configure the Tricaster encoder to send a single bitrate live stream" 
-	description="This topic shows how to configure the Tricaster live encoder to send a single bitrate live stream to the Media Services Channel." 
+	pageTitle="Configure the NewTek TriCaster encoder to send a single bitrate live stream" 
+	description="This topic shows how to configure the Tricaster live encoder to send a single bitrate stream to AMS channels that are enabled for live encoding." 
 	services="media-services" 
 	documentationCenter="" 
 	authors="juliako" 
@@ -16,7 +16,7 @@
 	ms.date="09/29/2015"    
 	ms.author="juliako"/>
 
-#Use the Tricaster encoder to send a single bitrate live stream
+#Use the NewTek TriCaster encoder to send a single bitrate live stream
 
 > [AZURE.SELECTOR]
 - [Tricaster](media-services-configure-tricaster-live-encoder.md)
@@ -24,15 +24,14 @@
 - [Wirecast](media-services-configure-wirecast-live-encoder.md)
 - [FMLE](media-services-configure-fmle-live-encoder.md) 
 
-This topic shows how to configure the [Tricaster](http://newtek.com/products/tricaster-40.html) live encoder to send a single bitrate live stream over RTMP to the Media Services Channel.  For more information, see [Working with Channels that are Enabled to Perform Live Encoding with Azure Media Services](media-services-manage-live-encoder-enabled-channels.md).
+This topic shows how to configure the [NewTek TriCaster](http://newtek.com/products/tricaster-40.html) live encoder to send a single bitrate stream to AMS channels that are enabled for live encoding. For more information, see [Working with Channels that are Enabled to Perform Live Encoding with Azure Media Services](media-services-manage-live-encoder-enabled-channels.md).
+
+This tutorial shows how to manage Azure Media Services (AMS) with Azure Media Services Explorer (AMSE) tool. This tool only runs on Windows PC. If you are on Mac or Linux, use the Azure Management Portal to create [channels](media-services-portal-creating-live-encoder-enabled-channel.md#create-a-channel) and [programs](media-services-portal-creating-live-encoder-enabled-channel#create-and-manage-a-program). 
 
 ##Prerequisites
 
 - [Create an Azure Media Services account](media-services-create-account.md)
 - Ensure there is a Streaming Endpoint running with at least one streaming unit allocated. For more information, see [Manage Streaming Endpoints in a Media Services Account](media-services-manage-origins.md) 
-
-	This tutorial shows how to manage Azure Media Services (AMS) with Azure Media Services Explorer (AMSE) tool. 
-
 - Install the latest version of the [AMSE](https://github.com/Azure/Azure-Media-Services-Explorer) tool. 
 - Launch the tool and connect to your AMS account.
 
@@ -63,7 +62,7 @@ While the channel is starting you can [configure the encoder](media-services-con
 
 >[AZURE.IMPORTANT] Note that billing starts as soon as Channel goes into a ready state. For more information, see [Channel's states](media-services-manage-live-encoder-enabled-channels.md#states).
 
-##<a id=configure_tricaster_rtmp></a>Configure the Tricaster encoder
+##<a id=configure_tricaster_rtmp></a>Configure the NewTek TriCaster encoder
 
 In this tutorial the following output settings are used. The rest of this section describes configuration steps in more detail. 
 
@@ -84,7 +83,7 @@ In this tutorial the following output settings are used. The rest of this sectio
 
 ###Configuration steps
 
-1. Create a new **Tricaster** project depending on what video input source is being used. 
+1. Create a new **NewTek TriCaster** project depending on what video input source is being used. 
 2. Once within that project, find the **Stream** button, and click the gear icon next to it to access the stream configuration menu.
 
 	![tricaster](./media/media-services-tricaster-live-encoder/media-services-tricaster3.png)
@@ -133,7 +132,7 @@ In this tutorial the following output settings are used. The rest of this sectio
 
 If the stream appears in the player, then the encoder has been properly configured to connect to AMS. 
 
-If an error is received, the channel will need to be reset and encoder settings adjusted. Please see the [troubleshooting](#troubleshooting) section for guidance.  
+If an error is received, the channel will need to be reset and encoder settings adjusted. Please see the [troubleshooting](media-services-troubleshooting-live-streaming.md) topic for guidance.  
 
 ##Create a program
 
@@ -155,48 +154,7 @@ The stream is now ready to be embedded in a player, or distributed to an audienc
 
 ## Troubleshooting
 
-###Problem: There is no option for outputting a progressive stream
-
-- **Potential issue**: The encoder being used doesn't automatically deinterlace. 
-
-	**Troubleshooting steps**: Look for a de-interlacing option within the encoder interface. Once de-interlacing is enabled, check again for progressive output settings. 
- 
-###Problem: Tried several encoder output settings and still unable to connect. 
-
-- **Potential issue**: Azure encoding channel was not properly reset. 
-
-	**Troubleshooting steps**: Make sure the encoder is no longer pushing to AMS, stop and reset the channel. Once running again, try connecting your encoder with the new settings. If this still does not correct the issue, try creating a new channel entirely, sometimes channels can become corrupt after several failed attempts.  
-
-- **Potential issue**: The GOP size or key frame settings are not optimal. 
-
-	**Troubleshooting steps**: Recommended GOP size or keyframe interval is 2 seconds. Some encoders calculate this setting in number of frames, while others use seconds. For example: When outputting 30fps, the GOP size would be 60 frames, which is equivalent to 2 seconds.  
-	 
-- **Potential issue**: Closed ports are blocking the stream. 
-
-	**Troubleshooting steps**: When streaming via RTMP, check firewall and/or proxy settings to confirm that outbound ports 1935 and 1936 are open. When using RTP streaming, confirm that outbound port 2010 is open. 
-
-
-###Problem: When configuring the encoder to stream with the RTP protocol, there is no place to enter a host name. 
-
-- **Potential issue**: Many RTP encoders do not allow for host names, and an IP address will need to be acquired.  
-
-	**Troubleshooting steps**: To find the IP address, open a command prompt on any computer. To do this in Windows, open the Run launcher (WIN + R) and type “cmd” to open.  
-
-	Once the command prompt is open, type "Ping [AMS Host Name]". 
-
-	The host name can be derived by omitting the port number from the Azure Ingest URL, as highlighted in the following example: 
-
-	rtp://test2-amstest009.rtp.channel.mediaservices.windows.net:2010/ 
-
-	![fmle](./media/media-services-fmle-live-encoder/media-services-fmle10.png)
-
-###Problem: Unable to playback the published stream.
- 
-- **Potential issue**: There is no Streaming Endpoint running, or there is no streaming units (scale units) allocated. 
-
-	**Troubleshooting steps**: Navigate to the "Streaming Endpoint" tab in the AMSE tool, and confirm there is a Streaming Endpoint running with one streaming unit. 
-	
->[AZURE.NOTE] If after following the troubleshooting steps you still cannot successfully stream, submit a support ticket using the Azure Management Portal.
+Please see the [troubleshooting](media-services-troubleshooting-live-streaming.md) topic for guidance. 
 
 ##Media Services learning paths
 

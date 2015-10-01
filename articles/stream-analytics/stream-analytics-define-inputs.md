@@ -56,17 +56,17 @@ When your data is coming from an Event Hub source, you can access to few metadat
 
 | PROPERTY | DESCRIPTION |
 |------|------|
-| System.EventProcessedUtcTime | The date and time that the event was processed by Stream Analytics. |
-| System.EventEnqueuedUtcTime | The date and time that the event was received by Event Hubs. |
-| System.PartitionId | The zero-based partition ID for the input adapter. |
+| EventProcessedUtcTime | The date and time that the event was processed by Stream Analytics. |
+| EventEnqueuedUtcTime | The date and time that the event was received by Event Hubs. |
+| PartitionId | The zero-based partition ID for the input adapter. |
 
 For example, you may write a query like the following:
 
 ````
 SELECT
-	System.EventProcessedUtcTime,
-	System.EventEnqueuedUtcTime,
-	System.PartitionId
+	EventProcessedUtcTime,
+	EventEnqueuedUtcTime,
+	PartitionId
 FROM Input
 ````
 
@@ -171,18 +171,18 @@ When your data is coming from a Blob storage source, you can access to few metad
 
 | PROPERTY | DESCRIPTION |
 |------|------|
-| System.BlobName | The name of the input blob that the event came from. |
-| System.EventProcessedUtcTime | The date and time that the event was processed by Stream Analytics. |
-| System.BlobLastModifiedUtcTime | The date and time that the blob was last modified. |
-| System.PartitionId | The zero-based partition ID for the input adapter. |
+| BlobName | The name of the input blob that the event came from. |
+| EventProcessedUtcTime | The date and time that the event was processed by Stream Analytics. |
+| BlobLastModifiedUtcTime | The date and time that the blob was last modified. |
+| PartitionId | The zero-based partition ID for the input adapter. |
 
 For example, you may write a query like the following:
 
 ````
 SELECT
-	System.BlobName,
-	System.EventProcessedUtcTime,
-	System.BlobLastModifiedUtcTime
+	BlobName,
+	EventProcessedUtcTime,
+	BlobLastModifiedUtcTime
 FROM Input
 ````
 
