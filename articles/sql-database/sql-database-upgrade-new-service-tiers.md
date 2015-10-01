@@ -10,7 +10,7 @@
 <tags 
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="06/18/2015" 
+	ms.date="09/28/2015" 
 	ms.author="sstein" 
 	ms.workload="data-management" 
 	ms.topic="article" 
@@ -19,11 +19,28 @@
 
 # Upgrade SQL Database Web or Business Databases to New Service Tiers
 
-Azure SQL Web and Business databases are being deprecated and [retired September 2015](http://msdn.microsoft.com/library/azure/dn741330.aspx) so it's time to start planning to upgrade existing Web or Business databases to the Basic,  Standard, or Premium service tiers.
+Azure SQL [Web and Business databases are retiring](sql-database-web-business-sunset-faq.md) so it's time to upgrade existing Web or Business databases to the [Basic, Standard, Premium, or Elastic service tiers](sql-database-service-tiers.md).
 
-Download the [Web and Business Database Migration Guidance Cookbook](http://download.microsoft.com/download/3/C/9/3C9FF3D8-E702-4F5D-A38C-5EFA1DBA73E6/Azure_SQL_Database_Migration_Cookbook.pdf).
 
-> [AZURE.NOTE] [Pricing tier recommendations](sql-database-service-tier-advisor.md) for Web and Business databases are now available.
+> [AZURE.IMPORTANT] Upgrading Web or Business databases to a new service tier does not take the database offline. The database will remain online and available throughout the upgrade operation. 
+
+
+To assist you with upgrading, the SQL Database service recommends an appropriate service tier and performance level (pricing tier) for each database. By analyzing the historical usage for each database, the service recommends a tier that is best suited for running your existing database’s workload. 
+
+The recommended pricing tier for each database is provided during the process of changing a Web or Business databases service tier, or while upgrading from V2 to SQL Database V12 servers.
+
+Depending on your specific environment the service may recommend upgrading some or all of your databases into an [elastic database pool](sql-database-elastic-pool.md).
+
+To see the recommended service tiers for your retired databases, you can use the Azure preview portal or PowerShell. For step-by-step directions see:
+
+- [Upgrade to SQL Database V12 (Azure Preview Portal)](sql-database-v12-upgrade.md)
+- [Upgrade to SQL Database V12 (PowerShell)](sql-database-upgrade-server.md)
+
+
+
+For more information about the differences between Web/Business and the new service tiers, and for additional migration details, download the [Web and Business Database Migration Guidance Cookbook](http://download.microsoft.com/download/3/C/9/3C9FF3D8-E702-4F5D-A38C-5EFA1DBA73E6/Azure_SQL_Database_Migration_Cookbook.pdf).
+
+
 
 ## Overview
 
