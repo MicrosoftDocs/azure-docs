@@ -21,7 +21,7 @@
 
 The Azure CLI provides a set of open source, cross-platform commands for working with the Azure Platform. It provides much of the same functionality found in the Azure Management Portal as well as rich data access functionality.
 
-In this guide, we’ll explore how to use [Azure Command-Line Interface (Azure CLI)](../xplat-cli.md) to perform a variety of development and administration tasks with Azure Storage. We recommend that you download and install or upgrade to the latest Azure CLI before using this guide.
+In this guide, we’ll explore how to use [Azure Command-Line Interface (Azure CLI)](../xplat-cli-install.md) to perform a variety of development and administration tasks with Azure Storage. We recommend that you download and install or upgrade to the latest Azure CLI before using this guide.
 
 This guide assumes that you understand the basic concepts of Azure Storage. The guide provides a number of scripts to demonstrate the usage of the Azure CLI with Azure Storage. Be sure to update the script variables based on your configuration before running each script.
 
@@ -94,7 +94,7 @@ After the script runs, you should have a local destination folder that includes 
 
 ### Connect to your Azure subscription
 
-While most of the storage commands will work without an Azure subscription, we recommend you to connect to your subscription from the Azure CLI. To configure the Azure CLI to work with your subscription, follow the steps in [How to connect to your Azure subscription](../xplat-cli.md#how-to-connect-to-your-azure-subscription).
+While most of the storage commands will work without an Azure subscription, we recommend you to connect to your subscription from the Azure CLI. To configure the Azure CLI to work with your subscription, follow the steps in [How to connect to your Azure subscription](../xplat-cli-install.md#how-to-connect-to-your-azure-subscription).
 
 ### Create a new storage account
 
