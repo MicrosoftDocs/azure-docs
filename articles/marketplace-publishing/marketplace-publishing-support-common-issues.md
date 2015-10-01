@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09-28-2015"
+   ms.date="10-01-2015"
    ms.author="v-jeana; hascipio"/>
 
 # Troubleshoot common publishing problems in the Azure Marketplace
@@ -31,7 +31,7 @@ In some circumstances, you may need to request a credit or a refund on behalf of
 
 The following shows you to how request a credit or refund on behalf of a customer.
 
-* [AZURE.NOTE] If a Customer or Azure Reseller contacts us to request a refund or credit, we will apply the same policies that we use for our provision of Azure services. If our policies indicate that a refund or credit is due, we will proactively issue, and you authorize us to issue on your behalf, a refund or credit to the Customer or Azure Reseller, as applicable. If our policies do not indicate that a refund or credit is due, we may invite the Customer or Azure Reseller to contact you directly.*
+* [AZURE.NOTE] If a Customer or Azure Reseller contacts us to request a refund or credit, we will apply the same policies that we use for our provision of Azure services. If our policies indicate that a refund or credit is due, we will proactively issue, and you authorize us to issue on your behalf, a refund or credit to the Customer or Azure Reseller, as applicable. If our policies do not indicate that a refund or credit is due, we may invite the Customer or Azure Reseller to contact you directly.
 
 ![1_RequestRefund][1]
 
@@ -110,6 +110,7 @@ For the following issues, please log an issue at https://portal.azure.com
 - How do I report a billing error?
 - I have noticed discrepencies in my billing or usage statements
 - I need help understanding my billing statement
+
 
 For the following issues, please create a support request at http://go.microsoft.com/fwlink/?LinkId=272975
 

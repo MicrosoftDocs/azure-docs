@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09-28-2015"
+   ms.date="10-01-2015"
    ms.author="v-jeana; hascipio"/>
 
 
@@ -53,14 +53,15 @@ From the upper right-hand menu, select "Get Support"
 ![Problem Type & Category][3]
 
 Available Problem Types are as follows:
-- Account Management
-- Reports and Insights
-- VM Image Certification
-- Managing Customers
-- Managing Offers
-- Payouts
-- Seller Dashboard
-- Other
+
+  - Account Management
+  - Reports and Insights
+  - VM Image Certification
+  - Managing Customers
+  - Managing Offers
+  - Payouts
+  - Seller Dashboard
+  - Other
 
 ## 4. Request support
 
@@ -79,8 +80,9 @@ Describe the problem as fully as you can, and provide any files (e.g. screenshot
 Once you have submitted your issue, we will acknowledge receipt within 24 hours, and assign your issue a priority and severity. Our dedicated team of Support Engineers will assist with its resolution according to our Service Level Agreement response times.
 
 ![Confirmation][6]
-- If you need to talk to us about your issue, use the Confirmation Number in all correspondence
-- You can view progress on your issue at any time
+
+  - If you need to talk to us about your issue, use the Confirmation Number in all correspondence.
+  - You can view progress on your issue at any time.
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Additional resources
