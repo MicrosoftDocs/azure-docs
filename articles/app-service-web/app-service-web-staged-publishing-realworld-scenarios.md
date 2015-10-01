@@ -414,7 +414,7 @@ To learn more about how to use Courier, review the documentation .
 
 Courier will not deploy help with upgrading from one version of Umbraco CMS to another. When upgrading Umbraco CMS version, you must check for incompatibilities with your custom modules or third party modules and the Umbraco Core libraries. As a best practice
 
-1. ALWAYS backup your web app and database before doing an upgrade. On Azure Web App, you can set up automatic backups for your websites using the backup feature and restore your site if needed using restore feature. For more details, see [How to back up your web app](https://azure.microsoft.com/en-us/documentation/articles/web-sites-backup/) and [How to restore your web app](https://azure.microsoft.com/en-us/documentation/articles/web-sites-restore/).
+1. ALWAYS backup your web app and database before doing an upgrade. On Azure Web App, you can set up automatic backups for your websites using the backup feature and restore your site if needed using restore feature. For more details, see [How to back up your web app](web-sites-backup) and [How to restore your web app](web-sites-restore).
 
 2. Check if the third party packages you're using are compatible with the version you're upgrading to. On the package's download page, review the Project compatibility with Umbraco CMS version.
 
