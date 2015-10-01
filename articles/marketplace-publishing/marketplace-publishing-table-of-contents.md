@@ -21,7 +21,7 @@ This article is provided to help a seller create and deploy his/her solution e.g
 
 The first thing you would want to do as a publisher is to define what kind of solution your company is offering. Azure Marketplace supports multiple different types of solutions and each of them require a slightly different set of work from you in order to successfully publish into the Marketplace.
 
-**Types of solutions**
+**Types of solutions:**
 1. Data Services
 2. Developer Services
 3. Virtual Machines
@@ -37,12 +37,12 @@ Insert table/matrix of artifacts x (portals, identities, business)
 
 ||Virtual Machine Image |Developer Service | Data Service | Solution Template |
 |----|----|----|----|----|
-| **Get Pre-Approval** | [Microsoft Azure Certification][link-certification] | [Microsoft Azure Certification][link-certification] | n/a | [Microsoft Azure Certification][link-certification] |
+| **Get Pre-Approval** | [Microsoft Azure Certified][link-certification] | [Microsoft Azure Certified][link-certification] | n/a | [Microsoft Azure Certified][link-certification] |
 | **Step 1. Register Seller Account** | [Microsoft Seller Account Creation & Registration][link-accts] | [Microsoft Seller Account Creation & Registration][link-accts] | [Microsoft Seller Account Creation & Registration][link-accts] | [Microsoft Seller Account Creation & Registration][link-accts] |
-| **Step 2. Create Offer** | [VM Technical Pre-requisites][link-single-vm-prereq] | Developer Service Technical Pre-requisites | Data Service Technical Pre-requisites | [Template Technical Pre-requisites][link-multi-vm-prereq] |
+| **Step 2. Create your offer** | [VM Technical Pre-requisites][link-single-vm-prereq] | Developer Service Technical Pre-requisites | Data Service Technical Pre-requisites | [Template Technical Pre-requisites][link-multi-vm-prereq] |
 ||[VM Image Publishing Guide][link-single-vm] | Developer Service Publishing Guide | Data Service Publishing Guide | [Solution Template Publishing Guide][link-multi-vm] |
-| **Step 3. Push offer to Staging** | [Azure Marketplace Marketing Content Guide][link-pushstaging] | [Azure Marketplace Marketing Content Guide][link-pushstaging] | [Azure Marketplace Marketing Content Guide][link-pushstaging] | [Azure Marketplace Marketing Content Guide][link-pushstaging] |
-| **Step 4. Deploy offer to Marketplace** | [Deploy your offer to the Marketplace][link-pushprod] | [Deploy your offer to the Marketplace][link-pushprod] | [Deploy your offer to the Marketplace][link-pushprod] | [Deploy your offer to the Marketplace][link-pushprod] |
+| **Step 3. Push your offer to Staging** | [Azure Marketplace Marketing Content Guide][link-pushstaging] | [Azure Marketplace Marketing Content Guide][link-pushstaging] | [Azure Marketplace Marketing Content Guide][link-pushstaging] | [Azure Marketplace Marketing Content Guide][link-pushstaging] |
+| **Step 4. Deploy your offer to Marketplace** | [Deploy your offer to the Marketplace][link-pushprod] | [Deploy your offer to the Marketplace][link-pushprod] | [Deploy your offer to the Marketplace][link-pushprod] | [Deploy your offer to the Marketplace][link-pushprod] |
 
 ## Support
 - [Get Support as a Publisher][suppt-general]
@@ -51,7 +51,7 @@ Insert table/matrix of artifacts x (portals, identities, business)
 - [Troubleshooting Common Publishing Problems in the Marketplace][suppt-common]
 
 ## Additional Resources
-**Virtual Machines related**
+**Virtual Machines**
 - Setting up Azure PowerShell
 - VM Single Image instructions for developing on-premises
 
