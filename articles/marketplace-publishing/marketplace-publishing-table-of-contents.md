@@ -42,6 +42,7 @@ Insert table/matrix of artifacts x (portals, identities, business)
 | **Step 2. Create your offer** | [VM Technical Pre-requisites][link-single-vm-prereq] | Developer Service Technical Pre-requisites | Data Service Technical Pre-requisites | [Template Technical Pre-requisites][link-multi-vm-prereq] |
 ||[VM Image Publishing Guide][link-single-vm] | Developer Service Publishing Guide | Data Service Publishing Guide | [Solution Template Publishing Guide][link-multi-vm] |
 | **Step 3. Push your offer to Staging** | [Azure Marketplace Marketing Content Guide][link-pushstaging] | [Azure Marketplace Marketing Content Guide][link-pushstaging] | [Azure Marketplace Marketing Content Guide][link-pushstaging] | [Azure Marketplace Marketing Content Guide][link-pushstaging] |
+||Test Your VM offer in Staging | Test your Developer Service offer in Staging | Test your Data Service offer in Staging | Test your Solution Template in Staging |
 | **Step 4. Deploy your offer to Marketplace** | [Deploy your offer to the Marketplace][link-pushprod] | [Deploy your offer to the Marketplace][link-pushprod] | [Deploy your offer to the Marketplace][link-pushprod] | [Deploy your offer to the Marketplace][link-pushprod] |
 
 ## Support
