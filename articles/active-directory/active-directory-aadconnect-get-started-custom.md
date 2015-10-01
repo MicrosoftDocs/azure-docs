@@ -124,7 +124,7 @@ Optional Features      | Description
 Exchange Hybrid Deployment |The Exchange Hybrid Deployment feature allows for the co-existence of Exchange mailboxes both on-premises and in Azure by synchronizing a specific set of [attributes](active-directory-aadconnectsync-attributes-synchronzied.md#exchange-hybrid-writeback) from Azure AD back into your on-premises directory.
 Azure AD app and attribute filtering|By enabling Azure AD app and attribute filtering, the set of synchronized attributes can be tailored to a specific set on a subsequent page of the wizard.  This opens two additional configuration pages in the wizard.  
 Password synchronization | You can enable this option if you selected federation as the sign-in solution. Password synchronization can then be used as a backup option. For additional information see [Password synchronization](active-directory-aadconnectsync-implement-password-synchronization.md).
-Password writeback|By enabling password writeback, password changes that originate with Azure AD will be written back to your on-premises directory.
+Password writeback|By enabling password writeback, password changes that originate with Azure AD will be written back to your on-premises directory. For additional information see [Getting started with password management](active-directory-passwords-getting-started.md).
 Group writeback |If you use the **Groups in Office 365** feature then you can have these groups in your on-premises Active Directory as a distribution group. This option is only available if you have Exchange present in your on-premises Active Directory. For additional information see [Group writeback](active-directory-aadconnect-feature-preview.md#group-writeback).
 Device writeback | Allows you to writeback device objects in Azure AD to your on-premises Active Directory for conditional access scenarios. For additional information see [Enabling device writeback in Azure AD Connect](active-directory-aadconnect-get-started-custom-device-writeback.md)
 Directory extension attribute sync|By enabling directory extensions attribute sync, additional attributes specified will be synced to Azure AD. For additional information see [Directory extensions](active-directory-aadconnect-feature-preview.md#directory-extensions).
@@ -132,11 +132,11 @@ Directory extension attribute sync|By enabling directory extensions attribute sy
 ### Azure AD app and attribute filtering
 If you want to limit which attributes to synchronize to Azure AD, then start by selecting which services you are using, If you configure this page, any new service has to be selected explicitly by re-running the installation wizard.
 
-<center>![Optional features](./media/active-directory-aadconnect-get-started-custom/AzureADapps.png)</center>
+![Optional features](./media/active-directory-aadconnect-get-started-custom/azureadapps.png)
 
 Based on the services selected in the previous step, this page will show all attributes which will be synchronized. This list is a combination of all object types being synchronized. If there are some particular attributes you need to not synchronize, you can unselect those. In the picture below the homePhone attribute has been unselected and will not synchronize to Azure AD.
 
-<center>![Optional features](./media/active-directory-aadconnect-get-started-custom/AzureADattributes.png)</center>
+![Optional features](./media/active-directory-aadconnect-get-started-custom/azureadattributes.png)
 
 ### Directory Extension attribute sync (preview)
 With directory extensions you can extend the schema in Azure AD with custom attributes added by your organization or other attributes in Active Directory. To use this feature select “Directory Extension attribute sync” on the “Optional Features” page. This will give you this page where you can select your additional attributes.

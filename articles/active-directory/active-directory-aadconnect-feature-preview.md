@@ -22,9 +22,9 @@ This topic describes how to use features currently in preview.
 ## User writeback
 > [AZURE.IMPORTANT] The user writeback preview feature was temporarily removed in the August update to AAD Connect. If you have enabled it, then you should disable this feature.
 
-> [AZURE.IMPORTANT] This feature should only be tested in a test environment and should not be used in an Azure AD directory used for production usage.
-
 User writeback is in early preview. It can only be used when Azure AD is the source for all user objects and on-premises Active Directory is empty before you enable the feature.
+
+> [AZURE.IMPORTANT] This feature should only be tested in a test environment and should not be used in an Azure AD directory used for production usage.
 
 ## Group writeback
 The option for group writeback in optional features will allow you to writeback “Groups in Office 365” to a forest with Exchange installed. This is a new group type which is always mastered in the cloud. You can find this in outlook.office365.com or on myapps.microsoft.com as shown here:

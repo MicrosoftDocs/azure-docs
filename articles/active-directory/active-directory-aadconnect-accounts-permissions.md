@@ -31,7 +31,7 @@ If you did not read the documentation on [Integrating your on-premises identitie
 | Topic |  |
 | --------- | --------- |
 | Install using Express settings | [Express installation of Azure AD Connect](active-directory-aadconnect-get-started-express.md) |
-| Install using customized settings | [Custom installation of Azure AD Connect](active-directory-aadconnect-get-started-custom.md) |
+| Install using Customized settings | [Custom installation of Azure AD Connect](active-directory-aadconnect-get-started-custom.md) |
 | Upgrade from DirSync | [Upgrade from Azure AD sync tool (DirSync)](active-directory-aadconnect-dirsync-upgrade-get-started.md) |
 
 
