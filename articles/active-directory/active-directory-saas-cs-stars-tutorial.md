@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Tutorial: Azure Active Directory integration with CS Stars"
+	pageTitle="Tutorial: Azure Active Directory integration with CS Stars | Microsoft Azure"
 	description="Learn how to configure single sign-on between Azure Active Directory and CS Stars."
 	services="active-directory"
 	documentationCenter=""
@@ -86,13 +86,13 @@ This link relationship is established by assigning the value of the **user name*
  
 To configure and test Azure AD single sign-on with CS Stars, you need to complete the following building blocks:
 
-1. **[Configuring Azure AD Single Single Sign-On](#configuring-azure-ad-single-single-sign-on)** - to enable your users to use this feature.
+1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-single-sign-on)** - to enable your users to use this feature.
 2. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-4. **[Creating a CS Stars test user](#creating-a-halogen-software-test-user)** - to have a counterpart of Britta Simon in CS Stars that is linked to the Azure AD representation of her.
+4. **[Creating a CS Stars test user](#creating-a-cs-stars-test-user)** - to have a counterpart of Britta Simon in CS Stars that is linked to the Azure AD representation of her.
 5. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
 5. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
 
-### Configuring Azure AD Single Single Sign-On
+### Configuring Azure AD Single Sign-On
 
 The objective of this section is to enable Azure AD single sign-on in the Azure AD portal and to configure single sign-on in your CS Stars application.<br>
 
