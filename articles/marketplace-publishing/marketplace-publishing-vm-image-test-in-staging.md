@@ -16,7 +16,7 @@
    ms.date="10/01/2015"
    ms.author="hascipio" />
 
-## 5 Testing your VM offer in staging
+## Testing your VM offer in staging
 Staging means deploying your SKU in a private “sandbox” where you can test and validate its functionality before deploying it to the Marketplace. The SKU will appear in staging just as it would to a customer who has deployed it. Your VM image must be certified to be pushed to staging.
 1. Click **Push to Staging** in the **Publish** tab.
 
