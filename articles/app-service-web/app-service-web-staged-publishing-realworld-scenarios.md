@@ -274,7 +274,7 @@ Deploy local development environment web app to stage web app and database using
 
 Browse and test your staging web app. Considering a scenario where theme of the web app is to be updated, here is the staging web app.
 
-![Browse staging web app before swapping slots](./media/app-service-web-staged-publishing-realworld-scenarios/5wordpressstagewebappbrowse.png)
+![Browse staging web app before swapping slots](./media/app-service-web-staged-publishing-realworld-scenarios/5wordpressstagewebapp.png)
 
 
  If all looks good, click on **Swap** button on your staging web app settings to move your content to production environment. In this case you swap web app and the database across environments during every **Swap** operation.
