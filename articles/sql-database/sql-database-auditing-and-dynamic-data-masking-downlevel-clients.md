@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="SQL Database downlevel clients support for Auditing and Dynamic Data Masking | Microsoft Azure" 
-	description="SQL Database Downlevel Clients Support for Auditing and Dynamic Data Masking" 
+	description="Learn about SQL Database downlevel clients support for Auditing and Dynamic Data Masking." 
 	services="sql-database" 
 	documentationCenter="" 
 	authors="nadavhelfman" 
