@@ -8,15 +8,17 @@
    editor=""/>
 
 <tags
-   ms.service="AzureStore"
+   ms.service="marketplace-publishing"
    ms.devlang="na"
    ms.topic="article"
-   ms.tgt_pltfrm="Azure"
+   ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/30/2015"
+   ms.date="10/01/2015"
    ms.author="hascipio"/>
 
 # Registering a Microsoft seller account
+This article walks through the necessary account creation and registration to become an approved Microsoft seller for the Azure Marketplace.
+
 ## 1. Create a Microsoft Account (MSA)
 > [AZURE.WARNING] In order to complete the publishing process, you will need to create a Microsoft account. This account will be used to register for and to log in to both the Publishing Portal and the Seller Dashboard. You should only have one Microsoft Account for your Azure Marketplace offerings. They should not be specific to individual VMs.
 

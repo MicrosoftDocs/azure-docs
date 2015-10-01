@@ -8,19 +8,19 @@
    editor=""/>
 
 <tags
-   ms.service="AzureStore"
+   ms.service="marketplace-publishing"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="Azure"
    ms.workload="na"
-   ms.date="09/25/2015"
+   ms.date="10/01/2015"
    ms.author="hascipio; v-divte"/>
 
 # Guide to creating a virtual machine image for the Azure Marketplace
 
-This article will walk through preparing your VHDs, which are the foundation of your SKU, that you will deploy to the Azure Marketplace. The process will differ depending on whether your are providing a Linux- or Windows-based SKU. This section covers both scenarios. This process can be performed in parallel with [Account Creation and Registration][link-acct-creation].
+This article, **Step 2**, will walk through preparing your VHDs, which are the foundation of your SKU, that you will deploy to the Azure Marketplace. The process will differ depending on whether your are providing a Linux- or Windows-based SKU. This section covers both scenarios. This process can be performed in parallel with [Account Creation and Registration][link-acct-creation].
 
-## 3.1 Define Offers and SKUs
+## 1 Define Offers and SKUs
 
 In this section, you will define the Offers and the SKUs underneath them.
 
@@ -28,34 +28,36 @@ An offer is a "parent" to all of its SKUS. You can have multiple offers. How you
 
 - Azure.com – http://azure.microsoft.com/marketplace/partners/{PartnerNamespace}/{OfferIdentifier}-{SKUidentifier}
 
-- Ibiza Portal - https://portal.azure.com/#gallery/{PublisherNamespace}.{OfferIdentifier}{SKUIDdentifier}  
+- Azure Preview Portal - https://portal.azure.com/#gallery/{PublisherNamespace}.{OfferIdentifier}{SKUIDdentifier}  
 
 A SKU is the commercial name for a VM Image. A VM Image contains one OS disk and zero or more data disks. It is essentially the complete storage profile for a virtual machine. One VHD is needed per disk; even blank data disks require a VHD to be created.
 
 Regardless of which operating system you use, add only the minimum number of data disks needed by the SKU. The end user cannot remove disks that are part of an image at time of deployment, but can always add disks during or after deployment if they need them.
 
-### 3.1.1 Add an offer
+### 1.1 Add an offer
+
 1. Log in to the [Publishing Portal][link-pubportal] using your seller account.
 2. Enter the **Virtual Machines** tab of the Publishing Portal. In the prompted entry field, enter your offer name and create.
 3. Offer name is typically the name of the product / service that you plan to sell in Azure Marketplace.
 
-### 3.1.2 Define SKU(s)
+### 1.2 Define SKU(s)
 Once you have added an offer, you will need to define/identify your SKU(s).
+
 1. Add a SKU. It will require an identifier, which will be used in the URL. This will need to be unique within your Publishing Profile, but there is no risk of identifier collision with other publishers.
 2. Add a summary description for your SKU. This will be read by humans in the UX, so it advised to make it easily readable. This information does not need to be locked until "Push to Staging". Until then, you are free to edit it.
 3. If you are using Windows-based SKUs, follow the suggested links to acquire the approved versions of Windows Server.
 
-## 3.2 Create an Azure-compatible VHDs (Linux-based)
+## 2. Create an Azure-compatible VHDs (Linux-based)
 The following section focuses on best practices for creating a Linux-based  VM Image for the Microsoft Azure Marketplace. For a step-by-step walkthrough, refer to the following documentation: [Creating and Uploading a Virtual Hard Disk that Contains the Linux Operating System][link-azure-vm-1]
 
 > [AZURE.TIP] Many of the following steps (e.g. agent install, kernel boot parameters) are already taken care of for Linux images available from the Microsoft Azure Image Gallery.   Thus, starting with one of these images as a base can represent a time-savings vs. configuring a non-Azure aware Linux image.
 
-### 3.2.1 Choose the correct VHD size
+### 2.1 Choose the correct VHD size
 Published SKUs (VM Images) should be designed to work with all VM sizes that support the number of disks for the SKU. You can provide guidance on recommended sizes, but these will be treated as recommendations and not enforced.
 1. Linux OS VHD: The Linux OS VHD in your VM Image should be created a a 30GB - 50GB fixed-format VHD. It cannot be less than 30GB. If the physical size is less than VHD size, the VHD should be sparse. Linux VHDs larger than 50GB will be considered on a case by case basis. If you already have a VHD in a different format, you can use the [Convert-VHD PowerShell cmdlet to change the format][link-technet-1].
 2. Data disk VHD: Data disks can be as large as 1TB. Data disk VHDs should be created as a fixed-format VHD, but also be sparse. When deciding on the disk size, please keep in mind that end users cannot resize VHDs within an image.
 
-### 3.2.2 Ensure the latest Azure Linux Agent is installed
+### 2.2 Ensure the latest Azure Linux Agent is installed
 When preparing the OS VHD, make sure the latest [Azure Linux Agent][link-azure-vm-2] is installed. Using the RPM or Deb packages.The package is often named walinuxagent or WALinuxAgent, but check with your distribution to be certain. The agent provides key functions for deploying Linux IaaS deployments in Azure, such as VM provisioning and networking capabilities.  
 
 While the agent can be configured in a variety of ways, we recommend that you use a generic agent configuration to maximize compatibility. While it is possible to install the Agent manually, it is strongly recommended that you use the preconfigured packages from your distribution if available.
@@ -67,7 +69,7 @@ If you do choose to install the agent manually from the [GitHub repository][link
 
 The agent configuration file will be placed at /etc/waagent.conf.
 
-### 3.2.3 Verify that required libraries are included
+### 2.3 Verify that required libraries are included
 In addition to the Azure Linux Agent, the following libraries should also be included:
 1. The [Linux Integration Services][link-intsvc] Version 3.0 or higher must be enabled in your kernel. See [Linux Kernel Requirements](../virtual-machines-linux-create-upload-vhd-generic/#linux-kernel-requirements)
 2. [Kernel Patch](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/drivers/scsi/storvsc_drv.c?id=5c1b10ab7f93d24f29b5630286e323d1c5802d5c) for Azure I/O stability (likely not needed for any recent kernel, but should be verified)
@@ -75,20 +77,20 @@ In addition to the Azure Linux Agent, the following libraries should also be inc
 4. Python] pyasn1 package, if not already installed
 5. [OpenSSL][link-openssl] (v1.0 or greater recommended)
 
-### 3.2.4 Set up disk partitions
+### 2.4 Set up disk partitions
 We recommend **not** using Logical Volume Manager. Create a single root partition for the OS disk. Do not use a swap partition on the OS or data disk. We do recommend removing a swap partition, even if it is not mounted in /etc/fstab.  If needed, a swap partition can be created on the local resource disk (/dev/sdb) by the Linux Agent.
 
-### 3.2.5 Add required Kernel Boot line parameters
+### 2.5 Add required Kernel Boot line parameters
 The following parameters also need to be added to the Kernel Boot Line:
 
         console=ttyS0 earlyprintk=ttyS0 rootdelay=300
 
 This ensures that Azure Support can provide customers with serial console output when needed. It also provides adequate timeout for OS disk mounting from cloud storage. Even if your SKU blocks end customer from directly SSHing into the virtual machine, serial console output must be enabled.
 
-### 3.2.6 Include SSH Server by Default
+### 2.6 Include SSH Server by Default
 We strongly recommend enabling SSH for the end user. If SSH Server is enabled, add the SSH keep alive to sshd config with the following option: ClientAliveInterval 180. While 180 is recommended, the acceptable range is 30 to 235. Not all applications desire allowing direct SSH to the virtual machine for the end user. If SSH is explicitly blocked, the ClientAliveInterval does not need to be set.
 
-### 3.2.7 Meet networking requirements
+### 2.7 Meet networking requirements
 The following are networking requirements for an Azure-compatible Linux VM Image.
 - In many cases it is best to disable NetworkManager.  One exception is with CentOS 7.x based systems (and derivatives) which should keep NetworkManager enabled.
 - Networking configuration should be controllable via the ifup/ifdown scripts.  The Linux agent may use these commands to restart networking during provisioning.
@@ -99,7 +101,7 @@ The following are networking requirements for an Azure-compatible Linux VM Image
 - The network device needs to be brought up on boot and use DHCP.
 - IPv6 6 is not supported on Azure. If this property is enabled, it will not work.
 
-### 3.2.8  Ensure security best are in placed
+### 2.8  Ensure security best are in placed
 It is critical for SKUs in the Azure Marketplace to follow best practices in regards to security. These include the following:
 - Install all security patches for your distribution.
 - Follow distribution security guidelines.
@@ -107,7 +109,7 @@ It is critical for SKUs in the Azure Marketplace to follow best practices in reg
 - Clear bash history entries.
 - Include iptables (firewall) software, but do not enable any rules. This will provide a seamless default experience for customers. Customers who want to use a VM firewall for additional configuration can configure the iptables rules to meet their specific needs.
 
-### 3.2.9 Generalize the image
+### 2.9 Generalize the image
 All images in the Azure Marketplace must be re-usable in a generic fashion, which requires stripping them of certain configuration specifics. To accomplish this in Linux, the OS VHD must be deprovisioned.
 
 The Linus command for deprovisioning is as follows:
@@ -125,10 +127,10 @@ We recommend setting the configuration file (/etc/waagent.conf) to ensure the fo
 
 At this point, you have completed generalizing of the Linux VM.   Shut down the VM either from the Azure Portal, command line or from within the VM.  When shutdown is complete, continue at Step 3.4.
 
-## 3.3 Create an Azure-compatible VHDs (Windows-based)
+## 3. Create an Azure-compatible VHDs (Windows-based)
 The following section focuses on the steps to create a SKU based on Windows Server for the Microsoft Azure Marketplace.
 
-### 3.3.1 Ensure you are using the correct base VHDs
+### 3.1 Ensure you are using the correct base VHDs
 The OS VHD for your VM Image must be based on a Microsoft Azure-approved base image, containing Windows Server or SQL Server.
 
 To begin, create a VM from one of the following images, located at the [Microsoft Azure Portal][link-azure-portal]:
@@ -140,7 +142,7 @@ These links can also be found in the Publishing Portal under the SKU page.
 
 > [AZURE.TIP] if you are using the current Azure Management Portal or PowerShell, Windows Server Images published on September 8, 2014 and later are approved.
 
-### 3.3.2 Create your Windows VM
+### 3.2 Create your Windows VM
 From the Microsoft Azure Portal, you can create your VM based on an approved base image in just a few simple steps. The following is an overview of the process.
 1. From the base image page, select **Create VM** to be directed to the new [Microsoft Azure Portal][link-azure-portal].
 
@@ -174,7 +176,7 @@ From the Microsoft Azure Portal, you can create your VM based on an approved bas
   ![drawing][img-portal-vm-location]
 7. Click **Create**. The VM will begin deploying. Within minutes, you will have a successful deployment and can begin to create the image for your SKU.
 
-### 3.3.3 Develop your VHD in the cloud
+### 3.3 Develop your VHD in the cloud
 It is strongly recommended that you develop your VHD in the cloud using Remote Desktiop Protocol (RDP). You will connect to RDP with the username and password specifid during provisioning.
 
 > [AZURE.IMPORTANT]: if you are developing your VHD on-premises (which is not recommended) see Appendix 2 for instructions on how to download the VHD to a local system. **Downloading your VHD is NOT ncessary if you are developing in the cloud**.
@@ -206,22 +208,22 @@ More information about RDP can be found on MSDN in the article [Connect to an Az
 
 Once the OS VHD is downloaded, use Hyper­V and configure a VM to begin creating your SKU. Detailed steps can be found at the following TechNet link: [Install Hyper­V and Configure a VM](http://technet.microsoft.com/en-us/library/hh846766.aspx).
 
-### 3.3.4 Choose the correct VHD size
+### 3.4 Choose the correct VHD size
 The Windows OS VHD in your VM Image should be created as a 128 GB fixed format VHD.  
 If the physical size is less than 128GB, the VHD should be sparse. The base Windows and SQL Server images provided already meet these requirements; do not change the format or the size of the VHD obtained.  
 
 Data disks can be as large as 1TB. When deciding on the disk size, remember that end users cannot resize VHDs within an image at time of deployment. Data disk VHDs should be created as a fixed format VHD, but also be sparse. Data disks can be empty or contain data.
 
 
-### 3.3.5 Install the latest Windows patches
+### 3.5 Install the latest Windows patches
 The base images contain the latest patches up to their published date. Before publishing the OS VHD you have created, ensure that Windows Update has been run and that all the latest 'Critical' and 'Important' security updates have been installed.
 
-### 3.3.6 Perform additional configuration and schedule tasks as necessary
+### 3.6 Perform additional configuration and schedule tasks as necessary
 If additional configuration is needed, consider using a scheduled task that runs at startup to make any final changes to the VM once it has been deployed.
 - It is as best practice to have the task delete itself upon successful execution.
 - No configuration should rely on drives other than C:\ or D:\, since these are the only two drives that are always guaranteed to exist. C:\ is the OS disk and D:\ is the temporary local disk.
 
-### 3.3.7 Generalize the image
+### 3.7 Generalize the image
 All images in the Azure Marketplace must be re-usable in a generic fashion. In other words, the OS VHD must be generalized.
 - For Windows, the image should be "sysprepped" and no configurations should be done that do not support the 'sysprep' command.
 - You can run the below command from the directory %windir%\System32\Sysprep.
@@ -230,7 +232,7 @@ All images in the Azure Marketplace must be re-usable in a generic fashion. In o
 
   Guidance on how to sysprep the operating system is provided in Step of the following MSDN article - [Create and upload a Windows Server VHD to Azure](../virtual-machines-create-upload-vhd-windows-server/).
 
-## 3.4 Deploy a VM from your VHDs
+## 4. Deploy a VM from your VHDs
 Once your VHD(s), generalized OS VHD and zero or more data disk VHDs, are uploaded to an Azure storage account, you can register them as a user VM Image with which to test. Note, since your OS VHD is generalized, you cannot directly deploy the VM by providing the VHD URL.
 
 To learn more about VM Images review the following blog posts:
@@ -238,7 +240,7 @@ To learn more about VM Images review the following blog posts:
 - [VM Image PowerShell How To][link-blog-1]
 - [About VM Images in Azure][link-msdn-2]
 
-### 3.4.1 Create a User VM Image
+### 4.1 Create a User VM Image
 To create a user VM Image from your SKU to begin deploying multiple VMs, you need to use the [Create VM Image Rest API](http://msdn.microsoft.com/en-us/library/azure/dn775054.aspx) to register VHDs as a VM Image.
 
 You can use the Invoke-WebRequest cmdlet to create a VM Image from PowerShell. The below PowerShell script shows how to create a VM Image with an OS disk and one data disk. Note, the PowerShell session should already be set up and a subscription set.
@@ -402,7 +404,7 @@ To create a VM Image from an OS VHD and an additional empty data disks (you do n
 
 By running this script, you create a user VM Image with the name you provided to the ImageName parameter “myVMImage”.  It consists of one OS disk, based on the VHD you passed, and one empty 32 GB data disk.
 
-### 3.4.2 Deploy VM from a a user VM Image
+### 4.2 Deploy VM from a a user VM Image
 
 To deploy a VM from a user VM Image, you can use the current [Azure Management Portal](https://manage.windowsazure.com) or PowerShell.
 
@@ -430,12 +432,12 @@ To deploy a large VM, from the generalized VM Image just created, the following 
     $myVM = New‐AzureVMConfig ‐Name "VMImageVM" ‐InstanceSize "Large" ‐ImageName $img.ImageName | Add‐AzureProvisioningConfig ‐Windows ‐AdminUsername $user ‐Password $pass
     New‐AzureVM ‐ServiceName "VMImageCloudService" ‐VMs $myVM ‐Location "West US" ‐WaitForBoot
 
-## 3.5  Obtain certification for your VM Image
+## 5.  Obtain certification for your VM Image
 The next step in preparing your VM Image for the Azure Store is to have it certified.
 
 This process includes running a special certification tool, uploading the verification results to the Azure container where your VHDs reside, adding an offer, defining your SKU, and submitting your VM Image for certification.
 
-### 3.5.1 Download and run the Microsoft Azure Certification Tool
+### 5.1 Download and run the Microsoft Azure Certification Tool
 The Microsoft Azure Certification Tool will run against a running VM, provisioned from your user VM Image, to ensure that the VM Image is compatible with Microsoft Azure. It will verify that the guidance and requirements about preparing your VHD have been met. The output of the tool is a compatibility report, which should be uploaded on Publishing Portal while requesting for Certification.
 
 The Certification Tool can be used with both Windows and Linux VMs. It connects to Windows VMs via PowerShell, and connects to Linux VMs via SSH.Net.
@@ -483,7 +485,7 @@ Once you have completed the questionnaire, you can provide additional informatio
 
 ![Save certification test results][img-cert-vm-results]
 
-### 3.5.2 Get the Shared Access Signature Uniform Resource Identifier (URI) for your VM Images
+### 5.2 Get the Shared Access Signature Uniform Resource Identifier (URI) for your VM Images
 
 During the publishing process, you will specify the URIs that lead to each of the VHDs you have created for your SKU.
 Microsoft needs access to these VHDs during the certification process. Therefore, you will need to create a Shared
@@ -544,7 +546,7 @@ Instead of generating a shared access key using code, you can also use storage t
 10. Copy the SAS URI. This is the URI to paste into the Publishing Portal.
 11. Repeat these steps for each VHD in the SKU.
 
-### 3.5.3 Provide information about the VM Image and request certification in the Publishing Portal
+### 5.3 Provide information about the VM Image and request certification in the Publishing Portal
 Once you have created your offer and SKU, you should enter the image details associated with that SKU.
 
 1. Go to [Publishing Portal][link-pubportal] and log in with your seller account.
@@ -575,7 +577,7 @@ data disk to be mounted upon deployment.
   ![drawing][img-pubportal-vm-skus-2]
 
 ## Next Step
-You Virtual Machine Image SKU(s) are now certified. Step 4, [Getting your offer to staging][link-pushstaging]. In this step of the, you will provide the marketing content, pricing, and other information necessary to push your SKU to staging and test various use case scenarios before launching the offer to the Azure Marketplace for public visibility and purchase.  
+Once you submit your virtual machine image SKU(s) for certification, you can move forward with **Step 3**, [Getting your offer to staging][link-pushstaging]. In this step of the publishing process, you will provide the marketing content, pricing, and other information necessary to push your offer and/or SKU to staging and test various use case scenarios before deploying the offer to the Azure Marketplace for public visibility and purchase.  
 
 
 [img-acom-1]:media/marketplace-publishing-vm-image-creation/vm-image-acom-datacenter.png

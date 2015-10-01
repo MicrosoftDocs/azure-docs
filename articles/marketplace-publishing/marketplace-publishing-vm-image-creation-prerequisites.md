@@ -8,12 +8,12 @@
    editor=""/>
 
 <tags
-  ms.service="AzureStore"
+  ms.service="marketplace-publishing"
   ms.devlang="na"
   ms.topic="article"
   ms.tgt_pltfrm="Azure"
   ms.workload="na"
-  ms.date="09/29/2015"
+  ms.date="10/01/2015"
   ms.author="hascipio; v-divte"/>
 
 # Pre-requisites for creating a virtual machine image for the Azure Marketplace
@@ -80,7 +80,7 @@ You can develop Azure-based VMs on Windows or Linux. Some elements of the publis
 ## Developing your VHD
 It is possible to develop Azure VHDs in the **cloud** or **on-premises**.
 - Cloud-based development means all development steps are performed remotely on a VHD resident on Azure.
-- On-premises development requires downloading a VHD and developing it using on-premises infrastructure. While this is possible, we do not recommend it. Note that developing for Windows or SQL on premises requires you to have the relevant on-premises license keys. You cannot include or install SQL Server after creating a VM, and you must base your offer on an approved SQL Image from the Azure Portal. If you decide to develop on-premises, you must perform some steps differently than if you were developing in the cloud. You can find relevant information in Appendix 2.
+- On-premises development requires downloading a VHD and developing it using on-premises infrastructure. While this is possible, we do not recommend it. Note that developing for Windows or SQL on premises requires you to have the relevant on-premises license keys. You cannot include or install SQL Server after creating a VM, and you must base your offer on an approved SQL Image from the Azure Portal. If you decide to develop on-premises, you must perform some steps differently than if you were developing in the cloud. You can find relevant information in [Creating a VM image on-premise](marketplace-publishing-vm-image-creation-on-premise.md).
 
 ## "Sell-from" countries
 > [AZURE.WARNING]

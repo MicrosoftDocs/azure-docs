@@ -13,11 +13,19 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/30/2015"
+   ms.date="10/01/2015"
    ms.author="hascipio" />
 
 # How to publish an offer to the Microsoft Azure Marketplace
 This article is provided to help a seller create and deploy his/her solution e.g. single virtual machine image, solution template, developer service, or data service to the Azure Marketplace for other Azure customers and partners to purchase and utilize.
+
+The first thing you would want to do as a publisher is to define what kind of solution your company is offering. Azure Marketplace supports multiple different types of solutions and each of them require a slightly different set of work from you in order to successfully publish into the Marketplace.
+
+**Types of solutions**
+1. Data Services
+2. Developer Services
+3. Virtual Machines
+4. Solution Templates
 
 Some steps are shared between the different types of solutions. This provides a short overview of what steps you will need to complete for any type of solution.
 
@@ -36,16 +44,17 @@ Insert table/matrix of artifacts x (portals, identities, business)
 | **Step 3. Push offer to Staging** | [Azure Marketplace Marketing Content Guide][link-pushstaging] | [Azure Marketplace Marketing Content Guide][link-pushstaging] | [Azure Marketplace Marketing Content Guide][link-pushstaging] | [Azure Marketplace Marketing Content Guide][link-pushstaging] |
 | **Step 4. Deploy offer to Marketplace** | [Deploy your offer to the Marketplace][link-pushprod] | [Deploy your offer to the Marketplace][link-pushprod] | [Deploy your offer to the Marketplace][link-pushprod] | [Deploy your offer to the Marketplace][link-pushprod] |
 
-## Appendix
-**Virtual Machines related**
-- Setting up Azure PowerShell
-- VM Single Image instructions for developing on-premises
-
-**Support**
+## Support
 - [Get Support as a Publisher][suppt-general]
 - [Understanding Seller Insights reporting][suppt-rpt-insights]
 - [Understanding Payout reporting][suppt-rpt-payouts]
 - [Troubleshooting Common Publishing Problems in the Marketplace][suppt-common]
+
+## Additional Resources
+**Virtual Machines related**
+- Setting up Azure PowerShell
+- VM Single Image instructions for developing on-premises
+
 
 [suppt-general]:marketplace-publishing-get-publisher-support.md
 [suppt-rpt-insights]:marketplace-publishing-report-seller-insights.md

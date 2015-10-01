@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Troubleshooting Common Publisher Support Issues | Microsoft Azure"
-   description="Explore and troubleshoot common publisher support issues and how to get support"
+   pageTitle="How to troubleshoot common publisher support issues | Microsoft Azure"
+   description="Understand how to troubleshoot common publisher support issues and how to get support"
    services="marketplace-publishing"
    documentationCenter="name"
    authors="v-jeana"
@@ -13,13 +13,11 @@
       ms.topic="article"
       ms.tgt_pltfrm="na"
       ms.workload="na"
-      ms.date="09/27/2015"
+      ms.date="10/01/2015"
       ms.author="v-jeana; hascipio"/>
 
-# Exploring common publisher support issues
-
+# How to troubleshoot common Azure Marketplace publisher issues
 This article will explain how to resolve or get support for some common Marketplace scenarios, as follows:
-
 
 + Request a credit or refund
 + Validate a customer

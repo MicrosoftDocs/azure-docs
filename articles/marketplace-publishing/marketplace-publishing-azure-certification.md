@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/30/2015"
+   ms.date="10/01/2015"
    ms.author="anishk;hascipio"/>
 
 # Get Pre-Approved via Microsoft Azure Certification Program
@@ -32,7 +32,7 @@ This article provides instructions of how to become Microsoft Azure Certified. F
 
 **"Sell-from" Countries**
 > [AZURE.WARNING]
-In order to sell your services on Microsoft Azure Marketplace, your registered entity needs to be from one of the approved “sell from” countries. This restriction is for payout and taxation reasons. We are actively looking to expand this list of countries in the near future, so please stay tuned. For the complete list, please see section 1b of the document at link http://go.microsoft.com/fwlink/?LinkID=526833&clcid=0x409.
+In order to sell your services on Microsoft Azure Marketplace, your registered entity needs to be from one of the approved “sell from” countries. This restriction is for payout and taxation reasons. We are actively looking to expand this list of countries in the near future, so please stay tuned. For the complete list, please see section 1b of the document at link http://go.microsoft.com/fwlink/?LinkID=526833.
 
 ## Next Step
 Once you have received pre-approval from the Microsoft Azure Certification Program, you can proceed to step 1, [Creating a Microsoft Seller Account](marketplace-publishing-accounts-creation-registration.md).

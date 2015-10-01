@@ -8,17 +8,17 @@
    editor=""/>
 
 <tags
-   ms.service="AzureStore"
+   ms.service="marketplace-publishing"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="Azure"
    ms.workload="na"
-   ms.date="09/25/2015"
+   ms.date="10/01/2015"
    ms.author="hascipio; v-shresh"/>
 
 # Guide to creating a developer service for the Azure Marketplace
 
-This articles guides you through creating your resource provider which is the foundation of your developer service offer that you will publish into the Microsoft Azure Marketplace.  This process can be performed in parallel with [Account Creation and Registration][link-acct-creation].
+This article is step 2 in the publishing process and guides you through the creation of your resource provider which is the foundation of your developer service offer that you will publish into the Microsoft Azure Marketplace.  
 
 > [AZURE.WARNING] You must be an approved seller to complete the publishing process of an offering into the Azure Marketplace and receive payout. If you have already released an app you may already be an approved seller. You only need one approved seller account to sell apps and services in Microsoft Marketplaces.
 
