@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="SQL Database downlevel clients support for Auditing and Dynamic Data Masking | Microsoft Azure" 
-	description="Learn about SQL Database downlevel clients support for Auditing and Dynamic Data Masking." 
+	pageTitle="SQL Database downlevel clients support for auditing and Dynamic Data Masking | Microsoft Azure" 
+	description="Learn about SQL Database downlevel clients support for auditing and Dynamic Data Masking." 
 	services="sql-database" 
 	documentationCenter="" 
 	authors="nadavhelfman" 
@@ -16,7 +16,7 @@
 	ms.date="09/01/2015" 
 	ms.author="nadavhelfman"/>
  
-# SQL Database -  Downlevel clients support for Auditing and Dynamic Data Masking 
+# SQL Database -  Downlevel clients support for auditing and Dynamic Data Masking 
 
 
 [Auditing](sql-database-auditing-get-started.md) and [Dynamic Data Masking](sql-database-dynamic-data-masking-get-started.md) work with SQL clients that support TDS redirection. 
