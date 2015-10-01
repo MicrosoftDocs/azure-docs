@@ -26,7 +26,8 @@ Staging means deploying your SKU in a private “sandbox” where you can test a
 
 2. Correct any errors or discrepancies in which the Publishing Portal may notify you a this point.
 3.	Provide the list of Azure subscriptions you will use to preview your offer in [Azure Preview portal](https://portal.azure.com) in the pop up box as shown in the screenshot above.
-4. Validate your VM Image for following points:
+4. Login to the [Azure Preview Portal](http://portal.azure.com) using one of the above Azure subscriptions listed in the previous step.
+5. Find your offer and validate your VM image points:
   - Marketing content is showing up correctly in the gallery
 
     ![drawing][img-map-portal]
