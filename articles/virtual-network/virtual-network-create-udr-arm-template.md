@@ -1,0 +1,191 @@
+<properties 
+   pageTitle="Create User Defined Routes (UDR) in Resource Manager mode using a template | Microsoft Azure"
+   description="Learn how to create UDRs in Resource Manager mode using a template"
+   services="virtual-network"
+   documentationCenter="na"
+   authors="telmosampaio"
+   manager="carolz"
+   editor=""
+   tags="azure-resource-manager"
+/>
+<tags  
+   ms.service="virtual-network"
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="09/30/2015"
+   ms.author="telmos" />
+
+#Create User Defined Routes (UDR) using a template
+
+[AZURE.INCLUDE [virtual-network-create-udr-arm-selectors-include.md](../../includes/virtual-network-create-udr-arm-selectors-include.md)]
+
+[AZURE.INCLUDE [virtual-network-create-udr-intro-include.md](../../includes/virtual-network-create-udr-intro-include.md)]
+
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)] This article covers the Resource Manager deployment model. You can also [create UDRs in the classic deployment mode](virtual-networks-udr-how-to.md).
+
+[AZURE.INCLUDE [virtual-network-create-udr-scenario-include.md](../../includes/virtual-network-create-udr-scenario-include.md)]
+
+## UDR resources in a template file
+
+You can view and download the [sample template](https://raw.githubusercontent.com/telmosampaio/azure-templates/master/IaaS-NSG-UDR/).
+
+The section below shows the definition of the front end UDR in the azuredeploy-vnet-nsg-udr.json file, based on the scenario above.
+
+	"apiVersion": "2015-06-15",
+	"type": "Microsoft.Network/routeTables",
+	"name": "[parameters('frontEndRouteTableName')]",
+	"location": "[resourceGroup().location]",
+	"tags": {
+	  "displayName": "UDR - FrontEnd"
+	},
+	"properties": {
+	  "routes": [
+	    {
+	      "name": "RouteToBackEnd",
+	      "properties": {
+	        "addressPrefix": "[parameters('backEndSubnetPrefix')]",
+	        "nextHopType": "VirtualAppliance",
+	        "nextHopIpAddress": "[parameters('vmaIpAddress')]"
+	      }
+	    }
+	  ]
+
+
+To associate the UDR to the front end subnet, you have to change the subnet definition in the template, and use the reference id for the UDR.
+
+	"subnets": [
+		"name": "[parameters('frontEndSubnetName')]",
+		"properties": {
+		  "addressPrefix": "[parameters('frontEndSubnetPrefix')]",
+		  "networkSecurityGroup": {
+		    "id": "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('frontEndNSGName'))]"
+		  },
+		  "routeTable": {
+		      "id": "[resourceId('Microsoft.Network/routeTables', parameters('frontEndRouteTableName'))]"
+		  }
+		},
+		...]
+
+Notice the same being done for the back end NSG and the back end subnet in the template.
+
+You also need to ensure that the **FW1** VM has the IP forwarding property enabled on the NIC that will be used to receive and forward packets. The section below shows the definition of the NIC for FW1 in the azuredeploy-nsg-udr.json file, based on the scenario above.
+
+	"apiVersion": "2015-06-15",
+	"type": "Microsoft.Network/networkInterfaces",
+	"location": "[variables('location')]",
+	"tags": {
+	  "displayName": "NetworkInterfaces - DMZ"
+	},
+	"name": "[concat(variables('fwVMSettings').nicName, copyindex(1))]",
+	"dependsOn": [
+	  "[concat('Microsoft.Network/publicIPAddresses/', variables('fwVMSettings').pipName, copyindex(1))]",
+	  "[concat('Microsoft.Resources/deployments/', 'vnetTemplate')]"
+	],
+	"properties": {
+	  "ipConfigurations": [
+	    {
+	      "name": "ipconfig1",
+	      "properties": {
+	        "enableIPForwarding": true,
+	        "privateIPAllocationMethod": "Static",
+	        "privateIPAddress": "[concat('192.168.0.',copyindex(4))]",
+	        "publicIPAddress": {
+	          "id": "[resourceId('Microsoft.Network/publicIPAddresses',concat(variables('fwVMSettings').pipName, copyindex(1)))]"
+	        },
+	        "subnet": {
+	          "id": "[variables('dmzSubnetRef')]"
+	        }
+	      }
+	    }
+	  ]
+	},
+	"copy": {
+	  "name": "fwniccount",
+	  "count": "[parameters('fwCount')]"
+	}
+
+## Deploy the ARM template by using click to deploy
+
+The sample template available in the public repository uses a parameter file containing the default values used to generate the scenario described above. To deploy this template using click to deploy, follow [this link](https://raw.githubusercontent.com/telmosampaio/azure-templates/master/IaaS-NSG-UDR), click **Deploy to Azure**, replace the default parameter values if necessary, and follow the instructions in the portal.
+
+## Deploy the ARM template by using PowerShell
+
+To deploy the ARM template you downloaded by using PowerShell, follow the steps below.
+
+1. If you have never used Azure PowerShell, see [How to Install and Configure Azure PowerShell](powershell-install-configure.md) and follow the instructions all the way to the end to sign into Azure and select your subscription.
+2. Run the **Switch-AzureMode** cmdlet to switch to Resource Manager mode, as shown below.
+
+		Switch-AzureMode AzureResourceManager
+
+	Here is the expected output for the command above:
+
+		WARNING: The Switch-AzureMode cmdlet is deprecated and will be removed in a future release.
+
+	>[AZURE.WARNING] The Switch-AzureMode cmdlet will be deprecated soon. When that happens, all Resource Manager cmdlets will be renamed.
+
+3. Run the **New-AzureResourceGroup** cmdlet to create a resource group using the template.
+
+		New-AzureResourceGroup -Name TestRG -Location westus `
+		    -TemplateFile 'https://raw.githubusercontent.com/telmosampaio/azure-templates/master/IaaS-NSG-UDR/azuredeploy.json' `
+		    -TemplateParameterFile 'https://raw.githubusercontent.com/telmosampaio/azure-templates/master/IaaS-NSG-UDR/azuredeploy.parameters.json'	
+
+	Expected output:
+
+		ResourceGroupName : TestRG
+		Location          : westus
+		ProvisioningState : Succeeded
+		Tags              : 
+		Permissions       : 
+		                    Actions  NotActions
+		                    =======  ==========
+		                    *                  
+		                    
+		Resources         : 
+		                    Name                Type                                     Location
+		                    ==================  =======================================  ========
+		                    ASFW                Microsoft.Compute/availabilitySets       westus  
+		                    ASSQL               Microsoft.Compute/availabilitySets       westus  
+		                    ASWEB               Microsoft.Compute/availabilitySets       westus  
+		                    FW1                 Microsoft.Compute/virtualMachines        westus  
+		                    SQL1                Microsoft.Compute/virtualMachines        westus  
+		                    SQL2                Microsoft.Compute/virtualMachines        westus  
+		                    WEB1                Microsoft.Compute/virtualMachines        westus  
+		                    WEB2                Microsoft.Compute/virtualMachines        westus  
+		                    NICFW1              Microsoft.Network/networkInterfaces      westus  
+		                    NICSQL1             Microsoft.Network/networkInterfaces      westus  
+		                    NICSQL2             Microsoft.Network/networkInterfaces      westus  
+		                    NICWEB1             Microsoft.Network/networkInterfaces      westus  
+		                    NICWEB2             Microsoft.Network/networkInterfaces      westus  
+		                    NSG-BackEnd         Microsoft.Network/networkSecurityGroups  westus  
+		                    NSG-FrontEnd        Microsoft.Network/networkSecurityGroups  westus  
+		                    PIPFW1              Microsoft.Network/publicIPAddresses      westus  
+		                    PIPSQL1             Microsoft.Network/publicIPAddresses      westus  
+		                    PIPSQL2             Microsoft.Network/publicIPAddresses      westus  
+		                    PIPWEB1             Microsoft.Network/publicIPAddresses      westus  
+		                    PIPWEB2             Microsoft.Network/publicIPAddresses      westus  
+		                    UDR-BackEnd         Microsoft.Network/routeTables            westus  
+		                    UDR-FrontEnd        Microsoft.Network/routeTables            westus  
+		                    TestVNet            Microsoft.Network/virtualNetworks        westus  
+		                    testvnetstorageprm  Microsoft.Storage/storageAccounts        westus  
+		                    testvnetstoragestd  Microsoft.Storage/storageAccounts        westus  
+		                    
+		ResourceId        : /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG
+
+## Deploy the ARM template by using the Azure CLI
+
+To deploy the ARM template by using the Azure CLI, follow the steps below.
+
+1. If you have never used Azure CLI, see [Install and Configure the Azure CLI](xplat-cli.md) and follow the instructions up to the point where you select your Azure account and subscription.
+2. Run the **azure config mode** command to switch to Resource Manager mode, as shown below.
+
+		azure config mode arm
+
+	Here is the expected output for the command above:
+
+		info:    New mode is arm
+
+4. Run the **azure group deployment create** cmdlet to deploy the new VNet by using the template and parameter files you downloaded and modified above. The list shown after the output explains the parameters used.
+
+		azure group create -n TestRG -l westus -f 'https://raw.githubusercontent.com/telmosampaio/azure-templates/master/IaaS-NSG-UDR/azuredeploy.json' -e 'https://raw.githubusercontent.com/telmosampaio/azure-templates/master/IaaS-NSG-UDR/azuredeploy.parameters.json'
