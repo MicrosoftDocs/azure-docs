@@ -50,19 +50,20 @@ As you create your database, you can also create a new Azure server to track you
 
     ![Create a new server](./media/sql-data-warehouse-get-started-provision/create-new-server.png)
 
-    >[AZURE.NOTE] We do not charge extra for the server. In Azure, even though a server is tied to a single data center, it is not physical hardware like it is for an on-premises server that hosts a database; it is part of the service software. This is why we sometimes call it a logical server. 
+    >[AZURE.NOTE] We do not charge extra for the server. In Azure, a server is not physical hardware like it is for an on-premises server that hosts a database; it is part of the service software. This is why we sometimes call it a logical server. 
     > 
-    >[AZURE.NOTE] Since the Azure server is a logical server, there is no impact on performance when you assign several databases to the same server. 
+    >Since the Azure server is a logical server, there is no impact on performance when you assign several databases to the same server. 
 
-1. In the **New server** window, fill in the requested information. 
-
-    Be sure to store the server name, admin name, and password somewhere.  You will need this information to log on to the server.
+1. In the **New server** window, fill in the requested information. Be sure to store the server name, admin name, and password somewhere.  You will need this information to log on to the server.
 	- **Server Name**. Enter a name for your logical server.
 	- **Server Admin Name**. Enter a user name for the server administrator account.
 	- **Password**. Enter the server admin password. 
-	- **Location**. Choose a geographical location that is close to you or your other Azure resources. This will reduce network latency since all databases and resources that belong to your logical server will be physically located in the same region. 
+	- **Location**. Choose a geographical location for your server. To reduce data transfer time, it's best to locate your server geographically close to other data resources that this database will access.
+	- **Create V12 Server**. Choose **YES*.  SQL Data Warehouse requires V12. 
+	- **Allow azure services to access server**. Leave this checked so other services can connect to this server. You will need this in order to build an azure solution.
 
     ![Configure new server](./media/sql-data-warehouse-get-started-provision/configure-new-server.png)
+
 
 1. Click **OK** to save the server configuration settings.
 
