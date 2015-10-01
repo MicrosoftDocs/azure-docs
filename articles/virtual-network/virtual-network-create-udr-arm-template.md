@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Create User Defined Routes (UDR) in Resource Manager mode using a template | Microsoft Azure"
-   description="Learn how to create UDRs in Resource Manager mode using a template"
+   pageTitle="Control routing and use virtual appliances in Resource Manager using a template | Microsoft Azure"
+   description="Learn how to control routing and use virtual appliances in Azure using templates"
    services="virtual-network"
    documentationCenter="na"
    authors="telmosampaio"
@@ -186,6 +186,240 @@ To deploy the ARM template by using the Azure CLI, follow the steps below.
 
 		info:    New mode is arm
 
-4. Run the **azure group deployment create** cmdlet to deploy the new VNet by using the template and parameter files you downloaded and modified above. The list shown after the output explains the parameters used.
+3. From your browser, navigate to **https://raw.githubusercontent.com/telmosampaio/azure-templates/master/IaaS-NSG-UDR/azuredeploy.parameters.json**, copy the contents of the json file and paste into a new file in your computer. For this scenario, you would be copying the values below to a file named **c:\udr\azuredeploy.parameters.json**.
 
-		azure group create -n TestRG -l westus -f 'https://raw.githubusercontent.com/telmosampaio/azure-templates/master/IaaS-NSG-UDR/azuredeploy.json' -e 'https://raw.githubusercontent.com/telmosampaio/azure-templates/master/IaaS-NSG-UDR/azuredeploy.parameters.json'
+		{
+		  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+		  "contentVersion": "1.0.0.0",
+		  "parameters": {
+		    "fwCount": {
+		      "value": 1
+		    },
+		    "webCount": {
+		      "value": 2
+		    },
+		    "sqlCount": {
+		      "value": 2
+		    }
+		  }
+		}
+
+4. Run the **azure group create** cmdlet to deploy the new VNet by using the template and parameter files you downloaded and modified above. The list shown after the output explains the parameters used.
+
+		azure group create -n TestRG -l westus --template-uri 'https://raw.githubusercontent.com/telmosampaio/azure-templates/master/IaaS-NSG-UDR/azuredeploy.json' -e 'c:\udr\azuredeploy.parameters.json'
+
+	Expected output:
+
+		info:    Executing command group create
+		info:    Getting resource group TestRG
+		info:    Updating resource group TestRG
+		info:    Updated resource group TestRG
+		info:    Initializing template configurations and parameters
+		info:    Creating a deployment
+		info:    Created template deployment "azuredeploy"
+		data:    Id:                  /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG
+		data:    Name:                TestRG
+		data:    Location:            westus
+		data:    Provisioning State:  Succeeded
+		data:    Tags: null
+		data:    
+		info:    group create command OK
+
+5. Run the **azure group show** command to view the resources created in the new resource group. 
+
+		azure group show TestRG
+
+	Expected result
+		
+		info:    Executing command group show
+		info:    Listing resource groups
+		info:    Listing resources for the group
+		data:    Id:                  /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG
+		data:    Name:                TestRG
+		data:    Location:            westus
+		data:    Provisioning State:  Succeeded
+		data:    Tags: null
+		data:    Resources:
+		data:    
+		data:      Id      : /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/providers/Mi
+		crosoft.Compute/availabilitySets/ASFW
+		data:      Name    : ASFW
+		data:      Type    : availabilitySets
+		data:      Location: westus
+		data:      Tags    : displayName=AvailabilitySet - DMZ
+		data:    
+		data:      Id      : /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/providers/Mi
+		crosoft.Compute/availabilitySets/ASSQL
+		data:      Name    : ASSQL
+		data:      Type    : availabilitySets
+		data:      Location: westus
+		data:      Tags    : displayName=AvailabilitySet - SQL
+		data:    
+		data:      Id      : /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/providers/Mi
+		crosoft.Compute/availabilitySets/ASWEB
+		data:      Name    : ASWEB
+		data:      Type    : availabilitySets
+		data:      Location: westus
+		data:      Tags    : displayName=AvailabilitySet - Web
+		data:    
+		data:      Id      : /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/providers/Mi
+		crosoft.Compute/virtualMachines/FW1
+		data:      Name    : FW1
+		data:      Type    : virtualMachines
+		data:      Location: westus
+		data:      Tags    : displayName=VMs - DMZ
+		data:    
+		data:      Id      : /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/providers/Mi
+		crosoft.Compute/virtualMachines/SQL1
+		data:      Name    : SQL1
+		data:      Type    : virtualMachines
+		data:      Location: westus
+		data:      Tags    : displayName=VMs - SQL
+		data:    
+		data:      Id      : /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/providers/Mi
+		crosoft.Compute/virtualMachines/SQL2
+		data:      Name    : SQL2
+		data:      Type    : virtualMachines
+		data:      Location: westus
+		data:      Tags    : displayName=VMs - SQL
+		data:    
+		data:      Id      : /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/providers/Mi
+		crosoft.Compute/virtualMachines/WEB1
+		data:      Name    : WEB1
+		data:      Type    : virtualMachines
+		data:      Location: westus
+		data:      Tags    : displayName=VMs - Web
+		data:    
+		data:      Id      : /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/providers/Mi
+		crosoft.Compute/virtualMachines/WEB2
+		data:      Name    : WEB2
+		data:      Type    : virtualMachines
+		data:      Location: westus
+		data:      Tags    : displayName=VMs - Web
+		data:    
+		data:      Id      : /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/providers/Mi
+		crosoft.Network/networkInterfaces/NICFW1
+		data:      Name    : NICFW1
+		data:      Type    : networkInterfaces
+		data:      Location: westus
+		data:      Tags    : displayName=NetworkInterfaces - DMZ
+		data:    
+		data:      Id      : /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/providers/Mi
+		crosoft.Network/networkInterfaces/NICSQL1
+		data:      Name    : NICSQL1
+		data:      Type    : networkInterfaces
+		data:      Location: westus
+		data:      Tags    : displayName=NetworkInterfaces - SQL
+		data:    
+		data:      Id      : /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/providers/Mi
+		crosoft.Network/networkInterfaces/NICSQL2
+		data:      Name    : NICSQL2
+		data:      Type    : networkInterfaces
+		data:      Location: westus
+		data:      Tags    : displayName=NetworkInterfaces - SQL
+		data:    
+		data:      Id      : /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/providers/Mi
+		crosoft.Network/networkInterfaces/NICWEB1
+		data:      Name    : NICWEB1
+		data:      Type    : networkInterfaces
+		data:      Location: westus
+		data:      Tags    : displayName=NetworkInterfaces - Web
+		data:    
+		data:      Id      : /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/providers/Mi
+		crosoft.Network/networkInterfaces/NICWEB2
+		data:      Name    : NICWEB2
+		data:      Type    : networkInterfaces
+		data:      Location: westus
+		data:      Tags    : displayName=NetworkInterfaces - Web
+		data:    
+		data:      Id      : /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/providers/Mi
+		crosoft.Network/networkSecurityGroups/NSG-BackEnd
+		data:      Name    : NSG-BackEnd
+		data:      Type    : networkSecurityGroups
+		data:      Location: westus
+		data:      Tags    : displayName=NSG - Front End
+		data:    
+		data:      Id      : /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/providers/Mi
+		crosoft.Network/networkSecurityGroups/NSG-FrontEnd
+		data:      Name    : NSG-FrontEnd
+		data:      Type    : networkSecurityGroups
+		data:      Location: westus
+		data:      Tags    : displayName=NSG - Remote Access
+		data:    
+		data:      Id      : /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/providers/Mi
+		crosoft.Network/publicIPAddresses/PIPFW1
+		data:      Name    : PIPFW1
+		data:      Type    : publicIPAddresses
+		data:      Location: westus
+		data:      Tags    : displayName=PublicIPAddresses - DMZ
+		data:    
+		data:      Id      : /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/providers/Mi
+		crosoft.Network/publicIPAddresses/PIPSQL1
+		data:      Name    : PIPSQL1
+		data:      Type    : publicIPAddresses
+		data:      Location: westus
+		data:      Tags    : displayName=PublicIPAddresses - SQL
+		data:    
+		data:      Id      : /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/providers/Mi
+		crosoft.Network/publicIPAddresses/PIPSQL2
+		data:      Name    : PIPSQL2
+		data:      Type    : publicIPAddresses
+		data:      Location: westus
+		data:      Tags    : displayName=PublicIPAddresses - SQL
+		data:    
+		data:      Id      : /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/providers/Mi
+		crosoft.Network/publicIPAddresses/PIPWEB1
+		data:      Name    : PIPWEB1
+		data:      Type    : publicIPAddresses
+		data:      Location: westus
+		data:      Tags    : displayName=PublicIPAddresses - Web
+		data:    
+		data:      Id      : /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/providers/Mi
+		crosoft.Network/publicIPAddresses/PIPWEB2
+		data:      Name    : PIPWEB2
+		data:      Type    : publicIPAddresses
+		data:      Location: westus
+		data:      Tags    : displayName=PublicIPAddresses - Web
+		data:    
+		data:      Id      : /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/providers/Mi
+		crosoft.Network/routeTables/UDR-BackEnd
+		data:      Name    : UDR-BackEnd
+		data:      Type    : routeTables
+		data:      Location: westus
+		data:      Tags    : displayName=Route Table - Back End
+		data:    
+		data:      Id      : /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/providers/Mi
+		crosoft.Network/routeTables/UDR-FrontEnd
+		data:      Name    : UDR-FrontEnd
+		data:      Type    : routeTables
+		data:      Location: westus
+		data:      Tags    : displayName=UDR - FrontEnd
+		data:    
+		data:      Id      : /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/providers/Mi
+		crosoft.Network/virtualNetworks/TestVNet
+		data:      Name    : TestVNet
+		data:      Type    : virtualNetworks
+		data:      Location: westus
+		data:      Tags    : displayName=VNet
+		data:    
+		data:      Id      : /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/providers/Mi
+		crosoft.Storage/storageAccounts/testvnetstorageprm
+		data:      Name    : testvnetstorageprm
+		data:      Type    : storageAccounts
+		data:      Location: westus
+		data:      Tags    : displayName=Storage Account - Premium
+		data:    
+		data:      Id      : /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/providers/Mi
+		crosoft.Storage/storageAccounts/testvnetstoragestd
+		data:      Name    : testvnetstoragestd
+		data:      Type    : storageAccounts
+		data:      Location: westus
+		data:      Tags    : displayName=Storage Account - Simple
+		data:    
+		data:    Permissions:
+		data:      Actions: *
+		data:      NotActions: 
+		data:    
+		info:    group show command OK
+
+>[AZURE.TIP] If you do not see all the resources, run the **azure group deployment show** command to ensure the provisioning state of the deployment is *Succeded*.

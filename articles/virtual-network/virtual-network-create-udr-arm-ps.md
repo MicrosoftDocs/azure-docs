@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Create User Defined Routes (UDR) in Resource Manager mode using PowerShell | Microsoft Azure"
-   description="Learn how to create UDRs in Resource Manager mode using PowerShell"
+   pageTitle="Control routing and use virtual appliances in Resource Manager using PowerShell | Microsoft Azure"
+   description="Learn how to control routing and use virtual appliances in Azure PowerShell"
    services="virtual-network"
    documentationCenter="na"
    authors="telmosampaio"

@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Create User Defined Routes (UDR) in Resource Manager mode using the Azure CLI | Microsoft Azure"
-   description="Learn how to create UDRs in Resource Manager mode using the Azure CLI"
+   pageTitle="Control routing and use virtual appliances in Resource Manager using the Azure CLI | Microsoft Azure"
+   description="Learn how to control routing and use virtual appliances using the Azure CLI"
    services="virtual-network"
    documentationCenter="na"
    authors="telmosampaio"
