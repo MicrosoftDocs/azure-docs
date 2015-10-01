@@ -17,7 +17,7 @@
    ms.author="hascipio" />
 
 
-# Portals used to create an offer on the Azure Marketplace
+# Portals you will need
 
 |Portal|Description|URL|Identity/Account|
 |----|---|----|----|
