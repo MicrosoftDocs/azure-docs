@@ -17,11 +17,11 @@
 	ms.date="09/02/2015"
 	ms.author="larryfr"/>
 
-# Develop Java MapReduce programs for Hadoop in HDInsight
+# Develop Java MapReduce programs for Hadoop on HDInsight
 
 [AZURE.INCLUDE [pig-selector](../../includes/hdinsight-maven-mapreduce-selector.md)]
 
-This documents walks you through using Apache Maven to create a MapReduce application, then deploy and run it on a Linux-based Hadoop on HDInsight cluster.
+This documents walks you through using Apache Maven to create a MapReduce application, then deploy and run it on a Linux-based Hadoop on HDInsight cluster. For information on using a Windows-based Hadoop on HDInsight cluster, see [Develop Java MapReduce programs for Hadoop on HDInsight (Windows)](hdinsight-develop-deploy-java-mapreduce.md)
 
 ##<a name="prerequisites"></a>Prerequisites
 
@@ -33,7 +33,7 @@ Before you begin this tutorial, you must have the following:
 
 - **An Azure subscription**: See [Get Azure free trial](get-azure-free-trial-for-testing-hadoop-in-hdinsight.md).
 
-- **Azure CLI**: For more information, see [Install and configure Azure CLI](../xplat-cli.md)
+- **Azure CLI**: For more information, see [Install and configure Azure CLI](../xplat-cli-install.md)
 
 ##Configure environment variables
 
@@ -88,7 +88,7 @@ The following environment variables may be set when you install Java and the JDK
 		  <scope>provided</scope>
 		</dependency>
 
-	This tells Maven that the project requires the libraries (listed within <artifactId\>) with a specific version (listed within <version\>). At compile time, this will be downloaded from the default Maven repository. You can use the [Maven repository search](http://search.maven.org/#artifactdetails%7Corg.apache.hadoop%7Chadoop-mapreduce-examples%7C2.5.1%7Cjar) to view more.
+	This tells Maven that the project requires the libraries (listed within &lt;artifactId\>) with a specific version (listed within &lt;version\>). At compile time, this will be downloaded from the default Maven repository. You can use the [Maven repository search](http://search.maven.org/#artifactdetails%7Corg.apache.hadoop%7Chadoop-mapreduce-examples%7C2.5.1%7Cjar) to view more.
 
 	The `<scope>provided</scope>` tells Maven that these dependencies should not be packaged with the application, as they will be provided by the HDInsight cluster at run-time.
 

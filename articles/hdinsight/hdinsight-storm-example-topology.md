@@ -23,12 +23,13 @@ The following is a list of examples created and maintained by Microsoft for use 
 
 | Description                                                                                             | Demonstrates                                         | Language/Framework         |
 |:--------------------------------------------------------------------------------------------------------|:-----------------------------------------------------|:---------------------------|
-| [Event Hub Spout and Bolt](https://github.com/apache/storm/tree/master/external/storm-eventhubs) | Source for the Event Hub Spout and Bolt | Java |
+| [Event Hub Spout and Bolt source](https://github.com/apache/storm/tree/master/external/storm-eventhubs) | Source for the Event Hub Spout and Bolt | Java |
 | [Develop Java-based topologies for Apache Storm on HDInsight][5797064f]                                 | Maven                                                | Java                       |
 | [Develop C# topologies for Apache Storm on HDInsight using Visual Studio][16fce2d1]                     | HDInsight Tools for Visual Studio                    | C#, Java                   |
 | [Create multiple data streams in a C# Storm topology][ec5a4064]                                         | Multiple streams                                     | C#                         |
 | [Determine Twitter trending topics with Storm on HDInsight][3c86c7c8]                                   | Trident                                              | Java, Trident              |
-| [Process events from Azure Event Hubs with Storm on HDInsight][844d1d81]                                | Event Hubs                                           | C# and Java                |
+| [Process events from Azure Event Hubs with Storm on HDInsight (C#)][844d1d81]                                | Event Hubs                                           | C# and Java                |
+| [Process events from Azure Event Hubs with Storm on HDInsight (Java)](hdinsight-storm-develop-java-event-hub-topology.md) | Event Hubs | Java |
 | [Use Power Bi (preview) to visualize data from a Storm topology][94d15238]                              | Power BI                                             | C#                         |
 | [Analyzing sensor data with Storm and HBase in HDInsight][ab894747]                                     | Event Hubs, HBase, Socket.IO, Web dashboard          | C#, Java, JavaScript, HTML |
 | [Process vehicle sensor data from Event Hubs using Storm on HDInsight][246ee964]                        | Event Hubs, DocumentDb, Azure Storage Blob (WASB)    | C#, Java                   |

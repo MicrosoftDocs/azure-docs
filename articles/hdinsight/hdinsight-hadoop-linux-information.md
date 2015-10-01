@@ -6,7 +6,7 @@
    authors="Blackmist"
    manager="paulettm"
    editor="cgronlun"
-	tags="azure-portal"/>
+   tags="azure-portal"/>
 
 <tags
    ms.service="hdinsight"
@@ -124,7 +124,7 @@ You can also find the storage information using the Azure preview portal:
 
 Other than through the Hadoop command from the cluster, there are a variety of ways to access blobs:
 
-* [Azure CLI for Mac, Linux and Windows](../xplat-cli.md): Command-Line interface commands for working with Azure. After installing, use the `azure storage` command for help on using storage, or `azure blob` for blob-specific commands.
+* [Azure CLI for Mac, Linux and Windows](../xplat-cli-install.md): Command-Line interface commands for working with Azure. After installing, use the `azure storage` command for help on using storage, or `azure blob` for blob-specific commands.
 
 * [blobxfer.py](https://github.com/Azure/azure-batch-samples/tree/master/Python/Storage): A python script for working with blobs in Azure Storage.
 
@@ -183,6 +183,7 @@ The different cluster types are affected by scaling as follows:
 		1. [Create an SSH tunnel to the cluster and open the Ambari web UI](hdinsight-linux-ambari-ssh-tunnel.md).
 
 		2. From the list of services on the left of the page, select __Storm__. Then select __Storm UI__ from __Quick Links__.
+
 
 			![Storm UI entry in quick links](./media/hdinsight-hadoop-linux-information/ambari-storm.png)
 

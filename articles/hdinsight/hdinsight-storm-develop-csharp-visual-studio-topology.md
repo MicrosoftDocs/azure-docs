@@ -23,6 +23,8 @@ Learn how to create a C# Storm topology by using the HDInsight tools for Visual 
 
 You will also learn how to create hybrid topologies that use C# and Java components.
 
+[AZURE.INCLUDE [windows-only](../../includes/hdinsight-windows-only.md)]
+
 ##Prerequisites
 
 -	One of the following versions of Visual Studio
