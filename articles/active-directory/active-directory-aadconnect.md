@@ -1,4 +1,4 @@
-<properties
+	<properties
 	pageTitle="Integrating your on-premises identities with Azure Active Directory. | Microsoft Azure"
 	description="This is the Azure AD Connect that describes what it is and why you would use it."
 	services="active-directory"
@@ -17,28 +17,22 @@
 	ms.author="andkjell;billmath"/>
 
 # Integrating your on-premises identities with Azure Active Directory
-This topic describes Azure AD Connect and helps you decide if this is the right tool for you, how to prepare and install it.
+Azure AD Connect is the tool to integrate your on-premises identity system such as Windows Server Active Directory with Azure Active Directory and connect your users to Office 365, Azure and 1000’s of SaaS applications. This topic provides a comprehensive guide to prepare and deploy the necessary components for your end users to access cloud services with the same identity that they use today to access existing company apps.
 
-Today, users want to be able to access applications both on-premises and in the cloud.  They want to be able to do this from any device, be it a laptop, smart phone, or tablet.  In order for this to occur, you and your organization need to be able to provide a way for users to access these apps, however moving entirely to the cloud is not always an option.  
-
-<center>![What is Azure AD Connect](./media/active-directory-aadconnect/arch.png)</center>
-
-Azure AD Connect provides the following benefits:
-
-- Your users can sign on with a common identity both in the cloud and on-premises.  They don't need to remember multiple passwords or accounts and administrators don't have to worry about the additional overhead multiple accounts can bring.
-- A single tool and guided experience for connecting your on-premises directories with Azure Active Directory. Once installed the wizard deploys and configures all components required to get your directory integration up and running including sync services, password sync or AD FS, and prerequisites such as the Azure AD PowerShell module.
+![What is Azure AD Connect](./media/active-directory-aadconnect/arch.png)
 
 ## Why use Azure AD Connect
-
 Integrating your on-premises directories with Azure AD makes your users more productive by providing a common identity for accessing both cloud and on-premises resources.  With this integration users and organizations can take advantage of the following:
 
-- Organizations can provide users with a common hybrid identity across on-premises or cloud-based services leveraging Windows Server Active Directory and then connecting to Azure Active Directory.
+- Organizations can provide users with a common hybrid identity across on-premises or cloud-based services leveraging Windows Server Active Directory and then connecting to Azure Active Directory. TheyYour users don't need to remember multiple passwords or accounts and administrators don't have to worry about the additional overhead multiple accounts can bring.
+- A single tool and guided experience for connecting your on-premises directories with Azure Active Directory. Once installed the wizard deploys and configures all components required to get your directory integration up and running including sync services, password sync or AD FS, and prerequisites such as the Azure AD PowerShell module.
 - Administrators can provide conditional access based on application resource, device and user identity, network location and multi-factor authentication.
 - Users can leverage their common identity through accounts in Azure AD to Office 365, Intune, SaaS apps and third-party applications.  
 - Developers can build applications that leverage the common identity model, integrating applications into Active Directory on-premises or Azure for cloud-based applications
-- Replaces DirSync, Azure AD Sync, and FIM + Azure AD Connector as the preferred solution for synchronizing identity information between on-premises and the cloud.
 
 Azure AD Connect makes this integration easy and simplifies the management of your on-premises and cloud identity infrastructure.
+
+Azure AD Connect also provides additional benefits when compared with older versions of identity integration tools such as DirSync and Azure AD Sync. For more information, see [Directory integration tools comparison](active-directory-aadconnect-get-started-tools-comparison.md).
 
 ### How Azure AD Connect works
 
@@ -49,7 +43,7 @@ Azure Active Directory Connect is made up of three primary parts.  They are the 
 
 - Synchronization - This part is made up of the components and functionality previously released as [Dirsync and Azure AD Sync](active-directory-aadconnect-get-started-tools-comparison.md).  This is the part that is responsible for creating users and groups.  It is also responsible for making sure that the information on users and groups in your on-premises environment, matches the cloud.
 - AD FS - This is an optional part of Azure AD Connect and can be used to setup a hybrid environment using an on-premises AD FS infrastructure.  This part can be used by organizations to address complex deployments that include such things as domain join SSO, enforcement of AD login policy and smart card or 3rd party MFA.
-- Health Monitoring - For complex deployments using AD FS, Azure AD Connect Health can provide robust monitoring of your federation servers and provide a central location in the Azure portal to view this activity.  For additional information see [Azure Active Directory Connect Health](active-directory-aadconnect-health.md).
+- Health Monitoring - Azure AD Connect Health can provide robust monitoring of your AD FS servers and provide a central location in the Azure portal to view this activity.  For additional information see [Azure Active Directory Connect Health](active-directory-aadconnect-health.md).
 
 
 ## Install Azure AD Connect
@@ -60,41 +54,30 @@ The majority of customers who will use Azure AD Connect will have a simple envir
 
 [Express settings](active-directory-aadconnect-get-started-express.md) is the default option and is used when you have a single on-premises Active Directory forest. It will deploy sync with password synchronization as sign-in to the cloud. This is the most common option to use and with only a few clicks extends your on-premises directory to the cloud.
 
-[Customized settings](active-directory-aadconnect-get-started-custom.md) is used when you have multiple forests on-premises or when you want to configure more advanced settings, such as federation and which attributes to synchronize to the cloud. If you plan to use this, then also read the [design and prepare](#design-and-prepare) section before you start the installation.
+[Customized settings](active-directory-aadconnect-get-started-custom.md) is used when you have multiple forests on-premises or when you want to configure more advanced settings, such as federation and which attributes to synchronize to the cloud. Azure AD Connect can be used with many different [topologies](active-directory-aadconnect-topologies.md). There are many different topologies supported. If you have a more advanced topology you want to make sure you understand which topology you have so during the installation you can chose the correct options.
+If you have multiple forests and move users you want to make sure you understand the [sourceAnchor](active-directory-aadconnect-design-concepts.md#sourceAnchor) concept and have selected a good attribute to use.
 
 If you have an existing DirSync server running it can be [upgraded](active-directory-aadconnect-dirsync-upgrade-get-started.md) to Azure AD Connect. Most configuration settings can be migrated automatically.
 
-[After installation](active-directory-aadconnect-whats-next.md) you should verify it is working as expected and assign licenses to the users.
+You also want to prepare for [operational](active-directory-aadconnectsync-operations.md) concerns. You might want to have a stand-by server so you easily can fall over in case of a [disaster](active-directory-aadconnectsync-operations.md#disaster-recovery). If you plan to make frequent configuration changes you should plan for a [staging mode](active-directory-aadconnectsync-operations.md#staging-mode) server.
 
-If you use Express settings we will need an enterprise admin account to make required changes to you directory. With Customized settings all pre-reqs can be prepared in advance and no special accounts and permissions are required to run the actual installer.
+[After installation](active-directory-aadconnect-whats-next.md) you should verify it is working as expected and assign licenses to the users.
 
 ### Next steps to Install Azure AD Connect
 
 | Topic |  |
 | --------- | --------- |
 | Download Azure AD Connect | [Download Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771) |
+| Hardware and prerequisites | [Azure AD Connect: Hardware and prerequisites](active-directory-aadconnect-prerequisites.md) |
 | Install using Express settings | [Express installation of Azure AD Connect](active-directory-aadconnect-get-started-express.md) |
 | Install using Customized settings | [Custom installation of Azure AD Connect](active-directory-aadconnect-get-started-custom.md) |
+| Topologies | [Topologies for Azure AD Connect](active-directory-aadconnect-topologies.md) |
+| Design concepts | [Azure AD Connect design concepts](active-directory-aadconnect-design-concepts.md) |
 | Upgrade from DirSync | [Upgrade from Azure AD sync tool (DirSync)](active-directory-aadconnect-dirsync-upgrade-get-started.md) |
 | After installation | [Verify the installation and assign licenses ](active-directory-aadconnect-whats-next.md) |
 | Accounts used for installation | [More about Azure AD Connect credentials and permissions](active-directory-aadconnect-accounts-permissions.md) |
-
-## Design and prepare
-Azure AD Connect can be used with many different [topologies](active-directory-aadconnect-topologies.md). There are many different topologies supported.
-
-If you have a more advanced topology you want to make sure you understand which topology you have so during the installation you can chose the correct options.
-If you have multiple forests and move users you want to make sure you understand the [sourceAnchor](active-directory-aadconnect-design-concepts.md#sourceAnchor) concept and have selected a good attribute to use.
-
-You also want to prepare for [operational](active-directory-aadconnectsync-operations.md) concerns. You might want to have a stand-by server so you easily can fall over in case of a [disaster](active-directory-aadconnectsync-operations.md#disaster-recovery). If you plan to make frequent configuration changes you should plan for a [staging mode](active-directory-aadconnectsync-operations.md#staging-mode) server.
-
-### Next steps to design and prepare
-
-| Topic |  |
-| --------- | --------- |
-| Topologies | [Topologies for Azure AD Connect](active-directory-aadconnect-topologies.md) |
-| Design concepts | [Azure AD Connect design concepts](active-directory-aadconnect-design-concepts.md) |
 | Operational planning | [Azure AD Connect sync: Operational tasks and considerations](active-directory-aadconnectsync-operations.md) |
-| Hardware and prerequisites | [Azure AD Connect: Hardware and prerequisites](active-directory-aadconnect-prerequisites.md) |
+
 
 ## Configure features
 Azure AD Connect comes with several features you can optionally turn on or are enabled by default. Some features might in some cases require additional configuration in certain scenarios and topologies.
