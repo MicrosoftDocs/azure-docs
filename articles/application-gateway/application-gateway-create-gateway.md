@@ -12,17 +12,27 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/29/2015"
+   ms.date="09/21/2015"
    ms.author="joaoma"/>
 
 # Create, start, or delete an Application Gateway
 
-In this release, you can create an Application Gateway by using PowerShell or REST API calls. Azure portal and CLI support will be provided in an upcoming release.
-This article walks you through the steps to create and configure, start, and delete an Application Gateway.
+Application Gateway is load balancer layer 7. It provides failover, performance routing HTTP requests between different servers, whether they are on the cloud or on premise. Application gateway has the following application delivery features: HTTP load balancing, Cookie based session affinity, SSL offload. 
 
 > [AZURE.SELECTOR]
-- [Azure classic steps](application-gateway-create-gateway.md)
-- [Resource Manager Powershell steps](application-gateway-create-gateway-arm.md)
+- [Azure Classic Powershell steps](application-gateway-create-gateway.md)
+- [Azure Resource Manager Powershell steps](application-gateway-create-gateway-arm.md)
+- [Azure Resource Manager template steps](application-gateway-create-gateway-arm-template.md)
+
+
+<BR>
+
+This article walks you through the steps to create and configure, start, and delete an Application Gateway.
+
+
+>[AZURE.IMPORTANT] Before you work with Azure resources, it's important to understand that Azure currently has two deployment models: Resource Manager, and classic. Make sure you understand [deployment models and tools](azure-classic-rm.md) before working with any Azure resource. You can view the documentation for different tools by clicking the tabs at the top of this article.This document will cover creating an Application Gateway using Azure Classic deployment. To use the Resource Manager version, go to [create an Application Gateway deployment using Resource Manager](application-gateway-create-gateway-arm.md).
+
+
 
 
 

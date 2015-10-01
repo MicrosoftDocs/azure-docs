@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Application Objects and Service Principal Objects"
+   pageTitle="Application Objects and Service Principal Objects | Microsoft Azure"
    description="A discussion of the relationship between Application objects and ServicePrincipal objects in Azure Active Directory"
    documentationCenter="dev-center-name"
    authors="msmbaldwin"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="09/08/2015"
+   ms.date="09/17/2015"
    ms.author="mbaldwin"/>
 
 

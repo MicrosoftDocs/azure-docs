@@ -358,12 +358,13 @@ Once the ACL is set, you can then create shared access signatures based on the I
 
 ## Next steps
 
-For more information on how to do more complex storage tasks, see the following links.
+For more information, see the following resources.
 
 -   [Azure Storage SDK for Node API Reference][]
 -   MSDN Reference: [Storing and accessing data in Azure][]
 -   [Azure Storage Team Blog][]
 -   [Azure Storage SDK for Node][] repository on GitHub
+-   [Node.js Developer Center](/develop/nodejs/)
 
 [Azure Storage SDK for Node]: https://github.com/Azure/azure-storage-node
 [Create and deploy a Node.js application to an Azure Web Site]: /develop/nodejs/tutorials/create-a-website-(mac)/

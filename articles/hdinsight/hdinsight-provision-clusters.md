@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="09/03/2015"
+   ms.date="09/29/2015"
    ms.author="jgao"/>
 
 # Provision Hadoop clusters in HDInsight
@@ -406,22 +406,16 @@ The following procedures are needed to provision an HDInsight cluster by using A
 - Create an HDInsight cluster
 
 
-		# Use the new Azure Resource Manager mode
-		Switch-AzureMode AzureResourceManager
+		# Sign in
+		Add-AzureAccount
 
 		###########################################
 		# Create required items, if none exist
 		###########################################
 
-		# Sign in
-		Add-AzureAccount
-
 		# Select the subscription to use
 		$subscriptionName = "<SubscriptionName>"        # Provide your Subscription Name
 		Select-AzureSubscription -SubscriptionName $subscriptionName
-
-		# Register your subscription to use HDInsight
-		Register-AzureProvider -ProviderNamespace "Microsoft.HDInsight" -Force
 
 		# Create an Azure Resource Group
 		$resourceGroupName = "<ResourceGroupName>"      # Provide a Resource Group name
@@ -434,7 +428,7 @@ The following procedures are needed to provision an HDInsight cluster by using A
 
 		# Create an Azure Blob Storage container
 		$containerName = "<ContainerName>"              # Provide a container name
-		$storageAccountKey = Get-AzureStorageAccountKey -Name $storageAccountName -ResourceGroupName $resourceGroupName | %{ $_.Key1 }
+		$storageAccountKey = Get-AzureStorageAccountKey -ResourceGroupName $resourceGroupName -Name $storageAccountName | %{ $_.Key1 }
 		$destContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey
 		New-AzureStorageContainer -Name $containerName -Context $destContext
 
@@ -457,8 +451,16 @@ The following procedures are needed to provision an HDInsight cluster by using A
 		$location = Get-AzureStorageAccount -ResourceGroupName $resourceGroupName -StorageAccountName $storageAccountName | %{$_.Location}
 
 		# Create a new HDInsight cluster
-		New-AzureHDInsightCluster -ClusterName $clusterName -ResourceGroupName $resourceGroupName -HttpCredential $credentials -Location $location -DefaultStorageAccountName "$storageAccountName.blob.core.windows.net" -DefaultStorageAccountKey $storageAccountKey -DefaultStorageContainer $containerName  -ClusterSizeInNodes $clusterNodes -ClusterType Hadoop
-
+		New-AzureHDInsightCluster -ResourceGroupName $resourceGroupName `
+									-ClusterName $clusterName `
+									-Location $location `
+									-ClusterSizeInNodes $clusterNodes `
+									-ClusterType Hadoop `
+									-OSType Windows `
+									-HttpCredential $credentials `
+									-DefaultStorageAccountName "$storageAccountName.blob.core.windows.net" `
+									-DefaultStorageAccountKey $storageAccountKey `
+									-DefaultStorageContainer $containerName  
 
 	![HDI.CLI.Provision](./media/hdinsight-provision-clusters/HDI.ps.provision.png)
 
