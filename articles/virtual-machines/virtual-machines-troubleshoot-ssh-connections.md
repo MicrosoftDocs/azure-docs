@@ -98,8 +98,8 @@ To resolve the common SSH issues for virtual machines created using the Resource
 3. Reset your password and/or the SSH key for your Linux VM on the command line. You can also create a new username/password with sudo authority as the following example.
 
 	[A] Using the Azure PowerShell:
-	
-	Install and configure Azure PowerShell as mentioned above. Switch to Azure mode and then run the extension as following.
+
+	Install and configure Azure PowerShell as mentioned above. Switch to Resource Manager mode and then run the extension as following.
 
 		$RGName = 'testRG'
 		$VmName = 'testVM'
@@ -116,7 +116,7 @@ To resolve the common SSH issues for virtual machines created using the Resource
 
 	[B] Using the Azure CLI:
 
-	Install and configure Azure CLI as mentioned above. Switch to Azure mode and then run the extension as following.
+	Install and configure Azure CLI as mentioned above. Switch to Resource Manager mode and then run the extension as following.
 
 	Step 1: Create a file named PrivateConf.json with the following contents.
 
