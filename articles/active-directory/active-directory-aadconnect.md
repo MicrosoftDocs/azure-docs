@@ -67,17 +67,22 @@ You also want to prepare for [operational](active-directory-aadconnectsync-opera
 
 | Topic |  |
 | --------- | --------- |
-| Download Azure AD Connect | [Download Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771) |
 | Hardware and prerequisites | [Azure AD Connect: Hardware and prerequisites](active-directory-aadconnect-prerequisites.md) |
+| Download Azure AD Connect | [Download Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771) |
 | Install using Express settings | [Express installation of Azure AD Connect](active-directory-aadconnect-get-started-express.md) |
 | Install using Customized settings | [Custom installation of Azure AD Connect](active-directory-aadconnect-get-started-custom.md) |
-| Topologies | [Topologies for Azure AD Connect](active-directory-aadconnect-topologies.md) |
-| Design concepts | [Azure AD Connect design concepts](active-directory-aadconnect-design-concepts.md) |
+
 | Upgrade from DirSync | [Upgrade from Azure AD sync tool (DirSync)](active-directory-aadconnect-dirsync-upgrade-get-started.md) |
 | After installation | [Verify the installation and assign licenses ](active-directory-aadconnect-whats-next.md) |
+
+### Learn more about Install Azure AD Connect
+
+| Topic |  |
+| --------- | --------- |
+| Supported topologies | [Topologies for Azure AD Connect](active-directory-aadconnect-topologies.md) |
+| Design concepts | [Azure AD Connect design concepts](active-directory-aadconnect-design-concepts.md) |
 | Accounts used for installation | [More about Azure AD Connect credentials and permissions](active-directory-aadconnect-accounts-permissions.md) |
 | Operational planning | [Azure AD Connect sync: Operational tasks and considerations](active-directory-aadconnectsync-operations.md) |
-
 
 ## Configure features
 Azure AD Connect comes with several features you can optionally turn on or are enabled by default. Some features might in some cases require additional configuration in certain scenarios and topologies.

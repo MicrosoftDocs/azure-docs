@@ -33,7 +33,7 @@ Before you install Azure AD Connect, there are a few things that you will need.
 - The AD schema version and forest functional level must be Windows Server 2003 or later. The domain controllers can run any version as long as the schema and forest level requirements are met.
 - Azure AD Connect must be installed on Windows Server 2008 or later.  This server may be a domain controller or a member server if using express settings. If you use custom settings, the server can also be stand-alone and does not have to be joined to a domain.
 - If you plan to use the feature password synchronization, the server must be on Windows Server 2008 R2 SP1 or later.
-- If Active Directory Federation Services is being deployed, the servers where AD FS will be installed must be Windows Server 2012 R2 or later.
+- If Active Directory Federation Services is being deployed, the servers where AD FS or Web Application Proxy will be installed must be Windows Server 2012 R2 or later. Windows remote management must be enabled on these servers for remote installation.
 - Azure AD Connect requires a SQL Server database to store identity data. By default a SQL Server 2012 Express LocalDB (a light version of SQL Server Express) is installed and the service account for the service is created on the local machine. SQL Server Express has a 10GB size limit that enables you to manage approximately 100.000 objects. If you need to manage a higher volume of directory objects, you need to point the installation process to a different version of SQL Server.
 Azure AD Connect supports all flavors of Microsoft SQL Server from SQL Server 2008 (with SP4) to SQL Server 2014.
 
@@ -60,6 +60,7 @@ Azure AD Connect supports all flavors of Microsoft SQL Server from SQL Server 20
 ```
 
 This text must be entered at the bottom of the file.  In this code, &lt;PROXYADRESS&gt; represents the actual proxy IP address or host name.
+- If your proxy limits which URLs which can be accessed then the URLs documented in [Office 365 URLs and IP address ranges ](https://support.office.com/en-us/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2) must be opened in the proxy.
 
 **Other**
 
@@ -93,7 +94,7 @@ The following is a list components that Azure AD Connect will install on the ser
 
 
 ## Hardware requirements for Azure AD Connect
-The table below shows the minimum requirements for the Azure AD Connect computer.
+The table below shows the minimum requirements for the Azure AD Connect sync computer.
 
 | Number of objects in Active Directory | CPU | Memory | Hard drive size |
 | ------------------------------------- | --- | ------ | --------------- |
@@ -104,6 +105,11 @@ The table below shows the minimum requirements for the Azure AD Connect computer
 | 100,000–300,000 | 1.6 GHz | 32 GB | 300 GB |
 | 300,000–600,000 | 1.6 GHz | 32 GB | 450 GB |
 | More than 600,000 | 1.6 GHz | 32 GB | 500 GB |
+
+The minimum requirements for computers running AD FS or Web Application Servers is the following:
+- CPU: Dual core 1.6 GHz or higher
+- MEMORY: 2GB or higher
+- Azure VM: A2 configuration or higher
 
 
 ## Next steps
