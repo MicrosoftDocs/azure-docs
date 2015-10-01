@@ -405,12 +405,12 @@ In case of Copy activity when source is of type **SqlDWSource** the following pr
 
 #### SqlDWSource example
 
-    source: {
-        type: "SqlDWSource",
-        sqlReaderStoredProcedureName: "CopyTestSrcStoredProcedureWithParameters",
-        storedProcedureParameters: {
-            stringData: { value: "str3" },
-            id: { value: "$$Text.Format('{0:yyyy}', SliceStart)", type: "Int"}
+    "source": {
+        "type": "SqlDWSource",
+        "sqlReaderStoredProcedureName": "CopyTestSrcStoredProcedureWithParameters",
+        "storedProcedureParameters": {
+            "stringData": { "value": "str3" },
+            "id": { "value": "$$Text.Format('{0:yyyy}', SliceStart)", "type": "Int"}
         }
     }
 
@@ -445,10 +445,10 @@ In case of Copy activity when source is of type **SqlDWSource** the following pr
 #### SqlDWSink example
 
 
-    sink: {
-        type: "SqlDWSink",
-        writeBatchSize: 1000000,
-        writeBatchTimeout: "00:05:00",
+    "sink": {
+        "type": "SqlDWSink",
+        "writeBatchSize": 1000000,
+        "writeBatchTimeout": "00:05:00",
     }
 
 

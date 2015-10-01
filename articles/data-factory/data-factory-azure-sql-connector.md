@@ -400,17 +400,17 @@ In case of Copy activity when source is of type **SqlSource** the following prop
 | Property | Description | Allowed values | Required |
 | -------- | ----------- | -------------- | -------- |
 | sqlReaderQuery | Use the custom query to read data. | SQL query string.For example: select * from MyTable. If not specified, the SQL statement that is executed: select from MyTable. | No |
-| sqlReaderStoredProcedureName | Name of the stored procedure name that reads data from the source table. | Name of the stored procedure. | No |
+| sqlReaderStoredProcedureName | Name of the stored procedure that reads data from the source table. | Name of the stored procedure. | No |
 | storedProcedureParameters | Parameters for the stored procedure. | Name/value pairs. Names and casing of parameters must match the names and casing of the stored procedure parameters. | No | 
 
 ### SqlSource Example
 
-    source: {
-        type: "SqlSource",
-        sqlReaderStoredProcedureName: "CopyTestSrcStoredProcedureWithParameters",
-        storedProcedureParameters: {
-            stringData: { value: "str3" },
-            id: { value: "$$Text.Format('{0:yyyy}', SliceStart)", type: "Int"}
+    "source": {
+        "type": "SqlSource",
+        "sqlReaderStoredProcedureName": "CopyTestSrcStoredProcedureWithParameters",
+        "storedProcedureParameters": {
+            "stringData": { "value": "str3" },
+            "id": { "value": "$$Text.Format('{0:yyyy}', SliceStart)", "type": "Int"}
         }
     }
 
@@ -448,16 +448,16 @@ In case of Copy activity when source is of type **SqlSource** the following prop
 
 #### SqlSink Example
 
-    sink: {
-        type: "SqlSink",
-        writeBatchSize: 1000000,
-        writeBatchTimeout: "00:05:00",
-        sqlWriterStoredProcedureName: "CopyTestStoredProcedureWithParameters",
-        sqlWriterTableType: "CopyTestTableType",
-        storedProcedureParameters: {
-            id: { value: "1", type: "Int" },
-            stringData: { value: "str1" },
-            decimalData: { value: "1", type: "Decimal" }
+    "sink": {
+        "type": "SqlSink",
+        "writeBatchSize": 1000000,
+        "writeBatchTimeout": "00:05:00",
+        "sqlWriterStoredProcedureName": "CopyTestStoredProcedureWithParameters",
+        "sqlWriterTableType": "CopyTestTableType",
+        "storedProcedureParameters": {
+            "id": { "value": "1", "type": "Int" },
+            "stringData": { "value": "str1" },
+            "decimalData": { "value": "1", "type": "Decimal" }
         }
     }
 
