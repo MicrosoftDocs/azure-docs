@@ -1,6 +1,6 @@
 <properties
-	pageTitle="How to Use iOS Client Library for Azure Mobile Services"
-	description="How to Use iOS Client Library for Mobile Services"
+	pageTitle="How to Use iOS SDK for Azure Mobile Apps"
+	description="How to Use iOS SDK for Azure Mobile Apps"
 	services="mobile-services"
 	documentationCenter="ios"
 	authors="krisragh"
@@ -13,34 +13,32 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="10/01/2015"
+	ms.date="09/28/2015"
 	ms.author="krisragh"/>
 
-# How to Use iOS Client Library for Azure Mobile Services
+# How to Use iOS Client Library for Azure Mobile Apps
 
-[AZURE.INCLUDE [mobile-services-selector-client-library](../../includes/mobile-services-selector-client-library.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-offline-preview](../../includes/app-service-mobile-selector-client-library.md)]
+&nbsp;  
+[AZURE.INCLUDE [app-service-mobile-note-mobile-services-preview](../../includes/app-service-mobile-note-mobile-services-preview.md)]
 
-This guide teaches you to perform common scenarios using the Azure Mobile Services [iOS SDK]. If you are new to Mobile Services, first complete [Mobile Services Quick Start] or [Add Mobile Services to Existing App] to configure your account, create a table, and create a mobile service.
-
-> [AZURE.NOTE] This guide uses the latest [iOS Mobile Services SDK](https://go.microsoft.com/fwLink/?LinkID=266533&clcid=0x409). If your project uses an older version of the SDK, first upgrade the framework in Xcode.
-
-[AZURE.INCLUDE [mobile-services-concepts](../../includes/mobile-services-concepts.md)]
+This guide teaches you to perform common scenarios using the latest [Azure Mobile Apps iOS SDK](https://go.microsoft.com/fwLink/?LinkID=266533&clcid=0x409). If you are new to Azure Mobile Apps, first complete [Azure Mobile Apps Quick Start] to create a backend, create a table, and download a pre-built iOS Xcode project. In this guide, we focus on the client-side iOS SDK. To learn more about the .NET server-side SDK for the backend, see [Work with .NET Backend](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md)
 
 ##<a name="Setup"></a>Setup and Prerequisites
 
-This guide assumes that you have created a mobile service with a table. For more information see [Create a table], or reuse the `TodoItem` table created in [Mobile Services Quick Start] or [Add Mobile Services to Existing App]. This guide assumes that the table has the same schema as the tables in those tutorials. This guide also assumes that your Xcode references `WindowsAzureMobileServices.framework` and imports `WindowsAzureMobileServices/WindowsAzureMobileServices.h`.
+This guide assumes that you have created a backend with a table. This guide assumes that the table has the same schema as the tables in those tutorials. This guide also assumes that in your code, you reference `WindowsAzureMobileServices.framework` and import `WindowsAzureMobileServices/WindowsAzureMobileServices.h`.
 
-##<a name="create-client"></a>How to: Create Mobile Services Client
+##<a name="create-client"></a>How to: Create Client
 
-To access an Azure mobile service in your project, create an `MSClient` client object. Replace `AppUrl` and `AppKey` with the mobile service URL and the application key Dashboard values, respectively.
+To access an Azure Mobile Apps backend in your project, create an `MSClient`. Replace `AppUrl` with the app URL. You may leave `gatewayURLString` and `applicationKey` empty. If you set up a gateway for authentication, populate `gatewayURLString` with the gateway URL.
 
 ```
-MSClient *client = [MSClient clientWithApplicationURLString:@"AppUrl" applicationKey:@"AppKey"];
+MSClient *client = [MSClient clientWithApplicationURLString:@"AppUrl" gatewayURLString:@"" applicationKey:@""];
 ```
 
 ##<a name="table-reference"></a>How to: Create Table Reference
 
-To access or update data for your Azure mobile service, create a reference to the table. Replace `TodoItem` with the name of your table.
+To access or update data, create a reference to the backend table. Replace `TodoItem` with the name of your table.
 
 ```
 	MSTable *table = [client tableWithName:@"TodoItem"];
@@ -119,46 +117,6 @@ To sort results, let's look at an example. To first ascendingly by field `text` 
 }];
 ```
 
-## <a name="paging"></a>How to: Return Data in Pages with MSQuery
-
-Mobile Services limits the amount of records that are returned in a single response. To control the number of records displayed to your users you must implement a paging system.  Paging is performed by using the following three properties of the **MSQuery** object:
-
-```
-+	`BOOL includeTotalCount`
-+	`NSInteger fetchLimit`
-+	`NSInteger fetchOffset`
-```
-
-In the following example, a simple function requests 5 records from the server and then appends them to the local collection of previously loaded records:
-
-```
-// Create and initialize these properties
-@property (nonatomic, strong)   NSMutableArray *loadedItems; // Init via [[NSMutableArray alloc] init]
-@property (nonatomic)   				BOOL moreResults;
-```
-
-```
--(void)loadResults
-{
-    MSQuery *query = [self.table query];
-
-    query.includeTotalCount = YES;
-    query.fetchLimit = 5;
-    query.fetchOffset = self.loadedItems.count;
-
-
-    [query readWithCompletion:^(MSQueryResult *result, NSError *error) {
-        if(!error) {
-            // Add the items to our local copy
-            [self.loadedItems addObjectsFromArray:result.items];
-
-            // Set a flag to keep track if there are any additional records we need to load
-            self.moreResults = (self.loadedItems.count <= result.totalCount);
-        }
-    }];
-}
-
-```
 
 ## <a name="selecting"></a><a name="parameters"></a>How to: Limit Fields and Expand Query String Parameters with MSQuery
 
@@ -234,53 +192,11 @@ Alternatively, delete by providing a row ID:
 ```
 	[self.table deleteWithId:@"37BBF396-11F0-4B39-85C8-B319C729AF6D" completion:^(id itemId, NSError *error) {
 		// Handle error or perform additional logic as needed
-	}];
+	}];   
 ```
 
 At minimum, the `id` attribute must be set when making deletes.
 
-##<a name="#custom-api"></a>How to: Call a custom API
-
-A custom API enables you to define custom endpoints that expose server functionality that does not map to an insert, update, delete, or read operation. By using a custom API, you can have more control over messaging, including reading and setting HTTP message headers and defining a message body format other than JSON. For an example of how to create a custom API in your mobile service, see [How to: define a custom API endpoint](mobile-services-dotnet-backend-define-custom-api.md).
-
-[AZURE.INCLUDE [mobile-services-ios-call-custom-api](../../includes/mobile-services-ios-call-custom-api.md)]
-
-
-##<a name="authentication"></a>How to: Authenticate Users
-
-Azure Mobile Services supports various identity providers. For a basic tutorial, see [Authentication].
-
-Azure Mobile Services supports two authentication workflows:
-
-- **Server-managed Login**: Azure Mobile Services manages the login process on behalf of your app. It displays a provider-specific login page and authenticates with the chosen provider.
-
-- **Client-managed Login**: The _app_ requests a token from the identity provider and presents this token to Azure Mobile Services for authentication.
-
-When authentication succeeds, you get back a user object with a user ID value and the auth token. To use this user ID to authorize users, see [Service-side Authorization]. To restrict table access to only authenticated users, see [Permissions].
-
-### Server-managed Login
-
-Here is how you can add server-managed login to the [Mobile Services Quick Start] project; you may use similar code for your other projects. For more information and to see an end-to-end example in action, see [Authentication].
-
-[AZURE.INCLUDE [mobile-services-ios-authenticate-app](../../includes/mobile-services-ios-authenticate-app.md)]
-
-### Client-managed Login (Single Sign-on)
-
-You may do the login process outside the Mobile Services client, either to enable single sign-on or if your app contacts the identity provider directly. In such cases, you can log in to Mobile Services by providing a token obtained independently from a supported identity provider.
-
-The following example uses the [Live Connect SDK] to enable single sign-on for iOS apps. It assumes that you have a **LiveConnectClient** instance named `liveClient` in the controller and the user is logged in.
-
-```
-	[client loginWithProvider:@"microsoftaccount"
-		token:@{@"authenticationToken" : self.liveClient.session.authenticationToken}
-		completion:^(MSUser *user, NSError *error) {
-				// Handle success and errors
-	}];
-```
-
-##<a name="caching-tokens"></a>How to: Cache Authentication Tokens
-
-Let's see how you may cache tokens in the [Mobile Services Quick Start] project; you may apply similar steps to any project. [AZURE.INCLUDE [mobile-services-ios-authenticate-app-with-token](../../includes/mobile-services-ios-authenticate-app-with-token.md)]
 
 ##<a name="errors"></a>How to: Handle Errors
 
@@ -317,8 +233,9 @@ The file [`<WindowsAzureMobileServices/MSError.h>`](https://github.com/Azure/azu
 <!-- Images. -->
 
 <!-- URLs. -->
+[Azure Mobile Apps Quick Start]: app-service-mobile-dotnet-backend-ios-get-started-preview.md
+
 [Add Mobile Services to Existing App]: /develop/mobile/tutorials/get-started-data
-[Mobile Services Quick Start]: /develop/mobile/tutorials/get-started-ios
 [Get started with Mobile Services]: /develop/mobile/tutorials/get-started-ios
 [Validate and modify data in Mobile Services by using server scripts]: /develop/mobile/tutorials/validate-modify-and-augment-data-ios
 [Mobile Services SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
