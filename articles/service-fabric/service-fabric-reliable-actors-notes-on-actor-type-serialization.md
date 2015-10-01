@@ -3,7 +3,7 @@
    description="Discusses basic requirements for defining serializable classes that can be used to define Service Fabric Reliable Actor state and interfaces"
    services="service-fabric"
    documentationCenter=".net"
-   authors="clca"
+   authors="vturecek"
    manager="timlt"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="08/11/2015"
-   ms.author="claudioc"/>
+   ms.author="vturecek"/>
 
 # Notes on Service Fabric Reliable Actors type serialization
 

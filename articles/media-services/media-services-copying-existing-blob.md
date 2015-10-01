@@ -259,8 +259,9 @@ The code example below performs the following tasks:
 		            try
 		            {
 		                Console.WriteLine(string.Format("Copy blob '{0}' to '{1}'", sourceBlob.Uri, destinationBlob.Uri));
-		                destinationBlob.StartCopy(sourceBlob.Uri);
 
+	                    destinationBlob.StartCopyFromBlob(new Uri(sourceBlob.Uri.AbsoluteUri + signature));
+	
 	                    while (destinationBlob.CopyState.Status == CopyStatus.Pending)
 	                    {
 	                        Thread.Sleep(10000);
