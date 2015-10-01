@@ -41,8 +41,8 @@ Make sure you have everything in place before you begin.
 ### Azure prerequisites
 
 - You'll need a [Microsoft Azure](http://azure.microsoft.com/) account. You can start with a [free trial](pricing/free-trial/).
-- - You'll need an Azure storage account to store replicated data. The account needs geo-replication enabled. It should be in the same region as the Azure Site Recovery vault and be associated with the same subscription. To learn more read [Introduction to Microsoft Azure Storage](../storage/storage-introduction.md).
-- - You'll need an Azure virtual network so that replicated virtual machines are connected to a network after failover.
+- You'll need an Azure storage account to store replicated data. The account needs geo-replication enabled. It should be in the same region as the Azure Site Recovery vault and be associated with the same subscription. To learn more read [Introduction to Microsoft Azure Storage](../storage/storage-introduction.md).
+- You'll need an Azure virtual network so that replicated virtual machines are connected to a network after failover.
 
 ## Hyper-V prerequisites
 
@@ -61,11 +61,11 @@ As part of Azure Site Recovery deployment you’ll install the Azure Site Recove
 - You should run the latest versions of the Provider and agent.
 - All Hyper-V servers in a vault should have the same versions.
 - The Provider will need to connect to Azure Site Recovery over the Internet. You can select to do this without a proxy, using proxy settings currently configured on the VMM server, or using custom proxy settings that you configure during Provider installation. To use an existing proxy server ensure that the URLs for connecting to Azure are allowed through the firewall
-	1. *.hypervrecoverymanager.windowsazure.com
-	1. *.accesscontrol.windows.net
-	1. *.backup.windowsazure.com		
-	1. *.blob.core.windows.net
-	1. *.store.core.windows.net
+	- *.hypervrecoverymanager.windowsazure.com
+	- *.accesscontrol.windows.net
+	- *.backup.windowsazure.com		
+	- *.blob.core.windows.net
+	- *.store.core.windows.net
  
 - To use a custom proxy set up the proxy server before installing the Provider. During Provider setup you’ll need to specify the proxy server address and port, and credentials that can be used for access. Note that HTTPS based proxy is not supported.
 
