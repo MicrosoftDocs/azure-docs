@@ -71,7 +71,7 @@ To resolve the common SSH issues for virtual machines created using the Resource
 
 	Step 3: Run the `VMAccessForLinux` extension to reset your SSH connection.
 
-		Set-AzureVMExtension -ResourceGroupName "testRG" -VMName "testVM" -Location "West US" -Name "VMAccessForLinux" -Publisher "Microsoft.OSTCExtensions" -ExtensionType "VMAccessForLinux" -TypeHandlerVersion "1.2" -SettingString "{}" -ProtectedSettingString "{"reset_ssh":true}"
+		Set-AzureVMExtension -ResourceGroupName "testRG" -VMName "testVM" -Location "West US" -Name "VMAccessForLinux" -Publisher "Microsoft.OSTCExtensions" -ExtensionType "VMAccessForLinux" -TypeHandlerVersion "1.2" -SettingString "{}" -ProtectedSettingString '{"reset_ssh":true}'
 
 	[B] Using Azure CLI:
 
@@ -81,9 +81,10 @@ To resolve the common SSH issues for virtual machines created using the Resource
 
 		azure config mode arm
 
-	Step 3: Create a file named PrivatConf.json with the following content:
+	Step 3: Create a file named PrivateConf.json with the following content:
+
 		{
-			"reset_ssh":"True",
+			"reset_ssh":"True"
 		}
 
 	Step 4: Run the `VMAccessForLinux` extension to reset your SSH connection.
@@ -105,12 +106,12 @@ To resolve the common SSH issues for virtual machines created using the Resource
 
 		$ExtensionName = 'VMAccessForLinux'
 		$Publisher = 'Microsoft.OSTCExtensions'
-		$Version = <version>
+		$Version = '1.2'
 
 		$PublicConf = '{}'
-		$PrivateConf = '{"username": "NewUsername",	"password": "NewPassword", "ssh_key": "", "reset_ssh":false, "remove_user": ""}'
+		$PrivateConf = '{"username":"NewUsername", "password":"NewPassword", "ssh_key":"", "reset_ssh":false, "remove_user":""}'
 
-		Set-AzureVMExtension -ResourceGroupName $RGName -VMName $VmName -Location $Location -Name $ExtensionName -Publisher $Publisher -ExtensionType $ExtensionName -TypeHandlerVersion $Version -Settingstring $PublicConf -ProtectedSettingString $PrivateConf
+		Set-AzureVMExtension -ResourceGroupName $RGName -VMName $VmName -Location $Location -Name $ExtensionName -Publisher $Publisher -ExtensionType $ExtensionName -TypeHandlerVersion $Version -SettingString $PublicConf -ProtectedSettingString $PrivateConf
 
 	[B] Using the Azure CLI:
 	Install and configure Azure CLI as mentioned in step 1 above. Switch to Azure mode and then run the extension as following.
@@ -124,6 +125,8 @@ To resolve the common SSH issues for virtual machines created using the Resource
 	Step 2: Run the Linux extension using the above file.
 
 		$azure vm extension set "testRG" "testVM" VMAccessForLinux Microsoft.OSTCExtensions "1.2" --private-config-path PrivateConf.json
+
+	Note that you can follow steps similar to [How to reset a password or SSH for Linux-based virtual machines](virtual-machines-linux-use-vmaccess-reset-password-or-ssh.md) to try other variations. Remember to modify the Azure CLI instructions for the Resource Manager mode.
 
 
 ## Detailed troubleshooting
@@ -148,7 +151,7 @@ In the [Azure management portal](https://manage.windowsazure.com), for virtual m
 In the [Azure preview portal](https://portal.azure.com):
 
 1. For a virtual machine created in classic deployment model, click **Browse** > **Virtual machines (classic)** > *VM name*. For a virtual machine created using the Resource Manager, click **Browse** > **Virtual machines** > *VM name*. The status pane for the virtual machine should show **Running**. Scroll down to show recent activity for compute, storage, and network resources.
-2. Click **Settings** to examine endpoints, IP addresses, and other settings. To identify endpoints in virtual machines created with the Resource Manager, check if there is a [Network Security Group](../traffic-manager/virtual-networks-nsg.md) is defined, the rules applied and if they are referenced in the subnet.
+2. Click **Settings** to examine endpoints, IP addresses, and other settings. To identify endpoints in virtual machines created with the Resource Manager, check if a [Network Security Group](../traffic-manager/virtual-networks-nsg.md) is defined, the rules applied to it and if they are referenced in the subnet.
 
 To verify network connectivity, check the configured endpoints and see if you can reach the VM through another protocol, such as HTTP or another service.
 
