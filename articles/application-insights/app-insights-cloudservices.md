@@ -65,7 +65,7 @@ As an alternative, you could send data from all the roles to just one resource, 
 
 3. Configure the SDK to send data to the Application Insights resource.
 
- * Set the instrumentation key as a configuration setting in the file `ServiceConfiguration.Cloud.cscfg`.
+    Set the instrumentation key as a configuration setting in the file `ServiceConfiguration.Cloud.cscfg`. ([Sample code](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/AzureEmailService/ServiceConfiguration.Cloud.cscfg)).
  
     ```XML
      
@@ -73,18 +73,19 @@ As an alternative, you could send data from all the roles to just one resource, 
       <Setting name="Telemetry.AI.InstrumentationKey" value="YOUR IKEY" /> 
     </Role>
     ```
-
-    See the [sample code](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/AzureEmailService/ServiceConfiguration.Cloud.cscfg).
-
- * In a suitable startup function, set the instrumentation key from the configuration setting:
-
-    `TelemetryConfiguration.Active.InstrumentationKey = RoleEnvironment.GetConfigurationSettingValue("Telemetry.AI.InstrumentationKey"); `
-
- * Do this for each role in your application. See the examples:
  
-  * [Web role](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/MvcWebRole/Global.asax.cs#L27)
-  * [Worker role](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/WorkerRoleA.cs#L232)
-  * [For web pages](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/MvcWebRole/Views/Shared/_Layout.cshtml#L13)   
+    In a suitable startup function, set the instrumentation key from the configuration setting:
+
+    ```C#
+
+     TelemetryConfiguration.Active.InstrumentationKey = RoleEnvironment.GetConfigurationSettingValue("Telemetry.AI.InstrumentationKey");
+    ```
+
+    Do this for each role in your application. See the examples:
+ 
+ * [Web role](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/MvcWebRole/Global.asax.cs#L27)
+ * [Worker role](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/WorkerRoleA.cs#L232)
+ * [For web pages](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/MvcWebRole/Views/Shared/_Layout.cshtml#L13)   
 
 4. Set the ApplicationInsights.config file to be copied always to the output directory. 
 
