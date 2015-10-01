@@ -61,7 +61,7 @@ The [Azure preview portal](https://ms.portal.azure.com/) provides a user interfa
 
 ## Use PowerShell to manage a file share
 
-Next, we'll use Azure PowerShell to create a file share. Once the file share has been created, you can mount it from any file system that supports SMB 2.1.
+Next, we'll use Azure PowerShell to create a file share. Once the file share has been created, you can mount it from any file system that supports SMB 2.1 or SMB 3.0.
 
 ### Install the PowerShell cmdlets for Azure Storage
 
