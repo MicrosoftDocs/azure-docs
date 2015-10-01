@@ -1278,7 +1278,7 @@ Please try Azure RBAC and send us [feedback](http://aka.ms/azurerbacfeedback).
 Here are some additional resources to help you use role-based access control:
 
 + [Managing role-based access control with Windows PowerShell](role-based-access-control-powershell.md)
-+ [Managing role-based access control with Azure CLI](role-based-access-control-xplat-cli.md)
++ [Managing role-based access control with Azure CLI](role-based-access-control-xplat-cli-install.md)
 + [Troubleshooting role-based access control](role-based-access-control-troubleshooting.md)
 + [Azure Active Directory Premium and Basic](active-directory-editions.md)
 + [How Azure subscriptions are associated with Azure AD](active-directory-how-subscriptions-associated-directory.md)

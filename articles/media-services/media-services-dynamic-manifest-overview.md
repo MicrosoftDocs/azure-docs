@@ -176,9 +176,21 @@ The following topic discusses Media Services entities that are related to filter
 
 [Create filters with REST APIs](media-services-rest-dynamic-manifest.md).
 
-## Combining multiple filters
+## Combining multiple filters (filter composition)
 
-You can also combine multiple filters in a URL (for example, (Filter=A,B)). Up to 3 filters can be combined in a single URL. The order of the filters doesn’t matter since they all get merged and processed at the same time. You can combine global and local filters. Filter combination enables the following scenario: you can have a global Android filter and apply trimming with it (without combination you would need to add Android filter to the trimming filter).
+You can also combine multiple filters in a single URL. 
+
+The following scenario demonstrates why you might want to combine filters:
+
+1. You need to filter your video qualities for mobile devices such as Android or iPAD (in order to limit video qualities). To remove the unwanted qualities, you would create a global filter which is suitable for device profiles. As mentioned above, global filters can be used for all your assets under the same media services account without any further association. 
+2. You also want to trim the start and end time of an asset. To achieve this, you would create a local filter and set the start/end time. 
+3. You want to combine both of these filters (without combination you would need to add quality filtering to the trimming filter which will make filter usage difficult).
+
+To combine filters, you need to set the filter names to the manifest/playlist URL with semicolon delimited. Let’s assume you have a filter named *MyMobileDevice* that filters qualities and you have another named *MyStartTime* to set a specific start time. You can combine them like this:
+
+	http://teststreaming.streaming.mediaservices.windows.net/3d56a4d-b71d-489b-854f-1d67c0596966/64ff1f89-b430-43f8-87dd-56c87b7bd9e2.ism/Manifest(filter=MyMobileDevice;MyStartTime)
+
+You can combine up to 3 filters. 
 
 ##Know issues and limitations
 
