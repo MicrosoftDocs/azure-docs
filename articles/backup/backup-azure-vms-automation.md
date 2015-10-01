@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/21/2015"
-	ms.author="trinadhk";"aashishr" />
+	ms.date="10/01/2015"
+	ms.author="aashishr";"trinadhk" />
 
 
 # Deploy and manage backup for Azure VMs using PowerShell
@@ -84,6 +84,8 @@ Name                      Type               ScheduleType       BackupTime
 DefaultPolicy             AzureVM            Daily              26-Aug-15 12:30:00 AM
 ```
 
+> [AZURE.NOTE] The timezone of the BackupTime field in PowerShell is UTC. However, when the backup time is shown in the Azure portal, the timezone is aligned to your local system along with the UTC offset.
+
 A backup policy is associated with at least one retention policy. The retention policy defines how long a recovery point is kept with Azure Backup. The **New-AzureRMBackupRetentionPolicy** commandlet creates PowerShell objects that hold retention policy information. These retention policy objects are used as inputs to the *New-AzureRMBackupProtectionPolicy* commandlet, or directly with the *Enable-AzureRMBackupProtection* commandlet.
 
 A backup policy defines when and how often the backup of an item is done. The **New-AzureRMBackupProtectionPolicy** commandlet creates a PowerShell object that holds backup policy information. The backup policy is used as an input to the *Enable-AzureRMBackupProtection* commandlet.
@@ -116,6 +118,8 @@ WorkloadName    Operation       Status          StartTime              EndTime
 ------------    ---------       ------          ---------              -------
 testvm          Backup          InProgress      01-Sep-15 12:24:01 PM  01-Jan-01 12:00:00 AM
 ```
+
+> [AZURE.NOTE] The timezone of the StartTime and EndTime fields shown in PowerShell is UTC. However, when the similar information is shown in the Azure portal, the timezone is aligned to your local system clock.
 
 ### Monitoring a backup job
 Most long running operations in Azure Backup are modelled as a job. This makes it easy to track progress without having to keep the Azure portal open at all times.
@@ -163,6 +167,8 @@ RecoveryPointId    RecoveryPointType  RecoveryPointTime      ContainerName
 15273496567119     AppConsistent      01-Sep-15 12:27:38 PM  iaasvmcontainer;testvm;testv...
 ```
 
+The variable ```$rp``` is an array of recovery points for the selected backup item, sorted in reverse order of time - the latest recovery point is at index 0. Use standard PowerShell array indexing to pick the recovery point. For example: ```$rp[0]``` will select the latest recovery point.
+
 ### Restoring disks
 
 There is a key difference between the restore operations done through the Azure portal and through Azure PowerShell. With PowerShell, the restore operation stops at restoring the disks and config information from the recovery point. It does not create a virtual machine.
@@ -170,7 +176,7 @@ There is a key difference between the restore operations done through the Azure 
 > [AZURE.WARNING] The Restore-AzureRMBackupItem does not create a VM. It only restores the disks to the specified storage account. This is not the same behaviour you will experience in the Azure portal.
 
 ```
-PS C:\> $restorejob = Restore-AzureRMBackupItem -StorageAccountName "DestAccount" -RecoveryPoint $rp
+PS C:\> $restorejob = Restore-AzureRMBackupItem -StorageAccountName "DestAccount" -RecoveryPoint $rp[0]
 PS C:\> $restorejob
 
 WorkloadName    Operation       Status          StartTime              EndTime
@@ -237,3 +243,66 @@ For more information on how to build a VM from the restored disks, read about th
 - [Add-AzureDisk](https://msdn.microsoft.com/library/azure/dn495252.aspx)
 - [New-AzureVMConfig](https://msdn.microsoft.com/library/azure/dn495159.aspx)
 - [New-AzureVM](https://msdn.microsoft.com/library/azure/dn495254.aspx)
+
+## Code samples
+
+### 1. Get the completion status of job sub-tasks
+
+To track the completion status of individual sub-tasks, you can use the **Get-AzureRMBackupJobDetails** commandlet:
+
+```
+PS C:\> $details = Get-AzureRMBackupJobDetails -JobId $backupjob.InstanceId -Vault $backupvault
+PS C:\> $details.SubTasks
+
+Name                                                        Status
+----                                                        ------
+Take Snapshot                                               Completed
+Transfer data to Backup vault                               InProgress
+```
+
+### 2. Create a daily/weekly report of backup jobs
+
+Administrators typically want to know what backup jobs ran in the last 24 hours, the status of those backup jobs. Additionally, the amount of data transferred gives administrators a way to estimate their monthly data usage. The script below pulls the raw data from the Azure Backup service and displays the information on the PowerShell console.
+
+```
+param(  [Parameter(Mandatory=$True,Position=1)]
+        [string]$backupvaultname,
+
+        [Parameter(Mandatory=$False,Position=2)]
+        [int]$numberofdays = 7)
+
+
+#Initialize variables
+$DAILYBACKUPSTATS = @()
+$backupvault = Get-AzureRMBackupVault -Name $backupvaultname
+$enddate = ([datetime]::Today).AddDays(1)
+$startdate = ([datetime]::Today)
+
+for( $i = 1; $i -le $numberofdays; $i++ )
+{
+    # We query one day at a time because pulling 7 days of data might be too much
+    $dailyjoblist = Get-AzureRMBackupJob -Vault $backupvault -From $startdate -To $enddate -Type AzureVM -Operation Backup
+    Write-Progress -Activity "Getting job information for the last $numberofdays days" -Status "Day -$i" -PercentComplete ([int]([decimal]$i*100/$numberofdays))
+
+    foreach( $job in $dailyjoblist )
+    {
+        #Extract the information for the reports
+        $newstatsobj = New-Object System.Object
+        $newstatsobj | Add-Member -type NoteProperty -name Date -value $startdate
+        $newstatsobj | Add-Member -type NoteProperty -name VMName -value $job.WorkloadName
+        $newstatsobj | Add-Member -type NoteProperty -name Duration -value $job.Duration
+        $newstatsobj | Add-Member -type NoteProperty -name Status -value $job.Status
+
+        $details = Get-AzureRMBackupJobDetails -Job $job
+        $newstatsobj | Add-Member -type NoteProperty -name BackupSize -value $details.Properties["Backup Size"]
+        $DAILYBACKUPSTATS += $newstatsobj
+    }
+
+    $enddate = $enddate.AddDays(-1)
+    $startdate = $startdate.AddDays(-1)
+}
+
+$DAILYBACKUPSTATS | Out-GridView
+```
+
+If you want to add charting capabilities to this report output, learn from on the TechNet blog on [Charting with PowerShell](http://blogs.technet.com/b/richard_macdonald/archive/2009/04/28/3231887.aspx)

@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/18/2015"
-	ms.author="trinadhk"; "jimpark"/>
+	ms.date="10/01/2015"
+	ms.author="aashishr"; "trinadhk"; "jimpark"/>
 
 # Introduction to Azure Backup
 This article provides a high level overview of Microsoft's cloud integrated backup solution that enables customers to back up their data present either on-premises or in Azure.

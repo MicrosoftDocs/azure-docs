@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/21/2015"
+	ms.date="10/01/2015"
 	ms.author="jimpark"; "aashishr"; "sammehta"; "anuragm"/>
 
 
@@ -331,4 +331,4 @@ PS C:\> Restore-DPMRecoverableItem -RecoverableItem $RecoveryPoints[0] -Recovery
 The commands can easily be extended for any datasource type.
 
 ## Next steps
-For more information about Azure Backup for DPM see [Introduction to Azure DPM Backup](backup-azure-dpm-introduction.md)
+For more information about Azure Backup for DPM see [Introduction to DPM Backup](backup-azure-dpm-introduction.md)
