@@ -72,7 +72,7 @@ To override this value for a specific application/environment pair, create a `Co
      <ConfigOverride Name="Config">
         <Settings>
            <Section Name="MyConfigSection">
-              <Parameter Name="FooBar" Value="[Stateful1_MaxQueueSize]" />
+              <Parameter Name="MaxQueueSize" Value="[Stateful1_MaxQueueSize]" />
            </Section>
         </Settings>
      </ConfigOverride>
