@@ -61,8 +61,7 @@ Active Directory Premium edition is a paid offering of Azure Active Directory an
 
     For more information, see [What is Azure Multi-Factor Authentication?](multi-factor-authentication.md)th
 
-- **Microsoft Identity Manager (
-- )** - Premium comes with the option to grant rights to use a MIM server (and CALs) in your on-premises network to support any combination of Hybrid Identity solutions. This is a great option if you have a variation of on-premises directories and databases that you want to sync directly to Azure Active Directory. There is no limit on the number of MIM servers you can use, however, MIM CALs are granted based on the allocation of an Azure Active Directory premium user license.
+- **Microsoft Identity Manager** - Premium comes with the option to grant rights to use a MIM server (and CALs) in your on-premises network to support any combination of Hybrid Identity solutions. This is a great option if you have a variation of on-premises directories and databases that you want to sync directly to Azure Active Directory. There is no limit on the number of MIM servers you can use, however, MIM CALs are granted based on the allocation of an Azure Active Directory premium user license.
 
     For more information, see [Microsoft Identity Manager](http://www.microsoft.com/en-us/server-cloud/products/microsoft-identity-manager/default.aspx).
 
