@@ -97,7 +97,7 @@ The [EventData](https://msdn.microsoft.com/library/azure/microsoft.servicebus.me
 
 ## Batch event send operations
 
-Sending events in batches can dramatically increase throughput. The [SendBatch](https://msdn.microsoft.com/library/zure/microsoft.servicebus.messaging.eventhubclient.sendbatch.aspx) method takes an **IEnumerable** parameter of type [EventData](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventdata.aspx) and sends the entire batch as an atomic operation to the Event Hub.
+Sending events in batches can dramatically increase throughput. The [SendBatch](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventhubclient.sendbatch.aspx) method takes an **IEnumerable** parameter of type [EventData](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventdata.aspx) and sends the entire batch as an atomic operation to the Event Hub.
 
 ```
 public void SendBatch(IEnumerable<EventData> eventDataList);
