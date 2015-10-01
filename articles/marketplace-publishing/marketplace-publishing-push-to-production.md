@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/25/2015"
+   ms.date="10/01/2015"
    ms.author="hascipio" />
 
 # Deploying your offer to the Azure Marketplace
@@ -23,11 +23,11 @@ When you are satisfied with your offer e.g. tested customer scenarios, marketing
 
   ![drawing][img-pubportal-walkthru-checked]
 
-2. Next, to **Push to Production**, Select option **Publish** from the list on the left hand side.
+2. Select the **Publish** tab from the list on the left hand side.
 
   ![drawing][img-pubportal-menu-publish]
 
-3. On selection of this option, below page will be displayed. Click on the option **Request approval to push to production**. Once the request is made, the approval team executes a final review and then your offer will be made publically available in the  Marketplace. The status of the offer will be changed to **"Listed"**.
+3. Upon selection of this option, the below page will be displayed. Click on the option **Request approval to push to production**. Once the request is made, the approval team executes a final review and then your offer will be made publically available in the  Marketplace. The status of the offer will be changed to **"Listed"**.
 
   ![drawing][img-pubportal-publish-pushproduction]
 

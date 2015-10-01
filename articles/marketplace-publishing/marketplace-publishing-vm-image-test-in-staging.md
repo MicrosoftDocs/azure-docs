@@ -40,4 +40,4 @@ Staging means deploying your SKU in a private “sandbox” where you can test a
  Once you are done with testing, notify the on-boarding team for validation. On-boarding team will test the customer scenarios and also validate the marketing content.
 
 ## Next Steps
-Now that you offer is in "Staging", once the onboarding team notifies, you can proceed to the final offer and/or SKU publishing phase, step 5,  [Deploying your offer to the Marketplace](marketplace-publishing-push-to-production.md)
+Now that you offer is in "Staging", once the onboarding team notifies, you can proceed to the final offer and/or SKU publishing phase, **Step 4**,  [Deploying your offer to the Marketplace](marketplace-publishing-push-to-production.md)
