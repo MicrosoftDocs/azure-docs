@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/30/2015" 
+	ms.date="10/01/2015" 
 	ms.author="sdanie"/>
 
 # How to configure data persistence for a Premium Azure Redis Cache
@@ -81,8 +81,8 @@ The backup frequency interval does not start until the previous backup process h
 All backups except for the most recent one are automatically deleted. This deletion may not happen immediately but older backups are not persisted indefinitely.
 
 ## Next steps
-
 Learn how to use more premium cache features.
+
 -	[How to configure clustering for a Premium Azure Redis Cache](cache-how-to-premium-clustering.md)
 -	[How to configure Virtual Network support for a Premium Azure Redis Cache](cache-how-to-premium-vnet.md)
   
