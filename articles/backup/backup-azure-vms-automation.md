@@ -33,7 +33,7 @@ The 2 most important flows are enabling protection for a VM, and restoring data 
 ## Setup and Registration
 To begin:
 
-1. [Download latest PowerShell](https://github.com/Azure/azure-powershell/releases) (minimum version required is : 0.9.8)
+1. [Download latest PowerShell](https://github.com/Azure/azure-powershell/releases) (minimum version required is : 1.0.0)
 
 2. Enable the Azure Backup commandlets by switching to *AzureResourceManager* mode by using the **Switch-AzureMode** commandlet:
 

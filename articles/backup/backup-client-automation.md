@@ -23,6 +23,15 @@ This article shows you how to use PowerShell to set up Azure Backup on Windows S
 [AZURE.INCLUDE [arm-getting-setup-powershell](../../includes/arm-getting-setup-powershell.md)]
 
 ## Setup and Registration
+To begin:
+
+1. [Download latest PowerShell](https://github.com/Azure/azure-powershell/releases) (minimum version required is : 1.0.0)
+2. Enable the Azure Backup commandlets by switching to *AzureResourceManager* mode by using the **Switch-AzureMode** commandlet:
+
+```
+PS C:\> Switch-AzureMode AzureResourceManager
+```
+
 The following setup and registration tasks can be automated with PowerShell:
 
 - Create a backup vault
@@ -32,14 +41,17 @@ The following setup and registration tasks can be automated with PowerShell:
 - Encryption settings
 
 ### Create a backup vault
-You can create a new backup vault using the **New-AzureBackupVault** commandlet. The backup vault is an ARM resource, so you need to place it within a Resource Group. In an elevated Azure PowerShell console, run the following commands:
+
+> [AZURE.WARNING] For customers using Azure Backup for the first time, you need to register the Azure Backup provider to be used with your subscription. This can be done by running the following command: Register-AzureProvider -ProviderNamespace "Microsoft.Backup"
+
+You can create a new backup vault using the **New-AzureRMBackupVault** commandlet. The backup vault is an ARM resource, so you need to place it within a Resource Group. In an elevated Azure PowerShell console, run the following commands:
 
 ```
-PS C:\> New-AzureResourceGroup –Name “test-rg” –Location “West US”
-PS C:\> $backupvault = New-AzureRMBackupVault –ResourceGroupName “test-rg” –Name “test-vault” –Region “West US” –Storage GRS
+PS C:\> New-AzureResourceGroup –Name “test-rg” -Region “West US”
+PS C:\> $backupvault = New-AzureRMBackupVault –ResourceGroupName “test-rg” –Name “test-vault” –Region “West US” –Storage GeoRedundant
 ```
 
-You can get a list of all the backup vaults in a given subscription using the **Get-AzureBackupVault** commandlet.
+You can get a list of all the backup vaults in a given subscription using the **Get-AzureRMBackupVault** commandlet.
 
 
 ### Installing the Azure Backup agent
@@ -87,7 +99,7 @@ Before you can register with the Azure Backup service, you need to ensure that t
 - Have a valid Azure subscription
 - Have a backup vault
 
-To download the vault credentials, run the **Get-AzureBackupVaultCredentials** commandlet in an Azure PowerShell console and store it in a convenient location like *C:\Downloads\*.
+To download the vault credentials, run the **Get-AzureRMBackupVaultCredentials** commandlet in an Azure PowerShell console and store it in a convenient location like *C:\Downloads\*.
 
 ```
 PS C:\> $credspath = "C:\"
@@ -587,5 +599,5 @@ PS C:\> Invoke-Command -Session $s -Script { param($d, $a) Start-Process -FilePa
 ## Next steps
 For more information about Azure Backup for Windows Server/Client see
 
-- [Introduction to Azure Backup](backup-introduction-to-azure-backup.md)
+- [Introduction to Azure Backup](backup-configure-vault.md)
 - [Back up Windows Servers](backup-azure-backup-windows-server.md)
