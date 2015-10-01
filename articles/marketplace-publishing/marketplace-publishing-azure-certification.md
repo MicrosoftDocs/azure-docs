@@ -19,7 +19,7 @@
 
 # Get Pre-Approved via Microsoft Azure Certification Program
 
-This article provides instructions of how to become Microsoft Azure Certified. For a detailed overview of the Microsoft Azure Certification program and its benefits, visit http://azure.com/certified
+This article provides instructions of how to become Microsoft Azure Certified. For a detailed overview of the Microsoft Azure Certification program and its benefits, visit [http://azure.com/certified](http://azure.com/certified)
 
 > [AZURE.NOTE] The Azure Certification is only applicable if you are going to create a Virtual Machine or Multi-VM Solution Template to the Azure Marketplace. If you are not creating either of these artifacts, please skip this step and move forward to step 2, [Microsoft Seller Account creation](marketplace-publishing-accounts-creation-registration.md)
 
