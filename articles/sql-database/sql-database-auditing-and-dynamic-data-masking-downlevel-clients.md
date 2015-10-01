@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/01/2015" 
+	ms.date="09/01/2015" 
 	ms.author="nadavhelfman"/>
  
 # SQL Database -  Downlevel Clients Support for Auditing and Dynamic Data Masking 
@@ -33,7 +33,7 @@ A partial list of "Downlevel clients" includes:
 
 - .NET 4.0 and below,
 - ODBC 10.0 and below.
-- JDBC 4.0 and below (while JDBC 4.0 does support TDS 7.4, the TDS redirection feature is not fully supported)
+- JDBC (while JDBC does support TDS 7.4, the TDS redirection feature is not fully supported)
 - Tedious (for Node.JS)
 
 **Remark:** The above server FDQN modification may be useful also for applying a SQL Server Level Auditing policy without a need for a configuration step in each database (Temporary mitigation).     
