@@ -16,14 +16,15 @@
    ms.date="10/01/2015"
    ms.author="hascipio" />
 
-## Testing your VM offer in staging
+# Testing your VM offer in Staging
 Staging means deploying your SKU in a private “sandbox” where you can test and validate its functionality before deploying it to the Marketplace. The SKU will appear in staging just as it would to a customer who has deployed it. Your VM image must be certified to be pushed to staging.
 
+## 1. Push your offer to Staging
 1. Click **Push to Staging** in the **Publish** tab.
 
   ![drawing](media/marketplace-publishing-vm-image-test-in-staging/vm-image-push-to-staging.png)
 
-2. Correct any errors or discrepancies if which the service may notify you a this point.
+2. Correct any errors or discrepancies in which the Publishing Portal may notify you a this point.
 3.	Provide the list of Azure subscriptions you will use to preview your offer in [Azure Preview portal](https://portal.azure.com) in the pop up box as shown in the screenshot above.
 4. Validate your VM Image for following points:
   - Marketing content is showing up correctly in the gallery
@@ -33,6 +34,12 @@ Staging means deploying your SKU in a private “sandbox” where you can test a
 
   - End-to-end deployment of VM image
 
- 5.	Your offer will remain in staging until you notify Microsoft that you are ready to push to production. This is an ideal time to have all members of the team check over everything in preparation for your offer going live.
+ > [AZURE.NOTE] Your offer will remain in staging until you notify Microsoft that you are ready to push to production. This is an ideal time to have all members of the team check over everything in preparation for your offer going live.
 
- [img-map-portal]:media/marketplace-publishing-push-to-staging/pubportal-mapping-azure-portal.jpg
+ ![img-map-portal](media/marketplace-publishing-push-to-staging/pubportal-mapping-azure-portal.jpg)
+
+ ## 2. Notify Onboarding Team
+ Once you are done with testing, notify the on-boarding team for validation. On-boarding team will test the customer scenarios and also validate the marketing content.
+
+## Next Steps
+Now that you offer is in "Staging", once the onboarding team notifies, you can proceed to the final offer and/or SKU publishing phase, step 5,  [Deploying your offer to the Marketplace](marketplace-publishing-push-to-production.md)
