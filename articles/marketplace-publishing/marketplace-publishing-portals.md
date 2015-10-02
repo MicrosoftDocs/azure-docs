@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Overview of how to Create and deploy an offer to the Marketplace | Microsoft Azure"
-   description="Understand the steps required to become an approved Microsoft seller and create and deploy a virtual machine image, template, data service or developer service in the Azure Marketplace"
+   pageTitle="Overview of the various Portals needed to create an offer for the Marketplace | Microsoft Azure"
+   description="Overview of the various Portals needed to create an offer for the Marketplace"
    services="marketplace-publishing"
    documentationCenter=""
    authors="HannibalSII"
@@ -13,11 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/01/2015"
+   ms.date="10/02/2015"
    ms.author="hascipio" />
 
 
 # Portals you will need
+Before you start with the process, let’s get you introduced to the various portals that you will need to get offer the published. Below is the short summary about the Portals - **Seller Dashboard, Publishing Portal** and **Azure Preview Portal** in the order you will interact with them.                                                                            
 
 |Portal|Description|URL|Identity/Account|
 |----|---|----|----|

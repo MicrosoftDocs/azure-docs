@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/01/2015"
+   ms.date="10/02/2015"
    ms.author="hascipio" />
 
 # How to publish an offer to the Microsoft Azure Marketplace
@@ -39,7 +39,8 @@ Insert table/matrix of artifacts x (portals, identities, business)
 |----|----|----|----|----|
 | **Get Pre-Approval** | [Microsoft Azure Certified][link-certification] | [Microsoft Azure Certified][link-certification] | n/a | [Microsoft Azure Certified][link-certification] |
 | **Step 1. Register Seller Account** | [Microsoft Seller Account Creation & Registration][link-accts] | [Microsoft Seller Account Creation & Registration][link-accts] | [Microsoft Seller Account Creation & Registration][link-accts] | [Microsoft Seller Account Creation & Registration][link-accts] |
-| **Step 2. Create your offer** | [VM Technical Pre-requisites][link-single-vm-prereq] | Developer Service Technical Pre-requisites | Data Service Technical Pre-requisites | [Template Technical Pre-requisites][link-multi-vm-prereq] |
+|**Step 2. Create your offer**| [General Non-technical Pre-requisites](marketplace-publishing-pre-requisites.md)| [General Non-Technical Pre-requisites](marketplace-publishing-pre-requisites.md)| [General Non-technical Pre-requisites](marketplace-publishing-pre-requisites.md)| [General Non-technical Pre-requisites](marketplace-publishing-pre-requisites.md)|
+|| [VM Technical Pre-requisites][link-single-vm-prereq] | Developer Service Technical Pre-requisites | Data Service Technical Pre-requisites | [Template Technical Pre-requisites][link-multi-vm-prereq] |
 ||[VM Image Publishing Guide][link-single-vm] | Developer Service Publishing Guide | Data Service Publishing Guide | [Solution Template Publishing Guide][link-multi-vm] |
 || [Azure Marketplace Marketing Content Guide][link-pushstaging] | [Azure Marketplace Marketing Content Guide][link-pushstaging] | [Azure Marketplace Marketing Content Guide][link-pushstaging] | [Azure Marketplace Marketing Content Guide][link-pushstaging] |
 | **Step 3. Push your offer to Staging** |Test your VM offer in Staging | Test your Developer Service offer in Staging | Test your Data Service offer in Staging | Test your Solution Template in Staging |

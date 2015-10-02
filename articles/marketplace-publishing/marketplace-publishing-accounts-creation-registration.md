@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/01/2015"
+   ms.date="10/02/2015"
    ms.author="hascipio"/>
 
-# Registering a Microsoft seller account
+# Creating a Microsoft seller account
 This article walks through the necessary account creation and registration to become an approved Microsoft seller for the Azure Marketplace.
 
 ## 1. Create a Microsoft Account (MSA)
@@ -163,8 +163,8 @@ Now that your account is created and registered, click on the type of artifact (
 
 | Virtual Machine Image | Developer Service | Data Service | Solution Template |
 |-----|-----|-----|-----|
-| [VM Image Pre-requisites][link-single-vm-prereq] | Developer Service Pre-requisites | Data Service Pre-requisites  | [Solution Template Pre-requisites][link-multi-vm-prereq] |
-| [VM Image Publishing Guide][link-single-vm] | Developer Service Publishing Guide | Data Service Publishing Guide | [Solution Template Publishing Guide][link-multi-vm] |
+| [VM Technical Pre-requisites][link-single-vm-prereq] | Developer Service Technical Pre-requisites | Data Service Technical Pre-requisites  | [Solution Template Technical Pre-requisites][link-multi-vm-prereq] |
+| [VM Publishing Guide][link-single-vm] | Developer Service Publishing Guide | Data Service Publishing Guide | [Solution Template Publishing Guide][link-multi-vm] |
 
 [img-msalive]:media/marketplace-publishing-accounts-creation-registration/creating-msa-account-msa-live.jpg
 [img-email]:media/marketplace-publishing-accounts-creation-registration/creating-msa-account-msa-verifyemail.jpg
