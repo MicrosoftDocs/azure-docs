@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure Active Directory Report Retention Policies"
+	pageTitle="Azure Active Directory Report Retention Policies | Microsoft Azure"
 	description="Retention policies on report data in your Azure Active Directory"
 	services="active-directory"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="09/21/2015"
+	ms.date="10/02/2015"
 	ms.author="kenhoff"/>
 
 # Azure Active Directory Report Retention Policies
