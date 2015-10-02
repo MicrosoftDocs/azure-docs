@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Create an Jupyter/IPython Notebook | Microsoft Azure"
 	description="Learn how to deploy the Jupyter/IPython Notebook on a Linux or Windows virtual machine created with the classic deployment model in Azure."
-	services="virtua-lmachines"
+	services="virtual-machines"
 	documentationCenter="python"
 	authors="huguesv"
 	manager="wpickett"
@@ -47,12 +47,14 @@ virtual machines, and we will cover the setup of Jupyter on both types of virtua
 
 ### Create a Linux VM and open a port for Jupyter
 
-Follow the instructions given [here][portal-vm-linux] to create a virtual machine of the *OpenSUSE* or *Ubuntu* distribution. This tutorial uses OpenSUSE 13.2 and Ubuntu Server 14.04 LTS. We'll assume the default user name *azureuser*.
+Follow the instructions given [here][portal-vm-linux] to create a virtual machine of the *Ubuntu* distribution. This tutorial uses Ubuntu Server 14.04 LTS. We'll assume the user name *azureuser*.
 
-On Step 4 of Virtual Machine creation you need to add an endpoint for jupyter.  Pick
-**TCP** for the protocol, **443** for the public port and **9999** for the private port. If you do not do this at creation time you can add endpoints from the VM dashboard later under the **Endpoints** tab.
+After the virtual machine deploys we need to open up a security rule on the network security group.  From the portal, go to **Network Security Groups** and open the tab for the Security Group corresponding to your VM. You need to add an Inbound Security rule with the following settings:
+**TCP** for the protocol, **443** for the source (public) port and **9999** for the destination (private) port.
 
 ![Screenshot](./media/virtual-machines-python-ipython-notebook/azure-add-endpoint.png)
+
+While in your Network Security Group, click on **Network Interfaces** and note the **Public IP Address** as it will be needed to connect to your VM in the next step.
 
 ## Install required software on the VM
 
@@ -100,7 +102,7 @@ As an example, this is how you can install Anaconda on Ubuntu
 	rm -rf anaconda/
 
 	# Update Jupyter to the latest install and generate its config file
-	sudo /anaconda3/bin/conda install jupyter
+	sudo /anaconda3/bin/conda install -f jupyter -y
 	/anaconda3/bin/jupyter-notebook --generate-config
 
 
@@ -134,18 +136,17 @@ password first.  IPython provides a utility to do so; at a command prompt run th
 
     /anaconda3/bin/python -c "import IPython;print(IPython.lib.passwd())"
 
-This will prompt you for a password and confirmation, and will then print the
-password as follows.
+This will prompt you for a password and confirmation, and will then print the password. Note this for the following step.
 
     Enter password:
     Verify password:
     sha1:b86e933199ad:a02e9592e59723da722.. (elided the rest for security)
 
 Next, we will edit the profile's configuration file, which is the
-`jupyter_notebook_config.py` file in the profile directory you are in.  Note that this file may not exist -- just create it if that is the case.  This
+`jupyter_notebook_config.py` file in the directory you are in.  Note that this file may not exist -- just create it if that is the case.  This
 file has a number of fields and by default all are commented out.  You can open
 this file with any text editor of your liking, and you should ensure that it
-has at least the following content.
+has at least the following content. Be sure to replace the password with the sha1 from the previous step.
 
     c = get_config()
 
@@ -170,7 +171,7 @@ the Jupyter Notebook server with the following command.
     /anaconda3/bin/jupyter-notebook
 
 You should now be able to access your Jupyter Notebook at the address
-`https://[Your Chosen Name Here].cloudapp.net`.
+`https://[PUBLIC-IP-ADDRESS]:9999`.
 
 When you first access your notebook, the login page asks for your password. And 
 once you log in, you will see the "Jupyter Notebook Dashboard", which is the 
@@ -250,13 +251,8 @@ profiling and parallel computing integration.
 
 For more information, see the [Python Developer Center](/develop/python/).
 
-[Tornado]:      http://www.tornadoweb.org/          "Tornado"
-[PyZMQ]:        https://github.com/zeromq/pyzmq     "PyZMQ"
-[NumPy]:        http://www.numpy.org/               "NumPy"
-[Matplotlib]:   http://matplotlib.sourceforge.net/  "Matplotlib"
-[portal-vm-windows]: /manage/windows/tutorials/virtual-machine-from-gallery/
-[portal-vm-linux]: /manage/linux/tutorials/virtual-machine-from-gallery/
+[portal-vm-linux]: https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-tutorial-portal-rm/ 
 [repository]: https://github.com/ipython/ipython
-[python Tools for visual studio]: http://aka.ms/ptvs
-[Python 2.7]: http://www.python.org/download
-[OpenSSL]: http://slproweb.com/products/Win32OpenSSL.html
+[Python Tools for Visual Studio]: http://aka.ms/ptvs
+
+
