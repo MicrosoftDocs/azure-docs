@@ -40,7 +40,7 @@ Before you begin this tutorial, you must have the following:
 
 - **Workstation**: A computer with an SSH client.
 
-- **Azure CLI**: For more information, see [Install and Configure the Azure CLI](../xplat-cli.md)
+- **Azure CLI**: For more information, see [Install and Configure the Azure CLI](../xplat-cli-install.md)
 
 - **Linux-based HDInsight cluster**: For instructions about cluster provision, see [Get started using HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md) or [Provision HDInsight clusters][hdinsight-provision].
 

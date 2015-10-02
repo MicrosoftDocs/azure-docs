@@ -34,7 +34,7 @@ Before you begin this tutorial, you must have the following:
 
 - **An Azure subscription**: See [Get Azure free trial](get-azure-free-trial-for-testing-hadoop-in-hdinsight.md).
 
-- **Azure CLI**: See [Install and Configure the Azure CLI](xplat-cli.md)
+- **Azure CLI**: See [Install and Configure the Azure CLI](xplat-cli-install.md)
 
 - **An HDInsight cluster**: See [Get Started with HDInsight on Linux](hdinsight-hadoop-linux-tutorial-get-started.md)
 
@@ -201,7 +201,7 @@ Oozie workflows definitions are written in hPDL (a XML Process Definition Langua
 
 The following steps create the Azure SQL Database that data will be exported to.
 
-> [AZURE.IMPORTANT] Before performing these steps you must [install and configure the Azure CLI](xplat-cli.md). Installing the CLI and following the steps to create a database can be performed either from the HDInsight cluster or your local workstation.
+> [AZURE.IMPORTANT] Before performing these steps you must [install and configure the Azure CLI](xplat-cli-install.md). Installing the CLI and following the steps to create a database can be performed either from the HDInsight cluster or your local workstation.
 
 1. Use the following command to create a new Azure SQL Database server:
 
