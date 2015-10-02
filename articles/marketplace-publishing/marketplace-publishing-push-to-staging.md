@@ -17,7 +17,7 @@
    ms.author="hascipio"/>
 
 # Preparing your offer for testing in Staging
-This is **Step 3** of the publishing process. Here you will need to provide certain marketing content and details about your offering and/or SKUs in the Azure Marketplace such as description of your product, company logos, price plans, details of plants and other information necessary to push your offer and/or SKU to staging. This information is used as marketing content in our Azure Portal. You will begin this process in the [Publishing Portal][link-pubportal].
+In this step of the publishing process. Here you will need to provide certain marketing content and details about your offering and/or SKUs in the Azure Marketplace such as description of your product, company logos, price plans, details of plants and other information necessary to push your offer and/or SKU to staging. This information is used as marketing content in our Azure Portal. You will begin this process in the [Publishing Portal][link-pubportal].
 
 ## 1. Provide Marketplace marketing content
 **English is the default and only supported language;** please ensure that all information provided in the fields is in English. All information can be edited at any time until you push to staging.

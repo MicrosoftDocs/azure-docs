@@ -62,4 +62,4 @@ Next are the technical pre-requisites for each offer type. Click the link to the
 
 | Virtual Machine Image | Developer Service | Data Service | Solution Template |
 |-----|-----|-----|-----|
-| [VM Technical Pre-requisites](marketplace-publishing-vm-image-creation-prerequisites.md) | Developer Service Technical Pre-requisites | Data Service Technical Pre-requisites  | [Solution Template Technical Pre-requisites](marketplace-publishing-solution-template-creation-prerequisites.md) |
+| [VM Technical Pre-requisites](marketplace-publishing-vm-image-creation-prerequisites.md) | Developer Service Technical Pre-requisites | Data Service Technical Pre-requisites  | Solution Template Technical Pre-requisites |

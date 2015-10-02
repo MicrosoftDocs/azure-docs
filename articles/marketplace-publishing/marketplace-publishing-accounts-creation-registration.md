@@ -164,8 +164,8 @@ Now that your account is created and registered, click on the type of artifact (
 || Virtual Machine Image | Developer Service | Data Service | Solution Template |
 |----|-----|-----|-----|-----|
 |**Step 2: Create your offer** |[General Non-technical Pre-requisites](marketplace-publishing-pre-requisites.md)| [General Non-Technical Pre-requisites](marketplace-publishing-pre-requisites.md)| [General Non-technical Pre-requisites](marketplace-publishing-pre-requisites.md)| [General Non-technical Pre-requisites](marketplace-publishing-pre-requisites.md)|
-|| [VM Image Technical Pre-requisites][link-single-vm-prereq] | Developer Service Technical Pre-requisites | Data Service Technical Pre-requisites  | [Solution Template Technical Pre-requisites][link-multi-vm-prereq] |
-|| [VM Image Publishing Guide][link-single-vm] | Developer Service Publishing Guide | Data Service Publishing Guide | [Solution Template Publishing Guide][link-multi-vm] |
+|| [VM Image Technical Pre-requisites][link-single-vm-prereq] | Developer Service Technical Pre-requisites | Data Service Technical Pre-requisites  | Solution Template Technical Pre-requisites |
+|| [VM Image Publishing Guide][link-single-vm] | Developer Service Publishing Guide | Data Service Publishing Guide | Solution Template Publishing Guide |
 
 [img-msalive]:media/marketplace-publishing-accounts-creation-registration/creating-msa-account-msa-live.jpg
 [img-email]:media/marketplace-publishing-accounts-creation-registration/creating-msa-account-msa-verifyemail.jpg
