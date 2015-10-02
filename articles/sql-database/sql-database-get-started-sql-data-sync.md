@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/24/2015"
+	ms.date="10/01/2015"
 	ms.author="jhubbard"/>
 
 
@@ -198,7 +198,7 @@ Congratulations. You have created a sync group that includes both a SQL Database
 ## Next Steps
 For additional information on SQL Database and SQL Data Sync see:
 
-* [SQL Data Sync content on MSDN Library](https://msdn.microsoft.com/library/azure/hh456371.aspx)
+* [Download SQL Data Sync technical documentation](http://download.microsoft.com/download/4/E/3/4E394315-A4CB-4C59-9696-B25215A19CEF/SQL_Data_Sync_Preview.pdf)
 * [SQL Database Overview](sql-database-technical-overview.md)
 * [Database Lifecycle Management](https://msdn.microsoft.com/library/jj907294.aspx)
  

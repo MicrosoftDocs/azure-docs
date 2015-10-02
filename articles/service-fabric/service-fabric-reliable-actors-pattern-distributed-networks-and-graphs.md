@@ -3,7 +3,7 @@
    description="Design pattern on how Service Fabric Actors can be used to model application as distributed networks and graphs"
    services="service-fabric"
    documentationCenter=".net"
-   authors="jessebenson"
+   authors="vturecek"
    manager="timlt"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="08/11/2015"
-   ms.author="claudioc"/>
+   ms.author="vturecek"/>
 
 # Reliable Actors design pattern: distributed networks and graphs
 Service Fabric Reliable Actors is a natural fit for modeling complex solutions involving relations and modeling those relations as objects.  

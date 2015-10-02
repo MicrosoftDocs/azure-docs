@@ -14,7 +14,7 @@
 	ms.devlang="java"
 	ms.topic="article"
 	ms.date="09/24/2015" 
-	ms.author="ricksal"/>
+	ms.author="wesmc"/>
 
 #Azure Notification Hubs Secure Push
 
