@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="Azure"
    ms.workload="na"
-   ms.date="10/01/2015"
+   ms.date="10/02/2015"
    ms.author="hascipio"/>
 
 # Preparing your offer for testing in Staging
@@ -115,7 +115,7 @@ Plans can be any combination of BASE + Overage, where BASE is monthly price and 
 ### 2.4 Set your data service prices
 -->
 
-## 3 Provide support information
+## 3. Provide support information
 Some of this information will have been completed during the certification step. You may add or edit information as in the steps below. The contact details are used for internal communications between partner and Microsoft only. Support URL will be available to the end customers.
 1.	Go to the Support heading on the left side of the Publishing Portal.
 2.	Enter information under Engineering Contact.
@@ -123,32 +123,14 @@ Some of this information will have been completed during the certification step.
 4.	Enter Support URL
 
 ## 4 Choose Azure Marketplace categories
-In the categories tab, there will be an array of selections provided. Your offer may fall under these, and you may select up to five (5) categories.
-
-## 5 Test your offer in staging
-Staging means deploying your SKU in a private “sandbox” where you can test and validate its functionality before publishing it. The SKU will appear in staging just as it would to a customer who has deployed it. Your SKU must be certified to be pushed to staging. To obtain certification for your SKU, see “3.6. Obtain Certification”.
-1.	Click **Push to Staging** in the **Publish** tab.
-2.	Correct any errors or discrepancies of which the service may notify you at this point.
-3.	Provide the information about the Azure subscription(s) you want to white list and enable to preview your offer. Add the pay-as-you-go subscription you created earlier.
-4.	Your offer will remain in staging until you notify Microsoft that you are ready to push to production. This is an ideal time to have all members of the team check over everything in preparation for your offer going live.
-5.	Carry out one round of testing on below points ->
-
-  a.	Marketing content is showing up correctly in gallery
-
-  b.	Validate end-to-end deployment of your offer and customer scenarios e.g. purchase, upgrade, deletion, etc.
-
-
-
-![drawing][img-map-portal]
-
-*Product & Details mapping*
-
-
-## 6 Notify Onboarding Team
-Once you are done with testing, notify the on-boarding team for validation. On-boarding team will test the customer scenarios and also validate the marketing content.
+In the **Categories** tab, there will be an array of selections provided. Your offer may fall under these, and you may select up to five (5) categories.
 
 ## Next Steps
-Now that you offer is in "Staging", once the onboarding team notifies, you can proceed to the final offer and/or SKU publishing phase, step 5,  [Deploying your offer to the Marketplace][link-push-to-production].
+Now that your Marketplace content is loaded, lets move forward with the **Step 3: Testing your offer in Staging**. However, you must select the appropriate offer type from the list below as steps vary by offer type.
+
+||Virtual Machine Image |Developer Service | Data Service | Solution Template |
+|----|----|----|----|----|
+| **Step 3. Push your offer to Staging** | [Test your VM offer in Staging](marketplace-publishing-vm-image-test-in-staging.md) | Test your Developer Service offer in Staging | Test your Data Service offer in Staging | Test your Solution Template in Staging |
 
 [img-map-acom]:media/marketplace-publishing-push-to-staging/pubportal-mapping-acom.jpg
 [img-map-portal]:media/marketplace-publishing-push-to-staging/pubportal-mapping-azure-portal.jpg

@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="Azure"
    ms.workload="na"
-   ms.date="10/01/2015"
+   ms.date="10/02/2015"
    ms.author="hascipio; v-divte"/>
 
 # Guide to creating a virtual machine image for the Azure Marketplace
 
 This article, **Step 2**, will walk through preparing your VHDs, which are the foundation of your SKU, that you will deploy to the Azure Marketplace. The process will differ depending on whether your are providing a Linux- or Windows-based SKU. This section covers both scenarios. This process can be performed in parallel with [Account Creation and Registration][link-acct-creation].
 
-## 1 Define Offers and SKUs
+## 1. Define Offers and SKUs
 
 In this section, you will define the Offers and the SKUs underneath them.
 
@@ -432,7 +432,7 @@ To deploy a large VM, from the generalized VM Image just created, the following 
     $myVM = New‐AzureVMConfig ‐Name "VMImageVM" ‐InstanceSize "Large" ‐ImageName $img.ImageName | Add‐AzureProvisioningConfig ‐Windows ‐AdminUsername $user ‐Password $pass
     New‐AzureVM ‐ServiceName "VMImageCloudService" ‐VMs $myVM ‐Location "West US" ‐WaitForBoot
 
-## 5.  Obtain certification for your VM Image
+## 5. Obtain certification for your VM Image
 The next step in preparing your VM Image for the Azure Store is to have it certified.
 
 This process includes running a special certification tool, uploading the verification results to the Azure container where your VHDs reside, adding an offer, defining your SKU, and submitting your VM Image for certification.
