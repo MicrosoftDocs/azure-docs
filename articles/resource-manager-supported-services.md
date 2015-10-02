@@ -20,20 +20,25 @@
 
 This topic provides a list of supported resource providers for Azure Resource Manager.
 
-The following tables list which services support deployment and management through Resource Manager and which do not.
+The following tables list which services support deployment and management through Resource Manager and which do not. The column titled **Move Resources** refers to whether resources of this type can be moved to both a 
+new resource group and a new subscription. 
 
 
 ## Compute
 
 | Service | Enabled | Move Resources | REST API | Schema |
-| ------- | :-------: | -------------- | -------- | ------ |
+| ------- | ------- | -------------- | -------- | ------ |
+| Virtual Machines | Yes |           | [Create VM](https://msdn.microsoft.com/library/azure/mt163591.aspx) | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Compute.json) |
 | Batch   | Yes     |                | [Batch REST](https://msdn.microsoft.com/library/azure/dn820158.aspx) |        |
 | Dynamics Lifecycle Services | Yes |    |      |        |
-| Virtual Machines | Yes |           | [Create VM](https://msdn.microsoft.com/library/azure/mt163591.aspx) | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Compute.json) |
-| Remote App | No   |                |          |        |
-| Service Fabric | No |              |          |        |
+| Compute (classic) | Limited | Partial | - | - |
+| Remote App | No   | -              | -        | -      |
+| Service Fabric | No | -            | -        | -      |
 
+Compute (classic) refers to resources that were deployed through the classic deployment model, instead of through the Resource Manager deployment model. In general, these resources do not support Resource Manager operations, but there 
+are some operations that have been enabled. For more information about these deployment models, see [Understanding Resource Manager deployment and classic deployment](resource-manager-deployment-model.md). 
 
+Compute (classic) resources can be moved to new resource group, but not a new subscription.
 
 ## Web & Mobile
 
@@ -41,9 +46,8 @@ The following tables list which services support deployment and management throu
 | ------- | ------- | -------------- | -------- | ------ |
 | API Management| Yes | Yes         | [Create API](https://msdn.microsoft.com/library/azure/dn781423.aspx#CreateAPI) |        |
 | API Apps | Yes    |                |          | [2015-03-01-preview](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-03-01-preview/Microsoft.AppService.json) |
-| App Service | Yes |                |          |        |
 | Web Apps | Yes    | Yes, with limitations |          | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Web.json) |
-| Notification Hubs | Yes |          |          | [2015-04-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-04-01/Microsoft.NotificationHubs.json) |
+| Notification Hubs | Yes |          | [Create Notification Hub](https://msdn.microsoft.com/library/azure/dn223269.aspx) | [2015-04-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-04-01/Microsoft.NotificationHubs.json) |
 | Logic Apps | Yes  |                |          |        |
 | Mobile Engagements | Unsure | Yes  |          |        |
 
@@ -62,34 +66,34 @@ When working with web apps, you cannot move only an App Service plan. To move we
 | DocumentDB | Yes  | Yes            | [DocumentDB REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) |  |
 | Storage | Yes     |                | [Create Storage](https://msdn.microsoft.com/library/azure/mt163564.aspx) | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Storage.json) |
 | Redis Cache | Yes | Yes            |          | [2014-04-01-preview](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01-preview/Microsoft.Cache.json) |
-| SQL Database | Yes | Yes           |          | [2014-04-01-preview](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01-preview/Microsoft.Sql.json) |
+| SQL Database | Yes | Yes           | [Create Database](https://msdn.microsoft.com/library/azure/mt163685.aspx) | [2014-04-01-preview](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01-preview/Microsoft.Sql.json) |
 | Search | Yes      | Yes            | [Search REST](https://msdn.microsoft.com/library/azure/dn798935.aspx) |  |
-| StorSimple | No   |                |          |         |
-| Backup | No       |                |          |         |
-| Site Recovery | No |               |          |         |
-| Managed cache | No |               |          |         |
-| Data Catalog | No |                |          |         |
-| SQL data warehouse | No |          |          |         |
+| StorSimple | No   | -              | -        | -       |
+| Backup | No       | -              | -        | -       |
+| Site Recovery | No | -             | -        | -       |
+| Managed cache | No | -             | -        | -       |
+| Data Catalog | No |  -             | -        | -       |
+| SQL data warehouse | No | -        | -        | -       |
 
 ## Analytics
 
 | Service | Enabled | Move Resources | REST API | Schema |
 | ------- | ------- | -------------- | -------- | ------ |
-| Event Hub | Yes   |                |          |        |
+| Event Hub | Yes   |                | [Create Event Hub](https://msdn.microsoft.com/library/azure/dn790676.aspx) |        |
 | Stream Analytics | Yes |           |          |        |
 | HDInsights | Yes  |                |          |        |
-| Machine Learning | No |            |          |        |
+| Machine Learning | No | -          | -        | -      |
 
 ## Networking
 
 | Service | Enabled | Move Resources | REST API | Schema |
 | ------- | ------- | -------------- | -------- | ------ |
 | Application Gateway | Yes |        |          |        |
-| DNS     | Yes     |                |          | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Network.json) |
-| Load Balancer | Yes |              |          | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Network.json) |
-| Virtual Networks | Yes | No        |          | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Network.json) |
-| Traffic Manager | Yes |            |          |        |
-| Express Route | No |               |          |        |
+| DNS     | Yes     |                | [Create DNS Zone](https://msdn.microsoft.com/library/azure/mt130622.aspx)         | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Network.json) |
+| Load Balancer | Yes |              | [Create Load Balancer](https://msdn.microsoft.com/library/azure/mt163574.aspx) | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Network.json) |
+| Virtual Networks | Yes | No        | [Create Virtual Network](https://msdn.microsoft.com/library/azure/mt163661.aspx) | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Network.json) |
+| Traffic Manager | Yes |            | [Create Traffic Manager profile](https://msdn.microsoft.com/library/azure/mt163581.aspx) |        |
+| Express Route | No | -             | -        | -      |
 
 ## Media & CDN
 
@@ -98,7 +102,7 @@ When working with web apps, you cannot move only an App Service plan. To move we
 | Service | Enabled | Move Resources | REST API | Schema |
 | ------- | ------- | -------------- | -------- | ------ |
 | BizTalk Services | Yes |           |          | [2014-04-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01/Microsoft.BizTalkServices.json) |
-| Service Bus | Yes |                |          |        |
+| Service Bus | Yes |                | [Service Bus REST](https://msdn.microsoft.com/library/azure/hh780717.aspx) |        |
 
 ## Identity & Access Management 
 
@@ -115,10 +119,9 @@ When working with web apps, you cannot move only an App Service plan. To move we
 | Service | Enabled | Move Resources | REST API | Schema |
 | ------- | ------- | -------------- | -------- | ------ |
 | Automation | Yes  |                |          |        |
-| KeyVault | Yes    | Yes            |          |        |
+| Key Vault | Yes    | Yes            | [Key Vault REST](https://msdn.microsoft.com/library/azure/dn903609.aspx) |        |
 | Scheduler | Yes   |                |          | [2014-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-08-01/Microsoft.Scheduler.json) |
 | Operational Insights | Yes | Yes   |          |        |
-| Marketplace | Yes |                |          |        |
 | IoTHubs | Yes     |                |          |        |
 
 
@@ -135,8 +138,16 @@ What about?
 
 ## Supported Regions
 
-When deploying resources, you typically need to specify a region for the resources. Resource Manager is supported in all regions, but the resources you deploy might not be supported in all regions.  
+When deploying resources, you typically need to specify a region for the resources. Resource Manager is supported in all regions, but the resources you deploy might not be supported in all regions. In addition, there 
+may be limitations on your subscription which prevent you from using some regions that support the resource. These limitations may be related to tax issues for your home country, or the result of a policy placed 
+by your subscription administrator to use only certain regions. 
+
 Before deploying your resources, check the supported regions for your resource type by running one of the following commands.
+
+### REST API
+
+Your best option for discovering which regions are available for a particular resource type is the [List all resource providers](https://msdn.microsoft.com/library/azure/dn790524.aspx) operation. This operation returns only 
+those regions that are available to your subscription and resource type.
 
 ### PowerShell
 
@@ -151,4 +162,22 @@ The output will be similar to:
     Microsoft.Compute/virtualMachines         East US, East US 2, West US, Central US, South Central US,
                                               North Europe, West Europe, East Asia, Southeast Asia,
                                               Japan East, Japan West
+
+### Azure CLI
+
+The following example returns all of the supported locations for each resource type.
+
+    azure location list
+
+You can also filter the location results with a tool like **jq**. To learn about tools like jq, see [Useful tools to interact with Azure](/virtual-machines/resource-group-deploy-debug/#useful-tools-to-interact-with-azure).
+
+    azure location list --json | jq '.[] | select(.name == "Microsoft.Web/sites")'
+
+Which returns:
+
+    {
+      "name": "Microsoft.Web/sites",
+      "location": "Brazil South,East Asia,East US,Japan East,Japan West,North Central US,
+            North Europe,South Central US,West Europe,West US,Southeast Asia,Central US,East US 2"
+    }
 
