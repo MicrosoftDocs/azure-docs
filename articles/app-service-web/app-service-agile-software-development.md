@@ -1,19 +1,19 @@
 <properties
 	pageTitle="Agile software development with Azure App Service"
 	description="Learn how to create high-scale complex applications with Azure App Service in a way that supports agile software development."
-	services="app-service\web,app-service\api,app-service\mobile"
+	services="app-service"
 	documentationCenter=""
 	authors="cephalin"
 	manager="wpickett"
 	editor=""/>
 
 <tags
-	ms.service="app-service-web"
-	ms.workload="web"
+	ms.service="app-service"
+	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/24/2015"
+	ms.date="09/24/2015"
 	ms.author="cephalin"/>
 
 
@@ -279,6 +279,6 @@ Agile software development is a must-have for many companies who want to adopt A
 -	[Git Branching – Basic Branching and Merging](http://www.git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging)
 -	[David Ebbo’s Blog](http://blog.davidebbo.com/)
 -	[Azure PowerShell](powershell-install-configure.md)
--	[Azure Cross-Platform Command-Line Tools](xplat-cli.md)
+-	[Azure Cross-Platform Command-Line Tools](xplat-cli-install.md)
 -	[Create or edit users in Azure AD](https://msdn.microsoft.com/library/azure/hh967632.aspx#BKMK_1)
 -	[Project Kudu Wiki](https://github.com/projectkudu/kudu/wiki)

@@ -26,8 +26,6 @@ This tutorial is based on the Mobile Services quickstart. You must also first co
 
 >[AZURE.NOTE]This tutorial shows you how to authenticate users in Windows Store and Windows Phone Store 8.1 apps. For a Windows Phone 8.0 or Windows Phone Silverlight 8.1 app, see this version of [Get started with authentication in Mobile Services](mobile-services-windows-phone-get-started-users.md).
 
->This tutorial demonstrates a service-managed authentication flow using a variety of identity providers. This method is easy to configure and supports multiple providers. To instead use a client-managed flow using Live SDK in your Windows Store app, see the topic [Authenticate your Windows Store app with client managed authentication using Microsoft account](mobile-services-windows-store-dotnet-single-sign-on.md). 
-
 ##<a name="register"></a> Register your app for authentication and configure Mobile Services
 
 [AZURE.INCLUDE [mobile-services-register-authentication](../../includes/mobile-services-register-authentication.md)] 
@@ -78,7 +76,6 @@ You can get additional user data maintained by the identity provider in your mob
 [Get started with authentication]: ../mobile-services-javascript-backend-windows-store-dotnet-get-started-users.md
 [Get started with push notifications]: ../mobile-services-javascript-backend-windows-store-dotnet-get-started-push.md
 [Authorize users with scripts]: ../mobile-services-windows-store-dotnet-authorize-users-in-scripts.md
-[JavaScript and HTML]: mobile-services-windows-store-javascript-get-started-users.md
 
 [Azure Management Portal]: https://manage.windowsazure.com/
 [Mobile Services .NET How-to Conceptual Reference]: mobile-services-windows-dotnet-how-to-use-client-library.md

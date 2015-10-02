@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/22/2015"
+   ms.date="10/01/2015"
    ms.author="JRJ@BigBangData.co.uk;barbkess"/>
 
 # Get started: Connect to Azure SQL Data Warehouse
@@ -179,7 +179,7 @@ Now that we have registered our server let's go ahead and write a query.
 	To run the query click the green arrow or use the following shortcut: `CTRL`+`SHIFT`+`F5`.
 
 ## Next steps ##
-Now that you can connect and query try [loading sample data][] or [developing code][].
+Now that you can connect and query try [loading sample data][].
 
 [loading sample data]: ./sql-data-warehouse-get-started-load-samples.md  
 [developing code]: ./articles/sql-data-warehouse-overview-develop/

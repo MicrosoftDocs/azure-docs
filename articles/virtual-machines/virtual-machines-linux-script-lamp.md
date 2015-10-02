@@ -37,7 +37,7 @@ If you need help creating Linux VMs on Azure refer to [Create a Virtual Machine 
 
 The install commands assume Ubuntu, but you can adapt the installation for any supported Linux distro.
 
-The script-vm VM needs to have Azure CLI installed, with a working connection to Azure. For help with this refer to [Install and Configure the Azure Command-Line Interface](../xplat-cli.md).
+The script-vm VM needs to have Azure CLI installed, with a working connection to Azure. For help with this refer to [Install and Configure the Azure Command-Line Interface](../xplat-cli-install.md).
 
 ## Upload a script
 
