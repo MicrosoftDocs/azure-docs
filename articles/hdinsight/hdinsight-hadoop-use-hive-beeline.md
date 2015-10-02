@@ -1,6 +1,6 @@
 <properties
    pageTitle="Use Hadoop Hive and SSH in HDInsight | Microsoft Azure"
-   description="Learn how to use SSH to connect to a Hadoop cluster in HDInsight, and then interactively submit Hive queries by using the Hive command-line interface."
+   description="Learn how to use SSH to connect to a Hadoop cluster in HDInsight, and then interactively submit Hive queries by using the Beeline tool."
    services="hdinsight"
    documentationCenter=""
    authors="Blackmist"
@@ -14,16 +14,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="08/28/2015"
+   ms.date="10/02/2015"
    ms.author="larryfr"/>
 
-#Use Hive with Hadoop in HDInsight with SSH
+#Use Hive with Hadoop in HDInsight with Beeline
 
 [AZURE.INCLUDE [hive-selector](../../includes/hdinsight-selector-use-hive.md)]
 
-In this article, you will learn how to use Secure Shell (SSH) to connect to a Hadoop on Azure HDInsight cluster and then interactively submit Hive queries by using the Hive command-line interface (CLI).
+In this article, you will learn how to use Secure Shell (SSH) to connect to a Linux-based HDInsight cluster, and then interactively submit Hive queries by using the [Beeline](https://cwiki.apache.org/confluence/display/Hive/HiveServer2+Clients#HiveServer2Clients-Beeline–NewCommandLineShell) command-line tool.
 
-> [AZURE.IMPORTANT] While the Hive command is available on Linux-based HDInsight clusters, you should consider using Beeline. Beeline is a newer client for working with Hive, and is included with your HDInsight cluster. For more information on using this, see [Use Hive with Hadoop in HDInsight with Beeline](hdinsight-hadoop-use-hive-beeline.md).
+> [AZURE.NOTE] Beeline used JDBC to connect to Hive. For more information on using JDBC with Hive, see [Connect to Hive on Azure HDInsight using the Hive JDBC driver](hdinsight-connect-hive-jdbc-driver.md).
 
 ##<a id="prereq"></a>Prerequisites
 
@@ -53,13 +53,52 @@ Windows does not provide a built-in SSH client. We recommend using **PuTTY**, wh
 
 For more information on using PuTTY, see [Use SSH with Linux-based Hadoop on HDInsight from Windows ](hdinsight-hadoop-linux-use-ssh-windows.md).
 
-##<a id="hive"></a>Use the Hive command
+##<a id="beeline"></a>Use the Beeline command
 
 2. Once connected, start the Hive CLI by using the following command:
 
-        hive
+        beeline
 
-3. Using the CLI, enter the following statements to create a new table named **log4jLogs** by using the sample data:
+2. From the `beeline>` prompt, use the following to connect to the HiveServer 2 service:
+
+        !connect jdbc:hive2://headnode0:10001/;transportMode=http admin
+
+    When prompted, enter the password for the administrator (admin) account for your HDInsight cluster. Once the connection is established, the prompt will change to the following:
+    
+        jdbc:hive2://headnode0:10001/>
+
+3. Beeline commands usually begin with a `!` character, for example `!help` displays help. However the `!` can often be ommited. For example, `help` will also work.
+
+    If you view help, you will notice `!sql`, which is used to execute HiveQL statements. However, HiveQL is so commonly used that you can ommit the preceeding `!sql`. The following two statements have exactly the same results; displaying the tables currently available through Hive:
+    
+        !sql show tables;
+        show tables;
+    
+    On a new cluster, only one table should be listed: __hivesampletable__.
+
+4. Use the following to display the schema for the hivesampletable:
+
+        describe hivesampletable;
+        
+    This will return the following information:
+    
+        +-----------------------+------------+----------+--+
+        |       col_name        | data_type  | comment  |
+        +-----------------------+------------+----------+--+
+        | clientid              | string     |          |
+        | querytime             | string     |          |
+        | market                | string     |          |
+        | deviceplatform        | string     |          |
+        | devicemake            | string     |          |
+        | devicemodel           | string     |          |
+        | state                 | string     |          |
+        | country               | string     |          |
+        | querydwelltime        | double     |          |
+        | sessionid             | bigint     |          |
+        | sessionpagevieworder  | bigint     |          |
+        +-----------------------+------------+----------+--+
+
+5. Enter the following statements to create a new table named **log4jLogs** by using sample data provided with the HDInsight cluster:
 
         DROP TABLE log4jLogs;
         CREATE EXTERNAL TABLE log4jLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string)
@@ -74,13 +113,47 @@ For more information on using PuTTY, see [Use SSH with Linux-based Hadoop on HDI
     * **ROW FORMAT** - Tells Hive how the data is formatted. In this case, the fields in each log are separated by a space.
     * **STORED AS TEXTFILE LOCATION** - Tells Hive where the data is stored (the example/data directory), and that it is stored as text.
     * **SELECT** - Selects a count of all rows where column **t4** contains the value **[ERROR]**. This should return a value of **3** as there are three rows that contain this value.
-    * **INPUT__FILE__NAME LIKE '%.log'** - Tells Hive that we should only return data from files ending in .log. This restricts the search to the sample.log file that contains the data, and keeps it from returning data from other example data files that do not match the schema we defined.
+    * **INPUT__FILE__NAME LIKE '%.log'** - Tells Hive that we should only return data from files ending in .log. Normally, you would only have data with the same schema within the same folder when querying with hive, however this example log file is stored with other data formats.
 
     > [AZURE.NOTE] External tables should be used when you expect the underlying data to be updated by an external source, such as an automated data upload process, or by another MapReduce operation, but always want Hive queries to use the latest data.
     >
     > Dropping an external table does **not** delete the data, only the table definition.
+    
+    The output of this command should be similar to the following:
+    
+        INFO  : Tez session hasn't been created yet. Opening session
+        INFO  :
+        
+        INFO  : Status: Running (Executing on YARN cluster with App id application_1443698635933_0001)
+        
+        INFO  : Map 1: -/-      Reducer 2: 0/1
+        INFO  : Map 1: 0/1      Reducer 2: 0/1
+        INFO  : Map 1: 0/1      Reducer 2: 0/1
+        INFO  : Map 1: 0/1      Reducer 2: 0/1
+        INFO  : Map 1: 0/1      Reducer 2: 0/1
+        INFO  : Map 1: 0(+1)/1  Reducer 2: 0/1
+        INFO  : Map 1: 0(+1)/1  Reducer 2: 0/1
+        INFO  : Map 1: 1/1      Reducer 2: 0/1
+        INFO  : Map 1: 1/1      Reducer 2: 0(+1)/1
+        INFO  : Map 1: 1/1      Reducer 2: 1/1
+        +----------+--------+--+
+        |   sev    | count  |
+        +----------+--------+--+
+        | [ERROR]  | 3      |
+        +----------+--------+--+
+        1 row selected (47.351 seconds)
 
-4. Use the following statements to create a new 'internal' table named **errorLogs**:
+4. To exit Beeline, use `!quit`.
+
+##<a id="file"></a>Run a HiveQL file
+
+Beeline can also be used to run a file that contains HiveQL statements. Use the following steps to create a file, then run it using Beeline.
+
+1. Use the following command to create a new file named __query.hql__:
+
+        nano query.hql
+        
+2. Once the editor opens, use the following as the contents of the file. This query will create a new 'internal' table named **errorLogs**:
 
         CREATE TABLE IF NOT EXISTS errorLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string) STORED AS ORC;
         INSERT OVERWRITE TABLE errorLogs SELECT t1, t2, t3, t4, t5, t6, t7 FROM log4jLogs WHERE t4 = '[ERROR]' AND INPUT__FILE__NAME LIKE '%.log';
@@ -90,18 +163,33 @@ For more information on using PuTTY, see [Use SSH with Linux-based Hadoop on HDI
     * **CREATE TABLE IF NOT EXISTS** - Creates a table, if it does not already exist. Since the **EXTERNAL** keyword is not used, this is an internal table, which is stored in the Hive data warehouse and is managed completely by Hive.
     * **STORED AS ORC** - Stores the data in Optimized Row Columnar (ORC) format. This is a highly optimized and efficient format for storing Hive data.
     * **INSERT OVERWRITE ... SELECT** - Selects rows from the **log4jLogs** table that contain **[ERROR]**, then inserts the data into the **errorLogs** table.
+    
+3. To save the file, use __Ctrl__+___X__, then enter __Y__, and finally __Enter__.
 
-    To verify that only rows containing **[ERROR]** in column t4 were stored to the **errorLogs** table, use the following statement to return all the rows from **errorLogs**:
+4. Use the following to run the file using Beeline:
+
+        beeline -u 'jdbc:hive2://headnode0:10001/;transportMode=http' -n admin -p GiantR0b0! -f query.hql
+
+5. To verify that the **errorLogs** table was created, start Beeline and connect to HiveServer2, then use the following statement to return all the rows from **errorLogs**:
 
         SELECT * from errorLogs;
 
-    Three rows of data should be returned, all containing **[ERROR]** in column t4.
+    Three rows of data should be returned, all containing **[ERROR]** in column t4:
+    
+        +---------------+---------------+---------------+---------------+---------------+---------------+---------------+--+
+        | errorlogs.t1  | errorlogs.t2  | errorlogs.t3  | errorlogs.t4  | errorlogs.t5  | errorlogs.t6  | errorlogs.t7  |
+        +---------------+---------------+---------------+---------------+---------------+---------------+---------------+--+
+        | 2012-02-03    | 18:35:34      | SampleClass0  | [ERROR]       | incorrect     | id            |               |
+        | 2012-02-03    | 18:55:54      | SampleClass1  | [ERROR]       | incorrect     | id            |               |
+        | 2012-02-03    | 19:25:27      | SampleClass4  | [ERROR]       | incorrect     | id            |               |
+        +---------------+---------------+---------------+---------------+---------------+---------------+---------------+--+
+        3 rows selected (1.538 seconds)
 
     > [AZURE.NOTE] Unlike external tables, dropping an internal table will delete the underlying data as well.
 
 ##<a id="summary"></a>Summary
 
-As you can see, the Hive command provides an easy way to interactively run Hive queries on an HDInsight cluster, monitor the job status, and retrieve the output.
+As you can see, the Beeline command provides an easy way to interactively run Hive queries on an HDInsight cluster.
 
 ##<a id="nextsteps"></a>Next steps
 
