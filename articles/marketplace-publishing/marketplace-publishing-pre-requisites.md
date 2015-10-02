@@ -54,7 +54,7 @@ This is the subscription you will use to create your VM images and hand over the
 
 ## "Sell-from" countries
 > [AZURE.WARNING]
-In order to sell your services on Microsoft Azure Marketplace, your registered entity needs to be from one of the approved “sell from” countries. This restriction is for payout and taxation reasons. We are actively looking to expand this list of countries in the near future, so please stay tuned. For the complete list, please see section 1b of the document at link http://go.microsoft.com/fwlink/?LinkID=526833&clcid=0x409.
+In order to sell your services on Microsoft Azure Marketplace, your registered entity needs to be from one of the approved “sell from” countries. This restriction is for payout and taxation reasons. We are actively looking to expand this list of countries in the near future, so please stay tuned. For the complete list, please see **Section 1b** of the [Microsoft Azure Marketplace Participation Policies](http://go.microsoft.com/fwlink/?LinkID=526833).
 <!-- Anchor to "Sell-from" countries section -->
 
 ## Next Steps
