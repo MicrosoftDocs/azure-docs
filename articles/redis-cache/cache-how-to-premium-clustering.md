@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/30/2015" 
+	ms.date="10/01/2015" 
 	ms.author="sdanie"/>
 
 # How to configure Redis clustering for a Premium Azure Redis Cache
@@ -99,8 +99,8 @@ During the preview period you can only enable and configure clustering when you 
 Clustering is only available for premium caches.
 
 ## Next steps
-
 Learn how to use more premium cache features.
+
 -	[How to configure persistence for a Premium Azure Redis Cache](cache-how-to-premium-persistence.md)
 -	[How to configure Virtual Network support for a Premium Azure Redis Cache](cache-how-to-premium-vnet.md)
   
