@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="09/15/2015"
+   ms.date="09/30/2015"
    ms.author="seanmck"/>
 
 # Create your first Service Fabric application in Visual Studio
@@ -52,7 +52,7 @@ A Service Fabric application can contain one or more services, each with a speci
 
 	- **Scripts**: A PowerShell script for deploying/upgrading your application. This script is used behind-the-scenes by Visual Studio and can be invoked directly at the command line.
 
-	- **Application definition**: The application manifest and associated app instance definition files define the application and allow you to configure it specifically for a given environment.
+	- **Application definition**: The application manifest and associated application parameter files define the application and allow you to configure it specifically for a given environment.
 
   For an overview of the contents of the service project, see [Getting Started with Reliable Services](service-fabric-reliable-services-quick-start.md).
 
@@ -79,6 +79,8 @@ Now that we have an application, let's try running it.
 	![Diagnostic events viewer detail][6]
 
 	The local cluster is made up of five nodes, mimicking a cluster of five distinct machines. Let's simulate the loss of one of those machines and exercise the Visual Studio debugger at the same time.
+
+    >[AZURE.NOTE] The application diagnostic events emitted by the project template use the included `ServiceEventSource` class. For more information, see [How to monitor and diagnose services locally](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally)
 
 4. Find the class in your service project that derives from StatefulService (eg. MyStatefulService) and set a breakpoint on the first line of the `RunAsync` method.
 
