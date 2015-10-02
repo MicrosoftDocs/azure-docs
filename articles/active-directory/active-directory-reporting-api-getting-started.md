@@ -157,6 +157,11 @@ Once you finish editing the script, run it and verify that the expected data fro
 
 The script returns lists all the available reports, and returns output from the AccountProvisioningEvents report in the PowerShell window in JSON format. It also creates files with the same output in JSON, text and XML. You can comment experiment with modifying the script to return data from other reports, and comment out the output formats that you do not need.
 
+## Notes
+
+- There is no limit on the number of events returned by the Azure AD Reporting API (using OData pagination).
+	- For retention limits on reporting data, check out [Reporting Retention Policies](active-directory\active-directory-reporting-retention.md).
+
 
 ## Next Steps
 - Curious about what security, audit, and activity reports are available? Check out [Azure AD Security, Audit, and Activity Reports](active-directory-view-access-usage-reports.md)
