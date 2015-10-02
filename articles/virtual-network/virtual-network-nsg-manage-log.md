@@ -22,8 +22,8 @@
 You can use different types of logs in Azure to manage and troubleshoot NSGs. Some of these logs can be accessed through the portal, and all logs can be extracted from an Azure blob storage, and viewed in different tools, such as Excel and PowerBI. You can learn more about the different types of logs from the list below.
 
 - **Audit logs:** You can use [Azure Audit Logs](insights-debugging-with-events.md) (formerly known as Operational Logs) to view all operations being submitted to your Azure subscription(s), and their status. Audit logs are enabled by default, and can be viewed in the Azure preview portal.
-- **Event logs:** You can use this log to view what NSG rules are applied to VMs and instance roles based on MAC address. Since rules can change at any time, the diagnostics service in Azure verifies what rules are applied to each VM and role instance every 60 seconds. 
-- **Counter logs:** You can use this log to view how many times each NSG rule was used on incoming and outgoing traffic.
+- **Event logs:** You can use this log to view what NSG rules are applied to VMs and instance roles based on MAC address. The status for these rules is collected every 60 seconds. 
+- **Counter logs:** You can use this log to view how many times each NSG rule was applied to deny or allow traffic.
 
 >[AZURE.WARNING] Logs are only available for resources deployed in the Resource Manager deployment model. You cannot use logs for resources in the classic deployment model. For a better understanding of the two models, reference the [Understanding Resource Manager deployment and classic deployment](resource-manager-deployment-model.md) article.
 
@@ -43,7 +43,7 @@ Audit logging is automatically enabled at all times for every Resource Manager r
 4. In the **Settings** blade, click **Diagnostics**, and then in the **Diagnostics** pane, next to **Status**, click **On**
 5. In the **Settings** blade, click **Storage Account**, and either select an existing storage account, or create a new one.  
 
->[AZURE.INFORMATION] Audit logs do not require a separate storage account. The use of storage for event and rule logging will incur in service charges.
+>[AZURE.INFORMATION] Audit logs do not require a separate storage account. The use of storage for event and rule logging will incur service charges.
 
 6. In the drop-down list just under **Storage Account**, select whether you want to log events, counters, or both, and then click **Save**.
 
@@ -107,7 +107,7 @@ You can view and analyze audit log data using any of the following methods:
 ##View and analyze the counter and event log 
 You need to connect to your storage account and retrieve the JSON log entries for event and counter logs. Once you download the JSON files, you can convert them to CSV and view in Excel, PowerBI, or any other data visualization tool.
 
->[AZURE.TIP] If you are familiar with Visual Studio and basic cincepts of changing values for constants and variables in C#, you can use the [log converter tools](https://github.com/Azure-Samples/networking-dotnet-log-converter) available from Github.
+>[AZURE.TIP] If you are familiar with Visual Studio and basic concepts of changing values for constants and variables in C#, you can use the [log converter tools](https://github.com/Azure-Samples/networking-dotnet-log-converter) available from Github.
 
 ##Additional resources
 
