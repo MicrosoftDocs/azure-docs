@@ -26,14 +26,14 @@ new resource group and a new subscription.
 
 ## Compute
 
-| Service | Enabled | Move Resources | REST API | Schema |
-| ------- | ------- | -------------- | -------- | ------ |
-| Virtual Machines | Yes |           | [Create VM](https://msdn.microsoft.com/library/azure/mt163591.aspx) | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Compute.json) |
-| Batch   | Yes     |                | [Batch REST](https://msdn.microsoft.com/library/azure/dn820158.aspx) |        |
-| Dynamics Lifecycle Services | Yes |    |      |        |
-| Compute (classic) | Limited | Partial | - | - |
-| Remote App | No   | -              | -        | -      |
-| Service Fabric | No | -            | -        | -      |
+| Service | Resource Manager Enabled | Preview Portal | Move Resources | REST API | Schema |
+| ------- | ------------------------ | -------------- | -------------- |-------- | ------ |
+| Virtual Machines | Yes | Yes |          | [Create VM](https://msdn.microsoft.com/library/azure/mt163591.aspx) | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Compute.json) |
+| Batch   | Yes     | No |               | [Batch REST](https://msdn.microsoft.com/library/azure/dn820158.aspx) |        |
+| Dynamics Lifecycle Services | Yes | No |    |      |        |
+| Compute (classic) | Limited | No | Partial | - | - |
+| Remote App | No   | - | -              | -        | -      |
+| Service Fabric | No | - | -           | -        | -      |
 
 Compute (classic) refers to resources that were deployed through the classic deployment model, instead of through the Resource Manager deployment model. In general, these resources do not support Resource Manager operations, but there 
 are some operations that have been enabled. For more information about these deployment models, see [Understanding Resource Manager deployment and classic deployment](resource-manager-deployment-model.md). 
