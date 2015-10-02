@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/28/2015"
+	ms.date="10/01/2015"
 	ms.author="markvi"/>
 
 # Azure Active Directory editions
@@ -59,11 +59,11 @@ Active Directory Premium edition is a paid offering of Azure Active Directory an
 
 - **Multi-Factor Authentication** - Multi-Factor Authentication is now included with Premium and can help you to secure access to on-premises applications (VPN, RADIUS, etc.), Azure, Microsoft Online Services like Office 365 and Dynamics CRM Online, and thousands of Non-MS Cloud services pre-integrated with Azure Active Directory. Simply enable Multi-Factor Authentication for Azure Active Directory identities, and users will be prompted to set up additional verification the next time they sign in.
 
-    For more information, see [What is Azure Multi-Factor Authentication?](multi-factor-authentication.md)th
+    For more information, see [What is Azure Multi-Factor Authentication?](multi-factor-authentication.md)
 
-- **Microsoft Identity Manager (MIM)** - Premium comes with the option to grant rights to use a MIM server (and CALs) in your on-premises network to support any combination of Hybrid Identity solutions. This is a great option if you have a variation of on-premises directories and databases that you want to sync directly to Azure Active Directory. There is no limit on the number of FIM servers you can use, however, MIM CALs are granted based on the allocation of an Azure Active Directory premium user license.
+- **Microsoft Identity Manager** - Premium comes with the option to grant rights to use a MIM server (and CALs) in your on-premises network to support any combination of Hybrid Identity solutions. This is a great option if you have a variation of on-premises directories and databases that you want to sync directly to Azure Active Directory. There is no limit on the number of MIM servers you can use, however, MIM CALs are granted based on the allocation of an Azure Active Directory premium user license.
 
-    For more information, see [Deploy MIM 2010 R2](https://www.microsoft.com/server-cloud/products/forefront-identity-manager/features.aspx).
+    For more information, see [Microsoft Identity Manager](http://www.microsoft.com/en-us/server-cloud/products/microsoft-identity-manager/default.aspx).
 
 - **Enterprise SLA of 99.9%** - We guarantee at least 99.9% availability of the Azure Active Directory Premium service.
 
