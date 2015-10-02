@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/29/2015"
+	ms.date="10/01/2015"
 	ms.author="chhavib;cgronlun;garye"/>
 
 
@@ -37,7 +37,7 @@ Sign in using your Microsoft account to enjoy additional benefits, such as:
 - Contribute and showcase your predictive analytic experiments and collections
 
 ## Discover and learn
-Search and browse the different types solutions that have been contributed by Microsoft and the advanced analytics community. Use these to get a head start on solving your own data analysis problems.
+Search and browse the different types of solutions that have been contributed by Microsoft and the advanced analytics community. Use these to get a head start on solving your own data analysis problems.
 
 You can easily find recently published and popular solutions in the Gallery, or you can search by name, tags, algorithms, and other attributes.
 View contributions from a particular author by clicking the author name from within any of the tiles.
