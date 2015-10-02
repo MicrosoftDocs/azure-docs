@@ -55,7 +55,6 @@ For the comprehensive list of SaaS apps that have been pre-integrated into Azure
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Clarizen.jpg)| [Clarizen](https://go.microsoft.com/fwLink/?LinkID=403229&clcid=0x409)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Clever.jpg)| [Clever](https://go.microsoft.com/fwLink/?LinkID=530228&clcid=0x409)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_ClickTime.jpg)| [ClickTime](https://go.microsoft.com/fwLink/?LinkID=403236&clcid=0x409)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_CloudBees.jpg)| [CloudBees](https://go.microsoft.com/fwLink/?LinkID=403228&clcid=0x409)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_CloudPassage.jpg)| [CloudPassage](https://go.microsoft.com/fwLink/?LinkID=512732&clcid=0x409)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Concur.jpg)| [Concur](https://go.microsoft.com/fwLink/?LinkID=309575&clcid=0x409)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Coupa.jpg)| [Coupa](https://go.microsoft.com/fwLink/?LinkID=510267&clcid=0x409)|
@@ -111,6 +110,7 @@ For the comprehensive list of SaaS apps that have been pre-integrated into Azure
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Questetra_BPM_Suite.jpg)| [Questetra BPM Suite](https://go.microsoft.com/fwLink/?LinkID=530240&clcid=0x409)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_RallySoftware.jpg)| [Rally Software](https://go.microsoft.com/fwLink/?LinkID=403247&clcid=0x409)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Replicon.jpg)| [Replicon](https://go.microsoft.com/fwLink/?LinkID=403243&clcid=0x409)|
+| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_RightAnswers.jpg)| [RightAnswers](https://go.microsoft.com/fwLink/?LinkID=530239&clcid=0x409)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_RunMyProcess.jpg)| [RunMyProcess](https://go.microsoft.com/fwLink/?LinkID=403246&clcid=0x409)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Salesforce.jpg)| [Salesforce](https://go.microsoft.com/fwLink/?LinkID=286017&clcid=0x409)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Salesforce.jpg)| [Salesforce Sandbox](https://go.microsoft.com/fwLink/?LinkID=521879&clcid=0x409)|
@@ -155,7 +155,6 @@ For the comprehensive list of SaaS apps that have been pre-integrated into Azure
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Zscaler.jpg)| [Zscaler Beta](https://go.microsoft.com/fwLink/?LinkID=512736&clcid=0x409)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Zscaler.jpg)| [Zscaler One](https://go.microsoft.com/fwLink/?LinkID=512737&clcid=0x409)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Zscaler.jpg)| [Zscaler Two](https://go.microsoft.com/fwLink/?LinkID=512734&clcid=0x409)|
-
 
 
 

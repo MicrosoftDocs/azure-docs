@@ -273,6 +273,8 @@ If client browsers keep falling back to long polling instead of using WebSockets
 
 In this tutorial you learned how to create a chat application hosted in an Azure web app. You can also host this application as an Azure Cloud Service. For steps on how to accomplish this, see [Build a Node.js Chat Application with Socket.IO on an Azure Cloud Service][cloudservice].
 
+For more information, see also the [Node.js Developer Center](/develop/nodejs/).
+
 ## What's changed
 * For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)
 * For a guide to the change of the old portal to the new portal see: [Reference for navigating the preview portal](http://go.microsoft.com/fwlink/?LinkId=529715)

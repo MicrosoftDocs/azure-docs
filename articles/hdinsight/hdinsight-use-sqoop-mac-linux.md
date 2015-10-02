@@ -40,13 +40,13 @@ Before you begin this tutorial, you must have the following:
 
 - **Workstation**: A computer with an SSH client.
 
-- **Azure CLI**: For more information, see [Install and Configure the Azure CLI](../xplat-cli.md)
+- **Azure CLI**: For more information, see [Install and Configure the Azure CLI](../xplat-cli-install.md)
 
 - **Linux-based HDInsight cluster**: For instructions about cluster provision, see [Get started using HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md) or [Provision HDInsight clusters][hdinsight-provision].
 
 - **Azure SQL database**: This document provides instructions for creating an example SQL database. For more information on SQL Database, see [Get started using Azure SQL database][sqldatabase-get-started].
 
-* **SQL Server**: The steps in this document can also be used, with some modification, with SQL Server. For more information on requirements specific to using this article with SQL Server, see the [Using SQL Server](#using-sql-server) section.
+* **SQL Server**: The steps in this document can also be used, with some modification, with SQL Server; however, both the HDInsight cluster and SQL Server must be on the same Azure Virtual Network. For more information on requirements specific to using this article with SQL Server, see the [Using SQL Server](#using-sql-server) section.
 
 ##Understand the scenario
 

@@ -34,11 +34,11 @@ Before you begin this article, you must have the following:
 
 - **An Azure subscription**. See [Get Azure free trial](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
-- **Azure CLI** - See [Install and configure the Azure CLI](../xplat-cli.md) for installation and configuration information.
+- **Azure CLI** - See [Install and configure the Azure CLI](../xplat-cli-install.md) for installation and configuration information.
 
 ##Installation
 
-If you have not already done so, use the [Install and configure the Azure CLI](../xplat-cli.md) document to install and configure the Azure CLI.
+If you have not already done so, use the [Install and configure the Azure CLI](../xplat-cli-install.md) document to install and configure the Azure CLI.
 
 ##Provision an HDInsight cluster
 
@@ -132,8 +132,11 @@ Use the following command to delete a cluster:
 
 	azure hdinsight cluster delete <ClusterName>
 
+##<a name="scaling"></a>Scale a cluster
 
+To change the Hadoop cluster size by using Azure PowerShell, run the following command from a client machine:
 
+	Set-AzureHDInsightClusterSize -ClusterSizeInNodes <NewSize> -name <clustername>
 
 ##Next steps
 In this article, you have learned how to perform different HDInsight cluster administrative tasks. To learn more, see the following articles:
@@ -144,7 +147,7 @@ In this article, you have learned how to perform different HDInsight cluster adm
 * [How to use the Azure CLI] [azure-command-line-tools]
 
 
-[azure-command-line-tools]: ../xplat-cli.md
+[azure-command-line-tools]: ../xplat-cli-install.md
 [azure-create-storageaccount]: ../storage-create-storage-account.md
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/

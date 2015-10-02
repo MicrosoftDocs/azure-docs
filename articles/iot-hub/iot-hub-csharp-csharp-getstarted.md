@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Get Started with IoT Hub"
+	pageTitle="Get Started with IoT Hub | Microsoft Azure"
 	description="Follow this tutorial to get started using Azure IoT Hub with C#."
 	services="iot-hub"
 	documentationCenter=".net"
@@ -18,8 +18,6 @@
 
 # Get started with IoT Hub
 
-[AZURE.INCLUDE [service-bus-selector-get-started](../../includes/iot-hub-selector-get-started.md)]
-
 ## Introduction
 
 Azure IoT Hub is a fully managed service that enables reliable and secure bi-directional communications between millions of IoT devices and an application back end. One of the biggest challenges facing IoT projects is how to reliably and securely connect devices to the application back end. To simplify this scenario, Azure IoT Hub offers reliable device-to-cloud and cloud-to-device hyper-scale messaging, enables secure communications using per-device security credentials and access control, and includes device libraries for the most popular languages and platforms.
@@ -32,11 +30,13 @@ At the end of this tutorial you will have created three Windows console applicat
 * **ReadDeviceToCloudMessages**, which reads device-to-cloud messages and displays their content, and
 * **SimulatedDevice**, which connects to your IoT hub with the device identity created earlier, and sends a device-to-cloud message every second.
 
+> [AZURE.NOTE] IoT Hub has SDK support for many device platforms and languages (including C, Java, and Javascript) though Azure IoT device SDKs. Refer to the [Azure IoT Developer Center] for step by step instructions on how to connect your device to this tutorial's code, and generally to Azure IoT Hub. Azure IoT service SDKs for Java and Node are coming soon.
+
 In order to complete this tutorial you'll need the following:
 
 + Microsoft Visual Studio 2015,
 
-+ An active Azure account. <br/>If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdevelop%2Fiot%2Ftutorials%2Fget-started%2F target="_blank").
++ An active Azure account. <br/>If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdevelop%2Fiot%2Ftutorials%2Fgetstarted%2F target="_blank").
 
 ## Create an IoT hub
 
@@ -98,10 +98,11 @@ In this tutorial, you set up a new IoT hub, created a device identity in the hub
 
 Additional information on IoT Hub:
 
-- [IoT Hub Overview]
-- [IoT Hub Developer Guide]
-- [IoT Hub Supported Devices]
-- [IoT Hub APIs and SDKs]
+* [IoT Hub Overview]
+* [IoT Hub Developer Guide]
+* [IoT Hub Guidance]
+* [Supported device platforms and languages][Supported devices]
+* [Azure IoT Developer Center]
 
 <!-- Images. -->
 [1]: ./media/iot-hub-csharp-csharp-getstarted/create-iot-hub1.png
@@ -121,9 +122,12 @@ Additional information on IoT Hub:
 [Uploading files from devices]: iot-hub-csharp-csharp-file-upload.md
 
 [IoT Hub Overview]: iot-hub-what-is-iot-hub.md
+[IoT Hub Guidance]: iot-hub-guidance.md
 [IoT Hub Developer Guide]: iot-hub-devguide.md
 [IoT Hub Supported Devices]: iot-hub-supported-devices.md
-[IoT Hub APIs and SDKs]: iot-hub-sdks-overview.md
+[Get started with IoT Hub]: iot-hub-csharp-csharp-getstarted.md
+[Supported devices]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/tested_configurations.md
+[Azure IoT Developer Center]: http://www.azure.com/iotdev
 
 
 
