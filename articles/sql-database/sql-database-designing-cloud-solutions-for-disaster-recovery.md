@@ -28,7 +28,7 @@ This option is best suited for applications with the following characteristics:
 + strong dependency on read-write (RW) access to data 
 + cross region connectivity between the application logic and the database is not acceptable due to latency and traffic cost    
 
-In this case the application deployment topology is optimized for handling regional disasters when all application components are impacted and need to failover as a unit. For geographic redundancy both the application logic and the database are replicated to another region but not used for application workload under the normal conditions. The application in the secondary region should configured to use a SQL connection string to the secondary database. Traffic manager is set up to use [failover routing](https://azure.microsoft.com/en-us/documentation/articles/traffic-manager-routing-methods/#failover-traffic-routing-method).  
+In this case the application deployment topology is optimized for handling regional disasters when all application components are impacted and need to failover as a unit. For geographic redundancy both the application logic and the database are replicated to another region but not used for application workload under the normal conditions. The application in the secondary region should be configured to use a SQL connection string to the secondary database. Traffic manager is set up to use [failover routing method](https://azure.microsoft.com/en-us/documentation/articles/traffic-manager-routing-methods/#failover-traffic-routing-method).  
 
 > [AZURE.NOTE] [Azure traffic manager](https://azure.microsoft.com/en-us/documentation/articles/traffic-manager-overview/) is used throughout this article for illustration purposes only. You can use any load balancing solution that supports failover routing method.    
  
@@ -70,7 +70,7 @@ The main **tradeoff** is that the redundant application instance in the secondar
 This option is best suited for applications with the following characteristics:
 
 + high ratio of database reads to writes
-+ database write latency does not directly impact the end user experience  
++ database write latency does not impact the end user experience  
 + the read-only logic can be separated from the read-write logic by using a different connection string 
 + the read-only logic does not depend on the data being fully synchronized with the latest version  
 
@@ -78,7 +78,7 @@ If your applications has these characteristics load balancing the end user conne
 
 As in pattern #1, you should consider deploying a similar monitoring application. But unlike pattern #1 it will not be responsible for triggering the end-point failover. 
 
-> [AZURE.NOTE] While this pattern use more than one database secondary only one of the secondaries would be used for failover for the reasons noted earlier. Because this pattern requires read-only access to the secondary it requires [Active geo-replication](https://msdn.microsoft.com/library/azure/dn741339.aspx). 
+> [AZURE.NOTE] While this pattern uses more than one secondary database only one of the secondaries would be used for failover for the reasons noted earlier. Because this pattern requires read-only access to the secondary it requires [Active geo-replication](https://msdn.microsoft.com/library/azure/dn741339.aspx). 
 
 Traffic manager should be configured for performance routing to direct the user connections to the application instance closest to the user's geographic location. The following diagram illustrates this configuration before an outage. 
 ![Figure 4](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/pattern2-1.png)
