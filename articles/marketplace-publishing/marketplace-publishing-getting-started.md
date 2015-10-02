@@ -53,6 +53,8 @@ Insert table/matrix of artifacts x (portals, identities, business)
 - [Troubleshooting Common Publishing Problems in the Marketplace][suppt-common]
 
 ## Additional Resources
+- To learn more about the Portals used, visit [Portals You Will Need](marketplace-publishing-portals.md)
+
 **Virtual Machines**
 - Setting up Azure PowerShell
 - VM Single Image instructions for developing on-premises
