@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/2/2015" 
+	ms.date="06/30/2015" 
 	ms.author="omark"/>
 
 # What is Azure App Service?
@@ -43,18 +43,18 @@ App Service allows you to create the following app types from a single developme
 
 - [**Web Apps**](../app-service-web-overview) - Quickly create and deploy mission critical Web apps that scale with your business.
 - [**Mobile Apps**](../app-service-mobile-value-prop-preview) - Engage employees, partners and customers on any device at any time.
-- [**API Apps**](../app-service-api-apps-why-best-platform) - Easily build and consume Cloud APIs.
+- [**API Apps**](../app-service-api-apps-why-best-platform) - Easily build and consume Cloud APIs and participate in the API economy.
 - [**Logic Apps**](../app-service-logic-what-are-logic-apps) - Automate the access and use of data across clouds without writing code.
 
 As a single integrated service, App Service makes its easy to compose the above app types into a single solution, allowing you to easily build apps that target both web and mobile clients using the same back-end and integrate with on-premise systems as well as popular services such as Office 365 and salesforce.com.
 
 ### App Service Plans
-App Service Plans represent a set of features and capacity that you can share across your apps. App Service Plans support a few pricing tiers (e.g. Free, Shared, Basic, Standard, and Premium) where each tier has its own capabilities. You can quickly change which App Service Plan an app is hosted on with no downtime. [Learn more about App Service Plans](../web-sites-web-hosting-plan-overview.md).
+App Service Plans represent a set of features and capacity that you can share across your apps. App Service Plans support a few pricing tiers (e.g. Free, Shared, Basic, and Standard) where each tier has its own capabilities. You can quickly change which App Service Plan an app is hosted on with no downtime. [Learn more about App Service Plans](../web-sites-web-hosting-plan-overview.md).
 
 ##Get Started with App Service
 Want a taste? Get going in seconds.
 
 With Azure App Service, this is as easy as selecting a language! 
 
-[Create a new app](http://go.microsoft.com/fwlink/?LinkId=523751) right away for free. No credit card required, no commitments, no hassles.
+[Create a new web app](http://go.microsoft.com/fwlink/?LinkId=523751) right away for free. No credit card required, no commitments, no hassles.
  
