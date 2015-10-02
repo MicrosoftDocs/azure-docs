@@ -17,7 +17,7 @@
 
 # Creating and deploying Azure Resource Group deployment projects
 
-The **Azure Resource Group** deployment project template is available in Visual Studio when Azure SDK 2.6 is installed. Azure Resource Group projects let you group together and publish multiple related Azure resources in a single deployment operation. Azure Resource Group projects use a technology called **Azure Resource Manager** to do their work. **Azure Resource Manager** is a REST API service that lets you define Azure resource groups, which contain multiple Azure resources that are typically used together and have a similar lifecycle. By using resource groups, you can operate on all the resources in a group with a single function call, instead of calling different functions for each individual resource. To learn more about Azure resource groups, see [Using resource groups to manage your Azure resources](resource-group-portal.md). For a more detailed, end-to-end Azure Resource Group deployment scenario, see [Azure Resource Group for Visual Studio](https://azure.microsoft.com/en-us/blog/azure-resource-manager-2-5-for-visual-studio/).
+The **Azure Resource Group** deployment project template is available in Visual Studio when Azure SDK 2.6 is installed. Azure Resource Group projects let you group together and publish multiple related Azure resources in a single deployment operation. Azure Resource Group projects use a technology called **Azure Resource Manager** to do their work. **Azure Resource Manager** is a REST API service that lets you define Azure resource groups, which contain multiple Azure resources that are typically used together and have a similar lifecycle. By using resource groups, you can operate on all the resources in a group with a single function call, instead of calling different functions for each individual resource. To learn more about Azure resource groups, see [Using the Azure Preview Portal to manage your Azure resources](resource-group-portal.md). For a more detailed, end-to-end Azure Resource Group deployment scenario, see [Azure Resource Group for Visual Studio](https://azure.microsoft.com/en-us/blog/azure-resource-manager-2-5-for-visual-studio/).
 
 Azure Resource Group projects contain Azure Resource Manager JSON templates, which define the elements that are deployed to a resource group. See [Authoring Azure Resource Manager templates](resource-group-authoring-templates.md) for more information.
 
@@ -47,16 +47,16 @@ In this procedure, you learn how to create an Azure Resource Group project with 
 
     Since we chose the Web app template for this example, you see the following files. 
 
-|File name|Description|
-|---|---|
-|Deploy-AzureResourceGroup.ps1|A PowerShell script that invokes PowerShell commands to deploy to Azure Resource Manager.
+    |File name|Description|
+    |---|---|
+    |Deploy-AzureResourceGroup.ps1|A PowerShell script that invokes PowerShell commands to deploy to Azure Resource Manager.
 
-**Note** This PowerShell script is used by Visual Studio to deploy your template. Any changes you make to this script will also affect deployment in Visual Studio, so be careful.|
-!WebSite.json|A configuration file that specifies all the details that you want deployed to Azure Resource Manager.|
-|WebSite.param.dev.json|A parameters file that contains specific values needed by the configuration file.|
-|AzCopy.exe|A tool used by the PowerShell script to copy files from the local storage drop path to the storage account container. This tool is used only if you configure the deployment project to deploy your code along with the template.|
+    **Note** This PowerShell script is used by Visual Studio to deploy your template. Any changes you make to this script will also affect deployment in Visual Studio, so be careful.|
+    !WebSite.json|A configuration file that specifies all the details that you want deployed to Azure Resource Manager.|
+    |WebSite.param.dev.json|A parameters file that contains specific values needed by the configuration file.|
+    |AzCopy.exe|A tool used by the PowerShell script to copy files from the local storage drop path to the storage account container. This tool is used only if you configure the deployment project to deploy your code along with the template.|
 
-All Azure Resource Group deployment projects contain these four basic files. Other projects may contain additional files to support other functionality.
+    All Azure Resource Group deployment projects contain these four basic files. Other projects may contain additional files to support other functionality.
 
 ## Customizing an Azure Resource Group project
 
@@ -120,7 +120,7 @@ When you deploy an Azure Resource Group project, you deploy it to an Azure resou
 
     >[AZURE.NOTE] You may be asked to install the Microsoft Azure PowerShell cmdlets. Because these cmdlets are required to deploy Azure resource groups, you need to install them.
 
-1. In a browser, open the [Azure Management Preview Portal](https://portal.azure.com/). Since this is a new change, there should be a new notification message available in the **Notifications** tab. Choose it to view details about the new Azure resource group. To see a list of all the available resource groups, you can choose the **Browse** tab and then choose **Resource Groups**.
+1. In a browser, open the [Azure Preview Portal](https://portal.azure.com/). Since this is a new change, there should be a new notification message available in the **Notifications** tab. Choose it to view details about the new Azure resource group. To see a list of all the available resource groups, you can choose the **Browse** tab and then choose **Resource Groups**.
 
     ![The provisioned Azure Resource Group](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/IC796676.png)
 
