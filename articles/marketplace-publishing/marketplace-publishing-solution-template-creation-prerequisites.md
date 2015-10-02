@@ -8,27 +8,17 @@
    editor=""/>
 
 <tags
-   ms.service="AzureStore"
+   ms.service="marketplace-publishing"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/29/2015"
+   ms.date="10/02/2015"
    ms.author="hascipio; v-divte" />
 
-# Pre-requisites for creating a multi-Virtual Machine image solution template for the Azure Marketplace
+# Technical Pre-requisites for creating a multi-Virtual Machine image solution template for the Azure Marketplace
 
 Read the process thoroughly before beginning and understand where and why each step is performed. You should prepare as much of your company information and other data as possible before beginning the process. This should be clear from reviewing the process itself.  
-
-## Get Approved via Microsoft Azure Certification Program
-> [AZURE.WARNING] You must be approved via the Azure Certification program to start the virtual machine image creation and publishing process. For a detailed overview of the Microsoft Azure Certification program and its benefits, visit http://azure.com/certified
-
-The first step on the path to getting your application or service certified and onboarded to Azure Marketplace is to fill out the application form on the Microsoft Azure Certified web page.
-If you meet the basic eligibility criteria we will ask you to share some more details about your business and the application or service that you want to certify. When we have all the details from you we will review your application to ensure is it’s a good fit for Azure Marketplace and if your application is approved we will start working with you to onboard your solution to Azure Marketplace.
-Take these steps to get started:
--	Visit the Microsoft Azure Certified web page: https://azure.microsoft.com/en-us/marketplace/partner-program/ to learn more about the program
-
--	If you are working with a Partner Account Manager or a DX Partner Manager please request them to nominate you for the Azure Certification program. Or go to the Microsoft Azure Certified web page, click on **Request Information** and fill in the application form.
 
 ## Ensure you are registered as a seller with Microsoft
 For detailed instructions on registering a seller account with Microsoft, go to [Account Creation & Registration](marketplace-publishing-accounts-creation-registration.md).

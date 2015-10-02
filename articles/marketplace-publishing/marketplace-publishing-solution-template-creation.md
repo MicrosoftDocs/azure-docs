@@ -8,12 +8,12 @@
    editor=""/>
 
    <tags
-      ms.service="AzureStore"
+      ms.service="marketplace-publishing"
       ms.devlang="na"
       ms.topic="article"
       ms.tgt_pltfrm="na"
       ms.workload="na"
-      ms.date="09/25/2015"
+      ms.date="10/02/2015"
       ms.author="hascipio; v-divte" />
 
 # Guide to creating a multi-VM image solution template for the Azure Marketplace
