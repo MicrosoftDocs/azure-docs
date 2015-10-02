@@ -22,10 +22,11 @@ This article is provided to help a seller create and deploy his/her solution e.g
 The first thing you would want to do as a publisher is to define what kind of solution your company is offering. Azure Marketplace supports multiple different types of solutions and each of them require a slightly different set of work from you in order to successfully publish into the Marketplace.
 
 **Types of solutions:**
-1. Data Services
-2. Developer Services
-3. Virtual Machines
-4. Solution Templates
+
+- Data Services
+- Developer Services
+- Virtual Machines
+- Solution Templates
 
 Some steps are shared between the different types of solutions. This provides a short overview of what steps you will need to complete for any type of solution.
 
