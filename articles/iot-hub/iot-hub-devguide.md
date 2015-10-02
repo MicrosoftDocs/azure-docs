@@ -40,7 +40,7 @@ Azure IoT Hub is a multi-tenant service, and exposes its functionalities to a va
 
 ![IoT Hub endpoints][img-endpoints]
 
-Here is a description of the endpoints:
+The following is a description of the endpoints:
 
 * **Resource provider**: The IoT Hub resource provider exposes an [Azure Resource Manager][lnk-arm] interface that allows Azure subscription owners to create IoT hubs, update IoT hub properties, and delete IoT hubs. IoT Hub properties govern hub-level security policies (as opposed to device-level access control. See [Access Control](#accesscontrol)) and functional options for cloud-to-device and device-to-cloud messaging. The resource provider also enables you to [export device identities](#importexport).
 * **Device identity management**: Each IoT hub exposes a set of HTTP REST endpoints to manage device identities (create, retrieve, update, and delete). Device identities are used for device authentication and access control. See [Device identity registry](#device-identity-registry) for more information.
@@ -75,7 +75,7 @@ If you must build an Event Hub connection string with the previous information, 
         Endpoint={Event Hub-compatible endpoint};SharedAccessKeyName={iot hub policy name};SharedAccessKey={iot hub policy key}
 
 
-Here is a list of SDKs and integration that can be used with IoT Hub:
+The following is a list of SDKs and integration that can be used with IoT Hub:
 
 * [Java Event Hubs client](https://github.com/hdinsight/eventhubs-client)
 * [Apache Storm spout](../hdinsight/hdinsight-storm-develop-csharp-event-hub-topology.md). You can find the link to the spout source [here](https://github.com/apache/storm/tree/master/external/storm-eventhubs)
@@ -193,7 +193,7 @@ IoT Hub uses the following set of *permissions* to grant access to each IoT hub'
 
 Permissions are granted in the following ways:
 
-* **Hub-level shared access policies**. *Shared access policies* can grant any combination of the permissions listed above. You can define policies in the [Azure Management Portal][lnk-management-portal] or programmatically using the [Azure IoT Hub Resource provider APIs][lnk-resource-provider-apis]. A newly created IoT hub has the following default policies:
+* **Hub-level shared access policies**. *Shared access policies* can grant any combination of the permissions listed in the previous section. You can define policies in the [Azure Management Portal][lnk-management-portal] or programmatically using the [Azure IoT Hub Resource provider APIs][lnk-resource-provider-apis]. A newly created IoT hub has the following default policies:
 
     - *iothubowner*: Policy with all permissions
     - *service*: Policy with **ServiceConnect** permission
@@ -301,7 +301,7 @@ This is the set of system properties in IoT Hub messages.
 
 ### Choosing your communication protocol <a id="amqpvshttp"></a>
 
-Iot Hub supports both the [AMQP][lnk-amqp] and HTTP/1 protocols for device-side communications. Here is a list of considerations regarding their uses.
+Iot Hub supports both the [AMQP][lnk-amqp] and HTTP/1 protocols for device-side communications. The following is a list of considerations regarding their uses.
 
 * **Cloud-to-device pattern**. HTTP/1 does not have an efficient way to implement server push. As such, when using HTTP/1, devices poll IoT Hub for cloud-to-device messages. This is very inefficient for both the device and IoT Hub. The current guidelines, when using HTTP/1 is to set a polling interval for each device of less than once per 25 minutes. On the other hand, AMQP supports server push when receiving cloud-to-device messages, and it enables immediate pushes of messages from IoT Hub to the device. If delivery latency is a concern, AMQP is the best protocol to use. On the other hand, for scarcely connected devices, HTTP/1 works as well.
 * **Field gateways**. Given the HTTP/1 limitations with respect to server push, it is not suitable to be used in [Field gateway scenarios][lnk-azure-gateway-guidance].
@@ -339,7 +339,7 @@ For details about how to use device-to-cloud messaging, see [IoT Hub APIs and SD
 
 #### Non-telemetry traffic
 
-In many cases, devices are sending not only telemetry data points to the application back-end, but also *interactive* messages and requests that require execution and handling from the application business logic layer. Good examples are critical alerts that have to trigger a specific action in the back-end, or device replies to commands.
+In many cases, devices send not only telemetry data points to the application back-end, but also *interactive* messages and requests that require execution and handling from the application business logic layer. Good examples are critical alerts that have to trigger a specific action in the back-end, or device replies to commands.
 
 See the [Device-to-cloud processing][lnk-guidance-d2c-processing] section of "IoT Hub Guidance" for more information about the best way to process this kind of messages.
 
@@ -352,7 +352,7 @@ An IoT hub exposes the following properties to control D2C messaging.
 
 Also, analogously to Event Hubs, IoT Hub allows the management of Consumer Groups on the device-to-cloud receive endpoint.
 
-All the properties above can be modified through either the [Azure portal][lnk-management-portal], or programmatically through the [Azure IoT Hub - Resource Provider APIs][lnk-resource-provider-apis].
+You can modify all these properties using either the [Azure portal][lnk-management-portal], or programmatically through the [Azure IoT Hub - Resource Provider APIs][lnk-resource-provider-apis].
 
 #### Anti-spoofing properties <a id="antispoofing"></a>
 
@@ -421,7 +421,7 @@ The body is a JSON-serialized array of records, each with the following properti
 | EnqueuedTime | Timestamp indicating when the outcome of the message happened. For example, the device completed or the message expired. |
 | CorrelationId | **MessageId** of the cloud-to-device message to which this feedback information pertains. |
 | StatusCode | **0** if success, **1** if the message expired, **2** if the maximum delivery count is exceeded, **3** if the message was rejected. |
-| Description | String values for the above outcomes. |
+| Description | String values for the previous outcomes. |
 | DeviceId | **DeviceId** of the target device of the cloud-to-device message to which this piece of feedback pertains. |
 | DeviceGenerationId | **DeviceGenerationId** of the target device of the cloud-to-device message to which this piece of feedback pertains. |
 
@@ -480,13 +480,13 @@ The following is the list of enforced throttles. Values refer to an individual h
 | D2C sends | 2000/min/unit (for S2), 60/min/unit (for S1). Minimum of 100/sec. |
 | C2D operations (sends, receive, feedback) | 100/min/unit |
 
-**Note**. At any given time, it is possible to increase quotas or throttle limits by increasing the provisioned units in an IoT hub.
+**Note**. At any given time, it is possible to increase quotas or throttle limits by increasing the number of provisioned units in an IoT hub.
 
 ## Next steps
 
 Now that you've seen an overview of developing for IoT Hub, follow these links to learn more:
 
-- [Get started with IoT Hubs (Tutorial)][lnk-get-started]
+- [Get started with IoT Hubs (tutorial)][lnk-get-started]
 - [OS Platforms and hardware compatibility][lnk-compatibility]
 - [Plan your IoT implementation][lnk-guidance]
 
