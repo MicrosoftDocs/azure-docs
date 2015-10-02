@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/01/2015"
+	ms.date="10/02/2015"
 	ms.author="jgao"/>
 
 #Use Sqoop with Hadoop in HDInsight (Windows)
@@ -468,71 +468,66 @@ In this section, you will use Azure PowerShell to run the Sqoop export command t
 5. Click **Run Script** or press **F5** to run the script.
 6. Use the [preview portal][azure-management-portal] to examine the exported data.
 
-
-
 ##Use the HDInsight .NET SDK to run Sqoop export
 
-From the Visual Studio Package Manager Console, run the following Nuget command to import the package.
+In this section, you will create a C# console application to export the hivesampletable to the SQL Database table you created earlier in this tutorials.
 
-	Install-Package Microsoft.Azure.Management.HDInsight.Job -Pre
+**To submit a Sqoop job**
 
-Use the following using statements:
+1. From the Visual Studio Package Manager Console, run the following Nuget command to import the package.
 
-	using Microsoft.Azure.Management.HDInsight.Job;
-	using Microsoft.Azure.Management.HDInsight.Job.Models;
-	using Hyak.Common;
+		Install-Package Microsoft.Azure.Management.HDInsight.Job -Pre
+2. Use the following using statements in the Program.cs file:
 
- 
-The following is a C# sample that uses the HDInsight .NET SDK to run the Sqoop export. For the general information about using the HDInsight .NET SDK, see [Submit Hadoop jobs programmatically][hdinsight-submit-jobs].
+		using System;
+		using Microsoft.Azure.Management.HDInsight.Job;
+		using Microsoft.Azure.Management.HDInsight.Job.Models;
+		using Hyak.Common;
+3. Add the following code into the Main() function. For the general information about using the HDInsight .NET SDK, see [Submit Hadoop jobs programmatically][hdinsight-submit-jobs].
 
+		var ExistingClusterName = "<HDInsightClusterName>";
+		var ExistingClusterUri = ExistingClusterName + ".azurehdinsight.net";
+		var ExistingClusterUsername = "<HDInsightClusterHttpUsername>";
+		var ExistingClusterPassword = "<HDInsightClusterHttpUserPassword>";
+		
+		var sqlDatabaseServerName = "<AzureSQLDatabaseServerName>";
+		var sqlDatabaseLogin = "<AzureSQLDatabaseLogin>";
+		var sqlDatabaseLoginPassword = "<AzureSQLDatabaseLoginPassword>";
+		var sqlDatabaseDatabaseName = "<AzureSQLDatabaseDatabaseName>";
+		
+		var sqlDatabaseTableName = "log4jlogs";
+		var exportDir = "/hive/warehouse/hivesampletable";
 
+		var cmdExport = @"export";
+		// Connection string for using Azure SQL Database.
+		// Comment if using SQL Server
+		cmdExport = cmdExport + @" --connect 'jdbc:sqlserver://" + sqlDatabaseServerName + ".database.windows.net;user=" + sqlDatabaseLogin + "@" + sqlDatabaseServerName + ";password=" + sqlDatabaseLoginPassword + ";database=" + sqlDatabaseDatabaseName +"'"; 
+		// Connection string for using SQL Server.
+		// Uncomment if using SQL Server
+		//cmdExport = cmdExport + @" --connect jdbc:sqlserver://" + sqlDatabaseServerName + ";user=" + sqlDatabaseLogin + ";password=" + sqlDatabaseLoginPassword + ";database=" + sqlDatabaseDatabaseName;
+		cmdExport = cmdExport + @" --table " + sqlDatabaseTableName;
+		cmdExport = cmdExport + @" --export-dir " + exportDir;
+		cmdExport = cmdExport + @" --input-fields-terminated-by \0x20 -m 1";
+		
+		HDInsightJobManagementClient _hdiJobManagementClient;
+		var clusterCredentials = new BasicAuthenticationCloudCredentials { Username = ExistingClusterUsername, Password = ExistingClusterPassword };
+		_hdiJobManagementClient = new HDInsightJobManagementClient(ExistingClusterUri, clusterCredentials);
 
-	HDInsightJobManagementClient _hdiJobManagementClient;
-	var ExistingClusterName = "<HDInsightClusterName>";
-	var ExistingClusterUri = ExistingClusterName + ".azurehdinsight.net";
-	var ExistingClusterUsername = "<HDInsightClusterHttpUsername>";
-	var ExistingClusterPassword = "<HDInsightClusterHttpUserPassword>";
-	
-	var sqlDatabaseServerName = "<AzureSQLDatabaseServerName>";
-	var sqlDatabaseLogin = "<AzureSQLDatabaseLogin>";
-	var sqlDatabaseLoginPassword = "<AzureSQLDatabaseLoginPassword>";
-	var sqlDatabaseDatabaseName = "<AzureSQLDatabaseDatabaseName>";
-	
-	var sqlDatabaseTableName = "log4jlogs";
-	var exportDir = "/hive/warehouse/hivesampletable";
-	
-	var cmdExport = @"export";
-	// Connection string for using Azure SQL Database.
-	// Comment if using SQL Server
-	cmdExport = cmdExport + @" --connect 'jdbc:sqlserver://" + sqlDatabaseServerName + ".database.windows.net;user=" + sqlDatabaseLogin + "@" + sqlDatabaseServerName + ";password=" + sqlDatabaseLoginPassword + ";database=" + sqlDatabaseDatabaseName +"'"; 
-	// Connection string for using SQL Server.
-	// Uncomment if using SQL Server
-	//cmdExport = cmdExport + @" --connect jdbc:sqlserver://" + sqlDatabaseServerName + ";user=" + sqlDatabaseLogin + ";password=" + sqlDatabaseLoginPassword + ";database=" + sqlDatabaseDatabaseName;
-	cmdExport = cmdExport + @" --table " + sqlDatabaseTableName;
-	cmdExport = cmdExport + @" --export-dir " + exportDir;
-	cmdExport = cmdExport + @" --input-fields-terminated-by \0x20 -m 1";
-	
-	var parameters = new SqoopJobSubmissionParameters
-	{
-	    UserName = ExistingClusterUsername,
-	    Command = cmdExport
-	};
-	
-	var clusterCredentials = new BasicAuthenticationCloudCredentials { Username = ExistingClusterUsername, Password = ExistingClusterPassword };
-
-	_hdiJobManagementClient = new HDInsightJobManagementClient(ExistingClusterUri, clusterCredentials);
-	
-	System.Console.WriteLine("Submitting the Sqoop job to the cluster...");
-	var response = _hdiJobManagementClient.JobManagement.SubmitSqoopJob(parameters);
-	System.Console.WriteLine("Validating that the response is as expected...");
-	System.Console.WriteLine("Response status code is " + response.StatusCode);
-	System.Console.WriteLine("Validating the response object...");
-	System.Console.WriteLine("JobId is " + response.JobSubmissionJsonResponse.Id);
-	Console.WriteLine("Press ENTER to continue ...");
-	Console.ReadLine();
-
-
-
+		var parameters = new SqoopJobSubmissionParameters
+		{
+		    UserName = ExistingClusterUsername,
+		    Command = cmdExport
+		};
+		
+		System.Console.WriteLine("Submitting the Sqoop job to the cluster...");
+		var response = _hdiJobManagementClient.JobManagement.SubmitSqoopJob(parameters);
+		System.Console.WriteLine("Validating that the response is as expected...");
+		System.Console.WriteLine("Response status code is " + response.StatusCode);
+		System.Console.WriteLine("Validating the response object...");
+		System.Console.WriteLine("JobId is " + response.JobSubmissionJsonResponse.Id);
+		Console.WriteLine("Press ENTER to continue ...");
+		Console.ReadLine();
+4. Press **F5** to run the program. 
 
 ##Use Azure PowerShell to run the Sqoop import
 
