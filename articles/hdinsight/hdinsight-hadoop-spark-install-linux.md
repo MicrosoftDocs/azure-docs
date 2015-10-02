@@ -13,15 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/28/2015" 
+	ms.date="10/01/2015" 
 	ms.author="larryfr"/>
 
 # Install and use Spark on HDInsight Hadoop clusters
 
 In this document, you will learn how to install Spark by using Script Action. Script Action lets you run scripts to customize a cluster, only when the cluster is being created. For more information, see [Customize HDInsight cluster using Script Action][hdinsight-cluster-customize]. Once you have installed Spark, you'll also learn how to run a Spark query on HDInsight clusters.
 
-> [AZURE.NOTE] HDInsight also provides Spark as a cluster type, which means you can now directly create a Spark cluster without modifying a Hadoop cluster. However, this is limited to Windows-based clusters currently. Using the Spark cluster type, you get a Windows-based HDInsight version 3.2 cluster with Spark version 1.5.0. For more information, see [Get Started with Apache Spark on HDInsight](hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql.md).
-
+> [AZURE.NOTE] HDInsight also provides Spark as a cluster type, which means you can now directly provision a Spark cluster without modifying a Hadoop cluster. However, this is limited to Windows-based clusters currently. Using the Spark cluster type, you get a Windows-based HDInsight version 3.2 cluster with Spark version 1.3.1. For more information, see [Get Started with Apache Spark on HDInsight](hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql.md).
 
 ## <a name="whatis"></a>What is Spark?
 
@@ -33,13 +32,13 @@ This topic provides instructions on how to customize an HDInsight cluster to ins
 
 ## <a name="whatis"></a>Which version of Spark can I install?
 
-In this topic, we use a Script Action custom script to install Spark on an HDInsight cluster. This script installs Spark 1.3.1.
+In this topic, we use a Script Action custom script to install Spark on an HDInsight cluster. This script installs Spark 1.5.0.
 
 You can modify this script or create your own script to install other versions of Spark.
 
 ## What the script does
 
-This script installs Spark version 1.3.1 into `/usr/hdp/current/spark`.
+This script installs Spark version 1.5.0 into `/usr/hdp/current/spark`.
 
 ## <a name="install"></a>Install Spark using Script Actions
 
