@@ -19,7 +19,7 @@
 # Creating a Microsoft seller account
 This article walks through the necessary account creation and registration to become an approved Microsoft seller for the Azure Marketplace.
 
-## 1. Create a Microsoft Account (MSA)
+## Step 1: Create a Microsoft Account (MSA)
 > [AZURE.WARNING] In order to complete the publishing process, you will need to create a Microsoft account. This account will be used to register for and to log in to both the Publishing Portal and the Seller Dashboard. You should only have one Microsoft Account for your Azure Marketplace offerings. They should not be specific to individual VMs.
 
 The address that forms the user name should be on your domain and controlled by your IT team (such as azurepublishing@yourcompany.com). Payment, tax information, and reporting will be routed through this account.
@@ -44,7 +44,7 @@ The address that forms the user name should be on your domain and controlled by 
 6. You’re now ready to use the new MSA in the Seller Dashboard.
 > [AZURE.IMPORTANT] Using the DL allows multiple people to receive email notifications that are important reporting of payout information, and also insures that ownership of the MSA can be transferred and isn’t tied to a single individual.
 
-## 2. Create your Seller Dashboard account
+## Step 2: Create your Seller Dashboard account
 The Microsoft Seller Dashboard is used to register the company information once. The registrant must be a valid representative of the company, and must provide their personal information as a way to validate their identity. The person registering must use a Microsoft account (MSA) that is shared for the company, and the same account must be used in the Azure Publishing Portal. You should check to make sure your company does not already have a Seller Dashboard account before attempting to create one. During the process, we will collect bank account information, tax information, and company address information. These are typically obtainable from finance or business contacts.
 
 > [AZURE.IMPORTANT] The following seller profile components must be completed in order to progress through the various phases of offer creation and deployment.
@@ -58,7 +58,7 @@ The Microsoft Seller Dashboard is used to register the company information once.
 > [AZURE.NOTE] BYOL is only supported for virtual machines and is considered **FREE** offering.
 
 
-## 2.1 Register your company account
+### Register your company account
 1. Open a new  IE InPrivate or Chrome Incognito browsing session to ensure that you’re not logged into a personal account
 
 2. Go to http://sellerdashboard.microsoft.com
@@ -106,7 +106,7 @@ If you are planning to publish commercial offers, you must complete tax and bank
 
 If you are planning to publish only free offers, then you can skip to section 3, **Register your account in the Publishing Portal.**
 
-## 2.2 Add Tax and Banking information
+### Add tax and banking information
  If you want to offer apps or add-ins for purchase, you also need to add payout and tax information and submit it for validation in the Seller Dashboard. If you are only offering free apps or add-ins, then you do not need to add this information. You can add it later, but it takes some time to validate the tax information. If you know that you will offer apps or add-ins for purchase, we recommend that you add it as soon as possible.
 
 1. Sign in to the [Seller Dashboard](http://sellerdashboard.microsoft.com) with your Microsoft account.
@@ -137,7 +137,7 @@ If you are planning to publish only free offers, then you can skip to section 3,
 8. You must provide payout and tax information and submit it for validation. In order to add payout and tax information, go to Account > Payout & Tax and click Add. Enter your company's information. You will be required to provide a Tax Identification Number and other tax information matching the country in which your business is headquartered.
 -->
 
-## 3. Register your account in the Publishing Portal
+## Step 3: Register your account in the Publishing Portal
 The Azure Publishing Portal is used to publish and manage your offer(s). Think of it as the CMS for your offerings/artifacts. It is how you will manage the details of your Marketplace offer, including marketing copy, pricing and endpoints for your Resource Provider, data connection, etc. Read the Publisher Portal Guide to get started. All remaining work is completed here.
 
 > [AZURE.WARNING] The same company Microsoft Account that was used in the Seller Dashboard registration MUST be used here. Additional users can be added to assist once the master publisher account has been created.
@@ -158,7 +158,7 @@ In order to sell your services on Microsoft Azure Marketplace, your registered e
 3. Choose **Registering for a developer account**
 4. Choose contact **method**
 
-## Next Steps
+## Next steps
 Now that your account is created and registered, click on the type of artifact (virtual machine, developer service, data service, solution template) that you would like to publish to the Azure Marketplace. Visit one of the following articles to learn how to publish your respective offer:
 
 || Virtual Machine Image | Developer Service | Data Service | Solution Template |
