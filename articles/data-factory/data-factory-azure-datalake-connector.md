@@ -1,25 +1,25 @@
-<properties 
-	pageTitle="Move data to and from Azure Data Lake Store | Azure Data Factory" 
-	description="Learn how to move data to/from Azure Data Lake Store using Azure Data Factory" 
-	services="data-factory" 
-	documentationCenter="" 
-	authors="spelluru" 
-	manager="jhubbard" 
+<properties
+	pageTitle="Move data to and from Azure Data Lake Store | Azure Data Factory"
+	description="Learn how to move data to/from Azure Data Lake Store using Azure Data Factory"
+	services="data-factory"
+	documentationCenter=""
+	authors="spelluru"
+	manager="jhubbard"
 	editor="monicar"/>
 
-<tags 
-	ms.service="data-factory" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="09/28/2015" 
+<tags
+	ms.service="data-factory"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/28/2015"
 	ms.author="spelluru"/>
 
 # Move data to and from Azure Data Lake Store using Azure Data Factory
-This article outlines how you can use the Copy Activity in an Azure data factory to move data to Azure Data Lake Store from another data store and move data from another data store to Azure Blob. This article builds on the [data movement activities](data-factory-data-movement-activities.md) article which presents a general overview of data movement with the copy activity and the supported data store combinations.
+This article outlines how you can use the Copy Activity in an Azure data factory to move data to Azure Data Lake Store from another data store and move data from another data store to Azure Data Lake Store. This article builds on the [data movement activities](data-factory-data-movement-activities.md) article which presents a general overview of data movement with the copy activity and the supported data store combinations.
 
-> [AZURE.NOTE] Please review the [Build your first pipeline tutorial](data-factory-build-your-first-pipeline.md) for detailed steps to create a data factory, linked services, datasets, and a pipeline. Use the JSON snippets with Data Factory Editor or Visual Studio or Azure PowerShell to create the Data Factory entities.    
+> [AZURE.NOTE] Please review the [Build your first pipeline tutorial](data-factory-build-your-first-pipeline.md) for detailed steps to create a data factory, linked services, datasets, and a pipeline. Use the JSON snippets with Data Factory Editor or Visual Studio or Azure PowerShell to create the Data Factory entities.
 
 ## Sample: Copy data from Azure Blob to Azure Data Lake Store
 The sample below shows:
@@ -30,7 +30,7 @@ The sample below shows:
 4.	An output [dataset](data-factory-create-datasets.md) of type [AzureDataLake](#azure-data-lake-dataset-type-properties).
 4.	A [pipeline](data-factory-create-pipelines.md) with a Copy activity that uses [BlobSource](#azure-blob-copy-activity-type-properties) and [AzureDataLakeSink](#azure-data-lake-copy-activity-type-properties).
 
-The sample copies data belonging to a time series from an Azure Blob Storage to Azure Data Lake  Store every hour. The JSON properties used in these samples are described in sections following the samples. 
+The sample copies data belonging to a time series from an Azure Blob Storage to Azure Data Lake  Store every hour. The JSON properties used in these samples are described in sections following the samples.
 
 
 **Azure Storage linked service:**
@@ -46,10 +46,10 @@ The sample copies data belonging to a time series from an Azure Blob Storage to 
 	}
 
 **Azure Data Lake linked service:**
- 
+
 	{
 	    "name": "AzureDataLakeLinkedService",
-	    "properties": {        
+	    "properties": {
 	        "type": "AzureDataLake",
 	        "typeProperties": {
 	            "dataLakeUri": "https://<accountname>.azuredatalake.net/webhdfs/v1",
@@ -60,19 +60,19 @@ The sample copies data belonging to a time series from an Azure Blob Storage to 
 	}
 
 ### To create Azure Data Lake Linked Service using Data Factory Editor
-The following procedure provides steps for creating an Azure Data Lake Store linked service using the Data Factory Editor. 
+The following procedure provides steps for creating an Azure Data Lake Store linked service using the Data Factory Editor.
 
-1. Click **New data store** on the command bar and select **Azure Data Lake**. 
+1. Click **New data store** on the command bar and select **Azure Data Lake**.
 
 	![Azure Data Lake linked service](./media/data-factory-azure-data-lake-connector/new-data-lake-linked-service.png)
-2. In the JSON editor, for the **datalakeUri** property, enter the URI for the data lake. 
+2. In the JSON editor, for the **datalakeUri** property, enter the URI for the data lake.
 3. Click **Authorize** button on the command bar. You should see a pop up window.
 
 	![Authorize button](./media/data-factory-azure-data-lake-connector/authorize-button.png)
-4. Use your credentials to sign-in and the **authorization** property in the JSON should be assigned to a value now. 
+4. Use your credentials to sign-in and the **authorization** property in the JSON should be assigned to a value now.
 5. (optional) Specify values for optional parameters such as **accountName**, **subscriptionID** and **resourceGroupName** in the JSON (or) delete these properties from the JSON.
-6. Click **Deploy** on the command bar to deploy the linked service. 
- 
+6. Click **Deploy** on the command bar to deploy the linked service.
+
 
 **Azure Blob input dataset:**
 
@@ -146,7 +146,7 @@ The sample copies data to an Azure Data Lake store. New data is copies to Data L
 	    "type": "AzureDataLake",
 	    "linkedServiceName": " AzureDataLakeLinkedService",
 	    "typeProperties": {
-	      "path": "datalake/input/"      
+	      "path": "datalake/input/"
 	    },
 	    "availability": {
 	      "frequency": "Hour",
@@ -159,7 +159,7 @@ The sample copies data to an Azure Data Lake store. New data is copies to Data L
 
 **Pipeline with a Copy activity:**
 
-The pipeline contains a Copy Activity that is configured to use the above input and output datasets and is scheduled to run every hour. In the pipeline JSON definition, the **source** type is set to **BlobSource** and **sink** type is set to **AzureDataLakeSink**. 
+The pipeline contains a Copy Activity that is configured to use the above input and output datasets and is scheduled to run every hour. In the pipeline JSON definition, the **source** type is set to **BlobSource** and **sink** type is set to **AzureDataLakeSink**.
 
 	{  
 	    "name":"SamplePipeline",
@@ -218,13 +218,13 @@ The sample below shows:
 4.	An output [dataset](data-factory-create-datasets.md) of type [AzureBlob](#azure-blob-dataset-type-properties).
 5.	A [pipeline](data-factory-create-pipelines.md) with a Copy activity that uses [AzureDataLakeSource](#azure-data-lake-copy-activity-type-properties) and [BlobSink](#azure-blob-copy-activity-type-properties)
 
-The sample copies data belonging to a time series from an Azure Data Lake store to an Azure blob every hour. The JSON properties used in these samples are described in sections following the samples. 
+The sample copies data belonging to a time series from an Azure Data Lake store to an Azure blob every hour. The JSON properties used in these samples are described in sections following the samples.
 
 **Azure Data Lake Store linked service:**
 
 	{
 	    "name": "AzureDataLakeLinkedService",
-	    "properties": {        
+	    "properties": {
 	        "type": "AzureDataLake",
 	        "typeProperties": {
 	            "dataLakeUri": "https://<accountname>.azuredatalake.net/webhdfs/v1",
@@ -254,12 +254,12 @@ Setting **"external": true** and specifying **externalData** policy informs the 
 
 	{
 		"name": "AzureDataLakeInput",
-	  	"properties": 
+	  	"properties":
 		{
 	    	"type": "AzureDataLake",
 	    	"linkedServiceName": " AzureDataLakeLinkedService",
 		    "typeProperties": {
-				"path": "datalake/input",      
+				"path": "datalake/input",
 		    },
 		    "external": true,
 		    "availability": {
@@ -278,8 +278,8 @@ Setting **"external": true** and specifying **externalData** policy informs the 
 
 **Azure Blob output dataset:**
 
-Data is written to a new blob every hour (frequency: hour, interval: 1). The folder path for the blob is dynamically evaluated based on the start time of the slice that is being processed. The folder path uses year, month, day, and hours parts of the start time. 
-	
+Data is written to a new blob every hour (frequency: hour, interval: 1). The folder path for the blob is dynamically evaluated based on the start time of the slice that is being processed. The folder path uses year, month, day, and hours parts of the start time.
+
 	{
 	  "name": "AzureBlobOutput",
 	  "properties": {
@@ -336,7 +336,7 @@ Data is written to a new blob every hour (frequency: hour, interval: 1). The fol
 
 **Pipeline with the Copy activity:**
 
-The pipeline contains a Copy Activity that is configured to use the above input and output datasets and is scheduled to run every hour. In the pipeline JSON definition, the **source** type is set to **AzureDataLakeSource** and **sink** type is set to **BlobSink**. 
+The pipeline contains a Copy Activity that is configured to use the above input and output datasets and is scheduled to run every hour. In the pipeline JSON definition, the **source** type is set to **AzureDataLakeSource** and **sink** type is set to **BlobSink**.
 
 
 	{  
@@ -394,9 +394,9 @@ You can link an Azure storage account to an Azure data factory using an Azure St
 | dataLakeUri | Specify information about the Azure Data Lake Store account. It is in the following format: https://<Azure Data Lake account name>.azuredatalake.net/webhdfs/v1 | Yes |
 | authorization | Click **Authorize** button in the **Data Factory Editor** and enter your credentials, which assigns the auto-generated authorization URL to this property.  | Yes |
 | sessionId | OAuth session id from the oauth authorization session. Each session id is unique and may only be used once. This is automatically generated when you use Data Factory Editor. | Yes |  
-| accountName | Data lake account name | No | 
-| subscriptionId | Azure subscription Id. | No (If not specified, subscription of the data factory is used). | 
-| resourceGroupName |  Azure resource group name | No (If not specified, resource group of the data factory is used). | 
+| accountName | Data lake account name | No |
+| subscriptionId | Azure subscription Id. | No (If not specified, subscription of the data factory is used). |
+| resourceGroupName |  Azure resource group name | No (If not specified, resource group of the data factory is used). |
 
 
 ## Azure Data Link Dataset type properties
@@ -406,9 +406,9 @@ For a full list of JSON sections & properties available for defining datasets, s
 The **typeProperties** section is different for each type of dataset and provides information about the location, format etc. of the data in the data store. The typeProperties section for dataset of type **AzureDataLake** dataset has the following properties.
 
 | Property | Description | Required |
-| -------- | ----------- | -------- | 
+| -------- | ----------- | -------- |
 | path | Path to the container and folder in the Azure Data Lake store. | Yes |
-| partitionedBy | partitionedBy is an optional property. You can use it to specify a dynamic folderPath and filename for time series data. For example, folderPath can be parameterized for every hour of data. See the Leveraging partitionedBy property section below for details and examples. | No | 
+| partitionedBy | partitionedBy is an optional property. You can use it to specify a dynamic folderPath and filename for time series data. For example, folderPath can be parameterized for every hour of data. See the Leveraging partitionedBy property section below for details and examples. | No |
 
 ### Leveraging partitionedBy property
 As mentioned above, you can specify a dynamic folderPath and filename for time series data with the **partitionedBy** section, Data Factory macros and the system variables: SliceStart and SliceEnd, which indicate start and end times for a given data slice.
@@ -418,7 +418,7 @@ See [Creating Datasets](data-factory-create-datasets.md) and [Scheduling & Execu
 #### Sample 1
 
 	"folderPath": "wikidatagateway/wikisampledataout/{Slice}",
-	"partitionedBy": 
+	"partitionedBy":
 	[
 	    { "name": "Slice", "value": { "type": "DateTime", "date": "SliceStart", "format": "yyyyMMddHH" } },
 	],
@@ -429,12 +429,12 @@ In the above example {Slice} is replaced with the value of Data Factory system v
 
 	"folderPath": "wikidatagateway/wikisampledataout/{Year}/{Month}/{Day}",
 	"fileName": "{Hour}.csv",
-	"partitionedBy": 
+	"partitionedBy":
 	 [
 	    { "name": "Year", "value": { "type": "DateTime", "date": "SliceStart", "format": "yyyy" } },
-	    { "name": "Month", "value": { "type": "DateTime", "date": "SliceStart", "format": "MM" } }, 
-	    { "name": "Day", "value": { "type": "DateTime", "date": "SliceStart", "format": "dd" } }, 
-	    { "name": "Hour", "value": { "type": "DateTime", "date": "SliceStart", "format": "hh" } } 
+	    { "name": "Month", "value": { "type": "DateTime", "date": "SliceStart", "format": "MM" } },
+	    { "name": "Day", "value": { "type": "DateTime", "date": "SliceStart", "format": "dd" } },
+	    { "name": "Hour", "value": { "type": "DateTime", "date": "SliceStart", "format": "hh" } }
 	],
 
 In the above example, year, month, day, and time of SliceStart are extracted into separate variables that are used by folderPath and fileName properties.
@@ -448,7 +448,7 @@ Properties available in the typeProperties section of the activity on the other 
 
 | Property | Description | Allowed values | Required |
 | -------- | ----------- | -------------- | -------- |
-| recursive | Indicates whether the data is read recursively from the sub folders or only from the specified folder. | True (default value), False | No | 
+| recursive | Indicates whether the data is read recursively from the sub folders or only from the specified folder. | True (default value), False | No |
 
 
 
@@ -464,18 +464,3 @@ Properties available in the typeProperties section of the activity on the other 
 [AZURE.INCLUDE [data-factory-type-conversion-sample](../../includes/data-factory-type-conversion-sample.md)]
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
