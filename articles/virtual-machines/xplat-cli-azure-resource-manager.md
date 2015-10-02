@@ -346,5 +346,5 @@ To view logged information on operations performed on a group, use the `azure gr
 [signuporg]: http://www.windowsazure.com/documentation/articles/sign-up-organization/
 [adtenant]: http://technet.microsoft.com/library/jj573650#createAzureTenant
 [portal]: https://manage.windowsazure.com/
-[clisetup]: ../xplat-cli.md
+[clisetup]: ../xplat-cli-install.md
 [psrm]: http://go.microsoft.com/fwlink/?LinkId=394760

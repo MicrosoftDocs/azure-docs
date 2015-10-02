@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="07/01/2015"
+	ms.date="10/01/2015"
 	ms.author="krisragh;donnam"/>
 
 # Get Started with Offline Data Sync in Mobile Services
@@ -155,7 +155,7 @@ When using the Core Data offline store, you need to define particular tables and
 
     #### TodoItem
 
-    | Attribute     |  Type   | Note                                                   | 
+    | Attribute     |  Type   | Note                                                   |
     |-------------- |  ------ | -------------------------------------------------------|
     | id (required) | String  | primary key in remote store (required)                 |
     | complete      | Boolean | todo item field                                        |

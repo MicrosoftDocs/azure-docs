@@ -15,7 +15,7 @@
 	ms.devlang="dotnet"
 	ms.topic="article"
 	ms.date="09/24/2015"
-	ms.author="ricksal"/>
+	ms.author="wesmc"/>
 
 # Use Notification Hubs to send breaking news
 

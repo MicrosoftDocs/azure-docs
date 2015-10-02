@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/07/2015" 
+	ms.date="09/28/2015" 
 	ms.author="awills"/>
  
 # Exploring Metrics in Application Insights
@@ -75,20 +75,24 @@ For example, click through the web app's Failed Requests chart:
 
 ## What do the figures mean?
 
-The legend at the side by default shows the aggregated value over the period of the chart.
+The legend at the side by default usually shows the aggregated value over the period of the chart. If you hover over the chart, it shows the value at that point.
 
-Each data point on the chart is also an aggregate of the data values received in the preceding sampling interval or "granularity". The granularity is shown at the top of the blade, and varies with the overall timescale of the chart.
+Each data point on the chart is an aggregate of the data values received in the preceding sampling interval or "granularity". The granularity is shown at the top of the blade, and varies with the overall timescale of the chart.
 
-Different metrics are aggregated in different ways: 
+Metrics can be aggregated in different ways: 
 
- * For a metric such as response time, values are **averaged** over the period of the chart.
- * For counts of events such as failed requests, the aggregate is the **sum** of counts over the period.
- * For counts of users, the aggregate is the number of **unique** users over the period. (If a user is tracked more than once in the period, they are counted only once.)
+ * **Sum** adds up the values of all the data points received over the sampling interval, or the period of the chart.
+ * **Average** divides the Sum by the number of data points received over the interval.
+ * **Unique** counts are used for counts of users and accounts. Over the sampling interval, or over the period of the chart, the figure shows the count of different users seen in that time.
 
-To find out whether the value is a sum, average, or unique click the chart and scroll down to the selected value. You can also get a short description of the metric.
 
-![Hover over (i)](./media/app-insights-metrics-explorer/06-total.png)
- 
+You can change the aggregation method:
+
+![Select the chart and then select aggregation](./media/app-insights-metrics-explorer/05-aggregation.png)
+
+The default method for each metric is shown when you create a new chart:
+
+![Deselect all metrics to see the defaults](./media/app-insights-metrics-explorer/06-total.png)
 
 
 ## Editing charts and grids
@@ -128,6 +132,12 @@ To see just the metrics for a selected set of property values:
 If you don't select any values for a particular property, it's the same as selecting them all: there is no filter on that property.
 
 Notice the counts of events alongside each property value. When you select values of one property, the counts alongside other property values are adjusted.
+
+### To add properties to the filter list
+
+Would you like to filter telemetry on a category of your own choosing? For example, maybe you divide up your users into  different categories, and you would like segment your data by these categories.
+
+[Create your own property](app-insights-api-custom-events-metrics.md#properties). Set it in a [Telemetry Initializer](app-insights-api-custom-events-metrics.md#telemetry-initializers) to have it appear in all telemetry - including the standard telemetry sent by different SDK modules.
 
 ## Remove bot and web test traffic
 

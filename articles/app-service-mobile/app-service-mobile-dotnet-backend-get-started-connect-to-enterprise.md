@@ -5,11 +5,11 @@
 	authors="mattchenderson"
 	manager="dwrede"
 	editor="na"
-	services="app-service\mobile"/>
+	services="app-service"/>
 
 <tags
-	ms.service="app-service-mobile"
-	ms.workload="mobile"
+	ms.service="app-service"
+	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="get-started-article"
