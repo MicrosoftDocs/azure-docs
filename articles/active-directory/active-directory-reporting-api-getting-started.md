@@ -160,7 +160,7 @@ The script returns lists all the available reports, and returns output from the 
 ## Notes
 
 - There is no limit on the number of events returned by the Azure AD Reporting API (using OData pagination).
-	- For retention limits on reporting data, check out [Reporting Retention Policies](active-directory\active-directory-reporting-retention.md).
+	- For retention limits on reporting data, check out [Reporting Retention Policies](active-directory-reporting-retention.md).
 
 
 ## Next Steps

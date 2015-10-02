@@ -264,7 +264,7 @@ If you suspect that a user account may be compromised or any kind of suspicious 
 	- Up to 1000 events will be shown in the Azure Management Portal.
 5. If applicable, click **Download** to download the report to a compressed file in Comma Separated Values (CSV) format for offline viewing or archiving purposes.
 	- Up to 75,000 events will be included in the downloaded file.
-	- For more data, check out the [Azure AD Reporting API](active-directory\active-directory-reporting-api-getting-started.md)
+	- For more data, check out the [Azure AD Reporting API](active-directory-reporting-api-getting-started.md).
 
 ## Ignore an event
 
