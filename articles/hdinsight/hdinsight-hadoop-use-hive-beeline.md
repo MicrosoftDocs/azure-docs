@@ -98,7 +98,7 @@ For more information on using PuTTY, see [Use SSH with Linux-based Hadoop on HDI
         | sessionpagevieworder  | bigint     |          |
         +-----------------------+------------+----------+--+
 
-    This displays the columns in the table. While we could perform some queries against this data, let's instead create a brand new table to demonstrate how to load data into Hive.
+    This displays the columns in the table. While we could perform some queries against this data, let's instead create a brand new table to demonstrate how to load data into Hive and apply a schema.
     
 5. Enter the following statements to create a new table named **log4jLogs** by using sample data provided with the HDInsight cluster:
 
@@ -166,6 +166,8 @@ Beeline can also be used to run a file that contains HiveQL statements. Use the 
     * **STORED AS ORC** - Stores the data in Optimized Row Columnar (ORC) format. This is a highly optimized and efficient format for storing Hive data.
     * **INSERT OVERWRITE ... SELECT** - Selects rows from the **log4jLogs** table that contain **[ERROR]**, then inserts the data into the **errorLogs** table.
     
+    > [AZURE.NOTE] Unlike external tables, dropping an internal table will delete the underlying data as well.
+    
 3. To save the file, use __Ctrl__+___X__, then enter __Y__, and finally __Enter__.
 
 4. Use the following to run the file using Beeline:
@@ -186,8 +188,6 @@ Beeline can also be used to run a file that contains HiveQL statements. Use the 
         | 2012-02-03    | 19:25:27      | SampleClass4  | [ERROR]       | incorrect     | id            |               |
         +---------------+---------------+---------------+---------------+---------------+---------------+---------------+--+
         3 rows selected (1.538 seconds)
-
-    > [AZURE.NOTE] Unlike external tables, dropping an internal table will delete the underlying data as well.
 
 ##<a id="summary"></a>Summary
 
