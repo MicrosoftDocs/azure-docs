@@ -98,6 +98,8 @@ For more information on using PuTTY, see [Use SSH with Linux-based Hadoop on HDI
         | sessionpagevieworder  | bigint     |          |
         +-----------------------+------------+----------+--+
 
+    This displays the columns in the table. While we could perform some queries against this data, let's instead create a brand new table to demonstrate how to load data into Hive.
+    
 5. Enter the following statements to create a new table named **log4jLogs** by using sample data provided with the HDInsight cluster:
 
         DROP TABLE log4jLogs;
