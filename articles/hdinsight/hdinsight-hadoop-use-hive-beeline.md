@@ -59,7 +59,7 @@ For more information on using PuTTY, see [Use SSH with Linux-based Hadoop on HDI
 
         beeline
 
-2. From the `beeline>` prompt, use the following to connect to the HiveServer 2 service:
+2. From the `beeline>` prompt, use the following to connect to the HiveServer2 service:
 
         !connect jdbc:hive2://headnode0:10001/;transportMode=http admin
 
