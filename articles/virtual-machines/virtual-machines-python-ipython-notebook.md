@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Create an Jupyter/IPython Notebook | Microsoft Azure"
-	description="Learn how to deploy the Jupyter/IPython Notebook on a Linux or Windows virtual machine created with the classic deployment model in Azure."
+	description="Learn how to deploy the Jupyter/IPython Notebook on a Linux or Windows virtual machine created with the resouce manager deployment model in Azure."
 	services="virtual-machines"
 	documentationCenter="python"
 	authors="huguesv"
@@ -19,7 +19,7 @@
 
 # Jupyter Notebook on Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)] This article covers deploying a notebook on a virtual machine created with the classic deployment model or using the Azure Notebooks service.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)] This article covers deploying a notebook on a virtual machine created with the resource manager deployment model or using the Azure Notebooks service.
 
 The [Jupyter project](http://jupyter.org), formerly the [IPython project](http://ipython.org), provides a collection of tools for scientific computing using powerful interactive shells that combine code execution with the creation of a live computational document. These notebook files can contain arbitrary text, mathematical formulas, input code, results, graphics, videos and any other kind of media that a modern web browser is capable of displaying. Whether you're absolutely new to Python and want to learn it in a fun, interactive environment or do some serious parallel/technical computing, the Jupyter Notebook is a great choice.
 
