@@ -31,7 +31,7 @@ Learn how to use Azure PowerShell to submit MapReduce and Hive jobs, and how to 
 
 Before you begin this article, you must have the following:
 
-* **An Azure HDInsight cluster**. For instructions, see [Get started with HDInsight][hdinsight-get-started] or [Provision HDInsight clusters][hdinsight-provision].
+* **An Azure HDInsight cluster**. For instructions, see [Get started with HDInsight][hdinsight-get-started] or [Create Hadoop clusters in HDInsight][hdinsight-provision].
 - **A workstation with Azure PowerShell**. See [Install and use Azure PowerShell](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/).
 
 
@@ -94,7 +94,7 @@ One of the examples is for counting word frequencies in source files. In this se
 		$storageAccountName = "<StorageAccountName>"
 		$containerName = "<ContainerName>"
 
-	The Storage account name is the Azure storage account that you specified during the HDInsight cluster provision. The storage account is used to host the blob container that is used as the default HDInsight cluster file system. The container name usually share the same name as the HDInsight cluster unless you specify a different name when you provision the cluster.
+	The Storage account name is the Azure storage account that you specified during the HDInsight cluster creation. The storage account is used to host the blob container that is used as the default HDInsight cluster file system. The container name usually share the same name as the HDInsight cluster unless you specify a different name when you create the cluster.
 
 3. Run the following commands to create an Azure Blob storage context object:
 
@@ -305,7 +305,8 @@ The HDInsight .NET SDK provides .NET client libraries, which makes it easier to 
 
 **To Submit the wordcount MapReduce job**
 
-1. From the Visual Studio Package Manager Console, run the following Nuget command to import the package.
+1. Create a C# console application in Visual Studio.
+2. From the Nuget Package Manager Console, run the following command.
 
 		Install-Package Microsoft.Azure.Management.HDInsight.Job -Pre
 
@@ -377,6 +378,7 @@ For the details about creating a .NET application for submitting MapReduce jobs,
 
 For more information about developing and deploying Hadoop streaming jobs, see [Develop C# Hadoop streaming programs for HDInsight][hdinsight-develop-streaming-jobs].
 
+The following procedure only works on HDInsight clusters on Windows. C# streaming is not supported on Linux clusters yet. However you can use .NET program to submit stream job written in other programming languages that are supported by Linux clusters. For example Python.  For an Python streaming example, see [Develop Python streaming programs for HDInsight](hdinsight-hadoop-streaming-python.md).
 
 **To Submit the wordcount MapReduce job**
 
@@ -394,10 +396,11 @@ For more information about developing and deploying Hadoop streaming jobs, see [
 
 3. Add the following code into the Main() function.
 
-        var ExistingClusterUsername = "admin";
-        var ExistingClusterPassword = "Pass@word123";
-        var ExistingClusterName = "jgao0929linuxhadoop";
-        var ExistingClusterUri = ExistingClusterName + ".azurehdinsight.net";
+		var ExistingClusterName = "<HDInsightClusterName>";
+		var ExistingClusterUri = ExistingClusterName + ".azurehdinsight.net";
+		var ExistingClusterUsername = "<HDInsightClusterHttpUsername>";
+		var ExistingClusterPassword = "<HDInsightClusterHttpUserPassword>";
+
         List<string> arguments = new List<string> { { "/example/apps/cat.exe" }, { "/example/apps/wc.exe" } };
 
         HDInsightJobManagementClient _hdiJobManagementClient;
@@ -437,16 +440,10 @@ For more information about developing and deploying Hadoop streaming jobs, see [
 
 5. Press **F5** to run the application.
 
-
-
-
-
-
-
 ##Submit Hive jobs by using HDInsight .NET SDK
 HDInsight clusters come with a sample Hive table called *hivesampletable*. In this session, you will create a .NET application to run a Hive job to list the Hive tables that are created in an HDInsight cluster. For more information about using Hive, see [Use Hive with HDInsight][hdinsight-use-hive].
 
-The following procedures are needed to provision an HDInsight cluster by using the SDK:
+The following procedures are needed to create an HDInsight cluster by using the SDK:
 
 - Install the HDInsight .NET SDK
 - Create a console application
@@ -556,10 +553,10 @@ Using the HDInsight Tools for Visual Studio, you can run Hive queries and Pig sc
 
 
 ##Next steps
-In this article, you have learned several ways to provision an HDInsight cluster. To learn more, see the following articles:
+In this article, you have learned several ways to create an HDInsight cluster. To learn more, see the following articles:
 
 * [Get started with Azure HDInsight][hdinsight-get-started]
-* [Provision HDInsight clusters][hdinsight-provision]
+* [Create Hadoop clusters in HDInsight][hdinsight-provision]
 * [Manage HDInsight by using PowerShell][hdinsight-admin-powershell]
 * [HDInsight Cmdlet Reference Documentation][hdinsight-powershell-reference]
 * [Use Hive with HDInsight][hdinsight-use-hive]
