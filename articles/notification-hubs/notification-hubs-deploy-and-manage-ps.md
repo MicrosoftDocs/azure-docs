@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="09/24/2015" 
-	ms.author="ricksal"/>
+	ms.author="wesmc"/>
 
 # Deploy and Manage Notification Hubs using PowerShell
 

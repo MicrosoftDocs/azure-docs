@@ -40,6 +40,7 @@ This article does not provide a conceptual overview of the Azure Data Factory se
 You must have the following installed on your computer: 
 - Visual Studio 2013
 - Download Azure SDK for Visual Studio 2013. Navigate to [Azure Download Page](http://azure.microsoft.com/downloads/) and click **VS 2013 install** in the **.NET** section.
+- Update the "Visual Studio Tools For Azure Data Factory" to latest version by going to Visual Studio 2013 --> Tools --> Updates --> Visual Studio Gallery and clicking "Update" on "Visual Studio Tools for Azure Data Factory" plug-in entry there.
 
 
 ### Create the Visual Studio project 

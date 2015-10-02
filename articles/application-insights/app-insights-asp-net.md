@@ -57,7 +57,7 @@ Right click the project in Solution Explorer, and choose Add Application Insight
 
 #### Setup options
 
-If this is your first time, you'll be asked login or sign up to Microsoft Azure Preview. (It's separate from your Visual Studio Online account.)
+If this is your first time, you'll be asked login or sign up to Microsoft Azure. 
 
 If this app is part of a bigger application, you might want to use **Configure settings** to put it in the same resource group as the other components. 
 
