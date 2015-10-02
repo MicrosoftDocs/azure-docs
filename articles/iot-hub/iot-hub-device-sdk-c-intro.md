@@ -13,12 +13,12 @@
      ms.topic="article"
      ms.tgt_pltfrm="na"
      ms.workload="tbd"
-     ms.date="09/29/2015"
+     ms.date="09/30/2015"
      ms.author="michelb"/>
 
 # Introducing the Azure IoT device SDK for C
 
-The **Azure IoT device SDK** is a set of libraries designed to simplify the process of sending events and receiving messages from the **Azure IoT Hub** service. There are different variations of the SDK, each targeting a specific platform, but in this article will focus on introducing the **Azure IoT device SDK for C**.
+The **Azure IoT device SDK** is a set of libraries designed to simplify the process of sending events and receiving messages from the **Azure IoT Hub** service. There are different variations of the SDK, each targeting a specific platform, but in this article will focus on the **Azure IoT device SDK for C**.
 
 The Azure IoT device SDK for C is written in ANSI C (C99) to maximize portability.  This makes it well suited to operate on a number of platforms and devices- especially where minimizing disk and memory footprint is a priority.  
 
@@ -43,9 +43,9 @@ This repository contains the entire family of Azure IoT device SDKs.  But this a
 
 The core implementation of the SDK can be found in the **common**, **iothub\_client**, and **serializer** folders in the repository. The **common** folder contains shared code used throughout the libraries (typically you don’t use the code in the **common** folder directly). However, the **iothub\_client** and **serializer** folders contain implementations of the two distinct layers of the SDK that you will use in your code.
 
--   **IoTHubClient** -- The **iothub\_client** folder contains the implementation of the lowest API layer in the library. This layer contains APIs for sending events to IoT Hub as well as receiving messages from it. If you use this layer you are responsible for implementing message serialization, but other details of communicating with IoT Hub are handled for you.
+-   **IoTHubClient** - The **iothub\_client** folder contains the implementation of the lowest API layer in the SDK: the **IoTHubClient** library. The **IoTHubClient** library contains APIs for sending events to IoT Hub as well as receiving messages from it. If you use this library you are responsible for implementing message serialization, but other details of communicating with IoT Hub are handled for you.
 
--   **serializer** -- The **serializer** folder contains the implementation of a library that builds on top of **IoTHubClient**. Specifically, the **serializer** library adds modeling capabilities on top of the features provided by **IoTHubClient**. If you use the **serializer** library, you start by defining a model that specifies the events you want to send to IoT Hub as well as the messages you expect to receive from it. But once the model is defined, the SDK provides you an API surface that allows you to easily work with events and messages without having to worry about serialization details.
+-   **serializer** - The **serializer** folder contains the implementation of the **serializer** library. The **serializer** library adds modeling capabilities on top of the features provided by **IoTHubClient**. If you use the **serializer** library, you start by defining a model that specifies the events you want to send to IoT Hub as well as the messages you expect to receive from it. But once the model is defined, the SDK provides you an API surface that allows you to easily work with events and messages without having to worry about serialization details.
 
 All of this is easier to understand by looking at some example code. The following sections walk you through a couple of the sample applications that are included in the SDK. This should give you a good feel for the various capabilities of the architectural layers of the SDK as well as an introduction to how the APIs work.
 
@@ -59,7 +59,7 @@ First, you'll need to obtain a copy of the SDK from GitHub and then build the so
 
 <https://github.com/Azure/azure-iot-sdks>
 
-When you’ve downloaded a copy of the source, there are some steps you need to complete before you run your code.  There's a summary of these steps found in the SDK article titled [Prepare your development environment](https://github.com/Azure/azure-iot-sdks/blob/master/c/doc/devbox_setup.md). Most of the work you'll have to do for Windows involves [building the QPID Proton libraries](https://github.com/Azure/azure-iot-sdks/blob/master/c/doc/devbox_setup.md#rebuilding-the-qpid-proton-library-in-windows). But here are a few tips to help you complete the procedure described in the preparation guide:
+When you’ve downloaded a copy of the source, there are some steps you need to complete before you run your code.  There's a summary of these steps found in the SDK article titled [Prepare your development environment](https://github.com/Azure/azure-iot-sdks/blob/master/c/doc/devbox_setup.md). Most of the work you'll have to do for Windows involves [preparing Qpid Proton libraries](https://github.com/Azure/azure-iot-sdks/blob/master/c/doc/devbox_setup.md#preparing-qpid-proton-libraries-in-windows) as well as [verifying your environment](https://github.com/Azure/azure-iot-sdks/blob/master/c/doc/devbox_setup.md#verify-your-environment). But here are a few tips to help you complete the procedure described in the preparation guide:
 
 -   When you create your **PROTON\_PATH** environment variable, make it a **system** environment variable as shown here:
 
@@ -75,10 +75,13 @@ When you’ve downloaded a copy of the source, there are some steps you need to 
 
 You can use the default options in the installer.
 
+- Add the Python directory to the system **PATH** environment variable. On Windows, this looks like the following:
+  ![](media/iot-hub-device-sdk-c-intro/16-PythonPath.PNG)
+
 -   Before you open the **Developer Command Prompt for VS2015**, install the *Git command line tools*. To install these tools, complete the following steps:
 
 	1. Launch the **Visual Studio 2015** setup program (or chose **Microsoft Visual Studio 2015** from the **Programs and Features** control panel and select **Change**).
-	2. Make sure the **Git for Windows** feature is selected in the installer:
+	2. Make sure the **Git for Windows** feature is selected in the installer but you may also want to check the **GitHub Extension for Visual Studio** option to provide IDE integration:
   ![](media/iot-hub-device-sdk-c-intro/10-GitTools.PNG)
 	3. Complete the setup wizard to install the tools.
 	4. Add the Git tools **bin** directory to the system **PATH** environment variable. On Windows, this looks like the following:
@@ -86,7 +89,9 @@ You can use the default options in the installer.
 
 When you run the **build\_proton.cmd** script from the command prompt, the script fetches the Proton source from its GitHub repository and then builds the Proton libraries.
 
-When you have completed the previous steps, you can build the Windows samples that rely on AMQP by opening the corresponding Visual Studio solution file and selecting **Build Solution** from the **Build** menu.
+If you want to run the MQTT samples you'll want to follow the instructions for [building the Apache MQTT library](https://github.com/Azure/azure-iot-sdks/blob/master/c/doc/devbox_setup.md#building-the-apache-mqtt-library-in-windows) in the SDK documentation. Regardless, the last thing you'll need to do is to run **build.cmd**.
+
+When you have completed the previous steps, you're ready to compile the sample applications.
 
 ### Obtaining device credentials
 
@@ -118,13 +123,13 @@ Once the device is created the Devices list is updated with all registered devic
 
 If you choose the **Copy connection string for selected device** option the connection string for your device is copied to the clipboard. Keep a copy of this. You’ll need it when running the sample applications described below.
 
-Once you've completed the steps above, you're ready to start running some code.  The following sections walk you through two of the sample solutions in the Azure device SDK for C that demonstrate the capabilities of the libraries.  Note that both samples described below have a constant at the top of the main source file that allow you to enter a connection string.  For example, here's the corresponding line from the **iothub\_client\_sample\_amqp** application.
+Once you've completed the steps above, you're ready to start running some code.  Both samples described below have a constant at the top of the main source file that allow you to enter a connection string.  For example, here's the corresponding line from the **iothub\_client\_sample\_amqp** application.
 
 ```
 static const char* connectionString = "[device connection string]";
 ```
 
-If you want to follow along with the description below, enter your device connection string here, recompile the solution, and you'll be able to run the sample.
+If you want to follow along, enter your device connection string here, recompile the solution, and you'll be able to run the sample.
 
 ## IoTHubClient
 
@@ -134,7 +139,11 @@ The Windows version of the **iothub\_client\_sample\_ampq** application includes
 
   ![](media/iot-hub-device-sdk-c-intro/12-iothub-client-sample-amqp.PNG)
 
-The **iothub\_client\_sample\_amqp** project contains four projects.  The sample code is found in the **iothub_client_sample_amqp project**. But the solution also includes the **common**, **iothub_amqp_transport**, and **iothub\_client** projects from the Azure IoT device SDK for C. You always need the **common** project when you are working with the SDK.  Since this sample relies on AMQP we also need to include the **iothub_amqp_transport** project (there's an equivalent project for HTTP).  And because the sample uses the **IoTHubClient** libraries, we must also include the **iothub_client** project in our solution.
+This solution contains a single project.  But it's worth noting that there are four GitHub packages installed in this solution:
+
+  ![](media/iot-hub-device-sdk-c-intro/17-iothub-client-sample-amqp-githubpackages.PNG)
+
+You always need the **Microsoft.Azure.IoTHub.Common** package when you are working with the SDK.  Since this sample relies on AMQP we also need to include the **Apache.QPID.Proton.AzureIoT** and **Microsoft.Azure.IoTHub.AmqpTransport** packages (there are equivalent packages for HTTP).  And because the sample uses the **IoTHubClient** library, we must also include the **Microsoft.Azure.IoTHub.IoTHubClient** project in our solution.
 
 You can find the implementation for the sample application in the **iothub\_client\_sample\_amqp.c** source file:
 
@@ -145,7 +154,7 @@ We'll use this sample application to walk you through what’s required to use t
 
 ### Initializing the library
 
-To start working with the libraries you must first create an IoT Hub client handle:
+To start working with the libraries you must first allocate an IoT Hub client handle:
 
 ```
 IOTHUB_CLIENT_HANDLE iotHubClientHandle;
@@ -243,7 +252,11 @@ Within the **serializer** folder in the azure-iot-sdks repository is a **samples
 
   ![](media/iot-hub-device-sdk-c-intro/14-simplesample_amqp.PNG)
 
-The sample itself is the **simplesample\_amqp** project. As we've seen previously, the solution includes the **common**, **iothub_amqp_transport**, and **iothub\_client** projects from the Azure IoT device SDK for C. However, this sample solution also includes an extra project called **serializer**: this is the library that adds modeling support on top of the **IoTHubClient** library.
+As with the previous sample, this one includes several NuGet packages:
+
+  ![](media/iot-hub-device-sdk-c-intro/18-simplesample_amqp-githubpackages.PNG)
+
+We've seen most of these in the previous sample but **Microsoft.Azure.IoTHub.Serializer** is new- this is required when we use the **serializer** library.
 
 You can find the implementation of the sample application in the **simplesample\_amqp.c** code file:
 
@@ -253,7 +266,7 @@ The following sections walk you through the key parts of this sample.
 
 ### Initializing the library
 
-To start working with the libraries, you must call the initialization APIs:
+To start working with the **serializer** library, you must call the initialization APIs:
 
 ```
 serializer_init(NULL);
@@ -263,9 +276,9 @@ IOTHUB_CLIENT_HANDLE iotHubClientHandle = IoTHubClient_CreateFromConnectionStrin
 ContosoAnemometer* myWeather = CREATE_MODEL_INSTANCE(WeatherStation, ContosoAnemometer);
 ```
 
-The call to the **serializer\_init** function is a one-time call used to initialize the underlying library. Then you call the **IoTHubClient\_CreateFromConnectionString** function, which is the same API you saw in the **IoTHubClient** sample. This call sets your device connection string (this is also where you choose the protocol you want to use). Notice that this sample uses AMQP as the transport but you could have used HTTP.
+The call to the **serializer\_init** function is a one-time call used to initialize the underlying library. Then you call the **IoTHubClient\_CreateFromConnectionString** function, which is the same API we saw in the **IoTHubClient** sample. This call sets your device connection string (this is also where you choose the protocol you want to use). Notice that this sample uses AMQP as the transport but we could have used HTTP.
 
-Finally, call the **CREATE\_MODEL\_INSTANCE** function. **WeatherStation** is the namespace of the model and **ContosoAnemometer** is the name of the model. Once the model is defined you can use it to start sending events and receiving messages. But first, it's important to understand what a model is.
+Finally, call the **CREATE\_MODEL\_INSTANCE** function. Note that **WeatherStation** is the namespace of the model and **ContosoAnemometer** is the name of the model. Once the model instance is created you can use it to start sending events and receiving messages. But first, it's important to understand what a model is.
 
 ### Defining the model
 
@@ -404,9 +417,9 @@ static IOTHUBMESSAGE_DISPOSITION_RESULT IoTHubMessage(IOTHUB_MESSAGE_HANDLE mess
 }
 ```
 
-This code is boilerplate- meaning it’s the same for any solution. This function receives the message and takes care of routing it to the appropriate function through the call to **EXECUTE\_COMMAND**. Basically what function is called at this point depends on the definition of the actions in our model…
+This code is boilerplate- it’s the same for any solution. This function receives the message and takes care of routing it to the appropriate function through the call to **EXECUTE\_COMMAND**. Basically what function is called at this point depends on the definition of the actions in our model…
 
-When you define an action in your model, you’re required to implement a corresponding function that’s called when your device receives a message. For example, if your model defines this action:
+When you define an action in your model, you’re required to implement a function that’s called when your device receives the corresponding message. For example, if your model defines this action:
 
 ```
 WITH_ACTION(SetAirResistance, int, Position)

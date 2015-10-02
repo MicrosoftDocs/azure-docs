@@ -203,6 +203,10 @@ There are no differences specific to Queue storage in the emulator.
 
 ## Storage emulator release notes
 
+### Version 4.2
+
+- The storage emulator now supports version 2015-04-05 of the storage services on Blob, Queue, and Table service endpoints.
+
 ### Version 4.1
 
 - The storage emulator now supports version 2015-02-21 of the storage services on Blob, Queue, and Table service endpoints, with the exception of the new Append Blob features. 

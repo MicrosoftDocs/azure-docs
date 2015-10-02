@@ -28,7 +28,7 @@ In this example, we will have three simulated data sources:  external temperatur
 
 ### Provision your IoT Suite
 
-If you haven't provisioned your remote monitoring preconfigured solution yet, you can provision it [here](www.internetofyourthings.com).
+If you haven't provisioned your remote monitoring preconfigured solution yet, you can provision it [here](https://www.azureiotsuite.com).
 
 
 ### Provision your device in the remote monitoring solution
