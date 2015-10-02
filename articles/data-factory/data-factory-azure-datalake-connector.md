@@ -141,18 +141,18 @@ Data is picked up from a new blob every hour (frequency: hour, interval: 1). The
 The sample copies data to an Azure Data Lake store. New data is copies to Data Lake store every hour.
 
 	{
-	  "name": "AzureDataLakeOutput",
-	  "properties": {
-	    "type": "AzureDataLake",
-	    "linkedServiceName": " AzureDataLakeLinkedService",
-	    "typeProperties": {
-	      "path": "datalake/input/"
-	    },
-	    "availability": {
-	      "frequency": "Hour",
-	      "interval": 1
-	    }
-	  }
+		"name": "AzureDataLakeOutput",
+	  	"properties": {
+			"type": "AzureDataLake",
+		    "linkedServiceName": " AzureDataLakeLinkedService",
+		    "typeProperties": {
+				"folderPath": "datalake/output/"
+		    },
+	    	"availability": {
+	      		"frequency": "Hour",
+	      		"interval": 1
+	    	}
+	  	}
 	}
 
 
@@ -259,7 +259,13 @@ Setting **"external": true** and specifying **externalData** policy informs the 
 	    	"type": "AzureDataLake",
 	    	"linkedServiceName": " AzureDataLakeLinkedService",
 		    "typeProperties": {
-				"path": "datalake/input",
+				"folderPath": "datalake/input/",
+            	"fileName": "SearchLog.tsv",
+            	"format": {
+                	"type": "TextFormat",
+	                "rowDelimiter": "\n",
+    	            "columnDelimiter": "\t"
+    	        }
 		    },
 		    "external": true,
 		    "availability": {
@@ -399,7 +405,7 @@ You can link an Azure storage account to an Azure data factory using an Azure St
 | resourceGroupName |  Azure resource group name | No (If not specified, resource group of the data factory is used). |
 
 
-## Azure Data Link Dataset type properties
+## Azure Data Lake Dataset type properties
 
 For a full list of JSON sections & properties available for defining datasets, see the [Creating datasets](data-factory-create-datasets.md) article. Sections like structure, availability, and policy of a dataset JSON are similar for all dataset types (Azure SQL, Azure blob, Azure table, etc...).
 
@@ -407,7 +413,8 @@ The **typeProperties** section is different for each type of dataset and provide
 
 | Property | Description | Required |
 | -------- | ----------- | -------- |
-| path | Path to the container and folder in the Azure Data Lake store. | Yes |
+| folderPath | Path to the container and folder in the Azure Data Lake store. | Yes |
+| fileName | <p>Name of the file in the Azure Data Lake store. fileName is optional. </p><p>If you specify a filename, the activity (including Copy) works on the specific file.</p><p>When fileName is not specified Copy will include all files in the folderPath for input dataset.</p><p>When fileName is not specified for an output dataset, the name of the generated file would be in the following this format: Data.<Guid>.txt (for example: : Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt</p> | No |
 | partitionedBy | partitionedBy is an optional property. You can use it to specify a dynamic folderPath and filename for time series data. For example, folderPath can be parameterized for every hour of data. See the Leveraging partitionedBy property section below for details and examples. | No |
 
 ### Leveraging partitionedBy property
