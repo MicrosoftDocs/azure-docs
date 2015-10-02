@@ -1,11 +1,12 @@
 <properties
-   pageTitle="How to Use docker-machine with Azure"
+   pageTitle="Use docker-machine with Azure | Microsoft Azure"
    description="Shows how to get up and running on Azure with Docker Machine on Ubuntu."
-   services="virtual-machines"
+   services="virtual-machines, using the classic deployment model."
    documentationCenter="virtual-machines"
    authors="squillace"
    manager="timlt"
-   editor="tysonn"/>
+   editor="tysonn"
+   tags="azure-service-management"/>
 
 <tags
    ms.service="virtual-machines"
@@ -211,4 +212,3 @@ Go to the [Docker user guide](https://docs.docker.com/userguide/) and create som
 [Link 1 to another azure.microsoft.com documentation topic]: virtual-machines-windows-tutorial.md
 [Link 2 to another azure.microsoft.com documentation topic]: ../web-sites-custom-domain-name.md
 [Link 3 to another azure.microsoft.com documentation topic]: ../storage-whatis-account.md
- 
