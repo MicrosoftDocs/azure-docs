@@ -3,7 +3,7 @@
    description="This tutorial walks you through the steps of creating, debugging, and deploying a canonical HelloWorld service using Service Fabric Reliable Actors."
    services="service-fabric"
    documentationCenter=".net"
-   authors="jessebenson"
+   authors="vturecek"
    manager="timlt"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="08/05/2015"
-   ms.author="claudioc"/>
+   ms.author="vturecek"/>
 
 # Reliable Actors: The canonical HelloWorld walk-through scenario
 This article explains the basics of Service Fabric Reliable Actors and walks you through creating, debugging, and deploying a simple HelloWorld application in Visual Studio.

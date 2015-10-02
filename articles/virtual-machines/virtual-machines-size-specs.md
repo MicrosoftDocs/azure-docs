@@ -31,7 +31,9 @@ Azure Virtual Machines and Cloud Services are two of several types of compute re
 
 Virtual machines are available in two tiers: basic and standard. Both types offer a choice of sizes, but the basic tier doesn’t provide some capabilities available in the standard tier, such as load-balancing and auto-scaling. The standard tier of sizes consists of different series: A, D, DS, G, and GS. Considerations for some of these sizes include:
 
-*   D-series VMs are designed to run applications that demand higher compute power and temporary disk performance. D-series VMs provide faster processors, a higher memory-to-core ratio, and a solid-state drive (SSD) for the temporary disk. For details, see the announcement on the Azure blog, [New D-Series Virtual Machine Sizes](http://azure.microsoft.com/blog/2014/09/22/new-d-series-virtual-machine-sizes/).  
+*   D-series VMs are designed to run applications that demand higher compute power and temporary disk performance. D-series VMs provide faster processors, a higher memory-to-core ratio, and a solid-state drive (SSD) for the temporary disk. For details, see the announcement on the Azure blog, [New D-Series Virtual Machine Sizes](http://azure.microsoft.com/blog/2014/09/22/new-d-series-virtual-machine-sizes/).
+
+*   Dv2-series, a follow-on to the original D-series, features a more powerful CPU. The Dv2-series CPU is about 35% faster than the D-series CPU. It is based on the latest generation 2.4 GHz Intel Xeon® E5-2673 v3 (Haswell) processor, and with the Intel Turbo Boost Technology 2.0, can go up to 3.2 GHz. The Dv2-series has the same memory and disk configurations as the D-series. For details, see the announcement on the Azure blog, [New Dv2-Series Virtual Machine Sizes](http://azure.microsoft.com/blog/2015/10/01/new-dv2-series-virtual-machine-sizes/).
 
 *   G-series VMs offer the biggest size and best performance and run on hosts that have Intel Xeon E5 V3 family processors.
 
@@ -49,7 +51,9 @@ The following considerations might help you decide on a size:
 
 *   Some of the physical hosts in Azure data centers may not support larger virtual machine sizes, such as A5 – A11\. As a result, you may see the error message **Failed to configure virtual machine <machine name>** or **Failed to create virtual machine <machine name>** when resizing an existing virtual machine to a new size; creating a new virtual machine in a virtual network created before April 16, 2013; or adding a new virtual machine to an existing cloud service. See the topic [Error: “Failed to configure virtual machine”](https://social.msdn.microsoft.com/Forums/en-US/9693f56c-fcd3-4d42-850e-5e3b56c7d6be/error-failed-to-configure-virtual-machine-with-a5-a6-or-a7-vm-size?forum=WAVirtualMachinesforWindows) on the support forum for workarounds for each deployment scenario.  
 
-*   The A8/A10 and A9/A11 virtual machine sizes have the same capacities. The A8 and A9 virtual machine instances include an additional network adapter that is connected to a remote direct memory access (RDMA) network for fast communication between virtual machines. The A8 and A9 instances are designed for high-performance computing applications that require constant and low-latency communication between nodes during execution, for example, applications that use the Message Passing Interface (MPI). The A10 and A11 virtual machine instances do not include the additional network adapter. A10 and A11 instances are designed for high-performance computing applications that do not require constant and low-latency communication between nodes, also known as parametric or embarrassingly parallel applications.  
+*   The A8/A10 and A9/A11 virtual machine sizes have the same capacities. The A8 and A9 virtual machine instances include an additional network adapter that is connected to a remote direct memory access (RDMA) network for fast communication between virtual machines. The A8 and A9 instances are designed for high-performance computing applications that require constant and low-latency communication between nodes during execution, for example, applications that use the Message Passing Interface (MPI). The A10 and A11 virtual machine instances do not include the additional network adapter. A10 and A11 instances are designed for high-performance computing applications that do not require constant and low-latency communication between nodes, also known as parametric or embarrassingly parallel applications.
+
+*   Dv2-series and D-series are ideal for applications that demand faster CPUs, better local disk performance, or have higher memory demands.  They offer a powerful combination for many enterprise-grade applications.
 
 ## General limits
 
@@ -67,7 +71,7 @@ The following tables show the sizes and the capacities they provide.
 
 >[AZURE.NOTE] Storage capacity is represented by using 1024^3 bytes as the unit of measurement for GB. This is sometimes referred to as gibibyte, or base 2 definition. When comparing sizes that use different base systems, remember that base 2 sizes may appear smaller than base 10 but for any specific size (such as 1 GB) a base 2 system provides more capacity than a base 10 system, because 1024^3 is greater than 1000^3.
 
-## Basic tier
+### Basic tier
 
 |Size – Azure Portal\cmdlets & APIs|CPU cores|Memory|Max. disk sizes – virtual machine|Max. data disks 1023 GB each)|Max. IOPS (300 per disk)|
 |---|---|---|---|---|---|
@@ -77,8 +81,7 @@ The following tables show the sizes and the capacities they provide.
 |A3\Basic_A3|4|7 GB|<p>OS = 1023 GB</p><p>Temporary = 120 GB</p>|8|8x300|
 |A4\Basic_A4|8|14 GB|<p>OS = 1023 GB</p><p>Temporary = 240 GB</p>|16|16x300|
 
-## Standard tier
-### A series and D series
+### Standard tier: A-series
 
 |Size – Azure Portal\cmdlets & APIs|CPU cores|Memory|Max. disk sizes – virtual machine|Max. data disks (1023 GB each)|Max. IOPS (500 per disk)|
 |---|---|---|---|---|---|
@@ -94,6 +97,11 @@ The following tables show the sizes and the capacities they provide.
 |A9\same|16|112 GB|<p><p>OS = 1023 GB</p><p>Temporary = 382 GB</p><blockquote><p>Note: For information and considerations about using this size, see <a href="http://go.microsoft.com/fwlink/p/?linkid=328042">About the A8, A9, A10, and A11 compute intensive instances</a>.</p></blockquote>|16|16x500|
 |A10\same|8|56 GB|<p><p>OS = 1023 GB</p><p>Temporary = 382 GB</p><blockquote><p>Note: For information and considerations about using this size, see <a href="http://go.microsoft.com/fwlink/p/?linkid=328042">About the A8, A9, A10, and A11 compute intensive instances</a>.</p></blockquote>|16|16x500|
 |A11\same|16|112 GB|<p><p>OS = 1023 GB</p><p>Temporary = 382 GB</p><blockquote><p>Note: For information and considerations about using this size, see <a href="http://go.microsoft.com/fwlink/p/?linkid=328042">About the A8, A9, A10, and A11 compute intensive instances</a>.</p></blockquote>|16|16x500|
+
+### Standard tier: D-series
+
+|Size – Azure Portal\cmdlets & APIs|CPU cores|Memory|Max. disk sizes – virtual machine|Max. data disks (1023 GB each)|Max. IOPS (500 per disk)|
+|---|---|---|---|---|---|
 |Standard_D1\same|1|3.5 GB|<p>OS = 1023 GB</p><p>Temporary (SSD) =50 GB</p>|2|2x500|
 |Standard_D2\same|2|7 GB|<p>OS = 1023 GB</p><p>Temporary (SSD) =100 GB</p>|4|4x500|
 |Standard_D3\same|4|14 GB|<p>OS = 1023 GB</p><p>Temporary (SSD) =200 GB</p>|8|8x500|
@@ -103,8 +111,21 @@ The following tables show the sizes and the capacities they provide.
 |Standard_D13\same|8|56 GB|<p>OS = 1023 GB</p><p>Temporary (SSD) =400 GB</p>|16|16x500|
 |Standard_D14\same|16|112 GB|<p>OS = 1023 GB</p><p>Temporary (SSD) =800 GB</p>|32|32x500|
 
+### Standard tier: Dv2-series
 
-### Standard tier – DS series*
+|Size – Azure Portal\cmdlets & APIs|CPU cores|Memory|Max. disk sizes – virtual machine|Max. data disks (1023 GB each)|Max. IOPS (500 per disk)|
+|---|---|---|---|---|---|
+|Standard_D1_v2\same|1|3.5 GB|<p>OS = 1023 GB</p><p>Temporary (SSD) =50 GB</p>|2|2x500|
+|Standard_D2_v2\same|2|7 GB|<p>OS = 1023 GB</p><p>Temporary (SSD) =100 GB</p>|4|4x500|
+|Standard_D3_v2\same|4|14 GB|<p>OS = 1023 GB</p><p>Temporary (SSD) =200 GB</p>|8|8x500|
+|Standard_D4_v2\same|8|28 GB|<p>OS = 1023 GB</p><p>Temporary (SSD) =400 GB</p>|16|16x500|
+|Standard_D5_v2\same|16|56 GB|<p>OS = 1023 GB</p><p>Temporary (SSD) =800 GB</p>|32|32x500|
+|Standard_D11_v2\same|2|14 GB|<p>OS = 1023 GB</p><p>Temporary (SSD) =100 GB</p>|4|4x500|
+|Standard_D12_v2\same|4|28 GB|<p>OS = 1023 GB</p><p>Temporary (SSD) =200 GB</p>|8|8x500|
+|Standard_D13_v2\same|8|56 GB|<p>OS = 1023 GB</p><p>Temporary (SSD) =400 GB</p>|16|16x500|
+|Standard_D14_v2\same|16|112 GB|<p>OS = 1023 GB</p><p>Temporary (SSD) =800 GB</p>|32|32x500|
+
+### Standard tier: DS-series*
 
 |Size – Azure Portal\cmdlets & APIs|CPU cores|Memory|Max. disk sizes – virtual machine|Max. data disks (1023 GB each)|Cache size (GB)|Max. disk IOPS &amp; bandwidth|
 |---|---|---|---|---|---|---|
@@ -119,7 +140,7 @@ The following tables show the sizes and the capacities they provide.
 
 *The maximum input/output operations per second (IOPS) and throughput (bandwidth) possible with a DS series VM is affected by the size of the disk. For details, see [Premium Storage: High-performance storage for Azure virtual machine workloads](../storage-premium-storage-preview-portal.md).
 
-### Standard tier – G series
+### Standard tier: G-series
 
 |Size – Azure Portal\cmdlets &amp; APIs|CPU cores|Memory|Max. disk sizes – virtual machine|Max. data disks (1023 GB each)|Max. IOPS (500 per disk)|
 |---|---|---|---|---|---|
@@ -129,7 +150,7 @@ The following tables show the sizes and the capacities they provide.
 |Standard_G4\same|16|224 GB|<p>OS = 1023 GB</p><p>Local SSD disk = 3,072 GB</p>|32|32 x 500|
 |Standard_G5\same|32|448 GB|<p>OS = 1023 GB</p><p>Local SSD disk = 6,144 GB</p>|64|<p>64 x 500</p>|
 
-### Standard tier - GS series
+### Standard tier: GS-series
 
 |Size – Azure Portal\cmdlets & APIs|CPU cores|Memory|Max. disk sizes – virtual machine|Max. data disks (1023 GB each)|Cache size (GB)|Max. disk IOPS &amp; bandwidth|
 |---|---|---|---|---|---|---|

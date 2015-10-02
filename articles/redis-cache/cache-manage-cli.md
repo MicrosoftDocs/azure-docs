@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/16/2015" 
+	ms.date="09/30/2015" 
 	ms.author="sdanie"/>
 
 # How to create and manage Azure Redis Cache using the Azure Command-Line Interface (Azure CLI)
@@ -25,11 +25,9 @@ The Azure CLI is a great way to manage your Azure infrastructure from any platfo
 To create and manage Azure Redis Cache instances using Azure CLI, you must complete the following steps.
 
 -	You must have an Azure account. If you don't have one, you can create a [free trial account](http://azure.microsoft.com/pricing/free-trial/) in just a few moments.
--	[Install the Azure CLI](../xplat-cli-install.md#install).
--	Connect your Azure CLI installation with a personal Azure account, or with a work or school Azure account, and log in from the Azure CLI using the `azure login` command. To understand the differences and choose, see [How to connect to your Azure subscription](../xplat-cli-install.md#configure).
--	Before running any of the following commands, switch the Azure CLI into Resource Manager mode by running the following command.
-	`azure config mode arm`
-	For more information, see [Setting the Azure Resource Manager mode](../virtual-machines/xplat-cli-azure-resource-manager.md#setting-the-azure-resource-manager-mode).
+-	[Install the Azure CLI](../xplat-cli-install.md).
+-	Connect your Azure CLI installation with a personal Azure account, or with a work or school Azure account, and log in from the Azure CLI using the `azure login` command. To understand the differences and choose, see [Connect to an Azure subscription from the Azure Command-Line Interface (Azure CLI)](../xplat-cli-connect.md).
+-	Before running any of the following commands, switch the Azure CLI into Resource Manager mode by running the `azure config mode arm` command. For more information, see [Setting the Azure Resource Manager mode](../virtual-machines/xplat-cli-azure-resource-manager.md#setting-the-azure-resource-manager-mode).
 
 ## Redis Cache properties
 
