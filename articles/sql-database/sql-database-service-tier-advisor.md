@@ -27,8 +27,9 @@ Get pricing tier recommendations during the following tasks:
 
 - [Change the service tier and performance level (pricing tier) of a SQL database](sql-database-scale-up.md)
 - [Upgrade Azure SQL server to V12](sql-database-v12-upgrade.md)
+- Browse to your V12 server - if your databases can [benefit in an elastic database pool](sql-database-elastic-pool-portal.md#recommended-elastic-database-pools), the server blade will display a message indicating a recommended pool. Click the message to create the recommended pool.
 - [Create an elastic database pool](sql-database-elastic-pool.md#elastic-database-pool-pricing-tier-recommendations)
-- Browse to your V12 server - if your databases would [benefit from an elastic database pool](sql-database-elastic-pool-portal.md#recommended-elastic-database-pools), the server blade will display a message with a link to review and create a pool.
+
 
 
 
