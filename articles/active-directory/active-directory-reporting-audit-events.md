@@ -44,7 +44,7 @@ Delete User                          | Deleted a user from the directory.
 Set license properties               | Set the license properties for a user in the directory.
 Reset user password                  | Reset the password for a user in the directory.
 Change user password                 | Changed the password for a user in the directory.
-Change user license                  | Changed the license assigned to a user in the directory.
+Change user license                  | Changed the license assigned to a user in the directory. To see what licenses were updated, look at the "Update user" event immediately before or after this event.
 Update user                          | Updated a user in the directory.
 Set force change user password       | Set the property that forces a user to change their password on login.
 **Group events**                     |
