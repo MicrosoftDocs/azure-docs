@@ -18,81 +18,86 @@
 
 # Create a SQL Data Warehouse in the Azure preview portal#
 
-This tutorial shows you how to create an Azure SQL Data Warehouse database in just a few minutes in the Azure preview portal. 
+This walkthrough shows you how to create an Azure SQL Data Warehouse database in just a few minutes by using the Azure preview portal. 
 
 In this walkthrough you will:
 
-- Create a server for your database and assign it to a geographical location.
-- Create a database and load it with AdventureWorksDW sample database.
-- Configure a firewall for connecting to your server.
+- Create a server that will host your database.
+- Create a database that contains AdventureWorksDW sample database.
 
 [AZURE.INCLUDE [free-trial-note](../../includes/free-trial-note.md)]
-
 
 ## Step 1: Sign in and get started
 
 1. Sign in to the [preview portal](https://portal.azure.com).
 
-2. On the Hub menu, click **New** > **Data + Storage** > **SQL Data Warehouse**.
+2. Click **New** > **Data + Storage** > **SQL Data Warehouse**.
 
 	![Create a data warehouse](./media/sql-data-warehouse-get-started-provision/new-data-warehouse.png)
 
-1. The SQL Data Warehouse blade is where you will configure the database and assign the database to an Azure server.
+1. Enter a name for your database in the SQL Data Warehouse blade. In this example, we name the database AdventureWorksDW.
 
-## Step 2: Choose server settings
-In Azure, a database is assigned to a server, and a server is assigned to a data center. The Azure server provides a consistent way to configure cloud-based databases that are physically stored in the same geographical location. 
+    ![Enter a database name](./media/sql-data-warehouse-get-started-provision/database-name.png)
 
-You can assign multiple SQL Database and SQL Data Warehouse databases to the same Azure server. In fact, this can improve performance when you will be transferring data between the databases. 
 
-As you create your database, you can also create a new Azure server to track your database, or you can use one that was created earlier. We'll set up a new one.
+## Step 2: Configure and create a server
+In SQL Database and SQL Data Warehouse, each database is assigned to a server, and each server is assigned to a data center. The server is called a logical SQL server.
 
-3. Click **Server** > **Create a new server**. If you already have a V12 server that you want to use, choose your existing server and go to the next step.
+1. Click **Server** > **Create a new server**. There is no charge for the server. If you already have a V12 server that you want to use, choose your existing server and go to the next step. 
 
-    ![Create a new server](./media/sql-data-warehouse-get-started-provision/create-new-server.png)
+    ![Create a new server](./media/sql-data-warehouse-get-started-provision/create-server.png)
 
-    >[AZURE.NOTE] We do not charge extra for the server. In Azure, a server is not physical hardware like it is for an on-premises server that hosts a database; it is part of the service software. This is why we sometimes call it a logical server. 
-    > 
-    >Since the Azure server is a logical server, there is no impact on performance when you assign several databases to the same server. 
+3. Fill in the New server information. 
 
-1. In the **New server** window, fill in the requested information. Be sure to store the server name, admin name, and password somewhere.  You will need this information to log on to the server.
+    >[AZURE.NOTE] Be sure to store the server name, server admin name, and password somewhere.  You will need this information to log on to the server.
+
 	- **Server Name**. Enter a name for your logical server.
 	- **Server Admin Name**. Enter a user name for the server administrator account.
 	- **Password**. Enter the server admin password. 
 	- **Location**. Choose a geographical location for your server. To reduce data transfer time, it's best to locate your server geographically close to other data resources that this database will access.
-	- **Create V12 Server**. Choose **YES*.  SQL Data Warehouse requires V12. 
-	- **Allow azure services to access server**. Leave this checked so other services can connect to this server. You will need this in order to build an azure solution.
+	- **Create V12 Server**. YES is the only option for SQL Data Warehouse. 
+	- **Allow azure services to access server**. This is always checked for SQL Data Warehouse
 
-    ![Configure new server](./media/sql-data-warehouse-get-started-provision/configure-new-server.png)
+    ![Configure new server](./media/sql-data-warehouse-get-started-provision/configure-server.png)
+
+1. Click **OK** to save the server configuration settings and return to the SQL Data Warehouse blade.
+
+### Info about logical SQL servers
+
+In SQL Database and SQL Data Warehouse, each database is assigned to a server, and each server is assigned to a data center. The server is called a logical SQL server. 
+
+- A server provides a consistent way to configure multiple databases.
+
+- A server is not physical hardware like it is for an on-premises server that hosts a database; it is part of the service software. This is why we call it a *logical server*. 
+
+- Don't be confused by the name. SQL **s**erver is an Azure logical server, whereas SQL **S**erver is a product name.
+
+- Unlike physical servers, you can assign multiple databases to the same logical SQL server without impacting performance.
 
 
-1. Click **OK** to save the server configuration settings.
+## Step 3: Configure and create a database
+Now that you have selected your server, you are ready to finish creating the database.
+ 
+2. In the **SQL Data Warehouse** blade, fill in the remaining fields. 
 
+    ![Create database](./media/sql-data-warehouse-get-started-provision/create-database.png)
 
-## Step 3: Configure and create the database
+    - **Database name**: Enter a name for your SQL Data Warehouse database. In this example, the database name is *sample*.
+    - **Performance**: We recommend starting with 400 DWU. If You can move the slider to the left or right to adjust the performance level for your database, both now and after the database is created. 
 
-In the **SQL Data Warehouse** blade, fill in the remaining fields. 
+        > [AZURE.NOTE] Performance is measured in Data Warehouse Units (DWUs). As you increase DWUs, SQL Data Warehouse increases the computing resources available for your database operations. As you run your workload, you will be able to see how DWUs relate to your workload performance. 
+        > 
+        > You can quickly and easily change the performance level after the database is created.  For example, if you are not using the database, move the slider to the left to reduce costs.  Or, increase performance when more resources are needed. This is the scalable power of SQL Data Warehouse.
 
-1. **Database name**: Enter a name for your SQL Data Warehouse database. In this example, we use sqldwdb.
+    - **Select source**. You can create a blank database, or populate your database with a sample database. In this example we choose **Sample**. Since there is only one sample database available at this time, when you select Sample, Azure automatically populates the **Select sample** setting with AdventureWorksDW. 
 
-2. **Performance**: We recommend starting with 400 DWU. If You can move the slider to the left or right to adjust the performance level for your database, both now and after the database is created. 
-
-    > [AZURE.NOTE] Performance is measured in Data Warehouse Units (DWUs). As you increase DWUs, SQL Data Warehouse increases the computing resources available for your database operations. As you run your workload, you will be able to see how DWUs relate to your workload performance. 
-
-	> [AZURE.NOTE] You can quickly and easily change the performance level after the database is created.  For example, if you are not using the database, move the slider to the left to reduce costs.  Or, increase performance when more resources are needed. This is the scalable power of SQL Data Warehouse.
-	
-1. **Select source**. You can create a blank database, or populate your database with a sample database. In this example we choose **Sample**. Since there is only one sample database available at this time, when you select Sample, Azure automatically populates the **Select sample** setting with AdventureWorksDW. 
-
-    ![Create data warehouse](./media/sql-data-warehouse-get-started-provision/create-data-warehouse.png)
-
-2. **Resource group**. Keep the default values.Resource groups are containers designed to help you manage a collection of Azure resources. Learn more about [resource groups](../azure-portal/resource-group-portal.md).
-
-3. **Subscription**. Select the subscription to bill for this database.
+    - **Resource group**. Keep the default values.Resource groups are containers designed to help you manage a collection of Azure resources. Learn more about [resource groups](../azure-portal/resource-group-portal.md).
+    
+    - **Subscription**. Select the subscription to bill for this database.
 
 1. Click **Create** to create your SQL Data Warehouse database. 
 
-1. Now, simply wait for a few minutes.  When finished, you will see your sample database on your home page.
-
-    ![SQL Data Warehouse portal view](./media/sql-data-warehouse-get-started-provision/database-portal-view.png)
+1. Wait for a few minutes and your database will be ready.  
 
 ## Step 4: Configure the firewall
 
