@@ -68,9 +68,8 @@ In SQL Database and SQL Data Warehouse, each database is assigned to a server, a
     >[AZURE.NOTE] Be sure to store the server name, server admin name, and password somewhere.  You will need this information to log on to the server.
 
 1. Click **OK** to save the server configuration settings and return to the SQL Data Warehouse blade.
+
     ![Configure new server](./media/sql-data-warehouse-get-started-provision/configure-server.png)
-
-
 
 ## Step 3: Configure and create a database
 Now that you have selected your server, you are ready to finish creating the database.
