@@ -145,7 +145,7 @@ Property names in filter, select, and expand strings *must* reflect their REST A
 ### Mappings for select strings
 
 - **BATCH .NET TYPES** - Batch .NET API types
-- **REST API ENTITIES** - Each page in this column contains one or more tables listing the REST API property names for the type. These property names are used when constructing **select** strings. You will use these same property names and when constructing an [ODATADetailLevel.FilterClause][odata_filter] string.
+- **REST API ENTITIES** - Each page in this column contains one or more tables listing the REST API property names for the type. These property names are used when constructing **select** strings. You will use these same property names and when constructing an [ODATADetailLevel.SelectClause][odata_select] string.
 
 | Batch .NET Types | REST API Entities |
 |---|---|
