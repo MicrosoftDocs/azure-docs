@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Resource Manager supported services | Microsoft Azure"
-   description="Describes the resource providers that support Resource Manager"
+   pageTitle="Resource Manager supported services and supported regions | Microsoft Azure"
+   description="Describes the resource providers that support Resource Manager and the regions that can host the resources."
    services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
@@ -18,10 +18,14 @@
 
 # Azure Services that support Resource Manager
 
-This topic provides a list of supported resource providers for Azure Resource Manager.
+Azure Resource Manager provides a new way for you to deploy and manage the services that make up your applications. 
+Most, but not all, services support Resource Manager, and some services support Resource Manager only partially. Microsoft will enable Resource Manager for every service that is important for future solutions, but until the 
+support is consistent, you need to know the current status for each service. This topic provides a list of supported resource providers for Azure Resource Manager.
+
+When deploying your resources, you also need to know which regions support those resources. The section [Supported Regions](#supported-regions) shows you how to find out which regions will work for your subscription and resources.
 
 The following tables list which services support deployment and management through Resource Manager and which do not. The column titled **Move Resources** refers to whether resources of this type can be moved to both a 
-new resource group and a new subscription. 
+new resource group and a new subscription. The column titled **Preview Portal** indicates whether you can create the service through the preview portal.
 
 
 ## Compute
