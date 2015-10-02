@@ -172,7 +172,7 @@ The pipeline contains a Copy Activity that is configured to use the above input 
 	        "typeProperties": {
 	          "source": {
 	            "type": "SqlDWSource",
-	            "SqlReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= \\'{0:yyyy-MM-dd HH:mm}\\' AND timestampcolumn < \\'{1:yyyy-MM-dd HH:mm}\\'', WindowStart, WindowEnd)"
+	            "sqlReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= \\'{0:yyyy-MM-dd HH:mm}\\' AND timestampcolumn < \\'{1:yyyy-MM-dd HH:mm}\\'', WindowStart, WindowEnd)"
 	          },
 	          "sink": {
 	            "type": "BlobSink"
@@ -192,6 +192,8 @@ The pipeline contains a Copy Activity that is configured to use the above input 
 	     ]
 	   }
 	}
+
+> [AZURE.NOTE] In the above example, **sqlReaderQuery** is specified for the SqlDWSource. The Copy Activity runs this query against the Azure SQL Data Warehouse source to get the data. Alternatively, you can specify a stored procedure by specifying the **sqlReaderStoredProcedureName** and **storedProcedureParameters** (if the stored procedure takes parameters). If you do not specify either sqlReaderQuery or sqlReaderStoredProcedureName, the columns defined in the structure section of the dataset JSON are used to build a query to run against the Azure SQL Data Warehouse. 
 
 ## Sample: Copy data from Azure Blob to Azure SQL Data Warehouse
 
@@ -395,13 +397,16 @@ For a full list of sections & properties available for defining activities, plea
 Properties available in the typeProperties section of the activity on the other hand vary with each activity type and in case of Copy activity they vary depending on the types of sources and sinks.
 
 ### SqlDWSource
+
 In case of Copy activity when source is of type **SqlDWSource** the following properties are available in **typeProperties** section:
 
 | Property | Description | Allowed values | Required |
 | -------- | ----------- | -------------- | -------- |
-| sqlReaderQuery | Use the custom query to read data. | SQL query string. For example: select * from MyTable. If not specified, the SQL statement that is executed: select **columns defined in structure section of table JSON** from MyTable. | No |
+| sqlReaderQuery | Use the custom query to read data. | SQL query string. For example: select * from MyTable. | No |
 | sqlReaderStoredProcedureName | Name of the stored procedure that reads data from the source table. | Name of the stored procedure. | No |
-| sqlReaderStoredProcedureParameters | Parameters for the stored procedure. | Name/value pairs. Names and casing of parameters must match the names and casing of the stored procedure parameters. | No |
+| storedProcedureParameters | Parameters for the stored procedure. | Name/value pairs. Names and casing of parameters must match the names and casing of the stored procedure parameters. | No |
+
+> [AZURE.NOTE] In the above example, **sqlReaderQuery** is specified for the SqlDWSource. The Copy Activity runs this query against the Azure SQL Data Warehouse source to get the data. Alternatively, you can specify a stored procedure by specifying the **sqlReaderStoredProcedureName** and **storedProcedureParameters** (if the stored procedure takes parameters). If you do not specify either sqlReaderQuery or sqlReaderStoredProcedureName, the columns defined in the structure section of the dataset JSON are used to build a query to run against the Azure SQL Data Warehouse. 
 
 #### SqlDWSource example
 
