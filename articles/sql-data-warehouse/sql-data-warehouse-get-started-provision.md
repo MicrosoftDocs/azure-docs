@@ -94,7 +94,7 @@ Now that you have selected your server, you are ready to finish creating the dat
 
 1. Click **Create** to create your SQL Data Warehouse database. 
 
-1. Wait for a few minutes and your database will be ready. When finished, you can see your database on your dashboard. You should now be returned to the [Azure portal][]. Notice that your SQL Data Warehouse database has been added to the page.
+1. Wait for a few minutes and your database will be ready. When finished, you can see your database on your dashboard. You should now be returned to the [Azure preview portal](https://portal.azure.com). Notice that your SQL Data Warehouse database has been added to the page.
 
     ![Portal view](./media/sql-data-warehouse-get-started-provision/database-portal-view.png)
 
@@ -110,7 +110,7 @@ To be able to connect to the server from your current IP address, you need to ad
 
 	![Add the IP address](./media/sql-data-warehouse-get-started-provision/add-client-ip.png)
 
-1. (Optional) Create a firewall rule with a range of IP addresses.
+1. Create a firewall rule with a range of IP addresses. You can do this now or later.
 
 	>[AZURE.IMPORTANT] You're IP address is likely to change from time to time, and you may not be able to access your server until you create a new firewall rule. You can check your IP address using [Bing](http://www.bing.com/search?q=my%20ip%20address), and then add a single IP address or a range of IP addresses. See [How to configure firewall settings](../sql-database/sql-database-configure-firewall-settings.md) for details.
 
