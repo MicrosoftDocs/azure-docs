@@ -2,7 +2,7 @@ Although the use of system routes facilitates traffic automatically for your dep
 
 Some of the cases where virtual appliances can be used include:
 
-- Monitoring traffic with an intrusio detection system (IDS)
+- Monitoring traffic with an intrusion detection system (IDS)
 - Controlling traffic with a firewall
 
 For more information about UDR and IP forwarding, visit [User Defined Routes and IP Forwarding](./virtual-networks-udr-overview.md).
