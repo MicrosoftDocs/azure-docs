@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Monitor operations, evetns, and counters for NSGs | Microsoft Azure"
+   pageTitle="Monitor operations, events, and counters for NSGs | Microsoft Azure"
    description="Learn how to enable counters, events, and operational logging for NSGs"
    services="virtual-network"
    documentationCenter="na"
