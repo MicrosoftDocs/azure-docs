@@ -27,10 +27,18 @@ Perform the following configuration steps in order to update the DNS server sett
 
 1. Navigate to the **Azure management portal** ([https://manage.windowsazure.com](https://manage.windowsazure.com)).
 2. Select the **Networks** node on the left pane.
-3. In the **Virtual Networks** tab, select the virtual network in which you enabled Azure AD Domain Services.
+
+    ![Virtual networks node](./media/active-directory-domain-services-getting-started/virtual-network-select.png)
+
+3. In the **Virtual Networks** tab, select the virtual network in which you enabled Azure AD Domain Services to view its properties.
 4. Click on the **Configure** tab.
+
+    ![Virtual networks node](./media/active-directory-domain-services-getting-started/virtual-network-configure-tab.png)
+
 5. In the **DNS servers** section, enter the IP addresses of Azure AD Domain Services.
-6. Ensure that you enter both the IP addresses displayed in the **Domain Services** section on the **Configure** tab of your directory.
+6. Ensure that you enter both the IP addresses that were displayed in the **Domain Services** section on the **Configure** tab of your directory.
 7. Click **Save** on the task pane at the bottom of the page in order to save the DNS server settings for this virtual network.
 
    ![Update the DNS server settings for the virtual network.](./media/active-directory-domain-services-getting-started/update-dns.png)
+
+> [AZURE.NOTE] After updating the DNS server settings for the virtual network, it may take a while for virtual machines on the network to get the updated DNS configuration. If a virtual machine is unable to connect to the domain, you can flush the DNS cache (eg. ipconfig /flushdns) on the virtual machine, in order to force a refresh of the DNS settings on the virtual machine.
