@@ -45,7 +45,7 @@ Set license properties               | Set the license properties for a user in 
 Reset user password                  | Reset the password for a user in the directory.
 Change user password                 | Changed the password for a user in the directory.
 Change user license                  | Changed the license assigned to a user in the directory. To see what licenses were updated, look at the "Update user" event immediately before or after this event.
-Update user                          | Updated a user in the directory.
+Update user                          | Updated a user in the directory. See below for attributes that can be updated.
 Set force change user password       | Set the property that forces a user to change their password on login.
 **Group events**                     |
 Create group                         | Created a group in the directory.
@@ -89,7 +89,7 @@ Promote tenant to partner
 
 --->
 
-### User attributes included in the Update User audit event
+## "Update User" attributes
 The "Update user" audit event includes additional information about what user attributes were updated. For each attribute, both the previous value and the new value is included.
 
 Attribute                       | Description
