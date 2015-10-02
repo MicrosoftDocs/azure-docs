@@ -16,7 +16,7 @@
    ms.date="10/01/2015"
    ms.author="hascipio; v-shresh"/>
 
-# Prerequisites for creating a developer service for the Azure Marketplace (Onboarding Guide)
+# Prerequisites for creating a developer service for the Azure Marketplace
 
 This article outlines the necessary pre-requisites e.g. accounts, tools, etc. to move forward with publishing a Developer Service offer on the Azure Marketplace.
 
