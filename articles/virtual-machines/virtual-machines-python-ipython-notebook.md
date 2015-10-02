@@ -50,7 +50,7 @@ virtual machines, and we will cover the setup of Jupyter on both types of virtua
 Follow the instructions given [here][portal-vm-linux] to create a virtual machine of the *Ubuntu* distribution. This tutorial uses Ubuntu Server 14.04 LTS. We'll assume the user name *azureuser*.
 
 After the virtual machine deploys we need to open up a security rule on the network security group.  From the portal, go to **Network Security Groups** and open the tab for the Security Group corresponding to your VM. You need to add an Inbound Security rule with the following settings:
-**TCP** for the protocol, **443** for the source (public) port and **9999** for the destination (private) port.
+**TCP** for the protocol, **\*** for the source (public) port and **9999** for the destination (private) port.
 
 ![Screenshot](./media/virtual-machines-python-ipython-notebook/azure-add-endpoint.png)
 
