@@ -43,14 +43,18 @@ In this walkthrough you will:
 ## Step 2: Configure and create a server
 In SQL Database and SQL Data Warehouse, each database is assigned to a server, and each server is assigned to a data center. The server is called a logical SQL server.
 
+    >[AZURE.NOTE] A logical SQL server:
+    > - Provides a consistent way to configure multiple databases.
+    > - Is not physical hardware like it is for an on-premises server that hosts a database; it is part of the service software. This is why we call it a *logical server*. 
+    > - Can host multiple SQL Database and SQL Data Warehouse databases without impacting performance of the databases.
+    > - Uses a lower case *s* in its name. SQL **s**erver is an Azure logical server, whereas SQL **S**erver is a product name.
+
 1. Click **Server** > **Create a new server**. There is no charge for the server. If you already have a V12 server that you want to use, choose your existing server and go to the next step. 
 
     ![Create a new server](./media/sql-data-warehouse-get-started-provision/create-server.png)
 
 3. Fill in the New server information. 
-
-    >[AZURE.NOTE] Be sure to store the server name, server admin name, and password somewhere.  You will need this information to log on to the server.
-
+    
 	- **Server Name**. Enter a name for your logical server.
 	- **Server Admin Name**. Enter a user name for the server administrator account.
 	- **Password**. Enter the server admin password. 
@@ -58,20 +62,11 @@ In SQL Database and SQL Data Warehouse, each database is assigned to a server, a
 	- **Create V12 Server**. YES is the only option for SQL Data Warehouse. 
 	- **Allow azure services to access server**. This is always checked for SQL Data Warehouse
 
+    >[AZURE.NOTE] Be sure to store the server name, server admin name, and password somewhere.  You will need this information to log on to the server.
+
 1. Click **OK** to save the server configuration settings and return to the SQL Data Warehouse blade.
     ![Configure new server](./media/sql-data-warehouse-get-started-provision/configure-server.png)
 
-### Info about logical SQL servers
-
-In SQL Database and SQL Data Warehouse, each database is assigned to a server, and each server is assigned to a data center. The server is called a logical SQL server. 
-
-- A server provides a consistent way to configure multiple databases.
-
-- A server is not physical hardware like it is for an on-premises server that hosts a database; it is part of the service software. This is why we call it a *logical server*. 
-
-- Don't be confused by the name. SQL **s**erver is an Azure logical server, whereas SQL **S**erver is a product name.
-
-- Unlike physical servers, you can assign multiple databases to the same logical SQL server without impacting performance.
 
 
 ## Step 3: Configure and create a database
@@ -89,7 +84,7 @@ Now that you have selected your server, you are ready to finish creating the dat
 
     - **Select source**. Click **Select source** > **Sample**. Since there is only one sample database available at this time, when you select Sample, Azure automatically populates the **Select sample** setting with AdventureWorksDW. 
   
-    ![Select Sample](./media/sql-data-warehouse-get-started-provision/select-sample.png)
+    ![Select Sample](./media/sql-data-warehouse-get-started-provision/select-source.png)
 
     - **Resource group**. Keep the default values.Resource groups are containers designed to help you manage a collection of Azure resources. Learn more about [resource groups](../azure-portal/resource-group-portal.md).
     
