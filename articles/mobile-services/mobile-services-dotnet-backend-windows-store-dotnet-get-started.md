@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="article" 
-	ms.date="08/08/2015"
+	ms.date="10/02/2015"
 	ms.author="glenga"/>
 
 
@@ -21,6 +21,8 @@
 
 [AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]
 
+>[AZURE.NOTE] This topic shows you how to get started with Mobile Services as quickly as possible. It is designed for customers new to this Azure feature. If you are already familiar with Mobile Services or are looking for more in-depth information, please select a topic from the left-navigation or see the relevant links in [Next steps](#next-steps).
+ 
 This tutorial shows you how to add a cloud-based backend service to a universal Windows app using Azure Mobile Services. Universal Windows app solutions include projects for both Windows Store 8.1 and Windows Phone Store 8.1 apps and a common shared project. For more information, see [Build universal Windows apps that target Windows and Windows Phone](http://msdn.microsoft.com/library/windows/apps/xaml/dn609832.aspx).
 
 In this tutorial, you will create both a new mobile service and a simple *To do list* app that stores app data in the new mobile service. The mobile service that you will create uses the supported .NET languages using Visual Studio for server-side business logic and to manage the mobile service. To create a mobile service that lets you write your server-side business logic in JavaScript, see the JavaScript backend version of this topic.
