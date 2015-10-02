@@ -43,11 +43,12 @@ In this walkthrough you will:
 ## Step 2: Configure and create a server
 In SQL Database and SQL Data Warehouse, each database is assigned to a server, and each server is assigned to a geographical location. The server is called a logical SQL server.
 
-A logical SQL server:
-- Provides a consistent way to configure multiple databases within the same geographical location.
-- Is not physical hardware like it is for an on-premises server that hosts a database. It  is part of the service software. This is why we call it a *logical server*. 
-- Can host multiple SQL Database and SQL Data Warehouse databases without impacting performance of the databases.
-- Uses a lower case *s* in its name. SQL **s**erver is an Azure logical server, whereas SQL **S**erver is a product name.
+> [AZURE.NOTE] <a name="note"></a>A logical SQL server:
+  >
+  > + Provides a consistent way to configure multiple databases within the same geographical location.
+  > + Is not physical hardware like it is for an on-premises server that hosts a database. It  is part of the service software. This is why we call it a *logical server*.
+  > + Is not physical hardware like it is for an on-premises server that hosts a database. It  is part of the service software. This is why we call it a *logical server*.
+  > + Uses a lower case *s* in its name. SQL **s**erver is an Azure logical server, whereas SQL **S**erver is a product name.
 
 1. Click **Server** > **Create a new server**. There is no charge for the server. If you already have a V12 server that you want to use, choose your existing server and go to the next step. 
 
