@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/22/2015"
+	ms.date="10/01/2015"
 	ms.author="swkrish"/>
 
 # Azure Active Directory B2C preview: FAQs
@@ -22,9 +22,9 @@ This page answers frequently asked questions about the Azure Active Directory (A
 
 [AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
 
-### Can I use Azure AD B2C in my existing, Employee-based Azure AD Directory?
+### Can I use Azure AD B2C in my existing, Employee-based Azure AD Tenant?
 
-Currently Azure AD B2C features can't be turned on in your existing Azure AD directory. It is recommended that you create a separate directory to use Azure AD B2C features, i.e., to manage your consumers.
+Currently Azure AD B2C features can't be turned on in your existing Azure AD tenant. It is recommended that you create a separate tenant to use Azure AD B2C features, i.e., to manage your consumers.
 
 ### Can I use Azure AD B2C to provide Social Login (Facebook & Google+) into Office 365?
 
@@ -32,9 +32,9 @@ Azure AD B2C can't be used with Office 365. In general, it can't be used to prov
 
 ### What are "Local Accounts" in Azure AD B2C? How are they different from "Work or School Accounts" in Azure AD?
 
-In an Azure AD directory, every user in the directory (except users with existing Microsoft Accounts) signs in with an email address of the form `<xyz>@<directory domain>` where `<directory domain>` is one of the verified domains in the directory or the initial `<...>.onmicrosoft.com` domain. This type of account is a "work or school account", also referred to as an "organizational account".
+In an Azure AD tenant, every user in the tenant (except users with existing Microsoft Accounts) signs in with an email address of the form `<xyz>@<tenant domain>` where `<directory domain>` is one of the verified domains in the directory or the initial `<...>.onmicrosoft.com` domain. This type of account is a "work or school account", also referred to as an "organizational account".
 
-In an Azure AD B2C directory, most apps want the user to sign in with any arbitrary email address (example, joe@comcast.net, bob@gmail.com, sarah@contoso.com or jim@live.com). This type of account is a "local account". Today, we also support arbitrary usernames (just plain strings) as local accounts (example, joe, bob, sarah or jim). You can choose one of these two local account "types" in the Azure AD B2C service.
+In an Azure AD B2C tenant, most apps want the user to sign in with any arbitrary email address (example, joe@comcast.net, bob@gmail.com, sarah@contoso.com or jim@live.com). This type of account is a "local account". Today, we also support arbitrary usernames (just plain strings) as local accounts (example, joe, bob, sarah or jim). You can choose one of these two local account "types" in the Azure AD B2C service.
 
 ### Which Social Identity Providers do you support now? Which ones do you plan to support in the future?
 
@@ -87,7 +87,7 @@ Currently, Azure AD B2C is optimized for English only. We plan to roll out local
 
 ### Can I use my own URLs on my Sign-up & Sign-in pages served by Azure AD B2C? For instance, change the URLs from login.microsoftonline.com to login.contoso.com?
 
-Not currently. But this feature is on our roadmap.
+Not currently. This feature is on our roadmap. Also note that "verifying" your domain in the **Domains** tab of your tenant on the Azure portal will not do this.
 
 ### Can I get Azure AD B2C as part of Enterprise Mobility Suite (EMS)?
 

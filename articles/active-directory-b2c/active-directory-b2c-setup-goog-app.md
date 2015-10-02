@@ -40,15 +40,22 @@ To use Google+ as an identity provider in Azure Active Directory (AD) B2C, you w
 
     ![G+ - OAuth consent screen](./media/active-directory-b2c-setup-goog-app/google-consent-screen.png)
 
-6. Under **Application type**, select **Web application**.
-7. Provide a **Name** for your application, enter [https://login.microsoftonline.com](https://login.microsoftonline.com) in the **Authorized redirect URIs** field and [https://login.microsoftonline.com/te/{tenant}/oauth2/authresp](https://login.microsoftonline.com/te/{tenant}/oauth2/authresp) in the **Authorized redirect URIs** field, where **{tenant}** is to be replaced with your tenant's name (for example, contosob2c.onmicrosoft.com). Click **Create**.
+6. Click on **Add credentials** and then choose **OAuth 2.0 client ID**.
+
+    ![G+ - OAuth consent screen](./media/active-directory-b2c-setup-goog-app/google-add-oauth2-client-id.png)
+
+7. Under **Application type**, select **Web application**.
+
+    ![G+ - OAuth consent screen](./media/active-directory-b2c-setup-goog-app/google-web-app.png)
+
+8. Provide a **Name** for your application, enter [https://login.microsoftonline.com](https://login.microsoftonline.com) in the **Authorized redirect URIs** field and [https://login.microsoftonline.com/te/{tenant}/oauth2/authresp](https://login.microsoftonline.com/te/{tenant}/oauth2/authresp) in the **Authorized redirect URIs** field, where **{tenant}** is to be replaced with your tenant's name (for example, contosob2c.onmicrosoft.com). Click **Create**.
 
     > [AZURE.NOTE]
     The **{tenant}** value is case-sensitive.
 
     ![G+ - Create client ID](./media/active-directory-b2c-setup-goog-app/google-create-client-id.png)
 
-8. Copy the values of **Client ID** and **Client secret**. You will need both of them to configure Google+ as an identity provider in your tenant.
+9. Copy the values of **Client ID** and **Client secret**. You will need both of them to configure Google+ as an identity provider in your tenant.
 
     > [AZURE.NOTE]
     **Client secret** is an important security credential.
