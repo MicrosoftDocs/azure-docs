@@ -84,7 +84,7 @@ Now that you have selected your server, you are ready to finish creating the dat
 
     - **Select source**. Click **Select source** > **Sample**. Since there is only one sample database available at this time, when you select Sample, Azure automatically populates the **Select sample** setting with AdventureWorksDW. 
   
-    ![Select Sample](./media/sql-data-warehouse-get-started-provision/select-source.png)
+        ![Select Sample](./media/sql-data-warehouse-get-started-provision/select-source.png)
 
     - **Resource group**. Keep the default values.Resource groups are containers designed to help you manage a collection of Azure resources. Learn more about [resource groups](../azure-portal/resource-group-portal.md).
     
