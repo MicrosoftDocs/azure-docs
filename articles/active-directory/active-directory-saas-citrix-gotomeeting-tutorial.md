@@ -1,5 +1,6 @@
 <properties 
-    pageTitle="Tutorial: Azure Active Directory integration with Citrix GoToMeeting | Microsoft Azure" description="Learn how to use Citrix GoToMeeting with Azure Active Directory to enable single sign-on, automated provisioning, and more!." 
+    pageTitle="Tutorial: Azure Active Directory integration with Citrix GoToMeeting | Microsoft Azure" 
+    description="Learn how to use Citrix GoToMeeting with Azure Active Directory to enable single sign-on, automated provisioning, and more!." 
     services="active-directory" 
     authors="MarkusVi"  
     documentationCenter="na" 
@@ -10,7 +11,7 @@
     ms.devlang="na" ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="09/22/2015" 
+    ms.date="10/01/2015" 
     ms.author="markvi" />
 
 #Tutorial: Azure Active Directory integration with Citrix GoToMeeting  
@@ -53,7 +54,7 @@ The objective of this section is to outline how to enable the application integr
 
 5.  On the **What do you want to do** dialog, click **Add an application from the gallery**.
 
-    ![Add an application from gallerry](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC749322.png "Add an application from gallerry")
+    ![Add an application from gallery](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC749322.png "Add an application from gallery")
 
 6.  In the **search box**, type **Citrix GoToMeeting**.
 
@@ -122,7 +123,7 @@ The objective of this section is to outline how to enable provisioning of Active
 
     ![Configure user provisioning](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC769001.png "Configure user provisioning")
 
-2.  On the **Settings and admin credentials** page, perform the followig steps:
+2.  On the **Settings and admin credentials** page, perform the following steps:
 
     ![Configure user provisioning](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC769002.png "Configure user provisioning")
 
