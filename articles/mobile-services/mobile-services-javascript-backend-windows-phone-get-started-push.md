@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Add push notifications to your Mobile Services app (Windows Store) | Microsoft Azure" 
-	description="Learn how to use Azure Mobile Services and Notification Hubs to send push notifications to your Windows Store app." 
+	pageTitle="Add push notifications to your Mobile Services app (Windows Phone) | Microsoft Azure" 
+	description="Learn how to use Azure Mobile Services and Notification Hubs to send push notifications to your Windows Phone app." 
 	services="mobile-services,notification-hubs" 
 	documentationCenter="windows" 
 	authors="ggailey777" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-phone" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="06/11/2015" 
+	ms.date="09/14/2015" 
 	ms.author="glenga"/>
 
 

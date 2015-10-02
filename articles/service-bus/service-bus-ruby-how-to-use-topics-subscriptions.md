@@ -236,7 +236,7 @@ Deleting a topic will also delete any subscriptions that are registered with the
 
 Now that you've learned the basics of Service Bus topics, follow these links to learn more.
 
--   See the MSDN Reference: [Queues, Topics, and Subscriptions](http://msdn.microsoft.com/library/windowsazure/hh367516.aspx)
--   API reference for [SqlFilter](http://msdn.microsoft.com/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.aspx)
--	Visit the [Azure SDK for Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby) repository on GitHub
+-   See [Queues, Topics, and Subscriptions](service-bus-queues-topics-subscriptions.md).
+-   API reference for [SqlFilter](http://msdn.microsoft.com/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.aspx).
+-	Visit the [Azure SDK for Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby) repository on GitHub.
  

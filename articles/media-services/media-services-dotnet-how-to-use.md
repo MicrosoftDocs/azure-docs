@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="08/11/2015"
+	ms.date="09/07/2015"
 	ms.author="juliako"/>
 
 #Media Services development with .NET 
@@ -98,4 +98,12 @@ Alternatively, you can get the latest Media Services .NET SDK bits from GitHub (
 		using Microsoft.WindowsAzure.MediaServices.Client;
 
 At this point, you are ready to start developing a Media Services application.    
- 
+
+
+
+##Media Services learning paths
+
+You can view AMS learning paths here:
+
+- [AMS Live Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [AMS on Demand Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Get Started with Azure Mobile Services for iOS apps"
+	pageTitle="Get Started with Azure Mobile Services for iOS apps | JavaScript Backend"
 	description="Follow this tutorial to get started using Azure Mobile Services for iOS development."
 	services="mobile-services"
 	documentationCenter="ios"

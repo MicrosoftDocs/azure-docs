@@ -150,11 +150,11 @@ Deleting a topic also deletes any subscriptions that are registered with the top
 
 Now that you've learned the basics of Service Bus topics, follow these links to learn more.
 
--   See the MSDN Reference: [Queues, Topics, and Subscriptions][].
+-   See [Queues, Topics, and Subscriptions][].
 -   Reference for [SqlFilter.SqlExpression][].
 
 [Azure Management Portal]: http://manage.windowsazure.com
 [Python Azure package]: https://pypi.python.org/pypi/azure  
-[Queues, Topics, and Subscriptions]: http://msdn.microsoft.com/library/azure/hh367516.aspx
+[Queues, Topics, and Subscriptions]: service-bus-queues-topics-subscriptions.md
 [SqlFilter.SqlExpression]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
  

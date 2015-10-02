@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Storage Analytics" 
-	description="How to manage concurrency for the Blob, Queue, Table, and File services" 
+	pageTitle="Enabling storage metrics in the Azure portal | Microsoft Azure" 
+	description="How to enable storage metrics for the Blob, Queue, Table, and File services" 
 	services="storage" 
 	documentationCenter="" 
 	authors="tamram" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/03/2015" 
+	ms.date="09/04/2015" 
 	ms.author="tamram"/>
 
 # Enabling Storage metrics and viewing metrics data

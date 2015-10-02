@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/27/2015"
+   ms.date="09/15/2015"
    ms.author="alkohli" />
 
 # Use the StorSimple Manager service to clone a volume
@@ -29,7 +29,7 @@ This tutorial describes how you can use a backup set to clone an individual volu
 
 You can create a clone on the same device, another device, or even a virtual machine by using a local or a cloud snapshot.
 
-## To clone a volume
+#### To clone a volume
 
 1. On the StorSimple Manager service page, click the **Backup catalog** tab and select a backup set.
 
@@ -79,12 +79,18 @@ The following sections describe example situations in which transient and perman
 
 You need to recover a one-year-old Microsoft PowerPoint presentation file. Your IT administrator identifies the specific backup from that time frame, and then filters the volume. The administrator then clones the volume, locates the file that you are looking for, and provides it to you. In this scenario, a transient clone is used. 
  
+![Video available](./media/storsimple-clone-volume/Video_icon.png) **Video available**
+
+To watch a video that demonstrates how you can use the clone and restore features in StorSimple to recover deleted files, click [here](http://azure.microsoft.com/documentation/videos/storsimple-recover-deleted-files-with-storsimple/).
+
 ### Testing in the production environment with a permanent clone
 
 You need to verify a testing bug in the production environment. You create a clone of the volume in the production environment. For increased performance, you need to take a cloud snapshot of this clone. The cloned volume is now independent, which results in faster performance. In this scenario, a permanent clone is used.
 
-## Next steps
-Learn how to [restore a StorSimple volume from a backup set](storsimple-restore-from-backup-set.md).
 
+## Next steps
+- Learn how to [restore a StorSimple volume from a backup set](storsimple-restore-from-backup-set.md).
+
+- Learn how to [use the StorSimple Manager service to administer your StorSimple device](storsimple-manager-service-administration.md).
 
  

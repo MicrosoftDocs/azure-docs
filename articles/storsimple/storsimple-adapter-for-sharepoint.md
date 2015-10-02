@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/03/2015"
+   ms.date="09/17/2015"
    ms.author="v-sharos" />
 
 # Install and configure the StorSimple Adapter for SharePoint
@@ -274,19 +274,19 @@ After you move the BLOBs back to the SQL Server content databases, use one of th
 1. Use an account with administrator privileges to log on to the web front-end (WFE) server.
 2. Double-click the StorSimple Adapter for SharePoint installer. The Setup Wizard starts.
 
-![Setup wizard](./media/storsimple-adapter-for-sharepoint/sasp2.png)
+    ![Setup wizard](./media/storsimple-adapter-for-sharepoint/sasp2.png)
 
 3. Click **Next**. The following page appears.
 
-![Setup wizard remove page](./media/storsimple-adapter-for-sharepoint/sasp3.png)
+    ![Setup wizard remove page](./media/storsimple-adapter-for-sharepoint/sasp3.png)
 
 4. Click **Remove** to select the removal process. The following page appears.
 
-![Setup wizard confirmation page](./media/storsimple-adapter-for-sharepoint/sasp4.png)
+    ![Setup wizard confirmation page](./media/storsimple-adapter-for-sharepoint/sasp4.png)
 
 5. Click **Remove** to confirm the removal. The following progress page appears.
 
-![Setup wizard progress page](./media/storsimple-adapter-for-sharepoint/sasp5.png)
+    ![Setup wizard progress page](./media/storsimple-adapter-for-sharepoint/sasp5.png)
 
 6. When the removal is complete, the finish page appears. Click **Finish** to close the Setup Wizard.
 

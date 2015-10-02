@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="TBD"
-   ms.date="09/01/2015"
+   ms.date="09/15/2015"
    ms.author="alkohli" />
 
 # Configure CHAP for your StorSimple device
@@ -188,5 +188,5 @@ You can verify that CHAP is being used by completing the following steps.
 
 ## Next steps
 
-Learn more about [StorSimple security](storsimple-security.md).
-
+- Learn more about [StorSimple security](storsimple-security.md).
+- Learn more about [using the StorSimple Manager service to administer your StorSimple device](storsimple-manager-service-administration.md).

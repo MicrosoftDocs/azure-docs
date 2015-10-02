@@ -171,7 +171,7 @@ For more information on developing and publishing Azure Websites, see the tutori
 * [IPython - an advanced REPL/Notebook for Python][]
 * [IPython Notebook on Azure][]
 * [Python Tools for Visual Studio on GitHub][]
-
+* [Python Developer Center](/develop/python/)
 
 [Continuum Analytics Python Distribution]: http://continuum.io
 [Enthought Python Distribution]: http://www.enthought.com

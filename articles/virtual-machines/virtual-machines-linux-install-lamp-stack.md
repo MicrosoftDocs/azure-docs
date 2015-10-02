@@ -1,11 +1,12 @@
 <properties
-	pageTitle="Install the LAMP stack on a Linux virtual machine"
-	description="Learn how to install the LAMP stack on a Linux virtual machine (VM) in Azure. You can install on Ubuntu or CentOS."
+	pageTitle="Install the LAMP stack on a Linux virtual machine | Microsoft Azure"
+	description="Learn how to install the LAMP stack on a Linux virtual machine (VM) in Azure."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="szarkos"
 	manager="timlt"
-	editor=""/>
+	editor=""
+	tags=“azure-service-management,azure-resource-manager"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -19,6 +20,8 @@
 
 
 #Install the LAMP Stack on a Linux virtual machine in Azure
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)] This article covers creating a resource with the Resource Manager deployment model or the classic deployment model.
 
 A LAMP stack consists of the following different elements:
 

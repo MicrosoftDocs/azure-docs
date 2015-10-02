@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-html5"
 	ms.devlang="javascript"
 	ms.topic="get-started-article"
-	ms.date="08/11/2015"
+	ms.date="09/24/2015"
 	ms.author="glenga"/>
 
 
@@ -67,13 +67,11 @@ By default, the client quickstart project that you will download from the portal
  
 		Install-Package Microsoft.AspNet.WebApi.Cors  
 
-	This installs the CORS support required by the backend. 
-
-2. Open the App_Start/WebApiConfig.cs project file and add the following using statement:
+2. Open the App_Start/Startup.MobileApp.cs project file and add the following using statement:
 
 		using System.Web.Http.Cors;
 
-3. Next, add the following code to the **WebApiConfig.Register** method after the **HttpConfiguration** is created:
+3. Next, add the following code to the **Startup.ConfigureMobileApp** method after the **HttpConfiguration** (*config*) is created:
 
         // Enable CORS support for localhost port 8000, all headers and methods.
         var cors = new EnableCorsAttribute("http://localhost:8000", "*", "*");

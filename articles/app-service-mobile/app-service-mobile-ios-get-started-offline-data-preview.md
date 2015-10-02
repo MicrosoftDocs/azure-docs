@@ -142,7 +142,7 @@ When using the Core Data offline store, you need to define particular tables and
 
     | Attribute  |    Type     |
     |----------- |   ------    |
-    | id         | Integer 64  |
+    | id         | String      |
     | key        | String      |
     | keyType    | Integer 64  |
     | table      | String      |

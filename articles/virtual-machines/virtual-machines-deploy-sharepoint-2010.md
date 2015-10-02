@@ -11,7 +11,7 @@
 <tags
 	ms.service="virtual-machines"
 	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-windows-sharepoint"
+	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/09/2015"
@@ -20,13 +20,15 @@
 
 # SharePoint 2010 deployment on Azure virtual machines
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)] This article covers creating resources with the classic deployment model. 
+
 Microsoft SharePoint Server 2010 provides rich deployment flexibility, which can help organizations determine the appropriate deployment scenarios to align with their business needs and objectives. Hosted and managed in Microsoft Azure, the Azure Virtual Machines offering provides complete, reliable, and available infrastructure to support various on-demand application and database workloads, such as Microsoft SQL Server and SharePoint deployments.
 
 While Azure virtual machines support multiple workloads, this article focuses on SharePoint deployments. Azure virtual machines enable organizations to create and manage their SharePoint infrastructure by quickly provisioning and accessing nearly any host universally. It allows full control and management over processors, RAM, CPU ranges, and other resources of SharePoint virtual machines.
 
 Azure virtual machines mitigate the need for hardware, so organizations can turn attention from handling high, upfront cost and complexity to building and managing infrastructure at scale. This means that they can innovate, experiment, and iterate in hours, as opposed to days and weeks with traditional deployments.
 
-> [AZURE.NOTE] For information about deploying SharePoint 2013 in Azure, see [Planning for SharePoint 2013 on Azure infrastructure services](https://msdn.microsoft.com/library/dn275958.aspx) and [SharePoint farms hosted in Azure infrastructure services](virtual-machines-sharepoint-infrastructure-services.md).
+> [AZURE.NOTE] For information about deploying SharePoint 2013 in Azure, see [Microsoft Azure Architectures for SharePoint 2013](https://technet.microsoft.com/library/dn635309.aspx) and [SharePoint farms hosted in Azure infrastructure services](virtual-machines-sharepoint-infrastructure-services.md).
 
 ## SharePoint on Azure virtual machines
 
@@ -58,17 +60,21 @@ Azure virtual machines provide developers with the flexibility to pick their des
 
 The image library in Azure provides the list of available preconfigured virtual machines. Users can publish SharePoint Server, SQL Server, Windows Server, and other ISO/VHDs to the image library. To simplify the creation of virtual machines, base images are created and published to the library. Authorized users can use these images to generate the desired virtual machine. For more information, go to [Create a virtual machine running Windows in the Azure preview portal](virtual-machines-windows-tutorial.md). Figure 1 shows the basic steps for creating a virtual machine using the Azure portal.
 
+![azure-sharepoint-wp-13](./media/virtual-machines-deploy-sharepoint-2010/azure-sharepoint-wp-2.png)
+
 **Figure 1: Overview of steps for creating a virtual machine**
 
 Users also can upload a sysprepped image on the Azure Management Portal. For more information, go to [Create and upload a Windows Server VHD to Azure](virtual-machines-create-upload-vhd-windows-server.md). Figure 2 shows the basic steps for uploading an image to create a VM.
 
 On the Azure portal, users also can upload an image on which the SysPrep tool has already been run. For more information, go to [Create and upload a Windows Server VHD to Azure](virtual-machines-create-upload-vhd-windows-server.md). Figure 2 shows the basic steps for uploading an image to create a virtual machine.
 
+![azure-sharepoint-wp-13](./media/virtual-machines-deploy-sharepoint-2010/azure-sharepoint-wp-3.png)
+
 **Figure 2: Overview of steps for uploading an image**
 
 ## Deploying SharePoint 2010 on Azure 
 
-You can deploy SharePoint 2010 on Azure by following these steps:
+You can deploy SharePoint 2010 on Azure using the classic deployment model by following these steps:
 
 1. Sign in to the [Azure Management Portal](http://manage.windowsazure.com/) through your Azure subscription account. If you do not have an Azure account, [sign up for a free trial of Azure](http://azure.microsoft.com/pricing/free-trial/).
 2. To create a virtual machine with the base operating system, on the Azure portal, click **New > Compute > Virtual Machine > From Gallery**.
@@ -143,6 +149,8 @@ This scenario explains how organizations can use preconfigured SharePoint farms 
 To fully utilize load-testing computers, organizations can configure SharePoint virtualized development and test computers on Azure with operating system support for Windows Sever 2008 R2. This enables development teams to create and test applications and easily migrate to on-premises or cloud production environments without code changes. The same frameworks and toolsets can be used on-premises and in the cloud, allowing distributed team access to the same environment. Users also can access on-premises data and applications by establishing a direct VPN connection.
 
 Figure 3 shows a SharePoint development and testing environment on an Azure virtual machine. To build this deployment, start by using the same on-premises SharePoint development and testing environment used to develop applications. Then, upload and deploy the applications to the Azure virtual machine for testing and development. If your organization decides to move the application back on-premises, it can do so without having to modify the application.
+
+![azure-sharepoint-wp-13](./media/virtual-machines-deploy-sharepoint-2010/azure-sharepoint-wp-11.png)
 
 **Figure 3: SharePoint development and testing environment on Azure virtual machines**
 
@@ -271,10 +279,10 @@ Successful deployment of SharePoint Server on Azure virtual machines requires so
 
 ## Additional resources
 
-[SharePoint on Azure virtual machines](http://msdn.microsoft.com/library/dn275955.aspx)
-
 [SharePoint farms hosted in Azure infrastructure services](virtual-machines-sharepoint-infrastructure-services.md)
 
 [Azure infrastructure services workload: Intranet SharePoint farm](virtual-machines-workload-intranet-sharepoint-farm)
 
 [Azure infrastructure services implementation guidelines](virtual-machines-infrastructure-services-implementation-guidelines.md)
+
+[Test the SharePoint Server 2016 IT Preview in Azure](http://azure.microsoft.com/blog/test-sharepoint-server-2016-it-preview-4/)

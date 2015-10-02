@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="07/01/2015"
+	ms.date="10/01/2015"
 	ms.author="krisragh"/>
 
 # How to Use iOS Client Library for Azure Mobile Services
@@ -238,6 +238,12 @@ Alternatively, delete by providing a row ID:
 ```
 
 At minimum, the `id` attribute must be set when making deletes.
+
+##<a name="#custom-api"></a>How to: Call a custom API
+
+A custom API enables you to define custom endpoints that expose server functionality that does not map to an insert, update, delete, or read operation. By using a custom API, you can have more control over messaging, including reading and setting HTTP message headers and defining a message body format other than JSON. For an example of how to create a custom API in your mobile service, see [How to: define a custom API endpoint](mobile-services-dotnet-backend-define-custom-api.md).
+
+[AZURE.INCLUDE [mobile-services-ios-call-custom-api](../../includes/mobile-services-ios-call-custom-api.md)]
 
 
 ##<a name="authentication"></a>How to: Authenticate Users

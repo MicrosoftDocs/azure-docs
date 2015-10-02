@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="06/16/2015" 
+	ms.date="10/01/2015"
 	ms.author="ricksal"/>
 
 
@@ -31,15 +31,18 @@ This topic shows how to use Azure Mobile Services to send push notifications to 
 
 [AZURE.INCLUDE [mobile-services-android-prerequisites](../../includes/mobile-services-android-prerequisites.md)]
 
-##<a id="register"></a>Enable Google Cloud Messaging
+## Sample code
+To see the completed source code go [here](https://github.com/RickSaling/mobile-services-samples/tree/push/GettingStartedWithPush).
+
+## Enable Google Cloud Messaging
 
 [AZURE.INCLUDE [mobile-services-enable-Google-cloud-messaging](../../includes/mobile-services-enable-google-cloud-messaging.md)]
 
-##<a id="configure"></a>Configure Mobile Services to send push requests
+## Configure Mobile Services to send push requests
 
 [AZURE.INCLUDE [mobile-services-android-configure-push](../../includes/mobile-services-android-configure-push.md)]
 
-##<a id="add-push"></a>Add push notifications to your app
+## Add push notifications to your app
 
 
 
@@ -56,12 +59,12 @@ If you will be testing with an older device, then consult [Set Up Google Play Se
 [AZURE.INCLUDE [mobile-services-android-getting-started-with-push](../../includes/mobile-services-android-getting-started-with-push.md)]
 
 
-##<a id="update-scripts"></a>Update the registered insert script in the Management Portal
+## Update the registered insert script in the Management Portal
 
 [AZURE.INCLUDE [mobile-services-javascript-backend-android-push-insert-script](../../includes/mobile-services-javascript-backend-android-push-insert-script.md)]
 
 
-##<a id="test"></a>Test push notifications in your app
+## Test push notifications in your app
 
 You can test the app by directly attaching an Android phone with a USB cable, or by using a virtual device in the emulator.
 
@@ -98,18 +101,7 @@ You have successfully completed this tutorial.
 
 [AZURE.INCLUDE [Verify SDK](../../includes/mobile-services-verify-android-sdk-version.md)]
 
-
-## Older Code Versions
-
-If you would like to see the Eclipse version of this tutorial, go to [Get started with push notifications (Eclipse)].
-
-
-<!--
-To see a completed version of the source code in an Eclipse project, go <a href="https://github.com/Azure/mobile-services-samples/tree/master/GettingStartedWithData/Android">here</a>.
--->
-
-
-## <a name="next-steps"> </a>Next steps
+## Next steps
 
 <!---This tutorial demonstrated the basics of enabling an Android app to use Mobile Services and Notification Hubs to send push notifications. Next, consider completing the next tutorial, [Send push notifications to authenticated users], which shows how to use tags to send push notifications from a Mobile Service to only an authenticated user.
 

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="07/27/2015"
+	ms.date="09/29/2015"
 	ms.author="spelluru"/>
 
 # Build your first pipeline using Azure Data Factory
@@ -64,12 +64,10 @@ Before starting the tutorial, you need to prepare the Azure storage with files n
 
 1. Launch notepad, paste the following text, and save it as **partitionweblogs.hql** in the C:\adfgettingstarted folder on your hard drive. This Hive scripts creates two external tables: **WebLogsRaw** and **WebLogsPartitioned**.
 
-	> [AZURE.IMPORTANT] Replace **storageaccountname** in the last line with the name of your storage account. 
-
 		set hive.exec.dynamic.partition.mode=nonstrict;
-
+		
 		DROP TABLE IF EXISTS WebLogsRaw; 
-		CREATE EXTERNAL TABLE WebLogsRaw (
+		CREATE TABLE WebLogsRaw (
 		  date  date,
 		  time  string,
 		  ssitename string,
@@ -91,8 +89,9 @@ Before starting the tutorial, you need to prepare the Azure storage with files n
 		)
 		ROW FORMAT DELIMITED FIELDS TERMINATED BY ' '
 		LINES TERMINATED BY '\n' 
-		LOCATION '/HdiSamples/WebsiteLogSampleData/SampleLog/'
 		tblproperties ("skip.header.line.count"="2");
+		
+		LOAD DATA INPATH '/HdiSamples/WebsiteLogSampleData/SampleLog/909f2b.log' OVERWRITE INTO TABLE WebLogsRaw;
 		
 		DROP TABLE IF EXISTS WebLogsPartitioned ; 
 		create external table WebLogsPartitioned (  
@@ -119,7 +118,7 @@ Before starting the tutorial, you need to prepare the Azure storage with files n
 		ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' 
 		STORED AS TEXTFILE 
 		LOCATION '${hiveconf:partitionedtable}';
-
+		
 		INSERT INTO TABLE WebLogsPartitioned  PARTITION( year , month) 
 		SELECT
 		  date,
@@ -143,20 +142,21 @@ Before starting the tutorial, you need to prepare the Azure storage with files n
 		  year(date),
 		  month(date)
 		FROM WebLogsRaw
-
-	 
+	
  
 2. To prepare the Azure storage for the tutorial:
 	1. Download the [latest version of **AzCopy**](http://aka.ms/downloadazcopy), or the [latest preview version](http://aka.ms/downloadazcopypr). See [How to use AzCopy](../storage/storage-use-azcopy.md) article for instructions on using the utility.
 	2. After AzCopy has been installed, you can add it to the system path by running the following command at a command prompt. 
 	
-			set path=%path%;C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy
-	
+			set path=%path%;C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy			 
 
-	3. Navigate to the c:\adfgettingstarted folder, and run the following command to upload the Hive .HQL file to the storage account. Replace **<StorageAccountName\>** with the name of your storage account, and **<Storage Key\>** with the storage account key.
+	3. Navigate to the c:\adfgettingstarted folder, and run the following command to upload the Hive .HQL file to the storage account. Replace **StorageAccountName** with the name of your storage account, and **Storage Key** with the storage account key.
 
 			AzCopy /Source:. /Dest:https://<StorageAccountName>.blob.core.windows.net/script /DestKey:<Storage Key>
-	4. After the file has been successfully uploaded, you will see the following output from AzCopy.
+
+		> [AZURE.NOTE] The above command creates a container named **script** in your Azure Blob storage and copies the **partitionweblogs.hql** file from your local drive to the blob container. 
+	>
+	5. After the file has been successfully uploaded, you will see the following output from AzCopy.
 	
 			Finished 1 of total 1 file(s).
 			[2015/06/15 15:47:13] Transfer summary:

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/06/2015"
+   ms.date="09/23/2015"
    ms.author="alkohli" />
 
 # Unpack, rack-mount, and cable your StorSimple 8600 device
@@ -198,7 +198,7 @@ Before you begin to cable your device, you will need:
 - Provided serial cables
 - Serial-USB converter with the appropriate driver installed on your PC (if needed)
 - Provided single QSFP-to-SFP+ adapters for use with 10 GbE network interfaces
-- [Supported hardware for 10 GbE network interfaces on your StorSimple device](storsimple-supported-hardware-for-10-gbe-network-interfaces/) 
+- [Supported hardware for 10 GbE network interfaces on your StorSimple device](storsimple-supported-hardware-for-10-gbe-network-interfaces.md) 
 
 ### SAS and Power cabling
 
@@ -206,7 +206,7 @@ Your device has both a primary enclosure and an EBOD enclosure. This requires th
 
 When setting up this device for the first time, perform the steps for SAS cabling first and then complete the steps for power cabling.
 
-[AZURE.INCLUDE [storsimple-cable-8600-for-power](../../includes/storsimple-sas-cable-8600.md)]
+[AZURE.INCLUDE [storsimple-cable-8600-for-SAS](../../includes/storsimple-sas-cable-8600.md)]
 
 [AZURE.INCLUDE [storsimple-cable-8600-for-power](../../includes/storsimple-cable-8600-for-power.md)]
 

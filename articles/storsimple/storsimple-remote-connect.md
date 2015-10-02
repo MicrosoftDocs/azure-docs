@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/28/2015"
+   ms.date="09/15/2015"
    ms.author="alkohli" />
 
 # Connect remotely to your StorSimple device
@@ -268,5 +268,6 @@ Perform the following procedure on the computer from which you want to make the 
 
 ## Next steps
 
-[Learn more about using Windows PowerShell to administer your StorSimple device](storsimple-windows-powershell-administration.md).
+- Learn more about [using Windows PowerShell to administer your StorSimple device](storsimple-windows-powershell-administration.md).
 
+- Learn more about [using the StorSimple Manager service to administer your StorSimple device](storsimple-manager-service-administration.md).

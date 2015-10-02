@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/31/2015" 
+	ms.date="09/23/2015" 
 	ms.author="awills"/>
  
 # Export telemetry from Application Insights
@@ -22,6 +22,19 @@ Want to do some customised analysis on your telemetry? Or maybe you'd like an em
 Continuous Export is available in the free trial period and on the [Standard and Premium pricing plans](http://azure.microsoft.com/pricing/details/application-insights/).
 
 (If you just want to do a [one-off export](app-insights-metrics-explorer.md#export-to-excel) of what you see on a metrics or search blade, click Export at the top of the blade.)
+
+## Create a storage account
+
+If you don't already have a "classic" storage account, create one now.
+
+
+1. Create a "classic" storage account in your subscription in the [Azure portal](https://portal.azure.com).
+
+    ![In Azure portal, choose New, Data, Storage](./media/app-insights-export-telemetry/030.png)
+
+2. Create a container.
+
+    ![In the new storage, select Containers, click the Containers tile, and then Add](./media/app-insights-export-telemetry/040.png)
 
 ## <a name="setup"></a> Set up Continuous Export
 
@@ -63,6 +76,8 @@ Other calculated metrics are not included. For example, we don't export average 
 The data also includes the results of any [availability web tests](app-insights-monitor-web-app-availability.md) you have set up. 
 
 ## <a name="get"></a> Inspect the data
+
+You can inspect the storage directly in the portal. Click **Browse**, select your storage account, and then open **Containers**.
 
 To inspect Azure storage in Visual Studio, open **View**, **Cloud Explorer**. (If you don't have that menu command, you need to install the Azure SDK: Open the **New Project** dialog, expand Visual C#/Cloud and choose **Get Microsoft Azure SDK for .NET**.)
 

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="How to call a custom API from an iOS client"
+	pageTitle="How to call a custom API from an iOS client (JavaScript backend)"
 	description="Learn how to define a custom API and then call it from an iOS app that uses Azure Mobile Services."
 	services="mobile-services"
 	documentationCenter="ios"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="06/16/2015"
+	ms.date="09/28/2015"
 	ms.author="krisragh"/>
 
 # How to call a custom API from an iOS client (JavaScript backend)

@@ -90,7 +90,7 @@ The plug-in modules on the device are highlighted in the following front and rea
 
 |Label|Description|
 |:----|:----------|
-|0 - 11|Disks drives (total of 12)|
+|0 - 11|Disk drives (total of 12)|
 
 Both the primary enclosure and the EBOD enclosure have drive carrier modules. The chassis houses twelve 3.5" disk drives arranged in a 3 by 4 format.
 

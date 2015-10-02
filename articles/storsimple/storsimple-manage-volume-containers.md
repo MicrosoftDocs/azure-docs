@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/02/2015"
+   ms.date="09/16/2015"
    ms.author="v-sharos" />
 
 # Use the StorSimple Manager service to manage StorSimple volume containers
@@ -63,5 +63,5 @@ A volume container has volumes within it. It can be deleted only if all the volu
 
 ## Next steps
 
-Read more about [managing StorSimple volumes](storsimple-manage-volumes.md). 
- 
+- Learn more about [managing StorSimple volumes](storsimple-manage-volumes.md). 
+- Learn more about [using the StorSimple Manager service to administer your StorSimple device](storsimple-manager-service-administration.md).

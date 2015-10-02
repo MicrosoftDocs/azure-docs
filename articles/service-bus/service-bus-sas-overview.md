@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Shared Access Signatures Overview"
+   pageTitle="Shared Access Signatures Overview | Microsoft Azure"
    description="What are Shared Access Signatures, how do they work, and how to use them from Node, PHP, and C#."
    services="service-bus,event-hubs"
    documentationCenter="na"
@@ -12,7 +12,7 @@
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="tbd"
+   ms.workload="na"
    ms.date="09/04/2015"
    ms.author="darosa"/>
 
@@ -207,7 +207,7 @@ private bool PutCbsToken(Connection connection, string sasToken)
     // construct the put-token message
     var request = new Message(sasToken);
     request.Properties = new Properties();
-    request.Properties.MessageId = "1";
+    request.Properties.MessageId = Guid.NewGuid().ToString();
     request.Properties.ReplyTo = cbsClientAddress;
     request.ApplicationProperties = new ApplicationProperties();
     request.ApplicationProperties["operation"] = "put-token";

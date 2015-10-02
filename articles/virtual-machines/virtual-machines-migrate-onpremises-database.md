@@ -1,23 +1,25 @@
 <properties
-	pageTitle="Migrate a database to SQL Server on an Azure virtual machine"
+	pageTitle="Migrate a database to SQL Server on a VM | Mirosoft Azure"
 	description="Learn about how to migrate an on-premises user database to SQL Server in an Azure virtual machine."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="carlrabeler"
 	manager="jeffreyg"
-	editor=""/>
-
+	editor=""
+	tags="azure-service-management" />
 <tags
 	ms.service="virtual-machines"
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/16/2015"
+	ms.date="10/02/2015"
 	ms.author="carlrab"/>
 
 
 # Migrate a database to SQL Server on an Azure VM
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)] This article covers creating a resource with the classic deployment model.
 
 There are a number of methods for migrating an on-premises SQL Server user database to SQL Server in an Azure VM. This article will briefly discuss various methods, recommend the best method for various scenarios, and include a [tutorial](#azure-vm-deployment-wizard-tutorial) to guide you through the use of the **Deploy a SQL Server Database to a Microsoft Azure VM** wizard.
 

@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/09/2015"
+	ms.date="09/09/2015"
 	ms.author="rkarlin"/>
 
 # Working with conditional access
-> [AZURE.NOTE] Application Proxy is a feature that is available only if you upgraded to the Premium or Basic edition of Azure Active Directory. For more information, see [Azure Active Directory editions](https://msdn.microsoft.com/library/azure/dn532272.aspx).
+> [AZURE.NOTE] Application Proxy is a feature that is available only if you upgraded to the Premium or Basic edition of Azure Active Directory. For more information, see [Azure Active Directory editions](active-directory-editions.md).
 
 You can now enable access rules to grant conditional access to users and groups accessing applications published using Application Proxy. This enables you to:
 - Require mutli-factor authentication per application
@@ -51,7 +51,7 @@ Access rules are evaluated when a user accesses a federated application that use
 ## Configuring MFA for federation services
 For federated tenants, multi-factor authentication (MFA) may performed by Azure Active Directory or by the on-premises AD FS server. By default, MFA will occur on any page hosted by Azure Active Directory. In order to configure MFA on-premises, run Windows PowerShell and use the –SupportsMFA property to set the Azure AD module.
 The following example shows how to enable on-premises MFA by using the [Set-MsolDomainFederationSettings cmdlet](https://msdn.microsoft.com/library/azure/dn194088.aspx) on the contoso.com tenant: `Set-MsolDomainFederationSettings -DomainName contoso.com -SupportsMFA $true `
-In addition to setting this flag, the federated tenant AD FS instance must be configured to perform multi-factor authentication. Follow the instructions for [Deploying Microsoft Azure Multi-Factor Authentication on-premises](http://technet.microsoft.com/library/dn280946.aspx). 
+In addition to setting this flag, the federated tenant AD FS instance must be configured to perform multi-factor authentication. Follow the instructions for [Deploying Microsoft Azure Multi-Factor Authentication on-premises](..multi-factor-authentication-get-started-server.md). 
 ## Additional Resources
 
 * [Sign up for Azure as an organization](..sign-up-organization.md)

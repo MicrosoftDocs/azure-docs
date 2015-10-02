@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Tutorial: Azure Active Directory integration with Amazon Web Service (AWS) | Microsoft Azure"
-	description="Learn how to configure single sign-on between Azure Active Directory and Amazon Web Service (AWS)."
+	description="Learn how to use Amazon Web Services (AWS) with Azure Active Directory to enable single sign-on, automated provisioning, and more!"
 	services="active-directory"
 	documentationCenter=""
 	authors="markusvi"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/27/2015"
+	ms.date="09/30/2015"
 	ms.author="markvi"/>
 
 
@@ -57,21 +57,25 @@ To configure the integration of Amazon Web Service (AWS) into Azure AD, you need
 
 ### To add Amazon Web Service (AWS) from the gallery, perform the following steps:
 
-1. In the **Azure Management Portal**, on the left navigation pane, click **Active Directory**. <br><br>
-![Active Directory][1]
+1. In the **Azure Management Portal**, on the left navigation pane, click **Active Directory**. 
+   <br><br>![Active Directory][1]<br> 
 
 2. From the **Directory** list, select the directory for which you want to enable directory integration.
 
-3. To open the applications view, in the directory view, click **Applications** in the top menu.<br><br>
-![Applications][2]
-4. Click **Add** at the bottom of the page.<br><br>
-![Applications][3]
-5. On the **What do you want to do** dialog, click **Add an application from the gallery**.<br><br>
-![Applications][4]
-6. In the search box, type **Amazon Web Service (AWS)**.<br><br>
-![Applications][5]
-7. In the results pane, select **Amazon Web Service (AWS)**, and then click **Complete** to add the application.<br><br>
-![Applications][6]
+3. To open the applications view, in the directory view, click **Applications** in the top menu. 
+   <br><br>![Applications][2]<br>
+
+4. Click **Add** at the bottom of the page. 
+   <br><br>![Applications][3]<br>
+
+5. On the **What do you want to do** dialog, click **Add an application from the gallery**. 
+   <br><br>![Applications][4]<br>
+
+6. In the search box, type **Amazon Web Service (AWS)**.
+   <br><br>![Applications][5]<br>
+
+7. In the results pane, select **Amazon Web Service (AWS)**, and then click **Complete** to add the application.
+   <br><br>![Applications][6]<br>
 
 
 
@@ -94,90 +98,134 @@ To configure and test Azure AD single sign-on with Amazon Web Service (AWS), you
 The objective of this section is to enable Azure AD single sign-on in the Azure AD portal and to configure single sign-on in your Amazon Web Service (AWS) application.<br>
 Your Amazon Web Service (AWS) application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your **saml token attributes** configuration. 
 The following screenshot shows an example for this.
-<br><br> ![Configure Single Sign-On][27]
+
+
+<br><br>![Configure Single Sign-On][27]<br>
 
 **To configure Azure AD single sign-on with Amazon Web Service (AWS), perform the following steps:**
 
-1. In the Azure AD portal, on the **Amazon Web Service (AWS)** application integration page, click **Configure single sign-on** to open the **Configure Single Sign-On**  dialog.<br><br>
-![Configure Single Sign-On][7]
+1. In the Azure AD portal, on the **Amazon Web Service (AWS)** application integration page, click **Configure single sign-on** to open the **Configure Single Sign-On**  dialog.
+<br><br>![Configure Single Sign-On][7]<br>
 
-2. On the **How would you like users to sign on to Amazon Web Service (AWS)** page, select **Azure AD Single Sign-On**, and then click **Next**.<br><br>
-![Configure Single Sign-On][8]
+2. On the **How would you like users to sign on to Amazon Web Service (AWS)** page, select **Azure AD Single Sign-On**, and then click **Next**.
+<br><br>![Configure Single Sign-On][8]<br>
 
-3. On the **Configure App Settings** dialog page, click Next. <br><br>![Configure App Settings][9]
+3. On the **Configure App Settings** dialog page, click Next. 
+<br><br>![Configure App Settings][9]<br>
  
-4. On the **Configure single sign-on at Amazon Web Service (AWS)** page, click **Download metadata**, and then save the metadata file locally on your computer.<br><br>![Configure Single Sign-On][10]
+4. On the **Configure single sign-on at Amazon Web Service (AWS)** page, click **Download metadata**, and then save the metadata file locally on your computer.
+<br><br>![Configure Single Sign-On][10]<br>
 
 5. In a different browser window, sign-on to your Amazon Web Service (AWS) company site as administrator.
 
-6. Click **Console Home**. <br><br> ![Configure Single Sign-On][11]
+6. Click **Console Home**.
+<br><br>![Configure Single Sign-On][11]<br>
 
-7. Click **Identity and Access Management**. <br><br> ![Configure Single Sign-On][12]
+7. Click **Identity and Access Management**. 
+<br><br>![Configure Single Sign-On][12]<br>
 
-8. Click **Identity Providers**, and then click **Create Provider**. <br><br> ![Configure Single Sign-On][13]
+8. Click **Identity Providers**, and then click **Create Provider**. 
+<br><br>![Configure Single Sign-On][13]<br>
 
-9. On the **Configure Provider** dialog page, perform the following steps: <br><br> ![Configure Single Sign-On][14]
+9. On the **Configure Provider** dialog page, perform the following steps: 
+<br><br>![Configure Single Sign-On][14]<br>
 
-     9.1. As **Provider Type**, select **SAML**.
+     a. As **Provider Type**, select **SAML**.
 
-     9.2. In the **Provider Name** textbox, type a provider name (e.g.: *WAAD*).
+     b. In the **Provider Name** textbox, type a provider name (e.g.: *WAAD*).
 
-     9.3. To upload your downloaded metadata file, click **Choose File**.
+     c. To upload your downloaded metadata file, click **Choose File**.
 
-     9.4. Click **Next Step**.
-
-
-10. On the **Verify Provider Information** dialog page, click **Create**. <br><br> ![Configure Single Sign-On][15]
-
-11. Go to **Roles > Create New Role**. <br><br> ![Configure Single Sign-On][16]
-
-12. On the **Set Role Name** dialog, perform the following steps: <br><br> ![Configure Single Sign-On][17]
-     12.1. In the **Role Name** textbox, type a role name (e.g.: *TestUser*).
-
-     12.2. Click **Next Step**.
-
-13. On the **Select Role Type** dialog, perform the following steps: <br><br> ![Configure Single Sign-On][18]
-
-     13.1. Select **Role For Identity Provider Access**.
-
-     13.2. In the **Grant Web Single Sign-On (WebSSO) access to SAML providers** section, click **Select**.
+     d. Click **Next Step**.
 
 
-14. On the Establish Trust dialog, perform the following steps:  <br><br> ![Configure Single Sign-On][19]
-     14.1. As SAML provider, select the SAML provider you have created previousley (e.g.: *WAAD*) 
+10. On the **Verify Provider Information** dialog page, click **Create**. 
+<br><br>![Configure Single Sign-On][15]<br>
+
+11. Click **Roles**, and then click **Create New Role**. 
+<br><br>![Configure Single Sign-On][16]<br>
+
+12. On the **Set Role Name** dialog, perform the following steps: 
+<br><br>![Configure Single Sign-On][17]<br>
+
+     a. In the **Role Name** textbox, type a role name (e.g.: *TestUser*).
+
+     b. Click **Next Step**.
+
+13. On the **Select Role Type** dialog, perform the following steps: 
+<br><br>![Configure Single Sign-On][18]<br>
+
+     a. Select **Role For Identity Provider Access**.
+
+     b. In the **Grant Web Single Sign-On (WebSSO) access to SAML providers** section, click **Select**.
 
 
+14. On the **Establish Trust** dialog, perform the following steps:  
+<br><br>![Configure Single Sign-On][19]<br>
+     
+     a. As SAML provider, select the SAML provider you have created previousley (e.g.: *WAAD*) 
 
-15. On the Azure AD portal, select the single sign-on configuration confirmation, and then click **Next**.<br><br>![What is Azure AD Connect][20]
-
-16. On the **Single sign-on confirmation** page, click **Complete** to close the **Configure single sign-on** dialog.<br><br>![What is Azure AD Connect][22]
-
-
-17. In the menu on the top, click **Attributes** to open the **SAML Token Attributes** dialog. <br><br> ![Configure Single Sign-On][21]
-
-18. Click **add user attribute**. <br><br> ![Configure Single Sign-On][23]
-
-19. On the Add User Attribute dialog, perform the following steps. <br><br> ![Configure Single Sign-On][24] 
-
-     19.1. In the **Attribute Name** textbox, type **https://aws.amazon.com/SAML/Attributes/Role**.
-
-     19.2. In the **Attribute Value** textbox, type **arn:aws:iam::214510765665:role/Admin,arn:aws:iam::214510765665:saml-provider/WAAD**.
-
-     19.3. Click **Complete** to close the **Add User Attribute** dialog.
-
-20. Click **add user attribute**. <br><br> ![Configure Single Sign-On][23]
+     b. Click **Next Step**.
 
 
-21. On the Add User Attribute dialog, perform the following steps. <br><br> ![Configure Single Sign-On][25] 
-
-     21.1. In the **Attribute Name** textbox, type **https://aws.amazon.com/SAML/Attributes/RoleSessionName**.
-
-     21.2. In the **Attribute Value** list, select **user:mail**.
-
-     21.3. Click **Complete** to close the **Add User Attribute** dialog.
+15. On the **Verify Role Trust** dialog, click **Next Step**. 
+<br><br>![Configure Single Sign-On][32]<br>
 
 
-22. Click **Apply Changes**. <br><br> ![Configure Single Sign-On][26]
+16. On the **Attach Policy** dialog, click **Next Step**.  
+<br><br>![Configure Single Sign-On][33]<br>
+
+
+17. On the **Review** dialog, perform the following steps:   
+<br><br>![Configure Single Sign-On][34]<br>
+
+     a. Copy the **Role ARN** value.
+
+     b. Copy the **Trusted Entities** ARN value.
+
+     c. Click **Create Role**. 
+
+18. On the Azure AD portal, select the single sign-on configuration confirmation, and then click **Next**.
+<br><br>![What is Azure AD Connect][20]<br>
+
+19. On the **Single sign-on confirmation** page, click **Complete** to close the **Configure single sign-on** dialog.
+<br><br>![What is Azure AD Connect][22]<br>
+
+
+20. In the menu on the top, click **Attributes** to open the **SAML Token Attributes** dialog. 
+<br><br>![Configure Single Sign-On][21]<br>
+
+21. Click **add user attribute**. 
+<br><br>![Configure Single Sign-On][23]<br>
+
+22. On the Add User Attribute dialog, perform the following steps. 
+<br><br>![Configure Single Sign-On][24]<br> 
+
+     a. In the **Attribute Name** textbox, type **https://aws.amazon.com/SAML/Attributes/Role**.
+
+     b. In the **Attribute Value** textbox, type **[the Role ARN value],[the Trusted Entity ARN value]**.
+
+     >[AZURE.TIP] These are the values you have copied from the Review dialog when you have created your role. 
+
+     c. Click **Complete** to close the **Add User Attribute** dialog.
+
+23. Click **add user attribute**. 
+<br><br>![Configure Single Sign-On][23]<br>
+
+
+24. On the Add User Attribute dialog, perform the following steps. 
+<br><br>![Configure Single Sign-On][25]<br>
+
+
+     a. In the **Attribute Name** textbox, type **https://aws.amazon.com/SAML/Attributes/RoleSessionName**.
+
+     b. In the **Attribute Value** textbox, type **mail**.
+
+     c. Click **Complete** to close the **Add User Attribute** dialog.
+
+
+25. Click **Apply Changes**. 
+<br><br>![Configure Single Sign-On][26]<br>
 
 
 
@@ -186,34 +234,43 @@ The following screenshot shows an example for this.
 ### Creating an Azure AD test user
 
 The objective of this section is to create a test user in the Azure portal called Britta Simon.<br>
-In the Users list, select **Britta Simon**.<br>![Creating an Azure AD test user](./media/active-directory-saas-amazon-web-service/create_aaduser_01.png)
+In the Users list, select **Britta Simon**.<br><br>![Creating an Azure AD test user](./media/active-directory-saas-amazon-web-service/create_aaduser_01.png)<br>
 
 **To create a test user in Azure AD, perform the following steps:**
 
-1. In the **Azure Management Portal**, on the left navigation pane, click **Active Directory**.<br>
-![Creating an Azure AD test user](./media/active-directory-saas-amazon-web-service/create_aaduser_02.png) 
+1. In the **Azure Management Portal**, on the left navigation pane, click **Active Directory**.
+<br><br>![Creating an Azure AD test user](./media/active-directory-saas-amazon-web-service/create_aaduser_02.png)<br> 
 
 2. From the **Directory** list, select the directory for which you want to enable directory integration.
 
-3. To display the list of users, in the menu on the top, click **Users**.<br>![Creating an Azure AD test user](./media/active-directory-saas-amazon-web-service/create_aaduser_03.png) 
+3. To display the list of users, in the menu on the top, click **Users**.
+<br><br>![Creating an Azure AD test user](./media/active-directory-saas-amazon-web-service/create_aaduser_03.png)<br> 
  
-4. To open the **Add User** dialog, in the toolbar on the bottom, click **Add User**. <br>![Creating an Azure AD test user](./media/active-directory-saas-amazon-web-service/create_aaduser_04.png) 
+4. To open the **Add User** dialog, in the toolbar on the bottom, click **Add User**. 
+<br><br>![Creating an Azure AD test user](./media/active-directory-saas-amazon-web-service/create_aaduser_04.png)<br> 
 
-5. On the **Tell us about this user** dialog page, perform the following steps: <br>![Creating an Azure AD test user](./media/active-directory-saas-amazon-web-service/create_aaduser_05.png) 
+5. On the **Tell us about this user** dialog page, perform the following steps: 
+<br><br>![Creating an Azure AD test user](./media/active-directory-saas-amazon-web-service/create_aaduser_05.png)<br> 
+
   1. As Type Of User, select New user in your organization.
   2. In the User Name **textbox**, type **BrittaSimon**.
   3. Click Next.
 
-6.  On the **User Profile** dialog page, perform the following steps: <br>![Creating an Azure AD test user](./media/active-directory-saas-amazon-web-service/create_aaduser_06.png) 
+6.  On the **User Profile** dialog page, perform the following steps: 
+<br><br>![Creating an Azure AD test user](./media/active-directory-saas-amazon-web-service/create_aaduser_06.png)<br> 
+
   1. In the **First Name** textbox, type **Britta**.  
   2. In the **Last Name** txtbox, type, **Simon**.
   3. In the **Display Name** textbox, type **Britta Simon**.
   4. In the **Role** list, select **User**.
   5. Click **Next**.
 
-7. On the **Get temporary password** dialog page, click **create**.<br>![Creating an Azure AD test user](./media/active-directory-saas-amazon-web-service/create_aaduser_07.png) 
+7. On the **Get temporary password** dialog page, click **create**.
+<br><br>![Creating an Azure AD test user](./media/active-directory-saas-amazon-web-service/create_aaduser_07.png)<br> 
  
-8. On the **Get temporary password** dialog page, perform the following steps:<br>![Creating an Azure AD test user](./media/active-directory-saas-amazon-web-service/create_aaduser_08.png) 
+8. On the **Get temporary password** dialog page, perform the following steps:
+<br><br>![Creating an Azure AD test user](./media/active-directory-saas-amazon-web-service/create_aaduser_08.png)<br> 
+
   1. Write down the value of the **New Password**.
   2. Click **Complete**.   
   
@@ -226,17 +283,21 @@ The objective of this section is to create a user called Britta Simon in Amazon 
 
 1. Log in to your **Amazon Web Service (AWS)** company site as administrator.
 
-2. Click the **Console Home** icon. <br><br> ![Configure Single Sign-On][11]
+2. Click the **Console Home** icon. 
+<br><br>![Configure Single Sign-On][11]<br>
 
-3. Click Identity and Access Management. <br><br> ![Configure Single Sign-On][28]
+3. Click Identity and Access Management. 
+<br><br>![Configure Single Sign-On][28]<br>
 
-4. In the Dashboard, click Users, and then click Create New Users. <br><br> ![Configure Single Sign-On][29]
+4. In the Dashboard, click Users, and then click Create New Users. 
+<br><br>![Configure Single Sign-On][29]<br>
 
-5. On the Create User dialog, perform the following steps: <br><br> ![Configure Single Sign-On][30]
+5. On the Create User dialog, perform the following steps: 
+<br><br>![Configure Single Sign-On][30]<br>
 
-     5.1. In the **Enter User Names** textboxes, type Brita Simon's user name in Azure AD.
+     a. In the **Enter User Names** textboxes, type Brita Simon's user name in Azure AD.
 
-     5.2. Click **Create**.
+     b. Click **Create**.
 
 
 
@@ -244,20 +305,24 @@ The objective of this section is to create a user called Britta Simon in Amazon 
 ### Assigning the Azure AD test user
 
 The objective of this section is to enabling Britta Simon to use Azure single sign-on by granting her access to Amazon Web Service (AWS).
-<br><br>![Assign User][31]
+
+![Assign User][31]
 
 **To assign Britta Simon to CloudPassage, perform the following steps:**
 
-1. On the Azure portal, to open the applications view, in the directory view, click **Applications** in the top menu.<br>
-<br><br>![Assign User][26]
+1. On the Azure portal, to open the applications view, in the directory view, click **Applications** in the top menu.
+<br><br>![Assign User][26]<br>
+
 2. In the applications list, select **Amazon Web Service (AWS)**.
-<br><br>![Assign User][27]
-1. In the menu on the top, click **Users**.<br>
-<br><br>![Assign User][25]
+<br><br>![Assign User][27]<br>
+
+1. In the menu on the top, click **Users**.
+<br><br>![Assign User][25]<br>
+
 1. In the Users list, select **Britta Simon**.
 
 2. In the toolbar on the bottom, click **Assign**.
-<br><br>![Assign User][29]
+<br><br>![Assign User][29]<br>
 
 ### Testing Single Sign-On
 
@@ -302,8 +367,9 @@ When you click the Amazon Web Service (AWS) tile in the Access Panel, you should
 [29]: ./media/active-directory-saas-amazon-web-service/tutorial_general_16.png
 [30]: ./media/active-directory-saas-amazon-web-service/ic795038.png
 [31]: ./media/active-directory-saas-amazon-web-service/tutorial_general_17.png
-
-
+[32]: ./media/active-directory-saas-amazon-web-service/ic7950251.png
+[33]: ./media/active-directory-saas-amazon-web-service/ic7950252.png
+[34]: ./media/active-directory-saas-amazon-web-service/ic7950253.png
 
 
 

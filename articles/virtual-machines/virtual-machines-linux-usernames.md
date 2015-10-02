@@ -1,11 +1,12 @@
 <properties 
-	pageTitle="Selecting User Names for Linux on Azure" 
+	pageTitle="Selecting User Names for Linux | Microsoft Azure" 
 	description="Learn how to select user names for a Linux virtual machine in Azure." 
 	services="virtual-machines" 
 	documentationCenter="" 
 	authors="szarkos" 
 	manager="timlt" 
-	editor=""/>
+	editor=""
+	tags="azure-service-management,azure-resource-manager" />
 
 <tags 
 	ms.service="virtual-machines" 

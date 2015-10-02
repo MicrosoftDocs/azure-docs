@@ -21,3 +21,7 @@
 [AZURE.INCLUDE [download_libraries](../includes/download_libraries.md)]
 
 [AZURE.INCLUDE [download_eclipse](../includes/download_eclipse.md)]
+
+## Next steps
+
+For more information, see the [Java Developer Center](/develop/java/).

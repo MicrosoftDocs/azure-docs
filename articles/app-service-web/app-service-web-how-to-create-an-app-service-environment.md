@@ -8,24 +8,26 @@
 	editor=""/>
 
 <tags 
-	ms.service="app-service-web" 
+	ms.service="app-service" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="04/27/2015" 
+	ms.date="09/11/2015" 
 	ms.author="ccompy"/>
 
 # How to Create an App Service Environment #
 
 App Service Environments (ASE) are a Premium service option of Azure App Service that is currently in Preview.  It delivers an enhanced configuration capability that is not available in the multi-tenant stamps.  To gain a greater understanding of the capabilities offered by App Service Environments read the [What is an App Service Environment][WhatisASE] documentation.
 
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)] 
+
 ### Overview ###
 
 The ASE feature essentially deploys the Azure App Service into a customer’s VNET.  To do this the customer needs: 
 
-- A Regional VNET is required with more than 512 (/23) or more addresses
-- A Subnet in this VNET is required with 256 (/24) or more addresses
+- A Regional classic "v1" VNET is required with more than 512 (/23) or more addresses
+- A Subnet in this VNET is required with 8 (/29) or more addresses
 - The subnet **must not contain any other compute resources**.  Only one App Service Environment can be deployed into a subnet.  The creation attempt will fail if there are any other compute resources already residing in the subnet.
 
 If you do not already have a VNET you wish to use to host your App Service Environment you can create one during App Service Environment creation.
@@ -72,7 +74,7 @@ Pricing for App Service Environments is against the compute resources assigned. 
 
 
 ### VNET Creation ###
-While there is a quick create capability that will automatically create a new VNET, the feature also supports  selection of an existing VNET and manual creation of a VNET.  You can select an existing VNET if it is large enough to support an App Service Environment deployment.  The VNET must have 512 addresses or more.  If you do select a pre-existing VNET you will also have to specify a subnet to use or create a new one.  The subnet needs to have 256 addresses or more.  
+While there is a quick create capability that will automatically create a new VNET, the feature also supports selection of an existing VNET and manual creation of a VNET.  You can select an existing VNET (only classic "v1" virtual networks are supported at this time) if it is large enough to support an App Service Environment deployment.  The VNET must have 512 addresses or more.  If you do select a pre-existing VNET you will also have to specify a subnet to use or create a new one.  The subnet needs to have 8 addresses or more.  
 
 If going through the VNET creation UI you are required to provide:
 

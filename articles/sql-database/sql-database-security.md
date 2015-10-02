@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services" 
-   ms.date="07/14/2015"
+   ms.date="09/22/2015"
    ms.author="thmullan;jackr"/>
 
 
@@ -34,19 +34,28 @@ All connections to Azure SQL Database require encryption (SSL/TLS) at all times 
 
 ## Authentication
 
-Authentication refers to how you prove your identity when connecting to the database. SQL Database currently supports SQL Authentication with a username and password.
+Authentication refers to how you prove your identity when connecting to the database. SQL Database supports two types of authentication:
 
-When you created the logical server for your database, you specified a "server admin" login with a username and password. Using these credentials, you can authenticate to any database on that server as the database owner, or "dbo."
+ - **SQL Authentication**, which uses a username and password
+ - **Azure Active Directory Authentication**, which uses identities managed by Azure Active Directory and is supported for managed and integrated domains
 
-However, as a best practice your application should use a different account to authenticate -- this way you can limit the permissions granted to the application and reduce the risks of malicious activity in case your application code is vulnerable to a SQL injection attack. The recommended approach is to create a [contained database user](https://msdn.microsoft.com/library/ff929188), which allows your app to authenticate directly to a single database with a username and password. You can create a contained database user by executing the following T-SQL while connected to your user database with your server admin login:
+When you created the logical server for your database, you specified a "server admin" login with a username and password. Using these credentials, you can authenticate to any database on that server as the database owner, or "dbo." If you want to use Azure Active Directory Authentication, you must create another server admin called the "Azure AD admin," which is allowed to administer Azure AD users and groups. This admin can also perform all operations that a regular server admin can. See [Connecting to SQL Database By Using Azure Active Directory Authentication](sql-database-aad-authentication.md) for a walkthrough of how to create an Azure AD admin to enable Azure Active Directory Authentication.
+
+As a best practice your application should use a different account to authenticate -- this way you can limit the permissions granted to the application and reduce the risks of malicious activity in case your application code is vulnerable to a SQL injection attack. The recommended approach is to create a [contained database user](https://msdn.microsoft.com/library/ff929188), which allows your app to authenticate directly to a single database. You can create a contained database user that uses SQL Authentication by executing the following T-SQL command while connected to your user database as the server admin login:
 
 ```
-CREATE USER ApplicationUser WITH PASSWORD = 'strong_password';
+CREATE USER ApplicationUser WITH PASSWORD = 'strong_password'; -- SQL Authentication
 ```
 
-Your application's connection string should specify this username and password, rather than the server admin login, to connect to the database.
+If you created an Azure AD admin, you can create a contained database user that uses Azure Active Directory Authentication by executing the following T-SQL command while connected to your user database as the Azure AD admin:
 
-For more information on authenticating to a SQL Database, see [Managing Databases and Logins in Azure SQL Database](https://msdn.microsoft.com/library/ee336235).
+```
+CREATE USER [Azure_AD_principal_name | Azure_AD_group_display_name] FROM EXTERNAL PROVIDER; -- Azure Active Directory Authentication
+```
+
+In either case, your application's connection string should specify these user credentials, rather than the server admin login, to connect to the database.
+
+For more information on authenticating to a SQL Database, see [Managing Databases and Logins in Azure SQL Database](sql-database-manage-logins.md).
 
 
 ## Authorization

@@ -18,7 +18,8 @@
 	ms.author="danlep"/>
 
 # Articles for virtual machines in Service Management
-This is a list of articles for working with virtual machines in Azure Service Management. For new deployments, we recommend the use of Azure Resource Manager–based virtual machines and other resources. For an explanation of the advantages of Resource Manager, see [Azure compute, network, and storage providers under Azure Resource Manager](virtual-machines-azurerm-versus-azuresm.md).
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)] This article covers managing resources with the classic deployment model.
 
 ## Get started
 
@@ -40,7 +41,7 @@ This is a list of articles for working with virtual machines in Azure Service Ma
 
 [Creating a VM by using the Azure Command-Line Interface (Azure CLI)](virtual-machines-xplat-getting-started.md)
 
-[Create a multi-VM deployment by using the Azure CLI](virtual-machines-create-multi-vm-deployment-xplat-cli.md)
+[Create a multi-VM deployment by using the Azure CLI](virtual-machines-create-multi-vm-deployment-xplat-cli-install.md)
 
 ## Plan
 
@@ -94,7 +95,7 @@ This is a list of articles for working with virtual machines in Azure Service Ma
 
 [Cassandra](virtual-machines-linux-nodejs-running-cassandra.md)
 
-[Docker](virtual-machines-docker-with-xplat-cli.md)
+[Docker](virtual-machines-docker-with-xplat-cli-install.md)
 
 [Exchange Server](https://technet.microsoft.com/library/jj619301.aspx)
 

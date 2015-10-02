@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="09/02/2015"
+    ms.date="09/28/2015"
     ms.author="cgronlun;tedway;olgali"/>
 
 
@@ -30,7 +30,7 @@ These forecasts or predictions from machine learning can make apps and devices s
 
 Azure Machine Learning is a powerful cloud-based predictive analytics service that makes it possible to quickly create and deploy predictive models as analytics solutions.
 
-Azure Machine Learning not only provides tools to model predictive analytics, but also provides a fully-managed service you can use to publish your predictive models as ready-to-consume web services. Azure Machine Learning provides tools for creating complete predictive analytics solutions in the cloud: Quickly create, test, operationalize, and manage predictive models. You do not need to buy any hardware nor manually manage virtual machines.
+Azure Machine Learning not only provides tools to model predictive analytics, but also provides a fully-managed service you can use to deploy your predictive models as ready-to-consume web services. Azure Machine Learning provides tools for creating complete predictive analytics solutions in the cloud: Quickly create, test, operationalize, and manage predictive models. You do not need to buy any hardware nor manually manage virtual machines.
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
@@ -38,7 +38,7 @@ Azure Machine Learning not only provides tools to model predictive analytics, bu
 
 Predictive analytics uses various statistical techniques - in this case, machine learning - to analyze collected or current data for patterns or trends in order to forecast future events.
 
-Azure Machine Learning is a particularly powerful way to do predictive analytics: You can work from a ready-to-use library of algorithms, create models on an internet-connected PC without purchasing additional equipment or infrastructure, and deploy your predictive solution quickly. You can also find ready-to-use examples and solutions in the [Microsoft Azure Marketplace](https://datamarket.azure.com/browse?query=machine+learning) or [Machine Learning Gallery](http://gallery.azureml.net/).
+Azure Machine Learning is a particularly powerful way to do predictive analytics: You can work from a ready-to-use library of algorithms, create models on an internet-connected PC without purchasing additional equipment or infrastructure, and deploy your predictive solution quickly. You can also find ready-to-use examples and solutions in the [Microsoft Azure Marketplace](https://datamarket.azure.com/browse?query=machine+learning) or [Cortana Analytics Gallery](http://gallery.azureml.net/).
 
 ## Build complete machine learning solutions in the cloud
 
@@ -51,16 +51,16 @@ Create predictive models in [Machine Learning Studio](machine-learning-what-is-m
 ![What is predictive analytics: Example of a predictive analytics experiment in Azure Machine Learning Studio](./media/machine-learning-what-is-machine-learning/azure-machine-learning-studio-predictive-score-experiment.png)
 
 * Use a large library of [Machine Learning algorithms and modules](https://msdn.microsoft.com/library/azure/f5c746fd-dcea-4929-ba50-2a79c4c067d7) in Machine Learning Studio to jump-start your predictive models. Choose from a library of sample experiments, R and Python packages, and best-in-class algorithms from Microsoft businesses like Xbox and Bing. Extend Studio modules with your own custom  [R](machine-learning-r-quickstart.md) and [Python](machine-learning-execute-python-scripts.md) scripts.
-* In [Machine Learning Community Gallery](machine-learning-gallery-how-to-use-contribute-publish.md), you can get started with Azure Machine Learning and learn from others in the community. Try experiments authored by others, ask questions or post comments about experiments, or publish your own experiments. You can also share links to experiments via social networks such as LinkedIn and Twitter.  
+* In [Cortana Analytics Gallery](machine-learning-gallery-how-to-use-contribute-publish.md), you can get started with Azure Machine Learning and learn from others in the community. Try experiments authored by others, ask questions or post comments about experiments, or publish your own experiments. You can also share links to experiments via social networks such as LinkedIn and Twitter.  
 
-	![Try predictive experiment samples or contribute your own in Azure Machine Learning Gallery](./media/machine-learning-what-is-machine-learning/azure-machine-learning-gallery-resources.png)
+	![Try predictive experiment samples or contribute your own in Azure Cortana Analytics Gallery](./media/machine-learning-what-is-machine-learning/azure-machine-learning-gallery-resources.png)
 
 ### Operationalize predictive analytics solutions: Purchase web services or publish your own
 
 * Purchase ready-to-consume web services from [Microsoft Azure Marketplace](https://datamarket.azure.com/browse?query=machine+learning), such as Recommendations, Text Analytics, and Anomaly Detection.
 
 * Operationalize your predictive analytics models:
-    * [Publish web services](machine-learning-publish-a-machine-learning-web-service.md)
+    * [Deploy web services](machine-learning-publish-a-machine-learning-web-service.md)
     * [Train and retrain models through APIs](machine-learning-retrain-models-programmatically.md)
     * [Manage web service endpoints](machine-learning-create-endpoint.md)
     * [Scale web services](machine-learning-scaling-endpoints.md)

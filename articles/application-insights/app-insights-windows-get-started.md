@@ -69,6 +69,7 @@ If it's a Windows Universal app, repeat the steps for both the Windows Phone pro
 4. Add an ApplicationInsights.config file to the root of your project and insert the instrumentation key copied from the portal. A sample xml for this config file is shown below.
 
 	```xml
+
 		<?xml version="1.0" encoding="utf-8" ?>
 		<ApplicationInsights>
 			<InstrumentationKey>YOUR COPIED INSTRUMENTATION KEY</InstrumentationKey>
@@ -82,6 +83,10 @@ If it's a Windows Universal app, repeat the steps for both the Windows Phone pro
 5. Add the following initialization code. It is best to add this code to the `App()` constructor. If you do it somewhere else, you might miss auto collection of the first pageviews.  
 
 ```C#
+
+    using Microsoft.ApplicationInsights;
+    ...
+
 	public App()
 	{
 	   // Add this initilization line.
@@ -96,7 +101,7 @@ If it's a Windows Universal app, repeat the steps for both the Windows Phone pro
 
 ## <a name="network"></a>3. Enable network access for your app
 
-If your app doesn't already [request outgoing network access](https://msdn.microsoft.com/library/windows/apps/hh452752.aspx), you'll have to add that to its manifest as a [required capability](https://msdn.microsoft.com/library/windows/apps/br211477.aspx).
+If your app doesn't already [request internet access](https://msdn.microsoft.com/library/windows/apps/hh452752.aspx), you'll have to add that to its manifest as a [required capability](https://msdn.microsoft.com/library/windows/apps/br211477.aspx).
 
 ## <a name="run"></a>4. Run your project
 
@@ -111,10 +116,7 @@ In debug mode, telemetry is sent as soon as it's generated. In release mode, tel
 
 ## <a name="monitor"></a>5. See monitor data
 
-Open Application Insights from your project.
-
-![Right-click your project and open the Azure portal](./media/app-insights-windows-get-started/appinsights-04-openPortal.png)
-
+In the [Azure portal](https://portal.azure.com), open the Application Insights resource that you created earlier.
 
 At first, you'll just see one or two points. For example:
 
@@ -165,7 +167,7 @@ Use the [API][api] to send events, metrics and diagnostic data to Application In
 
 ```
 
-For more details, see [Custom Events and Metrics][api].
+For more details, see [API overview: Custom Events and Metrics][api].
 
 ## What's next?
 
@@ -182,7 +184,7 @@ If you prefer to let Visual Studio perform the setup steps, you can do that with
 
 Select **Application Insights** in the **New Project** dialog.
 
-If you're asked to sign in, use the credentials for your Azure account (which is separate from your Visual Studio Online account).
+If you're asked to sign in, use the credentials for your Azure account.
 
 ![](./media/app-insights-windows-get-started/appinsights-d21-new.png)
 
@@ -197,6 +199,7 @@ Add Application Insights from Solution Explorer.
 ## Upgrade to a new release of the SDK
 
 When a [new SDK version is released](app-insights-release-notes-windows.md):
+
 * Right-click your project and choose Manage NuGet Packages.
 * Select the installed Application Insights packages and choose **Action: Upgrade**.
 

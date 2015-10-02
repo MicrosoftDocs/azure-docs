@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-phone"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="09/03/2015"
+	ms.date="09/08/2015"
 	ms.author="wesmc"/>
 
 # Get started with Notification Hubs for Windows Phone
@@ -69,7 +69,7 @@ Completing this tutorial is a prerequisite for all other Notification Hubs tutor
 
 You now have the connection strings that are required to register your Windows Phone 8 app and send notifications.
 
-> [AZURE.NOTE] This tutorial uses MPNS in unauthenticated mode. MPNS unauthenticated mode comes with restrictions on notifications that you can send to each channel. Notification Hubs supports [MPNS authenticated mode](http://msdn.microsoft.com/library/windowsphone/develop/ff941099(v=vs.105).aspx). <!--Refer to [Notification Hubs How-To for Windows Phone 8] for more information on how to use MPNS authenticated mode.-->
+> [AZURE.NOTE] This tutorial uses MPNS in unauthenticated mode. MPNS unauthenticated mode comes with restrictions on notifications that you can send to each channel. Notification Hubs supports [MPNS authenticated mode](http://msdn.microsoft.com/library/windowsphone/develop/ff941099.aspx) by allowing you to upload your certificate.
 
 ##Connecting your app to the notification hub
 
@@ -141,15 +141,15 @@ You can send notifications by using Notification Hubs from any backend via the <
 
 	This displays the Package Manager Console.
 
-6. In the console window, set **Default project** to your new console application project, and then in the console window, execute the following command:
+5.  In the Package Manager Console window, set the **Default project** to your new console application project, and then in the console window, execute the following command:
 
-        Install-Package WindowsAzure.ServiceBus
+        Install-Package Microsoft.Azure.NotificationHubs
 
-	This adds a reference to the Azure Service Bus SDK with the <a href="http://nuget.org/packages/WindowsAzure.ServiceBus/">WindowsAzure.ServiceBus NuGet package</a>.
+	This adds a reference to the Azure Notification Hubs SDK using the <a href="http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/">Microsoft.Azure.Notification Hubs NuGet package</a>.
 
-5. Open the file Program.cs and add the following `using` statement:
+6. Open the file Program.cs and add the following `using` statement:
 
-        using Microsoft.ServiceBus.Notifications;
+        using Microsoft.Azure.NotificationHubs;
 
 6. In the **Program** class, add the following method:
 

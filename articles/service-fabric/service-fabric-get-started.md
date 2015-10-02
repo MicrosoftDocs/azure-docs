@@ -13,13 +13,13 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/24/2015"
+   ms.date="09/10/2015"
    ms.author="seanmck"/>
 
 # Set up your Service Fabric development environment
  This article covers everything you need to start building [Service Fabric][1] apps, including installing the runtime, SDK, tools, and setting up a local cluster.
 
- > [AZURE.NOTE] These instructions are intended for setting up new PCs. If you have installed a previous version of Service Fabric on your PC, please follow the [instructions to update your development environment ](service-fabric-update-your-development-environment.md).
+ > [AZURE.NOTE] These instructions are intended for setting up new PCs. If you have installed a previous version of Service Fabric on your PC, please follow the [instructions to update your development environment](service-fabric-update-your-development-environment.md).
 
 ## Prerequisites
 ### Supported Operating System versions
@@ -51,8 +51,9 @@ Installation will proceed automatically.
 
 Service Fabric uses Windows PowerShell scripts for creating a local development cluster and for deploying applications from Visual Studio. By default, Windows will block these scripts from running. To enable them, you must modify your PowerShell execution policy. Open PowerShell as an administrator and enter the following command:
 
-    Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Force -Scope CurrentUser
-
+```powershell
+Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Force -Scope CurrentUser
+```
 
 ## Install and start a local cluster
 A local cluster represents the multi-machine topology that you will eventually use in production on a single development machine. To set up the local cluster, follow these steps:
@@ -60,9 +61,17 @@ A local cluster represents the multi-machine topology that you will eventually u
 
 1. Close all other PowerShell windows and start a new one as an administrator.
 
-2. Navigate to the cluster setup directory with `cd "$env:ProgramW6432\Microsoft SDKs\Service Fabric\ClusterSetup"`
+2. Navigate to the cluster setup directory
 
-3. Run `.\DevClusterSetup.ps1`
+    ```powershell
+    cd "$env:ProgramW6432\Microsoft SDKs\Service Fabric\ClusterSetup"
+    ```
+    
+3. Run
+
+    ```powershell
+    .\DevClusterSetup.ps1
+    ```
 
 In a few moments you should see output that shows node information and confirmation that the cluster was created successfully. In some cases, you may see warnings while the Service Fabric Host Service and Naming Services start up. These are normal and will be followed momentarily by some basic information about the cluster.
 
@@ -72,7 +81,11 @@ In a few moments you should see output that shows node information and confirmat
 
 You can check that your cluster was created successfully using the Service Fabric Explorer tool that ships with the SDK.
 
-1. Start the Service Fabric Explorer by running `. "$env:ProgramW6432\Microsoft SDKs\Service Fabric\Tools\ServiceFabricExplorer\ServiceFabricExplorer.exe"`.
+1. Start the Service Fabric Explorer by running 
+
+    ```powershell
+    . "$env:ProgramW6432\Microsoft SDKs\Service Fabric\Tools\ServiceFabricExplorer\ServiceFabricExplorer.exe"
+    ```
 
 2. Expand the Onebox/Local Cluster node in the top-left corner.
 

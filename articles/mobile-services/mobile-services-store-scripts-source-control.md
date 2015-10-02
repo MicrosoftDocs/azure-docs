@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Store project code in source control | Microsoft Azure"
+	pageTitle="Store JavaScript backend project code in source control | Azure Mobile Services"
 	description="Learn how to store your server script files and modules in a local Git repo on your computer."
 	services="mobile-services"
 	documentationCenter=""
@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="08/18/2015" 
-	ms.author="ggailey777"/>
+	ms.date="09/15/2015" 
+	ms.author="ggailey777"/> 
 
-# Store project code in source control
+# Store your mobile service project code in source control
 
-> [AZURE.SELECTOR-LIST (Platform | Backend)]
-- [(Any | .NET)](mobile-services-dotnet-backend-store-code-source-control.md)
-- [(Any | Javascript)](mobile-services-store-scripts-source-control.md)
+> [AZURE.SELECTOR]
+- [.NET backend](mobile-services-dotnet-backend-store-code-source-control.md)
+- [Javascript backend](mobile-services-store-scripts-source-control.md)
 
 This topic shows you how to use the source control provided by Azure Mobile Services to store your server scripts. Scripts and other JavaScript backend code files can be promoted from your local Git repository to your production mobile service. It also shows how to define shared code that can be required by multiple scripts and how to use the package.json file to add Node.js modules to your mobile service.
 

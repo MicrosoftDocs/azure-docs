@@ -109,18 +109,18 @@ In this section, you will create a new message handler class named **Authenticat
 
 ## Registering for Notifications using the WebAPI Backend
 
-In this section, we will add a new controller to the WebAPI backend to handle requests to register a user and device for notifications using the client library for notification hubs, which is the Azure Service Bus client library. The controller will add a user tag for the user that was authenticated and attached to the HttpContext by the `AuthenticationTestHandler`. The tag will have the string format, `"username:<actual username>"`.
+In this section, we will add a new controller to the WebAPI backend to handle requests to register a user and device for notifications using the client library for notification hubs. The controller will add a user tag for the user that was authenticated and attached to the HttpContext by the `AuthenticationTestHandler`. The tag will have the string format, `"username:<actual username>"`.
 
 
  
 
 1. In Solution Explorer, right-click the **AppBackend** project and then click **Manage NuGet Packages**.
 
-2. On the left-hand side, click **Online**, and search for **servicebus** in the **Search** box.
+2. On the left-hand side, click **Online**, and search for **Microsoft.Azure.NotificationHubs** in the **Search** box.
 
-3. In the results list, click **Microsoft Azure Service Bus**, and then click **Install**. Complete the installation, then close the NuGet package manager window.
+3. In the results list, click **Microsoft Azure Notification Hubs Service Management Library**, and then click **Install**. Complete the installation, then close the NuGet package manager window.
 
-	![][B14]
+	This adds a reference to the Azure Notification Hubs SDK using the <a href="http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/">Microsoft.Azure.Notification Hubs NuGet package</a>.
 
 4. We will now create a new class file that represents the different secure notifications that will be sent. In a complete implementation, the notifications are stored in a database. For simplicity, this tutorial stores them in memory. In the Solution Explorer, right-click the **Models** folder, click **Add**, then click **Class**. Name the new class **Notifications.cs**, then click **Add** to generate the class. 
 
@@ -128,7 +128,7 @@ In this section, we will add a new controller to the WebAPI backend to handle re
 
 5. In Notifications.cs, add the following `using` statement at the top of the file:
 
-        using Microsoft.ServiceBus.Notifications;
+        using Microsoft.Azure.NotificationHubs;
 
 6. Replace the `Notifications` class definition with the following and make sure to replace the two placeholders with the connection string (with full access) for your notification hub, and the hub name (available at [Azure Management Portal](http://manage.windowsazure.com)):
 
@@ -269,7 +269,7 @@ In this section, we will add a new controller to the WebAPI backend to handle re
 
 ## Sending Notifications from the WebAPI Backend
 
-In this section you add a new controller that exposes a way for client devices to send a notification based on the username tag using Azure Service Bus client library in the ASP.NET WebAPI backend.
+In this section you add a new controller that exposes a way for client devices to send a notification based on the username tag using Azure Notification Hubs Service Management Library in the ASP.NET WebAPI backend.
 
 
 1. Create another new controller named **NotificationsController**. Create it the same way you created the **RegisterController** in the previous section.
