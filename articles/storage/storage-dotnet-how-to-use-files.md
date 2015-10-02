@@ -139,6 +139,7 @@ When a client accesses File storage, the SMB version used depends on the SMB ver
 | Windows 8              | SMB 3.0              |
 | Windows Server 2012    | SMB 3.0              |
 | Windows Server 2012 R2 | SMB 3.0              |
+| Windows 10             | SMB 3.0              |
 
 ### Mount the file share from an Azure virtual machine running Windows
 
