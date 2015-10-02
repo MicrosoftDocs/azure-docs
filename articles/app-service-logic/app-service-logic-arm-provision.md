@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/29/2015" 
+	ms.date="10/01/2015" 
 	ms.author="tomfitz"/>
 
 # Create a Logic App using a template
