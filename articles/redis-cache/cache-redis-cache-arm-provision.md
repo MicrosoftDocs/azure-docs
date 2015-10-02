@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/15/2015" 
+	ms.date="10/02/2015" 
 	ms.author="tomfitz"/>
 
 # Create a Redis Cache using a template
@@ -26,6 +26,8 @@ Currently, diagnostic settings are shared for all caches in the same region for 
 For more information about creating templates, see [Authoring Azure Resource Manager Templates](../resource-group-authoring-templates.md).
 
 For the complete template, see [Redis Cache template](https://github.com/Azure/azure-quickstart-templates/blob/master/101-redis-cache/azuredeploy.json).
+
+>[AZURE.NOTE] ARM templates for the new [Premium tier](cache-premium-tier-intro.md) are coming soon. To check for the latest templates, see [Azure Quickstart Templates](https://azure.microsoft.com/documentation/templates/) and search for `Redis Cache`.
 
 ## What you will deploy
 
