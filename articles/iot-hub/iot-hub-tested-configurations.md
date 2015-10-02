@@ -125,5 +125,5 @@ Learn more about developing solutions using Certified for IoT devices [here](htt
 |TI CC3200 | TI-RTOS 2.x|C|
 |Intel Edison |Yocto |C, Javascript|
 |Minnowboard Max |Windows 7,8, 10 |C#|
-|Arrow Dragonboard |Windows 10 IoT Core | C#|
+|Arrow DragonBoard 410c |Windows 10 IoT Core | C#|
 |Freescale FRDM K64 |mbedOS | C|
