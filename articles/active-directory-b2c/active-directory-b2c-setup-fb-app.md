@@ -64,7 +64,7 @@ To use Facebook as an identity provider in Azure Active Directory (AD) B2C, you 
 ## Configure Facebook as an Identity Provider in your Directory
 
 1. [Navigate to the B2C features blade on the Azure preview portal](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
-2. On the B2C features blade, click **Social identity providers**.
+2. On the B2C features blade, click **Identity providers**.
 3. Click **+Add** at the top of the blade.
 4. Provide a friendly **Name** for the identity provider configuration. For example, enter "FB".
 5. Click **Identity provider type**, select **Facebook** and click **OK**.

@@ -22,7 +22,7 @@ This article is a companion to the [main UI customization article](active-direct
 
 [AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
 
-## Get a B2C tenant
+## Get an Azure AD B2C tenant
 
 Before you can customize anything, you will need to [get an Azure AD B2C tenant](active-directory-b2c-get-started.md) if you don't already have one.
 
