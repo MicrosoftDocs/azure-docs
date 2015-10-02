@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/01/2015"
+   ms.date="10/02/2015"
    ms.author="hascipio; v-divte" />
 
-# Pre-requisites for creating a multi-Virtual Machine image solution template for the Azure Marketplace
+# Technical Pre-requisites for creating a multi-Virtual Machine image solution template for the Azure Marketplace
 
 Read the process thoroughly before beginning and understand where and why each step is performed. You should prepare as much of your company information and other data as possible before beginning the process. This should be clear from reviewing the process itself.  
 
