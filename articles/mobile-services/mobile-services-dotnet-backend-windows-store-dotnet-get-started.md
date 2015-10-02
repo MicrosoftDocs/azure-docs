@@ -112,6 +112,8 @@ Now that you have completed the quickstart, learn how to perform additional impo
 
 For more information about universal Windows apps, see [Supporting multiple device platforms from a single mobile service](mobile-services-how-to-use-multiple-clients-single-service.md#shared-vs).
 
+[AZURE.INCLUDE [app-service-disqus-feedback-slug](../../includes/app-service-disqus-feedback-slug.md)]
+
 <!-- Anchors. -->
 
 <!-- Images. -->
