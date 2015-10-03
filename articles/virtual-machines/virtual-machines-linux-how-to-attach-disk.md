@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Attach a disk to a Linux VM | Microsoft Azure"
-	description="Learn how to attach a data disk to an Linux virtual machine running on Azure and initialize it so it's ready for use."
+	description="Learn how to attach a data disk to an Azure virtual machine running Linux and initialize it so it's ready for use."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="dsk-2015"
