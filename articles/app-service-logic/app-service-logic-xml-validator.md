@@ -54,7 +54,6 @@ Input Xml|string|Input Xml to be validated
 
 The action returns the output as an object. The output contains the model representing the response from the Xml Validator. It consists of result, schema name, root node and error description.
 
-![6]
 
 <!-- References -->
 [1]: ./media/app-service-logic-xml-validator/XmlValidator.ClickToConfigure.PNG
@@ -62,5 +61,3 @@ The action returns the output as an object. The output contains the model repres
 [3]: ./media/app-service-logic-xml-validator/XmlValidator.SchemaUpload.PNG
 [4]: ./media/app-service-logic-xml-validator/XmlValidator.ListOfActions.PNG
 [5]: ./media/app-service-logic-xml-validator/XmlValidator.ValidateXml.PNG
-[6]: ./media/app-service-logic-xml-validator/img1.PNG
- 

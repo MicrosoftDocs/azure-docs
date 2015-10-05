@@ -22,7 +22,7 @@ A device can communicate directly with an end-point of a cloud gateway using a c
 
 In the cloud, a stream event processor receives device-to-cloud messages at scale from your devices and determines how to process and store those messages. A solution for connected devices enables you to send cloud-to-device data in the form of commands to specific devices. Device registration with the IoT solution enables you to provision devices and to control which devices are permitted to connect to your infrastructure. The back end enables you to track the state of your devices and monitor their activities.
 
-IoT solutions can include automatic feedback loops. For example, a machine learning module can identify from cloud-to-device telemetry data that the temperature of a specific device is above normal operating levels and then send a command to the device enabling it to take corrective action.
+IoT solutions may include automatic feedback loops. For example, a machine learning module can identify from device-to-cloud telemetry data that the temperature of a specific device is above normal operating levels and then send a command to the device enabling it to take corrective action.
 
 ### Presentation
 

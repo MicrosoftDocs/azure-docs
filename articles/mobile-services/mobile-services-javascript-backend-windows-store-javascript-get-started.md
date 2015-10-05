@@ -70,7 +70,7 @@ The final stage of this tutorial is to build and run your new app.
 
    	This lets you browse the data inserted by the app into the table.
 
->[AZURE.NOTE]You can review the code that accesses your mobile service to query and insert data, which is found in the default.js file.
+>[AZURE.NOTE] You can review the code that accesses your mobile service to query and insert data, which is found in the default.js file.
 
 <!-- Anchors. -->
 [Getting started with Mobile Services]:#getting-started
@@ -81,9 +81,6 @@ The final stage of this tutorial is to build and run your new app.
 <!-- Images. -->
 
 <!-- URLs. -->
-[Get started with data]: ../mobile-services-javascript-backend-windows-universal-javascript-get-started-data.md
-[Get started with authentication]: mobile-services-windows-store-javascript-get-started-users.md
-[Get started with push notifications]: mobile-services-javascript-backend-windows-store-javascript-get-started-push.md
 [Visual Studio 2013 Express for Windows]: http://go.microsoft.com/fwlink/?LinkId=257546
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
 [Management Portal]: https://manage.windowsazure.com/
