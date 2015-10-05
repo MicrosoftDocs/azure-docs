@@ -53,7 +53,13 @@ Before you begin this article, you must have the following:
 
 Cluster type allows you to select special purpose configurations for the cluster. The following are the types available for Linux-based HDInsight:
 
-| Cluster type | Use this if you... | 
+| Cluster type | Use this if you need to do... |
+| ------------ | ----------------------------- |
+| Hadoop       | Batch processing of data      |
+| HBase        | NoSQL data storage            |
+| Storm        | Real-time stream processing of data |
+
+Other technologies such as Hue, Spark, or R can be added to these basic types through the use of [Script Actions](#scriptaction).
 
 ### Additional storage
 
@@ -69,7 +75,7 @@ The metastore contains information about Hive tables, partitions, schemas, colum
 
 When provisioning an HDInsight cluster, you can specify a SQL database that will contain the metastore for Hive. This allows the metadata information to be preserved when you delete a cluster, as it is stored externally in the SQL database. For instructions on how to create a SQL database in Azure, see [Create your first Azure SQL Database](sql-database-get-started.md).
 
-### Customize clusters using Script action
+##<a id="scriptaction"></a>Script action
 
 You can install additional components or customize cluster configuration by using scripts during provisioning. Such scripts are invoked via **Script Action**. For more information, see [Customize HDInsight cluster using Script Action](hdinsight-hadoop-customize-cluster-linux.md).
 
