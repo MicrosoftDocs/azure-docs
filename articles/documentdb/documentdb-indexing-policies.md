@@ -480,7 +480,7 @@ DocumentDB supports Hash and Range index kinds for every path (that can configur
 - **Hash** supports efficient equality and JOIN queries. For most use cases, hash indexes do not need a higher precision than the default value of 3 bytes.
 - **Range** supports efficient equality queries, range queries (using >, <, >=, <=, !=), and Order By queries. Order By queries by default also require maximum index precision (-1).
 
-DocumentDB also suppors the Spatial index kind for every path, that can be specified for the Point data type. The value at the specified path must be a valid GeoJSON point like `{"type": "Point", "coordinates": [0.0, 10.0]}`.
+DocumentDB also supports the Spatial index kind for every path, that can be specified for the Point data type. The value at the specified path must be a valid GeoJSON point like `{"type": "Point", "coordinates": [0.0, 10.0]}`.
 
 - **Spatial** supports efficient spatial (within and distance) queries.
 
