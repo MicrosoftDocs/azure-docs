@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="10/05/2015"
-	ms.author="jimpark"; "aashishr"; "giridham"/>
+	ms.author="jimpark; aashishr; giridham"/>
 
 
 # Manage Azure Backup vaults and servers
