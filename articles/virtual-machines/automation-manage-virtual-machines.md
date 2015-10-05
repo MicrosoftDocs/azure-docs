@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Manage Azure Virtual Machines using Azure Automation"
+	pageTitle="Manage VMs using Azure Automation | Microsoft Azure"
 	description="Learn about how the Azure Automation service can be used to manage Azure virtual machines at scale."
 	services="virtual-machines, automation"
 	documentationCenter=""
@@ -21,6 +21,8 @@
 #Managing Azure Virtual Machines using Azure Automation
 
 This guide introduces you to the Azure Automation service and how it can be used to simplify managing your Azure virtual machines.
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
 
 ## What is Azure Automation?
 

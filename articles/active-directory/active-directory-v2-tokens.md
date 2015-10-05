@@ -1,5 +1,5 @@
 <properties
-	pageTitle="App Model v2 | Microsoft Azure"
+	pageTitle="App Model v2 Token reference | Microsoft Azure"
 	description="The types of tokens and claims emitted by the v2.0 Endpoint"
 	services="active-directory"
 	documentationCenter=""

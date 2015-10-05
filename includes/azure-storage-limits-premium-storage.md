@@ -5,3 +5,11 @@ Total snapshot capacity per account|10 TB
 Max bandwidth per account (ingress + egress<sup>1</sup>)|>50 Gbps
 
 <sup>1</sup>*Ingress* refers to all data (requests) being sent to a storage account. *Egress* refers to all data (responses) being received from a storage account.
+
+### Premium Storage Disks Scale Limits
+
+Premium Storage Disk Type | P10 | P20 | P30
+---|---|---|---
+Disk size | 128 GiB | 512 GiB | 1024 GiB (1 TB)
+IOPS per disk | 500 | 2300 | 5000
+Throughput per disk | 100 MB per second | 150 MB per second | 200 MB per second

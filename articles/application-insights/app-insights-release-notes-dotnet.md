@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Release notes for Application Insights" 
+	pageTitle="Release notes for Application Insights for .NET" 
 	description="The latest updates." 
 	services="application-insights" 
     documentationCenter=""

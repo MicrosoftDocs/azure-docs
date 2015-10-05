@@ -1,22 +1,27 @@
 <properties
- pageTitle="About the virtual machine agent and extensions | Microsoft Azure"
- description="Gives an overview of the agent and extensions, and how to install the agent."
+ pageTitle="Azure VM agent and extensions | Microsoft Azure"
+ description="Gives an overview of the agent and extensions, and how to install the agent, using the classic deployment model."
  services="virtual-machines"
  documentationCenter=""
  authors="squillace"
  manager="timlt"
- editor=""/>
+ editor=""
+ tags="azure-service-management"/>
+
 <tags
-ms.service="virtual-machines"
+ ms.service="virtual-machines"
  ms.devlang="na"
  ms.topic="article"
  ms.tgt_pltfrm="vm-multiple"
  ms.workload="infrastructure-services"
- ms.date="03/10/2015"
+ ms.date="09/22/2015"
  ms.author="rasquill"/>
- 
+
 #About the virtual machine agent and extensions
-The Azure Virtual Machine Agent (VM Agent) is used to install, configure, manage and run Azure Virtual Machine Extensions (VM Extensions). VM Extensions provide dynamic features that Microsoft and other third parties provide. The agent and extensions are added primarily through the Management Portal, but you can also use the [Powershell](../install-configure-powershell.md) cmdlets or the [xplat-cli](virtual-machines-command-line-tools.md) to add and configure either when you create a VM or with existing VMs. VM Extensions include support for [Remote Debugging in Visual Studio](https://msdn.microsoft.com/library/y7f5zaaa.aspx), [System Center 2012](http://social.technet.microsoft.com/wiki/contents/articles/18274.system-center-2012-r2-virtual-machine-role-authoring-guide-resource-extension-package.aspx), [Microsoft Azure Diagnostics](http://azure.microsoft.com/blog/2014/09/02/windows-azure-virtual-machine-monitoring-with-wad-extension/), and [Docker](virtual-machines-docker-vm-extension.md) -- just to name a few.
+The Azure Virtual Machine Agent (VM Agent) is used to install, configure, manage and run Azure Virtual Machine Extensions (VM Extensions). VM Extensions provide dynamic features that Microsoft and other third parties provide. The agent and extensions are added primarily through the Management Portal, but you can also use the [Powershell](../install-configure-powershell.md) cmdlets or the [Azure CLI](xplat-install.md) to add and configure either when you create a VM or with existing VMs.
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)] This article refers to deployment calls that are for the classic deployment model.
+
 
 VM extensions can help you:
 
@@ -25,7 +30,7 @@ VM extensions can help you:
 -   Reset or install connectivity features, such as RDP and SSH
 -   Diagnose, monitor, and manage your VMs
 
-There are many other features as well; new VM Extension features are released regularly. This article describes the Azure VM Agents for Windows and Linux, and how they support VM Extension functionality. For a listing of VM Extensions by feature category, see [Azure VM Extensions and Features](https://msdn.microsoft.com/library/dn606311.aspx).
+There are many other features as well; new VM Extension features are released regularly. This article describes the Azure VM Agents for Windows and Linux, and how they support VM Extension functionality. For a listing of VM Extensions by feature category, see [Azure VM Extensions and Features](virtual-machines-extensions-features.md).
 
 ##Azure VM Agents for Windows and Linux
 
@@ -49,7 +54,7 @@ The VM Agent is enabled in the following situations:
         $vm.VM.ProvisionGuestAgent = $TRUE
         Update-AzureVM –Name $name –VM $vm.VM –ServiceName $svc
 
--   By creating a VM image that has the VM agent installed prior to uploading it to Azure. For a Windows VM, download the [Windows VM Agent .msi file](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409) and install the VM Agent. For a Linux VM, you will install it from the located at <https://github.com/Azure/WALinuxAgent>. For more information on how to install the VM Agent on Linux, see the [Azure Linux VM Agent User Guide](virtual-machines-linux-agent-user-guide.md).
+-   By creating a VM image that has the VM agent installed prior to uploading it to Azure. For a Windows VM, download the [Windows VM Agent .msi file](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409) and install the VM Agent. For a Linux VM, you will install it from the github repository located at <https://github.com/Azure/WALinuxAgent>. For more information on how to install the VM Agent on Linux, see the [Azure Linux VM Agent User Guide](virtual-machines-linux-agent-user-guide.md).
 
 >[AZURE.NOTE]In PaaS, the VM agent is called **GuestAgent**, and is always available on Web and Worker Role VMs. (For more information, see [Azure Role Architecture](http://blogs.msdn.com/b/kwill/archive/2011/05/05/windows-azure-role-architecture.aspx).) The VM agent for Role VMs can now add extensions to the cloud service VMs in the same way that it does for persistent Virtual Machines. The biggest difference between VM Extensions on role VMs and persistent VMs is that with role VMs, extensions are added to the cloud service first and then to the deployments within that cloud service.
 
@@ -59,4 +64,4 @@ cmdlet to list all available role VM extensions.
 
 ##Find, Add, Update, and Remove VM Extensions  
 
-For details on these tasks, see [Add, Find, Update, and Remove Azure VM Extensions](https://msdn.microsoft.com/library/dn850373.aspx).
+For details on these tasks, see [Add, Find, Update, and Remove Azure VM Extensions](virtual-machines-extensions-install.md).

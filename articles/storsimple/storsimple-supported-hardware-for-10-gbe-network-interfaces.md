@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Supported hardware for 10 GbE network interfaces on your StorSimple device"
-   description="Describes the supported transceivers, cables, and switches for 10 GbE network interfaces on your StorSimple device."
+   pageTitle="Hardware for StorSimple 10 GbE interfaces | Microsoft Azure"
+   description="Describes the supported small form-factor pluggable (SFP) transceivers, cables, and switches for the 10 GbE network interfaces on your StorSimple device."
    services="storsimple"
    documentationCenter="NA"
    authors="alkohli"
@@ -12,10 +12,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/17/2015"
+   ms.date="08/27/2015"
    ms.author="alkohli" />
 
-# Supported hardware for 10 GbE network interfaces on your StorSimple device
+# Supported hardware for the 10 GbE network interfaces on your StorSimple device
 
 ## Overview
 

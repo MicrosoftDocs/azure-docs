@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Get Started with Client-Side Encryption for Microsoft Azure Storage | Microsoft Azure" 
-	description="The Azure Storage Client Library for .NET offers support for client-side encryption and integration with Azure Key Vault. Client-side encryption offers maximum security for your Azure Storage applications, as your access keys are never available to the service. Client-side encryption is available for blobs, queues, and tables." 
+	pageTitle="Client-Side Encryption with .NET for Microsoft Azure Storage | Microsoft Azure" 
+	description="The Azure Storage Client Library for .NET supports client-side encryption and integration with Azure Key Vault for maximum security for your Azure Storage applications." 
 	services="storage" 
 	documentationCenter=".net" 
 	authors="tamram" 
@@ -13,15 +13,17 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/04/2015" 
+	ms.date="09/29/2015" 
 	ms.author="tamram"/>
 
 
-# Get Started with Client-Side Encryption for Microsoft Azure Storage
+# Client-Side Encryption and Azure Key Vault for Microsoft Azure Storage
 
 ## Overview
 
-The [Azure Storage Client Library for .NET](https://www.nuget.org/packages/WindowsAzure.Storage) contains functionality to help developers encrypt data inside client applications before uploading to Azure Storage, and to decrypt data while downloading. The library also supports integration with Azure [Key Vault](http://azure.microsoft.com/services/key-vault/) for storage account key management.
+The [Azure Storage Client Library for .NET](https://www.nuget.org/packages/WindowsAzure.Storage) supports encrypting data within client applications before uploading to Azure Storage, and decrypting data while downloading to the client. The library also supports integration with [Azure Key Vault](http://azure.microsoft.com/services/key-vault/) for storage account key management.
+
+For client-side encryption with Java, see [Client-Side Encryption with Java for Microsoft Azure Storage](storage-client-side-encryption-java.md).
 
 ## Encryption and decryption via the envelope technique
 

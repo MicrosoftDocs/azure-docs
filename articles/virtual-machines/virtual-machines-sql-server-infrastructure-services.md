@@ -1,11 +1,12 @@
 <properties 
-	pageTitle="Overview of SQL Server on Azure Virtual Machines"
-	description="This article provides an overview of SQL Server hosted on Azure IaaS Virtual Machines. This includes links to depth content." 
+	pageTitle="Overview of SQL Server on Virtual Machines | Microsoft Azure"
+	description="This article provides an overview of SQL Server hosted on Azure Virtual Machines. This includes links to depth content." 
 	services="virtual-machines" 
 	documentationCenter="" 
 	authors="rothja" 
 	manager="jeffreyg"
-	editor=""/>
+	editor=""
+	tags="azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -13,10 +14,12 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services" 
-	ms.date="08/24/2015"
+	ms.date="09/01/2015"
 	ms.author="jroth"/>
 
-# Overview of SQL Server on Azure Virtual Machines
+# SQL Server on Azure Virtual Machines overview
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)] This article covers creating a resource with the classic deployment model. 
 
 ## Getting started
 You can host [SQL Server on Azure Virtual Machines](http://azure.microsoft.com/services/virtual-machines/sql-server/) in a variety of configurations, ranging from a single database server to a multi-machine configuration using AlwaysOn Availability Groups and an Azure Virtual Network.
@@ -27,30 +30,30 @@ To create a SQL Server virtual machine in Azure, you must first obtain an Azure 
 
 ### Deploy a SQL Server instance on a single VM
 
-After signing up for a subscription, the easiest way to deploy a SQL Server virtual machine in Azure is to [provision a SQL Server machine gallery image in the Azure Management Portal](virtual-machines-provision-sql-server.md). Those images include licensing of SQL Server in the pricing for the VM. 
+After signing up for a subscription, the easiest way to deploy a SQL Server virtual machine in Azure is to [provision a SQL Server machine gallery image in the Azure Management Portal](virtual-machines-provision-sql-server.md). Those images include licensing of SQL Server in the pricing for the VM.
 
-You can run common SQL Server workloads on Azure Virtual Machines. SQL Server has several optimized virtual machine images available in the gallery. For more information on specific workloads, see:
+>[AZURE.NOTE] Use the [new Portal](https://manage.windowsazure.com) to provision and manage SQL Server Virtual Machines. It defaults to using Premium Storage and offers Automated Patching, Automated Backup, and AlwaysOn configurations.
 
-- [SQL Server Business Intelligence in Azure Virtual Machines](virtual-machines-sql-server-business-intelligence.md)
-- [SQL Server Data Warehousing and Transactional Workloads in Azure Virtual Machines](virtual-machines-sql-server-dw-and-oltp-workloads.md)
+The following table provides a matrix of available SQL Server images in the virtual machine gallery.
 
-The following table provides a matrix of available SQL Server images in the virtual machine gallery. 
-
-|Operating system|SQL Server version|SQL Server edition|
+|SQL Server version|Operating system|SQL Server edition|
 |---|---|---|
-|Windows Server 2008 R2|SQL Server 2008 R2 SP2|Enterprise, Standard, and Web|
-|Windows Server 2008 R2|SQL Server 2008 R2 SP3|Enterprise, Standard, and Web|
-|Windows Server 2012|SQL Server 2012 SP2|Enterprise, Standard, Web, OLTP (Enterprise), and Data Warehouse (Enterprise)|
-|Windows Server 2012 R2|SQL Server 2012 SP2|Enterprise, Standard, Web, OLTP (Enterprise), and Data Warehouse (Enterprise)|
-|Windows Server 2012 R2|SQL Server 2014|Enterprise, Standard, Web, OLTP (Enterprise), and Data Warehouse (Enterprise)|
-|Windows Server 2012 R2|SQL Server 2014 SP1|Enterprise, Standard, Web, OLTP (Enterprise), and Data Warehouse (Enterprise)|
-|Windows Server 2012 R2|SQL Server 2016 CTP|Evaluation|
+|SQL Server 2008 R2 SP2|Windows Server 2008 R2|Enterprise, Standard, Web|
+|SQL Server 2008 R2 SP3|Windows Server 2008 R2|Enterprise, Standard, Web|
+|SQL Server 2012 SP2|Windows Server 2012|Enterprise, Standard, Web|
+|SQL Server 2012 SP2|Windows Server 2012 R2|Enterprise, Standard, Web|
+|SQL Server 2014|Windows Server 2012 R2|Enterprise, Standard, Web|
+|SQL Server 2014 SP1|Windows Server 2012 R2|Enterprise, Standard, Web|
+|SQL Server 2016 CTP|Windows Server 2012 R2|Evaluation|
+
+>[AZURE.NOTE] The virtual machines gallery images for data warehousing and transactional workloads (not shown above) are deprecated and will be removed from the gallery soon. Please use the standard images in the previous table and optimize performance for your specific workload.
 
 In addition to these preconfigured images, you can also [create an Azure virtual machine](virtual-machines-windows-tutorial.md) without SQL Server pre-installed. You can install any instance of SQL Server for which you have a license. You migrate your license to Azure for running SQL Server in an Azure Virtual Machine using [License Mobility through Software Assurance on Azure](http://azure.microsoft.com/pricing/license-mobility/). In this scenario, you only pay for Azure compute and storage [costs](http://azure.microsoft.com/pricing/details/virtual-machines) associated with the virtual machine.
 
-During these early stages of provisioning and configuring, common tasks include:
+In order to determine the best virtual machine configuration settings for your SQL Server image, review the [Performance best practices for SQL Server in Azure Virtual Machines](virtual-machines-sql-server-performance-best-practices.md). For production workloads, **DS3** is the minimum recommended virtual machine size for SQL Server Enterprise edition, and **DS2** is the minimum recommended virtual machine size for Standard edition.
 
-- [Review performance best practices for SQL Server in Azure VMs](virtual-machines-sql-server-performance-best-practices.md)
+In addition to reviewing performance best practices, other initial tasks include the following:
+
 - [Review security best practices for SQL Server in Azure VMs](virtual-machines-sql-server-security-considerations.md)
 - [Set up connectivity](virtual-machines-sql-server-connectivity.md)
 
@@ -58,7 +61,7 @@ During these early stages of provisioning and configuring, common tasks include:
 
 After your SQL Server virtual machine is up and running, you might want to migrate existing databases to the machine. There are several techniques, but the deployment wizard in SQL Server Management Studio works well for most scenarios. For a discussion of the scenarios and a tutorial of the wizard, see [Migrating a Database to SQL Server on an Azure VM](virtual-machines-migrate-onpremises-database.md).
 
-## High Availability
+## High availability
 
 If you require high availability, consider configuring SQL Server AlwaysOn Availability Groups. This involves multiple Azure VMs in a virtual network. The Azure Preview Portal has a template that sets up this configuration for you. For more information, see [SQL Server AlwaysOn Offering in Microsoft Azure Portal Gallery](http://blogs.technet.com/b/dataplatforminsider/archive/2014/08/25/sql-server-alwayson-offering-in-microsoft-azure-portal-gallery.aspx). 
 
@@ -66,11 +69,12 @@ If you want to manually configure your Availability Group and associated listene
 
 - [Configure AlwaysOn Availability Groups in Azure (GUI)](virtual-machines-sql-server-alwayson-availability-groups-gui.md)
 - [Configure an ILB listener for AlwaysOn Availability Groups in Azure](virtual-machines-sql-server-configure-ilb-alwayson-availability-group-listener.md)
+- [Deploy SQL Server AlwaysOn with an Azure Resource Manager template](virtual-machines-workload-template-sql-alwayson.md)
 - [Extend on-premises AlwaysOn Availability Groups to Azure](virtual-machines-sql-server-extend-on-premises-alwayson-availability-groups.md)
 
 For other high availability considerations, see [High Availability and Disaster Recovery for SQL Server in Azure Virtual Machines](virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions.md).
 
-## Backup and Restore
+## Backup and restore
 For on-premises databases, Azure can act as a secondary data center to store SQL Server backup files. For an overview of backup and restore options, see [Backup and Restore for SQL Server in Azure Virtual Machines](virtual-machines-sql-server-backup-and-restore.md).
 
 [SQL Server Backup to URL](https://msdn.microsoft.com/library/dn435916.aspx) stores Azure backup files in Azure blob storage. [SQL Server Managed Backup](https://msdn.microsoft.com/library/dn449496.aspx) allows you to schedule backup and retention in Azure. These services can be used with either on-premises SQL Server instances or SQL Server running on Azure VMs. Azure VMs can also take advantage of [Automated Backup](virtual-machines-sql-server-automated-backup.md) and [Automated Patching](virtual-machines-sql-server-automated-patching.md) for SQL Server.
@@ -110,7 +114,7 @@ The SQL Server installation in the platform image contains the following configu
 |Data Quality Services|Installed (SQL Server 2012 or later only)|
 |Master Data Services|Installed (SQL Server 2012 or later only). Requires [additional configuration and components](https://msdn.microsoft.com/library/ee633752.aspx)
 |PowerPivot for SharePoint|Available (SQL Server 2012 or later only). Requires additional configuration and components (including SharePoint)|
-|Distributed Replay Client|Available (SQL Server 2012 or later only), but not installed. See [Running SQL Server setup from the platform-provided SQL Server image](#running-sql-server-setup-from-the-platform-provided-sql-server-image)|
+|Distributed Replay Client|Available (SQL Server 2012 or later only), but not installed. See [Running SQL Server setup from the platform-provided SQL Server image](#run-sql-server-setup-from-the-platform-provided-sql-server-image)|
 |Tools|All tools, including SQL Server Management Studio, SQL Server Configuration Manager, the Business Intelligence Development Studio, SQL Server Setup, Client Tools Connectivity, Client Tools SDK, and SQL Client Connectivity SDK, and upgrade and migration tools, such as Data-tier applications (DAC), backup, restore, attach, and detach|
 |SQL Server Books Online|Installed but requires configuration by using Help Viewer|
 
@@ -128,9 +132,11 @@ The following database engine settings are configured. For more settings, examin
 |Default language|English|
 |Cross-database ownership chaining|Off|
 
+### Customer Experience Improvement Program (CEIP)
+
 The [Customer Experience Improvement Program (CEIP)](https://technet.microsoft.com/library/cc730757.aspx) is enabled. You can disable the CEIP by using the SQL Server Error and Usage Reporting utility. To launch the SQL Server Error and Usage Reporting utility; on the Start menu, click All Programs, click Microsoft SQL Server version, click Configuration Tools, and then click SQL Server Error and Usage Reporting. If you do not want to use an instance of SQL Server with CEIP enabled, you might also consider deploying your own virtual machine image to Azure.  For more information, see [Creating and Uploading a Virtual Hard Disk that Contains the Windows Server Operating System](virtual-machines-create-upload-vhd-windows-server.md).
 
-### Running SQL Server setup from the platform-provided SQL Server image
+## Run SQL Server setup from the platform-provided SQL Server image
 
 If you create a virtual machine by using a platform-provided SQL Server image, you can find the SQL Server setup media saved on the virtual machine in the **C:\SqlServer_SQLMajorVersion.SQLMinorVersion_Full** directory. You can run setup from this directory to perform any setup actions including add or remove features, add a new instance, or repair the instance if the disk space permits.
 

@@ -1,11 +1,12 @@
 <properties 
-	pageTitle="SQL Server Business Intelligence in Azure Virtual Machines"
-	description="This topic describes the Business Intelligence (BI) features available for SQL Server running on Azure Virtual Machines (VMs)."
+	pageTitle="SQL Server Business Intelligence | Microsoft Azure"
+	description="This topic uses resources created with the classic deployment model, and describes the Business Intelligence (BI) features available for SQL Server running on Azure Virtual Machines (VMs)."
 	services="virtual-machines"
 	documentationCenter="na"
 	authors="rothja"
 	manager="jeffreyg"
-	editor="monicar" />
+	editor="monicar" 
+	tags="azure-service-management"/>
 <tags 
 	ms.service="virtual-machines"
 	ms.devlang="na"
@@ -17,6 +18,8 @@
 
 # SQL Server Business Intelligence in Azure Virtual Machines
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)] This article covers using a resource with the classic deployment model. 
+ 
 The Microsoft Azure Virtual Machine gallery includes images that contain SQL Server installations. The SQL Server editions supported in the gallery images are the same installation files you can install to on-premises computers and virtual machines. This topic summarizes the SQL Server Business Intelligence (BI) Features installed on the images and configuration steps required after a virtual machine is provisioned. This topic also describes supported deployment topologies for BI features and best practices.
 
 ## License Considerations
@@ -27,11 +30,7 @@ There are two ways to license SQL Server in Microsoft Azure Virtual Machines:
 
 1. Pay per hour rate of Azure Virtual Machines with SQL Server installed. See the “SQL Server” section in [Virtual Machines Pricing](http://azure.microsoft.com/pricing/details/virtual-machines/#Sql).
 
-For more information on licensing and current rates, see the following:
-
-- [Virtual Machines Licensing FAQ](http://azure.microsoft.com/pricing/licensing-faq/%20)
-
-- See the section “Licensing for SQL Server images and editions in Azure” in [Getting Ready to Migrate to SQL Server in Azure Virtual Machines](https://msdn.microsoft.com/library/azure/dn133142.aspx)
+For more information on licensing and current rates, see [Virtual Machines Licensing FAQ](http://azure.microsoft.com/pricing/licensing-faq/%20).
 
 ## SQL Server Images Available in Azure Virtual Machine Gallery
 
@@ -78,7 +77,7 @@ The following table summarizes the Business Intelligence features installed on t
 
 |SQL Server BI Feature|Installed on the gallery image|Notes|
 |---|---|---|
-|**Reporting Services Native Mode**|Yes|Installed but requires configuration, including the report manager URL. See the section [Configure Reporting Services](https://msdn.microsoft.com/library/azure/jj992719.aspx#bkmk_ssrs_configure).|
+|**Reporting Services Native Mode**|Yes|Installed but requires configuration, including the report manager URL. See the section [Configure Reporting Services](#configure-reporting-services).|
 |**Reporting Services SharePoint Mode**|No|The Microsoft Azure Virtual Machine gallery image does not include SharePoint or SharePoint installation files. <sup>1</sup>|
 |**Analysis Services Multidimensional and Data mining (OLAP)**|Yes|Installed and configured as the default Analysis Services instance|
 |**Analysis Services Tabular**|No|Supported in SQL Server 2012 and 2014 images but it is not installed by default. Install another instance of Analysis Services. See the section Install other SQL Server Services and features in this topic.|
@@ -94,7 +93,7 @@ The following table summarizes the Business Intelligence features installed on t
 
 - The minimum recommended size for a virtual machine is **A3** when using SQL Server Enterprise Edition. The **A4** virtual machine size is recommended for SQL Server BI deployments of Analysis Services and Reporting Services.
 
-	For information on the current VM sizes, see [Virtual Machine and Cloud Service Sizes for Azure](https://msdn.microsoft.com/library/azure/dn197896.aspx).
+	For information on the current VM sizes, see [Virtual Machine Sizes for Azure](virtual-machines-size-specs.md).
 
 - A best practice for disk management is to store data, log, and backup files on drives other than **C**: and **D**:. For example, create data disks **E**: and **F**:.
 
@@ -102,7 +101,7 @@ The following table summarizes the Business Intelligence features installed on t
 	
 	- The **D**: drive is a temporary drive that is used primarily for the page file. The **D**: drive is not persisted and is not saved in blob storage. Management tasks such as a change to the virtual machine size reset the **D**: drive. It is recommended to **NOT** use the **D**: drive for database files, including tempdb.
 
-	For more information on creating and attaching disks, see [How to Attach a Data Disk to a Virtual Machine](http://www.windowsazure.com/manage/windows/how-to-guides/attach-a-disk/).
+	For more information on creating and attaching disks, see [How to Attach a Data Disk to a Virtual Machine](storage-windows-attach-disk.md).
 
 - Stop or uninstall services you do not plan to use. For example if the virtual machine is only used for Reporting Services, stop or uninstall Analysis Services and SQL Server Integration Services. The following image is an example of the services that are started by default.
 

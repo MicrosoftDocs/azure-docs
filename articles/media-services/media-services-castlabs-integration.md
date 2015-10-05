@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/11/2015"  
+	ms.date="09/07/2015"  
 	ms.author="juliako"/>
 
 
@@ -112,3 +112,11 @@ For playing back the protected video in HTML5 with Chrome with the castLabs play
 2.	The castLab license server does not need the “Bearer=” prefix in front of the token. So please remove that before submitting the token.
 
  
+
+##Media Services learning paths
+
+You can view AMS learning paths here:
+
+- [AMS Live Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [AMS on Demand Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+

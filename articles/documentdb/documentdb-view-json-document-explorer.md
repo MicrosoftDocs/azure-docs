@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="06/10/2015"
+	ms.date="09/09/2015"
 	ms.author="stbaro"/>
 
 # View, edit, create, and upload JSON documents using the DocumentDB Document Explorer #
@@ -26,7 +26,7 @@ By completing this tutorial, you'll be able to answer the following questions:
 -	How can I easily view the system properties of a DocumentDB document via a web browser?
 -	How can I easily perform bulk ingestion of documents into DocumentDB via a web browser?
 
-##<a id="Launch"></a>Launch and navigate Document Explorer##
+##<a id="Launch"></a>Launch Document Explorer##
 
 Document Explorer can be launched from any of the DocumentDB account, database, and collection blades.  
 
@@ -44,35 +44,6 @@ Document Explorer can be launched from any of the DocumentDB account, database, 
 
 	![Screenshot of Document Explorer](./media/documentdb-view-JSON-document-explorer/documentexplorerinitial.png)
 
-3. By default, Document Explorer loads up to the first 100 documents in the selected collection, by their created date from earliest to latest.  You can load additional documents (in batches of 100) by selecting the **Load more** option at the bottom of the Document Explorer blade.  The default behavior can be modified by clicking the Settings command at the top of the Document Explorer blade.
-
-	![Screenshot of Document Explorer Settings Blade](./media/documentdb-view-JSON-document-explorer/documentexplorersettings.png)
-
-
-4. On the Settings blade, you can adjust the number of items to return per page as well as provide a WHERE clause to load matching documents in the Document Explorer grid.  Read more about the DocumentDB SQL grammar [here](documentdb-sql-query.md).
-
-	![Screenshot of Document Explorer Settings Blade](./media/documentdb-view-JSON-document-explorer/documentexplorersettings2.png)
-
-	> [AZURE.NOTE] After modifying Document Explorer settings, you must click the **Refresh** command in order to apply the new settings.  The settings will persist only in the current browser session.
-	
-5. The **Database** and **Collection** drop-down list boxes can be used to easily change the collection from which documents are currently being viewed without having to close and re-launch Document Explorer.  
-
-5. Document Explorer also supports filtering the currently loaded set of documents by their id property.  Simply type in the filter box.
-
-	![Screenshot of Document Explorer with filter highlighted](./media/documentdb-view-JSON-document-explorer/documentexplorerfilter.png)
-
-	And the results in the Document Explorer list are filtered based on your supplied criteria.
-
-	![Screenshot of Document Explorer with filtered results](./media/documentdb-view-JSON-document-explorer/documentexplorerfilterresults.png)
-
-
-	> [AZURE.IMPORTANT] The Document Explorer filter functionality only filters from the ***currently*** loaded set of documents and does not perform a query against the currently selected collection.
-
-6. To refresh the list of documents loaded by Document Explorer, simply click the **Refresh** command at the top of the blade.
-
-	![Screenshot of Document Explorer refresh command](./media/documentdb-view-JSON-document-explorer/documentexplorerrefresh.png)
-
-
 ##<a id="Create"></a>View, create, and edit documents with Document Explorer##
 
 Document Explorer allows you to easily create, edit and delete documents.  
@@ -87,7 +58,7 @@ Document Explorer allows you to easily create, edit and delete documents.
 
 	> [AZURE.NOTE] If you do not provide an "id" property, then Document Explorer automatically adds an id property and generates a GUID as the id value.
 
-- If you already have data from JSON files, MongoDB, SQL Server, CSV files, Azure Table storage, or from other DocumentDB collections, you can use DocumentDB's [data migration tool](documentdb-import-data.md) to quickly import your data.
+- If you already have data from JSON files, MongoDB, SQL Server, CSV files, Azure Table storage, Amazon DynamoDB, HBase, or from other DocumentDB collections, you can use DocumentDB's [data migration tool](documentdb-import-data.md) to quickly import your data.
 
 - To edit an existing document, simply select it in Document Explorer, edit the document as you see fit, and click the **Save** command.
 
@@ -115,6 +86,38 @@ Document Explorer allows you to easily create, edit and delete documents.
 
 	> [AZURE.NOTE] The timestamp (_ts) property is internally represented as epoch time, but Document Explorer displays the value in a human readable GMT format.
 
+##<a id="Navigate"></a>Document Explorer navigation options and advanced settings##
+
+Document Explorer supports a number of navigation options and advanced settings.
+
+1. By default, Document Explorer loads up to the first 100 documents in the selected collection, by their created date from earliest to latest.  You can load additional documents (in batches of 100) by selecting the **Load more** option at the bottom of the Document Explorer blade.  The default behavior can be modified by clicking the Settings command at the top of the Document Explorer blade.
+
+	![Screenshot of Document Explorer Settings Blade](./media/documentdb-view-JSON-document-explorer/documentexplorersettings.png)
+
+
+2. On the Settings blade, you can adjust the number of items to return per page as well as provide a WHERE clause to load matching documents in the Document Explorer grid.  Read more about the DocumentDB SQL grammar [here](documentdb-sql-query.md).
+
+	![Screenshot of Document Explorer Settings Blade](./media/documentdb-view-JSON-document-explorer/documentexplorersettings2.png)
+
+	> [AZURE.NOTE] After modifying Document Explorer settings, you must click the **Refresh** command in order to apply the new settings.  The settings will persist only in the current browser session.
+	
+3. The **Database** and **Collection** drop-down list boxes can be used to easily change the collection from which documents are currently being viewed without having to close and re-launch Document Explorer.  
+
+4. Document Explorer also supports filtering the currently loaded set of documents by their id property.  Simply type in the filter box.
+
+	![Screenshot of Document Explorer with filter highlighted](./media/documentdb-view-JSON-document-explorer/documentexplorerfilter.png)
+
+	And the results in the Document Explorer list are filtered based on your supplied criteria.
+
+	![Screenshot of Document Explorer with filtered results](./media/documentdb-view-JSON-document-explorer/documentexplorerfilterresults.png)
+
+
+	> [AZURE.IMPORTANT] The Document Explorer filter functionality only filters from the ***currently*** loaded set of documents and does not perform a query against the currently selected collection.
+
+5. To refresh the list of documents loaded by Document Explorer, simply click the **Refresh** command at the top of the blade.
+
+	![Screenshot of Document Explorer refresh command](./media/documentdb-view-JSON-document-explorer/documentexplorerrefresh.png)
+
 ##<a id="BulkAdd"></a>Bulk add documents with Document Explorer##
 
 Document Explorer supports bulk ingestion of one or more existing JSON documents.  
@@ -137,5 +140,6 @@ Document Explorer supports bulk ingestion of one or more existing JSON documents
 
 ##<a name="NextSteps"></a>Next steps
 
-To learn more about DocumentDB, click [here](http://azure.com/docdb).
+- To learn more about DocumentDB, click [here](http://azure.com/docdb).
+
  

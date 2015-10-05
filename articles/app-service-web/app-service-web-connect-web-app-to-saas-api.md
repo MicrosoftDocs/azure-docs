@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="Connect a web app to an API app in Azure App Service" 
-   description="This tutorial shows you how to consume an API app from an ASP.NET web app hosted in Azure App Service." 
-   services="app-service\web" 
-   documentationCenter=".net" 
-   authors="syntaxc4" 
-   manager="yochayk" 
-   editor="jimbe"/>
+	pageTitle="Connect a web app to an API app in Azure App Service" 
+	description="This tutorial shows you how to consume an API app from an ASP.NET web app hosted in Azure App Service." 
+	services="app-service" 
+	documentationCenter=".net" 
+	authors="syntaxc4" 
+	manager="yochayk" 
+	editor="jimbe"/>
 
 <tags
-   ms.service="app-service-web"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="web" 
-   ms.date="03/24/2015"
-   ms.author="cfowler"/>
+	ms.service="app-service"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="na" 
+	ms.date="09/15/2015"
+	ms.author="cfowler"/>
 
 # Connect a web app to an API app in Azure App Service
 

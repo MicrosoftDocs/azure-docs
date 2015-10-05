@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="07/09/2015"
+	ms.date="09/09/2015"
 	ms.author="garye"/>
 
 #Machine learning tutorial: Create your first experiment in Azure Machine Learning Studio
@@ -199,11 +199,11 @@ Now that you've completed a first machine learning tutorial and have your experi
 
 [runhistory]: machine-learning-manage-experiment-iterations.md
 
-When you're satisfied with your model, you can publish it as a web service to be used to predict automobile prices by using new data. See [Publish an Azure Machine Learning web service][publish] for more details.
+When you're satisfied with your model, you can deploy it as a web service to be used to predict automobile prices by using new data. See [Deploy an Azure Machine Learning web service][publish] for more details.
 
 [publish]: machine-learning-publish-a-machine-learning-web-service.md
 
-For a more extensive and detailed walkthrough of predictive modeling techniques for creating, training, scoring, and publishing a model, see [Develop a predictive solution by using Azure Machine Learning][walkthrough].
+For a more extensive and detailed walkthrough of predictive modeling techniques for creating, training, scoring, and deploying a model, see [Develop a predictive solution by using Azure Machine Learning][walkthrough].
 
 [walkthrough]: machine-learning-walkthrough-develop-predictive-solution.md
 

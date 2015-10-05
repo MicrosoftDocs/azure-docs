@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="08/11/2015" 
+	ms.date="09/29/2015"
 	ms.author="juliako"/>
 
 
-#Use .NET SDK to Create Channels that Perform Live Encoding from a Single-bitrate to Multi-bitrate Stream (Preview)
+#Use .NET SDK to Create Channels that Perform Live Encoding from a Single-bitrate to Multi-bitrate Stream
 
 > [AZURE.SELECTOR]
 - [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
@@ -37,73 +37,73 @@ This tutorial walks you through the steps of creating a **Channel** that receive
 The following steps describe tasks involved in creating common live streaming applications.
 
 1. Connect a video camera to a computer. Launch and configure an on-premises live encoder that can output a single bitrate stream in one of the following protocols: RTMP, Smooth Streaming, or RTP (MPEG-TS). For more information, see [Azure Media Services RTMP Support and Live Encoders](http://go.microsoft.com/fwlink/?LinkId=532824).
-	
-	This step could also be performed after you create your Channel.
 
-1. Create and start a Channel. 
+This step could also be performed after you create your Channel.
 
-1. Retrieve the Channel ingest URL. 
+1. Create and start a Channel.
 
-	The ingest URL is used by the live encoder to send the stream to the Channel.
-1. Retrieve the Channel preview URL. 
+1. Retrieve the Channel ingest URL.
 
-	Use this URL to verify that your channel is properly receiving the live stream.
+The ingest URL is used by the live encoder to send the stream to the Channel.
+1. Retrieve the Channel preview URL.
+
+Use this URL to verify that your channel is properly receiving the live stream.
 
 2. Create an asset.
-3. If you want for the asset to be dynamically encrypted during playback, do the following: 	
-	
-	1. 	Create a content key. 
-	1. 	Configure the content key's authorization policy.
+3. If you want for the asset to be dynamically encrypted during playback, do the following:
+
+1. 	Create a content key.
+1. 	Configure the content key's authorization policy.
 1. Configure asset delivery policy (used by dynamic packaging and dynamic encryption).
 3. Create a program and specify to use the asset that you created.
-1. Publish the asset associated with the program by creating an OnDemand locator.  
+1. Publish the asset associated with the program by creating an OnDemand locator.
 
-	Make sure to have at least one streaming reserved unit on the streaming endpoint from which you want to stream content.
+Make sure to have at least one streaming reserved unit on the streaming endpoint from which you want to stream content.
 1. Start the program when you are ready to start streaming and archiving.
 2. Optionally, the live encoder can be signaled to start an advertisement. The advertisement is inserted in the output stream.
 1. Stop the program whenever you want to stop streaming and archiving the event.
-1. Delete the Program (and optionally delete the asset).   
+1. Delete the Program (and optionally delete the asset).
 
 ##In this topic
 
-This topic shows you how to execute different operations on channels and programs using Media Services .NET SDK. Because many operations are long-running .NET APIs that manage long running operations are used. 
+This topic shows you how to execute different operations on channels and programs using Media Services .NET SDK. Because many operations are long-running .NET APIs that manage long running operations are used.
 
 The topic shows how to do the following:
 
 1. Create and start a channel. Long-running APIs are used.
 1. Get the channels ingest (input) endpoint. This endpoint should be provided to the encoder that can send a single bitrate live stream.
-1. Get the preview endpoint. This endpoint is used to preview your stream. 
+1. Get the preview endpoint. This endpoint is used to preview your stream.
 1. Create an asset that will be used to store your content. The asset delivery policies should be configured as well, as shown in this example.
 1. Create a program and specify to use the asset that was created earlier. Start the program. Long-running APIs are used.
 1. Create a locator for the asset, so the content gets published and can be streamed to your clients.
 1. Show and hide slates. Start and stop advertisements. Long-running APIs are used.
 1. Clean up your channel and all the associated resources.
 
->[AZURE.NOTE]While this feature is in Preview, max recommended duration of a live event is 8 hours.
->
+>[AZURE.NOTE] Max recommended duration of a live event is 8 hours. Please contact amslived at Microsoft dot com if you need to run a Channel for longer periods of time.
+
 ##Prerequisites
 The following are required to complete the tutorial.
 
-- To complete this tutorial, you need an Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. 
+- To complete this tutorial, you need an Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes.
 For details, see [Azure Free Trial](azure.microsoft.com).
 - A Media Services account. To create a Media Services account, see [Create Account](media-services-create-account.md).
 - Visual Studio 2010 SP1 or higher.
 - A webcam and an encoder that can send a single bitrate live stream.
 
 ##Set up for development with Media Services SDK for .NET
- 
+
 1. Create a console application using Visual Studio.
 1. Add the Media Services SDK for .NET to your console application using Media Services NuGet package.
 
 ##Connect to Media Services
-As a best practice, you should use an app.config file to store the Media Services name and account key. 
+As a best practice, you should use an app.config file to store the Media Services name and account key.
 
 >[AZURE.NOTE]To find the Name and Key values, go to the Azure Portal, select your Media Service account, and click on the “MANAGE KEYS” icon on the bottom of the portal window. Clicking on the icon next to each text box copies the value to the system clipboard.
- 
+
 Add the appSettings section to the app.config file, and set the values for your Media Services account name and account key.
 
 
-	<?xml version="1.0"?>
+<?xml version="1.0"?>
 	<configuration>
 	  <appSettings>
 	      <add key="MediaServicesAccountName" value="YouMediaServicesAccountName" />
@@ -498,8 +498,13 @@ Add the appSettings section to the app.config file, and set the values for your 
 	}
 	
 
-	
-##Related topics
 
-[Working with Channels that Perform Live Encoding from a Single-bitrate to Multi-bitrate Stream](media-services-manage-live-encoder-enabled-channels.md)
+
+##Media Services learning paths
+
+You can view AMS learning paths here:
+
+- [AMS Live Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [AMS on Demand Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
  

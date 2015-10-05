@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Working with the Mobile Services Android Client Library" 
-	description="Learn how to use an Android client for Azure Mobile Services." 
-	services="mobile-services" 
-	documentationCenter="android" 
-	authors="RickSaling" 
-	manager="dwrede" 
+<properties
+	pageTitle="Working with the Mobile Services Android Client Library"
+	description="Learn how to use an Android client for Azure Mobile Services."
+	services="mobile-services"
+	documentationCenter="android"
+	authors="RickSaling"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-android" 
-	ms.devlang="java" 
-	ms.topic="article" 
-	ms.date="06/03/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-android"
+	ms.devlang="java"
+	ms.topic="article"
+	ms.date="09/11/2015" 
 	ms.author="ricksal"/>
 
 
@@ -21,7 +21,7 @@
 
 [AZURE.INCLUDE [mobile-services-selector-client-library](../../includes/mobile-services-selector-client-library.md)]
 
-This guide shows you how to perform common scenarios using the Android client for Azure Mobile Services.  The scenarios covered include querying for data; inserting, updating, and deleting data, authenticating users, handling errors, and customizing the client. 
+This guide shows you how to perform common scenarios using the Android client for Azure Mobile Services.  The scenarios covered include querying for data; inserting, updating, and deleting data, authenticating users, handling errors, and customizing the client.
 
 If you are new to Mobile Services, you should first complete the quickstart tutorial [Get started with Mobile Services]. Successfully completing that tutorial ensures that you will have  installed Android Studio; it will help you configure your account and create your first mobile service, and install the Mobile Services SDK, which supports Android version 2.2 or later, but we recommend building against Android version 4.2 or later.
 
@@ -44,7 +44,7 @@ The corresponding typed client side object is the following:
 		private String text;
 		private Boolean complete;
 	}
-	
+
 When dynamic schema is enabled, Azure Mobile Services automatically generates new columns based on the object in the insert or update request. For more information, see [Dynamic schema](http://go.microsoft.com/fwlink/p/?LinkId=296271).
 
 ##<a name="create-client"></a>How to: Create the Mobile Services client
@@ -52,7 +52,7 @@ The following code creates the [MobileServiceClient](http://dl.windowsazure.com/
 
 		MobileServiceClient mClient = new MobileServiceClient(
 				"MobileServiceUrl", // Replace with the above Site URL
-				"AppKey", 			// replace with the Application Key 
+				"AppKey", 			// replace with the Application Key
 				this)
 
 In the code above, replace `MobileServiceUrl` and `AppKey` with the mobile service URL and application key, in that order. Both of these are available on the Azure Management Portal, by selecting your mobile service and then clicking on *Dashboard*.
@@ -90,7 +90,7 @@ This section describes how to issue queries to the mobile service. Subsections d
 
 ### <a name="showAll"></a>How to: Return all Items from a Table
 
-The following code returns all items in the *ToDoItem* table. It displays them in the UI by adding the items to an adapter. This code is similar to what is in the the quickstart tutorial [Get started with Mobile Services]. 
+The following code returns all items in the *ToDoItem* table. It displays them in the UI by adding the items to an adapter. This code is similar to what is in the the quickstart tutorial [Get started with Mobile Services].
 
 		new AsyncTask<Void, Void, Void>() {
 
@@ -124,13 +124,13 @@ The *result* variable returns the result set from the query, and the code follow
 
 ### <a name="filtering"></a>How to: Filter returned data
 
-The following code returns all items from the *ToDoItem* table whose *complete* field equals *false*. *mToDoTable* is the reference to the mobile service table that we created previously. 
+The following code returns all items from the *ToDoItem* table whose *complete* field equals *false*. *mToDoTable* is the reference to the mobile service table that we created previously.
 
         new AsyncTask<Void, Void, Void>() {
             @Override
             protected Void doInBackground(Void... params) {
                 try {
-                    final MobileServiceList<ToDoItem> result = 
+                    final MobileServiceList<ToDoItem> result =
 						mToDoTable.where().field("complete").eq(false).execute().get();
 					for (ToDoItem item : result) {
                 		Log.i(TAG, "Read object with ID " + item.id);  
@@ -206,12 +206,12 @@ The following code illustrates how to return all items from a table of  *ToDoIte
 
 		mToDoTable.select("complete", "text").execute().get();
 
-	
+
 Here the parameters to the select function are the string names of the table's columns that you want to return.
 
 The [**select**](http://go.microsoft.com/fwlink/p/?LinkId=290689) method needs to follow methods like [**where**](http://go.microsoft.com/fwlink/p/?LinkId=296296) and [**orderBy**](http://go.microsoft.com/fwlink/p/?LinkId=296313), if they are present. It can be followed by methods like [**top**](http://go.microsoft.com/fwlink/p/?LinkId=298731).
 
-### <a name="chaining"></a>How to: Concatenate query methods 
+### <a name="chaining"></a>How to: Concatenate query methods
 
 The methods used in querying mobile mervice tables can be concatenated. This allows you to do things like select specific columns of filtered rows that are sorted and paged. You can create quite complex logical filters.
 
@@ -223,7 +223,7 @@ Here's a code sample where *mToDoTable* is a reference to the mobile services *T
 						.and().startsWith("text", "PRI0")
 						.or().field("duration").gt(10)
 					.select("id", "complete", "text", "duration")
-					.orderBy(duration, QueryOrder.Ascending).top(20)				
+					.orderBy(duration, QueryOrder.Ascending).top(20)
 					.execute().get();
 
 The main requirement in chaining methods together is that the *where* method and predicates need to come first. After that, you can call subsequent methods in the order that best meets the needs of your application.
@@ -238,12 +238,12 @@ First you instantiate an instance of the *ToDoItem* class and set its properties
 		ToDoItem mToDoItem = new ToDoItem();
 		mToDoItem.text = "Test Program";
 		mToDoItem.complete = false;
-		
+
  Next you execute the following code:
 
 		// Insert the new item
 	    new AsyncTask<Void, Void, Void>() {
-	
+
 	        @Override
 	        protected Void doInBackground(Void... params) {
 	            try {
@@ -313,9 +313,9 @@ The following code shows how to update data in a table. In this example, *item* 
 	    if (mClient == null) {
 	        return;
 	    }
-	
+
 	    new AsyncTask<Void, Void, Void>() {
-	
+
 	        @Override
 	        protected Void doInBackground(Void... params) {
 	            try {
@@ -347,7 +347,7 @@ The following code shows how to delete data from a table. It deletes an existing
 
 		// Set the item as completed and update it in the table
 		item.setComplete(true);
-		
+
 		new AsyncTask<Void, Void, Void>() {
 
             @Override
@@ -428,7 +428,7 @@ Sometimes you want to look up a specific item by its *id*, unlike querying where
 
 The untyped programming model gives you exact control over the JSON serialization, and there are some scenarios where you may wish to use it, for example, if your mobile service table contains a large number of columns and you only need to reference a few of them. Using the typed model requires you to define all of the mobile service table's columns in your data class. But with the untyped model you only define the columns you need to use.
 
-Most of the API calls for accessing data are similar to the typed programming calls. The main difference is that in the untyped model you invoke methods on the **MobileServiceJsonTable** object, instead of the **MobileServiceTable** object. 
+Most of the API calls for accessing data are similar to the typed programming calls. The main difference is that in the untyped model you invoke methods on the **MobileServiceJsonTable** object, instead of the **MobileServiceTable** object.
 
 
 ### <a name="json_instance"></a>How to: Create an instance of an untyped table
@@ -461,7 +461,7 @@ The following code shows how to do an insert. The first step is to create a [**J
 		item.addProperty("complete", false);
 
 The next step is to insert the object. The callback function passed to the [**insert**](http://go.microsoft.com/fwlink/p/?LinkId=298535) method is an instance of the [**TableJsonOperationCallback**](http://go.microsoft.com/fwlink/p/?LinkId=298532) class. Note how the parameter of the *insert* method is a JsonObject.
-		 
+
         // Insert the new item
         new AsyncTask<Void, Void, Void>() {
 
@@ -491,8 +491,8 @@ The following code shows how to delete an instance, in this case, the same insta
          mToDoTable.delete(item);
 
 
-You can also delete an instance directly by using its ID: 
-		
+You can also delete an instance directly by using its ID:
+
 		 mToDoTable.delete(ID);
 
 
@@ -544,14 +544,14 @@ Data binding involves three components:
 - the screen layout
 - and the adapter that ties the two together.
 
-In our sample code, we return the data from the mobile service table *ToDoItem* into an array. This is one very common pattern for data applications: database queries typically return a collection of rows which the client gets in a list or array. In this sample the array is the data source. 
+In our sample code, we return the data from the mobile service table *ToDoItem* into an array. This is one very common pattern for data applications: database queries typically return a collection of rows which the client gets in a list or array. In this sample the array is the data source.
 
-The code specifies a screen layout that defines the view of the data that will appear on the device. 
+The code specifies a screen layout that defines the view of the data that will appear on the device.
 
 And the two are bound together with an adapter, which in this code is an extension of the *ArrayAdapter&lt;ToDoItem&gt;* class.
 
 ### <a name="layout"></a>How to: Define the Layout
- 
+
 The layout is defined by several snippets of XML code. Given an existing layout, let's assume the following code represents the **ListView** we want to populate with our server data.
 
     <ListView
@@ -560,7 +560,7 @@ The layout is defined by several snippets of XML code. Given an existing layout,
         android:layout_height="wrap_content"
         tools:listitem="@layout/row_list_to_do" >
     </ListView>
-	
+
 
 In the above code the *listitem* attribute specifies the id of the layout for an individual row in the list. Here is that code, which specifies a check box and its associated text. This gets instantiated once for each item in the list. A more complex layout would specify additional fields in the display. This code is in the *row_list_to_do.xml* file.
 
@@ -568,17 +568,17 @@ In the above code the *listitem* attribute specifies the id of the layout for an
 	<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	    android:layout_width="match_parent"
 	    android:layout_height="match_parent"
-	    android:orientation="horizontal">		    
+	    android:orientation="horizontal">
 	    <CheckBox
 	        android:id="@+id/checkToDoItem"
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
 	        android:text="@string/checkbox_text" />
 	</LinearLayout>
-		
+
 
 ### <a name="adapter"></a>How to: Define the adapter
-	
+
 Since the data source of our view is an array of *ToDoItem*, we subclass our adapter from a *ArrayAdapter&lt;ToDoItem&gt;* class. This subclass will produce a View for every *ToDoItem* using the *row_list_to_do* layout.
 
 In our code we define the following class which is an extension of the *ArrayAdapter&lt;E&gt;* class:
@@ -590,21 +590,21 @@ You must override the adapter's *getView* method. This sample code is one exampl
 
 	public View getView(int position, View convertView, ViewGroup parent) {
 		View row = convertView;
-	
+
 		final ToDoItem currentItem = getItem(position);
-	
+
 		if (row == null) {
 			LayoutInflater inflater = ((Activity) mContext).getLayoutInflater();
 			row = inflater.inflate(R.layout.row_list_to_do, parent, false);
 		}
-	
+
 		row.setTag(currentItem);
-	
+
 		final CheckBox checkBox = (CheckBox) row.findViewById(R.id.checkToDoItem);
 		checkBox.setText(currentItem.getText());
 		checkBox.setChecked(false);
 		checkBox.setEnabled(true);
-	
+
 		return row;
 	}
 
@@ -649,6 +649,12 @@ You are now ready to use data binding. The following code shows how to get the i
 
 You must also call the adapter any time you modify the *ToDoItem* table if you want to display the results of doing that. Since modifications are done on a record by record basis, you will be dealing with a single row instead of a collection. When you insert an item you call the *add* method on the adapter, when deleting, you call the *remove* method.
 
+##<a name="custom-api"></a>How to: Call a custom API
+
+A custom API enables you to define custom endpoints that expose server functionality that does not map to an insert, update, delete, or read operation. By using a custom API, you can have more control over messaging, including reading and setting HTTP message headers and defining a message body format other than JSON. For an example of how to create a custom API in your mobile service, see [How to: define a custom API endpoint](mobile-services-dotnet-backend-define-custom-api.md).
+
+[AZURE.INCLUDE [mobile-services-android-call-custom-api](../../includes/mobile-services-android-call-custom-api.md)]
+
 
 ##<a name="authentication"></a>How to: Authenticate users
 
@@ -668,10 +674,10 @@ Mobile Services supports the following existing identity providers that you can 
 - Microsoft Account
 - Facebook
 - Twitter
-- Google 
+- Google
 - Azure Active Directory
 
-You can set permissions on tables to restrict access for specific operations to only authenticated users. You can also use the ID of an authenticated user to modify requests. 
+You can set permissions on tables to restrict access for specific operations to only authenticated users. You can also use the ID of an authenticated user to modify requests.
 
 These first two tasks are done using the [Azure Management Portal](https://manage.windowsazure.com/). For more information, see [Get started with authentication](http://go.microsoft.com/fwlink/p/?LinkId=296316).
 
@@ -690,40 +696,40 @@ These first two tasks are done using the [Azure Management Portal](https://manag
 		import com.microsoft.windowsazure.mobileservices.authentication.MobileServiceUser;
 
 2. In the **onCreate** method of the activity class, add the following line of code after the code that creates the `MobileServiceClient` object: we assume that the reference to the `MobileServiceClient` object is *mClient*.
-	
+
 	    // Login using the Google provider.
-	    
+
 		ListenableFuture<MobileServiceUser> mLogin = mClient.login(MobileServiceAuthenticationProvider.Google);
 
     	Futures.addCallback(mLogin, new FutureCallback<MobileServiceUser>() {
     		@Override
     		public void onFailure(Throwable exc) {
     			createAndShowDialog((Exception) exc, "Error");
-    		}   		
+    		}
     		@Override
     		public void onSuccess(MobileServiceUser user) {
     			createAndShowDialog(String.format(
                         "You are now logged in - %1$2s",
                         user.getUserId()), "Success");
-    			createTable();	
+    			createTable();
     		}
-    	}); 
+    	});
 
     This code authenticates the user using a Google login. A dialog is displayed which displays the ID of the authenticated user. You cannot proceed without a positive authentication.
 
     > [AZURE.NOTE] If you are using an identity provider other than Google, change the value passed to the **login** method above to one of the following: _MicrosoftAccount_, _Facebook_, _Twitter_, or _WindowsAzureActiveDirectory_.
 
 
-3. When you run the app, sign in with your chosen identity provider. 
+3. When you run the app, sign in with your chosen identity provider.
 
 
 ### <a name="caching"></a>How to: Cache authentication tokens
 
 This section shows how to cache an authentication token. Do this to prevent users from having to authenticate again if app is "hibernated" while the token is still valid.
 
-Caching authentication tokens requires you to store the User ID and authentication token locally on the device. The next time the app starts, you check the cache, and if these values are present, you can skip the log in procedure and re-hydrate the client with this data. However this data is sensitive, and it should be stored encrypted for safety in case the phone gets stolen. 
+Caching authentication tokens requires you to store the User ID and authentication token locally on the device. The next time the app starts, you check the cache, and if these values are present, you can skip the log in procedure and re-hydrate the client with this data. However this data is sensitive, and it should be stored encrypted for safety in case the phone gets stolen.
 
-The following code snippet demonstrates obtaining a token for a Microsoft Account log in. The token is cached and reloaded if the cache is found. 
+The following code snippet demonstrates obtaining a token for a Microsoft Account log in. The token is cached and reloaded if the cache is found.
 
 	private void authenticate() {
 		if (LoadCache())
@@ -732,38 +738,38 @@ The following code snippet demonstrates obtaining a token for a Microsoft Accoun
 		}
 		else
 		{
-			    // Login using the Google provider.    
+			    // Login using the Google provider.
 				ListenableFuture<MobileServiceUser> mLogin = mClient.login(MobileServiceAuthenticationProvider.Google);
-		
+
 		    	Futures.addCallback(mLogin, new FutureCallback<MobileServiceUser>() {
 		    		@Override
 		    		public void onFailure(Throwable exc) {
 		    			createAndShowDialog("You must log in. Login Required", "Error");
-		    		}   		
+		    		}
 		    		@Override
 		    		public void onSuccess(MobileServiceUser user) {
 		    			createAndShowDialog(String.format(
 		                        "You are now logged in - %1$2s",
 		                        user.getUserId()), "Success");
 		    			cacheUserToken(mClient.getCurrentUser());
-		    			createTable();	
+		    			createTable();
 		    		}
 		    	});		}
-	}	
+	}
 
 
 	private boolean LoadCache()
 	{
 		SharedPreferences prefs = getSharedPreferences("temp", Context.MODE_PRIVATE);
-		String tmp1 = prefs.getString("tmp1", "undefined"); 
+		String tmp1 = prefs.getString("tmp1", "undefined");
 		if (tmp1 == "undefined")
 			return false;
-		String tmp2 = prefs.getString("tmp2", "undefined"); 
+		String tmp2 = prefs.getString("tmp2", "undefined");
 		if (tmp2 == "undefined")
 			return false;
 		MobileServiceUser user = new MobileServiceUser(tmp1);
 		user.setAuthenticationToken(tmp2);
-		mClient.setCurrentUser(user);		
+		mClient.setCurrentUser(user);
 		return true;
 	}
 
@@ -793,7 +799,7 @@ You might want to attach a custom header to every outgoing request. You can acco
 
         @Override
         public ListenableFuture<ServiceFilterResponse> handleRequest(
-                	ServiceFilterRequest request, 
+                	ServiceFilterRequest request,
 					NextServiceFilterCallback next) {
 
             runOnUiThread(new Runnable() {
@@ -825,7 +831,7 @@ You might want to do the following kinds of customizations:
 
 ### <a name="columns"></a>How to: Map different client and server names
 
-Suppose that your Java client code uses standard Java-style names for the *ToDoItem* object properties, such as the following. 
+Suppose that your Java client code uses standard Java-style names for the *ToDoItem* object properties, such as the following.
 
 - mId
 - mText
@@ -843,7 +849,7 @@ You must serialize the client names into JSON names that match the column names 
 
 	@com.google.gson.annotations.SerializedName("complete")
 	private boolean mComplete;
- 
+
 	@com.google.gson.annotations.SerializedName("duration")
 	private String mDuration;
 
@@ -874,12 +880,12 @@ The following code uses the *setFieldNamingStrategy()* method, in which we defin
 	            }
 	        })
 	        .setPrettyPrinting());
-	
+
 
 
 This code must be executed prior to any method calls on the Mobile Services client object.
 
-### <a name="complex"></a>How to: Store an object or array property into a table 
+### <a name="complex"></a>How to: Store an object or array property into a table
 
 So far all of our serialization examples have involved primitive types such as integers and strings which easily serialize into JSON and into the mobile services table. Suppose we want to add a complex object to our client type, which doesn't automatically serialize to JSON and to the table. For example we might want to add an array of strings to the client object. It is now up to us to specify how to do the serialization, and how to store the array into the mobile services table.
 
@@ -927,4 +933,3 @@ This general method can be used whenever we have a complex object that is not au
 <!-- URLs. -->
 [Get started with Mobile Services]: mobile-services-android-get-started.md
 [ASCII control codes C0 and C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
- 

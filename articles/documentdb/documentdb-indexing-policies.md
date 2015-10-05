@@ -1,6 +1,7 @@
 <properties 
     pageTitle="DocumentDB Indexing Policies | Microsoft Azure" 
-    description="Understand how indexing works in DocumentDB and learn how to configure and change the indexing policy." 
+    description="Understand how indexing works in DocumentDB learn how to configure and change the indexing policy. Configure the indexing policy withing DocumentDB for automatic indexing and greater performance." 
+	keywords="how indexing works, automatic indexing, indexing database, documentdb, azure, Microsoft azure"
     services="documentdb" 
     documentationCenter="" 
     authors="arramac" 
@@ -13,13 +14,13 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="data-services" 
-    ms.date="08/03/2015" 
+    ms.date="10/05/2015" 
     ms.author="mimig"/>
 
 
 # DocumentDB indexing policies
 
-While many customers are happy to let DocumentDB automatically handle [all aspects of indexing](documentdb-indexing.md), DocumentDB also supports specifying a custom **indexing policy** for collections during creation. Indexing policies in DocumentDB are more flexible and powerful than secondary indexes offered in other database platforms, in that they let you design and customize the shape of the index without sacrificing schema flexibility. By managing indexing policy, you can make fine-grained tradeoffs between index storage overhead, write and query throughput, and query consistency.  
+While many customers are happy to let DocumentDB automatically handle [all aspects of indexing](documentdb-indexing.md), DocumentDB also supports specifying a custom **indexing policy** for collections during creation. Indexing policies in DocumentDB are more flexible and powerful than secondary indexes offered in other indexing database platforms, in that they let you design and customize the shape of the index without sacrificing schema flexibility. To learn how indexing works within DocumentDB, you must understand that by managing indexing policy, you can make fine-grained tradeoffs between index storage overhead, write and query throughput, and query consistency.  
 
 In this article, we take a close look at DocumentDB indexing policies, how you can customize indexing policy, and the associated trade-offs. 
 
@@ -62,7 +63,7 @@ The following .NET code snippet shows how to set a custom indexing policy during
 >
 >By default, DocumentDB indexes all string properties within documents consistently with a Hash index, and numeric properties with a Range index.  
 
-### Indexing modes
+### Database indexing modes
 
 DocumentDB supports three indexing modes which can be configured via the indexing policy on a DocumentDB collection – Consistent, Lazy and None.
 
@@ -479,7 +480,7 @@ DocumentDB supports Hash and Range index kinds for every path (that can configur
 - **Hash** supports efficient equality and JOIN queries. For most use cases, hash indexes do not need a higher precision than the default value of 3 bytes.
 - **Range** supports efficient equality queries, range queries (using >, <, >=, <=, !=), and Order By queries. Order By queries by default also require maximum index precision (-1).
 
-DocumentDB also supporst the Spatial index kind for every path, that can be specified for the Point data type. The value at the specified path must be a valid GeoJSON point like `{"type": "Point", "coordinates": [0.0, 10.0]}`.
+DocumentDB also supports the Spatial index kind for every path, that can be specified for the Point data type. The value at the specified path must be a valid GeoJSON point like `{"type": "Point", "coordinates": [0.0, 10.0]}`.
 
 - **Spatial** supports efficient spatial (within and distance) queries.
 
@@ -549,7 +550,7 @@ Here are the supported index kinds and examples of queries that they can be used
 
 By default, an error is returned for queries with range operators such as >= if there is no range index (of any precision) in order to signal that a scan might be necessary to serve the query. Range queries can be performed without a range index using the x-ms-documentdb-enable-scans header in the REST API or the EnableScanInQuery request option using the .NET SDK. If there are any other filters in the query that DocumentDB can use the index to filter against, then no error will be returned.
 
-The same rules apply for spatial queries. By default, an error is returned for spatial queries if there is no spatial index. They can be performed as a scan using x-ms-documentdb-enable-scan/EnableScanInQuery.
+The same rules apply for spatial queries. By default, an error is returned for spatial queries if there is no spatial index, and there are no other filters that can be served from the index. They can be performed as a scan using x-ms-documentdb-enable-scan/EnableScanInQuery.
 
 #### Index precision
 
@@ -610,7 +611,7 @@ DocumentDB allows you to make changes to the indexing policy of a collection on 
 
 **Online Index Transformations**
 
-![Online Index Transformations](media/documentdb-indexing-policies/index-transformations.png)
+![How indexing works – DocumentDB online index transformations](media/documentdb-indexing-policies/index-transformations.png)
 
 Index transformations are made online, meaning that the documents indexed per the old policy are efficiently transformed per the new policy **without affecting the write availability or the provisioned throughput** of the collection. The consistency of read and write operations made using the REST API, SDKs or from within stored procedures and triggers is not impacted during index transformation. This means that there is no performance degradation or downtime to your apps when you make an indexing policy change.
 
@@ -673,6 +674,8 @@ When would you make indexing policy changes to your DocumentDB collections? The 
 - Tune indexing precision to improve query performance or reduce storage consumed
 
 >[AZURE.NOTE] To modify indexing policy using ReplaceDocumentCollectionAsync, you need version >= 1.3.0 of the .NET SDK
+>
+> For index transformation to complete successfully, you must ensure that there is sufficient free storage space available on the collection. If the collection reaches its storage quota, then the index transformation will be paused. Index transformation will automatically resume once storage space is available, e.g. if you delete some documents.
 
 ## Performance tuning
 

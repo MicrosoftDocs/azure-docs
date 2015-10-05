@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Troubleshoot StorSimple device deployment issues | Microsoft Azure"
+   pageTitle="Troubleshoot StorSimple deployment issues | Microsoft Azure"
    description="Describes how to diagnose and fix errors that occur when you first deploy StorSimple."
    services="storsimple"
    documentationCenter="NA"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/18/2015"
+   ms.date="09/29/2015"
    ms.author="alkohli" />
 
 # Troubleshoot StorSimple device deployment issues

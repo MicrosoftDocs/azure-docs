@@ -1,11 +1,12 @@
 <properties 
-	pageTitle="Create and upload an Oracle Linux VHD in Azure" 
+	pageTitle="Create and upload an Oracle Linux VHD | Microsoft Azure" 
 	description="Learn to create and upload an Azure virtual hard disk (VHD) that contains an Oracle Linux operating system." 
 	services="virtual-machines" 
 	documentationCenter="" 
 	authors="szarkos" 
 	manager="timlt" 
-	editor="tysonn"/>
+	editor="tysonn"
+	tags="azure-service-management,azure-resource-manager" />
 
 <tags 
 	ms.service="virtual-machines" 
@@ -17,6 +18,8 @@
 	ms.author="szark"/>
 
 # Prepare an Oracle Linux Virtual Machine for Azure
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)] 
 
 - [Prepare an Oracle Linux 6.4+ Virtual Machine for Azure](#oracle6)
 - [Prepare an Oracle Linux 7.0+ Virtual Machine for Azure](#oracle7)

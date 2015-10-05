@@ -1,4 +1,4 @@
-<properties 
+<properties
    pageTitle="How to manage service configurations and profiles"
    description="Learn how to work with service configurations and profiles configuration files| which store settings for the deployment environments and publish settings for cloud services."
    services="visual-studio-online"
@@ -6,7 +6,7 @@
    authors="kempb"
    manager="douge"
    editor="tglee" />
-<tags 
+<tags
    ms.service="multiple"
    ms.devlang="dotnet"
    ms.topic="article"
@@ -17,7 +17,7 @@
 
 # How to manage service configurations and profiles
 
-##Overview
+## Overview
 
 When you publish a cloud service, Visual Studio stores configuration information in two kinds of configuration files: service configurations and profiles. Service configurations (.cscfg files) store settings for the deployment environments for an Azure cloud service. Azure uses these configuration files when it manages your cloud services. On the other hand, profiles (.azurePubxml files) store publish settings for cloud services. These settings are a record of what you choose when you use the publish wizard, and are used locally by Visual Studio. This topic explains how to work with both types of configuration files.
 
@@ -33,7 +33,7 @@ You can also open the **Manage Configurations** dialog box from the role’s pro
 
 ### To add a service configuration
 
-1. In Solution Explorer open the shortcut menu for the Azure project and then click **Manage Configurations**. 
+1. In Solution Explorer open the shortcut menu for the Azure project and then click **Manage Configurations**.
 
     The **Manage Service Configurations** dialog box appears.
 
@@ -47,20 +47,20 @@ You can also open the **Manage Configurations** dialog box from the role’s pro
 ### To delete a service configuration
 
 1. In Solution Explorer, open the shortcut menu for the Azure project and then click **Manage Configurations**.
-    
+
     The **Manage Service Configurations** dialog box appears.
 
 1. To delete a service configuration, choose the configuration that you want to delete from the **Name** list and then click **Remove**. A dialog box appears to verify that you want to delete this configuration.
 
-1. Click **Delete**. 
- 
+1. Click **Delete**.
+
      The service configuration file is removed from the Azure project in Solution Explorer.
 
 
 ### To rename a service configuration
 
 1. In Solution Explorer, open the shortcut menu for the Azure project and then click **Manage Configurations**.
- 
+
     The **Manage Service Configurations** dialog box appears.
 
 1. To rename a service configuration, choose the new service configuration from the **Name** list and then click **Rename**. In the **Name** text box, type the name that you want to use for this service configuration and then click **OK**.
@@ -85,7 +85,7 @@ When you run the wizard for the first time, a default profile is created. Visual
 
     ![Create an new profile](./media/vs-azure-tools-service-configurations-and-profiles-how-to-manage/create-new-profile.png)
 
-1. After the profile is created, click **<Manage…>** in the **Target profile** list. 
+1. After the profile is created, click **<Manage…>** in the **Target profile** list.
 
     The **Manage Profiles** dialog box appears, as the following illustration shows.
 
@@ -94,7 +94,7 @@ When you run the wizard for the first time, a default profile is created. Visual
 1. In the **Name** list, choose a profile, and then click **Create Copy**.
 
 1. Choose the **Close** button.
- 
+
     The new profile appears in the Target profile list.
 
 1. In the **Target profile** list, click the profile that you just created. The Publish Wizard settings are filled in with the choices from the profile you selected.
@@ -130,4 +130,3 @@ When you run the wizard for the first time, a default profile is created. Visual
 ## Next steps
 
 To learn about configuring other parts of your Azure project from Visual Studio, see [Configuring an Azure Project](http://go.microsoft.com/fwlink/p/?LinkID=623075)
-

@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Manage your StorSimple device controllers | Microsoft Azure"
-   description="Learn how to stop, restart, shut down or reset your StorSimple device controllers."
+   pageTitle="Manage StorSimple device controllers | Microsoft Azure"
+   description="Learn how to stop, restart, shut down, or reset your StorSimple device controllers."
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
@@ -12,12 +12,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/13/2015"
+   ms.date="09/15/2015"
    ms.author="alkohli" />
 
-# Manage StorSimple device controllers
+# Manage your StorSimple device controllers
 
 ## Overview
+
 This tutorial describes the different operations that can be performed on your StorSimple device controllers. The controllers in your StorSimple device are redundant (peer) controllers in an active-passive configuration. At a given time, only one controller is active, and is processing all the disk and network operations. The other controller is in a passive mode. If the active controller fails, the passive controller becomes active automatically.
 
 This tutorial includes step-by-step instructions to manage the device controllers by using the:
@@ -219,4 +220,6 @@ In this section, we have summarized some of the frequently asked questions regar
 
 ## Next steps
 
-If you encounter any issues with your StorSimple device controllers that you cannot resolve by using the procedures listed in this tutorial, [contact Microsoft Support](storsimple-contact-microsoft-support.md).
+- If you encounter any issues with your StorSimple device controllers that you cannot resolve by using the procedures listed in this tutorial, [contact Microsoft Support](storsimple-contact-microsoft-support.md).
+
+- To learn more about using the StorSimple Manager service, go to [Use the StorSimple Manager service to administer your StorSimple device](storsimple-manager-service-administration.md).

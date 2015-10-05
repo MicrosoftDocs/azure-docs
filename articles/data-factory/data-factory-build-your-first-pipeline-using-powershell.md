@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Build your first pipeline using Azure Data Factory | Microsoft Azure"
-	description="This tutorial shows you how to create a sample data pipeline that transforms data using Azure HDInsight and Azure PowerShell"
+	pageTitle="Build your first Azure Data Factory pipeline using Azure PowerShell"
+	description="In this tutorial, you will create a sample Azure Data Factory pipeline using Azure PowerShell."
 	services="data-factory"
 	documentationCenter=""
 	authors="spelluru"
@@ -103,7 +103,7 @@ Now, you will create a linked service for an on-demand Azure HDInsight cluster t
 		    "typeProperties": {
 		      "version": "3.1",
 		      "clusterSize": 1,
-		      "timeToLive": "00:05:00",
+		      "timeToLive": "00:30:00",
 		      "jobsContainer": "adfjobs",
 		      "linkedServiceName": "StorageLinkedService"
 		    }
@@ -262,3 +262,6 @@ See [Data Factory Cmdlet Reference](https://msdn.microsoft.com/library/azure/dn8
 
 ## Next steps
 In this article, you have created a pipeline with a transformation activity (HDInsight Activity) that runs a Hive script on an on-demand Azure HDInsight cluster. To see how to use a Copy Activity to copy data from an Azure Blob to Azure SQL, see [Tutorial: Copy data from an Azure Blob to Azure SQL](./data-factory-get-started.md).
+
+## Send Feedback
+We would really appreciate your feedback on this article. Please take a few minutes to submit your feedback via [email](mailto:adfdocfeedback@microsoft.com?subject=data-factory-build-your-first-pipeline-using-powershell.md). 

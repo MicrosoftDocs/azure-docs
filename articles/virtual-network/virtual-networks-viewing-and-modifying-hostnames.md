@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Viewing and Modifying Hostnames"
-   description="Description"
+   pageTitle="Viewing and Modifying Hostnames | Microsoft Azure"
+   description="How to view and change hostnames for Azure virtual machines, web and worker roles for name resolution"
    services="virtual-network"
    documentationCenter="na"
    authors="joaoma"

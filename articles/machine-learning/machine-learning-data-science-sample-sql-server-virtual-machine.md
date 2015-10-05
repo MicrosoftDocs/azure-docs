@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/29/2015" 
+	ms.date="09/01/2015" 
 	ms.author="fashah;garye;bradsev" /> 
 
 #<a name="heading"></a>Sample Data in SQL Server on Azure
@@ -44,8 +44,7 @@ Tablesample can be used for sampling as well as demonstrated below. This may be 
 	FROM <table_name> 
 	TABLESAMPLE (10 PERCENT)
 
-**Note**
-> You can explore and generate features from this sampled data by storing it in a new table
+>[AZURE.NOTE] You can explore and generate features from this sampled data by storing it in a new table
 
 
 ###<a name="sql-aml"></a>Connecting to Azure Machine Learning

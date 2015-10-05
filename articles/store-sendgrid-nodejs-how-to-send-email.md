@@ -3,7 +3,7 @@
 	description="Learn how send email with the SendGrid email service on Azure. Code samples written using the Node.js API." 
 	services="" 
 	documentationCenter="nodejs" 
-	authors="MikeWasson" 
+	authors="erikre" 
 	manager="wpickett" 
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="10/30/2014" 
-	ms.author="mwasson"/>
+	ms.date="08/31/2015" 
+	ms.author="erikre"/>
 # How to Send Email Using SendGrid from Node.js
 
 This guide demonstrates how to perform common programming tasks with the

@@ -1,11 +1,12 @@
 <properties 
-	pageTitle="Use SSH to connect to Linux virtual machines in Azure" 
+	pageTitle="Use SSH to connect to Linux virtual machines | Microsoft Azure" 
 	description="Learn how to generate and use SSH keys with a Linux virtual machine on Azure." 
 	services="virtual-machines" 
 	documentationCenter="" 
 	authors="szarkos" 
 	manager="timlt" 
-	editor=""/>
+	editor=""
+	tags="azure-service-management,azure-resource-manager" />
 
 <tags 
 	ms.service="virtual-machines" 
@@ -17,6 +18,8 @@
 	ms.author="szark"/>
 
 #How to Use SSH with Linux on Azure
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)] 
 
 The current version of the Azure Management Portal only accepts SSH public keys that are encapsulated in an X509 certificate. Follow the steps below to generate and use SSH keys with Azure.
 

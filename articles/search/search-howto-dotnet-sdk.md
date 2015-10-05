@@ -396,7 +396,7 @@ This step completes the tutorial, but don't stop here. **Next steps** provides a
 
 ## Next Steps ##
 
-- Deepen your knowledge through [videos and other samples and tutorials](https://msdn.microsoft.com/library/azure/dn818681.aspx).
+- Deepen your knowledge through [videos and other samples and tutorials](search-video-demo-tutorial-list.md).
 - Read about features and capabilities in this version of the Azure Search SDK: [Azure Search Overview](https://msdn.microsoft.com/library/azure/dn798933.aspx)
 - Review [naming conventions](https://msdn.microsoft.com/library/azure/dn857353.aspx) to learn the rules for naming various objects.
 - Review [supported data types](https://msdn.microsoft.com/library/azure/dn798938.aspx) in Azure Search.
