@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/06/2015"
+	ms.date="10/05/2015"
 	ms.author="tamram;selcint"/>
 
 
@@ -246,7 +246,7 @@ Following are the Linux Distributions that we validated with Premium Storage. We
 </tr>
 <tr>
 	<td rowspan="2"><strong>CentOS</strong></td>
-	<td>6.5, 6.6, 7.0</td>
+	<td>6.5, 6.6, 6.7, 7.0</td>
 	<td></td>
 	<td>
 		<a href="http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409"> LIS 4.0 Required </a> </br>
@@ -281,6 +281,7 @@ Following are the Linux Distributions that we validated with Premium Storage. We
 
 Customers running OpenLogic CentOS VMs should run the following command to install the latest drivers:
 
+	sudo rpm -e hypervkvpd  ## (may return error if not installed, that's OK)
 	sudo yum install microsoft-hyper-v
 
 A reboot will then be required to activate the new drivers.
