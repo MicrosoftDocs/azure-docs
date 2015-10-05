@@ -110,7 +110,7 @@ As an example, this is how you can install Anaconda on Ubuntu
 
 
 ### Configuring Jupyter and using SSL
-After installing we need to take a moment to setup the configuration files for Jupyter.
+After installing we need to take a moment to setup the configuration files for Jupyter. If you experience troubles with configuring Jupyter it may be helpful to look at the [Jupyter Documentation for Running a Notebook Server](http://jupyter-notebook.readthedocs.org/en/latest/public_server.html).
 
 Next we `cd` to the profile directory to create our SSL certificate and edit
 the profiles configuration file.
