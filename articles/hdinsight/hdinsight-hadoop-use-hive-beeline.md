@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="10/02/2015"
+   ms.date="10/05/2015"
    ms.author="larryfr"/>
 
 #Use Hive with Hadoop in HDInsight with Beeline
