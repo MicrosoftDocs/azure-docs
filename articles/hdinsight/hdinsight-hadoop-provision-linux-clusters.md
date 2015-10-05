@@ -1,6 +1,6 @@
 <properties
-   	pageTitle="Provision Hadoop, HBase, or Storm clusters on Linux in HDInsight | Microsoft Azure"
-   	description="Learn how to provision Hadoop clusters on Linux for HDInsight using the management portal, the command line, and the .NET SDK."
+   	pageTitle="Create Hadoop, HBase, or Storm clusters on Linux in HDInsight | Microsoft Azure"
+   	description="Learn how to create Hadoop, HBase, or Storm clusters on Linux for HDInsight using a browser, the Azure CLI, Azure PowerShell, REST, or through an SDK."
    	services="hdinsight"
    	documentationCenter=""
    	authors="nitinme"
@@ -18,21 +18,25 @@
    	ms.author="nitinme"/>
 
 
-#Provision Hadoop Linux clusters in HDInsight using custom options
+#Create Linux-based clusters in HDInsight
 
-In this article, you'll learn about the different ways to custom-provision a Hadoop Linux cluster on Azure HDInsight - by using the Azure portal, Azure PowerShell, Azure CLI, or the HDInsight .NET SDK.
+In this document, you will learn about the different ways to create a Linux-based HDInsight cluster on Azure, as well as optional configurations that can be used with your cluster. HDInsight provides Apache Hadoop, Apache Storm, and Apache HBase as services on the Azure cloud platform.
+
+> [AZURE.NOTE] This document provides instructions on the different ways to provision a cluster. If you are looking at a quick-start approach to provision a cluster, see [Get Started with Azure HDInsight on Linux](../hdinsight-hadoop-linux-get-started.md).
 
 ## What is an HDInsight cluster?
 
-Have you ever wondered why we mention clusters every time we talk about Hadoop or big data? That's because Hadoop enables distributed processing of large data, spread across different nodes of a cluster. The cluster has a master/worker architecture with a master node (also called a head node or name node) and any number of worker nodes (also called data nodes). For more information, see <a href="http://go.microsoft.com/fwlink/?LinkId=510084" target="_blank">Apache Hadoop</a>.
+HDInsight is an Azure service that provides a variety of open source big data technologies as a service on the Azure platform. The base of any HDInsight cluster is Apache Hadoop, which enables distributed processing of large data. 
+
+A cluster consists of multiple compute instances (called nodes,) and processing is spread across different nodes of a cluster. The cluster has a master/worker architecture with a master node (also called a head node or name node) and any number of worker nodes (also called data nodes). For more information, see <a href="http://go.microsoft.com/fwlink/?LinkId=510084" target="_blank">Apache Hadoop</a>.
 
 ![HDInsight Cluster][img-hdi-cluster]
 
 
-An HDInsight cluster abstracts the Hadoop implementation details so that you don't need to worry about how to communicate with different nodes of a cluster. When you provision an HDInsight cluster, you provision Azure compute resources that contain Hadoop and related applications. For more information, see [Introduction to Hadoop in HDInsight](hdinsight-hadoop-introduction.md). The data to be churned is stored in Azure Blob storage. For more information, see [Use Azure Blob storage with HDInsight](../hdinsight-use-blob-storage.md).
+An HDInsight cluster abstracts the Hadoop implementation details so that you don't need to worry about how to communicate with different nodes of a cluster. When you create an HDInsight cluster, Azure provisions compute resources that contain Hadoop and related applications. For more information, see [Introduction to Hadoop in HDInsight](hdinsight-hadoop-introduction.md). The data used by the cluster is stored in Azure Blob storage. For more information, see [Use Azure Blob storage with HDInsight](../hdinsight-use-blob-storage.md).
 
 
-This article provides instructions on the different ways to provision a cluster. If you are looking at a quick-start approach to provision a cluster, see [Get Started with Azure HDInsight on Linux](../hdinsight-hadoop-linux-get-started.md).
+
 
 **Prerequisites**
 
@@ -44,6 +48,12 @@ Before you begin this article, you must have the following:
 	-  From a Windows computer - [Use SSH with Linux-based HDInsight (Hadoop) from Windows](hdinsight-hadoop-linux-use-ssh-windows.md).
 
 ## <a id="configuration"></a>Configuration options
+
+###Cluster type
+
+Cluster type allows you to select special purpose configurations for the cluster. The following are the types available for Linux-based HDInsight:
+
+| Cluster type | Use this if you... | 
 
 ### Additional storage
 
