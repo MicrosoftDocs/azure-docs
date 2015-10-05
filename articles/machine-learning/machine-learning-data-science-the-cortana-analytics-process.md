@@ -23,7 +23,7 @@ The Cortana Analytics Process (CAP) is a systematic data science method that out
 
 Here are the steps in **Cortana Analytics Process**:  
 
-![](http://i.imgur.com/tX3HvK2.png)
+![CAP-workflow](http://i.imgur.com/tX3HvK2.png)
 
 The process is **iterative**: the understanding of new and existing or refinements in the model evolves and requires reworking steps previously completed in the sequence. Existing organizational development and project planning processes are **easily adapted** to work with the CAP-defined sequence of steps. 
 
