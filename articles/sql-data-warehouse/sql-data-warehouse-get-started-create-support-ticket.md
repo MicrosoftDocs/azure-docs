@@ -37,11 +37,11 @@
 
 5. Select the **Subscription** that hosts the database with the problem you are reporting. 
 
-    <!-- ![][subscription] -->
+    ![][subscription]
 
 6. Select **SQL Data Warehouse** as the Resource.
 
-    <!-- ![][resource] -->
+    ![][resource]
 
 7. Select your **Support plan**.
 
@@ -50,21 +50,21 @@
     - Developer mentoring and advisory services are available at the Professional Direct and Premier support levels.
     - Read more about Azure support including scope, response times, pricing, etc., at [Azure support plans][].
 
-    <!-- ![][support-plan] -->
+    ![][support-plan]
 
     If you have a Premier support plan, you can also report SQL Data Warehouse related issues on the [Microsoft Premier online portal][].
 
 8. Select the **Problem Type** and **Category**.
 
-    <!-- ![][problem-type-category] -->
+    ![][problem-type-category]
 
 9. Describe the problem and choose the level of business impact.
 
-    <!-- ![][problem-description] -->
+    ![][problem-description]
 
 10. Your **contact information** for this support ticket will be pre-filled. Update this if necessary.
 
-    <!-- ![][contact-info] -->
+    ![][contact-info]
 
 11. Click **Create** to submit the support request.
 
@@ -72,7 +72,7 @@
 ## Next Steps
 After you have submitted the support request, the Azure support team will contact you. To check your request status and details, click **Manage support requests** on the dashboard.
 
-    <!-- ![][check-status](./media/sql-data-warehouse-get-started-create-support-ticket/check-status.png) -->
+    ![][check-status](./media/sql-data-warehouse-get-started-create-support-ticket/check-status.png)
 
 <!-- Images -->
 
