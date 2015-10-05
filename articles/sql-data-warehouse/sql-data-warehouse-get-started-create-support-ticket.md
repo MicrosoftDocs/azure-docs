@@ -72,8 +72,7 @@
 ## Next Steps
 After you have submitted the support request, the Azure support team will contact you. To check your request status and details, click **Manage support requests** on the dashboard.
 
-    ![Check status](./media/sql-data-warehouse-get-started-create-support-ticket/check-status.png)
-
+![Check status](./media/sql-data-warehouse-get-started-create-support-ticket/check-status.png)
 
 <!-- External links -->
 
