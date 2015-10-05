@@ -136,9 +136,6 @@ Now that you have completed this tutorial you know how to store your scripts in 
 + [Work with server scripts in Mobile Services]
 	<br/>Shows how to work with server scripts, job scheduler, and custom APIs.
 
-+ [Call a custom API from the client]
-	<br/> Shows how to create custom APIs that can be called from the client.
-
 <!-- Anchors. -->
 [Enable source control in your mobile service]: #enable-source-control
 [Install Git and create the local repository]: #clone-repo
@@ -158,6 +155,5 @@ Now that you have completed this tutorial you know how to store your scripts in 
 [Add Mobile Services to an existing app]: mobile-services-ios-get-started-data.md
 [Work with server scripts in Mobile Services]: mobile-services-how-to-use-server-scripts.md
 [Azure Management Portal]: https://manage.windowsazure.com/
-[Call a custom API from the client]: mobile-services-ios-call-custom-api.md
 [Modules]: http://nodejs.org/api/modules.html
 [node-uuid]: https://npmjs.org/package/node-uuid
