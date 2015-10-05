@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Develop a Service Fabric service"
+   pageTitle="Develop a Service Fabric service | Microsoft Azure"
    description="Conceptual information and tutorials that help you understand how to develop a Service Fabric service using the Reliable Actor or Reliable Services programming models."
    services="service-fabric"
    documentationCenter=".net"
@@ -82,6 +82,10 @@ Communicating with Reliable Services and the abstractions which clients can use 
 - [Default communication stack provided by Reliable Services Framework](service-fabric-reliable-services-communication-default.md)
 - [WCF based communication stack for Reliable Services](service-fabric-reliable-services-communication-wcf.md)
 - [Getting Started with Microsoft Azure Service Fabric Web API services with OWIN self-host (VS 2015 RC)](service-fabric-reliable-services-communication-webapi.md)
+
+Reliable Services allows you to back up your data to an external store, described in:
+
+-[Backup and Restore Reliable Services](service-fabric-reliable-services-backup-restore.md)
 
 Reliable Services emit events and performance counters, which can be used to diagnose and monitor your service:
 

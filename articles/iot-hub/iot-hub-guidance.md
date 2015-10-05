@@ -16,7 +16,7 @@
  ms.date="09/29/2015"
  ms.author="elioda"/>
 
-# Azure IoT Hub - Guidance
+# Azure IoT Hub guidance
 
 ## Device provisioning
 
