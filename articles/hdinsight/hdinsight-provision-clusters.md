@@ -17,7 +17,7 @@
    ms.date="09/29/2015"
    ms.author="jgao"/>
 
-# Provision Hadoop clusters in HDInsight
+# Provision Windows-based Hadoop clusters in HDInsight
 
 Learn how to plan for provision HDInsight clusters.
 
