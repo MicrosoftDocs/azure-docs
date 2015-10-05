@@ -32,7 +32,7 @@ In order to complete this tutorial, you’ll need the following:
 
 ## Provision a Remote Monitoring Preconfigured solution
 
-1.  Log on to <https://azureiotsuite.com>, and click **+** to create a new solution.
+1.  Log on to <https://www.azureiotsuite.com>, and click **+** to create a new solution.
 
 2.  Select **Remote Monitoring** as your solution type.
 

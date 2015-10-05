@@ -19,7 +19,7 @@
 
 # Tame explosive growth with elastic databases
 
-If you’re a SaaS developer with tens, hundreds, or even thousands of databases, an elastic database pool simplifies the process of creating, maintaining, and managing performance across these databases within a budget that you control. 
+If you are a SaaS developer with tens, hundreds, or even thousands of databases, an elastic database pool simplifies the process of creating, maintaining, and managing performance across these databases within a budget that you control. 
 
 A common SaaS application pattern is for each database to have a different customer, each with varying and unpredictable resource consumption (CPU/IO/Memory summarized with DTU). With these peaks and valleys of demand for each database, it can be difficult to predict and therefore provision resources. You're faced with two options; either over-provision database resources based on peak usage--and overpay. Or under-provision to save cost--at the expense of performance and customer satisfaction during peaks. 
 

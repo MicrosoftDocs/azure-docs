@@ -44,11 +44,12 @@ Make sure you have everything in place before you begin.
 - You'll need an Azure storage account to store replicated data. The account needs geo-replication enabled. It should be in the same region as the Azure Site Recovery vault and be associated with the same subscription. To learn more read [Introduction to Microsoft Azure Storage](../storage/storage-introduction.md).
 - You'll need an Azure virtual network so that replicated virtual machines are connected to a network after failover.
 
-## Hyper-V prerequisites
+### Hyper-V prerequisites
 
 - In the source on-premises site you'll need at least one server running Windows Server 2012 R2 with the Hyper-V role.
 - The Hyper-V server should contain one or more virtual machines.
 - Hyper-V servers should be connected to the Internet, either directly or via a proxy.
+- Hyper-V servers should have fixes mentioned in [KB2961977](https://support.microsoft.com/en-us/kb/2961977 "KB2961977") installed.
 
 ### Virtual machine prerequisites
 
