@@ -199,7 +199,7 @@ Once the storage pools are configured you can backup application workloads to bo
 ## Troubleshooting
 
 If Microsoft Azure Backup server fails with errors during the setup phase (or backup or restore), refer to this [error codes document](https://support.microsoft.com/kb/3041338)  for more information.
-You can also refer to [Azure Backup related FAQs](https://azure.microsoft.com/documentation/articles/backup-azure-backup-faq/)
+You can also refer to [Azure Backup related FAQs](backup-azure-backup-faq.md)
 
 ## FAQs
 
