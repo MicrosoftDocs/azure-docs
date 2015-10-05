@@ -119,7 +119,7 @@ Ensure that you have defined parameters for the following values:
   For detailed information on the guidance, review the [Creating a Solution Template Best Practices](marketplace-publishing-solution-creation-best-practices.md) for best practices and requirements for Multi-VM solutions.
 
 ## Next Steps
-Now that you reviewed the pre-requisites and completed the necessary tasks, you can move forward with the creating your Multi-VM Image Solution Template offer as detailed in the [Guide to creating a multi-vm image solution template](marketplace-publishing-solution-template-creation.md)
+Now that you reviewed the pre-requisites and completed the necessary tasks, you can move forward with the creating your Solution Template offer as detailed in the [Guide to creating a Solution Template](marketplace-publishing-solution-template-creation.md)
 
 ## See Also
 - [Getting Started: How to publish an offer to the Azure Marketplace](marketplace-publishing-getting-started.md)
