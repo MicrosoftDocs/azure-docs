@@ -18,8 +18,6 @@
 
 # Add Mobile Services to an existing Android app (JavaScript backend)
 
-[AZURE.INCLUDE [mobile-services-selector-get-started-data](../../includes/mobile-services-selector-get-started-data.md)]
-
 ## Summary
 
 <div class="dev-onpage-video-clear clearfix">
