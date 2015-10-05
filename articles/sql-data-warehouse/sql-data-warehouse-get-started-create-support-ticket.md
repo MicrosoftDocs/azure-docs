@@ -25,23 +25,23 @@
 1. Open the [Azure portal][]. 
 2. On the Home screen, click the **Help + support** tile.
 
-    ![][help-support]
+    ![Help + support](./media/sql-data-warehouse-get-started-create-support-ticket/help-support.png)
 
 3. On the Help + Support blade, click **Create support request**.
 
-    ![][new-support-request]
+    ![New support request](./media/sql-data-warehouse-get-started-create-support-ticket/new-support-request.png)
 
 4. Select the **Request Type**.
 
-    ![][request-type]
+    ![Request type](./media/sql-data-warehouse-get-started-create-support-ticket/request-type.png)
 
 5. Select the **Subscription** that hosts the database with the problem you are reporting. 
 
-    ![][subscription]
+    ![Subscription](./media/sql-data-warehouse-get-started-create-support-ticket/subscription.png)
 
 6. Select **SQL Data Warehouse** as the Resource.
 
-    ![][resource]
+    ![Resource](./media/sql-data-warehouse-get-started-create-support-ticket/resource.png)
 
 7. Select your **Support plan**.
 
@@ -50,21 +50,21 @@
     - Developer mentoring and advisory services are available at the Professional Direct and Premier support levels.
     - Read more about Azure support including scope, response times, pricing, etc., at [Azure support plans][].
 
-    ![][support-plan]
+    ![Support plan](./media/sql-data-warehouse-get-started-create-support-ticket/support-plan.png)
 
     If you have a Premier support plan, you can also report SQL Data Warehouse related issues on the [Microsoft Premier online portal][].
 
 8. Select the **Problem Type** and **Category**.
 
-    ![][problem-type-category]
+    ![Problem type category](./media/sql-data-warehouse-get-started-create-support-ticket/problem-type-category.png)
 
 9. Describe the problem and choose the level of business impact.
 
-    ![][problem-description]
+    ![Problem description](./media/sql-data-warehouse-get-started-create-support-ticket/problem-description.png)
 
 10. Your **contact information** for this support ticket will be pre-filled. Update this if necessary.
 
-    ![][contact-info]
+    ![Contact info](./media/sql-data-warehouse-get-started-create-support-ticket/contact-info.png)
 
 11. Click **Create** to submit the support request.
 
@@ -72,19 +72,7 @@
 ## Next Steps
 After you have submitted the support request, the Azure support team will contact you. To check your request status and details, click **Manage support requests** on the dashboard.
 
-    ![][check-status](./media/sql-data-warehouse-get-started-create-support-ticket/check-status.png)
-
-<!-- Images -->
-
-[help-support]: ./media/sql-data-warehouse-get-started-create-support-ticket/help-support.png
-[new-support-request]: ./media/sql-data-warehouse-get-started-create-support-ticket/create-support-request.png
-[request-type]: ./media/sql-data-warehouse-get-started-create-support-ticket/request-type.png
-[subscription]: ./media/sql-data-warehouse-manage-create-support-ticket/subscription.png
-[resource]: ./media/sql-data-warehouse-manage-create-support-ticket/resource.png
-[support-plan]: ./media/sql-data-warehouse-manage-create-support-ticket/support-plan.png
-[problem-type-category]: ./media/sql-data-warehouse-manage-create-support-ticket/problem-type-category.png
-[problem-description]: ./media/sql-data-warehouse-manage-create-support-ticket/problem-description.png
-[contact-info]: ./media/sql-data-warehouse-manage-create-support-ticket/contact-info.png
+    ![Check status](./media/sql-data-warehouse-get-started-create-support-ticket/check-status.png)
 
 
 <!-- External links -->
