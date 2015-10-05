@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Tutorial: Azure Active Directory integration with DocuSign"
+	pageTitle="Tutorial: Azure Active Directory integration with DocuSign | Microsoft Azure"
 	description="Learn how to configure single sign-on between Azure Active Directory and DocuSign."
 	services="active-directory"
 	documentationCenter=""
@@ -29,16 +29,16 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 The scenario outlined in this tutorial consists of the following building blocks:
 
-1. Enabling the application integration for DocuSign 
+1. [Enabling the application integration for DocuSign](#enabling-the-application-integration-for-docusign) 
 
 
-2. Configuring single sign-on 
+2. [Configuring single sign-on](#configuring-single-sign-on) 
 
 
-3. Configuring user provisioning 
+3. [Configuring account provisioning](#configuring-account-provisioning) 
 
 
-4. Assigning users 
+4. [Assigning users](#assigning-users) 
 
 
 
