@@ -14,7 +14,7 @@
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
 	ms.date="09/24/2015"
-	ms.author="ricksal"/>
+	ms.author="wesmc"/>
 
 # Get started with Notification Hubs
 

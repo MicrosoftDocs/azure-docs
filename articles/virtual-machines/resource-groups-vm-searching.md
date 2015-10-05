@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Navigate and select Azure virtual machine images with PowerShell and the Azure CLI"
-   description="Learn how to determine the publisher, offer, and SKU for images when creating an Azure virtual machine with Resource Manager."
+   pageTitle="Navigate and select VM images | Microsoft Azure"
+   description="Learn how to determine the publisher, offer, and SKU for images when creating an Azure virtual machine with the Resource Manager deployment model."
    services="virtual-machines"
    documentationCenter=""
    authors="squillace"
@@ -20,7 +20,9 @@
 
 # Navigate and select Azure virtual machine images with Windows PowerShell and the Azure CLI
 
-> [AZURE.NOTE] When you're searching for virtual machine images in this topic, you're using the [Azure Resource Manager mode](../resource-group-overview.md) with a recent installation of either the Azure Command-Line interface for Mac, Linux, and Windows or of Windows PowerShell. With the Azure CLI, enter that mode by typing `azure config mode arm`. With PowerShell, type `Switch-AzureMode AzureResourceManager`. See [Using Azure CLI with Resource Manager](xplat-cli-azure-resource-manager.md) and [Using Azure PowerShell with Azure Resource Manager](../powershell-azure-resource-manager.md) for more complete update and configuration details.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)] This article covers searching for virtual machine images in the Resource Manager deployment model. You can also search images in the [classic deployment model](https://msdn.microsoft.com/library/azure/dn499770.aspx).
+
+This article describes how to navigate and select virtual machine images, using a recent installation of either the Azure CLI or Azure PowerShell. As a prerequisite, you would need to change to the Resource Manager mode. With the Azure CLI, enter that mode by typing `azure config mode arm`. With PowerShell, type `Switch-AzureMode AzureResourceManager`. See [Using Azure CLI with Resource Manager](xplat-cli-azure-resource-manager.md) and [Using Azure PowerShell with Azure Resource Manager](../powershell-azure-resource-manager.md) for more complete update and configuration details.
 
 ## Table of commonly used images
 
