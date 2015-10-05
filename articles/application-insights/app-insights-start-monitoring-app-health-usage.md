@@ -166,13 +166,10 @@ In the control panel of your Azure Web App, add the Application Insights extensi
 
 ## 6. Add client-side monitoring
 
-You've installed the SDK that sends telemetry data from the server (back end) of your application. Now you can add client-side monitoring. This provides you with data on users, sessions, page views, and any exceptions or crashes that occur in the client. 
+You've installed the SDK that sends telemetry data from the server (back end) of your application. Now you can add client-side monitoring. This provides you with data on users, sessions, page views, and any exceptions or crashes that occur in the browser. You'll also be able to write your own code to track how your users work with your app, right down to the detailed level of clicks and keystrokes.
 
-You'll also be able to write your own code to track how your users work with your app, right down to the detailed level of clicks and keystrokes.
 
-#### If your clients are web browsers
-
-If your app displays web pages, add a JavaScript snippet to every page. Get the code from your Application Insights resource:
+Add a JavaScript snippet to every page. Get the code from your Application Insights resource:
 
 ![In your web app, open Quick Start and click 'Get code to monitor my web pages'](./media/app-insights-start-monitoring-app-health-usage/02-monitor-web-page.png)
 
@@ -180,11 +177,6 @@ Notice that the code contains the instrumentation key that identifies your appli
 
 [Learn more about web page tracking.](app-insights-web-track-usage.md)
 
-#### If your clients are device apps
-
-If your application is serving clients such as phones or other devices, add the [appropriate SDK](app-insights-platforms.md) to your device app.
-
-If you configure the client SDK with the same instrumentation key as the server SDK, the two streams will be integrated so that you can see them together.
 
 ## Track Application version
 

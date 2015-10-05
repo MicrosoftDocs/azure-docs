@@ -112,15 +112,13 @@ Please see [this Troubleshooting item](app-insights-troubleshoot-faq.md#NuGetBui
 
 ## Add browser monitoring
 
-Browser or client-side monitoring gives you data on users, sessions, page views, and any exceptions or crashes that occur in the browser. 
+Browser monitoring gives you data on users, sessions, page views, and any exceptions or crashes that occur in the browser. 
 
 ![Choose New, Developer Services, Application Insights.](./media/app-insights-asp-net/16-page-views.png)   
 
 You'll also be able to write your own code to track how your users work with your app, right down to the detailed level of clicks and keystrokes.
 
-#### If your clients are web browsers
-
-If your app displays web pages, add a JavaScript snippet to every page. Get the code from your Application Insights resource:
+Add a JavaScript snippet to every page. Get the code from your Application Insights resource:
 
 ![In your web app, open Quick Start and click 'Get code to monitor my web pages'](./media/app-insights-asp-net/02-monitor-web-page.png)
 
@@ -128,11 +126,6 @@ Notice that the code contains the instrumentation key that identifies your appli
 
 [Learn more about web page tracking.](app-insights-web-track-usage.md)
 
-#### If your clients are device apps
-
-If your application is serving clients such as phones or other devices, add the [appropriate SDK](app-insights-platforms.md) to your device app.
-
-If you configure the client SDK with the same instrumentation key as the server SDK, the two streams will be integrated so that you can see them together.
 
 ## Usage tracking
 
