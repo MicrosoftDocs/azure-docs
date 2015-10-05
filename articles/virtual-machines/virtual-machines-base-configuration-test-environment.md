@@ -21,7 +21,7 @@
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)] This article covers creating resources with the classic deployment model. You can also create these resources with the [Resource Manager deployment model](virtual-machines-base-configuration-test-environment-resource-manager.md).
 
-This article provides you with step-by-step instructions to create the Base Configuration test environment in a Azure Virtual Network, using virtual machines created in the classic deployment model.
+This article provides you with step-by-step instructions to create the Base Configuration test environment in an Azure Virtual Network.
 
 You can use the resulting test environment:
 

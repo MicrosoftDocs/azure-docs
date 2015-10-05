@@ -44,7 +44,7 @@ Item | Configuration element | Description | Value
 5. | VNet address space | The address space (defined in a single private address prefix) for the virtual network. Work with your IT department to determine this address space. | __________________
 6. | The first DNS server for the virtual network | The fourth possible IP address for the address space of the second subnet of the virtual network (see Table S). Work with your IT department to determine this address. | __________________
 7. | The second DNS server for the virtual network | The fifth possible IP address for the address space of the second subnet of the virtual network (see Table S). Work with your IT department to determine this address. | __________________
-8. | IPsec shared key | A 128-character random, alphanumeric string that will be used to authenticate both sides of the site-to-site VPN connection. Work with your IT or security department to determine this key value.  Alternately, see [Create a random string for an IPsec preshared key](http://social.technet.microsoft.com/wiki/contents/articles/32330.create-a-random-string-for-an-ipsec-preshared-key.aspx).| __________________
+8. | IPsec shared key | A 32-character random, alphanumeric string that will be used to authenticate both sides of the site-to-site VPN connection. Work with your IT or security department to determine this key value.  Alternately, see [Create a random string for an IPsec preshared key](http://social.technet.microsoft.com/wiki/contents/articles/32330.create-a-random-string-for-an-ipsec-preshared-key.aspx).| __________________
 
 
 **Table V: Cross-premises virtual network configuration**
