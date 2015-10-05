@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/01/2015"
-	ms.author="markusvi"/>
+	ms.date="10/06/2015"
+	ms.author="markvi"/>
 
 
 # Tutorial: Azure Active Directory integration with DocuSign
@@ -43,7 +43,8 @@ The scenario outlined in this tutorial consists of the following building blocks
 
 
 
-<Configuration Image> 
+<br><br>![Configuring single sign-on ][0]<br>
+
 
  
 
@@ -90,7 +91,8 @@ The objective of this section is to outline how to enable users to authenticate 
 2. On the **How would you like users to sign on to Docusign** page, select **Microsoft Azure AD Single Sign-On**, and then click Next.
 <br><br>![Configuring single sign-on ][8]<br>
 
-3. On the **Configure App URL** page, in the **Docusign sign on URL** textbox, type the URL of your Docusign tenant, and then click **Next**. The URL has the following schema:* https://<yourcompanyname>.docusign.net/Member/MemberLogin.aspx?ssoname=<yourSSOInstanceName>*
+3. On the **Configure App URL** page, in the **Docusign sign on URL** textbox, type the URL of your Docusign tenant, and then click **Next**. 
+The URL has the following schema: *https://<yourcompanyname>.docusign.net/Member/MemberLogin.aspx?ssoname=<yourSSOInstanceName>*
 <br><br>![Configuring single sign-on ][9]<br>
 
 
@@ -107,7 +109,7 @@ The objective of this section is to outline how to enable users to authenticate 
 6. In the menu on the top, expand the user’s menu, click **Preferences**, and then, in the navigation pane on the left, expand **Account Management**, and then click **Features**.
 <br><br>![Configuring single sign-on ][11]<br>
 
-7. Click SAML Configuration, and then click the SAML Configuration link.
+7. Click **SAML Configuration**, and then click the **SAML Configuration** link.
 
 
 
@@ -143,17 +145,17 @@ The objective of this section is to outline how to enable user provisioning of A
 
 ### To configure user provisioning, perform the following steps:
 
-1. In the Azure Management Portal, on the DocuSign application integration page, click **Configure account provisioning** to open the Configure User Provisioning dialog.
+1. In the **Azure Management Portal**, on the **DocuSign application integration** page, click **Configure account provisioning** to open the Configure User Provisioning dialog.
 <br><br>![Configuring account provisioning][30]<br>
  
 
-2. On the Enter your DocuSign credentials to enable automatic user provisioning page, provide the credentials of a DocuSign account with sufficient rights, and then click Next. 
+2. On the **Settings and admin credentials** page, to enable automatic user provisioning, provide the credentials of a DocuSign account with sufficient rights, and then click **Next**. 
 <br><br>![Configuring account provisioning][31]<br>
 
-3. On the **Test connection** dialog, click **Start test**.
+3. On the **Test connection** dialog, click **Start test**, and upon a successful test, click **Next**.
 <br><br>![Configuring account provisioning][32]<br>
 
-3. On the Confirmation page, click **Complete**.
+3. On the **Confirmation** page, click **Complete**.
 
 <br><br>![Configuring account provisioning][33]<br>
  
@@ -164,13 +166,13 @@ To test your configuration, you need to grant the Azure AD users you want to all
 
 ### To assign users to Docusign, perform the following steps:
 
-1. In the Azure AD portal, create a test account.
+1. In the **Azure AD portal**, create a test account.
 
-2. On the Docusign application integration page, click Assign users.
+2. On the **Docusign application integration** page, click **Assign users**.
 <br><br>![Assigning users][40]<br>
  
 
-3. Select your test user, click Assign, and then click Yes to confirm your assignment.
+3. Select your test user, click **Assign**, and then click **Yes** to confirm your assignment.
 
 <br><br>![Assigning users][41]<br>
 
@@ -178,13 +180,9 @@ To test your configuration, you need to grant the Azure AD users you want to all
 You should now wait for 10 minutes and verify that the account has been synchronized to Docusign.
 
 As a first verification step, you can check the provisioning status, by clicking Dashboard in the D on the Docusign application integration page on the Azure Management Portal.
-Dashboard 
-
 <br><br>![Assigning users][42]<br>
 
 A successfully completed user provisioning cycle is indicated by a related status:
-Integration status 
-
 <br><br>![Assigning users][43]<br>
 
 
@@ -202,6 +200,8 @@ For more details about the Access Panel, see Introduction to the Access Panel.
 * [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 <!--Image references-->
+
+[0]: ./media/active-directory-saas-docussign-tutorial/tutorial_docusign_00.png
 [1]: ./media/active-directory-saas-docussign-tutorial/tutorial_general_01.png
 [2]: ./media/active-directory-saas-docussign-tutorial/tutorial_general_02.png
 [3]: ./media/active-directory-saas-docussign-tutorial/tutorial_general_03.png
