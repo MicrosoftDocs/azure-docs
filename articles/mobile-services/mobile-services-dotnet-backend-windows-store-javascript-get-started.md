@@ -109,13 +109,10 @@ For more information about universal Windows apps, see [Supporting multiple devi
 
 
 <!-- URLs. -->
-[Get started with data]: ../mobile-services-dotnet-backend-windows-universal-javascript-get-started-data.md
 [Get started with authentication]: ../mobile-services-dotnet-backend-windows-store-javascript-get-started-users.md
 [Get started with push notifications]: ../mobile-services-dotnet-backend-windows-store-javascript-get-started-push.md
 [Visual Studio Professional 2013]: https://go.microsoft.com/fwLink/p/?LinkID=257546
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
 [JavaScript and HTML]: mobile-services-win8-javascript/
 [Management Portal]: https://manage.windowsazure.com/
-[JavaScript version]: ../mobile-services-windows-store-get-started.md
-[Get started with data in Mobile Services using Visual Studio 2012]: ../mobile-services-windows-store-dotnet-get-started-data-vs2012.md
- 
+[JavaScript version]: ../mobile-services-windows-store-get-started.md 

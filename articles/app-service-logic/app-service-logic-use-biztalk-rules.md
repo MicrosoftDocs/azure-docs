@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="07/02/2015"
+   ms.date="10/01/2015"
    ms.author="andalmia"/>
 
 #BizTalk Rules
@@ -34,11 +34,9 @@ There are 3 key reasons to use BizTalk Business Rules in business process:
 
 ##Vocabulary
 
-The terms used to define rule conditions and actions are usually expressed by domain or industry-specific nomenclature. For example, an e-mail user writes rules in terms of messages "received from" and messages "received after," while an insurance business analyst writes rules in terms of "risk factors" and "coverage amount."
-Underlying this domain-specific terminology are the technology artifacts (objects, database tables, and XML documents) that implement rule conditions and rule actions. Vocabularies are designed to bridge the gap between business semantics and implementation.
-
-For example, a data binding for an approval status might point to a certain column in a certain row in a certain database, represented as an SQL query. Instead of inserting this sort of complex representation in a rule, you might instead create a vocabulary definition, associated with that data binding, with a friendly name of "Status." Subsequently you can include "Status" in any number of rules, and the rule engine can retrieve the corresponding data from the table.
 A _vocabulary_ is a collection of definitions consisting of friendly names for the computing objects used in rule conditions and actions. Vocabulary definitions make the rules easier to read, understand, and share by people in a particular business domain.
+
+Vocabularies are designed to bridge the gap between business semantics and implementation. For example, a data binding for an approval status might point to a certain column in a certain row in a certain database, represented as an SQL query. Instead of inserting this sort of complex representation in a rule, you might instead create a vocabulary definition, associated with that data binding, with a friendly name of "Status." Subsequently you can include "Status" in any number of rules, and the rule engine can retrieve the corresponding data from the table.
 
 ##Rule
 
