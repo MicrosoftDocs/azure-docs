@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Deploy Azure Resources Using the Compute, Network, and Storage .NET Libraries"
-	description="Learn to use some of the available clients in the Compute, Storage, and Network .NET libraries to create and delete resources in Microsoft Azure"
+	pageTitle="Deploy Resources Using .NET Libraries | Microsoft Azure"
+	description="Learn to use the Compute, Storage, and Network .NET libraries to create and delete resources in Microsoft Azure using the Resource Manager."
 	services="virtual-machines,virtual-network,storage"
 	documentationCenter=""
 	authors="davidmu1"
