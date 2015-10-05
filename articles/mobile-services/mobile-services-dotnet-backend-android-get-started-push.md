@@ -22,7 +22,7 @@
 
 This topic shows how to use Azure Mobile Services to send push notifications to your Android app. In this tutorial you add push notifications using Google Cloud Messaging (GCM) to the quickstart project. When complete, your mobile service will send a push notification each time a record is inserted.
 
-This tutorial is based on the Mobile Services quickstart. Before you start this tutorial, you must first complete either [Get started with Mobile Services] or [Get started with data] to connect your project to the mobile service. As such, this tutorial also requires Visual Studio 2013.
+This tutorial is based on the Mobile Services quickstart. Before you start this tutorial, you must first complete [Get started with Mobile Services] to connect your project to the mobile service. As such, this tutorial also requires Visual Studio 2013.
 
 ## Sample code
 To see the completed source code go [here](https://github.com/RickSaling/mobile-services-samples/tree/push/GettingStartedWithPush).
@@ -109,7 +109,6 @@ Learn more about Mobile Services and Notification Hubs in the following topics:
 <!-- URLs. -->
 [Get started with push notifications (Eclipse)]: mobile-services-dotnet-backend-android-get-started-push-ec.md
 [Get started with Mobile Services]: mobile-services-dotnet-backend-android-get-started.md
-[Get started with data]: mobile-services-dotnet-backend-android-get-started-data.md
 [Management Portal]: https://manage.windowsazure.com/
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/p/?LinkId=257545
 

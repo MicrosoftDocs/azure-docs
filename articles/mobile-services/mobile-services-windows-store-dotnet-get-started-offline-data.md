@@ -253,7 +253,6 @@ In this section you reconnect the app to the mobile service. This simulates the 
 [Next Steps]:#next-steps
 
 <!-- Images -->
-[0]: ./media/mobile-services-windows-store-dotnet-get-started-data-vs2013/mobile-todoitem-data-browse.png
 [1]: ./media/mobile-services-windows-store-dotnet-get-started-offline-data/mobile-services-add-reference-sqlite-dialog.png
 [2]: ./media/mobile-services-windows-store-dotnet-get-started-offline-data/mobile-services-sqlitestore-nuget.png
 [6]: ./media/mobile-services-windows-store-dotnet-get-started-offline-data/mobile-data-browse.png
@@ -270,7 +269,6 @@ In this section you reconnect the app to the mobile service. This simulates the 
 [TodoList Offline Sample]: http://go.microsoft.com/fwlink/?LinkId=394777
 [Get started with Mobile Services]: /develop/mobile/tutorials/get-started/#create-new-service
 [Getting Started]: ../mobile-services-dotnet-backend-windows-phone-get-started.md
-[Get started with data]: ../mobile-services-dotnet-backend-windows-store-dotnet-get-started-data.md
 [Get started with Mobile Services]: ../mobile-services-windows-store-get-started.md
 [SQLite for Windows 8.1]: http://go.microsoft.com/fwlink/?LinkId=394776
 [SQLite for Windows Phone 8.1]: http://go.microsoft.com/fwlink/?LinkId=397953
