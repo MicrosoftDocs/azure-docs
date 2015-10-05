@@ -80,7 +80,7 @@ The solution portal is a web-based UI that enables you to:
 - Send commands to specific devices.
 - Manage rules and actions.
 
-> AZURE.NOTE The devices view of the solution portal also keeps the IoT Hub device identity registry synchronized with the store of richer device state information in the DocumentDB database.
+> [AZURE.NOTE] The devices view of the solution portal also keeps the IoT Hub device identity registry synchronized with the store of richer device state information in the DocumentDB database.
 
 ## Next steps
 

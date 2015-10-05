@@ -41,7 +41,7 @@ Using the Stream Analytics user interface, you can edit these jobs directly to a
 
 The second job operates on the Device-to-Threshold values created in the **Rules** page of the solution. This job consumes as Reference Data, the threshold value set for each device. It compares the threshold value to see if its greater than (`>`) the actual value. You can modify this job, for example, to change the comparison operator.
 
-> AZURE.NOTE The remote monitoring dashboard depends on specific data, so altering the jobs can cause the dashboard to fail.
+> [AZURE.NOTE] The remote monitoring dashboard depends on specific data, so altering the jobs can cause the dashboard to fail.
 
 ## Adding your own rules
 
