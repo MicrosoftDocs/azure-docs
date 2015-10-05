@@ -29,7 +29,7 @@
 
 3. On the Help + Support blade, click **Create support request**.
 
-    ![New support request](./media/sql-data-warehouse-get-started-create-support-ticket/new-support-request.png)
+    ![New support request](./media/sql-data-warehouse-get-started-create-support-ticket/create-support-request.png)
 
 4. Select the **Request Type**.
 
