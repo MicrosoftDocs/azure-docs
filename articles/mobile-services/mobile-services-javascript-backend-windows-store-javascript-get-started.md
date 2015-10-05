@@ -81,7 +81,6 @@ The final stage of this tutorial is to build and run your new app.
 <!-- Images. -->
 
 <!-- URLs. -->
-[Get started with data]: ../mobile-services-javascript-backend-windows-universal-javascript-get-started-data.md
 [Visual Studio 2013 Express for Windows]: http://go.microsoft.com/fwlink/?LinkId=257546
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
 [Management Portal]: https://manage.windowsazure.com/
