@@ -45,6 +45,7 @@ Select **Registered Items** to view the names of the servers that are registered
 ![Deleted Server](./media/backup-azure-manage-windows-server/RS_deletedserver.png)
 
 From here you can perform the following tasks:
+
 - **Allow Re-registration** - When this option is selected for a server you can use the **Registration Wizard** in the agent to register the server with the backup vault a second time. You might need to re-register due to an error in the certificate or if a server had to be rebuilt.
 - **Delete** - Deletes a server from the backup vault. All of the stored data associated with the server is deleted immediately.
 
