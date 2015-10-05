@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="Azure"
    ms.workload="na"
-   ms.date="10/02/2015"
+   ms.date="10/05/2015"
    ms.author="hascipio"/>
 
-# Preparing your offer for testing in Staging
+# Complete the offer creation with marketing content
 In this step of the publishing process. Here you will need to provide certain marketing content and details about your offering and/or SKUs in the Azure Marketplace such as description of your product, company logos, price plans, details of plants and other information necessary to push your offer and/or SKU to staging. This information is used as marketing content in our Azure Portal. You will begin this process in the [Publishing Portal][link-pubportal].
 
 ## 1. Provide Marketplace marketing content
@@ -71,12 +71,13 @@ In the Legal tab, provide a link to your policies/terms of use. Enter or paste t
 ### 2.1 Pricing Models
 |Pricing Model |Description |
 |---------------|------------------------------------------|
-|Monthly Only| Flat monthly rate paid at time of purchase e.g. $10/month|
-|Overage (aka Usage, Meter) Based | Pay per use, which is defined by the publisher of the offer. Overage cannot be defined per seat, per user, etc as there is no concept of a fraction of a user or capability to do proration. Usage is reported by the Partner on an hourly basis. Customer pays at the of monthly billing cycle as opposed to upfront like monthly plans. |
+|Base| Flat monthly rate paid at time of purchase e.g. $10/month|
+|Consumption (aka Usage, Meter) | Pay per use, which is defined by the publisher of the offer. Overage cannot be defined per seat, per user, etc as there is no concept of a fraction of a user or capability to do proration. Usage is reported by the Partner on an hourly basis. Customer pays at the of monthly billing cycle as opposed to upfront like monthly plans. |
 |Free Trial | Customer may use for free for a limited time and then pay normal rates thereafter |
 |Free Tier | Plan is always free |
 | Migration (aka conversion or upgrade/downgrade) of Plan | Concept of a user moving from their current plan to another acceptable plan; defined by partner |
 
+**Pricing models available by offer type**
 > [AZURE.IMPORTANT] Availability of certain pricing models vary by offer type. See the table below.
 
 | | Base Only | Consumption Only | Base + Consumption |
@@ -89,15 +90,17 @@ In the Legal tab, provide a link to your policies/terms of use. Enter or paste t
 > [AZURE.NOTE] BYOL is only supported for virtual machines.
 
 1.	Under the **Pricing** tab, you will see all of the supported markets. Select the appropriate one to bring up the pricing fields.
-2.	The provided link on the Publishing Portal will show pricing information to help you in determining the prices of your offer and/or SKU(s).
+2.	The provided link on the Publishing Portal will show pricing information to help you in determining the prices of your SKU(s).
 3.	If your SKU is BYOL, select the checkbox for ‘Externally-licensed (BYOL) SKU availability.
 4.	If your SKU is hourly, enter the pricing for your software. SKUs without pricing will not be available for purchase or use.
-Note: If you have both BYOL as well as Hourly SKUs, then make sure both the requisites are covered: BYOL checkbox and price values for Hourly.
+
+> [AZURE.NOTE] If you have both BYOL as well as Hourly SKUs, then make sure both the requisites are covered: BYOL checkbox and price values for Hourly.
+
 5.	A pricing wizard will open; proceed through this to complete your pricing, including pricing for other countries, if you choose to allow purchases from outside your specified market.
 6.	Some countries are ISV Remit countries. To sell in an ISV Remit country, you must be able to charge and collect tax on your SKUs, and should calculate and pay tax to the government of the country. Microsoft is not in a position to provide legal or tax guidance.  See section ““Sell-to” countries of the Offer” under Introduction of this document for more information on “Sell To Countries”.
 
 ### 2.3 Set your developer service prices
-Plans can be any combination of BASE + Overage, where BASE is monthly price and Overage is pay-per-use price (see below for more details)
+Plans can be any combination of Base + Consumption, where BASE is monthly price and Overage is pay-per-use price (see below for more details)
 
 **Example:**  Contoso Developer Service Offering
 
@@ -130,7 +133,10 @@ Now that your Marketplace content is loaded, lets move forward with the **Step 3
 
 ||Virtual Machine Image |Developer Service | Data Service | Solution Template |
 |----|----|----|----|----|
-| **Step 3. Push your offer to Staging** | [Test your VM offer in Staging](marketplace-publishing-vm-image-test-in-staging.md) | Test your Developer Service offer in Staging | Test your Data Service offer in Staging | Test your Solution Template in Staging |
+| **Step 3. Push your offer to Staging** | [Test your VM offer in Staging](marketplace-publishing-vm-image-test-in-staging.md) | Test your Developer Service offer in Staging | Test your Data Service offer in Staging | [Test your Solution Template in Staging](marketplace-publishing-solution-template-test-in-staging.md) |
+
+## See Also
+- [Getting Started: How to publish an offer to the Azure Marketplace](marketplace-publishing-getting-started.md)
 
 [img-map-acom]:media/marketplace-publishing-push-to-staging/pubportal-mapping-acom.jpg
 [img-map-portal]:media/marketplace-publishing-push-to-staging/pubportal-mapping-azure-portal.jpg

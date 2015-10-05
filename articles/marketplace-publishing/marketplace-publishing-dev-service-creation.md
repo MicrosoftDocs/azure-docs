@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="Azure"
    ms.workload="na"
-   ms.date="10/01/2015"
+   ms.date="10/05/2015"
    ms.author="hascipio; v-shresh"/>
 
 # Guide to creating a developer service for the Azure Marketplace
@@ -139,6 +139,9 @@ When your web app is configured to use client certificate authentication, the cl
 
 ## Next Step
 Now that you have created and deployed the resource provider for your developer service, you can move forward with step 4, [Getting Your Offer to Staging][link-pushstaging] which entails business processes of setting marketing content and pricing and technical processes of testing and certification of the offer.
+
+## See Also
+- [Getting Started: How to publish an offer to the Azure Marketplace](marketplace-publishing-getting-started.md)
 
 [img-site-details]:media/marketplace-publishing-dev-service-creation/dev-services-create-and-deploy-resourceprovider-as-azurewebsites.jpg
 [link-ssl]:http://azure.microsoft.com/blog/2015/07/02/enabling-client-certificate-authentication-for-an-azure-web-app/

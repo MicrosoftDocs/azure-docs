@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/02/2015"
+   ms.date="10/05/2015"
    ms.author="hascipio"/>
 
 # Creating a Microsoft seller account
@@ -152,6 +152,7 @@ The Azure Publishing Portal is used to publish and manage your offer(s). Think o
 > [AZURE.WARNING]
 In order to sell your services on Microsoft Azure Marketplace, your registered entity needs to be from one of the approved “sell from” countries. This restriction is for payout and taxation reasons. We are actively looking to expand this list of countries in the near future, so please stay tuned. For the complete list, please see section 1b of the document at link http://go.microsoft.com/fwlink/?LinkID=526833&clcid=0x409.
 
+
 > [AZURE.TIP] If you have issues with Seller Registration completion, please log a Support ticket as below:
 1. Contact [Support](http://go.microsoft.com/fwlink?LinkId=272975)
 2. Choose **Seller Dashboard registration and your account**
@@ -164,8 +165,12 @@ Now that your account is created and registered, click on the type of artifact (
 || Virtual Machine Image | Developer Service | Data Service | Solution Template |
 |----|-----|-----|-----|-----|
 |**Step 2: Create your offer** |[General Non-technical Pre-requisites](marketplace-publishing-pre-requisites.md)| [General Non-Technical Pre-requisites](marketplace-publishing-pre-requisites.md)| [General Non-technical Pre-requisites](marketplace-publishing-pre-requisites.md)| [General Non-technical Pre-requisites](marketplace-publishing-pre-requisites.md)|
-|| [VM Image Technical Pre-requisites][link-single-vm-prereq] | Developer Service Technical Pre-requisites | Data Service Technical Pre-requisites  | Solution Template Technical Pre-requisites |
-|| [VM Image Publishing Guide][link-single-vm] | Developer Service Publishing Guide | Data Service Publishing Guide | Solution Template Publishing Guide |
+|| [VM Image Technical Pre-requisites][link-single-vm-prereq] | Developer Service Technical Pre-requisites | Data Service Technical Pre-requisites  | [Solution Template Technical Pre-requisites](marketplace-publishing-solution-template-creation-prerequisites.md) |
+|| [VM Image Publishing Guide][link-single-vm] | Developer Service Publishing Guide | Data Service Publishing Guide | [Solution Template Publishing Guide](marketplace-publishing-solution-template-creation.md) |
+|| [Azure Marketplace Marketing Content Guide][link-pushstaging] | [Azure Marketplace Marketing Content Guide][link-pushstaging] | [Azure Marketplace Marketing Content Guide][link-pushstaging] | [Azure Marketplace Marketing Content Guide][link-pushstaging] |
+
+## See Also
+- [Getting Started: How to publish an offer to the Azure Marketplace](marketplace-publishing-getting-started.md)
 
 [img-msalive]:media/marketplace-publishing-accounts-creation-registration/creating-msa-account-msa-live.jpg
 [img-email]:media/marketplace-publishing-accounts-creation-registration/creating-msa-account-msa-verifyemail.jpg
@@ -192,3 +197,4 @@ Now that your account is created and registered, click on the type of artifact (
 [link-datasvc-prereq]:marketplace-publishing-data-service-creation-prerequisites.md
 [link-devsvc]:marketplace-publishing-dev-service-creation.md
 [link-devsvc-prereq]:marketplace-publishing-dev-service-creation-prerequisites.md
+[link-pushstaging]:marketplace-publishing-push-to-staging.md

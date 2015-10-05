@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="Azure"
    ms.workload="na"
-   ms.date="10/01/2015"
+   ms.date="10/05/2015"
    ms.author="hascipio; v-shresh"/>
 
 # Pre-requisites to creating a developer service Onboarding Guide
@@ -62,6 +62,8 @@ Using the information from Offer Profile Metadata (.xlsx) above navigate to Publ
 ## Next Steps
 Now that you reviewed the pre-requisites and completed the necessary tasks, you can move forward with the creating your Developer Service offer as detailed in the guide [Developer Service Publishing Guide](marketplace-publishing-dev-service-creation.md)
 
+## See Also
+- [Getting Started: How to publish an offer to the Azure Marketplace](marketplace-publishing-getting-started.md)
 
 [link-acct-creation]:marketplace-publishing-accounts-creation-registration.md
 [link-sd-msdn]:https://msdn.microsoft.com/en-us/library/dn188471.aspx

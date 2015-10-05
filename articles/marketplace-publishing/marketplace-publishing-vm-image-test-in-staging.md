@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/02/2015"
+   ms.date="10/05/2015"
    ms.author="hascipio" />
 
 # Testing your VM offer in Staging
@@ -41,3 +41,6 @@ Staging means deploying your SKU in a private “sandbox” where you can test a
 
 ## Next Steps
 Now that you offer is in "Staging", once the onboarding team notifies, you can proceed to the final offer and/or SKU publishing phase, **Step 4**,  [Deploying your offer to the Marketplace](marketplace-publishing-push-to-production.md)
+
+## See Also
+- [Getting Started: How to publish an offer to the Azure Marketplace](marketplace-publishing-getting-started.md)

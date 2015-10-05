@@ -13,7 +13,7 @@
   ms.topic="article"
   ms.tgt_pltfrm="Azure"
   ms.workload="na"
-  ms.date="10/02/2015"
+  ms.date="10/05/2015"
   ms.author="hascipio; v-divte"/>
 
 # General Pre-requisites for creating an offer for the Azure Marketplace
@@ -21,14 +21,11 @@ Understand the general, business process centric pre-requisites that are needed 
 
 ## Ensure you are registered as a seller with Microsoft
 For detailed instructions on registering a seller account with Microsoft, go to [Account Creation & Registration](marketplace-publishing-accounts-creation-registration.md).
-- If you are already registered, find out who in your company owns it or which credentials were used to register
-- If you are not the owner of the publishing account, you can have the account owner add your Microsoft Account as a co-admin to the Publishing portal -> Publishers -> Administrators
+- If you are **already registered**, find out who in your company owns it or which credentials were used to register
+- If you are **not the owner of the publishing account**, you can have the account owner add your Microsoft Account as a co-admin to the [Publishing portal](https://publish.windowsazure.com) -> **Publishers** tab -> **Administrators** link
 - Ensure that stakeholders in the Azure publishing process receive the email that goes to this address. It must be monitored and responded to in order to complete the publishing process.
 - Avoid having the account associated with a single person. If that person leaves your company, they could impact your ability to access information about and publish your SKUs.
 
-<!--
-For instructions on creating and submitting a Microsoft seller profile, visit [Microsoft Seller Account Creation & Registration][link-acct-creation].
--->
 <!--
 If you are not registered, you will need to collect the Company Tax and Payout Information (banking information) and then register your company as a seller in the [Seller Dashboard](https://sellerdashboard.microsoft.com).
 
@@ -62,4 +59,7 @@ Next are the technical pre-requisites for each offer type. Click the link to the
 
 | Virtual Machine Image | Developer Service | Data Service | Solution Template |
 |-----|-----|-----|-----|
-| [VM Technical Pre-requisites](marketplace-publishing-vm-image-creation-prerequisites.md) | Developer Service Technical Pre-requisites | Data Service Technical Pre-requisites  | Solution Template Technical Pre-requisites |
+| [VM Technical Pre-requisites](marketplace-publishing-vm-image-creation-prerequisites.md) | Developer Service Technical Pre-requisites | Data Service Technical Pre-requisites  | [Solution Template Technical Pre-requisites](marketplace-publishing-solution-template-creation-prerequisites.md) |
+
+## See Also
+- [Getting Started: How to publish an offer to the Azure Marketplace](marketplace-publishing-getting-started.md)

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="Azure"
    ms.workload="na"
-   ms.date="10/02/2015"
+   ms.date="10/05/2015"
    ms.author="hascipio; v-divte"/>
 
 # Guide to creating a virtual machine image for the Azure Marketplace
@@ -41,10 +41,12 @@ Regardless of which operating system you use, add only the minimum number of dat
 3. Offer name is typically the name of the product / service that you plan to sell in Azure Marketplace.
 
 ### 1.2 Define SKU(s)
-Once you have added an offer, you will need to define/identify your SKU(s).
+Once you have added an offer, you will need to define/identify your SKU(s). You can have multiple offers and each offer can have multiple SKUs under it. When an offer is pushed to staging, it is pushed along with all of its SKUs.
 
-1. Add a SKU. It will require an identifier, which will be used in the URL. This will need to be unique within your Publishing Profile, but there is no risk of identifier collision with other publishers.
-2. Add a summary description for your SKU. This will be read by humans in the UX, so it advised to make it easily readable. This information does not need to be locked until "Push to Staging". Until then, you are free to edit it.
+1. **Add a SKU.** It will require an identifier, which will be used in the URL. This will need to be unique within your Publishing Profile, but there is no risk of identifier collision with other publishers.
+> [AZURE.NOTE] Offer and SKU identifier will be displayed in the offer URL in the Marketplace.
+
+2. **Add a summary description for your SKU.** This will be read by humans in the UX, so it advised to make it easily readable. This information does not need to be locked until "Push to Staging". Until then, you are free to edit it.
 3. If you are using Windows-based SKUs, follow the suggested links to acquire the approved versions of Windows Server.
 
 ## 2. Create an Azure-compatible VHDs (Linux-based)
@@ -579,6 +581,8 @@ data disk to be mounted upon deployment.
 ## Next Step
 Once you submit your virtual machine image SKU(s) for certification, you can move forward with [Getting your offer to staging][link-pushstaging]. In this step of the publishing process, you will provide the marketing content, pricing, and other information necessary for **Step 3: Testing your offer and/or SKU in staging** where you will test various use case scenarios before deploying the offer to the Azure Marketplace for public visibility and purchase.  
 
+## See Also
+- [Getting Started: How to publish an offer to the Azure Marketplace](marketplace-publishing-getting-started.md)
 
 [img-acom-1]:media/marketplace-publishing-vm-image-creation/vm-image-acom-datacenter.png
 [img-portal-vm-size]:media/marketplace-publishing-vm-image-creation/vm-image-portal-size.png

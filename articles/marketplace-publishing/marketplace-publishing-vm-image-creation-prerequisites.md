@@ -13,7 +13,7 @@
   ms.topic="article"
   ms.tgt_pltfrm="Azure"
   ms.workload="na"
-  ms.date="10/02/2015"
+  ms.date="10/05/2015"
   ms.author="hascipio; v-divte"/>
 
 # Technical Pre-requisites for creating a virtual machine image for the Azure Marketplace
@@ -30,6 +30,9 @@ You should have the following items ready before beginning the process:
 You can develop Azure-based VMs on Windows or Linux. Some elements of the publishing process—such as creating an Azure-compatible VHD—use different tools and steps depending on which operating system you are using.  
 - If you are using Linux, refer to “Create an Azure-compatible VHD (Linux-based)” section of the [Virtual Machine Image Publishing Guide](marketplace-publishing-vm-image-creation.md).
 - If you are using Windows, refer to “Create an Azure-compatible VHD (Windowsbased)” section of the [Virtual Machine Image Publishing Guide](marketplace-publishing-vm-image-creation.md).
+> [AZURE.NOTE] You will need access to a Windows machine to
+- Run the certification validation tool
+- Create the VHD SASA URL for VHD Certification submission
 
 ## Developing your VHD
 It is possible to develop Azure VHDs in the **cloud** or **on-premises**.
@@ -38,5 +41,9 @@ It is possible to develop Azure VHDs in the **cloud** or **on-premises**.
 
 ## Next Steps
 Now that you reviewed the pre-requisites and completed the necessary task, you can move forward with the creating your Virtual Machine Image offer as detailed in the [Virtual Machine Image Publishing Guide](marketplace-publishing-vm-image-creation.md)
+
+## See Also
+- [Getting Started: How to publish an offer to the Azure Marketplace](marketplace-publishing-getting-started.md)
+
 
 [link-acct-creation]:marketplace-publishing-accounts-creation-registration.md
