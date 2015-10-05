@@ -35,7 +35,7 @@
 
 OR
 
-* [Azure CLI for Mac, Linux and Windows](../xplat-cli.md).
+* [Azure CLI for Mac, Linux and Windows](../xplat-cli-install.md).
 
 ##What is SSH?
 

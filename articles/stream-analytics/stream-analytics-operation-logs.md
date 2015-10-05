@@ -14,14 +14,14 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="09/09/2015" 
+	ms.date="09/29/2015" 
 	ms.author="jeffstok"/>
 
 # Operation logs
 
 All Azure services supply operational logging messages to users to record details related to management operations. In Azure Stream Analytics, this information can be used for debugging purposes such as viewing job status, job progress, and failure messages to track the progress of a job over time, from start to processing to output.
 
-## Finding operation logs
+## Find operation logs in the Azure Management Portal
 
 Operation Logs can be accessed in two ways:  
 
@@ -34,28 +34,50 @@ A link to the corresponding logs of a Stream Analytics job is displayed on the j
 
   ![Select Management Services](./media/stream-analytics-operation-logs/01-stream-analytics-operation-logs.png)  
 
-## Management Services in the Azure Portal
+## Management Services
 
 To manually navigate to the Operation Logs for Stream Analytics and other services in the Azure Portal:
 
 1.	Click on **Management Services** in the [Azure Portal](https://manage.windowsazure.com).
 2.	Select **Stream Analytics** for **Type** and the name of the job for **Service Name**.  
 
-    ![Select Stream Analytics](./media/stream-analytics-operation-logs/02-stream-analytics-operation-logs.png)  
+  ![Select Stream Analytics](./media/stream-analytics-operation-logs/02-stream-analytics-operation-logs.png)  
 
-## Use operation logs
+## Find audit logs in the Azure Preview portal ##
+
+To find operational logs for your Stream Analytics job in the Azure Preview portal, Click **Browse** and then select **Audit logs**.
+
+  ![Azure preview portal Select Stream Analytics](./media/stream-analytics-operation-logs/06-stream-analytics-operation-logs.png)  
+
+This will open a blade showing events from the last 7 days for all resources in your subscription.  You can filter to see events of a specify type or time frame by clicking the **Filter** command.
+
+  ![Azure preview portal Select Stream Analytics](./media/stream-analytics-operation-logs/07-stream-analytics-operation-logs.png)  
+
+## Get log details
 
 You can filter by Time Range and Status to view the logs for your job.
 
-Click on the **Details** button at the bottom of the window to view more details about a selected event. 
+In the Azure Management portal, click on the **Details** button at the bottom of the window to view more details about a selected event. 
 
   ![Select Details](./media/stream-analytics-operation-logs/03-stream-analytics-operation-logs.png)  
 
-## Debugging a failed job
+In the Azure Preview portal, click on a log entry to see the detailed events inside it.
 
-Click on the Search icon and type ‘failed’. This gives a result of all logs with failures. 
+  ![Azure preview portal Select Details](./media/stream-analytics-operation-logs/08-stream-analytics-operation-logs.png)  
+
+From there, you can open the **Detail** blade by clicking on the event.
+
+  ![Azure preview portal Select Details](./media/stream-analytics-operation-logs/09-stream-analytics-operation-logs.png)  
+
+## Debug a failed job
+
+In the Azure Management portal, click on the Search icon and type ‘failed’. This gives a result of all logs with failures. 
 
   ![Debugging a failed job](./media/stream-analytics-operation-logs/04-stream-analytics-operation-logs.png)  
+
+In the Azure Preview portal, you can filter by level of message to view **Critical** events.
+
+  ![Azure preview portal debug](./media/stream-analytics-operation-logs/10-stream-analytics-operation-logs.png)  
 
 You can select any one of the failures, and click on the **Details** for more information on the error.  Some error messages also provide information about how the mitigate the issue. 
 

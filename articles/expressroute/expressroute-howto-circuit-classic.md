@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Steps for configuring an ExpressRoute circuit"
+   pageTitle="Steps for configuring an ExpressRoute circuit | Microsoft Azure"
    description="This article walks you through the steps for creating and provisioning an ExpressRoute circuit. This article also shows you how to check the status, update, or delete and deprovision your circuit."
    documentationCenter="na"
    services="expressroute"

@@ -95,7 +95,10 @@ For more information on Virtual Network features, benefits, and capabilities, se
 > It is highly recommended to designate a single subnet for one cluster.
 >
 > Currently (8/25/2015,) you can only provision one Linux-based cluster in an Azure Virtual Network.
-
+>
+> You cannot use a v1 (Classic,) Azure Virtual Network with Linux-based HDInsight. The Virtual Network must be v2 (Azure Resource Manager,) in order for it to be listed as an option during the HDInsight cluster creation process in the Azure preview portal, or to be usable when creating a cluster from the Azure CLI or Azure PowerShell.
+>
+> If you have resources on a v1 network, and you wish to make HDInsight directly accessible to those resources through a virtual network, see [Connecting classic VNets to new VNets](../virtual-network/virtual-networks-arm-asm-s2s.md) for information on how to connect a v2 Virtual Network to a v1 Virtual Network. Once this connection is established, you can create the HDInsight cluster in the v2 Virtual Network.
 
 ## <a id="options"></a> Options for provisioning an HDInsight Linux cluster
 
@@ -239,7 +242,7 @@ Azure Resource Management templates are JSON documents that describe a __resourc
 
 The following steps walk through the process of creating a new HDInsight cluster using the Azure CLI and a template:
 
-1. If it is not already installed, follow the steps in the [Install and configure the Azure CLI](../xplat-cli.md) document.
+1. If it is not already installed, follow the steps in the [Install and configure the Azure CLI](../xplat-cli-install.md) document.
 
 2. From a command-line, terminal, or shell, use the following command to authenticate to your Azure subscription:
 
@@ -386,20 +389,14 @@ The HDInsight .NET SDK provides .NET client libraries that make it easier to wor
 **To create a Visual Studio console application**
 
 1. Open Visual Studio 2013 or 2015.
-
-2. From the **File** menu, click **New**, and then click **Project**.
-
-3. From **New Project**, type or select the following values:
+2. Create a new Visual Studio project with the following settings
 
 	|Property|Value|
 	|--------|-----|
 	|Template|Templates/Visual C#/Windows/Console Application|
 	|Name|CreateHDICluster|
 
-4. Click **OK** to create the project.
-
 5. From the **Tools** menu, click **Nuget Package Manager**, and then click **Package Manager Console**.
-
 6. Run the following command in the console to install the packages:
 
 		Install-Package Microsoft.Azure.Common.Authentication -pre

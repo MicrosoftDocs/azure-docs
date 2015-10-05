@@ -54,17 +54,17 @@ Microsoft HPC Pack provides features to run a variety of large-scale HPC and par
         <VMName>CentOS66HN</VMName>
         <ServiceName>MyHPCService</ServiceName>
         <VMSize>Large</VMSize>
-    <EnableRESTAPI />
-    <EnableWebPortal />
-  </HeadNode>
-  <LinuxComputeNodes>
-    <VMNamePattern>CentOS66LN-%00%</VMNamePattern>
-    <ServiceName>MyLnxCNService</ServiceName>
-    <VMSize>Large</VMSize>
-    <NodeCount>4</NodeCount>
-    <ImageName>5112500ae3b842c8b9c604889f8753c3__OpenLogic-CentOS-66-20150325</ImageName>
-  </LinuxComputeNodes>
-</IaaSClusterConfig>
+        <EnableRESTAPI />
+        <EnableWebPortal />
+      </HeadNode>
+      <LinuxComputeNodes>
+        <VMNamePattern>CentOS66LN-%00%</VMNamePattern>
+        <ServiceName>MyLnxCNService</ServiceName>
+        <VMSize>Large</VMSize>
+        <NodeCount>4</NodeCount>
+        <ImageName>5112500ae3b842c8b9c604889f8753c3__OpenLogic-CentOS-66-20150325</ImageName>
+      </LinuxComputeNodes>
+    </IaaSClusterConfig>    
 ```
 
 

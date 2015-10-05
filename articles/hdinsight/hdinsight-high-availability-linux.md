@@ -128,11 +128,7 @@ Each head node can have unique log entries, so you should check the logs on both
 
 ###Ambari
 
-> [AZURE.NOTE] Accessing log files through Ambari requires an SSH tunnel, as the web sites for the individual services are not exposed publicly on the Internet. For information on using an SSH tunnel, see one of the following:
->
-> * [Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X](hdinsight-hadoop-linux-use-ssh-unix.md#tunnel)
->
-> * [Use SSH with Linux-based Hadoop on HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-windows.md#tunnel)
+> [AZURE.NOTE] Accessing log files through Ambari requires an SSH tunnel, as the web sites for the individual services are not exposed publicly on the Internet. For information on using an SSH tunnel, see [Use SSH Tunneling to access Ambari web UI, ResourceManager, JobHistory, NameNode, Oozie, and other web UI's](hdinsight-linux-ambari-ssh-tunnel.md).
 
 From the Ambari Web UI, select the service you wish to view logs for (for example, YARN,) and then use **Quick Links** to select which head node to view the logs for.
 
@@ -158,7 +154,7 @@ In this document you have learned how Azure HDInsight provides high availability
 
 - [Ambari REST Reference](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md)
 
-- [Install and configure the Azure CLI](../xplat-cli.md)
+- [Install and configure the Azure CLI](../xplat-cli-install.md)
 
 - [Install and configure Azure PowerShell](../powershell-install-configure.md)
 
@@ -168,4 +164,4 @@ In this document you have learned how Azure HDInsight provides high availability
 
 [preview-portal]: https://portal.azure.com/
 [azure-powershell]: ../powershell-install-configure.md
-[azure-cli]: ../xplat-cli.md
+[azure-cli]: ../xplat-cli-install.md

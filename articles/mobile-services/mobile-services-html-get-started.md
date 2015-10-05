@@ -117,13 +117,7 @@ The final stage of this tutorial is to host and run your new app on your local c
 ## <a name="next-steps"> </a>Next Steps
 Now that you have completed the quickstart, learn how to perform additional important tasks in Mobile Services:
 
-* **[Get started with data]**
-  <br/>Learn more about storing and querying data using Mobile Services.
-
-* **[Call a custom API from an HTML application]**
-  <br/>Connect your HTML application with a custom API hosted on Mobile Services.
-
-* **[Get started with authentication]**
+* **[Add authentication to your app]**
   <br/>Learn how to authenticate users of your app with an identity provider.
 
 * **[Mobile Services HTML/JavaScript How-to Conceptual Reference]**
@@ -148,9 +142,7 @@ Now that you have completed the quickstart, learn how to perform additional impo
 
 
 <!-- URLs. -->
-[Get started with data]: mobile-services-html-get-started-data.md
-[Get started with authentication]: mobile-services-html-get-started-users.md
-[Call a custom API from an HTML application]: mobile-services-html-call-custom-api.md
+[Add authentication to your app]: mobile-services-html-get-started-users.md
 
 [Management Portal]: https://manage.windowsazure.com/
 [Microsoft Web Platform Installer]:  http://go.microsoft.com/fwlink/p/?LinkId=286333

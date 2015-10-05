@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/21/2015"
+   ms.date="09/22/2015"
    ms.author="sahajs"/>
 
 # Use Azure Machine Learning with SQL Data Warehouse

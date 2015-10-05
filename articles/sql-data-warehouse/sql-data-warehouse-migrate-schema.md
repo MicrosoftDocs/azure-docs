@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/25/2015"
+   ms.date="09/22/2015"
    ms.author="JRJ@BigBangData.co.uk;barbkess"/>
 
 # Migrate your schema to SQL Data Warehouse#
@@ -108,7 +108,7 @@ Instead of:
 - **geography**, use a varbinary type
 - **hierarchyid**, this CLR type is not supported
 - **image**, **text**, **ntext**, use varchar/nvarchar (smaller the better)
-- **nvarchar(max)**, use varchar(4000) or smaller for better performance
+- **nvarchar(max)**, use nvarchar(4000) or smaller for better performance
 - **numeric**, use decimal
 - **sql_variant**, split column into several strongly typed columns
 - **sysname**, use nvarchar(128)

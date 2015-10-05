@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="09/17/2015"
+   ms.date="09/24/2015"
    ms.author="mbaldwin"/>
 
 # Integrating with Azure Active Directory
@@ -76,7 +76,7 @@ Integration with Azure AD comes with benefits that do not require you to write a
 
 ### Easy Development
 
-**Industry standard protocols.**  Microsoft is committed to supporting industry standards.  Azure AD supports the SAML 2.0, OpenID Connect 1.0, OAuth 2.0, and WS-Federation 1.2 authentication protocols.  The Graph API is OData 4.0 compliant.  If your application already supports the SAML 2.0 or OpenID Connect 1.0 protocols for federated sign in, adding support for Azure AD can be straightforward.  Learn more about [Azure AD supported authentication protocols](../authentication-protocols.md).
+**Industry standard protocols.**  Microsoft is committed to supporting industry standards.  Azure AD supports the SAML 2.0, OpenID Connect 1.0, OAuth 2.0, and WS-Federation 1.2 authentication protocols.  The Graph API is OData 4.0 compliant.  If your application already supports the SAML 2.0 or OpenID Connect 1.0 protocols for federated sign in, adding support for Azure AD can be straightforward.  Learn more about [Azure AD supported authentication protocols](active-directory-authentication-protocols.md).
 
 **Open source libraries.**  Microsoft provides fully supported open source libraries for popular languages and platforms to speed development.  The source code is licensed under Apache 2.0, and you are free to fork and contribute back to the projects.  Learn more about [Azure AD authentication libraries](active-directory-authentication-libraries.md).
 

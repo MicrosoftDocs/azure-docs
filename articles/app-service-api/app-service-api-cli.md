@@ -22,7 +22,7 @@ This article shows how to create, manage, and delete API apps in Azure App Servi
 
 ## Prerequisites
 
-This article assumes you have installed the Azure CLI and know how to perform basic tasks. For an introduction to the CLI, see [Install and Configure the Azure CLI](../xplat-cli.md). 
+This article assumes you have installed the Azure CLI and know how to perform basic tasks. For an introduction to the CLI, see [Install and Configure the Azure CLI](../xplat-cli-install.md). 
 
 > [AZURE.NOTE] The instructions for [connecting to an Azure subscription ](../xplat-cli-connect.md) offer two alternatives:  log in using a work or school account, and download a *.publishsettings* file. For API apps, the *.publishsettings* file authentication method will not work. This is because you have to use Resource Management mode (introduced in the next section) to work with API apps, and the *.publishsettings* file authentication method doesn't work with Resource Manager. 
 

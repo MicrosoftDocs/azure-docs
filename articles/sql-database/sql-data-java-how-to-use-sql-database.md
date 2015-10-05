@@ -705,6 +705,8 @@ To use SQL Database in Java within an Azure deployment, in addition to having Mi
 
 To learn more about Microsoft JDBC Driver for SQL Server, see [Overview of the JDBC Driver](http://msdn.microsoft.com/library/ms378749.aspx). To learn more about SQL Database, see [SQL Database Overview](http://msdn.microsoft.com/library/windowsazure/ee336241.aspx).
 
+For more information, see also the [Java Developer Center](/develop/java/).
+
 [Concepts]:#concepts
 [Prerequisites]:#prerequisites
 [Creating an Azure SQL Database]:#create_db

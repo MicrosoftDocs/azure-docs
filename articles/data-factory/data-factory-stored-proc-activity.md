@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="SQL Server Stored Procedure Activity" 
-	description="Learn how you can use the SQL Server Stored Procedure Activity to invoke a stored procedure in an Azure SQL Database from a Data Factory pipeline." 
+	description="Learn how you can use the SQL Server Stored Procedure Activity to invoke a stored procedure in an Azure SQL Database or Azure SQL Data Warehouse from a Data Factory pipeline." 
 	services="data-factory" 
 	documentationCenter="" 
 	authors="spelluru" 
@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/04/2015" 
+	ms.date="09/30/2015" 
 	ms.author="spelluru"/>
 
 # SQL Server Stored Procedure Activity
 
-You can use the SQL Server Stored Procedure activity in a Data Factory [pipeline](data-factory-create-pipelines.md) to invoke a stored procedure in an **Azure SQL** Database. This article builds on the [data transformation activities](data-factory-data-transformation-activities.md) article which presents a general overview of data transformation and the supported transformation activities.
+You can use the SQL Server Stored Procedure activity in a Data Factory [pipeline](data-factory-create-pipelines.md) to invoke a stored procedure in an **Azure SQL Database** or an **Azure SQL Data Warehouse** . This article builds on the [data transformation activities](data-factory-data-transformation-activities.md) article which presents a general overview of data transformation and the supported transformation activities.
 
 ## Syntax
 	{
@@ -46,8 +46,8 @@ name | Name of the activity | Yes
 description | Text describing what the activity is used for | No
 type | SqlServerStoredProcedure | Yes
 inputs | Input dataset(s) that must be available (in ‘Ready’ status) for the stored procedure activity to execute. The input(s) to the stored procedure activity only serve as dependency management when chaining this activity with others. The input dataset(s) cannot be consumed in the stored procedure as a parameter | No
-outputs | Output dataset(s) produced by the stored procedure activity. Ensure that the output table uses a linked service that links an Azure SQL Database to the data factory. The output(s) in the stored procedure activity can serve as a way to pass the result of the stored procedure activity for subsquent processing and/or it can serve as dependency management when chaining this activity with others | Yes
-storedProcedureName | Specify the name of the stored procedure in the Azure SQL database that is represented by the  linked service that the output table uses. | Yes
+outputs | Output dataset(s) produced by the stored procedure activity. Ensure that the output table uses a linked service that links an Azure SQL Database or an Azure SQL Data Warehouse to the data factory. The output(s) in the stored procedure activity can serve as a way to pass the result of the stored procedure activity for subsquent processing and/or it can serve as dependency management when chaining this activity with others | Yes
+storedProcedureName | Specify the name of the stored procedure in the Azure SQL database or Azure SQL Data Warehouse that is represented by the  linked service that the output table uses. | Yes
 storedProcedureParameters | Specify values for stored procedure parameters | No
 
 ## Example

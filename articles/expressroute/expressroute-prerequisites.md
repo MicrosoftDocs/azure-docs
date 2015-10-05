@@ -45,7 +45,7 @@ Microsoft does require redundancy in Layer 3. Microsoft does require redundant r
 ## IP addresses and routing considerations
 
 Customers/Connectivity Providers are responsible for setting up redundant BGP sessions with the Microsoft edge infrastructure.  Customers choosing to connect through IP VPN providers will typically rely on the connectivity providers to manage routing configurations. Customers co-located with an exchange or connecting to Microsoft through a point-to-point Ethernet provider will have to configure redundant BGP sessions per peering to meet availability SLA requirements. Connectivity providers may offer this as a value added service. 
-Refer to the routing domains table in the [ExpressRoute circuits and routing domains](expressroute-circuit-peerings.md) article for more information on limits. Refer to Control plane section for more details on BGP configuration. 
+Refer to the routing domains table in the [ExpressRoute circuits and routing domains](expressroute-circuit-peerings.md) article for more information on limits.
 
 ## Security and firewalling
 
