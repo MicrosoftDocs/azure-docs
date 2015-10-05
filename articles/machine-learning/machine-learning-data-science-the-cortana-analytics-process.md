@@ -2,7 +2,6 @@
 	pageTitle="What is the Cortana Analytics Process?  | Microsoft Azure" 
 	description="The Cortana Analytics Process is a systematic data science method for building intelligent applications that leverage advanced analytics." 
 	services="machine-learning" 
-	solutions="" 
 	documentationCenter="" 
 	authors="bradsev"
 	manager="paulettm" 
