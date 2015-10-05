@@ -49,9 +49,9 @@ In this section, you will create a new message handler class named **Authenticat
 3. In AuthenticationTestHandler.cs, replacing the `AuthenticationTestHandler` class definition with the following code. 
 
 	This handler will authorize the request when the following three conditions are all true:
-	1. The request included an *Authorization* header. 
-	2. The request uses *basic* authentication. 
-	3. The user name string and the password string are the same string.
+	* The request included an *Authorization* header. 
+	* The request uses *basic* authentication. 
+	* The user name string and the password string are the same string.
 
 	Otherwise, the request will be rejected. This is not a true authentication and authorization approach. It is just a very simple example for this tutorial.
 
