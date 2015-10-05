@@ -42,7 +42,7 @@ Samples for the following database tasks are included in the [azure-documentdb-n
 
 Task | Method
 --- | ---
-Create a database | [DocumentClient.CreateDatabaseAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createdatabaseasync.aspx#M:Microsoft.Azure.Documents.Client.DocumentClient.CreateDatabaseAsync(Microsoft.Azure.Documents.Database,Microsoft.Azure.Documents.Client.RequestOptions)
+Create a database | [DocumentClient.CreateDatabaseAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createdatabaseasync.aspx#M:Microsoft.Azure.Documents.Client.DocumentClient.CreateDatabaseAsync(Microsoft.Azure.Documents.Database,Microsoft.Azure.Documents.Client.RequestOptions))
 Query account for a database | [DocumentQueryable.CreateDatabaseQuery](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.linq.documentqueryable.createdatabasequery.aspx)
 List databases for an account | [DocumentClient.ReadDatabaseFeedAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.readdatabasefeedasync.aspx)
 Retrieve the DocumentDB endpointUrl, primary and secondary authorization keys | [ConfigurationManager.AppSettings](https://msdn.microsoft.com/library/system.configuration.configurationmanager.appsettings%28v=vs.110%29.aspx)
@@ -50,15 +50,18 @@ Delete a database | [DocumentClient.DeleteDatabaseAsync](https://msdn.microsoft.
 
 ## Collection samples 
 
-Samples for the following collection tasks are included in the [azure-documentdb-net/samples/code-samples/ CollectionManagement/Program.cs](https://github.com/Azure/azure-documentdb-net/blob/master/samples/code-samples/CollectionManagement/Program.cs) file.
+Samples for the following collection tasks are included in the [azure-documentdb-net/samples/code-samples/CollectionManagement/Program.cs](https://github.com/Azure/azure-documentdb-net/blob/master/samples/code-samples/CollectionManagement/Program.cs) file.
 
-Task | Method
+Task | Method or Property
 --- | ---
-Create a collection | ..
-Create a collection with a custom index policy | ..
-Retrieve the performance tier of the collection | ..
-Update the performance tier of a collection | ..
-Delete a collection | ..
+Create a collection | [DocumentClient.CreateDocumentCollectionAsync](https://msdn.microsoft.com/en-us/library/azure/microsoft.azure.documents.client.documentclient.createdocumentcollectionasync.aspx)
+Set the indexing policy | [IndexingPolicy.Automatic](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.indexingpolicy.automatic.aspx?f=255&MSPPError=-2147217396)
+Set the indexing mode | [IndexingPolicy.IndexingMode](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.indexingpolicy.indexingmode.aspx)
+Query account for performance tier of a collection | [DocumentQueryable.CreateOfferQuery](https://msdn.microsoft.com/en-us/library/azure/microsoft.azure.documents.linq.documentqueryable.createofferquery.aspx)
+Update the performance tier of a collection | [DocumentClient.ReplaceOfferAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.replaceofferasync.aspx)
+Query a database for collections | [DocumentClient.CreateDocumentCollectionQuery](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createdocumentcollectionquery.aspx)
+Read a list of all collections in a database | [DocumentClient.ReadDocumentCollectionFeedAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.readdocumentcollectionfeedasync.aspx?f=255&MSPPError=-2147217396)
+Delete a collection | [DocumentClient.DeleteDocumentCollectionAsync](https://msdn.microsoft.com/en-us/library/azure/microsoft.azure.documents.client.documentclient.deletedocumentcollectionasync.aspx)
 
 ## Document samples
 
@@ -66,12 +69,12 @@ The document sample file, [azure-documentdb-net/samples/code-samples/DocumentMan
 
 Task | Method
 --- | ---
-Create a list of plain old clr objects (POCOs) and insert them into collection | [DocumentClient.CreateDocumentAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createattachmentasync.aspx)
+Create documents and insert them into a collection using plain old clr objects (POCOs), dynamic objects, streams, or document extensions | [DocumentClient.CreateDocumentAsync](https://msdn.microsoft.com/en-us/library/azure/microsoft.azure.documents.client.documentclient.createdocumentasync.aspx)
 Read a document | [DocumentClient.CreateDocumentQuery](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createdocumentquery.aspx) 
-Update a document | [DocumentClient.ReplaceDocumentAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.replacedocumentasync.aspx).
-Create a document attachment | [DocumentClient.CreateAttachmentAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createattachmentasync.aspx). 
+Update a document | [DocumentClient.ReplaceDocumentAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.replacedocumentasync.aspx)
+Create a document attachment | [DocumentClient.CreateAttachmentAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createattachmentasync.aspx)
 Query the document for attachments | [DocumentClient.CreateAttachmentQuery](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createattachmentquery.aspx). 
-Read media content | [DocumentClient.ReadMediaAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.readmediaasync.aspx). 
+Read media content in an attachment | [DocumentClient.ReadMediaAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.readmediaasync.aspx)
 
 ## Indexing samples
 
@@ -79,13 +82,12 @@ The indexing sample file, [azure-documentdb-net/samples/code-samples/IndexManage
 
 Task | Method
 --- | ---
-Exclude a document from automatic indexing | [CreateDocumentAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createattachmentasync.aspx) and [IndexingDirective.Exclude](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.indexingdirective.aspx).
-Opt-in indexing of documents with manual indexing policy | [CreateDocumentAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createattachmentasync.aspx).
-Use lazy indexing for bulk import or read heavy collections | [DocumentCollection](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.documentcollection.documentcollection.aspx#M:Microsoft.Azure.Documents.DocumentCollection) and [IndexingMode.Lazy](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.indexingmode.aspx).
-Use range indexing over strings in order to support Order by | ..
-Exclude certain paths from indexing | ..
-Force a range-based scan on a Hash index | ..
-Update the indexing policy | ..
+Create a collection with default indexing (index everything) | [DocumentClient.CreateDocumentCollectionAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createdocumentcollectionasync.aspx?f=255&MSPPError=-2147217396), which sets [IndexingPolicy.Automatic](https://msdn.microsoft.com/en-us/library/azure/microsoft.azure.documents.indexingpolicy.automatic.aspx) to **True** by default
+Include or exclude a specific document from indexing | [IndexingDirective](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.indexingdirective.aspx)
+Use lazy indexing for bulk import or read heavy collections | [IndexingMode](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.indexingmode.aspx) set to **Lazy**
+Use range indexing over strings in order to support Order by | [IndexingPolicy.IncludedPaths](https://msdn.microsoft.com/en-us/library/azure/microsoft.azure.documents.indexingpolicy.includedpaths.aspx#P:Microsoft.Azure.Documents.IndexingPolicy.IncludedPaths) 
+Exclude certain paths from indexing | [IndexingPolicy.ExcludedPaths](https://msdn.microsoft.com/en-us/library/azure/microsoft.azure.documents.indexingpolicy.excludedpaths.aspx)
+Enable a range-based scan on a Hash index | [FeedOptions.EnableScanInQuery](https://msdn.microsoft.com/en-us/library/azure/microsoft.azure.documents.client.feedoptions.enablescaninquery.aspx)
  
 ## Partitioning samples
 
