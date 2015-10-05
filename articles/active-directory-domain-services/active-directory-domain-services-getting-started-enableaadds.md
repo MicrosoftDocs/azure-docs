@@ -1,4 +1,4 @@
-<properties
+﻿<properties
 	pageTitle="Azure Active Directory Domain Services preview: Getting Started | Microsoft Azure"
 	description="Getting started with Azure Active Directory Domain Services"
 	services="active-directory-domain-services"
@@ -8,12 +8,12 @@
 	editor="femila"/>
 
 <tags
-	ms.service="active-directory-domain-services"
+	ms.service="active-directory-ds"
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/30/2015"
+	ms.date="10/05/2015"
 	ms.author="mahesh-unnikrishnan"/>
 
 # Azure AD Domain Services *(Preview)* - Getting started
@@ -50,7 +50,7 @@ In this step you can enable Azure AD Domain Services for your directory. Perform
 
     ![Enable Domain Services - pending state](./media/active-directory-domain-services-getting-started/enable-domain-services-pendingstate.png)
 
-  > [AZURE.NOTE] Azure AD Domain Services provides high availability in the form of two domain controllers to service your domain. When you first enable Azure AD Domain Services for your domain, you will notice the IP addresses of these domain controllers show up one by one, as they are provisioned. The second (replica) domain controller will take a while to be provisioned and therefore its IP address will be displayed later. When both domain controllers are provisioned and active for your domain, you should see two IP addresses in the **domain services** section of the **Configure** tab.
+    > [AZURE.NOTE] Azure AD Domain Services provides high availability in the form of two domain controllers to service your domain. When you first enable Azure AD Domain Services for your domain, you will notice the IP addresses of these domain controllers show up one by one, as they are provisioned. The second (replica) domain controller will take a while to be provisioned and therefore its IP address will be displayed later. When both domain controllers are provisioned and active for your domain, you should see two IP addresses in the **domain services** section of the **Configure** tab.
 
 11. After about 20-30 minutes, the first domain controller for your domain should be provisioned. At this point, you will see the IP address of this domain controller appear in the **IP address** field on the **Configure** page.
 
@@ -60,5 +60,4 @@ In this step you can enable Azure AD Domain Services for your directory. Perform
 
     ![Domain Services enabled - both domain controllers provisioned](./media/active-directory-domain-services-getting-started/domain-services-enabled-bothdcs-available.png)
 
-
-  > [AZURE.NOTE] Depending on the size of your Azure AD directory (number of users, groups etc.), it will take a while for this information to be synchronized to Azure AD Domain Services. This synchronization process happens in the background. For large directories with tens of thousands of objects, it may take a day or two for all users, group memberships and credentials to be synchronized and available in Azure AD Domain Services.
+  > [AZURE.NOTE] Depending on the size of your Azure AD directory (number of users, groups etc.), it will take a while for the contents of the directory to be synchronized to Azure AD Domain Services. This synchronization process happens in the background. For large directories with tens of thousands of objects, it may take a day or two for all users, group memberships and credentials to be synchronized and available in Azure AD Domain Services.
