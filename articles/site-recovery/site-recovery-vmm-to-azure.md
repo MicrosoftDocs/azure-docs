@@ -124,7 +124,7 @@ Generate a registration key in the vault. After you download the Azure Site Reco
 	![Microsoft Updates](./media/site-recovery-vmm-to-azure/VMMASRInstallMUScreen.png)
 
 
-1.  The install location is set to **<SystemDrive>\Program Files\Microsoft System Center 2012 R2\Virtual Machine Manager\bin**. Click on the Install button to start installing the Provider.	
+1.  The install location is set to **<SystemDrive>\Program Files\Microsoft System Center 2012 R2\Virtual Machine Manager\bin**. Click on the Install button to start installing the Provider.
 	![InstallLocation](./media/site-recovery-vmm-to-azure/VMMASRInstallLocationScreen.png)
 
 
@@ -165,11 +165,11 @@ Generate a registration key in the vault. After you download the Azure Site Reco
 
 8. Click *Next* to complete the process. After registration, metadata from the VMM server is retrieved by Azure Site Recovery. The server is displayed on the  *VMM Servers* tab on the **Servers** page in the vault.
 
->[AZURE.NOTE] The Azure Site Recovery Provider can also be installed using the following command line. This method can be used to install the provider one a Server CORE for Windows Server 2012 R2
+>[AZURE.NOTE] The Azure Site Recovery Provider can also be installed using the following command line. This method can be used to install the provider on a Server CORE for Windows Server 2012 R2
 >
 >1. Download the Provider installation file and registration key to a folder say C:\ASR
 >2. Stop the System Center Virtual Machine Manager Service
->3. Extract the Provider installer by executing the below commands from a command prompt with **Administrator** privileges 
+>3. Extract the Provider installer by executing the below commands from a command prompt with **Administrator** privileges
 >
     	C:\Windows\System32> CD C:\ASR
     	C:\ASR> AzureSiteRecoveryProvider.exe /x:. /q
@@ -188,9 +188,9 @@ Generate a registration key in the vault. After you download the Azure Site Reco
  - **/proxyAddress** : Optional parameter that specifies the address of the proxy server.
  - **/proxyport** : Optional parameter that specifies the port of the proxy server.
  - **/proxyUsername** : Optional parameter that specifies the Proxy user name (if proxy requires authentication).
- - **/proxyPassword** :Optional parameter that specifies the Password for authenticating with the proxy server (if proxy requires authentication). 
+ - **/proxyPassword** :Optional parameter that specifies the Password for authenticating with the proxy server (if proxy requires authentication).
 
-  
+
 ## Step 4: Create an Azure storage account
 
 If you don't ave an Azure storage account click **Add an Azure Storage Account**. The account should have geo-replication enabled. It must in the same region as the Azure Site Recovery service, and be associated with the same subscription.
@@ -363,4 +363,3 @@ To run a test failover do the following:
 
 <LI>For questions, visit the <a href="http://go.microsoft.com/fwlink/?LinkId=313628">Azure Recovery Services Forum</a>.</LI>
 </UL>
- 

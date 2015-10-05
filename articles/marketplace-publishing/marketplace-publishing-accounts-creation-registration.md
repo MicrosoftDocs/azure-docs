@@ -58,7 +58,7 @@ The Microsoft Seller Dashboard is used to register the company information once.
 > [AZURE.NOTE] BYOL is only supported for virtual machines and is considered **FREE** offering.
 
 
-## 2.1 Register your company account
+### Register your company account
 1. Open a new  IE InPrivate or Chrome Incognito browsing session to ensure that you’re not logged into a personal account
 
 2. Go to http://sellerdashboard.microsoft.com
@@ -106,7 +106,7 @@ If you are planning to publish commercial offers, you must complete tax and bank
 
 If you are planning to publish only free offers, then you can skip to section 3, **Register your account in the Publishing Portal.**
 
-## 2.2 Add Tax and Banking information
+### Add tax and banking information
  If you want to offer apps or add-ins for purchase, you also need to add payout and tax information and submit it for validation in the Seller Dashboard. If you are only offering free apps or add-ins, then you do not need to add this information. You can add it later, but it takes some time to validate the tax information. If you know that you will offer apps or add-ins for purchase, we recommend that you add it as soon as possible.
 
 1. Sign in to the [Seller Dashboard](http://sellerdashboard.microsoft.com) with your Microsoft account.
@@ -159,7 +159,7 @@ In order to sell your services on Microsoft Azure Marketplace, your registered e
 3. Choose **Registering for a developer account**
 4. Choose contact **method**
 
-## Next Steps
+## Next steps
 Now that your account is created and registered, click on the type of artifact (virtual machine, developer service, data service, solution template) that you would like to publish to the Azure Marketplace. Visit one of the following articles to learn how to publish your respective offer:
 
 || Virtual Machine Image | Developer Service | Data Service | Solution Template |

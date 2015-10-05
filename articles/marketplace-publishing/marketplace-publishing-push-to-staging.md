@@ -19,13 +19,14 @@
 # Complete the offer creation with marketing content
 In this step of the publishing process. Here you will need to provide certain marketing content and details about your offering and/or SKUs in the Azure Marketplace such as description of your product, company logos, price plans, details of plants and other information necessary to push your offer and/or SKU to staging. This information is used as marketing content in our Azure Portal. You will begin this process in the [Publishing Portal][link-pubportal].
 
-## 1. Provide Marketplace marketing content
+## Step 1. Provide Marketplace marketing content
 **English is the default and only supported language;** please ensure that all information provided in the fields is in English. All information can be edited at any time until you push to staging.
-1. Go to the Publishing Portal, http://publish.windowsazure.com
-2. In the left menu, click **Marketing** tab.
-3. In the main panel, click **English (US)** button.
 
-### 1.1 Details
+  1. Go to the Publishing Portal, http://publish.windowsazure.com
+  2. In the left menu, click **Marketing** tab.
+  3. In the main panel, click **English (US)** button.
+
+### Details
 1. Enter the offer summary, long summary, and description for your offer.
 
   ![drawing][img-map-title]
@@ -41,13 +42,13 @@ Below is the detailed view of how the publisher portal offer marketing details a
 ![drawing][img-map-acom]
 
 *Offer Name & Description mapping*
-### 1.2 Links
+### Links
 In the links tab on the left bar, enter any links with information that may help customers. Enter a name and URL for each link.
 
   ![drawing][img-map-link]
   *Links*
 
-### 1.3 Sample images (optional)
+### Sample images (optional)
 > [AZURE.NOTE] Including a sample image is an optional step. You could complete the other marketing content to fulfill requirements for push to staging.
 
 In the **Sample Images** tab on the left menu, upload a new image by clicking **Upload a new image**. If you have an existing image and you would like to replace it, click **Replace image**.
@@ -58,17 +59,17 @@ In the **Sample Images** tab on the left menu, upload a new image by clicking **
 ![drawing](media/marketplace-publishing-push-to-staging/portal-sample-image.png)
 *Presentation of sample image in offer details*
 
-### 1.4 Plans
+### Plans
 ![drawing](media/marketplace-publishing-push-to-staging/pubportal-plans-details.png)
 
-### 1.5 Legal
+### Legal
 In the Legal tab, provide a link to your policies/terms of use. Enter or paste the terms in the large Terms of Use box.
 
 > [AZURE.IMPORTANT] All fields must have entries, including the images, in order to be able to push to staging.
 
 
-## 2 Set your prices
-### 2.1 Pricing Models
+## Step 2: Set your prices
+### Pricing Models
 |Pricing Model |Description |
 |---------------|------------------------------------------|
 |Base| Flat monthly rate paid at time of purchase e.g. $10/month|
@@ -86,7 +87,7 @@ In the Legal tab, provide a link to your policies/terms of use. Enter or paste t
 | Developer Service | Yes | Yes | Yes |
 | Data Service | Yes | No | No |
 
-### 2.2 Set your VM prices
+### 2.1. Set your VM prices
 > [AZURE.NOTE] BYOL is only supported for virtual machines.
 
 1.	Under the **Pricing** tab, you will see all of the supported markets. Select the appropriate one to bring up the pricing fields.
@@ -99,7 +100,7 @@ In the Legal tab, provide a link to your policies/terms of use. Enter or paste t
 5.	A pricing wizard will open; proceed through this to complete your pricing, including pricing for other countries, if you choose to allow purchases from outside your specified market.
 6.	Some countries are ISV Remit countries. To sell in an ISV Remit country, you must be able to charge and collect tax on your SKUs, and should calculate and pay tax to the government of the country. Microsoft is not in a position to provide legal or tax guidance.  See section ““Sell-to” countries of the Offer” under Introduction of this document for more information on “Sell To Countries”.
 
-### 2.3 Set your developer service prices
+### 2.2. Set your developer service prices
 Plans can be any combination of Base + Consumption, where BASE is monthly price and Overage is pay-per-use price (see below for more details)
 
 **Example:**  Contoso Developer Service Offering
@@ -118,17 +119,17 @@ Plans can be any combination of Base + Consumption, where BASE is monthly price 
 ### 2.4 Set your data service prices
 -->
 
-## 3. Provide support information
+## Step 3: Provide support information
 Some of this information will have been completed during the certification step. You may add or edit information as in the steps below. The contact details are used for internal communications between partner and Microsoft only. Support URL will be available to the end customers.
 1.	Go to the Support heading on the left side of the Publishing Portal.
 2.	Enter information under Engineering Contact.
 3.	Enter information under Customer Support. If you only provide email support, enter a dummy phone number, and your provided email will be used instead.
 4.	Enter Support URL
 
-## 4 Choose Azure Marketplace categories
+## Step 4: Choose Azure Marketplace categories
 In the **Categories** tab, there will be an array of selections provided. Your offer may fall under these, and you may select up to five (5) categories.
 
-## Next Steps
+## Next steps
 Now that your Marketplace content is loaded, lets move forward with the **Step 3: Testing your offer in Staging**. However, you must select the appropriate offer type from the list below as steps vary by offer type.
 
 ||Virtual Machine Image |Developer Service | Data Service | Solution Template |

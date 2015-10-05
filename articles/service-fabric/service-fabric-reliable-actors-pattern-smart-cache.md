@@ -3,7 +3,7 @@
    description="Design pattern on how to use Reliable Actors as caching infrastructure on web-based applications"
    services="service-fabric"
    documentationCenter=".net"
-   authors="jessebenson"
+   authors="vturecek"
    manager="timlt"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="08/05/2015"
-   ms.author="claudioc"/>
+   ms.author="vturecek"/>
 
 # Reliable Actors design pattern: smart cache
 The combination of a web tier, caching tier, storage tier, and occasionally a worker tier are pretty much the standard parts of today’s applications. The caching tier is usually vital to performance and may, in fact, be comprised of multiple tiers itself.

@@ -3,7 +3,7 @@
    description="Introduction to the Service Fabric Reliable Actors programming model"
    services="service-fabric"
    documentationCenter=".net"
-   authors="jessebenson"
+   authors="vturecek"
    manager="timlt"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="08/05/2015"
-   ms.author="claudioc"/>
+   ms.author="vturecek"/>
 
 # Introduction to Service Fabric Reliable Actors
 The Reliable Actors API is one of two high-level frameworks provided by [Service Fabric](service-fabric-technical-overview.md), along with the [Reliable Services API](service-fabric-reliable-services-introduction.md).
