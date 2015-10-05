@@ -189,7 +189,7 @@ A storage account is needed to store the virtual hard disk file that is created 
 		CreateStorageAccount(credential);
 		Console.ReadLine();
 
-###Create a virtual network
+###Create networking configuration
 
 A virtual machine is most productive when it is added to a virtual network.
 
