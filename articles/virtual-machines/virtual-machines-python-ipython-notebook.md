@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Create an Jupyter/IPython Notebook | Microsoft Azure"
-	description="Learn how to deploy the Jupyter/IPython Notebook on a Linux or Windows virtual machine created with the resouce manager deployment model in Azure."
+	description="Learn how to deploy the Jupyter/IPython Notebook on a Linux virtual machine created with the resource manager deployment model in Azure."
 	services="virtual-machines"
 	documentationCenter="python"
 	authors="huguesv"
@@ -11,15 +11,13 @@
 <tags
 	ms.service="virtual-machines"
 	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-multiple"
+	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="python"
 	ms.topic="article"
 	ms.date="05/20/2015"
 	ms.author="huvalo"/>
 
 # Jupyter Notebook on Azure
-
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)] This article covers deploying a notebook on a virtual machine created with the resource manager deployment model or using the Azure Notebooks service.
 
 The [Jupyter project](http://jupyter.org), formerly the [IPython project](http://ipython.org), provides a collection of tools for scientific computing using powerful interactive shells that combine code execution with the creation of a live computational document. These notebook files can contain arbitrary text, mathematical formulas, input code, results, graphics, videos and any other kind of media that a modern web browser is capable of displaying. Whether you're absolutely new to Python and want to learn it in a fun, interactive environment or do some serious parallel/technical computing, the Jupyter Notebook is a great choice.
 
@@ -35,6 +33,8 @@ libraries.  Since the installation is handled by the service, users can access t
 resources without the need for administration and configuration by the user.
 
 If the notebook service does not work for your scenario please continue to read this article which will will show you how to deploy the Jupyter Notebook on Microsoft Azure, using Linux virtual machines (VMs).
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)] This article covers deploying a notebook on a virtual machine created with the resource manager deployment model or using the Azure Notebooks service.
 
 [AZURE.INCLUDE [create-account-and-vms-note](../../includes/create-account-and-vms-note.md)]
 
@@ -79,24 +79,24 @@ Install Anaconda, a popular data science python distribution, using one of the l
   <tr>
     <td>
 		<a href='https://3230d63b5fc54e62148e-c95ac804525aac4b6dba79b00b39d1d3.ssl.cf1.rackcdn.com/Anaconda3-2.3.0-Linux-x86.sh'>32 bit</href>
-	</td> 
+	</td>
     <td>
 		<a href='https://3230d63b5fc54e62148e-c95ac804525aac4b6dba79b00b39d1d3.ssl.cf1.rackcdn.com/Anaconda-2.3.0-Linux-x86.sh'>32 bit</href>
 	</td>  
   </tr>
-</table> 
+</table>
 
 
 #### Installing Anaconda3 2.3.0 64-bit on Ubuntu
 As an example, this is how you can install Anaconda on Ubuntu
 
 	# install anaconda
-	cd ~	
+	cd ~
 	mkdir -p anaconda
 	cd anaconda/
 	curl -O https://3230d63b5fc54e62148e-c95ac804525aac4b6dba79b00b39d1d3.ssl.cf1.rackcdn.com/Anaconda3-2.3.0-Linux-x86_64.sh
 	sudo bash Anaconda3-2.3.0-Linux-x86_64.sh -b -f -p /anaconda3
-	
+
 	# clean up home directory
 	cd ..
 	rm -rf anaconda/
@@ -173,8 +173,8 @@ the Jupyter Notebook server with the following command.
 You should now be able to access your Jupyter Notebook at the address
 `https://[PUBLIC-IP-ADDRESS]:9999`.
 
-When you first access your notebook, the login page asks for your password. And 
-once you log in, you will see the "Jupyter Notebook Dashboard", which is the 
+When you first access your notebook, the login page asks for your password. And
+once you log in, you will see the "Jupyter Notebook Dashboard", which is the
 ontrol center for all notebook operations.  From this page you can create
 new notebooks and open existing ones.
 
@@ -251,8 +251,6 @@ profiling and parallel computing integration.
 
 For more information, see the [Python Developer Center](/develop/python/).
 
-[portal-vm-linux]: https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-tutorial-portal-rm/ 
+[portal-vm-linux]: https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-tutorial-portal-rm/
 [repository]: https://github.com/ipython/ipython
 [Python Tools for Visual Studio]: http://aka.ms/ptvs
-
-
