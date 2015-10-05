@@ -24,7 +24,7 @@
 
 This topic shows you how to use the source control provided by Azure Mobile Services to store your server scripts. Scripts and other JavaScript backend code files can be promoted from your local Git repository to your production mobile service. It also shows how to define shared code that can be required by multiple scripts and how to use the package.json file to add Node.js modules to your mobile service.
 
-To complete this tutorial, you must have already created a mobile service by completing either the [Get started with Mobile Services] or the [Add Mobile Services to an existing app] tutorial.
+To complete this tutorial, you must have already created a mobile service by completing the [Get started with Mobile Services] tutorial.
 
 ##<a name="enable-source-control"></a>Enable source control in your mobile service
 
@@ -152,7 +152,6 @@ Now that you have completed this tutorial you know how to store your scripts in 
 [Source control]: http://msdn.microsoft.com/library/windowsazure/c25aaede-c1f0-4004-8b78-113708761643
 [Installing Git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
 [Get started with Mobile Services]: mobile-services-ios-get-started.md
-[Add Mobile Services to an existing app]: mobile-services-ios-get-started-data.md
 [Work with server scripts in Mobile Services]: mobile-services-how-to-use-server-scripts.md
 [Azure Management Portal]: https://manage.windowsazure.com/
 [Modules]: http://nodejs.org/api/modules.html

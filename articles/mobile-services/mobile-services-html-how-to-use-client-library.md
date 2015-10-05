@@ -43,7 +43,7 @@ In the editor, open or create a JavaScript file, and add the following code that
 	var MobileServiceClient = WindowsAzure.MobileServiceClient;
     var client = new MobileServiceClient('AppUrl', 'AppKey');
 
-You must replace the placeholder `AppUrl` with the application URL of your mobile service and `AppKey` with the application key. To learn how to obtain the application URL and application key for the mobile service, consult the tutorial [Add Mobile Services to an existing app](mobile-services-html-get-started-data.md).
+You must replace the placeholder `AppUrl` with the application URL of your mobile service and `AppKey` with the application key, which you obtain from the [Azure portal](http://manage.windowsazure.com/).
 
 >[AZURE.IMPORTANT]The application key is intended to filter-out random request against your mobile service, and it is distributed with the application. Because this key is not encrypted, it cannot be considered secure. To truly secure your mobile service data, you must instead authenticate users before allowing access. For more information, see [How to: Authenticate users](#authentication).
 
