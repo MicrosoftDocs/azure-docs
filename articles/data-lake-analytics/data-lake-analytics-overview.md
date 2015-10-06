@@ -58,6 +58,29 @@ Microsoft deliver Big Data analytics in two form factors:
 - **Federated Query**
 	
 	Big Analytics can use data from Windows Azure Data Lake, Azure Storage Blobs, and Azure SQL DB. This means that you don't have to move data around just to use it with Big Analytics.
+	
+	
+From Saveen's presentation
+
+- A hyper-scale service for preparing data fully managed by Microsoft (Downstream uses: ML, Exploration, Traditional BI, Publishing)
+- Users focus on business problems not distributed computing or infrastructure
+- Built on open standards (YARN, WebHDFS, Hive, Pig, etc.)
+- Includes a new language called U-SQL
+- Fully integrated into Visual Studio
+- Leverages Azure Data Lake for performance and scale
+- Complements HDInsight
+	
+## ADL Analytics architecture
+
+[the process]
+
+## Development tools	
+
+## the storage
+
+
+## U-SQL
+
 
 ### Useful links
 
@@ -80,7 +103,6 @@ Browse the following pages:
  
  	- How is Kona related to Hadoop in HDInsight in addition to service vs. cluster?
 	- Is Kona based on Hadoop?
-	- Performance comparison
 
  - the data storage supported by Kona
 	 - Kona Catalog / Kona store?
@@ -101,3 +123,5 @@ Browse the following pages:
  - The tools
 	 - SQLIP studio / SCOPE studio
 	 - HDI studio (Is this Visual Studio tools for HDI?)
+	 
+ - payment

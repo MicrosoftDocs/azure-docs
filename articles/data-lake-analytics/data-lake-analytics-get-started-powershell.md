@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Get started with Azure Big Analytics using Azure PowerShell | Azure" 
-   description="Learn how to use the Azure PowerShell to create a Big Analytics account, create a Big Analytics job using U-SQL, and submit the job. " 
+   pageTitle="Get started with Azure Data Lake Analytics using Azure PowerShell | Azure" 
+   description="Learn how to use the Azure PowerShell to create a Data Lake Analytics account, create a Data Lake Analytics job using U-SQL, and submit the job. " 
    services="big-analytics" 
    documentationCenter="" 
    authors="mumian" 
@@ -16,20 +16,9 @@
    ms.date="09/29/2015"
    ms.author="jgao"/>
 
-# Get Started with Azure Big Analytics using Azure PowerShell
+# Get Started with Azure Data Lake Analytics using Azure PowerShell
 
-Learn how to use the Azure PowerShell to create a Big Analytics account, create a Big Analytics job using [U-SQL], and submit the job.  For more information about Big Analytics, see [Azure Big Analytics overview](big-analytics-overview.md).
-
-See the following articles for using other tools:
-
-- [Get started with Azure Big Analytics using Azure preview portal](big-analytics-get-started-portal.md)
-- [Get started with Azure Big Analytics and U-SQL using Visual Studio](big-analytics-get-started-u-sql.md)
-
-Basic Big Analytics process:
-
-![Azure Big Analytics process flow diagram](./media/big-analytics-get-started-portal/big-analytics-process-flow-diagram.png)
-
-An Big Analytics job reads files from the dependent Data Lake account, process the files as instructed in a U-SQL script, and save the output back to the Data Lake account.
+[jgao copy this part from the get stared using portal article]
 
 **Prerequisites**
 
@@ -40,7 +29,7 @@ Before you begin this tutorial, you must have the following:
 
 	[jgao: until the public preview, use the following procedure to install Azure PowerShell]
 	
-	**To install Azure Powershell with the Big Analytics/ Data Lake cmdlets**  
+	**To install Azure Powershell with the Data Lake Analytics/ Data Lake cmdlets**  
 	
 	1. Download the [Azure PowerShell module](https://github.com/MicrosoftBigData/ProjectKona/releases).
 	2. Extract **Azure_PowerShell.msi** from the zip file, and install it.
@@ -55,11 +44,11 @@ Before you begin this tutorial, you must have the following:
 		    Register-AzureProvider -ProviderNamespace "Microsoft.DataLake"
 
 
-##Create a Big Analytics account
+##Create a Data Lake Analytics account
 
-You must have a Big Analytics account before you can run a Big Analytics job. To create a Big Analytics account, you must specify the following:
+You must have a Data Lake Analytics account before you can run a Data Lake Analytics job. To create a Data Lake Analytics account, you must specify the following:
 
-- **Azure Resource Group**: A Big Analytics account must be created within a Azure Resource group. [Azure Resource Manager](https://azure.microsoft.com/en-us/documentation/articles/resource-group-overview/) enables you to work with the resources in your application as a group. You can deploy, update or delete all of the resources for your application in a single, coordinated operation.  
+- **Azure Resource Group**: A Data Lake Analytics account must be created within a Azure Resource group. [Azure Resource Manager](https://azure.microsoft.com/en-us/documentation/articles/resource-group-overview/) enables you to work with the resources in your application as a group. You can deploy, update or delete all of the resources for your application in a single, coordinated operation.  
 
 	To enumerate the resource groups in your subscription:
     
@@ -71,9 +60,9 @@ You must have a Big Analytics account before you can run a Big Analytics job. To
 			-Name "<Your resource group name>" `
 			-Location "<Azure Data Center>" # For example, "East US 2"
 
-- **Big Analytics account name**
-- **Location**: one of the Azure data centers that supports Big Analytics.
-- **Data Lake account**: An Big Analytics account uses an Data Lake account for data storage.
+- **Data Lake Analytics account name**
+- **Location**: one of the Azure data centers that supports Data Lake Analytics.
+- **Data Lake account**: An Data Lake Analytics account uses an Data Lake account for data storage.
 
 	To create a new Data Lake account:
 
@@ -85,7 +74,7 @@ You must have a Big Analytics account before you can run a Big Analytics job. To
 	> [AZURE.NOTE] The Data Lake account name must only contain lowercase letters and numbers.
 
 
-To create a new Big Analytics account
+To create a new Data Lake Analytics account
    
     New-AzureKonaAccount `
         -ResourceGroupName "<You Azure resource group name>" `
@@ -93,10 +82,10 @@ To create a new Big Analytics account
         -Location "<Azure Data Center>"  #"East US 2" `
         -DefaultDataLake "<Your Knoa account name>"
 
-> [AZURE.NOTE] The Big Analytics account name must only contain lowercase letters and numbers.
+> [AZURE.NOTE] The Data Lake Analytics account name must only contain lowercase letters and numbers.
 
 
-**To create a Big Analytics account**
+**To create a Data Lake Analytics account**
 
 1. Open PowerShell ISE from your Windows workstation.
 2. Run the following script:
@@ -131,7 +120,7 @@ To create a new Big Analytics account
 
 ##Upload data to Data Lake
 
-Now you have a Big Analytics account.  You will still need some data to run a Big Analytics job. The data file used in this tutorial is a tab separated file with the following fields:
+Now you have a Data Lake Analytics account.  You will still need some data to run a Data Lake Analytics job. The data file used in this tutorial is a tab separated file with the following fields:
 
         Athlete              string,
         Age                  string,
@@ -146,7 +135,7 @@ Now you have a Big Analytics account.  You will still need some data to run a Bi
 
 You can download a data file from [Github](https://github.com/MicrosoftBigData/ProjectKona/tree/master/SQLIPSamples/SampleData/OlympicAthletes.tsv) to your workstation.
 
-**To upload the file to the Data Lake account associated with the Big Analytics account**
+**To upload the file to the Data Lake account associated with the Data Lake Analytics account**
 
 	Import-AzureDataLakeItem -AccountName "<Your Data Lake account>" `
                      -Path "c:\OlympicAthletes.tsv" `
@@ -158,11 +147,11 @@ You can download a data file from [Github](https://github.com/MicrosoftBigData/P
 
 For more information on uploading data to Data Lake, see ....
 
-Big Analytics can also access Azure Blob storage.  For uploading data to Azure Blob storage, see ....
+Data Lake Analytics can also access Azure Blob storage.  For uploading data to Azure Blob storage, see ....
 
-##Submit Big Analytics jobs
+##Submit Data Lake Analytics jobs
 
-**To create a Big Analytics job script**
+**To create a Data Lake Analytics job script**
 
 - Create a text file with following U-SQL script, and save the text file to your workstation:
 
@@ -221,13 +210,13 @@ And use the following cmdlets to download the file:
 Until now, you’ve learned: 
 
 - Upload, list, and upload files to Azure Data Lake
-- Submit a Big Analytics jobs
+- Submit a Data Lake Analytics jobs
 
 To read more:
 
-- [Azure Big Analytics overview](big-analytics-overview.md)
-- [Get started with Azure Big Analytics using Azure PowerShell](big-analytics-get-started-powershell.md)
-- [Get started with Azure Big Analytics and U-SQL using Visual Studio](big-analytics-get-started-u-sql-studio.md)
+- [Azure Data Lake Analytics overview](big-analytics-overview.md)
+- [Get started with Azure Data Lake Analytics using Azure PowerShell](big-analytics-get-started-powershell.md)
+- [Get started with Azure Data Lake Analytics and U-SQL using Visual Studio](big-analytics-get-started-u-sql-studio.md)
 
 
 
