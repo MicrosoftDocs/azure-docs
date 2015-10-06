@@ -18,9 +18,12 @@
 
 # Develop U-SQL scripts using Data Lake Tools for Visual Studio
 
+[jgao: the screenshots needs to be updated after renaming from sqlip to u-sql]
+
 Learn how to install Data Lake Tools for Visual Studio, and use Data Lake Tools for Visual Studio to write and test U-SQL scripts.
 
 U-SQL is a hyper-scalable, highly extensible language for preparing, transforming and analyzing all data in the data lake and beyond. For more information, see [U-SQL Reference]().
+
 
 **Prerequisites**
 
@@ -40,7 +43,7 @@ Before the product release, download the package from [https://microsoft.sharepo
  
 Once Data Lake Tools for Visual Studio is installed, you will see a U-SQL menu in Visual Studio:
 
-![U-SQL Visual Studio menu](./media/data-lake-analytics-u-sql-studio-get-started/data-lake-analytics-u-sql-studio-menu.png)
+![U-SQL Visual Studio menu](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-menu.png)
 [jgao: the menu is still "SqlIP"]
 
 ## Connect to Azure
@@ -61,19 +64,18 @@ Once Data Lake Tools for Visual Studio is installed, you will see a U-SQL menu i
 
 You have uploaded some some data in the **Prerequisite** section earlier in the tutorial.  
 
-In case you want to use your own data, here is the procedure for uploading data from the Data Lake Tools.
+In case you want to use your own data, here are the procedures for uploading data from the Data Lake Tools.
 
 **To upload the file to the dependent Azure Data Lake account**
 
 [jgao: no responses when click Explorer]
-
 
 1. From **Server Explorer**, expand **Azure**, expand **Data Lake Analytics**, expand your ADL Analytics account, expand **Linked Storage**. You shall see the default ADL Storage account, and the link ADL Storage accounts, and the Blob containers of the linked Azure Storage accounts.
 2. Right-click the default ADL Storage account, and then click **Explorer**.  It opens the Data Lake Tools for Visual Studio Explorer pane.  In the left, it shows a tree view, the content view is on the right.
 
 2. Right-click any blank space in the content view, and then click **New Folder** to create a folder called **SampleData**.
 
-	![U-SQL Visual Studio explorer](./media/data-lake-analytics-u-sql-studio-get-started/data-lake-analytics-u-sql-studio-explorer.png)
+	![U-SQL Visual Studio explorer](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-explorer.png)
 3. Double-click **SampleData** to open its content in the content view.
 4. Right-click any blank space in the content view, click **Upload**, click **As Text**. Follow the instruction to upload OlympicAthletes.tsv.
 
@@ -84,42 +86,49 @@ See [Get started with HDInsight Tools for Visual Studio]().
  
 ## Develop and test U-SQL scripts 
 
-**To create and submit a ADL Analytics job** 
+**To create and submit an ADL Analytics job** 
 
 1. From the **File** menu, click **New**, and then click **Project**.
 2. Type or select the following:
 
 	- **Templates**: SQL IP
 	- **Template**: SQL Information Production Project
-	- **Name**: MyFirstSQLIPApplication
+	- **Name**: MyFirstUSQLApp
 	- **Location**: c:\tutorials\ADLTools
 
-	![new U-SQL Visual Studio project](./media/data-lake-analytics-u-sql-studio-get-started/data-lake-analytics-u-sql-studio-new-project.png)
+	![new U-SQL Visual Studio project](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-new-project.png)
 
+	[jgao: rename the .sip extention]
 3. Click **OK**. Visual studio creates a solution with a Script.sip file.
 4. Enter the following script into the Script.sip file:
 
-		@athletes =
-		    EXTRACT
-		        Athlete              string,
-		        Age                  string,
-		        Country              string,
-		        Year                 string,
-		        ClosingCeremonyDate  string,
-		        Sport                string,
-		        GoldMedals           string,
-		        SilverMedals         string,
-		        BronzeMedals         string,
-		        TotalMedals          string
-		    FROM @"/SampleData/OlympicAthletes.tsv"
-		    USING new DefaultTextExtractor();
-		
-		OUTPUT @athletes
-		    TO @"/SampleData/OlympicAthletes_Copy.tsv"
-		    USING new DefaultTextOutputter();
+        @searchlog =
+            EXTRACT UserId          int,
+                    Start           DateTime,
+                    Region          string,
+                    Query           string,
+                    Duration        int?,
+                    Urls            string,
+                    ClickedUrls     string
+            FROM "/Samples/Data/SearchLog.tsv"
+            USING Extractors.Tsv();
+        
+        OUTPUT @searchlog   
+            TO "/output/SearchLog-from-adltools.csv"
+        USING Outputters.Csv();
 
-	>[AZURE.NOTE] To use the data in Azure Blob Storage, use the following syntax: wasb://<yourContainer>@<yourStorageAccount>/<your path to>/OlympicAthletes.tsv" 
+	This U-SQL script reads the input data file using the Extractors.tsv(), and then creates a csv file using
+    theOutputters.csv(). 
+    
+    Notice the path is a relative path. You can also use absolute path.  For example 
+    
+        adl://<ADLStorageAccountName>.azuredatalake.net/Samples/Data/SearchLog.tsv
+        
+    You must use absolute path to access the files in the linked Storage accounts.  The syntax for files stored in linked Azure Storage account is:
+    
+        wasb://<BlobContainerName>@<StorageAccountName>.blob.core.windows.net/Samples/Data/SearchLog.tsv
 
+    >[AZURE.NOTE] Azure Blob container with public blobs or public containers access permissions are not currently supported.  
 
 	Notice the following features:
 
@@ -149,14 +158,12 @@ See [Get started with HDInsight Tools for Visual Studio]().
 		
 		Rather than remembering Azure file path and type it manually when writing script, Data Lake Tools for Visual Studio provides an easy way: right click in the editor, click Insert Azure Path. Navigate to the file in the Azure Blob Browser dialog. Click OK button the file path will be inserted to your code. 
 
-
-
 5. From **Solution Explorer**, right click **Script.sip**, and then click **Build Script**. Verify the result in the Output pane.
 6. From **Solution Explorer**, right click **Script.sip**, and then click **Submit Script**.
 7. Click **Submit**. Submission results and job link are available in the Data Lake Tools for Visual Studio Results window when the submission is completed.
 8. You must click the Refresh button to see the latest job status and refresh the screen. When the job successes, it will show you the Stage connection view, script, state history, and diagnostic information:
 
-	![U-SQL Visual Studio ADL Analytics job performance graph](./media/data-lake-analytics-u-sql-studio-get-started/data-lake-analytics-u-sql-studio-performance-graph.png)
+	![U-SQL Visual Studio ADL Analytics job performance graph](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-performance-graph.png)
 
 	* Job Summary. Show the summary information of current job, e.g.: State, Progress, Execution Time, Runtime Name, Submitter etc.   
 	* Job Details. Detailed information on this job is provided, including script, algebra, vertexdef, code, resources.

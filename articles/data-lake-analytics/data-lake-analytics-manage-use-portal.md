@@ -18,7 +18,7 @@
 
 # Manage Azure Data Lake Analytics using Azure Preview portal
 
-Learn how to manage Azure Data Lake Analytics accounts,data sources, users, and jobs using the Azure Preview portal.
+Learn how to manage Azure Data Lake Analytics accounts, data sources, users, and jobs using the Azure Preview portal.
 
 **Prerequisites**
 
@@ -48,12 +48,12 @@ This article includes:
 [jgao: is ADL-Analytics a good usage case of ARM? If no, I can remove this section]
 
 Applications are typically made up of many components, for example a web app, database, database server, storage,
- and 3rd party services. Azure Resource Manager (ARM) enables you to work with the resources in your application 
- as a group, referred to as an Azure Resource Group. You can deploy, update, monitor or delete all of the 
- resources for your application in a single, coordinated operation. You use a template for deployment and that 
- template can work for different environments such as testing, staging and production. You can clarify billing 
- for your organization by viewing the rolled-up costs for the entire group. For more information, see [Azure 
- Resource Manager Overview](resource-group-overview.md). 
+and 3rd party services. Azure Resource Manager (ARM) enables you to work with the resources in your application 
+as a group, referred to as an Azure Resource Group. You can deploy, update, monitor or delete all of the 
+resources for your application in a single, coordinated operation. You use a template for deployment and that 
+template can work for different environments such as testing, staging and production. You can clarify billing 
+for your organization by viewing the rolled-up costs for the entire group. For more information, see [Azure 
+Resource Manager Overview](resource-group-overview.md). 
 
 An Data Lake Analtyics service can include the following components:
 
@@ -64,7 +64,7 @@ An Data Lake Analtyics service can include the following components:
 
 You can create all these components under one ARM group to make them easier to manage.
 
-![Azure Data Lake Analytics account and storage](./media/data-lake-analytics-get-started-portal/data-lake-analytics-arm-structure.png)
+![Azure Data Lake Analytics account and storage](./media/data-lake-analytics-manage-use-portal/data-lake-analytics-arm-structure.png)
 
 An Data Lake Analytics account and the dependent storage accounts must be placed in the same Azure data center.
 The ARM group however can be located in a different data center.  
@@ -89,7 +89,7 @@ running a job.  You only pay for the time when it is running a job.  For more in
 5. Click **Create** on the bottom of the blade.
 6. Type or select the following:
 
-	![Azure Data Lake Analytics portal blade](./media/data-lake-analytics-get-started-portal/data-lake-analytics-portal-create-aba.png)
+	![Azure Data Lake Analytics portal blade](./media/data-lake-analytics-get-started-portal/data-lake-analytics-portal-create-adla.png)
 
 	- **Name**: Name the Analytics account.
 	- **Data Lake Store**: Each Data Lake Analytics account has a dependent Azure Data Lake storage account. The Data Lake Analytics account and the dependent Data Lake storage account must be located in the same Azure data center. Follow the instruction to create a new Data Lake storage account, or select an existing one.
@@ -97,7 +97,7 @@ running a job.  You only pay for the time when it is running a job.  For more in
 	- **Resource Group**. Select an existing Azure Resource Group or create a new one. Applications are typically made up of many components, for example a web app, database, database server, storage, and 3rd party services. Azure Resource Manager (ARM) enables you to work with the resources in your application as a group, referred to as an Azure Resource Group. You can deploy, update, monitor or delete all of the resources for your application in a single, coordinated operation. You use a template for deployment and that template can work for different environments such as testing, staging and production. You can clarify billing for your organization by viewing the rolled-up costs for the entire group. For more information, see [Azure Resource Manager Overview](resource-group-overview.md). 
 	- **Location**. Select an Azure data center for the Data Lake Analytics account. 
 
-8. Click **Create**. It takes you to the portal home screen. A new tile is added to the Home page with the label showing "Deploying Azure Data Lake Analytics". It takes a few moments to create a Data Lake Analytics account. When the account is created, the portal opens the account on a new blade.
+8. Click **Create**. It takes you to the portal home screen. A new tile is added to the StartBoard with the label showing "Deploying Azure Data Lake Analytics". It takes a few moments to create a Data Lake Analytics account. When the account is created, the portal opens the account on a new blade.
 
 	![Azure Data Lake Analytics portal blade](./media/data-lake-analytics-get-started-portal/data-lake-analytics-portal-blade.png)
 
@@ -111,12 +111,10 @@ running a job.  You only pay for the time when it is running a job.  For more in
 
 1. Open the Analtyics account that you want to delete. For instructions see [Access Data Lake Analytics accounts](#access-adla-account).
 2. Click **Delete** from the button menu on the top of the blade.
-
-	![delete Azure Data Lake Analytics account](./media/data-lake-analytics-administer-use-portal/data-lake-analytics-delete-account.png)
 3. Type the account name, and then click **Delete**.
 
 Delete a Analytics account will not delete the dependent Data Lake Storage account. For instructions of deleting
-ADL Storage accounts, see []().
+ADL Storage accounts, see [nitin's article]().
 
 
 <!-- ################################ -->
@@ -126,11 +124,17 @@ ADL Storage accounts, see []().
 Data Lake Analytics currently supports the following data sources:
 
 - [Azure Data Lake Storage](data-lake-storage-overview.md)
-- Azure Blob storage (Azure Storage account)
+- [Azure Storage](storage-introduction.md)
 
 When you create an Analytics account, you must designate an Azure Data Lake Storage account to be the default 
-storage. The default ADL storage account is used to store job metadata and job audit logs. After you have 
+storage account. The default ADL storage account is used to store job metadata and job audit logs. After you have 
 created an Analytics account, you can add additional Data Lake Storage accounts and/or Azure Storage account. 
+
+<a name="default-adl-account"></a>**To find the default ADL storage account**
+
+- Open the Analtyics account that you want to manage. For instructions see [Access Data Lake Analytics accounts](#access-adla-account). The default Data Lake store is shown in **Essential**:
+
+	![Azure Data Lake Analytics add data source](./media/data-lake-analytics-manage-use-portal/data-lake-analytics-default-adl-storage-account.png)
 
 **To add additional data sources**
 
@@ -139,7 +143,7 @@ created an Analytics account, you can add additional Data Lake Storage accounts 
 there. 
 3. Click **Add Data Source**.
 
-	![Azure Data Lake Analytics add data source](./media/data-lake-analytics-administer-use-portal/data-lake-analytics-add-data-source.png)
+	![Azure Data Lake Analytics add data source](./media/data-lake-analytics-manage-use-portal/data-lake-analytics-add-data-source.png)
 
 	To add a Azure Data Lake Storage account, you need the account name.
 	To add a Azure Blob storage, you need the storage account and the account key.
@@ -149,11 +153,11 @@ there.
 1. Open the Analtyics account that you want to manage. For instructions see [Access Data Lake Analytics accounts](#access-adla-account).
 2. Click **Settings** and then click **Data Explorer**. 
  
-	![Azure Data Lake Analytics data explorer](./media/data-lake-analytics-administer-use-portal/data-lake-analytics-data-explorer.png)
+	![Azure Data Lake Analytics data explorer](./media/data-lake-analytics-manage-use-portal/data-lake-analytics-data-explorer.png)
 	
 3. Click a Data Lake Storage account to open it.
 
-	![Azure Data Lake Analytics data explorer storage account](./media/data-lake-analytics-administer-use-portal/data-lake-analytics-explore-adls.png)
+	![Azure Data Lake Analytics data explorer storage account](./media/data-lake-analytics-manage-use-portal/data-lake-analytics-explore-adls.png)
 	
 	For each Data Lake Storage account, you can
 	
@@ -164,19 +168,18 @@ there.
 	- **Folder properties**: Show file or folder properties, such as WASB path, WEBHDFS path, last modified time and so on.
 	- **Delete Folder**: Delete a folder.
 
-<a name="upload-data"></a> **To upload files to Data Lake Storage account**
-
-See []().
+<a name="upload-data-to-adls"></a> **To upload files to Data Lake Storage account**
 
 1. From the preview portal, click **Browse ** from the left menu, and then click **Data Lake Store**.
-2. Click the Data Lake storage account that is designated as the default storage.
+2. Click the Data Lake storage account that you want to upload data to. To find the default ADL Storage account, see [here](#default-adl-account)
 3. Click **Data Explorer** from the top menu.
-4. Click **New Directory**, and then create a new directory called **SampleData**.
-5. Click **SampleData** to open the folder.
-6. Click **Upload** from the top menu, and upload the SearchLog.tsv from your local computer.
+4. Click **New Directory** to create a new folder, or click a folder name to change folder.
+6. Click **Upload** from the top menu to upload file.
+
+See [nitin's article]().
 
 
-**To upload files to Azure Blob storage account**
+<a name="upload-data-to-wasb"></a> **To upload files to Azure Blob storage account**
 
 See []().
 
@@ -202,7 +205,7 @@ For information on creating Azure Active Directory users and security groups, Se
 1. Open the Analtyics account that you want to manage. For instructions see [Access Data Lake Analytics accounts](#access-adla-account).
 2. Click **Settings**, and then click **Users**. You can also click **Access** on the **Essentials** title bar as shown in the following screenshot:
 
-	![Azure Data Lake Analytics account add users](./media/data-lake-analytics-administer-use-portal/data-lake-analytics-access-button.png)
+	![Azure Data Lake Analytics account add users](./media/data-lake-analytics-manage-use-portal/data-lake-analytics-access-button.png)
 3. From the **User** blade, click **Add**.
 4. Select a role and add a users, and then click **OK**.
 
@@ -213,22 +216,25 @@ For information on creating Azure Active Directory users and security groups, Se
 3. Click **Access**.
 
 
+
+
+
 <!-- ################################ -->
 <!-- ################################ -->
 ## Manage jobs
 
 You must have an Data Lake Analytics account before you can create a job.  For more information, see [Manage Data Lake Analytics accounts](#manage-data-lake-analytics-accounts).
 
-**To create a job**
+<a name="create-job"></a>**To create a job**
 
 1. Open the Analtyics account that you want to manage. For instructions see [Access Data Lake Analytics accounts](#access-adla-account).
-3. Click **New Job**.
+2. Click **New Job**.
 
-	![create Azure Data Lake Analytics U-SQL jobs](./media/data-lake-analytics-administer-use-portal/data-lake-analytics-create-job-button.png)
+	![create Azure Data Lake Analytics U-SQL jobs](./media/data-lake-analytics-manage-use-portal/data-lake-analytics-create-job-button.png)
 
 	You will see a new blade similar to:
 
-	![create Azure Data Lake Analytics U-SQL jobs](./media/data-lake-analytics-administer-use-portal/data-lake-analytics-new-job.png)
+	![create Azure Data Lake Analytics U-SQL jobs](./media/data-lake-analytics-manage-use-portal/data-lake-analytics-new-job.png)
 
 	For each job, you can configure
 
@@ -241,60 +247,47 @@ You must have an Data Lake Analytics account before you can create a job.  For m
 	|Script|Enter the U-SQL script for the job.|
 
 	Using the same interface, you can also explore the link data sources, and add addtional files to the linked data sources. 
+3. Click **Submit Job** if you want to submit the job.
 
 ** To submit a job**
 
-**To monitor jobs**
+See [Create Data Lake Analtyics jobs](#create-job).
+
+<a name="monitor-jobs"></a>**To monitor jobs**
 
 1. Open the Analtyics account that you want to manage. For instructions see 
 [Access Data Lake Analytics accounts](#access-adla-account). The Job Management panel shows the basic job 
 information:
 
-	![manage Azure Data Lake Analytics U-SQL jobs](./media/data-lake-analytics-administer-use-portal/data-lake-analytics-manage-jobs.png)
+	![manage Azure Data Lake Analytics U-SQL jobs](./media/data-lake-analytics-manage-use-portal/data-lake-analytics-manage-jobs.png)
 
 3. Click **Job Management** as shown in the previous screenshot.
 
-	![manage Azure Data Lake Analytics U-SQL jobs](./media/data-lake-analytics-administer-use-portal/data-lake-analytics-manage-jobs-details.png)
+	![manage Azure Data Lake Analytics U-SQL jobs](./media/data-lake-analytics-manage-use-portal/data-lake-analytics-manage-jobs-details.png)
+
+4. Click a job from on of the lists.
+5. Click **Resubmit** if you want to resumit the job.
 
 **To resubmit a job **
+
+See [Monitor Data Lake Analytics jobs](#monitor-jobs).
 
 ##Monitor account usage
 
 [introduction - we need to explain the terms, and connect the pieces. ]
 
+**To monitor account usage**
+1. Open the Analtyics account that you want to manage. For instructions see 
+[Access Data Lake Analytics accounts](#access-adla-account). The Usage panel shows the usage:
+
+	![monitor Azure Data Lake Analytics usage](./media/data-lake-analytics-manage-use-portal/data-lake-analytics-monitor-usage.png)
+
+##Manage the catalog
+
+[jgao: do we need this here?]
 
 ##See also 
 
 - bla
 - bla
-
-## Manage Kona users using PowerShell [jgao: to be moved to a different article]
-
-[**jgao:** If this is not needed to go through the tutorial, then we shall separated it into a management topic]
-[saveenr - sounds good - talk to mahi about the correct way to do user management]
-
-To add a user to your Kona Account:
-
-
-	New-KonaUser –UserEmail user1@aadtenant.onmicrosoft.com –UserRole User 
-
-
-To list the existing Kona users:
-
-	Get-KonaUser 
-
-The following is a sample output:
-
-	CreationTime                LastModifiedTime            Name                        Roles                      
-	------------                ----------------            ----                        -----                      
-	Mon, 13 Oct 2014 18:42:3... Mon, 13 Oct 2014 18:42:3... KiwiPublicTest@JianywKiw... {Admin}                    
-	Tue, 14 Oct 2014 02:24:3... Tue, 14 Oct 2014 02:24:3... konauser2@test              {Admin}                    
-	Tue, 14 Oct 2014 02:26:0... Tue, 14 Oct 2014 02:26:0... konauser1@onboardflow.on... {Admin}                    
-	Wed, 15 Oct 2014 00:14:1... Wed, 15 Oct 2014 00:14:1... This Obviously Isn't a user {ReadOnly}  
-	               
-
-To remove a Kona user account:
-
-	Remove-KonaUser –UserEmail user1@aadtenant.onmicrosoft.com 
-
 

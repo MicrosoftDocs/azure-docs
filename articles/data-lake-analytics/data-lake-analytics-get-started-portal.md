@@ -25,6 +25,7 @@ separated values (CSV) file. For more information about Data Lake Analytics, see
 
 To go through the same tutorial using other supported tools, see:
 
+- [Use Azure Data Lake Analytics interactive tutorials]
 - [Get started with Azure Data Lake Analytics using Azure PowerShell](data-lake-analytics-get-started-powershell.md)
 - [Get started with Azure Data Lake Analytics and U-SQL using Visual Studio](data-lake-analytics-get-started-u-sql.md)
 - [Get started with Azure Data Lake Analytics using .NET SDK](data-lake-analytics-get-started-dotnet-sdk.md)
@@ -47,6 +48,8 @@ Before you begin this tutorial, you must have the following:
 - **An Azure subscription**. See [Get Azure free trial](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
 ##Create ADL Analytics account
+
+You must have an ADL Analytic account before you can run jobs.
 
 Each ADL Analytics account has an [Azure Data Lake storage]() account dependency.  This account is referred
 as the default ADL Storage account.  You can create the Data Lake storage account beforehand or when you create 
@@ -71,7 +74,7 @@ account
 	- **Resource Group**. Select an existing Azure Resource Group or create a new one. Applications are typically made up of many components, for example a web app, database, database server, storage, and 3rd party services. Azure Resource Manager (ARM) enables you to work with the resources in your application as a group, referred to as an Azure Resource Group. You can deploy, update, monitor or delete all of the resources for your application in a single, coordinated operation. You use a template for deployment and that template can work for different environments such as testing, staging and production. You can clarify billing for your organization by viewing the rolled-up costs for the entire group. For more information, see [Azure Resource Manager Overview](resource-group-overview.md). 
 	- **Location**. Select an Azure data center for the ADL Analytics account. 
 7. Select **Pin to Startboard**. This is required for following this tutorial.
-8. Click **Create**. It takes you to the portal StartBoard. A new tile is added to the Home page with the label showing "Deploying Azure Data Lake Analytics". It takes a few moments to create an ADL Analytics account. When the account is created, the portal opens the account on a new blade.
+8. Click **Create**. It takes you to the portal StartBoard. A new tile is added to the StartBoard with the label showing "Deploying Azure Data Lake Analytics". It takes a few moments to create an ADL Analytics account. When the account is created, the portal opens the account on a new blade.
 
 	![Azure Data Lake Analytics portal blade](./media/data-lake-analytics-get-started-portal/data-lake-analytics-portal-blade.png)
 
