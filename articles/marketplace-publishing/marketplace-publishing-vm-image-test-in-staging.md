@@ -36,7 +36,7 @@ Staging means deploying your SKU in a private “sandbox” where you can test a
 
   - End-to-end deployment of VM image
 
-> [AZURE.NOTE] Your offer will remain in staging until you notify Microsoft that you are ready to push to production. This is an ideal time to have all members of the team check over everything in preparation for your offer going live.
+> [AZURE.NOTE] Your offer will remain in staging until you notify Microsoft via Publishing Portal [**Publish** > **"Request Approval to Push to Production"**] that you are ready to push to production. This is an ideal time to have all members of the team check over everything in preparation for your offer going live.
 
 ## Next Steps
 
