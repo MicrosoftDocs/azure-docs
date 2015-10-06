@@ -41,9 +41,11 @@ Below is the detailed view of how the publisher portal offer marketing details a
 *Offer catalog listing on Microsoft [Azure Marketplace](http://azure.microsoft.com/marketplace) website*
 
 ![drawing](media/marketplace-publishing-push-to-staging/acom-vm-listing.png)
+
 *Offer details page on Microsoft [Azure Marketplace](http://azure.microsoft.com/marketplace) website*
 
 ![drawing](media/marketplace-publishing-push-to-staging/portal-vm-listing.png)
+
 *Offer details panel in Microsoft [Azure Azure Preview Portal](https://ms.portal.azure.com)*
 
 
