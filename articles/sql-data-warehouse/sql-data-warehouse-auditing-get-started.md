@@ -54,7 +54,7 @@ Audit logs are stored in your Azure storage account. You can define an audit log
 
 An auditing policy can be defined for a specific database or as a default server policy. A default server auditing policy will apply to all databases on a server which do not have a specific overriding database auditing policy defined.
 
-Before setting up audit auditing check if you are using a ["Downlevel Client"](sql-data-warehouse-auditing-and-dynamic-data-masking-downlevel-clients.md).
+Before setting up audit auditing check if you are using a ["Downlevel Client"](sql-data-warehouse-auditing-downlevel-clients.md).
 
 
 ##<a id="subheading-2"></a>Set up auditing for your database
