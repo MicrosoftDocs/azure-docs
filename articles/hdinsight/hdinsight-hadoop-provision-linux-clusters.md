@@ -163,11 +163,11 @@ In this article, you have learned basic information about creating a Linux-based
 
 | Use this to create a cluster... | Using a web browser... | Using a command-line | Using the REST API | Using an SDK | From Linux, Mac OS X, or Unix | From Windows |
 | ------------------------------- |:----------------------:|:--------------------:|:------------------:|:------------:|:-----------------------------:|:------------:|
-| [Azure preview portal](hdinsight-hadoop-create-linux-cluster-portal.md) | ✔     | &nbsp; | &nbsp; | &nbsp; | ✔      | ✔ |
-| [Azure CLI](hdinsight-hadoop-create-linux-cluster-azure-cli.md)         | &nbsp; | ✔     | &nbsp; | &nbsp; | ✔      | ✔ |
-| [Azure PowerShell](hdinsight-hadoop-create-linux-cluster-azure-powershell.md) | &nbsp; | ✔     | &nbsp; | &nbsp; | &nbsp; | ✔ |
-| [cURL](hdinsight-hadoop-create-linux-cluster-curl.md) | &nbsp; | ✔     | ✔ | &nbsp; | ✔      | ✔ |
-| [.NET SDK](hdinsight-hadoop-create-linux-cluster-dotnet.md) | &nbsp; | &nbsp; | &nbsp; | ✔ | ✔      | ✔ |
+| [Azure preview portal](hdinsight-hadoop-create-linux-clusters-portal.md) | ✔     | &nbsp; | &nbsp; | &nbsp; | ✔      | ✔ |
+| [Azure CLI](hdinsight-hadoop-create-linux-clusters-azure-cli.md)         | &nbsp; | ✔     | &nbsp; | &nbsp; | ✔      | ✔ |
+| [Azure PowerShell](hdinsight-hadoop-create-linux-clusters-azure-powershell.md) | &nbsp; | ✔     | &nbsp; | &nbsp; | &nbsp; | ✔ |
+| [cURL](hdinsight-hadoop-create-linux-clusters-curl.md) | &nbsp; | ✔     | ✔ | &nbsp; | ✔      | ✔ |
+| [.NET SDK](hdinsight-hadoop-create-linux-clusters-dotnet.md) | &nbsp; | &nbsp; | &nbsp; | ✔ | ✔      | ✔ |
 
 
 [hdinsight-use-mapreduce]: ../hdinsight-use-mapreduce/
