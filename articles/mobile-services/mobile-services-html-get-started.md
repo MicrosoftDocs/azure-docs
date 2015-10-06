@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Get Started with Azure Mobile Services for HTML 5 apps"
+	pageTitle="Get Started with Azure Mobile Services for HTML/JavaScript apps | Microsoft Azure"
 	description="Follow this tutorial to get started using Azure Mobile Services for HTML development."
 	services="mobile-services"
 	documentationCenter=""
@@ -12,14 +12,17 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-html5"
 	ms.devlang="javascript"
-	ms.topic="article" 
-	ms.date="07/25/2015"
+	ms.topic="get-started-article" 
+	ms.date="10/05/2015"
 	ms.author="glenga"/>
 
 
 # <a name="getting-started"> </a>Get started with Mobile Services
 
 [AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]
+&nbsp;
+
+[AZURE.INCLUDE [mobile-services-hero-slug](../../includes/mobile-services-hero-slug.md)]
 
 ##Overview 
 
@@ -117,14 +120,14 @@ The final stage of this tutorial is to host and run your new app on your local c
 ## <a name="next-steps"> </a>Next Steps
 Now that you have completed the quickstart, learn how to perform additional important tasks in Mobile Services:
 
-* **[Get started with data]**
-  <br/>Learn more about storing and querying data using Mobile Services.
+* **[Add authentication to your app]**  
+  Learn how to authenticate users of your app with an identity provider.
 
-* **[Get started with authentication]**
-  <br/>Learn how to authenticate users of your app with an identity provider.
+* **[Mobile Services HTML/JavaScript How-to Conceptual Reference]**  
+  Learn more about how to use Mobile Services with HTML/JavaScript
 
-* **[Mobile Services HTML/JavaScript How-to Conceptual Reference]**
-  <br/>Learn more about how to use Mobile Services with HTML/JavaScript
+
+[AZURE.INCLUDE [app-service-disqus-feedback-slug](../../includes/app-service-disqus-feedback-slug.md)]
 
 <!-- Anchors. -->
 [Getting started with Mobile Services]:#getting-started
@@ -145,8 +148,7 @@ Now that you have completed the quickstart, learn how to perform additional impo
 
 
 <!-- URLs. -->
-[Get started with data]: mobile-services-html-get-started-data.md
-[Get started with authentication]: mobile-services-html-get-started-users.md
+[Add authentication to your app]: mobile-services-html-get-started-users.md
 
 [Management Portal]: https://manage.windowsazure.com/
 [Microsoft Web Platform Installer]:  http://go.microsoft.com/fwlink/p/?LinkId=286333
