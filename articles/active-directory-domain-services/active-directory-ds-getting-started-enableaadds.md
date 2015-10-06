@@ -64,4 +64,4 @@ In this step you can enable Azure AD Domain Services for your directory. Perform
 
 
 ---
-[Next step - Update DNS settings for the Azure virtual network.](active-directory-ds-getting-started-dns.md)
+[**Next step - Update DNS settings for the Azure virtual network.**](active-directory-ds-getting-started-dns.md)

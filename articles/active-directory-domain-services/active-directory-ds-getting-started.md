@@ -48,4 +48,4 @@ In this configuration step you will create the group and add one or more users i
     ![Add users to administrator group](./media/active-directory-domain-services-getting-started/add-group-members.png)
 
 ---
-[Next step - Create or select an Azure virtual network.](active-directory-ds-getting-started-vnet.md)
+[**Next step - Create or select an Azure virtual network.**](active-directory-ds-getting-started-vnet.md)
