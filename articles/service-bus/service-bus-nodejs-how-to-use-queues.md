@@ -36,19 +36,19 @@ To use Azure Service Bus, download and use the Node.js Azure package. This packa
 
 2. Type **npm install azure** in the command window, which should result in output similar to the following:
 
-```
-azure@0.7.5 node_modules\azure
-	├── dateformat@1.0.2-1.2.3
-	├── xmlbuilder@0.4.2
-	├── node-uuid@1.2.0
-	├── mime@1.2.9
-	├── underscore@1.4.4
-	├── validator@1.1.1
-	├── tunnel@0.0.2
-	├── wns@0.5.3
-	├── xml2js@0.2.7 (sax@0.5.2)
-	└── request@2.21.0 (json-stringify-safe@4.0.0, forever-agent@0.5.0, aws-sign@0.3.0, tunnel-agent@0.3.0, oauth-sign@0.3.0, qs@0.6.5, cookie-jar@0.3.0, node-uuid@1.4.0, http-signature@0.9.11, form-data@0.0.8, hawk@0.13.1)
-```
+	```
+	azure@0.7.5 node_modules\azure
+		├── dateformat@1.0.2-1.2.3
+		├── xmlbuilder@0.4.2
+		├── node-uuid@1.2.0
+		├── mime@1.2.9
+		├── underscore@1.4.4
+		├── validator@1.1.1
+		├── tunnel@0.0.2
+		├── wns@0.5.3
+		├── xml2js@0.2.7 (sax@0.5.2)
+		└── request@2.21.0 (json-stringify-safe@4.0.0, forever-agent@0.5.0, aws-sign@0.3.0, tunnel-agent@0.3.0, oauth-sign@0.3.0, qs@0.6.5, cookie-jar@0.3.0, node-uuid@1.4.0, http-signature@0.9.11, form-data@0.0.8, hawk@0.13.1)
+	```
 
 3. You can manually run the **ls** command to verify that a **node\_modules** folder was created. Inside that folder find the **azure** package, which contains the libraries you need to access Service Bus queues.
 

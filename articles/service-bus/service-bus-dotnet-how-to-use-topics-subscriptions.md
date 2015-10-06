@@ -104,7 +104,7 @@ Use the SAS name and key values that you retrieved from the Azure portal, as des
 
 ## Create a topic
 
-You can perform management operations for Service Bus topics and subscriptions using the [`NamespaceManager`](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx) class. This class provides methods to create, enumerate, and delete topics.
+You can perform management operations for Service Bus topics and subscriptions using the [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx) class. This class provides methods to create, enumerate, and delete topics.
 
 The following example constructs a `NamespaceManager` object using the Azure `CloudConfigurationManager` class
 with a connection string consisting of the base address of a Service Bus service namespace and the appropriate
