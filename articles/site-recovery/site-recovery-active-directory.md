@@ -20,7 +20,9 @@
 
 
 All the enterprise applications such as SharePoint, Dynamics AX and SAP depend on AD and DNS infrastructure to function correctly. While creating a disaster recovery (DR) solution for any such application, it is important to protect and recover AD before the other components of the application come up in the event of a disruption.
+
 Azure Site Recovery  is an Azure based service that provides disaster recovery capabilities by orchestrating replication, failover and recovery of virtual machines. Azure Site Recovery supports a number of replication technologies to consistently replicate, protect, and seamlessly failover virtual machines and applications to private/public or hoster’s clouds. 
+
 Using Azure Site Recovery, you can create a complete automated disaster recovery plan for your AD. You can initiate the failover within seconds from anywhere in the event of a disruption and get the AD up and running in a few minutes. In case you have an AD for multiple applications such as SharePoint and SAP in your primary site and you decide to failover the complete site, you can failover AD first using ASR and then failover the other applications using application specific recovery plans.
 
 This article explains in detail about how you can create a disaster recovery solution for your AD, perform a planned/unplanned/test failovers using one-click recovery plan, supported configurations and prerequisites.  The audience is expected to be familiar with AD and Azure Site Recovery.There are two recommended options based on the complexity of the customer’s on-premises environment to protect AD.
