@@ -62,7 +62,7 @@ Enable synchronization of legacy credentials required for NTLM authentication in
 Create the following DWORD registry key and set it to 1.
 
 ```
- “HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\MSOLCoExistence\PasswordSync\EnableWindowsLegacyCredentialsSync”
+ HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\MSOLCoExistence\PasswordSync\EnableWindowsLegacyCredentialsSync
 
  Set its value to 1.
 ```
@@ -73,10 +73,10 @@ In order to force full password synchronization and enable all on-premises users
 
 ```
 $adConnector = "<CASE SENSITIVE AD CONNECTOR NAME>"  
-$aadConnector = “<CASE SENSITIVE AAD CONNECTOR NAME>”  
+$aadConnector = "<CASE SENSITIVE AAD CONNECTOR NAME>"  
 Import-Module adsync  
 $c = Get-ADSyncConnector -Name $adConnector  
-$p = New-Object Microsoft.IdentityManagement.PowerShell.ObjectModel.ConfigurationParameter “Microsoft.Synchronize.ForceFullPasswordSync”, String, ConnectorGlobal, $null, $null, $null  
+$p = New-Object Microsoft.IdentityManagement.PowerShell.ObjectModel.ConfigurationParameter "Microsoft.Synchronize.ForceFullPasswordSync", String, ConnectorGlobal, $null, $null, $null  
 $p.Value = 1  
 $c.GlobalParameters.Remove($p.Name)  
 $c.GlobalParameters.Add($p)  
@@ -84,3 +84,5 @@ $c = Add-ADSyncConnector -Connector $c
 Set-ADSyncAADPasswordSyncConfiguration -SourceConnector $adConnector -TargetConnector $aadConnector -Enable $false   
 Set-ADSyncAADPasswordSyncConfiguration -SourceConnector $adConnector -TargetConnector $aadConnector -Enable $true  
 ```
+
+Depending on the size of your directory (number of users, groups etc.), synchronization of credentials to Azure AD and then to Azure AD Domain Services will take time. 
