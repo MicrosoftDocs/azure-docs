@@ -59,7 +59,7 @@ Remove service principal             | Removed a service principal from the dire
 Add service principal credentials    | Added credentials to a service principal.
 Remove service principal credentials | Removed credentials from a service principal.
 Add delegation entry                 | Created an OAuth2PermissionsGrant in the directory.
-Set delegation entry                 | Update an OAuth2PermissionsGrant in the directory.
+Set delegation entry                 | Updated an OAuth2PermissionsGrant in the directory.
 Remove delegation entry              | Deleted an OAuth2PermissionsGrant in the directory.
 **Role events**                      |
 Add role member to Role              | Added a user to a directory role.
