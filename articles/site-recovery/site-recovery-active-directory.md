@@ -3,7 +3,7 @@
 	description="Azure Site Recovery coordinates the replication, failover and recovery of virtual machines and physical servers located on on-premises to Azure or to a secondary on-premises site." 
 	services="site-recovery" 
 	documentationCenter="" 
-	authors="prateek9" 
+	authors="prateek9us" 
 	manager="abhiag" 
 	editor=""/>
 
@@ -16,7 +16,7 @@
 	ms.date="10/06/2015" 
 	ms.author="pratshar"/>
 
-#Automated Disaster Recovery Solution for Active Directory (AD) using Azure Site Recovery
+#Automated DR Solution for AD and DNS using ASR
 
 
 All the enterprise applications such as SharePoint, Dynamics AX and SAP depend on AD and DNS infrastructure to function correctly. While creating a disaster recovery (DR) solution for any such application, it is important to protect and recover AD before the other components of the application come up in the event of a disruption.
