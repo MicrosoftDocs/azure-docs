@@ -8,12 +8,12 @@
 	editor="femila"/>
 
 <tags
-	ms.service="active-directory-domain-services"
+	ms.service="active-directory-ds"
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/29/2015"
+	ms.date="10/05/2015"
 	ms.author="mahesh-unnikrishnan"/>
 
 # Azure AD Domain Services *(Preview)* - Getting started

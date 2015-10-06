@@ -8,12 +8,12 @@
 	editor="femila"/>
 
 <tags
-	ms.service="active-directory-domain-services"
+	ms.service="active-directory-ds"
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/30/2015"
+	ms.date="10/05/2015"
 	ms.author="mahesh-unnikrishnan"/>
 
 # Azure AD Domain Services *(Preview)* - Getting started
@@ -52,7 +52,7 @@ You will need to install the GA release of Azure AD Connect on a domain joined c
 
 > [AZURE.WARNING] You MUST install the GA release of Azure AD Connect in order to enable legacy password credentials (required for NTLM and Kerberos authentication) to sync to your Azure AD tenant. This functionality is not available in prior releases of Azure AD COnnect.
 
-Installation instructions for Azure AD Connect are available in the following article - [https://azure.microsoft.com/documentation/articles/active-directory-aadconnect/](https://azure.microsoft.com/documentation/articles/active-directory-aadconnect/)
+Installation instructions for Azure AD Connect are available in the following article - [Getting started with Azure AD Connect](../active-directory/active-directory-aadconnect.md)
 
 
 #### Enable synchronization of legacy credentials to Azure AD
