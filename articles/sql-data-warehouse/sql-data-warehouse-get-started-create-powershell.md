@@ -39,6 +39,7 @@ After you have ensured that Powershell is successfully set-up on your account yo
         New-AzureSqlDatabase -RequestedServiceObjectiveName "<Service Objective>" -DatabaseName "<Data Warehouse Name>" -ServerName "<Server Name>" -ResourceGroupName "<ResourceGroupName>" -Edition "DataWarehouse"
 
 The necessary parameters for this cmdlet are as follows:
+
  + **RequestedServiceObjectiveName**: The amount of DWU you are requesting, in the form "DWXXX" currently supported values are: 100, 200, 300, 400, 500, 600, 1000, 1200, 1500, 2000.
  + **DatabaseName**: The name of the SQL Data Warehouse that you are creating.
  + **ServerName**: The name of the server that you are using for creation (must be V12).
