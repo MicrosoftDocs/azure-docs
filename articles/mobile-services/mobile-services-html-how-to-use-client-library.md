@@ -43,7 +43,7 @@ In the editor, open or create a JavaScript file, and add the following code that
 	var MobileServiceClient = WindowsAzure.MobileServiceClient;
     var client = new MobileServiceClient('AppUrl', 'AppKey');
 
-You must replace the placeholder `AppUrl` with the application URL of your mobile service and `AppKey` with the application key. To learn how to obtain the application URL and application key for the mobile service, consult the tutorial [Add Mobile Services to an existing app](mobile-services-html-get-started-data.md).
+You must replace the placeholder `AppUrl` with the application URL of your mobile service and `AppKey` with the application key, which you obtain from the [Azure portal](http://manage.windowsazure.com/).
 
 >[AZURE.IMPORTANT]The application key is intended to filter-out random request against your mobile service, and it is distributed with the application. Because this key is not encrypted, it cannot be considered secure. To truly secure your mobile service data, you must instead authenticate users before allowing access. For more information, see [How to: Authenticate users](#authentication).
 
@@ -365,7 +365,7 @@ This section shows how to display returned data objects using UI elements. To qu
 
 In a Windows Store app, the results of a query can be used to create a [WinJS.Binding.List] object, which can be bound as the data source for a [ListView] object. For more information, see [Data binding (Windows Store apps using JavaScript and HTML)].
 
-##<a name="#custom-api"></a>How to: Call a custom API
+##<a name="custom-api"></a>How to: Call a custom API
 
 A custom API enables you to define custom endpoints that expose server functionality that does not map to an insert, update, delete, or read operation. By using a custom API, you can have more control over messaging, including reading and setting HTTP message headers and defining a message body format other than JSON. For an example of how to create a custom API in your mobile service, see [How to: define a custom API endpoint](mobile-services-dotnet-backend-define-custom-api.md).
 

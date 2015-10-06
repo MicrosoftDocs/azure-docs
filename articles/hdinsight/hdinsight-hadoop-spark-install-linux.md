@@ -32,13 +32,13 @@ This topic provides instructions on how to customize an HDInsight cluster to ins
 
 ## <a name="whatis"></a>Which version of Spark can I install?
 
-In this topic, we use a Script Action custom script to install Spark on an HDInsight cluster. This script installs Spark 1.5.0.
+In this topic, we use a Script Action custom script to install Spark on an HDInsight cluster. This script installs Spark 1.5.1.
 
 You can modify this script or create your own script to install other versions of Spark.
 
 ## What the script does
 
-This script installs Spark version 1.5.0 into `/usr/hdp/current/spark`.
+This script installs Spark version 1.5.1 into `/usr/hdp/current/spark`.
 
 ## <a name="install"></a>Install Spark using Script Actions
 
