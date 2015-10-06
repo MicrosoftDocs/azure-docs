@@ -20,6 +20,11 @@
 
 Learn how to manage Azure Data Lake Analytics accounts, data sources, users, and jobs using the Azure Preview portal.
 
+Other management articles include:
+
+- [Manage Azure Data Lake Analytics using Azure PowerShell](data-lake-analytics-manage-use-powershell.md)
+- [Manage Azure Data Lake Analytics using .NET SDK](data-lake-analytics-manage-use-dotnet-sdk.md)
+
 **Prerequisites**
 
 Before you begin this tutorial, you must have the following:
@@ -288,6 +293,5 @@ See [Monitor Data Lake Analytics jobs](#monitor-jobs).
 
 ##See also 
 
-- bla
-- bla
-
+- [Manage Azure Data Lake Analytics using Azure PowerShell](data-lake-analytics-manage-use-powershell.md)
+- [Manage Azure Data Lake Analytics using .NET SDK](data-lake-analytics-manage-use-dotnet-sdk.md)

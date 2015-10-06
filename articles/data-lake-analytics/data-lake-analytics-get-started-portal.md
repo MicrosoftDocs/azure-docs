@@ -25,7 +25,7 @@ separated values (CSV) file. For more information about Data Lake Analytics, see
 
 To go through the same tutorial using other supported tools, see:
 
-- [Use Azure Data Lake Analytics interactive tutorials]
+- [Use Azure Data Lake Analytics interactive tutorials](data-lake-analytics-use-interactive-tutorials.md)
 - [Get started with Azure Data Lake Analytics using Azure PowerShell](data-lake-analytics-get-started-powershell.md)
 - [Get started with Azure Data Lake Analytics and U-SQL using Visual Studio](data-lake-analytics-get-started-u-sql.md)
 - [Get started with Azure Data Lake Analytics using .NET SDK](data-lake-analytics-get-started-dotnet-sdk.md)
