@@ -46,3 +46,6 @@ In this configuration step you will create the group and add one or more users i
 9. In the **Add members** dialog, select the users who should be members of this group and select the checkbox when you are done.
 
     ![Add users to administrator group](./media/active-directory-domain-services-getting-started/add-group-members.png)
+
+---
+[Next step - Create or select an Azure virtual network.](active-directory-ds-getting-started-vnet.md)

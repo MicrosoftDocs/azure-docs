@@ -42,3 +42,6 @@ Perform the following configuration steps in order to create an Azure virtual ne
 8. Click the **Create a Virtual Network** button to create your virtual network.
 
     ![Create a virtual network for Azure AD Domain Services.](./media/active-directory-domain-services-getting-started/create-vnet.png)
+
+---
+[Next step - Enable Azure AD Domain Services.](active-directory-ds-getting-started-enableaadds.md)

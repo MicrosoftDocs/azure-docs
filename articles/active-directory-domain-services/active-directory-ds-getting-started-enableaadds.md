@@ -61,3 +61,7 @@ In this step you can enable Azure AD Domain Services for your directory. Perform
     ![Domain Services enabled - both domain controllers provisioned](./media/active-directory-domain-services-getting-started/domain-services-enabled-bothdcs-available.png)
 
   > [AZURE.NOTE] Depending on the size of your Azure AD directory (number of users, groups etc.), it will take a while for the contents of the directory to be synchronized to Azure AD Domain Services. This synchronization process happens in the background. For large directories with tens of thousands of objects, it may take a day or two for all users, group memberships and credentials to be synchronized and available in Azure AD Domain Services.
+
+
+---
+[Next step - Update DNS settings for the Azure virtual network.](active-directory-ds-getting-started-dns.md)

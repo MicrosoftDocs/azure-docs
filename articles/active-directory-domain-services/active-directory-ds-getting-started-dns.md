@@ -42,3 +42,6 @@ Perform the following configuration steps in order to update the DNS server sett
    ![Update the DNS server settings for the virtual network.](./media/active-directory-domain-services-getting-started/update-dns.png)
 
 > [AZURE.NOTE] After updating the DNS server settings for the virtual network, it may take a while for virtual machines on the network to get the updated DNS configuration. If a virtual machine is unable to connect to the domain, you can flush the DNS cache (eg. ipconfig /flushdns) on the virtual machine, in order to force a refresh of the DNS settings on the virtual machine.
+
+---
+[Next step - Enable password synchronization to Azure AD Domain Services.](active-directory-ds-getting-started-password-sync.md)
