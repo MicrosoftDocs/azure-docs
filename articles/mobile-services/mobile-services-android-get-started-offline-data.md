@@ -211,7 +211,6 @@ One thing which is important to point out: if there are pending changes in the l
 
 
 [Get started with Mobile Services]: mobile-services-android-get-started.md
-[Get started with data]: mobile-services-android-get-started-data.md
 [Handling Conflicts with Offline Support for Mobile Services]:  mobile-services-android-handling-conflicts-offline-data.md
 [Soft Delete]: mobile-services-using-soft-delete.md
 
