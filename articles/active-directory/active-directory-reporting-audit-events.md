@@ -58,9 +58,9 @@ Add service principal                | Added a service principal to the director
 Remove service principal             | Removed a service principal from the directory.
 Add service principal credentials    | Added credentials to a service principal.
 Remove service principal credentials | Removed credentials from a service principal.
-Add delegation entry                 | Assigned a user to an application in the directory.
-Set delegation entry                 | Update a user's assignment to an application in the directory.
-Remove delegation entry              | Removed a user from an application in the directory.
+Add delegation entry                 | Created an OAuth2PermissionsGrant in the directory.
+Set delegation entry                 | Update an OAuth2PermissionsGrant in the directory.
+Remove delegation entry              | Deleted an OAuth2PermissionsGrant in the directory.
 **Role events**                      |
 Add role member to Role              | Added a user to a directory role.
 Remove role member from Role         | Removed a user from a directory role.
