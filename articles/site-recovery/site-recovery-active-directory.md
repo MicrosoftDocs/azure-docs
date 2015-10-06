@@ -59,7 +59,7 @@ Enable protection of AD VM in ASR. Perform relevant Azure Site Recovery configur
 To control replication of AD between two sites , you can use the Active Directory Sites and Services snap-in to configure settings on the site link object to which the sites are added. By configuring settings on a site link, you can control when replication occurs between two or more sites, and how often. You can refer to ['Scheduling Replication Between Sites'](https://technet.microsoft.com/en-us/library/cc731862.aspx "") for more details.
 
 ###Site to Azure scenario
-If you are planning for a complete site disaster then yes it is mandatory to replicate AD to Azure. You refer to installing a [replica Active Directory domain controller in an Azure virtual network](https://azure.microsoft.com/en-us/documentation/articles/virtual-networks-install-replica-active-directory-domain-controller/) for more details. 
+If you are planning for a complete site disaster then yes it is mandatory to replicate AD to Azure. You refer to installing a [replica Active Directory domain controller in an Azure virtual network](../virtual-network/virtual-networks-install-replica-active-directory-domain-controller.md) for more details. 
 
 But if you foresee that you will be doing planned failover of only some of the applications at a time and if the applications are not too chatty with respect to communication with active directory and DNS, then you can choose not to replicate AD and DNS to Azure. In such a case you can provide the IP of the on-premises DNS Server in the network that you create in Azure.
 
