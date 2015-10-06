@@ -24,30 +24,27 @@ You can add, remove, and change routes in Azure by using PowerShell. Before you 
 ### How to create a route table
 To create a route table named *FrontEndSubnetRouteTable*, run the following PowerShell command:
 
-```powershell
-New-AzureRouteTable -Name FrontEndSubnetRouteTable `
-	-Location uscentral `
-	-Label "Route table for frontend subnet"
-```
+	```powershell
+	New-AzureRouteTable -Name FrontEndSubnetRouteTable `
+		-Location uscentral `
+		-Label "Route table for front end subnet"
+	```
 
 The output of the command above should look like the following:
 
-	Error          :
-	HttpStatusCode : OK
-	Id             : 085ac8bf-26c3-9c4c-b3ae-ebe880108c70
-	Status         : Succeeded
-	StatusCode     : OK
-	RequestId      : a8cc03ca42d39f27adeaa9c1986c14f7
+	Name                      Location   Label                          
+	----                      --------   -----                          
+	FrontEndSubnetRouteTable  West US    Route table for front end subnet
 
 ### How to add a route to a route table
 To add a route that sets *10.1.1.10* as the next hop for the *10.2.0.0/16* subnet in the route table created above, run the following PowerShell command:
 
-```powershell
-Get-AzureRouteTable FrontEndSubnetRouteTable `
-	|Set-AzureRoute -RouteName FirewallRoute -AddressPrefix 10.2.0.0/16 `
-	-NextHopType VirtualAppliance `
-	-NextHopIpAddress 10.1.1.10
-```
+	```powershell
+	Get-AzureRouteTable FrontEndSubnetRouteTable `
+		|Set-AzureRoute -RouteName FirewallRoute -AddressPrefix 10.2.0.0/16 `
+		-NextHopType VirtualAppliance `
+		-NextHopIpAddress 10.1.1.10
+	```
 
 The output of the command above should look like the following:
 
@@ -62,21 +59,21 @@ The output of the command above should look like the following:
 ### How to associate a route to a subnet
 A route table must be associated with one or more subnets for it to be used. To associate the *FrontEndSubnetRouteTable* route table to a subnet named *FrontEndSubnet* in the virtual network *ProductionVnet*, run the following PowerShell command:
 
-```powershell
-Set-AzureSubnetRouteTable -VirtualNetworkName ProductionVnet `
-	-SubnetName FrontEndSubnet `
-	-RouteTableName FrontEndSubnetRouteTable
-```
+	```powershell
+	Set-AzureSubnetRouteTable -VirtualNetworkName ProductionVnet `
+		-SubnetName FrontEndSubnet `
+		-RouteTableName FrontEndSubnetRouteTable
+	```
 
 ### How to see the applied routes in a VM
 You can query Azure to see the actual routes applied for a specific VM or role instance. The routes shown include default routes that Azure provides, as well as routes advertised by a VPN Gateway. The limit of routes shown is 800.
 
 To see routes associated to the primary NIC on a VM named *FWAppliance1*, run the following PowerShell command:
 
-```powershell
-Get-AzureVM -Name FWAppliance1 -ServiceName ProductionVMs `
-	| Get-AzureEffectiveRouteTable
-```
+	```powershell
+	Get-AzureVM -Name FWAppliance1 -ServiceName ProductionVMs `
+		| Get-AzureEffectiveRouteTable
+	```
 
 The output of the command above should look like the following:
 
@@ -93,17 +90,17 @@ The output of the command above should look like the following:
 
 To see routes associated to a secondary NIC named *backendnic* on a VM named *FWAppliance1*, run the following PowerShell command:
 
-```powershell
-Get-AzureVM -Name FWAppliance1 -ServiceName ProductionVMs `
-	| Get-AzureEffectiveRouteTable -NetworkInterfaceName backendnic
-```
+	```powershell
+	Get-AzureVM -Name FWAppliance1 -ServiceName ProductionVMs `
+		| Get-AzureEffectiveRouteTable -NetworkInterfaceName backendnic
+	```
 
 To see routes associated to the primary NIC on a role instance named *myRole* that is part of a cloud service named *ProductionVMs*, run the following PowerShell command:
 
-```powershell
-Get-AzureEffectiveRouteTable -ServiceName ProductionVMs `
-	-RoleInstanceName myRole
-```
+	```powershell
+	Get-AzureEffectiveRouteTable -ServiceName ProductionVMs `
+		-RoleInstanceName myRole
+	```
 
 ## How to manage IP Forwarding
 As previously mentioned, you need to enable IP forwarding on any VM or role instance that will act as a virtual appliance. 

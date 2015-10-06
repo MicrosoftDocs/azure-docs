@@ -29,12 +29,12 @@
 
 The sample PowerShell commands below expect a simple environment already created based on the scenario above. If you want to run the commands as they are displayed in this document, first build the test environment by deploying [this template](http://github.com/telmosampaio/azure-templates/tree/master/IaaS-NSG-UDR-Before), click **Deploy to Azure**, replace the default parameter values if necessary, and follow the instructions in the portal.
 
-## How to create the UDR for the front end subnet
+[AZURE.INCLUDE [azure-ps-prerequisites-include.md](../../includes/azure-ps-prerequisites-include.md)]
+
+## Create the UDR for the front end subnet
 To create the route table and route needed for the front end subnet based on the scenario above, follow the steps below.
 
-1. If you have never used Azure PowerShell, see [How to Install and Configure Azure PowerShell](powershell-install-configure.md) and follow the instructions all the way to the end to sign into Azure and select your subscription.
-
-2. From an Azure PowerShell prompt, run the  **Switch-AzureMode** cmdlet to switch to Resource Manager mode, as shown below.
+2. From an Azure PowerShell prompt, run the  **`Switch-AzureMode`** cmdlet to switch to Resource Manager mode, as shown below.
 
 		Switch-AzureMode AzureResourceManager
 	
@@ -118,7 +118,7 @@ To create the route table and route needed for the front end subnet based on the
 								...
 		                    ]
 
-## How to create the UDR for the back end subnet
+## Create the UDR for the back end subnet
 To create the route table and route needed for the back end subnet based on the scenario above, follow the steps below.
 
 1. Create a route used to send all traffic destined to the front end subnet (192.168.1.0/24) to be routed to the **FW1** virtual appliance (192.168.0.4).
@@ -190,7 +190,7 @@ To create the route table and route needed for the back end subnet based on the 
 		                      }
 		                    ]
 
-## How to enable IP forwarding on FW1
+## Enable IP forwarding on FW1
 To enable IP forwarding in the NIC used by **FW1**, follow the steps below.
 
 1. Create a variable that contains the settings for the NIC used by FW1. In our scenario, the NIC is named **NICFW1**.
