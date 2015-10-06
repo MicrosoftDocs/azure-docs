@@ -102,6 +102,8 @@ Use the [Logging on to a virtual machine with a Remote Desktop connection proced
 
 Use the [To test connectivity procedure](virtual-machines-workload-intranet-sharepoint-phase2.md#testconn) four times, once for each SharePoint server, to test connectivity to locations on your organization network.
 
+> [AZURE.NOTE] The SharePoint servers are created from the SharePoint Server 2013 Trial image. You need to convert the installation to use a Retail or Volume License key for either the Standard or Enterprise edition of SharePoint Server 2013. 
+
 ## Configure the SharePoint farm
 
 Use these steps to configure the first SharePoint server in the farm:
