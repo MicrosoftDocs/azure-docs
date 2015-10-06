@@ -14,7 +14,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/10/2015"
+   ms.date="09/14/2015"
    ms.author="cherylmc"/>
 
 # Create a virtual network with a site-to-site VPN connection using PowerShell
@@ -84,10 +84,13 @@ The sample below creates a virtual network named *testvnet* and two subnets, one
 
 This step is required only if you need to add a gateway subnet to a VNet.
 
-If you already have an existing virtual network and you want to add a gateway subnet to it, you can create your gateway subnet by using the sample below. Be sure to name the gateway subnet 'GatewaySubnet. If you name it something else, your VPN configuration will not work as expected.
+If you already have an existing virtual network and you want to add a gateway subnet to it, you can create your gateway subnet by using the sample below. Be sure to name the gateway subnet 'GatewaySubnet'. If you name it something else, you'll create a subnet, but it won't be seen by Azure as a gateway subnet.
 
 		$vnet = Get-AzureVirtualNetwork -ResourceGroupName testrg -Name testvnet
 		Add-AzureVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.0.3.0/28 -VirtualNetwork $vnet
+
+Now, set the configuration. 
+
 		Set-AzureVirtualNetwork -VirtualNetwork $vnet
 
 ## Add your local site

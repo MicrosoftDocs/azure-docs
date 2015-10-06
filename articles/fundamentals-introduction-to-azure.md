@@ -136,7 +136,6 @@ Formerly called SQL Azure, Azure SQL Database provides all of the key features o
 
 But SQL Database isn't just a DBMS in the cloud-it's a PaaS service. You still control your data and who can access it, but SQL Database takes care of the administrative grunt work, such as managing the hardware infrastructure and automatically keeping the database and operating system software up to date. SQL Database also provides high availability, automatic backups, point-in-time restore capabilities, and can replicate copies across geographical regions.  
 
-There is also a Premium option that you can pay a little more for so you can have your own dedicated server underneath. With the Standard option, the database runs on shared hardware, which can throttle your database queries if you happen to be on a particularly busy server.  
 
 **Scenarios for SQL Database**
 

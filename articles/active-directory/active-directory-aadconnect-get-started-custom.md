@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Custom installation of Azure AD Connect" 
 	description="This document details the custom installation options for Azure AD Connect." 
 	services="active-directory" 
@@ -22,7 +22,6 @@
 The following documentation provides information on using the custom installation option for Azure AD Connect.  You can use this option if you have additional configuration options or need optional features that are not covered in the express installation.
 
 For information on an Express Installation see [Express Installation](active-directory-aadconnect.md#getting-started-with-azure-ad-connect).   For information on upgrading from DirSync to Azure AD Connect see [Upgrading DirSync to Azure Active Directory Connect.](active-directory-aadconnect-dirsync-upgrade-get-started.md)
-
 
 
 ## Install required components
@@ -176,7 +175,7 @@ Before you can run the PowerShell cmdlet it must be imported first.
 
 In order to do this you will need Active Directory and MSOnline PowerShell installed locally.
 
-
+For additional information see [Enabling device writeback in Azure AD Connect](active-directory-aadconnect-get-started-custom-device-writeback.md)
 
 ## Staging mode
 With staging mode the process to setup a new sync server in parallel with an existing server is possible. It is only supported to have one sync server connected to one directory in the cloud. But if we want to move from another server, for example one running DirSync, then we can enable Azure AD Connect in staging mode. When enabled the sync engine will import and synchronize data as normal, but it will not export anything to Azure AD and will turn off password sync and password writeback. 

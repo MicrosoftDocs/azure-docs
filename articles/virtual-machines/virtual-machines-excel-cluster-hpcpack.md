@@ -1,13 +1,15 @@
 <properties
- pageTitle="Get started with an HPC Pack cluster to run Excel and SOA workloads | Microsoft Azure"
- description="."
+ pageTitle="HPC Pack cluster for Excel and SOA | Microsoft Azure"
+ description="Get started with an HPC Pack cluster to run Excel and SOA workloads, using the Resource Manager deployment model."
  services="virtual-machines"
  documentationCenter=""
  authors="dlepow"
  manager="timlt"
- editor=""/>
+ editor=""
+ tags="azure-resource-manager"/>
+
 <tags
-ms.service="virtual-machines"
+ ms.service="virtual-machines"
  ms.devlang="na"
  ms.topic="article"
  ms.tgt_pltfrm="vm-windows"
@@ -18,6 +20,8 @@ ms.service="virtual-machines"
 # Get started with an HPC Pack cluster in Azure to run Excel and SOA workloads
 
 This article shows you how to deploy an HPC Pack cluster on Azure infrastructure services (IaaS) using an Azure quickstart template or an Azure PowerShell deployment script. You'll use Azure Marketplace VM images designed to run Microsoft Excel or service-oriented architecture (SOA) workloads with HPC Pack. You can use the cluster to run simple Excel HPC and SOA services from an on-premises client computer. The Excel HPC services include Excel workbook offloading and Excel user-defined functions, or UDFs.
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)] This article covers resources created using the Resource Manager deployment model.
 
 At a high level the following diagram shows the HPC Pack cluster you'll create.
 
@@ -96,7 +100,7 @@ The HPC Pack IaaS deployment script provides another versatile way to deploy an 
 
 **Create the configuration file**
 
- The HPC Pack IaaS deployment script uses an XML configuration file as input which describes the infrastructure of the HPC cluster. To deploy a cluster consisting of a head node and 18 compute nodes created from the compute node image that includes Microsoft Excel, substitute values for your environment into the following sample configuration file. For more information about the configuration file, see the Manual.rtf file in the script folder or the [script documentation](https://msdn.microsoft.com/library/azure/dn864734.aspx).
+ The HPC Pack IaaS deployment script uses an XML configuration file as input which describes the infrastructure of the HPC cluster. To deploy a cluster consisting of a head node and 18 compute nodes created from the compute node image that includes Microsoft Excel, substitute values for your environment into the following sample configuration file. For more information about the configuration file, see the Manual.rtf file in the script folder and [Create an HPC cluster with the HPC Pack IaaS deployment script](virtual-machines-hpcpack-cluster-powershell-script.md).
 
 ```
 <?xml version="1.0" encoding="utf-8"?>
@@ -135,14 +139,14 @@ The HPC Pack IaaS deployment script provides another versatile way to deploy an 
     <ServiceName>HPCExcelCN01</ServiceName>
     <VMSize>Medium</VMSize>
     <NodeCount>18</NodeCount>
-    <ImageName HPCPackInstalled="true">96316178b0644ae08bc4e037635ce104__HPC-Pack-2012R2-Update2-CN-Excel-4.4.4864.0-WS2012R2-ENU</ImageName>
+    <ImageName HPCPackInstalled="true">96316178b0644ae08bc4e037635ce104__HPC-Pack-2012R2-Update2-CN-Excel-4.4.4868.0-WS2012R2-ENU</ImageName>
   </ComputeNodes>
 </IaaSClusterConfig>
 ```
 
 **Notes about the configuration file**
 
-* The **VMName** of the head node must be exactly the same as the **ServiceName**.
+* The **VMName** of the head node must be exactly the same as the **ServiceName**, or the SOA job would fail to run.
 
 * Make sure you specify **EnableWebPortal** so that the head node certificate is generated and exported.
 
@@ -158,7 +162,7 @@ The HPC Pack IaaS deployment script provides another versatile way to deploy an 
     # remove the compute node role for head node to make sure the Excel workbook won’t run on head node
         Get-HpcNode -GroupName HeadNodes | Set-HpcNodeState -State offline | Set-HpcNode -Role BrokerNode
 
-    # total number of nodes in the deployment including the head node and compute nodes
+    # total number of nodes in the deployment including the head node and compute nodes, which should match the number specified in the XML configuration file
         $TotalNumOfNodes = 19
 
         $ErrorActionPreference = 'SilentlyContinue'
@@ -210,14 +214,22 @@ Follow these steps to offload an Excel workbook to run on the HPC Pack cluster i
 
 2. On the client computer, import the cluster certificate under Cert:\CurrentUser\Root.
 
-3. Make sure Excel is installed. Create an Excel.exe.config file with the following contents in the same folder with Excel.exe on the client computer. This ensures that the HPC Pack 2012 R2 Excel COM add-in will load successfully.
+3. Make sure Excel is installed. Create an Excel.exe.config file with the following contents in the same folder with Excel.exe on the client computer. This ensures that the HPC Pack 2012 R2 Excel COM add-in and Azure Storage library will be loaded successfully. Note the 'href' below should point to "%CCP_HOME%Bin\Microsoft.WindowsAzure.Storage.dll" on the client machine.
 
     ```
 <?xml version="1.0"?>
 <configuration>
-  <startup useLegacyV2RuntimeActivationPolicy="true">
-    <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.0"/>
-  </startup>
+    <startup useLegacyV2RuntimeActivationPolicy="true">
+        <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.0"/>
+    </startup>
+    <runtime>
+        <assemblyBinding xmlns="urn:schemas-microsoft-com:asm.v1">
+            <dependentAssembly>
+                <assemblyIdentity name="Microsoft.WindowsAzure.Storage"  culture="neutral" publicKeyToken="31bf3856ad364e35"/>
+                <codeBase version="4.3.0.0" href="C:\Program Files\Microsoft HPC Pack 2012\Bin\Microsoft.WindowsAzure.Storage.dll"/>
+            </dependentAssembly>
+        </assemblyBinding>
+    </runtime>
 </configuration>
 ```
 4.	Download the full [HPC Pack 2012 R2 Update 2 installation](http://www.microsoft.com/download/details.aspx?id=47755) and install the HPC Pack client,
@@ -264,11 +276,11 @@ To run Excel UDFs, follow the preceding steps 1 – 3 to set up the client compu
 
 After the cluster is successfully deployed, continue with the following steps to run a sample built-in Excel UDF. For customized Excel UDFs, see these [resources](http://social.technet.microsoft.com/wiki/contents/articles/1198.windows-hpc-and-microsoft-excel-resources-for-building-cluster-ready-workbooks.aspx) to build the XLLs and deploy them on the IaaS cluster.
 
-1.	Open a new Excel workbook. On the **Develop** ribbon, click **Add-Ins**. Then, in the dialog box, click **Browse**, navigate to the %CCP_HOME%Bin\XLL32 folder, and select the sample ClusterUDF32.xll.
+1.	Open a new Excel workbook. On the **Develop** ribbon, click **Add-Ins**. Then, in the dialog box, click **Browse**, navigate to the %CCP_HOME%Bin\XLL32 folder, and select the sample ClusterUDF32.xll. If the ClusterUDF32 doesn't exist on the client machine, you can copy it from the %CCP_HOME%Bin\XLL32 folder on the head node.
 
     ![Select the UDF][udf]
 
-2.	Click **File** > **Options** > **Advanced**. Under **Formulas** check **Allow user-defined XLL functions to run a compute cluster**. Then click **Options** and enter the full cluster name in **Cluster head node name**. (As noted previously this input box is limited to 34 characters, so a long cluster name may not fit. You can configure a shorter full name when you deploy a clusters via the IaaS deployment script.)
+2.	Click **File** > **Options** > **Advanced**. Under **Formulas** check **Allow user-defined XLL functions to run a compute cluster**. Then click **Options** and enter the full cluster name in **Cluster head node name**. (As noted previously this input box is limited to 34 characters, so a long cluster name may not fit. You can apply the Update 2 QFE KB3085833 on the client and then set a machine wide variable here for the long cluster name.)
 
     ![Configure the UDF][options]
 

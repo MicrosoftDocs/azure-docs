@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/11/2015"
+   ms.date="09/14/2015"
    ms.author="alkohli" />
 
 # Failover and disaster recovery for your StorSimple device
@@ -148,5 +148,5 @@ After you have performed a failover, you may need to:
 - [Deactivate your StorSimple device](storsimple-deactivate-and-delete-device.md#deactivate-a-device)
 - [Delete your StorSimple device](storsimple-deactivate-and-delete-device.md#delete-a-device)
 
-For information about how to manage your device using the StorSimple Manager service, go to [Use StorSimple Manager service to administer your StorSimple device](storsimple-manager-service-administration.md).
+For information about how to use the StorSimple Manager service, go to [Use the StorSimple Manager service to administer your StorSimple device](storsimple-manager-service-administration.md).
  

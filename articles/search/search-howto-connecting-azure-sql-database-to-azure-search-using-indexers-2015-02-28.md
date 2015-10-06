@@ -13,20 +13,22 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="07/08/2015" 
+	ms.date="09/29/2015" 
 	ms.author="eugenesh"/>
 
-#Connecting Azure SQL Database to Azure Search Using Indexers#
+#Connecting Azure SQL Database to Azure Search Using Indexers
 
-Azure Search service makes it easy to provide a great search experience, but before you can search, you need to populate an Azure Search index with your data. If the data lives in an Azure SQL database, the new **Azure Search indexer for Azure SQL Database** (or **Azure SQL indexer** for short) feature in Azure Search can automate the indexing process. This means you have less code to write and less infrastructure to maintain.
+Azure Search service makes it easy to provide a great search experience, but before you can search, you need to populate an Azure Search index with your data. If the data lives in an Azure SQL database, the new **Azure Search indexer for Azure SQL Database** (or **Azure SQL indexer** for short) in Azure Search can automate the indexing process. This means you have less code to write and less infrastructure to care about.
 
-Currently, indexers only work with Azure SQL Database, SQL Server on Azure VMs, and Azure DocumentDB. In this article, we’ll focus on indexers that work with Azure SQL Database. If you would like to see support for additional data sources, please provide your feedback on the [Azure Search feedback forum](http://feedback.azure.com/forums/263029-azure-search).
+Currently, indexers only work with Azure SQL Database, SQL Server on Azure VMs, and [Azure DocumentDB](../documentdb/documentdb-search-indexer.md). In this article, we’ll focus on indexers that work with Azure SQL Database. If you would like to see support for additional data sources, please provide your feedback on the [Azure Search feedback forum](http://feedback.azure.com/forums/263029-azure-search).
 
 This article will cover the mechanics of using indexers, but we’ll also drill down into features and behaviors that are only available with SQL databases (for example, integrated change tracking).
 
 ## Indexers and Data Sources ##
 
-To set up and configure an Azure SQL indexer, you can call the [Azure Search REST API](http://go.microsoft.com/fwlink/p/?LinkID=528173) to create and manage **indexers** and **data sources**. In the future, this functionality will also be available in Azure management portal and in Azure Search .NET SDK. 
+To set up and configure an Azure SQL indexer, you can call the [Azure Search REST API](http://go.microsoft.com/fwlink/p/?LinkID=528173) to create and manage **indexers** and **data sources**. 
+
+You can also use the [Indexer class](https://msdn.microsoft.com/library/azure/microsoft.azure.search.models.indexer.aspx) in the [.NET SDK](https://msdn.microsoft.com/library/azure/dn951165.aspx), or Import Data wizard in the [Azure portal](https://portal.azure.com) to create and schedule an indexer.
 
 A **data source** specifies which data to index, credentials needed to access the data, and policies that enable Azure Search to efficiently identify changes in the data (new, modified or deleted rows). It's defined as an independent resource so that it can be used by multiple indexers.
 
@@ -251,7 +253,7 @@ Note that the **softDeleteMarkerValue** must be a string – use the string repr
 
 ## Customize Azure SQL Indexer ##
  
-You can customize certain aspects of indexer behavior (for example, batch size, how many documents can be skipped before an indexer execution will be failed, etc.). For more details, see [Indexer API documentation](http://go.microsoft.com/fwlink/p/?LinkId=528173). 
+You can customize certain aspects of indexer behavior (for example, batch size, how many documents can be skipped before an indexer execution will be failed, and so on). For more details, see [Azure Search Indexer Customization](search-indexers-customization.md). 
 
 ## Frequently Asked Questions ##
 

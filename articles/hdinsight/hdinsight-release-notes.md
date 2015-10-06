@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/09/2015"
+	ms.date="09/15/2015"
 	ms.author="nitinme"/>
 
 
@@ -1191,9 +1191,7 @@ These compatibility issues are resolved in the latest versions of the HDInsight 
 This release contains enhancements to the HDInsight service:
 
 * **HDP 2.1 availability**: HDInsight 3.1 (which contains HDP 2.1) is generally available and is the default version for new clusters.
-* **HBase – Azure portal improvements**: We are making HBase clusters available in Preview. You can create HBase clusters from the portal with three clicks:
-
-![](http://i.imgur.com/cmOl5fM.png)
+* **HBase – Azure portal improvements**: We are making HBase clusters available in Preview. You can create HBase clusters from the portal with just a few clicks. 
 
 With HBase, you can build a variety of real-time workloads on HDInsight, from interactive websites that work with large datasets to services storing sensor and telemetry data from millions of end points. The next step would be to analyze the data in these workloads with Hadoop jobs, and this is possible in HDInsight through Azure PowerShell and the Hive cluster dashboard.
 

@@ -21,7 +21,6 @@ This page has links to overview and conceptual articles and tutorial to help you
 
 - [Application Lifecycle](service-fabric-application-lifecycle.md)
 - [Visualizing your cluster using Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)
-- [Secure replication traffic of stateful services](service-fabric-replication-security.md)
 
 ## Package, deploy and remove an application
 The following topics discuss the Service Fabric application model as well as how to package and deploy your applications.
@@ -41,11 +40,10 @@ Read the following to learn how to upgrade an application:
 - [Advanced Topics](service-fabric-application-upgrade-advanced.md)
 - [Troubleshooting Application Upgrade Failures](service-fabric-application-upgrade-troubleshooting.md)
 - [Application Upgrade Tutorial/Walkthrough](service-fabric-application-upgrade-tutorial.md)
-- [Service Fabric Application Upgrade: Data Serialization](service-fabric-application-upgrade-data-serialization.md) 
+- [Service Fabric Application Upgrade: Data Serialization](service-fabric-application-upgrade-data-serialization.md)
 
 ## Scale and partition applications services
 The following articles describe scaling and partitioning:
 
 - [Partitioning Service Fabric services](service-fabric-concepts-partitioning.md)
 - [Scaling Service Fabric Applications](service-fabric-concepts-scalability.md)
- 

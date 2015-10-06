@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/01/2015" 
+	ms.date="09/14/2015" 
 	ms.author="LuisCa"/>
 
 #Azure Machine Learning Recommendations API Documentation
@@ -366,7 +366,7 @@ The table below depicts the value that each key represents.
 | MaxUserLength | Maximal number of distinct items for a user. |
 | MinItemLength | Maximal number of distinct users for an item. |
 | MinUserLength | Minimal number of distinct items for a user. |
-| RawNumberOfItems | Number of items before pruning items that cannot be modelled. |
+| RawNumberOfItems | Number of items in the usage files. |
 | RawNumberOfUsers | Number of usage points before any pruning. |
 | RawNumberOfRecords | Number of usage points before any pruning. |
 | SamplingNumberOfItems | N/A |
@@ -869,6 +869,7 @@ OData XML
 | HTTP Method | URI |
 |:--------|:--------|
 |POST     |`<rootURI>/AddRule?apiVersion=%271.0%27`|
+|HEADER   |`"Content-Type", "text/xml"`|
 
 |	Parameter Name	|	Valid Values						|
 |:--------			|:--------								|
@@ -973,6 +974,7 @@ Note: The maximum file size is 200MB.
 | HTTP Method | URI |
 |:--------|:--------|
 |POST     |`<rootURI>/ImportCatalogFile?modelId=%27<modelId>%27&filename=%27<fileName>%27&apiVersion=%271.0%27`<br><br>Example:<br>`<rootURI>/ImportCatalogFile?modelId=%27a658c626-2baa-43a7-ac98-f6ee26120a12%27&filename=%27catalog10_small.txt%27&apiVersion=%271.0%27`|
+|HEADER   |`"Content-Type", "text/xml"`|
 
 |	Parameter Name	|	Valid Values						|
 |:--------			|:--------								|
@@ -1227,6 +1229,7 @@ This section shows how to send events in real time to Azure Machine Learning Rec
 | HTTP Method | URI |
 |:--------|:--------|
 |POST     |`<rootURI>/AddUsageEvent?apiVersion=%271.0%27`|
+|HEADER   |`"Content-Type", "text/xml"`|
 
 |	Parameter Name	|	Valid Values						|
 |:--------			|:--------								|
@@ -1862,6 +1865,7 @@ The table below depicts the build parameters for recommendation build.
 | HTTP Method | URI |
 |:--------|:--------|
 |POST     |`<rootURI>/BuildModel?modelId=%27<modelId>%27&userDescription=%27<description>%27&apiVersion=%271.0%27`<br><br>Example:<br>`<rootURI>/BuildModel?modelId=%27a658c626-2baa-43a7-ac98-f6ee26120a12%27&userDescription=%27First%20build%27&apiVersion=%271.0%27`|
+|HEADER   |`"Content-Type", "text/xml"` (If sending Request Body)|
 
 |	Parameter Name	|	Valid Values						|
 |:--------			|:--------								|
@@ -1936,6 +1940,7 @@ OData XML
 | HTTP Method | URI |
 |:--------|:--------|
 |POST     |`<rootURI>/BuildModel?modelId=%27<modelId>%27&userDescription=%27<description>%27&buildType=%27<buildType>%27&apiVersion=%271.0%27`<br><br>Example:<br>`<rootURI>/BuildModel?modelId=%27a658c626-2baa-43a7-ac98-f6ee26120a12%27&userDescription=%27First%20build%27&buildType=%27Ranking%27&apiVersion=%271.0%27`|
+|HEADER   |`"Content-Type", "text/xml"` (If sending Request Body)|
 
 |	Parameter Name	|	Valid Values						|
 |:--------			|:--------								|

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="09/07/2015"
+	ms.date="09/16/2015"
 	ms.author="juliako"/>
 
 #Use AES-128 Dynamic Encryption and Key Delivery Service
@@ -634,8 +634,8 @@ The following code shows how to send a request to the Media Services key deliver
 		
 		            template.PrimaryVerificationKey = new SymmetricVerificationKey();
 		            template.AlternateVerificationKeys.Add(new SymmetricVerificationKey());
-		            template.Audience = _sampleAudience;
-		            template.Issuer = _sampleIssuer;
+		            template.Audience = _sampleAudience.ToString();
+		            template.Issuer = _sampleIssuer.ToString();
 		
 		            template.RequiredClaims.Add(TokenClaim.ContentKeyIdentifierClaim);
 		

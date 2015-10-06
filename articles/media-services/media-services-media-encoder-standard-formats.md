@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/10/2015"
+	ms.date="09/16/2015"
 	ms.author="juliako"/>
 
 #Media Encoder Standard Formats and Codecs
@@ -38,6 +38,18 @@ Matroska/WebM (.mkv)		|Yes
 WAVE/WAV (.wav)	|Yes 
 QuickTime (.mov) |Yes
  
+###Audio formats in input containers 
+
+Media Encoder Standard supports carrying the following audio formats in input containers:
+
+- MXF, GXF and QuickTime files which have audio tracks with interleaved stereo or 5.1 samples
+
+or
+
+- MXF, GXF and QuickTime files where the audio is carried as separate PCM tracks but the channel mapping (to stereo or 5.1) can be deduced from the file metadata
+
+Note that support for explicit/user-supplied channel mapping will be provided in the near future.
+
 
 ##Input Video Codecs
 

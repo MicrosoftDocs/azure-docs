@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/11/2015"
+   ms.date="09/15/2015"
    ms.author="v-sharos"/>
 
 # Use the StorSimple Manager service to manage backup policies
@@ -86,4 +86,4 @@ Perform the following steps in the Management Portal to create a custom backup p
 
 ## Next steps
 
-Learn how to [Use StorSimple Snapshot Manager to view and manage backup jobs](storsimple-snapshot-manager-manage-backup-jobs.md). 
+- Learn more about [using the StorSimple Manager service to administer your StorSimple device](storsimple-manager-service-administration.md).

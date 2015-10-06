@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Connecting to SQL Database: Links, Best Practices and Design Guidelines" 
-	description="A starting point topic that gathers together links and recommendations for client programs that connect to Azure SQL Database from technologies such as ADO.NET and PHP." 
+	pageTitle="Connect to SQL Database: Best Practices | Microsoft Azure" 
+	description="A starting point topic that gathers together links and best practice recommendations for client programs that connect to Azure SQL Database from technologies such as ADO.NET and PHP." 
 	services="sql-database" 
 	documentationCenter="" 
 	authors="MightyPen" 
@@ -14,11 +14,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/02/2015" 
+	ms.date="09/15/2015" 
 	ms.author="genemi"/>
 
 
-# Connecting to SQL Database: Links, Best Practices and Design Guidelines
+# Connecting to SQL Database: Best Practices and Design Guidelines
 
 
 This topic is a good place to get started with client connectivity to Azure SQL Database. It provides links to code samples for various technologies that you can use to connect to and interact with SQL Database. The technologies include Enterprise Library, JDBC, PHP, and several more. The information provided applies regardless of which specific technology you use to connect to SQL Database.
@@ -75,6 +75,9 @@ Further information is given in - [Contained Databases](http://msdn.microsoft.co
 
 - Ensure that your [Azure SQL Database firewall](sql-database-firewall-configure.md) allows outgoing TCP communication on port 1433.
  - You can configure the firewall settings on an SQL Database server or to an individual database.
+
+
+- If your client program connects to SQL Database V12 while your client runs on an Azure virtual machine (VM), you must open the port ranges 11000-11999 and 14000-14999 on the VM. Click [here](sql-database-develop-direct-route-ports-adonet-v12.md) for details.
 
 
 - To handle *transient faults*, add [*retry* logic](#TransientFaultsAndRetryLogicGm) to your client programs that interact with Azure SQL Database.

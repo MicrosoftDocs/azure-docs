@@ -1,23 +1,23 @@
-<properties 
-	pageTitle="Dynamic Packaging Overview" 
-	description="The topic gives and overview of dynamic packaging." 
-	authors="Juliako" 
-	manager="dwrede" 
-	editor="" 
-	services="media-services" 
+<properties
+	pageTitle="Dynamic Packaging Overview"
+	description="The topic gives and overview of dynamic packaging."
+	authors="Juliako"
+	manager="dwrede"
+	editor=""
+	services="media-services"
 	documentationCenter=""/>
 
-<tags 
-	ms.service="media-services" 
-	ms.workload="media" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="09/07/2015" 
+<tags
+	ms.service="media-services"
+	ms.workload="media"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/07/2015"
 	ms.author="juliako"/>
 
 
-#Dynamic Packaging 
+#Dynamic Packaging
 
 ##Overview
 
@@ -38,19 +38,19 @@ The following diagram shows the dynamic packaging workflow.
 
 ##Common scenario
 
-1. Upload an input file (called a mezzanine file). For example, H.264, MP4, or WMV (for the list of supported formats see Formats Supported by the Media Services Encoder).
- 
+1. Upload an input file (called a mezzanine file). For example, H.264, MP4, or WMV (for the list of supported formats see [Formats Supported by the Media Services Encoder](media-services-azure-media-encoder-formats)).
+
 1. Encode your mezzanine file to H.264 MP4 adaptive bitrate sets.
- 
+
 1. Publish the asset that contains the adaptive bitrate MP4 set by creating the On-Demand Locator.
- 
+
 1. Build the streaming URLs to access and stream your content.
- 
+
 >[AZURE.NOTE]Not all MP4 file formats are supported by dynamic packaging, for more information, see [Unsupported formats for dynamic packaging](media-services-dynamic-packaging-overview.md#unsupported_formats).
 
 ##Preparing assets for dynamic streaming
 
-To prepare your asset for dynamic streaming you have two options: 
+To prepare your asset for dynamic streaming you have two options:
 
 - Upload a master file and produce H.264 MP4 adaptive bitrate sets using the Azure Media Encoder.
 - Upload existing adaptive bitrate sets and validate them using the Media Packager.
@@ -65,7 +65,7 @@ Upload your files using **Azure Management Portal**, **.NET** or **REST API**.
 [AZURE.INCLUDE [media-services-selector-upload-files](../../includes/media-services-selector-upload-files.md)]
 
 Encode with **Azure Media Encoder** using **Azure Management Portal**, **.NET**, or **REST API**.
- 
+
 [AZURE.INCLUDE [media-services-selector-encode](../../includes/media-services-selector-encode.md)]
 
 
@@ -79,7 +79,7 @@ Once you have the adaptive bitrate sets, you can publish your asset by creating 
 
 For information on how to create locators and use dynamic packaging to stream your content, see the following topics:
 
-[Delivering Content to Customers Overview](media-services-deliver-content-overview.md). 
+[Delivering Content to Customers Overview](media-services-deliver-content-overview.md).
 
 Configure asset delivery policy using **.NET** or **REST API**.
 
@@ -104,5 +104,3 @@ You can view AMS learning paths here:
 
 - [AMS Live Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
 - [AMS on Demand Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
-
- 

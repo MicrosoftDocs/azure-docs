@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="08/12/2015"
+   ms.date="09/15/2015"
    ms.author="larryfr"/>
 
 #Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X
@@ -23,7 +23,7 @@
 - [Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
 - [Linux, Unix, OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
 
-Linux-based Azure HDInsight clusters provide the option of using Secure Shell (SSH) access through either a password or an SSH key. This document provides information on using SSH with HDInsight from Linux, Unix, or OS X clients.
+[Secure Shell (SSH)](https://en.wikipedia.org/wiki/Secure_Shell) allows you to remotely perform operations on your Liux-based HDInsight clusters using a command-line interface. This document provides information on using SSH with HDInsight from Linux, Unix, or OS X clients.
 
 > [AZURE.NOTE] The steps in this article assume you are using a Linux, Unix, or OS X client. While these steps may be performed on a Windows-based client if you have installed a package that provides `ssh` and `ssh-keygen` (such as Git for Windows,) we recommend that Windows-based clients follow the steps in [Use SSH with Linux-based HDInsight (Hadoop) from Windows](hdinsight-hadoop-linux-use-ssh-windows.md).
 
@@ -35,15 +35,31 @@ Linux-based Azure HDInsight clusters provide the option of using Secure Shell (S
 
 OR
 
-* [Azure CLI for Mac, Linux and Windows](../xplat-cli.md).
+* [Azure CLI for Mac, Linux and Windows](../xplat-cli-install.md).
 
 ##What is SSH?
 
 SSH is a utility for logging in to, and remotely executing, commands on a remote server. With Linux-based HDInsight, SSH establishes an encrypted connection to the cluster head node and provides a command line that you use to type in commands. Commands are then executed directly on the server.
 
-##Create an SSH key (optional)
+###SSH user name
 
-When creating a Linux-based HDInsight cluster, you have the option of using a password or an SSH key to authenticate to the server when using SSH. SSH keys are considered more secure, as they are certificate-based. Use the following information if you plan on using SSH keys with your cluster.
+An SSH user name is the name you use to authenticate to the HDInsight cluster. When you specify an SSH user name during cluster creation, this user is created on all nodes in the cluster. Once the cluster is created, you can use this user name to connect to the HDInsight cluster head nodes. From the head nodes, you can then connect to the individual worker nodes.
+
+> [AZURE.NOTE] An SSH user name must be unique. Since an SSH user name creates a user account on the HDInsight cluster, it cannot conflict with existing users that are created by HDInsight. The following are names that are reserved for use by services running on the HDInsight cluster, and cannot be used as the SSH user name:
+>
+> root, hdiuser, storm, hbase, ubuntu, zookeeper, hdfs, yarn, mapred, hbase, hive, oozie, falcon, sqoop, admin, tez, hcat, hdinsight-zookeeper.
+
+###SSH password or Public key
+
+An SSH user can use either a password or public key for authentication. A password is just a string of text you make up, while a public key is part of a cryptographic key pair generated to uniquely identify you.
+
+A key is more secure than a password, however it requires additional steps to generate the key and you must maintain the files containing the key in a secure location. If anyone gains access to the key files, they gain access to your account. Or if you lose the key files, you will not be able to login to your account.
+
+A key pair consists of a public key (which is sent to the HDInsight server,) and a private key (which is kept on your client machine.) When you connect to the HDInsight server using SSH, the SSH client will use the private key on your machine to authenticate with the server.
+
+##Create an SSH key
+
+Use the following information if you plan on using SSH keys with your cluster. If you plan on using a password, you can skip this section.
 
 1. Open a terminal session and use the following command to see if you have any existing SSH keys:
 

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Audit resources with Resource Manager | Microsoft Azure" 
+	pageTitle="Audit operations with Resource Manager | Microsoft Azure" 
 	description="Use the audit log in Resource Manager to review user actions and errors. Shows PowerShell, Azure CLI, and REST." 
 	services="azure-resource-manager" 
 	documentationCenter="" 
@@ -16,7 +16,7 @@
 	ms.date="09/10/2015" 
 	ms.author="tomfitz"/>
 
-# Audit resources with Resource Manager
+# Audit operations with Resource Manager
 
 When you encounter a problem during deployment or during the lifetime of your solution, you need to discover what went wrong. Resource Manager provides two ways for you to find out what happened and why it happened. 
 You can use deployment commands to retrieve information about particular deployments and operations. Or, you can use the audit logs to retrieve information about deployments and other actions 

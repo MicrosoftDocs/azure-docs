@@ -3,7 +3,7 @@
 	description="Create a Windows virtual machine in the Azure portal."
 	services="virtual-machines"
 	documentationCenter=""
-	authors="KBDAzure"
+	authors="cynthn"
 	manager="timlt"
 	editor=""
 	tags="azure-service-management"/>
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/11/2015"
-	ms.author="kathydav"/>
+	ms.author="cynthn"/>
 
 # Create a virtual machine running Windows in the Azure portal
 
@@ -51,7 +51,3 @@ This section shows you how to use the **From Gallery** option in the Azure porta
 - Log on to the virtual machine. For instructions, see [How to log on to a virtual machine running Windows Server](virtual-machines-log-on-windows-server.md).
 
 - Attach a disk to store data. You can attach both empty disks and disks that contain data. For instructions, see the [Attach a data disk tutorial](storage-windows-attach-disk.md).
-
-## Additional resources
-
-To learn more about what you can configure for a virtual machine and when you can do it, see [About Azure VM configuration settings](http://msdn.microsoft.com/library/azure/dn763935.aspx).

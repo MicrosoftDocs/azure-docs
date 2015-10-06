@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Store project code in source control | Microsoft Azure"
+	pageTitle="Store you .NET backend project code in source control | Azure Mobile Services"
 	description="Learn how to store your .NET backend project in and publish from a local Git repo on your computer."
 	services="mobile-services"
 	documentationCenter=""
@@ -13,18 +13,18 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="06/16/2015"
-	ms.author="glenga"/>
+	ms.date="09/15/2015"
+	ms.author="glenga"/> 
 
-# Store project code in source control
+# Store your mobile service project code in source control
 
-> [AZURE.SELECTOR-LIST (Platform | Backend)]
-- [(Any | .NET)](mobile-services-dotnet-backend-store-code-source-control.md)
-- [(Any | Javascript)](mobile-services-store-scripts-source-control.md)
+> [AZURE.SELECTOR]
+- [.NET backend](mobile-services-dotnet-backend-store-code-source-control.md)
+- [Javascript backend](mobile-services-store-scripts-source-control.md)
 
 This topic shows you how to use the source control provided by Azure Mobile Services to store your .NET backend service project. Your project can be published by simply uploading from your local Git repository to your production mobile service.
 
-To complete this tutorial, you must have already created a mobile service by completing either the [Get started with Mobile Services] or the [Add Mobile Services to an existing app] tutorial.
+To complete this tutorial, you must have already created a mobile service by completing either the [Get started with Mobile Services] tutorial.
 
 ##<a name="enable-source-control"></a>Enable source control in your mobile service
 
@@ -97,7 +97,5 @@ Now, your mobile service project is maintained in source control, and you can pu
 [Source control]: http://msdn.microsoft.com/library/windowsazure/c25aaede-c1f0-4004-8b78-113708761643
 [Installing Git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
 [Get started with Mobile Services]: mobile-services-dotnet-backend-ios-get-started.md
-[Add Mobile Services to an existing app]: mobile-services-dotnet-backend-ios-get-started-data.md
 [Azure Management Portal]: https://manage.windowsazure.com/
-[Call a custom API from the client]: mobile-services-dotnet-backend-ios-call-custom-api.md
 [How to make data model changes to a .NET backend mobile service]: mobile-services-dotnet-backend-how-to-use-code-first-migrations.md

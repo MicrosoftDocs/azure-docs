@@ -1,19 +1,19 @@
 <properties
 	pageTitle="Assigning administrator roles in Azure AD"
-	description="A topic that explains what admin roles are available with Azure AD and how to assign them."
+	description="Explains what admin roles are available with Azure AD and how to assign them."
 	services="active-directory"
 	documentationCenter=""
-	authors="curtand" 
+	authors="curtand"
 	manager="stevenpo"
-	editor="LisaToft"/>
+	editor=""/>
 
 <tags
 	ms.service="active-directory"
-	ms.workload="infrastructure-services"
+	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/14/2015"
+	ms.date="09/21/2015"
 	ms.author="curtand"/>
 
 # Assigning administrator roles in Azure AD

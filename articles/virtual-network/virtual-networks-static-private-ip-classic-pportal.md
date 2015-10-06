@@ -17,7 +17,7 @@
    ms.date="09/08/2015"
    ms.author="telmos" />
 
-# How to set a static private IP address in the preview portal
+# How to set a static private IP address (classic) in the preview portal
 
 [AZURE.INCLUDE [virtual-networks-static-private-ip-selectors-classic-include](../../includes/virtual-networks-static-private-ip-selectors-classic-include.md)]
 

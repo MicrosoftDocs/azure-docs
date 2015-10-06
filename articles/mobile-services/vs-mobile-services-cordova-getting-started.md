@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="" 
-	description="Describes the first steps you can take to get started with Azure Mobile Services in a Cordova project" 
+	pageTitle="Getting Started with a Cordova mobile services project (Visual Studio Connected Services)" 
+	description="Describes the first steps you can take after connecting your Cordova project to Azure Mobile Services by using Visual Studio Connected Services." 
 	services="mobile-services" 
 	documentationCenter="" 
 	authors="patshea123" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vs-getting-started" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="08/12/2015" 
+	ms.date="09/17/2015" 
 	ms.author="patshea"/>
 
 # Getting Started with Mobile Services (Cordova Projects)

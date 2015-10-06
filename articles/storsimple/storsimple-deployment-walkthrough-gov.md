@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/02/2015"
+   ms.date="09/17/2015"
    ms.author="v-sharos" />
 
 # Deploy your on-premises StorSimple device in the Government Portal

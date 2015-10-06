@@ -20,6 +20,32 @@
 
 Updates to **Azure Data Catalog** are released on a regular basis. Not every release will include new user-facing features, as some releases are focused on back-end service capabilities. This page will highlight new user-facing capabilities added to the **Azure Data Catalog** service.
 
+## What's new for the week of October 2, 2015 release
+
+As of the week of October 2, 2015, the following capabilities have been added to **Azure Data Catalog**:
+
+- Support for manually registering known data source types. Users can manually enter data source information using the **Azure Data Catalog** portal for all data source types supported by **Azure Data Catalog**.
+- Support for authorizing Azure Active Directory security groups. Catalog administrators can enable catalog access to security groups as well as to user accounts, making it easier to manage access to **Azure Data Catalog**.
+- Support for opening Hive data sources in Excel from the **Azure Data Catalog** portal.
+
+> [AZURE.NOTE] To use the "Open in Excel" feature for Hive data sources, users must have installed the ODBC driver for Hive.
+
+## What's new for the week of September 25, 2015 release
+
+As of the week of September 25, 2015, the following capabilities have been added to **Azure Data Catalog**:
+
+- Support for including data profiles when registering Hive data sources.
+- Support for programmatically discovering the Catalog API, making it easier for applications to integrate with **Azure Data Catalog**.
+
+## What's new for the week of September 18, 2015 release
+
+As of the week of September 18, 2015, the following capabilities have been added to **Azure Data Catalog**:
+
+- A new "getting started" data source discovery experience in the **Azure Data Catalog** portal. When users enter the "discover" page of the  **Azure Data Catalog** portal without entering a search term, they will be presented with an overview of the catalog contents including the most frequently used tags, as well as experts, data source types and object types.
+- Support for registering and discovering Azure SQL Data Warehouse objects and databases. For additional information on Azure SQL Data Warehouse, see [SQL Data Warehouse](http://azure.microsoft.com/services/sql-data-warehouse/).
+- Support for registering and discovering SQL Server Analysis Services models and SQL Server Reporting Services servers as containers. When registering SSAS and SSRS objects, **Azure Data Catalog** will create an entry for the SSAS model and SSRS server as well as for the reports and other objects. The containers can be discovered and annotated using the **Azure Data Catalog** portal. Users can also search and filter the contents of a model or server in addition to searching and filtering the contents of the catalog.
+
+> [AZURE.NOTE] SSAS and SSRS objects that have been registered prior to the September 18 release must be re-registered using the data source registration tool before the model or server entry will be added to the catalog. Re-registering a data source does not affect any annotations that have been added by users in the **Azure Data Catalog** portal.
 
 ## What's new for the week of September 11, 2015 release
 

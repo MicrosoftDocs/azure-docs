@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/07/2015"
+	ms.date="09/16/2015"
 	ms.author="juliako"/>
 
 
@@ -205,8 +205,8 @@ The following example creates an authorization policy with a token restriction. 
 	
 	    template.PrimaryVerificationKey = new SymmetricVerificationKey();
 	    template.AlternateVerificationKeys.Add(new SymmetricVerificationKey());
-	    template.Audience = _sampleAudience;
-	    template.Issuer = _sampleIssuer;
+            template.Audience = _sampleAudience.ToString();
+            template.Issuer = _sampleIssuer.ToString();
 	
 	    template.RequiredClaims.Add(TokenClaim.ContentKeyIdentifierClaim);
 	
@@ -337,8 +337,8 @@ To configure the token restriction option, you need to use an XML to describe th
 	
 	    template.PrimaryVerificationKey = new SymmetricVerificationKey();
 	    template.AlternateVerificationKeys.Add(new SymmetricVerificationKey());
-	    template.Audience = _sampleAudience;
-	    template.Issuer = _sampleIssuer;
+            template.Audience = _sampleAudience.ToString();
+            template.Issuer = _sampleIssuer.ToString();
 	
 	
 	    template.RequiredClaims.Add(TokenClaim.ContentKeyIdentifierClaim);

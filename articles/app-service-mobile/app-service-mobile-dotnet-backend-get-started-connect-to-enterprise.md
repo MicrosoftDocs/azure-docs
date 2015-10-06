@@ -5,11 +5,11 @@
 	authors="mattchenderson"
 	manager="dwrede"
 	editor="na"
-	services="app-service\mobile"/>
+	services="app-service"/>
 
 <tags
-	ms.service="app-service-mobile"
-	ms.workload="mobile"
+	ms.service="app-service"
+	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="get-started-article"
@@ -25,6 +25,8 @@ This tutorial requires the following:
 * Visual Studio 2013 running on Windows 8.1
 * An active [SharePoint Online] subscription
 * Completion of the [Authenticate your app with Active Directory Authentication Library Single Sign-On] tutorial. You should use the tenant provided by your SharePoint subscription.
+
+[AZURE.INCLUDE [app-service-mobile-to-web-and-api](../../includes/app-service-mobile-to-web-and-api.md)] 
 
 ## <a name="configure-permissions"></a>Configure your application for delegated access to SharePoint
 By default, the token you receive from AAD has limited permissions. In order to access a third-party resource or SaaS application such as SharePoint Online, you must explicitly allow it.

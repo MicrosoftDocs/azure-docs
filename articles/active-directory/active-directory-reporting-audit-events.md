@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="06/18/2015"
+   ms.date="09/21/2015"
    ms.author="kenhoff"/>
 
 # Azure Active Directory Audit Report Events
@@ -44,15 +44,15 @@ Delete User                          | Deleted a user from the directory.
 Set license properties               | Set the license properties for a user in the directory.
 Reset user password                  | Reset the password for a user in the directory.
 Change user password                 | Changed the password for a user in the directory.
-Change user license                  | Changed the license assigned to a user in the directory.
-Update user                          | Updated a user in the directory.
+Change user license                  | Changed the license assigned to a user in the directory. To see what licenses were updated, look at the "Update user" event immediately before or after this event.
+Update user                          | Updated a user in the directory. [See below](#quotupdate-userquot-attributes) for attributes that can be updated.
 Set force change user password       | Set the property that forces a user to change their password on login.
 **Group events**                     |
-Create group                         | Created a group in the directory
-Update group                         | Updated a group in the directory
-Delete group                         | Deleted a group from the directory
-Add member to group                  | Added a member to a group in the directory
-Remove member from group             | Removed a member from a group in the directory
+Create group                         | Created a group in the directory.
+Update group                         | Updated a group in the directory.
+Delete group                         | Deleted a group from the directory.
+Add member to group                  | Added a member to a group in the directory.
+Remove member from group             | Removed a member from a group in the directory.
 **Application events**               |
 Add service principal                | Added a service principal to the directory.
 Remove service principal             | Removed a service principal from the directory.
@@ -71,7 +71,7 @@ Remove Partner from company          | Removed a partner from the directory.
 Add domain to company                | Added a domain to the directory.
 Remove domain from company           | Removed a domain from the directory.
 Update domain                        | Updated a domain on the directory.
-Set domain authentication            | Changed the default domain setting for the company
+Set domain authentication            | Changed the default domain setting for the company.
 Set federation settings on domain    | Updated the federation settings for a domain.
 Verify domain                        | Verified a domain on the directory.
 Verify email verified domain         | Verified a domain on the directory using email verification.
@@ -89,7 +89,7 @@ Promote tenant to partner
 
 --->
 
-### User attributes included in the Update User audit event
+## "Update User" attributes
 The "Update user" audit event includes additional information about what user attributes were updated. For each attribute, both the previous value and the new value is included.
 
 Attribute                       | Description

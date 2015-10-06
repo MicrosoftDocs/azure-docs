@@ -12,7 +12,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="09/11/2015"
+   ms.date="09/16/2015"
    ms.author="alkohli" />
 
 # Deploy and manage a StorSimple virtual device in Azure

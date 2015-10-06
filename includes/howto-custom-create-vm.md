@@ -42,7 +42,7 @@ A *custom* virtual machine refers to a virtual machine you create using the **Fr
 
 14. If you want the virtual machine to belong to an availability set, in **Availability Set**, select **Create availability set** or add it to an existing availability set.
 
-	**Note**: Virtual machine that are members of an availability set are deployed to different fault domains. Placing multiple virtual machines in an availability set helps ensure that your application is available during network failures, local disk hardware failures, and any planned downtime.
+	**Note**: Virtual machines in an availability set are deployed to different fault domains. Placing multiple virtual machines in an availability set helps ensure that your application is available during network failures, local disk hardware failures, and any planned downtime.
 
 15.  Under **Endpoints**, review the new endpoints that will be created to allow connections to the virtual machine, such through Remote Desktop or a Secure Shell (SSH) client. You also can add endpoints now, or create them later. For instructions on creating them later, see [How to Set Up Endpoints to a Virtual Machine](../articles/virtual-machines/virtual-machines-set-up-endpoints.md).
 

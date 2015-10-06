@@ -3,8 +3,8 @@
 	description="A topic that explains choices for free and paid editions of Azure Active Directory."
 	services="active-directory"
 	documentationCenter=""
-	authors="curtand"
-	manager="msStevenPo"
+	authors="markusvi"
+	manager="stevenpo"
 	editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/14/2015"
-	ms.author="curtand"/>
+	ms.date="10/01/2015"
+	ms.author="markvi"/>
 
 # Azure Active Directory editions
 
@@ -41,9 +41,9 @@ Active Directory Basic edition is a paid offering of Azure Active Directory and 
 - **Group-based application access** - Use groups to provision users and assign user access in bulk to thousands of SaaS applications. These groups can either be created solely in the cloud or you can leverage existing groups that have been synced in from your on-premises Active Directory.
     For more information, see [Assign access for a group to a SaaS application in Azure AD](active-directory-accessmanagement-group-saasapps.md).
 - **Self-service password reset** - Azure has always allowed directory administrators to reset passwords. With Azure Active Directory Basic, you can now reduce helpdesk calls when your users forget a password by giving all users in your directory the capability to reset their password, using the same sign in experience they have for Office 365.
-    For more information, see [Password Management in Azure AD](https://msdn.microsoft.com/library/azure/dn510386.aspx).
+    For more information, see [Manage your passwords from anywhere](active-directory-passwords.md).
 - **Enterprise SLA of 99.9%** - We guarantee at least 99.9% availability of the Azure Active Directory Basic service.
-- [**Azure Active Directory Application Proxy**](https://msdn.microsoft.com/library/azure/dn768214.aspx) - Give your employees secure access to on-premises applications like SharePoint and Exchange/OWA from the cloud using Azure Active Directory.
+- [**How to provide secure remote access to on-premises applications**](active-directory-application-proxy-get-started.md) - Give your employees secure access to on-premises applications like SharePoint and Exchange/OWA from the cloud using Azure Active Directory.
 
 ## Features in Azure Active Directory Premium
 
@@ -57,13 +57,13 @@ Active Directory Premium edition is a paid offering of Azure Active Directory an
 
     For more information, see [View your access and usage reports](active-directory-view-access-usage-reports.md).
 
-- **Multi-Factor Authentication** - Multi-Factor Authentication is now included with Premium and can help you to secure access to on-premises applications (VPN, RADIUS, etc.), Azure, Microsoft Online Services like Office 365 and Dynamics CRM Online, and thousands of Non-MS Cloud services preintegrated with Azure Active Directory. Simply enable Multi-Factor Authentication for Azure Active Directory identities, and users will be prompted to set up additional verification the next time they sign in.
+- **Multi-Factor Authentication** - Multi-Factor Authentication is now included with Premium and can help you to secure access to on-premises applications (VPN, RADIUS, etc.), Azure, Microsoft Online Services like Office 365 and Dynamics CRM Online, and thousands of Non-MS Cloud services pre-integrated with Azure Active Directory. Simply enable Multi-Factor Authentication for Azure Active Directory identities, and users will be prompted to set up additional verification the next time they sign in.
 
-    For more information, see [Adding Multi-Factor Authentication to Azure Active Directory](https://msdn.microsoft.com/library/azure/dn249466.aspx).
+    For more information, see [What is Azure Multi-Factor Authentication?](multi-factor-authentication.md)
 
-- **Microsoft Identity Manager (MIM)** - Premium comes with the option to grant rights to use a MIM server (and CALs) in your on-premises network to support any combination of Hybrid Identity solutions. This is a great option if you have a variation of on-premises directories and databases that you want to sync directly to Azure Active Directory. There is no limit on the number of FIM servers you can use, however, MIM CALs are granted based on the allocation of an Azure Active Directory premium user license.
+- **Microsoft Identity Manager** - Premium comes with the option to grant rights to use a MIM server (and CALs) in your on-premises network to support any combination of Hybrid Identity solutions. This is a great option if you have a variation of on-premises directories and databases that you want to sync directly to Azure Active Directory. There is no limit on the number of MIM servers you can use, however, MIM CALs are granted based on the allocation of an Azure Active Directory premium user license.
 
-    For more information, see [Deploy MIM 2010 R2](https://www.microsoft.com/server-cloud/products/forefront-identity-manager/features.aspx).
+    For more information, see [Microsoft Identity Manager](http://www.microsoft.com/en-us/server-cloud/products/microsoft-identity-manager/default.aspx).
 
 - **Enterprise SLA of 99.9%** - We guarantee at least 99.9% availability of the Azure Active Directory Premium service.
 
@@ -71,42 +71,376 @@ Active Directory Premium edition is a paid offering of Azure Active Directory an
 
 - **Password reset with write-back** - Self-service password reset can be written back to on-premises directories.
 
-- [Azure Active Directory Connect Health](https://msdn.microsoft.com/library/azure/dn906722.aspx): monitor the health of your on premises Active Directory infrastructure and get usage analytics.
+- [Azure Active Directory Connect Health](active-directory-aadconnect-health.md): monitor the health of your on premises Active Directory infrastructure and get usage analytics.
 
 
 
-## Comparing editions: Capabilities common to all editions
+## Comparing Free, Basic, and Premium editions
 
-- Directory as a service
-    For the free edition, there is a 500K object limit. But the 500k object limit does not apply for Office 365, Microsoft Intune or any other Microsoft online service that relies on Azure Active Directory for directory services. The Basic and Premium editions have no object limit.
-- User and group management using UI or Windows PowerShell cmdlets
-- Device registration
-- Access Panel portal for single sign-in (SSO) based user access to SaaS and custom applications
-    With Azure Active Directory Free and Azure Active Directory Basic, end users who have been assigned access to each SaaS app, can see up to 10 apps in their Access Panel and get single sign-in access to them (assuming they have first been configured with SSO by the admin). Admins can configure SSO and assign user access to as many SaaS apps as they want with Free, but end users will see only 10 apps in their Access Panel at a time. Azure Active Directory Premium has no application limit.
-- User-based application access management and provisioning
-- Self-service password change for cloud users
-- Directory synchronization tool: For syncing between on-premises Active Directory and Azure Active Directory
-- Standard security reports
+<br>
+Available in edition: ![Checklist](./media/active-directory-editions/ic195031.png)
 
-## Comparing editions: Premium and Basic capabilities
 
-- High availability SLA uptime (99.9%)
-- Group-based application access management and provisioning
-- Customization of company logo and colors to the Sign In and Access Panel pages
-- Self-service password reset for cloud users
-- Application Proxy: Secure Remote Access and single sign-in to on-premises web applications
+<table>
+	<tr>
+		<th>&nbsp;</th>
+		<th>Features </th>
+		<th>Free edition </th>
+		<th>Basic edition </th>
+		<th>Premium edition </th>
+	</tr>
+	<tr>
+		<td rowspan="8">
+		<p>Common features</p>
+		</td>
+		<td>
+		<p>Directory as a service</p>
+		</td>
+		<td>
+		<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img id="2b05dce3-938f-4168-9b8f-1f4398cbdb9b" alt="Checklist" src="./media/active-directory-editions/ic195031.png" title="Checklist" xmlns="" /><br />
+		Up to 500K objects [1]</p>
+		</td>
+		<td>
+		<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img id="2b05dce3-938f-4168-9b8f-1f4398cbdb9b" alt="Checklist" src="./media/active-directory-editions/ic195031.png" title="Checklist" xmlns="" /><br />
+		No object limit</p>
+		</td>
+		<td>
+		<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img id="2b05dce3-938f-4168-9b8f-1f4398cbdb9b" alt="Checklist" src="./media/active-directory-editions/ic195031.png" title="Checklist" xmlns="" /><br />
+		No object limit</p>
+		</td>
+	</tr>
+	<tr>
+		<td>
+		<p>User and group management using UI or Windows PowerShell cmdlets</p>
+		</td>
+		<td>
+		<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img id="2b05dce3-938f-4168-9b8f-1f4398cbdb9b" alt="Checklist" src="./media/active-directory-editions/ic195031.png" title="Checklist" xmlns="" /></p>
+		</td>
+		<td>
+		<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img id="2b05dce3-938f-4168-9b8f-1f4398cbdb9b" alt="Checklist" src="./media/active-directory-editions/ic195031.png" title="Checklist" xmlns="" /></p>
+		</td>
+		<td>
+		<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img id="2b05dce3-938f-4168-9b8f-1f4398cbdb9b" alt="Checklist" src="./media/active-directory-editions/ic195031.png" title="Checklist" xmlns="" /></p>
+		</td>
+	</tr>
+	<tr>
+		<td>
+		<p>Device registration</p>
+		</td>
+		<td>
+		<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img id="2b05dce3-938f-4168-9b8f-1f4398cbdb9b" alt="Checklist" src="./media/active-directory-editions/ic195031.png" title="Checklist" xmlns="" /></p>
+		</td>
+		<td>
+		<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img id="2b05dce3-938f-4168-9b8f-1f4398cbdb9b" alt="Checklist" src="./media/active-directory-editions/ic195031.png" title="Checklist" xmlns="" /></p>
+		</td>
+		<td>
+		<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img id="2b05dce3-938f-4168-9b8f-1f4398cbdb9b" alt="Checklist" src="./media/active-directory-editions/ic195031.png" title="Checklist" xmlns="" /></p>
+		</td>
+	</tr>
+	<tr>
+		<td>
+		<p>Access Panel portal for SSO-based user access to SaaS and custom applications</p>
+		</td>
+		<td>
+		<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img id="2b05dce3-938f-4168-9b8f-1f4398cbdb9b" alt="Checklist" src="./media/active-directory-editions/ic195031.png" title="Checklist" xmlns="" /><br />
+		Up to 10 apps per user [2]</p>
+		</td>
+		<td>
+		<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img id="2b05dce3-938f-4168-9b8f-1f4398cbdb9b" alt="Checklist" src="./media/active-directory-editions/ic195031.png" title="Checklist" xmlns="" /><br />
+		Up to 10 apps per user [2]</p>
+		</td>
+		<td>
+		<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img id="2b05dce3-938f-4168-9b8f-1f4398cbdb9b" alt="Checklist" src="./media/active-directory-editions/ic195031.png" title="Checklist" xmlns="" /><br />
+		No app limit</p>
+		</td>
+	</tr>
+	<tr>
+		<td>
+		<p>User-based application access management and provisioning</p>
+		</td>
+		<td>
+		<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img id="2b05dce3-938f-4168-9b8f-1f4398cbdb9b" alt="Checklist" src="./media/active-directory-editions/ic195031.png" title="Checklist" xmlns="" /></p>
+		</td>
+		<td>
+		<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img id="2b05dce3-938f-4168-9b8f-1f4398cbdb9b" alt="Checklist" src="./media/active-directory-editions/ic195031.png" title="Checklist" xmlns="" /></p>
+		</td>
+		<td>
+		<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img id="2b05dce3-938f-4168-9b8f-1f4398cbdb9b" alt="Checklist" src="./media/active-directory-editions/ic195031.png" title="Checklist" xmlns="" /></p>
+		</td>
+	</tr>
+	<tr>
+		<td>
+		<p>Self-service password change for cloud users</p>
+		</td>
+		<td>
+		<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img id="2b05dce3-938f-4168-9b8f-1f4398cbdb9b" alt="Checklist" src="./media/active-directory-editions/ic195031.png" title="Checklist" xmlns="" /></p>
+		</td>
+		<td>
+		<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img id="2b05dce3-938f-4168-9b8f-1f4398cbdb9b" alt="Checklist" src="./media/active-directory-editions/ic195031.png" title="Checklist" xmlns="" /></p>
+		</td>
+		<td>
+		<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img id="2b05dce3-938f-4168-9b8f-1f4398cbdb9b" alt="Checklist" src="./media/active-directory-editions/ic195031.png" title="Checklist" xmlns="" /></p>
+		</td>
+	</tr>
+	<tr>
+		<td>
+		<p>Azure AD Connect – For syncing between on-premises directories and Azure 
+		Active Directory</p>
+		</td>
+		<td>
+		<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img id="2b05dce3-938f-4168-9b8f-1f4398cbdb9b" alt="Checklist" src="./media/active-directory-editions/ic195031.png" title="Checklist" xmlns="" /></p>
+		</td>
+		<td>
+		<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img id="2b05dce3-938f-4168-9b8f-1f4398cbdb9b" alt="Checklist" src="./media/active-directory-editions/ic195031.png" title="Checklist" xmlns="" /></p>
+		</td>
+		<td>
+		<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img id="2b05dce3-938f-4168-9b8f-1f4398cbdb9b" alt="Checklist" src="./media/active-directory-editions/ic195031.png" title="Checklist" xmlns="" /></p>
+		</td>
+	</tr>
+	<tr>
+		<td>
+		<p>Standard security reports</p>
+		</td>
+		<td>
+		<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img id="2b05dce3-938f-4168-9b8f-1f4398cbdb9b" alt="Checklist" src="./media/active-directory-editions/ic195031.png" title="Checklist" xmlns="" /></p>
+		</td>
+		<td>
+		<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img id="2b05dce3-938f-4168-9b8f-1f4398cbdb9b" alt="Checklist" src="./media/active-directory-editions/ic195031.png" title="Checklist" xmlns="" /></p>
+		</td>
+		<td>
+		<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img id="2b05dce3-938f-4168-9b8f-1f4398cbdb9b" alt="Checklist" src="./media/active-directory-editions/ic195031.png" title="Checklist" xmlns="" /></p>
+		</td>
+	</tr>
+	<tr>
+		<td rowspan="5">
+		<p>Premium and Basic features</p>
+		</td>
+		<td>
+		<p>High availability SLA uptime (99.9%)</p>
+		</td>
+		<td>
+		<p></p>
+		</td>
+		<td>
+		<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img id="2b05dce3-938f-4168-9b8f-1f4398cbdb9b" alt="Checklist" src="./media/active-directory-editions/ic195031.png" title="Checklist" xmlns="" /></p>
+		</td>
+		<td>
+		<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img id="2b05dce3-938f-4168-9b8f-1f4398cbdb9b" alt="Checklist" src="./media/active-directory-editions/ic195031.png" title="Checklist" xmlns="" /></p>
+		</td>
+	</tr>
+	<tr>
+		<td>
+		<p>Group-based application access management and provisioning</p>
+		</td>
+		<td>
+		<p></p>
+		</td>
+		<td>
+		<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img id="2b05dce3-938f-4168-9b8f-1f4398cbdb9b" alt="Checklist" src="./media/active-directory-editions/ic195031.png" title="Checklist" xmlns="" /></p>
+		</td>
+		<td>
+		<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img id="2b05dce3-938f-4168-9b8f-1f4398cbdb9b" alt="Checklist" src="./media/active-directory-editions/ic195031.png" title="Checklist" xmlns="" /></p>
+		</td>
+	</tr>
+	<tr>
+		<td>
+		<p>Customization of company logo and colors to the Sign In and Access Panel 
+		pages</p>
+		</td>
+		<td>
+		<p></p>
+		</td>
+		<td>
+		<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img id="2b05dce3-938f-4168-9b8f-1f4398cbdb9b" alt="Checklist" src="./media/active-directory-editions/ic195031.png" title="Checklist" xmlns="" /></p>
+		</td>
+		<td>
+		<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img id="2b05dce3-938f-4168-9b8f-1f4398cbdb9b" alt="Checklist" src="./media/active-directory-editions/ic195031.png" title="Checklist" xmlns="" /></p>
+		</td>
+	</tr>
+	<tr>
+		<td>
+		<p>Self-service password reset for cloud users</p>
+		</td>
+		<td>
+		<p></p>
+		</td>
+		<td>
+		<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img id="2b05dce3-938f-4168-9b8f-1f4398cbdb9b" alt="Checklist" src="./media/active-directory-editions/ic195031.png" title="Checklist" xmlns="" /></p>
+		</td>
+		<td>
+		<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img id="2b05dce3-938f-4168-9b8f-1f4398cbdb9b" alt="Checklist" src="./media/active-directory-editions/ic195031.png" title="Checklist" xmlns="" /></p>
+		</td>
+	</tr>
+	<tr>
+		<td>
+		<p>Application Proxy: Secure Remote Access and SSO to on-premises web applications</p>
+		</td>
+		<td>
+		<p></p>
+		</td>
+		<td>
+		<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img id="2b05dce3-938f-4168-9b8f-1f4398cbdb9b" alt="Checklist" src="./media/active-directory-editions/ic195031.png" title="Checklist" xmlns="" /></p>
+		</td>
+		<td>
+		<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img id="2b05dce3-938f-4168-9b8f-1f4398cbdb9b" alt="Checklist" src="./media/active-directory-editions/ic195031.png" title="Checklist" xmlns="" /></p>
+		</td>
+	</tr>
+	<tr>
+		<td rowspan="9">
+		<p>Premium-only features</p>
+		</td>
+		<td>
+		<p>Advanced application usage reporting</p>
+		</td>
+		<td>
+		<p></p>
+		</td>
+		<td>
+		<p></p>
+		</td>
+		<td>
+		<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img id="2b05dce3-938f-4168-9b8f-1f4398cbdb9b" alt="Checklist" src="./media/active-directory-editions/ic195031.png" title="Checklist" xmlns="" /></p>
+		</td>
+	</tr>
+	<tr>
+		<td>
+		<p>Self-service group management for cloud users</p>
+		</td>
+		<td>
+		<p></p>
+		</td>
+		<td>
+		<p></p>
+		</td>
+		<td>
+		<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img id="2b05dce3-938f-4168-9b8f-1f4398cbdb9b" alt="Checklist" src="./media/active-directory-editions/ic195031.png" title="Checklist" xmlns="" /></p>
+		</td>
+	</tr>
+	<tr>
+		<td>
+		<p>Self-service password reset with on-premises write-back</p>
+		</td>
+		<td>
+		<p></p>
+		</td>
+		<td>
+		<p></p>
+		</td>
+		<td>
+		<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img id="2b05dce3-938f-4168-9b8f-1f4398cbdb9b" alt="Checklist" src="./media/active-directory-editions/ic195031.png" title="Checklist" xmlns="" /></p>
+		</td>
+	</tr>
+	<tr>
+		<td>
+		<p>Microsoft Identity Manager (MIM) user licenses – For on-premises identity 
+		and access management</p>
+		</td>
+		<td>
+		<p></p>
+		</td>
+		<td>
+		<p></p>
+		</td>
+		<td>
+		<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img id="2b05dce3-938f-4168-9b8f-1f4398cbdb9b" alt="Checklist" src="./media/active-directory-editions/ic195031.png" title="Checklist" xmlns="" /> [3]</p>
+		</td>
+	</tr>
+	<tr>
+		<td>
+		<p>Advanced anomaly security reports (machine learning-based)</p>
+		</td>
+		<td>
+		<p></p>
+		</td>
+		<td>
+		<p></p>
+		</td>
+		<td>
+		<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img id="2b05dce3-938f-4168-9b8f-1f4398cbdb9b" alt="Checklist" src="./media/active-directory-editions/ic195031.png" title="Checklist" xmlns="" /></p>
+		</td>
+	</tr>
+	<tr>
+		<td>
+		<p>
+		<a href="http://channel9.msdn.com/Series/EMS/Azure-Cloud-App-Discovery">
+		Cloud app discovery</a> </p>
+		</td>
+		<td>
+		<p></p>
+		</td>
+		<td>
+		<p></p>
+		</td>
+		<td>
+		<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img id="2b05dce3-938f-4168-9b8f-1f4398cbdb9b" alt="Checklist" src="./media/active-directory-editions/ic195031.png" title="Checklist" xmlns="" /></p>
+		</td>
+	</tr>
+	<tr>
+		<td>
+		<p>Multi-Factor Authentication service for cloud users</p>
+		</td>
+		<td>
+		<p></p>
+		</td>
+		<td>
+		<p></p>
+		</td>
+		<td>
+		<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img id="2b05dce3-938f-4168-9b8f-1f4398cbdb9b" alt="Checklist" src="./media/active-directory-editions/ic195031.png" title="Checklist" xmlns="" /></p>
+		</td>
+	</tr>
+	<tr>
+		<td>
+		<p>Multi-Factor Authentication server for on-premises users</p>
+		</td>
+		<td>
+		<p></p>
+		</td>
+		<td>
+		<p></p>
+		</td>
+		<td>
+		<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img id="2b05dce3-938f-4168-9b8f-1f4398cbdb9b" alt="Checklist" src="./media/active-directory-editions/ic195031.png" title="Checklist" xmlns="" /></p>
+		</td>
+	</tr>
+	<tr>
+		<td>
+		<p>
+		<a href="https://msdn.microsoft.com/en-us/library/azure/dn906722.aspx">Azure 
+		Active Directory Connect Health</a> to monitor the health of on-premises 
+		Active Directory infrastructure, and get usage analytics.</p>
+		</td>
+		<td>
+		<p></p>
+		</td>
+		<td>
+		<p></p>
+		</td>
+		<td>
+		<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img id="2b05dce3-938f-4168-9b8f-1f4398cbdb9b" alt="Checklist" src="./media/active-directory-editions/ic195031.png" title="Checklist" xmlns="" /></p>
+		</td>
+	</tr>
+</table>
 
-## Comparing editions: Premium-only features
 
-- Self-service group management for cloud users
-- Self-service password reset with on-premises write-back
-- Microsoft Identity Manager (MIM) server licenses – For syncing between on-premises databases and/or directories and Azure Active Directory
-- Advanced anomaly security reports (machine learning-based)
-- [Cloud app discovery](http://channel9.msdn.com/Series/EMS/Azure-Cloud-App-Discovery)
-- Advanced application usage reporting
-- Multi-Factor Authentication service for cloud users
-- Multi-Factor Authentication server for on-premises users
-- Azure Active Directory Connect Health
+[1] The 500k object limit does not apply for Office 365, Microsoft Intune or any other Microsoft online service that relies on Azure Active Directory for directory services.
+
+[2] With Azure Active Directory Free and Azure Active Directory Basic, end users who have been assigned access to each SaaS app, can see up to 10 apps in their Access Panel and get SSO access to them (assuming they have first been configured with SSO by the admin). Admins can configure SSO and assign user access to as many SaaS apps as they want with Free, however end users will only see 10 apps in their Access Panel at a time.
+
+[3] Microsoft Identity Manager Server software rights are granted with Windows Server licenses (any edition). Because Microsoft Identity Manager runs on the Windows Server operating system, as long as the server is running a valid, licensed copy of Windows Server, then Microsoft Identity Manager can be installed and used on that server. No other separate license is required for Microsoft Identity Manager Server.
+
+
+
+<br>
+<br>
+
+
+
+
+
+
+
+
 
 ## Features currently in public preview
 

@@ -4,7 +4,7 @@
 	description="Learn how to manage an Azure virtual machine"
 	services="backup"
 	documentationCenter=""
-	authors="aashishr"
+	authors="trinadhk"
 	manager="shreeshd"
 	editor=""/>
 
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/09/2015"
-	ms.author="aashishr"; "jimpark"/>
+	ms.author="aashishr"; "jimpark"; "trinadhk"/>
 
 # Manage virtual machines
 
@@ -159,6 +159,8 @@ To delete backup data on a virtual machine, which is in the *Protection Stopped*
 On the **Dashboard** page you can review information about Azure virtual machines, their storage, and jobs associated with them in the last 24 hours. You can view backup status and any associated backup errors.
 
 ![Dashboard](./media/backup-azure-manage-vms/dashboard-protectedvms.png)
+
+>[AZURE.NOTE] Values in the dashboard are refreshed once every 24 hours.
 
 ## Auditing Operations
 Azure backup provides review of the "operation logs" of backup operations triggered by the customer making it easy to see exactly what management operations were performed on the backup vault. Operations logs enable great post-mortem and audit support for the backup operations.

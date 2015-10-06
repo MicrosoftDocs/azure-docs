@@ -1,9 +1,7 @@
-#Enable HTTPS for a web app in Azure App Service
-
-> [AZURE.NOTE]
-> Get going faster--use the NEW Azure [guided walkthrough](http://support.microsoft.com/kb/2990804)!  It makes associating a custom domain name AND securing communication (SSL) with Azure Cloud Services or [App Service](http://go.microsoft.com/fwlink/?LinkId=529714) a snap.
 
 You can secure the communication between the web app and the browser with HTTPS, which uses Secure Socket Layer (SSL) encryption. This is the most commonly used method of securing data sent across the internet, and assures visitors that their transactions with your App are secure. This article discusses how to configure HTTPS for a web app in Azure App Service. This article does not cover client certificate authentication; for information about that, see [How To Configure TLS Mutual Authentication for Web Apps](../articles/app-service-web/app-service-web-configure-tls-mutual-auth.md).
+
+> [AZURE.NOTE] Get going faster--use the NEW Azure [guided walkthrough](http://support.microsoft.com/kb/2990804)!  It makes associating a custom domain name AND securing communication (SSL) with Azure Cloud Services or [App Service](http://go.microsoft.com/fwlink/?LinkId=529714) a snap.
 
 ##<a name="bkmk_azurewebsites"></a>HTTPS for the \*.azurewebsites.net domain
 

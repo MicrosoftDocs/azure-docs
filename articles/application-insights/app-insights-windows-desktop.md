@@ -104,6 +104,9 @@ For example, in a Windows Forms application, you could write:
             if (tc != null)
             {
                 tc.Flush(); // only for desktop apps
+
+                // Allow time for flushing:
+                System.Threading.Thread.Sleep(1000);
             }
             base.OnClosing(e);
         }
@@ -174,7 +177,7 @@ If you used TrackMetric or the measurements parameter of TrackEvent, open [Metri
 
 If your app runs where the internet connection is not always available or slow, consider using the persistence channel instead of the default in-memory channel. 
 
-The default in-memory channel loses any telemetry that has not been sent by the time the app closes. Although you can use `Flush()` to attempt to send any data remaining in the buffer, it will time out if there is no internet connection, and delay the app in shutting down.
+The default in-memory channel loses any telemetry that has not been sent by the time the app closes. Although you can use `Flush()` to attempt to send any data remaining in the buffer, it will still lose data if there is a no internet connection, or if the app shuts down before transmission is complete.
 
 By contrast, the persistence channel buffers telemetry in a file, before sending it to the portal. `Flush()` ensures that data is stored in the file. If any data is not sent by the time the app closes, it will remain in the file. When the app restarts, the data will be sent then, if there is an internet connection. Data will accumulate in the file for as long as is necessary until a connection is available. 
 
@@ -196,6 +199,8 @@ By contrast, the persistence channel buffers telemetry in a file, before sending
     
     ``` 
 3. Use `telemetryClient.Flush()` before your app closes, to make sure data is either sent to the portal or saved to the file.
+
+    Note that Flush() is synchronous for the persistence channel, but asynchronous for other channels.
 
  
 The persistence channel is optimized for devices scenarios, where the number of events produced by application is relatively small and the connection is often unreliable. This channel will write events to the disk into reliable storage first and then attempt to send it. 

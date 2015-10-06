@@ -11,11 +11,11 @@
 
 <tags 
 	ms.service="cloud-services" 
-	ms.workload="tbd" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="05/27/2015" 
+	ms.date="09/14/2015" 
 	ms.author="patshea"/>
 
 # Testing the Performance of a Cloud Service Locally in the Azure Compute Emulator Using the Visual Studio Profiler
@@ -30,11 +30,8 @@ You might also want to profile your application locally in the compute emulator 
 This article covers the CPU Sampling method of profiling, which can be done locally in the emulator. CPU sampling is a method of profiling that is not very intrusive. At a designated sampling interval, the profiler takes a snapshot of the call stack. The data is collected over a period of time, and shown in a report. This method of profiling tends to indicate where in a computationally intensive application most of the CPU work is being done.  This gives you the opportunity to focus on the "hot path" where your application is spending the most time.
 
 
-## Prerequisites
 
-You can run the profiler locally only if you have Visual Studio Premium or Visual Studio Ultimate. 
-
-## <a name="step1"> </a> Step 1: Configure Visual Studio for Profiling
+## Step 1: Configure Visual Studio for Profiling
 
 First, there are a few Visual Studio configuration options that might be helpful when profiling. To make sense of the profiling reports, you'll need symbols (.pdb files) for your application and also symbols for system libraries. You'll want to make sure that you reference the available symbol servers. To do this, on the **Tools** menu in Visual Studio, choose **Options**, then choose **Debugging**, then **Symbols**. Make sure that Microsoft Symbol Servers is listed under **Symbol file (.pdb) locations**.  You can also reference http://referencesource.microsoft.com/symbols, which might have additional symbol files.
 
@@ -79,7 +76,7 @@ Call this code from the RunAsync method in the worker role's RoleEntryPoint-deri
 
 Build and run your cloud service locally without debugging (Ctrl+F5), with the solution configuration set to **Release**. This ensures that all files and folders are created for running the application locally, and ensures that all the emulators are started. Start the Compute Emulator UI from the taskbar to verify that your worker role is running.
 
-## <a name="step2"> </a> Step 2: Attach to a Process
+## Step 2: Attach to a Process
 
 Instead of profiling the application by starting it from the Visual Studio 2010 IDE, you must attach the profiler to a running process. 
 
@@ -115,7 +112,7 @@ When you want to stop profiling, choose the **Stop Profiling** link.
 
 ![][10]
 
-## <a name="step3"> </a> Step 3: View Performance Reports
+## Step 3: View Performance Reports
 
 The performance report for your application is displayed.
 
@@ -136,7 +133,7 @@ If you added the string concatenation code in this article, you should see a war
 
 ![][14]
 
-## <a name="step4"> </a> Step 4: Make Changes and Compare Performance
+## Step 4: Make Changes and Compare Performance
 
 You can also compare the performance before and after a code change.  Stop the running process, and edit the code to replace the string concatenation operation with the use of StringBuilder:
 
@@ -161,7 +158,7 @@ The reports highlight differences between the two runs.
 
 Congratulations! You've gotten started with the profiler.
 
-## <a name="troubleshooting"> </a> Troubleshooting
+##  Troubleshooting
 
 - Make sure you are profiling a Release build and start without debugging.
 
@@ -176,17 +173,11 @@ command line, especially the global settings, make sure that VSPerfClrEnv /globa
 
 - If when sampling, you see the message "PRF0025: No data was collected," check that the process you attached to has CPU activity. Applications that are not doing any computational work might not produce any sampling data.  It's also possible that the process exited before any sampling was done. Check to see that the Run method for a role that you are profiling does not terminate.
 
-## <a name="nextSteps"> </a> Next Steps
+## Next Steps
 
-Instrumenting Azure binaries in the emulator is not supported in the Visual Studio profiler, but if you want to test memory allocation, you can choose that option when profiling. You can also choose concurrency profiling, which helps you determine whether threads are wasting time competing for locks, or tier interaction profiling, which helps you track down performance problems when interacting between tiers of an application, most frequently between the data tier and a worker role.  You can view the database queries that your app generates and use the profiling data to improve your use of the database. For information about tier interaction profiling, see [Walkthrough: Using the Tier Interaction Profiler in Visual Studio Team System 2010][3].
+Instrumenting Azure binaries in the emulator is not supported in the Visual Studio profiler, but if you want to test memory allocation, you can choose that option when profiling. You can also choose concurrency profiling, which helps you determine whether threads are wasting time competing for locks, or tier interaction profiling, which helps you track down performance problems when interacting between tiers of an application, most frequently between the data tier and a worker role.  You can view the database queries that your app generates and use the profiling data to improve your use of the database. For information about tier interaction profiling, see the blog post [Walkthrough: Using the Tier Interaction Profiler in Visual Studio Team System 2010][3].
 
 
-[Step 1: Configure Visual Studio for Profiling]: #step1
-[Step 2: Attach to a Process]: #step2
-[Step 3: View Profiling Reports]: #step3
-[Step 4: Make Changes and Compare Performance]: #step4
-[Troubleshooting]: #troubleshooting
-[Next Steps]: #nextSteps
 
 [1]: http://msdn.microsoft.com/library/azure/hh369930.aspx
 [2]: http://msdn.microsoft.com/library/azure/hh411542.aspx

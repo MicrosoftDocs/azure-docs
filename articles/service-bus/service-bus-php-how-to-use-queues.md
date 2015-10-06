@@ -201,6 +201,8 @@ In the event that the application crashes after processing the message but befor
 
 Now that you've learned the basics of Service Bus queues, see the topic [Queues, Topics, and Subscriptions][] for more information.
 
+For more information, see also the [PHP Developer Center](/develop/php/).
+
 [Service Bus Queue Diagram]: ../../../DevCenter/Java/Media/SvcBusQueues_01_FlowDiagram.jpg
 [Azure Management Portal]: http://manage.windowsazure.com/
 [Service Bus Node screenshot]: ../../../DevCenter/Java/Media/SvcBusQueues_02_SvcBusNode.jpg

@@ -1,11 +1,13 @@
 <properties
- pageTitle="About virtual machine extensions and features | Microsoft Azure"
- description="Describes many of the virtual machine extensions, grouped by what they provide or improve, such as connectivity and basic management."
+ pageTitle="Virtual machine extensions and features | Microsoft Azure"
+ description="Learn what extensions are available for Azure virtual machines, grouped by what they provide or improve."
  services="virtual-machines"
  documentationCenter=""
  authors="squillace"
  manager="timlt"
- editor=""/>
+ editor=""
+ tags="azure-service-management,azure-resource-manager"/>
+
 <tags
  ms.service="virtual-machines"
  ms.devlang="na"
@@ -16,6 +18,9 @@
  ms.author="rasquill"/>
 #About virtual machine extensions and features
 Microsoft Azure provides VM Extensions built by both Microsoft and by trusted third-party providers to enable security, runtime, debugging, management, and other features you can take advantage of to increase your productivity with Azure Virtual Machines. This topic describes the various features that Azure VM Extensions provide to both Windows and Linux Virtual Machines for your use and points toward documentation for each one.
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)] This article covers resources created with the Resource Manager deployment model or the classic deployment model.
+
 
 For details about the VM Agents and how they work to support VM Extensions, see [VM Agent and VM Extensions Overview](https://msdn.microsoft.com/library/dn832621.aspx).
 

@@ -1,19 +1,6 @@
-<properties 
-   pageTitle="Create a manual backup"
-   description="Explains how to start a manual, on-demand backup job."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="carolz"
-   edito**r="" />
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="08/13/2015"
-   ms.author="v-sharos" />
+
+<!--author=SharS last changed: 9/15/15-->
+
 
 #### To create a manual backup
 
