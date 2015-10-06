@@ -1,19 +1,19 @@
 <properties
 	pageTitle="Managing Role-Based Access Control with Windows PowerShell"
 	description="Managing role-based access control with Windows PowerShell"
-	services="azure-portal"
+	services="active-directory"
 	documentationCenter="na"
 	authors="IHenkel"
 	manager="stevenpo"
-	editor="mollybos"/>
+	editor=""/>
 
 <tags
-	ms.service="azure-portal"
+	ms.service="active-directoyr"
 	ms.workload="multiple"
 	ms.tgt_pltfrm="powershell"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/14/2015"
+	ms.date="10/06/2015"
 	ms.author="inhenk"/>
 
 # Managing Role-Based Access Control with Windows PowerShell #
