@@ -145,7 +145,7 @@ The metastore contains information about Hive tables, partitions, schemas, colum
 
 By default, Azure will create a metastore for the cluster, however you can specify an external metastore using SQL Database. This allows the metadata information to be preserved when you delete a cluster, as it is stored externally in the database. For instructions on how to create a SQL database in Azure, see [Create your first Azure SQL Database](sql-database-get-started.md).
 
-##<a id="scriptaction"></a>Script action
+###<a id="scriptaction"></a>Script action
 
 You can install additional components or customize cluster configuration by using scripts during cluster provisioning. Such scripts are invoked via **Script Action**. For more information, see [Customize HDInsight cluster using Script Action](hdinsight-hadoop-customize-cluster-linux.md).
 
