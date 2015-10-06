@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-linux"
 	ms.workload="infrastructure"
-	ms.date="10/4/2015"
+	ms.date="10/04/2015"
 	ms.author="rasquill"/>
 
 # How to Get Started Quickly with Docker in the Azure Marketplace
