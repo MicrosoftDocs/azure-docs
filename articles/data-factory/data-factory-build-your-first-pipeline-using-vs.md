@@ -33,6 +33,8 @@ In this article, you will learn how to use the Visual Studio to create your firs
 
 This article does not provide a conceptual overview of the Azure Data Factory service. For a detailed overview of the service, see the [Introduction to Azure Data Factory](data-factory-introduction.md) article.
 
+> [AZURE.IMPORTANT] Please go through the **pre-requisites** section in the [Tutorial Overview](data-factory-build-your-first-pipeline.md) if you haven't gone through it already. 
+
 ## Walkthrough: Create and deploy Data Factory entities using Visual Studio 
 
 ### Pre-requisites
