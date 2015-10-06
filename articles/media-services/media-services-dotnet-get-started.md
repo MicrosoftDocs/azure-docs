@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Get started with delivering Video-on-Demand (VoD) content using .NET SDK"
-	description="This tutorial walks you through the steps of implementing a Video-on-Demand (VoD) content delivery application with Azure Media Services using .NET."
+	pageTitle="Get started with delivering content on demand using .NET SDK"
+	description="This tutorial walks you through the steps of implementing an on demand content delivery application with Azure Media Services using .NET."
 	services="media-services"
 	documentationCenter=""
 	authors="Juliako"
@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="09/18/2015"
+	ms.date="10/07/2015"
 	ms.author="juliako"/>
 
 
-# Get started with delivering Video-on-Demand (VoD) content using .NET SDK
+# Get started with delivering content on demand using .NET SDK
 
 [AZURE.INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
 
@@ -35,7 +35,7 @@ The following prerequisites are required to start developing with Media Services
 
 - Operating Systems: Windows 8 or later, Windows 2008 R2, Windows 7.
 - .NET Framework 4.5 or .NET Framework 4.0
-- Visual Studio 2013, Visual Studio 2012, Visual Studio 2010 SP1 (Professional, Premium, Ultimate, or Express).
+- Visual Studio 2010 SP1 (Professional, Premium, Ultimate, or Express) or later.
 
 
 The following tasks are shown in this Quickstart.
@@ -119,13 +119,14 @@ To change the number of streaming reserved units, do the following:
 
 4. Open the App.config file (add the file to your project if it was not added by default) and add an *appSettings* section to the file. Set the values for your Azure Media Services account name and account key, as shown in the following example. To obtain the account name and key information, open the Azure portal, select your media services account, and then click the **MANAGE KEYS** button.
 
-	 <pre><code>
-	&lt;configuration&gt;
-        &lt;appSettings&gt;
-    	&lt;add key="MediaServicesAccountName" value="Media-Services-Account-Name" /&gt;
-        	&lt;add key="MediaServicesAccountKey" value="Media-Services-Account-Key" /&gt;
-  	    &lt;/appSettings&gt;
-	&lt;/configuration&gt;
+	<configuration>
+	...
+	  <appSettings>
+	    <add key="MediaServicesAccountName" value="Media-Services-Account-Name" />
+	    <add key="MediaServicesAccountKey" value="Media-Services-Account-Key" />
+	  </appSettings>
+	  
+	</configuration>ion&gt;
 	</code></pre>
 
 5. Overwrite the existing **using** statements at the beginning of the Program.cs file with the following code.
@@ -421,13 +422,18 @@ To stream you video, use [Azure Media Services Player](http://amsplayer.azureweb
 To test progressive download, paste a URL into a browser (for example, Internet Explorer, Chrome, or Safari).
 
 
+##Next Steps
 
-##Media Services learning paths
+###Media Services learning paths
 
 You can view AMS learning paths here:
 
 - [AMS Live Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
 - [AMS on Demand Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
+### Looking for something else?
+
+If this topic didn't contain what you were expecting, is missing something, or in some other way didn't meet your needs, please provide us with you feedback using the Disqus thread below.
 
 
 <!-- Anchors. -->
