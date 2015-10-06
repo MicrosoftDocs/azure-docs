@@ -20,6 +20,8 @@
 
 #Create Linux-based clusters in HDInsight using the Azure preview portal
 
+[AZURE.INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
+
 The Azure preview portal is a web-based management tool for services and resources hosted in the Microsoft Azure cloud. Use the information in this document to create a new Linux-based HDInsight cluster using the preview portal and your web browser
 
 ##Prerequisites

@@ -20,6 +20,8 @@
 
 #Create Linux-based clusters in HDInsight
 
+[AZURE.INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
+
 In this document, you will learn about the different ways to create a Linux-based HDInsight cluster on Azure, as well as optional configurations that can be used with your cluster. HDInsight provides Apache Hadoop, Apache Storm, and Apache HBase as services on the Azure cloud platform.
 
 > [AZURE.NOTE] This document provides instructions on the different ways to create a cluster. If you are looking for a quick-start approach to create a cluster, see [Get Started with Azure HDInsight on Linux](../hdinsight-hadoop-linux-get-started.md).

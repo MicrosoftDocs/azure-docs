@@ -19,6 +19,8 @@
 
 #Create Linux-based clusters in HDInsight using the .NET SDK
 
+[AZURE.INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
+
 The HDInsight .NET SDK provides .NET client libraries that make it easier to work with HDInsight from a .NET Framework application. This document demonstrates how to create a Linux-based HDInsight cluster using the .NET SDK.
 
 ##Prerequisites
