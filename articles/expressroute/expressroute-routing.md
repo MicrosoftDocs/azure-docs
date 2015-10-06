@@ -161,6 +161,7 @@ Microsoft does not honor any BGP community values that you set. You are required
 ## Next steps
 
 - Configure your ExpressRoute connection.
+
 	- [Create an ExpressRoute circuit](expressroute-howto-circuit-classic.md)
 	- [Configure routing](expressroute-howto-routing-classic.md)
 	- [Link a VNet to an ExpressRoute circuit](expressroute-howto-linkvnet-classic.md)
