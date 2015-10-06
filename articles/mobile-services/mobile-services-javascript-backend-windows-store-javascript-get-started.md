@@ -43,8 +43,6 @@ Once you have created your mobile service, you can follow an easy quickstart in 
 
 2. In the quickstart tab, click **Windows** under **Choose platform** and expand **Create a new Windows Store app**.
 
-   	![](./media/mobile-services-javascript-backend-windows-store-javascript-get-started/mobile-portal-quickstart.png)
-
 3. If you haven't already done so, download and install [Visual Studio 2013][Visual Studio 2013 Express for Windows] on your local computer or virtual machine.
 
 4. Click **Create TodoItem table** to create a table to store app data.
