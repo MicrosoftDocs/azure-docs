@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="10/01/2015"
+   ms.date="10/06/2015"
    ms.author="andkjell;billmath"/>
 
 # Prerequisites for Azure AD Connect
@@ -73,7 +73,7 @@ Azure AD Connect depends on PowerShell and .Net 4.5.1. Depending on your Windows
 
 - Windows Server 2012R2
   - PowerShell is installed by default, no action is required.
-  - .Net 4.5.1 and later are offered through Windows Update. Make sure you have installed the latest updates to Windows Server in the Control Panel.
+  - .Net 4.5.1 and later releases are offered through Windows Update. Make sure you have installed the latest updates to Windows Server in the Control Panel.
 - Windows Server 2008R2 and Windows Server 2012
   - The latest version of PowerShell is available in **Windows Management Framework 4.0**, available on [Microsoft Download Center](http://www.microsoft.com/downloads).
   - .Net 4.5.1 and later releases are available on [Microsoft Download Center](http://www.microsoft.com/downloads).
@@ -107,6 +107,7 @@ The table below shows the minimum requirements for the Azure AD Connect sync com
 | More than 600,000 | 1.6 GHz | 32 GB | 500 GB |
 
 The minimum requirements for computers running AD FS or Web Application Servers is the following:
+
 - CPU: Dual core 1.6 GHz or higher
 - MEMORY: 2GB or higher
 - Azure VM: A2 configuration or higher

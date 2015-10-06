@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="10/01/2015"
+   ms.date="10/06/2015"
    ms.author="andkjell;billmath"/>
 
 # More details about features in preview
@@ -27,7 +27,7 @@ User writeback is in early preview. It can only be used when Azure AD is the sou
 > [AZURE.IMPORTANT] This feature should only be tested in a test environment and should not be used in an Azure AD directory used for production usage.
 
 ## Group writeback
-The option for group writeback in optional features will allow you to writeback “Groups in Office 365” to a forest with Exchange installed. This is a new group type which is always mastered in the cloud. You can find this in outlook.office365.com or on myapps.microsoft.com as shown here:
+The option for group writeback in optional features will allow you to writeback “Office 365 Groups” to a forest with Exchange installed. This is a new group type which is always mastered in the cloud. You can find this in outlook.office365.com or on myapps.microsoft.com as shown here:
 
 
 ![Sync Filtering](./media/active-directory-aadconnect-feature-preview/office365.png)
@@ -42,7 +42,7 @@ This group will be represented as a distribution group in on-premises AD DS. You
 - Only forests with the Exchange schema are valid targets for groups. If no Exchange was detected, then group writeback will not be possible to enable.
 - The Group writeback feature does not currently handle security groups or distribution groups.
 
-More information about Groups for Office 365 can be found [here](http://blogs.office.com/2014/09/25/delivering-first-chapter-groups-office-365/ ).
+More information about Office 365 Groups can be found [here](http://aka.ms/O365g).
 
 ## Directory extensions
 Directory extensions allows you to extend the schema in Azure AD with your own attributes from on-premises Active Directory.

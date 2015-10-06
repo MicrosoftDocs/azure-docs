@@ -24,7 +24,7 @@ Azure AD Connect is the tool to integrate your on-premises identity system such 
 ## Why use Azure AD Connect
 Integrating your on-premises directories with Azure AD makes your users more productive by providing a common identity for accessing both cloud and on-premises resources.  With this integration users and organizations can take advantage of the following:
 
-- Users can use a single identity to access on-premsises applications and cloud services such as Office 365.
+- Users can use a single identity to access on-premises applications and cloud services such as Office 365.
 
 - Single tool to provide an easy deployment experience for synchronization and sign-in.
 
