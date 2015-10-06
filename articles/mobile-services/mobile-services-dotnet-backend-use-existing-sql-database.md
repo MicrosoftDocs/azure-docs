@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article" 
-	ms.date="07/01/2015"
+	ms.date="08/01/2015"
 	ms.author="glenga"/>
 
 
@@ -613,4 +613,4 @@ Please note that both controller implementations make exclusive use of the DTOs 
 
     }
 
-As a next step, you can now build out the client app to access the service. For more information, see [Add Mobile Services to an existing app](mobile-services-dotnet-backend-windows-universal-dotnet-get-started-data.md#update-the-app-to-use-the-mobile-service).
+As a next step, you can now build out the client app to access the service.

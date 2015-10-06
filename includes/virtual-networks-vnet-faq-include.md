@@ -58,7 +58,7 @@ There is no limit on the number of subnets you use within a VNet. All the subnet
 
 ### Are there any restrictions on using IP addresses within these subnets?
 
-Azure reserves some IP addresses within each subnet. The first and last IP addresses of the subnets are reserved for protocol conformance, along with two more addresses used for Azure services.
+Azure reserves some IP addresses within each subnet. The first and last IP addresses of the subnets are reserved for protocol conformance, along with 3 more addresses used for Azure services.
 
 ### How small and how large can VNets and subnets be?
 
@@ -221,7 +221,8 @@ You can only use compute services within VNets. Compute services are limited to 
 
 No. An Azure Web App cannot be deployed in a VNet. However, Web Apps can securely connect and access resources in your Azure VNet if you have point-to-site configured for your VNet. For more information, see the following:
 
-- [Web Apps Virtual Network Integration](http://azure.microsoft.com/blog/2014/09/15/azure-websites-virtual-network-integration/)
+- [Web Apps Virtual Network Integration](http://azure.microsoft.com/blog/
+- 014/09/15/azure-websites-virtual-network-integration/)
 
 - [Using VNet Integration and Hybrid Connections with Web Apps](http://azure.microsoft.com/blog/2014/10/30/using-vnet-or-hybrid-conn-with-websites/)
 

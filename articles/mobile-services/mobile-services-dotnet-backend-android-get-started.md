@@ -87,12 +87,12 @@ In this section you will create a new Android app that is connected to your mobi
 ## <a name="next-steps"> </a>Next Steps
 Now that you have completed the quickstart, learn how to perform additional important tasks in Mobile Services: 
 
-* [Get started with authentication]
-  <br/>Learn how to authenticate users of your app with an identity provider.
-
-* [Get started with push notifications] 
+* [Add push notifications to your app] 
   <br/>Learn how to send a very basic push notification to your app.
 
+* [Add authentication to your app] 
+  <br/>Learn how to restrict access to your backend data to specific registered users of your app.
+  
 * [Troubleshoot a Mobile Services .NET backend]
   <br/> Learn how to diagnose and fix issues that can arise with a Mobile Services .NET backend. 
 
@@ -121,9 +121,8 @@ Now that you have completed the quickstart, learn how to perform additional impo
 
 <!-- URLs. -->
 [Get started (Eclipse)]: mobile-services-dotnet-backend-android-get-started-ec.md
-[Get started with data]: mobile-services-dotnet-backend-android-get-started-data.md
-[Get started with authentication]: mobile-services-dotnet-backend-android-get-started-users.md
-[Get started with push notifications]: mobile-services-dotnet-backend-android-get-started-push.md
+[Add push notifications to your app]: mobile-services-dotnet-backend-android-get-started-push.md
+[Add authentication to your app]: mobile-services-dotnet-backend-android-get-started-auth.md
 [Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=280125
 [Android Studio]: https://developer.android.com/sdk/index.html
 [Mobile Services Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
