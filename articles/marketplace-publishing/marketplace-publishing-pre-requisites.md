@@ -41,6 +41,7 @@ A company can register only once as seller with Microsoft.
 > [AZURE.TIP] The company registration must be completed to get started. However, while your company works on the tax and bank information in the Seller Dashboard account, the developers can start working on creating the virtual machine image in the [Publishing Portal](https://publish.windowsazure.com), getting them certified and testing them in Azure Staging Environment. You will need the complete seller account approval only for the final step of publishing your offer to the Marketplace.
 
 > [AZURE.TIP] If you have issues with Seller Registration completion, please log a Support ticket as below:
+
 1. Contact [Support](http://go.microsoft.com/fwlink?LinkId=272975)
 2. Choose **Seller Dashboard registration and your account**
 3. Choose **Registering for a developer account**

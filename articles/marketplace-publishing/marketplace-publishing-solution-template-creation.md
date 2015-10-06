@@ -41,8 +41,11 @@ After completing the step 1, [Account Creation and Registration][link-acct-creat
   The Azure Resource Manager deploys and manages the lifecycle of a collection of resources through declarative, model-based template language.  This ARM template is simply a parameterized JSON file which expresses the set of resources and their relationship to be used for deployments.  Each resource is placed in a resource group, which is simply a container for resources.  ARM provides centralized auditing, tagging, Resource Based Access Control, and most importantly, its operations are idempotent.
 
   With ARM and ARM templates, you can express more complex deployments of Azure resources, such as Virtual Machines, Storage Accounts, and Virtual Networks, which build upon Marketplace content such as VM Images and VM Extensions.
+
+<!--
 4.	Create your Multi VM template solution
   For detailed information on the guidance, review the [Creating a Solution Template Best Practices](marketplace-publishing-solution-creation-best-practices.md) for best practices and requirements for Multi-VM solutions.
+-->
 
 > [AZURE.NOTE] For first time login to [Publishing Portal] (https://publish.windowsazure.com/), use the same account with which your company’s Seller Profile was registered. Later you can add any employee of your company as a co-admin in the Publishing portal by following the steps below.
 

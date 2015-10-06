@@ -74,7 +74,7 @@ The agent configuration file will be placed at /etc/waagent.conf.
 
 ### 2.3 Verify that required libraries are included
 In addition to the Azure Linux Agent, the following libraries should also be included:
-1. The [Linux Integration Services][link-intsvc] Version 3.0 or higher must be enabled in your kernel. See [Linux Kernel Requirements](../virtual-machines-linux-create-upload-vhd-generic/#linux-kernel-requirements)
+1. The [Linux Integration Services][link-intsvc] Version 3.0 or higher must be enabled in your kernel. See [Linux Kernel Requirements](../virtual-machines/virtual-machines-linux-create-upload-vhd-generic/#linux-kernel-requirements)
 2. [Kernel Patch](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/drivers/scsi/storvsc_drv.c?id=5c1b10ab7f93d24f29b5630286e323d1c5802d5c) for Azure I/O stability (likely not needed for any recent kernel, but should be verified)
 3. [Python][link-python] 2.6 or above
 4. Python] pyasn1 package, if not already installed
@@ -97,7 +97,7 @@ We strongly recommend enabling SSH for the end user. If SSH Server is enabled, a
 The following are networking requirements for an Azure-compatible Linux VM Image.
 - In many cases it is best to disable NetworkManager.  One exception is with CentOS 7.x based systems (and derivatives) which should keep NetworkManager enabled.
 - Networking configuration should be controllable via the ifup/ifdown scripts.  The Linux agent may use these commands to restart networking during provisioning.
-- There should be no custom network configuration. The resolv.conf file should be deleted as a final step. This is typically done as part of deprovisioning (see [Azure Linux Agent User Guide](../virtual-machines-linux-agent-user-guide/)). You can also perform this step manually with the following command:
+- There should be no custom network configuration. The resolv.conf file should be deleted as a final step. This is typically done as part of deprovisioning (see [Azure Linux Agent User Guide](../virtual-machines/virtual-machines-linux-agent-user-guide/)). You can also perform this step manually with the following command:
 
         rm /etc/resolv.conf
 
@@ -237,7 +237,7 @@ All images in the Azure Marketplace must be re-usable in a generic fashion. In o
 
         sysprep.exe /generalize /oobe /sshutdown
 
-  Guidance on how to sysprep the operating system is provided in Step of the following MSDN article - [Create and upload a Windows Server VHD to Azure](../virtual-machines-create-upload-vhd-windows-server/).
+  Guidance on how to sysprep the operating system is provided in Step of the following MSDN article - [Create and upload a Windows Server VHD to Azure](../virtual-machines/virtual-machines-create-upload-vhd-windows-server/).
 
 ## 4. Deploy a VM from your VHDs
 Once your VHD(s), generalized OS VHD and zero or more data disk VHDs, are uploaded to an Azure storage account, you can register them as a user VM Image with which to test. Note, since your OS VHD is generalized, you cannot directly deploy the VM by providing the VHD URL.

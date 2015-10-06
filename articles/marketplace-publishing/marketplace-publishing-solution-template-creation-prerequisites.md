@@ -98,7 +98,7 @@ Ensure that you have defined parameters for the following values:
 
   For each type of deployment – Evaluation, Proof of Concept, Dev/Test, and Production – think through the exact layout and topology needed for your application.  
   Question to ask:
-  
+
   -	What are the different tiers?  
   -	What resources are needed for each tier and of what size?  
   -	What are the building blocks needed to create these resources?  
@@ -116,8 +116,11 @@ Ensure that you have defined parameters for the following values:
   The Azure Resource Manager deploys and manages the lifecycle of a collection of resources through declarative, model-based template language.  This ARM template is simply a parameterized JSON file which expresses the set of resources and their relationship to be used for deployments.  Each resource is placed in a resource group, which is simply a container for resources.  ARM provides centralized auditing, tagging, Resource Based Access Control, and most importantly, its operations are idempotent.
 
   With ARM and ARM templates, you can express more complex deployments of Azure resources, such as Virtual Machines, Storage Accounts, and Virtual Networks, which build upon Marketplace content such as VM Images and VM Extensions.
+
+<!--
 4.	Create your Multi VM template solution
   For detailed information on the guidance, review the [Creating a Solution Template Best Practices](marketplace-publishing-solution-creation-best-practices.md) for best practices and requirements for Multi-VM solutions.
+-->
 
 ## Next Steps
 Now that you reviewed the pre-requisites and completed the necessary tasks, you can move forward with the creating your Solution Template offer as detailed in the [Guide to creating a Solution Template](marketplace-publishing-solution-template-creation.md)
