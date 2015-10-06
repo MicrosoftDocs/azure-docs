@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Azure Active Directory Domain Services preview: Getting Started | Microsoft Azure"
 	description="Getting started with Azure Active Directory Domain Services"
-	services="active-directory-domain-services"
+	services="active-directory-ds"
 	documentationCenter=""
 	authors="mahesh-unnikrishnan"
 	manager="udayh"

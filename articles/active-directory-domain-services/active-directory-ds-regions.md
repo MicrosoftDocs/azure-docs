@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Azure Active Directory Domain Services preview: Supported regions | Microsoft Azure"
 	description="Supported regions"
-	services="active-directory-domain-services"
+	services="active-directory-ds"
 	documentationCenter=""
 	authors="mahesh-unnikrishnan"
 	manager="udayh"
