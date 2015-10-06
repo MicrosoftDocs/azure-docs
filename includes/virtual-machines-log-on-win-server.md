@@ -8,9 +8,9 @@
 
 6. In the Windows Security window, type the credentials for an account on the virtual machine and then click **OK**.
 
- 	In most cases, the local account user name and password that you specified when you created the virtual machine. In this case, the domain is the vmanme and should be entered as *vmname*\\*username*.  
+ 	In most cases, the local account user name and password that you specified when you created the virtual machine. In this case, the domain is the vmanme and should be entered as *vmname*&#92;*username*.  
 	
-	If the virtual machine belongs to a domain at your organization, make sure the user name includes the name of that domain in the format *Domain*\\*Username*. The account will also need to either be in the Admnistrators group or have been granted remote access privledges to the VM.
+	If the virtual machine belongs to a domain at your organization, make sure the user name includes the name of that domain in the format *Domain*&#92;*Username*. The account will also need to either be in the Admnistrators group or have been granted remote access privledges to the VM.
 	
 	If the virtual machine is a domain controller, type the user name and password of a domain administrator account for that domain.
 
