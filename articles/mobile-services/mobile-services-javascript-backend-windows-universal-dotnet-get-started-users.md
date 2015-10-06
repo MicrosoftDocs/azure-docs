@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/14/2015" 
+	ms.date="10/06/2015" 
 	ms.author="glenga"/>
 
 # Add authentication to your universal Windows 8.1 app
