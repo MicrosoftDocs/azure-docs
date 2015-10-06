@@ -22,7 +22,7 @@ If you encounter any issues with your Microsoft Azure StorSimple solution, you c
 - How to create a support request.
 - How to start a support session in the Windows PowerShell interface of your StorSimple device.
 
-Review the [StorSimple 8000 series Support plans](https://msdn.microsoft.com/library/mt433077.aspx) before you create a Support request.
+Review the [StorSimple 8000 Series Support SLAs and information](https://msdn.microsoft.com/library/mt433077.aspx) before you create a Support request.
 
 ## Create a support request
 
