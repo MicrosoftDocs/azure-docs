@@ -55,6 +55,7 @@ Insert table/matrix of artifacts x (portals, identities, business)
 
 ## Additional Resources
 - To learn more about the Portals used, visit [Portals You Will Need](marketplace-publishing-portals.md)
+
 <!--
 **Virtual Machines**
 - Setting up Azure PowerShell
@@ -63,6 +64,7 @@ Insert table/matrix of artifacts x (portals, identities, business)
 **Solution Templates**
 - Best Practices: Creating an Azure compatible Solution Template
 -->
+
 [suppt-general]:marketplace-publishing-get-publisher-support.md
 [suppt-rpt-insights]:marketplace-publishing-report-seller-insights.md
 [suppt-rpt-payouts]:marketplace-publishing-report-payout.md
