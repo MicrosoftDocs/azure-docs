@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Get Started with Mobile Services for Windows Store apps | Microsoft Azure"
-	description="Follow this tutorial to get started using Azure Mobile Services for Windows Store development in C# or JavaScript."
+	pageTitle="Get Started with Mobile Services for Windows Store apps (C#) | Microsoft Azure"
+	description="Follow this tutorial to get started using Azure Mobile Services for Windows Store development in C#."
 	services="mobile-services"
 	documentationCenter="windows"
 	authors="ggailey777"
@@ -12,13 +12,16 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
-	ms.topic="article" 
-	ms.date="08/08/2015"
+	ms.topic="get-started-article" 
+	ms.date="10/6/2015"
 	ms.author="glenga"/>
 
 # <a name="getting-started"> </a>Get started with Mobile Services
 
 [AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]
+&nbsp;
+
+[AZURE.INCLUDE [mobile-services-hero-slug](../../includes/mobile-services-hero-slug.md)]
 
 This tutorial shows you how to add a cloud-based backend service to a universal Windows app using Azure Mobile Services. Universal Windows app solutions include projects for both Windows Store 8.1 and Windows Phone Store 8.1 apps and a common shared project. For more information, see [Build universal Windows apps that target Windows and Windows Phone](http://msdn.microsoft.com/library/windows/apps/xaml/dn609832.aspx).
 
@@ -67,16 +70,19 @@ In this section you will create a new universal Windows app that is connected to
 ## Next Steps
 Now that you have completed the quickstart, learn how to perform additional important tasks in Mobile Services:
 
-* [Get started with offline data sync]
-  <br/>Learn how to use offline data sync to make your app responsive and robust.
+* [Get started with offline data sync]  
+  Learn how to use offline data sync to make your app responsive and robust.
 
-* [Add authentication to your Mobile Services app ][Get started with authentication]
-  <br/>Learn how to authenticate users of your app with an identity provider.
+* [Add authentication to your Mobile Services app ][Get started with authentication]  
+  Learn how to authenticate users of your app with an identity provider.
 
-* [Add push notifications to your app][Get started with push notifications]
-  <br/>Learn how to send a very basic push notification to your app.
+* [Add push notifications to your app][Get started with push notifications]  
+  Learn how to send a very basic push notification to your app.
 
-For more information about universal Windows apps, see [Supporting multiple device platforms from a single mobile service](mobile-services-how-to-use-multiple-clients-single-service.md#shared-vs).
+* [How to use the .NET client library](mobile-services-windows-dotnet-how-to-use-client-library.md)  
+ Learn how to query the mobile service, work with data, and access custom APIs.
+
+[AZURE.INCLUDE [app-service-disqus-feedback-slug](../../includes/app-service-disqus-feedback-slug.md)]
 
 <!-- Anchors. -->
 [Getting started with Mobile Services]:#getting-started
