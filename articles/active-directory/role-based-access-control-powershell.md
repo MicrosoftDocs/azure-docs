@@ -8,7 +8,7 @@
 	editor=""/>
 
 <tags
-	ms.service="active-directoyr"
+	ms.service="active-directory"
 	ms.workload="multiple"
 	ms.tgt_pltfrm="powershell"
 	ms.devlang="na"
