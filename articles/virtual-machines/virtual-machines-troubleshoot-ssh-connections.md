@@ -71,14 +71,13 @@ To resolve the common SSH issues for virtual machines created using the Resource
 
 	Step 3: You can reset the SSH connection using either of the following methods.
 
-	- Use the `vm reset-access` command as the following example.
+	(i) Use the `vm reset-access` command as the following example.
 
 		azure vm reset-access -g TestRgV2 -n TestVmV2 -r
 
 	This will install the `VMAccessForLinux` extension on your virtual machine.
 
-
-	- Alternatively, you can create a file named PrivateConf.json with the following content:
+	(ii) Alternatively, you can create a file named PrivateConf.json with the following content:
 
 		{
 			"reset_ssh":"True"
@@ -110,14 +109,13 @@ To resolve the common SSH issues for virtual machines created using the Resource
 
 	Install and configure Azure CLI as mentioned above. Switch to Resource Manager mode and then run the extension using either of the following methods.
 
-	- Run the `vm reset-access` command to set any of the SSH credentials.
+	(i) Run the `vm reset-access` command to set any of the SSH credentials.
 
 		azure vm reset-access TestRgV2 TestVmV2 -u NewUser -p NewPassword
 
 	See more information about this by typing `azure vm reset-access -h` on the command line.
 
-
-	- Alternatively, you can create a file named PrivateConf.json with the following contents.
+	(ii) Alternatively, you can create a file named PrivateConf.json with the following contents.
 
 		{
 			"username":"NewUsername", "password":"NewPassword", "expiration":"2016-01-01", "ssh_key":"", "reset_ssh":false, "remove_user":""
