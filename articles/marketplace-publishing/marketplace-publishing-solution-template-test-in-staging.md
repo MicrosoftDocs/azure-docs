@@ -34,6 +34,8 @@ Please follow the steps below to push your offer to staging and carrying out the
 
 If you are content with the result, proceed to the next step, else repeat Step 2 in the Create an Azure compatible solution of the [Creating a Solution Template for the Marketplace](marketplace-publishing-solution-template-creation.md#ccreate an Azure compatible solution) guide followed by certification of the modified topology.
 
+> [AZURE.NOTE] The replication across the data centers take up to 24-48hours. Once the replication is complete, your offer will be listed in the [Azure Marketplace](http://azure.microsoft.com/marketplace).
+
 ## Next step
 Now that you offer is in "Staging", once the onboarding team notifies, you can proceed to the final offer and/or SKU publishing phase, **Step 4**,  [Deploying your offer to the Marketplace](marketplace-publishing-push-to-production.md)
 

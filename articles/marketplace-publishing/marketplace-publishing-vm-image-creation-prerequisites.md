@@ -17,7 +17,7 @@
   ms.author="hascipio; v-divte"/>
 
 # Technical Pre-requisites for creating a virtual machine image for the Azure Marketplace
-Read the process thoroughly before beginning and understand where and why each step is performed. You should prepare as much of your company information and other data as possible before beginning the process. This should be clear from reviewing the process itself.  
+Read the process thoroughly before beginning and understand where and why each step is performed. As much as possible, you should prepare your company information and other data, download necessary tools, and/or create technical components before beginning the offer creation process. This items should be clear from reviewing this article.  
 
 ## Download needed tools & applications
 You should have the following items ready before beginning the process:
@@ -35,9 +35,14 @@ You can develop Azure-based VMs on Windows or Linux. Some elements of the publis
 - Create the VHD SASA URL for VHD Certification submission
 
 ## Developing your VHD
-It is possible to develop Azure VHDs in the **cloud** or **on-premises**.
+It is possible to develop Azure VHDs in the **cloud**
+<!--
+or **on-premises**.
+-->
 - Cloud-based development means all development steps are performed remotely on a VHD resident on Azure.
-- On-premises development requires downloading a VHD and developing it using on-premises infrastructure. While this is possible, we do not recommend it. Note that developing for Windows or SQL on premises requires you to have the relevant on-premises license keys. You cannot include or install SQL Server after creating a VM, and you must base your offer on an approved SQL Image from the Azure Portal. If you decide to develop on-premises, you must perform some steps differently than if you were developing in the cloud. You can find relevant information in [Creating a VM image on-premise](marketplace-publishing-vm-image-creation-on-premise.md).
+- On-premises development requires downloading a VHD and developing it using on-premises infrastructure. While this is possible, we do not recommend it. Note that developing for Windows or SQL on premises requires you to have the relevant on-premises license keys. You cannot include or install SQL Server after creating a VM, and you must base your offer on an approved SQL Image from the Azure Portal. <!--
+If you decide to develop on-premises, you must perform some steps differently than if you were developing in the cloud. You can find relevant information in [Creating a VM image on-premise](marketplace-publishing-vm-image-creation-on-premise.md).
+-->
 
 ## Next Steps
 Now that you reviewed the pre-requisites and completed the necessary task, you can move forward with the creating your Virtual Machine Image offer as detailed in the [Virtual Machine Image Publishing Guide](marketplace-publishing-vm-image-creation.md)

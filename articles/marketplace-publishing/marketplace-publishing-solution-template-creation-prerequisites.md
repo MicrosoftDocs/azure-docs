@@ -16,9 +16,8 @@
    ms.date="10/05/2015"
    ms.author="hascipio; v-divte" />
 
-# Technical Pre-requisites for creating a multi-Virtual Machine image solution template for the Azure Marketplace
-
-Read the process thoroughly before beginning and understand where and why each step is performed. You should prepare as much of your company information and other data as possible before beginning the process. This should be clear from reviewing the process itself.  
+# Technical Pre-requisites for creating a Solution Template for the Azure Marketplace
+Read the process thoroughly before beginning and understand where and why each step is performed. As much as possible, you should prepare your company information and other data, download necessary tools, and/or create technical components before beginning the offer creation process. This items should be clear from reviewing this article.  
 
 ## Topology Definition & Platform Evaluation
 At this point, you may already be familiar with Azure compute artifact and be thinking what exactly should I be building?  VM Images, extensions, ARM templates?  
@@ -62,11 +61,12 @@ Once you have figured out your application topologies and which ones you will de
 Note, that for any image or extension handler used, it must first be published through the Marketplace.  
 
 ## Developing ARM Templates
-If you are new to Azure Resource Manager and ARM Templates, it may be worthwhile to review some of the documentation around Azure Resource Manager and Compute on Azure Resource Manager.  The guidance and examples provided below assume a basic level of understanding of the ARM Templating language and about how to use Compute with ARM.  This section is mostly devoted to the best practices and requirements to help you develop good templates specifically for the Azure Marketplace.  These take into account the requirements that allow for a unified, easy-to-use, and relevant experience for customers from both the Ibiza Portal and programmatically.  If interested, a list of good resources about ARM and Compute on ARM in general can be found in Appendix A.
+If you are new to Azure Resource Manager and ARM Templates, it may be worthwhile to review some of the documentation around Azure Resource Manager and Compute on Azure Resource Manager.  The guidance and examples provided below assume a basic level of understanding of the ARM Templating language and about how to use Compute with ARM.  This section is mostly devoted to the best practices and requirements to help you develop good templates specifically for the Azure Marketplace.  These take into account the requirements that allow for a unified, easy-to-use, and relevant experience for customers from both the Ibiza Portal and programmatically.
 
 Your solution will likely be expressed with a set of templates.  These templates are logical pieces of your topology.  There are many reasons why to break-up the topology expression into multiple files, from ease of development and manageability, to reusability of certain subsets, to modular testing and expansion of template solutions.  After working with many partners, one such breakdown proposed by the Azure team is to divide the topology into a templates for common resources (such as VNets, storage accounts, etc.), called the Shared Resource template, zero or more templates for optional resources, called the Optional Resource template, and one or more templates for the topology specific resources, called Known Configuration Resource templates.
 
 A complete template solution in the Marketplace will consist of the following items:
+
 1. One Main Template (mainTemplate.json) – This is the entry point to the overall deployment expressed in the ARM JSON templating file.  It is the first file that is evaluated for the template solution and the one used to stitch together (link) all the rest of the templates.  This file must also contain all desired input (parameters) from the end user.
 2. Zero or More Linked Templates – The rest of the templates that are linked from the main template to express the complete solution topology.
 3. Zero or More Script Files – Any relevant script files which are expected as input to extensions to be used to configure a virtual machine.
@@ -98,6 +98,7 @@ Ensure that you have defined parameters for the following values:
 
   For each type of deployment – Evaluation, Proof of Concept, Dev/Test, and Production – think through the exact layout and topology needed for your application.  
   Question to ask:
+  
   -	What are the different tiers?  
   -	What resources are needed for each tier and of what size?  
   -	What are the building blocks needed to create these resources?  
@@ -105,7 +106,7 @@ Ensure that you have defined parameters for the following values:
 
 2.	Developing and testing the identified topology
   After identifying the topology, you need to work on the following
-  -	Review the best practices for the Multi VM solutions (Please refer to the “Guidance_Template_V1.0” document attached under Create your Multi VM template solution for details on the best practices.)
+
   -	Work on the configuration (VM sizes, Storage accounts, VNet, Subnet, Network interface card, public IP etc.)
   -	Set up dev and test environment
   -	Build and iterate on the template

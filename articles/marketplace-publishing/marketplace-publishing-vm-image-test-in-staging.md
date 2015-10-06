@@ -36,9 +36,6 @@ Staging means deploying your SKU in a private “sandbox” where you can test a
 
  > [AZURE.NOTE] Your offer will remain in staging until you notify Microsoft that you are ready to push to production. This is an ideal time to have all members of the team check over everything in preparation for your offer going live.
 
- ## 2. Notify Onboarding Team
- Once you are done with testing, notify the on-boarding team for validation. On-boarding team will test the customer scenarios and also validate the marketing content.
-
 ## Next Steps
 Now that you offer is in "Staging", once the onboarding team notifies, you can proceed to the final offer and/or SKU publishing phase, **Step 4**,  [Deploying your offer to the Marketplace](marketplace-publishing-push-to-production.md)
 

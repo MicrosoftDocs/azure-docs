@@ -22,45 +22,52 @@ In this step of the publishing process. Here you will need to provide certain ma
 ## Step 1. Provide Marketplace marketing content
 **English is the default and only supported language;** please ensure that all information provided in the fields is in English. All information can be edited at any time until you push to staging.
 
-  1. Go to the Publishing Portal, http://publish.windowsazure.com
+  1. Go to the Publishing Portal, [https://publish.windowsazure.com](https://publish.windowsazure.com)
   2. In the left menu, click **Marketing** tab.
   3. In the main panel, click **English (US)** button.
 
 ### Details
 1. Enter the offer summary, long summary, and description for your offer.
-
-  ![drawing][img-map-title]
-  *Offer Title & Description*
-
 2.	Upload images of the required specifications (mentioned on Publishing Portal) in PNG format, one for each size.
 
-  ![drawing][img-map-logo]
-  *Logos*
+  ![drawing](media/marketplace-publishing-push-to-staging/pubportal-vm-details-offer.png)
 
-Below is the detailed view of how the publisher portal offer marketing details are used on the [Azure Marketplace]().
+  *Offer Title, Description, and logos*
 
-![drawing][img-map-acom]
+Below is the detailed view of how the publisher portal offer marketing details are used on the [Azure Marketplace](http://azure.microsoft.com/marketplace).
 
-*Offer Name & Description mapping*
+![drawing](media/marketplace-publishing-push-to-staging/acom-vm-catalog.png)
+
+*Offer catalog listing on Microsoft [Azure Marketplace](http://azure.microsoft.com/marketplace) website*
+
+![drawing](media/marketplace-publishing-push-to-staging/acom-vm-listing.png)
+*Offer details page on Microsoft [Azure Marketplace](http://azure.microsoft.com/marketplace) website*
+
+![drawing](media/marketplace-publishing-push-to-staging/portal-vm-listing.png)
+*Offer details panel in Microsoft [Azure Azure Preview Portal](https://ms.portal.azure.com)*
+
+
 ### Links
 In the links tab on the left bar, enter any links with information that may help customers. Enter a name and URL for each link.
 
+<!--
   ![drawing][img-map-link]
   *Links*
-
+-->
 ### Sample images (optional)
 > [AZURE.NOTE] Including a sample image is an optional step. You could complete the other marketing content to fulfill requirements for push to staging.
 
 In the **Sample Images** tab on the left menu, upload a new image by clicking **Upload a new image**. If you have an existing image and you would like to replace it, click **Replace image**.
 
+<!--
 ![drawing](media/marketplace-publishing-push-to-staging/pubportal-sample-image.png)
 *Upload of sample image in Publishing Portal*
 
 ![drawing](media/marketplace-publishing-push-to-staging/portal-sample-image.png)
 *Presentation of sample image in offer details*
-
+-->
 ### Plans
-![drawing](media/marketplace-publishing-push-to-staging/pubportal-plans-details.png)
+![drawing](media/marketplace-publishing-push-to-staging/pubportal-vm-details-sku.png)
 
 ### Legal
 In the Legal tab, provide a link to your policies/terms of use. Enter or paste the terms in the large Terms of Use box.
@@ -121,6 +128,7 @@ Plans can be any combination of Base + Consumption, where BASE is monthly price 
 
 ## Step 3: Provide support information
 Some of this information will have been completed during the certification step. You may add or edit information as in the steps below. The contact details are used for internal communications between partner and Microsoft only. Support URL will be available to the end customers.
+
 1.	Go to the Support heading on the left side of the Publishing Portal.
 2.	Enter information under Engineering Contact.
 3.	Enter information under Customer Support. If you only provide email support, enter a dummy phone number, and your provided email will be used instead.

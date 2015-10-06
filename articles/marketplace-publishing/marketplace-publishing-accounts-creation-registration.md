@@ -22,17 +22,19 @@ This article walks through the necessary account creation and registration to be
 ## 1. Create a Microsoft Account (MSA)
 > [AZURE.WARNING] In order to complete the publishing process, you will need to create a Microsoft account. This account will be used to register for and to log in to both the Publishing Portal and the Seller Dashboard. You should only have one Microsoft Account for your Azure Marketplace offerings. They should not be specific to individual VMs.
 
-The address that forms the user name should be on your domain and controlled by your IT team (such as azurepublishing@yourcompany.com). Payment, tax information, and reporting will be routed through this account.
+The address that forms the user name should be on your domain and controlled by your IT team (such as publishing@yourcompany.com). Payment, tax information, and reporting will be routed through this account.
 
 1. Create a Distribution List (DL) or Security Group (SG) within your company's domain.
   - Add your onboarding team to the DL
   - DL must be live to receive confirmation email
-  - This needs to be completed in your internal systems.For e.g. AzureStore@yourcompany.com
+  - This needs to be completed in your internal systems. For e.g. marketplace@yourcompany.com
+  > [AZURE.WARNING] Words like "Azure", "Microsoft" are not supported for MSA account registration. Avoid using these words to complete the account creation and registration process.
+
 2. Open a new Chrome Incognito or IE InPrivate browsing session to ensure that you’re not logged into an existing account
 3. Register for your a Microsoft Account (MSA) using the Distribution List Email.
  - You can register for a MSA at https://signup.live.com/signup.aspx
- - Use AzureStore@yourcompany.com as the email address
- - Your MSA ID is now AzureStore@yourcompany.com
+ - Use marketplace@yourcompany.com as the email address
+ - Your MSA ID is now marketplace@yourcompany.com
 
     ![drawing][img-msalive]
 
@@ -49,7 +51,7 @@ The Microsoft Seller Dashboard is used to register the company information once.
 
 > [AZURE.IMPORTANT] The following seller profile components must be completed in order to progress through the various phases of offer creation and deployment.
 
-| Seller Profile | To start draft | Staging | Publish Free | Publish Commercial |
+| Seller Profile | To start draft | Staging | Publish Free & Solution Template | Publish Commercial |
 |----|----|----|----|----|
 |Company Registration | Must Have | Must Have | Must Have | Must Have |
 |Tax Profile ID | Optional | Optional | Optional | Must Have |

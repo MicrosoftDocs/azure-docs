@@ -44,7 +44,7 @@ Insert table/matrix of artifacts x (portals, identities, business)
 || [VM Technical Pre-requisites][link-single-vm-prereq] | Developer Service Technical Pre-requisites | Data Service Technical Pre-requisites | [Solution Template Technical Pre-requisites](marketplace-publishing-solution-template-creation-prerequisites.md) |
 ||[VM Image Publishing Guide][link-single-vm] | Developer Service Publishing Guide | Data Service Publishing Guide | [Solution Template Publishing Guide](marketplace-publishing-solution-template-creation.md) |
 || [Azure Marketplace Marketing Content Guide][link-pushstaging] | [Azure Marketplace Marketing Content Guide][link-pushstaging] | [Azure Marketplace Marketing Content Guide][link-pushstaging] | [Azure Marketplace Marketing Content Guide][link-pushstaging] |
-| **Step 3. Push your offer to Staging** | [Test your VM offer in Staging](marketplace-publishing-vm-image-test-in-staging.md) | Test your Developer Service offer in Staging | Test your Data Service offer in Staging | [Test your Solution Template in Staging](marketplace-publishing-solution-test-in-staging.md) |
+| **Step 3. Push your offer to Staging** | [Test your VM offer in Staging](marketplace-publishing-vm-image-test-in-staging.md) | Test your Developer Service offer in Staging | Test your Data Service offer in Staging | [Test your Solution Template in Staging](marketplace-publishing-solution-template-test-in-staging.md) |
 | **Step 4. Deploy your offer to Marketplace** | [Deploy your offer to the Marketplace][link-pushprod] | [Deploy your offer to the Marketplace][link-pushprod] | [Deploy your offer to the Marketplace][link-pushprod] | [Deploy your offer to the Marketplace][link-pushprod] |
 
 ## Support
@@ -55,14 +55,14 @@ Insert table/matrix of artifacts x (portals, identities, business)
 
 ## Additional Resources
 - To learn more about the Portals used, visit [Portals You Will Need](marketplace-publishing-portals.md)
-
+<!--
 **Virtual Machines**
 - Setting up Azure PowerShell
 - VM Single Image instructions for developing on-premises
 
 **Solution Templates**
 - Best Practices: Creating an Azure compatible Solution Template
-
+-->
 [suppt-general]:marketplace-publishing-get-publisher-support.md
 [suppt-rpt-insights]:marketplace-publishing-report-seller-insights.md
 [suppt-rpt-payouts]:marketplace-publishing-report-payout.md

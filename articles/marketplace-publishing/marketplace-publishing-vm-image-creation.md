@@ -56,6 +56,7 @@ The following section focuses on best practices for creating a Linux-based  VM I
 
 ### 2.1 Choose the correct VHD size
 Published SKUs (VM Images) should be designed to work with all VM sizes that support the number of disks for the SKU. You can provide guidance on recommended sizes, but these will be treated as recommendations and not enforced.
+
 1. Linux OS VHD: The Linux OS VHD in your VM Image should be created a a 30GB - 50GB fixed-format VHD. It cannot be less than 30GB. If the physical size is less than VHD size, the VHD should be sparse. Linux VHDs larger than 50GB will be considered on a case by case basis. If you already have a VHD in a different format, you can use the [Convert-VHD PowerShell cmdlet to change the format][link-technet-1].
 2. Data disk VHD: Data disks can be as large as 1TB. Data disk VHDs should be created as a fixed-format VHD, but also be sparse. When deciding on the disk size, please keep in mind that end users cannot resize VHDs within an image.
 
@@ -146,13 +147,16 @@ These links can also be found in the Publishing Portal under the SKU page.
 
 ### 3.2 Create your Windows VM
 From the Microsoft Azure Portal, you can create your VM based on an approved base image in just a few simple steps. The following is an overview of the process.
+
 1. From the base image page, select **Create VM** to be directed to the new [Microsoft Azure Portal][link-azure-portal].
 
   ![drawing][img-acom-1]
+
 2. Log in to the portal with the Microsoft account (MSA) and password for the Azure subscription you wish to use.
 3. Follow the prompts to create a VM using the base image you have selected. At the very least, you will need to provide a host name (name of the computer), username (admin user registered), and password for the VM.
 
   ![drawing][img-portal-vm-create]
+
 4. Select the size of the VM to deploy.
 
   a.	If you plan to develop the VHD on premises, the size does not matter. Consider using one of the smaller VMs.
@@ -162,6 +166,7 @@ From the Microsoft Azure Portal, you can create your VM based on an approved bas
   c.	For pricing information, refer to the Recommended Pricing Tier selector displayed on the portal. It will provide the three recommended sizes provided by the publisher. (In this case, the publisher is Microsoft.)
 
   ![drawing][img-portal-vm-size]
+
 5. Set properties
 
   a.	For quick deployment, you can leave the default values for the properties under **Optional Configuration** and **Resource Group**.
@@ -238,9 +243,9 @@ All images in the Azure Marketplace must be re-usable in a generic fashion. In o
 Once your VHD(s), generalized OS VHD and zero or more data disk VHDs, are uploaded to an Azure storage account, you can register them as a user VM Image with which to test. Note, since your OS VHD is generalized, you cannot directly deploy the VM by providing the VHD URL.
 
 To learn more about VM Images review the following blog posts:
-- [VM Image][link-msdn-1]
-- [VM Image PowerShell How To][link-blog-1]
-- [About VM Images in Azure][link-msdn-2]
+- [VM Image](https://azure.microsoft.com/en-us/blog/vm-image-blog-post/)
+- [VM Image PowerShell How To](https://azure.microsoft.com/en-us/blog/vm-image-powershell-how-to-blog-post/)
+- [About VM Images in Azure](https://msdn.microsoft.com/en-us/library/azure/dn790290.aspx)
 
 ### 4.1 Create a User VM Image
 To create a user VM Image from your SKU to begin deploying multiple VMs, you need to use the [Create VM Image Rest API](http://msdn.microsoft.com/en-us/library/azure/dn775054.aspx) to register VHDs as a VM Image.
@@ -615,9 +620,6 @@ Once you submit your virtual machine image SKU(s) for certification, you can mov
 [link-azure-2]:https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-2/
 [link-azure-1]:https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/
 [link-msft-download]:http://www.microsoft.com/en-us/download/details.aspx?id=44299
-[link-msdn-2]:https://msdn.microsoft.com/en-us/library/azure/dn790290.aspx
-[link-blog-1]:http://azure.microsoft.com/en-us/blog/vm-image-powershell-how-to-blog-post/
-[link-msdn-1]:https://msdn.microsoft.com/en-us/library/azure/dn790290.aspx
 [link-technet-3]:https://technet.microsoft.com/en-us/library/hh846766.aspx
 [link-technet-2]:https://msdn.microsoft.com/en-us/library/dn495261.aspx
 [link-azure-portal]:https://portal.azure.com
