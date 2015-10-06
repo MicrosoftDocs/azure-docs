@@ -157,9 +157,9 @@ In some cases, you may wish to add additional storage to the cluster. For exampl
 
 For more information on using secondary blob stores, see [Using Azure Blob storage with HDInsight](../hdinsight-use-blob-storage.md).
 
-## <a id="options"></a> Options for creating an Linux-based cluster
+##<a id="nextsteps"></a><a id="options"></a> Next steps
 
-You can create an Linux-based HDInsight cluster using a web portal, command-line tools, or SDKs. The following table provides information on the different methods available.
+In this article, you have learned basic information about creating a Linux-based HDInsight cluster. Use the table below to find specific information on how to create a cluster using a method that best suits your needs:
 
 | Use this to create a cluster... | Using a web browser... | Using a command-line | Using the REST API | Using an SDK | From Linux, Mac OS X, or Unix | From Windows |
 | ------------------------------- |:----------------------:|:--------------------:|:------------------:|:------------:|:-----------------------------:|:------------:|
@@ -168,26 +168,6 @@ You can create an Linux-based HDInsight cluster using a web portal, command-line
 | [Azure PowerShell](hdinsight-hadoop-create-linux-cluster-azure-powershell.md) | &nbsp; | ✔     | &nbsp; | &nbsp; | &nbsp; | ✔ |
 | [cURL](hdinsight-hadoop-create-linux-cluster-curl.md) | &nbsp; | ✔     | ✔ | &nbsp; | ✔      | ✔ |
 | [.NET SDK](hdinsight-hadoop-create-linux-cluster-dotnet.md) | &nbsp; | &nbsp; | &nbsp; | ✔ | ✔      | ✔ |
-
-
-
-
-
-
-
-
-
-
-##<a id="nextsteps"></a> Next steps
-In this article, you have learned several ways to provision an HDInsight Hadoop cluster on Linux. To learn more, see the following articles:
-
-- [Working with HDInsight on Linux](hdinsight-hadoop-linux-information.md): Get to know the nuances of working with an HDInsight cluster on Linux.
-- [Manage HDInsight clusters using Ambari](hdinsight-hadoop-manage-ambari.md): Learn how to monitor and manage your Linux-based Hadoop on HDInsight cluster by using Ambari Web or the Ambari REST API.
-- [Use MapReduce with HDInsight](hdinsight-use-mapreduce.md): Learn about the different ways to run MapReduce jobs on a cluster.
-- [Use Hive with HDInsight](hdinsight-use-hive.md): Learn about the different ways of running a Hive query on a cluster.
-- [Use Pig with HDInsight](hdinsight-use-pig.md): Learn about the different ways of running a Pig job on a cluster.
-- [Use Azure Blob storage with HDInsight](../hdinsight-use-blob-storage.md): Learn how HDInsight uses Azure Blob storage to store data for HDInsight clusters.
-- [Upload data to HDInsight](hdinsight-upload-data.md): Learn how to work with data stored in an Azure Blob storage for an HDInsight cluster.
 
 
 [hdinsight-use-mapreduce]: ../hdinsight-use-mapreduce/
