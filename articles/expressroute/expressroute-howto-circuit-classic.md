@@ -20,7 +20,7 @@
 
 This article walks you through the steps to create an ExpressRoute circuit using PowerShell cmdlets and the classic deployment model. The steps below will also show you how to check the status, update, or delete and deprovision an ExpressRoute circuit. 
 
->[AZURE.IMPORTANT] It's important to know that Azure currently works with two deployment models: Resource Manager, and classic. Before you begin your configuration, make sure that you understand the deployment models and tools. For information about the deployment models, see [Azure deployment models](../azure-classic-rm.md)
+>[AZURE.IMPORTANT] It's important to know that Azure currently works with two deployment models: Resource Manager, and classic. Before you begin your configuration, make sure that you understand the deployment models and tools. For information about the deployment models, see [Azure deployment models](../azure-classic-rm.md).
 
 ## Configuration prerequisites
 
@@ -321,5 +321,5 @@ If the service provider has deprovisioned the circuit (the service provider prov
 
 ## Next steps
 
-- [Configure ExpressRoute Routing (manage circuit peerings)](expressroute-howto-routing-classic.md)
-- [Link virtual networks to an ExpressRoute circuit](expresssroute-howto-linkvnet-classic.md) 
+- [Configure ExpressRoute routing](expressroute-howto-routing-classic.md)
+- [Linking VNets to ExpressRoute circuits](expresssroute-howto-linkvnet-classic.md) 
