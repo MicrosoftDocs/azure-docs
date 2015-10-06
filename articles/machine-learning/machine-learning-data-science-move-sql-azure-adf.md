@@ -1,9 +1,7 @@
 <properties
 	pageTitle="Move data from an on-premise SQL Server to SQL Azure with Azure Data Factory | Azure"
 	description="Set up an ADF pipeline that composes two data migration activities that together move data on a daily basis between databases on-premise and in the cloud."
-	metaKeywords=""
 	services="machine-learning"
-	solutions=""
 	documentationCenter=""
 	authors="fashah"
 	manager="jacob.spoelstra"
@@ -17,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/06/2015" 
+	ms.date="10/06/2015"
 	ms.author="fashah;bradsev" />
 
 
@@ -290,7 +288,7 @@ Copy this JSON definition of the pipeline into a file called *pipelinedef.json* 
 
 Confirm that you can see the pipeline on the ADF in the Azure portal show up as following (when you click on the diagram)
 
-![](http://i.imgur.com/DJP1kji.png)
+![](media/machine-learning-data-science-move-sql-azure-adf/DJP1kji.png)
 
 ##<a name="adf-pipeline-start"></a>Start the Pipeline
 The pipeline can now be run using the following command:
