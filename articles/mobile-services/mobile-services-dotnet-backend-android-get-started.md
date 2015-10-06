@@ -13,7 +13,7 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
-	ms.topic="get-started-article" 
+	ms.topic="get-started-article"
 	ms.date="10/05/2015"
 	ms.author="ricksal"/>
 
@@ -26,7 +26,7 @@ This tutorial shows you how to add a cloud-based backend service to an Android a
 
 A screenshot from the completed app is below:
 
-![][0]
+![](./media/mobile-services-dotnet-backend-android-get-started/mobile-quickstart-completed-android.png)
 
 Completing this tutorial requires the [Android Developer Tools][Android Studio], which includes the Android Studio integrated development environment, and the latest Android platform. Android 4.2 or a later version is required.  
 
