@@ -12,10 +12,10 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/22/2015"
+   ms.date="10/06/2015"
    ms.author="cherylmc"/>
 
-# ExpressRoute Circuit Provisioning workflows and Circuit States
+# ExpressRoute circuit provisioning workflows and circuit states
 This page walks you through the service provisioning and routing configuration workflows at a high level. 
 
 ![](./media/expressroute-workflows/expressroute-circuit-workflow.png)
