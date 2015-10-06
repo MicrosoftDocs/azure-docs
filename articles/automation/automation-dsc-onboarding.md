@@ -183,10 +183,13 @@ On-premises Linux machines and Linux machines in non-Azure clouds can also be on
 3.  Open the PowerShell console or PowerShell ISE as an administrator on a Windows machine in your local environment. This machine must have the latest version of WMF 5 installed.
 
 4.  Connect to Azure Resource Manager using the Azure PowerShell module:
+
 	`Add-AzureAccount`
-    	`Switch-AzureMode AzureResourceManager`
+	
+	`Switch-AzureMode AzureResourceManager`
 
 5.  Download, from the Automation account you want to onboard nodes to, the PowerShell DSC metaconfigurations for the machines you want to onboard:
+	
 	`Get-AzureAutomationDscOnboardingMetaconfig -ResourceGroupName MyResourceGroup -AutomationAccountName MyAutomationAccount -ComputerName MyServer1, MyServer2 -OutputFolder C:\Users\joe\Desktop_`
 
 6.  Optionally, view and update the metaconfigurations in the output folder as needed to match the [PowerShell DSC Local Configuration Manager fields and values](http://https://technet.microsoft.com/library/dn249922.aspx?f=255&MSPPError=-2147217396) you want, if the defaults do not match your use case.
