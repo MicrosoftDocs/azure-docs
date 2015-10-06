@@ -11,7 +11,7 @@
 	ms.service="media-services"
 	ms.workload="media"
 	ms.tgt_pltfrm="na"
-	ms.devlang="ne"
+	ms.devlang="na"
 	ms.topic="get-started-article"
 	ms.date="10/05/2015"
 	ms.author="juliako"/>
