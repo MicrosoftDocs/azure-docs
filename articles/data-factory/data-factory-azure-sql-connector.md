@@ -24,11 +24,11 @@ This article outlines how you can use the Copy Activity in an Azure data factory
 
 The sample below shows:
 
-1. A linked service of type [AzureSqlDatabase](data-factory-azure-sql-connector.md#azure-sql-linked-service-properties).
+1. A linked service of type [AzureSqlDatabase](#azure-sql-linked-service-properties).
 2. A linked service of type [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties). 
-3. An input [dataset](data-factory-create-datasets.md) of type [AzureSqlTable](data-factory-azure-sql-connector.md#azure-sql-dataset-type-properties). 
+3. An input [dataset](data-factory-create-datasets.md) of type [AzureSqlTable](#azure-sql-dataset-type-properties). 
 4. An output [dataset](data-factory-create-datasets.md) of type [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
-4. A [pipeline](data-factory-create-pipelines.md) with Copy Activity that uses [SqlSource](data-factory-azure-sql-connector.md#azure-sql-copy-activity-type-properties) and [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties).
+4. A [pipeline](data-factory-create-pipelines.md) with Copy Activity that uses [SqlSource](#azure-sql-copy-activity-type-properties) and [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties).
 
 The sample copies data belonging to a time series from a table in Azure SQL database to a blob every hour. The JSON properties used in these samples are described in sections following the samples.  
 
@@ -44,6 +44,8 @@ The sample copies data belonging to a time series from a table in Azure SQL data
 	  }
 	}
 
+See the [Azure SQL Linked Service](#azure-sql-linked-service-properties) section for the list of properties supported by this linked service. 
+
 **Azure Blob storage linked service**
 
 	{
@@ -55,6 +57,8 @@ The sample copies data belonging to a time series from a table in Azure SQL data
 	    }
 	  }
 	}
+
+See the [Azure Blob](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties) article for the list of properties supported by this linked service. 
 
 **Azure SQL input dataset**
 
@@ -84,6 +88,8 @@ Setting “external”: ”true” and specifying externalData policy informs th
 	    }
 	  }
 	}
+
+See the [Azure SQL dataset type properties](#azure-sql-dataset-type-properties) section for the list of properties supported by this dataset type.  
 
 **Azure Blob output dataset**
 
@@ -143,6 +149,8 @@ Data is written to a new blob every hour (frequency: hour, interval: 1). The fol
 	  }
 	}
 
+See the [Azure Blob dataset type properties](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties) section for the list of properties supported by this dataset type.  
+
 **Pipeline with Copy activity**
 
 The pipeline contains a Copy Activity that is configured to use the above input and output datasets and is scheduled to run every hour. In the pipeline JSON definition, the **source** type is set to **SqlSource** and **sink** type is set to **BlobSink**. The SQL query specified for the **SqlReaderQuery** property selects the data in the past hour to copy.
@@ -192,6 +200,16 @@ The pipeline contains a Copy Activity that is configured to use the above input 
 	   }
 	}
 
+> [AZURE.NOTE] In the above example, **sqlReaderQuery** is specified for the SqlSource. The Copy Activity runs this query against the Azure SQL Database source to get the data.
+>  
+> Alternatively, you can specify a stored procedure by specifying the **sqlReaderStoredProcedureName** and **storedProcedureParameters** (if the stored procedure takes parameters).
+>  
+> If you do not specify either sqlReaderQuery or sqlReaderStoredProcedureName, the columns defined in the structure section of the dataset JSON are used to build a query (select column1, column2 from mytable) to run against the Azure SQL Database. If the dataset definition does not have the structure, all columns are selected from the table. 
+
+
+See the [Sql Source](#sqlsource) section and [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties) for the list of properties supported by SqlSource and BlobSink. 
+
+
 ## Sample: Copy data from Azure Blob to Azure SQL
 
 The sample below shows:
@@ -217,6 +235,8 @@ The sample copies data belonging to a time series from Azure blob to a table in 
 	  }
 	}
 
+See the [Azure SQL Linked Service](#azure-sql-linked-service-properties) section for the list of properties supported by this linked service. 
+
 **Azure Blob storage linked service**
 
 	{
@@ -228,6 +248,8 @@ The sample copies data belonging to a time series from Azure blob to a table in 
 	    }
 	  }
 	}
+
+See the [Azure Blob](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties) article for the list of properties supported by this linked service.
 
 **Azure Blob input dataset**
 
@@ -296,6 +318,8 @@ Data is picked up from a new blob every hour (frequency: hour, interval: 1). The
 	  }
 	}
 
+See the [Azure Blob dataset type properties](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties) section for the list of properties supported by this dataset type.
+
 **Azure SQL output dataset**
 
 The sample copies data to a table named “MyTable” in Azure SQL. You should create the table in Azure SQL with the same number of columns as you expect the Blob CSV file to contain. New rows are added to the table every hour. 
@@ -314,6 +338,8 @@ The sample copies data to a table named “MyTable” in Azure SQL. You should c
 	    }
 	  }
 	}
+
+See the [Azure SQL dataset type properties](#azure-sql-dataset-type-properties) section for the list of properties supported by this dataset type.
 
 **Pipeline with Copy activity**
 
@@ -364,6 +390,9 @@ The pipeline contains a Copy Activity that is configured to use the above input 
 	   }
 	}
 
+See the [Sql Sink](#sqlsink) section and [BlobSource](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties) for the list of properties supported by SqlSink and BlobSource. 
+
+
 ## Azure SQL Linked Service Properties
 
 The following table provides description for JSON elements specific to Azure SQL linked service.
@@ -401,7 +430,13 @@ In case of Copy activity when source is of type **SqlSource** the following prop
 | -------- | ----------- | -------------- | -------- |
 | sqlReaderQuery | Use the custom query to read data. | SQL query string.For example: select * from MyTable. If not specified, the SQL statement that is executed: select from MyTable. | No |
 | sqlReaderStoredProcedureName | Name of the stored procedure that reads data from the source table. | Name of the stored procedure. | No |
-| storedProcedureParameters | Parameters for the stored procedure. | Name/value pairs. Names and casing of parameters must match the names and casing of the stored procedure parameters. | No | 
+| storedProcedureParameters | Parameters for the stored procedure. | Name/value pairs. Names and casing of parameters must match the names and casing of the stored procedure parameters. | No |
+
+If the **sqlReaderQuery** is specified for the SqlSource, the Copy Activity runs this query against the Azure SQL Database source to get the data. 
+
+Alternatively, you can specify a stored procedure by specifying the **sqlReaderStoredProcedureName** and **storedProcedureParameters** (if the stored procedure takes parameters). 
+
+If you do not specify either sqlReaderQuery or sqlReaderStoredProcedureName, the columns defined in the structure section of the dataset JSON are used to build a query (select column1, column2 from mytable) to run against the Azure SQL Database. If the dataset definition does not have the structure, all columns are selected from the table. 
 
 ### SqlSource Example
 
