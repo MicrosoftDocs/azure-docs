@@ -186,7 +186,7 @@ From the Microsoft Azure Portal, you can create your VM based on an approved bas
 ### 3.3 Develop your VHD in the cloud
 It is strongly recommended that you develop your VHD in the cloud using Remote Desktiop Protocol (RDP). You will connect to RDP with the username and password specifid during provisioning.
 
-> [AZURE.IMPORTANT]: if you are developing your VHD on-premises (which is not recommended) see Appendix 2 for instructions on how to download the VHD to a local system. **Downloading your VHD is NOT ncessary if you are developing in the cloud**.
+> [AZURE.IMPORTANT]: if you are developing your VHD on-premises (which is not recommended) see [Creating a Virtual Machine Image on-premise](marketplace-publishing-vm-image-creation-on-premise.md). **Downloading your VHD is NOT necessary if you are developing in the cloud**.
 
 **Connect via RDP using the [Microsoft Azure Portal][link-azure-portal]**
 

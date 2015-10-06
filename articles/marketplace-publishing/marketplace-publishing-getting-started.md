@@ -30,10 +30,6 @@ The first thing you would want to do as a publisher is to define what kind of so
 
 Some steps are shared between the different types of solutions. This provides a short overview of what steps you will need to complete for any type of solution.
 
-<!--
-Insert table/matrix of artifacts x (portals, identities, business)
--->
-
 **Before you begin any work on the Azure Marketplace, you must be pre-approved. Not applicable for data service publishers.**
 
 ||Virtual Machine Image |Developer Service | Data Service | Solution Template |
@@ -56,11 +52,11 @@ Insert table/matrix of artifacts x (portals, identities, business)
 ## Additional Resources
 - To learn more about the Portals used, visit [Portals You Will Need](marketplace-publishing-portals.md)
 
-<!--
 **Virtual Machines**
-- Setting up Azure PowerShell
-- VM Single Image instructions for developing on-premises
+- [Setting up Azure PowerShell](marketplace-publishing-powershell-setup.md)
+- [Creating a VM Image on-premise](marketplace-publishing-vm-image-creation-on-premise.md)
 
+<!--
 **Solution Templates**
 - Best Practices: Creating an Azure compatible Solution Template
 -->
