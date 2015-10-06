@@ -151,7 +151,7 @@ You can attach both empty disks and disks that contain data. In both cases, the 
 
 	Or, on systems based on SUSE Linux you may need to use a slightly different format:
 
-		/dev/disk/by-uuid/33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /   ext3   defaults   1   2
+		/dev/disk/by-uuid/33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext3   defaults   1   2
 
 	You can now test that the file system is mounted properly by simply unmounting and then re-mounting the file system, i.e. using the example mount point `/datadrive` created in the earlier steps:
 
