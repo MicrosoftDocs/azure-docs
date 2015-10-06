@@ -321,5 +321,5 @@ If the service provider has deprovisioned the circuit (the service provider prov
 
 ## Next steps
 
-- [Configure ExpressRoute routing](expressroute-howto-routing-classic.md)
-- [Linking VNets to ExpressRoute circuits](expresssroute-howto-linkvnet-classic.md) 
+- [Configure routing](expressroute-howto-routing-classic.md)
+- [Link a VNet to an ExpressRoute circuit](expresssroute-howto-linkvnet-classic.md) 
