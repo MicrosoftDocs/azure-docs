@@ -19,7 +19,7 @@
 
 # Who's using Azure Search: case studies and customer stories
 
-Learn how the following organizations moved their businesses forward by integrating  rich Azure Search experience into their online applications.
+Learn how the following organizations moved their businesses forward by integrating a rich Azure Search experience into their online applications.
 
 [![][1]](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18596)
 
