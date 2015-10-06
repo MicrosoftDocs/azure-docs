@@ -91,7 +91,7 @@ When you create the SAS, you can specify the time interval over which the SAS is
 
 The following example shows how to use Azure CLI to generate a SAS token that grants read and write permissions for the container,*sascontainer*, until 12:00AM (UTC) September 5, 2015.  
 
-1. First, follow this [guide](https://azure.microsoft.com/en-us/documentation/articles/xplat-cli/#how-to-install-the-azure-cli)  to learn how to install Azure CLI and connect to your Azure subscription.
+1. First, follow this [guide](xplat-cli/#how-to-install-the-azure-cli)  to learn how to install Azure CLI and connect to your Azure subscription.
 
 2. Next, type the following command in Azure CLI to get the connection string for your account:
      azure storage account connectionString show youraccountname
@@ -109,7 +109,7 @@ The following example shows how to use Azure CLI to generate a SAS token that gr
     // Get a reference to a container in your Storage account
     AZSCloudBlobContainer *blobContainer = [[AZSCloudBlobContainer alloc] initWithUrl:[NSURL URLWithString:@" your SAS URL"]];
 
-As you can see, when using a SAS token, you’re not exposing your account name and account key in your iOS application. You can learn more about SAS by checking out the [Shared Access Signature tutorial](https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/). 
+As you can see, when using a SAS token, you’re not exposing your account name and account key in your iOS application. You can learn more about SAS by checking out the [Shared Access Signature tutorial](storage-dotnet-shared-access-signature-part-1). 
 
 ##Asynchronous Operations
 [AZURE.NOTE] All methods that perform a request against the service are asynchronous operations. In the code samples, you’ll find that these methods have a completion handler. Code inside the completion handler will run **after** the request is completed. Code after the completion handler will run **while** the request is being made.
@@ -167,7 +167,7 @@ The following example shows you how to create a container with **Container** acc
     }
 
 ## Upload a blob into a container
-As mentioned in the [Blob Service Concepts](https://azure.microsoft.com/en-us/documentation/articles/storage-ios-how-to-use-blobs/#blob-service-concepts) section, Blob Storage offers three different types of blobs: block blobs, append blobs, and page blobs. At this moment, the Azure Storage iOS library only supports block blobs. In the majority of cases, block blob is the recommended type to use.
+As mentioned in the [Blob Service Concepts](storage-ios-how-to-use-blobs/#blob-service-concepts) section, Blob Storage offers three different types of blobs: block blobs, append blobs, and page blobs. At this moment, the Azure Storage iOS library only supports block blobs. In the majority of cases, block blob is the recommended type to use.
 
 The following example shows how to upload a block blob from an NSString. If a blob with the same name already exists in this container, the contents of this blob will be overwritten. 
 
