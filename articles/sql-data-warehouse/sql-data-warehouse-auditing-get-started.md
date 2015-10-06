@@ -98,7 +98,7 @@ The template has fictional sample data in it, and you can set up Power Query to 
 
 For more detailed instructions on working with the report template, read the <a href="http://go.microsoft.com/fwlink/?LinkId=506731">How To (doc download)</a>.
 
-![][4]
+![][5]
 
 
 ##<a id="subheading-4">Practices for usage in production</a>
@@ -111,7 +111,7 @@ In production you are likely to refresh your storage keys periodically. When ref
 
 
 1. In the auditing configuration blade (described above in the set up auditing section) switch the **Storage Access Key** from *Primary* to *Secondary* and **SAVE**.
-![][5]
+![][4]
 2. Go to the storage configuration blade and **regenerate** the *Primary Access Key*.
 
 3. Go back to the auditing configuration blade, switch the **Storage Access Key** from *Secondary* to *Primary* and press **SAVE**.
@@ -137,7 +137,7 @@ When you are in Azure Resource Manager mode, run `Get-Command *AzureSql*` to lis
 [2]: ./media/sql-data-warehouse-auditing-get-started/sql-data-warehouse-auditing-inherit.png
 [3]: ./media/sql-data-warehouse-auditing-get-started/sql-data-warehouse-auditing-enable.png
 [4]: ./media/sql-data-warehouse-auditing-get-started/sql-data-warehouse-auditing-storage-account.png
-
+[5]: ./media/sql-data-warehouse-auditing-get-started/sql-data-warehouse-auditing-dashboard.png
 
 
 <!--Link references-->
