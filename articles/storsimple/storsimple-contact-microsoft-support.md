@@ -12,12 +12,17 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/31/2015"
+   ms.date="10/06/2015"
    ms.author="alkohli" />
 
 # Contact Microsoft Support
 
-If you encounter any issues with your Microsoft Azure StorSimple solution, you can create a service request for technical support. In an online session with your support engineer, you may also need to start a support session on your StorSimple device. This article walks you through the process of creating a support request and also starting a support session in the Windows PowerShell interface of your StorSimple device.
+If you encounter any issues with your Microsoft Azure StorSimple solution, you can create a service request for technical support. In an online session with your support engineer, you may also need to start a support session on your StorSimple device. This article walks you through:
+
+- How to create a support request.
+- How to start a support session in the Windows PowerShell interface of your StorSimple device.
+
+Review the [StorSimple 8000 series Support plans](https://msdn.microsoft.com/library/mt433077.aspx) before you create a Support request.
 
 ## Create a support request
 
