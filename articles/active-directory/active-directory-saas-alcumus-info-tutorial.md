@@ -221,4 +221,4 @@ When you click the Alcumus Info Exchange tile in the Access Panel, you should ge
 [203]: ./media/active-directory-saas-alcumus-info-tutorial/tutorial_general_203.png
 [204]: ./media/active-directory-saas-alcumus-info-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-alcumus-info-tutorial/tutorial_general_205.png
-[400]: ./media/active-directory-saas-alcumus-info-tutorial/tutorial_alcumus_400.png
+[400]: ./media/active-directory-saas-alcumus-info-tutorial/tutorial_alcumus_401.png

@@ -232,6 +232,6 @@ When you click the CS Stars tile in the Access Panel, you should get automatical
 [204]: ./media/active-directory-saas-cs-stars-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-cs-stars-tutorial/tutorial_general_205.png
 
-[400]: ./media/active-directory-saas-cs-stars-tutorial/tutorial_csstars_400.png
+[400]: ./media/active-directory-saas-cs-stars-tutorial/tutorial_csstars_401.png
 
 
