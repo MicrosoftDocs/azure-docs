@@ -97,7 +97,7 @@ To set up your development environment, you must install [Visual Studio 2013 Upd
 		
 		</head>
 		<body>
-		    <div class="navbar navbar-inverase navbar-fixed-top">
+		    <div class="navbar navbar-inverse navbar-fixed-top">
 		        <div class="container">
 		            <div class="navbar-header">
 		                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -212,7 +212,7 @@ You begin by creating a simple data model in code.
 
 	![Add New Item dialog box][adddb002]
 
-3. Replace the contents of the Contacts.cs file with the following code.
+3. Replace the contents of the Contact.cs file with the following code.
 
         using System.ComponentModel.DataAnnotations;
         using System.Globalization;
@@ -230,7 +230,7 @@ You begin by creating a simple data model in code.
                 public string Email { get; set; }
             }
         }
-The **Contacts** class defines the data that you will store for each contact, plus a primary key, *ContactID*, that is needed by the database.
+The **Contact** class defines the data that you will store for each contact, plus a primary key, *ContactID*, that is needed by the database.
 
 ### Create web pages that enable app users to work with the contacts
 
