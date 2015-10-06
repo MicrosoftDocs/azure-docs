@@ -42,7 +42,7 @@ This part is easy, unless you don't have an Azure account. [Get a free one easil
 
 > ![Locate the image in the Image Gallery](./media/virtual-machines-docker-ubuntu-quickstart/DockerOnUbuntuServerMSOpenTech.png)
 
-3. Provide either the username and password for the instance, or the contents of as **.pub** file (ssh-rsa format) to enable SSH using a certificate. (The below graphic shows specifying a username and password combination.) Then press **Create** at the bottom.
+3. Provide either the username and password for the instance, or the contents of a **.pub** file (ssh-rsa format)  to enable SSH using a certificate. (The below graphic shows specifying a username and password combination.) Then press **Create** at the bottom.
 
 > ![Configure the vm instance](./media/virtual-machines-docker-ubuntu-quickstart/CreateVMDockerUbuntuPwd.png)
 
