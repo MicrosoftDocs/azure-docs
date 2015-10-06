@@ -134,7 +134,7 @@ For more details, see [Virtual Machines Pricing](http://azure.microsoft.com/pric
 
 ## Will Azure reboot my VM for maintenance?
 
-Generally, you can start, stop, or restart your VM whenever you need to. (For details, see [About starting, stopping, and restarting an Azure VM](https://msdn.microsoft.com/library/azure/dn763934.aspx)). Azure sometimes restarts your VM as part of regular, planned maintenance updates in the Azure datacenters. Unplanned maintenance events can occur when Azure detects a serious hardware problem that affects your VM. For unplanned events, Azure automatically migrates the VM to a healthy host and restarts the VM.
+Generally, you can start, stop, or restart your VM whenever you need to. Azure sometimes restarts your VM as part of regular, planned maintenance updates in the Azure datacenters. Unplanned maintenance events can occur when Azure detects a serious hardware problem that affects your VM. For unplanned events, Azure automatically migrates the VM to a healthy host and restarts the VM.
 
 For any standalone VM (meaning the VM isn’t part of an availability set), Azure notifies the subscription’s Service Administrator by email at least one week before planned maintenance because the VMs could be restarted during the update. Applications running on the VMs could experience downtime.
 

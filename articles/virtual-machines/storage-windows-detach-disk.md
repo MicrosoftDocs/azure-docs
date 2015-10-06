@@ -1,7 +1,7 @@
 <properties
-	pageTitle="Detach a disk from a Windows virtual machine | Microsoft Azure"
-	description="Learn to detach a disk from a virtual machine in Azure."
-	services="virtual-machines, storage"
+	pageTitle="Detach a disk from a Windows VM | Microsoft Azure"
+	description="Learn to detach a disk from a virtual machine in Azure using the classic deployment model."
+	services="virtual-machines"
 	documentationCenter=""
 	authors="cynthn"
 	manager="timlt"
@@ -20,6 +20,9 @@
 
 
 # How to detach a disk from a Windows virtual machine
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)] This article covers how to detach a disk using the classic deployment model.
+
 
 [AZURE.INCLUDE [howto-detach-disk-windows-linux](../../includes/howto-detach-disk-windows-linux.md)]
 

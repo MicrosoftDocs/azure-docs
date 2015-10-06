@@ -1,6 +1,6 @@
 <properties
- pageTitle="Use Linux compute VMs in an HPC Pack cluster | Microsoft Azure"
- description="Learn how to script the deployment of an HPC Pack cluster in Azure containing a head node running Windows Server with Linux compute nodes."
+ pageTitle="Linux compute VMs in an HPC Pack cluster | Microsoft Azure"
+ description="How to script the deployment of an HPC Pack cluster in Azure containing a head node running Windows Server with Linux compute nodes."
  services="virtual-machines"
  documentationCenter=""
  authors="dlepow"
@@ -19,6 +19,8 @@
 # Get started with Linux compute nodes in an HPC Pack cluster in Azure
 
 This article shows you how to use an Azure PowerShell script to set up a Microsoft HPC Pack cluster in Azure which contains a head node running Windows Server and several compute nodes running a CentOS Linux distribution. We also show several ways to move data files to the Linux compute nodes. You can use this cluster to run Linux HPC workloads in Azure.
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)] This article covers resources created using the classic deployment model.
 
 At a high level the following diagram shows the HPC Pack cluster you'll create.
 
@@ -43,7 +45,7 @@ For an overview of HPC Pack cluster deployment options, see the [Getting Started
 * **Cores quota** - You might need to increase the quota of cores, especially if you choose to deploy several cluster nodes with multicore VM sizes. For the example in this article, you will need at least 24 cores. To increase a quota, [open an online customer support request](http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) at no charge.
 
 ### Create the configuration file
-The HPC Pack IaaS deployment script uses an XML configuration file as input which describes the infrastructure of the HPC cluster. To deploy a small cluster consisting of a head node and 2 Linux compute nodes, substitute values for your environment into the following sample configuration file. For more information about the configuration file, see the Manual.rtf file in the script folder or the [script documentation](https://msdn.microsoft.com/library/azure/dn864734.aspx).
+The HPC Pack IaaS deployment script uses an XML configuration file as input which describes the infrastructure of the HPC cluster. To deploy a small cluster consisting of a head node and 2 Linux compute nodes, substitute values for your environment into the following sample configuration file. For more information about the configuration file, see the Manual.rtf file in the script folder and [Create an HPC cluster with the HPC Pack IaaS deployment script](virtual-machines-hpcpack-cluster-powershell-script.md).
 
 ```
 <?xml version="1.0" encoding="utf-8" ?>

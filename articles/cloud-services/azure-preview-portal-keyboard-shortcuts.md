@@ -1,8 +1,8 @@
 <properties
-   pageTitle="Azure portal keyboard shortcuts"
+   pageTitle="Azure portal keyboard shortcuts | Microsoft Azure"
    description="This article will always be an up-to-date listing of the keyboard shortcuts that work throughout the Azure portal. Individual services might have their own specialized keyboard shortcuts."
    services="cloud-services"
-   documentationCenter="dev-center-name"
+   documentationCenter=""
    authors="curtand"
    manager="msStevenPo"
    editor=""/>

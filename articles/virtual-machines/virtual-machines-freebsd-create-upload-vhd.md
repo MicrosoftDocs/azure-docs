@@ -1,24 +1,27 @@
-<properties 
-   pageTitle="Create and upload a FreeBSD VHD to Azure" 
-   description="Learn to create and upload an Azure virtual hard disk (VHD) that contains the FreeBSD operating system" 
-   services="virtual-machines" 
-   documentationCenter="" 
-   authors="KylieLiang" 
-   manager="timlt" 
-   editor=""/>
+<properties
+   pageTitle="Create and upload a FreeBSD VM image | Microsoft Azure"
+   description="Learn to create and upload a virtual hard disk (VHD) that contains the FreeBSD operating system to create an Azure virtual machine"
+   services="virtual-machines"
+   documentationCenter=""
+   authors="KylieLiang"
+   manager="timlt"
+   editor=""
+   tags="azure-service-management"/>
 
 <tags
    ms.service="virtual-machines"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="vm-linux"
-   ms.workload="infrastructure-services" 
+   ms.workload="infrastructure-services"
    ms.date="05/19/2015"
    ms.author="kyliel"/>
 
-# Create and Upload a FreeBSD VHD to Azure 
+# Create and Upload a FreeBSD VHD to Azure
 
-This article shows you how to create and upload a virtual hard disk (VHD) that contains the FreeBSD operating system so you can use it as your own image to create a virtual machine (VM) in Azure. 
+This article shows you how to create and upload a virtual hard disk (VHD) that contains the FreeBSD operating system so you can use it as your own image to create a virtual machine (VM) in Azure.
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)] This article covers creating a resource with the classic deployment model.
 
 ##Prerequisites##
 This article assumes that you have the following items:
@@ -27,7 +30,7 @@ This article assumes that you have the following items:
 
 - **Azure PowerShell tools** - You have the Microsoft Azure PowerShell module installed and configured to use your subscription. To download the module, see [Azure Downloads](http://azure.microsoft.com/downloads/). A tutorial to install and configure the module is available here. You'll use the [Azure Downloads](http://azure.microsoft.com/downloads/) cmdlet to upload the VHD.
 
-- **FreeBSD operating system installed in a .vhd file**  - You have installed a supported FreeBSD operating system to a virtual hard disk. Multiple tools exist to create .vhd files, for example you can use a virtualization solution such as Hyper-V to create the .vhd file and install the operating system. For instructions, see [Install the Hyper-V Role and Configure a Virtual Machine](http://technet.microsoft.com/library/hh846766.aspx). 
+- **FreeBSD operating system installed in a .vhd file**  - You have installed a supported FreeBSD operating system to a virtual hard disk. Multiple tools exist to create .vhd files, for example you can use a virtualization solution such as Hyper-V to create the .vhd file and install the operating system. For instructions, see [Install the Hyper-V Role and Configure a Virtual Machine](http://technet.microsoft.com/library/hh846766.aspx).
 
 > [AZURE.NOTE] The newer VHDX format is not supported in Azure. You can convert the disk to VHD format using Hyper-V Manager or the cmdlet [convert-vhd](https://technet.microsoft.com/library/hh848454.aspx).
 
@@ -48,9 +51,9 @@ From the virtual machine that the FreeBSD operating system was installed to, com
 
     SSH is enabled by default after installation from disc. If not or if you use FreeBSD VHD directly, type:
 
-		# echo 'sshd_enable="YES"' >> /etc/rc.conf 
-		# ssh-keygen -t dsa -f /etc/ssh/ssh_host_dsa_key 
-		# ssh-keygen -t rsa -f /etc/ssh/ssh_host_rsa_key 
+		# echo 'sshd_enable="YES"' >> /etc/rc.conf
+		# ssh-keygen -t dsa -f /etc/ssh/ssh_host_dsa_key
+		# ssh-keygen -t rsa -f /etc/ssh/ssh_host_rsa_key
 		# service sshd restart
 
 3. **Setup serial console**
@@ -73,7 +76,7 @@ From the virtual machine that the FreeBSD operating system was installed to, com
 
     5.2 **Install wget**
 
-		# pkg install wget 
+		# pkg install wget
 
 6. **Install Azure Agent**
 
@@ -111,11 +114,11 @@ You need a storage account in Azure to upload a .vhd file so it can be used in A
 	![Quick create a storage account](./media/virtual-machines-freebsd-create-upload-vhd/Storage-quick-create.png)
 
 4. Fill out the fields as follows:
-	
+
 	- Under **URL**, type a subdomain name to use in the URL for the storage account. The entry can contain from 3-24 lowercase letters and numbers. This name becomes the host name within the URL that is used to address Blob, Queue, or Table resources for the subscription.
-			
+
 	- Choose the **location or affinity group** for the storage account. An affinity group lets you place your cloud services and storage in the same data center.
-		 
+
 	- Decide whether to use **geo-replication** for the storage account. Geo-replication is turned on by default. This option replicates your data to a secondary location, at no cost to you, so that your storage fails over to that location if a major failure occurs at the primary location. The secondary location is assigned automatically, and can't be changed. If you need more control over the location of your cloud-based storage due to legal requirements or organizational policy, you can turn off geo-replication. However, be aware that if you later turn on geo-replication, you will be charged a one-time data transfer fee to replicate your existing data to the secondary location. Storage services without geo-replication are offered at a discount. More details on managing geo-replication of Storage accounts can be found here: [Create, manage, or delete a storage account](../storage-create-storage-account/#replication-options).
 
 	![Enter storage account details](./media/virtual-machines-freebsd-create-upload-vhd/Storage-create-account.png)
@@ -149,7 +152,7 @@ Before you can upload a .vhd file, you need to establish a secure connection bet
 
 2. Type the following command:  
 	`Add-AzureAccount`
-	
+
 	This command opens a sign-in window so you can sign with your work or school account.
 
 	![PowerShell Window](./media/virtual-machines-freebsd-create-upload-vhd/add_azureaccount.png)
@@ -158,29 +161,29 @@ Before you can upload a .vhd file, you need to establish a secure connection bet
 
 ###Use the certificate method
 
-1. Open the Azure PowerShell console. 
+1. Open the Azure PowerShell console.
 
-2. Type: 
+2. Type:
 	`Get-AzurePublishSettingsFile`.
 
 3. A browser window opens and prompts you to download a .publishsettings file. It contains information and a certificate for your Microsoft Azure subscription.
 
 	![Browser download page](./media/virtual-machines-freebsd-create-upload-vhd/Browser_download_GetPublishSettingsFile.png)
 
-3. Save the .publishsettings file. 
+3. Save the .publishsettings file.
 
-4. Type: 
+4. Type:
 	`Import-AzurePublishSettingsFile <PathToFile>`
 
-	Where `<PathToFile>` is the full path to the .publishsettings file. 
+	Where `<PathToFile>` is the full path to the .publishsettings file.
 
-   For more information, see [Get Started with Microsoft Azure Cmdlets](http://msdn.microsoft.com/library/windowsazure/jj554332.aspx) 
-	
-   For more information on installing and configuring PowerShell, see [How to install and configure Microsoft Azure PowerShell](../install-configure-powershell.md). 
+   For more information, see [Get Started with Microsoft Azure Cmdlets](http://msdn.microsoft.com/library/windowsazure/jj554332.aspx)
+
+   For more information on installing and configuring PowerShell, see [How to install and configure Microsoft Azure PowerShell](../install-configure-powershell.md).
 
 ## Step 4: Upload the .vhd file ##
 
-When you upload the .vhd file, you can place the .vhd file anywhere within your blob storage. In the following command examples, **BlobStorageURL** is the URL for the storage account that you created in Step 2, **YourImagesFolder** is the container within blob storage where you want to store your images. **VHDName** is the label that appears in the Management Portal to identify the virtual hard disk. **PathToVHDFile** is the full path and name of the .vhd file. 
+When you upload the .vhd file, you can place the .vhd file anywhere within your blob storage. In the following command examples, **BlobStorageURL** is the URL for the storage account that you created in Step 2, **YourImagesFolder** is the container within blob storage where you want to store your images. **VHDName** is the label that appears in the Management Portal to identify the virtual hard disk. **PathToVHDFile** is the full path and name of the .vhd file.
 
 
 1. From the Azure PowerShell window you used in the previous step, type:
@@ -200,11 +203,10 @@ After you upload the .vhd, you can add it as an image to the list of custom imag
 
     ![add image](./media/virtual-machines-freebsd-create-upload-vhd/addfreebsdimage.png)
 
-3. Create a virtual machine from gallery. This new image is now available under **My Images**. Select the new image and go through the prompts to set up a hostname, password/SSH key and etc. 
+3. Create a virtual machine from gallery. This new image is now available under **My Images**. Select the new image and go through the prompts to set up a hostname, password/SSH key and etc.
 
 	![custom image](./media/virtual-machines-freebsd-create-upload-vhd/createfreebsdimageinazure.png)
 
-4. Once provisioning has completed, you will see your FreeBSD VM running in Azure. 
+4. Once provisioning has completed, you will see your FreeBSD VM running in Azure.
 
 	![freebsd image in azure](./media/virtual-machines-freebsd-create-upload-vhd/freebsdimageinazure.png)
- 

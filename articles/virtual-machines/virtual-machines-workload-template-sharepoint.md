@@ -1,9 +1,9 @@
 <properties
-	pageTitle="Deploy SharePoint farms with Azure Resource Manager templates | Microsoft Azure"
-	description="Easily deploy a three-server or nine-server SharePoint farm with Resource Manager templates and the Azure preview portal, Azure PowerShell, or the Azure CLI."
+	pageTitle="Deploy SharePoint farms with ARM templates | Microsoft Azure"
+	description="Easily deploy 3-server or 9-server SharePoint farm with Resource Manager templates and the Azure portal, Azure PowerShell, or the Azure CLI."
 	services="virtual-machines"
 	documentationCenter=""
-	authors="davidmu1"
+	authors="JoeDavies-MSFT"
 	manager="timlt"
 	editor=""
 	tags="azure-resource-manager"/>
@@ -14,10 +14,12 @@
 	ms.tgt_pltfrm="vm-windows-sharepoint"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="06/29/2015"
-	ms.author="davidmu"/>
+	ms.date="10/05/2015"
+	ms.author="josephd"/>
 
 # Deploy SharePoint farms with Azure Resource Manager templates
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)] This article covers creating a resource with the Resource Manager deployment model. You can't create this resource with the classic deployment model.
 
 Use the instructions in this article to deploy a new three-server or nine-server SharePoint Server 2013 farm using Resource Manager templates.
 
@@ -35,12 +37,11 @@ To deploy this workload using a Resource Manager template and the Azure preview 
 
 ![](./media/virtual-machines-workload-template-sharepoint/azure-portal-template.png)
 
-1.	For the **Template** pane, click **Save**.
-2.	Click **Parameters**. On the **Parameters** pane, enter new values, select from allowed values, or accept default values, and then click **OK**.
-3.	If needed, click **Subscription** and select the correct Azure subscription.
-4.	Click **Resource group** and select an existing resource group. Alternately, click **Or create new** to create a new one for this workload.
-5.	If needed, click **Resource group location** and select the correct Azure location.
-6.	If needed, click **Legal terms** to review the terms and agreement for using the template.
+1.	Click **Parameters**. On the **Parameters** pane, enter new values, select from allowed values, or accept default values, and then click **OK**.
+2.	If needed, click **Subscription** and select the correct Azure subscription.
+3.	Click **Resource group** and select an existing resource group. Alternately, click **Or create new** to create a new one for this workload.
+4.	If needed, click **Resource group location** and select the correct Azure location.
+6.	Click **Legal terms** to review the terms and agreement for using the template.
 7.	Click **Create**.
 
 Depending on the template, it can take some time for Azure to build the workload. When complete, you have a new three-server SharePoint farm in your existing or new resource group.
@@ -106,13 +107,12 @@ To deploy this workload using a Resource Manager template and the Azure preview 
 
 ![](./media/virtual-machines-workload-template-sharepoint/azure-portal-template.png)
 
-1.	For the **Template** pane, click **Save**.
-2.	Click **Parameters**. On the **Parameters** pane, enter new values, select from allowed values, or accept default values, and then click **OK**.
-3.	If needed, click **Subscription** and select the correct Azure subscription.
-4.	Click **Resource group** and select an existing resource group. Alternately, click **Or create new** to create a new one for this workload.
-5.	If needed, click **Resource group location** and select the correct Azure location.
-6.	If needed, click **Legal terms** to review the terms and agreement for using the template.
-7.	Click **Create**.
+1.	Click **Parameters**. On the **Parameters** pane, enter new values, select from allowed values, or accept default values, and then click **OK**.
+2.	If needed, click **Subscription** and select the correct Azure subscription.
+3.	Click **Resource group** and select an existing resource group. Alternately, click **Or create new** to create a new one for this workload.
+4.	If needed, click **Resource group location** and select the correct Azure location.
+5.	Click **Legal terms** to review the terms and agreement for using the template.
+6.	Click **Create**.
 
 Depending on the template, it can take some time for Azure to build the workload. When complete, you have a new nine-server SharePoint farm in your existing or new resource group.
 
@@ -168,6 +168,8 @@ When the template execution is complete, you now have a new nine-server SharePoi
 
 ## Additional resources
 
+[SharePoint farms hosted in Azure infrastructure services](virtual-machines-sharepoint-infrastructure-services.md)
+
 [Deploy and manage virtual machines using Azure Resource Manager templates and Azure PowerShell](virtual-machines-deploy-rmtemplates-powershell.md)
 
 [Azure Compute, Network and Storage providers under Azure Resource Manager](virtual-machines-azurerm-versus-azuresm.md)
@@ -179,3 +181,5 @@ When the template execution is complete, you now have a new nine-server SharePoi
 [Virtual machines documentation](http://azure.microsoft.com/documentation/services/virtual-machines/)
 
 [How to install and configure Azure PowerShell](../install-configure-powershell.md)
+
+

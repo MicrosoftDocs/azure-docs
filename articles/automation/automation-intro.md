@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article" 
-	ms.date="09/03/2015"
+	ms.date="09/17/2015"
 	ms.author="bwren"/>
 
 # What is Azure Automation?
@@ -26,14 +26,14 @@ Azure Automation saves time and increases the reliability of the regular adminis
 
 ## What is a runbook?
 
-A runbook is a set of tasks that perform some automated process in Azure Automation.  It may be a simple process such as starting a virtual machine or creating a log entry, or you may have a complex runbook that combines other smaller runbooks to perform a complex process across multiple resources or even multiple clouds.   
+A runbook is a set of tasks that perform some automated process in Azure Automation.  It may be a simple process such as starting a virtual machine or creating a log entry, or you may have a complex runbook that combines other smaller runbooks to perform a complex process across multiple resources or even multiple clouds. 
 
 For example, you might have an existing manual process for provisioning a new virtual machine that includes multiple steps such as creating the virtual machine, connecting it to a network, assigning it an IP address, and then notifying a user that it's ready.  Instead of manually performing each of these steps, you could create a runbook that would perform all of these tasks as a single process.  You would start the runbook, provide the required information such as the virtual machine name, IP address, and recipient e-mail and then sit back while the process completes without you. 
 
 
 ## What can runbooks automate?
 
-Runbooks in Azure Automation are based on PowerShell Workflow, so they do anything that PowerShell can do.  If an application or service has an API, then a runbook can work with it.  If you have a PowerShell module for it, then you can load that module into Azure Automation and include those cmdlets in your runbook.  Azure Automation runbooks run in the Azure cloud so that can access any resources in the cloud or external resources that can be accessed from the cloud.  Using [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md), runbooks can run in your local data center to manage local resources.
+Runbooks in Azure Automation are based on Windows PowerShell or Windows PowerShell Workflow, so they do anything that PowerShell can do.  If an application or service has an API, then a runbook can work with it.  If you have a PowerShell module for it, then you can load that module into Azure Automation and include those cmdlets in your runbook.  Azure Automation runbooks run in the Azure cloud so that can access any resources in the cloud or external resources that can be accessed from the cloud.  Using [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md), runbooks can run in your local data center to manage local resources.
 
 
 ## Where do I get runbooks?
@@ -43,12 +43,12 @@ The [Runbook Gallery](http://msdn.microsoft.com/library/azure/dn781422.aspx) con
 
 ## How do I create my own runbooks?
 
-You can [create your own runbooks](http://msdn.microsoft.com/library/azure/dn643637.aspx) from scratch or modify runbooks from the [Runbook Gallery](http://msdn.microsoft.com/library/azure/dn781422.aspx) for your own requirements.  If you prefer to work directly with the PowerShell code, you can [edit the runbook using the textual editor](http://msdn.microsoft.com/library/azure/dn879137.aspx) in the Azure portal or edit if offline.  If you prefer to edit a runbook without being exposed to the underlying code, then you can use the [graphical editor](automation-graphical-authoring-intro.md) in the Azure preview portal.
+You can [create your own runbooks](http://msdn.microsoft.com/library/azure/dn643637.aspx) from scratch or modify runbooks from the [Runbook Gallery](http://msdn.microsoft.com/library/azure/dn781422.aspx) for your own requirements.  There are three different [runbook types](automation-runbook-types.md) that you can choose from based on your requirements and PowerShell experience.  If you prefer to work directly with the PowerShell code, then you can use a [PowerShell runbook](automation-runbook-types.md#powershell-runbooks) or [PowerShell Workflow runbook](automation-runbook-types.md#powershell-workflow-runbooks) that you edit offline or [using the textual editor](http://msdn.microsoft.com/library/azure/dn879137.aspx) in the Azure portal.  If you prefer to edit a runbook without being exposed to the underlying code, then you can create a [Graphical runbook](automation-runbook-types.md#graphical-runbooks) using the [graphical editor](automation-graphical-authoring-intro.md)  in the Azure preview portal.
 
 
 ## How does Azure Automation relate to other automation tools?
 
-[Service Management Automation (SMA)](http://technet.microsoft.com/library/dn469260.aspx) is intended to automate management tasks in the private cloud.  It is installed locally in your data center as a component of [Windows Azure Pack](http://www.microsoft.com/server-cloud/products/windows-azure-pack/default.aspx). SMA and Azure Automation use the same runbook format based on Windows PowerShell Workflow, but SMA does not support [graphical runbooks](automation-graphical-authoring-intro.md). 
+[Service Management Automation (SMA)](http://technet.microsoft.com/library/dn469260.aspx) is intended to automate management tasks in the private cloud.  It is installed locally in your data center as a component of [Windows Azure Pack](http://www.microsoft.com/server-cloud/products/windows-azure-pack/default.aspx). SMA and Azure Automation use the same runbook format based on Windows PowerShell and Windows PowerShell Workflow, but SMA does not support [graphical runbooks](automation-graphical-authoring-intro.md). 
 
 [System Center 2012 Orchestrator](http://technet.microsoft.com/library/hh237242.aspx) is intended for automation of on-premises resources. It uses a different runbook format than Azure Automation and Service Management Automation and has a graphical interface to create runbooks without requiring any scripting. Its runbooks are composed of activities from Integration Packs that are written specifically for Orchestrator. 
 

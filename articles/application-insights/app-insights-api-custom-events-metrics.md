@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="08/28/2015" 
+	ms.date="09/23/2015" 
 	ms.author="awills"/>
 
 # Application Insights API for custom events and metrics 
@@ -461,6 +461,17 @@ But if users sign in to your app, you can get a more accurate count by setting t
     }
 ```
 
+In an ASP.NET web MVC application, for example:
+
+*Razor*
+
+        @if (Request.IsAuthenticated)
+        {
+            <script>
+                appInsights.setAuthenticatedUserContext("@User.Identity.Name".replace(/[,;=| ]+/g, "_"));
+            </script>
+        }
+
 It isn't necessary to use the user's actual sign-in name. It only has to be an id that is unique to that user. It must not include spaces, or any of the characters `,;=|`. 
 
 The user id is also set in a session cookie and sent to the server. If the server SDK is installed, the authenticated user id will be sent as part of the context properties of both client and server telemetry, so that you can filter and search on it.
@@ -470,7 +481,9 @@ If your app groups users into accounts, you can also pass an identifier for the 
 
       appInsights.setAuthenticatedUserContext(validatedId, accountId);
 
-In [metrics explorer](app-insights-metrics-explorer.md), you can create a chart of **Authenticated Users** and **Accounts**. 
+In [metrics explorer](app-insights-metrics-explorer.md), you can create a chart that counts **Users, Authenticated** and **User accounts**. 
+
+You can also [search][diagnostic] for client data points with specific user names and accounts.
 
 
 ## <a name="defaults"></a>Set defaults for selected custom telemetry
@@ -696,7 +709,10 @@ Normally the SDK sends data at times chosen to minimize impact on the user. Howe
 
     telemetry.Flush();
 
-Note that the function is synchronous.
+    // Allow some time for flushing before shutdown.
+    System.Threading.Thread.Sleep(1000);
+
+Note that the function is asynchronous for in-memory channels, but synchronous if you choose to use the [persistent channel](app-insights-windows-desktop.md#persistence-channel).
 
 
 

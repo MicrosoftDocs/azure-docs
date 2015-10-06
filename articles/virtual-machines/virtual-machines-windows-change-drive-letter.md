@@ -1,6 +1,6 @@
 <properties
-	pageTitle="How To Change the Drive Letter of the Windows Temporary Disk"
-	description="Describes how to remap the temporary disk on a Windows-based VM in Azure"
+	pageTitle="Change the drive letter of the temporary disk | Microsoft Azure"
+	description="Change the drive letter of the temporary disk on a Windows virtual machine created with the classic deployment model."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="cynthn
@@ -18,7 +18,9 @@
 	ms.date="05/27/2015"
 	ms.author="cynthn"/>
 
-#How to change the drive letter of the Windows temporary disk
+#Change the drive letter of the Windows temporary disk on a virtual machine created with the classic deployment model
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)] This article covers creating resources with the classic deployment model.
 
 If you need to use the D drive to store data, follow these instructions to use a different drive for the temporary disk. Never use the temporary disk to store data that you need to keep.
 
@@ -26,7 +28,9 @@ Before you begin, you'll need a data disk attached to the virtual machine so you
 
 If you want to use an existing data disk on the D drive, make sure you've also uploaded the VHD to the Storage account. For instructions, see steps 3 and 4 in [Create and upload a Windows Server VHD to Azure][VHD].
 
-> [AZURE.WARNING] If you resize a virtual machine and doing that moves the virtual machine to a different host, the temporary disk changes back to the D drive.
+> [AZURE.WARNING] If you resize or "Stop (Deallocate)" a virtual machine, this may trigger placement of the virtual machine to a new hypervisor. A planned or unplanned maintenance event may also trigger this placement. In this scenario, the temporary disk will be reassigned to the first available drive letter. If you have an application that specifically requires the "D" drive, ensure that after moving the pagefile, you assign a new persistent disk and assign it the letter D. Azure will not take back the letter D.
+
+> [AZURE.WARNING] If you resize a virtual machine after explicitly moving the pagefile, note that you may encounter an error on boot if the new virtual machine's temporary disk is not large enough to contain the pagefile of the original VM size. You may also encounter this error if the temporary drive was not set to the next available drive letter, causing Windows to reference an invalid drive letter in pagefile configuration while Azure creates the temporary drive with the next available drive letter.
 
 ##Change the drive letter
 
@@ -45,6 +49,10 @@ If you want to use an existing data disk on the D drive, make sure you've also u
 7.	Verify that E is mapped to the temporary disk.
 
 8.	Move pagefile.sys from the other drive to the E drive.
+
+9.	Restart the virtual machine.
+
+
 
 ## Additional resources
 [How to log on to a virtual machine running Windows Server][Logon]

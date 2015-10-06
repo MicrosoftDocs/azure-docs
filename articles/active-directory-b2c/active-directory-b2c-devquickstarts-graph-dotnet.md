@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="09/01/2015"
+	ms.date="09/22/2015"
 	ms.author="dastrock"/>
 
 
@@ -51,6 +51,9 @@ in that directory.  If you don't have one already, follow the guide to [getting 
 Now that you have a B2C directory, you need to create your service application using the Azure AD Powershell Cmdlets.
 First, download & install the [Microsoft Online Services Sign-In Assistant](http://go.microsoft.com/fwlink/?LinkID=286152).  Then you can download
 & install the [64-bit Azure Active Directory Module for Windows Powershell](http://go.microsoft.com/fwlink/p/?linkid=236297).
+
+> [AZURE.NOTE]
+	To use the Graph API with your B2C directory, you will need to register a dedicated application using powershell, following these instructions.  You can not re-use your already existing B2C applications that you registered in the Azure Portal.  This is a limitation of the Azure AD B2C preview that will be removed in the near future - at which point we will update this article. 
 
 Once you've installed the powershell module, open up Powershell and connect to your B2C directory.  After running `Get-Credential`, you will be
 prompted for a username and password - enter those of your B2C directory admin account.
@@ -128,6 +131,8 @@ the three app settings with your own values, like so:
     <add key="b2c:ClientSecret" value="{The client secret you generated above}" />
 </appSettings>
 ```
+
+[AZURE.INCLUDE [active-directory-b2c-devquickstarts-tenant-name](../../includes/active-directory-b2c-devquickstarts-tenant-name.md)]
 
 Now, right click on the `B2CGraphClient` solution and rebuild the sample.  If it succeeds, you should now have an executable `B2C.exe` located in `B2CGraphClient\bin\Debug`.
 
@@ -266,7 +271,8 @@ Content-Length: 338
 	"passwordProfile": {
 		"password": "P@ssword!",
 		"forceChangePasswordNextLogin": false   // always set to false
-	}
+	},
+	"passwordPolicies": "DisablePasswordExpiration"
 }
 ```
 

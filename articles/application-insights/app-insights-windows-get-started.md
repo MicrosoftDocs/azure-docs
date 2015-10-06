@@ -184,7 +184,7 @@ If you prefer to let Visual Studio perform the setup steps, you can do that with
 
 Select **Application Insights** in the **New Project** dialog.
 
-If you're asked to sign in, use the credentials for your Azure account (which is separate from your Visual Studio Online account).
+If you're asked to sign in, use the credentials for your Azure account.
 
 ![](./media/app-insights-windows-get-started/appinsights-d21-new.png)
 

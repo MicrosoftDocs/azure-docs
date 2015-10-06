@@ -10,7 +10,7 @@
 <tags 
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="08/12/2015" 
+	ms.date="09/23/2015" 
 	ms.author="sstein" 
 	ms.workload="data-management" 
 	ms.topic="article" 
@@ -40,7 +40,7 @@ Elastic database pools in Azure SQL Database enable SaaS ISVs to optimize the pr
 
 Elastic database pools are well suited for a large number of databases with specific utilization patterns. For a given database, this pattern is characterized by low average utilization with relatively infrequent utilization spikes.
 
-The more databases you can add to a pool the greater your savings become, but depending on your application utilization pattern, it is possible to see savings with as few as 4 S3 databases.  
+The more databases you can add to a pool the greater your savings become, but depending on your application utilization pattern, it is possible to see savings with as few as 2 S3 databases.  
 
 The following sections will help you understand how to assess if your specific collection of databases will benefit from using an elastic database pool. The examples use Standard elastic database pools but the same principles also apply to Basic and Premium pools.
 
@@ -60,7 +60,7 @@ Building on the previous example, suppose there are additional databases with si
 
    ![twenty databases][3]
 
-The aggregate DTU utilization across all 20 databases is illustrated by the black line in the above figure. This shows that the aggregate DTU utilization never exceeds 100 DTUs, and indicates that the 20 databases can share 100 eDTUs over this time period. This results in a 20x reduction in DTUs and a 6x price reduction compared to placing each of the databases in S3 performance levels for single databases. 
+The aggregate DTU utilization across all 20 databases is illustrated by the black line in the above figure. This shows that the aggregate DTU utilization never exceeds 100 DTUs, and indicates that the 20 databases can share 100 eDTUs over this time period. This results in a 20x reduction in DTUs and a 13x price reduction compared to placing each of the databases in S3 performance levels for single databases. 
 
 
 This example is ideal for the following reasons: 
@@ -70,41 +70,41 @@ This example is ideal for the following reasons:
 - eDTUs are shared between a large number of databases.
 
 
-The price for an elastic database pool is a function of the pool eDTUs and the number of databases within it. While the eDTU unit price for a pool at GA pricing is 3x greater than the DTU unit price for a single database, **pool eDTUs can be shared by many databases and so in many cases fewer total eDTUs are needed**. These distinctions in pricing and eDTU sharing are the basis of the price savings potential that pools can provide.  
+The price for an elastic database pool is a function of the pool eDTUs. While the eDTU unit price for a pool is 1.5x greater than the DTU unit price for a single database, **pool eDTUs can be shared by many databases and so in many cases fewer total eDTUs are needed**. These distinctions in pricing and eDTU sharing are the basis of the price savings potential that pools can provide.  
 
 <br>
 
-The following rules of thumb related to database count and database utilization help to ensure that an elastic database pool delivers reduced cost compared to using performance levels for single databases. The guidance is based on general availability (GA) prices. Note that GA prices are discounted by 50% during the preview, and so these rules of thumb should be considered relatively conservative. 
+The following rules of thumb related to database count and database utilization help to ensure that an elastic database pool delivers reduced cost compared to using performance levels for single databases. 
 
 
 ### Minimum number of databases
 
-With GA pricing, an elastic database pool becomes more of a cost effective performance choice if 1 eDTU can be shared by more than 3 databases. This means that the sum of the DTUs of performance levels for single databases is more than 3x the eDTUs of the pool. For available sizes, see [eDTU and storage limits for elastic database pools and elastic databases](sql-database-elastic-pool-reference.md#edtu-and-storage-limits-for-elastic-pools-and-elastic-databases).
+If the sum of the DTUs of performance levels for single databases is more than 1.5x the eDTUs needed for the pool, then an elastic pool is more cost effective. For available sizes, see [eDTU and storage limits for elastic database pools and elastic databases](sql-database-elastic-pool-reference.md#edtu-and-storage-limits-for-elastic-pools-and-elastic-databases).
 
 
 ***Example***<br>
-At least 4 S3 databases or at least 36 S0 databases are needed for a 100 eDTU elastic database pool to be more cost efficient than using performance levels for single databases. (Note that with preview prices, the pricing breakeven point based on database count lowers to 2 S3 databases or 17 S0 databases.)
+At least 2 S3 databases or at least 15 S0 databases are needed for a 100 eDTU elastic database pool to be more cost efficient than using performance levels for single databases.
 
 
 
 ### Maximum number of concurrently peaking databases
 
-By sharing eDTUs, not all databases in a pool can simultaneously use eDTUs up to the limit available when using performance levels for single databases. The fewer databases that concurrently peak, the lower the pool eDTU can be set and the more cost efficient it becomes. In general, not more than 1/3 of the databases in the pool should simultaneously peak to their eDTU limit. 
+By sharing eDTUs, not all databases in a pool can simultaneously use eDTUs up to the limit available when using performance levels for single databases. The fewer databases that concurrently peak, the  lower the pool eDTU can be set and the more cost efficient it becomes. In general, not more than 2/3 (or 67%) of the databases in the pool should simultaneously peak to their eDTU limit. 
 
 ***Example***<br>
-To reduce costs for 4 S3 databases in a 200 eDTU pool, at most 2 of these databases can simultaneously peak in their utilization.  Otherwise, if more than 2 of these 4 S3 databases simultaneously peak, the pool would have to be sized to more than 200 eDTUs.  And if the pool is resized to more than 200 eDTUs, more S3 databases would need to be added to the pool to keep costs lower than performance levels for single databases.  
+To reduce costs for 3 S3 databases in a 200 eDTU pool, at most 2 of these databases can simultaneously peak in their utilization.  Otherwise, if more than 2 of these 4 S3 databases simultaneously peak, the pool would have to be sized to more than 200 eDTUs.  And if the pool is resized to more than 200 eDTUs, more S3 databases would need to be added to the pool to keep costs lower than performance levels for single databases.  
 
 
-Note this example does not consider utilization of other databases in the pool. If all databases have some utilization at any given point in time, then less than 1/3 of the databases can peak simultaneously. 
+Note this example does not consider utilization of other databases in the pool. If all databases have some utilization at any given point in time, then less than 2/3 (or 67%) of the databases can peak simultaneously. 
 
 
 ### DTU utilization per database
 
-A large difference between the peak and average utilization of a database indicates prolonged periods of low utilization and short periods of high utilization. This utilization pattern is ideal for sharing resources across databases. A database should be considered for a pool when its peak utilization is about 3 times greater than its average utilization. 
+A large difference between the peak and average utilization of a database indicates prolonged periods of low utilization and short periods of high utilization. This utilization pattern is ideal for sharing resources across databases. A database should be considered for a pool when its peak utilization is about 1.5 times greater than its average utilization. 
 
     
 ***Example***<br>
-An S3 database that peaks to 100 DTUs and on average uses 30 DTUs or less is a good candidate for sharing eDTUs in an elastic database pool.  Alternatively, an S1 database that peaks to 20 DTUs and on average uses 7 DTUs or less is a good candidate for an elastic database pool. 
+An S3 database that peaks to 100 DTUs and on average uses 67 DTUs or less is a good candidate for sharing eDTUs in an elastic database pool.  Alternatively, an S1 database that peaks to 20 DTUs and on average uses 13 DTUs or less is a good candidate for an elastic database pool. 
     
 
 ## Heuristic to compare the pricing difference between an elastic database pool and single databases 
@@ -120,7 +120,7 @@ The following heuristic can help estimate whether an elastic database pool is mo
 
 3. Calculate the price for the pool as follows:
 
-    pool price = (*pool eDTUs* * *pool eDTU unit price*) + (*total number DBs* * *pool DB unit price*)
+    pool price = *pool eDTUs* * *pool eDTU unit price*
 
     See [SQL Database Pricing](http://azure.microsoft.com/pricing/details/sql-database/) for pricing information.   
 
@@ -136,15 +136,7 @@ The best size for an elastic database pool depends on the aggregate eDTUs and st
 * Maximum DTUs utilized by all databases in the pool.
 * Maximum storage bytes utilized by all databases in the pool. 
 
-Note that for the Standard service tier, 1 GB of storage is allowed for every 1 eDTU configured for the pool. For example, if a pool is configured with 200 DTUs, then its storage limit is 200 GB.
-
-The following table shows the amount of storage per eDTU for each pricing tier:
-
-| Tier | eDTU | Storage |
-| :--- | :--- | :--- |
-| Basic | 1 | 100 MB |
-| Standard | 1 | 1 GB |
-| Premium | 1 | .5 GB |
+For available sizes, see [eDTU and storage limits for elastic database pools and elastic databases](sql-database-elastic-pool-reference.md#edtu-and-storage-limits-for-elastic-pools-and-elastic-databases).
 
 
 ### Use Service Tier Advisor (STA) and Dynamic Management Views (DMVs) for sizing recommendations   

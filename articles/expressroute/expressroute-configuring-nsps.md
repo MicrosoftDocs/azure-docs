@@ -13,7 +13,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="06/29/2015"
+   ms.date="09/29/2015"
    ms.author="cherylmc"/>
 
 #  Configure an ExpressRoute Connection through a Network Service Provider

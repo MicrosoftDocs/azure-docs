@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Connect virtual machines in an Azure cloud service"
-	description="Learn to connect a virtual machine to an Azure cloud service."
+	pageTitle="Connect VMs in a cloud service | Microsoft Azure"
+	description="Connect a virtual machine to an Azure cloud service."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="cynthn"
@@ -18,6 +18,8 @@
 	ms.author="cynthn"/>
 
 
-# How to connect virtual machines with a virtual network or cloud service
+# Connect virtual machines created with the classic deployment model with a virtual network or cloud service
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)] This article covers managing resources with the classic deployment model.
 
 [AZURE.INCLUDE [howto-connect-vm-cloud-service](../../includes/howto-connect-vm-cloud-service.md)]

@@ -101,7 +101,6 @@ After the cluster has finished provisioning, use the following steps to use R to
 		ints = to.dfs(1:100)
 		calc = mapreduce(input = ints, map = function(k, v) cbind(v, 2*v))
 
-
 	The first line calls the RHadoop library rmr2, which is used for MapReduce operations.
 
 	The second line generates values 1 - 100, then stores them to the Hadoop file system using `to.dfs`.

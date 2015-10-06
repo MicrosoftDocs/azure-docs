@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="python"
 	ms.topic="article"
-	ms.date="07/06/2015" 
+	ms.date="09/23/2015" 
 	ms.author="larryfr"/>
 
 #Use Python with Hive and Pig in HDInsight
