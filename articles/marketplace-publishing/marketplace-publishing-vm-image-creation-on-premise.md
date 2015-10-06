@@ -26,6 +26,7 @@ For on-premises development, you must download the OS VHD of the created VM. The
 In order to download the VHD, first locate the blob URL for the OS disk.
 
 Locate the Blob URL from the new [Microsoft Azure Portal](https://ms.portal.azure.com):
+
 1.	Go to **Browse > VMs**, and select the deployed VM.
 2.	Under **Configure**, select the **Disks** tile, opening the Disks blade.
 
