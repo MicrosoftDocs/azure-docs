@@ -27,10 +27,11 @@ There can be various reasons for Remote Desktop (RDP) to fail connecting to your
 
 If you need more help at any point in this article, you can contact the Azure experts on [the MSDN Azure and the Stack Overflow forums](http://azure.microsoft.com/support/forums/). Alternatively, you can also file an Azure support incident. Go to the [Azure Support site](http://azure.microsoft.com/support/options/) and click on **Get Support**.
 
-[Basic Steps - address common issues](#Basic steps)<br>
-[Troubleshoot specific error message](#Common RDP errors)<br>
-[Detailed Troubleshooting of each network component](#Detailed troubleshooting)<br>
+[Basic Steps - address common issues](#basicSteps)<br>
+[Troubleshoot specific error message](#commonErrors)<br>
+[Detailed Troubleshooting of each network component](#detailedTroubleshooting)<br>
 
+<a id="basicSteps"></a>
 ## Basic steps
 
 These basic steps can help resolve most of the common Remote Desktop connection failures. After performing each step try reconnecting to the VM.
@@ -51,7 +52,8 @@ These basic steps can help resolve most of the common Remote Desktop connection 
 
 - Run the 'Azure IaaS Diagnostics' package on Windows to correct common Remote Desktop Protocol (RDP) access issues such as resetting Windows Firewall and RDP registry values.<br>
 	If you are troubleshooting from a computer running Windows 8, Windows 8.1, Windows Server 2012, or Windows Server 2012 R2, you can try running the [Azure IaaS (Windows) diagnostics package](http://support.microsoft.com/kb/2976864).
-	
+
+<a id="commonErrors"></a>
 ## Troubleshoot Common RDP errors
 
 The following are the most common errors you might encounter when trying to Remote Desktop to your Azure virtual machine:
@@ -134,7 +136,7 @@ Every Windows computer has a Remote Desktop Users local group, which contains th
 
 Make sure that the account you are using to connect has Remote Desktop logon rights. As a workaround, use a domain or local administrator account to connect over Remote Desktop and then use Computer Management snap-in (**System Tools > Local Users and Groups > Groups > Remote Desktop Users**) to add the desired account to the Remote Desktop Users local group.
 
-
+<a id="detailedTroubleshooting"></a>
 ## Detailed troubleshooting
 
 If none of these errors occurred and you still could not connect to the VM via Remote Desktop, read [this article](virtual-machines-rdp-detailed-troubleshoot.md) to figure out other causes.
