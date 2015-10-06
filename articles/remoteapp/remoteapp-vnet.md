@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="08/12/2015"
+    ms.date="09/29/2015"
     ms.author="elizapo" />
 
 
@@ -27,7 +27,7 @@ To validate your Azure VNET, do the following:
 1. Create an Azure virtual machine inside the subnet of the Azure VNET you want to use with Azure RemoteApp.
 
 2. Connect to that VM by using the **Connect** option in the management portal.
-3. Join the virtual machine to the same domain that you want to use with Azure RemoteApp.
+3. Join the virtual machine to the same domain that you want to use with Azure RemoteApp. If you are creating a hybrid collection that connects to your on-premises network, join the virtual machine to your local domain.
 
 If this is successful, the Azure VNET is ready to use with RemoteApp.
 

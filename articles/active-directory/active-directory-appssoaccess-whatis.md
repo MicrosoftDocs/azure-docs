@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/01/2015"
+	ms.date="09/28/2015"
 	ms.author="asmalser-msft"/>
 
 #What is application access and single sign-on with Azure Active Directory?
@@ -80,7 +80,7 @@ Password-based SSO relies on a browser extension to securely retrieve the applic
 
 For password-based SSO, the end user’s browsers can be:
 
-- Internet Explorer 8, 9, and 10 -- on Windows 7 or later
+- Internet Explorer 8, 9, and 10 -- on Windows 7 or later (See also [IE Extension Deployment Guide](active-directory-saas-ie-group-policy.md))
 - Chrome -- on Windows 7 or later, and on MacOS X or later
 - Firefox 26.0 or later -- on Windows XP SP2 or later, and on Mac OS X 10.6 or later
 

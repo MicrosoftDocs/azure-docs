@@ -12,16 +12,16 @@
     ms.workload="data-services"
     ms.tgt_pltfrm="na"
     ms.devlang="na"
-    ms.topic="get-started-article" 
-    ms.date="06/29/2015"
+    ms.topic="get-started-article"
+    ms.date="09/28/2015"
     ms.author="chhavib;olgali"/>
 
 # Use sample experiments to create new experiments
-When you want to create an experiment, look for examples in Machine Learning team sample experiments and experiments shared by the Machine Learning community. You also can ask questions or post comments about experiments in the [Gallery](http://gallery.azureml.net/)
+When you want to create an experiment, look for examples in Machine Learning team sample experiments and experiments shared by the Machine Learning community. You also can ask questions or post comments about experiments in the [Cortana Analytics Gallery](http://gallery.azureml.net/)
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-## Browse the Gallery
+## Browse the Cortana Analytics Gallery
 1. Go to the [Gallery](http://gallery.azureml.net/)
 2. Browse either by going to **Trending Experiments** or **Microsoft samples**.
 3. Use search and filters to narrow results:
@@ -41,4 +41,3 @@ When you want to create an experiment, look for examples in Machine Learning tea
 - [Review sample R experiments](machine-learning-r-csharp-web-service-examples.md)
 - [Create an web service API](machine-learning-publish-a-machine-learning-web-service.md)
 - [Browse ready-to-use applications](https://datamarket.azure.com/browse?query=machine+learning)
- 

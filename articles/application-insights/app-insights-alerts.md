@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/14/2015" 
+	ms.date="09/23/2015" 
 	ms.author="awills"/>
  
 # Set Alerts in Application Insights
@@ -50,6 +50,10 @@ You get an email when an alert changes state between inactive and active.
 
 The current state of each alert is shown in the Alert rules blade.
 
+There's a summary of recent activity in the alerts drop-down:
+
+![](./media/app-insights-alerts/010-alert-drop.png)
+
 The history of state changes is in the Operations Events log:
 
 ![On the Overview blade, near the bottom, click 'Events in the past week'](./media/app-insights-alerts/09-alerts.png)
@@ -57,6 +61,27 @@ The history of state changes is in the Operations Events log:
 *Are these "events" related to telemetry events or custom events?*
 
 * No. These operational events are just a log of things that have happened to this application resource. 
+
+
+## How alerts work
+
+* An alert has two states: "alert" and "healthy". 
+
+* An email is sent when an alert changes state.
+
+* An alert is evaluated each time a metric arrives, but not otherwise.
+
+* The evaluation aggregates the metric over the preceding period, and then compares it to the threshold to determine the new state.
+
+* The period that you choose specifies the interval over which metrics are aggregated. It doesn't affect how often the alert is evaluated: that depends on the frequency of arrival of metrics.
+
+* If no data arrives for a particular metric for some time, the gap has different effects on alert evaluation and on the charts in metric explorer. In metric explorer, if no data is seen for longer than the chart's sampling interval, the chart will show a value of 0. But an alert based on the same metric will not be re-evaluated, and the alert's state will remain unchanged. 
+
+    When data eventually arrives, the chart will jump back to a non-zero value. The alert will evaluate based on the data available for the period you specified. If the new data point is the only one available in the period, the aggregate will be based just on that.
+
+* An alert can flicker frequently between alert and healthy states, even if you set a long period. This can happen if the metric value hovers around the threshold. There is no hysteresis in the threshold: the transition to alert happens at the same value as the transition to healthy.
+
+
 
 ## Availability alerts
 
@@ -69,8 +94,9 @@ It depends on your application. To start with, it's best not to set too many met
 Popular alerts include:
 
 * [Web tests][availability] are important if your application is a website or web service that is visible on the public internet. They tell you if your site goes down or responds slowly - even if it's the carrier's problem rather than your app. But they're synthetic tests, so they don't measure your users' actual experience.
-* [Browser metrics][client], especially Browser page load times, are good for web applications. If your page has a lot of scripts, you'll want to look out for browser exceptions. In order to get these metrics and alerts, you have to set up [web page monitoring][client].
-* Server response time and Failed requests for the server side of web applications. As well as setting up alerts, keep an eye on these metrics to see if they vary disproportionately with high request rates: that might indicate that your app is running out of resources.
+* [Browser metrics][client], especially Browser **page load times**, are good for web applications. If your page has a lot of scripts, you'll want to look out for **browser exceptions**. In order to get these metrics and alerts, you have to set up [web page monitoring][client].
+* **Server response time** and **Failed requests** for the server side of web applications. As well as setting up alerts, keep an eye on these metrics to see if they vary disproportionately with high request rates: that might indicate that your app is running out of resources.
+* **Server exceptions** - to see them, you have to do some [additional setup](app-insights-asp-net-exceptions.md).
 
 ## Set alerts by using PowerShell
 
@@ -113,6 +139,8 @@ If you haven't used PowerShell with your Azure subscription before:
 #### Example 1
 
 Email me if the server's response to HTTP requests, averaged over 5 minutes, is slower than 1 second. My Application Insights resource is called IceCreamWebApp, and it is in resource group Fabrikam. I am the owner of the Azure subscription.
+
+The GUID is the subscription ID (not the instrumentation key of the application).
 
     Add-AlertRule -Name "slow responses" `
      -Description "email me if the server responds slowly" `
@@ -169,7 +197,14 @@ Metric name | Screen name | Description
 `view.count`|Page views|Count of client user requests for a web page. Synthetic traffic is filtered out.
 {your custom metric name}|{Your metric name}|Your metric value reported by [TrackMetric](app-insights-api-custom-events-metrics.md#track-metric) or in the [measurements parameter of a tracking call](app-insights-api-custom-events-metrics.md#properties).
 
-   
+The metrics are sent by different telemetry modules:
+
+Metric group | Collector module
+---|---
+basicExceptionBrowser,<br/>clientPerformance,<br/>view | [Browser JavaScript](app-insights-javascript.md)
+performanceCounter | [Performance](app-insights-configuration-with-applicationinsights-config.md#nuget-package-3)
+remoteDependencyFailed| [Dependency](app-insights-configuration-with-applicationinsights-config.md#nuget-package-1)
+request,<br/>requestFailed|[Server request](app-insights-configuration-with-applicationinsights-config.md#nuget-package-2)
 
 
 <!--Link references-->

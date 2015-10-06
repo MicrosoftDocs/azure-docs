@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Azure SQL Database Index Advisor" 
-   description="Index recommendations are provided that can easily create indexes that are best suited for running an existing Azure SQL Database’s workload." 
+   description="The Azure SQL Database Index Advisor recommends new indexes for your existing SQL Databases that can improve current query performance." 
    services="sql-database" 
    documentationCenter="" 
    authors="stevestein" 
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management" 
-   ms.date="06/30/2015"
+   ms.date="09/22/2015"
    ms.author="sstein"/>
 
 # SQL Database Index Advisor
@@ -22,12 +22,12 @@ The Azure SQL Database Index Advisor recommends new indexes for your existing SQ
 
 The SQL Database service assesses index performance by analyzing historical resource usage for a SQL Database and the indexes that are best suited for running the database’s typical workload are recommended.
 
-Index advisor makes index management easier by providing recommendations on which indexes to create. For V12 servers, Index advisor can also create and validate indexes with just a few clicks in the [Azure Portal](https://portal.azure.com/). After the index is created, the SQL Database service analyzes performance of the database workload and provides details of the impact of the new index. If the analysis determines that a recommended index has a negative impact on performance, then the index is reverted automatically.
+Index advisor makes index management easier by providing recommendations on which indexes to create. For V12 servers, Index advisor can also create and validate indexes with just a few clicks in the [Azure Preview Portal](https://portal.azure.com/). After the index is created, the SQL Database service analyzes performance of the database workload and provides details of the impact of the new index. If the analysis determines that a recommended index has a negative impact on performance, then the index is reverted automatically.
 
 Index advisor allows you to spend less time tuning your database performance.
 
 
-> [AZURE.NOTE] Index Advisor is currently in preview and is only available in the [Azure Portal](https://portal.azure.com/).
+> [AZURE.NOTE] Index Advisor is currently in preview and is only available in the [Azure Preview Portal](https://portal.azure.com/).
 
 
 ## Preview considerations
@@ -57,11 +57,11 @@ Index Advisor is easy to use. To simplify index management for your database fol
 
 ## Review Recommended Indexes
 
-Index advisor provides a list of index recommendations on the database blade in the [Azure Portal](https://portal.azure.com/). The top selected recommendations are shown for each table in the selected database where creating a new index may provide performance gains.
+Index advisor provides a list of index recommendations on the database blade in the [Azure Preview Portal](https://portal.azure.com/). The top selected recommendations are shown for each table in the selected database where creating a new index may provide performance gains.
 
 ### To review currently available index recommendations:
 
-1. Sign in to the [Azure Portal](https://portal.azure.com/).
+1. Sign in to the [Azure Preview Portal](https://portal.azure.com/).
 2. Click **BROWSE** in the left menu.
 3. Click **SQL databases** in the **Browse** blade.
 4. On the **SQL databases** blade, click the database that you want to review recommended indexes for.

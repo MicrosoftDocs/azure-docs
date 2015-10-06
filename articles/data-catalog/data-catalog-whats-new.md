@@ -20,6 +20,23 @@
 
 Updates to **Azure Data Catalog** are released on a regular basis. Not every release will include new user-facing features, as some releases are focused on back-end service capabilities. This page will highlight new user-facing capabilities added to the **Azure Data Catalog** service.
 
+## What's new for the week of October 2, 2015 release
+
+As of the week of October 2, 2015, the following capabilities have been added to **Azure Data Catalog**:
+
+- Support for manually registering known data source types. Users can manually enter data source information using the **Azure Data Catalog** portal for all data source types supported by **Azure Data Catalog**.
+- Support for authorizing Azure Active Directory security groups. Catalog administrators can enable catalog access to security groups as well as to user accounts, making it easier to manage access to **Azure Data Catalog**.
+- Support for opening Hive data sources in Excel from the **Azure Data Catalog** portal.
+
+> [AZURE.NOTE] To use the "Open in Excel" feature for Hive data sources, users must have installed the ODBC driver for Hive.
+
+## What's new for the week of September 25, 2015 release
+
+As of the week of September 25, 2015, the following capabilities have been added to **Azure Data Catalog**:
+
+- Support for including data profiles when registering Hive data sources.
+- Support for programmatically discovering the Catalog API, making it easier for applications to integrate with **Azure Data Catalog**.
+
 ## What's new for the week of September 18, 2015 release
 
 As of the week of September 18, 2015, the following capabilities have been added to **Azure Data Catalog**:
