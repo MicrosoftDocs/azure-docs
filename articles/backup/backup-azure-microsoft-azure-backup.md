@@ -55,7 +55,7 @@ Each of these is explained in detail below.
 
 ## Before you start
 
-Today, Microsoft Azure Backup server is available for the English locale only. At the same time, Microsoft Azure Recovery Services is available in all geographies in which Azure is available other than Microsoft Azure Government datacenter and Windows Azure in China.
+Today, Microsoft Azure Backup server is available for the English locale only. At the same time, Microsoft Azure Recovery Services is available in all geographies in which Azure is available other than Microsoft Azure Government datacenter and Microsoft Azure in China.
 
 For a smooth installation, ensure the following prerequisites are met before installing Microsoft Azure Backup server.
 
