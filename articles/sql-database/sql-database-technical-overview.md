@@ -20,14 +20,11 @@
 
 SQL Database is a relational database service in the cloud based on the market leading Microsoft SQL Server engine, with mission-critical capabilities. SQL Database delivers predictable performance, scalability with no downtime, business continuity and data protection—all with near-zero administration. You can focus on rapid app development and accelerating your time to market, rather than managing virtual machines and infrastructure. Because it’s based on the [SQL Server](https://msdn.microsoft.com/library/bb545450.aspx) engine, SQL Database supports existing SQL Server tools, libraries and APIs, which makes it easier for you to move and extend to the cloud.
 
-
-If you’re ready to jump in you can…in minutes, and if you want a deeper dive, watch this 30 minute video.
+This article introduces the core concepts and features of SQL Database related to performance, scalability, and manageability, with links to explore details. If you’re ready to jump in, you can [Create your first SQL database](sql-database-get-started.md) or [Create an elastic database pool](sql-database-elastic-pool-portal.md) in minutes. If you want a deeper dive, watch this 30 minute video.
 
 
 > [AZURE.VIDEO azurecon-2015-get-started-with-azure-sql-database]
 
-
-The present article introduces the core concepts and features of SQL Database related to performance, scalability, and manageability, with links to explore details. If you’re ready to jump in, you can [Create your first SQL database](sql-database-get-started.md) or [Create an elastic database pool](sql-database-elastic-pool-portal.md) in minutes.
 
 ## Adjust performance and scale without downtime
 SQL databases is available in Basic, Standard, and Premium *service tiers*. Each service tier offers [different levels of performance and capabilities](sql-database-service-tiers.md) to support lightweight to heavyweight database workloads. You can build your first app on a small database for a few bucks a month, then [change the service tier](sql-database-scale-up.md) manually or programmatically at any time as your app goes viral worldwide, without downtime to your app or your customers.

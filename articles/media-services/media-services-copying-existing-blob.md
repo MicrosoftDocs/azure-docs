@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="09/07/2015" 
+	ms.date="10/05/2015" 
 	ms.author="juliako"/>
 
 #Copying an Existing Blob into a Media Services Asset
@@ -27,9 +27,9 @@ Your blobs could exist in a storage account that is associated with Media Servic
 ##Prerequisites
 
 - Two Media Services accounts in a new or existing Azure subscription. See the topic [How to Create a Media Services Account](media-services-create-account.md).
-- Operating Systems: Windows 7, Windows 2008 R2, or Windows 8.
+- Operating Systems: Windows 10, Windows 7, Windows 2008 R2, or Windows 8.
 - .NET Framework 4.5.
-- Visual Studio 2013, Visual Studio 2012 or Visual Studio 2010 SP1 (Professional, Premium, Ultimate, or Express).
+- Visual Studio 2010 SP1 (Professional, Premium, Ultimate, or Express) or later.
 
 ##Set up your project
 
@@ -241,40 +241,49 @@ The code example below performs the following tasks:
 		    /// <param name="sourceBlob">The source container.</param>
 		    /// <param name="destinationContainer">The destination container.</param>
 		    static private void CopyBlob(ICloudBlob sourceBlob, CloudBlobContainer destinationContainer)
-		    {
-		        var signature = sourceBlob.GetSharedAccessSignature(new SharedAccessBlobPolicy
-		        {
-		            Permissions = SharedAccessBlobPermissions.Read,
-		            SharedAccessExpiryTime = DateTime.UtcNow.AddHours(24)
-		        });
-		
-		        ICloudBlob destinationBlob = destinationContainer.GetBlockBlobReference(sourceBlob.Name);
-		
-		        if (destinationBlob.Exists())
-		        {
-		            Console.WriteLine(string.Format("Destination blob '{0}' already exists. Skipping.", destinationBlob.Uri));
-		        }
-		        else
-		        {
-		            try
-		            {
-		                Console.WriteLine(string.Format("Copy blob '{0}' to '{1}'", sourceBlob.Uri, destinationBlob.Uri));
-		                destinationBlob.StartCopy(sourceBlob.Uri);
+            {
+                var signature = sourceBlob.GetSharedAccessSignature(new SharedAccessBlobPolicy
+                {
+                    Permissions = SharedAccessBlobPermissions.Read,
+                    SharedAccessExpiryTime = DateTime.UtcNow.AddHours(24)
+                });
 
-	                    while (destinationBlob.CopyState.Status == CopyStatus.Pending)
-	                    {
-	                        Thread.Sleep(10000);
-	                    }
-	
-	                    Console.WriteLine("Final Copy status = " + destinationBlob.CopyState.Status);
+                ICloudBlob destinationBlob = destinationContainer.GetBlockBlobReference(sourceBlob.Name);
 
-		            }
-		            catch (Exception ex)
-		            {
-		                Console.WriteLine(string.Format("Error copying blob '{0}': {1}", sourceBlob.Name, ex.Message));
-		            }
-		        }
-		    }
+                if (destinationBlob.Exists())
+                {
+                    Console.WriteLine(string.Format("Destination blob '{0}' already exists. Skipping.", destinationBlob.Uri));
+                }
+                else
+                {
+                    try
+                    {
+                        Console.WriteLine(string.Format("Copy blob '{0}' to '{1}'", sourceBlob.Uri, destinationBlob.Uri));
+                        destinationBlob.StartCopyFromBlob(new Uri(sourceBlob.Uri.AbsoluteUri + signature));
+
+
+                        while (true)
+                        {
+                            // The StartCopyFromBlob is an async operation, 
+                            // so we want to check if the copy operation is completed before proceeding. 
+                            // To do that, we call FetchAttributes on the blob and check the CopyStatus. 
+                            destinationBlob.FetchAttributes();
+                            if (destinationBlob.CopyState.Status != CopyStatus.Pending)
+                            {
+                                break;
+                            }
+                            //It's still not completed. So wait for some time.
+                            System.Threading.Thread.Sleep(1000);
+                        }
+
+                        Console.WriteLine("Final blob copy status = " + destinationBlob.CopyState.Status);
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(string.Format("Error copying blob '{0}': {1}", sourceBlob.Name, ex.Message));
+                    }
+                }
+            }
 		
 		    /// <summary>
 		    /// Sets a file with the .ism extension as a primary file.

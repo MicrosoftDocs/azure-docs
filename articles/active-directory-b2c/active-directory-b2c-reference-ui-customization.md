@@ -34,7 +34,7 @@ In this article, you will read about:
 
 ## The Page User Interface (UI) Customization feature
 
-The page UI customization feature allows you to customize the look-and-feel of consumer sign-up, sign-in and profile editing pages (by configuring [policies](active-directory-b2c-references.policies.md)). Your consumers will have consistent experiences when navigating between your application and pages served by the Azure AD B2C service.
+The page UI customization feature allows you to customize the look-and-feel of consumer sign-up, sign-in and profile editing pages (by configuring [policies](active-directory-b2c-reference-policies.md)). Your consumers will have consistent experiences when navigating between your application and pages served by the Azure AD B2C service.
 
 Unlike other services where options are limited or are only available via APIs, Azure AD B2C uses a modern (and simpler) approach to page UI customization. Here's how it works: Azure AD B2C runs code in your consumer's browser and uses a modern approach called [Cross-Origin Resource Sharing (CORS)](http://www.w3.org/TR/cors/) to load content from a URL that you specify in a policy. You can specify different URLs for different pages. The code merges Azure AD B2C's content (called UI elements) and the content loaded from your URL, and displays the page to your consumer. All you need to do is create well-formed HTML5 content with a `<div id="api"></div>` element located somewhere in the `<body>` - this is where the Azure AD B2C's content gets merged into. And host this content on an HTTPS endpoint (with CORS allowed). You can also fully style Azure AD B2C's UI elements.
 

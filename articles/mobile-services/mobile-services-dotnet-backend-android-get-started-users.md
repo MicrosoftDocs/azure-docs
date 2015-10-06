@@ -76,7 +76,6 @@ In the next tutorial, [Service-side authorization of Mobile Services users][Auth
 
 <!-- URLs. -->
 [Get started with Mobile Services]: mobile-services-dotnet-backend-android-get-started.md
-[Get started with data]: mobile-services-dotnet-backend-android-get-started-data.md
 [Get started with authentication]: mobile-services-dotnet-backend-android-get-started-users.md
 [Get started with push notifications]: mobile-services-dotnet-backend-android-get-started-push.md
 [Authorize users with scripts]: ../mobile-services-dotnet-backend-android-authorize-users-in-scripts.md
