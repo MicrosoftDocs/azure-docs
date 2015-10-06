@@ -67,7 +67,7 @@ Create the following DWORD registry key and set it to 1.
  Set its value to 1.
 ```
 
-#### Force full password synchronization
+#### Force full password synchronization to Azure AD
 
 In order to force full password synchronization and enable all on-premises users’ passwords to sync to your Azure AD tenant, execute the following PowerShell script on each AD forest.
 
