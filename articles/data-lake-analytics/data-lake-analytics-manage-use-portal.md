@@ -46,7 +46,7 @@ template can work for different environments such as testing, staging and produc
 for your organization by viewing the rolled-up costs for the entire group. For more information, see [Azure 
 Resource Manager Overview](resource-group-overview.md). 
 
-An Data Lake Analtyics service can include the following components:
+A Data Lake Analytics service can include the following components:
 
 - Azure Data Lake Analytics account
 - Required default Azure Data Lake Storage account
@@ -57,7 +57,7 @@ You can create all these components under one ARM group to make them easier to m
 
 ![Azure Data Lake Analytics account and storage](./media/data-lake-analytics-manage-use-portal/data-lake-analytics-arm-structure.png)
 
-An Data Lake Analytics account and the dependent storage accounts must be placed in the same Azure data center.
+A Data Lake Analytics account and the dependent storage accounts must be placed in the same Azure data center.
 The ARM group however can be located in a different data center.  
 
 
@@ -67,7 +67,7 @@ The ARM group however can be located in a different data center.
 
 Before running any Data Lake Analytics jobs, you must have a Data Lake Analytics account. Unlike Azure Data Lake
 Managed cluster (Previously known as Azure HDInsight), you don't pay for an Analytics account when it is not 
-running a job.  You only pay for the time when it is running a job.  For more informaiton, see 
+running a job.  You only pay for the time when it is running a job.  For more information, see 
 [Azure Data Lake Analytics Overview](data-lake-analytics-overview.md).  
 
 **To create a Data Lake Analytics accounts**
@@ -100,7 +100,7 @@ running a job.  You only pay for the time when it is running a job.  For more in
 
 **To delete a Data Lake Analytics account**
 
-1. Open the Analtyics account that you want to delete. For instructions see [Access Data Lake Analytics accounts](#access-adla-account).
+1. Open the Analytics account that you want to delete. For instructions see [Access Data Lake Analytics accounts](#access-adla-account).
 2. Click **Delete** from the button menu on the top of the blade.
 3. Type the account name, and then click **Delete**.
 
@@ -123,13 +123,13 @@ created an Analytics account, you can add additional Data Lake Storage accounts 
 
 <a name="default-adl-account"></a>**To find the default ADL storage account**
 
-- Open the Analtyics account that you want to manage. For instructions see [Access Data Lake Analytics accounts](#access-adla-account). The default Data Lake store is shown in **Essential**:
+- Open the Analytics account that you want to manage. For instructions see [Access Data Lake Analytics accounts](#access-adla-account). The default Data Lake store is shown in **Essential**:
 
 	![Azure Data Lake Analytics add data source](./media/data-lake-analytics-manage-use-portal/data-lake-analytics-default-adl-storage-account.png)
 
 **To add additional data sources**
 
-1. Open the Analtyics account that you want to manage. For instructions see [Access Data Lake Analytics accounts](#access-adla-account).
+1. Open the Analytics account that you want to manage. For instructions see [Access Data Lake Analytics accounts](#access-adla-account).
 2. Click **Settings** and then click **Data Sources**. You shall see the default Data Lake Storage account listed
 there. 
 3. Click **Add Data Source**.
@@ -139,9 +139,9 @@ there.
 	To add a Azure Data Lake Storage account, you need the account name.
 	To add a Azure Blob storage, you need the storage account and the account key.
 
-**To explore data sources**	
+<a name="explore-data-sources"></a>**To explore data sources**	
 
-1. Open the Analtyics account that you want to manage. For instructions see [Access Data Lake Analytics accounts](#access-adla-account).
+1. Open the Analytics account that you want to manage. For instructions see [Access Data Lake Analytics accounts](#access-adla-account).
 2. Click **Settings** and then click **Data Explorer**. 
  
 	![Azure Data Lake Analytics data explorer](./media/data-lake-analytics-manage-use-portal/data-lake-analytics-data-explorer.png)
@@ -177,7 +177,7 @@ See []().
 
 ## Manage users
 
-ADL Analtyics uses role-based access control with Azure active directory. When you create a Data Lake Analytics 
+ADL Analytics uses role-based access control with Azure active directory. When you create a Data Lake Analytics 
 account, a "Subscription admins" is added to the account. You can add additional users and security groups with 
 the following roles:
 
@@ -187,13 +187,13 @@ the following roles:
 |Contributor|Access the portal; submit and monitor jobs. To be able to submit jobs, a contributor also need the read or write permission to the Data Lake storage accounts.|
 |Reader|Lets you view everything, but not make any changes.|  
 |DevTest Lab User|Lets you view everything, and connect, start, restart, and shutdown virtual machines[jgao: I never seen discussion related to ABA and VM]|  
-|User Access Administrator|Lets you manage user acess to Azure resources.|  
+|User Access Administrator|Lets you manage user access to Azure resources.|  
 
 For information on creating Azure Active Directory users and security groups, See [What is Azure Active Directory](active-directory-whatis.md).
 
 **To add users or security groups to an Analytics account**
 
-1. Open the Analtyics account that you want to manage. For instructions see [Access Data Lake Analytics accounts](#access-adla-account).
+1. Open the Analytics account that you want to manage. For instructions see [Access Data Lake Analytics accounts](#access-adla-account).
 2. Click **Settings**, and then click **Users**. You can also click **Access** on the **Essentials** title bar as shown in the following screenshot:
 
 	![Azure Data Lake Analytics account add users](./media/data-lake-analytics-manage-use-portal/data-lake-analytics-access-button.png)
@@ -214,11 +214,11 @@ For information on creating Azure Active Directory users and security groups, Se
 <!-- ################################ -->
 ## Manage jobs
 
-You must have an Data Lake Analytics account before you can create a job.  For more information, see [Manage Data Lake Analytics accounts](#manage-data-lake-analytics-accounts).
+You must have a Data Lake Analytics account before you can create a job.  For more information, see [Manage Data Lake Analytics accounts](#manage-data-lake-analytics-accounts).
 
 <a name="create-job"></a>**To create a job**
 
-1. Open the Analtyics account that you want to manage. For instructions see [Access Data Lake Analytics accounts](#access-adla-account).
+1. Open the Analytics account that you want to manage. For instructions see [Access Data Lake Analytics accounts](#access-adla-account).
 2. Click **New Job**.
 
 	![create Azure Data Lake Analytics U-SQL jobs](./media/data-lake-analytics-manage-use-portal/data-lake-analytics-create-job-button.png)
@@ -242,11 +242,11 @@ You must have an Data Lake Analytics account before you can create a job.  For m
 
 ** To submit a job**
 
-See [Create Data Lake Analtyics jobs](#create-job).
+See [Create Data Lake Analytics jobs](#create-job).
 
 <a name="monitor-jobs"></a>**To monitor jobs**
 
-1. Open the Analtyics account that you want to manage. For instructions see 
+1. Open the Analytics account that you want to manage. For instructions see 
 [Access Data Lake Analytics accounts](#access-adla-account). The Job Management panel shows the basic job 
 information:
 
@@ -257,7 +257,7 @@ information:
 	![manage Azure Data Lake Analytics U-SQL jobs](./media/data-lake-analytics-manage-use-portal/data-lake-analytics-manage-jobs-details.png)
 
 4. Click a job from on of the lists.
-5. Click **Resubmit** if you want to resumit the job.
+5. Click **Resubmit** if you want to resubmit the job.
 
 **To resubmit a job **
 
@@ -268,7 +268,7 @@ See [Monitor Data Lake Analytics jobs](#monitor-jobs).
 [introduction - we need to explain the terms, and connect the pieces. ]
 
 **To monitor account usage**
-1. Open the Analtyics account that you want to manage. For instructions see 
+1. Open the Analytics account that you want to manage. For instructions see 
 [Access Data Lake Analytics accounts](#access-adla-account). The Usage panel shows the usage:
 
 	![monitor Azure Data Lake Analytics usage](./media/data-lake-analytics-manage-use-portal/data-lake-analytics-monitor-usage.png)
