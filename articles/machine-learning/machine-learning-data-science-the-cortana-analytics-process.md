@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/02/2015" 
+	ms.date="10/05/2015" 
 	ms.author="bradsev;gopitk" /> 
 
 
@@ -23,7 +23,7 @@ The Cortana Analytics Process (CAP) is a systematic data science method that out
 
 Here are the steps in **Cortana Analytics Process**:  
 
-![CAP-workflow](http://i.imgur.com/tX3HvK2.png)
+![CAP-workflow](./media/machine-learning-data-science-the-cortana-analytics-process/CAP-workflow.png)
 
 The process is **iterative**: the understanding of new and existing or refinements in the model evolves and requires reworking steps previously completed in the sequence. Existing organizational development and project planning processes are **easily adapted** to work with the CAP-defined sequence of steps. 
 
@@ -66,7 +66,15 @@ Data scientists, in collaboration with domain experts,  must identify the featur
 
 ## 4. Create predictive models 
 
-Data scientists build analytical models to predict the key variables identified by the business requirements defined in the planning step using data that has been cleaned and featurized. Machine learning systems support multiple **modeling algorithms** that are applicable to a wide variety of cases. Data scientists must choose the most appropriate model for their prediction task and it is not uncommon that results from multiple models need to be combined to obtain the best results. The parameters required by the models employed are calibrated against a subset of the data known as the **training data set** to optimize their performance. The models are then evaluated for accuracy by testing them with a holdout **validation data set**. 
+Data scientists build analytical models to predict the key variables identified by the business requirements defined in the planning step using data that has been cleaned and featurized. Machine learning systems support multiple **modeling algorithms** that are applicable to a wide variety of cases. 
+
+Data scientists must choose the most appropriate model for their prediction task and it is not uncommon that results from multiple models need to be combined to obtain the best results. The input data for modeling is usually divided randomly into three parts:
+
+- a training data set, 
+- a validation data set 
+- a testing data set 
+
+The models are built using the **training data set**. The optimal combination of models (with parameters tuned) is selected by running the models and measuring the prediction errors for the **validation data set**. Finally the **test data set** is used to evaluate the performance of the chosen model on independent data that was not used to train or validate the model. 
 
 
 ## 5. Deploy and Consume models 
