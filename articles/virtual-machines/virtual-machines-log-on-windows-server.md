@@ -18,7 +18,7 @@
 	ms.author="cynthn"/>
 
 
-# Log on to a Windows virtual machine created with the classic deployment model
+# Log on to a Windows virtual machine using the Azure portal
 
 
 
