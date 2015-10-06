@@ -42,11 +42,11 @@ This script performs the following actions:
 
 ## <a name="install"></a>Install Giraph using Script Actions
 
-A sample script to install Giraph on an HDInsight cluster is available from a read-only Azure storage blob at [https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh](https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh). This section provides instructions on how to use the sample script while provisioning the cluster by using the Azure portal.
+A sample script to install Giraph on an HDInsight cluster is available from a read-only Azure storage blob at [https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh](https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh). This section provides instructions on how to use the sample script while creating the cluster by using the Azure portal.
 
 > [AZURE.NOTE] You can also use Azure PowerShell or the HDInsight .NET SDK to create a cluster using this script. For more information on using these methods, see [Customize HDInsight clusters with Script Actions](hdinsight-hadoop-customize-cluster-linux.md).
 
-1. Start provisioning a cluster by using the steps in [Provision Linux-based HDInsight clusters](hdinsight-provision-linux-clusters.md#portal), but do not complete provisioning.
+1. Start creating a cluster by using the steps in [Create Linux-based HDInsight clusters](hdinsight-provision-linux-clusters.md#portal), but do not complete creation.
 
 2. On the **Optional Configuration** blade, select **Script Actions**, and provide the information below:
 
@@ -59,11 +59,11 @@ A sample script to install Giraph on an HDInsight cluster is available from a re
 
 3. At the bottom of the **Script Actions**, use the **Select** button to save the configuration. Finally, use the **Select** button at the bottom of the **Optional Configuration** blade to save the optional configuration information.
 
-4. Continue provisioning the cluster as described in [Provision Linux-based HDInsight clusters](hdinsight-provision-linux-clusters.md#portal).
+4. Continue creating the cluster as described in [Create Linux-based HDInsight clusters](hdinsight-provision-linux-clusters.md#portal).
 
 ## <a name="usegiraph"></a>How do I use Giraph in HDInsight?
 
-Once the cluster has finished provisioning, use the following steps to run the SimpleShortestPathsComputation example included with Giraph. This implements the basic <a href = "http://people.apache.org/~edwardyoon/documents/pregel.pdf">Pregel</a> implementation for finding the shortest path between objects in a graph.
+Once the cluster has finished creating, use the following steps to run the SimpleShortestPathsComputation example included with Giraph. This implements the basic <a href = "http://people.apache.org/~edwardyoon/documents/pregel.pdf">Pregel</a> implementation for finding the shortest path between objects in a graph.
 
 1. Connect to the HDInsight cluster using SSH:
 
