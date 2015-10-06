@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/23/2015"
+   ms.date="10/06/2015"
    ms.author="lodipalm"/>
 
 # Use Power BI with SQL Data Warehouse
@@ -37,7 +37,7 @@ The easiest way to move between your SQL Data Warehouse and Power BI is with the
 2.	Click the Open in Power BI button.
 3.	If we are not able to sign you in directly, or if you do not have a Power BI account, you will need to sign-in.  
 4.	You will be directed to the SQL Data Warehouse connection page, with the information from your SQL Data Warehouse pre-populated.
-5.  After entering your credentials you will be fully conected to your SQL Data Warehouse. 
+5.  After entering your credentials you will be fully connected to your SQL Data Warehouse. 
 
 ## Connecting through the Power BI portal
 In addition to using the Open in Power BI button, users can also connect to their SQL Data Warehouse through the Power BI Portal. 
