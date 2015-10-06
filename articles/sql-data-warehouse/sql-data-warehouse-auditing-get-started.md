@@ -54,7 +54,7 @@ Audit logs are stored in your Azure storage account. You can define an audit log
 
 An auditing policy can be defined for a specific database or as a default server policy. A default server auditing policy will apply to all databases on a server which do not have a specific overriding database auditing policy defined.
 
-Before setting up audit auditing check if you are using a ["Downlevel Client"](sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md).
+Before setting up audit auditing check if you are using a ["Downlevel Client"](sql-data-warehouse-auditing-and-dynamic-data-masking-downlevel-clients.md).
 
 
 ##<a id="subheading-2"></a>Set up auditing for your database
@@ -65,20 +65,27 @@ Before setting up audit auditing check if you are using a ["Downlevel Client"](s
 
 	![][1]
 
-3. In the auditing configuration blade, select STORAGE DETAILS to open the Audit Logs Storage Blade. Select the Azure storage account where logs will be saved and, the retention period. **Tip:** Use the same storage account for all audited databases to get the most out of the preconfigured reports templates.
-
+3. In the auditing configuration blade, first unselect the **Inherit Auditing Settings from Server** checkbox. This allows you to specify the settings for a particular database.
+	
 	![][2]
 
-4. Under **LOGGING BY EVENT**, click **SUCCESS** and **FAILURE** to log all events, or choose individual event categories.
-
-
-5. If you are configuring Auditing for a database, click on **To enforce auditing click here ...** and on **SECURITY ENABLED ACCESS** select **REQUIRED**. If you are configuring Auditing for a SQL Server you have two options: (a) after step #6, navigate for each database on the server and apply this step, or (2) [Modify Server FDQN in the connection string](sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md).
-
+4. Next, enable auditing by clicking the **ON** button.
 
 	![][3]
 
-6. Click **OK**.
+5. In the auditing configuration blade, select **STORAGE DETAILS** to open the Audit Logs Storage Blade. Select the Azure storage account where logs will be saved and, the retention period. **Tip:** Use the same storage account for all audited databases to get the most out of the preconfigured reports templates.
 
+	![][4]
+
+6. Click the **OK** button to save the storage details configuration.
+
+
+7. Under **LOGGING BY EVENT**, click **SUCCESS** and **FAILURE** to log all events, or choose individual event categories.
+
+
+8. If you are configuring Auditing for a database, you may need to alter the connection string of your client to ensure data auditing is correctly captured. Check the [Modify Server FDQN in the connection string](sql-data-warehouse-auditing-downlevel-clients.md) topic for downlevel client connections.
+
+9. Click **OK**.
 
 
 ##<a id="subheading-3">Analyze audit logs and reports</a>
@@ -126,11 +133,10 @@ When you are in Azure Resource Manager mode, run `Get-Command *AzureSql*` to lis
 
 
 <!--Image references-->
-[1]: ./media/sql-database-auditing-get-started/sql-database-get-started-auditingpreview.png
-[2]: ./media/sql-database-auditing-get-started/sql-database-get-started-storageaccount.png
-[3]: ./media/sql-database-auditing-get-started/sql-database-get-started-connectionstring.png
-[4]: ./media/sql-database-auditing-get-started/sql-database-auditing-dashboard.png
-[5]: ./media/sql-database-auditing-get-started/sql-database-auditing-storage-account.png
+[1]: ./media/sql-data-warehouse-auditing-get-started/sql-data-warehouse-auditing.png
+[2]: ./media/sql-data-warehouse-auditing-get-started/sql-data-warehouse-auditing-inherit.png
+[3]: ./media/sql-data-warehouse-auditing-get-started/sql-data-warehouse-auditing-enable.png
+[4]: ./media/sql-data-warehouse-auditing-get-started/sql-data-warehouse-auditing-storage-account.png
 
 
 
