@@ -31,20 +31,6 @@ Before you begin this tutorial, you must have the following:
 
 - **An Azure subscription**. See [Get Azure free trial](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
-This article includes:
-
-- Use ARM
-- Manage accounts
-- Manage data sources
-- Manage users
-- Manage jobs
-- Monitor account usage
-- Manage catalog
-	- tables
-	- table valued functions
-	- assemblies
-	
-
 
 <!-- ################################ -->
 <!-- ################################ -->
@@ -289,7 +275,12 @@ See [Monitor Data Lake Analytics jobs](#monitor-jobs).
 
 ##Manage the catalog
 
-[jgao: do we need this here?]
+[jgao: do we need this section in this article?]
+
+	- tables
+	- table valued functions
+	- assemblies
+
 
 ##See also 
 
