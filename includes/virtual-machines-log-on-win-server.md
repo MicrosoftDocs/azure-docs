@@ -6,13 +6,13 @@
 
 	![Continue with connecting](./media/virtual-machines-log-on-win-server/connectpublisher.png)
 
-6. In the Windows Security window, type the credentials for an administrative account on the virtual machine, and then click **OK**.
+6. In the Windows Security window, type the credentials for an account on the virtual machine and then click **OK**.
 
- 	>[AZURE.TIP] In most cases, you'll use the user name and password that was specified when the virtual machine was created. Check the user name to make sure it has the correct domain information:
-	>
-	>- If the virtual machine belongs to a domain at your organization, make sure the user name includes the name of that domain.
-	>- If the virtual machine doesn't belong to a domain, either remove any domain information by starting the line with '\' or use the VM name as the domain name. For example, `\MyUserName` or `MyTestVM\MyUserName`.
-	>- If the virtual machine is a domain controller, type the user name and password of a domain administrator account for that domain.
+ 	In most cases, the local account user name and password that you specified when you created the virtual machine. In this case, the domain is the vmanme and should be entered as *vmname*\*username*.  
+	
+	If the virtual machine belongs to a domain at your organization, make sure the user name includes the name of that domain in the format *Domain*\*Username*. The account will also need to either be in the Admnistrators group or have been granted remote access privledges to the VM.
+	
+	If the virtual machine is a domain controller, type the user name and password of a domain administrator account for that domain.
 
 7.	Click **Yes** to verify the identity of the virtual machine and finish logging on.
 
