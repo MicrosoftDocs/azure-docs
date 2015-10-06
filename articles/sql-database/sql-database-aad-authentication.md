@@ -101,7 +101,7 @@ If you have an existing database, verify it is hosted in SQL Database V12 by con
 
 If your database is not hosted in SQL Database V12, see [Plan and prepare to upgrade to SQL Database V12](sql-database-v12-plan-prepare-upgrade.md), and then visit the Azure Portal to migrate the database to SQL Database V12.
 
-Alternatively, you can create a new database in SQL Database V12 by following the steps listed in [Create a database in SQL Database Update](sql-database-create.md). **Tip**: Read the next step before you select a subscription for your new database.
+Alternatively, you can create a new database in SQL Database V12 by following the steps listed in [Create your first Azure SQL database](sql-database-get-started.md). **Tip**: Read the next step before you select a subscription for your new database.
 
 ## 3. Optional: Associate or change the active directory that is currently associated with your Azure Subscription
 
