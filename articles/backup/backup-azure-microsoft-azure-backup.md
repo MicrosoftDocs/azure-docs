@@ -199,7 +199,7 @@ Once the storage pools are configured you can backup application workloads to bo
 ## Troubleshooting
 
 If Microsoft Azure Backup server fails with errors during the setup phase (or backup or restore), refer to this [error codes document](https://support.microsoft.com/kb/3041338)  for more information.
-You can also refer to [Azure Backup related FAQs](backup-azure-backup-faq.md)
+You can also refer to [Azure Backup related FAQs](backup-azure-backup-faq.)
 
 ## FAQs
 
@@ -290,6 +290,7 @@ Q: How would Microsoft Azure Backup server bill for a datasource which is protec
 ## Next steps
 
 You can refer to these articles for deeper understanding of workload protection using Microsoft Azure Backup server.
+
 - [SQL Server backup](backup-azure-backup-sql.md)
 - [SharePoint server backup](backup-azure-backup-sharepoint.md)
 - [Alternate server backup](backup-azure-alternate-dpm-server.md)
