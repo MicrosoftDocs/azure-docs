@@ -57,7 +57,7 @@ Each of these is explained in detail below.
 
 Today, Microsoft Azure Backup server is available for the English locale only. At the same time, Microsoft Azure Recovery Services is available in all geographies in which Azure is available other than Microsoft Azure Government datacenter and Microsoft Azure in China.
 
-For a smooth installation, ensure the following prerequisites are met before installing Microsoft Azure Backup server.
+For a smooth installation, ensure the following prerequisites are met before installing Microsoft Azure backup server.
 
 - The server should have connectivity to Internet. Microsoft Azure should be accessible by the server.
 - Server requirements for installing Microsoft Azure Backup are the same as DPM. See [hardware requirements](https://technet.microsoft.com/library/dn726764.aspx) for additional information.
