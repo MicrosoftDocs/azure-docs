@@ -359,4 +359,4 @@ If you have feature suggestions for Azure Storage please post to [Azure Storage 
 
 [Azure Storage iOS Library]: https://github.com/azure/azure-storage-ios
 [Azure Storage REST API]: http://msdn.microsoft.com/library/azure/gg433040.aspx
-[Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
+[Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage
