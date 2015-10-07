@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Get Started with Mobile Services for Xamarin iOS apps"
+	pageTitle="Get Started with Mobile Services for Xamarin iOS apps | Microsoft Azure"
 	description="Follow this tutorial to get started using Azure Mobile Services for Xamarin iOS development."
 	services="mobile-services"
 	documentationCenter="xamarin"
@@ -12,23 +12,24 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-xamarin-ios"
 	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="07/09/2015"
+	ms.topic="hero-article"
+	ms.date="10/06/2015"
 	ms.author="craig.dunn@xamarin.com"/>
 
 # <a name="getting-started"> </a>Get started with Mobile Services
 
 [AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]
+&nbsp;
 
-This tutorial shows you how to add a cloud-based backend service to a Xamarin.iOS app using Azure Mobile Services. In this tutorial, you will create both a new mobile service and a simple <em>To do list</em> app that stores app data in the new mobile service.
+[AZURE.INCLUDE [mobile-services-hero-slug](../../includes/mobile-services-hero-slug.md)]
+
+This tutorial shows you how to add a cloud-based backend service to a Xamarin.iOS app using Azure Mobile Services. In this tutorial, you will create both a new mobile service and a simple *To do list* app that stores app data in the new mobile service.
 
 If you prefer to watch a video, the clip below follows the same steps as this tutorial.
 
 Video: "Getting Started with Xamarin and Azure Mobile Services" with Craig Dunn, developer evangelist for Xamarin  (duration: 10:05 min)
 
 > [AZURE.VIDEO getting-started-with-xamarin-and-mobile-services]
-
-
 
 A screenshot from the completed app is below:
 
@@ -98,14 +99,20 @@ The final stage of this tutorial is to build and run your new app.
 ## Next Steps
 Now that you have completed the quickstart, learn how to perform additional important tasks in Mobile Services:
 
-* [Get started with offline data sync]
-  <br/>Learn how the quickstart uses offline data sync to make the app responsive and robust.
+* [Get started with offline data sync]  
+  Learn how the quickstart uses offline data sync to make the app responsive and robust.
 
-* [Get started with authentication]
-  <br/>Learn how to authenticate users of your app with an identity provider.
+* [Get started with authentication]  
+  Learn how to authenticate users of your app with an identity provider.
 
-* [Get started with push notifications]
-  <br/>Learn how to send a very basic push notification to your app.
+* [Get started with push notifications]  
+  Learn how to send a very basic push notification to your app.
+
+* [How to use the Xamarin Component client for Azure Mobile Services](partner-xamarin-mobile-services-how-to-use-client-library.md)  
+   Learn how to query the mobile service, work with data, and access custom APIs.   
+  
+
+[AZURE.INCLUDE [app-service-disqus-feedback-slug](../../includes/app-service-disqus-feedback-slug.md)]
 
 <!-- Anchors. -->
 [Getting started with Mobile Services]:#getting-started

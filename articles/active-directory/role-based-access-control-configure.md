@@ -11,9 +11,9 @@
 	ms.service="active-directory"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.tgt_pltfrm="Ibiza"
-	ms.workload="infrastructure-services"
-	ms.date="08/14/2015"
+	ms.tgt_pltfrm="na"
+	ms.workload="identity"
+	ms.date="10/05/2015"
 	ms.author="inhenk"/>
 
 # Role-based access control in the Microsoft Azure portal

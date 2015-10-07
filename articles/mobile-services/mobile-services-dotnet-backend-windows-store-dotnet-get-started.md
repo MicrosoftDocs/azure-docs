@@ -12,7 +12,7 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
-	ms.topic="article" 
+	ms.topic="hero-article" 
 	ms.date="10/02/2015"
 	ms.author="glenga"/>
 
