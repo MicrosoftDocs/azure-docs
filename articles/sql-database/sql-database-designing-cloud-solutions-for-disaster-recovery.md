@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management" 
-   ms.date="09/01/2015"
+   ms.date="10/07/2015"
    ms.author="sashan"/>
 
 # Designing Cloud Applications for Business Continuity Using Geo-Replication
