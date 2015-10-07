@@ -12,10 +12,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/05/2015"
+   ms.date="10/07/2015"
    ms.author="sethm" />
 
 # Using Service Bus from Java with AMQP 1.0
+
+[AZURE.INCLUDE [service-bus-selector-amqp](../../includes/service-bus-selector-amqp.md)]
 
 The Java Message Service (JMS) is a standard API for working with message-oriented middleware on the Java platform. Azure Service Bus has been tested with the AMQP 1.0 based JMS client library developed by the Apache Qpid project. This library supports the full JMS 1.1 API and can be used with any AMQP 1.0 compliant messaging service. This scenario is also supported in Service Bus for Windows Server (Service Bus on-premises). For more information, see [AMQP in Service Bus for Windows Server][].
 
@@ -399,7 +401,7 @@ The following tables show how the JMS Standard Headers and the [BrokeredMessage]
 | JMSTimestamp     | Message.EnqueuedTimeUtc        | Conversion                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 | JMSType          | Message.Properties[“jms-type”] | -                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 
-#### Service Buis .NET APIs to JMS
+#### Service Bus .NET APIs to JMS
 
 | Service Bus .NET        | JMS              | Notes                   |
 |-------------------------|------------------|-------------------------|

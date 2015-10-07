@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Service Bus with .NET and AMQP 1.0"
+   pageTitle="Service Bus with .NET and AMQP 1.0 | Microsoft Azure"
    description="Using Service Bus from .NET with AMQP."
    services="service-bus"
    documentationCenter="na"
@@ -12,10 +12,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/05/2015"
+   ms.date="10/07/2015"
    ms.author="sethm" />
 
 # Using Service Bus from .NET with AMQP 1.0
+
+[AZURE.INCLUDE [service-bus-selector-amqp](../../includes/service-bus-selector-amqp.md)]
 
 ## Downloading the Service Bus SDK
 
