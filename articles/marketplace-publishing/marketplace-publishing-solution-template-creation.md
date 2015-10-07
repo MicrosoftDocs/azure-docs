@@ -13,12 +13,13 @@
       ms.topic="article"
       ms.tgt_pltfrm="na"
       ms.workload="na"
-      ms.date="10/05/2015"
+      ms.date="10/07/2015"
       ms.author="hascipio; v-divte" />
 
 # Guide to creating a Solution Template for Azure Marketplace
 After completing the step 1, [Account Creation and Registration][link-acct-creation], we guided you on the creation of an Azure compatible Solution Template under the [Technical Pre-requisites for creating a Solution Template](marketplace-publishing-solution-template-creation-prerequisites.md). Now we will walk you through the steps for creating a multi-VM Solution Template on the [Publishing Portal][link-pubportal] for the Azure Marketplace.
 
+<!--
 ## 1. Create an Azure compatible solution
 1.	Identifying Topology and Platform Evaluation
 
@@ -41,6 +42,7 @@ After completing the step 1, [Account Creation and Registration][link-acct-creat
   The Azure Resource Manager deploys and manages the lifecycle of a collection of resources through declarative, model-based template language.  This ARM template is simply a parameterized JSON file which expresses the set of resources and their relationship to be used for deployments.  Each resource is placed in a resource group, which is simply a container for resources.  ARM provides centralized auditing, tagging, Resource Based Access Control, and most importantly, its operations are idempotent.
 
   With ARM and ARM templates, you can express more complex deployments of Azure resources, such as Virtual Machines, Storage Accounts, and Virtual Networks, which build upon Marketplace content such as VM Images and VM Extensions.
+-->
 
 <!--
 4.	Create your Multi VM template solution

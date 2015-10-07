@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/05/2015"
+   ms.date="10/07/2015"
    ms.author="hascipio"/>
 
 # Creating a Microsoft seller account
@@ -191,7 +191,7 @@ Now that your account is created and registered, click on the type of artifact (
 [link-msdndoc]: https://msdn.microsoft.com/en-us/library/jj552460.aspx
 [link-sellerdashboard]: http://sellerdashboard.microsoft.com/
 [link-pubportal]: https://publish.windowsazure.com
-[link-single-vm]:marketplace-publishing-virtual-machine-creation.md
+[link-single-vm]:marketplace-publishing-vm-image-creation.md
 [link-single-vm-prereq]:marketplace-publishing-vm-image-creation-prerequisites.md
 [link-multi-vm]:marketplace-publishing-solution-template-creation.md
 [link-multi-vm-prereq]:marketplace-publishing-solution-template-creation-prerequisites.md

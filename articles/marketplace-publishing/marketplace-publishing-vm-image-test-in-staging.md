@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/05/2015"
+   ms.date="10/07/2015"
    ms.author="hascipio" />
 
 # Test your VM offer for the Marketplace in staging
@@ -36,10 +36,11 @@ Staging means deploying your SKU in a private “sandbox” where you can test a
 
   - End-to-end deployment of VM image
 
-> [AZURE.NOTE] Your offer will remain in staging until you notify Microsoft via Publishing Portal [**Publish** > **"Request Approval to Push to Production"**] that you are ready to push to production. This is an ideal time to have all members of the team check over everything in preparation for your offer going live.
+> [AZURE.IMPORTANT] Your offer will remain in staging until you notify Microsoft via Publishing Portal [**Publish** > **"Request Approval to Push to Production"**] that you are ready to push to production. This is an ideal time to have all members of the team check over everything in preparation for your offer going live.
+
+> [AZURE.NOTE] The replication across the data centers take up to 24-48hours. Once the replication is complete, your offer will be listed in the [Azure Marketplace](http://azure.microsoft.com/marketplace).
 
 ## Next Steps
-
 Now that you offer is in "Staging", once the onboarding team notifies, you can proceed to the final offer and/or SKU publishing phase, **Step 4**,  [Deploying your offer to the Marketplace](marketplace-publishing-push-to-production.md)
 
 ## See Also

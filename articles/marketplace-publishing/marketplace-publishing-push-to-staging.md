@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="Azure"
    ms.workload="na"
-   ms.date="10/05/2015"
+   ms.date="10/07/2015"
    ms.author="hascipio"/>
 
 # Complete the offer creation with marketing content
@@ -46,7 +46,7 @@ Below is the detailed view of how the publisher portal offer marketing details a
 
 ![drawing](media/marketplace-publishing-push-to-staging/portal-vm-listing.png)
 
-*Offer details panel in Microsoft [Azure Azure Preview Portal](https://ms.portal.azure.com)*
+*Offer details panel in Microsoft [Azure Preview Portal](https://ms.portal.azure.com)*
 
 
 ### Links

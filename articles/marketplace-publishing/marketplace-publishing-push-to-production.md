@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/05/2015"
+   ms.date="10/07/2015"
    ms.author="hascipio" />
 
 # Deploying your offer to the Azure Marketplace
@@ -28,8 +28,6 @@ When you are satisfied with your offer e.g. tested customer scenarios, marketing
   ![drawing][img-pubportal-menu-publish]
 
 3. Upon selection of this option, the below page will be displayed. Click on the option **Request approval to push to production**. Once the request is made, the approval team executes a final review and then your offer will be made publically available in the  Marketplace. The status of the offer will be changed to **"Listed"**.
-
-> [AZURE.NOTE] After the production request is approved by Microsoft, the replication across the data centers take up to 24-48hours. Once the replication is complete, your offer will be listed in the [Azure Marketplace](http://azure.microsoft.com/marketplace).
 
   ![drawing][img-pubportal-publish-pushproduction]
 
