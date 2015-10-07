@@ -42,8 +42,8 @@ The following diagram shows this configuration before an outage.
 
 After an outage in the primary region the monitoring application detects that the primary database is not accessible and registers an alert. Depending on your application SLA you can decide how many consecutive monitoring probes should fail before it declares a database outage. To achieve coordinated failover of the application end-point and the database you should have the monitoring application perform the following steps: 
 
-1. [update the status of the primary end-point](https://msdn.microsoft.com/en-us/library/hh758250.aspx) to trigger end-point failover.
-2. call the secondary database to [initiate database failover](https://msdn.microsoft.com/en-us/library/azure/dn509573.aspx) 
+1. [update the status of the primary end-point](https://msdn.microsoft.com/library/hh758250.aspx) to trigger end-point failover.
+2. call the secondary database to [initiate database failover](https://msdn.microsoft.com/library/azure/dn509573.aspx) 
 
 After failover the application will process the user requests in the secondary region but will remain co-located with the database because the primary database will now be in the secondary region. This is illustrated by the next diagram. In all diagrams solid lines indicates active connections, dotted lines indicate suspended connections and stop signs indicate action triggers. 
 
@@ -86,7 +86,8 @@ Traffic manager should be configured for performance routing to direct the user 
 If a database outage is detected in the primary region you initiate failover of the primary database to one of the secondary regions, which will change the location of the primary database. Traffic manager will automatically exclude the offline end-point from the routing table but will continue routing the end user traffic to the remaining online instances. Because the primary database is now in a different region all online instances must change their read-write SQL connection string to connect to the new primary. It is important that you make this change prior to initiating the database failover. The read-only SQL connection strings should remain unchanged as they always point to the database in the same region. The failover steps are:  
 
 1. change read-write SQL connection strings to point to the new primary
-2. call the designated secondary database to [initiate database failover](https://msdn.microsoft.com/en-us/library/azure/dn509573.aspx) 
+2. call the designated secondary database to [initiate database failover](https://msdn.microsoft.com/
+3. /library/azure/dn509573.aspx) 
 
 The following diagram illustrates the new configuration after the failover.
 ![Figure 5](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/pattern2-2.png)
