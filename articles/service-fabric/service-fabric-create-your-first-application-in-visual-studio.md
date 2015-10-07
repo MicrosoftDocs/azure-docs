@@ -86,9 +86,13 @@ Now that we have an application, let's try running it.
 
 	![Breakpoint in stateful service RunAsync method][7]
 
-5. Launch the Service Fabric Explorer tool from %programfiles%\Microsoft SDKs\Service Fabric\Tools\ServiceFabricExplorer\. Service Fabric Explorer offers a visual representation of a cluster, including the set of deployed applications deployed to it and the set of physical nodes that make it up.
+5. Right-click the Local CLuster Manager system tray app and choose Manage Local Cluster to launch Service Fabric Explorer.
 
-6. In the left pane, expand **One/Local cluster > Node View** and find the node where your code is running.
+  ![Launch Service Fabric Explorer from the Local Cluster Manager][systray-launch-sfx]
+
+  Service Fabric Explorer offers a visual representation of a cluster, including the set of deployed applications deployed to it and the set of physical nodes that make it up.
+
+6. In the left pane, expand **OneBox/Local cluster > Node View** and find the node where your code is running.
 
 7. Right-click the node and choose **Activate/Deactivate > Deactivate (remove data)** and confirm the action. This simulates a machine going down unexpectedly.
 
@@ -115,3 +119,4 @@ Now that we have an application, let's try running it.
 [6]: ./media/service-fabric-create-your-first-application-in-visual-studio/diagnostic-events-viewer-detail.png
 [7]: ./media/service-fabric-create-your-first-application-in-visual-studio/runasync-breakpoint.png
 [8]: ./media/service-fabric-create-your-first-application-in-visual-studio/sfe-deactivate-node.png
+[systray-launch-sfx]: ./media/service-fabric-create-your-first-application-in-visual-studio/launch-sfx.png
