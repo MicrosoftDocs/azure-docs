@@ -211,7 +211,7 @@ You can confirm that this works by looking at the [Portal](portal.azure.com) or 
 In addition to uploading a block blob from an NSString, similar methods exist for NSData, NSInputStream or a local file.
 
 ## List the blobs in a container
-When listing blobs in a container, be mindful of the following parameters:     
+The following example shows how to list all blobs in a container. When performing this operation, be mindful of the following parameters:     
 
 - **continuationToken** - The continuation token represents where the listing operation should start. If no token is provided, it will list blobs from the beginning. Any number of blobs can be listed, from zero up to a set maximum. Even if this method returns zero results, if `results.continuationToken` is not nil, there may be more blobs on the service that have not been listed.
 - **prefix** - You can specify the prefix to use for blob listing. Only blobs that begin with this prefix will be listed.
@@ -226,7 +226,7 @@ When listing blobs in a container, be mindful of the following parameters:
 - **maxResults** - The maximum number of results to return for this operation.  Use -1 to not set a limit.
 - **completionHandler** - The block of code to execute with the results of the listing operation.
 
-The following example shows how to list all blobs in a container. A helper method is used to recursively call the list blobs method every time a continuation token is returned.
+In this example, a helper method is used to recursively call the list blobs method every time a continuation token is returned.
 
     -(void)listBlobsInContainer{
       // Create a storage account object from a connection string.
