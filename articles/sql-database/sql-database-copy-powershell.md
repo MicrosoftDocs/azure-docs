@@ -24,6 +24,7 @@
 > [AZURE.SELECTOR]
 - [Azure Preview Portal](sql-database-copy.md)
 - [PowerShell](sql-database-copy-powershell.md)
+- [SQL](sql-database-copy-transact-sql.md)
 
 
 

@@ -10,7 +10,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="09/05/2015"
+	ms.date="10/05/2015"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -24,6 +24,7 @@
 > [AZURE.SELECTOR]
 - [Azure Preview Portal](sql-database-copy.md)
 - [PowerShell](sql-database-copy-powershell.md)
+- [SQL](sql-database-copy-transact-sql.md)
 
 This following steps show you how to copy a SQL database with the [Azure preview portal](https://portal.azure.com).
 
