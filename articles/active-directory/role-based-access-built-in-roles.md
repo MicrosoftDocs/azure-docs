@@ -381,7 +381,7 @@ Can manage storage accounts
 ### User Access Administrator
 Can manage user access to Azure resources
 
-| **Administrator Actions** ||
+| **Actions** ||
 | ------- | ------ |
 | */read | Read resources of all Types, except secrets. |
 | Microsoft.Authorization/* | Read authorization |
