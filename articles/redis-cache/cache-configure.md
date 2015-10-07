@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="cache-redis"
    ms.workload="tbd"
-   ms.date="09/30/2015"
+   ms.date="10/07/2015"
    ms.author="sdanie" />
 
 # How to configure Azure Redis Cache
@@ -163,11 +163,16 @@ For more information about Redis commands, see [http://redis.io/commands](http:/
 
 ## Redis console
 
-You can securely issue commands to your Azure Redis Cache instances using the **Redis Console**, which is available for Standard and Premium caches. To access the Redis Console, click **Console** from the **Redis Cache** blade.
+You can securely issue commands to your Azure Redis Cache instances using the **Redis Console**, which is available for Standard and Premium caches.
+
+>[AZURE.IMPORTANT] The Redis Console does not work with VNET or clustering. 
+>
+>-	[VNET](cache-how-to-premium-vnet.md) - When your cache is part of a VNET, only clients in the VNET can access the cache. Because the Redis Console uses the redis-cli.exe client hosted on VMs that are not part of your VNET, it can't connect to your cache.
+>-	[Clustering](cache-how-to-premium-clustering.md) - The Redis Console uses the redis-cli.exe client which does not support clustering at this time. You can connect to individual shards of your cache directly using redis-cli.exe by following the instructions at [Can I directly connect to the individual shards of my cache?](cache-how-to-premium-clustering.md#can-i-directly-connect-to-the-individual-shards-of-my-cache).
+
+To access the Redis Console, click **Console** from the **Redis Cache** blade.
 
 ![Redis console](./media/cache-configure/redis-console-menu.png)
-
->[AZURE.IMPORTANT] The Redis Console is only available for Standard and Premium caches.
 
 To issue commands against your cache instance, simply type in the desired command into the console.
 
