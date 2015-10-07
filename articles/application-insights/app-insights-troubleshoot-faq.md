@@ -36,6 +36,10 @@
 * Option to pay 'overage' to continue collecting data over the monthly quota. If your data goes over quota, you're charged per Mb.
 * [Continuous export](app-insights-export-telemetry.md).
 
+#### Is there a way I can avoid hitting my quota or incurring overage charges?
+
+* Try [Sampling](app-insights-sampling.md), which selects a defined percentage of user sessions to send.
+
 ## Adding the SDK
 
 #### <a name="q01"></a>I don't see any option to Add Application Insights to my project in Visual Studio

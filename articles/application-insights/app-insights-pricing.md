@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/11/2015" 
+	ms.date="10/07/2015" 
 	ms.author="awills"/>
 
 # Manage pricing and quota for Application Insights
@@ -94,6 +94,7 @@ If your app sends more than the limit, some of the data is dropped. You'll see a
 
 If you encounter the throttling limits, here are some things you can do:
 
+* Use [Sampling](app-insights-sampling.md), which selects a defined percentage of user sessions to send.
 * Switch off collection modules you don't need by [editing ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md). For example, you might decide that performance counters or dependency data are inessential.
 * Pre-aggregate metrics. If you have put calls to TrackMetric in your app, you can reduce traffic by using the overload that accepts your calculation of the average and standard deviation of a batch of measurements. Or you can use a [pre-aggregating package](https://www.myget.org/gallery/applicationinsights-sdk-labs). 
 

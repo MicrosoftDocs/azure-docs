@@ -119,3 +119,7 @@ There are several different methods of setting the Application Version property.
 
     To allow MSBuild to generate version numbers, set the version like `1.0.*` in AssemblyReference.cs
 
+## Reduce traffic from my app to Application Insights 
+
+* Try [Sampling](app-insights-sampling.md), which sends only a defined percentage of user sessions.
+* [Disable telemetry modules](app-insights-configuration-with-applicationinsights-config.md) that you don't need.
