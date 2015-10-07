@@ -38,7 +38,33 @@ You can also create a SQL Data Warehouse by opening the command line and running
 
         sqlcmd -S <Server Name>.database.windows.net -I -U <User> -P <Password> -Q "CREATE DATABASE <Name> (EDITION='datawarehouse', SERVICE_OBJECTIVE = '<Compute Size - DW####>', MAXSIZE= <Storage Size - #### GB>)"
 
-When running the above TSQL Statements note the MAXSIZE and SERVICE_OBJECTIVE parameters, these will dictate the initial storage size and compute allotted to your Data Warehouse instance.  MAXSIZE will accept the following sizes and we suggest choosing a large size to allow room for growth: 250 GB, 500 GB, 750 GB, 1024 GB, 5120 GB, 10240 GB, 20480 GB, 30720 GB, 40960 GB, 51200 GB.  SERVICE_OBJECTIVE will indicate the number of DWUs that your instance will start with and will accept the following values: DW100, DW200, DW300, DW400, DW500, DW600, DW1000, DW1200, DW1500, DW2000.  For information about the billing impact of these parameters please see our [pricing page][].
+When running the above TSQL Statements note the MAXSIZE and SERVICE_OBJECTIVE parameters, these will dictate the initial storage size and compute allotted to your Data Warehouse instance.  MAXSIZE will accept the following sizes and we suggest choosing a large size to allow room for growth: 
+
++ 250 GB
++ 500 GB
++ 750 GB
++ 1024 GB
++ 5120 GB
++ 10240 GB
++ 20480 GB
++ 30720 GB
++ 40960 GB
++ 51200 GB
+
+SERVICE_OBJECTIVE will indicate the number of DWUs that your instance will start with and will accept the following values: 
+
++ DW100
++ DW200
++ DW300
++ DW400
++ DW500
++ DW600
++ DW1000
++ DW1200
++ DW1500
++ DW2000
+
+For information about the billing impact of these parameters please see our [pricing page][].
 
 ## Next steps
 After your SQL Data Warehouse has finished provisioning you can [load sample data][] or check out how to [develop][], [load][], or [migrate][].
