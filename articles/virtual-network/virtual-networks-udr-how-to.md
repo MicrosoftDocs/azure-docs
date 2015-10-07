@@ -124,7 +124,7 @@ Set-AzureIPForwarding -ServiceName DMZService `
 To disable IP forwarding in a VM named *FWAppliance1*, run the following PowerShell command:
 
 ```powershell
-Get-AzureVM -Name FWAppliance1 -ServiceName ProductionVMs `
+Get-AzureVM -Name FWAppliance1 -ServiceName DMZService `
 	| Set-AzureIPForwarding -Disable
 ```
 

@@ -102,4 +102,19 @@ To create the route table and route needed for the back end subnet based on the 
 			-SubnetName FrontEnd `
 			-RouteTableName UDR-FrontEnd
 		```
+## Enable IP forwrding on the FW1 VM
+To enable IP forwarding in the FW1 VM, follow the steps below.
 
+1. Run the **`Get-AzureIPForwarding`** cmdlet to chec the status of IP forwarding
+
+		Get-AzureVM -Name FW1 -ServiceName TestRGFW `
+			| Get-AzureIPForwarding
+
+	Output:
+
+		Disabled
+
+2. Run the **`Set-AzureIPForwarding`** command to enable IP forwarding for the *FW1* VM.
+
+		Get-AzureVM -Name FW1 -ServiceName TestRGFW `
+			| Set-AzureIPForwarding -Enable
