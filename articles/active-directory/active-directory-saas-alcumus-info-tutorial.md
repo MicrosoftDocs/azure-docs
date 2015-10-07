@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/01/2015"
+	ms.date="10/06/2015"
 	ms.author="markusvi"/>
 
 
@@ -57,20 +57,25 @@ To configure the integration of Alcumus Info Exchange into Azure AD, you need to
 
 **To add Alcumus Info Exchange from the gallery, perform the following steps:**
 
-1. In the **Azure Management Portal**, on the left navigation pane, click **Active Directory**. <br><br>
-![Active Directory][1]
+1. In the **Azure Management Portal**, on the left navigation pane, click **Active Directory**. 
+<br><br>![Active Directory][1]<br>
 
 2. From the **Directory** list, select the directory for which you want to enable directory integration.
 
-3. To open the applications view, in the directory view, click **Applications** in the top menu.<br><br>
-![Applications][2]
-4. Click **Add** at the bottom of the page.<br><br>
-![Applications][3]
-5. On the **What do you want to do** dialog, click **Add an application from the gallery**.<br><br>
-![Applications][4]
-6. In the search box, type **Alcumus Info Exchange**.<br>
-![Applications][5]
-7. In the results pane, select **Alcumus Info Exchange**, and then click **Complete** to add the application.<br>
+3. To open the applications view, in the directory view, click **Applications** in the top menu.
+<br><br>![Applications][2]<br>
+
+4. Click **Add** at the bottom of the page.
+<br><br>![Applications][3]<br>
+
+5. On the **What do you want to do** dialog, click **Add an application from the gallery**.
+<br><br>![Applications][4]<br>
+
+6. In the search box, type **Alcumus Info Exchange**.
+<br><br>![Applications][5]<br>
+
+7. In the results pane, select **Alcumus Info Exchange**, and then click **Complete** to add the application.
+<br><br>![Applications][400]<br>
 
 
 
@@ -216,3 +221,4 @@ When you click the Alcumus Info Exchange tile in the Access Panel, you should ge
 [203]: ./media/active-directory-saas-alcumus-info-tutorial/tutorial_general_203.png
 [204]: ./media/active-directory-saas-alcumus-info-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-alcumus-info-tutorial/tutorial_general_205.png
+[400]: ./media/active-directory-saas-alcumus-info-tutorial/tutorial_alcumus_402.png
