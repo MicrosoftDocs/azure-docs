@@ -62,7 +62,7 @@ Once Data Lake Tools for Visual Studio is installed, you will see a U-SQL menu i
 
 ## Upload source data files
 
-You have uploaded some some data in the **Prerequisite** section earlier in the tutorial.  
+You have uploaded some data in the **Prerequisite** section earlier in the tutorial.  
 
 In case you want to use your own data, here are the procedures for uploading data from the Data Lake Tools.
 
@@ -98,7 +98,7 @@ See [Get started with HDInsight Tools for Visual Studio]().
 
 	![new U-SQL Visual Studio project](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-new-project.png)
 
-	[jgao: rename the .sip extention]
+	[jgao: rename the .sip extension]
 3. Click **OK**. Visual studio creates a solution with a Script.sip file.
 4. Enter the following script into the Script.sip file:
 
