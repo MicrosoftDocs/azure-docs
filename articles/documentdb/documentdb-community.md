@@ -45,7 +45,7 @@ Check it out on [Github](https://github.com/mingaliu/DocumentDBStudio).
 
 <br/><br/>
 
-*Find more more open source DocumentDB projects on [GitHub](https://github.com/search?p=4&q=documentdb&type=Repositories).*
+*Find more open source DocumentDB projects on [GitHub](https://github.com/search?p=4&q=documentdb&type=Repositories).*
 
 <br/><br/>
 
