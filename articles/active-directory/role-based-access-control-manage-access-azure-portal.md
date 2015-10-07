@@ -48,4 +48,4 @@ Select access settings in the essentials section of the resource group blade. Th
 ![](./media/role-based-access-control-manage-access-azure-portal/remove-access2.png)
 
 ## RBAC Topics
-[AZURE.INCLUDE [role-based-access-control-toc.md](../includes/role-based-access-control-toc.md)]
+[AZURE.INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)]

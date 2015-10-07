@@ -97,4 +97,4 @@ To remove access for users, groups and applications use:
 ![](./media/role-based-access-control-manage-access-powershell/3-remove-azure-rm-role-assignment.png)
 
 ## RBAC Topics
-[AZURE.INCLUDE [role-based-access-control-toc.md](../includes/role-based-access-control-toc.md)]
+[AZURE.INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)]

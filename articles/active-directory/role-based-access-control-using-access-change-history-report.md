@@ -41,4 +41,4 @@ It is convenient to export access changes into a spreadsheet for review.
 ![](./media/role-based-access-control-using-access-change-history-report/change-history-spreadsheet.png)
 
 ## RBAC Topics
-[AZURE.INCLUDE [role-based-access-control-toc.md](../includes/role-based-access-control-toc.md)]
+[AZURE.INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)]

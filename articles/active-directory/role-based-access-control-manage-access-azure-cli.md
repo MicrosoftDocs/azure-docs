@@ -58,4 +58,4 @@ To remove access for users, groups and applications use:
     azure role assignment delete
 
 ## RBAC Topics
-[AZURE.INCLUDE [role-based-access-control-toc.md](../includes/role-based-access-control-toc.md)]
+[AZURE.INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)]
