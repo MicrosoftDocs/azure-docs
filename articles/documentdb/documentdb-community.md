@@ -57,6 +57,8 @@ Check it out on [Github](https://github.com/mingaliu/DocumentDBStudio).
 
 You can stay up-to-date with the latest DocumentDB news and features by following [our blog](https://azure.microsoft.com/blog/tag/documentdb/).
 
+<br/>
+
 **Community posts:**
 
 * [**Dealing with RequestRateTooLarge errors in Azure DocumentDB and testing performance**](http://blogs.msdn.com/b/bigdatasupport/archive/2015/09/02/dealing-with-requestratetoolarge-errors-in-azure-documentdb-and-testing-documentdb-performance.aspx) - *by Azim Uddin*
@@ -121,7 +123,6 @@ You can stay up-to-date with the latest DocumentDB news and features by followin
 
 <hr/>
 
-<br/><br/>
 
 ### Twitter
 
