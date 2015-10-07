@@ -39,7 +39,7 @@ You must add the following four JAR files from the Apache Qpid JMS AMQP 1.0 dist
 
 ### Java Naming and Directory Interface (JNDI)
 
-JMS uses the Java Naming and Directory Interface (JNDI) to create a separation between logical names and physical names. Two types of JMS objects are resolved using JNDI: ConnectionFactory and Destination. JNDI uses a provider model into which you can plug different directory services to handle name resolution duties. The Apache Qpid JMS AMQP 1.0 library comes with a simple properties file-based JNDI Provider that is configured using a text file.
+JMS uses the Java Naming and Directory Interface (JNDI) to create a separation between logical names and physical names. Two types of JMS objects are resolved using JNDI: **ConnectionFactory** and **Destination**. JNDI uses a provider model into which you can plug different directory services to handle name resolution duties. The Apache Qpid JMS AMQP 1.0 library comes with a simple properties file-based JNDI Provider that is configured using a text file.
 
 The Qpid Properties File JNDI Provider is configured using a properties file of the following format:
 
