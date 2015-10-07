@@ -31,7 +31,7 @@ When you create a virtual machine in the Azure portal, endpoints for Remote Desk
 
 Please note network security groups control access to the virtual machine, but they don't provide port forwarding capabilities. To do port forwarding, see the following article:
 
-- [Get started configuring an internet facing load balancer using Azure Resource Manager](load-balancer-arm-powershell.md)
+- [Get started configuring an internet facing load balancer using Azure Resource Manager](../load-balancer/load-balancer-arm-powershell.md)
 
 Each endpoint has a public port and a private port:
 
