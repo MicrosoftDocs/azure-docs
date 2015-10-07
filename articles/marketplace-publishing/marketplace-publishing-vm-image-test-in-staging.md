@@ -41,7 +41,7 @@ Staging means deploying your SKU in a private “sandbox” where you can test a
 > [AZURE.NOTE] The replication across the data centers take up to 24-48hours. Once the replication is complete, your offer will be listed in the [Azure Marketplace](http://azure.microsoft.com/marketplace).
 
 ## Next Steps
-Now that you offer is in "Staging", once the onboarding team notifies, you can proceed to the final offer and/or SKU publishing phase, **Step 4**,  [Deploying your offer to the Marketplace](marketplace-publishing-push-to-production.md)
+Now that you offer is "Staged", and you have tested it's functionality and marketing content , you can proceed to the final offer and/or SKU publishing phase, **Step 4**,  [Deploying your offer to the Marketplace](marketplace-publishing-push-to-production.md)
 
 ## See Also
 - [Getting Started: How to publish an offer to the Azure Marketplace](marketplace-publishing-getting-started.md)
