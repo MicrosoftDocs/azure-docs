@@ -6,20 +6,20 @@ The final stage of this tutorial is to build and run your new app.
 
 2. Open Android Studio. If you are working with a project and it appears, close the project (File => Close Project).
 
-3. Select **Open an existing Android Studio project**, browse to the project location, and then click **OK.**
+3. Select **Open an existing Android Studio project**, browse to the project location, and then click **OK.** The will load the project and start to sync it with Gradle.
 
  	![](./media/mobile-services-android-get-started/android-studio-import-project.png)
 
 4. Wait for the Gradle sync activity to complete. If you see a "failed to find target" error, this is because the version used in Android Studio doesn't match that of the sample. The easiest way to fix this is to click the **Install missing platform(s) and sync project** link in the error message. You mught get additional version error messages, and you simply repeat this process until no errors appear.
-    - Another way to fix this is if you want or need to run with the "latest and greatest" version of Android. You can update the **targetSdkVersion** in the *build.gradle* file in the *app* directory to match the version already installed on your machine, which you can discover by clicking on the **SDK Manager** icon and seeing what version is listed. Next you press the **Sync Project with Gradle Files**. You may get an error message for the version of Build Tools, and you fix that the same way.
+    - There is another way to fix this if you want to run with the "latest and greatest" version of Android. You can update the **targetSdkVersion** in the *build.gradle* file in the *app* directory to match the version already installed on your machine, which you can discover by clicking on the **SDK Manager** icon and seeing what version is listed. Next you press the **Sync Project with Gradle Files**. You may get an error message for the version of Build Tools, and you fix that the same way.
 
 ### Running the app
 
 You can run the app using the emulator, or using an actual device.
 
-1. To run from a device, connect your device to your computer via a USB cable. You must [set up the device for development](https://developer.android.com/training/basics/firstapp/running-app.html). If you are developing on a Windows machine, you must also download and install a USB driver.
+1. To run from a device, connect it to your computer with a USB cable. You must [set up the device for development](https://developer.android.com/training/basics/firstapp/running-app.html). If you are developing on a Windows machine, you must also download and install a USB driver.
 
-2. To run using the Android emulator, you must define a least one Android Virtual Device (AVD). Use the AVD Manager to create and manage these devices.
+2. To run using the Android emulator, you must define a least one Android Virtual Device (AVD). Click the AVD Manager icon to create and manage these devices.
 
 3. From the **Run** menu, click **Run** to start the project. and choose a device or emulator from the dialog box that appears.
 
