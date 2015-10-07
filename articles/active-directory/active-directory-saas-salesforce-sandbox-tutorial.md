@@ -1,5 +1,5 @@
 <properties pageTitle="Tutorial: Azure Active Directory integration with Salesforce Sandbox | Microsoft Azure" description="Learn how to use Salesforce Sandbox with Azure Active Directory to enable single sign-on, automated provisioning, and more!." services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="10/06/2015" ms.author="markvi" />
+<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="10/07/2015" ms.author="markvi" />
 #Tutorial: Azure Active Directory integration with Salesforce Sandbox
 >[AZURE.TIP]For feedback, click [here](http://go.microsoft.com/fwlink/?LinkId=521878).
   
@@ -64,11 +64,11 @@ The objective of this section is to outline how to enable users to authenticate 
 
     ![Salesforce Sandbox](./media/active-directory-saas-salesforce-sandbox-tutorial/IC746479.png "Salesforce Sandbox")
 
-3.  On the **Configure App URL** page, in the **Salesforce Sandbox Sign In URL** textbox, type your URL using the following pattern "http://company.my.salesforce.com", and then click **Next**.
+3.  On the **Configure App URL** page, in the **Sign On URL** textbox, type your URL using the following pattern `http://company.my.salesforce.com`, and then click **Next**.
 
     ![Configure App URL](./media/active-directory-saas-salesforce-sandbox-tutorial/IC781022.png "Configure App URL")
 
-	> [AZURE.NOTE] If you have already configured single sign-on for another Salesforce Sandbox instance in your directory, then you must also configure the **Issuer URL** to have the same value as the **Sign-on URL**. The **Issuer URL** field can be found by checking the **Show advanced settings** checkbox on the **Configure App URL** page of the dialog.
+4. If you have already configured single sign-on for another Salesforce Sandbox instance in your directory, then you must also configure the **Issuer URL** to have the same value as the **Sign on URL**. The **Issuer URL** field can be found by checking the **Show advanced settings** checkbox on the **Configure App URL** page of the dialog.
 
 4.  On the **Configure single sign-on at Salesforce Sandbox** page, click **Download certificate**, and then save the certificate file on your computer.
 
@@ -97,7 +97,7 @@ The objective of this section is to outline how to enable users to authenticate 
 
     1.  In the Name textbox, type the name of the configuration (e.g.: *SPSSOWAAD\_Test*).
     2.  In the Azure portal, on the **Configure single sign-on at Salesforce Sandbox** dialogue page, copy the **Issuer URL** value, and then paste it into the **Issuer** textbox.
-    3.  In the **Entity id** textbox, type **https://test.salesforce.com**.
+    3.  In the **Entity Id** textbox, type **https://test.salesforce.com** if this is the first Salesforce Sandbox instance that you are adding to your directory. If you have already added an instance of Salesforce Sandbox, then for the **Entity ID** type in the **Sign On URL**, which should be in this format: `http://company.my.salesforce.com`
     4.  Click **Browse** to upload the downloaded certificate.
     5.  As **SAML Identity Type**, select **Assertion contains the Federation ID from the User object**.
     6.  As **SAML Identity Location**, select **Identity is in the NameIdentifier element of the Subject statement**.
