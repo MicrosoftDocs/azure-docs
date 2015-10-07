@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Connect to SQL Data Warehouse with Power BI | Microsoft Azure"
-    description="Connect to SQL Data Warehouse with Power BI"
+    pageTitle="Analyze SQL Data Warehouse data with Power BI | Microsoft Azure"
+    description="Analyze SQL Data Warehouse data with Power BI"
     services="sql-data-warehouse"
     documentationCenter="NA"
     authors="lodipalm"
