@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="09/15/2015"
+   ms.date="10/07/2015"
    ms.author="seanmck"/>
 
 # Set up your Service Fabric development environment
