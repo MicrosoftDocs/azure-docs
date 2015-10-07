@@ -40,7 +40,7 @@ To open Power BI and connect to your AdventureWorksDW database:
 4. You should now see the SQL Data Warehouse connection page displaying your database information. Enter your password and you will be fully connected to your SQL Data Warehouse database. 
 
 
-## Analyze you data with Power BI
+## Analyze data with Power BI
 
 You are now ready to use Power BI to analyze your AdventureWorksDW sample data. To perform the analysis, AdventureWorksDW has a view called AggregateSales. This view contains a few of the key metrics for analyzing the sales of the company. 
 
