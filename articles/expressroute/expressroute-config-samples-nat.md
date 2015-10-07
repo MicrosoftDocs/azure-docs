@@ -85,7 +85,7 @@ Router configuration samples below apply to Azure Public and Microsoft peerings.
 	}
 
 
-### Create two security zones. 
+### Create two security zones
 
  - Trust Zone for internal network and Untrust Zone for external network facing Edge Routers
  - Assign appropriate interfaces to the zones
@@ -317,4 +317,6 @@ Refer to samples in [Routing configuration samples ](expressroute-config-samples
 	}
 
 ## Next steps
+
+See the [ExpressRoute FAQ](expressroute-faqs.md) for more details.
 

@@ -207,3 +207,5 @@ You can use route-maps and prefix lists to filter prefixes propagated into your 
 	}
 
 ## Next Steps
+
+See the [ExpressRoute FAQ](expressroute-faqs.md) for more details.
