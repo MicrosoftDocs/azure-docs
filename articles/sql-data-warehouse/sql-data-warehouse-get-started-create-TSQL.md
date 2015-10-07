@@ -17,7 +17,7 @@
    ms.date="10/07/2015"
    ms.author="lodipalm"/>
 
-# Create SQL Data Warehouse with TSQL 
+#Create SQL Data Warehouse with TSQL 
 
 > [AZURE.SELECTOR]
 - [Azure Preview Portal](sql-data-warehouse-get-started-provision.md)
