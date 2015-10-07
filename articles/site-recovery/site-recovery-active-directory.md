@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Site Recovery Workload Guidance - Active Directory" 
-	description="Azure Site Recovery coordinates the replication, failover and recovery of virtual machines and physical servers located on on-premises to Azure or to a secondary on-premises site." 
+	pageTitle="ASR Guidance for Active Directory | Microsoft Azure" 
+	description="This article explains in detail about how you can create a disaster recovery solution for your AD using Azure Site recovery, perform a planned/unplanned/test failovers using one-click recovery plan, supported configurations and prerequisites." 
 	services="site-recovery" 
 	documentationCenter="" 
 	authors="prateek9us" 
@@ -16,7 +16,7 @@
 	ms.date="10/06/2015" 
 	ms.author="pratshar"/>
 
-#Automated DR Solution for AD and DNS using ASR
+#Automated DR solution for AD and DNS using ASR
 
 
 All the enterprise applications such as SharePoint, Dynamics AX and SAP depend on AD and DNS infrastructure to function correctly. While creating a disaster recovery (DR) solution for any such application, it is important to protect and recover AD before the other components of the application come up in the event of a disruption.
@@ -49,13 +49,13 @@ Implementing disaster recovery for AD using Azure Site Recovery requires the fol
 ###Protect VM
 Enable protection of AD VM in ASR. Perform relevant Azure Site Recovery configuration based on whether the VM is deployed on Hyper-V or on VMware.The recommended Crash consistent frequency to configure is 15 minutes.
 
-###Configure VM Network Settings
+###Configure VM network settings
 - For the AD server VM, configure network settings in ASR so that the VM networks get attached to the right DR network after failover. 
 - You can select the VM in the ‘VMM Cloud’ or the ‘Protection Group’ to configure the network settings as shown in the snapshot below.
 
 ![VM Network Settings](./media/site-recovery-active-directory/VM-Network-Settings.png)
 
-##Enable protection for AD using AD Replication
+##Enable protection for AD using AD replication
 ###Site to Site scenario
 
 To control replication of AD between two sites , you can use the Active Directory Sites and Services snap-in to configure settings on the site link object to which the sites are added. By configuring settings on a site link, you can control when replication occurs between two or more sites, and how often. You can refer to ['Scheduling Replication Between Sites'](https://technet.microsoft.com/en-us/library/cc731862.aspx "") for more details.
@@ -65,7 +65,7 @@ If you are planning for a complete site disaster then yes it is mandatory to rep
 
 But if you foresee that you will be doing planned failover of only some of the applications at a time and if the applications are not too chatty with respect to communication with active directory and DNS, then you can choose not to replicate AD and DNS to Azure. In such a case you can provide the IP of the on-premises DNS Server in the network that you create in Azure.
 
-####Create an Azure Virtual Network
+####Create an Azure virtual network
 Create a new Azure Virtual network (Ex: AzureNetwork) in Microsoft Azure. While creating this network, the IP of the on-premises DNS Server is given as the DNS Server IP. Point to site connectivity as well as site to site connectivity  should be enabled on this network.
 
 
@@ -93,7 +93,7 @@ Since there is a DNS Server running in Azure, it is better to use this for the I
   
 ![Azure Network](./media/site-recovery-active-directory/azure-network.png)
 
-##Considerations for Test Failover
+##Considerations for Test failover
 For Test Failover (TFO) scenarios using AD , the production workload should not be impacted. If you are using AD replication, care should be taken not to impact the AD running in production during TFO. 
 
 1. Create another virtual network (let’s call it AzureTestNetwork) and use the same IP ranges as used in the network created earlier. This network will be used during TFO. Don’t add site to site connectivity and point to site connectivity in the network just yet.
@@ -104,5 +104,8 @@ For Test Failover (TFO) scenarios using AD , the production workload should not 
 
 ##Summary
 Using Azure Site Recovery, you can create a complete automated disaster recovery plan for your AD. You can initiate the failover within seconds from anywhere in the event of a disruption and get the AD up and running in a few minutes. In case you have an AD for multiple applications such as SharePoint and SAP in your primary site and you decide to failover the complete site, you can failover the AD using ASR first and then failover the other applications using application specific recovery plans.
+
+
+Refer to [Site recovery workload guidance](../site-recovery/site-recovery-workload.md) for more details on protecting various workloads using ASR.
 
 
