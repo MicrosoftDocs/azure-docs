@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Call a custom API in Logic Apps" 
-	description="Using a custom API hosted on App Service with Logic apps" 
+	description="Using your custom API hosted on App Service with Logic apps" 
 	authors="stepsic-microsoft-com" 
 	manager="dwrede" 
 	editor="" 
@@ -12,13 +12,14 @@
 	ms.workload="integration"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
+	
 	ms.topic="article"
 	ms.date="10/07/2015"
 	ms.author="stepsic"/>
 	
-# Using a custom API hosted on App Service with Logic apps
+# Using your custom API hosted on App Service with Logic apps
 
-Although Logic apps has a rich set of 40+ connectors for a variety of services, you may want to call into your own custom API that can run your own code. One of the easiest and most scalable way to host your own custom Web API's is to use an App Service Web app, so this article covers how to call into a Web API hosted on App Service.
+Although Logic apps has a rich set of 40+ connectors for a variety of services, you may want to call into your own custom API that can run your own code. One of the easiest and most scalable ways to host your own custom Web API's is to use App Service. This article covers how to call into any Web API hosted in an App Service Web app.
 
 ## Deploy your Web App
 
@@ -47,7 +48,7 @@ This works great if you have a public API, but if you want to secure your API th
 
 ## Securing calls to your API without a code change 
 
-You can use either the Azure portals or PowerShell+Azure Resource Manager to set up a Logic app to use 
+In this section, you’ll create two Azure Active Directory applications – one for your Logic App and one for your Web App.  You’ll authenticate calls to your Web App using the service principal (client id and secret) associated with the AAD application for your Logic App. Finally, you'll include the application ID's in your Logic app definition. 
 
 ### Part 1: Setting up an Application identity for your Logic app
 
@@ -92,15 +93,33 @@ At this point an Application will automatically be created for you. You will nee
 
 #### Deploying your Web App using an ARM template
 
-First, you need to create an application for your Web app. This should be different from the application that is used for your Logic app. You can follow the steps above in Part 1, except now for the **HomePage** and **IdentifierUris** use the actual **URL** of your Web app. Once you have the client ID and tenant ID you can use the following template to deploy your Web app with AAD enabled:
+First, you need to create an application for your Web app. This should be different from the application that is used for your Logic app. Start by following the steps above in Part 1, but now for the **HomePage** and **IdentifierUris** use the actual https://**URL** of your Web app.
+
+>[AZURE.NOTE]When you create the Application for your Web app, you must use the [Azure portal approach](https://manage.windowsazure.com/#Workspaces/ActiveDirectoryExtension/directory), as the PowerShell commandlet does not set up the required permissions to sign users into a website.
+
+Once you have the client ID and tenant ID include the following as a sub resource  of the Web app in your deployment template :
 
 ```
-    "siteAuthEnabled": true,
-    "siteAuthSettings": {
-      "clientId": "<<clientID>>",
-      "issuer": "https://sts.windows.net/<<tenantID>>/",
-    },
+"resources" : [
+	{
+		"apiVersion" : "2015-08-01",
+		"name" : "web",
+		"type" : "config",
+		"dependsOn" : [
+			"[concat('Microsoft.Web/sites/','parameters('webAppName'))]"
+		],
+		"properties" : {
+			"siteAuthEnabled": true,
+			"siteAuthSettings": {
+			  "clientId": "<<clientID>>",
+			  "issuer": "https://sts.windows.net/<<tenantID>>/",
+			}
+		}
+	}
+]
 ```
+
+See the full deployment template [in the Azure quickstarts gallery](https://github.com/Azure/azure-quickstart-templates/).
 
 ### Part 3: Populate the Authorization section in the Logic app
 
