@@ -12,13 +12,17 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
-	ms.topic="article"
-	ms.date="09/04/2015"
+	ms.topic="hero-article"
+	ms.date="10/05/2015"
 	ms.author="ricksal"/>
 
 # Get started with Mobile Services for Android  (JavaScript backend)
 
 [AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]
+
+&nbsp;
+
+[AZURE.INCLUDE [mobile-services-hero-slug](../../includes/mobile-services-hero-slug.md)]
 
 This tutorial shows you how to add a cloud-based backend service to an Android app using Azure Mobile Services. In this tutorial, you will create both a new mobile service and a simple **To do list** app that stores app data in the new mobile service.
 
@@ -91,7 +95,7 @@ Now that you have completed the quickstart, learn how to perform additional impo
   <br/>Learn how to send a very basic push notification to your app.
 
 
-
+[AZURE.INCLUDE [app-service-disqus-feedback-slug](../../includes/app-service-disqus-feedback-slug.md)]
 
 <!-- Anchors. -->
 [Getting started with Mobile Services]:#getting-started
