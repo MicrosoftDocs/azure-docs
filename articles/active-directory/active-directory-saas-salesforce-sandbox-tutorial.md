@@ -109,6 +109,7 @@ The objective of this section is to outline how to enable users to authenticate 
 10. On the Azure AD portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
 
     ![Configure Single Sign-On](./media/active-directory-saas-salesforce-sandbox-tutorial/IC781028.png "Configure Single Sign-On")
+
 ##Enabling your domain
   
 This section assumes that you already have created a domain.  
