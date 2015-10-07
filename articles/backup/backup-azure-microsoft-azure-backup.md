@@ -13,7 +13,7 @@
   ms.tgt_pltfrm="na"
   ms.devlang="na"
   ms.topic="article"
-  ms.date="10/05/2015"
+  ms.date="10/07/2015"
   ms.author="sammehta; jimpark"/>
 
 # Preparing to back up workloads to Microsoft Azure
@@ -83,16 +83,16 @@ Similar to vault credentials, you can download Microsoft Azure Backup for applic
 
     ![Microsoft Azure Backup Welcome Screen](./media/backup-azure-microsoft-azure-backup/dpm-venus1.png)
 
-2. Click **Download**
+2. Click **Download**.
 
     ![Download center 1](./media/backup-azure-microsoft-azure-backup/downloadcenter1.png)
 
 3. Select all the files and click **Next**.
 ![Download center 1](./media/backup-azure-microsoft-azure-backup/downloadcenter.png)
 
-4. Place all the files in the same folder.
-
     >[AZURE.NOTE] Since the download size of all the files together is > 3G, on a 10Mbps download link it may take up to 60 minutes for the download to complete.
+
+4. Place all the files in the same folder.
 
 5. Download all the files coming in from the Microsoft Azure Backup download page.
 
