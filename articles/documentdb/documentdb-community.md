@@ -57,7 +57,7 @@ Check it out on [Github](https://github.com/mingaliu/DocumentDBStudio).
 
 [**Dealing with RequestRateTooLarge errors in Azure DocumentDB and testing performance**](http://blogs.msdn.com/b/bigdatasupport/archive/2015/09/02/dealing-with-requestratetoolarge-errors-in-azure-documentdb-and-testing-documentdb-performance.aspx) - *by Azim Uddin*
 
-[**Data Points - An Overview of Microsoft Azure DocumentDB**](https://msdn.microsoft.com/en-us/magazine/mt147238.aspx) - *by Julie Lerman*
+[**Data Points - An Overview of Microsoft Azure DocumentDB**](https://msdn.microsoft.com/magazine/mt147238.aspx) - *by Julie Lerman*
 
 [**Using DocumentDB With F#**](https://jamessdixon.wordpress.com/2014/12/30/using-documentdb-with-f/) - *by Jamie Dixon*
 
@@ -93,7 +93,7 @@ Check it out on [Github](https://github.com/mingaliu/DocumentDBStudio).
 | [@Scale Seattle](http://www.atscaleconference.com/) | Seattle, WA | June 17, 2015 | [Schema Agnostic Indexing with Azure DocumentDB](https://www.youtube.com/watch?v=VJQ_5qFFVP4) |
 | [In-Memory Technologies PASS Virtual Chapter](http://imvc.sqlpass.org/) | Virtual Event | May 25, 2015 | [Hello DocumentDB](https://www.youtube.com/watch?v=itFXQCd9-dI) |
 | [Database Month](http://www.databasemonth.com/database/azure-documentdb) | New York, NY | May 19, 2015 | [Azure DocumentDB: Massively-Scalable,­ Multi-Tenant Document Database Service](https://www.youtube.com/watch?v=iZsqBc3Dkbk) |
-| [Ignite](http://ignite.microsoft.com/) | Chicago, IL | May 4-8, 2015 | [SELECT Latest FROM DocumentDB video](https://azure.microsoft.com/documentation/videos/microsoft-ignite-2015-select-latest-from-microsoft-azure-documentdb/)<br/>[DocumentDB and Azure HDInsight: Better Together video](https://azure.microsoft.com/en-us/documentation/videos/microsoft-ignite-2015-microsoft-azure-documentdb-and-azure-hdinsight-better-together/) |
+| [Ignite](http://ignite.microsoft.com/) | Chicago, IL | May 4-8, 2015 | [SELECT Latest FROM DocumentDB video](https://azure.microsoft.com/documentation/videos/microsoft-ignite-2015-select-latest-from-microsoft-azure-documentdb/)<br/>[DocumentDB and Azure HDInsight: Better Together video](https://azure.microsoft.com/documentation/videos/microsoft-ignite-2015-microsoft-azure-documentdb-and-azure-hdinsight-better-together/) |
 | [Build 2015](http://www.buildwindows.com/) | San Francisco, CA | April 29 - May 1, 2015 | [Build the Next Big Thing with Azure’s NoSQL Service: DocumentDB](https://channel9.msdn.com/Events/Build/2015/2-729) |
 | [#DevHangout - devacademy.la](https://www.youtube.com/user/devacademyla) | Virtual Event | March 11, 2015 | [DocumentDB, la base de datos NoSql de Microsoft Azure](https://www.youtube.com/watch?v=8Ud3jB8KOBA) |
 | [Data Architecture Virtual Chapter PASS](https://www.devintersection.com/) | Virtual Event | February 25, 2015 | [Introduction to DocumentDB](https://www.youtube.com/watch?v=7BQYdFUkz6s) |
