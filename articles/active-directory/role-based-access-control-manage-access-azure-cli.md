@@ -53,6 +53,9 @@ To grant access to users, groups and applications use:
 ![](./media/role-based-access-control-manage-access-azure-cli/2-azure-role-assignment-create-1.png)
 
 ## Remove access for users, groups and applications
-To remove access for users, groups and applications use:		
+To remove access for users, groups and applications use:
 
-   azure role assignment delete
+    azure role assignment delete
+
+## RBAC Topics
+[AZURE.INCLUDE [role-based-access-control-toc.md](../includes/role-based-access-control-toc.md)]
