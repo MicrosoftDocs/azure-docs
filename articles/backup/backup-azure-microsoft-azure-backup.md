@@ -119,7 +119,6 @@ Ensure that the prerequisites mentioned in previous section are met before launc
 
     ![Microsoft Azure Backup Setup Wizard](./media/backup-azure-microsoft-azure-backup/launch-screen2.png)
 
-
 6. On the Welcome screen click **Next**.
 
     ![Microsoft Azure Backup Welcome Screen](./media/backup-azure-microsoft-azure-backup/welcome-screen.png)
