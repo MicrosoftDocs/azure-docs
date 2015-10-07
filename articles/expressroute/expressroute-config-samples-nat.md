@@ -17,7 +17,7 @@
 
 # Router configuration samples to setup and manage NAT
 
-This page provides NAT configuration samples for Cisco ASA and Juniper MX series routers. These are intended to be samples for guidance and must not be used as is. You can work with your vendor to come up with appropriate configurations for your network. 
+This page provides NAT configuration samples for Cisco ASA and Juniper MX series routers. These are intended to be samples for guidance only and must not be used as is. You can work with your vendor to come up with appropriate configurations for your network. 
 
 >[AZURE.IMPORTANT] Samples in this page are intended to be purely for guidance. You must work with your vendor's sales / technical team and your networking team to come up with appropriate configurations to meet your needs. Microsoft will not support issues related to configurations listed in this page. You must contact your device vendor for support issues.
 
@@ -52,7 +52,7 @@ Router configuration samples below apply to Azure Public and Microsoft peerings.
 
 ## Juniper MX series routers 
 
-### Create redundant Ethernet interfaces for the cluster
+### 1. Create redundant Ethernet interfaces for the cluster
 
 	interfaces {
 	    reth0 {
@@ -85,7 +85,7 @@ Router configuration samples below apply to Azure Public and Microsoft peerings.
 	}
 
 
-### Create two security zones
+### 2. Create two security zones
 
  - Trust Zone for internal network and Untrust Zone for external network facing Edge Routers
  - Assign appropriate interfaces to the zones
@@ -124,7 +124,7 @@ Router configuration samples below apply to Azure Public and Microsoft peerings.
 	}
 
 
-### Create security policies between zones
+### 3. Create security policies between zones
  
 	security {
 	    policies {
@@ -156,7 +156,7 @@ Router configuration samples below apply to Azure Public and Microsoft peerings.
 	}
 
 
-### Configure NAT policies
+### 4. Configure NAT policies
  - Create two NAT pools. One will be used to NAT traffic outbound to Microsoft and other from Microsoft to the customer.
  - Create rules to NAT the respective traffic
 
@@ -216,11 +216,11 @@ Router configuration samples below apply to Azure Public and Microsoft peerings.
 		}
 
 
-### Configure BGP to advertise selective prefixes in each direction
+### 5. Configure BGP to advertise selective prefixes in each direction
 
 Refer to samples in [Routing configuration samples ](expressroute-config-samples-routing.md) page.
 
-### Create policies
+### 6. Create policies
 
 	routing-options {
 	    	      autonomous-system <Customer_ASN>;

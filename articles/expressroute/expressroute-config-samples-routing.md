@@ -17,7 +17,7 @@
 
 # Router configuration samples to setup and manage routing
 
-This page provides interface and routing configuration samples for Cisco IOS-XE and Juniper MX series routers. These are intended to be samples for guidance and must not be used as is. You can work with your vendor to come up with appropriate configurations for your network. 
+This page provides interface and routing configuration samples for Cisco IOS-XE and Juniper MX series routers. These are intended to be samples for guidance only and must not be used as is. You can work with your vendor to come up with appropriate configurations for your network. 
 
 >[AZURE.IMPORTANT] Samples in this page are intended to be purely for guidance. You must work with your vendor's sales / technical team and your networking team to come up with appropriate configurations to meet your needs. Microsoft will not support issues related to configurations listed in this page. You must contact your device vendor for support issues.
 
@@ -27,7 +27,7 @@ Router configuration samples below apply to all peerings. Review [ExpressRoute p
 
 The samples in this section apply for any router running the IOS-XE OS family.
 
-### Configuring interfaces and sub-interfaces
+### 1. Configuring interfaces and sub-interfaces
 
 You will require a sub interface per peering in every router you connect to Microsoft. A sub interface can be identified with a VLAN ID or a stacked pair of VLAN IDs and an IP address.
 
@@ -47,7 +47,7 @@ This sample provides the sub-interface definition for a sub-interface with a two
      encapsulation dot1Q <s-tag> seconddot1Q <c-tag>
      ip address <IPv4_Address><Subnet_Mask>
     
-### Setting up eBGP sessions
+### 2. Setting up eBGP sessions
 
 You must setup a BGP session with Microsoft for every peering. The sample below enables you to setup a BGP session with Microsoft. If the IPv4 address you used for your sub interface was a.b.c.d, the IP address of the BGP neighbor (Microsoft) will be a.b.c.d+1. The last octet of the BGP neighbor's IPv4 address will always be an even number.
 
@@ -60,7 +60,7 @@ You must setup a BGP session with Microsoft for every peering. The sample below 
 	 exit-address-family
 	!
 
-### Setting up prefixes to be advertised over the BGP session
+### 3. Setting up prefixes to be advertised over the BGP session
 
 You can configure your router to advertise select prefixes to Microsoft. You can do so using the sample below.
 
@@ -74,7 +74,7 @@ You can configure your router to advertise select prefixes to Microsoft. You can
 	 exit-address-family
 	!
 
-### Route maps
+### 4. Route maps
 
 You can use route-maps and prefix lists to filter prefixes propagated into your network. You can use the sample below to accomplish the task. Ensure that you have appropriate prefix lists setup.
 
@@ -97,7 +97,7 @@ You can use route-maps and prefix lists to filter prefixes propagated into your 
 
 The samples in this section apply for any Juniper MX series routers.
 
-### Configuring interfaces and sub-interfaces
+### 1. Configuring interfaces and sub-interfaces
 
 #### Dot1Q interface definition
 
@@ -132,7 +132,7 @@ This sample provides the sub-interface definition for a sub-interface with a two
 	    }                                   
 	}                           
 
-### Setting up eBGP sessions
+### 2. Setting up eBGP sessions
 
 You must setup a BGP session with Microsoft for every peering. The sample below enables you to setup a BGP session with Microsoft. If the IPv4 address you used for your sub interface was a.b.c.d, the IP address of the BGP neighbor (Microsoft) will be a.b.c.d+1. The last octet of the BGP neighbor's IPv4 address will always be an even number.
 
@@ -149,7 +149,7 @@ You must setup a BGP session with Microsoft for every peering. The sample below 
 	    }                                   
 	}
 
-### Setting up prefixes to be advertised over the BGP session
+### 3. Setting up prefixes to be advertised over the BGP session
 
 You can configure your router to advertise select prefixes to Microsoft. You can do so using the sample below.
 
@@ -175,7 +175,7 @@ You can configure your router to advertise select prefixes to Microsoft. You can
 	}
 
 
-### Route maps
+### 4. Route maps
 
 You can use route-maps and prefix lists to filter prefixes propagated into your network. You can use the sample below to accomplish the task. Ensure that you have appropriate prefix lists setup.
 
