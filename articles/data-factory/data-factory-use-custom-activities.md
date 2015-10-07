@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/29/2015" 
+	ms.date="10/06/2015" 
 	ms.author="spelluru"/>
 
 # Use custom activities in an Azure Data Factory pipeline
@@ -77,10 +77,9 @@ This Walkthrough provides you with step-by-step instructions for creating a cust
 
 8. Implement (Add) the **Execute** method of the **IDotNetActivity** interface to the **MyDotNetActivity** class and copy the following sample code to the method. 
 
-
 	The following sample code counts the number of lines in the input blob and produces the following content in the output blob: path to the blob, number of lines in the blob, the machine on which the activity ran, current date-time.
 
-        public IDictionary<string, string> Execute(IEnumerable<LinkedService> linkedServices, IEnumerable<Table> tables, Activity activity, IActivityLogger logger)
+		public IDictionary<string, string> Execute(IEnumerable<LinkedService> linkedServices, IEnumerable<Dataset> datasets, Activity activity, IActivityLogger logger)
         {
             IDictionary<string, string> extendedProperties = ((DotNetActivity)activity.TypeProperties).ExtendedProperties;
 
@@ -88,13 +87,12 @@ This Walkthrough provides you with step-by-step instructions for creating a cust
             CustomDataset inputLocation;
             AzureBlobDataset outputLocation;
 
-            Table inputTable = tables.Single(table => table.Name == activity.Inputs.Single().Name);
-            inputLocation = inputTable.Properties.TypeProperties as CustomDataset;
+            Dataset inputDataset = datasets.Single(dataset => dataset.Name == activity.Inputs.Single().Name);
+            inputLocation = inputDataset.Properties.TypeProperties as CustomDataset;
 
-			// using First method instead of Single since we are using the same 
-			// Azure Storage linked service for input and output. 
-            inputLinkedService = linkedServices.First(linkedService => linkedService.Name == inputTable.Properties.LinkedServiceName).Properties.TypeProperties as AzureStorageLinkedService;
-
+            // using First method instead of Single since we are using the same 
+            // Azure Storage linked service for input and output. 
+            inputLinkedService = linkedServices.First(linkedService => linkedService.Name == inputDataset.Properties.LinkedServiceName).Properties.TypeProperties as AzureStorageLinkedService;
 
             string output = string.Empty;
 
@@ -107,7 +105,7 @@ This Walkthrough provides you with step-by-step instructions for creating a cust
             }
 
             string connectionString = GetConnectionString(inputLinkedService);
-            string folderPath = GetFolderPath(inputTable);
+            string folderPath = GetFolderPath(inputDataset);
 
             logger.Write("Reading blob from: {0}", folderPath);
 
@@ -159,12 +157,12 @@ This Walkthrough provides you with step-by-step instructions for creating a cust
 
             } while (continuationToken != null);
 
-            Table outputTable = tables.Single(table => table.Name == activity.Outputs.Single().Name);
-            outputLocation = outputTable.Properties.TypeProperties as AzureBlobDataset;
-            outputLinkedService = linkedServices.First(linkedService => linkedService.Name == outputTable.Properties.LinkedServiceName).Properties.TypeProperties as AzureStorageLinkedService;
+            Dataset outputDataset = datasets.Single(dataset => dataset.Name == activity.Outputs.Single().Name);
+            outputLocation = outputDataset.Properties.TypeProperties as AzureBlobDataset;
+            outputLinkedService = linkedServices.First(linkedService => linkedService.Name == outputDataset.Properties.LinkedServiceName).Properties.TypeProperties as AzureStorageLinkedService;
 
             connectionString = GetConnectionString(outputLinkedService);
-            folderPath = GetFolderPath(outputTable);
+            folderPath = GetFolderPath(outputDataset);
 
             logger.Write("Writing blob to: {0}", folderPath);
 
@@ -192,8 +190,7 @@ This Walkthrough provides you with step-by-step instructions for creating a cust
             return asset.ConnectionString;
         }
 
-        
-        private static string GetFolderPath(Table dataArtifact)
+        private static string GetFolderPath(Dataset dataArtifact)
         {
             if (dataArtifact == null || dataArtifact.Properties == null)
             {
