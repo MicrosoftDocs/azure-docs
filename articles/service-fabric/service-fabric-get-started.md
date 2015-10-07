@@ -96,7 +96,6 @@ If any element is not green or you see an error, wait a few moments and click th
 ## Next steps
 Now that your development environment is set up, you can start building and running apps.
 
-- [Create your first application in Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md)
 - [Learn about the programming models: Reliable Actors and Reliable Services](service-fabric-choose-framework.md)
 - [Get started with the Reliable Services API](service-fabric-reliable-services-quick-start.md)
 - [Get started with the Reliable Actors API](service-fabric-reliable-actors-get-started.md)
