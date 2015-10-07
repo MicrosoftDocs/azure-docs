@@ -55,15 +55,19 @@ Check it out on [Github](https://github.com/mingaliu/DocumentDBStudio).
 
 <hr/>
 
-[**Dealing with RequestRateTooLarge errors in Azure DocumentDB and testing performance**](http://blogs.msdn.com/b/bigdatasupport/archive/2015/09/02/dealing-with-requestratetoolarge-errors-in-azure-documentdb-and-testing-documentdb-performance.aspx) - *by Azim Uddin*
+You can stay up-to-date with the latest DocumentDB news and features by following [our blog](https://azure.microsoft.com/blog/tag/documentdb/).
 
-[**Data Points - An Overview of Microsoft Azure DocumentDB**](https://msdn.microsoft.com/magazine/mt147238.aspx) - *by Julie Lerman*
+**Community posts:**
 
-[**Using DocumentDB With F#**](https://jamessdixon.wordpress.com/2014/12/30/using-documentdb-with-f/) - *by Jamie Dixon*
+* [**Dealing with RequestRateTooLarge errors in Azure DocumentDB and testing performance**](http://blogs.msdn.com/b/bigdatasupport/archive/2015/09/02/dealing-with-requestratetoolarge-errors-in-azure-documentdb-and-testing-documentdb-performance.aspx) - *by Azim Uddin*
 
-[**Analysing Application Logs with DocumentDB**](http://vincentlauzon.com/2015/09/06/analysing-application-logs-with-documentdb/) - *by Vincent-Philippe Lauzon*
+* [**Data Points - An Overview of Microsoft Azure DocumentDB**](https://msdn.microsoft.com/magazine/mt147238.aspx) - *by Julie Lerman*
 
-[**Azure DocumentDB – Point in time Backups**](http://softwarejuancarlos.com/2015/09/06/azure-documentdb-point-in-time-backups/) - *by Juan Carlos Sanchez*
+* [**Using DocumentDB With F#**](https://jamessdixon.wordpress.com/2014/12/30/using-documentdb-with-f/) - *by Jamie Dixon*
+
+* [**Analysing Application Logs with DocumentDB**](http://vincentlauzon.com/2015/09/06/analysing-application-logs-with-documentdb/) - *by Vincent-Philippe Lauzon*
+
+* [**Azure DocumentDB – Point in time Backups**](http://softwarejuancarlos.com/2015/09/06/azure-documentdb-point-in-time-backups/) - *by Juan Carlos Sanchez*
 
 <br/><br/>
 
@@ -117,9 +121,13 @@ Check it out on [Github](https://github.com/mingaliu/DocumentDBStudio).
 
 <hr/>
 
-### Social
+<br/><br/>
+
+### Twitter
 
 Follow us on twitter [@DocumentDB](https://twitter.com/DocumentDB) and stay up to date with the latest conversation on the [#DocumentDB](https://twitter.com/hashtag/DocumentDB) hashtag.
+
+<br/><br/>
 
 ### Online forums
 
@@ -127,6 +135,8 @@ Follow us on twitter [@DocumentDB](https://twitter.com/DocumentDB) and stay up t
 | -------------- | ----------- |
 | [![StackOverflow](./media/documentdb-community/stack-overflow.png)](http://stackoverflow.com/questions/tagged/azure-documentdb) | A language-independent collaboratively edited question and answer site for programmers. Follow our tag: [azure-documentdb](http://stackoverflow.com/questions/tagged/azure-documentdb) |
 | [![MSDN](./media/documentdb-community/msdn.png)](https://social.msdn.microsoft.com/Forums/home?forum=AzureDocumentDB) | A good place for support and feedback on Microsoft Azure features and services like Web Sites, DocumentDB, etc. |
+
+<br/><br/>
 
 ### Internet Relay Chat + Office Hours
 
