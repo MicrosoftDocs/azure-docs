@@ -72,7 +72,7 @@ After successfully running **Select-AzureSubscription** you are returned to the 
 
 There are a few variables where you need to replace the example values with the specific values for your database and servers.
 
-Replace the server and database names with the server and database that currently exists in your account. For the blob name enter the BACPAC filename that will be created. Enter whatever you want to name the BACPAC file but you must include the .bacpac extension.
+Replace the placeholder values with the values for your environment:
 
     # The name of the server on which the source database resides.
     $ServerName = "sourceServerName"
