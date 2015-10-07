@@ -51,7 +51,7 @@ Click the corresponding link to see the **actions** and **not actions** properti
 | [Classic Storage Account Contributor](#classic-storage-account-contributor) | Can manage classic storage accounts |
 | [Storage Account Contributor](#storage-account-contributor) | Can manage storage accounts |
 | [User Access Administrator](#user-access-administrator) | Can manage user access to Azure resources |
-| [Classic Virtual Machine Contributor](#classic-virtual-machine-contributor) | description |
+| [Classic Virtual Machine Contributor](#classic-virtual-machine-contributor) | Can manage classic virtual machines but not the virtual network or storage account to which they are connected |
 | [Virtual Machine Contributor](#virtual-machine-contributor) | Can manage classic virtual machines but not the virtual network or storage account to which they are connected |
 | [Classic Network Contributor](#classic-network-contributor) | Can manage virtual machines but not the virtual network or storage account to which they are connected |
 | [Web Plan Contributor](#web-plan-contributor) | Can manage web plans |
@@ -62,8 +62,8 @@ Can manage API Management services
 
 | **Actions** | |
 | ------- | ------ |
-| Microsoft.ApiManagement/Services/* | description |
-| Microsoft.Authorization/*/read | Create and manage API Management Services |
+| Microsoft.ApiManagement/Services/* | Create and manage API Management Services  |
+| Microsoft.Authorization/*/read | Read authorization |
 | Microsoft.Resources/subscriptions/resourceGroups/read | Read roles and role assignments |
 | Microsoft.Resources/subscriptions/resourceGroups/resources/read | Read resource groups |
 | Microsoft.Resources/subscriptions/resourceGroups/deployments/* | Create and manage resource group deployments |
@@ -79,7 +79,7 @@ Can manage Application Insights components
 | Microsoft.Insights/webtests/* | Create and manage web tests |
 | Microsoft.Authorization/*/read | Read roles and role assignments |
 | Microsoft.Resources/subscriptions/resourceGroups/read | Read resource groups |
-| Microsoft.Resources/subscriptions/resourceGroups/resources/read | DESCRIPTION NEEDED |
+| Microsoft.Resources/subscriptions/resourceGroups/resources/read | Read subscription resource groups |
 | Microsoft.Resources/subscriptions/resourceGroups/deployments/* | Create and manage resource group deployments  |
 | Microsoft.Insights/alertRules/* | Create and manage alert rules |
 | Microsoft.Support/* | Create and manage support tickets |
@@ -117,7 +117,7 @@ Can manage BizTalk services
 ### ClearDB MySQL DB Contributor
 Can manage ClearDB MySQL databases
 
-| **ClearDB MySQL DB Contributor Actions** ||
+| **Actions** ||
 | ------- | ------ |
 | successbricks.cleardb/databases/* | Create and manage ClearDB MySQL databases |
 | Microsoft.Authorization/*/read | Read roles and role assignments |
@@ -153,9 +153,9 @@ Can manage Data Factories
 ### DevTest Lab User
 Lets you view everything, and connect, start, restart, and shutdown virtual machines.
 
-| **DevTest Lab User Actions** ||
+| **Actions** ||
 | ------- | ------ |
-| */read | description |
+| */read | Read resources of all types |
 | Microsoft.DevTestLab/labs/labStats/action | Read lab stats |
 | Microsoft.DevTestLab/Environments/* | Create and manage environments |
 | Microsoft.DevTestLab/labs/createEnvironment/action | Create a lab environment |
@@ -211,7 +211,7 @@ Can manage all network resources
 ### NewRelic APM Account Contributor
 Can manage NewRelic Application Performance Management accounts and applications
 
-| **NewRelic APM Account Contributor Actions** ||
+| **Actions** ||
 | ------- | ------ |
 | NewRelic.APM/accounts/* | Create and manage NewRelic application performance management accounts |
 | Microsoft.Authorization/*/read | Read roles and role Assignments |
@@ -223,21 +223,22 @@ Can manage NewRelic Application Performance Management accounts and applications
 
 ### Owner
 Owners can manage everything, including access.
-| **Owner Actions** ||
+
+| **Actions** ||
 | ------- | ------ |
 | * | Create and manage resources of all types |
 
 ### Reader
 Readers can view everything, but can't make changes.
 
-| **Reader Actions** ||
+| **Actions** ||
 | ------- | ------ |
 | */read | Read resources of all Types, except secrets. |
 
 ### Redis Cache Contributor
 Can manage Redis caches
 
-| **Redis Cache Contributor Actions** ||
+| **Actions** ||
 | ------- | ------ |
 | Microsoft.Cache/redis/* | Create and manage Redis caches |
 | Microsoft.Authorization/*/read | Read roles and role Assignments |
@@ -250,7 +251,7 @@ Can manage Redis caches
 ### Scheduler Job Collections Contributor
 Can manage Scheduler job collections
 
-| **Scheduler Job Collections Contributor Actions** ||
+| **Actions** ||
 | ------- | ------ |
 | Microsoft.Scheduler/jobcollections/* | Create and manage job collections |
 | Microsoft.Authorization/*/read | Read roles and role Assignments |
@@ -263,7 +264,7 @@ Can manage Scheduler job collections
 ### Search Service Contributor
 Can manage Search services
 
-| **Search Service Contributor Actions** ||
+| **Actions** ||
 | ------- | ------ |
 | Microsoft.Search/searchServices/* | Create and manage search services |
 | Microsoft.Authorization/*/read | Read roles and role Assignments |
@@ -276,7 +277,7 @@ Can manage Search services
 ### Security Manager
 Can manage security components, security policies and virtual machines
 
-| **Security Manager Actions** ||
+| **Actions** ||
 | ------- | ------ |
 | Microsoft.ClassicNetwork/*/read | Read configuration information about classic network  |
 | Microsoft.ClassicCompute/*/read | Read configuration information classic compute virtual machines |
@@ -288,7 +289,6 @@ Can manage security components, security policies and virtual machines
 | Microsoft.Resources/subscriptions/resourceGroups/deployments/* | Create and manage resource group deployments |
 | Microsoft.Insights/alertRules/* | Create and manage alert rules |
 | Microsoft.Support/* | Create and manage support tickets  |
-
 
 ### SQL DB Contributor
 Can manage SQL databases but not their security related policies
@@ -312,7 +312,7 @@ Can manage SQL databases but not their security related policies
 ### SQL Security Manager
 Can manage the security related policies of SQL servers and databases
 
-| **SQL Security Manager Actions** ||
+| **Actions** ||
 | ------- | ------ |
 | Microsoft.Sql/servers/read | Read SQL Servers |
 | Microsoft.Sql/servers/auditingPolicies/* | Create and manage SQL server auditing policies |
@@ -334,7 +334,7 @@ Can manage the security related policies of SQL servers and databases
 ### SQL Server Contributor
 Can manage SQL servers and databases but not their security related policies
 
-| **SQL Server Contributor Actions** ||
+| **Actions** ||
 | ------- | ------ |
 | Microsoft.Sql/servers/* | Create and manage SQL servers |
 | Microsoft.Authorization/*/read | Read authorization|
@@ -353,7 +353,7 @@ Can manage SQL servers and databases but not their security related policies
 ### Classic Storage Account Contributor
 Can manage classic storage accounts
 
-| **Classic Storage Account Contributor Actions** ||
+| **Actions** ||
 | ------- | ------ |
 | Microsoft.ClassicStorage/storageAccounts/* | Create and manage storage accounts |
 | Microsoft.Authorization/*/read | Read authorization |
@@ -367,7 +367,7 @@ Can manage classic storage accounts
 ### Storage Account Contributor
 Can manage storage accounts
 
-| **Storage Account Contributor Actions** ||
+| **Actions** ||
 | ------- | ------ |
 | Microsoft.Storage/storageAccounts/* | Create and manage storage accounts |
 | Microsoft.Authorization/*/read | Read all authorization |
@@ -381,7 +381,7 @@ Can manage storage accounts
 ### User Access Administrator
 Can manage user access to Azure resources
 
-| **User Access Administrator Actions** ||
+| **Administrator Actions** ||
 | ------- | ------ |
 | */read | Read resources of all Types, except secrets. |
 | Microsoft.Authorization/* | Read authorization |
@@ -390,7 +390,7 @@ Can manage user access to Azure resources
 ### Classic Virtual Machine Contributor
 Can manage classic virtual machines but not the virtual network or storage account to which they are connected
 
-| **Classic Virtual Machine Contributor Actions** ||
+| **Actions** ||
 | ------- | ------ |
 | Microsoft.ClassicStorage/storageAccounts/read | Read classic storage accounts |
 | Microsoft.ClassicStorage/storageAccounts/listKeys/action | List storage account keys |
@@ -412,7 +412,7 @@ Can manage classic virtual machines but not the virtual network or storage accou
 ### Virtual Machine Contributor
 Can manage virtual machines but not the virtual network or storage account to which they are connected
 
-| **Virtual Machine Contributor Actions** ||
+| **Actions** ||
 | ------- | ------ |
 | Microsoft.Storage/storageAccounts/read | Read storage accounts |
 | Microsoft.Storage/storageAccounts/listKeys/action | List storage account keys |
@@ -441,9 +441,9 @@ Can manage virtual machines but not the virtual network or storage account to wh
 ### Classic Network Contributor
 Can manage classic virtual networks and reserved IPs
 
-| **Classic Network Contributor Actions** ||
+| **Actions** ||
 | ------- | ------ |
-| Microsoft.ClassicNetwork/* | description |
+| Microsoft.ClassicNetwork/* | Create and manage classic networks |
 | Microsoft.Authorization/*/read | Read authorization |
 | Microsoft.Resources/subscriptions/resourceGroups/read | Read subscription resource groups |
 | Microsoft.Resources/subscriptions/resourceGroups/resources/read | Read subscription resource groups resources |
@@ -454,9 +454,9 @@ Can manage classic virtual networks and reserved IPs
 ### Web Plan Contributor
 Can manage web plans
 
-| **Web Plan Contributor Actions** ||
+| **Actions** ||
 | ------- | ------ |
-| Microsoft.Web/serverFarms/* | description |
+| Microsoft.Web/serverFarms/* | Create and manage server farms |
 | Microsoft.Authorization/*/read | Read authorization |
 | Microsoft.Resources/subscriptions/resourceGroups/read | Read subscription resource groups |
 | Microsoft.Resources/subscriptions/resourceGroups/resources/read | Read subscription resource groups resources |
@@ -467,7 +467,7 @@ Can manage web plans
 ### Website Contributor
 Can manage websites but not the web plans to which they are connected
 
-| **Website Contributor Actions** ||
+| **Actions** ||
 | ------- | ------ |
 | Microsoft.Web/serverFarms/read | Read server farms |
 | Microsoft.Web/serverFarms/join/action | Join server farms |
@@ -480,7 +480,7 @@ Can manage websites but not the web plans to which they are connected
 | Microsoft.Resources/subscriptions/resourceGroups/deployments/* | Create and manage subscription resource group deployments |
 | Microsoft.Insights/alertRules/* | Create and manage Insights alert rules |
 | Microsoft.Support/* | Create and manage support tickets |
-| Microsoft.Insights/components/* | description |
+| Microsoft.Insights/components/* | Create and manage Insights components |
 
 ## RBAC Topics
 [AZURE.INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)]

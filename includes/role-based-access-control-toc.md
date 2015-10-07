@@ -1,3 +1,4 @@
+- [Role Based Access Control](role-based-access-control-configure.md)
 - [Manage access using the Azure Management Portal](role-based-access-control-manage-access-azure-portal.md)
 - [Manage access using Azure Powershell](role-based-access-control-manage-access-powershell.md)
 - [Manage access using the Azure CLI](role-based-access-control-manage-access-azure-cli.md)
