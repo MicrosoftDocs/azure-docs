@@ -1,9 +1,9 @@
 <properties
 	pageTitle="Efficient list queries in Azure Batch | Microsoft Azure"
-	description="Learn to reduce the amount of data returned and increase performance when querying Azure Batch pools, jobs, tasks, compute nodes, and more."
+	description="Increase performance by reducing the amount of data returned when querying Azure Batch entities such as pools, jobs, tasks, and compute nodes."
 	services="batch"
 	documentationCenter=".net"
-	authors="davidmu1"
+	authors="mmacy"
 	manager="timlt"
 	editor=""
 	tags="azure-resource-manager"/>
@@ -14,14 +14,14 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="big-compute"
-	ms.date="10/01/2015"
-	ms.author="davidmu;v-marsma"/>
+	ms.date="10/07/2015"
+	ms.author="v-marsma"/>
 
-# Query the Batch service efficiently
+# Query the Azure Batch service efficiently
 
 Azure Batch is big compute, and in a production environment, entities like jobs, tasks, and compute nodes can number in the thousands. Obtaining information on these items can therefore generate a large amount of data that must be transferred on each query. Limiting the number of items and type of information returned for each will increase the speed of your queries and therefore the performance of your application.
 
-Listing jobs, tasks, compute nodes--these are examples of operations that virtually every application using Azure Batch must perform, often quite frequently. Monitoring is a common use case. Determining the capacity and status of a pool, for example, requires that all compute nodes in that pool be queried. Another example is querying a job's tasks to determine if any of those tasks are still queued.
+Listing jobs, tasks, compute nodes--these are examples of operations that nearly every application using Azure Batch must perform, often quite frequently. Monitoring is a common use case. Determining the capacity and status of a pool, for example, requires that all compute nodes in that pool be queried. Another example is querying a job's tasks to determine if any of those tasks are still queued.
 
 This [Batch .NET][api_net] API code snippet retrieves all of the tasks associated with a job, along with the full suite of those tasks' properties:
 
@@ -158,13 +158,13 @@ Property names in filter, select, and expand strings *must* reflect their REST A
 
 ### Example: constructing a filter string
 
-When constructing a filter string for an [ODATADetailLevel.FilterClause][odata_filter], consult the table above under *Mappings for filter strings* to find the REST API documentation page corresponding to the list operation you wish to perform. You will find the filterable properties and their supported operators in the first multi-row table on that page. If you wish to retrieve all tasks whose exit code was zero, for example, this row on [List the tasks associated with a job][rest_list_tasks] specifies the applicable property string and allowable operators:
+When constructing a filter string for an [ODATADetailLevel.FilterClause][odata_filter], consult the table above under *Mappings for filter strings* to find the REST API documentation page corresponding to the list operation you wish to perform. You will find the filterable properties and their supported operators in the first multi-row table on that page. If you wish to retrieve all tasks whose exit code was non-zero, for example, this row on [List the tasks associated with a job][rest_list_tasks] specifies the applicable property string and allowable operators:
 
 ![Task exit code property][1]
 
-Thus, the filter string for listing all tasks with a exit code of zero would be:
+Thus, the filter string for listing all tasks with a non-zero exit code would be:
 
-`executionInfo/exitCode eq 0`
+`(executionInfo/exitCode lt 0) or (executionInfo/exitCode gt 0)`
 
 ### Example: constructing a select string
 
