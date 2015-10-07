@@ -170,7 +170,7 @@ Before deploying the extension please check the latest extension version and rep
               "protectedSettings": {
                 "workspaceKey"  : "The Workspace Key is a string that is available from within the Direct Agent Configuration section of the Azure Operational Insights portal"
               }
-          }
+              }
             }
 
 ### McAfee EndpointSecurity

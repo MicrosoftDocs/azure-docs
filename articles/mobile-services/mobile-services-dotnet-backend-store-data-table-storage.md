@@ -20,7 +20,7 @@
 
 This topic shows you how to use a non-relational data store for your .NET backend mobile service. In this tutorial, you will modify the Azure Mobile Services quickstart project to use Azure Table storage instead of the default Azure SQL Database data store.
 
-The tutorial requires completion of the [Get started with Mobile Services] or [Add Mobile Services to an existing app] tutorial. You will also need an Azure storage account. 
+The tutorial requires completion of the [Get started with Mobile Services] tutorial. You will also need an Azure storage account. 
 
 ##Configure Azure Table storage in your .NET backend mobile service
 
@@ -150,7 +150,6 @@ Now that you have seen how easy it is to use Table storage with .NET backend, co
 
 <!-- URLs. -->
 [Get started with Mobile Services]: mobile-services-dotnet-backend-windows-store-dotnet-get-started.md
-[Add Mobile Services to an existing app]: ../mobile-services-dotnet-backend-windows-store-dotnet-get-started-data.md
 [Azure Management Portal]: https://manage.windowsazure.com/
 [What is the Table Service]: ../storage-dotnet-how-to-use-tables.md#what-is
 [MongoLab Add-on Page]: /gallery/store/mongolab/mongolab
