@@ -223,7 +223,7 @@ The following example shows how to list all blobs in a container. When performin
   4.  `AZSBlobListingDetailsUncommittedBlobs` - List committed and uncommitted blobs.
   5.  `AZSBlobListingDetailsCopy` - Include copy properties in the listing.
   6.  `AZSBlobListingDetailsAll` - List all available committed blobs, uncommitted blobs, and snapshots, and return all metadata and copy status for those blobs.
-- **maxResults** - The maximum number of results to return for this operation.  Use -1 to not set a limit.
+- **maxResults** - The maximum number of results to return for this operation. Use -1 to not set a limit.
 - **completionHandler** - The block of code to execute with the results of the listing operation.
 
 In this example, a helper method is used to recursively call the list blobs method every time a continuation token is returned.
