@@ -35,11 +35,12 @@ Learn how to monitor and manage Stream Analytics resources with Azure PowerShell
 		Select-AzureSubscription -SubscriptionName <subscription name>
  
 		# Create an Azure resource group	
-			# If Stream Analytics has not been registered to the subscription, run the Register-AzureRMProvider cmdlet to register the provider namespace
-			Register-AzureRMProvider -Force -ProviderNamespace 'Microsoft.StreamAnalytics'
+			# If Stream Analytics has not been registered to the subscription, remove remark symbol below (#) to run the Register-AzureRMProvider cmdlet to register the provider namespace
+			#Register-AzureRMProvider -Force -ProviderNamespace 'Microsoft.StreamAnalytics'
 
 		# Create an Azure resource group
 		New-AzureResourceGroup -Name <YOUR RESORUCE GROUP NAME> -Location <LOCATION>
+		
 
 
 > [AZURE.NOTE] Stream Analytics jobs created programmatically do not have monitoring enabled by default.  You can manually enable monitoring in the Azure Portal by navigating to the job’s Monitor page and clicking the Enable button or you can do this programmatically by following the steps located at [Azure Stream Analytics - Monitor Stream Analytics Jobs Programatically](stream-analytics-monitor-jobs.md)
