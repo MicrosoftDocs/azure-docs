@@ -18,9 +18,10 @@
 
 # Create a SQL Data Warehouse by using the Azure preview portal#
 
-> [AZURE.SELECTOR]
-- [Azure preview portal](sql-data-warehouse-get-started-provision.md)
-- [PowerShell](sql-data-warehouse-get-started-create-powershell.md)
+[AZURE.SELECTOR]  
+[Azure Preview Portal](sql-data-warehouse-get-started-provision.md)  
+[TSQL](sql-data-warehouse-get-started-create-TSQL.md)  
+[PowerShell](sql-data-warehouse-get-started-create-powershell.md)  
 
 This walkthrough shows you how to create an Azure SQL Data Warehouse database in just a few minutes by using the Azure preview portal. 
 
