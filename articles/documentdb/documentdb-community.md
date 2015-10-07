@@ -33,7 +33,7 @@ Let us promote your project! Show us the awesome project you're working on with 
 
 Aggregations (Group-by, Pivot-table, and N-dimensional Cube) and Time Series Transformations as Stored Procedures in DocumentDB.
 
-Check it out on [Github](https://github.com/lmaccherone/documentdb-lumenize) and [npm](https://www.npmjs.com/package/).
+Check it out on [Github](https://github.com/lmaccherone/documentdb-lumenize) and [npm](https://www.npmjs.com/package/lumenize).
 
 ### DocumentDB Studio
 
@@ -102,8 +102,8 @@ You can stay up-to-date with the latest DocumentDB news and features by followin
 | [Ignite](http://ignite.microsoft.com/) | Chicago, IL | May 4-8, 2015 | [SELECT Latest FROM DocumentDB video](https://azure.microsoft.com/documentation/videos/microsoft-ignite-2015-select-latest-from-microsoft-azure-documentdb/)<br/>[DocumentDB and Azure HDInsight: Better Together video](https://azure.microsoft.com/documentation/videos/microsoft-ignite-2015-microsoft-azure-documentdb-and-azure-hdinsight-better-together/) |
 | [Build 2015](http://www.buildwindows.com/) | San Francisco, CA | April 29 - May 1, 2015 | [Build the Next Big Thing with Azure’s NoSQL Service: DocumentDB](https://channel9.msdn.com/Events/Build/2015/2-729) |
 | [#DevHangout - devacademy.la](https://www.youtube.com/user/devacademyla) | Virtual Event | March 11, 2015 | [DocumentDB, la base de datos NoSql de Microsoft Azure](https://www.youtube.com/watch?v=8Ud3jB8KOBA) |
-| [Data Architecture Virtual Chapter PASS](https://www.devintersection.com/) | Virtual Event | February 25, 2015 | [Introduction to DocumentDB](https://www.youtube.com/watch?v=7BQYdFUkz6s) |
-| [TechX Azure](https://www.devintersection.com/) | Stockholm, Sweden | January 28-29, 2015 | [DocumentDB in Azure the new NoSQL option for the Cloud](https://www.youtube.com/watch?v=Hw7hDYoChNI) |
+| [Data Architecture Virtual Chapter PASS](https://dataarch.sqlpass.org/) | Virtual Event | February 25, 2015 | [Introduction to DocumentDB](https://www.youtube.com/watch?v=7BQYdFUkz6s) |
+| [TechX Azure](https://www.youtube.com/channel/UCDRlI2E4z5qmHsBXTrFOE2Q) | Stockholm, Sweden | January 28-29, 2015 | [DocumentDB in Azure the new NoSQL option for the Cloud](https://www.youtube.com/watch?v=Hw7hDYoChNI) |
 
 *Are you hosting an event? [Let us know](mailto:askdocdb@microsoft.com) how we can help!*
 
@@ -135,7 +135,7 @@ Follow us on twitter [@DocumentDB](https://twitter.com/DocumentDB) and stay up t
 | Forum provider | Description |
 | -------------- | ----------- |
 | [![StackOverflow](./media/documentdb-community/stack-overflow.png)](http://stackoverflow.com/questions/tagged/azure-documentdb) | A language-independent collaboratively edited question and answer site for programmers. Follow our tag: [azure-documentdb](http://stackoverflow.com/questions/tagged/azure-documentdb) |
-| [![MSDN](./media/documentdb-community/msdn.png)](https://social.msdn.microsoft.com/Forums/home?forum=AzureDocumentDB) | A good place for support and feedback on Microsoft Azure features and services like Web Sites, DocumentDB, etc. |
+| [![MSDN](./media/documentdb-community/msdn.png)](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDocumentDB) | A good place for support and feedback on Microsoft Azure features and services like Web Sites, DocumentDB, etc. |
 
 <br/><br/>
 
