@@ -135,7 +135,7 @@ Follow us on twitter [@DocumentDB](https://twitter.com/DocumentDB) and stay up t
 | Forum provider | Description |
 | -------------- | ----------- |
 | [![StackOverflow](./media/documentdb-community/stack-overflow.png)](http://stackoverflow.com/questions/tagged/azure-documentdb) | A language-independent collaboratively edited question and answer site for programmers. Follow our tag: [azure-documentdb](http://stackoverflow.com/questions/tagged/azure-documentdb) |
-| [![MSDN](./media/documentdb-community/msdn.png)](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDocumentDB) | A good place for support and feedback on Microsoft Azure features and services like Web Sites, DocumentDB, etc. |
+| [![MSDN](./media/documentdb-community/msdn.png)](http://go.microsoft.com/fwlink/?LinkId=631655 ) | A good place for support and feedback on Microsoft Azure features and services like Web Sites, DocumentDB, etc. |
 
 <br/><br/>
 
