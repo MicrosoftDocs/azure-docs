@@ -71,7 +71,7 @@ Sampling is not applied to TrackMetric, performance counter, and session telemet
 
 *Can the sample ratio be changed dynamically?*
 
-* Not at present. On the roadmap is to build “adaptive sampling” that, on the fly, will be adjusting sampling ratio up and down, based on the currently observed volume of the telemetry and other factors. 
+* Not at present. On the roadmap is to build “adaptive sampling” that will adjust sampling ratio up and down on the fly, based on the currently observed volume of the telemetry and other factors. 
 
 *How do I know which sampling ratio will work the best for my app?*
 

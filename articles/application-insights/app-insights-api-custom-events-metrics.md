@@ -719,6 +719,9 @@ Note that the function is asynchronous for in-memory channels, but synchronous i
 
 Use sampling to reduce the traffic from your app to the Application Insights service. This feature suppresses the telemetry associated with all but a defined percentage of operations. Client and server side SDKs coordinate so that in Diagnostic Search, you can still correlate requests with their corresponding exceptions and page views. In Metric Explorer, event counts are multiplied by the sampling factor, so that the figures shown should be a reasonable approximation to the true values.
 
+Set the channel in a suitable initialization method such as Application_Start() in Global.asax.cs:
+
+*C#*
 
 ```C#
 
