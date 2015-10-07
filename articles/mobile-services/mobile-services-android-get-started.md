@@ -65,10 +65,12 @@ In this section you will create a new Android app that is connected to your mobi
 4. Click **Create TodoItem table** to create a table to store app data.
 
 
-5. Now download your app:
-	- The latest app version uses the Mobile Services Android SDK 2.0. You can download that version from <a href="https://github.com/RickSaling/mobile-services-samples/tree/futures">here</a>. Click **Download Zip**, unzip it, and the project is in GettingStarted under the Android folder.
+5. Now download your app by pressing the **Download** button.
+
+<!--	- The latest app version uses the Mobile Services Android SDK 2.0. You can download that version from <a href="https://github.com/RickSaling/mobile-services-samples/tree/futures">here</a>. Click **Download Zip**, unzip it, and the project is in GettingStarted under the Android folder.
 
 	- An earlier version uses the prior version of the SDK. To use it, under **Download and run your app**, click **Download**. This downloads the project for the sample _To do list_ application that is connected to your mobile service. The project files are compressed, so browse to their location and expand the files on your computer.
+-->
 
 
 ## Run your Android app
