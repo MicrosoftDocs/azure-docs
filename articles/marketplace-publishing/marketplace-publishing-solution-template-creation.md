@@ -51,7 +51,7 @@ After completing the step 1, [Account Creation and Registration][link-acct-creat
 
 > [AZURE.NOTE] For first time login to [Publishing Portal] (https://publish.windowsazure.com/), use the same account with which your company’s Seller Profile was registered. Later you can add any employee of your company as a co-admin in the Publishing portal by following the steps below.
 
-## 2. Create your Solution Template offer in the Publishing Portal
+## Create your Solution Template offer in the Publishing Portal
 Go to the [https://publish.windowsazure.com](http://publish.windowsazure.com). For first time login to [Publishing Portal](https://publish.windowsazure.com/), use the same account with which your company’s Seller Profile was registered. Later you can add any employee of your company as a co-admin in the Publishing Portal.
 
 ### 1. Select 'Solution Templates'
