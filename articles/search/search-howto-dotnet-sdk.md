@@ -13,7 +13,7 @@
    ms.workload="search"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.date="07/08/2015"
+   ms.date="10/06/2015"
    ms.author="brjohnst"/>
 
 # How to use Azure Search from a .NET Application #
@@ -31,7 +31,7 @@ The client library defines classes like `Index`, `Field`, and `Document`, as wel
 
 The current version of the Azure Search .NET SDK is a pre-release version. If you would like to provide feedback for us to incorporate in the first stable version, please visit our [feedback page](http://feedback.azure.com/forums/263029-azure-search).
 
-The .NET SDK supports version `2015-02-28` of the Azure Search REST API, documented on [MSDN](https://msdn.microsoft.com/library/azure/dn798935.aspx). New features that are *not* part of this version, such as support for Microsoft's natural language processors or the `moreLikeThis` search parameter, are in [preview](search-api-2015-02-28-preview.md) and not yet available in the SDK. You can check back on [Search service versioning](https://msdn.microsoft.com/library/azure/dn864560.aspx) or [Latest updates to Azure Search](search-latest-updates.md) for status updates on either feature.
+The .NET SDK supports version `2015-02-28` of the Azure Search REST API, documented on [MSDN](https://msdn.microsoft.com/library/azure/dn798935.aspx). This version now includes support for Microsoft language analyzers. Newer features that are *not* part of this version, such as support for the `moreLikeThis` search parameter, are in [preview](search-api-2015-02-28-preview.md) and not yet available in the SDK. You can check back on [Search service versioning](https://msdn.microsoft.com/library/azure/dn864560.aspx) or [Latest updates to Azure Search](search-latest-updates.md) for status updates on either feature.
 
 Other features not supported in this SDK include:
 
@@ -335,7 +335,9 @@ You may be wondering how the Azure Search .NET SDK is able to upload instances o
 
 The first thing to notice is that each public property of `Hotel` corresponds to a field in the index definition, but with one crucial difference: The name of each field starts with a lower-case letter ("camel case"), while the name of each public property of `Hotel` starts with an upper-case letter ("Pascal case"). This is a common scenario in .NET applications that perform data-binding where the target schema is outside the control of the application developer. Rather than having to violate the .NET naming guidelines by making property names camel-case, you can tell the SDK to map the property names to camel-case automatically with the `[SerializePropertyNamesAsCamelCase]` attribute.
 
-The second important thing about the `Hotel` class are the data types of the public properties. The .NET types of  these properties map to their equivalent field types in the index definition. For example, the `Category` string property maps to the `category` field, which is of type `Edm.String`. There are similar type mappings between `bool?` and `Edm.Boolean`, `DateTimeOffset?` and `Edm.DateTimeOffset`, etc. The specific rules for the type mapping are documented with the `Documents.Get` method on [MSDN](https://msdn.microsoft.com/library/azure/dn931291.aspx). Note that value types such as `bool` and `int` are nullable in the `Hotel` class because all primitive field types in Azure Search are nullable.
+The second important thing about the `Hotel` class are the data types of the public properties. The .NET types of  these properties map to their equivalent field types in the index definition. For example, the `Category` string property maps to the `category` field, which is of type `Edm.String`. There are similar type mappings between `bool?` and `Edm.Boolean`, `DateTimeOffset?` and `Edm.DateTimeOffset`, etc. The specific rules for the type mapping are documented with the `Documents.Get` method on [MSDN](https://msdn.microsoft.com/library/azure/dn931291.aspx).
+ 
+> [AZURE.NOTE] When designing your own model classes to map to an Azure Search index, make sure to declare properties of value types such as `bool` and `int` to be nullable (e.g.: `bool?` instead of `bool`). This is required because all primitive field types in Azure Search are nullable. If you use non-nullable types, you may get unexpected results when indexing default values like `0` and `false`.
 
 This ability to use your own classes as documents works in both directions; You can also retrieve search results and have the SDK automatically deserialize them to a type of your choice, as we will see in the next section.
 
