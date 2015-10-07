@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="Objective-C"
     ms.topic="article"
-    ms.date="10/06/2015"
+    ms.date="10/07/2015"
     ms.author="micurd"/>
 
 # How to use Blob storage from iOS
@@ -30,11 +30,11 @@ This article will show you how to perform common scenarios using Microsoft Azure
 ## Build the framework file
 In order to use the Azure Storage iOS library, you will first need to build the framework file.
 
-1. First, download or clone the [Azure Storage iOS repo](https://github.com/azure/azure-storage-ios).
+1. First, download or clone the [azure-storage-ios repo](https://github.com/azure/azure-storage-ios).
 
-2. Next, open `Azure Storage Client Library.xcodeproj` in Xcode.
+2. Go into *azure-storage-ios* -> *Lib* -> *Azure Storage Client Library*, and open `Azure Storage Client Library.xcodeproj` in Xcode.
 
-3. At the top-left, change the scheme from "Azure Storage Client Library" to "Framework".
+3. At the top-left of Xcode, change the active scheme from "Azure Storage Client Library" to "Framework".
 
 4. Build the project (⌘+B). This will create a `Azure Storage Client Library.framework` file on your Desktop.
 
@@ -58,7 +58,7 @@ You can import the Azure Storage iOS library into your application by doing the 
 You will need to include the following import statement in the file where you want to invoke the Azure Storage API.
 
     // Include the following import statement to use blob APIs.
-    #import “Azure Storage Client Library/Azure_Storage_Client_Library.h”
+    #import <Azure Storage Client Library/Azure_Storage_Client_Library.h>
 
 ## Configure your application to access Blob storage
 
@@ -90,35 +90,40 @@ When you create the SAS, you can specify the time interval over which the SAS is
 
 The following example shows how to use Azure CLI to generate a SAS token that grants read and write permissions for the container,*sascontainer*, until 12:00AM (UTC) September 5, 2015.  
 
-1. First, follow this [guide](xplat-cli/#how-to-install-the-azure-cli)  to learn how to install Azure CLI and connect to your Azure subscription.
+1. First, follow this [guide](../xplat-cli/#how-to-install-the-azure-cli)  to learn how to install Azure CLI and connect to your Azure subscription.
 
 2. Next, type the following command in Azure CLI to get the connection string for your account:
-     azure storage account connectionString show youraccountname
+     
+		azure storage account connectionString show youraccountname
 
 3. Create an environment variable with the connection string that you just generated:
-     export AZURE_STORAGE_CONNECTION_STRING=”your connection string”
+     
+		export AZURE_STORAGE_CONNECTION_STRING=”your connection string”
 
 4. Generate SAS URL:
-     azure storage container sas create --container sascontainer --permissions rw --expiry 2015-09-05T00:00:00 
+     
+		azure storage container sas create --container sascontainer --permissions rw --expiry 2015-09-05T00:00:00 
 
 5. The SAS URL should look similar to the following:
-     https://myaccount.blob.core.windows.net/sascontainer/sasblob.txt?sv=2012-02-12&st=2013-04-29T22%3A18%3A26Z&se=2013-04-30T02%3A23%3A26Z&sr=b&sp=rw&sig=Z%2FRHIX5Xcg0Mq2rqI3OlWTjEg2tYkboXr1P9ZUXDtkk%3D
+     	
+		https://myaccount.blob.core.windows.net/sascontainer/sasblob.txt?sv=2012-02-12&st=2013-04-29T22%3A18%3A26Z&se=2013-04-30T02%3A23%3A26Z&sr=b&sp=rw&sig=Z%2FRHIX5Xcg0Mq2rqI3OlWTjEg2tYkboXr1P9ZUXDtkk%3D
 
 6. In your iOS application, you can now get a reference to your container by using the SAS URL in the following manner:
-    // Get a reference to a container in your Storage account
-    AZSCloudBlobContainer *blobContainer = [[AZSCloudBlobContainer alloc] initWithUrl:[NSURL URLWithString:@" your SAS URL"]];
+    	
+		// Get a reference to a container in your Storage account
+    	AZSCloudBlobContainer *blobContainer = [[AZSCloudBlobContainer alloc] initWithUrl:[NSURL URLWithString:@" your SAS URL"]];
 
-As you can see, when using a SAS token, you’re not exposing your account name and account key in your iOS application. You can learn more about SAS by checking out the [Shared Access Signature tutorial](storage-dotnet-shared-access-signature-part-1). 
+As you can see, when using a SAS token, you’re not exposing your account name and account key in your iOS application. You can learn more about SAS by checking out the [Shared Access Signature tutorial](../storage-dotnet-shared-access-signature-part-1). 
 
 ##Asynchronous Operations
-[AZURE.NOTE] All methods that perform a request against the service are asynchronous operations. In the code samples, you’ll find that these methods have a completion handler. Code inside the completion handler will run **after** the request is completed. Code after the completion handler will run **while** the request is being made.
+> [AZURE.NOTE] All methods that perform a request against the service are asynchronous operations. In the code samples, you’ll find that these methods have a completion handler. Code inside the completion handler will run **after** the request is completed. Code after the completion handler will run **while** the request is being made.
  
 ## Create a container
 Every blob in Azure Storage must reside in a container. The following example shows how to create a container, called *newcontainer*, in your Storage account if it doesn't already exist. When choosing a name for your container, be mindful of the naming rules mentioned above.
 
      -(void)createContainer{
         // Create a storage account object from a connection string.
-        AZSCloudStorageAccount *account = [AZSCloudStorageAccount accountFromConnectionString:@"DefaultEndpointsProtocol=https;AccountName=account_name;AccountKey=account_key"];
+        AZSCloudStorageAccount *account = [AZSCloudStorageAccount accountFromConnectionString:@"DefaultEndpointsProtocol=https;AccountName=your_account_name_here;AccountKey=your_account_key_here"];
         
         // Create a blob service client object.
         AZSCloudBlobClient *blobClient = [account getBlobClient];
@@ -128,7 +133,7 @@ Every blob in Azure Storage must reside in a container. The following example sh
         
         // Create container in your Storage account if the container doesn't already exist
         [blobContainer createContainerIfNotExistsWithCompletionHandler:^(NSError *error, BOOL exists) {
-            if (error != nil){
+            if (error){
                 NSLog(@"Error in creating container.");
             }
         }];
@@ -149,7 +154,7 @@ The following example shows you how to create a container with **Container** acc
 
      -(void)createContainerWithPublicAccess{
         // Create a storage account object from a connection string.
-        AZSCloudStorageAccount *account = [AZSCloudStorageAccount accountFromConnectionString:@"DefaultEndpointsProtocol=https;AccountName=account_name;AccountKey=account_key"];
+        AZSCloudStorageAccount *account = [AZSCloudStorageAccount accountFromConnectionString:@"DefaultEndpointsProtocol=https;AccountName=your_account_name_here;AccountKey=your_account_key_here"];
     
         // Create a blob service client object.
         AZSCloudBlobClient *blobClient = [account getBlobClient];
@@ -159,20 +164,20 @@ The following example shows you how to create a container with **Container** acc
     
         // Create container in your Storage account if the container doesn't already exist
         [blobContainer createContainerIfNotExistsWithAccessType:AZSContainerPublicAccessTypeContainer requestOptions:nil operationContext:nil completionHandler:^(NSError *error, BOOL exists){
-            if (error != nil){
+            if (error){
                 NSLog(@"Error in creating container.");
             }
         }];
     }
 
 ## Upload a blob into a container
-As mentioned in the [Blob Service Concepts](storage-ios-how-to-use-blobs/#blob-service-concepts) section, Blob Storage offers three different types of blobs: block blobs, append blobs, and page blobs. At this moment, the Azure Storage iOS library only supports block blobs. In the majority of cases, block blob is the recommended type to use.
+As mentioned in the [Blob Service Concepts](../storage-ios-how-to-use-blobs/#blob-service-concepts) section, Blob Storage offers three different types of blobs: block blobs, append blobs, and page blobs. At this moment, the Azure Storage iOS library only supports block blobs. In the majority of cases, block blob is the recommended type to use.
 
 The following example shows how to upload a block blob from an NSString. If a blob with the same name already exists in this container, the contents of this blob will be overwritten. 
 
      -(void)uploadBlobToContainer{
         // Create a storage account object from a connection string.
-        AZSCloudStorageAccount *account = [AZSCloudStorageAccount accountFromConnectionString:@"DefaultEndpointsProtocol=https;AccountName=account_name;AccountKey=account_key"];
+        AZSCloudStorageAccount *account = [AZSCloudStorageAccount accountFromConnectionString:@"DefaultEndpointsProtocol=https;AccountName=your_account_name_here;AccountKey=your_account_key_here"];
     
         // Create a blob service client object.
         AZSCloudBlobClient *blobClient = [account getBlobClient];
@@ -182,21 +187,22 @@ The following example shows how to upload a block blob from an NSString. If a bl
     
         [blobContainer createContainerIfNotExistsWithAccessType:AZSContainerPublicAccessTypeContainer requestOptions:nil operationContext:nil completionHandler:^(NSError *error, BOOL exists)
          {
-             if (error != nil){
+             if (error){
                  NSLog(@"Error in creating container.");
              }
+         	 else{
+				 // Create a local blob object
+             	 AZSCloudBlockBlob *blockBlob = [blobContainer blockBlobReferenceFromName:@"sampleblob"];
          
-             // Create a local blob object
-             AZSCloudBlockBlob *blockBlob = [blobContainer blockBlobReferenceFromName:@"sampleblob"];
-         
-             // Upload blob to Storage
-             [blockBlob uploadFromText:@"This text will be uploaded to Blob Storage." completionHandler:^(NSError *error) {
-                if (error != nil){
-                     NSLog(@"Error in creating blob.");
-                 }             
-             }];
+             	 // Upload blob to Storage
+             	 [blockBlob uploadFromText:@"This text will be uploaded to Blob Storage." completionHandler:^(NSError *error) {
+                 	if (error){
+						NSLog(@"Error in creating blob.");
+                 	}             
+             	 }];
+			 }
          }];
-    }
+     }
 
 You can confirm that this works by looking at the [Portal](portal.azure.com) or any [Storage explorer](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/03/11/windows-azure-storage-explorers-2014.aspx) and verifying that the container, *containerpublic*, contains the blob, *sampleblob*. In this sample, we used a public container so you can also verify that this worked by going to the blobs URI:
 
@@ -241,7 +247,7 @@ The following example shows how to download a blob to a NSString object.
 
      -(void)downloadBlobToString{
         // Create a storage account object from a connection string.
-        AZSCloudStorageAccount *account = [AZSCloudStorageAccount accountFromConnectionString:@"DefaultEndpointsProtocol=https;AccountName=account_name;AccountKey=account_key"];
+        AZSCloudStorageAccount *account = [AZSCloudStorageAccount accountFromConnectionString:@"DefaultEndpointsProtocol=https;AccountName=your_account_name_here;AccountKey=your_account_key_here"];
     
         // Create a blob service client object.
         AZSCloudBlobClient *blobClient = [account getBlobClient];
@@ -254,10 +260,12 @@ The following example shows how to download a blob to a NSString object.
     
         // Download blob    
         [blockBlob downloadToTextWithCompletionHandler:^(NSError *error, NSString *text) {
-            if (error != nil) {
+            if (error) {
                 NSLog(@"Error in downloading blob");
             }
-            NSLog(@"%@",text);
+			else{
+            	NSLog(@"%@",text);
+			}
         }];
     
     }
@@ -281,7 +289,7 @@ The following example shows how to delete a blob.
     
         // Delete blob
         [blockBlob deleteWithSnapshotsOption:AZSDeleteSnapshotsOptionNone accessCondition:nil requestOptions:nil operationContext:nil completionHandler:^(NSError *error) {
-        	if (error != nil) {
+        	if (error) {
             	    NSLog(@"Error in deleting blob.");
         	}
          }];
@@ -293,7 +301,7 @@ The following example shows how to delete a container.
 
      -(void)deleteContainer{
         // Create a storage account object from a connection string.
-        AZSCloudStorageAccount *account = [AZSCloudStorageAccount accountFromConnectionString:@"DefaultEndpointsProtocol=https;AccountName=account_name;AccountKey=account_key"];
+        AZSCloudStorageAccount *account = [AZSCloudStorageAccount accountFromConnectionString:@"DefaultEndpointsProtocol=https;AccountName=your_account_name_here;AccountKey=your_account_key_here"];
     
         // Create a blob service client object.
         AZSCloudBlobClient *blobClient = [account getBlobClient];
@@ -303,7 +311,7 @@ The following example shows how to delete a container.
     
         // Delete container
         [blobContainer deleteContainerIfExistsWithCompletionHandler:^(NSError *error, BOOL success) {
-            if(error != nil){
+            if(error){
                 NSLog(@"Error in deleting container");
             }
         }];
