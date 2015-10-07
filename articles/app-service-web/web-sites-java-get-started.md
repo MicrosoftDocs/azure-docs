@@ -89,6 +89,8 @@ Now that you've created the web app with an app container, see the **Next steps*
 
 At this point, you have a Java application server running as your Java web app on Azure. To add in your own application or webpage, see [Add an application or webpage to your Java web app](web-sites-java-add-app.md).
 
+For more information, see the [Java Developer Center](/develop/java/).
+
 ## What's changed
 
 * For a guide to the change from Websites to App Service, see [Azure App Service and existing Azure services][].

@@ -91,7 +91,9 @@ While Azure provides several default versions of Node.js, you may want to use a 
 
 Now that you understand how to specify the version of Node.js used by your application, learn how to [work with modules], [build and deploy a Node.js Web Site], and [How to use the Azure Command-Line Tools for Mac and Linux].
 
-[How to use the Azure Command-Line Tools for Mac and Linux]: xplat-cli.md
-[Azure Command-line tools]: xplat-cli.md
+For more information, see the [Node.js Developer Center](/develop/nodejs/).
+
+[How to use the Azure Command-Line Tools for Mac and Linux]: xplat-cli-install.md
+[Azure Command-line tools]: xplat-cli-install.md
 [work with modules]: nodejs-use-node-modules-azure-apps.md
 [build and deploy a Node.js Web Site]: web-sites-nodejs-develop-deploy-mac.md

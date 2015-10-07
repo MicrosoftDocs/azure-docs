@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/23/2015"
+   ms.date="10/06/2015"
    ms.author="sahajs"/>
 
 # Use Azure Machine Learning with SQL Data Warehouse
@@ -21,8 +21,9 @@
 Azure Machine Learning is a fully managed predictive analytics service that you can use to create predictive models against your data in SQL Data Warehouse, and publish them as ready-to-consume web services. You can learn the basics of predictive analytics and machine learning by reading [Introduction to Machine Learning on Azure][].  You can then learn how to create, train, score and test a machine learning model using the [Create experiment tutorial][].
 
 In this article, you will learn how to do the following using the [Azure Machine Learning Studio][]:
--	Read data from your database to create, train and score a predictive model 
--	Write data to your database 
+
+- Read data from your database to create, train and score a predictive model
+- Write data to your database 
 
 
 ## Read data from SQL Data Warehouse
@@ -40,15 +41,18 @@ Look for the Reader module in the palette of datasets and modules on the left of
 
 ### Step 3
 
-Select the Reader module and fill out the properties pane
-1. Select Azure SQL Database as the Data Source
+Select the Reader module and fill out the properties pane.
+
+1. Select Azure SQL Database as the Data Source.
 2. Database server name: Type the server name. You can use the [Azure Portal][] to find this.
+
 ![][server_name]
+
 3. Database name: Type the name of a database on the server you just specified. 
 4. Server user account name:  Type the user name of an account that has access permissions for the database. 
 5. Server user account password: Provide the password for the specified user account.
-6.	Accept any server certificate: Use this option (less secure) if you want to skip reviewing the site certificate before you read your data.
-7.	Database query: Enter a SQL statement that describes the data you want to read. In this case, we’ll read data from Product table using the following query.
+6. Accept any server certificate: Use this option (less secure) if you want to skip reviewing the site certificate before you read your data.
+7. Database query: Enter a SQL statement that describes the data you want to read. In this case, we will read data from Product table using the following query.
 
 
 ```
@@ -64,16 +68,21 @@ FROM dbo.DimProduct;
 
 1. Run the experiment by clicking Run under the experiment canvas.
 2. When the experiment finishes, the Reader module will have a green check mark to indicate that it has completed successfully. Notice also the Finished running status in the upper-right corner.
+
 ![][run]
+
 3. To see the imported data, click the output port at the bottom of the automobile dataset and select Visualize.
+
 
 ## Create, train and score a model
 
 Now you can use this dataset to:
--	Create a Model: Process data and define features
--	Train the model: Choose and apply a learning algorithm
--	Score and test the model: Predict new bicycle price
-	
+
+- Create a Model: Process data and define features
+- Train the model: Choose and apply a learning algorithm
+- Score and test the model: Predict new bicycle price
+ 
+
 ![][model]
 
 To learn more about how to create, train, score and test a machine learning model use the [Create experiment tutorial][].
@@ -91,6 +100,7 @@ Look for the Writer module in the palette of datasets and modules on the left of
 ### Step 2
 
 Select the Writer module and fill out the properties pane.
+
 1. Select Azure SQL Database as the Data Destination.
 2. Database server name: Type the server name. You can use the [Azure Portal][] to find this. 
 3. Database name: Type the name of a database on the server you just specified. 
@@ -129,8 +139,8 @@ For more development tips, see [SQL Data Warehouse development overview][].
 
 [SQL Data Warehouse development overview]: ./sql-data-warehouse-overview-develop/
 [SQL Data Warehouse integration overview]: ./sql-data-warehouse-overview-integration/
-[Create experiment tutorial]: ./machine-learning-create-experiment/
-[Introduction to machine learning on Azure]: ./machine-learning-what-is-machine-learning/
+[Create experiment tutorial]: https://azure.microsoft.com/en-us/documentation/articles/machine-learning-create-experiment/
+[Introduction to machine learning on Azure]: https://azure.microsoft.com/en-us/documentation/articles/machine-learning-what-is-machine-learning/
 [Azure Machine Learning Studio]: https://studio.azureml.net/Home
 [Azure Portal]: https://portal.azure.com/
 

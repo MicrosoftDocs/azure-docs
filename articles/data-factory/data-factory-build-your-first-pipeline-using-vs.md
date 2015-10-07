@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article" 
-	ms.date="08/18/2015"
+	ms.date="10/06/2015"
 	ms.author="spelluru"/>
 
 # Build your first Azure Data Factory pipeline using Visual Studio
@@ -33,6 +33,8 @@ In this article, you will learn how to use the Visual Studio to create your firs
 
 This article does not provide a conceptual overview of the Azure Data Factory service. For a detailed overview of the service, see the [Introduction to Azure Data Factory](data-factory-introduction.md) article.
 
+> [AZURE.IMPORTANT] Please go through the **pre-requisites** section in the [Tutorial Overview](data-factory-build-your-first-pipeline.md) if you haven't gone through it already. 
+
 ## Walkthrough: Create and deploy Data Factory entities using Visual Studio 
 
 ### Pre-requisites
@@ -40,6 +42,7 @@ This article does not provide a conceptual overview of the Azure Data Factory se
 You must have the following installed on your computer: 
 - Visual Studio 2013
 - Download Azure SDK for Visual Studio 2013. Navigate to [Azure Download Page](http://azure.microsoft.com/downloads/) and click **VS 2013 install** in the **.NET** section.
+- Update the "Visual Studio Tools For Azure Data Factory" to latest version by going to Visual Studio 2013 --> Tools --> Updates --> Visual Studio Gallery and clicking "Update" on "Visual Studio Tools for Azure Data Factory" plug-in entry there.
 
 
 ### Create the Visual Studio project 

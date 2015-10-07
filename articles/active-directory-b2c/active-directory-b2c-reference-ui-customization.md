@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/15/2015"
+	ms.date="09/22/2015"
 	ms.author="swkrish"/>
 
 # Azure Active Directory B2C preview: How to Customize the Azure AD B2C User Interface (UI)
@@ -34,22 +34,22 @@ In this article, you will read about:
 
 ## The Page User Interface (UI) Customization feature
 
-The page UI customization feature allows you to customize the look-and-feel of consumer sign-up, sign-in and profile editing pages (by configuring [policies](active-directory-b2c-references.policies.md)). Your consumers will have consistent experiences when navigating between your application and pages served by the Azure AD B2C service.
+The page UI customization feature allows you to customize the look-and-feel of consumer sign-up, sign-in and profile editing pages (by configuring [policies](active-directory-b2c-reference-policies.md)). Your consumers will have consistent experiences when navigating between your application and pages served by the Azure AD B2C service.
 
 Unlike other services where options are limited or are only available via APIs, Azure AD B2C uses a modern (and simpler) approach to page UI customization. Here's how it works: Azure AD B2C runs code in your consumer's browser and uses a modern approach called [Cross-Origin Resource Sharing (CORS)](http://www.w3.org/TR/cors/) to load content from a URL that you specify in a policy. You can specify different URLs for different pages. The code merges Azure AD B2C's content (called UI elements) and the content loaded from your URL, and displays the page to your consumer. All you need to do is create well-formed HTML5 content with a `<div id="api"></div>` element located somewhere in the `<body>` - this is where the Azure AD B2C's content gets merged into. And host this content on an HTTPS endpoint (with CORS allowed). You can also fully style Azure AD B2C's UI elements.
 
-## A Helper Tool that will help you Test the Page UI Customization Feature with our Sample Content
+## Trying out the UI Customization feature
 
-Use our helper tool (Coming soon) to try out the page UI customization feature using our sample content.
+If you want to try out the UX customization feature using our sample HTML & CSS content hosted on Azure Blob Storage, we've provided [a simple helper tool](active-directory-b2c-reference-ui-customization-helper-tool.md) to upload & configure your static content.
 
 ## The core UI Elements in each Type of Page
 
-In this section you will find examples of HTML5 fragments (for each type of page) that Azure AD B2C merges into the <div id="api"></div> element located in your content. You can use your own style sheets to customize these UI elements. These style sheets will have to override the default style sheets that we add into these pages in the <head> fragments.
+In the below sections you will find examples of HTML5 fragments (for each type of page) that Azure AD B2C merges into the <div id="api"></div> element located in your content. You can use your own style sheets to customize these UI elements. These style sheets will have to override the default style sheets that we add into these pages in the <head> fragments.
 
-    > [AZURE.IMPORTANT]
+> [AZURE.IMPORTANT]
 	During preview, expect the exact UI elements to change as we learn and adapt from your feedback. Always inspect the source code of default pages for the latest updates. In fact, the first change being considered is the removal of our default style sheets; this will mean that you will always have to supply your own style sheets for these UI elements in your content.
 
-### Identity Provider Selection Page
+## Identity Provider Selection Page
 
 This page contains a list of identity providers that the user can choose from during sign up or sign in. These are either social identity providers such as Facebook and Google+ or local accounts (email address- or username-based).
 
@@ -77,7 +77,7 @@ This page contains a list of identity providers that the user can choose from du
 
 ```
 
-### Local Account Sign-up Page
+## Local Account Sign-up Page
 
 This page contains a sign-up form that the user has to fill in when signing up using an email address- or username-based local account. The form can contain different input controls such as text input box, password entry box, radio button, single-select drop-down and multi-select check boxes.
 
@@ -194,11 +194,11 @@ This page contains a sign-up form that the user has to fill in when signing up u
 
 ```
 
-### Social Account Sign-up Page
+## Social Account Sign-up Page
 
 This page contains a sign-up form that the consumer has to fill in when signing up using an existing account from a social identity provider such as Facebook or Google+. This page is similar to the local account sign-up page (shown in the previous section) with the exception of the password entry fields.
 
-### Multi-factor Authentication Page
+## Multi-factor Authentication Page
 
 This page enables users to verify their phone numbers (using text or voice) during sign up or sign in.
 
@@ -244,7 +244,7 @@ This page enables users to verify their phone numbers (using text or voice) duri
 
 ```
 
-### Error Page
+## Error Page
 
 
 ```HTML

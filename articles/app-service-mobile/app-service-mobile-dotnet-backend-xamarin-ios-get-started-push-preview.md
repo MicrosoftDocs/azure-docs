@@ -14,7 +14,7 @@
 	ms.devlang="dotnet" 
 	ms.topic="article"
 	ms.date="08/22/2015" 
-	ms.author="yuaxu"/>
+	ms.author="wesmc"/>
 
 # Add push notifications to your Xamarin.iOS App
 

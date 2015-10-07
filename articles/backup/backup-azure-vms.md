@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="09/14/2015"
+	ms.date="09/24/2015"
 	ms.author="trinadhk"; "aashishr"; "jimpark"/>
 
 
@@ -202,7 +202,7 @@ Using this you can estimate the amount of time that it will take to back up a di
 While a majority of the time is spent in reading and copying data, there are other operations that contribute to the total time taken to backup a VM:
 
 1. Time taken to [install or update the backup extension](backup-azure-vms.md#offline-vms)
-2. Queue wait time: Since the service is processing backups from multiple customers, your backup operation might not start immediately. The average wait time for a VM is 15-30 minutes.
+2. Queue wait time: Since the backup service is processing backups from multiple customers, your backup operation might not start immediately. In times of peak load, the wait times can stretch up to 8 hours due to the number of backups being processed. However, the total VM backup time will be less than 24 hours for daily backup policies.
 
 ## Troubleshooting errors
 Get an exhaustive list of workarounds to the errors that are faced during virtual machine backup:

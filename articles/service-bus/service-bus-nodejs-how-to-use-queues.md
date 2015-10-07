@@ -164,10 +164,11 @@ In the event that the application crashes after processing the message but befor
 
 ## Next steps
 
-Now that you've learned the basics of Service Bus queues, follow these links to learn more.
+For more information, see the following resources.
 
--   See [Queues, Topics, and Subscriptions][].
--   Visit the [Azure SDK for Node][] repository on GitHub.
+-   [Queues, Topics, and Subscriptions][]
+-   [Azure SDK for Node][] repository on GitHub
+-   [Node.js Developer Center](/develop/nodejs/)
 
   [Azure SDK for Node]: https://github.com/Azure/azure-sdk-for-node
   [Next steps]: #next-steps

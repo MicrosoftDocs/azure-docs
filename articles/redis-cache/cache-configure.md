@@ -12,12 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="cache-redis"
    ms.workload="tbd"
-   ms.date="09/03/2015"
+   ms.date="09/30/2015"
    ms.author="sdanie" />
 
 # How to configure Azure Redis Cache
 
 This topic describes how to review and update the configuration for your Azure Redis Cache instances, and covers the default Redis server configuration for Azure Redis Cache instances.
+
+>[AZURE.NOTE] The Azure Redis Cache Premium tier is currently in preview. During the preview period, premium features can only be configured during the cache creation process. For more information on using premium cache features, see [How to configure persistence for a Premium Azure Redis Cache](cache-how-to-premium-persistence.md), [How to configure clustering for a Premium Azure Redis Cache](cache-how-to-premium-clustering.md), and [How to configure Virtual Network support for a Premium Azure Redis Cache](cache-how-to-premium-vnet.md).
 
 ## Configure Redis cache settings
 
@@ -88,7 +90,7 @@ For more information about maxmemory policies, see [Eviction policies](http://re
 
 The **maxmemory-reserved** setting configures the amount of memory in MB that is reserved for non-cache operations such as replication during failover. It can also be used when you have a high fragmentation ratio. Setting this value allows you to have a more consistent Redis server experience when your load varies. This value should be set higher for workloads which are write heavy. When memory is reserved for such operations it is unavailable for storage of cached data.
 
->[AZURE.IMPORTANT] The **maxmemory-reserved** setting is only available for Standard caches.
+>[AZURE.IMPORTANT] The **maxmemory-reserved** setting is only available for Standard and Premium caches.
 
 ## Keyspace notifications (advanced settings)
 
@@ -96,7 +98,7 @@ Click **Advanced settings** to configure Redis keyspace notifications. Keyspace 
 
 ![Redis Cache Advanced Settings](./media/cache-configure/IC808319.png)
 
->[AZURE.IMPORTANT] Keyspace notifications and the **notify-keyspace-events** setting are only available for Standard caches.
+>[AZURE.IMPORTANT] Keyspace notifications and the **notify-keyspace-events** setting are only available for Standard and Premium caches.
 
 For more information, see [Redis Keyspace Notifications](http://redis.io/topics/notifications). For sample code, see the [KeySpaceNotifications.cs](https://github.com/rustd/RedisSamples/blob/master/HelloWorld/KeySpaceNotifications.cs) file in the [Hello world](https://github.com/rustd/RedisSamples/tree/master/HelloWorld) sample.
 
@@ -130,13 +132,19 @@ New Azure Redis Cache instances are configured with the following default Redis 
 
 <sup>1</sup>`maxclients` is different for each Azure Redis Cache pricing tier.
 
--	C0 (250 MB) cache - up to 256 connections
--	C1 (1 GB) cache - up to 1,000 connections
--	C2 (2.5 GB) cache - up to 2,000 connections
--	C3 (6 GB) cache - up to 5,000 connections
--	C4 (13 GB) cache - up to 10,000 connections
--	C5 (26 GB) cache - up to 15,000 connections
--	C6 (53 GB) cache - up to 20,000 connections
+-	Basic and Standard caches
+	-	C0 (250 MB) cache - up to 256 connections
+	-	C1 (1 GB) cache - up to 1,000 connections
+	-	C2 (2.5 GB) cache - up to 2,000 connections
+	-	C3 (6 GB) cache - up to 5,000 connections
+	-	C4 (13 GB) cache - up to 10,000 connections
+	-	C5 (26 GB) cache - up to 15,000 connections
+	-	C6 (53 GB) cache - up to 20,000 connections
+-	Premium caches
+	-	P1 (6 GB - 60 GB) - up to 7,500 connections
+	-	P2 (13 GB - 130 GB) - up to 15,000 connections
+	-	P3 (26 GB - 260 GB) - up to 30,000 connections
+	-	P4 (53 GB - 530 GB) - up to 40,000 connections
 
 ## Redis commands not supported in Azure Redis Cache
 
@@ -155,11 +163,11 @@ For more information about Redis commands, see [http://redis.io/commands](http:/
 
 ## Redis console
 
-You can securely issue commands to your Azure Redis Cache instances using the **Redis Console**, which is available for Standard caches. To access the Redis Console, click **Console** from the **Redis Cache** blade.
+You can securely issue commands to your Azure Redis Cache instances using the **Redis Console**, which is available for Standard and Premium caches. To access the Redis Console, click **Console** from the **Redis Cache** blade.
 
 ![Redis console](./media/cache-configure/redis-console-menu.png)
 
->[AZURE.IMPORTANT] The Redis Console is only available for Standard caches.
+>[AZURE.IMPORTANT] The Redis Console is only available for Standard and Premium caches.
 
 To issue commands against your cache instance, simply type in the desired command into the console.
 

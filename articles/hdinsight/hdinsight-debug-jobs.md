@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Debug Hadoop in HDInsight: Error messages | Microsoft Azure"
+	pageTitle="Debug Hadoop in HDInsight: View logs and interpret error messages | Microsoft Azure"
 	description="Learn about the error messages you might receive when administering HDInsight using PowerShell, and steps you can take to recover."
 	services="hdinsight"
 	tags="azure-portal"
@@ -14,10 +14,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/28/2015"
+	ms.date="09/22/2015"
 	ms.author="jgao"/>
 
-# Debug Hadoop in HDInsight: Interpret error messages
+# Debug Hadoop in HDInsight: View logs and interpret error messages
 
 The error messages itemized in this topic are provided to help the users of Hadoop in Azure HDInsight understand possible error conditions that they can encounter when administering the service using Azure PowerShell and to advise them on the steps which can be taken to recover from the error.
 
@@ -25,12 +25,40 @@ Some of these error messages could also be seen in the Azure preview portal when
 
 ![HDInsight preview portal error message][image-hdi-debugging-error-messages-portal]
 
-The errors a user can encounter in Azure PowerShell or in the preview portal are listed alphabetically by name in the [HDInsight Errors](#hdinsight-error-messages) section where they are linked to an entry in the [Discription and Mitigation of Errors](#discription-mitigation-errors) section that provide the following information for the error:
+In situations where the error is specific to Azure HDInsight, it might be a good idea to understand what the error is about. Refer to [HDInsight error codes](#hdi-error-codes) to understand the different error codes, and how to fix those. In some situations, you might want to access the Hadoop logs itself. You can do so directly from the Azure preview portal.
+
+## View cluster health and job logs
+
+* **Access the Hadoop UI**. From the Azure preview portal, click an HDInsight cluster name to open the cluster blade. From the cluster blade, click **Dashboard**.
+
+	![Launch cluster dashboard](./media/hdinsight-debug-jobs/hdi-debug-launch-dashboard.png)
+  
+	When prompted, enter the cluster administrator credentials. In the Query Console that opens, click **Hadoop UI**.
+
+	![Start Hadoop UI](./media/hdinsight-debug-jobs/hdi-debug-launch-dashboard-hadoop-ui.png)
+
+* **Access the Yarn UI**. From the Azure preview portal, click an HDInsight cluster name to open the cluster blade. From the cluster blade, click **Dashboard**. When prompted, enter the cluster administrator credentials. In the Query Console that opens, click **YARN UI**.
+
+	You can use the YARN UI to do the following:
+
+	* **Get cluster status**. From the left pane, expand **Cluster**, and click **About**. This present cluster status details like total allocated memory, cores used, state of the cluster resource manager, cluster version etc.
+
+		![Launch cluster dashboard](./media/hdinsight-debug-jobs/hdi-debug-yarn-cluster-state.png)
+
+	* **Get node status**. From the left pane, expand **Cluster**, and click **Nodes**. This lists all the nodes in the cluster, HTTP address of each node, resources allocated to each node, etc.
+
+	* **Monitor job status**. From the left pane, expand **Cluster**, and then click **Applications** to list all the jobs in the cluster. If you want to look at jobs in a specific state (such as new, submitted, running, etc.), click the appropriate link under **Applications**. You can further click the job name to find out more about the job such including the output, logs, etc.
+
+* **Access the HBase UI**. From the Azure preview portal, click an HDInsight HBase cluster name to open the cluster blade. From the cluster blade, click **Dashboard**. When prompted, enter the cluster administrator credentials. In the Query Console that opens, click **HBase UI**
+
+## <a id="hdi-error-codes"></a>HDInsight error codes
+
+The errors a user can encounter in Azure PowerShell or in the preview portal are listed alphabetically by name below. The errors are in turn linked to an entry in the [Discription and Mitigation of Errors](#discription-mitigation-errors) section that provide the following information for the error:
 
 - **Description**: the error message users see
 - **Mitigation**: what steps can be taken to recover from the error.
 
-###HDInsight error codes
+
 
 - [AtleastOneSqlMetastoreMustBeProvided](#AtleastOneSqlMetastoreMustBeProvided)
 - [AzureRegionNotSupported](#AzureRegionNotSupported)
