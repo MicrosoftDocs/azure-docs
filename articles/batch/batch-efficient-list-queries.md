@@ -127,7 +127,7 @@ Property names in filter, select, and expand strings *must* reflect their REST A
 ### Mappings for filter strings
 
 - **.NET LIST METHODS** - Each of the .NET API methods in this column accepts an [ODATADetailLevel][odata] object as a parameter.
-- **REST LIST REQUESTS** - Each REST API page in this column contains a table specifying the properties and operations allowed in **filter** strings. You will use these property names and operations when constructing an [ODATADetailLevel.FilterClause][odata_filter] string.
+- **REST LIST REQUESTS** - Each REST API page in this column contains a table specifying the properties and operations allowed in *filter* strings. You will use these property names and operations when constructing an [ODATADetailLevel.FilterClause][odata_filter] string.
 
 | .NET List Methods | REST List Requests |
 |---|---|
@@ -145,7 +145,7 @@ Property names in filter, select, and expand strings *must* reflect their REST A
 ### Mappings for select strings
 
 - **BATCH .NET TYPES** - Batch .NET API types
-- **REST API ENTITIES** - Each page in this column contains one or more tables listing the REST API property names for the type. These property names are used when constructing **select** strings. You will use these same property names and when constructing an [ODATADetailLevel.SelectClause][odata_select] string.
+- **REST API ENTITIES** - Each page in this column contains one or more tables listing the REST API property names for the type. These property names are used when constructing *select* strings. You will use these same property names and when constructing an [ODATADetailLevel.SelectClause][odata_select] string.
 
 | Batch .NET Types | REST API Entities |
 |---|---|
