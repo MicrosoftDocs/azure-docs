@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/26/2015" 
+	ms.date="10/06/2015" 
 	ms.author="spelluru"/>
 
 # Move data to and from Azure Table using Azure Data Factory
@@ -384,6 +384,26 @@ azureTableRowKeyName | User specified column name, whose column values are used 
 azureTableInsertType | The mode to insert data into Azure table. | merge<br/>replace | No 
 writeBatchSize | Inserts data into the Azure table when the writeBatchSize or writeBatchTimeout is hit. | Integer from 1 to 100 (unit = Row Count) | No (Default = 100) 
 writeBatchTimeout | Inserts data into the Azure table when the writeBatchSize or writeBatchTimeout is hit | (Unit = timespan)Sample: “00:20:00” (20 minutes) | No (Default to storage client default timeout value 90 sec)
+
+### azureTablePartitionKeyName
+You will need to map a source column to a destination column using the translator JSON property before you can use the destination column as the azureTablePartitionKeyName.
+
+In the following example, source column DivisionID is mapped to the destination column: DivisionID.  
+
+	"translator": {
+		"type": "TabularTranslator",
+		"columnMappings": "DivisionID: DivisionID, FirstName: FirstName, LastName: LastName"
+	} 
+
+The EmpID is specifies as the partition key. 
+
+	"sink": {
+		"type": "AzureTableSink",
+		"azureTablePartitionKeyName": "DivisionID",
+		"writeBatchSize": 100,
+		"writeBatchTimeout": "01:00:00"
+	}
+
 
 [AZURE.INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
 
