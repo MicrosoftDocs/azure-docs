@@ -11,8 +11,8 @@
 	ms.service="active-directory"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.tgt_pltfrm="Ibiza"
-	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.workload="identity"
 	ms.date="10/05/2015"
 	ms.author="inhenk"/>
 

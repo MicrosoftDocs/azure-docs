@@ -1,15 +1,15 @@
 <properties
 	pageTitle="Managing Role-Based Access Control with Azure Command-Line Interface"
 	description="Managing role-based access control with Azure Command-Line Interface"
-	services="azure-portal"
+	services="active-directory"
 	documentationCenter="na"
 	authors="IHenkel"
 	manager="stevenpo"
 	editor=""/>
 
 <tags
-	ms.service="azure-portal"
-	ms.workload="multiple"
+	ms.service="active-directory"
+	ms.workload="identity"
 	ms.tgt_pltfrm="command-line-interface"
 	ms.devlang="na"
 	ms.topic="article"
