@@ -14,12 +14,16 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="10/07/2015"
-   ms.author="hascipio" />
+   ms.author="hascipio; v-divte" />
 
 # Testing your Solution Template offer in Staging
 Staging means deploying your offer in a private "sandbox" where you can test and verify its functionality before pushing it to production. The offer will appear in staging just as it would to a customer who has deployed it. Your offer **must be certified to be pushed to staging**.
 
-After the offer is staged, you can view the offer in the [Azure Preview Portal](https://ms.portal.azure.com/). In this portal, you can view your staged as well as published offer.
+After the offer is staged, you can view and test the offer in the [Azure Preview Portal](https://ms.portal.azure.com/).
+
+<!--
+In this portal, you can view your staged as well as published offer.
+-->
 
 Please follow the steps below to push your offer to staging and carrying out the testing in the [Azure Preview Portal](https://ms.portal.azure.com/).
 
@@ -32,11 +36,10 @@ Please follow the steps below to push your offer to staging and carrying out the
   -	Perform performance testing and stress testing
   -	Ensure that your topology adheres to the best practices.
 
-If you are content with the result, proceed to the next step, else repeat Step 2 in the Create an Azure compatible solution of the [Creating a Solution Template for the Marketplace](marketplace-publishing-solution-template-creation.md#ccreate an Azure compatible solution) guide followed by certification of the modified topology.
-
-
 ## Next step
-Now that you offer is in "Staging", once the onboarding team notifies, you can proceed to the final offer and/or SKU publishing phase, **Step 4**,  [Deploying your offer to the Marketplace](marketplace-publishing-push-to-production.md)
+If you are content with the results then you can proceed to the final offer publishing phase, **Step 4**,  [Deploying your offer to the Marketplace](marketplace-publishing-push-to-production.md). Otherwise, please make changes in your offer and request for certification again.
+
+> [AZURE.NOTE] For marketing content changes, certification is not required.
 
 ## See Also
 - [Getting Started: How to publish an offer to the Azure Marketplace](marketplace-publishing-getting-started.md)

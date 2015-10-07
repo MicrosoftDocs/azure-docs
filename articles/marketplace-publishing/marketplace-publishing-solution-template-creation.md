@@ -16,7 +16,7 @@
       ms.date="10/07/2015"
       ms.author="hascipio; v-divte" />
 
-# Guide to creating a Solution Template for Azure Marketplace
+# Guide to create a Solution Template for Azure Marketplace
 After completing the step 1, [Account Creation and Registration][link-acct-creation], we guided you on the creation of an Azure compatible Solution Template under the [Technical Pre-requisites for creating a Solution Template](marketplace-publishing-solution-template-creation-prerequisites.md). Now we will walk you through the steps for creating a multi-VM Solution Template on the [Publishing Portal][link-pubportal] for the Azure Marketplace.
 
 <!--
@@ -49,10 +49,8 @@ After completing the step 1, [Account Creation and Registration][link-acct-creat
   For detailed information on the guidance, review the [Creating a Solution Template Best Practices](marketplace-publishing-solution-creation-best-practices.md) for best practices and requirements for Multi-VM solutions.
 -->
 
-> [AZURE.NOTE] For first time login to [Publishing Portal] (https://publish.windowsazure.com/), use the same account with which your company’s Seller Profile was registered. Later you can add any employee of your company as a co-admin in the Publishing portal by following the steps below.
-
 ## Create your Solution Template offer in the Publishing Portal
-Go to the [https://publish.windowsazure.com](http://publish.windowsazure.com). For first time login to [Publishing Portal](https://publish.windowsazure.com/), use the same account with which your company’s Seller Profile was registered. Later you can add any employee of your company as a co-admin in the Publishing Portal.
+Go to the [https://publish.windowsazure.com](http://publish.windowsazure.com). **For first time login to [Publishing Portal](https://publish.windowsazure.com/), use the same account with which your company’s Seller Profile was registered.** Later you can add any employee of your company as a co-admin in the Publishing Portal.
 
 ### 1. Select 'Solution Templates'
 
@@ -78,9 +76,7 @@ https://ms.portal.azure.com/#gallery/{PublisherNamespace}.{OfferIdentifier}{Topo
 Upload a zip file containing all required files to provision that particular version of the topology. This zip file must contain the following:
 - *mainTemplate.json* and *createUiDefinition.json* file at its root
 - Any linked templates and all required scripts.
-<!--
-Please refer to the document [Guidance_createuidefinition.pdf](https://microsoft.sharepoint.com/teams/AzureMarketplaceOnboarding/_layouts/15/start.aspx#/Onboarding%20Resources/Forms/AllItems.aspx?RootFolder=%2Fteams%2FAzureMarketplaceOnboarding%2FOnboarding%20Resources%2FMulti%20VM&FolderCTID=0x01200022453DD82E509544B11C9F5367F6105B&View=%7BEC6E631C%2DEFA1%2D4E67%2D87C6%2D4FCA489A2F92%7D&InitialTabId=Rib) for more details on *createUiDefinition.json*.
--->
+
 After uploading the zip file, click on **Request Certification**. The Microsoft certification team will review the files and certify the topology.
 
 You can also validate the create experience without the actual deployment for the end user using the below steps.
@@ -89,7 +85,7 @@ You can also validate the create experience without the actual deployment for th
 2. Encode the URL [[http://www.url-encode-decode.com/](http://www.url-encode-decode.com/)].
 3. Replace the highlighted text with the location (encoded URL) of the *createUiDefinition.json* which needs validation.
 
-  https://portal.azure.com/?clientOptimizations=false#blade/Microsoft_Azure_Compute/CreateMultiVmWizardBlade/internal_bladeCallId/anything/internal_bladeCallerParams/{"initialData":{},"providerConfig":{"createUiDefinition":"http%3A%2F%2Fyoururltocreateuidefinition.jsonURLencoded"}}
+  https://portal.azure.com/?clientOptimizations=false#blade/Microsoft_Azure_Compute/CreateMultiVmWizardBlade/internal_bladeCallId/anything/internal_bladeCallerParams/{"**initialData":{},"providerConfig":{"createUiDefinition":"http%3A%2F%2Fyoururltocreateuidefinition.jsonURLencoded**"}}
 4. Copy and paste the URL in any browser and view the end user experience of your createUiDefinition.json file.
 
 > [AZURE.TIP] While your developers work on creating the Solution Template topologies and getting them certified, the Business/Marketing/Legal department of your company can work on the marketing and legal content.

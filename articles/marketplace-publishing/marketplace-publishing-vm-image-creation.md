@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="Azure"
    ms.workload="na"
-   ms.date="10/05/2015"
+   ms.date="10/07/2015"
    ms.author="hascipio; v-divte"/>
 
-# Guide to creating a virtual machine image for the Azure Marketplace
+# Guide to create a virtual machine image for the Azure Marketplace
 
 This article, **Step 2**, will walk through preparing your VHDs, which are the foundation of your SKU, that you will deploy to the Azure Marketplace. The process will differ depending on whether your are providing a Linux- or Windows-based SKU. This section covers both scenarios. This process can be performed in parallel with [Account Creation and Registration][link-acct-creation].
 
