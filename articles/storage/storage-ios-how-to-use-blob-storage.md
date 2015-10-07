@@ -217,12 +217,12 @@ The following example shows how to list all blobs in a container. When performin
 - **prefix** - You can specify the prefix to use for blob listing. Only blobs that begin with this prefix will be listed.
 - **useFlatBlobListing** - As mentioned in the [Naming and referencing containers and blobs](#naming-and-referencing-containers-and-blobs) section, although the Blob service is a flat storage scheme, you can create a virtual hierarchy by naming blobs with path information. However, non-flat listing is currently not supported; this is coming soon. For now, this value should be `YES`
 - **blobListingDetails** - You can specify which items to include when listing blobs
-  1.  `AZSBlobListingDetailsNone` - List only committed blobs, and do not return blob metadata.
-  2.  `AZSBlobListingDetailsSnapshots` - List committed blobs and blob snapshots.
-  3.  `AZSBlobListingDetailsMetadata` - Retrieve blob metadata for each blob returned in the listing.
-  4.  `AZSBlobListingDetailsUncommittedBlobs` - List committed and uncommitted blobs.
-  5.  `AZSBlobListingDetailsCopy` - Include copy properties in the listing.
-  6.  `AZSBlobListingDetailsAll` - List all available committed blobs, uncommitted blobs, and snapshots, and return all metadata and copy status for those blobs.
+	- `AZSBlobListingDetailsNone`: List only committed blobs, and do not return blob metadata.
+	- `AZSBlobListingDetailsSnapshots`: List committed blobs and blob snapshots.
+	- `AZSBlobListingDetailsMetadata`: Retrieve blob metadata for each blob returned in the listing.
+	- `AZSBlobListingDetailsUncommittedBlobs`: List committed and uncommitted blobs.
+	- `AZSBlobListingDetailsCopy`: Include copy properties in the listing.
+	- `AZSBlobListingDetailsAll`: List all available committed blobs, uncommitted blobs, and snapshots, and return all metadata and copy status for those blobs.
 - **maxResults** - The maximum number of results to return for this operation. Use -1 to not set a limit.
 - **completionHandler** - The block of code to execute with the results of the listing operation.
 
