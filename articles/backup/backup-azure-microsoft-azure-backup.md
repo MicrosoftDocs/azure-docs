@@ -77,11 +77,24 @@ Prepare Microsoft Azure Backup server to back up data by:
 [AZURE.INCLUDE [backup-download-credentials](../../includes/backup-download-credentials.md)]
 
 ## Download Microsoft Azure Backup server
-Similar to vault credentials, you can download Microsoft Azure Backup for application workloads from the Quick Start Page of Backup vault
+Similar to vault credentials, you can download Microsoft Azure Backup for application workloads from the **Quick Start Page** of the backup vault.
 
-![Microsoft Azure Backup Welcome Screen](./media/backup-azure-microsoft-azure-backup/dpm-venus1.png)
+1. Click **For Applilcation Workloads (Disk to Disk to Cloud)**.
 
-Download all the files coming up in Microsoft Azure Backup download page.
+    ![Microsoft Azure Backup Welcome Screen](./media/backup-azure-microsoft-azure-backup/dpm-venus1.png)
+
+2. Click **Download**
+
+    ![Download center 1](./media/backup-azure-microsoft-azure-backup/downloadcenter1.png)
+
+3. Select all the files and click **Next**.
+![Download center 1](./media/backup-azure-microsoft-azure-backup/downloadcenter.png)
+
+4. Place all the files in the same folder.
+
+    >[AZURE.NOTE] Since the download size of all the files together is > 3G, on a 10Mbps download link it may take up to 60 minutes for the download to complete.
+
+5. Download all the files coming in from the Microsoft Azure Backup download page.
 
 ## Install Microsoft Azure Backup server
 Ensure that the prerequisites mentioned in previous section are met before launching the setup.
@@ -102,9 +115,10 @@ Ensure that the prerequisites mentioned in previous section are met before launc
 
     ![Microsoft Azure Backup Setup Wizard](./media/backup-azure-microsoft-azure-backup/launch-setup.png)
 
-5. You will see the following screen.
+5. Click **Microsoft Azure Backup** to launch the setup wizard.
 
-    ![Microsoft Azure Backup Setup Wizard](./media/backup-azure-microsoft-azure-backup/launch-screen.png)
+    ![Microsoft Azure Backup Setup Wizard](./media/backup-azure-microsoft-azure-backup/launch-screen2.png)
+
 
 6. On the Welcome screen click **Next**.
 
@@ -235,15 +249,14 @@ Q: How does Microsoft Azure Backup server connectivity to Azure service and Azur
 
 The table below explains the functionality of Microsoft Azure Backup server with respect to different connectivity and Azure subscription states.
 
-
-  | Connectivity State | Azure Subscription | Backup to Azure| Backup to disk | Restore from Azure | Restore from disk |
-  | -------- | ------- | --------------------- | ------------------- | --------------------------- | ----------------------- |
-  | Connected | Active | Allowed | Allowed | Allowed | Allowed |
-  | Connected | Expired | Stopped | Stopped | Allowed | Allowed |
-  | Normal | Deprovisioned | Stopped | Stopped | Stopped and Azure recovery points deleted | Stopped |
-  | Lost connectivity > 15 days | Active | Stopped | Stopped | Allowed | Allowed |
-  | Lost connectivity > 15 days | Expired | Stopped | Stopped | Allowed | Allowed |
-  | Lost connectivity > 15 days | Deprovisioned | Stopped | Stopped |  Stopped and Azure recovery points deleted | Stopped |
+| Connectivity State | Azure Subscription | Backup to Azure| Backup to disk | Restore from Azure | Restore from disk |
+| -------- | ------- | --------------------- | ------------------- | --------------------------- | ----------------------- |
+| Connected | Active | Allowed | Allowed | Allowed | Allowed |
+| Connected | Expired | Stopped | Stopped | Allowed | Allowed |
+| Normal | Deprovisioned | Stopped | Stopped | Stopped and Azure recovery points deleted | Stopped |
+| Lost connectivity > 15 days | Active | Stopped | Stopped | Allowed | Allowed |
+| Lost connectivity > 15 days | Expired | Stopped | Stopped | Allowed | Allowed |
+| Lost connectivity > 15 days | Deprovisioned | Stopped | Stopped |  Stopped and Azure recovery points deleted | Stopped |
 
 Q: Assuming the subscription state continues to be Active what happens if Microsoft Azure Backup server connectivity is restored?
 <br>A: Once Microsoft Azure Backup server connectivity to Azure service resumes as normal and the subscription state is *Active*, all operations of Microsoft Azure Backup server are allowed. Backups to both disk as well as to Azure will perform as normal.
