@@ -58,9 +58,6 @@ This shows how to run your new client app against the mobile service running in 
 
 Learn how to perform additional important tasks in Mobile Services:
 
-* [Add mobile services to an existing app]
-  <br/>Learn more about storing and querying data using Mobile Services.
-
 * [Get started with offline data sync]
   <br/>Learn how to use offline data sync to make your app responsive and robust.
 
@@ -93,7 +90,6 @@ Learn how to perform additional important tasks in Mobile Services:
 
 
 <!-- URLs. -->
-[Add mobile services to an existing app]: mobile-services-dotnet-backend-ios-get-started-data.md
 [Get started with offline data sync]: mobile-services-ios-get-started-offline-data.md
 [Add authentication to an existing app]: mobile-services-dotnet-backend-ios-get-started-users.md
 [Add push notifications to an existing app]: mobile-services-dotnet-backend-ios-get-started-push.md

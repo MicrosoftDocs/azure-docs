@@ -21,10 +21,7 @@
 
 This topic shows how to use Media Services .NET SDK to encode an asset and generate thumbnails using Media Encoder Standard. The topic defines the XML and JSON thumbnail presets that you can use to create a task that does encoding and generates thumbnails at the same time. [This](https://msdn.microsoft.com/library/mt269962.aspx) document contains descriptions of elements that are used by these presets.
 
-The following considerations apply:
-
-- The use of explicit timestamps for Start/Step/Range assumes that the input source is at least 1 minute long.
-
+Make sure to review the [Considerations](media-services-dotnet-generate-thumbnail-with-mes.md#considerations) section.
 
 ##Example
 
@@ -354,6 +351,26 @@ For information about schema, see [this](https://msdn.microsoft.com/library/mt26
 	    </Output>
 	  </Outputs>
 	</Preset>
+
+##Considerations
+
+The following considerations apply:
+
+- The use of explicit timestamps for Start/Step/Range assumes that the input source is at least 1 minute long.
+- Jpg/Png/BmpVideo elements have Start, Step and Range string attributes – these can be interpreted as:
+
+	- Frame Number if they are non-negative integers, eg. "Start": "120",
+	- Relative to source duration if expressed as %-suffixed, eg. "Start": "15%", OR
+	- Timestamp if expressed as HH:MM:SS… format. Eg. "Start" : "00:01:00"
+
+	You can mix and match notations as you please.
+	
+	Additionally, Start also supports a special Macro:{Best}, which attempts to determine the first “interesting” frame of the content 
+	NOTE: (Step and Range are ignored when Start is set to {Best})
+	
+	- Defaults: Start:{Best}
+- Output format needs to be explicitly provided for each Image format: Jpg/Png/BmpFormat. When present, AMS will match JpgVideo to JpgFormat and so on. OutputFormat introduces a new image-codec specific Macro: {Index}, which needs to be present (once and only once) for image output formats.
+
 
 ##Media Services learning paths
 

@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="08/04/2015"
+	ms.date="10/05/2015"
 	ms.author="awills"/>
 
 # Get started with Visual Studio Application Insights
@@ -46,6 +46,7 @@ What you want | What to do | What you get
 
 ## Support and feedback
 
+
 * Questions and issues:
  * [Troubleshooting][qna]
  * [MSDN Forum](https://social.msdn.microsoft.com/Forums/vstudio/en-US/home?forum=ApplicationInsights)
@@ -54,6 +55,8 @@ What you want | What to do | What you get
  * [Connect](https://connect.microsoft.com/VisualStudio/Feedback/LoadSubmitFeedbackForm?FormID=6076)
 * Suggestions:
  * [User Voice](http://visualstudio.uservoice.com/forums/121579-visual-studio/category/77108-application-insights)
+* Code samples
+ * [Code samples](app-insights-code-samples.md)
 
 
 
