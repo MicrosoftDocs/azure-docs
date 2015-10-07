@@ -33,7 +33,7 @@ You can develop Azure-based VMs on Windows or Linux. Some elements of the publis
 
 > [AZURE.NOTE] You will need access to a Windows machine to
 - Run the certification validation tool
-- Create the VHD SASA URL for VHD Certification submission
+- Create the VHD SAS URL for VHD Certification submission
 
 ## Developing your VHD
 It is possible to develop Azure VHDs in the **cloud** or **on-premises**.
@@ -46,6 +46,7 @@ Now that you reviewed the pre-requisites and completed the necessary task, you c
 
 ## See Also
 - [Getting Started: How to publish an offer to the Azure Marketplace](marketplace-publishing-getting-started.md)
+- [Create a virtual machine running Windows in the Azure preview portal](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-windows-tutorial/)
 
 
 [link-acct-creation]:marketplace-publishing-accounts-creation-registration.md
