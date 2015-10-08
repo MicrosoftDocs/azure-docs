@@ -32,7 +32,7 @@ Get started either by [adding the SDK to your app](app-insights-asp-net.md), or 
 
 [AZURE.INCLUDE [app-insights-selector-get-started-dotnet](../../includes/app-insights-selector-get-started-dotnet.md)]
 
-Find out about the performance and usage of your web pages. Add Visual Studio Application Insights to your pages, and you'll find out how many users you have, how often they come back, and which pages they use most. You'll also get reports of load times and any exceptions. Add a few [custom events and metrics][track], and you can analyze in detail the most popular features, the most common mistakes, and tune your page to success with your users.
+Find out about the performance and usage of your web pages. Add Visual Studio Application Insights to your pages, and you'll find out how many users you have, how often they come back, and which pages they use most. You'll also get reports of load times and any exceptions. Add a few [custom events and metrics][api], and you can analyze in detail the most popular features, the most common mistakes, and tune your page to success with your users.
 
 ![Choose New, Developer Services, Application Insights.](./media/app-insights-asp-net-client/16-page-views.png)
 
@@ -160,7 +160,7 @@ Select any event to see more detail. In the details page, click "..." to see eve
 
 Want to find out what your users do with your app? By inserting calls in your client and server code, you can send your own telemetry to Application Insights. For example, you can find out the numbers of users who create orders without completing them, or which validation errors are hit most often, or the average score in a game.
 
-* [Learn about the custom events and metrics API][track].
+* [Learn about the custom events and metrics API][api].
 * [API reference](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md)
 
 ## Server telemetry
@@ -177,7 +177,7 @@ If you haven't done this yet, you can get insights from your server and display 
 
 ## <a name="next"></a> Next steps
 
-[Track usage with custom events and metrics][track]
+[Track usage with custom events and metrics][api]
 
 
 
@@ -199,5 +199,6 @@ If you haven't done this yet, you can get insights from your server and display 
 [redfield]: app-insights-monitor-performance-live-website-now.md
 [roles]: app-insights-resources-roles-access-control.md
 [start]: app-insights-get-started.md
+
 
  
