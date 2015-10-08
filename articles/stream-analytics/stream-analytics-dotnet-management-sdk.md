@@ -45,7 +45,7 @@ Before you begin this article, you must have the following:
 			#Register-AzureRMProvider -Force -ProviderNamespace 'Microsoft.StreamAnalytics'
 
 		# Create an Azure resource group
-		New-AzureResourceGroup -Name <YOUR RESORUCE GROUP NAME> -Location <LOCATION>
+		New-AzureResourceGroup -Name <YOUR RESOURCE GROUP NAME> -Location <LOCATION>
 		
 
 -	Set up an input source and output target to use. For futher instructions see [Add Inputs](stream-analytics-add-inputs.md) to set up a sample input and [Add Outputs](stream-analytics-add-outputs.md) to setup a sample output.
