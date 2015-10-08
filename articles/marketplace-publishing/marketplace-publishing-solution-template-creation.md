@@ -85,7 +85,7 @@ You can also validate the create experience without the actual deployment for th
 2. Encode the URL [[http://www.url-encode-decode.com/](http://www.url-encode-decode.com/)].
 3. Replace the highlighted text with the location (encoded URL) of the *createUiDefinition.json* which needs validation.
 
-  https://portal.azure.com/?clientOptimizations=false#blade/Microsoft_Azure_Compute/CreateMultiVmWizardBlade/internal_bladeCallId/anything/internal_bladeCallerParams/ **{"initialData":{},"providerConfig":{"createUiDefinition":"http%3A%2F%2Fyoururltocreateuidefinition.jsonURLencoded"}}**
+  https://portal.azure.com/?clientOptimizations=false#blade/Microsoft_Azure_Compute/CreateMultiVmWizardBlade/internal_bladeCallId/anything/internal_bladeCallerParams/ **{"initialData":{},"providerConfig":{"createUiDefinition":"http://yoururltocreateuidefinition.jsonURLencoded"}}**
 4. Copy and paste the URL in any browser and view the end user experience of your createUiDefinition.json file.
 
 > [AZURE.TIP] While your developers work on creating the Solution Template topologies and getting them certified, the Business/Marketing/Legal department of your company can work on the marketing and legal content.
