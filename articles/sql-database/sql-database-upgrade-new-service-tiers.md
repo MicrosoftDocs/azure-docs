@@ -10,7 +10,7 @@
 <tags 
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="09/28/2015" 
+	ms.date="10/07/2015" 
 	ms.author="sstein" 
 	ms.workload="data-management" 
 	ms.topic="article" 
@@ -257,9 +257,9 @@ After you determine the appropriate service tier and performance level for your 
 | Management Tool | To change the service tier and performance level of a database|
 | :---| :---|
 | [Azure Management Portal](https://manage.windowsazure.com) | click the **SCALE** tab on your database's dashboard page. |
-| [Azure PowerShell](http://msdn.microsoft.com/library/azure/dn546726.aspx) | use the [Set-AzureSqlDatabase](http://msdn.microsoft.com/library/azure/dn546732.aspx) cmdlet. |
-| [Service Management REST API](http://msdn.microsoft.com/library/azure/dn505719.aspx) | use the [Update Database](http://msdn.microsoft.com/library/dn505718.aspx) command.|
-| [Transact-SQL](http://msdn.microsoft.com/library/bb510741.aspx) | use the [ALTER DATABASE (Transact-SQL)](http://msdn.microsoft.com/library/ms174269.aspx) statement. |
+| [Azure PowerShell](http://msdn.microsoft.com/library/azure/dn546726.aspx) | use the [Set-AzureRMSqlDatabase](https://msdn.microsoft.com/library/azure/mt619433.aspx) cmdlet. |
+| [REST API](https://msdn.microsoft.com/library/azure/mt163571.aspx) | use the [Create or Update Database](https://msdn.microsoft.com/library/azure/mt163685.aspx) command.|
+| [Transact-SQL](http://msdn.microsoft.com/library/azure/bb510741.aspx) | use the [ALTER DATABASE (Transact-SQL)](http://msdn.microsoft.com/library/azure/ms174269.aspx) statement. |
 
 For details, see [Changing Database Service Tiers and Performance Levels](sql-database-scale-up.md)
 

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management" 
-   ms.date="07/23/2015"
+   ms.date="10/07/2015"
    ms.author="elfish"/>
 
 # Recover an Azure SQL Database from a user error

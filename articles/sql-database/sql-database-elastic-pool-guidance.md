@@ -10,7 +10,7 @@
 <tags 
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="09/23/2015" 
+	ms.date="10/07/2015" 
 	ms.author="sstein" 
 	ms.workload="data-management" 
 	ms.topic="article" 
@@ -220,8 +220,8 @@ If you run into the following warnings while running the script you can ignore t
 
 When the script completes it will output the estimated number of eDTUs required for an elastic pool to contain all candidate databases in the target server. This estimated eDTU can be used for creating and configuring an elastic  database pool to hold these databases. Once the pool is created and databases moved into the pool, it should be monitored closely for a few days and any adjustments to the pool eDTU configuration should be made as needed.
 
+> [AZURE.IMPORTANT] This script contains commands for versions of Azure PowerShell up to *but not including* versions 1.0.0 and later. You can check your version of Azure PowerShell with the **Get-Module azure | format-table version** command.
 
-To select the entire script for copying, click any text in the script 3 times (triple-click).
 
     
     param (
