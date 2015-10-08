@@ -93,8 +93,6 @@ Now that you have completed the quickstart, learn how to perform additional impo
 [Get started with data]: mobile-services-android-get-started-data.md
 [Get started with authentication]: mobile-services-android-get-started-users.md
 [Get started with push notifications]: mobile-services-javascript-backend-android-get-started-push.md
-[Android SDK]:
-[Android Studio]:
 [Mobile Services Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 
 [Management Portal]: https://manage.windowsazure.com/
