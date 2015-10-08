@@ -158,35 +158,19 @@ These projects are actively developed by the Azure DocumentDB team in collaborat
 
 ### SDKs
 
-// TODO: Compare which looks better.
-
-
-| Platform | Github repository                                                           | Install |
+| Platform | Github repository                                                           | Package |
 | -------- | --------------------------------------------------------------------------- | ------- |
 | Node.js  | [azure-documentdb-node](https://github.com/Azure/azure-documentdb-node)     | [npm](https://www.npmjs.com/package/documentdb) |
 | Java     | [azure-documentdb-java](https://github.com/Azure/azure-documentdb-java)     | [Maven](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-documentdb%22) |
 | Python   | [azure-documentdb-python](https://github.com/Azure/azure-documentdb-python) | [PyPI](https://pypi.python.org/pypi/pydocumentdb) |
 
-* **Node.js SDK** - [Github](https://github.com/Azure/azure-documentdb-node) - [npm](https://www.npmjs.com/package/documentdb)
-
-* **Java SDK** - [Github](https://github.com/Azure/azure-documentdb-java) - [Maven](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-documentdb%22)
-
-* **Python SDK** - [Github](https://github.com/Azure/azure-documentdb-python) - [PyPI](https://pypi.python.org/pypi/pydocumentdb)
-
 ### Other projects
 
-| Name                    | Github repository                                                                                 | Website |
-| ----------------------- | ------------------------------------------------------------------------------------------------- | ------- |
-| Azure.com documentation | [azure-content](https://github.com/Azure/azure-content/tree/master/articles/documentdb)           | [Azure.com](https://azure.microsoft.com/documentation/services/documentdb/) |
-| Hadoop Connector        | [azure-documentdb-hadoop](https://github.com/Azure/azure-documentdb-hadoop)                       | [Maven](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-documentdb-hadoop%22) |
-| Data migration tool     | [azure-documentdb-datamigrationtool](https://github.com/Azure/azure-documentdb-datamigrationtool) | [Microsoft download center](http://www.microsoft.com/en-us/download/details.aspx?id=46436) |
-
-
-* **Official documentation** - [Github](https://github.com/Azure/azure-content/tree/master/articles/documentdb) - [Documentation website](https://azure.microsoft.com/documentation/services/documentdb/)
-
-* **Hadoop connector** - [Github](https://github.com/Azure/azure-documentdb-hadoop) - [Maven](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-documentdb-hadoop%22)
-
-* **Data migration tool** - [Github](https://github.com/Azure/azure-documentdb-datamigrationtool) - [Microsoft download center](http://www.microsoft.com/en-us/download/details.aspx?id=46436)
+| Name                | Github repository                                                                                 | Download |
+| ------------------- | ------------------------------------------------------------------------------------------------- | -------- |
+| Documentation       | [azure-content](https://github.com/Azure/azure-content/tree/master/articles/documentdb)           | [Documentation website](https://azure.microsoft.com/documentation/services/documentdb/) |
+| Hadoop Connector    | [azure-documentdb-hadoop](https://github.com/Azure/azure-documentdb-hadoop)                       | [Maven](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-documentdb-hadoop%22) |
+| Data migration tool | [azure-documentdb-datamigrationtool](https://github.com/Azure/azure-documentdb-datamigrationtool) | [Microsoft download center](http://www.microsoft.com/en-us/download/details.aspx?id=46436) |
 
 <br/><br/>
 
