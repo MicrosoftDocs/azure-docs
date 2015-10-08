@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="python" 
 	ms.topic="article" 
-	ms.date="10/06/2015" 
+	ms.date="10/08/2015" 
 	ms.author="sethm"/>
 
-# How to Use Service Bus topics and subscriptions
+# How to use Service Bus topics and subscriptions
 
-This guide describes how to use Service Bus topics and subscriptions. The samples are written in Python and use the [Python Azure package][]. The scenarios covered include **creating topics and subscriptions**, **creating subscription filters**, **sending messages to a topic**, **receiving messages from a subscription**, and **deleting topics and subscriptions**. For more information about topics and subscriptions, see the [Next Steps](#next-steps) section.
+This article describes how to use Service Bus topics and subscriptions. The samples are written in Python and use the [Python Azure package][]. The scenarios covered include **creating topics and subscriptions**, **creating subscription filters**, **sending messages to a topic**, **receiving messages from a subscription**, and **deleting topics and subscriptions**. For more information about topics and subscriptions, see the [Next Steps](#next-steps) section.
 
 [AZURE.INCLUDE [howto-service-bus-topics](../../includes/howto-service-bus-topics.md)]
 

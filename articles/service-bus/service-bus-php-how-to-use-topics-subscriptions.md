@@ -19,7 +19,7 @@
 
 # How to use Service Bus topics and subscriptions
 
-This guide shows you how to use Service Bus topics and subscriptions. The samples are written in PHP and use the [Azure SDK for PHP](../php-download-sdk.md). The scenarios covered include **creating topics and subscriptions**, **creating subscription filters**, **sending messages to a topic**, **receiving messages from a subscription**, and **deleting topics and subscriptions**.
+This article shows you how to use Service Bus topics and subscriptions. The samples are written in PHP and use the [Azure SDK for PHP](../php-download-sdk.md). The scenarios covered include **creating topics and subscriptions**, **creating subscription filters**, **sending messages to a topic**, **receiving messages from a subscription**, and **deleting topics and subscriptions**.
 
 [AZURE.INCLUDE [howto-service-bus-topics](../../includes/howto-service-bus-topics.md)]
 
@@ -29,7 +29,7 @@ The only requirement for creating a PHP application that accesses the Azure Blob
 
 > [AZURE.NOTE] Your PHP installation must also have the [OpenSSL extension](http://php.net/openssl) installed and enabled.
 
-In this topic, you will use service features which can be called within a PHP application locally, or in code running within an Azure web role, worker role, or website.
+This article describes how to use service features which can be called within a PHP application locally, or in code running within an Azure web role, worker role, or website.
 
 ## Get the Azure client libraries
 

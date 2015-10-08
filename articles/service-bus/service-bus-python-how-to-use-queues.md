@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="python" 
 	ms.topic="article" 
-	ms.date="10/06/2015" 
+	ms.date="10/08/2015" 
 	ms.author="sethm"/>
 
 
 # How to use Service Bus queues
 
-This guide describes how to use Service Bus queues. The samples are written in Python and use the [Python Azure package][]. The scenarios covered include **creating queues, sending and receiving messages**, and **deleting queues**.
+This article describes how to use Service Bus queues. The samples are written in Python and use the [Python Azure package][]. The scenarios covered include **creating queues, sending and receiving messages**, and **deleting queues**.
 
 [AZURE.INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
 

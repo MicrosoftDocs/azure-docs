@@ -12,12 +12,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/09/2015"
+   ms.date="10/08/2015"
    ms.author="sethm" />
 
 # Service Bus samples
 
-The Service Bus samples demonstrate key features in Service Bus (cloud service) and Service Bus for Windows Server. This topic categorizes and describes the samples available, with links to each.
+The Service Bus samples demonstrate key features in Service Bus (cloud service) and Service Bus for Windows Server. This article categorizes and describes the samples available, with links to each.
 
 >[AZURE.NOTE] Service Bus samples are not installed with the SDK. To obtain the samples, visit the [Azure SDK samples page](https://code.msdn.microsoft.com).
 
