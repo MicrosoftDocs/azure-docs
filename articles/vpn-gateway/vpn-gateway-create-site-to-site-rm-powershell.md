@@ -53,7 +53,7 @@ Use the following sample to help you connect:
 
 		Login-AzureRmAccount
 
-If you have more than one subscription, use *Select-AzureSubscription* to connect to the subscription that you want to use.
+If you have more than one subscription, use *Select-AzureRmSubscription* to connect to the subscription that you want to use.
 
 		Select-AzureRmSubscription -SubscriptionID "GUID of subscription"
 
