@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Role-based access control in the Microsoft Azure portal"
-	description="Describes how role based access control works and how to set it up"
+	pageTitle="Role-based Access Control"
+	description="This article describes Azure role-based access control."
 	services="active-directory"
 	documentationCenter=""
 	authors="IHenkel"
@@ -19,14 +19,14 @@
 # Role-based Access Control
 
 ## Role-based Access Control
-Azure Roles-Based Access Control (RBAC) enables fine-grained access control for Azure IaaS and PaaS management. Using RBAC, you can grant only the amount of access to your co-workers that they need to perform their jobs.
+Azure Roles-Based Access Control (RBAC) enables fine-grained access control for Azure IaaS and PaaS management. Using RBAC, you can grant only the amount of access to your users that they need to perform their jobs.
 
 ## Basics of access management in Azure
 Each Azure subscription is homed to an Azure Active Directory. Only users, groups, and applications from that directory can be granted access to manage resources in the Azure subscription, using Azure Management Portal, Azure Command-Line tools and Azure Management APIs.
 
 Access is granted by assigning the appropriate RBAC role to users, groups, and applications, at the right scope. To grant access to the entire subscription, assign a role at the subscription scope. To grant access to a specific resource group within a subscription, assign a role at the resource group scope. You may assign roles at specific resources too, like websites, virtual machines and subnets, to grant access only to a resource.
 
-![](./media/role-based-access-control-configure/fundamentals.png)
+![](./media/role-based-access-control-configure/overview.png)
 
 The RBAC role that you assign to users, groups, and applications, dictates what resources the user (or application) can manage within that scope.
 
@@ -47,12 +47,68 @@ The finer-grained authorization model (Azure RBAC) is supported only by the new 
 The finer-grained authorization model (Azure RBAC) is supported only for management operations of the Azure resources in Azure portal and Azure Resource Manager APIs. Not all data level operations for Azure resources can be authorized via RBAC. For instance, create/read/update/delete of Storage Accounts can be controlled via RBAC, but create/read/update/delete of blobs or tables within the Storage Account cannot yet be controlled via RBAC. Similarly, create/read/update/delete of a SQL DB can be controlled via RBAC but create/read/update/delete of SQL tables within the DB cannot yet be controlled via RBAC.
 
 ## Manage access using the Azure Management Portal
-[Manage access using the Azure Management Portal](role-based-access-control-manage-access-azure-portal.md)
+### View Access
+Select access settings in the essentials section of the resource group blade. The **Users** blade lists all users, groups and applications that have been granted access to the resource group.
+
+![](./media/role-based-access-control-configure/view-access.png)
+
+> [AZURE.NOTE] Access is either assigned on the resource group or inherited from an assignment on the parent subscription. Classic subscription admins and co-admins are in effect owners of the subscription in the new RBAC model.
+
+### Add Access
+1. Click the **Add** icon on the **Users** blade. ![](./media/role-based-access-control-configure/grant-access1.png)
+2. Select the role that you wish to assign.
+3. Search for and select the user, or group, or application that you wish to grant access to.
+4. Search the directory for users, groups, and applications using display names, email addresses, and object identifiers.![](./media/role-based-access-control-configure/grant-access2.png)
+
+### Remove Access
+1. In the **Users** blade, select the role assignment that you wish to remove.
+2. Click the **Remove** icon in the assignment details blade.
+3. Click **yes** to confirm removal.
+
+![](./media/role-based-access-control-configure/remove-access1.png)
+
+> [AZURE.NOTE] Inherited assignments can not be removed from child scopes. Navigate to the parent scope and remove such assignments.
+
+![](./media/role-based-access-control-configure/remove-access2.png)
+
 ## Manage access using Azure PowerShell
-[Manage access using Azure Powershell](role-based-access-control-manage-access-powershell.md)
+Access can be managed used Azure RBAC commands in the Azure PowerShell tools.
+-	Use `Get-AzureRMRoleDefinition` to list RBAC roles available for assignment and to inspect the operations to which they grant access.
+-	Use `Get-AzureRMRoleAssignment` to list RBAC access assignments effective at the specified subscription or resource group or resource. Use the `ExpandPrincipalGroups` parameter to list access assignments to the specified user as well as to the groups of which the user is member. Use the `IncludeClassicAdministrators` parameter to also list classic Subscription Administrator and Co-Administrators.
+-	Use `New-AzureRMRoleAssignment` to grant access to users, groups and applications.
+-	Use `Remove-AzureRMRoleAssignment` to remove access.
+
+See [Manage access using Azure PowerShell](role-based-access-control-manage-access-powershell.md) for more detailed examples of managing access using Azure PowerShell.
+
 ## Manage access using the Azure Command-Line Interface
-[Manage access using the Azure CLI](role-based-access-control-manage-access-azure-cli.md)
+Access can be managed used Azure RBAC commands in the Azure Command-Line Interface.
+-	Use `azure role list` to list RBAC roles available for assignment. Use azure role show to inspect the operations to which they grant access.
+-	Use `azure role assignment list` to list RBAC access assignments effective at the specified subscription or resource group or resource. Use the `expandPrincipalGroups` option to list access assignments to the specified user as well as to the groups of which the user is member. Use the  `includeClassicAdministrators` parameter to also list classic Subscription Administrator and Co-Administrators.
+-	Use `azure role assignment create` to grant access to users, groups and applications.
+-	Use `azure role assignment delete` to remove access.
+
+See [Manage access using the Azure CLI](role-based-access-control-manage-access-azure-cli.md) for more detailed examples of managing access using the Azure CLI.
+
 ## Using the Access Change History Report
-[Using the Access Change History Report](role-based-access-control-using-access-change-history-report.md)
-## RBAC Built in Roles
-[RBAC Built in Roles](role-based-access-built-in-roles.md)
+All access changes happening in your Azure subscriptions get logged in Azure events.
+
+### Create a report with Azure PowerShell
+To create a report of who granted/revoked what kind of access to/from whom on what scope within your Azure subscirptions use the following PowerShell command:
+
+    Get-AzureAuthorizationChangeLog
+
+### Create a report with Azure CLI
+To create a report of who granted/revoked what kind of access to/from whom on what scope within your Azure subscirptions use the Azure command line interface (CLI) command:
+
+    azure authorization changelog
+
+> [AZURE.NOTE] Access changes can be queried for the past 90 days (in 15 day batches).
+
+The following example lists all access changes in the subscription for the past 7 days.
+
+![](./media/role-based-access-control-configure/access-change-history.png)
+
+### Export Access Change to a Spreadsheet
+It is convenient to export access changes into a spreadsheet for review.
+
+![](./media/role-based-access-control-configure/change-history-spreadsheet.png)

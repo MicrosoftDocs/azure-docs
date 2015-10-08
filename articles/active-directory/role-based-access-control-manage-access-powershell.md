@@ -19,80 +19,82 @@
 # Manage Role Based Access Control (RBAC) with Azure PowerShell
 <!-- Azure Selector -->
 > [AZURE.SELECTOR]
-- [Azure Managment Portal](role-based-access-control-manage-access-azure-portal.md)
 - [PowerShell](role-based-access-control-manage-access-powershell.md)
 - [Azure CLI](role-based-access-control-manage-access-azure-cli.md)
 
-## List and view RBAC available roles
+## List RBAC roles
+### List all available roles
 To list RBAC roles available for assignment and to inspect the operations to which they grant access use:
 
 		Get-AzureRMRoleDefinition
 
 ![](./media/role-based-access-control-manage-access-powershell/1-get-azure-rm-role-definition1.png)
 
-## List Actions for a Specific Role
+### List actions of a role
 To list the actions for a specific role use:
 
     Get-AzureRMRoleDefinition <role name>
 
 ![](./media/role-based-access-control-manage-access-powershell/1-get-azure-rm-role-definition2.png)
 
-## List RBAC access assignments
+## List Access
+### List all role assignments in the selected subscription
 To list RBAC access assignments effective at the specified subscription, resource, or resource group use:
 
     Get-AzureRMRoleAssignment
 
-## List RBAC access assignments for a resource group
+###	List role assignments effective on a resource group
 To list the access assignments for a resource group use:
 
-    Get-AzureRMRoleAssignment --ResourceGroupName <resource group name>
+    Get-AzureRMRoleAssignment -ResourceGroupName <resource group name>
 
 ![](./media/role-based-access-control-manage-access-powershell/4-get-azure-rm-role-assignment1.png)
 
-## List RBAC access assignments for user and user group membership
+### List role assignments to a user, including ones assigned to users groups
 To list access assignments to the specified user as well as to the groups of which the user is member use:
 
-    Get-AzureRMRoleAssignment ExpandPrincipalGroups
+    Get-AzureRMRoleAssignment -ExpandPrincipalGroups
 
 ![](./media/role-based-access-control-manage-access-powershell/4-get-azure-rm-role-assignment2.png)
 
-## List RBAC access assignments to list classic subscription administrator and co-administrators
+### List classic service administrator and co-admin role assignments
 To list access assignments for the classic subscription administrator and co-administrators use:
 
-    Get-AzureRMRoleAssignment IncludeClassicAdministrators
+    Get-AzureRMRoleAssignment -IncludeClassicAdministrators
 
-## Grant RBAC access to an Azure AD Group
-To grant access to an Azure AD group use:
+## Grant Access
+### Assign role to group at subscription scope
+To grant access to a group at subscription scope use:
 
-    New-AzureRMRoleAssignment --ObjId <object id> --RoleDefinitionName <role name in quotes> --Scope <scope such as subscription/subscription id>
+    New-AzureRMRoleAssignment -ObjId <object id> -RoleDefinitionName <role name in quotes> -Scope <scope such as subscription/subscription id>
 
 ![](./media/role-based-access-control-manage-access-powershell/2-new-azure-rm-role-assignment1.png)
 
-## Grant RBAC access to an AD Service Principal
-To grant access to an Azure AD group use:
+### Assign role to application at subscription scope
+To grant access to an application at subscription scope use:
 
-    New-AzureRMRoleAssignment --ObjId <object id> --RoleDefinitionName <role name in quotes> --Scope <scope such as subscription/subscription id>
+    New-AzureRMRoleAssignment -ObjId <object id> -RoleDefinitionName <role name in quotes> -Scope <scope such as subscription/subscription id>
 
 ![](./media/role-based-access-control-manage-access-powershell/2-new-azure-rm-role-assignment2.png)
 
-## Grant RBAC Resource Management Access to a User
-To grant resource managment access to a user:
+### Assign role to user at resource group scope
+To grant access to a user at resource group scope:
 
-    New-AzureRMRoleAssignment --SignInName <email of user> --RoleDefinitionName <role name in quotes> --ResourceGroupName <resource group name>
+    New-AzureRMRoleAssignment -SignInName <email of user> -RoleDefinitionName <role name in quotes> -ResourceGroupName <resource group name>
 
 ![](./media/role-based-access-control-manage-access-powershell/2-new-azure-rm-role-assignment3.png)
 
-## Grant RBAC Resource Managment Access to a Group at Resource Scope
-To grant RBAC resource managment access to a group at the resource scope use:
+### Assign role to group at resource scope
+To grant access to a group at the resource scope use:
 
-    New-AzureRMRoleAssignment --ObjId <object id> --RoleDefinitionName <role name in quotes> --ResourceName <resource name> --ResourceType <resource type> --ParentResource <parent resource> --ResourceGroupName <resource group name>
+    New-AzureRMRoleAssignment -ObjId <object id> -RoleDefinitionName <role name in quotes> -ResourceName <resource name> -ResourceType <resource type> -ParentResource <parent resource> -ResourceGroupName <resource group name>
 
 ![](./media/role-based-access-control-manage-access-powershell/2-new-azure-rm-role-assignment4.png)
 
-## Remove access for users, groups and applications
+## Remove Access
 To remove access for users, groups and applications use:
 
-    Remove-AzureRMRoleAssignment --ObjId <object id> --RoleDefinitionName <role name> --Scope <scope such as subscription/subscription id>
+    Remove-AzureRMRoleAssignment -ObjId <object id> -RoleDefinitionName <role name> -Scope <scope such as subscription/subscription id>
 
 ![](./media/role-based-access-control-manage-access-powershell/3-remove-azure-rm-role-assignment.png)
 
