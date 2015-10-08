@@ -35,11 +35,15 @@ Find out about the performance and usage of your web pages. Add Visual Studio Ap
 
 If you already set up server telemetry for your [ASP.NET](app-insights-asp-net.md) or [Java](app-insights-java-get-started.md) web app, you'll get the picture from both client and server angles. The two streams will be integrated in the Application Insights portal.
 
-## Need to create an Application Insights resource?
+## Open your Application Insights resource
 
-Skip this step if you already set up monitoring for the server side of your app. 
+Sign into [Azure portal](http://portal.azure.com).
 
-Otherwise, sign into the [Azure portal](http://portal.azure.com) and create a new Application Insights resource:
+If you already set up monitoring for the server side of your app, you'll already have a resource:
+
+![Choose Browse, Developer Services, Application Insights.](./media/app-insights-asp-net-client/01-find.png)
+
+If you don't have one, create it:
 
 ![Choose New, Developer Services, Application Insights.](./media/app-insights-asp-net-client/01-create.png)
 
