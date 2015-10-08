@@ -13,12 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="AzurePortal"
    ms.workload="na"
-   ms.date="07/15/2015"
+   ms.date="10/08/2015"
    ms.author="tomfitz"/>
 
-# Managing and Auditing Access to Resources
+# Managing Access to Resources
 
 With Azure Resource Manager, you can make sure the users in your organization have the appropriate permissions to manage or access resources. Resource Manager takes advantage of role-based access control (RBAC) so you can easily apply security policies to individual resources or resource groups. For example, you can grant a user access to a specific virtual machine in a subscription, or give a user the ability to manage all websites in a subscription but no other resources.
+
+This topic focuses on the commands you use to assign roles and permissions. For an overview of role-based access control, see [Role-based access control in the Microsoft Azure portal](../active-directory/role-based-access-control-configure.md).
 
 ## Concepts
 
@@ -56,51 +58,53 @@ In this topic, you will see how to perform the following common scenarios throug
 
 
 ## How to use PowerShell to manage access
-If you do not already have the latest version of Azure PowerShell installed, see [Install and configure Azure PowerShell](../powershell-install-configure.md). Open the Azure PowerShell console. 
-
-1. Login to your Azure account with your credentials. The command returns information about your account.
-
-        PS C:\> Add-AzureAccount
-          
-        Id                             Type       ...
-        --                             ----    
-        someone@example.com            User       ...   
-
-2. If you have multiple subscriptions, provide the subscription id you wish to use for deployment. 
-
-        PS C:\> Select-AzureSubscription -SubscriptionID <YourSubscriptionId>
-
-3. Switch to the Azure Resource Manager module.
-
-        PS C:\> Switch-AzureMode AzureResourceManager
+If you do not already have the latest version of Azure PowerShell installed, see [Install and configure Azure PowerShell](../powershell-install-configure.md). For an introduction to using PowerShell with Resource Manager, including how to sign in to your Azure account and select the appropriate subscription, see [Using Azure PowerShell with Azure Resource Manager](../powershell-azure-resource-manager.md).
 
 ### View available roles
-To view all available roles for your subscription run the **Get-AzureRoleDefinition** command.
+To view all available roles for your subscription run the **Get-AzureRmRoleDefinition** command (or **Get-AzureRoleDefinition** for versions of PowerShell prior to 1.0 Preview).
 
-    PS C:\> Get-AzureRoleDefinition
+    PS C:\> Get-AzureRmRoleDefinition
+    
+    Name             : API Management Service Contributor
+    Id               : /subscriptions/{guid}/providers/Microsoft.Authorization/roleDefinitions/312a565d-c81f-4fd8-895a-4e21e4     8d571c
+    IsCustom         : False
+    Description      : Lets you manage API Management services, but not access to them.
+    Actions          : {Microsoft.ApiManagement/Services/*, Microsoft.Authorization/*/read,
+                       Microsoft.Resources/subscriptions/resourceGroups/read,
+                       Microsoft.Resources/subscriptions/resourceGroups/resources/read...}
+    NotActions       : {}
+    AssignableScopes : {/}
 
-    Name                          Id                            Actions                  NotActions
-    ----                          --                            -------                  ----------
-    API Management Service Con... /subscriptions/####... {Microsoft.ApiManagement/S...   {}
-    Application Insights Compo... /subscriptions/####... {Microsoft.Insights/compon...   {}
+    Name             : Application Insights Component Contributor
+    Id               : /subscriptions/{guid}/providers/Microsoft.Authorization/roleDefinitions/ae349356-3a1b-4a5e-921d-050484c6347e
+    IsCustom         : False
+    Description      : Lets you manage Application Insights components, but not access to them.
+    Actions          : {Microsoft.Insights/components/*, Microsoft.Insights/webtests/*, Microsoft.Authorization/*/read,
+                       Microsoft.Resources/subscriptions/resourceGroups/read...}
+    NotActions       : {}
+    AssignableScopes : {/}
     ...
 
 ### Grant Reader permission to a group for the subscription.
-1. Review the **Reader** role definition by providing the role name when running the **Get-AzureRoleDefinition** command. Check that the allowed actions are what you intend to assign.
+1. Review the **Reader** role definition by providing the role name when running the **Get-AzureRmRoleDefinition** command. Check that the allowed actions are what you intend to assign.
 
-        PS C:\> Get-AzureRoleDefinition Reader
+        PS C:\> Get-AzureRmRoleDefinition Reader
    
-        Name            Id                            Actions           NotActions
-        ----            --                            -------           ----------
-        Reader          /subscriptions/####...        {*/read}          {}
+        Name             : Reader
+        Id               : /subscriptions/{guid}/providers/Microsoft.Authorization/roleDefinitions/acdd72a7-3385-48ef-bd42-f606fba81ae7
+        IsCustom         : False
+        Description      : Lets you view everything, but not make any changes.
+        Actions          : {*/read}
+        NotActions       : {}
+        AssignableScopes : {/}
 
-2. Get the required security group by running the **Get-AzureADGroup** command. Provide the actual name of the group in your subscription. ExampleAuditorGroup is shown below.
+2. Get the required security group by running the **Get-AzureRmADGroup** command (or **Get-AzureADGroup** for versions of PowerShell prior to 1.0 Preview). Provide the actual name of the group in your subscription. ExampleAuditorGroup is shown below.
 
-        PS C:\> $group = Get-AzureAdGroup -SearchString ExampleAuditorGroup
+        PS C:\> $group = Get-AzureRmAdGroup -SearchString ExampleAuditorGroup
 
-3. Create the role assignment for the auditor security group. When the command completes, the new role assignment is returned.
+3. Create the role assignment for the auditor security group. When the command completes, the new role assignment is returned. Use **New-AzureRoleAssignment** for versions of PowerShell prior to 1.0 Preview.
 
-        PS C:\> New-AzureRoleAssignment -ObjectId $group.Id -Scope /subscriptions/{subscriptionId}/ -RoleDefinitionName Reader
+        PS C:\> New-AzureRmRoleAssignment -ObjectId $group.Id -Scope /subscriptions/{subscriptionId}/ -RoleDefinitionName Reader
 
         Mail               :
         RoleAssignmentId   : /subscriptions/####/providers/Microsoft.Authorization/roleAssignments/####
@@ -114,7 +118,7 @@ To view all available roles for your subscription run the **Get-AzureRoleDefinit
 ###Grant Contributor permission to an application for a resource group.
 1. Review the **Contributor** role definition by providing the role name when running the **Get-AzureRoleDefinition** command. Check that the allowed actions are what you intend to assign.
 
-        PS C:\> Get-AzureRoleDefinition Contributor
+        PS C:\> Get-AzureRmRoleDefinition Contributor
 
 2. Get the service principal object Id by running the **Get-AzureADServicePrincipal** command and providing the name of the application in your subscription. ExampleApplication is shown below.
 
