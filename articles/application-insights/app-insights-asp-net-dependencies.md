@@ -172,6 +172,12 @@ For example, if you build your code with an assembly that you didn't write yours
 
 If you want to switch off the standard dependency tracking module, remove the reference to DependencyTrackingTelemetryModule in [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md).
 
+## Next steps
+
+- [Exceptions](../article/application-insights/app-insights-asp-net-exception-mvc.md#selector1)
+- [User & page data](../article/application-insights/app-insights-asp-net-client.md#selector1)
+- [Availability](../article/application-insights/app-insights-monitor-web-app-availability.md#selector1)
+
 
 
 

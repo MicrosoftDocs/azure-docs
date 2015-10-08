@@ -169,9 +169,10 @@ Want to find out what your users do with your app? By inserting calls in your cl
 
 ## <a name="next"></a> Next steps
 
-[Track usage with custom events and metrics][api]
-
-
+- [Install the SDK](../article/application-insights/app-insights-asp-net.md#selector1)
+- [Track usage with custom events and metrics][api]
+- [Availability](../article/application-insights/app-insights-monitor-web-app-availability.md#selector1)
+- [Already live app](../article/application-insights/app-insights-monitor-performance-live-website-now.md)
 
 <!--Link references-->
 

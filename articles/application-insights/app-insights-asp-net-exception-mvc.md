@@ -446,6 +446,11 @@ The .NET framework calculates the rate by counting the number of exceptions in a
 
 Note that it will be different from the 'Exceptions' count calculated by the Application Insights portal by counting TrackException reports. The sampling intervals are different, and the SDK doesn't send TrackException reports for all handled and unhandled exceptions.
 
+## Next steps
+
+- [Dependencies](../article/application-insights/app-insights-asp-net-dependencies.md#selector1)
+- [User & page data](../article/application-insights/app-insights-asp-net-client.md#selector1)
+- [Availability](../article/application-insights/app-insights-monitor-web-app-availability.md#selector1)
 
 
 <!--Link references-->
