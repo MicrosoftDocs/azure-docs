@@ -18,7 +18,7 @@
 
 # How to use Service Bus queues
 
-This topic describes how to use Service Bus queues. The samples are
+This article describes how to use Service Bus queues. The samples are
 written in Java and use the [Azure SDK for Java][]. The
 scenarios covered include **creating queues**, **sending and receiving
 messages**, and **deleting queues**.
