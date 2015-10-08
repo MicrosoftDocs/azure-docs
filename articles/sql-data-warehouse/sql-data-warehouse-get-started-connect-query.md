@@ -3,8 +3,8 @@
    description="Get started with connecting to SQL Data Warehouse and running some queries."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="jrowlandjones"
-   manager="barbkess"
+   authors="twounder"
+   manager=""
    editor=""/>
 
 <tags
@@ -13,11 +13,24 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="10/01/2015"
-   ms.author="JRJ@BigBangData.co.uk;barbkess"/>
+   ms.date="10/07/2015"
+   ms.author="twounder"/>
+
+> [AZURE.SELECTOR]
+- [Visual Studio](sql-data-warehouse-get-started-connect-query.md)
+- [SQLCMD](sql-data-warehouse-get-started-connect-query-bcp.md)
+
+This walkthrough shows you how to connect and query an Azure SQL Data Warehouse database in just a few minutes by using Visual Studio. In this walkthrough, you will:
+
++ Install prerequisite software
++ Connect to a database that contains the AdventureWorksDW sample database
++ Execute a query against the sample database  
+
+# Prerequisites
+
 
 # Get started: Connect to Azure SQL Data Warehouse
-This quick start article introduces you to connecting to and querying a provisioned instance of SQL Data Warehouse  with two different tools:
+This quick start article introduces you to connecting to and querying a provisioned instance of Azure SQL Data Warehouse with two different tools:
 
 - **Visual Studio** - Visual Studio's integrated code editor and debugger, SQL Server Data Tools (SSDT), is fully compatible with SQL Data Warehouse, enabling you to easily connect to, query, and manage SQL Data Warehouse.  
 
@@ -176,7 +189,7 @@ Now that we have registered our server let's go ahead and write a query.
 
 4. Run the query.
 
-	To run the query click the green arrow or use the following shortcut: `CTRL`+`SHIFT`+`F5`.
+	To run the query click the green arrow or use the following shortcut: `CTRL`+`SHIFT`+`E`.
 
 ## Next steps ##
 Now that you can connect and query try [loading sample data][].
