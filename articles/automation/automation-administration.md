@@ -63,7 +63,7 @@ You cannot export certificates from Azure Automation.  You must ensure that any 
 ##Geo-replication in Azure Automation
 
 Azure Automation supports geo-replication. With geo-replication, Azure Automation keeps your data durable in two regions. While creating an Automation Account in the Azure portal, you choose a region where it should be created which is the primary region. The region where your data is geo-replicated is referred to as the secondary region. Primary and secondary regions talk to each other to geo-replicate the updates made to the Automation Account. As secondary region stores a copy of information, if there is a failover of an Automation Account from primary region to the secondary, all your Automation Account information would still be available in the secondary region.
-Geo-replication is built in with Automation Accounts and offered at no additional cost. Currently you don’t have control to choose the secondary region, it’s automatically determined based on where you choose your primary region.
+Geo-replication is built in to Automation Accounts and offered at no additional cost. Currently you don’t have control to choose the secondary region, it’s automatically determined based on where you choose your primary region.
 
  
 ###Location of Geo-Replicas
