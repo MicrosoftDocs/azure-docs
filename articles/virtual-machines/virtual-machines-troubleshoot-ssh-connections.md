@@ -63,8 +63,9 @@ To resolve the common SSH issues for virtual machines created using the Resource
 	a. If you haven't already, [install the Azure CLI and connect to your Azure subscription](../xplat-cli-install.md) using the `azure login` command.
 
 	b. Switch to the Resource Manager mode.
+
 	```
-		azure config mode arm
+	azure config mode arm
 	```
 
 	c. Reset the SSH connection using either of the following methods.
@@ -72,7 +73,7 @@ To resolve the common SSH issues for virtual machines created using the Resource
 	* Use the `vm reset-access` command as in the following example.
 
 	```
-		azure vm reset-access -g TestRgV2 -n TestVmV2 -r
+	azure vm reset-access -g TestRgV2 -n TestVmV2 -r
 	```
 
 	This will install the `VMAccessForLinux` extension on your virtual machine.
@@ -80,15 +81,15 @@ To resolve the common SSH issues for virtual machines created using the Resource
 	* Alternatively, create a file named PrivateConf.json with the following content:
 
 	```
-		{  
-		"reset_ssh":"True"
-		}
+	{  
+	"reset_ssh":"True"
+	}
 	```
 
 	Then manually run the `VMAccessForLinux` extension to reset your SSH connection.
 
 	```
-		azure vm extension set "testRG" "testVM" VMAccessForLinux Microsoft.OSTCExtensions "1.2" --private-config-path PrivateConf.json
+	azure vm extension set "testRG" "testVM" VMAccessForLinux Microsoft.OSTCExtensions "1.2" --private-config-path PrivateConf.json
 	```
 
 	**Using Azure PowerShell**
@@ -98,13 +99,13 @@ To resolve the common SSH issues for virtual machines created using the Resource
 	b. Switch to the Resource Manager mode.
 
 	```
-		Switch-AzureMode -Name AzureResourceManager
+	Switch-AzureMode -Name AzureResourceManager
 	```
 
 	c. Run the `VMAccessForLinux` extension to reset your SSH connection, as shown in the following example.
 
 	```
-		Set-AzureVMExtension -ResourceGroupName "testRG" -VMName "testVM" -Location "West US" -Name "VMAccessForLinux" -Publisher "Microsoft.OSTCExtensions" -ExtensionType "VMAccessForLinux" -TypeHandlerVersion "1.2" -SettingString "{}" -ProtectedSettingString '{"reset_ssh":true}'
+	Set-AzureVMExtension -ResourceGroupName "testRG" -VMName "testVM" -Location "West US" -Name "VMAccessForLinux" -Publisher "Microsoft.OSTCExtensions" -ExtensionType "VMAccessForLinux" -TypeHandlerVersion "1.2" -SettingString "{}" -ProtectedSettingString '{"reset_ssh":true}'
 	```
 
 2. **Restart** your Linux VM from the portal. From the [Azure preview portal](https://portal.azure.com), click **Browse all** > **Virtual machines** > your Windows virtual machine > **Restart**.
@@ -120,21 +121,22 @@ To resolve the common SSH issues for virtual machines created using the Resource
 	* Run the `vm reset-access` command to set any of the SSH credentials.
 
 	```
-		azure vm reset-access TestRgV2 TestVmV2 -u NewUser -p NewPassword
+	azure vm reset-access TestRgV2 TestVmV2 -u NewUser -p NewPassword
 	```
 
 	See more information about this by typing `azure vm reset-access -h` on the command line.
 
 	* Alternatively, create a file named PrivateConf.json with the following contents.
 	```
-		{
-			"username":"NewUsername", "password":"NewPassword", "expiration":"2016-01-01", "ssh_key":"", "reset_ssh":false, "remove_user":""
-		}
-		```
+	{
+	"username":"NewUsername", "password":"NewPassword", "expiration":"2016-01-01", "ssh_key":"", "reset_ssh":false, "remove_user":""
+	}
+	```
+
 	Then run the Linux extension using the above file.
 
 	```
-		$azure vm extension set "testRG" "testVM" VMAccessForLinux Microsoft.OSTCExtensions "1.2" --private-config-path PrivateConf.json
+	$azure vm extension set "testRG" "testVM" VMAccessForLinux Microsoft.OSTCExtensions "1.2" --private-config-path PrivateConf.json
 	```
 
 	Note that you can follow steps similar to [How to reset a password or SSH for Linux-based virtual machines](virtual-machines-linux-use-vmaccess-reset-password-or-ssh.md) to try other variations. Remember to modify the Azure CLI instructions for the Resource Manager mode.
@@ -144,18 +146,18 @@ To resolve the common SSH issues for virtual machines created using the Resource
 	Install and configure Azure PowerShell as mentioned above. Switch to Resource Manager mode and then run the extension as follows.
 
 	```
-		$RGName = 'testRG'
-		$VmName = 'testVM'
-		$Location = 'West US'
+	$RGName = 'testRG'
+	$VmName = 'testVM'
+	$Location = 'West US'
 
-		$ExtensionName = 'VMAccessForLinux'
-		$Publisher = 'Microsoft.OSTCExtensions'
-		$Version = '1.2'
+	$ExtensionName = 'VMAccessForLinux'
+	$Publisher = 'Microsoft.OSTCExtensions'
+	$Version = '1.2'
 
-		$PublicConf = '{}'
-		$PrivateConf = '{"username":"NewUsername", "password":"NewPassword", "ssh_key":"", "reset_ssh":false, "remove_user":""}'
+	$PublicConf = '{}'
+	$PrivateConf = '{"username":"NewUsername", "password":"NewPassword", "ssh_key":"", "reset_ssh":false, "remove_user":""}'
 
-		Set-AzureVMExtension -ResourceGroupName $RGName -VMName $VmName -Location $Location -Name $ExtensionName -Publisher $Publisher -ExtensionType $ExtensionName -TypeHandlerVersion $Version -SettingString $PublicConf -ProtectedSettingString $PrivateConf
+	Set-AzureVMExtension -ResourceGroupName $RGName -VMName $VmName -Location $Location -Name $ExtensionName -Publisher $Publisher -ExtensionType $ExtensionName -TypeHandlerVersion $Version -SettingString $PublicConf -ProtectedSettingString $PrivateConf
 
 	```
 
