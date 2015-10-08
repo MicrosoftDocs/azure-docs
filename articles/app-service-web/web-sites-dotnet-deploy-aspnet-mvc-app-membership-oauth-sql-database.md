@@ -49,7 +49,7 @@ To set up your development environment, you must install [Visual Studio 2013 Upd
 
 ### Create the project
 
-1. From the **File** menu, click **New ContacProject**.
+1. From the **File** menu, click **New Project**.
 
 	![New Project in File menu](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/gs13newproj.png)
 
