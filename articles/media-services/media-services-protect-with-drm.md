@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Dynamic Encryption with PlayReady and Widevine DRM "
+	pageTitle="Use dynamic common encryption to protect  your live and on-demand content with PlayReady and/or Widevine DRM"
 	description="Microsoft Azure Media Services enables you to deliver MPEG-DASH, Smooth Streaming, and Http-Live-Streaming (HLS) streams protected with Microsoft PlayReady DRM. It also enables you to delivery DASH encrypted with Widevine DRM. This topic shows how to dynamically encrypt with PlayReady and Widevine DRM."
 	services="media-services"
 	documentationCenter=""
@@ -16,16 +16,16 @@
 	ms.date="10/07/2015"
 	ms.author="juliako"/>
 
-#Dynamic Encryption  with PlayReady and Widevine DRM 
 
+#Use dynamic common encryption to protect your live and on-demand content with PlayReady and/or Widevine DRM
 
 > [AZURE.SELECTOR]
 - [.NET](media-services-protect-with-drm.md)
 - [Java](https://github.com/southworkscom/azure-sdk-for-media-services-java-samples)
 
-Microsoft Azure Media Services enables you to deliver MPEG-DASH, Smooth Streaming, and Http-Live-Streaming (HLS) streams protected with [Microsoft PlayReady DRM](https://www.microsoft.com/playready/overview/). It also enables you to delivery DASH encrypted with Widevine DRM.
+Microsoft Azure Media Services enables you to deliver MPEG-DASH, Smooth Streaming, and Http-Live-Streaming (HLS) streams protected with [Microsoft PlayReady DRM](https://www.microsoft.com/playready/overview/). It also enables you to delivery DASH encrypted with Widevine DRM. Both PlayReady and Widewine are encrypted per the Common Encryption (CENC) specification. You can use [AMS .NET SDK](https://www.nuget.org/packages/windowsazure.mediaservices/) (starting with the version 3.5.1) or REST API to configure your AssetDeliveryConfiguration to use Widevine.
 
-Media Services now provides a service for delivering Microsoft PlayReady licenses. Media Services also provides APIs that let you configure the rights and restrictions that you want for the PlayReady DRM runtime to enforce when a user is trying to play back protected content. When a user requests to watch PlayReady protected content, the client player application requests the content from Azure Media Services. Azure Media Services then redirects the client to an Azure Media Services PlayReady licensing server that authenticates and authorizes the user’s access to the content. A PlayReady license contains the decryption key that can be used by the client player to decrypt and stream the content.
+Media Services also provides a service for delivering Microsoft PlayReady licenses. Media Services also provides APIs that let you configure the rights and restrictions that you want for the PlayReady DRM runtime to enforce when a user is trying to play back protected content. When a user requests to watch PlayReady protected content, the client player application requests the content from Azure Media Services. Azure Media Services then redirects the client to an Azure Media Services PlayReady licensing server that authenticates and authorizes the user’s access to the content. A PlayReady license contains the decryption key that can be used by the client player to decrypt and stream the content.
 
 >[AZURE.NOTE] Currently, Media Services does not provide a Widevine license server. You can use the following AMS partners to help you deliver Widevine licenses: [Axinom](http://www.axinom.com/press/ibc-axinom-drm-6/), [EZDRM](http://ezdrm.com/), [castLabs](http://castlabs.com/company/partners/azure/).
 
@@ -37,13 +37,13 @@ This topic would be useful to developers that work on applications that deliver 
 
 >[AZURE.NOTE]To start using dynamic encryption, you must first get at least one scale unit (also known as streaming unit). For more information, see [How to Scale a Media Service](media-services-manage-origins.md#scale_streaming_endpoints).
 
-##PlayReady Dynamic Encryption and PlayReady License Delivery Service Workflow
+##Configuring DRM Dynamic Encryption and PlayReady License Delivery Service
 
 The following are general steps that you would need to perform when protecting your assets with PlayReady, using the Media Services license delivery service, and also using dynamic encryption.
 
 1. Create an asset and upload files into the asset. 
 1. Encode the asset containing the file to the adaptive bitrate MP4 set.
-1. Create a content key and associate it with the encoded asset. In Media Services, the content key contains the asset’s encryption key. For more information, see ContentKey.
+1. Create a content key and associate it with the encoded asset. In Media Services, the content key contains the asset’s encryption key. For more information.
 1. Configure the content key’s authorization policy. The content key authorization policy must be configured by you and met by the client in order for the content key to be delivered to the client. 
 1. Configure the delivery policy for an asset. The delivery policy configuration includes: delivery protocol (for example, MPEG DASH, HLS, HDS, Smooth Streaming or all), the type of dynamic encryption (for example, common encryption), PlayReady license acquisition URL. 
  
@@ -54,7 +54,7 @@ You will find a complete .NET example at the end of the topic.
 
 The following image demonstrates the workflow described above. Here the token is used for authentication.
 
-![Protect with PlayReady](./media/media-services-content-protection-overview/media-services-content-protection-with-playready.png)
+![Protect with PlayReady](./media/media-services-content-protection-overview/media-services-content-protection-with-drm.png)
 
 The rest of this topic provides detailed explanations, code examples, and links to topics that show you how to achieve the tasks described above. 
 
@@ -66,81 +66,14 @@ If you add or update your asset’s delivery policy, you must delete an existing
 
 In order to manage, encode, and stream your videos, you must first upload your content into Microsoft Azure Media Services. Once uploaded, your content is stored securely in the cloud for further processing and streaming. 
 
-The following code snippet shows how to create an asset and upload the specified file into the asset.
-
-	static public IAsset UploadFileAndCreateAsset(string singleFilePath)
-	{
-	    if(!File.Exists(singleFilePath))
-	    {
-	        Console.WriteLine("File does not exist.");
-	        return null;
-	    }
-	
-	    var assetName = Path.GetFileNameWithoutExtension(singleFilePath);
-	    IAsset inputAsset = _context.Assets.Create(assetName, AssetCreationOptions.StorageEncrypted);
-	
-	    var assetFile = inputAsset.AssetFiles.Create(Path.GetFileName(singleFilePath));
-	
-	    Console.WriteLine("Created assetFile {0}", assetFile.Name);
-	
-	    var policy = _context.AccessPolicies.Create(
-	                            assetName,
-	                            TimeSpan.FromDays(30),
-	                            AccessPermissions.Write | AccessPermissions.List);
-	
-	    var locator = _context.Locators.CreateLocator(LocatorType.Sas, inputAsset, policy);
-	
-	    Console.WriteLine("Upload {0}", assetFile.Name);
-	
-	    assetFile.Upload(singleFilePath);
-	    Console.WriteLine("Done uploading {0}", assetFile.Name);
-	
-	    locator.Delete();
-	    policy.Delete();
-	
-	    return inputAsset;
-	}
+For detailed information, see [Upload Files into a Media Services account](media-services-dotnet-upload-files.md).
 
 ##Encode the asset containing the file to the adaptive bitrate MP4 set
 
 With dynamic encryption all you need is to create an asset that contains a set of multi-bitrate MP4 files or multi-bitrate Smooth Streaming source files. Then, based on the specified format in the manifest or fragment request, the On-Demand Streaming server will ensure that you receive the stream in the protocol you have chosen. As a result, you only need to store and pay for the files in single storage format and Media Services service will build and serve the appropriate response based on requests from a client. For more information, see the [Dynamic Packaging Overview](media-services-dynamic-packaging-overview.md) topic.
 
-The following code snippet shows you how to encode an asset to adaptive bitrate MP4 set:
-
-	static public IAsset EncodeToAdaptiveBitrateMP4Set(IAsset inputAsset)
-	{
-	    var encodingPreset = "H264 Adaptive Bitrate MP4 Set 720p";
+For instructions on how to encode, see [How to encode an asset using Media Encoder Standard](media-services-dotnet-encode-with-media-encoder-standard.md).
 	
-	    IJob job = _context.Jobs.Create(String.Format("Encoding into Mp4 {0} to {1}",
-	                            inputAsset.Name,
-	                            encodingPreset));
-	
-	    var mediaProcessors = 
-	        _context.MediaProcessors.Where(p => p.Name.Contains("Media Encoder")).ToList();
-	
-	    var latestMediaProcessor = 
-	        mediaProcessors.OrderBy(mp => new Version(mp.Version)).LastOrDefault();
-	
-	
-	
-	    ITask encodeTask = job.Tasks.AddNew("Encoding", latestMediaProcessor, encodingPreset, TaskOptions.None);
-	    encodeTask.InputAssets.Add(inputAsset);
-	    encodeTask.OutputAssets.AddNew(String.Format("{0} as {1}", inputAsset.Name, encodingPreset), AssetCreationOptions.StorageEncrypted);
-	
-	    job.StateChanged += new EventHandler<JobStateChangedEventArgs>(JobStateChanged);
-	    job.Submit();
-	    job.GetExecutionProgressTask(CancellationToken.None).Wait();
-	
-	    return job.OutputMediaAssets[0];
-	}
-	
-	static private void JobStateChanged(object sender, JobStateChangedEventArgs e)
-	{
-	    Console.WriteLine(string.Format("{0}\n  State: {1}\n  Time: {2}\n\n",
-	        ((IJob)sender).Name,
-	        e.CurrentState,
-	        DateTime.UtcNow.ToString(@"yyyy_M_d__hh_mm_ss")));
-	}
 
 ##<a id="create_contentkey"></a>Create a content key and associate it with the encoded asset
 
@@ -352,38 +285,41 @@ You can use the [AMS Player](http://amsplayer.azurewebsites.net/azuremediaplayer
 		            return inputAsset;
 		        }
 		
-		
-		        static public IAsset EncodeToAdaptiveBitrateMP4Set(IAsset inputAsset)
-		        {
-		            var encodingPreset = "H264 Adaptive Bitrate MP4 Set 720p";
-		
-		            IJob job = _context.Jobs.Create(String.Format("Encoding into Mp4 {0} to {1}",
-		                                    inputAsset.Name,
-		                                    encodingPreset));
-		
-		            var mediaProcessors =
-		                _context.MediaProcessors.Where(p => p.Name.Contains("Media Encoder")).ToList();
-		
-		            var latestMediaProcessor =
-		                mediaProcessors.OrderBy(mp => new Version(mp.Version)).LastOrDefault();
-		
-		
-		
-		            ITask encodeTask = job.Tasks.AddNew("Encoding", latestMediaProcessor, encodingPreset, TaskOptions.None);
-		            encodeTask.InputAssets.Add(inputAsset);
-		            encodeTask.OutputAssets.AddNew(String.Format("{0} as {1}", inputAsset.Name, encodingPreset), AssetCreationOptions.StorageEncrypted);
-		
-		            job.StateChanged += new EventHandler<JobStateChangedEventArgs>(JobStateChanged);
-		            job.Submit();
-		            job.GetExecutionProgressTask(CancellationToken.None).Wait();
-		
-		            return job.OutputMediaAssets[0];
-		        }
-		
+	
+				static public IAsset EncodeToAdaptiveBitrateMP4Set(IAsset asset)
+				{
+				    // Declare a new job.
+				    IJob job = _context.Jobs.Create("Media Encoder Standard Job");
+				    // Get a media processor reference, and pass to it the name of the 
+				    // processor to use for the specific task.
+				    IMediaProcessor processor = GetLatestMediaProcessorByName("Media Encoder Standard");
+				
+				    // Create a task with the encoding details, using a string preset.
+				    // In this case "H264 Multiple Bitrate 720p" preset is used.
+				    ITask task = job.Tasks.AddNew("My encoding task",
+				        processor,
+				        "H264 Multiple Bitrate 720p",
+				        TaskOptions.None);
+				
+				    // Specify the input asset to be encoded.
+				    task.InputAssets.Add(asset);
+				    // Add an output asset to contain the results of the job. 
+				    // This output is specified as AssetCreationOptions.None, which 
+				    // means the output asset is not encrypted. 
+				    task.OutputAssets.AddNew("Output asset",
+				        AssetCreationOptions.None);
+				
+				    job.StateChanged += new EventHandler<JobStateChangedEventArgs>(JobStateChanged);
+				    job.Submit();
+				    job.GetExecutionProgressTask(CancellationToken.None).Wait();
+				
+				    return job.OutputMediaAssets[0];
+				}
+
 		
 		        static public IContentKey CreateCommonTypeContentKey(IAsset asset)
 		        {
-		            // Create envelope encryption content key
+		            // Create common encryption content key
 		            Guid keyId = Guid.NewGuid();
 		            byte[] contentKey = GetRandomBuffer(16);
 		
@@ -559,14 +495,6 @@ You can use the [AMS Player](http://amsplayer.azurewebsites.net/azuremediaplayer
 		            return originLocator.Path + assetFile.Name;
 		        }
 		
-		        static private void JobStateChanged(object sender, JobStateChangedEventArgs e)
-		        {
-		            Console.WriteLine(string.Format("{0}\n  State: {1}\n  Time: {2}\n\n",
-		                ((IJob)sender).Name,
-		                e.CurrentState,
-		                DateTime.UtcNow.ToString(@"yyyy_M_d__hh_mm_ss")));
-		        }
-		
 		        static private byte[] GetRandomBuffer(int length)
 		        {
 		            var returnValue = new byte[length];
@@ -579,6 +507,49 @@ You can use the [AMS Player](http://amsplayer.azurewebsites.net/azuremediaplayer
 		
 		            return returnValue;
 		        }
+
+
+				static private void JobStateChanged(object sender, JobStateChangedEventArgs e)
+				{
+				    Console.WriteLine("Job state changed event:");
+				    Console.WriteLine("  Previous state: " + e.PreviousState);
+				    Console.WriteLine("  Current state: " + e.CurrentState);
+				    switch (e.CurrentState)
+				    {
+				        case JobState.Finished:
+				            Console.WriteLine();
+				            Console.WriteLine("Job is finished. Please wait while local tasks or downloads complete...");
+				            break;
+				        case JobState.Canceling:
+				        case JobState.Queued:
+				        case JobState.Scheduled:
+				        case JobState.Processing:
+				            Console.WriteLine("Please wait...\n");
+				            break;
+				        case JobState.Canceled:
+				        case JobState.Error:
+				
+				            // Cast sender as a job.
+				            IJob job = (IJob)sender;
+				
+				            // Display or log error details as needed.
+				            break;
+				        default:
+				            break;
+				    }
+				}
+				
+				
+				static private IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
+				{
+				    var processor = _context.MediaProcessors.Where(p => p.Name == mediaProcessorName).
+				    ToList().OrderBy(p => new Version(p.Version)).LastOrDefault();
+				
+				    if (processor == null)
+				        throw new ArgumentException(string.Format("Unknown media processor", mediaProcessorName));
+				
+				    return processor;
+				}
 		    }
 		}
 
