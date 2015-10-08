@@ -29,7 +29,7 @@ Sample NSG in JSON format:
 	{
 	    "name": "NSG-BackEnd",
 	    "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/networkSecurityGroups/NSG-BackEnd",
-	    "etag": "W/\"72c5328a-113a-48aa-bc81-429694eec517\"",
+	    "etag": "W/\"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx\"",
 	    "type": "Microsoft.Network/networkSecurityGroups",
 	    "location": "westus",
 	    "tags": {
@@ -37,12 +37,12 @@ Sample NSG in JSON format:
 	    },
 	    "properties": {
 	        "provisioningState": "Succeeded",
-	        "resourceGuid": "d7fdf5eb-d625-4be6-9490-7aca252e1e6c",
+	        "resourceGuid": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
 	        "securityRules": [
 	            {
 	                "name": "rdp-rule",
 	                "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/networkSecurityGroups/NSG-BackEnd/securityRules/rdp-rule",
-	                "etag": "W/\"72c5328a-113a-48aa-bc81-429694eec517\"",
+	                "etag": "W/\"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx\"",
 	                "properties": {
 	                    "provisioningState": "Succeeded",
 	                    "description": "Allow RDP",
@@ -58,24 +58,7 @@ Sample NSG in JSON format:
 	            }
 	        ],
 	        "defaultSecurityRules": [
-	            {
-	                "name": "AllowVnetInBound",
-	                "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/networkSecurityGroups/NSG-BackEnd/defaultSecurityRules/AllowVnetInBound",
-	                "etag": "W/\"72c5328a-113a-48aa-bc81-429694eec517\"",
-	                "properties": {
-	                    "provisioningState": "Succeeded",
-	                    "description": "Allow inbound traffic from all VMs in VNET",
-	                    "protocol": "*",
-	                    "sourcePortRange": "*",
-	                    "destinationPortRange": "*",
-	                    "sourceAddressPrefix": "VirtualNetwork",
-	                    "destinationAddressPrefix": "VirtualNetwork",
-	                    "access": "Allow",
-	                    "priority": 65000,
-	                    "direction": "Inbound"
-	                }
-	            }, ...
-	        ],
+	            { [...],
 	        "subnets": [
 	            {
 	                "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/FrontEnd"

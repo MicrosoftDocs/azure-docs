@@ -31,7 +31,7 @@ Sample VNet in JSON format:
 	{
 	    "name": "TestVNet",
 	    "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet",
-	    "etag": "W/\"df04b001-d06c-4ef2-bc55-afeb5e5fb6ee\"",
+	    "etag": "W/\"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx\"",
 	    "type": "Microsoft.Network/virtualNetworks",
 	    "location": "westus",
 	    "tags": {
@@ -39,7 +39,7 @@ Sample VNet in JSON format:
 	    },
 	    "properties": {
 	        "provisioningState": "Succeeded",
-	        "resourceGuid": "e9264495-a45a-4405-8374-d8e99a92a38e",
+	        "resourceGuid": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
 	        "addressSpace": {
 	            "addressPrefixes": [
 	                "192.168.0.0/16"
@@ -47,23 +47,9 @@ Sample VNet in JSON format:
 	        },
 	        "subnets": [
 	            {
-	                "name": "DMZ",
-	                "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/DMZ",
-	                "etag": "W/\"df04b001-d06c-4ef2-bc55-afeb5e5fb6ee\"",
-	                "properties": {
-	                    "provisioningState": "Succeeded",
-	                    "addressPrefix": "192.168.0.0/24",
-	                    "ipConfigurations": [
-	                        {
-	                            "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/networkInterfaces/NICFW1/ipConfigurations/ipconfig1"
-	                        }
-	                    ]
-	                }
-	            },
-	            {
 	                "name": "FrontEnd",
 	                "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/FrontEnd",
-	                "etag": "W/\"df04b001-d06c-4ef2-bc55-afeb5e5fb6ee\"",
+	                "etag": "W/\"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx\"",
 	                "properties": {
 	                    "provisioningState": "Succeeded",
 	                    "addressPrefix": "192.168.1.0/24",
@@ -77,36 +63,10 @@ Sample VNet in JSON format:
 	                        {
 	                            "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/networkInterfaces/NICWEB1/ipConfigurations/ipconfig1"
 	                        },
-	                        {
-	                            "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/networkInterfaces/NICWEB2/ipConfigurations/ipconfig1"
-	                        }
-	                    ]
+	                        ...]
 	                }
 	            },
-	            {
-	                "name": "BackEnd",
-	                "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/BackEnd",
-	                "etag": "W/\"df04b001-d06c-4ef2-bc55-afeb5e5fb6ee\"",
-	                "properties": {
-	                    "provisioningState": "Succeeded",
-	                    "addressPrefix": "192.168.2.0/24",
-	                    "networkSecurityGroup": {
-	                        "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/networkSecurityGroups/NSG-FrontEnd"
-	                    },
-	                    "routeTable": {
-	                        "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/routeTables/UDR-BackEnd"
-	                    },
-	                    "ipConfigurations": [
-	                        {
-	                            "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/networkInterfaces/NICSQL2/ipConfigurations/ipconfig1"
-	                        },
-	                        {
-	                            "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/networkInterfaces/NICSQL1/ipConfigurations/ipconfig1"
-	                        }
-	                    ]
-	                }
-	            }
-	        ]
+	            ...]
 	    }
 	}
 
