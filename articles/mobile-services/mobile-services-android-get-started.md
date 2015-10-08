@@ -26,7 +26,7 @@
 
 This tutorial shows you how to add a cloud-based backend service to an Android app using Azure Mobile Services. In this tutorial, you will create both a new mobile service and a simple **To do list** app that stores app data in the new mobile service.
 
-> [AZURE.VIDEO android-support-in-windows-azure-mobile-services]
+> [AZURE.VIDEO mobile-get-started-android]
 
 A screenshot from the completed app is below:
 ![](./media/mobile-services-android-get-started/mobile-quickstart-completed-android.png)

@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/23/2015" 
+	ms.date="10/07/2015" 
 	ms.author="awills"/>
  
 # Walkthrough: Export to SQL from Application Insights using Stream Analytics
@@ -258,7 +258,7 @@ Replace the default query with:
       ,A.context.location.province as province
       ,A.context.location.city as city
     INTO
-      AIOuput
+      AIOutput
     FROM AIinput A
     CROSS APPLY GetElements(A.[view]) as flat
 
