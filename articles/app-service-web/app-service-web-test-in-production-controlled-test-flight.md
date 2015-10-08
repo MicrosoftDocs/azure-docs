@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Beta-test your web app in production"
-	description="Learn how to do agile software testing in Azure App Service by easily beta-testing your apps in production."
+	pageTitle="Flighting deployment (beta testing) in Azure App Service"
+	description="Learn how to flight new features in your app or beta test your updates in this end-to-end tutorial. It brings together App Service features like continuous publishing, slots, traffic routing, and Application Insights integration."
 	services="app-service\web"
 	documentationCenter=""
 	authors="cephalin"
@@ -15,19 +15,30 @@
 	ms.topic="article"
 	ms.date="09/22/2015"
 	ms.author="cephalin"/>
-# Beta-test your web app in production
+# Flighting deployment (beta testing) in Azure App Service
 
-This tutorial shows you how to integrate beta testing with continuous integration and Application Insights to create a test harness that is suitable for DevOps.
+This tutorial shows you how to do *flighting deployments* by integrating the various capabilities of Azure App Service and Azure Application Insights. 
 
-Live testing your beta app is a common scenario for testing in production and is sometimes known as "controlled test flight". Many large enterprises with a web presence uses this approach to get early validation on their app updates in their practice of [agile development](https://en.wikipedia.org/wiki/Agile_software_development). Azure App Service enables you to integrate test in production with continous publishing and Application Insights to implement the same DevOps scenario. Benefits of this approach include:
+*Flighting* is a deployment process that validates a new feature or change with a limited number of real customers, and is a major testing in production 
+scenario. It is akin to beta testing and is sometimes known as "controlled test flight". Many large enterprises with a web presence use this approach to 
+get early validation on their app updates in their practice of [agile development](https://en.wikipedia.org/wiki/Agile_software_development). Azure App 
+Service enables you to integrate test in production with continous publishing and Application Insights to implement the same DevOps scenario. Benefits of 
+this approach include:
 
-- **Gain real feedback _before_ updates are released to production** - The only thing better than gaining feedback as soon as you release is gaining feedback before you release. You can test updates with real user traffic and behaviors as early as you desire in the product life cycle.
-- **Enhance [continuous test-driven development (CTDD)](https://en.wikipedia.org/wiki/Continuous_test-driven_development)** - By integrating test in production with continuous integration and instrumentation with Application Insights, user validation happens early and automatically in your product life cycle. This helps reduce time investments in manual test execution.
-- **Optimize test workflow** - By automating test in production with continuous monitoring instrumentation, you can potentially accomplish the goals of various kinds of tests in a single process, such as [integration](https://en.wikipedia.org/wiki/Integration_testing), [regression](https://en.wikipedia.org/wiki/Regression_testing), [usability](https://en.wikipedia.org/wiki/Usability_testing), accessibility, localization, [performance](https://en.wikipedia.org/wiki/Software_performance_testing), [security](https://en.wikipedia.org/wiki/Security_testing), and [acceptance](https://en.wikipedia.org/wiki/Acceptance_testing).
+- **Gain real feedback _before_ updates are released to production** - The only thing better than gaining feedback as soon as you release is gaining 
+feedback before you release. You can test updates with real user traffic and behaviors as early as you desire in the product life cycle.
+- **Enhance [continuous test-driven development (CTDD)](https://en.wikipedia.org/wiki/Continuous_test-driven_development)** - By integrating test in 
+production with continuous integration and instrumentation with Application Insights, user validation happens early and automatically in your product life 
+cycle. This helps reduce time investments in manual test execution.
+- **Optimize test workflow** - By automating test in production with continuous monitoring instrumentation, you can potentially accomplish the goals of 
+various kinds of tests in a single process, such as [integration](https://en.wikipedia.org/wiki/Integration_testing), 
+[regression](https://en.wikipedia.org/wiki/Regression_testing), [usability](https://en.wikipedia.org/wiki/Usability_testing), accessibility, localization, 
+[performance](https://en.wikipedia.org/wiki/Software_performance_testing), [security](https://en.wikipedia.org/wiki/Security_testing), and 
+[acceptance](https://en.wikipedia.org/wiki/Acceptance_testing).
 
 ## What you will do
 
-In this tutorial, you will learn how to bring the following scenarios together to test your web app in production:
+In this tutorial, you will learn how to bring the following scenarios together to test your App Service app in production:
 
 - [Route production traffic](app-service-web-test-in-production-get-start.md) to your beta app
 - [Instrument your app](app-insights-web-track-usage.md) to obtain useful metrics
@@ -153,7 +164,7 @@ Based on this, you form your hypothesis that some users are confused which part 
 
 ![](./media/app-service-web-test-in-production-controlled-test-flight/04-to-do-list-item-ui.png)
 
-This might be a contrived example. Nevertheless, you're going to test this hypothesis by making a change and see how users react to the change.
+This might be a contrived example. Nevertheless, you're going to make an improvement to your app, and then perform a flighting deployment to get usability feedback from live customers.
 
 ### Instrument your server app for monitoring/metrics
 This is a tangent since the scenario demonstrated in this tutorial only deals with the client app. However, for completeness you will set up the server-side app.
@@ -256,9 +267,19 @@ Again, for completeness you will set up the server-side app. Unlike the client a
 
 ## Update: Set up your beta branch
 
-2. Open *&lt;repository_root>*\ARMTemplates\ProdAndStagetest.json and find the `"appsettings"` resource for the front end app's staging slot. Add an `"environment": "[parameters('slotName')]"` app setting.
+2. Open *&lt;repository_root>*\ARMTemplates\ProdAndStagetest.json and find the `appsettings` resources (search for `"name": "appsettings"`). There are 4 of them, one for each slot. 
+
+2. For each `appsettings` resource, add an  `"environment": "[parameters('slotName')]"` app setting to the end of the `properties` array. Don't forget to end the previous line with a comma.
 
     ![](./media/app-service-web-test-in-production-controlled-test-flight/06-arm-app-setting-with-slot-name.png)
+    
+    You have just added the `environment` app setting to all the slots in the template.
+    
+2. In the same file, find the `slotconfignames` resources (search for `"name": "slotconfignames"`). There are 2 of them, one for each app.
+
+2. For each `slotconfignames` resource, add `"environment"` to the end of the `appSettingNames` array. Don't forget to end the previous line with a comma.
+
+    You have just made the `environment` app setting stick to its respective deployment slot for both apps.  
 
 3. In your Git Shell session, run the following commands with the same resource group suffix that you used before.
 
