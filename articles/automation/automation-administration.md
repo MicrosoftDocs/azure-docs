@@ -63,7 +63,7 @@ You cannot export certificates from Azure Automation.  You must ensure that any 
 ##Geo-replication in Azure Automation
 
 Azure Automation supports geo-replication. With geo-replication, Azure Automation keeps your data durable in two regions. While creating an Automation Account in the Azure portal, you choose a region where it should be created which is the primary region. The region where your data is geo-replicated is referred to as the secondary region. Primary and secondary regions talk to each other to geo-replicate the updates made to the Automation Account. As secondary region stores a copy of information, if there is a failover of an Automation Account from primary region to the secondary, all your Automation Account information would still be available in the secondary region.
-Geo-replication is built in to Automation Accounts and offered at no additional cost. Currently you don’t have control to choose the secondary region, it’s automatically determined based on where you choose your primary region.
+Geo-replication is built in to Automation Accounts and offered at no additional cost. You don’t have control to choose the secondary region, it’s automatically determined based on where you choose your primary region.
 
  
 ###Location of Geo-Replicas
@@ -81,4 +81,4 @@ Currently Automation Accounts can be created in below five regions and support f
 
 ###Disaster Recovery in Azure Automation
 
-When a major disaster affects the primary region, firstly the Automation team tries to restore the primary region. In some instances, when it’s not possible to restore the primary region, then geo-failover is performed and the affected customers will be notified about this through their subscription. After the disaster recovery, the secondary region now becomes the primary region for the Automation Account. This region will remain as the primary region unless another geo-failover was to occur and a new secondary region is created for that primary region.
+When a major disaster affects the primary region, firstly the Automation team tries to restore the primary region. In some instances, when it’s not possible to restore the primary region, then geo-failover is performed and the affected customers will be notified about this through their subscription.
