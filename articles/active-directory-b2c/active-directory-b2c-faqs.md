@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/01/2015"
+	ms.date="10/08/2015"
 	ms.author="swkrish"/>
 
 # Azure Active Directory B2C preview: FAQs
@@ -32,7 +32,7 @@ Azure AD B2C can't be used with Office 365. In general, it can't be used to prov
 
 ### What are "Local Accounts" in Azure AD B2C? How are they different from "Work or School Accounts" in Azure AD?
 
-In an Azure AD tenant, every user in the tenant (except users with existing Microsoft Accounts) signs in with an email address of the form `<xyz>@<tenant domain>` where `<directory domain>` is one of the verified domains in the directory or the initial `<...>.onmicrosoft.com` domain. This type of account is a "work or school account", also referred to as an "organizational account".
+In an Azure AD tenant, every user in the tenant (except users with existing Microsoft Accounts) signs in with an email address of the form `<xyz>@<tenant domain>` where `<tenant domain>` is one of the verified domains in the tenant or the initial `<...>.onmicrosoft.com` domain. This type of account is a "work or school account", also referred to as an "organizational account".
 
 In an Azure AD B2C tenant, most apps want the user to sign in with any arbitrary email address (example, joe@comcast.net, bob@gmail.com, sarah@contoso.com or jim@live.com). This type of account is a "local account". Today, we also support arbitrary usernames (just plain strings) as local accounts (example, joe, bob, sarah or jim). You can choose one of these two local account "types" in the Azure AD B2C service.
 
@@ -55,7 +55,7 @@ No, you can host your application anywhere (in the cloud or on-premises). All it
 
 ### I have multiple Azure AD B2C Directories. How can I manage them on the Azure Preview Portal?
 
-Each Azure AD B2C directory has its own B2C features blade on the Azure preview portal. Read [here](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade) on how you can navigate to a specific directory's B2C features blade on the Azure preview portal. Switching between Azure AD B2C directories on the Azure preview portal will not keep your B2C features blade open on most browsers.
+Each Azure AD B2C tenant has its own B2C features blade on the Azure preview portal. Read [here](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade) on how you can navigate to a specific tenant's B2C features blade on the Azure preview portal. Switching between Azure AD B2C directories on the Azure preview portal will not keep your B2C features blade open on most browsers.
 
 ### How do I customize Verification Emails (the content and the sender field, i.e., the "From:" field) sent by Azure AD B2C?
 
