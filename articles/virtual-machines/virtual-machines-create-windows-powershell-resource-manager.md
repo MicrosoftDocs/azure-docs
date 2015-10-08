@@ -39,12 +39,12 @@ Specify the email address of your Azure account and its password in the Microsof
 
 Next, if you have multiple Azure subscriptions, you need to set your Azure subscription. To see a list of your current subscriptions, run this command.
 
-	Get-AzureSubscription | sort SubscriptionName | Select SubscriptionName
+	Get-AzureRmSubscription | sort SubscriptionName | Select SubscriptionName
 
 Now, replace everything within the quotes, including the < and > characters, with the correct subscription name and run these commands.
 
 	$subscrName="<subscription name>"
-	Select-AzureSubscription -SubscriptionName $subscrName –Current
+	Select-AzureRmSubscription -SubscriptionName $subscrName –Current
 
 Next, you need to create a storage account. You must pick a unique name that contains only lowercase letters and numbers. You can test for the uniqueness of the storage account name with this command.
 
