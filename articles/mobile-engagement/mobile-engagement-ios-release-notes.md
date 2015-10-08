@@ -18,6 +18,11 @@
 
 #Release notes
 
+##3.2.0 (10/08/2015)
+
+-   Enabled Bitcode in the SDK.
+-   Fixed bugs related to in-app notifications.
+
 ##3.1.0 (08/26/2015)
 
 -   Fix iOS 9 compatibility bug with a third party library. It was causing crashes while sending polls results, application information or extra data.
