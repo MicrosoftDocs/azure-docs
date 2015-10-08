@@ -61,7 +61,7 @@ In this topic, you will see how to perform the following common scenarios throug
 If you do not already have the latest version of Azure PowerShell installed, see [Install and configure Azure PowerShell](../powershell-install-configure.md). For an introduction to using PowerShell with Resource Manager, including how to sign in to your Azure account and select the appropriate subscription, see [Using Azure PowerShell with Azure Resource Manager](../powershell-azure-resource-manager.md).
 
 ### View available roles
-To view all available roles for your subscription run the **Get-AzureRmRoleDefinition** command (or **Get-AzureRoleDefinition** for versions of PowerShell prior to 1.0 Preview).
+To view all available roles for your subscription run the **Get-AzureRmRoleDefinition** command (or **Get-AzureRoleDefinition** for versions of Azure PowerShell prior to 1.0 Preview).
 
     PS C:\> Get-AzureRmRoleDefinition
     
@@ -98,11 +98,11 @@ To view all available roles for your subscription run the **Get-AzureRmRoleDefin
         NotActions       : {}
         AssignableScopes : {/}
 
-2. Get the required security group by running the **Get-AzureRmADGroup** command (or **Get-AzureADGroup** for versions of PowerShell prior to 1.0 Preview). Provide the actual name of the group in your subscription. ExampleAuditorGroup is shown below.
+2. Get the required security group by running the **Get-AzureRmADGroup** command (or **Get-AzureADGroup** for versions of Azure PowerShell prior to 1.0 Preview). Provide the actual name of the group in your subscription. ExampleAuditorGroup is shown below.
 
         PS C:\> $group = Get-AzureRmAdGroup -SearchString ExampleAuditorGroup
 
-3. Create the role assignment for the auditor security group. When the command completes, the new role assignment is returned. Use **New-AzureRoleAssignment** for versions of PowerShell prior to 1.0 Preview.
+3. Create the role assignment for the auditor security group. When the command completes, the new role assignment is returned. Use **New-AzureRoleAssignment** for versions of Azure PowerShell prior to 1.0 Preview.
 
         PS C:\> New-AzureRmRoleAssignment -ObjectId $group.Id -Scope /subscriptions/{subscriptionId}/ -RoleDefinitionName Reader
 
@@ -112,7 +112,7 @@ To view all available roles for your subscription run the **Get-AzureRmRoleDefin
 
         PS C:\> Get-AzureRmRoleDefinition Contributor
 
-2. Get the service principal object Id by running the **Get-AzureRmADServicePrincipal** command (or **Get-AzureADServicePrincipal** for versions of PowerShell prior to 1.0 Preview) and providing the name of the application in your subscription. ExampleApplication is shown below.
+2. Get the service principal object Id by running the **Get-AzureRmADServicePrincipal** command (or **Get-AzureADServicePrincipal** for versions of Azure PowerShell prior to 1.0 Preview) and providing the name of the application in your subscription. ExampleApplication is shown below.
 
         PS C:\> $service = Get-AzureRmADServicePrincipal -SearchString ExampleApplicationName
 
@@ -133,7 +133,7 @@ For a more thorough explanation of setting up an Azure Active Directory applicat
 
 
 ###List auditing logs of resource group.
-To get the auditing log for a resource group, run the **Get-AzureRmLog** command (or **Get-AzureResourceGroupLog** for versions of PowerShell prior to 1.0 Preview).
+To get the auditing log for a resource group, run the **Get-AzureRmLog** command (or **Get-AzureResourceGroupLog** for versions of Azure PowerShell prior to 1.0 Preview).
 
       PS C:\> Get-AzureRmLog -ResourceGroup ExampleGroupName
 
