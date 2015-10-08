@@ -16,7 +16,7 @@
    ms.date="10/08/2015"
    ms.author="hascipio"/>
 
-# Setting up Azure PowerShell for
+# Setting up Azure PowerShell to create an offer for the Azure Marketplace
 For detailed information on how to set up PowerShell in Azure, visit [How to Install and configure Azure PowerShell](../powershell-install-configure.md). A simple approach is to use the certificate method, which downloads and imports a certificate needed to authenticate. To obtain the needed certificate, use the *Get-AzurePublishSettingsFile* cmdlet. Save the file once prompted. To import the certificate into a PowerShell session, use the *Import-AzurePublishSettingsFile*.
 
 To configure and store the common Microsoft Azure subscription settings for the PowerShell session, use the *Set-AzureSubscription* and *Select-AzureSubscription* cmdlets:
