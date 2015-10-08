@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="AzurePortal"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/04/2015"
+	ms.date="10/07/2015"
 	ms.author="tomfitz"/>
 
 
@@ -51,13 +51,15 @@ Pin the most important tags to your Startboard for quick access and you're ready
 If you have not previously used Azure PowerShell with Resource Manager, see [Using Azure PowerShell with Azure Resource Manager](../powershell-azure-resource-manager.md).
 For the purposes of this article, we'll assume you've already added an account and selected a subscription with the resources you want to tag.
 
-Tagging is only available for resources and resource groups available from [Resource Manager](http://msdn.microsoft.com/library/azure/dn790568.aspx), so the next thing we need to do is switch to use Resource Manager.
+Tagging is only available for resources and resource groups through [Resource Manager](http://msdn.microsoft.com/library/azure/dn790568.aspx). If you are using a version of Azure PowerShell earlier than 1.0 Preview, 
+switch to use Resource Manager.
 
     Switch-AzureMode AzureResourceManager
 
-Tags exist directly on resources and resource groups, so to see what tags are already applied, we can simply get a resource or resource group with `Get-AzureResource` or `Get-AzureResourceGroup`, respectively. Let's start with a resource group.
+Tags exist directly on resources and resource groups, so to see what tags are already applied, we can simply get a resource or resource group with **Get-AzureRmResource** or **Get-AzureRmResourceGroup** 
+(**Get-AzureResource** or **Get-AzureResourceGroup** for PowerShell versions earlier than 1.0 Preview). Let's start with a resource group.
 
-    PS C:\> Get-AzureResourceGroup tag-demo
+    PS C:\> Get-AzureRmResourceGroup tag-demo
 
     ResourceGroupName : tag-demo
     Location          : southcentralus
@@ -81,9 +83,9 @@ Tags exist directly on resources and resource groups, so to see what tags are al
                     tag-demo-site                    Microsoft.Web/sites                   southcentralus
 
 
-This cmdlet returns several bits of metadata on the resource group including what tags have been applied, if any. To tag a resource group, simply use the `Set-AzureResourceGroup` command and specify a tag name and value.
+This cmdlet returns several bits of metadata on the resource group including what tags have been applied, if any. To tag a resource group, simply use the **Set-AzureRmResourceGroup** command (or **Set-AzureResourceGroup** for PowerShell versions earlier than 1.0 Preview) and specify a tag name and value.
 
-    PS C:\> Set-AzureResourceGroup tag-demo -Tag @( @{ Name="project"; Value="tags" }, @{ Name="env"; Value="demo"} )
+    PS C:\> Set-AzureRmResourceGroup tag-demo -Tag @( @{ Name="project"; Value="tags" }, @{ Name="env"; Value="demo"} )
 
     ResourceGroupName : tag-demo
     Location          : southcentralus
@@ -96,9 +98,9 @@ This cmdlet returns several bits of metadata on the resource group including wha
 
 Tags are updated as a whole, so if you are adding one tag to a resource that's already been tagged, you'll need to use an array with all the tags you want to keep. To do this, you can first select the existing tags and add a new one.
 
-    PS C:\> $tags = (Get-AzureResourceGroup -Name tag-demo).Tags
+    PS C:\> $tags = (Get-AzureRmResourceGroup -Name tag-demo).Tags
     PS C:\> $tags += @{Name="status";Value="approved"}
-    PS C:\> Set-AzureResourceGroup tag-demo -Tag $tags
+    PS C:\> Set-AzureRmResourceGroup tag-demo -Tag $tags
 
     ResourceGroupName : tag-demo
     Location          : southcentralus
@@ -113,7 +115,15 @@ Tags are updated as a whole, so if you are adding one tag to a resource that's a
 
 To remove one or more tags, simply save the array without the ones you want to remove.
 
-The process is the same for resources, except you'll use the `Get-AzureResource` and `Set-AzureResource` cmdlets. To get resources or resource groups with a specific tag, use `Get-AzureResource` or `Get-AzureResourceGroup` cmdlet with the `-Tag` parameter.
+The process is the same for resources, except you'll use the **Get-AzureRmResource** and **Set-AzureRmResource** cmdlets (or **Get-AzureResource** and **Set-AzureResource**). 
+
+To get resource groups with a specific tag, use **Find-AzureRmResourceGroup** cmdlet with the **-Tag** parameter.
+
+    PS C:\> Find-AzureRmResourceGroup -Tag @{ Name="env"; Value="demo" } | %{ $_.ResourceGroupName }
+    rbacdemo-group
+    tag-demo
+
+For PowerShell versions earlier than 1.0 Preview use the following commands to get resources with a specific tag.
 
     PS C:\> Get-AzureResourceGroup -Tag @{ Name="env"; Value="demo" } | %{ $_.ResourceGroupName }
     rbacdemo-group
@@ -121,11 +131,11 @@ The process is the same for resources, except you'll use the `Get-AzureResource`
     PS C:\> Get-AzureResource -Tag @{ Name="env"; Value="demo" } | %{ $_.Name }
     rbacdemo-web
     rbacdemo-docdb
-    ...
+    ...    
 
-To get a list of all tags within a subscription using PowerShell, use the `Get-AzureTag` cmdlet.
+To get a list of all tags within a subscription using PowerShell, use the **Get-AzureRmTag** (or **Get-AzureRmTag** for PowerShell versions earlier than 1.0 Preview) cmdlet.
 
-    PS C:/> Get-AzureTag
+    PS C:/> Get-AzureRmTag
     Name                      Count
     ----                      ------
     env                       8
@@ -133,7 +143,8 @@ To get a list of all tags within a subscription using PowerShell, use the `Get-A
 
 You may see tags that start with "hidden-" and "link:". These are internal tags, which you should ignore and avoid changing.
 
-Use the `New-AzureTag` cmdlet to add new tags to the taxonomy. These tags will be included in the autocomplete even though they haven't been applied to any resources or resource groups, yet. To remove a tag name/value, first remove the tag from any resources it may be used with and then use the `Remove-AzureTag` cmdlet to remove it from the taxonomy.
+Use the **New-AzureRmTag** cmdlet to add new tags to the taxonomy. These tags will be included in the autocomplete even though they haven't been applied to any resources or resource groups, yet. To remove a tag name/value, first remove the tag from any resources it may be used with and then use the **Remove-AzureRmTag** cmdlet to remove it from the taxonomy. 
+**New-AzureTag** and **Remove-AzureTag**  are available in PowerShell versions earlier than 1.0 Preview).
 
 ## Tagging with REST API
 
