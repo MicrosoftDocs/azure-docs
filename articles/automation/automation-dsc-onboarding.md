@@ -29,7 +29,6 @@ Azure Automation DSC can be used to manage a variety of machines:
 *    Physical / virtual Windows machines on-premises, or in a cloud other than Azure
 *    Physical / virtual Linux machines on-premises, in Azure, or in a cloud other than Azure
 
-
 The following sections outline how you can onboard each type of machine to Azure Automation DSC.
 
 ## Azure virtual machines (classic)
