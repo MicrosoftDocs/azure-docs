@@ -36,6 +36,11 @@ various kinds of tests in a single process, such as [integration](https://en.wik
 [performance](https://en.wikipedia.org/wiki/Software_performance_testing), [security](https://en.wikipedia.org/wiki/Security_testing), and 
 [acceptance](https://en.wikipedia.org/wiki/Acceptance_testing).
 
+A flighting deployment is not just about routing live traffic. In such a deployment you want to gain insight as quickly as possible, whether it be an unexpected bug, 
+performance degradation, user experience issues. Remember, you are dealing with real customers. So to do it right, you must make sure that you have set up 
+your flighting deployment to gather all the data you need in order to make an informed decision for your next step. This tutorial shows you how to collect data 
+with Application Insights, but you can use New Relic or other technologies that suits your scenario. 
+
 ## What you will do
 
 In this tutorial, you will learn how to bring the following scenarios together to test your App Service app in production:
@@ -319,7 +324,7 @@ Back to your app that you want to improve.
 
     ![](./media/app-service-web-test-in-production-controlled-test-flight/08-verify-change-in-beta-site.png)
 
-Now that you have your change running in the beta slot, you are ready to test in production.
+Now that you have your change running in the beta slot, you are ready to perform a flighting deployment.
 
 ## Validate: Route traffic to the beta app
 
@@ -348,7 +353,7 @@ Suppose in Application Insights you see something similar to the following:
 
 Not only is this showing that there are many more clicks on the `<li>` tags, but there seems to be a surge of clicks on `<li>` tags. You can then conclude that people have discovered the new `<li>` tags are clickable and are now clearing all their previously-completed tasks in the app.
 
-Based on this, you decide that your new UI is ready for production.
+Based on the data of your flighting deployment, you decide that your new UI is ready for production.
 
 ## Go live: Move your new code into production
 
