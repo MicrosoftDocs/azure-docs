@@ -20,7 +20,7 @@
 
 ## Why manage machines with Azure Automation DSC?
 
-Like [PowerShell Desired State Configuration](https://technet.microsoft.com/library/dn249912.aspx), Azure Automation DSC is a simple, yet powerful, configuration management service for DSC nodes (physical and virtual machines) in any cloud or on-premises datacenter. With Azure Automation DSC you can manage nodes using PowerShell DSC in much the same way that you’ve been able to use Azure Automation with PowerShell scripting for some time. You can map configurations to DSC nodes to make them automatically conform to a specified desired state and report back on their compliance to Azure Automation. To learn more about the benefits of using Azure Automation DSC, see [Azure Automation DSC overview](automation-dsc-overview/). 
+Like [PowerShell Desired State Configuration](https://technet.microsoft.com/library/dn249912.aspx), Azure Automation DSC is a simple, yet powerful, configuration management service for DSC nodes (physical and virtual machines) in any cloud or on-premises datacenter. Azure Automation DSC provides the same management layer for PowerShell Desired State Configuration as Azure Automation offers for PowerShell scripting. You can map configurations to DSC nodes to make them automatically conform to a specified desired state and report back on their compliance to Azure Automation. To learn more about the benefits of using Azure Automation DSC, see [Azure Automation DSC overview](automation-dsc-overview/). 
 
 Azure Automation DSC can be used to manage a variety of machines:
 
@@ -34,7 +34,7 @@ The following sections outline how you can onboard each type of machine to Azure
 
 ## Azure virtual machines (classic)
 
-With Azure Automation DSC, you can easily onboard Azure virtual machines (classic) for configuration management using either the Azure portal, or PowerShell. Under the hood, and without remoting into the VM, the Azure VM Desired State Configuration extension is used to register the VM with Azure Automation DSC, without remoting into the VM. Since the Azure VM Desired State Configuration extension runs asynchronously, steps to track its progress or troubleshoot it are provided in the **Troubleshooting Azure virtual machine onboarding** section below.
+With Azure Automation DSC, you can easily onboard Azure virtual machines (classic) for configuration management using either the Azure portal, or PowerShell. Under the hood, and without an administrator having to remote into the VM, the Azure VM Desired State Configuration extension registers the VM with Azure Automation DSC. Since the Azure VM Desired State Configuration extension runs asynchronously, steps to track its progress or troubleshoot it are provided in the **Troubleshooting Azure virtual machine onboarding** section below.
 
 
 ### Azure virtual machines
@@ -111,7 +111,7 @@ To find the registration URL and key for the Automation account to onboard the m
 
 ## Azure virtual machines
 
-Azure Automation DSC lets you easily onboard Azure virtual machines for configuration management, using either the Azure portal, Azure Resource Manager templates, or PowerShell. Under the hood, the Azure VM Desired State Configuration extension is used to register the VM with Azure Automation DSC, without remoting into the VM. Since the Azure VM Desired State Configuration extension runs asynchronously, steps to track its progress or troubleshoot it are provided in the **Troubleshooting Azure virtual machine onboarding** section below.
+Azure Automation DSC lets you easily onboard Azure virtual machines for configuration management, using either the Azure portal, Azure Resource Manager templates, or PowerShell. Under the hood, and without an administrator having to remote into the VM, the Azure VM Desired State Configuration extension registers the VM with Azure Automation DSC. Since the Azure VM Desired State Configuration extension runs asynchronously, steps to track its progress or troubleshoot it are provided in the **Troubleshooting Azure virtual machine onboarding** section below.
 
 
 ### Azure portal
