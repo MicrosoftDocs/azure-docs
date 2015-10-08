@@ -16,7 +16,7 @@
     ms.date="10/07/2015"
     ms.author="lodipalm"/>
 
-# Connect to SQL Data Warehouse with Power BI
+# Analyze data with Power BI
 This tutorial shows you how to use Power BI to connect to SQL Data Warehouse and create a few basic visualizations.
 
 > [AZURE.NOTE] To complete this tutorial, you need a SQL Data Warehouse database that is pre-loaded with the AdventureWorksDW sample database. [Create a SQL Data Warehouse](sql-data-warehouse-get-started-provision.md) shows you how to create one. 
