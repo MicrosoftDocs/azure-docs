@@ -150,32 +150,6 @@ We host office hours on IRC every Friday from 11am to 12pm pacific time.
 
 <hr/>
 
-## Open source projects
-
-<hr/>
-
-These projects are actively developed by the Azure DocumentDB team in collaboration with our open source community.
-
-### SDKs
-
-| Platform | Github repository                                                           | Package |
-| -------- | --------------------------------------------------------------------------- | ------- |
-| Node.js  | [azure-documentdb-node](https://github.com/Azure/azure-documentdb-node)     | [npm](https://www.npmjs.com/package/documentdb) |
-| Java     | [azure-documentdb-java](https://github.com/Azure/azure-documentdb-java)     | [Maven](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-documentdb%22) |
-| Python   | [azure-documentdb-python](https://github.com/Azure/azure-documentdb-python) | [PyPI](https://pypi.python.org/pypi/pydocumentdb) |
-
-### Other projects
-
-| Name                | Github repository                                                                                 | Download |
-| ------------------- | ------------------------------------------------------------------------------------------------- | -------- |
-| Documentation       | [azure-content](https://github.com/Azure/azure-content/tree/master/articles/documentdb)           | [Documentation website](https://azure.microsoft.com/documentation/services/documentdb/) |
-| Hadoop Connector    | [azure-documentdb-hadoop](https://github.com/Azure/azure-documentdb-hadoop)                       | [Maven](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-documentdb-hadoop%22) |
-| Data migration tool | [azure-documentdb-datamigrationtool](https://github.com/Azure/azure-documentdb-datamigrationtool) | [Microsoft download center](http://www.microsoft.com/en-us/download/details.aspx?id=46436) |
-
-<br/><br/>
-
-<hr/>
-
 ## Contact the team
 
 <hr/>
@@ -185,3 +159,29 @@ Do you need technical help? Have questions? Wondering whether NoSQL is a good fi
 You can [schedule a 1:1 chat directly with the DocumentDB engineering team](http://www.askdocdb.com/).
 
 You can also shoot us an [e-mail](mailto:askdocdb@microsoft.com) or tweet us at [@DocumentDB](https://twitter.com/DocumentDB).
+
+<br/><br/>
+
+<hr/>
+
+## Open source projects
+
+<hr/>
+
+These projects are actively developed by the Azure DocumentDB team in collaboration with our open source community.
+
+### SDKs
+
+| Platform | Github                                                                      | Package |
+| -------- | --------------------------------------------------------------------------- | ------- |
+| Node.js  | [azure-documentdb-node](https://github.com/Azure/azure-documentdb-node)     | [npm](https://www.npmjs.com/package/documentdb) |
+| Java     | [azure-documentdb-java](https://github.com/Azure/azure-documentdb-java)     | [Maven](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-documentdb%22) |
+| Python   | [azure-documentdb-python](https://github.com/Azure/azure-documentdb-python) | [PyPI](https://pypi.python.org/pypi/pydocumentdb) |
+
+### Other projects
+
+| Name                | Github                                                                                            | Website |
+| ------------------- | ------------------------------------------------------------------------------------------------- | ------- |
+| Documentation       | [azure-content](https://github.com/Azure/azure-content/tree/master/articles/documentdb)           | [Documentation website](https://azure.microsoft.com/documentation/services/documentdb/) |
+| Hadoop Connector    | [azure-documentdb-hadoop](https://github.com/Azure/azure-documentdb-hadoop)                       | [Maven](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-documentdb-hadoop%22) |
+| Data migration tool | [azure-documentdb-datamigrationtool](https://github.com/Azure/azure-documentdb-datamigrationtool) | [Microsoft download center](http://www.microsoft.com/en-us/download/details.aspx?id=46436) |
