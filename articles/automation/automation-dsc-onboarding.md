@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="powershell"
    ms.workload="TBD" 
-   ms.date="09/29/2015"
+   ms.date="10/17/2015"
    ms.author="coreyp"/>
 
 # Onboarding machines for management by Azure Automation DSC
@@ -34,7 +34,7 @@ The following sections outline how you can onboard each type of machine to Azure
 
 ## Azure virtual machines (classic)
 
-With Azure Automation DSC, you can easily onboard Azure virtual machines (classic) for configuration management using either the Azure portal, or PowerShell. Under the hood, and without an administrator having to remote into the VM, the Azure VM Desired State Configuration extension registers the VM with Azure Automation DSC. Since the Azure VM Desired State Configuration extension runs asynchronously, steps to track its progress or troubleshoot it are provided in the **Troubleshooting Azure virtual machine onboarding** section below.
+With Azure Automation DSC, you can easily onboard Azure virtual machines (classic) for configuration management using either the Azure portal, or PowerShell. Under the hood, and without an administrator having to remote into the VM, the Azure VM Desired State Configuration extension registers the VM with Azure Automation DSC. Since the Azure VM Desired State Configuration extension runs asynchronously, steps to track its progress or troubleshoot it are provided in the [Troubleshooting Azure virtual machine onboarding](#Troubleshooting-Azure-virtual-machine-onboarding) section below.
 
 
 ### Azure virtual machines
@@ -45,7 +45,7 @@ In the [Azure preview portal](http://portal.azure.com/), click **Browse** -> **V
 
  
 
-To find the registration URL and key for the Automation account to onboard the machine to, see the **Secure Registration** section below.
+To find the registration URL and key for the Automation account to onboard the machine to, see the [Secure registration](#Secure-registration) section below.
 
 ### PowerShell
 
@@ -111,7 +111,7 @@ To find the registration URL and key for the Automation account to onboard the m
 
 ## Azure virtual machines
 
-Azure Automation DSC lets you easily onboard Azure virtual machines for configuration management, using either the Azure portal, Azure Resource Manager templates, or PowerShell. Under the hood, and without an administrator having to remote into the VM, the Azure VM Desired State Configuration extension registers the VM with Azure Automation DSC. Since the Azure VM Desired State Configuration extension runs asynchronously, steps to track its progress or troubleshoot it are provided in the **Troubleshooting Azure virtual machine onboarding** section below.
+Azure Automation DSC lets you easily onboard Azure virtual machines for configuration management, using either the Azure portal, Azure Resource Manager templates, or PowerShell. Under the hood, and without an administrator having to remote into the VM, the Azure VM Desired State Configuration extension registers the VM with Azure Automation DSC. Since the Azure VM Desired State Configuration extension runs asynchronously, steps to track its progress or troubleshoot it are provided in the [Troubleshooting Azure virtual machine onboarding](#Troubleshooting-Azure-virtual-machine-onboarding) section below.
 
 
 ### Azure portal
@@ -130,7 +130,7 @@ Under **Configure registration data**, enter the [PowerShell DSC Local Configura
  
 ### Azure Resource Manager templates
 
-Azure virtual machines can be deployed and onboarded to Azure Automation DSC via Azure Resource Manager templates. See [Configure a VM via DSC extension and Azure Automation DSC](http://azure.microsoft.com/documentation/templates/dsc-extension-azure-automation-pullserver/) for an example template that onboards an existing VM to Azure Automation DSC. To find the registration key and registration URL taken as input in this template, see the **Secure Registration** section below.
+Azure virtual machines can be deployed and onboarded to Azure Automation DSC via Azure Resource Manager templates. See [Configure a VM via DSC extension and Azure Automation DSC](http://azure.microsoft.com/documentation/templates/dsc-extension-azure-automation-pullserver/) for an example template that onboards an existing VM to Azure Automation DSC. To find the registration key and registration URL taken as input in this template, see the [Secure registration](#Secure-registration) section below.
 
 ### PowerShell
 
@@ -173,7 +173,7 @@ On-premises Linux machines and Linux machines in non-Azure clouds can also be on
 
 	`/opt/microsoft/dsc/Scripts/Register.py <Automation account registration key> <Automation account registration URL>`
 
-*    To find the registration key and registration URL for your Automation account, see the **Secure Registration** section below.
+*    To find the registration key and registration URL for your Automation account, see the [Secure registration](#Secure-registration) section below.
 
 	If the PowerShell DSC Local Configuration Manager defaults **do** **not** match your use case, follow steps 3 - 9. Otherwise, proceed directly to step 9.
 
