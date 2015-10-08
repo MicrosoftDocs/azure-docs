@@ -19,7 +19,7 @@
 
 Event Hubs provides large-scale intake, persistence and processing of data events from high-throughput data sources and/or millions of devices. When paired with Service Bus queues and topics, Event Hubs enables persistent command and control deployments for Internet of Things scenarios.
 
-This section discusses availability information and answers some frequently-asked questions:
+This article discusses availability information and answers some frequently-asked questions:
 
 ## Pricing information
 
@@ -100,7 +100,7 @@ To learn more about our SLA, please visit the [Service Level Agreements](http://
 
 ## Next steps
 
-To learn more about Event Hubs, visit the following topics:
+To learn more about Event Hubs, see the following articles:
 
 - [Event Hubs overview].
 - A complete [sample application that uses Event Hubs].
