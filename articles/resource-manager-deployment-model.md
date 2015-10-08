@@ -56,11 +56,11 @@ Resources created through Resource Manager share the following characteristics:
 
         ![Resource Manager deployment](./media/resource-manager-deployment-model/select-resource-manager.png)
 
-  - For PowerShell versions earlier than 1.0 Preview, commands run in the **AzureResourceManager** mode.
+  - For Azure PowerShell versions earlier than 1.0 Preview, commands run in the **AzureResourceManager** mode.
 
             PS C:\> Switch-AzureMode -Name AzureResourceManager
 
-  - For PowerShell 1.0 Preview, use the Resource Manager version of commands. These commands have the format *verb-AzureRm*, as shown below.
+  - For Azure PowerShell 1.0 Preview, use the Resource Manager version of commands. These commands have the format *verb-AzureRm*, as shown below.
 
             PS C:\> Get-AzureRmResourceGroupDeployment
 
@@ -87,11 +87,11 @@ Resources created in the classic deployment model share the following characteri
 
         ![Classic deployment](./media/resource-manager-deployment-model/select-classic.png)
 
-  - For versions of PowerShell earlier than 1.0 Preview, commands run in the **AzureServiceManagement** mode (which is the default mode, so if do not you specifically switch to AzureResourceManager, you are running in AzureServiceManagement mode).
+  - For versions of Azure PowerShell earlier than 1.0 Preview, commands run in the **AzureServiceManagement** mode (which is the default mode, so if do not you specifically switch to AzureResourceManager, you are running in AzureServiceManagement mode).
 
             PS C:\> Switch-AzureMode -Name AzureServiceManagement
 
-  - For PowerShell 1.0 Preview, use the Service Management version of commands. These command names **do not** have the format *verb-AzureRm*, as shown below.
+  - For Azure PowerShell 1.0 Preview, use the Service Management version of commands. These command names **do not** have the format *verb-AzureRm*, as shown below.
 
             PS C:\> Get-AzureDeployment
 
