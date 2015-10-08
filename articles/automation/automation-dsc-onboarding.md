@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="powershell"
    ms.workload="TBD" 
-   ms.date="10/7/2015"
+   ms.date="10/07/2015"
    ms.author="coreyp"/>
 
 # Onboarding machines for management by Azure Automation DSC
