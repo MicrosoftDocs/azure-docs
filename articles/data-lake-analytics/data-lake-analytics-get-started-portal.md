@@ -16,7 +16,7 @@
    ms.date="10/27/2015"
    ms.author="jgao"/>
 
-# Get Started with Azure Data Lake Analytics using Azure Preview Portal
+# Tutorial: get Started with Azure Data Lake Analytics using Azure Preview Portal
 
 Learn how to use the Azure Preview portal to create an Azure Data Lake (ADL) Analytics account, define an ADL Analytics
 job in [U-SQL](), and submit the job. This job reads a tab separated values (TSV) file and convert it into a comma 
