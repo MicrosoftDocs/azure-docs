@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/23/2015"
+	ms.date="10/01/2015"
 	ms.author="genemi"/>
 
 
@@ -33,8 +33,7 @@ The following table lists other Help topics for V12.
 | Title and link | Description of content |
 | :--- | :--- |
 | [What's new in SQL Database V12](sql-database-v12-whats-new.md) | Describes the details of how V12 brings Azure SQL Database closer to full parity with Microsoft SQL Server. |
-| [Walkthrough: sign up for the Latest SQL Database Update V12](sql-database-v12-sign-up.md) | Describes the steps you must perform if you want to upgrade your Azure SQL databases to V12. |
-| [Create a database in SQL Database Update V12](sql-database-create.md) | Describes how you can create a new Azure SQL database at version V12. It describes various options beyond just an empty database. |
+| [Create a database in SQL Database V12](sql-database-get-started.md) | Describes how you can create a new Azure SQL database at version V12. It describes various options beyond just an empty database. |
 
 
 ## Plan ahead
@@ -60,15 +59,15 @@ Starting with V12, Azure SQL Database will support only the service tiers named 
 
 For detailed information about the Basic, Standard, and Premium service tiers, see:
 
-
+- [SQL Database service tiers](sql-database-service-tiers.md)
 - [Upgrade SQL Database Web/Business Databases to New Service Tiers](sql-database-upgrade-new-service-tiers.md)
-- [Azure SQL Database Pricing](http://azure.microsoft.com/pricing/details/sql-database/)
+
 
 
 ### Review the geo-replication configuration
 
 
-If your Azure SQL database is configured for geo-replication, you should document its current configuration, and stop the geo-replication, before you start the upgrade preparation actions. After upgrade completes you must reconfigure your database for geo-replication.
+If your Azure SQL database is configured for geo-replication, you should document its current configuration, and stop geo-replication, before you start the upgrade preparation actions. After upgrade completes you must reconfigure your database for geo-replication.
 
 
 The strategy is to leave the source intact and test on a copy of the database.

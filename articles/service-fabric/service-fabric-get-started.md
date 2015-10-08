@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="09/10/2015"
+   ms.date="10/07/2015"
    ms.author="seanmck"/>
 
 # Set up your Service Fabric development environment
@@ -66,7 +66,7 @@ A local cluster represents the multi-machine topology that you will eventually u
     ```powershell
     cd "$env:ProgramW6432\Microsoft SDKs\Service Fabric\ClusterSetup"
     ```
-    
+
 3. Run
 
     ```powershell
@@ -81,7 +81,7 @@ In a few moments you should see output that shows node information and confirmat
 
 You can check that your cluster was created successfully using the Service Fabric Explorer tool that ships with the SDK.
 
-1. Start the Service Fabric Explorer by running 
+1. Start the Service Fabric Explorer by running
 
     ```powershell
     . "$env:ProgramW6432\Microsoft SDKs\Service Fabric\Tools\ServiceFabricExplorer\ServiceFabricExplorer.exe"

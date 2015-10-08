@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Upgrade an Azure SQL server to V12 with PowerShell" 
-	description="Upgrade an Azure SQL server to V12 with PowerShell." 
+	pageTitle="Upgrade an Azure SQL server to V12 using PowerShell" 
+	description="Upgrade an Azure SQL server to V12 using PowerShell." 
 	services="sql-database" 
 	documentationCenter="" 
 	authors="stevestein" 
@@ -13,14 +13,20 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/05/2015" 
+	ms.date="09/30/2015" 
 	ms.author="sstein"/>
 
-# Upgrade Azure SQL server to V12 with PowerShell
- 
+# Upgrade to SQL Database V12 using PowerShell
 
-This article shows you how to upgrade a SQL Database server to V12 using pricing tier and elastic pool recommendations. 
 
+> [AZURE.SELECTOR]
+- [Azure Preview Portal](sql-database-v12-upgrade.md)
+- [PowerShell](sql-database-upgrade-server.md)
+
+
+This article shows you how to upgrade to SQL Database V12 using PowerShell. 
+
+During the process of upgrading to SQL Database V12 you must also update any Web and Business databases to a new service tier. The following directions include using pricing tier and elastic pool recommendations to assist with [updating any Web and Business databases](sql-database-upgrade-new-service-tiers.md) on the server. 
 
 
 ## Prerequisites 
@@ -39,16 +45,13 @@ For detailed information, see [Using Windows PowerShell with Resource Manager](.
 
 
 
-## Configure your credentials
+## Configure your credentials and select your subscription
 
 To run PowerShell cmdlets against your Azure subscription you must first establish access to your Azure account. Run the following and you will be presented with a sign in screen to enter your credentials. Use the same email and password that you use to sign in to the Azure portal.
 
 	Add-AzureAccount
 
 After successfully signing in you should see some information on screen that includes the Id you signed in with and the Azure subscriptions you have access to.
-
-
-## Select your Azure subscription
 
 To select the subscription you want to work with you need your subscription Id (**-SubscriptionId**) or subscription name (**-SubscriptionName**). You can copy it from the previous step, or if you have multiple subscriptions you can run the **Get-AzureSubscription** cmdlet and copy the desired subscription information from the resultset.
 
@@ -78,7 +81,7 @@ To start the upgrade of the server run the following cmdlet:
 When you run this command upgrade process will begin. You can customize the output of the recommendation and provide the edited recommendation to this cmdlet. 
 
 
-## Upgrade an Azure SQL server
+## Upgrade a server
 
 
     # Adding the account
@@ -112,31 +115,49 @@ When you run this command upgrade process will begin. You can customize the outp
 
 If the recommendations are not appropriate for your server and business case, then you can choose how your databases are upgraded and can map them to either single or elastic databases.
 
-Upgrade databases into an elastic database pool:
-
-    $elasticPool = New-Object -TypeName Microsoft.Azure.Management.Sql.Models.UpgradeRecommendedElasticPoolProperties
-    $elasticPool.DatabaseDtuMax = 100  
-    $elasticPool.DatabaseDtuMin = 0  
-    $elasticPool.Dtu = 800
-    $elasticPool.Edition = "Standard"  
-    $elasticPool.DatabaseCollection = ("DB1")  
-    $elasticPool.Name = "elasticpool_1"  
-
-
-Upgrade databases into single databases:
-
-    $databaseMap = New-Object -TypeName Microsoft.Azure.Management.Sql.Models.UpgradeDatabaseProperties  
-    $databaseMap.Name = "DB2"
-    $databaseMap.TargetEdition = "Standard"
-    $databaseMap.TargetServiceLevelObjective = "S0"
-    Start-AzureSqlServerUpgrade –ResourceGroupName resourcegroup1 –ServerName server1 -Version 12.0 -DatabaseCollection($databaseMap) -ElasticPoolCollection ($elasticPool)
+ElasticPoolCollection and DatabaseCollection parameters are optional:
+    
+    # Creating elastic pool mapping
+    #
+    $elasticPool = New-Object -TypeName Microsoft.Azure.Management.Sql.Models.UpgradeRecommendedElasticPoolProperties 
+    $elasticPool.DatabaseDtuMax = 100 
+    $elasticPool.DatabaseDtuMin = 0 
+    $elasticPool.Dtu = 800 
+    $elasticPool.Edition = "Standard" 
+    $elasticPool.DatabaseCollection = ("DB1", “DB2”, “DB3”, “DB4”) 
+    $elasticPool.Name = "elasticpool_1" 
+    $elasticPool.StorageMb = 800 
+     
+    # Creating single database mapping for 2 databases. DBMain1 mapped to S0 and DBMain2 mapped to S2
+    #
+    $databaseMap1 = New-Object -TypeName Microsoft.Azure.Management.Sql.Models.UpgradeDatabaseProperties 
+    $databaseMap1.Name = "DBMain1" 
+    $databaseMap1.TargetEdition = "Standard" 
+    $databaseMap1.TargetServiceLevelObjective = "S0"
+    
+    $databaseMap2 = New-Object -TypeName Microsoft.Azure.Management.Sql.Models.UpgradeDatabaseProperties 
+    $databaseMap2.Name = "DBMain2" 
+    $databaseMap2.TargetEdition = "Standard" 
+    $databaseMap2.TargetServiceLevelObjective = "S2"
+     
+    # Starting the upgrade
+    #
+    Start-AzureSqlServerUpgrade –ResourceGroupName resourcegroup1 –ServerName server1 -Version 12.0 -DatabaseCollection @($databaseMap1, $databaseMap2) -ElasticPoolCollection @($elasticPool) 
     
 
+
+
+
+- [Get-AzureSqlServerUpgrade](http://msdn.microsoft.com/library/mt143621.aspx)
+- [Start-AzureSqlServerUpgrade](http://msdn.microsoft.com/library/mt143623.aspx)
+- [Stop-AzureSqlServerUpgrade](http://msdn.microsoft.com/library/mt143622.aspx)
 
 
 
 ## Related Information
 
 - [Azure SQL Database Resource Manager Cmdlets](https://msdn.microsoft.com/library/mt163521.aspx)
-- [Azure SQL Database Service Management Cmdlets](https://msdn.microsoft.com/library/dn546726.aspx)
- 
+- [Get-AzureSqlServerUpgrade](http://msdn.microsoft.com/library/mt143621.aspx)
+- [Start-AzureSqlServerUpgrade](http://msdn.microsoft.com/library/mt143623.aspx)
+- [Stop-AzureSqlServerUpgrade](http://msdn.microsoft.com/library/mt143622.aspx)
+

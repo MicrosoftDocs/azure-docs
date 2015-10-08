@@ -35,7 +35,7 @@ To be able to authenticate users, you must register your application with the Az
 This tutorial requires the following:
 
 * Visual Studio 2013 running on Windows 8.1.
-* Completion of the [Get started with Mobile Services] or [Get Started with Data] tutorial.
+* Completion of the [Get started with Mobile Services] tutorial.
 * Microsoft Azure Mobile Services SDK NuGet package
 * Active Directory Authentication Library NuGet package
 
@@ -212,6 +212,5 @@ Your mobile service is now configured in AAD to receive single sign-on logins fr
 <!-- URLs. -->
 [How to Register with the Azure Active Directory]: mobile-services-how-to-register-active-directory-authentication.md
 [Azure Management Portal]: https://manage.windowsazure.com/
-[Get started with data]: ../mobile-services-dotnet-backend-windows-store-dotnet-get-started-data.md
 [Get started with Mobile Services]: mobile-services-dotnet-backend-windows-store-dotnet-get-started.md
 [Windows Dev Center Dashboard]: http://go.microsoft.com/fwlink/p/?LinkID=266734
