@@ -23,7 +23,7 @@ Although Logic apps has a rich set of 40+ connectors for a variety of services, 
 
 ## Deploy your Web App
 
-First, you'll need to deploy your API as a Web App in App Service. The instructions here cover basic deployment: [Create an ASP.NET web app](https://azure.microsoft.com/en-us/documentation/articles/web-sites-dotnet-get-started/).
+First, you'll need to deploy your API as a Web App in App Service. The instructions here cover basic deployment: [Create an ASP.NET web app](web-sites-dotnet-get-started.md).
 
 Be sure to get the **URL** of your Web app - it appears in the **Essentials** at the top of the Web app.
 
@@ -144,7 +144,7 @@ The above template already has this set up, but if you are authoring the Logic a
 
 ### Certificate auth
 
-You can use Client certificates to validate the incoming requests to your Web app. See [How To Configure TLS Mutual Authentication for Web App](https://azure.microsoft.com/en-us/documentation/articles/app-service-web-configure-tls-mutual-auth/) for how to set up your code. 
+You can use Client certificates to validate the incoming requests to your Web app. See [How To Configure TLS Mutual Authentication for Web App](app-service-web-configure-tls-mutual-auth.md) for how to set up your code. 
 
 In the *Authorization* section you should provide: `{"type": "clientcertificate","password": "test","pfx": "long-pfx-key"}`. 
 
@@ -156,7 +156,7 @@ In the *Authorization* section you should provide: `{"type": "clientcertificate"
 
 ### Basic auth
 
-You can use Basic authentication (e.g. username and password) to validate the incoming 
+You can use Basic authentication (e.g. username and password) to validate the incoming requests. Basic auth is a common pattern and you can do it in any language you build your app in.
 
 In the *Authorization* section you should provide: `{"type": "basic","username": "test","password": "test"}`. 
 
@@ -172,6 +172,6 @@ By default, the Azure Active Directory authentication that you enable in the Por
 
 If you want to restrict the API to just the Logic app, for example, in code, you can extract the header which contains the JWT and check who the caller is, rejecting any requests that do not match.
 
-Going further, if you want to implement it entirely in your own code, and not leverage the Portal feature, you can read this article: [Use Active Directory for authentication in Azure App Service](https://azure.microsoft.com/en-us/documentation/articles/web-sites-authentication-authorization/).
+Going further, if you want to implement it entirely in your own code, and not leverage the Portal feature, you can read this article: [Use Active Directory for authentication in Azure App Service](web-sites-authentication-authorization.md).
 
 You will still need to follow the above steps to create an Application identity for your Logic app and use that to call the API.
