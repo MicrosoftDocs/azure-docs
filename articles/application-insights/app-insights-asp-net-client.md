@@ -23,14 +23,11 @@
 
 [Visual Studio Application Insights](http://azure.microsoft.com/services/application-insights) monitors your live application to help you [detect and diagnose performance issues and exceptions][detect], and [discover how your app is used][knowUsers]. 
 
-[AZURE.INCLUDE [app-insights-selector-get-started](../../includes/app-insights-selector-get-started.md)]
-
-Get started either by [adding the SDK to your app](app-insights-asp-net.md), or by [monitoring an already-live app](app-insights-asp-net-dependencies.md).
-
 
 <a name="selector1"></a>
 
 [AZURE.INCLUDE [app-insights-selector-get-started-dotnet](../../includes/app-insights-selector-get-started-dotnet.md)]
+
 
 Find out about the performance and usage of your web pages. Add Visual Studio Application Insights to your pages, and you'll find out how many users you have, how often they come back, and which pages they use most. You'll also get reports of load times and any exceptions. Add a few [custom events and metrics][api], and you can analyze in detail the most popular features, the most common mistakes, and tune your page to success with your users.
 

@@ -20,17 +20,13 @@
 
 *Application Insights is in preview.*
 
-
 [Visual Studio Application Insights](http://azure.microsoft.com/services/application-insights) monitors your live application to help you [detect and diagnose performance issues and exceptions][detect], and [discover how your app is used][knowUsers]. 
-
-[AZURE.INCLUDE [app-insights-selector-get-started](../../includes/app-insights-selector-get-started.md)]
-
-Get started either by [adding the SDK to your app](app-insights-asp-net.md), or by [monitoring an already-live app](app-insights-asp-net-dependencies.md).
 
 
 <a name="selector1"></a>
 
 [AZURE.INCLUDE [app-insights-selector-get-started-dotnet](../../includes/app-insights-selector-get-started-dotnet.md)]
+
 
 By monitoring your application with [Visual Studio Application Insights][start], you can correlate failed requests with exceptions and other events at both the client and server, so that you can quickly diagnose the causes.
 
