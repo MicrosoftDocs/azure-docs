@@ -386,7 +386,7 @@ It can take several minutes before the cluster provisioning finishes.
 ###<a id="sdk"></a> Using the HDInsight .NET SDK
 The HDInsight .NET SDK provides .NET client libraries that make it easier to work with HDInsight from a .NET Framework application. Follow the instructions below to create a Visual Studio console application and paste the code for creating a cluster.
 
-**To create a Visual Studio console application**
+**To create a C# Visual Studio console application**
 
 1. Open Visual Studio 2013 or 2015.
 2. Create a new Visual Studio project with the following settings
@@ -406,6 +406,8 @@ The HDInsight .NET SDK provides .NET client libraries that make it easier to wor
 
 6. From Solution Explorer, double-click **Program.cs** to open it, paste the following code, and provide values for the variables:
 
+		using System;
+		using System.Security;
 		using Microsoft.Azure;
 		using Microsoft.Azure.Common.Authentication;
 		using Microsoft.Azure.Common.Authentication.Factories;
@@ -512,7 +514,7 @@ The HDInsight .NET SDK provides .NET client libraries that make it easier to wor
 
 
 
-##<a id="nextsteps"></a> Next steps
+## Next steps
 In this article, you have learned several ways to provision an HDInsight Hadoop cluster on Linux. To learn more, see the following articles:
 
 - [Working with HDInsight on Linux](hdinsight-hadoop-linux-information.md): Get to know the nuances of working with an HDInsight cluster on Linux.

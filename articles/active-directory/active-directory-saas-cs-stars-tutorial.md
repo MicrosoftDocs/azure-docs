@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/01/2015"
+	ms.date="10/06/2015"
 	ms.author="markusvi"/>
 
 
@@ -74,7 +74,8 @@ To configure the integration of CS Stars into Azure AD, you need to add CS Stars
 6. In the search box, type **CS Stars**.
 <br><br>![Applications][5]<br>
 
-7. In the results pane, select **CS Stars**, and then click **Complete** to add the application.<br>
+7. In the results pane, select **CS Stars**, and then click **Complete** to add the application.
+<br><br>![Applications][400]<br>
 
 
 
@@ -231,5 +232,6 @@ When you click the CS Stars tile in the Access Panel, you should get automatical
 [204]: ./media/active-directory-saas-cs-stars-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-cs-stars-tutorial/tutorial_general_205.png
 
+[400]: ./media/active-directory-saas-cs-stars-tutorial/tutorial_csstars_403.png
 
 

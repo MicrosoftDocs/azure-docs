@@ -88,4 +88,4 @@ To learn how to enable IP forwarding for a VM in Azure, see [How to Create Route
 ## Next Steps
 
 - Learn how to [create routes in the Resource Manager deployment model](../virtual-network-create-udr-arm-template) and associate them to subnets. 
-- Learn how to [create routes in the classic deployment model](../virtual-networks-udr-how-to) and associate them to subnets.
+- Learn how to [create routes in the classic deployment model](../virtual-network-create-udr-classic-ps) and associate them to subnets.
