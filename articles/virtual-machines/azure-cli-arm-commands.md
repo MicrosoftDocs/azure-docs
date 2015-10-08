@@ -195,8 +195,6 @@ Your Azure subscription information is used by the tool to connect to your accou
 
 **Commands to manage your local or gallery resource group template**
 
-	<!-- group template list [options]
-	group template show [options] <name> -->
 	group template download [options] [name] [file]
 	group template validate [options] <resource-group>
 

@@ -6,7 +6,7 @@
    authors="dlepow"
    manager="timlt"
    editor=""
-   tags="azure-resource-management"/>
+   tags="azure-resource-manager"/>
 
    <tags
    ms.service="virtual-machines"
