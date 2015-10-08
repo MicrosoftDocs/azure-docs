@@ -60,13 +60,13 @@ You need a [Microsoft Azure](http://azure.com) subscription.
 2. Download and run the [Status Monitor installer](http://go.microsoft.com/fwlink/?LinkId=506648).
 4. In the installation wizard, sign in to Microsoft Azure.
 
-    ![Sign into Azure with your Microsoft account credentials](./media/app-insights-monitor-performance-live-website-now/appinsights-035-signin.png)
+    ![Sign into Azure with your Microsoft account credentials](./media/app-insights-asp-net-dependencies/appinsights-035-signin.png)
 
     *Connection errors? See [Troubleshooting](#troubleshooting).*
 
 5. Pick the installed web application or website that you want to monitor, then configure the resource in which you want to see the results in the Application Insights portal.
 
-    ![Choose an app and a resource.](./media/app-insights-monitor-performance-live-website-now/appinsights-036-configAIC.png)
+    ![Choose an app and a resource.](./media/app-insights-asp-net-dependencies/appinsights-036-configAIC.png)
 
     Normally, you choose to configure a new resource and [resource group][roles].
 
@@ -74,13 +74,13 @@ You need a [Microsoft Azure](http://azure.com) subscription.
 
 6. Restart IIS.
 
-    ![Choose Restart at the top of the dialog.](./media/app-insights-monitor-performance-live-website-now/appinsights-036-restart.png)
+    ![Choose Restart at the top of the dialog.](./media/app-insights-asp-net-dependencies/appinsights-036-restart.png)
 
     Your web service will be interrupted for a short while.
 
 6. Notice that ApplicationInsights.config has been inserted into the web apps that you want to monitor.
 
-    ![Find the .config file alongside the code files of the web app.](./media/app-insights-monitor-performance-live-website-now/appinsights-034-aiconfig.png)
+    ![Find the .config file alongside the code files of the web app.](./media/app-insights-asp-net-dependencies/appinsights-034-aiconfig.png)
 
    There are also some changes to web.config.
 
@@ -88,14 +88,14 @@ You need a [Microsoft Azure](http://azure.com) subscription.
 
 After you complete the wizard, you can re-configure the agent whenever you want. You can also use this if you installed the agent but there was some trouble with the initial setup.
 
-![Click the Application Insights icon on the task bar](./media/app-insights-monitor-performance-live-website-now/appinsights-033-aicRunning.png)
+![Click the Application Insights icon on the task bar](./media/app-insights-asp-net-dependencies/appinsights-033-aicRunning.png)
 
 
 ### If your app runs as an Azure Web App
 
 In the control panel of your Azure Web App, add the Application Insights extension.
 
-![In your web app, Settings, Extensions, Add, Application Insights](./media/app-insights-monitor-performance-live-website-now/05-extend.png)
+![In your web app, Settings, Extensions, Add, Application Insights](./media/app-insights-asp-net-dependencies/05-extend.png)
 
 
 ### If it's an Azure cloud services project
@@ -106,18 +106,18 @@ In the control panel of your Azure Web App, add the Application Insights extensi
 
 To assess the performance of requests at your server:
 
-![In the Overview page of your application in Application Insights, click the Performance tile](./media/app-insights-dependencies/01-performance.png)
+![In the Overview page of your application in Application Insights, click the Performance tile](./media/app-insights-asp-net-dependencies/01-performance.png)
 
 Scroll down to look at the grid of requests:
 
-![List of requests with averages and counts](./media/app-insights-dependencies/02-reqs.png)
+![List of requests with averages and counts](./media/app-insights-asp-net-dependencies/02-reqs.png)
 
 The top one is taking very long. Let's see if we can find out where the time is spent.
 
 Click that row to see individual request events:
 
 
-![List of request occurrences](./media/app-insights-dependencies/03-instances.png)
+![List of request occurrences](./media/app-insights-asp-net-dependencies/03-instances.png)
 
 Click any long-running instance to inspect it further.
 
@@ -125,14 +125,14 @@ Click any long-running instance to inspect it further.
 
 Scroll down to the remote dependency calls related to this request:
 
-![Find Calls to Remote Dependencies, identify unusual Duration](./media/app-insights-dependencies/04-dependencies.png)
+![Find Calls to Remote Dependencies, identify unusual Duration](./media/app-insights-asp-net-dependencies/04-dependencies.png)
 
 It looks like most of the time servicing this request was spent in a call to a local service. 
 
 Select that row to get more information:
 
 
-![Click through that remote dependency to identify the culprit](./media/app-insights-dependencies/05-detail.png)
+![Click through that remote dependency to identify the culprit](./media/app-insights-asp-net-dependencies/05-detail.png)
 
 The detail includes sufficient information to diagnose the problem.
 
@@ -142,12 +142,12 @@ The detail includes sufficient information to diagnose the problem.
 
 If there are failed requests, click the chart.
 
-![Click the failed requests chart](./media/app-insights-dependencies/06-fail.png)
+![Click the failed requests chart](./media/app-insights-asp-net-dependencies/06-fail.png)
 
 Click through a request type and request instance, to find a failed call to a remote dependency.
 
 
-![Click a request type, click the instance to get to a different view of the same instance, click it to get exception details.](./media/app-insights-dependencies/07-faildetail.png)
+![Click a request type, click the instance to get to a different view of the same instance, click it to get exception details.](./media/app-insights-asp-net-dependencies/07-faildetail.png)
 
 
 ## Custom dependency tracking
@@ -194,7 +194,7 @@ If you want to switch off the standard dependency tracking module, remove the re
 [perf]: app-insights-web-monitor-performance.md
 [portal]: http://portal.azure.com/
 [qna]: app-insights-troubleshoot-faq.md
-[redfield]: app-insights-monitor-performance-live-website-now.md
+[redfield]: app-insights-asp-net-dependencies.md
 [roles]: app-insights-resources-roles-access-control.md
 [start]: app-insights-get-started.md
 

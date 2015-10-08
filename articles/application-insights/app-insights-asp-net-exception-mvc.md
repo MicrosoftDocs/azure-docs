@@ -40,24 +40,24 @@ To monitor an ASP.NET app, you have to [add Application Insights SDK][greenbrown
 
 From the overview blade, the Failures tile shows you charts of exceptions and failed HTTP requests, together with a list of the request URLs that cause the most frequent failures.
 
-![Select Failures](./media/app-insights-asp-net-exceptions/012-start.png)
+![Select Failures](./media/app-insights-asp-net-exception-mvc/012-start.png)
 
 Click through one of the failed request types in the list to get to individual occurrences of the failure. From there, click through to the exceptions or any trace data associated with it:
 
-![Select an instance of a failed request, and under exception details, get to instances of the exception.](./media/app-insights-asp-net-exceptions/030-req-drill.png)
+![Select an instance of a failed request, and under exception details, get to instances of the exception.](./media/app-insights-asp-net-exception-mvc/030-req-drill.png)
 
 
 **Alternatively,** you can start from the list of exceptions that you'll find further down the Failures blade. Keep clicking until you eventually get to individual exceptions.
 
 
-![Drill through](./media/app-insights-asp-net-exceptions/040-exception-drill.png)
+![Drill through](./media/app-insights-asp-net-exception-mvc/040-exception-drill.png)
 
 *No exceptions showing? See [Capture exceptions](#exceptions).*
 
 From there you can look at the stack trace and detailed properties of each exception and find related log trace or other events.
 
 
-![Drill through](./media/app-insights-asp-net-exceptions/050-exception-properties.png)
+![Drill through](./media/app-insights-asp-net-exception-mvc/050-exception-properties.png)
 
 [Learn more about Diagnostic Search][diagnostic].
 
@@ -87,7 +87,7 @@ You have several options:
 To see these events, open [Search][diagnostic], open Filter, and then choose Custom Event, Trace, or Exception.
 
 
-![Drill through](./media/app-insights-asp-net-exceptions/viewCustomEvents.png)
+![Drill through](./media/app-insights-asp-net-exception-mvc/viewCustomEvents.png)
 
 ### How to see request POST data
 
@@ -97,7 +97,7 @@ Request details don't include the data sent to your app in a POST call. To have 
 * Insert code in your application to call [Microsoft.ApplicationInsights.TrackTrace()][api]. Send the POST data in the message parameter. There is a limit to the permitted size, so you should try to send just the essential data.
 * When you investigate a failed request, find the associated traces.  
 
-![Drill through](./media/app-insights-asp-net-exceptions/060-req-related.png)
+![Drill through](./media/app-insights-asp-net-exception-mvc/060-req-related.png)
 
 
 ## <a name="exceptions"></a> Capturing exceptions and related diagnostic data
