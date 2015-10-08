@@ -54,7 +54,7 @@ Both methods are described in this document, along with example projects.
 
 ##Python components with a Java topology
 
-> [AZURE.NOTE] This example is available at https://github.com/Blackmist/hdinsight-python-storm-wordcount in the __JavaTopology__ directory. This is a Maven based project. If you are unfamiliar with Maven, see [Develop Java-based topologies with Apache Storm on HDInsight](https://azure.microsoft.com/en-us/documentation/articles/hdinsight-storm-develop-java-topology/) for more information on creating a Maven project for a Storm topology.
+> [AZURE.NOTE] This example is available at https://github.com/Blackmist/hdinsight-python-storm-wordcount in the __JavaTopology__ directory. This is a Maven based project. If you are unfamiliar with Maven, see [Develop Java-based topologies with Apache Storm on HDInsight](hdinsight-storm-develop-java-topology.md) for more information on creating a Maven project for a Storm topology.
 
 A Java-based topology that uses Python (or other JVM language components,) initially appears to use Java components; but if you look in each of the Java spouts/bolts, you'll see code similar to the following:
 
