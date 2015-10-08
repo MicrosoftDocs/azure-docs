@@ -73,7 +73,7 @@ This is what the Logic app will use to authenticate against active directory. Yo
 3. `New-AzureADApplication -DisplayName "MyLogicAppID" -HomePage "http://someranddomain.tld" -IdentifierUris "http://someranddomain.tld" -Password "Pass@word1!"`
 4. Be sure to copy the **Tenant ID**, the **Application ID** and the password you used
 
-### Part 2: Protect your Web App 
+### Part 2: Protect your Web App with an AAD app identity
 
 If your Web app is already deployed you can just enable it in the portal. Otherwise, you can make enabling Authorization part of your Azure Resource manager deployment.
 
@@ -119,7 +119,11 @@ Once you have the client ID and tenant ID include the following as a sub resourc
 ]
 ```
 
-See the full deployment template [in the Azure quickstarts gallery](https://github.com/Azure/azure-quickstart-templates/).
+To run a deployment automatically that deploys a blank Web app and Logic app together that use AAD click the following button:
+[![Deploy to Azure](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-logic-app-custom-api%2Fazuredeploy.json) 
+
+For the complete template, see [Logic App calls into a Custom API hosted on App Service and protected by AAD](https://github.com/Azure/azure-quickstart-templates/blob/master/201-logic-app-custom-api/azuredeploy.json).
+
 
 ### Part 3: Populate the Authorization section in the Logic app
 
@@ -133,6 +137,8 @@ In the **Authorization** section of the **HTTP** action:
 | audience | Required. The resource you are connecting to. |
 | clientID | The client identifier for the Azure AD application. |
 | secret | Required. Secret of the client that is requesting the token. | 
+
+The above template already has this set up, but if you are authoring the Logic app directly you'll need to include the full authorization section.
 
 ## Securing your API in code
 
@@ -160,8 +166,12 @@ In the *Authorization* section you should provide: `{"type": "basic","username":
 | username | Required. Username to authenticate. |
 | password | Required. Password to authenticate. |
  
-### Manually implement AAD auth
+### Handle AAD auth in code
 
-If you want more granular control over the access to your API you can manually implement AAD authentication, as covered in this article: [Use Active Directory for authentication in Azure App Service](https://azure.microsoft.com/en-us/documentation/articles/web-sites-authentication-authorization/).
+By default, the Azure Active Directory authentication that you enable in the Portal does not do fine-grained authorization. For example, it does not lock your API to a specific user or app, but just to a particular tenant.
+
+If you want to restrict the API to just the Logic app, for example, in code, you can extract the header which contains the JWT and check who the caller is, rejecting any requests that do not match.
+
+Going further, if you want to implement it entirely in your own code, and not leverage the Portal feature, you can read this article: [Use Active Directory for authentication in Azure App Service](https://azure.microsoft.com/en-us/documentation/articles/web-sites-authentication-authorization/).
 
 You will still need to follow the above steps to create an Application identity for your Logic app and use that to call the API.
