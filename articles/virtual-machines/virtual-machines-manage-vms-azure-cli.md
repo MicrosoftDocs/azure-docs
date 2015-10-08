@@ -84,6 +84,6 @@ Of course, if you already have those values you can find the proper switches to 
 
 ## Next steps
 
-* For more examples of Azure CLI usage with the Azure Resource Manager mode, see [Using the Microsoft Azure CLI for Mac, Linux, and Windows with Azure Resource Management](../xplat-cli-resource-manager.md).
+* For more examples of Azure CLI usage with the Azure Resource Manager mode, see [Using the Microsoft Azure CLI for Mac, Linux, and Windows with Azure Resource Management](xplat-cli-azure-resource-manager.md).
 
 * To learn more about Azure resources and their concepts, see [Azure Resource Manager Overview](../resource-group-overview.md).
