@@ -43,7 +43,7 @@ To connect to your database you need the full name  of the server (***servername
 
 
 
-## Connect to your SQL Database
+## Connect to your SQL database
 
 1. Open SSMS.
 2. Click **Connect** > **Database Engine...**
