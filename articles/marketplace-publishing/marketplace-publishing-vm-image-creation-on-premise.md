@@ -13,10 +13,10 @@
   ms.topic="article"
   ms.tgt_pltfrm="Azure"
   ms.workload="na"
-  ms.date="10/06/2015"
+  ms.date="10/08/2015"
   ms.author="hascipio; v-divte"/>
 
-# Developing a Virtual Machine Image on-premise
+# Developing a Virtual Machine Image on-premise for the Azure Marketplace
 We strongly recommend that you develop Azure VHDs directly in the cloud using RDP. However, if you must, it is possible to download a VHD and develop using on-premises infrastructure.  
 
 For on-premises development, you must download the OS VHD of the created VM. These steps would take place as part of step 3.3, above.  

@@ -13,17 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/07/2015"
+   ms.date="10/08/2015"
    ms.author="hascipio; v-divte" />
 
 # Testing your Solution Template offer in Staging
 Staging means deploying your offer in a private "sandbox" where you can test and verify its functionality before pushing it to production. The offer will appear in staging just as it would to a customer who has deployed it. Your offer **must be certified to be pushed to staging**.
 
 After the offer is staged, you can view and test the offer in the [Azure Preview Portal](https://ms.portal.azure.com/).
-
-<!--
-In this portal, you can view your staged as well as published offer.
--->
 
 Please follow the steps below to push your offer to staging and carrying out the testing in the [Azure Preview Portal](https://ms.portal.azure.com/).
 
