@@ -20,3 +20,6 @@
 	    <array>
 	    <string>remote-notification</string>
 	    </array>
+
+7. If you are using **Xcode 7+** and **iOS 9+**:
+	- Enable **Push Notifications** in Targets > Your Target Name > Capabilities.
