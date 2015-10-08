@@ -32,7 +32,7 @@ installed, the commands will be a little bit different.
 
 1. Login to your Azure account. After providing your credentials, the command returns information about your account.
 
-  Earlier than PowerShell 1.0 Preview:
+    Earlier than PowerShell 1.0 Preview:
 
         PS C:\> Add-AzureAccount
 
@@ -40,7 +40,7 @@ installed, the commands will be a little bit different.
         --                             ----    
         someone@example.com            User       ...   
 
-  PowerShell 1.0 Preview:
+    PowerShell 1.0 Preview:
 
          PS C:\> Login-AzureRmAccount
 
