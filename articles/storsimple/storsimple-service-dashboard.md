@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/14/2015"
+   ms.date="09/17/2015"
    ms.author="v-sharos" />
 
 # Use the StorSimple Manager service dashboard

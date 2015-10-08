@@ -1,19 +1,4 @@
-<properties
-   pageTitle="Install regular hotfixes"
-   description="Explains how to use Windows PowerShell for StorSimple to install regular hotfixes."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="alkohli"
-   manager="adinah"
-   editor="NA" />
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="07/28/2015"
-   ms.author="alkohli" />
+<!--author=SharS last changed: 9/17/15-->
 
 #### To install regular hotfixes via Windows PowerShell for StorSimple
 

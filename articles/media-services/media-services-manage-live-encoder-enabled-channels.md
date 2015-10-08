@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="09/07/2015"
+	ms.date="09/28/2015"
 	ms.author="juliako"/>
 
-#Working with Channels that are Enabled to Perform Live Encoding with Azure Media Services (Preview)
+#Working with Channels that are Enabled to Perform Live Encoding with Azure Media Services
 
 ##Overview
 
@@ -25,15 +25,11 @@ In Azure Media Services, a **Channel** represents a pipeline for processing live
 - An on-premises live encoder sends multi-bitrate **RTMP** or **Smooth Streaming** (Fragmented MP4) to the Channel. You can use the following live encoders that output multi-bitrate Smooth Streaming: Elemental, Envivio, Cisco.  The following live encoders output RTMP: Adobe Flash Live, Telestream Wirecast, and Tricaster transcoders. The ingested streams pass through **Channel**s without any further processing. When requested, Media Services delivers the stream to customers.
 - A single bitrate stream (in one of the following formats: **RTP** (MPEG-TS)), **RTMP**, or **Smooth Streaming** (Fragmented MP4)) is sent to the **Channel** that is enabled to perform live encoding with Media Services. The **Channel** then performs live encoding of the incoming single bitrate stream to a multi-bitrate (adaptive) video stream. When requested, Media Services delivers the stream to customers. 
 
-	Encoding a live stream with Media Services is currently in **Preview**.
-
 Starting with the Media Services 2.10 release, when you create a Channel, you can specify in which way you want for your channel to receive the input stream and whether or not you want for the channel to perform live encoding of your stream. You have two options:    
 
 - **None** – Specify this value, if you plan to use an on-premises live encoder which will output multi-bitrate stream. In this case, the incoming stream passed through to the output without any encoding. This is the behavior of a Channel prior to 2.10 release.  For more detailed information about working with channels of this type, see [Working with Channels that Receive Multi-bitrate Live Stream from On-premises Encoders](media-services-manage-channels-overview.md).
 
-- **Standard** (Preview) – Choose this value, if you plan to use Media Services to encode your single bitrate live stream to multi-bitrate stream. 
-
-	Encoding a live stream with Media Services is currently in Preview.
+- **Standard** – Choose this value, if you plan to use Media Services to encode your single bitrate live stream to multi-bitrate stream. 
 
 >[AZURE.NOTE]This topic discusses attributes of channels that are enabled to perform live encoding (**Standard** encoding type). For information about working with channels that are not enabled to perform live encoding, see [Working with Channels that Receive Multi-bitrate Live Stream from On-premises Encoders](media-services-manage-channels-overview.md).
 
@@ -41,22 +37,13 @@ The following diagram represents a live streaming workflow where a channel recei
 
 ![Live workflow][live-overview]
 
->[AZURE.NOTE]Not all data centers support Live Encoding with Azure Media Services. 
->
->If you are using Azure Management Portal to create Channels, you will have two Channel encoding type options available: **None** and **Standard**. If you only see the **None** option, it means your data center does not support Live Encoding with AMS.
->
->If you are using .NET SDK or REST API, do the following to check:
->
->1. Try to create a Channel with encoding type set to Standard. 
->2. If the returned result HTTP Error Code 412 (Precondition Failed) with the following message: *"Live encoding is not supported in this region; EncodingType must be set to 'None'."*, your data center does not support Live Encoding.
-
 
 ##In this topic
 
 - Overview of a [common live streaming scenario](media-services-manage-live-encoder-enabled-channels.md#scenario)
 - [Description of a Channel and its related components](media-services-manage-live-encoder-enabled-channels.md#channel)
-- [Considerations](media-services-manage-live-encoder-enabled-channels.md#considerations)
-- [Tasks related to Live Streaming](media-services-manage-live-encoder-enabled-channels.md#tasks)
+- [Considerations](media-services-manage-live-encoder-enabled-channels.md#Considerations)
+
 
 ##<a id="scenario"></a>Common Live Streaming Scenario
 
@@ -393,11 +380,12 @@ Stopping|Stopping|No (transient state)
 Stopped|Stopped|No
 
 
->[AZURE.NOTE] Currently in Preview, the Channel start can take up to 20+ minutes. Channel reset can take up to 5 minutes.
+>[AZURE.NOTE] Currently, the Channel start can take up to 20+ minutes. Channel reset can take up to 5 minutes.
 
 
 ##<a id="Considerations"></a>Considerations
 
+- When a Channel of **Standard** encoding type experiences a loss of input source/contribution feed, it compensates for it by replacing the source video/audio with an error slate and silence. The Channel will continue to emit a slate until the input/contribution feed resumes. We recommend that a live channel not be left in such a state for longer than 2 hours. Beyond that point, the behavior of the Channel on input reconnection is not guaranteed, neither is its behavior in response to a Reset command. You will have to stop the Channel, delete it and create a new one.
 - You cannot change the input protocol while the Channel or its associated programs are running. If you require different protocols, you should create separate channels for each input protocol. 
 - Every time you reconfigure the live encoder, call the **Reset** method on the channel. Before you reset the channel, you have to stop the program. After you reset the channel, restart the program. 
 - A channel can be stopped only when it is in the Running state, and all programs on the channel have been stopped.

@@ -73,7 +73,7 @@ Your organization can use Azure AD to improve employee productivity, streamline 
  - [Try it out!](https://azure.microsoft.com/trial/get-started-active-directory/) - you can sign up for a free 30 trial today and deploy your first cloud solution in under 5 minutes using this link
  - Read our “Getting started with Azure AD” for tips and tricks on getting an Azure AD tenant up and running fast
 -	If you are a developer:
- - Check out our [Developers Guide](https://msdn.microsoft.com/library/azure/ff800682.aspx) to Azure Active Directory <need link>
+ - Check out our [Developers Guide](active-directory-developers-guide.md) to Azure Active Directory 
  - [Start a trial](https://azure.microsoft.com/trial/get-started-active-directory/) – sign up for a free 30 day trial today and get started integrating your app with Azure AD
 
 

@@ -1,19 +1,4 @@
-<properties 
-   pageTitle="Install StorSimple Adapter for SharePoint | Microsoft Azure"
-   description="Describes how to install the StorSimple Adapter for SharePoint in a SharePoint server farm."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="carolz"
-   editor="" />
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="07/17/2015"
-   ms.author="v-sharos" />
+<!--author=SharS last changed: 9/17/15-->
 
 #### To install the StorSimple Adapter for SharePoint
 

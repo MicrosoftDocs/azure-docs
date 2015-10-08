@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="09/04/2015"
+	ms.date="09/22/2015"
 	ms.author="dastrock"/>
 
 # Azure AD B2C Preview: Build a Windows desktop app
@@ -24,9 +24,7 @@ With Azure AD B2C, you can add powerful self-service identity managment features
 to create a .NET WPF "To-Do List" app that includes user sign-up, sign-in, and profile management.  It will include support for sign-up & sign-in with a username
 or email, as well as social accounts such as Facebook & Google.
 
-> [AZURE.NOTE]
-	This information applies to the Azure AD B2C preview.  For information on how to integrate with the generally available Azure AD service, 
-	please refer to the [Azure Active Directory Developer Guide](active-directory-developers-guide.md).
+[AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
 
 ## 1. Get an Azure AD B2C directory
 
@@ -42,6 +40,8 @@ follow [these instructions](active-directory-b2c-app-registration.md).  Be sure 
 - Copy down the **Redirect Uri** `urn:ietf:wg:oauth:2.0:oob` - it is the default URL for this code sample.
 - Copy down the **Application ID** that is assigned to your app.  You will need it shortly.
 
+[AZURE.INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
+
 ## 3. Create your policies
 
 In Azure AD B2C, every user experience is defined by a [**policy**](active-directory-b2c-reference-policies.md).  This code sample contains three 
@@ -51,7 +51,9 @@ identity experiences - sign-up, sign-in, and edit profile.  You will need to cre
 - Choose **User ID signup** or **Email signup** in the identity providers blade.
 - Choose the **Display Name** and a few other sign-up attributes in your sign-up policy.
 - Choose the **Display Name** and **Object ID** claims as an application claim in every policy.  You can choose other claims as well.
-- Copy down the **Name** of each policy after you create it.  It should have the prefix `b2c_1_`.  You'll need those policy names shortly. 
+- Copy down the **Name** of each policy after you create it.  It should have the prefix `b2c_1_`.  You'll need those policy names shortly.
+
+[AZURE.INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)] 
 
 Once you have your three policies successfully created, you're ready to build your app.
 
@@ -88,7 +90,9 @@ of the project and replace the values in the `<appSettings>` section:
     <add key="ida:ClientId" value="{Enter the Application ID assigned to your app by the Azure Portal}" />
     <add key="ida:PolicyId" value="{Enter the name of one of the policies you created, like `b2c_1_my_sign_in_policy`}" />
   </appSettings>
-  ```
+```
+  
+[AZURE.INCLUDE [active-directory-b2c-devquickstarts-tenant-name](../../includes/active-directory-b2c-devquickstarts-tenant-name.md)]
 
 If you want to learn how a web API securely authenticates requests using Azure AD B2C, check out our
 [Web API Getting Started article](active-directory-b2c-devquickstarts-api-dotnet.md).
@@ -123,6 +127,8 @@ public static class Globals
 
 }
 ``` 
+
+[AZURE.INCLUDE [active-directory-b2c-devquickstarts-tenant-name](../../includes/active-directory-b2c-devquickstarts-tenant-name.md)]
 
 
 #### Create an AuthenticationContext

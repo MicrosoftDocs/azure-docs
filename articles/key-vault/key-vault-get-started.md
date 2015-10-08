@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="07/22/2015"
+	ms.date="10/08/2015"
 	ms.author="cabailey"/>
 
 # Get started with Azure Key Vault #
@@ -35,7 +35,7 @@ For overview information about Azure Key Vault, see [What is Azure Key Vault?](k
 To complete this tutorial, you must have the following:
 
 - A subscription to Microsoft Azure. If you do not have one, you can sign up for a [free trial](../../../../pricing/free-trial).
-- Azure PowerShell version 0.9.1 or later. To install the latest version and associate it with your Azure subscription, see [How to install and configure Azure PowerShell](../powershell-install-configure.md).
+- Azure PowerShell version 0.9.1 through 0.9.8. To install Azure PowerShell and associate it with your Azure subscription, see [How to install and configure Azure PowerShell](../powershell-install-configure.md).
 - An application that will be configured to use the key or password that you create in this tutorial. A sample application is available from the [Microsoft Download Center](http://www.microsoft.com/en-us/download/details.aspx?id=45343). For instructions, see the accompanying Readme file.
 
 
@@ -180,7 +180,7 @@ For example, if your vault name is **ContosoKeyVault** and the application you w
 
 
 	Set-AzureKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -ServicePrincipalName 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed -PermissionsToKeys decrypt,sign
-	
+
 If you want to authorize that same application to read secrets in your vault, run the following:
 
 
@@ -243,4 +243,4 @@ For a follow-up tutorial that uses Azure Key Vault in a web application, see [Us
 
 For a list of Windows PowerShell cmdlets for Azure Key Vault, see [Azure Key Vault Cmdlets](https://msdn.microsoft.com/library/azure/dn868052.aspx).
 
-For programming references, see [Key Vault](https://msdn.microsoft.com/library/azure/dn903625.aspx) in the Microsoft Azure documentation library on MSDN.
+For programming references, see [the Azure Key Vault developer's guide](key-vault-developers-guide.md).

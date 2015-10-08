@@ -1,6 +1,6 @@
 <properties
    pageTitle="Azure Search Service REST API Version 2015-02-28-Preview | Microsoft Azure"
-   description="Azure Search Service REST API Version 2015-02-28-Preview includes experimental features such as Natural Language Analyzers and moreLikeThis searches."
+   description="Azure Search Service REST API Version 2015-02-28-Preview includes experimental features such as Lucene Query Syntax and moreLikeThis searches."
    services="search"
    documentationCenter="na"
    authors="HeidiSteen"
@@ -13,16 +13,15 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="search"
-   ms.date="08/25/2015"
+   ms.date="10/01/2015"
    ms.author="heidist"/>
 
 # Azure Search Service REST API: Version 2015-02-28-Preview
 
 This article is the reference documentation for `api-version=2015-02-28-Preview`. This preview extends the current generally available version, [api-version=2015-02-28](https://msdn.microsoft.com/library/dn798935.aspx), by providing the following experimental features:
 
-- [Natural language processors](#LanguageSupport) from Microsoft (the same ones used by Office and Bing) offer greater precision over query results and more languages.
-- `moreLikeThis` is a a query parameter used in [Search operations](#SearchDocs) that finds other documents that are relevant to another specific document.
-- A POST alternative to the GET syntax for both the [Search](#SearchDocs) and [Suggestions](#Suggestions) API, useful when the overall URL length would otherwise exceed 8KB.
+- [Lucene Query Syntax](https://msdn.microsoft.com/library/azure/mt589323.aspx) is an implementation of the [Lucene Query Parser](https://lucene.apache.org/core/4_10_0/queryparser/org/apache/lucene/queryparser/classic/package-summary.html), which you can specify using queryType parameter in [Search operations](#SearchDocs).
+- `moreLikeThis` is a a query queparameter used in [Search operations](#SearchDocs) that finds other documents that are relevant to another specific document.
 
 A few additional features in `2015-02-28-Preview` are documented separately. These include:
 
@@ -33,7 +32,7 @@ Azure Search service is available in multiple versions. Please refer to [Search 
 
 ##APIs in this document
 
-The Azure Search Service API supports two syntaxes for entity lookup: [simple](https://msdn.microsoft.com/library/dn798920.aspx) and alternate OData syntax (see [Support for OData (Azure Search API)](http://msdn.microsoft.com/library/azure/dn798932.aspx) for details). The following list shows the simple syntax.
+Azure Search service API supports two URL syntaxes for API operations: simple and OData (see [Support for OData (Azure Search API)](http://msdn.microsoft.com/library/azure/dn798932.aspx) for details). The following list shows the simple syntax.
 
 [Create Index](#CreateIndex)
 
@@ -154,7 +153,7 @@ The following list describes the required and optional request headers.
 - `api-key`: Required. The `api-key` is used to
 - authenticate the request to your Search service. It is a string value, unique to your service. The **Create Index** request must include an `api-key` header set to your admin key (as opposed to a query key).
 
-You will also need the service name to construct the request URL. You can get the service name and `api-key` from your service dashboard in the Azure Portal. See [Create an Azure Search service in the portal](search-create-service-portal.md) for page navigation help.
+You will also need the service name to construct the request URL. You can get both the service name and `api-key` from your service dashboard in the Azure Portal. See [Create an Azure Search service in the portal](search-create-service-portal.md) for page navigation help.
 
 <a name="RequestData"></a>
 **Request Body Syntax**
@@ -637,7 +636,7 @@ Client-side Javascript cannot call any APIs by default since the browser will pr
         {"name": "hotelId", "type": "Edm.String", "key": true, "searchable": false},
         {"name": "baseRate", "type": "Edm.Double"},
         {"name": "description", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false},
-	    {"name": "description_fr", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false, "analyzer"="fr.lucene"},
+	    {"name": "description_fr", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false, analyzer="fr.lucene"},
         {"name": "hotelName", "type": "Edm.String"},
         {"name": "category", "type": "Edm.String"},
         {"name": "tags", "type": "Collection(Edm.String)"},
@@ -1180,6 +1179,10 @@ Also, URL encoding is only necessary when calling the REST API directly using GE
 
 `searchFields=[string]` (optional) - The list of comma-separated field names to search for the specified text. Target fields must be marked as `searchable`.
 
+`queryType=simple|full` (optional, defaults to `simple`) - when set to "simple" search text is interpreted using a simple query language that allows for symbols such as +, * and "". Queries are evaluated across all searchable fields (or fields indicated in `searchFields`) in each document by default. When the query type is set to `full` search text is interpreted using the Lucene query language which allows field-specific and weighted searches. See [Simple Query Syntax](https://msdn.microsoft.com/library/dn798920.aspx) and [Lucene Query Syntax](https://msdn.microsoft.com/library/azure/mt589323.aspx) for specifics on the search syntaxes. 
+ 
+> [AZURE.NOTE] Range search in the Lucene query language is not supported in favor of $filter which offers similar functionality.
+
 `moreLikeThis=[key]` (optional) **Important:** This feature is only available in `2015-02-28-Preview`. This option cannot be used in a query that contains the text search parameter, `search=[string]`. The `moreLikeThis` parameter finds documents that are similar to the document specified by the document key. When a search request is made with `moreLikeThis`, a list of search terms is generated based on the frequency and rarity of terms in the source document. Those terms are then used to make the request. By default, the contents of all `searchable` fields are considered unless `searchFields` is used to restrict which fields are searched.  
 
 `$skip=#` (optional) - the number of search results to skip; Cannot be greater than 100,000. If you need to scan documents in sequence but cannot use `$skip` due to this limitation, consider using `$orderby` on a totally-ordered key and `$filter` with a range query instead.
@@ -1489,6 +1492,16 @@ Note that you can only query one index at a time. Do not create multiple indexes
 
 Note the use of `searchMode=all` above. Including this parameter overrides the default of `searchMode=any`, ensuring that `-motel` means "AND NOT" instead of "OR NOT". Without `searchMode=all`, you get "OR NOT" which expands rather than restricts search results, and this can be counter-intuitive to some users.
 
+15) Find documents in the index using [lucene query syntax](http://lucene.apache.org/core/4_10_4/queryparser/org/apache/lucene/queryparser/classic/package-summary.html#Overview). This query returns hotels where the category field contains the term "budget" and all searchable fields containing the phrase "recently renovated". Documents containing the phrase "recently renovated" are ranked higher as a result of the term boost value (3)
+
+    GET /indexes/hotels/docs?search=category:budget AND \"recently renovated\"^3&searchMode=all&api-version=2015-02-28-Preview&querytype=full
+
+    POST /indexes/hotels/docs/search?api-version=2015-02-28-Preview
+    {
+      "search": "category:budget AND \"recently renovated\"^3",
+      "queryType": "full",
+      "searchMode": "all"
+    }
 
 <a name="LookupAPI"></a>
 ##Lookup Document

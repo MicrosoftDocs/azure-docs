@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="08/04/2015" 
+	ms.date="09/27/2015" 
 	ms.author="tamram"/>
 
 
@@ -24,11 +24,11 @@
 
 Using a shared access signature (SAS) is a powerful way to grant limited access to objects in your storage account to other clients, without having to expose your account key. In Part 1 of this tutorial on shared access signatures, we'll provide an overview of the SAS model and review SAS best practices. [Part 2](storage-dotnet-shared-access-signature-part-2.md) of the tutorial walks you through the process of creating shared access signatures with the Blob service.
 
-## What Is a Shared Access Signature? ##
+## What is a shared access signature?
 
 A shared access signature provides delegated access to resources in your storage account. This means that you can grant a client limited permissions to objects in your storage account for a specified period of time and with a specified set of permissions, without having to share your account access keys. The SAS is a URI that encompasses in its query parameters all of the information necessary for authenticated access to a storage resource. To access storage resources with the SAS, the client only needs to pass in the SAS to the appropriate constructor or method.
 
-## When Should You Use a Shared Access Signature? ##
+## When should you use a shared access signature?
 
 You can use a SAS when you want to provide access to resources in your storage account to a client that can't be trusted with the account key. Your storage account keys include both a primary and secondary key, both of which grant administrative access to your account and all of the resources in it. Exposing either of your account keys opens your account to the possibility of malicious or negligent use. Shared access signatures provide a safe alternative that allows other clients to read, write, and delete data in your storage account according to the permissions you've granted, and without need for the account key.
 
@@ -47,54 +47,245 @@ Many real-world services may use a hybrid of these two approaches, depending on 
 
 Additionally, you will need to use a SAS to authenticate the source object in a copy operation in certain scenarios:
 
-- When you copy a blob to another blob that resides in a different storage account, you must use a SAS to authenticate the source blob. You can optionally use a SAS to authenticate the destination blob, so long as you are using version 2013-08-15 of the storage services or later.
-- When you copy a file to another file that resides in a different storage account, you must use a SAS to authenticate the source file. You can optionally use a SAS to authenticate the destination file.
+- When you copy a blob to another blob that resides in a different storage account, you must use a SAS to authenticate the source blob. With version 2015-04-05, you can optionally use a SAS to authenticate the destination blob as well.
+- When you copy a file to another file that resides in a different storage account, you must use a SAS to authenticate the source file. With version 2015-04-05, you can optionally use a SAS to authenticate the destination file as well.
 - When you copy a blob to a file, or a file to a blob, you must use a SAS to authenticate the source object, even if the source and destination objects reside within the same storage account.
 
-## How a Shared Access Signature Works ##
+## Types of shared access signatures
 
-A shared access signature is a URI that points to a storage resource and includes a special set of query parameters that indicate how the resource may be accessed by the client. One of these parameters, the signature, is constructed from the SAS parameters and signed with the account key. This signature is used by Azure Storage to authenticate the SAS.
+Version 2015-04-05 of Azure Storage introduces a new type of shared access signature, the account SAS. You can now create either of two types of shared access signatures:
 
-A shared access signature has the following constraints that define it, each of which is represented as a parameter on the URI:
+- **Account SAS.** The account SAS delegates access to resources in one or more of the storage services. All of the operations available via a service SAS are also available via an account SAS. Additionally, with the account SAS, you can delegate access to operations that apply to a given service, such as **Get/Set Service Properties** and **Get Service Stats**. You can also delegate access to read, write, and delete operations on blob containers, tables, queues, and file shares that are not permitted with a service SAS. See [Constructing an Account SAS](https://msdn.microsoft.com/library/mt584140.aspx) for in-depth information about about constructing the account SAS token.
 
-- **The storage resource.** Storage resources for which you can delegate access include:
+- **Service SAS.** The service SAS delegates access to a resource in just one of the storage services: the Blob, Queue, Table, or File service. See [Constructing a Service SAS](https://msdn.microsoft.com/library/dn140255.aspx) and [Service SAS Examples](https://msdn.microsoft.com/library/dn140256.aspx) for in-depth information about constructing the service SAS token.
+
+## How a shared access signature works
+
+A shared access signature is a URI that points to one or more storage resources and includes a token that contains a special set of query parameters. The token indicates how the resources may be accessed by the client. One of the query parameters, the signature, is constructed from the SAS parameters and signed with the account key. This signature is used by Azure Storage to authenticate the SAS.
+
+The account SAS and service SAS tokens include some common parameters, and also take a few parameters that that are different.
+
+### Parameters common to account SAS and service SAS tokens
+
+- **Api version** An optional parameter that specifies the storage service version to use to execute the request. 
+- **Service version** A required parameter that specifies the storage service version to use to  authenticate the request.
+- **Start time.** This is the time at which the SAS becomes valid. The start time for a shared access signature is optional; if omitted, the SAS is effective immediately. 
+- **Expiry time.** This is the time after which the SAS is no longer valid. Best practices recommend that you either specify an expiry time for a SAS, or associate it with a stored access policy (see more below).
+- **Permissions.** The permissions specified on the SAS indicate what operations the client can perform against the storage resource using the SAS. Available permissions differ for an account SAS and a service SAS.
+- **IP.** An optional parameter that specifies an IP address or a range of IP addresses outside of Azure (see the section [Routing session configuration state](../expressroute/expressroute-workflows.md#routing-session-configuration-state) for Express Route) from which to accept requests. 
+- **Protocol.** An optional parameter that specifies the protocol permitted for a request. Possible values are both HTTPS and HTTP (https,http), which is the default value, or HTTPS only (https). Note that HTTP only is not a permitted value.
+- **Signature.** The signature is constructed from the other parameters specified as part token and then encrypted. It's used to authenticate the SAS.
+
+### Parameters for an account SAS token
+
+- **Service or services.** An account SAS can delegate access to one or more of the storage services. For example, you can create an account SAS that delegates access to the Blob and File service. Or you can create a SAS that delegates access to all four services (Blob, Queue, Table, and File).
+- **Storage resource types.** An account SAS applies to one or more classes of storage resources, rather than a specific resource. You can create an account SAS to delegate access to:
+	- Service-level APIs, which are called against the storage account resource. Examples include **Get/Set Service Properties**, **Get Service Stats**, and **List Containers/Queues/Tables/Shares**.
+	- Container-level APIs, which are called against the container objects for each service: blob containers, queues, tables, and file shares. Examples include **Create/Delete Container**, **Create/Delete Queue**, **Create/Delete Table**, **Create/Delete Share**, and **List Blobs/Files and Directories**.
+	- Object-level APIs, which are called against blobs, queue messages, table entities, and files. For example, **Put Blob**, **Query Entity**, **Get Messages**, and **Create File**.
+
+### Parameters for a service SAS token
+
+- **Storage resource.** Storage resources for which you can delegate access with a service SAS include:
 	- Containers and blobs
 	- File shares and files
 	- Queues
 	- Tables and ranges of table entities.
-- **Start time.** This is the time at which the SAS becomes valid. The start time for a shared access signature is optional; if omitted, the SAS is effective immediately. 
-- **Expiry time.** This is the time after which the SAS is no longer valid. Best practices recommend that you either specify an expiry time for a SAS, or associate it with a stored access policy (see more below).
-- **Permissions.** The permissions specified on the SAS indicate what operations the client can perform against the storage resource using the SAS. 
 
-Here is an example of a SAS URI that provides read and write permissions to a blob. The table breaks down each part of the URI to understand how it contributes to the SAS:
+## Examples of SAS URIs
 
-	https://myaccount.blob.core.windows.net/sascontainer/sasblob.txt?sv=2012-02-12&st=2013-04-29T22%3A18%3A26Z&se=2013-04-30T02%3A23%3A26Z&sr=b&sp=rw&sig=Z%2FRHIX5Xcg0Mq2rqI3OlWTjEg2tYkboXr1P9ZUXDtkk%3D
+Here is an example of a service SAS URI that provides read and write permissions to a blob. The table breaks down each part of the URI to understand how it contributes to the SAS:
 
-Name|Link section|Description
+	https://myaccount.blob.core.windows.net/sascontainer/sasblob.txt?sv=2015-04-05&st=2015-04-29T22%3A18%3A26Z&se=2015-04-30T02%3A23%3A26Z&sr=b&sp=rw&sip=168.1.5.60-168.1.5.70&spr=https&sig=Z%2FRHIX5Xcg0Mq2rqI3OlWTjEg2tYkboXr1P9ZUXDtkk%3D
+
+Name|SAS portion|Description
 ---|---|---
-Blob URI|https://myaccount.blob.core.windows.net/sascontainer/sasblob.txt | The address of the blob. Note that using HTTPS is highly recommended.
-Storage services version|sv=2012-02-12|For storage services version 2012-02-12 and later, this parameter indicates the version to use.
-Start time|st=2013-04-29T22%3A18%3A26Z|Specified in an ISO 8061 format. If you want the SAS to be valid immediately, omit the start time.
-Expiry time|se=2013-04-30T02%3A23%3A26Z|Specified in an ISO 8061 format.
+Blob URI|https://myaccount.blob.core.windows.net/sascontainer/sasblob.txt |The address of the blob. Note that using HTTPS is highly recommended.
+Storage services version|sv=2015-04-05|For storage services version 2012-02-12 and later, this parameter indicates the version to use.
+Start time|st=2015-04-29T22%3A18%3A26Z|Specified in an ISO 8061 format. If you want the SAS to be valid immediately, omit the start time.
+Expiry time|se=2015-04-30T02%3A23%3A26Z|Specified in an ISO 8061 format.
 Resource|sr=b|The resource is a blob.
 Permissions|sp=rw|The permissions granted by the SAS include Read (r) and Write (w).
+IP range|sip=168.1.5.60-168.1.5.70|The range of IP addresses from which a request will be accepted.
+Protocol|spr=https|Only requests using HTTPS are permitted.
 Signature|sig=Z%2FRHIX5Xcg0Mq2rqI3OlWTjEg2tYkboXr1P9ZUXDtkk%3D|Used to authenticate access to the blob. The signature is an HMAC computed over a string-to-sign and key using the SHA256 algorithm, and then encoded using Base64 encoding.
 
-## Controlling Shared Access Signatures with a Stored Access Policy ##
+And here is an example of an account SAS that uses the same common parameters on the token. Since these parameters are described above, they are not described here. Only the parameters that are specific to account SAS are described in the table below.
+
+	https://myaccount.blob.core.windows.net/?restype=service&comp=properties&sv=2015-04-05&ss=bf&srt=s&st=2015-04-29T22%3A18%3A26Z&se=2015-04-30T02%3A23%3A26Z&sr=b&sp=rw&sip=168.1.5.60-168.1.5.70&spr=https&sig=F%6GRVAZ5Cdj2Pw4tgU7IlSTkWgn7bUkkAg8P6HESXwmf%4B
+
+Name|SAS portion|Description
+---|---|---
+Resource URI|https://myaccount.blob.core.windows.net/?restype=service&comp=properties|The Blob service endpoint, with parameters for getting service properties (when called with GET) or setting service properties (when called with SET).
+Services|ss=bf|The SAS applies to the Blob and File services
+Resource types|srt=s|The SAS applies to service-level operations.
+Permissions|sp=rw|The permissions grant access to read and write operations.  
+
+Given that permissions are restricted to the service level, accessible operations with this SAS are **Get Blob Service Properties** (read) and **Set Blob Service Properties** (write). However, with a different resource URI, the same SAS token could also be used to delegate access to **Get Blob Service Stats** (read).
+
+## Controlling a SAS with a stored access policy ##
 
 A shared access signature can take one of two forms:
 
-- **Ad hoc SAS:** When you create an ad hoc SAS, the start time, expiry time, and permissions for the SAS are all specified on the SAS URI (or implied, in the case where start time is omitted). This type of SAS may be created on a container, blob, file share, file, table, or queue.
+- **Ad hoc SAS:** When you create an ad hoc SAS, the start time, expiry time, and permissions for the SAS are all specified on the SAS URI (or implied, in the case where start time is omitted). This type of SAS may be created as an account SAS or a service SAS. 
+
 - **SAS with stored access policy:** A stored access policy is defined on a resource container - a blob container, table, queue, or file share - and can be used to manage constraints for one or more shared access signatures. When you associate a SAS with a stored access policy, the SAS inherits the constraints - the start time, expiry time, and permissions - defined for the stored access policy.
 
-The difference between the two forms is important for one key scenario: revocation. A SAS is a URL, so anyone who obtains the SAS can use it, regardless of who requested it to begin with. If a SAS is published publically, it can be used by anyone in the world. A SAS that is distributed is valid until one of four things happens:
+>[AZURE.NOTE] Currently, an account SAS must be an ad hoc SAS. Stored access policies are not yet supported for account SAS.
+
+The difference between the two forms is important for one key scenario: revocation. A SAS is a URL, so anyone who obtains the SAS can use it, regardless of who requested it to begin with. If a SAS is published publicly, it can be used by anyone in the world. A SAS that is distributed is valid until one of four things happens:
 
 1.	The expiry time specified on the SAS is reached.
 2.	The expiry time specified on the stored access policy referenced by the SAS is reached (if a stored access policy is referenced, and if it specifies an expiry time). This can either occur because the interval elapses, or because you have modified the stored access policy to have an expiry time in the past, which is one way to revoke the SAS.
 3.	The stored access policy referenced by the SAS is deleted, which is another way to revoke the SAS. Note that if you recreate the stored access policy with exactly the same name, all existing SAS tokens will again be valid according to the permissions associated with that stored access policy (assuming that the expiry time on the SAS has not passed). If you are intending to revoke the SAS, be sure to use a different name if you recreate the access policy with an expiry time in the future.
 4.	The account key that was used to create the SAS is regenerated.  Note that doing this will cause all application components using that account key to fail to authenticate until they are updated to use either the other valid account key or the newly regenerated account key.
- 
-## Best Practices for Using Shared Access Signatures ##
+
+>[AZURE.IMPORTANT] A shared access signature URI is associated with the account key used to create the signature, and the associated stored access policy (if any). If no stored access policy is specified, the only way to revoke a shared access signature is to change the account key. 
+
+## Examples of shared access signatures
+
+Below are some examples of both types of shared access signatures, account SAS and service SAS.
+
+### Account SAS example
+
+The following code example creates an account SAS that is valid for the Blob and File services, and gives the client permissions read, write, and list permissions to access service-level APIs. The account SAS restricts the protocol to HTTPS, so the request must be made with HTTPS.
+
+    static string GetAccountSASToken()
+    {
+        // To create the account SAS, you need to use your shared key credentials.
+        CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+            Microsoft.Azure.CloudConfigurationManager.GetSetting("StorageConnectionString"));
+
+        // Create a new access policy for the account.
+        SharedAccessAccountPolicy policy = new SharedAccessAccountPolicy()
+            {
+                Permissions = SharedAccessAccountPermissions.Read | SharedAccessAccountPermissions.Write | SharedAccessAccountPermissions.List,
+                Services = SharedAccessAccountServices.Blob | SharedAccessAccountServices.File,
+                ResourceTypes = SharedAccessAccountResourceTypes.Service,
+                SharedAccessExpiryTime = DateTime.UtcNow.AddHours(24),
+                Protocols = SharedAccessProtocol.HttpsOnly
+            };
+
+        // Return the SAS token.
+        return storageAccount.GetSharedAccessSignature(policy);
+    }
+
+To use the account SAS to access service-level APIs for the Blob service, construct a Blob client object using the SAS and the Blob storage endpoint for your storage account. 
+
+    static void UseAccountSAS(string sasToken)
+    {
+        // In this case, we have access to the shared key credentials, so we'll use them
+        // to get the Blob service endpoint.
+        CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+            Microsoft.Azure.CloudConfigurationManager.GetSetting("StorageConnectionString"));
+        CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
+
+        // Create new storage credentials using the SAS token.
+        StorageCredentials accountSAS = new StorageCredentials(sasToken);
+        // Use these credentials and the Blob storage endpoint to create a new Blob service client.
+        CloudStorageAccount accountWithSAS = new CloudStorageAccount(accountSAS, blobClient.StorageUri, null, null, null);
+        CloudBlobClient blobClientWithSAS = accountWithSAS.CreateCloudBlobClient();
+
+        // Now set the service properties for the Blob client created with the SAS.
+        blobClientWithSAS.SetServiceProperties(new ServiceProperties()
+        {
+            HourMetrics = new MetricsProperties()
+            {
+                MetricsLevel = MetricsLevel.ServiceAndApi,
+                RetentionDays = 7,
+                Version = "1.0"
+            },
+            MinuteMetrics = new MetricsProperties()
+            {
+                MetricsLevel = MetricsLevel.ServiceAndApi,
+                RetentionDays = 7,
+                Version = "1.0"
+            },
+            Logging = new LoggingProperties()
+            {
+                LoggingOperations = LoggingOperations.All,
+                RetentionDays = 14,
+                Version = "1.0"
+            }
+        });
+
+        // The permissions granted by the account SAS also permit you to retrieve service properties.
+        ServiceProperties serviceProperties = blobClientWithSAS.GetServiceProperties();
+        Console.WriteLine(serviceProperties.HourMetrics.MetricsLevel);
+        Console.WriteLine(serviceProperties.HourMetrics.RetentionDays);
+        Console.WriteLine(serviceProperties.HourMetrics.Version);
+    }
+
+### Service SAS example
+
+The following code example creates a stored access policy on a container and then generates a service SAS for the container. This SAS can then be given to clients for read-write permissions on the container:
+
+    // The connection string for the storage account.  Modify for your account.
+    string storageConnectionString =
+       "DefaultEndpointsProtocol=https;" +
+       "AccountName=myaccount;" +
+       "AccountKey=<account-key>";
+    
+    // As an alternative, you can retrieve storage account information from an app.config file. 
+    // This is one way to store and retrieve a connection string if you are 
+    // writing an application that will run locally, rather than in Microsoft Azure.
+    
+    // string storageConnectionString = ConfigurationManager.AppSettings["StorageAccountConnectionString"];
+    
+    // Create the storage account with the connection string.
+    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(storageConnectionString);
+       
+    // Create the blob client object.
+    CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
+    
+    // Get a reference to the container for which shared access signature will be created.
+    CloudBlobContainer container = blobClient.GetContainerReference("mycontainer");
+    container.CreateIfNotExists();
+    
+    // Get the current permissions for the blob container.
+    BlobContainerPermissions blobPermissions = container.GetPermissions();
+    
+    // The new shared access policy provides read/write access to the container for 24 hours.
+    blobPermissions.SharedAccessPolicies.Add("mypolicy", new SharedAccessBlobPolicy()
+    {
+       // To ensure SAS is valid immediately, don’t set the start time.
+       // This way, you can avoid failures caused by small clock differences.
+       SharedAccessExpiryTime = DateTime.UtcNow.AddHours(24),
+       Permissions = SharedAccessBlobPermissions.Write |
+      SharedAccessBlobPermissions.Read
+    });
+    
+    // The public access setting explicitly specifies that 
+    // the container is private, so that it can't be accessed anonymously.
+    blobPermissions.PublicAccess = BlobContainerPublicAccessType.Off;
+    
+    // Set the permission policy on the container.
+    container.SetPermissions(blobPermissions);
+    
+    // Get the shared access signature token to share with users.
+    string sasToken =
+       container.GetSharedAccessSignature(new SharedAccessBlobPolicy(), "mypolicy");
+
+A client in possession of the service SAS can use it from their code to authenticate a request to read or write to a blob in the container. For example, the following code uses the SAS token to create a new block blob in the container:
+
+    Uri blobUri = new Uri("https://myaccount.blob.core.windows.net/mycontainer/myblob.txt");
+    
+    // Create credentials with the SAS token. The SAS token was created in previous example.
+    StorageCredentials credentials = new StorageCredentials(sasToken);
+    
+    // Create a new blob.
+    CloudBlockBlob blob = new CloudBlockBlob(blobUri, credentials);
+    
+    // Upload the blob. 
+    // If the blob does not yet exist, it will be created. 
+    // If the blob does exist, its existing content will be overwritten.
+    using (var fileStream = System.IO.File.OpenRead(@"c:\Test\myblob.txt"))
+    {
+    	blob.UploadFromStream(fileStream);
+    }
+
+
+## Best practices for using shared access signatures
 
 When you use shared access signatures in your applications, you need to be aware of two potential risks:
 
@@ -121,9 +312,9 @@ Shared access signatures are useful for providing limited permissions to your st
 ## Next Steps ##
 
 - [Shared Access Signatures, Part 2: Create and Use a SAS with the Blob Service](storage-dotnet-shared-access-signature-part-2.md)
-- [How to use Azure File storage with PowerShell and .NET](storage-dotnet-how-to-use-files.md)
+- [How to use Azure File storage with Windows](storage-dotnet-how-to-use-files.md)
 - [Manage Access to Azure Storage Resources](storage-manage-access-to-resources.md)
-- [Delegating Access with a Shared Access Signature (REST API)](http://msdn.microsoft.com/library/azure/ee395415.aspx)
+- [Delegating Access with a Shared Access Signature](http://msdn.microsoft.com/library/azure/ee395415.aspx)
 - [Introducing Table and Queue SAS](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx)
 [sas-storage-fe-proxy-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-fe-proxy-service.png
 [sas-storage-provider-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-provider-service.png

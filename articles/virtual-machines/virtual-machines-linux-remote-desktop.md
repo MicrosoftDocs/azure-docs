@@ -1,11 +1,12 @@
 <properties
-	pageTitle="Using Remote Desktop to connect a Microsoft Azure Linux VM."
-	description="Learn how to Install and Config Remote Desktop on a Microsoft Azure Linux VM."
+	pageTitle="Remote Desktop to a Linux VM | Microsoft Azure"
+	description="Learn how to install and configure Remote Desktop to connect to a Microsoft Azure Linux VM"
 	services="virtual-machines"
 	documentationCenter=""
 	authors="SuperScottz"
 	manager="timlt"
-	editor=""/>
+	editor=""
+	tags="azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -17,16 +18,18 @@
 	ms.author="mingzhan"/>
 
 
-#Using Remote Desktop to connect a Microsoft Azure Linux VM
+#Using Remote Desktop to connect to a Microsoft Azure Linux VM
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)] This article covers managing a resource with the classic deployment model.
 
 ##Overview
 
-RDP(Remote Desktop Protocol) is a proprietary protocol used for Windows, how can we use RDP to connect Linux VM(virtual machine) remotely?
+RDP (Remote Desktop Protocol) is a proprietary protocol used for Windows. How can we use RDP to connect to a Linux VM (virtual machine) remotely?
 
 This guidance will give you the answer! It will help you to install and config xrdp on your Microsoft Azure Linux VM, and you are able to connect it with Remote Desktop from a Windows machine. We will use Linux VM running Ubuntu or OpenSUSE as the example in this guidance.
 
 Xrdp is an open source RDP server, which allows you to connect your Linux server with Remote Desktop from a Windows machine. It performs much nicer than VNC (Virtual Network Computing). VNC has this streak of “JPEG” quality and slow behavior, whereas RDP is fast and crystal clear.
- 
+
 
 > [AZURE.NOTE] You must already have an Microsoft Azure VM running Linux. To create and set up a Linux VM, see the [Azure Linux VM tutorial](virtual-machines-linux-tutorial.md).
 
@@ -87,7 +90,7 @@ Install `xfce`, use:
     #sudo apt-get install xubuntu-desktop
 
 Then enable `xfce`, use:
-    
+
     #echo xfce4-session >~/.xsession
 
 Edit the config file `/etc/xrdp/startwm.sh`, use:
@@ -111,15 +114,3 @@ Login with the `user` & `password` of your Linux VM, and enjoy the Remote Deskto
 
 ##Next
 For more information to use xrdp, you could refer [here](http://www.xrdp.org/).
-
-
-
-
-
- 
-
-
-
-
-
-

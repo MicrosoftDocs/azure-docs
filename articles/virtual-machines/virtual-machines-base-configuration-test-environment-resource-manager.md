@@ -11,13 +11,15 @@
 <tags
 	ms.service="virtual-machines"
 	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-windows"
+	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/23/2015"
 	ms.author="josephd"/>
 
 # Base Configuration test environment with Azure Resource Manager
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)] This article covers creating resources with the Resource Manager deployment model. You can also create these resources with the [classic deployment model](virtual-machines-base-configuration-test-environment.md).
 
 This article provides you with step-by-step instructions to create the Base Configuration test environment in a Microsoft Azure Virtual Network, using virtual machines created in Resource Manager. 
 
@@ -52,14 +54,11 @@ If you do not already have an Azure account, you can sign up for a free trial at
 
 > [AZURE.NOTE] Virtual machines in Azure incur an ongoing monetary cost when they are running. This cost is billed against your free trial, MSDN subscription, or paid subscription. For more information about the costs of running Azure virtual machines, see [Virtual Machines Pricing Details](http://azure.microsoft.com/pricing/details/virtual-machines/) and [Azure Pricing Calculator](http://azure.microsoft.com/pricing/calculator/). To keep costs down, see [Minimizing the costs of test environment virtual machines in Azure](#costs).
 
-[AZURE.INCLUDE [resource-manager-pointer-to-service-management](../../includes/resource-manager-pointer-to-service-management.md)]
-
-- [Base Configuration test environment](virtual-machines-base-configuration-test-environment.md)
-
-
 ## Phase 1: Create the virtual network
 
 First, if needed, use the instructions in [How to install and configure Azure PowerShell](../install-configure-powershell.md) to install Azure PowerShell on your local computer. Open an Azure PowerShell prompt.
+
+> [AZURE.NOTE] This article contains commands for versions of Azure PowerShell up to *but not including* versions 1.0.0 and later. You can check your version of Azure PowerShell with the **Get-Module azure | format-table version** command. The Azure PowerShell command blocks in this article are in the process of being tested and updated to support the new cmdlets in Azure PowerShell versions 1.0.0 and later. Thank you for your patience.
 
 Next, select the correct Azure subscription with these commands. Replace everything within the quotes, including the < and > characters, with the correct name.
 

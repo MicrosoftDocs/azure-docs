@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="objectivec"
 	ms.topic="article"
-	ms.date="09/15/2015"
+	ms.date="09/22/2015"
 	ms.author="brandwe"/>
 
 # Azure AD B2C Preview: Calling a Web API from an iOS application
@@ -23,9 +23,7 @@
 With Azure AD B2C, you can add powerful self-service identity managment features to your iOS apps and web apis in a few short steps.  This article will show you how to create a iOS "To-Do List" app that calls a node.js web API using OAuth 2.0 bearer tokens. Both the iOS app and web api use Azure AD B2C to manage user identities
 and authenticate users.
 
-> [AZURE.NOTE]
-	This information applies to the Azure AD B2C preview.  For information on how to integrate with the generally available Azure AD service, 
-	please refer to the [Azure Active Directory Developer Guide](active-directory-developers-guide.md).
+[AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
 	
 > [AZURE.NOTE]
 	This quickstart has a pre-requisite that you have a Web API protected by Azure AD with B2C in order to work fully. We have built one for both .Net and node.js for you to use. This walk-through assumes the node.js Web-API sample is configured. 
@@ -51,6 +49,8 @@ follow [these instructions](active-directory-b2c-app-registration.md).  Be sure 
 - Create an **Application Secret** for your application and copy it down.  You will need it shortly.
 - Copy down the **Application ID** that is assigned to your app.  You will also need it shortly.
 
+[AZURE.INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
+
 ## 3. Create your policies
 
 In Azure AD B2C, every user experience is defined by a [**policy**](active-directory-b2c-reference-policies.md).  This app contains three 
@@ -60,6 +60,8 @@ identity experiences - sign-up, sign-in, and sign-in with Facebook.  You will ne
 - Choose the **Display Name** and a few other sign-up attributes in your sign-up policy.
 - Choose the **Display Name** and **Object ID** application claims in every policy.  You can choose other claims as well.
 - Copy down the **Name** of each policy after you create it.  It should have the prefix `b2c_1_`.  You'll need those policy names shortly. 
+
+[AZURE.INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)]
 
 Once you have your three policies successfully created, you're ready to build your app.
 
@@ -124,6 +126,8 @@ In order for the iOS Task app to communicate with Azure AD B2C, there are a few 
 </dict>
 </plist>
 ```
+
+[AZURE.INCLUDE [active-directory-b2c-devquickstarts-tenant-name](../../includes/active-directory-b2c-devquickstarts-tenant-name.md)]
 
 ## 6. Get access tokens and call the task API
 

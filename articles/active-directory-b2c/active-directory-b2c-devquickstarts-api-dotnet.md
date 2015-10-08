@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="09/04/2015"
+	ms.date="09/22/2015"
 	ms.author="dastrock"/>
 	
 # Azure AD B2C Preview: Build a .NET Web API
@@ -24,9 +24,7 @@ With Azure AD B2C, you can secure a web API using OAuth 2.0 access tokens, enabl
 to create a .NET MVC "To-Do List" app that includes user sign-up, sign-in, and profile management.  Each user's to-do list will be stored by a Task Service - a web API that allows authenticated
 users to create and read tasks in their to-do list.
 
-> [AZURE.NOTE]
-	This information applies to the Azure AD B2C preview.  For information on how to integrate with the generally available Azure AD service, 
-	please refer to the [Azure Active Directory Developer Guide](active-directory-developers-guide.md).
+[AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
 
 ## 1. Get an Azure AD B2C directory
 
@@ -38,9 +36,11 @@ one already, go [create a B2C directory](active-directory-b2c-get-started.md) be
 Now you need to create an app in your B2C directory, which gives Azure AD some information that it needs to securely communicate with your app.  To create an app,
 follow [these instructions](active-directory-b2c-app-registration.md).  Be sure to
 
-- Include a **native client** and a **web app / web api** in the application.
-- For the web api, use the **Redirect Uri** `https://localhost:44332/` - it is the default location of the web api for this code sample.
+- Include a **web app / web api** in the application.
+- For the web app, use the **Redirect Uri** `https://localhost:44316/` - it is the default location of the web app client for this code sample.
 - Copy down the **Application ID** that is assigned to your app.  You will need it shortly.
+
+ [AZURE.INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
 
 ## 3. Create your policies
 
@@ -48,10 +48,12 @@ In Azure AD B2C, every user experience is defined by a [**policy**](active-direc
 identity experiences - sign-up, sign-in, and edit profile.  You will need to create one policy of each type, as described in the 
 [policy reference article](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy).  When creating your three policies, be sure to:
 
-- Choose either **User ID signup** or **Email signup** in the identity providers blade.  **Do not** choose any social identity providers in your policies.
+- Choose either **User ID signup** or **Email signup** in the identity providers blade.
 - Choose the **Display Name** and a few other sign-up attributes in your sign-up policy.
 - Choose the **Display Name** and **Object ID** claims as an application claim in every policy.  You can choose other claims as well.
-- Copy down the **Name** of each policy after you create it.  It should have the prefix `b2c_1_`.  You'll need those policy names shortly. 
+- Copy down the **Name** of each policy after you create it.  You'll need those policy names shortly. 
+
+[AZURE.INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)]
 
 Once you have your three policies successfully created, you're ready to build your app.
 
@@ -67,34 +69,56 @@ git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-WebAPI-Dot
 The completed app is also [available as a .zip](https://github.com/AzureADQuickStarts/B2C-WebAPI-DotNet/archive/complete.zip) or on the
 `complete` branch of the same repo.
 
-Once you've downloaded the sample code, open the Visual Studio `.sln` file to get started.  You'll notice that there are two projects in the solution: a `TaskClient` project and a `TaskService` project.  The `TaskClient` is a WPF 
-desktop application that the user interacts with.  The `TaskService` is the app's backend web API that stores each user's to-do list. 
+Once you've downloaded the sample code, open the Visual Studio `.sln` file to get started.  You'll notice that there are two projects in the solution: a `TaskWebApp` project and a `TaskService` project.  The `TaskWebApp` is an MVC 
+web application that the user interacts with.  The `TaskService` is the app's backend web API that stores each user's to-do list. 
 
-## 5. Configure the task client
+## 5. Configure the task web app
 
-When the user interacts with the `TaskClient`, the client sends requests to Azure AD and receives back tokens that can be used for calling the `TaskService` web API.
-In order to sign the user in and get tokens, you need to provide the `TaskClient` with some information about your app.  In the `TaskClient` project, open up the `Globals.cs` file in the root 
-of the project and replace the top section of values:
+When the user interacts with the `TaskWebApp`, the client sends requests to Azure AD and receives back tokens that can be used for calling the `TaskService` web API.
+In order to sign the user in and get tokens, you need to provide the `TaskWebApp` with some information about your app.  In the `TaskWebApp` project, open up the `web.config` file in the root 
+of the project and replace the values in the `<appSettings>` section:
 
 ```
-public static class Globals
+<appSettings>
+    <add key="webpages:Version" value="3.0.0.0" />
+    <add key="webpages:Enabled" value="false" />
+    <add key="ClientValidationEnabled" value="true" />
+    <add key="UnobtrusiveJavaScriptEnabled" value="true" />
+    <add key="ida:Tenant" value="{Enter the name of your B2C directory, e.g. contoso.onmicrosoft.com}" />
+    <add key="ida:ClientId" value="{Enter the Application Id assinged to your app by the Azure portal, e.g.580e250c-8f26-49d0-bee8-1c078add1609}" />
+    <add key="ida:ClientSecret" value="{Enter the Application Secret you created in the Azure portal, e.g. yGNYWwypRS4Sj1oYXd0443n}" />
+    <add key="ida:AadInstance" value="https://login.microsoftonline.com/{0}{1}{2}" />
+    <add key="ida:RedirectUri" value="https://localhost:44316/" />
+    <add key="ida:SignUpPolicyId" value="[Enter your sign up policy name, e.g. b2c_1_sign_up]" />
+    <add key="ida:SignInPolicyId" value="[Enter your sign in policy name, e.g. b2c_1_sign_in]" />
+    <add key="ida:UserProfilePolicyId" value="[Enter your edit profile policy name, e.g. b2c_1_profile_edit" />
+    <add key="api:TaskServiceUrl" value="https://localhost:44332/" />
+</appSettings>
+```
+
+[AZURE.INCLUDE [active-directory-b2c-devquickstarts-tenant-name](../../includes/active-directory-b2c-devquickstarts-tenant-name.md)]
+
+There are also two `[PolicyAuthorize]` decorators in which you need to provide your sign-in policy name.  The `[PolicyAuthorize]` attribute is used to invoke a particular
+policy when the user attempts to access a page in the app that requires authentication.
+
+```C#
+// Controllers\HomeController.cs
+
+[PolicyAuthorize(Policy = "{Enter the name of your sign in policy, e.g. b2c_1_my_sign_in}")]
+public ActionResult Claims()
 {
-	// TODO: Replace these with your own configuration values
-	public static string tenant = "{Enter the name of your B2C tenant - it usually looks like constoso.onmicrosoft.com}";
-	public static string clientId = "{Enter the Application ID assigned to your app by the Azure Portal}";
-	public static string signInPolicy = "{Enter the name of your sign in policy, e.g. b2c_1_sign_in}";
-	public static string signUpPolicy = "{Enter the name of your sign up policy, e.g. b2c_1_sign_up}";
-	public static string editProfilePolicy = "{Enter the name of your edit profile policy, e.g. b2c_1_edit_profile}";
-
-	public static string taskServiceUrl = "https://localhost:44332";
-	public static string aadInstance = "https://login.microsoftonline.com/";
-	public static string redirectUri = "urn:ietf:wg:oauth:2.0:oob";
-
-}
 ```
 
-If you want to learn how a native client like the `TaskClient` uses Azure AD B2C, check out our
-[Native Client Getting Started article](active-directory-b2c-devquickstarts-native-dotnet.md).
+```C#
+// Controllers\TasksController.cs
+
+[PolicyAuthorize(Policy = "{Enter the name of your sign in policy, e.g. b2c_1_my_sign_in}")]
+public class TasksController : Controller
+{
+```
+
+If you want to learn how a web app like the `TaskWebApp` uses Azure AD B2C, check out our
+[Web App Sign In Getting Started article](active-directory-b2c-devquickstarts-web-dotnet.md).
 
 ## 6. Secure the API
 
@@ -209,7 +233,7 @@ public IEnumerable<Models.Task> Get()
 
 ## 7. Run the sample app
 
-Finally, build and run both the `TaskClient` and the `TaskService`.  Sign up for the app with an email address or username.  Create some tasks on the user's to-do list,
+Finally, build and run both the `TaskWebApp` and the `TaskService`.  Sign up for the app with an email address or username.  Create some tasks on the user's to-do list,
 and notice how they are persisted in the API even after you stop and restart the client.
 
 ## 8. Edit your policies

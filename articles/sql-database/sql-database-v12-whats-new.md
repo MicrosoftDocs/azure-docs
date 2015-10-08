@@ -96,6 +96,8 @@ Security is a primary concern for anyone who runs their business in the cloud. T
 - [Contained databases](http://msdn.microsoft.com/library/azure/ff394108.aspx)
 - [Application roles](http://msdn.microsoft.com/library/ms190998.aspx) managed with GRANT, DENY, REVOKE
 - [Transparent Data Encryption](http://msdn.microsoft.com/library/0bf7e8ff-1416-4923-9c4c-49341e208c62.aspx) (TDE)
+- [Connecting to SQL Database By Using Azure Active Directory Authentication](sql-database-aad-authentication.md)
+ - SQL Database now supports Azure Active Directory authentication, a mechanism of connecting to SQL Database by using identities in Azure Active Directory (Azure AD). With Azure Active Directory authentication you can centrally manage the identities of database users and other Microsoft services in one central location.
 
 
 ## Increased business continuity when recovery is needed

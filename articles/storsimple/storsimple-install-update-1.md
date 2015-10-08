@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Install Update 1.2 on your StorSimple device | Microsoft Azure"
-   description="Explains how to install StorSimple 8000 Series Update 1.2 on your device."
+   description="Explains how to install StorSimple 8000 Series Update 1.2 on your StorSimple 8000 series device."
    services="storsimple"
    documentationCenter="NA"
    authors="alkohli"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/09/2015"
+   ms.date="09/28/2015"
    ms.author="alkohli" />
 
 # Install Update 1.2 on your StorSimple device

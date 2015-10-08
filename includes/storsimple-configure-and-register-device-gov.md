@@ -1,20 +1,4 @@
-<properties 
-   pageTitle="Configure and register your device"
-   description="Explains how to use Windows PowerShell for StorSimple to configure and register a StorSimple device that is running Update 1."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="alkohli"
-   manager="adinah"
-   editor="tysonn" />
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="05/22/2015"
-   ms.author="alkohli" />
-
+<!--author=SharS last changed: 9/17/15-->
 
 ### To configure and register the device
 

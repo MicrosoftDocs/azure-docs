@@ -3,7 +3,7 @@
 	description="Lists the different ways to create a Windows virtual machine and gives links to instructions."
 	services="virtual-machines"
 	documentationCenter=""
-	authors="KBDAzure"
+	authors="cynthn"
 	manager="timlt"
 	editor=""
 	tags="azure-resource-manager,azure-service-management"/>
@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="infrastructure-services"
 	ms.date="09/15/2015"
-	ms.author="kathydav"/>
+	ms.author="cynthn"/>
 
 # Different ways to create a Windows virtual machine
 

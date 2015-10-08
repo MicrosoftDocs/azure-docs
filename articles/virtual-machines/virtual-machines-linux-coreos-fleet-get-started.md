@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Get Started with Fleet on CoreOS on Azure"
-	description="Provides basic examples of using Fleet and Docker on a CoreOS Linux virtual machine on Azure."
+	pageTitle="Get Started with Fleet on CoreOS | Microsoft Azure"
+	description="Provides basic examples of using Fleet and Docker on a CoreOS Linux virtual machine created with the classic deployment model on Azure."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="dlepow"
@@ -18,6 +18,8 @@
 	ms.author="danlep"/>
 
 # Get Started with Fleet on CoreOS on Azure
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)] This article covers managing a resource with the classic deployment model.
 
 This article gives you two quick examples of using [fleet](https://github.com/coreos/fleet) and [Docker](https://www.docker.com/) to run applications on a cluster of [CoreOS] virtual machines.
 
@@ -157,7 +159,7 @@ fleetctl --tunnel coreos-cluster.cloudapp.net:22 unload apache@{1,2,3}.service
 * See [Linux and Open-Source Computing on Azure] for more on using open-source environments on Linux VMs in Azure.
 
 <!--Link references-->
-[Azure Command-Line Interface (Azure)]: ../xplat-cli.md
+[Azure Command-Line Interface (Azure)]: ../xplat-cli-install.md
 [CoreOS]: https://coreos.com/
 [CoreOS Overview]: https://coreos.com/using-coreos/
 [CoreOS with Azure]: https://coreos.com/docs/running-coreos/cloud-providers/azure/

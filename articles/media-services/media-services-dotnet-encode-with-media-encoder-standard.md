@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/07/2015"    
+	ms.date="10/07/2015"    
 	ms.author="juliako"/>
 
 
@@ -22,8 +22,6 @@
 Encoding jobs are one of the most common processing operations in Media Services. You create encoding jobs to convert media files from one encoding to another. When you encode, you can use the Media Services built-in Media Encoder. You can also use an encoder provided by a Media Services partner; third party encoders are available through the Azure Marketplace. 
 
 This topic shows how to use .NET to encode your assets with Media Encoder Standard. Media Encoder Standard is configured using one of the encoder presets described [here](http://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409).
-
->[AZURE.NOTE]The current release of the media processor requires you to pass in an entire XML or JSON string as the encoding preset. Support for passing in a named string, like "H264 Multiple Bitrate 720p", will be available via a service update shortly.
 
 It is recommended to always encode your mezzanine files into an adaptive bitrate MP4 set and then convert the set to the desired format using the [Dynamic Packaging](media-services-dynamic-packaging-overview.md). To take advantage of dynamic packaging, you must first get at least one On-demand streaming unit for the streaming endpoint from which you plan to delivery your content. For more information, see [How to Scale Media Services](media-services-manage-origins.md#scale_streaming_endpoints).
 
@@ -35,14 +33,14 @@ The following code example uses Media Services .NET SDK to perform the following
 
 - Create an encoding job.
 - Get a reference to the Media Encoder Standard encoder.
-- Load the preset XML from one of the presets shown  [here](http://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409).
+- Specify to use the "H264 Multiple Bitrate 720p" preset. You can see all the presets [here](http://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409). You can also examine the schema to which these presets must comply [here](https://msdn.microsoft.com/library/mt269962.aspx) topic.
 - Add a single encoding task to the job. 
 - Specify the input asset to be encoded.
 - Create an output asset that will contain the encoded asset.
 - Add an event handler to check the job progress.
 - Submit the job.
 		
-		static public IAsset EncodeToAdaptiveBitrateMP4Set(IAsset asset, string pathToLocalPresetFile)
+		static public IAsset EncodeToAdaptiveBitrateMP4Set(IAsset asset)
 		{
 		    // Declare a new job.
 		    IJob job = _context.Jobs.Create("Media Encoder Standard Job");
@@ -50,13 +48,12 @@ The following code example uses Media Services .NET SDK to perform the following
 		    // processor to use for the specific task.
 		    IMediaProcessor processor = GetLatestMediaProcessorByName("Media Encoder Standard");
 		
-		    // Load the XML (or JSON) from the local file
-		    string configuration = File.ReadAllText(pathToLocalPresetFile);
-		
-		    // Create a task
-		    ITask task = job.Tasks.AddNew("Media Encoder Standard encoding task",
+
+		    // Create a task with the encoding details, using a string preset.
+		    // In this case "H264 Multiple Bitrate 720p" preset is used.
+		    ITask task = job.Tasks.AddNew("My encoding task",
 		        processor,
-		        configuration,
+		        "H264 Multiple Bitrate 720p",
 		        TaskOptions.None);
 		
 		    // Specify the input asset to be encoded.
@@ -126,4 +123,5 @@ You can view AMS learning paths here:
 
 ##See Also 
 
+[How to generate thumbnail using Media Encoder Standard with .NET](media-services-dotnet-generate-thumbnail-with-mes.md)
 [Media Services Encoding Overview](media-services-encode-asset.md)

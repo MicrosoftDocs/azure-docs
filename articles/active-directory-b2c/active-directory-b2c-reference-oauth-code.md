@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/04/2015"
+	ms.date="09/22/2015"
 	ms.author="dastrock"/>
 
 # Azure AD B2C Preview: OAuth 2.0 Authorization Code Flow
@@ -23,9 +23,7 @@ and other identity management tasks to your mobile and desktop apps.  This guide
 
 <!-- TODO: Need link to libraries -->	
 
-> [AZURE.NOTE]
-	This information applies to the Azure AD B2C preview.  For information on how to integrate with the generally available Azure AD service, 
-	please refer to the [Azure Active Directory Developer Guide](active-directory-developers-guide.md).
+[AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
 
 The OAuth 2.0 authorization code flow is described in in [section 4.1 of the OAuth 2.0 specification](http://tools.ietf.org/html/rfc6749).  It can be used to perform authentication and authorization in the majority of app types, including [web apps](active-directory-b2c-apps.md#web-apps) and [natively installed  apps](active-directory-b2c-apps.md#mobile-and-native-apps).  It enables apps to securely acquire **access_tokens** which can be used to access resources that are secured by an [authorization server](active-directory-b2c-reference-protocols.md#the-basics).  This guide will focus
 on a particular flavor of the OAuth 2.0 authorization code flow - **public clients**.  A public client is any client application that cannot be trusted to securely maintain the integrity of a secret password.  This includes mobile apps, desktop apps, and pretty much any application that

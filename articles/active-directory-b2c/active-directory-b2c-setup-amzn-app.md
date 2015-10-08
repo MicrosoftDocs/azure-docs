@@ -13,10 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/15/2015"
+	ms.date="10/08/2015"
 	ms.author="swkrish"/>
 
 # Azure Active Directory B2C preview: Provide Sign up and Sign in to Consumers with Amazon Accounts
+
+[AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
 
 ## Create an Amazon Application
 
@@ -49,7 +51,7 @@ To use Amazon as an identity provider in Azure Active Directory (AD) B2C, you wi
 ## Configure Amazon as an Identity Provider in your Directory
 
 1. [Navigate to the B2C features blade on the Azure preview portal](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
-2. On the B2C features blade, click **Social identity providers**.
+2. On the B2C features blade, click **Identity providers**.
 3. Click **+Add** at the top of the blade.
 4. Provide a friendly **Name** for the identity provider configuration. For example, enter "Amzn".
 5. Click **Identity provider type**, select **Amazon** and click **OK**.

@@ -23,7 +23,7 @@ If you are already familiar with using Node.js modules, **package.json** and **n
 
 Modules are loadable JavaScript packages that provide specific functionality for your application. A module is usually installed using the **npm** command-line tool, however some (such as the http module) are provided as part of the core Node.js package.
 
-When modules are installed, they are stored in the **node\_modules** directory at the root of your application directory structure. Each module within the **node\_modules** directory maintains its own **node\_modules** directory that contains any modules that it depend on, and this repeats again for every module all the way down the dependency chain. This allows each module installed to have its own version requirements for the modules it depends on, however it can result in quite a large directory structure.
+When modules are installed, they are stored in the **node\_modules** directory at the root of your application directory structure. Each module within the **node\_modules** directory maintains its own **node\_modules** directory that contains any modules that it depends on, and this repeats again for every module all the way down the dependency chain. This allows each module installed to have its own version requirements for the modules it depends on, however it can result in quite a large directory structure.
 
 When deploying the **node\_modules** directory as part of your application, it will increase the size of the deployment compared to using a **package.json** or **npm-shrinkwrap.json** file; however, it does guarantee that the version of the modules used in production are the same as those used in development.
 
@@ -70,8 +70,10 @@ When your application is ready for production, you can lock-down version require
 
 Now that you understand how to use Node.js modules with Azure, learn how to [specify the Node.js version], [build and deploy a Node.js Web Site], and [How to use the Azure Command-Line Interface for Mac and Linux].
 
+For more information, see the [Node.js Developer Center](/develop/nodejs/).
+
 [specify the Node.js version]: nodejs-specify-node-version-azure-apps.md
-[How to use the Azure Command-Line Interface for Mac and Linux]: xplat-cli.md
+[How to use the Azure Command-Line Interface for Mac and Linux]: xplat-cli-install.md
 [build and deploy a Node.js Web Site]: web-sites-nodejs-develop-deploy-mac.md
 [Node.js Web Application with Storage on MongoDB (MongoLab)]: store-mongolab-web-sites-nodejs-store-data-mongodb.md
 [Publishing with Git]: web-sites-publish-source-control.md

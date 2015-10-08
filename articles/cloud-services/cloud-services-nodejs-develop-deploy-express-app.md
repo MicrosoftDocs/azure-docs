@@ -134,6 +134,9 @@ Once the deployment operation completes, your browser will open and display the 
 
 ![A web browser displaying the Express page. The URL indicates it is now hosted on Azure.](./media/cloud-services-nodejs-develop-deploy-express-app/node36.png)
 
+## Next steps
+
+For more information, see the [Node.js Developer Center](/develop/nodejs/).
 
   [Node.js Web Application]: http://www.windowsazure.com/develop/nodejs/tutorials/getting-started/
   [Express]: http://expressjs.com/

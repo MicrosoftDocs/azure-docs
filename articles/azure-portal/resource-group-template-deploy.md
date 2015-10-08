@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/09/2015"
+   ms.date="10/02/2015"
    ms.author="tomfitz"/>
 
 # Deploy an application with Azure Resource Manager template
@@ -241,6 +241,7 @@ The size of the parameter file cannot be more than 64 KB.
 ## Next steps
 - For an example of deploying resources through the .NET client library, see [Deploy resources using .NET libraries and a template](../arm-template-deployment.md)
 - For an in-depth example of deploying an application, see [Provision and deploy microservices predictably in Azure](../app-service-web/app-service-deploy-complex-application-predictably.md)
+- For guidance on deploying your solution to different environments, see [Development and test environments in Microsoft Azure](../solution-dev-test-environments-preview-portal.md).
 - To learn about the sections of the Azure Resource Manager template, see [Authoring templates](../resource-group-authoring-templates.md)
 - For a list of the functions you can use in an Azure Resource Manager template, see [Template functions](../resource-group-template-functions.md)
 

@@ -14,14 +14,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/15/2015"
+	ms.date="10/01/2015"
 	ms.author="genemi"/>
 
 
 # Plan and prepare to upgrade to SQL Database V12
 
 
-This topic describes the planning and preparations you must perform to upgrade your Azure SQL databases from version V11 to V12 ([at preview in some regions](sql-database-v12-whats-new.md#V12AzureSqlDbPreviewGaTable)).
+This topic describes the planning and preparations you must perform to upgrade your Azure SQL databases from version V11 to V12.
 
 
 A new [Azure preview portal](http://portal.azure.com/) is available to support your upgrade to V12.
@@ -33,8 +33,7 @@ The following table lists other Help topics for V12.
 | Title and link | Description of content |
 | :--- | :--- |
 | [What's new in SQL Database V12](sql-database-v12-whats-new.md) | Describes the details of how V12 brings Azure SQL Database closer to full parity with Microsoft SQL Server. |
-| [Walkthrough: sign up for the Latest SQL Database Update V12](sql-database-v12-sign-up.md) | Describes the steps you must perform if you want to upgrade your Azure SQL databases to V12. |
-| [Create a database in SQL Database Update V12](sql-database-create.md) | Describes how you can create a new Azure SQL database at version V12. It describes various options beyond just an empty database. |
+| [Create a database in SQL Database V12](sql-database-get-started.md) | Describes how you can create a new Azure SQL database at version V12. It describes various options beyond just an empty database. |
 
 
 ## Plan ahead
@@ -60,15 +59,15 @@ Starting with V12, Azure SQL Database will support only the service tiers named 
 
 For detailed information about the Basic, Standard, and Premium service tiers, see:
 
-
+- [SQL Database service tiers](sql-database-service-tiers.md)
 - [Upgrade SQL Database Web/Business Databases to New Service Tiers](sql-database-upgrade-new-service-tiers.md)
-- [Azure SQL Database Pricing](http://azure.microsoft.com/pricing/details/sql-database/)
+
 
 
 ### Review the geo-replication configuration
 
 
-If your Azure SQL database is configured for geo-replication, you should document its current configuration, and stop the geo-replication, before you start the upgrade preparation actions. After upgrade completes you must reconfigure your database for geo-replication.
+If your Azure SQL database is configured for geo-replication, you should document its current configuration, and stop geo-replication, before you start the upgrade preparation actions. After upgrade completes you must reconfigure your database for geo-replication.
 
 
 The strategy is to leave the source intact and test on a copy of the database.
@@ -170,6 +169,7 @@ The V11 database remains available for data access during the upgrade to V12. Ye
 | :--- | :--- |
 | Duration of upgrade | The duration of upgrade depends on the size, edition and number of databases in the server. The upgrade process can run for hours to days for servers especially for servers that has databases:<br/><br/>* Larger than 50 GB, or<br/>* At a non-premium service tier<br/><br/>Creation of new databases on the server during the upgrade can also increase the upgrade duration. |
 | No geo-replication | Geo-replication is not supported on a V12 server that is currently involved in an upgrade from V11. |
+| Database is briefly unavailable in final phase of upgrade to V12 | The databases belonging to your V11 server remain available during the upgrade process. However, the connection to the server and databases is briefly unavailable in the final phase, when the switch over begins from V11 to the ready V12.<br/><br/>The switch over period can range from 40 seconds to 5 minutes. For most servers, switch over is expected to complete within 90 seconds. Switch over time increases for servers that have a large number of databases, or when the databases have heavy write workloads. |
 
 
 ### Limitation *after* upgrade to V12
@@ -179,7 +179,7 @@ The V11 database remains available for data access during the upgrade to V12. Ye
 | :--- | :--- |
 | Cannot revert to V11 | After an upgrade in-place, the result cannot be reverted or undone. |
 | Web or Business tier | Once the upgrade starts, the server for the new V12 database can no longer recognize or accept the Web or Business service tier. |
-| 50% discount not reflected in the pricing tier cards in the Azure portal | During the preview period, there is a 50% preview discount* on databases enrolled in the latest Azure SQL database preview update (V12). Even if the discount is not shown in the preview portal on the service pricing tier blade, the discount is in force.<br/><br/> The 50% discount remains in effect in all geographic regions until **2015-March-31**, when it expires for all regions. The discount is effect even in regions that have been announced at general availability (GA) status.<br/><br/> (* Use of latest Azure SQL Database Update V12 feature is subject to the preview terms in your license agreement (e.g., the Enterprise Agreement, Microsoft Azure Agreement, or Microsoft Online Subscription Agreement), as well as any applicable [Supplemental Terms of Use for Microsoft Azure Previews](http://azure.microsoft.com/support/legal/preview-supplemental-terms/).  For the duration of the preview, Microsoft will bill you (or your reseller, as applicable) for all databases enrolled in this preview at half the general availability (GA) rate to achieve a 50% preview discount. Microsoft will provide 30 days notice via email prior to the expiration of the preview period and the discounted preview rate.) |
+
 
 
 ### Export and import *after* upgrade to V12
@@ -242,10 +242,6 @@ The Stop- cmdlet means cancel, not pause. There is no way to resume an upgrade, 
 
 
 If the upgrade fails for any odd reason, your V11 database remains active and available as normal.
-
-
-> [AZURE.NOTE]
-> The pre-V12 database *remains available* for data access during the upgrade to V12.
 
 
 ## Related links

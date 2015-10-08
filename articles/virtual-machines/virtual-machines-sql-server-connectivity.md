@@ -1,11 +1,12 @@
 <properties 
-   pageTitle="Connect to a SQL Server Virtual Machine on Azure"
-   description="This topic describes how to connect to SQL Server running on a Virtual Machine in Azure. The scenarios differ depending on the networking configuration and the location of the client."
+   pageTitle="Connect to a SQL Server Virtual Machine | Microsoft Azure"
+   description="This topic uses resources created with the classic deployment model, and describes how to connect to SQL Server running on a Virtual Machine in Azure. The scenarios differ depending on the networking configuration and the location of the client."
    services="virtual-machines"
    documentationCenter="na"
    authors="rothja"
    manager="jeffreyg"
-   editor="monicar" />
+   editor="monicar"    
+   tags="azure-service-management"/>
 <tags 
    ms.service="virtual-machines"
    ms.devlang="na"
@@ -16,6 +17,8 @@
    ms.author="jroth" />
 
 # Connect to a SQL Server Virtual Machine on Azure
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)] This article covers using a resource with the classic deployment model. 
  
 ## Overview
 

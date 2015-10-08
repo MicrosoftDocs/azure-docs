@@ -1,19 +1,4 @@
-<properties 
-   pageTitle="Mount, initialize, and format a volume"
-   description="Explains how to configure a volume on a StorSimple device."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="carolz"
-   edito**r="" />
-<tags 
-   ms.se**rvice="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="09/10/2015"
-   ms.author="v-sharos" />
+<!--author=SharS last changed: 9/17/15-->
 
 #### To mount, initialize, and format a volume
 
