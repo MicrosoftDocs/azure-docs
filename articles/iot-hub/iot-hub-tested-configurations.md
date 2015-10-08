@@ -104,11 +104,11 @@ Managed agent code requires Microsoft .NET Framework 4.5
 
 ## Microsoft Azure Certified for IoT
 
-**Microsoft Azure Certified for IoT** is the partner program that connects the broader IoT ecosystem with Microsoft Azure so that developers and architects understand the compatibility scenarios. Specifically, it provides a trusted list of OS/device combinations to help you get started quickly with an IoT project – whether you’re in a proof of concept or pilot phase. With certified device and operating system combinations, your IoT project can get started quickly, with less work and customization required to make sure devices are compatible with  Azure IoT Suite and Azure IoT Hub.
+**Microsoft Azure Certified for IoT** is the partner program that connects the broader IoT ecosystem with Microsoft Azure so that developers and architects understand the compatibility scenarios. Specifically, it provides a trusted list of OS/device combinations to help you get started quickly with an IoT project – whether you’re in a proof of concept or pilot phase. With certified device and operating system combinations, your IoT project can get started quickly, with less work and customization required to make sure devices are compatible with Azure IoT Suite and Azure IoT Hub.
 
 ## Certified for IoT devices
 
-**Certified for IoT** devices have tested compatibility with the Azure IoT SDKs and are ready to be used in your IoT application. Specifically, we identify compatibility based on OS Platform and code language.
+**Certified for IoT** devices have tested compatibility with the Azure IoT SDKs and are ready to be used in your IoT application. Specifically, we identify compatibility based on operating system platform and code language.
 
 #### Devices list
 
@@ -128,5 +128,5 @@ Each device has been certified to work with our SDK in the OS and language chose
 
 ## Next steps
 
-Learn more about developing solutions using Certified for IoT devices [here](http://azure.com/iotdev).
+Learn more about developing solutions using **Certified for IoT** devices [here](http://azure.com/iotdev).
 
