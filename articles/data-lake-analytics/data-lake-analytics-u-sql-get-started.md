@@ -18,7 +18,6 @@
 
 # Tutorial: Get started with Azure Data Lake Analytics U-SQL language
 
-[jgao: rewrite this part]
 Learn how to develop U-SQL scripts.
 
 U-SQL is a hyper-scalable, highly extensible language for preparing, transforming and analyzing all data in the data lake and beyond. 
@@ -27,7 +26,7 @@ It also includes "schema on reads", custom processors, reducers and other big da
 
 There are some differences from ANSI SQL or T-SQL. For example, its keywords such as SELECT have to be in UPPERCASE. 
 
-[jgao: check with michael on the meaning of the following sentense.]
+[jgao: check with Michael on the meaning of the following sentence.]
 
 It’s type system and expression language inside select clauses, where predicates etc are in C#. 
 This means the data types are the C# types and the data types use C# NULL semantics, and the comparison operations inside a predicate follow C# syntax (e.g., a == "foo").
@@ -46,7 +45,6 @@ For more information, see [U-SQL Reference]().
 	Once Data Lake Tools for Visual Studio is installed, you will see a U-SQL menu in Visual Studio:
 	
 	![U-SQL Visual Studio menu](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-menu.png)
-	[jgao: the menu is still "SqlIP"]
 
 - Basic knowledge of Data Lake Analytics and the Data Lake Tools for Visual Studio. To get started, see:
  
@@ -74,7 +72,7 @@ Before you can build and test any U-SQL script, you must first connect to Azure.
 **To browse your Data Lake Analytics accounts**
 
 1. From Visual Studio, open **Server Explorer** by press **CTRL+ALT+S**.
-2. From **Server Explorer**, expand **Azure**, and then expand **Data Lake Analytics**. You shall see a list of your Data Lake Analytics accounts if there are any. You cannot create Big Analystics accounts from the studio. To create an account, see [Get Started with Azure Data Lake Analytics using Azure Preview Portal](data-lake-analytics-get-started-portal.md) or [Get Started with Azure Data Lake Analytics using Azure PowerShell](knoa-get-started-powershell.md).
+2. From **Server Explorer**, expand **Azure**, and then expand **Data Lake Analytics**. You shall see a list of your Data Lake Analytics accounts if there are any. You cannot create Big Analytics accounts from the studio. To create an account, see [Get Started with Azure Data Lake Analytics using Azure Preview Portal](data-lake-analytics-get-started-portal.md) or [Get Started with Azure Data Lake Analytics using Azure PowerShell](knoa-get-started-powershell.md).
 
 
 ## Develop your first U-SQL scripts 
@@ -111,7 +109,7 @@ The main purpose of this section is to understand the process of writing and tes
 5. From **Solution Explorer**, right click **Script.usql**, and then click **Build Script**. Verify the result in the Output pane.
 6. From **Solution Explorer**, right click **Script.usql**, and then click **Submit Script**.
 7. Verify the **Analytics Account**, and then click **Submit**. Submission results and job link are available in the Data Lake Tools for Visual Studio Results window when the submission is completed.
-8. You can click the **Refresh** button to see the latest job status and refresh the screen. Wait until the job is completed sucessfully.  If the job failed, it is most likely missing the input file.  Please see the Prerequisite section of this tutorial. For additional troubleshooting informaiton, see [Monitor and troubleshoot Azure Data Lake Analytics jobs](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md).
+8. You can click the **Refresh** button to see the latest job status and refresh the screen. Wait until the job is completed successfully.  If the job failed, it is most likely missing the input file.  Please see the Prerequisite section of this tutorial. For additional troubleshooting information, see [Monitor and troubleshoot Azure Data Lake Analytics jobs](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md).
 
 	
 **To see the job output**
@@ -400,7 +398,7 @@ The following script demonstates using the defined view:
 
 ### Create tables 
 
-Similar to relational database table, U-SQL allowss you to create a table with a predefined schema or create a table and infer the schema from the query that populates the table (also known as CREATE TABLE AS SELECT or CTAS).
+Similar to relational database table, U-SQL allows you to create a table with a predefined schema or create a table and infer the schema from the query that populates the table (also known as CREATE TABLE AS SELECT or CTAS).
 
 The following script create a database and two tables:
 
@@ -487,7 +485,7 @@ The predicate in a JOIN has to be an equality join and no expression. If you wan
 
 ##Conclusion
 
-What is covered in the tutorial is only a small part of U-SQL. Because of the scope of this tutoiral, it can't cover everything, such as:
+What is covered in the tutorial is only a small part of U-SQL. Because of the scope of this tutorial, it can't cover everything, such as:
 
 - Use CROSS APPLY to unpack parts of strings, arrays and maps into rows.
 - Operate partitioned sets of data (file sets and partitioned tables).
