@@ -38,19 +38,15 @@ It takes about 30 minutes to do these steps.
 
 To use Azure AD to authenticate requests to Azure Resource Manager, an application must be added to the Default Directory. Do the following to add an application:
 
-1. Open an Azure PowerShell command prompt, and then run this command:
+1. Open an Azure PowerShell command prompt, and then run this command and enter the credentials for your subscription when prompted:
 
-        Switch-AzureMode –Name AzureResourceManager
-
-2. Set the Azure account that you want to use for this tutorial. Run this command and enter the credentials for your subscription when prompted:
-
-	    Add-AzureAccount
+	    Login-AzureRmAccount
 
 3. Replace {password} in the following command with the one that you want to use and then run it to create the application:
 
 	    New-AzureADApplication -DisplayName "My AD Application 1" -HomePage "https://myapp1.com" -IdentifierUris "https://myapp1.com"  -Password "{password}"
 
-4. Record the value the ApplicationId value in the response from the previous step. You will need it later in this tutorial:
+4. Record the ApplicationId value in the response from the previous step. You will need it later in this tutorial:
 
 	![Create an AD application](./media/arm-template-deployment/azureapplicationid.png)
 
@@ -58,11 +54,11 @@ To use Azure AD to authenticate requests to Azure Resource Manager, an applicati
 
 5. Replace {application-id} with the identifier that you just recorded and then create the service principal for the application:
 
-        New-AzureADServicePrincipal -ApplicationId {application-id}
+        New-AzureRmADServicePrincipal -ApplicationId {application-id}
 
 6. Set the permission to use the application:
 
-	    New-AzureRoleAssignment -RoleDefinitionName Owner -ServicePrincipalName "https://myapp1.com"
+	    New-AzureRmRoleAssignment -RoleDefinitionName Owner -ServicePrincipalName "https://myapp1.com"
 
 ## Step 2: Create the Visual Studio project, the template file, and the parameters file
 
