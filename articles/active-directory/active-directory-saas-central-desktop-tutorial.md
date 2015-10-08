@@ -53,7 +53,7 @@ The objective of this section is to outline how to enable users to authenticate 
 As part of this procedure, you are required to upload a base-64 encoded certificate to your Central Desktop tenant.  
 If you are not familiar with this procedure, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o).
 
-Nase
+
 
 ###To configure single sign-on, perform the following steps:
 

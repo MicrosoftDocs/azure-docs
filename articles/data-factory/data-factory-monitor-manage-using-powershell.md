@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Tutorial: Copy data from an Azure blob to Azure SQL" 
-	description="Learn how to use Azure PowerShell to create and monitor Azure data factories." 
+	pageTitle="Tutorial: Create a pipeline with Copy Activity using Azure PowerShell" 
+	description="In this tutorial, you will create an Azure Data Factory pipeline with a Copy Activity by using Azure PowerShell." 
 	services="data-factory" 
 	documentationCenter="" 
 	authors="spelluru" 
@@ -409,6 +409,9 @@ In this step, you will use the Azure PowerShell to monitor what’s going on in 
 		Type                : Copy
 
 See [Data Factory Cmdlet Reference][cmdlet-reference] for comprehensive documentation on Data Factory cmdlets. 
+
+## Send Feedback
+We would really appreciate your feedback on this article. Please take a few minutes to submit your feedback via [email](mailto:adfdocfeedback@microsoft.com?subject=data-factory-monitor-manage-using-powershell.md). 
 
 
 [adf-tutorial]: data-factory-tutorial.md

@@ -1,15 +1,15 @@
 <properties
-   pageTitle="Node.js and reliable actors: a winning combination"
+   pageTitle="Node.js and reliable actors | Microsoft Azure"
    description="A walk through on how to build an node.js express application that uses Reliable Actors and runs on top of the Azure Service Fabric platform."
    services="service-fabric"
-   documentationCenter=".net"
+   documentationCenter="nodejs"
    authors="clca"
    manager="timlt"
    editor=""/>
 
 <tags
    ms.service="service-fabric"
-   ms.devlang="dotnet"
+   ms.devlang="nodejs"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
@@ -45,7 +45,7 @@ As you can see all the node.js code is under the PackageRoot/Code directory. Ser
 ## Add servicemanifest.xml metadata file
 In order to deploy the node.js application, we need to add a metadata file that is required to specify some properties that will be used by Service Fabric in order to determine how to deploy and launch the application.
 
-This is an example on how the servicemanifest.xml should look like, please refer to [this article](service-fabric-deploy-existing-app) for more details on what are the important element that needs to be updated but typically you need to update:
+This is an example on how the servicemanifest.xml should look like, please refer to [this article](service-fabric-deploy-existing-app.md) for more details on what are the important element that needs to be updated but typically you need to update:
 
 * Name (ServiceManifest element)
 * ServiceTypeName (StatelessServiceType element)
@@ -150,7 +150,7 @@ In the `applicationmanifest.xml` file you need to add the following elements:
 ## Using Reliable Actors in the Node.js app
 Now that the project structure is set, we can focus on the code that allow the node.js application to connect to Reliable Actors in the cluster like you can do from a .NET application. The scenario we want to enable is to buld a node.js application that act as frontend/gateway for client application and expose an web-based application or a set of rest APIs a client app can use.
 Node.js provides the frontend of the app while Reliable Actors provide the scalable and reliable 'application server' layer of the app.
-In Service Fabric, Reliable Actors can be invoked by using the [ActorProxy class](service-fabric-reliable-actors-introduction/#actor-communication). Luckly there is a great node.js module that can be use to call into .NET code: [Edge.js](https://github.com/tjanczuk/edge). You can use the instructions on the github repo to find out how to install edge on your machine.
+In Service Fabric, Reliable Actors can be invoked by using the [ActorProxy class](service-fabric-reliable-actors-introduction.md#actor-communication). Luckly there is a great node.js module that can be use to call into .NET code: [Edge.js](https://github.com/tjanczuk/edge). You can use the instructions on the github repo to find out how to install edge on your machine.
 
  
 ![][2]
@@ -158,7 +158,7 @@ In Service Fabric, Reliable Actors can be invoked by using the [ActorProxy class
 After you install edge either using NPM or the NPM UI in Visual Studio, you need to move the new installed module in the node_modules directory under the Code subdirectory (we changed the structure of the node.js project and moved all code under the PackageRoot/Code directory).
 You can find good examples in the edge.js repo on Github on how you can use edge to call .NET code, the following is a simple example of how the code looks like when you need to call Reliable Actors using the ActorProxy class.
 
-```JavaScript
+```javascript
 
 var getActorStatus = edge.func(function () {
 
@@ -215,9 +215,9 @@ You can deploy the application (that will include the node.js app) by using, for
 ![][10]
 
 ## Next steps
-* Learn more about [Reliable Actors](../service-fabric-reliable-actors-introduction.md)
-* Learn more about Service Fabric [application lifecycle](../service-fabric-application-lifecycle.md)
-* Lean more about upgrading a [Service Fabric application](../service-fabric-application-upgrade.md) 
+* Learn more about [Reliable Actors](service-fabric-reliable-actors-introduction.md)
+* Learn more about Service Fabric [application lifecycle](service-fabric-application-lifecycle.md)
+* Lean more about upgrading a [Service Fabric application](service-fabric-application-upgrade.md) 
 
 <!-- images -->
 [1]: ./media/service-fabric-node-and-reliable-actors-app/nodejs-project-structure.PNG

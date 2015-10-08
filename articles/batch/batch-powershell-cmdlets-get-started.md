@@ -137,7 +137,7 @@ Get-AzureBatchPool -Id "myPool" -BatchContext $context
 ```
 The **Id** parameter supports only full-id search, not wildcards or OData-style filters.
 
-### Use the pipleline
+### Use the pipeline
 
 Batch cmdlets can leverage the PowerShell pipeline to send data between cmdlets. This has the same effect as specifying a parameter but makes listing multiple entities easier. For example, you can find all tasks under your account:
 

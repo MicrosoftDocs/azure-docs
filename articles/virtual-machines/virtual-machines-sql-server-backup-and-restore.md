@@ -1,13 +1,14 @@
-<properties 
-	pageTitle="Backup and Restore for SQL Server in Azure Virtual Machines"
+<properties
+	pageTitle="Backup and Restore for SQL Server | Microsoft Azure"
 	description="Describes backup and restore considerations for SQL Server databases running on Azure Virtual Machines."
 	services="virtual-machines"
 	documentationCenter="na"
 	authors="rothja"
 	manager="jeffreyg"
-	editor="monicar" />
+	editor="monicar"
+	tags="azure-service-management" />
 
-<tags 
+<tags
 	ms.service="virtual-machines"
 	ms.devlang="na"
 	ms.topic="article"
@@ -17,6 +18,8 @@
 	ms.author="jroth" />
 
 # Backup and Restore for SQL Server in Azure Virtual Machines
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)] This article covers creating a resource with the classic deployment model.
 
 ## Overview
 

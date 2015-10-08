@@ -108,7 +108,7 @@ In this section, you will perform the steps to create a service principal for an
         public static string GetAToken()
         {
           var authenticationContext = new AuthenticationContext("https://login.windows.net/{tenantId or tenant name}");  
-          var credential = new ClientCredential(clientId: "{application id}", clientSecret: {application password}");
+          var credential = new ClientCredential(clientId: "{application id}", clientSecret: "{application password}");
           var result = authenticationContext.AcquireToken(resource: "https://management.core.windows.net/", clientCredential:credential);
 
           if (result == null) {

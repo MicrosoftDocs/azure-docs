@@ -14,7 +14,7 @@
 	ms.workload="search"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
-	ms.date="07/08/2015"
+	ms.date="09/08/2015"
 	ms.author="heidist"/>
 
 # How to use Chrome Postman with Azure Search #
@@ -108,7 +108,7 @@ Now that we have walked through all the basics of using Azure Search with Postma
 
 Documentation for the REST API can be found on [MSDN](https://msdn.microsoft.com/library/azure/dn798935.aspx).
 
-You can also visit the [Video and tutorial list](https://msdn.microsoft.com/library/azure/dn818681.aspx) for more examples.
+You can also visit the [Video and tutorial list](search-video-demo-tutorial-list.md) for more examples.
 
 <!-- Image References -->
 [1]: ./media/search-chrome-postman/full_postman_client.png

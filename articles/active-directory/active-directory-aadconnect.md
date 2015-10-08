@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="08/24/2015" 
+	ms.date="09/09/2015" 
 	ms.author="billmath"/>
 
 # Integrating your on-premises identities with Azure Active Directory
@@ -59,7 +59,7 @@ To get started using Azure AD Connect you can download the latest version using 
 ## How Azure AD Connect works
 
 
-Azure Active Directory Connect is made up of three primary parts.  They are the synchronization services, the optional Active Directory Federation Services piece, and the monitoring piece which is done using [Azure AD Connect Health](https://msdn.microsoft.com/library/azure/dn906722.aspx).
+Azure Active Directory Connect is made up of three primary parts.  They are the synchronization services, the optional Active Directory Federation Services piece, and the monitoring piece which is done using [Azure AD Connect Health](active-directory-aadconnect-health.md).
 
 
 <center>![Azure AD Connect Stack](./media/active-directory-aadconnect-how-it-works/AADConnectStack2.png)
@@ -67,7 +67,7 @@ Azure Active Directory Connect is made up of three primary parts.  They are the 
 
 - Synchronization - This part is made up of the the components and functionality previously released as Dirsync and AAD Sync.  This is the part that is responsible for creating users and groups.  It is also responsible for making sure that the information on users and groups in your on-premises environment, matches the cloud.
 - AD FS - This is an optional part of Azure AD Connect and can be used to setup a hybrid environment using an on-premises AD FS infrastructure.  This part can be used by organizations to address complex deployments that include such things as domain join SSO, enforcement of AD login policy and smart card or 3rd party MFA.  For additional information on configuring SSO see [DirSync with Single-Sign On](https://msdn.microsoft.com/library/azure/dn441213.aspx).
-- Health Monitoring - For complex deployments using AD FS, Azure AD Connect Health can provide robust monitoring of your federation servers and provide a central location in the Azure portal to view this activity.  For additional information see [Azure Active Directory Connect Health](https://msdn.microsoft.com/library/azure/dn906722.aspx).
+- Health Monitoring - For complex deployments using AD FS, Azure AD Connect Health can provide robust monitoring of your federation servers and provide a central location in the Azure portal to view this activity.  For additional information see [Azure Active Directory Connect Health](active-directory-aadconnect-health.md).
 
 
 ### Azure AD Connect supporting components
@@ -103,7 +103,7 @@ Before you install Azure AD Connect with Express Settings, there are a few thing
 - An Azure AD Global Administrator account for the Azure AD tenant you wish to integrate with
 - Azure AD Connect must be installed on Windows Server 2008 or later.  This server may be a domain controller or a member server.
 - The AD schema version and forest level must be Windows Server 2003 or later. The domain controllers can run any version as long as the schema and forest level requirements are met.
-- If Active Directory Federation Services is being deployed, the servers where AD FS will be installed must be Windows Server 2012 or later.
+- If Active Directory Federation Services is being deployed, the servers where AD FS will be installed must be Windows Server 2012 R2 or later.
 - Azure AD Connect requires a SQL Server database to store identity data. By default a SQL  Server 2012 Express LocalDB (a light version of SQL Server Express) is installed and the service account for the service is created on the local machine. SQL Server Express has a 10GB size limit that enables you to manage approximately 100.000 objects.
 - If you need to manager a higher volume of directory objects, you need to point the installation process to a different version of SQL Server. 
 Azure AD Connect supports all flavors of Microsoft SQL Server from SQL Server 2008 (with SP4) to SQL Server 2014.
@@ -115,7 +115,7 @@ Azure AD Connect supports all flavors of Microsoft SQL Server from SQL Server 20
     		<defaultProxy>
       		<proxy
         	usesystemdefault="true"
-        	proxyaddress=http://<PROXYIP>:80"
+        	proxyaddress="http://<PROXYIP>:80"
         	bypassonlocal="true"
      		 />
     		</defaultProxy>

@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Deploy your on-premises StorSimple device in the Government Portal | Microsoft Azure"
-   description="Steps and best practices for deploying the StorSimple Update 1 device and service in the Azure Government portal."
+   pageTitle="Deploy StorSimple device in Government Portal | Microsoft Azure"
+   description="Describes the steps and best practices for deploying the StorSimple Update 1 device and service in the Azure Government portal."
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/21/2015"
+   ms.date="09/17/2015"
    ms.author="v-sharos" />
 
 # Deploy your on-premises StorSimple device in the Government Portal
@@ -238,7 +238,7 @@ To connect to Windows PowerShell for StorSimple, you need to use terminal emulat
 
 Updating your device can take several hours. Perform the following steps to scan for and apply updates on your device.
 
-<!-- > [AZURE.NOTE] If you have a gateway configured on a network interface other than Data 0, you will need to disable Data 2 and Data 3 network interfaces before installing the update. Go to **Devices > Configure** and disable Data 2 and Data 3 interfaces. You should re-enable these interfaces after the device is updated.-->
+<!--If you have a gateway configured on a network interface other than Data 0, you will need to disable Data 2 and Data 3 network interfaces before installing the update. Go to **Devices > Configure** and disable Data 2 and Data 3 interfaces. You should re-enable these interfaces after the device is updated.-->
 
 #### To update your device
 

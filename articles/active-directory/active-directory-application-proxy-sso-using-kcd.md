@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="rkarlin"
-	manager="stevenpo"
+	manager="msStevenPo"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/11/2015"
+	ms.date="09/09/2015"
 	ms.author="rkarlin"/>
 
 
@@ -54,7 +54,13 @@ The Active Directory configuration varies, depending on whether your Application
 
 ### Connector and published server in the same domain
 
-In Active Directory, go to **Tools** > **Users and Computers**. Select the server running the Connector. Right click and select **Properties** > **Delegation**. Select **Trust this computer for delegation to specified services only** and under **Services to which this account can present delegated credentials**, add the value for the Service Principal Name (SPN) identity of the application server. This enables the Application Proxy Connector to impersonate users in AD against the applications defined in the list.
+
+
+1. In Active Directory, go to **Tools** > **Users and Computers**. 
+2. Select the server running the Connector. 
+3. Right click and select **Properties** > **Delegation**. 
+4. Select **Trust this computer for delegation to specified services only** and under **Services to which this account can present delegated credentials**, add the value for the Service Principal Name (SPN) identity of the application server. 
+5. This enables the Application Proxy Connector to impersonate users in AD against the applications defined in the list.
 
 ![Connector-SVR Properties window screenshot](./media/active-directory-application-proxy-sso-using-kcd/Properties.jpg)
 

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="06/03/2015"
+	ms.date="08/31/2015" 
 	ms.author="robmcm"/>
 
 # On-premises application with blob storage
@@ -32,11 +32,11 @@ HTML file that displays the image in your browser.
 - The JAR for the Azure Libraries for Java, and any applicable
     dependency JARs, are installed and are in the build path used by
     your Java compiler. For information about installing the Azure Libraries for Java, see [Download the
-    Azure SDK for Java].
+    Azure SDK for Java][].
 - An Azure storage account has been set up. The account name
     and account key for the storage account will be used by the code
     in this article. See [How to Create a Storage Account] for information about creating a storage account,
-    and [How to Manage Storage Accounts] for information about retrieving the
+    and [How to Manage Storage Accounts][] for information about retrieving the
     account key.
 - You have created a local image file named stored at the path
     c:\\myimages\\image1.jpg. Alternatively, modify the
@@ -424,12 +424,12 @@ use the blob storage service from Java].
 
 Follow these links to learn more about more complex storage tasks.
 
-- [Azure Storage SDK for Java]
-- [Azure Storage Client SDK Reference]
-- [Azure Storage REST API]
-- [Azure Storage Team Blog]
+- [Azure Storage SDK for Java][]
+- [Azure Storage Client SDK Reference][]
+- [Azure Storage REST API][]
+- [Azure Storage Team Blog][]
 
-  [Download the Azure SDK for Java]: http://azure.microsoft.com/develop/java/
+  [Download the Azure SDK for Java]: http://go.microsoft.com/fwlink/?LinkID=525671
   [How to Create a Storage Account]: storage-create-storage-account.md#create-a-storage-account
   [How to Manage Storage Accounts]: storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys
   [How to Use the Blob Storage Service from Java]: storage-java-how-to-use-blob-storage.md

@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="08/11/2015"
+	ms.date="09/30/2015" 
 	ms.author="juliako"/>
 
 
-#Use Management Portal to Create Channels that Perform Live Encoding from a Single-bitrate to Multi-bitrate Stream (Preview)
+#Use Management Portal to Create Channels that Perform Live Encoding from a Single-bitrate to Multi-bitrate Stream 
 
 > [AZURE.SELECTOR]
 - [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
@@ -141,7 +141,7 @@ If no IP addresses are specified and there is no rule definition then no IP addr
 
 ![standard4][standard4]
 
->[AZURE.NOTE] Currently in Preview, the Channel start can take up to 30 minutes. Channel reset can take up to 5 minutes.
+>[AZURE.NOTE] Currently, the Channel start can take up to 30 minutes. Channel reset can take up to 5 minutes.
 
 Once you created the Channel, you can select the **ENCODER** tab where you can view your channels configurations. You can also manage advertisements and slates. 
 
@@ -251,6 +251,13 @@ If you are done streaming events and want to clean up the resources provisioned 
 - Stop the channel. Once the Channel is stopped, it will not incur any charges. When you need to start it again, it will have the same ingest URL so you won't need to reconfigure your encoder.
 - You can stop your Streaming Endpoint, unless you want to continue to provide the archive of your live event as an on-demand stream. If the channel is in stopped state, it will not incur any charges.
   
+
+##Media Services learning paths
+
+You can view AMS learning paths here:
+
+- [AMS Live Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [AMS on Demand Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
 
 [standard0]: ./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-channel-standard0.png

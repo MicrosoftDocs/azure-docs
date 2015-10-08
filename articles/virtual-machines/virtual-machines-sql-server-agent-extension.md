@@ -1,11 +1,12 @@
 <properties 
-	pageTitle="SQL Server IaaS Agent Extension" 
-	description="Describes the SQL Server agent extension, which enables virtual machines running SQL Server in the cloud on Azure to use automation features, and how to install the agent if it isn't already installed automatically." 
+	pageTitle="SQL Server IaaS Agent Extension | Microsoft Azure" 
+	description="This topic uses resources created with the classic deployment model, and describes the SQL Server agent extension, which enables a VM running SQL Server on Azure to use automation features." 
 	services="virtual-machines" 
 	documentationCenter="" 
 	authors="jeffgoll" 
 	manager="jeffreyg"
-	editor=""/>
+   editor="monicar"    
+   tags="azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -13,12 +14,14 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services" 
-	ms.date="06/17/2015"
+	ms.date="10/02/2015"
 	ms.author="jeffreyg"/>
 
 # SQL Server IaaS Agent Extension
 
 This extension enables SQL Server in Azure Virtual Machines to use certain services, listed in this article, which can only be used with this extension installed. This extension is automatically installed for SQL Server Gallery Images in the Azure Preview Portal. It can be installed on any SQL Server VM in Azure which has the Azure VM Guest Agent installed.
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)] This article covers using a resource with the classic deployment model. 
  
 ## Prerequisites
 Requirements for using Powershell cmdlets:
@@ -33,8 +36,8 @@ Requirements to use the extension on your VM:
  
 ## Services available with the extension
 
-- **SQL automated backup**: This service automates the scheduling of backups for all databases for the default instance of SQL Server in the VM. To see more information about this service, see [Automated backup for SQL Server in Azure Virtual Machines](https://msdn.microsoft.com/library/azure/dn906091.aspx).
-- **SQL automated patching**: This service lets you configure a maintenance window during which updates to your VM can take place, so  you can avoid updates during peak times for your workload. To see more information about this service, see [Automated patching for SQL Server in Azure Virtual Machines](https://msdn.microsoft.com/library/azure/dn961166.aspx).
+- **SQL automated backup**: This service automates the scheduling of backups for all databases for the default instance of SQL Server in the VM. To see more information about this service, see [Automated backup for SQL Server in Azure Virtual Machines](virtual-machines-sql-server-automated-backup.md).
+- **SQL automated patching**: This service lets you configure a maintenance window during which updates to your VM can take place, so  you can avoid updates during peak times for your workload. To see more information about this service, see [Automated patching for SQL Server in Azure Virtual Machines](virtual-machines-sql-server-automated-patching.md).
 
 ## Add the extension with Powershell
 If you provision your SQL Server VM using the [Azure Preview Portal](https://portal.azure.com/), the extension will be automatically installed. For SQL Server VMs provisioned with the [Azure Management Portal](https://manage.windowsazure.com), or for VMs which you bring your own SQL license to, you can add this extension to an existing VM using the following Azure PowerShell cmdlet.

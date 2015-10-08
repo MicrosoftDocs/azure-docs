@@ -1,27 +1,29 @@
-<properties 
-	pageTitle="Create and upload an Ubuntu Linux VHD in Azure" 
-	description="Learn to create and upload an Azure virtual hard disk (VHD) that contains an Ubuntu Linux operating system." 
-	services="virtual-machines" 
-	documentationCenter="" 
-	authors="szarkos" 
-	manager="timlt" 
-	editor="tysonn"/>
+<properties
+	pageTitle="Create and upload an Ubuntu Linux VHD in Azure"
+	description="Learn to create and upload an Azure virtual hard disk (VHD) that contains an Ubuntu Linux operating system."
+	services="virtual-machines"
+	documentationCenter=""
+	authors="szarkos"
+	manager="timlt"
+	editor="tysonn"
+	tags="azure-resource-manager,azure-service-management"/>
 
-<tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="vm-linux" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/15/2015" 
+<tags
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="vm-linux"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="05/15/2015"
 	ms.author="szarkos"/>
-
 
 # Prepare an Ubuntu Virtual Machine for Azure
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
+
 ##Prerequisites##
 
-This article assumes that you have already installed an Ubuntu Linux operating system to a virtual hard disk. Multiple tools exist to create .vhd files, for example a virtualization solution such as Hyper-V. For instructions, see [Install the Hyper-V Role and Configure a Virtual Machine](http://technet.microsoft.com/library/hh846766.aspx). 
+This article assumes that you have already installed an Ubuntu Linux operating system to a virtual hard disk. Multiple tools exist to create .vhd files, for example a virtualization solution such as Hyper-V. For instructions, see [Install the Hyper-V Role and Configure a Virtual Machine](http://technet.microsoft.com/library/hh846766.aspx).
 
 **Ubuntu Installation Notes**
 
@@ -63,7 +65,7 @@ This article assumes that you have already installed an Ubuntu Linux operating s
 		# sudo sed -i "s/[a-z][a-z].archive.ubuntu.com/azure.archive.ubuntu.com/g" /etc/apt/sources.list
 		# sudo apt-get update
 
-4. Update the operating system to the latest kernel by running the following commands : 
+4. Update the operating system to the latest kernel by running the following commands :
 
 	Ubuntu 12.04:
 
@@ -80,7 +82,7 @@ This article assumes that you have already installed an Ubuntu Linux operating s
 		(recommended) sudo apt-get dist-upgrade
 
 		# sudo reboot
-	
+
 	Ubuntu 14.04+:
 
 		# sudo apt-get update
@@ -103,7 +105,7 @@ This article assumes that you have already installed an Ubuntu Linux operating s
 
 		GRUB_CMDLINE_LINUX_DEFAULT="console=tty1 console=ttyS0 earlyprintk=ttyS0 rootdelay=300"
 
-	Save and close this file, and then run '`sudo update-grub`'. This will ensure all console messages are sent to the first serial port, which can assist Azure technical support with debugging issues. 
+	Save and close this file, and then run '`sudo update-grub`'. This will ensure all console messages are sent to the first serial port, which can assist Azure technical support with debugging issues.
 
 8.	Ensure that the SSH server is installed and configured to start at boot time.  This is usually the default.
 
@@ -121,6 +123,3 @@ This article assumes that you have already installed an Ubuntu Linux operating s
 		# logout
 
 11. Click **Action -> Shut Down** in Hyper-V Manager. Your Linux VHD is now ready to be uploaded to Azure.
-
-
- 

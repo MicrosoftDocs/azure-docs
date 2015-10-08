@@ -151,7 +151,7 @@ You can do even deeper analysis if you [export the data to Microsoft Power BI](a
 
 ## Sample Dynamics CRM Solution
 
-[Here is the sample solution implemented in Dynamics CRM] (https://dynamicsandappinsights.codeplex.com/) 
+[Here is the sample solution implemented in Dynamics CRM] (https://dynamicsandappinsights.codeplex.com/).
 
 ## Learn more
 

@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Connect remotely to your StorSimple device | Microsoft Azure"
-   description="Explains how to use Windows PowerShell remoting and HTTP or HTTPS to remotely connect to your StorSimple device."
+   description="Explains how to configure your device for remote management and how to connect to Windows PowerShell for StorSimple via HTTP or HTTPS."
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/14/2015"
+   ms.date="09/15/2015"
    ms.author="alkohli" />
 
 # Connect remotely to your StorSimple device
@@ -81,7 +81,7 @@ Perform the following steps on the device serial console to enable remote manage
 
 5. Verify that the **RemoteManagementMode** field shows **HttpsAndHttpEnabled**.The following illustration shows these settings in PuTTY.
 
-     ![Serial Https and Http Enabled](./media/storsimple-remote-connect/HCS_SerialHttpsAndHttpEnabled.png)
+     ![Serial HTTPS and HTTP enabled](./media/storsimple-remote-connect/HCS_SerialHttpsAndHttpEnabled.png)
 
 ### Prepare the client for remote connection
 
@@ -116,7 +116,7 @@ Perform the following steps on the client to enable remote management.
 
      At this point, you should have an active remote Windows PowerShell session to the device.
 
-    ![PS Remoting Using HTTP](./media/storsimple-remote-connect/HCS_PSRemotingUsingHTTP.png)
+    ![PowerShell remoting using HTTP](./media/storsimple-remote-connect/HCS_PSRemotingUsingHTTP.png)
 
 ## Connect through HTTPS
 
@@ -172,7 +172,7 @@ Perform the following steps on the device serial console to enable remote manage
 
     Make sure that the **RemoteManagementMode** field shows **Https Enabled**.The following illustration shows these settings in PuTTY.
 
-     ![Serial Https Enabled](./media/storsimple-remote-connect/HCS_SerialHttpsEnabled.png)
+     ![Serial HTTPS enabled](./media/storsimple-remote-connect/HCS_SerialHttpsEnabled.png)
 
 4. From the output of `Get-HcsSystem`, copy the serial number of the device and save it for later use.
 
@@ -184,7 +184,7 @@ Perform the following steps on the device serial console to enable remote manage
 
     A certificate similar to the following will appear.
 
-    ![Get Remote ManagementCertificate](./media/storsimple-remote-connect/HCS_GetRemoteManagementCertificate.png)
+    ![Get remote management certificate](./media/storsimple-remote-connect/HCS_GetRemoteManagementCertificate.png)
 
 5. Copy the information in the certificate from **-----BEGIN CERTIFICATE-----** to **-----END CERTIFICATE-----** into a text editor such as Notepad, and save it as a .cer file. (You will copy this file to your remote host when you prepare the host.)
 
@@ -224,7 +224,7 @@ Each of these procedures is described below.
 
 3. Enter the device serial number that you saved earlier. Map this to the IP address as shown in the following image. For Controller 0 and Controller 1, append **Controller0** and **Controller1** at the end of the serial number (CN name).
 
-    ![Adding CN Name To Hosts File](./media/storsimple-remote-connect/HCS_AddingCNNameToHostsFile.png)
+    ![Adding CN Name to hosts file](./media/storsimple-remote-connect/HCS_AddingCNNameToHostsFile.png)
 
 4. Save the hosts file.
 
@@ -264,9 +264,10 @@ Perform the following procedure on the computer from which you want to make the 
 
 6. You will need to wait a few minutes, and then you will be connected to your device via HTTPS over SSL. You will see a message that indicates you are connected to your device.
 
-    ![PS Remoting using HTTPS and SSL](./media/storsimple-remote-connect/HCS_PSRemotingUsingHTTPSAndSSL.png)
+    ![PowerShell remoting using HTTPS and SSL](./media/storsimple-remote-connect/HCS_PSRemotingUsingHTTPSAndSSL.png)
 
 ## Next steps
 
-[Learn more about using Windows PowerShell to administer your StorSimple device](storsimple-windows-powershell-administration.md).
+- Learn more about [using Windows PowerShell to administer your StorSimple device](storsimple-windows-powershell-administration.md).
 
+- Learn more about [using the StorSimple Manager service to administer your StorSimple device](storsimple-manager-service-administration.md).

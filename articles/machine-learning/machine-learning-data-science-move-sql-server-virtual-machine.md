@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Move data to SQL Server on an Azure virtual machine| Azure" 
-	description="Move data from flat files or from an on-premises SQL Server to SQL Server on Azure VM" 
+	description="Move data from flat files or from an on-premises SQL Server to SQL Server on Azure VM." 
 	services="machine-learning" 
 	solutions="" 
 	documentationCenter="" 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/10/2015" 
+	ms.date="09/01/2015" 
 	ms.author="fashah;mohabib;bradsev" /> 
 
 # Move data to SQL Server on an Azure virtual machine
@@ -42,9 +42,10 @@ The following table summarizes the options for moving data to SQL Server on an A
 <tr>
   <td><b>On-Premises SQL Server</b></td>
   <td>
-    1. <a href="#export-flat-file">Export to a flat File </a><br>
-    2. <a href="#sql-migration">SQL Database Migration Wizard </a> <br>    
-    3. <a href="#sql-backup">Database backup and restore </a> <br>
+    1. <a href="#deploy-a-sql-server-database-to-a-microsoft-azure-vm-wizard">Deploy a SQL Server Database to a Microsoft Azure VM wizard</a><br>
+    2. <a href="#export-flat-file">Export to a flat File </a><br>
+    3. <a href="#sql-migration">SQL Database Migration Wizard </a> <br>    
+    4. <a href="#sql-backup">Database backup and restore </a> <br>
   </td>
 </tr>
 </table>
@@ -176,15 +177,20 @@ SSIS is available in two studio environments. For details, see [Integration Serv
 - For details on SQL Server Data Tools, see [Microsoft SQL Server Data Tools](https://msdn.microsoft.com/data/tools.aspx)  
 - For details on the Import/Export Wizard, see [SQL Server Import and Export Wizard](https://msdn.microsoft.com/library/ms141209.aspx)
 
-## <a name="sqlonprem_to_sqlonazurevm"></a>Moving Data from on-premise SQL Server to SQL Server on an Azure VM
+## <a name="sqlonprem_to_sqlonazurevm"></a>Moving Data from on-premises SQL Server to SQL Server on an Azure VM
 
-Data can be moved from an on premise SQL Server as follows:
+You can also use the following migration strategies:
 
-1. [Export to Flat File](#export-flat-file) 
-2. [SQL Database Migration Wizard](#sql-migration)
-3. [Database backup and restore](#sql-backup)
+1. [Deploy a SQL Server Database to a Microsoft Azure VM wizard](#deploy-a-sql-server-database-to-a-microsoft-azure-vm-wizard)
+2. [Export to Flat File](#export-flat-file) 
+3. [SQL Database Migration Wizard](#sql-migration)
+4. [Database backup and restore](#sql-backup)
 
 We describe each of these below:
+
+### Deploy a SQL Server Database to a Microsoft Azure VM wizard
+
+The **Deploy a SQL Server Database to a Microsoft Azure VM wizard** is a simple and recommended way to move data from an on-premises SQL Server instance to SQL Server on an Azure VM. For detailed steps as well as a discussion of other alternatives, see [Migrate a database to SQL Server on an Azure VM](../virtual-machines/virtual-machines-migrate-onpremises-database.md).
 
 ### <a name="export-flat-file"></a>Export to Flat File
 
@@ -226,8 +232,11 @@ A screenshot of the Database backup/restore options from SQL Server Management S
 
 ![SQL Server Import Tool][1]
 
+## Resources
+
+[Migrate a Database to SQL Server on an Azure VM](../virtual-machines/virtual-machines-migrate-onpremises-database.md)
+
+[SQL Server on Azure Virtual Machines overview](../virtual-machines/virtual-machines-sql-server-infrastructure-services.md)
 
 [1]: ./media/machine-learning-data-science-move-sql-server-virtual-machine/sqlserver_builtin_utilities.png
 [2]: ./media/machine-learning-data-science-move-sql-server-virtual-machine/database_migration_wizard.png
-
- 

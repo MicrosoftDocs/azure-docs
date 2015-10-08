@@ -1,7 +1,2 @@
-The server project downloaded from the portal already has data features enabled.
 
-In your ASP.NET project, you should see the following:
-
-* The `Microsoft.Azure.Mobile.Server.Tables` and `Microsoft.Azure.Mobile.Server.Entity` NuGet packages are installed.
-
-* In WebApiConfig.cs, the `UseDefaultConfiguration()` method is called on the MobileAppConfiguration object. This in turn calls the `AddTablesWithEntityFramework()` extension method provided by the above NuGet package.
+>[AZURE.TIP]The data extension packages are included in the quickstart extension package. The server project that you download from the portal already has data access using Entity Framework enabled. To learn how to install and initialize Entity Framework for data access when not using the quickstart extension, see [How to: Define a table controller](../articles/app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#how-to-define-a-table-controller).

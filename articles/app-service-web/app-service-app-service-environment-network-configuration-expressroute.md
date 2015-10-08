@@ -1,19 +1,19 @@
 <properties 
 	pageTitle="Network Configuration Details for Working with Express Route" 
 	description="Network configuration details for running App Service Environments in a Virtual Networks connected to an ExpressRoute Circuit." 
-	services="app-service\web" 
+	services="app-service" 
 	documentationCenter="" 
 	authors="stefsch" 
 	manager="nirma" 
 	editor=""/>
 
 <tags 
-	ms.service="app-service-web" 
-	ms.workload="web" 
+	ms.service="app-service" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/30/2015" 
+	ms.date="09/11/2015" 
 	ms.author="stefsch"/>	
 
 # Network Configuration Details for App Service Environments with ExpressRoute 
@@ -21,15 +21,20 @@
 ## Overview ##
 Customers can connect an [Azure ExpressRoute][ExpressRoute] circuit to their virtual network infrastructure, thus extending their on-premises network to Azure.  An App Service Environment can  be created in a subnet of this [virtual network][virtualnetwork] infrastructure.  Apps running on the App Service Environment can then establish secure connections to back-end resources accessible only over the ExpressRoute connection.  
 
+**Note:**  An App Service Environment cannot be created in a "v2" virtual network.  App Service Environments are currently only supported in classic "v1" virtual networks.
+
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)] 
+
 ## Required Network Connectivity ##
 There are network connectivity requirements for App Service Environments that may not be initially met in a virtual network connected to an ExpressRoute.
 
 App Service Environments require all of the following in order to function properly:
 
 
--  Outbound network connectivity to both Azure Storage and Sql DB resources located in the same region as the App Service Environment.  This network path cannot travel through internal corporate proxies because doing so will likely change the effective NAT address of the outbound network traffic.  Changing the NAT address of an App Service Environment's outbound network traffic directed at Azure Storage and Sql DB endpoints will cause connectivity failures.
+-  Outbound network connectivity to Azure Storage worldwide, and connectivity to Sql DB resources located in the same region as the App Service Environment.  This network path cannot travel through internal corporate proxies because doing so will likely change the effective NAT address of the outbound network traffic.  Changing the NAT address of an App Service Environment's outbound network traffic directed at Azure Storage and Sql DB endpoints will cause connectivity failures.
 -  The DNS configuration for the virtual network must be capable of resolving endpoints within the following Azure controlled domains:  **.file.core.windows.net*, **.blob.core.windows.net*, **.database.windows.net*.
 -  DNS configuration for the virtual network must remain stable whenever App Service Environments are created, as well as during re-configurations and scaling changes to App Service Environments.   
+-  If a custom DNS server exists on the other end of a VPN gateway, the DNS server must be reachable and available. 
 -  Inbound network access to required ports for App Service Environments must be allowed as described in this [article][requiredports].
 
 The DNS requirement can be met by ensuring a valid DNS configuration for the virtual network.  
@@ -79,7 +84,7 @@ You will need to add one or more routes to the route table in order to enable ou
 
 For a comprehensive and updated list of CIDR ranges in use by Azure, you can download an Xml file containing all of the ranges from the [Microsoft Download Center][DownloadCenterAddressRanges] 
 
-**Note:**  at some point an abbreviated CIDR short-hand of 0.0.0.0/0 will be available for use in the *AddressPrefix* parameter.  This short hand equates to "all Internet addresses".  For now developers will need to instead use a broad set of CIDR ranges sufficient to cover all possible Azure address ranges used in the region where the App Service Environment has been deployed.
+**Note:**  at some point an abbreviated CIDR short-hand of 0.0.0.0/0 will be available for use in the *AddressPrefix* parameter.  This short hand equates to "all Internet addresses".  For now developers will need to instead use a broad set of CIDR ranges sufficient to cover all possible Azure address ranges.
 
 **Step 3:  Associate the route table to the subnet containing the App Service Environment**
 
@@ -96,7 +101,7 @@ Once the route table is bound to the subnet, it is recommended to first test and
 - Outbound traffic to Azure endpoints is not flowing down the ExpressRoute circuit.
 - DNS lookups for Azure endpoints are resolving properly. 
 
-Once the above steps are confirmed, you can proceed with creating an App Service Environment!
+Once the above steps are confirmed, you can delete the virtual machine and then proceed with creating an App Service Environment!
 
 ## Getting started
 

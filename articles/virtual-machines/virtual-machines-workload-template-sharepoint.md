@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Deploy SharePoint farms with Azure Resource Manager templates | Microsoft Azure"
-	description="Easily deploy a three-server or nine-server SharePoint farm with Resource Manager templates and the Azure preview portal, Azure PowerShell, or the Azure CLI."
+	pageTitle="Deploy SharePoint farms with ARM templates | Microsoft Azure"
+	description="Easily deploy 3-server or 9-server SharePoint farm with Resource Manager templates and the Azure portal, Azure PowerShell, or the Azure CLI."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="davidmu1"
@@ -18,6 +18,8 @@
 	ms.author="davidmu"/>
 
 # Deploy SharePoint farms with Azure Resource Manager templates
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)] This article covers creating a resource with the Resource Manager deployment model. You can't create this resource with the classic deployment model.
 
 Use the instructions in this article to deploy a new three-server or nine-server SharePoint Server 2013 farm using Resource Manager templates.
 

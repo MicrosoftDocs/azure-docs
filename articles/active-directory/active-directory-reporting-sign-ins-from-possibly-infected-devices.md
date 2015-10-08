@@ -16,10 +16,12 @@
 	ms.date="08/17/2015"
 	ms.author="saah;kenhoff"/>
 
-# Sign ins from possibly infected devices
 
-| Description        | Report location |
-| :-------------     | :-------        |
-| <p>Use this report when you want to see sign ins from devices on which some malware (malicious software) may be running. We correlate IP addresses of sign ins against IP addresses from which an attempt was made to contact a malware server.</p><p>Recommendation: Since this report assumes an IP address was associated with the same device in both cases, we recommend that you contact the user and scan the user's device to be certain.</p><p>For more information about how to address malware infections, see the [Malware Protection Center](http://go.microsoft.com/fwlink/?linkid=335773). </p> | Directory > Reports tab |
+# Sign ins from possibly infected devices
+This report attempts to identify your users' devices that that have become infected and are now part of a botnet (also known as a zombie army). We correlate IP addresses of users' sign ins against IP addresses that we know to be in contact with botnet servers.
+
+Recommendation: This report flags IP addresses, not user devices. We recommend that you contact the user and scan all the user's devices to be certain. It is also possible that a user's personal device is infected, or that someone other than the user, who was using the same IP address as the user, has an infected device.
+
+For more information about how to address malware infections, see the [Malware Protection Center](http://go.microsoft.com/fwlink/?linkid=335773).
 
 ![Sign ins from possibly infected devices](./media/active-directory-reporting-sign-ins-from-possibly-infected-devices/signInsFromPossiblyInfectedDevices.PNG)
