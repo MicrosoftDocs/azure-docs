@@ -50,8 +50,12 @@ When the instructions direct you to enter a name for the project, enter **Contac
 
 Your API app is now ready to be deployed, and you can follow the [Deploy an API app](app-service-dotnet-deploy-api-app.md) tutorial to do that.
 
-For information about API Apps features, see [What are API apps?](app-service-api-apps-why-best-platform.md).
+For information about how to use automatically generated client code to call API apps, see [Consume an API app from a .NET client](app-service-api-dotnet-consume.md).
 
-For information about how to develop, deploy, and consume API apps, see the entries in the table of contents that appears on the left (for wide browser windows) or in a expandable section at the top (for narrow browser windows).
+For information about how to customize the automatically generated Swagger metadata for an API app, see [Customize Swashbuckle-generated API definitions](app-service-api-dotnet-swashbuckle-customize.md).
+
+For information about how to create, delete, and configure API apps in the Azure preview portal, see [Manage API apps](app-service-api-manage-in-portal.md).
 
 For information about authenticating users of API apps, see [Authentication for API apps and mobile apps in Azure App Service](../app-service/app-service-authentication-overview.md).
+
+For information about API Apps features, see [What are API apps?](app-service-api-apps-why-best-platform.md).
