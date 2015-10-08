@@ -41,9 +41,9 @@ You'll learn:
 
 ## Prerequisites
 
-To complete this tutorial, you need a Microsoft Azure account. If you don't have an account, you can [activate your MSDN subscriber benefits](../en-us/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) or [sign up for a free trial](../en-us/pricing/free-trial/?WT.mc_id=A261C142F).
+To complete this tutorial, you need a Microsoft Azure account. If you don't have an account, you can [activate your MSDN subscriber benefits](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) or [sign up for a free trial](/pricing/free-trial/?WT.mc_id=A261C142F).
 
-To set up your development environment, you must install [Visual Studio 2013 Update 4](http://go.microsoft.com/fwlink/?LinkId=390521) or higher, and the latest version of the [Azure SDK for Visual Studio 2013](http://go.microsoft.com/fwlink/?linkid=324322&clcid=0x409). This article was written for Visual Studio Update 4 and SDK 2.5.1.
+To set up your development environment, you must install [Visual Studio 2013 Update 4](http://go.microsoft.com/fwlink/?LinkId=390521) or higher, and the latest version of the [Azure SDK for .NET](http://go.microsoft.com/fwlink/?linkid=324322&clcid=0x409). This article was written for Visual Studio Update 4 and SDK 2.5.1. The same instructions work for Visual Studio 2015 with the latest [Azure SDK for .NET](http://go.microsoft.com/fwlink/?linkid=518003&clcid=0x409) installed, but some screens will look different from the illustrations.
 
 ## Create an ASP.NET MVC 5 application
 
@@ -104,7 +104,6 @@ To set up your development environment, you must install [Visual Studio 2013 Upd
 	Visual Studio creates the ContactManager web project, creates the resource group and App Service plan that you specified, and creates a web app in Azure App Service with the name you specified.
 
 ### Set the page header and footer
-
 
 1. In **Solution Explorer** open the *Layout.cshtml* file in the *Views\Shared* folder.
 
@@ -187,7 +186,13 @@ This is all you need to do for now to create the application that you'll deploy 
 
 ## Enable SSL for the Project ##
 
-1. Enable SSL. In **Solution Explorer**, click the **ContactManager** project, then click F4 to open the **Properties** window. Change **SSL Enabled** to **True**. Copy the **SSL URL**. The SSL URL will be https://localhost:44300/ unless you've previously created SSL web apps.
+1. In **Solution Explorer**, click the **ContactManager** project, then click F4 to open the **Properties** window.
+
+3. Change **SSL Enabled** to **True**. 
+
+4. Copy the **SSL URL**.
+
+	The SSL URL will be https://localhost:44300/ unless you've previously created SSL web apps.
 
 	![enable SSL][rxSSL]
  
@@ -261,9 +266,7 @@ The **Contact** class defines the data that you will store for each contact, plu
 
 ### Create web pages that enable app users to work with the contacts
 
-The ASP.NET MVC scaffolding feature can automatically generate code that performs create, read, update, and delete (CRUD) actions.
-
-## Add a Controller and a view for the data
+The ASP.NET MVC scaffolding feature can automatically generate code that performs create, read, update, and delete (CRUD) actions. 
 
 1. Build the project **(Ctrl+Shift+B)**. (You must build the project before using the scaffolding mechanism.)
  
@@ -599,7 +602,7 @@ In this section you apply the [Authorize](http://msdn.microsoft.com/library/syst
 
 1. Click the **Settings** tab on the left side of the **Publish Web** dialog box. 
 
-2. Click the **v** icon to select the **Remote connection string** for **ApplicationDbContext** and select the  **ContactManagerNN_db**.
+2. Click the **v** icon to select the **Remote connection string** for **ApplicationDbContext** and select the database that you created when you created the project.
    
 	![settings](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/rrc2.png)
 
@@ -713,11 +716,9 @@ You've created a basic ASP.NET MVC web application that authenticates users. For
 - [Create an ASP.NET MVC 5 App with Facebook and Google OAuth2](http://www.asp.net/mvc/tutorials/mvc-5/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on ) This includes instructions on how to add profile data to the user registration DB and for detailed instructions on using Facebook as an authentication provider.
 - [Getting Started with ASP.NET MVC 5](http://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started)
 
-To enable the social login buttons shown at the top of this tutorial, see [Pretty social login buttons for ASP.NET MVC 5](http://www.beabigrockstar.com/pretty-social-login-buttons-for-asp-net-mvc-5/).
-
 For a  more advanced tutorial about how to use the Entity Framework, see [Getting Started with EF and MVC](http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application).
 
-This tutorial and the sample application was written by [Rick Anderson](http://blogs.msdn.com/b/rickandy/) (Twitter [@RickAndMSFT](https://twitter.com/RickAndMSFT)) with assistance from Tom Dykstra and Barry Dorrans (Twitter [@blowdart](https://twitter.com/blowdart)). 
+This tutorial was written by [Rick Anderson](http://blogs.msdn.com/b/rickandy/) (Twitter [@RickAndMSFT](https://twitter.com/RickAndMSFT)) with assistance from Tom Dykstra and Barry Dorrans (Twitter [@blowdart](https://twitter.com/blowdart)). 
 
 ***Please leave feedback*** on what you liked or what you would like to see improved, not only about the tutorial itself but also about the products that it demonstrates. Your feedback will help us prioritize improvements. You can also request and vote on new topics at [Show Me How With Code](http://aspnet.uservoice.com/forums/228522-show-me-how-with-code).
 
