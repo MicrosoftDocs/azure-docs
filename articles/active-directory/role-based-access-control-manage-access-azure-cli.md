@@ -28,7 +28,7 @@ To list all available roles use:
 
 		azure role list
 
-The following example shows the list of all available roles.
+The following example shows the list of *all available roles*.
 
 ![](./media/role-based-access-control-manage-access-azure-cli/1-azure-role-list.png)
 
@@ -37,16 +37,13 @@ To list the actions of a role use:
 
     azure role show <role in quotes>
 
-The following example shows the actions of the *contributor* and *virtual machine contributor* roles.
+The following example shows the actions of the *Contributor* and *Virtual Machine Contributor* roles.
 
 ![](./media/role-based-access-control-manage-access-azure-cli/1-azure-role-show.png)
 
 ##	List access
-
-###	List all role assignments in the selected subscription
-
-
 ###	List role assignments effective on a resource group
+To list role assignments effective on a resource group  use:
 
     azure role assignment list --resource-group <resource group name>
 
@@ -55,11 +52,10 @@ The following example shows the role assignments effective on the *pharma-sales-
 ![](./media/role-based-access-control-manage-access-azure-cli/4-azure-role-assignment-list-1.png)
 
 ###	List role assignments to a user, including ones assigned to a user's groups
+
 The following example shows the role assignments effective on the pharma-sales-projecforcast group.
 
 ![](./media/role-based-access-control-manage-access-azure-cli/4-azure-role-assignment-list-2.png)
-
-###	List classic service administrator and co-admin role assignments
 
 ##	Grant access
 Once you have identified the role you wish to assign, to grant access use:

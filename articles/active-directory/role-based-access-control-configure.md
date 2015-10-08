@@ -74,8 +74,11 @@ Select access settings in the essentials section of the resource group blade. Th
 ## Manage access using Azure PowerShell
 Access can be managed used Azure RBAC commands in the Azure PowerShell tools.
 -	Use `Get-AzureRMRoleDefinition` to list RBAC roles available for assignment and to inspect the operations to which they grant access.
+
 -	Use `Get-AzureRMRoleAssignment` to list RBAC access assignments effective at the specified subscription or resource group or resource. Use the `ExpandPrincipalGroups` parameter to list access assignments to the specified user as well as to the groups of which the user is member. Use the `IncludeClassicAdministrators` parameter to also list classic Subscription Administrator and Co-Administrators.
+
 -	Use `New-AzureRMRoleAssignment` to grant access to users, groups and applications.
+
 -	Use `Remove-AzureRMRoleAssignment` to remove access.
 
 See [Manage access using Azure PowerShell](role-based-access-control-manage-access-powershell.md) for more detailed examples of managing access using Azure PowerShell.
