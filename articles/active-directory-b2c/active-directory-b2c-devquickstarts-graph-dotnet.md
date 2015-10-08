@@ -16,19 +16,18 @@
 	ms.date="09/22/2015"
 	ms.author="dastrock"/>
 
-
 # Azure AD B2C Preview: Using the Graph API
 
 <!-- TODO [AZURE.INCLUDE [active-directory-b2c-devquickstarts-graph-switcher](../../includes/active-directory-b2c-devquickstarts-graph-switcher.md)]-->
 
-Azure AD B2C directories tend to be very large, which means that many common tenant management tasks need to be performed programatically.  
+Azure AD B2C tenants tend to be very large, which means that many common tenant management tasks need to be performed programatically.  
 A primary example is user management - you might need to migrate an existing user store to a B2C tenant, or maybe you want to host user 
 registration on your own page, creating user accounts in Azure AD behind the scenes.  These types of tasks require the ability to create,
 read, update and delete user accounts - which you can do using the Azure AD Graph API.
 
 [AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
 	
-For B2C directories, there are primarily two modes of communicating with the Graph API.  
+For B2C tenants, there are primarily two modes of communicating with the Graph API.  
 
 - For interactive, run-once tasks, you will likely want to perform management tasks acting as an administrator account in the B2C tenant.
   This mode requires an admin to login with their credentials before performing any calls to the Graph API.
@@ -53,7 +52,7 @@ First, download & install the [Microsoft Online Services Sign-In Assistant](http
 & install the [64-bit Azure Active Directory Module for Windows Powershell](http://go.microsoft.com/fwlink/p/?linkid=236297).
 
 > [AZURE.NOTE]
-	To use the Graph API with your B2C tenant, you will need to register a dedicated application using powershell, following these instructions.  You can not re-use your already existing B2C applications that you registered in the Azure Portal.  This is a limitation of the Azure AD B2C preview that will be removed in the near future - at which point we will update this article. 
+To use the Graph API with your B2C tenant, you will need to register a dedicated application using powershell, following these instructions.  You can not re-use your already existing B2C applications that you registered in the Azure Portal.  This is a limitation of the Azure AD B2C preview that will be removed in the near future - at which point we will update this article. 
 
 Once you've installed the powershell module, open up Powershell and connect to your B2C tenant.  After running `Get-Credential`, you will be
 prompted for a username and password - enter those of your B2C tenant admin account.
@@ -109,7 +108,7 @@ parameter with the `ObjectId` from above.  To see the list of all directory role
 > Add-MsolRoleMember -RoleObjectId fe930be7-5e62-47db-91af-98c3a49a38b1 -RoleMemberObjectId <Your-ObjectId> -RoleMemberType servicePrincipal
 ```  
 
-You now have an application that has permission to create, read, update, and delete users from your B2C directory - let's write some code that uses it.
+You now have an application that has permission to create, read, update, and delete users from your B2C tenant - let's write some code that uses it.
 
 ## Download, configure, & build the sample code
 
@@ -168,7 +167,7 @@ public B2CGraphClient(string clientId, string clientSecret, string tenant)
 	this.clientSecret = clientSecret;
 	this.tenant = tenant;
 
-	// The AuthenticationContext is ADAL's primary class, in which you indicate the directory to use.
+	// The AuthenticationContext is ADAL's primary class, in which you indicate the tenant to use.
 	this.authContext = new AuthenticationContext("https://login.microsoftonline.com/" + tenant);
 
 	// The ClientCredential is where you pass in your client_id and client_secret, which are 
@@ -214,7 +213,7 @@ To see this request in action, try running:
 There are two important things to notice here:
 
 - The access token acquired via ADAL has been added to the `Authorization` header using the `Bearer` scheme.
-- For B2C directories, you must use the query parameter `api-version=beta`.
+- For B2C tenants, you must use the query parameter `api-version=beta`.
 
 
 > [AZURE.NOTE]
@@ -383,13 +382,16 @@ property, a value for the property, and run:
 ```
 
 And that's it!  With the B2CGraphClient, you now have a service application that can manage your B2C tenant users programatically.  It uses its own application identity to 
-authenticate to the Azure AD Graph API, and acquires tokens using a client_secret.  As you incorporate this functionality into your own application, remember a few key points
+authenticate to the Azure AD Graph API, and acquires tokens using a client_secret. As you incorporate this functionality into your own application, remember a few key points
 for B2C apps:
 
 - You need to grant the application the proper permissions in the tenant
 - For now, you need to use ADAL v2 to get access tokens (or you can send protocol messages directly, without a library)
 - When calling the Graph API, use [`api-version=beta`](http://blogs.msdn.com/b/aadgraphteam/archive/2015/04/10/graph-api-versioning-and-the-new-beta-version.aspx).
 - When creating & updating consumer users, there are a few required properties, described above.
+
+> [AZURE.IMPORTANT]
+You will need to account for the replication characteristics of the directory service underlying Azure AD B2C (read [this](http://blogs.technet.com/b/ad/archive/2014/09/02/azure-ad-under-the-hood-of-our-geo-redundant-highly-available-geo-distributed-cloud-directory.aspx) article to learn more) when using Azure AD Graph API in your B2C app. After a consumer signs up for your B2C app using a **Sign-up** policy, if you turn around immediately and try to read the user object using the Azure AD Graph API in your app, it may not be available. You will have to wait a few seconds for the replication process to complete. We will publish more concrete guidance on the "write-read consistency guarantee" provided by Azure AD Graph API and the directory service at general availability.
 
 If you have any questions or requests for actions you would like to perform with the Graph API on your B2C tenant, we're all ears!  Please leave a comment on the artice
 or file an issue in the code sample GitHub repo.
