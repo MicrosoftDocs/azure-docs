@@ -23,15 +23,11 @@
 - [Azure portal](vpn-gateway-site-to-site-create.md)
 - [PowerShell - Resource Manager](vpn-gateway-create-site-to-site-rm-powershell.md)
 
-This article will walk you through creating a virtual network and a site-to-site VPN connection to your on-premises network using the Azure Resource Manager deployment model. 
+This article will walk you through creating a virtual network and a site-to-site VPN connection to your on-premises network using the Azure Resource Manager deployment model. You can select the article for the deployment model and deployment tool by using the tabs above.
 
 >[AZURE.IMPORTANT] It's important to know that Azure currently works with two deployment models: Resource Manager, and classic. Before you begin your configuration, make sure that you understand the deployment models and tools. For information about the deployment models, see [Azure deployment models](../azure-classic-rm.md).
 
-You can select the article for the deployment model and deployment tool by using the tabs above. For example, if you want to create a site-to-site VPN gateway connection using the classic deployment model in the Azure portal, instead of using the Resource Manager model, click the **Azure portal** tab (above) to open [Create a site-to-site VPN connection in the Azure portal](vpn-gateway-site-to-site-create.md). 
-
-
-
-## Before beginning
+ ## Before beginning
 
 Verify that you have the following items before beginning configuration.
 
