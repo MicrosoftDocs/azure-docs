@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Use AES-128 Dynamic Encryption and Key Delivery Service"
+	pageTitle="Using AES-128 Dynamic Encryption and Key Delivery Service"
 	description="Microsoft Azure Media Services enables you to deliver your content encrypted with AES 128-bit encryption keys. Media Services also provides the Key Delivery service that delivers encryption keys to authorized users. This topic shows how to dynamically encrypt with AES-128 and use the key delivery service."
 	services="media-services"
 	documentationCenter=""
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="09/16/2015"
+	ms.date="10/07/2015"
 	ms.author="juliako"/>
 
-#Use AES-128 Dynamic Encryption and Key Delivery Service
+#Using AES-128 Dynamic Encryption and Key Delivery Service
 
 > [AZURE.SELECTOR]
 - [.NET](media-services-protect-with-aes128.md)
