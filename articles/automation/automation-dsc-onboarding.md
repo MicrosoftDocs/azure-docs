@@ -42,7 +42,6 @@ In the [Azure preview portal](http://portal.azure.com/), click **Browse** -> **V
 
 ![](./media/automation-dsc-onboarding/DSC_Onboarding_1.png)
 
- 
 
 To find the registration URL and key for the Automation account to onboard the machine to, see the [Secure registration](#Secure-registration) section below.
 
