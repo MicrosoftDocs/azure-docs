@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Using PlayReady and/or Widevine DRM dynamic common encryption"
+	pageTitle="Using PlayReady and/or Widevine dynamic common encryption"
 	description="Microsoft Azure Media Services enables you to deliver MPEG-DASH, Smooth Streaming, and Http-Live-Streaming (HLS) streams protected with Microsoft PlayReady DRM. It also enables you to delivery DASH encrypted with Widevine DRM. This topic shows how to dynamically encrypt with PlayReady and Widevine DRM."
 	services="media-services"
 	documentationCenter=""
@@ -17,7 +17,7 @@
 	ms.author="juliako"/>
 
 
-#Using PlayReady and/or Widevine DRM dynamic common encryption
+#Using PlayReady and/or Widevine dynamic common encryption
 
 > [AZURE.SELECTOR]
 - [.NET](media-services-protect-with-drm.md)
@@ -28,6 +28,8 @@ Microsoft Azure Media Services enables you to deliver MPEG-DASH, Smooth Streamin
 Media Services also provides a service for delivering Microsoft PlayReady licenses. Media Services also provides APIs that let you configure the rights and restrictions that you want for the PlayReady DRM runtime to enforce when a user is trying to play back protected content. When a user requests to watch PlayReady protected content, the client player application requests the content from Azure Media Services. Azure Media Services then redirects the client to an Azure Media Services PlayReady licensing server that authenticates and authorizes the user’s access to the content. A PlayReady license contains the decryption key that can be used by the client player to decrypt and stream the content.
 
 >[AZURE.NOTE] Currently, Media Services does not provide a Widevine license server. You can use the following AMS partners to help you deliver Widevine licenses: [Axinom](http://www.axinom.com/press/ibc-axinom-drm-6/), [EZDRM](http://ezdrm.com/), [castLabs](http://castlabs.com/company/partners/azure/).
+>
+> For more information, see: integration with [Axinom](media-services-axinom-integration.md) and [castLabs](media-services-castlabs-integration.md).
 
 Media Services supports multiple ways of authenticating users who make key requests. The content key authorization policy could have one or more authorization restrictions: open, token restriction, or IP restriction. The token restricted policy must be accompanied by a token issued by a Secure Token Service (STS). Media Services supports tokens in the [Simple Web Tokens](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_2) (SWT) format and [JSON Web Token](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_3) (JWT) format. For more information, see Configure the content key’s authorization policy.
 
@@ -37,13 +39,13 @@ This topic would be useful to developers that work on applications that deliver 
 
 >[AZURE.NOTE]To start using dynamic encryption, you must first get at least one scale unit (also known as streaming unit). For more information, see [How to Scale a Media Service](media-services-manage-origins.md#scale_streaming_endpoints).
 
-##Configuring DRM Dynamic Encryption and PlayReady License Delivery Service
+##Configuring Common Dynamic Encryption and PlayReady License Delivery Service
 
 The following are general steps that you would need to perform when protecting your assets with PlayReady, using the Media Services license delivery service, and also using dynamic encryption.
 
 1. Create an asset and upload files into the asset. 
 1. Encode the asset containing the file to the adaptive bitrate MP4 set.
-1. Create a content key and associate it with the encoded asset. In Media Services, the content key contains the asset’s encryption key. For more information.
+1. Create a content key and associate it with the encoded asset. In Media Services, the content key contains the asset’s encryption key. .
 1. Configure the content key’s authorization policy. The content key authorization policy must be configured by you and met by the client in order for the content key to be delivered to the client. 
 1. Configure the delivery policy for an asset. The delivery policy configuration includes: delivery protocol (for example, MPEG DASH, HLS, HDS, Smooth Streaming or all), the type of dynamic encryption (for example, common encryption), PlayReady license acquisition URL. 
  
@@ -128,6 +130,7 @@ You can use the [AMS Player](http://amsplayer.azurewebsites.net/azuremediaplayer
 
 1. Create a new Console project.
 1. Use NuGet to install and add Azure Media Services .NET SDK Extensions. Installing this package, also installs Media Services .NET SDK and adds all other required dependencies.
+2. Add additional references: System.Runtime.Serialization and System.Configuration.
 2. Add config file that contains the account name and key information:
 
 	
@@ -149,7 +152,7 @@ You can use the [AMS Player](http://amsplayer.azurewebsites.net/azuremediaplayer
 1. Overwrite the code in your Program.cs file with the code shown in this section.
 	
 	Make sure to update variables to point to folders where your input files are located.
-
+		
 		using System;
 		using System.Collections.Generic;
 		using System.Configuration;
@@ -158,12 +161,11 @@ You can use the [AMS Player](http://amsplayer.azurewebsites.net/azuremediaplayer
 		using System.Text;
 		using System.Threading;
 		using System.Threading.Tasks;
-		using System.Xml.Linq;
 		using Microsoft.WindowsAzure.MediaServices.Client;
 		using Microsoft.WindowsAzure.MediaServices.Client.ContentKeyAuthorization;
 		using Microsoft.WindowsAzure.MediaServices.Client.DynamicEncryption;
 		
-		namespace PlayReadyDynamicEncryptAndKeyDeliverySvc
+		namespace CommonDynamicEncryptAndKeyDeliverySvc
 		{
 		    class Program
 		    {
@@ -242,11 +244,9 @@ You can use the [AMS Player](http://amsplayer.azurewebsites.net/azuremediaplayer
 		                Console.WriteLine();
 		            }
 		
-		            // You can use the http://smf.cloudapp.net/healthmonitor player 
-		            // to test the smoothStreamURL URL.
-		            //
+
 		            string url = GetStreamingOriginLocator(encodedAsset);
-		            Console.WriteLine("Encrypted Smooth Streaming URL: {0}/manifest", url);
+		            Console.WriteLine("Encrypted MPEG-DASH URL: {0}/Manifest(format=mpd-time-csf) ", url);
 		
 		
 		            Console.ReadLine();
