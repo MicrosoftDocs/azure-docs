@@ -14,10 +14,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/8/2015"
+	ms.date="10/08/2015"
 	ms.author="davidmu"/>
 
-# Create a Windows virtual machine with Resource Manager and PowerShell
+# Create a Windows VM with Resource Manager and PowerShell
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)] This article covers creating a resource with the Resource Manager deployment model. You can also create a resource with the [classic deployment model](virtual-machines-create-windows-powershell-service-manager.md).
 
