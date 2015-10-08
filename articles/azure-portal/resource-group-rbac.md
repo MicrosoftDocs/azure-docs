@@ -106,44 +106,36 @@ To view all available roles for your subscription run the **Get-AzureRmRoleDefin
 
         PS C:\> New-AzureRmRoleAssignment -ObjectId $group.Id -Scope /subscriptions/{subscriptionId}/ -RoleDefinitionName Reader
 
-        Mail               :
-        RoleAssignmentId   : /subscriptions/####/providers/Microsoft.Authorization/roleAssignments/####
-        DisplayName        : Auditors
-        RoleDefinitionName : Reader
-        Actions            : {*/read}
-        NotActions         : {}
-        Scope              : /subscriptions/####
-        ObjectId           : ####
 
 ###Grant Contributor permission to an application for a resource group.
-1. Review the **Contributor** role definition by providing the role name when running the **Get-AzureRoleDefinition** command. Check that the allowed actions are what you intend to assign.
+1. Review the **Contributor** role definition by providing the role name when running the **Get-AzureRmRoleDefinition** command. Check that the allowed actions are what you intend to assign.
 
         PS C:\> Get-AzureRmRoleDefinition Contributor
 
-2. Get the service principal object Id by running the **Get-AzureADServicePrincipal** command and providing the name of the application in your subscription. ExampleApplication is shown below.
+2. Get the service principal object Id by running the **Get-AzureRmADServicePrincipal** command (or **Get-AzureADServicePrincipal** for versions of PowerShell prior to 1.0 Preview) and providing the name of the application in your subscription. ExampleApplication is shown below.
 
-        PS C:\> $service = Get-AzureADServicePrincipal -SearchString ExampleApplicationName
+        PS C:\> $service = Get-AzureRmADServicePrincipal -SearchString ExampleApplicationName
 
-3. Create the role assignments for the service principal by running the **New-AzureRoleAssignment** command.
+3. Create the role assignments for the service principal by running the **New-AzureRmRoleAssignment** command.
 
-        PS C:\> New-AzureRoleAssignment -ObjectId $service.Id -ResourceGroupName ExampleGroupName -RoleDefinitionName Contributor
+        PS C:\> New-AzureRmRoleAssignment -ObjectId $service.Id -ResourceGroupName ExampleGroupName -RoleDefinitionName Contributor
 
 For a more thorough explanation of setting up an Azure Active Directory application and a service principal, see [Authenticating a Service Principal with Azure Resource Manager](../resource-group-authenticate-service-principal.md).
 
 ###Grant Owner permissions to a user for a resource.
-1. Review the **Owner** role definition by providing the role name when running the **Get-AzureRoleDefinition** command. Check that the allowed actions are what you intend to assign.
+1. Review the **Owner** role definition by providing the role name when running the **Get-AzureRmRoleDefinition** command. Check that the allowed actions are what you intend to assign.
 
-        PS C:\> Get-AzureRoleDefinition Owner
+        PS C:\> Get-AzureRmRoleDefinition Owner
 
 2. Create the role assignments for the user.
 
-        PS C:\> New-AzureRoleAssignment -UserPrincipalName "someone@example.com" -ResourceGroupName {groupName} -ResourceType "Microsoft.Web/sites" -ResourceName "mysite" -RoleDefinitionName Owner
+        PS C:\> New-AzureRmRoleAssignment -UserPrincipalName "someone@example.com" -ResourceGroupName {groupName} -ResourceType "Microsoft.Web/sites" -ResourceName "mysite" -RoleDefinitionName Owner
 
 
 ###List auditing logs of resource group.
-To get the auditing log for a resource group, run the **Get-AzureResourceGroupLog** command.
+To get the auditing log for a resource group, run the **Get-AzureRmLog** command (or **Get-AzureResourceGroupLog** for versions of PowerShell prior to 1.0 Preview).
 
-      PS C:\> Get-AzureResourceGroupLog -ResourceGroup ExampleGroupName
+      PS C:\> Get-AzureRmLog -ResourceGroup ExampleGroupName
 
 ## How to use Azure CLI for Mac, Linux and Windows
 
@@ -269,8 +261,8 @@ Create the role assignment.
 
 ## Next steps
 
-- [Role-based access control in the Microsoft Azure portal](../role-based-access-control-configure.md)
-- [Create a new Azure Service Principal using the Azure classic portal](../resource-group-create-service-principal-portal.md)
-- [Authenticating a Service Principal through Azure Resource Manager](../resource-group-authenticate-service-principal.md)
+- To learn more about role-based access control, see [Role-based access control in the Microsoft Azure portal](../role-based-access-control-configure.md).
+- To learn more about working with service principals to manage access for applications in your subscription, see [Authenticating a Service Principal through Azure Resource Manager](../resource-group-authenticate-service-principal.md) and [Create a new Azure Service Principal using the Azure classic portal](../resource-group-create-service-principal-portal.md).
+- To learn more about auditing operations in your organization, see [Audit operations with Resource Manager](../resource-group-audit.md).
 
  
