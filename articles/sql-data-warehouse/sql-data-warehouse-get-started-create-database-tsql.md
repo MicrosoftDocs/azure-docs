@@ -17,6 +17,8 @@
    ms.date="10/08/2015"
    ms.author="lodipalm"/>
 
+# Create a SQL Data Warehouse database by using Transact-SQL (TSQL)
+
 > [AZURE.SELECTOR]
 - [Azure Preview Portal](sql-data-warehouse-get-started-provision.md)
 - [TSQL](sql-data-warehouse-get-started-create-database-tsql.md)
