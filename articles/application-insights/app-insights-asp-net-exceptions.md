@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/10/2015" 
+	ms.date="10/07/2015" 
 	ms.author="awills"/>
  
 # Diagnose failures and exceptions in ASP.NET apps with Application Insights  
@@ -418,11 +418,10 @@ Add the attribute to the service implementations:
 
     namespace WcfService4
     {
-        [ServiceContract]
         [AiLogException]
-        public interface IService1
-        {
-     ...
+        public class Service1 : IService1 
+        { 
+         ...
 
 [Sample](https://github.com/AppInsightsSamples/WCFUnhandledExceptions)
 
