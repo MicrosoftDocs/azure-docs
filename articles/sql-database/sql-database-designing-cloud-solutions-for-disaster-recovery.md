@@ -16,7 +16,7 @@
    ms.date="10/07/2015"
    ms.author="sashan"/>
 
-# Designing Cloud Applications for Business Continuity Using Geo-Replication
+# Designing cloud applications for business continuity using Geo-Replication
 
 There are several ways you can take advantage of geo-replication in SQL Database when designing your application for business continuity. The factors that guide your design include application deployment topology, the service level agreement you are targeting, traffic latency and costs. In this article we look at the common application patterns and discuss the benefits and trade-offs of each option.
 
