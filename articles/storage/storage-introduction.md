@@ -80,7 +80,7 @@ To learn how to create a standard storage account, see [Create, manage, or delet
 
 Azure Premium Storage currently supports Azure Virtual Machine disks only. For an in-depth overview of Azure Premium Storage, see [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](http://go.microsoft.com/fwlink/?LinkId=521898).
 
-[AZURE.INCLUDE [storage-versions-include](../../includes/storage-versions-include)]
+[AZURE.INCLUDE [storage-versions-include](../../includes/storage-versions-include.md)]
 
 ## Blob Storage
 
