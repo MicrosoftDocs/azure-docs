@@ -27,7 +27,7 @@ This article will walk you through creating a virtual network and a site-to-site
 
 >[AZURE.IMPORTANT] It's important to know that Azure currently works with two deployment models: Resource Manager, and classic. Before you begin your configuration, make sure that you understand the deployment models and tools. For information about the deployment models, see [Azure deployment models](../azure-classic-rm.md).
 
- ## Before beginning
+## Before beginning
 
 Verify that you have the following items before beginning configuration.
 
