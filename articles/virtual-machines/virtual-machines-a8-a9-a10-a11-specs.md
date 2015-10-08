@@ -28,7 +28,7 @@ This article provides background information and considerations for using the Az
 
 * **Support for Linux and Windows HPC clusters** – Deploy cluster management and job scheduling software on the A8, A9, A10, and A11 instances in Azure to create a stand-alone HPC cluster or to add capacity to an on-premises cluster. Like other Azure VM sizes, the A8, A9, A10, and A11 instances support standard or custom Windows Server and Linux operating system images or Azure Resource Manager templates in Azure VMs (IaaS), or Azure Guest OS releases in cloud services (PaaS, for Windows Server only).
 
->[AZURE.NOTE]A10 and A11 instances have the same performance optimizations and specifications as the A8 and A9 instances. However, they do not include access to the RDMA network in Azure. They are designed for HPC applications that do not require constant and low-latency communication between nodes, also known as parametric or embarrassingly parallel applications. And for running workloads other than MPI applications, the A8 and A9 instances do not access the RDMA network and are functionally equivalent to the A10 and A11 instances.
+>[AZURE.NOTE]A10 and A11 instances have the same performance optimizations and specifications as the A8 and A9 instances. However, they do not include access to the RDMA network in Azure. They are designed for HPC applications that do not require constant and low-latency communication between nodes, also known as parametric or embarrassingly parallel applications.
 
 
 ## Specs
