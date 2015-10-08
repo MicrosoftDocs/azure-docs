@@ -78,7 +78,7 @@ Now that we have an application, let's try running it.
 
 	![Diagnostic events viewer detail][6]
 
-	The local cluster is made up of five nodes, mimicking a cluster of five distinct machines. Let's simulate the loss of one of those machines and exercise the Visual Studio debugger at the same time.
+	The local cluster is made up of five nodes hosted on a single machine, mimicking a five-node cluster where nodes are on distinct machines. Let's take down one of the nodes on the local cluster to simulate the loss of a machine and exercise the Visual Studio debugger at the same time.
 
     >[AZURE.NOTE] The application diagnostic events emitted by the project template use the included `ServiceEventSource` class. For more information, see [How to monitor and diagnose services locally](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally)
 
@@ -86,7 +86,7 @@ Now that we have an application, let's try running it.
 
 	![Breakpoint in stateful service RunAsync method][7]
 
-5. Right-click the Local CLuster Manager system tray app and choose Manage Local Cluster to launch Service Fabric Explorer.
+5. Right-click the Local Cluster Manager system tray app and choose Manage Local Cluster to launch Service Fabric Explorer.
 
   ![Launch Service Fabric Explorer from the Local Cluster Manager][systray-launch-sfx]
 
@@ -94,13 +94,16 @@ Now that we have an application, let's try running it.
 
 6. In the left pane, expand **OneBox/Local cluster > Node View** and find the node where your code is running.
 
-7. Right-click the node and choose **Activate/Deactivate > Deactivate (remove data)** and confirm the action. This simulates a machine going down unexpectedly.
+7. Right-click the node and choose **Start/Stop > Stop** and confirm the action. This simulates a machine going down unexpectedly.
 
-	![Deactivate a node in Service Fabric Explorer][8]
+	![Stop a node in Service Fabric Explorer][sfx-stop-node]
 
 	Momentarily, you should see your breakpoint hit in Visual Studio as the computation you were doing on one node seamlessly fails over to another.
 
 8. Return to the Diagnostic Events Viewer and observe the messages. Note that the counter has continued incrementing even though the events are actually coming from a different node.
+
+  ![Diagnostic events viewer after failover][diagnostic-events-viewer-detail-post-failover]
+
 
 ## Next Steps
 
@@ -118,5 +121,6 @@ Now that we have an application, let's try running it.
 [5]: ./media/service-fabric-create-your-first-application-in-visual-studio/diagnostic-events-viewer.png
 [6]: ./media/service-fabric-create-your-first-application-in-visual-studio/diagnostic-events-viewer-detail.png
 [7]: ./media/service-fabric-create-your-first-application-in-visual-studio/runasync-breakpoint.png
-[8]: ./media/service-fabric-create-your-first-application-in-visual-studio/sfe-deactivate-node.png
+[sfx-stop-node]: ./media/service-fabric-create-your-first-application-in-visual-studio/sfe-deactivate-node.png
 [systray-launch-sfx]: ./media/service-fabric-create-your-first-application-in-visual-studio/launch-sfx.png
+[diagnostic-events-viewer-detail-post-failover]: ./media/service-fabric-create-your-first-application-in-visual-studio/diagnostic-events-viewer-detail-post-failover.png
