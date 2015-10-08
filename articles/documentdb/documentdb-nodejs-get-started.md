@@ -268,7 +268,7 @@ Next, add the function for creating these documents containing the JSON data sav
 
 You now have functions for creating a database, collection, and document in DocumentDB!
 
-![Diagram illustrating the hierarchical relationship between the account, the database, the collection, and the documents](./media/documentdb-nodejs-get-started/account-database.png)
+![Diagram illustrating the hierarchical relationship between the account, the database, the collection, and the documents](./media/documentdb-get-started/account-database.png)
 
 ##<a id="Query"></a>Step 7: Query DocumentDB resources
 
@@ -294,7 +294,7 @@ DocumentDB supports rich [queries](documentdb-sql-query.md) against JSON documen
 
 The following diagram illustrates how the DocumentDB SQL query syntax is called against the collection you created.
 
-![Diagram illustrating the scope and meaning of the query](./media/documentdb-nodejs-get-started/collection-documents.png)
+![Diagram illustrating the scope and meaning of the query](./media/documentdb-get-started/collection-documents.png)
 
 The [FROM](documentdb-sql-query.md/#from-clause) keyword is optional in the query because DocumentDB queries are already scoped to a single collection. Therefore, "FROM Families f" can be swapped with "FROM root r", or any other variable name you choose. DocumentDB will infer that Families, root, or the variable name you chose, reference the current collection by default.
 
@@ -430,4 +430,4 @@ Install the **documentdb** module via npm with the following command: **npm inst
 [documentdb-create-account]: documentdb-create-account.md
 [documentdb-manage]: documentdb-manage.md
 
-[keys]: media/documentdb-nodejs-get-started/keys.png
+[keys]: media/documentdb-get-started/keys.png
