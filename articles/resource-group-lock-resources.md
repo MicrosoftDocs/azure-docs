@@ -103,9 +103,9 @@ You can lock deployed resources with Azure PowerShell by using the **New-AzureRm
 
     PS C:\> New-AzureRmResourceLock -LockLevel CanNotDelete -LockName LockSite -ResourceName examplesite -ResourceType Microsoft.Web/sites
 
-PowerShell provides other commands for working locks, such as **Set-AzureRmResourceLock** to update a lock and **Remove-AzureRmResourceLock** to delete a lock.
+Azure PowerShell provides other commands for working locks, such as **Set-AzureRmResourceLock** to update a lock and **Remove-AzureRmResourceLock** to delete a lock.
 
-If you are using a version of PowerShell earlier than 1.0 Preview, the command is **New-AzureResourceLock**.
+If you are using a version of Azure PowerShell earlier than 1.0 Preview, the command is **New-AzureResourceLock**.
 
 ## Next steps
 
