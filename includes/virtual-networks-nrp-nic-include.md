@@ -7,7 +7,7 @@ A network interface card (NIC) resource provides network connectivity to an exis
 |**virtualMachine**|VM the NIC is associated with.|/subscriptions/{guid}/../Microsoft.Compute/virtualMachines/vm1|
 |**macAddress**|MAC address for the NIC|any value between 4 and 30|
 |**networkSecurityGroup**|NSG associated to the NIC|/subscriptions/{guid}/../Microsoft.Network/networkSecurityGroups/myNSG1|
-|**dnsSettings**|DNS settings for the NIC.|see [PIP](#Public-IP-address).|
+|**dnsSettings**|DNS settings for the NIC|see [PIP](#Public-IP-address)|
 
 A Network Interface Card, or NIC, represents a network interface that can be associated to a virtual machine (VM). A VM can have one or more NICs.
 
@@ -26,7 +26,6 @@ NICs have a child object named **ipConfigurations** containing the following pro
 |**publicIPAddress**|PIP associated with the NIC|see [DNS Settings](#DNS-settings)|
 |**loadBalancerBackendAddressPools**|Back end address pools the NIC is associated with||
 |**loadBalancerInboundNatRules**|Inbound load balancer NAT rules the NIC is associated with||
-<<<<<<< HEAD
 
 Sample public IP address in JSON format:
 
