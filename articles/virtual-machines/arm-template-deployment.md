@@ -42,21 +42,17 @@ To use Azure AD to authenticate requests to Azure Resource Manager, an applicati
 
 	    Login-AzureRmAccount
 
-3. Replace {password} in the following command with the one that you want to use and then run it to create the application:
+2. Replace {password} in the following command with the one that you want to use and then run it to create the application:
 
 	    New-AzureRmADApplication -DisplayName "My AD Application 1" -HomePage "https://myapp1.com" -IdentifierUris "https://myapp1.com"  -Password "{password}"
 
-4. Record the ApplicationId value in the response from the previous step. You will need it later in this tutorial:
+	>[AZURE.NOTE] The application identifer is returned after the application is created or you can find the application identifier in the client id field of the application in the Active Directory section of the portal.
 
-	![Create an AD application](./media/arm-template-deployment/azureapplicationid.png)
-
-	>[AZURE.NOTE] You can also find the application identifier in the client id field of the application in the Management Portal.
-
-5. Replace {application-id} with the identifier that you just recorded and then create the service principal for the application:
+3. Replace {application-id} with the identifier that you just recorded and then create the service principal for the application:
 
         New-AzureRmADServicePrincipal -ApplicationId {application-id}
 
-6. Set the permission to use the application:
+4. Set the permission to use the application:
 
 	    New-AzureRmRoleAssignment -RoleDefinitionName Owner -ServicePrincipalName "https://myapp1.com"
 
