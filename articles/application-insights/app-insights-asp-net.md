@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/23/2015" 
+	ms.date="10/05/2015" 
 	ms.author="awills"/>
 
 
@@ -64,7 +64,7 @@ If this app is part of a bigger application, you might want to use **Configure s
 
 ####<a name="land"></a> What did 'Add Application Insights' do?
 
-The command did these steps (which you could instead do manually if you prefer):
+The command did these steps (which you could instead [do manually](app-insights-start-monitoring-app-health-usage.md) if you prefer):
 
 * Creates an Application Insights resource in [the Azure portal][portal]. This is where you'll see your data. It retrieves the *instrumentation key,* which identifies the resource.
 * Adds the Application Insights Web SDK NuGet package to your project. To see it in Visual Studio, right-click your project and choose Manage NuGet Packages.
@@ -99,8 +99,9 @@ When you run in debug mode, telemetry is expedited through the pipeline, so that
 
 #### No data?
 
-* Open the [Search][diagnostic] tile, to see individual events.
+* Make sure you're looking at the right thing. Sign in at the [Azure portal](https://portal.azure.com), click "Browse >", "Application Insights", and then select your app.
 * Use the application, opening different pages so that it generates some telemetry.
+* Open the [Search][diagnostic] blade, to see individual events. Sometimes events take a little while longer to come through the metrics pipeline.
 * Wait a few seconds and click Refresh.
 * See [Troubleshooting][qna].
 
@@ -111,15 +112,13 @@ Please see [this Troubleshooting item](app-insights-troubleshoot-faq.md#NuGetBui
 
 ## Add browser monitoring
 
-Browser or client-side monitoring gives you data on users, sessions, page views, and any exceptions or crashes that occur in the browser. 
+Browser monitoring gives you data on users, sessions, page views, and any exceptions or crashes that occur in the browser. 
 
 ![Choose New, Developer Services, Application Insights.](./media/app-insights-asp-net/16-page-views.png)   
 
 You'll also be able to write your own code to track how your users work with your app, right down to the detailed level of clicks and keystrokes.
 
-#### If your clients are web browsers
-
-If your app displays web pages, add a JavaScript snippet to every page. Get the code from your Application Insights resource:
+Add a JavaScript snippet to every page. Get the code from your Application Insights resource:
 
 ![In your web app, open Quick Start and click 'Get code to monitor my web pages'](./media/app-insights-asp-net/02-monitor-web-page.png)
 
@@ -127,11 +126,6 @@ Notice that the code contains the instrumentation key that identifies your appli
 
 [Learn more about web page tracking.](app-insights-web-track-usage.md)
 
-#### If your clients are device apps
-
-If your application is serving clients such as phones or other devices, add the [appropriate SDK](app-insights-platforms.md) to your device app.
-
-If you configure the client SDK with the same instrumentation key as the server SDK, the two streams will be integrated so that you can see them together.
 
 ## Usage tracking
 
@@ -196,7 +190,7 @@ In the control panel of your Azure Web App, add the Application Insights extensi
 
 ![In your web app, Settings, Extensions, Add, Application Insights](./media/app-insights-asp-net/05-extend.png)
 
-(The extension only assists an app that has been built with the SDK. Unlike Status Monitor, it can't instrument an existing app.)
+(You can also add the extension to an app that's already live, even if you didn't install the SDK in it.)
 
 #### To monitor Azure cloud services roles
 

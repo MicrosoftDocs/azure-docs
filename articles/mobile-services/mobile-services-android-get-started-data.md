@@ -13,12 +13,10 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="09/23/2015"
+	ms.date="10/05/2015"
 	ms.author="ricksal"/>
 
 # Add Mobile Services to an existing Android app (JavaScript backend)
-
-[AZURE.INCLUDE [mobile-services-selector-get-started-data](../../includes/mobile-services-selector-get-started-data.md)]
 
 ## Summary
 

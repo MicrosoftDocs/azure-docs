@@ -104,23 +104,23 @@ You have now created a new Windows Universal App project into which we will inte
 
 In order to start sending data and ensuring that the users are active, you must send at least one screen (Activity) to the Mobile Engagement backend.
 
-1. 	In the **MainPage.xaml.cs**, add the `using` statement:
+1. 	In the **MainPage.xaml.cs**, add the following `using` statement:
 
-		using Microsoft.Azure.Engagement;
+		using Microsoft.Azure.Engagement.Overlay;
 
-2. Replace the base class of **MainPage** from **Page** to **EngagementPage**:
+2. Replace the base class of **MainPage** from **Page** to **EngagementPageOverlay**:
 
-		class MainPage : EngagementPage
+		class MainPage : EngagementPageOverlay
 
 3. In the `MainPage.xaml` file:
 
 	a. Add to your namespaces declarations:
 
-		xmlns:engagement="using:Microsoft.Azure.Engagement"
+		xmlns:engagement="using:Microsoft.Azure.Engagement.Overlay"
 
-	b. Replace the **Page** in the XML tag name with **engagement:EngagementPage**
+	b. Replace the **Page** in the XML tag name with **engagement:EngagementPageOverlay**
 	
-> [AZURE.IMPORTANT] If your page overrides the `OnNavigatedTo` method, be sure to call `base.OnNavigatedTo(e)`. Otherwise,  the activity will not be reported (the `EngagementPage` calls `StartActivity` inside its `OnNavigatedTo` method). This is especially important in a Windows Phone project where the default template has an `OnNavigatedTo` method. 
+> [AZURE.IMPORTANT] If your page overrides the `OnNavigatedTo` method, make sure to call `base.OnNavigatedTo(e)`. Otherwise,  the activity will not be reported (the `EngagementPage` calls `StartActivity` inside its `OnNavigatedTo` method). This is especially important in a Windows Phone project where the default template has an `OnNavigatedTo` method. 
 
 ##<a id="monitor"></a>Connect app with real-time monitoring
 
@@ -173,8 +173,10 @@ You're all set for sending a toast. Now we will verify that you have correctly c
 
 [AZURE.INCLUDE [Create Windows Push campaign](../../includes/mobile-engagement-windows-push-campaign.md)]
 
-You should now see a toast notification from your campaign on your device - the app should be closed to see this toast notification. If the app was running, ensure that you have it closed for a couple of minutes before activating the campaign to be able to receive toast notification. 
-If you want to integrate in-app notification so that the notification shows up in the app when it is opened, see [Windows Universal Apps - Overlay integration].
+If the app was running then you will see an in-app notification otherwise you will see a toast notification if the app was closed. 
+If you are seeing an in-app notification but not a toast notification and you are running the app in debug mode in Visual Studio then you should try **Lifecycle events -> Suspend** in the toolbar to ensure that the app is actually suspended. If you just clicked the Home button while debugging the application in Visual Studio then it doesn't always get suspended and while you will see the notification as in-app, it wouldn't show up as toast notification.  
+
+![][8]
 
 <!-- URLs. -->
 [Mobile Engagement Windows Universal SDK documentation]: ../mobile-engagement-windows-store-integrate-engagement/
@@ -189,5 +191,5 @@ If you want to integrate in-app notification so that the notification shows up i
 [5]: ./media/mobile-engagement-windows-store-dotnet-get-started/manifest-toast.png
 [6]: ./media/mobile-engagement-windows-store-dotnet-get-started/enter-credentials.png
 [7]: ./media/mobile-engagement-windows-store-dotnet-get-started/associate-app-store.png
-
+[8]: ./media/mobile-engagement-windows-store-dotnet-get-started/vs-suspend.png
 
