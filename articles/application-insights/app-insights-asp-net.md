@@ -12,21 +12,31 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/05/2015" 
+	ms.date="10/08/2015" 
 	ms.author="awills"/>
 
 
-# Application Insights for ASP.NET
+# Set up Application Insights
 
 *Application Insights is in preview.*
 
+
+[Visual Studio Application Insights](http://azure.microsoft.com/services/application-insights) monitors your live application to help you [detect and diagnose performance issues and exceptions][detect], and [discover how your app is used][knowUsers]. 
+
 [AZURE.INCLUDE [app-insights-selector-get-started](../../includes/app-insights-selector-get-started.md)]
 
+Get started either by [adding the SDK to your app](#ide), or by [monitoring an already-live app](app-insights-asp-net-dependencies.md).
 
-[Visual Studio Application Insights](http://azure.microsoft.com/services/application-insights) monitors your live application to help you [detect and diagnose performance issues and exceptions][detect], and [discover how your app is used][knowUsers]. It can be used with a wide variety of application types. It works for apps that are hosted on your own on-premises IIS servers or on Azure VMs, as well as Azure web apps. ([Device apps and Java servers are also covered][start].)
+
+<a name="selector1"></a>
+
+[AZURE.INCLUDE [app-insights-selector-get-started-dotnet](../../includes/app-insights-selector-get-started-dotnet.md)]
+
+Add the SDK to your app in Visual Studio, and you'll get charts of server requests, response times, and failures.
 
 ![Example performance monitoring charts](./media/app-insights-asp-net/10-perf.png)
 
+You'll also be able to use the API to monitor usage in detail.
 
 #### Before you start
 
