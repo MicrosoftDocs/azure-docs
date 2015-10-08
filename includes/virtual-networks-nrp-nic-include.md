@@ -26,6 +26,7 @@ NICs have a child object named **ipConfigurations** containing the following pro
 |**publicIPAddress**|PIP associated with the NIC|see [DNS Settings](#DNS-settings)|
 |**loadBalancerBackendAddressPools**|Back end address pools the NIC is associated with||
 |**loadBalancerInboundNatRules**|Inbound load balancer NAT rules the NIC is associated with||
+<<<<<<< HEAD
 
 Sample public IP address in JSON format:
 

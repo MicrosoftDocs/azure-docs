@@ -58,6 +58,8 @@ If you do not already have an Azure account, you can sign up for a free trial at
 
 First, if needed, use the instructions in [How to install and configure Azure PowerShell](../install-configure-powershell.md) to install Azure PowerShell on your local computer. Open an Azure PowerShell prompt.
 
+> [AZURE.NOTE] This article contains commands for versions of Azure PowerShell up to *but not including* versions 1.0.0 and later. You can check your version of Azure PowerShell with the **Get-Module azure | format-table version** command. The Azure PowerShell command blocks in this article are in the process of being tested and updated to support the new cmdlets in Azure PowerShell versions 1.0.0 and later. Thank you for your patience.
+
 Next, select the correct Azure subscription with these commands. Replace everything within the quotes, including the < and > characters, with the correct name.
 
 	$subscr="<Subscription name>"
