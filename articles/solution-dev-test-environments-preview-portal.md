@@ -178,7 +178,7 @@ All Azure resources must be created within an [Azure Resource Group](azure-porta
 
   **Method 2:** PowerShell
 
-  Ensure that you have PowerShell installed on a Windows computer and connected to your subscription as detailed in the [How to install and configure Azure PowerShell](powershell-install-configure.md) article. From a PowerShell command prompt, type the command below to create the resource group for the Development environment. If you are using PowerShell 1.0 Preview, the command is **New-AzureRmResourceGroup** as shown below. If you are using a version of PowerShell prior to 1.0 Preview, the command is **New-AzureResourceGroup**.
+  Ensure that you have PowerShell installed on a Windows computer and connected to your subscription as detailed in the [How to install and configure Azure PowerShell](powershell-install-configure.md) article. From a PowerShell command prompt, type the command below to create the resource group for the Development environment. If you are using Azure PowerShell 1.0 Preview, the command is **New-AzureRmResourceGroup** as shown below. If you are using a version of Azure PowerShell prior to 1.0 Preview, the command is **New-AzureResourceGroup**.
 
 	New-AzureRmResourceGroup -Name TestApp1-Development -Location "Central US"
 
@@ -256,7 +256,7 @@ All Azure resources must be created within an [Azure Resource Group](azure-porta
   
   **Method 2:** PowerShell
 
-  From a PowerShell command prompt, type the command below to deploy resources to the resource group you created for the Development environment, replacing [path] with the path to the files you saved in previous steps. If you are using PowerShell 1.0 Preview, the command is **New-AzureRmResourceGroupDeployment** as shown below. If you are using a version of PowerShell prior to 1.0 Preview, the command is **New-AzureResourceGroupDeployment**.
+  From a PowerShell command prompt, type the command below to deploy resources to the resource group you created for the Development environment, replacing [path] with the path to the files you saved in previous steps. If you are using Azure PowerShell 1.0 Preview, the command is **New-AzureRmResourceGroupDeployment** as shown below. If you are using a version of Azure PowerShell prior to 1.0 Preview, the command is **New-AzureResourceGroupDeployment**.
 
 	New-AzureRmResourceGroupDeployment -ResourceGroupName TestApp1-Development -TemplateFile [path]TestApp1-Template.json -TemplateParameterFile [path]TestApp1-Parameters-Development.json -Name Deployment1 
 
@@ -346,7 +346,7 @@ Once you're finished with an environment, you'll want to delete it so you don't 
   
   **Method 2:** PowerShell
 
-  If you are using PowerShell 1.0 Preview, the command to delete the resource group is **Remove-AzureRmResourceGroup** as shown below. If you are using a version of PowerShell prior to 1.0 Preview, the command is **Remove-AzureResourceGroup**. From a PowerShell prompt, type the following:    
+  If you are using Azure PowerShell 1.0 Preview, the command to delete the resource group is **Remove-AzureRmResourceGroup** as shown below. If you are using a version of Azure PowerShell prior to 1.0 Preview, the command is **Remove-AzureResourceGroup**. From a PowerShell prompt, type the following:    
 
 	Remove-AzureRmResourceGroup -Name TestApp1-Development
 
