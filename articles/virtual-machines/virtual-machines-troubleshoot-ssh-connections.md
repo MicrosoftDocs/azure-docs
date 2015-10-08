@@ -37,7 +37,7 @@ Alternatively, you can file an Azure support incident. Go to the [Azure Support 
 
 To resolve the more common SSH connection failures in virtual machines created using the classic deployment model, try these steps:
 
-1. **Reset Remote Access** from the [Azure portal](https://portal.azure.com). Click **Browse all** > **Virtual machines (classic)** > your Windows virtual machine > **Reset Remote Access**.
+1. **Reset Remote Access** from the [Azure preview portal](https://portal.azure.com). Click **Browse all** > **Virtual machines (classic)** > your Windows virtual machine > **Reset Remote Access**.
 
 	![Reset Remote Access](./media/virtual-machines-troubleshoot-ssh-connections/Portal-SSH-Reset-Windows.png)  
 
