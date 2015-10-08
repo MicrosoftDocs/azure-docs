@@ -418,10 +418,11 @@ Add the attribute to the service implementations:
 
     namespace WcfService4
     {
+        [ServiceContract]
         [AiLogException]
-        public class Service1 : IService1 
-        { 
-         ...
+        public interface IService1
+        {
+     ...
 
 [Sample](https://github.com/AppInsightsSamples/WCFUnhandledExceptions)
 
