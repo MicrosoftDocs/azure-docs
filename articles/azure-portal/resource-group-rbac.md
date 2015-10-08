@@ -66,7 +66,7 @@ To view all available roles for your subscription run the **Get-AzureRmRoleDefin
     PS C:\> Get-AzureRmRoleDefinition
     
     Name             : API Management Service Contributor
-    Id               : /subscriptions/{guid}/providers/Microsoft.Authorization/roleDefinitions/312a565d-c81f-4fd8-895a-4e21e4     8d571c
+    Id               : /subscriptions/{subscription-id}/providers/Microsoft.Authorization/roleDefinitions/{guid}
     IsCustom         : False
     Description      : Lets you manage API Management services, but not access to them.
     Actions          : {Microsoft.ApiManagement/Services/*, Microsoft.Authorization/*/read,
@@ -76,7 +76,7 @@ To view all available roles for your subscription run the **Get-AzureRmRoleDefin
     AssignableScopes : {/}
 
     Name             : Application Insights Component Contributor
-    Id               : /subscriptions/{guid}/providers/Microsoft.Authorization/roleDefinitions/ae349356-3a1b-4a5e-921d-050484c6347e
+    Id               : /subscriptions/{subscription-id}/providers/Microsoft.Authorization/roleDefinitions/{guid}
     IsCustom         : False
     Description      : Lets you manage Application Insights components, but not access to them.
     Actions          : {Microsoft.Insights/components/*, Microsoft.Insights/webtests/*, Microsoft.Authorization/*/read,
@@ -91,7 +91,7 @@ To view all available roles for your subscription run the **Get-AzureRmRoleDefin
         PS C:\> Get-AzureRmRoleDefinition Reader
    
         Name             : Reader
-        Id               : /subscriptions/{guid}/providers/Microsoft.Authorization/roleDefinitions/acdd72a7-3385-48ef-bd42-f606fba81ae7
+        Id               : /subscriptions/{subscription-id}/providers/Microsoft.Authorization/roleDefinitions/{guid}
         IsCustom         : False
         Description      : Lets you view everything, but not make any changes.
         Actions          : {*/read}
