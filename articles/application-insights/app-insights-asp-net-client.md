@@ -163,12 +163,7 @@ Want to find out what your users do with your app? By inserting calls in your cl
 * [Learn about the custom events and metrics API][api].
 * [API reference](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md)
 
-## Server telemetry
 
-If you haven't done this yet, you can get insights from your server and display the data along with your client-side data, enabling you to assess performance at the server and diagnose any issues.
-
-* [Add Application Insights to an ASP.NET app][greenbrown]
-* [Add Application Insights to a Java web app][java]
 
 
 ## <a name="video"></a> Video: Tracking Usage

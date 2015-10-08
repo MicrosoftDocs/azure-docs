@@ -160,7 +160,6 @@ For example, if you build your code with an assembly that you didn't write yours
 
 ```C#
 
-            var success = false;
             var startTime = DateTime.UtcNow;
             var timer = System.Diagnostics.Stopwatch.StartNew();
             try
