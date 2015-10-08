@@ -167,7 +167,7 @@ The **MatchAll** filter is the default filter that is used if no filter is speci
 
 You can also set up filters that enable you to specify which messages sent to a topic should appear within a specific topic subscription.
 
-The most flexible type of filter supported by subscriptions is the [SqlFilter] class, which implements a subset of SQL92. SQL filters operate on the properties of the messages that are published to the topic. For more information about the expressions that can be used with a SQL filter, see the [SqlFilter.SqlExpression][] syntax.
+The most flexible type of filter supported by subscriptions is the [SqlFilter][] class, which implements a subset of SQL92. SQL filters operate on the properties of the messages that are published to the topic. For more information about the expressions that can be used with a SQL filter, see the [SqlFilter.SqlExpression][] syntax.
 
 The following example creates a subscription named **HighMessages** with a [SqlFilter] object that only selects messages that have a custom **MessageNumber** property greater than 3.
 
