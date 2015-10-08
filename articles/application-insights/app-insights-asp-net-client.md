@@ -34,7 +34,7 @@ Get started either by [adding the SDK to your app](app-insights-asp-net.md), or 
 
 Find out about the performance and usage of your web pages. Add Visual Studio Application Insights to your pages, and you'll find out how many users you have, how often they come back, and which pages they use most. You'll also get reports of load times and any exceptions. Add a few [custom events and metrics][track], and you can analyze in detail the most popular features, the most common mistakes, and tune your page to success with your users.
 
-![Choose New, Developer Services, Application Insights.](./media/app-insights-client/16-page-views.png)
+![Choose New, Developer Services, Application Insights.](./media/app-insights-asp-net-client/16-page-views.png)
 
 If you already set up server telemetry for your [ASP.NET](app-insights-asp-net.md) or [Java](app-insights-java-get-started.md) web app, you'll get the picture from both client and server angles. The two streams will be integrated in the Application Insights portal.
 
@@ -44,14 +44,14 @@ Skip this step if you already set up monitoring for the server side of your app.
 
 Otherwise, sign into the [Azure portal](http://portal.azure.com) and create a new Application Insights resource:
 
-![Choose New, Developer Services, Application Insights.](./media/app-insights-client/01-create.png)
+![Choose New, Developer Services, Application Insights.](./media/app-insights-asp-net-client/01-create.png)
 
 
 ## Add the SDK script to your app or web pages
 
 In Quick Start, get the script for web pages:
 
-![On your app overview blade, choose Quick Start, Get code to monitor my web pages. Copy the script.](./media/app-insights-client/02-monitor-web-page.png)
+![On your app overview blade, choose Quick Start, Get code to monitor my web pages. Copy the script.](./media/app-insights-asp-net-client/02-monitor-web-page.png)
 
 Insert the script just before the &lt;/head&gt; tag of every page you want to track. If your website has a master page, you can put the script there. For example:
 
@@ -74,18 +74,18 @@ If you want to check the telemetry that a web app is sending to Application Insi
 In the application overview blade, there's a chart near the top that shows average time to load pages into the browser:
 
 
-![](./media/app-insights-client/05-browser-page-load.png)
+![](./media/app-insights-asp-net-client/05-browser-page-load.png)
 
 
 *No data yet? Click **Refresh** at the top of the page. Still nothing? See [Troubleshooting][qna].*
 
 Click that chart, and you get a more detailed version:
 
-![](./media/app-insights-client/07-client-perf.png)
+![](./media/app-insights-asp-net-client/07-client-perf.png)
 
 This is a stacked chart which breaks the total page load time into the [standard timings defined by W3C](http://www.w3.org/TR/navigation-timing/#processing-model).
 
-![](./media/app-insights-client/08-client-split.png)
+![](./media/app-insights-asp-net-client/08-client-split.png)
 
 Note that the *network connect* time is usually lower than you might expect, because it's an average over all requests from the browser to the server. Many individual requests have a connect time of 0 because there is already an active connection to the server.
 
@@ -95,17 +95,17 @@ Note that the *network connect* time is usually lower than you might expect, bec
 Further down in the details blade, there's a grid segmented by page URL:
 
 
-![](./media/app-insights-client/09-page-perf.png)
+![](./media/app-insights-asp-net-client/09-page-perf.png)
 
 If you'd like to see the performance of the pages over time, double-click the grid and change its chart type:
 
-![](./media/app-insights-client/10-page-perf-area.png)
+![](./media/app-insights-asp-net-client/10-page-perf-area.png)
 
 ## Client usage overview
 
 Back on the overview blade, click **Usage**:
 
-![](./media/app-insights-client/14-usage.png)
+![](./media/app-insights-asp-net-client/14-usage.png)
 
 * **Users:** The count of distinct users over the time range of the chart. (Cookies are used to identify returning users.)
 * **Sessions:** A session is counted when a user has not made any requests for 30 minutes.
@@ -116,12 +116,12 @@ Back on the overview blade, click **Usage**:
 
 Click any of the charts to see more detail. Notice that you can change the time range of the charts.
 
-![](./media/app-insights-client/appinsights-49usage.png)
+![](./media/app-insights-asp-net-client/appinsights-49usage.png)
 
 
 Click a chart to see other metrics that you can display, or add a new chart and select the metrics it displays.
 
-![](./media/app-insights-client/appinsights-63usermetrics.png)
+![](./media/app-insights-asp-net-client/appinsights-63usermetrics.png)
 
 > [AZURE.NOTE] Metrics can only be displayed in some combinations. When you select a metric, the incompatible ones are disabled.
 
@@ -144,7 +144,7 @@ Usually page view telemetry is analyzed by Application Insights and you see only
 
 In the Diagnostic Search blade, set Filters to Page View.
 
-![](./media/app-insights-client/12-search-pages.png)
+![](./media/app-insights-asp-net-client/12-search-pages.png)
 
 Select any event to see more detail. In the details page, click "..." to see even more detail.
 
@@ -187,7 +187,7 @@ If you haven't done this yet, you can get insights from your server and display 
 [apikey]: app-insights-api-custom-events-metrics.md#ikey
 [availability]: app-insights-monitor-web-app-availability.md
 [azure]: ../insights-perf-analytics.md
-[client]: app-insights-client.md
+[client]: app-insights-asp-net-client.md
 [detect]: app-insights-detect-triage-diagnose.md
 [diagnostic]: app-insights-diagnostic-search.md
 [knowUsers]: app-insights-overview-usage.md
