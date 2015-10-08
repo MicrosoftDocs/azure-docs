@@ -18,7 +18,7 @@
 
 #Develop Apache Storm topologies using Python on HDInsight
 
-Apache Storm supports multiple languages, even allowing you to combine components from several languages in one topology. In this document, you will learn how to use Python components in your Storm topologies on HDInsight.
+Apache Storm supports multiple languages, even allowing you to combine components from several languages in one topology. In this document, you will learn how to use Python components in your Java and Clojure-based Storm topologies on HDInsight.
 
 ##Prerequisites
 
