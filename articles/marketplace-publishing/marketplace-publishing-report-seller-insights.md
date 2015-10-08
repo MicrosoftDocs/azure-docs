@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/29/2015"
+   ms.date="10/08/2015"
    ms.author="v-jeana; hascipio"/>
 
 # Understanding your Seller Insights Reports
@@ -97,8 +97,6 @@ Find the Publisher ID in the URL
 We will continue to use this as your password until further notice.
 + In addition, we recommend using MS Office 2013 with Windows as your workbook reader of choice.  Some users have reported problems using MS Office for Mac.
 
-
-<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Next steps  
 If you have a question relating to Reports and Insights, please contact our support team.
 
@@ -110,8 +108,6 @@ If you have a question relating to Reports and Insights, please contact our supp
 3. Select ‘Questions related to reports’
 4. Click 'Start request'
 
-
-<!--Image references-->
 [1]: ./media/marketplace-publishing-report-seller-insights/legal.png
 [2]: ./media/marketplace-publishing-report-seller-insights/readingreportbyorders.png
 [3]: ./media/marketplace-publishing-report-seller-insights/readingreportbyusage.png
@@ -122,5 +118,3 @@ If you have a question relating to Reports and Insights, please contact our supp
 [8]: ./media/marketplace-publishing-report-seller-insights/selectpublisherstab.png
 [9]: ./media/marketplace-publishing-report-seller-insights/publisherid.png
 [10]: ./media/marketplace-publishing-report-seller-insights/sellerinsightsquestions.png
-
-<!--Reference style links - using these makes the source content way more readable than using inline links-->

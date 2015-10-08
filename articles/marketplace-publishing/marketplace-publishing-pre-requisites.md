@@ -13,7 +13,7 @@
   ms.topic="article"
   ms.tgt_pltfrm="Azure"
   ms.workload="na"
-  ms.date="10/05/2015"
+  ms.date="10/08/2015"
   ms.author="hascipio; v-divte"/>
 
 # General Pre-requisites for creating an offer for the Azure Marketplace
@@ -25,14 +25,6 @@ For detailed instructions on registering a seller account with Microsoft, go to 
 - If you are **not the owner of the publishing account**, you can have the account owner add your Microsoft Account as a co-admin to the [Publishing portal](https://publish.windowsazure.com) -> **Publishers** tab -> **Administrators** link
 - Ensure that stakeholders in the Azure publishing process receive the email that goes to this address. It must be monitored and responded to in order to complete the publishing process.
 - Avoid having the account associated with a single person. If that person leaves your company, they could impact your ability to access information about and publish your SKUs.
-
-<!--
-If you are not registered, you will need to collect the Company Tax and Payout Information (banking information) and then register your company as a seller in the [Seller Dashboard](https://sellerdashboard.microsoft.com).
-
-A company can register only once as seller with Microsoft.
-- If you don't know the seller registration stats of your company, please contact us through your Sharepoint site ('Need help?' section) or you can email us at AzureMarketOnboard@microsoft.com
-- If you are already registered, find out who in your company owns it? Alternatively, which credentials were used to register? This information can be obtained form your Finance or Marketing Team
--->
 
 > [AZURE.IMPORTANT] You do not have to complete company tax and banking information if you are planning to publish only free offers (or bring your own license).
 
@@ -53,7 +45,6 @@ This is the subscription you will use to create your VM images and hand over the
 ## "Sell-from" countries
 > [AZURE.WARNING]
 In order to sell your services on Microsoft Azure Marketplace, your registered entity needs to be from one of the approved “sell from” countries. This restriction is for payout and taxation reasons. We are actively looking to expand this list of countries in the near future, so please stay tuned. For the complete list, please see **Section 1b** of the [Microsoft Azure Marketplace Participation Policies](http://go.microsoft.com/fwlink/?LinkID=526833).
-<!-- Anchor to "Sell-from" countries section -->
 
 ## Next Steps
 Next are the technical pre-requisites for each offer type. Click the link to the article for the respective offer type you would like to create for the Azure Marketplace.

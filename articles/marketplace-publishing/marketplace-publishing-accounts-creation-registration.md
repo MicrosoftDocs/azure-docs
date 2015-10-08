@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/07/2015"
+   ms.date="10/08/2015"
    ms.author="hascipio"/>
 
 # Creating a Microsoft seller account
@@ -134,10 +134,6 @@ If you are planning to publish only free offers, then you can skip to section 3,
 > [AZURE.NOTE] If you are not ready to submit your tax information for validation yet, you can click **Save** or **Save and Exit**. It takes some time to validate the tax information, so we recommend that you submit it for validation as soon as possible.
 
 > [AZURE.WARNING] You will not be able to push to production your commercial offers without completing the tax and bank account information in your Seller Dashboard account.
-
-<!--
-8. You must provide payout and tax information and submit it for validation. In order to add payout and tax information, go to Account > Payout & Tax and click Add. Enter your company's information. You will be required to provide a Tax Identification Number and other tax information matching the country in which your business is headquartered.
--->
 
 ## 3. Register your account in the Publishing Portal
 The Azure Publishing Portal is used to publish and manage your offer(s). Think of it as the CMS for your offerings/artifacts. It is how you will manage the details of your Marketplace offer, including marketing copy, pricing and endpoints for your Resource Provider, data connection, etc. Read the Publisher Portal Guide to get started. All remaining work is completed here.

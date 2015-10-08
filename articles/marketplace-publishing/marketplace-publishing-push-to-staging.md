@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="Azure"
    ms.workload="na"
-   ms.date="10/07/2015"
+   ms.date="10/08/2015"
    ms.author="hascipio"/>
 
 # Complete the offer creation with marketing content
@@ -52,22 +52,11 @@ Below is the detailed view of how the publisher portal offer marketing details a
 ### Links
 In the links tab on the left bar, enter any links with information that may help customers. Enter a name and URL for each link.
 
-<!--
-  ![drawing][img-map-link]
-  *Links*
--->
 ### Sample images (optional)
 > [AZURE.NOTE] Including a sample image is an optional step. You could complete the other marketing content to fulfill requirements for push to staging.
 
 In the **Sample Images** tab on the left menu, upload a new image by clicking **Upload a new image**. If you have an existing image and you would like to replace it, click **Replace image**.
 
-<!--
-![drawing](media/marketplace-publishing-push-to-staging/pubportal-sample-image.png)
-*Upload of sample image in Publishing Portal*
-
-![drawing](media/marketplace-publishing-push-to-staging/portal-sample-image.png)
-*Presentation of sample image in offer details*
--->
 ### Plans
 ![drawing](media/marketplace-publishing-push-to-staging/pubportal-vm-details-sku.png)
 
@@ -123,10 +112,6 @@ Plans can be any combination of Base + Consumption, where BASE is monthly price 
 |Silver|$0.15/meter01|The customer can pay-per-use via meter01, which is for feature X|Can migrate to Bronze and Gold Plans|
 |Silver Plus|$20/month + $0.15/meter01 + $0.01/meter02|Basic functionality and a quota of 10,000 of feature X and 100 of feature Y.  Once feature X quota is used, the customer can pay per use via meter01.  Once feature Y quota is used, the customer can pay per use via meter02|Can migrate to Bronze Plus and Gold Plans|
 |Gold|$1000/month|Quota of 10,000 of feature X, 1,000 of feature Y, and unlimited of feature Z|Can migrate to all plans except free|
-
-<!--
-### 2.4 Set your data service prices
--->
 
 ## Step 3: Provide support information
 Some of this information will have been completed during the certification step. You may add or edit information as in the steps below. The contact details are used for internal communications between partner and Microsoft only. Support URL will be available to the end customers.

@@ -13,7 +13,7 @@
       ms.topic="article"
       ms.tgt_pltfrm="na"
       ms.workload="na"
-      ms.date="10/01/2015"
+      ms.date="10/08/2015"
       ms.author="v-jeana; hascipio"/>
 
 # How to troubleshoot common Azure Marketplace publisher issues
@@ -103,7 +103,6 @@ Navidate to Account Details and Company Details
 4. Add the email address of the of the co-admin you wish to add or remove
 5. Select 'Save' to save your changes
 
-<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Next steps:  Other Support queries
 
 For the following issues, please log an issue at https://portal.azure.com
@@ -118,8 +117,6 @@ For the following issues, please create a support request at http://go.microsoft
 + How do I change the MSA associated with my Seller account?
 
 
-
-<!--Image references-->
 [1]: ./media/marketplace-publishing-support-common-issues/requestrefund1.png
 [2]: ./media/marketplace-publishing-support-common-issues/requestrefund2.png
 [3]: ./media/marketplace-publishing-support-common-issues/subscriptionvalidation.png
@@ -128,5 +125,3 @@ For the following issues, please create a support request at http://go.microsoft
 [6]: ./media/marketplace-publishing-support-common-issues/protectacct.png
 [7]: ./media/marketplace-publishing-support-common-issues/acctdetails.png
 [8]: ./media/marketplace-publishing-support-common-issues/manageadmins.png
-
-<!--Reference style links - using these makes the source content way more readable than using inline links-->
