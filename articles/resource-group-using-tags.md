@@ -57,7 +57,7 @@ switch to use Resource Manager.
     Switch-AzureMode AzureResourceManager
 
 Tags exist directly on resources and resource groups, so to see what tags are already applied, we can simply get a resource or resource group with **Get-AzureRmResource** or **Get-AzureRmResourceGroup** 
-(**Get-AzureResource** or **Get-AzureResourceGroup** for PowerShell versions earlier than 1.0 Preview). Let's start with a resource group.
+(**Get-AzureResource** or **Get-AzureResourceGroup** for Azure PowerShell versions earlier than 1.0 Preview). Let's start with a resource group.
 
     PS C:\> Get-AzureRmResourceGroup tag-demo
 
@@ -83,7 +83,7 @@ Tags exist directly on resources and resource groups, so to see what tags are al
                     tag-demo-site                    Microsoft.Web/sites                   southcentralus
 
 
-This cmdlet returns several bits of metadata on the resource group including what tags have been applied, if any. To tag a resource group, simply use the **Set-AzureRmResourceGroup** command (or **Set-AzureResourceGroup** for PowerShell versions earlier than 1.0 Preview) and specify a tag name and value.
+This cmdlet returns several bits of metadata on the resource group including what tags have been applied, if any. To tag a resource group, simply use the **Set-AzureRmResourceGroup** command (or **Set-AzureResourceGroup** for Azure PowerShell versions earlier than 1.0 Preview) and specify a tag name and value.
 
     PS C:\> Set-AzureRmResourceGroup tag-demo -Tag @( @{ Name="project"; Value="tags" }, @{ Name="env"; Value="demo"} )
 
@@ -123,7 +123,7 @@ To get resource groups with a specific tag, use **Find-AzureRmResourceGroup** cm
     rbacdemo-group
     tag-demo
 
-For PowerShell versions earlier than 1.0 Preview use the following commands to get resources with a specific tag.
+For Azure PowerShell versions earlier than 1.0 Preview use the following commands to get resources with a specific tag.
 
     PS C:\> Get-AzureResourceGroup -Tag @{ Name="env"; Value="demo" } | %{ $_.ResourceGroupName }
     rbacdemo-group
@@ -133,7 +133,7 @@ For PowerShell versions earlier than 1.0 Preview use the following commands to g
     rbacdemo-docdb
     ...    
 
-To get a list of all tags within a subscription using PowerShell, use the **Get-AzureRmTag** (or **Get-AzureRmTag** for PowerShell versions earlier than 1.0 Preview) cmdlet.
+To get a list of all tags within a subscription using PowerShell, use the **Get-AzureRmTag** (or **Get-AzureRmTag** for Azure PowerShell versions earlier than 1.0 Preview) cmdlet.
 
     PS C:/> Get-AzureRmTag
     Name                      Count
