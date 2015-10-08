@@ -46,7 +46,7 @@ To use Azure AD to authenticate requests to Azure Resource Manager, an applicati
 
 	    New-AzureRmADApplication -DisplayName "My AD Application 1" -HomePage "https://myapp1.com" -IdentifierUris "https://myapp1.com"  -Password "{password}"
 
-	>[AZURE.NOTE] The application identifer is returned after the application is created or you can find the application identifier in the client id field of the application in the Active Directory section of the portal.
+	>[AZURE.NOTE] Take note of the application identifer that is returned after the application is created because you'll need it for the next step. You can also find the application identifier in the client id field of the application in the Active Directory section of the portal.
 
 3. Replace {application-id} with the identifier that you just recorded and then create the service principal for the application:
 

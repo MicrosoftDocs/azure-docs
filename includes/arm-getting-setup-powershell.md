@@ -47,7 +47,7 @@ Open an Azure PowerShell command prompt and log on to Azure with this command.
 
 If you have multiple Azure subscriptions, you can list your Azure subscriptions with this command.
 
-	Get-AzureSubscription
+	Get-AzureRmSubscription
 
 You will receive the following type of information:
 
@@ -64,7 +64,7 @@ You will receive the following type of information:
 
 You can set the current Azure subscription by running these commands at the Azure PowerShell command prompt. Replace everything within the quotes, including the < and > characters, with the correct name.
 
-	$subscr="<SubscriptionName from the display of Get-AzureSubscription>"
-	Select-AzureSubscription -SubscriptionName $subscr -Current
+	$subscr="<SubscriptionName from the display of Get-AzureRmSubscription>"
+	Select-AzureRmSubscription -SubscriptionName $subscr -Current
 
 For more information about Azure subscriptions and accounts, see [How to: Connect to your subscription](powershell-install-configure.md#Connect).
