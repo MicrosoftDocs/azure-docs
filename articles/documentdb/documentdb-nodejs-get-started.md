@@ -55,18 +55,22 @@ Let's create a DocumentDB account. If you already have an account you want to us
 1. Open your favorite **terminal**.
 2. Locate the folder or directory where you'd like to save your Node.js application.
 3. Create two empty JS files with the following commands:
-  **Windows**:    *fsutil file createnew app.js 0*
-                  *fsutil file createnew config.js 0*
-  **Linux/OS X**: *touch app.js*
-                  *touch config.js*
+	- *Windows*:    
+	    * **fsutil file createnew app.js 0**
+        * **fsutil file createnew config.js 0**
+	- *Linux/OS X*: 
+	    * **touch app.js**
+        * **touch config.js**
 4. Install the **documentdb** module via npm. Use the following command:
-    *npm install documentdb --save*
+    * **npm install documentdb --save**
 
-Great! Now that we finished the setup, let's start writing some code.
+Great! Now that you've finished setting up, let's start writing some code.
 
-##<a id="Config"></a> Step 3: Set your application's configurations
+##<a id="Config"></a> Step 3: Set your app's configurations
 
-First, open *config.js* in your favorite text editor. Then, create an object named *config* and set properties *config.endpoint* and *config.authKey* to your DocumentDB endpoint and authorization key, which can be either the primary or secondary access key. Both these configurations can be found in the [Azure Preview Portal](https://portal.azure.com).
+Open *config.js* in your favorite text editor. 
+
+Then, create an empty object titled *config* and set properties *config.endpoint* and *config.authKey* to your DocumentDB endpoint and authorization key. Both these configurations can be found in the [Azure Preview Portal](https://portal.azure.com).
 
 ![Screen shot of the Azure Preview portal, showing a DocumentDB account, with the ACTIVE hub highlighted, the KEYS button highlighted on the DocumentDB account blade, and the URI, PRIMARY KEY and SECONDARY KEY values highlighted on the Keys blade][keys]
 
@@ -75,7 +79,7 @@ First, open *config.js* in your favorite text editor. Then, create an object nam
     config.endpoint = "https://YOUR_ENDPOINT_URI.documents.azure.com:443/";
     config.authKey = "oqTveZeWlbtnJQ2yMj23HOAViIr0ya****YOUR_AUTHORIZATION_KEY****ysadfbUV+wUdxwDAZlCfcVzWp0PQg==";
 
-Let's now add the *database id*, *collection id*, and *JSON documents* to your *config* object. Below where you set the *config.endpoint* and *config.authKey* properties, add the following code:
+Let's now add the *database id*, *collection id*, and *JSON documents* to your *config* object. Below where you set your *config.endpoint* and *config.authKey* properties, add the following code:
 
     config.dbDefinition = {"id": "FamilyRegistry"};
     config.collDefinition = {"id": "FamilyCollection"};
@@ -155,27 +159,27 @@ Let's now add the *database id*, *collection id*, and *JSON documents* to your *
 
     config.docsDefinitions = documents;
 
-The database, collection, and documents definitions will define your database name, collection name, and documents data.
+The database, collection, and document definitions will act as your DocumentDB *database id*, *collection id*, and documents' data.
 
-Finally, export the *config* object, so that you can reference it within the *app.js* file. Add the following at the bottom of your file:
+Finally, export your *config* object, so that you can reference it within the *app.js* file.
 
     module.exports = config;
 
 ##<a id="Connect"></a> Step 4: Connect to a DocumentDB account
 
-Open your empty *app.js* file in your text editor. Import the *documentdb* and our newly created *config* modules with the following code snippet:
+Open your empty *app.js* file in the text editor. Import the *documentdb* module and your newly created *config* module.
 
     var documentClient = require("documentdb").DocumentClient;
     var config = require("./config");
 
-Next, let's use the previously saved *config.endpoint* and *config.authKey* to create a DocumentClient.
+Next, let's use the previously saved *config.endpoint* and *config.authKey* to create a new DocumentClient.
 
     var client = new documentClient(config.endpoint, {"masterKey": config.authKey});
 
-Now that our DocumentClient is set, let's take a look at working with DocumentDB resources.
+Now that you've connected to a DocumentDB account, let's take a look at working with DocumentDB resources.
 
 ## Step 5: Create a database
-A [database](documentdb-resources.md#databases) can be created by using the [createDatabase](https://azure.github.io/azure-documentdb-node/DocumentClient.html) function of the **DocumentClient** class. A database is the logical container of document storage partitioned across collections. Add a function for creating your new database with the *id* specified in the *config* object. We'll first check to make sure a database with the same *FamilyRegistry* id does not already exist. If it does exist, we'll return that database instead of creating a new one.
+A [database](documentdb-resources.md#databases) can be created by using the [createDatabase](https://azure.github.io/azure-documentdb-node/DocumentClient.html) function of the **DocumentClient** class. A database is the logical container of document storage partitioned across collections. Add a function for creating your new database with an id specified in your *config.dbDefinition* property. First, check to make sure a database with the same *FamilyRegistry* id does not already exist. If it does exist, we'll return that database instead of creating a new one.
 
     var getOrCreateDatabase = function(callback) {
         var querySpec = {
@@ -202,11 +206,11 @@ A [database](documentdb-resources.md#databases) can be created by using the [cre
         });
     };
 
-##<a id="CreateColl"></a>Step 5: Create a collection  
+##<a id="CreateColl"></a>Step 6: Create a collection  
 
 > [AZURE.WARNING] **CreateDocumentCollectionAsync** will create a new S1 collection, which has pricing implications. For more details, please visit our [pricing page](https://azure.microsoft.com/pricing/details/documentdb/).
 
-A [collection](documentdb-resources.md#collections) can be created by using the [createCollection](https://azure.github.io/azure-documentdb-node/DocumentClient.html) function of the **DocumentClient** class. A collection is a container of JSON documents and associated JavaScript application logic. The newly created collection will be mapped to a [S1 performance level](documentdb-performance-levels.md). Add a function for creating your new collection with the *id* specified in the *config* object. Again, we'll check to make sure a collection with the same *FamilyCollection* id does not already exist. If it does exist, we'll return that collection instead of creating a new one.
+A [collection](documentdb-resources.md#collections) can be created by using the [createCollection](https://azure.github.io/azure-documentdb-node/DocumentClient.html) function of the **DocumentClient** class. A collection is a container of JSON documents and associated JavaScript application logic. The newly created collection will be mapped to a [S1 performance level](documentdb-performance-levels.md). Add a function for creating your new collection with the an id specified in your *config.collDefinition* property. Again, we'll check to make sure a collection with the same *FamilyCollection* id does not already exist. If it does exist, we'll return that collection instead.
 
     var getOrCreateCollection = function(callback) {
 
@@ -235,10 +239,10 @@ A [collection](documentdb-resources.md#collections) can be created by using the 
         });
     };
 
-##<a id="CreateDoc"></a>Step 6: Create a document
-A [document](documentdb-resources.md#documents) can be created by using the [createDocument](https://azure.github.io/azure-documentdb-node/DocumentClient.html) function of the **DocumentClient** class. Documents are user defined (arbitrary) JSON content. We can now insert a document to DocumentDB. If you already have data you'd like to store in your database, you can use DocumentDB's [Data Migration tool](documentdb-import-data.md).
+##<a id="CreateDoc"></a>Step 7: Create a document
+A [document](documentdb-resources.md#documents) can be created by using the [createDocument](https://azure.github.io/azure-documentdb-node/DocumentClient.html) function of the **DocumentClient** class. Documents are user defined (arbitrary) JSON content. You can now insert a document into DocumentDB. If you already have data you'd like to store in your database, you can use DocumentDB's [Data Migration tool](documentdb-import-data.md).
 
-Next, add the function for creating these documents containing the JSON data saved in the *config* object. Again, we'll check to make sure a document with the same id does not already exist.
+Next, add a function for creating documents containing the JSON data saved in your *config* object. Again, we'll check to make sure a document with the same id does not already exist.
 
     var getOrCreateDocument = function(document, callback) {
         var querySpec = {
@@ -266,13 +270,13 @@ Next, add the function for creating these documents containing the JSON data sav
         });
     };
 
-You now have functions for creating a database, collection, and document in DocumentDB!
+Congratulations! You now have functions for creating a database, collection, and document in DocumentDB!
 
 ![Diagram illustrating the hierarchical relationship between the account, the database, the collection, and the documents](./media/documentdb-get-started/account-database.png)
 
-##<a id="Query"></a>Step 7: Query DocumentDB resources
+##<a id="Query"></a>Step 8: Query DocumentDB resources
 
-DocumentDB supports rich [queries](documentdb-sql-query.md) against JSON documents stored in each collection. The following sample code shows a query that we can run against the documents in our collection. Add the following function to the *app.js* file. DocumentDB supports SQL-like queries as shown below. For more information on building complex queries, check out the [Query Playground](https://www.documentdb.com/sql/demo) and the [query documentation](https://azure.microsoft.com/en-us/documentation/articles/documentdb-sql-query/).
+DocumentDB supports [rich queries](documentdb-sql-query.md) against JSON documents stored in each collection. The following sample code shows a query that you can run against the documents in your collection. Add the following function to the *app.js* file. DocumentDB supports SQL-like queries as shown below. For more information on building complex queries, check out the [Query Playground](https://www.documentdb.com/sql/demo) and the [query documentation](documentdb-sql-query.md).
 
     var queryCollection = function(documentId, callback) {
       var querySpec = {
@@ -298,7 +302,7 @@ The following diagram illustrates how the DocumentDB SQL query syntax is called 
 
 The [FROM](documentdb-sql-query.md/#from-clause) keyword is optional in the query because DocumentDB queries are already scoped to a single collection. Therefore, "FROM Families f" can be swapped with "FROM root r", or any other variable name you choose. DocumentDB will infer that Families, root, or the variable name you chose, reference the current collection by default.
 
-##<a id="DeleteDatabase"></a>Step 8: Delete the database
+##<a id="DeleteDatabase"></a>Step 9: Delete the database
 
 Deleting the created database will remove the database and all children resources (collections, documents, etc.). You can delete the database by adding the following code snippet.
 
@@ -311,13 +315,19 @@ Deleting the created database will remove the database and all children resource
         });
     }
 
-##<a id="Build"></a>Step 9: Run all functions
+##<a id="Build"></a>Step 10: Put it together
 
-Now that we've set all the necessary functions for our application, let's call them!
+Now that you've set all the necessary functions for your application, let's call them!
 
-The order of function calls will be getOrCreateDatabase -> getOrCreate Collection -> getOrCreateDocument -> getOrCreateDocument -> queryCollection -> cleanup.
+The order of function calls will be 
+* getOrCreateDatabase
+    * getOrCreateCollection
+        * getOrCreateDocument
+            * getOrCreateDocument
+                * queryCollection
+                    * cleanup
 
-Add the following code snippet to the bottom of your code.
+Add the following code snippet to the bottom of your code in *app.js*.
 
     getOrCreateDatabase(function(err, db) {
         if(err) return console.log(err);
@@ -349,13 +359,13 @@ Add the following code snippet to the bottom of your code.
         });
     });
 
-##<a id="Run"></a>Step 9: Run your application!
+##<a id="Run"></a>Step 11: Run your application!
 
 You are now ready to run your application!
 
 In your terminal, locate your *app.js* file and run the command: **node app.js**
 
-You should now see the output of your get started app. The output should match the example text below.
+You should see the output of your get started app. The output should match the example text below.
 
     Read or created db:
     FamilyRegistry
@@ -417,7 +427,9 @@ To build the GetStarted solution that contains all the samples in this article, 
 -   [DocumentDB account][documentdb-create-account].
 -   The [GetStarted](https://github.com/Azure-Samples/documentdb-node-getting-started) solution available on GitHub.
 
-Install the **documentdb** module via npm with the following command: **npm install documentdb --save**. Next, in the *config.js* file, update the config.endpoint and config.authKey values as described in [Connect to a DocumentDB account](#Connect).
+Install the **documentdb** module via npm. Use the following command:
+    * **npm install documentdb --save**
+Next, in the *config.js* file, update the *config.endpoint* and *config.authKey* values as described in [Connect to a DocumentDB account](#Connect).
 
 ## Next steps
 
