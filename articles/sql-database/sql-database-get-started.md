@@ -26,15 +26,17 @@
 - [C#](sql-database-get-started-csharp.md)
 - [PowerShell](sql-database-get-started-powershell.md)
 
-This article shows you how to create a sample SQL database in just a few minutes using the Azure portal. You'll learn how to:
+This article shows you how to create a sample SQL database in just a few minutes using the Azure preview portal. You'll learn how to:
 
 - Create a server to host the database you create, and then set up a firewall rule for it
 - Create a database from an AdventureWorks sample, which has data that you can play with
 
 You'll need an Azure account and subscription before you start. If you don't have one, sign up for a [free trial](http://azure.microsoft.com/pricing/free-trial/).
 
+> [AZURE.NOTE] This how-to covers setting up a database Microsoft's relational database service in the cloud, Azure SQL Database. Another option is to run SQL Server on an Azure Virtual Machine. See [Understanding Azure SQL Database and SQL Server in Azure VMs](data-management-azure-sql-database-and-sql-server-iaas.md) for a quick comparison, or [Provision a SQL server virtual machine](virtual-machines-provision-sql-server.md) in minutes.
+
 ## Step 1: Sign in and start SQL database set up
-1. Sign in to the [Azure portal](http://portal.azure.com/).
+1. Sign in to the [Azure preview portal](http://portal.azure.com/).
 2. Click **New** > **Data + Storage** > **SQL Database**.
 
 	![Create a new SQL database](./media/sql-database-get-started/create-db.png)
