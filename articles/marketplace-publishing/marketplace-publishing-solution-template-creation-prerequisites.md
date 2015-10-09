@@ -78,13 +78,13 @@ As you begin to develop each of these files to express your complete topology, c
 Parameters allow you to express values that should be provided by the user at time of deployment in the template.  User input can vary from application to application, and even from topology tier to tier. The parameter list needs to provide a good balance between asking lesser number of required questions and providing the user the right knobs to control their deployment. While there are no requirements on the full list of user input, we want to ensure that all Marketplace template solutions have a set of common input that many customers want to control.
 Ensure that you have defined parameters for the following values:
 
-1. Location – the Azure region where resources are deployed
-2.	Virtual Network Name – For deployments that create a new Virtual Network, the name to use for creating that resource.  For deployments that use an existing Virtual Network, the name of the VNet to deploy into.
-3.	Storage Account – For deployments that create a new storage account, the storage account name to create.  For deployments that use an existing Virtual Network, the name of the storage account to use.
-4.	DNS Name – Domain name of the virtual machine or load balancer to which an end user may connect.
-5.	Username – User name for the virtual machine(s) and potentially the application(s).  More than one user name can be requested from the end user, but at least one must be prompted.
-6.	Password – Password for the virtual machine(s) and potentially the application(s).  More than one password can be requested from the end user for different VMs or applications, but at least one must be prompted.
-7.	SSH Public Key (only for Linux VMs) – SSH Key for the virtual machine(s).  More than one key can be requested from the end user for different VMs, but at least one must be prompted.
+1. **Location** – the Azure region where resources are deployed
+2.	**Virtual Network Name** – For deployments that create a new Virtual Network, the name to use for creating that resource.  For deployments that use an existing Virtual Network, the name of the VNet to deploy into.
+3.	**Storage Account** – For deployments that create a new storage account, the storage account name to create.  For deployments that use an existing Virtual Network, the name of the storage account to use.
+4.	**DNS Name** – Domain name of the virtual machine or load balancer to which an end user may connect.
+5.	**Username** – User name for the virtual machine(s) and potentially the application(s).  More than one user name can be requested from the end user, but at least one must be prompted.
+6.	**Password** – Password for the virtual machine(s) and potentially the application(s).  More than one password can be requested from the end user for different VMs or applications, but at least one must be prompted.
+7.	**SSH Public Key (only for Linux VMs)** – SSH Key for the virtual machine(s).  More than one key can be requested from the end user for different VMs, but at least one must be prompted.
 
 ## Next Steps
 Now that you reviewed the pre-requisites and completed the necessary tasks, you can move forward with the creating your Solution Template offer as detailed in the [Guide to creating a Solution Template](marketplace-publishing-solution-template-creation.md)
