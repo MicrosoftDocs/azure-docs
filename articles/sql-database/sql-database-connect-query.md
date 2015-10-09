@@ -19,6 +19,10 @@
 
 # Connect to and query your SQL Database with C&#x23;
 
+> [AZURE.SELECTOR]
+- [C#](sql-database-connect-query.md)
+- [SSMS](sql-server-connect-query-ssms.md)
+- [Excel](sql-server-connect-excel.md)
 
 You want to write a C# program that uses ADO.NET to connect to an Azure SQL Database database in the cloud. 
 
