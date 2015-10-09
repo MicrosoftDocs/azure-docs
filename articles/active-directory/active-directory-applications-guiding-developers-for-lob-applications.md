@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/30/2015"
+	ms.date="10/09/2015"
 	ms.author="inhenk"/>
 
 # Azure AD and Applications: Guiding Developers
@@ -39,14 +39,13 @@ Registering an application allows any user to do the following:
 
 - Declare required permissions necessary for the application to function as expected. They include:
 	  - App permissions (global administrators only). For example:
-	    - Role membership in another Azure AD application or
-			- Role membership relative to an Azure Resource, Resource Group or Subscription
+	    - Role membership in another Azure AD application or role membership relative to an Azure Resource, Resource Group or Subscription
 	  - Delegated permissions (any user). For example:
 	    - (AAD) Sign-in and Read Profile
 	    - (Exchange) Read Mail, Send Mail
 	    - (SharePoint) Read
 
-> AZURE.NOTE: By default, any member can register an application. To learn how to restrict permissions for registering applications to specific members, please refer to the document [How applications are added to Azure AD]
+> [AZURE.NOTE]By default, any member can register an application. To learn how to restrict permissions for registering applications to specific members, please refer to the document [How applications are added to Azure AD
 
 Here’s what you, the global administrator, will need to do to help developers to make their application ready for production:
 
