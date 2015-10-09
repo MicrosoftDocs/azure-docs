@@ -25,8 +25,7 @@ Updates to **Azure Data Catalog** are released on a regular basis. Not every rel
 As of the week of October 9, 2015, the following capabilities have been added to **Azure Data Catalog**:
 
 - Support for rich text documentation for registered data assets and containers in the Azure Data Catalog portal. Users can now provide documentation for data assets such as tables, views, and reports, and for containers such as databases and models, for scenarios where tags and descriptions are not sufficient. 
-- Support for Hive data sources on-premises. Users can now register and discover Hive tables for Apache Hive in Hadoop on-premises data sources.
--
+
 ## What's new for the week of October 2, 2015 release
 
 As of the week of October 2, 2015, the following capabilities have been added to **Azure Data Catalog**:
