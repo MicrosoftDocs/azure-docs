@@ -85,28 +85,56 @@ You can stay up-to-date with the latest DocumentDB news and features by followin
 
 ### Recent and upcoming events
 
-| Event Name                                                      | Location      | Date                | Hashtag |
-| --------------------------------------------------------------- | ------------- | ------------------- | ------- |
-| [CloudDevelop 2015](http://www.clouddevelop.org/)               | Columbus, OH  | October 23, 2015    | [#CloudDevConf](https://twitter.com/hashtag/CloudDevConf) |
-| [PASS Summit 2015](http://www.sqlpass.org/summit/2015/Home.asp) | Seattle, WA   | October 27-30, 2015 | [#Summit15](https://twitter.com/hashtag/Summit15) |
-| [Integration User Group](http://www.integrationusergroup.com/)  | Virtual Event | November 9, 2015    | [#IntegrationMonday](https://twitter.com/hashtag/integrationmonday) |
+| Event Name                                                                      | Location             | Date                | Hashtag |
+| ------------------------------------------------------------------------------- | -------------------- | ------------------- | ------- |
+| [SQL Saturday #430 - Sofia 2015](http://www.sqlsaturday.com/430/eventhome.aspx) | Sofia, Bulgaria      | October 10, 2015    | [#sqlsatsofia](https://twitter.com/hashtag/sqlsatsofia) |
+| [CloudDevelop 2015](http://www.clouddevelop.org/)                               | Columbus, OH         | October 23, 2015    | [#CloudDevConf](https://twitter.com/hashtag/CloudDevConf) |
+| [PASS Summit 2015](http://www.sqlpass.org/summit/2015/Home.asp)                 | Seattle, WA          | October 27-30, 2015 | [#Summit15](https://twitter.com/hashtag/Summit15) |
+| [Integration User Group](http://www.integrationusergroup.com/)                  | Webinar              | November 9, 2015    | [#IntegrationMonday](https://twitter.com/hashtag/integrationmonday) |
+| [Meetup: msdevmtl](http://www.meetup.com/msdevmtl/events/223839818/)            | Montreal, QC, Canada | December 1, 2015    | [#msdevmtl](https://twitter.com/hashtag/msdevmtl) |
+
+*Are you hosting an event? [Let us know](mailto:askdocdb@microsoft.com) how we can help!*
 
 ### Previous events and recordings
 
-| Event Name                                                                                                              | Location          | Date                   | Recording |
-| ---------- | -------- | ---- | ------- |
-| [Integration User Group](http://www.integrationusergroup.com/?event=azure-documentdb-and-biztalk&event_date=2015-10-05) | Virtual Event     | October 5, 2015        | [Azure DocumentDB for Healthcare Integration](http://fast.wistia.net/embed/iframe/ee3b1nfe3o) |
-| [AzureCon](https://azure.microsoft.com/azurecon/)                                                                       | Virtual Event     | September 29, 2015     | [Working with NoSQL Data in DocumentDB](https://channel9.msdn.com/Events/Microsoft-Azure/AzureCon-2015/ACON338) |
-| [@Scale Seattle](http://www.atscaleconference.com/)                                                                     | Seattle, WA       | June 17, 2015          | [Schema Agnostic Indexing with Azure DocumentDB](https://www.youtube.com/watch?v=VJQ_5qFFVP4) |
-| [In-Memory Technologies PASS Virtual Chapter](http://imvc.sqlpass.org/)                                                 | Virtual Event     | May 25, 2015           | [Hello DocumentDB](https://www.youtube.com/watch?v=itFXQCd9-dI) |
-| [Database Month](http://www.databasemonth.com/database/azure-documentdb)                                                | New York, NY      | May 19, 2015           | [Azure DocumentDB: Massively-Scalable,­ Multi-Tenant Document Database Service](https://www.youtube.com/watch?v=iZsqBc3Dkbk) |
-| [Ignite](http://ignite.microsoft.com/)                                                                                  | Chicago, IL       | May 4-8, 2015          | [SELECT Latest FROM DocumentDB video](https://azure.microsoft.com/documentation/videos/microsoft-ignite-2015-select-latest-from-microsoft-azure-documentdb/)<br/>[DocumentDB and Azure HDInsight: Better Together video](https://azure.microsoft.com/documentation/videos/microsoft-ignite-2015-microsoft-azure-documentdb-and-azure-hdinsight-better-together/) |
-| [Build 2015](http://www.buildwindows.com/)                                                                              | San Francisco, CA | April 29 - May 1, 2015 | [Build the Next Big Thing with Azure’s NoSQL Service: DocumentDB](https://channel9.msdn.com/Events/Build/2015/2-729) |
-| [#DevHangout - devacademy.la](https://www.youtube.com/user/devacademyla)                                                | Virtual Event     | March 11, 2015         | [DocumentDB, la base de datos NoSql de Microsoft Azure](https://www.youtube.com/watch?v=8Ud3jB8KOBA) |
-| [Data Architecture Virtual Chapter PASS](https://dataarch.sqlpass.org/)                                                 | Virtual Event     | February 25, 2015      | [Introduction to DocumentDB](https://www.youtube.com/watch?v=7BQYdFUkz6s) |
-| [TechX Azure](https://www.youtube.com/channel/UCDRlI2E4z5qmHsBXTrFOE2Q)                                                 | Stockholm, Sweden | January 28-29, 2015    | [DocumentDB in Azure the new NoSQL option for the Cloud](https://www.youtube.com/watch?v=Hw7hDYoChNI) |
+| Event Name                                                                                                                 | Location             | Date                   | Recording |
+| -------------------------------------------------------------------------------------------------------------------------- | -------------------- | ---------------------- | --------- |
+| [SQL Saturday #429 - Oporto 2015](http://www.sqlsaturday.com/429/eventhome.aspx)                                           | Oporto, Portugal     | October 3, 2015        | n/a |
+| [AzureCon](https://azure.microsoft.com/azurecon/)                                                                          | Virtual Event        | September 29, 2015     | [Azure data and analytics platform](https://channel9.msdn.com/events/Microsoft-Azure/AzureCon-2015/ACON207)<br/>[Working with NoSQL Data in DocumentDB](https://channel9.msdn.com/Events/Microsoft-Azure/AzureCon-2015/ACON338) |
+| [SQL Saturday #434 - Holland 2015](http://www.sqlsaturday.com/434/eventhome.aspx)                                          | Utrecht, Netherlands | September 26, 2015     | n/a |
+| [Meetup: San Francisco Bay Area Azure Developers](http://www.meetup.com/bayazure/events/223943785/)                        | San Francisco, CA    | September 15, 2015     | n/a |
+| [NoSQL Now!](http://nosql2015.dataversity.net/)                                                                            | San Jose, CA         | August 18-20, 2015     | n/a |
+| [@Scale Seattle](http://www.atscaleconference.com/)                                                                        | Seattle, WA          | June 17, 2015          | [Schema Agnostic Indexing with Azure DocumentDB](https://www.youtube.com/watch?v=VJQ_5qFFVP4) |
+| [Tech Refresh 2015](https://channel9.msdn.com/Events/DXPortugal/Tech-Refresh-2015)                                         | Lisbon, Portugal     | June 15, 2015          | [DocumentDB 101](https://channel9.msdn.com/Events/DXPortugal/Tech-Refresh-2015/DPDEV01) |
+| [Database Month](http://www.databasemonth.com/database/azure-documentdb)                                                   | New York, NY         | May 19, 2015           | [Azure DocumentDB: Massively-Scalable,­ Multi-Tenant Document Database Service](https://www.youtube.com/watch?v=iZsqBc3Dkbk) |
+| [Meetup: London SQL Server User Group](http://www.meetup.com/London-SQL-Server-User-Group/events/221525058/)               | London, UK           | May 19, 2015           | n/a |
+| [Ignite](http://ignite.microsoft.com/)                                                                                     | Chicago, IL          | May 4-8, 2015          | [SELECT Latest FROM DocumentDB video](https://azure.microsoft.com/documentation/videos/microsoft-ignite-2015-select-latest-from-microsoft-azure-documentdb/)<br/>[DocumentDB and Azure HDInsight: Better Together video](https://azure.microsoft.com/documentation/videos/microsoft-ignite-2015-microsoft-azure-documentdb-and-azure-hdinsight-better-together/) |
+| [Build 2015](http://www.buildwindows.com/)                                                                                 | San Francisco, CA    | April 29 - May 1, 2015 | [Build the Next Big Thing with Azure’s NoSQL Service: DocumentDB](https://channel9.msdn.com/Events/Build/2015/2-729) |
+| [Global Azure Bootcamp 2015 - Spain](http://azurebootcamp.es/)                                                             | Madrid, Spain        | April 25, 2015         | [#DEAN DocumentDB + Express + AngularJS + NodeJS running on Azure](https://channel9.msdn.com/events/Developers-Spain-Events/Global-Azure-Bootcamp-2015/DEAN-DocumentDB--Express--AngularJS--NodeJS-running-on-Azure) |
+| [Meetup: Charlotte Microsoft Cloud](http://www.meetup.com/Charlotte-Microsoft-Cloud/events/221503519/)                     | Charlotte, NC        | April 8, 2015          | n/a |
+| [Meetup: Azure Usergroup Denmark](http://www.meetup.com/Azure-Usergroup-Denmark/events/221026670/)                         | Copenhagen, Denmark  | May 19, 2015           | n/a |
+| [Meetup: Seattle Web App Developers Group](http://www.meetup.com/Seattle-Web-App-Developers-Group/events/220591071/)       | Seattle, WA          | May 14, 2015           | n/a |
+| [Meetup: Istanbul Azure Meetup](http://www.meetup.com/istanbul-azure-meetup/events/220325538/)                             | Istanbul, Turkey     | March 7, 2015          | n/a |
+| [Meetup: Great Lakes Area .Net User Group](http://www.meetup.com/Great-Lakes-Area-NET-User-Group-MIGANG/events/220364576/) | Southfield, MI       | February 18, 2015      | n/a |
+| [TechX Azure](https://www.youtube.com/channel/UCDRlI2E4z5qmHsBXTrFOE2Q)                                                    | Stockholm, Sweden    | January 28-29, 2015    | [DocumentDB in Azure the new NoSQL option for the Cloud](https://www.youtube.com/watch?v=Hw7hDYoChNI) |
 
-*Are you hosting an event? [Let us know](mailto:askdocdb@microsoft.com) how we can help!*
+### Videos and Podcasts
+
+| Show                                        | Date               | Episode |
+| ------------------------------------------- | ------------------ | ------- |
+| Integration User Group                      | October 5, 2015    | [Azure DocumentDB for Healthcare Integration](http://www.integrationusergroup.com/?event=azure-documentdb-and-biztalk) |
+| DX Italy - #TecHeroes                       | October 2, 2015    | [#TecHeroes - DocumentDB](https://channel9.msdn.com/Shows/TecHeroes/TecHeroes-DocumentDB) |
+| .NET Rocks! Podcast                         | September 29, 2015 | [Data on DocumentDB with Ryan CrawCour](https://www.dotnetrocks.com/?show=1197) |
+| Data Exposed                                | September 28, 2015 | [What's New with Azure DocumentDB Since GA](https://channel9.msdn.com/Shows/Data-Exposed/Whats-New-with-Azure-DocumentDB-Since-GA) |
+| The Azure Podcast                           | September 17, 2015 | [Episode 94: azpodcast.com re-architecture](http://azpodcast.azurewebsites.net/post/Episode-94-azpodcastcom-re-architecture) |
+| Cloud Cover                                 | September 4, 2015  | [Episode 185: DocumentDB Updates with Ryan CrawCour](https://channel9.msdn.com/Shows/Cloud+Cover/Episode-185-DocDB-Updates-with-Ryan-CrawCour) |
+| CodeChat 033                                | July 28, 2015      | [Greg Doerr on Azure DocumentDB](https://channel9.msdn.com/Shows/codechat/033) |
+| In-Memory Technologies PASS Virtual Chapter | May 25, 2015       | [Hello DocumentDB](https://www.youtube.com/watch?v=itFXQCd9-dI) |
+| Data Exposed                                | April 8, 2015      | [DocumentDB General Availibility and What's New!](https://channel9.msdn.com/Shows/Data-Exposed/DocumentDB-General-Availability-and-Whats-New) |
+| Data Exposed                                | March 17, 2015     | [Java SDK for DocumentDB](https://channel9.msdn.com/Shows/Data-Exposed/Java-SDK-for-DocumentDB) |
+| #DevHangout                                 | March 11, 2015     | [DocumentDB, la base de datos NoSql de Microsoft Azure](https://www.youtube.com/watch?v=8Ud3jB8KOBA) |
+| Data Architecture Virtual Chapter PASS      | February 25, 2015  | [Introduction to DocumentDB](https://www.youtube.com/watch?v=7BQYdFUkz6s) |
+
 
 ### Online classes
 
