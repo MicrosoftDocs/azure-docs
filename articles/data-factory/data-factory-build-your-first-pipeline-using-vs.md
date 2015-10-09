@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article" 
-	ms.date="10/06/2015"
+	ms.date="10/09/2015"
 	ms.author="spelluru"/>
 
 # Build your first Azure Data Factory pipeline using Visual Studio
@@ -40,14 +40,14 @@ This article does not provide a conceptual overview of the Azure Data Factory se
 ### Pre-requisites
 
 You must have the following installed on your computer: 
-- Visual Studio 2013
-- Download Azure SDK for Visual Studio 2013. Navigate to [Azure Download Page](http://azure.microsoft.com/downloads/) and click **VS 2013 install** in the **.NET** section.
-- Update the "Visual Studio Tools For Azure Data Factory" to latest version by going to Visual Studio 2013 --> Tools --> Updates --> Visual Studio Gallery and clicking "Update" on "Visual Studio Tools for Azure Data Factory" plug-in entry there.
+- Visual Studio 2013 or Visual Studio 2015
+- Download Azure SDK for Visual Studio 2013 or Visual Studio 2015. Navigate to [Azure Download Page](http://azure.microsoft.com/downloads/) and click **VS 2013** or **VS 2015** in the **.NET** section.
+- Update **Visual Studio Tools For Azure Data Factory** to latest version by using **Tools** -> **Updates** -> **Visual Studio Gallery** and clicking **Update" on "Visual Studio Tools for Azure Data Factory** plug-in entry there. You can also find the latest plugins here: [VS 2013](https://visualstudiogallery.msdn.microsoft.com/754d998c-8f92-4aa7-835b-e89c8c954aa5) or [VS 2015](https://visualstudiogallery.msdn.microsoft.com/371a4cf9-0093-40fa-b7dd-be3c74f49005).
 
 
 ### Create the Visual Studio project 
-1. Launch **Visual Studio 2013**. Click **File**, point to **New**, and click **Project**. You should see the **New Project** dialog box.  
-2. In the **New Project** dialog, select the **DataFactory** template, and click **Empty Data Factory Project**. If you don't see the DataFactory template, close Visual Studio, install Azure SDK for Visual Studio 2013, and reopen Visual Studio.  
+1. Launch **Visual Studio 2013** or **Visual Studio 2015**. Click **File**, point to **New**, and click **Project**. You should see the **New Project** dialog box.  
+2. In the **New Project** dialog, select the **DataFactory** template, and click **Empty Data Factory Project**.   
 
 	![New project dialog box](./media/data-factory-build-your-first-pipeline-using-vs/new-project-dialog.png)
 
