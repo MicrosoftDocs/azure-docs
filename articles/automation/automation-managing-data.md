@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Azure Automation administration"
-   description="This article contains multiple topics for administering an Azure Automation environment.  Currently includes Data Retention and Backing up Azure Automation."
+   pageTitle="Managing Azure Automation data"
+   description="This article contains multiple topics for managing an Azure Automation environment.  Currently includes Data Retention and Backing up Azure Automation Disaster Recovery in Azure Automation."
    services="automation"
    documentationCenter=""
    authors="bwren"
@@ -12,12 +12,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/01/2015"
+   ms.date="10/08/2015"
    ms.author="bwren;sngun" />
 
-# Azure Automation administration
+# Managing Azure Automation data
 
-This article contains multiple topics for administering an Azure Automation environment.
+This article contains multiple topics for managing an Azure Automation environment.
 
 ## Data retention
 
@@ -63,6 +63,7 @@ You cannot export certificates from Azure Automation.  You must ensure that any 
 ##Geo-replication in Azure Automation
 
 Azure Automation supports geo-replication. With geo-replication, Azure Automation keeps your data durable in two regions. While creating an Automation Account in the Azure portal, you choose a region where it should be created which is the primary region. The region where your data is geo-replicated is referred to as the secondary region. Primary and secondary regions talk to each other to geo-replicate the updates made to the Automation Account. As secondary region stores a copy of information, if there is a failover of an Automation Account from primary region to the secondary, all your Automation Account information would still be available in the secondary region.
+
 Geo-replication is built in to Automation Accounts and offered at no additional cost. You don’t have control to choose the secondary region, it’s automatically determined based on where you choose your primary region.
 
  
