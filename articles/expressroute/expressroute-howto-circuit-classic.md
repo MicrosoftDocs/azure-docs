@@ -13,14 +13,14 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/22/2015"
+   ms.date="10/06/2015"
    ms.author="cherylmc"/>
 
 # Create and modify an ExpressRoute circuit
 
 This article walks you through the steps to create an ExpressRoute circuit using PowerShell cmdlets and the classic deployment model. The steps below will also show you how to check the status, update, or delete and deprovision an ExpressRoute circuit. 
 
->[AZURE.IMPORTANT] It's important to know that Azure currently works with two deployment models: Resource Manager, and classic. Before you begin your configuration, make sure that you understand the deployment models and tools. For information about the deployment models, see [Azure deployment models](../azure-classic-rm.md)
+>[AZURE.IMPORTANT] It's important to know that Azure currently works with two deployment models: Resource Manager, and classic. Before you begin your configuration, make sure that you understand the deployment models and tools. For information about the deployment models, see [Azure deployment models](../azure-classic-rm.md).
 
 ## Configuration prerequisites
 
@@ -153,21 +153,21 @@ This article walks you through the steps to create an ExpressRoute circuit using
 
 	When you create a new ExpressRoute circuit, the circuit will be the following state:
 	
-		**ServiceProviderProvisioningState :** NotProvisioned
+		ServiceProviderProvisioningState : NotProvisioned
 		
-		**Status                           :** Enabled
+		Status                           : Enabled
 
-	The ServiceProviderProvisioningState provides information on the current state of provisioning on the service provider side and the Status provides the state on the Microsoft side. An expressRoute circuit must be in the following state for you to be able to use it.
+	The *ServiceProviderProvisioningState* provides information on the current state of provisioning on the service provider side and the Status provides the state on the Microsoft side. An ExpressRoute circuit must be in the following state for you to be able to use it.
 
-		**ServiceProviderProvisioningState :** Provisioned
+		ServiceProviderProvisioningState : Provisioned
 		
-		**Status                           :** Enabled
+		Status                           : Enabled
 
 	The circuit will go to the following state when the connectivity provider is in the process of enabling it for you. 
 
-		**ServiceProviderProvisioningState :** Provisioned
+		ServiceProviderProvisioningState : Provisioned
 		
-		**Status                           :** Enabled
+		Status                           : Enabled
 
 
 
@@ -243,7 +243,7 @@ You can modify certain properties of an ExpressRoute circuit without impacting c
 You can do the following: 
 
 - Enable / disable ExpressRoute premium add-on for your ExpressRoute circuit without any downtime.
-- Increase the bandwidth of your ExpressRoute circuitwithout any downtime.
+- Increase the bandwidth of your ExpressRoute circuit without any downtime.
 
 Refer to the [ExpressRoute FAQ](expressroute-faqs.md) page for more information on limits and limitations. 
 
@@ -276,8 +276,8 @@ You can disable the ExpressRoute premium add-on for your existing circuit using 
 		ServiceKey                       : *********************************
 		ServiceProviderName              : equinix
 		ServiceProviderProvisioningState : Provisioned
-		Sku                              : Premium
-		Status                           : Standard
+		Sku                              : Standard
+		Status                           : Enabled
 
 The premium add-on is now disabled for your circuit. 
 
@@ -321,5 +321,5 @@ If the service provider has deprovisioned the circuit (the service provider prov
 
 ## Next steps
 
-- [Configure ExpressRoute Routing (manage circuit peerings)](expressroute-howto-routing-classic.md)
-- [Link virtual networks to an ExpressRoute circuit](expresssroute-howto-linkvnet-classic.md) 
+- [Configure routing](expressroute-howto-routing-classic.md)
+- [Link a VNet to an ExpressRoute circuit](expresssroute-howto-linkvnet-classic.md) 

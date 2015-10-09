@@ -13,21 +13,20 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/30/2015" 
+	ms.date="10/02/2015" 
 	ms.author="sdanie"/>
 
 # Introduction to the Azure Redis Cache Premium tier
 Azure Redis Cache is a distributed, managed cache that helps you build highly scalable and responsive applications by providing super-fast access to your data. 
 
-The new Premium-tier is an Enterprise ready tier which includes all the Standard-tier features and more, such as better performance, bigger workloads, disaster recovery, and enhanced security. Additional features include:
+The new Premium-tier is an Enterprise ready tier which includes all the Standard-tier features and more, such as better performance, bigger workloads, disaster recovery, and enhanced security. Continue reading to learn more about the additional features of the Premium cache tier.
 
+## Better performance compared to Standard or Basic tier
 **Better performance over Standard or Basic tier.** Caches in the Premium tier are deployed on hardware which has faster processors and gives better performance compared to the Basic or Standard Tier. Premium tier Caches have higher throughput and lower latencies. 
 
 **Throughput for the same sized Cache is higher in Premium as compared to Standard tier.** Eg. For a 53 GB Cache, throughput of P4 (Premium) is 250K requests per second as compared to 150K for C6 (Standard).
 
 Please see the [Azure Redis Cache FAQ](cache-faq.md#what-redis-cache-offering-and-size-should-i-use) for more details about size, throughput, and bandwidth with premium caches.
-
->[AZURE.NOTE] The Azure Redis Cache Premium tier is currently in preview.
 
 ## Redis data persistence
 The Premium tier allows you to persist the cache data in an Azure Storage account. In a Basic/Standard cache all the data is stored only in memory. In case of underlying infrastructure issues there can be potential data loss. We recommend using the Redis data persistence feature in the Premium tier to increase resiliency against data loss. Azure Redis Cache offers RDB and AOF (coming soon) options in [Redis persistence](http://redis.io/topics/persistence). 

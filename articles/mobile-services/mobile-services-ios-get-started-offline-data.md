@@ -263,7 +263,6 @@ To synchronize the local store with the server, you used `MSSyncTable.pullWithQu
 
 
 [Get started with Mobile Services]: mobile-services-ios-get-started.md
-[Get started with data]: mobile-services-ios-get-started-data.md
 [Handling Conflicts with Offline Support for Mobile Services]:  mobile-services-ios-handling-conflicts-offline-data.md
 [Soft Delete]: mobile-services-using-soft-delete.md
 
