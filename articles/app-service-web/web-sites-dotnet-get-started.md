@@ -41,7 +41,7 @@ You'll learn:
 * How to deploy a web project to an App Service web app by using Visual Studio.
 * How to use the [Azure portal](/overview/preview-portal/) to monitor and manage your web app.
 
-> [AZURE.NOTE] This tutorial doesn't show how to write code for ASP.NET MVC 5. For that, see [Getting Started with ASP.NET MVC 5](http://www.asp.net/mvc/overview/getting-started/introduction/getting-started) and [Getting Started with Entity Framework 6 Code First using MVC 5](http://www.asp.net/mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application) on the [ASP.NET](http://asp.net/) site. For an MVC 5 tutorial that shows how to authenticate users and deploy to Azure App Service and Azure SQL Database, see [Deploy a secure ASP.NET MVC app with membership, OAuth, and SQL Database to an Azure web app](/develop/net/tutorials/web-site-with-sql-database/).
+This is a quick and simple tutorial that doesn't show how to customize the web project that you create. For an introduction to ASP.NET MVC 5 web application development, see [Getting Started with ASP.NET MVC 5](http://www.asp.net/mvc/overview/getting-started/introduction/getting-started) on the [ASP.NET](http://asp.net/) site. For links to other articles that go into more depth about web applications in Azure App Service, see the [Next steps](#next-steps) section.
 
 ##<a name="video"></a>Sign up for Microsoft Azure
 
@@ -236,7 +236,7 @@ In this tutorial, you've seen how to create a simple web application and deploy 
 
 * How to add database and authorization functionality
 
-	For a tutorial that shows how to access a database and restrict some application functions to authorized users, see [Deploy a secure ASP.NET MVC app with membership, OAuth, and SQL Database to an Azure web app](/develop/net/tutorials/web-site-with-sql-database/).
+	For a tutorial that shows how to access a database and restrict some application functions to authorized users, see [Deploy a secure ASP.NET MVC app with membership, OAuth, and SQL Database to an Azure web app](/develop/net/tutorials/web-site-with-sql-database/). That tutorial assumes some knowledge of MVC 5; if you are new to MVC 5, see [Getting Started with ASP.NET MVC 5](http://www.asp.net/mvc/overview/getting-started/introduction/getting-started).
 
 * Other ways to deploy a web project
 
