@@ -11,7 +11,7 @@
    ms.service="sql-database"
    ms.devlang="na"
    ms.topic="get-started-article"
-   ms.tgt_pltfrm="may be required"
+   ms.tgt_pltfrm="na"
    ms.workload="data-management"
    ms.date="09/14/2015"
    ms.author="sidneyh"/>
