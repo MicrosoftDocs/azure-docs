@@ -3,8 +3,8 @@
    description="Describes common problems deploying resources created using Resource Manager deployment model, and shows how to detect and fix these issues."
    services="azure-resource-manager,virtual-machines"
    documentationCenter=""
-   authors="squillace"
-   manager="timlt"
+   authors="tfitzmac"
+   manager="wpickett"
    editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-multiple"
    ms.workload="infrastructure"
-   ms.date="09/18/2015"
-   ms.author="rasquill"/>
+   ms.date="10/08/2015"
+   ms.author="tomfitz;rasquill"/>
 
 # Troubleshooting resource group deployments in Azure
 
@@ -28,14 +28,14 @@ This topic shows how to retrieve troubleshooting information through Azure Power
 
 Solutions to common errors that users encounter are also described in this topic.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)] This article covers troubleshooting resource groups created with the Resource Manager deployment model. You can't create resource groups with the classic deployment model.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] classic deployment model. You can't create resource groups with the classic deployment model.
 
 
 ## Troubleshoot with PowerShell
 
-You can get the overall status of a deployment with the **Get-AzureResourceGroupDeployment** command. In the example below the deployment has failed.
+You can get the overall status of a deployment with the **Get-AzureRmResourceGroupDeployment** command (or **Get-AzureResourceGroupDeployment** for versions of PowerShell prior to 1.0 Preview). In the example below the deployment has failed.
 
-    PS C:\> Get-AzureResourceGroupDeployment -ResourceGroupName ExampleGroup -DeploymentName ExampleDeployment
+    PS C:\> Get-AzureRmResourceGroupDeployment -ResourceGroupName ExampleGroup -DeploymentName ExampleDeployment
 
     DeploymentName    : ExampleDeployment
     ResourceGroupName : ExampleGroup
@@ -54,9 +54,9 @@ You can get the overall status of a deployment with the **Get-AzureResourceGroup
 
     Outputs           :
 
-Each deployment is usually made up of multiple operations, with each operation representing a step in the deployment process. To discover what went wrong with a deployment, you usually need to see details about the deployment operations. You can see the status of the operations with **Get-AzureResourceGroupDeploymentOperation**.
+Each deployment is usually made up of multiple operations, with each operation representing a step in the deployment process. To discover what went wrong with a deployment, you usually need to see details about the deployment operations. You can see the status of the operations with **Get-AzureRmResourceGroupDeploymentOperation** (or **Get-AzureResourceGroupDeploymentOperation** for versions of PowerShell prior to 1.0 Preview).
 
-    PS C:\> Get-AzureResourceGroupDeploymentOperation -DeploymentName ExampleDeployment -ResourceGroupName ExampleGroup
+    PS C:\> Get-AzureRmResourceGroupDeploymentOperation -DeploymentName ExampleDeployment -ResourceGroupName ExampleGroup
     Id                        OperationId          Properties         
     -----------               ----------           -------------
     /subscriptions/xxxxx...   347A111792B648D8     @{ProvisioningState=Failed; Timestam...
@@ -66,7 +66,7 @@ It shows two operations in the deployment. One has a provisioning state of Faile
 
 You can retrieve the status message with the following command:
 
-    PS C:\> (Get-AzureResourceGroupDeploymentOperation -DeploymentName ExampleDeployment -ResourceGroupName ExampleGroup).Properties.StatusMessage
+    PS C:\> (Get-AzureRmResourceGroupDeploymentOperation -DeploymentName ExampleDeployment -ResourceGroupName ExampleGroup).Properties.StatusMessage
 
     Code       : Conflict
     Message    : Website with given name mysite already exists.
@@ -159,7 +159,7 @@ The Resource Manager REST API provides URIs for retrieving information about a d
 
 Your deployment will fail if your Azure credentials have expired or if you have not signed into your Azure account. Your credentials can expire if your session is open too long. You can refresh your credentials with the following options:
 
-- For PowerShell, use the **Add-AzureAccount** cmdlet. The credentials in a publish settings file are not sufficient for the cmdlets in the AzureResourceManager module.
+- For PowerShell, use the **Login-AzureRmAccount** cmdlet (or **Add-AzureAccount** for versions of PowerShell prior to 1.0 Preview). The credentials in a publish settings file are not sufficient for the cmdlets in the AzureResourceManager module.
 - For Azure CLI, use **azure login**. For help with authentication errors, make sure that you have [configured the Azure CLI correctly](../xplat-cli-connect.md).
 
 ## Checking the format of templates and parameters
@@ -168,9 +168,9 @@ If your template or parameter file is not in the correct format, your deployment
 
 ### PowerShell
 
-For PowerShell, use **Test-AzureResourceGroupTemplate**.
+For PowerShell, use **Test-AzureRmResourceGroupDeployment** (or **Test-AzureResourceGroupTemplate** for versions of PowerShell prior to 1.0 Preview).
 
-    PS C:\> Test-AzureResourceGroupTemplate -ResourceGroupName ExampleGroup -TemplateFile c:\Azure\Templates\azuredeploy.json -TemplateParameterFile c:\Azure\Templates\azuredeploy.parameters.json
+    PS C:\> Test-AzureRmResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateFile c:\Azure\Templates\azuredeploy.json -TemplateParameterFile c:\Azure\Templates\azuredeploy.parameters.json
     VERBOSE: 12:55:32 PM - Template is valid.
 
 ### Azure CLI
@@ -200,7 +200,7 @@ When specifying a location for a resource, you must use one of the locations tha
 
 ### PowerShell
 
-For PowerShell, you can see the full list of resources and locations with the **Get-AzureLocation** command.
+For versions of PowerShell prior to 1.0 Preview, you can see the full list of resources and locations with the **Get-AzureLocation** command.
 
     PS C:\> Get-AzureLocation
 
@@ -220,6 +220,33 @@ You can specify a particular type of resource with:
     Microsoft.Compute/virtualMachines                           East US, East US 2, West US, Central US, South Central US,
                                                                 North Europe, West Europe, East Asia, Southeast Asia,
                                                                 Japan East, Japan West
+
+For PowerShell 1.0 Preview, use **Get-AzureRmResourceProvider** to get supported locations.
+
+    PS C:\> Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web
+
+    ProviderNamespace RegistrationState ResourceTypes               Locations
+    ----------------- ----------------- -------------               ---------
+    Microsoft.Web     Registered        {sites/extensions}          {Brazil South, ...
+    Microsoft.Web     Registered        {sites/slots/extensions}    {Brazil South, ...
+    Microsoft.Web     Registered        {sites/instances}           {Brazil South, ...
+    ...
+
+You can specify a particular type of resource with:
+
+    PS C:\> ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).Locations
+
+    Brazil South
+    East Asia
+    East US
+    Japan East
+    Japan West
+    North Central US
+    North Europe
+    South Central US
+    West Europe
+    West US
+    Southeast Asia
 
 ### Azure CLI
 
@@ -241,7 +268,7 @@ For some resources, most notably Storage accounts, database servers, and web sit
 
 ## Authentication, subscription, role, and quota issues
 
-There can be one or more of several issues preventing successful deployment involving authentication and authorization and Azure Active Directory. Regardless how you manage your Azure resource groups, the identity you use to sign in to your account must be either Azure Active Directory objects or Service Principals, which are also called work or school accounts, or organizational Ids.
+There can be one or more of several issues preventing successful deployment involving authentication and authorization and Azure Active Directory. Regardless how you manage your Azure resource groups, the identity you use to sign in to your account must be an Azure Active Directory object. This identity can be a work or school account that you created or was assigned to you, or you can create a Service Principal for applications.
 
 But Azure Active Directory enables you or your administrator to control which identities can access what resources with a great degree of precision. If your deployments are failing, examine the requests themselves for signs of authentication or authorization issues, and examine the deployment logs for your resource group. You might find that while you have permissions for some resources, you do not have permissions for others. Using the Azure CLI, you can examine Azure Active Directory tenants and users using the `azure ad` commands. (For a complete list of Azure CLI commands, see [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Manager](azure-cli-arm-commands.md).)
 
@@ -292,7 +319,7 @@ Resources are managed by resource providers, and an account or subscription migh
 
 ### PowerShell
 
-To get a list of resource providers and your registration status, use **Get-AzureProvider**.
+To get a list of resource providers and your registration status, use **Get-AzureProvider** for versions of PowerShell prior to 1.0 Preview.
 
     PS C:\> Get-AzureProvider
 
@@ -303,7 +330,19 @@ To get a list of resource providers and your registration status, use **Get-Azur
     microsoft.cache                         Registered                              {Redis, checkNameAvailability, opera...
     ...
 
-To register for a provider, use **Register-AzureProvider**.
+To register a provider, use **Register-AzureProvider**.
+
+For Powershell 1.0 Preview, use **Get-AzureRmResourceProvider**.
+
+    PS C:\> Get-AzureRmResourceProvider -ListAvailable
+
+    ProviderNamespace               RegistrationState ResourceTypes
+    -----------------               ----------------- -------------
+    Microsoft.ApiManagement         Unregistered      {service, validateServiceName, checkServiceNameAvailability}
+    Microsoft.AppService            Registered        {apiapps, appIdentities, gateways, deploymenttemplates...}
+    Microsoft.Batch                 Registered        {batchAccounts}
+
+To register a provider, use **Register-AzureRmResourceProvider**.
 
 ### Azure CLI
 

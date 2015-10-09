@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Manage Azure VMs using Resource Manager and PowerShell | Microsoft Azure"
+	pageTitle="Manage Azure Resource Manager VMs | Microsoft Azure"
 	description="Manage virtual machines using Azure Resource Manager, templates, and PowerShell."
 	services="virtual-machines"
 	documentationCenter=""
