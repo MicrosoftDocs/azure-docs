@@ -17,7 +17,7 @@
 	ms.author="inhenk"/>
 
 # Azure AD and Applications: Assigning Users to an Application
-Delete me. Before you can assign users and groups to an application, you must require user assignment.  To learn how to require user assignment please see the [Requring User Assignment](active-directory-applications-guiding-developers-requiring-user-assignment.md) article.
+Before you can assign users and groups to an application, you must require user assignment.  To learn how to require user assignment please see the [Requring User Assignment](active-directory-applications-guiding-developers-requiring-user-assignment.md) article.
 
 ## Assigning Users to an Application
 1. Log in to the Azure portal with an administrator account.
