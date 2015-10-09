@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="Azure"
    ms.workload="na"
-   ms.date="10/07/2015"
+   ms.date="10/09/2015"
    ms.author="hascipio; v-divte"/>
 
 # Guide to create a virtual machine image for the Azure Marketplace
@@ -213,7 +213,7 @@ More information about RDP can be found on MSDN in the article [Connect to an Az
 
 **Configure a VM and create your SKU**
 
-Once the OS VHD is downloaded, use Hyper­V and configure a VM to begin creating your SKU. Detailed steps can be found at the following TechNet link: [Install Hyper­V and Configure a VM](http://technet.microsoft.com/en-us/library/hh846766.aspx).
+Once the OS VHD is downloaded, use Hyper­V and configure a VM to begin creating your SKU. Detailed steps can be found at the following TechNet link: [Install Hyper­V and Configure a VM](http://technet.microsoft.com/library/hh846766.aspx).
 
 ### 3.4 Choose the correct VHD size
 The Windows OS VHD in your VM Image should be created as a 128 GB fixed format VHD.  
@@ -243,12 +243,12 @@ All images in the Azure Marketplace must be re-usable in a generic fashion. In o
 Once your VHD(s), generalized OS VHD and zero or more data disk VHDs, are uploaded to an Azure storage account, you can register them as a user VM Image with which to test. Note, since your OS VHD is generalized, you cannot directly deploy the VM by providing the VHD URL.
 
 To learn more about VM Images review the following blog posts:
-- [VM Image](https://azure.microsoft.com/en-us/blog/vm-image-blog-post/)
-- [VM Image PowerShell How To](https://azure.microsoft.com/en-us/blog/vm-image-powershell-how-to-blog-post/)
-- [About VM Images in Azure](https://msdn.microsoft.com/en-us/library/azure/dn790290.aspx)
+- [VM Image](https://azure.microsoft.com/blog/vm-image-blog-post/)
+- [VM Image PowerShell How To](https://azure.microsoft.com/blog/vm-image-powershell-how-to-blog-post/)
+- [About VM Images in Azure](https://msdn.microsoft.com/library/azure/dn790290.aspx)
 
 ### 4.1 Create a User VM Image
-To create a user VM Image from your SKU to begin deploying multiple VMs, you need to use the [Create VM Image Rest API](http://msdn.microsoft.com/en-us/library/azure/dn775054.aspx) to register VHDs as a VM Image.
+To create a user VM Image from your SKU to begin deploying multiple VMs, you need to use the [Create VM Image Rest API](http://msdn.microsoft.com/library/azure/dn775054.aspx) to register VHDs as a VM Image.
 
 You can use the Invoke-WebRequest cmdlet to create a VM Image from PowerShell. The below PowerShell script shows how to create a VM Image with an OS disk and one data disk. Note, the PowerShell session should already be set up and a subscription set.
 
@@ -617,26 +617,26 @@ Once you submit your virtual machine image SKU(s) for certification, you can mov
 [link-pushstaging]:marketplace-publishing-push-to-staging.md
 [link-github-waagent]:https://github.com/Azure/WALinuxAgent
 [link-azure-codeplex]:https://azurestorageexplorer.codeplex.com/
-[link-azure-2]:https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-2/
-[link-azure-1]:https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/
-[link-msft-download]:http://www.microsoft.com/en-us/download/details.aspx?id=44299
-[link-technet-3]:https://technet.microsoft.com/en-us/library/hh846766.aspx
-[link-technet-2]:https://msdn.microsoft.com/en-us/library/dn495261.aspx
+[link-azure-2]:../storage/storage-dotnet-shared-access-signature-part-2/
+[link-azure-1]:../storage/storage-dotnet-shared-access-signature-part-1/
+[link-msft-download]:http://www.microsoft.com/download/details.aspx?id=44299
+[link-technet-3]:https://technet.microsoft.com/library/hh846766.aspx
+[link-technet-2]:https://msdn.microsoft.com/library/dn495261.aspx
 [link-azure-portal]:https://portal.azure.com
 [link-pubportal]:https://publish.windowsazure.com
-[link-sql-2014-ent]:http://azure.microsoft.com/en-us/marketplace/partners/microsoft/sqlserver2014enterprisewindowsserver2012r2/
-[link-sql-2014-std]:http://azure.microsoft.com/en-us/marketplace/partners/microsoft/sqlserver2014standardwindowsserver2012r2/
-[link-sql-2014-web]:http://azure.microsoft.com/en-us/marketplace/partners/microsoft/sqlserver2014webwindowsserver2012r2/
-[link-sql-2012-ent]:http://azure.microsoft.com/en-us/marketplace/partners/microsoft/sqlserver2012sp2enterprisewindowsserver2012/
-[link-sql-2012-std]:http://azure.microsoft.com/en-us/marketplace/partners/microsoft/sqlserver2012sp2standardwindowsserver2012/
-[link-sql-2012-web]:http://azure.microsoft.com/en-us/marketplace/partners/microsoft/sqlserver2012sp2webwindowsserver2012/
-[link-datactr-2012-r2]:http://azure.microsoft.com/en-us/marketplace/partners/microsoft/windowsserver2012r2datacenter/
-[link-datactr-2012]:http://azure.microsoft.com/en-us/marketplace/partners/microsoft/windowsserver2012datacenter/
-[link-datactr-2008-r2]:http://azure.microsoft.com/en-us/marketplace/partners/microsoft/windowsserver2008r2sp1/
+[link-sql-2014-ent]:http://azure.microsoft.com/marketplace/partners/microsoft/sqlserver2014enterprisewindowsserver2012r2/
+[link-sql-2014-std]:http://azure.microsoft.com/marketplace/partners/microsoft/sqlserver2014standardwindowsserver2012r2/
+[link-sql-2014-web]:http://azure.microsoft.com/marketplace/partners/microsoft/sqlserver2014webwindowsserver2012r2/
+[link-sql-2012-ent]:http://azure.microsoft.com/marketplace/partners/microsoft/sqlserver2012sp2enterprisewindowsserver2012/
+[link-sql-2012-std]:http://azure.microsoft.com/marketplace/partners/microsoft/sqlserver2012sp2standardwindowsserver2012/
+[link-sql-2012-web]:http://azure.microsoft.com/marketplace/partners/microsoft/sqlserver2012sp2webwindowsserver2012/
+[link-datactr-2012-r2]:http://azure.microsoft.com/marketplace/partners/microsoft/windowsserver2012r2datacenter/
+[link-datactr-2012]:http://azure.microsoft.com/marketplace/partners/microsoft/windowsserver2012datacenter/
+[link-datactr-2008-r2]:http://azure.microsoft.com/marketplace/partners/microsoft/windowsserver2008r2sp1/
 [link-acct-creation]:marketplace-publishing-accounts-creation-registration.md
-[link-azure-vm-1]:https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-create-upload-vhd/
-[link-technet-1]:https://technet.microsoft.com/en-us/library/hh848454.aspx
-[link-azure-vm-2]:https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-agent-user-guide/
+[link-azure-vm-1]:../virtual-machines/virtual-machines-linux-create-upload-vhd/
+[link-technet-1]:https://technet.microsoft.com/library/hh848454.aspx
+[link-azure-vm-2]:../virtual-machines/virtual-machines-linux-agent-user-guide/
 [link-openssl]:https://www.openssl.org/
-[link-intsvc]:http://www.microsoft.com/en-us/download/details.aspx?id=41554
+[link-intsvc]:http://www.microsoft.com/download/details.aspx?id=41554
 [link-python]:https://www.python.org/
