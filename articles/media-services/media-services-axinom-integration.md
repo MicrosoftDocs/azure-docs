@@ -57,7 +57,7 @@ Please see [JWT Token Generation](media-services-axinom-integration.md#jwt-token
 ##Azure Media Player Preparation
 
 AMP v1.4.0 supports playback of AMS content that is dynamically packaged with both PlayReady and Widevine DRM.
-If Widevine license server does not require token authentication, there is nothing additional you need to do to test a DASH content protected by Widevine. For an example, the AMP team provides a simple sample [http://amp.azure.net/libs/amp/latest/samples/dynamic_multiDRM_PlayReadyWidevine_notoken.html](http://amp.azure.net/libs/amp/latest/samples/dynamic_multiDRM_PlayReadyWidevine_notoken.html), where you can see it working in Edge and IE11 with PlayReady and Chrome with Widevine.
+If Widevine license server does not require token authentication, there is nothing additional you need to do to test a DASH content protected by Widevine. For an example, the AMP team provides a simple [sample](http://amp.azure.net/libs/amp/latest/samples/dynamic_multiDRM_PlayReadyWidevine_notoken.html), where you can see it working in Edge and IE11 with PlayReady and Chrome with Widevine.
 The Widevine license server provided by Axinom requires JWT token authentication. The JWT token needs to be submitted with license request through an HTTP header “X-AxDRM-Message”. For this purpose, you need to add the following javascript in the web page hosting AMP before setting the source:
 
 	<script>AzureHtml5JS.KeySystem.WidevineCustomAuthorizationHeader = "X-AxDRM-Message"</script>
@@ -190,7 +190,15 @@ With latest addition of Widevine support in both Azure Media Services Content Pr
 The following parameters are required in the mini-solution leveraging Axinom Widevine license server. Except for key ID, the rest of parameters are provided by Axinom based on their Widevine server setup.
 
 
-![Parameters](./media/media-services-axinom-integration/media-services-axinom2.png)
+Parameter|How it is used
+---|---
+Communication key ID|Must be included as value of the claim "com_key_id" in JWT token (see [this](media-services-axinom-integration.md#jwt-token-generation) section).
+Communication key|Must be used as the signing key of JWT token (see [this](media-services-axinom-integration.md#jwt-token-generation) section).
+Key seed|Must be used to generate content key with any given content key ID (see  [this](media-services-axinom-integration.md#content-protection) section).
+Widevine License acquisition URL|Must be used in configuring asset delivery policy for DASH streaming (see  [this](media-services-axinom-integration.md#content-protection) section ).
+Content Key ID|Must be included as part of the value of Entitlement Message claim of JWT token (see [this](media-services-axinom-integration.md#jwt-token-generation) section). 
+
+
 
 
 ##Media Services learning paths
