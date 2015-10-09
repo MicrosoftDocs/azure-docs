@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Guide to creating a Multi-Virtual Machine Image Solution Template for the  Marketplace | Microsoft Azure"
+   pageTitle="Guide to creating a Solution Template for the  Marketplace | Microsoft Azure"
    description="Detailed instructions of how to create, certify and deploy a Multi-VM Image Solution Template for purchase on the Azure Marketplace."
    services="marketplace-publishing"
    documentationCenter=""
@@ -13,7 +13,7 @@
       ms.topic="article"
       ms.tgt_pltfrm="na"
       ms.workload="na"
-      ms.date="10/08/2015"
+      ms.date="10/09/2015"
       ms.author="hascipio; v-divte" />
 
 # Guide to create a Solution Template for Azure Marketplace
@@ -35,7 +35,7 @@ A solution template is a 'parent' to all of its topologies. You can define multi
 - Create a Topology – **“Topology Identifier”** is typically the name of the Topology for the solution template. The Topology Identifier will be used in the URL as shown below:
 
   Azure Marketplace :
-http://azure.microsoft.com/en-us/marketplace/partners/{PublisherNamespace}/{OfferIdentifier}{TopologyIdentifier}
+http://azure.microsoft.com/marketplace/partners/{PublisherNamespace}/{OfferIdentifier}{TopologyIdentifier}
 
   Azure Preview Portal :
 https://ms.portal.azure.com/#gallery/{PublisherNamespace}.{OfferIdentifier}{TopologyIdentifier}
@@ -56,6 +56,7 @@ You can also validate the create experience without the actual deployment for th
 3. Replace the highlighted text with the location (encoded URL) of the *createUiDefinition.json* which needs validation.
 
   https://portal.azure.com/?clientOptimizations=false#blade/Microsoft_Azure_Compute/CreateMultiVmWizardBlade/internal_bladeCallId/anything/internal_bladeCallerParams/ **{"initialData":{},"providerConfig":{"createUiDefinition":"http://yoururltocreateuidefinition.jsonURLencoded"}}**
+  
 4. Copy and paste the URL in any browser and view the end user experience of your createUiDefinition.json file.
 
 > [AZURE.TIP] While your developers work on creating the Solution Template topologies and getting them certified, the Business/Marketing/Legal department of your company can work on the marketing and legal content.
@@ -67,19 +68,19 @@ Now that you created your Solution Template and submitted the zip file with the 
 - [Getting Started: How to publish an offer to the Azure Marketplace](marketplace-publishing-getting-started.md)
 
 **VM Images**
-- [About Virtual Machine Images in Azure](https://msdn.microsoft.com/en-us/library/azure/dn790290.aspx)
+- [About Virtual Machine Images in Azure](https://msdn.microsoft.com/library/azure/dn790290.aspx)
 
 **VM Extensions**
-- [VM Agent and VM Extensions Overview](https://msdn.microsoft.com/en-us/library/azure/dn832621.aspx)
-- [Azure VM Extensions and Features](https://msdn.microsoft.com/en-us/library/azure/dn606311.aspx)
+- [VM Agent and VM Extensions Overview](https://msdn.microsoft.com/library/azure/dn832621.aspx)
+- [Azure VM Extensions and Features](https://msdn.microsoft.com/library/azure/dn606311.aspx)
 
 **ARM**
-- [Authoring Azure ARM Templates](https://azure.microsoft.com/en-us/documentation/articles/resource-group-authoring-templates/)
+- [Authoring Azure ARM Templates](../resource-group-authoring-templates/)
 - [Simple ARM Template Examples](https://github.com/rjmax/ArmExamples)
 
 **Storage Account Throttles**
 - [How to Monitor for Storage Account Throttling](http://blogs.msdn.com/b/mast/archive/2014/08/02/how-to-monitor-for-storage-account-throttling.aspx)
-- [Premium Storage](https://azure.microsoft.com/en-us/documentation/articles/storage-premium-storage-preview-portal/#scalability-and-performance-targets-when-using-premium-storage)
+- [Premium Storage](../storage/storage-premium-storage-preview-portal/#scalability-and-performance-targets-when-using-premium-storage)
 
 [img-pubportal-menu-sol-templ]:media/marketplace-publishing-solution-template-creation/pubportal-menu-solution-templates.png
 [img-pubportal-sol-templ-new]:media/marketplace-publishing-solution-template-creation/pubportal-solution-template-new.png

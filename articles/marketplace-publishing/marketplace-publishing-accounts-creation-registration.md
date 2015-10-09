@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/08/2015"
+   ms.date="10/09/2015"
    ms.author="hascipio"/>
 
 # Creating a Microsoft seller account
@@ -28,6 +28,7 @@ The address that forms the user name should be on your domain and controlled by 
   - Add your onboarding team to the DL
   - DL must be live to receive confirmation email
   - This needs to be completed in your internal systems. For e.g. marketplace@yourcompany.com
+
   > [AZURE.WARNING] Words like "Azure", "Microsoft" are not supported for MSA account registration. Avoid using these words to complete the account creation and registration process.
 
 2. Open a new Chrome Incognito or IE InPrivate browsing session to ensure that you’re not logged into an existing account
@@ -44,6 +45,7 @@ The address that forms the user name should be on your domain and controlled by 
   ![drawing][img-email]
 
 6. You’re now ready to use the new MSA in the Seller Dashboard.
+
 > [AZURE.IMPORTANT] Using the DL allows multiple people to receive email notifications that are important reporting of payout information, and also insures that ownership of the MSA can be transferred and isn’t tied to a single individual.
 
 ## 2. Create your Seller Dashboard account
@@ -130,8 +132,7 @@ If you are planning to publish only free offers, then you can skip to section 3,
 8. Enter your tax details, and then click **NEXT**.
 
 9. Click **Submit**.
-
-> [AZURE.NOTE] If you are not ready to submit your tax information for validation yet, you can click **Save** or **Save and Exit**. It takes some time to validate the tax information, so we recommend that you submit it for validation as soon as possible.
+  If you are not ready to submit your tax information for validation yet, you can click **Save** or **Save and Exit**. It takes some time to validate the tax information, so we recommend that you submit it for validation as soon as possible.
 
 > [AZURE.WARNING] You will not be able to push to production your commercial offers without completing the tax and bank account information in your Seller Dashboard account.
 
@@ -147,6 +148,7 @@ The Azure Publishing Portal is used to publish and manage your offer(s). Think o
   > [AZURE.IMPORTANT] The participation policies are mentioned [here](http://azure.microsoft.com/support/legal/marketplace/participation-policies/).
 
 **"Sell-from" Countries**
+
 > [AZURE.WARNING]
 In order to sell your services on Microsoft Azure Marketplace, your registered entity needs to be from one of the approved “sell from” countries. This restriction is for payout and taxation reasons. We are actively looking to expand this list of countries in the near future, so please stay tuned. For the complete list, please see section 1b of the document at link http://go.microsoft.com/fwlink/?LinkID=526833&clcid=0x409.
 

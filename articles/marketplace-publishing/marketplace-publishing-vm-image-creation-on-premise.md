@@ -117,7 +117,7 @@ Then you can create a container within that storage account, using the [NewAzure
 > [AZURE.NOTE] Those commands assume that the current storage account context has already been set in PowerShell.   Refer to [Setting up Azure PowerShell](marketplace-publishing-powershell-setup.md) for more details on PowerShell setup.
  
 ### Creating a storage account using the Command-line Tool for Mac and Linux
-From [Linux Command-line tool](http://azure.microsoft.com/en-us/documentation/articles/command-line-tools/), create a storage account as follows:
+From [Linux Command-line tool](../virtual-machines/command-line-tools/), create a storage account as follows:
 
         azure storage account create mystorageaccount --location "West US"
 
@@ -134,7 +134,7 @@ Use the [Add-AzureVhd](http://msdn.microsoft.com/en-us/library/dn495173.aspx) cm
         Add-AzureVhd –Destination “http://mystorageaccount.blob.core.windows.net/containername/vmsku.vhd” -LocalFilePath “C:\Users\Administrator\Desktop\vmsku.vhd”
 
 ### Upload a VHD using the Command-line Tool for Mac and Linux
-With the [Linux Command-line tool](http://azure.microsoft.com/en-us/documentation/articles/command-line-tools/), use the following:
+With the [Linux Command-line tool](../virtual-machines/command-line-tools/), use the following:
         azure vm image create <image name> --location <Location of the data center> --OS Linux <LocationOfLocalVHD>
 
 ## See Also

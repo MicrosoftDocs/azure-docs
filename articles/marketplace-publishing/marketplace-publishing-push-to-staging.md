@@ -77,6 +77,7 @@ In the Legal tab, provide a link to your policies/terms of use. Enter or paste t
 | Migration (aka conversion or upgrade/downgrade) of Plan | Concept of a user moving from their current plan to another acceptable plan; defined by partner |
 
 **Pricing models available by offer type**
+
 > [AZURE.IMPORTANT] Availability of certain pricing models vary by offer type. See the table below.
 
 | | Base Only | Consumption Only | Base + Consumption |
@@ -93,7 +94,7 @@ In the Legal tab, provide a link to your policies/terms of use. Enter or paste t
 3.	If your SKU is BYOL, select the checkbox for ‘Externally-licensed (BYOL) SKU availability.
 4.	If your SKU is hourly, enter the pricing for your software. SKUs without pricing will not be available for purchase or use.
 
-> [AZURE.NOTE] If you have both BYOL as well as Hourly SKUs, then make sure both the requisites are covered: BYOL checkbox and price values for Hourly.
+  > [AZURE.NOTE] If you have both BYOL as well as Hourly SKUs, then make sure both the requisites are covered: BYOL checkbox and price values for Hourly.
 
 5.	A pricing wizard will open; proceed through this to complete your pricing, including pricing for other countries, if you choose to allow purchases from outside your specified market.
 6.	Some countries are ISV Remit countries. To sell in an ISV Remit country, you must be able to charge and collect tax on your SKUs, and should calculate and pay tax to the government of the country. Microsoft is not in a position to provide legal or tax guidance.  See section ““Sell-to” countries of the Offer” under Introduction of this document for more information on “Sell To Countries”.
