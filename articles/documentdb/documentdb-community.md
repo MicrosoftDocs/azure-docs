@@ -30,7 +30,7 @@ Let us promote your project! Show us the awesome project you're working on with 
 ### documentdb-lumenize
 
 
-| By Larry Maccherone |     |
+| by Larry Maccherone |     |
 | ------------------- | --- |
 | [![Larry Maccherone](./media/documentdb-community/git-maccherone.png)](https://github.com/lmaccherone) | Aggregations (Group-by, Pivot-table, and N-dimensional Cube) and Time Series Transformations as Stored Procedures in DocumentDB.<br/><br/>Check it out on [Github](https://github.com/lmaccherone/documentdb-lumenize) and [npm](https://www.npmjs.com/package/lumenize). |
 
