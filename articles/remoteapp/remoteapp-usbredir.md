@@ -42,7 +42,7 @@ The first option is to use the [System-Defined Device Setup Classes Available to
 
 A better way, or the second option, is to follow these steps to find the specific device class GUID:
 
-1. Open the Device Manager, locate the device that will be redirected and right click, and open its properties. (for example: Integrated Camera).
+1. Open the Device Manager, locate the device that will be redirected and right-click it, and then open the properties. (For example, the integrated camera.).
 ![Open the Device Manager](./media/remoteapp-usbredir/ra-devicemanager.png)
 2. On the **Details** tab, choose the property **Class Guid**. The value which appears is the Class GUID for that type of device.
 ![Camera properties](./media/remoteapp-usbredir/ra-classguid.png)
