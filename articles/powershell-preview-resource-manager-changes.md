@@ -35,10 +35,9 @@ For audit logs, we had numerous cmdlets to get logs at various scopes; such as, 
 you often had to run a combination of the log cmdlets. This experience was not optimal. We have consolidated this functionality into a single cmdlet which can be called at different scopes through 
 the use of parameters. Now, you can call Get-AzureRmLog with the appropriate parameter to specify the scope.
 
-##Deep-Get vs. Find
+##Changes to Get cmdlet for Resource and Resource Groups
 
-We have incorporated changes to the Get-AzureRmResource and Get-AzureRmResourceGroup cmdlets so that these cmdlets now query directly against the resource provider. We have added new cmdlets for querying against the 
-cache. If you want to find a resource group having a particular tag, you can use the new Find-AzureRmResourceGroup cmdlet. With this change, parameters for querying against tags 
+We have incorporated changes to the Get-AzureRmResource and Get-AzureRmResourceGroup cmdlets so that these cmdlets now query directly against only the resource provider. We have decoupled the functionality to query against the cache into new cmdlets called Find-AzureRmResource*. If you want to find a resource group having a particular tag, you can use the new Find-AzureRmResourceGroup cmdlet. With this change, parameters for querying against tags 
 have been removed from the Get-AzureRmResource and Get-AzureRmResourceGroup cmdlets.
 
 ##Removed Test-AzureResource and Test-AzureResourceGroup
