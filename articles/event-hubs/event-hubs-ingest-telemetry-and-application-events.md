@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Ingest Telemetry and Application Events at Scale" 
+	pageTitle="Ingest Telemetry and Application Events at Scale | Microsoft Azure" 
 	description="Learn how to ingest telemetry and application events at scale across your business solutions." 
 	services="event-hubs,service-bus" 
 	documentationCenter=".net" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="07/02/2015" 
+	ms.date="10/06/2015" 
 	ms.author="sethm"/>
 
 # Ingest telemetry and application events at scale
@@ -29,9 +29,10 @@ Modern applications create a large amount of information while they are running.
  
 ## Build
 - [Event Hubs REST API reference](https://msdn.microsoft.com/library/azure/dn790674.aspx)
-- [Event Hubs code samples](https://code.msdn.microsoft.com/windowsazure/site/search?query=event%20hubs&f%5B0%5D.Value=event%20hubs&f%5B0%5D.Type=SearchText&ac=5)
+- [Event Hubs code samples](https://code.msdn.microsoft.com/site/search?query=event%20hubs&f%5B0%5D.Value=event%20hubs&f%5B0%5D.Type=SearchText&ac=5)
  
 ## Related services
-- [Azure Storage](http://azure.microsoft.com/documentation/services/storage/)
-- [HDInsight](http://azure.microsoft.com/documentation/services/hdinsight/)
+- [Service Bus](http://azure.microsoft.com/services/service-bus/)
+- [Azure Storage](http://azure.microsoft.com/services/storage/)
+- [HDInsight](http://azure.microsoft.com/services/hdinsight/)
  
