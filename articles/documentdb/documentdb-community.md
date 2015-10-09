@@ -29,19 +29,17 @@ Let us promote your project! Show us the awesome project you're working on with 
 
 ### documentdb-lumenize
 
-*by Larry Maccherone*
+| By Larry Maccherone |   |
+| ------------------- | - |
+| [![Larry Maccherone](./media/documentdb-community/git-maccherone.png)](https://github.com/lmaccherone) | Aggregations (Group-by, Pivot-table, and N-dimensional Cube) and Time Series Transformations as Stored Procedures in DocumentDB.<br/><br/>Check it out on [Github](https://github.com/lmaccherone/documentdb-lumenize) and [npm](https://www.npmjs.com/package/lumenize).|
 
-Aggregations (Group-by, Pivot-table, and N-dimensional Cube) and Time Series Transformations as Stored Procedures in DocumentDB.
-
-Check it out on [Github](https://github.com/lmaccherone/documentdb-lumenize) and [npm](https://www.npmjs.com/package/lumenize).
 
 ### DocumentDB Studio
 
-*by Ming Liu*
+| by Ming Liu   |   |
+| ------------- | - |
+| [![Ming Liu](./media/documentdb-community/git-liu.png)](https://github.com/mingaliu) | A client management viewer/explorer for Microsoft Azure DocumentDB service.<br/><br/>Check it out on [Github](https://github.com/mingaliu/DocumentDBStudio).|
 
-A client management viewer/explorer for Microsoft Azure DocumentDB service.
-
-Check it out on [Github](https://github.com/mingaliu/DocumentDBStudio).
 
 <br/><br/>
 
@@ -180,13 +178,10 @@ We host office hours on IRC every Friday from 11am to 12pm pacific time.
 
 ## Contact the team
 
-<hr/>
+|                                                          |     |
+| -------------------------------------------------------- | --- |
+|![Team](./media/documentdb-community/documentdb-team.png) | Do you need technical help? Have questions? Wondering whether NoSQL is a good fit for you?<br/><br/>You can [schedule a 1:1 chat directly with the DocumentDB engineering team](http://www.askdocdb.com/).<br/><br/>You can also shoot us an [e-mail](mailto:askdocdb@microsoft.com) or tweet us at [@DocumentDB](https://twitter.com/DocumentDB). |
 
-Do you need technical help? Have questions? Wondering whether NoSQL is a good fit for you?
-
-You can [schedule a 1:1 chat directly with the DocumentDB engineering team](http://www.askdocdb.com/).
-
-You can also shoot us an [e-mail](mailto:askdocdb@microsoft.com) or tweet us at [@DocumentDB](https://twitter.com/DocumentDB).
 
 <br/><br/>
 
