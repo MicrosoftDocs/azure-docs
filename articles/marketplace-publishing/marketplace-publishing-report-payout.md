@@ -32,21 +32,21 @@ Some of your payout reports will be available at https://publish.windowsazure.co
 
 The payout report for each quarter records all transactions occurring within that quarter.
 
-+ If you are looking for ledger entries relating to a particular quarter, select the payout report for that quarter from the dropdown; e.g., if you are interested in ledger entries for Apr – Jun 15, select Apr – Jun 15 from the dropdown;
-+ If you are details of payouts relating to a particular quarter, select the payout report for the subsequent quarter; e.g., if you are interested in the payouts for Apr – Jun 15, these amounts will appear in the subsequent Jul – Sep 15 payout report.
+- If you are looking for ledger entries relating to a particular quarter, select the payout report for that quarter from the dropdown; e.g., if you are interested in ledger entries for Apr – Jun 15, select Apr – Jun 15 from the dropdown;
+- If you are looking for details of payouts relating to a particular quarter, select the payout report for the subsequent quarter; e.g., if you are interested in the payouts for Apr – Jun 15, these amounts will appear in the subsequent Jul – Sep 15 payout report.
 
 ![readingpayoutreport][2]
 
-+ Financial Summary Panel shows balances, credits and debits by category
-+ Ledger Entries show individual transactions
+- Financial Summary Panel shows balances, credits and debits by category
+- Ledger Entries show individual transactions
 
 ## Definitions
 
-1. Financial summary panel:
+**Financial summary panel:**
 
 ![financialdefinitions][3]
 
-2. Ledger entries:
+**Ledger entries:**
 
 ![ledgerdefinitions][4]
 

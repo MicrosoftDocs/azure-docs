@@ -2,7 +2,7 @@
    pageTitle="How to troubleshoot common publisher support issues | Microsoft Azure"
    description="Understand how to troubleshoot common publisher support issues and how to get support"
    services="marketplace-publishing"
-   documentationCenter="name"
+   documentationCenter="na"
    authors="v-jeana"
    manager="lakoch"
    editor=""/>
@@ -19,18 +19,13 @@
 # How to troubleshoot common Azure Marketplace publisher issues
 This article will explain how to resolve or get support for some common Marketplace scenarios, as follows:
 
-+ Request a credit or refund
-+ Validate a customer
-+ Update a publisher profile
-+ Add or delete Administrators from a publisher account
-
 ## Credits and refunds
 
 In some circumstances, you may need to request a credit or a refund on behalf of a customer. Microsoft Support can help ensure your customer’s credit and/ or refund requests are considered and a response provided back to you in due course*.
 
 The following shows you to how request a credit or refund on behalf of a customer.
 
-* [AZURE.NOTE] If a Customer or Azure Reseller contacts us to request a refund or credit, we will apply the same policies that we use for our provision of Azure services. If our policies indicate that a refund or credit is due, we will proactively issue, and you authorize us to issue on your behalf, a refund or credit to the Customer or Azure Reseller, as applicable. If our policies do not indicate that a refund or credit is due, we may invite the Customer or Azure Reseller to contact you directly.*
+* [AZURE.NOTE] If a Customer or Azure Reseller contacts us to request a refund or credit, we will apply the same policies that we use for our provision of Azure services. If our policies indicate that a refund or credit is due, we will proactively issue, and you authorize us to issue on your behalf, a refund or credit to the Customer or Azure Reseller, as applicable. If our policies do not indicate that a refund or credit is due, we may invite the Customer or Azure Reseller to contact you directly.
 
   ![1_RequestRefund][1]
 
@@ -41,18 +36,17 @@ The following shows you to how request a credit or refund on behalf of a custome
 
   ![2_RequestRefund][2]
 
-  1. Provide contact information
-  2. Complete 'What is the issue', and provide the following:
+5. Provide contact information
+6. Complete 'What is the issue', and provide the following:
 
-    + The subscription ID of the impacted customer
-    + The customer name
-    + How much the credit should be for
-    + The period of the credit
-    + The bill date of that period
-    + The reason for the credit
+    - The subscription ID of the impacted customer
+    - The customer name
+    - How much the credit should be for
+    - The period of the credit
+    - The bill date of that period
+    - The reason for the credit
 
 You will then receive an acknowledgement email that we have received the information you have provided within 24 hours. Once a decision has been made in relation to your request, you will be informed of the outcome.
-
 
 ## Customer subscription validation
 
@@ -60,38 +54,37 @@ In some circumstances, you may need to validate the subscription details for one
 
   ![subscriptionvalidation][3]
 
-  + A customer may contact you requesting support
-  + You may not know how to validate that customer is a genuine customer for that offer
-  + You can log a support request to request customer subscription validation
-  + You will need to provide a customer subscription ID and billing address
-  + Microsoft will contact you to provide confirmation that the billing address and subscription ID are known to us
+- A customer may contact you requesting support
+- You may not know how to validate that customer is a genuine customer for that offer
+- You can log a support request to request customer subscription validation
+- You will need to provide a customer subscription ID and billing address
+- Microsoft will contact you to provide confirmation that the billing address and subscription ID are known to us
 
 
 ## How do I update my Publisher Profile?
 
 If you wish to update your Publisher Profile, this can be done via the Seller Dashboard
 
-Sign-in to Seller Dashboard
+**1. Sign-in to Seller Dashboard**
 
-+ Open a new Chrome Incognito or IE InPrivate browsing session to ensure that you’re not logged into a personal account
-+ Go to http://sellerdashboard.microsoft.com
+- Open a new Chrome Incognito or IE InPrivate browsing session to ensure that you’re not logged into a personal account
+- Go to http://sellerdashboard.microsoft.com
 
 ![inprivate][4]
 
-Sign-in with your company registration Microsoft Account (MSA) (i.e. AzureStore@yourcompany.com)
+**2. Sign-in with your company registration Microsoft Account (MSA)** (i.e. AzureStore@yourcompany.com)
 
 ![signin][5]
 
-Complete the “Help us protect your account” verification
+**3. Complete the “Help us protect your account” verification**
 
-+ You can use your phone number or email address to verify
+* [AZURE.NOTE] You can use your phone number or email address to verify
 
 ![protectacct][6]
 
-Navidate to Account Details and Company Details
+**4. Navigate to Account Details and Company Details**
 
 ![acctdetails][7]
-
 
 ## How do I add or delete an Administrator from my Publishing account?
 
@@ -107,14 +100,15 @@ Navidate to Account Details and Company Details
 
 For the following issues, please log an issue at https://portal.azure.com
 
-+ How do I report a billing error?
-+ I have noticed discrepencies in my billing or usage statements
-+ I need help understanding my billing statement
+- How do I report a billing error?
+- I have noticed discrepencies in my billing or usage statements
+- I need help understanding my billing statement
+
 
 For the following issues, please create a support request at http://go.microsoft.com/fwlink/?LinkId=272975
 
-+ I have issues managing webservices
-+ How do I change the MSA associated with my Seller account?
+- I have issues managing webservices
+- How do I change the MSA associated with my Seller account?
 
 
 [1]: ./media/marketplace-publishing-support-common-issues/requestrefund1.png

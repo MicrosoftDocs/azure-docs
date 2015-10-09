@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Understanding Azure Marketplace Seller Insights Reporting | Microsoft Azure"
-   description="As a seller on the Azure Marketplace, understand your Seller Insights Report"
+   pageTitle="Understanding Azure Marketplace usage-based reports and Seller Insights Reporting | Microsoft Azure"
+   description="As a seller on the Azure Marketplace, understand your usage-based report, also known as a Seller Insights Report"
    services="Azure Marketplace"
    documentationCenter="na"
    authors="v-jeana"
@@ -34,36 +34,33 @@ All VM and usage-based billing developer services publishers will receive monthl
 
 ## How to read your Seller Insights Report
 
-**Legal Disclaimers:**
-
-![legal][1]
-
-Please read the legal disclaimers carefully. If you have any questions or feedback, click the link at the bottom of the disclaimers to be routed to the Marketplace support page.
 
 **Orders by SKU and License Type:  Marketplace Orders tab**
 
 ![readingreportbyorders][2]
 
-+ Slicers will help filter your report by each element.
-+ There is a chart showing monthly orders by Azure license type – each bar shows total orders for that month, broken out by Azure license type.
-+ There is a chart showing monthly orders by SKU – each bar shows total monthly orders for all SKU’s, broken out by SKU
-+ There is a chart for monthly trend of orders by Azure license type and Marketplace license type.
-+ There are pie charts of orders by Azure license type and Marketplace license type.
-+ There is a table showing total monthly orders by Marketplace license type, monthly totals, and cumulative totals for all months.
+- Slicers will help filter your report by each element.
+- There is a chart showing monthly orders by Azure license type – each bar shows total orders for that month, broken out by Azure license type.
+- There is a chart showing monthly orders by SKU – each bar shows total monthly orders for all SKU’s, broken out by SKU
+- There is a chart for monthly trend of orders by Azure license type and Marketplace license type.
+- There are pie charts of orders by Azure license type and Marketplace license type.
+- There is a table showing total monthly orders by Marketplace license type, monthly totals, and cumulative totals for all months.
+
 
 **Orders by SKU and License Type:  Marketplace Usage tab**
 
 ![readingreportbyusage][3]
 
-+ Slicers will help filter your report by each element.
-+ You should select either normalized VM usage or raw usage.
-+ There is a chart showing monthly usage by Azure license type – each bar shows total usage for that month, broken out by Azure license type.
-+ There is a chart showing monthly usage by SKU – each bar shows total monthly usage for all SKU’s, broken out by SKU.
-+ There is a chart for monthly trend of usage by Azure license type and Marketplace license type.
-+ There are pie charts of usage by Azure license type and Marketplace license type.
-+ There is a table showing total monthly usage by Marketplace license type, monthly totals, and cumulative totals for all months.
+- Slicers will help filter your report by each element.
+- You should select either normalized VM usage or raw usage.
+- There is a chart showing monthly usage by Azure license type – each bar shows total usage for that month, broken out by Azure license type.
+- There is a chart showing monthly usage by SKU – each bar shows total monthly usage for all SKU’s, broken out by SKU.
+- There is a chart for monthly trend of usage by Azure license type and Marketplace license type.
+- There are pie charts of usage by Azure license type and Marketplace license type.
+- There is a table showing total monthly usage by Marketplace license type, monthly totals, and cumulative totals for all months.
 
-** Order Data and Usage Data tabs**
+
+**Order Data and Usage Data tabs**
 
 These tabs provide you with the detailed data used to generate the report.
 
@@ -72,23 +69,35 @@ These tabs provide you with the detailed data used to generate the report.
 ![usagedata][5]
 
 
+
 **Usage by SKU and License Type:  Customers tab**
 
 ![customerstab][6]
 
-+ Please note the confidentiality clause
-+ Contains list of customers by SKU, profile information, transaction date, and opt-in for promotional contact.
-+ Report includes order count by SKU, and totals.
+- Please note the confidentiality clause
+- Contains list of customers by SKU, profile information, transaction date, and opt-in for promotional contact.
+- Report includes order count by SKU, and totals.
+
+
+**Legal Disclaimers:**
+
+![legal][1]
+
+Please read the legal disclaimers carefully. If you have any questions or feedback, click the link at the bottom of the disclaimers to be routed to the Marketplace support page.
 
 ## How do I request a password reminder?
 
+**Navigate to https://publish.windowsazure.com/ and sign-in with your Microsoft account credentials**
 ![passwordreminder][7]
 
-Navigate to https://publish.windowsazure.com/ and sign-in with your Microsoft account credentials
-
+**Select the Publishers tab**
 ![selectpublisherstab][8]
 
-Select the Publishers tab
+
+**Find the Publisher ID in the URL**
+- Use this ID as the password to open your Seller Insights Excel file.
+We will continue to use this as your password until further notice.
+- In addition, we recommend using MS Office 2013 with Windows as your workbook reader of choice.  Some users have reported problems using MS Office for Mac.
 
 ![publisherid][9]
 
@@ -102,11 +111,11 @@ If you have a question relating to Reports and Insights, please contact our supp
 
 1. Navigate to the Support pages at https://publish.windowsazure.com/
 2. Select ‘Reports and Insights’
-
-  ![sellerinsightsquestions][10]
-
 3. Select ‘Questions related to reports’
 4. Click 'Start request'
+![sellerinsightsquestions][10]
+
+
 
 [1]: ./media/marketplace-publishing-report-seller-insights/legal.png
 [2]: ./media/marketplace-publishing-report-seller-insights/readingreportbyorders.png
