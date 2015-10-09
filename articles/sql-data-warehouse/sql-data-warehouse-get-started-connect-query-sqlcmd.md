@@ -28,10 +28,11 @@ This walkthrough shows you how to connect and query an Azure SQL Data Warehouse 
 + Connect to a database that contains the AdventureWorksDW sample database
 + Execute a query against the sample database  
 
-## Prerequisites##
+## Prerequisites
+
 + [sqlcmd.exe](https://msdn.microsoft.com/library/azure/ms162773.aspx) - To download sqlcmd.exe, please see the [Microsoft Command Line Utilities 11 for SQL Server](http://go.microsoft.com/fwlink/?LinkId=321501).
 
-## Get your fully qualified Azure SQL server name##
+## Get your fully qualified Azure SQL server name
 
 To connect to your database you need the full name  of the server (***servername**.database.windows.net*) that contains the database you want to connect to.
 
@@ -58,7 +59,7 @@ Therefore, to connect to a SQL Data Warehouse instance, you would enter the foll
 C:\>sqlcmd -S <Server Name>.database.windows.net -d <Database> -U <User> -P <Password> -I
 ```
 
-## Run sample queries ##
+## Run sample queries
 
 After connection, you can issue any supported Transact-SQL statements against the instance. 
 
@@ -72,7 +73,8 @@ C:\>sqlcmd -S <Server Name>.database.windows.net -d <Database> -U <User> -P <Pas
 For additional information about sqlcmd refer to the [sqlcmd documentation](https://msdn.microsoft.com/library/azure/ms162773.aspx).
 
 
-## Next steps ##
+## Next steps
+
 Now that you can connect and query, try [connecting with PowerBI][].
 
 [connecting with PowerBI]: ./sql-data-warehouse-integrate-power-bi.md
