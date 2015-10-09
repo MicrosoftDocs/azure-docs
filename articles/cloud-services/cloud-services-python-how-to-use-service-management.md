@@ -13,12 +13,15 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="python"
 	ms.topic="article"
-	ms.date="03/11/2015"
+	ms.date="10/09/2015"
 	ms.author="huvalo"/>
 
 # How to use Service Management from Python
 
 This guide will show you how to programmatically perform common service management tasks from Python. The **ServiceManagementService** class in the [Azure SDK for Python][download-SDK-Python] supports programmatic access to much of the service management-related functionality that is available in the [management portal][management-portal] (such as **creating, updating, and deleting cloud services, deployments, data management services and virtual machines**). This functionality can be useful in building applications that need programmatic access to service management.
+
+> [AZURE.NOTE] Service Management API is being replaced with the new Resource Management API, currently available in a preview release.  See the [Azure Resource Management documentation](http://azure-sdk-for-python.readthedocs.org/en/latest/resourcemanagement.html) for details on using the new Resource Management API from Python.
+
 
 ## <a name="WhatIs"> </a>What is Service Management
 The Service Management API provides programmatic access to much of the service management functionality available through the [management portal][management-portal]. The Azure SDK for Python allows you to manage your cloud services and storage accounts.
@@ -404,7 +407,7 @@ To learn more about how to capture a Windows Virtual Machine, see [How to Captur
 
 ## <a name="What's Next"> </a>Next Steps
 
-Now that you've learned the basics of service management, you can access the [Complete API reference documentation for the Azure Python SDK](http://azure-sdk-for-python.readthedocs.org/en/documentation/index.html) and perform complex tasks easily to manage your python application.
+Now that you've learned the basics of service management, you can access the [Complete API reference documentation for the Azure Python SDK](http://azure-sdk-for-python.readthedocs.org/) and perform complex tasks easily to manage your python application.
 
 For more information, see the [Python Developer Center](/develop/python/).
 
@@ -443,4 +446,4 @@ For more information, see the [Python Developer Center](/develop/python/).
 [Azure Service Configuration Schema (.cscfg)]: http://msdn.microsoft.com/library/windowsazure/ee758710.aspx
 [Cloud Services]: http://msdn.microsoft.com/library/windowsazure/jj155995.aspx
 [Virtual Machines]: http://msdn.microsoft.com/library/windowsazure/jj156003.aspx
- 
+
