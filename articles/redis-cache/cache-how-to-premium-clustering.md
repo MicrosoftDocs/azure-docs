@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/07/2015" 
+	ms.date="10/09/2015" 
 	ms.author="sdanie"/>
 
 # How to configure Redis clustering for a Premium Azure Redis Cache

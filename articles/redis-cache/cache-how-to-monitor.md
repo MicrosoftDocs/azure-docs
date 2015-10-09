@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/06/2015" 
+	ms.date="10/00/2015" 
 	ms.author="sdanie"/>
 
 # How to monitor Azure Redis Cache
@@ -143,6 +143,33 @@ To view the metrics for a specific time period on a chart, hover the mouse over 
 
 ![View chart details][redis-cache-view-chart-details]
 
+## How to monitor a premium cache with clustering
+
+Premium caches that have [clustering](cache-how-to-premium-clustering.md) enabled can have up to 10 shards. Each shard has its own metrics, and these metrics are aggregated to provide metrics for the cache as a whole. Each metric includes two versions. One metric measures performance for the entire cache and a second version of the metric that includes `(Shard 0-9)` in the name measures performance for a single shard in a cache. For example if a cache has 3 shards, `Cache Hits` is the total amount of hits for the entire cache, and `Cache Hits (Shard 2)` is just the hits for that shard of the cache.
+
+Each monitoring chart displays the top level metrics for the cache along with the metrics for each cache shard.
+
+![Monitor][redis-cache-premium-monitor]
+
+Hovering the mouse over the data points displays the details for that point in time. 
+
+![Monitor][redis-cache-premium-point-summary]
+
+The larger values are typically the aggregate values for the cache while the smaller values are the individual metrics for the shard. Note that in this example there are three shards and the cache hits are distributed evenly across the shards.
+
+![Monitor][redis-cache-premium-point-shard]
+
+To see more detail click the chart to view an expanded view on the **Metric** blade.
+
+![Monitor][redis-cache-premium-chart-detail]
+
+By default each chart includes the top-level cache performance counter as well as the performance counters for the individual shards. You can customize these on the **Edit Chart** blade.
+
+![Monitor][redis-cache-premium-edit]
+
+For more information on the available performance counters, see [Available metrics and reporting intervals](#available-metrics-and-reporting-intervals).
+
+
 ## Operations and alerts
 
 The **Operations** section has **Events** and **Alert rules** sections.
@@ -221,4 +248,16 @@ For more information about alerts in Azure, see [Receive alert notifications](..
 [redis-cache-alert-rules]: ./media/cache-how-to-monitor/redis-cache-alert-rules.png
 
 [redis-cache-add-alert]: ./media/cache-how-to-monitor/redis-cache-add-alert.png
+
+[redis-cache-premium-monitor]: ./media/cache-how-to-monitor/redis-cache-premium-monitor.png
+
+[redis-cache-premium-edit]: ./media/cache-how-to-monitor/redis-cache-premium-edit.png
+
+[redis-cache-premium-chart-detail]: ./media/cache-how-to-monitor/redis-cache-premium-chart-detail.png
+
+[redis-cache-premium-point-summary]: ./media/cache-how-to-monitor/redis-cache-premium-point-summary.png
+
+[redis-cache-premium-point-shard]: ./media/cache-how-to-monitor/redis-cache-premium-point-shard.png
+
+
 

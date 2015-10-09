@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="cache-redis"
    ms.workload="tbd"
-   ms.date="10/07/2015"
+   ms.date="10/09/2015"
    ms.author="sdanie" />
 
 # How to configure Azure Redis Cache
