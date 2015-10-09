@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/05/2015"
+	ms.date="10/09/2015"
 	ms.author="markusvi"/>
 
 
@@ -100,13 +100,21 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
 2. On the **How would you like users to sign on to O.C. Tanner - AppreciateHub** page, select **Azure AD Single Sign-On**, and then click **Next**.<br><br>
 ![Azure AD Single Sign-On][7]
 
-3. On the **Configure App Settings** dialog page, perform the following steps: <br><br>![Configure App Settings][8]
+3. On the **Configure App Settings** dialog page, perform the following steps:
+<br><br>![Configure App Settings][8]
  
-     3.1 in the **Sign On URL** textbox, type your URL used by your users to sign on to your O.C. Tanner - AppreciateHub application.
+     a. Open the metadata file using the following link: [https://fed.appreciatehub.com/fed/sp/metadata](https://fed.appreciatehub.com/fed/sp/metadata).
 
-     > [AZURE.NOTE] If you don't know what the right value is, contact the O.C. Tanner - AppreciateHub' support team via xyz.
+     b. Locate the **md:AssertionConsumerService** node. 
 
-     3.2. Click **Next**.
+     c. Copy the value of the **Location** attribute. 
+        <br><br>![Configure App Settings][12]
+     
+     d. In the **Sign On URL** textbox, past the value you have obtained in the previous step.
+
+     > [AZURE.NOTE] If you are expiriencing issues getting the Reply URL from the metadata file, contact the O.C. Tanner - AppreciateHub support team via [sso@octanner.com](mailto:sso@octanner.com).
+
+     e. Click **Next**.
  
 4. On the **Configure single sign-on at O.C. Tanner - AppreciateHub** page, click **Download metadata**, and then save the metadata file locally on your computer.<br><br>![What is Azure AD Connect][9]
 
@@ -136,22 +144,31 @@ In the Users list, select **Britta Simon**.<br><br>![Create Azure AD User][20]<b
 4. To open the **Add User** dialog, in the toolbar on the bottom, click **Add User**. <br>![Creating an Azure AD test user](./media/active-directory-saas-oc-tanner-tutorial/create_aaduser_04.png) 
 
 5. On the **Tell us about this user** dialog page, perform the following steps: <br>![Creating an Azure AD test user](./media/active-directory-saas-oc-tanner-tutorial/create_aaduser_05.png) 
-  1. As Type Of User, select New user in your organization.
-  2. In the User Name **textbox**, type **BrittaSimon**.
-  3. Click Next.
 
-6.  On the **User Profile** dialog page, perform the following steps: <br>![Creating an Azure AD test user](./media/active-directory-saas-oc-tanner-tutorial/create_aaduser_06.png) 
-  1. In the **First Name** textbox, type **Britta**.  
-  2. In the **Last Name** textbox, type, **Simon**.
-  3. In the **Display Name** textbox, type **Britta Simon**.
-  4. In the **Role** list, select **User**.
-  5. Click **Next**.
+    a. As Type Of User, select New user in your organization.
+
+    b. In the User Name **textbox**, type **BrittaSimon**.
+
+    c. Click **Next**.
+
+6.  On the **User Profile** dialog page, perform the following steps: <br>![Creating an Azure AD test user](./media/active-directory-saas-oc-tanner-tutorial/create_aaduser_06.png)
+ 
+    a. In the **First Name** textbox, type **Britta**.  
+
+    b. In the **Last Name** textbox, type, **Simon**.
+
+    c. In the **Display Name** textbox, type **Britta Simon**.
+
+    d. In the **Role** list, select **User**.
+    e. Click **Next**.
 
 7. On the **Get temporary password** dialog page, click **create**.<br>![Creating an Azure AD test user](./media/active-directory-saas-oc-tanner-tutorial/create_aaduser_07.png) 
  
 8. On the **Get temporary password** dialog page, perform the following steps:<br>![Creating an Azure AD test user](./media/active-directory-saas-oc-tanner-tutorial/create_aaduser_08.png) 
-  1. Write down the value of the **New Password**.
-  2. Click **Complete**.   
+  
+    a. Write down the value of the **New Password**.
+
+    b. Click **Complete**.   
 
   
  
@@ -161,7 +178,7 @@ The objective of this section is to create a user called Britta Simon in O.C. Ta
 
 **To create a user called Britta Simon in O.C. Tanner - AppreciateHub, perform the following steps:**
 
-Contact the O.C. Tanner - AppreciateHub support team and provide them with the following information...
+1. Ask your OC Tanner support team to create a user that has as nameID attribute the same value as the user name of Britta Simon in Azure AD.
 
 
 ### Assigning the Azure AD test user
@@ -209,6 +226,7 @@ When you click the O.C. Tanner - AppreciateHub tile in the Access Panel, you sho
 [9]: ./media/active-directory-saas-oc-tanner-tutorial/tutorial_octanner_04.png
 [10]: ./media/active-directory-saas-oc-tanner-tutorial/tutorial_octanner_05.png
 [11]: ./media/active-directory-saas-oc-tanner-tutorial/tutorial_octanner_06.png
+[12]: ./media/active-directory-saas-oc-tanner-tutorial/tutorial_octanner_08.png
 [20]: ./media/active-directory-saas-oc-tanner-tutorial/tutorial_general_100.png
 
 [200]: ./media/active-directory-saas-oc-tanner-tutorial/tutorial_general_200.png
