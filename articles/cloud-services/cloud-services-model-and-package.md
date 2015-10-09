@@ -269,11 +269,7 @@ Where the variables are defined as follows:
 
 I'm creating a cloud service package and I want to...
 
-<!--
-* [Configure Sizes for Cloud Services](!!!!!https://msdn.microsoft.com/library/azure/ee814754.aspx)  
-* [Configure Local Storage Resources](!!!!!https://azure.microsoft.com/documentation/articles/cloud-services-configure-local-storage-resources/)
--->
-
+* [Configure Local Storage Resources](cloud-services-configure-local-storage-resources.md)
 * [Setup remote desktop for a cloud service instance][remotedesktop]
 * [Deploy a Cloud Service project][deploy]
 
