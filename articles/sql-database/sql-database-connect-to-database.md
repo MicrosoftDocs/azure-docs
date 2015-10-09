@@ -1,23 +1,20 @@
 <properties
-	urlDisplayName="How to connect to an Azure SQL database using SQL Server Management Studio (SSMS)"
-	pageTitle="How to connect to an Azure SQL database using SSMS | Microsoft Azure"
-	metaKeywords=""
-	description="Learn how to connect to an Azure SQL database using SSMS."
-	metaCanonical=""
-	services="sql-database"
-	documentationCenter=""
-	title="How to connect to an Azure SQL database using SSMS"
-	authors="sidneyh" solutions=""
-	manager="jhubbard" editor="" />
-
+   pageTitle="How to connect to an Azure SQL database using SSMS | Microsoft Azure"
+   description="Learn how to connect to an Azure SQL database using SSMS."
+   services="sql-database"
+   documentationCenter=""
+   authors="sidneyh"
+   manager="jhubbard"
+   editor=""
+   tags=""/>
 <tags
-	ms.service="sql-database"
-	ms.workload="data-management"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="09/14/2015"
-	ms.author="sidneyh" />
+   ms.service="sql-database"
+   ms.devlang="na"
+   ms.topic="get-started-article"
+   ms.tgt_pltfrm="may be required"
+   ms.workload="data-management"
+   ms.date="09/14/2015"
+   ms.author="sidneyh"/>
 
 # Connect with SQL Server Management Studio (SSMS)
 
