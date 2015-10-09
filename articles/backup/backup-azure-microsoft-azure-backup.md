@@ -29,12 +29,14 @@ This article is about preparing your environment to back up workloads, so you ca
 
 And, you can manage the protection of various protected entities (servers and clients) from a single on-premises user interface.
 
+>[AZURE.NOTE] Microsoft Azure Backup server inherits the functionality of Data Protection Manager (DPM) for workload backup. You will find pointers to DPM documentation for some of these capabilities. However Microsoft Azure Backup Server does not provide protection on tape or integrate with System Center. 
+
 You can deploy Microsoft Azure Backup server as:
 
 - A physical standalone server.
-- A Hyper-V virtual machine - You can run DPM as a virtual machine hosted on an on-premises Hyper-V host server to back up on-premises data. For a list of considerations in this environment see [Install DPM as a virtual machine on an on-premises Hyper-V server](https://technet.microsoft.com/library/dn440941.aspx).
-- A Windows virtual machine in VMWare - You can deploy DPM to provide protection for Microsoft workloads running on Windows virtual machines in VMWare. In this scenario DPM can be deployed as a physical standalone server, as a Hyper-V virtual machine, or as a Windows virtual machine in VMWare.
-- An Azure virtual machine - You can run DPM as a virtual machine in Azure to back up cloud workloads running as Azure virtual machines. For information about this deployment see [Install DPM as an Azure virtual machine](https://technet.microsoft.com/library/hh758176.aspx).
+- A Hyper-V virtual machine - You can run Microsoft Azure Backup Server as a virtual machine hosted on an on-premises Hyper-V host server to back up on-premises data. For a list of considerations in this environment see [Install DPM as a virtual machine on an on-premises Hyper-V server](https://technet.microsoft.com/library/dn440941.aspx).
+- A Windows virtual machine in VMWare - You can deploy Microsoft Azure Backup Server to provide protection for Microsoft workloads running on Windows virtual machines in VMWare. In this scenario Microsoft Azure Backup Server can be deployed as a physical standalone server, as a Hyper-V virtual machine, or as a Windows virtual machine in VMWare.
+- An Azure virtual machine - You can run Microsoft Azure Backup Server as a virtual machine in Azure to back up cloud workloads running as Azure virtual machines. For information about this deployment see [Install DPM as an Azure virtual machine](https://technet.microsoft.com/library/hh758176.aspx).
 
 Also,
 
@@ -42,7 +44,7 @@ Also,
 - Microsoft Azure Backup server cannot be installed on a machine which has the SCDPM or SCDPM RA agent installed.
 - Microsoft Azure Backup server cannot be installed on a machine that has Microsoft Azure Backup agent installed and registered with an Azure Backup vault.
 
->[AZURE.NOTE] Microsoft Azure Backup server inherits the functionality of Data Protection Manager (DPM) for workload backup, however, it does not provide protection on tape or integrate with System Center.
+
 
 Once you select the server on which to install Microsoft Azure Backup, you need to:
 
@@ -64,7 +66,7 @@ For a smooth installation, ensure the following prerequisites are met before ins
 - Microsoft Azure Backup server must be domain joined.
 - Microsoft Azure Backup server must have .Net 3.5, .Net 4.0, .Net 3.5 SP1 features installed. See [more information regarding how to enable .Net Framework](https://technet.microsoft.com/library/dn482071.aspx) for additional information.
 - Microsoft Azure Backup server should have Windows Management Framework 4.0 installed. You can download it [here](http://www.microsoft.com/download/details.aspx?id=40855).
-- For the disk used as dedicated space for DPM data storage, the recommended storage pool size is 1.5 times the size of protected data. For more information, see the disks and storage section of [this topic](https://technet.microsoft.com/library/hh758176.aspx#DPM server).
+- For the disk used as dedicated space for Microsoft Azure Backup Server data storage, the recommended storage pool size is 1.5 times the size of protected data. For more information, see the disks and storage section of [this topic](https://technet.microsoft.com/library/hh758176.aspx#DPM server).
 
 Prepare Microsoft Azure Backup server to back up data by:
 
