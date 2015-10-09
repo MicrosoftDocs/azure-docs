@@ -54,4 +54,4 @@ the Get-AzureRmResourceProvider cmdlet.
 ##Policy Cmdlets
 
 We have added policy support to Azure Resource Manager. The PowerShell cmdlets to manage policies have been added in this release. For more details about policies, see 
-[Use Policy to manage resources and control access](https://azure.microsoft.com/documentation/articles/resource-manager-policy/). 
+[Use Policy to manage resources and control access](resource-manager-policy.md). 
