@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="09-28-2015"
+   ms.date="09/28/2015"
    ms.author="v-jeana@microsoft.com"/>
 
 # Accessing and understanding Publisher Payout Reports
