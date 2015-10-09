@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Deploy Azure Resources Using the Compute, Network, and Storage .NET Libraries"
-	description="Learn to use some of the available clients in the Compute, Storage, and Network .NET libraries to create and delete resources in Microsoft Azure"
+	pageTitle="Deploy Resources Using .NET Libraries | Microsoft Azure"
+	description="Learn to use the Compute, Storage, and Network .NET libraries to create and delete resources in Microsoft Azure using the Resource Manager."
 	services="virtual-machines,virtual-network,storage"
 	documentationCenter=""
 	authors="davidmu1"
@@ -19,7 +19,8 @@
 
 # Deploy Azure Resources Using the Compute, Network, and Storage .NET Libraries
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)] This article covers managing a resource with the Resource Manager deployment model.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] classic deployment model.
+
 
 This tutorial shows you how to use some of the available clients in the Compute, Storage, and Network .NET libraries to create and delete resources in Microsoft Azure. It also shows you how to authenticate the requests to Azure Resource Manager by using Azure Active Directory.
 
@@ -189,7 +190,7 @@ A storage account is needed to store the virtual hard disk file that is created 
 		CreateStorageAccount(credential);
 		Console.ReadLine();
 
-###Create a virtual network
+###Create networking configuration
 
 A virtual machine is most productive when it is added to a virtual network.
 

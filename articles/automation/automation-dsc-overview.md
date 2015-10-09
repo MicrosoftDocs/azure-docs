@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="powershell"
    ms.workload="TBD" 
-   ms.date="09/16/2015"
+   ms.date="09/24/2015"
    ms.author="coreyp"/>
 
 # Azure Automation DSC Overview #
@@ -107,9 +107,9 @@ A compilation job in Azure Automation DSC is an instance of compilation of a con
 
 Azure Automation DSC currently provides the following cmdlets in the [Azure Resource Manager PowerShell module](https://msdn.microsoft.com/library/mt244122.aspx) for management of compilation jobs:
 
--	`Get-AzureAutomationDscCompilationJob`
--	`Get-AzureAutomationDscCompilationJobOutput`
--	`Start-AzureAutomationDscCompilationJob`
+-	`Get-AzureRMAutomationDscCompilationJob`
+-	`Get-AzureRMAutomationDscCompilationJobOutput`
+-	`Start-AzureRMAutomationDscCompilationJob`
 
 ##Azure Automation DSC LifeCycle##
 Going from an empty automation account to a managed set of correctly configured nodes involves a set of processes for defining configurations, turning those configurations into node configurations, and onboarding nodes to Azure Automation DSC and to those node configurations. The following diagram illustrates the Azure Automation DSC lifecycle:
@@ -137,7 +137,7 @@ Going from an empty automation account to a managed set of correctly configured 
 
 - When onboarding an Azure VM for management with Azure Automation DSC using `Register-AzureAutomationDscNode`, `Set-AzureVMExtension`, or the Azure Automation DSC VM extension in the Azure preview portal, it could take up to an hour for the VM to show up as a DSC node in Azure Automation. This is due to the installation of Windows Management Framework 5.0 on the VM by the Azure VM DSC extension, which is required to onboard the VM to Azure Automation DSC.
 
-- Registering nodes involves nodes automatically negotiating a certificate to use for that specific node's authentication to Azure Automation DSC, post-registration. This certificate has an expiration of one year from creation, and currently the PS DSC pull protocol has no method for issuing a new certificate when that certificate is near expiration. For this reason, nodes will need to be reregistered with Azure Automation DSC after a year’s time, until this protocol is implemented in an upcoming version of WMF (hopefully less than a year from now).
+- After registering, each node automatically negotiates a unique certificate for authentication that expires after one year. At this time, the PowerShell DSC registration protocol cannot automatically renew certificates when they are nearing expiration, so you need to reregister the nodes after a year’s time. Before reregistering, ensure that each node is running Windows Management Framework 5.0 RTM. If a node’s authentication certificate expires, and the node is not reregistered, the node will be unable to communicate with Azure Automation and will be marked ‘Unresponsive.’ Reregistration is performed in the same way you registered the node initially. Reregistration performed 90 days or less from the certificate expiration time, or at any point after the certificate expiration time, will result in a new certificate being generated and used.
 
 ##Related Articles##
 

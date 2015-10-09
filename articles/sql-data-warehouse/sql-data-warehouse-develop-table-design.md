@@ -102,7 +102,7 @@ Instead of:
 - **geography**, use a varbinary type
 - **hierarchyid**, CLR type not native
 - **image**, **text**, **ntext** when text based use varchar/nvarchar (smaller the better)
-- **nvarchar(max)**, use varchar(4000) or smaller for better performance
+- **nvarchar(max)**, use nvarchar(4000) or smaller for better performance
 - **numeric**, use decimal
 - **sql_variant**, split column into several strongly typed columns
 - **sysname**, use nvarchar(128)

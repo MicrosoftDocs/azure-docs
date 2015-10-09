@@ -33,7 +33,7 @@ Operations against key vaults are authenticated and authorized by using Azure Ac
 
 ## Programming for Key Vault
 
-The Key Vault management system for programmers consists of several interfaces, with REST as the foundation.
+The Key Vault management system for programmers consists of several interfaces, with REST as the foundation. This article in the REST reference provides core concepts, [About Keys and Secrets](https://msdn.microsoft.com/library/azure/dn903623.aspx)
 
 ### REST
 
@@ -47,17 +47,22 @@ The .NET API is a set of wrappers that allows implementation through the C# prog
 
 ### Node.js
 
-The Node.js API is a set of wrappers that allows implementation through the JavaScript programming model without needing to interact directly with the REST endpoint.  Here you can find the [Microsoft Azure SDK for Node.js - Key Vault Management](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest/).
+The Node.js API is a set of wrappers that allows implementation through the node.js programming model without needing to interact directly with the REST endpoint.  Here you can find the [Microsoft Azure SDK for Node.js - Key Vault Management](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest/).
 
-## Managing Key Vault with PowerShell and CLI
+## Managing Key Vaults
 
-Azure Key Vault keys and secrets can also be managed using PowerShell and CLI, as described in the following articles:
+Azure Key Vault containers (vaults) can be managed using PowerShell or CLI, as described in the following articles:
 
 - [Create and Manage Key Vaults with PowerShell](key-vault-get-started.md)
 - [Create and Manage Key Vaults with CLI](key-vault-manage-with-cli.md)
+
+
+## How-tos
+
+The following articles provide task specific guidance:
+
 - [How to Generate and Transfer HSM-Protected Keys for Azure Key Vault](key-vault-hsm-protected-keys.md)
-- [About Keys and Secrets](https://msdn.microsoft.com/library/azure/dn903623.aspx)
 
-## See also
+## Examples
 
-- [Azure Key Vault code samples](http://www.microsoft.com/download/details.aspx?id=45343)
+- This download contains both the sample application HelloKeyVault and an Azure web service example. [Azure Key Vault code samples](http://www.microsoft.com/download/details.aspx?id=45343)

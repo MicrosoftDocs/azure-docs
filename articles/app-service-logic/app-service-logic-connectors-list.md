@@ -13,15 +13,16 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/23/2015"
+	ms.date="10/03/2015"
 	ms.author="mandia"/>
 
 
-# Connectors and API Apps List to use in your Logic Apps
+# List of Connectors and API Apps to use in your Logic Apps
 Learn about all the available connectors and API Apps created by Microsoft to use within your Logic Apps.
 
 For pricing information and a list of what is included with each Service Tier, see [Azure App Service Pricing](http://azure.microsoft.com/pricing/details/app-service/).
 
+> [AZURE.NOTE] If you want to get started with Azure Logic Apps before signing up for an Azure account, go to [Try Logic App](https://tryappservice.azure.com/?appservice=logic), where you can immediately create a short-lived starter logic app in App Service. No credit cards required; no commitments.
 
 ## Standard Connectors
 The following table lists all the available connectors and API Apps created by Microsoft that are available with the Standard Connectors:
@@ -36,7 +37,7 @@ Name | Description
 [Dropbox](app-service-logic-connector-dropbox.md) | Connect to Dropbox and can get, delete,  list, and more file tasks.
 [Facebook](app-service-logic-connector-facebook.md) | Connect to Facebook and can publish messages, pictures, and more. You can also get messages and comments, get user information about different likes, including books and movies.
 [File](app-service-logic-connector-file.md) | Using this connector, you can connect to the on-premises file system or network and complete different file tasks, including uploading, deleting, listing files, and more.
-[FTP<br/>FTPS](app-service-logic-connector-ftp.md) | Connects to an FTP / FTPS server and   do different FTP tasks, including uploading, getting, deleting files, and more.
+[FTP<br/>FTPS](app-service-logic-connector-ftp.md) | Connects to an FTP / FTPS server and do different FTP tasks, including uploading, getting, deleting files, and more.
 [HTTP](app-service-logic-connector-http.md) | The HTTP Listener opens an endpoint that acts as an HTTP server and listens to incoming HTTP or HTTPS requests. The HTTP action doesn't require an API App and is supported natively within Logic Apps.
 [Microsoft Office 365](app-service-logic-connector-office365.md) | The Office 365 Connector can send and receive emails, manage your calendar, and manage your contacts using your Office 365 account.
 [Microsoft OneDrive](app-service-logic-connector-onedrive.md) | Connects to your personal Microsoft OneDrive and upload, delete, list files, and more.
@@ -90,9 +91,7 @@ Connectors can also be used as actions within your Logic App. Actions are useful
 [Azure App Service API app triggers](../app-service-api/app-service-api-dotnet-triggers.md)  
 [Logic App Reference](https://msdn.microsoft.com/library/azure/dn948510.aspx)
 
-
 ## More on Connectors and API Apps
-
 [What are Connectors and BizTalk API Apps](app-service-logic-what-are-biztalk-api-apps.md)  
 [Using the Hybrid Connection Manager in Azure App Service](app-service-logic-hybrid-connection-manager.md)  
 [Manage and Monitor your built-in API Apps and Connectors](app-service-logic-monitor-your-connectors.md)

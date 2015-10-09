@@ -3,7 +3,7 @@
    description="design patterns that work well with Service Fabric Actors"
    services="service-fabric"
    documentationCenter=".net"
-   authors="jessebenson"
+   authors="vturecek"
    manager="timlt"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="08/11/2015"
-   ms.author="claudioc"/>
+   ms.author="vturecek"/>
 
 # Introduction to Reliable Actors design patterns
 Service Fabric's Reliable Actors programming model is a platform built around the actor model to solve real world problems at cloud scale. Azure Service Fabric is a platform for building highly reliable, scalable applications for both cloud and on premise that are easy to develop and manage.
