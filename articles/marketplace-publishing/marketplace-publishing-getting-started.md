@@ -53,6 +53,7 @@ Some steps are shared between the different types of solutions. This provides a 
 - To learn more about the Portals used, visit [Portals You Will Need](marketplace-publishing-portals.md)
 
 **Virtual Machines**
+
 - [Setting up Azure PowerShell](marketplace-publishing-powershell-setup.md)
 - [Creating a VM Image on-premise](marketplace-publishing-vm-image-creation-on-premise.md)
 - [Create a virtual machine running Windows in the Azure preview portal](../virtual-machines-windows-tutorial/)

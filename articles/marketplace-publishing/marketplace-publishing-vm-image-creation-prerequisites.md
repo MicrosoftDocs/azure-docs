@@ -13,7 +13,7 @@
   ms.topic="article"
   ms.tgt_pltfrm="Azure"
   ms.workload="na"
-  ms.date="10/07/2015"
+  ms.date="10/09/2015"
   ms.author="hascipio; v-divte"/>
 
 # Technical Pre-requisites for creating a virtual machine image for the Azure Marketplace
@@ -21,6 +21,7 @@ Read the process thoroughly before beginning and understand where and why each s
 
 ## Download needed tools & applications
 You should have the following items ready before beginning the process:
+
 - Depending on which operating system you are targeting, install the Azure PowerShell cmdlets or Linux command line interface tool from the Azure Downloads Page.
 - Install Azure Storage Explorer from CodePlex.
 - Download and install “Certification Test Tool for Azure Certified”:
@@ -28,6 +29,7 @@ You should have the following items ready before beginning the process:
 
 ## Platforms supported
 You can develop Azure-based VMs on Windows or Linux. Some elements of the publishing process—such as creating an Azure-compatible VHD—use different tools and steps depending on which operating system you are using.  
+
 - If you are using Linux, refer to “Create an Azure-compatible VHD (Linux-based)” section of the [Virtual Machine Image Publishing Guide](marketplace-publishing-vm-image-creation.md).
 - If you are using Windows, refer to “Create an Azure-compatible VHD (Windowsbased)” section of the [Virtual Machine Image Publishing Guide](marketplace-publishing-vm-image-creation.md).
 

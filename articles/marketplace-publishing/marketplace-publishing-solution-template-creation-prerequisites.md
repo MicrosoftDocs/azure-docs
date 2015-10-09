@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/07/2015"
+   ms.date="10/09/2015"
    ms.author="hascipio; v-divte" />
 
 # Technical Pre-requisites for creating a Solution Template for the Azure Marketplace
@@ -35,6 +35,7 @@ Evaluate your topology requirements against what the Azure Resource Manager and 
 
 ## Azure Compute Building Blocks
 Let’s start off by identifying what compute artifacts are available to you and how to think about your application in terms of these artifacts.
+
 1.	Using Existing Virtual Machines
 
   The building blocks for any virtual machine are VM Images.  VM Images are the complete storage profile of a virtual machine, containing one operating system VHD and zero or more data disks.  You can create a VM Image to package your software application with the operating system bits, in addition to any additional data needed.  For example, today in the Azure marketplace, there are a handful of VM Images for SQL Server, which package the Windows operating system, with the SQL Server application.  While this document will not go into the details of creating and onboarding VM Images into the Azure Marketplace, it is important to understand what a VM image is, since it will likely be the building block to your application solution.  Please refer to steps for [Creating a VM Image for the Marketplace](marketplace-publishing-vm-image-creation.md).

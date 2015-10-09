@@ -21,18 +21,17 @@ Understand the general, business process centric pre-requisites that are needed 
 
 ## Ensure you are registered as a seller with Microsoft
 For detailed instructions on registering a seller account with Microsoft, go to [Account Creation & Registration](marketplace-publishing-accounts-creation-registration.md).
+
 - If you are **already registered**, find out who in your company owns it or which credentials were used to register
 - If you are **not the owner of the publishing account**, you can have the account owner add your Microsoft Account as a co-admin to the [Publishing portal](https://publish.windowsazure.com) -> **Publishers** tab -> **Administrators** link
 - Ensure that stakeholders in the Azure publishing process receive the email that goes to this address. It must be monitored and responded to in order to complete the publishing process.
 - Avoid having the account associated with a single person. If that person leaves your company, they could impact your ability to access information about and publish your SKUs.
 
-> [AZURE.IMPORTANT] You do not have to complete company tax and banking information if you are planning to publish only free offers (or bring your own license).
+> [AZURE.IMPORTANT] **You do not have to complete company tax and banking information if you are planning to publish only free offers (or bring your own license).**
 
+> The company registration must be completed to get started. However, while your company works on the tax and bank information in the Seller Dashboard account, the developers can start working on creating the virtual machine image in the [Publishing Portal](https://publish.windowsazure.com), getting them certified and testing them in Azure Staging Environment. You will need the complete seller account approval only for the final step of publishing your offer to the Marketplace.
 
-
-> [AZURE.TIP] The company registration must be completed to get started. However, while your company works on the tax and bank information in the Seller Dashboard account, the developers can start working on creating the virtual machine image in the [Publishing Portal](https://publish.windowsazure.com), getting them certified and testing them in Azure Staging Environment. You will need the complete seller account approval only for the final step of publishing your offer to the Marketplace.
-
-> [AZURE.TIP] If you have issues with Seller Registration completion, please log a Support ticket as below:
+> If you have issues with Seller Registration completion, please log a Support ticket as below:
 1. Contact [Support](http://go.microsoft.com/fwlink?LinkId=272975)
 2. Choose **Seller Dashboard registration and your account**
 3. Choose **Registering for a developer account**
