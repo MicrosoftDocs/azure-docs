@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/27/2015"
+   ms.date="10/08/2015"
    ms.author="v-jeana; hascipio"/>
 
 # Accessing publisher support
@@ -81,19 +81,13 @@ Once you have submitted your issue, we will acknowledge receipt within 24 hours,
 + If you need to talk to us about your issue, use the Confirmation Number in all correspondence
 + You can view progress on your issue at any time
 
-
-
-<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Next steps
 
 To learn how to resolve specific support issues, please visit: [Troubleshooting common issues on the Azure Marketplace](marketplace-publishing-support-common-issues.md).
 
-<!--Image references-->
 [1]: ./media/marketplace-publishing-get-publisher-support/step1.png
 [2]: ./media/marketplace-publishing-get-publisher-support/step2.png
 [3]: ./media/marketplace-publishing-get-publisher-support/step3.png
 [4]: ./media/marketplace-publishing-get-publisher-support/step4.png
 [5]: ./media/marketplace-publishing-get-publisher-support/step5.png
 [6]: ./media/marketplace-publishing-get-publisher-support/step6.png
-
-<!--Reference style links - using these makes the source content way more readable than using inline links-->

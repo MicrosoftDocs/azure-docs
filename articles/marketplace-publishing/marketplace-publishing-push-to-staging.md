@@ -13,54 +13,52 @@
    ms.topic="article"
    ms.tgt_pltfrm="Azure"
    ms.workload="na"
-   ms.date="10/02/2015"
+   ms.date="10/08/2015"
    ms.author="hascipio"/>
 
-# Preparing your offer for testing in Staging
+# Complete the offer creation with marketing content
 In this step of the publishing process. Here you will need to provide certain marketing content and details about your offering and/or SKUs in the Azure Marketplace such as description of your product, company logos, price plans, details of plants and other information necessary to push your offer and/or SKU to staging. This information is used as marketing content in our Azure Portal. You will begin this process in the [Publishing Portal][link-pubportal].
 
 ## Step 1. Provide Marketplace marketing content
 **English is the default and only supported language;** please ensure that all information provided in the fields is in English. All information can be edited at any time until you push to staging.
 
-  1. Go to the Publishing Portal, http://publish.windowsazure.com
+  1. Go to the Publishing Portal, [https://publish.windowsazure.com](https://publish.windowsazure.com)
   2. In the left menu, click **Marketing** tab.
   3. In the main panel, click **English (US)** button.
 
 ### Details
 1. Enter the offer summary, long summary, and description for your offer.
-
-  ![drawing][img-map-title]
-  *Offer Title & Description*
-
 2.	Upload images of the required specifications (mentioned on Publishing Portal) in PNG format, one for each size.
 
-  ![drawing][img-map-logo]
-  *Logos*
+  ![drawing](media/marketplace-publishing-push-to-staging/pubportal-vm-details-offer.png)
 
-Below is the detailed view of how the publisher portal offer marketing details are used on the [Azure Marketplace]().
+  *Offer Title, Description, and logos*
 
-![drawing][img-map-acom]
+Below is the detailed view of how the publisher portal offer marketing details are used on the [Azure Marketplace](http://azure.microsoft.com/marketplace).
 
-*Offer Name & Description mapping*
+![drawing](media/marketplace-publishing-push-to-staging/acom-vm-catalog.png)
+
+*Offer catalog listing on Microsoft [Azure Marketplace](http://azure.microsoft.com/marketplace) website*
+
+![drawing](media/marketplace-publishing-push-to-staging/acom-vm-listing.png)
+
+*Offer details page on Microsoft [Azure Marketplace](http://azure.microsoft.com/marketplace) website*
+
+![drawing](media/marketplace-publishing-push-to-staging/portal-vm-listing.png)
+
+*Offer details panel in Microsoft [Azure Preview Portal](https://ms.portal.azure.com)*
+
+
 ### Links
 In the links tab on the left bar, enter any links with information that may help customers. Enter a name and URL for each link.
-
-  ![drawing][img-map-link]
-  *Links*
 
 ### Sample images (optional)
 > [AZURE.NOTE] Including a sample image is an optional step. You could complete the other marketing content to fulfill requirements for push to staging.
 
 In the **Sample Images** tab on the left menu, upload a new image by clicking **Upload a new image**. If you have an existing image and you would like to replace it, click **Replace image**.
 
-![drawing](media/marketplace-publishing-push-to-staging/pubportal-sample-image.png)
-*Upload of sample image in Publishing Portal*
-
-![drawing](media/marketplace-publishing-push-to-staging/portal-sample-image.png)
-*Presentation of sample image in offer details*
-
 ### Plans
-![drawing](media/marketplace-publishing-push-to-staging/pubportal-plans-details.png)
+![drawing](media/marketplace-publishing-push-to-staging/pubportal-vm-details-sku.png)
 
 ### Legal
 In the Legal tab, provide a link to your policies/terms of use. Enter or paste the terms in the large Terms of Use box.
@@ -72,12 +70,13 @@ In the Legal tab, provide a link to your policies/terms of use. Enter or paste t
 ### Pricing Models
 |Pricing Model |Description |
 |---------------|------------------------------------------|
-|Monthly Only| Flat monthly rate paid at time of purchase e.g. $10/month|
-|Overage (aka Usage, Meter) Based | Pay per use, which is defined by the publisher of the offer. Overage cannot be defined per seat, per user, etc as there is no concept of a fraction of a user or capability to do proration. Usage is reported by the Partner on an hourly basis. Customer pays at the of monthly billing cycle as opposed to upfront like monthly plans. |
+|Base| Flat monthly rate paid at time of purchase e.g. $10/month|
+|Consumption (aka Usage, Meter) | Pay per use, which is defined by the publisher of the offer. Overage cannot be defined per seat, per user, etc as there is no concept of a fraction of a user or capability to do proration. Usage is reported by the Partner on an hourly basis. Customer pays at the of monthly billing cycle as opposed to upfront like monthly plans. |
 |Free Trial | Customer may use for free for a limited time and then pay normal rates thereafter |
 |Free Tier | Plan is always free |
 | Migration (aka conversion or upgrade/downgrade) of Plan | Concept of a user moving from their current plan to another acceptable plan; defined by partner |
 
+**Pricing models available by offer type**
 > [AZURE.IMPORTANT] Availability of certain pricing models vary by offer type. See the table below.
 
 | | Base Only | Consumption Only | Base + Consumption |
@@ -86,19 +85,21 @@ In the Legal tab, provide a link to your policies/terms of use. Enter or paste t
 | Developer Service | Yes | Yes | Yes |
 | Data Service | Yes | No | No |
 
-### Set your VM prices
+### 2.1. Set your VM prices
 > [AZURE.NOTE] BYOL is only supported for virtual machines.
 
 1.	Under the **Pricing** tab, you will see all of the supported markets. Select the appropriate one to bring up the pricing fields.
-2.	The provided link on the Publishing Portal will show pricing information to help you in determining the prices of your offer and/or SKU(s).
+2.	The provided link on the Publishing Portal will show pricing information to help you in determining the prices of your SKU(s).
 3.	If your SKU is BYOL, select the checkbox for ‘Externally-licensed (BYOL) SKU availability.
 4.	If your SKU is hourly, enter the pricing for your software. SKUs without pricing will not be available for purchase or use.
-Note: If you have both BYOL as well as Hourly SKUs, then make sure both the requisites are covered: BYOL checkbox and price values for Hourly.
+
+> [AZURE.NOTE] If you have both BYOL as well as Hourly SKUs, then make sure both the requisites are covered: BYOL checkbox and price values for Hourly.
+
 5.	A pricing wizard will open; proceed through this to complete your pricing, including pricing for other countries, if you choose to allow purchases from outside your specified market.
 6.	Some countries are ISV Remit countries. To sell in an ISV Remit country, you must be able to charge and collect tax on your SKUs, and should calculate and pay tax to the government of the country. Microsoft is not in a position to provide legal or tax guidance.  See section ““Sell-to” countries of the Offer” under Introduction of this document for more information on “Sell To Countries”.
 
-### Set your developer service prices
-Plans can be any combination of BASE + Overage, where BASE is monthly price and Overage is pay-per-use price (see below for more details)
+### 2.2. Set your developer service prices
+Plans can be any combination of Base + Consumption, where BASE is monthly price and Overage is pay-per-use price (see below for more details)
 
 **Example:**  Contoso Developer Service Offering
 
@@ -112,12 +113,9 @@ Plans can be any combination of BASE + Overage, where BASE is monthly price and 
 |Silver Plus|$20/month + $0.15/meter01 + $0.01/meter02|Basic functionality and a quota of 10,000 of feature X and 100 of feature Y.  Once feature X quota is used, the customer can pay per use via meter01.  Once feature Y quota is used, the customer can pay per use via meter02|Can migrate to Bronze Plus and Gold Plans|
 |Gold|$1000/month|Quota of 10,000 of feature X, 1,000 of feature Y, and unlimited of feature Z|Can migrate to all plans except free|
 
-<!--
-### 2.4 Set your data service prices
--->
-
 ## Step 3: Provide support information
 Some of this information will have been completed during the certification step. You may add or edit information as in the steps below. The contact details are used for internal communications between partner and Microsoft only. Support URL will be available to the end customers.
+
 1.	Go to the Support heading on the left side of the Publishing Portal.
 2.	Enter information under Engineering Contact.
 3.	Enter information under Customer Support. If you only provide email support, enter a dummy phone number, and your provided email will be used instead.
@@ -131,7 +129,10 @@ Now that your Marketplace content is loaded, lets move forward with the **Step 3
 
 ||Virtual Machine Image |Developer Service | Data Service | Solution Template |
 |----|----|----|----|----|
-| **Step 3. Push your offer to Staging** | [Test your VM offer in Staging](marketplace-publishing-vm-image-test-in-staging.md) | Test your Developer Service offer in Staging | Test your Data Service offer in Staging | Test your Solution Template in Staging |
+| **Step 3. Push your offer to Staging** | [Test your VM offer in Staging](marketplace-publishing-vm-image-test-in-staging.md) | Test your Developer Service offer in Staging | Test your Data Service offer in Staging | [Test your Solution Template in Staging](marketplace-publishing-solution-template-test-in-staging.md) |
+
+## See Also
+- [Getting Started: How to publish an offer to the Azure Marketplace](marketplace-publishing-getting-started.md)
 
 [img-map-acom]:media/marketplace-publishing-push-to-staging/pubportal-mapping-acom.jpg
 [img-map-portal]:media/marketplace-publishing-push-to-staging/pubportal-mapping-azure-portal.jpg

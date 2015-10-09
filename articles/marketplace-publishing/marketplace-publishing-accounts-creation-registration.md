@@ -13,26 +13,28 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/02/2015"
+   ms.date="10/08/2015"
    ms.author="hascipio"/>
 
 # Creating a Microsoft seller account
 This article walks through the necessary account creation and registration to become an approved Microsoft seller for the Azure Marketplace.
 
-## Step 1: Create a Microsoft Account (MSA)
+## 1. Create a Microsoft Account (MSA)
 > [AZURE.WARNING] In order to complete the publishing process, you will need to create a Microsoft account. This account will be used to register for and to log in to both the Publishing Portal and the Seller Dashboard. You should only have one Microsoft Account for your Azure Marketplace offerings. They should not be specific to individual VMs.
 
-The address that forms the user name should be on your domain and controlled by your IT team (such as azurepublishing@yourcompany.com). Payment, tax information, and reporting will be routed through this account.
+The address that forms the user name should be on your domain and controlled by your IT team (such as publishing@yourcompany.com). Payment, tax information, and reporting will be routed through this account.
 
 1. Create a Distribution List (DL) or Security Group (SG) within your company's domain.
   - Add your onboarding team to the DL
   - DL must be live to receive confirmation email
-  - This needs to be completed in your internal systems.For e.g. AzureStore@yourcompany.com
+  - This needs to be completed in your internal systems. For e.g. marketplace@yourcompany.com
+  > [AZURE.WARNING] Words like "Azure", "Microsoft" are not supported for MSA account registration. Avoid using these words to complete the account creation and registration process.
+
 2. Open a new Chrome Incognito or IE InPrivate browsing session to ensure that you’re not logged into an existing account
 3. Register for your a Microsoft Account (MSA) using the Distribution List Email.
  - You can register for a MSA at https://signup.live.com/signup.aspx
- - Use AzureStore@yourcompany.com as the email address
- - Your MSA ID is now AzureStore@yourcompany.com
+ - Use marketplace@yourcompany.com as the email address
+ - Your MSA ID is now marketplace@yourcompany.com
 
     ![drawing][img-msalive]
 
@@ -44,12 +46,12 @@ The address that forms the user name should be on your domain and controlled by 
 6. You’re now ready to use the new MSA in the Seller Dashboard.
 > [AZURE.IMPORTANT] Using the DL allows multiple people to receive email notifications that are important reporting of payout information, and also insures that ownership of the MSA can be transferred and isn’t tied to a single individual.
 
-## Step 2: Create your Seller Dashboard account
+## 2. Create your Seller Dashboard account
 The Microsoft Seller Dashboard is used to register the company information once. The registrant must be a valid representative of the company, and must provide their personal information as a way to validate their identity. The person registering must use a Microsoft account (MSA) that is shared for the company, and the same account must be used in the Azure Publishing Portal. You should check to make sure your company does not already have a Seller Dashboard account before attempting to create one. During the process, we will collect bank account information, tax information, and company address information. These are typically obtainable from finance or business contacts.
 
 > [AZURE.IMPORTANT] The following seller profile components must be completed in order to progress through the various phases of offer creation and deployment.
 
-| Seller Profile | To start draft | Staging | Publish Free | Publish Commercial |
+| Seller Profile | To start draft | Staging | Publish Free & Solution Template | Publish Commercial |
 |----|----|----|----|----|
 |Company Registration | Must Have | Must Have | Must Have | Must Have |
 |Tax Profile ID | Optional | Optional | Optional | Must Have |
@@ -133,11 +135,7 @@ If you are planning to publish only free offers, then you can skip to section 3,
 
 > [AZURE.WARNING] You will not be able to push to production your commercial offers without completing the tax and bank account information in your Seller Dashboard account.
 
-<!--
-8. You must provide payout and tax information and submit it for validation. In order to add payout and tax information, go to Account > Payout & Tax and click Add. Enter your company's information. You will be required to provide a Tax Identification Number and other tax information matching the country in which your business is headquartered.
--->
-
-## Step 3: Register your account in the Publishing Portal
+## 3. Register your account in the Publishing Portal
 The Azure Publishing Portal is used to publish and manage your offer(s). Think of it as the CMS for your offerings/artifacts. It is how you will manage the details of your Marketplace offer, including marketing copy, pricing and endpoints for your Resource Provider, data connection, etc. Read the Publisher Portal Guide to get started. All remaining work is completed here.
 
 > [AZURE.WARNING] The same company Microsoft Account that was used in the Seller Dashboard registration MUST be used here. Additional users can be added to assist once the master publisher account has been created.
@@ -152,6 +150,7 @@ The Azure Publishing Portal is used to publish and manage your offer(s). Think o
 > [AZURE.WARNING]
 In order to sell your services on Microsoft Azure Marketplace, your registered entity needs to be from one of the approved “sell from” countries. This restriction is for payout and taxation reasons. We are actively looking to expand this list of countries in the near future, so please stay tuned. For the complete list, please see section 1b of the document at link http://go.microsoft.com/fwlink/?LinkID=526833&clcid=0x409.
 
+
 > [AZURE.TIP] If you have issues with Seller Registration completion, please log a Support ticket as below:
 1. Contact [Support](http://go.microsoft.com/fwlink?LinkId=272975)
 2. Choose **Seller Dashboard registration and your account**
@@ -164,8 +163,12 @@ Now that your account is created and registered, click on the type of artifact (
 || Virtual Machine Image | Developer Service | Data Service | Solution Template |
 |----|-----|-----|-----|-----|
 |**Step 2: Create your offer** |[General Non-technical Pre-requisites](marketplace-publishing-pre-requisites.md)| [General Non-Technical Pre-requisites](marketplace-publishing-pre-requisites.md)| [General Non-technical Pre-requisites](marketplace-publishing-pre-requisites.md)| [General Non-technical Pre-requisites](marketplace-publishing-pre-requisites.md)|
-|| [VM Image Technical Pre-requisites][link-single-vm-prereq] | Developer Service Technical Pre-requisites | Data Service Technical Pre-requisites  | Solution Template Technical Pre-requisites |
-|| [VM Image Publishing Guide][link-single-vm] | Developer Service Publishing Guide | Data Service Publishing Guide | Solution Template Publishing Guide |
+|| [VM Image Technical Pre-requisites][link-single-vm-prereq] | Developer Service Technical Pre-requisites | Data Service Technical Pre-requisites  | [Solution Template Technical Pre-requisites](marketplace-publishing-solution-template-creation-prerequisites.md) |
+|| [VM Image Publishing Guide][link-single-vm] | Developer Service Publishing Guide | Data Service Publishing Guide | [Solution Template Publishing Guide](marketplace-publishing-solution-template-creation.md) |
+|| [Azure Marketplace Marketing Content Guide][link-pushstaging] | [Azure Marketplace Marketing Content Guide][link-pushstaging] | [Azure Marketplace Marketing Content Guide][link-pushstaging] | [Azure Marketplace Marketing Content Guide][link-pushstaging] |
+
+## See Also
+- [Getting Started: How to publish an offer to the Azure Marketplace](marketplace-publishing-getting-started.md)
 
 [img-msalive]:media/marketplace-publishing-accounts-creation-registration/creating-msa-account-msa-live.jpg
 [img-email]:media/marketplace-publishing-accounts-creation-registration/creating-msa-account-msa-verifyemail.jpg
@@ -184,7 +187,7 @@ Now that your account is created and registered, click on the type of artifact (
 [link-msdndoc]: https://msdn.microsoft.com/en-us/library/jj552460.aspx
 [link-sellerdashboard]: http://sellerdashboard.microsoft.com/
 [link-pubportal]: https://publish.windowsazure.com
-[link-single-vm]:marketplace-publishing-virtual-machine-creation.md
+[link-single-vm]:marketplace-publishing-vm-image-creation.md
 [link-single-vm-prereq]:marketplace-publishing-vm-image-creation-prerequisites.md
 [link-multi-vm]:marketplace-publishing-solution-template-creation.md
 [link-multi-vm-prereq]:marketplace-publishing-solution-template-creation-prerequisites.md
@@ -192,3 +195,4 @@ Now that your account is created and registered, click on the type of artifact (
 [link-datasvc-prereq]:marketplace-publishing-data-service-creation-prerequisites.md
 [link-devsvc]:marketplace-publishing-dev-service-creation.md
 [link-devsvc-prereq]:marketplace-publishing-dev-service-creation-prerequisites.md
+[link-pushstaging]:marketplace-publishing-push-to-staging.md

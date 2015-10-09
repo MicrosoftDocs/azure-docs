@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/27/2015"
+   ms.date="10/08/2015"
    ms.author="v-jeana; hascipio"/>
 
 # Understanding your Azure Marketplace payout reports
@@ -61,17 +61,12 @@ If you have a question relating to your payouts, please contact our support team
 3. Select **Payout related inquiries**
 4. Click **Start request**
 
-<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Next steps:  Other Support queries
 
 For the following issues, please log an issue at https://portal.azure.com
 
-
-<!--Image references-->
 [1]: ./media/marketplace-publishing-report-payout/accessingpayoutreport.png
 [2]: ./media/marketplace-publishing-report-payout/readingpayoutreport.png
 [3]: ./media/marketplace-publishing-report-payout/financialdefinitions.png
 [4]: ./media/marketplace-publishing-report-payout/ledgerdefinitions.png
 [5]: ./media/marketplace-publishing-report-payout/payoutquestions.png
-
-<!--Reference style links - using these makes the source content way more readable than using inline links-->

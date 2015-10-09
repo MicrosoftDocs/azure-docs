@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="Azure"
    ms.workload="na"
-   ms.date="10/02/2015"
+   ms.date="10/07/2015"
    ms.author="hascipio; v-divte"/>
 
-# Guide to creating a virtual machine image for the Azure Marketplace
+# Guide to create a virtual machine image for the Azure Marketplace
 
 This article, **Step 2**, will walk through preparing your VHDs, which are the foundation of your SKU, that you will deploy to the Azure Marketplace. The process will differ depending on whether your are providing a Linux- or Windows-based SKU. This section covers both scenarios. This process can be performed in parallel with [Account Creation and Registration][link-acct-creation].
 
@@ -41,10 +41,12 @@ Regardless of which operating system you use, add only the minimum number of dat
 3. Offer name is typically the name of the product / service that you plan to sell in Azure Marketplace.
 
 ### 1.2 Define SKU(s)
-Once you have added an offer, you will need to define/identify your SKU(s).
+Once you have added an offer, you will need to define/identify your SKU(s). You can have multiple offers and each offer can have multiple SKUs under it. When an offer is pushed to staging, it is pushed along with all of its SKUs.
 
-1. Add a SKU. It will require an identifier, which will be used in the URL. This will need to be unique within your Publishing Profile, but there is no risk of identifier collision with other publishers.
-2. Add a summary description for your SKU. This will be read by humans in the UX, so it advised to make it easily readable. This information does not need to be locked until "Push to Staging". Until then, you are free to edit it.
+1. **Add a SKU.** It will require an identifier, which will be used in the URL. This will need to be unique within your Publishing Profile, but there is no risk of identifier collision with other publishers.
+> [AZURE.NOTE] Offer and SKU identifier will be displayed in the offer URL in the Marketplace.
+
+2. **Add a summary description for your SKU.** This will be read by humans in the UX, so it advised to make it easily readable. This information does not need to be locked until "Push to Staging". Until then, you are free to edit it.
 3. If you are using Windows-based SKUs, follow the suggested links to acquire the approved versions of Windows Server.
 
 ## 2. Create an Azure-compatible VHDs (Linux-based)
@@ -54,6 +56,7 @@ The following section focuses on best practices for creating a Linux-based  VM I
 
 ### 2.1 Choose the correct VHD size
 Published SKUs (VM Images) should be designed to work with all VM sizes that support the number of disks for the SKU. You can provide guidance on recommended sizes, but these will be treated as recommendations and not enforced.
+
 1. Linux OS VHD: The Linux OS VHD in your VM Image should be created a a 30GB - 50GB fixed-format VHD. It cannot be less than 30GB. If the physical size is less than VHD size, the VHD should be sparse. Linux VHDs larger than 50GB will be considered on a case by case basis. If you already have a VHD in a different format, you can use the [Convert-VHD PowerShell cmdlet to change the format][link-technet-1].
 2. Data disk VHD: Data disks can be as large as 1TB. Data disk VHDs should be created as a fixed-format VHD, but also be sparse. When deciding on the disk size, please keep in mind that end users cannot resize VHDs within an image.
 
@@ -71,7 +74,7 @@ The agent configuration file will be placed at /etc/waagent.conf.
 
 ### 2.3 Verify that required libraries are included
 In addition to the Azure Linux Agent, the following libraries should also be included:
-1. The [Linux Integration Services][link-intsvc] Version 3.0 or higher must be enabled in your kernel. See [Linux Kernel Requirements](../virtual-machines-linux-create-upload-vhd-generic/#linux-kernel-requirements)
+1. The [Linux Integration Services][link-intsvc] Version 3.0 or higher must be enabled in your kernel. See [Linux Kernel Requirements](../virtual-machines/virtual-machines-linux-create-upload-vhd-generic/#linux-kernel-requirements)
 2. [Kernel Patch](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/drivers/scsi/storvsc_drv.c?id=5c1b10ab7f93d24f29b5630286e323d1c5802d5c) for Azure I/O stability (likely not needed for any recent kernel, but should be verified)
 3. [Python][link-python] 2.6 or above
 4. Python] pyasn1 package, if not already installed
@@ -94,7 +97,7 @@ We strongly recommend enabling SSH for the end user. If SSH Server is enabled, a
 The following are networking requirements for an Azure-compatible Linux VM Image.
 - In many cases it is best to disable NetworkManager.  One exception is with CentOS 7.x based systems (and derivatives) which should keep NetworkManager enabled.
 - Networking configuration should be controllable via the ifup/ifdown scripts.  The Linux agent may use these commands to restart networking during provisioning.
-- There should be no custom network configuration. The resolv.conf file should be deleted as a final step. This is typically done as part of deprovisioning (see [Azure Linux Agent User Guide](../virtual-machines-linux-agent-user-guide/)). You can also perform this step manually with the following command:
+- There should be no custom network configuration. The resolv.conf file should be deleted as a final step. This is typically done as part of deprovisioning (see [Azure Linux Agent User Guide](../virtual-machines/virtual-machines-linux-agent-user-guide/)). You can also perform this step manually with the following command:
 
         rm /etc/resolv.conf
 
@@ -144,13 +147,16 @@ These links can also be found in the Publishing Portal under the SKU page.
 
 ### 3.2 Create your Windows VM
 From the Microsoft Azure Portal, you can create your VM based on an approved base image in just a few simple steps. The following is an overview of the process.
+
 1. From the base image page, select **Create VM** to be directed to the new [Microsoft Azure Portal][link-azure-portal].
 
   ![drawing][img-acom-1]
+
 2. Log in to the portal with the Microsoft account (MSA) and password for the Azure subscription you wish to use.
 3. Follow the prompts to create a VM using the base image you have selected. At the very least, you will need to provide a host name (name of the computer), username (admin user registered), and password for the VM.
 
   ![drawing][img-portal-vm-create]
+
 4. Select the size of the VM to deploy.
 
   a.	If you plan to develop the VHD on premises, the size does not matter. Consider using one of the smaller VMs.
@@ -160,6 +166,7 @@ From the Microsoft Azure Portal, you can create your VM based on an approved bas
   c.	For pricing information, refer to the Recommended Pricing Tier selector displayed on the portal. It will provide the three recommended sizes provided by the publisher. (In this case, the publisher is Microsoft.)
 
   ![drawing][img-portal-vm-size]
+
 5. Set properties
 
   a.	For quick deployment, you can leave the default values for the properties under **Optional Configuration** and **Resource Group**.
@@ -179,7 +186,7 @@ From the Microsoft Azure Portal, you can create your VM based on an approved bas
 ### 3.3 Develop your VHD in the cloud
 It is strongly recommended that you develop your VHD in the cloud using Remote Desktiop Protocol (RDP). You will connect to RDP with the username and password specifid during provisioning.
 
-> [AZURE.IMPORTANT]: if you are developing your VHD on-premises (which is not recommended) see Appendix 2 for instructions on how to download the VHD to a local system. **Downloading your VHD is NOT ncessary if you are developing in the cloud**.
+> [AZURE.IMPORTANT]: if you are developing your VHD on-premises (which is not recommended) see [Creating a Virtual Machine Image on-premise](marketplace-publishing-vm-image-creation-on-premise.md). **Downloading your VHD is NOT necessary if you are developing in the cloud**.
 
 **Connect via RDP using the [Microsoft Azure Portal][link-azure-portal]**
 
@@ -230,15 +237,15 @@ All images in the Azure Marketplace must be re-usable in a generic fashion. In o
 
         sysprep.exe /generalize /oobe /sshutdown
 
-  Guidance on how to sysprep the operating system is provided in Step of the following MSDN article - [Create and upload a Windows Server VHD to Azure](../virtual-machines-create-upload-vhd-windows-server/).
+  Guidance on how to sysprep the operating system is provided in Step of the following MSDN article - [Create and upload a Windows Server VHD to Azure](../virtual-machines/virtual-machines-create-upload-vhd-windows-server/).
 
 ## 4. Deploy a VM from your VHDs
 Once your VHD(s), generalized OS VHD and zero or more data disk VHDs, are uploaded to an Azure storage account, you can register them as a user VM Image with which to test. Note, since your OS VHD is generalized, you cannot directly deploy the VM by providing the VHD URL.
 
 To learn more about VM Images review the following blog posts:
-- [VM Image][link-msdn-1]
-- [VM Image PowerShell How To][link-blog-1]
-- [About VM Images in Azure][link-msdn-2]
+- [VM Image](https://azure.microsoft.com/en-us/blog/vm-image-blog-post/)
+- [VM Image PowerShell How To](https://azure.microsoft.com/en-us/blog/vm-image-powershell-how-to-blog-post/)
+- [About VM Images in Azure](https://msdn.microsoft.com/en-us/library/azure/dn790290.aspx)
 
 ### 4.1 Create a User VM Image
 To create a user VM Image from your SKU to begin deploying multiple VMs, you need to use the [Create VM Image Rest API](http://msdn.microsoft.com/en-us/library/azure/dn775054.aspx) to register VHDs as a VM Image.
@@ -579,6 +586,8 @@ data disk to be mounted upon deployment.
 ## Next Step
 Once you submit your virtual machine image SKU(s) for certification, you can move forward with [Getting your offer to staging][link-pushstaging]. In this step of the publishing process, you will provide the marketing content, pricing, and other information necessary for **Step 3: Testing your offer and/or SKU in staging** where you will test various use case scenarios before deploying the offer to the Azure Marketplace for public visibility and purchase.  
 
+## See Also
+- [Getting Started: How to publish an offer to the Azure Marketplace](marketplace-publishing-getting-started.md)
 
 [img-acom-1]:media/marketplace-publishing-vm-image-creation/vm-image-acom-datacenter.png
 [img-portal-vm-size]:media/marketplace-publishing-vm-image-creation/vm-image-portal-size.png
@@ -611,9 +620,6 @@ Once you submit your virtual machine image SKU(s) for certification, you can mov
 [link-azure-2]:https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-2/
 [link-azure-1]:https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/
 [link-msft-download]:http://www.microsoft.com/en-us/download/details.aspx?id=44299
-[link-msdn-2]:https://msdn.microsoft.com/en-us/library/azure/dn790290.aspx
-[link-blog-1]:http://azure.microsoft.com/en-us/blog/vm-image-powershell-how-to-blog-post/
-[link-msdn-1]:https://msdn.microsoft.com/en-us/library/azure/dn790290.aspx
 [link-technet-3]:https://technet.microsoft.com/en-us/library/hh846766.aspx
 [link-technet-2]:https://msdn.microsoft.com/en-us/library/dn495261.aspx
 [link-azure-portal]:https://portal.azure.com

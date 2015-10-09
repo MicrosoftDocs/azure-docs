@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/01/2015"
+   ms.date="10/05/2015"
    ms.author="anishk;hascipio"/>
 
 # Get Pre-Approved via Microsoft Azure Certification Program
@@ -36,3 +36,6 @@ In order to sell your services on Microsoft Azure Marketplace, your registered e
 
 ## Next Step
 Once you have received pre-approval from the Microsoft Azure Certification Program, you can proceed to **Step 1**, [Creating a Microsoft Seller Account](marketplace-publishing-accounts-creation-registration.md).
+
+## See Also
+- [Getting Started: How to publish an offer to the Azure Marketplace](marketplace-publishing-getting-started.md)

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/02/2015"
+   ms.date="10/08/2015"
    ms.author="hascipio" />
 
 # How to publish an offer to the Microsoft Azure Marketplace
@@ -30,10 +30,6 @@ The first thing you would want to do as a publisher is to define what kind of so
 
 Some steps are shared between the different types of solutions. This provides a short overview of what steps you will need to complete for any type of solution.
 
-<!--
-Insert table/matrix of artifacts x (portals, identities, business)
--->
-
 **Before you begin any work on the Azure Marketplace, you must be pre-approved. Not applicable for data service publishers.**
 
 ||Virtual Machine Image |Developer Service | Data Service | Solution Template |
@@ -41,10 +37,10 @@ Insert table/matrix of artifacts x (portals, identities, business)
 | **Get Pre-Approval** | [Microsoft Azure Certified][link-certification] | [Microsoft Azure Certified][link-certification] | n/a | [Microsoft Azure Certified][link-certification] |
 | **Step 1. Register Seller Account** | [Microsoft Seller Account Creation & Registration][link-accts] | [Microsoft Seller Account Creation & Registration][link-accts] | [Microsoft Seller Account Creation & Registration][link-accts] | [Microsoft Seller Account Creation & Registration][link-accts] |
 |**Step 2. Create your offer**| [General Non-technical Pre-requisites](marketplace-publishing-pre-requisites.md)| [General Non-Technical Pre-requisites](marketplace-publishing-pre-requisites.md)| [General Non-technical Pre-requisites](marketplace-publishing-pre-requisites.md)| [General Non-technical Pre-requisites](marketplace-publishing-pre-requisites.md)|
-|| [VM Technical Pre-requisites][link-single-vm-prereq] | Developer Service Technical Pre-requisites | Data Service Technical Pre-requisites | Solution Template Technical Pre-requisites |
-||[VM Image Publishing Guide][link-single-vm] | Developer Service Publishing Guide | Data Service Publishing Guide | Solution Template Publishing Guide |
+|| [VM Technical Pre-requisites][link-single-vm-prereq] | Developer Service Technical Pre-requisites | Data Service Technical Pre-requisites | [Solution Template Technical Pre-requisites](marketplace-publishing-solution-template-creation-prerequisites.md) |
+||[VM Image Publishing Guide][link-single-vm] | Developer Service Publishing Guide | Data Service Publishing Guide | [Solution Template Publishing Guide](marketplace-publishing-solution-template-creation.md) |
 || [Azure Marketplace Marketing Content Guide][link-pushstaging] | [Azure Marketplace Marketing Content Guide][link-pushstaging] | [Azure Marketplace Marketing Content Guide][link-pushstaging] | [Azure Marketplace Marketing Content Guide][link-pushstaging] |
-| **Step 3. Push your offer to Staging** | [Test your VM offer in Staging](marketplace-publishing-vm-image-test-in-staging.md) | Test your Developer Service offer in Staging | Test your Data Service offer in Staging | Test your Solution Template in Staging |
+| **Step 3. Push your offer to Staging** | [Test your VM offer in Staging](marketplace-publishing-vm-image-test-in-staging.md) | Test your Developer Service offer in Staging | Test your Data Service offer in Staging | [Test your Solution Template in Staging](marketplace-publishing-solution-template-test-in-staging.md) |
 | **Step 4. Deploy your offer to Marketplace** | [Deploy your offer to the Marketplace][link-pushprod] | [Deploy your offer to the Marketplace][link-pushprod] | [Deploy your offer to the Marketplace][link-pushprod] | [Deploy your offer to the Marketplace][link-pushprod] |
 
 ## Support
@@ -57,9 +53,9 @@ Insert table/matrix of artifacts x (portals, identities, business)
 - To learn more about the Portals used, visit [Portals You Will Need](marketplace-publishing-portals.md)
 
 **Virtual Machines**
-- Setting up Azure PowerShell
-- VM Single Image instructions for developing on-premises
-
+- [Setting up Azure PowerShell](marketplace-publishing-powershell-setup.md)
+- [Creating a VM Image on-premise](marketplace-publishing-vm-image-creation-on-premise.md)
+- [Create a virtual machine running Windows in the Azure preview portal](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-windows-tutorial/)
 
 [suppt-general]:marketplace-publishing-get-publisher-support.md
 [suppt-rpt-insights]:marketplace-publishing-report-seller-insights.md
