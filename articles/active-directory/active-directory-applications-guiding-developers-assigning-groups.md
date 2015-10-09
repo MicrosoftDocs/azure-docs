@@ -33,8 +33,5 @@ This article assumes that you have already created groups in the active director
 9. Click **ASSIGN**.
 10. Click **yes** when prompted.
 
-## Assigning Groups to an Application Video
-> [AZURE.VIDEO How-to-configure-and-assign-groups-in-Windows-Azure-AD]
-
 ## Next Steps
 [AZURE.INCLUDE [active-directory-applications-guiding-developers-for-lob-applications-toc.md](../../includes/active-directory-applications-guiding-developers-for-lob-applications-toc.md)]
