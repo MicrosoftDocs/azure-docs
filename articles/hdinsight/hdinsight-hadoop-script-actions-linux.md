@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Script Action Development with HDInsight | Microsoft Azure"
-    description="Learn how to customize Hadoop clusters with Script Action."
+    pageTitle="Script Action Development with Linux-based HDInsight | Microsoft Azure"
+    description="Learn how to customize Linux-based HDInsight clusters with Script Action."
     services="hdinsight"
     documentationCenter=""
     authors="Blackmist"
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="08/18/2015"
+    ms.date="10/09/2015"
     ms.author="larryfr"/>
 
 # Script Action development with HDInsight

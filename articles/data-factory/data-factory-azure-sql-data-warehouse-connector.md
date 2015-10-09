@@ -172,7 +172,7 @@ The pipeline contains a Copy Activity that is configured to use the above input 
 	        "typeProperties": {
 	          "source": {
 	            "type": "SqlDWSource",
-	            "SqlReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= \\'{0:yyyy-MM-dd HH:mm}\\' AND timestampcolumn < \\'{1:yyyy-MM-dd HH:mm}\\'', WindowStart, WindowEnd)"
+	            "sqlReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= \\'{0:yyyy-MM-dd HH:mm}\\' AND timestampcolumn < \\'{1:yyyy-MM-dd HH:mm}\\'', WindowStart, WindowEnd)"
 	          },
 	          "sink": {
 	            "type": "BlobSink"
@@ -192,6 +192,12 @@ The pipeline contains a Copy Activity that is configured to use the above input 
 	     ]
 	   }
 	}
+
+> [AZURE.NOTE] In the above example, **sqlReaderQuery** is specified for the SqlDWSource. The Copy Activity runs this query against the Azure SQL Data Warehouse source to get the data.
+>  
+> Alternatively, you can specify a stored procedure by specifying the **sqlReaderStoredProcedureName** and **storedProcedureParameters** (if the stored procedure takes parameters).
+>  
+> If you do not specify either sqlReaderQuery or sqlReaderStoredProcedureName, the columns defined in the structure section of the dataset JSON are used to build a query (select column1, column2 from mytable) to run against the Azure SQL Data Warehouse. If the dataset definition does not have the structure, all columns are selected from the table.
 
 ## Sample: Copy data from Azure Blob to Azure SQL Data Warehouse
 
@@ -394,22 +400,70 @@ For a full list of sections & properties available for defining activities, plea
 
 Properties available in the typeProperties section of the activity on the other hand vary with each activity type and in case of Copy activity they vary depending on the types of sources and sinks.
 
+### SqlDWSource
+
 In case of Copy activity when source is of type **SqlDWSource** the following properties are available in **typeProperties** section:
 
 | Property | Description | Allowed values | Required |
 | -------- | ----------- | -------------- | -------- |
-| sqlReaderQuery | Use the custom query to read data. | SQL query string. For example: select * from MyTable. If not specified, the SQL statement that is executed: select **columns defined in structure section of table JSON** from MyTable. | No |
+| sqlReaderQuery | Use the custom query to read data. | SQL query string. For example: select * from MyTable. | No |
+| sqlReaderStoredProcedureName | Name of the stored procedure that reads data from the source table. | Name of the stored procedure. | No |
+| storedProcedureParameters | Parameters for the stored procedure. | Name/value pairs. Names and casing of parameters must match the names and casing of the stored procedure parameters. | No |
 
+If the **sqlReaderQuery** is specified for the SqlDWSource, the Copy Activity runs this query against the Azure SQL Data Warehouse source to get the data. 
+
+Alternatively, you can specify a stored procedure by specifying the **sqlReaderStoredProcedureName** and **storedProcedureParameters** (if the stored procedure takes parameters). 
+
+If you do not specify either sqlReaderQuery or sqlReaderStoredProcedureName, the columns defined in the structure section of the dataset JSON are used to build a query (select column1, column2 from mytable) to run against the Azure SQL Data Warehouse. If the dataset definition does not have the structure, all columns are selected from the table.
+
+#### SqlDWSource example
+
+    "source": {
+        "type": "SqlDWSource",
+        "sqlReaderStoredProcedureName": "CopyTestSrcStoredProcedureWithParameters",
+        "storedProcedureParameters": {
+            "stringData": { "value": "str3" },
+            "id": { "value": "$$Text.Format('{0:yyyy}', SliceStart)", "type": "Int"}
+        }
+    }
+
+**The stored procedure definition:** 
+
+	CREATE PROCEDURE CopyTestSrcStoredProcedureWithParameters
+	(
+		@stringData varchar(20),
+		@id int
+	)
+	AS
+	SET NOCOUNT ON;
+	BEGIN
+	     select *
+	     from dbo.UnitTestSrcTable
+	     where dbo.UnitTestSrcTable.stringData != stringData
+	    and dbo.UnitTestSrcTable.id != id
+	END
+	GO
+ 
+
+### SqlDWSink
 **SqlDWSink** supports the following properties:
 
 | Property | Description | Allowed values | Required |
 | -------- | ----------- | -------------- | -------- |
-| sqlWriterStoredProcedureName | User specified stored procedure name to upsert (update/insert) data into the target table. | Name of the stored procedure. | No |
-| sqlWriterTableType | User specified table type name to be used in the above stored procedure. Copy activity makes the data being moved available in a temp table with this table type. Stored procedure code can then merge the data being copied with existing data. | A table type name. | No |
 | writeBatchSize | Inserts data into the SQL table when the buffer size reaches writeBatchSize | Integer. (unit = Row Count) | No (Default = 10000) |
 | writeBatchTimeout | Wait time for the batch insert operation to complete before it times out. | (Unit = timespan) Example: “00:30:00” (30 minutes). | No | 
 | sqlWriterCleanupScript | User specified query for Copy Activity to execute such that data of a specific slice will be cleaned up. See repeatability section below for more details. | A query statement.  | No |
 | sliceIdentifierColumnName | User specified column name for Copy Activity to fill with auto generated slice identifier, which will be used to clean up data of a specific slice when rerun. See repeatability section below for more details. | Column name of a column with data type of binary(32). | No |
+
+#### SqlDWSink example
+
+
+    "sink": {
+        "type": "SqlDWSink",
+        "writeBatchSize": 1000000,
+        "writeBatchTimeout": "00:05:00",
+    }
+
 
 [AZURE.INCLUDE [data-factory-type-repeatability-for-sql-sources](../../includes/data-factory-type-repeatability-for-sql-sources.md)] 
 

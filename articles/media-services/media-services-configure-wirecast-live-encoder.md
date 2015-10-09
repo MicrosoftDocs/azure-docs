@@ -151,7 +151,7 @@ In this tutorial the following output settings are used. The rest of this sectio
 
 If the stream appears in the player, then the encoder has been properly configured to connect to AMS. 
 
-If an error is received, the channel will need to be reset and encoder settings adjusted. Please see the [troubleshooting](#troubleshooting) section for guidance.  
+If an error is received, the channel will need to be reset and encoder settings adjusted. Please see the [troubleshooting](media-services-troubleshooting-live-streaming.md) topic for guidance.  
 
 ##Create a program
 
@@ -173,7 +173,7 @@ The stream is now ready to be embedded in a player, or distributed to an audienc
 
 ## Troubleshooting
  
-For more information, see the [troubleshooting guide](media-services-live-encoders-overview.md#troubleshooting-guide).
+Please see the [troubleshooting](media-services-troubleshooting-live-streaming.md) topic for guidance. 
 
 ##Media Services learning paths
 
