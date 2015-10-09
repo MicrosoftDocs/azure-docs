@@ -37,9 +37,21 @@ Azure AD Domain Services are designed to provide a much easier alternative.
 ## Introducing Azure AD Domain Services
 Azure AD Domain Services provide managed domain services such as domain join, group policy, LDAP, Kerberos/NTLM authentication etc. that are fully compatible with Windows Server Active Directory. Azure AD Domain Services enable you to consume these domain services, without the need for you to deploy, manage and patch domain controllers in the cloud. Azure AD Domain Services integrate with your existing Azure AD tenant, thus making it possible for users to login using their corporate credentials. Additionally, you can use existing groups and user accounts to secure access to resources, thus ensuring a smoother 'lift-and-shift' of on-premises resources to Azure Infrastructure Services.
 
+Azure AD Domain Services work seamlessly regardless of whether your Azure AD tenant is cloud-only or synced with your on-premises Active Directory.
+
+### Azure AD Domain Services for cloud organizations
+As shown in the below illustration, Contoso's administrator has configured a virtual network in Azure Infrastructure Services. Applications and server workloads are deployed in this virtual network in Azure virtual machines. Consider for a moment that Contoso is a cloud-only Azure AD tenant - i.e. it is not set to synchronize with an on-premises directory. In this scenario, all user identities, their credentials and group memberships are available in Azure AD.
+
 ![Azure AD Domain Services Overview](./media/active-directory-domain-services-overview/aadds-overview.png)
 
-The following diagram illustrates how you can use Azure AD Domain Services. Azure AD Domain Services work seamlessly regardless of whether your Azure AD tenant is cloud-only or synced with your on-premises Active Directory. As a federated Azure AD tenant, you’ve likely configured Azure AD Connect in order to synchronize identity information from your on-premises directory to Azure AD. This includes information about users, their credential hashes for authentication (password sync) and group memberships. If, on the other hand, your organization is cloud-only and does not have on-premises infrastructure, you have this information in your Azure AD tenant. Azure AD Domain Services leverage this directory information available in your Azure AD tenant.
+Contoso's administrator can enable Azure AD Domain Services for their Azure AD tenant and choose to make domain services available in this virtual network. When this is done, Azure AD Domain Services provisions a managed domain and makes it available in the virtual network. All user accounts, group memberships and user credentials available in Azure AD are also available in this newly created domain. This enables users to sign-in to the domain using their corporate credentials - for example, when connecting remotely to machines joined to the domain via Remote Desktop. Administrators can provision access to resources in the domain using existing group memberships.
+
+Applications deployed on virtual machines within the virtual network benefit from domain services such as domain join, LDAP read, LDAP bind, NTLM and Kerberos authentication, Group Policy etc.
+
+
+### Azure AD Domain Services for hybrid organizations
+
+The following diagram illustrates how you can use Azure AD Domain Services.  As a federated Azure AD tenant, you’ve likely configured Azure AD Connect in order to synchronize identity information from your on-premises directory to Azure AD. This includes information about users, their credential hashes for authentication (password sync) and group memberships. If, on the other hand, your organization is cloud-only and does not have on-premises infrastructure, you have this information in your Azure AD tenant. Azure AD Domain Services leverage this directory information available in your Azure AD tenant.
 
 
 
