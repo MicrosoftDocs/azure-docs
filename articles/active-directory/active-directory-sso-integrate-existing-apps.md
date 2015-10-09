@@ -18,11 +18,11 @@
 
 # Integrate Azure Active Directory SSO with existing apps
 
-## Overview
+[AZURE.INCLUDE [active-directory-sso-use-case-intro](../../includes/active-directory-sso-use-case-intro.md)]
 
 Organizations are using more Software as a Service (SaaS) applications for productivity since cloud technology and tools are becoming more readily available. As the number of SaaS apps grows, it becomes challenging for the administrators to manage accounts and access rights, and for the users to remember their different passwords. Managing these applications individually creates extra work and is less secure. Employees who have to keep track of many passwords tend to use unsecure methods to remember them, either writing down passwords or using the same passwords across many accounts. And when a new employee arrives or one leaves, all their accounts must be individually provisioned or deprovisioned. Additionally, employees may start using SaaS apps for their work without going through IT, which means they are creating their own accounts on systems that the IT administrators haven't approved and aren't monitoring.
 
-A solution for all of these challenges is single sign-on (SSO). It’s the simplest way to manage multiple apps and provide users with a consistent sign-on experience. Azure Active Directory (AD) provides a robust SSO solution and has many pre-integrated applications with tutorials for admins to quickly set up a new app and start provisioning users. For information about setting up new applications, take a look at [Deploying single sign-on using Azure Active Directory for newly added SaaS apps](active-directory-single-sign-on-newly-acquired-saas-apps.md).   
+A solution for all of these challenges is single sign-on (SSO). It’s the simplest way to manage multiple apps and provide users with a consistent sign-on experience. Azure Active Directory (AD) provides a robust SSO solution and has many pre-integrated applications with tutorials for admins to quickly set up a new app and start provisioning users. For information about setting up new applications, take a look at [Deploying single sign-on using Azure Active Directory for newly added SaaS apps](active-directory-sso-newly-acquired-saas-apps.md).   
 
 When you first initiate SSO, however, you want to make sure that the SaaS apps that are already in use in your organization can be managed through the same portal. This unified management experience is not just for new apps, but should include all apps.
 
@@ -46,7 +46,7 @@ Since the application is already in use, you will need to link the user's establ
 
 ### How does this affect end users?
 
-When you integrate SSO for an application that’s already in use, it’s important to realize that the user experience will be affected. For all apps, users will start using their Azure AD credentials to sign in. Additionally, they may need to use a different portal to access the applications. SSO for some applications can be done on the app’s own website, but for other apps user will have to go through a central app portal ([My Apps](myapps.microsoft.com) or [Office365](portal.office.com/myapps)) to sign in. Learn more about the different types of SSO and their user experiences in [What is application access and single sign-on with Azure Active Directoy](active-directory-appssoaccess-whatis.md).
+When you integrate SSO for an application that’s already in use, it’s important to realize that the user experience will be affected. For all apps, users will start using their Azure AD credentials to sign in. Additionally, they may need to use a different portal to access the applications. SSO for some applications can be done on the app’s own website, but for other apps user will have to go through a central app portal ([My Apps](myapps.microsoft.com) or [Office365](portal.office.com/myapps)) to sign in. Learn more about the different types of SSO and their user experiences in [What is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
 ## Next steps
 - Learn more about [application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md)
