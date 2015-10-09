@@ -608,7 +608,7 @@ data disk to be mounted upon deployment.
     ![drawing][img-pubportal-vm-skus-2]
 
 ## Next Step
-Once you submit your virtual machine image SKU(s) for certification, you can move forward with [Getting your offer to staging][link-pushstaging]. In this step of the publishing process, you will provide the marketing content, pricing, and other information necessary for **Step 3: Testing your offer and/or SKU in staging** where you will test various use case scenarios before deploying the offer to the Azure Marketplace for public visibility and purchase.  
+Once you submit your virtual machine image SKU(s) for certification, you can move forward to [Azure Marketplace Marketing Content Guide][link-pushstaging]. In this step of the publishing process, you will provide the marketing content, pricing, and other information necessary prior to **Step 3. Testing your VM offer in Staging** where you will test various use case scenarios before deploying the offer to the Azure Marketplace for public visibility and purchase.  
 
 ## See Also
 - [Getting Started: How to publish an offer to the Azure Marketplace](marketplace-publishing-getting-started.md)

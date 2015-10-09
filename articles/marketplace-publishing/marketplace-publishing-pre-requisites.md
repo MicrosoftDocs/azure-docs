@@ -13,7 +13,7 @@
   ms.topic="article"
   ms.tgt_pltfrm="Azure"
   ms.workload="na"
-  ms.date="10/08/2015"
+  ms.date="10/09/2015"
   ms.author="hascipio; v-divte"/>
 
 # General Pre-requisites for creating an offer for the Azure Marketplace
