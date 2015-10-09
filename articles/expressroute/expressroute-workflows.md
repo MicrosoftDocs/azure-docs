@@ -12,10 +12,10 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/22/2015"
+   ms.date="10/06/2015"
    ms.author="cherylmc"/>
 
-# ExpressRoute Circuit Provisioning workflows and Circuit States
+# ExpressRoute circuit provisioning workflows and circuit states
 This page walks you through the service provisioning and routing configuration workflows at a high level. 
 
 ![](./media/expressroute-workflows/expressroute-circuit-workflow.png)
@@ -30,9 +30,9 @@ The figure and corresponding steps below show the tasks you must follow in order
 
 4. Configure routing domains. If your connectivity provider manages Layer 3 for you, they will configure routing for your circuit. If your connectivity provider only offers Layer 2 services, you must configure routing per guidelines described in the [routing requirements](expressroute-routing.md) and [routing configuration](expressroute-howto-routing-classic.md) pages.
 
-	1. Enable Azure private peering - You must enable this peering to connect to VMs / cloud services deployed within virtual networks. 
-	2. Enable Azure public peering - You must enable Azure public peering if you wish to connect to Azure services hosted on public IP addresses. This is a requirement to access Azure resources if you have chosen to enable default routing for Azure private peering.
-	3. Enable Microsoft peering - You must enable this to access Office 365 and CRM online services. 
+	-  Enable Azure private peering - You must enable this peering to connect to VMs / cloud services deployed within virtual networks.
+	-  Enable Azure public peering - You must enable Azure public peering if you wish to connect to Azure services hosted on public IP addresses. This is a requirement to access Azure resources if you have chosen to enable default routing for Azure private peering.
+	-  Enable Microsoft peering - You must enable this to access Office 365 and CRM online services. 
 	
 	>[AZURE.IMPORTANT] If you are enabling Microsoft peering, ensure that Azure public peering is also enabled to access Azure AD. You must ensure that you use a separate proxy / edge to connect to Microsoft than the one you use for the Internet. Using the same edge for both ExpressRoute and the Internet will cause asymmetric routing and cause connectivity outages for your network.
 
@@ -116,6 +116,7 @@ If the advertised public prefix state is set to a *validation needed* state, the
 ## Next steps
 
 - Configure your ExpressRoute connection.
+
 	- [Create an ExpressRoute circuit](expressroute-howto-circuit-classic.md)
 	- [Configure routing](expressroute-howto-routing-classic.md)
 	- [Link a VNet to an ExpressRoute circuit](expressroute-howto-linkvnet-classic.md)

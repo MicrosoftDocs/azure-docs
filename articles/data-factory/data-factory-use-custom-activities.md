@@ -60,6 +60,7 @@ This Walkthrough provides you with step-by-step instructions for creating a cust
 		using System.IO;
 		using System.Globalization;
 		using System.Diagnostics;
+		using System.Linq;
 	
 		using Microsoft.Azure.Management.DataFactories.Models;
 		using Microsoft.Azure.Management.DataFactories.Runtime;
