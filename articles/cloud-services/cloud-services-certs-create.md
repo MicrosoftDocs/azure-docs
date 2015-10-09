@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Azure Cloud Services - All you want to know about certificates" 
+	pageTitle="Cloud Services and Management Certificates | Microsoft Azure" 
 	description="Learn how to create and use certificates with Microsoft Azure" 
 	services="cloud-services" 
 	documentationCenter=".net" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/16/2015"
+	ms.date="10/09/2015"
 	ms.author="adegeo"/>
 
 # Certificates Overview for Azure Cloud Services

@@ -1,5 +1,5 @@
 <properties
-    pageTitle="What is a Cloud Service Model and Package in Azure"
+    pageTitle="What is a Cloud Service Model and Package | Microsoft Azure"
     description="Describes the cloud service model (.csdef, .cscfg) and package (.cspkg) in Azure"
     services="cloud-services"
     documentationCenter=""
@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="07/06/2015"
+    ms.date="10/09/2015"
     ms.author="adegeo"/>
 
 # What is the Cloud Service Model and how do I package it?
