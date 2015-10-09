@@ -20,7 +20,7 @@
 - [Visual Studio](sql-data-warehouse-get-started-connect-query.md)
 - [SQLCMD](sql-data-warehouse-get-started-connect-query-bcp.md)
 
-# Connect and Query with SQLCMD
+# Connect and Query with SQLCMD 
 
 This walkthrough shows you how to connect and query an Azure SQL Data Warehouse database in just a few minutes by using the sqlcmd.exe utility. In this walkthrough, you will:
 
