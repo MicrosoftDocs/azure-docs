@@ -1,6 +1,6 @@
 <properties
    pageTitle="Create your first Service Fabric application in Visual Studio | Microsoft Azure"
-   description="This topic how to create, deploy, and degug a Service Fabric application using Visual Studio"
+   description="Create, deploy, and debug a Service Fabric application using Visual Studio"
    services="service-fabric"
    documentationCenter=".net"
    authors="seanmck"
