@@ -1,14 +1,12 @@
 <properties
-	urlDisplayName="How to connect to an Azure SQL database using SSMS"
 	pageTitle="How to connect to an Azure SQL database using SSMS | Microsoft Azure"
-	metaKeywords=""
 	description="Learn how to connect to an Azure SQL database using SSMS."
 	metaCanonical=""
 	services="sql-database"
 	documentationCenter=""
-	title="How to connect to an Azure SQL database using SSMS"
-	authors="stevestein" solutions=""
-	manager="jeffreyg" editor="" />
+	authors="stevestein"
+	manager="jeffreyg" 
+	editor="" />
 
 <tags
 	ms.service="sql-database"
@@ -23,8 +21,8 @@
 
 > [AZURE.SELECTOR]
 - [C#](sql-database-connect-query.md)
-- [SSMS](sql-server-connect-query-ssms.md)
-- [Excel](sql-server-connect-excel.md)
+- [SSMS](sql-database-connect-query-ssms.md)
+- [Excel](sql-database-connect-excel.md)
 
 This article shows you how to install SQL Server Management Studio (SSMS), connect to a database server in Azure, and then perform a simple query using Transact-SQL statements.
 

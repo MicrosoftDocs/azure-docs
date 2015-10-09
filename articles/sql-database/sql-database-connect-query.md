@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="get-started-article"
-	ms.date="09/09/2015"
+	ms.date="10/09/2015"
 	ms.author="genemi"/>
 
 
@@ -21,8 +21,8 @@
 
 > [AZURE.SELECTOR]
 - [C#](sql-database-connect-query.md)
-- [SSMS](sql-server-connect-query-ssms.md)
-- [Excel](sql-server-connect-excel.md)
+- [SSMS](sql-database-connect-query-ssms.md)
+- [Excel](sql-database-connect-excel.md)
 
 You want to write a C# program that uses ADO.NET to connect to an Azure SQL Database database in the cloud. 
 
