@@ -3,7 +3,7 @@
    description="Learn how to design your cloud solution for disaster recovery by choosing the right failover pattern."
    services="sql-database"
    documentationCenter="" 
-   authors="sashan" 
+   authors="anosov1960" 
    manager="jeffreyg" 
    editor="monicar"/>
 
