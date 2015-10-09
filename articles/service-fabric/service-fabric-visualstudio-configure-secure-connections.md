@@ -1,10 +1,10 @@
 <properties
-   pageTitle="Configure Secure Connections from Visual Studio | Microsoft Azure"
+   pageTitle="Configure Secure Connections | Microsoft Azure"
    description="Learn about how to use Visual Studio to configure secure connections that are supported by the Azure Service Fabric cluster."
-   services="visual-studio-online"
+   services="service-fabric"
    documentationCenter="na"
-   authors="kempb"
-   manager="douge"
+   authors="cawaMS"
+   manager="paulyuk"
    editor="tglee" />
 <tags
    ms.service="multiple"
@@ -12,12 +12,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="09/11/2015"
-   ms.author="kempb" />
+   ms.date="10/08/2015"
+   ms.author="cawaMS" />
 
 # Configure Secure Connections from Visual Studio
 
-Learn about how to use Visual Studio to configure secure connections that are supported by the Azure Service Fabric cluster.
+Learn about how to use Visual Studio to securely access a Service Fabric cluster with access control policies configured
 
 ## Cluster connection types
 
@@ -63,3 +63,8 @@ The **Select Service Fabric Cluster** dialog box automatically validates the clu
     ```
 
 1.	Edit any other necessary settings, such as upgrade parameters and Application Instance Definition file location, and then publish your application from the **Publish Azure Application** dialog in Visual Studio.
+
+## Next steps
+For more information about accessing Service Fabric clusters, please see the following articles.
+
+- [Visualizing your cluster using Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)

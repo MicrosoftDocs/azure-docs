@@ -1,10 +1,10 @@
 <properties
-   pageTitle="Configure the Upgrade of a Service Fabric Application in Visual Studio | Microsoft Azure"
+   pageTitle="Configure the Upgrade of a Service Fabric Application | Microsoft Azure"
    description="Learn how to configure the settings for upgrading a Service Fabric application by using Microsoft Visual Studio."
-   services="visual-studio-online"
+   services="service-fabric"
    documentationCenter="na"
-   authors="kempb"
-   manager="douge"
+   authors="cawaMS"
+   manager="paulyuk"
    editor="tglee" />
 <tags
    ms.service="multiple"
@@ -12,16 +12,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="09/11/2015"
-   ms.author="kempb" />
+   ms.date="10/08/2015"
+   ms.author="cawaMS />
 
 # Configure the Upgrade of a Service Fabric Application in Visual Studio
 
-Learn how to configure the upgrade of a Service Fabric application by using Visual Studio.
+Visual Studio Service Fabric tools provide upgrade support for publishing to local or remote clusters. There are two advantages for upgrading your application to a newer version instead of replacing the application during testing and debugging: firstly test data can be persisted on the cluster so no additional work is needed to load test data, and secondly high availability is achieved as there won't be any service interruption during upgrade. Tests can be run against an application while it's being upgraded. 
 
 ## Parameters needed to upgrade
 
-There are two types of deployment you can choose: regular or upgrade. A regular deployment erases any previous deployment information and data on the cluster, while an upgrade deployment preserves it. When you upgrade a Service Fabric application in Visual Studio, you need to provide application upgrade parameters and health check policies. Application upgrade parameters help control the upgrade while health check policies measure the results of the upgrade. See [Service Fabric Application Upgrade: Upgrade Parameters](https://azure.microsoft.com/en-us/documentation/articles/service-fabric-application-upgrade-parameters/) for more details.
+There are two types of deployment you can choose: regular or upgrade. A regular deployment erases any previous deployment information and data on the cluster, while an upgrade deployment preserves it. When you upgrade a Service Fabric application in Visual Studio, you need to provide application upgrade parameters and health check policies. Application upgrade parameters help control the upgrade while health check policies measure the results of the upgrade. See [Service Fabric Application Upgrade: Upgrade Parameters](service-fabric-application-upgrade-parameters.md) for more details.
 
 There are three upgrade modes: *Monitored*, *UnmonitoredAuto*, and *Manual*.
 
@@ -31,7 +31,7 @@ There are three upgrade modes: *Monitored*, *UnmonitoredAuto*, and *Manual*.
 
   - When you do a *Manual* upgrade, you need to manually move the upgrade to the next upgrade domain.
 
-Each upgrade mode requires different sets of parameters. See [Service Fabric Application Upgrade: Advanced Topics](https://azure.microsoft.com/en-gb/documentation/articles/service-fabric-application-upgrade-advanced/) to learn more about the available upgrade options.
+Each upgrade mode requires different sets of parameters. See [Service Fabric Application Upgrade: Advanced Topics](service-fabric-application-upgrade-advanced.md) to learn more about the available upgrade options.
 
 ## Upgrade a Service Fabric application in Visual Studio
 
@@ -59,7 +59,7 @@ If you’re using the Visual Studio Service Fabric tools to upgrade a Service Fa
 
 ## Upgrade an application using PowerShell
 
-You can use PowerShell cmdlets to upgrade a Service Fabric application. See [Service Fabric Application Upgrade Tutorial](https://azure.microsoft.com/en-us/documentation/articles/service-fabric-application-upgrade-tutorial/) and [Start-ServiceFabricApplicationUpgrade](https://msdn.microsoft.com/en-us/library/mt125975.aspx) for detailed information.
+You can use PowerShell cmdlets to upgrade a Service Fabric application. See [Service Fabric Application Upgrade Tutorial](service-fabric-application-upgrade-tutorial.md) and [Start-ServiceFabricApplicationUpgrade](https://msdn.microsoft.com/library/mt125975.aspx) for detailed information.
 
 ## Specify a health check policy in the Application Manifest file
 
@@ -80,3 +80,8 @@ The following example shows how to apply a unique health check policy for each s
     </HealthPolicy>
 </Policies>
 ```
+## Next steps
+For more information about deploying an application, please see the following articles.
+
+- [Deploy an existing application in Azure Service Fabric](service-fabric-deploy-existing-app.md)
+
