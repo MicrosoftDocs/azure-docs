@@ -306,7 +306,7 @@ You can test receiving notifications in your app by sending notifications in the
 				signature = [self CF_URLEncodedString:[rawHmac base64EncodedStringWithOptions:0]];
 
 				// Construct authorization token string
-				token = [NSString stringWithFormat:@"SharedAccessSignature sr=%@&sig=%@&se=%qu&skn=%@",
+				token = [NSString stringWithFormat:@"SharedAccessSignature sig=%@&se=%qu&skn=%@&sr=%@",
 					targetUri, signature, expires, HubSasKeyName];
 			}
 			@catch (NSException *exception)
@@ -369,7 +369,7 @@ You can test receiving notifications in your app by sending notifications in the
 				completionHandler:^(NSData *data, NSURLResponse *response, NSError *error)
 			{
 		        NSHTTPURLResponse* httpResponse = (NSHTTPURLResponse*) response;
-		        if (error || httpResponse.statusCode != 200)
+		        if (error || httpResponse.statusCode != 201)
 		        {
 		            NSLog(@"\nError status: %d\nError: %@", httpResponse.statusCode, error);
 		        }
@@ -440,7 +440,7 @@ You can test receiving notifications in your app by sending notifications in the
 
 You can find all the possible notification payloads in the Apple [Local and Push Notification Programming Guide].
 
-
+If build error occurred by Xcode7 about bitcode, you should change the "Build Settings" -> "Enable Bitcode"(ENABLE_BITCODE) to 'NO' in Xcode. 
 
 ##Test your app
 
