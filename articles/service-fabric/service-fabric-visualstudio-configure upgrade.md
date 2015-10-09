@@ -7,7 +7,7 @@
    manager="paulyuk"
    editor="tglee" />
 <tags
-   ms.service="multiple"
+   ms.service="service-fabric"
    ms.devlang="dotnet"
    ms.topic="article"
    ms.tgt_pltfrm="na"
