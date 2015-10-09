@@ -43,13 +43,9 @@ The first option is to use the [System-Defined Device Setup Classes Available to
 A better way, or the second option, is to follow these steps to find the specific device class GUID:
 
 1. Open the Device Manager, locate the device that will be redirected and right click, and open its properties. (for example: Integrated Camera).
-
 ![Open the Device Manager](./media/remoteapp-usbredir/ra-devicemanager.png)
-
 2. On the **Details** tab, choose the property **Class Guid**. The value which appears is the Class GUID for that type of device.
-
 ![Camera properties](./media/remoteapp-usbredir/ra-classguid.png)
-
 3. Use the Class Guid value to redirect devices that match it.
 
 For example:
@@ -71,9 +67,7 @@ The hardest part of this method is finding the USB device instance ID. You'll ne
 1. Enable the device redirection in Remote Desktop Session as described in [How can I use my devices and resources in a Remote Desktop session?](http://windows.microsoft.com/windows7/How-can-I-use-my-devices-and-resources-in-a-Remote-Desktop-session)
 2. Open a Remote Desktop Connection and click **Show Options**.
 3. Click **Save as** to save the current connection settings to an RDP file.
-
 ![Save the settings as an RDP file](./media/remoteapp-usbredir/ra-saveasrdp.png)
-
 4. Choose a file name and a location, for example “MyConnection.rdp” and “This PC\Documents”, and save the file.
 5. Open the MyConnection.rdp file using a text editor and find the instance ID of the device you want to redirect.
 
