@@ -31,13 +31,13 @@ For development, the Azure SQL Data Warehouse team recommends using Visual Studi
 To install Visual Studio 2015, follow the steps below
 
 1. [Download Visual Studio 2015](https://www.visualstudio.com/downloads) from Visual Studio online.
-2. Follow the [Installing Visual Studio](https://msdn.microsoft.com/en-us/library/e2h7fzkw.aspx) guide from MSDN choosing the default configurations 
+2. Follow the [Installing Visual Studio](https://msdn.microsoft.com/library/e2h7fzkw.aspx) guide from MSDN choosing the default configurations 
 
 ##<a id="subheading-2"></a> Download and Install SQL Server Data Tools (SSDT) Preview
 
 Azure SQL Data Warehouse is utilizes the latest preview version of the SQL Server Data Tools (SSDT) available in the 
 
-1. [Download SQL Server Data Tools Preview](https://msdn.microsoft.com/en-us/mt429383.aspx) for either Visual Studio 2013 or 2015.
+1. [Download SQL Server Data Tools Preview](https://msdn.microsoft.com/mt429383.aspx) for either Visual Studio 2013 or 2015.
 2. Follow the installation instructions to install the data tools.
 
 
