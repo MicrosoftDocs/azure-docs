@@ -37,11 +37,11 @@ The following illustration shows the completed application:
 You'll learn:
 
 * How to prepare your machine for Azure development by installing the [Azure SDK for .NET](../dotnet-sdk/).
-* How to set up Visual Studio to create a new App Service web app while it creates a web project.
+* How to set up Visual Studio to create a new App Service web app while it creates an ASP.NET MVC 5 web project.
 * How to deploy a web project to an App Service web app by using Visual Studio.
 * How to use the [Azure portal](/overview/preview-portal/) to monitor and manage your web app.
 
-> [AZURE.NOTE] This tutorial shows how to create an ASP.NET MVC 5 web project in Visual Studio, but it doesn't show how to write code for ASP.NET MVC 5. For that, see [Getting Started with ASP.NET MVC 5](http://www.asp.net/mvc/overview/getting-started/introduction/getting-started) and [Getting Started with Entity Framework 6 Code First using MVC 5](http://www.asp.net/mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application) on the [ASP.NET](http://asp.net/) site. For an MVC 5 tutorial that shows how to authenticate users and deploy to Azure App Service and Azure SQL Database, see [Deploy a secure ASP.NET MVC app with membership, OAuth, and SQL Database to an Azure web app](/develop/net/tutorials/web-site-with-sql-database/).
+> [AZURE.NOTE] This tutorial doesn't show how to write code for ASP.NET MVC 5. For that, see [Getting Started with ASP.NET MVC 5](http://www.asp.net/mvc/overview/getting-started/introduction/getting-started) and [Getting Started with Entity Framework 6 Code First using MVC 5](http://www.asp.net/mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application) on the [ASP.NET](http://asp.net/) site. For an MVC 5 tutorial that shows how to authenticate users and deploy to Azure App Service and Azure SQL Database, see [Deploy a secure ASP.NET MVC app with membership, OAuth, and SQL Database to an Azure web app](/develop/net/tutorials/web-site-with-sql-database/).
 
 ##<a name="video"></a>Sign up for Microsoft Azure
 
