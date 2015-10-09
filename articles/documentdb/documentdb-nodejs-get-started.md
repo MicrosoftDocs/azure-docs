@@ -55,13 +55,13 @@ Let's create a DocumentDB account. If you already have an account you want to us
 1. Open your favorite **terminal**.
 2. Locate the folder or directory where you'd like to save your Node.js application.
 3. Create two empty JS files with the following commands:
-	- *Windows*:    
+	- Windows:    
 	    * **fsutil file createnew app.js 0**
         * **fsutil file createnew config.js 0**
-	- *Linux/OS X*: 
+	- Linux/OS X: 
 	    * **touch app.js**
         * **touch config.js**
-4. Install the **documentdb** module via npm. Use the following command:
+4. Install the documentdb module via npm. Use the following command:
     * **npm install documentdb --save**
 
 Great! Now that you've finished setting up, let's start writing some code.
@@ -320,12 +320,12 @@ Deleting the created database will remove the database and all children resource
 Now that you've set all the necessary functions for your application, let's call them!
 
 The order of function calls will be 
-* getOrCreateDatabase
-    * getOrCreateCollection
-        * getOrCreateDocument
-            * getOrCreateDocument
-                * queryCollection
-                    * cleanup
+    * *getOrCreateDatabase*
+        * *getOrCreateCollection*
+            * *getOrCreateDocument*
+                * *getOrCreateDocument*
+                    * *queryCollection*
+                        * *cleanup*
 
 Add the following code snippet to the bottom of your code in *app.js*.
 
@@ -428,7 +428,8 @@ To build the GetStarted solution that contains all the samples in this article, 
 -   The [GetStarted](https://github.com/Azure-Samples/documentdb-node-getting-started) solution available on GitHub.
 
 Install the **documentdb** module via npm. Use the following command:
-    * **npm install documentdb --save**
+* **npm install documentdb --save**
+
 Next, in the *config.js* file, update the *config.endpoint* and *config.authKey* values as described in [Connect to a DocumentDB account](#Connect).
 
 ## Next steps
