@@ -25,13 +25,8 @@ Azure Active Directory Domain Services are available in the following Azure regi
   - Central US
   - East US
   - East US2
-  - North Central US
   - South Central US
   - West US
-
-- Europe
-  - North Europe
-  - West Europe
 
 - Asia
   - East Asia
