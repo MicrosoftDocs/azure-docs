@@ -147,51 +147,34 @@ Global Administrator or owners can provide access to other users and/or groups a
 
 ### How to allow users or groups access to Azure AD Connect Health
 #### Steps 1: Select the appropriate access scope
-- To allow a user access to "all service Instances" within Azure AD Connect Health , open the main blade in Azure AD Connect Health.
-
+- To allow a user access to "all service Instances" within Azure AD Connect Health , open the main blade in Azure AD Connect Health.<br>
 ![Main Blade](./media/active-directory-aadconnect-health/logo1.png)
-
 - To allow a user access to a specific service instance, open the service instance blade. For example, for sts.fabtoso.com farm, open the sts.fabtoso.com blade.
-
-![Service Blade](./media/active-directory-aadconnect-health/logo1.png)
+<br> ![Service Blade](./media/active-directory-aadconnect-health/logo1.png)<br>
 
 #### Step 2: Add users, groups and assign roles
-1. Click on the "Users" part from the Configure section.
-
-![RBAC part](./media/active-directory-aadconnect-health/logo1.png)
-
+1. Click on the "Users" part from the Configure section.<br>![RBAC part](./media/active-directory-aadconnect-health/logo1.png)
 2. Select "Add"
 3. Select the "Role"
-
-![RBAC Roles](./media/active-directory-aadconnect-health/logo1.png)
-
+<br>![RBAC Roles](./media/active-directory-aadconnect-health/logo1.png)<br>
 4. Type the name or identifier of the targeted user or group. You can select one or more users or groups at the same time.
 5. Select "Ok".
-
-![RBAC select users and groups](./media/active-directory-aadconnect-health/logo1.png)
-
+<br> ![RBAC select users and groups](./media/active-directory-aadconnect-health/logo1.png)<br>
 6. Once the role assignment is complete, the users and/or groups will appear in the list.
+<br>![RBAC user list](./media/active-directory-aadconnect-health/logo1.png)<br>
 
-![RBAC user list](./media/active-directory-aadconnect-health/logo1.png)
-
-This will allow the listed users and group access as per the assigned roles.
-
-Please note:
+These steps will allow the listed users and group access as per their assigned roles.Please note:
 - Global Administrators always have full access to all the operations but global administrator accounts will not be present in the above list.
 - "Invite Users" feature is NOT supported within Azure AD Connect Health.
 
-#### Option step: Share the blade location with users or groups
+#### Share the blade location with users or groups
 1. After assigning permissions, a user can access Azure AD Connect Health by going to [http://aka.ms/aadconnecthealth](http://aka.ms/aadconnecthealth).
-2. Once on the blade, the user can pin the blade or different parts to the dashboard by simply clicking "Pin to dashboard"
+2. Once on the blade, the user can pin the blade or different parts to the dashboard by simply clicking "Pin to dashboard"<br>![Pin blade or part](./media/active-directory-aadconnect-health/logo1.png)<br>
 
-![Pin blade or part](./media/active-directory-aadconnect-health/logo1.png)
-
-Please note: A user who is assigned the "Reader" role will not be able to access Azure AD Connect Health extension from the Azure Marketplace. The user can still get to the blade by going to the above link as a reader and pin the blade as required.
+Please note: A user with the "Reader" role assinged will not be able to perform the "create" operation to get Azure AD Connect Health extension from the Azure Marketplace. This user can still get to the blade by going to the above link. For subsequent usage, the user can pin the blade to the dashboard.
 
 ### Remove users and/or groups
-You can remove a user or a group added to Azure AD Connect Health Role Based Access Control part by right clicking and selecting remove.
-
-![Remove a user or group](./media/active-directory-aadconnect-health/logo1.png)
+You can remove a user or a group added to Azure AD Connect Health Role Based Access Control part by right clicking and selecting remove.<br>![Remove a user or group](./media/active-directory-aadconnect-health/logo1.png)<br>
 
 [//]: # (End of RBAC section)
 
