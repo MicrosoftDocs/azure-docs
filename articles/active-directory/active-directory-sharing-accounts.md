@@ -4,7 +4,7 @@
                 services="active-directory"
                 documentationCenter=""
                 authors="msStevenPo"
-                manager="StevenPo"
+                manager="stevenpo"
                 editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
                 ms.tgt_pltfrm="na"
                 ms.devlang="na"
                 ms.topic="article"
-                ms.date="08/20/2015"
+                ms.date="10/09/2015"
                 ms.author="stevenpo"/>
 
 
