@@ -55,10 +55,10 @@ App Service Environment.</br>
 
 The App Service environment is configured to manual scale as follows:
 <ul>
-<li>**Front Ends**: 3</li>
-<li>**Worker Pool 1**: 10</li>
-<li>**Worker Pool 2**: 5</li>
-<li>**Worker Pool 3**: 5</li>
+<li>Front Ends: 3</li>
+<li>Worker Pool 1: 10</li>
+<li>Worker Pool 2: 5</li>
+<li>Worker Pool 3: 5</li>
 </ul>
 
 **Worker Pool 1** is used for production workloads, while **Worker Pool 2** and **Worker Pool 3** 
@@ -73,7 +73,81 @@ the office. Usage drops after that, once users are done for that day. But there 
 since users can access it remotely with either their mobile devices or home computers. The production 
 **App Service Plan** is already configured to **auto-scale** based on CPU usage with the following 
 rules:
- 
+
+<table>
+	<tr>
+		<td>
+			<ul><li>Auto-scale Profile – Weekdays – App Service Plan</li></ul>
+			<ul>
+				<li>Name: Weekday Profile</li>
+				<li>Scale by: Schedule and performance rules</li>
+				<li>Profile: Weekdays</li>
+				<li>Type: recurrence</li>
+				<li>Target Range: 5 to 20 instances</li>
+				<li>Days: Monday, Tuesday, Wednesday, Thursday, Friday</li>
+				<li>Start Time: 9:00AM</li>
+				<li>Time zone: UTC – 08</li>
+			</ul>
+			</br>
+			<ul><li>Auto-scale Rule (Scale UP)</li></ul>
+			<ul>
+				<li>Resource: Production (App Service Environment)</li>
+				<li>Metric: CPU %</li>
+				<li>Operation: Greater than 60%</li>
+				<li>Duration: 5 Minutes</li>
+				<li>Time Aggregation: Average</li>
+				<li>Action: Increase count by 2</li>
+				<li>Cool down (minutes): 15</li>
+			</ul>
+			</br>
+			<ul><li>Auto-scale Rule (Scale DOWN)</li></ul>
+			<ul>
+				<li>Resource: Production (App Service Environment)</li>
+				<li>Metric: CPU %</li>
+				<li>Operation: Lesser than 30%</li>
+				<li>Duration: 10 Minutes</li>
+				<li>Time Aggregation: Average</li>
+				<li>Action: Decrease count by 1</li>
+				<li>Cool down (minutes): 20</li>
+			</ul>
+		</td>
+		<td>
+			<ul><li>Auto-scale Profile – Weekends – App Service Plan</li></ul>
+			<ul>
+				<li>Name: Weekend Profile</li>
+				<li>Scale by: Schedule and performance rules</li>
+				<li>Profile: Weekend</li>
+				<li>Type: recurrence</li>
+				<li>Target Range: 3 to 10 instances</li>
+				<li>Days: Saturday, Sunday</li>
+				<li>Start Time: 9:00AM</li>
+				<li>Time zone: UTC – 08</li>
+			</ul>
+			</br>
+			<ul><li>Auto-scale Rule (Scale UP)</li></ul>
+			<ul>
+				<li>Resource: Production (App Service Environment)</li>
+				<li>Metric: CPU %</li>
+				<li>Operation: Greater than 80%</li>
+				<li>Duration: 10 Minutes</li>
+				<li>Time Aggregation: Average</li>
+				<li>Action: Increase count by 1</li>
+				<li>Cool down (minutes): 20</li>
+			</ul>
+			</br>
+			<ul><li>Auto-scale Rule (Scale DOWN)</li></ul>
+			<ul>
+				<li>Resource: Production (App Service Environment)</li>
+				<li>Metric: CPU %</li>
+				<li>Operation: Lesser than 20%</li>
+				<li>Duration: 15 Minutes</li>
+				<li>Time Aggregation: Average</li>
+				<li>Action: Decrease count by 1</li>
+				<li>Cool down (minutes): 10</li>
+			</ul>
+		</td>
+	</tr>
+</table>
 
 
 > [AZURE.NOTE] App Service plan scale operations are not instantaneous .
