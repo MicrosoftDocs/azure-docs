@@ -14,7 +14,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/14/2015"
+   ms.date="10/08/2015"
    ms.author="telmos"/>
 
 # Create a virtual network by using PowerShell
