@@ -50,7 +50,7 @@ Now here we would usually create a shard map target, using the **New-AzureSqlJob
 	New-AzureSqlJobTarget -CustomCollectionName $customCollectionName 
 	$ResourceGroupName = "ddove_samples"
 	$ServerName = "samples"
-	$dbsinserver = Get-AzureSqlDatabase -ResourceGroupName $ResourceGroupName -ServerName $ServerName 
+	$dbsinserver = Get-AzureRMSqlDatabase -ResourceGroupName $ResourceGroupName -ServerName $ServerName 
 	$dbsinserver | %{
     $currentdb = $_.DatabaseName 
     $ErrorActionPreference = "Stop"

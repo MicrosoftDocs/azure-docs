@@ -10,7 +10,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="10/07/2015"
+	ms.date="10/08/2015"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -99,7 +99,7 @@ Run the **Set-AzureRMSqlDatabase** cmdlet and set the **-RequestedServiceObjecti
 ## Sample PowerShell script to change the service tier and performance level of your SQL database
 
     
-	Switch-AzureMode -Name AzureResourceManager
+
     
     $SubscriptionId = "4cac86b0-1e56-bbbb-aaaa-000000000000"
     

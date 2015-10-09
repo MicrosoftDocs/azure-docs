@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="powershell"
     ms.workload="data-management" 
-    ms.date="10/07/2015"
+    ms.date="10/08/2015"
     ms.author="sstein"/>
 
 # Import a BACPAC to a SQL Database using PowerShell
@@ -40,7 +40,7 @@ To import a SQL database you need the following:
 - A .bacpac file (BACPAC) of the database you want to restore. The BACPAC needs to be in an [Azure Storage account (classic)](storage-create-storage-account.md) blob container.
 
 
-> [AZURE.IMPORTANT] This article contains commands for versions of Azure PowerShell up to *but not including* versions 1.0.0 and later. You can check your version of Azure PowerShell with the **Get-Module azure | format-table version** command.
+> [AZURE.IMPORTANT] This article contains commands for versions of Azure PowerShell up to *but not including* versions 1.0 and later. You can check your version of Azure PowerShell with the **Get-Module azure | format-table version** command.
 
 
 

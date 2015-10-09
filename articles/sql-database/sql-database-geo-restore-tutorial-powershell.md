@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="storage-backup-recovery" 
-   ms.date="10/07/2015"
-   ms.author="elfish; v-romcal; v-stste"/>
+   ms.date="10/08/2015"
+   ms.author="elfish; v-romcal; sstein"/>
 
 # Recover an Azure SQL database using Geo-Restore in Azure PowerShell
 
@@ -26,7 +26,7 @@
 
 This tutorial shows you how to recover an Azure SQL database using Geo-Restore in [Azure PowerShell](../powershell-install-configure.md). Geo-Restore is the core disaster recovery protection included for all Basic, Standard, and Premium Azure SQL Databases service tiers.
 
-> [AZURE.IMPORTANT] This article contains commands for versions of Azure PowerShell up to *but not including* versions 1.0.0 and later. You can check your version of Azure PowerShell with the **Get-Module azure | format-table version** command.
+> [AZURE.IMPORTANT] This article contains commands for versions of Azure PowerShell up to *but not including* versions 1.0 and later. You can check your version of Azure PowerShell with the **Get-Module azure | format-table version** command.
 
 ## Restrictions and Security
 

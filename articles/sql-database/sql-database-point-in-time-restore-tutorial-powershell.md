@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="storage-backup-recovery" 
-   ms.date="10/07/2015"
-   ms.author="elfish; v-romcal; v-stste"/>
+   ms.date="10/08/2015"
+   ms.author="elfish; v-romcal; sstein"/>
 
 # Restore an Azure SQL database using Point in Time Restore in Azure PowerShell
 
@@ -37,6 +37,8 @@ See [Restore an Azure SQL database using Point in Time Restore in the Azure port
 > [AZURE.VIDEO restore-a-sql-database-using-point-in-time-restore-with-microsoft-azure-powershell]
 
 You must use certificate based authentication to run the following cmdlets. For more information, see the *Use the certificate method* section in [How to install and configure Azure PowerShell](../powershell-install-configure.md#use-the-certificate-method).
+
+> [AZURE.IMPORTANT] This article contains commands for versions of Azure PowerShell up to *but not including* versions 1.0 and later. You can check your version of Azure PowerShell with the **Get-Module azure | format-table version** command.
 
 1. Get the database you want to restore by using the [Get-AzureSqlDatabase](http://msdn.microsoft.com/library/azure/dn546735.aspx) cmdlet. Specify the following parameters:
 	* **ServerName** where the database is located.

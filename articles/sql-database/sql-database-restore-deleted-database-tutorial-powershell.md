@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="storage-backup-recovery" 
-   ms.date="10/07/2015"
+   ms.date="10/08/2015"
    ms.author="elfish; v-romcal; v-stste"/>
 
 # Restore a deleted Azure SQL database in Azure PowerShell
@@ -37,6 +37,8 @@ See [Restore a deleted Azure SQL database in the Azure portal](sql-database-rest
 > [AZURE.VIDEO restore-a-deleted-sql-database-with-microsoft-azure-powershell]
 
 You must use certificate based authentication to run the following cmdlets. For more information, see the *Use the certificate method* section in [How to install and configure Azure PowerShell](../powershell-install-configure.md#use-the-certificate-method).
+
+> [AZURE.IMPORTANT] This article contains commands for versions of Azure PowerShell up to *but not including* versions 1.0 and later. You can check your version of Azure PowerShell with the **Get-Module azure | format-table version** command.
 
 1. Get the list of recoverable databases by using the [Get-AzureSqlDatabase](http://msdn.microsoft.com/library/azure/dn546735.aspx) cmdlet.
 	* Use the **RestorableDropped** switch and specify the **ServerName** of the server from which the database was deleted.

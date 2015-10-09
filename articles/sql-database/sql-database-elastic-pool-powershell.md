@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="powershell"
    ms.workload="data-management" 
-   ms.date="10/07/2015"
+   ms.date="10/08/2015"
    ms.author="adamkr; sstein"/>
 
 # Create and manage a SQL Database elastic database pool using PowerShell
@@ -34,7 +34,7 @@ To run PowerShell cmdlets, you need to have Azure PowerShell installed and runni
 
 The individual steps to create an elastic database pool with Azure PowerShell are broken out and explained for clarity. For those who simply want a concise list of commands, see the **Putting it all together** section at the bottom of this article.
 
-This article will show you how to create everything you need to create and configure an elastic database pool except for the Azure subscription. If you need an Azure subscription simply click **FREE TRIAL** at the top of this page, and then come back to finish this article.
+This article shows you how to create everything you need to create and configure an elastic database pool except for the Azure subscription. If you need an Azure subscription simply click **FREE TRIAL** at the top of this page, and then come back to finish this article.
 
 > [AZURE.NOTE] Elastic database pools are currently in preview, and only available with SQL Database V12 servers.
 
@@ -57,7 +57,7 @@ To select the subscription you need your subscription Id or subscription name (*
 
 ## Create a resource group, server, and firewall rule
 
-Now you have access to run cmdlets against your Azure subscription so the next step is establishing the resource group that contains the server where the elastic database pool will be created. You can edit the next command to use whatever valid location you choose. Run **(Get-AzureLocation | where-object {$_.Name -eq "Microsoft.Sql/servers" }).Locations** to get a list of valid locations.
+Now you have access to run cmdlets against your Azure subscription so the next step is establishing the resource group that contains the server where the elastic database pool will be created. You can edit the next command to use whatever valid location you choose. Run **(Get-AzureRMLocation | where-object {$_.Name -eq "Microsoft.Sql/servers" }).Locations** to get a list of valid locations.
 
 If you already have a resource group you can go to the next step, or you can run the following command to create a new resource group:
 
@@ -202,7 +202,6 @@ Export to a CSV file:
 ## Putting it all together
 
 
-    Switch-AzureMode -Name AzureResourceManager
     Add-AzureAccount
     Select-AzureSubscription -SubscriptionId 4cac86b0-1e56-bbbb-aaaa-000000000000
     New-AzureRMResourceGroup -Name "resourcegroup1" -Location "West US"

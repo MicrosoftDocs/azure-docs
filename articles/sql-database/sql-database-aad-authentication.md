@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="10/07/2015"
+   ms.date="10/08/2015"
    ms.author="rick.byham@microsoft.com"/>
 
 # Connecting to SQL Database By Using Azure Active Directory Authentication 
@@ -171,9 +171,9 @@ Cmdlets used to provision and manage Azure AD admin:
 
 | Cmdlet name                                       | Description                                                                                                     |
 |---------------------------------------------------|-----------------------------------------------------------------------------------------------------------------|
-| Set-AzureRMSqlServerActiveDirectoryAdministrator    | Provisions an Azure Active Directory administrator for Azure SQL Server. (Must be from the current subscription.) |
-| Remove-AzureRMSqlServerActiveDirectoryAdministrator | Removes an Azure Active Directory administrator for Azure SQL Server. |
-| Get-AzureRMSqlServerActiveDirectoryAdministrator    | Returns information about an Azure Active Directory administrator currently configured for the Azure SQL Server. |
+| [Set-AzureRMSqlServerActiveDirectoryAdministrator](https://msdn.microsoft.com/library/azure/mt603544.aspx)    | Provisions an Azure Active Directory administrator for Azure SQL Server. (Must be from the current subscription.) |
+| [Remove-AzureRMSqlServerActiveDirectoryAdministrator](https://msdn.microsoft.com/library/azure/mt619340.aspx) | Removes an Azure Active Directory administrator for Azure SQL Server. |
+| [Get-AzureRMSqlServerActiveDirectoryAdministrator](https://msdn.microsoft.com/library/azure/mt603737.aspx)    | Returns information about an Azure Active Directory administrator currently configured for the Azure SQL Server. |
 
 Use PowerShell command get-help to see more details for each of these commands, for example ``get-help Set-AzureRMSqlServerActiveDirectoryAdministrator``.
 
