@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Event Hubs Availability and Support FAQ"
-   description="Event Hubs pricing and FAQ."
+   pageTitle="Event Hubs availability and support | Microsoft Azure"
+   description="Event Hubs availability and support FAQ."
    services="event-hubs"
    documentationCenter="na"
    authors="sethmanheim"
@@ -12,18 +12,18 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd"
-   ms.date="06/09/2015"
+   ms.date="10/07/2015"
    ms.author="sethm" />
 
 # Event Hubs availability and support FAQ
 
 Event Hubs provides large-scale intake, persistence and processing of data events from high-throughput data sources and/or millions of devices. When paired with Service Bus queues and topics, Event Hubs enables persistent command and control deployments for Internet of Things scenarios.
 
-This section covers availability information and answers some frequently-asked questions.
+This article discusses availability information and answers some frequently-asked questions:
 
 ## Pricing information
 
-For information about Event Hubs pricing, see the [Event Hubs pricing details](http://azure.microsoft.com/pricing/details/event-hubs/).
+For complete information about Event Hubs pricing, see the [Event Hubs pricing details](http://azure.microsoft.com/pricing/details/event-hubs/).
 
 ## How are Event Hubs ingress events calculated?
 
@@ -100,13 +100,12 @@ To learn more about our SLA, please visit the [Service Level Agreements](http://
 
 ## Next steps
 
-To learn more about Event Hubs, visit the following topics:
+To learn more about Event Hubs, see the following articles:
 
-- [Event Hubs Overview]
+- [Event Hubs overview].
 - A complete [sample application that uses Event Hubs].
 - A [queued messaging solution] using Service Bus queues.
 
-[Event Hubs Overview]: event-hubs-overview.md
-[sample application that uses Event Hubs]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-286fd097
-[queued messaging solution]: ../cloud-services-dotnet-multi-tier-app-using-service-bus-queues.md
- 
+[Event Hubs overview]: event-hubs-overview.md
+[sample application that uses Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
+[queued messaging solution]: ../service-bus/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md

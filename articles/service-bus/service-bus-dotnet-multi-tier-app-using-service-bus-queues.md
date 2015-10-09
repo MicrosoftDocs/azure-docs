@@ -1,6 +1,6 @@
 <properties
 	pageTitle=".NET multi-tier application | Microsoft Azure"
-	description="A tutorial that helps you develop a multi-tier app in Azure that uses Service Bus queues to communicate between tiers. Samples in .NET."
+	description="A .NET tutorial that helps you develop a multi-tier app in Azure that uses Service Bus queues to communicate between tiers."
 	services="service-bus"
 	documentationCenter=".net"
 	authors="sethmanheim"
@@ -13,15 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="07/02/2015"
+	ms.date="10/07/2015"
 	ms.author="sethm"/>
 
 # .NET multi-tier application using Azure Service Bus queues
 
 ## Introduction
 
-Developing for Microsoft Azure is easy using Visual Studio 2013 and the free Azure SDK for .NET. If you do not already have Visual Studio 2013, the SDK will automatically install Visual Studio Express, so you can start developing for Azure entirely for
-free. This article assumes you have no prior experience using Azure. After completing this tutorial, you will have an application that uses
+Developing for Microsoft Azure is easy using Visual Studio and the free Azure SDK for .NET. If you do not already have Visual Studio, the SDK will automatically install Visual Studio Express, so you can start developing for Azure entirely for free. This article assumes you have no prior experience using Azure. After completing this tutorial, you will have an application that uses
 multiple Azure resources running in your local environment and
 that demonstrates how a multi-tier application works.
 
@@ -44,17 +43,17 @@ The following screen shot shows the completed application.
 
 > [AZURE.NOTE] Azure also provides storage queue functionality. For more information about Azure storage queues and Service Bus queues, see [Azure Queues and Azure Service Bus Queues - Compared and Contrasted][sbqueuecomparison].  
 
-## Scenario overview: Inter-role communication
+## Scenario overview: inter-role communication
 
 To submit an order for processing, the front end UI component, running
-in the web role, needs to interact with the middle tier logic running in
+in the web role, must interact with the middle tier logic running in
 the worker role. This example uses Service Bus brokered messaging for
 the communication between the tiers.
 
 Using brokered messaging between the web and middle tiers decouples the
 two components. In contrast to direct messaging (that is, TCP or HTTP),
 the web tier does not connect to the middle tier directly; instead it
-pushes units of work, as messages, into the Service Bus, which reliably
+pushes units of work, as messages, into Service Bus, which reliably
 retains them until the middle tier is ready to consume and process them.
 
 Service Bus provides two entities to support brokered messaging:
@@ -74,27 +73,27 @@ messaging:
 -   **Temporal decoupling.** With the asynchronous messaging pattern,
     producers and consumers need not be online at the same time. Service
     Bus reliably stores messages until the consuming party is ready to
-    receive them. This allows the components of the distributed
+    receive them. This enables the components of the distributed
     application to be disconnected, either voluntarily, for example, for
     maintenance, or due to a component crash, without impacting the
-    system as a whole. Furthermore, the consuming application may only
+    system as a whole. Furthermore, the consuming application might only
     need to come online during certain times of the day.
 
 -   **Load leveling.** In many applications, system load varies over
     time, while the processing time required for each unit of work is
     typically constant. Intermediating message producers and consumers
     with a queue means that the consuming application (the worker) only needs to be provisioned to accommodate average load rather than peak
-    load. The depth of the queue will grow and contract as the incoming
+    load. The depth of the queue grows and contracts as the incoming
     load varies. This directly saves money in terms of the amount of
     infrastructure required to service the application load.
 
 -   **Load balancing.** As load increases, more worker processes can be
     added to read from the queue. Each message is processed by only one
     of the worker processes. Furthermore, this pull-based load balancing
-    allows for optimum utilization of the worker machines even if the
-    worker machines differ in terms of processing power as they will
+    enables optimal use of the worker machines even if the
+    worker machines differ in terms of processing power, as they will
     pull messages at their own maximum rate. This pattern is often
-    termed the competing consumer pattern.
+    termed the *competing consumer* pattern.
 
     ![][2]
 
@@ -129,18 +128,16 @@ Before you can begin developing your Azure application, download the tools and s
 
 ## Set up the Service Bus namespace
 
-The next step is to create a service namespace, and to obtain a Shared Access Signature (SAS) key. A service namespace provides an application boundary for
+The next step is to create a service namespace, and obtain a Shared Access Signature (SAS) key. A namespace provides an application boundary for
 each application exposed through Service Bus. A SAS key is
 generated by the system when a service namespace is
-created. The combination of service namespace and SAS key
+created. The combination of namespace and SAS key
 provides the credentials for Service Bus to authenticate access to an
 application.
 
-> [AZURE.NOTE] You can also manage namespaces and Service Bus messaging entities using the Visual Studio Server Explorer, but you can only create new namespaces from within the Azure portal.
-
 ### Set up the namespace using the Azure portal
 
-1.  Log into the [Azure portal][].
+1.  Log on to the [Azure portal][].
 
 2.  In the left navigation pane of the Azure portal, click
     **Service Bus**.
@@ -161,7 +158,7 @@ application.
     > [AZURE.IMPORTANT] Pick the **same region** that you intend to choose to
     deploy your application. This will give you the best performance.
 
-6.  Click the check mark. The system now creates your service
+6.  Click the OK check mark. The system now creates your service
     namespace and enables it. You might have to wait several minutes as
     the system provisions resources for your account.
 
@@ -183,9 +180,9 @@ application.
 
 ## Create a web role
 
-In this section, you will build the front end of your application. You
-will first create the various pages that your application displays.
-After that, you will add the code for submitting items to a Service Bus
+In this section, you build the front end of your application. First, you
+create the various pages that your application displays.
+After that, you add the code for submitting items to a Service Bus
 queue and displaying status information about the queue.
 
 ### Create the project
@@ -242,8 +239,7 @@ queue and displaying status information about the queue.
 
 ### Write the code for your web role
 
-In this section, you will create the various pages that your application
-displays.
+In this section, you create the various pages that your application displays.
 
 1.  In the OnlineOrder.cs file in Visual Studio, replace the
     existing namespace definition with the following code:
@@ -321,7 +317,7 @@ displays.
 
 4.  On the **Build** menu, click **Build Solution** to test the accuracy of your work so far.
 
-5.  Now, you will create the view for the **Submit()** method you
+5.  Now, create the view for the **Submit()** method you
     created earlier. Right-click within the **Submit()** method, and then choose
     **Add View**.
 
@@ -359,10 +355,10 @@ displays.
 
 ### Write the code for submitting items to a Service Bus queue
 
-Now, you will add code for submitting items to a queue. You will first
+Now, add code for submitting items to a queue. First, you
 create a class that contains your Service Bus queue connection
-information. Then, you will initialize your connection from
-Global.aspx.cs. Finally, you will update the submission code you
+information. Then, initialize your connection from
+Global.aspx.cs. Finally, update the submission code you
 created earlier in HomeController.cs to actually submit items to a
 Service Bus queue.
 
@@ -370,7 +366,7 @@ Service Bus queue.
 
 2.  Name the class QueueConnector.cs. Click **Add** to create the class.
 
-3.  You will now add code that encapsulates the connection information and initializes the connection to a Service Bus queue. In QueueConnector.cs, add the following code, and enter values for **Namespace** (your service namespace) and **yourKey**, which is the SAS key you obtained from the [Azure portal][Azure portal] earlier.
+3.  Now, add code that encapsulates the connection information and initializes the connection to a Service Bus queue. In QueueConnector.cs, add the following code, and enter values for **Namespace** (your service namespace) and **yourKey**, which is the SAS key you obtained from the [Azure portal][Azure portal] earlier.
 
         using System;
         using System.Collections.Generic;
@@ -430,7 +426,7 @@ Service Bus queue.
             }
         }
 
-    Note that later in this tutorial you will learn how to store the name of your **Namespace** and your SAS key value in a configuration file.
+    Later in this tutorial you will learn how to store the name of your **Namespace** and your SAS key value in a configuration file.
 
 4.  Now, ensure that your **Initialize** method gets called. In **Solution Explorer**, double-click **Global.asax\Global.asax.cs**.
 
@@ -486,26 +482,26 @@ Service Bus queue.
 
 ## Cloud configuration manager
 
-The **GetSettings** method in the
-**Microsoft.WindowsAzure.Configuration.CloudConfigurationManager** class
+The [GetSetting][] method in the
+[Microsoft.WindowsAzure.Configuration.CloudConfigurationManager][] class
 enables you to read configuration settings from the configuration store for your
 platform. For example, if your code is running
-in a web or worker role the **GetSettings** method reads the
+in a web or worker role the [GetSetting][] method reads the
 ServiceConfiguration.cscfg file, and if your code is running in a standard
-console app the **GetSettings** method reads the app.config file.
+console app the [GetSetting][] method reads the app.config file.
 
 If you store a connection string for your Service Bus namespace in a
-configuration file, you can use the **GetSettings** method to read a connection
-string that you can use to instantiate a **NamespaceMananger** object. You can
-use a **NamespaceMananger** instance to configure your Service Bus namespace
+configuration file, you can use the [GetSetting][] method to read a connection
+string that you can use to instantiate a [NamespaceMananger][] object. You can
+use a [NamespaceMananger][] instance to configure your Service Bus namespace
 programmatically. You can use the same connection string to instantiate a client
-objects (such as **QueueClient**, **TopicClient**, and **EventHubClient**
-object) that you can use to perform runtime operations such as sending and
+objects (such as [QueueClient][], [TopicClient][], and [EventHubClient][]
+object) that you can use to perform run-time operations such as sending and
 receiving messages.
 
 ### Connection string
 
-To instantiate a client (for example, a Service Bus **QueueClient**), you can represent the configuration information as a connection string. On the client side, there is a `CreateFromConnectionString()` method that instantiates that client type by using that connection string. For example, given the following configuration section
+To instantiate a client (for example, a Service Bus [QueueClient][]), you can represent the configuration information as a connection string. On the client side, there is a `CreateFromConnectionString()` method that instantiates that client type by using that connection string. For example, given the following configuration section
 
 	<ConfigurationSettings>
     ...
@@ -530,7 +526,7 @@ The following code retrieves the connection string, creates a queue, and initial
 	// Initialize the connection to Service Bus queue.
 	Client = QueueClient.CreateFromConnectionString(connectionString, QueueName);
 
-The code in the following section uses the **CloudConfigurationManager** class.
+The code in the following section uses the [CloudConfigurationManager][Microsoft.WindowsAzure.Configuration.CloudConfigurationManager] class.
 
 ## Create the worker role
 
@@ -566,7 +562,7 @@ submissions. This example uses the **Worker Role with Service Bus Queue** Visual
 
 10. Browse to the subfolder for **FrontendWebRole\Models**, and then double-click **OnlineOrder.cs** to add it to this project.
 
-11. In WorkerRole.cs, replace the value of the **QueueName** variable in **WorkerRole.cs** from `"ProcessingQueue"` to `"OrdersQueue"` as shown in the following code.
+11. In **WorkerRole.cs**, replace the value of the **QueueName** variable in **WorkerRole.cs** from `"ProcessingQueue"` to `"OrdersQueue"` as shown in the following code.
 
 		// The name of your queue.
 		const string QueueName = "OrdersQueue";
@@ -618,7 +614,7 @@ To implement the application you create in this tutorial as a standard web proje
 
 3. You can test the front-end and back-end separately, or you can run both simultaneously in separate Visual Studio instances.
 
-To learn how to deploy the front end to an Azure website, see [Deploying an ASP.NET Web Application to an Azure Website](http://azure.microsoft.com/develop/net/tutorials/get-started/). To learn how to deploy the back end to an Azure cloud service, see [.NET Multi-Tier Application Using Storage Tables, Queues, and Blobs][mutitierstorage].
+To learn how to deploy the front end to an Azure website, see [Create an ASP.NET web app in Azure App Service](../app-service-web/web-sites-dotnet-get-started.md). To learn how to deploy the back end to an Azure cloud service, see [.NET Multi-Tier Application Using Storage Tables, Queues, and Blobs][mutitierstorage].
 
 
   [0]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-01.png
@@ -629,6 +625,15 @@ To learn how to deploy the front end to an Azure website, see [Deploying an ASP.
   [3]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-3.png
 
 
+  [GetSetting]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.cloudconfigurationmanager.getsetting.aspx
+  [Microsoft.WindowsAzure.Configuration.CloudConfigurationManager]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.cloudconfigurationmanager.aspx
+  [NamespaceMananger]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx
+
+  [QueueClient]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.aspx
+
+  [TopicClient]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.topicclient.aspx
+
+  [EventHubClient]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventhubclient.aspx
 
   [Azure portal]: http://manage.windowsazure.com
   [6]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/sb-queues-03.png
@@ -656,7 +661,7 @@ To learn how to deploy the front end to an Azure website, see [Deploying an ASP.
   [30]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/sb-queues-09.png
   [31]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/sb-queues-06.png
   [32]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-41.png
-  [33]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-4-2-WebPI.png
+  [33]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-42-webpi.png
   [35]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/multi-web-45.png
   [sbmsdn]: http://msdn.microsoft.com/library/azure/ee732537.aspx  
   [sbwacom]: /documentation/services/service-bus/  
