@@ -24,13 +24,12 @@ This article walks through the necessary account creation and registration to be
 
 The address that forms the user name should be on your domain and controlled by your IT team (such as publishing@yourcompany.com). Payment, tax information, and reporting will be routed through this account.
 
+  > [AZURE.WARNING] Words like "Azure", "Microsoft" are not supported for MSA account registration. Avoid using these words to complete the account creation and registration process.
+
 1. Create a Distribution List (DL) or Security Group (SG) within your company's domain.
   - Add your onboarding team to the DL
   - DL must be live to receive confirmation email
   - This needs to be completed in your internal systems. For e.g. marketplace@yourcompany.com
-
-  > [AZURE.WARNING] Words like "Azure", "Microsoft" are not supported for MSA account registration. Avoid using these words to complete the account creation and registration process.
-
 2. Open a new Chrome Incognito or IE InPrivate browsing session to ensure that you’re not logged into an existing account
 3. Register for your a Microsoft Account (MSA) using the Distribution List Email.
  - You can register for a MSA at https://signup.live.com/signup.aspx
@@ -42,7 +41,7 @@ The address that forms the user name should be on your domain and controlled by 
 4. When registering, use a valid phone number. The system will send a verification code as a text message or an automated call if identify verification is required.
 5. Verify the email address sent to the DL
 
-  ![drawing][img-email]
+    ![drawing][img-email]
 
 6. You’re now ready to use the new MSA in the Seller Dashboard.
 
@@ -53,11 +52,13 @@ The Microsoft Seller Dashboard is used to register the company information once.
 
 > [AZURE.IMPORTANT] The following seller profile components must be completed in order to progress through the various phases of offer creation and deployment.
 
+
 | Seller Profile | To start draft | Staging | Publish Free & Solution Template | Publish Commercial |
 |----|----|----|----|----|
 |Company Registration | Must Have | Must Have | Must Have | Must Have |
 |Tax Profile ID | Optional | Optional | Optional | Must Have |
 |Bank Account | Optional | Optional | Optional | Must Have |
+
 
 > [AZURE.NOTE] BYOL is only supported for virtual machines and is considered **FREE** offering.
 
@@ -67,42 +68,45 @@ The Microsoft Seller Dashboard is used to register the company information once.
 
 2. Go to http://sellerdashboard.microsoft.com
 
-  ![drawing][img-sd-url]
+    ![drawing][img-sd-url]
 
 3. Sign in with your company registration Microsoft Account (MSA) (e.g. AzureStore@yourcompany.com)
 
-  ![drawing][img-signin]
+    ![drawing][img-signin]
 
 4. Complete the "Help us protect your account" wizard, which will verify your identity via phone number or email address.
 
-  ![drawing][img-verify]
+    ![drawing][img-verify]
 
 5. Go to **Account Details**. On this screen, you will enter your PERSONAL information, which is only used for identity verification. That means your name, email address, residential address, and personal phone number. This information is not shared with anyone outside of Microsoft.
 
-  ![drawing][img-sd-top]
+    ![drawing][img-sd-top]
 
-  ![drawing][img-sd-info]
+    ![drawing][img-sd-info]
 
 6. Register on behalf of your company by designating your account type as Company, NOT Individual. Click **Next**.
 
-  ![drawing][img-sd-type]
+    ![drawing][img-sd-type]
 
 7. Fill in the Company details. This needs to be accurate information – headquarters, reference, will all be checked by a team at Microsoft.
 
-  ![drawing][img-sd-mktg1]
+    ![drawing][img-sd-mktg1]
 
 8. Company name in below details is used by publisher portal hence should be accurate
 
-      ![drawing][img-sd-mktg2]
+    ![drawing][img-sd-mktg2]
+
 9. Use the address of your company head quarters
 
-      ![drawing][img-sd-addr]
+    ![drawing][img-sd-addr]
+
 10. Use reference that will be accessible & recognizable as a company representative
 
-      ![drawing][img-sd-legal]
+    ![drawing][img-sd-legal]
+
 11. Click **Submit for Approval** and you are done.
 
-      ![drawing][img-sd-submit]
+    ![drawing][img-sd-submit]
 
 Once you register your company, you can continue working in parallel while the verification of your registration is completed by the Seller Dashboard team. You can monitor the status of your approvals via the [Azure Publishing Portal][link-pubportal].
 
@@ -145,19 +149,22 @@ The Azure Publishing Portal is used to publish and manage your offer(s). Think o
 2.	Go to http://publish.windowsazure.com
 3.	 Sign in with your company registration Microsoft Account (MSA) (i.e. AzureStore@yourcompany.com) and you can add co-admins as necessary.
 4.	Read & accept the terms of the Publisher Agreement (first time logging into Publishing Portal) and you are done here.
+
   > [AZURE.IMPORTANT] The participation policies are mentioned [here](http://azure.microsoft.com/support/legal/marketplace/participation-policies/).
 
-**"Sell-from" Countries**
+  > [AZURE.TIP] If you have issues with Seller Registration completion, please log a Support ticket as below:
+  1. Contact [Support](http://go.microsoft.com/fwlink?LinkId=272975)
+  2. Choose **Seller Dashboard registration and your account**
+  3. Choose **Registering for a developer account**
+  4. Choose contact **method**
+
+### "Sell-from" Countries
 
 > [AZURE.WARNING]
 In order to sell your services on Microsoft Azure Marketplace, your registered entity needs to be from one of the approved “sell from” countries. This restriction is for payout and taxation reasons. We are actively looking to expand this list of countries in the near future, so please stay tuned. For the complete list, please see section 1b of the document at link http://go.microsoft.com/fwlink/?LinkID=526833&clcid=0x409.
 
 
-> [AZURE.TIP] If you have issues with Seller Registration completion, please log a Support ticket as below:
-1. Contact [Support](http://go.microsoft.com/fwlink?LinkId=272975)
-2. Choose **Seller Dashboard registration and your account**
-3. Choose **Registering for a developer account**
-4. Choose contact **method**
+
 
 ## Next steps
 Now that your account is created and registered, click on the type of artifact (virtual machine, developer service, data service, solution template) that you would like to publish to the Azure Marketplace. Visit one of the following articles to learn how to publish your respective offer:

@@ -132,7 +132,7 @@ The command automatically performs the following actions:
 We recommend setting the configuration file (/etc/waagent.conf) to ensure the following actions are also completed:
 
 - Set Provisioning.RegenerateSshHostKeyPair to 'y' in the configuration file to remove all SSH host keys.
-- Set Provisioning.DeleteRootPassword to 'y' in the configuration file to remove the ‘root’ password from /etc/shadow. For documentation of the contents of the configuration file, see the “CONFIGURATION” section of the README file on the Agent Github repository page (https://github.com/Azure/WALinuxAgent and scroll downward).  
+- Set Provisioning.DeleteRootPassword to 'y' in the configuration file to remove the ‘root’ password from /etc/shadow. For documentation of the contents of the configuration file, see the “CONFIGURATION” section of the README file on the Agent Github repository page ([https://github.com/Azure/WALinuxAgent](https://github.com/Azure/WALinuxAgent) and scroll downward).  
 
 At this point, you have completed generalizing of the Linux VM.   Shut down the VM either from the Azure Portal, command line or from within the VM.  When shutdown is complete, continue at Step 3.4.
 
@@ -158,37 +158,37 @@ From the Microsoft Azure Portal, you can create your VM based on an approved bas
 
 1. From the base image page, select **Create VM** to be directed to the new [Microsoft Azure Portal][link-azure-portal].
 
-  ![drawing][img-acom-1]
+    ![drawing][img-acom-1]
 
 2. Log in to the portal with the Microsoft account (MSA) and password for the Azure subscription you wish to use.
 3. Follow the prompts to create a VM using the base image you have selected. At the very least, you will need to provide a host name (name of the computer), username (admin user registered), and password for the VM.
 
-  ![drawing][img-portal-vm-create]
+    ![drawing][img-portal-vm-create]
 
 4. Select the size of the VM to deploy.
 
-  a.	If you plan to develop the VHD on premises, the size does not matter. Consider using one of the smaller VMs.
+    a.	If you plan to develop the VHD on premises, the size does not matter. Consider using one of the smaller VMs.
 
-  b.	If you plan to develop the image in Azure, consider using one of the recommended VM sizes for the selected image.
+    b.	If you plan to develop the image in Azure, consider using one of the recommended VM sizes for the selected image.
 
-  c.	For pricing information, refer to the Recommended Pricing Tier selector displayed on the portal. It will provide the three recommended sizes provided by the publisher. (In this case, the publisher is Microsoft.)
+    c.	For pricing information, refer to the Recommended Pricing Tier selector displayed on the portal. It will provide the three recommended sizes provided by the publisher. (In this case, the publisher is Microsoft.)
 
-  ![drawing][img-portal-vm-size]
+    ![drawing][img-portal-vm-size]
 
 5. Set properties
 
-  a.	For quick deployment, you can leave the default values for the properties under **Optional Configuration** and **Resource Group**.
+    a.	For quick deployment, you can leave the default values for the properties under **Optional Configuration** and **Resource Group**.
 
-  b.	If desired, under Storage Account, you can select the storage account in which the OS VHD will be stored.
+    b.	If desired, under Storage Account, you can select the storage account in which the OS VHD will be stored.
 
-  c.	If desired, under Resource Group, you can select the logical group in which to place the VM.
+    c.	If desired, under Resource Group, you can select the logical group in which to place the VM.
 6. Select the **Location** to which to deploy.
 
-  a.	If you plan to develop the VHD on premises, the location does not matter as you will be uploading the image to Azure later.
+    a.	If you plan to develop the VHD on premises, the location does not matter as you will be uploading the image to Azure later.
 
-  b.	If you plan to develop the image in Azure, consider using one of the US-based Microsoft Azure regions from the beginning. This will speed up the VHD copying process that Microsoft performs on your behalf when you submit your image for certification.
+    b.	If you plan to develop the image in Azure, consider using one of the US-based Microsoft Azure regions from the beginning. This will speed up the VHD copying process that Microsoft performs on your behalf when you submit your image for certification.
 
-  ![drawing][img-portal-vm-location]
+    ![drawing][img-portal-vm-location]
 
 7. Click **Create**. The VM will begin deploying. Within minutes, you will have a successful deployment and can begin to create the image for your SKU.
 
@@ -215,7 +215,7 @@ To download a remote desktop file to a local machine, use the [Get-AzureRemoteDe
 4. Click **Properties**
 5. The first portion of the domain name is the service name. The host name is the VM name.
 
-  ![drawing][img-portal-vm-rdp]
+    ![drawing][img-portal-vm-rdp]
 
 6. The cmdlet to download the RDP file for the created VM to the Administrator's local dekstop is as follows:
 
@@ -434,7 +434,7 @@ To deploy a VM from a user VM Image, you can use the current [Azure Management P
 
 1. Go to **New > Compute > VM > From Gallery**.
 
-  ![drawing][img-manage-vm-new]
+    ![drawing][img-manage-vm-new]
 
 2. Go to **My Images** and select the VM Image from which to deploy a VM.
   1. Pay close attention to which image you select, since the 'My Images' view lists both OS Images and VM Images.
@@ -531,48 +531,48 @@ Instead of generating a shared access key using code, you can also use storage t
 2. Once installed, open the application.
 3. Click **Add Account**.
 
-  ![drawing][img-azstg-add]
+    ![drawing][img-azstg-add]
 
 4. Specify the Storage Account Name, Storage Account Key and Storage End Points Domain. **Don’t** select “Use Https”
 
-  ![drawing][img-azstg-setup-1]
+    ![drawing][img-azstg-setup-1]
 
 5. With the above steps, Azure Storage Explorer is now connected to your specific storage account. It will start showing all the containers within the storage account. Select the container where you have copied the OS Disk VHD File (also data disks if they are applicable for your scenario).
 
-  ![drawing][img-azstg-setup-2]
+    ![drawing][img-azstg-setup-2]
 
 6. After selecting the Blob container, Azure Storage Explorer Application will start showing the files within the container. Select the image file (.vhd) that needs to be submitted.
 
-  ![drawing][img-azstg-setup-3]
+    ![drawing][img-azstg-setup-3]
 
 7. After selecting the (.vhd) file in the container, click on the **Security** Tab highlighted below.
 
-  ![drawing][img-azstg-setup-4]
+    ![drawing][img-azstg-setup-4]
 
 8. By Clicking the **Security** Tab , Following Dialog box will appear, leave the defaults on the Access Level tab and click on Shared Access Signatures tab
 
-  ![drawing][img-azstg-setup-5]
+    ![drawing][img-azstg-setup-5]
 
 9. On this Tab follow the below steps to generate a SAS URL for the .vhd image
 
-  ![drawing][img-azstg-setup-6]
+    ![drawing][img-azstg-setup-6]
 
-  a.	Access Permitted from -> Just to safe guard for UTC time, please select from date as a day before the current day. For e.g. if date now is 10/6/2014, select 10/5/2014 here.
+    a.	Access Permitted from -> Just to safe guard for UTC time, please select from date as a day before the current day. For e.g. if date now is 10/6/2014, select 10/5/2014 here.
 
-  b.	Access Permitted -> Give at least 7 to 8 days.
+    b.	Access Permitted -> Give at least 7 to 8 days.
 
-  c.	Actions Permitted-> Make sure to provide both List and Read Permissions
+    c.	Actions Permitted-> Make sure to provide both List and Read Permissions
 
-  d.	If you have selected your .vhd file correctly, under Blob name you would see your file with extension .vhd
+    d.	If you have selected your .vhd file correctly, under Blob name you would see your file with extension .vhd
 
-  e.	Click on Generate Signature.
+    e.	Click on Generate Signature.
 
-  f.	In the Generated Shared Access Signature URI, check for the following as highlighted above
+    f.	In the Generated Shared Access Signature URI, check for the following as highlighted above
 
     - i.	Check the url is not starting with https
     - ii.	Your image file name .vhd is in the URI
     - iii.	At the End of the signature make sure you have =rl ( this shows read and list access was provided successfully)
-  g.	To ensure the generated SAS URI works, click ‘Test in browser’. It should start download process.
+    g.	To ensure the generated SAS URI works, click ‘Test in browser’. It should start download process.
 10. Copy the SAS URI. This is the URI to paste into the Publishing Portal.
 11. Repeat these steps for each VHD in the SKU.
 
@@ -584,8 +584,8 @@ Once you have created your offer and SKU, you should enter the image details ass
 3. The identifier listed at the top of the page is actually the offer identifier and NOT the SKU identifier.
 4. Fill out the properties under the SKUs section.
 
-  ![drawing][img-pubportal-vm-skus]
-  
+    ![drawing][img-pubportal-vm-skus]
+
 5. Under **Operating System Family**, select the operating system type associated with the OS VHD.
 6. Under **Operating System**, describe the operating system. Consider a format such as Operating System Family, Type, Version, and Updates. An example is Windows Server Datacenter 2014 R2.
 7. Select 3 recommended virtual machine sizes. These are recommendations that get displayed to the end user in
@@ -605,7 +605,7 @@ data disk to be mounted upon deployment.
 13.	Click **Request Certification.**
 14.	Repeat Steps 11, 12 and 13 for every additional data disk VHD.
 
-  ![drawing][img-pubportal-vm-skus-2]
+    ![drawing][img-pubportal-vm-skus-2]
 
 ## Next Step
 Once you submit your virtual machine image SKU(s) for certification, you can move forward with [Getting your offer to staging][link-pushstaging]. In this step of the publishing process, you will provide the marketing content, pricing, and other information necessary for **Step 3: Testing your offer and/or SKU in staging** where you will test various use case scenarios before deploying the offer to the Azure Marketplace for public visibility and purchase.  

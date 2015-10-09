@@ -30,14 +30,11 @@ Staging means deploying your SKU in a private “sandbox” where you can test a
 3.	Provide the list of Azure subscriptions you will use to preview your offer in [Azure Preview portal](https://portal.azure.com) in the pop up box as shown in the screenshot above.
 4. Login to the [Azure Preview Portal](http://portal.azure.com) using one of the above Azure subscriptions listed in the previous step.
 5. Find your offer and validate your VM image points:
-  - Marketing content is showing up correctly in the gallery
+  1. Marketing content is showing up correctly in the gallery
 
-     ![img-map-portal](media/marketplace-publishing-push-to-staging/pubportal-mapping-azure-portal.jpg)
+      ![img-map-portal](media/marketplace-publishing-push-to-staging/pubportal-mapping-azure-portal.jpg)
 
-
-
-
-  - End-to-end deployment of VM image
+  2. End-to-end deployment of VM image
 
 > [AZURE.IMPORTANT] Your offer will remain in staging until you notify Microsoft via Publishing Portal [**Publish** > **"Request Approval to Push to Production"**] that you are ready to push to production. This is an ideal time to have all members of the team check over everything in preparation for your offer going live.
 

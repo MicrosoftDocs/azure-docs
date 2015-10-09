@@ -25,7 +25,7 @@ You should have the following items ready before beginning the process:
 - Depending on which operating system you are targeting, install the Azure PowerShell cmdlets or Linux command line interface tool from the Azure Downloads Page.
 - Install Azure Storage Explorer from CodePlex.
 - Download and install “Certification Test Tool for Azure Certified”:
-  - http://go.microsoft.com/fwlink/?LinkID=526913. You will need a Windows-based computer to run the certification tool. If you do not have a Windows-based computer available, you can run the tool using a Windows-based VM in Azure.
+  - [http://go.microsoft.com/fwlink/?LinkID=526913](http://go.microsoft.com/fwlink/?LinkID=526913). You will need a Windows-based computer to run the certification tool. If you do not have a Windows-based computer available, you can run the tool using a Windows-based VM in Azure.
 
 ## Platforms supported
 You can develop Azure-based VMs on Windows or Linux. Some elements of the publishing process—such as creating an Azure-compatible VHD—use different tools and steps depending on which operating system you are using.  
