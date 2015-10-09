@@ -20,13 +20,11 @@
 
 [AZURE.INCLUDE [active-directory-sso-use-case-intro](../../includes/active-directory-sso-use-case-intro.md)]
 
-To get started setting up single sign-on for app that you’re bringing into your organization, you will be using an existing directory in Azure Active Directory. You can use an Azure AD directory that you obtain through Microsoft Azure, Office 365, or Windows Intune. If you have two or more of these, see [Administer your Azure AD directory](active-directory-administer.md) to determine which one to use.
+To get started setting up single sign-on for an app that you’re bringing into your organization, you will be using an existing directory in Azure Active Directory. You can use an Azure AD directory that you obtain through Microsoft Azure, Office 365, or Windows Intune. If you have two or more of these, see [Administer your Azure AD directory](active-directory-administer.md) to determine which one to use.
 
 ## Other considerations
 
 ### Authentication
-
-Active Directory provides authentication between your directory and applications through trust relationships. When there are trust relationships between the directory and an app, the authentication mechanism for each trusts the authentication mechanism for the other.
 
 For applications that support the SAML 2.0, WS-Federation, or OpenID Connect protocols, Azure Active Directory uses signing certificates to establish trust relationships. For more information about this, see [Managing certificates for federated single sign-on](active-directory-sso-certs.md).
 
@@ -34,9 +32,7 @@ For applications that support only HTML forms-based sign-in, Azure Active Direct
 
 ### Authorization
 
-User records inside the app itself that will provide authorization to use the app are created in a process called provisioning. A provisioned account enables a user to be authorized to use an application after they have authenticated through single sign-on.
-
-User provisioning can be done manually, or in some cases you can add and remove user information from the SaaS app based on changes made in Azure Active Directory. For more information on using existing Azure AD connectors for automated provisioning, see  [Automated user provisioning and deprovisioning for SaaS applications](active-directory-saas-app-provisioning.md)
+A provisioned account enables a user to be authorized to use an application after they have authenticated through single sign-on. User provisioning can be done manually, or in some cases you can add and remove user information from the SaaS app based on changes made in Azure Active Directory. For more information on using existing Azure AD connectors for automated provisioning, see  [Automated user provisioning and deprovisioning for SaaS applications](active-directory-saas-app-provisioning.md)
 
 Otherwise, you can manually add user information to an app, or use other provisioning solutions that are available in the marketplace.
 
