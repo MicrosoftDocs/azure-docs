@@ -33,13 +33,9 @@ You can configure the Azure AD Connect Health Service to send email notification
 5. If you wish to receive email notifications on any other email addresses, you can specify them in the Additional Email Recipient box. To remove an email address from this list, right click on the entry and select Delete.
 6. To finalize the changes click on "Save". All changes will take effects only after you select "Save".
 
+## Delete a server or service instance from Azure AD Connect Health Service
 
-
-
-
-
-## Delete a server from Azure AD Connect Health Service
-
+### Delete a server from Azure AD Connect Health Service
 In some instances, you may wish to remove a server from being monitored. Follow the instructions below to remove a server from Azure AD Connect Health Service.
 
 When deleting a server, be aware of the following:
@@ -50,7 +46,7 @@ When deleting a server, be aware of the following:
 - After performing this action, if you wish to start monitoring the same server again, you will need to uninstall and re-install the health agent on this server.
 
 
-### To delete a server from Azure AD Connect Health Service
+#### To delete a server from Azure AD Connect Health Service
 
 1. Open the Server Blade from the Server List Blade by selecting the server name to be removed.
 2. On the Server Blade, click on the "Delete" button from the action bar.
@@ -58,12 +54,7 @@ When deleting a server, be aware of the following:
 4. Click on the "Delete" button.
 
 
-
-
-
-
-
-## Delete a service instance from Azure AD Connect Health Service
+### Delete a service instance from Azure AD Connect Health Service
 
 In some instances, you may wish to remove a service instance. Follow the instructions below to remove a service instance from Azure AD Connect Health Service.
 
@@ -75,12 +66,13 @@ When deleting a service instance, be aware of the following:
 - After performing this action, if you wish to start monitoring the service, please uninstall and re-install the health agent on all the servers that will be monitored. After performing this action, if you wish to start monitoring the same server again, you will need to uninstall and re-install the health agent on this server.
 
 
-### To delete a service instance from Azure AD Connect Health Service
+#### To delete a service instance from Azure AD Connect Health Service
 
 1. Open the Service Blade from the Service List Blade by selecting the service identifier (farm name) that you wish to remove.
 2. On the Server Blade, click on the "Delete" button from the action bar.
 3. Confirm the service name by typing it in the confirmation box. (for example: sts.contoso.com)
 4. Click on the "Delete" button.
+<br><br>
 
 ## Enable Auditing for AD FS
 
@@ -125,6 +117,11 @@ In order for the Usage Analytics feature to gather data and analyze the Azure AD
 ![AD FS audit logs](./media/active-directory-aadconnect-health-requirements/adfsaudit.png)
 
 > [AZURE.WARNING] If you have a group policy that is disabling AD FS auditing then the Azure AD Connect Health Agent will not be able to collect information. Ensure that you don’t have a group policy that may be disabling auditing.
+
+
+[//]: # (Start of RBAC section)
+
+[//]: # (End of RBAC section)
 
 
 ## Related links
