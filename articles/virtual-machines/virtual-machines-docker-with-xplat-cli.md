@@ -91,9 +91,9 @@ To test the Docker VM you have created in Azure, type
 
 `docker --tls -H tcp://<vm-name-you-used>.cloudapp.net:2376 info`
 
-where *<vm-name-you-used>* is the name of the virtual machine that you used in your call to `azure vm docker create`. You should see something similar to the following, which indicates that your Docker Host VM is up and running in Azure and waiting for your commands. 
+where *&lt;vm-name-you-used&gt;* is the name of the virtual machine that you used in your call to `azure vm docker create`. You should see something similar to the following, which indicates that your Docker Host VM is up and running in Azure and waiting for your commands. 
 
-that's successful. I wait for "ReadyRole" state, which takes a few minutes, but once I get that, I go ahead and docker in (in some Docker client setups, such as that on Mac, you may have to use `sudo`):
+Now you can try to connect using your docker client to obtain information (in some Docker client setups, such as that on Mac, you may have to use `sudo`):
 
 	sudo docker --tls -H tcp://testsshasm.cloudapp.net:2376 info
 	Password:
@@ -136,7 +136,8 @@ Just to be certain that it's all working, you can examine the VM for the Docker 
 	info: vm extension get command OK
 
 ### Docker Host VM Authentication
-In addition to creating the Docker VM, the `azure vm docker create` command also automatically creates the necessary certificates to allow your Docker client computer to connect to the Azure container host using HTTPS, and the certificates are stored on both the client and host machines, as appropriate. On subsequent runs, the existing certificates are reused and shared with the new host.
+
+In addition to creating the Docker VM, the `azure vm docker create` command also automatically creates the necessary certificates to allow your Docker client computer to connect to the Azure container host using HTTPS, and the certificates are stored on both the client and host machines, as appropriate. On subsequent attempts, the existing certificates are reused and shared with the new host.
 
 By default, certificates are placed in `~/.docker`, and Docker will be configured to run on port **2376**. If you would like to use a different port or directory, then you may use one of the following `azure vm docker create` command line options to configure your Docker container host VM to use a different port or different certificates for connecting clients:
 
