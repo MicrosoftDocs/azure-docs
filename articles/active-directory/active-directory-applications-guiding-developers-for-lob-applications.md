@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure AD and Applications: Guiding Developers"
+	pageTitle="Azure AD and Applications: Guiding Developers | Microsoft Azure"
 	description="Written for the IT Pro, this article provides guidelines for integrating Azure applications with Active Directory."
 	services="active-directory"
 	documentationCenter=""
@@ -76,4 +76,4 @@ By default, the user will need to consent to the permission that’s required in
 
 For applications that you trust, it’s possible for you to consent to application on behalf of all of the users in your organization.
 
-For more information about user consent and the consent experience in Azure, see [Integrating Applications with Azure Active Directory](active-directory-applications-integrating-applications.md)
+For more information about user consent and the consent experience in Azure, see [Integrating Applications with Azure Active Directory](active-directory-integrating-applications.md)

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure AD and Applications: Requiring User Assignment"
+	pageTitle="Azure AD and Applications: Requiring User Assignment | Microsoft Azure"
 	description="How to require user assignment for Azure applications."
 	services="active-directory"
 	documentationCenter=""
