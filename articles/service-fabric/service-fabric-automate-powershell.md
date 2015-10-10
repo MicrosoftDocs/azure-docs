@@ -100,19 +100,7 @@ Now, you'll need to update the ApplicationManifest.xml file (found under the Hel
 
 After making these changes save the files and rebuild the HelloWorldStateful project. Now package the updated application by right clicking on the HelloWorldStatefulApplication project, selecting the Service Fabric Menu and choosing Package. This should create an application package that can be deployed. Your updated application is ready to be deployed now.
 
-### Step 2: Decide on health policies and upgrade parameters
-
-Various upgrade parameters, timeouts, and health criterion can be applied to application upgrades. Read through [application upgrade parameters](service-fabric-application-upgrade-parameters.md) and [upgrade process](service-fabric-application-upgrade.md) to learn more. For this walkthrough, leave the service health evaluation criterion set to the default (and recommended values). All services and instances should be _healthy_ after the upgrade.  However, increasing the *HealthCheckStableDuration* to 60 seconds (so that the services will be healthy for at least 20 seconds before the upgrade proceeds to the next upgrade domain).  Also set the *UpgradeDomainTimeout* to be 1200 seconds and the *UpgradeTimeout* to be 3000 seconds. Finally, set the *UpgradeFailureAction* to rollback which requests that Service Fabric rollback the application to the previous version if failures are encountered during upgrade. So, in Step 4 the following settings will be used:
-
-FailureAction = Rollback
-
-HealthCheckStableDurationSec = 60
-
-UpgradeDomainTimeoutSec = 1200
-
-UpgradeTimeout = 3000
-
-### Step 3: Prepare the application for upgrade
+### Step 2: Copy and register the updated application package
 
 The application is now built, packaged, and ready to be upgraded. If you open up a PowerShell window as administrator and type [Get-ServiceFabricApplication](https://msdn.microsoft.com/library/azure/mt163515.aspx), you should see that Application Type 1.0.0.0 of **HelloWorldStatefulApplication** is deployed.  For the HelloWorldStateful sample, the application package is found in: *C:\ServiceFabricSamples\Services\VS2015\HelloWorldStateful\HelloWorldStatefulApplication\pkg\Debug*.
 
@@ -128,13 +116,15 @@ The next step is to register the new version of the application with Service Fab
 Register-ServiceFabricApplicationType -ApplicationPathInImageStore HelloWorldStatefulV2
 ```
 
-If this command doesn't succeed you may need to rebuild the service, as mentioned in Step 2.
+If this command doesn't succeed you may need to rebuild the service, as mentioned in Step 1.
 
-### Step 4: Start the upgrade
+### Step 3: Start the upgrade
+Various upgrade parameters, timeouts, and health criterion can be applied to application upgrades. Read through [application upgrade parameters](service-fabric-application-upgrade-parameters.md) and [upgrade process](service-fabric-application-upgrade.md) to learn more. For this walkthrough, leave the service health evaluation criterion set to the default (and recommended values). All services and instances should be _healthy_ after the upgrade.  However, increase the *HealthCheckStableDuration* to 60 seconds (so that the services will be healthy for at least 20 seconds before the upgrade proceeds to the next upgrade domain).  Also set the *UpgradeDomainTimeout* to be 1200 seconds and the *UpgradeTimeout* to be 3000 seconds. Finally, set the *UpgradeFailureAction* to rollback which requests that Service Fabric rollback the application to the previous version if failures are encountered during upgrade.
+
 You can now start the application upgrade using the [Start-ServiceFabricApplicationUpgrade](https://msdn.microsoft.com/library/azure/mt125975.aspx) cmdlet:
 
 ```powershell
-Start-ServiceFabricApplicationUpgrade -ApplicationName fabric:/HelloWorldStatefulApplication -ApplicationTypeVersion 2.0.0.0 -HealthCheckStableDurationSec 60 -UpgradeDomainTimeoutSec 1200 -UpgradeTimeout 3000   -FailureAction Rollback -Monitored
+Start-ServiceFabricApplicationUpgrade -ApplicationName fabric:/HelloWorldStatefulApplication -ApplicationTypeVersion 2.0.0.0 -HealthCheckStableDurationSec 60 -UpgradeDomainTimeoutSec 1200 -UpgradeTimeout 3000  -FailureAction Rollback -Monitored
 ```
 
 Note the application name is the same as the previously deployed v1.0.0.0 application name (fabric:/HelloWorldStatefulApplication). Service Fabric uses this name to identify which application is getting upgraded. If you set the timeouts to be too short, you may encounter a time out failure message that states the problem. Refer to [Troubleshoot application upgrades](service-fabric-application-upgrade-troubleshooting.md), or increase the timeouts.
