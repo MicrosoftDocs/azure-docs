@@ -210,4 +210,4 @@ needs to be calculated and this can be expresses as the *sum* of the inflation r
 [Equation2]: ./media/app-service-environment-auto-scale/equation2.png
 [Equation3]: ./media/app-service-environment-auto-scale/equation3.png
 [Equation4]: ./media/app-service-environment-auto-scale/equation4.png
-[ASP-Total-Inflation]: ./media/app-service-environment-auto-scale/asp-inflation-rate.png
+[ASP-Total-Inflation]: ./media/app-service-environment-auto-scale/asp-total-inflation-rate.png
