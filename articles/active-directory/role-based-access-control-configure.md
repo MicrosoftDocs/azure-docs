@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Role-based Access Control"
+	pageTitle="Azure Active Directory AD Role-based Access Control | Microsoft Azure"
 	description="This article describes Azure role-based access control."
 	services="active-directory"
 	documentationCenter=""
@@ -16,7 +16,7 @@
 	ms.date="10/07/2015"
 	ms.author="inhenk"/>
 
-# Role-based Access Control
+# Azure Active Directory AD Role-based Access Control
 
 ## Role-based Access Control
 Azure Roles-Based Access Control (RBAC) enables fine-grained access management for Azure. Using RBAC, you can segregate duties within your devops team and grant only the amount of access to users that they need to perform their jobs.
@@ -74,21 +74,25 @@ Select access settings in the essentials section of the resource group blade. Th
 ## Manage access using Azure PowerShell
 Access can be managed used Azure RBAC commands in the Azure PowerShell tools.
 
--	Use `Get-AzureRMRoleDefinition` to list RBAC roles available for assignment and to inspect the operations to which they grant access.
+-	Use `Get-AzureRoleDefinition` to list RBAC roles available for assignment and to inspect the operations to which they grant access.
 
--	Use `Get-AzureRMRoleAssignment` to list RBAC access assignments effective at the specified subscription or resource group or resource. Use the `ExpandPrincipalGroups` parameter to list access assignments to the specified user as well as to the groups of which the user is member. Use the `IncludeClassicAdministrators` parameter to also list classic Subscription Administrator and Co-Administrators.
+-	Use `Get-AzureRoleAssignment` to list RBAC access assignments effective at the specified subscription or resource group or resource. Use the `ExpandPrincipalGroups` parameter to list access assignments to the specified user as well as to the groups of which the user is member. Use the `IncludeClassicAdministrators` parameter to also list classic Subscription Administrator and Co-Administrators.
 
--	Use `New-AzureRMRoleAssignment` to grant access to users, groups and applications.
+-	Use `New-AzureRoleAssignment` to grant access to users, groups and applications.
 
--	Use `Remove-AzureRMRoleAssignment` to remove access.
+-	Use `Remove-AzureRoleAssignment` to remove access.
 
 See [Manage access using Azure PowerShell](role-based-access-control-manage-access-powershell.md) for more detailed examples of managing access using Azure PowerShell.
 
 ## Manage access using the Azure Command-Line Interface
 Access can be managed used Azure RBAC commands in the Azure Command-Line Interface.
+
 -	Use `azure role list` to list RBAC roles available for assignment. Use azure role show to inspect the operations to which they grant access.
+
 -	Use `azure role assignment list` to list RBAC access assignments effective at the specified subscription or resource group or resource. Use the `expandPrincipalGroups` option to list access assignments to the specified user as well as to the groups of which the user is member. Use the  `includeClassicAdministrators` parameter to also list classic Subscription Administrator and Co-Administrators.
+
 -	Use `azure role assignment create` to grant access to users, groups and applications.
+
 -	Use `azure role assignment delete` to remove access.
 
 See [Manage access using the Azure CLI](role-based-access-control-manage-access-azure-cli.md) for more detailed examples of managing access using the Azure CLI.
@@ -99,7 +103,7 @@ All access changes happening in your Azure subscriptions get logged in Azure eve
 ### Create a report with Azure PowerShell
 To create a report of who granted/revoked what kind of access to/from whom on what scope within your Azure subscirptions use the following PowerShell command:
 
-    Get-AzureAuthorizationRmChangeLog
+    Get-AzureAuthorizationChangeLog
 
 ### Create a report with Azure CLI
 To create a report of who granted/revoked what kind of access to/from whom on what scope within your Azure subscirptions use the Azure command line interface (CLI) command:
