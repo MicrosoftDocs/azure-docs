@@ -157,7 +157,8 @@ Invoke-ServiceFabricChaosTestScenario -TimeToRunMinute $timeToRun -MaxClusterSta
 
 ### Step 2: Run the failover test scenario
 The Failover test scenario targets a specific service partition, instead of the entire cluster, and leaves other services unaffected. The scenario iterates through a sequence of simulated faults and service validation while your business logic runs. A failure in service validation indicates an issue that needs further investigation. The Failover test only induces one fault at a time, as opposed to the Chaos test scenario which can induce multiple faults.  The following example runs the Failover test for 60 minutes against the fabric:/HelloWorldStatefulApplication/HelloWorldStateful service.
-```
+
+```powershell
 $timeToRun = 60
 $maxStabilizationTimeSecs = 180
 $waitTimeBetweenFaultsSec = 10
