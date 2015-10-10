@@ -57,7 +57,7 @@ Use the Export Data Tier Application wizard in Management Studio or use the [sql
 2. Open Management Studio and connect to your source database.
 3. Right-click the source database in the Object Explorer, point to **Tasks**, and click **Export Data-Tier Application…**
 
-	![Export a data-tier application from the Tasks menu](./media/sql-database-cloud-migrate/TestForCompatibilityusingSSMS01.png)
+	![Export a data-tier application from the Tasks menu](./media/sql-database-cloud-migrate/TestForCompatibilityUsingSSMS01.png)
 
 3. In the export wizard, on the **Settings** tab, configure the export to save a BACPAC file to either a local disk location or to an Azure blob. A BACPAC file will only be saved if you have no database compatibility issues. If there are compatibility issues, they will be displayed on the console.
 
