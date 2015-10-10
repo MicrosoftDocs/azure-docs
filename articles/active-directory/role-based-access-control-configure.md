@@ -67,7 +67,9 @@ Select access settings in the essentials section of the resource group blade. Th
 
 ![](./media/role-based-access-control-configure/remove-access1.png)
 
+
 > [AZURE.NOTE] Inherited assignments can not be removed from child scopes. Navigate to the parent scope and remove such assignments.
+
 
 ![](./media/role-based-access-control-configure/remove-access2.png)
 
