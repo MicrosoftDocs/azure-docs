@@ -31,9 +31,9 @@ The workflow for migrating a SQL Server database to Azure SQL Database are:
  3. [Migrate a compatible database](#migrate-a-compatible-database)
 
 ## Determine if your database is compatible
-Use the Export Data Tier Application wizard in Management Studio or use the [sqlpackage.exe](https://msdn.microsoft.com/en-us/library/hh550080.aspx) command-line version of this wizard.
+Use the Export Data Tier Application wizard in Management Studio or use the [sqlpackage.exe](https://msdn.microsoft.com/library/hh550080.aspx) command-line version of this wizard.
 
-> [AZURE.TIP] If you want to generate a report of database incompatibilities that you will need to fix, use [sqlpackage.exe](https://msdn.microsoft.com/en-us/library/hh550080.aspx).
+> [AZURE.TIP] If you want to generate a report of database incompatibilities that you will need to fix, use [sqlpackage.exe](https://msdn.microsoft.com/library/hh550080.aspx).
 
 ###Determine if your database is compatible using the sqlpackage.exe command line utility
 
