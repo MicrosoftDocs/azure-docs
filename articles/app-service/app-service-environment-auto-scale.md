@@ -149,6 +149,50 @@ rules:
 	</tr>
 </table>
 
+###App Service Plan Inflation Rate
+App Service plans that are configured to auto-scale, will do so at a maximum rate per hour. This rate 
+can be calculated based on the values provided on the auto-scale rule.</br>
+Understanding and calculating the App Service Plan Inflation rate is important to 
+**App Service Environment** **worker pool** auto-scale since scale changes to a **worker pool** are 
+not instantaneous and do take some time to apply.</br> 
+
+The **App Service Plan** inflation rate is calculated as follows:
+
+</br>![][ASP-Inflation]</br>
+
+Based on the *Auto-scale - Scale UP* rule for the *Weekday* profile of the production 
+**App Service Plan** this would look as follows:
+
+</br>![][Equation1]</br>
+
+In the case of the *Auto-scale – Scale UP* rule for the *Weekends* profile of the production 
+**App Service Plan** the formula would resolve to:
+
+</br>![][Equation2]</br>
+
+This value can also be calculated for scale down operations:
+
+Based on the *Auto-scale - Scale Down* rule for the *Weekday* profile of the production 
+**App Service Plan** this would look as follows:
+
+</br>![][Equation3]</br>
+
+In the case of the *Auto-scale – Scale Down* rule for the *Weekends* profile of the production 
+**App Service Plan** the formula would resolve to:  
+
+</br>![][Equation4]</br>
+
+What this means is that the production *App Service Plan* can grow at a maximum rate of **8** 
+instances per hour during the week and **4** instances per hour during the weekend. And it can 
+release instances at a maximum rate of **4** instances per hour during the week and **6** instances 
+per hour during weekends.
+
+If multiple **App Service Plans** are being hosted in a **Worker Pool**, then the **total inflation rate** 
+needs to be calculated and this can be expresses as the *sum* of the inflation rate for all the 
+**App Service Plans** being hosting in that **Worker Pool**.
+</br>![][ASP-Total-Inflation]</br> 
+
+
 
 > [AZURE.NOTE] App Service plan scale operations are not instantaneous .
 
@@ -161,3 +205,9 @@ rules:
 [scale-profile2]: ./media/app-service-environment-auto-scale/scale-profile2.png
 [scale-rule]: ./media/app-service-environment-auto-scale/scale-rule.png
 [ase-scale]: ./media/app-service-environment-auto-scale/scale-rule.png
+[ASP-Inflation]: ./media/app-service-environment-auto-scale/asp-inflation-rate.png
+[Equation1]: ./media/app-service-environment-auto-scale/equation1.png
+[Equation2]: ./media/app-service-environment-auto-scale/equation2.png
+[Equation3]: ./media/app-service-environment-auto-scale/equation3.png
+[Equation4]: ./media/app-service-environment-auto-scale/equation4.png
+[ASP-Total-Inflation]: ./media/app-service-environment-auto-scale/asp-inflation-rate.png
