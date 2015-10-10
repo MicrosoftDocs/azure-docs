@@ -24,7 +24,7 @@ This article shows you how to use PowerShell to automate common tasks for deploy
 
 Before moving on to the tasks in the article, be sure to [Install the runtime, SDK, and tools](service-fabric-get-started.md) which also installs the ServiceFabric and ServiceFabricTestability PowerShell modules. [Enable PowerShell script execution](service-fabric-get-started.md#enable-powershell-script-execution) and also [Install and start a local cluster](service-fabric-get-started.md#install-and-start-a-local-cluster) so you can run the examples in the article.
 
-The examples in this article use the [HelloWorldStateful sample application](https://github.com/azure/servicefabric-samples). Download and build the sample application.
+The examples in this article use the [HelloWorldStateful sample application](https://github.com/Azure/servicefabric-samples/tree/master/samples/Services/VS2015/HelloWorldStateful). Download and build the sample application.
 
 Before running any PowerShell commands in this article, first connect to the local Service Fabric cluster using [Connect-ServiceFabricCluster](https://msdn.microsoft.com/library/azure/mt125938.aspx):
 
@@ -72,7 +72,7 @@ Get-ServiceFabricApplication | Get-ServiceFabricService
 
 ## TASK: Upgrade a Service Fabric application
 
-You can upgrade a previously deployed Service Fabric application.  This task upgrades the HelloWorldStateful application that was deployed in TASK: Deploy a Service Fabric application. Read through [Application Upgrade](service-fabric-application-upgrade.md) for more in-depth information.
+You can upgrade a previously deployed Service Fabric application.  This task upgrades the HelloWorldStateful application that was deployed in TASK: Deploy a Service Fabric application. Read through [Application Upgrade](service-fabric-application-upgrade.md) for additional information.
 
 ### Step 1: Update the application
 
@@ -139,7 +139,7 @@ In a few minutes, [Get-ServiceFabricApplicationUpgrade](https://msdn.microsoft.c
 
 ## TASK: Test a Service Fabric application
 
-In order to write high quality services, developers need to be able to induce unreliable infrastructure faults to test the stability of their services. Service Fabric gives developers the ability to induce fault actions and test services in the presence of failures using the chaos and failover test scenarios.  Read through [Testability Overview](service-fabric-testability-overview.md) for more in-depth information.
+In order to write high quality services, developers need to be able to induce unreliable infrastructure faults to test the stability of their services. Service Fabric gives developers the ability to induce fault actions and test services in the presence of failures using the chaos and failover test scenarios.  Read through [Testability Overview](service-fabric-testability-overview.md) for additional information.
 
 ### Step 1: Run the chaos test scenario
 The chaos scenario generates faults across the entire Service Fabric cluster. The scenario compresses faults generally seen in months or years to a few hours. The combination of interleaved faults with the high fault rate finds corner cases which are otherwise missed. The following example runs the chaos test scenario for 60 minutes.
@@ -193,7 +193,7 @@ Remove-ServiceFabricApplicationPackage -ImageStoreConnectionString file:C:\SfDev
 ```
 
 ## Additional Resources
-[Service Fabric application life-cycle](service-fabric-application-lifecycle.md)
-[Manage a Service Fabric service](service-fabric-manage-your-service-index.md)
-[Azure Service Fabric Cmdlets](https://msdn.microsoft.com/library/azure/mt125965.aspx)
+[Service Fabric application life-cycle](service-fabric-application-lifecycle.md)   
+[Manage a Service Fabric service](service-fabric-manage-your-service-index.md)   
+[Azure Service Fabric Cmdlets](https://msdn.microsoft.com/library/azure/mt125965.aspx)   
 [Azure Service Fabric Testability Cmdlets](https://msdn.microsoft.com/library/azure/mt125844.aspx)
