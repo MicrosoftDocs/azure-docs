@@ -193,7 +193,10 @@ Remove-ServiceFabricApplicationPackage -ImageStoreConnectionString file:C:\SfDev
 ```
 
 ## Additional Resources
-[Service Fabric application life-cycle](service-fabric-application-lifecycle.md)   
-[Manage a Service Fabric service](service-fabric-manage-your-service-index.md)   
-[Azure Service Fabric Cmdlets](https://msdn.microsoft.com/library/azure/mt125965.aspx)   
+[Service Fabric application life-cycle](service-fabric-application-lifecycle.md)
+
+[Manage a Service Fabric service](service-fabric-manage-your-service-index.md)
+
+[Azure Service Fabric Cmdlets](https://msdn.microsoft.com/library/azure/mt125965.aspx)
+
 [Azure Service Fabric Testability Cmdlets](https://msdn.microsoft.com/library/azure/mt125844.aspx)
