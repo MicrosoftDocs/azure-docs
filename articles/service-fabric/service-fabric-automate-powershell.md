@@ -1,4 +1,4 @@
-<properties
+﻿<properties
 	pageTitle="Automate Service Fabric application management using PowerShell | Microsoft Azure"
 	description="Deploy, upgrade, test, and remove Service Fabric applications using PowerShell."
 	services="service-fabric"
@@ -20,7 +20,7 @@
 
 This article shows you how to use PowerShell to automate common tasks for deploying, upgrading, removing, and testing Service Fabric applications.  
 
-The full PowerShell reference can be found online at [Azure Service Fabric Cmdlets](https://msdn.microsoft.com/en-us/library/azure/mt125965.aspx) and [Azure Service Fabric Testability Cmdlets](https://msdn.microsoft.com/en-us/library/azure/mt125844.aspx).
+The full PowerShell reference can be found online at [Azure Service Fabric Cmdlets](https://msdn.microsoft.com/library/azure/mt125965.aspx) and [Azure Service Fabric Testability Cmdlets](https://msdn.microsoft.com/library/azure/mt125844.aspx).
 
 To list the Service Fabric cmdlets in the Windows PowerShell command shell:
 
@@ -42,7 +42,7 @@ Before moving on to the tasks in the article, be sure to [Install the runtime, S
 
 Download and build the sample application.
 
-Before running any PowerShell commands in this article,  first connect to the local Service Fabric cluster using [Connect-ServiceFabricCluster](https://msdn.microsoft.com/en-us/library/azure/mt125938.aspx):
+Before running any PowerShell commands in this article,  first connect to the local Service Fabric cluster using [Connect-ServiceFabricCluster](https://msdn.microsoft.com/library/azure/mt125938.aspx):
 
 ```powershell
 Connect-ServiceFabricCluster
@@ -53,14 +53,14 @@ Connect-ServiceFabricCluster
 After you've built the application and the application type has been packaged, you can deploy the application into a Service Fabric cluster. To package the HelloWorldStateful application in Visual Studio, right click on **HelloWorldStatefulApplication** in Solution Explorer and select **Package**.  See [Model an application in Service Fabric](service-fabric-application-model.md) for information on the service and application manifests and t he package layout.  Deployment involves uploading the application package, registering the application type, and creating the application instance. Use the instructions in this section to deploy a new application to a cluster.
 
 ### Step 1: Upload the application package
-Uploading the application package to the ImageStore puts it in a location accessible by internal Service Fabric components.  The application package contains the necessary application manifest, service manifest(s), and code/config/data package(s) to create the application and service instances.  The [Copy-ServiceFabricApplicationPackage](https://msdn.microsoft.com/en-us/library/azure/mt125905.aspx) command will upload the package. For example:
+Uploading the application package to the ImageStore puts it in a location accessible by internal Service Fabric components.  The application package contains the necessary application manifest, service manifest(s), and code/config/data package(s) to create the application and service instances.  The [Copy-ServiceFabricApplicationPackage](https://msdn.microsoft.com/library/azure/mt125905.aspx) command will upload the package. For example:
 
 ```powershell
 Copy-ServiceFabricApplicationPackage C:\ServiceFabricSamples\Services\VS2015\HelloWorldStateful\HelloWorldStatefulApplication\pkg\Debug -ImageStoreConnectionString file:C:\SfDevCluster\Data\ImageStore -ApplicationPackagePathInImageStore HelloWorldStateful
 ```
 
 ### Step 2: Register the application type
-Registering the application package makes the application type and version declared in the application manifest available for use. The system will read the package uploaded in the previous step, verify the package (equivalent to running [Test-ServiceFabricApplicationPackage](https://msdn.microsoft.com/en-us/library/azure/mt125950.aspx) locally), process the package contents, and copy the processed package to an internal system location.  Run the [Register-ServiceFabricApplicationType](https://msdn.microsoft.com/en-us/library/azure/mt125958.aspx) cmdlet:
+Registering the application package makes the application type and version declared in the application manifest available for use. The system will read the package uploaded in the previous step, verify the package (equivalent to running [Test-ServiceFabricApplicationPackage](https://msdn.microsoft.com/library/azure/mt125950.aspx) locally), process the package contents, and copy the processed package to an internal system location.  Run the [Register-ServiceFabricApplicationType](https://msdn.microsoft.com/library/azure/mt125958.aspx) cmdlet:
 
 ```powershell
 Register-ServiceFabricApplicationType HelloWorldStateful
@@ -72,13 +72,13 @@ Get-ServiceFabricApplicationType
 ```
 
 ### Step 3: Create the application instance
-An application can be instantiated using any application type version that has been registered successfully using the [New-ServiceFabricApplication](https://msdn.microsoft.com/en-us/library/azure/mt125913.aspx) command. The name of each application must start with the **fabric:** scheme and be unique for each application instance. The application type name and application type version are declared in the ApplicationManifest.xml file. If there were any default services defined in the application manifest of the target application type, then those will also be created at this time.
+An application can be instantiated using any application type version that has been registered successfully using the [New-ServiceFabricApplication](https://msdn.microsoft.com/library/azure/mt125913.aspx) command. The name of each application must start with the **fabric:** scheme and be unique for each application instance. The application type name and application type version are declared in the ApplicationManifest.xml file. If there were any default services defined in the application manifest of the target application type, then those will also be created at this time.
 
 ```powershell
 New-ServiceFabricApplication fabric:/HelloWorldStatefulApplication HelloWorldStatefulApplication 1.0.0.0
 ```
 
-The [Get-ServiceFabricApplication](https://msdn.microsoft.com/en-us/library/azure/mt163515.aspx) command lists all applications instances that were successfully created along with their overall status. The [Get-ServiceFabricService](https://msdn.microsoft.com/en-us/library/azure/mt125889.aspx) command lists all service instances that were successfully created within a given application instance. Default services (if any) will be listed.
+The [Get-ServiceFabricApplication](https://msdn.microsoft.com/library/azure/mt163515.aspx) command lists all applications instances that were successfully created along with their overall status. The [Get-ServiceFabricService](https://msdn.microsoft.com/library/azure/mt125889.aspx) command lists all service instances that were successfully created within a given application instance. Default services (if any) will be listed.
 
 ```powershell
 Get-ServiceFabricApplication
@@ -130,7 +130,7 @@ UpgradeTimeout = 3000
 
 ### Step 3: Prepare the application for upgrade
 
-The application is now built, packaged, and ready to be upgraded. If you open up a PowerShell window as administrator and type [Get-ServiceFabricApplication](https://msdn.microsoft.com/en-us/library/azure/mt163515.aspx), you should see that Application Type 1.0.0.0 of **HelloWorldStatefulApplication** is deployed.  For the HellowWordStateful sample, the application package is found in: *C:\ServiceFabricSamples\Services\VS2015\HelloWorldStateful\HelloWorldStatefulApplication\pkg\Debug*.
+The application is now built, packaged, and ready to be upgraded. If you open up a PowerShell window as administrator and type [Get-ServiceFabricApplication](https://msdn.microsoft.com/library/azure/mt163515.aspx), you should see that Application Type 1.0.0.0 of **HelloWorldStatefulApplication** is deployed.  For the HellowWordStateful sample, the application package is found in: *C:\ServiceFabricSamples\Services\VS2015\HelloWorldStateful\HelloWorldStatefulApplication\pkg\Debug*.
 
 Now copy the updated application package to the Service Fabric ImageStore (where the application packages are stored by Service Fabric). The parameter *ApplicationPackagePathInImageStore* informs Service Fabric where it can find the application package. The following command will copy the application package to *HelloWorldStatefulV2* in the ImageStore:  
 
@@ -138,7 +138,7 @@ Now copy the updated application package to the Service Fabric ImageStore (where
 Copy-ServiceFabricApplicationPackage  -ApplicationPackagePath C:\ServiceFabricSamples\Services\VS2015\HelloWorldStateful\HelloWorldStatefulApplication\pkg\Debug -ImageStoreConnectionString file:C:\SfDevCluster\Data\ImageStore   -ApplicationPackagePathInImageStore HelloWorldStatefulV2
 ```
 
-The next step is to register the new version of the application with Service Fabric, which can be performed using the [Register-ServiceFabricApplicationType](https://msdn.microsoft.com/en-us/library/azure/mt125958.aspx) cmdlet:
+The next step is to register the new version of the application with Service Fabric, which can be performed using the [Register-ServiceFabricApplicationType](https://msdn.microsoft.com/library/azure/mt125958.aspx) cmdlet:
 
 ```powershell
 Register-ServiceFabricApplicationType -ApplicationPathInImageStore HelloWorldStatefulV2
@@ -147,7 +147,7 @@ Register-ServiceFabricApplicationType -ApplicationPathInImageStore HelloWorldSta
 If this command doesn't succeed you may need to rebuild the service, as mentioned in Step 2.
 
 ### Step 4: Start the upgrade
-You can now start the application upgrade using the [Start-ServiceFabricApplicationUpgrade](https://msdn.microsoft.com/en-us/library/azure/mt125975.aspx) cmdlet:
+You can now start the application upgrade using the [Start-ServiceFabricApplicationUpgrade](https://msdn.microsoft.com/library/azure/mt125975.aspx) cmdlet:
 
 ```powershell
 Start-ServiceFabricApplicationUpgrade -ApplicationName fabric:/HelloWorldStatefulApplication -ApplicationTypeVersion 2.0.0.0 -HealthCheckStableDurationSec 60 -UpgradeDomainTimeoutSec 1200 -UpgradeTimeout 3000   -FailureAction Rollback -Monitored
@@ -155,13 +155,13 @@ Start-ServiceFabricApplicationUpgrade -ApplicationName fabric:/HelloWorldStatefu
 
 Note the application name is the same as the previously deployed v1.0.0.0 application name (fabric:/HelloWorldStatefulApplication). Service Fabric uses this name to identify which application is getting upgraded. If you set the timeouts to be too short, you may encounter a time out failure message that states the problem. Refer to [Troubleshoot application upgrades](service-fabric-application-upgrade-troubleshooting.md), or increase the timeouts.
 
-You can monitor application upgrade progress using [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md), or using the [Get-ServiceFabricApplicationUpgrade](https://msdn.microsoft.com/en-us/library/azure/mt125988.aspx) cmdlet:
+You can monitor application upgrade progress using [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md), or using the [Get-ServiceFabricApplicationUpgrade](https://msdn.microsoft.com/library/azure/mt125988.aspx) cmdlet:
 
 ```powershell
 Get-ServiceFabricApplicationUpgrade fabric:/HelloWorldStatefulApplication
 ```
 
-In a few minutes, [Get-ServiceFabricApplicationUpgrade](https://msdn.microsoft.com/en-us/library/azure/mt125988.aspx) cmdlet should show that all upgrade domains were upgraded (completed).
+In a few minutes, [Get-ServiceFabricApplicationUpgrade](https://msdn.microsoft.com/library/azure/mt125988.aspx) cmdlet should show that all upgrade domains were upgraded (completed).
 
 ## TASK: Test a Service Fabric application
 
@@ -198,21 +198,21 @@ Invoke-ServiceFabricFailoverTestScenario -TimeToRunMinute $timeToRun -MaxService
 You can delete an instance of a deployed application, remove the provisioned application type from the cluster, and remove the application package from the ImageStore.
 
 ### Step 1: Remove an application instance
-When an application instance is no longer needed, you can permanently remove it using the [Remove-ServiceFabricApplication](https://msdn.microsoft.com/en-us/library/azure/mt125914.aspx) cmdlet. This will automatically remove all services belonging to the application as well, permanently removing all service state. This operation cannot be reversed and application state cannot be recovered.
+When an application instance is no longer needed, you can permanently remove it using the [Remove-ServiceFabricApplication](https://msdn.microsoft.com/library/azure/mt125914.aspx) cmdlet. This will automatically remove all services belonging to the application as well, permanently removing all service state. This operation cannot be reversed and application state cannot be recovered.
 
 ```powershell
 Remove-ServiceFabricApplication fabric:/HelloWorldStatefulApplication
 ```
 
 ### Step 2: Unregister the application type
-When you no longer need a particular version of an application type, unregister it using the [Unregister-ServiceFabricApplicationType](https://msdn.microsoft.com/en-us/library/azure/mt125885.aspx) cmdlet. Unregistering unused types will release storage space used by the application package in the Image Store. An application type can be unregistered as long as there are no applications instantiated against it or pending application upgrades referencing it.
+When you no longer need a particular version of an application type, unregister it using the [Unregister-ServiceFabricApplicationType](https://msdn.microsoft.com/library/azure/mt125885.aspx) cmdlet. Unregistering unused types will release storage space used by the application package in the Image Store. An application type can be unregistered as long as there are no applications instantiated against it or pending application upgrades referencing it.
 
 ```powershell
 Unregister-ServiceFabricApplicationType HelloWorldStatefulApplication 1.0.0.0
 ```
 
 ### Step 3: Remove the application package
-After the application type is unregistered the application package can be removed from the ImageStore using the [Remove-ServiceFabricApplicationPackage](https://msdn.microsoft.com/en-us/library/azure/mt163532.aspx) cmdlet.
+After the application type is unregistered the application package can be removed from the ImageStore using the [Remove-ServiceFabricApplicationPackage](https://msdn.microsoft.com/library/azure/mt163532.aspx) cmdlet.
 
 ```powershell
 Remove-ServiceFabricApplicationPackage -ImageStoreConnectionString file:C:\SfDevCluster\Data\ImageStore -ApplicationPackagePathInImageStore HelloWorldStateful
