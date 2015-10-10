@@ -16,33 +16,17 @@
 	ms.date="10/09/2015"
 	ms.author="ryanwi"/>
 
-# Deploy, upgrade, test, and remove Service Fabric applications using and PowerShell
+# Deploy, upgrade, test, and remove Service Fabric applications using PowerShell
 
 This article shows you how to use PowerShell to automate common tasks for deploying, upgrading, removing, and testing Service Fabric applications.  
 
-The full PowerShell reference can be found online at [Azure Service Fabric Cmdlets](https://msdn.microsoft.com/library/azure/mt125965.aspx) and [Azure Service Fabric Testability Cmdlets](https://msdn.microsoft.com/library/azure/mt125844.aspx).
-
-To list the Service Fabric cmdlets in the Windows PowerShell command shell:
-
-```powershell
-Get-Command –module ServiceFabric
-Get-Command –module ServiceFabricTestability
-```
-
-To update the local help information for the Service Fabric cmdlets, run the following:
-
-```powershell
-Update-Help ServiceFabric
-Update-Help ServiceFabricTestability
-```
-
 ## Prerequisites
 
-Before moving on to the tasks in the article, be sure to [Install the runtime, SDK, and tools](service-fabric-get-started.md) which also installs the ServiceFabric and ServiceFabricTestability PowerShell modules. [Enable PowerShell script execution](service-fabric-get-started.md#enable-powershell-script-execution) and also [Install and start a local cluster](service-fabric-get-started.md#install-and-start-a-local-cluster) so you can run the examples in the article. The examples in this article use the [HelloWorldStateful sample application](https://github.com/azure/servicefabric-samples).
+Before moving on to the tasks in the article, be sure to [Install the runtime, SDK, and tools](service-fabric-get-started.md) which also installs the ServiceFabric and ServiceFabricTestability PowerShell modules. [Enable PowerShell script execution](service-fabric-get-started.md#enable-powershell-script-execution) and also [Install and start a local cluster](service-fabric-get-started.md#install-and-start-a-local-cluster) so you can run the examples in the article.
 
-Download and build the sample application.
+The examples in this article use the [HelloWorldStateful sample application](https://github.com/azure/servicefabric-samples). Download and build the sample application.
 
-Before running any PowerShell commands in this article,  first connect to the local Service Fabric cluster using [Connect-ServiceFabricCluster](https://msdn.microsoft.com/library/azure/mt125938.aspx):
+Before running any PowerShell commands in this article, first connect to the local Service Fabric cluster using [Connect-ServiceFabricCluster](https://msdn.microsoft.com/library/azure/mt125938.aspx):
 
 ```powershell
 Connect-ServiceFabricCluster
@@ -50,7 +34,7 @@ Connect-ServiceFabricCluster
 
 ## TASK: Deploy a Service Fabric application
 
-After you've built the application and the application type has been packaged, you can deploy the application into a Service Fabric cluster. To package the HelloWorldStateful application in Visual Studio, right click on **HelloWorldStatefulApplication** in Solution Explorer and select **Package**.  See [Model an application in Service Fabric](service-fabric-application-model.md) for information on the service and application manifests and t he package layout.  Deployment involves uploading the application package, registering the application type, and creating the application instance. Use the instructions in this section to deploy a new application to a cluster.
+After you've built the application and the application type has been packaged, you can deploy the application into a Service Fabric cluster. First, package the HelloWorldStateful application in Visual Studio by right-clicking on **HelloWorldStatefulApplication** in Solution Explorer and selecting **Package**.  See [Model an application in Service Fabric](service-fabric-application-model.md) for information on the service and application manifests and the package layout.  Deployment involves uploading the application package, registering the application type, and creating the application instance. Use the instructions in this section to deploy a new application to a cluster.
 
 ### Step 1: Upload the application package
 Uploading the application package to the ImageStore puts it in a location accessible by internal Service Fabric components.  The application package contains the necessary application manifest, service manifest(s), and code/config/data package(s) to create the application and service instances.  The [Copy-ServiceFabricApplicationPackage](https://msdn.microsoft.com/library/azure/mt125905.aspx) command will upload the package. For example:
@@ -88,7 +72,7 @@ Get-ServiceFabricApplication | Get-ServiceFabricService
 
 ## TASK: Upgrade a Service Fabric application
 
-You can upgrade a previously deployed Service Fabric application.  This task upgrades the HellowWorldStateful application that was deployed in [TASK: Deploy a Service Fabric application](#task:-deploy-a-service-fabric-application). Read through [Application Upgrade](service-fabric-application-upgrade.md) for more in-depth information.
+You can upgrade a previously deployed Service Fabric application.  This task upgrades the HelloWorldStateful application that was deployed in TASK: Deploy a Service Fabric application. Read through [Application Upgrade](service-fabric-application-upgrade.md) for more in-depth information.
 
 ### Step 1: Update the application
 
@@ -130,7 +114,7 @@ UpgradeTimeout = 3000
 
 ### Step 3: Prepare the application for upgrade
 
-The application is now built, packaged, and ready to be upgraded. If you open up a PowerShell window as administrator and type [Get-ServiceFabricApplication](https://msdn.microsoft.com/library/azure/mt163515.aspx), you should see that Application Type 1.0.0.0 of **HelloWorldStatefulApplication** is deployed.  For the HellowWordStateful sample, the application package is found in: *C:\ServiceFabricSamples\Services\VS2015\HelloWorldStateful\HelloWorldStatefulApplication\pkg\Debug*.
+The application is now built, packaged, and ready to be upgraded. If you open up a PowerShell window as administrator and type [Get-ServiceFabricApplication](https://msdn.microsoft.com/library/azure/mt163515.aspx), you should see that Application Type 1.0.0.0 of **HelloWorldStatefulApplication** is deployed.  For the HelloWorldStateful sample, the application package is found in: *C:\ServiceFabricSamples\Services\VS2015\HelloWorldStateful\HelloWorldStatefulApplication\pkg\Debug*.
 
 Now copy the updated application package to the Service Fabric ImageStore (where the application packages are stored by Service Fabric). The parameter *ApplicationPackagePathInImageStore* informs Service Fabric where it can find the application package. The following command will copy the application package to *HelloWorldStatefulV2* in the ImageStore:  
 
@@ -220,5 +204,6 @@ Remove-ServiceFabricApplicationPackage -ImageStoreConnectionString file:C:\SfDev
 
 ## Additional Resources
 [Service Fabric application life-cycle](service-fabric-application-lifecycle.md)
-
 [Manage a Service Fabric service](service-fabric-manage-your-service-index.md)
+[Azure Service Fabric Cmdlets](https://msdn.microsoft.com/library/azure/mt125965.aspx)
+[Azure Service Fabric Testability Cmdlets](https://msdn.microsoft.com/library/azure/mt125844.aspx)
