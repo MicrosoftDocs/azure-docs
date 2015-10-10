@@ -201,11 +201,11 @@ be allocate a buffer of capacity to allow for the auto-scale operations to grow/
 </br>
 
 With this Information Frank can define the following Auto-scale Profile and Rules
-
+</br>![][Worker-Pool-Scale]</br> 
 <table>
 	<tr>
 		<td>
-			<ul><li>Auto-scale Profile – Weekdays – App Service Environment</li></ul>
+			<ul><li>Auto-scale Profile – Weekdays</li></ul>
 			<ul>
 				<li>Name: Weekday Profile</li>
 				<li>Scale by: Schedule and performance rules</li>
@@ -231,22 +231,22 @@ With this Information Frank can define the following Auto-scale Profile and Rule
 			<ul><li>Auto-scale Rule (Scale DOWN)</li></ul>
 			<ul>
 				<li>Resource: Worker Pool 1</li>
-				<li>Metric: CPU %</li>
-				<li>Operation: Lesser than 30%</li>
-				<li>Duration: 10 Minutes</li>
+				<li>Metric: WorkersAvailable/li>
+				<li>Operation: Greater than 8</li>
+				<li>Duration: 20 Minutes</li>
 				<li>Time Aggregation: Average</li>
-				<li>Action: Decrease count by 1</li>
-				<li>Cool down (minutes): 20</li>
+				<li>Action: Decrease count by 2</li>
+				<li>Cool down (minutes): 90</li>
 			</ul>
 		</td>
 		<td>
-			<ul><li>Auto-scale Profile – Weekends – App Service Plan</li></ul>
+			<ul><li>Auto-scale Profile – Weekends</li></ul>
 			<ul>
 				<li>Name: Weekend Profile</li>
 				<li>Scale by: Schedule and performance rules</li>
 				<li>Profile: Weekend</li>
 				<li>Type: recurrence</li>
-				<li>Target Range: 3 to 10 instances</li>
+				<li>Target Range: 6 to 15 instances</li>
 				<li>Days: Saturday, Sunday</li>
 				<li>Start Time: 9:00AM</li>
 				<li>Time zone: UTC – 08</li>
@@ -254,78 +254,82 @@ With this Information Frank can define the following Auto-scale Profile and Rule
 			</br>
 			<ul><li>Auto-scale Rule (Scale UP)</li></ul>
 			<ul>
-				<li>Resource: Production (App Service Environment)</li>
-				<li>Metric: CPU %</li>
-				<li>Operation: Greater than 80%</li>
-				<li>Duration: 10 Minutes</li>
+				<li>Resource: Worker Pool 1</li>
+				<li>Metric: WorkersAvailable</li>
+				<li>Operation: Less than 3</li>
+				<li>Duration: 30 Minutes</li>
 				<li>Time Aggregation: Average</li>
-				<li>Action: Increase count by 1</li>
-				<li>Cool down (minutes): 20</li>
+				<li>Action: Increase count by 3</li>
+				<li>Cool down (minutes): 90</li>
 			</ul>
 			</br>
 			<ul><li>Auto-scale Rule (Scale DOWN)</li></ul>
 			<ul>
-				<li>Resource: Production (App Service Environment)</li>
-				<li>Metric: CPU %</li>
-				<li>Operation: Lesser than 20%</li>
+				<li>Resource: Worker Pool 1</li>
+				<li>Metric: WorkersAvailable</li>
+				<li>Operation: Less than 3</li>
 				<li>Duration: 15 Minutes</li>
 				<li>Time Aggregation: Average</li>
-				<li>Action: Decrease count by 1</li>
-				<li>Cool down (minutes): 10</li>
+				<li>Action: Decrease count by 3</li>
+				<li>Cool down (minutes): 90</li>
 			</ul>
 		</td>
 	</tr>
 </table>
+
+The Target range defined in the profile is calculated by the minimum instances defined in the 
+Profile for the App Service Plan + Buffer.</br>
+The Maximum range would be the sum of all the maximum ranges for all App Service Plans hosted in 
+the Worker Pool.</br>
+The Increase count for the scale up rules should be set to be at least 1X the 
+App Service Plan inflation rate for scale up.</br>
+Decrease count can be adjusted to something between 1/2X or 1X the App Service Plan inflation 
+rate for scale down.</br>
+
+###Auto-scale for Front End Pool
+**Front End** auto-scale rules are simpler than for worker pools, the main things to look for is to 
+make sure duration of the measurement and the cooldown timers take into consideration the fact that scale 
+operations on an App Service Plan are not instantaneous.</br>
+For this scenario, Frank knows that the error rate increases once front ends reach 80% CPU utilization, 
+to prevent this he sets the auto-scale rule to increase instances as follows:
  
- 
- 
-
-
-
-
-1.2.	Auto-scale Rule (Scale DOWN)
-•	Resource: Worker Pool 1
-•	Metric: WorkersAvailable
-•	Operation: Greater than 8
-•	Duration: 20 Minutes
-•	Time Aggregation: Average
-•	Action: Decrease count by 2
-•	Cool down (minutes): 90	2.	Auto-scale Profile – Weekends – App Service Plan
-•	Name: Weekend Profile
-•	Scale by: Schedule and performance rules
-•	Profile: Weekend
-•	Type: recurrence
-•	Target Range: 6 to 15instances
-•	Days: Saturday, Sunday
-•	Start Time: 7:00AM
-•	Time zone: UTC – 08
-
-2.1.	Auto-scale Rule (Scale UP)
-•	Resource: Worker Pool 1
-•	Metric: WorkersAvailable
-•	Operation: Less than 3
-•	Duration: 30 Minutes
-•	Time Aggregation: Average
-•	Action: Increase count by 3
-•	Cool down (minutes): 90
-
-2.2.	Auto-scale Rule (Scale DOWN)
-•	Resource: Worker Pool 1
-•	Metric: WorkersAvailable
-•	Operation: Greater than 3
-•	Duration: 15 Minutes
-•	Time Aggregation: Average
-•	Action: Decrease count by 3
-•	Cool down (minutes): 90
-
-The Target range defined in the profile is calculated by the minimum instances defined in the Profile for the App Service Plan + Buffer.
-The Maximum range would be the sum of all the maximum ranges for all App Service Plans hosted in the Worker Pool.
-The Increase count for the scale up rules should be set to be at least 1X the App Service Plan inflation rate for scale up.
-Decrease count can be adjusted to something between 1/2X or 1X the App Service Plan inflation rate for scale down.
-
-
+ </br>![][Front-End-Scale]</br>
+  
+<ul><li>Auto-scale Profile – Front Ends</li></ul>
+<ul>
+	<li>Name: Auto-scale – Front Ends</li>
+	<li>Scale by: Schedule and performance rules</li>
+	<li>Profile: Everyday</li>
+	<li>Type: recurrence</li>
+	<li>Target Range: 3 to 10 instances</li>
+	<li>Days: Everyday</li>
+	<li>Start Time: 9:00AM</li>
+	<li>Time zone: UTC – 08</li>
+</ul>
+</br>
+<ul><li>Auto-scale Rule (Scale UP)</li></ul>
+<ul>
+	<li>Resource: Front End Pool</li>
+	<li>Metric: CPU %</li>
+	<li>Operation: Greater than 60%</li>
+	<li>Duration: 20 Minutes</li>
+	<li>Time Aggregation: Average</li>
+	<li>Action: Increase count by 3</li>
+	<li>Cool down (minutes): 90</li>
+</ul>
+</br>
+<ul><li>Auto-scale Rule (Scale DOWN)</li></ul>
+<ul>
+	<li>Resource: Worker Pool 1</li>
+	<li>Metric: CPU %</li>
+	<li>Operation: Lesser than 30%</li>
+	<li>Duration: 20 Minutes</li>
+	<li>Time Aggregation: Average</li>
+	<li>Action: Decrease count by 3</li>
+	<li>Cool down (minutes): 90</li>
+</ul>
+	
 > [AZURE.NOTE] App Service plan scale operations are not instantaneous .
-
 
 <!-- IMAGES -->
 [intro]: ./media/app-service-environment-auto-scale/introduction.png
@@ -341,3 +345,5 @@ Decrease count can be adjusted to something between 1/2X or 1X the App Service P
 [Equation3]: ./media/app-service-environment-auto-scale/equation3.png
 [Equation4]: ./media/app-service-environment-auto-scale/equation4.png
 [ASP-Total-Inflation]: ./media/app-service-environment-auto-scale/asp-total-inflation-rate.png
+[Worker-Pool-Scale]: ./media/app-service-environment-auto-scale/wp-scale.png
+[Front-End-Scale]: ./media/app-service-environment-auto-scale/fe-scale.png
