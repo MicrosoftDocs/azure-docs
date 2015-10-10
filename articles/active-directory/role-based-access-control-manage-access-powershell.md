@@ -64,7 +64,7 @@ To list access assignments for the classic subscription administrator and co-adm
 
 ## Grant Access
 ### Search for object ids
-In order to use the following command sequences, you must find the object ids first.  It is assumed that you already know the subscription id that you are working with, otherwise see [Get-AzureSubscription](https://msdn.microsoft.com/en-us/library/dn495302.aspx) on MSDN.
+In order to use the following command sequences, you must find the object ids first.  It is assumed that you already know the subscription id that you are working with, otherwise see [Get-AzureSubscription](https://msdn.microsoft.com/library/dn495302.aspx) on MSDN.
 
 #### Find the object id for an Azure AD Group
 To get the object id for an Azure AD Group use:
