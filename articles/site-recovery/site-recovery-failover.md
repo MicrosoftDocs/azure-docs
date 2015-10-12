@@ -94,7 +94,7 @@ When you run a test failover you'll be asked to select network settings for test
 **Fail over to a secondary VMM site—with network** | Select an existing VM network a | Failover checks that virtual machines are created | <p>The test virtual machine will be created on the same host as the host on which the replica virtual machine exists. It isn’t added to the cloud in which the replica virtual machine is located.</p><p>Create a VM network that's isolated from your production network</p><p>If you're using a VLAN-based network we recommend you create a separate logical network (not used in production) in VMM for this purpose. This logical network is used to create VM networks for the purpose of test failover.</p><p>The logical network should be associated with at least one of the network adapters of all the Hyper-V servers hosting virtual machines.</p><p>For VLAN logical networks, the network sites you add to the logical network should be isolated.</p><p>If you’re using a Windows Network Virtualization–based logical network, Azure Site Recovery automatically creates isolated VM networks.</p>
 **Fail over to a secondary VMM site—create a network** | A temporary test network will be created automatically based on the setting you specify in **Logical Network** and its related network sites | Failover checks that virtual machines are created | <p>Use this option if the recovery plan uses more than one VM network. If you're using Windows Network Virtualization networks, this option can automatically create VM networks with the same settings (subnets and IP address pools) in the network of the replica virtual machine. These VM networks are cleaned up automatically after the test failover is complete.</p><p>The test virtual machine will be created on the same host as the host on which the replica virtual machine exists. It isn’t added to the cloud in which the replica virtual machine is located.</p>
 
->[AZURE.NOTE] The IP given to a VM on a Test Failover is same as the IP it would get on doing a planned or unplanned failover given that this IP is available in the Test Failover network. 
+>[AZURE.NOTE] The IP given to a virtual machine on a Test Failover is same as the IP it would get on doing a planned or unplanned failover given that this IP is available in the Test Failover network. If the same IP is not available in the test failover network, virutal machine will get some other IP available in the test failover network.
 
 
 
@@ -135,7 +135,7 @@ If the virtual machines involved in test failover use DHCP, a test DHCP server s
 
 
 ### Prepare Active Directory
-To run a test failover for application testing, you’ll need a copy of the production Active Directory environment in your test environment. Go through [Test Failover Considerations for active directory](site-recovery-active-directory.md/#considerations-for-test-failover]) section for more details. 
+To run a test failover for application testing, you’ll need a copy of the production Active Directory environment in your test environment. Go through [Test Failover Considerations for active directory](site-recovery-active-directory.md#considerations-for-test-failover]) section for more details. 
 
 
 ### Prepare DNS

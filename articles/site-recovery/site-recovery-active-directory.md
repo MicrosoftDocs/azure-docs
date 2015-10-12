@@ -69,7 +69,7 @@ Create a domain controller on the secondary(DR) site and while promoting the ser
 ###Site to Azure scenario
 Follow these instructions to create a [domain controller in an Azure virtual network](../virtual-network/virtual-networks-install-replica-active-directory-domain-controller.md). While promoting the server to domain controller role give the name of the same domain that is being used on the primary site.
 
-After this you should [reconfigure dns server for the virtual network](../virtual-network/virtual-networks-install-replica-active-directory-domain-controller.md/#reconfigure-dns-server-for-the-virtual-network) to use the DNS server in Azure
+After this you should [reconfigure dns server for the virtual network](../virtual-network/virtual-networks-install-replica-active-directory-domain-controller.md#reconfigure-dns-server-for-the-virtual-network) to use the DNS server in Azure
   
 ![Azure Network](./media/site-recovery-active-directory/azure-network.png)
 
@@ -80,21 +80,21 @@ Test Failover is done in a network that is isolated from production network so t
 2. Create an isolated network. Any virtual network created in Azure by default is isolated from other network. It is recommended that IP range for this network is same as that of your production network. Don't enable site to site connectivity on this network.
 3. Provide DNS IP in the network created in the step above as the IP that you expect the DNS VM to get. If you are using Azure as the DR site then you can provide the IP for the VM that will be used on failover in 'Target IP' setting in VM properties. If your DR site is on-premises and you are using DHCP then follow the instruction given here to [setup DNS and DHCP for test failover](site-recovery-failover.md#run-a-test-failover) 
 
->[AZURE.NOTE] The IP given to a VM on a Test Failover is same as the IP it would get on doing a planned or unplanned failover given that this IP is available in the Test Failover network. 
+>[AZURE.NOTE] The IP given to a virtual machine on a Test Failover is same as the IP it would get on doing a planned or unplanned failover given that this IP is available in the Test Failover network. If the same IP is not available in the test failover network, virutal machine will get some other IP available in the test failover network.
 
 4. Go to the domain controller virtual machine and do test failover of it in the isolated network. 
 5. Do test failover of the recovery plan of the application.
 6. Once testing is complete, mark the test failover of job of domain controller virtual machine and the recovery plan 'Complete' in from jobs tab in ASR. 
 
-###DNS not on same VM as domain controller: 
-In case DNS is not on the same virtual machine as domain controller you’ll need to create a DNS resource for the test failover. In case they are on the same VM you can skip this section. You can use a fresh DNS server and create all the required zones. For example, if your Active Directory domain is contoso.com, you can create a zone with the name contoso.com. The entries corresponding to Active Directory must be updated in DNS. Do this as follows:
+###DNS not on same virtual machine as domain controller: 
+In case DNS is not on the same virtual machine as domain controller you’ll need to create a DNS for the test failover. In case they are on the same VM you can skip this section. You can use a fresh DNS server and create all the required zones. For example, if your Active Directory domain is contoso.com, you can create a zone with the name contoso.com. The entries corresponding to Active Directory must be updated in DNS. Do this as follows:
 
-	- Ensure the following settings are in place before any other virtual machine in the recovery plan comes up:
-		- The zone must be named after the forest root name.
-		- The zone must be file backed.
-		- The zone must be enabled for secure and non-secure updates.
-		- The resolver of the domain controller virtual machine should point to the IP address of the DNS virtual machine.
-	- Run the following command on domain controller virtual machine Directory: nltest /dsregdns.
+- Ensure the following settings are in place before any other virtual machine in the recovery plan comes up:
+	- The zone must be named after the forest root name.
+	- The zone must be file backed.
+	- The zone must be enabled for secure and non-secure updates.
+	- The resolver of the domain controller virtual machine should point to the IP address of the DNS virtual machine.
+- Run the following command on domain controller virtual machine Directory: nltest /dsregdns.
 
 - **Add zone**—Use the following script to add a zone on the DNS server, allow non-secure updates, and add an entry for itself to DNS:
 
