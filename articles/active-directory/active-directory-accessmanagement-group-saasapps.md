@@ -5,7 +5,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="femila"
-	manager="swadhwa"
+	manager="stevenpo"
 	editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na" 
 	ms.topic="article"
-	ms.date="08/10/2015"
+	ms.date="10/09/2015"
 	ms.author="femila"/>
 
 
@@ -30,7 +30,7 @@ This capability can be used with hundreds of applications that you can add from 
 1. Open a browser of your choice and go to the Azure Management Portal. In the Azure Management Portal, find the Active Directory extension on the navigation bar on the left hand side. Under the **Directory** tab, click the directory in which you want to assign access for a group to a Saas application.
 
 
-2. Click the Applications tab for your directory. Click on an application that you added from the Application Gallery, then click on the Users and Groups tab.
+2. Click the Applications tab for your directory. Click on an application that you added from the Application Gallery, then click on the **Users and Groups** tab.
 
 3. On the Users and Groups tab, in the Starting with field, enter the name of the group to which you want to assign access, and click the check mark in the upper right. You only need to type the first part of the group's name. Then, click on the group to highlight it, then click on the **Assign Access** button and click **Yes** when you see the confirmation message.
 

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/21/2015" 
+	ms.date="10/09/2015" 
 	ms.author="femila"/>
 
 # Managing owners to a group
