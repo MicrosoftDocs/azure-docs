@@ -69,7 +69,7 @@ Connectivity across geopolitical regions is not supported on the standard Expres
 | **[Level 3 Communications]( http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** | Supported | Not Supported | Amsterdam, Chicago, Dallas, London, Seattle, Silicon Valley, Washington DC |
 | **Megaport** | Supported | Not Supported | Melbourne, Sydney |
 | **MTN** | Supported | Not Supported | London |
-| **NTT Communications** | Coming Soon | Not Supported | Tokyo+ |
+| **NTT Communications** | Supported | Not Supported | London+, Tokyo |
 | **NEXTDC** | Supported | Not Supported | Melbourne, Sydney+ |
 | **[Orange]( http://www.orange-business.com/)** | Supported | Not Supported | Amsterdam, London, Silicon Valley, Washington DC |
 | **PCCW Global Limited** | Supported | Not Supported | Hong Kong |
