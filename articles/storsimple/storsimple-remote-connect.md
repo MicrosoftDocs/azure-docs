@@ -25,7 +25,7 @@ For more information about using Windows PowerShell remoting to manage your devi
 
 This tutorial explains how to configure your device for remote management and then how to connect to Windows PowerShell for StorSimple. You can use HTTP or HTTPS to connect via Windows PowerShell remoting. However, when you are deciding how to connect to Windows PowerShell for StorSimple, consider the following: 
 
-- Connecting directly to the device serial console is secure but connecting to the serial console over network switches is not. Be cautious of the security risk when connecting to the device serial console over network switches. 
+- Connecting directly to the device serial console is secure, but connecting to the serial console over network switches is not. Be cautious of the security risk when connecting to the device serial console over network switches. 
 
 - Connecting through an HTTP session might offer more security than connecting through the serial console over the network. Although this is not the most secure method, it is acceptable on trusted networks. 
 
