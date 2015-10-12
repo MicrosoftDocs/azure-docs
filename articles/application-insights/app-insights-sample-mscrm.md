@@ -60,7 +60,7 @@ To monitor your application, you add an Application Insights SDK to your applica
 
     ![](./media/app-insights-sample-mscrm/08.png)
     
-4. Copy the code from Application Insights.
+4. Copy the code from Application Insights. While copying make sure to ignore <script> tags. Refer below screenshot:
 
     ![](./media/app-insights-sample-mscrm/09.png)
 
