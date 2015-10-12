@@ -106,7 +106,7 @@ The Deploy Database to Microsoft Azure Database wizard in SQL Server Management 
 5.	Provide the **New database name** for the database on Azure SQL DB, set the **Edition of Microsoft Azure SQL Database** (service tier), **Maximum database size**, **Service Objective** (performance level), and **Temporary file name** for the BACPAC file that this wizard creates during the migration process.
 
 	> [AZURE.NOTE]	See [Azure SQL Database service tiers](sql-database-service-tiers.md) for more information on service tiers and performance levels.
-
+<br></br>
 	![Export settings](./media/sql-database-cloud-migrate/MigrateUsingDeploymentWizard02.png)
 
 6.	Complete the wizard to migrate the database. Depending on the size and complexity of the database, deployment may take from a few minutes to many hours.
@@ -148,7 +148,7 @@ Use the steps below to use the [SqlPackage.exe](https://msdn.microsoft.com/libra
 
 	'sqlpackage.exe /Action:Export /ssn:< server_name > /sdn:< database_name > /tf:< target_file >
 
-	![Export a data-tier application from the Tasks menu](./media/sql-database-cloud-migrate/TestForCompatibilityUsingSQLPackage01.png)
+	![Export a data-tier application from the Tasks menu](./media/sql-database-cloud-migrate/TestForCompatibilityUsingSQLPackage01b.png)
 
 ##Import from a BACPAC file into Azure SQL Database using SQL Server Management Studio
 
@@ -186,7 +186,7 @@ Use the steps below to import from a BACPAC file into Azure SQL Database.
 
 7.	Using the Azure Portal, view your database and its properties.
 
-###Import from a BACPAC file into Azure SQL Database using the Azure portal or PowerShell
+##Import from a BACPAC file into Azure SQL Database using the Azure portal or PowerShell
 
 You can also import a BACPAC file into Azure SQL Database from within the Azure portal or by using PowerShell. For more information, see [Import a BACPAC to a SQL Database](sql-database-import.md)
 
