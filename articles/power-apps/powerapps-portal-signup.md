@@ -44,10 +44,10 @@ To sign-up your company, the subscription administrator submits a request for *@
 Once approved, everyone with the *@yourCompany.com* email address potentially has access to PowerApps. Within PowerApps, you can:  
 
 - Add users within your company and using [role-based access control](../role-based-access-control-configure.md), give these users specific roles to the PowerApps apps.
-- Creating connectors to run within your App Service environment (ASE).
-- View performance metrics for your App Service environment.
-- Add additional apps to your ASE, including web apps and mobile apps.
-- See the PowerApps apps hosted within the App Service environment and their respective "owners".
+- Creating connectors [we now call this API that serves as connection provider to access user data] to run within your App Service environment (ASE).
+- View performance metrics for your App Service environment. [this won't be available at Public Preview, user will only see the requests coming through to their dedicated ASE]
+- Add additional apps to your ASE, including web apps and mobile apps. [User can create other apps on their dedicated ASE in additional to PowerApps such as web apps, mobile apps]
+- See the PowerApps apps hosted [the PowerApps apps are not hosted on the ASE. The connections they use are hosted on the ASE] within the App Service environment and their respective "owners" [why is there " " on owners?].
 
 In the following example, the Contoso company signed-up for PowerApps. In this new **PowerApps apps** blade, you can see all the apps created within this app service environment, including the *Audio notes* and *Link forms* apps. In **Connection providers**, you can see all the connectors used by your PowerApps apps, including Twitter and Youtube:  
 ![Sample company PowerApps blade][4]  
@@ -60,3 +60,5 @@ Now that you're company is signed up for PowerApps, [create an app service envir
 [2]: ./media/powerapps-portal-signup/allresources.png
 [3]: ./media/powerapps-portal-signup/signup.png
 [4]: ./media/powerapps-portal-signup/powerappsblade.png
+
+[We need to give user a clearer expectation of what will happen each step.]
