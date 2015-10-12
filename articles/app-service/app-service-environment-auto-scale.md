@@ -21,6 +21,9 @@
 #Auto scaleing and App Service Environment
 
 ##Introduction
+> [AZURE.NOTE] App Service plan scale operations are not instantaneous and can take several minutes to 
+complete depending on the size of your instance.
+</br>
 App service environments support auto-scale. This is achieved by allowing you to auto-scale individual 
 worker pools based on metrics or schedule.
  </br>![][intro]</br>
@@ -42,6 +45,8 @@ setting an upper bound (2).
 Once a profile is defined, metrics based auto-scale rules can be added to scale up or down the 
 number of instances in the worker pool within the bounds defined by the profile.
 </br>![][scale-rule]</br>
+ Any of the worker pool or front end metrics can be used for defining auto scale rules. This are 
+ the same metrics you can monitor in the resource blade graphs or set alerts for.
  
 ##Auto-scale Example
 Auto-scale of an App Service environment can best be illustrated by walking through a scenario. 
@@ -197,6 +202,12 @@ Worker Pools that host **App Service Plans** that are configured to auto-scale w
 be allocate a buffer of capacity to allow for the auto-scale operations to grow/shrink the 
 **App Service Plan** as needed. The minimum buffer would be the calculated 
 **Total App Service Plan Inflation Rate**.
+</br>
+Since App Service Environment scale operations take some time to apply, any change should account 
+for further demand changes that could happen while a scale operation is in progress. For this we 
+recommend using the calculated **Total App Service Plan Inflation Rate** as the minimum number of 
+instances added for each auto-scale operation.
+</br>
 
 </br>
 
@@ -328,15 +339,13 @@ to prevent this he sets the auto-scale rule to increase instances as follows:
 	<li>Action: Decrease count by 3</li>
 	<li>Cool down (minutes): 90</li>
 </ul>
-	
-> [AZURE.NOTE] App Service plan scale operations are not instantaneous .
 
 <!-- IMAGES -->
 [intro]: ./media/app-service-environment-auto-scale/introduction.png
 [settings-scale]: ./media/app-service-environment-auto-scale/settings-scale.png
 [scale-manual]: ./media/app-service-environment-auto-scale/scale-manual.png
 [scale-profile]: ./media/app-service-environment-auto-scale/scale-profile.png
-[scale-profile2]: ./media/app-service-environment-auto-scale/scale-profile2.png
+[scale-profile2]: ./media/app-service-environment-auto-scale/scale-profile-2.png
 [scale-rule]: ./media/app-service-environment-auto-scale/scale-rule.png
 [asp-scale]: ./media/app-service-environment-auto-scale/asp-scale.png
 [ASP-Inflation]: ./media/app-service-environment-auto-scale/asp-inflation-rate.png
