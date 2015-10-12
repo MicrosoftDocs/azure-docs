@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/21/2015"
+	ms.date="10/09/2015"
 	ms.author="femila"/>
 
 #Setting up Azure AD for self service application access management
