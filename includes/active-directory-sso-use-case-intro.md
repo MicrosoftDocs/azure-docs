@@ -2,7 +2,7 @@ Organizations are using more Software as a Service (SaaS) applications for produ
 
 - Employees who have to keep track of many passwords tend to use less-secure methods to remember them, either writing down passwords or using the same passwords across many accounts.
 
-- When a new employee arrives or one leaves, all their accounts must be individually provisioned or deprovisioned.
+- When a new employee arrives or one leaves, all their accounts must be individually provisioned or de-provisioned.
 
 - Additionally, employees may start using SaaS apps for their work without going through IT, which means they are creating their own accounts on systems that the IT administrators haven't approved and aren't monitoring.  
 
