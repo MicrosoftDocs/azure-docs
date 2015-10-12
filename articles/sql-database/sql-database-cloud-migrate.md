@@ -206,14 +206,6 @@ Use the steps below to use the [SqlPackage.exe](https://msdn.microsoft.com/libra
 	![Export a data-tier application from the Tasks menu](./media/sql-database-cloud-migrate/TestForCompatibilityUsingSQLPackage01c.png)
 
 
-##Import from a BACPAC file into Azure SQL Database using the Azure portal
-
-You can also import a BACPAC file into Azure SQL Database [using the Azure portal](sql-database-import.md).
-
-##Import from a BACPAC file into Azure SQL Database using PowerShell
-
-You can also import a BACPAC file into Azure SQL Database [using PowerShell](sql-database-import-powershell.md).
-
 ##Fix database compatibility issues
 
 If you determine that your source SQL Server database is not compatible, you have a number of options to fix the database compatibility issues that you [identified previously](#determine-if-your-database-is-compatible).
