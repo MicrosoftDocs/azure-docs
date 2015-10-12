@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/05/2015"
+	ms.date="10/12/2015"
 	ms.author="mahesh-unnikrishnan"/>
 
 # Azure AD Domain Services *(Preview)* - Getting started
@@ -50,26 +50,14 @@ You will need to install the GA release of Azure AD Connect on a domain joined c
 
   [Download Azure AD Connect – GA release](http://download.microsoft.com/download/B/0/0/B00291D0-5A83-4DE7-86F5-980BC00DE05A/AzureADConnect.msi)
 
-> [AZURE.WARNING] You MUST install the GA release of Azure AD Connect in order to enable legacy password credentials (required for NTLM and Kerberos authentication) to sync to your Azure AD tenant. This functionality is not available in prior releases of Azure AD COnnect.
+> [AZURE.WARNING] You MUST install the GA release of Azure AD Connect in order to enable legacy password credentials (required for NTLM and Kerberos authentication) to sync to your Azure AD tenant. This functionality is not available in prior releases of Azure AD Connect.
 
 Installation instructions for Azure AD Connect are available in the following article - [Getting started with Azure AD Connect](../active-directory/active-directory-aadconnect.md)
 
 
-#### Enable synchronization of legacy credentials to Azure AD
-
-Enable synchronization of legacy credentials required for NTLM authentication in Azure AD Domain Services. You can do this by creating the following registry key on the machine where Azure AD Connect was installed.
-
-Create the following DWORD registry key and set it to 1.
-
-```
- HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\MSOLCoExistence\PasswordSync\EnableWindowsLegacyCredentialsSync
-
- Set its value to 1.
-```
-
 #### Force full password synchronization to Azure AD
 
-In order to force full password synchronization and enable all on-premises users’ passwords to sync to your Azure AD tenant, execute the following PowerShell script on each AD forest.
+In order to force full password synchronization and enable all on-premises users’ password hashes (including the credential hashes required for NTLM/Kerberos authentication) to sync to your Azure AD tenant, execute the following PowerShell script on each AD forest.
 
 ```
 $adConnector = "<CASE SENSITIVE AD CONNECTOR NAME>"  
@@ -85,4 +73,4 @@ Set-ADSyncAADPasswordSyncConfiguration -SourceConnector $adConnector -TargetConn
 Set-ADSyncAADPasswordSyncConfiguration -SourceConnector $adConnector -TargetConnector $aadConnector -Enable $true  
 ```
 
-Depending on the size of your directory (number of users, groups etc.), synchronization of credentials to Azure AD and then to Azure AD Domain Services will take time. 
+Depending on the size of your directory (number of users, groups etc.), synchronization of credentials to Azure AD and then to Azure AD Domain Services will take time.
