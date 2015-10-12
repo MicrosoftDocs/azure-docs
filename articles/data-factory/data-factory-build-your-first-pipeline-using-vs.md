@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article" 
-	ms.date="10/06/2015"
+	ms.date="10/09/2015"
 	ms.author="spelluru"/>
 
 # Build your first Azure Data Factory pipeline using Visual Studio
@@ -33,21 +33,23 @@ In this article, you will learn how to use the Visual Studio to create your firs
 
 This article does not provide a conceptual overview of the Azure Data Factory service. For a detailed overview of the service, see the [Introduction to Azure Data Factory](data-factory-introduction.md) article.
 
-> [AZURE.IMPORTANT] Please go through the **pre-requisites** section in the [Tutorial Overview](data-factory-build-your-first-pipeline.md) if you haven't gone through it already. 
+> [AZURE.IMPORTANT] Please go through the [Tutorial Overview](data-factory-build-your-first-pipeline.md) article and complete the pre-requisite steps before performing this tutorial.  
 
 ## Walkthrough: Create and deploy Data Factory entities using Visual Studio 
 
 ### Pre-requisites
 
 You must have the following installed on your computer: 
-- Visual Studio 2013
-- Download Azure SDK for Visual Studio 2013. Navigate to [Azure Download Page](http://azure.microsoft.com/downloads/) and click **VS 2013 install** in the **.NET** section.
-- Update the "Visual Studio Tools For Azure Data Factory" to latest version by going to Visual Studio 2013 --> Tools --> Updates --> Visual Studio Gallery and clicking "Update" on "Visual Studio Tools for Azure Data Factory" plug-in entry there.
 
+- Visual Studio 2013 or Visual Studio 2015
+- Download Azure SDK for Visual Studio 2013 or Visual Studio 2015. Navigate to [Azure Download Page](http://azure.microsoft.com/downloads/) and click **VS 2013** or **VS 2015** in the **.NET** section.
+- Download the latest Azuer Data Factory plugin for Visual Studio : [VS 2013](https://visualstudiogallery.msdn.microsoft.com/754d998c-8f92-4aa7-835b-e89c8c954aa5) or [VS 2015](https://visualstudiogallery.msdn.microsoft.com/371a4cf9-0093-40fa-b7dd-be3c74f49005). If you are using Visual Studio 2013, you can also update the plugin by doing the following: On the menu, click **Tools** -> **Extensions and Updates** -> **Online** -> **Visual Studio Gallery** -> **Microsoft Azure Data Factory Tools for Visual Studio** -> **Update**. 
+	
+	
 
 ### Create the Visual Studio project 
-1. Launch **Visual Studio 2013**. Click **File**, point to **New**, and click **Project**. You should see the **New Project** dialog box.  
-2. In the **New Project** dialog, select the **DataFactory** template, and click **Empty Data Factory Project**. If you don't see the DataFactory template, close Visual Studio, install Azure SDK for Visual Studio 2013, and reopen Visual Studio.  
+1. Launch **Visual Studio 2013** or **Visual Studio 2015**. Click **File**, point to **New**, and click **Project**. You should see the **New Project** dialog box.  
+2. In the **New Project** dialog, select the **DataFactory** template, and click **Empty Data Factory Project**.   
 
 	![New project dialog box](./media/data-factory-build-your-first-pipeline-using-vs/new-project-dialog.png)
 

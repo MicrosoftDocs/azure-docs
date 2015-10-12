@@ -92,7 +92,7 @@ To learn more about Azure IoT Hub, see these links:
 [IoT Hub Supported Devices]: iot-hub-supported-devices.md
 [Get started with IoT Hub]: iot-hub-csharp-csharp-getstarted.md
 [Supported device platforms and languages]: iot-hub-sdks-summary.md#os-platforms-and-hardware-compatibility
-[Azure IoT Developer Center]: http://www.azure.com/iotdev
+[Azure IoT Developer Center]: https://azure.microsoft.com/develop/iot/
 
 [img-why-use]: media/iot-hub-what-is-iot-hub/image1.png
 [img-architecture]: media/iot-hub-what-is-iot-hub/hubarchitecture.png

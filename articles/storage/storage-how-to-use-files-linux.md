@@ -3,7 +3,7 @@
         description="Create a file share in the cloud and mount it from an Azure VM or an on-premises application running on Linux."
         services="storage"
         documentationCenter="na"
-        authors="jutang"
+        authors="jasontang501"
         manager="jahogg"
         editor="" />
 
@@ -12,7 +12,7 @@
       ms.tgt_pltfrm="na"
       ms.devlang="na"
       ms.topic="article"
-      ms.date="09/28/2015"
+      ms.date="10/06/2015"
       ms.author="jutang;tamram" />
 
 
@@ -28,7 +28,7 @@ Applications running in Azure can easily mount file shares from Azure virtual ma
 
 Note that since the Linux SMB client doesn’t yet support encryption, mounting a file share from Linux still requires the client to be in the same Azure region as the file share. However, encryption support for Linux is on the roadmap of Linux developers responsible for SMB functionality. Linux distributions that support encryption in the future will be able to mount an Azure File share from anywhere as well.
 
-## Which Linux distribution to use ##
+## Choose a Linux distribution to use ##
 
 When creating a Linux virtual machine in Azure, you can specify a Linux image which supports SMB 2.1 or higher from the Azure image gallery. Below is a list of recommended Linux images:
 
@@ -51,15 +51,13 @@ Next, you need to make a mount point (mkdir mymountpoint), and then issue the mo
 
 You can also add settings in your /etc/fstab to mount the share.
 
-Please be noted that 0777 here represent a directory/file permission code that gives execution/read/write permissions to all users. You can replace it with other file permission code following Linux file permission document.
+Note that 0777 here represent a directory/file permission code that gives execution/read/write permissions to all users. You can replace it with other file permission code following Linux file permission document.
  
 Also to keep a file share mounted after reboot, you can add a setting like below in your /etc/fstab:
 
     //myaccountname.file.core.windows.net/mysharename /mymountpoint cifs vers=3.0,username= myaccountname,password= StorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777
 
-To be more specific, here is an example.
-
-If you created a Azure VM using Linux image Ubuntu Server 15.04 which is available at Azure marketplace, you can mount the file as below:
+For example, if you created a Azure VM using Linux image Ubuntu Server 15.04 (which is available from the Azure image gallery), you can mount the file as below:
 
     azureuser@azureconubuntu:~$ sudo apt-get install apt-file
     azureuser@azureconubuntu:~$ sudo mkdir /mnt/mountpoint
@@ -85,6 +83,28 @@ If you use Open SUSE 13.2, you can mount the file as below:
     Filesystem  Size  Used Avail Use% Mounted on
     //myaccountname.file.core.windows.net/mysharename  5.0T   64K  5.0T   1% /mnt/mountpoint
 
+## Manage the file share ##
+
+The [Azure preview portal](https://portal.azure.com/) now provides a user interface for managing Azure File Storage. You can perform the following actions from your web browser:
+
+- Upload and download files to and from your file share.
+- Monitor the actual usage of each file share.
+- Adjust the file share size quota.
+- Copy the `net use` command to use to mount your file share from a Windows client. 
+
+You can also use the Azure Cross-Platform Command-Line Interface (Azure CLI) from Linux to manage the file share. Azure CLI provides a set of open source, cross-platform commands for you to work with Azure Storage, including File storage. It provides much of the same functionality found in the Azure Portal as well as rich data access functionality. For examples, see [Using the Azure CLI with Azure Storage](storage-azure-cli.md).
+
+## Develop with File storage ##
+
+As a developer, you can build an application with File storage by using the [Azure Storage Client Library for Java](https://github.com/azure/azure-storage-java). For code examples, see [How to use File storage from Java](storage-java-how-to-use-file-storage.md).
+
+You can also use the [Azure Storage Client Library for Node.js](https://github.com/Azure/azure-storage-node) to develop against File storage.
+
+## Feedback and more information ##
+
+Linux users, we want to hear from you! 
+
+The Azure File storage for Linux users' group provides a forum for you to share feedback as you evaluate and adopt File storage on Linux. Email [Azure File Storage Linux Users](mailto:azurefileslinuxusers@microsoft.com) to join the users' group.
 
 ## Next steps
 
