@@ -1,5 +1,5 @@
 <properties
-	pageTitle="oad balancing for infrastructure services | Microsoft Azure"
+	pageTitle="Load balancing for infrastructure services | Microsoft Azure"
 	description="Describes the two different types of load balancing supported by Azure: Load balancer for cloud services and Azure Traffic Manager for client traffic."
 	services="virtual-machines"
 	documentationCenter=""
