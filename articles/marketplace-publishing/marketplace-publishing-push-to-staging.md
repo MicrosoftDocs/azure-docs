@@ -30,35 +30,24 @@ In this step of the publishing process you will need to provide certain marketin
 1. Enter the offer summary, long summary, and description for your offer.
 2.	Upload images of the required specifications (mentioned on Publishing Portal) in PNG format, one for each size.
 
-  ![drawing](media/marketplace-publishing-push-to-staging/pubportal-vm-details-offer.png)
+  ![drawing](media/marketplace-publishing-push-to-staging/pubportal-02.png)
 
   *Offer Title, Description, and logos*
 
-Below is the detailed view of how the publisher portal offer marketing details are used on the [Azure Marketplace](http://azure.microsoft.com/marketplace).
-
-![drawing](media/marketplace-publishing-push-to-staging/acom-vm-catalog.png)
-
-*Offer catalog listing on Microsoft [Azure Marketplace](http://azure.microsoft.com/marketplace) website*
-
-![drawing](media/marketplace-publishing-push-to-staging/acom-vm-listing.png)
-
-*Offer details page on Microsoft [Azure Marketplace](http://azure.microsoft.com/marketplace) website*
-
-![drawing](media/marketplace-publishing-push-to-staging/portal-vm-listing.png)
-
-*Offer details panel in Microsoft [Azure Preview Portal](https://ms.portal.azure.com)*
-
-
 ### Links
 In the links tab on the left bar, enter any links with information that may help customers. Enter a name and URL for each link.
+
+![drawing](media/marketplace-publishing-push-to-staging/pubportal-02.png)
 
 ### Sample images (optional)
 > [AZURE.NOTE] Including a sample image is an optional step. You could complete the other marketing content to fulfill requirements for push to staging.
 
 In the **Sample Images** tab on the left menu, upload a new image by clicking **Upload a new image**. If you have an existing image and you would like to replace it, click **Replace image**.
 
+![drawing](media/marketplace-publishing-push-to-staging/pubportal-03.png)
+
 ### Plans
-![drawing](media/marketplace-publishing-push-to-staging/pubportal-vm-details-sku.png)
+![drawing](media/marketplace-publishing-push-to-staging/pubportal-02.png)
 
 ### Legal
 In the Legal tab, provide a link to your policies/terms of use. Enter or paste the terms in the large Terms of Use box.
@@ -124,6 +113,35 @@ Some of this information will have been completed during the certification step.
 
 ## Step 4: Choose Azure Marketplace categories
 In the **Categories** tab, there will be an array of selections provided. Your offer may fall under these, and you may select up to five (5) categories.
+
+## How your marketing will appear
+Below is the detailed view of how the Publisher Portal offer marketing details are used on the [Azure Marketplace website](http://azure.microsoft.com/marketplace) and [Azure Preview Portal marketplace gallery](https://ms.portal.azure.com).
+
+### On the Azure.com marketplace website
+![drawing](media/marketplace-publishing-push-to-staging/acom-catalog-01.png)
+
+![drawing](media/marketplace-publishing-push-to-staging/acom-catalog-02.png)
+
+*Listing of offers on the Azure.com marketplace website*
+
+![drawing](media/marketplace-publishing-push-to-staging/acom-listing-details-01.png)
+
+*Offer description details on the Azure.com marketplace website*
+
+![drawing](media/marketplace-publishing-push-to-staging/acom-listing-details-02.png)
+
+*Offer description pricing details on the Azure.com marketplace website*
+
+### In the Azure Preview Portal marketplace gallery
+![drawing](media/marketplace-publishing-push-to-staging/portal-catalog-01.png)
+
+*Listing of offers in the Azure Preview Portal marketplace gallery*
+
+![drawing](media/marketplace-publishing-push-to-staging/portal-listing-details-01.png)
+
+![drawing](media/marketplace-publishing-push-to-staging/portal-listing-details-01.png)
+
+*Offer description details in the Azure Preview Portal marketplace gallery*
 
 ## Next steps
 Now that your Marketplace content is loaded, lets move forward with the **Step 3: Testing your offer in Staging**. However, you must select the appropriate offer type from the list below as steps vary by offer type.
