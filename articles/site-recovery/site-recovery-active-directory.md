@@ -29,12 +29,12 @@ This article explains in detail about how you can create a disaster recovery sol
 
 ####Option 1
 
-If there are a small number of applications and a single domain controller in the environment and will be failing over the entire site together, then we recommend using ASR replication to replicate the domain controller machine to secondary site (applicable for both Site to Site and Site to Azure). The same VM can be used for Test Failover as well.
+If there are a small number of applications and a single domain controller in the environment and you will be failing over the entire site together, then we recommend using ASR replication to replicate the domain controller machine to secondary site (applicable for both Site to Site and Site to Azure). The same replicated virtual machine can be used for Test Failover as well.
 
 ####Option 2
-If there are a large number of applications and there is more than one domain controller in the environment or you plan to failover few applications at a time, then we recommend that in addition to enabling ASR replication on domain controller VM (to be used for Test Failvoer) you also setup an additional domain controller on the DR site (secondary on-premises site or in Azure). 
+If there are a large number of applications and there is more than one domain controller in the environment or you plan to failover of few applications at a time, then we recommend that in addition to enabling ASR replication on domain controller virtual machine (to be used for Test Failvoer) you also setup an additional domain controller on the DR site (secondary on-premises site or in Azure). 
 
->[AZURE.NOTE] Even if you are going with Option-2, for doing a test failover you would still be required to setup ASR replication for the domain controller. Go through [Test Failover Considerations](site-recovery-active-directory/#considerations-for-test-failover) section for more details. 
+>[AZURE.NOTE] Even if you are going with Option-2, for doing a test failover you would still be required to setup ASR replication for the domain controller. Go through [Test Failover Considerations](#considerations-for-test-failover) section for more details. 
 
 
 Sections below explain how to enable protection on domain controller in ASR and how to setup a domain controller in Azure. 
