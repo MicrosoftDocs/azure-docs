@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Migrating a SQL Server Database to Azure SQL Database"
+   pageTitle="Migrating a SQL Server database to Azure SQL Database"
    description="Microsoft Azure SQL Database, database deploy, database migration, import database, export database, migration wizard"
    services="sql-database"
    documentationCenter=""
@@ -41,7 +41,7 @@ If database incompatibilities are detected, you will need to fix these incompati
 
 > [AZURE.IMPORTANT] These options do not catch all of the compatibility issues between different levels of SQL Server databases (i.e. level 90, 100, and 110). If you are migrating from an older database (level 80, 90, 100, and 110), you should go through the upgrade process first (at least in the dev environment) and once on SQL Server 2014 or later, then migrate to Azure SQL Database.
 
-##Determine if your database is compatible using sqlpackage.exe
+## Determine if your database is compatible using sqlpackage.exe
 
 1. Open a command prompt and change a directory containing the newest version of sqlpackage.exe. This utility ships with both Visual Studio and SQL Server.
 2. Execute the following command, substituting for the following arguments: < server_name >, < database_name >, < target_file >, < schema_name.table_name > and < output_file >. The reason for the /p:TableName argument is that we only want to test for database compability for export to Azure SQL DB V12 rather than export the data from all tables. Unfortunately, the export argument for sqlpackage.exe does not support extracting no tables, so you will need to specify a single small table. The < output_file > will contain the report of any errors.
@@ -54,7 +54,7 @@ If database incompatibilities are detected, you will need to fix these incompati
 
 	![Export a data-tier application from the Tasks menu](./media/sql-database-cloud-migrate/TestForCompatibilityUsingSQLPackage02.png)
 
-##Determine if your database is compatible using Export Data Tier Application
+## Determine if your database is compatible using Export Data Tier Application
 
 1. Verify that you have version 13.0.600.65 or later of SQL Server Management Studio. New versions of Management Studio are updated monthly to remain in sync with updates to the Azure portal.
 
@@ -89,7 +89,7 @@ If database incompatibilities are detected, you will need to fix these incompati
 
  ![SSMS migration diagram](./media/sql-database-migrate-ssms/01SSMSDiagram.png)
 
-##Use Deploy Database to Microsoft Azure Database Wizard
+## Use Deploy Database to Microsoft Azure Database Wizard
 
 The Deploy Database to Microsoft Azure Database wizard in SQL Server Management Studio migrates a migrating a [compatible](#determine-if-your-database-is-compatible) SQL Server 2005 or later database directly to your Azure SQL logical server instance.
 
@@ -113,7 +113,7 @@ The Deploy Database to Microsoft Azure Database wizard in SQL Server Management 
 7.	Using Object Explorer, connect to your migrated database in your Azure SQL Database server.
 8.	Using the Azure Portal, view your database and its properties.
 
-##Use a BACPAC to Migrate a SQL Server Database to Azure SQL Database
+## Use a BACPAC to Migrate a SQL Server Database to Azure SQL Database
 
 For medium to large databases or when you have connectivity challenges, you can separate the migration process into two discrete steps. You can export of the schema and its data into a [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4) file using one or two methods.
 
@@ -127,7 +127,7 @@ You can store this BACPAC locally or in an Azure blob. You can then import this 
 - [Import from a BACPAC file into Azure SQL Database using the Azure portal](sql-database-import.md)
 - [Import from a BACPAC file into Azure SQL Database using or PowerShell](sql-database-import-powershell.md)
 
-##Export a compatible SQL Server database to a BACPAC file using SQL Server Management Studio
+## Export a compatible SQL Server database to a BACPAC file using SQL Server Management Studio
 
 Use the steps below to use Management Studio to export a migrating a [compatible](#determine-if-your-database-is-compatible) SQL Server database to a BACPAC file.
 
@@ -147,7 +147,7 @@ Use the steps below to use Management Studio to export a migrating a [compatible
 
 	![Export settings](./media/sql-database-cloud-migrate/MigrateUsingBACPAC02.png)
 
-##Export a compatible SQL Server database to a BACPAC file using SqlPackage
+## Export a compatible SQL Server database to a BACPAC file using SqlPackage
 
 Use the steps below to use the [SqlPackage.exe](https://msdn.microsoft.com/library/hh550080.aspx) command line utility to export a migrating a [compatible](#determine-if-your-database-is-compatible) database to a BACPAC file.
 
@@ -160,7 +160,7 @@ Use the steps below to use the [SqlPackage.exe](https://msdn.microsoft.com/libra
 
 	![Export a data-tier application from the Tasks menu](./media/sql-database-cloud-migrate/TestForCompatibilityUsingSQLPackage01b.png)
 
-##Import from a BACPAC file into Azure SQL Database using SQL Server Management Studio
+## Import from a BACPAC file into Azure SQL Database using SQL Server Management Studio
 
 Use the steps below to import from a BACPAC file into Azure SQL Database.
 
@@ -192,7 +192,7 @@ Use the steps below to import from a BACPAC file into Azure SQL Database.
 
 7.	Using the Azure Portal, view your database and its properties.
 
-##Import from a BACPAC file into Azure SQL Database using SqlPackage
+## Import from a BACPAC file into Azure SQL Database using SqlPackage
 
 Use the steps below to use the [SqlPackage.exe](https://msdn.microsoft.com/library/hh550080.aspx) command line utility to import a compatible SQL Server database (or Azure SQL database) from a BACPAC file.
 
@@ -206,7 +206,7 @@ Use the steps below to use the [SqlPackage.exe](https://msdn.microsoft.com/libra
 	![Export a data-tier application from the Tasks menu](./media/sql-database-cloud-migrate/TestForCompatibilityUsingSQLPackage01c.png)
 
 
-##Fix database compatibility issues
+## Fix database compatibility issues
 
 If you determine that your source SQL Server database is not compatible, you have a number of options to fix the database compatibility issues that you [identified previously](#determine-if-your-database-is-compatible).
 
