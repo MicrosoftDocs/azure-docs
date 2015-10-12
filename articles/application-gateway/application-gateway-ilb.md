@@ -12,7 +12,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="06/30/2015"
+   ms.date="09/29/2015"
    ms.author="joaoma"/>
 
 # Create an Application Gateway with an Internal Load Balancer (ILB)

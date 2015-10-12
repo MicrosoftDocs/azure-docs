@@ -13,18 +13,20 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-linux"
 	ms.workload="infrastructure"
-	ms.date="05/20/2015"
+	ms.date="10/04/2015"
 	ms.author="rasquill"/>
 
 # How to Get Started Quickly with Docker in the Azure Marketplace
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)] This article covers creating a resource with the classic deployment model. 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)] This article covers creating a resource with the classic deployment model.  
 
 The fastest way to get started using [Docker] is to go to the Azure Marketplace and create a VM using the **Docker on Ubuntu Server** image template created by [Canonical] in conjunction with [MSOpenTech]. This creates an Ubuntu Server VM and automatically installs the [Docker VM Extension](virtual-machines-docker-vm-extension.md) along with the **latest** Docker engine pre-installed and running on on Azure.  
 
 You can immediately connect to the VM using SSH and begin doing work with Docker directly without doing anything else.
 
-> [AZURE.NOTE]The VM created by the Azure Marketplace template does not host the Docker remote API for management by a remote docker client. To enable controlling the Docker Host on this VM remotely, see either [Running Docker with HTTPS](https://docs.docker.com/articles/https/) or follow the steps in [Using the Docker VM Extension from the Azure Portal](virtual-machines-docker-with-portal.md) or [Using the Docker VM Extension from the Azure CLI](virtual-machines-docker-with-xplat-cli.md). If you're feeling especially geeky, you can build the [Windows Docker Client](https://github.com/ahmetalpbalkan/Docker.DotNet) from GitHub and try that as well (or just grab it from [nuget](https://www.nuget.org/packages/Docker.DotNet/)).
+> [AZURE.NOTE]The VM created by the Azure Marketplace template does not host the Docker remote API for management by a remote docker client. To enable controlling the Docker Host on this VM remotely, see either [Running Docker with HTTPS](https://docs.docker.com/articles/https/) or follow the steps in [Using the Docker VM Extension from the Azure Portal](virtual-machines-docker-with-portal.md) or [Using the Docker VM Extension from the Azure CLI](virtual-machines-docker-with-xplat-cli-install.md). 
+<!-- -->
+If you want to automate your Azure Docker VM from Windows, you can [install the Docker Toolbox](https://docs.docker.com/installation/windows/) or get Docker.exe [from Chocolatey](https://chocolatey.org/packages/docker).
 
 ## Log on to the Portal
 
@@ -40,7 +42,7 @@ This part is easy, unless you don't have an Azure account. [Get a free one easil
 
 > ![Locate the image in the Image Gallery](./media/virtual-machines-docker-ubuntu-quickstart/DockerOnUbuntuServerMSOpenTech.png)
 
-3. Provide either the username and password for the instance, or a **.pem** file to enable SSH using a certificate. (The below graphic shows specifying a username and password combination.) Then press **Create** at the bottom.
+3. Provide either the username and password for the instance, or the contents of a **.pub** file (ssh-rsa format)  to enable SSH using a certificate. (The below graphic shows specifying a username and password combination.) Then press **Create** at the bottom.
 
 > ![Configure the vm instance](./media/virtual-machines-docker-ubuntu-quickstart/CreateVMDockerUbuntuPwd.png)
 

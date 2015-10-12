@@ -3,7 +3,10 @@
 This article is part of a series on how to manage SaaS applications with Azure Active Directory. Below are all of the articles in the series:
 
 - [Introduction to Single Sign-On and Managing App Access with Azure Active Directory](active-directory-appssoaccess-whatis.md)
-- [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md)
+	- [Managing Certificates for Federated Single Sign-On in Azure Active Directory](active-directory-sso-certs.md)
+	- [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md)
+	- [How to Deploy the Access Panel Extension for Internet Explorer using Group Policy](active-directory-saas-ie-group-policy.md)
+	- [Troubleshooting the Access Panel Extension for Internet Explorer](active-directory-saas-ie-troubleshooting.md)
 - [Automate User Provisioning and Deprovisioning to SaaS Applications](active-directory-saas-app-provisioning.md)
 	- [Customizing Attribute Mappings for User Provisioning](active-directory-saas-customizing-attribute-mappings.md)
 	- [Writing Expressions for Attribute Mappings](active-directory-saas-writing-expressions-for-attribute-mappings.md)
@@ -14,6 +17,6 @@ This article is part of a series on how to manage SaaS applications with Azure A
 	- [How to integrate Google Apps](active-directory-saas-google-apps-tutorial.md)
 	- [How to integrate Box](https://msdn.microsoft.com/library/azure/dn308589.aspx)
 	- [How to integrate ServiceNow](https://msdn.microsoft.com/library/azure/dn510971.aspx)
-	- [How to integrate Dropbox for Business](https://msdn.microsoft.com/en-us/library/azure/dn510978.aspx)
-	- [How to integrate Workday](https://msdn.microsoft.com/en-us/library/azure/dn510972.aspx) 
+	- [How to integrate Dropbox for Business](https://msdn.microsoft.com/library/azure/dn510978.aspx)
+	- [How to integrate Workday](http://go.microsoft.com/fwlink/?LinkId=690250) 
 	- [More SaaS App Tutorials...](active-directory-saas-tutorial-list.md)

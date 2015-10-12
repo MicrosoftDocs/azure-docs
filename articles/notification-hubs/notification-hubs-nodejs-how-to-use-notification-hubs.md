@@ -14,14 +14,10 @@
 	ms.devlang="javascript"
 	ms.topic="article"
 	ms.date="09/24/2015"
-	ms.author="ricksal"/>
+	ms.author="wesmc"/>
 
 # How to use Notification Hubs from Node.js
-
-> [AZURE.SELECTOR]
-- [Java](notification-hubs-java-backend-how-to.md)
-- [PHP](notification-hubs-php-backend-how-to.md)
-- [Python](notification-hubs-python-backend-how-to)
+[AZURE.INCLUDE [notification-hubs-backend-how-to-selector](../../includes/notification-hubs-backend-how-to-selector.md)]
 
 ##Overview
 

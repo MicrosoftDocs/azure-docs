@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services" 
-	ms.date="06/17/2015"
+	ms.date="10/02/2015"
 	ms.author="jeffreyg"/>
 
 # SQL Server IaaS Agent Extension

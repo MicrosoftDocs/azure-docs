@@ -140,9 +140,6 @@ Finally, you must update the script registered to the insert operation on the To
 
 This tutorial demonstrated the basics of enabling a Windows Store app to use Mobile Services and Notification Hubs to send push notifications. Next, consider completing one of the following tutorials:
 
-+ [Send push notifications to authenticated users](mobile-services-javascript-backend-windows-phone-push-notifications-app-users.md)
-	<br/>Learn how to use tags to send push notifications from your mobile service to only an authenticated user.
-
 + [Send broadcast notifications to subscribers](../notification-hubs-windows-phone-send-breaking-news.md)
 	<br/>Learn how users can register and receive push notifications for categories they're interested in.
 

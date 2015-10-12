@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Reference for navigating the Azure portal"
 	description="Learn the different user experiences for App Service Web between the management portal and the Azure Portal"
-	services="app-service\web"
+	services="app-service"
 	documentationCenter=""
 	authors="jaime-espinosa"
 	manager="wpickett"
@@ -9,7 +9,7 @@
 
 <tags
 	ms.service="app-service"
-	ms.workload="web"
+	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
