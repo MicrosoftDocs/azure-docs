@@ -175,7 +175,7 @@ In this step, you'll create the virtual network gateway for your VNet. VNet-to-V
 ## 7. Create VNet2
 
 
-Once you've configured VNet1, repeat the previous steps to configure VNet2 along with its gateway configuration. After you've completed the configuration for both of the VNets and their respective gateways, proceed to [Connect the gateways](#connect-the-gateways).
+Once you've configured VNet1, repeat the previous steps to configure VNet2 along with its gateway configuration. After you've completed the configuration for both of the VNets and their respective gateways, proceed to **Step 8 - Connect the gateways**.
 
 ## 8. Connect the gateways
 
@@ -215,7 +215,39 @@ If you need to add gateway subnets to your VNets, use the sample below, replacin
 		Add-AzureVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.0.3.0/28 -VirtualNetwork $vnet
 		Set-AzureVirtualNetwork -VirtualNetwork $vnet
 
-After verifying that your gateway subnets are configured correctly, continue with [Request a public IP address](#request-a-public-ip-address) and follow the steps.
+After verifying that your gateway subnets are configured correctly, continue with **Step 4 - Request a public IP address** and follow the steps.
+
+## Verifying connections
+
+At this time, the VPN connections created with Resource Manager are not visible in the Preview Portal. However, it's possible to verify that your connection succeeded by using *Get-AzureVirtualNetworkGatewayConnection –Debug*. In the future, we'll have a cmdlet for this, as well as the ability to view your connection in the Preview Portal.
+
+You can use the following cmdlet example, configuring the values to match your own. When prompted, select *A* in order to run All. **Note:** be sure to change the values to match the VNet connections you want to verify.
+
+		Get-AzureVirtualNetworkGatewayConnection -Name vnet2connection -ResourceGroupName vnet2vnetrg -Debug 
+
+ After the cmdlet has finished, scroll through to view the values. In the example below, the connection status shows as *Connected* and you can see ingress and egress bytes.
+
+	Body:
+	{
+	  "name": "Vnet2Connection",
+	  "id": "/subscriptions/a932c0e6-b5cb-4e68-b23d-5064372c8a3cdef/resourceGroups/Vnet2VnetRG/providers/Microsoft.Network/connections/Vnet2Connection",
+	  "properties": {
+	    "provisioningState": "Succeeded",
+	    "resourceGuid": "3c0bc049-860d-46ea-9909-e08098680a8bdef",
+	    "virtualNetworkGateway1": {
+	      "id": "/subscriptions/a932c0e6-b5cb-4e68-b23d-5064372c8a3cdef/resourceGroups/Vnet2VnetRG/providers/Microsoft.Network/virtualNetworkGateways/Vnet2Gw"
+	    },
+	    "virtualNetworkGateway2": {
+	      "id": "/subscriptions/a932c0e6-b5cb-4e68-b23d-5064372c8a3cdef/resourceGroups/Vnet2VnetRG/providers/Microsoft.Network/virtualNetworkGateways/Vnet1Gw"
+	    },
+	    "connectionType": "Vnet2Vnet",
+	    "routingWeight": 3,
+	    "sharedKey": "abc123",
+	    "connectionStatus": "Connected",
+	    "ingressBytesTransferred": 3359044,
+	    "egressBytesTransferred": 4142451
+	  }
+	} 
 
 ## Next steps
 

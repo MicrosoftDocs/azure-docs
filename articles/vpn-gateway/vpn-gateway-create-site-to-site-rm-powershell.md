@@ -60,7 +60,7 @@ Next, switch to the Azure Resource Manager mode.
 
 ## 2. Create a virtual network and a gateway subnet
 
-- If you already have a virtual network with a gateway subnet, you can jump ahead to [Add your local site](#add-your-local-site). 
+- If you already have a virtual network with a gateway subnet, you can jump ahead to [Step 3 - Add your local site](#3.-add-your-local-site). 
 - If you already have a virtual network and you want to add a gateway subnet to your VNet, see [Add a gateway subnet to a VNet](#gatewaysubnet).
 
 ### To create a virtual network and a gateway subnet
@@ -115,7 +115,7 @@ To add a local site with multiple address prefixes:
 
 ### To modify IP address prefixes for your local site
 
-Sometimes your local site prefixes change. The steps you take to modify your IP address prefixes depend on whether or not you have created a VPN gateway connection. See [Modify IP address prefixes for a local site](#modify-ip-address-prefixes-for-a-local-site).
+Sometimes your local site prefixes change. The steps you take to modify your IP address prefixes depend on whether or not you have created a VPN gateway connection. See [Modify IP address prefixes for a local site](#to-modify-ip-address-prefixes-for-a-local-site).
 
 
 
@@ -204,7 +204,7 @@ You can use the following cmdlet example, configuring the values to match your o
 	  }
 
 
-## 10. Modify IP address prefixes for a local site
+## To Modify IP address prefixes for a local site
 
 If you need to change the prefixes for your local site, use the instructions below.  Two sets of instructions are provided and depend on whether you have already created your VPN gateway connection. 
 
