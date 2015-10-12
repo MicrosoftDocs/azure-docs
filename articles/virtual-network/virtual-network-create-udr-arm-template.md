@@ -29,7 +29,7 @@
 
 ## UDR resources in a template file
 
-You can view and download the [sample template](https://raw.githubusercontent.com/telmosampaio/azure-templates/master/IaaS-NSG-UDR/).
+You can view and download the [sample template](https://github.com/telmosampaio/azure-templates/tree/master/IaaS-NSG-UDR).
 
 The section below shows the definition of the front end UDR in the azuredeploy-vnet-nsg-udr.json file, based on the scenario above.
 
@@ -108,7 +108,7 @@ You also need to ensure that the **FW1** VM has the IP forwarding property enabl
 
 ## Deploy the ARM template by using click to deploy
 
-The sample template available in the public repository uses a parameter file containing the default values used to generate the scenario described above. To deploy this template using click to deploy, follow [this link](https://raw.githubusercontent.com/telmosampaio/azure-templates/master/IaaS-NSG-UDR), click **Deploy to Azure**, replace the default parameter values if necessary, and follow the instructions in the portal.
+The sample template available in the public repository uses a parameter file containing the default values used to generate the scenario described above. To deploy this template using click to deploy, follow [this link](https://github.com/telmosampaio/azure-templates/tree/master/IaaS-NSG-UDR), click **Deploy to Azure**, replace the default parameter values if necessary, and follow the instructions in the portal.
 
 ## Deploy the ARM template by using PowerShell
 
