@@ -16,7 +16,7 @@
 	ms.date="10/06/2015" 
 	ms.author="pratshar"/>
 
-#Automated DR solution for AD and DNS using ASR
+#Automated DR solution for Active Directory and DNS using ASR
 
 
 All the enterprise applications such as SharePoint, Dynamics AX and SAP depend on AD and DNS infrastructure to function correctly. While creating a disaster recovery (DR) solution for any such application, it is important to protect and recover AD before the other components of the application come up in the event of a disruption.
@@ -29,74 +29,47 @@ This article explains in detail about how you can create a disaster recovery sol
 
 ####Option 1
 
-If the customer has a small number of applications and a single domain controller in the environment and will be failing over the entire site together, then we recommend using ASR replication to replicate the domain controller machine to secondary site (applicable for both Site to Site and Site to Azure)
+If there are a small number of applications and a single domain controller in the environment and will be failing over the entire site together, then we recommend using ASR replication to replicate the domain controller machine to secondary site (applicable for both Site to Site and Site to Azure). The same VM can be used for Test Failover as well.
 
 ####Option 2
-If the customer has a large number of applications and is running more than one domain controller or will failover few applications at a time, then we recommend setting up an additional domain controller on the DR site (secondary on-premises site or in Azure). 
+If there are a large number of applications and there is more than one domain controller in the environment or you plan to failover few applications at a time, then we recommend that in addition to enabling ASR replication on domain controller VM (to be used for Test Failvoer) you also setup an additional domain controller on the DR site (secondary on-premises site or in Azure). 
 
->[AZURE.NOTE] Even if you are going with Option-2, for doing a test failover you would still be required to setup ASR replication for the domain controller. 
+>[AZURE.NOTE] Even if you are going with Option-2, for doing a test failover you would still be required to setup ASR replication for the domain controller. Go through [Test Failover Considerations][site-recovery-active-directory/#considerations-for-test-failover] section for more details. 
 
 
-
-Both the options are explained in detail below. If you decide to go with the second option (using AD inbuilt replication), then the further steps such as networking configuration, failover and recovery plan (that are specific to ASR) are not required.
+Sections below explain how to enable protection on domain controller in ASR and how to setup a domain controller in Azure. 
 
 
 ##Prerequisites
 
 Implementing disaster recovery for AD using Azure Site Recovery requires the following pre-requisites completed.
 
-- An on-premises deployment of the AD and DNS server
+- An on-premises deployment of the Active Directory and DNS server
 - Azure Site Recovery Services vault has been created in Microsoft Azure subscription 
 - If Azure is your recovery site, run the Azure Virtual Machine Readiness Assessment tool  on VMs to ensure that they are compatible with Azure VMs and Azure Site Recovery Services
 
 
-##Enable protection for AD using ASR
+##Enable protection for Domain Controller/DNS using ASR
 
 
 ###Protect VM
-Enable protection of AD VM in ASR. Perform relevant Azure Site Recovery configuration based on whether the VM is deployed on Hyper-V or on VMware.The recommended Crash consistent frequency to configure is 15 minutes.
+Enable protection of Domain Controller/DNS VM in ASR. Perform relevant Azure Site Recovery configuration based on whether the VM is deployed on Hyper-V or on VMware.The recommended Crash consistent frequency to configure is 15 minutes.
 
 ###Configure VM network settings
-- For the AD server VM, configure network settings in ASR so that the VM networks get attached to the right DR network after failover. 
-- You can select the VM in the ‘VMM Cloud’ or the ‘Protection Group’ to configure the network settings as shown in the snapshot below.
-
+- For the Domain Controller/DNS virtual machine, configure network settings in ASR so that the VM geta attached to the right network after a failover. 
+- For example when you are using Azure as the DR site you can select the VM in the ‘VMM Cloud’ or the ‘Protection Group’ to configure the network settings as shown in the snapshot below.
+- 
 ![VM Network Settings](./media/site-recovery-active-directory/VM-Network-Settings.png)
 
 ##Enable protection for AD using AD replication
 ###Site to Site scenario
 
-To control replication of AD between two sites , you can use the Active Directory Sites and Services snap-in to configure settings on the site link object to which the sites are added. By configuring settings on a site link, you can control when replication occurs between two or more sites, and how often. You can refer to ['Scheduling Replication Between Sites'](https://technet.microsoft.com/en-us/library/cc731862.aspx "") for more details.
+Create a domain controller on the secondary(DR) site and while promoting the server to domain controller role give the name of the same domain that is being used on the primary site. you can use the Active Directory Sites and Services snap-in to configure settings on the site link object to which the sites are added. By configuring settings on a site link, you can control when replication occurs between two or more sites, and how often. You can refer to ['Scheduling Replication Between Sites'](https://technet.microsoft.com/en-us/library/cc731862.aspx "") for more details.
 
 ###Site to Azure scenario
-If you are planning for a complete site disaster then yes it is mandatory to replicate AD to Azure. You refer to installing a [replica Active Directory domain controller in an Azure virtual network](../virtual-network/virtual-networks-install-replica-active-directory-domain-controller.md) for more details. 
+Follow these instructions to create a [domain controller in an Azure virtual network](../virtual-network/virtual-networks-install-replica-active-directory-domain-controller.md). While promoting the server to domain controller role give the name of the same domain that is being used on the primary site.
 
-But if you foresee that you will be doing planned failover of only some of the applications at a time and if the applications are not too chatty with respect to communication with active directory and DNS, then you can choose not to replicate AD and DNS to Azure. In such a case you can provide the IP of the on-premises DNS Server in the network that you create in Azure.
-
-####Create an Azure virtual network
-Create a new Azure Virtual network (Ex: AzureNetwork) in Microsoft Azure. While creating this network, the IP of the on-premises DNS Server is given as the DNS Server IP. Point to site connectivity as well as site to site connectivity  should be enabled on this network.
-
-
-![Azure Virtual Network](./media/site-recovery-active-directory/Azure-Virtual-Network.png)
-
-![Virtual Network Address Spaces](./media/site-recovery-active-directory/Virtual-Network-Address-Spaces.png)
- 
-In the above example, address range of 10.0.0.0 – 10.0.0.255 is specified for the AzureNetwork. It is important to note that you should use an address range different from the on-premises address range for two main reasons:
-•	You want to establish site to site connectivity with the on-premises network. An S2S gateway can’t have same IP ranges on both sides of the network
-•	If there are multiple applications running on-premises, we want the capability to failover only some of the applications rather than the complete subnet
-
-
-####Create an AD server in Azure
-Once the connectivity between two sites is setup, you can create an Active Directory and DNS Server in Azure so that the applications running in Azure don’t have to go to on-premises AD and DNS for each name lookup and authentication request. Follow the steps below to create an active directory in Azure:
-1.	It is recommended that you create a separate site for AzureSite in the on-premises Active Directory using Active Directory Sites and Services
-2.	Create an IaaS VM on the network created in earlier
-3.	Use Server Manager to install Active Directory Domain Services and DNS Server roles
-4.	While promoting the server to a domain controller, give the name of the on-premises domain contoso.com. The IaaS virtual machine should be able to resolve contoso.com as in Step-3 we gave the IP of on-premises DNS Server as the DNS
-5.	Add this active directory in the Active Directory site named AzureSite if you have created one
-
-![AD Azure](./media/site-recovery-active-directory/AD-server-Azure.png)
- 
-
-Since there is a DNS Server running in Azure, it is better to use this for the IaaS VMs that are created from now on. To do this, go to the AzureNetwork and modify the DNS Server IP to provide the IP of the virtual machine created in the step above.
+After this you should [reconfigure dns server for the virtual network][../virtual-network/virtual-networks-install-replica-active-directory-domain-controller.md/#reconfigure-dns-server-for-the-virtual-network] to use the DNS server in Azure
   
 ![Azure Network](./media/site-recovery-active-directory/azure-network.png)
 
