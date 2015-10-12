@@ -14,7 +14,7 @@
    	ms.topic="article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="09/21/2015"
+   	ms.date="10/12/2015"
    	ms.author="nitinme"/>
 
 
@@ -26,18 +26,7 @@ In this document, you will learn about the different ways to create a Linux-base
 
 > [AZURE.NOTE] This document provides instructions on the different ways to create a cluster. If you are looking for a quick-start approach to create a cluster, see [Get Started with Azure HDInsight on Linux](../hdinsight-hadoop-linux-get-started.md).
 
-## What is an HDInsight cluster?
-
-HDInsight is an Azure service that provides a variety of open source big data technologies as a service on the Azure platform. The base of any HDInsight cluster is Apache Hadoop, which enables distributed processing of large data. 
-
-A cluster consists of multiple compute instances (called nodes,) and processing is spread across different nodes of a cluster. The cluster has a master/worker architecture with a master node (also called a head node or name node) and any number of worker nodes (also called data nodes). For more information, see <a href="http://go.microsoft.com/fwlink/?LinkId=510084" target="_blank">Apache Hadoop</a>.
-
-![HDInsight Cluster][img-hdi-cluster]
-
-
-An HDInsight cluster abstracts the Hadoop implementation details so that you don't need to worry about how to communicate with different nodes of a cluster. When you create an HDInsight cluster, Azure provisions compute resources that contain Hadoop and related applications. For more information, see [Introduction to Hadoop in HDInsight](hdinsight-hadoop-introduction.md). The data used by the cluster is stored in Azure Blob storage. For more information, see [Use Azure Blob storage with HDInsight](../hdinsight-use-blob-storage.md).
-
-## <a id="configuration"></a>Required configuration
+## <a id="configuration"></a>Basic configuration
 
 The following sections describe the required configuration options available when creating an HDInsight cluster.
 
@@ -45,29 +34,49 @@ The following sections describe the required configuration options available whe
 
 The cluster name provides a unique identifier for the cluster, and is used as part of the domain name for accessing the cluster over the Internet. For example, a cluster named _mycluster_ will be available over the internet as _mycluster_.azurehdinsight.net.
 
+The cluster name must follow the following guidelines:
+
+    - The field must be a string that contains between 3 and 63 characters
+    - The field can contain only letters, numbers, and hyphens.
+
 ###Cluster type
 
 Cluster type allows you to select special purpose configurations for the cluster. The following are the types available for Linux-based HDInsight:
 
-| Cluster type | Use this if you need to do... |
+| Cluster type | Use this if you need... |
 | ------------ | ----------------------------- |
-| Hadoop       | Batch processing of data      |
+| Hadoop       | query and analysis (batch jobs)     |
 | HBase        | NoSQL data storage            |
-| Storm        | Real-time stream processing of data |
+| Storm        | Real-time event processing |
+| Spark (Windows-only preview currently) | In-memory processing, interactive queries, micro-batch stream processing |
 
 Other technologies such as Hue, Spark, or R can be added to these basic types through the use of [Script Actions](#scriptaction).
 
 ###Cluster operating system
 
-You can create HDInsight clusters using either Ubuntu (a Linux distribution,) or Windows. The information in this document is specific to Linux-based clusters. For information on Windows-based clusters, see [Create Windows-based Hadoop clusters in HDInsight](hdinsight-provision-clusters.md).
+You can provision HDInsight clusters on one of the following two operating systems:
+
+- **HDInsight on Windows (Windows Server 2012 R2 Datacenter)**: Select this option if you need to integrate with Windows-based services and technologies that will run on the cluster with Hadoop, or if you are migrating from an existing Windows-based Hadoop distribution.
+
+- **HDInsight on Linux (Ubuntu 12.04 LTS for Linux)**: Select this option if you are familiar with Linux or Unix, migrating from an existing Linux-based Hadoop solution, or want easy integration with Hadoop ecosystem components built for Linux. For more information, see [Get started with Hadoop on Linux in HDInsight](hdinsight-hadoop-linux-get-started.md).
+
+> [AZURE.NOTE] Information in this document assumes that you are using a Linux-based HDInsight cluster. For information that is specific to Windows-based clusters, see [Create Windows-based Hadoop clusters in HDInsight](hdinsight-provision-clusters.md).
+
+###Subscription name
+
+If you have multiple Azure subscriptions, use this to select the one you want to use when creating the HDInsight cluster.
+
+###Resource group
+
+Applications are typically made up of many components, for example a web app, database, database server, storage, and 3rd party services. Azure Resource Manager (ARM) enables you to work with the resources in your application as a group, referred to as an Azure Resource Group. You can deploy, update, monitor or delete all of the resources for your application in a single, coordinated operation. You use a template for deployment and that template can work for different environments such as testing, staging and production. You can clarify billing for your organization by viewing the rolled-up costs for the entire group. For more information, see [Azure Resource Manager Overview](resource-group-overview.md).
 
 ###Credentials
 
 There are two types of authentication used with HDInsight clusters:
 
-* __Admin__ or __HTTPs__ authentication: The admin account for a cluster is primarily used when accessing web or REST services exposed by the cluster. It cannot be used to directly login to the cluster.
+* __Admin__ or __HTTPs__ user: The admin account for a cluster is primarily used when accessing web or REST services exposed by the cluster. It cannot be used to directly login to the cluster.
 
-* __SSH__: An SSH user account is used to remotely access the cluster using a [Secure Shell](https://en.wikipedia.org/wiki/Secure_Shell) client. This is most often used to provide a remote command-line to the cluster head nodes, however it can also be used to proxy web traffic from your local computer to the cluster.
+* __SSH username__: An SSH user account is used to remotely access the cluster using a [Secure Shell](https://en.wikipedia.org/wiki/Secure_Shell) client. This is most often used to provide a remote command-line access to the cluster head nodes.
 
 The admin account is secured by a password, and all web communications to the cluster using the admin account should be performed over a secure HTTPS connection.
 
@@ -78,15 +87,15 @@ For more information on using SSH with HDInsight, including how to create and us
 * [For Linux, Unix, or Mac OS X clients - using SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md)
 * [For Windows clients - using SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-windows.md)
 
-###Resource group
-
-Resources created using the Azure Resource Manager are contained in a _resource group_. A group can contain multiple resources, and allows you to perform management operations on all resources in the group as a single unit.
-
 ###Data source
 
 HDInsight uses Azure Blob Storage as the underlying storage for the cluster. Internally, Hadoop and other software on the cluster sees this storage as a Hadoop Distributed File System (HDFS) compatible system. 
 
-When creating a new cluster, you must either create a new Azure Storage Account, or use an existing one. 
+When creating a new cluster, you must either create a new Azure Storage Account, or use an existing one.
+
+> [AZURE.IMPORTANT] The geographic location you select for the storage account will determine the location of the HDInsight cluster, as the cluster must be in the same data center as the default storage account. 
+>
+> For a list of supported regions, click the **Region** drop-down list on [HDInsight pricing](https://go.microsoft.com/fwLink/?LinkID=282635&clcid=0x409).
 
 ####Default storage container
 
@@ -94,15 +103,25 @@ HDInsight will also create a _default storage container_ on the storage account.
 
 By default, this container is named the same as the cluster. For more information on how HDInsight works with Azure Blob Storage, see [Use HDFS-compatible Azure Blob storage with Hadoop in HDInsight](hdinsight-hadoop-use-blob-storage.md).
 
+>[AZURE.WARNING] Don't share one container for multiple clusters. This is not supported.
+
 ###Node size
 
 You can select the size of compute resources used by the cluster. For example, if you know that you will be performing operations that need a lot of memory, you may want to select a compute resource with more memory.
 
-When using the Azure preview portal to configure the cluster, the Node size is exposed through the __Node Pricing Tier__ blade, and will also display the cost associated with the different node sizes. For more information on pricing, see [HDInsight pricing details](https://azure.microsoft.com/en-us/pricing/details/hdinsight/).
+> [AZURE.NOTE] Different cluster types have different node types, number of nodes, and node sizes. For example, a Hadoop cluster type has two _head nodes_ and a default of four _data nodes_, while a Storm cluster type has two _nimbus nodes_, three _zookeeper nodes_, and a default of four _supervisor nodes_.
+
+When using the Azure preview portal to configure the cluster, the Node size is exposed through the __Node Pricing Tier__ blade, and will also display the cost associated with the different node sizes. 
+
+> [AZURE.IMPORTANT] Billing starts once a cluster is created, and only stops when the cluster is deleted. For more information on pricing, see [HDInsight pricing details](https://azure.microsoft.com/en-us/pricing/details/hdinsight/).
 
 ##<a id="optionalconfiguration"></a>Optional configuration
 
 The following sections describe optional configuration options, as well as scenarios that would require these configurations.
+
+### HDInsight version
+
+Use this to determine the version of HDInsight used for this cluster. For more information, see [Hadoop cluster versions and components in HDInsight](https://go.microsoft.com/fwLink/?LinkID=320896&clcid=0x409)
 
 ### Use Azure virtual networks
 
@@ -141,9 +160,9 @@ For more information on Virtual Network features, benefits, and capabilities, se
 
 ### Metastore
 
-The metastore contains information about Hive tables, partitions, schemas, columns, etc. This information is used by Hive to locate where data is stored in Hadoop Distributed File System (HDFS), or Azure Blob storage for HDInsight. By default, Hive uses an embedded database to store this information.
+The metastore contains Hive and Oozie metadata, such as information about Hive tables, partitions, schemas, and columns. Using the metastore helps you retain your Hive and Oozie metadata, so that you don't have to re-create Hive tables or Oozie jobs when you create a new cluster.
 
-By default, Azure will create a metastore for the cluster, however you can specify an external metastore using SQL Database. This allows the metadata information to be preserved when you delete a cluster, as it is stored externally in the database. For instructions on how to create a SQL database in Azure, see [Create your first Azure SQL Database](sql-database-get-started.md).
+Using the Metastore configuration option allows you to specify an external metastore using SQL Database. This allows the metadata information to be preserved when you delete a cluster, as it is stored externally in the database. For instructions on how to create a SQL database in Azure, see [Create your first Azure SQL Database](sql-database-get-started.md).
 
 ###<a id="scriptaction"></a>Script action
 
