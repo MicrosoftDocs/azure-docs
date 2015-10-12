@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Service Fabric Developer Tasks | Microsoft Azure"
-   description="This topic contains links to a set of core development tasks for Service Fabric"
+   pageTitle="Service Fabric project creation next steps | Microsoft Azure"
+   description="This article contains links to a set of core development tasks for Service Fabric"
    services="service-fabric"
    documentationCenter=".net"
    authors="seanmck"
@@ -41,7 +41,7 @@ Service Fabric enables independent versioning and upgrade of independent service
 There are several ways to communicate between services in your cluster:
 
 - The simplest option is based on [ServiceProxy and ServiceCommunicationListener](service-fabric-reliable-services-communication-default.md)
-- For a RESTful HTTP approach, consider using [OWIN and WebAPI](service-fabric-reliable-services-communication-webapi.md)
+- For an HTTP-based approach using REST APIs, consider using [OWIN and WebAPI](service-fabric-reliable-services-communication-webapi.md)
 
 ## Consume services from clients outside your cluster
 
