@@ -26,11 +26,18 @@ Azure Site Recovery  is an Azure based service that provides disaster recovery c
 Using Azure Site Recovery, you can create a complete automated disaster recovery plan for your AD. You can initiate the failover within seconds from anywhere in the event of a disruption and get the AD up and running in a few minutes. In case you have an AD for multiple applications such as SharePoint and SAP in your primary site and you decide to failover the complete site, you can failover AD first using ASR and then failover the other applications using application specific recovery plans.
 
 This article explains in detail about how you can create a disaster recovery solution for your AD, perform a planned/unplanned/test failovers using one-click recovery plan, supported configurations and prerequisites.  The audience is expected to be familiar with AD and Azure Site Recovery.There are two recommended options based on the complexity of the customer’s on-premises environment to protect AD.
+
 ####Option 1
 
-If the customer has a small number of applications and a single domain controller for his entire on-premises site and will be failing over the entire site together, then we recommend using ASR-Replication to replicate the DC machine to secondary site (applicable for both Site to Site and Site to Azure)
+If the customer has a small number of applications and a single domain controller in the environment and will be failing over the entire site together, then we recommend using ASR replication to replicate the domain controller machine to secondary site (applicable for both Site to Site and Site to Azure)
+
 ####Option 2
-If the customer has a large number of applications and is running an Active Directory forest and will failover few applications at a time, then we recommend setting up an additional domain controller on the DR site (secondary site or in Azure). 
+If the customer has a large number of applications and is running more than one domain controller or will failover few applications at a time, then we recommend setting up an additional domain controller on the DR site (secondary on-premises site or in Azure). 
+
+>[AZURE.NOTE] Even if you are going with Option-2, for doing a test failover you would still be required to setup ASR replication for the domain controller. 
+
+
+
 Both the options are explained in detail below. If you decide to go with the second option (using AD inbuilt replication), then the further steps such as networking configuration, failover and recovery plan (that are specific to ASR) are not required.
 
 
