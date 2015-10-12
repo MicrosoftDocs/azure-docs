@@ -134,16 +134,19 @@ In the Users list, select **Britta Simon**.<br><br>![Create Azure AD User][20]<b
 
 **To create a test user in Azure AD, perform the following steps:**
 
-1. In the **Azure Management Portal**, on the left navigation pane, click **Active Directory**.<br>
-![Creating an Azure AD test user](./media/active-directory-workrite-tutorial/create_aaduser_02.png) 
+1. In the **Azure Management Portal**, on the left navigation pane, click **Active Directory**.
+<br><br>![Creating an Azure AD test user](./media/active-directory-saas-workrite-tutorial/create_aaduser_09.png) <br> 
 
 2. From the **Directory** list, select the directory for which you want to enable directory integration.
 
-3. To display the list of users, in the menu on the top, click **Users**.<br>![Creating an Azure AD test user](./media/active-directory-saas-workrite-tutorial/create_aaduser_03.png) 
+3. To display the list of users, in the menu on the top, click **Users**.
+<br><br> ![Creating an Azure AD test user](./media/active-directory-saas-workrite-tutorial/create_aaduser_03.png) <br>
  
-4. To open the **Add User** dialog, in the toolbar on the bottom, click **Add User**. <br>![Creating an Azure AD test user](./media/active-directory-saas-workrite-tutorial/create_aaduser_04.png) 
+4. To open the **Add User** dialog, in the toolbar on the bottom, click **Add User**. 
+<br><br> ![Creating an Azure AD test user](./media/active-directory-saas-workrite-tutorial/create_aaduser_04.png) <br>
 
-5. On the **Tell us about this user** dialog page, perform the following steps: <br>![Creating an Azure AD test user](./media/active-directory-saas-workrite-tutorial/create_aaduser_05.png) 
+5. On the **Tell us about this user** dialog page, perform the following steps: 
+<br><br> ![Creating an Azure AD test user](./media/active-directory-saas-workrite-tutorial/create_aaduser_05.png) <br> 
 
     a. As Type Of User, select New user in your organization.
 
