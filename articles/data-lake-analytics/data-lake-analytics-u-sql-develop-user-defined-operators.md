@@ -1,14 +1,14 @@
 <properties 
-   pageTitle="Develop U-SQL User defined operators for Azure Big Analytics jobs | Azure" 
-   description="Learn how to develop user defined operators to be used and reused in Big Analytics jobs. " 
-   services="big-analytics" 
+   pageTitle="Develop U-SQL User defined operators for Azure Data Lake Analytics jobs | Azure" 
+   description="Learn how to develop user defined operators to be used and reused in Data Lake Analytics jobs. " 
+   services="data-lake-analytics" 
    documentationCenter="" 
    authors="mumian" 
    manager="paulettm" 
    editor="cgronlun"/>
  
 <tags
-   ms.service="big-analytics"
+   ms.service="data-lake-analytics"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
@@ -17,15 +17,15 @@
    ms.author="jgao"/>
 
 
-# Develop U-SQL User defined operators for Azure Big Analytics jobs
+# Develop U-SQL User defined operators for Azure Data Lake Analytics jobs
 
-Learn how to develop user defined operators to be used and reused in Big Analytics jobs. You will develop a custom operator to calculate a score for each athlete based on the medals using the following formula: 
+Learn how to develop user defined operators to be used and reused in Data Lake Analytics jobs. You will develop a custom operator to calculate a score for each athlete based on the medals using the following formula: 
 
 	GoldMedalScore * 5 + SilverMentalScore * 3 + BronzeMentalScore
 
 [jgao: I think it is better to separate the following two into a different topic]
 
-- Share your processor with team members through registering it to Big Analytics catalog.
+- Share your processor with team members through registering it to Data Lake Analytics catalog.
 - Use user defined operator shared by others. 
 
 
@@ -33,10 +33,10 @@ Learn how to develop user defined operators to be used and reused in Big Analyti
 
 - Visual Studio 2015, Visual Studio 2013 update 4, or Visual Studio 2012 with Visual C++ Installed 
 - Microsoft Azure SDK for .NET version 2.5 or above.  Install it using the Web platform installer.
-- A Big Analytics account.  See [Get Started with Azure Big Analytics using Azure Preview Portal](big-analytics-get-started-portal.md) or [Get Started with Azure Big Analytics using Azure PowerShell](big-analytics-get-started-powershell.md).
-- Go through the [Get started with Azure Big Analytics U-SQL Studio](big-analytics-u-sql-studio-get-started.md) tutorial.
-- Connect to Azure, see [Get started with Azure Big Analtyics U-SQL Studio](big-analytics-u-sql-studio-get-started.md#connect-to-azure). 
-- Upload inbound data, see [Get started with Azure Big Analtyics U-SQL Studio](big-analytics-u-sql-studio-get-started.md#upload-source-data-files). 
+- A Data Lake Analytics account.  See [Get Started with Azure Data Lake Analytics using Azure Preview Portal](data-lake-analytics-get-started-portal.md).
+- Go through the [Get started with Azure Data Lake Analytics U-SQL Studio](data-lake-analytics-u-sql-studio-get-started.md) tutorial.
+- Connect to Azure, see [Get started with Azure Big Analtyics U-SQL Studio](data-lake-analytics-u-sql-studio-get-started.md#connect-to-azure). 
+- Upload the source data, see [Get started with Azure Big Analtyics U-SQL Studio](data-lake-analytics-u-sql-studio-get-started.md#upload-source-data-files). 
 
 ## Define and call a user defined operator in SQLIP
 
@@ -50,10 +50,10 @@ Learn how to develop user defined operators to be used and reused in Big Analyti
 	- **Name**: AthleteScore
 	- **Location**: c:\tutorials\aba
 
-	![new SQLIP Visual Studio project](./media/big-analytics-u-sql-studio-get-started/big-analytics-u-sql-studio-new-project.png)
+	![new SQLIP Visual Studio project](./media/data-lake-analytics-u-sql-studio-get-started/data-lake-analytics-u-sql-studio-new-project.png)
 
-3. Click **OK**. Visual studio creates a solution with a Script.sip file.
-4. Enter the following script into the Script.sip file:
+3. Click **OK**. Visual studio creates a solution with a Script.usql file.
+4. Enter the following script into the Script.usql file:
 
 		@athletes =
 		    EXTRACT
@@ -92,8 +92,8 @@ Learn how to develop user defined operators to be used and reused in Big Analyti
 
 	Until now, I haven't defined the custom operator yet.
 
-5. From **Solution Explorer**, expand **Script.sip**, and then double-click **Script.sip.cs** to open it.
-6. Paste the following code into Script.sip.cs:
+5. From **Solution Explorer**, expand **Script.usql**, and then double-click **Script.usql.cs** to open it.
+6. Paste the following code into Script.usql.cs:
 
 		using Microsoft.SCOPE.Types;
 		using Microsoft.SCOPE.Interfaces;
@@ -142,21 +142,21 @@ Learn how to develop user defined operators to be used and reused in Big Analyti
 		    } 
 		}
 
-6. From **Solution Explorer**, right click **Script.sip**, and then click **Build Script**.
-6. From **Solution Explorer**, right click **Script.sip**, and then click **Submit Script**.
+6. From **Solution Explorer**, right click **Script.usql**, and then click **Build Script**.
+6. From **Solution Explorer**, right click **Script.usql**, and then click **Submit Script**.
 7. If you haven't connect to your Azure subscription, you will be prompt to enter your Azure account credentials.
 7. Click **Submit**. Submission results and job link are available in the SqlipStudio Results window when the submission is completed.
 8. You must click the Refresh button to see the latest job status and refresh the screen.
 
 **To see the job output**
 
-1. From **Server Explorer**, expand **Azure**, expand **SQL IP**, expand your Big Analytics account, expand **Linked Storage**, right-click the dependent Azure Data Lake account, and then click **Explorer**. 
+1. From **Server Explorer**, expand **Azure**, expand **SQL IP**, expand your Data Lake Analytics account, expand **Linked Storage**, right-click the dependent Azure Data Lake account, and then click **Explorer**. 
 2.  Double-click **SampleData**.
 3.  Double-click **OlympicAthletes_Score.tsv**.
 
 
 ##See also
 
-- [Get started with Big Analytics using PowerShell](big-analytics-get-started-powershell.md)
-- [Get started with Big Analytics using the Azure portal](big-analytics-get-started-portal.md)
-- [Get started using Big Analytics SQLIP Studio](big-analytics-u-sql-studio-get-started.md)
+- [Get started with Data Lake Analytics using PowerShell](data-lake-analytics-get-started-powershell.md)
+- [Get started with Data Lake Analytics using the Azure portal](data-lake-analytics-get-started-portal.md)
+- [Get started using Data Lake Analytics SQLIP Studio](data-lake-analytics-u-sql-studio-get-started.md)

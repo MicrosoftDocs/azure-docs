@@ -16,6 +16,6 @@
    ms.date="09/29/2015"
    ms.author="jgao"/>
 
-# Analyze Website logs using Azure Big Analytics
+# Tutorial: Analyze Website logs using Azure Big Analytics
 
 [jgao: this will be an scenario tutorial using the same material as in big-analytics-use-interactive-tutorials.md]

@@ -16,9 +16,9 @@
    ms.date="09/29/2015"
    ms.author="jgao"/>
 
-# Get Started with Azure Data Lake Analytics using Azure PowerShell
+# Tutorial: Get Started with Azure Data Lake Analytics using Azure PowerShell
 
-[jgao copy this part from the get stared using portal article]
+[jgao: copy this part from the get stared using portal article]
 
 **Prerequisites**
 
