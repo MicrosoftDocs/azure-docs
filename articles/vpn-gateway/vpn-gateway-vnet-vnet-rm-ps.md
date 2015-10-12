@@ -80,7 +80,7 @@ Before you begin, verify that you have the following:
 
 - Version 0.9.8 of the Azure PowerShell cmdlets. You can download and install this version from the Windows PowerShell section of the [Download page](http://azure.microsoft.com/downloads/). 
 - An Azure subscription. If you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or sign up for a [free trial](http://azure.microsoft.com/pricing/free-trial/).
-- If you already have created your virtual networks, see [Connecting existing VNets](#connecting-existing-vnets).
+- If you already have created your virtual networks, see [Connecting existing VNets](#connecting-existing-vnets) in this article.
 	
 There are multiple steps to creating and configuring a VNet-to-VNet connection. Configure each section in the order listed below. 
 
@@ -175,7 +175,7 @@ In this step, you'll create the virtual network gateway for your VNet. VNet-to-V
 ## 7. Create VNet2
 
 
-Once you've configured VNet1, repeat the previous steps to configure VNet2 along with its gateway configuration. After you've completed the configuration for both of the VNets and their respective gateways, proceed to **Step 8 - Connect the gateways**.
+Once you've configured VNet1, repeat the previous steps to configure VNet2 along with its gateway configuration. After you've completed the configuration for both of the VNets and their respective gateways, proceed to **Step 8. Connect the gateways**.
 
 ## 8. Connect the gateways
 
@@ -205,7 +205,7 @@ After a few minutes, the connection should be established. Note that at this tim
 
 At this time, the VPN connections created with Resource Manager are not visible in the Preview Portal. However, it's possible to verify that your connection succeeded by using *Get-AzureVirtualNetworkGatewayConnection –Debug*. In the future, we'll have a cmdlet for this, as well as the ability to view your connection in the Preview Portal.
 
-You can use the following cmdlet example, configuring the values to match your own. When prompted, select *A* in order to run All. **Note:** be sure to change the values to match the VNet connections you want to verify.
+You can use the following cmdlet example. Be sure to change the values to match each connection that you want to verify. When prompted, select *A* in order to run All. 
 
 		Get-AzureVirtualNetworkGatewayConnection -Name vnet2connection -ResourceGroupName vnet2vnetrg -Debug 
 
@@ -247,7 +247,7 @@ If you need to add gateway subnets to your VNets, use the sample below, replacin
 		Add-AzureVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.0.3.0/28 -VirtualNetwork $vnet
 		Set-AzureVirtualNetwork -VirtualNetwork $vnet
 
-After verifying that your gateway subnets are configured correctly, continue with **Step 4 - Request a public IP address** and follow the steps.
+After verifying that your gateway subnets are configured correctly, continue with **Step 4. Request a public IP address** and follow the steps.
 
 
 ## Next steps
