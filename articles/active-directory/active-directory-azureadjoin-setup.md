@@ -37,8 +37,9 @@ To manually create and manage users in Azure AD, refer to [User management in Az
    *  **Users may Azure AD join devices**: Select the users and groups that are allowed to join devices to Azure AD.   
     * **Additional administrators on Azure AD Joined devices**: With Azure AD Premium or the Enterprise Mobility Suite (EMS), you can choose which users are granted local administrator rights to the device. Global Administrators and the device owner are granted local administrator rights by default.
    
->[AZURE.NOTE] If your users encounter the error,"**Device registration limit reached**" (Error code: **0x801C000E - DSREG_ E_ DEVICE_ REGISTRATION_ QUOTA_EXCCEEDED**), you need to change the max devices allowed per user. In the **Users may Azure AD Join Devices** section, select **Add ** and set the number of devices you want to allow per user.
+>[AZURE.NOTE] If your users encounter the error,"**Device registration limit reached**" (Error code: **0x801C000E - DSREG_ E_ DEVICE_ REGISTRATION_ QUOTA_EXCCEEDED**), you need to change the max devices allowed per user. In the **Users may Azure AD Join Devices** section, select **Add** and set the number of devices you want to allow per user.
       
+
     
 <center>![](./media/active-directory-azureadjoin/active-directory-aadjoin-configure-devices.png) </center>
  
