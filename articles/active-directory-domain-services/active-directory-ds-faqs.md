@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/05/2015"
+	ms.date="10/12/2015"
 	ms.author="mahesh-unnikrishnan"/>
 
 # Azure Active Directory Domain Services preview: FAQs
@@ -26,7 +26,7 @@ This page answers frequently asked questions about the Azure Active Directory (A
 No. You can only create a single domain serviced by Azure AD Domain Services for a single Azure AD directory.  
 
 #### Can I make Azure AD Domain Services available in multiple virtual networks within my subscription?
-The service itself does not directly support this scenario. Azure AD Domain Services are available in only one virtual network at a time. However, you may configure connectivity between multiple virtual networks in order to expose the domain controller to other virtual networks. The following document describes how you can connect virtual networks in Azure:  
+The service itself does not directly support this scenario. Azure AD Domain Services are available in only one virtual network at a time. However, you may configure connectivity between multiple virtual networks in order to expose Azure AD Domain Services to other virtual networks. The following document describes how you can connect virtual networks in Azure:  
 https://azure.microsoft.com/en-us/documentation/articles/virtual-networks-configure-vnet-to-vnetconnection/
 
 #### Can I enable Azure AD Domain Services using PowerShell?
@@ -57,7 +57,7 @@ The service is available at a special reduced price for the duration of the publ
 This service is included in the free trial for Azure. You can sign up for a free one-month trial of Azure at (https://azure.microsoft.com/en-us/pricing/free-trial/).
 
 #### Can I get Azure AD Domain Services as part of Enterprise Mobility Suite (EMS)?
-No, Azure AD Domain Services is a pay-as-you-go Azure service and is not part of EMS.
+No, Azure AD Domain Services is a pay-as-you-go Azure service and is not part of EMS. Azure AD Domain Services are available for all SKUs of Azure AD (i.e. Free, Basic and Premium) and are billed on an hourly basis depending on usage.
 
 #### What Azure regions is the service available in?
 Refer to our [regions page](active-directory-ds-regions.md) to see a list of the Azure regions where Azure AD Domain Services are available.
