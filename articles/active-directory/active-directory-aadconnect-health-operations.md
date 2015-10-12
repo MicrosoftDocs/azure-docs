@@ -74,50 +74,6 @@ When deleting a service instance, be aware of the following:
 4. Click on the "Delete" button.
 <br><br>
 
-## Enable Auditing for AD FS
-
-In order for the Usage Analytics feature to gather data and analyze the Azure AD Connect Health agent needs the information in the AD FS Audit Logs. These logs are not enabled by default. This only applies to AD FS federation servers. You do not need to enable auditing on AD FS Proxy servers or Web Application Proxy servers. Use the following procedures to enable AD FS auditing and to locate the AD FS audit logs.
-
-#### To enable auditing for AD FS 2.0
-
-1. Click **Start**, point to **Programs**, point to **Administrative Tools**, and then click **Local Security Policy**.
-2. Navigate to the **Security Settings\Local Policies\User Rights Management** folder, and then double-click Generate security audits.
-3. On the **Local Security Setting** tab, verify that the AD FS 2.0 service account is listed. If it is not present, click **Add User or Group** and add it to the list, and then click **OK**.
-4. Open a command prompt with elevated privileges and run the following command to enable auditing.<code>auditpol.exe /set /subcategory:"Application Generated" /failure:enable /success:enable</code>
-5. Close Local Security Policy, and then open the Management snap-in.  To open the Management snap-in, click **Start**, point to **Programs**, point to **Administrative Tools**, and then click AD FS 2.0 Management.
-6. In the Actions pane, click Edit Federation Service Properties.
-7. In the **Federation Service Properties** dialog box, click the **Events** tab.
-8. Select the **Success audits** and **Failure audits** check boxes.
-9. Click **OK**.
-
-#### To enable auditing for AD FS on Windows Server 2012 R2
-
-1. Open **Local Security Policy** by opening **Server Manager** on the Start screen, or Server Manager in the taskbar on the desktop, then click **Tools/Local Security Policy**.
-2. Navigate to the **Security Settings\Local Policies\User Rights Assignment** folder, and then double-click **Generate security audits**.
-3. On the **Local Security Setting** tab, verify that the AD FS service account is listed. If it is not present, click **Add User or Group** and add it to the list, and then click **OK**.
-4. Open a command prompt with elevated privileges and run the following command to enable auditing: <code>auditpol.exe /set /subcategory:"Application Generated" /failure:enable /success:enable.</code>
-5. Close **Local Security Policy**, and then open the **AD FS Management** snap-in (in Server Manager, click Tools, and then select AD FS Management).
-6. In the Actions pane, click **Edit Federation Service Properties**.
-7. In the Federation Service Properties dialog box, click the **Events** tab.
-8. Select the **Success audits and Failure audits** check boxes and then click **OK**.
-
-
-
-
-
-
-#### To locate the AD FS audit logs
-
-
-1. Open **Event Viewer**.
-2. Go to Windows Logs and select **Security**.
-3. On the right, click **Filter Current Logs**.
-4. Under Event Source, select **AD FS Auditing**.
-
-![AD FS audit logs](./media/active-directory-aadconnect-health-requirements/adfsaudit.png)
-
-> [AZURE.WARNING] If you have a group policy that is disabling AD FS auditing then the Azure AD Connect Health Agent will not be able to collect information. Ensure that you don’t have a group policy that may be disabling auditing.
-
 
 [//]: # (Start of RBAC section)
 ## Role Based Access Control
@@ -177,7 +133,6 @@ Please note: A user with the "Reader" role assinged will not be able to perform 
 You can remove a user or a group added to Azure AD Connect Health Role Based Access Control part by right clicking and selecting remove.<br>![Remove a user or group](./media/active-directory-aadconnect-health/logo1.png)<br>
 
 [//]: # (End of RBAC section)
-
 
 ## Related links
 

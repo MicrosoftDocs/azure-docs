@@ -1,18 +1,18 @@
-<properties 
-	pageTitle="Azure AD Connect Health FAQ" 
-	description="This FAQ answers questions about Azure AD Connect Health. This FAQ covers questions about using the service, including the billing model, capabilities, limitations, and support." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="stevenpo" 
+<properties
+	pageTitle="Azure AD Connect Health FAQ"
+	description="This FAQ answers questions about Azure AD Connect Health. This FAQ covers questions about using the service, including the billing model, capabilities, limitations, and support."
+	services="active-directory"
+	documentationCenter=""
+	authors="billmath"
+	manager="stevenpo"
 	editor="curtand"/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
+<tags
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
 	ms.date="08/14/2015"
 	ms.author="billmath"/>
 
@@ -43,7 +43,7 @@ The numbers below are an approximation.
 - CPU consumption: ~1% increase
 - Memory consumption: Up to 10 % of the total system memory
 - Network Bandwidth Usage: ~1 MB / 1000 ADFS requests
->[AZURE.NOTE]In the event of the agent being unable to communicate to Azure, the agent will store the data locally, up to a maximum limit of 10 % of the total system memory.Once the agent reaches 10% of the total physical memory, if the agent has not been able to upload the data to the service, the new ADFS transactions will overwrite any “cached” transactions on a “least recently serviced” basis.
+>[AZURE.NOTE]In the event of the agent being unable to communicate to Azure, the agent will store the data locally, up to a defined maximum limit. Once the agent reaches the limit, if the agent has not been able to upload the data to the service, the new ADFS transactions will overwrite any “cached” transactions on a “least recently serviced” basis.
 
 - Local buffer storage for AD Health Agent: ~20 MB
 - Data Storage required for Audit Channel
@@ -60,7 +60,7 @@ For example, on Windows Server 2008 R2 the installation of .Net 4.5 Framework re
 
 **Q: Does Azure AD Connect Health Services work through a pass-through http proxy?**
 
-Yes, both the registration process and normal operation can function through an explicit proxy set up to forward outbound http requests. “Netsh WinHttp set Proxy” does not work in this case since the agent uses System.Net to make web requests instead of Microsoft Windows HTTP Services. 
+Yes, both the registration process and normal operation can function through an explicit proxy set up to forward outbound http requests. “Netsh WinHttp set Proxy” does not work in this case since the agent uses System.Net to make web requests instead of Microsoft Windows HTTP Services.
 
 Perform any time prior to running Register-AdHealthAgent (The final step of Installation)
 
@@ -71,17 +71,17 @@ Perform any time prior to running Register-AdHealthAgent (The final step of Inst
 Locate the machine.config file. The file is located in%windir%\Microsoft.NET\Framework64\[version]\config\machine.config</li>
 
 Add the following entry under the <configuration></configuration> element in your machine.config file.
-		
+
 	<system.net>  
 			<defaultProxy useDefaultCredentials="true">
-       		<proxy 
-        usesystemdefault="true" 
+       		<proxy
+        usesystemdefault="true"
         proxyaddress="http://YOUR.PROXY.HERE.com"  
         bypassonlocal="true"/>
 		</defaultProxy>
-	</system.net> 
+	</system.net>
 
- 
+
 
 Additional <defaultProxy> information can be found [here](https://msdn.microsoft.com/library/kd3cf2ex(v=vs.110)).
 
@@ -118,7 +118,7 @@ No, auditing does not need to be enabled on AD FS Application Proxy Servers or W
 
 **Q: How do Azure AD Connect Health Alerts get resolved?**
 
-Azure AD Connect Health Alerts get resolved on a success condition. Azure AD Connect Health Agents detect and report the success conditions to the service on a periodic basis. For a few alerts, the suppression is time based. That is if the same error condition is not observed within 48 hours from alert generation, the alert is automatically resolved. 
+Azure AD Connect Health Alerts get resolved on a success condition. Azure AD Connect Health Agents detect and report the success conditions to the service on a periodic basis. For a few alerts, the suppression is time based. That is if the same error condition is not observed within 48 hours from alert generation, the alert is automatically resolved.
 
 
 

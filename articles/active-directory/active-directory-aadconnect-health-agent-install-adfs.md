@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Azure AD Connect Health AD FS Agent installation | Microsoft Azure" 
-	description="This is the Azure AD Connect Health page that describes the Active Directory Federation Services (AD FS) agent installation." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="stevenpo" 
+<properties
+	pageTitle="Azure AD Connect Health AD FS Agent installation | Microsoft Azure"
+	description="This is the Azure AD Connect Health page that describes the Active Directory Federation Services (AD FS) agent installation."
+	services="active-directory"
+	documentationCenter=""
+	authors="billmath"
+	manager="stevenpo"
 	editor="curtand"/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/14/2015" 
+<tags
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="10/15/2015"
 	ms.author="billmath"/>
 
 
@@ -23,7 +23,7 @@
 
 # Azure AD Connect Health Agent Installation for AD FS
 
-This document will walk you through installing and configuring the Azure AD Connect Health Agent for AD FS on your servers. 
+This document will walk you through installing and configuring the Azure AD Connect Health Agent for AD FS on your servers.
 
 >[AZURE.NOTE]Remember that before you see any data in your instance of Azure AD Connect Health, you will need to install the Azure AD Connect Health Agent on your targeted servers.  Be sure to complete the requirements [here](active-directory-aadconnect-health.md#requirements) prior to installing the agent.  You can download the agent [here](http://go.microsoft.com/fwlink/?LinkID=518973).
 
@@ -53,7 +53,7 @@ To verify the agent has been installed, open services and look for the following
 - Azure AD Connect Health AD FS Diagnostics Service
 - Azure AD Connect Health AD FS Insights Service
 - Azure AD Connect Health AD FS Monitoring Service
- 
+
 ![Verify Azure AD Connect Health](./media/active-directory-aadconnect-health-requirements/install5.png)
 
 
@@ -69,6 +69,102 @@ For Windows Server 2008 R2 servers do the following:
  - Install the [Windows Management Framework 4.0.](https://www.microsoft.com/download/details.aspx?id=40855)
  - Install Internet Explorer version 10 or above on the server. This is required by the Health Service to authenticate you using your Azure Admin credentials.
 1. For additional information on installing Windows PowerShell 4.0 on Windows Server 2008 R2 see the wiki article [here](http://social.technet.microsoft.com/wiki/contents/articles/20623.step-by-step-upgrading-the-powershell-version-4-on-2008-r2.aspx).
+
+
+## Enable Auditing for AD FS
+
+In order for the Usage Analytics feature to gather data and analyze the Azure AD Connect Health agent needs the information in the AD FS Audit Logs. These logs are not enabled by default. This only applies to AD FS federation servers. You do not need to enable auditing on AD FS Proxy servers or Web Application Proxy servers. Use the following procedures to enable AD FS auditing and to locate the AD FS audit logs.
+
+#### To enable auditing for AD FS 2.0
+
+1. Click **Start**, point to **Programs**, point to **Administrative Tools**, and then click **Local Security Policy**.
+2. Navigate to the **Security Settings\Local Policies\User Rights Management** folder, and then double-click Generate security audits.
+3. On the **Local Security Setting** tab, verify that the AD FS 2.0 service account is listed. If it is not present, click **Add User or Group** and add it to the list, and then click **OK**.
+4. Open a command prompt with elevated privileges and run the following command to enable auditing.<code>auditpol.exe /set /subcategory:"Application Generated" /failure:enable /success:enable</code>
+5. Close Local Security Policy, and then open the Management snap-in.  To open the Management snap-in, click **Start**, point to **Programs**, point to **Administrative Tools**, and then click AD FS 2.0 Management.
+6. In the Actions pane, click Edit Federation Service Properties.
+7. In the **Federation Service Properties** dialog box, click the **Events** tab.
+8. Select the **Success audits** and **Failure audits** check boxes.
+9. Click **OK**.
+
+#### To enable auditing for AD FS on Windows Server 2012 R2
+
+1. Open **Local Security Policy** by opening **Server Manager** on the Start screen, or Server Manager in the taskbar on the desktop, then click **Tools/Local Security Policy**.
+2. Navigate to the **Security Settings\Local Policies\User Rights Assignment** folder, and then double-click **Generate security audits**.
+3. On the **Local Security Setting** tab, verify that the AD FS service account is listed. If it is not present, click **Add User or Group** and add it to the list, and then click **OK**.
+4. Open a command prompt with elevated privileges and run the following command to enable auditing: <code>auditpol.exe /set /subcategory:"Application Generated" /failure:enable /success:enable.</code>
+5. Close **Local Security Policy**, and then open the **AD FS Management** snap-in (in Server Manager, click Tools, and then select AD FS Management).
+6. In the Actions pane, click **Edit Federation Service Properties**.
+7. In the Federation Service Properties dialog box, click the **Events** tab.
+8. Select the **Success audits and Failure audits** check boxes and then click **OK**.
+
+
+
+
+
+
+#### To locate the AD FS audit logs
+
+
+1. Open **Event Viewer**.
+2. Go to Windows Logs and select **Security**.
+3. On the right, click **Filter Current Logs**.
+4. Under Event Source, select **AD FS Auditing**.
+
+![AD FS audit logs](./media/active-directory-aadconnect-health-requirements/adfsaudit.png)
+
+> [AZURE.WARNING] If you have a group policy that is disabling AD FS auditing then the Azure AD Connect Health Agent will not be able to collect information. Ensure that you don’t have a group policy that may be disabling auditing.
+
+[//]: # (Start of Agent Proxy Configuration Section)
+
+## Configure Azure AD Connect Health Agents to use HTTP Proxy
+You can configure Azure AD Connect Health Agents to work with an HTTP Proxy. Note that “Netsh WinHttp set Proxy” does not work in this case since the agent uses System.Net to make web requests instead of Microsoft Windows HTTP Services. You can configure the proxy settings for the Health Agent or for the machine using machine.config.
+
+### Update the Health Agent Configuration
+You have the following options to configure Azure AD Connect Health Agent to use an HTTP Proxy.
+
+>[AZURE.NOTE] You must restart all Azure AD Connect Health Agent services for the proxy settings to be updated. Run the following command:
+    Restart-Service AdHealth*
+
+#### Import Proxy Settings from Internet Explorer
+You can import your Internet Explorer HTTP proxy settings and use them for Azure AD Connect Health Agents by executing the following PowerShell command on each server running the Health Agents.
+
+    Set-AzureAdConnectHealthProxySettings -ImportFromInternetSettings
+
+#### Import Proxy Settings from WinHttp
+You can import you WinHTTP proxy settings by executing the following PowerShell command on each server running the Health Agents.
+
+	Set-AzureAdConnectHealthProxySettings -ImportFromWinHttp
+
+#### Specify Proxy addresses manually
+You can specify a proxy server manually by executing the following PowerShell command on each server running the Health Agents.
+
+	Set-AzureAdConnectHealthProxySettings -HttpsProxyAddress address:port
+
+Example: *Set-AzureAdConnectHealthProxySettings -HttpsProxyAddress myproxyserver:443*
+
+- "address" can be a DNS resolvable server name or an IPv4 address
+- "port" can be omitted. If omitted then 443 is chosen as default port.
+
+
+### Update machine.config with HTTP Proxy settings
+This settings configures all .NET applications to use your explicitly defined proxy when making http requests.
+1. Locate the machine.config file. The file is located in%windir%\Microsoft.NET\Framework64[version]\config\machine.config
+2. Add the following entry under the &lt;configuration&gt; &lt;/configuration&gt; element in your machine.config file.
+
+	<system.net>  
+			<defaultProxy useDefaultCredentials="true">
+       		<proxy
+        usesystemdefault="true"
+        proxyaddress="http://YOUR.PROXY.HERE.com"  
+        bypassonlocal="true"/>
+		</defaultProxy>
+	</system.net>	 
+
+Additional <defaultProxy> information can be found [here](https://msdn.microsoft.com/library/kd3cf2ex(v=vs.110)).
+
+[//]: # (End of Agent Proxy Configuration Section)
+
 
 ## Related links
 
