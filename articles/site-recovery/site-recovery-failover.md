@@ -135,7 +135,7 @@ If the virtual machines involved in test failover use DHCP, a test DHCP server s
 
 
 ### Prepare Active Directory
-To run a test failover for application testing, you’ll need a copy of the production Active Directory environment in your test environment. Go through [Test Failover Considerations for active directory][site-recovery-active-directory/#considerations-for-test-failover] section for more details. 
+To run a test failover for application testing, you’ll need a copy of the production Active Directory environment in your test environment. Go through [Test Failover Considerations for active directory](site-recovery-active-directory.md/#considerations-for-test-failover]) section for more details. 
 
 
 ### Prepare DNS

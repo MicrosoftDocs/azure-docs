@@ -34,7 +34,7 @@ If there are a small number of applications and a single domain controller in th
 ####Option 2
 If there are a large number of applications and there is more than one domain controller in the environment or you plan to failover few applications at a time, then we recommend that in addition to enabling ASR replication on domain controller VM (to be used for Test Failvoer) you also setup an additional domain controller on the DR site (secondary on-premises site or in Azure). 
 
->[AZURE.NOTE] Even if you are going with Option-2, for doing a test failover you would still be required to setup ASR replication for the domain controller. Go through [Test Failover Considerations][site-recovery-active-directory/#considerations-for-test-failover] section for more details. 
+>[AZURE.NOTE] Even if you are going with Option-2, for doing a test failover you would still be required to setup ASR replication for the domain controller. Go through [Test Failover Considerations](site-recovery-active-directory/#considerations-for-test-failover) section for more details. 
 
 
 Sections below explain how to enable protection on domain controller in ASR and how to setup a domain controller in Azure. 
@@ -78,7 +78,7 @@ Test Failover is done in a network that is isolated from production network so t
 
 1. Enable protection on the domain controller/DNS virtual machine as you do for any other virtual machine.
 2. Create an isolated network. Any virtual network created in Azure by default is isolated from other network. It is recommended that IP range for this network is same as that of your production network. Don't enable site to site connectivity on this network.
-3. Provide DNS IP in the network created in the step above as the IP that you expect the DNS VM to get. If you are using Azure as the DR site then you can provide the IP for the VM that will be used on failover in 'Target IP' setting in VM properties. If your DR site is on-premises and you are using DHCP then follow the instruction given here to [setup DNS and DHCP for test failover][site-recovery-failover.md/#run-a-test-failover] 
+3. Provide DNS IP in the network created in the step above as the IP that you expect the DNS VM to get. If you are using Azure as the DR site then you can provide the IP for the VM that will be used on failover in 'Target IP' setting in VM properties. If your DR site is on-premises and you are using DHCP then follow the instruction given here to [setup DNS and DHCP for test failover](site-recovery-failover.md/#run-a-test-failover) 
 >[AZURE.NOTE] The IP given to a VM on a Test Failover is same as the IP it would get on doing a planned or unplanned failover given that this IP is available in the Test Failover network. 
 4. Go to the domain controller virtual machine and do test failover of it in the isolated network. 
 5. Do test failover of the recovery plan of the application.
