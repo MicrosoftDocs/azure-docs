@@ -73,7 +73,7 @@ StorSimple Snapshot Manager uses volume groups to create backup copies that are 
 
 Volume groups are not the same as volume containers. A volume container contains one or more volumes that share a cloud storage account and other attributes, such as encryption and bandwidth consumption. A single volume container can contain up to 256 thinly provisioned StorSimple volumes. For more information about volume containers, go to [Manage your volume containers](storsimple-manage-volume-containers.md). Volume groups are collections of volumes that you configure to facilitate backup operations. If you select two volumes that belong to different volume containers, place them in a single volume group, and then create a backup policy for that volume group, each volume will be backed up in the appropriate volume container, using the appropriate storage account.
 
->[AZURE.NOTE] All volumes in a volume group must come from the same cloud services provider.
+>[AZURE.NOTE] All volumes in a volume group must come from a single cloud service provider.
 
 ## Integration with Windows Volume Shadow Copy Service
 
