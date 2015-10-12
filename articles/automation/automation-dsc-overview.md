@@ -121,7 +121,7 @@ Going from an empty automation account to a managed set of correctly configured 
 
 - Azure Automation DSC does not support partial or composite DSC configurations at this time.
 
-- The latest version of WMF 5 must be installed for the PowerShell DSC agent for Windows to be able to communicate with Azure Automation. The PowerShell DSC agent for Linux does not support communicating with Azure Automation at this time. This should be updated soon.
+- The latest version of WMF 5 must be installed for the PowerShell DSC agent for Windows to be able to communicate with Azure Automation. The latest version of the PowerShell DSC agent for Linux must be installed for Linux to be able to communicate with Azure Automation.
 
 - Azure Automation does not support side by side use of PowerShell modules. This means all configurations within an Automation account must work with the last version of a PowerShell module imported into that Automation account, and with any PowerShell DSC resources that module contains that the configuration uses.
 
