@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/15/2015"
+   ms.date="10/12/2015"
    ms.author="alkohli" />
 
 # Use the StorSimple Manager service to clone a volume
@@ -41,7 +41,7 @@ You can create a clone on the same device, another device, or even a virtual mac
 
 4. In the Clone Volume wizard, under **Specify name and location**:
 
-  1. Identify a target device. This is the location where the clone will be created. You can choose the same device or specify another device. If you choose a volume associated with other cloud service providers (not Azure), the dropdown list for the target device will only show physical devices. You cannot clone a volume associated with other cloud service providers on to a virtual device.
+  1. Identify a target device. This is the location where the clone will be created. You can choose the same device or specify another device. If you choose a volume associated with other cloud service providers (not Azure), the drop-down list for the target device will only show physical devices. You cannot clone a volume associated with other cloud service providers on to a virtual device.
 
         >  [AZURE.NOTE] Make sure that the capacity required for the clone is lower than the capacity available on the target device.
   2. Specify a unique volume name for your clone. The name must contain between 3 and 127 characters.
