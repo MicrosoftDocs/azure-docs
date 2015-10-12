@@ -13,10 +13,10 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="10/07/2015"
+	ms.date="10/12/2015"
 	ms.author="inhenk"/>
 
-# Azure Active Directory AD Role-based Access Control
+# Azure Active Directory Role-based Access Control
 
 ## Role-based Access Control
 Azure Roles-Based Access Control (RBAC) enables fine-grained access management for Azure. Using RBAC, you can segregate duties within your devops team and grant only the amount of access to users that they need to perform their jobs.

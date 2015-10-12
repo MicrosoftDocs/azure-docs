@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="10/07/2015"
+	ms.date="10/12/2015"
 	ms.author="inhenk"/>
 
 #RBAC: Built in Roles
@@ -128,7 +128,7 @@ Can manage ClearDB MySQL databases
 | Microsoft.Support/* | Create and manage support tickets |
 
 ### Contributor
-Contributors can manage everything except access.
+Contributors can manage everything except access
 
 | **Actions** ||
 | ------- | ------ |
@@ -151,7 +151,7 @@ Can manage data factories
 | Microsoft.Support/* | Create and manage support tickets  |
 
 ### DevTest Lab User
-Lets you view everything, and connect, start, restart, and shutdown virtual machines.
+Can view everything, and connect, start, restart, and shutdown virtual machines
 
 | **Actions** ||
 | ------- | ------ |
@@ -222,14 +222,14 @@ Can manage NewRelic Application Performance Management accounts and applications
 | Microsoft.Support/* | Create and manage support tickets |
 
 ### Owner
-Owners can manage everything, including access.
+Can manage everything, including access
 
 | **Actions** ||
 | ------- | ------ |
 | * | Create and manage resources of all types |
 
 ### Reader
-Readers can view everything, but can't make changes.
+Can view everything, but can't make changes
 
 | **Actions** ||
 | ------- | ------ |

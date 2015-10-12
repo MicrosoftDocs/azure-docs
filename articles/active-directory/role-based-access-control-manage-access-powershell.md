@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="10/09/2015"
+	ms.date="10/12/2015"
 	ms.author="inhenk"/>
 
 # Manage Role Based Access Control (RBAC) with Azure PowerShell
