@@ -29,7 +29,7 @@ This [Batch .NET][api_net] API code snippet retrieves all of the tasks associate
 
 ```
 // Get a collection of all of the tasks and all of their properties for job-001
-IEnumerable<CloudTask> allTasks = batchClient.JobOperations.ListTasks("job-001");
+IPagedEnumerable<CloudTask> allTasks = batchClient.JobOperations.ListTasks("job-001");
 ```
 
 A much more efficient list query can be performed, however, by supplying an [ODATADetailLevel][odata] to the [JobOperations.ListTasks][net_list_tasks] method. This snippet returns just the ID, command line, and compute node information properties of completed tasks only:
@@ -41,7 +41,7 @@ detailLevel.FilterClause = "state eq 'completed'";
 detailLevel.SelectClause = "id,commandLine,nodeInfo";
 
 // Supply the ODATADetailLevel to the ListTasks method
-IEnumerable<CloudTask> completedTasks = batchClient.JobOperations.ListTasks("job-001", detailLevel);
+IPagedEnumerable<CloudTask> completedTasks = batchClient.JobOperations.ListTasks("job-001", detailLevel);
 ```
 
 If, in the above example scenario, there are thousands of tasks in the job, the results from the second query will typically be returned much quicker than the first. More about using an ODATADetailLevel when listing items with the Batch .NET API appears below.
@@ -107,7 +107,7 @@ The follwing code snippet uses the Batch .NET API to efficiently query the Batch
 
 	// Now get our collection of pools, minimizing the amount of data returned by specifying the
 	// detail level we configured above
-	List<CloudPool> testPools = myBatchClient.PoolOperations.ListPools(detailLevel).ToList();
+	List<CloudPool> testPools = await myBatchClient.PoolOperations.ListPools(detailLevel).ToListAsync();
 
 > [AZURE.TIP] An instance of [ODATADetailLevel][odata] configured with Select and Expand clauses can also be passed to appropriate Get methods such as [PoolOperations.GetPool](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.pooloperations.getpool.aspx) to limit the amount of data returned.
 
