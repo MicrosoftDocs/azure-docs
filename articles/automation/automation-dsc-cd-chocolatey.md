@@ -84,16 +84,15 @@ Or, there’s the manual approach.  The folder structure of a PowerShell Integra
 
 -   Install the module that you need on your workstation, as follows:
     -   Install [Windows Management Framework, v5](http://aka.ms/wmf5latest) 
-    -   Install-Module  –ModuleName MODULENAME    <—grabs the module from the PowerShell gallery 
--   Copy the module folder from c:\Program Files\WindowsPowerShell\Modules\MODULE-NAME to a temp folder 
+    -   `Install-Module  –ModuleName MODULENAME`    <—grabs the module from the PowerShell gallery 
+-   Copy the module folder from `c:\Program Files\WindowsPowerShell\Modules\MODULE-NAME` to a temp folder 
 -   Delete samples and documentation from the main folder 
 -   Zip the main folder, naming the zip file exactly the same as the folder 
 -   Put the zip file into a reachable http location 
 -   Run this PowerShell:
-
-       New-AzureAutomationModule `  
-           -ResourceGroupName MY-AUTOMATION-RG -AutomationAccountName MY-AUTOMATION-ACCOUNT `  
-           -Name MODULE-NAME –ContentLink "https://STORAGE-URI/public/MODULE-NAME.zip"
+        New-AzureAutomationModule ``
+            -ResourceGroupName MY-AUTOMATION-RG -AutomationAccountName MY-AUTOMATION-ACCOUNT ``
+            -Name MODULE-NAME –ContentLink "https://STORAGE-URI/public/MODULE-NAME.zip"
 
 This example performs these steps for cChoco and xNetworking. 
 
