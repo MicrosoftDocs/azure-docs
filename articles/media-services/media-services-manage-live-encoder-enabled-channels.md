@@ -260,7 +260,7 @@ There can be up to 8 audio stream sets specified if the input to the Channel is 
 
 Specifies the preset to be used by the live encoder within this Channel. Currently, the only allowed value is **Default720p** (default).
 
-Note that if you need custom presets, you should contact amslive at Microsoft dot com.
+Note that if you need custom presets, you should contact amslived at Microsoft dot com.
 
 **Default720p** will encode the video into the following 7 layers.
 
