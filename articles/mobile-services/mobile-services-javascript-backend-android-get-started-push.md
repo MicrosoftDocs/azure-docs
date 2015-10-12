@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="10/01/2015"
+	ms.date="10/06/2015"
 	ms.author="ricksal"/>
 
 
@@ -32,7 +32,7 @@ This topic shows how to use Azure Mobile Services to send push notifications to 
 [AZURE.INCLUDE [mobile-services-android-prerequisites](../../includes/mobile-services-android-prerequisites.md)]
 
 ## Sample code
-To see the completed source code go [here](https://github.com/RickSaling/mobile-services-samples/tree/push/GettingStartedWithPush).
+To see the completed source code go [here](https://github.com/Azure/mobile-services-samples/tree/master/GettingStartedWithPush).
 
 ## Enable Google Cloud Messaging
 
@@ -114,9 +114,6 @@ You have successfully completed this tutorial.
 
 Learn more about Mobile Services and Notification Hubs in the following topics:
 
-* [Get started with data]
-  <br/>Learn more about storing and querying data using mobile services.
-
 * [Get started with authentication]
   <br/>Learn how to authenticate users of your app with different account types using mobile services.
 
@@ -148,7 +145,6 @@ Learn more about Mobile Services and Notification Hubs in the following topics:
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Get started with Mobile Services]: mobile-services-android-get-started.md
-[Get started with data]: mobile-services-android-get-started-data.md
 [Get started with authentication]: mobile-services-android-get-started-users.md
 [Get started with push notifications]: /develop/mobile/tutorials/get-started-with-push-js
 [Push notifications to app users]: /develop/mobile/tutorials/push-notifications-to-users-js

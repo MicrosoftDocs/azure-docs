@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Process events from Event Hubs with Storm on HDInsight | Azure"
+   pageTitle="Process events from Event Hubs with Storm on HDInsight using Java | Azure"
    description="Learn how to process Event Hubs data with a Java Storm topology created with Maven."
    services="hdinsight,notification hubs"
    documentationCenter=""
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="08/12/2015"
+   ms.date="10/09/2015"
    ms.author="larryfr"/>
 
 # Process events from Azure Event Hubs with Storm on HDInsight (Java)

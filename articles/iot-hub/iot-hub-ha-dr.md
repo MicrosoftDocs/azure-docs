@@ -1,6 +1,6 @@
 <properties
  pageTitle="Azure IoT Hub High availability and disaster recovery | Microsoft Azure"
- description="A collection of guidance topics for solutions using Azure IoT Hub."
+ description="Describes features that help to build solutions with disaster recovery (DR) capabilities."
  services="iot-hub"
  documentationCenter=".net"
  authors="fsautomata"
@@ -16,7 +16,7 @@
  ms.date="10/02/2015"
  ms.author="elioda"/>
 
-# High availability and disaster recovery
+# IoT Hub high availability and disaster recovery
 
 As an Azure service, IoT Hub provides high availability (HA) using redundancies at the Azure region level, without any additional work required by the solution. In addition, Azure offers a number of features that help to build solutions with disaster recovery (DR) capabilities or cross-region availability if required. Solutions must be designed and prepared to take advantage of those features in order to provide global, cross-region high availability to devices or user. The article [Azure Business Continuity Technical Guidance][] describes the Azure built-in features for business continuity and DR. The [Disaster Recovery and High Availability for Azure Applications][] paper provides architecture guidance on strategies for Azure applications to achieve HADR.
 
