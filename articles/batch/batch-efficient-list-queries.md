@@ -14,10 +14,12 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="big-compute"
-	ms.date="10/07/2015"
+	ms.date="10/12/2015"
 	ms.author="v-marsma"/>
 
 # Query the Azure Batch service efficiently
+
+Learn how to reduce the number of items and amount of data returned when using the [Batch .NET][api_net] API  to query the Batch service for lists of jobs, tasks, compute nodes, and more.
 
 Azure Batch is big compute, and in a production environment, entities like jobs, tasks, and compute nodes can number in the thousands. Obtaining information on these items can therefore generate a large amount of data that must be transferred on each query. Limiting the number of items and type of information returned for each will increase the speed of your queries and therefore the performance of your application.
 
@@ -45,18 +47,7 @@ IEnumerable<CloudTask> completedTasks = batchClient.JobOperations.ListTasks("job
 If, in the above example scenario, there are thousands of tasks in the job, the results from the second query will typically be returned much quicker than the first. More about using an ODATADetailLevel when listing items with the Batch .NET API appears below.
 
 > [AZURE.IMPORTANT]
-> It is highly recommended that you **always** supply an ODATADetailLevel to your .NET API list calls to ensure maximum efficiency and performance of your application.
-
-## Pitfalls of inefficient queries
-
-In some cases, querying the Batch service for a rich set of data about your environment is required, but in many instances a smaller subset of information will suffice. As mentioned, Batch compute resources such as compute nodes, jobs, and tasks can number in the thousands, and therefore the number of items returned and the amount of data required to represent those items can be quite large.
-
-Simply querying the Batch service for many items will result in large responses, and can lead to a number of issues:
-
-- **Slower Batch API response times** - The larger the number of items, the longer the query time required by the Batch service. Large numbers of items must be broken into chunks, and therefore the client library may need to make multiple underlying API calls to the service to obtain all of the items for a single list.
-- **Increased processing time** - API processing by the application requesting information from Batch will take longer when there are more items to process.
-- **High memory usage** - More memory will be consumed by the application when retrieving more and/or larger items from the Batch service.
-- **Poor network utilitization** - More and/or larger items will lead to increased network traffic. This will take longer to transfer and, depending on application architecture, may result in increased network charges for data transferred out of your Batch account's region.
+> It is highly recommended that you **always** supply an ODATADetailLevel to your .NET API list calls to ensure maximum efficiency and performance of your application. Specifying a detail level helps to lower Batch service response times, improve network utilization, and minimize memory usage by client applications.
 
 ## Tools for efficient querying
 
