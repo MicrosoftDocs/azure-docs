@@ -51,7 +51,7 @@ To find the Password Management reports, follow the steps below:
 ## How to access Password Management Reports from an API
 As of August 2015, the Azure AD Reports and Events now supports retrieving all of the information included in the Password Reset and Password Reset Registration reports.
 
-To access this data, you'll need to write a small app or script to retrieve it from our servers. [Learn how to get started with the Azure AD Reporting API](https://azure.microsoft.com/documentation/articles/active-directory-reporting-api-getting-started/).
+To access this data, you'll need to write a small app or script to retrieve it from our servers. [Learn how to get started with the Azure AD Reporting API](active-directory-reporting-api-getting-started.md).
 
 Once you have a working script, you'll next want to examine the password reset and registration events that you can retrieve to meet your scenarios.
 
