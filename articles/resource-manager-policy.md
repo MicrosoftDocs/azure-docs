@@ -140,7 +140,7 @@ The below example shows a policy which will deny all requests where location is 
       "if" : {
         "not" : {
           "field" : "location",
-          "in" : ["north europe" , "west europe"]
+          "in" : ["northeurope" , "westeurope"]
         }
       },
       "then" : {
@@ -249,6 +249,26 @@ The policy-definition can be defined as one of the examples shown above.
 For api-version use *2015-10-01-preview*. For examples and more details,
 see [REST API for Policy Definitions](https://msdn.microsoft.com/library/azure/mt588471.aspx).
 
+### Create Policy Definition using PowerShell
+
+You can create a new policy definition using the New-AzureRmPolicyDefinition cmdlet as shown below. The below examples creates a policy for allowing resources only in North Europe and West Europe.
+
+    $policy = New-AzureRmPolicyDefinition -Name regionPolicyDefinition -Description "Policy to allow resource creation onlyin certain regions" -Policy '{	"if" : {
+    	    			    "not" : {
+    	      			    	"field" : "location",
+    	      			    		"in" : ["northeurope" , "westeurope"]
+    	    			    	}
+    	    		          },
+    	      		    		"then" : {
+    	    			    		"effect" : "deny"
+    	      			    		}
+    	    		    	}'    		
+
+The output of execution is stored in $policy object as it can used later during policy assignment. For the policy parameter, the path to a .json file containing the policy can also be provided instead of specifying the policy inline as shown below.
+
+    New-AzureRmPolicyDefinition -Name regionPolicyDefinition -Description "Policy to allow resource creation only in certain 	regions" -Policy "path-to-policy-json-on-disk"
+
+
 ## Applying a Policy
 
 ### Policy Assignment with REST API
@@ -277,3 +297,19 @@ With a request body similar to the following:
     }
 
 For examples and more details, see [REST API for Policy Assignments](https://msdn.microsoft.com/library/azure/mt588466.aspx).
+
+### Policy Assignment using PowerShell
+
+You can apply the policy created above through PowerShell to the desired scope by using the New-AzureRmPolicyAssignment cmdlet as shown below:
+
+    New-AzureRmPolicyAssignment -Name regionPolicyAssignment -PolicyDefinition $policy -Scope    /subscriptions/########-####-####-####-############/resourceGroups/<resource-group-name>
+        
+Here $policy is the policy object that was returned as a result of executing the New-AzureRmPolicyDefinition cmdlet as shown above. The scope here is the name of the resource group you specify.
+
+If you want to remove the above policy assignment, you can do it as follows:
+
+    Remove-AzureRmPolicyAssignment -Name regionPolicyAssignment -Scope /subscriptions/########-####-####-####-############/resourceGroups/<resource-group-name>
+
+You can get, change or remove policy definitions through Get-AzureRmPolicyDefinition, Set-AzureRmPolicyDefinition and Remove-AzureRmPolicyDefinition cmdlets respectively.
+
+Similarly, you can get, change or remove policy assignments through the Get-AzureRmPolicyAssignment, Set-AzureRmPolicyAssignment and Remove-AzureRmPolicyAssignment cmdlets respectively.
