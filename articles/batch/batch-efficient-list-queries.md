@@ -19,7 +19,7 @@
 
 # Query the Azure Batch service efficiently
 
-Learn how to reduce the number of items and amount of data returned when using the [Batch .NET][api_net] API  to query the Batch service for lists of jobs, tasks, compute nodes, and more.
+In this article you will learn how to reduce the number of items and amount of data returned when using the [Batch .NET][api_net] API  to query the Batch service for lists of jobs, tasks, compute nodes, and more.
 
 Azure Batch is big compute, and in a production environment, entities like jobs, tasks, and compute nodes can number in the thousands. Obtaining information on these items can therefore generate a large amount of data that must be transferred on each query. Limiting the number of items and type of information returned for each will increase the speed of your queries and therefore the performance of your application.
 
@@ -136,7 +136,7 @@ Property names in filter, select, and expand strings *must* reflect their REST A
 ### Mappings for select strings
 
 - **BATCH .NET TYPES** - Batch .NET API types
-- **REST API ENTITIES** - Each page in this column contains one or more tables listing the REST API property names for the type. These property names are used when constructing *select* strings. You will use these same property names and when constructing an [ODATADetailLevel.SelectClause][odata_select] string.
+- **REST API ENTITIES** - Each page in this column contains one or more tables listing the REST API property names for the type. These property names are used when constructing *select* strings. You will use these same property names when constructing an [ODATADetailLevel.SelectClause][odata_select] string.
 
 | Batch .NET Types | REST API Entities |
 |---|---|
