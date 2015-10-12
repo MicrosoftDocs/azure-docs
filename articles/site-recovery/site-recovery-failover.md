@@ -137,29 +137,7 @@ You’ll need to do a number of things to run a test failover, including making 
 - If you want to run a test failover using the option to create VM networks automatically, add manual step before Group-1 in the recovery plan you’re going to use for the test failover and then add the infrastructure resources to the automatically created network before running the test failover.
 
 #### Prepare Active Directory
-To run a test failover for application testing, you’ll need a copy of the production Active Directory environment in your test environment. Here's what to do.
-
-1. **Create a copy**—Create a copy of Active Directory using one of the following methods:
-
-	- Hyper-V replication—You can start Active Directory replication using Hyper-V replication, just as you do for other virtual machines. When you do a test failover of a recovery plan, you can also do a test failover of the Active Directory virtual machine.
-	- Active Directory replication—You can use Active Directory replication to create a copy of your Active Directory installation in your replica site. When you do a test failover of a recovery plan, you can create a copy of the Active Directory virtual machine by taking a snapshot of the replica Active Directory installation. You can use this copy for test failover. After the test failover is done, you can delete the copy of Active Directory.
-
-2. **Import and export**—You can create a copy of an Active Directory virtual machine by exporting it and then importing it with a new GUID.
-3. **Add to the network**—Add Active Directory to the network that is created by the test failover. Note the following: 
-
-	- It’s important to ensure that the network to which you’re going to add Active Directory is completely isolated from your production network. If you use a network of the Windows Network type as your test network, the system guarantees the isolation of automatically created VM networks, providing you don't add an external gateway to the network. If you are using VLAN-based isolation, you have to ensure that the VM networks that are created are isolated from your production environment.
-	- The sequence of steps that you might have to follow will be slightly different, depending on whether Active Directory and DNS are running on the same virtual machine or on different virtual machines:
-		- Same virtual machine—If Active Directory and DNS are on the same virtual machine, you can use the same virtual machine as a DNS resource for the test failover. You can choose to clean up all the entries in DNS and recreate required zones in the DNS. 
-		- Different virtual machine—If Active Directory and DNS are on different virtual machines, you’ll need to create a DNS resource for the test failover. You can use a fresh DNS server and create all the required zones. For example, if your Active Directory domain is contoso.com, you can create a zone with the name contoso.com. 
-
-4. **Update Active Directory in DNS**—In both cases, the entries corresponding to Active Directory must be updated in DNS. Do this as follows:
-
-	- Ensure the following settings are in place before any other virtual machine in the recovery plan comes up:
-		- The zone must be named after the forest root name.
-		- The zone must be file backed.
-		- The zone must be enabled for secure and non-secure updates.
-		- If Active Directory and DNS are on two separate virtual machines, the resolver of the Active Directory virtual machine should point to the IP address of the DNS virtual machine.
-	- Run the following command in Active Directory: nltest /dsregdns.
+To run a test failover for application testing, you’ll need a copy of the production Active Directory environment in your test environment. Go through [Test Failover Considerations for active directory][site-recovery-active-directory/#considerations-for-test-failover] section for more details. 
 
 #### Prepare DHCP
 
@@ -169,8 +147,8 @@ If the virtual machines involved in test failover use DHCP, a test DHCP server s
 
 Prepare a DNS server for the test failover as follows:
 
-- **DHCP**—If virtual machines use DHCP, the IP address of the test DNS should be updated on the test DHCP server. If you’re using a network type of Windows Network Virtualization, the VMM server acts as the DHCP server. Therefore, the IP address of DNS should be updated in the static IP address pool that is used for test failover. In this case, the virtual machines will register themselves to the relevant DNS Server.
-- **Static address**—If virtual machines use a static IP address, the IP address of the test DNS server should be updated in the static IP address pools that are used for test failover. You’ll need to update DNS with the IP address of the test virtual machines. You can use the following sample script for this purpose: 
+- **DHCP**—If virtual machines use DHCP, the IP address of the test DNS should be updated on the test DHCP server. If you’re using a network type of Windows Network Virtualization, the VMM server acts as the DHCP server. Therefore, the IP address of DNS should be updated in the test failover network. In this case, the virtual machines will register themselves to the relevant DNS Server.
+- **Static address**—If virtual machines use a static IP address, the IP address of the test DNS server should be updated in test failover network. You might need to update DNS with the IP address of the test virtual machines. You can use the following sample script for this purpose: 
 
 	    Param(
 	    [string]$Zone,
@@ -182,12 +160,6 @@ Prepare a DNS server for the test failover as follows:
 	    $newrecord.RecordData[0].IPv4Address  =  $IP
 	    Set-DnsServerResourceRecord -zonename $zone -OldInputObject $record -NewInputObject $Newrecord
 
-- **Add zone**—Use the following script to add a zone on the DNS server, allow non-secure updates, and add an entry for itself to DNS:
-
-	    dnscmd /zoneadd contoso.com  /Primary 
-	    dnscmd /recordadd contoso.com  contoso.com. SOA %computername%.contoso.com. hostmaster. 1 15 10 1 1 
-	    dnscmd /recordadd contoso.com %computername%  A <IP_OF_DNS_VM> 
-	    dnscmd /config contoso.com /allowupdate 1
 
 #### Run test
 
