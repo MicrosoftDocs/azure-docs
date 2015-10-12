@@ -32,7 +32,7 @@ The address that forms the user name should be on your domain and controlled by 
   - This needs to be completed in your internal systems. For e.g. marketplace@yourcompany.com
 2. Open a new Chrome Incognito or IE InPrivate browsing session to ensure that you’re not logged into an existing account
 3. Register for your a Microsoft Account (MSA) using the Distribution List Email.
- - You can register for a MSA at https://signup.live.com/signup.aspx
+ - You can register for a MSA at [https://signup.live.com/signup.aspx](https://signup.live.com/signup.aspx)
  - Use marketplace@yourcompany.com as the email address
  - Your MSA ID is now marketplace@yourcompany.com
 
@@ -66,7 +66,7 @@ The Microsoft Seller Dashboard is used to register the company information once.
 ### Register your company account
 1. Open a new  IE InPrivate or Chrome Incognito browsing session to ensure that you’re not logged into a personal account
 
-2. Go to http://sellerdashboard.microsoft.com
+2. Go to [http://sellerdashboard.microsoft.com](http://sellerdashboard.microsoft.com)
 
     ![drawing][img-sd-url]
 
