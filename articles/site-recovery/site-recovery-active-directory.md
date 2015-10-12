@@ -74,13 +74,15 @@ After this you should [reconfigure dns server for the virtual network][../virtua
 ![Azure Network](./media/site-recovery-active-directory/azure-network.png)
 
 ##Considerations for Test failover
-For Test Failover (TFO) scenarios using AD , the production workload should not be impacted. If you are using AD replication, care should be taken not to impact the AD running in production during TFO. 
+Test Failover is done in a network that is isolated from production network so that there is no impact to the production workload. Most applications also require the presence of a domain controller and a DNS Server to function. Therefore, before an application is failed over, a domain controller needs be created in the isolated network to be used for Test Failover. The easiest way to do that is to first enable protection on the domain controller/DNS VM using ASR and before triggering Test Failover of the recovery plan of the application, trigger test failover of the domain controller VM. Below is the step by step guidance to do the Test Failover:
 
-1. Create another virtual network (let’s call it AzureTestNetwork) and use the same IP ranges as used in the network created earlier. This network will be used during TFO. Don’t add site to site connectivity and point to site connectivity in the network just yet.
-2. Go to AD virtual machine in ASR and do a test failover of it in AzureTestNetwork.
-3. Once the IaaS virtual machine is created for AD in AzureTestNetwork, check the IP that has been provided to this virtual machine.
-4. If the IP is not same as what was given to DNS of AzureTestNetwork, modify the DNS IP to the IP that AD VM has got. Azure starts giving IP from the 4th IP of the IP range defined in virtual network. If the IP range added in the network is 10.0.0.0 – 10.0.0.255, the first VM that is created in this network would get IP 10.0.0.4. As AD would be the first machine to be failed over in a DR drill, you can predict the IP that this VM is going to get and accordingly add that as the DNS IP in AzureTestNetwork.
-5. Once the testing is complete, you can mark the test failover complete from the Jobs view in ASR. This will delete the virtual machines that were created on AzureTestNetwork.
+1. Enable protection on the domain controller/DNS virtual machine as you do for any other virtual machine.
+2. Create an isolated network. Any virtual network created in Azure by default is isolated from other network. It is recommended that IP range for this network is same as that of your production network. Don't enable site to site connectivity on this network.
+3. Provide DNS IP in the network created in the step above as the IP that you expect the DNS VM to get. If you are using Azure as the DR site then you can provide the IP for the VM that will be used on failover in 'Target IP' setting in VM properties. 
+>[AZURE.NOTE] The IP given to a VM on a Test Failover is same as the IP it would get on doing a planned or unplanned failover given that this IP is available in the Test Failover network. 
+4. Go to the domain controller virtual machine and do test failover of it in the isolated network. 
+5. Do test failover of the recovery plan of the application.
+6. Once testing is complete, mark the test failover of job of domain controller virtual machine and the recovery plan 'Complete' in from jobs tab in ASR. 
 
 ##Summary
 Using Azure Site Recovery, you can create a complete automated disaster recovery plan for your AD. You can initiate the failover within seconds from anywhere in the event of a disruption and get the AD up and running in a few minutes. In case you have an AD for multiple applications such as SharePoint and SAP in your primary site and you decide to failover the complete site, you can failover the AD using ASR first and then failover the other applications using application specific recovery plans.
