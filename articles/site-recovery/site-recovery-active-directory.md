@@ -69,7 +69,7 @@ Create a domain controller on the secondary(DR) site and while promoting the ser
 ###Site to Azure scenario
 Follow these instructions to create a [domain controller in an Azure virtual network](../virtual-network/virtual-networks-install-replica-active-directory-domain-controller.md). While promoting the server to domain controller role give the name of the same domain that is being used on the primary site.
 
-After this you should [reconfigure dns server for the virtual network][../virtual-network/virtual-networks-install-replica-active-directory-domain-controller.md/#reconfigure-dns-server-for-the-virtual-network] to use the DNS server in Azure
+After this you should [reconfigure dns server for the virtual network](../virtual-network/virtual-networks-install-replica-active-directory-domain-controller.md/#reconfigure-dns-server-for-the-virtual-network) to use the DNS server in Azure
   
 ![Azure Network](./media/site-recovery-active-directory/azure-network.png)
 
