@@ -1,19 +1,19 @@
-<properties
-	pageTitle="Best Practices: Azure AD Password Management | Microsoft Azure"
-	description="Deployment and usage best practices, sample end-user documentation, and training guides for Password Management in Azure Active Directory."
-	services="active-directory"
-	documentationCenter=""
-	authors="asteen"
-	manager="kbrint"
+<properties 
+	pageTitle="Best Practices: Azure AD Password Management | Microsoft Azure" 
+	description="Deployment & usage best practices and sample end-user documentation & training guides for Password Management in Azure Active Directory." 
+	services="active-directory" 
+	documentationCenter="" 
+	authors="asteen" 
+	manager="kbrint" 
 	editor="billmath"/>
 
-<tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/18/2015" 
+<tags 
+	ms.service="active-directory" 
+	ms.workload="identity" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/08/2015" 
 	ms.author="asteen"/>
 
 # Deploying Password Management and training users to use it
@@ -24,6 +24,7 @@ After enabling password reset, the next step you need to take is to get users us
   * [Ways you can to populate authentication data yourself](#ways-to-populate-authentication-data)
 * [**The best ways to roll out password reset to your organization**](#what-is-the-best-way-to-roll-out-password-reset-for-users)
   * [Email-based rollout + sample email communications](#email-based-rollout)
+  * [Create your own custom password management portal for your users](#creating-your-own-password-portal)
   * [How to use enforced registration to force users to register at sign in](#using-enforced-registration)
   * [How to upload authentication data for user accounts](#uploading-data-yourself)
 * [**Sample user and support training materials (coming soon!)**](#sample-training-materials)
@@ -71,7 +72,18 @@ Perhaps the simplest approach to inform your users about to register for or use 
 
   ![][001]
 
-You can download the email template [here](http://1drv.ms/1xWFtQM).
+You can [download the email template here](http://1drv.ms/1xWFtQM).
+
+### Creating your own password portal
+One strategy that works well for larger customers deploying password management capabilities is to create a single "password portal" that your users can use to manage all things related to their passwords in a single place.  
+
+Many of our largest customers choose to create a root DNS entry, like https://passwords.contoso.com with links to the Azure AD password reset portal, password reset registration portal, and password change pages.  This way, in any email communications or fliers you send out, you can include a single, memorable, URL that users can go to when they have a second to get started with the service. 
+
+To get going here, we've created a simple page that uses the latest responsive UI design paradigms, and will work on all browsers and mobile devices.
+
+  ![][007]
+  
+You can [download the website template here](https://github.com/kenhoff/password-reset-page).  We recommend customizing the logo and colors to the need of your organization.
 
 ### Using enforced registration
 If you want your users to register for password reset themselves, you can also force them to register when they sign in to the access panel at [http://myapps.microsoft.com](http://myapps.microsoft.com).  You can enable this option from your directory’s **Configure** tab by enabling the **Require Users to Register when Signing in to the Access Panel** option.  
@@ -98,12 +110,12 @@ You can upload the authentication data via the [Azure Management Portal](https:/
 1.	Navigate to your directory in the **Active Directory extension** in the [Azure Management Portal](https://manage.windowsazure.com).
 2.	Click on the **Users** tab.
 3.	Select the user you are interested in from the list.
-4.	On the first tab, you will find **Alternate Email**, which can be used as a property to enable password reset.
+4.	On the first tab, you will find **Alternate Email**, which can be used as a property to enable password reset. 
 
     ![][005]
 
 5.	Click on the **Work Info** tab.
-6.	On this page, you will find **Office Phone**, **Mobile Phone**, **Authentication Phone**, and **Authentication Email**.  These properties can also be set to allow a user to reset his or her password.
+6.	On this page, you will find **Office Phone**, **Mobile Phone**, **Authentication Phone**, and **Authentication Email**.  These properties can also be set to allow a user to reset his or her password. 
 
     ![][006]
 
@@ -138,3 +150,4 @@ We are working on sample training materials that you can use to get your IT orga
 [004]: ./media/active-directory-passwords-best-practices/004.jpg "Image_004.jpg"
 [005]: ./media/active-directory-passwords-best-practices/005.jpg "Image_005.jpg"
 [006]: ./media/active-directory-passwords-best-practices/006.jpg "Image_006.jpg"
+[007]: ./media/active-directory-passwords-best-practices/007.jpg "Image_007.jpg"
