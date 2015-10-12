@@ -49,16 +49,16 @@ number of instances in the **worker pool** within the bounds defined by the prof
  the same metrics you can monitor in the resource blade graphs or set alerts for.
  
 ##Auto-scale Example
-Auto-scale of an App Service environment can best be illustrated by walking through a scenario. 
+Auto-scale of an **App Service environment** can best be illustrated by walking through a scenario. 
 In this article I will walk through all the considerations necessary when setting up auto-scale and 
-all the interaction that come into play when we factor in auto scaling App Service Environments that 
+all the interaction that come into play when we factor in auto scaling **App Service environments** that 
 are hosted in an ASE.
 
 ###Scenario Introduction
 Frank is a SysAdmin for an enterprise, he has migrated a portion of the workloads he manages to an 
-App Service Environment.</br>
+**App Service environment**.</br>
 
-The App Service environment is configured to manual scale as follows:
+The **App Service environment** is configured to manual scale as follows:
 <ul>
 <li>Front Ends: 3</li>
 <li>Worker Pool 1: 10</li>
@@ -155,10 +155,10 @@ rules:
 </table>
 
 ###App Service Plan Inflation Rate
-App Service plans that are configured to auto-scale, will do so at a maximum rate per hour. This rate 
+**App Service plans** that are configured to auto-scale, will do so at a maximum rate per hour. This rate 
 can be calculated based on the values provided on the auto-scale rule.</br>
-Understanding and calculating the App Service plan Inflation rate is important to 
-**App Service Environment** **worker pool** auto-scale since scale changes to a **worker pool** are 
+Understanding and calculating the **App Service plan Inflation Rate** is important to 
+**App Service environment** **worker pool** auto-scale since scale changes to a **worker pool** are 
 not instantaneous and do take some time to apply.</br> 
 
 The **App Service plan** inflation rate is calculated as follows:
@@ -187,7 +187,7 @@ In the case of the *Auto-scale – Scale Down* rule for the *Weekends* profile o
 
 </br>![][Equation4]</br>
 
-What this means is that the production *App Service plan* can grow at a maximum rate of **8** 
+What this means is that the production **App Service plan** can grow at a maximum rate of **8** 
 instances per hour during the week and **4** instances per hour during the weekend. And it can 
 release instances at a maximum rate of **4** instances per hour during the week and **6** instances 
 per hour during weekends.
@@ -203,7 +203,7 @@ be allocate a buffer of capacity to allow for the auto-scale operations to grow/
 **App Service plan** as needed. The minimum buffer would be the calculated 
 **Total App Service Plan Inflation Rate**.
 </br>
-Since App Service Environment scale operations take some time to apply, any change should account 
+Since **App Service environment** scale operations take some time to apply, any change should account 
 for further demand changes that could happen while a scale operation is in progress. For this we 
 recommend using the calculated **Total App Service Plan Inflation Rate** as the minimum number of 
 instances added for each auto-scale operation.
@@ -300,7 +300,8 @@ Rate** for scale down.</br>
 ###Auto-scale for Front End Pool
 **Front end** auto-scale rules are simpler than for **worker pools**, the main things to look for is to 
 make sure duration of the measurement and the cooldown timers take into consideration the fact that scale 
-operations on an App Service plan are not instantaneous.</br>
+operations on an **App Service plan** are not instantaneous.
+</br>
 For this scenario, Frank knows that the error rate increases once front ends reach 80% CPU utilization, 
 to prevent this he sets the auto-scale rule to increase instances as follows:
  
