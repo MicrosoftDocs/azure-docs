@@ -230,9 +230,9 @@ A table is a rectangular dataset and has a schema. In this step, you will create
 
 	See [JSON Scripting Reference](http://go.microsoft.com/fwlink/?LinkId=516971) for details about JSON properties.
 
-2.	Run the following command to create the Data Factory table.
+2.	Run the following command to create the Data Factory dataset.
 
-		New-AzureDataFactoryTable $df -File .\EmpBlobTable.json
+		New-AzureDataFactoryDataset $df -File .\EmpBlobTable.json
 
 ### Create output table
 In this part of the step, you will create an output table named **EmpSQLTable** that points to a SQL table (**emp**) in the Azure SQL database that is represented by the **AzureSqlLinkedService** linked service. The pipeline copies data from the input blob to the **emp** table. 
@@ -272,9 +272,9 @@ In this part of the step, you will create an output table named **EmpSQLTable** 
 	* There are three columns – **ID**, **FirstName**, and **LastName** – in the emp table in the database, but ID is an identity column, so you need to specify only **FirstName** and **LastName** here.
 	* The **availability** is set to **hourly** (**frequency** set to **hour** and **interval** set to **1**).  The Data Factory service will generate an output data slice every hour in the **emp** table in the Azure SQL database.
 
-2.	Run the following command to create the Data Factory table. 
+2.	Run the following command to create the Data Factory dataset. 
 	
-		New-AzureDataFactoryTable $df -File .\EmpSQLTable.json
+		New-AzureDataFactoryDataset $df -File .\EmpSQLTable.json
 
 
 ## <a name="CreateAndRunAPipeline"></a>Step 4: Create and run a pipeline
