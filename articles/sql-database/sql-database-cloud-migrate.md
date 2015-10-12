@@ -22,8 +22,6 @@ Azure SQL Database V12 brings near-complete engine compatibility with SQL Server
 
 By design, server-scoped features of SQL Server are not supported by Azure SQL Database V12. Databases and applications that rely on these features will need some re-engineering before they can be migrated.
 
-> [AZURE.IMPORTANT] These options do not catch all of the compatibility issues between different levels of SQL Server databases (i.e. level 90, 100, and 110). If you are migrating from an older database (level 80, 90, 100, and 110), you should go through the upgrade process first (at least in the dev environment) and once on SQL Server 2014 or later, then migrate to Azure SQL Database.
-<br></br>
 >[AZURE.NOTE] To migrate other types of databases, including Microsoft Access, Sybase, MySQL Oracle, and DB2 to Azure SQL Database, see [SQL Server Migration Assistant](http://blogs.msdn.com/b/ssma/).
 
 The workflow for migrating a SQL Server database to Azure SQL Database are:
@@ -33,15 +31,20 @@ The workflow for migrating a SQL Server database to Azure SQL Database are:
  3. [Migrate a compatible database](#options-to-migrate-a-compatible-database-to-azure-sql-database)
 
 ## Determine if your database is compatible
-Use the Export Data Tier Application wizard in Management Studio or use the [sqlpackage.exe](https://msdn.microsoft.com/library/hh550080.aspx) command-line version of this wizard. If database incompatibilities are detected, you will need to fix these incompatibilities before you can migrate your database to Azure SQL Database. For guidance on how to fix compatibility issues, go to [fix compatibility issues](#fix-compatibility-issues).
+There are two primary methods to use to determine if your source database is compatible.
+- Export Data Tier Application: This method uses a wizard in Management Studio and displays error messages on the console.
+- SQLPackage.exe: [sqlpackage.exe](https://msdn.microsoft.com/library/hh550080.aspx) is a command-line utility that ships with Visual Studio and SQL Server. This method will generate a report.
 
-> [AZURE.TIP] If you want to generate a report of database incompatibilities that you will need to fix, use [sqlpackage.exe](https://msdn.microsoft.com/library/hh550080.aspx).
+> [AZURE.NOTE] There is a third method, that will also use trace files to test for compatibility. This is [SQL Azure Migration wizard](http://sqlazuremw.codeplex.com/), a free tool on Codeplex. However, this tool currently may find compatibility errors that were issues for Azure SQL Database V11 that are not issues for Azure SQL Database V12.
 
+If database incompatibilities are detected, you will need to fix these incompatibilities before you can migrate your database to Azure SQL Database. For guidance on how to fix compatibility issues, go to [fix compatibility issues](#fix-compatibility-issues).
+
+> [AZURE.IMPORTANT] These options do not catch all of the compatibility issues between different levels of SQL Server databases (i.e. level 90, 100, and 110). If you are migrating from an older database (level 80, 90, 100, and 110), you should go through the upgrade process first (at least in the dev environment) and once on SQL Server 2014 or later, then migrate to Azure SQL Database.
 
 ##Determine if your database is compatible using sqlpackage.exe
 
 1. Open a command prompt and change a directory containing the newest version of sqlpackage.exe. This utility ships with both Visual Studio and SQL Server.
-2. Execute the following command, substituting for the following arguments: < server_name >, < database_name >, < target_file >, < schema_name.table_name > and < output_file >. The reason for the /p:TableName argument is that we only want to test for database compability for export to Azure SQL DB V12 rather than export the data from all tables. Unfortunately, the export argument for sqlpackage.exe does not support extracting no tables, so you will need to specify a single small table. The < outputfile > will contain the report of any errors.
+2. Execute the following command, substituting for the following arguments: < server_name >, < database_name >, < target_file >, < schema_name.table_name > and < output_file >. The reason for the /p:TableName argument is that we only want to test for database compability for export to Azure SQL DB V12 rather than export the data from all tables. Unfortunately, the export argument for sqlpackage.exe does not support extracting no tables, so you will need to specify a single small table. The < output_file > will contain the report of any errors.
 
 	'sqlpackage.exe /Action:Export /ssn:< server_name > /sdn:< database_name > /tf:< target_file > /p:TableData=< schema_name.table_name > > < output_file > 2>&1'
 
