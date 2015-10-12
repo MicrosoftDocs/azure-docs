@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Download the Azure SDK for Java (Windows)" 
-	description="Download the Azure SDK for Java. Code provided for Maven. Install steps provided for Azure Plugin for Eclipse with Java." 
+	description="Download the Azure SDK for Java. Code provided for Maven. Install steps provided for the Azure Tookit for Eclipse." 
 	services="" 
 	documentationCenter="java" 
 	authors="rmcmurray" 
