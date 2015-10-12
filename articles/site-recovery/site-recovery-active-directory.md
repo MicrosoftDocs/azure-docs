@@ -34,7 +34,7 @@ If there are a small number of applications and a single domain controller in th
 ####Option 2
 If there are a large number of applications and there is more than one domain controller in the environment or you plan to failover of few applications at a time, then we recommend that in addition to enabling ASR replication on domain controller virtual machine (to be used for Test Failvoer) you also setup an additional domain controller on the DR site (secondary on-premises site or in Azure). 
 
->[AZURE.NOTE] Even if you are going with Option-2, for doing a test failover you would still be required to setup ASR replication for the domain controller. Go through [Test Failover Considerations](#considerations-for-test-failover) section for more details. 
+>[AZURE.NOTE] Even if you are going with Option-2, for doing a test failover you would still be required to setup ASR replication for the domain controller. Go through [test failover considerations](#considerations-for-test-failover) section for more details. 
 
 
 Sections below explain how to enable protection on domain controller in ASR and how to setup a domain controller in Azure. 
@@ -86,7 +86,7 @@ Test Failover is done in a network that is isolated from production network so t
 5. Do test failover of the recovery plan of the application.
 6. Once testing is complete, mark the test failover of job of domain controller virtual machine and the recovery plan 'Complete' in from jobs tab in ASR. 
 
-###DNS not on same virtual machine as domain controller: 
+###DNS not on same Virtual Machine as Domain Controller: 
 In case DNS is not on the same virtual machine as domain controller you’ll need to create a DNS for the test failover. In case they are on the same VM you can skip this section. You can use a fresh DNS server and create all the required zones. For example, if your Active Directory domain is contoso.com, you can create a zone with the name contoso.com. The entries corresponding to Active Directory must be updated in DNS. Do this as follows:
 
 - Ensure the following settings are in place before any other virtual machine in the recovery plan comes up:
@@ -94,9 +94,10 @@ In case DNS is not on the same virtual machine as domain controller you’ll nee
 	- The zone must be file backed.
 	- The zone must be enabled for secure and non-secure updates.
 	- The resolver of the domain controller virtual machine should point to the IP address of the DNS virtual machine.
-- Run the following command on domain controller virtual machine Directory: nltest /dsregdns.
+- Run the following command on domain controller virtual machine Directory:
+		nltest /dsregdns
 
-- **Add zone**—Use the following script to add a zone on the DNS server, allow non-secure updates, and add an entry for itself to DNS:
+- **Add zone** — Use the sample following script to add a zone on the DNS server, allow non-secure updates, and add an entry for itself to DNS:
 
 	    dnscmd /zoneadd contoso.com  /Primary 
 	    dnscmd /recordadd contoso.com  contoso.com. SOA %computername%.contoso.com. hostmaster. 1 15 10 1 1 
