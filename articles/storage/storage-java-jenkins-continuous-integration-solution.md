@@ -1,18 +1,11 @@
 <properties 
-	urlDisplayName="Jenkins Continuous Integration" 
 	pageTitle="Using Azure Storage with a Jenkins Continuous Integration Solution | Microsoft Azure" 
-	metaKeywords="" 
 	description="This tutorial show how to use the Azure blob service as a repository for build artifacts created by a Jenkins continuous integration solution." 
-	metaCanonical="" 
 	services="storage" 
 	documentationCenter="java" 
-	title="" 
 	authors="rmcmurray" 
-	solutions="" 
 	manager="wpickett" 
-	editor="jimbe" 
-	scriptId="" 
-	videoId=""/>
+	editor="jimbe"/>
 
 <tags 
 	ms.service="storage" 
@@ -46,7 +39,7 @@ Benefits of using the Blob service to host your agile development build artifact
 - Performance when your customers and partners download your build artifacts.
 - Control over user access policies, with a choice between anonymous access, expiration-based shared access signature access, private access, etc.
 
-## Prequisites ##
+## Prerequisites ##
 
 You will need the following to use the Blob service with your Jenkins CI solution:
 
