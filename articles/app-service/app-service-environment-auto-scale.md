@@ -21,9 +21,6 @@
 #Auto scaleing and App Service Environment
 
 ##Introduction
-> [AZURE.NOTE] **App Service environment** scale operations are not instantaneous and can take 
-several minutes to complete depending on the size of your environment.
-</br>
 **App Service environments** support auto-scale. This is achieved by allowing you to auto-scale individual 
 worker pools based on metrics or schedule.
  </br>![][intro]</br>
