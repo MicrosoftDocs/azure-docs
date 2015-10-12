@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/08/2015"
+   ms.date="10/12/2015"
    ms.author="v-jeana; hascipio"/>
 
 # Understanding your Azure Marketplace payout reports
