@@ -1,7 +1,3 @@
-[AZURE.INCLUDE [azure-ps-prerequisites-include.md](../../includes/azure-ps-prerequisites-include.md)]
-
->[AZURE.NOTE] 
-
 ## How to create a VNet using PowerShell
 
 To create a VNet by using PowerShell, follow the steps below.
