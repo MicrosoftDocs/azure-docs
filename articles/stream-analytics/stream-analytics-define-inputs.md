@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="09/29/2015" 
+	ms.date="10/12/2015" 
 	ms.author="jeffstok"/>
 
 # Understanding Stream Analytics inputs
@@ -98,15 +98,15 @@ When your data is coming from an IoT Hub source, you can access to few metadata 
 
 | PROPERTY | DESCRIPTION |
 |------|------|
-| System.Input.EventProcessedUtcTime | The date and time that the event was processed. |
-| System.Input.EventEnqueuedUtcTime | The date and time that the event was received by the IoT Hub. |
-| System.Input.PartitionId | The zero-based partition ID for the input adapter. |
-| System.Input.MessageId | Used to correlate two-way communication in IoT Hub. |
-| System.Input.CorrelationId | Used in message responses and feedback in IoT Hub. |
-| System.Input.ConnectionDeviceId | The authenticated id used to send this message, stamped on servicebound messages by IoT Hub. |
-| System.Input.ConnectionDeviceGenerationId | The generationId of the authenticated device used to send this message, Stamped on servicebound messages by IoT Hub. |
-| System.Input.EnqueuedTime | Time when the message was received by IoT Hub. |
-| System.Input.StreamId | Custom event property added by the sender device. |
+| IoTHub.EventProcessedUtcTime | The date and time that the event was processed. |
+| IoTHub.EventEnqueuedUtcTime | The date and time that the event was received by the IoT Hub. |
+| IoTHub.PartitionId | The zero-based partition ID for the input adapter. |
+| IoTHub.MessageId | Used to correlate two-way communication in IoT Hub. |
+| IoTHub.CorrelationId | Used in message responses and feedback in IoT Hub. |
+| IoTHub.ConnectionDeviceId | The authenticated id used to send this message, stamped on servicebound messages by IoT Hub. |
+| IoTHub.ConnectionDeviceGenerationId | The generationId of the authenticated device used to send this message, Stamped on servicebound messages by IoT Hub. |
+| IoTHub.EnqueuedTime | Time when the message was received by IoT Hub. |
+| IoTHub.StreamId | Custom event property added by the sender device. |
 
 ## Creating a Blob storage data stream input ##
 
