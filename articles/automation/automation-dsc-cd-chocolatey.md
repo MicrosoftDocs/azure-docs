@@ -96,7 +96,7 @@ Or, there’s the manual approach.  The folder structure of a PowerShell Integra
             -Name MODULE-NAME –ContentLink "https://STORAGE-URI/public/MODULE-NAME.zip"
         
 
-This example performs these steps for cChoco and xNetworking. 
+The included example performs these steps for cChoco and xNetworking. 
 
 ## Step 4: Adding the node configuration to the pull server
 
