@@ -90,9 +90,11 @@ Or, there’s the manual approach.  The folder structure of a PowerShell Integra
 -   Zip the main folder, naming the zip file exactly the same as the folder 
 -   Put the zip file into a reachable http location 
 -   Run this PowerShell:
+
         New-AzureAutomationModule ``
             -ResourceGroupName MY-AUTOMATION-RG -AutomationAccountName MY-AUTOMATION-ACCOUNT ``
             -Name MODULE-NAME –ContentLink "https://STORAGE-URI/public/MODULE-NAME.zip"
+        
 
 This example performs these steps for cChoco and xNetworking. 
 
