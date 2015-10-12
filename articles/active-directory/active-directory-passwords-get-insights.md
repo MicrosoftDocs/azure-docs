@@ -79,9 +79,9 @@ The following list explains each of the report columns in detail:
 ### Description of report values
 The following table describes the different values allowed for each column:
 
--Column|Allowed values and their meanings
-----|---
--Data Registered| **Alternate Email** – user used alternate email or authentication email to authenticate<p><p>**Office Phone**– user used office phone to authenticate<p>**Mobile Phone** - user used mobile phone or authentication phone to authenticate<p>**Security Questions** – user used security questions to authenticate<p>**Any combination of the above (e.g. Alternate Email + Mobile Phone)** – occurs when a 2 gate policy is specified and shows which two methods the user used to authentication his password reset request.
+Column|Allowed values and their meanings
+---|---
+Data Registered| **Alternate Email** – user used alternate email or authentication email to authenticate<p><p>**Office Phone**– user used office phone to authenticate<p>**Mobile Phone** - user used mobile phone or authentication phone to authenticate<p>**Security Questions** – user used security questions to authenticate<p>**Any combination of the above (e.g. Alternate Email + Mobile Phone)** – occurs when a 2 gate policy is specified and shows which two methods the user used to authentication his password reset request.
 
 ## View password reset activity
 
@@ -106,53 +106,52 @@ The following list explains each of the report columns in detail:
 ### Description of report values
 The following table describes the different values allowed for each column:
 
--
--Column|Allowed values and their meanings
-----|---
--Methods Used|**Alternate Email** – user used alternate email or authentication email to authenticate<p>**Office Phone** – user used office phone to authenticate<p>**Mobile Phone** – user used mobile phone or authentication phone to authenticate<p>**Security Questions** – user used security questions to authenticate<p>**Any combination of the above (e.g. Alternate Email + Mobile Phone)** – occurs when a 2 gate policy is specified and shows which two methods the user used to authentication his password reset request.
--Result|**Abandoned** – user started password reset but then stopped halfway through without completing<p>**Blocked** – user’s account was prevented to use password reset due to attempting to use the password reset page or a single password reset gate too many times in a 24 hour period<p>**Cancelled** – user started password reset but then clicked the cancel button to cancel the session part way through <p>**Contacted Admin** – user had a problem during his session that he could not resolve, so the user clicked the “Contact your administrator” link instead of finishing the password reset flow<p>**Failed** – user was not able to reset a password, likely because the user was not configured to use the feature (e.g. no license, missing authentication info, password managed on-prem but writeback is off).<p>**Succeeded** – password reset was successful.
--Details|See table below
+Column|Allowed values and their meanings
+---|---
+Methods Used|**Alternate Email** – user used alternate email or authentication email to authenticate<p>**Office Phone** – user used office phone to authenticate<p>**Mobile Phone** – user used mobile phone or authentication phone to authenticate<p>**Security Questions** – user used security questions to authenticate<p>**Any combination of the above (e.g. Alternate Email + Mobile Phone)** – occurs when a 2 gate policy is specified and shows which two methods the user used to authentication his password reset request.
+Result|**Abandoned** – user started password reset but then stopped halfway through without completing<p>**Blocked** – user’s account was prevented to use password reset due to attempting to use the password reset page or a single password reset gate too many times in a 24 hour period<p>**Cancelled** – user started password reset but then clicked the cancel button to cancel the session part way through <p>**Contacted Admin** – user had a problem during his session that he could not resolve, so the user clicked the “Contact your administrator” link instead of finishing the password reset flow<p>**Failed** – user was not able to reset a password, likely because the user was not configured to use the feature (e.g. no license, missing authentication info, password managed on-prem but writeback is off).<p>**Succeeded** – password reset was successful.
+Details|See table below
 
 ### Allowed values for details column
 Below is the list of result types you may expect when using the password reset activity report:
 
--Details | Result Type
------|----
--User abandoned after completing the email verification option  | Abandoned
--User abandoned after completing the mobile SMS verification option|Abandoned
--User abandoned after completing the mobile voice call verification option | Abandoned
--User abandoned after completing the office voice call verification option | Abandoned
--User abandoned after completing the security questions option|Abandoned
--User abandoned after entering their user ID| Abandoned
--User abandoned after starting the email verification option|Abandoned
--User abandoned after starting the mobile SMS verification option|Abandoned
--User abandoned after starting the mobile voice call verification option|Abandoned
--User abandoned after starting the office voice call verification option|Abandoned
--User abandoned after starting the security questions option| Abandoned
--User abandoned before selecting a new password| Abandoned
--User abandoned while selecting a new password| Abandoned
--User entered too many invalid SMS verification codes and is blocked for 24 hours|Blocked
--User tried mobile phone voice verification too many times and is blocked for 24 hours|Blocked
--User tried office phone voice verification too many times and is blocked for 24 hours |Blocked
--User tried to answer security questions too many times and is blocked for 24 hours| Blocked
--User tried to verify a phone number too many times and is blocked for 24 hours|Blocked
--User cancelled before passing the required authentication methods|Cancelled
--User cancelled before submitting a new password|Cancelled
--User contacted an admin after trying the email verification option |Contacted admin
--User contacted an admin after trying the mobile SMS verification option|Contacted admin
--User contacted an admin after trying the mobile voice call verification option|Contacted admin
--User contacted an admin after trying the office voice call verification option |Contacted admin
--User contacted an admin after trying the security question verification option|Contacted admin
--Password reset is not enabled for this user. Enable password reset under the configure tab to resolve this|  Failed
--User does not have a license. You can add a license to the user to resolve this|Failed
--User tried to reset from a device without cookies enabled| Failed
--User's account has insufficient authentication methods defined. Add authentication info to resolve this|Failed
--User's password is managed on-premises. You can enable Password Writeback to resolve this|Failed
--We could not reach your on-premises password reset service. Check your sync machine's event log|Failed
--We encountered a problem while resetting the user's on-premises password. Check your sync machine's event log | Failed
--This user is not a member of the password reset users group. Add this user to that group to resolve this.|Failed
--Password reset has been disabled entirely for this tenant. See [here](http://aka.ms/ssprtroubleshoot) to resolve this. | Failed
--User successfully reset password|Succeeded
+Details | Result Type
+----|----
+User abandoned after completing the email verification option  | Abandoned
+User abandoned after completing the mobile SMS verification option|Abandoned
+User abandoned after completing the mobile voice call verification option | Abandoned
+User abandoned after completing the office voice call verification option | Abandoned
+User abandoned after completing the security questions option|Abandoned
+User abandoned after entering their user ID| Abandoned
+User abandoned after starting the email verification option|Abandoned
+User abandoned after starting the mobile SMS verification option|Abandoned
+User abandoned after starting the mobile voice call verification option|Abandoned
+User abandoned after starting the office voice call verification option|Abandoned
+User abandoned after starting the security questions option| Abandoned
+User abandoned before selecting a new password| Abandoned
+User abandoned while selecting a new password| Abandoned
+User entered too many invalid SMS verification codes and is blocked for 24 hours|Blocked
+User tried mobile phone voice verification too many times and is blocked for 24 hours|Blocked
+User tried office phone voice verification too many times and is blocked for 24 hours |Blocked
+User tried to answer security questions too many times and is blocked for 24 hours| Blocked
+User tried to verify a phone number too many times and is blocked for 24 hours|Blocked
+User cancelled before passing the required authentication methods|Cancelled
+User cancelled before submitting a new password|Cancelled
+User contacted an admin after trying the email verification option |Contacted admin
+User contacted an admin after trying the mobile SMS verification option|Contacted admin
+User contacted an admin after trying the mobile voice call verification option|Contacted admin
+User contacted an admin after trying the office voice call verification option |Contacted admin
+User contacted an admin after trying the security question verification option|Contacted admin
+Password reset is not enabled for this user. Enable password reset under the configure tab to resolve this|  Failed
+User does not have a license. You can add a license to the user to resolve this|Failed
+User tried to reset from a device without cookies enabled| Failed
+User's account has insufficient authentication methods defined. Add authentication info to resolve this|Failed
+User's password is managed on-premises. You can enable Password Writeback to resolve this|Failed
+We could not reach your on-premises password reset service. Check your sync machine's event log|Failed
+We encountered a problem while resetting the user's on-premises password. Check your sync machine's event log | Failed
+This user is not a member of the password reset users group. Add this user to that group to resolve this.|Failed
+Password reset has been disabled entirely for this tenant. See [here](http://aka.ms/ssprtroubleshoot) to resolve this. | Failed
+User successfully reset password|Succeeded
 
 **Additional Resources**
 
