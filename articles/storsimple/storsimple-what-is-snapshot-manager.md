@@ -23,7 +23,7 @@ StorSimple Snapshot Manager is a Microsoft Management Console (MMC) snap-in that
 
 This overview introduces the StorSimple Snapshot Manager, describe its features, and explains its role in Microsoft Azure StorSimple. 
 
-For an overview of the entire Microsoft Azure StorSimple system, including the StorSimple device, StorSimple Manager service, StorSimple Snapshot Manager, and StorSimple Adapter for SharePoint, see [What Is StorSimple?](storsimple-overview.md) and [What are the StorSimple components?](storsimple-components.md). 
+For an overview of the entire Microsoft Azure StorSimple system, including the StorSimple device, StorSimple Manager service, StorSimple Snapshot Manager, and StorSimple Adapter for SharePoint, see [StorSimple 8000 series: a hybrid cloud storage solution](storsimple-overview.md). 
  
 ## StorSimple Snapshot Manager purpose and architecture
 
