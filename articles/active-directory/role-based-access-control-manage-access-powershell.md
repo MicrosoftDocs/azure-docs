@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Manage Role Based Access Control (RBAC) with Azure PowerShell"
-	description="How to manage RBAC with Azure PowerShell"
+	pageTitle="Manage Role Based Access Control (RBAC) with Azure PowerShell | Microsoft Azure"
+	description="How to manage RBAC with Azure PowerShell including listing roles, assigning roles and deleting role assignments."
 	services="active-directory"
 	documentationCenter=""
 	authors="IHenkel"
@@ -103,12 +103,12 @@ To grant access to a group at the resource scope use:
 
 ![](./media/role-based-access-control-manage-access-powershell/2-new-azure-rm-role-assignment4.png)
 
-## Remove Access
+## Remove access
 To remove access for users, groups and applications use:
 
     Remove-AzureRoleAssignment -ObjId <object id> -RoleDefinitionName <role name> -Scope <scope such as subscription/subscription id>
 
 ![](./media/role-based-access-control-manage-access-powershell/3-remove-azure-rm-role-assignment.png)
 
-## RBAC Topics
+## RBAC topics
 [AZURE.INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)]

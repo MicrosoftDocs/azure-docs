@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Manage Role Based Access Control (RBAC) with Azure CLI"
-	description="Learn how to manage role-based access (RBAC) with the Azure command line interface."
+	pageTitle="Manage Role Based Access Control (RBAC) with Azure CLI | Microsoft Azure"
+	description="Learn how to manage role-based access (RBAC) with the Azure command line interface by listing roles and role actions, assigning roles to the subscription and application scopes."
 	services="active-directory"
 	documentationCenter=""
 	authors="IHenkel"

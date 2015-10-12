@@ -1,6 +1,6 @@
 <properties
-	pageTitle="RBAC: Built in Roles"
-	description="This topic describes the built in roles for RBAC."
+	pageTitle="RBAC: Built in Roles | Microsoft Azure"
+	description="This topic describes the built in roles for role-based access control (RBAC)."
 	services="active-directory"
 	documentationCenter=""
 	authors="IHenkel"
@@ -138,7 +138,7 @@ Contributors can manage everything except access.
 | Microsoft.Authorization/*/Delete | Can’t delete roles and role assignments |
 
 ### Data Factory Contributor
-Can manage Data Factories
+Can manage data factories
 
 | **Actions** ||
 | ------- | ------ |
