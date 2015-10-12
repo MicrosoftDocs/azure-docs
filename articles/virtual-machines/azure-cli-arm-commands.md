@@ -19,16 +19,15 @@
 
 # Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Manager
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)] This article covers creating and managing a resource with CLI commands in the Resource Manager deployment model. You can also create and manage a resource with CLI commands in the [classic deployment model](virtual-machines-command-line-tools.md).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](virtual-machines-command-line-tools.md)
 
-
-This article describes how to use the Azure Command-Line Interface (Azure CLI) in the Azure Resource Manager mode (arm mode) to create, manage, and delete services on the command line of Mac, Linux, and Windows computers. You can perform many of the same tasks using the various libraries of the Azure SDKs, with Azure PowerShell, and using the Azure Preview Portal.
+This article describes how to use the Azure Command-Line Interface (Azure CLI) in the Azure Resource Manager mode to create, manage, and delete services on the command line of Mac, Linux, and Windows computers. You can perform many of the same tasks using the various libraries of the Azure SDKs, with Azure PowerShell, and using the Azure Preview Portal.
 
 Azure Resource Manager enables you to create a group of resources -- virtual machines, websites, databases, and so on -- as a single deployable unit. You can then deploy, update, or delete all of the resources for your application in a single, coordinated operation. You describe your group resources in a JSON template for deployment and then can use that template for different environments such as testing, staging, and production.
 
 ## Scope of article
 
-This article provides syntax and options for commonly used Azure CLI commands in the arm mode. It is not a complete reference, and your CLI version may show some different commands or parameters. For current command syntax and options at the command line in arm mode, type `azure help` or, to display help for a specific command, `azure help [command]`. You'll also find CLI examples in the documentation for creating and managing specific Azure services.
+This article provides syntax and options for commonly used Azure CLI commands for the Resource Manager deployment model. It is not a complete reference, and your CLI version may show some different commands or parameters. For current command syntax and options at the command line in Resource Manager mode, type `azure help` or, to display help for a specific command, `azure help [command]`. You'll also find CLI examples in the documentation for creating and managing specific Azure services.
 
 Optional parameters are shown in square brackets (for example, [parameter]). All other parameters are required.
 
@@ -36,13 +35,13 @@ In addition to command-specific optional parameters documented here, there are t
 
 ## Imperative and declarative approaches
 
-As with the [Azure Service Management mode](../virtual-machines-command-line-tools.md), the arm mode of the Azure CLI gives you commands that create resources imperatively on the command line. For example, if you type `azure group create <groupname> <location>` you are asking Azure to create a resource group, and with `azure group deployment create <resourcegroup> <deploymentname>` you are instructing Azure to create a deployment of any number of items and place them in a group. Because each type of resource has imperative commands, you can chain them together to create fairly complex deployments.
+As with the [Azure Service Management mode](../virtual-machines-command-line-tools.md), the Resource Manager mode of the Azure CLI gives you commands that create resources imperatively on the command line. For example, if you type `azure group create <groupname> <location>` you are asking Azure to create a resource group, and with `azure group deployment create <resourcegroup> <deploymentname>` you are instructing Azure to create a deployment of any number of items and place them in a group. Because each type of resource has imperative commands, you can chain them together to create fairly complex deployments.
 
 However, using resource group _templates_ that describe a resource group is a declarative approach that is far more powerful, allowing you to automate complex deployments of (almost) any number of resources for (almost) any purpose. When using templates, the only imperative command is to deploy one. For a general overview of templates, resources, and resource groups, see [Azure Resource Group Overview](resource-groups-overview).  
 
 ##Usage requirements
 
-The set-up requirements to use the **arm** mode with the Azure CLI are:
+The set-up requirements to use the Resource Manager mode with the Azure CLI are:
 
 - an Azure account ([get a free trial here](http://azure.microsoft.com/pricing/free-trial/))
 - [installing the Azure CLI](../xplat-cli-install.md)
@@ -50,7 +49,7 @@ The set-up requirements to use the **arm** mode with the Azure CLI are:
 
 Once you have an account and have installed the Azure CLI, you must
 
-- switch to the **arm** mode by typing `azure config mode arm`.
+- switch to the Resource Manager mode by typing `azure config mode arm`.
 - Log in to your Azure account by typing `azure login` and using your work or school identity at the prompts
 
 
@@ -195,6 +194,8 @@ Your Azure subscription information is used by the tool to connect to your accou
 
 **Commands to manage your local or gallery resource group template**
 
+	group template list [options]
+	group template show [options] <name>
 	group template download [options] [name] [file]
 	group template validate [options] <resource-group>
 

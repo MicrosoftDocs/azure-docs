@@ -21,20 +21,20 @@
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)] This article covers creating and managing a resource with CLI commands in the classic deployment model. You can also create and manage a resource with CLI commands in the [Resource Manager deployment model](azure-cli-arm-commands.md).
 
-This article describes how to use the Azure CLI in the Service Management mode (asm mode) to create, manage, and delete services on the command line of Mac, Linux, and Windows computers. You can perform many of the same tasks using the various libraries of the Azure SDKs, with Azure PowerShell, and using the Azure Portal. Using Azure services with the asm mode is conceptually similar to creating and managing individual Azure concepts and services like Websites, Virtual Machines, Virtual Networks, Storage, and so on.  
+This article describes how to use the Azure CLI in the Service Management mode (asm mode) to create, manage, and delete services on the command line of Mac, Linux, and Windows computers. You can perform many of the same tasks using the various libraries of the Azure SDKs, with Azure PowerShell, and using the Azure Portal. Using Azure services with the Service Management mode is conceptually similar to creating and managing individual Azure concepts and services like Websites, Virtual Machines, Virtual Networks, Storage, and so on.  
 
 > [AZURE.NOTE]
 To get started, first [install the Azure CLI](../xplat-cli-install.md) and [log on to use Azure resources associated with your account](../xplat-cli-connect.md).
 
 ## Scope of article
 
-This article provides syntax and options for commonly used Azure CLI commands in the asm mode. It is not a complete reference, and your CLI version may show some different commands or parameters. For current command syntax and options at the command line in asm mode, type `azure help` or, to display help for a specific command, `azure help [command]`. You'll also find CLI examples in the documentation for creating and managing specific Azure services.
+This article provides syntax and options for commonly used Azure CLI commands for the classic (Service Management) deployment model. It is not a complete reference, and your CLI version may show some different commands or parameters. For current command syntax and options at the command line in Service Management mode, type `azure help` or, to display help for a specific command, `azure help [command]`. You'll also find CLI examples in the documentation for creating and managing specific Azure services.
 
 Optional parameters are shown in square brackets (for example, [parameter]). All other parameters are required.
 
 In addition to command-specific optional parameters documented here, there are three optional parameters that can be used to display detailed output such as request options and status codes. The -v parameter provides verbose output, and the -vv parameter provides even more detailed verbose output. The --json option will output the result in raw json format.
 
-## Setting the asm mode
+## Setting the Service Management mode
 
 Currently the Service Management mode is enabled by default when you first install the CLI. If you need to, use the following command to enable Azure CLI Service Management commands.
 
