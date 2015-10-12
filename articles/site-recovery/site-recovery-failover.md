@@ -128,6 +128,19 @@ You’ll need to do a number of things to run a test failover, including making 
 	- **VM network configured with no isolation or VLAN isolation**—If DHCP is defined for the VM network, the replica virtual machine will be connected to the VLAN ID using the settings that are specified for the network site in the associated logical network. The virtual machine will receive its IP address from the available DHCP server. You don't need a static IP address pool defined for the target VM network. If a static IP address pool is used for the VM network the replica virtual machine will be connected to the VLAN ID using the settings that are specified for the network site in the associated logical network. The virtual machine will receive its IP address from the pool defined for the VM network. If a static IP address pool isn't defined on the target VM network, IP address allocation will fail. The IP address pool should be created on both the source and target VMM servers that you are going to use for protection and recovery.
 	- **VM network with Windows network virtualization**—If a VM network is configured with this setting a static pool should be defined for the target VM network, regardless of whether the source VM network is configured to use DHCP or a static IP address pool. If you define DHCP, the target VMM server will act as a DHCP server and provide an IP address from the pool that is defined for the target VM network. If use of a static IP address pool is defined for the source server, the target VMM server will allocate an IP address from the pool. In both cases, IP address allocation will fail if a static IP address pool is not defined.
 
+#### Run test
+
+This procedure describes how to run a test failover for a recovery plan. Alternatively you can run the failover for a single virtual machine or physical server on the **Virtual Machines** tab.
+
+1. Select **Recovery Plans** > *recoveryplan_name*. Click **Failover** > **Test Failover**.
+2. On the **Confirm Test Failover** page, specify how virtual machines should be connected to networks after the test failover.
+3. Track failover progress on the **Jobs** tab. When the failover reaches the** Complete testing** phase, click **Complete Test** to finish up the test failover.
+4. Click **Notes** to record and save any observations associated with the test failover.
+4. After it's complete verify that the virtual machines start successfully.
+5. After verifying that virtual machines start successfully, complete the test failover to clean up the isolated environment. If you chose to automatically create VM networks, cleanup deletes all the test virtual machines and test networks.
+
+> [AZURE.NOTE] If a test failover continues for more than two weeks it'll be completed by force. Any elements or virtual machines created automatically during the test failover will be deleted.
+
 
 #### Prepare DHCP
 
@@ -156,18 +169,6 @@ Prepare a DNS server for the test failover as follows:
 	    Set-DnsServerResourceRecord -zonename $zone -OldInputObject $record -NewInputObject $Newrecord
 
 
-#### Run test
-
-This procedure describes how to run a test failover for a recovery plan. Alternatively you can run the failover for a single virtual machine or physical server on the **Virtual Machines** tab.
-
-1. Select **Recovery Plans** > *recoveryplan_name*. Click **Failover** > **Test Failover**.
-2. On the **Confirm Test Failover** page, specify how virtual machines should be connected to networks after the test failover.
-3. Track failover progress on the **Jobs** tab. When the failover reaches the** Complete testing** phase, click **Complete Test** to finish up the test failover.
-4. Click **Notes** to record and save any observations associated with the test failover.
-4. After it's complete verify that the virtual machines start successfully.
-5. After verifying that virtual machines start successfully, complete the test failover to clean up the isolated environment. If you chose to automatically create VM networks, cleanup deletes all the test virtual machines and test networks.
-
-Note that if a test failover continues for more than two weeks it’s completed by force and any elements or virtual machines created automatically during the test failover are deleted.  
 
 ## Run a planned failover (primary to secondary)
 
