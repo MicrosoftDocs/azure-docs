@@ -60,7 +60,7 @@ Next, switch to the Azure Resource Manager mode.
 
 ## 2. Create a virtual network and a gateway subnet
 
-- If you already have a virtual network with a gateway subnet, you can jump ahead to [Step 3 - Add your local site](#3.-add-your-local-site). 
+- If you already have a virtual network with a gateway subnet, you can jump ahead to **Step 3 - Add your local site**. 
 - If you already have a virtual network and you want to add a gateway subnet to your VNet, see [Add a gateway subnet to a VNet](#gatewaysubnet).
 
 ### To create a virtual network and a gateway subnet

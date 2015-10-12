@@ -201,22 +201,6 @@ When creating connections, note that they do take some time to complete.
 
 After a few minutes, the connection should be established. Note that at this time, gateways and connections created with Azure Resource Manager are not visible in the Preview Portal. 
 
-## Connecting existing VNets
-
-If you already have created virtual networks in Azure Resource Manager mode and you want to connect them, verify the following:
-
-- You have a gateway subnet of at least /29 or larger for each VNet.
-- The address ranges for your virtual networks do not overlap.
-
-If you need to add gateway subnets to your VNets, use the sample below, replacing the values with your own. Be sure to name the gateway subnet 'GatewaySubnet'. If you name it something else, your VPN configuration will not work as expected. 
-
-	
-		$vnet = Get-AzureVirtualNetwork -ResourceGroupName testrg -Name testvnet
-		Add-AzureVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.0.3.0/28 -VirtualNetwork $vnet
-		Set-AzureVirtualNetwork -VirtualNetwork $vnet
-
-After verifying that your gateway subnets are configured correctly, continue with **Step 4 - Request a public IP address** and follow the steps.
-
 ## Verifying connections
 
 At this time, the VPN connections created with Resource Manager are not visible in the Preview Portal. However, it's possible to verify that your connection succeeded by using *Get-AzureVirtualNetworkGatewayConnection –Debug*. In the future, we'll have a cmdlet for this, as well as the ability to view your connection in the Preview Portal.
@@ -248,6 +232,23 @@ You can use the following cmdlet example, configuring the values to match your o
 	    "egressBytesTransferred": 4142451
 	  }
 	} 
+
+## Connecting existing VNets
+
+If you already have created virtual networks in Azure Resource Manager mode and you want to connect them, verify the following:
+
+- You have a gateway subnet of at least /29 or larger for each VNet.
+- The address ranges for your virtual networks do not overlap.
+
+If you need to add gateway subnets to your VNets, use the sample below, replacing the values with your own. Be sure to name the gateway subnet 'GatewaySubnet'. If you name it something else, your VPN configuration will not work as expected. 
+
+	
+		$vnet = Get-AzureVirtualNetwork -ResourceGroupName testrg -Name testvnet
+		Add-AzureVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.0.3.0/28 -VirtualNetwork $vnet
+		Set-AzureVirtualNetwork -VirtualNetwork $vnet
+
+After verifying that your gateway subnets are configured correctly, continue with **Step 4 - Request a public IP address** and follow the steps.
+
 
 ## Next steps
 
