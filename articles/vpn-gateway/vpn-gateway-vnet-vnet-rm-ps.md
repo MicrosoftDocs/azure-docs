@@ -254,4 +254,4 @@ After verifying that your gateway subnets are configured correctly, continue wit
 
 You can add virtual machines to your virtual networks. [Create a Virtual Machine](../virtual-machines/virtual-machines-windows-tutorial.md).
 
-For more information about VPN Gateways, see the [VPN Gateway FAQ](vpn-gateway-faq.md)
+For more information about VPN Gateways, see the [VPN Gateway FAQ](vpn-gateway-faq.md).
