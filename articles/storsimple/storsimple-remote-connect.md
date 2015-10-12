@@ -234,7 +234,7 @@ Use Windows PowerShell and SSL to enter an SSAdmin session on your device from a
 
 Perform the following procedure on the computer from which you want to make the remote Windows PowerShell connection.
 
-### To enter an SSAdmin session on the device by using Windows PowerShell and SSL
+#### To enter an SSAdmin session on the device by using Windows PowerShell and SSL
 
 1. Start a Windows PowerShell session as an administrator.
 
