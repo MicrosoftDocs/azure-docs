@@ -1,6 +1,6 @@
 <properties 
     pageTitle="I can rely on Azure AD to enable single sign-on (SSO) to all of my applications | Microsoft Azure" 
-    description="Learn how Azure Active Directory helps you to extend the sope of an identity and the management og them." 
+    description="Learn how Azure Active Directory helps you to extend the scope of an identity and the management of them." 
     services="active-directory" 
     authors="markusvi"  
     documentationCenter="na" 
@@ -16,7 +16,7 @@
     ms.author="markvi" />
 
 
-#I can rely on Azure AD to enable single sign-on (SSO) to all of my applications
+# I can rely on Azure AD to enable single sign-on (SSO) to all of my applications
 This article is intended for IT decision makes that want to learn about the business value Azure Active Directory provides for applications your organization is using. 
 
 ## Running apps in a cloud-based environment  
@@ -49,7 +49,7 @@ What about apps developed by your organization? We provide you with the related 
 
 Providing you with support for the pre-integrated apps, public apps that are not in the app gallery and the apps your organization has developed, Azure Active Directory enables to provide SSO for all your cloud apps.
 
-The value of Azure Active Directory goes beyond “*just*” cloud apps. With Azure Active Directory, you can also extend the reach of Azure identities by providing secure remote access to on-premises apps via SSO. This means, remote access that doesn’t require technologies such as VPNs or other traditional remote access infrastructures to access on-premises web apps. Azure Active Directory offers this functionality through app proxy capabilities. 
+The value of Azure Active Directory goes beyond “just” cloud apps. With Azure Active Directory, you can also extend the reach of Azure identities by providing secure remote access to on-premises apps via SSO. This means, remote access that doesn’t require technologies such as VPNs or other traditional remote access infrastructures to access on-premises web apps. Azure Active Directory offers this functionality through app proxy capabilities. 
 
 The traditional SSO model is a based on a mapping of two individual accounts in two identity repositories. With Azure Active Directory, you can even map an individual account with a shared corporate account such as your corporate Twitter account. By implementing SSO for your corporate shared accounts, there is no need to actually share the account credentials with your users, which significantly improves the protection of these accounts.
 I you want to know more about this, see [Sharing accounts with Azure AD](active-directory-sharing-accounts.md)
@@ -62,7 +62,7 @@ By extending the reach of your identities, one password provides you with access
 
 Managing access to your cloud apps is expensive if you have to do this manually on a per app basis. With Azure Active Directory, you can manage the access to your cloud apps based on groups from a central point - the Azure portal. You can assign access to individual users or even to groups. For more details, see [Managing access to apps](active-directory-managing-access-to-apps.md).
 
-Some app’s such as Salesforce, Box, Google Apps and Concur provide automation interfaces for creation and removal (or deactivation) of accounts. If a provider offers such an interface, it is leveraged by Azure Active Directory. In other words, Azure Active Directory provides support for automated user provisioning for apps that offer a related automation interface. 
+Some apps such as Salesforce, Box, Google Apps and Concur provide automation interfaces for creation and removal (or deactivation) of accounts. If a provider offers such an interface, it is leveraged by Azure Active Directory. In other words, Azure Active Directory provides support for automated user provisioning for apps that offer a related automation interface. 
 
 With automated user provisioning:
 
