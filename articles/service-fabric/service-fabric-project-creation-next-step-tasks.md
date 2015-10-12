@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="10/7/2015"
+   ms.date="10/12/2015"
    ms.author="seanmck"/>
 
 # Service Fabric Development Tasks
