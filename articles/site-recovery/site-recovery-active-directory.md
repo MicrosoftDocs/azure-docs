@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery" 
-	ms.date="10/06/2015" 
+	ms.date="10/12/2015" 
 	ms.author="pratshar"/>
 
 #Automated DR solution for Active Directory and DNS using ASR
@@ -78,7 +78,7 @@ Test Failover is done in a network that is isolated from production network so t
 
 1. Enable protection on the domain controller/DNS virtual machine as you do for any other virtual machine.
 2. Create an isolated network. Any virtual network created in Azure by default is isolated from other network. It is recommended that IP range for this network is same as that of your production network. Don't enable site to site connectivity on this network.
-3. Provide DNS IP in the network created in the step above as the IP that you expect the DNS VM to get. If you are using Azure as the DR site then you can provide the IP for the VM that will be used on failover in 'Target IP' setting in VM properties. If your DR site is on-premises and you are using DHCP then follow the instruction given here to [setup DNS and DHCP for test failover](site-recovery-failover.md#run-a-test-failover) 
+3. Provide DNS IP in the network created in the step above as the IP that you expect the DNS VM to get. If you are using Azure as the DR site then you can provide the IP for the VM that will be used on failover in 'Target IP' setting in VM properties. If your DR site is on-premises and you are using DHCP then follow the instruction given here to [setup DNS and DHCP for test failover](site-recovery-failover.md#prepare-dhcp) 
 
 >[AZURE.NOTE] The IP given to a virtual machine on a Test Failover is same as the IP it would get on doing a planned or unplanned failover given that this IP is available in the Test Failover network. If the same IP is not available in the test failover network, virutal machine will get some other IP available in the test failover network.
 
