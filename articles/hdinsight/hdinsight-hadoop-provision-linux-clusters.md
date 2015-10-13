@@ -30,6 +30,8 @@ In this document, you will learn about the different ways to create a Linux-base
 
 A Hadoop cluster consists of several virtual machines (nodes,) which are used for distributed processing of tasks on the cluster. Azure abstracts the implementation details of installation and configuration of individual nodes, so you only have to provide general configuration information.
 
+###Cluster types
+
 There are several types of HDInsight available:
 
 | Cluster type | Use this if you need... |
@@ -41,7 +43,40 @@ There are several types of HDInsight available:
 
 During configuration, you will select one of these types for the cluster. You can add other technologies such as Hue, Spark, or R to these basic types by using [Script Actions](#scriptaction).
 
-HDInsight uses Azure Blob storage as the data store for your cluster. This allows you to delete clusters when they aren't in use, and still preserve your data. You can then use the same storage account for a new cluster if you need to do more analysis. For more information, see [Use Azure Blob storage with HDInsight](../hdinsight-use-blob-storage.md).
+Each cluster type has its own terminology for nodes within the cluster, as well as the number of nodes:
+
+![HDInsight Hadoop cluster nodes](./media/hdinsight-provision-clusters/HDInsight.Hadoop.roles.png)
+
+Hadoop clusters for HDInsight are deployed with two nodes:
+
+- Head node (2 nodes)
+- Data node (at least 1 node)
+
+![HDInsight HBase cluster nodes](./media/hdinsight-provision-clusters/HDInsight.HBase.roles.png)
+
+HBase clusters for HDInsight are deployed with three nodes:
+- Head servers (2 nodes)
+- Region servers (at least 1 node)
+- Master/Zookeeper nodes (3 nodes)
+
+![HDInsight Storm cluster nodes](./media/hdinsight-provision-clusters/HDInsight.Storm.roles.png)
+
+Storm clusters for HDInsight are deployed with three node types:
+- Nimbus nodes (2 nodes)
+- Supervisor servers (at least 1 node)
+- Zookeeper nodes (3 nodes)
+
+
+![HDInsight Spark cluster nodes](./media/hdinsight-provision-clusters/HDInsight.Spark.roles.png)
+
+Spark clusters for HDInsight are deployed with three node types:
+- Head node (2 nodes)
+- Worker node (at least 1 node)
+- Zookeeper nodes (3 nodes) (Free for A1 Zookeepers)
+
+###Azure Storage for HDInsight
+
+Each cluster type will also have one or more Azure Storage accounts associated with the cluster. HDInsight uses Azure blobs from these storage accounts as the data store for your cluster. Keeping the data separate from the cluster allows you to delete clusters when they aren't in use, and still preserve your data. You can then use the same storage account for a new cluster if you need to do more analysis. For more information, see [Use Azure Blob storage with HDInsight](../hdinsight-use-blob-storage.md).
 
 ## <a id="configuration"></a>Basic configuration optionshttps://github.com/Blackmist/linkcheckmd
 
