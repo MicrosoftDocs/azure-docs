@@ -19,7 +19,7 @@
 
 #Get started with the DocumentDB .NET SDK  
 
-[AZURE.SELECTOR]
+> [AZURE.SELECTOR]
 - [.NET](documentdb-get-started.md)
 - [Node.js](documentdb-nodejs-get-started.md)
 
