@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="mahesh-unnikrishnan"
 	manager="udayh"
-	editor="femila"/>
+	editor="inhenk"/>
 
 <tags
 	ms.service="active-directory-ds"
@@ -21,7 +21,7 @@
 ## Features
 The following features are available in the Azure AD Domain Services preview release.
 
-- **Simple deployment experience:** You can enable Azure AD Domain Services for your Azure AD tenant using just a few clicks. Regardless of whether your Azure AD tenant is a cloud-tenant or synchronized with your on-premises directory, your domain can be up and running quickly.
+- **Simple deployment experience:** You can enable Azure AD Domain Services for your Azure AD tenant using just a few clicks. Regardless of whether your Azure AD tenant is a cloud-tenant or synchronized with your on-premises directory, your managed domain can be provisioned quickly.
 
 - **Support for domain-join:** You can easily domain join computers in the Azure virtual network that Azure AD Domain Services is available in. The domain join experience on Windows client and Server operating systems works seamlessly against domains serviced by Azure AD Domain Services. You can also use automated domain join tooling against such domains.
 

@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="mahesh-unnikrishnan"
 	manager="udayh"
-	editor="femila"/>
+	editor="inhenk"/>
 
 <tags
 	ms.service="active-directory-ds"
