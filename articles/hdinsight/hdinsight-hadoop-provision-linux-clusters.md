@@ -26,7 +26,24 @@ In this document, you will learn about the different ways to create a Linux-base
 
 > [AZURE.NOTE] This document provides instructions on the different ways to create a cluster. If you are looking for a quick-start approach to create a cluster, see [Get Started with Azure HDInsight on Linux](../hdinsight-hadoop-linux-get-started.md).
 
-## <a id="configuration"></a>Basic configuration
+## What is an HDInsight cluster?
+
+A Hadoop cluster consists of several virtual machines (nodes,) which are used for distributed processing of tasks on the cluster. Azure abstracts the implementation details of installation and configuration of individual nodes, so you only have to provide general configuration information.
+
+There are several types of HDInsight available:
+
+| Cluster type | Use this if you need... |
+| ------------ | ----------------------------- |
+| Hadoop       | query and analysis (batch jobs)     |
+| HBase        | NoSQL data storage            |
+| Storm        | Real-time event processing |
+| Spark (Windows-only preview) | In-memory processing, interactive queries, micro-batch stream processing |
+
+During configuration, you will select one of these types for the cluster. You can add other technologies such as Hue, Spark, or R to these basic types by using [Script Actions](#scriptaction).
+
+HDInsight uses Azure Blob storage as the data store for your cluster. This allows you to delete clusters when they aren't in use, and still preserve your data. You can then use the same storage account for a new cluster if you need to do more analysis. For more information, see [Use Azure Blob storage with HDInsight](../hdinsight-use-blob-storage.md).
+
+## <a id="configuration"></a>Basic configuration optionshttps://github.com/Blackmist/linkcheckmd
 
 The following sections describe the required configuration options available when creating an HDInsight cluster.
 
@@ -36,8 +53,8 @@ The cluster name provides a unique identifier for the cluster, and is used as pa
 
 The cluster name must follow the following guidelines:
 
-    - The field must be a string that contains between 3 and 63 characters
-    - The field can contain only letters, numbers, and hyphens.
+    - The field must contain a string that is between 3 and 63 characters
+    - The field can contain only letters, numbers, and hyphens
 
 ###Cluster type
 
@@ -48,9 +65,9 @@ Cluster type allows you to select special purpose configurations for the cluster
 | Hadoop       | query and analysis (batch jobs)     |
 | HBase        | NoSQL data storage            |
 | Storm        | Real-time event processing |
-| Spark (Windows-only preview currently) | In-memory processing, interactive queries, micro-batch stream processing |
+| Spark (Windows-only preview) | In-memory processing, interactive queries, micro-batch stream processing |
 
-Other technologies such as Hue, Spark, or R can be added to these basic types through the use of [Script Actions](#scriptaction).
+You can add other technologies such as Hue, Spark, or R to these basic types by using [Script Actions](#scriptaction).
 
 ###Cluster operating system
 
@@ -99,9 +116,9 @@ When creating a new cluster, you must either create a new Azure Storage Account,
 
 ####Default storage container
 
-HDInsight will also create a _default storage container_ on the storage account. This is used as the default storage for the HDInsight cluster. 
+HDInsight will also create a _default storage container_ on the storage account. This is the default storage for the HDInsight cluster. 
 
-By default, this container is named the same as the cluster. For more information on how HDInsight works with Azure Blob Storage, see [Use HDFS-compatible Azure Blob storage with Hadoop in HDInsight](hdinsight-hadoop-use-blob-storage.md).
+By default, this container has the same name as the cluster. For more information on how HDInsight works with Azure Blob Storage, see [Use HDFS-compatible Azure Blob storage with Hadoop in HDInsight](hdinsight-hadoop-use-blob-storage.md).
 
 >[AZURE.WARNING] Don't share one container for multiple clusters. This is not supported.
 
