@@ -20,6 +20,10 @@
 
 # Data Science Virtual machines in Azure
 
+This menu links to topics that describe how to set up the various data science environments used by the Cortana Analytics Process (CAPS).
+
+[AZURE.INCLUDE [data-science-environment-setup](../../includes/cap-setup-environments.md)]
+
 Several types of Azure virtual machines can be provisioned and configured to be used as part of a cloud-based data science environment. The decision about which flavor of virtual machine to use depends on the type and quantity of data to be modeled with machine learning, and the target destination for that data in the cloud. 
 
 
