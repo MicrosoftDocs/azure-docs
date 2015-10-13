@@ -20,9 +20,9 @@
 
 # Import your training data into Azure Machine Learning Studio from various data sources
 
-[AZURE.INCLUDE [cap-ingest-data-selector](../../includes/cap-ingest-data-selector.md)]
+This **menu** links to topics that describe how to ingest data into target environments where the data can be stored and processed during the Cortana Analytics Process (CAPS).
 
-This **menu** links to topics that describe how to ingest data into target environments in which the data can be stored and processed during the Cortana Analytics Process (CAPS).
+[AZURE.INCLUDE [cap-ingest-data-selector](../../includes/cap-ingest-data-selector.md)]
 
 
 ## Introduction

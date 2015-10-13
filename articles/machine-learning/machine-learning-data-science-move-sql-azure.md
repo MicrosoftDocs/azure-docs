@@ -20,9 +20,9 @@
 
 # Move data to an Azure SQL Database for Azure Machine Learning
 
-[AZURE.INCLUDE [cap-ingest-data-selector](../../includes/cap-ingest-data-selector.md)]
+This **menu** links to topics that describe how to ingest data into target environments where the data can be stored and processed during the Cortana Analytics Process (CAPS).
 
-This **menu** links to topics that describe how to ingest data into target environments in which the data can be stored and processed during the Cortana Analytics Process (CAPS).
+[AZURE.INCLUDE [cap-ingest-data-selector](../../includes/cap-ingest-data-selector.md)]
 
 ## Introduction
 **In this topic** we outline the options for moving data either from flat files (CSV or TSV formats) or from data stored in an on-premise SQL Server to an Azure SQL database. These tasks for moving data to the cloud are part of the Cortana Analytics Process provided by Azure.
