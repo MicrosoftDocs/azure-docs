@@ -344,18 +344,20 @@ For the environments that are not managed by a VMM Server, Azure Automation Runb
 
 If you're using AlwaysOn availability groups, you can't do a test failover of the SQL Server tier. Consider these options as an alternative:
 
-- Option 1
+###Option 1
 
-	1. Perform a test failover of the application and front-end tiers.
-	2. Update the application tier to access the replica copy in read-only mode, and perform a read-only test of the application.
 
-- Option 2
+
+1. Perform a test failover of the application and front-end tiers.
+
+2. Update the application tier to access the replica copy in read-only mode, and perform a read-only test of the application.
+
+###Option 2
+
 1.	Create a copy of the replica SQL Server virtual machine instance (using VMM clone for site-to-site or Azure Backup) and bring it up in a test network
 2.	Perform the test failover using the recovery plan.
 
-## Failback considerations
 
-For SQL standard clusters, failback after an unplanned failover will require a SQL Server backup and restore from the mirror instance to the original cluster, and then reestablishing the mirror.
 
 
 
