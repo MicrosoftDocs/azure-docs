@@ -2,7 +2,6 @@
 	pageTitle="Move data to SQL Server on an Azure virtual machine| Azure" 
 	description="Move data from flat files or from an on-premises SQL Server to SQL Server on Azure VM." 
 	services="machine-learning" 
-	solutions="" 
 	documentationCenter="" 
 	authors="bradsev" 
 	manager="paulettm" 

@@ -3,7 +3,6 @@
 	description="Create SQL Table and load data to SQL Table" 
 	metaKeywords="" 
 	services="machine-learning" 
-	solutions="" 
 	documentationCenter="" 
 	authors="fashah" 
 	manager="jacob.spoelstra" 
