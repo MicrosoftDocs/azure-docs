@@ -31,7 +31,7 @@ There are three upgrade modes: *Monitored*, *UnmonitoredAuto*, and *Manual*.
 
   - When you do a *Manual* upgrade, you need to manually move the upgrade to the next upgrade domain.
 
-Each upgrade mode requires different sets of parameters. See [Service Fabric Application Upgrade: Advanced Topics](service-fabric-application-upgrade-advanced.md) to learn more about the available upgrade options.
+Each upgrade mode requires different sets of parameters. See [Application Upgrade Parameters](service-fabric-application-upgrade-parameters.md) to learn more about the available upgrade options.
 
 ## Upgrade a Service Fabric application in Visual Studio
 
@@ -39,11 +39,9 @@ If you’re using the Visual Studio Service Fabric tools to upgrade a Service Fa
 
 ### To configure the upgrade parameters
 
-1. Click the **Settings** button next to the checkbox. The **Edit Upgrade Parameters** dialog appears.
+1. Click the **Settings** button next to the checkbox. The **Edit Upgrade Parameters** dialog appears. The **Edit Upgrade Parameters** dialog supports the *Monitored*, *UnmonitoredAuto* and *UnmonitoredManual* upgrade modes.
 
-  The **Edit Upgrade Parameters** dialog supports the *UnmonitoredAuto* and *Monitored* upgrade modes.
-
-1. Select the upgrade mode you want to use and then fill out the parameter grid.
+2. Select the upgrade mode you want to use and then fill out the parameter grid.
 
     Each parameter has default values. The *DefaultServiceTypeHealthPolicy* parameter needs a hash table input. Here’s an example of the hash table input format for *DefaultServiceTypeHealthPolicy*:
 
@@ -56,6 +54,7 @@ If you’re using the Visual Studio Service Fabric tools to upgrade a Service Fa
     Here's a real-life example:
 
     `@{ "ServiceTypeName01" = "5,10,5"; "ServiceTypeName02" = "5,5,5" }`
+3. If you select *UnmonitoredManual* upgrade mode, you will have to manually start a PowerShell console to continue and finish the upgrade process. Please refer to [Service Fabric Application Upgrade: Advanced Topics](service-fabric-application-upgrade-advanced.md) to learn how manual upgrade works
 
 ## Upgrade an application using PowerShell
 
