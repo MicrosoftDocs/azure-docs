@@ -13,7 +13,7 @@
   ms.topic="article"
   ms.tgt_pltfrm="na"
   ms.workload="data-services"
-  ms.date="10/07/2015"
+  ms.date="10/12/2015"
   ms.author="andrl"/>
 
 # Community portal
@@ -87,7 +87,6 @@ You can stay up-to-date with the latest DocumentDB news and features by followin
 
 | Event Name                                                                      | Location             | Date                | Hashtag |
 | ------------------------------------------------------------------------------- | -------------------- | ------------------- | ------- |
-| [SQL Saturday #430 - Sofia 2015](http://www.sqlsaturday.com/430/eventhome.aspx) | Sofia, Bulgaria      | October 10, 2015    | [#sqlsatsofia](https://twitter.com/hashtag/sqlsatsofia) |
 | [CloudDevelop 2015](http://www.clouddevelop.org/)                               | Columbus, OH         | October 23, 2015    | [#CloudDevConf](https://twitter.com/hashtag/CloudDevConf) |
 | [PASS Summit 2015](http://www.sqlpass.org/summit/2015/Home.asp)                 | Seattle, WA          | October 27-30, 2015 | [#Summit15](https://twitter.com/hashtag/Summit15) |
 | [Integration User Group](http://www.integrationusergroup.com/)                  | Webinar              | November 9, 2015    | [#IntegrationMonday](https://twitter.com/hashtag/integrationmonday) |
@@ -99,6 +98,7 @@ You can stay up-to-date with the latest DocumentDB news and features by followin
 
 | Event Name                                                                                                                 | Location             | Date                   | Recording |
 | -------------------------------------------------------------------------------------------------------------------------- | -------------------- | ---------------------- | --------- |
+| [SQL Saturday #430 - Sofia 2015](http://www.sqlsaturday.com/430/eventhome.aspx)                                            | Sofia, Bulgaria      | October 10, 2015       | n/a |
 | [SQL Saturday #429 - Oporto 2015](http://www.sqlsaturday.com/429/eventhome.aspx)                                           | Oporto, Portugal     | October 3, 2015        | n/a |
 | [AzureCon](https://azure.microsoft.com/azurecon/)                                                                          | Virtual Event        | September 29, 2015     | [Azure data and analytics platform](https://channel9.msdn.com/events/Microsoft-Azure/AzureCon-2015/ACON207)<br/>[Working with NoSQL Data in DocumentDB](https://channel9.msdn.com/Events/Microsoft-Azure/AzureCon-2015/ACON338) |
 | [SQL Saturday #434 - Holland 2015](http://www.sqlsaturday.com/434/eventhome.aspx)                                          | Utrecht, Netherlands | September 26, 2015     | n/a |
