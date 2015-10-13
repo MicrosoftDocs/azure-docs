@@ -208,7 +208,7 @@ In this section, you will create a Scala application that counts the number of l
 6. Use the following command to run the SimpleApp.scala program:
 
 
-		/usr/hdp/current/spark/bin/spark-submit --class "SimpleApp" --master local target/scala-2.10/simpleapp_2.10-1.0.jar
+		/usr/hdp/current/spark/bin/spark-submit --class "SimpleApp" --master yarn target/scala-2.10/simpleapp_2.10-1.0.jar
 
 4. When the program finishes running, the output is displayed on the console.
 
