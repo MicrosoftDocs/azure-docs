@@ -20,7 +20,7 @@
 
 The Service Fabric SDK includes a full local development environment and enables you to quickly get started with deploying and managing appliactions on a local cluster. In this article, you will create a local cluster, deploy an existing application to it, and then upgrade that application to a new version, all from Windows PowerShell.
 
->[AZURE.NOTE] This article assumes that you already [set up your development environment][service-fabric-get-started.md].
+>[AZURE.NOTE] This article assumes that you already [set up your development environment](service-fabric-get-started.md).
 
 ## Create a local cluster
 
