@@ -1,10 +1,10 @@
 <properties
-   pageTitle="Microsoft Azure AD Connect - Upgrade from Windows Azure AD sync tool (DirSync)"
+   pageTitle="Microsoft Azure AD Connect - Upgrade from Windows Azure AD sync tool (DirSync) | Microsoft Azure"
    description="Learn how to upgrade from DirSync to Azure AD Connect.  This articles describes the steps for upgrading your current Windows Azure AD sync tool (DirSync) to Azure AD Connect."
    services="active-directory"
    documentationCenter=""
    authors="shoatman"
-   manager="terrylanfear"
+   manager="stevenpo"
    editor="billmath"/>
 
 <tags

@@ -1,5 +1,5 @@
-<properties 
-	pageTitle="Why we require an enterprise administrator account"
+<properties
+	pageTitle="Why we require an enterprise administrator account | Microsoft Azure"
 	description="Custom settings description."
 	services="active-directory"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/24/2015"
+	ms.date="10/13/2015"
 	ms.author="billmath"/>
 
 # Why we require an enterprise administrator account for connecting to AD DS when setting up Azure AD Connect

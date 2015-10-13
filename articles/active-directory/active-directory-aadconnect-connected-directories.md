@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Connect your directories with Azure AD Connect"
+	pageTitle="Connect your directories with Azure AD Connect | Microsoft Azure"
 	description="Custom settings description of Azure AD Connect connected directories."
 	services="active-directory"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/24/2015"
+	ms.date="10/13/2015"
 	ms.author="billmath"/>
 
 

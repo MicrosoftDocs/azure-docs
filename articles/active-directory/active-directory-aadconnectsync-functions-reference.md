@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Azure AD Connect Sync: Functions Reference"
+	pageTitle="Azure AD Connect sync: Functions Reference | Microsoft Azure"
 	description="Reference of declarative provisioning expressions in Azure AD Connect Sync."
 	services="active-directory"
 	documentationCenter=""
 	authors="markusvi"
-	manager="swadhwa"
+	manager="StevenPo"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/27/2015"
+	ms.date="10/13/2015"
 	ms.author="markusvi"/>
 
 

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Best practices for changing the default configuration | Microsoft Azure"
+	pageTitle="Best practices for changing the default configuration | Microsoft Azure | Microsoft Azure"
 	description="Provides best practices for changing the default configuration of Azure AD Connect sync."
 	services="active-directory"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/29/2015"
+	ms.date="10/13/2015"
 	ms.author="markusvi;andkjell"/>
 
 

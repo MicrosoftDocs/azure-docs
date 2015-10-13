@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="10/06/2015"
+   ms.date="10/13/2015"
    ms.author="andkjell;billmath"/>
 
 # More details about features in preview

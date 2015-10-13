@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/01/2015"
+	ms.date="10/13/2015"
 	ms.author="billmath;andkjell"/>
 
 # Custom installation of Azure AD Connect
@@ -22,7 +22,7 @@
 The following documentation provides information on using the custom installation option for Azure AD Connect.  You can use this option if you have additional configuration options or need optional features that are not covered in the express installation.
 
 ## Related documentation
-If you did not read the documentation on [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md), the following table provides links to related topics. The fist three topics in bold are required before you start the installation.
+If you did not read the documentation on [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md), the following table provides links to related topics. The first three topics in bold are required before you start the installation.
 
 | Topic |  |
 | --------- | --------- |
@@ -45,7 +45,7 @@ When you install the synchronization services, you can leave the optional config
 
 Optional Configuration  | Description
 ------------- | ------------- |
-SQL Server Name | Allows you to specify the SQL Server name and the instance name.  Choose this option if you already have an database server that you would like to use.
+SQL Server Name | Allows you to specify the SQL Server name and the instance name.  Choose this option if you already have a database server that you would like to use.
 Service Account | By default Azure AD Connect will create a local service account for the synchronization services to use. The password is generated automatically and unknown to the person installing Azure AD Connect. If you use a remote SQL server you need a service account in the domain and know the password. In those cases, enter the service account to use. |
 Permissions | By default Azure AD Connect will create four groups local to the server when the synchronization services are installed.  These groups are: Administrators group, Operators group, Browse group, and the Password Reset Group.  If you wish to specify your own groups you can do so here. The groups must be local on the server and cannot be located in the domain. |
 
@@ -59,7 +59,7 @@ After installing the required components you will be asked to specify how the si
 
 Single Sign On option | Description
 ------------- | ------------- |
-Password Sync |Users will be able to sign into Microsoft cloud services, such as Office 365, Dynamics CRM, and Windows InTune, using the same password as they use when logging into their on-premises network.  The users password is synchronized to Azure via a password hash and authentication occurs in the cloud. See [Password synchronization](active-directory-aadconnectsync-implement-password-synchronization.md) for more information.
+Password Sync |Users will be able to sign into Microsoft cloud services, such as Office 365, Dynamics CRM, and Windows InTune, using the same password as they use when logging into their on-premises network.  The user's password is synchronized to Azure via a password hash and authentication occurs in the cloud. See [Password synchronization](active-directory-aadconnectsync-implement-password-synchronization.md) for more information.
 Federation with AD FS|Users will be able to sign into Microsoft cloud services, such as Office 365, Dynamics CRM, and Windows InTune, using the same password as they use when logging into their on-premises network.  The users are redirected to their on-premises ad fs instance for signing in and authentication is done on-premises.
 Do not configure| Neither feature will be installed and configured.  Choose this option if you already have a 3rd party federation server or another existing solution in place.
 
@@ -97,7 +97,7 @@ My own attribute|This option allows you to select your own attribute.  **Limitat
 
 - **Source Anchor** - The attribute sourceAnchor is an attribute which is immutable during the lifetime of a user object. It is the primary key linking the on-premises user with the user in Azure AD. Since the attribute cannot be changed, you must plan for a good attribute to use. A good candidate is objectGUID. This attribute will not change unless the user account is moved between forests/domains. In a multi-forest environment where you move accounts between forests, another attribute must be used, such as an attribute with the employeeID. Attributes to avoid are those which would change if a person marries or change assignments. You cannot use attributes with an @-sign, so email and userPrincipalName cannot be used. The attribute is also case sensitive so if you move an object between forests, make sure to preserve the upper/lower case. For binary attributes the value is base64-encoded, but for other attribute types it will remain in its un-encoded state. In federation scenarios and some Azure AD interfaces this attribute is also known as immutableID. More information about the source anchor can be found in the [design concepts](active-directory-aadconnect-design-concepts.md#sourceAnchor).
 
-- **UserPrincipalName** - The attribute userPrincipalName is the attribute users will use when they login to Azure AD and Office 365. The domains used, also known as the UPN-suffix, should be verified in Azure AD before the users are synchronized. It is strongly recommended to keep the default attribute userPrincipalName. If this attribute is non-routable and cannot be verified then it is possible to select another attribute, for example email, as the attribute holding the login ID.  This is known as **Alternate ID**.  The Alternate ID attribute value must follow the RFC822 standard.  An Alternate ID can be used with both password sso and federation sso as the sign-in solution.
+- **UserPrincipalName** - The attribute userPrincipalName is the attribute users will use when they login to Azure AD and Office 365. The domains used, also known as the UPN-suffix, should be verified in Azure AD before the users are synchronized. It is strongly recommended to keep the default attribute userPrincipalName. If this attribute is non-routable and cannot be verified then it is possible to select another attribute, for example email, as the attribute holding the login ID.  This is known as **Alternate ID**.  The Alternate ID attribute value must follow the RFC822 standard.  An Alternate ID can be used with both password Single Sign-On (SSO) and federation SSO as the sign-in solution.
 
 >[AZURE.WARNING] Using an Alternate ID is not compatible with all Office 365 workloads.  For more information, please refer to [Configuring Alternate Login ID](https://technet.microsoft.com/library/dn659436.aspx.).
 
@@ -113,7 +113,7 @@ To use this feature, in the customized path you will see this page:
 
 ### Optional Features
 
-This screen allows you to select the optional features for your specific scenarios.  Below is a brief explanations of each of the individual features.
+This screen allows you to select the optional features for your specific scenarios.  Below are brief explanations of each of the individual features.
 
 ![Optional features](./media/active-directory-aadconnect-get-started-custom/optional.png)
 
@@ -153,7 +153,7 @@ Configuring AD FS with Azure AD Connect is simple with just a few clicks. The fo
 - An SSL certificate for the federation service name you intend to use (e.g. adfs.contoso.com)
 
 ### Create a new AD FS farm or use an existing AD FS farm
-You can use an exiting AD FS farm or you can choose to create a new AD FS farm. If you choose to create a new one, you will be required to provide the SSL certificate. If the SSL certificate is protected by a password, you will be prompted to provide the password.
+You can use an existing AD FS farm or you can choose to create a new AD FS farm. If you choose to create a new one, you will be required to provide the SSL certificate. If the SSL certificate is protected by a password, you will be prompted to provide the password.
 
 ![AD FS Farm](./media/active-directory-aadconnect-get-started-custom/adfs1.png)
 
@@ -211,7 +211,7 @@ The following additional tasks will need to be completed to finish the federatio
 
 - Set up DNS records for the AD FS federation service name (e.g. adfs.contoso.com) for both the intranet (your internal DNS server) and the extranet (public DNS through your domain registrar). For the intranet DNS record ensure that you use A records and not CNAME records. This is required for windows authentication to work correctly from your domain joined machine.
 - If you are deploying more than one AD FS server or Web Application Proxy server, ensure that you have configured your load balancer and that the DNS records for the AD FS federation service name (e.g. adfs.contoso.com) point to the load balancer.
-- For windows integrated authentication to work for browser applications using Internet Explorer in your intranet, ensure that the AD FS federation service name (e.g. adfs.contoso.com) is added to the intranet zone in IE. This can be controlled via group policy and deployed to all you domain joined computers.
+- For windows integrated authentication to work for browser applications using Internet Explorer in your intranet, ensure that the AD FS federation service name (e.g. adfs.contoso.com) is added to the intranet zone in IE. This can be controlled via group policy and deployed to all your domain joined computers.
 
 
 ### Optional configuration on your AD FS service

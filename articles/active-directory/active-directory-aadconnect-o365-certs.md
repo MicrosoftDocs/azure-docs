@@ -1,5 +1,5 @@
-<properties 
-	pageTitle="Certificate renewal guidance for Office 365 and Azure AD users."
+<properties
+	pageTitle="Certificate renewal guidance for Office 365 and Azure AD users. | Microsoft Azure"
 	description="This article explains to Office 365 users how to resolve issues with emails that notify them about renewing a certificate."
 	services="active-directory"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/24/2015"
+	ms.date="10/13/2015"
 	ms.author="billmath"/>
 
 

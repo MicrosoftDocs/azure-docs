@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="10/06/2015"
+   ms.date="10/13/2015"
    ms.author="andkjell;billmath"/>
 
 # Prerequisites for Azure AD Connect
@@ -83,7 +83,7 @@ Azure AD Connect depends on PowerShell and .Net 4.5.1. Depending on your Windows
 
 ## Azure AD Connect supporting components
 
-The following is a list components that Azure AD Connect will install on the server where Azure AD Connect is installed. This list is for a basic Express installation.  If you choose to use a different SQL Server on the Install synchronization services page then SQL Express LocalDB is not installed locally.
+The following is a list of components that Azure AD Connect will install on the server where Azure AD Connect is installed. This list is for a basic Express installation.  If you choose to use a different SQL Server on the Install synchronization services page then SQL Express LocalDB is not installed locally.
 
 - Microsoft SQL Server 2012 Command Line Utilities
 - Microsoft SQL Server 2012 Native Client

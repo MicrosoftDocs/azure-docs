@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Directory integration tools comparison"
+	pageTitle="Directory integration tools comparison | Microsoft Azure"
 	description="This is page will provide you with comprehensive tables that compare the various directory integration tools."
 	services="active-directory"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/24/2015"
+	ms.date="10/13/2015"
 	ms.author="billmath"/>
 
 # Directory integration tools comparison

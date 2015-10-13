@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Enabling device writeback in Azure AD Connect"
+	pageTitle="Enabling device writeback in Azure AD Connect | Microsoft Azure"
 	description="This document details how to enable device writeback using Azure AD Connect"
 	services="active-directory"
 	documentationCenter=""
 	authors="billmath"
-	manager="msStevenPo"
+	manager="StevenPo"
 	editor="curtand"/>
 
 <tags

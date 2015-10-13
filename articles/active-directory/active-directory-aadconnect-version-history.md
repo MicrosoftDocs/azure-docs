@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="08/24/2015"
+   ms.date="10/13/2015"
    ms.author="andkjell"/>
 
 # Azure AD Connect: Version Release History

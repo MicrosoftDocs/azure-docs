@@ -1,5 +1,5 @@
-<properties 
-	pageTitle="Azure AD Connect - User Sign In"
+<properties
+	pageTitle="Azure AD Connect - User Sign In | Microsoft Azure"
 	description="Azure AD Connect user sign in for custom settings."
 	services="active-directory"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/24/2015"
+	ms.date="10/13/2015"
 	ms.author="billmath"/>
 
 
