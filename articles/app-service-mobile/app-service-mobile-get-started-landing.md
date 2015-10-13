@@ -28,7 +28,7 @@ To get started, follow the tutorial for your client platform:
   * [Windows](../app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-preview.md)
   * [HTML](../app-service-mobile-dotnet-backend-html-get-started-preview.md)
 
-#Videos
+##Videos
 
 >[AZURE.VIDEO azure-app-service-mobile-apps-with-kirill-gavrylyuk]
 
