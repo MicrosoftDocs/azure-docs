@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="010/13/2015" 
+	ms.date="10/13/2015" 
 	ms.author="garye;bradsev"/>
 
 

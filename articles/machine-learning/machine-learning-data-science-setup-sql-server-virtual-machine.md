@@ -2,7 +2,7 @@
 	pageTitle="Set up a SQL Server virtual machine as an IPython Notebook server | Microsoft Azure"
 	description="Set up a Data Science Virtual Machine with SQL Server and IPython Server."
 	services="machine-learning"
-	solutions="" documentationCenter=""
+	documentationCenter=""
 	authors="bradsev" 
 	manager="paulettm"
 	editor="cgronlun" />

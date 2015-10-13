@@ -1,9 +1,7 @@
 <properties
 	pageTitle="Set up a virtual machine as an IPython Notebook server | Microsoft Azure"
 	description="Set up an Azure Virtual Machine for use in a data science environment with IPython Server for advanced analytics."
-	metaKeywords=""
 	services="machine-learning"
-	solutions="" 
 	documentationCenter=""
 	authors="bradsev"
 	manager="paulettm"

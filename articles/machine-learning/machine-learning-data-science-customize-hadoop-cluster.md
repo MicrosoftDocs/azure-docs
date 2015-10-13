@@ -2,7 +2,6 @@
 	pageTitle="Customize Hadoop clusters for Advanced Analytics Process and Technology | Microsoft Azure" 
 	description="Popular Python modules made available in custom Azure HDInsight Hadoop clusters."
 	services="machine-learning" 
-	solutions="" 
 	documentationCenter="" 
 	authors="hangzh-msft" 
 	manager="paulettm" 

@@ -1,9 +1,7 @@
 <properties
 	pageTitle="Data Science Virtual machines in Azure | Microsoft Azure"
-	description="Set up a Data Science Virtual Machinee"
-	metaKeywords=""
+	description="Set up a Data Science Virtual Machine"
 	services="machine-learning"
-	solutions=""
 	documentationCenter=""
 	authors="msolhab"
 	manager="paulettm" 
