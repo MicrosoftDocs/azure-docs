@@ -143,7 +143,7 @@ Use the following procedure twice, once for each SQL server, to allow remote des
 
 SQL Server requires a port that clients use to access the database server. It also needs ports to connect with the SQL Server Management Studio and to manage the high-availability group. Next, run the following command at an administrator-level Windows PowerShell command prompt twice, once for each SQL server, to add a firewall rule that allows inbound traffic to the SQL server.
 
-	New-NetFirewallRule -DisplayName "SQL Server ports 1433, 4234, and 5022" -Direction Inbound –Protocol TCP –LocalPort 1433,1434,5022 -Action Allow
+	New-NetFirewallRule -DisplayName "SQL Server ports 1433, 1434, and 5022" -Direction Inbound –Protocol TCP –LocalPort 1433,1434,5022 -Action Allow
 
 For each of the SQL server virtual machines, sign out as the local administrator.
 
