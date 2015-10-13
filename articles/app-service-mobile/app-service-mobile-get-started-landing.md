@@ -3,7 +3,7 @@
 	description="Follow this tutorial to get started with using Azure mobile app backends for iOS, Android, Windows, and Xamarin"
 	services="app-service\mobile"
 	documentationCenter="ios"
-	authors="dwrede"
+	authors="davidwrede"
 	editor=""/>
 
 <tags
@@ -21,12 +21,12 @@ Use App Service Mobile Apps to easily build native and cross-platform apps, secu
 
 To get started, follow the tutorial for your client platform:
 
-	* [iOS](../app-service-mobile-dotnet-backend-ios-get-started-preview.md)
-	* [Xamarin.iOS](../app-service-mobile-dotnet-backend-xamarin-ios-get-started-preview.md)
-	* [Xamarin.Android](../app-service-mobile-dotnet-backend-xamarin-android-get-started-preview.md)
-	* [Xamarin.Forms](../app-service-mobile-dotnet-backend-xamarin-forms-get-started-preview.md)
-	* [Windows](../app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-preview.md)
-	* [HTML](../app-service-mobile-dotnet-backend-html-get-started-preview.md)
+  * [iOS](../app-service-mobile-dotnet-backend-ios-get-started-preview.md)
+  * [Xamarin.iOS](../app-service-mobile-dotnet-backend-xamarin-ios-get-started-preview.md)
+  * [Xamarin.Android](../app-service-mobile-dotnet-backend-xamarin-android-get-started-preview.md)
+  * [Xamarin.Forms](../app-service-mobile-dotnet-backend-xamarin-forms-get-started-preview.md)
+  * [Windows](../app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-preview.md)
+  * [HTML](../app-service-mobile-dotnet-backend-html-get-started-preview.md)
 
 #Videos
 
