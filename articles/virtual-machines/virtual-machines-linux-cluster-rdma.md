@@ -145,7 +145,7 @@ After the VM completes provisioning, SSH to the VM using the VM's external IP ad
     cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
     ```
 
-    In the ~/.ssh directory edit or create the ssh_config file. Provide the IP address range of the private network that you will use in Azure (10.32.0.0/16 in this example):
+    In the ~/.ssh directory edit or create the "config" file. Provide the IP address range of the private network that you will use in Azure (10.32.0.0/16 in this example):
 
     ```
     host 10.32.0.*
