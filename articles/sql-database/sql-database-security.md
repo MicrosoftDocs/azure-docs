@@ -105,5 +105,3 @@ Auditing and tracking database events can help you maintain regulatory complianc
 ## Compliance
 
 In addition to the above features and functionality that can help your application meet various security compliance requirements, Azure SQL Database also participates in regular audits and has been certified against a number of compliance standards. For more information, see the [Microsoft Azure Trust Center](http://azure.microsoft.com/support/trust-center/), where you can find the most current list of [SQL Database compliance certifications](http://azure.microsoft.com/support/trust-center/services/).
-
-Windows Azure
