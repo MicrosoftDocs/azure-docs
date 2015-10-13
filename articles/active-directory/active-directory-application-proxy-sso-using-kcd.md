@@ -1,5 +1,5 @@
 <properties
-	pageTitle="SSO for On Prem IWA Apps Using KCD with Application Proxy"
+	pageTitle="Single-sign-on with Application Proxy"
 	description="Covers how to provide single-sign using Azure AD Application Proxy."
 	services="active-directory"
 	documentationCenter=""
