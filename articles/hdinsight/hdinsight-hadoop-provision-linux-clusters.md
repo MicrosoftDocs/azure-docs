@@ -78,7 +78,7 @@ Spark clusters for HDInsight have three types of nodes:
 
 Each cluster type will also have one or more Azure Storage accounts associated with the cluster. HDInsight uses Azure blobs from these storage accounts as the data store for your cluster. Keeping the data separate from the cluster allows you to delete clusters when they aren't in use, and still preserve your data. You can then use the same storage account for a new cluster if you need to do more analysis. For more information, see [Use Azure Blob storage with HDInsight](../hdinsight-use-blob-storage.md).
 
-## <a id="configuration"></a>Basic configuration optionshttps://github.com/Blackmist/linkcheckmd
+## <a id="configuration"></a>Basic configuration options
 
 The following sections describe the required configuration options available when creating an HDInsight cluster.
 
