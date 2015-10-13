@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="10/09/2015"
+	ms.date="10/11/2015"
 	ms.author="juliako"/>
 
 #Working with Channels that are Enabled to Perform Live Encoding with Azure Media Services
@@ -259,6 +259,8 @@ There can be up to 8 audio stream sets specified if the input to the Channel is 
 ###<a id="preset"></a>System Preset
 
 Specifies the preset to be used by the live encoder within this Channel. Currently, the only allowed value is **Default720p** (default).
+
+Note that if you need custom presets, you should contact amslived at Microsoft dot com.
 
 **Default720p** will encode the video into the following 7 layers.
 
