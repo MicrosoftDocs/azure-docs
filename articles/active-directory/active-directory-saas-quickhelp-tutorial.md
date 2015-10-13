@@ -132,9 +132,7 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
 
     a. As **SSO Type**, select **WSFederation**.
 
-    b. To upload your downloaded Azure metadata file, click **Browse**.
-
-    c. To upload your downloaded QuickHelp metadata file, click **Upload Metadata**.
+    b. To upload your downloaded Azure metadata file, click **Browse**, navigate to the file, end then click **Upload Metadata**.
 
     d. In the **Email** textbox, type **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
 
