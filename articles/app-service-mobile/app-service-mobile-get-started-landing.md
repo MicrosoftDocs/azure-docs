@@ -17,9 +17,9 @@
 
 #Get started with mobile apps
 
-Mobile Apps in Azure App Service is a scalable and globally available mobile application development platform. With Mobile Apps you can easily build native and cross-platform apps, securely connect to enterprise systems (including those on premise), build offline-ready apps with sync, and send either targeted or broadcast push notifications.
+Use App Service Mobile Apps to easily build native and cross-platform apps, securely connect to enterprise systems (including those on premise), build offline-ready apps with sync, and send targeted and broadcast push notifications.
 
-To get started with mobile apps, follow the tutorial for your client platform:
+To get started, follow the tutorial for your client platform:
 
 	* [iOS](../app-service-mobile-dotnet-backend-ios-get-started-preview.md)
 	* [Xamarin.iOS](../app-service-mobile-dotnet-backend-xamarin-ios-get-started-preview.md)
