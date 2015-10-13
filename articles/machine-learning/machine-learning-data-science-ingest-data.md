@@ -8,7 +8,7 @@
 	editor="cgronlun" />
 
 <tags 
-	ms.service="cortana-analytics" 
+	ms.service="machine-learning" 
 	ms.workload="data-services" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
