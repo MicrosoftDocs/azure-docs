@@ -86,7 +86,7 @@ Follow these steps to create a web app in Azure App Service and enable Git publi
 
 9. In the **Continuous Deployment** blade, click **Choose Source**
 
-14. click **Local Git Repository**, and then click **OK**.
+14. Click **Local Git Repository**, and then click **OK**.
 
 	![][setup-git-publishing]
 
@@ -102,7 +102,7 @@ Follow these steps to create a web app in Azure App Service and enable Git publi
 
 11. In the Web app blade, click **Settings**, and then click **Properties**.
  
-	To publish, you'll push to a Git remote repository. The URL for the repository is listed under **GIT URL**. You'll use this URL later in the tutorial.
+	To publish, you'll push to a remote Git repository. The URL for the repository is listed under **GIT URL**. You'll use this URL later in the tutorial.
 
 	![][git-url]
 
@@ -152,7 +152,6 @@ In this section, you'll create a **server.js** file that contains a slightly mod
 3. Add a Git remote for pushing updates to the web app that you created previously, by using the following command:
 
 		git remote add azure [URL for remote repository]
-
 
 4. Push your changes to Azure by using the following command:
 
