@@ -161,7 +161,7 @@ Or
 
 ### Filter out anonymous/signed in users
 
-Set the [authenticated user id](https://azure.microsoft.com/documentation/articles/app-insights-api-custom-events-metrics/#authenticated-users)  
+Set the [authenticated user id](app-insights-api-custom-events-metrics/#authenticated-users)  
 
 
 
