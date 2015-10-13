@@ -19,7 +19,8 @@
 
 # Manage your Resource Manager virtual machines by using the Azure CLI for Mac, Linux, and Windows
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)] This article covers managing a resource created with the Resource Manager deployment model. You can also manage a resource created with the classic deployment model.
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager deployment model](virtual-machines-how-to-automate-azure-resource-manager.md).
 
 Many tasks you do each day to manage your VMs can by automated by using the Azure Command-Line Interface (CLI) for Mac, Linux, and Windows. This article gives you example commands for simpler tasks, and links to articles that show the commands for more complex tasks.
 
