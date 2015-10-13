@@ -39,6 +39,8 @@ In this step you can enable Azure AD Domain Services for your directory. Perform
 
     ![Enable Domain Services](./media/active-directory-domain-services-getting-started/enable-domain-services.png)
 
+    > [AZURE.NOTE] When you enable Azure AD Domain Services for your tenant, Azure AD will generate and store the Kerberos and NTLM credential hashes that are required for authenticating users.
+
 7. Specify the **DNS domain name of domain services**.
    - The default domain name of the directory (i.e. ending with the **.onmicrosoft.com** domain suffix) will be selected by default.
    - The drop-down lists all domains that have been configured for your Azure AD directory – including verified as well as unverified domains that you configure in the ‘Domains’ tab.
