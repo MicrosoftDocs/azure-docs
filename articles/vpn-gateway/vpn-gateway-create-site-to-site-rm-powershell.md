@@ -41,7 +41,7 @@ Verify that you have the following items before beginning configuration.
 
 - The latest version of Azure PowerShell cmdlets. You can download and install the latest version from the Windows PowerShell section of the [Download page](http://azure.microsoft.com/downloads/). This article is written for Azure PowerShell *0.9.8*. 
 
->[AZURE.NOTE] If you are running mission-critical apps, please continue to use Azure PowerShell 0.9.8. In most cases, the only difference between the two versions is that the 1.0 Preview cmdlet name follows the pattern {verb}-AzureRm{noun}; whereas, the 0.9.8 name does not include Rm. For example, New-AzureRmResourceGroup instead of New-AzureResourceGroup. For information about Azure PowerShell 1.0, please see this [blog post](https://azure.microsoft.com/blog/azps-1-0-pre/). For more information about the Azure PowerShell 1.0 Preview cmdlets, see [Azure Resource Manager Cmdlets](https://msdn.microsoft.com/library/mt125356.aspx).
+>[AZURE.NOTE] If you are running mission-critical apps, please continue to use Azure PowerShell 0.9.8. In most cases, the only difference between the two versions is that the 1.0 Preview cmdlet name follows the pattern {verb}-AzureRm{noun}; whereas, the 0.9.8 name does not include Rm. For example, New-AzureRmResourceGroup instead of New-AzureResourceGroup. For information about the Azure PowerShell 1.0 Preview, please see this [blog post](https://azure.microsoft.com/blog/azps-1-0-pre/). For more information about the Azure PowerShell 1.0 Preview cmdlets, see [Azure Resource Manager Cmdlets](https://msdn.microsoft.com/library/mt125356.aspx).
 
 
 
