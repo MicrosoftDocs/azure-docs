@@ -1,7 +1,6 @@
 <properties 
 	pageTitle="Move data to an Azure SQL Database for Azure Machine Learning | Azure" 
 	description="Create SQL Table and load data to SQL Table" 
-	metaKeywords="" 
 	services="machine-learning" 
 	documentationCenter="" 
 	authors="fashah" 
