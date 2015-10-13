@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/14/2015"
+	ms.date="10/15/2015"
 	ms.author="billmath"/>
 
 
@@ -25,10 +25,9 @@ This FAQ answers questions about Azure AD Connect Health. This FAQ covers questi
 
 
 
-**Q: I have several tenants in Azure Active Directory. How do I switch to the one with Azure Active Directory Premium?**
+**Q: I manage multiple Azure Active Directories. How do I switch to the one with Azure Active Directory Premium?**
 
-You can switch the Azure AD Tenant by selecting “Home” on the left navigation bar, followed by, selecting the currently logged in User Name on the top right corner and choosing the right tenant account. If the Tenant account is not listed here, select Sign out and then use the global tenant admin credentials of the Azure Active Directory Premium Tenant to log in.
-
+You can switch between different Azure Active Directories by selecting the currently logged in User Name on the top right corner and choosing the appropriate account. If the account is not listed here, select Sign out and then use the global admin credentials of the Directory that has Azure Active Directory Premium enabled to log in.
 
 ## Installation Questions
 
@@ -125,7 +124,7 @@ Azure AD Connect Health Alerts get resolved on a success condition. Azure AD Con
 
 **Q: What firewall ports do I need to open for the Azure AD Connect Health Agent to work?**
 
-You will need to have TCP/UDP ports 80 and 443 open for the Azure AD Connect Health Agent to be able to communicate with the Azure AD Health service endpoints.
+You will need to have TCP/UDP ports 80, 443 and 5671 open for the Azure AD Connect Health Agent to be able to communicate with the Azure AD Health service endpoints.
 
 ## Related links
 

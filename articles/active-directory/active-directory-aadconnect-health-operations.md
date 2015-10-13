@@ -21,7 +21,8 @@
 The following topic describes the various operations that can be performed using Azure AD Connect Health.
 
 ## Enable Email Notifications
-You can configure the Azure AD Connect Health Service to send email notifications when alerts are generated indicating your identity  infrastructure is not healthy. This will occur when an alert is generated, as well as when it is marked as resolved. Follow the instructions below to configure email notifications. Please note that by default email notifications are disabled.
+You can configure the Azure AD Connect Health Service to send email notifications when alerts are generated indicating your identity  infrastructure is not healthy. This will occur when an alert is generated, as well as when it is marked as resolved. Follow the instructions below to configure email notifications.
+>[AZURE.NOTE] Email notifications are disabled by default.
 
 
 ### To enable Azure AD Connect Health Email Notifications
@@ -76,37 +77,34 @@ When deleting a service instance, be aware of the following:
 
 
 [//]: # (Start of RBAC section)
-## Role Based Access Control
+## Manage Access With Role Based Access Control
 ### Overview
-[Role Based Access Control](role-based-access-control-configure.md)  for Azure AD Connect Health enables the global administrators to provide access to users and/or groups from their organization access to Azure AD Connect Health service  without the users and/or group members required to be global administrators. This is achieved by assigning roles to the intended users.
+[Role Based Access Control](role-based-access-control-configure.md) for Azure AD Connect Health provides access Azure AD Connect Health service to users and/or groups outside of global administrators. This is achieved by assigning roles to the intended users and\or groups and provides a mechanism to limit the global administrators within your directory.
 
 #### Roles
 Azure AD Connect Health supports the following built-in roles.
 
 | Role | Permissions |
 | ----------- | ---------- |
-| Owner |  Owners can manage everything, including access and perform all operations within Azure AD Connect Health|
-|Contributor|  Contributors can manage everything except access and perform all operations within Azure AD Connect Health|
-|Reader|	Readers can view everything, but cannot make any changes or perform any operations within Azure AD Connect Health.|
+| Owner | Owners can ***manage access*** (e.g. assign role to a user/group), ***view all information*** (e.g. view alerts) from the portal and ***change settings*** (e.g. email notifications) within Azure AD Connect Health. <br>By default, Azure AD global administrators are assigned this role and this cannot be changed.  |
+|Contributor|  Contributors can ***view all information*** (e.g. view alerts) from the portal and ***change settings*** (e.g. email notifications) within Azure AD Connect Health.|
+|Reader| Readers can ***view all information*** (e.g. view alerts) from the portal within Azure AD Connect Health.|
 
-Please note:
-- Global Administrators always have full access to all the operations and access control.
-
-- All other roles (which are not listed above), even if they're available in the portal experiences, are not supported within Azure AD Connect Health. For example User Access Administrators and DevTest Lab Users are not supported.
+All other roles (such as ‘User Access Administrators’ or ‘DevTest Lab Users’), even if available in the portal experience, have no impact to access within Azure AD Connect Health.
 
 #### Access Scope
-A *service instance* in Azure AD Connect Health implies a logical entity that represents one or more servers functioning as a unit. For example in case of AD FS, a farm (such as sts.contoso.com) is a considered a service instance.
 
-Global Administrator or owners can provide access to other users and/or groups at different access scopes within Azure AD Connect Health Service. While specifying access, the scope is determined automatically based on the blade where the action is performed. The following scopes are available:
-1. All service instances within Azure AD Connect Health (Directory level)
-2. Per service instance within Azure AD Connect Health (Service instance level)
+Azure AD Connect supports managing access at two levels:
+- ***Directory***: This is the recommended path for most customers and controls access for all service instances (e.g. an ADFS farm) across all role types that are being monitored by Azure AD Connect Health.
+- ***Service Instance***: In some cases, you may need to segregate access based on role types or by a service instance. In this case, you can manage access at the service instance level.  
+
+Permission is granted if an end user has access either at the Directory or Service Instance level.
+
 
 ### How to allow users or groups access to Azure AD Connect Health
 #### Steps 1: Select the appropriate access scope
-- To allow a user access to "all service Instances" within Azure AD Connect Health , open the main blade in Azure AD Connect Health.<br>
+To allow a user access at the directory level within Azure AD Connect Health , open the main blade in Azure AD Connect Health.<br>
 ![Main Blade](./media/active-directory-aadconnect-health/logo1.png)
-- To allow a user access to a specific service instance, open the service instance blade. For example, for sts.fabtoso.com farm, open the sts.fabtoso.com blade.
-<br> ![Service Blade](./media/active-directory-aadconnect-health/logo1.png)<br>
 
 #### Step 2: Add users, groups and assign roles
 1. Click on the "Users" part from the Configure section.<br>![RBAC part](./media/active-directory-aadconnect-health/logo1.png)
@@ -119,15 +117,16 @@ Global Administrator or owners can provide access to other users and/or groups a
 6. Once the role assignment is complete, the users and/or groups will appear in the list.
 <br>![RBAC user list](./media/active-directory-aadconnect-health/logo1.png)<br>
 
-These steps will allow the listed users and group access as per their assigned roles.Please note:
+These steps will allow the listed users and group access as per their assigned roles.
+>[AZURE.NOTE]
 - Global Administrators always have full access to all the operations but global administrator accounts will not be present in the above list.
 - "Invite Users" feature is NOT supported within Azure AD Connect Health.
 
-#### Share the blade location with users or groups
+#### Step 3: Share the blade location with users or groups
 1. After assigning permissions, a user can access Azure AD Connect Health by going to [http://aka.ms/aadconnecthealth](http://aka.ms/aadconnecthealth).
 2. Once on the blade, the user can pin the blade or different parts to the dashboard by simply clicking "Pin to dashboard"<br>![Pin blade or part](./media/active-directory-aadconnect-health/logo1.png)<br>
 
-Please note: A user with the "Reader" role assinged will not be able to perform the "create" operation to get Azure AD Connect Health extension from the Azure Marketplace. This user can still get to the blade by going to the above link. For subsequent usage, the user can pin the blade to the dashboard.
+>[AZURE.NOTE] A user with the "Reader" role assigned will not be able to perform the "create" operation to get Azure AD Connect Health extension from the Azure Marketplace. This user can still get to the blade by going to the above link. For subsequent usage, the user can pin the blade to the dashboard.
 
 ### Remove users and/or groups
 You can remove a user or a group added to Azure AD Connect Health Role Based Access Control part by right clicking and selecting remove.<br>![Remove a user or group](./media/active-directory-aadconnect-health/logo1.png)<br>
