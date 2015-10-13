@@ -18,7 +18,7 @@
 
 # Azure Active Directory Domain Services preview: FAQs
 
-This page answers frequently asked questions about the Azure Active Directory (AAD) Domain Services preview. Keep checking back for updates.
+This page answers frequently asked questions about the Azure Active Directory Domain Services preview. Keep checking back for updates.
 
 ### 1. Configuration
 

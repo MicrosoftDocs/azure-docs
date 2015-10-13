@@ -25,7 +25,7 @@ In this step you can enable Azure AD Domain Services for your directory. Perform
 2. Select the **Active Directory** node on the left pane.
 3. Select the Azure AD tenant (directory) for which you would like to enable Azure AD Domain Services.
 
-    ![Select AAD Directory](./media/active-directory-domain-services-getting-started/select-aad-directory.png)
+    ![Select Azure AD Directory](./media/active-directory-domain-services-getting-started/select-aad-directory.png)
 
 4. Click on the **Configure** tab.
 

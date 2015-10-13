@@ -31,7 +31,7 @@ In this configuration step you will create the group and add one or more users i
 2. Select the **Active Directory** node on the left pane.
 3. Select the Azure AD tenant (directory) for which you would like to enable Azure AD Domain Services. Note that you can only create one domain for each Azure AD directory.
 
-    ![Select AAD Directory](./media/active-directory-domain-services-getting-started/select-aad-directory.png)
+    ![Select Azure AD Directory](./media/active-directory-domain-services-getting-started/select-aad-directory.png)
 
 4. Click on the **Groups** tab.
 5. Click on **Add Group** from the task pane at the bottom of the page, in order to add a group to your directory.
