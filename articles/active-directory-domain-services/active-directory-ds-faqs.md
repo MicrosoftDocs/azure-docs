@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="10/12/2015"
-	ms.author="mahesh-unnikrishnan"/>
+	ms.author="maheshu"/>
 
 # Azure Active Directory Domain Services preview: FAQs
 
