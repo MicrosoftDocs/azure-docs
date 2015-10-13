@@ -109,7 +109,7 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
 
      b. Click **Next**.
  
-4. On the **Configure single sign-on at Workrite** page, perform the following steps:click **Download metadata**, and then save the metadata file locally on your computer.
+4. On the **Configure single sign-on at Workrite** page, perform the following steps:
 <br><br>![What is Azure AD Connect][9] <br>
 
     a. Click Download certificate, and then save the file on your computer.
