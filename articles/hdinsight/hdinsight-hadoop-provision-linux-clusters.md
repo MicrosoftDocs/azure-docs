@@ -88,8 +88,8 @@ The cluster name provides a unique identifier for the cluster, and is used as pa
 
 The cluster name must follow the following guidelines:
 
-    - The field must contain a string that is between 3 and 63 characters
-    - The field can contain only letters, numbers, and hyphens
+- The field must contain a string that is between 3 and 63 characters
+- The field can contain only letters, numbers, and hyphens
 
 ###Cluster type
 
