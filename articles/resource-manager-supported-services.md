@@ -154,17 +154,25 @@ those regions that are available to your subscription and resource type.
 
 ### PowerShell
 
-The following example shows how to get the supported regions for virtual machines.
+The following example shows how to get the supported regions for web sites using Azure PowerShell 1.0 Preview. For more information about the 1.0 Preview release, see [Azure PowerShell 1.0 Preview](https://azure.microsoft.com/blog/azps-1-0-pre/)
 
-    Get-AzureLocation | Where-Object Name -eq "Microsoft.Compute/virtualMachines" | Format-Table Name, LocationsString -Wrap
-
+    PS C:\> ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).Locations
+    
 The output will be similar to:
 
-    Name                                      LocationsString
-    ----                                      ---------------
-    Microsoft.Compute/virtualMachines         East US, East US 2, West US, Central US, South Central US,
-                                              North Europe, West Europe, East Asia, Southeast Asia,
-                                              Japan East, Japan West
+    Brazil South
+    East Asia
+    East US
+    Japan East
+    Japan West
+    North Central US
+    North Europe
+    South Central US
+    West Europe
+    West US
+    Southeast Asia
+    Central US
+    East US 2
 
 ### Azure CLI
 
