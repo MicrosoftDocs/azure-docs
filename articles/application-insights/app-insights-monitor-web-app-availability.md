@@ -17,8 +17,6 @@
 
 # Monitor availability and responsiveness of any web site
 
-[AZURE.INCLUDE [app-insights-selector-get-started](../../includes/app-insights-selector-get-started.md)]
-
 After you've deployed your web application, you can set up web tests to monitor its availability and responsiveness. Application Insights will send web requests at regular intervals from points around the world, and can alert you if your application responds slowly or not at all.
 
 ![Web test example](./media/app-insights-monitor-web-app-availability/appinsights-10webtestresult.png)
