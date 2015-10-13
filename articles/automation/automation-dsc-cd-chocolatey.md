@@ -28,8 +28,8 @@ Meta: This article was written in Sept 2015.  The version of Visual Studio is 20
 
 There is quite a bit going on here, but fortunately it can be broken into two main processes: 
 
-   1. Writing code and testing it, then creating and publishing installation packages for major and minor versions of the system, and 
-   2. Creating and managing VMs that will install and execute the code in the packages.  
+  - Writing code and testing it, then creating and publishing installation packages for major and minor versions of the system. 
+  - Creating and managing VMs that will install and execute the code in the packages.  
 
 Once both of these core processes are in place, it’s a short step to automatically update the package running on any particular VM as new versions are created and deployed.
 
