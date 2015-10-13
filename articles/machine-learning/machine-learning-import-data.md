@@ -22,15 +22,18 @@
 
 [AZURE.INCLUDE [cap-ingest-data-selector](../../includes/cap-ingest-data-selector.md)]
 
-## Introduction
+This **menu** links to topics that describe how to ingest data into target environments in which the data can be stored and processed during the Cortana Analytics Process (CAPS).
 
-[AZURE.INCLUDE [import-data-into-aml-studio-selector](../../includes/machine-learning-import-data-into-aml-studio.md)]
+
+## Introduction
 
 To use your own data in Machine Learning Studio to develop and train a predictive analytics solution, you can: 
 
 - upload data from a **local file** ahead of time from your hard drive to create a dataset module in your workspace.  
 - access data from one of several **online data sources** while your experiment is running using the [Reader][reader] module. 
 - use data from another Azure Machine learning experiment saved as a **dataset**. 
+
+[AZURE.INCLUDE [import-data-into-aml-studio-selector](../../includes/machine-learning-import-data-into-aml-studio.md)]
 
 Each of these options are described in one of the topics on the menu above. These topic shows you how to import data from these various data sources to use in Machine Learning Studio. 
 
