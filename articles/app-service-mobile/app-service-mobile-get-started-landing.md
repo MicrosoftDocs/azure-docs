@@ -1,0 +1,35 @@
+<properties
+	pageTitle="Get Started with Azure App Service Mobile Apps | Microsoft Azure"
+	description="Follow this tutorial to get started with using Azure mobile app backends for iOS, Android, Windows, and Xamarin"
+	services="app-service\mobile"
+	documentationCenter="ios"
+	authors="dwrede"
+	editor=""/>
+
+<tags
+	ms.service="app-service-mobile"
+	ms.workload="na"
+	ms.tgt_pltfrm="na"
+	ms.devlang="multiple"
+	ms.topic="hero-article"
+	ms.date="10/13/2015"
+	ms.author="drwede"/>
+
+#Get started with mobile apps
+
+Mobile Apps in Azure App Service is a scalable and globally available mobile application development platform. With Mobile Apps you can easily build native and cross-platform apps, securely connect to enterprise systems (including those on premise), build offline-ready apps with sync, and send either targeted or broadcast push notifications.
+
+To get started with mobile apps, follow the tutorial for your client platform:
+
+	* [iOS](../app-service-mobile-dotnet-backend-ios-get-started-preview.md)
+	* [Xamarin.iOS](../app-service-mobile-dotnet-backend-xamarin-ios-get-started-preview.md)
+	* [Xamarin.Android](../app-service-mobile-dotnet-backend-xamarin-android-get-started-preview.md)
+	* [Xamarin.Forms](../app-service-mobile-dotnet-backend-xamarin-forms-get-started-preview.md)
+	* [Windows](../app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-preview.md)
+	* [HTML](../app-service-mobile-dotnet-backend-html-get-started-preview.md)
+
+#Videos
+
+>[AZURE.VIDEO azure-app-service-mobile-apps-with-kirill-gavrylyuk]
+
+App Service Mobile Apps with Kirill Gavrylyuk
