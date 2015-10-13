@@ -4,11 +4,11 @@ In this section, you'll write a Windows console app that creates a new device id
 
 1. In Visual Studio, create a new Visual C# Desktop App project using the **Console  Application** project template. Name the project **CreateDeviceIdentity**.
 
-   ![][10]
+	![][10]
 
 2. In Solution Explorer, right-click the name of the project (in this example, **CreateDeviceIdentity**), and then click **Properties**.
 
-3. In the **Target framework** list, click **.NET Framework 4.5.1**.
+3. In the **Target framework** list, choose **.NET Framework 4.5.1**.
 
 4. From the **Tools** menu, click **NuGet Package Manager**, then click **Package Manager Console**.
 
