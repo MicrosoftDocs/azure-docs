@@ -123,9 +123,6 @@ You can configure Azure AD Connect Health Agents to work with an HTTP Proxy. Not
 ### Update the Health Agent Configuration
 You have the following options to configure Azure AD Connect Health Agent to use an HTTP Proxy.
 
->[AZURE.NOTE] You must restart all Azure AD Connect Health Agent services for the proxy settings to be updated. Run the following command:
-    Restart-Service AdHealth*
-
 #### Import Proxy Settings from Internet Explorer
 You can import your Internet Explorer HTTP proxy settings and use them for Azure AD Connect Health Agents by executing the following PowerShell command on each server running the Health Agents.
 
@@ -146,6 +143,8 @@ Example: *Set-AzureAdConnectHealthProxySettings -HttpsProxyAddress myproxyserver
 - "address" can be a DNS resolvable server name or an IPv4 address
 - "port" can be omitted. If omitted then 443 is chosen as default port.
 
+>[AZURE.NOTE] You must restart all Azure AD Connect Health Agent services for the proxy settings to be updated. Run the following command:<br>
+    Restart-Service AdHealth*
 
 ### Update machine.config with HTTP Proxy settings
 This settings configures all .NET applications to use your explicitly defined proxy when making http requests.

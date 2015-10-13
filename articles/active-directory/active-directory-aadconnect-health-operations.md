@@ -103,19 +103,16 @@ Permission is granted if an end user has access either at the Directory or Servi
 
 ### How to allow users or groups access to Azure AD Connect Health
 #### Steps 1: Select the appropriate access scope
-To allow a user access at the directory level within Azure AD Connect Health , open the main blade in Azure AD Connect Health.<br>
-![Main Blade](./media/active-directory-aadconnect-health/logo1.png)
+To allow a user access at the directory level within Azure AD Connect Health, open the main blade in Azure AD Connect Health.<br>
+<!--- ![Main Blade](./media/active-directory-aadconnect-health/logo1.png) -->
 
 #### Step 2: Add users, groups and assign roles
-1. Click on the "Users" part from the Configure section.<br>![RBAC part](./media/active-directory-aadconnect-health/logo1.png)
+1. Click on the "Users" part from the Configure section.<br><!--- ![RBAC part](./media/active-directory-aadconnect-health/logo1.png) -->
 2. Select "Add"
-3. Select the "Role"
-<br>![RBAC Roles](./media/active-directory-aadconnect-health/logo1.png)<br>
+3. Select the "Role"<br><!--- ![RBAC Roles](./media/active-directory-aadconnect-health/logo1.png) -->
 4. Type the name or identifier of the targeted user or group. You can select one or more users or groups at the same time.
-5. Select "Ok".
-<br> ![RBAC select users and groups](./media/active-directory-aadconnect-health/logo1.png)<br>
-6. Once the role assignment is complete, the users and/or groups will appear in the list.
-<br>![RBAC user list](./media/active-directory-aadconnect-health/logo1.png)<br>
+5. Select "Ok".<br> <!--- ![RBAC select users and groups](./media/active-directory-aadconnect-health/logo1.png)-->
+6. Once the role assignment is complete, the users and/or groups will appear in the list.<br><!--- ![RBAC user list](./media/active-directory-aadconnect-health/logo1.png)<br> -->
 
 These steps will allow the listed users and group access as per their assigned roles.
 >[AZURE.NOTE]
@@ -124,12 +121,12 @@ These steps will allow the listed users and group access as per their assigned r
 
 #### Step 3: Share the blade location with users or groups
 1. After assigning permissions, a user can access Azure AD Connect Health by going to [http://aka.ms/aadconnecthealth](http://aka.ms/aadconnecthealth).
-2. Once on the blade, the user can pin the blade or different parts to the dashboard by simply clicking "Pin to dashboard"<br>![Pin blade or part](./media/active-directory-aadconnect-health/logo1.png)<br>
+2. Once on the blade, the user can pin the blade or different parts to the dashboard by simply clicking "Pin to dashboard"<br><!--- ![Pin blade or part](./media/active-directory-aadconnect-health/logo1.png)<br> -->
 
 >[AZURE.NOTE] A user with the "Reader" role assigned will not be able to perform the "create" operation to get Azure AD Connect Health extension from the Azure Marketplace. This user can still get to the blade by going to the above link. For subsequent usage, the user can pin the blade to the dashboard.
 
 ### Remove users and/or groups
-You can remove a user or a group added to Azure AD Connect Health Role Based Access Control part by right clicking and selecting remove.<br>![Remove a user or group](./media/active-directory-aadconnect-health/logo1.png)<br>
+You can remove a user or a group added to Azure AD Connect Health Role Based Access Control part by right clicking and selecting remove.<br><!--- ![Remove a user or group](./media/active-directory-aadconnect-health/logo1.png)<br> -->
 
 [//]: # (End of RBAC section)
 
