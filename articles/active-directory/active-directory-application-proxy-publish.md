@@ -65,7 +65,7 @@ To finish the wizard, click the check mark at the bottom of the screen. The appl
 ## Advanced configuration
 
 1. You can modify published apps or configure advanced options, such as SSO to on-prem applications, from the **Configure** page.
-	![Advanced configuration](./media/active-directory-application-proxy-publish/aad_appproxy_appproperties_advancedconfig.png)
+	![Advanced configuration](./media/active-directory-application-proxy-publish/advancedconfig.png)
 
 2. Select the app and click **Configure**. The following options are available:
 
