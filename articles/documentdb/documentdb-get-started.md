@@ -19,6 +19,10 @@
 
 #Get started with the DocumentDB .NET SDK  
 
+> [AZURE.SELECTOR]
+- [.NET](documentdb-get-started.md)
+- [Node.js](documentdb-nodejs-get-started.md)
+
 Welcome to Getting Started with the DocumentDB .NET SDK! After following this tutorial, you'll have a console application that creates and queries DocumentDB resources.
 
 We'll cover:
