@@ -29,18 +29,20 @@ Let us promote your project! Show us the awesome project you're working on with 
 
 ### documentdb-lumenize
 
+*by Larry Maccherone*
 
-| by Larry Maccherone                                                                                    |     |
-| ------------------------------------------------------------------------------------------------------ | --- |
-| [![Larry Maccherone](./media/documentdb-community/git-maccherone.png)](https://github.com/lmaccherone) | Aggregations (Group-by, Pivot-table, and N-dimensional Cube) and Time Series Transformations as Stored Procedures in DocumentDB.<br/><br/>Check it out on [Github](https://github.com/lmaccherone/documentdb-lumenize) and [npm](https://www.npmjs.com/package/lumenize). |
+Aggregations (Group-by, Pivot-table, and N-dimensional Cube) and Time Series Transformations as Stored Procedures in DocumentDB.
+
+Check it out on [Github](https://github.com/lmaccherone/documentdb-lumenize) and [npm](https://www.npmjs.com/package/lumenize).
 
 
 ### DocumentDB Studio
 
+*by Ming Liu*
 
-| by Ming Liu                                                                          |     |
-| ------------------------------------------------------------------------------------ | --- |
-| [![Ming Liu](./media/documentdb-community/git-liu.png)](https://github.com/mingaliu) | A client management viewer/explorer for Microsoft Azure DocumentDB service.<br/><br/>Check it out on [Github](https://github.com/mingaliu/DocumentDBStudio). |
+A client management viewer/explorer for Microsoft Azure DocumentDB service.
+
+Check it out on [Github](https://github.com/mingaliu/DocumentDBStudio).
 
 
 <br/><br/>
