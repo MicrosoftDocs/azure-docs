@@ -26,11 +26,18 @@
 - [PHP - FTP](web-sites-php-mysql-deploy-use-ftp.md)
 - [Python](web-sites-python-ptvs-django-mysql.md)
 
-This tutorial shows how to create a [Node](http://nodejs.org) application and deploy it to a [web app](app-service-web-overview.md) in [Azure App Service](../app-service/app-service-value-prop-what-is.md) by using [Git](http://git-scm.com). The instructions in this tutorial can be followed on any operating system that is capable of running Node.
+This tutorial shows how to create a simple [Node.js](http://nodejs.org) application and deploy it to a [web app](app-service-web-overview.md) in [Azure App Service](../app-service/app-service-value-prop-what-is.md) by using [Git](http://git-scm.com). The instructions in this tutorial can be followed on any operating system that is capable of running Node.js.
 
-Here is a screenshot of the completed application.
+You'll learn:
+
+* How to create a web app in Azure App Service by using the Azure preview portal.
+* How to deploy a Node.js application to the web app by pushing to the web app's Git repository.
+
+The completed application writes a short "hello world" string to the browser.
 
 ![A browser displaying the 'Hello World' message.][helloworld-completed]
+
+For tutorials and sample code with more complex Node.js applications, or for other topics about how to use Node.js in Azure, see the [Node.js Developer Center](/develop/nodejs/).
 
 > [AZURE.NOTE]
 > To complete this tutorial, you need a Microsoft Azure account. If you don't have an account, you can [activate your MSDN subscriber benefits](/en-us/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) or [sign up for a free trial](/en-us/pricing/free-trial/?WT.mc_id=A261C142F).
@@ -209,24 +216,14 @@ To learn more about the versions of Node.js that are provided with Azure and how
 
 If you encounter problems with your application after it has been deployed to Azure, see [How to debug a Node.js application in Azure App Service](web-sites-nodejs-debug.md) for information on diagnosing the problem.
 
-
 For more information about how to develop Node.js applications on Azure, see the [Node.js Developer Center](/develop/nodejs/).
 
 [helloworld-completed]: ./media/web-sites-nodejs-develop-deploy-mac/helloazure.png
 [helloworld-localhost]: ./media/web-sites-nodejs-develop-deploy-mac/helloworldlocal.png
-
 [portal-quick-create]: ./media/web-sites-nodejs-develop-deploy-mac/create-quick-website.png
-
 [portal-quick-create2]: ./media/web-sites-nodejs-develop-deploy-mac/create-quick-website2.png
-
-
 [setup-git-publishing]: ./media/web-sites-nodejs-develop-deploy-mac/setup_git_publishing.png
-
 [go-to-dashboard]: ./media/web-sites-nodejs-develop-deploy-mac/go_to_dashboard.png
-
 [deployment-part]: ./media/web-sites-nodejs-develop-deploy-mac/deployment-part.png
-
 [deployment-credentials]: ./media/web-sites-nodejs-develop-deploy-mac/deployment-credentials.png
-
-
 [git-url]: ./media/web-sites-nodejs-develop-deploy-mac/git-url.png
