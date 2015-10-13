@@ -25,8 +25,8 @@ Ongoing access management, usage evaluation, and reporting continue to be a chal
 
  Azure AD supports extensive access management for configured applications, enabling organizations to easily achieve the right access policies ranging from automatic, attribute-based assignment (ABAC or RBAC scenarios) through delegation and including administrator management. With Azure AD you can easily achieve complex policies, combining multiple management models for a single application and can even re-use management rules across applications with the same audiences.
 
- - [Adding new applications](active-directory-single-sign-on-newly-acquired-saas-apps.md)
- - [Adding existing applications](active-directory-integrate-existing-apps)
+ - [Adding new applications](active-directory-sso-newly-acquired-saas-apps.md)
+ - [Adding existing applications](active-directory-sso-integrate-existing-apps)
 
  Azure AD's application assignment focuses on two primary assignment modes:
 - Individual assignment - an IT admin with global, user, or AU privileges can select individual user accounts and grant them access to the application.
@@ -43,8 +43,8 @@ Consider an application like Salesforce. In many organizations, Salesforce is pr
 With Azure AD, applications like Salesforce can be pre-configured for single sign-on (SSO) and automated provisioning. Once the application is configured, an Administrator can take the one-time action to create and assign the appropriate groups. In this example an administrator could execute the following assignments:
 
 - Attribute-based groups can be defined to automatically represent all members of the marketing and sales teams using attributes like department or role:
-    - All marketing members groups would be assigned to the "marketing" role in salesforce
-    - All sales team members group would be assigned to the "sales" role in salesforce. A further refinement could use multiple groups that represent regional sales teams assigned to different salesforce roles.
+    - All members of marketing groups would be assigned to the "marketing" role in salesforce
+    - All members of sales team groups would be assigned to the "sales" role in salesforce. A further refinement could use multiple groups that represent regional sales teams assigned to different salesforce roles.
 - To enable the exception mechanism, a self-service group could be created for each role. For example, the "salesforce marketing exception" group can be created as a self-service group. The group can be assigned to the salesforce marketing role and the marketing leadership team can be made owners. Members of the marketing leadership team could add or remove users, set a join policy, or even approve or deny individual users' requests to join. This is supported through an information worker appropriate experience that does not require specialized training for owners or members.
 
 In this case, all assigned users would be automatically provisioned to salesforce, as they are added to different groups their role assignment would be updated in salesforce. Users would be able to discover and access Salesforce through the Microsoft application access panel, Office web clients, or even by navigating to their organizational Salesforce login page. Administrators would be able to easily view usage and assignment status using Azure AD reporting.
@@ -61,9 +61,9 @@ First, if you aren't already using Azure AD and you are an IT admin:
 Azure AD features that enable account sharing include:
 
 - [Group assignment](active-directory-accessmanagement-self-service-group-management.md)
-- [Adding applications to Azure AD]()
-- [Getting started with assignment]()
-- [Application assignment FAQ]()
+- Adding applications to Azure AD
+- Getting started with assignment
+- Application assignment FAQ
 - [App usage dashboard/reports](active-directory-passwords-get-insights.md)
 
 ## Where can I learn more?
