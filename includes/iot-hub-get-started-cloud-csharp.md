@@ -4,15 +4,15 @@ In this section, you'll write a Windows console app that creates a new device id
 
 1. In Visual Studio, create a new Visual C# Desktop App project using the **Console  Application** project template. Name the project **CreateDeviceIdentity**.
 
-   	![][10]
+   ![][10]
 
-2. In Solution Explorer, right-click the solution, and then click **Manage NuGet Packages for Solution...**.
+2. In Solution Explorer, right-click the name of the project (in this example, **CreateDeviceIdentity**), and then click **Properties**.
 
-	This displays the Manage NuGet Packages window.
+3. In the **Target framework** list, click **.NET Framework 4.5.1**.
 
-3. Search for `Microsoft Azure Devices`, click **Install**, and accept the terms of use.
+4. From the **Tools** menu, click **NuGet Package Manager**, then click **Package Manager Console**.
 
-	This downloads, installs, and adds a reference to the [Azure IoT - Service SDK NuGet package].
+5. At the command line in the **Package Manager Console** window, type `Install-Package Microsoft.Azure.Devices -Pre`, then press Enter. The [Microsoft.Azure.Devices](https://www.nuget.org/packages/Microsoft.Azure.Devices/) package is installed and the appropriate references are added to the project.
 
 4. Add the following `using` statement at the top of the **Program.cs** file:
 
@@ -56,6 +56,7 @@ In this section, you'll write a Windows console app that creates a new device id
 > [AZURE.NOTE] It is important to note that the IoT hub identity registry is only used to store device identities for the purpose of secure access, i.e. store security credentials and enable/disable individual device's access. Device application meta-data should be stored in an application-specific store. Refer to [IoT Hub Developer Guide][IoT Hub Developer Guide - Identity Registry] for more information.
 
 ## Receive device-to-cloud messages
+
 In this section, you will create a Windows console app that reads device-to-cloud messages from IoT Hub. Iot Hub exposes an [Event Hubs][Event Hubs Overview]-compatible endpoint to read device-to-cloud messages. For simplicity's sake, this tutorial uses creates a simplified reader that is not suited for high throughput deployment. More information on how to process IoT Hub's device-to-cloud messages can be found in the [Process device-to-cloud messages] tutorial. For more information on how to process messages from Event Hubs you can refer to the [Get Started with Event Hubs] tutorial.
 
 1. In the current Visual Studio solution, click **File->Add->Project** to create a new Visual C# Desktop App project using the **Console  Application** project template. Name the project **ReadDeviceToCloudMessages**.
