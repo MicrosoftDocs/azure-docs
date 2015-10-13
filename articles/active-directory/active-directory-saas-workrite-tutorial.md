@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/12/2015"
+	ms.date="10/13/2015"
 	ms.author="markusvi"/>
 
 
@@ -101,7 +101,7 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
 <br><br> ![Azure AD Single Sign-On][7] <br>
 
 3. On the **Configure App Settings** dialog page, perform the following steps:
-<br><br>![Configure App Settings][8] <br>
+<br><br>![Azure AD Single Sign-On][8] <br>
  
      a. In the **Sign On URL** textbox, type the URL used by your users to sign-on to your Workrite site (e.g.: *https://app.workrite.co.uk/securelogin/samlgateway.aspx?id=1a82b5aa-4dd6-4472-9721-7d0193f59e22*).
 
@@ -110,20 +110,20 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
      b. Click **Next**.
  
 4. On the **Configure single sign-on at Workrite** page, perform the following steps:
-<br><br>![What is Azure AD Connect][9] <br>
+<br><br>![Azure AD Single Sign-On][9] <br>
 
     a. Click Download certificate, and then save the file on your computer.
 
-    b. Contact your Workrite support team [support@workrite.co.uk](mailto:support@workrite.co.uk), peovide them with the downloaded certificate, the Issuer URL, the Single Sign-On Service URL, the Single Sign-Out URL, and then ask them to setup SSO for your workrite app. 
+    b. Contact your Workrite support team [support@workrite.co.uk](mailto:support@workrite.co.uk), peovide them with the downloaded certificate, the **Issuer URL** (Entity ID), the **Single Sign-On Service URL**, the **Single Sign-Out URL**, and then ask them to setup SSO for your Workrite app. 
 
     c. Click **Next**.
 
 
 6. On the Azure AD portal, select the single sign-on configuration confirmation, and then click **Next**. 
-<br><br>![What is Azure AD Connect][10]<br>
+<br><br>![Azure AD Single Sign-On][10]<br>
 
 7. On the **Single sign-on confirmation** page, click **Complete**.  
-  <br><br>![What is Azure AD Connect][11]
+  <br><br>![Azure AD Single Sign-On][11]
 
 
 
