@@ -13,7 +13,7 @@ ms.service="virtual-machines"
  ms.topic="article"
  ms.tgt_pltfrm="vm-multiple"
  ms.workload="big-compute"
- ms.date="09/28/2015"
+ ms.date="10/08/2015"
  ms.author="danlep"/>
 
 # Options to create and manage a high peformance computing (HPC) cluster in Azure with Microsoft HPC Pack
@@ -47,7 +47,7 @@ Take advantage of Microsoft HPC Pack and Azure compute and infrastructure servic
 
 ### PowerShell deployment script
 
-* [Create an HPC cluster with the HPC Pack IaaS deployment script](virtual-machines-hpcpackcluster-powershell-script.md)
+* [Create an HPC cluster with the HPC Pack IaaS deployment script](virtual-machines-hpcpack-cluster-powershell-script.md)
 
 ### Tutorials
 

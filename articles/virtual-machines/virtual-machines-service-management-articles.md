@@ -14,7 +14,7 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="vm-multiple"
 	ms.workload="infrastructure-services"
-	ms.date="10/01/2015"
+	ms.date="10/07/2015"
 	ms.author="danlep"/>
 
 # Articles for virtual machines in Service Management
@@ -87,8 +87,6 @@
 [Get started configuring your Internet-facing load balancer](../load-balancer/load-balancer-internet-getstarted.md)
 
 [How to set up endpoints to a virtual machine](virtual-machines-set-up-endpoints.md)
-
-[Manage your virtual machines using the Azure CLI for Mac, Linux, and Windows](virtual-machines-manage-vms-azure-cli.md)
 
 ## Create workloads
 
