@@ -43,25 +43,25 @@ There are several types of HDInsight available:
 
 During configuration, you will select one of these types for the cluster. You can add other technologies such as Hue, Spark, or R to these basic types by using [Script Actions](#scriptaction).
 
-Each cluster type has its own terminology for nodes within the cluster, as well as the number of nodes:
+Each cluster type has its own terminology for nodes within the cluster, as well as the number of nodes and the default VM size for each node type:
 
 ![HDInsight Hadoop cluster nodes](./media/hdinsight-provision-clusters/HDInsight.Hadoop.roles.png)
 
-Hadoop clusters for HDInsight are deployed with two nodes:
+Hadoop clusters for HDInsight have two types nodes:
 
 - Head node (2 nodes)
 - Data node (at least 1 node)
 
 ![HDInsight HBase cluster nodes](./media/hdinsight-provision-clusters/HDInsight.HBase.roles.png)
 
-HBase clusters for HDInsight are deployed with three nodes:
+HBase clusters for HDInsight have three types of nodes:
 - Head servers (2 nodes)
 - Region servers (at least 1 node)
 - Master/Zookeeper nodes (3 nodes)
 
 ![HDInsight Storm cluster nodes](./media/hdinsight-provision-clusters/HDInsight.Storm.roles.png)
 
-Storm clusters for HDInsight are deployed with three node types:
+Storm clusters for HDInsight have three types nodes:
 - Nimbus nodes (2 nodes)
 - Supervisor servers (at least 1 node)
 - Zookeeper nodes (3 nodes)
@@ -69,10 +69,10 @@ Storm clusters for HDInsight are deployed with three node types:
 
 ![HDInsight Spark cluster nodes](./media/hdinsight-provision-clusters/HDInsight.Spark.roles.png)
 
-Spark clusters for HDInsight are deployed with three node types:
+Spark clusters for HDInsight have three types of nodes:
 - Head node (2 nodes)
 - Worker node (at least 1 node)
-- Zookeeper nodes (3 nodes) (Free for A1 Zookeepers)
+- Zookeeper nodes (3 nodes) (Free for A1 Zookeepers VM size)
 
 ###Azure Storage for HDInsight
 
