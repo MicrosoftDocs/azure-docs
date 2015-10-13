@@ -1,20 +1,20 @@
 <properties
-                pageTitle="Managing access to apps using Azure AD |  Microsoft Azure"
-                 description="Describes how Azure Active Directory enables organizations to specify the apps to which each user has access."
-                 services="active-directory"
-                 documentationCenter=""
-                 authors="msStevenPo"
-                 manager="stevenpo"
-                 editor=""/>
+  pageTitle="Managing access to apps using Azure AD |  Microsoft Azure"
+  description="Describes how Azure Active Directory enables organizations to specify the apps to which each user has access."
+  services="active-directory"
+  documentationCenter=""
+  authors="msStevenPo"
+  manager="stevenpo"
+  editor=""/>
 
  <tags
-                 ms.service="active-directory"
-                 ms.workload="identity"
-                 ms.tgt_pltfrm="na"
-                 ms.devlang="na"
-                 ms.topic="article"
-                 ms.date="10/09/2015"
-                 ms.author="stevenpo"/>
+  ms.service="active-directory"
+  ms.workload="identity"
+  ms.tgt_pltfrm="na"
+  ms.devlang="na"
+  ms.topic="article"
+  ms.date="10/12/2015"
+  ms.author="stevenpo"/>
 
 
  # Managing access to apps
@@ -69,4 +69,4 @@ Azure AD features that enable account sharing include:
 ## Where can I learn more?
 
 - [Protecting apps with conditional access](active-directory-conditional-access.md)
-- [Self-service group management/SSAA](active-directory-accessmanagement-self-service-group-management.md) 
+- [Self-service group management/SSAA](active-directory-accessmanagement-self-service-group-management.md)
