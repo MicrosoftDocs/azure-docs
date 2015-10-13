@@ -8,7 +8,7 @@ In this section, you'll write a Windows console app that creates a new device id
 
 2. In Solution Explorer, right-click the solution, and then click **Manage NuGet Packages for Solution...**.
 
-	This displays the **Manage NuGet Packages** window. 
+	The **NuGet Package Manager** window is displayed. 
 
 3. Make sure the **Include prerelease** option is checked. Then search for `Microsoft Azure Devices`, click **Install**, and accept the terms of use.
 
