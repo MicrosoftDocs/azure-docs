@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Build an HBase application using Maven | Microsoft Azure"
+	pageTitle="Build an HBase application using Maven and Java, then deploy to Linux-based HDInsight | Microsoft Azure"
 	description="Learn how to use Apache Maven to build a Java-based Apache HBase application, then deploy it to Linux-based HDInsight in the Azure cloud."
 	services="hdinsight"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/12/2015"
+	ms.date="10/09/2015"
 	ms.author="larryfr"/>
 
 #Use Maven to build Java applications that use HBase with HDInsight (Hadoop)

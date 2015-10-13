@@ -306,7 +306,7 @@ Iot Hub supports both the [AMQP][lnk-amqp] and HTTP/1 protocols for device-side 
 * **Cloud-to-device pattern**. HTTP/1 does not have an efficient way to implement server push. As such, when using HTTP/1, devices poll IoT Hub for cloud-to-device messages. This is very inefficient for both the device and IoT Hub. The current guidelines, when using HTTP/1 is to set a polling interval for each device of less than once per 25 minutes. On the other hand, AMQP supports server push when receiving cloud-to-device messages, and it enables immediate pushes of messages from IoT Hub to the device. If delivery latency is a concern, AMQP is the best protocol to use. On the other hand, for scarcely connected devices, HTTP/1 works as well.
 * **Field gateways**. Given the HTTP/1 limitations with respect to server push, it is not suitable to be used in [Field gateway scenarios][lnk-azure-gateway-guidance].
 * **Low resource devices**. HTTP/1 libraries are significantly smaller than AMQP ones. As such, if the device has few resources (for example , less than 1Mb RAM), HTTP/1 might be the only protocol implementation available.
-* **Network traversal**. AMQP standard listens on port 5672. This could cause problems in networks that are closed to non-HTTP protocols. Note that this limitation is temporary as IoT Hub implements AMQP over WebSockets.
+* **Network traversal**. AMQP standard listens on port 5672. This could cause problems in networks that are closed to non-HTTP protocols.
 * **Payload size**. AMQP is a binary protocol, which is significantly more compact than HTTP/1.
 
 At a high level, we recommend that you use AMQP whenever possible, and use HTTP/1 if device resources or network configuration does not allow AMQP. Moreover, when using HTTP/1, polling frequency should be set to less than once every 25 minutes for each device. Clearly during development, it is acceptable to have more frequent polling frequencies.
@@ -488,6 +488,7 @@ Now that you've seen an overview of developing for IoT Hub, follow these links t
 
 - [Get started with IoT Hubs (tutorial)][lnk-get-started]
 - [OS Platforms and hardware compatibility][lnk-compatibility]
+- [Azure IoT Developer Center][lnk-iotdev]
 - [Plan your IoT implementation][lnk-guidance]
 
 [Event Hubs - Event Processor Host]: http://blogs.msdn.com/b/servicebus/archive/2015/01/16/event-processor-host-best-practices-part-1.aspx
@@ -531,3 +532,4 @@ Now that you've seen an overview of developing for IoT Hub, follow these links t
 [lnk-sasl-plain]: http://tools.ietf.org/html/rfc4616
 [lnk-servicebus]: http://azure.microsoft.com/services/service-bus/
 [lnk-tls]: https://tools.ietf.org/html/rfc5246
+[lnk-iotdev]: https://azure.microsoft.com/develop/iot/

@@ -28,7 +28,7 @@ You can find more information on cloud-to-device messages in the [IoT Hub Develo
 
 At the end of this tutorial you will run two Windows console applications:
 
-* **SimulatedDevice**, a modified version of the app created in [Get started with IoT Hub], which connects to your IoT hub and receives cloud-to-device messages. 
+* **SimulatedDevice**, a modified version of the app created in [Get started with IoT Hub], which connects to your IoT hub and receives cloud-to-device messages.
 * **SendCloudToDevice**, which sends a cloud-to-device message to the simulated device through IoT Hub, and then receives its delivery aknowledgment.
 
 > [AZURE.NOTE] IoT Hub has SDK support for many device platforms and languages (including C, Java, and Javascript) though Azure IoT device SDKs. Refer to the [Azure IoT Developer Center] for step by step instructions on how to connect your device to this tutorial's code, and generally to Azure IoT Hub. Azure IoT service SDKs for Java and Node are coming soon.
@@ -79,8 +79,4 @@ Additional information on IoT Hub:
 [IoT Hub Supported Devices]: iot-hub-supported-devices.md
 [Get started with IoT Hub]: iot-hub-csharp-csharp-getstarted.md
 [Supported devices]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/tested_configurations.md
-[Azure IoT Developer Center]: http://www.azure.com/iotdev
-
-
-
- 
+[Azure IoT Developer Center]: http://www.azure.com/develop/iot
