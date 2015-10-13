@@ -118,23 +118,30 @@ In order for the Usage Analytics feature to gather data and analyze the Azure AD
 [//]: # (Start of Agent Proxy Configuration Section)
 
 ## Configure Azure AD Connect Health Agents to use HTTP Proxy
-You can configure Azure AD Connect Health Agents to work with an HTTP Proxy. Note that “Netsh WinHttp set Proxy” does not work in this case since the agent uses System.Net to make web requests instead of Microsoft Windows HTTP Services. You can configure the proxy settings for the Health Agent or for the machine using machine.config.
+You can configure Azure AD Connect Health Agents to work with an HTTP Proxy.
+>[AZURE.NOTE]
+- Using “Netsh WinHttp set ProxyServerAddress” will not work as the agent uses System.Net to make web requests instead of Microsoft Windows HTTP Services.
+- The configured Http Proxy address will be used to pass-through encrypted Https messages.
+- Authenticated proxies (using HTTPBasic) are not supported.
 
-### Update the Health Agent Configuration
+### Change Health Agent Proxy Configuration
 You have the following options to configure Azure AD Connect Health Agent to use an HTTP Proxy.
 
-#### Import Proxy Settings from Internet Explorer
-You can import your Internet Explorer HTTP proxy settings and use them for Azure AD Connect Health Agents by executing the following PowerShell command on each server running the Health Agents.
+#### Import existing proxy Settings
+- Import from Internet Explorer <br>
+You can import your Internet Explorer HTTP proxy settings and use them for Azure AD Connect Health Agents by executing the following PowerShell command on each server running the Health Agent.
 
-    Set-AzureAdConnectHealthProxySettings -ImportFromInternetSettings
 
-#### Import Proxy Settings from WinHttp
-You can import you WinHTTP proxy settings by executing the following PowerShell command on each server running the Health Agents.
+	Set-AzureAdConnectHealthProxySettings -ImportFromInternetSettings
+
+- Import from WinHTTP <br>
+You can import you WinHTTP proxy settings by executing the following PowerShell command on each server running the Health Agent.
+
 
 	Set-AzureAdConnectHealthProxySettings -ImportFromWinHttp
 
 #### Specify Proxy addresses manually
-You can specify a proxy server manually by executing the following PowerShell command on each server running the Health Agents.
+You can specify a proxy server manually by executing the following PowerShell command on each server running the Health Agent.
 
 	Set-AzureAdConnectHealthProxySettings -HttpsProxyAddress address:port
 
@@ -143,24 +150,21 @@ Example: *Set-AzureAdConnectHealthProxySettings -HttpsProxyAddress myproxyserver
 - "address" can be a DNS resolvable server name or an IPv4 address
 - "port" can be omitted. If omitted then 443 is chosen as default port.
 
+#### Clear existing proxy configuration
+You can clear the existing proxy configuration by running the following command.
+
+	Set-AzureAdConnectHealthProxySettings -NoProxy
+
+
+
 >[AZURE.NOTE] You must restart all Azure AD Connect Health Agent services for the proxy settings to be updated. Run the following command:<br>
     Restart-Service AdHealth*
 
-### Update machine.config with HTTP Proxy settings
-This settings configures all .NET applications to use your explicitly defined proxy when making http requests.
-1. Locate the machine.config file. The file is located in%windir%\Microsoft.NET\Framework64[version]\config\machine.config
-2. Add the following entry under the &lt;configuration&gt; &lt;/configuration&gt; element in your machine.config file.
+### Read current proxy settings
+You can use the following command to read the currently configured proxy settings.
 
-	<system.net>  
-			<defaultProxy useDefaultCredentials="true">
-       		<proxy
-        usesystemdefault="true"
-        proxyaddress="http://YOUR.PROXY.HERE.com"  
-        bypassonlocal="true"/>
-		</defaultProxy>
-	</system.net>	 
+	Get-AzureAdConnectHealthProxySettings
 
-Additional <defaultProxy> information can be found [here](https://msdn.microsoft.com/library/kd3cf2ex(v=vs.110)).
 
 [//]: # (End of Agent Proxy Configuration Section)
 

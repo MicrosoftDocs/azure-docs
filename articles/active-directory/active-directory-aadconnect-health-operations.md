@@ -95,7 +95,9 @@ All other roles (such as ‘User Access Administrators’ or ‘DevTest Lab User
 #### Access Scope
 
 Azure AD Connect supports managing access at two levels:
+
 - ***Directory***: This is the recommended path for most customers and controls access for all service instances (e.g. an ADFS farm) across all role types that are being monitored by Azure AD Connect Health.
+
 - ***Service Instance***: In some cases, you may need to segregate access based on role types or by a service instance. In this case, you can manage access at the service instance level.  
 
 Permission is granted if an end user has access either at the Directory or Service Instance level.

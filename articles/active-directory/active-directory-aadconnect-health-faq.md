@@ -59,49 +59,17 @@ For example, on Windows Server 2008 R2 the installation of .Net 4.5 Framework re
 
 **Q: Does Azure AD Connect Health Services work through a pass-through http proxy?**
 
-Yes, both the registration process and normal operation can function through an explicit proxy set up to forward outbound http requests. “Netsh WinHttp set Proxy” does not work in this case since the agent uses System.Net to make web requests instead of Microsoft Windows HTTP Services.
+Yes.  For on going operations, you can configure the Health Agent to forward outbound http requests using an HTTP Proxy. See [Configure Azure AD Connect Health Agents to use HTTP Proxy](active-directory-aadconnect-health-agent-install-adfs.md#configure-azure-ad-connect-health-agent-to-use-http-proxy) for more information.
 
-Perform any time prior to running Register-AdHealthAgent (The final step of Installation)
-
-
-- Step 1 – Add entry to the machine.config file
-
-
-Locate the machine.config file. The file is located in%windir%\Microsoft.NET\Framework64\[version]\config\machine.config</li>
-
-Add the following entry under the <configuration></configuration> element in your machine.config file.
-
-	<system.net>  
-			<defaultProxy useDefaultCredentials="true">
-       		<proxy
-        usesystemdefault="true"
-        proxyaddress="http://YOUR.PROXY.HERE.com"  
-        bypassonlocal="true"/>
-		</defaultProxy>
-	</system.net>
-
-
-
-Additional <defaultProxy> information can be found [here](https://msdn.microsoft.com/library/kd3cf2ex(v=vs.110)).
-
-This settings configures .NET applications system-wide to use your explicitly defined proxy when makeing http .NET requests. Modifying each individual app.config is not recommended because it will be undone during auto update. You only have to change one file and it will persist through updates if you only modify machine.config.
-
-- Step 2 - Configure Proxy in Internet Options
-
-Open Internet Explorer -> Settings -> Internet Options -> Connections -> LAN Settings.
-
-Select Use a Proxy Server for you LAN
-
-Select Advanced IF you have different proxy ports for HTTP and HTTPS/Secure
-
-
+If you need to configure a proxy during Agent registration, you need to modify your Internet Explorer Proxy settings. <br>
+Open Internet Explorer -> Settings -> Internet Options -> Connections -> LAN Settings.<br>
+Select Use a Proxy Server for you LAN.<br>
+Select Advanced IF you have different proxy ports for HTTP and HTTPS/Secure.<br>
 
 
 **Q: Does Azure AD Connect Health Services support basic authentication when connecting to Http Proxies?**
 
 No. A mechanism for specifying arbitrary username/password for Basic Authentication is not currently supported.
-
-
 
 
 
