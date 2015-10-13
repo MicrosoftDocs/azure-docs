@@ -159,10 +159,9 @@ Or
 
 * [Use continuous export and Stream Analytics to export to SQL](app-insights-code-sample-export-sql-stream-analytics.md).  Use PowerView to examine the database.
 
-### Follow the activity of specific users
+### Filter out anonymous/signed in users
 
-1. Set the [authenticated user id](https://azure.microsoft.com/documentation/articles/app-insights-api-custom-events-metrics/#authenticated-users) 
-2. 
+Set the [authenticated user id](https://azure.microsoft.com/documentation/articles/app-insights-api-custom-events-metrics/#authenticated-users)  
 
 
 
