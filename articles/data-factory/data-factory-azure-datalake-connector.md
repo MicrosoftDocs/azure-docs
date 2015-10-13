@@ -25,7 +25,7 @@ This article outlines how you can use the Copy Activity in an Azure data factory
 The sample below shows:
 
 1.	A linked service of type [AzureStorage](#azure-storage-linked-service-properties).
-2.	A linked service of type [AzureDataLake](#azure-data-lake-linked-service-properties).
+2.	A linked service of type [AzureDataLakeStore](#azure-data-lake-linked-service-properties).
 3.	An input [dataset](data-factory-create-datasets.md) of type [AzureBlob](#azure-blob-dataset-type-properties).
 4.	An output [dataset](data-factory-create-datasets.md) of type [AzureDataLake](#azure-data-lake-dataset-type-properties).
 4.	A [pipeline](data-factory-create-pipelines.md) with a Copy activity that uses [BlobSource](#azure-blob-copy-activity-type-properties) and [AzureDataLakeSink](#azure-data-lake-copy-activity-type-properties).
@@ -48,9 +48,9 @@ The sample copies data belonging to a time series from an Azure Blob Storage to 
 **Azure Data Lake linked service:**
 
 	{
-	    "name": "AzureDataLakeLinkedService",
+	    "name": "AzureDataLakeStoreLinkedService",
 	    "properties": {
-	        "type": "AzureDataLake",
+	        "type": "AzureDataLakeStore",
 	        "typeProperties": {
 	            "dataLakeUri": "https://<accountname>.azuredatalake.net/webhdfs/v1",
 				"sessionId": "<session ID>",
@@ -144,7 +144,7 @@ The sample copies data to an Azure Data Lake store. New data is copies to Data L
 		"name": "AzureDataLakeOutput",
 	  	"properties": {
 			"type": "AzureDataLake",
-		    "linkedServiceName": " AzureDataLakeLinkedService",
+		    "linkedServiceName": " AzureDataLakeStoreLinkedService",
 		    "typeProperties": {
 				"folderPath": "datalake/output/"
 		    },
@@ -223,9 +223,9 @@ The sample copies data belonging to a time series from an Azure Data Lake store 
 **Azure Data Lake Store linked service:**
 
 	{
-	    "name": "AzureDataLakeLinkedService",
+	    "name": "AzureDataLakeStoreLinkedService",
 	    "properties": {
-	        "type": "AzureDataLake",
+	        "type": "AzureDataLakeStore",
 	        "typeProperties": {
 	            "dataLakeUri": "https://<accountname>.azuredatalake.net/webhdfs/v1",
 				"sessionId": "<session ID>",
@@ -257,7 +257,7 @@ Setting **"external": true** and specifying **externalData** policy informs the 
 	  	"properties":
 		{
 	    	"type": "AzureDataLake",
-	    	"linkedServiceName": " AzureDataLakeLinkedService",
+	    	"linkedServiceName": " AzureDataLakeStoreLinkedService",
 		    "typeProperties": {
 				"folderPath": "datalake/input/",
             	"fileName": "SearchLog.tsv",
@@ -396,7 +396,7 @@ You can link an Azure storage account to an Azure data factory using an Azure St
 
 | Property | Description | Required |
 | -------- | ----------- | -------- |
-| type | The type property must be set to: **AzureDataLake** | Yes |
+| type | The type property must be set to: **AzureDataLakeStore** | Yes |
 | dataLakeUri | Specify information about the Azure Data Lake Store account. It is in the following format: https://<Azure Data Lake account name>.azuredatalake.net/webhdfs/v1 | Yes |
 | authorization | Click **Authorize** button in the **Data Factory Editor** and enter your credentials, which assigns the auto-generated authorization URL to this property.  | Yes |
 | sessionId | OAuth session id from the oauth authorization session. Each session id is unique and may only be used once. This is automatically generated when you use Data Factory Editor. | Yes |  
