@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="10/13/2015" 
+	ms.date="10/13/2015"
 	ms.author="jeffstok"/>
 
 # Understanding Stream Analytics inputs
