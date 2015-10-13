@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Auto scaleing and App Service Environment" 
-	description="Auto scaleing and App Service Environment" 
+	pageTitle="Auto scaling and App Service Environment" 
+	description="Auto scaling and App Service Environment" 
 	services="app-service"
 	documentationCenter=""
 	authors="btardif" 
@@ -18,7 +18,7 @@
 	ms.author="byvinyal"
 />
 	
-#Auto scaleing and App Service Environment
+#Auto scaling and App Service Environment
 
 ##Introduction
 **App Service environments** support auto-scale. This is achieved by allowing you to auto-scale individual 
