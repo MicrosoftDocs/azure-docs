@@ -42,7 +42,7 @@ The emulator simulates the Azure Compute service and runs in your local environm
     **Note:** When you stop running or debugging your service, the local compute emulator and storage emulator aren't stopped. You must stop them explicitly from the notification area.
 
 
-## Debugging a cloud service in Azure
+## Debug a cloud service in Azure
 
 To debug a cloud service from a remote machine, you must enable that functionality explicitly when you deploy your cloud service so that required services (msvsmon.exe, for example) are installed on the virtual machines that run your role instances. If you didn't enable remote debugging when you published the service, you have to republish the service with remote debugging enabled.
 

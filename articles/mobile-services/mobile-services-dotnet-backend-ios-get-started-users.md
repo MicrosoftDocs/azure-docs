@@ -56,7 +56,6 @@ In the next tutorial, [Service-side authorization of Mobile Services users], you
 <!-- URLs. -->
 [Service-side authorization of Mobile Services users]: mobile-services-dotnet-backend-service-side-authorization.md
 [Mobile Services Quick Start tutorial]: mobile-services-dotnet-backend-ios-get-started.md
-[Get started with data]: mobile-services-dotnet-backend-ios-get-started-data.md
 [Get started with authentication]: mobile-services-dotnet-backend-ios-get-started-users.md
 [Get started with push notifications]: mobile-services-dotnet-backend-ios-get-started-push.md
 [Authorize users with scripts]: ../mobile-services-dotnet-backend-ios-authorize-users-in-scripts.md

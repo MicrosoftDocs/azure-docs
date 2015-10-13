@@ -1,5 +1,5 @@
 <properties
-    pageTitle="What is a Cloud Service Model and Package in Azure"
+    pageTitle="What is a Cloud Service model and package | Microsoft Azure"
     description="Describes the cloud service model (.csdef, .cscfg) and package (.cspkg) in Azure"
     services="cloud-services"
     documentationCenter=""
@@ -12,10 +12,10 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="07/06/2015"
+    ms.date="10/09/2015"
     ms.author="adegeo"/>
 
-# What is the Cloud Service Model and how do I package it?
+# What is the Cloud Service model and how do I package it?
 A cloud service is created from three components, the service definition _(.csdef)_, the service config _(.cscfg)_, and a service package _(.cspkg)_. Both the **ServiceDefinition.csdef** and **ServiceConfig.cscfg** files are XML-based and describe the structure of the cloud service and how it's configured; collectively called the model. The **ServicePackage.cspkg** is a zip file that is generated from the **ServiceDefinition.csdef** and among other things, contains all of the required binary-based dependencies. Azure creates a cloud service from both the **ServicePackage.cspkg** and the **ServiceConfig.cscfg**.
 
 Once the cloud service is running in Azure, you can reconfigure it through the **ServiceConfig.cscfg** file, but you cannot alter the definition.
@@ -269,11 +269,7 @@ Where the variables are defined as follows:
 
 I'm creating a cloud service package and I want to...
 
-<!--
-* [Configure Sizes for Cloud Services](!!!!!https://msdn.microsoft.com/library/azure/ee814754.aspx)  
-* [Configure Local Storage Resources](!!!!!https://azure.microsoft.com/documentation/articles/cloud-services-configure-local-storage-resources/)
--->
-
+* [Configure Local Storage Resources](cloud-services-configure-local-storage-resources.md)
 * [Setup remote desktop for a cloud service instance][remotedesktop]
 * [Deploy a Cloud Service project][deploy]
 

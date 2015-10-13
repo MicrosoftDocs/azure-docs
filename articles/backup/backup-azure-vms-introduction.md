@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/24/2015"
+	ms.date="10/07/2015"
 	ms.author="trinadhk";"aashishr";"jimpark"/>
 
 # Azure virtual machine backup
@@ -117,7 +117,8 @@ Learn about the [VM Agent](https://go.microsoft.com/fwLink/?LinkID=390493&clcid=
 - Backup of virtual machines using Premium storage is not supported.
 - Backup of virtual machines with multiple reserved IPs is not supported.
 - Backup of virtual machines with a reserved IP and no end-point defined is not supported.
-- Backup of virtual machines using multiple NICs or in a load-balanced configuration is not supported.
+- Backup of virtual machines using multiple NICs is not supported.
+- Backup of virtual machines in a load-balanced configuration (internal and internet-facing) is not supported.
 - Replacing an existing virtual machine during restore is not supported. First delete the existing virtual machine and any associated disks, and then restore the data from backup.
 - Cross-region backup and restore is not supported.
 - Virtual machine backup using the Azure Backup service is supported in all public regions of Azure. Here is a [checklist](http://azure.microsoft.com/regions/#services) of supported regions. If the region you are looking for is unsupported today, it will not appear in the dropdown list during vault creation.

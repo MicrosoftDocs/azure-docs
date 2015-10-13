@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Develop a Service Fabric service"
+   pageTitle="Develop a Service Fabric service | Microsoft Azure"
    description="Conceptual information and tutorials that help you understand how to develop a Service Fabric service using the Reliable Actor or Reliable Services programming models."
    services="service-fabric"
    documentationCenter=".net"

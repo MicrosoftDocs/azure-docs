@@ -28,7 +28,7 @@ In this example, we will have three simulated data sources:  external temperatur
 
 ### Provision your IoT Suite
 
-If you haven't provisioned your remote monitoring preconfigured solution yet, you can provision it [here](www.internetofyourthings.com).
+If you haven't provisioned your remote monitoring preconfigured solution yet, you can provision it [here](http://www.microsoft.com/en-us/server-cloud/internet-of-things/getting-started.aspx).
 
 
 ### Provision your device in the remote monitoring solution
@@ -156,7 +156,7 @@ Connect the device
 
 - Connect the board to your network using an Ethernet cable. This step is required, as the sample depends on internet access.
 
-- Plug the device into your computer using a micro-USB cable. Be sure to attach the cable to the correct USB port on the device, as pictured [here](https://developer.mbed.org/platforms/IBMEthernetKit/), in the "Getting started" section.
+- Plug the device into your computer using a micro-USB cable. Be sure to attach the cable to the correct USB port on the device, as pictured [here](https://developer.mbed.org/platforms/frdm-k64f/), in the "Getting started" section.
 
 - Follow the [instructions on the mbed handbook](https://developer.mbed.org/handbook/SerialPC) to set up the serial connection with your device from your development machine. If you are on Windows, install the Windows serial port drivers located [here](http://developer.mbed.org/handbook/Windows-serial-configuration#1-download-the-mbed-windows-serial-port).
 
@@ -205,9 +205,8 @@ Build and run the program
 
 - If the build is successful, a .bin file with the name of your project is generated. Copy the .bin file to the device. Saving the .bin file to the device causes the current terminal session to the device to reset. When it reconnects, reset the terminal again manually, or start a new terminal. This enables the mbed device to reset and start executing the program.
 
-- Connect to the device using an SSH client application, such as PuTTY. You can determine which serial port your device uses by checking the Windows Device Manager:
+- Connect to the device using an SSH client application, such as PuTTY. You can determine which serial port your device uses by checking the Windows Device Manager.
 
-	![][10]
 
 - In PuTTY, click the **Serial** connection type. The device most likely connects at 115200, so enter that value in the **Speed** box. Then click **Open**:
 
@@ -304,7 +303,7 @@ Now that your device is connected and sending self-generated temperature data fr
 
 	![][14]
 - Go back to the dashboard and ensure that the updated data is coming through. You should see updated statistics on temperature and the new data being displayed in the telemetry history.
-	![][15]
+
 
 
 
@@ -316,6 +315,6 @@ Now that your device is connected and sending self-generated temperature data fr
 [18]: ./media/iot-suite-connecting-devices/suite10.png
 
 
-## Extending your solution
+## Next steps
 
-There are multiple ways to extend the functionality of this sample: connect real sensor to your device to send real date, implement command and control functionality, etc. Please use our guide on how to extend the remote monitoring solution to learn more about this.
+There are multiple ways to extend the functionality of this sample: connect real sensor to your device to send real date, implement command and control functionality,etc. Please use our [guide](articles/iot-suite/iot-suite-guidance-on-customizing-preconfigured-solutions.md) on how to extend the remote monitoring solution to learn more about this.

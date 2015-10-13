@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="index-page"
-	ms.date="07/09/2015"
+	ms.date="10/05/2015"
 	ms.author="josephd"/>
 
 # Oracle software hosted on Azure virtual machines
@@ -42,14 +42,6 @@ See [Miscellaneous considerations for Oracle virtual machine images](virtual-mac
 ## Oracle WebLogic Server 12c and Oracle Database 12c
 
 [Creating an Oracle WebLogic Server 12c and Oracle Database 12c virtual machine in Azure](virtual-machines-creating-oracle-weblogic-server-12c-oracle-database-12c-virtual-machine.md) steps you through virtual machine and database creation and configuration.
-
-## Oracle WebLogic Server 12c cluster
-
-[Creating an Oracle WebLogic Server 12c cluster in Azure](virtual-machines-creating-oracle-weblogic-server-12c-cluster.md) steps you through cluster creation and application deployment.
-
-## Oracle WebLogic Server 11g
-
-[Creating an Oracle WebLogic Server 11g virtual machine in Azure](virtual-machines-creating-oracle-weblogic-server-11g-virtual-machine.md) steps you through virtual machine creation, configuration, and application installation.
 
 ## Prepare an Oracle Linux virtual machine
 
