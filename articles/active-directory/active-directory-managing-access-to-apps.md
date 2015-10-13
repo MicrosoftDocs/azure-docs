@@ -21,7 +21,7 @@
 
 Ongoing access management, usage evaluation, and reporting continue to be a challenge after an app is integrated into your organization's identity system. In many cases, your IT Administrator or helpdesk has to take an ongoing active role in managing access to your apps. Sometimes, assignment is performed by a general or divisional IT team. In many cases, the assignment decision is intended to be deleted to the business decision maker, requiring their approval before IT makes the assignment.  Other organizations invest in integration with an existing automated identity and access management system, like Role-Based Access Control (RBAC) or Attribute-Based Access Control (ABAC). Both the integration and rule development tend to be specialized and expensive. Monitoring or reporting on either management approach is its own separate, costly, and complex investment.
 
- ## How does Azure Active Directory help?
+## How does Azure Active Directory help?
 
  Azure AD supports extensive access management for configured applications, enabling organizations to easily achieve the right access policies ranging from automatic, attribute-based assignment (ABAC or RBAC scenarios) through delegation and including administrator management. With Azure AD you can easily achieve complex policies, combining multiple management models for a single application and can even re-use management rules across applications with the same audiences.
 
