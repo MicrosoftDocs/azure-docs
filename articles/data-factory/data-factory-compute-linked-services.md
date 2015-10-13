@@ -235,17 +235,17 @@ apiKey | The published workspace model’s API. | Yes
 
 
 ## Azure Data Lake Analytics Linked Service
-You create an Azure Data Lake Analytics linked service to link an Azure Data Lake Analytics compute service to an Azure data factory.
+You create an **Azure Data Lake Analytics** linked service to link an Azure Data Lake Analytics compute service to an Azure data factory.
 
 ### Example
 
 	{
-	    "name": "AzureBigAnalyticsLinkedService",
+	    "name": "AzureDataLakeAnalyticsLinkedService",
 	    "properties": {
-	        "type": "AzureBigAnalytics",
+	        "type": "AzureDataLakeAnalytics",
 	        "typeProperties": {
 	            "accountName": "adftestaccount",
-	            "bigAnalyticsUri": "datalakeanalyticscompute.net",
+	            "dataLakeAnalyticsUri": "datalakeanalyticscompute.net",
 	            "authorization": "<authcode>",
 				"sessionId": "<session ID> 
 	            "subscriptionId": "<subscription id>",
@@ -259,13 +259,13 @@ You create an Azure Data Lake Analytics linked service to link an Azure Data Lak
 
 Property | Description | Required
 -------- | ----------- | --------
-Type | The type property should be set to: **AzureBigAnalytics**. | Yes
-accountName | Azure Big Analytics Account Name. | Yes
-bigAnalyticsUri | Azure Big Analytics URI. Enter ‘datalakeanalyticscompute.net’. |  No 
+Type | The type property should be set to: **AzureDataLakeAnalytics**. | Yes
+accountName | Azure Data Lake Analytics Account Name. | Yes
+dataLakeAnalyticsUri | Azure Data Lake Analytics URI. |  No 
 authorization | Authorization code is automatically retrieved after clicking ‘**Authorize**’ button in the Data Factory Editor and completing the OAuth login. | Yes 
 subscriptionId | Azure subscription id | No (If not specified, subscription of the data factory is used). 
 resourceGroupName | Azure resource group name |  No (If not specified, resource group of the data factory is used).
-sessionId | OAuth session id from the oauth authorization session. Each session id is unique and may only be used once. | Yes
+sessionId | OAuth session id from the oauth authorization session. Each session id is unique and may only be used once. This is auto-generated in the Data Factory Editor. | Yes
 
 ## Azure SQL Linked Service
 

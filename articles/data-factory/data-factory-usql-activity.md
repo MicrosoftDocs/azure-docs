@@ -32,7 +32,7 @@ You create an **Azure Data Lake Analytics** linked service to link an Azure Data
 	            "accountName": "adftestaccount",
 	            "dataLakeAnalyticsUri": "datalakeanalyticscompute.net",
 	            "authorization": "<authcode>",
-				"sessionId": "<session ID> 
+				"sessionId": "<session ID>", 
 	            "subscriptionId": "<subscription id>",
 	            "resourceGroupName": "<resource group name>"
 	        }
@@ -131,7 +131,7 @@ In this example, the input data resides in an Azure Data Lake Store (SearchLog.t
     	"name": "DataLakeTable",
 	    "properties": {
 	        "type": "AzureDataLakeStore",
-    	    "linkedServiceName": "AzureDataLakeLinkedService",
+    	    "linkedServiceName": "AzureDataLakeStoreLinkedService",
     	    "typeProperties": {
     	        "folderPath": "datalake/input/",
     	        "fileName": "SearchLog.tsv",
@@ -155,7 +155,7 @@ In this example, the output data produced by the U-SQL script is stored in an Az
 	    "name": "EventsByRegionTable",
 	    "properties": {
 	        "type": "AzureDataLakeStore",
-	        "linkedServiceName": "AzureDataLakeLinkedService",
+	        "linkedServiceName": "AzureDataLakeStoreLinkedService",
 	        "typeProperties": {
 	            "folderPath": "datalake/output/"
 	        },
@@ -166,3 +166,19 @@ In this example, the output data produced by the U-SQL script is stored in an Az
 	    }
 	}
 
+#### Sample Azure Data Lake Store Linked Service
+Here is the definition of the sample Azure Data Lake Store linked service used by the above input/output datasets. 
+
+	{
+	    "name": "AzureDataLakeStoreLinkedService",
+	    "properties": {
+	        "type": "AzureDataLakeStore",
+	        "typeProperties": {
+	            "dataLakeUri": "https://<accountname>.azuredatalake.net/webhdfs/v1",
+				"sessionId": "<session ID>",
+	            "authorization": "<authorization URL>"
+	        }
+	    }
+	}
+
+See [Move data to and from Azure Data Lake Store](data-factory-azure-datalake-connector.md) for descriptions of JSON properties in the above JSON snippets. 

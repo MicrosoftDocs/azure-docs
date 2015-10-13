@@ -27,8 +27,8 @@ The sample below shows:
 1.	A linked service of type [AzureStorage](#azure-storage-linked-service-properties).
 2.	A linked service of type [AzureDataLakeStore](#azure-data-lake-linked-service-properties).
 3.	An input [dataset](data-factory-create-datasets.md) of type [AzureBlob](#azure-blob-dataset-type-properties).
-4.	An output [dataset](data-factory-create-datasets.md) of type [AzureDataLake](#azure-data-lake-dataset-type-properties).
-4.	A [pipeline](data-factory-create-pipelines.md) with a Copy activity that uses [BlobSource](#azure-blob-copy-activity-type-properties) and [AzureDataLakeSink](#azure-data-lake-copy-activity-type-properties).
+4.	An output [dataset](data-factory-create-datasets.md) of type [AzureDataLakeStore](#azure-data-lake-dataset-type-properties).
+4.	A [pipeline](data-factory-create-pipelines.md) with a Copy activity that uses [BlobSource](#azure-blob-copy-activity-type-properties) and [AzureDataLakeStoreSink](#azure-data-lake-copy-activity-type-properties).
 
 The sample copies data belonging to a time series from an Azure Blob Storage to Azure Data Lake  Store every hour. The JSON properties used in these samples are described in sections following the samples.
 
@@ -141,9 +141,9 @@ Data is picked up from a new blob every hour (frequency: hour, interval: 1). The
 The sample copies data to an Azure Data Lake store. New data is copies to Data Lake store every hour.
 
 	{
-		"name": "AzureDataLakeOutput",
+		"name": "AzureDataLakeStoreOutput",
 	  	"properties": {
-			"type": "AzureDataLake",
+			"type": "AzureDataLakeStore",
 		    "linkedServiceName": " AzureDataLakeStoreLinkedService",
 		    "typeProperties": {
 				"folderPath": "datalake/output/"
@@ -159,7 +159,7 @@ The sample copies data to an Azure Data Lake store. New data is copies to Data L
 
 **Pipeline with a Copy activity:**
 
-The pipeline contains a Copy Activity that is configured to use the above input and output datasets and is scheduled to run every hour. In the pipeline JSON definition, the **source** type is set to **BlobSource** and **sink** type is set to **AzureDataLakeSink**.
+The pipeline contains a Copy Activity that is configured to use the above input and output datasets and is scheduled to run every hour. In the pipeline JSON definition, the **source** type is set to **BlobSource** and **sink** type is set to **AzureDataLakeStoreSink**.
 
 	{  
 	    "name":"SamplePipeline",
@@ -181,7 +181,7 @@ The pipeline contains a Copy Activity that is configured to use the above input 
 		        	],
 		        	"outputs": [
 		          	{
-			            "name": "AzureDataLakeOutput"
+			            "name": "AzureDataLakeStoreOutput"
 		          	}
 		        	],
 		        	"typeProperties": {
@@ -191,7 +191,7 @@ The pipeline contains a Copy Activity that is configured to use the above input 
 		            		"blobColumnSeparators": ","
 		          		},
 		          		"sink": {
-		            		"type": "AzureDataLakeSink"
+		            		"type": "AzureDataLakeStoreSink"
 		          		}
 		        	},
 		       		"scheduler": {
@@ -212,11 +212,11 @@ The pipeline contains a Copy Activity that is configured to use the above input 
 ## Sample: Copy data from Azure Data Lake Store to Azure Blob
 The sample below shows:
 
-1.	A linked service of type [AzureDataLake](#azure-data-lake-linked-service-properties).
+1.	A linked service of type [AzureDataLakeStore](#azure-data-lake-linked-service-properties).
 2.	A linked service of type [AzureStorage](#azure-storage-linked-service-properties).
-3.	An input [dataset](data-factory-create-datasets.md) of type [AzureDataLake](#azure-data-lake-dataset-type-properties).
+3.	An input [dataset](data-factory-create-datasets.md) of type [AzureDataLakeStore](#azure-data-lake-dataset-type-properties).
 4.	An output [dataset](data-factory-create-datasets.md) of type [AzureBlob](#azure-blob-dataset-type-properties).
-5.	A [pipeline](data-factory-create-pipelines.md) with a Copy activity that uses [AzureDataLakeSource](#azure-data-lake-copy-activity-type-properties) and [BlobSink](#azure-blob-copy-activity-type-properties)
+5.	A [pipeline](data-factory-create-pipelines.md) with a Copy activity that uses [AzureDataLakeStoreSource](#azure-data-lake-copy-activity-type-properties) and [BlobSink](#azure-blob-copy-activity-type-properties)
 
 The sample copies data belonging to a time series from an Azure Data Lake store to an Azure blob every hour. The JSON properties used in these samples are described in sections following the samples.
 
@@ -253,11 +253,11 @@ The sample copies data belonging to a time series from an Azure Data Lake store 
 Setting **"external": true** and specifying **externalData** policy informs the Azure Data Factory service that this is a table that is external to the data factory and not produced by an activity in the data factory.
 
 	{
-		"name": "AzureDataLakeInput",
+		"name": "AzureDataLakeStoreInput",
 	  	"properties":
 		{
-	    	"type": "AzureDataLake",
-	    	"linkedServiceName": " AzureDataLakeStoreLinkedService",
+	    	"type": "AzureDataLakeStore",
+	    	"linkedServiceName": "AzureDataLakeStoreLinkedService",
 		    "typeProperties": {
 				"folderPath": "datalake/input/",
             	"fileName": "SearchLog.tsv",
@@ -342,7 +342,7 @@ Data is written to a new blob every hour (frequency: hour, interval: 1). The fol
 
 **Pipeline with the Copy activity:**
 
-The pipeline contains a Copy Activity that is configured to use the above input and output datasets and is scheduled to run every hour. In the pipeline JSON definition, the **source** type is set to **AzureDataLakeSource** and **sink** type is set to **BlobSink**.
+The pipeline contains a Copy Activity that is configured to use the above input and output datasets and is scheduled to run every hour. In the pipeline JSON definition, the **source** type is set to **AzureDataLakeStoreSource** and **sink** type is set to **BlobSink**.
 
 
 	{  
@@ -358,7 +358,7 @@ The pipeline contains a Copy Activity that is configured to use the above input 
 		    	    "type": "Copy",
 		    	    "inputs": [
 		    	      {
-		    	        "name": "AzureDataLakeInput"
+		    	        "name": "AzureDataLakeStoreInput"
 		    	      }
 		    	    ],
 		    	    "outputs": [
@@ -368,7 +368,7 @@ The pipeline contains a Copy Activity that is configured to use the above input 
 		    	    ],
 		    	    "typeProperties": {
 		    	    	"source": {
-		            		"type": "AzureDataLakeSource",
+		            		"type": "AzureDataLakeStoreSource",
 		          		},
 		          		"sink": {
 		            		"type": "BlobSink"
@@ -409,7 +409,7 @@ You can link an Azure storage account to an Azure data factory using an Azure St
 
 For a full list of JSON sections & properties available for defining datasets, see the [Creating datasets](data-factory-create-datasets.md) article. Sections like structure, availability, and policy of a dataset JSON are similar for all dataset types (Azure SQL, Azure blob, Azure table, etc...).
 
-The **typeProperties** section is different for each type of dataset and provides information about the location, format etc. of the data in the data store. The typeProperties section for dataset of type **AzureDataLake** dataset has the following properties.
+The **typeProperties** section is different for each type of dataset and provides information about the location, format etc. of the data in the data store. The typeProperties section for dataset of type **AzureDataLakeStore** dataset has the following properties.
 
 | Property | Description | Required |
 | -------- | ----------- | -------- |
@@ -451,7 +451,7 @@ For a full list of sections & properties available for defining activities, see 
 
 Properties available in the typeProperties section of the activity on the other hand vary with each activity type and in case of Copy activity they vary depending on the types of sources and sinks
 
-**AzureDataLakeSource** supports the following properties **typeProperties** section:
+**AzureDataLakeStoreSource** supports the following properties **typeProperties** section:
 
 | Property | Description | Allowed values | Required |
 | -------- | ----------- | -------------- | -------- |
@@ -459,7 +459,7 @@ Properties available in the typeProperties section of the activity on the other 
 
 
 
-**AzureDataLakeSink** supports the following properties **typeProperties** section:
+**AzureDataLakeStoreSink** supports the following properties **typeProperties** section:
 
 | Property | Description | Allowed values | Required |
 | -------- | ----------- | -------------- | -------- |
