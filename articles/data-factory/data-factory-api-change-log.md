@@ -27,12 +27,12 @@ The following classes have been renamed.The new names were the original names of
  
 Name in 4.0.0 | Name in 4.0.1
 :------------ | :------------ 
-AzureSqlDataWarehouseDataset | AzureSqlDataWarehouseTableDataset
-AzureSqlDataset | AzureSqlTableDataset
-AzureDataset | AzureTableDataset
-OracleDataset | OracleTableDataset
-RelationalDataset | RelationalTableDataset
-SqlServerDataset | SqlServerTableDataset
+AzureSqlDataWarehouseDataset | [AzureSqlDataWarehouseTableDataset](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuresqldatawarehousetabledataset.aspx)
+AzureSqlDataset | [AzureSqlTableDataset](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuresqltabledataset.aspx)
+AzureDataset | [AzureTableDataset](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuretabledataset.aspx)
+OracleDataset | [OracleTableDataset](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.oracletabledataset.aspx)
+RelationalDataset | [RelationalTableDataset](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.relationaltabledataset.aspx)
+SqlServerDataset | [SqlServerTableDataset](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.sqlservertabledataset.aspx)
 
 
 ## Version 4.0.0
