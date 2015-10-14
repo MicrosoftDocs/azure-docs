@@ -126,7 +126,7 @@ The following tables show the sizes and the capacities they provide.
 |Standard_D2_v2\same|2|7 GB|2|<p>OS = 1023 GB</p><p>Temporary (SSD) =100 GB</p>|4|4x500|
 |Standard_D3_v2\same|4|14 GB|4|<p>OS = 1023 GB</p><p>Temporary (SSD) =200 GB</p>|8|8x500|
 |Standard_D4_v2\same|8|28 GB|8|<p>OS = 1023 GB</p><p>Temporary (SSD) =400 GB</p>|16|16x500|
-|Standard_D5_v2\same|16|56 GB|#|<p>OS = 1023 GB</p><p>Temporary (SSD) =800 GB</p>|32|32x500|
+|Standard_D5_v2\same|16|56 GB|16|<p>OS = 1023 GB</p><p>Temporary (SSD) =800 GB</p>|32|32x500|
 |Standard_D11_v2\same|2|14 GB|2|<p>OS = 1023 GB</p><p>Temporary (SSD) =100 GB</p>|4|4x500|
 |Standard_D12_v2\same|4|28 GB|4|<p>OS = 1023 GB</p><p>Temporary (SSD) =200 GB</p>|8|8x500|
 |Standard_D13_v2\same|8|56 GB|8|<p>OS = 1023 GB</p><p>Temporary (SSD) =400 GB</p>|16|16x500|
