@@ -19,7 +19,8 @@
 
 # Articles for virtual machines in Service Management
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)] This is a list of articles about creating and managing resources with the classic deployment model.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Resource Manager model.
+
 
 ## Get started
 
