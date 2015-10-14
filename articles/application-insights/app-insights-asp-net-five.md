@@ -54,7 +54,7 @@ In your ASP.NET 5 project, paste it into `config.json`:
       }
     }
 
-Or if you?d prefer the configuration to be dynamic, you can add this code to the application?s Startup class:
+Or if you'd prefer the configuration to be dynamic, you can add this code to the application's Startup class:
 
     configuration.AddApplicationInsightsSettings(
       instrumentationKey: "11111111-2222-3333-4444-555555555555");
