@@ -1,10 +1,10 @@
 <properties
- pageTitle="Azure IoT Hub Guidance | Microsoft Azure"
- description="A collection of guidance topics for solutions using Azure IoT Hub."
+ pageTitle="Guidance topics for using Azure IoT Hub | Microsoft Azure"
+ description="A collection of guidance topics for developing solutions using Azure IoT Hub."
  services="iot-hub"
- documentationCenter=".net"
+ documentationCenter=""
  authors="fsautomata"
- manager="kevinmil"
+ manager="timlt"
  editor=""/>
 
 <tags
@@ -12,7 +12,7 @@
  ms.devlang="na"
  ms.topic="article"
  ms.tgt_pltfrm="na"
- ms.workload="tbd"
+ ms.workload="na"
  ms.date="09/29/2015"
  ms.author="elioda"/>
 
