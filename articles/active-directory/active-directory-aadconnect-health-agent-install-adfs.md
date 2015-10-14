@@ -119,6 +119,7 @@ In order for the Usage Analytics feature to gather data and analyze the Azure AD
 
 ## Configure Azure AD Connect Health Agents to use HTTP Proxy
 You can configure Azure AD Connect Health Agents to work with an HTTP Proxy.
+
 >[AZURE.NOTE]
 - Using “Netsh WinHttp set ProxyServerAddress” will not work as the agent uses System.Net to make web requests instead of Microsoft Windows HTTP Services.
 - The configured Http Proxy address will be used to pass-through encrypted Https messages.
@@ -127,16 +128,17 @@ You can configure Azure AD Connect Health Agents to work with an HTTP Proxy.
 ### Change Health Agent Proxy Configuration
 You have the following options to configure Azure AD Connect Health Agent to use an HTTP Proxy.
 
-#### Import existing proxy Settings
-- Import from Internet Explorer <br>
-You can import your Internet Explorer HTTP proxy settings and use them for Azure AD Connect Health Agents by executing the following PowerShell command on each server running the Health Agent.
+>[AZURE.NOTE] You must restart all Azure AD Connect Health Agent services for the proxy settings to be updated. Run the following command:<br>
+    Restart-Service AdHealth*
 
+#### Import existing proxy Settings
+##### Import from Internet Explorer
+You can import your Internet Explorer HTTP proxy settings and use them for Azure AD Connect Health Agents by executing the following PowerShell command on each server running the Health Agent.
 
 	Set-AzureAdConnectHealthProxySettings -ImportFromInternetSettings
 
-- Import from WinHTTP <br>
+##### Import from WinHTTP
 You can import you WinHTTP proxy settings by executing the following PowerShell command on each server running the Health Agent.
-
 
 	Set-AzureAdConnectHealthProxySettings -ImportFromWinHttp
 
@@ -155,10 +157,6 @@ You can clear the existing proxy configuration by running the following command.
 
 	Set-AzureAdConnectHealthProxySettings -NoProxy
 
-
-
->[AZURE.NOTE] You must restart all Azure AD Connect Health Agent services for the proxy settings to be updated. Run the following command:<br>
-    Restart-Service AdHealth*
 
 ### Read current proxy settings
 You can use the following command to read the currently configured proxy settings.
