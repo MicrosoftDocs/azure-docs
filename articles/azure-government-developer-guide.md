@@ -88,7 +88,6 @@ Use the following table to guide you when mapping public Microsoft Azure and SQL
 
 Service Type|Azure Public|Azure Government
 ---|---|---
-Azure Government Home|windowsazure.com|microsoftazure.us
 Management Portal|manage.windowsazure.com|manage.windowsazure.us
 General|*.windows.net|*.usgovcloudapi.net
 Core|*.core.windows.net|*.core.usgovcloudapi.net
@@ -98,7 +97,9 @@ Queue Storage|*.queue.core.windows.net|*.queue.core.usgovcloudapi.net
 Table Storage|*.table.core.windows.net|*.table.core.usgovcloudapi.net
 Service Management|management.core.windows.net|management.core.usgovcloudapi.net
 SQL Database|*.database.windows.net|*.database.usgovcloudapi.net
-ARM Load balanced Endpoint|https://management.windows.net|https://management.usgovcloudapi.net  
+ARM Load balanced* Endpoint|https://management.windows.net|https://management.usgovcloudapi.net  
+
+* For ARM authentication via Azure AD, please reference <A href="https://msdn.microsoft.com/en-us/library/azure/dn790557.aspx">Authenticating Azure Resource Manager Requests</A>
 
 
 ## <a name="next"></a>Next steps
