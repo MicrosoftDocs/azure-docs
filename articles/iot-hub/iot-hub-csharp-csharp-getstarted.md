@@ -1,18 +1,18 @@
 <properties
-	pageTitle="Get Started with IoT Hub | Microsoft Azure"
+	pageTitle="Get started with IoT Hub tutorial | Microsoft Azure"
 	description="Follow this tutorial to get started using Azure IoT Hub with C#."
 	services="iot-hub"
 	documentationCenter=".net"
 	authors="fsautomata"
-	manager="kevinmil"
+	manager="timlt"
 	editor=""/>
 
 <tags
      ms.service="iot-hub"
-     ms.devlang="csharp"
-     ms.topic="article"
+     ms.devlang="dotnet"
+     ms.topic="hero-article"
      ms.tgt_pltfrm="na"
-     ms.workload="tbd"
+     ms.workload="na"
      ms.date="09/29/2015"
      ms.author="elioda"/>
 
@@ -24,13 +24,13 @@ Azure IoT Hub is a fully managed service that enables reliable and secure bi-dir
 
 This tutorial shows how to use the Azure portal to create an IoT hub. It also shows you how to create a device identity in your IoT hub, create a simulated device that sends device-to-cloud messages, and receives these messages from your cloud back-end.
 
-At the end of this tutorial you will have created three Windows console applications:
+At the end of this tutorial you will have three Windows console applications:
 
 * **CreateDeviceIdentity**, which creates a device identity and associated security key to connect your simulated device,
 * **ReadDeviceToCloudMessages**, which reads device-to-cloud messages and displays their content, and
 * **SimulatedDevice**, which connects to your IoT hub with the device identity created earlier, and sends a device-to-cloud message every second.
 
-> [AZURE.NOTE] IoT Hub has SDK support for many device platforms and languages (including C, Java, and Javascript) though Azure IoT device SDKs. Refer to the [Azure IoT Developer Center] for step by step instructions on how to connect your device to this tutorial's code, and generally to Azure IoT Hub. Azure IoT service SDKs for Java and Node are coming soon.
+> [AZURE.NOTE] IoT Hub has SDK support for many device platforms and languages (including C, Java, and Javascript) though Azure IoT device SDKs. Refer to the [Azure IoT Developer Center][] for step by step instructions on how to connect your device to this tutorial's code, and generally to Azure IoT Hub. Azure IoT service SDKs for Java and Node are coming soon.
 
 In order to complete this tutorial you'll need the following:
 
@@ -92,17 +92,17 @@ Now you are ready to run the applications.
 
 In this tutorial, you set up a new IoT hub, created a device identity in the hub's identity registry, and used this identity to program a simulated device that sends device-to-cloud messages. You can continue to explore IoT hub features and scenario with the following tutorials:
 
-- [Send Cloud-to-Device messages with IoT Hub], shows how to send messages to devices, and process the delivery feedback produced by IoT Hub.
-- [Process Device-to-Cloud messages], shows how to reliably process telemetry and interactive messages coming from devices.
-- [Uploading files from devices], describes a pattern that makes use of cloud-to-device messages to facilitate file uploads from devices.
+- [Send Cloud-to-Device messages with IoT Hub][] shows how to send messages to devices, and process the delivery feedback produced by IoT Hub.
+- [Process Device-to-Cloud messages][] shows how to reliably process telemetry and interactive messages coming from devices.
+- [Uploading files from devices][] describes a pattern that makes use of cloud-to-device messages to facilitate file uploads from devices.
 
 Additional information on IoT Hub:
 
-* [IoT Hub Overview]
-* [IoT Hub Developer Guide]
-* [IoT Hub Guidance]
+* [IoT Hub overview][]
+* [IoT Hub developer guide][]
+* [IoT Hub guidance][]
 * [Supported device platforms and languages][Supported devices]
-* [Azure IoT Developer Center]
+* [Azure IoT Developer Center][]
 
 <!-- Images. -->
 [1]: ./media/iot-hub-csharp-csharp-getstarted/create-iot-hub1.png
