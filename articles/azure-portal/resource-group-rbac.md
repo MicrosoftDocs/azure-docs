@@ -59,7 +59,7 @@ In this topic, you will see how to perform the following common scenarios throug
 
 ## How to use PowerShell to manage access
 
-[AZURE.INCLUDE [powershell-preview-inline-include](../includes/powershell-preview-inline-include.md)]
+[AZURE.INCLUDE [powershell-preview-inline-include](../../includes/powershell-preview-inline-include.md)]
 
 
 ### View available roles
