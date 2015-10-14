@@ -72,6 +72,15 @@ Virtual machines with secondary network interfaces and virtual machines with no 
 |DS12|4|
 |DS13|8|
 |DS14|16|
+|D1_v2|1|
+|D2_v2|2|
+|D3_v2|4|
+|D4_v2|8|
+|D5_v2|16|
+|D11_v2|2|
+|D12_v2|4|
+|D13_v2|8|
+|D14_v2|16|
 |G1|1|
 |G2|2|
 |G3|4|
