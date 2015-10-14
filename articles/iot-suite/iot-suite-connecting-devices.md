@@ -1,18 +1,18 @@
 <properties
-   pageTitle="Connecting your device to the the Azure IoT Suite preconfigured remote monitoring solution | Microsoft Azure"
-   description="Describes how to connect your device to the Azure IoT Suite preconfigured remote monitoring solution using an example involving temperature and humidity."
-   services="iot-hub"
+   pageTitle="Connect a device to a preconfigured solution | Microsoft Azure"
+   description="Describes how to connect a device to the Azure IoT Suite preconfigured remote monitoring solution using an example that uses temperature and humidity data."
+   services=""
    documentationCenter="na"
    authors="hegate"
-   manager="jamesosb"
+   manager="timlt"
    editor=""/>
 
 <tags
-   ms.service="iot-hub"
+   ms.service="na"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="na"
+   ms.workload="nana"
    ms.date="09/29/2015"
    ms.author="hegate"/>
 

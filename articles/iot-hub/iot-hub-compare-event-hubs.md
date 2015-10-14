@@ -1,10 +1,10 @@
 <properties
- pageTitle="Compare Azure IoT Hub to Event Hubs | Microsoft Azure"
- description="A comparison of IoT Hub and Event Hubs."
+ pageTitle="Compare Azure IoT Hub to Azure Event Hubs | Microsoft Azure"
+ description="A comparison of the Azure IoT Hub and Azure Event Hubs services highlighting functional differences and use cases."
  services="iot-hub"
- documentationCenter=".net"
+ documentationCenter=""
  authors="fsautomata"
- manager="kevinmil"
+ manager="timlt"
  editor=""/>
 
 <tags
@@ -12,7 +12,7 @@
  ms.devlang="na"
  ms.topic="article"
  ms.tgt_pltfrm="na"
- ms.workload="tbd"
+ ms.workload="na"
  ms.date="10/02/2015"
  ms.author="elioda"/>
 
