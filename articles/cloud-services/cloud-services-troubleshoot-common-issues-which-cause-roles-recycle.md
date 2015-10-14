@@ -84,7 +84,7 @@ To run a web role under SSL, you must ensure that your exported management certi
 
 ## Next steps
 
-View more [troubleshooting articles](/documentation/articles/?tag=top-support-issue&service=cloud-services) for cloud services.
+View more [troubleshooting articles](?tag=top-support-issue&service=cloud-services) for cloud services.
 
 
 

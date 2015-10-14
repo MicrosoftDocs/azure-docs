@@ -64,4 +64,4 @@ Correct the errors in the Web.config file.
 
 ## Next steps
 
-View more [troubleshooting articles](/documentation/articles/?tag=top-support-issue&service=cloud-services) for cloud services.
+View more [troubleshooting articles](?tag=top-support-issue&service=cloud-services) for cloud services.

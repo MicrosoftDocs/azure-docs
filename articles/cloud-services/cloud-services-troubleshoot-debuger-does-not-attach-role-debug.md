@@ -39,5 +39,5 @@ You can also use Microsoft Visual Studio to debug your role instance.
 
 ## Next steps
 
-View more [troubleshooting articles](/documentation/articles/?tag=top-support-issue&service=cloud-services) for cloud services.
+View more [troubleshooting articles](?tag=top-support-issue&service=cloud-services) for cloud services.
 
