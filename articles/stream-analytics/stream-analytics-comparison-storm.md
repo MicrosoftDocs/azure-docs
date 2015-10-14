@@ -578,7 +578,7 @@ While both provide benefits of a PaaS solution, there are a few major distinguis
             </td>
             <td width="204" valign="top">
                 <p>
-                    By configuring published Azure Machine Learning models as functions during ASA job creation -[private preview](http://blogs.msdn.com/b/streamanalytics/archive/2015/05/24/real-time-scoring-of-streaming-data-using-machine-learning-models.aspx).
+                    By configuring published Azure Machine Learning models as functions during ASA job creation <a href="http://blogs.msdn.com/b/streamanalytics/archive/2015/05/24/real-time-scoring-of-streaming-data-using-machine-learning-models.aspx">(private preview)</a>.
                 </p>
             </td>
             <td width="246" valign="top">
