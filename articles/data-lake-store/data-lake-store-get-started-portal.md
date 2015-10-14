@@ -85,7 +85,7 @@ Click the newly added file to open the **Properties** blade. The properties asso
 
 ![Properties on the data](./media/data-lake-store-get-started-portal/ADL.File.Properties.png "Properties on the data")
 
-* Click **Preview** to see a preview of the file, directly from the browser. You can specify the format of the preview as well. Click Preview, click Format in the File Preview blade, and in the File Preview Format blade specify the options such as number of rows to display, encoding to use, delimiter to use, etc.
+* Click **Preview** to see a preview of the file, directly from the browser. You can specify the format of the preview as well. Click **Preview**, click **Format** in the **File Preview** blade, and in the **File Preview Format** blade specify the options such as number of rows to display, encoding to use, delimiter to use, etc.
 
   ![File preview format](./media/data-lake-store-get-started-portal/ADL.File.Preview.png "File preview format")
 
