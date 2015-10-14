@@ -208,4 +208,4 @@ To get the full 360-degree view of your application, there are some more things 
 [portal]: http://portal.azure.com/
 [qna]: app-insights-troubleshoot-faq.md
 [redfield]: app-insights-monitor-performance-live-website-now.md
-[start]: app-insights-get-started.md 
+[start]: app-insights-overview.md 
