@@ -124,14 +124,5 @@ For more information about how to work with App Service Web Apps, see the links 
 * For a guide to the change of the old portal to the new portal, see [Reference for navigating the preview portal](http://go.microsoft.com/fwlink/?LinkId=529715).
 
 [5]: ./media/web-sites-php-web-site-gallery/startmarketplace.png
-[6]: ./media/web-sites-php-web-site-gallery/wordpressgallery-02.png
 [7]: ./media/web-sites-php-web-site-gallery/search-web-app.png
-[9]: ./media/web-sites-php-web-site-gallery/wordpressgallery-05.png
-[10]: ./media/web-sites-php-web-site-gallery/select-web.png
-[13]: ./media/web-sites-php-web-site-gallery/wordpressgallery-09.png
-[webapps]: ./media/web-sites-php-web-site-gallery/selectwebapps.png
-[database]: ./media/web-sites-php-web-site-gallery/set-db.png
-[resourcegroup]: ./media/web-sites-php-web-site-gallery/show-rg.png
 [browse]: ./media/web-sites-php-web-site-gallery/browse-web.png
-[marketplace]: ./media/web-sites-php-web-site-gallery/marketplace-icon.png
-[groupname]: ./media/web-sites-php-web-site-gallery/set-rg.png
