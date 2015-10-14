@@ -88,7 +88,7 @@ rules:
 |	**Days:** Monday, Tuesday, Wednesday, Thursday, Friday	|	**Days:** Saturday, Sunday								|
 |	**Start Time:** 9:00AM									|	**Start Time:** 9:00AM									|
 |	**Time zone:** UTC – 08									|	**Time zone:** UTC – 08									|
-|	----------------------------------------------------	|	----------------------------------------------------	|
+|	                                                    	|	                                            	        |
 |	**Auto-scale Rule (Scale UP)**							|	**Auto-scale Rule (Scale UP)**							|
 |	**Resource:** Production (App Service Environment)		|	**Resource:** Production (App Service Environment)		|
 |	**Metric:** CPU %										|	**Metric:** CPU %										|
@@ -97,14 +97,14 @@ rules:
 |	**Time Aggregation:** Average							|	**Time Aggregation:** Average							|
 |	**Action:** Increase count by 2							|	**Action:** Increase count by 1							|
 |	**Cool down (minutes):** 15								|	**Cool down (minutes):** 20								|
-|	----------------------------------------------------	|	----------------------------------------------------	|
+|	                                                    	|	                                            	        |
 |	**Auto-scale Rule (Scale DOWN)**						|	**Auto-scale Rule (Scale DOWN)**						|
 |	**Resource:** Production (App Service Environment)		|	**Resource:** Production (App Service Environment)		|
 |	**Metric:** CPU %										|	**Metric:** CPU %										|
 |	**Operation:** Lesser than 30%							|	**Operation:** Lesser than 20%							|
 |	**Duration:** 10 Minutes								|	**Duration:** 15 Minutes								|
 |	**Time Aggregation:** Average							|	**Time Aggregation:** Average							|
-|	**Action:** **Decrease count by 1						|	**Action:** Decrease count by 1							|
+|	**Action:** Decrease count by 1							|	**Action:** Decrease count by 1							|
 |	**Cool down (minutes):** 20								|	**Cool down (minutes):** 10								|
 
 
@@ -179,7 +179,7 @@ With this Information Frank can define the following Auto-scale Profile and Rule
 |	**Days:** Monday, Tuesday, Wednesday, Thursday, Friday	|	**Days:** Saturday, Sunday						|
 |	**Start Time:** 7:00AM									|	**Start Time:** 9:00AM							|
 |	**Time zone:** UTC – 08									|	**Time zone:** UTC – 08							|
-|	----------------------------------------------------	|	--------------------------------------------	|
+|	                                                    	|	                                            	|
 |	**Auto-scale Rule (Scale UP)**							|	**Auto-scale Rule (Scale UP)**					|
 |	**Resource:** Worker Pool 1								|	**Resource:** Worker Pool 1						|
 |	**Metric:** WorkersAvailable							|	**Metric:** WorkersAvailable					|
@@ -188,7 +188,7 @@ With this Information Frank can define the following Auto-scale Profile and Rule
 |	**Time Aggregation:** Average							|	**Time Aggregation:** Average					|
 |	**Action:** Increase count by 8							|	**Action:** Increase count by 3					|
 |	**Cool down (minutes):** 90								|	**Cool down (minutes):** 90						|
-|	----------------------------------------------------	|	--------------------------------------------	|
+|	                                                    	|	                                            	|
 |	**Auto-scale Rule (Scale DOWN)**						|	**Auto-scale Rule (Scale DOWN)**				|
 |	**Resource:** Worker Pool 1								|	**Resource:** Worker Pool 1						|
 |	**Metric:** WorkersAvailable							|	**Metric:** WorkersAvailable					|
@@ -227,16 +227,16 @@ to prevent this he sets the auto-scale rule to increase instances as follows:
 |	**Days:** Everyday								|
 |	**Start Time:** 9:00AM							|
 |	**Time zone:** UTC – 08							|
-|	--------------------------------------------	|
+|													|
 |	**Auto-scale Rule (Scale UP)**					|
-|	**Resource: Front End Pool						|
-|	**Metric: CPU %									|
-|	**Operation: Greater than 60%					|
-|	**Duration: 20 Minutes							|
-|	**Time Aggregation: Average						|
-|	**Action: Increase count by 3					|
-|	**Cool down (minutes): 90						|
-|	--------------------------------------------	|
+|	**Resource:** Front End Pool					|
+|	**Metric:** CPU %								|
+|	**Operation:** Greater than 60%					|
+|	**Duration:** 20 Minutes						|
+|	**Time Aggregation:** Average					|
+|	**Action:** Increase count by 3					|
+|	**Cool down (minutes):** 90						|
+|													|
 |	**Auto-scale Rule (Scale DOWN)**				|
 |	**Resource:** Worker Pool 1						|
 |	**Metric:** CPU %								|
