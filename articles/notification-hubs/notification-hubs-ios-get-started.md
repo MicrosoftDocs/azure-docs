@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="hero-article"
-	ms.date="09/03/2015"
+	ms.date="10/13/2015"
 	ms.author="wesmc"/>
 
 # Get started with Notification Hubs for iOS apps
@@ -25,6 +25,13 @@
 This tutorial shows you how to use Azure Notification Hubs to send push notifications to an iOS application. You'll create a blank iOS app that receives push notifications by using the Apple Push Notification service (APNs). When you're finished, you'll be able to use your notification hub to broadcast push notifications to all the devices running your app.
 
 This tutorial demonstrates the simple broadcast scenario in using Notification Hubs.
+
+
+## Before you begin
+
+[AZURE.INCLUDE [notification-hubs-hero-slug](../../includes/notification-hubs-hero-slug.md)]
+
+The completed code for this tutorial can be found on GitHub [here](https://github.com/Azure/azure-notificationhubs-samples/tree/master/ios/GetStarted).
 
 ##Prerequisites
 
@@ -74,11 +81,13 @@ This section walks you through creating and configuring a new notification hub b
 
    	![][5]
 
-7. Click the **Configure** tab at the top, and then click the **Upload** button in the Apple notification settings to upload the certificate thumbprint. Then select the **.p12** certificate that you exported earlier, and the password for the certificate. Make sure to select whether you want to use the **Production** (if you want to send push notifications to users who purchased your app from the store) or the **Sandbox** (during development) push service.
+7. Click the **Configure** tab at the top, and then click the **Upload** button in the Apple notification settings to upload the certificate thumbprint. Then select the **.p12** certificate that you exported earlier, and the password for the certificate. 
+ 
+	Make sure to select **Sandbox** mode since this is for development. Only use the **Production** if you want to send push notifications to users who purchased your app from the store.
 
-   	![][6]
+   	![](./media/notification-hubs-ios-get-started/notification-hubs-configure-ios.png)
 
-8. Click the **Dashboard** tab at the top, and then click **View Connection String**. Take note of the two connection strings.
+8. Click the **Dashboard** tab at the top, and then click **View Connection String**. Take note of the two connection strings. You will use the connection strings in the coding section below.
 
    	![][7]
 
@@ -161,11 +170,16 @@ Your notification hub is now configured to work with APNs, and you have the conn
 
 
 You can test receiving notifications in your app by sending notifications in the Azure portal via the debug tab on the notification hub, as shown in the screen below.
+
 ![][30]
 
 [AZURE.INCLUDE [notification-hubs-sending-notifications-from-the-portal](../../includes/notification-hubs-sending-notifications-from-the-portal.md)]
 
-![][31]
+
+
+## (Optional) Send notifications from the app
+
+If you want to send notifications within an app. This section provides an example of how to do this using the REST interface.
 
 1. In Xcode, open Main.storyboard and add the following UI components from the object library to allow the user to send push notifications in the app:
 
@@ -463,7 +477,11 @@ If you have any problems or recommendations for improving this tutorial for all 
 
 ##Next steps
 
-In this simple example, you broadcasted notifications to all your iOS devices. In order to target specific users, refer to the tutorial [Use Notification Hubs to push notifications to users]. If you want to segment your users by interest groups, you can read [Use Notification Hubs to send breaking news]. Learn more about how to use Notification Hubs in [Notification Hubs Guidance].
+In this simple example, you broadcasted notifications to all your iOS devices. We suggest as a next step in your learning that you proceed the the [Use Notification Hubs to push notifications to users] tutorial. That tutorial will walk you through creating a backend to send your notifications using tags. 
+
+If you want to segment your users by interest groups, you can additionally move on to [Use Notification Hubs to send breaking news]. 
+
+For more general information about Notification Hubs, see [Notification Hubs Guidance].
 
 
 
