@@ -179,10 +179,6 @@ In this section, you'll create a **server.js** file that contains a slightly mod
 
 	![Hello world in Azure](./media/web-sites-nodejs-develop-deploy-mac/helloworldazure.png)
 
-	The App Service web app looks for the presence of an *app.js* or *server.js* file in your deployment and enables Node.js functionality if either of those files are present.
-
-	When an *app.js* or *server.js* file is detected, Azure creates a *web.config* file that contains the configuration information required by [iisnode](https://github.com/tjanczuk/iisnode). This file isn't added to the remote git repository, so if you do a pull from the web app's git repository you won't get this file. You can use FTP to connect to the server and find it in the web app's *wwwroot* directory. You can also reate your own web.config file if you want to customize configuration information, and then that is used instead of the auto-generated one. For more information, see [Azure App Service Web Apps: Node.js](http://blogs.msdn.com/b/silverlining/archive/2012/06/14/windows-azure-websites-node-js.aspx).
-
 ## Publish changes to your application
 
 1. Open the **server.js** file in a text editor, and change 'Hello World\n' to 'Hello Azure\n'. 
@@ -207,13 +203,13 @@ From the **Web app** blade you can click **Settings > Continuous Deployment** to
 
 ## Next steps
 
-While the steps in this article use the Azure portal to create a web app, you can also use the [Azure Command-Line Interface](../xplat-cli-install.md) or [Azure PowerShell](../install-configure-powershell.md) to perform the same operations.
+You've deployed a Node.js application to a web app in Azure App Service. To learn more about how App Service web apps run Node.js applications, see [Azure App Service Web Apps: Node.js](http://blogs.msdn.com/b/silverlining/archive/2012/06/14/windows-azure-websites-node-js.aspx) and [Specifying a Node.js version in an Azure application](../nodejs-specify-node-version-azure-apps.md).
 
 Node.js provides a rich ecosystem of modules that can be used by your applications. To learn how Web Apps works with modules, see [Using Node.js modules with Azure applications](../nodejs-use-node-modules-azure-apps.md).
 
-To learn more about the versions of Node.js that are provided with Azure and how to specify the version to be used with your application, see [Specifying a Node.js version in an Azure application](../nodejs-specify-node-version-azure-apps.md).
-
 If you encounter problems with your application after it has been deployed to Azure, see [How to debug a Node.js application in Azure App Service](web-sites-nodejs-debug.md) for information on diagnosing the problem.
+
+This article uses the Azure portal to create a web app. You can also use the [Azure Command-Line Interface](../xplat-cli-install.md) or [Azure PowerShell](../install-configure-powershell.md) to perform the same operations.
 
 For more information about how to develop Node.js applications on Azure, see the [Node.js Developer Center](/develop/nodejs/).
 
