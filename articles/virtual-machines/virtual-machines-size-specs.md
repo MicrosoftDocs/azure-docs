@@ -81,7 +81,7 @@ The following tables show the sizes and the capacities they provide.
 ### Basic tier
 
 |Size – Azure Portal\cmdlets & APIs|CPU cores|Memory|NICs (Max)|Max. disk sizes – virtual machine|Max. data disks 1023 GB each)|Max. IOPS (300 per disk)|
-|---|---|---|---|---|---|
+|---|---|---|---|---|---|---|
 |A0\Basic_A0|1|768 MB|1|<p>OS = 1023 GB</p><p>Temporary = 20 GB</p>|1|1x300|
 |A1\Basic_A1|1|1.75 GB|1|<p>OS = 1023 GB</p><p>Temporary = 40 GB</p>|2|2x300|
 |A2\Basic_A2|2|3.5 GB|1|<p>OS = 1023 GB</p><p>Temporary = 60 GB</p>|4|4x300|
@@ -91,7 +91,7 @@ The following tables show the sizes and the capacities they provide.
 ### Standard tier: A-series
 
 |Size – Azure Portal\cmdlets & APIs|CPU cores|Memory|NICs (Max)|Max. disk sizes – virtual machine|Max. data disks (1023 GB each)|Max. IOPS (500 per disk)|
-|---|---|---|---|---|---|
+|---|---|---|---|---|---|---|
 |A0\ExtraSmall|1|768 MB|1|<p>OS = 1023 GB</p><p>Temporary = 20 GB</p>|1|1x500|
 |A1\Small|1|1.75 GB|1|<p>OS = 1023 GB</p><p>Temporary = 70 GB</p>|2|2x500|
 |A2\Medium|2|3.5 GB|1|<p>OS = 1023 GB</p><p>Temporary = 135 GB</p>|4|4x500|
@@ -108,7 +108,7 @@ The following tables show the sizes and the capacities they provide.
 ### Standard tier: D-series
 
 |Size – Azure Portal\cmdlets & APIs|CPU cores|Memory|NICs (Max)|Max. disk sizes – virtual machine|Max. data disks (1023 GB each)|Max. IOPS (500 per disk)|
-|---|---|---|---|---|---|
+|---|---|---|---|---|---|---|
 |Standard_D1\same|1|3.5 GB|1|<p>OS = 1023 GB</p><p>Temporary (SSD) =50 GB</p>|2|2x500|
 |Standard_D2\same|2|7 GB|2|<p>OS = 1023 GB</p><p>Temporary (SSD) =100 GB</p>|4|4x500|
 |Standard_D3\same|4|14 GB|4|<p>OS = 1023 GB</p><p>Temporary (SSD) =200 GB</p>|8|8x500|
@@ -121,7 +121,7 @@ The following tables show the sizes and the capacities they provide.
 ### Standard tier: Dv2-series
 
 |Size – Azure Portal\cmdlets & APIs|CPU cores|Memory|NICs (Max)|Max. disk sizes – virtual machine|Max. data disks (1023 GB each)|Max. IOPS (500 per disk)|
-|---|---|---|---|---|---|
+|---|---|---|---|---|---|---|
 |Standard_D1_v2\same|1|3.5 GB|1|<p>OS = 1023 GB</p><p>Temporary (SSD) =50 GB</p>|2|2x500|
 |Standard_D2_v2\same|2|7 GB|2|<p>OS = 1023 GB</p><p>Temporary (SSD) =100 GB</p>|4|4x500|
 |Standard_D3_v2\same|4|14 GB|4|<p>OS = 1023 GB</p><p>Temporary (SSD) =200 GB</p>|8|8x500|
@@ -135,7 +135,7 @@ The following tables show the sizes and the capacities they provide.
 ### Standard tier: DS-series*
 
 |Size – Azure Portal\cmdlets & APIs|CPU cores|Memory|NICs (Max)|Max. disk sizes – virtual machine|Max. data disks (1023 GB each)|Cache size (GB)|Max. disk IOPS &amp; bandwidth|
-|---|---|---|---|---|---|---|
+|---|---|---|---|---|---|---|---|
 |Standard_DS1\same|1|3.5|1|<p>OS = 1023 GB</p><p>Local SSD disk = 7 GB</p>|2|43|<p>3,200</p><p>32 MB per second</p>|
 |Standard_DS2\same|2|7|2|<p>OS = 1023 GB</p><p>Local SSD disk = 14 GB</p>|4|86|<p>6,400</p><p>64 MB per second</p>|
 |Standard_DS3\same|4|14|4|<p>OS = 1023 GB</p><p>Local SSD disk = 28 GB</p>|8|172|<p>12,800</p><p>128 MB per second</p>|
@@ -150,7 +150,7 @@ The following tables show the sizes and the capacities they provide.
 ### Standard tier: G-series
 
 |Size – Azure Portal\cmdlets &amp; APIs|CPU cores|Memory|NICs (Max)|Max. disk sizes – virtual machine|Max. data disks (1023 GB each)|Max. IOPS (500 per disk)|
-|---|---|---|---|---|---|
+|---|---|---|---|---|---|---|
 |Standard_G1\same|2|28 GB|1|<p>OS = 1023 GB</p><p>Local SSD disk = 384 GB</p>|4|4 x 500|
 |Standard_G2\same|4|56 GB|2|<p>OS = 1023 GB</p><p>Local SSD disk = 768 GB</p>|8|8 x 500|
 |Standard_G3\same|8|112 GB|4|<p>OS = 1023 GB</p><p>Local SSD disk = 1,536 GB</p>|16|16 x 500|
@@ -160,7 +160,7 @@ The following tables show the sizes and the capacities they provide.
 ### Standard tier: GS-series
 
 |Size – Azure Portal\cmdlets & APIs|CPU cores|Memory|NICs (Max)|Max. disk sizes – virtual machine|Max. data disks (1023 GB each)|Cache size (GB)|Max. disk IOPS &amp; bandwidth|
-|---|---|---|---|---|---|---|
+|---|---|---|---|---|---|---|---|
 |Standard_GS1|2|28|1|<p>OS = 1023 GB</p><p>Local SSD disk = 56 GB</p>|4|264|<p>5,000</p><p>125 MB per second</p>|
 |Standard_GS2|4|56|2|<p>OS = 1023 GB</p><p>Local SSD disk = 112 GB</p>|8|528|<p>10,000</p><p>250 MB per second</p>|
 |Standard_GS3|8|112|4|<p>OS = 1023 GB</p><p>Local SSD disk = 224 GB</p>|16|1056|<p>20,000</p><p>500 MB per second</p>|
