@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/13/2015" 
+	ms.date="10/14/2015" 
 	ms.author="tomfitz"/>
 
 # Move resources to new resource group or subscription
@@ -67,7 +67,9 @@ When working with web apps, you cannot move only an App Service plan. To move we
 
 ## Using PowerShell to move resources
 
-To move existing resources to another resource group or subscription, use the **Move-AzureRmResource** command (or **Move-AzureResource** for Azure PowerShell versions earlier than 1.0 Preview).
+[AZURE.INCLUDE [powershell-preview-inline-include](../includes/powershell-preview-inline-include.md)]
+
+To move existing resources to another resource group or subscription, use the **Move-AzureRmResource** command.
 
 The first example shows how to move one resource to a new resource group.
 
