@@ -122,5 +122,5 @@ Make the application code more robust by utilizing logging and diagnostic tools 
 
 ## Next steps
 
-View more [troubleshooting articles](?tag=top-support-issue&service=cloud-services) for cloud services.
+View more [troubleshooting articles](..\?tag=top-support-issue&service=cloud-services) for cloud services.
 

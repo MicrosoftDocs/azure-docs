@@ -47,5 +47,5 @@ Finally, you should unmount the drive. Subsequent calls to Mount should be perfo
 
 ## Next steps
 
-View more [troubleshooting articles](?tag=top-support-issue&service=cloud-services) for cloud services.
+View more [troubleshooting articles](..\?tag=top-support-issue&service=cloud-services) for cloud services.
 
