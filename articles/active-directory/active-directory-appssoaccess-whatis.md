@@ -203,9 +203,9 @@ When an authorized user clicks on one of these application-specific links, they 
 These links use the same access control mechanisms as the access panel and Office 365, and only those users or groups who have been assigned to the application in the Azure management portal will be able to successfully authenticate. However, any user who is unauthorized will see a message explaining that they have not been granted access, and are given a link to load the access panel to view available applications for which they do have access.
 
 <!--Image references-->
-[1]: ./media/active-directory-appssoaccess-whatis/onlineappgallery.PNG
-[2]: ./media/active-directory-appssoaccess-whatis/azuremgmtportal.PNG
-[3]: ./media/active-directory-appssoaccess-whatis/accesspanel.PNG
-[4]: ./media/active-directory-appssoaccess-whatis/officeapphub.PNG
+[1]: ./media/active-directory-appssoaccess-whatis/onlineappgallery.png
+[2]: ./media/active-directory-appssoaccess-whatis/azuremgmtportal.png
+[3]: ./media/active-directory-appssoaccess-whatis/accesspanel.png
+[4]: ./media/active-directory-appssoaccess-whatis/officeapphub.png
 [5]: ./media/active-directory-appssoaccess-whatis/workdaymobile.png
-[6]: ./media/active-directory-appssoaccess-whatis/deeplink.PNG
+[6]: ./media/active-directory-appssoaccess-whatis/deeplink.png
