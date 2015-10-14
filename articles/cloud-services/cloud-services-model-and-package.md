@@ -283,7 +283,7 @@ I am using Visual Studio and I want to...
 
 [deploy]: cloud-services-how-to-create-deploy-portal.md
 [remotedesktop]: cloud-services-role-enable-remote-desktop.md
-[vs_remote]: https://msdn.microsoft.com/en-us/library/gg443832.aspx
-[vs_deploy]: https://msdn.microsoft.com/en-us/library/ee460772.aspx
+[vs_remote]: https://msdn.microsoft.com/library/gg443832.aspx
+[vs_deploy]: https://msdn.microsoft.com/library/ee460772.aspx
 [vs_reconfigure]: https://msdn.microsoft.com/library/ee405486.aspx
-[vs_create]: https://msdn.microsoft.com/en-us/library/ee405487.aspx
+[vs_create]: https://msdn.microsoft.com/library/ee405487.aspx
