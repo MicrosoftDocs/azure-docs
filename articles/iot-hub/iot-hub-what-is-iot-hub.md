@@ -1,10 +1,10 @@
 <properties
- pageTitle="What is Azure IoT Hub | Microsoft Azure"
- description="A overview of the Azure IoT Hub service including device connectivity, communication patterns and service assisted communication pattern"
+ pageTitle="Overview Azure IoT Hub | Microsoft Azure"
+ description="A overview of the Azure IoT Hub service including device connectivity, communication patterns, and service assisted communication pattern"
  services="iot-hub"
- documentationCenter=".net"
+ documentationCenter=""
  authors="fsautomata"
- manager="kevinmil"
+ manager="timlt"
  editor=""/>
 
 <tags
@@ -12,7 +12,7 @@
  ms.devlang="na"
  ms.topic="article"
  ms.tgt_pltfrm="na"
- ms.workload="tbd"
+ ms.workload="na"
  ms.date="09/29/2015"
  ms.author="elioda"/>
 

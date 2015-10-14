@@ -19,7 +19,6 @@
 
 # Prepare an Ubuntu Virtual Machine for Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
 
 ##Prerequisites##
 

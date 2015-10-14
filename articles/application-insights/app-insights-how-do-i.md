@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/23/2015" 
+	ms.date="10/11/2015" 
 	ms.author="awills"/>
 
 # How do I ... in Application Insights?
@@ -32,6 +32,11 @@ Set an [alert](app-insights-alerts.md) on **Server response time**. A threshold 
 Your app might also show signs of strain by returning failure codes. Set an alert on **Failed requests**.
 
 If you want to set an alert on **Server exceptions**, you might have to do [some additional setup](app-insights-asp-net-exceptions.md) in order to see data.
+
+### Email on exceptions
+
+1. [Set up exception monitoring](app-insights-asp-net-exceptions.md)
+2. [Set an alert](app-insights-alert.md) on the Exception count metric
 
 
 ### Email on an event in my app
@@ -72,9 +77,19 @@ Some points to consider:
 * To evaluate the alert, the average is taken of the received values over the preceding period. This occurs every time a metric is received, so emails can be sent more frequently than the period you set.
 * Since emails are sent both on "alert" and "healthy", you might want to consider re-thinking your one-shot event as a two-state condition. For example, instead of a "job completed" event, have a "job in progress" condition, where you get emails at the start and end of a job.
  
-## Application version filter
+## Application versions and stamps
 
-When you publish a new version of your app, you'll want to be able to separate the telemetry from different versions.
+### Separate the results from dev, test and prod
+
+* For different environmnents, set up different ikeys
+* For different stamps (dev, test, prod) tag the telemetry with different property values
+
+[Learn more](http://blogs.msdn.com/b/visualstudioalm/archive/2015/01/07/application-insights-support-for-multiple-environments-stamps-and-app-versions.aspx)
+ 
+
+### Filter on build number
+
+When you publish a new version of your app, you'll want to be able to separate the telemetry from different builds.
 
 You can set the Application Version property so that you can filter [search](app-insights-diagnostic-search.md) and [metric explorer](app-insights-metrics-explorer.md) results. 
 
@@ -118,4 +133,37 @@ There are several different methods of setting the Application Version property.
     The build label contains a placeholder (AutoGen_...) when you build with Visual Studio. But when built with MSBuild, it is populated with the correct version number.
 
     To allow MSBuild to generate version numbers, set the version like `1.0.*` in AssemblyReference.cs
+
+## Monitor backend servers
+
+[Use the basic API](app-insights-windows-desktop.md)
+
+
+## Visualize data
+
+#### Dashboard with metrics from multiple apps
+
+* In [Metric Explorer](app-insights-metrics-explorer.md), customize your chart and save it as a favorite. Pin it to the Azure dashboard.
+* 
+
+#### Dashboard with data from other sources and Application Insights
+
+* [Export telemetry to Power BI](app-insights-export-power-bi.md). 
+
+Or
+
+* Use SharePoint as your dashboard, displaying data in SharePoint web parts. [Use continuous export and Stream Analytics to export to SQL](app-insights-code-sample-export-sql-stream-analytics.md).  Use PowerView to examine the database, and create a SharePoint web part for PowerView.
+
+
+### Complex filtering, segmentation and joins
+
+* [Use continuous export and Stream Analytics to export to SQL](app-insights-code-sample-export-sql-stream-analytics.md).  Use PowerView to examine the database.
+
+### Filter out anonymous/signed in users
+
+Set the [authenticated user id](app-insights-api-custom-events-metrics/#authenticated-users)  
+
+
+
+
 
