@@ -84,7 +84,7 @@ Some points to consider:
 * For different environmnents, set up different ikeys
 * For different stamps (dev, test, prod) tag the telemetry with different property values
 
-[Learn more](http://blogs.msdn.com/b/visualstudioalm/archive/2015/01/07/application-insights-support-for-multiple-environments-stamps-and-app-versions.aspx)
+[Learn more](app-insights-separate-resources.md)
  
 
 ### Filter on build number
