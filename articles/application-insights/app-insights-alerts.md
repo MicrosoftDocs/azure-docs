@@ -213,6 +213,6 @@ request,<br/>requestFailed|[Server request](app-insights-configuration-with-appl
 [client]: app-insights-javascript.md
 [platforms]: app-insights-platforms.md
 [roles]: app-insights-resources-roles-access-control.md
-[start]: app-insights-get-started.md
+[start]: app-insights-overview.md
 
  
