@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/22/2015"
+   ms.date="10/13/2015"
    ms.author="thmullan;jackr"/>
 
 
@@ -21,7 +21,7 @@
 
 ## Overview
 
-This article walks through the basics of securing the data tier of an application using Azure SQL Database. In particular, this articles will get you started with resources for limiting access, protecting data, and monitoring activities on a database created in the [Get started with SQL Database tutorial](sql-database-get-started.md). For a complete overview of security features available on all flavors of SQL, see the [Security Center for SQL Server Database Engine and Azure SQL Database](https://msdn.microsoft.com/library/bb510589).
+This article walks through the basics of securing the data tier of an application using Azure SQL Database. In particular, this article will get you started with resources for limiting access, protecting data, and monitoring activities on a database created in the [Get started with SQL Database tutorial](sql-database-get-started.md). For a complete overview of security features available on all flavors of SQL, see the [Security Center for SQL Server Database Engine and Azure SQL Database](https://msdn.microsoft.com/library/bb510589). Additional information is also available in the [Security and Azure SQL Database technical white paper](https://download.microsoft.com/download/A/C/3/AC305059-2B3F-4B08-9952-34CDCA8115A9/Security_and_Azure_SQL_Database_White_paper.pdf) (PDF). 
 
 ## Connection security
 
@@ -73,7 +73,7 @@ There are ways to further limit what a user can do with Azure SQL Database:
 * [Database Roles](https://msdn.microsoft.com/library/ms189121) other than db_datareader and db_datawriter can be used to create more powerful application user accounts or less powerful management accounts.
 * Granular [Permissions](https://msdn.microsoft.com/library/ms191291) let you control which operations you can do on individual columns, tables, views, procedures, and other objects in the database.
 * [Impersonation](https://msdn.microsoft.com/library/vstudio/bb669087) and [module-signing](https://msdn.microsoft.com/library/bb669102) can be used to securely elevate permissions temporarily.
-* [Row-Level Security](https://msdn.microsoft.com/library/dn765131) lets you filter which rows a user can see.
+* [Row-Level Security](https://msdn.microsoft.com/library/dn765131) can be used limit which rows a user can access.
 * [Data Masking](sql-database-dynamic-data-masking-get-started.md) can be used to limit exposure of sensitive data.
 * [Stored procedures](https://msdn.microsoft.com/library/ms190782) can be used to limit the actions that can be taken on the database.
 

@@ -99,7 +99,6 @@ Microsoft supports at least two recent versions of each supported Guest OS famil
 
 > [AZURE.WARNING] The retirement of Guest OS family 1 began June 1, 2013 and is scheduled to complete soon. Do not create new installations and upgrade older ones using this Guest OS family. For more information see [Azure Guest OS Family 1 Retirement Information][fam1retire]
 
-The Guest OS includes configuration different from the defaults of Windows Server. For more information see [Differences between Azure Guest OS and Default Windows Server][server and gos].
 
 ### Guest OS Family, Version, and Release Explanation
 The Guest OS families are based on released versions of Microsoft Windows Server. The Guest OS is the underlying operating system that Azure Cloud Services run on. Each Guest OS has a family, version and release number. 
@@ -232,7 +231,7 @@ This page includes information on upcoming Guest OS Releases. Customers have ind
 
 Microsoft Azure is constantly releasing updates. The Guest OS is only one such update in the pipeline. A release can be affected by a number of factors too numerous to list here. In addition, Azure runs on literally hundreds of thousands of machines. This means that it's impossible to give an exact date and time when your role(s) will reboot. We will update the [Guest OS Update RSS Feed][rss] with the latest information we have, but consider that time an approximate window. We are aware that this is problematic for customers and working on a plan to limit or time reboots. 
 
-When a new release of the Guest OS is published, it can take time to fully propagate across Azure. As services are updated to the new Guest OS, they are rebooted honoring update domains. Services set to use "Automatic" updates will get a release first. After the update, you’ll see the new Guest OS version listed for your service in the Azure Management Portal. Rereleases may occur during this period. Some versions may be deployed over longer periods of time and automatic upgrade reboots may not occur for many weeks after the official release date. Once a Guest OS is available, you can then explicitly choose that version from the portal or in your configuration file. For more information, see [Update the Azure Guest OS from the Management Portal][update guest os portal] and [Update the Azure Guest OS by Modifying the Service Configuration File][update guest os svc].
+When a new release of the Guest OS is published, it can take time to fully propagate across Azure. As services are updated to the new Guest OS, they are rebooted honoring update domains. Services set to use "Automatic" updates will get a release first. After the update, you’ll see the new Guest OS version listed for your service in the Azure Management Portal. Rereleases may occur during this period. Some versions may be deployed over longer periods of time and automatic upgrade reboots may not occur for many weeks after the official release date. Once a Guest OS is available, you can then explicitly choose that version from the portal or in your configuration file. 
 
 For a great deal of valuable information on restarts and pointers to more information technical details of Guest and Host OS updates, see the MSDN blog post titled [Role Instance Restarts Due to OS Upgrades][restarts].
 
@@ -324,7 +323,7 @@ Because of the partial rollout of the last two releases, people on auto update o
 | 2.19 rel1 | WA-GUEST-OS-2.19_201309-01 | Sept 23 2013 | N/A | May 14 2014 |
 
 
-[Azure Guest OS Update Settings]: https://msdn.microsoft.com/library/azure/ff729420.aspx
+[Azure Guest OS Update Settings]: cloud-services-how-to-configure.md
 [rss]: http://sxp.microsoft.com/feeds/3.0/msdntn/WindowsAzureOSUpdates
 [ssl3 announcement]: http://azure.microsoft.com/blog/2014/12/09/azure-security-ssl-3-0-update/
 [Microsoft Security Advisory 3009008]: https://technet.microsoft.com/library/security/3009008.aspx

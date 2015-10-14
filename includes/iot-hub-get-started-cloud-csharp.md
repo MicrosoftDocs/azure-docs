@@ -8,13 +8,13 @@ In this section, you'll write a Windows console app that creates a new device id
 
 2. In Solution Explorer, right-click the solution, and then click **Manage NuGet Packages for Solution...**.
 
-	The **NuGet Package Manager** window is displayed. 
+	The **NuGet Package Manager** window is displayed.
 
 3. Make sure the **Include prerelease** option is checked. Then search for `Microsoft Azure Devices`, click **Install**, and accept the terms of use.
 
 	![][11]
 
-4. This downloads, installs, and adds a reference to the [Microsoft Azure Devices SDK](https://www.nuget.org/packages/Microsoft.Azure.Devices/) NuGet package. 
+4. This downloads, installs, and adds a reference to the [Microsoft Azure Devices SDK](https://www.nuget.org/packages/Microsoft.Azure.Devices/) NuGet package.
 
 4. Add the following `using` statement at the top of the **Program.cs** file:
 
@@ -75,7 +75,6 @@ In this section, you will create a Windows console app that reads device-to-clou
 
 4. Add the following `using` statement at the top of the **Program.cs** file:
 
-        using Microsoft.Azure.Devices.Common;
         using Microsoft.ServiceBus.Messaging;
 
 5. Add the following fields to the **Program** class, substituting the placeholder values with the name of the IoT hub you created in the previous section and its connection string:
@@ -134,4 +133,3 @@ In this section, you will create a Windows console app that reads device-to-clou
 [10]: ./media/iot-hub-getstarted-cloud-csharp/create-identity-csharp1.png
 [11]: ./media/iot-hub-getstarted-cloud-csharp/create-identity-csharp2.png
 [12]: ./media/iot-hub-getstarted-cloud-csharp/create-identity-csharp3.png
-

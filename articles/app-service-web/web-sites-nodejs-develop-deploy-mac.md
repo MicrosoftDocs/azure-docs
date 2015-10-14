@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Create a Node.js web app in Azure App Service | Microsoft Azure"
-	description="Learn how to build and deploy a Node.js web app in Azure."
+	description="Learn how to deploy a Node.js application to a web app in Azure App Service."
 	services="app-service\web"
 	documentationCenter="nodejs"
 	authors="MikeWasson"
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="hero-article"
-	ms.date="08/18/2015"
+	ms.date="10/13/2015"
 	ms.author="mwasson"/>
 
-# Build and deploy a Node.js web app in Azure App Service
+# Create a Node.js web app in Azure App Service
 
 > [AZURE.SELECTOR]
 - [.Net](web-sites-dotnet-get-started.md)
@@ -26,20 +26,31 @@
 - [PHP - FTP](web-sites-php-mysql-deploy-use-ftp.md)
 - [Python](web-sites-python-ptvs-django-mysql.md)
 
-This tutorial shows you how to create a [Node] [nodejs.org] application and deploy it to the [Web Apps feature in Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) by using [Git]. The instructions in this tutorial can be followed on any operating system that is capable of running Node.
+This tutorial shows how to create a simple [Node.js](http://nodejs.org) application and deploy it to a [web app](app-service-web-overview.md) in [Azure App Service](../app-service/app-service-value-prop-what-is.md) by using [Git](http://git-scm.com). The instructions in this tutorial can be followed on any operating system that is capable of running Node.js.
 
-A screenshot of the completed application is below:
+You'll learn:
+
+* How to create a web app in Azure App Service by using the Azure preview portal.
+* How to deploy a Node.js application to the web app by pushing to the web app's Git repository.
+
+The completed application writes a short "hello world" string to the browser.
 
 ![A browser displaying the 'Hello World' message.][helloworld-completed]
 
-##Create a web app and enable Git publishing
-
-Follow these steps to create a web app and enable Git publishing.
+For tutorials and sample code with more complex Node.js applications, or for other topics about how to use Node.js in Azure, see the [Node.js Developer Center](/develop/nodejs/).
 
 > [AZURE.NOTE]
 > To complete this tutorial, you need a Microsoft Azure account. If you don't have an account, you can [activate your MSDN subscriber benefits](/en-us/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) or [sign up for a free trial](/en-us/pricing/free-trial/?WT.mc_id=A261C142F).
+>
+> If you want to get started with Azure App Service before you sign up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751). There, you can immediately create a short-lived starter web app in App Service—no credit card required, and no commitments.
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+## Create a web app and enable Git publishing
+
+Follow these steps to create a web app in Azure App Service and enable Git publishing. 
+
+[Git](http://git-scm.com/%20target="_blank) is a distributed version control system that you can use to deploy your Azure Website. You'll store the code you write for your web app in a local Git repository, and you'll deploy your code to Azure by pushing to a remote repository. This method of deployment is a feature of App Service web apps.  
+
+1. Sign in to the [Azure preview portal](https://portal.azure.com).
 
 2. Click the **+ NEW** icon on the top left of the portal.
 
@@ -47,43 +58,63 @@ Follow these steps to create a web app and enable Git publishing.
 
     ![][portal-quick-create]
 
-4. Enter a value for **URL**.
+4. Enter a name for the web app in the **Web app** box.
 
-5. Select an App Service plan or create a new one. If you create a new plan, select the pricing tier, location, and other options.
+	This name must be unique in the azurewebsites.net domain because the URL of the web app will be {name}.azurewebsites.net. If the name you enter isn't unique, a red exclamation mark appears in the text box.
 
-    ![][portal-quick-create2]
+5. Select a **Resource Group** or create a new one.
+
+	For more information about resource groups, see [Using the Azure Preview Portal to manage your Azure resources](../resource-group-portal.md).
+
+5. Select an **App Service plan/Location** or create a new one.
+
+	For more information about App Service plans, see [Azure App Service plans overview](../azure-web-sites-web-hosting-plans-in-depth-overview.md)
 
 6. Click **Create**.
+   
+	![][portal-quick-create2]
 
-7. Once the status changes to **Running**, the portal automatically opens the blade for your web app. You can also reach the blade by clicking **Browse**.
+	In a short time, typically less than a minute, Azure finishes creating the new web app.
 
-	![][go-to-dashboard]
+7. Click **Web apps > {your new web app}**.
 
-8. Click **Deployment**. You may need to scroll to see this part of the blade.
+	![](./media/web-sites-nodejs-develop-deploy-mac/gotowebapp.png)
+
+8. In the **Web app** blade, click the **Deployment** part.
 
 	![][deployment-part]
 
-9. Click **Choose Source**, click **Local Git Repository**, and then click **OK**.
+9. In the **Continuous Deployment** blade, click **Choose Source**
+
+14. Click **Local Git Repository**, and then click **OK**.
 
 	![][setup-git-publishing]
 
+11. Set up deployment credentials if you haven't already done so.
 
-10. Click the **deployment credentials** part (outlined in red below). Create a user name and password. Click **Save**. If you previously enabled publishing for a web app, you don't need to do this step.
+	a. In the Web app blade, click **Settings > Deployment credentials**.
 
 	![][deployment-credentials]
+ 
+	b. Create a user name and password. 
+	
+	![](./media/web-sites-nodejs-develop-deploy-mac/setdeploycreds.png)
 
-
-11. To publish, you will push to a Git remote repository. Find the URL for the repository, click **All Settings**, and then click **Properties**. The URL is listed under **GIT URL**.
+11. In the Web app blade, click **Settings**, and then click **Properties**.
+ 
+	To publish, you'll push to a remote Git repository. The URL for the repository is listed under **GIT URL**. You'll use this URL later in the tutorial.
 
 	![][git-url]
 
-##Build and test your application locally
+## Build and test your application locally
 
-In this section, you will create a **server.js** file that contains the 'Hello World' example from [nodejs.org]. This example has been modified from the original example by adding process.env.PORT as the port to listen on when running in an Azure web app.
+In this section, you'll create a **server.js** file that contains a slightly modified version of the 'Hello World' example from [nodejs.org]. The code adds process.env.PORT as the port to listen on when running in an Azure web app.
 
-1. By using a text editor, create a new file named **server.js** in the **helloworld** directory. If the **helloworld** directory does not exist, create it.
+1. Create a directory named *helloworld*.
 
-2. Add the following as the contents of the **server.js** file, and then save it:
+2. Use a text editor to create a new file named **server.js** in the *helloworld* directory.
+
+2. Copy the following code into the **server.js** file, and then save the file:
 
         var http = require('http')
         var port = process.env.PORT || 1337;
@@ -92,22 +123,26 @@ In this section, you will create a **server.js** file that contains the 'Hello W
           res.end('Hello World\n');
         }).listen(port);
 
-3. Open the command line, and use the following command to start the web app locally:
+3. Open the command line, and use the following command to start the web app locally.
 
         node server.js
 
-4. Open your web browser and navigate to http://localhost:1337. A webpage that displays "Hello World" will appear, as shown in the screenshot below:
+4. Open your web browser and navigate to http://localhost:1337. 
+
+	A webpage that displays "Hello World" appears, as shown in the following screenshot.
 
     ![A browser displaying the 'Hello World' message.][helloworld-localhost]
 
-##Publish your application
+## Publish your application
+
+1. Install Git if you haven't already done so.
+
+	For installation instructions for your platform, see the [Git download page](http://git-scm.com/download).
 
 1. From the command line, change directories to the **helloworld** directory and enter the following command to initialize a local Git repository.
 
 		git init
 
-	> [AZURE.NOTE] Is the Git command unavailable?
-	[Git](http://git-scm.com/%20target="_blank) is a distributed version-control system that you can use to deploy your Azure website. For installation instructions for your platform, see the [Git download page](http://git-scm.com/download%20target="_blank").
 
 2. Use the following commands to add files to the repository:
 
@@ -118,12 +153,11 @@ In this section, you will create a **server.js** file that contains the 'Hello W
 
 		git remote add azure [URL for remote repository]
 
-
 4. Push your changes to Azure by using the following command:
 
 		git push azure master
 
-	You will be prompted for the password that you created earlier. The output should be similar to the following:
+	You are prompted for the password that you created earlier. The output is similar to the following example.
 
 		Counting objects: 3, done.
 		Delta compression using up to 8 threads.
@@ -139,31 +173,41 @@ In this section, you will create a **server.js** file that contains the 'Hello W
 		To https://user@testsite.scm.azurewebsites.net/testsite.git
 		 * [new branch]      master -> master
 
+5. To view your app, click the **Browse** button on the **Web App** part in the Azure portal.
 
-5. To view your app, click the **Browse** button on the **Web App** part within the Azure portal.
+	![Browse button](./media/web-sites-nodejs-develop-deploy-mac/browsebutton.png)
 
-##Publish changes to your application
+	![Hello world in Azure](./media/web-sites-nodejs-develop-deploy-mac/helloworldazure.png)
 
-1. Open the **server.js** file in a text editor, and change 'Hello World\n' to 'Hello Azure\n'. Save the file.
+	The App Service web app looks for the presence of an *app.js* or *server.js* file in your deployment and enables Node.js functionality if either of those files are present.
+
+	When an *app.js* or *server.js* file is detected, Azure creates a *web.config* file that contains the configuration information required by [iisnode](https://github.com/tjanczuk/iisnode). This file isn't added to the remote git repository, so if you do a pull from the web app's git repository you won't get this file. You can use FTP to connect to the server and find it in the web app's *wwwroot* directory. You can also reate your own web.config file if you want to customize configuration information, and then that is used instead of the auto-generated one. For more information, see [Azure App Service Web Apps: Node.js](http://blogs.msdn.com/b/silverlining/archive/2012/06/14/windows-azure-websites-node-js.aspx).
+
+## Publish changes to your application
+
+1. Open the **server.js** file in a text editor, and change 'Hello World\n' to 'Hello Azure\n'. 
+
+2. Save the file.
+
 2. From the command line, change directories to the **helloworld** directory and run the following commands:
 
 		git add .
 		git commit -m "changing to hello azure"
 		git push azure master
 
-	You will be prompted for the password that you created earlier.
+	You are prompted for your password again.
 
-3. Browse to your app by clicking **Browse**, and note that the updates have been applied.
+3. Refresh the browser window that you navigated to the web app's URL.
 
 	![A web page displaying 'Hello Azure'][helloworld-completed]
 
-4. You can revert to the previous deployment by selecting it in **Deployments**.
+## Roll back a deployment
 
->[AZURE.NOTE] If you want to get started with Azure App Service before you sign up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751). There, you can immediately create a short-lived starter web app in App Service—no credit card required, and no commitments.
+From the **Web app** blade you can click **Settings > Continuous Deployment** to see the deployment history in the **Deployments** blade. If you need to roll back to an earlier deployment, you can select it and then click **Redeploy** in the **Deployment Details** blade.
 
-##Next steps
+## Next steps
 
-While the steps in this article use the Azure portal to create a web app, you can also use the [Azure Command-Line Interface](../xplat-cli-install.md) to perform the same operations.
+While the steps in this article use the Azure portal to create a web app, you can also use the [Azure Command-Line Interface](../xplat-cli-install.md) or [Azure PowerShell](../install-configure-powershell.md) to perform the same operations.
 
 Node.js provides a rich ecosystem of modules that can be used by your applications. To learn how Web Apps works with modules, see [Using Node.js modules with Azure applications](../nodejs-use-node-modules-azure-apps.md).
 
@@ -171,37 +215,14 @@ To learn more about the versions of Node.js that are provided with Azure and how
 
 If you encounter problems with your application after it has been deployed to Azure, see [How to debug a Node.js application in Azure App Service](web-sites-nodejs-debug.md) for information on diagnosing the problem.
 
-
-##Additional resources
-
-* [Azure PowerShell](../install-configure-powershell.md)
-* [Azure Command-Line Interface](../xplat-cli-install.md)
-* [Node.js Developer Center](/develop/nodejs/)
-
-## What's changed
-* For a guide to the change from Websites to App Service, see [Azure App Service and existing Azure services](http://go.microsoft.com/fwlink/?LinkId=529714).
-* For a guide to the change from the old portal to the new portal, see [Reference for navigating the Azure portal](http://go.microsoft.com/fwlink/?LinkId=529715).
-
-
-[nodejs.org]: http://nodejs.org
-[Git]: http://git-scm.com
-
+For more information about how to develop Node.js applications on Azure, see the [Node.js Developer Center](/develop/nodejs/).
 
 [helloworld-completed]: ./media/web-sites-nodejs-develop-deploy-mac/helloazure.png
 [helloworld-localhost]: ./media/web-sites-nodejs-develop-deploy-mac/helloworldlocal.png
-
 [portal-quick-create]: ./media/web-sites-nodejs-develop-deploy-mac/create-quick-website.png
-
 [portal-quick-create2]: ./media/web-sites-nodejs-develop-deploy-mac/create-quick-website2.png
-
-
 [setup-git-publishing]: ./media/web-sites-nodejs-develop-deploy-mac/setup_git_publishing.png
-
 [go-to-dashboard]: ./media/web-sites-nodejs-develop-deploy-mac/go_to_dashboard.png
-
 [deployment-part]: ./media/web-sites-nodejs-develop-deploy-mac/deployment-part.png
-
 [deployment-credentials]: ./media/web-sites-nodejs-develop-deploy-mac/deployment-credentials.png
-
-
 [git-url]: ./media/web-sites-nodejs-develop-deploy-mac/git-url.png
