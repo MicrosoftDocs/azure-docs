@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="10/09/2015"
+   ms.date="10/14/2015"
    ms.author="v-sharos@microsoft.com"/>
 
 # StorSimple 8000 series: a hybrid cloud storage solution 
@@ -46,7 +46,7 @@ The following table describes some of the key benefits that Microsoft Azure Stor
 |Availability in the Azure Government Portal | StorSimple is now available in the Azure Government Portal. For more information, see [Deploy your on-premises StorSimple device in the Government Portal](storsimple-deployment-walkthrough-gov.md).|
 |Support for Zone Redundant Storage | With the upgrade to the latest version of the Storage APIs, the StorSimple 8000 series will support Zone Redundant Storage (ZRS), in addition to Locally Redundant Storage (LRS) and Geo-redundant storage (GRS). Refer to [this article on Azure Storage redundancy options](https://azure.microsoft.com/documentation/articles/storage-redundancy/) for ZRS details.
 
-![video icon](./media/storsimple-overview/video_icon.png) Watch [this video](https://www.youtube.com/watch?v=4MhJT5xrvQw&feature=youtu.be) for an overview of the StorSimple 8000 series features and benefits.
+![video icon](./media/storsimple-overview/video_icon.png) Watch [this video](http://azure.microsoft.com/en-us/documentation/videos/guru-pangals-welcome-to-wpc--july-2015) for an introduction to the StorSimple 8000 series features and benefits.
 
 ## StorSimple components
 
@@ -65,6 +65,8 @@ The diagram below provides a high-level view of the Microsoft Azure StorSimple a
 ![StorSimple architecture](./media/storsimple-overview/overview-big-picture.png)
 
 The following sections describe each of these components in greater detail and explain how the solution arranges data, allocates storage, and facilitates storage management and data protection. The last section provides definitions for some of the important terms and concepts related to StorSimple components and their management.
+
+![video icon](./media/storsimple-overview/video_icon.png) Watch [this video](https://www.youtube.com/watch?v=4MhJT5xrvQw&feature=youtu.be) for an introduction to the StorSimple device, StorSimple virtual device, and StorSimple Manager service.
 
 ## StorSimple device
 
