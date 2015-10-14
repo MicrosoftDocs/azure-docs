@@ -18,7 +18,8 @@ ms.service="virtual-machines"
 
 # Set up a Windows RDMA cluster with HPC Pack and A8 and A9 instances to run MPI applications
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)] This article applies to creating a resource with the classic deployment model.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Resource Manager model.
+
 
 This article shows you how to set up a Windows RDMA cluster in Azure with [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029) and [size A8 and A9 compute-instensive instances](virtual-machines-a8-a9-a10-a11-specs.md) to run parallel Message Passing Interface (MPI) applications. When you configure size A8 and A9 Windows Server-based instances to run a supported MPI implementation, MPI applications communicate efficiently over a low latency, high throughput network in Azure that is based on remote direct memory access (RDMA) technology.
 

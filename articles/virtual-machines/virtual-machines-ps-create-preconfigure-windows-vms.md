@@ -26,6 +26,7 @@
 
 <br>
 
+
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md).
 
 
@@ -264,6 +265,6 @@ Here is the corresponding Azure PowerShell command set to create this virtual ma
 
 [How to install and configure Azure PowerShell](../install-configure-powershell.md)
 
-[Use Azure PowerShell to create and preconfigure Linux-based Virtual Machines](virtual-machines-ps-create-preconfigure-linux-vms.md)
+
 
 

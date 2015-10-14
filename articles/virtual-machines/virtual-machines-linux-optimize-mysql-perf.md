@@ -21,7 +21,8 @@
 
 There are many factors that impact MySQL performance on Azure, both in virtual hardware selection and software configuration. This article focuses on optimizing performance through storage, system, and database configurations.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)] This article covers managing a resource with the classic deployment model.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Resource Manager model.
+
 
 ##Utilizing RAID on an Azure virtual machine
 Storage is the key factor that impacts database performance in cloud environments.  Compared to a single disk, RAID can provide faster access via concurrency.  Refer to [Standard RAID Levels](http://en.wikipedia.org/wiki/Standard_RAID_levels) for more detail.   
