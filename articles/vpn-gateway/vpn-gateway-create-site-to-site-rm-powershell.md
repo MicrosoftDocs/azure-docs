@@ -25,7 +25,7 @@
 
 This article will walk you through creating a virtual network and a site-to-site VPN connection to your on-premises network using the Azure Resource Manager deployment model. You can select the article for the deployment model and deployment tool by using the tabs above.
 
->[AZURE.IMPORTANT] It's important to know that Azure currently works with two deployment models: Resource Manager, and classic. Before you begin your configuration, make sure that you understand the deployment models and tools. For information about the deployment models, see [Azure deployment models](../azure-classic-rm.md).
+>[AZURE.NOTE] It's important to know that Azure currently works with two deployment models: Resource Manager, and classic. Before you begin your configuration, make sure that you understand the deployment models and tools. For information about the deployment models, see [Azure deployment models](../azure-classic-rm.md).
 
 ## Before beginning
 
