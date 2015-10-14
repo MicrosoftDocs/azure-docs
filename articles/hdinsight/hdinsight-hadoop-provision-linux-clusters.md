@@ -14,7 +14,7 @@
    	ms.topic="article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="10/12/2015"
+   	ms.date="10/14/2015"
    	ms.author="nitinme"/>
 
 
@@ -224,7 +224,7 @@ In some cases, you may wish to add additional storage to the cluster. For exampl
 
 For more information on using secondary blob stores, see [Using Azure Blob storage with HDInsight](../hdinsight-use-blob-storage.md).
 
-##<a id="nextsteps"></a><a id="options"></a> Next steps
+##<a id="nextsteps"></a><a id="options"></a> Creation methods
 
 In this article, you have learned basic information about creating a Linux-based HDInsight cluster. Use the table below to find specific information on how to create a cluster using a method that best suits your needs:
 
