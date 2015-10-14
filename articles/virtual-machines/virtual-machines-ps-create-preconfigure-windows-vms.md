@@ -149,8 +149,8 @@ Optionally, add the virtual machine to an existing load-balanced set for externa
 	$pubport=<port number of the external port>
 	$endpointname="<name of the endpoint>"
 	$lbsetname="<name of the existing load-balanced set>"
-	$probeprotocol="<Specify one: tcp, udp>"
-	$probeport=<TCP or UDP port number of probe traffic>
+	$probeprotocol="<Specify one: tcp, http>"
+	$probeport=<TCP or HTTP port number of probe traffic>
 	$probepath="<URL path for probe traffic>"
 	$vm1 | Add-AzureEndpoint -Name $endpointname -Protocol $prot -LocalPort $localport -PublicPort $pubport -LBSetName $lbsetname -ProbeProtocol $probeprotocol -ProbePort $probeport -ProbePath $probepath
 
