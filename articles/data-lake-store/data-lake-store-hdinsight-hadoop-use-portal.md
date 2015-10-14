@@ -131,8 +131,8 @@ In this section, you perform the steps to create a service principal for an Azur
 
 	Perform the following tasks under your Data Lake Store account. 
 
-	* [Create a folder in your Data Lake Store](data-lake-store-get-started-portal.md#createfolder)
-	* [Upload a file to you Data Lake Store](data-lake-store-get-started-portal.md#uploaddata)
+	* [Create a folder in your Data Lake Store](data-lake-store-get-started-portal.md#createfolder).
+	* [Upload a file to you Data Lake Store](data-lake-store-get-started-portal.md#uploaddata). You can download a sample data file from [AzureDataLake Git Repository](https://github.com/MicrosoftBigData/AzureDataLake/raw/master/Samples/SampleData/OlympicAthletes.tsv).
 
 	You will use the uploaded files later when you test the Data Lake Store account with the HDInsight cluster.
 
@@ -200,9 +200,9 @@ After you have configured an HDInsight cluster, you can run test jobs on the clu
 
 3. In the Hive Editor, enter the following query and then click **Submit**.
 
-		CREATE EXTERNAL TABLE tweettable (str string) LOCATION 'adl://mydatalakeaccount.azuredatalake.net:443/mynewfolder'
+		CREATE EXTERNAL TABLE athletes (str string) LOCATION 'adl://mydatalakeaccount.azuredatalake.net:443/mynewfolder'
 
-	In this Hive query, we create a table from data stored in Data Lake Store at `adl://mydatalakeaccount.azuredatalake.net:443/mynewfolder`. This location has a sample data file (tweets.txt) that you uploaded earlier. 
+	In this Hive query, we create a table from data stored in Data Lake Store at `adl://mydatalakeaccount.azuredatalake.net:443/mynewfolder`. This location has a sample data file (OlympicAthletes.tsv) that you uploaded earlier. 
 
 	The **Job Session** table at the bottom shows the status of the job changing from **Initializing**, to **Running**, to **Completed**. You can also click **View Details** to see more information about the completed job.
 
@@ -215,13 +215,13 @@ After you have configured an HDInsight cluster, you can run test jobs on the clu
 	Click View Details corresponding to this query and the output should show the following:
 
 		hivesampletable
-		tweettable
+		athletes
 
-	**tweettable** is the table you created earlier. **hivesampletable** is a sample table available in all HDInsight clusters by default.
+	**athletes** is the table you created earlier. **hivesampletable** is a sample table available in all HDInsight clusters by default.
 
-5. You can also run a query to retrieve data from the **tweettable**.
+5. You can also run a query to retrieve data from the **athletes**.
 
-		SELECT * FROM tweettable LIMIT 5;
+		SELECT * FROM athletes LIMIT 5;
 
 ## Access Data Lake storage using HDFS commands
 
@@ -233,25 +233,25 @@ Once you have configured the HDInsight cluster to use Data Lake storage, you can
 
 3. In the cluster blade, click **Remote Desktop**, and then in the **Remote Desktop** blade, click **Connect**.
 
-	![Remote into HDI cluster](./media/azure-data-lake-hdinsight-hadoop-use-powershell/ADL.HDI.PS.Remote.Desktop.png "Create an Azure Resource Group")
+	![Remote into HDI cluster](./media/data-lake-store-hdinsight-hadoop-use-powershell/ADL.HDI.PS.Remote.Desktop.png "Create an Azure Resource Group")
 
 	When prompted, enter the credentials you provided for the remote desktop user. 
 
 4. In the remote session, start Windows PowerShell, and use the HDFS filesystem commands to list the files in the Azure Data Lake.
 
-	 	hdfs dfs -ls swebhdfs://<Data Lake account name>.azuredatalake.net:443/
+	 	hdfs dfs -ls adl://<Data Lake account name>.azuredatalake.net:443/
 
 	This should list the file that you uploaded earlier to the Azure Data Lake account.
 
 		15/09/17 21:41:15 INFO web.CaboWebHdfsFileSystem: Replacing original urlConnectionFactory with org.apache.hadoop.hdfs.web.URLConnectionFactory@21a728d6
 		Found 1 items
-		-rwxrwxrwx   0 NotSupportYet NotSupportYet     671388 2015-09-16 22:16 swebhdfs://hdiadlaccount.azuredatalake.net:443/tweets.txt
+		-rwxrwxrwx   0 NotSupportYet NotSupportYet     671388 2015-09-16 22:16 adl://mydatalakeaccount.azuredatalake.net:443/mynewfolder
 
 	You can also use the `hdfs dfs -put` command to upload some files to the Azure Data Lake, and then use `hdfs dfs -ls` to verify whether the files were successfully uploaded.
 
 ## See Also
 
-[ TBD: Add links ]
+* [PowerShell: Create an HDInsight cluster to use Data Lake Store]([PowerShell](data-lake-store-hdinsight-hadoop-use-powershell.md))
 
 [makecert]: https://msdn.microsoft.com/en-us/library/windows/desktop/ff548309(v=vs.85).aspx
 [pvk2pfx]: https://msdn.microsoft.com/en-us/library/windows/desktop/ff550672(v=vs.85).aspx
