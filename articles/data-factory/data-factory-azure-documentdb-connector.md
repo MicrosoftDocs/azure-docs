@@ -1,14 +1,14 @@
 <properties 
 	pageTitle="Move data to and from DocumentDB | Azure Data Factory" 
 	description="Learn how move data to/from Azure DocumentDB collection using Azure Data Factory" 
-	services="data-factory" 
+	services="data-factory, documentdb" 
 	documentationCenter="" 
 	authors="spelluru" 
 	manager="jhubbard" 
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory" 
+	ms.service="multiple" 
 	ms.workload="data-services" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
