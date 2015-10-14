@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Create a Node.js web app in Azure App Service | Microsoft Azure"
-	description="Learn how to build and deploy a Node.js web app in Azure."
+	description="Learn how to deploy a Node.js application to a web app in Azure App Service."
 	services="app-service\web"
 	documentationCenter="nodejs"
 	authors="MikeWasson"
@@ -16,7 +16,7 @@
 	ms.date="10/13/2015"
 	ms.author="mwasson"/>
 
-# Build and deploy a Node.js web app in Azure App Service
+# Create a Node.js web app in Azure App Service
 
 > [AZURE.SELECTOR]
 - [.Net](web-sites-dotnet-get-started.md)
