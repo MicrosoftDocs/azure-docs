@@ -16,7 +16,7 @@
    ms.date="10/14/2015"
    ms.author="kwill" />
 
-# How to Troubleshoot Roles that Fail to Start
+# How to troubleshoot roles that fail to start
 
 Here are some common problems and solutions related to Azure cloud service roles that fail to start.
 
@@ -41,7 +41,7 @@ Resolution:  There are three recommended methods for investigating these issues.
 
 When you navigate to a web site that is deployed in a web role and the browser displays a server error similar to the one below:
 
-![Server Error in '/' Application.](./media/cloud-services-troubleshoot-roles-that-fail-start/IC503388.png)
+![Server Error in '/' Application.](./media/cloud-services-troubleshoot-roles-that-fail-start/ic503388.png)
 
 ## Diagnose issues by turning off custom errors
 
@@ -98,7 +98,7 @@ Navigating to the web site will return more explicit error messages.
 
 For example:
 
-![Explicit Server Error in '/' Application](./media/cloud-services-troubleshoot-roles-that-fail-start/IC503389.png)
+![Explicit Server Error in '/' Application](./media/cloud-services-troubleshoot-roles-that-fail-start/ic503389.png)
 
 ## Diagnose issues using the Compute Emulator
 
@@ -134,8 +134,7 @@ Follow these steps to deploy the service with IntelliTrace enabled:
 
 4. Expand the **Azure\\Cloud Services** node and locate the deployment.
 
-5. Expand the deployment until you see the role instances.   
-	Right click on one of the instances.
+5. Expand the deployment until you see the role instances. Right click on one of the instances.
 
 6. Choose **View IntelliTrace logs**. The **IntelliTrace Summary** will open.
 
@@ -143,7 +142,7 @@ Follow these steps to deploy the service with IntelliTrace enabled:
 
 8. Expand the **Exception Data** and look for **System.IO.FileNotFoundException** errors similar to the following:
 
-![Exception data, missing file or assembly](./media/cloud-services-troubleshoot-roles-that-fail-start/IC503390.png)
+![Exception data, missing file or assembly](./media/cloud-services-troubleshoot-roles-that-fail-start/ic503390.png)
 
 ## Addressing missing DLLs and assemblies
 
