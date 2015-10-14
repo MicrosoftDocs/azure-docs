@@ -3,8 +3,8 @@
  description="" 
    services="cloud-services"
    documentationCenter=""
-   authors="kevingw"
-   manager="jroley"
+   authors="Thraka"
+   manager="msmets"
    editor=""
    tags="top-support-issue"/>
 <tags 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="tbd"
    ms.date="10/14/2015"
-   ms.author="kwill" />
+   ms.author="jarrettr" />
 
 # How to troubleshoot deployment problems using the deployment properties
 
@@ -46,7 +46,7 @@ Service healing occurs automatically when the Azure detects problematic nodes an
 2. In the **Properties** pane of the Management Portal, review the information and determine if service healing occurred during the time you observed the roles restarting.
 
 Roles will also restart roughly once per month during Host OS and Guest OS upgrades.  
-For more information, see the blog post [Role Instance Restarts Due to OS Upgrades](http://blogs.msdn.com/b/kwill/archive/2012/09/19/role-instance-restarts-due-to-os-upgrades.aspx)
+For more information, see the blog post [Role Instance Restarts Due to OS Upgrades](http://blogs.msdn.com/b/jarrettr/archive/2012/09/19/role-instance-restarts-due-to-os-upgrades.aspx)
 
 ## Problem: I cannot do a VIP swap and receive an error whenever I try
 
@@ -83,4 +83,4 @@ For more information on how to troubleshoot for this problem, see the blog post 
 View more [troubleshooting articles](?tag=top-support-issue&service=cloud-services) for cloud services.
 
 
-[Azure PaaS Compute Diagnostics Data]: http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx
+[Azure PaaS Compute Diagnostics Data]: http://blogs.msdn.com/b/jarrettr/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx

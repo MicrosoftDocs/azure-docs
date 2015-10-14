@@ -3,8 +3,8 @@
    description=""
    services="cloud-services"
    documentationCenter=""
-   authors="kevingw"
-   manager="jroley"
+   authors="Thraka"
+   manager="msmets"
    editor=""
    tags="top-support-issue"/>
 <tags 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="tbd"
    ms.date="05/21/2015"
-   ms.author="kwill" />
+   ms.author="jarrettr" />
 
 # Debugger does not attach to the role that is to be debugged
 
