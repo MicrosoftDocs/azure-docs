@@ -499,7 +499,7 @@ The following example converts the user-provided parameter value to upper case.
 
 **uniqueString (stringForCreatingUniqueString, ...)**
 
-Creates a unique string value based the value you provide. This function is helpful when you need to create a unique name for a resource. The parameter value you provide represents the level of uniqueness; therefore, you can specify whether the name is unique for your subscription, resource group, or deployment. 
+Creates a unique string  based on the value you provide. This function is helpful when you need to create a unique name for a resource. You provide parameter values that represent the level of uniqueness for the result. You can specify whether the name is unique for your subscription, resource group, or deployment. 
 
 | Parameter                          | Required | Description
 | :--------------------------------: | :------: | :----------
