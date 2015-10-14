@@ -90,7 +90,7 @@ For the **-Location** parameter, use the command [Get-AzureLocation](https://msd
 
 ## <a id="vault"></a>Create a key vault ##
 
-Use the [New-AzureKeyVault](https://msdn.microsoft.com/library/azure/dn903602\`(v=azure.98).aspx) cmdlet to create a key vault. This cmdlet has three mandatory parameters: a **resource group name**, a **key vault name**, and the **geographic location**.
+Use the [New-AzureKeyVault](https://msdn.microsoft.com/library/azure/dn903602\`(v=azure.98\`).aspx) cmdlet to create a key vault. This cmdlet has three mandatory parameters: a **resource group name**, a **key vault name**, and the **geographic location**.
 
 For example, if you use the vault name of **ContosoKeyVault**, the resource group name of **ContosoResourceGroup**, and the location of **East Asia**, type:
 
