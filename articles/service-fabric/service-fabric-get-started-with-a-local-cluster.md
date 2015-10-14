@@ -16,11 +16,11 @@
    ms.date="10/08/2015"
    ms.author="seanmck"/>
 
-# Get started with deploying and upgrading apps on your local cluster
+# Get started with deploying and upgrading Service Fabric applications on your local cluster
 
 The Service Fabric SDK includes a full local development environment and enables you to quickly get started with deploying and managing appliactions on a local cluster. In this article, you will create a local cluster, deploy an existing application to it, and then upgrade that application to a new version, all from Windows PowerShell.
 
->[AZURE.NOTE] This article assumes that you already [set up your development environment][service-fabric-get-started.md].
+>[AZURE.NOTE] This article assumes that you already [set up your development environment](service-fabric-get-started.md).
 
 ## Create a local cluster
 
@@ -105,14 +105,25 @@ With the application deployed, let's look at some of the app details in PowerShe
 
   Assuming that you have only deployed the WordCount app, you will see something like this:
 
+  ![Query all deployed applications in PowerShell][ps-getsfapp]
+
 2. Go to the next level by querying the set of services included in the WordCount application.
 
   ```powershell
   Get-ServiceFabricService -ApplicationName 'fabric:/WordCount'
   ```
 
-3. Underneath WordCount, you will find the application instance that we've deployed, fabric:/WordCount.
+  ![List services for the applicatin in PowerShell][ps-getsfsvc]
 
+  Note that the application is made up of two services, the web front-end and the stateful service that manages the words.
+
+3. Finally, take a look at the list of partitions for the WordCountService:
+
+  ![View the service partitions in PowerShell][ps-getsfpartitions]
+
+  The set of commands you just used, like all Service Fabric PowerShell commands, are available for any cluster that you might connect to, local or remote.
+
+  >[AZURE.NOTE] For a more visual way to interact with the cluster, see [Visualizing your cluster with Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).
 
 ## Upgrade an application
 
@@ -120,13 +131,37 @@ Service Fabric provides no-downtime upgrades by monitoring the health of the app
 
 The new version of the application will now only count words that begin with a vowel. As the upgrade rolls out, we should notice two changes in the application's behavior. First, the rate at which the count grows should slow, since fewer words are being counted. Second, since the first partition has two vowels (A and E) and all others contain only one each, its count should eventually start to outpace the others.
 
+1. Download the v2 package from [here](http://aka.ms/servicefabric-wordcountappv2) and extract it next to the v1 package.
 
+2. Return to your PowerShell window and use the SDK's upgrade script to register the new version in the cluster and begin upgrading fabric:/WordCount.
+
+  ```powershell
+  Upgrade-FabricApplication.ps1 -ApplicationPackagePath 'C:\Service Fabric\WordCountV2' -ApplicationDefinitionFilePath 'C:\Service Fabric\WordCountParameters.Local.xml' -Action DeployAndUpgrade -ApplicationName "fabric:/WordCount" -UpgradeParameters @{UpgradeReplicaSetCheckTimeoutSec="1"; Force=$true; UnmonitoredAuto=$true}
+  ```
+
+  You should see output in PowerShell that looks something like this, including a success message at the end:
+
+  ![Upgrade progress in PowerShell][ps-appupgradeprogress]
+
+3. If you rerun the earlier query for the set of services included in the fabric:/WordCount application, you will notice that while the version of the WordCountService changed, the version of the WordCountWebService did not:
+
+  ```powershell
+  Get-ServiceFabricService -ApplicationName 'fabric:/WordCount'
+  ```
+
+  ![Query application services after upgrade][ps-getsfsvc-postupgrade]
+
+  This highlights how Service Fabric manages application upgrades, which is to only touch the set of services (or code/configuration packages within those services) that have changed, making the process of upgrading faster and more reliable.
+
+4. Finally, return to the browser to observe the behavior of the new application version. As expected, the count progresses more slowly and the first partition ends up with slightly more of the volume.
+
+  ![View the new version of the application in the browser][deployed-app-UI-v2]
 
 ## Next steps
 
-- [Create your first application in Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md)
-- [Create an Azure cluster and deploy to it](service-fabric-cluster-creation-via-portal.md)
-- [Learn more about application upgrades](service-fabric-application-upgrade.md)
+- Now that you have deployed and upgraded some pre-built applications, you can [try building your own in Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md).
+- All of the actions performed on the local cluster in this article can be performed on [Azure cluster](service-fabric-cluster-creation-via-portal.md) as well.
+- The upgrade performed in this article was very basic. See the [upgrade documentation](service-fabric-application-upgrade.md) to learn more about the power and flexibility of Service Fabric upgrades.
 
 <!-- Images -->
 
@@ -137,3 +172,9 @@ The new version of the application will now only count words that begin with a v
 [deployed-app-UI2]: ./media/service-fabric-get-started-with-a-local-cluster/DeployedAppUI2.png
 [sfx-app-instance]: ./media/service-fabric-get-started-with-a-local-cluster/SfxAppInstance.png
 [sfx-two-app-instances-different-partitions]: ./media/service-fabric-get-started-with-a-local-cluster/SfxTwoAppInstances-DifferentPartitionCount.png
+[ps-getsfapp]: ./media/service-fabric-get-started-with-a-local-cluster/PS-GetSFApp.png
+[ps-getsfsvc]: ./media/service-fabric-get-started-with-a-local-cluster/PS-GetSFSvc.png
+[ps-getsfpartitions]: ./media/service-fabric-get-started-with-a-local-cluster/PS-GetSFPartitions.png
+[ps-appupgradeprogress]: ./media/service-fabric-get-started-with-a-local-cluster/PS-AppUpgradeProgress.png
+[ps-getsfsvc-postupgrade]: ./media/service-fabric-get-started-with-a-local-cluster/PS-GetSFSvc-PostUpgrade.png
+[deployed-app-UI-v2]: ./media/service-fabric-get-started-with-a-local-cluster/DeployedAppUI-PostUpgrade.png
