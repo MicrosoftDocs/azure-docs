@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Get Started with Azure Data Lake Analytics using Azure Preview Portal | Azure" 
-   description="Learn how to use the Azure Preview portal to create a Data Lake Analytics account, create a Data Lake Analytics job using U-SQL, and submit the job. For more information about Data Lake Analytics. " 
+   description="Learn how to use the Azure Preview portal to create a Data Lake Analytics account, create a Data Lake Analytics job using U-SQL, and submit the job. " 
    services="data-lake-analytics" 
    documentationCenter="" 
    authors="mumian" 
@@ -84,7 +84,7 @@ accounts. For instructions, see [Manage account data sources](data-lake-analytic
 
 ##Upload data to the default Data Lake Store account
 
-In this tutorial, you will process some search logs.  The search log can be stored in a Data Lake store or Azure Blob storage. 
+In this tutorial, you will process some search logs.  The search log can be stored in either Data Lake store or Azure Blob storage. 
 
 The Azure Preview portal provides an user interface to upload some sample data files. You will use it to upload
 the sample data files to the default Data Lake Store account.
@@ -141,7 +141,7 @@ If the account is not pinned there, see
             USING Extractors.Tsv();
         
         OUTPUT @searchlog   
-            TO "/output/SearchLog-from-Data Lakes.csv"
+            TO "/Output/SearchLog-from-Data-Lake.csv"
         USING Outputters.Csv();
 
 	This U-SQL script reads the input data file using the Extractors.tsv(), and then creates a csv file using
@@ -156,6 +156,8 @@ If the account is not pinned there, see
         wasb://<BlobContainerName>@<StorageAccountName>.blob.core.windows.net/Samples/Data/SearchLog.tsv
 
     >[AZURE.NOTE] Azure Blob container with public blobs or public containers access permissions are not currently supported.    
+
+    For more about U-SQL, see [U-SQL reference](http://go.microsoft.com/fwlink/?LinkId=690701).
      
 5. Click **Submit Job** from the top. A new Job Details pane opens. On the title bar, it shows the job status. You can also click **Refresh** to get the latest status.
 6. Wait until the job status is changed to **Succeeded**. When the job is completed, the portal opens the job details in a new blade.
@@ -165,7 +167,7 @@ If the account is not pinned there, see
     ![Azure Data Lake Analytics job troubleshoot](./media/data-lake-analytics-get-started-portal/data-lake-analytics-job-failed.png)
 
     
-7. At the bottom of the Job Detail blade, Click the job name in **SearchLog-from-Data Lakes.csv**. You can preview, download, rename, delete the output file.
+7. At the bottom of the Job Detail blade, Click the job name in **SearchLog-from-Data-Lake.csv**. You can preview, download, rename, delete the output file.
 
 **To see all the jobs**
 

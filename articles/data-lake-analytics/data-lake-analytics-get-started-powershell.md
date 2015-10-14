@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Get started with Azure Data Lake Analytics using Azure PowerShell | Azure" 
-   description="Learn how to use the Azure PowerShell to create a Data Lake Analytics account, create a Data Lake Analytics job using U-SQL, and submit the job. " 
-   services="big-analytics" 
+   description="Learn how to use the Azure PowerShell to create a Data Lake Store account, create a Data Lake Analytics job using U-SQL, and submit the job. " 
+   services="data-lake-analytics" 
    documentationCenter="" 
    authors="mumian" 
    manager="paulettm" 
    editor="cgronlun"/>
  
 <tags
-   ms.service="big-analytics"
+   ms.service="data-lake-analytics"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="09/29/2015"
+   ms.date="10/14/2015"
    ms.author="jgao"/>
 
 # Tutorial: Get Started with Azure Data Lake Analytics using Azure PowerShell
@@ -29,9 +29,9 @@ Before you begin this tutorial, you must have the following:
 
 	[jgao: until the public preview, use https://github.com/MicrosoftBigData/ProjectKona/blob/master/docs/PowerShell/FirstSteps.md]
 
-##Create a Data Lake Analytics account
+##Create Data Lake Analytics account
 
-You must have a Data Lake Analytics account before you can run a Data Lake Analytics job. To create a Data Lake Analytics account, you must specify the following:
+You must have a Data Lake Analytics account before you can run jobs. To create a Data Lake Analytics account, you must specify the following:
 
 - **Azure Resource Group**: A Data Lake Analytics account must be created within a Azure Resource group. [Azure Resource Manager](https://azure.microsoft.com/en-us/documentation/articles/resource-group-overview/) enables you to work with the resources in your application as a group. You can deploy, update or delete all of the resources for your application in a single, coordinated operation.  
 
@@ -47,7 +47,7 @@ You must have a Data Lake Analytics account before you can run a Data Lake Analy
 
 - **Data Lake Analytics account name**
 - **Location**: one of the Azure data centers that supports Data Lake Analytics.
-- **Data Lake account**: An Data Lake Analytics account uses an Data Lake account for data storage.
+- **Default Data Lake account**: each Data Lake Analytics account has a default Data Lake account.
 
 	To create a new Data Lake account:
 
@@ -63,7 +63,7 @@ To create a new Data Lake Analytics account
    
     New-AzureRmDataLakeAnalyticsAccount `
         -ResourceGroupName "<You Azure resource group name>" `
-        -Name "<Your Azure Kona account name>" `
+        -Name "<Your Azure Data Lake Analytics account name>" `
         -Location "<Azure Data Center>"  #"East US 2" `
         -DefaultDataLake "<Your Knoa account name>"
 
@@ -76,63 +76,61 @@ To create a new Data Lake Analytics account
 2. Run the following script:
 
 		$resourceGroupName = "<ResourceGroupName>"
-		$dataLakeName = "<DataLakeAccountName>"
-		$bigAnalyticesName = "<BigAnalyticsAccountName>"
+		$dataLakeStoreName = "<DataLakeAccountName>"
+		$dataLakeAnalyticsName = "<DataLakeAnalyticsAccountName>"
 		$location = "East US 2"
 		
 		Write-Host "Create a resource group ..." -ForegroundColor Green
 		New-AzureRmResourceGroup `
-		    -Name  $resourceGroupName `
-		    -Location $location
+			-Name  $resourceGroupName `
+			-Location $location
 		
 		Write-Host "Create a data lake account ..."  -ForegroundColor Green
 		New-AzureRmDataLakeStoreAccount `
-		    -ResourceGroupName $resourceGroupName `
-		    -Name $dataLakeName `
-		    -Location $location 
-		
-		Write-Host "Create a Kona account ..."  -ForegroundColor Green
-		New-AzureRmDataLakeAnalyticsAccount `
-		    -Name $bigAnalyticesName `
-		    -ResourceGroupName $resourceGroupName `
-		    -Location $location `
-		    -DefaultDataLake $dataLakeName
-		
-		Write-Host "The newly created Kona account ..."  -ForegroundColor Green
-		Get-AzureKonaAccount `
 			-ResourceGroupName $resourceGroupName `
-		    -Name $bigAnalyticesName  
+			-Name $dataLakeStoreName `
+			-Location $location 
+		
+		Write-Host "Create a Data Lake Analytics account ..."  -ForegroundColor Green
+		New-AzureRmDataLakeAnalyticsAccount `
+			-Name $dataLakeAnalyticsName `
+			-ResourceGroupName $resourceGroupName `
+			-Location $location `
+			-DefaultDataLake $dataLakeStoreName
+		
+		Write-Host "The newly created Data Lake Analytics account ..."  -ForegroundColor Green
+		Get-AzureRmDataLakeAnalyticsAccount `
+			-ResourceGroupName $resourceGroupName `
+			-Name $dataLakeAnalyticsName  
 
 ##Upload data to Data Lake
 
-Now you have a Data Lake Analytics account.  You will still need some data to run a Data Lake Analytics job. The data file used in this tutorial is a tab separated file with the following fields:
+In this tutorial, you will process some search logs.  The search log can be stored in either Data Lake store or Azure Blob storage. 
 
-        Athlete              string,
-        Age                  string,
-        Country              string,
-        Year                 string,
-        ClosingCeremonyDate  string,
-        Sport                string,
-        GoldMedals           string,
-        SilverMedals         string,
-        BronzeMedals         string,
-        TotalMedals          string,
+A sample search log has been uploaded to an public Azure Blob container. Use the following PowerShell script to download the file to your workstation, and then upload the file to your default Data Lake Store account.
 
-You can download a data file from [Github](https://github.com/MicrosoftBigData/ProjectKona/tree/master/SQLIPSamples/SampleData/OlympicAthletes.tsv) to your workstation.
+>[AZURE.NOTE] The Azure Preview portal provides an user interface to upload the sample data files. For instructions, see [Get Started with Azure Data Lake Analytics using Azure Preview Portal](data-lake-analytics-get-started-portal.md#upload-data-to-the-default-data-lake-store-account).
 
-**To upload the file to the Data Lake account associated with the Data Lake Analytics account**
+	$adlStore = "<The default Data Lake Store account name"
+	
+	$localFolder = "C:\Tutorials\Downloads\" # A temp location for the file. 
+	$storageAccount = "adltutorials"  # Don't modify this value.
+	$container = "adls-sample-data"  #Don't modify this value.
 
-	Import-AzureDataLakeItem -AccountName "<Your Data Lake account>" `
-                     -Path "c:\OlympicAthletes.tsv" `
-                     -Destination "SampleData\OlympicAthletes.tsv"
+	# Create the temp location	
+	New-Item -Path $localFolder -ItemType Directory -Force 
 
-	Get-AzureDataLakeChildItem -AccountName "<Your Data Lake account>" `
-                        -path "SampleData"
+	# Download the sample file from Azure Blob storage
+	$context = New-AzureStorageContext -StorageAccountName $storageAccount -Anonymous
+	$blobs = Azure\Get-AzureStorageBlob -Container $container -Context $context
+	$blobs | Get-AzureStorageBlobContent -Context $context -Destination $localFolder
 
+	# Upload the file to the default Data Lake Store account	
+	Import-AzureRmDataLakeStoreItem -AccountName $adlStore -Path $localFolder"SearchLog.tsv" -Destination "/Samples/Data/SearchLog.tsv"
 
 For more information on uploading data to Data Lake, see ....
 
-Data Lake Analytics can also access Azure Blob storage.  For uploading data to Azure Blob storage, see ....
+Data Lake Analytics can also access Azure Blob storage.  For uploading data to Azure Blob storage, see [Using Azure PowerShell with Azure Storage](storage-powershell-guide-full.md).
 
 ##Submit Data Lake Analytics jobs
 
@@ -140,68 +138,76 @@ Data Lake Analytics can also access Azure Blob storage.  For uploading data to A
 
 - Create a text file with following U-SQL script, and save the text file to your workstation:
 
-	@athletes =
-	    EXTRACT
-	        Athlete              string,
-	        Age                  string,
-	        Country              string,
-	        Year                 string,
-	        ClosingCeremonyDate  string,
-	        Sport                string,
-	        GoldMedals           string,
-	        SilverMedals         string,
-	        BronzeMedals         string,
-	        TotalMedals          string
-	    FROM @"/SampleData/OlympicAthletes.tsv"
-	    USING new DefaultTextExtractor();
+        @searchlog =
+            EXTRACT UserId          int,
+                    Start           DateTime,
+                    Region          string,
+                    Query           string,
+                    Duration        int?,
+                    Urls            string,
+                    ClickedUrls     string
+            FROM "/Samples/Data/SearchLog.tsv"
+            USING Extractors.Tsv();
+        
+        OUTPUT @searchlog   
+            TO "/Output/SearchLog-from-Data-Lake.csv"
+        USING Outputters.Csv();
+
+	This U-SQL script reads the input data file using the Extractors.tsv(), and then creates a csv file using
+    theOutputters.csv(). 
+    
+    Notice the path is a relative path. You can also use absolute path.  For example 
+    
+        Data Lake://<Data LakeStorageAccountName>.azuredatalake.net/Samples/Data/SearchLog.tsv
+        
+    You must use absolute path to access the files in the linked Storage accounts.  The syntax for files stored in linked Azure Storage account is:
+    
+        wasb://<BlobContainerName>@<StorageAccountName>.blob.core.windows.net/Samples/Data/SearchLog.tsv
+
+    >[AZURE.NOTE] Azure Blob container with public blobs or public containers access permissions are not currently supported.    
+
+	The U-SQL extension is .usql.  However, you can use any extension. For example, .txt.
 	
-	OUTPUT @athletes
-	    TO @"/SampleData/OlympicAthletes_Copy.tsv"
-	    USING new DefaultTextOutputter();
-
-	This U-SQL script reads the input data file using the DefaultTextExtrator, and then make a copy of the file using the DefaultTextOutputter.
-
-	Both the inbound and the outbound file are stored in /SampleData folder. Update the path accordingly.
-
+	For more about U-SQL, see [U-SQL reference](http://go.microsoft.com/fwlink/?LinkId=690701).
+	
 **To submit the job**
 
 1. Open PowerShell ISE from your Windows workstation.
 2. Run the following script:
 
-		$bigAnalyticsName = "<BigAnalyticsAccountName>"
-		$usqlScriptPath = "c:\tutorials\big-analytics\copyFile.sip"
+		$dataLakeAnalyticsName = "<DataLakeAnalyticsAccountName>"
+		$usqlScript = "c:\tutorials\data-lake-analytics\copyFile.usql"
 		
-		Submit-AzureKonaJob -Name "copyAthleteFile" -AccountName $bigAnalyticsName –ScriptPath $usqlScriptPath 
+		Submit-AzureRmDataLakeAnalyticsJob -Name "convertTSVtoCSV" -AccountName $dataLakeAnalyticsName –ScriptPath $usqlScript 
 		                
-		Get-AzureKonaJob -AccountName $bigAnalyticsName
+		While (($t = Get-AzureRmDataLakeAnalyticsJob -AccountName $dataLakeAnalyticsName -JobId $job.JobId).State -ne "Ended"){
+			Write-Host "Job status: "$t.State"..."
+			Start-Sleep -seconds 5
+		}
+		
+		Get-AzureRmDataLakeAnalyticsJob -AccountName $dataLakeAnalyticsName -JobId $job.JobId
 
-	In the script, the U-SQL script file is stored at c:\tutorials\big-analytics\copyFile.sip.  Update the file path accordingly.
+	In the script, the U-SQL script file is stored at c:\tutorials\data-lake-analytics\copyFile.usql.  Update the file path accordingly.
  
-After the job is completed, you can use the following cmdlets to list the files:
-
-		$dataLakeName = "<DataLakeAccountName>"
-		Get-AzureDataLakeChildItem -AccountName $dataLakeName `
-		                            -path "SampleData"
-
-And use the following cmdlets to download the file:
-
-		$sourceFile = "mafs://accounts/$bigAnalyticsName/fs/SampleData/OlympicAthletes_Copy.tsv"
-		$destFile = "C:\tutorials\kona\OlympicAtheletes_Copy.tsv"
-		Export-AzureDataLakeItem -AccountName $bigAnalyticsName -Path $sourceFile -Destination $destFile
+After the job is completed, you can use the following cmdlets to list the file, and download the file:
+	
+	$resourceGroupName = "<Resource Group Name>"
+	$dataLakeAnalyticName = "<Data Lake Analytic Account Name>"
+	$destFile = "C:\tutorials\data-lake-analytics\SearchLog-from-Data-Lake.csv"
+	
+	$dataLakeStoreName = (Get-AzureRmDataLakeAnalyticsAccount -ResourceGroupName $resourceGroupName -Name $dataLakeAnalyticName).Properties.DefaultDataLakeAccount
+	
+	Get-AzureRmDataLakeStoreChildItem -AccountName $dataLakeStoreName -path "/Output"
+	
+	Export-AzureRmDataLakeStoreItem -AccountName $dataLakeStoreName -Path "/Output/SearchLog-from-Data-Lake.csv" -Destination $destFile
 
 
 #See also
 
-Until now, you’ve learned: 
-
-- Upload, list, and upload files to Azure Data Lake
-- Submit a Data Lake Analytics jobs
-
-To read more:
-
-- [Azure Data Lake Analytics overview](big-analytics-overview.md)
-- [Get started with Azure Data Lake Analytics using Azure PowerShell](big-analytics-get-started-powershell.md)
-- [Get started with Azure Data Lake Analytics and U-SQL using Visual Studio](big-analytics-get-started-u-sql-studio.md)
+- [Azure Data Lake Analytics overview](data-lake-analytics-overview.md)
+- [Get started with Azure Data Lake Analytics using Azure Preview Portal](data-lake-analytics-get-started-portal.md)
+- [Get started with Azure Data Lake Analytics and U-SQL using Visual Studio](data-lake-analytics-get-started-u-sql-studio.md)
+- [Manage Azure Data Lake Analytics using Azure Preview Portal](data-lake-analytics-manage-use-portal.md)
 
 
 
