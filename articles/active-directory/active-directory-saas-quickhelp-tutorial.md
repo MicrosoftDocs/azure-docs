@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/12/2015"
+	ms.date="10/13/2015"
 	ms.author="markusvi"/>
 
 
@@ -151,16 +151,16 @@ In the Users list, select **Britta Simon**.<br><br>![Create Azure AD User][20]<b
 
 **To create a test user in Azure AD, perform the following steps:**
 
-1. In the **Azure Management Portal**, on the left navigation pane, click **Active Directory**.<br>
-![Creating an Azure AD test user](./media/active-directory-saas-quickhelp-tutorial/create_aaduser_02.png) 
+1. In the **Azure Management Portal**, on the left navigation pane, click **Active Directory**.<br><br>
+![Creating an Azure AD test user](./media/active-directory-saas-quickhelp-tutorial/create_aaduser_02.png)<br> 
 
 2. From the **Directory** list, select the directory for which you want to enable directory integration.
 
-3. To display the list of users, in the menu on the top, click **Users**.<br>![Creating an Azure AD test user](./media/active-directory-saas-quickhelp-tutorial/create_aaduser_03.png) 
+3. To display the list of users, in the menu on the top, click **Users**.<br><br>![Creating an Azure AD test user](./media/active-directory-saas-quickhelp-tutorial/create_aaduser_03.png) <br>
  
-4. To open the **Add User** dialog, in the toolbar on the bottom, click **Add User**. <br>![Creating an Azure AD test user](./media/active-directory-saas-quickhelp-tutorial/create_aaduser_04.png) 
+4. To open the **Add User** dialog, in the toolbar on the bottom, click **Add User**. <br><br>![Creating an Azure AD test user](./media/active-directory-saas-quickhelp-tutorial/create_aaduser_04.png)<br> 
 
-5. On the **Tell us about this user** dialog page, perform the following steps: <br>![Creating an Azure AD test user](./media/active-directory-saas-quickhelp-tutorial/create_aaduser_05.png) 
+5. On the **Tell us about this user** dialog page, perform the following steps: <br><br>![Creating an Azure AD test user](./media/active-directory-saas-quickhelp-tutorial/create_aaduser_05.png) <br>
 
     a. As Type Of User, select New user in your organization.
 
@@ -212,24 +212,25 @@ You need to create a CSV File with this structure that has as values the values 
 
 1. Create a CSV file following the instructions above. 
  
-3. Sign on to your QuickHelp company site as administrator.
+2. Sign on to your QuickHelp company site as administrator.
    <br><br>![Create a QuickHelp test user][21]<br>
 
 
-1. In the **QuickHelp Admin** menu, click **Users**, and then **New**.
+3. In the **QuickHelp Admin** menu, click **Users**, and then **New**.
 <br><br>![Create a QuickHelp test user][24]<br>
 
 
-1. As **Content**, select **User**, and then click **Import**. 
+4. As **Content**, select **User**, and then click **Import**. 
 <br><br>![Create a QuickHelp test user][25]<br>
 
-1. To import your CSV file, click **Browse**. 
+5. To import your CSV file, click **Browse**, navigate to your file, and then click **Next**. 
 <br><br>![Create a QuickHelp test user][26]<br>
 
-1. On the summary page, click **Next**. 
+6. On the summary page, review the status, and then click **Finish**. 
 <br><br>![Create a QuickHelp test user][27]<br>
 
-1. On the summary page, click **Next**. 
+
+If Britta was successfully imported, you can see her in the list of users. 
 <br><br>![Create a QuickHelp test user][28]<br>
 
 
