@@ -188,7 +188,7 @@ The data for each chart or table is exported to a separate sheet in the Excel fi
 
 What you see is what gets exported. Change the time range or filters if you want to change the range of data exported. For tables, if the **load more** command is showing, you can click it before you click Export, to have more data exported.
 
-*Export works only for Internet Explorer and Chrome at present. We’re working on adding support for other browsers.*
+*Export works only for Internet Explorer and Chrome at present. We?re working on adding support for other browsers.*
 
 ### Continuous Export
 
@@ -207,7 +207,7 @@ If you want even richer views of your data, you can [export to Power BI](app-ins
 <!--Link references-->
 
 [alerts]: app-insights-alerts.md
-[start]: app-insights-get-started.md
+[start]: app-insights-overview.md
 [track]: app-insights-api-custom-events-metrics.md
 
  
