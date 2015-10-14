@@ -33,7 +33,6 @@ Connecting a virtual network to another virtual network (VNet-to-VNet) is very s
 ![VNet to VNet Connectivity Diagram](./media/virtual-networks-configure-vnet-to-vnet-connection/IC727360.png)
 
  
-
 ## Why connect virtual networks?
 
 You may want to connect virtual networks for the following reasons:
