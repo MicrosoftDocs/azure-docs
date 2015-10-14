@@ -27,22 +27,7 @@ Before you begin this tutorial, you must have the following:
 - **An Azure subscription**. See [Get Azure free trial](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 - **Azure PowerShell**. The Azure PowerShell can be installed using the Microsoft Web Platform installer.  For more information, see [Install and configure Azure PowerShell](powershell-install-configure.md).
 
-	[jgao: until the public preview, use the following procedure to install Azure PowerShell]
-	
-	**To install Azure Powershell with the Data Lake Analytics/ Data Lake cmdlets**  
-	
-	1. Download the [Azure PowerShell module](https://github.com/MicrosoftBigData/ProjectKona/releases).
-	2. Extract **Azure_PowerShell.msi** from the zip file, and install it.
-	
-		>[AZURE.NOTE] Don't install Azure_SDK_KonaDataLake.zip over Azure Powershell. Some cmdlets won't work.
-		  
-	3. From your desktop, open a new Azure PowerShell window, and run the following cmdlets. Make sure you log in as one of the subscription admininistrators/owners for the first time:
-		
-		    Add-AzureAccount
-		    Select-AzureSubscription -SubscriptionId <Your Azure Subscription ID>
-		    Register-AzureProvider -ProviderNamespace "Microsoft.Kona"
-		    Register-AzureProvider -ProviderNamespace "Microsoft.DataLake"
-
+	[jgao: until the public preview, use https://github.com/MicrosoftBigData/ProjectKona/blob/master/docs/PowerShell/FirstSteps.md]
 
 ##Create a Data Lake Analytics account
 
@@ -52,11 +37,11 @@ You must have a Data Lake Analytics account before you can run a Data Lake Analy
 
 	To enumerate the resource groups in your subscription:
     
-    	Get-AzureResourceGroup
+    	Get-AzureRmResourceGroup
     
 	To create a new resource group:
 
-    	New-AzureResourceGroup `
+    	New-AzureRmResourceGroup `
 			-Name "<Your resource group name>" `
 			-Location "<Azure Data Center>" # For example, "East US 2"
 
@@ -66,7 +51,7 @@ You must have a Data Lake Analytics account before you can run a Data Lake Analy
 
 	To create a new Data Lake account:
 
-	    New-AzureDataLakeAccount `
+	    New-AzureRmDataLakeStoreAccount `
 	        -ResourceGroupName "<Your Azure resource group name>" `
 	        -Name "<Your Data Lake account name>" `
 	        -Location "<Azure Data Center>"  # For example, "East US 2"
@@ -76,7 +61,7 @@ You must have a Data Lake Analytics account before you can run a Data Lake Analy
 
 To create a new Data Lake Analytics account
    
-    New-AzureKonaAccount `
+    New-AzureRmDataLakeAnalyticsAccount `
         -ResourceGroupName "<You Azure resource group name>" `
         -Name "<Your Azure Kona account name>" `
         -Location "<Azure Data Center>"  #"East US 2" `
@@ -96,18 +81,18 @@ To create a new Data Lake Analytics account
 		$location = "East US 2"
 		
 		Write-Host "Create a resource group ..." -ForegroundColor Green
-		New-AzureResourceGroup `
+		New-AzureRmResourceGroup `
 		    -Name  $resourceGroupName `
 		    -Location $location
 		
 		Write-Host "Create a data lake account ..."  -ForegroundColor Green
-		New-AzureDataLakeAccount `
+		New-AzureRmDataLakeStoreAccount `
 		    -ResourceGroupName $resourceGroupName `
 		    -Name $dataLakeName `
 		    -Location $location 
 		
 		Write-Host "Create a Kona account ..."  -ForegroundColor Green
-		New-AzureKonaAccount `
+		New-AzureRmDataLakeAnalyticsAccount `
 		    -Name $bigAnalyticesName `
 		    -ResourceGroupName $resourceGroupName `
 		    -Location $location `
