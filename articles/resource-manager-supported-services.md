@@ -16,7 +16,7 @@
    ms.date="10/13/2015"
    ms.author="tomfitz"/>
 
-# Azure Services that support Resource Manager
+# Azure Resource Manager support for services and regions
 
 Azure Resource Manager provides a new way for you to deploy and manage the services that make up your applications. 
 Most, but not all, services support Resource Manager, and some services support Resource Manager only partially. Microsoft will enable Resource Manager for every service that is important for future solutions, but until the 
