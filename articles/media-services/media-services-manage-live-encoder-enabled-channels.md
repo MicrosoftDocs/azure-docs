@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="09/16/2015"
+	ms.date="10/11/2015"
 	ms.author="juliako"/>
 
-#Working with Channels that are Enabled to Perform Live Encoding with Azure Media Services (Preview)
+#Working with Channels that are Enabled to Perform Live Encoding with Azure Media Services
 
 ##Overview
 
@@ -25,15 +25,11 @@ In Azure Media Services, a **Channel** represents a pipeline for processing live
 - An on-premises live encoder sends multi-bitrate **RTMP** or **Smooth Streaming** (Fragmented MP4) to the Channel. You can use the following live encoders that output multi-bitrate Smooth Streaming: Elemental, Envivio, Cisco.  The following live encoders output RTMP: Adobe Flash Live, Telestream Wirecast, and Tricaster transcoders. The ingested streams pass through **Channel**s without any further processing. When requested, Media Services delivers the stream to customers.
 - A single bitrate stream (in one of the following formats: **RTP** (MPEG-TS)), **RTMP**, or **Smooth Streaming** (Fragmented MP4)) is sent to the **Channel** that is enabled to perform live encoding with Media Services. The **Channel** then performs live encoding of the incoming single bitrate stream to a multi-bitrate (adaptive) video stream. When requested, Media Services delivers the stream to customers. 
 
-	Encoding a live stream with Media Services is currently in **Preview**.
-
 Starting with the Media Services 2.10 release, when you create a Channel, you can specify in which way you want for your channel to receive the input stream and whether or not you want for the channel to perform live encoding of your stream. You have two options:    
 
 - **None** – Specify this value, if you plan to use an on-premises live encoder which will output multi-bitrate stream. In this case, the incoming stream passed through to the output without any encoding. This is the behavior of a Channel prior to 2.10 release.  For more detailed information about working with channels of this type, see [Working with Channels that Receive Multi-bitrate Live Stream from On-premises Encoders](media-services-manage-channels-overview.md).
 
-- **Standard** (Preview) – Choose this value, if you plan to use Media Services to encode your single bitrate live stream to multi-bitrate stream. 
-
-	Encoding a live stream with Media Services is currently in Preview.
+- **Standard** – Choose this value, if you plan to use Media Services to encode your single bitrate live stream to multi-bitrate stream. 
 
 >[AZURE.NOTE]This topic discusses attributes of channels that are enabled to perform live encoding (**Standard** encoding type). For information about working with channels that are not enabled to perform live encoding, see [Working with Channels that Receive Multi-bitrate Live Stream from On-premises Encoders](media-services-manage-channels-overview.md).
 
@@ -264,6 +260,8 @@ There can be up to 8 audio stream sets specified if the input to the Channel is 
 
 Specifies the preset to be used by the live encoder within this Channel. Currently, the only allowed value is **Default720p** (default).
 
+Note that if you need custom presets, you should contact amslived at Microsoft dot com.
+
 **Default720p** will encode the video into the following 7 layers.
 
 
@@ -271,13 +269,13 @@ Specifies the preset to be used by the live encoder within this Channel. Current
 
 BitRate|Width|Height|MaxFPS|Profile|Output Stream Name
 ---|---|---|---|---|---
-3500|1280|720|30|High|Video_1280x720_30fps_3500kbps
-2200|960|540|30|Main|Video_960x540_30fps_2200kbps
-1350|704|396|30|Main|Video_704x396_30fps_1350kbps
-850|512|288|30|Main|Video_512x288_30fps_850kbps
-550|384|216|30|Main|Video_384x216_30fps_550kbps
-350|340|192|30|Baseline|Video_340x192_30fps_350kbps
-200|340|192|30|Baseline|Video_340x192_30fps_200kbps
+3500|1280|720|30|High|Video_1280x720_3500kbps
+2200|960|540|30|Main|Video_960x540_2200kbps
+1350|704|396|30|Main|Video_704x396_1350kbps
+850|512|288|30|Main|Video_512x288_850kbps
+550|384|216|30|Main|Video_384x216_550kbps
+350|340|192|30|Baseline|Video_340x192_350kbps
+200|340|192|30|Baseline|Video_340x192_200kbps
 
 
 ####Output Audio Stream
@@ -384,7 +382,7 @@ Stopping|Stopping|No (transient state)
 Stopped|Stopped|No
 
 
->[AZURE.NOTE] Currently in Preview, the Channel start can take up to 20+ minutes. Channel reset can take up to 5 minutes.
+>[AZURE.NOTE] Currently, the Channel start can take up to 20+ minutes. Channel reset can take up to 5 minutes.
 
 
 ##<a id="Considerations"></a>Considerations

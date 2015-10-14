@@ -97,6 +97,8 @@ You'll modify this page later by adding a section for displaying contact informa
 	* Use the AAD application you already created instead of creating a new one.
  
 	* Keep the same **App ID URI** that you already have for the AAD application. (Don't change it to the format specified in the Readme file.) 
+	
+	* Change other AAD application settings as directed; in particular, set the sign-on and reply URLs to the base URL for the sample app.
 
 You're keeping the same App ID URI that you created for the API app so that you can use the same AAD access token for both the web app and the API app. If you changed the App ID URI to the format prescribed by the readme, that would work for access to the web app but not for the API app.  You wouldn't be able to pass the AAD token to the API app gateway to get a Zumo token because the gateway expects a token for an App ID URI composed of the gateway URL plus "/login/aad".   
 
@@ -109,8 +111,6 @@ In this section you add automatically generated code for a typed interface for c
 9.	In the **Add Microsoft Azure API App Client** dialog box, select the API app that you secured with AAD.
 
 	Once code generation is complete, you see a new folder in **Solution Explorer**, with the name of the API app. This folder contains the code that implements the client classes and data models. 
-
-	![](./media/app-service-api-authentication-client-flow/aboutpagestart.png)
 
 10. Fix ambiguous references caused by the generated code in *ContactsList/ContactsExtensions.cs*: change the two instances of `Task.Factory.StartNew` to `System.Threading.Tasks.Task.Factory.StartNew`.
  

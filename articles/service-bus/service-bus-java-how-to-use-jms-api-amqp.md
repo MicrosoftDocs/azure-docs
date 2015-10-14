@@ -336,5 +336,8 @@ You can also use Service Bus AMQP 1.0 from other languages, including .NET, C, P
 * [How to use AMQP 1.0 with the Service Bus .NET API](service-bus-dotnet-advanced-message-queuing.md)
 * [Service Bus AMQP 1.0 Developer's Guide](http://msdn.microsoft.com/library/jj841071.aspx)
 * [How to Use Service Bus Queues](service-bus-dotnet-how-to-use-queues.md)
+* [Java Developer Center](/develop/java/).
+
+
 
  

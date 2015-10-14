@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/18/2015"
+   ms.date="10/08/2015"
    ms.author="barbkess;twounder;JRJ@BigBangData.co.uk;"/>
 
 
@@ -68,6 +68,8 @@ SQL Data Warehouse easily deploys in seconds. This service is a fully managed of
 ## Next steps
 Learn about the [data warehouse workload].
 [Provision] and load [sample data] to get started.
+
+>[AZURE.NOTE] We want to make this article better. If you choose to answer "no" to the "Was this article helpful?" question, please include a brief suggestion about what is missing or how to improve the article. Thanks in advance!!
 
 <!--Image references-->
 

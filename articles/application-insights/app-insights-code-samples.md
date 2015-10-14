@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/04/2015" 
+	ms.date="10/05/2015" 
 	ms.author="awills"/>
 
 #  Application Insights: Code Samples and Walkthroughs
@@ -35,9 +35,9 @@ This is a compilation of code samples that show you how to use [Visual Studio Ap
 To analyze telemetry data with your own tools, [export it](app-insights-export-telemetry.md) to storage, where you can parse and process it.
 
 * [Export to Power BI](app-insights-export-power-bi.md) 
-* [Export to SQL using a worker role](app-insights-code-sample-export-telemetry-sql-database.md)
+* [Parse exported data using a worker role](app-insights-code-sample-export-telemetry-sql-database.md)
 * [Export to SQL using Stream Analytics](app-insights-code-sample-export-sql-stream-analytics.md)
-* [Enabling telemetry for Microsoft CRM](app-insights-sample-mscrm.md)
+* [Enabling telemetry for Microsoft Dynamics CRM](app-insights-sample-mscrm.md)
 
 
 ## Automate tasks

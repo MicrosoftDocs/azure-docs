@@ -1,6 +1,6 @@
-The Database Transaction Unit (DTU) is the unit of measure in SQL Database that represents the relative power of databases based on a real-world measure: the database transaction. We took a set of operations that are typical for an online transaction processing (OLTP) request, and then measured how many transactions could be completed per second under fully loaded conditions (that’s the short version, you can read the gory details in [Benchmark overview](https://msdn.microsoft.com/library/azure/dn741327.aspx)). 
+The Database Throughput Unit (DTU) is the unit of measure in SQL Database that represents the relative power of a database to process transactions given the constraints of the hardware driving the database.  DTU is a concept similar to horsepower in a car.  It describes the relative performance of one database to another.  Just like with horsepower in a car, the more DTU a database has, the more power it has.  Horsepower is a function of many different factors: weight, engine capacity, turbo, exhaust system.  Similarly, DTU is a function of the amount and type of memory, compute, and disk the database can consume.  You can read the details of how we determine DTU in the [Benchmark Overview](https://msdn.microsoft.com/library/azure/dn741327.aspx)). 
 
-A Basic database has 5 DTUs, which means it can complete 5 transactions per second, while a Premium P11 database has 1750 DTUs.
+Example: A Basic database has 5 DTUs which means it has relatively much less capacity for transaction throughput than a Premium P11 database that has 1750 DTUs.
 
 ![Single database dtus by tier and level](./media/sql-database-understanding-dtus/single_db_dtus.png)
 

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/18/2015"
+   ms.date="09/22/2015"
    ms.author="sahajs;barbkess"/>
 
 
@@ -36,6 +36,13 @@ To step through this tutorial, you need:
 - Your data stored in Azure blob storage as delimited text files
 
 First, you will create the objects that PolyBase requires for connecting to and querying data in Azure blob storage.
+
+> [AZURE.IMPORTANT] The Azure Storage account types supported by PolyBase are: 
+> + Standard Locally Redundant Storage (Standard-LRS)
+> + Standard Geo-Redundant Storage (Standard-GRS)
+> + Standard Read-Access Geo-Redundant Storage (Standard-RAGRS)
+> Standard Zone Redundant Storage (Standard-ZRS) and Premium Locally Redundant Storage (Premium-LRS) account types are NOT supported by PolyBase. If you are creating a new Azure Storage account, make sure you select a PolyBase-supported storage account type from the Pricing Tier.
+
 
 ## Create database master key
 Connect to user database on your server to create a database master key. This key is used to encrypt your credential secret in the next step. 

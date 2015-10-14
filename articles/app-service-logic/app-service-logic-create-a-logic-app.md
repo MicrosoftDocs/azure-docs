@@ -9,7 +9,7 @@
 
 <tags
 	ms.service="app-service-logic"
-	ms.workload="integration"
+	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
@@ -46,7 +46,7 @@ First, you need to create the two connectors you will be using: [Dropbox Connect
 4. Select **Package settings**--here you'll need to input the information from your Twitter Application.  You can set up a free application using these steps:
 	1. Go to the [Twitter App Registration Page](http://apps.twitter.com).
 	2. Create a new app.
-	3. Give it a name and description.  You can input any URL for the website, and leave the callback URL blank.
+	3. Give it a name and description.  You can input any URL for the website, and any URL for the callback URL (do not leave it blank).
 	4. Once registered, copy the **Consumer Key** from Twitter into the **clientId** field in Azure, and the **Consumer Secret** from Twitter into the **clientSecret.**
 	5. Click **OK** in the Azure pane to return to the other API settings.
 

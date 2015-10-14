@@ -9,11 +9,11 @@
 
 <tags
 	ms.service="app-service-web"
-	ms.workload="web"
+	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="hero-article"
-	ms.date="07/02/2015"
+	ms.date="10/01/2015"
 	ms.author="tomfitz"/>
 
 # Create a WordPress web app in Azure App Service
@@ -25,6 +25,8 @@ You've seen how to create and deploy a web app from the gallery. To learn more a
 
 - [Create a PHP-MySQL Azure web app and deploy using Git](/en-us/develop/php/tutorials/website-w-mysql-and-git/)
 - [Create additional types of applications using PHP and Azure](/en-us/develop/php/tutorials/)
+
+For more information, see also the [PHP Developer Center](/develop/php/).
 
 ## What's changed
 * For a guide to the change from Websites to App Service, see [Azure App Service and its impact on existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714).

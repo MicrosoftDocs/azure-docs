@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/07/2015"  
+	ms.date="09/23/2015"  
 	ms.author="juliako"/>
 
 #Overview and Comparison of Azure On Demand Media Encoders
@@ -70,13 +70,13 @@ Media Encoder Standard is configured using one of the encoder presets described 
 
 ###Input and output metadata
 
-The encoders input metadata is described [here](http://msdn.microsoft.com/library/azure/dn783120.aspx) (same as Azure Media Encoder).
+The encoders input metadata is described [here](http://msdn.microsoft.com/library/azure/dn783120.aspx).
 
-The encoders output metadata is described [here](http://msdn.microsoft.com/library/azure/dn783217.aspx) (same as Azure Media Encoder).
+The encoders output metadata is described [here](http://msdn.microsoft.com/library/azure/dn783217.aspx).
 
 ###Thumbnail
 
-Currently, not supported.
+For information on how to generate thumbnails, see [How to generate thumbnails using Media Encoder Standard](media-services-dotnet-generate-thumbnail-with-mes.md).
 
 ###Audio and/or video overlays
 
@@ -112,7 +112,7 @@ The encoders output metadata is described [here](http://msdn.microsoft.com/libra
 
 ###Thumbnail
 
-[Creating a thumbnail](https://msdn.microsoft.com/library/azure/Dn673581.aspx)
+[Creating a thumbnail](https://msdn.microsoft.com/library/hh973624.aspx)
 
 ###Audio and/or video overlays
 
@@ -127,14 +127,16 @@ The encoders output metadata is described [here](http://msdn.microsoft.com/libra
 [Encoding your media with Dolby Digital Plus](media-services-encode-with-dolby-digital-plus.md)
 
 ##Media Encoder Premium Workflow
-	
+
+###Overview
+
+[Introducing Premium Encoding in Azure Media Services](http://azure.microsoft.com/blog/2015/03/05/introducing-premium-encoding-in-azure-media-services)
+
+###How to use
+
 Media Encoder Premium Workflow is configured using complex workflows. Workflow files could be created and updated using the [Workflow Designer](media-services-workflow-designer.md) tool.
 
-For more information, see:
-
-- [Introducing Premium Encoding in Azure Media Services](http://azure.microsoft.com/blog/2015/03/05/introducing-premium-encoding-in-azure-media-services)
-- [How to Use Premium Encoding in Azure Media Services](http://azure.microsoft.com/blog/2015/03/06/how-to-use-premium-encoding-in-azure-media-services)
-
+[How to Use Premium Encoding in Azure Media Services](http://azure.microsoft.com/blog/2015/03/06/how-to-use-premium-encoding-in-azure-media-services)
 
 ##<a id="compare_encoders"></a>Compare Encoders
 

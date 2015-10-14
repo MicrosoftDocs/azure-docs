@@ -127,7 +127,7 @@ Azure Media Services also enables you to add Widevine encryption. The following 
 	
 	}
 
->[AZURE.NOTE]When encrypting with Widevine, you would only be able to deliver using DASH. Make sure to specify DASH (2) in the asset delivery protocol.
+>[AZURE.NOTE]When encrypting with Widevine, you would only be able to deliver using DASH. Make sure to specify DASH in the asset delivery protocol.
 
 
 ##DynamicEnvelopeEncryption asset delivery policy 
