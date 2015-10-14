@@ -62,7 +62,7 @@ The sample copies data belonging to a time series from an Azure Blob Storage to 
 ### To create Azure Data Lake Linked Service using Data Factory Editor
 The following procedure provides steps for creating an Azure Data Lake Store linked service using the Data Factory Editor.
 
-1. Click **New data store** on the command bar and select **Azure Data Lake**.
+1. Click **New data store** on the command bar and select **Azure Data Lake Store**.
 
 	![Azure Data Lake linked service](./media/data-factory-azure-data-lake-connector/new-data-lake-linked-service.png)
 2. In the JSON editor, for the **datalakeUri** property, enter the URI for the data lake.
