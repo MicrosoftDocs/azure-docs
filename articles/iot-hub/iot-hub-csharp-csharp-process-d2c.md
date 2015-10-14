@@ -4,7 +4,7 @@
 	services="iot-hub"
 	documentationCenter=".net"
 	authors="fsautomata"
-	manager="kevinmil"
+	manager="timlt"
 	editor=""/>
 
 <tags
@@ -12,11 +12,11 @@
      ms.devlang="csharp"
      ms.topic="article"
      ms.tgt_pltfrm="na"
-     ms.workload="tbd"
+     ms.workload="na"
      ms.date="09/29/2015"
      ms.author="elioda"/>
 
-# Processing IoT Hub device-to-cloud messages
+# Tutorial: How to process IoT Hub device-to-cloud messages
 
 ## Introduction
 

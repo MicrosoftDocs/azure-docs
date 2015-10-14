@@ -19,7 +19,7 @@
 
 *Application Insights is in preview.*
 
-This is a compilation of code samples that show you how to use [Visual Studio Application Insights](app-insights-get-started.md).
+This is a compilation of code samples that show you how to use [Visual Studio Application Insights](app-insights-overview.md).
 
 ## SDK Labs
 

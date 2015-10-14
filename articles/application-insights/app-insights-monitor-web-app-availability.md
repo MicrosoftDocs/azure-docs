@@ -242,4 +242,4 @@ You might want to disable web tests while you are performing maintenance on your
 [azure-availability]: ../insights-create-web-tests.md
 [diagnostic]: app-insights-diagnostic-search.md
 [qna]: app-insights-troubleshoot-faq.md
-[start]: app-insights-get-started.md
+[start]: app-insights-overview.md

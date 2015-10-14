@@ -28,7 +28,7 @@ What type of app do you have?
 
 * [Azure Web App - web and worker roles](app-insights-cloudservices.md)
 * [Web app on IIS in Azure VM](../insights-perf-analytics.md)
-* [Application outside Azure](app-insights-get-started.md)
+* [Application outside Azure](app-insights-overview.md)
 
 
 
