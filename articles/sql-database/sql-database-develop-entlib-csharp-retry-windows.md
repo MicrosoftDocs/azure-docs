@@ -21,8 +21,13 @@
 # Code sample: Retry logic from Enterprise Library 6, in C&#x23; for connecting to SQL Database
 
 
-This topic presents a complete code sample that demonstrates the Enterprise Library(EntLib).  EntLib eases many tasks for client programs that interact with cloud services such as Azure SQL Database. Our sample focuses on the task of including retry logic for transient faults.
+This topic presents a complete code sample that demonstrates the Enterprise Library(EntLib).  EntLib eases many tasks for client programs that interact with cloud services such as Azure SQL Database. Our sample focuses on the important task of including retry logic for transient faults.
 
+
+EntLib classes are designed to distinguish two categories of run time errors:
+
+- Errors which will never self-correct, such as a misspelled server name.
+- Transient faults, such as the server suspending for several seconds its acceptance of new connections, while the Azure system load balances.
 
 Enterprise Library 6 (EntLib60) is the latest version, and was released in April 2013.
 
@@ -66,6 +71,7 @@ Ways you can install EntLib60:
 
 
 EntLib60 has several .DLL assembly files whose names start with the same prefix **Microsoft.Practices.EnterpriseLibrary.&#x2a;.dll**, but this code sample is only interested in the following two assemblies:
+
 - Microsoft.Practices.EnterpriseLibrary.**TransientFaultHandling**.dll
 - Microsoft.Practices.EnterpriseLibrary.**TransientFaultHandling.Data**.dll
 
