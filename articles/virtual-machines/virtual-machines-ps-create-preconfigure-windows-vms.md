@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Create a Windows VM | Microsoft Azure"
-	description="Create Windows virtual machines using Azure PowerShell."
+	pageTitle="Create a Windows VM with Powershell | Microsoft Azure"
+	description="Create Windows virtual machines using Azure PowerShell and the classic deploment model."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="cynthn"
@@ -17,7 +17,7 @@
 	ms.date="10/13/2015"
 	ms.author="cynthn"/>
 
-# Create and preconfigure Windows virtual machine with the classic deployment model and PowerShell
+# Create Windows virtual machines with Powershell and the classic deployment model 
 
 > [AZURE.SELECTOR]
 - [Portal - Windows](virtual-machines-windows-tutorial-classic-portal.md)
