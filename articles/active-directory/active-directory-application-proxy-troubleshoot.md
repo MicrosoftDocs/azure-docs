@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="rkarlin"
-	manager="msStevenPo"
+	manager="StevenPo"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/09/2015"
+	ms.date="10/07/2015"
 	ms.author="rkarlin"/>
 
 
@@ -81,10 +81,19 @@ If registration fails during the Connector wizard installation, you can view the
 
 
 ## See also
+There's a lot more you can do with Application Proxy:
 
-[Using Application Proxy to publish applications for secure remote access](active-directory-application-proxy-configure.md)
 
-[Enable Application Proxy services](active-directory-application-proxy-enable.md)
+- [Publish applications with Application Proxy](active-directory-application-proxy-publish.md)
+- [Publish applications using your own domain name](active-directory-application-proxy-custom-domains.md)
+- [Enable single-sign on](active-directory-application-proxy-sso-using-kcd.md)
+- [Enable conditional access](active-directory-application-proxy-conditional-access.md)
+- [Working with claims aware applications](active-directory-application-proxy-claims-aware-apps.md)
+
+## Learn more about Application Proxy
+- [Take a look here at our online help](active-directory-application-proxy-enable.md)
+- [Check out the Application Proxy blog](http://blogs.technet.com/b/applicationproxyblog/)
+- [Watch our videos on Channel 9!](http://channel9.msdn.com/events/Ignite/2015/BRK3864)
 
 <!--Image references-->
 [1]: ./media/active-directory-application-proxy-troubleshoot/connectorproperties.png

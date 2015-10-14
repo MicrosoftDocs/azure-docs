@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="09/15/2015"
+   ms.date="10/12/2015"
    ms.author="alkohli" />
 
 # Connect remotely to your StorSimple device
@@ -25,7 +25,7 @@ For more information about using Windows PowerShell remoting to manage your devi
 
 This tutorial explains how to configure your device for remote management and then how to connect to Windows PowerShell for StorSimple. You can use HTTP or HTTPS to connect via Windows PowerShell remoting. However, when you are deciding how to connect to Windows PowerShell for StorSimple, consider the following: 
 
-- Connecting directly to the device serial console is secure but connecting to the serial console over network switches is not. Be cautious of the security risk when connecting to the device serial console over network switches. 
+- Connecting directly to the device serial console is secure, but connecting to the serial console over network switches is not. Be cautious of the security risk when connecting to the device serial console over network switches. 
 
 - Connecting through an HTTP session might offer more security than connecting through the serial console over the network. Although this is not the most secure method, it is acceptable on trusted networks. 
 
@@ -234,7 +234,7 @@ Use Windows PowerShell and SSL to enter an SSAdmin session on your device from a
 
 Perform the following procedure on the computer from which you want to make the remote Windows PowerShell connection.
 
-### To enter an SSAdmin session on the device by using Windows PowerShell and SSL
+#### To enter an SSAdmin session on the device by using Windows PowerShell and SSL
 
 1. Start a Windows PowerShell session as an administrator.
 
@@ -256,7 +256,7 @@ Perform the following procedure on the computer from which you want to make the 
 
      `$session = new-pssession -usessl -CN <Serial number of target device> -credential $cred -configurationname "SSAdminConsole"`
 
-    For the CN name in the cmdlet, provide the *<serial number of target device>*. This serial number was mapped to the IP address of DATA 0 in the hosts file on your remote host; for example, **SHX0991003G44MT** as shown in the following image.
+    For the CN name in the cmdlet, provide the <*serial number of target device*>. This serial number was mapped to the IP address of DATA 0 in the hosts file on your remote host; for example, **SHX0991003G44MT** as shown in the following image.
 
 5. Type: 
 
