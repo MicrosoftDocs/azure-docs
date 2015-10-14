@@ -23,7 +23,8 @@
 
 <br>
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)] This article covers managing resources with the Resource Manager deployment model.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] classic deployment model.
+
 
 This article describes how to create, manage, and delete Azure resources and VMs using the Azure CLI for Mac, Linux, and Windows using the Azure Resource Manager mode.  
 

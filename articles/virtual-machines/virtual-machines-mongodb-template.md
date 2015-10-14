@@ -19,7 +19,8 @@
 
 # Create a MongoDB cluster on Ubuntu using a Azure Resource Manager template
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)] This article covers creating resources with the Resource Manager deployment model.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] classic deployment model.
+
 
 MongoDB is an open-source document database that provides high performance, high availability, and automatic scaling. MongoDB can be installed as a stand-alone database or within a cluster, leveraging built-in replication capabilities. In some cases, you can use replication to increase read capacity. Clients have the ability to send read and write operations to different servers. You can also maintain copies in different data centers to increase the locality and availability of data for distributed applications. With MongoDB, replication also provides redundancy and increases data availability. With multiple copies of data on different database servers, replication protects a database from the loss of a single server. Replication also allows you to recover from hardware failure and service interruptions. With additional copies of the data, you can dedicate one to disaster recovery, reporting, or backup.
 

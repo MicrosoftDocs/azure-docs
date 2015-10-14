@@ -1,10 +1,10 @@
-<properties 
-   pageTitle="SQL Database Security Overview" 
-   description="Learn about Azure SQL Database and SQL Server security, including the differences between the cloud and SQL Server on-premises when it comes to authentication, authorization, connection security, encryption, and compliance." 
-   services="sql-database" 
-   documentationCenter="" 
-   authors="tmullaney" 
-   manager="jeffreyg" 
+<properties
+   pageTitle="SQL Database Security Overview"
+   description="Learn about Azure SQL Database and SQL Server security, including the differences between the cloud and SQL Server on-premises when it comes to authentication, authorization, connection security, encryption, and compliance."
+   services="sql-database"
+   documentationCenter=""
+   authors="tmullaney"
+   manager="jeffreyg"
    editor=""/>
 
 <tags
@@ -12,7 +12,7 @@
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
-   ms.workload="data-services" 
+   ms.workload="data-services"
    ms.date="09/22/2015"
    ms.author="thmullan;jackr"/>
 
@@ -23,7 +23,7 @@
 
 This article walks through the basics of securing the data tier of an application using Azure SQL Database. In particular, this articles will get you started with resources for limiting access, protecting data, and monitoring activities on a database created in the [Get started with SQL Database tutorial](sql-database-get-started.md). For a complete overview of security features available on all flavors of SQL, see the [Security Center for SQL Server Database Engine and Azure SQL Database](https://msdn.microsoft.com/library/bb510589).
 
-## Connection Security
+## Connection security
 
 Connection Security refers to how you restrict and secure connections to your database using firewall rules and connection encryption.
 
@@ -85,10 +85,10 @@ Managing databases and logical servers from the Azure Management Portal or using
 Azure SQL Database can help protect your data by encrypting your data when it is "at rest," or stored in database files and backups, using [Transparent Data Encryption](http://go.microsoft.com/fwlink/?LinkId=526242). To encrypt your database, connect as a database owner and execute:
 
 ```
-CREATE DATABASE ENCRYPTION KEY 
-   WITH ALGORITHM = AES_256 
+CREATE DATABASE ENCRYPTION KEY
+   WITH ALGORITHM = AES_256
    ENCRYPTION BY SERVER CERTIFICATE ##MS_TdeCertificate##;
-   
+
 ALTER DATABASE [AdventureWorks] SET ENCRYPTION ON;
 ```
 
@@ -105,4 +105,3 @@ Auditing and tracking database events can help you maintain regulatory complianc
 ## Compliance
 
 In addition to the above features and functionality that can help your application meet various security compliance requirements, Azure SQL Database also participates in regular audits and has been certified against a number of compliance standards. For more information, see the [Microsoft Azure Trust Center](http://azure.microsoft.com/support/trust-center/), where you can find the most current list of [SQL Database compliance certifications](http://azure.microsoft.com/support/trust-center/services/).
- 

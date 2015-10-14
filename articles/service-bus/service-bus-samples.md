@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="service-bus-samples"
+   pageTitle="Service Bus samples overview | Microsoft Azure"
    description="Categorizes and describes Service Bus samples with links to each."
    services="service-bus"
    documentationCenter="na"
