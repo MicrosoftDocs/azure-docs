@@ -27,7 +27,7 @@ worker pools based on metrics or schedule.
 Auto-scale allows you to optimize your resource utilization by automatically growing and shrinking an 
 **App Service environment** to fit your budget and or load profile.
 
-#Configuring Worker Pool Auto-scale 
+##Configuring Worker Pool Auto-scale 
 You can access the auto-scale functionality from the settings tab of the **worker pool**. 
  </br>![][settings-scale]</br>
 From there the interface should be fairly familiar since this is the same experience as when scaling an 
