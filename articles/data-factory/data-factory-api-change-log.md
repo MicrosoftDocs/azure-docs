@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/08/2015" 
+	ms.date="10/13/2015" 
 	ms.author="spelluru"/>
 
 # Azure Data Factory - .NET SDK Change Log 
@@ -22,7 +22,8 @@ This article provides information about changes to Azure Data Factory SDK in a s
 ## Version 4.0.1
 Release date: 2015-10-13
 
-- The following classes have been renamed.The new names were the original names of classes prior to 4.0.0 release. 
+### Breaking Changes
+The following classes have been renamed.The new names were the original names of classes prior to 4.0.0 release. 
  
 Name in 4.0.0 | Name in 4.0.1
 :------------ | :------------ 
