@@ -151,7 +151,9 @@ Property names in filter, select, and expand strings *must* reflect their REST A
 
 When constructing a filter string for an [ODATADetailLevel.FilterClause][odata_filter], consult the table above under *Mappings for filter strings* to find the REST API documentation page corresponding to the list operation you wish to perform. You will find the filterable properties and their supported operators in the first multi-row table on that page. If you wish to retrieve all tasks whose exit code was non-zero, for example, this row on [List the tasks associated with a job][rest_list_tasks] specifies the applicable property string and allowable operators:
 
-![Task exit code property][1]
+| Property | Operations allowed | Type |
+| :--- | :--- | :--- |
+| `executionInfo/exitCode` | `eq, ge, gt, le , lt` | `Int` |
 
 Thus, the filter string for listing all tasks with a non-zero exit code would be:
 
@@ -161,9 +163,10 @@ Thus, the filter string for listing all tasks with a non-zero exit code would be
 
 To construct an [ODATADetailLevel.SelectClause][odata_select], consult the table above under *Mappings for select strings* and navigate to the REST API page corresponding to the type of entity you are listing. You will find the selectable properties and their supported operators in the first multi-row table on that page. If you wish to retrieve only the ID and command line for each task in a list, for example, you will find these rows in the applicable table on [Get information about a task][rest_get_task]:
 
-![Task ID property][2]
-
-![Task command line property][3]
+| Property | Type | Notes |
+| :--- | :--- | :--- |
+| `id` | `String` | `The id of the task.` |
+| `commandLine` | `String` | `The command line of the task.` |
 
 The select string for including only the ID and command line with each listed task would then be:
 
@@ -233,7 +236,3 @@ As is shown in the elapsed time information, limiting the properties and the num
 [net_pool]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.aspx
 [net_schedule]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudjobschedule.aspx
 [net_task]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudtask.aspx
-
-[1]: ./media/batch-efficient-list-queries/property_exitcode.png
-[2]: ./media/batch-efficient-list-queries/property_id.png
-[3]: ./media/batch-efficient-list-queries/property_cmdline.png
