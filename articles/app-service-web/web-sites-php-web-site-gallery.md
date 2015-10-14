@@ -30,8 +30,6 @@ You'll learn:
 * How to create a web app in Azure App Service that is based on the template.
 * How to configure Azure App Service settings for the new web app and MySQL database.
 
-The Marketplacemakes available a wide range of popular web apps developed by Microsoft, third party companies, and open source software initiatives. 
-
 The Azure Marketplace makes available a wide range of popular web apps developed by Microsoft, third party companies, and open source software initiatives. The web apps are built on a wide range of popular frameworks, such as [PHP](/develop/nodejs/) in this WordPress example, [.NET](/develop/net/), [Node.js](/develop/nodejs/), [Java](/develop/java/), and [Python](/develop/python/), to name a few. To create a web app from the Azure Marketplace the only software you need is the browser that you use for the [Azure preview portal](https://portal.azure.com/). 
 
 > [AZURE.NOTE]
