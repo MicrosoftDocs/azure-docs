@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/16/2015"
-	ms.author="cephalin"/>
+	ms.date="10/14/2015"
+	ms.author="byvinyal"/>
 
 #<a name="howtomonitor"></a>Monitor Web Apps in Azure App Service
 
@@ -24,7 +24,7 @@
 
 ##Metrics Retention Policy
 
->[AZURE.NOTE] The retention policy for app metrics varies by granularity:
+>[AZURE.NOTE] The retention policy for app metrics varies by granularity.
 
 - **Minute** granularity metrics are retained for **24 hours**
 - **Hour** granultarity metris are retained for **7 days**
