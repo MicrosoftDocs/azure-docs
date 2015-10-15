@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Get started with IoT Hub tutorial | Microsoft Azure"
+	pageTitle="Get started with Azure IoT Hub | Microsoft Azure"
 	description="Follow this tutorial to get started using Azure IoT Hub with C#."
 	services="iot-hub"
 	documentationCenter=".net"
@@ -16,7 +16,7 @@
      ms.date="09/29/2015"
      ms.author="elioda"/>
 
-# Get started with IoT Hub
+# Tutorial: Get started with IoT Hub
 
 ## Introduction
 

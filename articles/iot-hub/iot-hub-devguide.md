@@ -1,6 +1,6 @@
 <properties
- pageTitle="Azure IoT Hub developer guide | Microsoft Azure"
- description="Azure IoT Hub developer guide covering IoT Hub endpoints, security, device identity registry, and messaging"
+ pageTitle="Developer guide topics for IoT Hub | Microsoft Azure"
+ description="Azure IoT Hub developer guide that includes IoT Hub endpoints, security, device identity registry, and messaging"
  services="iot-hub"
  documentationCenter=".net"
  authors="fsautomata"
@@ -9,10 +9,10 @@
 
 <tags
  ms.service="iot-hub"
- ms.devlang="na"
+ ms.devlang="multiple"
  ms.topic="article"
  ms.tgt_pltfrm="na"
- ms.workload="tbd"
+ ms.workload="na"
  ms.date="09/29/2015"
  ms.author="elioda"/>
 
