@@ -16,7 +16,7 @@
     ms.date="10/15/2015"
     ms.author="sethm"/>
 
-# How to use Azure Service Bus topics and subscriptions
+# How to use Service Bus topics and subscriptions
 
 [AZURE.INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
 

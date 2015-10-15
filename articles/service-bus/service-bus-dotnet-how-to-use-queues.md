@@ -16,7 +16,7 @@
     ms.date="10/07/2015"
     ms.author="sethm"/>
 
-# How to use Azure Service Bus queues
+# How to use Service Bus queues
 
 [AZURE.INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 
