@@ -33,7 +33,7 @@ This paper provides guidance to help you determine which service tier is right f
 
 **Technical Reviewers:** Morgan Oslake, Joanne Marone, Keith Elmore, José Batista-Neto, Rohit Nayak
 
-## Azure SQL Database Background
+## Azure SQL Database background
 
 To understand how the Basic, Standard, and Premium service tiers enhance the Azure SQL Database service, it helps to have a good overall understanding of Azure SQL Database. You can choose Azure SQL Database for several reasons. One reason is to avoid the lengthy cycle of purchasing and installing hardware. Azure SQL Database allows you to create and drop databases on-the-fly without waiting on a purchase order to be approved, machines to arrive, power and cooling to be upgraded, or installation to be done. Microsoft handles these challenges and greatly reduces the time required from idea to solution by pre-provisioning hardware based on aggregate demand in each of our data centers. This can save weeks or months for your business over buying and deploying hardware manually.
 
@@ -50,7 +50,7 @@ Microsoft also includes many automatic management features in Azure SQL Database
 
 All of these capabilities are delivered in all service tiers, starting at a low entry price point of a few dollars per month. This is far lower than it would cost to buy and run your own server, meaning that even the smallest project can take advantage of Azure without spending a lot of money.
 
-## What Is Different in the Service Tiers?
+## What is different in the service tiers?
 
 Microsoft worked closely with some customers during their initial onboarding to Azure SQL Database to learn how they used the service and take lessons back to our engineering team for future feature planning. During those engagements, we found that some kinds of customers found the feature set suited their needs well. For example, startups developing new cloud services often found that the combination of capacity on demand and reduced administrative overhead simplified their lives and allowed them to focus time on their core business. Other customers had challenges in some areas related to tight performance requirements, perhaps for service a central API in a large, multi-tier database solution, that were not currently met by the Azure SQL Database service. The feedback was that while some customers were very willing to accept higher performance variance to achieve a very low price point, other customers was more interested in specific performance guarantees so they could more easily build higher-level value on top of these databases.
 
@@ -68,7 +68,7 @@ The performance level settings in Standard and Premium allow you to pay only for
 
 For more information about the service tiers, performance levels, and DTUs, see [Azure SQL Database Service Tiers and Performance Levels](sql-database-service-tiers.md).
 
-## Reasons to Use the Service Tiers
+## Reasons to use the service tiers
 
 While each workload can differ, the purpose of the service tiers is to provide high performance predictability at a variety of performance levels. They enable customers with a large scale of resource requirements for their databases to work in a more dedicated computing environment. 
 
@@ -91,7 +91,7 @@ The exact level you will need depends on the peak load requirements for each res
 
 For more information about the service tiers, see [Azure SQL Database Service Tiers and Performance Levels](sql-database-service-tiers.md).
 
-## Understanding Resource Use
+## Understanding resource use
 
 The following graph shows the CPU resource utilization for Premium database with P2 performance level for each hour in a week. This particular graph starts on a Monday, showing 5 work days and then a weekend where much less happens on the application.
 
@@ -112,7 +112,7 @@ Azure SQL Database exposes consumed resource information for each active databas
 
 >[AZURE.NOTE] Some columns from the table have been truncated for space. Please see the [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx) topic for a full description of the output.
 
-## How to Monitor Resource Usage
+## How to monitor resource usage
 
 This section describes ways to monitor the resource usage of your Azure SQL Database and to compare current resource utilization to different performance levels.
 
@@ -174,11 +174,11 @@ This section describes ways to monitor the resource usage of your Azure SQL Data
 	
 4. The above exercise should also take into account your projected workload increase in the future.
 
-## Tuning Your Application
+## Tuning your application
 
 In traditional on-premises SQL Server, the process of doing initial capacity planning is often separated from the process of running an application in production. In other words, the purchase of hardware and the associated licenses to run SQL Server are done up-front, while performance tuning is done afterwards. When using Azure SQL Database, it is generally recommended (and, because you are billed each month, likely desirable) to interleave the process of running and tuning an application. The model of paying for capacity on-demand allows you to tune your application to use the minimum resources needed right now instead of massively overprovisioning on hardware based on guesses of the future growth plans for an application (which are often incorrect since they have to predict far into the future). Note that some customers might decide to not tune an application and instead choose to over-provision hardware resources. This approach might make sense when you do not want to change a key application during a busy period for the application. Tuning an application can minimize resource requirements and lower monthly bills when using the service tiers in Azure SQL Database. 
 
-### Application Characteristics
+### Application characteristics
 
 While the service tiers are designed to improve performance stability and predictability for an application, there are some best practices for tuning your application to better take advantage of the feature. While many applications will see significant performance gains simply by switching to a higher performance level and or service tier, not all applications may benefit as much without additional tuning. Applications that have the following characteristics should also consider additional application tuning to further improve performance when using Azure SQL Database. 
 
@@ -187,11 +187,11 @@ While the service tiers are designed to improve performance stability and predic
 - **Applications that contain nonoptimal queries**: Applications, especially in the data access layer, that have poorly tuned queries may not benefit from choosing a higher performance level as expected. This includes queries that lack a WHERE clause, have missing indexes, or have outdated statistics. These applications will benefit from standard query performance tuning techniques. For more information, see the sections 'Missing Indexes' and 'Query Tuning/Hinting' that follow.
 - **Applications that have nonoptimal data access design**: Applications that have inherent data access concurrency issues, for example deadlocking, may not benefit from choosing a higher performance level. Application developers should consider reducing roundtrips against the Azure SQL Database by caching data on the client side by using the Azure Caching service or other caching technologies. See the Application tier caching section that follows.
 
-## Tuning Techniques
+## Tuning techniques
 
 This section explains some techniques that you can use to tune Azure SQL Database to gain the best performance out of your application and be able to run in the smallest possible performance level. A number of the techniques match traditional SQL Server tuning best practices, but some techniques are specific to Azure SQL Database. In some cases, traditional SQL Server techniques can be extended to also work on Azure SQL Database by examining the consumed resources for a database to find areas to further tune.
 
-### Missing Indexes
+### Missing indexes
 A common problem in OLTP database performance relates to the physical database design. Often database schemas are designed and shipped without testing at scale (either in load or in data volume). Unfortunately, the performance of a query plan may be acceptable at small scale but may degrade substantially when faced with production-level data volumes. The most common source of this issue is due to the lack of appropriate indexes to satisfy filters or other restrictions in a query. Often, this manifests as a table scan when an index seek could suffice.
 
 The following example creates a case where the selected query plan contains a scan when a seek would suffice.
@@ -250,7 +250,7 @@ Once created, that same SELECT statement now picks a different plan that uses a 
 
 The key insight is that the IO capacity of a shared, commodity system is generally more limited than a dedicated server machine. As such, there is a premium on minimizing unnecessary IO to take maximal advantage of the system within the DTU of each performance level of the service tiers in Azure SQL Database. Appropriate physical database design choices can significantly improve the latency for individual queries, the throughput of concurrent requests you can handle per scale unit, and minimize the costs required to satisfy the query. For more information about the missing index DMVs, see [sys.dm_db_missing_index_details](https://msdn.microsoft.com/library/ms345434.aspx).
 
-### Query Tuning/Hinting
+### Query tuning/hinting
 The Query Optimizer within Azure SQL Database is very similar to the traditional SQL Server Query Optimizer. Many of the best practices for tuning queries and understanding the reasoning model limitations for the Query Optimizer apply to Azure SQL Database as well. Tuning queries in Azure SQL Database can have the added benefit of reducing the aggregate resource demands and allow an application to run at lower cost than an un-tuned equivalent because it can run in a lower performance level.
 
 One common example seen in SQL Server that also applies to Azure SQL Database relates to how parameters are "sniffed" during compilation to try to create a more optimal plan. Parameter sniffing is a process by with the query optimizer considers the current value of a parameter when compiling a query in the hopes of generating a more optimal query plan. While this strategy can often lead to a query plan that is significantly faster than a plan compiled without knowledge of parameter values, the current SQL Server/Azure SQL Database behavior is imperfect – there are cases when the parameter is not sniffed, and there are cases where the parameter is sniffed but the generated plan is suboptimal for the full set of parameter values in a workload. Microsoft includes query hints (directives) to allow you to specify intent more deliberately and override the default behavior for parameter sniffing. Often, using hints can fix cases where the default SQL Server/Azure SQL Database behavior is imperfect for a given customer workload.
@@ -355,24 +355,24 @@ You can examine **sys.resource_stats** to determine whether the resource for a g
 
 If a workload contains a set of repeating queries, it often makes sense to capture and validate the optimality of those plan choices since it will likely drive the minimum resource size unit required to host the database. Once validated, occasional re-examination of those plans can make sure that they have not degraded. For more information about query hints, see [Query Hints (Transact-SQL)](https://msdn.microsoft.com/library/ms181714.aspx).
 
-### Cross-Database Sharding
+### Cross-database sharding
 Because Azure SQL Database runs on commodity hardware, there are generally lower capacity limits for a single database than in a traditional on-premises SQL Server installation. So, there are a number of customers that use sharding techniques to spread database operations over multiple databases when they do not fit into the limits for a single database in Azure SQL Database. Most customers using sharding techniques today on Azure SQL Database split their data on a single dimension across multiple databases. The approach involves understanding that often OLTP applications perform transactions that only apply to one row or a small group of rows within the schema. For example, if a database contains customer, order, and order details (as seen in the traditional example Northwind database shipped in SQL Server), then this data could be split into multiple databases by grouping a customer with the related order and order detail information and guaranteeing it stays within a single database. The application would split different customers across databases, effectively spreading the load across multiple databases. This allows customers not only to avoid the maximum database size limit, but it also allows Azure SQL Database to process workloads that are significantly larger than the limits of the different performance levels so long as each individual database fits into its DTU.
 
 While database sharding does not reduce the aggregate resource capacity for a solution, this technique is highly effective to support very large solutions spread over multiple databases and allows for each database to run in a different performance level to support very large "effective" databases with high resource requirements.
 
 Note that SQL Database now provides a library to assist with sharding. For more information, see [Elastic Database client library overview](sql-database-elastic-database-client-library.md).
 
-### Functional Partitioning
+### Functional partitioning
 SQL Server users often combine many functions within a single database. For example, if an application contains logic to manage inventory for a store, that database might contain logic associated with inventory, tracking purchase orders, stored procedures and indexed/materialized views that managed end-of-month reporting, and other functions. This technique gives the benefit of being able to easily administer the database for operations such as BACKUP, but it also requires that you size the hardware to handle the peak load across all functions of an application.
 
 Within a scale-out architecture used within Azure SQL Database, it is often beneficial to split different functions of an application out into different databases. This allows each of them to scale independently. As an application becomes busier (and gets more load on the database), this allows the administrator to choose performance levels independently for each function within an application. In the limit, this architecture allows an application to become larger than a single commodity machine can handle by spreading the load across multiple machines. 
 
-### Batching Queries
+### Batching queries
 For applications that access data in the fashion of high, frequent ad-hoc querying, a big chunk of response time is spent on network communication between the application tier and the Azure SQL Database tier. Even when both the application and Azure SQL Databasereside in the same data center, the network latency between the two could be magnified by a high number of data access operations. To reduce the network round trips for these data access operations, the application developer should consider options of batching up the ad-hoc queries or compiling them into stored procedures. Batching up the ad-hoc queries can send multiple queries as one big batch in a single trip to Azure SQL Database. Compiling ad-hoc queries in a stored procedure could achieve the same result as batching. Using a stored procedure also gives you the benefit of increasing the chances of caching the query plans in Azure SQL Database for subsequent executions of the same stored procedure.
 
 Some applications are write-intensive. Sometimes, it is possible to reduce the total IO load on a database by considering how to batch writes together. This is often as simple as using explicit transactions instead of auto-commit transactions within stored procedures and ad hoc batches. An evaluation of different techniques that can be used can be found at [Batching Techniques for SQL Database Applications in Azure](https://msdn.microsoft.com/library/windowsazure/dn132615.aspx). Experiment with your own workload to find the right model for batching, taking care to understand that a given model might have slightly different transactional consistency guarantees. Finding the right workload that minimizes resource use requires finding the right combination of consistency and performance tradeoffs. 
 
-### Application Tier Caching
+### Application-tier caching
 Some database applications contain read-heavy workloads. It is possible to utilize caching layers to reduce the load on the database and to potentially reduce the performance level required to support a database using Azure SQL Database. [Azure Redis Cache](https://azure.microsoft.com/services/cache) enables a customer with a read-heavy workload to read the data once (or perhaps once per application-tier machine, depending on how it is configured) and store that data outside of Azure SQL Database. This provides an ability to reduce database load (CPU and Read IO), but there is an impact on transactional consistency since the data being read from the cache may be out of date with the data in the database. While there are many applications where an amount of inconsistency is acceptable, this is not true for all workloads. Please fully understand any application requirements before employing an application-tier caching strategy.
 
 ## Conclusion
