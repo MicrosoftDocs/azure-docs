@@ -207,7 +207,7 @@ When you publish the solution in the next step, the HQL file is uploaded to the 
 	1. select **Create New Data Factory** option.
 	2. Enter **FirstPipelineUsingVS** for **Name**. 
 	
-		> [AZURE.IMPORTANT] The name of the Azure Data Factory must be globally unique. If you receive the error **Data factory name “FirstPipelineUsingVS” is not available** when publishing, change the name (for example, yournameFirstPipelineUsingVS). See [Data Factory - Naming Rules](data-factory-naming-rules.md) topic for naming rules for Data Factory artifacts. See [Data Factory - Naming Rules](data-factory-naming-rules.md) topic for naming rules for Data Factory artifacts.
+		> [AZURE.IMPORTANT] The name of the Azure Data Factory must be globally unique. If you receive the error **Data factory name “FirstPipelineUsingVS” is not available** when publishing, change the name (for example, yournameFirstPipelineUsingVS). See [Data Factory - Naming Rules](data-factory-naming-rules.md) topic for naming rules for Data Factory artifacts. 
 		> 
 		> The name of the data factory may be registered as a DNS name in the future and hence become publically visible.
 	3. Select the right subscription for the **Subscription** field. 
