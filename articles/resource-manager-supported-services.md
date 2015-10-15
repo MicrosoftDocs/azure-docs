@@ -16,7 +16,7 @@
    ms.date="10/15/2015"
    ms.author="tomfitz"/>
 
-# Azure Resource Manager support for services, regions, and API versions
+# Resource Manager support for services, regions, and API versions
 
 Azure Resource Manager provides a new way for you to deploy and manage the services that make up your applications. 
 Most, but not all, services support Resource Manager, and some services support Resource Manager only partially. Microsoft will enable Resource Manager for every service that is important for future solutions, but until the 
@@ -193,20 +193,22 @@ Which returns:
 
 ## Supported API versions
 
-When you deploy a template, you must specify an API version to use for creating each resource. The available API versions correspond to versions of REST API operations that are released by the resource provider. 
-As resource providers enable new features, they will release new versions of the REST API. Therefore, the version of the API you specify in your template affects which properties are avaiable to you as you create the 
-template. In general, you will want to select the most recent API version when creating new templates. For existing templates, you can decide whether you want to continue using an API version that you know won't change your 
-deployment, or whether you want to update your template for the latest version to take advantage of new features.
+When you deploy a template, you must specify an API version to use for creating each resource. The API version corresponds to a version of REST API operations that are released by the resource provider. 
+As a resource provider enables new features, it will release a new version of the REST API. Therefore, the version of the API you specify in your template affects which properties you can specify in the 
+template. In general, you will want to select the most recent API version when creating new templates. For existing templates, you can decide whether you want to continue using an earlier API version, or update your template for the latest version to take advantage of new features.
 
 ### REST API
 
-To discover which API versions are available for a particular resource type, use the [List all resource providers](https://msdn.microsoft.com/library/azure/dn790524.aspx) operation. 
+To discover which API versions are available for resource types, use the [List all resource providers](https://msdn.microsoft.com/library/azure/dn790524.aspx) operation. 
 
 ### PowerShell
 
 The following example shows how to get the available API versions for a paticular resource type using Azure PowerShell 1.0 Preview.
 
     ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).ApiVersions
+    
+The output will be similar to:
+    
     2015-08-01
     2015-07-01
     2015-06-01
