@@ -86,7 +86,7 @@ The following steps configure elastic database queries for vertical partitioning
 *    [CREATE/DROP EXTERNAL TABLE](https://msdn.microsoft.com/library/dn935021.aspx) mytable
 
 After running the DDL statements, you can access the remote table “mytable” as though it were a local table. Azure SQL Database automatically opens a connection to the remote database, processes your request on the remote database, and returns the results.
-More information on the steps required for the vertical partitioning scenario can be found in [elastic query for vertical partitioning](TODO).  
+More information on the steps required for the vertical partitioning scenario can be found in [elastic query for vertical partitioning](sql-database-elastic-query-vertical-partitioning.md).  
 
 ### Horizontal partitioning - Sharding 
 
@@ -99,10 +99,10 @@ The following steps configure elastic database queries for horizontal partitioni
 *    [CREATE/DROP EXTERNAL TABLE](https://msdn.microsoft.com/library/dn935021.aspx) mytable
 
 Once you have performed these steps, you can access the horizontally partitioned table “mytable” as though it were a local table. Azure SQL Database automatically opens multiple parallel connections to the remote databases where the tables are physically stored, processes the requests on the remote databases, and returns the results.
-More information on the steps required for the horizontal partitioning scenario can be found in [elastic query for horizontal partitioning](TODO). 
+More information on the steps required for the horizontal partitioning scenario can be found in [elastic query for horizontal partitioning](sql-database-elastic-query-horizontal-partitioning.md). 
 
 ## T-SQL querying
-Once you have defined your external data sources and your external tables, you can use regular SQL Server connection strings to connect to the databases where you defined your external tables. You can then run T-SQL statements over your external tables on that connection with the limitations outlined below. You can find more information and examples of T-SQL queries in the documentation topics for [horizontal partitioning](TODO) and [vertical partitioning](TODO).
+Once you have defined your external data sources and your external tables, you can use regular SQL Server connection strings to connect to the databases where you defined your external tables. You can then run T-SQL statements over your external tables on that connection with the limitations outlined below. You can find more information and examples of T-SQL queries in the documentation topics for [horizontal partitioning](sql-database-elastic-query-horizontal-partitioning.md) and [vertical partitioning](sql-database-elastic-query-vertical-partitioning.md).
 
 ## Connectivity for tools
 You can use regular SQL Server connection strings to connect your applications and BI or data integration tools to databases that have external tables. Make sure that SQL Server is supported as a data source for your tool. Once connected, refer to the elastic query database and the external tables in that database just like you would do with any other SQL Server database that you connect to with your tool.
@@ -125,11 +125,11 @@ Please share feedback on your experience with elastic queries with us on Disqus 
 ## More information
 
 You can find more information on the cross-database querying and vertical partitioning scenarios in the following documents:
-* [Cross-database querying and vertical partitioning overview](TODO)
-* Try our step-by-step tutorial to have a full working example running in minutes: [Getting started with cross-database query](TODO).
+* [Cross-database querying and vertical partitioning overview](sql-database-elastic-query-vertical-partitioning.md)
+* Try our step-by-step tutorial to have a full working example running in minutes: [Getting started with cross-database query](sql-database-elastic-query-getting-started.md).
 
 More information on horizontal partitioning and sharding scenarios is available here:
-* [Horizontal partitioning and sharding overview](TODO) 
+* [Horizontal partitioning and sharding overview](sql-database-elastic-query-horizontal-partitioning.md) 
 * Try our step-by-step tutorial to have a full working example running in minutes: [Getting started with Elastic Database query](sql-database-elastic-query-getting-started.md).
 
 
