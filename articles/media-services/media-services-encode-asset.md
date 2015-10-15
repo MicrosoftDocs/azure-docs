@@ -20,7 +20,7 @@
 
 ##Encoding overview
 
-Azure Media Serivces provides multiple options for the encoding of video in the cloud. 
+Azure Media Services provides multiple options for the encoding of media in the cloud. 
 
 When starting out with Media Services, it is important to understand the difference between codecs and file formats. 
 Codecs are the software that implements the compression/decompression algorithms whereas file formats are containers that hold the compressed video.
