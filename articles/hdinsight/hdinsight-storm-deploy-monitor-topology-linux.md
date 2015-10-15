@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Deploy and manage Apache Storm topologies on HDInsight | Microsoft Azure"
-   description="Learn how to deploy, monitor and manage Apache Storm topologies using the Storm Dashboard on HDInsight. Use Hadoop tools for Visual Studio."
+   pageTitle="Deploy and manage Apache Storm topologies on Linux-based HDInsight | Microsoft Azure"
+   description="Learn how to deploy, monitor and manage Apache Storm topologies using the Storm Dashboard on Linux-based HDInsight. Use Hadoop tools for Visual Studio."
    services="hdinsight"
    documentationCenter=""
    authors="Blackmist"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="08/14/2015"
+   ms.date="10/04/2015"
    ms.author="larryfr"/>
 
 # Deploy and manage Apache Storm topologies on Linux-based HDInsight

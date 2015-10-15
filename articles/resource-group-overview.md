@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/09/2015"
+   ms.date="10/02/2015"
    ms.author="tomfitz"/>
 
 # Azure Resource Manager overview
@@ -82,6 +82,8 @@ For template schemas, see [Azure Resource Manager Schemas](https://github.com/Az
 For information about using a template for deployment, see [Deploy an application with Azure Resource Manager template](azure-portal/resource-group-template-deploy.md).
 
 For guidance about how to structure your templates, see [Best practices for designing Azure Resource Manager templates](best-practices-resource-manager-design-templates.md).
+
+For guidance on deploying your solution to different environments, see [Development and test environments in Microsoft Azure](solution-dev-test-environments-preview-portal.md). 
 
 ## Tags
 

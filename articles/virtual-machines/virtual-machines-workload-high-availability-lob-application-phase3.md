@@ -19,7 +19,8 @@
 
 # Line of Business Application Workload Phase 3: Configure SQL Server infrastructure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)] This article covers creating resources with the Resource Manager deployment model.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] classic deployment model.
+
 
 In this phase of deploying a high-availability line of business application in Azure infrastructure services, you configure the two computers running SQL Server and the cluster majority node computer, and then combine them into a Windows Server cluster. 
 
@@ -40,6 +41,8 @@ Use the following block of PowerShell commands to create the virtual machines fo
 - Table A, for your availability sets
 
 Recall that you defined Table M in [Phase 2](virtual-machines-workload-high-availability-LOB-application-phase2.md) and Tables V, S, ST, and A in [Phase 1](virtual-machines-workload-high-availability-LOB-application-phase1.md).
+
+> [AZURE.NOTE] This article contains commands for versions of Azure PowerShell up to *but not including* versions 1.0.0 and later. You can check your version of Azure PowerShell with the **Get-Module azure | format-table version** command. The Azure PowerShell command blocks in this article are in the process of being tested and updated to support the new cmdlets in Azure PowerShell versions 1.0.0 and later. Thank you for your patience.
 
 When you have supplied all the proper values, run the resulting block at the Azure PowerShell prompt.
 

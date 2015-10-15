@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/28/2015"
+   ms.date="10/08/2015"
    ms.author="bwren;sngun"/>
 
 # Azure Automation webhooks
@@ -158,7 +158,8 @@ The following sample runbook accepts the previous example request and starts the
             # Start each virtual machine
 			foreach ($VM in $VMList)
 			{
-				Write-Output "Starting $VM.Name."
+				$VMName = $VM.Name
+				Write-Output "Starting $VMName"
 				Start-AzureVM -Name $VM.Name -ServiceName $VM.ServiceName
 			}
 		}

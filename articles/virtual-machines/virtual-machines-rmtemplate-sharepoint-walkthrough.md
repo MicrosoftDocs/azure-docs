@@ -18,7 +18,7 @@
 
 # The three-server SharePoint farm Resource Manager template
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)] This article covers creating a resource with the Resource Manager deployment model. You can't create this resource with the classic deployment model.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] classic deployment model. You can't create this resource with the classic deployment model.
 
 This topic steps you through the structure of the azuredeploy.json template file for the three-server SharePoint farm. You can see the contents of this template in your browser from [here](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/sharepoint-three-vm/azuredeploy.json).
 

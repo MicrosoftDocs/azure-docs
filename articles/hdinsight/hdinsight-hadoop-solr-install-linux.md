@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Use Script Action to install Solr on Hadoop cluster | Microsoft Azure"
-	description="Learn how to customize HDInsight cluster with Solr. You'll use a Script Action configuration option to use a script to install Solr."
+	pageTitle="Use Script Action to install Solr on Linux-based HDInsight | Microsoft Azure"
+	description="Learn how to install Solr on Linux-based HDInsight Hadoop clusters using Script Actions."
 	services="hdinsight"
 	documentationCenter=""
 	authors="Blackmist"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/20/2015"
+	ms.date="10/09/2015"
 	ms.author="larryfr"/>
 
 # Install and use Solr on HDInsight Hadoop clusters

@@ -13,15 +13,15 @@
     ms.tgt_pltfrm="na"
     ms.devlang="Java"
     ms.topic="article"
-    ms.date="09/22/2015"
+    ms.date="10/12/2015" 
     ms.author="robmcm" />
 
 # How to Authenticate Web Users with Azure Access Control Service Using Eclipse
 
-This guide will show you how to use the Azure Access Control Service (ACS) within the Azure Plugin for Eclipse with Java (by Microsoft Open Technologies). For more information on ACS, see the [Next steps](#next_steps) section.
+This guide will show you how to use the Azure Access Control Service (ACS) within the Azure Toolkit for Eclipse. For more information on ACS, see the [Next steps](#next_steps) section.
 
 > [AZURE.NOTE]
-> The Azure Access Services Control Filter (by Microsoft Open Technologies) is a community technology preview. As pre-release software, it is not formally supported by Microsoft Open Technologies, Inc. nor Microsoft.
+> The Azure Access Services Control Filter is a community technology preview. As pre-release software, it is not formally supported by Microsoft.
 
 ## What is ACS?
 
@@ -123,7 +123,7 @@ To complete the tasks in this guide, you will need the following:
 - Eclipse IDE for Java EE Developers, Indigo or later. This can be downloaded from <http://www.eclipse.org/downloads/>. 
 - A distribution of a Java-based web server or application server, such as Apache Tomcat, GlassFish, JBoss Application Server, or Jetty.
 - an Azure subscription, which can be acquired from <http://www.microsoft.com/windowsazure/offers/>.
-- The Azure Plugin for Eclipse with Java (by Microsoft Open Technologies), April 2014 release. For more information, see [Installing the Azure Plugin for Eclipse with Java (by Microsoft Open Technologies)](http://msdn.microsoft.com/en-us/library/windowsazure/hh690946.aspx).
+- The Azure Toolkit for Eclipse, April 2014 release or later. For more information, see [Installing the Azure Toolkit for Eclipse](http://msdn.microsoft.com/en-us/library/windowsazure/hh690946.aspx).
 - An X.509 certificate to use with your application. You will need this certificate in both public certificate (.cer) and Personal Information Exchange (.PFX) format. (Options for creating this certificate will be described later in this tutorial).
 - Familiarity with the Azure compute emulator and deployment techniques discussed at [Creating a Hello World Application for Azure in Eclipse](http://msdn.microsoft.com/en-us/library/windowsazure/hh690944.aspx).
 
@@ -203,7 +203,7 @@ In this task, you upload a .PFX certificate that will be used to sign token requ
 3.  On the **Add Token-Signing Certificate or Key** page:
     1. In the **Used for** section, click **Relying Party Application** and select **Azure Web App** (which you previously set as the name of your relying party application).
     2. In the **Type** section, select **X.509 Certificate**.
-    3. In the **Certificate** section, click the browse button and navigate to the X.509 certificate file that you want to use. This will be a .PFX file. Select the file, click **Open**,  and then enter the certificate password in the **Password** text box. Note that for testing purposes, you may use a self-signed-certificate. To create a self-signed certificate, use the **New** button in the **ACS Filter Library** dialog (described later), or use the **encutil.exe** utility from the [project website][] of the Azure Starter Kit for Java (by Microsoft Open Technologies).
+    3. In the **Certificate** section, click the browse button and navigate to the X.509 certificate file that you want to use. This will be a .PFX file. Select the file, click **Open**,  and then enter the certificate password in the **Password** text box. Note that for testing purposes, you may use a self-signed-certificate. To create a self-signed certificate, use the **New** button in the **ACS Filter Library** dialog (described later), or use the **encutil.exe** utility from the [project website][] of the Azure Starter Kit for Java.
     4. Ensure that **Make Primary** is checked. Your **Add Token-Signing Certificate or Key** page should look similar to the following.
         ![Add token-signing certificate][add_token_signing_cert]
     5. Click **Save** to save your settings and close the **Add Token-Signing Certificate or Key** page.

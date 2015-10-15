@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="09/29/2015"
+	ms.date="10/14/2015"
 	ms.author="juliako"/>
 
 
@@ -21,7 +21,7 @@
 
 > [AZURE.SELECTOR]
 - [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
-- [.NET SDK](media-services-dotnet-creating-live-encoder-enabled-channel.md)
+- [.NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
 - [REST API](https://msdn.microsoft.com/library/azure/dn783458.aspx)
 
 ##Overview
@@ -30,35 +30,37 @@ This tutorial walks you through the steps of creating a **Channel** that receive
 
 >[AZURE.NOTE]For more conceptual information related to Channels that are enabled for live encoding, see [Working with Channels that Perform Live Encoding from a Single-bitrate to Multi-bitrate Stream](media-services-manage-live-encoder-enabled-channels.md).
 
->[AZURE.NOTE]You must use Media Services .NET SDK version 3.2.0.0 or newer.
 
 ##Common Live Streaming Scenario
 
 The following steps describe tasks involved in creating common live streaming applications.
 
+>[AZURE.NOTE] Currently, the max recommended duration of a live event is 8 hours. Please contact amslived at Microsoft dot com if you need to run a Channel for longer periods of time.
+
 1. Connect a video camera to a computer. Launch and configure an on-premises live encoder that can output a single bitrate stream in one of the following protocols: RTMP, Smooth Streaming, or RTP (MPEG-TS). For more information, see [Azure Media Services RTMP Support and Live Encoders](http://go.microsoft.com/fwlink/?LinkId=532824).
 
-This step could also be performed after you create your Channel.
+	This step could also be performed after you create your Channel. 
 
 1. Create and start a Channel.
 
 1. Retrieve the Channel ingest URL.
 
-The ingest URL is used by the live encoder to send the stream to the Channel.
+	The ingest URL is used by the live encoder to send the stream to the Channel.
+
 1. Retrieve the Channel preview URL.
 
-Use this URL to verify that your channel is properly receiving the live stream.
+	Use this URL to verify that your channel is properly receiving the live stream.
 
 2. Create an asset.
 3. If you want for the asset to be dynamically encrypted during playback, do the following:
-
-1. 	Create a content key.
-1. 	Configure the content key's authorization policy.
-1. Configure asset delivery policy (used by dynamic packaging and dynamic encryption).
+	1. Create a content key.
+	1. Configure the content key's authorization policy.
+	1. Configure asset delivery policy (used by dynamic packaging and dynamic encryption).
 3. Create a program and specify to use the asset that you created.
 1. Publish the asset associated with the program by creating an OnDemand locator.
 
-Make sure to have at least one streaming reserved unit on the streaming endpoint from which you want to stream content.
+	Make sure to have at least one streaming reserved unit on the streaming endpoint from which you want to stream content.
+
 1. Start the program when you are ready to start streaming and archiving.
 2. Optionally, the live encoder can be signaled to start an advertisement. The advertisement is inserted in the output stream.
 1. Stop the program whenever you want to stop streaming and archiving the event.
@@ -79,7 +81,11 @@ The topic shows how to do the following:
 1. Show and hide slates. Start and stop advertisements. Long-running APIs are used.
 1. Clean up your channel and all the associated resources.
 
->[AZURE.NOTE] Max recommended duration of a live event is 8 hours. Please contact amslived at Microsoft dot com if you need to run a Channel for longer periods of time.
+
+##Considerations
+
+- Currently, the max recommended duration of a live event is 8 hours. Please contact amslived at Microsoft dot com if you need to run a Channel for longer periods of time.
+- Make sure to have at least one streaming reserved unit on the streaming endpoint from which you want to stream content.
 
 ##Prerequisites
 The following are required to complete the tutorial.
@@ -88,6 +94,7 @@ The following are required to complete the tutorial.
 For details, see [Azure Free Trial](azure.microsoft.com).
 - A Media Services account. To create a Media Services account, see [Create Account](media-services-create-account.md).
 - Visual Studio 2010 SP1 or higher.
+- You must use Media Services .NET SDK version 3.2.0.0 or newer.
 - A webcam and an encoder that can send a single bitrate live stream.
 
 ##Set up for development with Media Services SDK for .NET
@@ -103,7 +110,7 @@ As a best practice, you should use an app.config file to store the Media Service
 Add the appSettings section to the app.config file, and set the values for your Media Services account name and account key.
 
 
-<?xml version="1.0"?>
+	<?xml version="1.0"?>
 	<configuration>
 	  <appSettings>
 	      <add key="MediaServicesAccountName" value="YouMediaServicesAccountName" />
@@ -112,7 +119,6 @@ Add the appSettings section to the app.config file, and set the values for your 
 	</configuration>
 	 
 	
-
 ##Code example
 
 	using System;
@@ -499,12 +505,15 @@ Add the appSettings section to the app.config file, and set the values for your 
 	
 
 
+##Next Steps
 
-##Media Services learning paths
+###Media Services learning paths
 
 You can view AMS learning paths here:
 
 - [AMS Live Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
 - [AMS on Demand Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
- 
+### Looking for something else?
+
+If this topic didn't contain what you were expecting, is missing something, or in some other way didn't meet your needs, please provide us with you feedback using the Disqus thread below.

@@ -1,10 +1,10 @@
 <properties
- pageTitle="Compare Azure IoT Hub to Event Hubs | Microsoft Azure"
- description="A comparison of IoT Hub and Event Hubs."
+ pageTitle="Compare Azure IoT Hub to Azure Event Hubs | Microsoft Azure"
+ description="A comparison of the Azure IoT Hub and Azure Event Hubs services highlighting functional differences and use cases."
  services="iot-hub"
- documentationCenter=".net"
+ documentationCenter=""
  authors="fsautomata"
- manager="kevinmil"
+ manager="timlt"
  editor=""/>
 
 <tags
@@ -12,11 +12,11 @@
  ms.devlang="na"
  ms.topic="article"
  ms.tgt_pltfrm="na"
- ms.workload="tbd"
+ ms.workload="na"
  ms.date="10/02/2015"
  ms.author="elioda"/>
 
-# Comparison: IoT Hub and Event Hubs
+# Comparison of IoT Hub and Event Hubs
 
 One of the main use cases for Azure IoT Hub is to gather telemetry from devices. For this reason, IoT Hub is often compared to [Event Hubs][], which is an event processing service that provides event and telemetry ingress to the cloud at massive scale, with low latency and high reliability.
 
