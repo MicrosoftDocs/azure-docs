@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Troubleshooting Service Fabric application upgrades"
+   pageTitle="Troubleshooting application upgrades | Microsoft Azure"
    description="This article covers some common issues around upgrading a Service Fabric application and how to resolve them."
    services="service-fabric"
    documentationCenter=".net"
