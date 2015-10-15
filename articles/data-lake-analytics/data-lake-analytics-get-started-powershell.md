@@ -85,7 +85,7 @@ To create a new Data Lake Analytics account
 			-Name  $resourceGroupName `
 			-Location $location
 		
-		Write-Host "Create a data lake account ..."  -ForegroundColor Green
+		Write-Host "Create a Data Lake account ..."  -ForegroundColor Green
 		New-AzureRmDataLakeStoreAccount `
 			-ResourceGroupName $resourceGroupName `
 			-Name $dataLakeStoreName `

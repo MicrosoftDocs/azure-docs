@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="09/29/2015"
+   ms.date="10/14/2015"
    ms.author="jgao"/>
 
 # Manage Azure Data Lake Analytics using Azure PowerShell
@@ -40,7 +40,9 @@ This article includes:
 	- table valued functions
 	- assemblies
 	
+To list the cmdlets:
 
+	Get-Command *Azure*DataLakeAnalytics*
 
 <!-- ################################ -->
 <!-- ################################ -->
@@ -80,43 +82,70 @@ Managed cluster (Previously known as Azure HDInsight), you don't pay for an Anal
 running a job.  You only pay for the time when it is running a job.  For more informaiton, see 
 [Azure Data Lake Analytics Overview](data-lake-analytics-overview.md).  
 
-**To create a Data Lake Analytics accounts**
+###Create accounts**
 
-1. Sign on to the new [Azure portal](https://portal.azure.com/signin/index/?Microsoft_Azure_Kona=true&Microsoft_Azure_DataLake=true&hubsExtension_ItemHideKey=AzureDataLake_BigStorage%2cAzureKona_BigCompute).
-2. Click **Microsoft Azure** in the upper left corner to open the home screen.
-3. Click the **Marketplace** tile.  
-3. Type **Azure Data Lake Analytics** in the search box on the **Everything** blade, and the press **ENTER**. You shall see **Azure Data Lake Analytics** in the list.
-4. Click **Azure Data Lake Analytics** from the list.
-5. Click **Create** on the bottom of the blade.
-6. Type or select the following:
+	$resourceGroupName = "<ResourceGroupName>"
+	$dataLakeStoreName = "<DataLakeAccountName>"
+	$dataLakeAnalyticsName = "<DataLakeAnalyticsAccountName>"
+	$location = "<Microsoft Data Center>"
+	
+	Write-Host "Create a resource group ..." -ForegroundColor Green
+	New-AzureRmResourceGroup `
+		-Name  $resourceGroupName `
+		-Location $location
+	
+	Write-Host "Create a Data Lake account ..."  -ForegroundColor Green
+	New-AzureRmDataLakeStoreAccount `
+		-ResourceGroupName $resourceGroupName `
+		-Name $dataLakeStoreName `
+		-Location $location 
+	
+	Write-Host "Create a Data Lake Analytics account ..."  -ForegroundColor Green
+	New-AzureRmDataLakeAnalyticsAccount `
+		-Name $dataLakeAnalyticsName `
+		-ResourceGroupName $resourceGroupName `
+		-Location $location `
+		-DefaultDataLake $dataLakeStoreName
+	
+	Write-Host "The newly created Data Lake Analytics account ..."  -ForegroundColor Green
+	Get-AzureRmDataLakeAnalyticsAccount `
+		-ResourceGroupName $resourceGroupName `
+		-Name $dataLakeAnalyticsName  
 
-	![Azure Data Lake Analytics portal blade](./media/data-lake-analytics-get-started-portal/data-lake-analytics-portal-create-adla.png)
+###List account
 
-	- **Name**: Name the Analytics account.
-	- **Data Lake Store**: Each Data Lake Analytics account has a dependent Azure Data Lake storage account. The Data Lake Analytics account and the dependent Data Lake storage account must be located in the same Azure data center. Follow the instruction to create a new Data Lake storage account, or select an existing one.
-	- **Subscription**: Choose the Azure subscription used for the Analytics account.
-	- **Resource Group**. Select an existing Azure Resource Group or create a new one. Applications are typically made up of many components, for example a web app, database, database server, storage, and 3rd party services. Azure Resource Manager (ARM) enables you to work with the resources in your application as a group, referred to as an Azure Resource Group. You can deploy, update, monitor or delete all of the resources for your application in a single, coordinated operation. You use a template for deployment and that template can work for different environments such as testing, staging and production. You can clarify billing for your organization by viewing the rolled-up costs for the entire group. For more information, see [Azure Resource Manager Overview](resource-group-overview.md). 
-	- **Location**. Select an Azure data center for the Data Lake Analytics account. 
+List Data Lake Analytics accounts within the current subscription
 
-8. Click **Create**. It takes you to the portal home screen. A new tile is added to the StartBoard with the label showing "Deploying Azure Data Lake Analytics". It takes a few moments to create a Data Lake Analytics account. When the account is created, the portal opens the account on a new blade.
+	Get-AzureRmDataLakeAnalyticsAccount
 
-	![Azure Data Lake Analytics portal blade](./media/data-lake-analytics-get-started-portal/data-lake-analytics-portal-blade.png)
+List Data Lake Analytics accounts within a specific resource group
 
-<a name="access-adla-account"></a> **To access/open a Data Lake Analytics account**
+	Get-AzureRmDataLakeAnalyticsAccount -ResourceGroupName $resourceGroupName
 
-1. Sign on to the new [Azure portal](https://portal.azure.com/signin/index/?Microsoft_Azure_Kona=true&Microsoft_Azure_DataLake=true&hubsExtension_ItemHideKey=AzureDataLake_BigStorage%2cAzureKona_BigCompute).
-2. Click **Browse** on the left menu, and then click **Data Lake Analytics**.
-3. Click the Analytics account that you want to delete. It will open the account in a new blade.
+Get details of a specific Data Lake Analytics account
 
-**To delete a Data Lake Analytics account**
+	Get-AzureRmDataLakeAnalyticsAccount -Name $adlAnalyticsAccountName
 
-1. Open the Analtyics account that you want to delete. For instructions see [Access Data Lake Analytics accounts](#access-adla-account).
-2. Click **Delete** from the button menu on the top of the blade.
-3. Type the account name, and then click **Delete**.
+Test existence of a specific Data Lake Analytics account
 
-Delete a Analytics account will not delete the dependent Data Lake Storage account. For instructions of deleting
-ADL Storage accounts, see [nitin's article]().
+	Test-AzureRmDataLakeAnalyticsAccount -Name $adlAnalyticsAccountName
 
+
+###Delete Data Lake Analytics accounts
+
+	$resourceGroupName = "<ResourceGroupName>"
+	$dataLakeAnalyticsName = "<DataLakeAnalyticsAccountName>"
+	
+	Remove-AzureRmDataLakeAnalyticsAccount -ResourceGroupName $resourceGroupName -Name $dataLakeAnalyticsName 
+
+Delete a Analytics account will not delete the dependent Data Lake Storage account. The following example deletes the Data Lake Analytics account and the default Data Lake Store account
+
+	$resourceGroupName = "<ResourceGroupName>"
+	$dataLakeAnalyticsName = "<DataLakeAnalyticsAccountName>"
+	$dataLakeStoreName = (Get-AzureRmDataLakeAnalyticsAccount -ResourceGroupName $resourceGroupName -Name $dataLakeAnalyticName).Properties.DefaultDataLakeAccount
+
+	Remove-AzureRmDataLakeAnalyticsAccount -ResourceGroupName $resourceGroupName -Name $dataLakeAnalyticName 
+	Remove-AzureRmDataLakeStoreAccount -ResourceGroupName $resourceGroupName -Name $dataLakeStoreName
 
 <!-- ################################ -->
 <!-- ################################ -->
@@ -131,59 +160,39 @@ When you create an Analytics account, you must designate an Azure Data Lake Stor
 storage account. The default ADL storage account is used to store job metadata and job audit logs. After you have 
 created an Analytics account, you can add additional Data Lake Storage accounts and/or Azure Storage account. 
 
-<a name="default-adl-account"></a>**To find the default ADL storage account**
+### Find the default ADL storage account
 
-- Open the Analtyics account that you want to manage. For instructions see [Access Data Lake Analytics accounts](#access-adla-account). The default Data Lake store is shown in **Essential**:
+	$resourceGroupName = "<ResourceGroupName>"
+	$dataLakeAnalyticsName = "<DataLakeAnalyticsAccountName>"
+	$dataLakeStoreName = (Get-AzureRmDataLakeAnalyticsAccount -ResourceGroupName $resourceGroupName -Name $dataLakeAnalyticName).Properties.DefaultDataLakeAccount
 
-	![Azure Data Lake Analytics add data source](./media/data-lake-analytics-manage-use-portal/data-lake-analytics-default-adl-storage-account.png)
 
-**To add additional data sources**
+### Add additional Azure Blob storage accounts
 
-1. Open the Analtyics account that you want to manage. For instructions see [Access Data Lake Analytics accounts](#access-adla-account).
-2. Click **Settings** and then click **Data Sources**. You shall see the default Data Lake Storage account listed
-there. 
-3. Click **Add Data Source**.
-
-	![Azure Data Lake Analytics add data source](./media/data-lake-analytics-manage-use-portal/data-lake-analytics-add-data-source.png)
-
-	To add a Azure Data Lake Storage account, you need the account name.
-	To add a Azure Blob storage, you need the storage account and the account key.
-
-**To explore data sources**	
-
-1. Open the Analtyics account that you want to manage. For instructions see [Access Data Lake Analytics accounts](#access-adla-account).
-2. Click **Settings** and then click **Data Explorer**. 
- 
-	![Azure Data Lake Analytics data explorer](./media/data-lake-analytics-manage-use-portal/data-lake-analytics-data-explorer.png)
+	$resourceGroupName = "<ResourceGroupName>"
+	$dataLakeAnalyticsName = "<DataLakeAnalyticsAccountName>"
+	$AzureStorageAccountName = "<AzureStorageAccountName>"
+	$AzureStorageAccountKey = "<AzureStorageAccountKey>"
 	
-3. Click a Data Lake Storage account to open it.
+	Add-AzureRmDataLakeAnalyticsDataSource -ResourceGroupName $resourceGroupName -AccountName $dataLakeAnalyticName -AzureBlob $AzureStorageAccountName -AccessKey $AzureStorageAccountKey
 
-	![Azure Data Lake Analytics data explorer storage account](./media/data-lake-analytics-manage-use-portal/data-lake-analytics-explore-adls.png)
+### Add additional Data Lake Store accounts
+
+	[jgao: this script is not working]
+	$resourceGroupName = "<ResourceGroupName>"
+	$dataLakeAnalyticsName = "<DataLakeAnalyticsAccountName>"
+	$AzureDataLakeName = "<DataLakeStoreName>"
 	
-	For each Data Lake Storage account, you can
+	Add-AzureRmDataLakeAnalyticsDataSource -ResourceGroupName $resourceGroupName -AccountName $dataLakeAnalyticName -DataLake $AzureDataLakeName 
+
+### List data sources:
+
+	$resourceGroupName = "<ResourceGroupName>"
+	$dataLakeAnalyticsName = "<DataLakeAnalyticsAccountName>"
+
+	(Get-AzureRmDataLakeAnalyticsAccount -ResourceGroupName $resourceGroupName -Name $dataLakeAnalyticName).Properties.DataLakeStoreAccounts
+	(Get-AzureRmDataLakeAnalyticsAccount -ResourceGroupName $resourceGroupName -Name $dataLakeAnalyticName).Properties.StorageAccounts
 	
-	- **New Folder**: Add new folder.
-	- **Upload**: Upload files to the Storage account from your workstation.
-	- **Access**: Configure access permissions.
-	- **Rename Folder**: Rename a folder.
-	- **Folder properties**: Show file or folder properties, such as WASB path, WEBHDFS path, last modified time and so on.
-	- **Delete Folder**: Delete a folder.
-
-<a name="upload-data-to-adls"></a> **To upload files to Data Lake Storage account**
-
-1. From the preview portal, click **Browse ** from the left menu, and then click **Data Lake Store**.
-2. Click the Data Lake storage account that you want to upload data to. To find the default ADL Storage account, see [here](#default-adl-account)
-3. Click **Data Explorer** from the top menu.
-4. Click **New Directory** to create a new folder, or click a folder name to change folder.
-6. Click **Upload** from the top menu to upload file.
-
-See [nitin's article]().
-
-
-<a name="upload-data-to-wasb"></a> **To upload files to Azure Blob storage account**
-
-See []().
-
 
 ## Manage users
 
@@ -218,70 +227,138 @@ For information on creating Azure Active Directory users and security groups, Se
 
 
 
-
-
 <!-- ################################ -->
 <!-- ################################ -->
 ## Manage jobs
 
 You must have an Data Lake Analytics account before you can create a job.  For more information, see [Manage Data Lake Analytics accounts](#manage-data-lake-analytics-accounts).
 
-<a name="create-job"></a>**To create a job**
+### List jobs
 
-1. Open the Analtyics account that you want to manage. For instructions see [Access Data Lake Analytics accounts](#access-adla-account).
-2. Click **New Job**.
+	$dataLakeAnalyticsName = "<DataLakeAnalyticsAccountName>"
+	
+	Get-AzureRmDataLakeAnalyticsJob -AccountName $dataLakeAnalyticName
+	
+	Get-AzureRmDataLakeAnalyticsJob -AccountName $dataLakeAnalyticName -State Running, Queued
+	#States: Accepted, Compiling, Ended, New, Paused, Queued, Running, Scheduling, Starting
+	
+	Get-AzureRmDataLakeAnalyticsJob -AccountName $dataLakeAnalyticName -Result Cancelled
+	#Results: Cancelled, Failed, None, Successed 
+	
+	Get-AzureRmDataLakeAnalyticsJob -AccountName $dataLakeAnalyticName -Name <Job Name>
+	Get-AzureRmDataLakeAnalyticsJob -AccountName $dataLakeAnalyticName -Submitter <Job submitter>
 
-	![create Azure Data Lake Analytics U-SQL jobs](./media/data-lake-analytics-manage-use-portal/data-lake-analytics-create-job-button.png)
+	# List all jobs submitted on January 1 (local time)
+	Get-AzureRmDataLakeAnalyticsJob -AccountName $dataLakeAnalyticName `
+		-SubmittedAfter "2015/01/01"
+		-SubmittedBefore "2015/01/02"	
 
-	You will see a new blade similar to:
+	# List all jobs that succeeded on January 1 after 2 pm (UTC time)
+	Get-AzureRmDataLakeAnalyticsJob -AccountName $dataLakeAnalyticName `
+		-State Ended
+		-Result Succeeded
+		-SubmittedAfter "2015/01/01 2:00 PM -0"
+		-SubmittedBefore "2015/01/02 -0"
 
-	![create Azure Data Lake Analytics U-SQL jobs](./media/data-lake-analytics-manage-use-portal/data-lake-analytics-new-job.png)
+	# List all jobs submitted in the past hour
+	Get-AzureRmDataLakeAnalyticsJob -AccountName $dataLakeAnalyticName `
+		-SubmittedAfter (Get-Date).AddHours(-1)
 
-	For each job, you can configure
+### Get job details
+
+	$dataLakeAnalyticsName = "<DataLakeAnalyticsAccountName>"
+	Get-AzureRmDataLakeAnalyticsJob -AccountName $dataLakeAnalyticName -JobID <Job ID>
+	
+### Submit jobs
+
+> [AZURE.NOTE] The default priority of a job is 1000, and the default degree of parallelism for a job is 1.
 
 
-	|Name|Description|
-	|----|-----------|
-	|Job Name|Enter the name of the job.|
-	|Priority|Lower number is higher priority.|
-	|BDU|Max number of compute processes that can happen at the same time. Increasing this number can improve performance but can also increase cost.|
-	|Script|Enter the U-SQL script for the job.|
+	$dataLakeAnalyticsName = "<DataLakeAnalyticsAccountName>"
 
-	Using the same interface, you can also explore the link data sources, and add addtional files to the linked data sources. 
-3. Click **Submit Job** if you want to submit the job.
+	#Pass script via path
+	Submit-AzureRmDataLakeAnalyticsJob -AccountName $dataLakeAnalyticName `
+		-Name $jobName `
+		-ScriptPath $scriptPath
+	
+	
 
-** To submit a job**
+	#Pass script contents
+	Submit-AzureRmDataLakeAnalyticsJob -AccountName $dataLakeAnalyticName `
+		-Name $jobName `
+		-Script $scriptContents
 
-See [Create Data Lake Analtyics jobs](#create-job).
+### Cancel jobs
 
-<a name="monitor-jobs"></a>**To monitor jobs**
+	Stop-AzureRmDataLakeAnalyticsJob -AccountName $dataLakeAnalyticName `
+		-JobID $jobID
 
-1. Open the Analtyics account that you want to manage. For instructions see 
-[Access Data Lake Analytics accounts](#access-adla-account). The Job Management panel shows the basic job 
-information:
 
-	![manage Azure Data Lake Analytics U-SQL jobs](./media/data-lake-analytics-manage-use-portal/data-lake-analytics-manage-jobs.png)
+## Enumerate catalog
 
-3. Click **Job Management** as shown in the previous screenshot.
 
-	![manage Azure Data Lake Analytics U-SQL jobs](./media/data-lake-analytics-manage-use-portal/data-lake-analytics-manage-jobs-details.png)
 
-4. Click a job from on of the lists.
-5. Click **Resubmit** if you want to resumit the job.
+###List catalog items
 
-**To resubmit a job **
+	#List databases
+	Get-AzureRmDataLakeAnalyticsCatalogItem `
+		-AccountName $adlAnalyticsAccountName `
+		-ItemType Database
+	
+	
+	
+	#List tables
+	Get-AzureRmDataLakeAnalyticsCatalogItem `
+		-AccountName $adlAnalyticsAccountName `
+		-ItemType Table `
+		-Path "master.dbo"
 
-See [Monitor Data Lake Analytics jobs](#monitor-jobs).
 
-##Monitor account usage
 
-[introduction - we need to explain the terms, and connect the pieces. ]
 
-**To monitor account usage**
-1. Open the Analtyics account that you want to manage. For instructions see 
-[Access Data Lake Analytics accounts](#access-adla-account). The Usage panel shows the usage:
+###Get catalog item details 
 
-	![monitor Azure Data Lake Analytics usage](./media/data-lake-analytics-manage-use-portal/data-lake-analytics-monitor-usage.png)
+	#Get a database
+	Get-AzureRmDataLakeAnalyticsCatalogItem `
+		-AccountName $adlAnalyticsAccountName `
+		-ItemType Database `
+		-Path "master"
+	
+	#Get a table
+	Get-AzureRmDataLakeAnalyticsCatalogItem `
+		-AccountName $adlAnalyticsAccountName `
+		-ItemType Table `
+		-Path "master.dbo.mytable"
+
+###Test existence of  catalog item
+
+	Test-AzureRmDataLakeAnalyticsCatalogItem  `
+		-AccountName $adlAnalyticsAccountName `
+		-ItemType Database `
+		-Path "master"
+
+###Create catalog secret
+	New-AzureRmDataLakeAnalyticsCatalogSecret  `
+			-AccountName $adlAnalyticsAccountName `
+			-DatabaseName "master" `
+			-Secret (Get-Credential -UserName "username" -Message "Enter the password")
+
+
+
+### Modify catalog secret
+	Set-AzureRmDataLakeAnalyticsCatalogSecret  `
+			-AccountName $adlAnalyticsAccountName `
+			-DatabaseName "master" `
+			-Secret (Get-Credential -UserName "username" -Message "Enter the password")
+
+
+
+###Delete catalog secret
+	Remove-AzureRmDataLakeAnalyticsCatalogSecret  `
+			-AccountName $adlAnalyticsAccountName `
+			-DatabaseName "master"
+
+
 
 
 
@@ -290,7 +367,7 @@ See [Monitor Data Lake Analytics jobs](#monitor-jobs).
 - bla
 - bla
 
-## Manage Kona users using PowerShell [jgao: to be moved to a different article]
+## Manage Kona users using PowerShell 
 
 [**jgao:** If this is not needed to go through the tutorial, then we shall separated it into a management topic]
 [saveenr - sounds good - talk to mahi about the correct way to do user management]
