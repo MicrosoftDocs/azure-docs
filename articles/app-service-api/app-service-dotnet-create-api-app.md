@@ -1,14 +1,14 @@
 <properties
 	pageTitle="Create an ASP.NET API app in Azure App Service | Microsoft Azure"
 	description="Learn how to create an ASP.NET API app in Azure App Service, by using Visual Studio 2013."
-	services="app-service\api"
+	services="app-service"
 	documentationCenter=".net"
 	authors="bradygaster"
 	manager="wpickett"
 	editor="jimbe"/>
 
 <tags
-	ms.service="app-service-api"
+	ms.service="app-service"
 	ms.workload="na"
 	ms.tgt_pltfrm="dotnet"
 	ms.devlang="na"
