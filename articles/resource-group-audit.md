@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="Audit operations with Resource Manager | Microsoft Azure" 
 	description="Use the audit log in Resource Manager to review user actions and errors. Shows PowerShell, Azure CLI, and REST." 
 	services="azure-resource-manager" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/07/2015" 
+	ms.date="10/14/2015" 
 	ms.author="tomfitz"/>
 
 # Audit operations with Resource Manager
@@ -27,6 +27,8 @@ The audit log contains all actions performed on your resources. So, if a user in
 You can retrieve information from the audit logs through Azure PowerShell, Azure CLI, REST API, or the Azure preview portal.
 
 ## PowerShell
+
+[AZURE.INCLUDE [powershell-preview-inline-include](../includes/powershell-preview-inline-include.md)]
 
 To retrieve log entries, run the **Get-AzureRmLog** command  (or **Get-AzureResourceGroupLog** for PowerShell versions earlier than 1.0 Preview). You provide additional parameters to filter the list of entries . 
 

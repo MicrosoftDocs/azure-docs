@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/12/2015"
+   ms.date="10/13/2015"
    ms.author="cherylmc"/>
 
 # Configure a VNet-to-VNet connection using Azure Resource Manager and PowerShell
@@ -33,7 +33,6 @@ Connecting a virtual network to another virtual network (VNet-to-VNet) is very s
 ![VNet to VNet Connectivity Diagram](./media/virtual-networks-configure-vnet-to-vnet-connection/IC727360.png)
 
  
-
 ## Why connect virtual networks?
 
 You may want to connect virtual networks for the following reasons:
@@ -51,7 +50,6 @@ This article will walk you through connecting two virtual networks, VNet1 and VN
 
 
 ![Connecting VNet to VNet](./media/virtual-networks-configure-vnet-to-vnet-connection/IC727361.png)
-
 
 
 - The virtual networks can be in the same or different Azure regions (locations).
@@ -78,11 +76,11 @@ This article will walk you through connecting two virtual networks, VNet1 and VN
 
 Before you begin, verify that you have the following:
 
-- Version 0.9.8 of the Azure PowerShell cmdlets. You can download and install this version from the Windows PowerShell section of the [Download page](http://azure.microsoft.com/downloads/). 
 - An Azure subscription. If you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or sign up for a [free trial](http://azure.microsoft.com/pricing/free-trial/).
-- If you already have created your virtual networks, see [Connecting existing VNets](#connecting-existing-vnets) in this article.
-	
-There are multiple steps to creating and configuring a VNet-to-VNet connection. Configure each section in the order listed below. 
+
+- The latest version of Azure PowerShell cmdlets. You can download and install the latest version from the Windows PowerShell section of the [Download page](http://azure.microsoft.com/downloads/). This article is written for Azure PowerShell *0.9.8*. 
+
+>[AZURE.NOTE] If you are running mission-critical apps, please continue to use Azure PowerShell 0.9.8. In most cases, the only difference between the two versions is that the 1.0 Preview cmdlet name follows the pattern {verb}-AzureRm{noun}; whereas, the 0.9.8 name does not include Rm. For example, New-AzureRmResourceGroup instead of New-AzureResourceGroup. For information about the Azure PowerShell 1.0 Preview, please see this [blog post](https://azure.microsoft.com/blog/azps-1-0-pre/). For more information about the Azure PowerShell 1.0 Preview cmdlets, see [Azure Resource Manager Cmdlets](https://msdn.microsoft.com/library/mt125356.aspx).
 
 
 ## 1. Plan your IP address ranges
