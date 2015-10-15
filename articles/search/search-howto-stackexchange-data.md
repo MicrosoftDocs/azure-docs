@@ -26,7 +26,7 @@ To highlight some of these capabilities, I have created an Azure Search index fo
 
 Let’s start with a really simple full text search query where the users might type the word “azure” to find any StackExchange posts relating to Azure.  Give this a try by clicking on this link to see it in action:
 
-    [http://jsfiddle.net/62ozgtwL/](http://jsfiddle.net/62ozgtwL/)
+[http://jsfiddle.net/62ozgtwL](http://jsfiddle.net/62ozgtwL/)
 
 In this example, we simply pass the word “azure” as a search parameter and display the JSON formatted results that come back.  Here are a few other examples of queries you could try.  For each of these, simply update the searchAPI parameter in the JavaScript section of the JSFiddle page with the following examples and choose “Run”:
 
@@ -55,6 +55,7 @@ In this example we will search “azure” but return the facet counts for the t
         var searchAPI = "https://azs-playground.search.windows.net/indexes/stackexchange/docs?api-version=2015-02-28-Preview&search=title:visualise OR title:chart^3 &querytype=full&searchMode=all&$select=title";
 
   There are a lot of other fields in this dataset that can be used to boost relevant results for users.  For example, I can use:
+  
   -	**Magnitude** scoring over numeric fields like answerCount, commentCount, favoriteCount and viewCount to provide boosting of the search results if they happen to have high counts.
   -	**Freshness** scoring over datetime fields such as creationDate and lastActivityDate to boost items that were created or active more recently
   -	**Field weights** to indicate that if the search text is found in the body of the question, then this is more relevant than if it is found in the answer.
@@ -108,7 +109,7 @@ The only thing I did beyond what Brent outlined was to create a View in my Azure
       on PA.[OwnerUserId] = PUA.Id
       WHERE PQ.PostTypeId = 1
 
-Once this is done, you can then use the Azure Portal to “Import Data” from the above Azure SQL View which will then create an Azure Search index based on the schema of the fields in the View.  If you would like to use the Azure SQL database that I have staged, here is the Read-Only connection string that you can use:
+Once this is done, you can then use the [Azure Portal](https://portal.azure.com) to “Import Data” from the above Azure SQL View which will then create an Azure Search index based on the schema of the fields in the View.  If you would like to use the Azure SQL database that I have staged, here is the Read-Only connection string that you can use:
 
     Server=tcp:azs-playground.database.windows.net,1433;Database=StackExchange;User ID=reader@azs-playground;
     Password=EdrERBt3j6mZDP;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;
