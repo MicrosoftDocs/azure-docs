@@ -83,4 +83,4 @@ For more information on how to troubleshoot for this problem, see the blog post 
 View more [troubleshooting articles](..\?tag=top-support-issue&service=cloud-services) for cloud services.
 
 
-[Azure PaaS Compute Diagnostics Data]: http://blogs.msdn.com/b/jarrettr/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx
+[Azure PaaS Compute Diagnostics Data]: http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx
