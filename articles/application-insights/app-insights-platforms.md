@@ -19,6 +19,7 @@
 
 [AZURE.INCLUDE [app-insights-selector-get-started](../../includes/app-insights-selector-get-started.md)]
 
+These are implementations we've heard about, including some by third parties.
 
 ## Languages
 
@@ -42,7 +43,9 @@
 + [Android](https://github.com/Microsoft/ApplicationInsights-Android)
 + [Azure web apps and VMs](../insights-perf-analytics.md)
 + [Azure Cloud Services](app-insights-cloudservices.md)&#151;including both web and worker roles
++ [Concrete](https://github.com/fidmor89/appInsights-Concrete)
 + [CRM Online from Microsoft Dynamics](app-insights-sample-mscrm.md)
++ [Drupal](https://github.com/fidmor89/AppInsights-Drupal)
 + [iOS](https://github.com/Microsoft/ApplicationInsights-iOS)
 + [J2EE](app-insights-java-get-started.md)
 + [J2EE - already live](app-insights-java-live.md)
@@ -52,6 +55,7 @@
 + [Orchard](https://orchardazureappinsights.codeplex.com) 
 + [OSX](https://github.com/Microsoft/ApplicationInsights-OSX)
 + [SharePoint](app-insights-sharepoint.md)
++ [SLAB](https://github.com/fidmor89/SLAB_AppInsights) semantic logging
 + [Windows Store C#|VB](app-insights-windows-get-started.md)
 + [Windows Store C++](app-insights-windows-cpp.md)
 + [Windows desktop applications, services, and worker roles](app-insights-windows-desktop.md)
