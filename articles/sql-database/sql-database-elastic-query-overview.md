@@ -30,7 +30,7 @@ What’s new in elastic database query:
 ## Elastic database query scenarios
 
 The goal is to facilitate querying scenarios where multiple databases contribute rows into a single overall result. The query can either be composed by the user or application directly, or indirectly through tools that are connected to the database. This is especially useful when creating reports, using commercial BI or data integration tools—or any application that cannot be changed. With an elastic query, you can query across several databases using the familiar SQL Server connectivity experience in tools such as Excel, PowerBI, Tableau, or Cognos.
-An elastic query allows easy access to an entire collection of databases through queries issued by SQL Server Management Studio or Visual Studio, and facilitates cross-database querying from Entity Framework or other ORM environments. Figure 1 shows a scenario where an existing cloud application (which uses the [elastic database client library](https://azure.microsoft.com/documentation/articles/sql-database-elastic-database-client-library/) builds on a scaled-out data tier, and an elastic query is used for cross-database reporting.
+An elastic query allows easy access to an entire collection of databases through queries issued by SQL Server Management Studio or Visual Studio, and facilitates cross-database querying from Entity Framework or other ORM environments. Figure 1 shows a scenario where an existing cloud application (which uses the [elastic database client library](sql-database-elastic-database-client-library.md) builds on a scaled-out data tier, and an elastic query is used for cross-database reporting.
 
 **Figure 1**
 
@@ -63,7 +63,7 @@ An elastic query can be used to make data located in a SQLDB database available 
 
 ### Topology 2: Horizontal partitioning – Sharding
 
-Using elastic query to perform reporting tasks over a sharded, i.e., horizontally partitioned, data tier requires an [elastic database shard map](https://azure.microsoft.com/documentation/articles/sql-database-elastic-scale-shard-map-management/) to represent the databases of the data tier . Typically, only a single shard map is used in this scenario and a dedicated database with elastic query capabilities serves as the entry point for reporting queries. Only this dedicated database needs access to the shard map. Figure 2 illustrates this topology and its configuration with the elastic query database and shard map. Note that only the elastic query database needs to be a Azure SQL Database v12 database. The databases in the data tier can be of any Azure SQL Database version or edition. For more information about the elastic database client library and creating shard maps, see [Shard map management](https://azure.microsoft.com/documentation/articles/sql-database-elastic-scale-shard-map-management/).
+Using elastic query to perform reporting tasks over a sharded, i.e., horizontally partitioned, data tier requires an [elastic database shard map](sql-database-elastic-scale-shard-map-management.md) to represent the databases of the data tier . Typically, only a single shard map is used in this scenario and a dedicated database with elastic query capabilities serves as the entry point for reporting queries. Only this dedicated database needs access to the shard map. Figure 2 illustrates this topology and its configuration with the elastic query database and shard map. Note that only the elastic query database needs to be a Azure SQL Database v12 database. The databases in the data tier can be of any Azure SQL Database version or edition. For more information about the elastic database client library and creating shard maps, see [Shard map management](sql-database-elastic-scale-shard-map-management.md).
 
 **Figure 4**
 
@@ -94,7 +94,7 @@ The following steps configure elastic database queries for horizontal partitioni
 
 *    [CREATE MASTER KEY](https://msdn.microsoft.com/library/ms174382.aspx) mymasterkey
 *    [CREATE DATABASE SCOPED CREDENTIAL](https://msdn.microsoft.com/library/mt270260.aspx) mycredential 
-*    Create a [shard map](https://azure.microsoft.com/documentation/articles/sql-database-elastic-scale-shard-map-management/) representing your data tier using the elastic database client library.   
+*    Create a [shard map](sql-database-elastic-scale-shard-map-management.md) representing your data tier using the elastic database client library.   
 *    [CREATE/DROP EXTERNAL DATA SOURCE](https://msdn.microsoft.com/library/dn935022.aspx) mydatasource of type **SHARD_MAP_MANAGER**
 *    [CREATE/DROP EXTERNAL TABLE](https://msdn.microsoft.com/library/dn935021.aspx) mytable
 
