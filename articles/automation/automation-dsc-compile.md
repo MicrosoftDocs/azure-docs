@@ -86,7 +86,7 @@ You can use [`Start-AzureRmAutomationDscCompilationJob`](https://msdn.microsoft.
 
 ##Basic Parameters##
 
-Parameter declaration in DSC configurations, including parameter types and properties, works the same as in Azure Automation runbooks. See [Starting a runbook in Azure Automation](automation-starting-a-runbook.md/#runbook-parameters) to learn more about runbook parameters.
+Parameter declaration in DSC configurations, including parameter types and properties, works the same as in Azure Automation runbooks. See [Starting a runbook in Azure Automation](automation-starting-a-runbook.md) to learn more about runbook parameters.
 
 The following example uses two parameters called **FeatureName** and **IsPresent**, to determine the values of properties in the **ParametersExample.sample** node configuration, generated during compilation.
 
@@ -264,5 +264,5 @@ You can compile the DSC configuration above with PowerShell, which adds two node
 
 - [Azure Automation DSC overview](automation-dsc-overview/.md)
 - [Azure Automation DSC cmdlets](https://msdn.microsoft.com/library/mt244122.aspx)
-- [Azure Automation Runbook parameters](automation-starting-a-runbook.md/#runbook-parameters)
+- [Azure Automation Runbook parameters](automation-starting-a-runbook.md)
 - [ConfigurationData in PowerShell Desired State Configuration](http://blogs.msdn.com/b/powershell/archive/2014/01/09/continuous-deployment-using-dsc-with-minimal-change.aspx)
