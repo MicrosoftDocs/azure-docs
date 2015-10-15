@@ -1,10 +1,10 @@
 <properties
- pageTitle="Azure IoT Hub High availability and disaster recovery | Microsoft Azure"
- description="Describes features that help to build solutions with disaster recovery (DR) capabilities."
+ pageTitle="IoT Hub HA and DR | Microsoft Azure"
+ description="Describes features that help to build highly available solutions with disaster recovery capabilities."
  services="iot-hub"
- documentationCenter=".net"
+ documentationCenter=""
  authors="fsautomata"
- manager="kevinmil"
+ manager="timlt"
  editor=""/>
 
 <tags
@@ -12,7 +12,7 @@
  ms.devlang="na"
  ms.topic="article"
  ms.tgt_pltfrm="na"
- ms.workload="tbd"
+ ms.workload="na"
  ms.date="10/02/2015"
  ms.author="elioda"/>
 

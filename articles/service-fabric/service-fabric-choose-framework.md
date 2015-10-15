@@ -1,10 +1,10 @@
 <properties
-   pageTitle="Choosing a framework"
+   pageTitle="Choosing a Service Fabric framework | Microsoft Azure"
    description="Service Fabric offers two high-level frameworks for building services: the actor framework and the services framework. Understanding the value of each will help you make the right architectural decisions for your application."
    services="service-fabric"
    documentationCenter=".net"
    authors="seanmck"
-   manager="timlt"
+   manager="coreysa"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/09/2015"
+   ms.date="10/13/2015"
    ms.author="seanmck"/>
 
 # Choosing a framework for your service

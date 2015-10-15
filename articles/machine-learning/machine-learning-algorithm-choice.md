@@ -14,7 +14,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="09/28/2015"
+	ms.date="10/13/2015"
 	ms.author="brohrer;garye" />
 
 # How to choose algorithms for Microsoft Azure Machine Learning
@@ -46,6 +46,8 @@ Here's an example from the [Cortana Analytics Gallery](http://gallery.azureml.ne
 several algorithms against the same data and compares the results:
 [Compare Multi-class Classifiers: Letter
 recognition](http://gallery.azureml.net/Details/a635502fc98b402a890efe21cec65b92).
+
+>[AZURE.TIP] To download and print a diagram that gives an overview of the capabilities of Machine Learning Studio, see [Overview diagram of Azure Machine Learning Studio capabilities](machine-learning-studio-overview-diagram.md).
 
 ## Flavors of machine learning
 

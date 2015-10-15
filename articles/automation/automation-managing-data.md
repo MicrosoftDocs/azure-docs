@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Managing Azure Automation data | Microsoft Azure"
+   pageTitle="Managing Azure Automation data"
    description="This article contains multiple topics for managing an Azure Automation environment.  Currently includes Data Retention and Backing up Azure Automation Disaster Recovery in Azure Automation."
    services="automation"
    documentationCenter=""

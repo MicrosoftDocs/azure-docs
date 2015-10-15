@@ -76,6 +76,7 @@ The tags section uses the following syntax:
 - expressroute
 - event-hubs
 - hdinsight
+- iot-hub
 - key-vault
 - load-balancer
 - machine-learning
@@ -161,6 +162,7 @@ The tags section uses the following syntax:
  - **cloud-services**
  - **expressroute**
  - **hdinsight**
+ - **iot-hub**
  - **key-vault**
  - **machine-learning**
  - **marketplace**: Articles about the Azure marketplace

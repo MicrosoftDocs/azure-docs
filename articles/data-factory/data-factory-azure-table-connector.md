@@ -18,7 +18,7 @@
 
 # Move data to and from Azure Table using Azure Data Factory
 
-This article outlines how you can use the Copy Activity in an Azure data factory to move data to Azure Table from another data store and move data from another data store to Azure Table. This article builds on the [data movement activities](data-factory-data-movement-activities.md) article which presents a general overview of data movement with copy activity and supported data store combinations.
+This article outlines how you can use the Copy Activity in an Azure data factory to move data from another data store to Azure Table and move data from Azure Table to another data store. This article builds on the [data movement activities](data-factory-data-movement-activities.md) article which presents a general overview of data movement with copy activity and supported data store combinations.
 
 ## Sample: Copy data from Azure Table to Azure Blob
 

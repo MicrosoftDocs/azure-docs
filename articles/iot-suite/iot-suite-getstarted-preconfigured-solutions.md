@@ -1,8 +1,8 @@
 <properties
-	pageTitle="Microsoft Azure IoT Suite preconfigured solutions getting started tutorial | Microsoft Azure"
+	pageTitle="Get started with preconfigured solutions | Microsoft Azure"
 	description="Follow this tutorial to learn how to deploy an Azure IoT Suite preconfigured solution."
 	services=""
-	documentationCenter=".net"
+	documentationCenter=""
 	authors="aguilaaj"
 	manager="timlt"
 	editor=""/>
@@ -12,11 +12,11 @@
      ms.devlang="na"
      ms.topic="hero-article"
      ms.tgt_pltfrm="na"
-     ms.workload="tbd"
+     ms.workload="na"
      ms.date="09/29/2015"
      ms.author="araguila"/>
 
-# Get started with the IoT preconfigured solutions
+# Tutorial: Get started with the IoT preconfigured solutions
 
 ## Introduction
 

@@ -189,7 +189,7 @@ Here are a few tips for finding and diagnosing performance issues:
 [greenbrown]: app-insights-start-monitoring-app-health-usage.md
 [qna]: app-insights-troubleshoot-faq.md
 [redfield]: app-insights-monitor-performance-live-website-now.md
-[start]: app-insights-get-started.md
+[start]: app-insights-overview.md
 [usage]: app-insights-web-track-usage.md
 
  
