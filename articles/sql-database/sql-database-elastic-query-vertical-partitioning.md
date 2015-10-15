@@ -19,7 +19,7 @@
 
 This document explains how to setup elastic query for cross-database querying scenarios (vertical partitioning) and how to perform your queries. For a definition of the vertical partitioning topology, see [Azure SQL Database elastic database query overview (preview)](sql-database-elastic-query-overview.md).
 
-## 1 Creating database objects
+## Creating database objects
 
 For vertically partitioned scenarios, elastic query extends the current T-SQL DDL to refer to tables that are stored on remote databases. This section provides an overview of the DDL statements to configure elastic query for transparent access to remote tables. These DDL statements allow to create the metadata representation of your remote tables in the local database.  
 
@@ -89,7 +89,7 @@ To retrieve the list of current external data sources from the following catalog
 
     select * from sys.external_data_sources; 
 
- ### 1.3 External Tables 
+### 1.3 External Tables 
 
 Elastic query extends the existing external table syntax to define external tables that use external data sources of type RDBMS. An external table definition for vertical partitioning covers the following aspects: 
 
