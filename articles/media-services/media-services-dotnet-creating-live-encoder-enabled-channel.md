@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="10/05/2015"
+	ms.date="10/14/2015"
 	ms.author="juliako"/>
 
 
@@ -32,9 +32,12 @@ This tutorial walks you through the steps of creating a **Channel** that receive
 
 >[AZURE.NOTE]You must use Media Services .NET SDK version 3.2.0.0 or newer.
 
+
 ##Common Live Streaming Scenario
 
 The following steps describe tasks involved in creating common live streaming applications.
+
+>[AZURE.NOTE] Currently, the max recommended duration of a live event is 8 hours. Please contact amslived at Microsoft dot com if you need to run a Channel for longer periods of time.
 
 1. Connect a video camera to a computer. Launch and configure an on-premises live encoder that can output a single bitrate stream in one of the following protocols: RTMP, Smooth Streaming, or RTP (MPEG-TS). For more information, see [Azure Media Services RTMP Support and Live Encoders](http://go.microsoft.com/fwlink/?LinkId=532824).
 
@@ -51,14 +54,14 @@ Use this URL to verify that your channel is properly receiving the live stream.
 
 2. Create an asset.
 3. If you want for the asset to be dynamically encrypted during playback, do the following:
-
-1. 	Create a content key.
-1. 	Configure the content key's authorization policy.
-1. Configure asset delivery policy (used by dynamic packaging and dynamic encryption).
+	1. Create a content key.
+	1. Configure the content key's authorization policy.
+	1. Configure asset delivery policy (used by dynamic packaging and dynamic encryption).
 3. Create a program and specify to use the asset that you created.
 1. Publish the asset associated with the program by creating an OnDemand locator.
 
-Make sure to have at least one streaming reserved unit on the streaming endpoint from which you want to stream content.
+	Make sure to have at least one streaming reserved unit on the streaming endpoint from which you want to stream content.
+
 1. Start the program when you are ready to start streaming and archiving.
 2. Optionally, the live encoder can be signaled to start an advertisement. The advertisement is inserted in the output stream.
 1. Stop the program whenever you want to stop streaming and archiving the event.
@@ -79,7 +82,11 @@ The topic shows how to do the following:
 1. Show and hide slates. Start and stop advertisements. Long-running APIs are used.
 1. Clean up your channel and all the associated resources.
 
->[AZURE.NOTE] Max recommended duration of a live event is 8 hours. Please contact amslived at Microsoft dot com if you need to run a Channel for longer periods of time.
+
+##Considerations
+
+- Currently, the max recommended duration of a live event is 8 hours. Please contact amslived at Microsoft dot com if you need to run a Channel for longer periods of time.
+- Make sure to have at least one streaming reserved unit on the streaming endpoint from which you want to stream content.
 
 ##Prerequisites
 The following are required to complete the tutorial.
@@ -103,7 +110,7 @@ As a best practice, you should use an app.config file to store the Media Service
 Add the appSettings section to the app.config file, and set the values for your Media Services account name and account key.
 
 
-<?xml version="1.0"?>
+	<?xml version="1.0"?>
 	<configuration>
 	  <appSettings>
 	      <add key="MediaServicesAccountName" value="YouMediaServicesAccountName" />
@@ -112,7 +119,6 @@ Add the appSettings section to the app.config file, and set the values for your 
 	</configuration>
 	 
 	
-
 ##Code example
 
 	using System;
