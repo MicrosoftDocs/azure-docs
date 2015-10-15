@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="Lock Resources with Resource Manager | Microsoft Azure" 
 	description="Prevent users from updating or deleting certain resources by applying a restriction to all users and roles." 
 	services="azure-resource-manager" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/07/2015" 
+	ms.date="10/14/2015" 
 	ms.author="tomfitz"/>
 
 # Lock resources with Azure Resource Manager
@@ -99,13 +99,13 @@ For examples, see [REST API for management locks](https://msdn.microsoft.com/lib
 
 ## Creating a lock with Azure PowerShell
 
+[AZURE.INCLUDE [powershell-preview-inline-include](../includes/powershell-preview-inline-include.md)]
+
 You can lock deployed resources with Azure PowerShell by using the **New-AzureRmResourceLock** as shown below. Through PowerShell, you can only set the **LockLevel** to **CanNotDelete**.
 
     PS C:\> New-AzureRmResourceLock -LockLevel CanNotDelete -LockName LockSite -ResourceName examplesite -ResourceType Microsoft.Web/sites
 
 Azure PowerShell provides other commands for working locks, such as **Set-AzureRmResourceLock** to update a lock and **Remove-AzureRmResourceLock** to delete a lock.
-
-If you are using a version of Azure PowerShell earlier than 1.0 Preview, the command is **New-AzureResourceLock**.
 
 ## Next steps
 
