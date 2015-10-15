@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Service Fabric Application Upgrade: Advanced Topics"
+   pageTitle="Application upgrade: advanced topics | Microsoft Azure"
    description="This article covers some advanced topics pertaining to upgrading a Service Fabric application."
    services="service-fabric"
    documentationCenter=".net"
@@ -16,9 +16,9 @@
    ms.date="07/17/2015"
    ms.author="subramar"/>
 
-# Service Fabric Application Upgrade: Advanced Topics
+# Service Fabric application upgrade: advanced topics
 
-## Manual Upgrade Mode
+## Manual upgrade mode
 
 > [AZURE.NOTE] Only for a failed or suspended upgrade, should the Unmonitored Manual mode be even considered. The Monitored mode is the upgrade mode recommended for Service Fabric applications.
 
