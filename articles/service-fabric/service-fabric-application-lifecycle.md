@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Azure Service Fabric Application Life-cycle | Microsoft Azure"
-   description="Describes the developing, deploying, testing, upgrading , maintaining, and removing Service Fabric applications."
+   pageTitle="Application life-cycle in Service Fabric | Microsoft Azure"
+   description="Describes developing, deploying, testing, upgrading, maintaining, and removing Service Fabric applications."
    services="service-fabric"
    documentationCenter=".net"
    authors="rwike77"
