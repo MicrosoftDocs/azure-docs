@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/5/2015" 
+	ms.date="10/15/2015" 
 	ms.author="billmath"/>
 
 # The sign in experience with Azure Multi-Factor Authentication
