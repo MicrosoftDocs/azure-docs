@@ -41,12 +41,12 @@ In this example we will search “azure” but return the facet counts for the t
 
         var searchAPI = "https://azs-playground.search.windows.net/indexes/stackexchange/docs?api-version=2015-02-28&search=azure&$filter=tagsCollection/any(t: t eq 'architecture')&$orderby=viewCount desc";
 
--	`Spelling Mistakes`: Our new (preview) support for [Lucene Query Expressions](https://msdn.microsoft.com/en-US/library/mt589323.aspx) also allows you to do some pretty fancy queries such as fuzzy matching of results and limiting search to specific fields.  This example searches the title field for the word “visualize” but the ~ indicates fuzzy matching which means that results like visualise and visualizing will also be returned.
+-	`Spelling Mistakes`: Our new (preview) support for [Lucene Query Expressions](https://msdn.microsoft.com/library/mt589323.aspx) also allows you to do some pretty fancy queries such as fuzzy matching of results and limiting search to specific fields.  This example searches the title field for the word “visualize” but the ~ indicates fuzzy matching which means that results like visualise and visualizing will also be returned.
 
 
         var searchAPI = "https://azs-playground.search.windows.net/indexes/stackexchange/docs?api-version=2015-02-28-Preview&search=title:visualise~&querytype=full&searchMode=all&$select=title";
 
--	`Scoring and Tuning`: I have talked a lot in the past about [Scoring Profiles](https://msdn.microsoft.com/en-US/library/azure/dn798928.aspx) for helping to tune the results that are returned.  But now, we can also use [Lucene Query Expressions](https://msdn.microsoft.com/en-US/library/mt589323.aspx) to apply scoring to individual fields and terms on the fly.  For example, if we wanted to search for the words “visualize” or “chart” in the title field, yet give more weighting to items that have the word “chart” in them, we could do this:
+-	`Scoring and Tuning`: I have talked a lot in the past about [Scoring Profiles](https://msdn.microsoft.com/library/azure/dn798928.aspx) for helping to tune the results that are returned.  But now, we can also use [Lucene Query Expressions](https://msdn.microsoft.com/library/mt589323.aspx) to apply scoring to individual fields and terms on the fly.  For example, if we wanted to search for the words “visualize” or “chart” in the title field, yet give more weighting to items that have the word “chart” in them, we could do this:
 
 
         var searchAPI = "https://azs-playground.search.windows.net/indexes/stackexchange/docs?api-version=2015-02-28-Preview&search=title:visualise OR title:chart^3 &querytype=full&searchMode=all&$select=title";
@@ -57,7 +57,7 @@ In this example we will search “azure” but return the facet counts for the t
   -	**Field weights** to indicate that if the search text is found in the body of the question, then this is more relevant than if it is found in the answer.
 
 Other things you might want to play with include:
--	[`Suggestions`](https://msdn.microsoft.com/en-us/library/azure/mt131377.aspx): As the users type in to the search box, it will be convenient to use fields like Title, Tags and UserName’s for autocompletion.  
+-	[`Suggestions`](https://msdn.microsoft.com/library/azure/mt131377.aspx): As the users type in to the search box, it will be convenient to use fields like Title, Tags and UserName’s for autocompletion.  
 
 -	`Recommendations`: Often you will need tools like Apache Mahout or Azure Machine Learning to help you create recommendations that allow you to show similar questions users might be interested in viewing, but luckily this dataset already has some recommendations.
 
@@ -66,7 +66,7 @@ Feel free to play with this JSFiddle page to try different types of queries.  If
 ##How was this Azure Search Index Created?
 
 Brent did a lot of the hard work already by showing how to stage the data into a SQL database.  If you want to walk through this process of staging the data yourself, please check out his [tutorial here](http://www.brentozar.com/archive/2014/01/how-to-query-the-stackexchange-databases/).  Otherwise, you can either simply leverage the Azure SQL database I already pre-populated with some data from Oct 15, 2015, or you can try the Azure Search index I created.  The details of this are outlined below in the “Importing Data from Staged Azure SQL Database” section.  
-The only thing I did beyond what Brent outlined was to create a View in my Azure SQL database which will be used by the [Azure Search Indexer](https://msdn.microsoft.com/en-us/library/azure/dn946891.aspx) to crawl and ingest data from a group of tables that I am interested in using.  Here is how this View is defined.
+The only thing I did beyond what Brent outlined was to create a View in my Azure SQL database which will be used by the [Azure Search Indexer](https://msdn.microsoft.com/library/azure/dn946891.aspx) to crawl and ingest data from a group of tables that I am interested in using.  Here is how this View is defined.
 
     CREATE VIEW StackExchangeSearchData as
     SELECT
