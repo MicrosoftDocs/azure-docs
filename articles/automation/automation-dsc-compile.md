@@ -124,7 +124,7 @@ You can compile DSC Configurations that use basic parameters in the Azure Automa
 
 In the portal, you can enter parameter values after clicking **Compile**.
 
-![](./media/automation-dsc-compiling/DSC_compiling_1.png)
+![alt text](./media/automation-dsc-compiling/DSC_compiling_1.png)
 
 ###PowerShell###
 
