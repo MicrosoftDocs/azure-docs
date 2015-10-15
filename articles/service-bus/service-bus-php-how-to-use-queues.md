@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="How to use Service Bus queues (PHP) | Microsoft Azure" 
+	pageTitle="How to use Service Bus queues with PHP | Microsoft Azure" 
 	description="Learn how to use Service Bus queues in Azure. Code samples written in PHP." 
 	services="service-bus" 
 	documentationCenter="php" 
@@ -9,11 +9,11 @@
 
 <tags 
 	ms.service="service-bus" 
-	ms.workload="tbd" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="PHP" 
 	ms.topic="article" 
-	ms.date="07/06/2015" 
+	ms.date="10/14/2015" 
 	ms.author="sethm"/>
 
 # How to use Service Bus queues
@@ -199,18 +199,10 @@ In the event that the application crashes after processing the message but befor
 
 ## Next steps
 
-Now that you've learned the basics of Service Bus queues, see the topic [Queues, Topics, and Subscriptions][] for more information.
+Now that you've learned the basics of Service Bus queues, see [Queues, topics, and subscriptions][] for more information.
 
-For more information, see also the [PHP Developer Center](/develop/php/).
+For more information, also see the [PHP Developer Center](/develop/php/).
 
-[Service Bus Queue Diagram]: ../../../DevCenter/Java/Media/SvcBusQueues_01_FlowDiagram.jpg
-[Azure Management Portal]: http://manage.windowsazure.com/
-[Service Bus Node screenshot]: ../../../DevCenter/Java/Media/SvcBusQueues_02_SvcBusNode.jpg
-[Create a New Namespace screenshot]: ../../../DevCenter/Java/Media/SvcBusQueues_03_CreateNewSvcNamespace.jpg
-[Available Namespaces screenshot]: ../../../DevCenter/Java/Media/SvcBusQueues_04_SvcBusNode_AvailNamespaces.jpg
-[Namespace List screenshot]: ../../../DevCenter/Java/Media/SvcBusQueues_05_NamespaceList.jpg
-[Properties Pane screenshot]: ../../../DevCenter/Java/Media/SvcBusQueues_06_PropertiesPane.jpg
-[Default Key screenshot]: ../../../DevCenter/Java/Media/SvcBusQueues_07_DefaultKey.jpg
 [Queues, Topics, and Subscriptions]: service-bus-queues-topics-subscriptions.md
 [require_once]: http://php.net/require_once
 
