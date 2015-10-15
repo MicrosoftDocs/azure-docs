@@ -29,6 +29,7 @@ Let’s start with a really simple full text search query where the users might 
     [http://jsfiddle.net/62ozgtwL/](http://jsfiddle.net/62ozgtwL/)
 
 In this example, we simply pass the word “azure” as a search parameter and display the JSON formatted results that come back.  Here are a few other examples of queries you could try.  For each of these, simply update the searchAPI parameter in the JavaScript section of the JSFiddle page with the following examples and choose “Run”:
+
 -	`Faceting`: Once the user searches the dataset, being able to filter the data is a great way to help them navigate the results.  To implement this, you will typically start with a set of categories (facets) that are displayed to the user.  Here are a few examples of facets we might want to leverage:
   -	**Tags**: Many of the questions have tags associated with them to allow users to drill into specific categories
   -	**Dates**: A user may only want to see questions that were asked or answered in a specific timeframe
