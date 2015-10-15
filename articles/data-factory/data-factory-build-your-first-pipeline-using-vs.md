@@ -209,7 +209,7 @@ When you publish the solution in the next step, the HQL file is uploaded to the 
 	
 		The name of the Azure Data Factory must be globally unique. If you receive the error **Data factory name “FirstPipelineUsingVS” is not available** when publishing, change the name (for example, yournameADFTutorialDataFactoryPSH). Use this name in place of ADFTutorialFactoryPSH while performing steps in this tutorial.
 
-		The name of the data factory may be registered as a DNS name in the future and hence become publically visible.
+		> [AZURE.IMPORTANT] The name of the data factory may be registered as a DNS name in the future and hence become publically visible.
 	3. Select the right subscription for the **Subscription** field. 
 	4. Select the **resource group** for the data factory to be created. 
 	5. Select the **region** for the data factory. 

@@ -56,7 +56,7 @@ In this step, you use Azure PowerShell to create an Azure Data Factory named ADF
 
 	The name of the Azure Data Factory must be globally unique. If you receive the error **Data factory name “DataFactoryMyFirstPipelinePSH” is not available**, change the name (for example, yournameADFTutorialDataFactoryPSH). Use this name in place of ADFTutorialFactoryPSH while performing steps in this tutorial. 
 	
-	The name of the data factory may be registered as a DNS name in the future and hence become publically visible.
+	> [AZURE.IMPORTANT] The name of the data factory may be registered as a DNS name in the future and hence become publically visible.
 
 In the subsequent steps, you will learn how to create the linked services, datasets and pipeline that you will use in this tutorial.
 
