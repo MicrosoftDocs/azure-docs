@@ -16,7 +16,7 @@
    ms.date="10/15/2015"
    ms.author="vturecek"/>
 
-# Getting started with Service Fabric reliable services
+# Getting started with Microsoft Azure Service Fabric reliable services
 
 A Service Fabric application contains one or more services that run your code. This tutorial walks you through the steps of creating both stateless and stateful "Hello World" Service Fabric applications using the [*Reliable Services* programming model](service-fabric-reliable-services-introduction.md).
 
