@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="08/12/2015"
+	ms.date="10/15/2015"
 	ms.author="billmath"/>
 
 # Monitor your on-premises identity infrastructure and synchronization services in the cloud
@@ -86,8 +86,8 @@ The following table is a list of requirements that must be met before you can ge
 | Requirement | Description|
 | ----------- | ---------- |
 |Azure AD Premium| Azure AD Connect Health is an Azure AD Premium feature and requires Azure AD Premium. </br></br>For more information see [Getting started with Azure AD Premium](active-directory-get-started-premium.md).</br></br>To start a free 30 day trial see [Start a trial.](https://azure.microsoft.com/trial/get-started-active-directory/)|.
-|You must be a global administrator of your Azure AD directory|By default, global administrators have access to the information that is provided by Azure AD Connect Health. If you are not a global administrator of your Azure AD directory, you will not be able to create a service instance of Azure AD Connect Health. Ensure that you are a global administrator.  For additional information see [Administering your Azure AD directory](active-directory-administer.md).</br></br>**Important:** The account you use when installing the agents must be a work or organizational account and cannot be a Microsoft account.   For more information see [Sign up for Azure as an organization](sign-up-organization.md)|
-|For AD FS, AD FS auditing must be enabled to use Usage Analytics| If you plan on using Usage Analytics with AD FS, then AD FS auditing must be enabled.  </br></br>See [Enable Auditing for AD FS.](active-directory-aadconnect-health-operations.md#enable-auditing-for-ad-fs)
+|You must be a global administrator of your Azure AD to enable (create) Azure AD Connect Health|By default, only the global administrators can enable (create), access all the information and perform all the operations within Azure AD Connect Health. For additional information see [Administering your Azure AD directory](active-directory-administer.md). <br> Using Role Based Access Control you can allow access to Azure AD Connect Health to other users in your organization. For more information see [Role Based Access Control for Azure AD Connect Health.](active-directory-aadconnect-health-operations.md#manage-access-with-role-based-access-control) </br></br>**Important:** The account you use when installing the agents must be a work or organizational account and cannot be a Microsoft account. For more information see [Sign up for Azure as an organization](sign-up-organization.md)|
+|For AD FS, AD FS auditing must be enabled to use Usage Analytics| If you plan on using Usage Analytics with AD FS, then AD FS auditing must be enabled.  </br></br>See [Enable Auditing for AD FS.](active-directory-aadconnect-health-agent-install-adfs.md#enable-auditing-for-ad-fs)
 |Meet the Azure AD Connect Health Agent Requirements|See the table below for agent specific requirements.
 
 The following table is a list of agent requirements that must be met before you can get going with Azure AD Connect Health.
@@ -97,7 +97,6 @@ The following table is a list of agent requirements that must be met before you 
 |The Azure AD Connect Health Agent installed on each targeted server| Azure AD Connect Health requires that an agent be installed on targeted servers in order to provide the data that is viewed in the portal. </br></br>For example, in order to get data on your AD FS on-premises infrastructure, the agent must be installed on the AD FS servers.  This includes AD FS Proxy servers and Web Application Proxy servers.   </br></br>For information on installing the agent see the [Azure AD Connect Health Agent Installation](active-directory-aadconnect-health-agent-install.md).</br></br>**Important:** The account you use when installing the agents must be a work or organizational account and cannot be a Microsoft account.   For more information see [Sign up for Azure as an organization](sign-up-organization.md)|
 |Outbound connectivity to the Azure service endpoints|During installation and runtime, the agent requires connectivity to the Azure AD Connect Health service end points listed below. If you block outbound connectivity make sure that the following are added to the allowed list: </br></br><li>**new**: &#42;.blob.core.windows.net </li><li>**new**: &#42;.queue.core.windows.net</li><li>&#42;.servicebus.windows.net - Port: 5671</li><li>https://&#42;.adhybridhealth.azure.com/</li><li>https://&#42;.table.core.windows.net/</li><li>https://policykeyservice.dc.ad.msft.net/</li><li>https://login.windows.net</li><li>https://login.microsoftonline.com</li><li>https://secure.aadcdn.microsoftonline-p.com</li> |
 |Firewall ports on the server running the agent.| The agent requires the following firewall ports to be open in order for the agent to communicate with the Azure AD Health service endpoints.</br></br><li>TCP/UDP port 80</li><li>TCP/UDP port 443</li><li>TCP/UDP port 5671</li>
-
 |Allow the following websites if IE Enhanced Security is enabled|The following websites need to be allowed if IE Enhanced Security is enabled on the server that is going to have the agent installed.</br></br><li>https://login.microsoftonline.com</li><li>https://secure.aadcdn.microsoftonline-p.com</li><li>https://login.windows.net</li><li>The federation server for your organization trusted by Azure Active Directory For example: https://sts.contoso.com</li>
 
 ## Download the Agent

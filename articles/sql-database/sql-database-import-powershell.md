@@ -1,6 +1,6 @@
 <properties 
-    pageTitle="Import a BACPAC to an Azure SQL Database using PowerShell" 
-    description="Import a BACPAC to an Azure SQL Database using PowerShell" 
+    pageTitle="Import a BACPAC file to create a new Azure SQL database using PowerShell" 
+    description="Import a BACPAC file to create a new Azure SQL database using PowerShell" 
     services="sql-database" 
     documentationCenter="" 
     authors="stevestein" 
@@ -13,10 +13,10 @@
     ms.topic="article"
     ms.tgt_pltfrm="powershell"
     ms.workload="data-management" 
-    ms.date="10/08/2015"
+    ms.date="10/13/2015"
     ms.author="sstein"/>
 
-# Import a BACPAC to a SQL Database using PowerShell
+# Import a BACPAC file to create a new Azure SQL database using PowerShell
 
 **Single database**
 
@@ -25,7 +25,7 @@
 - [PowerShell](sql-database-import-powershell.md)
 
 
-This article shows you how to create a SQL database by importing a BACPAC with PowerShell.
+This article provides directions for creating an Azure SQL database by importing a BACPAC with PowerShell.
 
 A BACPAC is a .bacpac file that contains a database schema and data. For details, see Backup Package (.bacpac) in [Data-tier Applications](https://msdn.microsoft.com/library/ee210546.aspx).
 

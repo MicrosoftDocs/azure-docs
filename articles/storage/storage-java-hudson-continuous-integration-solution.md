@@ -13,20 +13,19 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="09/01/2015"
+	ms.date="10/12/2015" 
 	ms.author="robmcm"/>
 
 # Using Azure Storage with a Hudson Continuous Integration solution
-
-*By [Microsoft Open Technologies Inc.][ms-open-tech]*
 
 ## Overview
 
 The following information shows how to use the Azure Blob service as a repository of build artifacts created by a Hudson Continuous Integration (CI) solution, or as a source of downloadable files to be used in a build process. One of the scenarios where you would find this useful is when you're coding in an agile development environment (using Java or other languages), builds are running based on continuous integration, and you need a repository for your build artifacts, so that you could, for example, share them with other organization members, your customers, or maintain an archive.  Another scenario is when your build job itself requires other files, for example, dependencies to download as part of the build input.
 
-In this tutorial you will be using the Azure Storage plugin for Hudson CI made available by Microsoft Open Technologies, Inc.
+In this tutorial you will be using the Azure Storage plugin for Hudson CI made available by Microsoft.
 
 ## Introduction to Hudson ##
+
 Hudson enables continuous integration of a software project by allowing developers to easily integrate their code changes and have builds produced automatically and frequently, thereby increasing the productivity of the developers. Builds are versioned, and build artifacts can be uploaded to various repositories. This article will show how to use Azure Blob storage as the repository of the build artifacts. It will also show how to download dependencies from Azure Blob storage.
 
 More information about Hudson can be found at [Meet Hudson][].
@@ -173,6 +172,7 @@ The following provides an overview of the Blob service components.
 
     `http://example.blob.core.windows.net/myjob/2014-05-01_11-56-22/1/hello.txt`
 
+## Next steps
+
   [How to Create a Storage Account]: http://go.microsoft.com/fwlink/?LinkId=279823
   [Meet Hudson]: http://wiki.eclipse.org/Hudson-ci/Meet_Hudson
-  [ms-open-tech]: http://msopentech.com

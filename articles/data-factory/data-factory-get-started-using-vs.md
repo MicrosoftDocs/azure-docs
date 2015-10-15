@@ -209,7 +209,12 @@ You have created input/output linked services and tables so far. Now, you will c
 
 21. In the Configure data factory page, do the following: 
 	1. select **Create New Data Factory** option.
-	2. Enter **VSTutorialFactory** for **Name**.
+	2. Enter **VSTutorialFactory** for **Name**.  
+	
+		> [AZURE.NOTE]  
+		> The name of the Azure data factory must be globally unique. If you receive an eror about the name of data factory when publishing, change the name of the data factory (for example, yournameVSTutorialFactory) and try publishing again. See [Data Factory - Naming Rules](data-factory-naming-rules.md) topic for naming rules for Data Factory artifacts.
+		> 
+		> The name of the data factory may be registered as a DNS name in the future and hence become publically visible.
 	3. Select the right subscription for the **Subscription** field. 
 	4. Select the **resource group** for the data factory to be created. 
 	5. Select the **region** for the data factory. 
@@ -234,7 +239,7 @@ To update Azure Data Factory tools for Visual Studio, do the following:
 2. Select **Updates** in the left pane and then select **Visual Studio Gallery**.
 4. Select **Azure Data Factory tools for Visual Studio** and click **Update**. If you do not see this entry, you already have the latest version of the tools. 
 
-See [Monitor datasets and pipeline](data-factory-get-started-using-editor.md/#MonitorDataSetsAndPipeline) for instructions on how to use the Azure Preview Portal to monitor the pipeline and datasets you have created in this tutorial.
+See [Monitor datasets and pipeline](data-factory-get-started-using-editor.md#MonitorDataSetsAndPipeline) for instructions on how to use the Azure Preview Portal to monitor the pipeline and datasets you have created in this tutorial.
 
 
 ## Send Feedback

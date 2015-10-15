@@ -19,7 +19,6 @@
 
 # <a id="nonendorsed"> </a>Information for Non-Endorsed Distributions #
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
 
 **Important**: The Azure platform SLA applies to virtual machines running the Linux OS only when one of the [endorsed distributions](virtual-machines-../linux-endorsed-distributions.md) is used. All Linux distributions that are provided in the Azure image gallery are endorsed distributions with the required configuration.
 
