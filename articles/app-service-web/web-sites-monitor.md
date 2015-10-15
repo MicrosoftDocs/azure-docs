@@ -36,6 +36,14 @@
 
 6. To remove metrics from the **Monitor** page, select the metric that you want to remove and then click the **Delete Metric** icon at the bottom of the page.
 
+###Metrics Retention Policy
+
+>[AZURE.NOTE] The retention policy for app metrics varies by granularity:
+
+- **Minute** granularity metrics are retained for **24 hours**
+- **Hour** granultarity metris are retained for **7 days**
+- **Day** granularity metrics are ratianed for **30 days**
+
 ##<a name="howtoreceivealerts"></a>How to: Receive alerts from web app metrics
 
 In **Standard** web app mode, you can receive alerts based on your web app monitoring metrics. The alert feature requires that you first configure a web endpoint for monitoring, which you can do in the **Monitoring** section of the **Configure** page. You can also choose to have email sent when a metric you choose reaches a value that you specify. For more information, see [How to: Receive Alert Notifications and Manage Alert Rules in Azure](http://go.microsoft.com/fwlink/?LinkId=309356).  
