@@ -61,6 +61,7 @@ In this example we will search “azure” but return the facet counts for the t
   -	**Field weights** to indicate that if the search text is found in the body of the question, then this is more relevant than if it is found in the answer.
 
 Other things you might want to play with include:
+
 -	[`Suggestions`](https://msdn.microsoft.com/library/azure/mt131377.aspx): As the users type in to the search box, it will be convenient to use fields like Title, Tags and UserName’s for autocompletion.  
 
 -	`Recommendations`: Often you will need tools like Apache Mahout or Azure Machine Learning to help you create recommendations that allow you to show similar questions users might be interested in viewing, but luckily this dataset already has some recommendations.
