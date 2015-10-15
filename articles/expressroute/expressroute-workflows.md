@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Workflow for configuring an ExpressRoute circuit | Microsoft Azure"
+   pageTitle="Workflows for configuring an ExpressRoute circuit | Microsoft Azure"
    description="This page walks you through the workflows for configuring ExpressRoute circuit and peerings"
    documentationCenter="na"
    services="expressroute"
@@ -12,10 +12,10 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/06/2015"
+   ms.date="10/12/2015"
    ms.author="cherylmc"/>
 
-# ExpressRoute circuit provisioning workflows and circuit states
+# ExpressRoute workflows for circuit provisioning and circuit states
 This page walks you through the service provisioning and routing configuration workflows at a high level. 
 
 ![](./media/expressroute-workflows/expressroute-circuit-workflow.png)

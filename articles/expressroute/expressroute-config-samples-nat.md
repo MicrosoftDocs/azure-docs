@@ -1,6 +1,6 @@
 <properties
    pageTitle="ExpressRoute customer router configuration samples | Microsoft Azure"
-   description="This page provides router config samples for Cisco and Juniper routers."
+   description="This page provides router configuration samples for Cisco and Juniper routers."
    documentationCenter="na"
    services="expressroute"
    authors="cherylmc"
@@ -12,7 +12,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/08/2015"
+   ms.date="10/12/2015"
    ms.author="cherylmc"/>
 
 # Router configuration samples to setup and manage NAT
@@ -290,7 +290,7 @@ Refer to samples in [Routing configuration samples ](expressroute-config-samples
 	                group customer {
 	                    export <Advertise_NAT_Pools>;
 	                    peer-as <Customer_ASN_1>;
-	                    neighbor <BGP_Neigbor_IP_Address>;
+	                    neighbor <BGP_Neighbor_IP_Address>;
 	                }
 	            }
 	        }
@@ -309,7 +309,7 @@ Refer to samples in [Routing configuration samples ](expressroute-config-samples
 	                group edge_router {
 	                    export <Advertise_NAT_Pools>;
 	                    peer-as <Customer_Public_ASN>;
-	                    neighbor <BGP_Neigbor_IP_Address>;
+	                    neighbor <BGP_Neighbor_IP_Address>;
 	                }
 	            }
 	        }

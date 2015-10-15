@@ -143,3 +143,4 @@ Going from an empty automation account to a managed set of correctly configured 
 
 - [Azure Automation DSC cmdlets] (https://msdn.microsoft.com/library/mt244122.aspx)
 - [Azure Automation DSC pricing] (http://azure.microsoft.com/pricing/details/automation/)
+- [Continuous Deployment to IaaS VMs Using Azure Automation DSC and Chocolatey] (automation-dsc-cd-chocolatey.md)

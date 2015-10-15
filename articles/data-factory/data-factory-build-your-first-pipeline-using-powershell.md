@@ -152,9 +152,9 @@ Now, you will create the output dataset to represent the data stored in the Azur
 
 	In the previous example, you are creating a dataset called **AzureBlobOutput**, and specifying the structure of the data that will be produced by the Hive script. In addition, you specify that the results are stored in the blob container called **data** and the folder called **partitioneddata**. The **availability** section specifies that the output dataset is produced on a monthly basis.
 
-2. Run the following command in Azure PowerShell to create the Data Factory table.
+2. Run the following command in Azure PowerShell to create the Data Factory dataset.
 
-		New-AzureDataFactoryTable $df -File .\OutputTable.json
+		New-AzureDataFactoryDataset $df -File .\OutputTable.json
 
 ## Step 3: Creating your first pipeline
 In this step, you will create your first pipeline.

@@ -21,7 +21,8 @@
 
 This article shows you how to create and upload a virtual hard disk (VHD) that contains the FreeBSD operating system so you can use it as your own image to create a virtual machine (VM) in Azure.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)] This article covers creating a resource with the classic deployment model.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Resource Manager model.
+
 
 ##Prerequisites##
 This article assumes that you have the following items:

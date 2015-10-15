@@ -26,7 +26,7 @@
 
 Using Azure PowerShell and Resource Manager templates provides you with a lot of power and flexibility when managing resources in Microsoft Azure. You can use the tasks in this article to create and manage virtual machine resources.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)] This article covers managing resources with the Resource Manager deployment model. You can also manage resources with the [classic deployment model](virtual-machines-windows-tutorial-classic-portal.md).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](virtual-machines-windows-tutorial-classic-portal.md).
 
 These tasks use a Resource Manager template and PowerShell:
 
