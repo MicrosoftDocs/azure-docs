@@ -1,6 +1,24 @@
+<properties 
+   pageTitle="Compiling Configurations in Azure Automation DSC | Microsoft Azure" 
+   description="Overview of two ways to compile Desired State Configuration (DSC) configurations: In the Azure portal, and with Windows PowerShell. " 
+   services="automation" 
+   documentationCenter="dev-center-name" 
+   authors="coreyp-at-msft" 
+   manager="stevenka" 
+   editor="tysonn"/>
+
+<tags
+   ms.service="automation"
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="powershell"
+   ms.workload="TBD" 
+   ms.date="10/15/2015"
+   ms.author="coreyp"/>
+   
 #Compiling Configurations in Azure Automation DSC#
 
- You can compile Desired State Configuration (DSC) configurations in two ways with Azure Automation: In the Azure portal, and with Windows PowerShell. The following table will help you determine when to use which method based on the characteristics of each: 
+You can compile Desired State Configuration (DSC) configurations in two ways with Azure Automation: In the Azure portal, and with Windows PowerShell. The following table will help you determine when to use which method based on the characteristics of each: 
 
 <table>
  <tr>
@@ -42,11 +60,11 @@ Once you have decided on a compilation method, you can follow the respective pro
 
 ##Compiling a DSC Configuration with the Azure preview portal##
 
-1.  From your automation account, click the **Configurations** part to open the **Configurations** blade.
+1.  From your automation account, click **Configurations**.
 2.  Click a configuration to open its blade.
 3.  Click **Compile**.
 4.  If the configuration has no parameters, you will be prompted to confirm whether you want to compile it. If the configuration has parameters, the **Compile Configuration** blade will open so you can provide parameter values. See the [Basic Parameters](#basic parameters) section below for further details on parameters.
-5.  The **Compilation Job** blade is opened so that you can track the compilation job's status, and the Node Configurations (MOF configuration documents) it caused to be placed on the Azure Automation DSC Pull Server.
+5.  The **Compilation Job** blade is opened so that you can track the compilation job's status, and the node configurations (MOF configuration documents) it caused to be placed on the Azure Automation DSC Pull Server.
 
 ##Compiling a DSC Configuration with Windows PowerShell##
 
