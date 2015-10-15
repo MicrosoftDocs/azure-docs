@@ -138,7 +138,7 @@ More information on horizontal partitioning and sharding scenarios is available 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-query-overview/overview.png
 [2]: ./media/sql-database-elastic-query-overview/topology1.png
-[3]: ./media/sql-database-elastic-query-overview/vertpartrefdata.png
+[3]: ./media/sql-database-elastic-query-overview/vertpartrrefdata.png
 [4]: ./media/sql-database-elastic-query-overview/verticalpartitioning.png
 [5]: ./media/sql-database-elastic-query-overview/horizontalpartitioning.png
 
