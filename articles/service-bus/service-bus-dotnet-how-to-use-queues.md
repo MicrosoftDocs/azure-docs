@@ -18,6 +18,8 @@
 
 # How to use Azure Service Bus queues
 
+[AZURE.INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
+
 This article describes how to use Service Bus queues. The samples are written in C# and use the .NET API. The scenarios covered include creating queues and sending and receiving messages. For more information about queues, see the [Next steps](#next-steps) section.
 
 [AZURE.INCLUDE [create-account-note](../../includes/create-account-note.md)]

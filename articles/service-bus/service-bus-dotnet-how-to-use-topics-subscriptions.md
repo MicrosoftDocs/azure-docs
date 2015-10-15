@@ -1,6 +1,6 @@
 <properties
-    pageTitle="How to use Service Bus topics (.NET) | Microsoft Azure"
-    description="Learn how to use Service Bus topics and subscriptions in Azure. Code samples are written for .NET applications."
+    pageTitle="Use Service Bus topics with .NET | Microsoft Azure"
+    description="Learn how to use Service Bus topics and subscriptions with .NET in Azure. Code samples are written for .NET applications."
     services="service-bus"
     documentationCenter=".net"
     authors="sethmanheim"
@@ -9,14 +9,16 @@
 
 <tags
     ms.service="service-bus"
-    ms.workload="tbd"
+    ms.workload="na"
     ms.tgt_pltfrm="na"
     ms.devlang="dotnet"
     ms.topic="get-started-article"
-    ms.date="10/06/2015"
+    ms.date="10/15/2015"
     ms.author="sethm"/>
 
 # How to use Azure Service Bus topics and subscriptions
+
+[AZURE.INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
 
 This article describes how to use Service Bus topics and subscriptions. The samples are written in C# and use the .NET APIs. The scenarios covered include creating topics and subscriptions, creating subscription filters, sending messages to a topic, receiving messages from a subscription, and deleting topics and subscriptions. For more information about topics and subscriptions, see the [Next steps](#Next-steps) section.
 
