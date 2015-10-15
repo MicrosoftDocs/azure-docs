@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Web API Services with OWIN self-host | Microsoft Azure"
+   pageTitle="Service communication with ASP.NET Web API | Microsoft Azure"
    description="Learn how to implement service communication step-by-step using ASP.NET Web API with OWIN self-hosting in the Reliable Services API."
    services="service-fabric"
    documentationCenter=".net"
