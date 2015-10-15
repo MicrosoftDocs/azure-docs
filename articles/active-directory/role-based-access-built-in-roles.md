@@ -52,7 +52,7 @@ Click the corresponding link to see the **actions** and **not actions** properti
 | [Storage Account Contributor](#storage-account-contributor) | Can manage storage accounts |
 | [User Access Administrator](#user-access-administrator) | Can manage user access to Azure resources |
 | [Classic Virtual Machine Contributor](#classic-virtual-machine-contributor) | Can manage classic virtual machines but not the virtual network or storage account to which they are connected |
-| [Virtual Machine Contributor](#virtual-machine-contributor) | Can manage classic virtual machines but not the virtual network or storage account to which they are connected |
+| [Virtual Machine Contributor](#virtual-machine-contributor) | Can manage virtual machines but not the virtual network or storage account to which they are connected |
 | [Classic Network Contributor](#classic-network-contributor) | Can manage virtual machines but not the virtual network or storage account to which they are connected |
 | [Web Plan Contributor](#web-plan-contributor) | Can manage web plans |
 | [Website Contributor](#website-contributor) | Can manage websites but not the web plans to which they are connected |
