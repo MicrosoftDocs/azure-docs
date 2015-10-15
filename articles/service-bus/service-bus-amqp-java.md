@@ -438,17 +438,9 @@ The following restrictions exist when using JMS over AMQP 1.0 with Service Bus:
 Ready to learn more? Visit the following links:
 
 - [Service Bus AMQP overview]
-- [Using Service Bus from .NET with AMQP]
-- [Using Service Bus from Python with AMQP]
-- [Using Service Bus from PHP with AMQP]
-- [Installing Apache Qpid Proton-C on an Azure Linux VM]
 - [AMQP in Service Bus for Windows Server]
 
 [AMQP in Service Bus for Windows Server]: https://msdn.microsoft.com/library/dn574799.aspx
 [BrokeredMessage]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx
 
 [Service Bus AMQP overview]: service-bus-amqp-overview.md
-[Using Service Bus from .NET with AMQP]: service-bus-amqp-dotnet.md
-[Using Service Bus from Python with AMQP]: service-bus-amqp-python.md
-[Using Service Bus from PHP with AMQP]: service-bus-amqp-php.md
-[Installing Apache Qpid Proton-C on an Azure Linux VM]: service-bus-amqp-apache.md

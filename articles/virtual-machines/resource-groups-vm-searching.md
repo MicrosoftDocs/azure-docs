@@ -20,7 +20,8 @@
 
 # Navigate and select Azure virtual machine images with Windows PowerShell and the Azure CLI
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)] This article covers searching for virtual machine images in the Resource Manager deployment model. You can also search images in the [classic deployment model](https://msdn.microsoft.com/library/azure/dn499770.aspx).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] classic deployment model.
+
 
 This article describes how to navigate and select virtual machine images, using a recent installation of either the Azure CLI or Azure PowerShell. As a prerequisite, you would need to change to the Resource Manager mode. With the Azure CLI, enter that mode by typing `azure config mode arm`. With PowerShell, type `Switch-AzureMode AzureResourceManager`. See [Using Azure CLI with Resource Manager](xplat-cli-azure-resource-manager.md) and [Using Azure PowerShell with Azure Resource Manager](../powershell-azure-resource-manager.md) for more complete update and configuration details.
 

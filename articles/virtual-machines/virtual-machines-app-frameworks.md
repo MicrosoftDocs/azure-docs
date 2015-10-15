@@ -21,7 +21,8 @@
 
 Use this stuff to create great things, quickly.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)] This article covers creating a resource with the Resource Manager deployment model. 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] classic deployment model.
+
 
 | Template | Description | View the template | Deploy it right now |
 |:---|:---|:---:|:---:|

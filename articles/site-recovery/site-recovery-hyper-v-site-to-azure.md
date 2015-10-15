@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery"
-	ms.date="09/29/2015"
+	ms.date="10/12/2015"
 	ms.author="raynew"/>
 
 
@@ -53,7 +53,7 @@ Make sure you have everything in place before you begin.
 
 ### Virtual machine prerequisites
 
-Virtual machines you want to protect should conform with [Virtual Machine prerequisites](site-recovery-best-practices.md/#virtual-machines).
+Virtual machines you want to protect should conform with [Virtual Machine prerequisites](site-recovery-best-practices.md#virtual-machines).
 
 ### Provider and agent prerequisites
 
@@ -271,14 +271,10 @@ There are two ways to run a test failover to Azure.
 - Test failover without an Azure network—This type of test failover checks that the virtual machine comes up correctly in Azure. The virtual machine won’t be connected to any Azure network after failover.
 - Test failover with an Azure network—This type of failover checks that the entire replication environment comes up as expected and that failed over the virtual machines will be connected to the specified target Azure network. For subnet handling, for test failover the subnet of the test virtual machine will be figured out based on the subnet of the replica virtual machine. This is different to regular replication when the subnet of a replica virtual machine is based on the subnet of the source virtual machine.
 
-If you want to run a test failover for a virtual machine enabled for protection to Azure without specifying an Azure target network you don’t need to prepare anything. To run a test failover with a target Azure network you’ll need to create a new Azure network that’s isolated from your Azure production network (default behavior when you create a new network in Azure) and set up the infrastructure for the replicated virtual machine to work as expected. For example, a virtual machine with Domain Controller and DNS can be replicated to Azure using Azure Site Recovery and can be created in the test network using Test Failover. To run a test failover follow the steps below:
+If you want to run a test failover for a virtual machine enabled for protection to Azure without specifying an Azure target network you don’t need to prepare anything. To run a test failover with a target Azure network you’ll need to create a new Azure network that’s isolated from your Azure production network (default behavior when you create a new network in Azure). Look at how to [run a test failover](site-recovery-failover.md#run-a-test-failover) for more details. 
 
 
-1. Do a test failover of the virtual machine with Domain Controller and DNS in the same network that you’ll be using for the actual test failover of the on-premises virtual machine.
-2. Note down the IP addresses that were allocated to the failed over DNS virtual machine.
-3. In the Azure virtual network that will be used for the failover, add the IP address as the address of the DNS server.
-4. Run the test failover of the source on-premises virtual machines, specifying the Azure test network.
-5. After validating that the test failure worked as expected, mark the test failover as complete for the recovery plan, and then mark the test failover as complete for the Domain Controller and DNS virtual machines.
+You will also need to set up the infrastructure for the replicated virtual machine to work as expected. For example, a virtual machine with Domain Controller and DNS can be replicated to Azure using Azure Site Recovery and can be created in the test network using Test Failover. Look at [test failover considerations for active directory](site-recovery-active-directory.md#considerations-for-test-failover) section for more details. 
 
 To run the test failover do the following:
 

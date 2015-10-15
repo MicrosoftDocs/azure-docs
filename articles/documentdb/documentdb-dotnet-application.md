@@ -20,6 +20,12 @@
 
 #<a name="_Toc395809351"></a>Web application development with ASP.NET MVC using DocumentDB
 
+> [AZURE.SELECTOR]
+- [.NET](documentdb-dotnet-application.md)
+- [Node.js](documentdb-nodejs-application.md)
+- [Java](documentdb-java-application.md)
+- [Python](documentdb-python-application.md) 
+
 To highlight how you can efficiently leverage Azure DocumentDB to store and query JSON documents, this article provides an end-to-end walk-through showing you how to build a todo list web application using Azure DocumentDB. The tasks will be stored as JSON documents in Azure DocumentDB.
 
 ![Screen shot of the todo list web application created by this tutorial](./media/documentdb-dotnet-application/image1.png)

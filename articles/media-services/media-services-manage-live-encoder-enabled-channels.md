@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="09/28/2015"
+	ms.date="10/11/2015"
 	ms.author="juliako"/>
 
 #Working with Channels that are Enabled to Perform Live Encoding with Azure Media Services
@@ -260,6 +260,8 @@ There can be up to 8 audio stream sets specified if the input to the Channel is 
 
 Specifies the preset to be used by the live encoder within this Channel. Currently, the only allowed value is **Default720p** (default).
 
+Note that if you need custom presets, you should contact amslived at Microsoft dot com.
+
 **Default720p** will encode the video into the following 7 layers.
 
 
@@ -267,13 +269,13 @@ Specifies the preset to be used by the live encoder within this Channel. Current
 
 BitRate|Width|Height|MaxFPS|Profile|Output Stream Name
 ---|---|---|---|---|---
-3500|1280|720|30|High|Video_1280x720_30fps_3500kbps
-2200|960|540|30|Main|Video_960x540_30fps_2200kbps
-1350|704|396|30|Main|Video_704x396_30fps_1350kbps
-850|512|288|30|Main|Video_512x288_30fps_850kbps
-550|384|216|30|Main|Video_384x216_30fps_550kbps
-350|340|192|30|Baseline|Video_340x192_30fps_350kbps
-200|340|192|30|Baseline|Video_340x192_30fps_200kbps
+3500|1280|720|30|High|Video_1280x720_3500kbps
+2200|960|540|30|Main|Video_960x540_2200kbps
+1350|704|396|30|Main|Video_704x396_1350kbps
+850|512|288|30|Main|Video_512x288_850kbps
+550|384|216|30|Main|Video_384x216_550kbps
+350|340|192|30|Baseline|Video_340x192_350kbps
+200|340|192|30|Baseline|Video_340x192_200kbps
 
 
 ####Output Audio Stream

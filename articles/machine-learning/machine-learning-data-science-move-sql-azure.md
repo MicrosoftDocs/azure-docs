@@ -1,9 +1,7 @@
 <properties 
 	pageTitle="Move data to an Azure SQL Database for Azure Machine Learning | Azure" 
 	description="Create SQL Table and load data to SQL Table" 
-	metaKeywords="" 
 	services="machine-learning" 
-	solutions="" 
 	documentationCenter="" 
 	authors="fashah" 
 	manager="jacob.spoelstra" 
@@ -17,44 +15,26 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/10/2015" 
+	ms.date="10/12/2015" 
 	ms.author="fashah;bradsev" /> 
 
 # Move data to an Azure SQL Database for Azure Machine Learning
 
+This **menu** links to topics that describe how to ingest data into target environments where the data can be stored and processed during the Cortana Analytics Process (CAPS).
 
-In this topic we outline the options for moving data either from flat files (CSV or TSV formats) or from data stored in an on-premise SQL Server to an Azure SQL database. These tasks for moving data to the cloud are part of the Advanced Analytics Process and Technology (ADAPT) provided by Azure Machine Learning.
+[AZURE.INCLUDE [cap-ingest-data-selector](../../includes/cap-ingest-data-selector.md)]
+
+## Introduction
+**In this topic** we outline the options for moving data either from flat files (CSV or TSV formats) or from data stored in an on-premise SQL Server to an Azure SQL database. These tasks for moving data to the cloud are part of the Cortana Analytics Process provided by Azure.
 
 For a topic that outlines the options for moving data to an on-premise SQL Server for Machine Learning, see [Move data to SQL Server on an Azure virtual machine](machine-learning-data-science-move-sql-server-virtual-machine.md).
 
 The following table summarizes the options for moving data to an Azure SQL Database.
-<table>
 
-<tr>
-<td><b>SOURCE</b></td>
-<td colspan="2"><b>DESTINATION: Azure SQL Database</b></td>
-</tr>
-
-<tr>
-  <td><b>Flat file (CSV or TSV formatted)</b></td>  
-
-  <td>
-    1. <a href="#bulk-insert-sql-query">Bulk Insert SQL Query
-  </td>
-</tr>
-
-<tr>
-  <td><b>On-premise SQL Server</b></td>
-
-  <td>
-    1. <a href="#export-flat-file">Export to Flat File<br>
-    2. <a href="#insert-tables-bcp">SQL Database Migration Wizard<br>
-    3. <a href="#db-migration">Database backup and restore<br>
-    4. <a href="#adf">Azure Data Factory
-  </td>
-</tr>
-
-</table>
+<b>SOURCE</b> |<b>DESTINATION: Azure SQL Database</b> |
+-------------- |--------------------------------|
+<b>Flat file (CSV or TSV formatted)</b> |<a href="#bulk-insert-sql-query">Bulk Insert SQL Query |
+<b>On-premise SQL Server</b> | 1. <a href="#export-flat-file">Export to Flat File<br> 2. <a href="#insert-tables-bcp">SQL Database Migration Wizard<br> 3. <a href="#db-migration">Database backup and restore<br> 4. <a href="#adf">Azure Data Factory |
 
 
 ## <a name="prereqs"></a>Prerequisites

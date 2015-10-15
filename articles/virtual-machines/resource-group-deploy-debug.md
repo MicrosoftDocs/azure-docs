@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-multiple"
    ms.workload="infrastructure"
-   ms.date="10/08/2015"
+   ms.date="10/14/2015"
    ms.author="tomfitz;rasquill"/>
 
 # Troubleshooting resource group deployments in Azure
@@ -28,12 +28,14 @@ This topic shows how to retrieve troubleshooting information through Azure Power
 
 Solutions to common errors that users encounter are also described in this topic.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)] This article covers troubleshooting resource groups created with the Resource Manager deployment model. You can't create resource groups with the classic deployment model.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] classic deployment model. You can't create resource groups with the classic deployment model.
 
 
 ## Troubleshoot with PowerShell
 
-You can get the overall status of a deployment with the **Get-AzureRmResourceGroupDeployment** command (or **Get-AzureResourceGroupDeployment** for versions of PowerShell prior to 1.0 Preview). In the example below the deployment has failed.
+[AZURE.INCLUDE [powershell-preview-inline-include](../../includes/powershell-preview-inline-include.md)]
+
+You can get the overall status of a deployment with the **Get-AzureRmResourceGroupDeployment** command. In the example below the deployment has failed.
 
     PS C:\> Get-AzureRmResourceGroupDeployment -ResourceGroupName ExampleGroup -DeploymentName ExampleDeployment
 
@@ -54,7 +56,7 @@ You can get the overall status of a deployment with the **Get-AzureRmResourceGro
 
     Outputs           :
 
-Each deployment is usually made up of multiple operations, with each operation representing a step in the deployment process. To discover what went wrong with a deployment, you usually need to see details about the deployment operations. You can see the status of the operations with **Get-AzureRmResourceGroupDeploymentOperation** (or **Get-AzureResourceGroupDeploymentOperation** for versions of PowerShell prior to 1.0 Preview).
+Each deployment is usually made up of multiple operations, with each operation representing a step in the deployment process. To discover what went wrong with a deployment, you usually need to see details about the deployment operations. You can see the status of the operations with **Get-AzureRmResourceGroupDeploymentOperation**.
 
     PS C:\> Get-AzureRmResourceGroupDeploymentOperation -DeploymentName ExampleDeployment -ResourceGroupName ExampleGroup
     Id                        OperationId          Properties         

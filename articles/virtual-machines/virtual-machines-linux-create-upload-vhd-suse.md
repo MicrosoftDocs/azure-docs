@@ -19,7 +19,6 @@
 
 # Prepare a SLES or openSUSE Virtual Machine for Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
 
 - [Prepare a SLES 11 SP3 Virtual Machine for Azure](#sles11)
 - [Prepare a openSUSE 13.1+ Virtual Machine for Azure](#osuse)

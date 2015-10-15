@@ -62,8 +62,8 @@ The availability defined on the **AzureBlobOutput** dataset determines how often
 ## Prepare Azure Storage for the tutorial
 Before starting the tutorial, you need to prepare the Azure storage with files needed for the tutorial.
 
-1. Launch notepad, paste the following text, and save it as **partitionweblogs.hql** in the C:\adfgettingstarted folder on your hard drive. This Hive scripts creates two external tables: **WebLogsRaw** and **WebLogsPartitioned**.
-
+1. Launch **Notepad** and paste the following HQL script. This Hive scripts creates two external tables: **WebLogsRaw** and **WebLogsPartitioned**. Click **File** on the menu and select **Save As**. Switch to the **C:\adfgettingstarted** folder on your hard drive. Select **All Files (*.*)** for the **Save as type** field. Enter **partitionweblogs.hql** for the **File name**. Confirm that the **Encoding** field at the bottom of the dialog box is set to **ANSI**. If not, set it to **ANSI**.  
+	
 		set hive.exec.dynamic.partition.mode=nonstrict;
 		
 		DROP TABLE IF EXISTS WebLogsRaw; 
@@ -142,8 +142,7 @@ Before starting the tutorial, you need to prepare the Azure storage with files n
 		  year(date),
 		  month(date)
 		FROM WebLogsRaw
-	
- 
+	 
 2. To prepare the Azure storage for the tutorial:
 	1. Download the [latest version of **AzCopy**](http://aka.ms/downloadazcopy), or the [latest preview version](http://aka.ms/downloadazcopypr). See [How to use AzCopy](../storage/storage-use-azcopy.md) article for instructions on using the utility.
 	2. After AzCopy has been installed, you can add it to the system path by running the following command at a command prompt. 

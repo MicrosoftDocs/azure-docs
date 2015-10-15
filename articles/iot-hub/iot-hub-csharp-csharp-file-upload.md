@@ -4,19 +4,19 @@
 	services="iot-hub"
 	documentationCenter=".net"
 	authors="fsautomata"
-	manager="kevinmil"
+	manager="timlt"
 	editor=""/>
 
 <tags
      ms.service="iot-hub"
-     ms.devlang="csharp"
+     ms.devlang="dotnet"
      ms.topic="article"
      ms.tgt_pltfrm="na"
-     ms.workload="tbd"
+     ms.workload="na"
      ms.date="09/29/2015"
      ms.author="elioda"/>
 
-# Upload files from devices to the cloud with IoT Hub
+# Tutorial: How to upload files from devices to the cloud with IoT Hub
 
 ## Introduction
 
@@ -96,8 +96,4 @@ Additional information on IoT Hub:
 [IoT Hub Supported Devices]: iot-hub-supported-devices.md
 [Get started with IoT Hub]: iot-hub-csharp-csharp-getstarted.md
 [Supported devices]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/tested_configurations.md
-[Azure IoT Developer Center]: http://www.azure.com/iotdev
-
-
-
- 
+[Azure IoT Developer Center]: http://www.azure.com/develop/iot
