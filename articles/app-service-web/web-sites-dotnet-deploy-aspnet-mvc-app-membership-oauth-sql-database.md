@@ -35,7 +35,7 @@ You'll learn:
 * How to store relational data in the cloud by using Azure SQL Database.
 * How to deploy a web project that uses a database to a [web app](http://go.microsoft.com/fwlink/?LinkId=529714) in Azure App Service.
 
->[AZURE.NOTE] This is a long tutorial. If you want a quick introduction to Azure App Service and Visual Studio web projects, see [Create an ASP.NET web app in Azure App Service](web-sites-dotnet-get-started.md).
+>[AZURE.NOTE] This is a long tutorial. If you want a quick introduction to Azure App Service and Visual Studio web projects, see [Create an ASP.NET web app in Azure App Service](web-sites-dotnet-get-started.md). For troubleshooting info, see the [Troubleshooting](#troubleshooting) section.
 >
 >Or if you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
 
@@ -390,6 +390,8 @@ The next task is to enable the [Code First Migrations](http://msdn.microsoft.com
 
 ## Add an OAuth2 Provider
 
+>[AZURE.NOTE] For detailed instructions on how to use the Google and Facebook developer portal sites, this tutorial links to tutorials on the ASP.NET site. However, Google and Facebook change their sites more frequently than those tutorials are updated, and they are now out of date. If you have trouble following the directions, see the featured Disqus comment at the end of this tutorial for a list of what has changed. 
+
 [OAuth](http://oauth.net/ "http://oauth.net/") is an open protocol that allows secure authorization in a simple and standard method from web, mobile, and desktop applications. The ASP.NET MVC internet template uses OAuth to expose Facebook, Twitter, Google and Microsoft as authentication providers. Although this tutorial uses only Google as the authentication provider, you can easily modify the code to use any of these providers. The steps to implement other providers are very similar to the steps you see in this tutorial. To use Facebook as an authentication provider, see [MVC 5 App with Facebook, Twitter, LinkedIn and Google OAuth2 Sign-on ](http://www.asp.net/mvc/tutorials/mvc-5/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on).
 
 In addition to authentication, this tutorial uses roles to implement authorization. Only those users that you add to the *canEdit* role are able to change data (that is, create, edit, or delete contacts).
@@ -705,6 +707,16 @@ In this section you apply the [Authorize](http://msdn.microsoft.com/library/syst
 	![CM page](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/rs1.png)
  
 3. Verify that the **UserId** is from *user1@contoso.com* and the Google account you registered. 
+
+## Troubleshooting
+
+If you run into problems, here are some suggestions for what to try.
+
+* Errors provisioning SQL Database - Make sure you have the current SDK installed. Versions before 2.7.1 have a bug that in some scenarios causes errors when VS tries to create the database server or the database.
+* Error message "operation is not supported for your subscription offer type" when creating Azure resources - Same as above.
+* Errors when deploying - Consider going through the [basic ASP.NET deployment](web-sites-dotnet-get-started.md) article. That deployment is scenario is simpler and if you have the same problem there it may be easier to isolate. For example, in some enterprise environments a corporate firewall may prevent Web Deploy from making the kinds of connections to Azure that it requires.
+* No option to select connection string in the Publish Web wizard when you deploy - If you used a different method to create your Azure resources, for example, created a web app and a SQL database in the portal, the SQL database may not be associated with the web app. The easiest solution is to create new ones by using VS as shown in the tutorial. You don't have to start the tutorial over -- in the Publish Web wizard you can opt to create a new web app and you get the same dialog that includes a database that you get when you create the project.
+* Directions for Google or Facebook developer portal are out of date - See the featured Disqus comment at the end of this tutorial.
 
 ## Next steps
 
