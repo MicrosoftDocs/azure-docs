@@ -235,14 +235,14 @@ Parameters for AzCopy are described in the table below. You can also type one of
   </tr>
   <tr>
     <td><b>/XN</b></td>
-    <td>Excludes a newer source resource. The resource will not be copied if the last modified time of the source is same or newer than destination.</td>
+    <td>Excludes a newer source resource. The resource will not be copied if the last modified time of the source is the same or newer than destination.</td>
     <td>Y</td>
     <td>Y<br /> (preview only)</td>
     <td>N</td>
   </tr>
   <tr>
     <td><b>/XO</b></td>
-    <td>Excludes an older source resource. The resource will not be copied if the last modified time of the source is same or older than destination.</td>
+    <td>Excludes an older source resource. The resource will not be copied if the last modified time of the source is the same or older than destination.</td>
     <td>Y</td>
     <td>Y<br /> (preview only)</td>
     <td>N</td>
