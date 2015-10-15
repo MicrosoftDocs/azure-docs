@@ -69,6 +69,9 @@ There are many pages on the internet that cover how to do this with IIS. [Here](
 ### Java
 You can use Java to [create a certificate](../app-service-web/java-create-azure-website-using-java-sdk.md#create-a-certificate).
 
+### Linux
+[This](..\virtual-machines\virtual-machines-linux-use-ssh-key.md) article describes how to create certificates with SSH.
+
 ## Next steps
 
 [Upload your service certificate to the Azure Portal](cloud-services-configure-ssl-certificate.md) (or the [Preview Portal](cloud-services-configure-ssl-certificate-portal.md)) and [configure them](cloud-services-xml-certs.md) for the cloud service.
