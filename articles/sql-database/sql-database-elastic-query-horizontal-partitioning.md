@@ -1,5 +1,5 @@
 <properties
-    pageTitle="Elastic queries for horizontal partitioning"
+    pageTitle="Elastic queries for horizontal partitioning | Microsoft Azure"
     description="how to set up elastic queries over hotizontal partitions"    
     services="sql-database"
     documentationCenter=""  

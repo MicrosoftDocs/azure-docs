@@ -1,5 +1,5 @@
 <properties
-    pageTitle="Azure SQL Database elastic database query overview"
+    pageTitle="Azure SQL Database elastic database query overview | Microsoft Azure"
     description="Overview of the elastic query feature"    
     services="sql-database"
     documentationCenter=""  
@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="07/09/2015"
+    ms.date="10/15/2015"
     ms.author="sidneyh;torsteng" />
 
 # Azure SQL Database elastic database query overview (preview)

@@ -1,5 +1,5 @@
 <properties
-    pageTitle="Elastic database query for vertical partitioning  "
+    pageTitle="Elastic database query for vertical partitioning | Microsoft Azure"
     description="how to set up cross-database queries over vertical partitions"    
     services="sql-database"
     documentationCenter=""  
