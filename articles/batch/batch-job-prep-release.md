@@ -19,11 +19,11 @@
 
 # Perform job preparation and completion maintenance in Azure Batch
 
-Azure Batch jobs often require some form of set up prior to execution, and similarly, some sort of clean up after the job's tasks have completed. Batch provides the mechanisms for this preparation and cleanup in the form of *job preparation* and *job release* tasks.
+Azure Batch jobs often require some form of set up prior to execution, and similarly, some sort of post-job maintenance after the job's tasks have completed. Batch provides the mechanisms for this preparation and maintenance in the form of *job preparation* and *job release* tasks.
 
 Before executing of any of a job's tasks, the job preparation task is run all compute nodes scheduled to run tasks. Once the job has completed, the job release task is run on each of the nodes within the pool that executed at least one task. Both job preparation and release tasks allow for the specification of a command line to be executed when invoked, and they retain many of the standard task capabilities such as file download and elevated execution, and properties such as custom environment variables and maximum execution duration, retry count, and file retention time.
 
-In the following sections, you'll find out how to use these two special task types using [JobPreparationTask][net_job_prep] and [JobReleaseTask][net_job_release] found within the [Batch .NET][api_net] API.
+In the following sections, you'll find out how to use these two special task types using the [JobPreparationTask][net_job_prep] and [JobReleaseTask][net_job_release] found in the [Batch .NET][api_net] API.
 
 > [AZURE.TIP] Job preparation and release tasks are especially helpful in "shared pool" environments--those environments in which a pool of compute nodes persists between job runs and is shared between many different jobs.
 
@@ -41,7 +41,7 @@ Prior to the execution of a job's tasks, the job preparation task is executed on
 
 The job preparation task is only executed on nodes scheduled to run a task. This prevents the unnecessary execution of a preparation task should a node not be assigned a task, providing savings in data transfer charges, for example. This situation applies when the number of tasks for a job is less than the number of nodes in a pool, or when [concurrent task execution](batch-parallel-node-tasks.md) is enabled, leaving some nodes idle if the task count is lower than the total possible concurrent tasks.
 
-> [AZURE.NOTE] The [JobPreparationTask][net_job_prep_cloudjob] task differs from the [CloudPool.StartTask][pool_starttask] in that the JobPreparationTask executes at the start of each job, whereas the StartTask executes only when a compute node first joins a pool or is restarted.
+> [AZURE.NOTE] The [JobPreparationTask][net_job_prep_cloudjob] differs from the [CloudPool.StartTask][pool_starttask] in that the JobPreparationTask executes at the start of each job, whereas the StartTask executes only when a compute node first joins a pool or is restarted.
 
 ## Job release tasks
 
@@ -140,7 +140,7 @@ Sample complete, hit ENTER to exit...
 
 ### Inspect job preparation and release tasks with Batch Explorer
 
-The [Batch Explorer][batch_explorer_article], also found in the Batch [sample code repository][batch_explorer_project] on Github, is an excellent tool for use when developing solutions with Azure Batch as it allows inspection of many aspects of your Batch environment. When running the above sample application, for example, you can use the Batch Explorer to view the properties of the job, its tasks, and even download and view the shared text file modified by the job's tasks.
+The [Batch Explorer][batch_explorer_article], also found in the Batch [sample code repository][batch_explorer_project] on Github, is an excellent tool for use when developing solutions with Azure Batch as it allows the inspection and manipulation of many aspects of your Batch environment. When running the above sample application, for example, you can use the Batch Explorer to view the properties of the job and its tasks, as even download the shared text file modified by the job's tasks.
 
 The screenshot below highlights the job preparation and release task properties shown in the Job Details pane when the *JobPrepReleaseSampleJob* job is selected in the Jobs tab.
 
