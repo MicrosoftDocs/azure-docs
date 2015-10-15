@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="hero-article"
-	ms.date="10/13/2015"
+	ms.date="10/15/2015"
 	ms.author="wesmc"/>
 
 # Get started with Notification Hubs for iOS apps
@@ -31,14 +31,14 @@ This tutorial demonstrates the simple broadcast scenario in using Notification H
 
 [AZURE.INCLUDE [notification-hubs-hero-slug](../../includes/notification-hubs-hero-slug.md)]
 
-The completed code for this tutorial can be found on GitHub [here](https://github.com/Azure/azure-notificationhubs-samples/tree/master/ios/GetStarted).
+The completed code for this tutorial can be found on GitHub [here](https://github.com/Azure/azure-notificationhubs-samples/tree/master/ios/GetStartedNH/GetStarted). 
 
 ##Prerequisites
 
 This tutorial requires the following:
 
 + [Mobile Services iOS SDK]
-+ [Xcode 6][Install Xcode]
++ [Xcode 7][Install Xcode]
 + An iOS 8 (or later version) capable device
 + iOS Developer Program membership
 
@@ -464,7 +464,7 @@ To test push notifications on iOS, you must deploy the app to a device. You cann
 
 	![][33]
 
-2. Touch inside the text field to enter a notification message. Then press the **Send** button on the keyboard or the **Send Notification** button in the view to send the notification message.
+2. You can send a test notification from the Azure portal. If you added code for sending the notification in the app, touch inside the text field to enter a notification message. Then press the **Send** button on the keyboard or the **Send Notification** button in the view to send the notification message.
 
 	![][34]
 
