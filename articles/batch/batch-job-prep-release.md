@@ -21,7 +21,7 @@
 
 Azure Batch jobs often require some form of set up prior to execution, and similarly, some sort of post-job maintenance after the job's tasks have completed. Batch provides the mechanisms for this preparation and maintenance in the form of *job preparation* and *job release* tasks.
 
-Before executing of any of a job's tasks, the job preparation task is run all compute nodes scheduled to run tasks. Once the job has completed, the job release task is run on each of the nodes within the pool that executed at least one task. Both job preparation and release tasks allow for the specification of a command line to be executed when invoked, and they retain many of the standard task capabilities such as file download and elevated execution, and properties such as custom environment variables and maximum execution duration, retry count, and file retention time.
+Before executing of any of a job's tasks, the job preparation task is run all compute nodes scheduled to run tasks. Once the job has completed, the job release task is run on each of the nodes within the pool that executed at least one task. Both job preparation and release tasks allow for the specification of a command line to be executed when invoked, and feature capabilities such as file download and elevated execution as well as properties such as custom environment variables and maximum execution duration, retry count, and file retention time.
 
 In the following sections, you'll find out how to use these two special task types using the [JobPreparationTask][net_job_prep] and [JobReleaseTask][net_job_release] found in the [Batch .NET][api_net] API.
 
