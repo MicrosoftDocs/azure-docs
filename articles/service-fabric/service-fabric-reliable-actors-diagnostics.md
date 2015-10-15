@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Actors Diagnostics and Monitoring | Microsoft Azure"
+   pageTitle="Actors diagnostics and monitoring | Microsoft Azure"
    description="This article describes the diagnostics and performance monitoring features in Service Fabric's Reliable Actors runtime, including the events and performance counters emitted by it."
    services="service-fabric"
    documentationCenter=".net"
