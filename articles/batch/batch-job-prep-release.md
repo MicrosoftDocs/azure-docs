@@ -45,7 +45,7 @@ The job preparation task is only executed on nodes scheduled to run a task. This
 
 ## Job release tasks
 
-Once a job has completed, the job release task will be executed on each node in the pool that executed at least one task. A job is marked as completed by issuing a terminate request. When terminated, the Batch service sets the job state to *terminating*, terminates any active or running tasks associated with the job, and runs the job release task. The job then moves to the *completed* state.
+Once a job has completed, the job release task will be executed on each node in the pool that executed at least one task. A job is marked as completed by issuing a terminate request. When terminated, the Batch service sets the job state to *terminating*, terminates any active or running tasks associated with the job, and runs the job release task. The job then moves to the *completed* state and the job release task is executed.
 
 > [AZURE.NOTE] Job deletion also executes the job release task. However, if a job was previously terminated, the release task is not run a second time when that job is subsequently deleted.
 
@@ -140,7 +140,7 @@ Sample complete, hit ENTER to exit...
 
 ### Inspect job preparation and release tasks with Batch Explorer
 
-The [Batch Explorer][batch_explorer_article], also found in the Batch [sample code repository][batch_explorer_project] on Github, is an excellent tool for use when developing solutions with Azure Batch as it allows the inspection and manipulation of many aspects of your Batch environment. When running the above sample application, for example, you can use the Batch Explorer to view the properties of the job and its tasks, as even download the shared text file modified by the job's tasks.
+The [Batch Explorer][batch_explorer_article], also found in the Batch [sample code repository][batch_explorer_project] on Github, is an excellent tool for use when developing solutions with Azure Batch as it allows the inspection and manipulation of many aspects of your Batch environment. When running the above sample application, for example, you can use the Batch Explorer to view the properties of the job and its tasks, or even download the shared text file modified by the job's tasks.
 
 The screenshot below highlights the job preparation and release task properties shown in the Job Details pane when the *JobPrepReleaseSampleJob* job is selected in the Jobs tab.
 
