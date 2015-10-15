@@ -1,7 +1,7 @@
 
 <properties
-   pageTitle="Reliable Actors for Internet of Things"
-   description="Service Fabric Reliable Actors is the key building block (as a middle-tier) in a system that combines a messaging system front end that supports multiple transports such as HTTPS, MQTT or AMQP then communicates with actors that represent individual devices."
+   pageTitle="Reliable Actors for Internet of Things | Microsoft Azure"
+   description="Service Fabric Reliable Actors is the key building block in a system that combines a messaging system front end that supports multiple transports such as HTTPS, MQTT or AMQP then communicates with actors that represent individual devices."
    services="service-fabric"
    documentationCenter=".net"
    authors="vturecek"
