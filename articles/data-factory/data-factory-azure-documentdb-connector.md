@@ -420,7 +420,7 @@ the following properties are available in **typeProperties** section:
 	**Answer:**
 	No. 
 4. **Question:**
-	Can I specifi more than one DocumentDB collection for a table?
+	Can I specify more than one DocumentDB collection for a table?
 	
 	**Answer:**
 	No. Only one collection can be specified at this time.
