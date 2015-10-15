@@ -35,11 +35,11 @@ The **Select Service Fabric Cluster** dialog box automatically validates the clu
 
 1.	Make sure you can access one of the client certificates trusted by the destination cluster. The certificate is usually shared as a Personal Information Exchange (.pfx) file. See [Creating a Cluster using portal](https://www.yammer.com/azureadvisors/uploaded_files/40947687) for how to configure the server for granting access to a client.
 
-1.	Install the trusted certificate. To do this, double-click the .pfx file, or use the PowerShell script Import-PfxCertificate to import the certificates.
+2.	Install the trusted certificate. To do this, double-click the .pfx file, or use the PowerShell script Import-PfxCertificate to import the certificates.
 
-1.	Choose the **Publish...** command on the shortcut menu of the project to open the **Publish Azure Application** dialog box and then select the target cluster. The tool automatically resolves the connection and saves the secure connection parameters in the publish profile.
+3.	Choose the **Publish...** command on the shortcut menu of the project to open the **Publish Azure Application** dialog box and then select the target cluster. The tool automatically resolves the connection and saves the secure connection parameters in the publish profile.
 
-1.	[Optional]: You can edit the publish profile to specify a secure cluster connection.
+4.	[Optional]: You can edit the publish profile to specify a secure cluster connection.
 
     Since you're manually editing the Publish Profile xml file to specify the certificate information, be sure to note the certificate store name, store location, and certificate thumbprint. You'll need to provide these values for the certificate's store name and store location. See [How to: Retrieve the Thumbprint of a Certificate](https://msdn.microsoft.com/en-us/library/ms734695(v=vs.110).aspx) for more information.
 
@@ -62,7 +62,7 @@ The **Select Service Fabric Cluster** dialog box automatically validates the clu
     StoreName="My" />
     ```
 
-1.	Edit any other necessary settings, such as upgrade parameters and Application Instance Definition file location, and then publish your application from the **Publish Azure Application** dialog in Visual Studio.
+5.	Edit any other necessary settings, such as upgrade parameters and Application Instance Definition file location, and then publish your application from the **Publish Azure Application** dialog in Visual Studio.
 
 ## Next steps
 For more information about accessing Service Fabric clusters, please see the following articles.

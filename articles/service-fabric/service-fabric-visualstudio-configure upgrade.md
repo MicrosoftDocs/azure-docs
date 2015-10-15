@@ -45,15 +45,23 @@ If you’re using the Visual Studio Service Fabric tools to upgrade a Service Fa
 
     Each parameter has default values. The *DefaultServiceTypeHealthPolicy* parameter needs a hash table input. Here’s an example of the hash table input format for *DefaultServiceTypeHealthPolicy*:
 
-    `@{ ConsiderWarningAsError = "false"; MaxPercentUnhealthyDeployedApplications = 0; MaxPercentUnhealthyServices = 0; MaxPercentUnhealthyPartitionsPerService = 0; MaxPercentUnhealthyReplicasPerPartition = 0 }`
-
+	```
+    @{ ConsiderWarningAsError = "false"; MaxPercentUnhealthyDeployedApplications = 0; MaxPercentUnhealthyServices = 0; MaxPercentUnhealthyPartitionsPerService = 0; MaxPercentUnhealthyReplicasPerPartition = 0 }
+	```
+	
     *ServiceTypeHealthPolicyMap* is another parameter that requires a hash table input in the following format:
 
-    `@ {"ServiceTypeName" : "MaxPercentUnhealthyPartitionsPerService,MaxPercentUnhealthyReplicasPerPartition,MaxPercentUnhealthyServices"}`
+	```    
+	@ {"ServiceTypeName" : "MaxPercentUnhealthyPartitionsPerService,MaxPercentUnhealthyReplicasPerPartition,MaxPercentUnhealthyServices"}
+	```
+
 
     Here's a real-life example:
 
-    `@{ "ServiceTypeName01" = "5,10,5"; "ServiceTypeName02" = "5,5,5" }`
+    ```
+	@{ "ServiceTypeName01" = "5,10,5"; "ServiceTypeName02" = "5,5,5" }
+	```
+
 3. If you select *UnmonitoredManual* upgrade mode, you will have to manually start a PowerShell console to continue and finish the upgrade process. Please refer to [Service Fabric Application Upgrade: Advanced Topics](service-fabric-application-upgrade-advanced.md) to learn how manual upgrade works
 
 ## Upgrade an application using PowerShell
