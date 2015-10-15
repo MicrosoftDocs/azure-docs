@@ -72,27 +72,10 @@ Be sure to follow all the instructions to convert the application from multi-ten
 
 3.	Once you're finished configuring the application, type `F5` in Visual Studio to run the ASP.NET application.
 
-4.	Once the application loads, click **Sign In**. 
+4.	Once the application loads, click **Sign In** and sign in with a user that has the Admin role in the Azure portal. 
 
 5.	If you configured the Azure Active Directory application properly and set the corresponding settings in Web.config, you should be redirected to the log in. Simply log in with the account you used to create the Azure Active Directory application in the Azure portal, since it's the Azure Active Directory application's default owner. 
 	
-	> [AZURE.NOTE] In Startup.Auth.cs of the sample project, note that the application has a method called <code>AddOwnerAdminClaim</code>, which it uses to add the application owner into the Admin role. This enables you to immediately start managing application roles in the <code>Roles</code> controller.
-	
-4.	Once signed in, click **Roles** to manage application roles.
-
-5.	In **Search for Users/Groups**, start typing the desired user name or group name and notice that a dropdown list shows a filtered list of users and/or groups from your Azure Active Directory tenant.
-
-	![](./media/web-sites-dotnet-lob-application-azure-ad/select-user-group.png) 
-
-	> [AZURE.NOTE] In Views\Roles\Index.cshtml, you will see that the view uses a JavaScript object called <code>AadPicker</code> (defined in Scripts\AadPickerLibrary.js) to access the <code>Search</code> action in the <code>Roles</code> controller.
-		<pre class="prettyprint">var searchUrl = window.location.protocol + "//" + window.location.host + "<mark>/Roles/Search</mark>";
-	...
-    var picker = new <mark>AadPicker(searchUrl, maxResultsPerPage, input, token, tenant)</mark>;</pre>
-		In Controllers\RolesController.cs, you will see the <code>Search</code> action, which sends the actual request to the Azure Active Directory Graph API and returns the response back to the page.
-		Later, you will use the same method to create simple functionality in your application.
-
-6.	Select a user or group from the dropdown, select a role, and click **Assign Role**.
-
 <a name="bkmk_deploy"></a>
 ## Deploy the sample application to App Service Web Apps
 
@@ -120,7 +103,7 @@ Here, you will publish the application to a web app in Azure App Service. There 
 
 8. Clear the **Enable Organizational Authentication** checkbox.
 
-	![](./media/web-sites-dotnet-lob-application-azure-ad/6-disable-organizational-authentication.png)
+	![](./media/web-sites-dotnet-lob-application-azure-ad/6-enable-code-first-migrations.png)
 
 8. Expand **RoleClaimContext** and select **Execute Code First Migrations (runs on application start)**. [Code First Migrations](https://msdn.microsoft.com/en-us/data/jj591621.aspx) helps update your app's database schema in Azure when you define additional Code First data models later.
 
