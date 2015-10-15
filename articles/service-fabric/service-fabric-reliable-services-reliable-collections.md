@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Reliable Collections"
-   description="Reliable Collections enable you to write highly available, scalable, and low latency cloud applications."
+   pageTitle="Reliable Collections | Microsoft Azure"
+   description="Service Fabric stateful services provide reliable collections that enable you to write highly available, scalable, and low latency cloud applications."
    services="service-fabric"
    documentationCenter=".net"
    authors="mcoskun"
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="required"
-   ms.date="08/05/2015"
+   ms.date="10/15/2015"
    ms.author="mcoskun"/>
 
-# Reliable Collections
+# Introduction to Reliable Collections in Service Fabric stateful services
 
 Reliable Collections enable you to write highly available, scalable, and low latency
 cloud applications as though you are writing single machine applications.
@@ -33,7 +33,7 @@ This means that:
 1. All reads are local, which results in low latency and high throughput reads.
 2. All writes incur the minimum number of network IOs, which results in low latency and high throughput writes.
 
-![Image of Evolution of Collections.](media/service-fabric-reliable-services-reliable-collections/ReliableCollectionsEvolution.png)
+![Image of evolution of collections.](media/service-fabric-reliable-services-reliable-collections/ReliableCollectionsEvolution.png)
 
 Reliable Collections can be thought of as the natural evolution of the `System.Collections`
 classes: a new set of collections that are designed for the cloud and multi-machine
@@ -55,7 +55,7 @@ before the asynchronous commit returns.
 The Reliable Collections APIs are an evolution of concurrent collections APIs
 (found in the `System.Collections.Concurrent` namespace):
 
-1. Asynchronous: Returns a Task since, unlike Reliable Collections, the operations are replicated and persisted.
+1. Asynchronous: Returns a Task since, unlike concurrent collections, the operations are replicated and persisted.
 2. No out parameters: Uses `ConditionalResult<T>` to return a bool and a value instead of out parameters. `ConditionalResult<T>` is like `Nullable<T>` but does not require T to be a struct.
 3. Transactions: Uses a transaction object to enable the user to group actions on multiple Reliable Collections in a transaction.
 
@@ -64,7 +64,7 @@ Today, `Microsoft.ServiceFabric.Data.Collections` contains two collections:
 1. [Reliable Dictionary](https://msdn.microsoft.com/library/azure/dn971511.aspx): Represents a replicated, transactional, and asynchronous collection of key/value pairs. Similar to `ConcurrentDictionary`, both the key and the value can be of any type.
 2. [Reliable Queue](https://msdn.microsoft.com/library/azure/dn971527.aspx): Represents a replicated, transactional, and asynchronous strict first-in first-out (FIFO) queue. Similar to `ConcurrentQueue`, the value can be of any type.
 
-## Isolation Levels
+## Isolation levels
 Isolation level is a measure of the degree isolation is achieved.
 Isolation means that a transaction behaves as it would in a system that only allows
 one transaction to be in-flight at any given point of time.
@@ -93,7 +93,7 @@ that belongs to the same transaction.
 | Single Entity Read    | Snapshot         | Snapshot         |
 | Enumeration \ Count   | Snapshot         | Snapshot         |
 
-## Persistence Model
+## Persistence model
 Reliable State Manager and Reliable Collections follow a persistence model that is called Log and Checkpoint.
 This is a model where each state change is logged on disk and only applied in memory.
 The complete state itself is only persisted occasionally (aka. Checkpoint).
@@ -111,7 +111,7 @@ As disk is infinite, log records never need to be removed and the Reliable Colle
 Now let’s look at the finite disk scenario.
 At one point the Reliable State Manager will run out of disk space.
 Before that happens the Reliable State Manager needs to truncate its log to make room for the newer records.
-It will request the Reliable Collections to checkpoint their in-memory state.
+It will request the Reliable Collections to checkpoint their in-memory state to disk.
 It is the Reliable Collection's responsibility to persist its state up to that point.
 Once the Reliable Collections complete their checkpoints, the Reliable State Manager can truncate the log to free up disk space.
 This way, when the replica needs to be restarted, Reliable Collections will recover their
@@ -160,9 +160,9 @@ Here are some things to keep in mind:
 - Enumerations are snapshot consistent within a collection. However, enumerations of multiple collections are not consistent across collections.
 - To achieve high availability for the Reliable Collections, each service should have at least a target and minimum replica set size of 3.
 
-## Next Steps
+## Next steps
 
 - [Reliable Services Quick Start](service-fabric-reliable-services-quick-start.md)
 - [Getting Started with Service Fabric Web API services](service-fabric-reliable-services-communication-webapi.md)
-- [Advanced usage of the Reliable Services programming model](../Service-Fabric/service-fabric-reliable-services-advanced-usage.md)
+- [Advanced usage of the Reliable Services programming model](service-fabric-reliable-services-advanced-usage.md)
 - [Developer reference for Reliable Collections](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
