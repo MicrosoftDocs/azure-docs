@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Running the Chaos test."
-   description="This article talks about the pre-canned service fabric scenarios shipped by Microsoft."
+   pageTitle="Chaos and failover tests | Microsoft Azure"
+   description="Using the Service Fabric chaos test and failover test scenarios to induce faults and verify the reliability of your services."
    services="service-fabric"
    documentationCenter=".net"
    authors="anmolah"
@@ -28,7 +28,7 @@ The chaos scenario generates faults across the entire service fabric cluster. Th
 ### Faults simulated in Chaos test
  - Restart of a Node
  - Restart of a Deployed Code Package
- - Remove of a Replicas
+ - Removal of a Replica
  - Restart of a Replica
  - Move of a Primary Replica (optional)
  - Move of a secondary Replica (optional)
@@ -142,8 +142,8 @@ The Failover test scenario is a version of the Chaos test scenario targeting a s
 
 ### Faults simulated in Failover test
 - Restart a Deployed Code Package where partition is hosted
-- Remove a Primary/Secondary replica or Stateless instance
-- Restart a Primary Secondary Replica (If persisted service)
+- Remove a Primary/Secondary replica or stateless instance
+- Restart a Primary Secondary Replica (if persisted service)
 - Move a Primary Replica
 - Move a secondary Replica
 - Restart the partition.
