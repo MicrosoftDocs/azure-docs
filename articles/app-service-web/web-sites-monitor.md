@@ -22,6 +22,14 @@
 
 [AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
+##Metrics Retention Policy
+
+>[AZURE.NOTE] The retention policy for app metrics varies by granularity:
+
+- **Minute** granularity metrics are retained for **24 hours**
+- **Hour** granultarity metris are retained for **7 days**
+- **Day** granularity metrics are ratianed for **30 days**
+
 ##<a name="websitemetrics"></a>How to: Add web app metrics
 
 1. In the [Azure portal](https://manage.windowsazure.com), from the web app's page, click the **Monitor** tab to display the **Monitor** management page. By default the chart on the **Monitor** page displays the same metrics as the chart on the **Dashboard** page.
@@ -36,13 +44,7 @@
 
 6. To remove metrics from the **Monitor** page, select the metric that you want to remove and then click the **Delete Metric** icon at the bottom of the page.
 
-###Metrics Retention Policy
 
->[AZURE.NOTE] The retention policy for app metrics varies by granularity:
-
-- **Minute** granularity metrics are retained for **24 hours**
-- **Hour** granultarity metris are retained for **7 days**
-- **Day** granularity metrics are ratianed for **30 days**
 
 ##<a name="howtoreceivealerts"></a>How to: Receive alerts from web app metrics
 
