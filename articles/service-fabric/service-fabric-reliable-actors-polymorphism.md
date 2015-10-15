@@ -26,11 +26,53 @@ The actor framework requires you to define at least one interface to be implemen
 
 ![Interface hierarchy for shape actors][shapes-interface-hierarchy]
 
+
 ## Types
 
+You can also create a hierarchy of actor types, derived from the base Actor class provided by the platform. For stateful actors, you can likewise create a hierarchy of state types. In the case of shapes, you might have a base `Shape` type with a state type of `ShapeState`.
+
+    public abstract class Shape : Actor<ShapeState>, IShape
+    {
+        ...
+    }
+
+Sub-types of `Shape` can use sub-types of `ShapeType` for storing more specific-properties.
+
+    [ActorService(Name = "Circle")]
+    public class Circle : Shape, ICircle
+    {
+        private CircleState CircleState => this.State as CircleState;
+
+        public override ShapeState InitializeState()
+        {
+            return new CircleState();
+        }
+
+        [Readonly]
+        public override Task<int> GetVerticeCount()
+        {
+            return Task.FromResult(0);
+        }
+
+       [Readonly]
+       public override Task<double> GetArea()
+       {
+           return Task.FromResult(
+               Math.PI*
+               this.CircleState.Radius*
+               this.CircleState.Radius);
+       }
+
+       ...
+    }
+
+Note the `ActorService` attribute on the actor type. This tells the Service Fabric SDK that it should automatically create a Service for hosting actors of this type. In some cases, you may wish to create a base type that is solely intended for sharing functionality with sub-types and will never be used to instantiate concrete actors. In those cases, you should use the `abstract` keyword to indicate that you will never create an actor based on that type.
 
 
 ## Next steps
+
+- See [how the Reliable Actors Framework leverages the Service Fabric Platform](service-fabric-reliable-actors-platform.md) to provide reliability, scalability, and consistent state
+- Learn about the [actor lifecycle](service-fabric-reliable-actors)
 
 <!-- Image references -->
 
