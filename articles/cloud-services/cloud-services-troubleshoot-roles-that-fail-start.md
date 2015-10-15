@@ -53,7 +53,8 @@ To view more complete errors without using Remote Desktop:
 
 2. In the **Solution Explorer**, locate the web.config file and open it.
 
-3. In the web.config file, locate the system.web section and add the following line:  
+3. In the web.config file, locate the system.web section and add the following line:
+
    ```xml
    <customErrors mode="Off" />
    ```
