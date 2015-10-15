@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Troubleshooting Roles That Fail to Start"
-   description=""
+   pageTitle="Troubleshooting roles that fail to start | Microsoft Azure"
+   description="Here are some common reasons as to why a Cloud Service role may fail to start. Solutions to these problems are also provided."
    services="cloud-services"
    documentationCenter=""
    authors="Thraka"
@@ -16,9 +16,9 @@
    ms.date="10/14/2015"
    ms.author="jarrettr" />
 
-# How to troubleshoot roles that fail to start
+# Common steps in troubleshooting Cloud Service roles that fail to start
 
-Here are some common problems and solutions related to Azure cloud service roles that fail to start.
+Here are some common problems and solutions related to Azure Cloud Service roles that fail to start.
 
 ## Contact Azure Customer Support
 

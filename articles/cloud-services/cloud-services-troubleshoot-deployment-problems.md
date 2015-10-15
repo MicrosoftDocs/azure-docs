@@ -1,6 +1,6 @@
 <properties 
- pageTitle="troubleshoot Cloud Service deployment problems | Microsoft Azure" 
- description="" 
+ pageTitle="Troubleshoot Cloud Service deployment problems | Microsoft Azure" 
+ description="There are a few common probelms you may run into when deploying a Cloud Service to Azure. This article provides solutions to some of them." 
    services="cloud-services"
    documentationCenter=""
    authors="Thraka"
@@ -16,7 +16,7 @@
    ms.date="10/14/2015"
    ms.author="jarrettr" />
 
-# How to troubleshoot deployment problems using the deployment properties
+# How to troubleshoot Cloud Service deployment problems you may run into
 
 When you deploy a Cloud Service application package to Azure, you can obtain information about the deployment from the **Properties** pane in the Management Portal. You can use the details in this pane to help you troubleshoot problems with the cloud service, and you can provide this information to Azure support when opening a new support request.
 
@@ -48,7 +48,7 @@ Service healing occurs automatically when the Azure detects problematic nodes an
 Roles will also restart roughly once per month during Host OS and Guest OS upgrades.  
 For more information, see the blog post [Role Instance Restarts Due to OS Upgrades](http://blogs.msdn.com/b/jarrettr/archive/2012/09/19/role-instance-restarts-due-to-os-upgrades.aspx)
 
-## Problem: I cannot do a VIP swap and receive an error whenever I try
+## Problem: I cannot do a VIP swap and receive an error
 
 A VIP swap is not allowed if a deployment update is in progress. Deployment updates can occur automatically when:
 
