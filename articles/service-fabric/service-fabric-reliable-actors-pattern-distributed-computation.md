@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Reliable Actors Distributed Computation pattern"
-   description="Service Fabric Reliable Actors are a good fit with parallel asynchronous messaging, easily managed distributed state, and parallel computation."
+   pageTitle="Distributed computation pattern | Microsoft Azure"
+   description="Service Fabric Reliable Actors are a good fit for parallel asynchronous messaging, easily managed distributed state, and parallel computation."
    services="service-fabric"
    documentationCenter=".net"
    authors="vturecek"
