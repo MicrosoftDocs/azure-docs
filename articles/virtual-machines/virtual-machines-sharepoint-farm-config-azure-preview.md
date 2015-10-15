@@ -13,13 +13,14 @@
 	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/07/2015"
+	ms.date="10/05/2015"
 	ms.author="josephd"/>
 
 
 # SharePoint Server Farm configuration details
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)] This article covers creating resources with the classic deployment model. 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Resource Manager model.
+ 
 
 SharePoint Server Farm is a feature of the Azure preview portal that automatically creates a preconfigured SharePoint Server 2013 farm for you. There are two farm configurations:
 
@@ -113,7 +114,7 @@ Here are the configuration details:
 -	Database servers:
 	-	Virtual machine image: SQL Server 2014 RTM Enterprise on Windows Server 2012 R2.
 	-	Host name prefix: Specified during the initial configuration.
-	-	Size: A5 (default) for database servers, A0 (default) for the file share witness.
+	-	Size: A5 (default) for database servers, A0 (default) for the file share witness (SQL0).
 	-	Database access account name: Specified during the initial configuration.
 	-	Database access account password: Specified during the initial configuration.
 	-	SQL Server service account name: sqlservice (default).
@@ -137,6 +138,6 @@ The SharePoint Server Farm feature of the Azure preview portal creates virtual m
 
 [SharePoint Server Farm](virtual-machines-sharepoint-farm-azure-preview.md)
 
-[SharePoint on Azure Virtual Machines](http://msdn.microsoft.com/library/azure/dn275955.aspx)
+[SharePoint farms hosted in Azure infrastructure services](virtual-machines-sharepoint-infrastructure-services.md)
 
 [Set up a SharePoint intranet farm in a hybrid cloud for testing](../virtual-network/virtual-networks-setup-sharepoint-hybrid-cloud-testing.md)

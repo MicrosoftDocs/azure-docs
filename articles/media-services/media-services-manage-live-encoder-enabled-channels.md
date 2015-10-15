@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="09/28/2015"
+	ms.date="10/14/2015"
 	ms.author="juliako"/>
 
 #Working with Channels that are Enabled to Perform Live Encoding with Azure Media Services
@@ -48,6 +48,8 @@ The following diagram represents a live streaming workflow where a channel recei
 ##<a id="scenario"></a>Common Live Streaming Scenario
 
 The following are general steps involved in creating common live streaming applications.
+
+>[AZURE.NOTE] Currently, the max recommended duration of a live event is 8 hours. Please contact amslived at Microsoft dot com if you need to run a Channel for longer periods of time.
 
 1. Connect a video camera to a computer. Launch and configure an on-premises live encoder that can output a **single** bitrate stream in one of the following protocols: RTMP, Smooth Streaming, or RTP (MPEG-TS). For more information, see [Azure Media Services RTMP Support and Live Encoders](http://go.microsoft.com/fwlink/?LinkId=532824).
 	
@@ -260,6 +262,8 @@ There can be up to 8 audio stream sets specified if the input to the Channel is 
 
 Specifies the preset to be used by the live encoder within this Channel. Currently, the only allowed value is **Default720p** (default).
 
+Note that if you need custom presets, you should contact amslived at Microsoft dot com.
+
 **Default720p** will encode the video into the following 7 layers.
 
 
@@ -267,13 +271,13 @@ Specifies the preset to be used by the live encoder within this Channel. Current
 
 BitRate|Width|Height|MaxFPS|Profile|Output Stream Name
 ---|---|---|---|---|---
-3500|1280|720|30|High|Video_1280x720_30fps_3500kbps
-2200|960|540|30|Main|Video_960x540_30fps_2200kbps
-1350|704|396|30|Main|Video_704x396_30fps_1350kbps
-850|512|288|30|Main|Video_512x288_30fps_850kbps
-550|384|216|30|Main|Video_384x216_30fps_550kbps
-350|340|192|30|Baseline|Video_340x192_30fps_350kbps
-200|340|192|30|Baseline|Video_340x192_30fps_200kbps
+3500|1280|720|30|High|Video_1280x720_3500kbps
+2200|960|540|30|Main|Video_960x540_2200kbps
+1350|704|396|30|Main|Video_704x396_1350kbps
+850|512|288|30|Main|Video_512x288_850kbps
+550|384|216|30|Main|Video_384x216_550kbps
+350|340|192|30|Baseline|Video_340x192_350kbps
+200|340|192|30|Baseline|Video_340x192_200kbps
 
 
 ####Output Audio Stream
@@ -392,6 +396,8 @@ Stopped|Stopped|No
 - By default you can only add 5 channels to your Media Services account. This is a soft quota on all new accounts. For more information, see [Quotas and Limitations](media-services-quotas-and-limitations.md).
 - You cannot change the input protocol while the Channel or its associated programs are running. If you require different protocols, you should create separate channels for each input protocol.
 - You are only billed when your Channel is in the **Running** state. For more information, refer to [this](media-services-manage-live-encoder-enabled-channels.md#states) section.
+- Currently, the max recommended duration of a live event is 8 hours. Please contact amslived at Microsoft dot com if you need to run a Channel for longer periods of time.
+- Make sure to have at least one streaming reserved unit on the streaming endpoint from which you want to stream content.
 
 ##Known Issues
 

@@ -1,11 +1,12 @@
 <properties
-   pageTitle="Get Started with Docker and Compose on an Azure virtual machine"
-   description="Quick introduction to working with Compose and Docker on Azure"
+   pageTitle="Docker and Compose on a virtual machine | Microsoft Azure"
+   description="Quick introduction to working with Compose and Docker on Azure virtual machines."
    services="virtual-machines"
    documentationCenter=""
    authors="dlepow"
    manager="timlt"
-   editor=""/>
+   editor=""
+   tags="azure-resource-manager,azure-service-management"/>
 
 <tags
    ms.service="virtual-machines"
@@ -19,6 +20,9 @@
 # Get Started with Docker and Compose on an Azure virtual machine
 
 This article shows you how to get started using Docker and [Compose](http://github.com/docker/compose) to define and run a complex application on a Linux virtual machine in Azure. With Compose (the successor to *Fig*), you use a simple text file to define an application consisting of multiple Docker containers. Then you spin up your application in a single command which does everything to get it running on the VM. As an example, this article shows you how to quickly set up a WordPress blog with a backend MariaDB SQL database, but you can also use Compose to set up more complex applications.
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
+
 
 If you're new to Docker and containers, see the [Docker high level whiteboard](http://azure.microsoft.com/documentation/videos/docker-high-level-whiteboard/).
 

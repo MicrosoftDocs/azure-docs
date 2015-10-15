@@ -41,15 +41,15 @@ The **New Tweet** trigger has been archived. Currently, it is still available as
 
 ## Create the Twitter connector
 
-> [AZURE.IMPORTANT] Creating a Twitter Connector currently requires registration of an API App with Twitter.  You can register an application for free at [http://apps.twitter.com](http://apps.twitter.com).  You will need the Twitter API Key and Secret to create a connector.
+> [AZURE.IMPORTANT] WHile creating a Twitter Connector, you could choose to register your own App with Twitter and use the app keys with the Twitter Connector.  You can register an application for free at [http://apps.twitter.com](http://apps.twitter.com).  While registering, make sure that you do provide some callback URL.  You could change the callback URL later once your Twitter Connector is created.  You will need the Twitter API Key and Secret to create a connector.
 
 A connector can be created within a logic app or be created directly from the Azure Marketplace. To create a connector from the Marketplace:
 
-1. Create a free application for Twitter at [http://apps.twitter.com](http://apps.twitter.com).
-    * When registering for the app, you can put in any URL for the website, and leave the callback URL blank.
+1. [Optional] Create a free application for Twitter at [http://apps.twitter.com](http://apps.twitter.com).
+    * When registering for the app, you can put in any URL for the website.  Specify any callback URL (do not leave it blank), you can update it later.
 2. In the Azure startboard, select **Marketplace**.
 3. Search for “Twitter Connector”, select it, and select **Create**.
-4. Click on 'Package Settings' and paste the 'Consumer Key' from your Twitter App into the 'clientId' field.  Paste the 'Consumer Secret' from your Twitter App into the 'clientSecret' field:  
+4. [Optional] Click on 'Package Settings' and paste the 'Consumer Key' from your Twitter App into the 'clientId' field.  Paste the 'Consumer Secret' from your Twitter App into the 'clientSecret' field:  
 ![][10]
 5. Enter other required settings around connector Name, App Service, and Resource Group.
 6.	Click **Create**.

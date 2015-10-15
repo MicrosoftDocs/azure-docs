@@ -38,7 +38,7 @@ Open your terminal and install the following:
 
 **3) TinyTDS:** Run the following command from your terminal. This will install TinyTDS on your machine. 
 
-    sudo ARCHFLAGS="-arch x86_64" gem install tiny_tds
+    gem install tiny_tds
 
 ## Create a database, retrieve your connection string
 
