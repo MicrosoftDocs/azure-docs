@@ -47,10 +47,11 @@ This step could also be performed after you create your Channel.
 
 1. Retrieve the Channel ingest URL.
 
-The ingest URL is used by the live encoder to send the stream to the Channel.
+	The ingest URL is used by the live encoder to send the stream to the Channel.
+
 1. Retrieve the Channel preview URL.
 
-Use this URL to verify that your channel is properly receiving the live stream.
+	Use this URL to verify that your channel is properly receiving the live stream.
 
 2. Create an asset.
 3. If you want for the asset to be dynamically encrypted during playback, do the following:
