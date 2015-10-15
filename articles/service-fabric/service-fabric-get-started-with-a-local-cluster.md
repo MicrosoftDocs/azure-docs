@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="10/08/2015"
+   ms.date="10/14/2015"
    ms.author="seanmck"/>
 
 # Get started with deploying and upgrading Service Fabric applications on your local cluster
@@ -64,12 +64,6 @@ The Service Fabric SDK includes a rich set of frameworks and developer tooling f
 
 3. Download the WordCount application from [here](http://aka.ms/servicefabric-wordcountapp) and extract it to the location you created.
 
-4. Download the WordCount application parameters from [here](http://aka.ms/servicefabric-wordcountapp-parameters) and save it to the same location where you extracted the app package. In the end, it should look like this:
-
-  ![Extracted WordCount application package][extracted-app-package]
-
-  Now that you have the application, it's time to deploy it.
-
 4. Connect to the local cluster:
 
   ```powershell
@@ -79,7 +73,7 @@ The Service Fabric SDK includes a rich set of frameworks and developer tooling f
 5. Invoke the SDK's deployment script, providing URIs for the pre-built application package and the configurable application parameters, along with an application name and a deployment action.
 
   ```powershell
-  DeployCreate-FabricApplication -ApplicationPackagePath 'c:\Service Fabric\WordCount\' -ApplicationDefinitionFilePath c:\Service Fabric\WordCountParameters.Local.xml -ApplicationName "fabric:/WordCount" -Action DeployAndCreate
+  & "$ENV:ProgramFiles\Microsoft SDKs\Service Fabric\Tools\Scripts\DeployCreate-FabricApplication" -ApplicationPackagePath 'c:\Service Fabric\WordCountV1\' -ApplicationName "fabric:/WordCount" -Action DeployAndCreate
   ```
 
   If all goes well, you should see output like the following:
@@ -136,7 +130,7 @@ The new version of the application will now only count words that begin with a v
 2. Return to your PowerShell window and use the SDK's upgrade script to register the new version in the cluster and begin upgrading fabric:/WordCount.
 
   ```powershell
-  Upgrade-FabricApplication.ps1 -ApplicationPackagePath 'C:\Service Fabric\WordCountV2' -ApplicationDefinitionFilePath 'C:\Service Fabric\WordCountParameters.Local.xml' -Action DeployAndUpgrade -ApplicationName "fabric:/WordCount" -UpgradeParameters @{UpgradeReplicaSetCheckTimeoutSec="1"; Force=$true; UnmonitoredAuto=$true}
+  & "$ENV:ProgramFiles\Microsoft SDKs\Service Fabric\Tools\Scripts\Upgrade-FabricApplication.ps1" -ApplicationPackagePath 'C:\Service Fabric\WordCountV2\' -Action DeployAndUpgrade -ApplicationName "fabric:/WordCount" -UpgradeParameters @{UpgradeReplicaSetCheckTimeoutSec="1"; Force=$true; UnmonitoredAuto=$true}
   ```
 
   You should see output in PowerShell that looks something like this, including a success message at the end:
