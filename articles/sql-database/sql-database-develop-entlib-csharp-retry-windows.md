@@ -174,7 +174,7 @@ namespace EntLib60Retry
             {
                this.reliableSqlConnection = new Y.ReliableSqlConnection(
                   this.sqlConnectionSB.ToString(),
-                  null, null    // Letting RetryPolicy.ExecuteAction method handle retries.
+                  this.retryPolicy, null
                   );
                this.retryPolicy.ExecuteAction(this.OpenTheConnection_action);  // Open the connection.
 
