@@ -1,6 +1,6 @@
 <properties
-   pageTitle="REST-Based Application Lifecycle Sample | Microsoft Azure"
-   description="A Microsoft Azure Service Fabric sample that shows the Application Lifecycle by using the Service Fabric REST interface."
+   pageTitle="REST-Based application lifecycle sample | Microsoft Azure"
+   description="A Microsoft Azure Service Fabric sample that shows the application lifecycle by using the Service Fabric REST interface."
    services="service-fabric"
    documentationCenter=".net"
    authors="rwike77"
