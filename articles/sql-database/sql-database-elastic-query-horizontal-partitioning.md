@@ -23,7 +23,7 @@ The functionality is a part of the Azure SQL [Database Elastic Database feature 
  
 
 
-## 1 Creating database objects
+## Creating database objects
 
 Elastic database query extends the T-SQL syntax to refer to data tiers that use sharding (or horizontal partitioning) to distribute data across many databases. This section provides an overview of the DDL statements associated with elastic query over sharded tables. These statements create the metadata representation of your sharded data tier in the elastic query database. A prerequisite for running these statements is to create a shard map using the Elastic Database client library. For more information, see [Shard map management](sql-database-elastic-scale-shard-map-management.md); or use the sample in the following topic to create one: [Get started with elastic database tools](sql-database-elastic-scale-get-started.md).   
 
