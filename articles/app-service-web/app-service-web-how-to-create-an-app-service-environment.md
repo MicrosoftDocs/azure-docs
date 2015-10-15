@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="09/11/2015" 
+	ms.date="10/13/2015" 
 	ms.author="ccompy"/>
 
 # How to Create an App Service Environment #
@@ -39,12 +39,13 @@ Each ASE deployment is a Hosted Service that Azure manages and maintains.  The c
 There are two ways to access the ASE creation UI.  It can be found by searching in the Azure Marketplace for ***App Service Environment*** or by going through New -> Web + Mobile.  
 
 ### Quick create ###
-After entering the creation UI you can quickly create an ASE by simply entering a name for the deployment.  This will in turn create a VNET with 512 addresses, a subnet with 256 addresses in that VNET and an ASE environment with 2 Front Ends and 2 Workers in Worker Pool 1.  Be sure to select the location where you want the system to be located and the subscription that you want it to be in.  The only accounts that can use the ASE to host content must be in the subscription used to create it.
+After entering the creation UI you can quickly create an ASE by simply entering a name for the deployment.  This will in turn create a VNET with 512 addresses, a subnet with 256 addresses in that VNET and an ASE environment with 2 Front Ends and 2 Workers in Worker Pool 1.  Be sure to create a new *app service plan* or select an existing one and the subscription that you want it to be in.  The only accounts that can use the ASE to host content must be in the subscription used to create it.
 
 The name that is specified for the ASE will be used for the web apps created in the ASE.  If name of the ASE is appsvcenvdemo then the domain name would be .*appsvcenvdemo.p.azurewebsites.net*.  If you thus created a web app named mytestapp then it would be addressable at *mytestapp.appsvcenvdemo.p.azurewebsites.net*.  You cannot use white space in the name.  If you use upper case characters in the name, the domain name will be the total lowercase version of that name.  
 
 
 ![][1]
+![][4]
 
 ### Compute Resource Pools ###
 
@@ -138,6 +139,7 @@ For more information about the Azure App Service platform, see [Azure App Servic
 [1]: ./media/app-service-web-how-to-create-an-app-service-environment/createaseblade.png
 [2]: ./media/app-service-web-how-to-create-an-app-service-environment/createasenetwork.png
 [3]: ./media/app-service-web-how-to-create-an-app-service-environment/createasescale.png
+[4]: ./media/app-service-web-how-to-create-an-app-service-environment/createaseappserviceplan.png
 
 <!--Links-->
 [WhatisASE]: http://azure.microsoft.com/documentation/articles/app-service-app-service-environment-intro/
