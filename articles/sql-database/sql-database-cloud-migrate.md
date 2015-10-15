@@ -22,13 +22,13 @@ Azure SQL Database V12 brings near-complete engine compatibility with SQL Server
 
 By design, server-scoped features of SQL Server are not supported by Azure SQL Database V12. Databases and applications that rely on these features will need some re-engineering before they can be migrated.
 
->[AZURE.NOTE] To migrate other types of databases, including Microsoft Access, Sybase, MySQL Oracle, and DB2 to Azure SQL Database, see [SQL Server Migration Assistant](http://blogs.msdn.com/b/ssma/).
-
 The workflow for migrating a SQL Server database to Azure SQL Database are:
 
  1. [Determine if your database is compatible](#determine-if-your-database-is-compatible)
  2. [If not compatible, fix database compatibility issues](#fix-database-compatibility-issues)
  3. [Migrate a compatible database](#options-to-migrate-a-compatible-database-to-azure-sql-database)
+
+>[AZURE.NOTE] To migrate other types of databases, including Microsoft Access, Sybase, MySQL Oracle, and DB2 to Azure SQL Database, see [SQL Server Migration Assistant](http://blogs.msdn.com/b/ssma/).
 
 ## Determine if your database is compatible
 There are two primary methods to use to determine if your source database is compatible.
@@ -83,11 +83,24 @@ If database incompatibilities are detected, you will need to fix these incompati
 
 ## Options to migrate a compatible database to Azure SQL Database
 
+The following list discusses the options for migrating a compatible database to Azure SQL Database when you can afford to take some downtime while the migration is occurring and before you point your users and applications to the migrated database in Azure SQL Database. With these methods, you are migrating your database as it exists at a certain point in time. 
+
 - For small to medium databases, migrating a [compatible](#determine-if-your-database-is-compatible) SQL Server 2005 or later database is as simple as running the [Deploy Database to Microsoft Azure Database Wizard](#use-the-deploy-database-to-microsoft-azure-database-wizard) in SQL Server Management Studio. If you have connectivity challenges (no connectivity, low bandwidth, or timeout issues), you can [use a BACPAC to migrate](#use-a-bacpac-to-migrate-a-database-to-azure-sql-database) a SQL Server database to Azure SQL Database.
 - For medium to large databases or when you have connectivity challenges, [use a BACPAC to migrate](#use-a-bacpac-to-migrate-a-database-to-azure-sql-database) a SQL Server database to Azure SQL Database. With this method, you use SQL Server Management Studio to export the data and schema to a [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4) file (stored locally or in an Azure blob) and then import the BACPAC file into your Azure SQL instance. If you store the BACPAC in an Azure blob, you can also import the BACPAC file from within the [Azure portal](sql-database-import.md) or [using PowerShell](sql-database-import-powershell.md).
 - For larger databases, you will achieve the best performance by migrating the schema and the data separately. With this method, you script the schema using SQL Server Management Studio or create a database project in Visual Studio and then deploy the schema to Azure SQL Database. After the schema has been imported into Azure SQL Database, you then use [BCP](https://msdn.microsoft.com/library/ms162802.aspx) to extract the data into flat files and then import these files into Azure SQL Database.
 
  ![SSMS migration diagram](./media/sql-database-migrate-ssms/01SSMSDiagram.png)
+
+When you need to cannot afford to remove your your SQL Server database from production while the migration is occurring, you can use SQL Server transactional replication as your migration solution. With transactional replication, all changes to your data or schema that happen between the moment you start migrating and the moment you complete the migration will show up in your Azure SQL Database. Once the migration is complete, you just need to change the connection string of your applications to point them to your Azure SQL Database instead of pointing them to your on premise database. Once transactional replication drains any changes left on your on-premises database and all your applications point to Azure DB, you can now safely uninstall replication leaving your Azure SQL Database as the production system.
+
+Transactional replication is a technology built-in and integrated with SQL Server since SQL Server 6.5. It is a very mature and proven technology that most of DBAs know with which they have experience. It is now possible to configure your Azure SQL Database as a [transactional replication subscriber](https://msdn.microsoft.com/en-us/library/mt589530.aspx) to your on-premises publication. The experience that you get setting it up from Management Studio is exactly the same as if you set up a transactional replication subscriber on an on-premises server. Support for this scenario is supported with the following SQL Server versions:
+
+ - SQL14 SP1 CU3 and above
+ - SQL14 RTM CU10 and above
+ - SQL11 SP2 CU8 and above
+ - SQL11 SP3 when it will release
+
+You can also use transactional replication to migrate a subset of your on-premises database. The publication that you replicate to Azure SQL Database can be limited to a subset of the tables in the database being replicated. Additionially, for each table being replicated, you can limit the data to a subset of the rows and/or a subset of the columns. 
 
 ## Use Deploy Database to Microsoft Azure Database Wizard
 
