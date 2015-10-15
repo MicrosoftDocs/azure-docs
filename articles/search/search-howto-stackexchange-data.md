@@ -49,7 +49,7 @@ In this example we will search “azure” but return the facet counts for the t
 
         var searchAPI = "https://azs-playground.search.windows.net/indexes/stackexchange/docs?api-version=2015-02-28-Preview&search=title:visualise~&querytype=full&searchMode=all&$select=title";
 
--	`Scoring and Tuning`: I have talked a lot in the past about [Scoring Profiles](https://msdn.microsoft.com/library/azure/dn798928.aspx) for helping to tune the results that are returned.  But now, we can also use [Lucene Query Expressions](https://msdn.microsoft.com/library/mt589323.aspx) to apply scoring to individual fields and terms on the fly.  For example, if we wanted to search for the words “visualize” or “chart” in the title field, yet give more weighting to items that have the word “chart” in them, we could do this:
+-	`Scoring and Tuning`: [Scoring Profiles](https://msdn.microsoft.com/library/azure/dn798928.aspx) are extremely helpful in helping you tune the results that are returned by the search service.  In fact, now we can also use [Lucene Query Expressions](https://msdn.microsoft.com/library/mt589323.aspx) to apply scoring to individual fields and terms on the fly.  For example, if we wanted to search for the words “visualize” or “chart” in the title field, yet give more weighting to items that have the word “chart” in them, we could do this:
 
 
         var searchAPI = "https://azs-playground.search.windows.net/indexes/stackexchange/docs?api-version=2015-02-28-Preview&search=title:visualise OR title:chart^3 &querytype=full&searchMode=all&$select=title";
