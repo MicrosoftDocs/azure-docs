@@ -18,7 +18,7 @@
 
 #How to Search StackExchange Data using Azure Search
 
-This article is a walkthrough that highlights some of the core full-text search capabilities that can done with [Azure Search](https://azure.microsoft.com/en-us/services/search/).  It leverages data that Stack Exchange made [available](https://archive.org/details/stackexchange) for Creative Commons usage as with the following [attribution](http://blog.stackoverflow.com/2009/06/attribution-required/).
+This article is a walkthrough that highlights some of the core full-text search capabilities that can done with [Azure Search](https://azure.microsoft.com/en-us/services/search/).  It leverages data that Stack Exchange made [available](https://archive.org/details/stackexchange) for Creative Commons usage with the following [attribution](http://blog.stackoverflow.com/2009/06/attribution-required/).
 
 ##Getting Started
 
@@ -55,7 +55,7 @@ In this example we will search “azure” but return the facet counts for the t
         var searchAPI = "https://azs-playground.search.windows.net/indexes/stackexchange/docs?api-version=2015-02-28-Preview&search=title:visualise OR title:chart^3 &querytype=full&searchMode=all&$select=title";
 
   There are a lot of other fields in this dataset that can be used to boost relevant results for users.  For example, I can use:
-  
+
   -	**Magnitude** scoring over numeric fields like answerCount, commentCount, favoriteCount and viewCount to provide boosting of the search results if they happen to have high counts.
   -	**Freshness** scoring over datetime fields such as creationDate and lastActivityDate to boost items that were created or active more recently
   -	**Field weights** to indicate that if the search text is found in the body of the question, then this is more relevant than if it is found in the answer.
