@@ -3,7 +3,7 @@
 	description="How to manage concurrency for the Blob, Queue, Table, and File services" 
 	services="storage" 
 	documentationCenter="" 
-	authors="jahogg" 
+	authors="jasonnewyork" 
 	manager="tadb" 
 	editor=""/>
 
