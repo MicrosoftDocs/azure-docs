@@ -1,6 +1,6 @@
 <properties
 	pageTitle="How to Search StackExchange Data using Azure Search"
-	description="Learn how to customize settings and policies of Azure Search indexers."
+	description="Learn how to perform REST searches using Azure Search."
 	services="search"
 	documentationCenter=""
 	authors="liamca"
@@ -24,7 +24,9 @@ This article is a walkthrough that highlights some of the core full-text search 
 
 To highlight some of these capabilities, I have created an Azure Search index for you to play with that contains data from Programmer StackExchange as of Oct 14, 2015. NOTE: I will also show how to create your own Azure Search index with this data later on.  
 
-Let’s start with a really simple full text search query where the users might type the word “azure” to find any StackExchange posts relating to Azure.  Give this a try by clicking on this link to see it in action: [http://jsfiddle.net/62ozgtwL/](http://jsfiddle.net/62ozgtwL/)
+Let’s start with a really simple full text search query where the users might type the word “azure” to find any StackExchange posts relating to Azure.  Give this a try by clicking on this link to see it in action:
+
+    [http://jsfiddle.net/62ozgtwL/](http://jsfiddle.net/62ozgtwL/)
 
 In this example, we simply pass the word “azure” as a search parameter and display the JSON formatted results that come back.  Here are a few other examples of queries you could try.  For each of these, simply update the searchAPI parameter in the JavaScript section of the JSFiddle page with the following examples and choose “Run”:
 -	`Faceting`: Once the user searches the dataset, being able to filter the data is a great way to help them navigate the results.  To implement this, you will typically start with a set of categories (facets) that are displayed to the user.  Here are a few examples of facets we might want to leverage:
