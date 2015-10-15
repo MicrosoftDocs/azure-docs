@@ -37,6 +37,7 @@ In this example, we simply pass the word “azure” as a search parameter and d
 In this example we will search “azure” but return the facet counts for the tagsCollection and acceptedAnswerDisplayName usernames.
 
 
+
         var searchAPI = "https://azs-playground.search.windows.net/indexes/stackexchange/docs?api-version=2015-02-28&search=azure&facet=tagsCollection&facet=acceptedAnswerDisplayName";
 
 -	`Filtering`: After a user chooses a facet, you will then want to perform another search, but leverage a filter to limit the results to that facet value.  For example, to search “Azure” but limit the results to where there is a tag of “architecture” ordered by the viewCount in descending order:
