@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="09/29/2015"
+   ms.date="10/14/2015"
    ms.author="jgao"/>
 
 # Manage Azure Data Lake Analytics using Azure Preview portal
