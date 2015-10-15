@@ -1,14 +1,14 @@
 <properties
 	pageTitle="Create a Node.js web app in Azure App Service | Microsoft Azure"
 	description="Learn how to deploy a Node.js application to a web app in Azure App Service."
-	services="app-service\web"
+	services="app-service"
 	documentationCenter="nodejs"
 	authors="MikeWasson"
 	manager="wpickett"
 	editor=""/>
 
 <tags
-	ms.service="app-service-web"
+	ms.service="app-service"
 	ms.workload="web"
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
