@@ -105,7 +105,7 @@ Here, you will publish the application to a web app in Azure App Service. There 
 
 	![](./media/web-sites-dotnet-lob-application-azure-ad/6-enable-code-first-migrations.png)
 
-8. Expand **RoleClaimContext** and select **Execute Code First Migrations (runs on application start)**. [Code First Migrations](https://msdn.microsoft.com/en-us/data/jj591621.aspx) helps update your app's database schema in Azure when you define additional Code First data models later.
+8. Expand **RoleClaimContext** and select **Execute Code First Migrations (runs on application start)**. [Code First Migrations](https://msdn.microsoft.com/data/jj591621.aspx) helps update your app's database schema in Azure when you define additional Code First data models later.
 
 9. Instead of clicking **Publish** to go through with the web publish, click **Close**. Click **Yes** to save the changes to the publishing profile.
 
@@ -345,7 +345,7 @@ In this part of the tutorial, you will learn how to build out the desired line-o
 
 	In the script, the AadPicker object calls [Azure Active Directory Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog) to search for users and groups that match the input.  
 
-15. Open the [Package Manger Console](http://docs.nuget.org/Consume/Package-Manager-Console) and run **Enable-Migrations –EnableAutomaticMigrations**. Similar to the option you selected when you published the app to Azure, this command helps update your app's database schema in [LocalDB](https://msdn.microsoft.com/en-us/library/hh510202.aspx) when you debug it in Visual Studio.
+15. Open the [Package Manger Console](http://docs.nuget.org/Consume/Package-Manager-Console) and run **Enable-Migrations –EnableAutomaticMigrations**. Similar to the option you selected when you published the app to Azure, this command helps update your app's database schema in [LocalDB](https://msdn.microsoft.com/library/hh510202.aspx) when you debug it in Visual Studio.
 
 15. Now, either run the app in the Visual Studio debugger or publish again to App Service Web Apps. Log in as the application owner and navigate to `https://<webappname>.azurewebsites.net/WorkItems/Create`. You'll see now that you can pick an Azure Active Directory user or group from the drop down list, or type in something to filter the list.
 
