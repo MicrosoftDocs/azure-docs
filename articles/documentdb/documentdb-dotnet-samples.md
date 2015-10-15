@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/05/2015" 
+	ms.date="10/14/2015" 
 	ms.author="mimig"/>
 
 
@@ -95,9 +95,11 @@ The partitioning sample file, [azure-documentdb-net/samples/code-samples/Partiti
 
 Task | Method
 --- | ---
-A | ..
-B | ..
-C | ..
+Use a HashPartitionResolver | [HashPartitionResolver](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.partitioning.hashpartitionresolver.aspx)
+Use a RangePartitionResolver | [Range](https://msdn.microsoft.com/library/azure/mt126048.aspx) used with a [RangePartitionResolver](https://msdn.microsoft.com/library/azure/mt126047.aspx)
+Use a lookup partition resolver | [Range](https://msdn.microsoft.com/library/azure/mt126048.aspx) that's a discrete value used with a [RangePartitionResolver](https://msdn.microsoft.com/library/azure/mt126047.aspx)
+Use a custom hash partition resolver that automates creating collections | ..
+Using a custom "spillover" partition resolver | ..
 
 ## Geospatial samples
 
