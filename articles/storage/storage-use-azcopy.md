@@ -741,11 +741,11 @@ Note that if you specify a relative path following option `/V`, such as `/V:test
 
 Specify the `/MT` option to compare the last-modified time of the source blob and the destination file.
 
-**Exclude blobs whose last modified time is same or newer than the destination file**
+**Exclude blobs whose last modified time is the same or newer than the destination file**
 
 	AzCopy /Source:https://myaccount.blob.core.windows.net/mycontainer /Dest:C:\myfolder /SourceKey:key /MT /XN
 
-**Exclude blobs whose last modified time is same or older than the destination file**
+**Exclude blobs whose last modified time is the same or older than the destination file**
 
 	AzCopy /Source:https://myaccount.blob.core.windows.net/mycontainer /Dest:C:\myfolder /SourceKey:key /MT /XO
 
