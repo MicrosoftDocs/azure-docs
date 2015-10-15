@@ -114,7 +114,7 @@ In addition to the Azure Management Portal, firewall rules can be managed progra
 
 Consider the following points when access to the Microsoft Azure SQL Database service does not behave as you expect:
 
-- **Local firewall configuration:** Before your computer can access Azure SQL Database, you may need to create a firewall exception on your computer for TCP port 1433. 
+- **Local firewall configuration:** Before your computer can access Azure SQL Database, you may need to create a firewall exception on your computer for TCP port 1433. You may have to open additional ports if you are making connections inside the Azure cloud boundary. For more information, see the **V12 of SQL Database: Outside vs inside** section of [Ports beyond 1433 for ADO.NET 4.5 and SQL Database V12](sql-database-develop-direct-route-ports-adonet-v12.md).
 
 - **Network address translation (NAT):** Due to NAT, the IP address used by your computer to connect to Azure SQL Database may be different then the IP address shown in your computer IP configuration settings. To view the IP address your computer is using to connect to Azure, log in to the Management Portal and navigate to the **Configure** tab on the server that hosts your database. Under the **Allowed IP Addresses** section, the **Current Client IP Address** is displayed. Click **Add** to the **Allowed IP Addresses **to allow this computer to access the server.
 

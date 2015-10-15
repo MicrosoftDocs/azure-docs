@@ -1,19 +1,19 @@
 <properties 
 	pageTitle="Move data to and from DocumentDB | Azure Data Factory" 
 	description="Learn how move data to/from Azure DocumentDB collection using Azure Data Factory" 
-	services="data-factory" 
+	services="data-factory, documentdb" 
 	documentationCenter="" 
 	authors="spelluru" 
 	manager="jhubbard" 
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory" 
+	ms.service="multiple" 
 	ms.workload="data-services" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/26/2015" 
+	ms.date="10/14/2015" 
 	ms.author="spelluru"/>
 
 # Move data to and from DocumentDB using Azure Data Factory
@@ -401,4 +401,27 @@ the following properties are available in **typeProperties** section:
 | writeBatchSize | Number of parallel requests to DocumentDB service to create documents.<p>You can fine tune the performance when copying data to/from DocumentDB by using this property. You can expect a better performance when you increase writeBatchSize because more parallel requests to DocumentDB are sent. However you’ll need to avoid throttling that can throw the error message: "Request rate is large".</p><p>Throttling is decided by a number of factors, including size of documents, number of terms in documents, indexing policy of target collection, etc. For copy operations, you can use a better collection (e.g. S3) to have the most throughput available (2,500 request units/second).</p> | Integer Value | No |
 | writeBatchTimeout | Wait time for the operation to complete before it times out. | (Unit = timespan) Example: “00:30:00” (30 minutes). | No |
  
+## Appendix
+1. **Question:** 
+	Does the Copy Activity support update of existing records?
+
+	**Answer:** 
+	No.
+
+2. **Question:** 
+	How does a retry of a copy to DocumentDB deal with already copied records?
+
+	**Answer:** 
+	If records have an "ID" field and the copy operation tries to insert a record with the same ID, the copy operation throws an error.  
  
+3. **Question:**
+	Does Data Factory support [range or hash-based data partitioning](https://azure.microsoft.com/documentation/articles/documentdb-partition-data/)? 
+
+	**Answer:**
+	No. 
+4. **Question:**
+	Can I specifi more than one DocumentDB collection for a table?
+	
+	**Answer:**
+	No. Only one collection can be specified at this time.
+     

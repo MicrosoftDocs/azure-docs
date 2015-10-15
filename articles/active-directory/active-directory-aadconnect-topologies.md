@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="09/08/2015"
+   ms.date="10/13/2015"
    ms.author="andkjell"/>
 
 # Topologies for Azure AD Connect
@@ -122,7 +122,7 @@ Some Office 365 workloads have certain restrictions to supported topologies. If 
 ## Staging server
 ![StagingServer](./media/active-directory-aadconnect-topologies/MultiForestStaging.png)
 
-Azure AD Connect supports installing a second server in “Staging mode”. A server in this mode will only read data from all connected directories and will therefore have an updated copy of the identity data. In case of a disaster where the primary server fails, it is easy to manually fail over to the second server using the Azure AD Connect wizard. This second server can preferable be located in a different datacenter since no infrastructure is shared with the primary server. Any configuration change made on the primary server must be copied to the second server by you.
+Azure AD Connect supports installing a second server in “Staging mode”. A server in this mode will only read data from all connected directories and will therefore have an updated copy of the identity data. In case of a disaster where the primary server fails, it is easy to manually fail over to the second server using the Azure AD Connect wizard. This second server can preferably be located in a different datacenter since no infrastructure is shared with the primary server. Any configuration change made on the primary server must be copied to the second server by you.
 
 A staging server can also be used if you want to test a new custom configuration and the effect it will have on your data. You can preview the changes and adjust the configuration. When you are happy with the new configuration you can make the staging server the active server and set the old active server in staging mode.
 
@@ -170,6 +170,10 @@ Azure AD directories are by design isolated. It is unsupported to change the con
 
 It is supported to use FIM2010/MIM2016 on-premises to GALsync users between two Exchange orgs. The users in one org will show up as foreign users/contacts in the other org. These different on-premises ADs can then be synchronized to their own Azure AD directories.
 
+
 ## Next steps
 To learn how to install Azure AD Connect for these scenarios, see [Custom installation of Azure AD Connect](active-directory-aadconnect-get-started-custom.md).
-To learn more on the configuration for Azure AD Connect sync, see [Azure AD Connect sync](active-directory-aadconnectsync-whatis.md).
+
+Learn more about the [Azure AD Connect sync](active-directory-aadconnectsync-whatis.md) configuration.
+
+Learn more about [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md).

@@ -1,19 +1,19 @@
 <properties 
-   pageTitle="Starting and stopping virtual machines - Graph | Microsoft Azure"
-   description="PowerShell Workflow version of Azure Automation solution including runbooks to start and stop classic virtual machines."
-   services="automation"
-   documentationCenter=""
-   authors="bwren"
-   manager="stevenka"
-   editor="tysonn" />
+	pageTitle="Starting and stopping virtual machines - Graph | Microsoft Azure"
+	description="PowerShell Workflow version of Azure Automation solution including runbooks to start and stop classic virtual machines."
+	services="automation"
+	documentationCenter=""
+	authors="bwren"
+	manager="stevenka"
+	editor="tysonn" />
 <tags 
-   ms.service="automation"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="09/17/2015"
-   ms.author="bwren" />
+	ms.service="automation"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="09/25/2015"
+	ms.author="bwren" />
 
 # Azure Automation solution - starting and stopping virtual machines
 
@@ -54,7 +54,7 @@ The runbooks include an activity called **Read Me** that includes a description 
 The runbooks require the following assets that you must create and populate with appropriate values.  The names are default.  You can use assets with different names if you specify those names in the [input parameters](#using-the-solution) when you start the runbook.
 
 | Asset Type | Default Name | Description |
-|:---|:---|:---|
+|:---|:---|:---|:---|
 | [Credential](automation-credentials.md) | AzureCredential | Contains credentials for an account that has authority to start and stop virtual machines in the Azure subscription.  |
 | [Variable](automation-variables.md) | AzureSubscriptionId | Contains the subscription ID of your Azure subscription. |
 
@@ -65,7 +65,7 @@ The runbooks require the following assets that you must create and populate with
 The runbooks each have the following [input parameters](automation-starting-a-runbook#runbook-parameters).  You must provide values for any mandatory parameters and can optionally provide values for other parameters depending on your requirements.
 
 | Parameter | Type | Mandatory | Description |
-|:---|:---|:---|
+|:---|:---|:---|:---|
 | ServiceName | string | No | If a value is provided, then all virtual machines with that service name are started or stopped.  If no value is provided, then all classic virtual machines in the Azure subscription are started or stopped. |
 | AzureSubscriptionIdAssetName | string | No | Contains the name of the [variable asset](#installing-the-solution) that contains the subscription ID of your Azure subscription.  If you don't specify a value, *AzureSubscriptionId* is used.  |
 | AzureCredentialAssetName | string | No | Contains the name of the [credential asset](#installing-the-solution) that contains the credentials for the runbook to use.  If you don't specify a value, *AzureCredential* is used.  |

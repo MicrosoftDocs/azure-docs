@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Monitor Web Apps in Azure App Service"
 	description="Learn how to monitor Web Apps in Azure App Service by using the Management Portal."
-	services="app-service\web"
+	services="app-service"
 	documentationCenter=""
 	authors="cephalin"
 	manager="wpickett"
@@ -9,18 +9,26 @@
 
 <tags
 	ms.service="app-service"
-	ms.workload="web"
+	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/16/2015"
-	ms.author="cephalin"/>
+	ms.date="10/14/2015"
+	ms.author="byvinyal"/>
 
 #<a name="howtomonitor"></a>Monitor Web Apps in Azure App Service
 
 [App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714) provide monitoring functionality for Standard and Premium App Service plans via the Monitor management page. The Monitor management page provides performance statistics for a web app as described below.
 
 [AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
+
+##Metrics Retention Policy
+
+>[AZURE.NOTE] The retention policy for app metrics varies by granularity.
+
+- **Minute** granularity metrics are retained for **24 hours**
+- **Hour** granultarity metris are retained for **7 days**
+- **Day** granularity metrics are ratianed for **30 days**
 
 ##<a name="websitemetrics"></a>How to: Add web app metrics
 
@@ -35,6 +43,8 @@
 5. After adding metrics to the **Monitor** page, click to enable / disable the round checkbox next to each metric to add / remove the metric from the chart at the top of the page.
 
 6. To remove metrics from the **Monitor** page, select the metric that you want to remove and then click the **Delete Metric** icon at the bottom of the page.
+
+
 
 ##<a name="howtoreceivealerts"></a>How to: Receive alerts from web app metrics
 

@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Azure Active Directory Code Samples"
+   pageTitle="Azure Active Directory Code Samples | Microsoft Azure"
    description="An index of Azure Active Directory code samples, organized by scenario."
    services="active-directory"
    documentationCenter="dev-center-name"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="07/30/2015"
+   ms.date="09/17/2015"
    ms.author="mbaldwin"/>
 
 # Azure Active Directory Code Samples

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/04/2015"
+	ms.date="10/01/2015"
 	ms.author="jimpark"; "aashishr"; "sammehta"; "anuragm"/>
 
 
@@ -37,16 +37,35 @@ Sample DPM scripts: Get-DPMSampleScript
 ```
 
 ## Setup and Registration
+To begin:
+
+1. [Download latest PowerShell](https://github.com/Azure/azure-powershell/releases) (minimum version required is : 1.0.0)
+2. Enable the Azure Backup commandlets by switching to *AzureResourceManager* mode by using the **Switch-AzureMode** commandlet:
+
+```
+PS C:\> Switch-AzureMode AzureResourceManager
+```
+
+The following setup and registration tasks can be automated with PowerShell:
+
+- Create a backup vault
+- Installing the Azure Backup agent
+- Registering with the Azure Backup service
+- Networking settings
+- Encryption settings
 
 ### Create a backup vault
-You can create a new backup vault using the **New-AzureBackupVault** commandlet. The backup vault is an ARM resource, so you need to place it within a Resource Group. In an elevated Azure PowerShell console, run the following commands:
+
+> [AZURE.WARNING] For customers using Azure Backup for the first time, you need to register the Azure Backup provider to be used with your subscription. This can be done by running the following command: Register-AzureProvider -ProviderNamespace "Microsoft.Backup"
+
+You can create a new backup vault using the **New-AzureRMBackupVault** commandlet. The backup vault is an ARM resource, so you need to place it within a Resource Group. In an elevated Azure PowerShell console, run the following commands:
 
 ```
-PS C:\> New-AzureResourceGroup –Name “test-rg” –Region “West US”
-PS C:\> $backupvault = New-AzureBackupVault –ResourceGroupName “test-rg” –Name “test-vault” –Region “West US” –Storage GRS
+PS C:\> New-AzureResourceGroup –Name “test-rg” -Region “West US”
+PS C:\> $backupvault = New-AzureRMBackupVault –ResourceGroupName “test-rg” –Name “test-vault” –Region “West US” –Storage GRS
 ```
 
-You can get a list of all the backup vaults in a given subscription using the **Get-AzureBackupVault** commandlet.
+You can get a list of all the backup vaults in a given subscription using the **Get-AzureRMBackupVault** commandlet.
 
 
 ### Installing the Azure Backup agent on a DPM Server
@@ -96,7 +115,7 @@ To download the vault credentials, run the **Get-AzureBackupVaultCredentials** c
 
 ```
 PS C:\> $credspath = "C:\"
-PS C:\> $credsfilename = Get-AzureBackupVaultCredentials -Vault $backupvault -TargetLocation $credspath
+PS C:\> $credsfilename = Get-AzureRMBackupVaultCredentials -Vault $backupvault -TargetLocation $credspath
 PS C:\> $credsfilename
 f5303a0b-fae4-4cdb-b44d-0e4c032dde26_backuprg_backuprn_2015-08-11--06-22-35.VaultCredentials
 ```
@@ -312,4 +331,4 @@ PS C:\> Restore-DPMRecoverableItem -RecoverableItem $RecoveryPoints[0] -Recovery
 The commands can easily be extended for any datasource type.
 
 ## Next steps
-For more information about Azure Backup for DPM see [Introduction to Azure DPM Backup](backup-azure-dpm-introduction.md)
+For more information about Azure Backup for DPM see [Introduction to DPM Backup](backup-azure-dpm-introduction.md)

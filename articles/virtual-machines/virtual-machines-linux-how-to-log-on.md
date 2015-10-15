@@ -1,11 +1,12 @@
 <properties
-	pageTitle="Log on to a virtual machine running Linux in Azure"
+	pageTitle="Log on to a Linux VM in Azure | Microsoft Azure"
 	description="Learn how to log on to an Azure virtual machine running Linux by using a Secure Shell (SSH) client."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="squillace"
 	manager="timlt"
-	editor=""/>
+	editor=""
+	tags="azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -20,6 +21,8 @@
 
 
 #How to Log on to a Virtual Machine Running Linux #
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager deployment model](virtual-machines-linux-tutorial-portal-rm.md).
 
 For a virtual machine running a Linux operating system, you use a Secure Shell (SSH) client to log on.
 

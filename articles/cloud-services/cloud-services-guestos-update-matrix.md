@@ -99,7 +99,6 @@ Microsoft supports at least two recent versions of each supported Guest OS famil
 
 > [AZURE.WARNING] The retirement of Guest OS family 1 began June 1, 2013 and is scheduled to complete soon. Do not create new installations and upgrade older ones using this Guest OS family. For more information see [Azure Guest OS Family 1 Retirement Information][fam1retire]
 
-The Guest OS includes configuration different from the defaults of Windows Server. For more information see [Differences between Azure Guest OS and Default Windows Server][server and gos].
 
 ### Guest OS Family, Version, and Release Explanation
 The Guest OS families are based on released versions of Microsoft Windows Server. The Guest OS is the underlying operating system that Azure Cloud Services run on. Each Guest OS has a family, version and release number. 
@@ -133,12 +132,12 @@ Supports .NET 4.0, 4.5, 4.5.1, 4.5.2 (Note 2)
 | 4.21             | WA-GUEST-OS-4.21_201506-01 | July 9 2015            | Oct 9 2015   | TBD |
 | 4.20             | WA-GUEST-OS-4.20_201505-02 | June 12 2015           | Sep 7 2015   | TBD |
 | 4.19             | WA-GUEST-OS-4.19_201504-01 | April 17 2015          | Aug 9 2015   | TBD |
-| 4.18             | WA-GUEST-OS-4.18_201503-01 | April 2 2015           | July 12 2015 | TBD |
-| 4.17             | WA-GUEST-OS-4.17_201502-01 | Mar 9 2015             | May 17 2015  | TBD |
-| 4.16             | WA-GUEST-OS-4.16_201501-01 | Jan 29 2015            | May 2 2015   | TBD |
-| 4.15             | WA-GUEST-OS-4.15_201412-01 | Jan 14 2015            | Apr 9 2015   | TBD |
-| 4.14             | WA-GUEST-OS-4.14_201411-01 | Nov 11 2014            | Feb 28 2015  | TBD |
-| 4.13             | WA-GUEST-OS-4.13_201410-01 | Nov 3 2014             | Feb 14 2015  | TBD |
+| 4.18             | WA-GUEST-OS-4.18_201503-01 | April 2 2015           | July 12 2015 | October 14 2015 |
+| 4.17             | WA-GUEST-OS-4.17_201502-01 | Mar 9 2015             | May 17 2015  | October 14 2015 |
+| 4.16             | WA-GUEST-OS-4.16_201501-01 | Jan 29 2015            | May 2 2015   | October 14 2015 |
+| 4.15             | WA-GUEST-OS-4.15_201412-01 | Jan 14 2015            | Apr 9 2015   | October 14 2015 |
+| 4.14             | WA-GUEST-OS-4.14_201411-01 | Nov 11 2014            | Feb 28 2015  | October 14 2015 |
+| 4.13             | WA-GUEST-OS-4.13_201410-01 | Nov 3 2014             | Feb 14 2015  | October 14 2015 |
 | 4.12 (Note 1)    | WA-GUEST-OS-4.12_201409-02 | Oct 6 2014             | Oct 12 2014  | March 23 2015 |
 | 4.11 (Note 1)    | WA-GUEST-OS-4.11_201408-02 | Aug 25 2014            | Sept 11 2014 | March 23 2015 |
 | 4.10             | WA-GUEST-OS-4.10_201407-01 | July 18 2014           | Dec 1 2014   | March 23 2015 |
@@ -159,12 +158,12 @@ Supports .NET 4.0, 4.5
 | 3.28             | WA-GUEST-OS-3.28_201506-01 | July 9 2015            | Oct 9 2015   | TBD |
 | 3.27             | WA-GUEST-OS-3.27_201505-02 | June 12 2015           | Sep 7 2015   | TBD |
 | 3.26             | WA-GUEST-OS-3.26_201504-01 | April 17 2015          | Aug 9 2015   | TBD |
-| 3.25             | WA-GUEST-OS-3.25_201503-01 | April 2 2015           | July 12 2015 | TBD |
-| 3.24             | WA-GUEST-OS-3.24_201502-01 | Mar 9 2015             | May 17 2015  | TBD |
-| 3.23             | WA-GUEST-OS-3.23_201501-01 | Jan 29 2015            | May 2 2015   | TBD |
-| 3.22             | WA-GUEST-OS-3.22_201412-01 | Jan 14 2015            | Apr 9 2015   | TBD |
-| 3.21             | WA-GUEST-OS-3.21_201411-01 | Nov 11 2014            | Feb 28 2015  | TBD |
-| 3.20             | WA-GUEST-OS-3.20_201410-01 | Nov 3 2014             | Feb 14 2015  | TBD |
+| 3.25             | WA-GUEST-OS-3.25_201503-01 | April 2 2015           | July 12 2015 | October 14 2015 |
+| 3.24             | WA-GUEST-OS-3.24_201502-01 | Mar 9 2015             | May 17 2015  | October 14 2015 |
+| 3.23             | WA-GUEST-OS-3.23_201501-01 | Jan 29 2015            | May 2 2015   | October 14 2015 |
+| 3.22             | WA-GUEST-OS-3.22_201412-01 | Jan 14 2015            | Apr 9 2015   | October 14 2015 |
+| 3.21             | WA-GUEST-OS-3.21_201411-01 | Nov 11 2014            | Feb 28 2015  | October 14 2015 |
+| 3.20             | WA-GUEST-OS-3.20_201410-01 | Nov 3 2014             | Feb 14 2015  | October 14 2015 |
 | 3.19 (Note 1)    | WA-GUEST-OS-3.19_201409-02 | Oct 6 2014             | Oct 12 2014  | March 23 2015 |
 | 3.18 (Note 1)    | WA-GUEST-OS-3.18_201408-02 | Aug 25 2014            | Sept 11 2014 | March 23 2015 |
 | 3.17             | WA-GUEST-OS-3.17_201407-01 | July 18 2014           | Dec 1 2014   | March 23 2015 |
@@ -186,12 +185,12 @@ Supports .NET 3.5, 4.0
 | 2.40             | WA-GUEST-OS-2.40_201506-01 | July 9 2015            | Oct 9 2015   | TBD |
 | 2.39             | WA-GUEST-OS-2.39_201505-02 | June 12 2015           | Sep 7 2015   | TBD |
 | 2.38             | WA-GUEST-OS-2.38_201504-01 | April 17 2015          | Aug 9 2015   | TBD |
-| 2.37             | WA-GUEST-OS-2.37_201503-01 | April 2 2015           | July 12 2015 | TBD |
-| 2.36             | WA-GUEST-OS-2.36_201502-01 | Mar 9 2015             | May 17 2015  | TBD |
-| 2.35             | WA-GUEST-OS-2.35_201501-01 | Jan 29 2015            | May 2 2015   | TBD |
-| 2.34             | WA-GUEST-OS-2.34_201412-01 | Jan 14 2015            | Apr 9 2015   | TBD |
-| 2.33             | WA-GUEST-OS-2.33_201411-01 | Nov 11 2014            | Feb 28 2015  | TBD |
-| 2.32             | WA-GUEST-OS-2.32_201410-01 | Nov 3 2014             | Feb 14 2015  | TBD |
+| 2.37             | WA-GUEST-OS-2.37_201503-01 | April 2 2015           | July 12 2015 | October 14 2015 |
+| 2.36             | WA-GUEST-OS-2.36_201502-01 | Mar 9 2015             | May 17 2015  | October 14 2015 |
+| 2.35             | WA-GUEST-OS-2.35_201501-01 | Jan 29 2015            | May 2 2015   | October 14 2015 |
+| 2.34             | WA-GUEST-OS-2.34_201412-01 | Jan 14 2015            | Apr 9 2015   | October 14 2015 |
+| 2.33             | WA-GUEST-OS-2.33_201411-01 | Nov 11 2014            | Feb 28 2015  | October 14 2015 |
+| 2.32             | WA-GUEST-OS-2.32_201410-01 | Nov 3 2014             | Feb 14 2015  | October 14 2015 |
 | 2.31 (Note 1)    | WA-GUEST-OS-2.31_201409-02 | Oct 6 2014             | Oct 12 2014  | March 23 2015 |
 | 2.30 (Note 1)    | WA-GUEST-OS-2.30_201408-02 | Aug 25 2014            | Sept 11 2014 | March 23 2015 |
 | 2.29             | WA-GUEST-OS-2.29_201407-01 | July 18 2014           | Dec 1 2014   | March 23 2015 |
@@ -232,7 +231,7 @@ This page includes information on upcoming Guest OS Releases. Customers have ind
 
 Microsoft Azure is constantly releasing updates. The Guest OS is only one such update in the pipeline. A release can be affected by a number of factors too numerous to list here. In addition, Azure runs on literally hundreds of thousands of machines. This means that it's impossible to give an exact date and time when your role(s) will reboot. We will update the [Guest OS Update RSS Feed][rss] with the latest information we have, but consider that time an approximate window. We are aware that this is problematic for customers and working on a plan to limit or time reboots. 
 
-When a new release of the Guest OS is published, it can take time to fully propagate across Azure. As services are updated to the new Guest OS, they are rebooted honoring update domains. Services set to use "Automatic" updates will get a release first. After the update, you’ll see the new Guest OS version listed for your service in the Azure Management Portal. Rereleases may occur during this period. Some versions may be deployed over longer periods of time and automatic upgrade reboots may not occur for many weeks after the official release date. Once a Guest OS is available, you can then explicitly choose that version from the portal or in your configuration file. For more information, see [Update the Azure Guest OS from the Management Portal][update guest os portal] and [Update the Azure Guest OS by Modifying the Service Configuration File][update guest os svc].
+When a new release of the Guest OS is published, it can take time to fully propagate across Azure. As services are updated to the new Guest OS, they are rebooted honoring update domains. Services set to use "Automatic" updates will get a release first. After the update, you’ll see the new Guest OS version listed for your service in the Azure Management Portal. Rereleases may occur during this period. Some versions may be deployed over longer periods of time and automatic upgrade reboots may not occur for many weeks after the official release date. Once a Guest OS is available, you can then explicitly choose that version from the portal or in your configuration file. 
 
 For a great deal of valuable information on restarts and pointers to more information technical details of Guest and Host OS updates, see the MSDN blog post titled [Role Instance Restarts Due to OS Upgrades][restarts].
 
@@ -324,7 +323,7 @@ Because of the partial rollout of the last two releases, people on auto update o
 | 2.19 rel1 | WA-GUEST-OS-2.19_201309-01 | Sept 23 2013 | N/A | May 14 2014 |
 
 
-[Azure Guest OS Update Settings]: https://msdn.microsoft.com/library/azure/ff729420.aspx
+[Azure Guest OS Update Settings]: cloud-services-how-to-configure.md
 [rss]: http://sxp.microsoft.com/feeds/3.0/msdntn/WindowsAzureOSUpdates
 [ssl3 announcement]: http://azure.microsoft.com/blog/2014/12/09/azure-security-ssl-3-0-update/
 [Microsoft Security Advisory 3009008]: https://technet.microsoft.com/library/security/3009008.aspx

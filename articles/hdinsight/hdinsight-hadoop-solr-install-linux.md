@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Use Script Action to install Solr on Hadoop cluster | Microsoft Azure"
-	description="Learn how to customize HDInsight cluster with Solr. You'll use a Script Action configuration option to use a script to install Solr."
+	pageTitle="Use Script Action to install Solr on Linux-based HDInsight | Microsoft Azure"
+	description="Learn how to install Solr on Linux-based HDInsight Hadoop clusters using Script Actions."
 	services="hdinsight"
 	documentationCenter=""
 	authors="Blackmist"
@@ -14,11 +14,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/20/2015"
+	ms.date="10/09/2015"
 	ms.author="larryfr"/>
 
 # Install and use Solr on HDInsight Hadoop clusters
-
 
 In this topic, you will learn how to install Solr on Azure HDInsight by using Script Action. Solr is a powerful search platform and provides enterprise-level search capabilities on data managed by Hadoop. Once you have installed Solr on HDInsight cluster, you'll also learn how to search data by using Solr.
 
@@ -58,11 +57,11 @@ A sample script to install Solr on an HDInsight cluster is available from a read
 
 3. At the bottom of the **Script Actions**, use the **Select** button to save the configuration. Finally, use the **Select** button at the bottom of the **Optional Configuration** blade to save the optional configuration information.
 
-4. Continue provisining the cluster as described in [Provision Linux-based HDInsight clusters](hdinsight-provision-linux-clusters.md#portal).
+4. Continue provisioning the cluster as described in [Provision Linux-based HDInsight clusters](hdinsight-provision-linux-clusters.md#portal).
 
 ## <a name="usesolr"></a>How do I use Solr in HDInsight?
 
-###Indexing data
+### Indexing data
 
 You must start with indexing Solr with some data files. You can then use Solr to run search queries on the indexed data. Use the following steps to add some example data to Solr, and then query it:
 
@@ -153,9 +152,9 @@ You must start with indexing Solr with some data files. You can then use Solr to
 			    ]
 			  }
 
-###Using the Solr dashboard
+### Using the Solr dashboard
 
-The Solr dashbaord is a web UI that allows you to work with Solr through your web browser. The Solr dashboard is not exposed directly on the Internet from your HDInsight cluster, but must be accessed using an SSH tunnel. For more information on using an SSH tunnel, see [Use SSH Tunneling to access Ambari web UI, ResourceManager, JobHistory, NameNode, Oozie, and other web UI's](hdinsight-linux-ambari-ssh-tunnel.md)
+The Solr dashboard is a web UI that allows you to work with Solr through your web browser. The Solr dashboard is not exposed directly on the Internet from your HDInsight cluster, but must be accessed using an SSH tunnel. For more information on using an SSH tunnel, see [Use SSH Tunneling to access Ambari web UI, ResourceManager, JobHistory, NameNode, Oozie, and other web UI's](hdinsight-linux-ambari-ssh-tunnel.md)
 
 Once you have established an SSH tunnel, use the following steps to use the Solr dashboard:
 
@@ -229,7 +228,7 @@ Once you have established an SSH tunnel, use the following steps to use the Solr
 			    ]
 			  }
 
-###Starting and stopping Solr
+### Starting and stopping Solr
 
 If you need to manually stop or start Solar, use the following commands:
 
@@ -237,8 +236,7 @@ If you need to manually stop or start Solar, use the following commands:
 
 	sudo start solr
 
-
-##Backup indexed data
+## Backup indexed data
 
 As a good practice, you should back up the indexed data from the Solr cluster nodes onto Azure Blob storage. Perform the following steps to do so:
 
@@ -276,7 +274,7 @@ As a good practice, you should back up the indexed data from the Solr cluster no
 For more information on working with Solr backup and restores, see [Making and restoring backups of SolrCores](https://cwiki.apache.org/confluence/display/solr/Making+and+Restoring+Backups+of+SolrCores).
 
 
-## See also##
+## See also
 
 - [Install and use Hue on HDInsight clusters](hdinsight-hadoop-hue-linux.md). Hue is a web UI that makes it easy to create, run and save Pig and Hive jobs, as well as browse the default storage for your HDInsight cluster.
 
@@ -287,8 +285,6 @@ For more information on working with Solr backup and restores, see [Making and r
 - [Install Giraph on HDInsight clusters](hdinsight-hadoop-giraph-install-linux.md). Use cluster customization to install Giraph on HDInsight Hadoop clusters. Giraph allows you to perform graph processing by using Hadoop, and can be used with Azure HDInsight.
 
 - [Install Hue on HDInsight clusters](hdinsight-hadoop-hue-linux.md). Use cluster customization to install Hue on HDInsight Hadoop clusters. Hue is a set of Web applications used to interact with a Hadoop cluster.
-
-
 
 
 

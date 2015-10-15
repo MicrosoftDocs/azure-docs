@@ -1,21 +1,26 @@
-<properties 
- pageTitle="Manage virtual machine extensions | Microsoft Azure" 
- description="Describes how to add, find, update, and remove extensions." 
- services="virtual-machines" 
- documentationCenter="" 
- authors="squillace" 
- manager="timlt" 
- editor=""/>
-<tags 
- ms.service="virtual-machines" 
- ms.devlang="na" 
- ms.topic="article" 
- ms.tgt_pltfrm="vm-multiple" 
+<properties
+ pageTitle="Manage virtual machine extensions | Microsoft Azure"
+ description="Describes how to add, find, update, and remove extensions for Azure virtual machines, in the classic deployment model."
+ services="virtual-machines"
+ documentationCenter=""
+ authors="squillace"
+ manager="timlt"
+ editor=""
+ tags="azure-service-management"/>
+<tags
+ ms.service="virtual-machines"
+ ms.devlang="na"
+ ms.topic="article"
+ ms.tgt_pltfrm="vm-multiple"
  ms.workload="infrastructure-services"
- ms.date="08/25/2015" 
+ ms.date="08/25/2015"
  ms.author="rasquill"/>
 #Manage virtual machine extensions
+
 Describes how to find, add, modify, or remove VM Extensions with either Windows or Linux Virtual Machines on Azure.
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Resource Manager mode
+
 
 ##Using VM Extensions
 
@@ -26,7 +31,7 @@ Azure VM Extensions implement behaviors or features that either help other progr
 The most common tasks are:
 
 1.  Finding Available Extensions
-    
+
 2.  Updating Loaded Extensions
 
 3.  Adding Extensions
@@ -55,7 +60,7 @@ You can use the following cmdlets to obtain information about available extensio
 
      For example, the following code example shows how to list the
     information for the **IaaSDiagnostics** extension using PowerShell.
-    
+
         PS C:\PowerShell> Get-AzureVMAvailableExtension -ExtensionName IaaSDiagnostics
         VERBOSE: 5:09:01 PM - Begin Operation: Get-AzureVMAvailableExtension
         VERBOSE: 5:09:06 PM - Completed Operation: Get-AzureVMAvailableExtension

@@ -12,16 +12,18 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/12/2015" 
+	ms.date="10/13/2015" 
 	ms.author="awills"/>
  
 # What is Application Insights?
 
-Application Insights is an extensible analytics service that helps you understand the performance and usage of your live application. It's designed for developers, to help you continuously improve the performance and usability of your app. 
+Application Insights is an extensible analytics service that monitors your live application. It helps you detect and diagnose performance issues, and understand what users actually do with your app. It's designed for developers, to help you continuously improve the performance and usability of your app. 
+
+![Chart user activity statistics, or drill into specific events.](./media/app-insights-overview/00-sample.png)
 
 It works with both web and stand-alone apps on a wide variety of platforms: .NET or J2EE, hosted on-premises or in the cloud; device apps on Windows, iOS, Android, OSX and other platforms. 
 
-It is aimed at the development team. With it, you can:
+Application Insights is aimed at the development team. With it, you can:
 
 * [Analyze usage patterns][knowUsers] to understand your users better and continuously improve your app. 
  * Page view counts, new and returning users, geolocation, platforms, and other core usage statistics
@@ -37,7 +39,7 @@ The SDK for each platform includes a range of modules that monitor the app strai
 
 Telemetry data collected from your application is stored and analysed in the Azure Portal, where there are intuitive views and powerful tools for fast diagnosis and analysis.
 
-![Chart user activity statistics, or drill into specific events.](./media/app-insights-overview/00-sample.png)
+
 
 Want even deeper analysis? [Export](app-insights-export-telemetry.md) your data [to SQL](app-insights-code-sample-export-telemetry-sql-database.md), [to Power BI](app-insights-export-power-bi.md), or your own tools.
 
@@ -135,13 +137,13 @@ For more details, choose your app type under Get Started in the navigation bar o
 
 <!--Link references-->
 
-[android]:app-insights-android.md
+[android]: https://github.com/Microsoft/ApplicationInsights-Android
 [azure]: ../insights-perf-analytics.md
 [client]: app-insights-javascript.md
 [desktop]: app-insights-windows-desktop.md
 [detect]: app-insights-detect-triage-diagnose.md
 [greenbrown]: app-insights-start-monitoring-app-health-usage.md
-[ios]: app-insights-ios.md
+[ios]: https://github.com/Microsoft/ApplicationInsights-iOS
 [java]: app-insights-java-get-started.md
 [knowUsers]: app-insights-overview-usage.md
 [platforms]: app-insights-platforms.md

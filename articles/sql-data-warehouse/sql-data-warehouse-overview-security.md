@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/17/2015"
+   ms.date="09/22/2015"
    ms.author="sahajs"/>
 
 # Secure a database in SQL Data Warehouse
@@ -67,6 +67,7 @@ EXEC sp_addrolemember 'db_datawriter', 'ApplicationUser'; -- allows ApplicationU
 The server admin account you are connecting with is a member of db_owner, which has authority to do anything within the database. Save this account for deploying schema upgrades and other management operations. Use the "ApplicationUser" account with more limited permissions to connect from your application to the database with the least privileges needed by your application.
 
 There are ways to further limit what a user can do with Azure SQL Database:
+
 - [Database roles][] other than db_datareader and db_datawriter can be used to create more powerful application user accounts or less powerful management accounts.
 - Granular [Permissions][] let you control which operations you can do on individual columns, tables, views, procedures, and other objects in the database.
 - [Stored procedures][] can be used to limit the actions that can be taken on the database.

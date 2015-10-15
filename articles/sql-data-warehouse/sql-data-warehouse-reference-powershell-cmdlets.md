@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="08/28/2015"
+   ms.date="09/22/2015"
    ms.author="twounder;sidneyh;barbkess"/>
 
 # Getting started with Azure Data Warehouse cmdlets and REST APIs
@@ -102,7 +102,7 @@ For more reference information, see [SQL Data Warehouse reference overview][].
 
 <!--Article references-->
 [SQL Data Warehouse reference overview]: sql-data-warehouse-overview-reference.md
-[How to install and configure Azure PowerShell]: powershell-install-configure.md
+[How to install and configure Azure PowerShell]: ../articles/powershell-install-configure.md
 
 <!--MSDN references-->
 

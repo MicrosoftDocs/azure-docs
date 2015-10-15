@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/25/2015" 
+	ms.date="10/06/2015" 
 	ms.author="sdanie"/>
 
 # Azure Redis Cache FAQ
@@ -22,31 +22,47 @@ Learn the answers to common questions, patterns and best practices for Azure Red
 
 <a name="cache-size"></a>
 ## What Redis Cache offering and size should I use?
-
 Each Azure Redis Cache offering provides different levels of **size**, **bandwidth**, **high availability** and **SLA** options.
 
--	Basic SKU - Single node, no replication or SLA, cache sizes from 250 MB up to 53 GB.
--	Standard SKU - Primary/Secondary nodes with automatic replication, 99.9% SLA, cache sizes from 250 MB to 53 GB.
+The following are considerations for choosing a Cache offering.
 
-If you desire high availability, choose the standard cache offering which has a 99.9% SLA. For development and prototyping, or for scenarios where an SLA is not required, the basic offering could be appropriate.
+-	**Memory**: The Basic and Standard tiers offer 250 MB – 53 GB. The Premium tier offers up to 530 GB with more available [on request](mailto:wapteams@microsoft.com?subject=Redis%20Cache%20quota%20increase). For more information see [Azure Redis Cache Pricing](https://azure.microsoft.com/pricing/details/cache/).
+-	**Network Performance**: If you have a workload that requires high throughput the Premium tier offers more bandwidth compared to Standard or Basic. Also within each tier larger sizes caches have more bandwidth because of the underlying VM that hosts the cache. Please see the following table for more information.
+-	**Throughput**: The Premium tier offers the maximum available throughput. If the cache server or client reaches the bandwidth limits, you will receive timeouts on the client side. Please see the following table for more information.
+-	**High Availability/SLA**: Azure Redis Cache guarantees that a Standard/Premium (no SLA for Premium until after the preview period) cache will be available at least 99.9% of the time. To learn more about our SLA,  see [Azure Redis Cache Pricing](https://azure.microsoft.com/pricing/details/cache/). The SLA only covers connectivity to the Cache endpoints. The SLA does not cover protection from data loss. We recommend using the Redis data persistence feature in the Premium tier to increase resiliency against data loss.
+-	**Redis Data Persistence**: The Premium tier allows you to persist the cache data in an Azure Storage account. In a Basic/Standard cache all the data is stored only in memory. In case of underlying infrastructure issues there can be potential data loss. We recommend using the Redis data persistence feature in the Premium tier to increase resiliency against data loss. Azure Redis Cache offers RDB and AOF (coming soon) options in Redis persistence. For more information, see [How to configure persistence for a Premium Azure Redis Cache](cache-how-to-premium-persistence.md).
+-	**Redis Cluster**: If you want to create caches larger than 53 GB or want to shard data across multiple Redis nodes, you can use Redis clustering which is available in the Premium tier. Each node consists of a primary/replica cache pair for high availability. For more information, see [How to configure clustering for a Premium Azure Redis Cache](cache-how-to-premium-clustering.md).
+-	**Enhanced security and network isolation**: Azure Virtual Network (VNET) deployment provides enhanced security and isolation for your Azure Redis Cache, as well as subnets, access control policies, and other features to further restrict access. For more information, see [How to configure Virtual Network support for a Premium Azure Redis Cache](cache-how-to-premium-vnet.md).
+-	**Configure Redis**: In both the Standard and Premium tiers, you can configure Redis for Keyspace notifications.
+-	**Maximum number of client connections**: The Premium tier offers the maximum number of clients that can connect to Redis, with a higher number of connections for larger sized caches. [Please refer to the pricing page for details](https://azure.microsoft.com/pricing/details/cache/).
+-	**Dedicated Core for Redis Server**: In the Premium tier all cache sizes have a dedicated core for Redis. In the Basic/Standard tiers the C1  size and above have a dedicated core for Redis server.
+-	**Redis is single-threaded** so having more than two cores does not provide additional benefit over having just two cores, but larger VM sizes typically have more bandwidth than smaller sizes. If the cache server or client reaches the bandwidth limits, then you will receive timeouts on the client side.
+-	**Performance improvements**: Caches in the Premium tier are deployed on hardware which have faster processors and gives better performance compared to the Basic or Standard tier. Premium tier Caches have higher throughput and lower latencies.
 
-The cache sizes and bandwidth map roughly to the sizes and bandwidth of the virtual machines that host the cache. The 250 MB sizes for both the basic and standard offerings are hosted on the Extra Small (A0) virtual machine size, which is hosted using shared cores, while the other sizes are hosted using dedicated cores. The 1 GB cache sizes are hosted on the Small (A1) virtual machine size, which has 1 dedicated virtual core that is used to service both the operating system and the redis cache. Larger cache sizes are hosted on larger VM instances with multiple dedicated virtual cores.
+The following table shows the maximum bandwidth values observed while testing various sizes of Standard and Premium caches using `redis-benchmark.exe` from an Iaas VM against the Azure Redis Cache endpoint. Note that these values are not guaranteed and there is no SLA for these numbers, but should be typical. You should load test your own application to determine the right cache size for your application.
 
-If your cache has a high throughput, choose the 1 GB size or larger so that the cache is running using dedicated cores. The 1 GB cache size is hosted on a 1 core virtual machine. This core is used to service both the OS and the cache. Caches larger than 1 GB run on virtual machines with multiple cores, and the Redis cache uses a dedicated core that is not shared with the OS.
+From this table we can draw the following conclusions.
 
-**Redis is single-threaded** so having more than two cores does not provide additional benefit over having just two cores, but **larger VM sizes typically have more bandwidth than smaller sizes**. If the cache server or client reaches the bandwidth limits, then you will receive timeouts on the client side.
+-	Throughput for the same sized Cache is higher in Premium as compared to Standard tier. Eg. For a 6 GB Cache, throughput of P1 is 140K RPS as compared to 49K for C3.
+-	With Redis clustering, throughput increases linearly as you increase the number of shards (nodes) in the cluster. Eg. If you create a P4 cluster of 10 shards, then the available throughput is 250K *10 = 2.5 Million RPS
+-	Throughput for bigger key sizes is higher in Premium tier as compared to Standard Tier.
 
-The following table shows the maximum bandwidth values observed while testing various sizes of Azure Redis Cache using `redis-benchmark.exe` from an Iaas VM against the Azure Redis Cache endpoint. Note that these values are not guaranteed and there is no SLA for these number, but should be typical. You should load test your own application to determine the right cache size for your application.
+| Pricing tier         | Size   | Available bandwidth (Mbps) | 1 KB Key size                  |
+|----------------------|--------|----------------------------|--------------------------------|
+| **Standard cache sizes** | &nbsp;       |      &nbsp;                      | **Requests per second (RPS)**            |
+| C0                   | 250 MB | 5                          | 600                            |
+| C1                   | 1 GB   | 100                        | 12200                          |
+| C2                   | 2.5 GB | 200                        | 24000                          |
+| C3                   | 6 GB   | 400                        | 49000                          |
+| C4                   | 13 GB  | 500                        | 61000                          |
+| C5                   | 26 GB  | 1000                       | 115000                         |
+| C6                   | 53 GB  | 2000                       | 150000                         |
+| **Premium cache sizes**  |  &nbsp;      |    &nbsp;                        | **Requests per second (RPS), per shard** |
+| P1                   | 6 GB   | 1000                       | 140000                         |
+| P2                   | 13 GB  | 2000                       | 220000                         |
+| P3                   | 26 GB  | 2000                       | 220000                         |
+| P4                   | 53 GB  | 4000                       | 250000                         |
 
-Cache Name|Cache Size|Get/sec (Simple GET calls of 1 KB values)|Bandwidth (MBits/sec)
----|---|---|---
-C0|250 MB|610|5
-C1|1 GB|12,200|100
-C2|2.5 GB|24,300|200
-C3|6 GB|48,875|400
-C4|13 GB|61,350|500
-C5|26 GB|112,275|1000
-C6|53 GB|153,219|1000+
 
 For instructions on downloading the Redis tools such as `redis-benchmark.exe`, see the [How can I run Redis commands?](#cache-commands) section.
 
@@ -153,7 +169,7 @@ For instructions on downloading the Redis tools, see the [How can I run Redis co
 
 You can use any of the commands listed at [Redis commands](http://redis.io/commands#) except for the commands listed at [Redis commands not supported in Azure Redis Cache](cache-configure.md#redis-commands-not-supported-in-azure-redis-cache). To run Redis commands you have several options.
 
--	If you have a Standard cache, you can run Redis commands using the [Redis Console](cache-configure.md#redis-console). This provides a secure way to run Redis commands in the preview portal.
+-	If you have a Standard or Premium cache, you can run Redis commands using the [Redis Console](cache-configure.md#redis-console). This provides a secure way to run Redis commands in the preview portal.
 -	You can also use the Redis command line tools. To use them, perform the following steps.
 	-	Download the [Redis command line tools](https://github.com/MSOpenTech/redis/releases/download/win-2.8.19.1/redis-2.8.19.zip).
 	-	Connect to the cache using `redis-cli.exe`. Pass in the cache endpoint using the -h switch and the key using -a as shown in the following example.
