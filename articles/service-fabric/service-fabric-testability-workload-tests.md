@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Custom Test Scenarios"
-   description="How to harden your services against Graceful/Ungraceful failures"
+   pageTitle="Custom test scenarios | Microsoft Azure"
+   description="How to harden your services against graceful and ungraceful failures."
    services="service-fabric"
    documentationCenter=".net"
    authors="anmolah"
