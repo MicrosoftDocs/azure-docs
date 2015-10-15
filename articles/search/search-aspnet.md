@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Connect Azure Search with ASP.NET Web Apps | Microsoft Azure"
+	pageTitle="Connect Azure Search with ASP.NET MVC Web Apps | Microsoft Azure"
 	description="Hook up an ASP.NET Web app with Azure Search. Learn how to connect, query, and render results using the .Net library or REST API."
 	services="search"
 	documentationCenter=""
