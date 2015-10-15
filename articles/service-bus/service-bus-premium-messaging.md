@@ -41,7 +41,7 @@ The following are a few differences between Premium and Standard messaging tiers
 
 ### Partitioned entities
 
-Partitioned entities are supported in Premium messaging, but they do not function the same way as in the Standard and Basic tiers of Service Bus messaging. Premium messaging does not use SQL as a data store and no longer has the possible resource competition associated with a shared platform. As a result, partitioning is not necessary. Additionally, the partition count has been changed from 16 partitions in Standard messaging to two partitions in Premium. Having 2 partitions ensures availability and is a more appropriate number for the Premium runtime environment. For more information, see [Partitioning Messaging Entities](service-bus-partitioning.md).
+Partitioned entities are supported in Premium messaging, but they do not function the same way as in the Standard and Basic tiers of Service Bus messaging. Premium messaging does not use SQL as a data store and no longer has the possible resource competition associated with a shared platform. As a result, partitioning is not necessary. Additionally, the partition count has been changed from 16 partitions in Standard messaging to two partitions in Premium. Having 2 partitions ensures availability and is a more appropriate number for the Premium runtime environment. For more information, see [Partitioned Messaging Entities](service-bus-partitioning.md).
 
 ### Express entities
 
