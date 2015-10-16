@@ -570,6 +570,20 @@ The **nArithmetic** parameter has more to do with the internal workings of the m
 
 If you want to change these parameters, then modify the values in the macro\_utils.tt file, recompile the macro\_utils\_h\_generator.sln solution, and run the compiled program. When you do so, a new macro\_utils.h file is generated and placed in the .\\common\\inc directory.
 
+In order to use the new version of macro\_utils.h, you'll need to remove the **serializer** NuGet package from your solution and in its place include the **serializer** Visual Studio project.  This allows your code to compile against the source code of the serializer library- that includes the updated macro\_utils.h.  Let's say you want to do this for **simplesample\_amqp**.  You would start by removing the NuGet package for the serializer library from the solution:
+
+   ![](media/iot-hub-device-sdk-c-serializer/04-serializer-github-package.PNG)
+
+And then add this project to your Visual Studio solution:
+
+> .\\c\\serializer\\build\\windows\\serializer.vcxproj
+
+When you're done, your solution should look like this:
+
+   ![](media/iot-hub-device-sdk-c-serializer/05-serializer-project.PNG)
+
+Now when you compile your solution, the updated macro\_utils.h will be included in your binary.
+
 The main thing to be aware of is that increasing these values high enough may exceed compiler limits. On this point the **nMacroParameters** is the main parameter to be concerned with. The C99 spec specifies that a minimum of 127 parameters are allowed in a macro definition. The Microsoft compiler happens to follow the spec exactly (and has a limit of 127) so you won’t be able to increase **nMacroParameters** beyond the default. But other compilers may allow you to do so (for example, the GNU compiler supports a higher limit).
 
 So far we've covered just about everything you need to know about how to write code with the **serializer** library. Before wrapping up let's revisit some topics from previous articles that you may be wondering about.
