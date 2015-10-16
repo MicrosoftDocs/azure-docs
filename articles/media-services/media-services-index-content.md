@@ -3,7 +3,7 @@
 	description="Azure Media Indexer enables you to make content of your media files searchable and to generate a full-text transcript for closed captioning and keywords. This topic shows how to use Media Indexer."
 	services="media-services"
 	documentationCenter=""
-	authors="Juliako,adsolank,johndeu"
+	authors="Juliako,johndeu"
 	manager="dwrede"
 	editor=""/>
 
