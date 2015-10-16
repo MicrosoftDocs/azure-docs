@@ -231,116 +231,116 @@ you will deploy is shown below. Notice that the template uses the API versions y
 You can copy the template and save it locally. During deployment you will specify the path to the template, so save it somewhere convenient.
 
     {
-      "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-      "contentVersion": "1.0.0.0",
-      "parameters": {
-        "hostingPlanName": {
-            "type": "string"
+        "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+        "contentVersion": "1.0.0.0",
+        "parameters": {
+            "hostingPlanName": {
+                "type": "string"
+            },
+            "serverName": {
+                "type": "string"
+            },
+            "databaseName": {
+                "type": "string"
+            },
+            "administratorLogin": {
+                "type": "string"
+            },
+            "administratorLoginPassword": {
+                "type": "securestring"
+            }
         },
-        "serverName": {
-            "type": "string"
+        "variables": {
+            "siteName": "[concat('ExampleSite', uniqueString(resourceGroup().id))]"
         },
-        "databaseName": {
-            "type": "string"
-        },
-        "administratorLogin": {
-            "type": "string"
-        },
-        "administratorLoginPassword": {
-            "type": "securestring"
-        }
-      },
-      "variables": {
-        "siteName": "[concat('ExampleSite', uniqueString(resourceGroup().id))]"
-      },
-      "resources": [
-        {
-          "name": "[parameters('serverName')]",
-          "type": "Microsoft.Sql/servers",
-          "location": "[resourceGroup().location]",
-          "apiVersion": "2014-04-01",
-          "properties": {
-            "administratorLogin": "[parameters('administratorLogin')]",
-            "administratorLoginPassword": "[parameters('administratorLoginPassword')]",
-            "version": "12.0"
-          },
-          "resources": [
+        "resources": [
             {
-              "name": "[parameters('databaseName')]",
-              "type": "databases",
-              "location": "[resourceGroup().location]",
-              "apiVersion": "2014-04-01",
-              "dependsOn": [
-                "[concat('Microsoft.Sql/servers/', parameters('serverName'))]"
-              ],
-              "properties": {
-                "edition": "Basic",
-                "collation": "SQL_Latin1_General_CP1_CI_AS",
-                "maxSizeBytes": "1073741824",
-                "requestedServiceObjectiveName": "Basic"
-              }
+                "name": "[parameters('serverName')]",
+                "type": "Microsoft.Sql/servers",
+                "location": "[resourceGroup().location]",
+                "apiVersion": "2014-04-01",
+                "properties": {
+                    "administratorLogin": "[parameters('administratorLogin')]",
+                    "administratorLoginPassword": "[parameters('administratorLoginPassword')]",
+                    "version": "12.0"
+                },
+                "resources": [
+                    {
+                        "name": "[parameters('databaseName')]",
+                        "type": "databases",
+                        "location": "[resourceGroup().location]",
+                        "apiVersion": "2014-04-01",
+                        "dependsOn": [
+                            "[concat('Microsoft.Sql/servers/', parameters('serverName'))]"
+                        ],
+                        "properties": {
+                            "edition": "Basic",
+                            "collation": "SQL_Latin1_General_CP1_CI_AS",
+                            "maxSizeBytes": "1073741824",
+                            "requestedServiceObjectiveName": "Basic"
+                        }
+                    },
+                    {
+                        "name": "AllowAllWindowsAzureIps",
+                        "type": "firewallrules",
+                        "location": "[resourceGroup().location]",
+                        "apiVersion": "2014-04-01",
+                        "dependsOn": [
+                            "[concat('Microsoft.Sql/servers/', parameters('serverName'))]"
+                        ],
+                        "properties": {
+                            "endIpAddress": "0.0.0.0",
+                            "startIpAddress": "0.0.0.0"
+                        }
+                    }
+                ]
             },
             {
-              "name": "AllowAllWindowsAzureIps",
-              "type": "firewallrules",
-              "location": "[resourceGroup().location]",
-              "apiVersion": "2014-04-01",
-              "dependsOn": [
-                "[concat('Microsoft.Sql/servers/', parameters('serverName'))]"
-              ],
-              "properties": {
-                "endIpAddress": "0.0.0.0",
-                "startIpAddress": "0.0.0.0"
-              }
-            }
-          ]
-        },
-        {
-          "apiVersion": "2015-08-01",
-          "type": "Microsoft.Web/serverfarms",
-          "name": "[parameters('hostingPlanName')]",
-          "location": "[resourceGroup().location]",
-          "sku": {
-            "tier": "Free",
-            "name": "f1",
-            "capacity": 0
-          },
-          "properties": {
-            "numberOfWorkers": 1
-          }
-        },
-        {
-          "apiVersion": "2015-08-01",
-          "name": "[variables('siteName')]",
-          "type": "Microsoft.Web/sites",
-          "location": "[resourceGroup().location]",
-          "dependsOn": [
-            "[concat('Microsoft.Web/serverFarms/', parameters('hostingPlanName'))]"
-          ],
-          "properties": {
-            "serverFarmId": "[parameters('hostingPlanName')]"
-          },
-          "resources": [
+                "apiVersion": "2015-08-01",
+                "type": "Microsoft.Web/serverfarms",
+                "name": "[parameters('hostingPlanName')]",
+                "location": "[resourceGroup().location]",
+                "sku": {
+                    "tier": "Free",
+                    "name": "f1",
+                    "capacity": 0
+                },
+                "properties": {
+                    "numberOfWorkers": 1
+                }
+            },
             {
-              "name": "web",
-              "type": "config",
-              "apiVersion": "2015-08-01",
-              "dependsOn": [
-                "[concat('Microsoft.Web/Sites/', variables('siteName'))]"
-              ],
-              "properties": {
-                "connectionStrings": [
-                  {
-                    "ConnectionString": "[concat('Data Source=tcp:', reference(concat('Microsoft.Sql/servers/', parameters('serverName'))).fullyQualifiedDomainName, ',1433;Initial Catalog=', parameters('databaseName'), ';User Id=', parameters('administratorLogin'), '@', parameters('serverName'), ';Password=', parameters('administratorLoginPassword'), ';')]",
-                    "Name": "DefaultConnection",
-                    "Type": 2
-                  }
+                "apiVersion": "2015-08-01",
+                "name": "[variables('siteName')]",
+                "type": "Microsoft.Web/sites",
+                "location": "[resourceGroup().location]",
+                "dependsOn": [
+                    "[concat('Microsoft.Web/serverFarms/', parameters('hostingPlanName'))]"
+                ],
+                "properties": {
+                    "serverFarmId": "[parameters('hostingPlanName')]"
+                },
+                "resources": [
+                    {
+                        "name": "web",
+                        "type": "config",
+                        "apiVersion": "2015-08-01",
+                        "dependsOn": [
+                            "[concat('Microsoft.Web/Sites/', variables('siteName'))]"
+                        ],
+                        "properties": {
+                            "connectionStrings": [
+                                {
+                                    "ConnectionString": "[concat('Data Source=tcp:', reference(concat('Microsoft.Sql/servers/', parameters('serverName'))).fullyQualifiedDomainName, ',1433;Initial Catalog=', parameters('databaseName'), ';User Id=', parameters('administratorLogin'), '@', parameters('serverName'), ';Password=', parameters('administratorLoginPassword'), ';')]",
+                                    "Name": "DefaultConnection",
+                                    "Type": 2
+                                }
+                            ]
+                        }
+                    }
                 ]
-              }
             }
-          ]
-        }
-      ]
+        ]
     }
 
 
