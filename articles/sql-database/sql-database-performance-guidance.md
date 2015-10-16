@@ -116,7 +116,11 @@ Azure SQL Database exposes consumed resource information for each active databas
 
 This section describes ways to monitor the resource usage of your Azure SQL Database and to compare current resource utilization to different performance levels.
 
-1. The **sys.resource_stats** catalog view is enriched with more historic resource usage information at the database level. For example, to look at past week’s resource usage for database, "userdb1", you can run following query.
+The **sys.resource_stats** catalog view is enriched with more historic resource usage information at the database level.
+
+>[AZURE.NOTE] You must be connected to the **master** database of your logical SQL Database server in order to query **sys.resource_stats** in the following examples.
+
+1. For example, to look at past week’s resource usage for database, "userdb1", you can run following query.
 	
 		SELECT * 
 		FROM sys.resource_stats 
