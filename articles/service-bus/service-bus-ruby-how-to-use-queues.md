@@ -16,10 +16,9 @@
 	ms.date="08/31/2015"
 	ms.author="tomfitz"/>
 
-
-
-
 # How to Use Service Bus Queues
+
+[AZURE.INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 
 This guide will show you how to use Service Bus queues. The samples are
 written in Ruby and use the Azure gem. The scenarios
