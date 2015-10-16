@@ -44,6 +44,8 @@ If database incompatibilities are detected, you must fix these incompatibilities
 1. Open a command prompt and change a directory containing the newest version of sqlpackage.exe. This utility ships with both Visual Studio and SQL Server. You can also [download](https://msdn.microsoft.com/library/mt204009.aspx) the latest version of SQL Server Data Tools to get this utility.
 2. Execute the following sqlpackage.exe command with the following arguments for your environment:
 
+	'sqlpackage.exe /Action:Export /ssn:< server_name > /sdn:< database_name > /tf:< target_file > /p:TableData=< schema_name.table_name > > < output_file > 2>&1'
+
 	| Argument  | Description  |
 	|---|---|
 	| < server_name >  | source server name  |
@@ -52,9 +54,7 @@ If database incompatibilities are detected, you must fix these incompatibilities
 	| < schema_name.table_name >  | the tables for which data will be output to the target file  |
 	| < output_file >  | the file name and location for the output file with errors, if any  |
 
-The reason for the /p:TableName argument is that we only want to test for database compability for export to Azure SQL DB V12 rather than export the data from all tables. Unfortunately, the export argument for sqlpackage.exe does not support extracting no tables, so you will need to specify a single small table. The < output_file > will contain the report of any errors. The "> 2>&1" string pipes both the standard output and the standard error resulting from the command execution to specified output file.
-
-	'sqlpackage.exe /Action:Export /ssn:< server_name > /sdn:< database_name > /tf:< target_file > /p:TableData=< schema_name.table_name > > < output_file > 2>&1'
+	The reason for the /p:TableName argument is that we only want to test for database compability for export to Azure SQL DB V12 rather than export the data from all tables. Unfortunately, the export argument for sqlpackage.exe does not support extracting no tables, so you will need to specify a single small table. The < output_file > will contain the report of any errors. The "> 2>&1" string pipes both the standard output and the standard error resulting from the command execution to specified output file.
 
 	![Export a data-tier application from the Tasks menu](./media/sql-database-cloud-migrate/TestForCompatibilityUsingSQLPackage01.png)
 
@@ -183,13 +183,13 @@ Use the steps below to use the [SqlPackage.exe](https://msdn.microsoft.com/libra
 1. Open a command prompt and change a directory containing the sqlpackage.exe command line utility - this utility ships with both Visual Studio and SQL Server.
 2. Execute the following sqlpackage.exe command with the following arguments for your environment:
 
+	'sqlpackage.exe /Action:Export /ssn:< server_name > /sdn:< database_name > /tf:< target_file >
+
 	| Argument  | Description  |
 	|---|---|
 	| < server_name >  | source server name  |
 	| < database_name >  | source database name  |
 	| < target_file >  | file name and location for BACPAC file  |
-
-	'sqlpackage.exe /Action:Export /ssn:< server_name > /sdn:< database_name > /tf:< target_file >
 
 	![Export a data-tier application from the Tasks menu](./media/sql-database-cloud-migrate/TestForCompatibilityUsingSQLPackage01b.png)
 
@@ -234,6 +234,8 @@ Use the steps below to use the [SqlPackage.exe](https://msdn.microsoft.com/libra
 1. Open a command prompt and change a directory containing the sqlpackage.exe command line utility - this utility ships with both Visual Studio and SQL Server.
 2. Execute the following sqlpackage.exe command with the following arguments for your environment:
 
+	'sqlpackage.exe /Action:Import /tsn:< server_name > /tdn:< database_name > /tu:< user_name > /tp:< password > /sf:< target_file >
+
 	| Argument  | Description  |
 	|---|---|
 	| < server_name >  | target server name  |
@@ -241,8 +243,6 @@ Use the steps below to use the [SqlPackage.exe](https://msdn.microsoft.com/libra
 	| < user_name >  | the user name in the target server |
 	| < password >  | the user's password  |
 	| < source_file >  | the file name and location for the BACPAC file being imported  |
-
-	'sqlpackage.exe /Action:Import /tsn:< server_name > /tdn:< database_name > /tu:< user_name > /tp:< password > /sf:< target_file >
 
 	![Export a data-tier application from the Tasks menu](./media/sql-database-cloud-migrate/TestForCompatibilityUsingSQLPackage01c.png)
 
