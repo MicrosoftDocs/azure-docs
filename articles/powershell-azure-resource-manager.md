@@ -195,7 +195,7 @@ Your resource group has been successfully created.
 ## Get available API versions for the resources
 
 When you deploy a template, you must specify an API version to use for creating the resource. The available API versions correspond to versions of REST API operations that are released by the resource provider. 
-As resource providers enable new features, they will release new versions of the REST API. Therefore, the version of the API you specify in your template affects which properties are avaiable to you as you create the 
+As resource providers enable new features, they will release new versions of the REST API. Therefore, the version of the API you specify in your template affects which properties are available to you as you create the 
 template. In general, you will want to select the most recent API version when creating new templates. For existing templates, you can decide whether you want to continue using an API version that you know won't change your 
 deployment, or whether you want to update your template for the latest version to take advantage of new features.
 
@@ -228,7 +228,9 @@ This topic does not show you how to create your template or discuss the structur
 you will deploy is shown below. Notice that the template uses the API versions you retrieved in the previous section. To ensure that all of the resources reside in the same region, we use the template expression 
 **resourceGroup().location** to use the location of the resource group.
 
-You can copy the template and save it locally. During deployment you will specify the path to the template, so save it somewhere convenient.
+Notice, too, the section for parameters. This section defines values you can provide when deploying the resources. You will use these values later in this tutorial.
+
+You can copy the template and save it locally as a .json file. In this tutorial, we will assume it has been saved to c:\Azure\Templates\azuredeploy.json, but you can save it to any convenient location and with the name that makes sense for your requirements.
 
     {
         "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -346,44 +348,47 @@ You can copy the template and save it locally. During deployment you will specif
 
 ## Deploy the template
 
-As soon as you type the template name, New-AzureResourceGroup fetches the template, parses it, and adds the template parameters to the command dynamically. This makes it very easy to specify the template parameter values. And, if you forget a required parameter value, Windows PowerShell prompts you for the value.
+You have your resource group and you have your template, so you are now ready to deploy the infrastructure defined in your template to the resource group. You deploy resources with the **New-AzureRmResourceGroupDeployment** cmdlet. The basic syntax looks like:
 
-**Dynamic Template Parameters**
+    PS C:\> New-AzureRmResourceGroupDeployment -ResourceGroupName TestRG1 -TemplateFile c:\Azure\Templates\azuredeploy.json
 
-To get the parameters, type a minus sign (-) to indicate a parameter name and then press the TAB key. Or, type the first few letters of a parameter name, such as siteName and then press the TAB key. 
+You specify the resource group and the location of the template. If your template is not local, you could use the -TemplateUri parameter and specify a URI for the template. 
 
-    PS C:\> New-AzureResourceGroup -Name TestRG1 -Location "East Asia" -GalleryTemplateIdentity Microsoft.WebSiteSQLDatabase.0.2.6-preview -si<TAB>
+###Dynamic Template Parameters
 
-PowerShell completes the parameter name. To cycle through the parameter names, press TAB repeatedly.
+If you are familiar with PowerShell, you know that you can cycle through the available parameters for a cmdlet by typing a minus sign (-) and then pressing the TAB key. This same functionality also works with parameters that you define in your template. As soon as you type the template name, the cmdlet fetches the template, parses it, and adds the template parameters to the command dynamically. This makes it very easy to specify the template parameter values. And, if you forget a required parameter value, PowerShell prompts you for the value.
 
-    PS C:\> New-AzureResourceGroup -Name TestRG1 -Location "East Asia" -GalleryTemplateIdentity Microsoft.WebSiteSQLDatabase.0.2.6-preview -siteName 
+Below is the full command with parameters included. You can provide your own values for the names of the resources.
 
-Enter a name for the website and repeat the TAB process for each of the parameters. The parameters with a default value are optional. To accept the default value, omit the parameter from the command. 
-
-When a template parameter has enumerated values, such as the sku parameter in this template, to cycle through the parameter values, press the TAB key.
-
-    PS C:\> New-AzureResourceGroup -Name TestRG1 -Location "East Asia" -GalleryTemplateIdentity Microsoft.WebSiteSQLDatabase.0.2.6-preview -siteName TestSite -sku <TAB>
-
-    PS C:\> New-AzureResourceGroup -Name TestRG1 -Location "East Asia" -GalleryTemplateIdentity Microsoft.WebSiteSQLDatabase.0.2.6-preview -siteName TestSite -sku Basic<TAB>
-
-    PS C:\> New-AzureResourceGroup -Name TestRG1 -Location "East Asia" -GalleryTemplateIdentity Microsoft.WebSiteSQLDatabase.0.2.6-preview -siteName TestSite -sku Free<TAB>
-
-Here is an example of a New-AzureResourceGroup command that specifies only the required template parameters and the **Verbose** common parameter. Note that the **administratorLoginPassword** is omitted.
-
-	PS C:\> New-AzureResourceGroup -Name TestRG -Location "East Asia" -GalleryTemplateIdentity Microsoft.WebSiteSQLDatabase.0.2.6-preview -siteName TestSite -hostingPlanName TestPlan -siteLocation "East Asia" -serverName testserver -serverLocation "East Asia" -administratorLogin Admin01 -databaseName TestDB -Verbose
+    PS C:\> New-AzureRmResourceGroupDeployment -ResourceGroupName TestRG1 -TemplateFile c:\Azure\Templates\azuredeploy.json -hostingPlanName freeplanwest -serverName exampleserver -databaseName exampledata -administratorLogin exampleadmin
 
 When you enter the command, you are prompted for the missing mandatory parameter, **administratorLoginPassword**. And, when you type the password, the secure string value is obscured. This strategy eliminates the risk of providing a password in plain text.
 
-	cmdlet New-AzureResourceGroup at command pipeline position 1
-	Supply values for the following parameters:
-	(Type !? for Help.)
-	administratorLoginPassword: **********
+    cmdlet New-AzureRmResourceGroupDeployment at command pipeline position 1
+    Supply values for the following parameters:
+    (Type !? for Help.)
+    administratorLoginPassword: ********
 
-**New-AzureResourceGroup** returns the resource group that it created and deployed. 
+The command runs and returns messages as the resources are created. Ultimately, you see the result of your deployment.
+
+    DeploymentName    : azuredeploy
+    ResourceGroupName : TestRG1
+    ProvisioningState : Succeeded
+    Timestamp         : 10/16/2015 12:55:50 AM
+    Mode              : Incremental
+    TemplateLink      :
+    Parameters        :
+                    Name             Type                       Value
+                    ===============  =========================  ==========
+                    hostingPlanName  String                     freeplanwest
+                    serverName       String                     exampleserver
+                    databaseName     String                     exampledata
+                    administratorLogin  String                  exampleadmin
+                    administratorLoginPassword  SecureString
+
+    Outputs           :
 
 In just a few steps, we created and deployed the resources required for a complex website. 
-The gallery template provided almost all of the information that we needed to do this task.
-And, the task is easily automated. 
 
 ## Get information about your resource groups
 
