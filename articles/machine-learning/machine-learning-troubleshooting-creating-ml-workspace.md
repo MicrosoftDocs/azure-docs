@@ -1,4 +1,4 @@
-<properties 
+<properties
 	pageTitle="Troubleshoot: Create and connect to a Machine Learning workspace | Microsoft Azure"
 	description="Solutions for common issues in creating and connecting to an Azure Machine Learning workspace"
 	services="machine-learning"
@@ -57,17 +57,17 @@ After the new Machine Learning workspace is created, you can sign in to Machine 
 
 **To delete browser cookies**
 
-	If you use Internet Explorer, click the **Tools** button in the upper-right corner and select **Internet options**.  
+If you use Internet Explorer, click the **Tools** button in the upper-right corner and select **Internet options**.  
 
-	![Internet options][screen4]
+![Internet options][screen4]
 
-	Under the **General** tab, click **Delete…**
+Under the **General** tab, click **Delete…**
 
-	![General tab][screen5]
+![General tab][screen5]
 
-	In the **Delete Browsing History** dialog box, make sure **Cookies and website data** is selected, and click **Delete**.
+In the **Delete Browsing History** dialog box, make sure **Cookies and website data** is selected, and click **Delete**.
 
-	![Delete cookies][screen6]
+![Delete cookies][screen6]
 
 After the cookies are deleted, restart the browser and then go to the [Microsoft Azure Machine Learning](https://studio.azureml.net) page. When you are prompted for a user name and password, enter the same Microsoft account you specified as the owner of the workspace.
 
