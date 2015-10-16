@@ -26,9 +26,9 @@ To highlight some of these capabilities, I have created an Azure Search index fo
 
 Let’s start with a really simple full text search query where the users might type the word “azure” to find any StackExchange posts relating to Azure.  Give this a try by clicking on this link to see it in action:
 
-[http://jsfiddle.net/62ozgtwL](http://jsfiddle.net/62ozgtwL/)
+> [http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=stackexchange&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2015-02-28%26search=azure](http://fiddle.jshell.net/liamca/gkvfLe6s/?index=stackexchange&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2015-02-28%26search=azure)
 
-In this example, we simply pass the word “azure” as a search parameter and display the JSON formatted results that come back.  Here are a few other examples of queries you could try.  For each of these, simply update the searchAPI parameter in the JavaScript section of the JSFiddle page with the following examples and choose “Run”:
+In this example, we simply pass the word “azure” as a search parameter and display the JSON formatted results that come back.  Here are a few other examples of queries you could try.
 
 -	`Faceting`: Once the user searches the dataset, being able to filter the data is a great way to help them navigate the results.  To implement this, you will typically start with a set of categories (facets) that are displayed to the user.  Here are a few examples of facets we might want to leverage:
   -	**Tags**: Many of the questions have tags associated with them to allow users to drill into specific categories
@@ -36,23 +36,19 @@ In this example, we simply pass the word “azure” as a search parameter and d
   -	**User**:  You may want to see or limit results from specific users
 In this example we will search “azure” but return the facet counts for the tagsCollection and acceptedAnswerDisplayName usernames.
 
-
-            var searchAPI = "https://azs-playground.search.windows.net/indexes/stackexchange/docs?api-version=2015-02-28&search=azure&facet=tagsCollection&facet=acceptedAnswerDisplayName";
+> <http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=stackexchange&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2015-02-28%26search=azure%26facet=tagsCollection%26facet=acceptedAnswerDisplayName>
 
 -	`Filtering`: After a user chooses a facet, you will then want to perform another search, but leverage a filter to limit the results to that facet value.  For example, to search “Azure” but limit the results to where there is a tag of “architecture” ordered by the viewCount in descending order:
 
-
-        var searchAPI = "https://azs-playground.search.windows.net/indexes/stackexchange/docs?api-version=2015-02-28&search=azure&$filter=tagsCollection/any(t: t eq 'architecture')&$orderby=viewCount desc";
+> <http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=stackexchange&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2015-02-28%26search=azure%26$filter=tagsCollection/any(t:+t+eq+'architecture')%26$orderby=viewCount+desc>
 
 -	`Spelling Mistakes`: Our new (preview) support for [Lucene Query Expressions](https://msdn.microsoft.com/library/mt589323.aspx) also allows you to do some pretty fancy queries such as fuzzy matching of results and limiting search to specific fields.  This example searches the title field for the word “visualize” but the ~ indicates fuzzy matching which means that results like visualise and visualizing will also be returned.
 
-
-        var searchAPI = "https://azs-playground.search.windows.net/indexes/stackexchange/docs?api-version=2015-02-28-Preview&search=title:visualise~&querytype=full&searchMode=all&$select=title";
+> <http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=stackexchange&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2015-02-28&search%3Dtitle%3Avisualise~%26querytype%3Dfull%26searchMode%3Dall%26%24select%3Dtitle>
 
 -	`Scoring and Tuning`: [Scoring Profiles](https://msdn.microsoft.com/library/azure/dn798928.aspx) are extremely helpful in helping you tune the results that are returned by the search service.  In fact, now we can also use [Lucene Query Expressions](https://msdn.microsoft.com/library/mt589323.aspx) to apply scoring to individual fields and terms on the fly.  For example, if we wanted to search for the words “visualize” or “chart” in the title field, yet give more weighting to items that have the word “chart” in them, we could do this:
 
-
-        var searchAPI = "https://azs-playground.search.windows.net/indexes/stackexchange/docs?api-version=2015-02-28-Preview&search=title:visualise OR title:chart^3 &querytype=full&searchMode=all&$select=title";
+> <http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=stackexchange&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2015-02-28-Preview%26search%3Dtitle%3Avisualise+OR+title%3Achart%5E3+%26querytype%3Dfull%26searchMode%3Dall%26%24select%3Dtitle>
 
   There are a lot of other fields in this dataset that can be used to boost relevant results for users.  For example, I can use:
 
