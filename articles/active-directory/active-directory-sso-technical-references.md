@@ -21,22 +21,22 @@
 ## App assignment
 
 |   |   |
-| - | - |
+| ------ | ------ |
 | Landing page | [Managing access to resources with Azure Active Directory groups](active-directory-manage-groups.md) |
 | How-to | [Creating a simple rule to configure dynamic memberships for a group](active-directory-accessmanagement-simplerulegroup.md) |
-| | [Using a group to manage access to SaaS applications](active-directory-accessmanagement-group-saasapps.md) |
-| | [Setting up Azure AD for self service application access management](active-directory-accessmanagement-self-service-group-management.md) |
-| | [Managing owners to a group](active-directory-accessmanagement-managing-group-owners.md) |
-| | [Managing security groups in Azure Active Directory](active-directory-accessmanagement-manage-groups.md) |
-| | [Dedicated groups in Azure Active Directory](active-directory-accessmanagement-dedicated-groups.md) |
-| | [Using attributes to create advanced rules](active-directory-accessmanagement-groups-with-advanced-rules.md) |
-| | [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](active-directory-saas-app-provisioning.md) |
-| | [List of tutorials on how to integrate SaaS apps with Azure Active Directory](active-directory-saas-tutorial-list.md) |
+|  | [Using a group to manage access to SaaS applications](active-directory-accessmanagement-group-saasapps.md) |
+|  | [Setting up Azure AD for self service application access management](active-directory-accessmanagement-self-service-group-management.md) |
+|  | [Managing owners to a group](active-directory-accessmanagement-managing-group-owners.md) |
+|  | [Managing security groups in Azure Active Directory](active-directory-accessmanagement-manage-groups.md) |
+|  | [Dedicated groups in Azure Active Directory](active-directory-accessmanagement-dedicated-groups.md) |
+|  | [Using attributes to create advanced rules](active-directory-accessmanagement-groups-with-advanced-rules.md) |
+|  | [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](active-directory-saas-app-provisioning.md) |
+|  | [List of tutorials on how to integrate SaaS apps with Azure Active Directory](active-directory-saas-tutorial-list.md) |
 
 ## App launching experience
 
 |   |   |
-| - | - |
+| ------ | ------ |
 | Landing page | [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md) |
 | How-to | [Azure Active Directory Access Panel - EMS](http://blogs.msdn.com/b/haddy_el-haggan_blog/archive/2015/04/02/azure-active-directory-access-panel-ems.aspx) |
 | | [Integrating with Azure Active Directory](active-directory-how-to-integrate.md)
@@ -44,14 +44,14 @@
 ## App Proxy
 
 |   |   |
-| - | - |
+| ------ | ------ |
 | Landing page | [How to provide secure remote access to on-premises applications](active-directory-application-proxy-get-started.md) |
 | How-to | [Enabling Azure AD Application Proxy](active-directory-application-proxy-enable.md) |
-| | [Publish applications using Azure AD Application Proxy](active-directory-application-proxy-publish.md) |
-| | [Working with conditional access](active-directory-application-proxy-conditional-access.md) |
-| | [Working with custom domains in Azure AD Application Proxy](active-directory-application-proxy-custom-domains.md) |
-| | [Working with claims aware apps in Application Proxy](active-directory-application-proxy-claims-aware-apps.md) |
-| | [Single sign-on with Application Proxy](active-directory-application-proxy-sso-using-kcd.md) |
+|  | [Publish applications using Azure AD Application Proxy](active-directory-application-proxy-publish.md) |
+|  | [Working with conditional access](active-directory-application-proxy-conditional-access.md) |
+|  | [Working with custom domains in Azure AD Application Proxy](active-directory-application-proxy-custom-domains.md) |
+|  | [Working with claims aware apps in Application Proxy](active-directory-application-proxy-claims-aware-apps.md) |
+|  | [Single sign-on with Application Proxy](active-directory-application-proxy-sso-using-kcd.md) |
 | Troubleshooting | [Troubleshoot Application Proxy](active-directory-application-proxy-troubleshoot.md) |
 
 ## Cloud App Discovery
@@ -80,7 +80,7 @@
 ## Federated single sign-on
 
 |   |   |
-| - | - |
+| ------ | ------ |
 | Landing page | [Configuring federation with AD FS](active-directory-aadconnect-get-started-custom.md/#configuring-federation-with-ad-fs)
 | How-to | - [DirSync with single sign-on](https://msdn.microsoft.com/en-us/library/azure/dn441213.aspx) <br> - [Microsoft Azure now supports federation with Windows Server Active Directory](https://azure.microsoft.com/en-us/blog/windows-azure-now-supports-federation-with-windows-server-active-directory/) <br> - [List of tutorials on how to integrate SaaS apps with Azure Active Directory](active-directory-saas-tutorial-list.md) <br> [Active Directory Marketplace](https://azure.microsoft.com/en-us/marketplace/active-directory/) |
 | Troubleshooting | - [Troubleshooting Azure AD DirSync tool Configuration Wizard](http://social.technet.microsoft.com/wiki/contents/articles/19100.troubleshooting-azure-ad-dirsync-tool-configuration-wizard-failed-to-get-address-for-method-createidentityhandle2.aspx) <br> - [How to troubleshoot Azure Active Directory Sync tool installation and Configuration Wizard errors](https://support.microsoft.com/en-us/kb/2684395) <br> - [Troubleshoot directory synchronization](https://msdn.microsoft.com/en-us/library/azure/jj151787.aspx) <br> - [Troubleshoot single sign-on](https://msdn.microsoft.com/en-us/library/azure/jj151834.aspx) |
@@ -91,7 +91,7 @@
 ## Password single sign-on
 
 |   |   |
-| - | - |
+| ------ | ------ |
 | How-to | - [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md) <br> - [DirSync with Password Sync](https://msdn.microsoft.com/en-us/library/azure/dn441214.aspx) |
 | Troubleshooting | - [Troubleshooting Azure AD DirSync tool Configuration Wizard](http://social.technet.microsoft.com/wiki/contents/articles/19100.troubleshooting-azure-ad-dirsync-tool-configuration-wizard-failed-to-get-address-for-method-createidentityhandle2.aspx) <br> - [How to troubleshoot Azure Active Directory Sync tool installation and Configuration Wizard errors](https://support.microsoft.com/en-us/kb/2684395) <br> - [Troubleshoot directory synchronization](https://msdn.microsoft.com/en-us/library/azure/jj151787.aspx) |
 | FAQ | - [Azure Active Directory Connect FAQ](active-directory-aadconnect-faq.md) |
