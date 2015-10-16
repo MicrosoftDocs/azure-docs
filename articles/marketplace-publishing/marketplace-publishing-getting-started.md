@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Overview of how to Create and deploy an offer to the Marketplace | Microsoft Azure"
-   description="Understand the steps required to become an approved Microsoft seller and create and deploy a virtual machine image, template, data service or developer service in the Azure Marketplace"
+   pageTitle="Overview of how to create and deploy an offer to the Marketplace | Microsoft Azure"
+   description="Understand the steps required to become an approved Microsoft seller and create and deploy a virtual machine image, template, data service, or developer service in the Azure Marketplace"
    services="marketplace-publishing"
    documentationCenter=""
    authors="HannibalSII"
@@ -16,46 +16,46 @@
    ms.date="10/09/2015"
    ms.author="hascipio" />
 
-# How to publish an offer to the Microsoft Azure Marketplace
-This article is provided to help a seller create and deploy his/her solution e.g. single virtual machine image, solution template, developer service, or data service to the Azure Marketplace for other Azure customers and partners to purchase and utilize.
+# How to publish an offer to the Azure Marketplace
+This article is provided to help a seller create and deploy a solution to the Azure Marketplace for other Azure customers and partners to purchase and utilize.
 
-The first thing you would want to do as a publisher is to define what kind of solution your company is offering. Azure Marketplace supports multiple different types of solutions and each of them require a slightly different set of work from you in order to successfully publish into the Marketplace.
+The first thing you would want to do as a publisher is to define what kind of solution your company is offering. The Azure Marketplace supports multiple solutions, and each of them requires a slightly different set of work from you in order to successfully publish into the Marketplace.
 
-**Types of solutions:**
+Types of solutions:
 
-- Data Services
-- Developer Services
-- Virtual Machines
-- Solution Templates
+- Virtual machine image
+- Developer service
+- Data service
+- Solution template
 
-Some steps are shared between the different types of solutions. This provides a short overview of what steps you will need to complete for any type of solution.
+Some steps are shared between the different types of solutions. This article provides a short overview of what steps you will need to complete for any type of solution.
 
-**Before you begin any work on the Azure Marketplace, you must be pre-approved. Not applicable for data service publishers.**
+> [AZURE.NOTE] Before you begin any work on the Azure Marketplace, you must be pre-approved. This is not applicable for data service publishers.
 
-||Virtual Machine Image |Developer Service | Data Service | Solution Template |
+||Virtual machine image |Developer service | Data service | Solution template |
 |----|----|----|----|----|
-| **Get Pre-Approval** | [Microsoft Azure Certified][link-certification] | [Microsoft Azure Certified][link-certification] | n/a | [Microsoft Azure Certified][link-certification] |
-| **Step 1. Register Seller Account** | [Microsoft Seller Account: Creation & Registration][link-accts] | [Microsoft Seller Account: Creation & Registration][link-accts] | [Microsoft Seller Account: Creation & Registration][link-accts] | [Microsoft Seller Account: Creation & Registration][link-accts] |
-|**Step 2. Create your offer**| [General Non-technical Pre-requisites](marketplace-publishing-pre-requisites.md)| [General Non-Technical Pre-requisites](marketplace-publishing-pre-requisites.md)| [General Non-technical Pre-requisites](marketplace-publishing-pre-requisites.md)| [General Non-technical Pre-requisites](marketplace-publishing-pre-requisites.md)|
-|| [VM Technical Pre-requisites][link-single-vm-prereq] | Developer Service Technical Pre-requisites | Data Service Technical Pre-requisites | [Solution Template Technical Pre-requisites](marketplace-publishing-solution-template-creation-prerequisites.md) |
-||[VM Image Publishing Guide][link-single-vm] | Developer Service Publishing Guide | Data Service Publishing Guide | [Solution Template Publishing Guide](marketplace-publishing-solution-template-creation.md) |
-|| [Azure Marketplace Marketing Content Guide][link-pushstaging] | [Azure Marketplace Marketing Content Guide][link-pushstaging] | [Azure Marketplace Marketing Content Guide][link-pushstaging] | [Azure Marketplace Marketing Content Guide][link-pushstaging] |
-| **Step 3. Push your offer to Staging** | [Test your VM offer in Staging](marketplace-publishing-vm-image-test-in-staging.md) | Test your Developer Service offer in Staging | Test your Data Service offer in Staging | [Test your Solution Template in Staging](marketplace-publishing-solution-template-test-in-staging.md) |
-| **Step 4. Deploy your offer to Marketplace** | [Deploy your offer to the Marketplace][link-pushprod] | [Deploy your offer to the Marketplace][link-pushprod] | [Deploy your offer to the Marketplace][link-pushprod] | [Deploy your offer to the Marketplace][link-pushprod] |
+| **Get pre-approval** | [Microsoft Azure Certified][link-certification] | [Microsoft Azure Certified][link-certification] | n/a | [Microsoft Azure Certified][link-certification] |
+| **Step 1: Register your seller account** | [Microsoft seller account: creation and registration][link-accts] | [Microsoft seller account: creation and registration][link-accts] | [Microsoft seller account: creation and registration][link-accts] | [Microsoft seller account: creation and registration][link-accts] |
+|**Step 2: Create your offer**| [General non-technical prerequisites](marketplace-publishing-pre-requisites.md)| [General non-technical prerequisites](marketplace-publishing-pre-requisites.md)| [General non-technical prerequisites](marketplace-publishing-pre-requisites.md)| [General non-technical prerequisites](marketplace-publishing-pre-requisites.md)|
+|| [VM technical prerequisites][link-single-vm-prereq] | Developer service technical prerequisites | Data service technical prerequisites | [Solution template technical prerequisites](marketplace-publishing-solution-template-creation-prerequisites.md) |
+||[VM image publishing guide][link-single-vm] | Developer service publishing guide | Data service publishing guide | [Solution template publishing guide](marketplace-publishing-solution-template-creation.md) |
+|| [Azure Marketplace marketing content guide][link-pushstaging] | [Azure Marketplace marketing content guide][link-pushstaging] | [Azure Marketplace marketing content guide][link-pushstaging] | [Azure Marketplace marketing content guide][link-pushstaging] |
+| **Step 3: Push your offer to staging** | [Test your VM offer in staging](marketplace-publishing-vm-image-test-in-staging.md) | Test your developer service offer in staging | Test your data service offer in staging | [Test your solution template in staging](marketplace-publishing-solution-template-test-in-staging.md) |
+| **Step 4: Deploy your offer to the Marketplace** | [Deploy your offer to the Marketplace][link-pushprod] | [Deploy your offer to the Marketplace][link-pushprod] | [Deploy your offer to the Marketplace][link-pushprod] | [Deploy your offer to the Marketplace][link-pushprod] |
 
 ## Support
-- [Get Support as a Publisher][suppt-general]
-- [Understanding Seller Insights reporting][suppt-rpt-insights]
-- [Understanding Payout reporting][suppt-rpt-payouts]
-- [Troubleshooting Common Publishing Problems in the Marketplace][suppt-common]
+- [Get support as a publisher][suppt-general]
+- [Understanding seller insights reporting][suppt-rpt-insights]
+- [Understanding payout reporting][suppt-rpt-payouts]
+- [Troubleshooting common publishing problems in the Marketplace][suppt-common]
 
-## Additional Resources
-- To learn more about the Portals used, visit [Portals You Will Need](marketplace-publishing-portals.md)
+## Additional resources
+- To learn more about the portals used, see [Portals you will need](marketplace-publishing-portals.md).
 
-**Virtual Machines**
+**Virtual machines**
 
 - [Setting up Azure PowerShell](marketplace-publishing-powershell-setup.md)
-- [Creating a VM Image on-premise](marketplace-publishing-vm-image-creation-on-premise.md)
+- [Creating a VM image on-premises](marketplace-publishing-vm-image-creation-on-premise.md)
 - [Create a virtual machine running Windows in the Azure preview portal](../virtual-machines-windows-tutorial/)
 
 [suppt-general]:marketplace-publishing-get-publisher-support.md
