@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/28/2015" 
+	ms.date="10/15/2015" 
 	ms.author="stbaro"/>
 
 # Deploy DocumentDB and Azure App Service Web Apps using an Azure Resource Manager Template #
@@ -33,7 +33,7 @@ Before following the instructions in this tutorial, ensure that you have the fol
 
 - An Azure subscription. Azure is a subscription-based platform.  For more information about obtaining a subscription, see [Purchase Options](http://azure.microsoft.com/pricing/purchase-options/), [Member Offers](http://azure.microsoft.com/pricing/member-offers/), or [Free Trial](http://azure.microsoft.com/pricing/free-trial/).
 - An Azure Storage Account. For instructions, see [About Azure Storage Accounts](../storage-whatis-account.md).
-- A workstation with Azure PowerShell. For instructions, see [Install and configure Azure PowerShell](../install-configure-powershell.md).
+- A workstation with Azure PowerShell 0.9.8. For instructions, see [Install and configure Azure PowerShell](../install-configure-powershell.md). This tutorial has not yet been updated for Azure PowerShell 1.0 Preview. 
 
 ##<a id="CreateDB"></a>Step 1: Download and extract the sample files ##
 Let's start by downloading the sample files we will use in this tutorial.
