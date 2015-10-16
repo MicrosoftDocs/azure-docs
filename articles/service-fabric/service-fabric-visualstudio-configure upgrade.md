@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Configure the Upgrade of a Service Fabric Application | Microsoft Azure"
+   pageTitle="Configure the upgrade of a Service Fabric application | Microsoft Azure"
    description="Learn how to configure the settings for upgrading a Service Fabric application by using Microsoft Visual Studio."
    services="service-fabric"
    documentationCenter="na"
@@ -15,7 +15,7 @@
    ms.date="10/08/2015"
    ms.author="cawaMS" />
 
-# Configure the Upgrade of a Service Fabric Application in Visual Studio
+# Configure the upgrade of a Service Fabric application in Visual Studio
 
 Visual Studio Service Fabric tools provide upgrade support for publishing to local or remote clusters. There are two advantages for upgrading your application to a newer version instead of replacing the application during testing and debugging: firstly test data can be persisted on the cluster so no additional work is needed to load test data, and secondly high availability is achieved as there won't be any service interruption during upgrade. Tests can be run against an application while it's being upgraded. 
 
@@ -88,7 +88,5 @@ The following example shows how to apply a unique health check policy for each s
 </Policies>
 ```
 ## Next steps
-For more information about deploying an application, please see the following articles.
-
-- [Deploy an existing application in Azure Service Fabric](service-fabric-deploy-existing-app.md)
+For more information about deploying an application, see [Deploy an existing application in Azure Service Fabric](service-fabric-deploy-existing-app.md).
 
