@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="powershell" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/14/2015" 
+	ms.date="10/15/2015" 
 	ms.author="tomfitz"/>
 
 # Using Azure PowerShell with Azure Resource Manager
@@ -206,12 +206,14 @@ For the database, you will see:
 
 This topic does not show you how to create your template or discuss the structure of the template. For that information, see [Authoring Azure Resource Manager templates](resource-group-authoring-templates.md). The template 
 you will deploy is shown below. Notice that the template uses the API versions you retrieved in the previous section. To ensure that all of the resources reside in the same region, we use the template expression 
-**resourceGroup().location** to use the location of the resource group. 
+**resourceGroup().location** to use the location of the resource group.
+
+You can copy the template and save it locally. During deployment you will specify the path to the template, so save it somewhere convenient.
 
     {
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
+      "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
         "hostingPlanName": {
             "type": "string"
         },
@@ -227,98 +229,98 @@ you will deploy is shown below. Notice that the template uses the API versions y
         "administratorLoginPassword": {
             "type": "securestring"
         }
-    },
-    "variables": {
-       "siteName": "[concat('ExampleSite', uniqueString(resourceGroup().id))]"
-    },
-    "resources": [
-    {
-      "name": "[parameters('serverName')]",
-      "type": "Microsoft.Sql/servers",
-      "location": "[resourceGroup().location]",
-      "apiVersion": "2014-04-01",
-      "properties": {
-        "administratorLogin": "[parameters('administratorLogin')]",
-        "administratorLoginPassword": "[parameters('administratorLoginPassword')]",
-        "version": "12.0"
+      },
+      "variables": {
+        "siteName": "[concat('ExampleSite', uniqueString(resourceGroup().id))]"
       },
       "resources": [
         {
-          "name": "[parameters('databaseName')]",
-          "type": "databases",
+          "name": "[parameters('serverName')]",
+          "type": "Microsoft.Sql/servers",
           "location": "[resourceGroup().location]",
           "apiVersion": "2014-04-01",
-          "dependsOn": [
-            "[concat('Microsoft.Sql/servers/', parameters('serverName'))]"
-          ],
           "properties": {
-            "edition": "Basic",
-            "collation": "SQL_Latin1_General_CP1_CI_AS",
-            "maxSizeBytes": "1073741824",
-            "requestedServiceObjectiveName": "Basic"
+            "administratorLogin": "[parameters('administratorLogin')]",
+            "administratorLoginPassword": "[parameters('administratorLoginPassword')]",
+            "version": "12.0"
+          },
+          "resources": [
+            {
+              "name": "[parameters('databaseName')]",
+              "type": "databases",
+              "location": "[resourceGroup().location]",
+              "apiVersion": "2014-04-01",
+              "dependsOn": [
+                "[concat('Microsoft.Sql/servers/', parameters('serverName'))]"
+              ],
+              "properties": {
+                "edition": "Basic",
+                "collation": "SQL_Latin1_General_CP1_CI_AS",
+                "maxSizeBytes": "1073741824",
+                "requestedServiceObjectiveName": "Basic"
+              }
+            },
+            {
+              "name": "AllowAllWindowsAzureIps",
+              "type": "firewallrules",
+              "location": "[resourceGroup().location]",
+              "apiVersion": "2014-04-01",
+              "dependsOn": [
+                "[concat('Microsoft.Sql/servers/', parameters('serverName'))]"
+              ],
+              "properties": {
+                "endIpAddress": "0.0.0.0",
+                "startIpAddress": "0.0.0.0"
+              }
+            }
+          ]
+        },
+        {
+          "apiVersion": "2015-08-01",
+          "type": "Microsoft.Web/serverfarms",
+          "name": "[parameters('hostingPlanName')]",
+          "location": "[resourceGroup().location]",
+          "sku": {
+            "tier": "Free",
+            "name": "f1",
+            "capacity": 0
+          },
+          "properties": {
+            "numberOfWorkers": 1
           }
         },
         {
-          "name": "AllowAllWindowsAzureIps",
-          "type": "firewallrules",
-          "location": "[resourceGroup().location]",
-          "apiVersion": "2014-04-01",
-          "dependsOn": [
-            "[concat('Microsoft.Sql/servers/', parameters('serverName'))]"
-          ],
-          "properties": {
-            "endIpAddress": "0.0.0.0",
-            "startIpAddress": "0.0.0.0"
-          }
-        }
-      ]
-    },
-    {
-      "apiVersion": "2015-08-01",
-            "type": "Microsoft.Web/serverfarms",
-            "name": "[parameters('hostingPlanName')]",
-            "location": "[resourceGroup().location]",
-            "sku": {
-                "tier": "Free",
-                "name": "f1",
-                "capacity": 0
-            },
-            "properties": {
-                "numberOfWorkers": 1
-            }
-    },
-    {
-      "apiVersion": "2015-08-01",
-      "name": "[variables('siteName')]",
-      "type": "Microsoft.Web/sites",
-      "location": "[resourceGroup().location]",
-      "dependsOn": [
-        "[concat('Microsoft.Web/serverFarms/', parameters('hostingPlanName'))]"
-      ],
-      "properties": {
-        "serverFarmId": "[parameters('hostingPlanName')]"
-      },
-      "resources": [
-        {
-          "name": "web",
-          "type": "config",
           "apiVersion": "2015-08-01",
+          "name": "[variables('siteName')]",
+          "type": "Microsoft.Web/sites",
+          "location": "[resourceGroup().location]",
           "dependsOn": [
-            "[concat('Microsoft.Web/Sites/', variables('siteName'))]"
+            "[concat('Microsoft.Web/serverFarms/', parameters('hostingPlanName'))]"
           ],
           "properties": {
-            "connectionStrings": [
-              {
-                "ConnectionString": "[concat('Data Source=tcp:', reference(concat('Microsoft.Sql/servers/', parameters('serverName'))).fullyQualifiedDomainName, ',1433;Initial Catalog=', parameters('databaseName'), ';User Id=', parameters('administratorLogin'), '@', parameters('serverName'), ';Password=', parameters('administratorLoginPassword'), ';')]",
-                "Name": "DefaultConnection",
-                "Type": 2
+            "serverFarmId": "[parameters('hostingPlanName')]"
+          },
+          "resources": [
+            {
+              "name": "web",
+              "type": "config",
+              "apiVersion": "2015-08-01",
+              "dependsOn": [
+                "[concat('Microsoft.Web/Sites/', variables('siteName'))]"
+              ],
+              "properties": {
+                "connectionStrings": [
+                  {
+                    "ConnectionString": "[concat('Data Source=tcp:', reference(concat('Microsoft.Sql/servers/', parameters('serverName'))).fullyQualifiedDomainName, ',1433;Initial Catalog=', parameters('databaseName'), ';User Id=', parameters('administratorLogin'), '@', parameters('serverName'), ';Password=', parameters('administratorLoginPassword'), ';')]",
+                    "Name": "DefaultConnection",
+                    "Type": 2
+                  }
+                ]
               }
-            ]
-          }
+            }
+          ]
         }
       ]
-    }
-    ]
     }
 
 
@@ -436,32 +438,11 @@ You can move existing resources to a new resource group. For examples, see [Move
 		[Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"): Y
 
 
-## Troubleshoot a resource group
-As you experiment with the cmdlets in the AzureResourceManager modules, you are likely to encounter errors. Use the tips in this section to resolve them.
-
-### Preventing errors
-
-The AzureResourceManager module includes cmdlets that help you to prevent errors.
-
-
-- **Get-AzureLocation**: This cmdlet gets the locations that support each type of resource. Before you enter a location for a resource, use this cmdlet to verify that the location supports the resource type.
-
-
-- **Test-AzureResourceGroupTemplate**: Test your template and template parameter before you use them. Enter a custom or gallery template and the template parameter values you plan to use. This cmdlet tests whether the template is internally consistent and whether your parameter value set matches the template. 
-
-
-
-### Fixing errors
-
-- **Get-AzureResourceGroupLog**: This cmdlet gets the entries in the log for each  deployment of the resource group. If something goes wrong, begin by examining the deployment logs. 
-
-- **Verbose and Debug**:  The cmdlets in the AzureResourceManager module call REST APIs that do the actual work. To see the messages that the APIs return, set the $DebugPreference variable to "Continue" and use the Verbose common parameter in your commands. The messages often provide vital clues about the cause of any failures.
-
-- **Your Azure credentials have not been set up or have expired**:  To refresh the credentials in your Windows PowerShell session, use the Add-AzureAccount cmdlet. The credentials in a publish settings file are not sufficient for the cmdlets in the AzureResourceManager module.
-
 
 ## Next Steps
 
 - To learn about creating Resource Manager templates, see [Authoring Azure Resource Manager Templates](./resource-group-authoring-templates.md).
 - To learn about deploying templates, see [Deploy an application with Azure Resource Manager Template](./resource-group-template-deploy.md).
 - For a detailed example of deploying a project, see [Deploy microservices predictably in Azure](app-service-web/app-service-deploy-complex-application-predictably.md).
+- To learn about troubleshooting a deployment that failed, see [Troubleshooting resource group deployments in Azure](./virtual-machines/resource-group-deploy-debug.md).
+
