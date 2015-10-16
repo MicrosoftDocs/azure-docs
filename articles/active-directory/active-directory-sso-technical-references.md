@@ -18,6 +18,13 @@
 
 # Technical reference pages for single sign-on
 
+This page contains helpful links for the major features of single sign-on with Azure Active Directory. The links are organized into the following categories:
+
+- **Landing page:** An overview of the feature, with use cases and topic introductions.
+- **How-to:** Detailed instructions to get started with specific scenarios.
+- **Troubleshooting:** Tips for diagnosing common issues.
+- **FAQ:** Answers for typical questions and concerns.  
+
 ## App assignment
 
 |   |   |
@@ -42,32 +49,24 @@
 
 ## Cloud App Discovery
 
-#### Landing page
-[How can I discover unsanctioned cloud apps that are used within my organization](active-directory-cloudappdiscovery-whatis.md)  
-
-#### How-to
-[Getting started with Cloud App Discovery](http://social.technet.microsoft.com/wiki/contents/articles/30962.getting-started-with-cloud-app-discovery.aspx)  
-[Cloud App Discovery security and privacy considerations](active-directory-cloudappdiscovery-security-and-privacy-considerations.md)  
-[Cloud App Discovery group policy deployment guide](http://social.technet.microsoft.com/wiki/contents/articles/30965.cloud-app-discovery-group-policy-deployment-guide.aspx)  
-[Cloud App Discovery System Center deployment guide](http://social.technet.microsoft.com/wiki/contents/articles/30968.cloud-app-discovery-system-center-deployment-guide.aspx)  
-[Cloud App Discovery registry settings for proxy services](active-directory-cloudappdiscovery-registry-settings-for-proxy-services.md)
-
-#### FAQ
-[Cloud App Discovery—frequently asked questions](http://social.technet.microsoft.com/wiki/contents/articles/24037.cloud-app-discovery-frequently-asked-questions.aspx)  
+|   |   |
+| ------ | ------ |
+| Landing page | [How can I discover unsanctioned cloud apps that are used within my organization](active-directory-cloudappdiscovery-whatis.md) |
+| How-to | [Getting started with Cloud App Discovery](http://social.technet.microsoft.com/wiki/contents/articles/30962.getting-started-with-cloud-app-discovery.aspx) <br><br> [Cloud App Discovery security and privacy considerations](active-directory-cloudappdiscovery-security-and-privacy-considerations.md) <br><br> [Cloud App Discovery group policy deployment guide](http://social.technet.microsoft.com/wiki/contents/articles/30965.cloud-app-discovery-group-policy-deployment-guide.aspx) <br><br> [Cloud App Discovery System Center deployment guide](http://social.technet.microsoft.com/wiki/contents/articles/30968.cloud-app-discovery-system-center-deployment-guide.aspx) <br><br> [Cloud App Discovery registry settings for proxy services](active-directory-cloudappdiscovery-registry-settings-for-proxy-services.md) |
+| FAQ | [Cloud App Discovery—frequently asked questions](http://social.technet.microsoft.com/wiki/contents/articles/24037.cloud-app-discovery-frequently-asked-questions.aspx) |
 
 ## Custom apps
 
-#### Landing page
-["Bring your own app" with Azure AD self-service SAML configuration](http://blogs.technet.com/b/ad/archive/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-gt-now-in-preview.aspx)  
-
-#### How-to
-[Tutorial: How to integrate Salesforce with Azure Active Directory](active-directory-saas-salesforce-tutorial.md)  
+|   |   |
+| ------ | ------ |
+| Landing page | ["Bring your own app" with Azure AD self-service SAML configuration](http://blogs.technet.com/b/ad/archive/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-gt-now-in-preview.aspx) |
+| How-to | [Tutorial: How to integrate Salesforce with Azure Active Directory](active-directory-saas-salesforce-tutorial.md) |
 
 ## Federated single sign-on
 
 |   |   |
 | ------ | ------ |
-| Landing page |[Configuring federation with AD FS](active-directory-aadconnect-get-started-custom.md/#configuring-federation-with-ad-fs)
+| Landing page |[Configuring federation with AD FS](active-directory-aadconnect-get-started-custom.md)
 | How-to | [DirSync with single sign-on](https://msdn.microsoft.com/en-us/library/azure/dn441213.aspx) <br><br>[Microsoft Azure now supports federation with Windows Server Active Directory](https://azure.microsoft.com/en-us/blog/windows-azure-now-supports-federation-with-windows-server-active-directory/) <br><br> [List of tutorials on how to integrate SaaS apps with Azure Active Directory](active-directory-saas-tutorial-list.md) <br><br> [Active Directory Marketplace](https://azure.microsoft.com/en-us/marketplace/active-directory/) |
 | Troubleshooting | [Troubleshooting Azure AD DirSync tool Configuration Wizard](http://social.technet.microsoft.com/wiki/contents/articles/19100.troubleshooting-azure-ad-dirsync-tool-configuration-wizard-failed-to-get-address-for-method-createidentityhandle2.aspx) <br><br> [How to troubleshoot Azure Active Directory Sync tool installation and Configuration Wizard errors](https://support.microsoft.com/en-us/kb/2684395) <br><br> [Troubleshoot directory synchronization](https://msdn.microsoft.com/en-us/library/azure/jj151787.aspx) <br><br> [Troubleshoot single sign-on](https://msdn.microsoft.com/en-us/library/azure/jj151834.aspx) |
 | FAQ | [Managing certificates for federated single sign-on in Azure Active Directory](active-directory-sso-certs.md) <br><br>[Azure Active Directory Connect FAQ](active-directory-aadconnect-faq.md) |
@@ -76,11 +75,17 @@
 
 ## Password single sign-on
 
-|   |   |
-| ------ | ------ |
-| How-to | [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md) <br><br>[DirSync with Password Sync](https://msdn.microsoft.com/en-us/library/azure/dn441214.aspx) |
-| Troubleshooting | [Troubleshooting Azure AD DirSync tool Configuration Wizard](http://social.technet.microsoft.com/wiki/contents/articles/19100.troubleshooting-azure-ad-dirsync-tool-configuration-wizard-failed-to-get-address-for-method-createidentityhandle2.aspx) <br><br> [How to troubleshoot Azure Active Directory Sync tool installation and Configuration Wizard errors](https://support.microsoft.com/en-us/kb/2684395) <br><br> [Troubleshoot directory synchronization](https://msdn.microsoft.com/en-us/library/azure/jj151787.aspx) |
-| FAQ | [Azure Active Directory Connect FAQ](active-directory-aadconnect-faq.md) |
+#### How-to
+[Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md)
+[DirSync with Password Sync](https://msdn.microsoft.com/en-us/library/azure/dn441214.aspx)
+
+#### Troubleshooting
+[Troubleshooting Azure AD DirSync tool Configuration Wizard](http://social.technet.microsoft.com/wiki/contents/articles/19100.troubleshooting-azure-ad-dirsync-tool-configuration-wizard-failed-to-get-address-for-method-createidentityhandle2.aspx)  
+[How to troubleshoot Azure Active Directory Sync tool installation and Configuration Wizard errors](https://support.microsoft.com/en-us/kb/2684395)  
+[Troubleshoot directory synchronization](https://msdn.microsoft.com/en-us/library/azure/jj151787.aspx)  
+
+#### FAQ
+[Azure Active Directory Connect FAQ](active-directory-aadconnect-faq.md)
 
 ## Pre-integrated apps
 
