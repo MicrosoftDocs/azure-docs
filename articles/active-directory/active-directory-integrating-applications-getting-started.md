@@ -63,13 +63,13 @@ As mentioned above, there may be applications that haven't been managed by your 
 Each of your applications may have different authentication requirements. With Azure AD, signing certificates can be used with applications that use SAML 2.0, WS-Federation, or OpenID Connect Protocols. Password Single Sign on is also available. For more information about application authentication types for use with Azure AD see [Managing Certificates for Federated Single Sign-On in Azure Active Directory](active-directory-sso-certs.md) and [Password based single sign on](active-directory-appssoaccess-whatis.md).
 
 ### Enabling SSO with Azure AD App Proxy
-With Microsoft Azure AD Application Proxy, you can provide access to applications located inside your private network securely, from anywhere and on any device. After you have installed an application proxy connector within your environment, it can be easily configured with Azure AD. See [Enabling SSO with Azure AD App Proxy](active-directory-appssoaccess-enable-hybrid-access.md) and [Publishing new applications with Azure AD App Proxy](active-directory-application-proxy-configure.md)
+With Microsoft Azure AD Application Proxy, you can provide access to applications located inside your private network securely, from anywhere and on any device. After you have installed an application proxy connector within your environment, it can be easily configured with Azure AD. See [Enabling SSO with Azure AD App Proxy](active-directory-appssoaccess-enable-hybrid-access.md) and [Publishing new applications with Azure AD App Proxy](active-directory-application-proxy-configure.md).
 
 ### Integrating applications with Azure AD
 The following articles discuss the different ways applications integrate with Azure AD, and provide some guidance.
 
 - [Determining which Active Directory to use](active-directory-administer.md)
-- [Integrating with existing applications](active-directory-sso-integrate-existing-apps.md)<!-- mapping user accounts is located here -->
+- [Integrating with existing applications](active-directory-sso-integrate-existing-apps.md)
 - [Publishing new applications with Azure AD App Proxy](active-directory-application-proxy-configure.md)
 - [Using applications in the Azure application gallery](active-directory-appssoaccess-whatis.md/#get-started-with-the-azure-ad-application-gallery.md)
 - [Integrating SaaS applications tutorials list](active-directory-saas-tutorial-list.md)
@@ -78,11 +78,11 @@ The following articles discuss the different ways applications integrate with Az
 The following articles describe ways you can manage access to applications once they have been integrated with Azure AD using Azure AD Connectors and Azure AD in the Azure portal.
 
 - [Automating with Azure AD Connectors](active-directory-saas-app-provisioning.md)
-- [Assigning users to an application](active-directory-applications-guiding-developers-assigning-users.md)
+- [Assigning users to an application](active-directory-applications-guiding-developers-assigning-users.md) with the Azure portal.
 - [Assigning groups to an application](active-directory-applications-guiding-developers-assigning-groups.md) with the Azure portal.
 - [Sharing accounts](active-directory-sharing-accounts.md)
 
 ## Custom applications
-If you are writing a new application and want to assist developers in leveraging the power Azure AD, see [Guiding developers](active-directory-applications-guiding-developers-for-lob-applications.md)
+If you are writing a new application and want to assist developers in leveraging the power Azure AD, see [Guiding developers](active-directory-applications-guiding-developers-for-lob-applications.md).
 
-If you want to add your custom application to the Azure Application Gallery, see [Adding a custom application to the Azure Application Gallery](bring-your-own-app-with-azure-ad-self-service-saml-configuration-gt-now-in-preview.aspx)
+If you want to add your custom application to the Azure Application Gallery, see [“Bring your own app” with Azure AD Self-Service SAML configuration](http://blogs.technet.com/b/ad/archive/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-gt-now-in-preview.aspx).

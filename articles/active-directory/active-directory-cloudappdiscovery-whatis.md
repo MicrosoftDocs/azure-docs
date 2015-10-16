@@ -21,19 +21,19 @@
 ## Overview
 In modern enterprises, IT departments are often not aware of all the cloud applications that members of their organization use to do their work. It is easy to see why administrators would have concerns about unauthorized access to corporate data, possible data leakage and other security risks. This lack of awareness can make creating a plan for dealing with these security risks seem daunting.
 
-Cloud App Discovery is a feature of Azure Active Directory (AD) Premium that enables you to discover cloud applications in use by the people in your organization.
+Cloud App Discovery is a feature of Azure Active Directory (AD) Premium that enables you to discover cloud applications being used by the people in your organization.
 
 **With Cloud App Discovery, you can:**
 
-- Find the cloud applications in use and measure that usage by number of users, volume of traffic or number of web requests to the application.
+- Find the cloud applications being used and measure that usage by number of users, volume of traffic or number of web requests to the application.
 - Identify the users that are using an application.
 - Export data for addition offline analysis.
-- Bring these applications under IT control and enable Single Sign-on for user management.
+- Bring these applications under IT control and enable single sign on for user management.
 
 ## How it works
-1. App usage agents are installed on user's computers.
-2. The app usage information captured by the agents is sent over a secure, encrypted channel to the cloud app discovery service.
-3. The cloud app discovery service evaluates the data and generates reports.
+1. Application usage agents are installed on user's computers.
+2. The application usage information captured by the agents is sent over a secure, encrypted channel to the cloud app discovery service.
+3. The Cloud App Discovery service evaluates the data and generates reports.
 
 ![Cloud App Discovery diagram](./media/active-directory-cloudappdiscovery/cad01.png)
 

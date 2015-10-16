@@ -20,16 +20,17 @@
 
 ## Overview
 Businesses have two basic requirements for applications:
+
 1.	They should enable productivity for users.
-2.	They should provide the best possible security for digital assets
+2.	They should provide the best possible security for digital assets.
 
 An application that increases productivity is easy to use. It includes intuitive design of the interface and time saving, data sharing integration with other useful applications.
 Data security requires control over “WHO is allowed to do WHAT”.  
 
 In computing terminology:
 
-•	*Who* is known as identity - a data store that consists of users and groups
-•	*What* is known as access management – management of access to protected resources
+-	*Who* is known as identity - a data store that consists of users and groups
+-	*What* is known as access management – management of access to protected resources
 
 Both components together is known as Identity and Access Management (IAM), which is defined by the [Gartner group](http://www.gartner.com/it-glossary/identity-and-access-management-iam) as “the security discipline that enables the right individuals to access the right resources at the right times for the right reasons”.
 
@@ -38,7 +39,6 @@ Okay, so what’s the problem?  If IAM is not managed in one place with an integ
 -	Identity administrators have to individually create and update user accounts in all applications separately, a redundant and time consuming activity.
 -	Users have to memorize multiple credentials to access the applications they need to work with, especially since they are encouraged not to use the same password for every application for security reasons.  As a result, users tend to write down their passwords or use other password management solutions which introduces other data security risks.
 -	Redundant, time consuming activities reduce the amount of time users and administrators are working on business activities that increase your business’s bottom line.
-Solution
 
 ## Azure Active Directory (AD) integrated with applications
 Azure Active Directory (AD) provides single sign on (SSO) and is pre-integrated with cloud-based applications such as Salesforce, Google Apps, Box, and Concur.  It can also be integrated with any other cloud-based applications including applications developed by your organization.

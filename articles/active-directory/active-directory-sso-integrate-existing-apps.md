@@ -22,9 +22,9 @@
 
 Setting up single sign on (SSO) for an application your organization already uses is a different process than creating new accounts for a new application. There are a couple of preliminary steps including: mapping user identities in the application to Azure Active Directory (AD) identities, and understanding how users will experience logging in to an application after it is integrated.
 
-## Mapping user accounts
-
 > [AZURE.NOTE] To set up SSO for an existing application, you need to have global administrator rights in both Azure AD and the SaaS application.
+
+## Mapping user accounts
 
 A user's identity typically has a unique identifier that could be an email address, or universal personal name (UPN). You will need to link (map) each user's application identity to their respective Azure AD identity. There are a couple of ways to accomplish this depending on how the requirement of your application authentication.
 

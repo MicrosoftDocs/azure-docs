@@ -57,6 +57,7 @@ Azure AD features that enable account sharing include:
 - [App proxy](active-directory-application-proxy-get-started.md)
 - [Active Directory Marketplace](http://azure.microsoft.com/marketplace/active-directory/all/)
 
+## Sharing an account
 To use Azure AD to share an account you will need to:
 
 - Add an application [app gallery](https://azure.microsoft.com/en-us/marketplace/active-directory/) or [custom application](http://blogs.technet.com/b/ad/archive/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-gt-now-in-preview.aspx)
@@ -66,7 +67,7 @@ To use Azure AD to share an account you will need to:
 
 You can also make your shared account more secure with Multi-Factor Authentication (MFA) (learn more about [securing applications with Azure AD](multi-factor-authentication-get-started.md)) and you can delegate the ability to manage who has access to the application using [Azure AD Self-service](active-directory-accessmanagement-self-service-group-management.md) Group Management.
 
-## Related articles:
+## Related articles
 
 - [Protecting apps with conditional access](active-directory-conditional-access.md)
 - [Self-service group management/SSAA](active-directory-accessmanagement-self-service-group-management.md)
