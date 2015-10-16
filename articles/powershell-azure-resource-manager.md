@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="powershell" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/15/2015" 
+	ms.date="10/14/2015" 
 	ms.author="tomfitz"/>
 
 # Using Azure PowerShell with Azure Resource Manager
@@ -22,220 +22,307 @@
 - [Azure PowerShell](powershell-azure-resource-manager.md)
 - [Azure CLI](xplat-cli-azure-resource-manager.md)
 
-Azure Resource Manager introduces an entirely new way of thinking about your Azure resources. Instead of creating and managing individual resources, you begin by imagining a complex service, such as a blog, a photo gallery, a SharePoint portal, or a wiki. You use a template -- a resource model of the service --  to create a resource group with the resources that you need to support the service. Then, you can manage and deploy that resource group as a logical unit. 
+Azure Resource Manager introduces an entirely new way of thinking about your Azure resources. Instead of creating and managing individual resources, you begin by imagining an entire solution, such as a blog, a photo gallery, a SharePoint portal, or a wiki. You use a template -- a declarative representation of the solution --  to create the resources that you need to support the service. Then, you can manage and deploy that resource group as a logical unit. 
 
 In this tutorial, you learn how to use Azure PowerShell with Azure Resource Manager for Microsoft Azure. It walks you through the process of creating and deploying a resource group for an Azure-hosted web app with a SQL database, complete with all of the resources that you need to support it.
 
 ## Prerequisites
 
-To complete this tutorial, you must have Azure PowerShell version 0.8.0 or later. To install the latest version and associate it with your Azure subscription, see [How to install and configure Azure PowerShell](powershell-install-configure.md).
+[AZURE.INCLUDE [powershell-preview-inline-include](../includes/powershell-preview-inline-include.md)]
 
 This tutorial is designed for PowerShell beginners, but it assumes that you understand the basic concepts, such as modules, cmdlets, and sessions. For more information about Windows PowerShell, see [Getting Started with Windows PowerShell](http://technet.microsoft.com/library/hh857337.aspx).
+
+## What you will deploy
+
+In this tutorial, you will use Azure PowerShell to deploy a web app and a SQL database. However, this web app and SQL database solution is made up of several resource types that work together. The actual resources you will 
+deploy are:
+
+- SQL server - to host the database
+- SQL database - to store the data
+- Firewall rules - to allow the web app to connect to the database
+- App Service plan - for defining the capabilities of the web
+- Web site - for running the app code
+- Web config - for storing the connection string to the database 
+
+## Get help
 
 To get detailed help for any cmdlet that you see in this tutorial, use the Get-Help cmdlet. 
 
 	Get-Help <cmdlet-name> -Detailed
 
-For example, to get help for the Add-AzureAccount cmdlet, type:
+For example, to get help for the Get-AzureRmResource cmdlet, type:
 
-	Get-Help Add-AzureAccount -Detailed
+	Get-Help Get-AzureRmResource -Detailed
 
-## About the Azure PowerShell Modules
-Beginning in version 0.8.0, the Azure PowerShell installation includes more than one PowerShell module. You must explicitly decide whether to use the commands that are available in the Azure module or the Azure Resource Manager module. To make it easy to switch between them, we have added a new cmdlet, **Switch-AzureMode**, to the Azure Profile module.
+To get a list of cmdlets in the Resources module with a help synopsis, type: 
 
-When you use Azure PowerShell, the cmdlets in the Azure module are imported by default. To switch to the Azure Resource Manager module, use the Switch-AzureMode cmdlet. It removes the Azure module from your session and imports the Azure Resource Manager and Azure Profile modules.
-
-To switch to the AzureResoureManager module, type:
-
-    PS C:\> Switch-AzureMode -Name AzureResourceManager
-
-To switch back to the Azure module, type:
-
-    PS C:\> Switch-AzureMode -Name AzureServiceManagement
-
-By default, Switch-AzureMode affects only the current session. To make the switch effective in all PowerShell sessions, use the **Global** parameter of Switch-AzureMode.
-
-For help with the Switch-AzureMode cmdlet, type: `Get-Help Switch-AzureMode` or see [Switch-AzureMode](http://go.microsoft.com/fwlink/?LinkID=394398).
-  
-To get a list of cmdlets in the AzureResourceManager module with a help synopsis, type: 
-
-    PS C:\> Get-Command -Module AzureResourceManager | Get-Help | Format-Table Name, Synopsis
+    PS C:\> Get-Command -Module AzureRM.Resources | Get-Help | Format-Table Name, Synopsis
 
 The output will look similar to the following excerpt:
 
 	Name                                   Synopsis
 	----                                   --------
-	Add-AlertRule                          Adds or updates an alert rule of either metric, event, o...
-	Add-AzureAccount                       Adds the Azure account to Windows PowerShell
-	Add-AzureEnvironment                   Creates an Azure environment
-	Add-AzureKeyVaultKey                   Creates a key in a vault or imports a key into a vault.
-        ...
+	Find-AzureRmResource                   Searches for resources using the specified parameters.
+	Find-AzureRmResourceGroup              Searches for resource group using the specified parameters.
+	Get-AzureRmADGroup                     Filters active directory groups.
+	Get-AzureRmADGroupMember               Get a group members.
+	...
 
 To get full help for a cmdlet, type a command with the format:
 
 	Get-Help <cmdlet-name> -Full
-
-For example, 
-
-	Get-Help Get-AzureLocation -Full
-
-For the full set of Azure Resource Manager commands, see [Azure Resource Manager Cmdlets](http://go.microsoft.com/fwlink/?LinkID=394765). 
   
+## Login to your Azure account
+
+Before deploying resources, you must first login to your account.
+
+To login to your Azure account, use the **Login-AzureRmAccount** cmdlet. In versions of Azure PowerShell prior to 1.0 Preview, use the **Add-AzureAccount** command.
+
+    PS C:\> Login-AzureRmAccount
+
+The cmdlet prompts you for the login credentials for your Azure account. After logging in, it downloads your account settings so they are available to Azure PowerShell. 
+
+The account settings expire, so you need to refresh them occasionally. To refresh the account settings, run **Login-AzureRmAccount** again. 
+
+>[AZURE.NOTE] The Resource Manager modules requires Login-AzureRmAccount. A Publish Settings file is not sufficient.     
+
+## Get resource type locations
+
+When deploying a resource you must specify where you would like to host the resource.  However, you cannot 
+make that assumption about every type of resource becasue some regions do not support particular types. Before deploying your web app and SQL database, you must figure out which regions support them. All of the resources 
+in your resource group do not need to reside in the same location; however, whenever possible, you should create resources in the same location to optimize performance. In particular, you will want to make sure that 
+your database is in the same location as the app accessing it. 
+
+To get the locations that support each resource type, you will need to use the **Get-AzureRmResourceProvider** cmdlet. First, let's see what this command returns:
+
+    PS C:\> Get-AzureRmResourceProvider -ListAvailable
+
+    ProviderNamespace               RegistrationState ResourceTypes
+    -----------------               ----------------- -------------
+    Microsoft.ApiManagement         Unregistered      {service, validateServiceName, checkServiceNameAvailability}
+    Microsoft.AppService            Registered        {apiapps, appIdentities, gateways, deploymenttemplates...}
+    Microsoft.Batch                 Registered        {batchAccounts}
+    ...
+
+There a few interesting things to notice. The ProviderNamespace represents a collection of related resource types. These namespaces usually match up well with the services you use to create your solution in Azure. Usually, the services you are working with will be registered to your account, but if you notice the service you want to use is marked as **Unregistered** you can register that resource provider with the 
+
+To limit your output to a specific type of of resource, such as web sites, use:
+
+    PS C:\> ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).Locations
+    Brazil South
+    East Asia
+    East US
+    Japan East
+    Japan West
+    North Central US
+    North Europe
+    South Central US
+    West Europe
+    West US
+    Southeast Asia
+    Central US
+    East US 2
+
+The locations you see might be slightly different than the previous results. The results could be different because an administrator in your organization has created a policy that limits which regions can be used or there may be restriction related to tax policies in your home country.
+
+Let's run the same command for the database:
+
+    PS C:\> ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Sql).ResourceTypes | Where-Object ResourceTypeName -eq servers).Locations
+    East US 2
+    South Central US
+    Central US
+    North Central US
+    West US
+    East US
+    East Asia
+    Southeast Asia
+    Japan West
+    Japan East
+    North Europe
+    West Europe
+    Brazil South
+
+It looks like for these resources we can select from many available regions. For this topic, we will use **West US** but you can specify any of the supported regions.
+
+Specifying a location for the resource group was easy because every location supports resource groups.
+
 ## Create a resource group
 
-This section of the tutorial guides you through the process of creating and deploying a resource group for a web app with a SQL database. 
+This section of the tutorial guides you through the process of creating a resource group. The resource group will serve as a container for all of the resources in your solution that share the same lifecycle. 
+Later in the tutorial, you will deploy the web app and SQL database to this resource group.
 
-You don't need to be an expert in Azure, SQL, web apps, or resource management to do this task. The templates provide a model of the resource group with all of the resources that you're likely to need. And because we're using Windows PowerShell to automate the tasks, you can use these process as a model for scripting large-scale tasks.
+To create a resource group, use the **New-AzureRmResourceGroup** cmdlet.
 
-### Step 1: Switch to Azure Resource Manager 
-1. Start PowerShell. You can use any host program that you like, such as the Azure PowerShell console or Windows PowerShell ISE.
+The command uses the **Name** parameter to specify a name for the resource group and the **Location** parameter to specify its location. Based on what we discovered in the previous section, we will use "West US" for 
+the location.
 
-2. Use the **Switch-AzureMode** cmdlet to import the cmdlets in the AzureResourceManager and AzureProfile modules. 
-
-        PS C:\> Switch-AzureMode AzureResourceManager
-
-3. To add your Azure account to the Windows PowerShell session, use the **Add-AzureAccount** cmdlet. 
-
-        PS C:\> Add-AzureAccount
-
-The cmdlet prompts you for the login credentials for your Azure account. After logging in, it downloads your account settings so they are available to Windows PowerShell. 
-
-The account settings expire, so you need to refresh them occasionally. To refresh the account settings, run **Add-AzureAccount** again. 
-
->[AZURE.NOTE] The AzureResourceManager module requires Add-AzureAccount. A Publish Settings file is not sufficient.     
-
-### Step 2: Select a gallery template
-
-There are several ways to create a resource group and its resources, but the easiest way  is to use a resource group template. A *resource group template* is JSON string that defines the resources in a resource group. The string includes placeholders called "parameters" for user-defined values, like names and sizes.
-
-Azure hosts a gallery of resource group templates and you can create your own templates, either from scratch or by editing a gallery template. In this tutorial, we'll use a gallery template. 
-
-To see all of the templates in the Azure resource group template gallery, use the **Get-AzureResourceGroupGalleryTemplate** cmdlet; however, this command returns a large number of templates. To see a more manageable number of templates, specify a publisher parameter. 
-
-At the Powershell prompt, type:
+    PS C:\> New-AzureRmResourceGroup -Name TestRG1 -Location "West US"
     
-    PS C:\> Get-AzureResourceGroupGalleryTemplate -Publisher Microsoft
+    ResourceGroupName : TestRG1
+    Location          : westus
+    ProvisioningState : Succeeded
+    Tags              :
+    Permissions       :
+                    Actions  NotActions
+                    =======  ==========
+                    *
 
-The cmdlet returns a list of gallery templates with Microsoft as the publisher. You use the **Identity** property to identify the template in the commands.
+    ResourceId        : /subscriptions/{guid}/resourceGroups/TestRG1
 
-The Microsoft.WebSiteSQLDatabase.0.2.6-preview template looks interesting. When you run the command, the version of the template may be slightly different because a new version has been released. Use the latest version of the template. To get more information about a gallery template, use the **Identity** parameter. The value of the Identity parameter is Identity of the template.
+Your resource group has been successfully created.
+        
 
-    PS C:\> Get-AzureResourceGroupGalleryTemplate -Identity Microsoft.WebSiteSQLDatabase.0.2.6-preview
+## Get available API versions for the resources
 
-The cmdlet returns an object with much more information about the template, including a summary and description.
+When you deploy a template, you must specify an API version to use for creating the resource. The available API versions correspond to versions of REST API operations that are released by the resource provider. 
+As resource providers enable new features, they will release new versions of the REST API. Therefore, the version of the API you specify in your template affects which properties are avaiable to you as you create the 
+template. In general, you will want to select the most recent API version when creating new templates. For existing templates, you can decide whether you want to continue using an API version that you know won't change your 
+deployment, or whether you want to update your template for the latest version to take advantage of new features.
 
-This template looks like it will meet our needs. Let's save it to disk and look at it more closely.
+This step may seem confusing, but discovering the API versions available for you resource is not difficult. You will again use the **Get-AzureRmResourceProvider** command.
 
-### Step 3: Examine the Template
+    PS C:\> ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).ApiVersions
+    2015-08-01
+    2015-07-01
+    2015-06-01
+    2015-05-01
+    2015-04-01
+    2015-02-01
+    2014-11-01
+    2014-06-01
+    2014-04-01-preview
+    2014-04-01
 
-Let's save the template to a JSON file on disk. This step is not required, but it makes it easier to view the template. To save the template, use the **Save-AzureResourceGroupGalleryTemplate** cmdlet. Use its **Identity** parameter to specify the template and the **Path** parameter to specify a path on disk.
+As you can see this API has been updated often. Typically, the same API version numbers will be available for all resources in a resource provider. The only exception would be if a resource was added or removed at some 
+point. We will assume the same API versions are available for the serverFarms resource; however, you can double-check for any resource that you think may have a different list of available API versions.
 
-Save-AzureResourceGroupGalleryTemplate saves the template and returns the path a file name of the JSON template file. 
+For the database, you will see:
 
-	PS C:\> Save-AzureResourceGroupGalleryTemplate -Identity Microsoft.WebSiteSQLDatabase.0.2.6-preview -Path C:\Azure\Templates\New_WebSite_And_Database.json
+    PS C:\> ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Sql).ResourceTypes | Where-Object ResourceTypeName -eq servers/databases).ApiVersions
+    2014-04-01-preview
+    2014-04-01 
 
-	Path
-	----
-	C:\Azure\Templates\New_WebSite_And_Database.json
+## Create your template
 
-
-You can view the template file in a text editor, such as Notepad. Each template has a **parameters** section and a **resources** section.
-
-The **parameters** section of the template is a collection of the parameters that are defined in all of the resources. It includes property values you can provide when setting up your resource group.
-
-    "parameters": {
-      "siteName": {
-        "type": "string"
-      },
-      "hostingPlanName": {
-        "type": "string"
-      },
-      "siteLocation": {
-        "type": "string"
-      },
-      ...
-    }
-
-Some parameters have a default value. When you use the template, you are not required to supply values for these parameters. If you do not specify a value, the default value is used. 
-
-    "collation": {
-      "type": "string",
-      "defaultValue": "SQL_Latin1_General_CP1_CI_AS"
-    },
-
-When parameters have enumerated values, the valid values are listed with the parameter. For example, the **sku** parameter can take values of Free, Shared, Basic, or Standard. If you don't specify a value for the **sku** parameter, it uses the default value, Free.
-
-    "sku": {
-      "type": "string",
-      "allowedValues": [
-        "Free",
-        "Shared",
-        "Basic",
-        "Standard"
-      ],
-      "defaultValue": "Free"
-    },
-
-
-Note that the **administratorLoginPassword** parameter uses a secure string, not plain text. When you provide a value for a secure string, the value is obscured. 
-
-	"administratorLoginPassword": {
-      "type": "securestring"
-    },
-
-The **resources** section of the template lists the resources that the template creates. This template creates a SQL database server and SQL database, a server farm and website, and several management settings.
-  
-The definition of each resource includes its properties, such as name, type and location, and parameters for user-defined values. For example, this section of the template defines the SQL database. It includes parameters for the database name ([parameters('databaseName')]), the database server location [parameters('serverLocation')], and the collation property [parameters('collation')].
+This topic does not show you how to create your template or discuss the structure of the template. For that information, see [Authoring Azure Resource Manager templates](resource-group-authoring-templates.md). The template 
+you will deploy is shown below. Notice that the template uses the API versions you retrieved in the previous section. To ensure that all of the resources reside in the same region, we use the template expression 
+**resourceGroup().location** to use the location of the resource group. 
 
     {
-        "name": "[parameters('databaseName')]",
-        "type": "databases",
-        "location": "[parameters('serverLocation')]",
-        "apiVersion": "2.0",
-        "dependsOn": [
-          "[concat('Microsoft.Sql/servers/', parameters('serverName'))]"
-        ],
-        "properties": {
-          "edition": "[parameters('edition')]",
-          "collation": "[parameters('collation')]",
-          "maxSizeBytes": "[parameters('maxSizeBytes')]",
-          "requestedServiceObjectiveId": "[parameters('requestedServiceObjectiveId')]"
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "hostingPlanName": {
+            "type": "string"
+        },
+        "serverName": {
+            "type": "string"
+        },
+        "databaseName": {
+            "type": "string"
+        },
+        "administratorLogin": {
+            "type": "string"
+        },
+        "administratorLoginPassword": {
+            "type": "securestring"
         }
     },
+    "variables": {
+       "siteName": "[concat('ExampleSite', uniqueString(resourceGroup().id))]"
+    },
+    "resources": [
+    {
+      "name": "[parameters('serverName')]",
+      "type": "Microsoft.Sql/servers",
+      "location": "[resourceGroup().location]",
+      "apiVersion": "2014-04-01",
+      "properties": {
+        "administratorLogin": "[parameters('administratorLogin')]",
+        "administratorLoginPassword": "[parameters('administratorLoginPassword')]",
+        "version": "12.0"
+      },
+      "resources": [
+        {
+          "name": "[parameters('databaseName')]",
+          "type": "databases",
+          "location": "[resourceGroup().location]",
+          "apiVersion": "2014-04-01",
+          "dependsOn": [
+            "[concat('Microsoft.Sql/servers/', parameters('serverName'))]"
+          ],
+          "properties": {
+            "edition": "Basic",
+            "collation": "SQL_Latin1_General_CP1_CI_AS",
+            "maxSizeBytes": "1073741824",
+            "requestedServiceObjectiveName": "Basic"
+          }
+        },
+        {
+          "name": "AllowAllWindowsAzureIps",
+          "type": "firewallrules",
+          "location": "[resourceGroup().location]",
+          "apiVersion": "2014-04-01",
+          "dependsOn": [
+            "[concat('Microsoft.Sql/servers/', parameters('serverName'))]"
+          ],
+          "properties": {
+            "endIpAddress": "0.0.0.0",
+            "startIpAddress": "0.0.0.0"
+          }
+        }
+      ]
+    },
+    {
+      "apiVersion": "2015-08-01",
+            "type": "Microsoft.Web/serverfarms",
+            "name": "[parameters('hostingPlanName')]",
+            "location": "[resourceGroup().location]",
+            "sku": {
+                "tier": "Free",
+                "name": "f1",
+                "capacity": 0
+            },
+            "properties": {
+                "numberOfWorkers": 1
+            }
+    },
+    {
+      "apiVersion": "2015-08-01",
+      "name": "[variables('siteName')]",
+      "type": "Microsoft.Web/sites",
+      "location": "[resourceGroup().location]",
+      "dependsOn": [
+        "[concat('Microsoft.Web/serverFarms/', parameters('hostingPlanName'))]"
+      ],
+      "properties": {
+        "serverFarmId": "[parameters('hostingPlanName')]"
+      },
+      "resources": [
+        {
+          "name": "web",
+          "type": "config",
+          "apiVersion": "2015-08-01",
+          "dependsOn": [
+            "[concat('Microsoft.Web/Sites/', variables('siteName'))]"
+          ],
+          "properties": {
+            "connectionStrings": [
+              {
+                "ConnectionString": "[concat('Data Source=tcp:', reference(concat('Microsoft.Sql/servers/', parameters('serverName'))).fullyQualifiedDomainName, ',1433;Initial Catalog=', parameters('databaseName'), ';User Id=', parameters('administratorLogin'), '@', parameters('serverName'), ';Password=', parameters('administratorLoginPassword'), ';')]",
+                "Name": "DefaultConnection",
+                "Type": 2
+              }
+            ]
+          }
+        }
+      ]
+    }
+    ]
+    }
 
 
-We're almost ready to use the template, but before we do, we need to find locations for each of the resources.
-
-### Step 4: Get resource type locations
-
-Most templates ask you to specify a location for each of the resources in a resource group. Every resource is located in an Azure data center, but not every Azure data center supports every resource type. 
-
-Select any location that supports the resource type. You do not have to create all of the resources in a resource group in the same location; however, whenever possible, you will want to create resources in the same location to optimize performance. In particular, you will want to make sure that your database is in the same location as the app accessing it. 
-
-To get the locations that support each resource type, use the **Get-AzureLocation** cmdlet. To limit your output to a specific type of of resource, such as ResourceGroup, use:
-
-    Get-AzureLocation | Where-Object Name -eq "ResourceGroup" | Format-Table Name, LocationsString -Wrap
-
-The output will look similar to:
-
-    Name                                 LocationsString
-    ----                                 ---------------
-    ResourceGroup                        East Asia, South East Asia, East US, West US, North
-                                         Central US, South Central US, Central US, North Europe,
-                                         West Europe
-
-Now, we have the information that we need to create the resource group.
-
-### Step 5: Create a resource group
- 
-In this step, we'll use the resource group template to create the resource group. For reference, open the New_WebSite_And_Database.json file on disk and follow along. The template file can be very helpful for determining parameter values to pass, such as the correct ApiVersion for a resource.
-
-To create a resource group, use the **New-AzureResourceGroup** cmdlet.
-
-The command uses the **Name** parameter to specify a name for the resource group and the **Location** parameter to specify its location. Use the output of **Get-AzureLocation** to select a location for the resource group. It uses the **GalleryTemplateIdentity** parameter to specify the gallery template.
-
-	PS C:\> New-AzureResourceGroup -Name TestRG1 -Location "East Asia" -GalleryTemplateIdentity Microsoft.WebSiteSQLDatabase.0.2.6-preview
-            ....
+## Deploy the template
 
 As soon as you type the template name, New-AzureResourceGroup fetches the template, parses it, and adds the template parameters to the command dynamically. This makes it very easy to specify the template parameter values. And, if you forget a required parameter value, Windows PowerShell prompts you for the value.
 
@@ -378,4 +465,3 @@ The AzureResourceManager module includes cmdlets that help you to prevent errors
 - To learn about creating Resource Manager templates, see [Authoring Azure Resource Manager Templates](./resource-group-authoring-templates.md).
 - To learn about deploying templates, see [Deploy an application with Azure Resource Manager Template](./resource-group-template-deploy.md).
 - For a detailed example of deploying a project, see [Deploy microservices predictably in Azure](app-service-web/app-service-deploy-complex-application-predictably.md).
-
