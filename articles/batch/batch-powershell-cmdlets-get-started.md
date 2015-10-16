@@ -25,11 +25,11 @@ For detailed cmdlet syntax, type `get-help <Cmdlet_name>` or see the [Azure Batc
 
 ## Prerequisites
 
-* **Azure PowerShell** - The Batch cmdlets ship in the Azure Resource Manager module. See [Azure Resource Manager cmdlets](../powershell-install-configure.md) for prerequisites, installation instructions, and basic usage.
+* **Azure PowerShell** - The Batch cmdlets ship in the Azure Resource Manager module. See [Azure Resource Manager cmdlets](https://msdn.microsoft.com/library/azure/mt125356.aspx) for prerequisites, installation instructions, and basic usage.
 
 
 
-* **Register with the Batch provider namespace (one-time operation)** - Before you can manage your Batch accounts, you have to register with the Batch provider namespace. This operation only needs to be performed once per subscription.
+* **Register with the Batch provider namespace (one-time operation)** - Before working with your Batch accounts, you have to register with the Batch provider namespace. This operation only needs to be performed once per subscription.
 
     ```
     Register-AzureRMResourceProvider -ProviderNamespace Microsoft.Batch
@@ -40,7 +40,7 @@ For detailed cmdlet syntax, type `get-help <Cmdlet_name>` or see the [Azure Batc
 
 ### Create a Batch account
 
-**New-AzureRmBatchAccount** creates a new Batch account in a specified resource group. If you don't already have a resource group, create one by running the [New-AzureRmResourceGroup](https://msdn.microsoft.com/library/dn654594.aspx) cmdlet, specifying one of the Azure regions in the **Location** parameter, such as "Central US". For example:
+**New-AzureRmBatchAccount** creates a new Batch account in a specified resource group. If you don't already have a resource group, create one by running the [New-AzureRmResourceGroup](https://msdn.microsoft.com/library/azure/mt603739.aspx) cmdlet, specifying one of the Azure regions in the **Location** parameter, such as "Central US". For example:
 
 ```
 New-AzureRmResourceGroup –Name MyBatchResourceGroup –location "Central US"
@@ -148,5 +148,6 @@ To remove the upper bound, set **MaxCount** to 0 or less.
 
 ## Related topics
 * [Download Azure PowerShell](http://go.microsoft.com/?linkid=9811175)
+* [How to install and configure Azure PowerShell](../powershell-install-configure.md)
 * [Azure Batch cmdlet reference](https://msdn.microsoft.com/library/azure/mt125957.aspx)
-* [Efficient List Queries](batch-efficient-list-queries.md)
+* [Query the Batch service efficiently](batch-efficient-list-queries.md)
