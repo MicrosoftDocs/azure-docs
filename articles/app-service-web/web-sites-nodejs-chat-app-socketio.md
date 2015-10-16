@@ -1,14 +1,14 @@
 <properties
 	pageTitle="Create a Node.js chat application with Socket.IO in Azure App Service"
 	description="A tutorial that demonstrates using socket.io in a node.js web app hosted on Azure."
-	services="app-service\api"
+	services="app-service\web"
 	documentationCenter="nodejs"
 	authors="MikeWasson"
 	manager="wpickett"
 	editor="mollybos"/>
 
 <tags
-	ms.service="app-service-api"
+	ms.service="app-service-web"
 	ms.workload="web"
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"

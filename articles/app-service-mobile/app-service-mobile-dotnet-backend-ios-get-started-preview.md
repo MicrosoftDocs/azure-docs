@@ -1,14 +1,14 @@
 <properties
 	pageTitle="Create an iOS app on Azure App Service Mobile Apps | Microsoft Azure"
 	description="Follow this tutorial to get started with using Azure mobile app backends for iOS development in Objective-C or Swift"
-	services="app-service"
+	services="app-service\mobile"
 	documentationCenter="ios"
 	authors="krisragh"
 	manager="dwrede"
 	editor=""/>
 
 <tags
-	ms.service="app-service"
+	ms.service="app-service-mobile"
 	ms.workload="na"
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"

@@ -1,14 +1,14 @@
 <properties
 	pageTitle="Create a WordPress web app in Azure App Service | Microsoft Azure"
 	description="Learn how to create a new Azure web app for a WordPress blog using the Azure preview portal."
-	services="app-service"
+	services="app-service\web"
 	documentationCenter="php"
 	authors="tfitzmac"
 	manager="wpickett"
 	editor=""/>
 
 <tags
-	ms.service="app-service"
+	ms.service="app-service-web"
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"

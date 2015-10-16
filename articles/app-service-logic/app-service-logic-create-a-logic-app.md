@@ -4,11 +4,11 @@
 	authors="stepsic-microsoft-com"
 	manager="dwrede"
 	editor=""
-	services="app-service"
+	services="app-service\logic"
 	documentationCenter=""/>
 
 <tags
-	ms.service="app-service"
+	ms.service="app-service-logic"
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
