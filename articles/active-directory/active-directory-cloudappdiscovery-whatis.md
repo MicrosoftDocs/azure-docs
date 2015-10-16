@@ -27,7 +27,7 @@ Cloud App Discovery is a feature of Azure Active Directory (AD) Premium that ena
 
 - Find the cloud applications being used and measure that usage by number of users, volume of traffic or number of web requests to the application.
 - Identify the users that are using an application.
-- Export data for addition offline analysis.
+- Export data for offline analysis.
 - Bring these applications under IT control and enable single sign on for user management.
 
 ## How it works
