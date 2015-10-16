@@ -81,10 +81,10 @@
 
 |   |   |
 | ------ | ------ |
-| Landing page | [Configuring federation with AD FS](active-directory-aadconnect-get-started-custom.md/#configuring-federation-with-ad-fs)
-| How-to | - [DirSync with single sign-on](https://msdn.microsoft.com/en-us/library/azure/dn441213.aspx) <br> - [Microsoft Azure now supports federation with Windows Server Active Directory](https://azure.microsoft.com/en-us/blog/windows-azure-now-supports-federation-with-windows-server-active-directory/) <br> - [List of tutorials on how to integrate SaaS apps with Azure Active Directory](active-directory-saas-tutorial-list.md) <br> [Active Directory Marketplace](https://azure.microsoft.com/en-us/marketplace/active-directory/) |
-| Troubleshooting | - [Troubleshooting Azure AD DirSync tool Configuration Wizard](http://social.technet.microsoft.com/wiki/contents/articles/19100.troubleshooting-azure-ad-dirsync-tool-configuration-wizard-failed-to-get-address-for-method-createidentityhandle2.aspx) <br> - [How to troubleshoot Azure Active Directory Sync tool installation and Configuration Wizard errors](https://support.microsoft.com/en-us/kb/2684395) <br> - [Troubleshoot directory synchronization](https://msdn.microsoft.com/en-us/library/azure/jj151787.aspx) <br> - [Troubleshoot single sign-on](https://msdn.microsoft.com/en-us/library/azure/jj151834.aspx) |
-| FAQ | - [Managing certificates for federated single sign-on in Azure Active Directory](active-directory-sso-certs.md) <br> - [Azure Active Directory Connect FAQ](active-directory-aadconnect-faq.md) |
+| Landing page | - [Configuring federation with AD FS](active-directory-aadconnect-get-started-custom.md/#configuring-federation-with-ad-fs)
+| How-to | - [DirSync with single sign-on](https://msdn.microsoft.com/en-us/library/azure/dn441213.aspx) <br><br> - [Microsoft Azure now supports federation with Windows Server Active Directory](https://azure.microsoft.com/en-us/blog/windows-azure-now-supports-federation-with-windows-server-active-directory/) <br><br> - [List of tutorials on how to integrate SaaS apps with Azure Active Directory](active-directory-saas-tutorial-list.md) <br><br> [Active Directory Marketplace](https://azure.microsoft.com/en-us/marketplace/active-directory/) |
+| Troubleshooting | - [Troubleshooting Azure AD DirSync tool Configuration Wizard](http://social.technet.microsoft.com/wiki/contents/articles/19100.troubleshooting-azure-ad-dirsync-tool-configuration-wizard-failed-to-get-address-for-method-createidentityhandle2.aspx) <br><br> - [How to troubleshoot Azure Active Directory Sync tool installation and Configuration Wizard errors](https://support.microsoft.com/en-us/kb/2684395) <br><br> - [Troubleshoot directory synchronization](https://msdn.microsoft.com/en-us/library/azure/jj151787.aspx) <br><br> - [Troubleshoot single sign-on](https://msdn.microsoft.com/en-us/library/azure/jj151834.aspx) |
+| FAQ | - [Managing certificates for federated single sign-on in Azure Active Directory](active-directory-sso-certs.md) <br><br> - [Azure Active Directory Connect FAQ](active-directory-aadconnect-faq.md) |
 
 ## Guiding developers
 
@@ -92,22 +92,25 @@
 
 |   |   |
 | ------ | ------ |
-| How-to | - [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md) <br> - [DirSync with Password Sync](https://msdn.microsoft.com/en-us/library/azure/dn441214.aspx) |
-| Troubleshooting | - [Troubleshooting Azure AD DirSync tool Configuration Wizard](http://social.technet.microsoft.com/wiki/contents/articles/19100.troubleshooting-azure-ad-dirsync-tool-configuration-wizard-failed-to-get-address-for-method-createidentityhandle2.aspx) <br> - [How to troubleshoot Azure Active Directory Sync tool installation and Configuration Wizard errors](https://support.microsoft.com/en-us/kb/2684395) <br> - [Troubleshoot directory synchronization](https://msdn.microsoft.com/en-us/library/azure/jj151787.aspx) |
+| How-to | - [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md) <br><br> - [DirSync with Password Sync](https://msdn.microsoft.com/en-us/library/azure/dn441214.aspx) |
+| Troubleshooting | - [Troubleshooting Azure AD DirSync tool Configuration Wizard](http://social.technet.microsoft.com/wiki/contents/articles/19100.troubleshooting-azure-ad-dirsync-tool-configuration-wizard-failed-to-get-address-for-method-createidentityhandle2.aspx) <br><br> - [How to troubleshoot Azure Active Directory Sync tool installation and Configuration Wizard errors](https://support.microsoft.com/en-us/kb/2684395) <br><br> - [Troubleshoot directory synchronization](https://msdn.microsoft.com/en-us/library/azure/jj151787.aspx) |
 | FAQ | - [Azure Active Directory Connect FAQ](active-directory-aadconnect-faq.md) |
 
 ## Pre-integrated apps
 
 **How-to**
+
 - [Listing your application in the Azure Active Directory application gallery](active-directory-app-gallery-listing.md)
 - ["Bring your own app" with Azure AD self-service SAML configuration](http://blogs.technet.com/b/ad/archive/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-gt-now-in-preview.aspx)
 
 ## Rich app provisioning
 
 **Landing page**
+
 - [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](active-directory-saas-app-provisioning.md)
 
 **How-to**
+
 - [Tutorial: Azure Active Directory integration with Concur](active-directory-saas-concur-tutorial.md)
 - [Tutorial: Azure Active Directory integration with DocuSign](active-directory-saas-docussign-tutorial.md)
 - [Tutorial: Azure Active Directory integration with Dropbox for Business](active-directory-saas-dropboxforbusiness-tutorial.md)
