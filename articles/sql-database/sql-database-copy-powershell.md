@@ -17,7 +17,7 @@
 	ms.tgt_pltfrm="NA"/>
 
 
-# Create a copy of a SQL database using PowerShell
+# Create a copy of an Azure SQL database using PowerShell
 
 **Single database**
 
