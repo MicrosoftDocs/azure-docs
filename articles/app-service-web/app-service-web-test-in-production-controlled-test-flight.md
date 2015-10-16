@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/22/2015"
+	ms.date="10/16/2015"
 	ms.author="cephalin"/>
 # Flighting deployment (beta testing) in Azure App Service
 
-This tutorial shows you how to do *flighting deployments* by integrating the various capabilities of Azure App Service and Azure Application Insights. 
+This tutorial shows you how to do *flighting deployments* by integrating the various capabilities of [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) and [Azure Application Insights](/services/application-insights/). 
 
 *Flighting* is a deployment process that validates a new feature or change with a limited number of real customers, and is a major testing in production 
 scenario. It is akin to beta testing and is sometimes known as "controlled test flight". Many large enterprises with a web presence use this approach to 
@@ -376,3 +376,17 @@ You're now ready to move your update to production. What's great is that now you
 
         cd <ROOT>\ToDoApp\ARMTemplates
         .\swap.ps1 -Name todoapp<your_suffix>
+
+## Summary ##
+
+Azure App Service makes it easy for small- to medium-sized businesses to test their customer-facing apps in production, something that has been traditionally done in big enterprises. Hopefully, this tutorial has given you the knowledge you need to bring together App Service and Application Insights to make possible flighting deployment, and even other test-in-production scenarios, in your DevOps world. 
+
+## More resources ##
+
+-	[Deploy a complex application predictably in Azure](app-service-deploy-complex-application-predictably.md)
+-   [Agile software development with Azure App Service](app-service-agile-software-development.md)
+-	[Authoring Azure Resource Manager Templates](resource-group-authoring-templates.md)
+-	[JSONLint - The JSON Validator](http://jsonlint.com/)
+-	[Git Branching – Basic Branching and Merging](http://www.git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging)
+-	[Azure PowerShell](powershell-install-configure.md)
+-	[Project Kudu Wiki](https://github.com/projectkudu/kudu/wiki)

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/22/2015"
+	ms.date="10/16/2015"
 	ms.author="cephalin"/>
 
 # Get started with test in production for Web Apps
@@ -22,7 +22,7 @@ Testing in production, or live-testing your web app using live customer traffic,
 
 ## Traffic Routing in App Service Web Apps
 
-With the Traffic Routing feature in App Service Web Apps, you can direct a portion of live user traffic to one or more [deployment slots](web-sites-staged-publishing.md), and then analyze your app with [Azure App Insights](/services/application-insights/) or [Azure HDInsight](/services/hdinsight/), or a third-party tool like [New Relic](/marketplace/partners/newrelic/newrelic/) to validate your change. For example, you can implement the following scenarios with App Service:
+With the Traffic Routing feature in [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714), you can direct a portion of live user traffic to one or more [deployment slots](web-sites-staged-publishing.md), and then analyze your app with [Azure Application Insights](/services/application-insights/) or [Azure HDInsight](/services/hdinsight/), or a third-party tool like [New Relic](/marketplace/partners/newrelic/newrelic/) to validate your change. For example, you can implement the following scenarios with App Service:
 
 - Discover functional bugs or pinpoint performance bottlenecks in your updates prior to site-wide deployment
 - Perform "controlled test flights" of your changes by measuring usibility metrics on the beta app
