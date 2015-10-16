@@ -20,12 +20,12 @@
 This article provides troubleshooting hints for issues you may encounter when setting up or administering Azure AD Domain Services.
 
 
-### Users are unable to login to the Azure AD Domain Services managed domain
-If you encounter a situation where one or more users in your Azure AD tenant are unable to login to the newly created managed domain, perform the following troubleshooting steps:
+### Users are unable to sign in to the Azure AD Domain Services managed domain
+If you encounter a situation where one or more users in your Azure AD tenant are unable to sign in to the newly created managed domain, perform the following troubleshooting steps:
 
 - Ensure that you have [enabled password synchronization](active-directory-ds-getting-started-password-sync.md) in accordance with the steps outlined in the Getting Started guide.
 
-- Ensure that the affected user account is not an external account in the Azure AD tenant. Examples of external accounts include Microsoft accounts (eg. 'joe@live.com') or user accounts from an external Azure AD directory. Since Azure AD Domain Services does not have credentials for such user accounts, these users cannot login to the managed domain.
+- Ensure that the affected user account is not an external account in the Azure AD tenant. Examples of external accounts include Microsoft accounts (for example, 'joe@live.com') or user accounts from an external Azure AD directory. Since Azure AD Domain Services does not have credentials for such user accounts, these users cannot sign in to the managed domain.
 
 - **Synced accounts:** If the affected user accounts are synchronized from an on-premises directory, ensure that the following steps are followed:
     - You have deployed or updated to the GA release of Azure AD Connect. Older versions will not synchronize credential hashes required for NTLM/Kerberos authentication.
