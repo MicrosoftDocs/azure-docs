@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/22/2015"
+	ms.date="10/16/2015"
 	ms.author="cephalin"/>
 
 # Get started with test in production for Web Apps
@@ -22,11 +22,11 @@ Testing in production, or live-testing your web app using live customer traffic,
 
 ## Traffic Routing in App Service Web Apps
 
-With the Traffic Routing feature in App Service Web Apps, you can direct a portion of live user traffic to one or more [deployment slots](web-sites-staged-publishing.md), and then analyze your app with [Azure App Insights](/services/application-insights/) or [Azure HDInsight](/services/hdinsight/), or a third-party tool like [New Relic](/marketplace/partners/newrelic/newrelic/) to validate your change. For example, you can implement the following scenarios with App Service:
+With the Traffic Routing feature in [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714), you can direct a portion of live user traffic to one or more [deployment slots](web-sites-staged-publishing.md), and then analyze your app with [Azure Application Insights](/services/application-insights/) or [Azure HDInsight](/services/hdinsight/), or a third-party tool like [New Relic](/marketplace/partners/newrelic/newrelic/) to validate your change. For example, you can implement the following scenarios with App Service:
 
 - Discover functional bugs or pinpoint performance bottlenecks in your updates prior to site-wide deployment
 - Perform "controlled test flights" of your changes by measuring usibility metrics on the beta app
-- Gradually ramp up to a new update, and gracefully back down to the current version if an error occurs
+- Gradually ramp up to a new update, and gracefully back down to the current version if an error occurs 
 - Optimize your app's business results by running [A/B tests](https://en.wikipedia.org/wiki/A/B_testing) or [multivariate tests](https://en.wikipedia.org/wiki/Multivariate_testing_in_marketing) in multiple deployment slots
 
 ### Requirements for using Traffic Routing in Web Apps
@@ -79,3 +79,10 @@ The string `x-ms-routing-name=self` specifies the production slot. Once the clie
 To let users opt in to your beta app, set the same query parameter to the name of the non-production slot, for example:
 
 		<webappname>.azurewebsites.net/?x-ms-routing-name=staging
+
+## More resources ##
+
+-   [Set up staging environments for web apps in Azure App Service](web-sites-staged-publishing.md)
+-	[Deploy a complex application predictably in Azure](app-service-deploy-complex-application-predictably.md)
+-   [Agile software development with Azure App Service](app-service-agile-software-development.md)
+-	[Use DevOps environments effectively for your web apps](app-service-web-staged-publishing-realworld-scenarios.md)
