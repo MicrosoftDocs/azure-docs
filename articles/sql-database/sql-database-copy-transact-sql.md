@@ -10,14 +10,14 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="10/05/2015"
+	ms.date="10/16/2015"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
 	ms.tgt_pltfrm="NA"/>
 
 
-# Create a copy of a SQL database using Transact-SQL
+# Create a copy of an Azure SQL database using Transact-SQL
 
 **Single database**
 
@@ -28,13 +28,10 @@
 
 
 
-This following steps show you how to copy a SQL database with Transact-SQL.
+This following steps show you how to copy a SQL database with Transact-SQL. The database copy operation copies a SQL database to a new database using the [CREATE DATABASE]() statement. The copy is a snapshot backup of your database that you create on either the same server or a different server.
 
 
 > [AZURE.NOTE] Azure SQL Database automatically creates and maintains backups for every user database that you can restore. For details, see [Business Continuity Overview](sql-database-business-continuity.md).
-
-
-The database copy operation copies a SQL database to a new database using the [CREATE DATABASE]() statement. The copy is a snapshot backup of your database that you create on either the same server or a different server.
 
 
 When the copying process completes, the new database is a fully functioning database that is independent of the source database. The new database is transactionally consistent with the source database at the time when the copy completes. The service tier and performance level (pricing tier) of the database copy are the same as the source database. After the copy is complete, the copy becomes a fully functional, independent database. The logins, users, and permissions can be managed independently.
@@ -47,7 +44,7 @@ To complete the steps in this article you need the following:
 
 - An Azure subscription. If you need an Azure subscription simply click **FREE TRIAL** at the top of this page, and then come back to finish this article.
 - An Azure SQL Database. If you do not have a SQL database, create one following the steps in this article: [Create your first Azure SQL Database](sql-database-get-started.md).
-- SQL Server Management Studio (SSMS). If you don't have SSMS, or if features described in this article are not available, [download the latest version](https://msdn.microsoft.com/library/mt238290.aspx).
+- [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/ms174173.aspx). If you don't have SSMS, or if features described in this article are not available, [download the latest version](https://msdn.microsoft.com/library/mt238290.aspx).
 
 
 
@@ -94,8 +91,8 @@ Monitor the copying process by querying the sys.databases and sys.dm_database_co
 ## Next steps
 
 
-- If you decide to cancel the copying while it is in progress, execute the DROP DATABASE statement on the new database. Alternatively, executing the DROP DATABASE statement on the source database also cancels the copying process.
-- After the new database is online on the destination server, use the ALTER USER statement to remap the users from the new database to logins on the destination server. All users in the new database maintain the permissions that they had in the source database. The user who initiated the database copy becomes the database owner of the new database and is assigned a new security identifier (SID). After the copying succeeds and before other users are remapped, only the login that initiated the copying, the database owner (DBO), can log on to the new database.
+- If you decide to cancel the copying while it is in progress, execute the [DROP DATABASE](https://msdn.microsoft.com/library/ms178613.aspx) statement on the new database. Alternatively, executing the DROP DATABASE statement on the source database also cancels the copying process.
+- After the new database is online on the destination server, use the [ALTER USER](https://msdn.microsoft.com/library/ms176060.aspx) statement to remap the users from the new database to logins on the destination server. All users in the new database maintain the permissions that they had in the source database. The user who initiated the database copy becomes the database owner of the new database and is assigned a new security identifier (SID). After the copying succeeds and before other users are remapped, only the login that initiated the copying, the database owner (DBO), can log on to the new database.
 
 
 

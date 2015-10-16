@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Copy an Azure SQL database"
-	description="Copy an Azure SQL database"
+	description="Create a copy of an Azure SQL database"
 	services="sql-database"
 	documentationCenter=""
 	authors="stevestein"
@@ -10,7 +10,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="10/05/2015"
+	ms.date="10/16/2015"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -26,20 +26,14 @@
 - [PowerShell](sql-database-copy-powershell.md)
 - [SQL](sql-database-copy-transact-sql.md)
 
-This following steps show you how to copy a SQL database with the [Azure preview portal](https://portal.azure.com).
-
+The following steps show you how to copy a SQL database with the [Azure preview portal](https://portal.azure.com). The database copy operation creates a new SQL database. The copy is a snapshot backup of your database that you create on either the same server or a different server.
 
 > [AZURE.NOTE] Azure SQL Database automatically creates and maintains backups for every user database that you can restore. For details, see [Business Continuity Overview](sql-database-business-continuity.md).
-
-
-The database copy operation copies a SQL database to a new database. The copy is a snapshot backup of your database that you create on either the same server or a different server.
 
 When the copying process completes, the new database is a fully functioning database that is independent of the source database. The new database is transactionally consistent with the source database at the time when the copy completes. The service tier and performance level (pricing tier) of the database copy are the same as the source database. After the copy is complete, the copy becomes a fully functional, independent database. The logins, users, and permissions can be managed independently.
 
 
 When you copy a database to the same logical server, the same logins can be used on both databases. The security principal you use to copy the database becomes the database owner (DBO) on the new database. All database users, their permissions, and their security identifiers (SIDs) are copied to the database copy.
-
-
 
 
 To copy a SQL database you need the following:
@@ -51,7 +45,7 @@ To copy a SQL database you need the following:
 
 ## Copy your SQL database
 
-Open the SQL Server blade for the database you want to copy:
+Open the SQL database blade for the database you want to copy:
 
 1.	Go to the [Azure Preview Portal](https://portal.azure.com).
 2.	Go to the database you want to copy: Browse > SQL databases
@@ -91,6 +85,7 @@ Open the SQL Server blade for the database you want to copy:
 ## Next steps
 
 - [Connect with SQL Server Management Studio (SSMS)](sql-database-connect-to-database.md)
+- [Export the database to a BACPAC](sql-database-export.md)
 
 
 
