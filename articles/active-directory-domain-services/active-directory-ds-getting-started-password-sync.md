@@ -55,6 +55,18 @@ You will need to install the GA release of Azure AD Connect on a domain joined c
 Installation instructions for Azure AD Connect are available in the following article - [Getting started with Azure AD Connect](../active-directory/active-directory-aadconnect.md)
 
 
+#### Enable synchronization of legacy credentials to Azure AD
+
+Enable synchronization of legacy credentials required for NTLM authentication in Azure AD Domain Services. You can do this by creating the following registry key on the machine where Azure AD Connect was installed.
+
+Create the following DWORD registry key and set it to 1.
+
+```
+HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\MSOLCoExistence\PasswordSync\EnableWindowsLegacyCredentialsSync
+
+Set its value to 1.
+```
+
 #### Force full password synchronization to Azure AD
 
 In order to force full password synchronization and enable all on-premises users’ password hashes (including the credential hashes required for NTLM/Kerberos authentication) to sync to your Azure AD tenant, execute the following PowerShell script on each AD forest.
