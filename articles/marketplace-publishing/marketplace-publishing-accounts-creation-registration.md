@@ -20,7 +20,7 @@
 This article walks you through the necessary account creation and registration process to become an approved Microsoft seller for the Azure Marketplace.
 
 ## 1. Create a Microsoft account
-> [AZURE.WARNING] In order to complete the publishing process, you will need to create a Microsoft account. This account will be used to register for and to sign in to both the Publishing Portal and the Seller Dashboard. You should have only one Microsoft account for your Azure Marketplace offerings. It should not be specific to services or offers.
+> [AZURE.WARNING] In order to complete the publishing process, you will need to create a Microsoft account. This account will be used to register for and to sign in to both the publishing portal and the Seller Dashboard. You should have only one Microsoft account for your Azure Marketplace offerings. It should not be specific to services or offers.
 
 The address that forms the user name should be on your domain and controlled by your IT team (such as publishing@*yourcompany*.com). Payment, tax information, and reporting will be routed through this account.
 
@@ -49,7 +49,7 @@ The address that forms the user name should be on your domain and controlled by 
 > [AZURE.IMPORTANT] Using the DL allows multiple people to receive email notifications that are important for reporting of payout information. It also ensures that ownership of the Microsoft account can be transferred and isn’t tied to a single individual.
 
 ## 2. Create your Seller Dashboard account
-The Microsoft Seller Dashboard is used to register the company information once. The registrant must be a valid representative of the company, and must provide their personal information as a way to validate their identity. The person registering must use a Microsoft account that is shared for the company, and the same account must be used in the Azure Publishing Portal. You should check to make sure your company does not already have a Seller Dashboard account before you attempt to create one. During the process, we will collect bank account information, tax information, and company address information. These are typically obtainable from finance or business contacts.
+The Microsoft Seller Dashboard is used to register the company information once. The registrant must be a valid representative of the company, and must provide their personal information as a way to validate their identity. The person registering must use a Microsoft account that is shared for the company, and the same account must be used in the Azure publishing portal. You should check to make sure your company does not already have a Seller Dashboard account before you attempt to create one. During the process, we will collect bank account information, tax information, and company address information. These are typically obtainable from finance or business contacts.
 
 > [AZURE.IMPORTANT] You must complete the following seller profile components in order to progress through the various phases of offer creation and deployment.
 
@@ -93,7 +93,7 @@ The Microsoft Seller Dashboard is used to register the company information once.
 
     ![drawing][img-sd-mktg1]
 
-8. The company name in the details below is used by the Publishing Portal, so it should be accurate.
+8. The company name in the details below is used by the publishing portal, so it should be accurate.
 
     ![drawing][img-sd-mktg2]
 
@@ -110,13 +110,13 @@ The Microsoft Seller Dashboard is used to register the company information once.
     ![drawing][img-sd-submit]
 
 
-If you are planning to publish only free offers, then you can skip to section 3, "Register your account in the Publishing Portal".
+If you are planning to publish only free offers, then you can skip to section 3, "Register your account in the publishing portal".
 
 If you are planning to publish commercial offers, you must complete tax and banking information in your Seller Dashboard account.
 
 > [AZURE.IMPORTANT] You will not be able to properly test your offers in staging and will not be able to push your offers to production without completing the tax and bank account information.
 
-If you prefer to update your tax and bank information later, you can go to section 3, "Register your account in the Publishing Portal", and come back later by using links in the Publishing Portal.
+If you prefer to update your tax and bank information later, you can go to section 3, "Register your account in the publishing portal", and come back later by using links in the publishing portal.
 
 ### Add tax and banking information
  If you want to publish commercial offers for purchase, you also need to add payout and tax information and submit it for validation in the Seller Dashboard. If you will publish only free offers (or BYOL offers), then you do not need to add this information. You can add it later, but it takes some time to validate the tax information. If you know that you will offer commercial offers for purchase, we recommend that you add it as soon as possible.
@@ -144,15 +144,15 @@ If you prefer to update your tax and bank information later, you can go to secti
 
 > [AZURE.WARNING] You will not be able to push to production your commercial offers without completing the tax and bank account information in your Seller Dashboard account.
 
-## 3. Register your account in the Publishing Portal
-The Azure Publishing Portal is used to publish and manage your offer(s). You will find some useful information in the Publishing Portal that will guide you through your offer creation process.
+## 3. Register your account in the publishing portal
+The Azure publishing portal is used to publish and manage your offer(s). You will find some useful information in the publishing portal that will guide you through your offer creation process.
 
 > [AZURE.WARNING] The same company Microsoft account that was used in the Seller Dashboard registration must be used here. Additional users can be added to assist once the master publisher account has been created.
 
 1.	Open a new Chrome Incognito or Internet Explorer InPrivate browsing session to ensure that you’re not signed in to a personal account.
 2.	Go to [http://publish.windowsazure.com](http://publish.windowsazure.com).
 3.	 Sign in with your company registration Microsoft account (i.e., marketplace@*yourcompany*.com), and you can add co-admins as necessary.
-4.	Read and accept the terms of the publisher agreement (first time signing in to the Publishing Portal), and you are done here.
+4.	Read and accept the terms of the publisher agreement (first time signing in to the publishing portal), and you are done here.
 
   > [AZURE.TIP] The participation policies are described on the [Azure website](http://azure.microsoft.com/support/legal/marketplace/participation-policies/).
 
