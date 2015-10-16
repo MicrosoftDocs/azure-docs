@@ -118,7 +118,7 @@ Azure AD provides you with pre-integrated reporting and monitoring capabilities 
 
 ## Related capabilities
 
-With Azure AD you can secure your applications with granular access policies and pre-integrated MFA. To learn more about Azure MFA see [Azure MFA](https://azure.microsoft.com/en-us/services/multi-factor-authentication/)
+With Azure AD you can secure your applications with granular access policies and pre-integrated MFA. To learn more about Azure MFA see [Azure MFA](https://azure.microsoft.com/en-us/services/multi-factor-authentication/).
 
 ## Getting started
 
