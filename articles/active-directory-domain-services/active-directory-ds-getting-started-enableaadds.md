@@ -46,7 +46,7 @@ In this step you can enable Azure AD Domain Services for your directory. Perform
    - The drop-down lists all domains that have been configured for your Azure AD directory – including verified as well as unverified domains that you configure in the ‘Domains’ tab.
    - Additionally, you can also specify a custom domain name in this editable drop-down by typing it in.
 
-   > [AZURE.WARNING] Ensure that the domain prefix of the domain name you specify (eg. 'contoso' in the 'contoso.local' domain name) is less than 15 characters. You cannot create an Azure AD Domain Services domain with a domain prefix longer than 15 characters.
+     > [AZURE.WARNING] Ensure that the domain prefix of the domain name you specify (eg. 'contoso' in the 'contoso.local' domain name) is less than 15 characters. You cannot create an Azure AD Domain Services domain with a domain prefix longer than 15 characters.
 
 8. The next step is to select a virtual network in which you'd like Azure AD Domain Services to be available. Select the virtual network you just created in the drop-down titled **Connect domain services to this virtual network**.
 
