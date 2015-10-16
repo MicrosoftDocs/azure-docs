@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Using Azure PowerShell with Azure Resource Manager" 
-	description="Use Azure PowerShell to deploy multiple resources as a resource group to Azure." 
+	pageTitle="Azure PowerShell with Resource Manager | Microsoft Azure" 
+	description="Introduction to using Azure PowerShell to deploy multiple resources as a resource group to Azure." 
 	services="azure-resource-manager" 
 	documentationCenter="" 
 	authors="tfitzmac" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="powershell" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/15/2015" 
+	ms.date="10/16/2015" 
 	ms.author="tomfitz"/>
 
 # Using Azure PowerShell with Azure Resource Manager
@@ -22,11 +22,19 @@
 - [Azure PowerShell](powershell-azure-resource-manager.md)
 - [Azure CLI](xplat-cli-azure-resource-manager.md)
 
-Azure Resource Manager introduces an entirely new way of thinking about your Azure resources. Instead of creating and managing individual resources, you begin by imagining an entire solution, such as a blog, a photo gallery, a SharePoint portal, or a wiki. You use a template -- a declarative representation of the solution --  to create the resources that you need to support the service. Then, you can manage and deploy that resource group as a logical unit. 
+Azure Resource Manager introduces an entirely new way of thinking about your Azure resources. Instead of creating and managing individual resources, you begin by imagining an entire solution, such as a blog, a photo gallery, a SharePoint portal, or a wiki. You use a template -- a declarative representation of the solution --  to create a resource group that contains all of the resources you need to support the solution. Then, you manage and deploy that resource group as a logical unit. 
 
-In this tutorial, you learn how to use Azure PowerShell with Azure Resource Manager for Microsoft Azure. It walks you through the process of creating and deploying a resource group for an Azure-hosted web app with a SQL database, complete with all of the resources that you need to support it.
+In this tutorial, you learn how to use Azure PowerShell with Azure Resource Manager. It walks you through the process of creating and deploying a resource group for an Azure-hosted web app with a SQL database, complete with all of the resources that you need to support it.
 
 ## Prerequisites
+
+To complete this tutorial, you need:
+
+- An Azure account
+  + You can [open an Azure account for free](/pricing/free-trial/?WT.mc_id=A261C142F): You get credits you can use to try out paid Azure services, and even after they're used up you can keep the account and use free Azure services, such as Websites. Your credit card will never be charged, unless you explicitly change your settings and ask to be charged.
+  
+  + You can [activate MSDN subscriber benefits](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F): Your MSDN subscription gives you credits every month that you can use for paid Azure services.
+- Azure PowerShell
 
 [AZURE.INCLUDE [powershell-preview-inline-include](../includes/powershell-preview-inline-include.md)]
 
@@ -40,11 +48,11 @@ deploy are:
 - SQL server - to host the database
 - SQL database - to store the data
 - Firewall rules - to allow the web app to connect to the database
-- App Service plan - for defining the capabilities of the web
-- Web site - for running the app code
+- App Service plan - for defining the capabilities and cost of the web app
+- Web site - for running the web app
 - Web config - for storing the connection string to the database 
 
-## Get help
+## Get help for cmdlets
 
 To get detailed help for any cmdlet that you see in this tutorial, use the Get-Help cmdlet. 
 
@@ -74,7 +82,7 @@ To get full help for a cmdlet, type a command with the format:
   
 ## Login to your Azure account
 
-Before deploying resources, you must first login to your account.
+Before working on your solution, you must login to your account.
 
 To login to your Azure account, use the **Login-AzureRmAccount** cmdlet. In versions of Azure PowerShell prior to 1.0 Preview, use the **Add-AzureAccount** command.
 
@@ -88,9 +96,9 @@ The account settings expire, so you need to refresh them occasionally. To refres
 
 ## Get resource type locations
 
-When deploying a resource you must specify where you would like to host the resource.  However, you cannot 
-make that assumption about every type of resource becasue some regions do not support particular types. Before deploying your web app and SQL database, you must figure out which regions support them. All of the resources 
-in your resource group do not need to reside in the same location; however, whenever possible, you should create resources in the same location to optimize performance. In particular, you will want to make sure that 
+When deploying a resource you must specify where you would like to host the resource.  Not every region supports 
+every resource type. Before deploying your web app and SQL database, you must figure out which regions support those types. 
+A resource group can contain resources that are located in different regions; however, whenever possible, you should create resources in the same location to optimize performance. In particular, you will want to make sure that 
 your database is in the same location as the app accessing it. 
 
 To get the locations that support each resource type, you will need to use the **Get-AzureRmResourceProvider** cmdlet. First, let's see what this command returns:
@@ -104,11 +112,25 @@ To get the locations that support each resource type, you will need to use the *
     Microsoft.Batch                 Registered        {batchAccounts}
     ...
 
-There a few interesting things to notice. The ProviderNamespace represents a collection of related resource types. These namespaces usually match up well with the services you use to create your solution in Azure. Usually, the services you are working with will be registered to your account, but if you notice the service you want to use is marked as **Unregistered** you can register that resource provider with the 
+The ProviderNamespace represents a collection of related resource types. These namespaces usually match up well with the services you want to create in Azure. If you wish to use a resource provider that is listed as **Unregistered**, you can register that resource provider by running the **Register-AzureRmResourceProvider** cmdlet and specifying the provider namespace to register. Most likely, the resource provider you will use in this tutorial will already by registered for your subscription.  
 
-To limit your output to a specific type of of resource, such as web sites, use:
+You can get more details about a provider by specifying that namespace:
+
+    PS C:\> Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Sql
+
+    ProviderNamespace RegistrationState ResourceTypes                                 Locations
+    ----------------- ----------------- -------------                                 ---------
+    Microsoft.Sql     Registered        {operations}                                  {East US 2, South Central US, Cent...
+    Microsoft.Sql     Registered        {locations}                                   {East US 2, South Central US, Cent...
+    Microsoft.Sql     Registered        {locations/capabilities}                      {East US 2, South Central US, Cent...
+    ...
+
+To limit your output to the supported locations for a specific type of of resource, such as web sites, use:
 
     PS C:\> ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).Locations
+    
+The output will be similar to:
+
     Brazil South
     East Asia
     East US
@@ -123,7 +145,7 @@ To limit your output to a specific type of of resource, such as web sites, use:
     Central US
     East US 2
 
-The locations you see might be slightly different than the previous results. The results could be different because an administrator in your organization has created a policy that limits which regions can be used or there may be restriction related to tax policies in your home country.
+The locations you see might be slightly different than the previous results. The results could be different because an administrator in your organization has created a policy that limits which regions can be used in your subscription or there may be restrictions related to tax policies in your home country.
 
 Let's run the same command for the database:
 
@@ -142,9 +164,7 @@ Let's run the same command for the database:
     West Europe
     Brazil South
 
-It looks like for these resources we can select from many available regions. For this topic, we will use **West US** but you can specify any of the supported regions.
-
-Specifying a location for the resource group was easy because every location supports resource groups.
+It looks like these resources are available in many regions. For this topic, we will use **West US**, but you can specify any of the supported regions.
 
 ## Create a resource group
 
