@@ -48,7 +48,7 @@ To test the steps in this tutorial, you should follow these recommendations:
 The objective of this tutorial is to enable you to test Azure AD single sign-on in a test environment. <br>
 The scenario outlined in this tutorial consists of three main building blocks:
 
-1. Adding @Taskfrom the gallery 
+1. Adding @Task from the gallery 
 2. Configuring and testing Azure AD single sign-on
 
 
