@@ -113,7 +113,7 @@ Your notification hub is now configured to work with APNs, and you have the conn
 
    	![][10]
 
-5. Add a new header file to your project named **HubInfo.h**. This file will hold the constants for your notification hub.  Add the following definitions replace the string literal placeholders with your *hub name* and the *DefaultListenSharedAccessSignature* that you noted earlier.
+5. Add a new header file to your project named **HubInfo.h**. This file will hold the constants for your notification hub.  Add the following definitions and replace the string literal placeholders with your *hub name* and the *DefaultListenSharedAccessSignature* that you noted earlier.
 
 		#ifndef HubInfo_h
 		#define HubInfo_h
