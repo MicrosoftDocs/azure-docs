@@ -96,7 +96,7 @@ When you need to cannot afford to remove your your SQL Server database from prod
  ![SeedCloudTR diagram](./media/sql-database-cloud-migrate/SeedCloudTR.png)
 
 
-Transactional replication is a technology built-in and integrated with SQL Server since SQL Server 6.5. It is a very mature and proven technology that most of DBAs know with which they have experience. It is now possible to configure your Azure SQL Database as a [transactional replication subscriber](https://msdn.microsoft.com/en-us/library/mt589530.aspx) to your on-premises publication. The experience that you get setting it up from Management Studio is exactly the same as if you set up a transactional replication subscriber on an on-premises server. Support for this scenario is supported with the following SQL Server versions:
+Transactional replication is a technology built-in and integrated with SQL Server since SQL Server 6.5. It is a very mature and proven technology that most of DBAs know with which they have experience. It is now possible to configure your Azure SQL Database as a [transactional replication subscriber](https://msdn.microsoft.com/library/mt589530.aspx) to your on-premises publication. The experience that you get setting it up from Management Studio is exactly the same as if you set up a transactional replication subscriber on an on-premises server. Support for this scenario is supported with the following SQL Server versions:
 
  - SQL14 SP1 CU3 and above
  - SQL14 RTM CU10 and above
