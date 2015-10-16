@@ -89,6 +89,8 @@ If database incompatibilities are detected, you must fix these incompatibilities
 
 	![Export settings](./media/sql-database-cloud-migrate/TestForCompatibilityUsingSSMS05.png)
 
+8.	If the BACPAC file is successfully generated, then your database is compatible with SQL Database, and you are ready to migrate.
+
 ## Options to migrate a compatible database to Azure SQL Database
 
 The following list discusses the options for migrating a compatible database to Azure SQL Database when you can afford to take some downtime while the migration is occurring and before you point your users and applications to the migrated database in Azure SQL Database. With these methods, you are migrating your database as it exists at a certain point in time. 
