@@ -1,14 +1,14 @@
 <properties 
 	pageTitle="Get Started with authentication for Mobile Apps in Xamarin iOS" 
 	description="Learn how to use Mobile Apps to authenticate users of your Xamarin iOS app through a variety of identity providers, including AAD, Google, Facebook, Twitter, and Microsoft." 
-	services="app-service" 
+	services="app-service\mobile" 
 	documentationCenter="xamarin" 
 	authors="mattchenderson" 
 	manager="dwrede" 
 	editor=""/>
 
 <tags 
-	ms.service="app-service" 
+	ms.service="app-service-mobile" 
 	ms.workload="na" 
 	ms.tgt_pltfrm="mobile-xamarin-ios" 
 	ms.devlang="dotnet" 

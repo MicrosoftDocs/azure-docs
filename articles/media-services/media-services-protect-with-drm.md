@@ -3,7 +3,7 @@
 	description="Microsoft Azure Media Services enables you to deliver MPEG-DASH, Smooth Streaming, and Http-Live-Streaming (HLS) streams protected with Microsoft PlayReady DRM. It also enables you to delivery DASH encrypted with Widevine DRM. This topic shows how to dynamically encrypt with PlayReady and Widevine DRM."
 	services="media-services"
 	documentationCenter=""
-	authors="Juliako"
+	authors="Juliako,Mingfeiy"
 	manager="dwrede"
 	editor=""/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="10/14/2015"
+	ms.date="10/15/2015"
 	ms.author="juliako"/>
 
 
