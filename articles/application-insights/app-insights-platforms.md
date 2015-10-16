@@ -38,7 +38,7 @@ These are implementations we've heard about, including some by third parties.
 
 + [Angular](https://www.npmjs.com/package/angular-applicationinsights)
 + [ASP.NET](app-insights-start-monitoring-app-health-usage.md)
-+ [ASP.NET - already live](app-insights-monitor-performance-live-website-now.md)
++ [ASP.NET - for apps that are already live](app-insights-monitor-performance-live-website-now.md)
 + [ASP.NET 5](app-insights-asp-net-five.md)
 + [Android](https://github.com/Microsoft/ApplicationInsights-Android)
 + [Azure web apps and VMs](../insights-perf-analytics.md)
@@ -48,7 +48,7 @@ These are implementations we've heard about, including some by third parties.
 + [Drupal](https://github.com/fidmor89/AppInsights-Drupal)
 + [iOS](https://github.com/Microsoft/ApplicationInsights-iOS)
 + [J2EE](app-insights-java-get-started.md)
-+ [J2EE - already live](app-insights-java-live.md)
++ [J2EE - for apps that are already live](app-insights-java-live.md)
 + [Joomla](https://github.com/fidmor89/AppInsights-Joomla)
 + [Microsoft CRM](app-insights-sample-mscrm.md)
 + [Node.JS](https://www.npmjs.com/package/applicationinsights)

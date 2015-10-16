@@ -107,6 +107,7 @@ For most purposes, it's sufficient to set alerts manually. But if you want to cr
 If you haven't used PowerShell with your Azure subscription before:
 
 Install the Azure Powershell module on the machine where you want to run the scripts. 
+
  * Install [Microsoft Web Platform Installer (v5 or higher)](http://www.microsoft.com/web/downloads/platform.aspx).
  * Use it to install Microsoft Azure Powershell
 
@@ -115,10 +116,11 @@ Install the Azure Powershell module on the machine where you want to run the scr
 
 Start Azure PowerShell and [connect to your subscription](powershell-install-configure.md):
 
-    ```
+```PowerShell
+
     Add-AzureAccount
     Switch-AzureMode AzureResourceManager
-    ```
+```
 
 
 #### Get alerts
