@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Resetting Linux VM password from Azure CLI"
+	pageTitle="Resetting Linux VM password from Azure CLI | Microsoft Azure"
 	description="How to use VMAccess extension from Azure Portal or CLI to reset Linux VM passwords and SSH keys, SSH configurations, and delete users accounts."
 	services="virtual-machines"
 	documentationCenter=""
@@ -19,6 +19,9 @@
 
 # How to Reset a Password or SSH for Linux Virtual Machines #
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Resource Manager model.
+
+
 If you can't connect to a Linux virtual machine because of a forgotten password, an incorrect Secure Shell (SSH) key, or a problem with the SSH configuration, use the Azure Preview Portal or the  VMAccessForLinux extension to reset the password or SSH key or fix the SSH configuration. Note that this article applies to the virtual machines created using the **Classic** deployment model.
 
 ## Azure Preview Portal
@@ -37,7 +40,7 @@ To reset the name and password of the user account with sudo privileges or the S
 You will need the following:
 
 - Microsoft Azure Linux Agent version 2.0.5 or later. Most Linux images in the Virtual Machine gallery include version 2.0.5. To find out which version is installed, run **waagent -version**. To update the agent, follow the instructions in the [Azure Linux Agent User Guide].
-- Azure Command-Line Interface (CLI). For details on setting up the Azure CLI, see [Install and Configure the Azure Command-Line Interface](../xplat-cli.md).
+- Azure Command-Line Interface (CLI). For details on setting up the Azure CLI, see [Install and Configure the Azure Command-Line Interface](../xplat-cli-install.md).
 - Azure PowerShell. You'll use commands in the Set-AzureVMExtension cmdlet to automatically load and configure the VMAccessForLinux extension. For details on setting up Azure PowerShell, see [How to install and configure Azure PowerShell].
 - A new password or set of SSH keys, if you want to reset either one. You don't need these if you want to reset the SSH configuration.
 

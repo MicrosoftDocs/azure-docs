@@ -13,15 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/28/2015" 
+	ms.date="10/01/2015" 
 	ms.author="larryfr"/>
 
 # Install and use Spark on HDInsight Hadoop clusters
 
 In this document, you will learn how to install Spark by using Script Action. Script Action lets you run scripts to customize a cluster, only when the cluster is being created. For more information, see [Customize HDInsight cluster using Script Action][hdinsight-cluster-customize]. Once you have installed Spark, you'll also learn how to run a Spark query on HDInsight clusters.
 
-> [AZURE.NOTE] HDInsight also provides Spark as a cluster type, which means you can now directly provision a Spark cluster without modifying a Hadoop cluster. However, this is limited to Windows-based clusters currently. Using the Spark cluster type, you get a Windows-based HDInsight version 3.2 cluster with Spark version 1.5.0. For more information, see [Get Started with Apache Spark on HDInsight](hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql.md).
-
+> [AZURE.NOTE] HDInsight also provides Spark as a cluster type, which means you can now directly provision a Spark cluster without modifying a Hadoop cluster. However, this is limited to Windows-based clusters currently. Using the Spark cluster type, you get a Windows-based HDInsight version 3.2 cluster with Spark version 1.3.1. For more information, see [Get Started with Apache Spark on HDInsight](hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql.md).
 
 ## <a name="whatis"></a>What is Spark?
 
@@ -33,21 +32,21 @@ This topic provides instructions on how to customize an HDInsight cluster to ins
 
 ## <a name="whatis"></a>Which version of Spark can I install?
 
-In this topic, we use a Script Action custom script to install Spark on an HDInsight cluster. This script installs Spark 1.3.1.
+In this topic, we use a Script Action custom script to install Spark on an HDInsight cluster. This script installs Spark 1.5.1.
 
 You can modify this script or create your own script to install other versions of Spark.
 
 ## What the script does
 
-This script installs Spark version 1.3.1 into `/usr/hdp/current/spark`.
+This script installs Spark version 1.5.1 into `/usr/hdp/current/spark`.
 
 ## <a name="install"></a>Install Spark using Script Actions
 
-A sample script to install Spark on an HDInsight cluster is available from a read-only Azure storage blob at [https://hdiconfigactions.blob.core.windows.net/linuxsparkconfigactionv02/spark-installer-v02.sh](https://hdiconfigactions.blob.core.windows.net/linuxsparkconfigactionv02/spark-installer-v02.sh). This section provides instructions on how to use the sample script while provisioning the cluster by using the Azure portal. 
+A sample script to install Spark on an HDInsight cluster is available from a read-only Azure storage blob at [https://hdiconfigactions.blob.core.windows.net/linuxsparkconfigactionv02/spark-installer-v02.sh](https://hdiconfigactions.blob.core.windows.net/linuxsparkconfigactionv02/spark-installer-v02.sh). This section provides instructions on how to use the sample script while creating the cluster by using the Azure portal. 
 
 > [AZURE.NOTE] You can also use Azure PowerShell or the HDInsight .NET SDK to create a cluster using this script. For more information on using these methods, see [Customize HDInsight clusters with Script Actions](hdinsight-hadoop-customize-cluster-linux.md).
 
-1. Start provisioning a cluster by using the steps in [Provision Linux-based HDInsight clusters](hdinsight-provision-linux-clusters.md#portal), but do not complete provisioning.
+1. Start creating a cluster by using the steps in [Create Linux-based HDInsight clusters](hdinsight-provision-linux-clusters.md#portal), but do not complete creation.
 
 2. On the **Optional Configuration** blade, select **Script Actions**, and provide the information below:
 
@@ -60,11 +59,11 @@ A sample script to install Spark on an HDInsight cluster is available from a rea
 
 3. At the bottom of the **Script Actions**, use the **Select** button to save the configuration. Finally, use the **Select** button at the bottom of the **Optional Configuration** blade to save the optional configuration information.
 
-4. Continue provisining the cluster as described in [Provision Linux-based HDInsight clusters](hdinsight-provision-linux-clusters.md#portal).
+4. Continue provisining the cluster as described in [Create Linux-based HDInsight clusters](hdinsight-provision-linux-clusters.md#portal).
 
 ## <a name="usespark"></a>How do I use Spark in HDInsight?
 
-Spark provides APIs in Scala, Python, and Java. You can also use the interactive Spark shell to run Spark queries. Once your cluster has finished provisioning, use the following to connect to your HDInsight cluster:
+Spark provides APIs in Scala, Python, and Java. You can also use the interactive Spark shell to run Spark queries. Once your cluster has finished creation, use the following to connect to your HDInsight cluster:
 
 	ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
 	
@@ -109,7 +108,7 @@ Once connected, use the following sections for specific steps on using Spark:
 
 ###<a name="sparksql"></a>Using the Spark shell to run Spark SQL queries
 
-Spark SQL allows you to use Spark to run relational queries expressed in Structured Query Language (SQL), HiveQL, or Scala. In this section, we look at using Spark to run a Hive query on a sample Hive table. The Hive table used in this section (called **hivesampletable**) is available by default when you provision a cluster.
+Spark SQL allows you to use Spark to run relational queries expressed in Structured Query Language (SQL), HiveQL, or Scala. In this section, we look at using Spark to run a Hive query on a sample Hive table. The Hive table used in this section (called **hivesampletable**) is available by default when you create a cluster.
 
 1. Run the following command to start the Spark shell:
 
@@ -209,7 +208,7 @@ In this section, you will create a Scala application that counts the number of l
 6. Use the following command to run the SimpleApp.scala program:
 
 
-		/usr/hdp/current/spark/bin/spark-submit --class "SimpleApp" --master local target/scala-2.10/simpleapp_2.10-1.0.jar
+		/usr/hdp/current/spark/bin/spark-submit --class "SimpleApp" --master yarn target/scala-2.10/simpleapp_2.10-1.0.jar
 
 4. When the program finishes running, the output is displayed on the console.
 

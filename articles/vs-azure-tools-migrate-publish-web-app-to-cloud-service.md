@@ -12,14 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="09/08/2015"
+   ms.date="09/30/2015"
    ms.author="kempb" />
 
 # How to: Migrate and Publish a Web Application to an Azure Cloud Service from Visual Studio
 
 To take advantage of the hosting services and scalability of Azure, you might want to migrate and publish your web application to an Azure cloud service. You can run a web application in Azure with minimal changes to your existing application.
 
->[AZURE.NOTE] This topic is about deploying to cloud services, not to web sites. For information about deploying to web sites, see How to Deploy an Azure Web Site.
+>[AZURE.NOTE] This topic is about deploying to cloud services, not to web sites. For information about deploying to web sites, see [Deploy a web app in Azure App Service](web-sites-deploy.md).
 
 For a list of specific templates that are supported for both Visual C# and Visual Basic, see the section **Supported Project Templates** later in this topic.
 
@@ -28,27 +28,29 @@ You must first enable your web application for Azure from Visual Studio. The fol
 ![Publish a Web application to Microsft Azure](./media/vs-azure-tools-migrate-publish-web-app-to-cloud-service/IC748917.png)
 
 >[AZURE.NOTE] The **Convert**, **Convert to Azure Cloud Service Project** command is displayed only for the web project in your solution. For example, the command is not available for a Silverlight project in your solution.
-When you create a service package or publish your application to Azure, warnings or errors might occur. These warnings and errors can help you fix issues before you deploy to Azure. For example, you might receive a warning about a missing assembly. For more information about how to treat any warnings as errors, see [How to Configure an Azure Cloud Service Project with Visual Studio](vs-azure-tools-cloud-service-how-to-configure-project-with-visual-studio.md). If you build your application, run it locally using the compute emulator, or publish it to Azure, you might see the following error in the **Error List** window: **The specified path, file name, or both are too long**. This error occurs because the length of the fully qualified Azure project name is too long. The length of the project name, including the full path, cannot be more than 146 characters. For example, this is the full project name including file path for an Azure project that is created for a Silverlight application: `c:\users\<user name>\documents\visual studio 2015\Projects\SilverlightApplication4\SilverlightApplication4.Web.Azure.ccproj`. You might have to move your solution to a different directory that has a shorter path to reduce the length of the fully qualified project name.
+When you create a service package or publish your application to Azure, warnings or errors might occur. These warnings and errors can help you fix issues before you deploy to Azure. For example, you might receive a warning about a missing assembly. For more information about how to treat any warnings as errors, see [Configure an Azure Cloud Service Project with Visual Studio](vs-azure-tools-configuring-an-azure-project.md). If you build your application, run it locally using the compute emulator, or publish it to Azure, you might see the following error in the **Error List** window: **The specified path, file name, or both are too long**. This error occurs because the length of the fully qualified Azure project name is too long. The length of the project name, including the full path, cannot be more than 146 characters. For example, this is the full project name including file path for an Azure project that is created for a Silverlight application: `c:\users\<user name>\documents\visual studio 2015\Projects\SilverlightApplication4\SilverlightApplication4.Web.Azure.ccproj`. You might have to move your solution to a different directory that has a shorter path to reduce the length of the fully qualified project name.
 
-To migrate and publish a web application to Azure from Visual Studio, you must follow these steps.
+To migrate and publish a web application to Azure from Visual Studio, follow these steps.
 
 ## Enable a Web Application for Deployment to Azure
 
 ### To enable a web application for deployment to Azure
 
-1. To enable your web application for deployment to Azure, open the shortcut menu for a web project in your solution and choose Add Azure Deployment Project.The following actions occur:
+1. To enable your web application for deployment to Azure, open the shortcut menu for a web project in your solution and choose Add Azure Deployment Project.
 
-- An Azure project called `<name of the web project>.Azure` is added to the solution for your application.
+    The following actions occur:
 
-- A web role for the web project is added to this Azure project.
+    - An Azure project called `<name of the web project>.Azure` is added to the solution for your application.
 
-- The **Copy Local** property is set to true for any assemblies that are required for MVC 2, MVC 3, MVC 4, and Silverlight Business Applications. This adds these assemblies to the service package that is used for deployment.
+    - A web role for the web project is added to this Azure project.
+
+    - The **Copy Local** property is set to true for any assemblies that are required for MVC 2, MVC 3, MVC 4, and Silverlight Business Applications. This adds these assemblies to the service package that is used for deployment.
 
   >[AZURE.IMPORTANT] If you have other assemblies or files that are required for this web application, you must manually set the properties for these files. For information about how to set these properties, see the section **Include Files in the Service Package** later in this article.
 
   >[AZURE.NOTE] If a web role for a specific web project already exists in an Azure project in the solution, **Convert**, **Convert to Azure Cloud Service Project** is not displayed on the shortcut menu for this web project.
 
-If you have multiple web projects in your web application and you want to create web roles for each web project, you must perform the steps in this procedure for each web project. This creates separate Azure projects for each web role. Each web project can be published separately. Alternatively, you can manually add another web role to an existing Azure project in your web application. To do this, open the shortcut menu for the **Roles** folder in your Azure project, choose **Add**, then **Web Role Project in solution**, choose the project to add as a web role, and then choose the **OK** button.
+  If you have multiple web projects in your web application and you want to create web roles for each web project, you must perform the steps in this procedure for each web project. This creates separate Azure projects for each web role. Each web project can be published separately. Alternatively, you can manually add another web role to an existing Azure project in your web application. To do this, open the shortcut menu for the **Roles** folder in your Azure project, choose **Add**, then **Web Role Project in solution**, choose the project to add as a web role, and then choose the **OK** button.
 
 ## Use an Azure SQL Database for Your Application
 
@@ -58,7 +60,7 @@ If you have a connection string for your web application that uses a SQL Server 
 
 ### To use a SQL Database instance in your web role for your connection string
 
-1. To create an instance of SQL Database in the management console for Azure, follow the steps in the following article: [Create a SQL Database Server](http://go.microsoft.com/fwlink/?LinkId=225109).
+1. To create an instance of SQL Database in the Azure Management Portal, follow the steps in the following article: [Create a SQL Database Server](http://go.microsoft.com/fwlink/?LinkId=225109).
 
     >[AZURE.NOTE] When you set up the firewall rules for your instance of SQL Database, you must select the **Allow other Azure services to access this server** check box.
 
@@ -76,7 +78,7 @@ If you have a connection string for your web application that uses a SQL Server 
 
   1. To display the connection strings, choose the ellipsis (...) button next to View.
 
-      The **Connection Strings** dialog box appears.
+    The **Connection Strings** dialog box appears.
 
   1. To copy the ADO.NET connection string, highlight the text, and choose the Ctrl+C keys.
 
@@ -98,7 +100,7 @@ If you have a connection string for your web application that uses a SQL Server 
 
 1. Save the file that you modified and republish your application.
 
-### To use an instance of SQL Database by using the Management Portal
+### To use an instance of SQL Database by using the Azure Management Portal
 
 1. In the [Azure Management Portal](http://go.microsoft.com/fwlink/?LinkID=213885), choose the SQL Databases node.
 
@@ -120,11 +122,11 @@ If you have a connection string for your web application that uses a SQL Server 
 
     The **Start the Azure Debugging Environment** dialog box opens and the application starts in the browser. For specific details about how to start each type of web application in the compute emulator, see the table in this section.
 
-1. To set up the services for your application to publish to Azure, you must have a Microsoft account and an Azure subscription. Use the steps in the following topic to set up your services: [Setting Up Services Required to Publish a Cloud Service from Visual Studio](vs-azure-tools-setting-up-services-required-to-publish-a-cloud-service-from-visual-studio.md).
+1. To set up the services for your application to publish to Azure, you must have a Microsoft account and an Azure subscription. Use the steps in the following topic to set up your services: [Prepare to publish or deploy an Azure application from Visual Studio](vs-azure-tools-cloud-service-publish-set-up-required-services-in-visual-studio.md).
 
 1. To publish the web application to Azure, open the shortcut menu for the web project and choose **Publish to Azure**.
 
-    The **Publish Azure Application** dialog box opens and Visual Studio starts the deployment process. For more information about how to publish the application, see the section **Publish an Azure Application from Visual Studio** in [Publishing a Cloud Service using the Azure Tools](vs-azure-tools-publishing-a-cloud-service-using-the-azure-tools.md).
+    The **Publish Azure Application** dialog box opens and Visual Studio starts the deployment process. For more information about how to publish the application, see the section **Publish an Azure Application from Visual Studio** in [Publishing a Cloud Service using the Azure Tools](vs-azure-tools-publishing-a-cloud-service.md).
 
     >[AZURE.NOTE] You can also publish the web application from the Azure project. To do this, open the shortcut menu for the Azure project and choose **Publish**.
 
@@ -136,9 +138,9 @@ If you have a connection string for your web application that uses a SQL Server 
 
     >[AZURE.NOTE] To remove this deployment environment after it has been deployed, you must use the Azure Management Portal.
 
-1. (Optional) After your role instances have started, Visual Studio automatically shows the deployment environment in the **Azure Compute** node in **Server Explorer**. From here you can view the status of the individual role instances. For more information about the Azure Compute  node in Server Explorer, see [Viewing the State of a Cloud Service using Server Explorer](vs-azure-tools-viewing-the-state-of-a-cloud-service-using-server-explorer.md).
+1. (Optional) After your role instances have started, Visual Studio automatically shows the deployment environment in the **Azure Compute** node in **Cloud Explorer** or **Server Explorer**. From here you can view the status of the individual role instances.
 
-    The following illustration shows the role instances while they are still in the Initializing state:
+    The following illustration shows the role instances in **Server Explorer** while they are still in the Initializing state:
 
     ![VST_DeployComputeNode](./media/vs-azure-tools-migrate-publish-web-app-to-cloud-service/IC744134.png)
 
@@ -205,5 +207,5 @@ To publish a web application to Azure, the application must use one of the proje
 |Workflow|WCF Workflow Service Application|
 
 ## Next Steps
-For more information on publishing, see [Setting Up Services Required to Publish a Cloud Service from Visual Studio](vs-azure-tools-setting-up-services-required-to-publish-a-cloud-service-from-visual-studio.md). Also check out
+For more information on publishing, see [Prepare to Publish or Deploy an Azure Application from Visual Studio](vs-azure-tools-cloud-service-publish-set-up-required-services-in-visual-studio.md). Also check out
 [Setting Up Named Authentication Credentials](vs-azure-tools-setting-up-named-authentication-credentials.md).

@@ -54,7 +54,7 @@ This can happen if:
 
 Remedy:
 
-+ Check that you provided login credentials for the right Azure account. In some early versions of the tools, the Microsoft Azure credentials, which you see in the New Project dialog, can be different from the Visual Studio Online credentials that you see at the top right of Visual Studio.
++ Check that you provided login credentials for the right Azure account. In some early versions of the tools, the Microsoft Azure credentials, which you see in the New Project dialog, can be different from the credentials that you see at the top right of Visual Studio.
 + In your browser, check that you have access to the [Azure portal](https://portal.azure.com). Open Settings and see if there is any restriction.
 + [Add Application Insights to your existing project][start]: In Solution Explorer, right click your project and choose "Add Application Insights."
 + If it still isn't working, follow the [manual procedure](app-insights-start-monitoring-app-health-usage.md) to add a resource in the portal and then add the SDK to your project. 
@@ -193,11 +193,6 @@ In Solution Explorer, right-click `ApplicationInsights.config` and choose **Upda
 No! It shows the status of the Azure service. To see your web test results, choose Browse > Application Insights > (your application) and then look at the web test results. 
 
 
-#### <a name="q07"></a>When I use add Application Insights to my application and open the Application Insights portal, it all looks completely different from your screenshots.
-
-You might be using [the older version of the Application Insights SDK](http://msdn.microsoft.com/library/dn793604.aspx), which connects to the Visual Studio Online version.
-
-The help pages you're looking at refer to [Application Insights for Microsoft Azure Preview][start], which comes already switched on in Visual Studio 2013 Update 3 and later. 
 
 #### <a name="data"></a>How long is data retained in the portal? Is it secure?
 
@@ -247,7 +242,7 @@ You can [write a PowerShell script](app-insights-powershell-script-create-resour
 [azurediagnostic]: ../insights-how-to-use-diagnostics.md
 [data]: app-insights-data-retention-privacy.md
 [platforms]: app-insights-platforms.md
-[start]: app-insights-get-started.md
+[start]: app-insights-overview.md
 [windows]: app-insights-windows-get-started.md
 
  

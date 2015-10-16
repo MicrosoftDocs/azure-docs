@@ -14,10 +14,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/11/2015"
+	ms.date="10/01/2015"
 	ms.author="trinadhk"; "jimpark"/>
 
-# Restore a virtual machine
+# Restore an Azure virtual machine
 You can restore a virtual machine to a new VM from the backups stored in Azure backup vault using restore action.
 
 ## Restore workflow
@@ -100,7 +100,7 @@ Backup of Domain Controller (DC) virtual machines is a supported scenario with A
 The VM can be restored (like any other VM) from the Azure portal or using PowerShell.
 
 ### Multiple DCs
-When you have a multi-DC environment, the Domain Controllers have their own way of keeping data in sync. When an older backup point is restored *without the proper precautions*, The USN rollback process can wreak havoc in a multi-DC environment. The right way to recover such a VM is to boot it in DSRM mode. 
+When you have a multi-DC environment, the Domain Controllers have their own way of keeping data in sync. When an older backup point is restored *without the proper precautions*, The USN rollback process can wreak havoc in a multi-DC environment. The right way to recover such a VM is to boot it in DSRM mode.
 
 The challenge arises because DSRM mode is not present in Azure. So to restore such a VM, you cannot use the Azure portal. The only supported restore mechanism is disk-based restore using PowerShell.
 

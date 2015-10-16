@@ -175,7 +175,6 @@ In this section you will reconnect the app to the mobile service. This simulates
 
 <!-- URLs. -->
 [Handling conflicts with offline support for Mobile Services]: ../mobile-services-xamarin-ios-handling-conflicts-offline-data.md 
-[Get started with data]: mobile-services-ios-get-started-data.md
 [Get started with Mobile Services]: mobile-services-ios-get-started.md
 [How to use the Xamarin Component client for Azure Mobile Services]: partner-xamarin-mobile-services-how-to-use-client-library.md
 [Soft Delete]: mobile-services-using-soft-delete.md
