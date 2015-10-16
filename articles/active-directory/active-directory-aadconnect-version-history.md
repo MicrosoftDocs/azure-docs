@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="08/24/2015"
+   ms.date="10/13/2015"
    ms.author="andkjell"/>
 
 # Azure AD Connect: Version Release History
@@ -137,7 +137,5 @@ Released: 2014 September
 
 **Initial release of Azure AD Sync.**
 
-## Additional Resources
-[Azure AD Connect sync: Customizing Synchronization options](active-directory-aadconnectsync-whatis.md)
-
-[Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md)
+## Next steps
+Learn more about [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md).

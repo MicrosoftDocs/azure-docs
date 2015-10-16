@@ -1,5 +1,5 @@
 <properties
- pageTitle="Virtual machine sizes"
+ pageTitle="Virtual machine sizes | Microsoft Azure"
  description="Lists the different sizes for virtual machines and their capacities."
  services="virtual-machines"
  documentationCenter=""
@@ -33,7 +33,14 @@ Virtual machines are available in two tiers: basic and standard. Both types offe
 
 *   D-series VMs are designed to run applications that demand higher compute power and temporary disk performance. D-series VMs provide faster processors, a higher memory-to-core ratio, and a solid-state drive (SSD) for the temporary disk. For details, see the announcement on the Azure blog, [New D-Series Virtual Machine Sizes](http://azure.microsoft.com/blog/2014/09/22/new-d-series-virtual-machine-sizes/).
 
-*   Dv2-series, a follow-on to the original D-series, features a more powerful CPU. The Dv2-series CPU is about 35% faster than the D-series CPU. It is based on the latest generation 2.4 GHz Intel Xeon® E5-2673 v3 (Haswell) processor, and with the Intel Turbo Boost Technology 2.0, can go up to 3.2 GHz. The Dv2-series has the same memory and disk configurations as the D-series. For details, see the announcement on the Azure blog, [New Dv2-Series Virtual Machine Sizes](http://azure.microsoft.com/blog/2015/10/01/new-dv2-series-virtual-machine-sizes/).
+*   Dv2-series, a follow-on to the original D-series, features a more powerful CPU. The Dv2-series CPU is about 35% faster than the D-series CPU. It is based on the latest generation 2.4 GHz Intel Xeon® E5-2673 v3 (Haswell) processor, and with the Intel Turbo Boost Technology 2.0, can go up to 3.2 GHz. The Dv2-series has the same memory and disk configurations as the D-series.
+
+    Dv2-series regional availability will be based on this schedule:
+        Oct'15: US East 2, US Central, US North Central, US West
+        Nov'15: US East, Europe North, Europe West
+        Jan'16: US South Central, APAC East, APAC Southeast, Japan East, Japan West,
+                Australia East, Australia Southeast, Brazil South
+
 
 *   G-series VMs offer the biggest size and best performance and run on hosts that have Intel Xeon E5 V3 family processors.
 
@@ -85,11 +92,11 @@ The following tables show the sizes and the capacities they provide.
 
 |Size – Azure Portal\cmdlets & APIs|CPU cores|Memory|Max. disk sizes – virtual machine|Max. data disks (1023 GB each)|Max. IOPS (500 per disk)|
 |---|---|---|---|---|---|
-|A0\ extra small|1|768 MB|<p>OS = 1023 GB</p><p>Temporary = 20 GB</p>|1|1x500|
-|A1\small|1|1.75 GB|<p>OS = 1023 GB</p><p>Temporary = 70 GB</p>|2|2x500|
-|A2\medium|2|3.5 GB|<p>OS = 1023 GB</p><p>Temporary = 135 GB</p>|4|4x500|
-|A3\large|4|7 GB|<p>OS = 1023 GB</p><p>Temporary = 285 GB</p>|8|8x500|
-|A4\extra large|8|14 GB|<p>OS = 1023 GB</p><p>Temporary = 605 GB</p>|16|16x500|
+|A0\ExtraSmall|1|768 MB|<p>OS = 1023 GB</p><p>Temporary = 20 GB</p>|1|1x500|
+|A1\Small|1|1.75 GB|<p>OS = 1023 GB</p><p>Temporary = 70 GB</p>|2|2x500|
+|A2\Medium|2|3.5 GB|<p>OS = 1023 GB</p><p>Temporary = 135 GB</p>|4|4x500|
+|A3\Large|4|7 GB|<p>OS = 1023 GB</p><p>Temporary = 285 GB</p>|8|8x500|
+|A4\ExtraLarge|8|14 GB|<p>OS = 1023 GB</p><p>Temporary = 605 GB</p>|16|16x500|
 |A5\same|2|14 GB|<p>OS = 1023 GB</p><p>Temporary = 135 GB</p>|4|4X500|
 |A6\same|4|28 GB|<p>OS = 1023 GB</p><p>Temporary = 285 GB</p>|8|8x500|
 |A7\same|8|56 GB|<p>OS = 1023 GB</p><p>Temporary = 605 GB</p>|16|16x500|

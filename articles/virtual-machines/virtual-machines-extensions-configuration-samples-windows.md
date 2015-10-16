@@ -21,7 +21,6 @@
 
 This article provides sample configuration for configuring Azure VM Extensions for Windows VMs.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)] 
 
 To learn more about these extensions click here : [Azure VM Extensions Overview.](https://msdn.microsoft.com/library/azure/dn606311.aspx)
 
@@ -170,7 +169,7 @@ Before deploying the extension please check the latest extension version and rep
               "protectedSettings": {
                 "workspaceKey"  : "The Workspace Key is a string that is available from within the Direct Agent Configuration section of the Azure Operational Insights portal"
               }
-          }
+              }
             }
 
 ### McAfee EndpointSecurity
