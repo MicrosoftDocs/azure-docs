@@ -100,6 +100,8 @@ The included example performs these steps for cChoco and xNetworking.
 
 There’s nothing special about the first time you import your configuration into the pull server and compile.  All subsequent import/compiles of the same configuration look exactly the same.  Each time you update your package and need to push it out to production you do this step after ensuring the configuration file is correct – including the new version of your package.  Here’s the configuration file and PowerShell:
 
+ISVBoxConfig.ps1:
+
     Configuration ISVBoxConfig 
     { 
         Import-DscResource -ModuleName cChoco 
@@ -142,6 +144,8 @@ There’s nothing special about the first time you import your configuration int
             } 
         }    
     }
+
+New-ConfigurationScript.ps1:
 
     Import-AzureAutomationDscConfiguration ` 
         -ResourceGroupName MY-AUTOMATION-RG –AutomationAccountName MY-AUTOMATION-ACCOUNT ` 
