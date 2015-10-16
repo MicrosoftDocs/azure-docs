@@ -66,9 +66,11 @@ libraries and tools.
 To install the SendGrid NuGet package in your application, do the following:
 
 1.  Created a new project.
+
     ![Create a new project][create-new-project]
 
-2.  Select a template:
+2.  Select a template.
+
     ![Select a template][select-a-template]
 
 3.  In **Solution Explorer**, right-click **References**, then click
