@@ -16,7 +16,7 @@
    ms.date="10/08/2015"
    ms.author="cawaMS" />
 
-# Configure secure connections from Visual Studio
+# Configure secure connections to a Service Fabric cluster from Visual Studio
 
 Learn about how to use Visual Studio to securely access a Service Fabric cluster with access control policies configured.
 
