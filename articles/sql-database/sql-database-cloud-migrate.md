@@ -44,13 +44,13 @@ If database incompatibilities are detected, you must fix these incompatibilities
 1. Open a command prompt and change a directory containing the newest version of sqlpackage.exe. This utility ships with both Visual Studio and SQL Server. You can also [download](https://msdn.microsoft.com/library/mt204009.aspx) the latest version of SQL Server Data Tools to get this utility.
 2. Execute the following sqlpackage.exe command with the following arguments for your environment:
 
-| Argument  | Description  |
-|---|---|
-| < server_name >  | source server name  |
-| < database_name >  | source database name  |
-| < target_file >  | file name and location for BACPAC file  |
-| < schema_name.table_name >  | the tables for which data will be output to the target file  |
-| < output_file >  | the file name and location for the output file with errors, if any  |
+ | Argument  | Description  |
+ |---|---|
+ | < server_name >  | source server name  |
+ | < database_name >  | source database name  |
+ | < target_file >  | file name and location for BACPAC file  |
+ | < schema_name.table_name >  | the tables for which data will be output to the target file  |
+ | < output_file >  | the file name and location for the output file with errors, if any  |
 
 The reason for the /p:TableName argument is that we only want to test for database compability for export to Azure SQL DB V12 rather than export the data from all tables. Unfortunately, the export argument for sqlpackage.exe does not support extracting no tables, so you will need to specify a single small table. The < output_file > will contain the report of any errors. The "> 2>&1" string pipes both the standard output and the standard error resulting from the command execution to specified output file.
 
@@ -183,11 +183,11 @@ Use the steps below to use the [SqlPackage.exe](https://msdn.microsoft.com/libra
 1. Open a command prompt and change a directory containing the sqlpackage.exe command line utility - this utility ships with both Visual Studio and SQL Server.
 2. Execute the following sqlpackage.exe command with the following arguments for your environment:
 
-| Argument  | Description  |
-|---|---|
-| < server_name >  | source server name  |
-| < database_name >  | source database name  |
-| < target_file >  | file name and location for BACPAC file  |
+ | Argument  | Description  |
+ |---|---|
+ | < server_name >  | source server name  |
+ | < database_name >  | source database name  |
+ | < target_file >  | file name and location for BACPAC file  |
 
 	'sqlpackage.exe /Action:Export /ssn:< server_name > /sdn:< database_name > /tf:< target_file >
 
@@ -207,23 +207,23 @@ Use the steps below to import from a BACPAC file into Azure SQL Database.
 
 	![Export a data-tier application from the Tasks menu](./media/sql-database-cloud-migrate/MigrateUsingBACPAC01.png)
 
-    Once the BACPAC has been created, connect to your Azure SQL Database server, right-click the **Databases** folder and click **Import Data-tier Application...**
+3. Once the BACPAC has been created, connect to your Azure SQL Database server, right-click the **Databases** folder and click **Import Data-tier Application...**
 
     ![Import data-tier application menu item](./media/sql-database-cloud-migrate/MigrateUsingBACPAC03.png)
 
-3.	In the import wizard, choose the BACPAC file you just exported to create the new database in Azure SQL Database.
+4.	In the import wizard, choose the BACPAC file you just exported to create the new database in Azure SQL Database.
 
     ![Import settings](./media/sql-database-cloud-migrate/MigrateUsingBACPAC04.png)
 
-4.	Provide the **New database name** for the database on Azure SQL DB, set the **Edition of Microsoft Azure SQL Database** (service tier), **Maximum database size** and **Service Objective** (performance level).
+5.	Provide the **New database name** for the database on Azure SQL DB, set the **Edition of Microsoft Azure SQL Database** (service tier), **Maximum database size** and **Service Objective** (performance level).
 
     ![Database settings](./media/sql-database-cloud-migrate/MigrateUsingBACPAC05.png)
 
-5.	Click **Next** and then click **Finish** to import the BACPAC file into a new database in the Azure SQL Database server.
+6.	Click **Next** and then click **Finish** to import the BACPAC file into a new database in the Azure SQL Database server.
 
-6. Using Object Explorer, connect to your migrated database in your Azure SQL Database server.
+7. Using Object Explorer, connect to your migrated database in your Azure SQL Database server.
 
-7.	Using the Azure Portal, view your database and its properties.
+8.	Using the Azure Portal, view your database and its properties.
 
 ## Import from a BACPAC file into Azure SQL Database using SqlPackage
 
@@ -234,16 +234,13 @@ Use the steps below to use the [SqlPackage.exe](https://msdn.microsoft.com/libra
 1. Open a command prompt and change a directory containing the sqlpackage.exe command line utility - this utility ships with both Visual Studio and SQL Server.
 2. Execute the following sqlpackage.exe command with the following arguments for your environment:
 
-| Argument  | Description  |
-|---|---|
-| < server_name >  | target server name  |
-| < database_name >  | target database name  |
-| < user_name >  | the user name in the target server |
-| < password >  | the user's password  |
-| < source_file >  | the file name and location for the BACPAC file being imported  |
-
-3. 
-4. Execute the following command, substituting for the following arguments: < server_name >, < database_name >, < user_name >, < password > , and < source_file >.
+ | Argument  | Description  |
+ |---|---|
+ | < server_name >  | target server name  |
+ | < database_name >  | target database name  |
+ | < user_name >  | the user name in the target server |
+ | < password >  | the user's password  |
+ | < source_file >  | the file name and location for the BACPAC file being imported  |
 
 	'sqlpackage.exe /Action:Import /tsn:< server_name > /tdn:< database_name > /tu:< user_name > /tp:< password > /sf:< target_file >
 
