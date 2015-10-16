@@ -44,13 +44,13 @@ If database incompatibilities are detected, you must fix these incompatibilities
 1. Open a command prompt and change a directory containing the newest version of sqlpackage.exe. This utility ships with both Visual Studio and SQL Server. You can also [download](https://msdn.microsoft.com/library/mt204009.aspx) the latest version of SQL Server Data Tools to get this utility.
 2. Execute the following sqlpackage.exe command with the following arguments for your environment:
 
- | Argument  | Description  |
- |---|---|
- | < server_name >  | source server name  |
- | < database_name >  | source database name  |
- | < target_file >  | file name and location for BACPAC file  |
- | < schema_name.table_name >  | the tables for which data will be output to the target file  |
- | < output_file >  | the file name and location for the output file with errors, if any  |
+	| Argument  | Description  |
+	|---|---|
+	| < server_name >  | source server name  |
+	| < database_name >  | source database name  |
+	| < target_file >  | file name and location for BACPAC file  |
+	| < schema_name.table_name >  | the tables for which data will be output to the target file  |
+	| < output_file >  | the file name and location for the output file with errors, if any  |
 
 The reason for the /p:TableName argument is that we only want to test for database compability for export to Azure SQL DB V12 rather than export the data from all tables. Unfortunately, the export argument for sqlpackage.exe does not support extracting no tables, so you will need to specify a single small table. The < output_file > will contain the report of any errors. The "> 2>&1" string pipes both the standard output and the standard error resulting from the command execution to specified output file.
 
@@ -183,11 +183,11 @@ Use the steps below to use the [SqlPackage.exe](https://msdn.microsoft.com/libra
 1. Open a command prompt and change a directory containing the sqlpackage.exe command line utility - this utility ships with both Visual Studio and SQL Server.
 2. Execute the following sqlpackage.exe command with the following arguments for your environment:
 
- | Argument  | Description  |
- |---|---|
- | < server_name >  | source server name  |
- | < database_name >  | source database name  |
- | < target_file >  | file name and location for BACPAC file  |
+	| Argument  | Description  |
+	|---|---|
+	| < server_name >  | source server name  |
+	| < database_name >  | source database name  |
+	| < target_file >  | file name and location for BACPAC file  |
 
 	'sqlpackage.exe /Action:Export /ssn:< server_name > /sdn:< database_name > /tf:< target_file >
 
@@ -201,7 +201,7 @@ Use the steps below to import from a BACPAC file into Azure SQL Database.
 
 1. Verify that you have version 13.0.600.65 or later of SQL Server Management Studio. New versions of Management Studio are updated monthly to remain in sync with updates to the Azure portal.
 
-	 > [AZURE.IMPORTANT] Download the [latest](https://msdn.microsoft.com/library/mt238290.aspx) version of SQL Server Management Studio. It is recommended that you always use the latest version of Management Studio.
+	> [AZURE.IMPORTANT] Download the [latest](https://msdn.microsoft.com/library/mt238290.aspx) version of SQL Server Management Studio. It is recommended that you always use the latest version of Management Studio.
 
 2. Open Management Studio and connect to your source database in Object Explorer.
 
@@ -234,13 +234,13 @@ Use the steps below to use the [SqlPackage.exe](https://msdn.microsoft.com/libra
 1. Open a command prompt and change a directory containing the sqlpackage.exe command line utility - this utility ships with both Visual Studio and SQL Server.
 2. Execute the following sqlpackage.exe command with the following arguments for your environment:
 
- | Argument  | Description  |
- |---|---|
- | < server_name >  | target server name  |
- | < database_name >  | target database name  |
- | < user_name >  | the user name in the target server |
- | < password >  | the user's password  |
- | < source_file >  | the file name and location for the BACPAC file being imported  |
+	| Argument  | Description  |
+	|---|---|
+	| < server_name >  | target server name  |
+	| < database_name >  | target database name  |
+	| < user_name >  | the user name in the target server |
+	| < password >  | the user's password  |
+	| < source_file >  | the file name and location for the BACPAC file being imported  |
 
 	'sqlpackage.exe /Action:Import /tsn:< server_name > /tdn:< database_name > /tu:< user_name > /tp:< password > /sf:< target_file >
 
