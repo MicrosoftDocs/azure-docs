@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Configure Load Balancer distribution mode | Microsoft Azure"
-   description="How to configure Azure load balancer distribution mode to support source IP affinity also known as sticky sessions "
+   description="How to configure Azure load balancer distribution mode to support source IP affinity"
    services="load-balancer"
    documentationCenter="na"
    authors="joaoma"
@@ -12,11 +12,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/01/2015"
+   ms.date="08/02/2015"
    ms.author="joaoma" />
 
 
-# Overview
+# Distribution mode for load balancer (Source IP affinity)
 
 We have introduced a new distribution mode called Source IP Affinity (also known as session affinity or client IP affinity). Azure Load Balancer can be configured to use a 2 tuple (Source IP, Destination IP) or 3 tuple (Source IP, Destination IP, Protocol) to map traffic to the available servers. By using Source IP affinity, connections initiated from the same client computer goes to the same DIP endpoint.
 

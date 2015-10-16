@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="azure-government" 
-   ms.date="03/13/2015"
+   ms.date="07/22/2015"
    ms.author="john.harvey@microsoft.com"/>
 
 #  Microsoft Azure Government Overview 
 
-<p> Microsoft Azure Government is a physically and network isolated instance of Microsoft Azure.  This developers guide will provide details on the differences that application developers and administrators would need to interact and work with these seperate regions of Azure.
+<p> Microsoft Azure Government is a physically and network isolated instance of Microsoft Azure.  This overview will provide an introduction to the environment and services as well as links to additional information.
 
 
 ## <a name="Overview"></a>Overview
@@ -73,6 +73,7 @@ Azure Government currently has the following services available in both US GOV I
 - Media Services
 - Traffic Manager
 - Service Bus
+- StorSimple
 
 Other services are available, and more services will be added on a continuous basis.  For the most current list of services, please see the [regions page](http://azure.microsoft.com/regions/#services) which will highlight each available region and their services.  
 

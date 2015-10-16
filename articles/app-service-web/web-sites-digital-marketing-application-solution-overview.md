@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/06/2015" 
+	ms.date="09/29/2015" 
 	ms.author="cephalin"/>
 
 # Create a digital marketing campaign on Azure App Service Web Apps
@@ -32,7 +32,7 @@ Below is an example of a global, multi-channel digital marketing campaign using 
 
 Quickly create new web apps from a popular CMS in the gallery or bring your existing web assets to App Service Web Apps from a variety of languages and frameworks.
 
-The Azure Marketplace provides templates from the popular website content management systems (CMS), such as [Orchard], [Umbraco], [Drupal], and [WordPress]. You can create a web app using your favorite CMS flavor. You can choose from various database backends to meet your needs, including [Azure SQL Database] and [MySQL].
+The Azure Marketplace provides templates from the popular website content management systems (CMS), such as [Orchard], [Umbraco], Drupal, and [WordPress]. You can create a web app using your favorite CMS flavor. You can choose from various database backends to meet your needs, including [Azure SQL Database] and [MySQL].
 
 Your existing web assets can run on Web Apps, whether they are .NET, PHP, Java, Node.js, or Python. You can move them to Web Apps using your familiar [FTP] tools. If you frequently create digital marketing campaigns, it is possible that you have existing web assets in a source control management system. You can deploy to Web Apps directly from popular source control options, such as [Visual Studio], [Visual Studio Online], and [Git] - local, GitHub, BitBucket, DropBox, Mercurial, etc..
 
@@ -98,7 +98,6 @@ In the **Standard** tier, monitor app responsiveness receive email notifications
 
 [Orchard]:web-sites-dotnet-orchard-cms-gallery.md
 [Umbraco]:web-sites-gallery-umbraco.md
-[Drupal]:web-sites-php-migrate-drupal.md
 [WordPress]:web-sites-php-web-site-gallery.md
   
 [MySQL]:web-sites-php-mysql-deploy-use-git.md

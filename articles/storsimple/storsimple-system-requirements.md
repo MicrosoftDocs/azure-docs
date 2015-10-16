@@ -1,10 +1,10 @@
 <properties 
-   pageTitle="StorSimple system requirements" 
+   pageTitle="StorSimple system requirements | Microsoft Azure" 
    description="Describes system requirements and best practices for software,  high availability, and networking for an Azure StorSimple solution." 
    services="storsimple" 
    documentationCenter="NA" 
    authors="alkohli" 
-   manager="AdinaH" 
+   manager="carolz" 
    editor=""/>
 
 <tags
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="06/03/2015"
+   ms.date="09/24/2015"
    ms.author="alkohli"/>
 
-# StorSimple system requirements
+# StorSimple software, high availability, and networking requirements
 
 ## Overview
 
@@ -96,7 +96,7 @@ StorSimple device controller modules each have four 1 Gigabit and two 10 Gigabit
 
 - When possible, use MPIO on servers to ensure that the servers can tolerate a link, network, or interface failure.
 
-For more information about networking your device for high availability and performance, go to [Cable your 8100 device](https://msdn.microsoft.com/library/azure/dn757738.aspx) or [Cable your 8600 device](https://msdn.microsoft.com/library/azure/dn757762.aspx).
+For more information about networking your device for high availability and performance, go to [Install your StorSimple 8100 device](storsimple-8100-hardware-installation.md#cable-your-storsimple-8100-device) or [Install your StorSimple 8600 device](storsimple-8600-hardware-installation.md#cable-your-storsimple-8600-device).
 
 #### SSDs and HDDs
 
@@ -138,7 +138,7 @@ StorSimple device model 8600 includes an Extended Bunch of Disks (EBOD) enclosur
 
 Carefully review these requirements and best practices to ensure the high availability of hosts connected to your StorSimple device.
 
-- Configure StorSimple with [2-node file server cluster configurations](https://technet.microsoft.com/library/cc731844(v=WS.10).aspx). By removing single points of failure and building in redundancy on the host side, the entire solution becomes highly available.
+- Configure StorSimple with [two-node file server cluster configurations][1]. By removing single points of failure and building in redundancy on the host side, the entire solution becomes highly available.
 
 - Use Continuously available (CA) shares available with Windows Server 2012 (SMB 3.0) for high availability during failover of the storage controllers. For additional information for configuring file server clusters and Continuously Available shares with Windows Server 2012, refer to this [video demo](http://channel9.msdn.com/Events/IT-Camps/IT-Camps-On-Demand-Windows-Server-2012/DEMO-Continuously-Available-File-Shares).
 
@@ -152,9 +152,10 @@ Your StorSimple device is a locked-down device. However, ports need to be opened
 |TCP 443 (HTTPS)<sup>3</sup>| Out | WAN | Yes |<ul><li>Outbound port is used for accessing data in the cloud.</li><li>The outbound web proxy is user configurable.</li><li>To allow system updates, this port must also be open for the controller fixed IPs.</li></ul>|
 |UDP 53 (DNS) | Out | WAN | In some cases; see notes. |This port is required only if you are using an Internet-based DNS server. |
 | UDP 123 (NTP) | Out | WAN | In some cases; see notes. |This port is required only if you are using an Internet-based NTP server. |
-| TCP 9354 | Out | WAN | In some cases; see notes. |The outbound port is used by the StorSimple Manager service to communicate with the device. This port is required if your current network does not support using HTTP 1.1 to connect to the Internet; for instance if you are using an HTTP 1.0-based proxy server.<br> If connecting via a proxy server, refer to [service bus requirements](https://msdn.microsoft.com/library/azure/ee706729.aspx) for detailed information. |
+| TCP 9354 | Out | WAN | In some cases; see notes. |The outbound port is used by the StorSimple device to communicate with the StorSimple Manager service. This port is required if your current network does not support using HTTP 1.1 to connect to the Internet; for instance if you are using an HTTP 1.0-based proxy server.<br> If connecting via a proxy server, refer to [service bus requirements](https://msdn.microsoft.com/library/azure/ee706729.aspx) for detailed information. |
 | 3260 (iSCSI) | In | LAN | No | This port is used to access data over iSCSI.|
-| 5985 | In | LAN | No | Inbound port is used by StorSimple Snapshot Manager to communicate with the StorSimple device.<br>This port is also used when you remotely connect to Windows PowerShell for StorSimple over HTTP or HTTPS. |
+| 5985 | In | LAN | No | Inbound port is used by StorSimple Snapshot Manager to communicate with the StorSimple device.<br>This port is also used when you remotely connect to Windows PowerShell for StorSimple over HTTP. |
+| 5986 | In | LAN | No | This port is used when you remotely connect to Windows PowerShell for StorSimple over HTTPS. |
 
 <sup>1</sup> No inbound ports need to be opened on the public Internet.
 
@@ -184,10 +185,14 @@ In addition to the above networking requirements, for the optimal performance of
 
 - Ensure network connectivity to the Internet is available at all times. Sporadic or unreliable Internet connections to the devices, including no Internet connectivity whatsoever, will result in an unsupported configuration.
 
-- Isolate the iSCSI and cloud traffic by having dedicated network interfaces on your device for iSCSI and cloud access. For more information, see how to [Configure network interfaces](https://msdn.microsoft.com/library/dn772371.aspx) on your StorSimple device.
+- Isolate the iSCSI and cloud traffic by having dedicated network interfaces on your device for iSCSI and cloud access. For more information, see how to [modify network interfaces](storsimple-modify-device-config.md#modify-network-interfaces) on your StorSimple device.
+
+- Do not use a Link Aggregation Protocol (LACP) configuration for your network interfaces. This is an unsupported configuration.
 
 ## Next steps
 
-- [StorSimple limits](storsimple-limits.md)
-- [Deploy your StorSimple solution](storsimple-deployment-walkthrough.md)
+- [Learn about StorSimple system limits](storsimple-limits.md).
+- [Learn how to deploy your StorSimple solution](storsimple-deployment-walkthrough.md).
  
+<!--Reference links-->
+[1]: https://technet.microsoft.com/library/cc731844(v=WS.10).aspx

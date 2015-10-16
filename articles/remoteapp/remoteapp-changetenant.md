@@ -3,7 +3,7 @@
     pageTitle="Change the Azure Active Directory tenant in Azure RemoteApp"
     description="Learn how to change the Azure Active Directory tenant associated with Azure RemoteApp"
     services="remoteapp"
-    solutions="" documentationCenter="" 
+    documentationCenter="" 
     authors="lizap"
     manager="mbaldwin" />
 
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="06/24/2015"
+    ms.date="08/12/2015"
     ms.author="elizapo" />
 
 
@@ -22,7 +22,7 @@
 
 Azure RemoteApp uses Azure Active Directory (Azure AD) to allow user access. The only Azure AD tenant that you can use is the one associated with the Azure subscription. You can view the associated subscription on the Settings page in the portal. Look at the Directory column on the Subscriptions tab.
 
-> [AZURE.NOTE] In order for the change of the Azure Active Directory to be successful, you should first remove all users from the existing Azure Active Directory tenant from all Azure RemoteApp collections. To do this, go to the Azure Portal, go to the Azure RemoteApp tab and open every Azure RemoteApp collection. Go to the **Users** tab and remove users that belong to your current Azure Active Directory tenant. Repeat for all existing Azure RemoteApp collections. Without doing this, you will not be able to create or patch collections.
+> [AZURE.NOTE] For this change to succeed, first remove all users from the existing Azure Active Directory tenant from all Azure RemoteApp collections. To do this, go to the Azure Portal, go to the Azure RemoteApp tab and open every Azure RemoteApp collection. Go to the **Users** tab and remove users that belong to your current Azure Active Directory tenant. Repeat for all existing Azure RemoteApp collections. Without doing this, you will not be able to create or patch collections.
 
 If you want to use a different tenant, use these steps to change the association with your subscription:
 

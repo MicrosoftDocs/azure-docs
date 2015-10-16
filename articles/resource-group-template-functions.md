@@ -13,12 +13,24 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/15/2015"
+   ms.date="10/13/2015"
    ms.author="tomfitz"/>
 
 # Azure Resource Manager Template Functions
 
 This topic describes all of the functions you can use in an Azure Resource Manager template.
+
+## add
+
+**add(operand1, operand2)**
+
+Returns the sum of the two provided integers.
+
+| Parameter                          | Required | Description
+| :--------------------------------: | :------: | :----------
+| operand1                           |   Yes    | First operand to use.
+| operand2                           |   Yes    | Second operand to use.
+
 
 ## base64
 
@@ -52,6 +64,12 @@ The following example shows how to combine multiple values to return a value.
         }
     }
 
+## copyIndex
+
+**copyIndex(offset)**
+
+Returns the current index of an iteration loop. For examples of using this function, see [Create multiple instances of resources in Azure Resource Manager](resource-group-create-multiple.md).
+
 ## deployment
 
 **deployment()**
@@ -79,9 +97,45 @@ The following example shows how to return deployment information in the outputs 
       }
     }
 
+## div
+
+**div(operand1, operand2)**
+
+Returns the integer division of the two provided integers.
+
+| Parameter                          | Required | Description
+| :--------------------------------: | :------: | :----------
+| operand1                           |   Yes    | Number being divided.
+| operand2                           |   Yes    | Number which is used to divide, has to be different from 0.
+
+## int
+
+**int(valueToConvert)**
+
+Converts the specified value to Integer.
+
+| Parameter                          | Required | Description
+| :--------------------------------: | :------: | :----------
+| valueToConvert                     |   Yes    | The value to convert to Integer. The type of value can only be String or Integer.
+
+The following example converts the user-provided parameter value to Integer.
+
+    "parameters": {
+        "appId": { "type": "string" }
+    },
+    "variables": { 
+        "intValue": "[int(parameters('appId'))]"
+    }
+
+## length
+
+**length(array)**
+
+Returns the number of elements in an array. Typically, used to specify the number of iterations when creating resources. For an example of using this function, see [Create multiple instances of resources in Azure Resource Manager](resource-group-create-multiple.md).
+
 ## listKeys
 
-**listKeys (resourceName or resourceIdentifier, [apiVersion])**
+**listKeys (resourceName or resourceIdentifier, apiVersion)**
 
 Returns the keys of a storage account. The resourceId can be specified by using the [resourceId function](./#resourceid) or by using the format **providerNamespace/resourceType/resourceName**. You can use the function to get the primaryKey and secondaryKey.
   
@@ -94,10 +148,34 @@ The following example shows how to return the keys from a storage account in the
 
     "outputs": { 
       "exampleOutput": { 
-        "value": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName')), providers('Microsoft.Storage', 'storageAccounts').apiVersions[0])]", 
+        "value": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName')), '2015-05-01-preview')]", 
         "type" : "object" 
       } 
     } 
+
+## mod
+
+**mod(operand1, operand2)**
+
+Returns the remainder of the integer division using the two provided integers.
+
+| Parameter                          | Required | Description
+| :--------------------------------: | :------: | :----------
+| operand1                           |   Yes    | Number being divided.
+| operand2                           |   Yes    | Number which is used to divide, has to be different from 0.
+
+
+## mul
+
+**mul(operand1, operand2)**
+
+Returns the multiplication of the two provided integers.
+
+| Parameter                          | Required | Description
+| :--------------------------------: | :------: | :----------
+| operand1                           |   Yes    | First operand to use.
+| operand2                           |   Yes    | Second operand to use.
+
 
 ## padLeft
 
@@ -147,9 +225,9 @@ The following example shows a simplified use of the parameters function.
        }
     ]
 
-## provider
+## providers
 
-**provider (providerNamespace, [resourceType])**
+**providers (providerNamespace, [resourceType])**
 
 Return information about a resource provider and its supported resource types. If not type is provided, all of the supported types are returned.
 
@@ -188,7 +266,8 @@ Enables an expression to derive its value from another resource's runtime state.
 
 The **reference** function derives its value from a runtime state, and therefore cannot be used in the variables section. It can be used in outputs section of a template.
 
-By using the reference expression, you declare that one resource depends on another resource if the referenced resource is provisioned within same template.
+By using the reference expression, you implicitly declare that one resource depends on another resource if the referenced resource is provisioned within same template. You do not need to also use the **dependsOn** property. 
+The expression is not evaluated until the referenced resource has completed deployment.
 
     "outputs": {
       "siteUri": {
@@ -265,7 +344,7 @@ The following example shows how to retrieve the resource ids for a web site and 
 Often, you need to use this function when using a storage account or virtual network in an alternate resource group. The storage account or virtual network may be used across multiple resource groups; therefore, you do not want to delete them when deleting a single resource group. The following example shows how a resource from an external resource group can easily be used:
 
     {
-      "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json",
+      "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
       "contentVersion": "1.0.0.0",
       "parameters": {
           "virtualNetworkName": {
@@ -304,6 +383,57 @@ Often, you need to use this function when using a storage account or virtual net
            }
       }]
     }
+
+## split
+
+**split(inputString, delimiter)**
+**split(inputString, [delimiters])**
+
+Returns an array of strings that contains the substrings of the input string that are delimited by the sent delimiters.
+
+| Parameter                          | Required | Description
+| :--------------------------------: | :------: | :----------
+| inputString                        |   Yes    | The string to to be splitted.
+| delimiter                          |   Yes    | The delimiter to use, can be a single string or an array of strings.
+
+The following example splits the input string with a comma.
+
+    "parameters": {
+        "inputString": { "type": "string" }
+    },
+    "variables": { 
+        "stringPieces": "[split(parameters('inputString'), ',')]"
+    }
+
+## string
+
+**string(valueToConvert)**
+
+Converts the specified value to String.
+
+| Parameter                          | Required | Description
+| :--------------------------------: | :------: | :----------
+| valueToConvert                     |   Yes    | The value to convert to String. The type of value can only be Boolean, Integer or String.
+
+The following example converts the user-provided parameter value to String.
+
+    "parameters": {
+        "appId": { "type": "int" }
+    },
+    "variables": { 
+        "stringValue": "[string(parameters('appId'))]"
+    }
+
+## sub
+
+**sub(operand1, operand2)**
+
+Returns the subtraction of the two provided integers.
+
+| Parameter                          | Required | Description
+| :--------------------------------: | :------: | :----------
+| operand1                           |   Yes    | Number which is to be subtracted from.
+| operand2                           |   Yes    | Number to be subtracted.
 
 
 ## subscription
@@ -365,6 +495,41 @@ The following example converts the user-provided parameter value to upper case.
     }
 
 
+## uniqueString
+
+**uniqueString (stringForCreatingUniqueString, ...)**
+
+Performs a 64-bit hash of the provided strings to create a unique string. This function is helpful when you need to create a unique name for a resource. You provide parameter values that represent the level of uniqueness for the result. You can specify whether the name is unique for your subscription, resource group, or deployment. 
+
+| Parameter                          | Required | Description
+| :--------------------------------: | :------: | :----------
+| stringForCreatingUniqueString      |   Yes    | The base string used in the hash function to create a unique string.
+| additional parameters as needed    | No       | You can add as many strings as needed to create the value that specifies the level for uniqueness.
+
+The returned value is not a completely random string, but rather the result of a hash function. The returned value is 13 characters long. It is not guaranteed to be globally unique. You may want to combine the value with a prefix from your naming convention to create a more friendly name.
+
+The following examples show how to use uniqueString to create a unique value for a different commonly-used levels.
+
+Unique based on subscription
+
+    "[uniqueString(subscription().subscriptionId)]"
+
+Unique based on resource group
+
+    "[uniqueString(resourceGroup().id)]"
+
+Unique based on deployment for a resource group
+
+    "[uniqueString(resourceGroup().id, deployment().name)]"
+    
+The following example shows how to create a unique name for a storage account based on your resource group.
+
+    "resources": [{ 
+        "name": "[concat('ContosoStorage', uniqueString(resourceGroup().id))]", 
+        "type": "Microsoft.Storage/storageAccounts", 
+        ...
+
+
 ## variables
 
 **variables (variableName)**
@@ -377,7 +542,8 @@ Returns the value of variable. The specified variable name must be defined in th
 
 
 ## Next Steps
-- [Authoring Azure Resource Manager Templates](./resource-group-authoring-templates.md)
-- [Advanced Template Operations](./resource-group-advanced-template.md)
-- [Deploy an application with Azure Resource Manager Template](azure-portal/resource-group-template-deploy.md)
-- [Azure Resource Manager Overview](./resource-group-overview.md)
+- For a description of the sections in an Azure Resource Manager template, see [Authoring Azure Resource Manager templates](resource-group-authoring-templates.md)
+- To merge multiple templates, see [Using linked templates with Azure Resource Manager](resource-group-linked-templates.md)
+- To iterate a specified number of times when creating a type of resource, see [Create multiple instances of resources in Azure Resource Manager](resource-group-create-multiple.md)
+- To see how to deploy the template you have created, see [Deploy an application with Azure Resource Manager template](azure-portal/resource-group-template-deploy.md)
+

@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="06/30/2015" 
+	ms.date="09/29/2015" 
 	ms.author="jeffstok"/>
 	
 # Azure Stream Analytics & Power BI: Live dashboard for analytics in real-time on streaming data
@@ -25,12 +25,13 @@ Use [Microsoft Power BI](https://powerbi.com/) to build a live dashboard quickly
 
 In this article, learn how create your own custom business intelligence tools by using Power BI as an output for your Azure Stream Analytics jobs. 
 
-> [AZURE.NOTE] Power BI output is a preview feature of Azure Stream Analytics. 
+> [AZURE.NOTE] Power BI output is a preview feature of Azure Stream Analytics. At this time, creation and configuration of Power BI outputs is not supported in the Azure Preview Portal.
 
 ## Prerequisites ##
 
-* Microsoft Azure Account using Org Id (Power BI works with Org ID only. Org ID is your work or business email address e.g. xyz@mycompany.com. Personal emails like xyz@hotmail.com are not org ids. You can learn more about org id [here](https://msdn.microsoft.com/subscriptions/dn531048.aspx) and there is also a FAQ that can be downloaded from [here](http://go.microsoft.com/fwlink/?linkid=331007&clcid=0x409) ).
+* Microsoft Azure Account
 * An input for the Stream Analytics job to consume streaming data from. Stream Analytics accepts input from Azure Event Hubs or Azure Blob storage.  
+* Work or school account for Power BI
 
 ## Create Azure Stream Analytics Job ##
 
@@ -50,7 +51,7 @@ Click **Stream Analytics** in the left pane to list the Stream Analytics jobs.
 
 ## Specify job input ##
 
-For this tutorial, we are assuming you are using EventHub as an input with JSON serialization and utf-8 encoding.
+For this tutorial, we are assuming you are using Event Hub as an input with JSON serialization and UTF-8 encoding.
 
 * Click the job name.
 * Click **Inputs** from the top of the page, and then click **Add Input**. The dialog that opens will walk you through a number of steps to set up your input.
@@ -63,33 +64,34 @@ For this tutorial, we are assuming you are using EventHub as an input with JSON 
 
 > [AZURE.NOTE]	This sample uses the default number of partitions, which is 16.
 
-* **Event Hub Name** - Select the name of the Azure event hub you have.
-* **Event Hub Policy Name** - Select the event-hub policy for the eventhub you are using. Ensure that this policy has manage permissions.
-*	**Event Hub Consumer Group** – You can leave this empty or specify a consumer group you have on your event hub. Note that each consumer group of an event hub can have only 5 readers at a time. So, decide the right consumer group for your job accordingly. If you leave the field blank, it will use the default consumer group.
+* **Event Hub Name** - Select the name of the Azure Event Hub you have.
+* **Event Hub Policy Name** - Select the Event Hub policy for the Event Hub you are using. Ensure that this policy has manage permissions.
+*	**Event Hub Consumer Group** – You can leave this empty or specify a consumer group you have on your Event Hub. Note that each consumer group of an Event Hub can have only 5 readers at a time. So, decide the right consumer group for your job accordingly. If you leave the field blank, it will use the default consumer group.
 
 *	Click the right button.
 *	Specify the following values:
   *	**Event Serializer Format** - JSON
   *	**Encoding** - UTF8
-*	Click the check button to add this source and to verify that Stream Analytics can successfully connect to the event hub.
+*	Click the check button to add this source and to verify that Stream Analytics can successfully connect to the Event Hub.
 
 ## Add Power BI output ##
 
 1.  Click **Output** from the top of the page, and then click **Add Output**. You will see Power BI listed as an output option.
 
-![graphic2][graphic2]
-
-> [AZURE.NOTE] Power BI output is available only for Azure accounts using Org Ids. If you are not using an Org Id for your azure account (e.g. your live id/ personal Microsoft account), you will not see a Power BI output option.
+    ![graphic2][graphic2]  
 
 2.  Select **Power BI** and then click the right button.
 3.  You will see a screen like the following:
 
-![graphic3][graphic3]
+    ![graphic3][graphic3]  
 
-4.  In this step, you have to be careful to use the same Org Id that you are using for your Stream Analytics job. At this point, Power BI output has to use the same Org Id that your Stream Analytics job uses. If you already have Power BI account using the same Org Id, select “Authorize Now”. If not, choose “Sign up now” and use same Org Id as your azure account while signing up for Power BI. [Here is a good blog walking through details of Power BI sign up](http://blogs.technet.com/b/powerbisupport/archive/2015/02/06/power-bi-sign-up-walkthrough.aspx).
+4.  In this step, supply a work or school account for the Stream Analytics job output. If you already have Power BI account, select **Authorize Now**. If not, choose **Sign up now**. [Here is a good blog walking through details of Power BI sign up](http://blogs.technet.com/b/powerbisupport/archive/2015/02/06/power-bi-sign-up-walkthrough.aspx).
+
+    ![graphic11][graphic11]  
+
 5.  Next you will see a screen like the following:
 
-![graphic4][graphic4]
+    ![graphic4][graphic4]  
 
 Provide values as below:
 
@@ -127,7 +129,7 @@ Start your job. Validate that your event hub is receiving events and your query 
 
 ## Create the Dashboard in Power BI ##
 
-Go to [Powerbi.com](https://powerbi.com) and login with your Org Id. If the Stream Analytics job query outputs results, you will see your dataset is already created:
+Go to [Powerbi.com](https://powerbi.com) and login with your work or school account. If the Stream Analytics job query outputs results, you will see your dataset is already created:
 
 ![graphic5][graphic5]
 
@@ -185,7 +187,15 @@ Which means we would change the original query to:
     	TUMBLINGWINDOW(ss,4),
     	dspl
 
+## Renew Authorization
 
+There is a temporary limitation where the authentication token needs to be manually refreshed every 90 days for all jobs with Power BI output.  You will also need to re-authenticate your Power BI account if its password has changed since your job was created or last authenticated.  A symptom of this issue is no job output and an "Authenticate user error" in the Operations Logs:
+
+![graphic12][graphic12]
+
+To resolve this issue, stop your running job and go to your Power BI output.  Click the “Renew authorization” link, and restart your job from the Last Stopped Time to avoid data loss.
+
+![graphic13][graphic13]
 
 ## Get help ##
 For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
@@ -209,4 +219,6 @@ For further assistance, try our [Azure Stream Analytics forum](https://social.ms
 [graphic8]: ./media/stream-analytics-power-bi-dashboard/8-stream-analytics-power-bi-dashboard.png
 [graphic9]: ./media/stream-analytics-power-bi-dashboard/9-stream-analytics-power-bi-dashboard.png
 [graphic10]: ./media/stream-analytics-power-bi-dashboard/10-stream-analytics-power-bi-dashboard.png
- 
+[graphic11]: ./media/stream-analytics-power-bi-dashboard/11-stream-analytics-power-bi-dashboard.png
+[graphic12]: ./media/stream-analytics-power-bi-dashboard/12-stream-analytics-power-bi-dashboard.png
+[graphic13]: ./media/stream-analytics-power-bi-dashboard/13-stream-analytics-power-bi-dashboard.png

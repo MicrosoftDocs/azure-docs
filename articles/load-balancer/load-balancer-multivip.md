@@ -3,7 +3,7 @@
    description="Overview of multiVIP and how to set multiple VIPs on a cloud service"
    services="load-balancer"
    documentationCenter="na"
-   authors="telmosampaio"
+   authors="joaoma"
    manager="adinah"
    editor="tysonn" />
 <tags 
@@ -12,8 +12,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/01/2015"
-   ms.author="telmos" />
+   ms.date="07/23/2015"
+   ms.author="joaoma" />
 
 # Multiple VIPs per cloud service
 You can access Azure cloud services over the public Internet by using an IP address provided by Azure. This public IP address is referred to as a VIP (virtual IP) since it is linked to the Azure load balancer, and not really the VM instances within the cloud service. You can access any VM instance within a cloud service by using a single VIP. 
@@ -38,7 +38,6 @@ At this time, multi VIP functionality is limited to the following scenarios:
 
 - **IaaS only**. You can only enable multi VIP for cloud services that contain VMs. You cannot use multi VIP in PaaS scenarios, with role instances.
 - **PowerShell only**. You can only manage multi VIP by using PowerShell.
-- **No ARM support**. There is no support for multi VIP in Azure Resource Manager.
 
 >[AZURE.IMPORTANT] These limitations are temporary, and may change at any time. Make sure to revisit this page to verify future changes.
 
@@ -95,7 +94,7 @@ In this example, the cloud service has 3 VIPs:
 >[AZURE.NOTE] Your subscription will only be charged for extra VIPs once they are associated with an endpoint. For more information on pricing, see [IP Address pricing](http://azure.microsoft.com/pricing/details/ip-addresses/).
 
 ## How to associate a VIP to an endpoint
-To associate a VIP on a cloud service to an endpoint, runt he following PowerShell command:
+To associate a VIP on a cloud service to an endpoint, run the following PowerShell command:
 
     Get-AzureVM -ServiceName myService -Name myVM1 `
     | Add-AzureEndpoint -Name myEndpoint -Protocol tcp -LocalPort 8080 -PublicPort 80 -VirtualIPName Vip2 `
@@ -151,7 +150,7 @@ You can also update your load balancer to use a different VIP. For instance, if 
 
 [Get started on Internet facing load balancer](load-balancer-internet-getstarted.md)
 
-[Virtual Network Overview](https://msdn.microsoft.com/library/azure/jj156007.aspx)
+[Virtual Network Overview](../virtual-network/virtual-networks-overview.md)
 
 [Reserved IP REST APIs](https://msdn.microsoft.com/library/azure/dn722420.aspx)
  

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="mobile-multiple"
    ms.workload="mobile" 
-   ms.date="05/12/2015"
+   ms.date="08/10/2015"
    ms.author="piyushjo"/>
 
 # How to use the Azure Mobile Engagement User Interface (UI)

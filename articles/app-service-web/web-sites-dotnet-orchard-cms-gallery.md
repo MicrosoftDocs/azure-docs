@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="04/29/2015" 
+	ms.date="08/03/2015" 
 	ms.author="tomfitz"/>
 
 # Create an Orchard CMS web app from the Azure Marketplace
@@ -71,9 +71,8 @@ You'll build an Orchard CMS web app that uses a default template. [Orchard](http
 
 3. Follow the details in the [Orchard Documentation](http://docs.orchardproject.net/) to learn more about Orchard and configure your new web app.
 
-## Next step
+## Next steps
 
-* [Develop and deploy a web app with Microsoft WebMatrix](web-sites-dotnet-using-webmatrix.md) -- Learn how to edit an App Service web app in WebMatrix. 
 * [Create an ASP.NET MVC app with auth and SQL DB and deploy to Azure App Service](web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md)-- Learn how to create a new web app in Azure App Service from Visual Studio.
 
 ## What's changed

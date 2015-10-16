@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/21/2015" 
+	ms.date="08/03/2015" 
 	ms.author="tomfitz"/>
 
 #Create an Umbraco web app from the Marketplace in Microsoft Azure#
@@ -34,15 +34,9 @@ In this tutorial, you'll learn:
 
 2. Choose the **Marketplace** icon.
 	
-	![Choose Web Gallery][01Startboard]
-	
-3. In the **Marketplace** , select the **Web Apps** tab, and then select **Umbraco CMS**.
-	
-	![Select Umbraco in the Web Gallery][02WebGallery]
+3. In the **Marketplace** , select the **Web + Mobile** tab, and then select **Umbraco CMS**.
 	
 4. To create a new Umbraco CMS web app, click **Create**.
-	
-	![Click Create][03UmbracoCMS]
 	
 5. The next step is to configure all the resources associated with Umbraco CMS. In this case, the resources are a web app and a SQL Server database. First, select **Web app** to configure the web app settings such as the **URL**, **App Service Plan**, **Web App Settings**, and **Location**. 
 	
@@ -57,8 +51,6 @@ In this tutorial, you'll learn:
 	![Click Create][06UmbracoCMSGroup]
 	
 After the deployment is completed, the portal will display the blade for your Umbraco CMS web app's resource group. In the **Summary** section, click the web app name to see the properties of your web app. Also in the **Summary** section, you can select the database resource to see the properties of the associated database.
-	
-![][07UmbracoCMSGroupBlade]
 
 ## Launch and configure your Umbraco CMS web app ##
 

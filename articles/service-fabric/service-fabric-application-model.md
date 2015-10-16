@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/23/2015"
+   ms.date="07/22/2015"
    ms.author="alexwun"/>
 
 # Model an application in Service Fabric
@@ -35,7 +35,7 @@ Classes (or "types") of applications and services are described using XML files 
 
 Two different manifest files are used to describe applications and services: the service manifest and application manifest, which are covered in detail in the ensuing sections.
 
-There can be one or more instances of a service type active in the cluster. For example, Stateful service instances, or replicas, achieve high reliability by replicating state between replicas located on different nodes in the cluster (essentially providing redundancy for the service to be available even if one node in a cluster fails). A [partitioned service](service-fabric-concepts-partitioning.md) further divides its state (and access patterns to that state) across nodes in the cluster. 
+There can be one or more instances of a service type active in the cluster. For example, Stateful service instances, or replicas, achieve high reliability by replicating state between replicas located on different nodes in the cluster (essentially providing redundancy for the service to be available even if one node in a cluster fails). A [partitioned service](service-fabric-concepts-partitioning.md) further divides its state (and access patterns to that state) across nodes in the cluster.
 
 The following diagram shows the relationship between applications and service instances, partitions, and replicas.
 
@@ -232,5 +232,3 @@ Once the application is packaged correctly and passes verification, then it's re
 
 <!--Link references--In actual articles, you only need a single period before the slash-->
 [10]: service-fabric-deploy-remove-applications.md
-
- 

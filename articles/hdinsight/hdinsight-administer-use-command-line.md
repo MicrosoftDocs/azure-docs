@@ -5,6 +5,7 @@
 	editor="cgronlun"
 	manager="paulettm"
 	authors="mumian"
+	tags="azure-portal"
 	documentationCenter=""/>
 
 <tags
@@ -13,10 +14,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/08/2015"
+	ms.date="09/17/2015"
 	ms.author="jgao"/>
 
 # Manage Hadoop clusters in HDInsight by using the Azure Command-line Interface (Azure CLI)
+
+[AZURE.INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
 
 Learn how to use the Azure CLI to manage Hadoop clusters in Azure HDInsight. The Azure CLI is implemented in Node.js. It can be used on any platform that supports Node.js, including Windows, Mac, and Linux.
 
@@ -31,11 +34,11 @@ Before you begin this article, you must have the following:
 
 - **An Azure subscription**. See [Get Azure free trial](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
-- **Azure CLI** - See [Install and configure the Azure CLI](../xplat-cli.md) for installation and configuration information.
+- **Azure CLI** - See [Install and configure the Azure CLI](../xplat-cli-install.md) for installation and configuration information.
 
 ##Installation
 
-If you have not already done so, use the [Install and configure the Azure CLI](../xplat-cli.md) document to install and configure the Azure CLI.
+If you have not already done so, use the [Install and configure the Azure CLI](../xplat-cli-install.md) document to install and configure the Azure CLI.
 
 ##Provision an HDInsight cluster
 
@@ -52,7 +55,7 @@ After you have imported the publishsettings file, you can use the following comm
 > [AZURE.NOTE] The Storage account must be collocated with HDInsight in the data center.
 
 
-For information on creating an Azure Storage account by using the Azure portal, see [Create, manage, or delete a Storage account][azure-create-storageaccount].
+For information on creating an Azure Storage account by using the Azure preview portal, see [Create, manage, or delete a Storage account][azure-create-storageaccount].
 
 If you already have a Storage account but do not know the account name and account key, you can use the following commands to retrieve the information:
 
@@ -63,7 +66,7 @@ If you already have a Storage account but do not know the account name and accou
 	-- Lists the keys for a Storage account
 	azure account storage keys list <StorageAccountName>
 
-For details on getting the information by using the Azure portal, see the "View, copy, and regenerate storage access keys" section of [Create, manage, or delete a Storage account][azure-create-storageaccount].
+For details on getting the information by using the Azure preview portal, see the "View, copy, and regenerate storage access keys" section of [Create, manage, or delete a Storage account][azure-create-storageaccount].
 
 
 The **azure hdinsight cluster create** command creates the container if it doesn't exist. If you choose to create the container beforehand, you can use the following command:
@@ -129,19 +132,22 @@ Use the following command to delete a cluster:
 
 	azure hdinsight cluster delete <ClusterName>
 
+##<a name="scaling"></a>Scale a cluster
 
+To change the Hadoop cluster size by using Azure PowerShell, run the following command from a client machine:
 
+	Set-AzureHDInsightClusterSize -ClusterSizeInNodes <NewSize> -name <clustername>
 
 ##Next steps
 In this article, you have learned how to perform different HDInsight cluster administrative tasks. To learn more, see the following articles:
 
-* [Administer HDInsight by using the Azure portal] [hdinsight-admin-portal]
+* [Administer HDInsight by using the Azure preview portal] [hdinsight-admin-portal]
 * [Administer HDInsight by using Azure PowerShell] [hdinsight-admin-powershell]
 * [Get started with Azure HDInsight] [hdinsight-get-started]
 * [How to use the Azure CLI] [azure-command-line-tools]
 
 
-[azure-command-line-tools]: ../xplat-cli.md
+[azure-command-line-tools]: ../xplat-cli-install.md
 [azure-create-storageaccount]: ../storage-create-storage-account.md
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
@@ -156,4 +162,3 @@ In this article, you have learned how to perform different HDInsight cluster adm
 [image-cli-clustercreation]: ./media/hdinsight-administer-use-command-line/HDI.CLIClusterCreation.png
 [image-cli-clustercreation-config]: ./media/hdinsight-administer-use-command-line/HDI.CLIClusterCreationConfig.png
 [image-cli-clusterlisting]: ./media/hdinsight-administer-use-command-line/HDI.CLIListClusters.png "List and show clusters"
- 

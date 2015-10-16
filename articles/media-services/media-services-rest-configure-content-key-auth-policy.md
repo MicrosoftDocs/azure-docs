@@ -13,15 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/05/2015" 
+	ms.date="09/07/2015" 
 	ms.author="juliako"/>
-
 
 
 #Dynamic encryption: Configure Content Key Authorization Policy 
 [AZURE.INCLUDE [media-services-selector-content-key-auth-policy](../../includes/media-services-selector-content-key-auth-policy.md)] 
-
-This article is part of the [Media Services Video on Demand workflow](media-services-video-on-demand-workflow.md) and [Media Services Live Streaming workflow](media-services-live-streaming-workflow.md) series. 
+ 
 
 ##Overivew
 
@@ -467,6 +465,15 @@ Add AuthorizationPolicy to the ContentKey as shown [here](#AddAuthorizationPolic
         PlayReadyLicense = 1,
         BaselineHttp = 2,
     }
+
+
+
+##Media Services learning paths
+
+You can view AMS learning paths here:
+
+- [AMS Live Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [AMS on Demand Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
 
 ##Next Steps

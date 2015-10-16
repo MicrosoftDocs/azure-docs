@@ -1,11 +1,12 @@
 <properties 
-	pageTitle="Use root privileges on Linux virtual machines in Azure" 
+	pageTitle="Use root privileges on Linux virtual machines | Microsoft Azure" 
 	description="Learn how to use root privileges on a Linux virtual machine in Azure." 
 	services="virtual-machines" 
 	documentationCenter="" 
 	authors="szarkos" 
 	manager="timlt" 
-	editor=""/>
+	editor=""
+	tags="azure-service-management,azure-resource-manager" />
 
 <tags 
 	ms.service="virtual-machines" 
@@ -13,10 +14,8 @@
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/16/2015" 
+	ms.date="07/29/2015" 
 	ms.author="szark"/>
-
-
 
 
 # Using root privileges on Linux virtual machines in Azure
@@ -25,7 +24,7 @@ By default, the `root` user is disabled on Linux virtual machines in Azure. User
 
 1. **SSH key and password OR password only** - the virtual machine was provisioned with either a certificate (`.CER` file) or SSH key as well as a password, or just a user name and password. In this case `sudo` will prompt for the user's password before executing the command.
 
-2. **SSH key only** - the virtual machine was provisioned with a certificate (`.cer` or `.pem` file) or SSH key, but no password.  In this case `sudo` **will not** prompt for the user's password before executing the command.
+2. **SSH key only** - the virtual machine was provisioned with a certificate (`.cer`, `.pem`, or `.pub` file) or SSH key, but no password.  In this case `sudo` **will not** prompt for the user's password before executing the command.
 
 
 ## SSH Key and Password, or Password Only
@@ -42,7 +41,7 @@ You can also enable passwordless sudo by editing the `/etc/sudoers.d/waagent` fi
 	#/etc/sudoers.d/waagent
 	azureuser ALL = (ALL) NOPASSWD: ALL
 
-This change will allow for passwordless sudo by the azureuser user.
+This change will allow for passwordless sudo by the user "azureuser".
 
 ## SSH Key Only
 

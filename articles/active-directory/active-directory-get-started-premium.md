@@ -1,21 +1,21 @@
-<properties 
-	pageTitle="Getting started with Azure Active Directory Premium" 
-	description="A topic that explains how to sign up for Azure Active Directory Premium edition." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="Justinha" 
-	writer="Justinha" 
-	manager="TerryLan" 
+<properties
+	pageTitle="Getting started with Azure Active Directory Premium"
+	description="A topic that explains how to sign up for Azure Active Directory Premium edition."
+	services="active-directory"
+	documentationCenter=""
+	authors="MarkusVi"
+	writer="markvi"
+	manager="stevenpo" 
 	editor="LisaToft"/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/05/2015" 
-	ms.author="Justinha"/>
+<tags
+	ms.service="active-directory"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="08/14/2015"
+	ms.author="markvi"/>
 
 # Getting started with Azure Active Directory Premium
 
@@ -30,7 +30,7 @@ To start using Azure Active Directory Premium features today, follow the steps b
 
 ## Step 1: Sign up for Active Directory Premium
 
-To sign up, see the [Volume Licensing](http://www.microsoft.com/en-us/licensing/how-to-buy/how-to-buy.aspx) web site. 
+To sign up, see the [Volume Licensing](http://www.microsoft.com/en-us/licensing/how-to-buy/how-to-buy.aspx) web site.
 
 ## Step 2: Activate your license plan
 
@@ -98,7 +98,7 @@ Some license plans are subsets or supersets of other license plans. In most case
 
 ## License requirements
 
-When you assign a license to a user, you can specify a primary usage location in the properties of their account as shown below. If a usage location is not specified, the tenant’s location is automatically assigned to the user. 
+When you assign a license to a user, you can specify a primary usage location in the properties of their account as shown below. If a usage location is not specified, the tenant’s location is automatically assigned to the user.
 
 ![][12]
 
@@ -122,6 +122,3 @@ The availability of services and features for a Microsoft cloud service varies b
 [10]: ./media/active-directory-get-started-premium/contosolicenseplan.png
 [11]: ./media/active-directory-get-started-premium/Assignlicensespicker.png
 [12]: ./media/active-directory-get-started-premium/Usagelocation.png
-
-
- 

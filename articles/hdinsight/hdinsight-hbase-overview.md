@@ -1,27 +1,28 @@
-<properties 
-	pageTitle="What is HBase in HDInsight? | Microsoft Azure" 
-	description="An introduction to Apache HBase in HDInsight, a NoSQL database build on Hadoop. Learn about use cases and compare HBase to other Hadoop clusters." 
+<properties
+	pageTitle="What is HBase in HDInsight? | Microsoft Azure"
+	description="An introduction to Apache HBase in HDInsight, a NoSQL database build on Hadoop. Learn about use cases and compare HBase to other Hadoop clusters."
 	keywords="bigtable,nosql,what is hbase"
-	services="hdinsight" 
-	documentationCenter="" 
+	services="hdinsight"
+	documentationCenter=""
+	tags="azure-portal"
 	authors="mumian" 
-	manager="paulettm" 
+	manager="paulettm"
 	editor="cgronlun"/>
 
-<tags 
-	ms.service="hdinsight" 
-	ms.workload="big-data" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/20/2015" 
+<tags
+	ms.service="hdinsight"
+	ms.workload="big-data"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/17/2015"
 	ms.author="jgao"/>
 
 
 
 # What is HBase in HDInsight: A NoSQL database that provides BigTable-like capabilities for Hadoop
 
-Apache HBase is an open-source, NoSQL database that is built on Hadoop and modeled after Google BigTable. HBase provides random access and strong consistency for large amounts of unstructured and semistructured data in a schemaless database organized by column families. 
+Apache HBase is an open-source, NoSQL database that is built on Hadoop and modeled after Google BigTable. HBase provides random access and strong consistency for large amounts of unstructured and semistructured data in a schemaless database organized by column families.
 
 Data is stored in the rows of a table, and data within a row is grouped by column family. HBase is a schemaless database in the sense that neither the columns nor the type of data stored in them need to be defined before using them. The open-source code scales linearly to handle petabytes of data on thousands of nodes. It can rely on data redundancy, batch processing, and other features that are provided by distributed applications in the Hadoop ecosystem.
 
@@ -35,7 +36,7 @@ The HDInsight implementation leverages the scale-out architecture of HBase to pr
 ## How is data managed in HDInsight HBase?
 
 Data can be managed in HBase by using the `create`, `get`, `put`, and `scan` commands from the HBase shell. Data is written to the database by using `put` and read by using `get`. The `scan` command is used to obtain data from multiple rows in a table. Data can also be managed using the HBase C# API, which provides a client library on top of the HBase REST API. An HBase database can also be queried by using Hive. For an introduction to these programming models, see [Get started using HBase with Hadoop in HDInsight][hbase-get-started]. Co-processors are also available, which allow data processing in the nodes that host the database.
- 
+
 
 ## Scenarios: Use cases for HBase
 The canonical use case for which BigTable (and by extension, HBase) was created was web search. Search engines build indexes that map terms to the web pages that contain them. But there are many other use cases that HBase is suitable for—several of which are itemized in this section.
@@ -50,7 +51,7 @@ The canonical use case for which BigTable (and by extension, HBase) was created 
 
 - Real-time query
 
-	[Phoenix](http://phoenix.apache.org/) is a SQL query engine for Apache HBase. It is accessed as a JDBC driver, and it enables querying and managing HBase tables by using SQL. 
+	[Phoenix](http://phoenix.apache.org/) is a SQL query engine for Apache HBase. It is accessed as a JDBC driver, and it enables querying and managing HBase tables by using SQL.
 
 - HBase as a platform
 
@@ -61,7 +62,7 @@ The canonical use case for which BigTable (and by extension, HBase) was created 
 
 - [Get started using HBase with Hadoop in HDInsight][hbase-get-started]
 - [Provision HDInsight clusters on Azure Virtual Network] [hbase-provision-vnet]
-- [Configure HBase replication in HDInsight](hdinsight-hbase-geo-replication.md) 
+- [Configure HBase replication in HDInsight](hdinsight-hbase-geo-replication.md)
 - [Analyze Twitter sentiment with HBase in HDInsight][hbase-twitter-sentiment]
 - [Use Maven to build Java applications that use HBase with HDInsight (Hadoop)][hbase-build-java-maven]
 
@@ -88,18 +89,7 @@ The canonical use case for which BigTable (and by extension, HBase) was created 
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
-[azure-management-portal]: https://manage.windowsazure.com/
-[azure-create-storageaccount]: ../storage-create-storage-account.md 
+[azure-management-portal]: https://portal.azure.com/
+[azure-create-storageaccount]: ../storage-create-storage-account.md
 
 [apache-hadoop]: http://hadoop.apache.org/
-
-
-
-
-
-
-
-
-
-
- 

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Learn about Throttling in BizTalk Services | Azure" 
+	pageTitle="Learn about Throttling in BizTalk Services | Microsoft Azure" 
 	description="Learn about throttling thresholds and resulting runtime behaviors for BizTalk Services. Throttling is based on memory usage and number of messages. MABS, WABS" 
 	services="biztalk-services" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/07/2015" 
+	ms.date="08/26/2015" 
 	ms.author="mandia"/>
 
 
@@ -28,29 +28,10 @@ Azure BizTalk Services implements service throttling based on two conditions: me
 
 The following table lists the throttling source and thresholds:
 
-<table border="1">
-
-<tr bgcolor="FAF9F9">
-        <th> </th>
-        <td><strong>Description</strong></td>
-        <td><strong>Low Threshold</strong></td>
-        <td><strong>High Threshold</strong></td>
-</tr>
-    <tr>
-        <td>Memory</td>
-        <td>% of total system memory available/PageFileBytes. 
-<br/><br/>
-Total available PageFileBytes is approximately 2 times the RAM of the system.</td>
-        <td>60%</td>
-        <td>70%</td>
-    </tr>
-    <tr>
-        <td>Message Processing</td>
-        <td>Number of messages processing simultaneously</td>
-        <td>40 * number of cores</td>
-        <td>100 * number of cores</td>
-    </tr>
-</table>
+||Description|Low Threshold|High Threshold|
+|---|---|---|---|
+|Memory|% of total system memory available/PageFileBytes. <p><p>Total available PageFileBytes is approximately 2 times the RAM of the system.|60%|70%|
+|Message Processing|Number of messages processing simultaneously|40 * number of cores|100 * number of cores|
 
 When a high threshold is reached, Azure BizTalk Services starts to throttle. Throttling stops when the low threshold is reached. For example, your service is using 65% system memory. In this situation, the service does not throttle. Your service starts using 70% system memory. In this situation, the service throttles and continues to throttle until the service uses 60% (low threshold) system memory.
 

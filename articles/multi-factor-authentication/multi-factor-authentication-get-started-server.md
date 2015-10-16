@@ -4,16 +4,16 @@
 	services="multi-factor-authentication" 
 	documentationCenter="" 
 	authors="billmath" 
-	manager="terrylan" 
-	editor="bryanla"/>
+	manager="stevenpo" 
+	editor="curtand"/>
 
 <tags 
 	ms.service="multi-factor-authentication" 
 	ms.workload="identity" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/02/2015" 
+	ms.topic="get-started-article" 
+	ms.date="08/24/2015" 
 	ms.author="billmath"/>
 
 # Getting started with the Azure Multi-Factor Authentication Server
@@ -29,7 +29,9 @@ Now that we have determined whether to use on-premises multi-factor authenticati
 
 ## Download the Azure Multi-Factor Authentication Server
 
-There are two different ways that you can download the Azure Multi-Factor Authentication Server. The first, is by signing into the Azure portal and the second way is directly from [https://pfweb.phonefactor.net](https://pfweb.phonefactor.net). 
+
+
+There are two different ways that you can download the Azure Multi-Factor Authentication Server. Both are done via the Azure portal.  The first is by managing the Multi-Factor Auth Provider directly.  The second is via the service settings.  The second option requires either a Multi-Factor Auth Provider or an Azure AD Premium license.
 
 
 ### To download the Azure Multi-Factor Authentication server from the Azure portal
@@ -39,18 +41,29 @@ There are two different ways that you can download the Azure Multi-Factor Authen
 2. On the left, select Active Directory.
 3. On the Active Directory page, at the top click **Multi-Factor Auth Providers**
 4. At the bottom click **Manage**
-5. Click **Downloads**
-6. Above **Generate Activation Credentials**, click **Download**
+5. This will open a new page.  Click **Downloads.**
+![Download](./media/multi-factor-authentication-sdk/download.png)
+6. Above **Generate Activation Credentials**, click **Download.**
+![Download](./media/multi-factor-authentication-get-started-server/download4.png)
 7. Save the download.
 
-### To download the Azure Multi-Factor Authentication server directly
---------------------------------------------------------------------------------
 
-1. Sign in to the [https://pfweb.phonefactor.net](https://pfweb.phonefactor.net).
-2. Click **Downloads**
-<center>![Cloud](./media/multi-factor-authentication-get-started-server/download2.png)</center>
-3. Above **Generate Activation Credentials**, click **Download** - Leave this page up because you will be coming back to it.
-4. Save the download.
+
+### To download the Azure Multi-Factor Authentication Server via the service settings
+
+
+1. Sign in to the Azure Portal as an Administrator.
+2. On the left, select Active Directory.
+3. Double click on your instance of Azure AD.
+4. At the top click **Configure**
+![Download](./media/multi-factor-authentication-sdk/download2.png)
+5. Under multi-factor authentication select **Manage service settings**
+6. On the services settings page, at the bottom of the screen click **Go to the portal**.
+![Download](./media/multi-factor-authentication-sdk/download3.png)
+7. This will open a new page. Click **Downloads.**
+8. Above **Generate Activation Credentials**, click **Download.**
+9. Save the download.
+
 
 
 
@@ -98,7 +111,7 @@ IP Subnet|Netmask|IP Range
 2. On the Select Installation Folder screen, make sure that the folder is correct and click Next.
 3. Once the installation complete, click Finish.  This will launch the configuration wizard.
 4. On the configuration wizard welcome screen, place a check in **Skip using the Authentication Configuration Wizard** and click **Next**.  This will close the wizard and start the server.
-<center>![Cloud](./media/multi-factor-authentication-get-started-server/skip2.png)</center>
+![Cloud](./media/multi-factor-authentication-get-started-server/skip2.png)
 
 5. Back on the page that we downloaded the server from, click the **Generate Activation Credentials** button.  Copy this information into the Azure MFA Server in the boxes provided and click **Activate**.
 
@@ -120,7 +133,7 @@ Now that the server is installed and configured you can quickly import users int
 3. Now you can either search for individual users or search the AD directory for OUs with users in them.  In this case, we will specify the users OU.
 4. Highlight all of the users on the right and click **Import**.  You should receive a pop-up telling you that you were successful.  Close the import window.
 
-<center>![Cloud](./media/multi-factor-authentication-get-started-server/import2.png)</center>
+![Cloud](./media/multi-factor-authentication-get-started-server/import2.png)
 
 ## Send Users an email
 Now that you have imported your users into the Azure Multi-Factor Authentication server, it is advised that you send your users an email that informs them that they have been enrolled in multi-factor authentication.
@@ -156,4 +169,3 @@ Method|Description
 [Remote Desktop Gateway and Azure Multi-Factor Authentication Server using RADIUS](multi-factor-authentication-get-started-server-rdg.md)|  Information on setup and configuring the Azure MFA Server with Remote Desktop Gateway using RADIUS.
 [Sync with Windows Server Active Directory](multi-factor-authentication-get-started-server-dirint.md)|Information on setup and configuring synchronization between Active Directory and the Azure MFA Server.
 [Deploying the Azure Multi-Factor Authentication Server Mobile App Web Service](multi-factor-authentication-get-started-server-webservice.md)|Information on setup and configuring the Azure MFA server web service.
-

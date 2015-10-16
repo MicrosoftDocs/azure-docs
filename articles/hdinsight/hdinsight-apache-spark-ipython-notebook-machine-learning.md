@@ -1,11 +1,12 @@
 <properties 
-	pageTitle="Use Apache Spark to build machine learning applications on HDInsight | Azure" 
+	pageTitle="Use Apache Spark to build machine learning applications on HDInsight | Microsoft Azure" 
 	description="Step-by-step instructions on how to use notebooks with Apache Spark to build machine learning applications" 
 	services="hdinsight" 
 	documentationCenter="" 
 	authors="nitinme" 
 	manager="paulettm" 
-	editor="cgronlun"/>
+	editor="cgronlun"
+	tags="azure-portal"/>
 
 <tags 
 	ms.service="hdinsight" 
@@ -13,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/19/2015" 
+	ms.date="09/30/2015" 
 	ms.author="nitinme"/>
 
 
@@ -42,7 +43,13 @@ We use this data to predict whether a building will be hotter or colder based on
 
 ##<a name="app"></a>Write a machine learning application using Spark MLlib
 
-1. Launch the [Jupyter](https://jupyter.org) notebook. Select your Spark cluster on the Azure portal, and from the portal task bar at the bottom, click **Jupyter Notebook**. When prompted, enter the admin credentials for the Spark cluster.
+1. From the [Azure Preview Portal](https://portal.azure.com/), from the startboard, click the tile for your Spark cluster (if you pinned it to the startboard). You can also navigate to your cluster under **Browse All** > **HDInsight Clusters**.   
+
+2. From the Spark cluster blade, click **Quick Links**, and then from the **Cluster Dashboard** blade, click **Jupyter Notebook**. If prompted, enter the admin credentials for the cluster.
+
+	> [AZURE.NOTE] You may also reach the Jupyter Notebook for your cluster by opening the following URL in your browser. Replace __CLUSTERNAME__ with the name of your cluster:
+	>
+	> `https://CLUSTERNAME.azurehdinsight.net/jupyter`
 
 2. Create a new notebook. Click **New**, and then click **Python 2**.
 

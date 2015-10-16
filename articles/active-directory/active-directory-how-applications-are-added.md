@@ -13,7 +13,7 @@
       ms.topic="article"
       ms.tgt_pltfrm="na"
       ms.workload="identity"
-      ms.date="03/23/2015"
+      ms.date="07/30/2015"
       ms.author="shoatman"/>
 
 # How and why applications are added to Azure AD
@@ -64,8 +64,8 @@ The service principal is a record of the application in every directory, where t
 
 ![A diagram illustrating how application objects and service principals existing with Azure AD instances.][apps_service_principals_directory]
 
-As you can see from the diagram above.  Microsoft maintains two directories internally (on the left) it uses to publish applications. 
- 
+As you can see from the diagram above.  Microsoft maintains two directories internally (on the left) it uses to publish applications.
+
 * One for Microsoft Apps (Microsoft services directory)
 * One for pre-integrated 3rd Party Apps (App Gallery directory)
 
@@ -145,4 +145,3 @@ Learn more about how to add applications to Azure AD and how to configure servic
 <!--Image references-->
 [apps_service_principals_directory]:media/active-directory-how-applications-are-added/HowAppsAreAddedToAAD.jpg
 [app_settings]:media/active-directory-how-applications-are-added/IntegratedAppSettings.jpg
- 

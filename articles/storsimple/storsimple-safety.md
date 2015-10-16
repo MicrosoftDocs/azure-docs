@@ -1,26 +1,26 @@
 <properties 
-   pageTitle="Safety for your StorSimple device"
-   description="Review Safety guidelines for deploying and operating your StorSimple device"
+   pageTitle="Safety for your StorSimple device | Microsoft Azure"
+   description="Describes safety conventions, guidelines, and considerations, and explains how to safely install and operate your StorSimple device."
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
    manager="carolz"
-   editor="tysonn" />
+   editor="" />
 <tags 
    ms.service="storsimple"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/14/2015"
+   ms.date="08/26/2015"
    ms.author="alkohli" />
 
-# Safety of your device
+# Safely install and operate your StorSimple device
 
 ![Warning Icon](./media/storsimple-safety/IC740879.png)
 ![Read Safety Notice Icon](./media/storsimple-safety/IC740885.png) **READ SAFETY AND HEALTH INFORMATION**
 
-Read all the safety and health information in this article that applies to your Microsoft Azure StorSimple device. Keep all the printed guides shipped with your StorSimple device for future reference. Failure to follow instructions and properly set up, use, and care for this product can increase the risk of serious injury or death, or damage to the device or devices. A [downloadable version of this guide](http://www.microsoft.com/en-us/download/details.aspx?id=44233) is also available.
+Read all the safety and health information in this article that applies to your Microsoft Azure StorSimple device. Keep all the printed guides shipped with your StorSimple device for future reference. Failure to follow instructions and properly set up, use, and care for this product can increase the risk of serious injury or death, or damage to the device or devices. A [downloadable version of this guide](http://www.microsoft.com/download/details.aspx?id=44233) is also available.
 
 ## Safety icon conventions
 
@@ -130,7 +130,7 @@ The device is designed to operate with two PCMs. Each of the PCMs has a power su
 
 To reduce the likelihood of injury, electrical shock, or death:
 
-- Do not remove the covers from the PCM. There is a danger of electric shock inside. To return the PCM and obtain a replacement, [Contact Microsoft Support](https://msdn.microsoft.com/library/azure/dn757750.aspx).
+- Do not remove the covers from the PCM. There is a danger of electric shock inside. To return the PCM and obtain a replacement, [contact Microsoft Support](https://msdn.microsoft.com/library/azure/dn757750.aspx).
 
 ![Notice Icon](./media/storsimple-safety/IC740881.png) **NOTICE:**
 
@@ -176,7 +176,7 @@ After you have reviewed these safety notices, the next steps are to unpack, rack
 
 ## Next steps
 
-- For an 8100 device, go to [Unpack, rack and cable your 8600 device](storsimple-8600-hardware-installation)
+- For an 8100 device, go to [Install your StorSimple 8100 device](storsimple-8100-hardware-installation.md).
 
-- For an 8600 device, go to [Unpack, rack and cable your 8600 device](storsimple-8600-hardware-installation)
+- For an 8600 device, go to [Install your StorSimple 8600 device](storsimple-8600-hardware-installation.md).
 

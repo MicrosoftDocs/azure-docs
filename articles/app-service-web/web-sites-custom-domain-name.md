@@ -1,38 +1,36 @@
 <properties
 	pageTitle="Configure a custom domain name in Azure App Service"
 	description="Learn how to use a custom domain name with a web app in Azure App Service."
-	services="app-service\web"
+	services="app-service"
 	documentationCenter=""
 	authors="MikeWasson"
 	manager="wpickett"
-	editor=""/>
+	editor="jimbe"/>
 
 <tags
-	ms.service="app-service-web"
-	ms.workload="web"
+	ms.service="app-service"
+	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/13/2015"
+	ms.date="09/16/2015"
 	ms.author="mwasson"/>
 
 # Configure a custom domain name in Azure App Service
 
-<div class="dev-center-tutorial-selector sublanding">
-  <a href="/documentation/articles/custom-dns-web-site-buydomains-web-app" title="Web Apps">Buy Domain for Web Apps</a>
-  <a href="/documentation/articles/web-sites-custom-domain-name" title="Web Apps" class="current">Web Apps with External Domains</a>
-  <a href="/documentation/articles/web-sites-traffic-manager-custom-domain-name/" title="Web Apps with Traffic Manager">Web Apps with Traffic Manager</a>  <a href="/documentation/articles/web-sites-godaddy-custom-domain-name" title="GoDaddy">GoDaddy</a>
-
-</div>
-
-[AZURE.INCLUDE [websites-cloud-services-css-guided-walkthrough](../../includes/websites-cloud-services-css-guided-walkthrough.md)]
+> [AZURE.SELECTOR]
+- [Buy Domain for Web Apps](custom-dns-web-site-buydomains-web-app.md)
+- [Web Apps with External Domains](web-sites-custom-domain-name.md)
+- [Web Apps with Traffic Manager](web-sites-traffic-manager-custom-domain-name.md)
+- [GoDaddy](web-sites-godaddy-custom-domain-name.md)
 
 When you create a web app, Azure assigns it to a subdomain of azurewebsites.net. For example, if your web app is named **contoso**, the URL is **contoso.azurewebsites.net**. Azure also assigns a virtual IP address.
 
 For a production web app, you probably want users to see a custom domain name. This article explains how to reserve or configure a custom domain with [App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714). 
 
-[AZURE.INCLUDE [introfooter](../../includes/custom-dns-web-site-intro-notes.md)]
+[AZURE.INCLUDE [websites-cloud-services-css-guided-walkthrough](../../includes/websites-cloud-services-css-guided-walkthrough.md)]
 
+[AZURE.INCLUDE [introfooter](../../includes/custom-dns-web-site-intro-notes.md)]
 
 ## Overview
 
@@ -132,7 +130,7 @@ Visitors to your web app will not see the awverify subdomain; it’s only for Az
 
 ## Next steps
 
-For more information please see: [Get started with Azure DNS](../dns/dns-getstarted-create-dnszone) and [Delegate Domain to Azure DNS](../dns/dns-domain-delegation) 
+For more information please see: [Get started with Azure DNS](../dns/dns-getstarted-create-dnszone.md) and [Delegate Domain to Azure DNS](../dns/dns-domain-delegation.md) 
 
 ## What's changed
 * For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)

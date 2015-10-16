@@ -1,6 +1,6 @@
 Managing identity is just as important in the public cloud is it is on premises. To help with this, Azure supports several different cloud identity technologies. They include these:
 
-- You can run Windows Server Active Directory (commonly called just AD) in the cloud using virtual machines created with Azure Virtual zmachines. This approach makes sense when you're using Azure to extend your on-premises datacenter into the cloud.
+- You can run Windows Server Active Directory (commonly called just AD) in the cloud using virtual machines created with Azure Virtual machines. This approach makes sense when you're using Azure to extend your on-premises datacenter into the cloud.
 
 - You can use Azure Active Directory to give your users single sign-on to Software as a Service (SaaS) applications. Microsoft's Office 365 uses this technology, for example, and applications running on Azure or other cloud platforms can also use it.
 

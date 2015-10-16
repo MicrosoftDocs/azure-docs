@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="How to configure a cloud service - Azure" 
+	pageTitle="How to configure a cloud service | Microsoft Azure" 
 	description="Learn how to configure cloud services in Azure. Learn to update the cloud service configuration and configure remote access to role instances." 
 	services="cloud-services" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/29/2015"
+	ms.date="09/22/2015"
 	ms.author="adegeo"/>
 
 
@@ -27,7 +27,7 @@
 
 You can configure the most commonly used settings for a cloud service in the Azure Management Portal. Or, if you like to update your configuration files directly, download a service configuration file to update, and then upload the updated file and update the cloud service with the configuration changes. Either way, the configuration updates are pushed out to all role instances.
 
-You can also enable a Remote Desktop connection to one or all roles running in your cloud service.  Remote Desktop allows you to access the desktop of your application while it is running and troubleshoot and diagnose problems.  You can enable a Remote Desktop connection to your role even if you did not configure the service definition file (.csdef) for Remote Desktop during application development.  There is no need to redeploy your application in order to enable a Remote Desktop connection.
+The Azure Management Portal also allows you to [enable Remote Desktop Connection for a Role in Azure Cloud Services](cloud-services-role-enable-remote-desktop.md)
 
 Azure can only ensure 99.95 percent service availability during the configuration updates if you have at least two role instances for every role. That enables one virtual machine to process client requests while the other is being updated. For more information, see [Service Level Agreements](http://azure.microsoft.com/support/legal/sla/).
 
@@ -80,68 +80,10 @@ Azure can only ensure 99.95 percent service availability during the configuratio
     4. Click **OK** (checkmark). 
 
 
-## Configure remote access to role instances
+## Next steps
 
-Remote Desktop enables you to access the desktop of a role running in Azure. You can use a Remote Desktop connection to troubleshoot and diagnose problems with your application while it is running. You can enable a Remote Desktop connection in your role during application design or after you have deployed the application to Azure (while the role is running).  Enabling a Remote Desktop connection in a running role through the Management Portal does not require you to redeploy your application.  To authenticate the Remote Desktop connection you can use a previously uploaded certificate or you can create a new certificate.
-
-On the **Configure** page for your cloud service, you can enable Remote Desktop or change the local Administrator account or password used to connect to the virtual machines, the certificate used in authentication, or the expiration date.
-
-### To configure Remote Access in the service definition file
-
-Add **Import** elements to the service definition file (.csdef) to import the RemoteAccess and RemoteForwarder modules into the service model. When those modules are present, Azure adds the configuration settings for Remote Desktop to the service configuration file. To complete the Remote Desktop configuration, you will need to import a certificate to Azure, and specify the certificate in the service configuration file. For more information, see [Set Up a Remote Desktop Connection for a Role in Azure][].
-
-### To enable or modify Remote Access for role instances in the Management Portal
-
-1. Click **Cloud Services**, click the name of the cloud service, and then click **Configure**.
-
-2. Click **Remote**.
-    
-    ![Cloud services remote](./media/cloud-services-how-to-configure/CloudServices_Remote.png)
-    
-    **Warning:** All role instances will be restarted when you first enable Remote Desktop and click OK (checkmark). To prevent a reboot, the certificate used to encrypt the password must be installed on the role.
-    
-    To prevent a restart, install a certificate and then return to this dialog (see [Using Remote Desktop with Azure Roles][] for more information). If you choose an existing certificate, then a configuration update will be sent to all the instances in the role.
-
-3. In **Roles**, select the role you want to update or select **All** for all roles.
-
-4. Make any of the following changes:
-    
-    - To enable Remote Desktop, select the **Enable Remote Desktop** check box. To disable Remote Desktop, clear the check box.
-    
-    - Create an account to use in Remote Desktop connections to the role instances.
-    
-    - Update the password for the existing account.
-    
-    - Select an uploaded certificate to use for authentication (upload the certificate using **Upload** on the **Certificates** page) or create a new certificate. 
-    
-    - Change the expiration date for the Remote Desktop configuration.
-
-5. When you finish your configuration updates, click **OK** (checkmark).
-
-6. To connect to a role instance:
-    
-    1. Click **Instances** to open the **Instances** page.
-    
-    2. Select a role instance that has Remote Desktop configured.
-    
-    3. Click **Connect**, and follow the instructions to open the desktop. 
-    
-    4. Click **Open** and then **Connect** to start the Remote Desktop connection.
-
-### To disable Remote Access for role instances in the Management Portal
-
-1. Click **Cloud Services**, click the name of the cloud service, and then click **Configure**.
-
-2. Click **Remote**.
-
-3. In **Roles**, select the role you want to update or select **All** for all roles.
-
-4. Un-check, or clear, the **Enable Remote Desktop** check box.
-
-5. Click **OK** (checkmark).
-
-[Set Up a Remote Desktop Connection for a Role in Azure]: https://msdn.microsoft.com/library/azure/hh124107.aspx
-
-[Using Remote Desktop with Azure Roles]: https://msdn.microsoft.com/library/azure/gg443832.aspx
-			
- 
+* Learn how to [deploy a cloud service](cloud-services-how-to-create-deploy.md).
+* Configure a [custom domain name](cloud-services-custom-domain-name.md).
+* [Manage your cloud service](cloud-services-how-to-manage.md).
+* [Enable Remote Desktop Connection for a Role in Azure Cloud Services](cloud-services-role-enable-remote-desktop.md)
+* Configure [ssl certificates](cloud-services-configure-ssl-certificate.md).

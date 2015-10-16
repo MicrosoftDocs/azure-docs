@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/24/2015" 
+	ms.date="09/07/2015"
 	ms.author="juliako"/>
 
 
 #Create Advanced Encoding Workflows with Workflow Designer
 
 ##Overview
-The **Workflow Designer** is a standalone tool that is used to create workflows/graphs for encoding with **Media Encoder Premium Workflow**.
+The **Workflow Designer** is a Windows desktop tool that is used to design and build custom workflows for encoding with **Media Encoder Premium Workflow**.
 
 This tool can also be used to modify [existing workflows](media-services-workflow-designer.md#existing_workflows). 
 
@@ -33,5 +33,48 @@ Once a workflow file is created, it can be uploaded as an Asset, and then be use
 
 The default workflow files can be modified using the designer tool. You can get the default workflow files [here](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows). The folder also contains the description of these files.
 
+The following videos demonstrate how to use the designer.
 
->[AZURE.NOTE] More information is coming soon. 
+###Day 1 – Getting Started
+
+Day 1 video covers:
+
+- Designer Overview
+- Basic Workflows – “Hello World”
+- Creating multiple output MP4 files for use with Azure Media Services streaming
+
+> [AZURE.VIDEO azure-premium-encoder-workflow-designer-training-videos-day-1]
+
+###Day 2
+
+Day 2 video covers:
+
+- Varying Source file scenarios – handling audio
+- Workflows with advanced Logic
+- Graph stages
+
+> [AZURE.VIDEO azure-premium-encoder-workflow-designer-training-videos-day-2]
+
+###Day 3
+
+Day 3 video covers:
+
+- Scripting inside of Workflows/Blueprints
+- Restrictions with the current Encoder
+- Q&A
+ 
+> [AZURE.VIDEO azure-premium-encoder-workflow-designer-training-videos-day-3]
+
+
+
+##Media Services learning paths
+
+You can view AMS learning paths here:
+
+- [AMS Live Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [AMS on Demand Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
+
+##See Also
+
+[Azure Premium Encoder Workflow Designer Training Videos](http://johndeutscher.com/2015/07/06/azure-premium-encoder-workflow-designer-training-videos/)

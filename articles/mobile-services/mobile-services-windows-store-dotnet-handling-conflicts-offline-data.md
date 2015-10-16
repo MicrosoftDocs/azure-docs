@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Handle conflicts with offline data in Mobile Services (Windows Store) | Mobile Dev Center" 
-	description="Learn how to use Azure Mobile Services handle conflicts when syncing offline data in your Windows Store application" 
+	pageTitle="Handle conflicts with offline data in universal Windows apps | Microsoft Azure" 
+	description="Learn how to use Azure Mobile Services handle conflicts when syncing offline data in your universal Windows application" 
 	documentationCenter="windows" 
 	authors="wesmc7777" 
 	manager="dwrede" 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="06/15/2015" 
-	ms.author="wesmc"/>
+	ms.date="07/23/2015" 
+	ms.author="glenga"/>
 
 
 # Handling conflicts with offline data sync in Mobile Services
@@ -23,15 +23,13 @@
 
 ##Overview
 
-<div class="dev-onpage-video-clear clearfix">
-<div class="dev-onpage-left-content">
-<p>This topic shows you how to synchronize data and handle conflicts when using the offline capabilities of Azure Mobile Services.</p>
-<p>If you prefer to watch a video, the clip to the right follows the same steps as this tutorial.</p>
-</div>
-<div class="dev-onpage-video-wrapper"><a href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Build-offline-apps-Azure-Mobile-Services" target="_blank" class="label">watch the tutorial</a> <a style="background-image: url('http://video.ch9.ms/ch9/ea1c/ffed2371-4db1-4a8e-8869-80013859ea1c/BuildOfflineAppsAzureMobileServices_220.jpg') !important;" href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Build-offline-apps-Azure-Mobile-Services" target="_blank" class="dev-onpage-video"><span class="icon">Play Video</span></a> <span class="time">14:36</span></div>
-</div>
+This topic shows you how to synchronize data and handle conflicts when using the offline capabilities of Azure Mobile Services.
 
-In this tutorial, you will download a Windows Universal C# solution for an app that supports handling offline synchronization conflicts. You will integrate a mobile service with the app, and then run the Windows Store 8.1 and Windows Phone 8.1 clients to generate a sync conflict and resolve it.
+If you prefer to watch a video, the clip below follows the same steps as this tutorial.
+
+> [AZURE.VIDEO build-offline-apps-with-mobile-services]
+
+In this tutorial, you download a universal Windows C# solution for an app that supports handling offline synchronization conflicts. You will integrate a mobile service with the app, and then run the Windows Store 8.1 and Windows Phone 8.1 clients to generate a sync conflict and resolve it.
 
 This tutorial builds on the steps and the sample app from the previous tutorial [Get started with offline data]. Before you begin this tutorial, you should first complete [Get started with offline data].
 

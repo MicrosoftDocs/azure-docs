@@ -13,13 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/15/2015"
+   ms.date="09/18/2015"
    ms.author="tomfitz"/>
 
 # Create a new Azure Service Principal using the Azure portal
 
 ## Overview
-A service principal is an automated processes, application or service that needs to access other resources. Using Azure Resource Manager, you can grant access
+A service principal is an automated process, application or service that needs to access other resources. Using Azure Resource Manager, you can grant access
 to a service principal and authenticate it so it can perform the permitted management actions on resources that exist in 
 the subscription or as a tenant. 
 
@@ -36,59 +36,59 @@ This topic shows you how to create a new service principal using the Azure porta
 
 2. Select **Active Directory** from the left pane.
 
-   ![select Active Directory][1]
+     ![select Active Directory][1]
 
 3. Select the directory that you want to use for creating the new application.
 
-   ![choose directory][2]
+     ![choose directory][2]
 
 3. To view the applications in your directory, click on **Applications**.
 
-   ![view applications][11]
+     ![view applications][11]
 
 4. If you haven't created an application in that directory before you should see something similar to following image. Click on **ADD AN APPLICATION**
 
-   ![add application][6]
+     ![add application][6]
 
-   Or, click **Add** in the bottom pane.
+     Or, click **Add** in the bottom pane.
 
-   ![add][12]
+     ![add][12]
 
 5. Select the type of application you would like to create. For this tutorial, we will not use an application from the gallery.
 
-   ![new application][10]
+     ![new application][10]
 
 6. Fill in name of the application and select the type of application you want to use. Since we intend to use this application's service principal to authenticate with Azure Resource Manager, we will elect to create a **WEB APPLICATION AND/OR WEB API** and click the next button.
 
-   ![name application][9]
+     ![name application][9]
 
 7. Fill in the properties for your app. For **SIGN-ON URL**, provide the URI to a web-site that describes your application. The existence of the web-site is not validated. 
 For **APP ID URI**, provide the URI that identifies your application. The uniqueness or existence of the endpoint is not validated. Click the **Complete** to create you AAD Application.
 
-   ![application properties][4]
+     ![application properties][4]
 
 ## Create your service principal password
 The portal should now have your application selected.
 
 1. Click on the **Configure** tab to configure your application's password.
 
-   ![configure application][3]
+     ![configure application][3]
 
 2. Scroll down to the **Keys** section and select how long you would like your password to be valid.
 
-   ![keys][7]
+     ![keys][7]
 
 3. Select **Save** to create your key.
 
-   ![save][13]
+     ![save][13]
 
-   The saved key is displayed and you can copy it.
+     The saved key is displayed and you can copy it.
 
-   ![saved key][8]
+     ![saved key][8]
 
 4. You can now use you key to authenticate as a service principal. You will need your **CLIENT ID** in addition to your **KEY** to sign in. Go to **CLIENT ID** and copy it.
   
-   ![client id][5]
+     ![client id][5]
 
 
 Your application is now ready and the service principal created on your tenant. When signing in as a service principal be sure to use:
@@ -97,30 +97,12 @@ Your application is now ready and the service principal created on your tenant. 
 * **KEY** - as your password.
 
 ## Next Steps
-Getting Started  
 
-- [Azure Resource Manager Overview](./resource-group-overview.md)  
-- [Using Azure PowerShell with Azure Resource Manager](./powershell-azure-resource-manager.md)
-- [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management](virtual-machines/xplat-cli-azure-resource-manager.md)  
-- [Using the Azure Portal to manage your Azure resources](azure-portal/resource-group-portal.md)  
-  
-Creating and Deploying Applications  
-  
-- [Authoring Azure Resource Manager Templates](./resource-group-authoring-templates.md)  
-- [Deploy an application with Azure Resource Manager Template](azure-portal/resource-group-template-deploy.md)  
-- [Troubleshooting Resource Group Deployments in Azure](virtual-machines/resource-group-deploy-debug.md)  
-- [Azure Resource Manager Template Functions](./resource-group-template-functions.md)  
-- [Advanced Template Operations](./resource-group-advanced-template.md)  
-- [Deploy Azure Resources Using .NET Libraries and a Template](virtual-machines/arm-template-deployment.md)
-  
-Organizing Resources  
-  
-- [Using tags to organize your Azure resources](./resource-group-using-tags.md)  
-  
-Managing and Auditing Access  
-  
-- [Managing and Auditing Access to Resources](azure-portal/resource-group-rbac.md)  
-- [Authenticating a Service Principal with Azure Resource Manager](./resource-group-authenticate-service-principal.md)  
+- To learn about specifying security policies, see [Managing and Auditing Access to Resources](azure-portal/resource-group-rbac.md)  
+- For the steps to permit a service principal to access resources, see [Authenticating a Service Principal with Azure Resource Manager](./resource-group-authenticate-service-principal.md)  
+- For an overview of role-based access control, see [Role-based access control in the Microsoft Azure portal](role-based-access-control-configure.md)
+- For guidance on implementing security with Azure Resource Manager, see [Security considerations for Azure Resource Manager](best-practices-resource-manager-security.md)
+
 
 <!-- Images. -->
 [1]: ./media/resource-group-create-service-principal-portal/active-directory.png

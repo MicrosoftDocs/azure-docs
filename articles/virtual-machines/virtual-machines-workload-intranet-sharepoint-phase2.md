@@ -1,24 +1,28 @@
 <properties
-	pageTitle="SharePoint Intranet Farm Workload Phase 2: Configure Domain Controllers"
-	description="In this second phase of deploying an intranet-only SharePoint 2013 farm with SQL Server AlwaysOn Availability Groups in Azure infrastructure services, you create and configure the two Active Directory domain controllers."
+	pageTitle="SharePoint Server 2013 farm Phase 2 | Microsoft Azure"
+	description="Create and configure the two Active Directory replica domain controllers in Phase 2 of the SharePoint Server 2013 farm in Azure."
 	documentationCenter=""
 	services="virtual-machines"
 	authors="JoeDavies-MSFT"
 	manager="timlt"
-	editor=""/>
+	editor=""
+	tags="azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines"
 	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="na"
+	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/05/2015"
+	ms.date="07/21/2015"
 	ms.author="josephd"/>
 
 # SharePoint Intranet Farm Workload Phase 2: Configure domain controllers
 
-In this phase of deploying an intranet-only SharePoint 2013 farm with SQL Server AlwaysOn Availability Groups in Azure infrastructure services, you configure two domain controllers in the Azure virtual network. Client web requests for SharePoint farm resources can then be authenticated in the Azure virtual network, rather than sending that authentication traffic across the VPN or Azure ExpressRoute connection to your on-premises network.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Resource Manager model.
+
+
+In this phase of deploying an intranet-only SharePoint 2013 farm with SQL Server AlwaysOn Availability Groups in Azure infrastructure services, you configure two domain controllers in the Azure virtual network in Service Management. Client web requests for SharePoint farm resources can then be authenticated in the Azure virtual network, rather than sending that authentication traffic across the VPN or Azure ExpressRoute connection to your on-premises network.
 
 You must complete this phase before moving on to [Phase 3](virtual-machines-workload-intranet-sharepoint-phase3.md). See [Deploying SharePoint with SQL Server AlwaysOn Availability Groups in Azure](virtual-machines-workload-intranet-sharepoint-overview.md) for all of the phases.
 
@@ -40,7 +44,7 @@ Item | Virtual machine name | Gallery image | Minimum size
 
 **Table M – Virtual machines for the SharePoint 2013 intranet farm in Azure**
 
-For the complete list of virtual machine sizes, see [Sizes for virtual machines](https://azure.microsoft.com/documentation/articles/virtual-machines-size-specs/).
+For the complete list of virtual machine sizes, see [Sizes for virtual machines](virtual-machines-size-specs.md).
 
 Use the following block of Azure PowerShell commands to create the virtual machines for the two domain controllers. Specify the values for the variables, removing the < and > characters. Note that this Azure PowerShell command set uses values from the following:
 
@@ -242,3 +246,5 @@ To continue with the configuration of this workload, go to [Phase 3: Configure S
 [Microsoft Azure Architectures for SharePoint 2013](https://technet.microsoft.com/library/dn635309.aspx)
 
 [Azure infrastructure services implementation guidelines](virtual-machines-infrastructure-services-implementation-guidelines.md)
+
+[Azure Infrastructure Services Workload: High-availability line of business application](virtual-machines-workload-high-availability-lob-application.md)

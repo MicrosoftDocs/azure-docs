@@ -3,7 +3,7 @@
     pageTitle="What's new in Azure RemoteApp?"
     description="Learn about changes and improvements made to Azure RemoteApp" 
     services="remoteapp" 
-    solutions="" documentationCenter="" 
+    documentationCenter="" 
     authors="lizap" 
     manager="mbaldwin" />
 
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="06/30/2015" 
+    ms.date="08/12/2015" 
     ms.author="elizapo" />
 
 
@@ -22,6 +22,16 @@
 
 One of the advantages of RemoteApp is that we are always working to improve it. Every time we do, we'll announce those changes here.
 
+## July 2015
+
+July set the stage for changes coming in August, so there's not a lot to talk about now, mostly doc updates. Here are the most recent changes:
+
+- Added a **Support** tab to the portal so you can more easily access support resources, like the forums.
+- Reworked the troubleshooting information for creating a hybrid collection. Check out [the latest and greatest](remoteapp-hybridtrouble.md) for troubleshooting tips like, how to identify the correct ports to configure for your VNET.
+- Documented how [user data](remoteapp-upd.md) is created and saved in Azure RemoteApp.
+- Documented how to [lock down apps](remoteapp-secure.md).
+- Published the [Azure RemoteApp cmdlets](https://msdn.microsoft.com/library/mt428031.aspx).
+- And finally, we started a conversation with some Azure RemoteApp users about terminology. Look for changes to the way we refer to the different collection options.
 
 ## June 2015
 

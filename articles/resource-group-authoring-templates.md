@@ -13,14 +13,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/15/2015"
+   ms.date="09/18/2015"
    ms.author="tomfitz"/>
 
-# Authoring Azure Resource Manager Templates
+# Authoring Azure Resource Manager templates
 
 Azure applications typically require a combination of resources (such as a database server, database, or website) to meet the desired goals. Rather than deploying and managing each resource separately, you can create an Azure Resource Manager template that deploys and provisions all of the resources for your application in a single, coordinated operation. In the template, you define the resources that are needed for the application and specify deployment parameters to input values for different environments. The template consists of JSON and expressions which you can use to construct values for your deployment.
 
 This topic describes the sections of the template. For the actual schemas, see [Azure Resource Manager Schemas](https://github.com/Azure/azure-resource-manager-schemas).
+
+You must limit the size your template to 1 MB, and each parameter file to 64 KB. The 1 MB limit applies to the final state of the template after it has been expanded with iterative resource definitions, and values for variables and parameters. 
 
 ## Template format
 
@@ -102,7 +104,11 @@ You define parameters with the following structure:
        "<parameterName>" : {
          "type" : "<type-of-parameter-value>",
          "defaultValue": "<optional-default-value-of-parameter>",
-         "allowedValues": [ "<optional-array-of-allowed-values>" ]
+         "allowedValues": [ "<optional-array-of-allowed-values>" ],
+         "minValue": <optional-minimum-value-for-int-parameters>,
+         "maxValue": <optional-maximum-value-for-int-parameters>,
+         "minLength": <optional-minimum-length-for-string-secureString-array-parameters>,
+         "maxLength": <optional-maximum-length-for-string-secureString-array-parameters>
        }
     }
 
@@ -112,15 +118,20 @@ You define parameters with the following structure:
 | type           |   Yes    | Type of the parameter value. See the list below of allowed types.
 | defaultValue   |   No     | Default value for the parameter, if no value is provided for the parameter.
 | allowedValues  |   No     | Array of allowed values for the parameter to make sure that the right value is provided.
+| minValue       |   No     | The minimum value for int type parameters, this value is inclusive.
+| maxValue       |   No     | The maximum value for int type parameters, this value is inclusive.
+| minLength      |   No     | The minimum length for string, secureString and array type parameters, this value is inclusive.
+| maxLength      |   No     | The maximum length for string, secureString and array type parameters, this value is inclusive.
 
 The allowed types and values are:
 
 - string or secureString - any valid JSON string
 - int - any valid JSON integer
 - bool - any valid JSON boolean
-- object - any valid JSON object
+- object or secureObject - any valid JSON object
 - array - any valid JSON array
 
+To specify a parameter as optional, set its defaultValue to an empty string.
 
 >[AZURE.NOTE] All passwords, keys, and other secrets should use the **secureString** type. Template parameters with the secureString type cannot be read after resource deployment. 
 
@@ -128,10 +139,13 @@ The following example shows how to define parameters:
 
     "parameters": {
        "siteName": {
-          "type": "string"
+          "type": "string",
+          "minLength": 2,
+          "maxLength": 60
        },
        "siteLocation": {
-          "type": "string"
+          "type": "string",
+          "minLength": 2
        },
        "hostingPlanName": {
           "type": "string"
@@ -146,6 +160,14 @@ The following example shows how to define parameters:
             "Premium"
           ],
           "defaultValue": "Free"
+       },
+       "instancesCount": {
+          "type": "int",
+          "maxValue": 10
+       },
+       "numberOfWorkers": {
+          "type": "int",
+          "minValue": 1
        }
     }
 
@@ -219,7 +241,7 @@ You define resources with the following structure:
 
 | Element name             | Required | Description
 | :----------------------: | :------: | :----------
-| apiVersion               |   Yes    | Version of the API that supports the resource.
+| apiVersion               |   Yes    | Version of the API that supports the resource. For the available versions and schemas for resources, see [Azure Resource Manager Schemas](https://github.com/Azure/azure-resource-manager-schemas).
 | type                     |   Yes    | Type of the resource. This value is a combination of the namespace of the resource provider and the resource type that the resource provider supports.
 | name                     |   Yes    | Name of the resource. The name must follow URI component restrictions defined in RFC3986.
 | location                 |   No     | Supported geo-locations of the provided resource.
@@ -229,6 +251,8 @@ You define resources with the following structure:
 | resources                |   No     | Child resources that depend on the resource being defined.
 
 If the resource name is not unique, you can use the **resourceId** helper function (described below) to get the unique identifier for any resource.
+
+The values for the **properties** element are exactly the same as the values you provide in the request body for the REST API operation (PUT method) to create the resource. See [Azure reference](https://msdn.microsoft.com/library/azure/mt420159.aspx) for the REST API operations for the resource you wish to deploy.
 
 The following example shows a **Microsoft.Web/serverfarms** resource and a **Microsoft.Web/sites** resource with a nested **Extensions** resource:
 
@@ -312,7 +336,9 @@ The following example shows a value that is returned in the Outputs section.
 ## More advanced scenarios.
 This topic provides an introductory look at the template. However, your scenario may require more advanced tasks.
 
-You may need to merge two templates together or use a child template within a parent template. For more information, see [Nested Templates](../resource-group-advanced-template#nested-template).
+You may need to merge two templates together or use a child template within a parent template. For more information, see [Using linked templates with Azure Resource Manager](resource-group-linked-templates.md).
+
+To iterate a specified number of times when creating a type of resource, see [Create multiple instances of resources in Azure Resource Manager](resource-group-create-multiple.md).
 
 You may need to use resources that exist within a different resource group. This is common when working with storage accounts or virtual networks that are shared across multiple resource groups. For more information, see the [resourceId function](../resource-group-template-functions#resourceid).
 
@@ -320,7 +346,7 @@ You may need to use resources that exist within a different resource group. This
 The following template deploys a web app and provisions it with code from a .zip file. 
 
     {
-       "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
+       "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
        "contentVersion": "1.0.0.0",
        "parameters": {
          "siteName": {
@@ -399,9 +425,7 @@ The following template deploys a web app and provisions it with code from a .zip
     }
 
 ## Next Steps
-- [Azure Resource Manager Template Functions](./resource-group-template-functions.md)
-- [Deploy an application with Azure Resource Manager Template](azure-portal/resource-group-template-deploy.md)
-- [Advanced Template Operations](./resource-group-advanced-template.md)
-- [Deploy a complex application predictably in Azure](app-service-web/app-service-deploy-complex-application-predictably.md)
-- [Azure Resource Manager Overview](./resource-group-overview.md)
-- [Azure Resource Manager Schemas](https://github.com/Azure/azure-resource-manager-schemas)
+- For details about the functions you can use from within a template, see [Azure Resource Manager Template Functions](resource-group-template-functions.md)
+- To see how to deploy the template you have created, see [Deploy an application with Azure Resource Manager Template](azure-portal/resource-group-template-deploy.md)
+- For an in-depth example of deploying an application, see [Provision and deploy microservices predictably in Azure](app-service-web/app-service-deploy-complex-application-predictably.md)
+- To see the available schemas, see [Azure Resource Manager Schemas](https://github.com/Azure/azure-resource-manager-schemas)

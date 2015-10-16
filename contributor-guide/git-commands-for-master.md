@@ -46,19 +46,21 @@ Follow the steps in this article to create a local working branch on your comput
         git add <file path>
         git commit –m "<comment>"
 
-9. Periodically, update your local working branch with changes from upstream:
+9. Update your local working branch with changes from upstream:
 
         git pull upstream master
 
-10. Daily at least, push the changes to your fork on GitHub for safe keeping:
+10. Push the changes to your fork on GitHub:
 
         git push origin <working branch>
 
-12. Create a pull request from your fork to the master branch when you are ready for your content contribution to be reviewed.
+12. When you are ready to submit your content to the upstream master branch for staging, validation, and/or publishing, in the GitHub UI, create a pull request from your fork to the master branch.
 
-13. The pull request acceptor reviews your pull request, provides feedback, and/or accepts your pull request. 
+13. If you are an employee working in the private repository, the changes you submit are automatically staged and a staging link is written to the pull request. Please review your staged content and sign off in the pull request comments by adding the **#sign-off** comment.  This indicates the changes are ready to be pushed live.  If you don't want the pull request to be accepted - if you are just staging the changes - add the **#hold-off** note to the pull request.
 
-14. Verify your published article or changes at
+14. The pull request acceptor reviews your pull request, provides feedback, and/or accepts your pull request. 
+
+15. Optionally verify your published article or changes at
 
  http://azure.microsoft.com/documentation/articles/*name-of-your-article-without-the-MD-extension*
 
@@ -66,7 +68,6 @@ Follow the steps in this article to create a local working branch on your comput
 
 - At this time, technical articles are published once daily around 10 AM Pacific Standard Time (PST), Monday-Friday. Remember, your pull request has to be accepted before changes are included in the next scheduled publishing run.
 - If you are an employee working in the private repository, all pull requests are subject to validation rules that need to be addressed before the pull request can be accepted. 
-- In the private repo, the changes you submit are automatically staged, and a staging link is written to the pull request. Please review your staged content and sign off in the pull request comments to indicate the changes are ready to be pushed live. If you don't want the pull request to be accepted - if you are just staging the changes - add that note to the pull request.
 
 ## Working with release branches
 

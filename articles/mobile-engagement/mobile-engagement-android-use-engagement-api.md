@@ -3,8 +3,8 @@
 	description="Latest Android SDK - How to Use the Engagement API on Android"
 	services="mobile-engagement" 
 	documentationCenter="mobile" 
-	authors="kpiteira" 
-	manager="dwrede"
+	authors="piyushjo" 
+	manager="dwrede" 
 	editor="" />
 
 <tags 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="mobile-android" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/24/2015" 
-	ms.author="kapiteir" />
+	ms.date="08/10/2015" 
+	ms.author="piyushjo" />
 
 #How to Use the Engagement API on Android
 

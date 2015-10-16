@@ -10,14 +10,19 @@
 <tags
    ms.service="dns"
    ms.devlang="na"
-   ms.topic="get-started-article"
+   ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/01/2015"
+   ms.date="09/22/2015"
    ms.author="joaoma"/>
 
 
 # Create DNS records
+
+
+> [AZURE.SELECTOR]
+- [Azure CLI](dns-getstarted-create-recordset-cli.md)
+- [Azure Powershell steps](dns-getstarted-create-recordset.md)
 
 After creating your DNS Zone, you need to add the DNS records for your domain.  To do this, you first need to understand DNS records and record sets.
 
@@ -31,7 +36,7 @@ A _fully qualified_ name includes the zone name, whereas a _relative_ name does 
 
 Records come in various types according to the data they contain.  The most common type is an ‘A’ record, which maps a name to an IPv4 address.  Another type is an ‘MX’ record, which maps a name to a mail server.
 
-Azure DNS supports all common DNS record types: A, AAAA, CNAME, MX, NS, SOA, SRV and TXT.
+Azure DNS supports all common DNS record types: A, AAAA, CNAME, MX, NS, SOA, SRV and TXT.  (Note that [SPF records should be created using the TXT record type](http://tools.ietf.org/html/rfc7208#section-3.1).)
 
 Sometimes, you need to create more than one DNS record with a given name and type.  For example, suppose the www.contoso.com web site is hosted on two different IP addresses.  This requires two different A records, one for each IP address:
 

@@ -12,13 +12,15 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="06/24/2015"
+   ms.date="08/23/2015"
    ms.author="joaoma"/>
 
-# Application Gateway technical overview 
+# What is Application Gateway?
 
 
-Microsoft Azure Application Gateway is an Azure-managed service similar to the Azure VPN Gateway. Application Gateway provides an Azure-managed HTTP load balancing solution based on IIS Application Request Routing (ARR). The application gateway service is highly available and metered. For the SLA and Pricing, please refer to the [SLA](http://azure.microsoft.com/support/legal/sla/) and [Pricing](https://azure.microsoft.com/pricing/details/application-gateway/) pages.
+Microsoft Azure Application Gateway provides an Azure-managed HTTP load balancing solution based on layer 7 load balancing. 
+
+Application load balancing  enables IT administrators and developers to create routing rules for network traffic based on HTTP.  The application gateway service is highly available and metered. For the SLA and Pricing, please refer to the [SLA](http://azure.microsoft.com/support/legal/sla/) and [Pricing](https://azure.microsoft.com/pricing/details/application-gateway/) pages.
 
 Application Gateway currently supports layer 7 application delivery for the following:
 
@@ -29,8 +31,15 @@ Application Gateway currently supports layer 7 application delivery for the foll
 ![Application Gateway](./media/application-gateway-introduction/appgateway1.png)
 
 ## HTTP layer 7 load balancing
-Azure provides layer 4 load balancing via a software load-balancer. This happens implicitly for every cloud service that has a load balanced VIP (public or internal). However, there are many applications that can use layer 7 (HTTP) based load balancing. 
 
+Azure provides layer 4 load balancing via Azure load balancer working at the transport level (TCP/UDP) and having all incoming network traffic being load balanced to the App Gateway service. The Application Gateway then will apply the routing rules to HTTP traffic, providing level 7 (HTTP) load balancing. When you create an Application Gateway, an endpoint (VIP) will be associated and used as public IP for ingress network traffic.
+
+The Application Gateway will route the HTTP traffic based on its configuration whether it's a virtual machine, cloud service, web app or an external IP address.
+
+The diagram below explains how traffic flows for Application Gateway:
+
+ 
+![Application Gateway2](./media/application-gateway-introduction/appgateway2.png)
 
 HTTP layer 7 load balancing is useful for:
 

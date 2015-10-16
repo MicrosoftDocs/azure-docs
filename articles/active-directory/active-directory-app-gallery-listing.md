@@ -1,6 +1,6 @@
 <properties
    pageTitle="Listing your application in the Azure Active Directory application gallery"
-   description="A comprehensive guide to developer-oriented resources for Azure Active Directory"
+   description="How to list an application that supports single sign-on in the Azure Active Directory gallery | Microsoft Azure"
    services="active-directory"
    documentationCenter="dev-center-name"
    authors="msmbaldwin"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="04/29/2015"
+   ms.date="09/17/2015"
    ms.author="mbaldwin"/>
 
 
@@ -56,4 +56,3 @@ After testing is completed, then the application can be listed in the Azure Acti
 > Attach Application Large Icon (PNG file, 215px by 215px, solid background color):
 >
 > Attach Application Logo (PNG file, 150px by 122px, transparent background color):
- 

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Run a Hadoop job using DocumentDB and HDInsight | Azure" 
+	pageTitle="Run a Hadoop job using DocumentDB and HDInsight | Microsoft Azure" 
 	description="Learn how to run a simple Hive, Pig, and MapReduce job with DocumentDB and Azure HDInsight."
 	services="documentdb" 
 	authors="AndrewHoh" 
@@ -14,12 +14,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="06/11/2015" 
+	ms.date="07/20/2015" 
 	ms.author="anhoh"/>
 
 #<a name="DocumentDB-HDInsight"></a>Run a Hadoop job using DocumentDB and HDInsight
 
-This tutorial shows you how to run [Apache Hive][apache-hive], [Apache Pig][apache-pig], and [Apache Hadoop][apache-hadoop] MapReduce jobs on Azure HDInsight with DocumentDB's Hadoop connector. DocumentDB's Hadoop connector allows DocumentDB to act as both a source and sink for Hive, Pig and MapReduce jobs. This tutorial will use DocumentDB as both the data source and destination for Hadoop jobs. 
+This tutorial shows you how to run [Apache Hive][apache-hive], [Apache Pig][apache-pig], and [Apache Hadoop][apache-hadoop] MapReduce jobs on Azure HDInsight with DocumentDB's Hadoop connector. DocumentDB's Hadoop connector allows DocumentDB to act as both a source and sink for Hive, Pig, and MapReduce jobs. This tutorial will use DocumentDB as both the data source and destination for Hadoop jobs. 
 
 After completing this tutorial, you'll be able to answer the following questions:
 
@@ -40,17 +40,20 @@ Don't have time to complete the tutorial and just want to get the full sample Po
 
 <table border='1'>
 	<tr><th>Hadoop Connector Version</th>
-		<td>1.0.0</td></tr>
+		<td>1.1.0</td></tr>
 	<tr><th>Script Uri</th>
 		<td>https://portalcontent.blob.core.windows.net/scriptaction/documentdb-hadoop-installer-v03.ps1</td></tr>
 	<tr><th>Date Modified</th>
-		<td>06/11/2015</td></tr>
+		<td>07/20/2015</td></tr>
 	<tr><th>Supported HDInsight Versions</th>
 		<td>3.1, 3.2</td></tr>
 	<tr><th>Change Log</th>
-		<td>Fixed connector's compatability with the <a href="https://www.microsoft.com/download/details.aspx?id=40886">Microsoft Hive ODBC driver</a></br>
+		<td>Updated DocumentDB Java SDK to 1.1.0</br>
+			Removed additional output parameter for custom indexing paths</br>
+			Added optional parameter for custom string precision (-1 by default)</br>
+			6/11/2015</br>
+			Fixed connector's compatability with the <a href="https://www.microsoft.com/download/details.aspx?id=40886">Microsoft Hive ODBC driver</a></br>
 			Added ability to change output collection offer type (S3 offer by default)</br>
-			Minor bug fixes</br>
 		</td></tr>
 </table>
 

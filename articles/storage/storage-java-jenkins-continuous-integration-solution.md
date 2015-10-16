@@ -1,18 +1,11 @@
 <properties 
-	urlDisplayName="Jenkins Continuous Integration" 
 	pageTitle="Using Azure Storage with a Jenkins Continuous Integration Solution | Microsoft Azure" 
-	metaKeywords="" 
 	description="This tutorial show how to use the Azure blob service as a repository for build artifacts created by a Jenkins continuous integration solution." 
-	metaCanonical="" 
 	services="storage" 
 	documentationCenter="java" 
-	title="" 
 	authors="rmcmurray" 
-	solutions="" 
 	manager="wpickett" 
-	editor="jimbe" 
-	scriptId="" 
-	videoId=""/>
+	editor="jimbe"/>
 
 <tags 
 	ms.service="storage" 
@@ -20,18 +13,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="06/03/2015" 
+	ms.date="10/12/2015" 
 	ms.author="robmcm"/>
 
 # Using Azure Storage with a Jenkins Continuous Integration solution
-
-*By [Microsoft Open Technologies Inc.][ms-open-tech]*
 
 ## Overview
 
 The following information shows how to use the Azure Blob service as a repository of build artifacts created by a Jenkins Continuous Integration (CI) solution, or as a source of downloadable files to be used in a build process. One of the scenarios where you would find this useful is when you're coding in an agile development environment (using Java or other languages), builds are running based on continuous integration, and you need a repository for your build artifacts, so that you could, for example, share them with other organization members, your customers, or maintain an archive. Another scenario is when your build job itself requires other files, for example, dependencies to download as part of the build input.
 
-In this tutorial you will be using the Azure Storage Plugin for Jenkins CI made available by Microsoft Open Technologies, Inc.
+In this tutorial you will be using the Azure Storage Plugin for Jenkins CI made available by Microsoft.
 
 ## Overview of Jenkins ##
 
@@ -48,7 +39,7 @@ Benefits of using the Blob service to host your agile development build artifact
 - Performance when your customers and partners download your build artifacts.
 - Control over user access policies, with a choice between anonymous access, expiration-based shared access signature access, private access, etc.
 
-## Prequisites ##
+## Prerequisites ##
 
 You will need the following to use the Blob service with your Jenkins CI solution:
 
@@ -169,5 +160,4 @@ The following provides an overview of the Blob service components.
 
   [How to Create a Storage Account]: http://go.microsoft.com/fwlink/?LinkId=279823
   [Meet Jenkins]: https://wiki.jenkins-ci.org/display/JENKINS/Meet+Jenkins
-  [ms-open-tech]: http://msopentech.com
  

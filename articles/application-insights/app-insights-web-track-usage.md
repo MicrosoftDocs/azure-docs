@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/19/2015" 
+	ms.date="08/24/2015" 
 	ms.author="awills"/>
  
 # Usage analysis for web applications with Application Insights
@@ -109,14 +109,34 @@ However, when you explore shorter time ranges such as hourly grain, a long sessi
 
 ## Users and user counts
 
+
 Each user session is associated with a unique user id. 
 
-By default, the user is identified by placing a cookie. In this case, a user who uses multiple browsers or devices will be counted more than once.
+By default, the user is identified by placing a cookie. A user who uses multiple browsers or devices will be counted more than once. (But see [authenticated users](#authenticated-users)
+
 
 The **user count** metric in a certain interval is defined as the number of unique users with recorded activity during this interval. As a result, users with long sessions may be accounted multiple times, when you set a time range so that the grain is less than an hour or so.
 
 **New Users** counts the users whose first sessions with the app occurred during this interval. If the default method of counting by users by cookies is used, then this will also include users who have cleared their cookies, or who are using a new device or browser to access your app for the first time.
 ![From the usage blade, click on Users chart to examine New Users.](./media/app-insights-web-track-usage/031-dual.png)
+
+### Authenticated users
+
+If your web app lets users sign in, you can get a more accurate count by providing Application Insights with a unique user identifier. It doesn't have to be their name, or the same id that you use in your app. As soon as your app has identified the user, use this code:
+
+
+*JavaScript at client*
+
+      appInsights.setAuthenticatedUserContext(userId);
+
+If your app groups users into accounts, you can also pass an identifier for the account. 
+
+      appInsights.setAuthenticatedUserContext(userId, accountId);
+
+The user and account ids must not contain spaces or the characters `,;=|`
+
+
+In [metrics explorer](app-insights-metrics-explorer.md), you can create a chart of **Authenticated Users** and **Accounts**. 
 
 ## Synthetic traffic
 
@@ -145,7 +165,7 @@ Let's suppose that instead of implementing each game in a separate web page, you
 
 But you'd still like Application Insights to log the number of times each game is opened, in exactly the same way as when they were on separate web pages. That's easy: just insert a call to the telemetry module into your JavaScript where you want to record that a new 'page' has opened:
 
-	telemetryClient.trackPageView(game.Name);
+	appInsights.trackPageView(game.Name);
 
 ## Custom events
 
@@ -153,7 +173,7 @@ Use custom events to . You can send them from device apps, web pages or a web se
 
 *JavaScript*
 
-    telemetryClient.trackEvent("GameEnd");
+    appInsights.trackEvent("GameEnd");
 
 *C#*
 
@@ -348,6 +368,11 @@ And of course, when the feature is live, make sure you look at the analytics and
 * Canary testing. Set up a feature switch that allows you to make a new feature visible only to some users. Use Application Insights to see whether the new feature is being used in the way you envisaged. Make adjustments, then release it to a wider audience.
 * Talk to your users! Analytics is not enough on its own, but complementary to maintaining a good customer relationship.
 
+
+## References
+
+* [Using the API - overview][api]
+* [JavaScript API reference](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md)
 
 ## Video
 

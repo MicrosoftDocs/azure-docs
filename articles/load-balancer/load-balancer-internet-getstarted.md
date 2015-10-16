@@ -1,7 +1,7 @@
 
 <properties
-   pageTitle="Get started on Internet facing load balancer | Microsoft Azure"
-   description="Get your first Internet facing load balancer set for your Virtual Machines or Cloud Services. "
+   pageTitle="Get started configuring your Internet-facing load balancer | Microsoft Azure"
+   description="Set up your first Internet-facing load balancer for your virtual machines or cloud services. "
    services="load-balancer"
    documentationCenter="na"
    authors="joaoma"
@@ -13,42 +13,46 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/01/2015"
+   ms.date="08/12/2015"
    ms.author="joaoma" />
 
-# Get started configuring your Internet facing load balancer
+# Get started configuring your Internet-facing load balancer
 
-Load balancing services in Microsoft Azure work with all the tenant types (IaaS or PaaS) and all OS flavors (Windows or any Linux based OS supported).
+> [AZURE.SELECTOR]
+- [Azure classic steps](load-balancer-internet-getstarted.md)
+- [Resource Manager Powershell steps](load-balancer-arm-powershell.md)
+
+Load balancing services in Microsoft Azure work with all the tenant types (IaaS or PaaS) and all supported operating systems (Windows or any supported Linux-based operating system).
 
 
-## Setting up a Internet facing load balancer for Virtual Machines
+## Set up an Internet-facing load balancer for virtual machines
 
-In order to load balance network traffic from Internet across the virtual machines of a cloud service, you must create a load-balanced set. This procedure assumes that you have already created the virtual machines and that they are all within the same cloud service.
+In order to load balance network traffic from the Internet across the virtual machines of a cloud service, you must create a load-balanced set. This procedure assumes that you have already created the virtual machines and that they are all within the same cloud service.
 
-Follow the steps below to configure a load balancer set for virtual machines:
+**To configure a load-balanced set for virtual machines**
 
-1. in the Azure Management Portal, click Virtual Machines, and then click the name of a virtual machine in the load-balanced set.
-2.	Click Endpoints, and then click Add.
+1. In the Azure portal, click **Virtual Machines**, and then click the name of a virtual machine in the load-balanced set.
+2.	Click **Endpoints**, and then click **Add**.
 
-4.	On the Add an endpoint to a virtual machine page, click the right arrow.
+4.	On the **Add an endpoint to a virtual machine** page, click the right arrow.
 
-4.	On the Specify the details of the endpoint page:
-	- In Name, type a name for the endpoint or select from the list of predefined endpoints for common protocols.
-	-  In Protocol, select the protocol required by the type of endpoint, either TCP or UDP, as needed.
- 	-  In Public Port and Private Port, type the port numbers that you want the virtual machine to use, as needed. You can use the private port and firewall rules on the virtual machine to redirect traffic in a way that is appropriate for your application. The private port can be the same as the public port. For example, for an endpoint for web (HTTP) traffic, you could assign port 80 to both the public and private port.
+4.	On the **Specify the details of the endpoint** page:
+	- In **Name**, type a name for the endpoint or select the name from the list of predefined endpoints for common protocols.
+	-  In **Protocol**, select the protocol required by the type of endpoint, either TCP or UDP, as needed.
+ 	-  In **Public Port and Private Port**, type the port numbers that you want the virtual machine to use, as needed. You can use the private port and firewall rules on the virtual machine to redirect traffic in a way that is appropriate for your application. The private port can be the same as the public port. For example, for an endpoint for web (HTTP) traffic, you could assign port 80 to both the public and private port.
 
-5.	Select Create a load-balanced set, and then click the right arrow.
+5.	Select **Create a load-balanced set**, and then click the right arrow.
 
-6.	On the Configure the load-balanced set page, type a name for the load-balanced set and then assign the values for probe behavior of the Azure Load Balancer.
+6.	On the **Configure the load-balanced set** page, type a name for the load-balanced set, and then assign the values for probe behavior of the Azure Load Balancer.
 The Load Balancer uses probes to determine if the virtual machines in the load-balanced set are available to receive incoming traffic.
 
-7.	Click the check mark to create the load-balanced endpoint. You will see Yes in the Load-balanced set name column of the Endpoints page for the virtual machine.
+7.	Click the check mark to create the load-balanced endpoint. You will see **Yes** in the **Load-balanced set name** column of the **Endpoints** page for the virtual machine.
 
-8.	In the Management Portal, click Virtual Machines, click the name of an additional virtual machine in the load-balanced set, click Endpoints, and then click Add.
+8.	In the portal, click **Virtual Machines**, click the name of an additional virtual machine in the load-balanced set, click **Endpoints**, and then click **Add**.
 
-9.	On the Add an endpoint to a virtual machine page, click Add endpoint to an existing load-balanced set, select the name of the load-balanced set, and then click the right arrow.
+9.	On the **Add an endpoint to a virtual machine** page, click **Add endpoint to an existing load-balanced set**, select the name of the load-balanced set, and then click the right arrow.
 
-10.	On the Specify the details of the endpoint page, type a name for the endpoint, and then click the check mark.
+10.	On the **Specify the details of the endpoint** page, type a name for the endpoint, and then click the check mark.
 For the additional virtual machines in the load-balanced set, repeat steps 8-10.
 
 You can also configure endpoints with the following Windows PowerShell cmdlets:
@@ -66,16 +70,16 @@ You can also configure endpoints with the following Windows PowerShell cmdlets:
 [Remove-AzureEndpoint](https://msdn.microsoft.com/library/windowsazure/dn495161)
 
 
-## Setting up a Internet facing balancer for cloud services
+## Set up an Internet-facing load balancer for cloud services
 
 
-Cloud services are automatically configured with a Load Balancer and can customized via the service model
+Cloud services are automatically configured with a load balancer and can be customized via the service model.
 
-You can leverage the Azure SDK for .NET 2.5 to update your Cloud Service. Endpoint settings for Cloud Services are made in the [service definition](https://msdn.microsoft.com/library/azure/gg557553.aspx).csdef.
+You can leverage the Azure SDK for .NET 2.5 to update your cloud service. Endpoint settings for cloud services are made in the [service definition](https://msdn.microsoft.com/library/azure/gg557553.aspx).csdef file.
 
 The following example shows how a servicedefinition.csdef file for a cloud deployment is configured:
 
-Checking the snipet for the .csdef file generated by a cloud deployment, you can see the external endpoint configured to use ports HTTP on port 10000, 10001 and 10002.
+Checking the snipet for the .csdef file generated by a cloud deployment, you can see the external endpoint configured to use ports HTTP on port 10000, 10001, and 10002.
 
 
 	<ServiceDefinition name=“Tenant“>
@@ -100,7 +104,7 @@ Checking the snipet for the .csdef file generated by a cloud deployment, you can
 
 
 
-### Checking load balancer health status for cloud services
+### Check load balancer health status for cloud services
 
 
 The following is an example of a health probe:
@@ -109,20 +113,28 @@ The following is an example of a health probe:
     	<LoadBalancerProbe name=“MyProbe” protocol=“http” path=“Probe.aspx” intervalInSeconds=“5” timeoutInSeconds=“100“ />
  	 	</LoadBalancerProbes>
 
-The load balancer combines the information of the endpoint and the information of the probe to create a URL in the form of http://{DIP of VM}:80/Probe.aspx that will use to query the health of the service.
+The load balancer combines the information of the endpoint and the information of the probe to create a URL in the form of http://{DIP of VM}:80/Probe.aspx that can be used to query the health of the service.
 
-The service will notice  that the same IP periodically is accessing it. This is the health probe request coming from the host of the node where the VM is running.
-The service has to respond with a HTTP 200 status code for the load balancer to assume that the service is healthy. Any other HTTP status code (e.g. 503) directly takes the VM out of rotation.
+The service detects periodic probes from the same IP address. This is the health probe request coming from the host of the node where the virtual machine is running.
+The service has to respond with a HTTP 200 status code for the load balancer to assume that the service is healthy. Any other HTTP status code (for example 503) directly takes the virtual machine out of rotation.
 
-The probe definition also controls the frequency of the probe. In our case above, the load balancer is probing the endpoint every 5 secs. If no positive answer is received for 10 secs (two probe intervals), the probe is assumed down and the VM is taken out of rotation. Similarly, if the service is out of rotation and a positive answer is received, the service is put back to rotation right away. If the service is fluctuating between healthy / unhealthy, the load balancer can decide to delay the re-introduction of the service back to rotation until it has been healthy for a number of probes.
+The probe definition also controls the frequency of the probe. In our case above, the load balancer is probing the endpoint every 5 secs. If no positive answer is received for 10 secs (two probe intervals), the probe is assumed down, and the virtual machine is taken out of rotation. Similarly, if the service is out of rotation and a positive answer is received, the service is put back to rotation right away. If the service is fluctuating between healthy and unhealthy, the load balancer can decide to delay the re-introduction of the service back to rotation until it has been healthy for a number of probes.
 
 Check the service definition schema for the [health probe](https://msdn.microsoft.com/library/azure/jj151530.aspx) for more information.
 
-## Next Steps
+## Set up load balancer using PowerShell
 
-[Get started configuring an Internal load balancer](load-balancer-internal-getstarted.md)
+After creating a virtual machine, you can use PowerShell cmdlets to add a load balancer to a virtual machine within the same cloud service.
 
-[Configure a Load balancer distribution mode](load-balancer-distribution-mode.md)
+In the example below, you will add a load balancer called "webfarm" to cloud service endpoint "mycloudservice" (or mycloudservice.cloudapp.net) and a virtual machine named myVM. The load balancer receives traffic on port 80 and load balances the network traffic between the virtual machines on port 8080 using HTTP.
+
+	Get-AzureVM -ServiceName "mycloudservice" -Name "MyVM" | Add-AzureEndpoint -Name "HttpIn" -Protocol "tcp" -PublicPort 80 -LocalPort 8080 -LBSetName "WebFarm" -ProbePort 80 -ProbeProtocol "http" -ProbePath '/' | Update-AzureVM
+
+
+## Next steps
+
+[Get started configuring an internal load balancer](load-balancer-internal-getstarted.md)
+
+[Configure a load balancer distribution mode](load-balancer-distribution-mode.md)
 
 [Configure idle TCP timeout settings for your load balancer](load-balancer-tcp-idle-timeout.md)
- 

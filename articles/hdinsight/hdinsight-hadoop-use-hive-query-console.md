@@ -5,7 +5,8 @@
    documentationCenter=""
    authors="Blackmist"
    manager="paulettm"
-   editor="cgronlun"/>
+   editor="cgronlun"
+	tags="azure-portal"/>
 
 <tags
    ms.service="hdinsight"
@@ -13,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="07/06/2015"
+   ms.date="10/09/2015"
    ms.author="larryfr"/>
 
 # Run Hive queries using the Query Console
@@ -23,6 +24,7 @@
 In this article, you will learn how to use the HDInsight Query Console to run Hive queries on an HDInsight Hadoop cluster from your browser.
 
 > [AZURE.NOTE] The Query Console is only available on Windows-based HDInsight clusters.
+
 
 ##<a id="prereq"></a>Prerequisites
 
@@ -34,9 +36,8 @@ To complete the steps in this article, you will need the following.
 
 ##<a id="run"></a> Run Hive queries using the Query Console
 
-1. Open the [Azure Portal](https://manage.windowsazure.com) and select your HDInsight cluster. From the bottom of the page, select **Query Console**. When prompted, enter the user name and password that you used when you created the cluster.
+1. Open a web browser and navigate to __https://CLUSTERNAME.azurehdinsight.net__, where __CLUSTERNAME__ is the name of your HDInsight cluster. If prompted, enter the user name and password that you used when you created the cluster.
 
-    > [AZURE.NOTE] You can also reach the Query Console by entering **https://CLUSTERNAME.azurehdinsight.net** in your browser.
 
 2. From the links at the top of the page, select **Hive Editor**. This displays a form that can be used to enter the HiveQL statements that you want to run in the HDInsight cluster.
 
@@ -48,7 +49,7 @@ To complete the steps in this article, you will need the following.
         CREATE EXTERNAL TABLE log4jLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string)
         ROW FORMAT DELIMITED FIELDS TERMINATED BY ' '
         STORED AS TEXTFILE LOCATION 'wasb:///example/data/';
-        SELECT t4 AS sev, COUNT(*) AS count FROM log4jLogs WHERE t4 = '[ERROR]' GROUP BY t4;
+        SELECT t4 AS sev, COUNT(*) AS count FROM log4jLogs WHERE t4 = '[ERROR]' AND INPUT__FILE__NAME LIKE '%.log' GROUP BY t4;
 
     These statements perform the following actions:
 
@@ -62,6 +63,7 @@ To complete the steps in this article, you will need the following.
     * **ROW FORMAT**: Tells Hive how the data is formatted. In this case, the fields in each log are separated by a space.
     * **STORED AS TEXTFILE LOCATION**: Tells Hive where the data is stored (the example/data directory) and that it is stored as text
     * **SELECT**: Select a count of all rows where column **t4** contain the value **[ERROR]**. This should return a value of **3** because there are three rows that contain this value.
+    * **INPUT__FILE__NAME LIKE '%.log'** - Tells Hive that we should only return data from files ending in .log. This restricts the search to the sample.log file that contains the data, and keeps it from returning data from other example data files that do not match the schema we defined.
 
 2. Click **Submit**. The **Job Session** at the bottom of the page should display details for the job.
 

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/23/2015"
+	ms.date="08/19/2015"
 	ms.author="stepsic"/>
 	
 # Use Logic Apps features
@@ -26,6 +26,15 @@ In the [previous topic][Create a new logic app], you created your first logic ap
 - Options for starting a workflow.
 
 Before you complete this topic, you should complete the steps in [Create a new logic app]. In the [Azure portal], browse to your logic app and click **Triggers and Actions** in the summary to edit the logic app definition.
+
+## Reference material
+
+You may find the follow documents useful:
+
+- [Management and runtime REST APIs](https://msdn.microsoft.com/library/azure/dn948513.aspx) - including how to invoke Logic apps directly
+- [Language reference](https://msdn.microsoft.com/library/azure/dn948512.aspx) - a comprehensive list of all supported functions/expressions
+- [Trigger and action types](https://msdn.microsoft.com/library/azure/dn948511.aspx) - the different types of actions and the inputs they take
+- [Overview of App Service](app-service-value-prop-what-is.md) - description of what components to choose when to build a solution
 
 ## Adding conditional logic and a repeat
 
@@ -113,8 +122,9 @@ Services can call a logic app endpoint to start a workflow. You can find the end
 
 You can use this callback to invoke a logic app from inside your custom application. You need to use **Basic** authentication. The username of `default` is created for you, and the password is the **Primary Access Key** field on the **Properties** blade. For example: 
 
-        POST https://default:<<your primary access key>>@<< your endpoint>>/run?api-version=2015-02-01-preview
+        POST https://<< your endpoint >>/run?api-version=2015-02-01-preview
         Content-type: application/json
+        Authorization: Basic << base-64 encoded string of default:<access key> >>
         {
             "name" : "nameOfTrigger",
             "outputs" : { "property" : "value" }

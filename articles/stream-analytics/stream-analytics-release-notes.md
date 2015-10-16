@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Stream Analytics Release Notes | Azure" 
+	pageTitle="Stream Analytics Release Notes | Microsoft Azure" 
 	description="Stream Analytics GA Release Notes" 
 	services="stream-analytics" 
 	documentationCenter="" 
@@ -13,101 +13,84 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="07/09/2015" 
+	ms.date="09/29/2015" 
 	ms.author="jeffstok"/>
 
 #Microsoft Stream Analytic release notes
+
+## Notes for 09/29/2015 release of Stream Analytics ##
+
+This release contains the following updates.
+
+Title | Description
+---|---
+Azure IoT Suite Public Preview | Stream Analytics is included in the Public Preview of the Azure IoT Suite.
+Azure Preview portal integration | In addition to continued presence in the Azure Management portal, Stream Analytics is now integrated in the [Azure Preview portal](http://azure.microsoft.com/overview/preview-portal/). Note that Stream Analytics functionality in the Preview portal is currently a subset of the functionality offered in the Azure Management portal, without support for in-browser query testing, Power BI output configuration, and browsing to or creating new input and output resources in subscriptions you have access to.
+Support for DocumentDB output | Stream Analytics jobs can now output to [DocumentDB](http://azure.microsoft.com/services/documentdb/).
+Support for IoT Hub input | Stream Analytics jobs can now ingest data from IoT Hubs.
+TIMESTAMP BY for heterogeneous events | When a single data stream contains multiple event types having timestamps in different fields, you can now use [TIMESTAMP BY](http://msdn.microsoft.com/library/mt573293.aspx) with expressions to specify different timestamp fields for each case.
+
+## Notes for 09/10/2015 release of Stream Analytics ##
+
+This release contains the following updates.
+
+Title|Description
+---|---
+Support for PowerBI groups|To enable sharing data with other Power BI users, Stream Analytics jobs can now write to [PowerBI groups](stream-analytics-define-outputs.md#power-bi) inside your Power BI account.
+
+## Notes for 08/20/2015 release of Stream Analytics ##
+
+This release contains the following updates.
+
+Title|Description
+---|---
+Added LAST function |The [LAST](http://msdn.microsoft.com/library/mt421186.aspx) function is now available in Stream Analytics jobs, enabling you to retrieve the most recent event in an event stream within a given timeframe.
+New Array functions|Array functions [GetArrayElement](http://msdn.microsoft.com/library/mt270218.aspx), [GetArrayElements](http://msdn.microsoft.com/library/mt298451.aspx) and [GetArrayLength](http://msdn.microsoft.com/library/mt270226.aspx) are now available.
+New Record functions|Record functions [GetRecordProperties](http://msdn.microsoft.com/library/mt270221.aspx) and [GetRecordPropertyValue](http://msdn.microsoft.com/library/mt270220.aspx) are now available.
+
+## Notes for 07/30/2015 release of Stream Analytics ##
+
+This release contains the following updates.
+
+Title|Description
+---|---
+Power BI Org Id decoupled from Azure Id|This feature enables [Power BI output](stream-analytics-power-bi-dashboard.md) for ASA jobs under any Azure account type (Live Id or Org Id). Additionally, you can have one Org Id for your Azure account and use a different one for authorizing Power BI output.
+Support for Service Bus Queues output|[Service Bus Queues](stream-analytics-connect-data-event-outputs.md#service-bus-queues) outputs are now available in Stream Analytics jobs.
+Support for Service Bus Topics output|[Service Bus Topics](stream-analytics-connect-data-event-outputs.md#service-bus-topics) outputs are now available in Stream Analytics jobs.
 
 ## Notes for 07/09/2015 release of Stream Analytics ##
 
 This release contains the following updates.
 
-<table border="1">
-<tr>
-<th>Title</th>
-<th>Description</th>
-</tr>
 
-<tr>
-<td>Custom Blob Output Partitioning</td>
-<td>Blob storage outputs now allow an option to specify the frequency that output blobs are written and the structure and format of the output data path folder structure. </td>
-</tr>
-</table>
+Title|Description
+---|---
+Custom Blob Output Partitioning|Blob storage outputs now allow an option to specify the frequency that output blobs are written and the structure and format of the output data path folder structure. 
 
 ## Notes for 05/03/2015 release of Stream Analytics ##
 
 This release contains the following updates.
 
-<table border="1">
-<tr>
-<th>Title</th>
-<th>Description</th>
-</tr>
 
-<tr>
-<td>Increased maximum value for Out of Order Tolerance Window</td>
-<td>The maximum size for the Out of Order Tolerance Window is now 59:59 (MM:SS)</td>
-</tr>
-
-<tr>
-<td>JSON Output Format: Line Separated or Array</td>
-<td>Now there is an option when outputting to Blob Storage or Event Hub to output as either an array of JSON objects or by separating JSON objects with a new line. </td>
-</tr>
-</table>
+Title|Description
+---|---
+Increased maximum value for Out of Order Tolerance Window|The maximum size for the Out of Order Tolerance Window is now 59:59 (MM:SS)
+JSON Output Format: Line Separated or Array|Now there is an option when outputting to Blob Storage or Event Hub to output as either an array of JSON objects or by separating JSON objects with a new line. 
 
 ## Notes for 04/16/2015 release of Stream Analytics ##
 
-<table border="1">
-<tr>
-<th>Title</th>
-<th>Description</th>
-</tr>
 
-<tr>
-<td>Delay in Azure Storage account configuration</td>
-<td>When creating a Stream Analytics job in a region for the first time, you will be prompted to create a new Storage account or specify an existing account for monitoring Stream Analytics jobs in that region. Due to latency in configuring monitoring, creating another Stream Analytics job in the same region within 30 minutes will prompt for the specifying of a second Storage account instead of showing the recently configured one in the Monitoring Storage Account drop-down. To avoid creating an unnecessary Storage account, wait 30 minutes after creating a job in a region for the first time before provisioning additional jobs in that region.</td>
-</tr>
-
-<tr>
-<td>Job Upgrade</td>
-<td>At this time, Stream Analytics does not support live edits to the definition or configuration of a running job. In order to change the input, output, query, scale or configuration of a running job, you must first stop the job.</td>
-</tr>
-
-<tr>
-<td>Data types inferred from input source</td>
-<td>If a CREATE TABLE statement is not used, the input type is derived from input format, for example all fields from CSV are string. Fields need to be converted explicitly to the right type using the CAST function in order to avoid type mismatch errors.</td>
-</tr>
-
-<tr>
-<td>Missing fields are outputted as null values</td>
-<td>Referencing a field that is not present in the input source will result in null values in the output event.</td>
-</tr>
-
-<tr>
-<td>WITH statements must precede SELECT statements</td>
-<td>In your query, SELECT statements must follow subqueries defined in WITH statements.</td>
-</tr>
-
-<tr>
-<td>Out-of-memory issue</td>
-<td>Streaming Analytics jobs with a large tolerance for out-of-order events and/or complex queries maintaining a large amount of state may cause the job to run out of memory, resulting in a job restart. The start and stop operations will be visible in the job’s operation logs. To avoid this behavior, scale the query out across multiple partitions. In a future release, this limitation will be addressed by degrading performance on impacted jobs instead of restarting them.</td>
-</tr>
-
-<tr>
-<td>Large blob inputs without payload timestamp may cause Out-of-memory issue</td>
-<td>Consuming large files from Blob storage may cause Stream Analytics jobs to crash if a timestamp field is not specified via TIMESTAMP BY. To avoid this issue, keep each blob under 10MB in size.</td>
-</tr>
-
-<tr>
-<td>SQL Database event volume limitation</td>
-<td>When using SQL Database as an output target, very high volumes of output data may cause the Stream Analytics job to time out. To resolve this issue, either reduce the output volume by using aggregates or filter operators, or choose Azure Blob storage or Event Hubs as an output target instead.</td>
-</tr>
-
-<tr>
-<td>PowerBI datasets can only contain one table</td>
-<td>PowerBI does not support more than one table in a given dataset.</td>
-</tr>
-</table>
+Title|Description
+---|---
+Delay in Azure Storage account configuration|When creating a Stream Analytics job in a region for the first time, you will be prompted to create a new Storage account or specify an existing account for monitoring Stream Analytics jobs in that region. Due to latency in configuring monitoring, creating another Stream Analytics job in the same region within 30 minutes will prompt for the specifying of a second Storage account instead of showing the recently configured one in the Monitoring Storage Account drop-down. To avoid creating an unnecessary Storage account, wait 30 minutes after creating a job in a region for the first time before provisioning additional jobs in that region.
+Job Upgrade|At this time, Stream Analytics does not support live edits to the definition or configuration of a running job. In order to change the input, output, query, scale or configuration of a running job, you must first stop the job.
+Data types inferred from input source|If a CREATE TABLE statement is not used, the input type is derived from input format, for example all fields from CSV are string. Fields need to be converted explicitly to the right type using the CAST function in order to avoid type mismatch errors.
+Missing fields are outputted as null values|Referencing a field that is not present in the input source will result in null values in the output event.
+WITH statements must precede SELECT statements|In your query, SELECT statements must follow subqueries defined in WITH statements.
+Out-of-memory issue|Streaming Analytics jobs with a large tolerance for out-of-order events and/or complex queries maintaining a large amount of state may cause the job to run out of memory, resulting in a job restart. The start and stop operations will be visible in the job’s operation logs. To avoid this behavior, scale the query out across multiple partitions. In a future release, this limitation will be addressed by degrading performance on impacted jobs instead of restarting them.
+Large blob inputs without payload timestamp may cause Out-of-memory issue|Consuming large files from Blob storage may cause Stream Analytics jobs to crash if a timestamp field is not specified via TIMESTAMP BY. To avoid this issue, keep each blob under 10MB in size.
+SQL Database event volume limitation|When using SQL Database as an output target, very high volumes of output data may cause the Stream Analytics job to time out. To resolve this issue, either reduce the output volume by using aggregates or filter operators, or choose Azure Blob storage or Event Hubs as an output target instead.
+PowerBI datasets can only contain one table|PowerBI does not support more than one table in a given dataset.
 
 ## Get help
 For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)

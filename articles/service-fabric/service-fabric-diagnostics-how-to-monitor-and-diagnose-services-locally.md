@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/22/2015"
+   ms.date="07/22/2015"
    ms.author="kunalds"/>
 
 
@@ -36,16 +36,22 @@ Service Fabric emits ETW events to help application developers understand what i
 1. You must have the following pre-requisties installed.
    * Visual Studio 2015
    * Service Fabric SDK
+
 2. Launch Visual Studio as an administrator.
+
 3. Create (or open an existing) project for a stateful or stateless Actor or Service.
-![Create a Service Fabric Project](./media/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally/CreateServiceFabricProject.png)
+
+  ![Create a Service Fabric Application](./media/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally/CreateServiceFabricProject.png)
+
+  ![Create a Service Fabric Service](./media/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally/CreateServiceFabricProject-2.png)
 
 4. Press F5 to debug the application. The Service Fabric events should show up in the Diagnostics Events window. Each event has standard metadata information which tells you the node, application and service the event is coming from. You can also filter the list of events using the "Filter events" box at the top of the windows, for example you can filter on Node Name or Service Name.
-![Visual Studio Diagnostics Events Viewer](./media/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally/DiagEventsExamples2.png)
+
+  ![Visual Studio Diagnostics Events Viewer](./media/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally/DiagEventsExamples2.png)
 
 5. If the Diagnostics Events window does not automatically show, Go to Server Explorer tab in Visual Studio, right-click the Service Fabric cluster and choose "View Diagnostic Events" in the context menu.
 
-![Open the Visual Studio Diagnostics Events Viewer](./media/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally/ServerExViewDiagEvents.png)
+  ![Open the Visual Studio Diagnostics Events Viewer](./media/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally/ServerExViewDiagEvents.png)
 
 ## Add your own custom traces to the application code
 The Service Fabric Visual Studio project templates contain sample code. The code shows how to add custom application code ETW traces which show up in the Visual Studio ETW viewer alongside system traces from Service Fabric. The advantage of this method is that metadata is automatically added to traces, and the Visual Studio Diagnostic Viewer is already configured to display them.
@@ -72,4 +78,3 @@ The same tracing code that you added to your application above for local diagnos
 * [Application Insights setup](service-fabric-diagnostics-application-insights-setup.md)
 * [Azure Service Fabric Actors Diagnostics and Performance Monitoring](service-fabric-reliable-actors-diagnostics.md)
 * [Stateful Reliable Service Diagnostics](service-fabric-reliable-services-diagnostics.md)
- 

@@ -24,7 +24,7 @@
 [AZURE.INCLUDE [sql-database-develop-includes-selector-language-platform-depth](../../includes/sql-database-develop-includes-selector-language-platform-depth.md)]
 
 
-This topic presents a code sample written in Python. The sample runs on a Mac computer. The sample and connects to Azure SQL Database by using the **pymssql** driver.
+This topic presents a code sample written in Python. The sample runs on a Mac computer. The sample and connects to Azure SQL Database by using the **pymssql** driver. Additionally, please use our [Getting Started with Python on Mac](https://www.youtube.com/watch?v=OMpugPTwnTI) video to supplement this documentation.
 
 
 ## Requirements
@@ -43,11 +43,11 @@ Open your terminal and install
 
     ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
-**2) FreeTDS**: Run the following command your terminal. This will download FreeTDS on your machine. FreeTDS is required for pymmsql to work.
+**2) FreeTDS**: Run the following command from your terminal. This will download FreeTDS on your machine. FreeTDS is required for pymmsql to work.
 
     brew install FreeTDS
   
-**3) Pymmsql**: Run the following command your terminal. This will install pymmsql on your machine
+**3) Pymmsql**: Run the following command from your terminal. This will install pymmsql on your machine.
 
     sudo -H pip install pymssql
 
@@ -83,7 +83,7 @@ The [cursor.execute](http://pymssql.org/en/latest/ref/pymssql.html#pymssql.Curso
 
 ## Insert a row, pass parameters, and retrieve the generated primary key
 
-In SQL Database the [IDENTITY](https://msdn.microsoft.com/library/ms186775.aspx) property and the [SEQUENECE](https://msdn.microsoft.com/library/ff878058.aspx) object can be used to auto-generate [primary key](https://msdn.microsoft.com/library/ms179610.aspx) values. 
+In SQL Database the [IDENTITY](https://msdn.microsoft.com/library/ms186775.aspx) property and the [SEQUENCE](https://msdn.microsoft.com/library/ff878058.aspx) object can be used to auto-generate [primary key](https://msdn.microsoft.com/library/ms179610.aspx) values. 
 
 
 	import pymssql

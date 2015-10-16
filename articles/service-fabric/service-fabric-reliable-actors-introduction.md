@@ -1,9 +1,9 @@
 <properties
-   pageTitle="Azure Service Fabric Actors Overview"
-   description="Introduction to Azure Service Fabric Actors programming model"
+   pageTitle="Service Fabric Reliable Actors Overview"
+   description="Introduction to the Service Fabric Reliable Actors programming model"
    services="service-fabric"
    documentationCenter=".net"
-   authors="jessebenson"
+   authors="vturecek"
    manager="timlt"
    editor=""/>
 
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/10/2015"
-   ms.author="claudioc"/>
+   ms.date="08/05/2015"
+   ms.author="vturecek"/>
 
-# Introduction to Azure Service Fabric Actors
+# Introduction to Service Fabric Reliable Actors
 The Reliable Actors API is one of two high-level frameworks provided by [Service Fabric](service-fabric-technical-overview.md), along with the [Reliable Services API](service-fabric-reliable-services-introduction.md).
 
 Based on the Actor pattern, the Reliable Actors API provides an asynchronous, single-threaded programming model that simplifies your code while still taking advantage of the scalability and reliability guarantees provided by Service Fabric.
@@ -193,7 +193,7 @@ Timer callbacks can be marked with the `Readonly` attribute in a similar way. Fo
 
 [How Fabric Actors use the Service Fabric platform](service-fabric-reliable-actors-platform.md)
 
-[Configuring KVSActorStateProvider Actor](../Service-Fabric/service-fabric-reliable-actors-KVSActorstateprovider-configuration.md)
+[Configuring KVSActorStateProvider Actor](service-fabric-reliable-actors-KVSActorstateprovider-configuration.md)
 
 [Actor Diagnostics and Performance Monitoring](service-fabric-reliable-actors-diagnostics.md)
 

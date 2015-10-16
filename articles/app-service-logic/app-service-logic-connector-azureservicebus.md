@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Using the Azure Service Bus Connector in Azure App Service"
-   description="How to use the Azure Service Bus Connector"
+   pageTitle="Using the Azure Service Bus Connector in Logic Apps | Microsoft Azure App Service"
+   description="How to create and configure the Azure Service Bus Connector or API app and use it in a logic app in Azure App Service"
    services="app-service\logic"
    documentationCenter=".net,nodejs,java"
    authors="anuragdalmia"
@@ -13,13 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="06/29/2015"
+   ms.date="08/23/2015"
    ms.author="andalmia"/>
 
 
-# Azure Service Bus connector
-
-Azure Service Bus connector lets you send messages from Service Bus entities like Queues and Topics and receive messages from Service Bus entities like Queues and Subscriptions.
+# Get started with the Azure Service Bus Connector and add it to your Logic App 
+Connect to Azure Service Bus to send messages to Queues and Topics and receive messages from Queues and Subscriptions. Connectors are used in Logic Apps as a part of a "workflow". 
 
 ## Triggers and Actions
 Triggers are events that happen. For example, when an order is updated or when a new customer is added. An Action is the result of the trigger. For example, when an order or a new message is put in a queue, send an alert or a message.  
@@ -36,10 +35,9 @@ Message Available | Send message
 A connector can be created within a logic app or be created directly from the Azure Marketplace. To create a connector from the Marketplace:  
 
 1. In the Azure startboard, select **Marketplace**.
-2. Select **API Apps** and search for “Azure Service Bus connector”.
-3. Enter the Name, App Service Plan, and other properties:
-<br/>
-![][1]
+2. Search for “Azure Service Bus connector”, select it, and select **Create**.
+3. Enter the Name, App Service Plan, and other properties:  
+	![][1]
 
 4. Enter the following package settings:
 
@@ -51,46 +49,41 @@ Subscription Name | Enter the name of the Subscription to receive messages from.
 
 5. Click **Create**.
 
-Once the connector is created, you can add it to a logic App in the same resource group.
-
 ## Using the Service Bus Connector in your Logic App
 Once your connector is created, you can now use the Azure Service Bus connector as a trigger or action for your Logic App. To do this:
 
-1.	Create a new Logic App and choose the same resource group that has the Azure Service Bus Connector:
-<br/>
-![][2]
+1.	Create a new Logic App and choose the same resource group that has the Azure Service Bus Connector:  
+	![][2]
 
-2.	Open “Triggers and Actions” to open the Logic Apps designer and configure your workflow:
-<br/>
-![][3]
+2.	Open “Triggers and Actions” to open the Logic Apps designer and configure your workflow:  
+	![][3]
 
-3. The Azure Service Bus connector appears in the “API Apps in this resource group” section in the gallery on the right hand side:
-<br/>
-![][4]
+3. The Azure Service Bus connector appears in the “API Apps in this resource group” section in the gallery on the right hand side:  
+	![][4]
 
 4. You can drop the Azure Service Bus Connector into the editor by clicking on the “Azure Service Bus Connector”.
 
-5.	You can now use Azure Service Bus connector in the workflow. You can use the message retrieved from the Azure Service Bus trigger ("Message Available") in other actions in the flow:
-<br/>
-![][5]
-<br/>
-![][6]
+5.	You can now use Azure Service Bus connector in the workflow. You can use the message retrieved from the Azure Service Bus trigger ("Message Available") in other actions in the flow:  
+	![][5]  
 
-You can also use the Azure Service Bus "Send Message" action:
-<br/>
-![][7]
-<br/>
+	![][6]
+
+You can also use the Azure Service Bus "Send Message" action:  
+![][7]  
+
 ![][8]
 
 ## Do more with your Connector
 Now that the connector is created, you can add it to a business workflow using a Logic App. See [What are Logic Apps?](app-service-logic-what-are-logic-apps.md).
 
-Create the API Apps using REST APIs. See [Connectors and API Apps Reference](http://go.microsoft.com/fwlink/p/?LinkId=529766).
+>[AZURE.NOTE] If you want to get started with Azure Logic Apps before signing up for an Azure account, go to [Try Logic App](https://tryappservice.azure.com/?appservice=logic), where you can immediately create a short-lived starter logic app in App Service. No credit cards required; no commitments.
+
+View the Swagger REST API reference at [Connectors and API Apps Reference](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 
 You can also review performance statistics and control security to the connector. See [Manage and Monitor your built-in API Apps and Connectors](app-service-logic-monitor-your-connectors.md).
 
 
-	<!--Image references-->
+<!--Image references-->
 [1]: ./media/app-service-logic-connector-azureservicebus/img1.PNG
 [2]: ./media/app-service-logic-connector-azureservicebus/img2.PNG
 [3]: ./media/app-service-logic-connector-azureservicebus/img3.png

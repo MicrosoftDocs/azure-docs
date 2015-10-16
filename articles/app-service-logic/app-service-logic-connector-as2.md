@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Using the AS2 Connector in Microsoft Azure App Service" 
-   description="How to use the AS2 Connector" 
+   pageTitle="Using the AS2 Connector in Logic Apps | Microsoft Azure App Service" 
+   description="How to create and configure the AS2 connector or API app and use it in a logic app in Azure App Service" 
    services="app-service\logic" 
    documentationCenter=".net,nodejs,java" 
    authors="rajeshramabathiran" 
@@ -13,11 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="06/29/2015"
+   ms.date="08/23/2015"
    ms.author="rajram"/>
 
-# Microsoft AS2 Connector
-Microsoft Azure AS2 Connector lets you receive and send messages over the AS2 (Applicability Statement 2) transport protocol in business-to-business communications. Data is transported securely and reliably over the Internet. Security is achieved using digital certificates and encryption.
+# Get started with the AS2 Connector and add it to your Logic App
+Use the AS2 Connector to receive and send messages over the AS2 (Applicability Statement 2) transport protocol in business-to-business communications. Data is transported securely and reliably over the Internet. Security is achieved using digital certificates and encryption.
+
+You can add the AS2 Connecto to your business workflow and process data as part of a business-to-business workflow within a Logic App. 
 
 ## Triggers and Actions
 A Trigger starts a new instance based on a specific event, like the arrival of an AS2 message from a partner. An Action is the result, like after receiving an AS2 message, then send the message using AS2.
@@ -34,7 +36,7 @@ The following items must be created by you before they can be used by the AS2 co
 Requirement | Description
 --- | ---
 TPM API App | Before creating an AS2 connector, you have to create a [BizTalk Trading Partner Management Connector][1]. <br/><br/>**Note** Know the name of your TPM API App. 
-Azure SQL Database | Stores B2B items including partners, schemas, certificates, and agreeements. Each of the B2B API Apps requires its own Azure SQL Database. <br/><br/>**Note** Copy the connection string to this database.<br/><br/>[Create an Azure SQL Database](../sql-database-create-configure.md)
+Azure SQL Database | Stores B2B items including partners, schemas, certificates, and agreeements. Each of the B2B API Apps requires its own Azure SQL Database. <br/><br/>**Note** Copy the connection string to this database.<br/><br/>[Create an Azure SQL Database](../sql-database-get-started.md)
 Azure Blob Storage container | Stores message properties when AS2 archiving is enabled. If you don't need AS2 message archiving, a Storage container is not needed. <br/><br/>**Note** If you are enabling archiving, copy the connection string to this Blob Storage.<br/><br/>[About Azure Storage Accounts](../storage-create-storage-account.md).
 
 ## Create the AS2 Connector
@@ -42,7 +44,7 @@ Azure Blob Storage container | Stores message properties when AS2 archiving is e
 A connector can be created within a logic app or be created directly from the Azure Marketplace. To create a connector from the Marketplace:  
 
 1. In the Azure startboard, select **Marketplace**.
-2. Select **API Apps** and search for “AS2 Connector”.
+2. Search for “AS2 Connector”, select it, and select **Create**.
 3. Enter the Name, App Service Plan, and other properties.
 4. Enter the following package settings:
 
@@ -61,46 +63,38 @@ Steps involved in creating a trading partner agreement are documented [here][2].
 
 ## Use the Connector as a Trigger
 
-1. When creating or editing a logic app, select the AS2 Connector you created from the right pane:
-<br/>
-![Trigger settings][3]
+1. When creating or editing a logic app, select the AS2 Connector you created from the right pane:  
+	![Trigger settings][3]
 
-2. Click the right arrow →:
-<br/>
-![Trigger options][4]
+2. Click the right arrow →:  
+	![Trigger options][4]
 
-3. The AS2 Connector exposes a single trigger. Select *Receive & Decode*: 
-<br/>
-![Receive and decode input][5]
+3. The AS2 Connector exposes a single trigger. Select *Receive & Decode*:  
+	![Receive and decode input][5]
 
-4. This trigger has no inputs. Click the right arrow →: 
-<br/>
-![Receive and decode configured][6]
+4. This trigger has no inputs. Click the right arrow →:  
+	![Receive and decode configured][6]
 
 As part of the output, the connector returns the AS2 payload as well as the AS2-specific metadata.
 
 The Trigger is fired when an AS2 Payload is as a POST to https://{Host URL}/decode.  You can find the Host URL in the API App settings.  You may also need to change the Access Level of the API App in Application Settings to Public (authenticated or anonymous).
 
 ## Use the Connector as an Action
-1. After your trigger (or choose 'run this logic manually'), add the AS2 connector you created from the right pane:
-<br/>
-![Action settings][7]
+1. After your trigger (or choose 'run this logic manually'), add the AS2 connector you created from the right pane:  
+	![Action settings][7]
 
-2. Click the right arrow →:
-<br/>
-![List of Actions][8]
+2. Click the right arrow →:  
+	![List of Actions][8]
 
-3. The AS2 connector supports only one action. Select *Encode and Send*:
-<br/>
-![Encode and send input][9]
+3. The AS2 connector supports only one action. Select *Encode and Send*:  
+	![Encode and send input][9]
 
-4. Enter the inputs for the action and configure it:
-<br/>
-![Encode and send configured][10]
+4. Enter the inputs for the action and configure it:  
+	![Encode and send configured][10]
 
-Parameters include: 
+	Parameters include: 
 
-Parameter | Type | Description
+	Parameter | Type | Description
 --- | --- | ---
 Payload | object| The content of the payload to encode and post to the configured end point. The payload needs to be provided as a JSON Object.
 AS2 From | string | The AS2 identity of the sender of the AS2 message. This parameter is used to lookup the appropriate agreement for sending the message.
@@ -113,7 +107,9 @@ The action returns a HTTP 200 response code on successful completion.
 ## Do more with your Connector
 More on logic apps at [What are Logic Apps?](app-service-logic-what-are-logic-apps.md).
 
-Create the API Apps using REST APIs. See [Connectors and API Apps Reference](http://go.microsoft.com/fwlink/p/?LinkId=529766).
+>[AZURE.NOTE] If you want to get started with Azure Logic Apps before signing up for an Azure account, go to [Try Logic App](https://tryappservice.azure.com/?appservice=logic), where you can immediately create a short-lived starter logic app in App Service. No credit cards required; no commitments.
+
+View the Swagger REST API reference at [Connectors and API Apps Reference](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 
 You can also review performance statistics and control security to the connector. See [Manage and Monitor your built-in API Apps and Connectors](app-service-logic-monitor-your-connectors.md).
 

@@ -220,14 +220,14 @@ In this tutorial, you will use the HDFS **copyFromLocal** command to upload the 
 
 This tutorial uses the following HDFS folder structure:
 
-<table border="1">
-<tr><td>Folder</td><td>Note</td></tr>
-<tr><td>/WordCount</td><td>The root folder for the word-counting project. </td></tr>
-<tr><td>/WordCount/Apps</td><td>The folder for the mapper and reducer executables.</td></tr>
-<tr><td>/WordCount/Input</td><td>The MapReduce source file folder.</td></tr>
-<tr><td>/WordCount/Output</td><td>The MapReduce output file folder.</td></tr>
-<tr><td>/WordCount/MRStatusOutput</td><td>The job output folder.</td></tr>
-</table>
+Folder|Note
+---|---
+/WordCount|The root folder for the word-counting project. 
+/WordCount/Apps|The folder for the mapper and reducer executables.
+/WordCount/Input|The MapReduce source file folder.
+/WordCount/Output|The MapReduce output file folder.
+/WordCount/MRStatusOutput|The job output folder.
+
 
 This tutorial uses the .txt files located in the %hadoop_home% directory as the data files.
 

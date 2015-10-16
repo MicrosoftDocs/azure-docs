@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/07/2015" 
+	ms.date="09/09/2015" 
 	ms.author="awills"/>
  
 # Troubleshooting and Questions - Application Insights for ASP.NET
@@ -46,11 +46,18 @@
 
 #### <a name="q02"></a>My new web project was created, but adding Application Insights failed.
 
-This can happen if communication with the Application Insights portal failed, or if there is some problem with your account.
+This can happen if:
 
-+ Check that you provided login credentials for the right Azure account. The Microsoft Azure credentials, which you see in the New Project dialog, can be different from the Visual Studio Online credentials that you see at the top right of Visual Studio.
-+ Wait a while and then [add Application Insights to your existing project][start].
-+ Go to your Microsoft Azure account settings and check for restrictions. See if you can manually add an Application Insights application.
+* Communication with the Application Insights portal failed; or
+* There is some problem with your account;
+* You only have [read access to the subscription or group where you were trying to create the new resource](app-insights-resources-roles-access-control.md).
+
+Remedy:
+
++ Check that you provided login credentials for the right Azure account. In some early versions of the tools, the Microsoft Azure credentials, which you see in the New Project dialog, can be different from the credentials that you see at the top right of Visual Studio.
++ In your browser, check that you have access to the [Azure portal](https://portal.azure.com). Open Settings and see if there is any restriction.
++ [Add Application Insights to your existing project][start]: In Solution Explorer, right click your project and choose "Add Application Insights."
++ If it still isn't working, follow the [manual procedure](app-insights-start-monitoring-app-health-usage.md) to add a resource in the portal and then add the SDK to your project. 
 
 #### <a name="emptykey"></a>I get an error "Instrumentation key cannot be empty"
 
@@ -130,9 +137,12 @@ See the [release notes](app-insights-release-notes.md) for the SDK appropriate t
 #### <a name="q03"></a>I added Application Insights successfully and ran my app, but I've never seen data in the portal.
 
 + On the Overview page, click the Search tile to open Diagnostic Search. Data appears here first.
-+ Click the Refresh button. In the current version, the content of a blade doesn't refresh automatically.
++ Click the Refresh button. The blade refreshes itself periodically, but you can also do it manually. The refresh interval is longer for larger time ranges.
 + In the Microsoft Azure start board, look at the service status map. If there are some alert indications, wait until they have returned to OK and then close and re-open your Application Insights application blade.
 + Check also [our status blog](http://blogs.msdn.com/b/applicationinsights-status/).
+
+#### No data since I published the app to my server
+
 + In your firewall, you might have to open TCP ports 80 and 443 for outgoing traffic to dc.services.visualstudio.com and f5.services.visualstudio.com.
 + If you have to use a proxy to send out of your corporate network, set [defaultProxy](https://msdn.microsoft.com/library/aa903360.aspx) in Web.config
 + Windows Server 2008: Make sure you have installed the following updates: [KB2468871](https://support.microsoft.com/kb/2468871), [KB2533523](https://support.microsoft.com/kb/2533523), [KB2600217](https://support.microsoft.com/kb/2600217).
@@ -145,7 +155,7 @@ See the [release notes](app-insights-release-notes.md) for the SDK appropriate t
 
 #### <a name="q08"></a>Can I use Application Insights to monitor an intranet web server?
 
-Yes, you can monitor health and usage if your server can send data to the public internet.
+Yes, you can monitor health and usage if your server can send data to the public internet. In your firewall, open TCP ports 80 and 443 for outgoing traffic to dc.services.visualstudio.com and f5.services.visualstudio.com.
 
 But if you want to run web tests for your service, it must be accessible from the public internet on port 80.
 
@@ -158,7 +168,9 @@ You would have to arrange a proxy that can relay https POST calls to dc.services
 * Check the [status blog](http://blogs.msdn.com/b/applicationinsights-status/).
 * Have you hit your monthly quota of data points? Open the Settings/Quota and Pricing to find out. If so, you can upgrade your plan, or pay for additional capacity. See the [pricing scheme](http://azure.microsoft.com/pricing/details/application-insights/).
 
+## Status Monitor doesn't work
 
+See [Troubleshooting Status Monitor](app-insights-monitor-performance-live-website-now.md#troubleshooting). Firewall ports are the most common issue.
 
 ## The Portal
 
@@ -181,11 +193,6 @@ In Solution Explorer, right-click `ApplicationInsights.config` and choose **Upda
 No! It shows the status of the Azure service. To see your web test results, choose Browse > Application Insights > (your application) and then look at the web test results. 
 
 
-#### <a name="q07"></a>When I use add Application Insights to my application and open the Application Insights portal, it all looks completely different from your screenshots.
-
-You might be using [the older version of the Application Insights SDK](http://msdn.microsoft.com/library/dn793604.aspx), which connects to the Visual Studio Online version.
-
-The help pages you're looking at refer to [Application Insights for Microsoft Azure Preview][start], which comes already switched on in Visual Studio 2013 Update 3 and later. 
 
 #### <a name="data"></a>How long is data retained in the portal? Is it secure?
 
@@ -210,13 +217,13 @@ See [Data Retention and Privacy][data].
 <tr><th>What you should see</th><th>How to get it</th><th>Why you want it</th></tr>
 <tr><td>Availability charts</td><td><a href="../app-insights-monitor-web-app-availability/">Web tests</a></td><td>Know your web app is up</td></tr>
 <tr><td>Server app perf: response times, ...
-</td><td><a href="../app-insights-start-monitoring-app-health-usage/">Add Application Insights to your project</a><br/>or <br/><a href="../app-insights-monitor-performance-live-website-now/">Install AI Status Monitor on server</a></td><td>Detect perf issues</td></tr>
+</td><td><a href="../app-insights-start-monitoring-app-health-usage/">Add Application Insights to your project</a><br/>or <br/><a href="../app-insights-monitor-performance-live-website-now/">Install AI Status Monitor on server</a> (or write your own code to <a href="../app-insights-api-custom-events-metrics/#track-dependency">track dependencies</a>)</td><td>Detect perf issues</td></tr>
 <tr><td>Dependency telemetry</td><td><a href="../app-insights-monitor-performance-live-website-now/">Install AI Status Monitor on server</a></td><td>Diagnose issues with databases or other external components</td></tr>
 <tr><td>Get stack traces from exceptions</td><td><a href="../app-insights-search-diagnostic-logs/#exceptions">Insert TrackException calls in your code</a> (but some are reported automatically)</td><td>Detect and diagnose exceptions</td></tr>
 <tr><td>Search log traces</td><td><a href="../app-insights-search-diagnostic-logs/">Add a logging adapter</a></td><td>Diagnose exceptions, perf issues</td></tr>
-<tr><td>Client usage basics: page views, sessions, ...</td><td><a href="../app-insights-start-monitoring-app-health-usage/#webclient">JavaScript initializer in web pages</a></td><td>Usage analytics</td></tr>
-<tr><td>Client custom metrics</td><td><a href="../app-insights-web-track-usage-custom-events-metrics/">Tracking calls in web pages</a></td><td>Enhance user experience</td></tr>
-<tr><td>Server custom metrics</td><td><a href="../app-insights-web-track-usage-custom-events-metrics/">Tracking calls in server code</a></td><td>Business intelligence</td></tr>
+<tr><td>Client usage basics: page views, sessions, ...</td><td><a href="../app-insights-javascript/">JavaScript initializer in web pages</a></td><td>Usage analytics</td></tr>
+<tr><td>Client custom metrics</td><td><a href="../app-insights-api-custom-events-metrics/">Tracking calls in web pages</a></td><td>Enhance user experience</td></tr>
+<tr><td>Server custom metrics</td><td><a href="../app-insights-api-custom-events-metrics/">Tracking calls in server code</a></td><td>Business intelligence</td></tr>
 </table>
 
 If your web service is running in an Azure VM, you can also [get diagnostics][azurediagnostic] there.
@@ -225,13 +232,17 @@ If your web service is running in an Azure VM, you can also [get diagnostics][az
 
 You can [write a PowerShell script](app-insights-powershell-script-create-resource.md) to create an Application Insights resource.
 
+## More answers
+
+* [Application Insights forum](https://social.msdn.microsoft.com/Forums/vstudio/en-US/home?forum=ApplicationInsights)
+
 
 <!--Link references-->
 
 [azurediagnostic]: ../insights-how-to-use-diagnostics.md
 [data]: app-insights-data-retention-privacy.md
 [platforms]: app-insights-platforms.md
-[start]: app-insights-get-started.md
+[start]: app-insights-overview.md
 [windows]: app-insights-windows-get-started.md
 
  

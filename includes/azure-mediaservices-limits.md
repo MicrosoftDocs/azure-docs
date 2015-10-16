@@ -1,73 +1,19 @@
-<table cellspacing="0" border="1">
-<tr>
-   <th align="left" valign="middle">Resource</th>
-   <th align="left" valign="middle">Default Limit</th>
-   <th align="left" valign="middle">Maximum Limit</th>
-</tr>
-<tr>
-   <td valign="middle"><p>Azure Media Services (AMS) accounts in a single subscription</p></td>
-   <td valign="middle"><p></p></td>
-   <td valign="middle"><p>25</p></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Assets per AMS account</p></td>
-   <td valign="middle"><p></p></td>
-   <td valign="middle"><p>1,000,000</p></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Chained tasks per job</p></td>
-   <td valign="middle"><p></p></td>
-   <td valign="middle"><p>30</p></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Assets per task</p></td>
-   <td valign="middle"><p></p></td>
-   <td valign="middle"><p>50</p></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Assets per job</p></td>
-   <td valign="middle"><p></p></td>
-   <td valign="middle"><p>100</p></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Jobs per AMS account </p></td>
-   <td valign="middle"><p></p></td>
-   <td valign="middle"><p>50,000<sup>2</sup></p></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Unique locators associated with an asset at one time</p></td>
-   <td valign="middle"><p></p></td>
-   <td valign="middle"><p>5<sup>4</sup></p></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Live channels per AMS account </p></td>
-   <td valign="middle"><p>5</p></td>
-   <td valign="middle"><p>N/A<sup>1</sup></p></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Programs in stopped state per channel </p></td>
-   <td valign="middle"><p>50</p></td>
-   <td valign="middle"><p>N/A<sup>1</sup></p></td>
-</tr><tr>
-   <td valign="middle"><p>Programs in running state per channel </p></td>
-   <td valign="middle"><p>3</p></td>
-   <td valign="middle"><p>N/A<sup>1</sup></p></td>
-</tr><tr>
-   <td valign="middle"><p>Streaming endpoints in running state per AMS account</p></td>
-   <td valign="middle"><p>2</p></td>
-   <td valign="middle"><p>N/A<sup>1</sup></p></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Streaming units per streaming endpoint </p></td>
-   <td valign="middle"><p>10 </p></td>
-   <td valign="middle"><p>N/A<sup>1</sup></p></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Encoding units per AMS account </p></td>
-   <td valign="middle"><p>25</p></td>
-   <td valign="middle"><p>N/A<sup>1</sup></p></td>
-</tr>
-</table>
+Resource|Default Limit|Maximum Limit
+---|---|---
+Azure Media Services (AMS) accounts in a single subscription||25
+Assets per AMS account||1,000,000
+Chained tasks per job||30
+Assets per task||50
+Assets per job||100
+Jobs per AMS account ||50,000<sup>2</sup>
+Unique locators associated with an asset at one time||5<sup>4</sup>
+Live channels per AMS account </p></td>|5</p></td>|N/A<sup>1</sup>
+Programs in stopped state per channel </p></td>|50</p></td>|N/A<sup>1</sup>
+Programs in running state per channel </p></td>|3</p></td>|N/A<sup>1</sup>
+Streaming endpoints in running state per AMS account</p></td>|2</p></td>|N/A<sup>1</sup>
+Streaming units per streaming endpoint </p></td>|10 </p></td>|N/A<sup>1</sup>
+Encoding units per AMS account </p></td>|25</p></td>|N/A<sup>1</sup>
+Storage accounts | |1,000<sup>5</sup>
 
 <sup>1</sup> You can request to update the limits for this quota by opening a support ticket. Do not create more AMS accounts to increase limits, instead submit a support ticket.
 
@@ -77,5 +23,4 @@
 
 <sup>4</sup> Locators are not designed for managing per-user access control. To give different access rights to individual users, use Digital Rights Management (DRM) solutions.
 
-
-
+<sup>5</sup> The storage accounts must be from the same Azure subscription.

@@ -1,10 +1,10 @@
 <properties
    pageTitle="Azure Data Catalog frequently asked questions"
-   description="Azure Data Catalog: Catalog frequently asked questions"
+   description="Frequently asked questions about Azure Data Catalog preview, including capabilities for data source discovery, annotation, and management."
    services="data-catalog"
    documentationCenter=""
-   authors="dvana"
-   manager="mblythe"
+   authors="steelanddata"
+   manager="NA"
    editor=""
    tags=""/>
 <tags
@@ -13,24 +13,24 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="07/13/2015"
-   ms.author="derrickv"/> 
+   ms.date="09/11/2015"
+   ms.author="maroche"/>
 
 # Azure Data Catalog frequently asked questions
 
-This article provides answers for frequently asked questions related to the Microsoft Azure Data Catalog service.
+This article provides answers for frequently asked questions related to the Microsoft **Azure Data Catalog** service.
 
-## Q: What is Azure Data Catalog?
+## Q: What is **Azure Data Catalog**?
 
-A: Microsoft Azure Data Catalog is a fully managed service hosted in the Microsoft Azure cloud that serves as a system of registration and system of discovery for enterprise data sources. Azure Data Catalog provides capabilities that enable any user – from analysts to data scientists to developers – to register, discover, understand, and consume data sources.
+A: Microsoft **Azure Data Catalog** is a fully managed service hosted in the Microsoft Azure cloud that serves as a system of registration and system of discovery for enterprise data sources. **Azure Data Catalog** provides capabilities that enable any user – from analysts to data scientists to developers – to register, discover, understand, and consume data sources.
 
 ## Q: What customer challenges does Azure Data Catalog solve?
 
-Azure Data Catalog addresses the challenge of data source discovery and “dark data” by allowing users to discover and understand enterprise data sources.
+**Azure Data Catalog** addresses the challenge of data source discovery and “dark data” by allowing users to discover and understand enterprise data sources.
 
 ## Q: Who are the target audiences for Azure Data Catalog?
 
-Azure Data Catalog provides capabilities for technical and non-technical users, including:
+**Azure Data Catalog** provides capabilities for technical and non-technical users, including:
 
 - Data Developers, BI and Analytics Professionals: Who are responsible for producing data and analytics content for others to consume
 -	Data Stewards: Those who have the knowledge about the data, what it means and how it is intended to be used and for which purpose
@@ -39,7 +39,7 @@ Azure Data Catalog provides capabilities for technical and non-technical users, 
 
 ## Q: What is the Azure Data Catalog region availability?
 
-During preview, Azure Data Catalog services are available only in the following data centers:
+During preview, **Azure Data Catalog** services are available only in the following data centers:
 
 - US West
 - US East
@@ -48,54 +48,65 @@ During preview, Azure Data Catalog services are available only in the following 
 
 ## Q: What are the limits on the number of data assets in Azure Data Catalog?
 
-The Free Edition of Azure Data Catalog is limited to 5,000 registered data assets.
+The Free Edition of **Azure Data Catalog** is limited to 5,000 registered data assets.
 
-The Standard Edition of Azure Data Catalog supports up to 100,000 registered data assets.
+The Standard Edition of **Azure Data Catalog** supports up to 100,000 registered data assets.
 
 ## Q: What are the supported data source and asset types?
 
-During preview, Azure Data Catalog currently supports the SQL Server relational (including Azure SQL DB) and SQL Server Analysis Services (multidimensional and tabular) databases as well as SQL Server Reporting Services (native mode only) and Oracle Database. 
+During preview, **Azure Data Catalog** currently supports the SQL Server relational (including Azure SQL DB) and SQL Server Analysis Services (multidimensional and tabular) databases as well as SQL Server Reporting Services (native mode only) and Oracle Database.
 
-During preview, Azure Data Catalog supports the following asset types:
+During preview, **Azure Data Catalog** supports the registration and discovery of the following asset types:
 
 - SQL Server Table
 - SQL Server View
 - SQL Server Analysis Services Dimension
 - SQL Server Analysis Services Measure
-- SQL Server Analysis Services KPI 
+- SQL Server Analysis Services KPI
 - SQL Server Analysis Services Table
 - SQL Server Reporting Services Report  
 - Oracle Database Table
 - Oracle Database View
+- Azure Storage Blob
+- Azure Storage Directory
+- HDFS File
+- HDSF Directory
+
+In addition to the assets listed above, **Azure Data Catalog** supports the discovery of the following data asset containers:
+
+- SQL Server Database
+- Oracle Database
+- HDFS Cluster
+
 
 ## Q: How do I request support for another data source?
 
 Feature requests and other feedback can be submitted in the [Azure Data Catalog forum](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409).
- 
+
 ## Q: How do I get started with Azure Data Catalog?
 
-The best place to get started is by following the instructions in Getting Started with Data Catalog. This article is an end-to-end tour of the capabilities in the public preview.
+The best place to get started is by following the instructions in [Getting Started with Data Catalog](../data-catalog-get-started/). This article is an end-to-end tour of the capabilities in the public preview.
 
 ## Q: How do I register my data?
 
-To register your data in Azure Data Catalog, launch the Azure Data Catalog registration tool from the “Publish” area of the Azure Data Catalog portal. In the Azure Data Catalog publishing application, log in using the same credentials you use to access the Azure Data Catalog portal, and then select the data source and the specific assets you wish to register.
+To register your data in **Azure Data Catalog**, launch the **Azure Data Catalog** registration tool from the “Publish” area of the **Azure Data Catalog** portal. In the **Azure Data Catalog** publishing application, log in using the same credentials you use to access the **Azure Data Catalog** portal, and then select the data source and the specific assets you wish to register.
 
 ## Q: What properties are extracted for data assets that are registered?
 
-The specific properties will differ from data source to data source, but in general the Azure Data Catalog publishing service will extract the following information:
+The specific properties will differ from data source to data source, but in general the **Azure Data Catalog** publishing service will extract the following information:
 
 - Asset Name
 - Asset Type
 - Asset Description
-- Attribute/Column Names 
+- Attribute/Column Names
 - Attribute/Column Data Types
 - Attribute/Column Description
 
-> [AZURE.IMPORTANT] Azure Data Catalog does not move or copy your data to the cloudAzure. Registering assets from a data source will copy the assets’ metadata to Azure, but the data remains in the existing data source location. The only exception to this rule is if a user chooses to upload preview records when registering assets. In this case, up to 20 records will be copied from each asset, and stored as a snapshot in **Azure Data Catalog**.
+> [AZURE.IMPORTANT] Registering data assets with **Azure Data Catalog** does not move or copy your data to the cloud. Registering assets from a data source will copy the assets’ metadata to Azure, but the data remains in the existing data source location. The only exception to this rule is if a user chooses to upload preview records or a data profile when registering assets. When including a preview, up to 20 records will be copied from each asset, and are stored as a snapshot in **Azure Data Catalog**. When including a data profile, aggregate information (such as the size of tables, the percentage null values per column, and the minimum, maximum and average values for columns) will be calculated and included in the metadata stored in the catalog.
 
 <br/>
 
-> [AZURE.NOTE] For data sources such as SQL Server Analysis Services that have a first-class **Description** property, the **Azure Data Catalog** publishing application will extract that property value. For SQL Server relational databases, which lack a first-class **Description** property, the **Azure Data Catalog** publishing application will extract the value from the ms_description extended property for objects and columns. For more information, see TechNet [Using Extended Properties on Database Objects](https://technet.microsoft.com/library/ms190243%28v=sql.105%29.aspx). 
+> [AZURE.NOTE] For data sources such as SQL Server Analysis Services that have a first-class **Description** property, the **Azure Data Catalog** publishing application will extract that property value. For SQL Server relational databases, which lack a first-class **Description** property, the **Azure Data Catalog** publishing application will extract the value from the ms_description extended property for objects and columns. For more information, see TechNet [Using Extended Properties on Database Objects](https://technet.microsoft.com/library/ms190243%28v=sql.105%29.aspx).
 
 ## Q: How long should it take for newly registered assets to appear in Azure Data Catalog?
 
@@ -117,18 +128,18 @@ An expert is a person who has an informed perspective about a data object. An ob
 
 ## Q: What is the SLA for preview?
 
-During **Azure Data Catalog** preview, there is no explicit service level agreement. 
+During **Azure Data Catalog** preview, there is no explicit service level agreement.
 
 ## Q: How do I share information with the Azure Data Catalog team if I encounter problems?
 
-Please use the **Azure Data Catalog** forum to report problems, share information, and ask questions. The forum can be found at http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409 
+Please use the **Azure Data Catalog** forum to report problems, share information, and ask questions. The forum can be found at http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409
 
-##Q: Does Azure Data Catalog work with this other data source I’m interested in? 
-We’re actively working on adding more data sources to **Azure Data Catalog**. If there is a data source that you would like to see supported, please suggest it (or voice your support if it has already been suggested) in the [Azure Data Catalog forum](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409). 
+##Q: Does Azure Data Catalog work with this other data source I’m interested in?
+We’re actively working on adding more data sources to **Azure Data Catalog**. If there is a data source that you would like to see supported, please suggest it (or voice your support if it has already been suggested) in the [Azure Data Catalog forum](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409).
 
 ## Q: How is Azure Data Catalog related to the Data Catalog in Power BI for Office 365?
 
-You can think of **Azure Data Catalog** as an evolution of the Data Catalog. **Azure Data Catalog** delivers similar capabilities for data source publishing and discovery, but is focused on broader scenarios and not dependent on Office 365. Shortly after the Azure Data Catalog becomes generally available the two catalogs will merge into a single service.
+You can think of **Azure Data Catalog** as an evolution of the Data Catalog. **Azure Data Catalog** delivers similar capabilities for data source publishing and discovery, but is focused on broader scenarios and not dependent on Office 365. Shortly after the **Azure Data Catalog** becomes generally available the two catalogs will merge into a single service.
 
 ## Q: What permissions does a user need to register assets with Azure Data Catalog?
 
@@ -144,7 +155,7 @@ We’re actively working to expand the capabilities of **Azure Data Catalog**. I
 
 ## Q: How do I restrict the visibility of registered data assets, so that only certain people can discover them?
 
-A: Select the data assets in the Azure Data Catalog, and click the “Take Ownership” button. Owners of data assets in Azure Data Catalog can change the visibility settings, to either allow all Catalog users to discover the owned assets, or to restrict the visibility to specific users.
+A: Select the data assets in the **Azure Data Catalog**, and click the “Take Ownership” button. Owners of data assets in **Azure Data Catalog** can change the visibility settings, to either allow all Catalog users to discover the owned assets, or to restrict the visibility to specific users.
 
 ## Q: How do I update the registration for a data asset to that changes in the data source are reflected in the Catalog?
 
@@ -152,9 +163,8 @@ A: To update the metadata for data assets that are already registered in the Cat
 
 ## Q: How do I ask questions or get help when working with Azure Data Catalog?
 
-If you encounter problems or require assistance with the Azure Data Catalog preview, please post in the [Azure Data Catalog forum](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409). 
+If you encounter problems or require assistance with the **Azure Data Catalog** preview, please post in the [Azure Data Catalog forum](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409).
 
 ## Q: My question isn’t answered here – what should I do?
 
 Head on over to the [Azure Data Catalog forum](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409). Questions asked there will find their way here.
-

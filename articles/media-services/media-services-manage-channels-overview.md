@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="05/23/2015" 
+	ms.date="09/28/2015" 
 	ms.author="juliako"/>
 
 #Working with Channels that Receive Multi-bitrate Live Stream from On-premises Encoders
@@ -22,7 +22,7 @@
 
 In Azure Media Services, a **Channel** represents a pipeline for processing live streaming content. A **Channel** receives live input streams in the following way:
 
-- An on-premises live encoder sends multi-bitrate **RTMP** or **Smooth Streaming** (Fragmented MP4) to the Channel. You can use the following live encoders that output multi-bitrate Smooth Streaming: Elemental, Envivio, Cisco.  The following live encoders output RTMP: Adobe Flash Live, Telestream Wirecast, and Tricaster transcoders. The ingested streams pass through **Channel**s without any further processing. Your live encoder can lso send a single bitrate stream, but that is not recommended. When requested, Media Services delivers the stream to customers.
+- An on-premises live encoder sends multi-bitrate **RTMP** or **Smooth Streaming** (Fragmented MP4) to the Channel. You can use the following live encoders that output multi-bitrate Smooth Streaming: Elemental, Envivio, Cisco.  The following live encoders output RTMP: Adobe Flash Live, Telestream Wirecast, and Tricaster transcoders. The ingested streams pass through **Channel** without any further processing. Your live encoder can lso send a single bitrate stream, but that is not recommended. When requested, Media Services delivers the stream to customers.
 
 
 The following diagram represents a live streaming workflow that uses an on-premises live encoder to output multi-bitrate RTMP or Fragmented MP4 (Smooth Streaming) streams. 
@@ -125,12 +125,12 @@ When using an on-premises live encoder to generate multi-bitrate stream, the key
 
 The following table shows how the segment duration is being calculated:
 
-<table border="1">
-<tr><th>Keyframe Interval</th><th>HLS segment packaging ratio (FragmentsPerSegment)</th><th>Example</th></tr>
-<tr><td>less than or equal to 3 seconds</td><td>3:1</td><td>If the KeyFrameInterval (or GOP) is 2 seconds long, the default HLS segment packaging ratio will be 3 to 1, which will create a 6 seconds HLS segment.</td></tr>
-<tr><td>3 to 5  seconds</td><td>2:1</td><td>If the KeyFrameInterval (or GOP) is 4 seconds long, the default HLS segment packaging ratio will be 2 to 1, which will create a 8 seconds HLS segment.</td></tr>
-<tr><td>greater than 5 seconds</td><td>1:1</td><td>If the KeyFrameInterval (or GOP) is 6 seconds long, the default HLS segment packaging ratio will be 1 to 1, which will create a 6 second long HLS segment.</td></tr>
-</table>
+Keyframe Interval|HLS segment packaging ratio (FragmentsPerSegment)|Example
+---|---|---
+less than or equal to 3 seconds|3:1|If the KeyFrameInterval (or GOP) is 2 seconds long, the default HLS segment packaging ratio will be 3 to 1, which will create a 6 seconds HLS segment.
+3 to 5  seconds|2:1|If the KeyFrameInterval (or GOP) is 4 seconds long, the default HLS segment packaging ratio will be 2 to 1, which will create a 8 seconds HLS segment.
+greater than 5 seconds|1:1|If the KeyFrameInterval (or GOP) is 6 seconds long, the default HLS segment packaging ratio will be 1 to 1, which will create a 6 second long HLS segment.
+
 
 You can change the fragments per segment ratio by configuring channel’s output and setting FragmentsPerSegment on ChannelOutputHls. 
 
@@ -201,24 +201,23 @@ The current state of a Channel. Possible values include:
 
 The following table shows how Channel states map to the billing mode. 
  
-<table border="1">
-<tr><th>Channel state</th><th>Portal UI Indicators</th><th>Billed?</th></tr>
-<tr><td>Starting</td><td>Starting</td><td>No (transient state)</td></tr>
-<tr><td>Running</td><td>Ready (no running programs)<br/>or<br/>Streaming (at least one running program)</td><td>Yes</td></tr>
-<tr><td>Stopping</td><td>Stopping</td><td>No (transient state)</td></tr>
-<tr><td>Stopped</td><td>Stopped</td><td>No</td></tr>
-</table>
+Channel state|Portal UI Indicators|Billed?
+---|---|---|---
+Starting|Starting|No (transient state)
+Running|Ready (no running programs)<p>or<p>Streaming (at least one running program)|Yes
+Stopping|Stopping|No (transient state)
+Stopped|Stopped|No
 
 ###Closed Captioning and Ad Insertion 
 
 The following table demonstrates supported closed captioning and ad insertion standards.
 
-<table border="1">
-<tr><th>Standard</th><th>Notes</th></tr>
-<tr><td>CEA-708 and EIA-608 (708/608)</td><td>CEA-708 and EIA-608 are closed captioning standards for the United States and Canada.<br/>Currently, captioning is only supported if carried in the encoded input stream. You need to use a live media encoder that can insert 608 or 708 captions into the encoded stream which is sent to Media Services. Media Services will deliver the content with inserted captions to your viewers.</td></tr>
-<tr><td>TTML inside ismt (Smooth Streaming Text Tracks)</td><td>Media Services dynamic packaging enables your clients to stream content in any of the following formats: MPEG DASH, HLS or Smooth Streaming. However, if you ingest fragmented MP4 (Smooth Streaming) with captions inside .ismt (Smooth Streaming text tracks), you would only be able to deliver the stream to Smooth Streaming clients.</td></tr>
-<tr><td>SCTE-35</td><td>Digital signaling system used to cue advertising insertion. Downstream receivers use the signal to splice advertising into the stream for the allotted time. SCTE-35 must be sent as a sparse track in the input stream.<br/>Note that currently, the only supported input stream format that carries ad signals is fragmented MP4 (Smooth Streaming). The only supported output format is also Smooth Streaming.</td></tr>
-</table>
+Standard|Notes
+---|---
+CEA-708 and EIA-608 (708/608)|CEA-708 and EIA-608 are closed captioning standards for the United States and Canada.<p><p>Currently, captioning is only supported if carried in the encoded input stream. You need to use a live media encoder that can insert 608 or 708 captions into the encoded stream which is sent to Media Services. Media Services will deliver the content with inserted captions to your viewers.
+TTML inside ismt (Smooth Streaming Text Tracks)|Media Services dynamic packaging enables your clients to stream content in any of the following formats: MPEG DASH, HLS or Smooth Streaming. However, if you ingest fragmented MP4 (Smooth Streaming) with captions inside .ismt (Smooth Streaming text tracks), you would only be able to deliver the stream to Smooth Streaming clients.
+SCTE-35|Digital signaling system used to cue advertising insertion. Downstream receivers use the signal to splice advertising into the stream for the allotted time. SCTE-35 must be sent as a sparse track in the input stream.<p><p>Note that currently, the only supported input stream format that carries ad signals is fragmented MP4 (Smooth Streaming). The only supported output format is also Smooth Streaming.
+
 
 ##<a id="Considerations"></a>Considerations
 
@@ -239,29 +238,7 @@ Other considerations related to working with channels and related components:
 - You cannot change the input protocol while the Channel or its associated programs are running. If you require different protocols, you should create separate channels for each input protocol. 
 - You are only billed when your Channel is in the **Running** state. For more information, refer to [this](media-services-manage-channels-overview.md#states) section.
 
-##<a id="tasks"></a>Tasks related to Live Streaming
-
-###Creating a Media Services account
-
-[Create Azure Media Services Account](media-services-create-account.md).
-
-###Configuring streaming endpoints
-
-For an overview about streaming endpoints and information on how to manage them, see [How to Manage Streaming Endpoints in a Media Services Account](media-services-manage-origins.md)
-
-###Setting up development environment  
-
-Choose **.NET** or **REST API** for your development environment.
-
-[AZURE.INCLUDE [media-services-selector-setup](../../includes/media-services-selector-setup.md)]
-
-###Connecting programmatically  
-
-Choose **.NET** or **REST API** to programmatically connect to Azure Media Services.
-
-[AZURE.INCLUDE [media-services-selector-connect](../../includes/media-services-selector-connect.md)]
-
-###Creating Channels that receive multi-bitrate live stream from on-premises encoders
+##How to create channels that receive multi-bitrate live stream from on-premises encoders
 
 For more information about on-premises live encoders, see [Using 3rd Party Live Encoders with Azure Media Services](https://msdn.microsoft.com/library/azure/dn783464.aspx).
 
@@ -269,56 +246,14 @@ Choose **Portal**, **.NET**, **REST API** to see how to create and manage channe
 
 [AZURE.INCLUDE [media-services-selector-manage-channels](../../includes/media-services-selector-manage-channels.md)]
 
-###Protecting assets
 
-**Overview**: 
+##Media Services learning paths
 
-[Content Protection Overview](media-services-content-protection-overview.md)
+You can view AMS learning paths here:
 
+- [AMS Live Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [AMS on Demand Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
-If you want to encrypt an asset associate with a program with Advanced Encryption Standard (AES) (using 128-bit encryption keys) or PlayReady DRM, you need to create a content key.
-
-Use **.NET** or **REST API** to create keys.
-
-[AZURE.INCLUDE [media-services-selector-create-contentkey](../../includes/media-services-selector-create-contentkey.md)]
-
-Once you create the content key, you can configure key authorization policy using **.NET** or **REST API**.
-
-[AZURE.INCLUDE [media-services-selector-content-key-auth-policy](../../includes/media-services-selector-content-key-auth-policy.md)]
-
-####Integrating with partners
-
-[Using castLabs to deliver DRM licenses to Azure Media Services](media-services-castlabs-integration.md)
-
-###Publishing and delivering assets
-
-**Overview**: 
-
-- [Dynamic Packaging Overview](media-services-dynamic-packaging-overview.md)
-
-Configure asset delivery policy using **.NET** or **REST API**.
-
-[AZURE.INCLUDE [media-services-selector-asset-delivery-policy](../../includes/media-services-selector-asset-delivery-policy.md)]
-
-Publish assets (by creating Locators) using **Azure Management Portal** or **.NET**.
-
-[AZURE.INCLUDE [media-services-selector-publish](../../includes/media-services-selector-publish.md)]
-
-Deliver Content 
-
-> [AZURE.SELECTOR]
-- [Overview](media-services-deliver-content-overview.md)
-
-
-###Enabling Azure CDN
-
-Media Services supports integration with Azure CDN. For information on how to enable Azure CDN, see [How to Manage Streaming Endpoints in a Media Services Account](media-services-manage-origins.md#enable_cdn).
-
-###Scaling a Media Services account
-
-You can scale **Media Services** by specifying the number of **Streaming Reserved Units** you would like your account to be provisioned with. 
-
-For information about scaling streaming units, see: [How to scale streaming units](media-services-manage-origins.md#scale_streaming_endpoints.md).
 
 ##Related topics
 

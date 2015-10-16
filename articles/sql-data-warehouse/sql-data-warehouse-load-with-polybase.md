@@ -5,7 +5,7 @@
    documentationCenter="NA"
    authors="barbkess"
    manager="jhubbard"
-   editor=""/>
+   editor="jrowlandjones"/>
 
 <tags
    ms.service="sql-data-warehouse"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/09/2015"
+   ms.date="09/22/2015"
    ms.author="sahajs;barbkess"/>
 
 
@@ -37,6 +37,15 @@ To step through this tutorial, you need:
 
 First, you will create the objects that PolyBase requires for connecting to and querying data in Azure blob storage.
 
+> [AZURE.IMPORTANT] The Azure Storage account types supported by PolyBase are:
+> 
+> + Standard Locally Redundant Storage (Standard-LRS)
+> + Standard Geo-Redundant Storage (Standard-GRS)
+> + Standard Read-Access Geo-Redundant Storage (Standard-RAGRS)
+>
+> Standard Zone Redundant Storage (Standard-ZRS) and Premium Locally Redundant Storage (Premium-LRS) account types are NOT supported by PolyBase. If you are creating a new Azure Storage account, make sure you select a PolyBase-supported storage account type from the Pricing Tier.
+
+
 ## Create database master key
 Connect to user database on your server to create a database master key. This key is used to encrypt your credential secret in the next step. 
 
@@ -57,21 +66,23 @@ To see if a database-scoped credential already exists, use   sys.database_creden
 SELECT * FROM sys.database_credentials;
 
 -- Create a database scoped credential
-CREATE DATABASE SCOPED CREDENTIAL ASBSecret WITH IDENTITY = 'joe', 
-	Secret = 'myazurestoragekey==';
+CREATE DATABASE SCOPED CREDENTIAL ASBSecret 
+WITH IDENTITY = 'joe'
+,    Secret = '<azure_storage_account_key>'
+;
 ```
 
 Reference topic: [CREATE CREDENTIAL (Transact-SQL)][].
 
-When you rotate your Azure storage account keys, you will need to drop the credential and re-create it using the new key as the Secret.
+To drop a database scoped credential you simply use the following syntax:
 
 ```
 -- Dropping credential
-DROP DATABASE SCOPED CREDENTIAL ASBSecret;
+DROP DATABASE SCOPED CREDENTIAL ASBSecret
+;
 ```
 
 Reference topic: [DROP CREDENTIAL (Transact-SQL)][].
-
 
 ## Create an external data source
 The external data source is a database object that stores the location of the Azure blob storage data and your access information. You need to define an external data source for each Azure Storage container you want to access.
@@ -79,14 +90,26 @@ The external data source is a database object that stores the location of the Az
 ```
 -- Creating external data source (Azure Blob Storage) 
 CREATE EXTERNAL DATA SOURCE azure_storage 
-WITH (
-	TYPE = HADOOP, 
-       LOCATION ='wasbs://mycontainer@ test.blob.core.windows.net/path’,
-      CREDENTIAL = ASBSecret
-);
+WITH
+(
+    TYPE = HADOOP
+,   LOCATION ='wasbs://mycontainer@test.blob.core.windows.net'
+,   CREDENTIAL = ASBSecret
+)
+;
 ```
 
 Reference topic: [CREATE EXTERNAL DATA SOURCE (Transact-SQL)][].
+
+To drop the external data source the syntax is as follows:
+
+```
+-- Dropping external data source
+DROP EXTERNAL DATA SOURCE azure_storage
+;
+```
+
+Reference topic: [DROP EXTERNAL DATA SOURCE (Transact-SQL)][].
 
 ## Create an external file format
 The external file format is a database object that specifies the format of the external data. In this example, we have uncompressed data in a text file and the fields are separated with the pipe character ('|'). 
@@ -94,66 +117,109 @@ The external file format is a database object that specifies the format of the e
 ```
 -- Creating external file format (delimited text file)
 CREATE EXTERNAL FILE FORMAT text_file_format 
-WITH (
-	FORMAT_TYPE = DELIMITEDTEXT, 
-	FORMAT_OPTIONS (
-		FIELD_TERMINATOR ='|', 
-		USE_TYPE_DEFAULT = TRUE
-	)
-);
+WITH 
+(   
+    FORMAT_TYPE = DELIMITEDTEXT 
+,	FORMAT_OPTIONS  (
+                        FIELD_TERMINATOR ='|'
+                    ,   USE_TYPE_DEFAULT = TRUE
+                    )
+)
+;
 ```
 
 PolyBase can work with compressed and uncompressed data in delimited text, Hive RCFILE and HIVE ORC formats. 
 
 Reference topic: [CREATE EXTERNAL FILE FORMAT (Transact-SQL)][].
 
+To drop an external file format the syntax is as follows:
+
+```
+-- Dropping external file format
+DROP EXTERNAL FILE FORMAT text_file_format
+;
+```
+Reference topic: [DROP EXTERNAL FILE FORMAT (Transact-SQL)][].
+
 ## Create an external table
 
-The external table definition is similar to a relational table definition. The key difference is the location and the format of the data. The external table definition is stored in SQL Data Warehouse database. The data is stored the location specified by the data source.
+The external table definition is similar to a relational table definition. The key difference is the location and the format of the data. The external table definition is stored in the SQL Data Warehouse database. The data is stored in the location specified by the data source.
 
-The LOCATION option specifies the path to the data from the root of the data source. In this example, the data is located at 'wasbs://mycontainer@ test.blob.core.windows.net/path/Demo/'.
+The LOCATION option specifies the path to the data from the root of the data source. In this example, the data is located at 'wasbs://mycontainer@ test.blob.core.windows.net/path/Demo/'. All the files for the same table need to be under the same logical folder in Azure BLOB.
+
+Optionally, you can also specify reject options (REJECT_TYPE, REJECT_VALUE, REJECT_SAMPLE_VALUE) that determine how PolyBase will handle dirty records it receives from the external data source.
 
 ```
 -- Creating external table pointing to file stored in Azure Storage
-CREATE EXTERNAL TABLE [ext].[CarSensor_Data] (
-    [SensorKey] int NOT NULL, 
-    [CustomerKey] int NOT NULL, 
-    [GeographyKey] int NULL, 
-    [Speed] float NOT NULL, 
-    [YearMeasured] int NOT NULL
+CREATE EXTERNAL TABLE [ext].[CarSensor_Data] 
+(
+     [SensorKey]     int    NOT NULL 
+,    [CustomerKey]   int    NOT NULL 
+,    [GeographyKey]  int        NULL 
+,    [Speed]         float  NOT NULL 
+,    [YearMeasured]  int    NOT NULL
 )
-WITH (LOCATION='/Demo/',
-      DATA_SOURCE = azure_storage,
-      FILE_FORMAT = text_file_format,      
-);
+WITH 
+(
+    LOCATION    = '/Demo/'
+,   DATA_SOURCE = azure_storage
+,   FILE_FORMAT = text_file_format      
+)
+;
 ```
 
 > [AZURE.NOTE] Please note that you cannot create statistics on an external table at this time.
-
-All the files for the same table need to be under the same logical folder in Azure BLOB. As a best practice, break your Azure Storage data into no more than 1GB files when possible for parallel processing with SQL Data Warehouse.
 
 Reference topic: [CREATE EXTERNAL TABLE (Transact-SQL)][].
 
 The objects you just created are stored in SQL Data Warehouse database. You can view them in the SQL Server Data Tools (SSDT) Object Explorer. 
 
+To drop an external table you need to use the following syntax:
+
+```
+--Dropping external table
+DROP EXTERNAL TABLE [ext].[CarSensor_Data]
+;
+```
+
+> [AZURE.NOTE] When dropping an external table you must use `DROP EXTERNAL TABLE`. You **cannot** use `DROP TABLE`. 
+
+Reference topic: [DROP EXTERNAL TABLE (Transact-SQL)][].
+
+It is also worth noting that external tables are visible in both `sys.tables` and more specifically in `sys.external_tables` catalog views.
+
+## Rotating storage keys
+
+From time to time you will want to change the access key to your blob storage for security reasons. 
+
+The most elegant way to perform this task is to follow a process known as "rotating the keys". You may have noticed that you have two storage keys for your blob storage account. This is so that you can transition 
+
+Rotating your Azure storage account keys is a simple three step process
+
+1. Create second database scoped credential based on the secondary storage access key
+2. Create second external data source based off this new credential
+3. Drop and create the external table(s) pointing to the new external data source
+
+When you have migrated all your external tables to the new external data source then you can perform the clean up tasks:
+ 
+1. Drop first external data source
+2. Drop first database scoped credential based on the primary storage access key
+3. Log into Azure and regenerate the primary access key ready for the next time
 
 ## Query Azure blob storage data
 Queries against external tables simply use the table name as though it was a relational table. 
 
-This is an ad-hoc query that joins insurance customer data stored in SQL Data Warehouse, with automobile sensor data stored in Azure storage blob. The result shows the drivers that drive faster than others.
 
 ```
--- Join SQL Data Warehouse relational data with Azure storage data. 
-SELECT 
-    [Insured_Customers].[FirstName],
-    [Insured_Customers].[LastName],
-    [Insured_Customers].[YearlyIncome],
-    [CarSensor_Data].[Speed]
-FROM [dbo].[Insured_Customers] INNER JOIN [ext].[CarSensor_Data]
-ON [Insured_Customers].[CustomerKey] = [CarSensor_Data].[CustomerKey]
-WHERE [CarSensor_Data].[Speed] > 60 
-ORDER BY [CarSensor_Data].[Speed] desc;
+
+-- Query Azure storage resident data via external table. 
+SELECT * FROM [ext].[CarSensor_Data]
+;
+
 ```
+
+> [AZURE.NOTE] A query on an external table can fail with the error *"Query aborted-- the maximum reject threshold was reached while reading from an external source"*. This indicates that your external data contains *dirty* records. A data record is considered 'dirty' if the actual data types/number of columns do not match the column definitions of the external table or if the data doesn't conform to the specified external file format. To fix this, ensure that your external table and external file format definitions are correct and your external data conforms to these definitions. In case a subset of external data records are dirty, you can choose to reject these records for your queries by using the reject options in CREATE EXTERNAL TABLE DDL.
+
 
 ## Load data from Azure blob storage
 This example loads data from Azure blob storage to SQL Data Warehouse database.
@@ -168,18 +234,74 @@ CREATE TABLE AS SELECT is a highly performant Transact-SQL statement  that repla
 -- Load data from Azure blob storage to SQL Data Warehouse 
 
 CREATE TABLE [dbo].[Customer_Speed]
-WITH (
-	CLUSTERED COLUMNSTORE INDEX
-	DISTRIBUTION = HASH([CarSensor_Data].[CustomerKey])
-	)
-AS SELECT * from [ext].[CarSensor_Data];
+WITH 
+(   
+    CLUSTERED COLUMNSTORE INDEX
+,	DISTRIBUTION = HASH([CarSensor_Data].[CustomerKey])
+)
+AS 
+SELECT * 
+FROM   [ext].[CarSensor_Data]
+;
 ```
 
 See [CREATE TABLE AS SELECT (Transact-SQL)][].
 
 
-## Limitations
-Loading with PolyBase only supports UTF-8 encoding style. For other encoding styles, say UTF-16, consider using bcp utility, SSIS or Azure Data Factory to load data into SQL Data Warehouse database.
+## Working around the PolyBase UTF-8 requirement
+At present PolyBase supports loading data files that have been UTF-8 encoded. As UTF-8 uses the same character encoding as ASCII PolyBase will also support loading data that is ASCII encoded. However, PolyBase does not support other character encoding such as UTF-16 / Unicode or extended ASCII characters. Extended ASCII includes characters with accents such as the umlaut which is common in German.
+
+To work around this requirement the best answer is to re-write to UTF-8 encoding.
+
+There are several ways to do this. Below are two approaches using Powershell: 
+
+### Simple example for small files
+
+Below is a simple one line Powershell script that creates the file.
+ 
+```
+Get-Content <input_file_name> -Encoding Unicode | Set-Content <output_file_name> -Encoding utf8
+```
+
+However, whilst this is a simple way to re-encode the data it is by no means the most efficient. The io streaming example below is much, much faster and achieves the same result.
+
+### IO Streaming example for larger files
+
+The code sample below is more complex but as it streams the rows of data from source to target it is much more efficient. Use this approach for larger files.
+
+```
+#Static variables
+$ascii = [System.Text.Encoding]::ASCII
+$utf16le = [System.Text.Encoding]::Unicode
+$utf8 = [System.Text.Encoding]::UTF8
+$ansi = [System.Text.Encoding]::Default
+$append = $False
+
+#Set source file path and file name
+$src = [System.IO.Path]::Combine("C:\input_file_path\","input_file_name.txt")
+
+#Set source file encoding (using list above)
+$src_enc = $ansi
+
+#Set target file path and file name
+$tgt = [System.IO.Path]::Combine("C:\output_file_path\","output_file_name.txt")
+
+#Set target file encoding (using list above)
+$tgt_enc = $utf8
+
+$read = New-Object System.IO.StreamReader($src,$src_enc)
+$write = New-Object System.IO.StreamWriter($tgt,$append,$tgt_enc)
+
+while ($read.Peek() -ne -1)
+{
+    $line = $read.ReadLine();
+    $write.WriteLine($line);
+}
+$read.Close()
+$read.Dispose()
+$write.Close()
+$write.Dispose()
+```
 
 ## Next steps
 For more development tips, see [development overview][].
@@ -203,6 +325,11 @@ For more development tips, see [development overview][].
 [CREATE EXTERNAL DATA SOURCE (Transact-SQL)]:https://msdn.microsoft.com/library/dn935022(v=sql.130).aspx
 [CREATE EXTERNAL FILE FORMAT (Transact-SQL)]:https://msdn.microsoft.com/library/dn935026(v=sql.130).aspx
 [CREATE EXTERNAL TABLE (Transact-SQL)]:https://msdn.microsoft.com/library/dn935021(v=sql.130).aspx
+
+[DROP EXTERNAL DATA SOURCE (Transact-SQL)]:https://msdn.microsoft.com/en-us/library/mt146367.aspx
+[DROP EXTERNAL FILE FORMAT (Transact-SQL)]:https://msdn.microsoft.com/en-us/library/mt146379.aspx
+[DROP EXTERNAL TABLE (Transact-SQL)]:https://msdn.microsoft.com/en-us/library/mt130698.aspx
+
 [CREATE TABLE AS SELECT (Transact-SQL)]:https://msdn.microsoft.com/library/mt204041.aspx
 [CREATE MASTER KEY (Transact-SQL)]:https://msdn.microsoft.com/en-us/library/ms174382.aspx
 [CREATE CREDENTIAL (Transact-SQL)]:https://msdn.microsoft.com/en-us/library/ms189522.aspx

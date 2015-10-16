@@ -13,18 +13,22 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/24/2015" 
+	ms.date="09/07/2015" 
 	ms.author="juliako"/>
 
 
 #How to: Deliver streaming content
-
-
-This article is part of the [Media Services Video on Demand workflow](media-services-video-on-demand-workflow.md) and [Media Services Live Streaming workflow](media-services-live-streaming-workflow.md) series.  
+ 
+> [AZURE.SELECTOR]
+- [REST](media-services-rest-deliver-streaming-content.md)
+- [.NET](media-services-deliver-streaming-content.md)
+- [Portal](media-services-manage-content.md#publish)
 
 ##Overview
 
-You can stream an adaptive bitrate MP4 set by creating an OnDemand streaming locator and building a streaming URL. The [encoding an asset](media-services-encode-asset.md) topic shows how to encode into an adaptive bitrate MP4 set. Before you create a locator you should configure asset delivery policy as described in [this](media-services-dotnet-configure-asset-delivery-policy.md) topic. 
+You can stream an adaptive bitrate MP4 set by creating an OnDemand streaming locator and building a streaming URL. The [encoding an asset](media-services-encode-asset.md) topic shows how to encode into an adaptive bitrate MP4 set. 
+
+>[AZURE.NOTE]If your content is encrypted, configure asset delivery policy (as described in [this](media-services-dotnet-configure-asset-delivery-policy.md) topic) before creating a locator. 
 
 You can also use an OnDemand streaming locator to build URLs that point to MP4 files that can be progressively downloaded.  
 
@@ -34,7 +38,7 @@ This topic shows how to create an OnDemand streaming locator in order to publish
 
 To create the OnDemand streaming locator and get URLs you need to do the following:
 
-   1. Define an access policy.
+   1. If the content is encrypted, define an access policy.
    2. Create an OnDemand streaming locator.
    3. If you plan to stream, get the streaming manifest file (.ism) in the asset. 
    		
@@ -91,6 +95,8 @@ The code  outputs:
 	URL to manifest for client streaming using MPEG DASH protocol:
 	http://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny.ism/manifest(format=mpd-time-csf)
 	
+
+>[AZURE.NOTE]You can also stream your content over an SSL connection. To do this, make sure your streaming URLs start with HTTPS. 
 
 Build progressive download URLs 
 
@@ -150,4 +156,16 @@ The following code calls .NET SDK extensions methods that create a locator and g
 	Console.WriteLine(smoothStreamingUri);
 	Console.WriteLine(hlsUri);
 	Console.WriteLine(mpegDashUri);
- 
+
+
+##Media Services learning paths
+
+You can view AMS learning paths here:
+
+- [AMS Live Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [AMS on Demand Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
+
+##See Also
+
+[Download assets](media-services-deliver-asset-download.md)

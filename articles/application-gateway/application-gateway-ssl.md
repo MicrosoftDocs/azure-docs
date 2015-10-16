@@ -9,10 +9,10 @@
 <tags 
    ms.service="application-gateway"
    ms.devlang="na"
-   ms.topic="get-started-article" 
+   ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="06/30/2015"
+   ms.date="09/25/2015"
    ms.author="joaoma"/>
 
 # Configure an Application Gateway for SSL offload
@@ -229,5 +229,3 @@ If you want more information about load balancing options in general, see:
 
 - [Azure Load Balancer](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Azure Traffic Manager](https://azure.microsoft.com/documentation/services/traffic-manager/)
-
-

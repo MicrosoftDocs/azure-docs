@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Get Started with authentication for Mobile Apps in Windows | Azure App Service"
-	description="Learn how to use Mobile Apps to authenticate users of your Windows app using a variety of identity providers, including: AAD, Google, Facebook, Twitter, and Microsoft."
+	pageTitle="Add authentication to your Windows Runtime 8.1 universal app | Azure Mobile Apps"
+	description="Learn how to use Azure App Service Mobile Apps to authenticate users of your Windows app using a variety of identity providers, including: AAD, Google, Facebook, Twitter, and Microsoft."
 	services="app-service\mobile"
 	documentationCenter="windows"
 	authors="mattchenderson" 
@@ -13,22 +13,22 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="06/19/2015"
-	ms.author="mahender"/>
+	ms.date="08/22/2015"
+	ms.author="glenga"/>
 
 # Add authentication to your Windows app
 
 [AZURE.INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
-
+&nbsp;  
 [AZURE.INCLUDE [app-service-mobile-note-mobile-services-preview](../../includes/app-service-mobile-note-mobile-services-preview.md)]
 
 This topic shows you how to authenticate users of an App Service Mobile App from your client application. In this tutorial, you add authentication to the quickstart project using an identity provider that is supported by App Service. After being successfully authenticated and authorized by your Mobile App, the user ID value is displayed.
 
-This tutorial is based on the Mobile App quickstart. You must also first complete the tutorial [Get started with your mobile app].
+This tutorial is based on the Mobile App quickstart. You must first complete the tutorial [Get started with your mobile app]. http://acom-sandbox.azurewebsites.net/documentation/articles/app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-push-preview/?rnd=1
 
-##<a name="review"></a>Review your server project configuration (optional)
+##<a name="create-gateway"></a>Create an App Service Gateway
 
-[AZURE.INCLUDE [app-service-mobile-dotnet-backend-enable-auth-preview](../../includes/app-service-mobile-dotnet-backend-enable-auth-preview.md)] 
+[AZURE.INCLUDE [app-service-mobile-dotnet-backend-create-gateway-preview](../../includes/app-service-mobile-dotnet-backend-create-gateway-preview.md)] 
 
 ##<a name="register"></a>Register your app for authentication and configure the App Service
 
@@ -38,12 +38,11 @@ This tutorial is based on the Mobile App quickstart. You must also first complet
 
 [AZURE.INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
 
-<ol start="5">
-<li>In Visual Studio, open your client app project and ensure that in App.xaml.cs, the instance of <b>MobileServiceClient</b> is configured to use the cloud URL to the Mobile App resource.</li>
-<li><p>Press the F5 key to run this quickstart-based app; verify that an unhandled exception with a status code of 401 (Unauthorized) is raised after the app starts.</p>
+&nbsp;&nbsp;4. In Visual Studio, open the shared App.xaml.cs project file in your client app project and make sure that the **MobileServiceClient** instance is configured to use both the URL of the Mobile App backend and the Gateway.
 
-   	<p>This happens because the app attempts to access your Mobile App Code as an unauthenticated user, but the <em>TodoItem</em> table now requires authentication.</p></li>
-</ol>
+&nbsp;&nbsp;5. With one of the Windows app projects set as the start-up project, press the F5 key to run the app; verify that an unhandled exception with a status code of 401 (Unauthorized) is raised after the app starts.
+
+&nbsp;&nbsp;This happens because the app attempts to access your Mobile App Code as an unauthenticated user, but the *TodoItem* table now requires authentication.
 
 Next, you will update the app to authenticate users before requesting resources from your App Service.
 
@@ -52,25 +51,13 @@ Next, you will update the app to authenticate users before requesting resources 
 [AZURE.INCLUDE [app-service-mobile-windows-universal-dotnet-authenticate-app](../../includes/app-service-mobile-windows-universal-dotnet-authenticate-app.md)]
 
 
->[AZURE.NOTE] When you have registered your Windows Store app package information with App Service, you should call the <a href="http://go.microsoft.com/fwlink/p/?LinkId=311594" target="_blank">LoginAsync</a> method by supplying a value of <strong>true</strong> for the <em>useSingleSignOn</em> parameter. If you do not do this, your users will continue to be presented with a login prompt every time that the login method is called.
-
-
 ##<a name="tokens"></a>Store the authentication token on the client
 
 [AZURE.INCLUDE [app-service-mobile-windows-store-dotnet-authenticate-app-with-token](../../includes/app-service-mobile-windows-store-dotnet-authenticate-app-with-token.md)]
 
-
-<!-- Anchors. -->
-[Register your app for authentication and configure the App Service]: #register
-[Restrict table permissions to authenticated users]: #permissions
-[Add authentication to the app]: #add-authentication
-[Store authentication tokens on the client]: #tokens
-[Next Steps]:#next-steps
+##Next Steps
 
 
 <!-- URLs. -->
-[Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
-[My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
-[Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
 [Get started with your mobile app]: app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-preview.md
  

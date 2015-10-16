@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/04/2015" 
+	ms.date="09/01/2015" 
 	ms.author="adegeo"/>
 
 # Should I Choose Cloud Services?
@@ -36,5 +36,5 @@ Azure provides different hosting models for running applications. Each one provi
 [Create a cloud service app in Python](../cloud-services-python-ptvs.md)<br/>
 
 [App Service]: app-service-choose-me.md
-[Virtual Machines]: ../virtual-machines-choose-me.md
+[Virtual Machines]: ../virtual-machines-about.md
 [Cloud Services]: #tellmecs 

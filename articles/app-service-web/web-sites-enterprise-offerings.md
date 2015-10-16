@@ -4,7 +4,6 @@
 	services="app-service\web" 
 	documentationCenter="" 
 	authors="apwestgarth" 
-	writer="cephalin" 
 	manager="wpickett" 
 	editor=""/>
 
@@ -14,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/21/2015" 
-	ms.author="apwestgarth"/>
+	ms.date="08/04/2015" 
+	ms.author="anwestg"/>
 
 # Azure App Service Web Apps Offerings for Enterprise Whitepaper #
 
@@ -33,7 +32,7 @@ App Service Web Apps is an ideal platform on which to host both external and int
 
 ## Problem Definition ##
 
-The IT landscape is changing rapidly, with a move away from hosting on traditional servers with their high capital costs on long lead times to one that uses on-demand use of services that scale automatically to handle load. IT departments are being challenged to reduce the cost and footprint of infrastructure and maintenance spend with a focus on reducing CAPEX while also increasing agility. The imminent end of life of older infrastructure platforms, such as Windows Server 2003, is leading IT departments to review cloud migration as a potential way to avoid new long term capital costs. In the past, CIOs would make purchasing decisions for other departments; however, increasingly CMOs and other business unit heads are taking a more active role in how their budget is spent and what the return on their investment is. Increasingly, businesses need their workforce to be far more mobile than ever before with employees working remotely, spending more time with customers needing access to systems hassle free.
+The IT landscape is changing rapidly, with a move away from hosting on traditional servers with their high capital costs on long lead times to one that uses on-demand use of services that scale automatically to handle load. IT departments are being challenged to reduce the cost and footprint of infrastructure and maintenance spend with a focus on reducing CAPEX while also increasing agility. The end of life of older infrastructure platforms, such as Windows Server 2003, is leading IT departments to review cloud migration as a potential way to avoid new long term capital costs. In the past, CIOs would make purchasing decisions for other departments; however, increasingly CMOs and other business unit heads are taking a more active role in how their budget is spent and what the return on their investment is. Increasingly, businesses need their workforce to be far more mobile than ever before with employees working remotely, spending more time with customers needing access to systems hassle free.
 
 Business needs change monthly, weekly, daily. Businesses are looking for instant global scale with regular updated services full of new features, provided by a third party or internally. Users have higher expectations, with many making use of services in their own private lives such as Office365. They expect to have access to similar, up to date, feature rich services in their work life. To cope with this demand, IT must look to help the business to enable this through selection and integration with third party services, careful selection of platforms which can adapt to the business needs, whilst also being reliable with a total reduced cost of ownership.
 

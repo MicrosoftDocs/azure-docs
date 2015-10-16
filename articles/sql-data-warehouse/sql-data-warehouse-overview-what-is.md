@@ -1,9 +1,9 @@
 <properties
-   pageTitle="What is SQL Data Warehouse | Microsoft Azure"
-   description="Enterprise-class distributed database in the Azure Cloud capable of processing up to petabyte volumes of relational and non-relational data. It is the industry's first cloud data warehouse with grow, shrink, and pause in seconds. "
+   pageTitle="What is Azure SQL Data Warehouse | Microsoft Azure"
+   description="Enterprise-class distributed database capable of processing petabyte volumes of relational and non-relational data. It is the industry's first cloud data warehouse with grow, shrink, and pause in seconds."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="barbkess"
+   authors="twounder"
    manager="jhubbard"
    editor=""/>
 
@@ -13,17 +13,20 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/23/2015"
-   ms.author="barbkess;JRJ@BigBangData.co.uk;"/>
+   ms.date="10/08/2015"
+   ms.author="barbkess;twounder;JRJ@BigBangData.co.uk;"/>
 
-# What is SQL Data Warehouse?
 
-SQL Data Warehouse is an enterprise-class distributed database in the Azure Cloud capable of processing up to petabyte volumes of relational and non-relational data. It is the industry's first cloud data warehouse with grow, shrink, and pause in seconds. 
+# What is Azure SQL Data Warehouse?
 
-SQL Data Warehouse blends the best of SQL Server's enterprise-class relational database quality and reliability with Cloud computing.  Read more about the key design components of SQL Data Warehouse.
+Azure SQL Data Warehouse is an enterprise-class distributed database capable of processing petabyte volumes of relational and non-relational data. It is the industry's first cloud data warehouse with grow, shrink, and pause in seconds with proven SQL capabilities. 
+
+SQL Data Warehouse blends the best of SQL Server's enterprise-class relational database quality and reliability with Cloud computing. Read more about the key design components of SQL Data Warehouse.
 
 ## Grow, shrink, or pause compute resources
-With SQL data warehouse, data is stored in cloud-scale storage, and compute is scaled independently, allowing you to pay for query performance as you need it. You can now dynamically deploy, grow, shrink, and even pause compute. Take full advantage of storage at cloud scale, and apply query compute based on seasonal needs. When paused, you only pay for storage.
+SQL Data Warehouse introduces separated storage and compute allowing each to scale indpendently. Using cloud-scale storage and Azure compute, SQL Data Warehouse allows you to pay for the query performance as you need it when you need it. You can now dynamically deploy, grow, shrink, and even pause compute within seconds to allow you to buy the insight your business needs. Changing the amount of compute is as simple as moving a slider to the left or right. 
+
+With the ability to fully control the amount of compute independently of storage, SQL Data Warehouse allows you to pause the compute. While keeping the in place, the compute is pushed back into the central pool saving you costs. When needed, simply resume the compute and have your data and compute available for your workload. 
 
 > [AZURE.NOTE] Data Warehouse Units (DWUs) are the unit of scale for compute resources in SQL Data Warehouse. 
 
@@ -64,11 +67,16 @@ SQL Data Warehouse easily deploys in seconds. This service is a fully managed of
 
 ## Next steps
 Learn about the [data warehouse workload].
+[Provision] and load [sample data] to get started.
+
+>[AZURE.NOTE] We want to make this article better. If you choose to answer "no" to the "Was this article helpful?" question, please include a brief suggestion about what is missing or how to improve the article. Thanks in advance!!
 
 <!--Image references-->
 
 <!--Article references-->
 [data warehouse workload]: ./sql-data-warehouse-overview-workload.md
+[sample data]: ./sql-data-warehouse-get-started-load-samples.md 
+[Provision]: ./sql-data-warehouse-get-started-provision.md 
 
 <!--MSDN references-->
 

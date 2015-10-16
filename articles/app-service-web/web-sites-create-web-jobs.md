@@ -1,20 +1,19 @@
 <properties 
 	pageTitle="Run Background tasks with WebJobs" 
 	description="Learn how to run background tasks in Azure web apps." 
-	services="app-service\web" 
+	services="app-service" 
 	documentationCenter="" 
 	authors="tdykstra" 
-	writer="tdykstra" 
 	manager="wpickett" 
 	editor="jimbe"/>
 
 <tags 
-	ms.service="app-service-web" 
-	ms.workload="web" 
+	ms.service="app-service" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/26/2015" 
+	ms.date="09/22/2015" 
 	ms.author="tdykstra"/>
 
 # Run Background tasks with WebJobs
@@ -26,6 +25,8 @@ You can run programs or scripts in WebJobs in your [App Service](http://go.micro
 This article shows how to deploy WebJobs by using the [Azure Portal](http://go.microsoft.com/fwlink/?LinkId=529715). For information about how to deploy by using Visual Studio or a continuous delivery process, see [How to Deploy Azure WebJobs to Web Apps](websites-dotnet-deploy-webjobs.md).
 
 The Azure WebJobs SDK simplifies many WebJobs programming tasks. For more information, see [What is the WebJobs SDK](websites-dotnet-webjobs-sdk.md).
+
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)] 
 
 ## <a name="acceptablefiles"></a>Acceptable file types for scripts or programs
 

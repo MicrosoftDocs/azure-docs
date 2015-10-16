@@ -1,6 +1,6 @@
 <properties
    pageTitle="Azure Data Catalog get started with data catalog"
-   description="End-to-end tutorial of the scenarios and capabilities of Azure Data Catalog"
+   description="End-to-end tutorial of the scenarios and capabilities of Azure Data Catalog."
    documentationCenter=""
    services="data-catalog"
    authors="dvana"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="07/13/2015"
+   ms.date="09/11/2015"
    ms.author="derrickv"/>
 
 # Get started with Azure Data Catalog
@@ -32,7 +32,7 @@ Before you begin this tutorial you must have the following:
 
 In this exercise, you install the Adventure Works sample for SQL Server Database Engine, and SQL Server Analysis Services Multidimensional. These samples are used in the exercises that follow.
 
-> [AZURE.NOTE] This exercise is optional. The remaining exercises in the tutorial are written to reference the Adventure Works sample databases, but you can also choose to skip this exercise and work with your own data sources instead. 
+> [AZURE.NOTE] This exercise is optional. The remaining exercises in the tutorial are written to reference the Adventure Works sample databases, but you can also choose to skip this exercise and work with your own data sources instead.
 Here are the steps to install the Adventure Works.
 
 ### Install the Adventure Works 2014 OLTP and Data Warehouse databases
@@ -45,7 +45,7 @@ In this exercise you installed the Adventure Works sample databases that are use
 
 ## Exercise 2: Registering data sources
 
-In this exercise you will use the Azure Data Catalog registration tool to register your data sources with the catalog. Registration is the process of extracting key structural metadata – such as names, types, and locations – from the data source and the assets it contains, and copying that metadata to the catalog. The data sources and their data remain where they are, but the metadata is used by the catalog to make them more easily discoverable and understandable. 
+In this exercise you will use the Azure Data Catalog registration tool to register your data sources with the catalog. Registration is the process of extracting key structural metadata – such as names, types, and locations – from the data source and the assets it contains, and copying that metadata to the catalog. The data sources and their data remain where they are, but the metadata is used by the catalog to make them more easily discoverable and understandable.
 
 ### Here’s how to register a data source
 
@@ -63,7 +63,7 @@ In this exercise you will use the Azure Data Catalog registration tool to regist
     ![register3][3]
 6.	Enter your **Server Name**, and click **CONNECT**.
 7.	The next page is where you register the metadata of your data source. In this example, you register **Product** objects from the AdventureWorks Production namespace. Here’s how to do it:
-    
+
     a. In the Hierarchy tree, click **Production**.
 
     b. Ctrl+click Product, ProductCategory, ProductDescription, and ProductPhoto.
@@ -72,12 +72,12 @@ In this exercise you will use the Azure Data Catalog registration tool to regist
 
     c. Click the move selected arrow (**>**). This will move all Product objects into the **To be registered** list.
 
-    ![register5][5] 
+    ![register5][5]
 
     d. **Optional**: You can **Include a Preview**, and **Add a data source expert**.
 
     e. In the **Add tags**, enter description, photo. This will add search tags for these data assets. Tags are a great way to help users find a registered data source.
- 
+
     f. Click **REGISTER**. Azure Data Catalog registers your selected objects. In this exercise, the selected objects from Adventure Works are registered.
 
     ![register6][6]
@@ -95,7 +95,7 @@ In this exercise you will use the Azure Data Catalog portal to discover register
 
 ### Here’s how you discover registered data assets
 
-**Azure Data Catalog** has a simple but powerful search syntax that enables you to easily build queries that return the data the users need. For details about **Azure Data Catalog**, see Search syntax reference. 
+**Azure Data Catalog** has a simple but powerful search syntax that enables you to easily build queries that return the data the users need. For details about **Azure Data Catalog**, see Search syntax reference.
 
 **Azure Data Catalog** has the following search options:
 
@@ -118,9 +118,9 @@ In this example, you do a **Grouping** search for data assets where name equals 
 
 1.	Log into the **Azure Data Catalog** portal.
 2.	Click **Discover**.
-3.	In **Search** box, enter a **Grouping** query: (tags:description OR tags:photo). 
+3.	In **Search** box, enter a **Grouping** query: (tags:description OR tags:photo).
 4.	Click the search icon, or press Enter. **Azure Data Catalog** will display data assets for this search query.
-    
+
     ![search][8]
 
 In this exercise you used the **Azure Data Catalog** portal to discover and view data assets registered with the catalog.
@@ -151,9 +151,16 @@ In this exercise you will work with another user to add metadata to data assets 
 
 Ask a colleague to repeat the **Annotating Registered Data Sources** exercise above. After your colleague adds a description to a data asset, such as ProductPhoto, you will see multiple annotations.
 
+
+![crowdsource][13]
+
 In this exercise you explored Azure Data Catalog’s capabilities for crowdsourced metadata, where any catalog user can annotate the data assets he discovers.
-Exercise: Connecting to Data Sources
+
+
+## Exercise 6: Connecting to data sources
+
 In this exercise you will use the **Azure Data Catalog** portal to connect to data sources using Microsoft Excel.
+
 
 > [AZURE.NOTE] It’s important to remember that **Azure Data Catalog** doesn’t give users access to the actual data source – it simply makes it easier for users to discover and understand them. When users connect to a data source, the client application they choose will use their Windows credentials or will prompt them for credentials as necessary. If the user has not previously been granted access to the data source, he will need to be granted access before he can connect.
 
@@ -173,7 +180,7 @@ In this exercise you will use the **Azure Data Catalog** portal to connect to da
 
 In this exercise you connected to data sources discovered using Azure Data Catalog. The **Azure Data Catalog** portal allows users to connect directly using the client applications integrated into its **Open in…** menu, and allows users to connect using any application they choose using the connection location information included in the asset metadata.
 
-## Exercise 6: Removing data source metadata
+## Exercise 7: Removing data source metadata
 
 In this exercise you will use the **Azure Data Catalog** portal to remove preview data from registered data assets, and to delete data assets from the catalog.
 
@@ -190,7 +197,7 @@ In **Azure Data Catalog**, you can remove preview from delete individual asset o
 
 In this exercise you removed registered data assets from the catalog.
 
-## Exercise 7: Managing registered data sources
+## Exercise 8: Managing registered data sources
 
 In this exercise you will use the management capabilities of the **Azure Data Catalog** to take ownership of data assets and to control what users can discover and manage those assets.
 
@@ -211,19 +218,20 @@ In this exercise you explored the management capabilities of the catalog, and re
 
 ## Summary
 
-In this tutorial you explored essential capabilities of the **Azure Data Catalog** preview, including registering, annotating, discovering, and managing enterprise data sources. Now that you’ve completed the tutorial, it’s time to get started. You can begin today by registering the data sources you and your team rely on, and by inviting colleagues to use the catalog. 
+In this tutorial you explored essential capabilities of the **Azure Data Catalog** preview, including registering, annotating, discovering, and managing enterprise data sources. Now that you’ve completed the tutorial, it’s time to get started. You can begin today by registering the data sources you and your team rely on, and by inviting colleagues to use the catalog.
 
 
 <!--Image references-->
 [1]: ./media/data-catalog-get-started/register1.png
 [2]: ./media/data-catalog-get-started/register2.png
-[3]: ./media/data-catalog-get-started/register3.png 
+[3]: ./media/data-catalog-get-started/register3.png
 [4]: ./media/data-catalog-get-started/register4.png
-[5]: ./media/data-catalog-get-started/register5.png 
+[5]: ./media/data-catalog-get-started/register5.png
 [6]: ./media/data-catalog-get-started/register6.png
 [7]: ./media/data-catalog-get-started/register7.png
 [8]: ./media/data-catalog-get-started/search.png
 [9]: ./media/data-catalog-get-started/annotate.png
-[10]: ./media/data-catalog-get-started/connect1.png 
+[10]: ./media/data-catalog-get-started/connect1.png
 [11]: ./media/data-catalog-get-started/connect2.png
 [12]: ./media/data-catalog-get-started/ownership.png
+[13]: ./media/data-catalog-get-started/crowdsource.png

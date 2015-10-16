@@ -12,28 +12,20 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="04/24/2015" 
+    ms.date="07/29/2015" 
     ms.author="sidneyh" />
 
-# Scaling using the elastic database split-merge tool
+# Scaling using the Elastic Database split-merge tool
 
-Azure SQL Database offers a variety of ways to scale an application's data tier as business demands change.  Example situations include handling applications that go viral or particular tenants pushing a database to its limits. Options for scaling include: 
+If you choose not to use the simple model of allocating separate databases for each shardlet (tenant), your application may need to flexibly redistribute data among databases when capacity needs fluctuate. Elastic database tools includes a customer-hosted split-merge tool for rebalancing the data distribution and managing hotspots for sharded applications. It builds on an underlying capability for moving shardlets on demand between different databases and integrates with shard map management to maintain consistent mappings.
 
-* Elastic database pools allow databases within a pool to individually grow and shrink resources consumed based on demand, while maintaining a predictable total price for the pool as a whole. Databases can also be added or removed from the pool to support new or departing tenants. For more information, see [Azure SQL Database elastic pool (preview)](sql-database-elastic-pool.md). 
+The split-merge tool manages scale-in and scale-out; you can add or remove databases from your shard set and use the split-merge tool to rebalance the distribution of shardlets among them. (For term definitions, see [Elastic scale glossary](sql-database-elastic-scale-glossary.md)). 
 
-* Explicitly increasing or decreasing a database's resources by changing editions or performance tiers, manually or based on policy (see [Shard Elasticity](sql-database-elastic-scale-elasticity.md)) 
-
-* Changing the distribution of data among shards – often in conjunction with growing or shrinking the total number of databases for a shard set. This is known as split-merge, and is often needed when multiple end customers (tenants) are managed within the same shard. 
-
-This last scenario is addressed by the **elastic database split-merge tool**, and is important when the simpler alternatives of vertical scaling or simply adding a new database for a new tenant are insufficient. The split-merge tool manages scale-in and scale-out; you can add or remove databases from your shard set and use the split-merge tool to rebalance the distribution of shardlets among them. (For term definitions, see [Elastic scale glossary](sql-database-elastic-scale-glossary.md)). 
-
-With the current choices between Azure SQL Database tiers, capacity can also be managed by scaling up or down the capacity of a single Azure SQL DB database. The scale-up/down dimension of elastic capacity management is not covered by split-merge – see [Shard Elasticity](sql-database-elastic-scale-elasticity.md) instead. 
-
- 
 ## What's new in split-merge
 
-The most recent releases of the split-merge tool provides the following improvements: 
+The 1.1.0 release of the split-merge tool provides the ability to automatically clean up metadata from completed request. A configuration option controls how long this metadata is retained before it gets removed. 
 
+The 1.0.0 release of the split-merge tool provides the following improvements: 
 * .Net APIs are included to interface with split-merge – the web role is now optional 
 * Date and time types are now supported for sharding keys 
 * List shard maps are now supported. 

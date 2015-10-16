@@ -1,9 +1,9 @@
 <properties 
-	pageTitle="Using castLabs to deliver DRM licenses to Azure Media Services" 
+	pageTitle="Using castLabs to deliver Widevine licenses to Azure Media Services" 
 	description="This article describes how you can use Azure Media Services (AMS) to deliver a stream that is dynamically encrypted by AMS with both PlayReady and Widevine DRMs. The PlayReady license comes from Media Services PlayReady license server and Widevine license is delivered by castLabs license server." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="Juliako" 
+	authors="Mingfeiy,Juliako" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -13,11 +13,15 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/03/2015" 
+	ms.date="10/08/2015"  
 	ms.author="juliako"/>
 
 
-#Using castLabs to deliver DRM licenses to Azure Media Services
+#Using castLabs to deliver Widevine licenses to Azure Media Services
+
+> [AZURE.SELECTOR]
+- [Axinom](media-services-axinom-integration.md)
+- [castLabs](media-services-castlabs-integration.md)
 
 ##Overview
 
@@ -44,25 +48,24 @@ Both castLabs and AMS support JWT (JSON Web Token) token format used to authoriz
 
 The following table describes JWT token in AMS. 
 
-<table border="1">
-<tr><td>Issuer</td><td>Issuer string from the chosen Secure Token Service (STS)</td></tr>
-<tr><td>Audience</td><td>Audience string from the used STS</td></tr>
-<tr><td>Claims</td><td>A set of claims</td></tr>
-<tr><td>NotBefore</td><td>Start validity of the token</td></tr>
-<tr><td>Expires</td><td>End validity of the token</td></tr>
-<tr><td>SigningCredentials</td><td>The key that is shared among PlayReady License Server, castLabs License Server and STS, it could be either symmetric or asymmetric key.</td></tr>
-</table>
+Issuer|Issuer string from the chosen Secure Token Service (STS)
+---|---
+Audience|Audience string from the used STS
+Claims|A set of claims
+NotBefore|Start validity of the token
+Expires|End validity of the token
+SigningCredentials|The key that is shared among PlayReady License Server, castLabs License Server and STS, it could be either symmetric or asymmetric key.
 
 ###JWT token in castLabs
 
 The following table describes JWT token in castLabs. 
 
-<table border="1">
-<tr><td>optData</td><td>A JSON string containing information about you. </td></tr>
-<tr><td>crt</td><td>A JSON string containing information about the asset, its license info and playback rights.</td></tr>
-<tr><td>iat</td><td>The current datetime in epoch.</td></tr>
-<tr><td>jti</td><td>A unique identifier about this token (every token can only be used once in the castLabs system).</td></tr>
-</table> 
+Name|Description
+---|---
+optData|A JSON string containing information about you. 
+crt|A JSON string containing information about the asset, its license info and playback rights.
+iat|The current datetime in epoch.
+jti|A unique identifier about this token (every token can only be used once in the castLabs system).
 
 ##Sample solution set up 
 
@@ -113,3 +116,11 @@ For playing back the protected video in HTML5 with Chrome with the castLabs play
 2.	The castLab license server does not need the “Bearer=” prefix in front of the token. So please remove that before submitting the token.
 
  
+
+##Media Services learning paths
+
+You can view AMS learning paths here:
+
+- [AMS Live Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [AMS on Demand Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+

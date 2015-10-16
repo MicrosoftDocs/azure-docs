@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/08/2015" 
+	ms.date="09/23/2015" 
 	ms.author="tamram"/>
 
 # Use the Azure Storage Emulator for Development and Testing
@@ -89,7 +89,7 @@ You can use the storage emulator command-line tool to initialize the storage emu
 1. Click the **Start** button or press the **Windows** key. Begin typing `Azure Storage Emulator` and select it when it appears to bring up the storage emulator command-line tool.
 2. In the command prompt window, type the following command, where `<SQLServerInstance>` is the name of the SQL Server instance. To use LocalDb, specify `(localdb)\v11.0` as the SQL Server instance.
 
-		AzureStorageEmulator init /sqlInstance <SQLServerInstance> 
+		AzureStorageEmulator init /server <SQLServerInstance> 
     
 	You can also use the following command, which directs the emulator to use the default SQL Server instance:
 
@@ -143,7 +143,7 @@ Starting in version 3.0, when you launch the Storage Emulator, you will see a co
 
 ### Command Line Syntax
 
-	AzureStorageEmulator [/start] [/stop] [/status] [/clear] [/init] [/help]
+	AzureStorageEmulator [start] [stop] [status] [clear] [init] [help]
 
 ### Options
 
@@ -155,7 +155,7 @@ To view the list of options, type `/help` at the command prompt.
 | **Stop**   | Stops the storage emulator.                                    | `AzureStorageEmulator stop`                                                                                  |                                                                                                                   |
 | **Status** | Prints the status of the storage emulator.                     | `AzureStorageEmulator status`                                                                                |                                                                                                                   |
 | **Clear**  | Clears the data in all services specified on the command line. | `AzureStorageEmulator clear [blob] [table] [queue] [all]                                                    `| *blob*: Clears blob data. <br/>*queue*: Clears queue data. <br/>*table*: Clears table data. <br/>*all*: Clears all data in all services. |
-| **Init**   | Performs one-time initialization to set up the emulator.       | `AzureStorageEmulator.exe init [-server serverName] [-sqlinstance instanceName] [-forcecreate] [-inprocess]` | *-server serverName*: Specifies the server hosting the SQL instance. <br/>*-sqlinstance instanceName*: Specifies the name of the SQL instance to be used. <br/>*-forcecreate*: Forces creation of the SQL database, even if it already exists. <br/>*-inprocess*: Performs initialization in the current process instead of spawning a new process. This requires the current process to have been launched with elevated permissions.                                               |
+| **Init**   | Performs one-time initialization to set up the emulator.       | `AzureStorageEmulator.exe init [-server serverName] [-sqlinstance instanceName] [-forcecreate] [-inprocess]` | *-server serverName\instanceName*: Specifies the server hosting the SQL instance. <br/>*-sqlinstance instanceName*: Specifies the name of the SQL instance to be used in the default server instance. <br/>*-forcecreate*: Forces creation of the SQL database, even if it already exists. <br/>*-inprocess*: Performs initialization in the current process instead of spawning a new process. You must launch the current process with elevated permissions in order to perform initialization.          |
                                                                                                                   
 ## Differences between the storage emulator and Azure Storage
 
@@ -173,6 +173,8 @@ Because the storage emulator is an emulated enviroment running in a local SQL in
 
 - The File service and SMB protocol service endpoints are not currently supported in the storage emulator.
 
+- The storage emulator returns a VersionNotSupportedByEmulator error (HTTP status code 400 - Bad Request) if you use a version of the storage services that is not yet supported by the version of the emulator you are using.
+
 ### Differences for Blob storage 
 
 The following differences apply to Blob storage in the emulator:
@@ -180,6 +182,8 @@ The following differences apply to Blob storage in the emulator:
 - The storage emulator only supports blob sizes up to 2 GB.
 
 - A Put Blob operation may succeed against a blob that exists in the storage emulator and has an active lease, even if the lease ID has not been specified as part of the request. 
+
+- Append Blob operations are not supported by the emulator. Attempting an operation on an append blob returns a FeatureNotSupportedByEmulator error (HTTP status code 400 - Bad Request).
 
 ### Differences for Table storage 
 
@@ -199,9 +203,21 @@ There are no differences specific to Queue storage in the emulator.
 
 ## Storage emulator release notes
 
+### Version 4.2
+
+- The storage emulator now supports version 2015-04-05 of the storage services on Blob, Queue, and Table service endpoints.
+
+### Version 4.1
+
+- The storage emulator now supports version 2015-02-21 of the storage services on Blob, Queue, and Table service endpoints, with the exception of the new Append Blob features. 
+
+- The storage emulator now returns a meaningful error message if you use a version of the storage services that is not yet supported by that version of the emulator. We recommend using the latest version of the emulator. If you encounter a VersionNotSupportedByEmulator error (HTTP status code 400 - Bad Request), please download the latest version of the storage emulator.
+
+- Fixed a bug wherein a race condition caused table entity data to be incorrect during concurrent merge operations.
+
 ### Version 4.0
 
-The storage emulator executable has been rename to *AzureStorageEmulator.exe*.
+- The storage emulator executable has been renamed to *AzureStorageEmulator.exe*.
 
 ### Version 3.2
 - The storage emulator now supports version 2014-02-14 of the storage services on Blob, Queue, and Table service endpoints. Note that File service endpoints are not currently supported in the storage emulator. See [Versioning for the Azure Storage Services](https://msdn.microsoft.com/library/azure/dd894041.aspx) for details about version 2014-02-14.
@@ -215,7 +231,3 @@ The storage emulator executable has been rename to *AzureStorageEmulator.exe*.
 - The storage emulator graphical user interface is deprecated in favor of a scriptable command line interface. For details on the command line interface, see Storage Emulator Command-Line Tool Reference. The graphical interface will continue to be present in version 3.0, but it can only be accessed when the Compute Emulator is installed by right-clicking on the system tray icon and selecting Show Storage Emulator UI.
 
 - Version 2013-08-15 of the Azure storage services is now fully supported. (Previously this version was only supported by Storage Emulator version 2.2.1 Preview.)
-
-
-
- 

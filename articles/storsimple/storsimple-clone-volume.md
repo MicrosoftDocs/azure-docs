@@ -1,29 +1,27 @@
 <properties
-   pageTitle="Clone your StorSimple volume"
+   pageTitle="Clone your StorSimple volume | Microsoft Azure"
    description="Describes the different clone types and when to use them, and explains how you can use a backup set to clone an individual volume."
    services="storsimple"
    documentationCenter="NA"
    authors="alkohli"
-   manager="adinah"
-   editor="tysonn" />
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="05/27/2015"
+   ms.date="10/12/2015"
    ms.author="alkohli" />
 
-# Clone a StorSimple volume
+# Use the StorSimple Manager service to clone a volume
 
 ## Overview
 
-The **Backup Catalog** page displays all the backup sets that are created when manual or automated backups are taken. You can use this page to list all the backups for a backup policy or a volume, select or delete backups, or use a backup to restore or clone a volume.
+The StorSimple Manager service **Backup Catalog** page displays all the backup sets that are created when manual or automated backups are taken. You can use this page to list all the backups for a backup policy or a volume, select or delete backups, or use a backup to restore or clone a volume.
 
-  ![backup-catalog](./media/storsimple-clone-volume/HCS_BackupCatalog.png)  
-
-**Figure 1: Backup catalog**
+![Backup catalog page](./media/storsimple-clone-volume/HCS_BackupCatalog.png)  
 
 This tutorial describes how you can use a backup set to clone an individual volume. It also explains the difference between *transient* and *permanent* clones. 
 
@@ -31,23 +29,23 @@ This tutorial describes how you can use a backup set to clone an individual volu
 
 You can create a clone on the same device, another device, or even a virtual machine by using a local or a cloud snapshot.
 
-## To clone a volume
+#### To clone a volume
 
 1. On the StorSimple Manager service page, click the **Backup catalog** tab and select a backup set.
 
 2. Expand the backup set to view the associated volumes. Click and select a volume from the backup set.
 
-     ![Clone](./media/storsimple-clone-volume/HCS_Clone.png) 
+     ![Clone a volume](./media/storsimple-clone-volume/HCS_Clone.png) 
 
 3. Click **Clone** to begin cloning the selected volume.
 
 4. In the Clone Volume wizard, under **Specify name and location**:
 
-  1. Identify a target device. This is the location where the clone will be created. You can choose the same device or specify another device. If you choose a volume associated with other cloud service providers (not Azure), the dropdown list for the target device will only show physical devices. You cannot clone a volume associated with other cloud service providers on to a virtual device.
+  1. Identify a target device. This is the location where the clone will be created. You can choose the same device or specify another device. If you choose a volume associated with other cloud service providers (not Azure), the drop-down list for the target device will only show physical devices. You cannot clone a volume associated with other cloud service providers on a virtual device.
 
         >  [AZURE.NOTE] Make sure that the capacity required for the clone is lower than the capacity available on the target device.
   2. Specify a unique volume name for your clone. The name must contain between 3 and 127 characters.
-  3. Click the arrow icon ![arrow-icon](./media/storsimple-clone-volume/HCS_ArrowIcon.png)to proceed to the next page.
+  3. Click the arrow icon ![arrow-icon](./media/storsimple-clone-volume/HCS_ArrowIcon.png) to proceed to the next page.
 
 5. Under **Specify hosts that can use this volume**:
 
@@ -81,12 +79,17 @@ The following sections describe example situations in which transient and perman
 
 You need to recover a one-year-old Microsoft PowerPoint presentation file. Your IT administrator identifies the specific backup from that time frame, and then filters the volume. The administrator then clones the volume, locates the file that you are looking for, and provides it to you. In this scenario, a transient clone is used. 
  
+![Video available](./media/storsimple-clone-volume/Video_icon.png) **Video available**
+
+To watch a video that demonstrates how you can use the clone and restore features in StorSimple to recover deleted files, click [here](http://azure.microsoft.com/documentation/videos/storsimple-recover-deleted-files-with-storsimple/).
+
 ### Testing in the production environment with a permanent clone
 
 You need to verify a testing bug in the production environment. You create a clone of the volume in the production environment. For increased performance, you need to take a cloud snapshot of this clone. The cloned volume is now independent, which results in faster performance. In this scenario, a permanent clone is used.
 
 ## Next steps
-Learn how to [restore a StorSimple volume from a backup set](storsimple-restore-from-backup-set.md).
+- Learn how to [restore a StorSimple volume from a backup set](storsimple-restore-from-backup-set.md).
 
+- Learn how to [use the StorSimple Manager service to administer your StorSimple device](storsimple-manager-service-administration.md).
 
  

@@ -1,31 +1,30 @@
 <properties
 	pageTitle="Configure a custom domain name in Azure App Service (GoDaddy)"
 	description="Learn how to use a domain name from GoDaddy with Azure Web Apps"
-	services="app-service\web"
+	services="app-service"
 	documentationCenter=""
-	authors="MikeWasson"
+	authors="erikre"
 	manager="wpickett"
-	editor=""/>
+	editor="jimbe"/>
 
 <tags
-	ms.service="app-service-web"
-	ms.workload="web"
+	ms.service="app-service"
+	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/12/2015"
-	ms.author="mwasson"/>
+	ms.date="09/16/2015"
+	ms.author="erikre"/>
 
 # Configure a custom domain name in Azure App Service (Purchased directly from GoDaddy)
 
 [AZURE.INCLUDE [web-selector](../../includes/websites-custom-domain-selector.md)]
 
+[AZURE.INCLUDE [intro](../../includes/custom-dns-web-site-intro.md)]
+
+If you have purchased domain through Azure App Service Web Apps then refer to the final step of <a href="/documentation/articles/custom-dns-web-site-buydomains-web-app" title="Web Apps" class="current">Buy Domain for Web Apps</a> article. 
 
 [AZURE.INCLUDE [websites-cloud-services-css-guided-walkthrough](../../includes/websites-cloud-services-css-guided-walkthrough.md)]
-
-> [AZURE.NOTE] If you have purchased domain through Azure App Service Web Apps then refer to the final step of <a href="/documentation/articles/custom-dns-web-site-buydomains-web-app" title="Web Apps" class="current">Buy Domain for Web Apps</a> article. 
-
-[AZURE.INCLUDE [intro](../../includes/custom-dns-web-site-intro.md)]
 
 This article provides instructions on using a custom domain name that was purchased directly from [GoDaddy](https://godaddy.com) with [App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714).
 
@@ -35,7 +34,6 @@ This article provides instructions on using a custom domain name that was purcha
 ##Understanding DNS records
 
 [AZURE.INCLUDE [understandingdns](../../includes/custom-dns-web-site-understanding-dns-raw.md)]
-
 
 <a name="bkmk_configurecname"></a>
 ## Add a DNS record for your custom domain

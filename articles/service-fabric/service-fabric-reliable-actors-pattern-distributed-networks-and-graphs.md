@@ -1,9 +1,9 @@
-<properties
+﻿<properties
    pageTitle="Azure Service Fabric Actors Distributed Networks and Graphs design pattern"
    description="Design pattern on how Service Fabric Actors can be used to model application as distributed networks and graphs"
    services="service-fabric"
    documentationCenter=".net"
-   authors="jessebenson"
+   authors="vturecek"
    manager="timlt"
    editor=""/>
 
@@ -13,11 +13,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/17/2015"
-   ms.author="claudioc"/>
+   ms.date="08/11/2015"
+   ms.author="vturecek"/>
 
-# Service Fabric Actors design pattern: distributed networks and graphs
-Azure Fabric Service Actors is a natural fit for modeling complex solutions involving relations and modeling those relations as objects.  
+# Reliable Actors design pattern: distributed networks and graphs
+Service Fabric Reliable Actors is a natural fit for modeling complex solutions involving relations and modeling those relations as objects.  
 
 ![][1]
 
@@ -227,4 +227,3 @@ All it really does is leverage Reliable Actors' ability to allow any actor to ad
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-pattern-distributed-networks-and-graphs/distributedNetworks_arch1.png
 [2]: ./media/service-fabric-reliable-actors-pattern-distributed-networks-and-graphs/distributedNetworks_arch2.png
- 

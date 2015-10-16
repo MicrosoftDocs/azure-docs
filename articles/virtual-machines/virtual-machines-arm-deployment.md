@@ -1,22 +1,26 @@
-<properties 
-	pageTitle="Deploy Azure Resources Using the Compute, Network, and Storage .NET Libraries" 
-	description="Learn to use some of the available clients in the Compute, Storage, and Network .NET libraries to create and delete resources in Microsoft Azure" 
-	services="virtual-machines,virtual-network,storage" 
-	documentationCenter="" 
-	authors="davidmu1" 
-	manager="timlt" 
-	editor="tysonn"/>
+<properties
+	pageTitle="Deploy Resources Using .NET Libraries | Microsoft Azure"
+	description="Learn to use the Compute, Storage, and Network .NET libraries to create and delete resources in Microsoft Azure using the Resource Manager."
+	services="virtual-machines,virtual-network,storage"
+	documentationCenter=""
+	authors="davidmu1"
+	manager="timlt"
+	editor="tysonn"
+	tags="azure-resource-manager"/>
 
-<tags 
-	ms.service="multiple" 
-	ms.workload="multiple" 
-	ms.tgt_pltfrm="vm-windows" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="04/27/2015" 
+<tags
+	ms.service="virtual-machines"
+	ms.workload="multiple"
+	ms.tgt_pltfrm="vm-windows"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/28/2015"
 	ms.author="davidmu"/>
 
 # Deploy Azure Resources Using the Compute, Network, and Storage .NET Libraries
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] classic deployment model.
+
 
 This tutorial shows you how to use some of the available clients in the Compute, Storage, and Network .NET libraries to create and delete resources in Microsoft Azure. It also shows you how to authenticate the requests to Azure Resource Manager by using Azure Active Directory.
 
@@ -35,31 +39,23 @@ It takes about 30 minutes to do these steps.
 
 To use Azure AD to authenticate requests to Azure Resource Manager, an application must be added to the Default Directory. Do the following to add an application:
 
-1. Open an Azure PowerShell prompt, and then run this command:
+1. Open an Azure PowerShell prompt, and then run this command, and enter the credentials for your subscription when prompted:
 
-        Switch-AzureMode –Name AzureResourceManager
+	    Login-AzureRmAccount
 
-2. Set the Azure account that you want to use for this tutorial. Run this command and enter the credentials for your subscription when prompted:
+2. Replace {password} in the following command with the one that you want to use and then run it to create the application:
 
-	    Add-AzureAccount
+	    New-AzureRmADApplication -DisplayName "My AD Application 1" -HomePage "https://myapp1.com" -IdentifierUris "https://myapp1.com"  -Password "{password}"
 
-3. Replace {password} in the following command with the one that you want to use and then run it to create the application:
+	>[AZURE.NOTE] Take note of the application identifer that is returned after the application is created because you'll need it for the next step. You can also find the application identifier in the client id field of the application in the Active Directory section of the portal.
 
-	    New-AzureADApplication -DisplayName "My AD Application 1" -HomePage "https://myapp1.com" -IdentifierUris "https://myapp1.com"  -Password "{password}"
+3. Replace {application-id} with the identifier that you just recorded and then create the service principal for the application:
 
-4. Record the ApplicationId value in the response from the previous step. You will need it later in this tutorial:
+        New-AzureRmADServicePrincipal -ApplicationId {application-id}
 
-	![Create an AD application](./media/virtual-machines-arm-deployment/azureapplicationid.png)
+4. Set the permission to use the application:
 
-	>[AZURE.NOTE] You can also find the application identifier in the client id field of the application in the Management Portal.	
-
-5. Replace {application-id} with the identifier that you just recorded and then create the service principal for the application:
-
-        New-AzureADServicePrincipal -ApplicationId {application-id} 
-
-6. Set the permission to use the application:
-
-	    New-AzureRoleAssignment -RoleDefinitionName Owner -ServicePrincipalName "https://myapp1.com"
+	    New-AzureRmRoleAssignment -RoleDefinitionName Owner -ServicePrincipalName "https://myapp1.com"
 
 ## Step 2: Create a Visual Studio project and install the libraries
 
@@ -108,7 +104,7 @@ Now that the Azure Active Directory application is created and the authenticatio
           ClientCredential cc = new ClientCredential("{application-id}", "{password}");
             var context = new AuthenticationContext("https://login.windows.net/{tenant-id}");
             var result = context.AcquireToken("https://management.azure.com/", cc);
-          
+
           if (result == null)
           {
             throw new InvalidOperationException("Failed to obtain the JWT token");
@@ -141,7 +137,7 @@ Resources are always deployed to a resource group. You use the [ResourceGroup](h
 		public async static void CreateResourceGroup(TokenCloudCredentials credential)
 		{
 		  Console.WriteLine("Creating the resource group...");
-		  
+
           using (var resourceManagementClient = new ResourceManagementClient(credential))
 		  {
 		    var rgResult = await resourceManagementClient.ResourceGroups.CreateOrUpdateAsync("mytestrg1", new ResourceGroup { Location = "West US" });
@@ -169,7 +165,7 @@ A storage account is needed to store the virtual hard disk file that is created 
 		public async static void CreateStorageAccount(TokenCloudCredentials credential)
         {
           Console.WriteLine("Creating the storage account...");
-          
+
           using (var storageManagementClient = new StorageManagementClient(credential))
           {
             var saResult = await storageManagementClient.StorageAccounts.CreateAsync(
@@ -182,11 +178,11 @@ A storage account is needed to store the virtual hard disk file that is created 
         }
 
 3.	Add the following code to the Main method to call the method that you just added:
-		
+
 		CreateStorageAccount(credential);
 		Console.ReadLine();
 
-###Create a virtual network
+###Create networking configuration
 
 A virtual machine is most productive when it is added to a virtual network.
 
@@ -285,7 +281,7 @@ Now that you created all of the supporting resources, you can create a virtual m
                 Location = "West US"
               } );
             Console.WriteLine(avSetResponse.StatusCode);
-                
+
             var networkClient = new NetworkResourceProviderClient(credential);
             var nicResponse = await networkClient.NetworkInterfaces.GetAsync("mytestrg1", "mytestnic1");
 
@@ -334,7 +330,7 @@ Now that you created all of the supporting resources, you can create a virtual m
                   {
                     Name = "myosdisk1",
                     CreateOption = "FromImage",
-                    VirtualHardDisk = new VirtualHardDisk 
+                    VirtualHardDisk = new VirtualHardDisk
                     {
                       Uri = "http://mytestsa1.blob.core.windows.net/vhds/myosdisk1.vhd"
                     }
@@ -345,7 +341,7 @@ Now that you created all of the supporting resources, you can create a virtual m
           }
         }
 
-	>[AZURE.NOTE] Image vhd names change regularly in the image gallery, so you need to get a current image name to deploy the virtual machine. To do this, see [Manage Images Windows using Windows PowerShell](https://msdn.microsoft.com/library/azure/dn790330.aspx), and then replace {source-image-name} with the name of the vhd file that you want to use. For example,  "a699494373c04fc0bc8f2bb1389d6106__Windows-Server-2012-R2-201411.01-en.us-127GB.vhd". 
+	>[AZURE.NOTE] Image vhd names change regularly in the image gallery, so you need to get a current image name to deploy the virtual machine. To do this, see [Manage Images Windows using Windows PowerShell](https://msdn.microsoft.com/library/azure/dn790330.aspx), and then replace {source-image-name} with the name of the vhd file that you want to use. For example,  "a699494373c04fc0bc8f2bb1389d6106__Windows-Server-2012-R2-201411.01-en.us-127GB.vhd".
 
 	Replace {subscription-id} with the identifier of your subscription.
 
@@ -385,4 +381,4 @@ Because you are charged for resources used in Azure, it is always a good practic
 
 3. Browse to the Audit Logs in the Azure preview portal to see the status of the resources:
 
-	![Create an AD application](./media/virtual-machines-arm-deployment/crpportal.png) 
+	![Create an AD application](./media/virtual-machines-arm-deployment/crpportal.png)

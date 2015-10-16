@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/15/2015"
+	ms.date="09/28/2015" 
 	ms.author="juliako"/>
 
 #Azure Media Services Concepts 
 
 This topic gives an overview of the most important Media Services concepts.
 
-##<a id="assets"></a>Assets \ Storage
+##<a id="assets"></a>Assets and Storage
 
 ###Assets
 
@@ -79,7 +79,7 @@ Note, that the list permission (AccessPermissions.List) should not be used when 
 
 All access to Azure Storage is done through a storage account. A Media Service account can associate with one or more storage accounts. An account can contain an unlimited number of containers, as long as their total size is under 500TB per storage account.  Media Services provides SDK level tooling to allow you to manage multiple storage accounts and load balance the distribution of your assets during upload to these accounts based on metrics or random distribution. For more information, see Working with [Azure Storage](https://msdn.microsoft.com/library/azure/dn767951.aspx). 
 
-##Jobs \ tasks
+##Jobs and tasks
 
 A [job](https://msdn.microsoft.com/library/azure/hh974289.aspx) is typically used to process (for example, index or encode) one audio/video presentation. If you are processing multiple videos, create a job for each video to be encoded.
 
@@ -242,3 +242,10 @@ The following list describes different streaming formats and gives examples:
 		http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=f4m-f4f) 
 
  
+##Media Services learning paths
+
+You can view AMS learning paths here:
+
+- [AMS Live Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [AMS on Demand Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+

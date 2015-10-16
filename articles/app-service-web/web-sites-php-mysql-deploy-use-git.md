@@ -14,10 +14,18 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="article"
-	ms.date="04/29/2015"
+	ms.date="08/03/2015"
 	ms.author="tomfitz"/>
 
 #Create a PHP-MySQL web app in Azure App Service and deploy using Git
+
+> [AZURE.SELECTOR]
+- [.Net](web-sites-dotnet-get-started.md)
+- [Node.js](web-sites-nodejs-develop-deploy-mac.md)
+- [Java](web-sites-java-get-started.md)
+- [PHP - Git](web-sites-php-mysql-deploy-use-git.md)
+- [PHP - FTP](web-sites-php-mysql-deploy-use-ftp.md)
+- [Python](web-sites-python-ptvs-django-mysql.md)
 
 This tutorial shows you how to create a PHP-MySQL web app and how to deploy it to [App Service](http://go.microsoft.com/fwlink/?LinkId=529714) using Git. You will use [PHP][install-php], the MySQL Command-Line Tool (part of [MySQL][install-mysql]), a web server, and [Git][install-git] installed on your computer. The instructions in this tutorial can be followed on any operating system, including Windows, Mac, and  Linux. Upon completing this guide, you will have a PHP/MySQL web app running in Azure.
 
@@ -42,17 +50,11 @@ This tutorial assumes you have [PHP][install-php], the MySQL Command-Line Tool (
 Follow these steps to create a web app and a MySQL database:
 
 1. Login to the [Azure Portal][management-portal].
-2. Click the **New** icon on the bottom left of the portal.
-
-	![Create New Azure web app][new-website]
+2. Click the **New** icon.
 
 3. Click **Web + Mobile**, then **Azure Marketplace**. 
 
-	![Custom Create a new web app][custom-create]
-
 4. Click **Web Apps**, then **Web app + MySQL**. Then, click **Create**.
-
-	![](./media/web-sites-php-mysql-deploy-use-git/create_marketplace.png)
 
 4. Enter a valid name for your resource group.
 
@@ -67,8 +69,6 @@ Follow these steps to create a web app and a MySQL database:
 	![Create new MySQL database][new-mysql-db]
 
 7. When the web app has been created, you will see the new resource group. Click the name of the web app to configure its settings.
-
-	![Open web app][go-to-webapp]
 
 7. Click **Set up continuous deployment**.
 
@@ -261,6 +261,10 @@ To publish changes to your app, follow these steps:
 	![Azure PHP web site][running-app]
 
 >[AZURE.NOTE] If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
+
+## Next steps
+
+For more information, see the [PHP Developer Center](/develop/php/).
 
 ## What's changed
 * For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)

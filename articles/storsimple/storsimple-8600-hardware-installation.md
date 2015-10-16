@@ -1,9 +1,9 @@
 <properties 
-   pageTitle="Install your StorSimple 8600 device"
-   description="Describes how to unpack, rack mount, and cable your StorSimple 8600 device."
+   pageTitle="Install your StorSimple 8600 device | Microsoft Azure"
+   description="Describes how to unpack, rack mount, and cable your StorSimple 8600 device before you deploy and configure the software."
    services="storsimple"
    documentationCenter="NA"
-   authors="SharS"
+   authors="alkohli"
    manager="carolz"
    editor="" />
 <tags 
@@ -12,10 +12,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="07/08/2015"
-   ms.author="v-sharos" />
+   ms.date="09/23/2015"
+   ms.author="alkohli" />
 
-# Install your StorSimple 8600 device
+# Unpack, rack-mount, and cable your StorSimple 8600 device
 
 ## Overview
 Your Microsoft Azure StorSimple 8600 is a dual enclosure device and consists of a primary and an EBOD enclosure. This tutorial explains how to unpack, rack-mount, and cable the StorSimple 8600 device hardware before you configure the StorSimple software.
@@ -45,7 +45,7 @@ Next, complete the following steps to unpack your device.
 
     ![Unpack your storage device](./media/storsimple-8600-hardware-installation/HCSUnpackyour4Udevice.png) 
  
-    **Figure 1: Unpacked view of your storage device**
+    **Unpacked view of your storage device**
 
      Label | Description 
      ----- | -------------
@@ -116,7 +116,7 @@ A set of mounting rails will be provided for use with the 19-inch rack cabinet. 
 
     ![Attaching rail slides to enclosure chassis](./media/storsimple-8600-hardware-installation/HCSAttachingRailSlidestoEnclosureChassis.png) 
 
-    **Figure 2: Attaching rail slides to the sides of the enclosure**
+    **Attaching rail slides to the sides of the enclosure**
 
     Label | Description
     ----- | -----------
@@ -133,7 +133,7 @@ A set of mounting rails will be provided for use with the 19-inch rack cabinet. 
 
      ![Attaching rail slides to rack cabinet](./media/storsimple-8600-hardware-installation/HCSAttachingRailSlidestoRackCabinet.png) 
 
-    **Figure 3: Attaching rail assemblies to the rack**
+    **Attaching rail assemblies to the rack**
 
      Label | Description
      ----- | -----------
@@ -155,7 +155,7 @@ Using the rack rails that were just installed, perform the following steps to mo
 
     ![Inserting device in the rack](./media/storsimple-8600-hardware-installation/HCSInsertingDeviceintheRack.png)
 
-    **Figure 4: Mounting the enclosure in the rack**
+    **Mounting the enclosure in the rack**
 
 3. Secure the enclosure into the rack by installing one provided Phillips-head screw through each flange, left and right.
 
@@ -163,7 +163,7 @@ Using the rack rails that were just installed, perform the following steps to mo
 
      ![Installing flange caps](./media/storsimple-8600-hardware-installation/HCSInstallingFlangeCaps.png)
 
-    **Figure 5: Installing the flange caps**
+    **Installing the flange caps**
  
      Label | Description
      ----- | -----------
@@ -198,110 +198,17 @@ Before you begin to cable your device, you will need:
 - Provided serial cables
 - Serial-USB converter with the appropriate driver installed on your PC (if needed)
 - Provided single QSFP-to-SFP+ adapters for use with 10 GbE network interfaces
-- [Supported transceivers, cables, and switches for 10 GbE network interfaces](https://msdn.microsoft.com/library/azure/dn891474.aspx) 
+- [Supported hardware for 10 GbE network interfaces on your StorSimple device](storsimple-supported-hardware-for-10-gbe-network-interfaces.md) 
 
-### SAS cabling
+### SAS and Power cabling
 
-Your device has a primary and an EBOD enclosure. These enclosures need to be connected together using the SAS cables.
+Your device has both a primary enclosure and an EBOD enclosure. This requires the units to be cabled together for Serial Attached SCSI (SAS) connectivity and power.
 
-Next, identify the primary enclosure and the EBOD enclosure.
+When setting up this device for the first time, perform the steps for SAS cabling first and then complete the steps for power cabling.
 
-#### To identify primary and EBOD enclosures
+[AZURE.INCLUDE [storsimple-cable-8600-for-SAS](../../includes/storsimple-sas-cable-8600.md)]
 
-1. Identify the primary and the EBOD enclosures. The two enclosures can be identified by looking at the respective backplanes. See the following figure for guidance.
-
-    ![Primary and EBOD enclosure](./media/storsimple-8600-hardware-installation/HCSBackplaneofprimaryandEBODenclosure.png)
-
-    **Figure 6: Back of the primary and EBOD enclosures**
-
-     Label | Description
-     ----- | -----------
-     1     | Primary enclosure
-     2     | EBOD enclosure
-
-
-2. Locate the serial numbers on both the primary enclosure and the EBOD enclosure. The serial number sticker is affixed on the back ear of each enclosure. The serial numbers must be identical on both enclosures. Contact Microsoft Support immediately if the serial numbers do not match. See the following figure to help you locate the serial numbers.
-
-    ![Location of serial number](./media/storsimple-8600-hardware-installation/HCSRearviewofenclosureindicatinglocationofserialnumbersticker.png)
-
-    **Figure 7: Rear view of enclosure showing location of serial number**
-
-     Label | Description
-     ----- | -----------
-     1     | Ear of the enclosure
-
-
-Next, use the provided SAS cables to connect the EBOD enclosure to the primary enclosure.
-
-#### To connect the primary and EBOD enclosures
-
-1. Identify the four Serial Attached SCSI (SAS) ports on the primary enclosure and EBOD enclosure. The SAS ports are labeled as EBOD on the primary enclosure and CTRL on the EBOD enclosure, as shown in Figure 8.
-
-    ![Location of SAS ports](./media/storsimple-8600-hardware-installation/HCSSAScablingforyourdevice.png)
-
-    **Figure 8: Location of SAS ports on primary and EBOD enclosures**
-
-     Label | Description
-     ----- | -----------
-     A     | Primary enclosure
-     B     | EBOD enclosure
-     1     | Controller 0
-     2     | Controller 1
-     3     | EBOD controller 0
-     4     | EBOD controller 1
-     5,6   | SAS ports on primary enclosure (labeled EBOD)
-     7,8   | SAS ports on EBOD enclosure (labeled CTRL)
-
-2. Use the provided SAS cables to connect the EBOD ports to the CTRL ports. 
-
-    The EBOD port on controller 0 should be connected to the CTRL port on EBOD controller 0. The EBOD port on controller 1 should be connected to the CTRL port on EBOD controller 1. See Figure 8 for guidance.
-
-### Power cabling
-
-Both the primary and the EBOD enclosures include redundant Power and Cooling Modules (PCMs). In each enclosure, each PCM must be installed and connected to a different power source to ensure high availability. 
-
-Perform the following steps to cable your device for power.
-
-#### To cable for power
-
-1. Make sure that the power switches on all the PCMs are in the OFF position.
-
-2. For the primary enclosure, connect the power cords to both PCMs. The power cords are identified in red in the following diagram.
-
-3. Ensure that the two PCMs of the primary enclosure use separate power sources.
-
-4. Attach the power cords to the rack power distribution units as shown in the following figure. 
-
-5. Repeat steps 2 through 4 for the EBOD enclosure.
-
-6. Turn on the EBOD enclosure by flipping each PCM power switch to the ON position.
-
-7. Verify that the EBOD enclosure is turned on by checking that the EBOD controller LEDs (green LEDs on the back of the chassis) have turned ON.
-
-8. Now, turn on the primary enclosure by flipping each PCM switch to the ON position.
-
-9. Verify that the system is up by ensuring the device controller LEDs have turned ON.
-
-10. Verify that the connection between the EBOD controller and the device controller is active by checking the SAS LEDs (4 LEDs next to the SAS port) on the EBOD controller. The SAS LEDs should be green.
-
-> [AZURE.IMPORTANT] To ensure high availability of your system, you are advised to strictly adhere to the power cabling scheme shown in the following diagram.
-
-   ![Power cabling diagram](./media/storsimple-8600-hardware-installation/HCSCableYour4UDeviceforPower.png)
-
-   **Figure 9: Power cabling for your device**
-
-     Label | Description
-     ----- | -----------
-     1     | Primary enclosure
-     2     | PCM 0
-     3     | PCM 1
-     4     | Controller 0
-     5     | Controller 1
-     6     | EBOD controller 0
-     7     | EBOD controller 1
-     8     | EBOD enclosure
-     9     | PDUs
- 
+[AZURE.INCLUDE [storsimple-cable-8600-for-power](../../includes/storsimple-cable-8600-for-power.md)]
 
 ### Network cabling
 
@@ -315,7 +222,7 @@ To support this redundant controller failover, you need to cable your device net
 
      ![Backplane of 8600 device](./media/storsimple-8600-hardware-installation/HCSBackplaneof2UDevicewithPortsLabeled.jpg)
 
-    **Figure 10: Back of your device showing the data ports**
+    **Back of your device showing the data ports**
  
      Label   | Description
      ------- | -----------
@@ -336,7 +243,7 @@ At a minimum, configure one network interface for cloud access and one for iSCSI
 
 ![Cable your 4U device for network](./media/storsimple-8600-hardware-installation/HCSCableYour4UDeviceforNetwork.png)
 
-**Figure 11: Network cabling for your device**
+**Network cabling for your device**
 
 Label | Description
 ----- | -----------
@@ -358,7 +265,7 @@ Perform the following steps to cable your serial port.
 
 #### To cable for serial connection
 
-1. Your device has a serial port on each controller that is identified by a wrench icon. Refer to Figure 10 to locate the serial ports on the backplane of your device.
+1. Your device has a serial port on each controller that is identified by a wrench icon. To locate the serial ports, refer to the illustration that shows the data ports on the back of your device.
 
 2. Identify the active controller on your device backplane. A blinking blue LED indicates that the controller is active. 
 

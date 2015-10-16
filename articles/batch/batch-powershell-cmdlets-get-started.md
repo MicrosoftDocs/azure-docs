@@ -1,4 +1,4 @@
-<properties
+﻿<properties
    pageTitle="Get started with Azure Batch PowerShell cmdlets | Microsoft Azure"
    description="Introduces the Azure PowerShell cmdlets used to manage the Azure Batch service"
    services="batch"
@@ -13,18 +13,17 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="powershell"
    ms.workload="big-compute"
-   ms.date="07/08/2015"
+   ms.date="08/07/2015"
    ms.author="danlep"/>
 
 # Get started with Azure Batch PowerShell cmdlets
 This article is a quick introduction to the Azure PowerShell cmdlets you can use to manage your Batch accounts and get information about your Batch jobs, tasks, and other details.
 
 For detailed cmdlet syntax, type `get-help <Cmdlet_name>` or see the [Azure Batch cmdlet reference](https://msdn.microsoft.com/library/azure/mt125957.aspx).
-a
 
 ## Prerequisites
 
-* **Azure PowerShell** - See [How to install and configure Azure PowerShell](../powershell-install-configure.md) for prerequisites and download and installation instructions. Batch cmdlets were introduced in version 0.8.10 and later versions.
+* **Azure PowerShell** - See [How to install and configure Azure PowerShell](../powershell-install-configure.md) for prerequisites and download and installation instructions. Batch cmdlets were introduced in version 0.8.10 and later versions. The Batch cmdlets were updated to use the general availability API in version 0.9.6.
 
 ## Use the Batch cmdlets
 
@@ -40,6 +39,12 @@ Use standard procedures to start Azure PowerShell and [connect to your Azure sub
 
     ```
     Switch-AzureMode -Name AzureResourceManager
+    ```
+
+* **Register with the Batch provider namespace (one-time operation)** - Before you can manage your Batch accounts, you must register with the Batch provider namespace. This operation only needs to be performed once per subscription.
+
+    ```
+    Register-AzureProvider -ProviderNamespace Microsoft.Batch
     ```
 
 ## Manage Batch accounts and keys
@@ -113,26 +118,26 @@ Get-AzureBatchPool -BatchContext $context
 ```
 ### Use an OData filter
 
-You can supply an OData filter using the **Filter** parameter to find only the objects you’re interested in. For example, you can find all pools with names starting with “myPool”:
+You can supply an OData filter using the **Filter** parameter to find only the objects you’re interested in. For example, you can find all pools with ids starting with “myPool”:
 
 ```
-$filter = "startswith(name,'myPool')"
+$filter = "startswith(id,'myPool')"
 Get-AzureBatchPool -Filter $filter -BatchContext $context
 ```
 
 This method is not as flexible as using “Where-Object” in a local pipeline. However, the query gets sent to the Batch service directly so that all filtering happens on the server side, saving Internet bandwidth.
 
-### Use the Name parameter
+### Use the Id parameter
 
-An alternative to an OData filter is to use the **Name** parameter. To query for a specific pool named "myPool":
-
-```
-Get-AzureBatchPool -Name "myPool" -BatchContext $context
+An alternative to an OData filter is to use the **Id** parameter. To query for a specific pool with id "myPool":
 
 ```
-The **Name** parameter supports only full-name search, not wildcards or OData-style filters.
+Get-AzureBatchPool -Id "myPool" -BatchContext $context
 
-### Use the pipleline
+```
+The **Id** parameter supports only full-id search, not wildcards or OData-style filters.
+
+### Use the pipeline
 
 Batch cmdlets can leverage the PowerShell pipeline to send data between cmdlets. This has the same effect as specifying a parameter but makes listing multiple entities easier. For example, you can find all tasks under your account:
 

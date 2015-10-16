@@ -13,38 +13,42 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/08/2015" 
-	ms.author="bradyg;tarcher"/>
+	ms.date="10/08/2015" 
+	ms.author="tdykstra"/>
 
 # Debug an API App in Azure App Service
 
 ## Overview
 
-In this tutorial, you'll learn how to debug ASP.NET Web API code that is configured to run in an [API app](app-service-api-apps-why-best-platform.md) in [Azure App Service](../app-service/app-service-value-prop-what-is.md). You’ll debug both locally and remotely (while it runs in Azure). The tutorial works with the API app that you [create](app-service-dotnet-create-api-app.md) and [deploy](app-service-dotnet-deploy-api-app.md) in the previous tutorials in this series.
+In this tutorial, you debug ASP.NET Web API code that is configured to run in an [API app](app-service-api-apps-why-best-platform.md) in [Azure App Service](../app-service/app-service-value-prop-what-is.md). You debug the code while it is running locally and while it runs remotely in Azure. 
+
+The tutorial works with the API app that you [create](app-service-dotnet-create-api-app.md) and [deploy](app-service-dotnet-deploy-api-app.md) in the previous tutorials in this series.
 
 ## Debug an API app remotely 
 
-The following steps enable you to debug your API app while it runs in the cloud using the Swagger UI as the test client.
+To enable remote debugging, you have to deploy a debug build to Azure.
 
-1. In the Visual Studio **Solution Explorer**, right-click the project that you [deployed in the previous tutorial](app-service-dotnet-deploy-api-app.md), and select **Publish**.
+1. In the Visual Studio **Solution Explorer**, right-click the project that you deployed in [the previous tutorial](app-service-dotnet-deploy-api-app.md), and select **Publish**.
 
-	![Publish project](./media/app-service-api-dotnet-debug/rd-publish.png)
+2. In the **Publish Web** dialog, select the **Settings** tab and select the **Debug** build configuration.
 
-2. In the **Publish Web** dialog, select the Settings tab and verify that the **Debug** build configuration is selected. When finished, click **Publish** to push any changes to your Azure subscription.
+4. Click **Publish**.
 
 	![Publish project](./media/app-service-api-dotnet-debug/rd-debug-publish.png)
 
-3. A browser window should open and display a message confirming that your API app has been successfully created.
+	A browser window opens to the base URL of your API app.
 
-4. In the browser address bar, add /swagger to the end of the URL and press &lt;Enter>. This will display the Swagger UI client.
+4. In the browser address bar, add /swagger to the end of the URL and press Enter. 
+
+	This step assumes that you enabled the Swagger UI as directed in the [create](app-service-dotnet-create-api-app.md) tutorial.
 
 	![Swagger UI](./media/app-service-api-dotnet-debug/rd-swagger-ui.png)
 
-5. Return to Visual Studio, and from the **View** menu, select **Server Explorer**. 
+5. Return to Visual Studio, and click from **View > Server Explorer**. 
 
 6. In **Server Explorer**, expand the **Azure > App Service** node. 
 
-7. Locate the resource group that you created when you deployed your API app. 
+7. Locate the resource group that you created or selected when you deployed your API app. 
 
 8. Under the resource group, right-click the node for your API app and select **Attach Debugger**. 
 
@@ -54,20 +58,18 @@ The following steps enable you to debug your API app while it runs in the cloud 
 
 	![Attaching debugger](./media/app-service-api-dotnet-debug/rd-attaching.png)
 
-9. After the connection is established, open the **ContactsController.cs** file in the API App project, and add breakpoints at the `Get` and `Post` methods. They may not appear as active at first, but if the remote debugger is attached, you're ready to debug. 
+9. After the connection is established, open the **ContactsController.cs** file in the API App project, and add a breakpoint in the `Get` method.
 
 	![Applying breakpoints to controller](./media/app-service-api-dotnet-debug/rd-breakpoints.png)
 
-10. Return to the browser session, click the **Get** verb to display the schema for the *Contact* object, and then click **Try it Out**. If you set a breakpoint in the controller's **Get** method, Visual Studio will stop program execution, and you can debug your controller's logic. 
+10. Return to the browser session, click the **Get** verb to display the schema for the *Contact* object, and then click **Try it Out**. Visual Studio stops program execution at your breakpoint, and you can debug your controller's logic. 
 
 	![Try it out](./media/app-service-api-dotnet-debug/rd-try-it-out.png)
 
 ## Debug an API app locally 
 
-There may be times when you want to debug your API app locally; for example, to avoid potentially slow round-trips during your test/debug cycle. The following steps illustrate how to debug your API app locally using the Swagger UI  as the test client.
+There may be times when you want to debug your API app locally; for example, if round-trips to the Azure server make debugging slow. This section illustrates how to debug your API app locally using the Swagger UI  as the test client.
 
-1. In Visual Studio, open the API app project's *web.config* file. 
- 
 2. In your browser, navigate to the [Azure preview portal](https://portal.azure.com). 
 
 3. Click the **Browse** button on the sidebar and select **API Apps**. 
@@ -94,32 +96,30 @@ There may be times when you want to debug your API app locally; for example, to 
 
 	![API App Host Application Settings for Local Debug](./media/app-service-api-dotnet-debug/ld-app-settings-for-local-debugging.png)
 
-9. From **App settings**, locate each of the following values and add them to the *web.config* file's **appSettings** section.
+1. In Visual Studio, open the API app project's *web.config* file. 
+
+9. From **App settings**, add each of the following keys and values to the *web.config* file's **appSettings** section.
 	- **EMA\_MicroserviceId**
 	- **EMA\_Secret**
 	- **EMA\_RuntimeUrl**
 
-	When done, the **appSettings** section of your *web.config* should resemble the following screenshot.
+	When you're done, the **appSettings** section of your *web.config* should resemble the following screenshot.
 
 	![API App Host Application Settings for Local Debug](./media/app-service-api-dotnet-debug/ld-debug-settings.png)
 
-	**Note:** The *EMA_* values you added to your *web.config* file in this section contain sensitive authorization information. Therefore, it is recommended that you use caution when committing this file into a public source control medium (such as *github*) as these secrets will then be visible to others. See the article, [Best practices for deploying passwords and other sensitive data to ASP.NET and Azure App Service](http://www.asp.net/identity/overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure) for more information.   
+	**Note:** The *EMA_* values you added to your *web.config* file in this section contain sensitive authorization information. Therefore, it is recommended that you avoid saving these values in a public source control repository. For more information, see [Best practices for deploying passwords and other sensitive data to ASP.NET and Azure App Service](http://www.asp.net/identity/overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure).   
 
-10. Place one or more breakpoints in your API app's controller code (in the `Get` and `Post` methods).
-
-	![Setting breakpoints](./media/app-service-api-dotnet-debug/ld-breakpoints.png)
+10. Place a breakpoint in your API app's controller code in the `Get` method.
 
 11. Press F5 to start a Visual Studio debugging session.
  
 13.  If the API app's access level is set to **Public (anonymous)**, you can use the Swagger UI page to test.
 
-	* When the browser loads the page, you see an error message. Add */swagger* to the end of the URL in your browser's address bar and press Enter.
+	* When the browser loads the page, you see an HTTP 403 error page. Add */swagger* to the end of the URL in your browser's address bar and press Enter.
 
 	* Once the Swagger UI has loaded, click the **Get** verb on the browser window to display the schema for the Contact object, and then click **Try it Out**.
 
-		Visual Studio will now stop program execution on the breakpoints you set earlier, and you can debug your controller's logic. 
-
-		![Try it out](./media/app-service-api-dotnet-debug/ld-try-it-out.png)
+		Visual Studio stops program execution on your breakpoint, and you can debug your controller's logic. 
 
 14.	If the API app's access level is set to **Public (authenticated)**, you'll need to authenticate and use a browser tool following the procedures shown in [Protect an API app](app-service-api-dotnet-add-authentication.md#use-postman-to-send-a-post-request) for a Post request, that is:
 
@@ -132,9 +132,6 @@ There may be times when you want to debug your API app locally; for example, to 
 
 ## Next steps
 
-Remote debugging for API Apps makes it easier to see how your code is running in Azure App Service. Rich diagnostic and debugging data is available right in the Visual Studio IDE for Azure API apps. 
+In this tutorial, you've seen how to debug API Apps. 
 
-App Service API apps are App Service web apps that have additional features for hosting web services, so you can use the same debugging and troubleshooting tools for API apps that you use for web apps.  For more information, see [Troubleshoot a web app in Azure App Service using Visual Studio](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md). 
-
-The API app you created in this series is publicly available for anyone to call. For information about how to protect API apps so that only authenticated users can call them, see [Authentication for API apps and mobile apps in Azure App Service](../app-service/app-service-authentication-overview.md).
- 
+For more troubleshooting information, see [Troubleshoot a web app in Azure App Service using Visual Studio](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md). Because API apps are web apps that have additional features for hosting web services, you can use the same debugging and troubleshooting tools for API apps that you use for web apps.    

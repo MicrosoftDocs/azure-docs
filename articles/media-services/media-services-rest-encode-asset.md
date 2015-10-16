@@ -13,13 +13,17 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/28/2015" 
+	ms.date="09/07/2015"
 	ms.author="juliako"/>
 
 
 #How to encode an asset using Azure Media Encoder
 
-This article is part of the [Media Services Video on Demand workflow](media-services-video-on-demand-workflow.md) series. 
+
+> [AZURE.SELECTOR]
+- [.NET](media-services-dotnet-encode-asset.md)
+- [REST](media-services-rest-encode-asset.md)
+- [Portal](media-services-manage-content.md#encode)
 
 ##Overview
 In order to deliver digital video over the internet you must compress the media. Digital video files are quite large and may be too big to deliver over the internet or for your customers’ devices to display properly. Encoding is the process of compressing video and audio so your customers can view your media.
@@ -254,10 +258,18 @@ If successful, the following response is returned:
 
 
 
+##Media Services learning paths
+
+You can view AMS learning paths here:
+
+- [AMS Live Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [AMS on Demand Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
+
 ##Next Steps
 Now that you know how to create a job to encode an assset, go to the [How To Check Job Progress with Media Services](media-services-rest-check-job-progress.md) topic.
 
 
- ##See Also
+##See Also
 
 [Get Media Processors](media-services-rest-get-media-processor.md)

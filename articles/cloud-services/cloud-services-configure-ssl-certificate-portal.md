@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Configure SSL for a cloud service - Azure" 
-	description="Learn how to specify an HTTPS endpoint for a web role and how to upload an SSL certificate to secure your application." 
+	pageTitle="Configure SSL for a cloud service (preview portal) | Microsoft Azure" 
+	description="Learn how to specify an HTTPS endpoint for a web role and how to upload an SSL certificate to secure your application. These examples use the Azure preview portal." 
 	services="cloud-services" 
 	documentationCenter=".net" 
 	authors="Thraka" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/28/2015"
+	ms.date="09/22/2015"
 	ms.author="adegeo"/>
 
 
@@ -46,7 +46,7 @@ The certificate must meet the following requirements for SSL certificates in Azu
 -   The certificate's subject name must match the domain used to access the cloud service. You cannot obtain an SSL certificate from a certificate authority (CA) for the cloudapp.net domain. You must acquire a custom domain name to use when access your service. When you request a certificate from a CA the certificate's subject name must match the custom domain name used to access your application. For example, if your custom domain name is **contoso.com** you would request a certificate from your CA for ***.contoso.com** or **www.contoso.com**.
 -   The certificate must use a minimum of 2048-bit encryption.
 
-For test purposes, you can create and use a self-signed certificate. A self-signed certificate is not authenticated through a CA and can use the cloudapp.net domain as the website URL. For example, the task below uses a self-signed certificate in which  the common name (CN) used in the certificate is **sslexample.cloudapp.net**. For details about how to create a self-signed certificate using IIS Manager, See [How to create a certificate for a role][].
+For test purposes, you can [create](cloud-services-certs-create.md) and use a self-signed certificate. A self-signed certificate is not authenticated through a CA and can use the cloudapp.net domain as the website URL. For example, the task below uses a self-signed certificate in which  the common name (CN) used in the certificate is **sslexample.cloudapp.net**.
 
 Next, you must include information about the certificate in your service definition and service configuration files.
 
@@ -168,12 +168,11 @@ connect to it using HTTPS.
       
     >Create a certificate with the common name (CN) equal to the GUID-based URL (for example, **328187776e774ceda8fc57609d404462.cloudapp.net**), use the portal to add the certificate to your staged cloud service, add the certificate information to your CSDEF and CSCFG files, repackage your application, and update your staged deployment to use the new package and CSCFG file.
 
+[Azure Portal]: http://portal.azure.com/
+
 ## Next steps
 
-* [How to associate a certificate with a service][]
-* [How to configure an SSL certificate on an HTTPS endpoint][]
-
-[How to create a certificate for a role]: http://msdn.microsoft.com/library/azure/gg432987.aspx
-[How to associate a certificate with a service]: http://msdn.microsoft.com/library/azure/gg465718.aspx
-[How to configure an SSL certificate on an HTTPS endpoint]: http://msdn.microsoft.com/library/azure/ff795779.aspx
-[Azure Portal]: http://portal.azure.com/
+* [General configuration of your cloud service](cloud-services-how-to-configure-portal.md).
+* Learn how to [deploy a cloud service](cloud-services-how-to-create-deploy-portal.md).
+* Configure a [custom domain name](cloud-services-custom-domain-name-portal.md).
+* [Manage your cloud service](cloud-services-how-to-manage-portal.md).

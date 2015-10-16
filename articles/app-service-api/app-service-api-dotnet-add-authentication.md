@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/26/2015" 
+	ms.date="08/05/2015" 
 	ms.author="tdykstra"/>
 
 # Protect an API app: Add Azure Active Directory or social provider authentication
@@ -230,7 +230,11 @@ In this section you change the code in the ContactsList API app so that it retri
 	* "twitter"
 	* "facebook". 
 
-2. In the *ContactsController.cs* file, replace the code  in the `Get` method with the following code.
+3. In the *ContactsController.cs* file, add a `using` statement at the top of the file.
+
+		using Microsoft.Azure.AppService.ApiApps.Service;
+
+2. Replace the code  in the `Get` method with the following code.
 
 		var runtime = Runtime.FromAppSettings(Request);
 		var user = runtime.CurrentUser;

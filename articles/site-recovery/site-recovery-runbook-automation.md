@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.topic="article"
    ms.workload="required" 
-   ms.date="07/03/2015"
+   ms.date="10/07/2015"
    ms.author="ruturajd@microsoft.com"/>
 
   
@@ -163,19 +163,19 @@ Below is an example of how the context variable looks.
         }
 
 
-Table below contains name and description for each variable in the context.
-  
-<table border="1">
-  <tr><th>Variable name</th><th>Variable description</th></tr>
-  <tr><td>RecoveryPlanName</td><td>Name of the recovery plan being executed. <p> This variable can help you take different actions based on the Recovery Plan name using the same script.</td></tr>
-  <tr><td>FailoverType</td><td>Specifies whether the execution is **Test**, **Planned** or **Unplanned**. <p> This variable helps you take different actions based on the type of failover. </td></tr>
-  <tr><td>FailoverDirection</td><td>Specifies whether the recovery is from primary side to recovery or vice versa. <p>The two values it takes is **PrimaryToSecondary** and **SecondaryToPrimary** </td></tr>
-  <tr><td>GroupId</td><td> Identifies the group number within the recovery plan where the runbook is executing. <p> For example, if the runbook is post group 2, the GroupId will be 2. </td></tr>
-  <tr><td>VmMap</td><td> This is an array of all the virtual machines in the group. </td></tr>
-  <tr><td>VmMap key</td><td>Each virtual machine has a unique key identified by a GUID. This GUID is same as the VMM ID of the virtual machine. <p> You can use this GUID to deterministically specify which virtual machine you want to operate on. </td></tr>
-  <tr><td>RoleName</td><td>This specifies the name of the Azure virtual machine being recovered.</td></tr>
-  <tr><td>CloudServiceName</td><td> This specifies the Azure Cloud Service name under which the virtual machine is being created. </td></tr>
-  </table><br />
+The table below contains name and description for each variable in the context.
+
+**Variable name** | **Description**
+---|---
+RecoveryPlanName | Name of plan being run. Helps you take action based on name using the same script
+FailoverType | Specifies whether the failover is test, planned, or unplanned. 
+FailoverDirection | Specify whether recovery is to primary or secondary
+GroupID | Identify the group number within the recovery plan when the plan is running
+VmMap | Array of all the virtual machines in the group
+VMMap key | Unique key (GUID) for each VM. It's the same as the VMM ID of the virtual machine where applicable. 
+RoleName | Name of the Azure VM that's being recovered
+CloudServiceName | Azure Cloud Service name under which the virtual machine is created.
+
 
 To identify the VmMap Key in the context you could also go to the VM properties page in ASR and look at the VM GUID property.
 

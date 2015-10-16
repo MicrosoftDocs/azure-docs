@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/14/2015" 
+	ms.date="09/09/2015" 
 	ms.author="awills"/>
  
 # Monitor dependencies, exceptions and execution times in Java web apps
@@ -21,7 +21,11 @@
 
 If you have [instrumented your Java web app with Application Insights][java], you can use the Java Agent to get deeper insights, without any code changes:
 
-* **Remote dependencies:** Data about calls that your application makes through a [JDBC](http://docs.oracle.com/javase/7/docs/technotes/guides/jdbc/) driver, such as MySQL, SQL Server, PostgreSQL, or SQLite.
+
+* **Dependencies:** Data about calls that your application makes to other components, including:
+ * **REST calls** made via HttpClient, OkHttp and RestTemplate (Spring).
+ * **Redis** calls made via the Jedis client. If the call takes longer than 10s, the agent will also fetch the call arguments.
+ * **[JDBC calls](http://docs.oracle.com/javase/7/docs/technotes/guides/jdbc/)** - MySQL, SQL Server, PostgreSQL, SQLite, Oracle DB or Apache Derby DB. "executeBatch" calls are supported. For MySQL and PostgreSQL, if the call takes longer than 10s, the agent will report the query plan. 
 * **Caught exceptions:** Data about exceptions that are handled by your code.
 * **Method execution time:** Data about the time it takes to execute specific methods.
 
@@ -54,7 +58,14 @@ Set the content of the xml file. Edit the following example to include or omit t
       <Instrumentation>
         
         <!-- Collect remote dependency data -->
-        <BuiltIn enabled="true"/>
+        <BuiltIn enabled="true">
+           <!-- Disable Redis or alter threshold call duration above which arguments will be sent.
+               Defaults: enabled, 10000 ms -->
+           <Jedis enabled="true" thresholdInMS="1000"/>
+           
+           <!-- Set SQL query duration above which query plan will be reported (MySQL, PostgreSQL). Default is 10000 ms. -->
+           <MaxStatementQueryLimitInMS>1000</MaxStatementQueryLimitInMS>
+        </BuiltIn>
 
         <!-- Collect data about caught exceptions 
              and method execution times -->
@@ -86,6 +97,10 @@ By default, `reportExecutionTime` is true, `reportCaughtExceptions` is false.
 In the Application Insights resource, aggregated remote dependency and method exection times will appear [under the Performance tile][metrics]. 
 
 To search for individual instances of dependency, exception and method reports, open [Search][diagnostic]. 
+
+[Diagnosing dependency issues - learn more](app-insights-dependencies.md#diagnosis).
+
+
 
 ## Questions? Problems?
 

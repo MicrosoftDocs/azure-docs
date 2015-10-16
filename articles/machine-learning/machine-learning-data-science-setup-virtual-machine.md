@@ -1,11 +1,9 @@
 <properties
 	pageTitle="Set up a virtual machine as an IPython Notebook server | Microsoft Azure"
 	description="Set up an Azure Virtual Machine for use in a data science environment with IPython Server for advanced analytics."
-	metaKeywords=""
 	services="machine-learning"
-	solutions="" 
 	documentationCenter=""
-	authors="msolhab"
+	authors="bradsev"
 	manager="paulettm"
 	editor="cgronlun"  />
 
@@ -15,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/29/2015"
+	ms.date="10/13/2015"
 	ms.author="mohabib;xibingao;bradsev" />
 
 # Set up an Azure virtual machine as an IPython Notebook server for advanced analytics
@@ -26,9 +24,9 @@ This topic shows how to provision and configure an Azure virtual machine for adv
 
 If you already have an Azure virtual machine and just want to set up an IPython Notebook server on it, you can skip this step and proceed to [Step 2: Add an endpoint for IPython Notebooks to an existing virtual machine](#add-endpoint).
 
-Before starting the process of creating a virtual machine on Azure, you need to determine the size of the machine that is needed to process the data for their project. Smaller machines have less memory and fewer CPU cores than larger machines, but they are also less expensive. For a list of machine types and prices, see the [Virtual Machines Pricing](http://azure.microsoft.com/pricing/details/virtual-machines/) page
+Before starting the process of creating a virtual machine on Azure, you need to determine the size of the machine that is needed to process the data for their project. Smaller machines have less memory and fewer CPU cores than larger machines, but they are also less expensive. For a list of machine types and prices, see the <a href="http://azure.microsoft.com/pricing/details/virtual-machines/" target="_blank">Virtual Machines Pricing </a> page
 
-1. Log in to https://manage.windowsazure.com, and click **New** in the bottom left corner. A window will pop up. Select **COMPUTE** -> **VIRTUAL MACHINE** -> **FROM GALLERY**.
+1. Log in to <a href="https://manage.windowsazure.com" target="_blank">Azure Portal</a>, and click **New** in the bottom left corner. A window will pop up. Select **COMPUTE** -> **VIRTUAL MACHINE** -> **FROM GALLERY**.
 
 	![Create workspace][24]
 
@@ -41,15 +39,13 @@ Before starting the process of creating a virtual machine on Azure, you need to 
 
 	![Create workspace][25]
 
-3. Enter a name for the virtual machine you want to create, select the size of the machine based on the size of the data the machine is going to process and how powerful you want the machine to be (memory size and the number of compute cores), enter a user name and password for the machine. Then, click the arrow pointing right to go to the next configuration page.
+3. Enter a name for the virtual machine you want to create, select the size of the machine (Default: A3) based on the size of the data the machine is going to process and how powerful you want the machine to be (memory size and the number of compute cores), enter a user name and password for the machine. Then, click the arrow pointing right to go to the next configuration page.
 
 	![Create workspace][26]
 
-4. Select the **REGION/AFFINITY GROUP/VIRTUAL NETWORK** that contains the **STORAGE ACCOUNT** that you are planning to use for this virtual machine, and then select that storage account. Add an endpoint at the bottom in the **ENDPOINTS**  field by entering the name of the endpoint ("IPython" here). You can choose any string as the **NAME** of the end point, and any integer between 0 and 65536 that is **available** as the **PUBLIC PORT**. The **PRIVATE PORT** has to be **9999**. Users should **avoid** using public ports that have already been assigned for internet services. [Ports for Internet Services](http://www.chebucto.ns.ca/~rakerman/port-table.html) provides a list of ports that have been assigned and should be avoided.
+4. Select the **REGION/AFFINITY GROUP/VIRTUAL NETWORK** that contains the **STORAGE ACCOUNT** that you are planning to use for this virtual machine, and then select that storage account. Add an endpoint at the bottom in the **ENDPOINTS**  field by entering the name of the endpoint ("IPython" here). You can choose any string as the **NAME** of the end point, and any integer between 0 and 65536 that is **available** as the **PUBLIC PORT**. The **PRIVATE PORT** has to be **9999**. Users should **avoid** using public ports that have already been assigned for internet services. <a href="http://www.chebucto.ns.ca/~rakerman/port-table.html" target="_blank">Ports for Internet Services</a> provides a list of ports that have been assigned and should be avoided.
 
 	![Create workspace][27]
-
-	>[AZURE.NOTE] If the endpoint is added at this step,[Step 2: Add an endpoint for IPython Notebooks to an existing virtual machine](#add-endpoint) can be skipped.
 
 5. Click the check mark to start the virtual machine provisioning process.
 
@@ -70,18 +66,18 @@ If the virtual machine already exists, and you need to add an endpoint for IPyth
 
 ## <a name="run-commands"></a>Step 3: Install IPython Notebook and other supporting tools
 
-After the virtual machine is created, use Remote Desktop Protocol (RDP) to log on to the Windows virtual machine. For instructions, see [How to Log on to a Virtual Machine Running Windows Server](../virtual-machines-log-on-windows-server.md). Open the **Command Prompt** (**Not the Powershell command window**) as an Administrator and run the following command.
+After the virtual machine is created, use Remote Desktop Protocol (RDP) to log on to the Windows virtual machine. For instructions, see [How to Log on to a Virtual Machine Running Windows Server](../virtual-machines-log-on-windows-server.md). Open the **Command Prompt** (**Not the Powershell command window**) as an **Administrator** and run the following command.
 
     set script='https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/MachineSetup/Azure_VM_Setup_Windows.ps1'
 
 	@powershell -NoProfile -ExecutionPolicy unrestricted -Command "iex ((new-object net.webclient).DownloadString(%script%))"
 
-When the installation completes, the IPython Notebook server is launched automatically in the *C:\Users\&#60;user name>\Documents\IPython Notebooks* directory.
+When the installation completes, the IPython Notebook server is launched automatically in the *C:\\Users\\\<user name\>\\Documents\\IPython Notebooks* directory.
 
 When prompted, enter a password for the IPython Notebook and the password of the machine administrator. This enables the IPython Notebook to run as a service on the machine.
 
 ## <a name="access"></a>Step 4: Access IPython Notebooks from a web browser
-To access the IPython Notebook server, open a web browser, and input *https://&#60;virtual machine DNS name>:&#60;public port number>* in the URL text box. Here, the *&#60;public port number>* should  be the port number you specified when the IPython Notebook endpoint was added. If you choose *443* as the public port number, the IPython Notebook can be accessed without explicitly specifying the port number in the URL text box. Otherwise, the **&#60;public port number>* is required.
+To access the IPython Notebook server, open a web browser, and input *https://&#60;virtual machine DNS name>:&#60;public port number>* in the URL text box. Here, the *&#60;public port number>* should  be the port number you specified when the IPython Notebook endpoint was added. 
 
 The *&#60;virtual machine DNS name>* can be found at the management portal of Azure. After logging in to the management portal, click **VIRTUAL MACHINES**, select the machine you created, and then select **DASHBOARD**, the DNS name will be shown as follows:
 
@@ -129,7 +125,7 @@ The virtual machine will be deallocated but not deleted. You may restart your vi
 
 ## Your Azure VM is ready to use: what's next?
 
-Your virtual machine is now ready to use in your data science exercises. The virtual machine is also ready for use as an IPython Notebook server for the exploration and processing of data, and other tasks in conjunction with Azure Machine Learning and the Advanced Analytics Process and Technology (ADAPT).
+Your virtual machine is now ready to use in your data science exercises. The virtual machine is also ready for use as an IPython Notebook server for the exploration and processing of data, and other tasks in conjunction with Azure Machine Learning and the Cortana Analytics Process (CAP).
 
 The next steps in the Advanced Analytics Process and Technology are mapped in the [Learning Guide: Advanced data processing in Azure](machine-learning-data-science-advanced-data-processing.md) and may include steps that move data into HDInsight, process and sample it there in preparation for learning from the data with Azure Machine Learning.
 

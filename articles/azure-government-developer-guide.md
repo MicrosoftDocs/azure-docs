@@ -75,31 +75,19 @@ Currently, US GOV Iowa and US GOV Virginia are the data centers supporting Azure
 
 Use the following table to guide you when mapping public Microsoft Azure and SQL Database endpoints to Azure Government specific endpoints.
 
-<table>
-<tr style='font-weight:bold'><td>
-Service Type</td><td>	Azure Public</td><td>	Azure Government
-</td></tr><tr><td>
-Azure Government Home</td><td>	windowsazure.com	</td><td>microsoftazure.us
-</td></tr><tr><td>
-Management Portal</td><td>	manage.windowsazure.com</td><td>	manage.windowsazure.us
-</td></tr><tr><td>
-General</td><td>	*.windows.net	</td><td>*.usgovcloudapi.net
-</td></tr><tr><td>
-Core	</td><td>*.core.windows.net	</td><td>*.core.usgovcloudapi.net
-</td></tr><tr><td>
-Compute	</td><td>*.cloudapp.net	</td><td>*.usgovcloudapp.net
-</td></tr><tr><td>
-Blob Storage</td><td>	*.blob.core.windows.net</td><td>	*.blob.core.usgovcloudapi.net
-</td></tr><tr><td>
-Queue Storage	</td><td>*.queue.core.windows.net</td><td>	*.queue.core.usgovcloudapi.net
-</td></tr><tr><td>
-Table Storage</td><td>	*.table.core.windows.net	</td><td>*.table.core.usgovcloudapi.net
-</td></tr><tr><td>
-Service Management</td><td>	management.core.windows.net</td><td>	management.core.usgovcloudapi.net
 
-</td></tr>
-<tr><td>SQL Database</td><td>	*.database.windows.net	</td><td>*.database.usgovcloudapi.net</td></tr>
-</table> 
+Service Type|Azure Public|Azure Government
+---|---|---
+Azure Government Home|windowsazure.com|microsoftazure.us
+Management Portal|manage.windowsazure.com|manage.windowsazure.us
+General|*.windows.net|*.usgovcloudapi.net
+Core|*.core.windows.net|*.core.usgovcloudapi.net
+Compute|*.cloudapp.net|*.usgovcloudapp.net
+Blob Storage|*.blob.core.windows.net|	*.blob.core.usgovcloudapi.net
+Queue Storage|*.queue.core.windows.net|*.queue.core.usgovcloudapi.net
+Table Storage|*.table.core.windows.net|*.table.core.usgovcloudapi.net
+Service Management|management.core.windows.net|management.core.usgovcloudapi.net
+SQL Database|*.database.windows.net|*.database.usgovcloudapi.net
 
 ## <a name="next"></a>Next steps
 If you are interested in learning more and about Azure Government and how your organization can qualify to access, please go to <A href="http://azure.com/gov">http://www.azure.com/gov</a>

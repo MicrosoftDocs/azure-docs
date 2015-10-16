@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Get Started with Event Hubs"
-	description="Follow this tutorial to get started using Azure Event Hubs sending events with Java and receiving in C# using EventProcessorHost"
-	services="event-hubs,service-bus"
+	description="Follow this tutorial to get started using Azure Event Hubs; sending events with Java and receiving them in C# using the EventProcessorHost."
+	services="event-hubs"
 	documentationCenter=""
 	authors="fsautomata"
 	manager="timlt"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="csharp"
 	ms.devlang="csharp"
 	ms.topic="article"
-	ms.date="06/17/2015"
+	ms.date="07/21/2015"
 	ms.author="sethm"/>
 
 # Get started with Event Hubs
@@ -95,6 +95,7 @@ Now that you've built a working application that creates an Event Hub and sends 
 - The [Scale out Event Processing with Event Hubs] sample.
 - A [queued messaging solution] using Service Bus queues.
 
+For more information, see also the [Java Developer Center](/develop/java/).
 
 <!-- Images. -->
 [1]: ./media/event-hubs-java-ephcs-getstarted/create-event-hub1.png

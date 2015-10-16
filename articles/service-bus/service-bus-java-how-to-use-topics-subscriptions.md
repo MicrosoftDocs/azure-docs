@@ -1,5 +1,5 @@
 <properties
-	pageTitle="How to use Service Bus topics (Java) - Azure"
+	pageTitle="How to use Service Bus topics with Java | Microsoft Azure"
 	description="Learn how to use Service Bus topics and subscriptions in Azure. Code samples are written for Java applications."
 	services="service-bus"
 	documentationCenter="java"
@@ -13,21 +13,20 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="06/19/2015"
+	ms.date="10/07/2015"
 	ms.author="sethm"/>
 
-# How to use Service Bus topics/subscriptions
+# How to use Service Bus topics and subscriptions
 
-This guide describes how to use Service Bus topics and
-subscriptions. The samples are written in Java and use the [Azure SDK for Java][]. The scenarios covered include **creating topics
-and subscriptions**, **creating subscription filters**, **sending
-messages to a topic**, **receiving messages from a subscription**, and
+This guide describes how to use Service Bus topics and subscriptions. The samples are written in Java and use the [Azure SDK for Java][]. The scenarios covered include **creating topics and subscriptions**, **creating subscription filters**, **sending messages to a topic**, **receiving messages from a subscription**, and
 **deleting topics and subscriptions**.
 
 [AZURE.INCLUDE [service-bus-java-how-to-create-topic](../../includes/service-bus-java-how-to-create-topic.md)]
 
 ## Configure your application to use Service Bus
+
 Make sure you have installed the [Azure SDK for Java][] before building this sample. If you are using Eclipse, you can install the [Azure Toolkit for Eclipse][] that includes the Azure SDK for Java. You can then add the **Microsoft Azure Libraries for Java** to your project:
+
 ![](media/service-bus-java-how-to-use-topics-subscriptions/eclipselibs.png)
 
 Add the following import statements to the top of the Java file:
@@ -40,7 +39,7 @@ Add the following import statements to the top of the Java file:
 
 Add the Azure Libraries for Java to your build path and include it in your project deployment assembly.
 
-## How to create a topic
+## Create a topic
 
 Management operations for Service Bus topics can be performed via the
 **ServiceBusContract** class. A **ServiceBusContract** object is
@@ -49,8 +48,8 @@ SAS token with permissions to manage it, and the **ServiceBusContract** class is
 the sole point of communication with Azure.
 
 The **ServiceBusService** class provides methods to create, enumerate,
-and delete topics. The example below shows how a **ServiceBusService** object
-can be used to create a topic named "TestTopic", with a namespace named "HowToSample":
+and delete topics. The following example shows how a **ServiceBusService** object
+can be used to create a topic named `TestTopic`, with a namespace called `HowToSample`:
 
     Configuration config =
     	ServiceBusConfiguration.configureWithSASAuthentication(
@@ -73,9 +72,9 @@ can be used to create a topic named "TestTopic", with a namespace named "HowToSa
 	}
 
 There are methods on **TopicInfo** that enable properties of the topic to
-be tuned (for example: to set the default "time-to-live" value to be
+be tuned (for example: to set the default time-to-live (TTL) value to be
 applied to messages sent to the topic). The following example shows how
-to create a topic named "TestTopic" with a maximum size of 5GB:
+to create a topic named `TestTopic` with a maximum size of 5 GB:
 
     long maxSizeInMegabytes = 5120;  
 	TopicInfo topicInfo = new TopicInfo("TestTopic");  
@@ -86,9 +85,9 @@ Note that you can use the **listTopics** method on
 **ServiceBusContract** objects to check if a topic with a specified name
 already exists within a service namespace.
 
-## How to create subscriptions
+## Create subscriptions
 
-Topic subscriptions are also created with the **ServiceBusService**
+Subscriptions to topics are also created with the **ServiceBusService**
 class. Subscriptions are named and can have an optional filter that
 restricts the set of messages passed to the subscription's virtual
 queue.
@@ -112,13 +111,13 @@ You can also setup filters that allow you to scope which messages sent
 to a topic should show up within a specific topic subscription.
 
 The most flexible type of filter supported by subscriptions is the
-**SqlFilter**, which implements a subset of SQL92. SQL filters operate
+[SqlFilter][], which implements a subset of SQL92. SQL filters operate
 on the properties of the messages that are published to the topic. For
 more details about the expressions that can be used with a SQL filter,
-review the SqlFilter.SqlExpression syntax.
+review the [SqlFilter.SqlExpression][] syntax.
 
-The example below creates a subscription named "HighMessages" with a
-**SqlFilter** that only selects messages that have a custom
+The following example creates a subscription named `HighMessages` with a
+[SqlFilter][] object that only selects messages that have a custom
 **MessageNumber** property greater than 3:
 
     // Create a "HighMessages" filtered subscription  
@@ -132,11 +131,7 @@ The example below creates a subscription named "HighMessages" with a
     // Delete the default rule, otherwise the new rule won't be invoked.
     service.deleteRule("TestTopic", "HighMessages", "$Default");
 
-Similarly, the following example creates a subscription named
-"LowMessages" with
- a SqlFilter that only selects messages that have a MessageNumber
-property less
- than or equal to 3:
+Similarly, the following example creates a subscription named `LowMessages` with a [SqlFilter][] object that only selects messages that have a **MessageNumber** property less than or equal to 3:
 
     // Create a "LowMessages" filtered subscription
 	SubscriptionInfo subInfo = new SubscriptionInfo("LowMessages");
@@ -150,34 +145,31 @@ property less
     service.deleteRule("TestTopic", "LowMessages", "$Default");
 
 
-When a message is now sent to the "TestTopic", it will always be
-delivered to receivers subscribed to the "AllMessages" topic
-subscription, and selectively delivered to receivers subscribed to the
-"HighMessages" and "LowMessages" topic subscriptions (depending upon the
+When a message is now sent to `TestTopic`, it will always be
+delivered to receivers subscribed to the `AllMessages` subscription, and selectively delivered to receivers subscribed to the `HighMessages` and `LowMessages` subscriptions (depending upon the
 message content).
 
-## How to send messages to a topic
+## Send messages to a topic
 
 To send a message to a Service Bus Topic, your application will obtain a
-**ServiceBusContract** object. The below code demonstrates how to send a
-message for the "TestTopic" topic we created above within our
-"HowToSample" service namespace:
+**ServiceBusContract** object. The following code demonstrates how to send a
+message for the `TestTopic` topic created previously within the `HowToSample` namespace:
 
     BrokeredMessage message = new BrokeredMessage("MyMessage");
     service.sendTopicMessage("TestTopic", message);
 
 Messages sent to Service Bus Topics are instances of the
-**BrokeredMessage** class. **BrokeredMessage** objects have a set of
+[BrokeredMessage][] class. [BrokeredMessage][]* objects have a set of
 standard methods (such as **setLabel** and **TimeToLive**), a dictionary
 that is used to hold custom application specific properties, and a body
 of arbitrary application data. An application can set the body of the
 message by passing any serializable object into the constructor of the
-**BrokeredMessage**, and the appropriate **DataContractSerializer** will
+[BrokeredMessage][], and the appropriate **DataContractSerializer** will
 then be used to serialize the object. Alternatively, a
 **java.io.InputStream** can be provided.
 
 The following example demonstrates how to send five test messages to the
-"TestTopic" **MessageSender** we obtained in the code snippet above.
+`TestTopic` **MessageSender** we obtained in the code snippet above.
 Note how the **MessageNumber** property value of each message varies on
 the iteration of the loop (this will determine which subscriptions
 receive it):
@@ -309,7 +301,7 @@ application to handle duplicate message delivery. This is often achieved
 using the **getMessageId** method of the message, which will remain
 constant across delivery attempts.
 
-## How to delete topics and subscriptions
+## Delete topics and subscriptions
 
 The primary way to delete topics and subscriptions is to use a
 **ServiceBusContract** object. Deleting a topic will also delete any subscriptions that are registered
@@ -325,28 +317,12 @@ with the topic. Subscriptions can also be deleted independently.
 
 ## Next Steps
 
-Now that you've learned the basics of Service Bus queues, see the MSDN
-topic [Service Bus Queues, Topics, and Subscriptions][] for more information.
+Now that you've learned the basics of Service Bus queues, see [Service Bus queues, topics, and subscriptions][] for more information.
 
   [Azure SDK for Java]: http://azure.microsoft.com/develop/java/
   [Azure Toolkit for Eclipse]: https://msdn.microsoft.com/en-us/library/azure/hh694271.aspx
-  [What are Service Bus Topics and Subscriptions?]: #what-are-service-bus-topics
-  [Create a Service Namespace]: #create-a-service-namespace
-  [Obtain the Default Management Credentials for the Namespace]: #obtain-default-credentials
-  [Configure Your Application to Use Service Bus]: #bkmk_ConfigYourApp
-  [How to: Create a Topic]: #bkmk_HowToCreateTopic
-  [How to: Create Subscriptions]: #bkmk_HowToCreateSubscrip
-  [How to: Send Messages to a Topic]: #bkmk_HowToSendMsgs
-  [How to: Receive Messages from a Subscription]: #bkmk_HowToReceiveMsgs
-  [How to: Handle Application Crashes and Unreadable Messages]: #bkmk_HowToHandleAppCrash
-  [How to: Delete Topics and Subscriptions]: #bkmk_HowToDeleteTopics
-  [Next Steps]: #bkmk_NextSteps
-  [Service Bus Topics diagram]: ../../../DevCenter/Java/Media/SvcBusTopics_01_FlowDiagram.jpg
-  [Azure Management Portal]: http://manage.windowsazure.com/
-  [Service Bus Node screenshot]: ../../../DevCenter/dotNet/Media/sb-queues-03.png
-  [Create a New Namespace ]: ../../../DevCenter/dotNet/Media/sb-queues-04.png
-  [Namespace List screenshot]: ../../../DevCenter/dotNet/Media/sb-queues-05.png
-  [Properties Pane screenshot]: ../../../DevCenter/dotNet/Media/sb-queues-06.png
-  [Default Key screenshot]: ../../../DevCenter/dotNet/Media/sb-queues-07.png
-  [Service Bus Queues, Topics, and Subscriptions]: http://msdn.microsoft.com/library/hh367516.aspx
- 
+  [Azure portal]: http://manage.windowsazure.com/
+  [Service Bus queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
+  [SqlFilter]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.aspx 
+  [SqlFilter.SqlExpression]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
+  [BrokeredMessage]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx

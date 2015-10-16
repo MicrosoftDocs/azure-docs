@@ -3,7 +3,7 @@
     pageTitle="Troubleshoot RemoteApp cloud collections - creation"
     description="Learn how to troubleshoot RemoteApp cloud collection creation failures" 
     services="remoteapp" 
-    solutions="" documentationCenter="" 
+    documentationCenter="" 
     authors="vkbucha" 
     manager="mbaldwin" />
 
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="05/28/2015" 
+    ms.date="08/12/2015" 
     ms.author="vikbucha" />
 
 

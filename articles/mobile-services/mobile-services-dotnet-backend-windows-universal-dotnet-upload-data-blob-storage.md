@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Upload images to Azure Blob storage from a universal Windows app | Azure Mobile Services" 
+	pageTitle="Upload images to Azure Blob storage from a universal Windows app | Microsoft Azure" 
 	description="Learn how to use a .NET backend mobile service to upload images to Azure Blob Storage and access the images from your universal Windows app." 
 	documentationCenter="windows" 
 	authors="ggailey777" 

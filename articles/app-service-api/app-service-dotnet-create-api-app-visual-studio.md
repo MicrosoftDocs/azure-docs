@@ -3,7 +3,7 @@
 	description="Learn how to configure a Web API project as an API app, using Visual Studio 2013 " 
 	services="app-service\api" 
 	documentationCenter=".net" 
-	authors="tdykstra" 
+	authors="bradygaster" 
 	manager="wpickett" 
 	editor="jimbe"/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/19/2015" 
-	ms.author="bradyg;tarcher"/>
+	ms.date="08/14/2015" 
+	ms.author="tdykstra"/>
 
 # Configure a Web API project as an API app
 
@@ -24,17 +24,17 @@ This tutorial shows how to take an existing Web API project and configure it for
 
 For information about API apps, see [What are API apps?](app-service-api-apps-why-best-platform.md).
 
-[AZURE.INCLUDE [install-sdk-2013-only](../../includes/install-sdk-2013-only.md)]
+[AZURE.INCLUDE [install-sdk-2015-2013](../../includes/install-sdk-2015-2013.md)]
 
-This tutorial requires version 2.5.1 or later of the Azure SDK for .NET.
+This tutorial requires version 2.6 or later of the Azure SDK for .NET.
 
 ## Configure a Web API project 
 
 This section shows how to configure an existing Web API project as an API app. You'll begin by using the Web API project template to create a Web API project, and then you'll configure it as an API app.
 
-1. Open Visual Studio 2013.
+1. Open Visual Studio 2015 or Visual Studio 2013.
 
-2. Select **File > New Project**. 
+2. Click **File > New Project**. 
 
 3. Select the **ASP.NET Web Application** template.
 

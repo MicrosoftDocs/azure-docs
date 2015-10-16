@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Get started using Azure Data Factory"
-	description="This tutorial shows you how to create a sample data pipeline that copies data from a blob to an Azure SQL Database instance."
+	pageTitle="Tutorial: Use Copy Activity in an Azure Data Factory Pipeline"
+	description="This tutorial shows you how to use Copy Activity in an Azure Data Factory pipeline that to copy data from an Azure blob to an Azure SQL database."
 	services="data-factory"
 	documentationCenter=""
 	authors="spelluru"
@@ -12,11 +12,11 @@
 	ms.workload="data-services"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="hero-article" 
-	ms.date="07/17/2015"
+	ms.topic="article" 
+	ms.date="10/12/2015"
 	ms.author="spelluru"/>
 
-# Get started with Azure Data Factory
+# Tutorial: Copy data from an Azure blob to Azure SQL
 > [AZURE.SELECTOR]
 - [Tutorial Overview](data-factory-get-started.md)
 - [Using Data Factory Editor](data-factory-get-started-using-editor.md)
@@ -100,6 +100,9 @@ Do the following:
 - Click [Using Visual Studio](data-factory-get-started-using-vs.md) link at the top to perform the tutorial by using Visual Studio 2013.
  
 
+## Send Feedback
+We would really appreciate your feedback on this article. Please take a few minutes to submit your feedback via [email](mailto:adfdocfeedback@microsoft.com?subject=data-factory-get-started.md). 
+
 <!--Link references-->
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [azure-preview-portal]: https://portal.azure.com/
@@ -108,5 +111,4 @@ Do the following:
 [monitor-manage-using-powershell]: data-factory-monitor-manage-using-powershell.md
 [data-factory-introduction]: data-factory-introduction.md
 [data-factory-create-storage]: http://azure.microsoft.com/documentation/articles/storage-create-storage-account/#create-a-storage-account
-[data-factory-create-sql-database]: ../sql-database-create-configure.md
-
+[data-factory-create-sql-database]: ../sql-database-get-started.md 

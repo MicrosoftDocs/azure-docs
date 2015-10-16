@@ -13,7 +13,7 @@
 	ms.topic="reference" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="multiple" 
-	ms.date="05/05/2015" 
+	ms.date="07/28/2015" 
 	ms.author="luisca"/>
 
 
@@ -76,48 +76,11 @@ Sample output for the sample input above:
 
 which is a representation of the following table:
 
-<table cellspacing="0" border="1">
-<tr>
-   <th align="left" valign="middle">Time</th>
-   <th align="left" valign="middle">Data</th>
-   <th align="left" valign="middle">Tspike</th>
-   <th align="left" valign="middle">Zspike</th>
-   <th align="left" valign="middle">Martingale values</th>
-   <th align="left" valign="middle">Alert indicator</th>
-   <th align="left" valign="middle">Martingale values (2)</th>
-   <th align="left" valign="middle">Alert indicator (2)</th>
-   </tr>
-<tr>
-   <td valign="middle">9/21/2014 11:05</td>
-   <td valign="middle">3</td>
-   <td valign="middle">0</td>
-   <td valign="middle">0</td>
-   <td valign="middle">-0.687952591</td>
-   <td valign="middle">0</td>
-   <td valign="middle">-0.687952591</td>
-   <td valign="middle">0</td>
-   </tr>
-<tr>
-<td valign="middle">9/21/2014 11:10</td>
-   <td valign="middle">9.09</td>
-   <td valign="middle">0</td>
-   <td valign="middle">0</td>
-   <td valign="middle">-1.070304977</td>
-   <td valign="middle">0</td>
-   <td valign="middle">-0.884548154</td>
-   <td valign="middle">0</td>
-    </tr>
-<tr>
-<td valign="middle">9/21/2014 11:15</td>
-   <td valign="middle">0</td>
-   <td valign="middle">0</td>
-   <td valign="middle">0</td>
-   <td valign="middle">-1.051862374</td>
-   <td valign="middle">0</td>
-   <td valign="middle">-1.1738002814</td>
-   <td valign="middle">0</td>
-   </tr>
-   </table>
+Time|Data|Tspike|Zspike|Martingale values|Alert indicator|Martingale values (2)|Alert indicator (2)
+---|---|---|---|---|---|---|---
+9/21/2014 11:05|3|0|0|-0.687952591|0|-0.687952591|0|   
+9/21/2014 11:10|9.09|0|0|-1.070304977|0|-0.884548154|0|    
+9/21/2014 11:15|0|0|0|-1.051862374|0|-1.1738002814|0|   
    
 
 [1]: ./media/machine-learning-apps-anomaly-detection/anomaly-detection.jpg

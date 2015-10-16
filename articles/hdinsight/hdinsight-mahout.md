@@ -1,11 +1,12 @@
 <properties
-	pageTitle="Generate recommendations using Mahout and Hadoop | Microsoft Azure"
-	description="Learn how to use the Apache Mahout machine learning library to generate movie recommendations with HDInsight (Hadoop)."
+	pageTitle="Generate recommendations using Mahout and WIndows-based HDInsight | Microsoft Azure"
+	description="Learn how to use the Apache Mahout machine learning library to generate movie recommendations with Windows-based HDInsight (Hadoop)."
 	services="hdinsight"
 	documentationCenter=""
 	authors="Blackmist"
 	manager="paulettm"
-	editor=""/>
+	editor="cgronlun"
+	tags="azure-portal"/>
 
 <tags
 	ms.service="hdinsight"
@@ -13,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/16/2015"
+	ms.date="10/09/2015"
 	ms.author="larryfr"/>
 
 #Generate movie recommendations by using Apache Mahout with Hadoop in HDInsight
@@ -285,15 +286,7 @@ One of the classification methods available with Mahout is to build a [random fo
 
 ###Run the job
 
-1. This job requires the Hadoop command line, so you must first enable Remote Desktop through the [Azure portal][management]. In the portal, select your HDInsight cluster, and then select __Enable Remote__ at the bottom of the __Configuration__ page:
-
-    ![enable remote][enableremote]
-
-    When prompted, enter a user name and password to use for remote sessions.
-
-2. When remote access is enabled, select __Connect__ to begin the connection. This downloads an __.rdp__ file, which can be used to start a Remote Desktop session.
-
-    ![connect][connect]
+1. This job requires the Hadoop command line. Enable Remote Desktop for the HDInsight cluster, then connect to it by following the instructions at [Connect to HDInsight clusters using RDP](hdinsight-administer-use-management-portal.md#rdp).
 
 3. After connecting, use the __Hadoop Command Line__ icon to open the Hadoop command line:
 

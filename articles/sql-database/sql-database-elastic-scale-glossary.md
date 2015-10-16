@@ -13,10 +13,10 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="07/08/2015" 
+    ms.date="07/24/2015" 
     ms.author="sidneyh"/>
 
-#Elastic database tools glossary
+# Elastic Database tools glossary
 The following terms are defined for the Elastic Database tools, a feature of Azure SQL Database. The tools include the client library, the split-merge tool, elastic pools, and queries.
 
 ![Elastic Scale terms][1]

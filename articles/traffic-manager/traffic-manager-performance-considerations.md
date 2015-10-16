@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/17/2015"
+   ms.date="08/19/2015"
    ms.author="joaoma" />
 
 
@@ -28,7 +28,7 @@ This page will talk about the direct performance impact that Traffic Manager can
 
 ## Important note about how Traffic Manager works
 
-http://msdn.microsoft.com/en-us/library/windowsazure/hh744833.aspx is an excellent resource to learn how Traffic Manager works, but there is a lot of information on that page and picking out the key information relating to performance can be difficult.  The important points to look at in the MSDN documentation is step #5 and #6 from Image 3, which I will explain in more detail here:
+[Traffic Manager Overview](traffic-manager-overview.md) is an excellent resource to learn how Traffic Manager works, but there is a lot of information on that page and picking out the key information relating to performance can be difficult.  The important points to look at in the MSDN documentation is step #5 and #6 from Image 3, which I will explain in more detail here:
 
 - Traffic Manager essentially only does one thing – DNS resolution.  This means that the only performance impact that Traffic Manager can have on your website is the initial DNS lookup.
 - A point of clarification about the Traffic Manager DNS lookup.  Traffic Manager populates, and regularly updates, the normal Microsoft DNS root servers based on your policy and the probe results.  So even during the initial DNS lookup there is no involvement by Traffic Manager since the DNS request is handled by the normal Microsoft DNS root servers.  If Traffic Manager goes ‘down’ (ie. a failure in the VMs doing the policy probing and DNS updating) then there will be no impact to your Traffic Manager DNS name since the entries in the Microsoft DNS servers will still be preserved – the only impact will be that probing and updating based on policy will not happen (ie. if your primary site goes down, Traffic Manager will not be able to update DNS to point to your failover site).
@@ -85,9 +85,9 @@ Given the above information we know that the only performance impact that Traffi
 ## Next Steps
 
 
-[About Traffic Manager Load Balancing Methods](traffic-manager-load-balancing-methods.md)
+[About Traffic Manager traffic routing methods](traffic-manager-load-balancing-methods.md)
 
-[Traffic Manager Overview](../traffic-manmager-overview.md)
+[What is Traffic Manager?](../traffic-manmager-overview.md)
 
 [Cloud Services](http://go.microsoft.com/fwlink/?LinkId=314074)
 

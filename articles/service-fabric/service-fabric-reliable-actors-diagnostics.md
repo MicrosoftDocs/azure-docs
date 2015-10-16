@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Azure Service Fabric Actors Diagnostics and Performance Monitoring"
-   description="This article describes the diagnostics and performance monitoring features in the Fabric Actors runtime, including the events and performance counters emitted by it."
+   pageTitle="Reliable Actors Diagnostics and Performance Monitoring"
+   description="This article describes the diagnostics and performance monitoring features in the Reliable Actors runtime, including the events and performance counters emitted by it."
    services="service-fabric"
    documentationCenter=".net"
    authors="jessebenson"
@@ -13,21 +13,21 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/22/2015"
+   ms.date="08/05/2015"
    ms.author="abhisram"/>
 
-# Diagnostics and Performance Monitoring for Fabric Actors
-Fabric Actors runtime emits [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) events and [performance counters](https://msdn.microsoft.com/library/system.diagnostics.performancecounter.aspx) that provide insights into how the runtime is operating and help with troubleshooting and performance monitoring.
+# Diagnostics and Performance Monitoring for Reliable Actors
+Reliable Actors runtime emits [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) events and [performance counters](https://msdn.microsoft.com/library/system.diagnostics.performancecounter.aspx) that provide insights into how the runtime is operating and help with troubleshooting and performance monitoring.
 
 ## EventSource events
-The EventSource name for Fabric Actors runtime is "Microsoft-ServiceFabric-Actors". Events from this event source appear in the [Diagnostics Events](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md#view-service-fabric-system-events-in-visual-studio) window when the actor application is being [debugged in Visual Studio](service-fabric-debugging-your-application.md).
+The EventSource name for Reliable Actors runtime is "Microsoft-ServiceFabric-Actors". Events from this event source appear in the [Diagnostics Events](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md#view-service-fabric-system-events-in-visual-studio) window when the actor application is being [debugged in Visual Studio](service-fabric-debugging-your-application.md).
 
 Service Fabric also offers the option of directing these events to [Application Insights](http://azure.microsoft.com/services/application-insights/). For more information on this, please see the article on [Application Insights setup for Service Fabric](service-fabric-diagnostics-application-insights-setup.md).
 
 Other examples of tools and technologies that help in collecting and/or viewing EventSource events are [PerfView](http://www.microsoft.com/download/details.aspx?id=28567), [Azure Diagnostics](../cloud-services-dotnet-diagnostics.md), [Semantic Logging](https://msdn.microsoft.com/library/dn774980.aspx) and the [Microsoft TraceEvent Library](http://www.nuget.org/packages/Microsoft.Diagnostics.Tracing.TraceEvent).
 
 ### Keywords
-All events that belong to the Fabric Actors EventSource are associated with one or more keywords. This enables filtering of events that are collected. The following keywords bits are defined:
+All events that belong to the Reliable Actors EventSource are associated with one or more keywords. This enables filtering of events that are collected. The following keywords bits are defined:
 
 |Bit|Description|
 |---|---|
@@ -37,7 +37,7 @@ All events that belong to the Fabric Actors EventSource are associated with one 
 |0x8|Set of events related to turn-based concurrency in the actor. For more information, please see the topic on [concurrency](service-fabric-reliable-actors-introduction.md#concurrency).|
 
 ## Performance counters
-The Fabric Actors runtime defines the following performance counter categories.
+The Reliable Actors runtime defines the following performance counter categories.
 
 |Category|Description|
 |---|---|
@@ -88,7 +88,7 @@ In the example above, `ivoicemailboxactor.leavemessageasync` is the method name,
 ## List of events and performance counters
 
 ### Actor method events and performance counters
-The Fabric Actors runtime emits the following events related to [actor methods](service-fabric-reliable-actors-introduction.md#actors).
+The Reliable Actors runtime emits the following events related to [actor methods](service-fabric-reliable-actors-introduction.md#actors).
 
 |Event name|Event Id|Level|Keywords|Description|
 |---|---|---|---|---|
@@ -96,7 +96,7 @@ The Fabric Actors runtime emits the following events related to [actor methods](
 |ActorMethodStop|8|Verbose|0x2|An actor method has finished executing, i.e. the runtime's asynchronous call to the actor method has returned and the Task returned by the actor method has completed.|
 |ActorMethodThrewException|9|Warning|0x3|An exception was thrown during the execution of an actor method, either during the runtime's asynchronous call to the actor method or during the execution of the Task returned by the actor method. This event indicates some sort of failure in the actor code that needs investigation.|
 
-The Fabric Actors runtime publishes the following performance counters related to the execution of actor methods.
+The Reliable Actors runtime publishes the following performance counters related to the execution of actor methods.
 
 |Category name|Counter name|Description|
 |---|---|---|
@@ -105,34 +105,34 @@ The Fabric Actors runtime publishes the following performance counters related t
 |Service Fabric Actor Method|Exceptions thrown/Sec|Number of times the actor service method threw an exception per second|
 
 ### Concurrency events and performance counters
-The Fabric Actors runtime emits the following events related to [concurrency](service-fabric-reliable-actors-introduction.md#concurrency).
+The Reliable Actors runtime emits the following events related to [concurrency](service-fabric-reliable-actors-introduction.md#concurrency).
 
 |Event name|Event Id|Level|Keywords|Description|
 |---|---|---|---|---|
 |ActorMethodCallsWaitingForLock|12|Verbose|0x8|This event is written at the start of each new turn in an actor. It contains  the number of pending actor calls waiting to acquire the per-actor lock that enforces turn-based concurrency.|
 
-The Fabric Actors runtime publishes the following performance counters related to concurrency.
+The Reliable Actors runtime publishes the following performance counters related to concurrency.
 
 |Category name|Counter name|Description|
 |---|---|---|
 |Service Fabric Actor|# of actor calls waiting for actor lock|Number of pending actor calls waiting to acquire the per-actor lock that enforces turn-based concurrency.|
 
 ### Actor state management events and performance counters
-The Fabric Actors runtime emits the following events related to [actor state management](service-fabric-reliable-actors-introduction.md#actor-state-management).
+The Reliable Actors runtime emits the following events related to [actor state management](service-fabric-reliable-actors-introduction.md#actor-state-management).
 
 |Event name|Event Id|Level|Keywords|Description|
 |---|---|---|---|---|
 |ActorSaveStateStart|10|Verbose|0x4|Actors runtime is about to save actor state.|
 |ActorSaveStateStop|11|Verbose|0x4|Actors runtime has finished saving actor state.|
 
-The Fabric Actors runtime publishes the following performance counters related to actor state management.
+The Reliable Actors runtime publishes the following performance counters related to actor state management.
 
 |Category name|Counter name|Description|
 |---|---|---|
 |Service Fabric Actor|Average milliseconds per save state operation|Time taken to save actor state in milliseconds|
 
 ### Events related to stateless actor instances
-The Fabric Actors runtime emits the following events related to [stateless actor instances](service-fabric-reliable-actors-platform.md#service-fabric-partition-concepts-for-stateless-actors).
+The Reliable Actors runtime emits the following events related to [stateless actor instances](service-fabric-reliable-actors-platform.md#service-fabric-partition-concepts-for-stateless-actors).
 
 |Event name|Event Id|Level|Keywords|Description|
 |---|---|---|---|---|
@@ -140,7 +140,7 @@ The Fabric Actors runtime emits the following events related to [stateless actor
 |ServiceInstanceClose|4|Informational|0x1|Stateless actor instance closed. This implies that the actors for this partition will no longer be created inside this instance. No new requests will be delivered to actors already created within this instance. The actors will be destroyed after any in-progress requests are completed.|
 
 ### Events related to stateful actor replicas
-The Fabric Actors runtime emits the following events related to [stateful actor replicas](service-fabric-reliable-actors-platform.md#service-fabric-partition-concepts-for-stateful-actors).
+The Reliable Actors runtime emits the following events related to [stateful actor replicas](service-fabric-reliable-actors-platform.md#service-fabric-partition-concepts-for-stateful-actors).
 
 |Event name|Event Id|Level|Keywords|Description|
 |---|---|---|---|---|
@@ -148,10 +148,9 @@ The Fabric Actors runtime emits the following events related to [stateful actor 
 |ReplicaChangeRoleFromPrimary|2|Informational|0x1|Stateful actor replica changed role to non-Primary. This implies that the actors for this partition will no longer be created inside this replica. No new requests will be delivered to actors already created within this replica. The actors will be destroyed after any in-progress requests are completed.|
 
 ### Actor activation and deactivation events
-The Fabric Actors runtime emits the following events related to [actor activation and deactivation](service-fabric-reliable-actors-lifecycle.md).
+The Reliable Actors runtime emits the following events related to [actor activation and deactivation](service-fabric-reliable-actors-lifecycle.md).
 
 |Event name|Event Id|Level|Keywords|Description|
 |---|---|---|---|---|
 |ActorActivated|5|Informational|0x1|An actor has been activated.|
 |ActorDeactivated|6|Informational|0x1|An actor has been deactivated.|
- 

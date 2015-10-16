@@ -1,9 +1,7 @@
-#Enable HTTPS for a web app in Azure App Service
-
-> [AZURE.NOTE]
-> Get going faster--use the NEW Azure [guided walkthrough](http://support.microsoft.com/kb/2990804)!  It makes associating a custom domain name AND securing communication (SSL) with Azure Cloud Services or [App Service](http://go.microsoft.com/fwlink/?LinkId=529714) a snap.
 
 You can secure the communication between the web app and the browser with HTTPS, which uses Secure Socket Layer (SSL) encryption. This is the most commonly used method of securing data sent across the internet, and assures visitors that their transactions with your App are secure. This article discusses how to configure HTTPS for a web app in Azure App Service. This article does not cover client certificate authentication; for information about that, see [How To Configure TLS Mutual Authentication for Web Apps](../articles/app-service-web/app-service-web-configure-tls-mutual-auth.md).
+
+> [AZURE.NOTE] Get going faster--use the NEW Azure [guided walkthrough](http://support.microsoft.com/kb/2990804)!  It makes associating a custom domain name AND securing communication (SSL) with Azure Cloud Services or [App Service](http://go.microsoft.com/fwlink/?LinkId=529714) a snap.
 
 ##<a name="bkmk_azurewebsites"></a>HTTPS for the \*.azurewebsites.net domain
 
@@ -61,12 +59,11 @@ Certreq.exe is Windows utility for creating certificate requests. It has been pa
 		MachineKeySet = True
 		ProviderName = "Microsoft RSA SChannel Cryptographic Provider"
 		ProviderType = 12
-		RequestType = CMC
 
 		[EnhancedKeyUsageExtension]
 		OID=1.3.6.1.5.5.7.3.1
 
-	For more information on the options specified above, as well as other available options, see the [Certreq reference documentationn](http://technet.microsoft.com/library/cc725793.aspx).
+	For more information on the options specified above, as well as other available options, see the [Certreq reference documentation](http://technet.microsoft.com/library/cc725793.aspx).
 
 2. Save the text file as **myrequest.txt**.
 
@@ -175,7 +172,7 @@ You can now upload the exported PFX file to your Azure web app.
 	>
 	>
 	`````
-	openssl pkcs12 -export -out myserver.pfx -inkey myserver.key -in myserver.crt -certfile intermediate-cets.pem
+	openssl pkcs12 -chain -export -out myserver.pfx -inkey myserver.key -in myserver.crt -certfile intermediate-cets.pem
 	`````
 
 	After running this command, you should have a **myserver.pfx** file suitable for use with Azure App Service.
@@ -294,7 +291,7 @@ OpenSSL can be used to create a certificate request that uses the SubjectAltName
 	>
 	> 
 	`````
-	openssl pkcs12 -export -out myserver.pfx -inkey myserver.key -in myserver.crt -certfile intermediate-cets.pem
+	openssl pkcs12 -chain -export -out myserver.pfx -inkey myserver.key -in myserver.crt -certfile intermediate-cets.pem
 	`````
 
 	After running this command, you should have a **myserver.pfx** file suitable for use with Azure App Service.

@@ -1,28 +1,28 @@
-<properties 
-        pageTitle="Authenticate users of your iOS app with Azure Active Directory Single Sign-On" 
-        description="Learn how to log users into your iOS application with the Active Directory Authentication Library." 
-        documentationCenter="Mobile" 
-        authors="mattchenderson" 
-        services="app-service\mobile" 
+<properties
+        pageTitle="Authenticate users of your iOS app with Azure Active Directory Sign-On"
+        description="Learn how to log users into your iOS application with the Active Directory Authentication Library."
+        documentationCenter="Mobile"
+        authors="mattchenderson"
+        services="app-service\mobile"
         manager="dwrede" />
 
-<tags ms.service="app-service"
+<tags ms.service="app-service-mobile"
 ms.workload="mobile"
-ms.tgt_pltfrm="mobile-ios" 
-ms.devlang="objective-c" 
-ms.topic="article" 
-ms.date="05/19/2015" 
+ms.tgt_pltfrm="mobile-ios"
+ms.devlang="objective-c"
+ms.topic="article"
+ms.date="09/14/2015"
 ms.author="mahender" />
 
-# Add Azure Active Directory single sign-on to your iOS app
+# Add Azure Active Directory sign-on to your iOS app
 
 [AZURE.INCLUDE [app-service-mobile-selector-aad-sso](../../includes/app-service-mobile-selector-aad-sso.md)]
 
 [AZURE.INCLUDE [app-service-mobile-note-mobile-services-preview](../../includes/app-service-mobile-note-mobile-services-preview.md)]
 
-In this tutorial, you add authentication to the quickstart project using the Active Directory Authentication Library.
+In this tutorial, you add authentication to the quickstart project using the Active Directory Authentication Library (ADAL). You can also enable authentication with less configuration by just using the Mobile Apps SDK, as covered in the [Add authentication to your app] tutorial. Using this topic on ADAL provides a more integrated authentication experience for end users, and ADAL provides richer capabilities for accessing other AAD-protected resources.
 
-To be able to authenticate users, you must register your application with your Azure Active Directory (AAD) tenant. This is done in two steps. First, you must register your App Service and expose permissions on it. Second, you must register your iOS app and grant it access to those permissions.
+To be able to authenticate users using ADAL, you must register your application with your Azure Active Directory (AAD) tenant. This is done in two steps. First, you must register your App Service and expose permissions on it. Second, you must register your iOS app and grant it access to those permissions.
 
 This tutorial requires the following:
 
@@ -33,7 +33,7 @@ This tutorial requires the following:
 
 ##<a name="review"></a>Review your server project configuration (optional)
 
-[AZURE.INCLUDE [app-service-mobile-dotnet-backend-enable-auth-preview](../../includes/app-service-mobile-dotnet-backend-enable-auth-preview.md)] 
+[AZURE.INCLUDE [app-service-mobile-dotnet-backend-enable-auth-preview](../../includes/app-service-mobile-dotnet-backend-enable-auth-preview.md)]
 
 ## <a name="register-application"></a>Register your application with the Azure Active Directory
 
@@ -41,7 +41,7 @@ This tutorial requires the following:
 
 ## <a name="require-authentication"></a>Configure the application to require authentication
 
-[AZURE.INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)] 
+[AZURE.INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
 
 ## <a name="add-adal"></a>Add a reference to the Active Directory Authentication Library
 
@@ -121,4 +121,4 @@ You will now be able to reference the Active Directory Authentication Library in
 [Azure Management Portal]: https://manage.windowsazure.com/
 [Active Directory Authentication Library for iOS]: https://github.com/MSOpenTech/azure-activedirectory-library-for-ios
  [Get started with Mobile Apps]: app-service-mobile-dotnet-backend-ios-get-started-preview.md
- 
+ [Add authentication to your app]: app-service-mobile-dotnet-backend-ios-get-started-users-preview.md

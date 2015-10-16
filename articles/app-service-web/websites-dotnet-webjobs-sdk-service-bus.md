@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="06/29/2015" 
+	ms.date="09/22/2015" 
 	ms.author="tdykstra"/>
 
 # How to use Azure Service Bus with the WebJobs SDK
@@ -36,7 +36,7 @@ The code snippets only show functions, not the code that creates the `JobHost` o
 
 To work with Service Bus you have to install the [Microsoft.Azure.WebJobs.ServiceBus](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus/) NuGet package in addition to the other WebJobs SDK packages. 
 
-You also have to set the AzureWebJobsServiceBus connection string in addition to the storage connection strings.  You can do this in the `connectionStrings` section of the Web.config file, as shown in the following example:
+You also have to set the AzureWebJobsServiceBus connection string in addition to the storage connection strings.  You can do this in the `connectionStrings` section of the App.config file, as shown in the following example:
 
 		<connectionStrings>
 		    <add name="AzureWebJobsDashboard" connectionString="DefaultEndpointsProtocol=https;AccountName=[accountname];AccountKey=[accesskey]"/>
@@ -44,7 +44,9 @@ You also have to set the AzureWebJobsServiceBus connection string in addition to
 		    <add name="AzureWebJobsServiceBus" connectionString="Endpoint=sb://[yourServiceNamespace].servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=[yourKey]"/>
 		</connectionStrings>
 
-For a sample project, see [Service Bus example](https://github.com/Azure/azure-webjobs-sdk-samples/tree/master/BasicSamples/ServiceBus). For more information, see [Get Started with the WebJobs SDK](websites-dotnet-webjobs-sdk-get-started.md).
+For a sample project that includes the Service Bus connection string setting in the App.config file, see [Service Bus example](https://github.com/Azure/azure-webjobs-sdk-samples/tree/master/BasicSamples/ServiceBus). 
+
+The connection strings can also be set in the Azure runtime environment, which then overrides the App.config settings when the WebJob runs in Azure; for more information, see [Get Started with the WebJobs SDK](websites-dotnet-webjobs-sdk-get-started.md#configure-the-web-app-to-use-your-azure-sql-database-and-storage-account).
 
 ## <a id="trigger"></a> How to trigger a function when a Service Bus queue message is received
 
@@ -79,6 +81,13 @@ The SDK will automatically deserialize a queue message that contains JSON for a 
 		}
 
 For code samples showing how to use properties of the POCO to work with blobs and tables in the same function, see the [storage queues version of this article](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#pocoblobs).
+
+If your code that creates the queue message doesn't use the WebJobs SDK, use code similar to the following example:
+
+		var client = QueueClient.CreateFromConnectionString(ConfigurationManager.ConnectionStrings["AzureWebJobsServiceBus"].ConnectionString, "blobadded");
+		BlobInformation blobInformation = new BlobInformation () ;
+		var message = new BrokeredMessage(blobInformation);
+		client.Send(message);
 
 ### Types ServiceBusTrigger works with
 

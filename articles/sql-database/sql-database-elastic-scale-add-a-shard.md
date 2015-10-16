@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/15/2015" 
+	ms.date="07/24/2015" 
 	ms.author="sidneyh"/>
 
-# Adding a shard using elastic database tools
+# Adding a shard using Elastic Database tools
 
 ## To add a shard for a new range or key  
 
@@ -41,6 +41,7 @@ In the sample below, a database named **sample_shard_2** and all necessary schem
                             (new Range<long>(300, 400), shard2, MappingStatus.Online)); 
 
 
+As an alternative, you can use Powershell to create a new Shard Map Manager. An example is available [here](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-DB-Elastic-731883db).
 ## To add a shard for an empty part of an existing range  
 
 In some circumstances, you may have already mapped a range to a shard and partially filled it with data, but you now want upcoming data to be directed to a different shard. For example, you shard by day range and have already allocated 50 days to a shard, but on day 24, you want future data to land in a different shard. The elastic database [split-merge tool](sql-database-elastic-scale-overview-split-and-merge.md) can perform this operation, but if data movement is not necessary (for example, data for the range of days [25, 50), i.e., day 25 inclusive to 50 exclusive, does not yet exist) you can perform this entirely using the Shard Map Management APIs directly.

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/14/2015" 
+	ms.date="08/30/2015" 
 	ms.author="bradsev" />
 
 
@@ -41,7 +41,7 @@ Figure 1. The **Execute Python Script** module.
 The [Execute Python Script][execute-python-script] module accepts up to three inputs and produces up to two outputs (discussed below), just like its R analogue, the [Execute R Script][execute-r-script] module. The Python code to be executed is entered into the parameter box as a specially-named entry-point function called `azureml_main`. Here are the key design principles used to implement this module:
 
 1.	*Must be idiomatic for Python users.* Most Python users factor their code as functions inside modules, so putting a lot of executable statements in a top-level module is relatively rare. As a result, the script box also takes a specially named Python function as opposed to just a sequence of statements. The objects exposed in the function are standard Python library types such as [Pandas](http://pandas.pydata.org/) data frames and [NumPy](http://www.numpy.org/) arrays.
-2.	*Must have high-fidelity between local and cloud executions.* The backend used to execute the Python code is based on [Anaconda](https://store.continuum.io/cshop/anaconda/) 2.1, a widely-used cross-platform scientific Python distribution. It comes with close to 200 of the most common Python packages. Therefore, a data scientist can debug and qualify their code on his or her local Azure Machine Learning compatible Anaconda environment using existing development environments such as [IPython](http://ipython.org/) notebook or [Python Tools for Visual Studio](http://pytools.codeplex.com/) and run it as part of an Azure Machine Learning experiment with high confidence. Further, the `azureml_main` entry point is a vanilla Python function and can be authored without Azure Machine Learning specific code or the SDK installed.
+2.	*Must have high-fidelity between local and cloud executions.* The backend used to execute the Python code is based on [Anaconda](https://store.continuum.io/cshop/anaconda/) 2.1, a widely-used cross-platform scientific Python distribution. It comes with close to 200 of the most common Python packages. Therefore, a data scientist can debug and qualify their code on his or her local Azure Machine Learning compatible Anaconda environment using existing development environments such as [IPython](http://ipython.org/) notebook or [Python Tools for Visual Studio] and run it as part of an Azure Machine Learning experiment with high confidence. Further, the `azureml_main` entry point is a vanilla Python function and can be authored without Azure Machine Learning specific code or the SDK installed.
 3.	*Must be seamlessly composable with other Azure Machine Learning modules.* The [Execute Python Script][execute-python-script] module accepts, as inputs and outputs, standard Azure Machine Learning datasets. The underlying framework transparently and efficiently bridges the Azure Machine Learning and Python runtimes (supporting features such as missing values). Python can therefore be used in conjunction with existing Azure Machine Learning workflows, including those that call into R and SQLite. One can therefore envisage workflows that:
   * use Python and Pandas for data pre-processing and cleaning, 
   * feed the data to a SQL transformation, joining multiple datasets to form features, 
@@ -172,8 +172,11 @@ The [Execute Python Script][execute-python-script] module allows a data scientis
 
 Over the coming months, we expect to provide additional functionality to the [Execute Python Script][execute-python-script] module such as the ability to train and operationalize models in Python and to add better support for the development and debugging code in Azure Machine Learning Studio.
 
+## Next steps
+
+For more information, see the [Python Developer Center](/develop/python/).
 
 <!-- Module References -->
 [execute-python-script]: https://msdn.microsoft.com/library/azure/cdb56f95-7f4c-404d-bde7-5bb972e6f232/
 [execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
- 
+[Python Tools for Visual Studio]: http://aka.ms/ptvs

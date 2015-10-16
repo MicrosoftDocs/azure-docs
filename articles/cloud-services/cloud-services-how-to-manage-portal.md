@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="How to manage a cloud service - Azure" 
-	description="Learn how to manage cloud services in the Azure Preview Portal." 
+	pageTitle="How to manage a cloud service (preview portal) | Microsoft Azure" 
+	description="Learn how to manage cloud services in the Azure Preview Portal. These examples use the Azure preview portal." 
 	services="cloud-services" 
 	documentationCenter="" 
 	authors="Thraka" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/01/2015"
+	ms.date="09/22/2015"
 	ms.author="adegeo"/>
 
 
@@ -106,3 +106,10 @@ Use the following procedure to delete a deployment or your cloud service.
 > If verbose monitoring is configured for your cloud service, Azure does not delete the monitoring data from your storage account when you delete the cloud service. You will need to delete the data manually. For information about where to find the metrics tables, see [this](cloud-services-how-to-monitor.md) article.
 
 [Azure Preview Portal]: https://portal.azure.com
+
+## Next steps
+
+* [General configuration of your cloud service](cloud-services-how-to-configure-portal.md).
+* Learn how to [deploy a cloud service](cloud-services-how-to-create-deploy-portal.md).
+* Configure a [custom domain name](cloud-services-custom-domain-name-portal.md).
+* Configure [ssl certificates](cloud-services-configure-ssl-certificate-portal.md).

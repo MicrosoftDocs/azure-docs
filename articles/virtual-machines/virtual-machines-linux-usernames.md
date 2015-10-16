@@ -1,11 +1,12 @@
 <properties 
-	pageTitle="Selecting User Names for Linux on Azure" 
+	pageTitle="Selecting User Names for Linux | Microsoft Azure" 
 	description="Learn how to select user names for a Linux virtual machine in Azure." 
 	services="virtual-machines" 
 	documentationCenter="" 
 	authors="szarkos" 
 	manager="timlt" 
-	editor=""/>
+	editor=""
+	tags="azure-service-management,azure-resource-manager" />
 
 <tags 
 	ms.service="virtual-machines" 
@@ -13,20 +14,22 @@
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/16/2015" 
+	ms.date="07/29/2015" 
 	ms.author="szark"/>
 
 
 
 #Selecting User Names for Linux on Azure#
 
-When you create a Linux virtual machine, you can pick a name for the user name, or accept the default, *azureuser*. In most cases this new user doesn't exist on the base image and is created during the provisioning process. If the user exists on the base VM image, then the Azure Linux agent simply configures the password (and/or SSH key) for that user based on the information you specified when creating the VM.
+When you provision a Linux virtual machine on Azure you must specify the name of a non-root user that you can later use to log into the VM. You may choose the name of the new user, or if provisioning via the management portal you can accept the default name "azureuser".
+
+In most cases this user won't exist on the base image and is created during the provisioning process. If the user exists on the base VM image, then the Azure Linux agent simply configures the password (and/or SSH key) for that user based on the information you specified when creating the VM.
 
 **However**, Linux defines a set of user names that should not be used. The provisioning process will **fail** if you try to provision a Linux VM using an existing system user, which is defined as a user with UID 0-99. A typical example is the `root` user, which has UID 0.
 
  - See also: [Linux Standard Base - User ID Ranges](http://refspecs.linuxfoundation.org/LSB_4.1.0/LSB-Core-generic/LSB-Core-generic/uidrange.html)
 
-Following are user names that you should avoid using when provisioning a Linux virtual machine. We recommended that you **do not use these usernames** because the provisioning process might fail.
+The following are user names that you should avoid using when provisioning a Linux virtual machine. We recommended that you **do not use these usernames**, otherwise the VM provisioning process might fail.
 
 
 ## openSUSE

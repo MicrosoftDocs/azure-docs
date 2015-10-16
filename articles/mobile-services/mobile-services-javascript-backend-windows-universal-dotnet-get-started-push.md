@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Get started with push notification using a JavaScript backend mobile service" 
-	description="Learn how to use Azure Mobile Services and Notification Hubs to send push notifications to your universal Windows app." 
+	pageTitle="Add push notifications to your universal Windows 8.1 app | Microsoft Azure" 
+	description="Learn how to send push notifications to your universal Windows 8.1 app from your JavaScript backend mobile service using Azure Notification Hubs." 
 	services="mobile-services,notification-hubs" 
 	documentationCenter="windows" 
 	authors="ggailey777" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="05/05/2015" 
+	ms.date="07/22/2015" 
 	ms.author="glenga"/>
 
 
@@ -40,12 +40,13 @@ To complete this tutorial, you need the following:
 
 [AZURE.INCLUDE [mobile-services-create-new-push-vs2013](../../includes/mobile-services-create-new-push-vs2013.md)]
 
-<ol start="6">
-<li><p>Browse to the <code>\Services\MobileServices\your_service_name</code> project folder, open the generated push.register.cs code file, and inspect the <strong>UploadChannel</strong> method that registers the device's channel URL with the notification hub.</p></li> 
-<li><p>Open the shared App.xaml.cs code file and notice that a call to the new <strong>UploadChannel</strong> method was added in the <strong>OnLaunched</strong> event handler.</p> <p>This makes sure that registration of the device is attempted whenever the app is launched.</p></li>
-<li><p>Repeat the previous steps to add push notifications to the Windows Phone Store app project, then in the shared App.xaml.cs file, remove the extra call to <strong>UploadChannel</strong> and the remaining <code>#if...#endif</code> conditional wrapper.</p> <p>Both projects can now share a single call to <strong>UploadChannel</strong>.</p>
-<p>Note that you can also simplify the generated code by unifying the <code>#if...#endif</code> wrapped <a href="http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx">MobileServiceClient</a> definitions into a single  unwrapped definition used by both versions of the app.</p></li>
-</ol>
+&nbsp;&nbsp;6. Browse to the `\Services\MobileServices\your_service_name` project folder, open the generated push.register.cs code file, and inspect the **UploadChannel** method that registers the device's channel URL with the notification hub.
+
+&nbsp;&nbsp;7. Open the shared App.xaml.cs code file and notice that a call to the new **UploadChannel** method was added in the **OnLaunched** event handler. This makes sure that registration of the device is attempted whenever the app is launched.
+
+&nbsp;&nbsp;8. Repeat the previous steps to add push notifications to the Windows Phone Store app project, then in the shared App.xaml.cs file, remove the extra call to **UploadChannel** and the remaining `#if...#endif` conditional wrapper. Both projects can now share a single call to **UploadChannel**. 
+
+&nbsp;&nbsp;Note that you can also simplify the generated code by unifying the `#if...#endif` wrapped [MobileServiceClient] definitions into a single  unwrapped definition used by both versions of the app.
 
 Now that push notifications are enabled in the app, you must update the mobile service to send push notifications. 
 
@@ -96,7 +97,6 @@ Learn more about Mobile Services and Notification Hubs in the following topics:
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
 [Get started with Mobile Services]: mobile-services-dotnet-backend-windows-store-dotnet-get-started.md
-[Get started with data]: mobile-services-javascript-backend-windows-universal-dotnet-get-started-data.md
 [Get started with authentication]: mobile-services-javascript-backend-windows-universal-dotnet-get-started-users.md
 
 [Send push notifications to authenticated users]: mobile-services-javascript-backend-windows-store-dotnet-push-notifications-app-users.md
@@ -104,4 +104,5 @@ Learn more about Mobile Services and Notification Hubs in the following topics:
 [What are Notification Hubs?]: ../notification-hubs-overview.md
 
 [How to use a .NET client for Azure Mobile Services]: mobile-services-windows-dotnet-how-to-use-client-library.md
+[MobileServiceClient]: http://go.microsoft.com/fwlink/p/?LinkId=302030
  

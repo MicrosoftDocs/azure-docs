@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/29/2015"
-   ms.author="sidneyh;barbkess"/>
+   ms.date="09/22/2015"
+   ms.author="twounder;sidneyh;barbkess"/>
 
 # Getting started with Azure Data Warehouse cmdlets and REST APIs
 
@@ -27,8 +27,8 @@ Similarly, the REST APIs for **SQL Azure Database** can also be used for **SQL D
 ## Get and run the Azure PowerShell cmdlets
 
 1. To download the Azure PowerShell module, run [Microsoft Web Platform Installer](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409). 
-2. 2. To run the module, at the start window type **Microsoft Azure PowerShell**.
-3. If you have not already added your account to the machine, run the following cmdlet. (For more information, see [How to install and configure Azure PowerShell](powershell-install-configure/)):
+2. To run the module, at the start window type **Microsoft Azure PowerShell**.
+3. If you have not already added your account to the machine, run the following cmdlet. (For more information, see [How to install and configure Azure PowerShell]():
 
 		Add-AzureAccount
 3. Switch the mode with this cmdlet:
@@ -69,24 +69,13 @@ This example retrieves a database named "Database02" from a server named "Server
 
 This cmdlet lists the backup restore points for an Azure SQL database. The restore points are used to restore the database.
 The properties for the returned object are as follows.
-<table>
-   <tr>
-    <td>Property</td>
-     <td>Description</td>
-   </tr>
-   <tr>
-    <td>RestorePointType</td>
-     <td>DISCRETE / CONTINUOUS. Discrete restore points describe the possible point-in-times that an Azure SQL database can be restored to. Continuous restore points describe the earliest possible point-in-times that an Azure SQL database can be restored to. The database can be restored to any point-in-time after the earliest point.</td>
-   </tr>
-  <tr>
-    <td>EarliestRestoreDate</td>
-     <td>Earliest Restore Time (Populated when restorePointType = CONTINUOUS)</td>
-   </tr>
-  <tr>
-    <td>RestorePointCreationDate </td>
-     <td>Backup Snapshot Time (Populated when restorePointType = DISCRETE)</td>
-   </tr>
-</table>
+
+Property|Description
+---|---
+RestorePointType|DISCRETE / CONTINUOUS. Discrete restore points describe the possible point-in-times that an Azure SQL database can be restored to. Continuous restore points describe the earliest possible point-in-times that an Azure SQL database can be restored to. The database can be restored to any point-in-time after the earliest point.
+EarliestRestoreDate|Earliest Restore Time (Populated when restorePointType = CONTINUOUS)
+RestorePointCreationDate |Backup Snapshot Time (Populated when restorePointType = DISCRETE)
+
 ### Example 1: Retrieving a database’s restore points by name on a server
 This example retrieves the restore points for a database named "Database02" from a server named "Server01," contained in a resource group named "ResourceGroup1."
 
@@ -102,6 +91,10 @@ This example retrieves a database named "Database02" from a server named "Server
 	$restorePoints = $database | Get-AzureSqlDatabaseRestorePoints
 
 
+
+> [AZURE.NOTE] Note that if your server is foo.database.windows.net, use "foo" as the -ServerName in the powershell cmdlets.
+
+
 ## Next steps
 For more reference information, see [SQL Data Warehouse reference overview][].
 
@@ -109,6 +102,7 @@ For more reference information, see [SQL Data Warehouse reference overview][].
 
 <!--Article references-->
 [SQL Data Warehouse reference overview]: sql-data-warehouse-overview-reference.md
+[How to install and configure Azure PowerShell]: ../articles/powershell-install-configure.md
 
 <!--MSDN references-->
 
@@ -117,7 +111,3 @@ For more reference information, see [SQL Data Warehouse reference overview][].
 [gog]: http://google.com/
 [yah]: http://search.yahoo.com/
 [msn]: http://search.msn.com/
-
-
-
-

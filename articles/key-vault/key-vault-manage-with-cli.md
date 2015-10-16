@@ -1,10 +1,11 @@
 <properties
-	pageTitle="Manage Key Vault using CLI | Overview"
+	pageTitle="Manage Key Vault using CLI | Microsoft Azure"
 	description="Use this tutorial to automate common tasks in Key Vault by using the CLI"
 	services="key-vault"
 	documentationCenter=""
-	authors="msmbaldwin"
-	manager="mbaldwin"tags="azure-resource-manager"/>
+	authors="BrucePerlerMS"
+	manager="mbaldwin"
+	tags="azure-resource-manager"/>
 
 <tags
 	ms.service="key-vault"
@@ -12,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/25/2015"
+	ms.date="09/22/2015"
 	ms.author="bruceper"/>
 
 # Manage Key Vault using CLI #
@@ -34,7 +35,7 @@ For overview information about Azure Key Vault, see [What is Azure Key Vault?](k
 To complete this tutorial, you must have the following:
 
 - A subscription to Microsoft Azure. If you do not have one, you can sign up for a [free trial](../../../pricing/free-trial).
-- Command-Line Interface version 0.9.1 or later. To install the latest version and connect to your Azure subscription, see [Install and Configure the Azure Cross-Platform Command-Line Interface](xplat-cli.md).
+- Command-Line Interface version 0.9.1 or later. To install the latest version and connect to your Azure subscription, see [Install and Configure the Azure Cross-Platform Command-Line Interface](xplat-cli-install.md).
 - An application that will be configured to use the key or password that you create in this tutorial. A sample application is available from the [Microsoft Download Center](http://www.microsoft.com/download/details.aspx?id=45343). For instructions, see the accompanying Readme file.
 
 ## Getting help with Azure Cross-Platform Command-Line Interface
@@ -53,7 +54,7 @@ When in doubt about the parameters needed by a command, refer to help using --he
 
 You can also read the following tutorials to get familiar with Azure Resource Manager in Azure Cross-Platform Command-Line Interface:
 
-- [How to install and configure Azure Cross-Platform Command Line Interface](xplat-cli.md)
+- [How to install and configure Azure Cross-Platform Command Line Interface](xplat-cli-install.md)
 - [Using Azure Cross-Platform Command-Line Interface with Azure Resource Manager](xplat-cli-azure-resource-manager.md)
 
 
@@ -88,7 +89,7 @@ Then, to specify the subscription to use, type:
 
     azure account set <subscription name>
 
-For more information about configuring Azure Cross-Platform Command-Line Interface, see [How to Install and Configure Azure Cross-Platform Command-Line Interface](xplat-cli.md).
+For more information about configuring Azure Cross-Platform Command-Line Interface, see [How to Install and Configure Azure Cross-Platform Command-Line Interface](xplat-cli-install.md).
 
 
 ## Switch to using Azure Resource Manager
@@ -186,6 +187,9 @@ For example, if your vault name is ContosoKeyVault and the application you want 
 
     azure keyvault set-policy --vault-name 'ContosoKeyVault' --spn 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed --perm-to-keys '[“decrypt”,”sign”]'
 
+If you want to authorize that same application to read secrets in your vault, run the following:
+
+	azure keyvault set-policy --vault-name 'ContosoKeyVault' --spn 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed --perm-to-secrets '["Get"]'
 
 ## If you want to use a hardware security module (HSM) ##
 
@@ -209,7 +213,7 @@ The next command imports a “bring your own key" (BYOK) package. This lets you 
 
     azure keyvault key import --vault-name 'ContosoKeyVaultHSM' --key-name 'ContosoFirstHSMKey' --byok-file './ITByok.byok' --destination 'HSM'
 
-For more detailed instructions about how to generate this BYOK package, see [How to use HSM-Protected Keys with Azure Key Vault](https://msdn.microsoft.com/library/azure/dn903624.aspx).
+For more detailed instructions about how to generate this BYOK package, see [How to use HSM-Protected Keys with Azure Key Vault](key-vault-hsm-protected-keys.md).
 
 
 ## Delete the key vault and associated keys and secrets
@@ -250,4 +254,4 @@ Here's an example of how to remove a specific secret:
 
 ## Next steps
 
-For programming references, see [Azure Key Vault REST API Reference](https://msdn.microsoft.com/library/azure/dn903609.aspx) and [Azure Key Vault C# Client API Reference](https://msdn.microsoft.com/library/azure/dn903628.aspx).
+For programming references, see [the Azure Key Vault developer's guide](key-vault-developers-guide.md).

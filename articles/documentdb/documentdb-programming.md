@@ -1,9 +1,10 @@
 <properties 
-	pageTitle="DocumentDB programming: Stored procedures, triggers, and UDFs | Azure" 
-	description="Find out how to use Microsoft Azure DocumentDB to write stored procedures, triggers, and user defined functions (UDFs) natively in JavaScript." 
+	pageTitle="DocumentDB programming: Stored procedures, database triggers, and UDFs | Microsoft Azure" 
+	description="Learn how to use DocumentDB to write stored procedures, database triggers, and user defined functions (UDFs) in JavaScript. Get database programing tips and more." 
+	keywords="Database triggers, stored procedure, stored procedure, database program, sproc, documentdb, azure, Microsoft azure"
 	services="documentdb" 
 	documentationCenter="" 
-	authors="mimig1" 
+	authors="aliuy" 
 	manager="jhubbard" 
 	editor="cgronlun"/>
 
@@ -13,14 +14,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/10/2015" 
-	ms.author="mimig"/>
+	ms.date="08/18/2015" 
+	ms.author="andrl"/>
 
-# DocumentDB server-side programming: Stored procedures, triggers, and UDFs
+# DocumentDB server-side programming: Stored procedures, database triggers, and UDFs
 
-Learn how DocumentDB’s language integrated, transactional execution of JavaScript lets developers write **stored procedures**, **triggers** and **user defined functions (UDFs)** natively in JavaScript. This allows you to write application logic that can be shipped and executed directly on the database storage partitions 
+Learn how DocumentDB’s language integrated, transactional execution of JavaScript lets developers write **stored procedures**, **triggers** and **user defined functions (UDFs)** natively in JavaScript. This allows you to write database program application logic that can be shipped and executed directly on the database storage partitions 
 
-We recommend getting started by watching the following video, where Andrew Liu provides a brief introduction to DocumentDB's server-side programming model. 
+We recommend getting started by watching the following video, where Andrew Liu provides a brief introduction to DocumentDB's server-side database programming model. 
 
 > [AZURE.VIDEO azure-demo-a-quick-intro-to-azure-documentdbs-server-side-javascript]
 
@@ -33,7 +34,7 @@ Then, return to this article, where you'll learn the answers to the following qu
 - How do I register and execute a stored procedure, trigger, or UDF in a RESTful manner by using HTTP?
 - What DocumentDB SDKs are available to create and execute stored procedures, triggers, and UDFs?
 
-## Introduction
+## Introduction to Stored Procedure and UDF Programming
 
 This approach of *“JavaScript as a modern day T-SQL”* frees application developers from the complexities of type system mismatches and object-relational mapping technologies. It also has a number of intrinsic advantages that can be utilized to build rich applications:  
 
@@ -49,7 +50,7 @@ This approach of *“JavaScript as a modern day T-SQL”* frees application deve
 	-	It adds an abstraction layer on top of the raw data, which enables data architects to evolve their applications independently from the data. This is particularly advantageous when the data is schema-less, due to the brittle assumptions that may need to be baked into the application if they have to deal with data directly.  
 	-	This abstraction lets enterprises keep their data secure by streamlining the access from the scripts.  
 
-The creation and execution of triggers, stored procedure and custom query operators is supported through the [REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx), and [client SDKs](https://msdn.microsoft.com/library/azure/dn781482.aspx) in many platforms including .NET, Node.js and JavaScript. **This tutorial uses the [Node.js SDK](http://dl.windowsazure.com/documentDB/nodedocs/)** to illustrate syntax and usage of stored procedures, triggers, and UDFs.   
+The creation and execution of database triggers, stored procedure and custom query operators is supported through the [REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx), and [client SDKs](https://msdn.microsoft.com/library/azure/dn781482.aspx) in many platforms including .NET, Node.js and JavaScript. **This tutorial uses the [Node.js SDK](http://dl.windowsazure.com/documentDB/nodedocs/)** to illustrate syntax and usage of stored procedures, triggers, and UDFs.   
 
 ## Stored procedures
 
@@ -147,7 +148,7 @@ Note that this stored procedure can be modified to take an array of document bod
 
 The example described demonstrated how to use stored procedures. We will cover triggers and user defined functions (UDFs) later in the tutorial.
 
-## Transactions
+## Database program transactions
 Transaction in a typical database can be defined as a sequence of operations performed as a single logical unit of work. Each transaction provides **ACID guarantees**. ACID is a well-known acronym that stands for four properties -  Atomicity, Consistency, Isolation and Durability.  
 
 Briefly, atomicity guarantees that all the work done inside a transaction is treated as a single unit where either all of it is committed or none. Consistency makes sure that the data is always in a good internal state across transactions. Isolation guarantees that no two transactions interfere with each other – generally, most commercial systems provide multiple isolation levels that can be used based on the application needs. Durability ensures that any change that’s committed in the database will always be present.   
@@ -234,7 +235,7 @@ In order to simplify development of stored procedures and triggers to handle tim
 
 JavaScript functions are also bounded on resource consumption. DocumentDB reserves throughput per collection based on the provisioned size of a database account. Throughput is expressed in terms of a normalized unit of CPU, memory and IO consumption called request units or RUs. JavaScript functions can potentially use up a large number of RUs within a short time, and might get rate-limited if the collection’s limit is reached. Resource intensive stored procedures might also be quarantined to ensure availability of primitive database operations.  
 
-### Example: Bulk importing data
+### Example: Bulk importing data into a database program
 Below is an example of a stored procedure that is written to bulk-import documents into a collection. Note how the stored procedure handles bounded execution by checking the Boolean return value from createDocument, and then uses the count of documents inserted in each invocation of the stored procedure to track and resume progress across batches.
 
 	function bulkImport(docs) {
@@ -286,8 +287,8 @@ Below is an example of a stored procedure that is written to bulk-import documen
 	    }
 	}
 
-## <a id="trigger"></a> Triggers
-### Pre-Triggers
+## <a id="trigger"></a> Database triggers
+### Database pre-triggers
 DocumentDB provides triggers that are executed or triggered by an operation on a document. For example, you can specify a pre-trigger when you are creating a document – this pre-trigger will run before the document is created. The following is an example of how pre-triggers can be used to validate the properties of a document that is being created:
 
 	var validateDocumentContentsTrigger = {
@@ -356,7 +357,7 @@ When triggers are registered, users can specify the operations that it can run w
 	
 	// Fails, can’t use a create trigger in a replace operation
 
-### Post-triggers
+### Database post-triggers
 Post-triggers, like pre-triggers, are associated with an operation on a document and don’t take any input parameters. They run **after** the operation has completed, and have access to the response message that is sent to the client.   
 
 The following example shows post-triggers in action:
@@ -470,6 +471,284 @@ The UDF can subsequently be used in queries like in the following sample:
 	}, function(error) {
 	    console.log("Error" , error);
 	});
+
+## JavaScript language-integrated query API
+In addition to issuing queries using DocumentDB’s SQL grammar, the server-side SDK allows you to perform optimized queries using a fluent JavaScript interface without any knowledge of SQL. The JavaScript query API allows you to programmatically build queries by passing predicate functions into chainable function calls, with a syntax familiar to ECMAScript5's Array built-ins and popular JavaScript libraries like lodash. Queries are parsed by the JavaScript runtime to be executed efficiently using DocumentDB’s indices.
+
+> [AZURE.NOTE] `__` (double-underscore) is an alias to `getContext().getCollection()`.
+> <br/>
+> In other words, you can use `__` or `getContext().getCollection()` to access the JavaScript query API.
+
+Supported functions include:
+<ul>
+<li>
+<b>chain() ... .value([callback] [, options])</b>
+<ul>
+<li>
+Starts a chained call which must be terminated with value().
+</li>
+</ul>
+</li>
+<li>
+<b>filter(predicateFunction [, options] [, callback])</b>
+<ul>
+<li>
+Filters the input using a predicate function which returns true/false in order to filter in/out input documents into the resulting set. This behaves similar to a WHERE clause in SQL.
+</li>
+</ul>
+</li>
+<li>
+<b>map(transformationFunction [, options] [, callback])</b>
+<ul>
+<li>
+Applies a projection given a transformation function which maps each input item to a JavaScript object or value. This behaves similar to a SELECT clause in SQL.
+</li>
+</ul>
+</li>
+<li>
+<b>pluck([propertyName] [, options] [, callback])</b>
+<ul>
+<li>
+This is a shortcut for a map which extracts the value of a single property from each input item.
+</li>
+</ul>
+</li>
+<li>
+<b>flatten([isShallow] [, options] [, callback])</b>
+<ul>
+<li>
+Combines and flattens arrays from each input item in to a single array. This behaves similar to SelectMany in LINQ.
+</li>
+</ul>
+</li>
+<li>
+<b>sortBy([predicate] [, options] [, callback])</b>
+<ul>
+<li>
+Produce a new set of documents by sorting the documents in the input document stream in ascending order using the given predicate. This behaves similar to a ORDER BY clause in SQL.
+</li>
+</ul>
+</li>
+<li>
+<b>sortByDescending([predicate] [, options] [, callback])</b>
+<ul>
+<li>
+Produce a new set of documents by sorting the documents in the input document stream in descending order using the given predicate. This behaves similar to a ORDER BY x DESC clause in SQL.
+</li>
+</ul>
+</li>
+</ul>
+
+
+When included inside predicate and/or selector functions, the following JavaScript constructs get automatically optimized to run directly on DocumentDB indices:
+
+* Simple operators: = + - * / % | ^ &amp; == != === !=== &lt; &gt; &lt;= &gt;= || &amp;&amp; &lt;&lt; &gt;&gt; &gt;&gt;&gt;! ~
+* Literals, including the object literal: {}
+* var, return
+
+The following JavaScript constructs do not get optimized for DocumentDB indices:
+
+* Control flow (e.g. if, for, while)
+* Function calls
+
+For more information, please see our [Server-Side JSDocs](http://dl.windowsazure.com/documentDB/jsserverdocs/).
+
+### Example: Write a stored procedure using the JavaScript query API
+
+The following code sample is an example of how the JavaScript Query API can be used in the context of a stored procedure. The stored procedure inserts a document, given by an input parameter, and updates a metadata document, using the `__.filter()` method, with minSize, maxSize, and totalSize based upon the input document's size property.
+
+    /**
+     * Insert actual doc and update metadata doc: minSize, maxSize, totalSize based on doc.size.
+     */
+    function insertDocumentAndUpdateMetadata(doc) {
+      // HTTP error codes sent to our callback funciton by DocDB server.
+      var ErrorCode = {
+        RETRY_WITH: 449,
+      }
+
+      var isAccepted = __.createDocument(__.getSelfLink(), doc, {}, function(err, doc, options) {
+        if (err) throw err;
+
+        // Check the doc (ignore docs with invalid/zero size and metaDoc itself) and call updateMetadata.
+        if (!doc.isMetadata && doc.size > 0) {
+          // Get the meta document. We keep it in the same collection. it's the only doc that has .isMetadata = true.
+          var result = __.filter(function(x) {
+            return x.isMetadata === true
+          }, function(err, feed, options) {
+            if (err) throw err;
+
+            // We assume that metadata doc was pre-created and must exist when this script is called.
+            if (!feed || !feed.length) throw new Error("Failed to find the metadata document.");
+
+            // The metadata document.
+            var metaDoc = feed[0];
+
+            // Update metaDoc.minSize:
+            // for 1st document use doc.Size, for all the rest see if it's less than last min.
+            if (metaDoc.minSize == 0) metaDoc.minSize = doc.size;
+            else metaDoc.minSize = Math.min(metaDoc.minSize, doc.size);
+
+            // Update metaDoc.maxSize.
+            metaDoc.maxSize = Math.max(metaDoc.maxSize, doc.size);
+
+            // Update metaDoc.totalSize.
+            metaDoc.totalSize += doc.size;
+
+            // Update/replace the metadata document in the store.
+            var isAccepted = __.replaceDocument(metaDoc._self, metaDoc, function(err) {
+              if (err) throw err;
+              // Note: in case concurrent updates causes conflict with ErrorCode.RETRY_WITH, we can't read the meta again 
+              //       and update again because due to Snapshot isolation we will read same exact version (we are in same transaction).
+              //       We have to take care of that on the client side.
+            });
+            if (!isAccepted) throw new Error("replaceDocument(metaDoc) returned false.");
+          });
+          if (!result.isAccepted) throw new Error("filter for metaDoc returned false.");
+        }
+      });
+      if (!isAccepted) throw new Error("createDocument(actual doc) returned false.");
+    }
+
+## SQL to Javascript cheat sheet
+The following table presents various SQL queries and the corresponding JavaScript queries.
+
+As with SQL queries, document property keys (e.g. `doc.id`) are case-sensitive.
+
+<br/>
+<table border="1" width="100%">
+<colgroup>
+<col span="1" style="width: 40%;">
+<col span="1" style="width: 40%;">
+<col span="1" style="width: 20%;">
+</colgroup>
+<tbody>
+<tr>
+<th>SQL</th>
+<th>JavaScript Query API</th>
+<th>Details</th>
+</tr>
+<tr>
+<td>
+<pre>
+SELECT *
+FROM docs
+</pre>
+</td>
+<td>
+<pre>
+__.map(function(doc) {
+    return doc;
+});
+</pre>
+</td>
+<td>Results in all documents (paginated with continuation token) as is.</td>
+</tr>
+<tr>
+<td>
+<pre>
+SELECT docs.id, docs.message AS msg, docs.actions 
+FROM docs
+</pre>
+</td>
+<td>
+<pre>
+__.map(function(doc) {
+    return {
+        id: doc.id,
+        msg: doc.message,
+        actions: doc.actions
+    };
+});
+</pre>
+</td>
+<td>Projects the id, message (aliased to msg), and action from all documents.</td>
+</tr>
+<tr>
+<td>
+<pre>
+SELECT * 
+FROM docs 
+WHERE docs.id="X998_Y998"
+</pre>
+</td>
+<td>
+<pre>
+__.filter(function(doc) {
+    return doc.id === "X998_Y998";
+});
+</pre>
+</td>
+<td>Queries for documents with the predicate: id = "X998_Y998".</td>
+</tr>
+<tr>
+<td>
+<pre>
+SELECT *
+FROM docs
+WHERE ARRAY_CONTAINS(docs.Tags, 123)
+</pre>
+</td>
+<td>
+<pre>
+__.filter(function(x) {
+    return x.Tags && x.Tags.indexOf(123) > -1;
+});
+</pre>
+</td>
+<td>Queries for documents that have a Tags property and Tags is an array containing the value 123.</td>
+</tr>
+<tr>
+<td>
+<pre>
+SELECT docs.id, docs.message AS msg
+FROM docs 
+WHERE docs.id="X998_Y998"
+</pre>
+</td>
+<td>
+<pre>
+__.chain()
+    .filter(function(doc) {
+        return doc.id === "X998_Y998";
+    })
+    .map(function(doc) {
+        return {
+            id: doc.id,
+            msg: doc.message
+        };
+    })
+    .value();
+</pre>
+</td>
+<td>Queries for documents with a predicate, id = "X998_Y998", and then projects the id and message (aliased to msg).</td>
+</tr>
+<tr>
+<td>
+<pre>
+SELECT VALUE tag
+FROM docs
+JOIN tag IN docs.Tags
+ORDER BY docs._ts
+</pre>
+</td>
+<td>
+<pre>
+__.chain()
+    .filter(function(doc) {
+        return doc.Tags && Array.isArray(doc.Tags);
+    })
+    .sortBy(function(doc) {
+    	return doc._ts;
+    })
+    .pluck("Tags")
+    .flatten()
+    .value()
+</pre>
+</td>
+<td>Filters for documents which have an array property, Tags, and sorts the resulting documents by the _ts timestamp system property, and then projects + flattens the Tags array.</td>
+</tr>
+</tbody>
+</table>
 
 ## Runtime support
 [DocumentDB JavaScript server side SDK](http://dl.windowsazure.com/documentDB/jsserverdocs/) provides support for the most of the mainstream JavaScript language features as standardized by [ECMA-262](documentdb-interactions-with-resources.md).

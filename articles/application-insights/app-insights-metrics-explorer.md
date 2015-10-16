@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/14/2015" 
+	ms.date="09/28/2015" 
 	ms.author="awills"/>
  
 # Exploring Metrics in Application Insights
@@ -21,7 +21,7 @@ Metrics in [Application Insights][start] are measured values and counts of event
 
 Metrics and event counts are displayed in charts of aggregated values such as sums, averages, or counts.
 
-For example, if you add Application Insights to a web application, here's what you see near the top of the overview:
+Here's a sample chart:
 
 ![Open the overview blade of your application in the Azure portal](./media/app-insights-metrics-explorer/01-overview.png)
 
@@ -33,19 +33,20 @@ Dotted lines show the value of the metric one week previously.
 
 ## Time range
 
-You can change the Time range covered by most of the charts or grids on any blade.
+You can change the Time range covered by the charts or grids on any blade.
 
 ![Open the overview blade of your application in the Azure portal](./media/app-insights-metrics-explorer/03-range.png)
 
 
-Click Refresh if you're expecting some data that hasn't appeared yet. Charts don't update automatically. In release mode, it can take a while for data to come through the analysis pipeline onto a chart.
+If you're expecting some data that hasn't appeared yet, click Refresh. Charts refresh themselves at intervals, but the intervals are longer for larger time ranges. In release mode, it can take a while for data to come through the analysis pipeline onto a chart.
 
-In the Overview blade, drag over a part of the chart to zoom into it in a new chart.
-
+To zoom into part of a chart, drag over it and then click the magnifier symbol:
 
 ![Drag across part of a chart.](./media/app-insights-metrics-explorer/12-drag.png)
 
-## Grain and point values
+
+
+## Granularity and point values
 
 Hover your mouse over the chart to display the values of the metrics at that point.
 
@@ -53,15 +54,15 @@ Hover your mouse over the chart to display the values of the metrics at that poi
 
 The value of the metric at a particular point is aggregated over the preceding sampling interval. 
 
-The sampling interval or "grain" is shown at the top of the blade. 
+The sampling interval or "granularity" is shown at the top of the blade. 
 
 ![The header of a blade.](./media/app-insights-metrics-explorer/11-grain.png)
 
-You can adjust the grain in the Time range blade:
+You can adjust the granularity in the Time range blade:
 
 ![The header of a blade.](./media/app-insights-metrics-explorer/grain.png)
 
-The grains available depend on the time range you select. The explicit grains are alternatives to the "automatic" grain for the time range. 
+The granularities available depend on the time range you select. The explicit granularities are alternatives to the "automatic" granularity for the time range. 
 
 ## Metrics Explorer
 
@@ -74,20 +75,24 @@ For example, click through the web app's Failed Requests chart:
 
 ## What do the figures mean?
 
-The legend at the side by default shows the aggregated value over the period of the chart.
+The legend at the side by default usually shows the aggregated value over the period of the chart. If you hover over the chart, it shows the value at that point.
 
-Each data point on the chart is also an aggregate of the data values received in the preceding sampling interval or "grain". The grain is shown at the top of the blade, and varies with the overall timescale of the chart.
+Each data point on the chart is an aggregate of the data values received in the preceding sampling interval or "granularity". The granularity is shown at the top of the blade, and varies with the overall timescale of the chart.
 
-Different metrics are aggregated in different ways: 
+Metrics can be aggregated in different ways: 
 
- * For a metric such as response time, values are **averaged** over the period of the chart.
- * For counts of events such as failed requests, the aggregate is the **sum** of counts over the period.
- * For counts of users, the aggregate is the number of **unique** users over the period. (If a user is tracked more than once in the period, they are counted only once.)
+ * **Sum** adds up the values of all the data points received over the sampling interval, or the period of the chart.
+ * **Average** divides the Sum by the number of data points received over the interval.
+ * **Unique** counts are used for counts of users and accounts. Over the sampling interval, or over the period of the chart, the figure shows the count of different users seen in that time.
 
-To find out whether the value is a sum, average, or unique click the chart and scroll down to the selected value. You can also get a short description of the metric.
 
-![Hover over (i)](./media/app-insights-metrics-explorer/06-total.png)
- 
+You can change the aggregation method:
+
+![Select the chart and then select aggregation](./media/app-insights-metrics-explorer/05-aggregation.png)
+
+The default method for each metric is shown when you create a new chart:
+
+![Deselect all metrics to see the defaults](./media/app-insights-metrics-explorer/06-total.png)
 
 
 ## Editing charts and grids
@@ -127,6 +132,12 @@ To see just the metrics for a selected set of property values:
 If you don't select any values for a particular property, it's the same as selecting them all: there is no filter on that property.
 
 Notice the counts of events alongside each property value. When you select values of one property, the counts alongside other property values are adjusted.
+
+### To add properties to the filter list
+
+Would you like to filter telemetry on a category of your own choosing? For example, maybe you divide up your users into  different categories, and you would like segment your data by these categories.
+
+[Create your own property](app-insights-api-custom-events-metrics.md#properties). Set it in a [Telemetry Initializer](app-insights-api-custom-events-metrics.md#telemetry-initializers) to have it appear in all telemetry - including the standard telemetry sent by different SDK modules.
 
 ## Remove bot and web test traffic
 
@@ -177,10 +188,15 @@ The data for each chart or table is exported to a separate sheet in the Excel fi
 
 What you see is what gets exported. Change the time range or filters if you want to change the range of data exported. For tables, if the **load more** command is showing, you can click it before you click Export, to have more data exported.
 
-*Export works only for Internet Explorer and Chrome at present. We’re working on adding support for other browsers.*
+*Export works only for Internet Explorer and Chrome at present. We're working on adding support for other browsers.*
+
+### Continuous Export
 
 If you want data continuously exported so that you can process it externally, consider using [Continous export](app-insights-export-telemetry.md).
 
+### Power BI
+
+If you want even richer views of your data, you can [export to Power BI](app-insights-export-power-bi.md).
 
 ## Next steps
 
@@ -191,7 +207,7 @@ If you want data continuously exported so that you can process it externally, co
 <!--Link references-->
 
 [alerts]: app-insights-alerts.md
-[start]: app-insights-get-started.md
-[track]: app-insights-custom-events-metrics-api.md
+[start]: app-insights-overview.md
+[track]: app-insights-api-custom-events-metrics.md
 
  

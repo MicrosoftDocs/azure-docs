@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/09/2015"
+	ms.date="10/07/2015"
 	ms.author="raynew"/>
 
 # Set up protection between on-premises VMware virtual machines or physical servers and Azure
@@ -56,10 +56,10 @@ Here's what you'll need:
 **Component** | **Deployment** | **Details**
 --- | --- | ---
 **Configuration server** | <p>Deploy as a Azure standard A3 virtual machine in the same subscription as Site Recovery.</p> <p>You set up in the Site Recovery portal</p> | This server coordinates communication between protected machines, the process server, and master target servers in Azure. It sets up replication and coordinates recovery in Azure when failover occurs.
-**Master target server** | <p>Deploy as Azure virtual machine — Either a Windows server based on a Windows Server 2012 R2 gallery image (to protect Windows machines) or as a Linux server based on a OpenLogic CentOS 6.6 gallery image (to protect Linux machines).</p> <p>Two sizing options are available – standard A4 and standard D14.<p><p>The server is connected to the same Azure network as the configuration server.</p><p>You set up in the Site Recovery portal</p> | <p>It receives and retains replicated data from your protected machines using attached VHDs created on blob storage in your Azure storage account.</p>   
+**Master target server** | <p>Deploy as Azure virtual machine — Either a Windows server based on a Windows Server 2012 R2 gallery image (to protect Windows machines) or as a Linux server based on a OpenLogic CentOS 6.6 gallery image (to protect Linux machines).</p> <p>Three sizing options are available – Standard A4, Standard D14 and Standard DS4.<p><p>The server is connected to the same Azure network as the configuration server.</p><p>You set up in the Site Recovery portal</p> | <p>It receives and retains replicated data from your protected machines using attached VHDs created on blob storage in your Azure storage account.</p> <p>Select Standard DS4 specifically for configuring protection for workloads requiring consistent high performance and low latency using Premium Storage Account.</p>
 **Process server** | <p>Deploy as an on-premises virtual or physical server running Windows Server 2012 R2</p> <p>We recommend it's placed on the same network and LAN segment as the machines that you want to protect, but it can run on a different network as long as protected machines have L3 network visibility to it.<p>You set it up and register it to the configuration server in the Site Recovery portal.</p> | <p>Protected machines send replication data to the on-premises process server. It has a disk-based cache to cache replication data that it receives. It performs a number of actions on that data.</p><p>It optimizes data by caching, compressing, and encrypting it before sending it on to the master target server.</p><p>It handles push installation of the Mobility Service.</p><p>It performs automatic discovery of VMware virtual machines.</p>
 **On-premises machines** | On-premises virtual  machines running on a VMware hypervisor, or physical servers running Windows or Linux. | You set up replication settings that apply to virtual machines and servers. You can fail over an individual machine or more commonly, as part of a recovery plan containing multiple virtual machines that fail over together.
-**Mobility service** | <p>Installs on each virtual machine or physical server you want to protect</p><p>Can be installed manually or pushed and installed automation by the process server. | The service takes a VSS snapshot of data on each protected machine and moves it to the process server, which in turn replicates it to the master target server.
+**Mobility service** | <p>Installs on each virtual machine or physical server you want to protect</p><p>Can be installed manually or pushed and installed automatically by the process server when protection is enabled for the server. | The Mobility service send data to the Process Server as part of initial replication (resync.) Once the server reaches a protected state(after resync is completed) the Mobility service performs an in-memory capture of writes to disk and sends it to the Process Server. Application consistency for Windows servers is achieved using the VSS framework.
 **Azure Site Recovery vault** | Set up after you've subscribed to the Site Recovery service. | You register servers in a Site Recovery vault. The vault coordinates and orchestrates data replication, failover, and recovery between your on-premises site and Azure.
 **Replication mechanism** | <p>**Over the Internet**—Communicates and replicates data from protected on-premises servers and Azure using a secure SSL/TLS communication channel over a public internet connection. This is the default option.</p><p>**VPN/ExpressRoute**—Communicates and replicates data between on-premises servers and Azure over a VPN connection. You'll need to set up a site-to-site VPN or an [ExpressRoute](../expressroute-introduction.md) connection between the on-premises site and your Azure network.</p><p>You'll select how you want to replicate during Site Recovery deployment. You can't change the mechanism after it's configured without impacting protection on already protected servers.| <p>Neither option requires you to open any inbound network ports on protected machines. All network communication is initiated from the on-premises site.</p> 
 
@@ -78,9 +78,9 @@ Main areas for considerations are:
 - **Maximum size per source**—The maximum size of a single source machine is 31 TB (with 31 disks) and with a D14 instance provisioned for the master target server. 
 - **Number of sources per master target server**—Multiple source machines can be protected with a single master target server. However, a single source machine can’t be protected across multiple master target servers, because as disks replicate, a VHD that mirrors the size of the disk is created on Azure blob storage and attached as a data disk to the master target server.  
 - **Maximum daily change rate per source**—There are three factors that need to be considered when considering the recommended change rate per source. For the target based considerations two IOPS are required on the target disk for each operation on the source. This is because a read of old data and a write of the new data will happen on the target disk. 
-	- **Daily change rate supported by the process server**—A source machine can't span multiple process servers. A single process server can support up to 1 TB of daily change rate. Hence 1 TB is the maximum churn supported by a source machine. 
-	- **Maximum throughput supported by the target disk**—Maximum churn per source disk can't be more than 144 GB/day (with 8K write size). See the table in the master target section for the throughput and IOPs of the target for various write sizes. This number must be divided by two because each source IOP generates 2 IOPS on the target disk. 
-	- **Maximum throughput supported by the storage account**—A source can't span multiple storage accounts. Given that a storage account takes a maximum of 20,000 requests per second and that each source IOP generates 2 IOPS at the master target server, we recommend you keep the number of IOPS across the source to 10,000. 
+	- **Daily change rate supported by the process server**—A source machine can't span multiple process servers. A single process server can support up to 1 TB of daily change rate. Hence 1 TB is the maximum daily data change rate supported for a source machine. 
+	- **Maximum throughput supported by the target disk**—Maximum churn per source disk can't be more than 144 GB/day (with 8K write size). See the table in the master target section for the throughput and IOPs of the target for various write sizes. This number must be divided by two because each source IOP generates 2 IOPS on the target disk. Refer [Scalability and Performance Targets when using Premium Storage](../storage/storage-scalability-targets.md#scalability-targets-for-premium-storage-accounts) while configuring target for Premium Storage account.
+	- **Maximum throughput supported by the storage account**—A source can't span multiple storage accounts. Given that a storage account takes a maximum of 20,000 requests per second and that each source IOP generates 2 IOPS at the master target server, we recommend you keep the number of IOPS across the source to 10,000. Refer [Scalability and Performance Targets when using Premium Storage](../storage/storage-scalability-targets.md#scalability-targets-for-premium-storage-accounts) while configuring source for Premium Storage account.
 
 ### Considerations for component servers
 
@@ -91,6 +91,7 @@ Table 1 summarizes the virtual machine sizes for the configuration and master ta
 Configuration server | Standard A3 | 4 | 7 GB | 8 | 1023 GB
 Master target server | Standard A4 | 8 | 14 GB | 16 | 1023 GB
  | Standard D14 | 16 | 112 GB | 32 | 1023 GB
+ | Standard DS4 | 8 | 28 GB | 16 | 1023 GB
 
 **Table 1**
 
@@ -133,15 +134,14 @@ The storage for each master target server is comprised of an OS disk, a retentio
  | | **Retention** | **Data disks**
 Standard A4 | 1 disk (1 * 1023 GB) | 1 disk ( 1 * 1023 GB) | 15 disks (15 * 1023 GB)
 Standard D14 |  1 disk (1 * 1023 GB) | 1 disk ( 1 * 1023 GB) | 31 disks (15 * 1023 GB)
+Standard DS4 |  1 disk (1 * 1023 GB) | 1 disk ( 1 * 1023 GB) | 15 disks (15 * 1023 GB)
 
 **Table 3**
 
 Capacity planning for the master target server depends on:
 
 - Azure storage performance and limitations
-	- 500 IOPS per disk
-	- 20000 requests per storage account
-	- Based on these numbers, ideally 40 disks are supported by a storage account, with each disk handling 500 IOPS. 
+	- The maximum number of highly utilized disks for a Standard Tier VM, is about 40 (20,000/500 IOPS per disk) in a single storage account. Refer [Scalability Targets for Standard Storage Accounts](../storage/storage-scalability-targets.md#scalability-targets-for-standard-storage-accounts) for more information. Similarly refer [Scalability Targets for Premium Storage Accounts](../storage/storage-scalability-targets.md#scalability-targets-for-premium-storage-accounts) for more information about Premium Storage account.
 -	Daily change rate 
 -	Retention volume storage.
 
@@ -162,16 +162,16 @@ Note that:
 **Component** | **Requirements** | **Details**
 --- | --- | --- 
 **Azure account** | You'll need a [Microsoft Azure](http://azure.microsoft.com/) account. You can start with a [free trial](pricing/free-trial/).
-**Azure storage** | <p>You'll need an Azure storage account to store replicated data</p><p>The account should have geo-replication enabled.</p><p>It must in the same region as the Azure Site Recovery service, and be associated with the same subscription.</p><p>To learn more read [Introduction to Microsoft Azure Storage](../storage/storage-introduction.md)</p>
-**Azure virtual network** | You'll need an Azure virtual network on which the configuration server and master target server will be deployed. It should be in the same subscription and region as the Azure Site Recovery vault.
+**Azure storage** | <p>You'll need an Azure storage account to store replicated data</p><p>Either the account should be a [Standard Geo-redundant Storage Account](../storage/storage-redundancy.md#geo-redundant-storage) or [Premium Storage Account](../storage/storage-premium-storage-preview-portal.md).</p><p>It must in the same region as the Azure Site Recovery service, and be associated with the same subscription.</p><p>To learn more read [Introduction to Microsoft Azure Storage](../storage/storage-introduction.md)</p>
+**Azure virtual network** | You'll need an Azure virtual network on which the configuration server and master target server will be deployed. It should be in the same subscription and region as the Azure Site Recovery vault. If you wish to replicate data over an ExpressRoute or VPN connection the Azure virtual network must be connected to your on-premises network over an ExpressRoute connection or a Site-to-Site VPN.
 **Azure resources** | Make sure you have enough Azure resources to deploy all components. Read more in [Azure Subscription Limits](../azure-subscription-service-limits.md).
 **Azure virtual machines** | <p>Virtual machines you want to protect should conform with [Azure prerequisites](site-recovery-best-practices.md).</p><p>**Disk count**—A maximum of 31 disks can be supported on a single protected server</p><p>**Disk sizes**—Individual disk capacity shouldn't be more than 1023 GB</p><p>**Clustering**—Clustered servers aren't supported</p><p>**Boot**—Unified Extensible Firmware Interface(UEFI)/Extensible Firmware Interface(EFI) boot isn't supported</p><p>**Volumes**—Bitlocker encrypted volumes aren't supported</p><p> **Server names**—Names should contain between 1 and 63 characters (letters, numbers and hyphens). The name must start with a letter or number and end with a letter or number. After a machine is protected you can modify the Azure name.</p>
-**Configuration server** | <p>Standard A3 virtual machine based on an Azure Site Recovery Windows Server 2012 R2 gallery image will be created in your subscription for the configuration server. It's created as the first instance in a new cloud service with a reserved public IP address.</p><p>The installation path should be in English characters only.</p>
-**Master target server** | <p>Azure virtual machine, standard A4 or D14.</p><p>The installation path  should be in English characters only. For example the path should be **/usr/local/ASR** for a master target server running Linux.</p></p>
+**Configuration server** | <p>Standard A3 virtual machine based on an Azure Site Recovery Windows Server 2012 R2 gallery image will be created in your subscription for the configuration server. It's created as the first instance in a new cloud service. If you select Public Internet as the connectivity type for the Configuration Server the cloud service will be created with a reserved public IP address.</p><p>The installation path should be in English characters only.</p>
+**Master target server** | <p>Azure virtual machine, standard A4, D14 or DS4.</p><p>The installation path  should be in English characters only. For example the path should be **/usr/local/ASR** for a master target server running Linux.</p></p>
 **Process server** | <p>You can deploy the process server on physical or virtual machine running Windows Server 2012 R2 with the latest updates. Install on C:/.</p><p>We recommend you place the server on the same network and subnet as the machines you want to protect.</p><p>Install VMware vSphere CLI 5.5.0 on the process server. The VMware vSphere CLI component is required on the process server in order to discover virtual machines managed by a vCenter server or virtual machines running on an ESXi host.</p><p>The installation path should be in English characters only.</p>
 **VMware** | <p>A VMware vCenter server managing your VMware vSphere hypervisors. It should be running vCenter version 5.1 or 5.5 with the latest updates.</p><p>One or more vSphere hypervisors containing VMware virtual machines you want to protect. The hypervisor should be running ESX/ESXi version 5.1 or 5.5 with the latest updates.</p><p>VMware virtual machines should have VMware tools installed and running.</p>
 **Windows machines** | <p>Protected physical servers or VMware virtual machines running Windows have a number of requirements.</p><p>A supported 64-bit operating system: **Windows Server 2012 R2**, **Windows Server 2012**, or **Windows Server 2008 R2 with at least SP1**.</p><p>The host name, mount points, device names, Windows system path (eg: C:\Windows) should be in English only.</p><p>The operating system should be installed on C:\ drive.</p><p>Only basic disks are supported. Dynamic disks aren't supported.</p><p><Firewall rules on protected machines should allow them to reach the configuration and master target servers in Azure.p><p>You'll need to provide an administrator account (must be a local administrator on the Windows machine) to push install the Mobility Service on Windows servers. If the provided account is a non-domain account you'll need to disable Remote User Access control on the local machine. To do this add the LocalAccountTokenFilterPolicy DWORD registry entry with a value of 1 under HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System. To add the registry entry from a CLI open cmd or powershell and enter **`REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1`**. [Learn more](https://msdn.microsoft.com/library/aa826699.aspx) about access control.</p><p>After failover, if you want connect to Windows virtual machines in Azure with Remote Desktop make sure that Remote Desktop is enabled for the on-premises machine. If you're not connecting over VPN, firewall rules should allow Remote Desktop connections over the internet.</p>
-**Linux machines** | <p> A supported 64 bit operating system: **Centos 6.4, 6.5, 6.6**; **Oracle Enterprise Linux 6.4, 6.5 running either the Red Hat compatible kernel or Unbreakable Enterprise Kernel Release 3 (UEK3)**, **SUSE Linux Enterprise Server 11 SP3**.</p><p>Firewall rules on protected machines should allow them to reach the configuration and master target servers in Azure.</p><p>/etc/hosts files on protected machines should  contain entries that map the local host name to IP addresses associated with all NICs </p><p>If you want to connect to an Azure virtual machine running Linux after failover using a Secure Shell client (ssh), ensure that the Secure Shell service on the protected machine is set to start automatically on system boot, and that firewall rules allow an ssh connection to it.</p><p>The host name, mount points, device names, and Linux system paths and file names (eg /etc/; /usr) should be in English only.</p><p>Protection can be enabled for on-premises machines with the following storage: File system: EXT3, ETX4, ReiserFS, XFS/Multipath software-Device Mapper (multipath)/Volume manager: LVM2\Physical servers with HP CCISS controller storage are not supported.</p>
+**Linux machines** | <p> A supported 64 bit operating system: **Centos 6.4, 6.5, 6.6**; **Oracle Enterprise Linux 6.4, 6.5 running either the Red Hat compatible kernel or Unbreakable Enterprise Kernel Release 3 (UEK3)**, **SUSE Linux Enterprise Server 11 SP3**.</p><p>Firewall rules on protected machines should allow them to reach the configuration and master target servers in Azure.</p><p>/etc/hosts files on protected machines should  contain entries that map the local host name to IP addresses associated with all NICs </p><p>If you want to connect to an Azure virtual machine running Linux after failover using a Secure Shell client (ssh), ensure that the Secure Shell service on the protected machine is set to start automatically on system boot, and that firewall rules allow an ssh connection to it.</p><p>The host name, mount points, device names, and Linux system paths and file names (eg /etc/; /usr) should be in English only.</p><p>Protection can be enabled for on-premises machines with the following storage:-<br>File system: EXT3, ETX4, ReiserFS, XFS<br>Multipath software-Device Mapper (multipath)<br>Volume manager: LVM2<br>Physical servers with HP CCISS controller storage are not supported.</p>
 **Third-party** | Some deployment components in this scenario depend on third-party software to function properly. For a complete list see [Third-party software notices and information](#third-party)
 
 ## Deployment
@@ -180,6 +180,17 @@ The graphic summarizes the deployment steps.
 
 ![Deployment steps](./media/site-recovery-vmware-to-azure/VMWare2AzureSteps.png)
 
+## Network connectivity Type
+
+You have two options to configure network connectivity between your on-premises site and the Azure virtual network on which your Infrastructure components (Configuration Server, Master target Servers) are deployed. You'll need to decide which network connectivity option to use before you can deploy your Configuration Server. This is a deployment time choice, and cannot be changed later.
+
+**Public Internet :** Communication and replication of data between the on-premises servers (Process Server, Protected Servers) and the Azure Infrastructure component servers (Configuration Server, Master Target Server) happens over a secure SSL/TLS connection from on-premises to the Public endpoints on the Configuration Server and the Master Target server. (The only exception is the connection between the Process Server and the Master Target server on TCP port 9080 which is un-encrypted. Only control information related to the replication protocol related used to setup the replication is exchanged on this connection.)
+
+![Deployment diagram internet](./media/site-recovery-vmware-to-azure/ASRVmware_deploymentInternet.png)
+
+**VPN :** Communication and replication of data between the on-premises servers (Process Server, Protected Servers) and the Azure Infrastructure component servers (Configuration Server, Master Target Server) happens over a VPN connection between your on-premises network and the Azure virtual network on which the Configuration server and Master Target servers are deployed. Ensure that your on-premises network is connected to the Azure virtual network by an ExpressRoute connection or a site-to-site VPN connection.
+
+![Deployment diagram VPN](./media/site-recovery-vmware-to-azure/ASRVmware_deploymentVPN.png)
 
 
 ## Step 1: Create a vault
@@ -218,16 +229,18 @@ Check the status bar to confirm that the vault was successfully created. The vau
 4. In **New Configuration Server Details** specify:
 
 	- A name for the configuration server and credentials to connect to it.
-	- Select the Azure network on which the server should be located. 
+	- In the network connectivity type drop down select Public Internet or VPN.
+	[AZURE.NOTE] This setting is a deployment time choice you make and cannot be changed later.  
+	- Select the Azure network on which the server should be located. If you specified VPN as the network connectivity type ensure that this Azure vnet is connected to your on-premises site over an ExpressRoute connection or a site-to-site VPN.
 	- Specify the internal IP address and subnet to assign to the server. Note that the first four IP addresses in any subnet are reserved for internal Azure usage. Use any other available IP address.
 	
 	![Deploy configuration server](./media/site-recovery-vmware-to-azure/ASRVMware_CSDetails2.png)
 
-5. When you click **OK** a standard A3 virtual machine based on an Azure Site Recovery Windows Server 2012 R2 gallery image will be created in your subscription for the configuration server. It's created as the first instance in a new cloud service with a reserved public IP address. You can monitor progress in the **Jobs** tab.
+5. When you click **OK** a standard A3 virtual machine based on an Azure Site Recovery Windows Server 2012 R2 gallery image will be created in your subscription for the configuration server. It's created as the first instance in a new cloud service. If you specified the network connectivity type to be Public Internet the cloud service is created with a reserved public IP address. You can monitor progress in the **Jobs** tab.
 
 	![Monitor progress](./media/site-recovery-vmware-to-azure/ASRVMWare_MonitorConfigServer.png)
 
-6.  After the configuration server is deployed note the public IP address assigned to it on the **Virtual Machines** page in the Azure portal. Then on the **Endpoints** tab note the public HTTPS port mapped to private port 443. You'll need this information later when you register the master target and process servers with the configuration server. The configuration server is deployed with these endpoints:
+6.  **This step is applicable only if your connectivity type is Public Internet.** After the configuration server is deployed note the public IP address assigned to it on the **Virtual Machines** page in the Azure portal. Then on the **Endpoints** tab note the public HTTPS port mapped to private port 443. You'll need this information later when you register the master target and process servers with the configuration server. The configuration server is deployed with these endpoints:
 
 	- HTTPS: Public port is used to coordinate communication between component servers and Azure over the internet. Private port 443 is used to coordinate communication between component servers and Azure over VPN.
 	- Custom: Public port is used for failback tool communication over the inter
@@ -239,12 +252,12 @@ Check the status bar to confirm that the vault was successfully created. The vau
 
     >[AZURE.WARNING] Don't delete or change the public or private port number of any of the endpoints created during configuration server deployment.
 
-The configuration server is deployed in an automatically created Azure cloud service with a reserved IP address. The reserved address is needed to ensure that the Configuration Server cloud service IP address remains the same across reboots of the virtual machines (including the configuration server) on the cloud service. The reserved public IP address will need to be manually unreserved when the configuration server is decommissioned or it'll remain reserved. There's a default limit of 20 reserved public IP addresses per subscription. [Find out more](https://msdn.microsoft.com/library/azure/dn630228.aspx) about reserved IP addresses. 
+The configuration server is deployed in an automatically created Azure cloud service with a reserved IP address. The reserved address is needed to ensure that the Configuration Server cloud service IP address remains the same across reboots of the virtual machines (including the configuration server) on the cloud service. The reserved public IP address will need to be manually unreserved when the configuration server is decommissioned or it'll remain reserved. There's a default limit of 20 reserved public IP addresses per subscription. [Find out more](../virtual-network/virtual-networks-reserved-private-ip.md) about reserved IP addresses. 
 
 ### Register the configuration server in the vault
 
 1. In the **Quick Start** page click **Prepare Target Resources** > **Download a registration key**. The key file is generated automatically. It's valid for 5 days after it's generated. Copy it to the configuration server.
-2. In **Virtual Machines** select the configuration server from the virtual machines list. Open the **Dashboard** tab and click **Connect**. **Open** the downloaded RDP file to log onto the configuration server using Remote Desktop. The Azure Site Recovery Configuration Server Setup Wizard runs automatically when you log on for the first time.
+2. In **Virtual Machines** select the configuration server from the virtual machines list. Open the **Dashboard** tab and click **Connect**. **Open** the downloaded RDP file to log onto the configuration server using Remote Desktop. If your Configuration server is deployed on a VPN network, use the internal IP address (this is the IP address you specified when you deployed the configuration server and can also be seen on the virtual machines dashboard page for the configuration server virtual machine) of the configuration server to Remote desktop to it from your on-premises network. The Azure Site Recovery Configuration Server Setup Wizard runs automatically when you log on for the first time.
 
 	![Registration](./media/site-recovery-vmware-to-azure/ASRVMWare_RegistrationSplashscreen.png)
 
@@ -256,11 +269,7 @@ The configuration server is deployed in an automatically created Azure cloud ser
 
 	![MySQL credentials](./media/site-recovery-vmware-to-azure/ASRVMWare_RegistrationMySQLPWD.png)
 
-5. In **Select Network Configuration** select **VPN mode** if the configuration server is connected to an Azure virtual network that's connects to your on-premises network over site-to-site VPN.
-
-	![VPN registration](./media/site-recovery-vmware-to-azure/ASRVMWare_RegistrationVPN.png)
-
-6. In **Internet Settings** specify how the configuration server will connect to the internet. Note that:
+5. In **Internet Settings** specify how the configuration server will connect to the internet. Note that:
 
 	- If you want to use a custom proxy you should set it up before you install the Provider.
 	- When you click **Next** a test will run to check the proxy connection.
@@ -275,7 +284,7 @@ The configuration server is deployed in an automatically created Azure cloud ser
 
 	![Proxy registration](./media/site-recovery-vmware-to-azure/ASRVMWare_RegistrationProxy.png)
 
-7. In **Provider Error Message Localization Settings** specify in which language you want error messages to appear.
+6. In **Provider Error Message Localization Settings** specify in which language you want error messages to appear.
 
 	![Error message registration](./media/site-recovery-vmware-to-azure/ASRVMWare_RegistrationLocale.png)
 
@@ -283,14 +292,14 @@ The configuration server is deployed in an automatically created Azure cloud ser
 
 	![Key file registration](./media/site-recovery-vmware-to-azure/ASRVMWare_RegistrationVault.png)
 
-4. On the completion page of the wizard select these options:
+8. On the completion page of the wizard select these options:
 
 	- Select **Launch Account Management Dialog** to specify that the Manage Accounts dialog should open after you finish the wizard.
 	- Select **Create a desktop icon for Cspsconfigtool** to add a desktop shortcut on the  configuration server so that you can open the **Manage Accounts** dialog at any time without needing to rerun the wizard.
 
 	![Complete registration](./media/site-recovery-vmware-to-azure/ASRVMWare_RegistrationFinal.png)
 
-5. Click **Finish** to complete the wizard. A passphrase is generated. Copy it to a secure location. You'll need it to authenticate and register the process and master target servers with the configuration server. It's also used to ensure channel integrity in configuration server communications. You can regenerate the passphrase but then you'll need to reregister the master target and process servers using the new passphrase.
+9. Click **Finish** to complete the wizard. A passphrase is generated. Copy it to a secure location. You'll need it to authenticate and register the process and master target servers with the configuration server. It's also used to ensure channel integrity in configuration server communications. You can regenerate the passphrase but then you'll need to re-register the master target and process servers using the new passphrase.
 
 	![Passphrase](./media/site-recovery-vmware-to-azure/passphrase.png)
 
@@ -300,7 +309,7 @@ After registration the configuration server will be listed on the **Configuratio
 
 During deployment Site Recovery requests credentials for the following actions:
 
-- When you register a vCenter server for automation discovery of virtual machines.
+- When you add a vCenter server for automated discovery of virtual machines managed by the vCenter server. A vCenter account is required for automated discovery of virtual machines.
 - When you add machines for protection, so that Site Recovery can install the Mobility service on them.
 
 After you've registered the configuration server you can open the **Manage Accounts** dialog to add and manage accounts that should be used for these actions. There are a couple of ways to do this:
@@ -339,14 +348,17 @@ Note that:
 
 Note that the first four IP addresses in any subnet are reserved for internal Azure usage. Specify any other available IP address.
 
-3. A Windows master target server virtual machine is created with these endpoints:
+>[AZURE.NOTE] Select Standard DS4 when configuring protection for workloads which require consistent high IO performance and low latency in order to host IO intensive workloads using [Premium Storage Account](../storage/storage-premium-storage-preview-portal.md).
+
+
+3. A Windows master target server virtual machine is created with these endpoints (Public endpoints are created only if your deployment type is Public Internet):
 
 	- Custom: Public port is used by the process server to send replication data over the internet. Private port 9443 is used by the process server to send replication data to the master target server over VPN.
 	- Custom1: Public port is used by the process server to send control meta-data over the internet. Private port 9080 is used by process server to send control meta-data to the master target server over VPN.
 	- PowerShell: Private port 5986
 	- Remote desktop: Private port 3389
 
-4. A Linux master target server virtual machine is created with these endpoints:
+4. A Linux master target server virtual machine is created with these endpoints (Public endpoints are created only if your deployment type is Public Internet):
 
 	- Custom: Public port is used by the process server to send replication data over the internet. Private port 9443 is used by the process server to send replication data to the master target server over VPN.
 	- Custom1: Public port is used by the process server to send control meta-data over the internet. Private port 9080 is used by the process server to send control data to the master target server over VPN
@@ -363,15 +375,16 @@ Note that the first four IP addresses in any subnet are reserved for internal Az
 7.  If you're running Windows:
 
 	1. Initiate a remote desktop connection to the virtual machine. The first time you log on a script will run in a PowerShell window. Don't close it. When it finishes the Host Agent Config tool opens automatically to register the server.
-	2. In **Host Agent Config** specify the internal IP address of the configuration server and port 443. You can use the internal address and private port 443 even if you're not connecting over VPN mode because the virtual machine is attached to the same Azure network as the configuration server. Leave **Use HTTPS** enabled. Enter the passphrase for the configuration server that you noted earlier. Click **OK** to register server. Note that you can ignore the NAT options on the page. They're not used.
-	3. If the estimated retention drive needs more than 1 TB you're need to configure the retention volume (R:) using a virtual disk and [storage spaces](http://blogs.technet.com/b/askpfeplat/archive/2013/10/21/storage-spaces-how-to-configure-storage-tiers-with-windows-server-2012-r2.aspx)
+	2. In **Host Agent Config** specify the internal IP address of the configuration server and port 443. You can use the internal address and private port 443 even if you're not connecting over VPN because the virtual machine is attached to the same Azure network as the configuration server. Leave **Use HTTPS** enabled. Enter the passphrase for the configuration server that you noted earlier. Click **OK** to register server. Note that you can ignore the NAT options on the page. They're not used.
+	3. If your estimated retention drive requirement is more than 1 TB you can configure the retention volume (R:) using a virtual disk and [storage spaces](http://blogs.technet.com/b/askpfeplat/archive/2013/10/21/storage-spaces-how-to-configure-storage-tiers-with-windows-server-2012-r2.aspx)
 	
 	![Windows master target server](./media/site-recovery-vmware-to-azure/ASRVMWare_TSRegister.png)
 
 8. If you're running Linux:
-	1. In **Prepare Target(Azure) Resources** click **Download and Install additional software (only for Linux Master Target Server)** to download the Linux master target server package. Copy the downloaded tar file to the virtual machine using an sftp client. Alternatively you can log in to the deployed linux master target server and use *wget http://go.microsoft.com/fwlink/?LinkID=529757&clcid=0x409* to download the the file.
-	2. Log onto the server using a Secure Shell client. Note that if you're connected to the Azure network over VPN use the internal IP address. Otherwise use the external IP address and the SSH public endpoint.
-	3. Extract the files from the gzipped installer by running: **tar –xvzf Microsoft-ASR_UA_8.2.0.0_RHEL6-64***
+	1. Ensure that you have installed the latest Linux Integration Services (LIS) installed before you install the Master target server software. You can find the latest version of LIS along with instructions on how to install [here](https://www.microsoft.com/en-us/download/details.aspx?id=46842). Restart the machine after the LIS install.
+	2. In **Prepare Target(Azure) Resources** click **Download and Install additional software (only for Linux Master Target Server)** to download the Linux master target server package. Copy the downloaded tar file to the virtual machine using an sftp client. Alternatively you can log in to the deployed linux master target server and use *wget http://go.microsoft.com/fwlink/?LinkID=529757&clcid=0x409* to download the the file.
+	2. Log into the server using a Secure Shell client. Note that if you're connected to the Azure network over VPN use the internal IP address. Otherwise use the external IP address and the SSH public endpoint.
+	3. Extract the files from the gzipped installer by running: **tar –xvzf Microsoft-ASR_UA_8.4.0.0_RHEL6-64***
 	![Linux master target server](./media/site-recovery-vmware-to-azure/ASRVMWare_TSLinuxTar.png)
 	4. Make sure you're in the directory to which you extracted the contents of the tar file.
 	5. Copy the configuration server passphrase to a local file using the command **echo *`<passphrase>`* >passphrase.txt**
@@ -393,14 +406,14 @@ Note that the first four IP addresses in any subnet are reserved for internal Az
 
 	![Install process server](./media/site-recovery-vmware-to-azure/ASRVMWare_PSDeploy.png)
 
-2. Copy the downloaded zip file to the server on which you're going to install the process server. The zip file contains two installation files:
+2.  Copy the downloaded zip file to the server on which you're going to install the process server. The zip file contains two installation files:
 
-	- Microsoft-ASR_CX_TP_8.3.0.0_Windows*
-	- Microsoft-ASR_CX_8.3.0.0_Windows*
+	- Microsoft-ASR_CX_TP_8.4.0.0_Windows*
+	- Microsoft-ASR_CX_8.4.0.0_Windows*
 
 3. Unzip the archive and copy the installation files to a location on the server.
-4. Run the **Microsoft-ASR_CX_TP_8.3.0.0_Windows*** installation file and follow the instructions. This installs third-party components needed for the deployment.
-5. Then run **Microsoft-ASR_CX_8.3.0.0_Windows***.
+4. Run the **Microsoft-ASR_CX_TP_8.4.0.0_Windows*** installation file and follow the instructions. This installs third-party components needed for the deployment.
+5. Then run **Microsoft-ASR_CX_8.4.0.0_Windows***.
 6. On the **Server Mode** page select **Process Server**.
 
 	![Server Selection Mode](./media/site-recovery-vmware-to-azure/ASRVMWare_ProcessServerSelection.png)
@@ -419,11 +432,11 @@ Note that the first four IP addresses in any subnet are reserved for internal Az
 	- Download vSphere CLI 5.5.0 from [here.](https://my.vmware.com/web/vmware/details?downloadGroup=VCLI550&productId=352)
 	- If you installed vSphere CLI just before you started installing the process server, and setup doesn't detect it, wait up to five minutes before you try setup again. This ensures that all the environment variables needed for vSphere CLI detection have been initialized correctly.
 
-8.	In **NIC Selection for Process Server** select the network adapter that the process server should use.
+9.	In **NIC Selection for Process Server** select the network adapter that the process server should use.
 
 	![Select adapter](./media/site-recovery-vmware-to-azure/ASRVMWare_ProcessServerNICSelection.png)
 
-9.	In **Configuration Server Details**:
+10.	In **Configuration Server Details**:
 
 	- For the IP address and port, if you're connecting over VPN specify the internal IP address of the configuration server and 443 for the port. Otherwise specify the public virtual IP address and mapped public HTTP endpoint.
 	- Type in the passphrase of the configuration server.
@@ -462,11 +475,16 @@ You can get the updates on the Site Recovery **Dashboard **. For Linux installat
 If you are running virtual machines or physical servers that already have the Mobility service installed, you can get updates for the service as follows:
 
 - Either download updates for the service as follows:
-	- [Windows Server (64 bit only)](http://download.microsoft.com/download/7/C/7/7C70CA53-2D8E-4FE0-BD85-8F7A7A8FA163/Microsoft-ASR_UA_8.3.0.0_Windows_GA_03Jul2015_release.exe)
-	- [CentOS 6.4,6.5,6.6 (64 bit only)](http://download.microsoft.com/download/B/4/5/B45D1C8A-C287-4339-B60A-70F2C7EB6CFE/Microsoft-ASR_UA_8.3.0.0_RHEL6-64_GA_03Jul2015_release.tar.gz)
-	- [Oracle Enterprise Linux 6.4,6.5 (64 bit only)](http://download.microsoft.com/download/9/4/8/948A2D75-FC47-4DED-B2D7-DA4E28B9E339/Microsoft-ASR_UA_8.3.0.0_OL6-64_GA_03Jul2015_release.tar.gz)
-	- [SUSE Linux Enterprise Server SP3 (64 bit only)](http://download.microsoft.com/download/6/A/2/6A22BFCD-E978-41C5-957E-DACEBD43B353/Microsoft-ASR_UA_8.3.0.0_SLES11-SP3-64_GA_03Jul2015_release.tar.gz)
+	- [Windows Server (64 bit only)](http://download.microsoft.com/download/8/4/8/8487F25A-E7D9-4810-99E4-6C18DF13A6D3/Microsoft-ASR_UA_8.4.0.0_Windows_GA_28Jul2015_release.exe)
+	- [CentOS 6.4,6.5,6.6 (64 bit only)](http://download.microsoft.com/download/7/E/D/7ED50614-1FE1-41F8-B4D2-25D73F623E9B/Microsoft-ASR_UA_8.4.0.0_RHEL6-64_GA_28Jul2015_release.tar.gz)
+	- [Oracle Enterprise Linux 6.4,6.5 (64 bit only)](http://download.microsoft.com/download/5/2/6/526AFE4B-7280-4DC6-B10B-BA3FD18B8091/Microsoft-ASR_UA_8.4.0.0_OL6-64_GA_28Jul2015_release.tar.gz)
+	- [SUSE Linux Enterprise Server SP3 (64 bit only)](http://download.microsoft.com/download/B/4/2/B4229162-C25C-4DB2-AD40-D0AE90F92305/Microsoft-ASR_UA_8.4.0.0_SLES11-SP3-64_GA_28Jul2015_release.tar.gz)
 - Alternatively after updating the process server you can get the updated version of the Mobility service from the  C:\pushinstallsvc\repository folder on the process server.
+- If you have a an already protected machine with an older version of the Mobility service installed, you could also automatically upgrade the Mobility service on the protected machines from the management portal. To do this, select the protection group to which the machine belongs, highlight the protected machine and click on the Update Mobility service button at the bottom. The Update Mobility Service button will be activated only if a newer version of the Mobility Service is available. Please ensure that the Process server is running the latest version of the Process server software before updating the mobility service. The protected server needs to meet all the [automatic push-installation prerequisites](#install-the-mobility-service-automatically) in order for update mobility service to work.
+
+![Select vCenter server](./media/site-recovery-vmware-to-azure/ASRVmware_UpdateMobility1.png)
+
+In Select accounts specify the administrator account to be used to update the mobility service on the protected server. Click OK and wait for the triggered job to complete.
 
 
 ## Step 6: Add vCenter servers or ESXi hosts
@@ -529,7 +547,7 @@ When you add machines to a protection group the Mobility service is automaticall
 
 **Automatically push install the mobility service on Windows servers:** 
 
-1. Install the latest updates for the process server as described in [Step 5: Install latest updates](#latest updates), and make sure that the process server is available. 
+1. Install the latest updates for the process server as described in [Step 5: Install latest updates](#step-5-install-latest-updates), and make sure that the process server is available. 
 2. Ensure there's network connectivity between the source machine and the process server, and that the source machine is accessible from the process server.  
 3. Configure the Windows firewall to allow **File and Printer Sharing** and **Windows Management Instrumentation**. Under Windows Firewall settings, select the option “Allow an app or feature through Firewall” and select the applications as shown in the picture below. For machines that belong to a domain you can configure the firewall policy with a Group Policy Object.
 
@@ -540,7 +558,7 @@ When you add machines to a protection group the Mobility service is automaticall
 
 **Automatically push install the mobility service on Linux servers:**
 
-1. Install the latest updates for the process server as described in [Step 5: Install latest updates](#latest updates), and make sure that the process server is available.
+1. Install the latest updates for the process server as described in [Step 5: Install latest updates](#step-5-install-latest-updates), and make sure that the process server is available.
 2. Ensure there's network connectivity between the source machine and the process server, and that the source machine is accessible from the process server.  
 3. Make sure the account is a root user on the source Linux server.
 4. Ensure that the /etc/hosts file on the source Linux server contains entries that map the local host name to IP addresses associated with all NICs.
@@ -566,15 +584,15 @@ The software packages used to install the Mobility service are on the process se
 
 | Source operating system                           	| Mobility service package on process server                                                           	|
 |---------------------------------------------------	|------------------------------------------------------------------------------------------------------	|
-| Windows Server (64 bit only)                      	| `C:\pushinstallsvc\repository\Microsoft-ASR_UA_8.3.0.0_Windows_GA_03Jul2015_release.exe`         |
-| CentOS 6.4, 6.5, 6.6 (64 bit only)                	| `C:\pushinstallsvc\repository\Microsoft-ASR_UA_8.3.0.0_RHEL6-64_GA_03Jul2015_Release.tar.gz`     |
-| SUSE Linux Enterprise Server 11 SP3 (64 bit only) 	| `C:\pushinstallsvc\repository\Microsoft-ASR_UA_8.3.0.0_SLES11-SP3-64_GA_03Jul2015_Release.tar.gz`|
-| Oracle Enterprise Linux 6.4, 6.5 (64 bit only)    	| `C:\pushinstallsvc\repository\Microsoft-ASR_UA_8.3.0.0_OL6-64_GA_03Jul2015_Release.tar.gz`       |
+| Windows Server (64 bit only)                      	| `C:\pushinstallsvc\repository\Microsoft-ASR_UA_8.4.0.0_Windows_GA_28Jul2015_release.exe`         |
+| CentOS 6.4, 6.5, 6.6 (64 bit only)                	| `C:\pushinstallsvc\repository\Microsoft-ASR_UA_8.4.0.0_RHEL6-64_GA_28Jul2015_release.tar.gz`     |
+| SUSE Linux Enterprise Server 11 SP3 (64 bit only) 	| `C:\pushinstallsvc\repository\Microsoft-ASR_UA_8.4.0.0_SLES11-SP3-64_GA_28Jul2015_release.tar.gz`|
+| Oracle Enterprise Linux 6.4, 6.5 (64 bit only)    	| `C:\pushinstallsvc\repository\Microsoft-ASR_UA_8.4.0.0_OL6-64_GA_28Jul2015_release.tar.gz`       |
 
 
 **To install the Mobility service manually on a Windows server**, do the following:
 
-1. Copy the **Microsoft-ASR_UA_8.2.0.0_Windows_PREVIEW_20Mar2015_Release.exe** package from the process server directory path listed in the table above to the source machine.
+1. Copy the **Microsoft-ASR_UA_8.4.0.0_Windows_GA_28Jul2015_release.exe** package from the process server directory path listed in the table above to the source machine.
 2. Install the Mobility service by running the executable on the source machine.
 3. Follow the installer instructions.
 4. Select **Mobility service** as the role and click **Next**.
@@ -647,19 +665,19 @@ Add machines as follows:
 
 	![Add V-Center server](./media/site-recovery-vmware-to-azure/ASRVMWare_SelectVMs.png)	
 
-4. In **Specify Target Resources** select the master target servers and storage to use for replication and select whether the settings should be used for all virtual machines.
+4. In **Specify Target Resources** select the master target servers and storage to use for replication and select whether the settings should be used for all workloads. Select [Premium Storage Account](../storage/storage-premium-storage-preview-portal.md) while configuring protection for workloads which require consistent high IO performance and low latency in order to host IO intensive workloads. If you want to use a Premium Storage account for your workload disks, you need to use the Master Target of DS-series. You cannot use Premium Storage disks with Master Target of non-DS-series.
 
 	![vCenter server](./media/site-recovery-vmware-to-azure/ASRVMWare_MachinesResources.png)
 
-4. In **Specify Accounts** select the account you want to use for installing the Mobility service on protected machines. The account credentials are needed for automatic installation of the Mobility service. If you can't select an account make sure you set one up as described in Step 2. Note that this account can't be accessed by Azure. For Windows server the account should have administrator privileges on the source server. For Linux the account must be root.
+5. In **Specify Accounts** select the account you want to use for installing the Mobility service on protected machines. The account credentials are needed for automatic installation of the Mobility service. If you can't select an account make sure you set one up as described in Step 2. Note that this account can't be accessed by Azure. For Windows server the account should have administrator privileges on the source server. For Linux the account must be root.
 
 	![Linux credentials](./media/site-recovery-vmware-to-azure/ASRVMWare_VMMobilityInstall.png)
 
-5. Click the check mark to finish adding machines to the protection group and to start initial replication for each machine. You can monitor status on the **Jobs** page.
+6. Click the check mark to finish adding machines to the protection group and to start initial replication for each machine. You can monitor status on the **Jobs** page.
 
 	![Add V-Center server](./media/site-recovery-vmware-to-azure/ASRVMWare_PGJobs2.png)
 
-5. In addition you can monitor protection status by clicking **Protected Items** > protection group name > **Virtual Machines** . After initial replication completes and the machines are synchronizing data they will show **Protected** status.
+7. In addition you can monitor protection status by clicking **Protected Items** > protection group name > **Virtual Machines** . After initial replication completes and the machines are synchronizing data they will show **Protected** status.
 
 	![Virtual machine jobs](./media/site-recovery-vmware-to-azure/ASRVMWare_PGJobs.png)
 
@@ -737,10 +755,13 @@ If a process server is in a critical state a status warning will be displayed on
 
 ### Modify the process server used for replication
 
-1. Alternatively in the Azure portal click **Virtual Machines** > *configurationserver* > **Server Details**.
-2. In the **Process Servers** list click **Change Process Server** next to the server you want to modify.
-3. In the **Change Process Server** dialog select the new server in **Target Process Server**, and then select the virtual machines that you want to replicate to the new server. click the information icon next to the server name to get information about it, including free space, used memory. The average space that will be required to replicate each selected virtual machine to the new process server is displayed to help you make load decisions.
-4. Click the check mark to begin replicating to the new process server. If you remove all virtual machines from a process server that was critical it should no longer display a critical warning in the dashboard.
+1. Go to the **CONFIGURATION SERVERS** page under **SERVERS**
+2. Click on the name of the Configuration Server and go to **Server Details**.
+3. In the **Process Servers** list click **Change Process Server** next to the server you want to modify.
+	![Change Process Server 1](./media/site-recovery-vmware-to-azure/ASRVMware_ChangePS1.png)
+4. In the **Change Process Server** dialog select the new server in **Target Process Server**, and then select the virtual machines that you want to replicate to the new server. click the information icon next to the server name to get information about it, including free space, used memory. The average space that will be required to replicate each selected virtual machine to the new process server is displayed to help you make load decisions.
+	![Change Process Server 2](./media/site-recovery-vmware-to-azure/ASRVMware_ChangePS2.png)
+5. Click the check mark to begin replicating to the new process server. If you remove all virtual machines from a process server that was critical it should no longer display a critical warning in the dashboard.
 
 
 ## Third-party software notices and information
@@ -753,5 +774,4 @@ The information in Section A is regarding Third Party Code components from the p
 
 The information in Section B is regarding Third Party Code components that are being made available to you by Microsoft under the original licensing terms.
 
-The complete file may be found on the [Microsoft Download Center](http://go.microsoft.com/fwlink/?LinkId=530254). Microsoft reserves all rights not expressly granted herein, whether by implication, estoppel or otherwise.
-
+The complete file may be found on the [Microsoft Download Center](http://go.microsoft.com/fwlink/?LinkId=529428). Microsoft reserves all rights not expressly granted herein, whether by implication, estoppel or otherwise.

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Advanced Analytics Process and Technology in Action: using HDInsight Hadoop clusters on the 1 TB Criteo dataset | Azure" 
+	pageTitle="Advanced Analytics Process and Technology in Action: using HDInsight Hadoop clusters on the 1 TB Criteo dataset | Microsoft Azure" 
 	description="Using the Advanced Analytics Process and Technology (ADAPT) for an end-to-end scenario employing an HDInsight Hadoop cluster to build and deploy a model using a large (1 TB) publicly available dataset" 
 	metaKeywords="" 
 	services="machine-learning,hdinsight" 
@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/27/2015" 
+	ms.date="07/21/2015" 
 	ms.author="ginathan;mohabib;bradsev" /> 
 
 # Advanced Analytics Process and Technology in Action - Using Azure HDInsight Hadoop Clusters on a 1 TB dataset
@@ -660,4 +660,3 @@ Note that we replaced the default API key with our webservices's API key. Clicki
 We see that for the two test examples we asked about (in the JSON framework of the python script), we get back answers in the form "Scored Labels, Scored Probabilities". Note that in this case, we chose the default values that the pre-canned code provides (0's for all numeric columns and the string "value" for all categorical columns).
 
 This concludes our end-to-end walkthrough showing how to handle large scale dataset using Azure Machine Learning. We started with a terabyte of data, constructed a prediction model and deployed it as a web service in the cloud.
-

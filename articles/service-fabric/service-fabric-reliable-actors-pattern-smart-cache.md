@@ -1,9 +1,9 @@
 <properties
-   pageTitle="Azure Service Fabric Actors Smart Cache design pattern"
-   description="Design pattern on how to use Service Fabric Actors as Caching infrastructure on web-based applications"
+   pageTitle="Reliable Actors Smart Cache design pattern"
+   description="Design pattern on how to use Reliable Actors as caching infrastructure on web-based applications"
    services="service-fabric"
    documentationCenter=".net"
-   authors="jessebenson"
+   authors="vturecek"
    manager="timlt"
    editor=""/>
 
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/06/2015"
-   ms.author="claudioc"/>
+   ms.date="08/05/2015"
+   ms.author="vturecek"/>
 
-# Service Fabric Actors design pattern: smart cache
+# Reliable Actors design pattern: smart cache
 The combination of a web tier, caching tier, storage tier, and occasionally a worker tier are pretty much the standard parts of today’s applications. The caching tier is usually vital to performance and may, in fact, be comprised of multiple tiers itself.
 Many caches are simple key-value pairs while other systems like [Redis](http://redis.io) that are used as caches offer richer semantics. Still, any special, caching tier will be limited in semantics and more importantly it is yet another tier to manage.
 What if instead, objects just kept state in local variables and these objects can be snapshotted or persisted to a durable store automatically? Furthermore, rich collections such as lists, sorted sets, queues, and any other custom type for that matter are simply modelled as member variables and methods.
@@ -60,7 +60,6 @@ public class Leaderboard : Actor<LeaderboardCollection>, ILeaderboard
     public Task UpdateLeaderboard(Score score)
     {
         State.UpdateLeaderboard(score);
-        return TaskDone.Done;
     }
 
     public Task<List<Score>> GetLeaderboard(int count)
@@ -194,7 +193,6 @@ public class JobQueue : Actor<List<Jobs>>, IJobQueue
 
         ...
 
-        return TaskDone.Done;
     }
 
     public Task<Job> Dequeue()
@@ -273,13 +271,11 @@ public Task Activate()
     TimeSpan.FromSeconds(0), // start immediately
     TimeSpan.FromSeconds(5)); // refresh every 5 seconds
 
-    return TaskDone.Done;
 }
 
 public Task RefreshRates()
 {
     // this is where we will make an external call and populate rates
-    return TaskDone.Done;
 }
 
 ```
@@ -312,4 +308,3 @@ Essentially Smart Cache provides:
 
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-pattern-smart-cache/smartcache-arch.png
- 

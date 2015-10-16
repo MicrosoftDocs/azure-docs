@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="How to monitor a cloud service - Azure" 
+	pageTitle="How to monitor a cloud service | Microsoft Azure" 
 	description="Learn how to monitor cloud services by using the Azure Management Portal." 
 	services="cloud-services" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/23/2014" 
+	ms.date="08/04/2015" 
 	ms.author="robb"/>
 
 
@@ -112,7 +112,7 @@ You can receive alerts based on your cloud service monitoring metrics. On the **
  
 4. To delete a metric from the metrics table, click the metric to select it, and then click **Delete Metric**. (You only see **Delete Metric** when you have a metric selected.)
 
-###To add custom the metrics to the metrics table###
+###To add custom metrics to the metrics table###
 The **Verbose** monitoring level provides a list of default metrics that you can monitor on the portal. In addition to these you can monitor any custom metrics or performance counters defined by your application through the portal.
 
 The following steps assume that you have turned on **Verbose** monitoring level and have configuring your application to collect and transfer custom performance counters. 

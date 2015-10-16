@@ -1,19 +1,19 @@
 <properties
-	pageTitle="Create a virtual machine running Linux in Azure"
-	description="Learn to create Azure virtual machine (VM) running Linux by using an image from Azure."
+	pageTitle="Create a virtual machine running Linux | Microsoft Azure"
+	description="Learn to create Azure virtual machine (VM) running Linux by using an image from Azure and the Azure Command-Line Interface."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="squillace"
 	manager="timlt"
 	editor="tysonn"
-	tags="azure-resource-management" />
+	tags="azure-resource-manager" />
 
 <tags
 	ms.service="virtual-machines"
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
-	ms.topic="get-started-article"
+	ms.topic="hero-article"
 	ms.date="07/13/2015"
 	ms.author="rasquill"/>
 
@@ -27,13 +27,19 @@ Creating an Azure virtual machine (VM) that runs Linux is easy to do from the co
 
 [AZURE.INCLUDE [free-trial-note](../../includes/free-trial-note.md)]
 
+## Video walkthrough
+
+Here's a walkthrough of this tutorial.
+
+[AZURE.VIDEO building-a-linux-virtual-machine-tutorial]
+
 ## Install the Azure CLI
 
 The first step is to [install the Azure CLI](../xplat-cli-install.md).
 
-Good. Now make sure you're in the resource management mode by typing `azure config mode arm`.
+Good. Now make sure you're in the Resource Manager mode by typing `azure config mode arm`.
 
-Even better. Now log in with your work or school id by typing `azure login` and following the prompts.
+Even better. Now [log in with your work or school id](../xplat-cli-connect.md#use-the-log-in-method) by typing `azure login` and following the prompts.
 
 > [AZURE.NOTE] If you receive an error logging in, you may need to [create a work or school id from your personal Microsoft account](resource-group-create-work-id-from-personal.md).
 
@@ -297,7 +303,4 @@ To learn more about Linux on Azure, see:
 
 - [Deploy a LAMP app using the Azure CustomScript Extension for Linux](virtual-machines-linux-script-lamp.md)
 
-- [About Azure VM configuration settings](http://msdn.microsoft.com/library/azure/dn763935.aspx)
-
 - [The Docker Virtual Machine Extension for Linux on Azure](virtual-machines-docker-vm-extension.md)
- 

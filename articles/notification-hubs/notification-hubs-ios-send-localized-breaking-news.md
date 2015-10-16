@@ -1,25 +1,27 @@
-<properties 
-	pageTitle="Notification Hubs Localized Breaking News Tutorial for iOS" 
-	description="Learn how to use Azure Service Bus Notification Hubs to send localized breaking news notifications (iOS)." 
-	services="notification-hubs" 
-	documentationCenter="ios" 
-	authors="wesmc7777" 
-	manager="dwrede" 
+<properties
+	pageTitle="Notification Hubs Localized Breaking News Tutorial for iOS"
+	description="Learn how to use Azure Service Bus Notification Hubs to send localized breaking news notifications (iOS)."
+	services="notification-hubs"
+	documentationCenter="ios"
+	authors="wesmc7777"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="notification-hubs" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="ios" 
-	ms.devlang="objective-c" 
-	ms.topic="article" 
-	ms.date="06/02/2015" 
+<tags
+	ms.service="notification-hubs"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="ios"
+	ms.devlang="objective-c"
+	ms.topic="article"
+	ms.date="09/24/2015"
 	ms.author="wesmc"/>
+
 # Use Notification Hubs to send localized breaking news to iOS devices
 
-<div class="dev-center-tutorial-selector sublanding">
-    	<a href="/documentation/articles/notification-hubs-windows-store-dotnet-send-localized-breaking-news/" title="Windows Store C#">Windows Store C#</a><a href="/documentation/articles/notification-hubs-ios-send-localized-breaking-news/" title="iOS" class="current">iOS</a>
-</div>
+> [AZURE.SELECTOR]
+- [Windows Store C#](notification-hubs-windows-store-dotnet-send-localized-breaking-news)
+- [iOS](notification-hubs-ios-send-localized-breaking-news)
+
 
 ##Overview
 
@@ -220,4 +222,3 @@ A reference for the template expression language is in [Notification Hubs How-To
 [wns object]: http://go.microsoft.com/fwlink/p/?LinkId=260591
 [Notification Hubs Guidance]: http://msdn.microsoft.com/library/jj927170.aspx
 [Notification Hubs How-To for iOS]: http://msdn.microsoft.com/library/jj927168.aspx
- 

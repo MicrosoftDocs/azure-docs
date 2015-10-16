@@ -1,11 +1,13 @@
 <properties 
-	pageTitle="Endorsed distributions of Linux in Azure" 
-	description="Learn about Linux on Azure-endorsed distributions, including guidelines for Ubuntu, OpenLogic, and SUSE." 
+	pageTitle="Endorsed distributions of Linux | Microsoft Azure" 
+	description="Learn about Linux on Azure-endorsed distributions, including guidelines for Ubuntu, OpenLogic, Oracle, and SUSE." 
 	services="virtual-machines" 
 	documentationCenter="" 
 	authors="szarkos" 
 	manager="timlt" 
-	editor="tysonn"/>
+	editor="tysonn"
+	tags="azure-service-management,azure-resource-manager" 
+	/>
 
 <tags 
 	ms.service="virtual-machines" 
@@ -31,61 +33,14 @@ The Linux Integration Services (LIS) drivers for Hyper-V and Azure are kernel mo
 
 The Azure Linux Agent is already pre-installed on the Azure Gallery images and are typically available from the distribution's package repository.  Source code can be found on [GitHub](https://github.com/azure/walinuxagent).
 
-<table border="1" width="600">
-  <tr bgcolor="#E9E7E7">
-		<th>Distribution</th>		
-	    <th>Version</th>
-	    <th>Drivers</th>
-		<th>Agent</th>
-			</tr>
-	<tr>
-		<th>  Canonical Ubuntu </th>
-		<td> Ubuntu 12.04, 14.04, 14.10 and 15.04 </td>
-		<td>In Kernel</td>
-		<td>Package: In repo under "walinuxagent" <br />
-			Source: <a href="http://go.microsoft.com/fwlink/p/?LinkID=250998">GitHub</a></td>
-			</tr>
-	<tr>
-		<th> CentOS by OpenLogic </th>
-		<td> CentOS 6.3+, 7.0+</td>
-	    <td> CentOS 6.3: <a href="http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409">LIS Download</a><br/>
-	        CentOS 6.4+: In Kernel</td>
-		<td>Package: In <a href="http://olcentgbl.trafficmanager.net/openlogic/6/openlogic/x86_64/RPMS/">OpenLogic repo </a> under "WALinuxAgent"<br />
-			Source: <a href="http://go.microsoft.com/fwlink/p/?LinkID=250998">GitHub</a></td>
- 		
-	</tr>
-	<tr>
-		<th> <a href="https://coreos.com/docs/running-coreos/cloud-providers/azure/">CoreOS</a> </th>
-		<td> 494.4.0+ </td>
-        <td> In Kernel </td>
-		<td> Source: <a href="https://github.com/coreos/coreos-overlay/tree/master/app-emulation/wa-linux-agent">GitHub</a></td>
-		
-	</tr>
-	<tr>
-		<th> Oracle Linux </th>
-		<td> 6.4+, 7.0+ </td>
-        <td>In Kernel</td>
-		<td>Package: In repo under "WALinuxAgent"<br />
-			Source: <a href="http://go.microsoft.com/fwlink/p/?LinkID=250998">GitHub</a></td>
-		
-	</tr>
-	<tr>
-		<th> SUSE Linux Enterprise </th>
-		<td> SLES 11 SP3+, SLES 12+ and <br /> SLES for SAP 11.3+ </td>
-        <td>In Kernel</td>
-		<td>Package: In <a href="https://build.opensuse.org/project/show/Cloud:Tools">Cloud:Tools</a> repo under "WALinuxAgent"<br />
-			Source: <a href="http://go.microsoft.com/fwlink/p/?LinkID=250998">GitHub</a></td>
-		
-	</tr>
-	<tr>
-		<th> openSUSE </th>
-		<td> openSUSE 13.1+</td>
-		<td>In Kernel</td>
-		<td>Package: In <a href="https://build.opensuse.org/project/show/Cloud:Tools" >Cloud:Tools</a> repo under "WALinuxAgent"<br />
-			Source Code: <a href="http://go.microsoft.com/fwlink/p/?LinkID=250998">GitHub</a></td>
-		
-	</tr>
-</table>
+Distribution|Version|Drivers|Agent
+---|---|---|---
+Canonical Ubuntu|Ubuntu 12.04, 14.04, 14.10 and 15.04|In Kernel|Package: In repo under "walinuxagent" <p><p>Source: [GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998)
+CentOS by OpenLogic |CentOS 6.3+, 7.0+| CentOS 6.3: [LIS Download](http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409)<p>CentOS 6.4+: In Kernel|Package: In <a href="http://olcentgbl.trafficmanager.net/openlogic/6/openlogic/x86_64/RPMS/">OpenLogic repo   under "WALinuxAgent"<p><p>Source: [GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998)
+[CoreOS](https://coreos.com/docs/running-coreos/cloud-providers/azure/)|494.4.0+ |In Kernel|Source: [GitHub](https://github.com/coreos/coreos-overlay/tree/master/app-emulation/wa-linux-agent)
+Oracle Linux| 6.4+, 7.0+|In Kernel|Package: In repo under "WALinuxAgent"<p><p>Source: [GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998)
+SUSE Linux Enterprise |SLES 11 SP3+, SLES 12+ and  <p><p> SLES for SAP 11.3+ |In Kernel|Package: In [Cloud:Tools](https://build.opensuse.org/project/show/Cloud:Tools) repo under "WALinuxAgent"<p><p>Source: [GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998)
+openSUSE |openSUSE 13.1+|In Kernel|Package: In [Cloud:Tools](https://build.opensuse.org/project/show/Cloud:Tools) repo under "WALinuxAgent" <p><p>Source Code: [GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998)
 
 ## Partners
 

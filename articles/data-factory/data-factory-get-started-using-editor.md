@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Get started using Azure Data Factory" 
-	description="This tutorial shows you how to create a sample data pipeline that copies data from a blob to an Azure SQL Database instance." 
+	pageTitle="Tutorial: Create a pipeline with Copy Activity using Data Factory Editor" 
+	description="In this tutorial, you will create an Azure Data Factory pipeline with a Copy Activity by using the Data Factory Editor in the Azure Portal." 
 	services="data-factory" 
 	documentationCenter="" 
 	authors="spelluru" 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/17/2015" 
+	ms.date="08/25/2015" 
 	ms.author="spelluru"/>
 
-# Tutorial: Create and monitor a data factory using Data Factory Editor
+# Tutorial: Create a pipeline with Copy Activity using Data Factory Editor
 > [AZURE.SELECTOR]
 - [Tutorial Overview](data-factory-get-started.md)
 - [Using Data Factory Editor](data-factory-get-started-using-editor.md)
@@ -111,39 +111,41 @@ A table is a rectangular dataset and has a schema. In this step, you will create
 1. In the **Editor** for the Data Factory, click **New dataset** button on the toolbar and click **Blob table** from the drop down menu. 
 2. Replace JSON in the right pane with the following JSON snippet: 
 
-        {
-     	    "name": "EmpTableFromBlob",
-		    "properties":
-    		{
-        		"structure":  
-       			 [ 
-            		{ "name": "FirstName", "type": "String"},
-            		{ "name": "LastName", "type": "String"}
-        		],
-        		"location": 
-        		{
-            		"type": "AzureBlobLocation",
-            		"folderPath": "adftutorial/",
-            		"format":
-            		{
-                		"type": "TextFormat",
-                		"columnDelimiter": ","
-            		},
-            		"linkedServiceName": "StorageLinkedService"
-        		},
-        		"availability": 
-        		{
-            		"frequency": "hour",
-            		"interval": 1,
-            		"waitOnExternal": {}
-       		 	}
-    		}
+		{
+		  "name": "EmpTableFromBlob",
+		  "properties": {
+		    "structure": [
+		      {
+		        "name": "FirstName",
+		        "type": "String"
+		      },
+		      {
+		        "name": "LastName",
+		        "type": "String"
+		      }
+		    ],
+		    "type": "AzureBlob",
+		    "linkedServiceName": "StorageLinkedService",
+		    "typeProperties": {
+		      "folderPath": "adftutorial/",
+			  "fileName": "emp.txt",
+		      "format": {
+		        "type": "TextFormat",
+		        "columnDelimiter": ","
+		      }
+		    },
+		    "external": true,
+		    "availability": {
+		      "frequency": "Hour",
+		      "interval": 1
+		    }
+		  }
 		}
 
 		
      Note the following: 
 	
-	- location **type** is set to **AzureBlobLocation**.
+	- dataset **type** is set to **AzureBlob**.
 	- **linkedServiceName** is set to **StorageLinkedService**. You had created this linked service in Step 2.
 	- **folderPath** is set to the **adftutorial** container. You can also specify the name of a blob within the folder. Since you are not specifying the name of the blob, data from all blobs in the container is considered as an input data.  
 	- format **type** is set to **TextFormat**
@@ -177,34 +179,35 @@ In this part of the step, you will create an output table named **EmpSQLTable** 
 1. In the **Editor** for the Data Factory, click **New dataset** button on the toolbar and click **Azure SQL table** from the drop down menu. 
 2. Replace JSON in the right pane with the following JSON snippet:
 
-        {
-    		"name": "EmpSQLTable",
-    		"properties":
-    		{
-        		"structure":
-        		[
-                	{ "name": "FirstName", "type": "String"},
-                	{ "name": "LastName", "type": "String"}
-        		],
-        		"location":
-        		{
-            		"type": "AzureSqlTableLocation",
-            		"tableName": "emp",
-            		"linkedServiceName": "AzureSqlLinkedService"
-        		},
-        		"availability": 
-        		{
-            		"frequency": "Hour",
-            		"interval": 1            
-        		}
-    		}
+		{
+		  "name": "EmpSQLTable",
+		  "properties": {
+		    "structure": [
+		      {
+		        "name": "FirstName",
+		        "type": "String"
+		      },
+		      {
+		        "name": "LastName",
+		        "type": "String"
+		      }
+		    ],
+		    "type": "AzureSqlTable",
+		    "linkedServiceName": "AzureSqlLinkedService",
+		    "typeProperties": {
+		      "tableName": "emp"
+		    },
+		    "availability": {
+		      "frequency": "Hour",
+		      "interval": 1
+		    }
+		  }
 		}
-
 
 		
      Note the following: 
 	
-	* location **type** is set to **AzureSQLTableLocation**.
+	* dataset **type** is set to **AzureSQLTable**.
 	* **linkedServiceName** is set to **AzureSqlLinkedService** (you had created this linked service in Step 2).
 	* **tablename** is set to **emp**.
 	* There are three columns – **ID**, **FirstName**, and **LastName** – in the emp table in the database, but ID is an identity column, so you need to specify only **FirstName** and **LastName** here.
@@ -222,46 +225,47 @@ In this step, you create a pipeline with a **Copy Activity** that uses **EmpTabl
 	![Editor New Pipeline Button][image-editor-newpipeline-button]
  
 2. Replace JSON in the right pane with the following JSON snippet: 
-
-         {
-			"name": "ADFTutorialPipeline",
-			"properties":
-			{	
-				"description" : "Copy data from a blob to Azure SQL table",
-				"activities":	
-				[
-					{
-						"name": "CopyFromBlobToSQL",
-						"description": "Push Regional Effectiveness Campaign data to Azure SQL database",
-						"type": "CopyActivity",
-						"inputs": [ {"name": "EmpTableFromBlob"} ],
-						"outputs": [ {"name": "EmpSQLTable"} ],		
-						"transformation":
-						{
-							"source":
-							{                               
-								"type": "BlobSource"
-							},
-							"sink":
-							{
-								"type": "SqlSink"
-							}	
-						},
-						"Policy":
-						{
-							"concurrency": 1,
-							"executionPriorityOrder": "NewestFirst",
-							"style": "StartOfInterval",
-							"retry": 0,
-							"timeout": "01:00:00"
-						}		
-					}
-        		],
-
-				"start": "2015-02-13T00:00:00Z",
-        		"end": "2015-02-14T00:00:00Z",
-        		"isPaused": false
-      		}
+		
+		{
+		  "name": "ADFTutorialPipeline",
+		  "properties": {
+		    "description": "Copy data from a blob to Azure SQL table",
+		    "activities": [
+		      {
+		        "name": "CopyFromBlobToSQL",
+		        "description": "Push Regional Effectiveness Campaign data to Azure SQL database",
+		        "type": "Copy",
+		        "inputs": [
+		          {
+		            "name": "EmpTableFromBlob"
+		          }
+		        ],
+		        "outputs": [
+		          {
+		            "name": "EmpSQLTable"
+		          }
+		        ],
+		        "typeProperties": {
+		          "source": {
+		            "type": "BlobSource"
+		          },
+		          "sink": {
+		            "type": "SqlSink",
+		            "writeBatchSize": 10000,
+		            "writeBatchTimeout": "60:00:00"
+		          }
+		        },
+		        "Policy": {
+		          "concurrency": 1,
+		          "executionPriorityOrder": "NewestFirst",
+		          "retry": 0,
+		          "timeout": "01:00:00"
+		        }
+		      }
+		    ],
+		    "start": "2015-07-12T00:00:00Z",
+		    "end": "2015-07-13T00:00:00Z"
+		  }
 		} 
 
 	Note the following:
@@ -379,16 +383,8 @@ topic on MSDN Library.
  
 To do this tutorial using Azure PowerShell, see [Create and monitor a data factory using Azure PowerShell][monitor-manage-using-powershell].  
 
-## Next steps
-
-Article | Description
------- | ---------------
-[Copy data with Azure Data Factory - Copy Activity][copy-activity] | This article provides detailed description of the **Copy Activity** you used in this tutorial. 
-[Enable your pipelines to work with on-premises data][use-onpremises-datasources] | This article has a walkthrough that shows how to copy data from an **on-premises SQL Server database** to an Azure blob. 
-[Tutorial: Move and process log files using Data Factory][adf-tutorial] | This article provides an **end-to-end walkthrough** that shows how to implement a **real world scenario** using Azure Data Factory to transform data from log files into insights.
-[Troubleshoot Data Factory issues][troubleshoot] | This article describes how to **troubleshoot** Azure Data Factory issues. You can try the walkthrough in this article on the ADFTutorialDataFactory by introducing an error (deleting table in the Azure SQL Database). 
-[Azure Data Factory Developer Reference][developer-reference] | The Developer Reference has the comprehensive reference content for cmdlets, JSON script, functions, etc… 
-
+## Send Feedback
+We would really appreciate your feedback on this article. Please take a few minutes to submit your feedback via [email](mailto:adfdocfeedback@microsoft.com?subject=data-factory-get-started-using-editor.md). 
 
 <!--Link references-->
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
@@ -406,11 +402,8 @@ Article | Description
 
 [data-factory-editor]: data-factory-editor.md
 [monitor-manage-using-powershell]: data-factory-monitor-manage-using-powershell.md
-[use-onpremises-datasources]: data-factory-use-onpremises-datasources.md
 [adf-tutorial]: data-factory-tutorial.md
 [use-custom-activities]: data-factory-use-custom-activities.md
-[use-pig-and-hive-with-data-factory]: data-factory-pig-hive-activities.md
-[copy-activity]: data-factory-copy-activity.md
 [troubleshoot]: data-factory-troubleshoot.md
 [data-factory-introduction]: data-factory-introduction.md
 [data-factory-create-storage]: http://azure.microsoft.com/documentation/articles/storage-create-storage-account/#create-a-storage-account

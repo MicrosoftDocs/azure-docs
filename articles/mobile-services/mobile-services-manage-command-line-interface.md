@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Administering a Mobile Service at the command line - Azure tutorial" 
+	pageTitle="Administering a Mobile Service from the command line | Microsoft Azure" 
 	description="Learn how to create, deploy, and manage your Azure Mobile Service using command-line tools." 
 	services="mobile-services" 
 	documentationCenter="Mobile" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="NA" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="04/07/2015" 
+	ms.date="07/22/2015" 
 	ms.author="glenga"/>
 
 # Automate mobile services with command-line tools 
@@ -25,10 +25,6 @@ This topic shows you how to use the Azure command-line tools to automate the cre
 When combined into a single script or batch file, these individual commands automate the creation, verification, and deletion process of a mobile service. 
 
 This topic covers a selection of common administration tasks supported by the Azure command-line tools. For more information, see [Azure command-line tools documentation][reference-docs].
-
-<!--+  You must download and install the Azure command-line tools to your local machine. To do this, follow the instructions in the first section of this topic. 
-
-+ (Optional) To be able to execute HTTP requests directly from the command-line, you must use cURL or an equivalent tool. cURL runs on a variety of platforms. Locate and install cURL for your specific platform from the <a href=http://go.microsoft.com/fwlink/p/?LinkId=275676 target="_blank">cURL download  page</a>.-->
 
 ##Install the Azure Command-Line Tools
 
@@ -110,11 +106,12 @@ The following command creates a new table with public `read` permission but with
 
 The following table shows the script permission value compared to the permission value in the [Azure Management Portal].
 
-<table border="1" width="100%"><tr><th>Script value</th><th>Management Portal value</th></tr>
-<tr><td><code>public</code></td><td>Everyone</td></tr>
-<tr><td><code>application</code> (default)</td><td>Anybody with the application key</td></tr>
-<tr><td><code>user</code></td><td>Only authenticated users</td></tr>
-<tr><td><code>admin	</code></td><td>Only scripts and admins</td></tr></table>
+|Script value|Management Portal value|
+|========|========|
+|`public`|Everyone|
+|`application`(default)|Anybody with the application key|
+|`user`|Only authenticated users|
+|`admin`|Only scripts and admins|
 
 The `mobile table create` command fails when the specified table already exists. In your automation scripts, you should attempt to delete a table before attempting to recreate it.
 

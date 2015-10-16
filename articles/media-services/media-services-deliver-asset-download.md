@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="How to Deliver Media Assets" 
-	description="Learn about options for delivering media assets that have been uploaded to Media Services in Azure. Code samples are written in C# and use the Media Services SDK for .NET." 
+	pageTitle="Download Media Assets" 
+	description="Learn about to download assets to your computer. Code samples are written in C# and use the Media Services SDK for .NET." 
 	services="media-services" 
 	documentationCenter="" 
 	authors="juliako" 
@@ -13,12 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/24/2015" 
+	ms.date="09/07/2015" 
 	ms.author="juliako"/>
 
 #How to: Deliver an Asset by Download
-
-This article is part of the [Media Services Video on Demand workflow](media-services-video-on-demand-workflow.md) series.  
 
 This topic discusses options for delivering media assets uploaded to Media Services. You can deliver Media Services content in numerous application scenarios. You can download media assets, or access them by using a locator. You can send media content to another application or to another content provider. For improved performance and scalability, you can also deliver content by using a Content Delivery Network (CDN).
 
@@ -49,7 +47,7 @@ This example shows how to download media assets from Media Services to your loca
 	        ParallelTransferThreadCount = 20
 	    };
 	
-	    var downloadTasks = new List&lt;Task&gt;();
+	    var downloadTasks = new List<Task>();
 	    foreach (IAssetFile outputFile in outputAsset.AssetFiles)
 	    {
 	        // Use the following event handler to check download progress.
@@ -73,4 +71,17 @@ This example shows how to download media assets from Media Services to your loca
 	{
 	    Console.WriteLine(string.Format("{0} % download progress. ", e.Progress));
 	}
+
+
+##Media Services learning paths
+
+You can view AMS learning paths here:
+
+- [AMS Live Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [AMS on Demand Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
    
+##See Also 
+
+[Deliver streaming content](media-services-deliver-streaming-content.md)
+

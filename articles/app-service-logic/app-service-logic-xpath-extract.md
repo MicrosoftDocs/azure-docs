@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="07/01/2015"
+   ms.date="10/01/2015"
    ms.author="rajram"/>
 
 #BizTalk XPath Extractor
@@ -36,23 +36,10 @@ BizTalk XPath Extract connector helps your app lookup and extract data from XML 
 
 ![BizTalk XPath Extractor Input][2]
 
-<table>
-	<tr>
-		<th>Parameter</th>
-		<th>Type</th>
-		<th>Description of the parameter</th>
-	</tr>
-	<tr>
-		<td>XPath</td>
-		<td>string</td>
-		<td>Query path inside xml.</td>
-	</tr>
-	<tr>
-		<td>Input Xml</td>
-		<td>string</td>
-		<td>Input Xml content.</td>
-	</tr>
-</table>
+Parameter|Type|Description of the parameter
+---|---|---
+XPath|string|Query path inside xml.
+Input Xml|string|Input Xml content.
 
 The action returns the output as a string - Result. Result contains the value of query path inside Xml.
 

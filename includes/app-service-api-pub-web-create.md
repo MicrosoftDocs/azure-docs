@@ -25,8 +25,6 @@
 
 	As this process can take a few minutes, Visual Studio displays a confirmation dialog.  
 
-	![API Service Creation Started confirmation message](./media/app-service-api-pub-web-create/25-api-provisioning-started-v3.png)
-
 6. Click **OK** on the confirmation dialog. 
  
 	The provisioning process creates the resource group and API App in your Azure subscription. Visual Studio shows the progress in the **Azure App Service Activity** window. 

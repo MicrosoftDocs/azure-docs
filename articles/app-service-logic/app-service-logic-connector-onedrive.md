@@ -1,6 +1,6 @@
 <properties
-	pageTitle="OneDrive Connector"
-	description="Get started with OneDrive Connector"
+	pageTitle="Using the OneDrive Connector in Logic Apps | Microsoft Azure App Service"
+	description="How to create and configure the OneDrive Connector or API app and use it in a logic app in Azure App Service"
 	authors="anuragdalmia"
 	manager="dwrede"
 	editor=""
@@ -13,14 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/02/2015"
+	ms.date="08/23/2015"
 	ms.author="andalmia"/>
 
-# Using the OneDrive connector in your logic app #
-
-Logic apps can trigger based on a variety of data sources and offer connectors to get and process data as a part of the flow.
-
-OneDrive Connector allows you to upload\download\delete files from your OneDrive account.
+# Get started with the OneDrive Connector and add it to your Logic App
+Connect to your OneDrive to upload, download, and delete files. Logic apps can trigger based on a variety of data sources and offer connectors to get and process data as a part of the flow. You can add the OneDrive Connector to your business workflow and process data as part of this workflow within a Logic App. 
 
 ## Creating a OneDrive connector for your Logic App ##
 To use the OneDrive connector, you need to first create an instance of the OneDrive connector API app. This can be done from either the logic app designer directly or outside it. Creating an instance outside the designer can be done as follows:
@@ -78,6 +75,15 @@ Once your API app is created, you can now use the OneDrive connector as an actio
 
 9. Details of the APIs can be found at [OneDrive API Definition].
 
+## Do more with your Connector
+Now that the connector is created, you can add it to a business workflow using a Logic App. See [What are Logic Apps?](app-service-logic-what-are-logic-apps.md).
+
+>[AZURE.NOTE] If you want to get started with Azure Logic Apps before signing up for an Azure account, go to [Try Logic App](https://tryappservice.azure.com/?appservice=logic), where you can immediately create a short-lived starter logic app in App Service. No credit cards required; no commitments.
+
+View the Swagger REST API reference at [Connectors and API Apps Reference](http://go.microsoft.com/fwlink/p/?LinkId=529766).
+
+You can also review performance statistics and control security to the connector. See [Manage and Monitor your built-in API Apps and Connectors](app-service-logic-monitor-your-connectors.md).
+
 <!-- Image reference -->
 [1]: ./media/app-service-logic-connector-onedrive/img1.PNG
 [2]: ./media/app-service-logic-connector-onedrive/img2.PNG
@@ -89,4 +95,4 @@ Once your API app is created, you can now use the OneDrive connector as an actio
 
 <!-- Links -->
 [Create a new Logic App]: app-service-logic-create-a-logic-app.md
-[OneDrive API Definition]: https://msdn.microsoft.com/en-us/library/dn974227.aspx
+[OneDrive API Definition]: https://msdn.microsoft.com/library/dn974227.aspx

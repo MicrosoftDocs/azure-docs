@@ -1,25 +1,27 @@
 <properties 
 	pageTitle="Configure web apps in Azure App Service" 
 	description="How to configure a web app in Azure App Services" 
-	services="app-service\web" 
+	services="app-service" 
 	documentationCenter="" 
-	authors="MikeWasson" 
+	authors="erikre" 
 	manager="wpickett" 
-	editor="mollybos"/>
+	editor="jimbe"/>
 
 <tags 
-	ms.service="app-service-web" 
-	ms.workload="web" 
+	ms.service="app-service" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/28/2015" 
-	ms.author="mwasson"/>
+	ms.date="09/16/2015" 
+	ms.author="erikre"/>
 
 
 # Configure web apps in Azure App Service #
 
 This topic explains how to configure a web app using the [Azure Portal](http://go.microsoft.com/fwlink/?LinkId=529715).
+
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)] 
 
 ## Application settings
 

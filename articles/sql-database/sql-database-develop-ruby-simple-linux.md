@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ruby" 
 	ms.topic="article" 
-	ms.date="07/13/2015" 
+	ms.date="07/20/2015" 
 	ms.author="andrela"/>
 
 
@@ -97,9 +97,6 @@ To use TinyTDS with Azure, it is recommended that you execute several `SET` stat
 To align with the Microsoft SQL Server [datetime](http://msdn.microsoft.com/library/ms187819.aspx) format, use the [strftime](http://ruby-doc.org/core-2.2.0/Time.html#method-i-strftime) function to cast to the corresponding datetime format. 
 
     require 'tiny_tds' 
-    require 'date'
-    t = Time.now
-    curr_date = t.strftime("%Y-%m-%d %H:%M:%S.%L") 
     client = TinyTds::Client.new username: 'yourusername@yourserver', password: 'yourpassword', 
     host: 'yourserver.database.windows.net', port: 1433, 
     database: 'AdventureWorks', azure:true 
@@ -111,6 +108,9 @@ To align with the Microsoft SQL Server [datetime](http://msdn.microsoft.com/libr
     results = client.execute("SET QUOTED_IDENTIFIER ON")
     results = client.execute("SET ANSI_WARNINGS ON")
     results = client.execute("SET CONCAT_NULL_YIELDS_NULL ON")
+    require 'date'
+    t = Time.now
+    curr_date = t.strftime("%Y-%m-%d %H:%M:%S.%L") 
     results = client.execute("INSERT SalesLT.Product (Name, ProductNumber, StandardCost, ListPrice, SellStartDate) 
     OUTPUT INSERTED.ProductID VALUES ('SQL Server Express New', 'SQLEXPRESS New', 0, 0, '#{curr_date}' )")
     results.each do |row| 

@@ -1,19 +1,19 @@
 <properties 
-    pageTitle="StorSimple 8000 Series Update 0.2 release notes - January 2015"
-    description="Describes the new features, issues, and workarounds for the January 2015 Microsoft Azure StorSimple release."
-    services="storsimple"
-    documentationCenter="NA"
-    authors="SharS"
-    manager="adinah"
-    editor="tysonn" />
+   pageTitle="StorSimple 8000 Update 0.2 release notes | Microsoft Azure"
+   description="Describes the new features and fixes, open issues, and available workarounds for the January 2015 Microsoft Azure StorSimple release (Update 0.2)."
+   services="storsimple"
+   documentationCenter="NA"
+   authors="SharS"
+   manager="carolz"
+   editor="" />
  <tags 
-    ms.service="storsimple"
-    ms.devlang="NA"
-    ms.topic="article"
-    ms.tgt_pltfrm="NA"
-    ms.workload="TBD"
-    ms.date="06/02/2015"
-    ms.author="v-sharos" />
+   ms.service="storsimple"
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD"
+   ms.date="09/04/2015"
+   ms.author="v-sharos" />
 
 
 # StorSimple 8000 Series Update 0.2 release notes - January 2015
@@ -27,10 +27,10 @@ This update does not change the physical device software version from the Octobe
 Please review the following information contained in the release notes for the January 2015 update.
 
 > [AZURE.IMPORTANT]  
-
-- This update is not available through Windows Update and cannot be installed like other updates. Your device will not receive this update even if you have applied the updates using the Management Portal. This update will only apply to virtual devices created after January 20, 2015. 
- 
-- The January release of StorSimple does not contain any updates to the StorSimple physical device. You can still apply any available Windows updates to the virtual device, including recent security fixes, but you will not see a change in version for the StorSimple physical device.
+>
+>- This update is not available through Windows Update and cannot be installed like other updates. Your device will not receive this update even if you have applied the updates using the Management Portal. This update will only apply to virtual devices created after January 20, 2015. 
+> 
+>- The January release of StorSimple does not contain any updates to the StorSimple physical device. You can still apply any available Windows updates to the virtual device, including recent security fixes, but you will not see a change in version for the StorSimple physical device.
 
 ## What's new in the January release
 
@@ -60,7 +60,7 @@ The following table provides a summary of known issues in this release.
 |6|	Storage accounts|Using the Storage service to delete the storage account is an unsupported scenario. This will lead to a situation in which user data cannot be retrieved.|| Yes |	Yes
 |7|Device failover|	Multiple failovers of a volume container from the same source device to different target devices is not supported.|	Failover from a single dead device to multiple devices will make the volume containers on the first failed over device lose data ownership. After such a failover, these volume containers will appear or behave differently when you view them in the Management Portal.|Yes|No
 |8|	Installation|During StorSimple Adapter for SharePoint installation, you need to provide a device IP in order for the install to finish successfully.||Yes|No
-|9|	Web proxy|If your web proxy configuration has HTTPS as the specified protocol, then your device-to-service communication will be affected and the device will go offline. Support packages will also be generated in the process, consuming significant resources on your device.|Make sure that the web proxy URL has HTTP as the specified protocol. More information on how to [Configure web proxy for your device.](https://msdn.microsoft.com/library/azure/dn764937.aspx)|Yes	|No
+|9|	Web proxy|If your web proxy configuration has HTTPS as the specified protocol, then your device-to-service communication will be affected and the device will go offline. Support packages will also be generated in the process, consuming significant resources on your device.|Make sure that the web proxy URL has HTTP as the specified protocol. More information on how to [Configure web proxy for your device](storsimple-configure-web-proxy.md).|Yes	|No
 |10|Web proxy|	If you configure and enable web proxy on a registered device, then you will need to restart the active controller on your device.||	Yes |No
 |11|High cloud latency and high I/O workload|When your StorSimple device encounters a combination of very high cloud latencies (order of seconds) and high I/O workload, the device volumes go into a degraded state and the I/Os may fail with a "device not ready" error.|You will need to manually reboot the device controllers or perform a device failover to recover from this situation.|Yes|No
 
@@ -72,7 +72,7 @@ This update does not contain any other changes to the StorSimple device.
 
 This release does not contain any updates to the serial-attached SCSI (SAS) controller or the firmware. The driver update was in the October, 2014 release. 
 
-## Virtual device updates in the January
+## Virtual device updates in the January release
 
 This release contains an updated image for the virtual device. All the virtual devices created after January 20, 2015 will show the software version as 6.3.9600.17361.
 

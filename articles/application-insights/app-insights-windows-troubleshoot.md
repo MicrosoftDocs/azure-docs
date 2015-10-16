@@ -113,7 +113,7 @@ See [Data retention and privacy][data].
 [data]: app-insights-data-retention-privacy.md
 [javalogs]: app-insights-java-trace-logs.md
 [platforms]: app-insights-platforms.md
-[track]: app-insights-custom-events-metrics-api.md
+[track]: app-insights-api-custom-events-metrics.md
 [universal]: app-insights-windows-get-started.md#universal
 [usage]: app-insights-web-track-usage.md
 [windows]: app-insights-windows-get-started.md

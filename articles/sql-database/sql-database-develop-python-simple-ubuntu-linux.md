@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="python" 
 	ms.topic="article" 
-	ms.date="07/16/2015" 
+	ms.date="07/20/2015" 
 	ms.author="mebha"/>
 
 
@@ -76,7 +76,7 @@ The [cursor.execute](http://pymssql.org/en/latest/ref/pymssql.html#pymssql.Curso
 
 ## Insert a row, pass parameters, and retrieve the generated primary key
 
-In SQL Database the [IDENTITY](https://msdn.microsoft.com/library/ms186775.aspx) property and the [SEQUENECE](https://msdn.microsoft.com/library/ff878058.aspx) object can be used to auto-generate [primary key](https://msdn.microsoft.com/library/ms179610.aspx) values. 
+In SQL Database the [IDENTITY](https://msdn.microsoft.com/library/ms186775.aspx) property and the [SEQUENCE](https://msdn.microsoft.com/library/ff878058.aspx) object can be used to auto-generate [primary key](https://msdn.microsoft.com/library/ms179610.aspx) values. 
 
 
 	import pymssql
@@ -109,5 +109,8 @@ This code example demonstrates the use of transactions in which you:
 	cursor.execute("INSERT SalesLT.Product (Name, ProductNumber, StandardCost, ListPrice, SellStartDate) OUTPUT INSERTED.ProductID VALUES ('SQL Server Express New', 'SQLEXPRESS New', 0, 0, CURRENT_TIMESTAMP)")
 	cnxn.rollback()
 
+## Next steps
+
+For more information, see the [Python Developer Center](/develop/python/).
 
  

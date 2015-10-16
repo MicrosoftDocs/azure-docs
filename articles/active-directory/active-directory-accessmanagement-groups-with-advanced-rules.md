@@ -1,11 +1,11 @@
 
 <properties
 	pageTitle="Using attributes to create advanced rules| Microsoft Azure"
-	description="Advanced How-to's for managing security groups and how to use these groups to manage access to a resource."
+	description="How-to's to create advanced rules for a group including supported expression rule operators and parameters."
 	services="active-directory"
 	documentationCenter=""
 	authors="femila"
-	manager="swadhwa"
+	manager="stevenpo"
 	editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/15/2015" 
+	ms.date="10/09/2015" 
 	ms.author="femila"/>
 
 
@@ -152,6 +152,17 @@ Allowed operators
 | otherMails     | Any string value                      | (user.otherMails -contains "alias@domain")           |
 | proxyAddresses | SMTP: alias@domain smtp: alias@domain | (user.proxyAddresses -contains "SMTP: alias@domain") |
 
+## Direct Reports Rule
+You can now populate members in a group based on the manager attribute of a user. 
+To configure a group as a “Manager” group
+--------------------------------------------------------------------------------
+1. On the Administrator portal, click the **Configure** tab, and then select **ADVANCED RULE**. 
+2. Type the rule with the following syntax:
+Direct Reports for *Direct Reports for {UserID_of_manager}*
+3. When saving this rule, all users that satisfy the rule will be joined as members of the group. Note that it can take some minutes for the group to initially populate. 
+
+
+## Additional Information
 Here are some topics that will provide some additional information on Azure Active Directory 
 
 * [Troubleshooting dynamic memberships for groups](active-directory-accessmanagement-troubleshooting.md)

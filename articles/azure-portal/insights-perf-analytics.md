@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/08/2015" 
+	ms.date="09/23/2015" 
 	ms.author="awills"/>
 
 # Monitor Azure web app performance
@@ -21,13 +21,15 @@ In the [Azure Portal](http://portal.azure.com) you can set up monitoring to coll
 
 Azure supports Application performance monitoring (or, *APM*) by leveraging *extensions*. These extensions are installed into your application and collect the data and report back to the monitoring services. 
 
-Application Insights and New Relic are two of the performance monitoring extensions that are available. To use New Relic, you install an agent at runtime. To use Application Insights, you rebuild your code with an SDK; and you can also install an extension that provides access to additional data. The SDK lets you write code to monitor the usage and performance of your app in more detail.  
+Application Insights and New Relic are two of the performance monitoring extensions that are available. To use them, you install an agent at runtime. With Application Insights, there's also the option to build your code with an SDK. The SDK lets you write code to monitor the usage and performance of your app in more detail.
 
 ## Enable an extension
 
 1. Click **Browse** and select the web app or virtual machine you would like to instrument.
 
-2. Add the Application Insights or the New Relic extension. If you're instrumenting a web app:
+2. Add the Application Insights or the New Relic extension. 
+
+    If you're instrumenting a web app:
 
 ![Settings, Extensions, Add, Application Insights](./media/insights-perf-analytics/05-extend.png)
 
@@ -35,9 +37,9 @@ Or if you're using a virtual machine:
 
 ![Click the Analytics tile](./media/insights-perf-analytics/10-vm1.png)
 
-### For Application Insights: rebuild with the SDK
+### Optional for Application Insights: rebuild with the SDK
 
-Application Insights works by installing an SDK into your app. 
+Application Insights can provide more detailed telemetry by installing an SDK into your app. 
 
 In Visual Studio, add the Application Insights SDK to your project.
 

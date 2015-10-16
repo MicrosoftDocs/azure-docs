@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Business-to-Business Connectors and API Apps in Microsoft Azure App Service | Azure" 
+	pageTitle="Business-to-Business Connectors and API Apps in Microsoft Azure App Service | Microsoft Azure" 
 	description="Learn how to create and configure EDI, EDIFACT, AS2, and TPM connectors; microservices architecture" 
 	services="app-service\logic" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/08/2015" 
+	ms.date="08/04/2015" 
 	ms.author="mandia"/>
 
 # Business-to-Business Connectors and API Apps in Microsoft Azure App Service
@@ -49,7 +49,7 @@ When you create B2B API Apps, there are some required resources. These items mus
 
 Requirement | Description
 --- | ---
-Azure SQL Database | Stores B2B items including partners, schemas, certificates, and agreeements. Each of the B2B API Apps requires its own Azure SQL Database. <br/><br/>**Note** Copy the connection string to this database.<br/><br/>[Create an Azure SQL Database](../sql-database-create-configure.md)
+Azure SQL Database | Stores B2B items including partners, schemas, certificates, and agreeements. Each of the B2B API Apps requires its own Azure SQL Database. <br/><br/>**Note** Copy the connection string to this database.<br/><br/>[Create an Azure SQL Database](../sql-database-get-started.md)
 Azure Blob Storage container | Stores message properties when AS2 archiving is enabled. If you don't need AS2 message archiving, a Storage container is not needed. <br/><br/>**Note** If you are enabling archiving, copy the connection string to this Blob Storage.<br/><br/>[About Azure Storage Accounts](../storage-create-storage-account.md)
 Service Bus Namespace and its Key values | Stores X12 and EDIFACT batching data. If you don't need batching, a Service Bus namespace is not needed.<br/><br/>**Note** If you are enabling batching, copy these values.<br/><br/>[Create a Service Bus Namespace](http://msdn.microsoft.com/library/azure/hh690931.aspx)
 TPM Instance | A BizTalk Trading Partner Management (TPM) instance is required to create an AS2 connector and X12 or EDIFACT API App. When you create the TPM API App, you are creating the TPM Instance. <br/><br/>**Note** Know the name of your TPM API App. 
@@ -191,6 +191,7 @@ The following steps add the B2B API Apps to Logic Apps, Mobile Apps, or Web Apps
 
 4. Select **OK** to save your changes. 
 
+>[AZURE.NOTE] If you want to get started with Azure Logic Apps before signing up for an Azure account, go to [Try Logic App](https://tryappservice.azure.com/?appservice=logic), where you can immediately create a short-lived starter logic app in App Service. No credit cards required; no commitments.
 
 ## More B2B resources
 

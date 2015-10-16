@@ -3,6 +3,7 @@
 	description="Use Hadoop Oozie in HDInsight, a big data service. Learn how to define an Oozie workflow, and submit an Oozie job."
 	services="hdinsight"
 	documentationCenter=""
+	tags="azure-portal"
 	authors="mumian"
 	manager="paulettm"
 	editor="cgronlun"/>
@@ -13,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/30/2015"
+	ms.date="07/28/2015"
 	ms.author="jgao"/>
 
 
@@ -83,7 +84,7 @@ Before you begin this tutorial, you must have the following:
 	<tr><td>SQL database name</td><td>$sqlDatabaseName</td><td></td><td>Azure SQL database to which Sqoop will export data. </td></tr>
 	</table>
 
-	> [AZURE.NOTE] By default, an Azure SQL database allows connections from Azure services, such as Azure HDInsight. If this firewall setting is disabled, you must enabled it from the Azure portal. For instructions about creating a  SQL database and configuring firewall rules, see [How to Create and Configure an Azure SQL Database][sqldatabase-create-configue].
+	> [AZURE.NOTE] By default, an Azure SQL database allows connections from Azure services, such as Azure HDInsight. If this firewall setting is disabled, you must enabled it from the Azure preview portal. For instructions about creating a  SQL database and configuring firewall rules, see [How to Create and Configure an Azure SQL Database][sqldatabase-create-configue].
 
 
 > [AZURE.NOTE] Filling in the values in the tables will be helpful for going through this tutorial.
@@ -521,7 +522,7 @@ Azure PowerShell currently doesn't provide any cmdlets for defining Oozie jobs. 
 **To check the job error log**
 
 To troubleshoot a workflow, the Oozie log file can be found at
-*C:\apps\dist\oozie-3.3.2.1.3.2.0-05\oozie-win-distro\logs\Oozie.log* or *C:\apps\dist\oozie-4.0.0.2.0.7.0-1528\oozie-win-distro\logs\Oozie.log* from the cluster head node. For information about RDP, see [Manage Hadoop clusters in HDInsight using the Azure Management Portal][hdinsight-admin-portal].
+*C:\apps\dist\oozie-3.3.2.1.3.2.0-05\oozie-win-distro\logs\Oozie.log* or *C:\apps\dist\oozie-4.0.0.2.0.7.0-1528\oozie-win-distro\logs\Oozie.log* from the cluster head node. For information about RDP, see [Manage Hadoop clusters in HDInsight using the Azure preview portal][hdinsight-admin-portal].
 
 **To re-run the tutorial**
 
@@ -603,7 +604,7 @@ In this tutorial, you learned how to define an Oozie workflow and how to run an 
 [sqldatabase-create-configue]: ../sql-database-create-configure.md
 [sqldatabase-get-started]: ../sql-database-get-started.md
 
-[azure-management-portal]: https://manage.windowsazure.com/
+[azure-management-portal]: https://portal.azure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account.md
 
 [apache-hadoop]: http://hadoop.apache.org/

@@ -1,10 +1,10 @@
 
 <properties
-   pageTitle="Azure Service Fabric Actors for Internet of Things"
-   description="Azure Service Fabric Actors is the key building block (as a middle-tier) in a system that combines a messaging system front end that supports multiple transports such as HTTPS, MQTT or AMQP then communicates with actors that represent individual devices."
+   pageTitle="Reliable Actors for Internet of Things"
+   description="Service Fabric Reliable Actors is the key building block (as a middle-tier) in a system that combines a messaging system front end that supports multiple transports such as HTTPS, MQTT or AMQP then communicates with actors that represent individual devices."
    services="service-fabric"
    documentationCenter=".net"
-   authors="jessebenson"
+   authors="vturecek"
    manager="timlt"
    editor=""/>
 
@@ -14,16 +14,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/01/2015"
-   ms.author="claudioc"/>
+   ms.date="08/05/2015"
+   ms.author="vturecek"/>
 
-# Service Fabric Actors design pattern: Internet of Things
+# Reliable Actors design pattern: Internet of Things
 Since IoT became the new trend alongside the technological advancement in both devices and cloud services, developers started looking at key building blocks to develop their systems on.
-The following diagram illustrates the key scenarios achieved using Azure Service Fabric Actors:
+The following diagram illustrates the key scenarios achieved using Service Fabric Reliable Actors:
 
 ![][1]
 
-Azure Service Fabric Actors is the key building block (as a middle-tier) in a system that combines a messaging system front end that supports multiple transports such as HTTPS, MQTT or AMQP then communicates with actors that represent individual devices. Because the actors can maintain state, modelling streams—especially stateful stream processing—and aggregation per device is straightforward. If the data must be persisted, then we can also easily flush on demand or on a timer while still easily maintaining the latest N bits of data in another variable for quick querying.
+Service Fabric Reliable Actors is the key building block (as a middle-tier) in a system that combines a messaging system front end that supports multiple transports such as HTTPS, MQTT or AMQP then communicates with actors that represent individual devices. Because the actors can maintain state, modelling streams—especially stateful stream processing—and aggregation per device is straightforward. If the data must be persisted, then we can also easily flush on demand or on a timer while still easily maintaining the latest N bits of data in another variable for quick querying.
 Note that in our samples, we deliberately omitted the details of the event/messaging tier, which will allow actors to communicate with devices, to keep the focus on the actor model.
 There are essentially two scenarios usually composed together:
 
@@ -222,4 +222,3 @@ We conclude that more and more customers will look at Azure Service Fabric Actor
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-pattern-internet-of-things/internet-of-things-1.png
 [2]: ./media/service-fabric-reliable-actors-pattern-internet-of-things/internet-of-things-2.png
- 

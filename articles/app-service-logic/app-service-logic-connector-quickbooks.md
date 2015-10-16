@@ -1,6 +1,6 @@
 <properties
-   pageTitle="QuickBooks Connector"
-   description="How to use the QuickBooks Connector"
+   pageTitle="Using the QuickBooks Connector in Logic Apps | Microsoft Azure App Service"
+   description="How to create and configure the QuickBooks Connector or API app and use it in a logic app in Azure App Service"
    services="app-service\logic"
    documentationCenter=".net,nodejs,java"
    authors="anuragdalmia"
@@ -13,71 +13,34 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="07/02/2015"
+   ms.date="08/23/2015"
    ms.author="sameerch"/>
 
 
-#Using the QuickBooks Connector in your Logic App#
+# Get started with the QuickBooks Connector and add it to your Logic App
+Use the QuickBooks connector to create and modify different QuickBooks entities. The following table lists the supported entities:
 
-Logic apps can trigger based on a variety of data sources and offer connectors to get and process data as a part of the flow. QuickBooks connector lets you create and modify different QuickBooks entities. Following is the list of QuickBooks entities that are supported by the QuickBooks Connector.
+Entities|Description
+---|---
+Account|Account is a component of a Chart Of Accounts, and is part of a Ledger. Used to record a total monetary amount allocated against a specific use
+CreditMemo|The CreditMemo is a financial transaction representing a refund or credit of payment or part of a payment for goods or services that have been sold.
+Customer|A customer is a consumer of the service or product that your business offers.
+Estimate|The Estimate represents a proposal for a financial transaction from a business to a customer for goods or services proposed to be sold, including proposed pricing.
+Invoice|An Invoice represents a sales form where the customer pays for a product or service later. Additional information about using the Invoice data model can be found here.
+Item|An item is a thing that your company buys, sells, or re-sells, such as products, shipping and handling charges, discounts, and sales tax (if applicable).  An item is shown as a line on an invoice or other sales form.
+SalesReceipt|This entity represents the sales receipt that is given to a customer.
 
-<Table>
-<TR><TD><B>Entities</TD><TD><B>Description</TR>
-<TR>	<TD>	Account	</TD>	<TD>	Account is a component of a Chart Of Accounts, and is part of a Ledger. Used to record a total monetary amount allocated against a specific use	</TD>	</TR>
-<TR>	<TD>	CreditMemo	</TD>	<TD>	The CreditMemo is a financial transaction representing a refund or credit of payment or part of a payment for goods or services that have been sold.	</TD>	</TR>
-<TR>	<TD>	Customer	</TD>	<TD>	A customer is a consumer of the service or product that your business offers.	</TD>	</TR>
-<TR>	<TD>	Estimate	</TD>	<TD>	The Estimate represents a proposal for a financial transaction from a business to a customer for goods or services proposed to be sold, including proposed pricing.	</TD>	</TR>
-<TR>	<TD>	Invoice	</TD>	<TD>	An Invoice represents a sales form where the customer pays for a product or service later. Additional information about using the Invoice data model can be found here.	</TD>	</TR>
-<TR>	<TD>	Item	</TD>	<TD>	An item is a thing that your company buys, sells, or re-sells, such as products, shipping and handling charges, discounts, and sales tax (if applicable).  An item is shown as a line on an invoice or other sales form.	</TD>	</TR>
-<TR>	<TD>	SalesReceipt	</TD>	<TD>	This entity represents the sales receipt that is given to a customer.	</TD>	</TR>
-</Table>
-
+Logic apps can trigger based on a variety of data sources and offer connectors to get and process data as a part of the flow. You can add the QuickBooks Connector to your business workflow and process data as part of this workflow within a Logic App. 
 
 ##QuickBooks Actions ##
 Following are the different actions available in QuickBooks connector.
-	<table>
-	<tbody>
-		<tr><td>
-		<strong>Action</strong>
-		</td>
-		<td>
-		<strong>Description</strong>
-		</td>
-		</tr>
-		<tr>
-		<td>
-		Read Entity
-		</td>
-		<td>
-		Read entity object.
-		</td>
-		</tr>
-		<tr>
-		<td>
-		Create Or Update Entity
-		</td>
-		<td>
-		Create or Update entity object. Object is updated if it already exists else a new object is created.
-		</td>
-		</tr>
-		<tr>
-		<td>
-		Delete
-		</td>
-		<td>
-		This action deletes specified object from selected entity.
-		</td>
-		</tr>
-		<tr>
-		<td>
-		Query
-		</td>
-		<td>
-		The query operation is the method for creating a guided query against an entity.
-		</td>
-		</tr>
-	</tbody>
-	</table>
+
+Action|Description
+---|---
+Read Entity|Read entity object
+Create Or Update Entity|Create or Update entity object. Object is updated if it already exists else a new object is created
+Delete|This action deletes specified object from selected entity
+Query|The query operation is the method for creating a guided query against an entity.
 
 ##Create a QuickBooks Connector API App##
 1.	Open the Azure Marketplace using the + NEW option at the bottom right of the Azure Portal.
@@ -154,6 +117,15 @@ Let us create a simple logic app that creates an account in QuickBooks and updat
 17. Browse the newly created Logic App and click on 'Run' to initiate a run.
 
 18. You can check that a new account by name 'Contoso' gets created in your QuickBooks account.
+
+## Do more with your Connector
+Now that the connector is created, you can add it to a business workflow using a Logic App. See [What are Logic Apps?](app-service-logic-what-are-logic-apps.md).
+
+>[AZURE.NOTE] If you want to get started with Azure Logic Apps before signing up for an Azure account, go to [Try Logic App](https://tryappservice.azure.com/?appservice=logic), where you can immediately create a short-lived starter logic app in App Service. No credit cards required; no commitments.
+
+View the Swagger REST API reference at [Connectors and API Apps Reference](http://go.microsoft.com/fwlink/p/?LinkId=529766).
+
+You can also review performance statistics and control security to the connector. See [Manage and Monitor your built-in API Apps and Connectors](app-service-logic-monitor-your-connectors.md).
 
 <!--Image references-->
 [1]: ./media/app-service-logic-connector-quickbooks/1_New_Logic_App.png

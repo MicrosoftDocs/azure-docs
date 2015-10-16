@@ -1,9 +1,9 @@
 <properties
-	pageTitle="Create a Windows virtual machine with a Resource Manager template and PowerShell"
+	pageTitle="Create a VM with a template | Microsoft Azure"
 	description="Use a Resource Manager template and Azure PowerShell to create a new Windows virtual machine."
 	services="virtual-machines"
 	documentationCenter=""
-	authors="JoeDavies-MSFT"
+	authors="davidmu1"
 	manager="timlt"
 	editor=""
 	tags="azure-resource-manager"/>
@@ -14,35 +14,47 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/09/2015"
-	ms.author="josephd"/>
+	ms.date="10/08/2015"
+	ms.author="davidmu"/>
 
-# Create Windows virtual machine with a Resource Manager template and Azure PowerShell
+# Create a Windows virtual machine with a Resource Manager template and PowerShell
 
-You can easily create a new Windows-based Azure virtual machine by using a Resource Manager template with Azure PowerShell. This template creates a single virtual machine running Windows in a new virtual network with a single subnet in a new resource group.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] classic deployment model.
+
+
+You can easily create a new Windows-based Azure virtual machine (VM) using a Resource Manager template with Azure PowerShell. This template creates a single virtual machine running Windows in a new virtual network with a single subnet in a new resource group.
 
 ![](./media/virtual-machines-create-windows-powershell-resource-manager-template-simple/windowsvm.png)
 
-Before you dive in, follow these instructions to make sure you have Azure, Windows PowerShell, and Azure PowerShell configured and ready to go:
+Before you dive in, make sure you have Azure and PowerShell configured and ready to go.
 
 [AZURE.INCLUDE [arm-getting-setup-powershell](../../includes/arm-getting-setup-powershell.md)]
 
-## Create a Windows virtual machine
+## Create a Windows VM
 
-Follow these steps to create a Windows virtual machine by using a Resource Manager template in the Github template repository with Azure PowerShell.
+Follow these steps to create a Windows VM using a Resource Manager template in the Github template repository with Azure PowerShell.
 
-Run the commands per the following example and provide your Azure deployment name, resource group name, and Azure datacenter location. Note that when you run the **New-AzureResourceGroupDeployment** command, you will be prompted to supply the values of parameters in the "parameters" section of the JSON file. When you have specified all the parameter values, the command creates the resource group and the virtual machine.
+Fill in an Azure deployment name, Resource Group name, and Azure datacenter location, and then run these commands.
+
+	$deployName="<deployment name>"
+	$RGName="<resource group name>"
+	$locName="<Azure location, such as West US>"
+	$templateURI="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-simple-windows-vm/azuredeploy.json"
+	New-AzureRmResourceGroup –Name $RGName –Location $locName
+	New-AzureRmResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateUri $templateURI
+
+When you run the **New-AzureRmResourceGroupDeployment** command, you will be prompted to supply the values of parameters in the "parameters" section of the JSON file. When you have specified all the parameter values, the command creates the resource group and the virtual machine.
 
 	$deployName="TestDeployment"
 	$RGName="TestRG"
 	$locname="West US"
 	$templateURI="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-simple-windows-vm/azuredeploy.json"
-	New-AzureResourceGroup –Name $RGName –Location $locName
-	New-AzureResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateUri $templateURI
+	New-AzureRmResourceGroup –Name $RGName –Location $locName
+	New-AzureRmResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateUri $templateURI
 
 You will see something like this:
 
-	cmdlet New-AzureResourceGroupDeployment at command pipeline position 1
+	cmdlet New-AzureRmResourceGroupDeployment at command pipeline position 1
 	Supply values for the following parameters:
 	(Type !? for Help.)
 	newStorageAccountName: newsaacct
@@ -80,16 +92,16 @@ You will see something like this:
 
 You now have a new Windows virtual machine named MyWindowsVM in your new resource group.
 
-## Additional resources
+## Additional Resources
 
-[Azure Compute, Network, and Storage providers under Azure Resource Manager](virtual-machines-azurerm-versus-azuresm.md)
+[Azure Compute, Network and Storage Providers under Azure Resource Manager](virtual-machines-azurerm-versus-azuresm.md)
 
-[Azure Resource Manager overview](../resource-group-overview.md)
+[Azure Resource Manager Overview](resource-group-overview.md)
 
-[Create a Windows virtual machine with Azure Resource Manager and Azure PowerShell](virtual-machines-create-windows-powershell-resource-manager.md)
+[Create a Windows virtual machine with Azure Resource Manager and PowerShell](virtual-machines-create-windows-powershell-resource-manager.md)
 
-[Create a Windows virtual machine with Azure PowerShell and Azure Service Manager](virtual-machines-create-windows-powershell-service-manager.md)
+[Create a Windows virtual machine with PowerShell and Azure Service Manager](virtual-machines-create-windows-powershell-service-manager.md)
 
 [Virtual machines documentation](http://azure.microsoft.com/documentation/services/virtual-machines/)
 
-[How to install and configure Azure PowerShell](../powershell-install-configure.md)
+[How to install and configure Azure PowerShell](install-configure-powershell.md)

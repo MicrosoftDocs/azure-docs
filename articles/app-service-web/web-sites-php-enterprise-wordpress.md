@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="web"
-	ms.date="04/29/2015"
+	ms.date="08/03/2015"
 	ms.author="tomfitz"/>
 
 #Enterprise-class WordPress on Azure App Service
@@ -278,7 +278,7 @@ To do this... | Use this...
 [searchandreplace]: http://interconnectit.com/124/search-and-replace-for-wordpress-databases/
 [deploy]: web-sites-deploy.md
 [posh]: ../install-configure-powershell.md
-[Azure CLI]: ../xplat-cli.md
+[Azure CLI]: ../xplat-cli-install.md
 [storesendgrid]: /gallery/store/sendgrid/sendgrid-azure/
 [cdn]: ../cdn-how-to-use.md
  

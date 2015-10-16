@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management" 
-   ms.date="07/14/2015"
+   ms.date="10/08/2015"
    ms.author="elfish"/>
 
-# Recovery an Azure SQL Database from a user error
+# Recover an Azure SQL Database from a user error
 
 Azure SQL Database offers two core capabilities for recovering from user error or unintended data modification.
 
@@ -31,6 +31,8 @@ In the event of a user error or unintended data modification, Point In Time Rest
 
 Basic databases have 7 days of retention, Standard databases have 14 days of retention, and Premium databases have 35 days of retention. To learn more about database retention please read our [business continuity overview](sql-database-business-continuity.md).
 
+> [AZURE.NOTE] Restoring a database creates a new database. It is important to make sure the server you are restoring to has enough DTU capacity for the new database. You can request an increase of this quota by [contacting support](http://azure.microsoft.com/blog/azure-limits-quotas-increase-requests/).
+
 ###Azure Portal
 1. Log in to the [Azure Portal](https://portal.Azure.com)
 2. On the left side of the screen select **BROWSE** and then select **SQL Databases**.
@@ -42,6 +44,8 @@ Basic databases have 7 days of retention, Standard databases have 14 days of ret
 After the restore has completed, you can configure your recovered database to be used by following the [Finalize a Recovered Database](sql-database-recovered-finalize.md) guide.
 ###PowerShell
 Use PowerShell to programmatically perform database restore.
+
+> [AZURE.IMPORTANT] This article contains commands for versions of Azure PowerShell up to *but not including* versions 1.0 and later. You can check your version of Azure PowerShell with the **Get-Module azure | format-table version** command.
 
 To restore a database with Point In Time Restore, use the [Start-AzureSqlDatabaseRestore](https://msdn.microsoft.com/library/dn720218.aspx?f=255&MSPPError=-2147217396) cmdlet. For a detailed walk through, please see our [how-to video](http://azure.microsoft.com/documentation/videos/restore-a-sql-database-using-point-in-time-restore-with-microsoft-azure-powershell/).
 
@@ -66,6 +70,8 @@ After the restore has completed, you can configure your recovered database to be
 In the event a database is deleted, Azure SQL Database allows you to restore the deleted database to the point in time of deletion. Azure SQL Database stores the deleted database backup for the retention period of the database.
 
 The retention period of a deleted database is determined by the service tier of the database while it existed or the number of days where the database exists, whichever is less. To learn more about database retention read our [business continuity overview](sql-database-business-continuity.md).
+
+> [AZURE.NOTE] Restoring a database creates a new database. It is important to make sure the server you are restoring to has enough DTU capacity for the new database. You can request an increase of this quota by [contacting support](http://azure.microsoft.com/blog/azure-limits-quotas-increase-requests/).
 
 ###Azure Portal
 1. Log in to the [Azure Portal](https://portal.Azure.com)

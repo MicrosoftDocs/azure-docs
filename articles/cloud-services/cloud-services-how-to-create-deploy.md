@@ -1,5 +1,5 @@
 <properties
-	pageTitle="How to create and deploy a cloud service - Azure"
+	pageTitle="How to create and deploy a cloud service | Microsoft Azure"
 	description="Learn how to create and deploy a cloud service using the Quick Create method in Azure."
 	services="cloud-services"
 	documentationCenter=""
@@ -12,8 +12,8 @@
 	ms.workload="tbd"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="hero-article"
-	ms.date="06/30/2015"
+	ms.topic="article"
+	ms.date="09/22/2015"
 	ms.author="adegeo"/>
 
 
@@ -34,14 +34,16 @@ This topic explains how to use the Quick Create method to create a new cloud ser
 ## Concepts
 Three components are required in order to deploy an application as a cloud service in Azure:
 
-- **Service Definition**<br/>
+- **Service Definition**  
   The cloud service definition file (.csdef) defines the service model, including the number of roles.
 
-- **Service Configuration**<br/>
+- **Service Configuration**  
   The cloud service configuration file (.cscfg) provides configuration settings for the cloud service and individual roles, including the number of role instances.
 
-- **Service Package**<br/>
+- **Service Package**  
   The service package (.cspkg) contains the application code and configurations and the service definition file.
+  
+You can learn more about these and how to create a package [here](cloud-services-model-and-package.md).
 
 ## Prepare your app
 Before you can deploy a cloud service, you must create the cloud service package (.cspkg) from your application code and a cloud service configuration file (.cscfg). The Azure SDK provides tools for preparing these required deployment files. You can install the SDK from the [Azure Downloads](http://azure.microsoft.com/downloads/) page, in the language in which you prefer to develop your application code.
@@ -147,3 +149,9 @@ Three cloud service features require special configurations before you export a 
 
 [TFSTutorialForCloudService]: http://go.microsoft.com/fwlink/?LinkID=251796&clcid=0x409
  
+## Next steps
+
+* [General configuration of your cloud service](cloud-services-how-to-configure.md).
+* Configure a [custom domain name](cloud-services-custom-domain-name.md).
+* [Manage your cloud service](cloud-services-how-to-manage.md).
+* Configure [ssl certificates](cloud-services-configure-ssl-certificate.md).

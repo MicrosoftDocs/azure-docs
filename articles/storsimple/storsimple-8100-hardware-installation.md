@@ -1,9 +1,9 @@
 <properties 
-   pageTitle="Install your StorSimple 8100 device"
-   description="Describes how to unpack, rack mount, and cable your StorSimple 8100 device."
+   pageTitle="Install your StorSimple 8100 device | Microsoft Azure"
+   description="Describes how to unpack, rack mount, and cable your StorSimple 8100 device before you deploy and configure the software."
    services="storsimple"
    documentationCenter="NA"
-   authors="SharS"
+   authors="alkohli"
    manager="carolz"
    editor="" />
 <tags 
@@ -12,16 +12,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="07/08/2015"
-   ms.author="v-sharos" />
+   ms.date="09/23/2015"
+   ms.author="alkohli" />
 
-# Install your StorSimple 8100 device
+# Unpack, rack-mount, and cable your StorSimple 8100 device
 
 ## Overview
 
 Your Microsoft Azure StorSimple 8100 is a single enclosure, rack-mounted device. 
 
-This tutorial explains how to unpack, rack-mount, and cable the StorSimple 8100 device hardware before you  configure the StorSimple software.
+This tutorial explains how to unpack, rack-mount, and cable the StorSimple 8100 device hardware before you configure the StorSimple software.
 
 ## Unpack your StorSimple 8100 device
 
@@ -48,7 +48,7 @@ Next, complete the following steps to unpack your device.
 
      ![Unpack your storage device](./media/storsimple-8100-hardware-installation/HCSUnpackyour2Udevice.png) 
 
-    **Figure 1: Unpacked view of your storage device**
+    **Unpacked view of your storage device**
 
      Label | Description 
      ----- | -------------
@@ -117,7 +117,7 @@ A set of mounting rails is provided for use with the 19-inch rack cabinet. The r
 
     ![Attaching rail slides to enclosure chassis](./media/storsimple-8100-hardware-installation/HCSAttachingRailSlidestoEnclosureChassis.png) 
 
-   **Figure 2: Attaching rail slides to the sides of the enclosure**
+   **Attaching rail slides to the sides of the enclosure**
 
     Label | Description
     ----- | -----------
@@ -134,7 +134,7 @@ A set of mounting rails is provided for use with the 19-inch rack cabinet. The r
 
      ![Attaching rail slides to rack cabinet](./media/storsimple-8100-hardware-installation/HCSAttachingRailSlidestoRackCabinet.png) 
 
-    **Figure 3: Attaching rail assemblies to the rack**
+    **Attaching rail assemblies to the rack**
 
      Label | Description
      ----- | -----------
@@ -156,7 +156,7 @@ Using the rack rails that were just installed, perform the following steps to mo
 
     ![Inserting device in the rack](./media/storsimple-8100-hardware-installation/HCSInsertingDeviceintheRack.png)
 
-    **Figure 4: Mounting the device in the rack**
+    **Mounting the device in the rack**
 
 3. Secure the enclosure in the rack by installing one provided Phillips-head screw through each flange, left and right.
 
@@ -164,7 +164,7 @@ Using the rack rails that were just installed, perform the following steps to mo
 
      ![Installing flange caps](./media/storsimple-8100-hardware-installation/HCSInstallingFlangeCaps.png)
  
-    **Figure 5: Installing the flange caps**
+    **Installing the flange caps**
 
      Label | Description
      ----- | -----------
@@ -194,7 +194,7 @@ Before you begin the cabling of your device, you will need:
 
 - Provided single QSFP-to-SFP+ adapters for use with 10 GbE network interfaces
 
-- [Supported transceivers, cables, and switches for 10 GbE network interfaces](https://msdn.microsoft.com/library/azure/dn891474.aspx)
+- [Supported hardware for 10 GbE network interfaces on your StorSimple device](storsimple-supported-hardware-for-10-gbe-network-interfaces.md)
 
 
 ### Power cabling
@@ -203,29 +203,7 @@ Your device includes redundant Power and Cooling Modules (PCMs). Both PCMs must 
 
 Perform the following steps to cable your device for power.
 
-#### To cable for power
-
-1. Make sure that the power switches on each of the PCMs are in the OFF position.
-
-2. Connect the power cords to both PCMs in the primary enclosure.
-
-3. Attach the power cords to the rack power distribution units (PDUs) as shown in the following illustration. Ensure that the two PCMs use separate power sources.
-
-4. Turn on the system by flipping the power switches on both PCMs to the ON position.
-
-    >[AZURE.NOTE] To ensure high availability of your system, you should strictly adhere to the power cabling scheme shown in the following diagram.
-
-    ![Cable your 2U device for power](./media/storsimple-8100-hardware-installation/HCSCableYour2UDeviceforPower.png)
-
-    **Figure 6: Power cabling for your device**
-
-     Label | Description
-     ----- | -----------
-     1     | PCM 0
-     2     | Controller 1
-     3     | Controller 0
-     4     | PCM 1
-     5     | PDUs
+[AZURE.INCLUDE [storsimple-cable-8100-for-power](../../includes/storsimple-cable-8100-for-power.md)]
 
 ### Network cabling
 
@@ -239,7 +217,7 @@ To support this redundant controller failover, you need to cable your device net
 
     ![Backplane of 8100 device](./media/storsimple-8100-hardware-installation/HCSBackplaneof2UDevicewithPortsLabeled.jpg)
 
-    **Figure 7: Back of the device showing data ports**
+    **Back of the device showing data ports**
  
      Label   | Description
      ------- | -----------
@@ -257,10 +235,10 @@ To support this redundant controller failover, you need to cable your device net
     3. DATA 0 port to the primary LAN (network with Internet access). The other data ports can be connected to SAN/iSCSI LAN (VLAN) segment of the network, depending on the intended role.
 
     At a minimum, configure one network interface for cloud access and one for iSCSI. For high availability and performance, configure two pairs of network interfaces on each controller. See the following diagram for network cabling. (The minimum network configuration is shown by solid blue lines. For high availability and performance, additional configuration required is shown by dotted lines.)
-
+	
     ![Cable your 2U device for network](./media/storsimple-8100-hardware-installation/HCSCableYour2UDeviceforNetwork.png)
 
-    **Figure 8: Network cabling for your device**
+    **Network cabling for your device**
 
     Label | Description
     ----- | -----------
@@ -278,7 +256,7 @@ Perform the following steps to cable your serial port.
 
 #### To cable for serial connection
 
-1. Your device has a serial port on each controller that is identified by a wrench icon. Refer to Figure 7 to locate the serial ports on the backplane of your device. 
+1. Your device has a serial port on each controller that is identified by a wrench icon. Refer to the illustration in the [Network cabling](#network-cabling) section to locate the serial ports on the backplane of your device. 
 
 2. Identify the active controller on your device backplane. A blinking blue LED indicates that the controller is active. 
 
