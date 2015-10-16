@@ -106,8 +106,10 @@ To playback a video encrypted with common encryption (PlayReady and/or Widevine)
 2.	Go to [Azure Media Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html).
 3.	Paste in the streaming URL.
 4.	Click the **Advanced Options** checkbox.
-5.	Select PlayReady in the **Protection** dropdown.
-6.	Paste the token that you got from your STS in the Token textbox.
+5.	In the **Protection** dropdown, select PlayReady and/or Widevine.
+6.	Paste the token that you got from your STS in the Token textbox. 
+	
+	The castLab license server does not need the “Bearer=” prefix in front of the token. So please remove that before submitting the token.
 7.	Update the player.
 8.	The video should be playing.
 
