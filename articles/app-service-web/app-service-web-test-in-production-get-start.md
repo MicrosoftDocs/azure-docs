@@ -79,3 +79,10 @@ The string `x-ms-routing-name=self` specifies the production slot. Once the clie
 To let users opt in to your beta app, set the same query parameter to the name of the non-production slot, for example:
 
 		<webappname>.azurewebsites.net/?x-ms-routing-name=staging
+
+## More resources ##
+
+-   [Set up staging environments for web apps in Azure App Service](web-sites-staged-publishing.md)
+-	[Deploy a complex application predictably in Azure](app-service-deploy-complex-application-predictably.md)
+-   [Agile software development with Azure App Service](app-service-agile-software-development.md)
+-	[Use DevOps environments effectively for your web apps](app-service-web-staged-publishing-realworld-scenarios.md)

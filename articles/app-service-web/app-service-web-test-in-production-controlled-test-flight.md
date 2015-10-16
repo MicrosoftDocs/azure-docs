@@ -383,8 +383,9 @@ Azure App Service makes it easy for small- to medium-sized businesses to test th
 
 ## More resources ##
 
--	[Deploy a complex application predictably in Azure](app-service-deploy-complex-application-predictably.md)
 -   [Agile software development with Azure App Service](app-service-agile-software-development.md)
+-   [Set up staging environments for web apps in Azure App Service](web-sites-staged-publishing.md)
+-	[Deploy a complex application predictably in Azure](app-service-deploy-complex-application-predictably.md)
 -	[Authoring Azure Resource Manager Templates](resource-group-authoring-templates.md)
 -	[JSONLint - The JSON Validator](http://jsonlint.com/)
 -	[Git Branching – Basic Branching and Merging](http://www.git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging)
