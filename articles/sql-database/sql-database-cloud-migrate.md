@@ -234,7 +234,7 @@ Use the steps below to use the [SqlPackage.exe](https://msdn.microsoft.com/libra
 1. Open a command prompt and change a directory containing the sqlpackage.exe command line utility - this utility ships with both Visual Studio and SQL Server.
 2. Execute the following sqlpackage.exe command with the following arguments for your environment:
 
-	'sqlpackage.exe /Action:Import /tsn:< server_name > /tdn:< database_name > /tu:< user_name > /tp:< password > /sf:< target_file >
+	'sqlpackage.exe /Action:Import /tsn:< server_name > /tdn:< database_name > /tu:< user_name > /tp:< password > /sf:< source_file >
 
 	| Argument  | Description  |
 	|---|---|
