@@ -43,8 +43,8 @@ In this step you can enable Azure AD Domain Services for your directory. Perform
 
 7. Specify the **DNS domain name of domain services**.
    - The default domain name of the directory (i.e. ending with the **.onmicrosoft.com** domain suffix) will be selected by default.
-   - The drop-down lists all domains that have been configured for your Azure AD directory – including verified as well as unverified domains that you configure in the ‘Domains’ tab.
-   - Additionally, you can also specify a custom domain name in this editable drop-down by typing it in.
+   - The list contains all domains that have been configured for your Azure AD directory – including verified as well as unverified domains that you configure in the ‘Domains’ tab.
+   - Additionally, you can also add a custom domain name to this list by typing it in.
 
      > [AZURE.WARNING] Ensure that the domain prefix of the domain name you specify (eg. 'contoso' in the 'contoso.local' domain name) is less than 15 characters. You cannot create an Azure AD Domain Services domain with a domain prefix longer than 15 characters.
 
