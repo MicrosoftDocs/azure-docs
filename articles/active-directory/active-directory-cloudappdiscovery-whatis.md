@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Finding unsanctioned cloud applications with Cloud App Discovery"
+	pageTitle="Finding unsanctioned cloud applications with Cloud App Discovery | Microsoft Azure"
 	description="This topic describes what is the Cloud App Discvery is and why you would use it."
 	services="active-directory"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/23/2015"
+	ms.date="10/16/2015"
 	ms.author="markusvi"/>
 
 # Finding unsanctioned cloud applications with Cloud App Discovery

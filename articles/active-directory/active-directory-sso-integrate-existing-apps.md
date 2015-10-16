@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="10/05/2015"
+   ms.date="10/16/2015"
    ms.author="kgremban; liviodlc"/>
 
 # Integrating Azure Active Directory SSO with existing apps
@@ -34,7 +34,7 @@ For more information about mapping application identities with Azure AD identiti
 
 When you integrate SSO for an application that’s already in use, it’s important to realize that the user experience will be affected. For all applications, users will start using their Azure AD credentials to sign in. Additionally, they may need to use a different portal to access the applications.
 
-SSO for some applications can be done on the application's log in interface, but for other applications the user will have to go through a central portal such as ([My Apps](myapps.microsoft.com) or [Office365](portal.office.com/myapps)) to sign in. Learn more about the different types of SSO and their user experiences in [What is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
+SSO for some applications can be done on the application's log in interface, but for other applications the user will have to go through a central portal such as ([My Apps](http://myapps.microsoft.com) or [Office365](http://portal.office.com/myapps)) to sign in. Learn more about the different types of SSO and their user experiences in [What is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
 See also *Suppressing user consent* in the [Guiding developers](active-directory-applications-guiding-developers-for-lob-applications.md) article.
 
