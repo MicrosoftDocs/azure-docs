@@ -13,7 +13,7 @@
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="cache-redis"
 	ms.workload="tbd"
-	ms.date="08/25/2015"
+	ms.date="10/05/2015"
 	ms.author="sdanie"/>
 
 # How to use Azure Redis Cache with Node.js

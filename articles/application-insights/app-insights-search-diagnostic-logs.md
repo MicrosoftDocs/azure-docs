@@ -289,7 +289,7 @@ Up to 500 events per second from each application. Events are retained for seven
 [metrics]: app-insights-metrics-explorer.md
 [qna]: app-insights-troubleshoot-faq.md
 [redfield]: app-insights-monitor-performance-live-website-now.md
-[start]: app-insights-get-started.md
+[start]: app-insights-overview.md
 [track]: app-insights-api-custom-events-metrics.md
 [usage]: app-insights-web-track-usage.md
 

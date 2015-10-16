@@ -19,7 +19,7 @@
 
 *Application Insights is in preview.*
 
-This is a compilation of code samples that show you how to use [Visual Studio Application Insights](app-insights-get-started.md).
+This is a compilation of code samples that show you how to use [Visual Studio Application Insights](app-insights-overview.md).
 
 ## SDK Labs
 
@@ -37,7 +37,7 @@ To analyze telemetry data with your own tools, [export it](app-insights-export-t
 * [Export to Power BI](app-insights-export-power-bi.md) 
 * [Parse exported data using a worker role](app-insights-code-sample-export-telemetry-sql-database.md)
 * [Export to SQL using Stream Analytics](app-insights-code-sample-export-sql-stream-analytics.md)
-* [Enabling telemetry for Microsoft CRM](app-insights-sample-mscrm.md)
+* [Enabling telemetry for Microsoft Dynamics CRM](app-insights-sample-mscrm.md)
 
 
 ## Automate tasks

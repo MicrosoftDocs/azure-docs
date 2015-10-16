@@ -18,7 +18,8 @@ ms.service="virtual-machines"
 
 # Set up a Linux RDMA cluster to run MPI applications
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)] This article covers configuring resources with the classic deployment model.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Resource Manager model.
+
 
 This article shows you how to set up a Linux RDMA cluster in Azure with [size A8 and A9 virtual machines](virtual-machines-a8-a9-a10-a11-specs.md) to run parallel Message Passing Interface (MPI) applications. When you configure size A8 and A9 Linux-based VMs to run a supported MPI implementation, MPI applications communicate efficiently over a low latency, high throughput network in Azure that is based on remote direct memory access (RDMA) technology.
 
@@ -145,7 +146,7 @@ After the VM completes provisioning, SSH to the VM using the VM's external IP ad
     cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
     ```
 
-    In the ~/.ssh directory edit or create the ssh_config file. Provide the IP address range of the private network that you will use in Azure (10.32.0.0/16 in this example):
+    In the ~/.ssh directory edit or create the "config" file. Provide the IP address range of the private network that you will use in Azure (10.32.0.0/16 in this example):
 
     ```
     host 10.32.0.*
