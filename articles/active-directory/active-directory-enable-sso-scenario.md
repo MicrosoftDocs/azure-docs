@@ -54,7 +54,7 @@ So, what generally prevents organizations from adopting integrated IAM solutions
 
 ## Azure Active Directory (AD) integrated with applications
 
-Azure Active Directory (AD) is Microsoft’s comprehensive Identity as a Service (IDaaS) solution enabling IAM as a cloud service and providing built in access management, single-sign on (SSO), and reporting [pre-integrated with thousands of applications](https://azure.microsoft.com/en-us/marketplace/active-directory/), including Salesforce, Google Apps, Box, Concur, and lots more. With Azure AD applications you publish for your partners and customers (business or consumer) will have the same identity and access management capabilities freeing you to focus on you main business.
+Azure Active Directory (AD) is Microsoft’s comprehensive Identity as a Service (IDaaS) solution enabling IAM as a cloud service and providing built in access management, single-sign on (SSO), and reporting [pre-integrated with thousands of applications](https://azure.microsoft.com/marketplace/active-directory/), including Salesforce, Google Apps, Box, Concur, and lots more. With Azure AD applications you publish for your partners and customers (business or consumer) will have the same identity and access management capabilities freeing you to focus on you main business.
 
 The value of Azure AD goes beyond “just” cloud applications. You can also use it with on-premises applications by providing secure remote access, avoiding the need for VPNs or other traditional remote access management system.
 
@@ -118,8 +118,8 @@ Azure AD provides you with pre-integrated reporting and monitoring capabilities 
 
 ## Related capabilities
 
-With Azure AD you can secure your applications with granular access policies and pre-integrated MFA. To learn more about Azure MFA see [Azure MFA](https://azure.microsoft.com/en-us/services/multi-factor-authentication/).
+With Azure AD you can secure your applications with granular access policies and pre-integrated MFA. To learn more about Azure MFA see [Azure MFA](https://azure.microsoft.com/services/multi-factor-authentication/).
 
 ## Getting started
 
-To get started integrating applications with Azure AD, take a look at the [Integrating Azure Active Directory with applications getting started guide](https://acom-sandbox.azurewebsites.net/en-us/documentation/articles/active-directory-integrating-applications-getting-started/).
+To get started integrating applications with Azure AD, take a look at the [Integrating Azure Active Directory with applications getting started guide](active-directory-integrating-applications-getting-started.md).
