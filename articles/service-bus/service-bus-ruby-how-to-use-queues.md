@@ -1,10 +1,10 @@
 <properties
-	pageTitle="How to use Service Bus queues (Ruby) | Microsoft Azure"
+	pageTitle="How to use Service Bus queues with Ruby | Microsoft Azure"
 	description="Learn how to use Service Bus queues in Azure. Code samples written in Ruby."
 	services="service-bus"
 	documentationCenter="ruby"
-	authors="tfitzmac"
-	manager="wpickett"
+	authors="sethmanheim"
+	manager="timlt"
 	editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.devlang="ruby"
 	ms.topic="article"
 	ms.date="08/31/2015"
-	ms.author="tomfitz"/>
+	ms.author="sethm"/>
 
 # How to Use Service Bus Queues
 
