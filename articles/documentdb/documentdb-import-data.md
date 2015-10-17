@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="10/16/2015" 
-	ms.author="stbaro, anhoh"/>
+	ms.author="anhoh"/>
 
 # Import data to DocumentDB #
 
