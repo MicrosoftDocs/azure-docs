@@ -98,7 +98,7 @@ The image below shows the relationships between the various Azure Backup entitie
 It can take a while for the backup vault to be created. Monitor the status notifications at the bottom of the portal.
 ![Create vault toast notification](./media/backup-azure-vms-introduction/creating-vault.png)
 
-6. A message confirms that the vault has been successfully created and it will be listed in the Recovery Services page as Active. Ensure that the appropriate storage redundancy option is chosen right after the vault has been created. Read more about [setting the storage redundancy option in the backup vault](../backup-azure-backup-create-vault.md#storage-redundancy-options).
+6. A message confirms that the vault has been successfully created and it will be listed in the Recovery Services page as Active. Ensure that the appropriate storage redundancy option is chosen right after the vault has been created. Read more about [setting the storage redundancy option in the backup vault](backup-configure-vault.md#azure-backup---storage-redundancy-options).
 ![List of backup vaults](./media/backup-azure-vms-introduction/backup_vaultslist.png)
 
 7. Clicking on the backup vault goes to the **Quick Start** page, where the instructions for backup of Azure virtual machines are shown.

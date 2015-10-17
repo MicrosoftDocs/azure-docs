@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/30/2015" 
+	ms.date="10/15/2015" 
 	ms.author="tdykstra"/>
 
 # What are API Apps?
 
-API Apps provides a rich platform and ecosystem for building, hosting, consuming, and distributing APIs in the cloud and on-premises. Deploy your API as an API app and benefit from enterprise grade security, simple access control, hybrid and SaaS connectivity. automatic SDK generation, and seamless integration with [Logic Apps](../app-service-logic/app-service-logic-what-are-logic-apps.md).
+API Apps provides a rich platform and ecosystem for building, hosting, and consuming APIs in the cloud and on-premises. Deploy your API as an API app and benefit from enterprise grade security, simple access control, hybrid and SaaS connectivity. automatic SDK generation, and seamless integration with [Logic Apps](../app-service-logic/app-service-logic-what-are-logic-apps.md).
 
 API Apps is part of [Azure App Service](../app-service/app-service-value-prop-what-is.md), which also includes Web Apps, Mobile Apps, and Logic Apps. 
 
@@ -45,18 +45,6 @@ API Apps additionally includes [features of App Service Web Apps](../app-service
 >[AZURE.NOTE] [Azure API Management](/services/api-management/) is a separate service that offers features such as endpoint consolidation and throttling. You can use API Management with API Apps.
 >
 >API Apps is currently in public preview. [App Service Web Apps](../app-service-web/app-service-web-overview.md) is a Generally Available (GA) service designed for building and hosting secure mission-critical applications at global scale. If you are looking for a GA service for building your API today, Web Apps is a great option. When API Apps goes GA, we'll provide a path for taking existing web apps and leveraging the additional features of API Apps.
-
-### API Apps features available in the future
-
-In the near future, the API Apps platform will also create a rich ecosystem of APIs by making it easy to share your code:  
-
-- **Public and private marketplaces** - The [Azure Marketplace](http://azure.microsoft.com/marketplace/) will make it easy to find and deploy to your Azure subscription pre-packaged API apps developed by Microsoft and third parties. And you'll be able to package and publish your own API apps that you develop, so other developers can deploy them to their Azure subscriptions. When you publish your APIs to the Azure Marketplace, you'll be able to make them visible only to other members of your organization. 
-
-- **Automatic dependency deployment** - Whenever you deploy an API app from the Marketplace to your Azure subscription, Azure will automatically deploy dependent API apps and create required resources. An API app package will specify the API apps that it depends on and the Azure resources that it requires.
-
-- **Automatic updates** - When you update the code for one of your API app packages that you've shared, you'll be able to push the update out to everyone who has installed and is running your API app. This will work for non-breaking changes and users who have opted-in to receiving updates.
-
-Many of these features, such the public marketplace and automatic updates, are already available for API apps provided by Microsoft.
 
 ## API Apps concepts ##
 
