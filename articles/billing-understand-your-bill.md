@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/06/2015"
+   ms.date="10/16/2015"
    ms.author="kareni"/>
 
 
@@ -230,7 +230,7 @@ In addition to some new fields and name changes to csv Version 2, there will be 
 
 ![additionalinfo_csv2](./media/billing-understand-your-bill/AdditionaInfo_csv2.png)
 
-- **Tags**:  This column contains the user specified resource tags. The tags can be used to group billing records. For example, you can use tags to distribute costs by department using the service. Learn more about [using tags to organize Azure Resources](/resource-group-using-tags.md/).  Services that support emitting tags are:
+- **Tags**:  This column contains the user specified resource tags. The tags can be used to group billing records. For example, you can use tags to distribute costs by department using the service. Learn more about [using tags to organize Azure Resources](https://azure.microsoft.com/en-us/documentation/articles/resource-group-using-tags/). Services that support emitting tags are:
     - Virtual Machines
     - Storage and
     - Networking services provisioned using the [Azure Resource Manager API](https://msdn.microsoft.com/library/azure/dn790567.aspx)
