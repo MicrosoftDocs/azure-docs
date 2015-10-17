@@ -60,9 +60,7 @@ If you’re not starting with an ARM template, that’s also OK.  There are Powe
 
 At an authenticated (Add-AzureAccount) PowerShell command line:  (can take a few minutes while the pull server is set up)
 
-    Switch-AzureMode -Name AzureResourceManager 
-    Register-AzureProvider –ProviderNamespace Microsoft.Automation 
-    Register-AzureProviderFeature -FeatureName dsc -ProviderNamespace Microsoft.Automation 
+    Switch-AzureMode -Name AzureResourceManager                     <-- assumes you are still running Azure PowerShell v0.9.x    
     New-AzureResourceGroup –Name MY-AUTOMATION-RG –Location MY-RG-LOCATION-IN-QUOTES
     New-AzureAutomationAccount –ResourceGroupName MY-AUTOMATION-RG –Location MY-RG-LOCATION-IN-QUOTES –Name MY-AUTOMATION-ACCOUNT 
 
