@@ -74,7 +74,7 @@ Details for VM registration (using the PowerShell DSC VM extension) provided in 
 
 The PowerShell Gallery is instrumented to install DSC resources into your Azure Automation account.  Navigate to the resource you want and click the “Deploy to Azure Automation” button.
 
-![PowerShell Gallery example](./media/automation-dsc-cd-chocolatey/xnetworking.png)
+![PowerShell Gallery example](./media/automation-dsc-cd-chocolatey/xNetworking.png)
 
 Or, there’s the manual approach.  The folder structure of a PowerShell Integration Module for a Windows computer is a little different from the folder structure expected by the Azure Automation.  This requires a little tweaking on your part.  But it’s not hard, and it’s done only once per resource (unless you want to upgrade it in future.)  For more information on authoring PowerShell Integration Modules, see this article: [Authoring Integration Modules for Azure Automation](https://azure.microsoft.com/en-us/blog/authoring-integration-modules-for-azure-automation/)
 
