@@ -4,7 +4,7 @@
 	services="machine-learning" 
 	solutions="" 
 	documentationCenter="" 
-	authors="msolhab"
+	authors="bradsev"
 	manager="paulettm" 
 	editor="cgronlun" />
 
@@ -15,11 +15,11 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="09/01/2015" 
-	ms.author="msolhab" /> 
+	ms.author="bradsev" /> 
 
 # Parallel Bulk Data Import Using SQL Partition Tables
 
-For big data loading/transfer to an SQL database, importing data to the SQL DB and subsequent queries can be improved by using _Partitioned Tables and Views_. This document describes how to build partitioned table(s) for fast parallel bluk importing of data to a SQL Server database.
+For big data loading/transfer to an SQL database, importing data to the SQL DB and subsequent queries can be improved by using _Partitioned Tables and Views_. This document describes how to build partitioned table(s) for fast parallel bulk importing of data to a SQL Server database.
 
 
 ## Create a new database and a set of filegroups
@@ -180,7 +180,7 @@ or,
 
  > [AZURE.NOTE] You may choose to create the indexes before bulk importing the data. Index creation before bulk importing will slow down the data loading.
 
-### Advanced Analytics Process and Technology in Action Example
+## Advanced Analytics Process and Technology in Action Example
 
-For an end-to-end walkthrough example using the Advanced Analytics Process and Technology (ADAPT) with a public dataset, see [Advanced Analytics Process and Technology in Action: using SQL Server](machine-learning-data-science-process-sql-walkthrough.md).
+For an end-to-end walkthrough example using the Cortana Analytics Process with a public dataset, see [Advanced Analytics Process and Technology in Action: using SQL Server](machine-learning-data-science-process-sql-walkthrough.md).
  

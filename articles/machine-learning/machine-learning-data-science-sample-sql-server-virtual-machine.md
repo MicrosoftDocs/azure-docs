@@ -13,14 +13,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/01/2015" 
+	ms.date="10/18/2015" 
 	ms.author="fashah;garye;bradsev" /> 
 
 #<a name="heading"></a>Sample Data in SQL Server on Azure
 
-This document covers sampling data stored in SQL Server on Azure using SQL and using the Python Programming Language.
+This document shows how to sample data stored in SQL Server on Azure using both SQL and the Python Programming Language. It also shows how to move sampled data into Azure Machine Learning by saving it to a file, upload it to an Azure blob, and then reading it into Azure ML.
 
->[AZURE.NOTE] The sample SQL code in this document assumes that the data is in a SQL Server on Azure. If it isn't, please refer to [Move data to SQL Server on Azure](machine-learning-data-science-move-sql-server-virtual-machine.md) topic in the [Advanced Data Process guide](machine-learning-data-science-advanced-data-processing.md) for instructions to move your data to a SQL Server in Azure.
+The Python sampling uses the [pyodbc](https://code.google.com/p/pyodbc/) ODBC library to connect to SQL Server on Azure and the[Pandas](http://pandas.pydata.org/) library to do the sampling.
+
+>[AZURE.NOTE] The sample SQL code in this document assumes that the data is in a SQL Server on Azure. If it isn't, please refer to [Move data to SQL Server on Azure](machine-learning-data-science-move-sql-server-virtual-machine.md) topic for instructions on how to move your data to SQL Server on Azure.
 
 ##<a name="SQL"></a>Using SQL
 
@@ -55,13 +57,13 @@ You can directly  use the sample queries above in the Azure ML Reader module to 
 
 ##<a name="python"></a>Using the Python programming language 
 
-This section demonstrates using the pyodbc library to connect to a SQL server database in Python. The database connection string is as follows: (replace servername, dbname, username and password with your configuration):
+This section demonstrates using the [pyodbc library](https://code.google.com/p/pyodbc/) to establish an ODBC connect to a SQL server database in Python. The database connection string is as follows: (replace servername, dbname, username and password with your configuration):
 
 	#Set up the SQL Azure connection
 	import pyodbc	
 	conn = pyodbc.connect('DRIVER={SQL Server};SERVER=<servername>;DATABASE=<dbname>;UID=<username>;PWD=<password>')
 
-The [Pandas ](http://pandas.pydata.org/) library in Python provides a rich set of data structures and data analysis tools for data manipulation for Python programming. The code below reads a 0.1% sample of the data from a table in Azure SQL database into a Pandas data :
+The [Pandas](http://pandas.pydata.org/) library in Python provides a rich set of data structures and data analysis tools for data manipulation for Python programming. The code below reads a 0.1% sample of the data from a table in Azure SQL database into a Pandas data :
 
 	import pandas as pd
 
@@ -104,9 +106,9 @@ You can use the following sample code to save the down-sampled data to a file an
  
 ![reader blob][2]
 
-## Advanced Analytics Process and Technology (ADAPT) in Action example
+## The Cortana Analytics Process in Action example
 
-For an end-to-end walkthrough example of the Advanced Analytics Process and Technology (ADAPT) using a public dataset, see [Azure Advanced Analytics Process and Technology in Action: using SQL Sever](machine-learning-data-science-process-sql-walkthrough.md).
+For an end-to-end walkthrough example of the Cortana Analytics Process a using a public dataset, see [Azure Advanced Analytics Process and Technology in Action: using SQL Sever](machine-learning-data-science-process-sql-walkthrough.md).
 
 [1]: ./media/machine-learning-data-science-sample-sql-server-virtual-machine/reader_database.png
 [2]: ./media/machine-learning-data-science-sample-sql-server-virtual-machine/reader_blob.png
