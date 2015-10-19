@@ -482,3 +482,4 @@ For tutorials that describe running other samples and provide instructions on us
 
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-pig]: hdinsight-use-pig.md
+[hdinsight-sample-cs-streaming]: hdinsight-sample-csharp-streaming.md
