@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Use Management Portal to Create Channels that Perform Live Encoding from a Single-bitrate to Multi-bitrate Stream" 
-	description="This tutorial walks you through the steps of creating a Channel that receives a single-bitrate live stream and encodes it to multi-bitrate stream." 
+	pageTitle="Create Channels that Perform Live Encoding from a Single-bitrate to Multi-bitrate Stream using the Azure Portal" 
+	description="This tutorial walks you through the steps of creating a Channel that receives a single-bitrate live stream and encodes it to multi-bitrate stream using the Azure portal." 
 	services="media-services" 
 	documentationCenter="" 
 	authors="juliako,anilmur" 
@@ -17,7 +17,7 @@
 	ms.author="juliako"/>
 
 
-#Use Management Portal to Create Channels that Perform Live Encoding from a Single-bitrate to Multi-bitrate Stream 
+#Create channels that perform live encoding from a single-bitrate to multi-bitrate stream using the Azure portal
 
 > [AZURE.SELECTOR]
 - [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
