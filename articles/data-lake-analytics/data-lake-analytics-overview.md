@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Overview of Microsoft Azure Big Analytics | Azure" 
-   description="Big Analytics is an Azure Big Data computation service that lets you use data to drive your business using the insights gained from your data in the cloud, regardless of where it is and regardless of its size. Big Analytics enables this in the simplest, most scalable, and most economical way possible. " 
+   pageTitle="Overview of Microsoft Azure Data Lake Analytics | Azure" 
+   description="Data Lake Analytics is an Azure Big Data computation service that lets you use data to drive your business using the insights gained from your data in the cloud, regardless of where it is and regardless of its size. Data Lake Analytics enables this in the simplest, most scalable, and most economical way possible. " 
    services="big-analytics" 
    documentationCenter="" 
    authors="mumian" 
@@ -13,115 +13,43 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="09/29/2015"
+   ms.date="10/19/2015"
    ms.author="jgao"/>
 
-# Overview of Microsoft Azure Big Analytics
+# Overview of Microsoft Azure Data Lake Analytics
 
-## What is Azure Big Analytics
+## What is Azure Data Lake Analytics?
 
-Big Analytics is an Azure Big Data computation service that lets you use data to drive your business using the insights gained from your data in the cloud, regardless of where it is and regardless of its size. Big Analytics enables this in the simplest, most scalable, and most economical way possible.
-
-## Big data form factors
-
-Microsoft deliver Big Data analytics in two form factors:
-
-- A cluster service known as **HDInisght**
-
-	A cluster service lets you provision and manage a cluster of Big Data compute resources and gives you the most control. Every HDInsight account is a cluster. You pay for as long as the cluster (the HDInsight Account) exists - even if it is idle.
-
-- A job Service known as **Big Analytics**
-
-	A job service dispenses with the need to manage cluster resources. Instead you simply run submit jobs using one of several Big Data languages and you pay for only the amount of compute actually consumed to execute your work. Every Big Analytics account is a Job Service and if you do not submit any jobs you pay nothing. 
+Azure Data Lake includes Azure Data Lake Analytics - a service that makes it easy to do with Big Data at cloud scale.
 
 
+## Key capabilities of Data Lake Analytics
 
-## Key capabilities of Big Analytics
+### Dynamically scales 
 
+Data Lake Analytics is architected from the ground up for cloud scale and performance.  It dynamically provisions resources and lets you do analytics on terabytes or even exabytes of data. When the job completes, it winds down resources automatically, and you pay only for the processing power used. As you increase or decrease the size of data stored or the amount of compute used, you don’t have to rewrite code. This lets you focus on your business logic only and not on how you process and store large datasets. 
 
-- **Built for Massive Scale**
+### Develop faster, debug and optimize smarter using familiar tools
 
-	Big Analytics can scale from the smallest datasets to many petabytes of data - especially when used with the Azure Data Lake which has been optimized for use with Big Analytics.
+Data Lake Analytics has deep integration with Visual Studio, so that you can use familiar tools to run, debug, and tune your code. Visualizations of your U-SQL jobs let you see how your code runs at scale, so you can easily identify performance bottlenecks and optimize costs. 
 
-- **World class Developer Experience**
+### U-SQL: simple and familiar, easily extensible
 
-	Big Analytics is integrated into Visual Studio and allowing you to author, monitor, and debug your big data jobs in a familiar enviroment. Furthermore, Big Analytics has sophisticated performance analysis tools allowing you to see where the bottlenecks are in your big data jobs and see how you can optimize them for greater performance.
+Data Lake Analytics includes U-SQL, a query language that blends the declarative nature of SQL with the expressive power of C#. The U-SQL language is built on the same distributed runtime that powers the big data systems inside Microsoft. Millions of SQL and .NET developers can now process and analyze all of their data with the skills they already have.
 
-- **Multiple Language Support**
+### Integrates seamlessly with your IT investments
 
-	Big Analytics supports multiple Big Data languages: standard open-source **Apache Hive** and a new query language called **SQLIP**.
+Data Lake Analytics can use your existing IT investments for identity, management, security, and data warehousing. This simplifies data governance and makes it easy to extend your current data applications. Data Lake Analytics is integrated with Active Directory for user management and permissions and comes with built in monitoring and auditing.
 
-- **Simplified Management** 
+### Affordable and cost effective
 
-	Big Analytics is integrated with Azure Active directory. Enabling you to use Accounts and Groups to control access to your Big Analytics account. Furthermore, Big Analytics has a rich portal experience embedded in Azure that makes managing and  monitoring you account very intuitive. Big Analytics can also be completely managed through standard Windows PowerShell cmdlets - making it simple to automate key tasks.
+Data Lake Analytics is a cost-effective solution for running big data workloads. You pay on a per-job basis when data is processed. No hardware, licenses, or service-specific support agreements are required. The system automatically scales up or down as the job starts and completes, meaning that you never pay for more than what you need. 
 
-- **Federated Query**
-	
-	Big Analytics can use data from Windows Azure Data Lake, Azure Storage Blobs, and Azure SQL DB. This means that you don't have to move data around just to use it with Big Analytics.
-	
-	
-From Saveen's presentation
+## Works with All your Azure Data
 
-- A hyper-scale service for preparing data fully managed by Microsoft (Downstream uses: ML, Exploration, Traditional BI, Publishing)
-- Users focus on business problems not distributed computing or infrastructure
-- Built on open standards (YARN, WebHDFS, Hive, Pig, etc.)
-- Includes a new language called U-SQL
-- Fully integrated into Visual Studio
-- Leverages Azure Data Lake for performance and scale
-- Complements HDInsight
-	
-## ADL Analytics architecture
-
-[the process]
-
-## Development tools	
-
-## the storage
+Data Lake Analytics can work with a number of Azure data sources: Azure Storage Blobs, Azure SQL DB, Azure SQL DB, and of course Data Lake Analytics is specially optimized to work with Azure Data Lake Store - providing the highest level of performance, throughput, and parallelization for you big data workloads.
 
 
-## U-SQL
+### See also
 
-
-### Useful links
-
-Browse the following pages:
-
-* [Getting Started](../GettingStarted.md)
-* [Migration Guide](../Migration.md)
-* Tools
-    * [Azure Portal](../AzurePortal/FirstSteps.md)
-    * [Kona PowerShell](../PowerShell/FirstSteps.md)
-    * [SDK](../SDK/FirstSteps.md)
-* Tutorials
-    * [SQLIP Developer Guide](../SQLIP/DeveloperGuide)
-    * [Terminology](../Terminology)
-
-
-## additional thoughts
-
- - What is Kona
- 
- 	- How is Kona related to Hadoop in HDInsight in addition to service vs. cluster?
-	- Is Kona based on Hadoop?
-
- - the data storage supported by Kona
-	 - Kona Catalog / Kona store?
-	 - Cabo HDFS store / Azure Data Lake?
-	 - Azure Blob storage
-	 - Azure SQL database
-
- - the languages supported by kona
-	 - SQLIP
-	 - Hive (Future?)
-	 - Pig (Future)
-
- - The process
-	 - upload data
-	 - run job
-	 - donwload the job results
-
- - The tools
-	 - SQLIP studio / SCOPE studio
-	 - HDI studio (Is this Visual Studio tools for HDI?)
-	 
- - payment
+- [Get started with Azure Data Lake Analytics using Preview Portal][data-lake-analytics-get-started-portal.md]
