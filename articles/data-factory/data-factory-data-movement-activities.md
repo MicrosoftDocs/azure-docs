@@ -90,8 +90,8 @@ Different data stores have different native type systems. Copy activity performs
 You can find the mapping for a given native type system to .NET for the data store in the respective data store connector articles. You can use these mappings to determine appropriate types while creating your tables so that right conversions are performed during Copy activity.
 
 ### Working with different file formats
-For file based sources Copy activity supports variety of file format including binary, text and Avro formats. 
-You can use the copy activity to convert from one format to another. Example: text (CSV) to Avro.  
+Copy activity supports a variety of file formats including binary, text and Avro formats for file based stores. 
+One can use the copy activity to convert data from one format to another. Example: text (CSV) to Avro.  
 
 ### Copy activity properties
 Properties like name, description, input and output tables, various policies etc are available for all types of activities. Properties available in the **typeProperties** section of the activity on the other hand vary with each activity type. 
