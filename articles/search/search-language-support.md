@@ -1,5 +1,5 @@
 <properties
-   pageTitle=How to set a language analyzer for Azure Search in the portal  | Microsoft Azure"
+   pageTitle="How to set a language analyzer for Azure Search in the portal  | Microsoft Azure"
    description=" Azure Search supports 56 languages, leveraging language analyzers from Lucene and Natural Language Processing technology from Microsoft."
    services="search"
    documentationCenter=""
