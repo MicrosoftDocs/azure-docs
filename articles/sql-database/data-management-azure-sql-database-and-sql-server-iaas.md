@@ -18,7 +18,7 @@
 
 # Understanding Azure SQL Database and SQL Server in Azure VMs
 
-Microsoft Azure provides you two options for hosting SQL Server: **Azure SQL Database** and **SQL Server in Azure Virtual Machine**. In this article, we start by looking at how each option fits into the big picture in Microsoft’s Data Platform, and then move on to deeper discussions based on the business requirements that motivate your choice. Whether you prioritize cost savings, or minimal administration ahead of everything else, this article can help you decide which approach is right, based on how each one delivers against the business requirements that you care about the most.
+Microsoft Azure provides you two options for hosting SQL Server: <a href="https://azure.microsoft.com/en-us/services/sql-database/">Azure SQL Database</a> and <a href="https://azure.microsoft.com/en-us/services/virtual-machines/sql-server/">SQL Server in Azure Virtual Machine</a>. In this article, we start by looking at how each option fits into the big picture in Microsoft’s Data Platform, and then move on to deeper discussions based on the business requirements that motivate your choice. Whether you prioritize cost savings, or minimal administration ahead of everything else, this article can help you decide which approach is right, based on how each one delivers against the business requirements that you care about the most.
 
 - [Microsoft’s Data Platform](#platform)
 - [A Closer Look at Azure SQL Database and SQL Server in Azure VM](#close)	
@@ -202,13 +202,19 @@ Choose **Azure SQL Database**, if:
 
 - You want to have Microsoft perform common management operations on your databases and require stronger availability SLAs for databases. This approach can minimize the administration costs and at the same time provides a guaranteed availability for the database. 
 
+<a href="https://azure.microsoft.com/en-us/documentation/articles/sql-database-get-started/">How to create a SQL Server Database</a>
+ 
+
+
 Choose **SQL Server in Azure VM**, if:
 
 - You have existing on-premises applications and wish to stop maintaining your own hardware or you consider hybrid solutions. This approach lets you get access to high database capacity faster and also connects your on-premises applications to the cloud via a secure tunnel.
 
 - You have existing IT resources, need full administrative rights over SQL Server, and require the full compatibility with on-premises SQL Server (for example, some features do not exist in Azure SQL Database). This approach lets you minimize costs for development or modifications of existing applications with the flexibility to run most applications. In addition, it provides full control on the VM, operating system, and database configuration.
 
-> [AZURE.NOTE] - Do you want to try out SQL Server 2016 CTP2? Sign up for Microsoft Azure, and then go [here](http://aka.ms/sql2016vm "here") to spin up a Virtual Machine with SQL Server 2016 CTP2 already installed. 
+<a href="https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-provision-sql-server/">How to create a Virtual Machine with SQL Server</a>
+
+> [AZURE.NOTE] - Do you want to try out SQL Server 2016 CTP2? Sign up for Microsoft Azure, and then go [here](http://aka.ms/sql2016vm "here") to create a Virtual Machine with SQL Server 2016 CTP2 already installed. 
 
 
 ##<a name="ack"></a>Acknowledgements
