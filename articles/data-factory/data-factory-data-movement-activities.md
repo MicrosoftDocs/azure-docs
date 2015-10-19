@@ -99,5 +99,5 @@ Properties like name, description, input and output tables, various policies etc
 In case of Copy activity the **typeProperties** section varies depending on the types of sources and sinks. Each of the data store specific page listed above documents these properties specific to the data store type.
 
 
-## Send Feedback
+## Send feedback
 We would really appreciate your feedback on this article. Please take a few minutes to submit your feedback via [email](mailto:adfdocfeedback@microsoft.com?subject=data-factory-data-movement-activities.md). 
