@@ -2,7 +2,6 @@
 	pageTitle="Consume a Machine Learning web service | Microsoft Azure"
 	description="Once a machine learning service is deployed, the RESTFul web service that is made available can be consumed either as request-response service or as a batch execution service."
 	services="machine-learning"
-	solutions="big-data"
 	documentationCenter=""
 	authors="bradsev"
 	manager="paulettm"
