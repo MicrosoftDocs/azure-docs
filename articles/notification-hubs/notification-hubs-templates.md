@@ -2,7 +2,7 @@
 	pageTitle="Templates"
 	description="This topic explains Templates for Azure notification hubs."
 	services="notification-hubs"
-	documentationCenter="ios"
+	documentationCenter=".net"
 	authors="wesmc7777"
 	manager="dwrede"
 	editor=""/>
@@ -10,7 +10,7 @@
 <tags
 	ms.service="notification-hubs"
 	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-ios"
+	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="objective-c"
 	ms.topic="article"
 	ms.date="10/15/2015"
@@ -128,7 +128,7 @@ The following table shows the language allowed in templates:
 | %(prop) | Similar to $(name) except that the output is URI-encoded. |
 | #(prop) | Used in JSON templates (for example, for iOS and Android templates).
 
-This function works exactly the same as $(prop) previously specified, except when used in JSON templates (for example, Apple templates). In this case, if this function is not surrounded by “{‘,’}” (for example, ‘myJsonProperty’ : ‘#(name)’), and it evaluates to a number in Javascript format, for example, regexp: (0&#124;([1-9][0-9]*))(\.[0-9]+)?((e&#124;E)(+&#124;-)?[0-9]+)?, then the output JSON is a number.
+This function works exactly the same as $(prop) previously specified, except when used in JSON templates (for example, Apple templates). In this case, if this function is not surrounded by “{‘,’}” (for example, ‘myJsonProperty’ : ‘#(name)’), and it evaluates to a number in Javascript format, for example, regexp: (0&#124;(&#91;1-9&#93;&#91;0-9&#93;*))(\.&#91;0-9&#93;+)?((e&#124;E)(+&#124;-)?&#91;0-9&#93;+)?, then the output JSON is a number.
 
 For example, ‘badge : ‘#(name)’ becomes ‘badge’ : 40 (and not ‘40‘). |
 | ‘text’ or “text” | A literal. Literals contain arbitrary text enclosed in single or double quotes. |
