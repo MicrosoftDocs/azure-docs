@@ -33,7 +33,7 @@ If you don't want to use either of those techniques—for example, if you want t
 >
 > If you want to get started with Azure App Service before you sign up for an Azure account, go to [Try App Service][]. There, you can immediately create a short-lived starter web app in App Service—no credit card required, and no commitments.
 
-## Create a Java web app by using the Azure Marketplace
+## Choose a web app template from the Azure Marketplace
 
 This section shows how to use the Azure Marketplace to create a Java web app.
 
@@ -47,11 +47,11 @@ This section shows how to use the Azure Marketplace to create a Java web app.
 
 	You might have to scroll left to see the **Marketplace** blade where you can select **Web + Mobile**.
 
-	![](./media/web-sites-java-get-started/webmobilejetty.png)
-
 6. In the search text box, enter the name of a Java application server, such as **Apache Tomcat** or **Jetty**, and then press Enter.
 
 4. In the search results, click the Java application server.
+
+	![](./media/web-sites-java-get-started/webmobilejetty.png)
 
 5. In the first **Apache Tomcat** or **Jetty** blade, click **Create**.
 
