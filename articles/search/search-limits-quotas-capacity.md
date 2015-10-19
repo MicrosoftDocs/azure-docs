@@ -97,7 +97,7 @@ Search units, pricing, and capacity are explained in detail on the Azure web sit
 
 > [AZURE.NOTE] The number of partitions you choose must evenly divide into 12 (specifically, 1, 2, 3, 4, 6, 12). This is because Azure Search pre-divides each index into 12 shards so that it can be spread across partitions. For example, if your service has three partitions and you create a new index, each partition will contain 4 shards of the index. How Azure Search shards an index is an implementation detail, subject to change in future release. Although the number is 12 today, you shouldn't expect that number to always be 12 in the future.
 
-##Choose a combination of partitions and replicas for high availability
+## Choose a combination of partitions and replicas for high availability
 
 Because it's easy and relatively fast to scale up, we generally recommend that you start with one partition and one or two replicas, and then scale up as query volumes build. For many deployments,  one partition provides sufficient storage and IO (at 15 million documents per partition).
 
