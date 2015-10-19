@@ -91,7 +91,7 @@ The exact level you will need depends on the peak load requirements for each res
 
 For more information about the service tiers, see [Azure SQL Database Service Tiers and Performance Levels](sql-database-service-tiers.md).
 
-## Service tier resource use 
+## Service tier capabilities and limits
 Each service tier and performance level is associated with different limits and performance characteristics. The following table describes these characteristics for a single database.
 
 [AZURE.INCLUDE [SQL DB service tiers table](../../includes/sql-database-service-tiers-table.md)]
