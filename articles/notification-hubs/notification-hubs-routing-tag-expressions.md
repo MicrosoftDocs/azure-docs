@@ -2,7 +2,7 @@
 	pageTitle="Routing and Tag Expressions"
 	description="This topic explains routing and tag expressions for Azure notification hubs."
 	services="notification-hubs"
-	documentationCenter="ios"
+	documentationCenter=".net"
 	authors="wesmc7777"
 	manager="dwrede"
 	editor=""/>
@@ -10,10 +10,10 @@
 <tags
 	ms.service="notification-hubs"
 	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-ios"
-	ms.devlang="objective-c"
+	ms.tgt_pltfrm="mobile-multiple"
+	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="10/15/2015"
+	ms.date="10/19/2015"
 	ms.author="wesmc"/>
 
 # Routing and tag expressions

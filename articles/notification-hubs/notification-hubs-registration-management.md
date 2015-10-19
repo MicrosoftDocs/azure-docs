@@ -2,7 +2,7 @@
 	pageTitle="Registration Management"
 	description="This topic explains how to register devices with notification hubs in order to receive push notifications."
 	services="notification-hubs"
-	documentationCenter="ios"
+	documentationCenter=".net"
 	authors="wesmc7777"
 	manager="dwrede"
 	editor=""/>
@@ -10,10 +10,10 @@
 <tags
 	ms.service="notification-hubs"
 	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-ios"
-	ms.devlang="objective-c"
+	ms.tgt_pltfrm="mobile-multiple"
+	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="10/15/2015"
+	ms.date="10/19/2015"
 	ms.author="wesmc"/>
 
 # Registration management
@@ -42,7 +42,7 @@ When managing registrations from client apps, the backend is only responsible fo
 ![](./media/notification-hubs-registration-management/notification-hubs-registering-on-device.png)
 
 The device first retrieves the PNS handle from the PNS, then registers with the notification hub directly. After the registration is successful, the app backend can send a notification targeting that registration. For more information about how to send notifications, see [Routing and Tag Expressions](notification-hubs-routing-tag-expressions.md).
-Note that in this case, you will use only Listen rights to access your notification hubs from the device. For more information, see Security.
+Note that in this case, you will use only Listen rights to access your notification hubs from the device. For more information, see [Security](notification-hubs-security.md).
 
 Registering from the device is the simplest method, but it has some drawbacks.
 The first drawback is that a client app can only update its tags when the app is active. For example, if a user has two devices that register tags related to sport teams, when the first device registers for an additional tag (for example, Seahawks), the second device will not receive the notifications about the Seahawks until the app on the second device is executed a second time. More generally, when tags are affected by multiple devices, managing tags from the backend is a desirable option.

@@ -11,9 +11,9 @@
 	ms.service="notification-hubs"
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-multiple"
-	ms.devlang="objective-c"
+	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="10/15/2015"
+	ms.date="10/19/2015"
 	ms.author="wesmc"/>
 
 # Templates
