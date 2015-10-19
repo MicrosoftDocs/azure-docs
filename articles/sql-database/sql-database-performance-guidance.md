@@ -91,7 +91,79 @@ The exact level you will need depends on the peak load requirements for each res
 
 For more information about the service tiers, see [Azure SQL Database Service Tiers and Performance Levels](sql-database-service-tiers.md).
 
-## Understanding resource use
+## Service tier resource use 
+Each service tier and performance level is associated with different limits and performance characteristics. The following table describes these characteristics for a single database.
+
+[AZURE.INCLUDE [SQL DB service tiers table](../../includes/sql-database-service-tiers-table.md)]
+
+The following sections provide more information on each area in the previous table.
+
+### Maximum database size
+
+**Maximum database size** is simply the limit on the size of the database in GB.
+
+### DTUs
+
+[AZURE.INCLUDE [SQL DB DTU description](../../includes/sql-database-understanding-dtus.md)]
+
+### Point-in-time restore
+
+**Point-in-time restore** is the ability to restore your database to a previous point in time. Your service tier determines how many days back in time you can go. For more information, see [Recover an Azure SQL Database from a user error](sql-database-user-error-recovery.md).
+
+### Disaster recovery
+
+**Disaster recovery** refers to the ability to recover from an outage on your primary SQL database. First, Geo-restore is available to all service tiers at no extra cost. In the event of an outage, you can use the most recent geo-redundant backup to restore your database to any Azure region.
+
+Standard and Active Geo-Replication provides similar disaster recovery features but with a must lower Recovery Point Objective (RPO). For example, with Geo-restore, the RPO is less than one hour (in other words, the backup might be from up to one hour ago). But for Geo-replication, the RPO is less than 5 seconds.
+
+For more information, see the [Business Continuity Overview](sql-database-business-continuity.md).
+
+### Max concurrent requests
+
+**Max concurrent requests** is the maximum number of concurrent user/application requests executing at the same time in the database. To see the number of concurrent requests, run the following Transact-SQL query on your SQL database:
+
+	SELECT COUNT(*) AS [Concurrent requests] 
+	FROM sys.dm_exec_requests R
+
+If you are analyzing the workload of an on-premises SQL Server database, you should modify this query to filter on the specific database you are analyzing. For example, if you have an on-premises database named MyDatabase, the following Transact-SQL query will return the count of concurrent requests in that database.
+
+	SELECT COUNT(*) AS [Concurrent requests] 
+	FROM sys.dm_exec_requests R
+	INNER JOIN sys.databases D ON D.database_id = R.database_id
+	AND D.name = 'MyDatabase'
+
+Note that this is just a snapshot at a single point in time. To get a better understanding of your workload, you would have to collect many samples over time to understand your concurrent request load.
+
+### Max concurrent logins
+
+**Max concurrent logins** represents the limit on the number of users or applications attempting to login to the database at the same time. Note that even if these clients use the same connection string, the service authenticates each login. So if ten users all simultaneously connected to the databae with the same username and password, there would be ten concurrent logins. This limit only applies to the duration of the login and authentication. There is no query or DMV that can show you concurrent login counts or history. However, there are a few ways to help estimate your requirements:
+
+- Query active sessions in **sys.dm_exec_connections**. Each session is associated with a one-time login. If you collect multiple samples and note the number and rate of turnover in your sessions, you can get an idea for login requirements. Note however, that it is only the login and authentication process. For example,  if the sessions were created sequentially over time, you could have 200 concurrent sessions without ever exceeding 1 for max concurrent logins.
+- Analyze your user and application connection patterns by what you know of those workloads and behaviors.
+- In a test environment, simulate real-world workloads to ensure you are not hitting this limit.
+
+### Max sessions
+
+**Max sessions** is the maximum number of concurrent open connections to the database. When a user logs in, a session is established and remains active until they logout or the session times out. To see your current number of active sessions, run the following Transact-SQL query on you SQL database:
+
+	SELECT COUNT(*) AS [Sessions]
+	FROM sys.dm_exec_connections
+
+If you are analyzing an on-premises SQL Server workload, modify the query to focus on a specific database. This will help you to determine the possible session needs for that database if you were to move it to Azure SQL Database.
+
+	SELECT COUNT(*)  AS [Sessions]
+	FROM sys.dm_exec_connections C
+	INNER JOIN sys.dm_exec_sessions S ON (S.session_id = C.session_id)
+	INNER JOIN sys.databases D ON (D.database_id = S.database_id)
+	WHERE D.name = 'MyDatabase'
+
+Again, these queries return a point-in-time count, so collecting multiple samples over time gives you the best understanding of your session usage. 
+
+For SQL Database analysis, you can also query **sys.resource_stats** and **sys.dm_db_resource_stats** to get historical statistics on sessions using the **active_session_count** column. Move information is provided on these views in the following section.
+
+## Monitoring resource use with sys.resource_stats
+
+The **sys.resource_stats** view in the **master** database provides additional information for monitoring the performance use of your SQL database within its specific service tier and performance level.
 
 The following graph shows the CPU resource utilization for Premium database with P2 performance level for each hour in a week. This particular graph starts on a Monday, showing 5 work days and then a weekend where much less happens on the application.
 
@@ -101,7 +173,7 @@ From the data, this database currently has peak CPU load of just over 50% CPU ut
 
 It is worth noting that other application types may interpret the same graph differently. For example, if an application tried to process payroll data each day and had the same chart, this kind of "batch job" model might do just fine in a P1 performance level. The P1 performance level has 100 DTUs compared to the 200 DTUs of the P2 performance level. That means that the P1 performance level provides half the performance of the P2 performance level. So 50% of CPU utilization in P2 equals 100% CPU utilization in P1. As long as the application does not have timeouts, it may not matter if a big job takes 2 hours or 2.5 hours to complete as long as it gets done today. An application in this category can probably just use a P1 performance level. You can take advantage of the fact that there are periods of time during the day where resource usage is lower, meaning that any "big peak" might spill over into one of the troughs later in the day. The P1 performance level might be great for such an application (and save it money) as long as the jobs can complete on-time each day.
 
-Azure SQL Database exposes consumed resource information for each active database in the **sys.resource_stats** view of the master database in each server. The data in the table is aggregated for 5 minute intervals. With the Basic, Standard, and Premium service tiers, the data can take greater than 5 minutes to appear in the table, meaning this data is better for historical rather than near-real-time analysis. Querying the **sys.resource_stats** view shows the recent history of a database to validate whether the reservation picked delivered the desired performance when needed. The following example demonstrates how the data in this view is exposed:
+Azure SQL Database exposes consumed resource information for each active database in the **sys.resource_stats** view of the **master** database in each server. The data in the table is aggregated for 5 minute intervals. With the Basic, Standard, and Premium service tiers, the data can take greater than 5 minutes to appear in the table, meaning this data is better for historical rather than near-real-time analysis. Querying the **sys.resource_stats** view shows the recent history of a database to validate whether the reservation picked delivered the desired performance when needed. The following example demonstrates how the data in this view is exposed:
 
 	SELECT TOP 10 * 
 	FROM sys.resource_stats 
@@ -112,11 +184,7 @@ Azure SQL Database exposes consumed resource information for each active databas
 
 >[AZURE.NOTE] Some columns from the table have been truncated for space. Please see the [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx) topic for a full description of the output.
 
-## How to monitor resource usage
-
-This section describes ways to monitor the resource usage of your Azure SQL Database and to compare current resource utilization to different performance levels.
-
-The **sys.resource_stats** catalog view is enriched with more historic resource usage information at the database level.
+The following example demonstrate different ways that you can understand the resource utilization of your SQL database by using the **sys.resource_stats** catalog view.
 
 >[AZURE.NOTE] You must be connected to the **master** database of your logical SQL Database server in order to query **sys.resource_stats** in the following examples.
 

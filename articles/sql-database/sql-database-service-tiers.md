@@ -3,7 +3,7 @@
    description="Compare performance and business continuity features of Azure SQL Database service tiers to find the right balance of cost and capability as you scale on demand with no downtime."
    services="sql-database"
    documentationCenter=""
-   authors="shontnew"
+   authors="rothja"
    manager="jeffreyg"
    editor="monicar"/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="10/16/2015"
-   ms.author="shkurhek"/>
+   ms.date="10/19/2015"
+   ms.author="jroth"/>
 
 # SQL Database service tiers
 
@@ -56,46 +56,6 @@ In the previous table, there were several different types of resources that are 
 ### DTUs
 
 [AZURE.INCLUDE [SQL DB DTU description](../../includes/sql-database-understanding-dtus.md)]
-
-### Max concurrent requests
-**Max concurrent requests** is the maximum number of concurrent user/application requests executing at the same time in the database. To see the number of concurrent requests, run the following Transact-SQL query on your SQL database:
-
-	SELECT COUNT(*) AS [Concurrent requests] 
-	FROM sys.dm_exec_requests R
-
-If you are analyzing the workload of an on-premises SQL Server database, you should modify this query to filter on the specific database you are analyzing. For example, if you have an on-premises database named MyDatabase, the following Transact-SQL query will return the count of concurrent requests in that database.
-
-	SELECT COUNT(*) AS [Concurrent requests] 
-	FROM sys.dm_exec_requests R
-	INNER JOIN sys.databases D ON D.database_id = R.database_id
-	AND D.name = 'MyDatabase'
-
-Note that this is just a snapshot at a single point in time. To get a better understanding of your workload, you would have to collect many samples over time to understand your concurrent request load.
-
-### Max concurrent logins
-**Max concurrent logins** represents the limit on the number of users or applications attempting to login to the database at the same time. Note that even if these clients use the same connection string, the service authenticates each login. So if ten users all simultaneously connected to the databae with the same username and password, there would be ten concurrent logins. This limit only applies to the duration of the login and authentication. There is no query or DMV that can show you concurrent login counts or history. However, there are a few ways to help estimate your requirements:
-
-- Query active sessions in **sys.dm_exec_connections**. Each session is associated with a one-time login. If you collect multiple samples and note the number and rate of turnover in your sessions, you can get an idea for login requirements. Note however, that it is only the login and authentication process. For example,  if the sessions were created sequentially over time, you could have 200 concurrent sessions without ever exceeding 1 for max concurrent logins.
-- Analyze your user and application connection patterns by what you know of those workloads and behaviors.
-- In a test environment, simulate real-world workloads to ensure you are not hitting this limit.
-
-### Max sessions
-**Max sessions** is the maximum number of concurrent open connections to the database. When a user logs in, a session is established and remains active until they logout or the session times out. To see your current number of active sessions, run the following Transact-SQL query on you SQL database:
-
-	SELECT COUNT(*) AS [Sessions]
-	FROM sys.dm_exec_connections
-
-If you are analyzing an on-premises SQL Server workload, modify the query to focus on a specific database. This will help you to determine the possible session needs for that database if you were to move it to Azure SQL Database.
-
-	SELECT COUNT(*)  AS [Sessions]
-	FROM sys.dm_exec_connections C
-	INNER JOIN sys.dm_exec_sessions S ON (S.session_id = C.session_id)
-	INNER JOIN sys.databases D ON (D.database_id = S.database_id)
-	WHERE D.name = 'MyDatabase'
-
-Again, these queries return a point-in-time count, so collecting multiple samples over time gives you the best understanding of your session usage. 
-
-For SQL Database analysis, you can also query **sys.resource_stats** and **sys.dm_db_resource_stats** to get historical statistics on sessions using the **active_session_count** column. Move information is provided on these views in the following Monitoring section.
 
 ## Monitoring performance
 Monitoring the performance of a SQL Database starts with monitoring the resource utilization relative to the performance level you chose for your database. This relevant data is exposed in the following ways:
