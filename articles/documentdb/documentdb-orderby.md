@@ -125,7 +125,7 @@ Here's how you can create a collection with indexing for Order By against just t
         });
 
 ## Samples
-Take a look at this [Github samples project](https://github.com/Azure/azure-documentdb-net/tree/master/samples/orderby) that demonstrates how to use Order By, including creating indexing policies and paging using Order By. The samples are open source and we encourage you to submit pull requests with contributions that could benefit other DocumentDB developers. Please refer to the [Contribution guidelines](https://github.com/Azure/azure-documentdb-net/blob/master/Contributing.md) for guidance on how to contribute.  
+Take a look at this [Github samples project](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples/Queries.OrderBy) that demonstrates how to use Order By, including creating indexing policies and paging using Order By. The samples are open source and we encourage you to submit pull requests with contributions that could benefit other DocumentDB developers. Please refer to the [Contribution guidelines](https://github.com/Azure/azure-documentdb-net/blob/master/Contributing.md) for guidance on how to contribute.  
 
 ## What's coming next?
 
@@ -168,12 +168,12 @@ You cannot perform the following:
 
 ## Next steps
 
-Fork the [Github samples project](https://github.com/Azure/azure-documentdb-net/tree/master/samples/orderby) and start ordering your data! 
+Fork the [Github samples project](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples/Queries.OrderBy) and start ordering your data! 
 
 ## References
 * [DocumentDB Query Reference](documentdb-sql-query.md)
 * [DocumentDB Indexing Policy Reference](documentdb-indexing-policies.md)
 * [DocumentDB SQL Reference](https://msdn.microsoft.com/library/azure/dn782250.aspx)
-* [DocumentDB Order By Samples](https://github.com/Azure/azure-documentdb-net/tree/master/samples/orderby)
+* [DocumentDB Order By Samples](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples/Queries.OrderBy)
  
 
