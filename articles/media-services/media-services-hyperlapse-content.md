@@ -19,40 +19,162 @@
 
 # Hyperlapse Media Files with Azure Media Hyperlapse
 
-Azure Media Hyperlapse creates smooth time-lapsed videos from first-person or action-camera content.  Related to Microsoft Research's Hyperlapse Pro and Hyperlapse Mobile, Microsoft Hyperlapse for Azure Media Services utilizes the ultrascale of the Azure Media Services Media Processing platform to horizontally scale out Hyperlapse processing.
+Azure Media Hyperlapse creates smooth time-lapsed videos from first-person or action-camera content.  Related to [Microsoft Research's Hyperlapse Pro and Hyperlapse Mobile](http://aka.ms/hyperlapse), Microsoft Hyperlapse for Azure Media Services utilizes the ultrascale of the Azure Media Services Media Processing platform to horizontally scale out Hyperlapse processing.
 
->[AZURE.IMPORTANT] Microsoft Hyperlapse is designed to work on first-person content with a moving camera.  The performance and quality of the Azure Media Hyperlapse Media Processor cannot be guaranteed for other types of content.
+>[AZURE.IMPORTANT] Microsoft Hyperlapse is designed to work on first-person content with a moving camera.  The performance and quality of the Azure Media Hyperlapse Media Processor cannot be guaranteed for other types of content.  To learn more about Microsoft Hyperlapse for Azure Media Services and see some example videos, check out the [introductory blog post](http://aka.ms/azurehyperlapseblog) from the public preview.
 
-An indexing job can generate the following outputs:
+An Azure Media Hyperlapse job takes as input an MP4, MOV, or WMV asset file along with a configuration file that specifies which frames of video should be time-lapsed and to what speed (e.g. first 10,000 frames at 2x).  The output is a stabilized and time-lapsed rendition of the input video.
 
-- Closed caption files in the following formats: **SAMI**, **TTML**, and **WebVTT**.
+For the latest Azure Media Hyperlapse updates, see [Media Services blogs](http://azure.microsoft.com/blog/topics/media-services/).
 
-	Closed caption files include a tag called Recognizability, which scores an indexing job based on how recognizable the speech in the source video is.  You can use the value of Recognizability to screen output files for usability. A low score would mean poor indexing results due to audio quality.
-- Keyword file (XML).
-- Audio indexing blob file (AIB) for use with SQL server.
+## Hyperlapse an asset
 
-	For more information, see [Using AIB Files with Azure Media Indexer and SQL Server](http://azure.microsoft.com/blog/2014/11/03/using-aib-files-with-azure-media-indexer-and-sql-server/).
+First you will need to upload your desired input file to Azure Media Services.  To learn more about the concepts involved with uploading and managing content, read the [content management article](media-services-manage-content.md#upload).
+
+### Configuration Preset for Hyperlapse
+
+Once your content is in your Media Services account, you will need to construct your configuration preset.  The following table explains the user-specified fields:
+
+<table border="1">
+<tr>
+  <th>Field</th>
+  <th>Description</th>
+</tr>
+<tr>
+  <td>StartFrame </td>
+  <td>The frame upon which the Microsoft Hyperlapse processing should begin.</td>
+</tr>
+<tr>
+  <td>NumFrames</td>
+  <td>The number of frames to process with Microsoft Hyperlapse</td>
+</tr>
+<tr>
+  <td>Speed</td>
+  <td>The factor with which to speed up the input video.  Must be greater than 1.</td>
+</tr>
+</table>
+
+The following is an example of a conformant configuration file in XML and JSON:
+
+**XML preset:**
+
+	<?xml version="1.0" encoding="utf-16"?>
+	<Preset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">
+		<Sources>
+			<Source StartFrame="0" NumFrames="10000">
+				<InputFiles />
+			</Source>
+		</Sources>
+		<Options>
+			<Speed>12</Speed>
+			</Options>
+	</Preset>
+
+**JSON preset:**
+
+	{
+		"Version":1.0,
+		"Sources": [
+			{
+				"InputFiles":[],
+				"StartFrame":0,
+				"NumFrames":2147483647
+			}
+		],
+		"Options": {
+			"Speed":1,
+			"Stabilize":false
+		}
+	}
+
+### Microsoft Hyperlapse with the AMS .NET SDK
+
+The following method uploads a media file as an asset and creates a job with the Azure Media Hyperlapse Media Processor.  
+>Note: you should already have a CloudMediaContext in scope with the name "context" for this code to work.  To learn more about this, read the [content management article](media-services-manage-content.md).
+
+	static void RunHyperlapseJob(string input, string output, string hyperConfig)
+	{
+		// create asset with input file
+		IAsset asset = context
+					   .Assets
+					   .CreateFromFile(input, AssetCreationOptions.None);
+
+		// grab instances of Azure Media Hyperlapse MP
+		IMediaProcessor mp = context
+							 .MediaProcessors
+							 .GetLatestMediaProcessorByName("Azure Media Hyperlapse");
+
+		// create Job with two chained tasks: hyperlapse and encoding for streaming
+		IJob job = context
+				   .Jobs
+				   .Create(String.Format("Hyperlapse {0}", input));
+
+		if (!String.IsNullOrEmpty(hyperConfig))
+		{
+			hyperConfig = File.ReadAllText(hyperConfig);
+		}
+		ITask hyperlapseTask = job.Tasks.AddNew("Hyperlapse task",
+												mp,
+												hyperConfig,
+												TaskOptions.None);
+		hyperlapseTask.InputAssets.Add(asset);
+		hyperlapseTask.OutputAssets.AddNew("Hyperlapse output",
+											AssetCreationOptions.None);
 
 
-This topic shows how to create indexing jobs to **Index an asset** and **Index multiple files**.
+		job.Submit();
 
-For the latest Azure Media Indexer updates, see [Media Services blogs](http://azure.microsoft.com/blog/topics/media-services/).
+		// Create progress printing and querying tasks
+			Task progressPrintTask = new Task(() =>
+			{
 
-## Using configuration and manifest files for indexing tasks
+				IJob jobQuery = null;
+				do
+				{
+					var progressContext = _context;
+					jobQuery = progressContext.Jobs
+											  .Where(j => j.Id == job.Id)
+											  .First();
+					Console.WriteLine(string.Format("{0}\t{1}\t{2}",
+									  DateTime.Now,
+									  jobQuery.State,
+									  jobQuery.Tasks[0].Progress));
+					Thread.Sleep(10000);
+				}
+				while (jobQuery.State != JobState.Finished &&
+					   jobQuery.State != JobState.Error &&
+					   jobQuery.State != JobState.Canceled);
+			});
+			progressPrintTask.Start();
 
-You can specify more details for your indexing tasks by using a task configuration. For example, you can specify which metadata to use for your media file. This metadata is used by the language engine to expand its vocabulary, and greatly improves the speech recognition accuracy.  You are also able to specify your desired output files.
+			Task progressJobTask = job.GetExecutionProgressTask(
+												 CancellationToken.None);
+			progressJobTask.Wait();
 
-You can also process multiple media files at once by using a manifest file.
+			// If job state is Error, the event handling
+			// method for job progress should log errors.  Here we check
+			// for error state and exit if needed.
+			if (job.State == JobState.Error)
+			{
+				ErrorDetail error = job.Tasks.First().ErrorDetails.First();
+				Console.WriteLine(string.Format("Error: {0}. {1}",
+												error.Code,
+												error.Message));                    
+			}
 
-For more information, see [Task Preset for Azure Media Indexer](https://msdn.microsoft.com/library/azure/dn783454.aspx).
+		DownloadAsset(job.OutputMediaAssets.First(), output);
+	}
 
-## Index an asset
+	static void DownloadAsset(IAsset asset, string outputDirectory)
+	{
+		foreach (IAssetFile file in asset.AssetFiles)
+		{
+			file.Download(Path.Combine(outputDirectory, file.Name));
+		}
+	}
 
-The following method uploads a media file as an asset and creates a job to index the asset.
 
-Note that if no configuration file is specified, the media file will be indexed with all default settings.
-
-	static bool RunIndexingJob(string inputMediaFilePath, string outputFolder, string configurationFile = "")
+	static bool RunHyperlapseJob(string inputMediaFilePath, string outputFolder, string configurationFile = "")
 	{
 	    // Create an asset and upload the input media file to storage.
 	    IAsset asset = CreateAssetAndUploadSingleFile(inputMediaFilePath,
