@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Get started with Notification Hubs for Xamarin.Android apps | Microsoft Azure"
 	description="In this tutorial, you learn how to use Azure Notification Hubs to send push notifications to a Xamarin Android application."
-	authors="ysxu"
+	authors="wesmc7777"
 	manager="dwrede"
 	editor=""
 	services="notification-hubs"
@@ -41,7 +41,7 @@ Completing this tutorial is a prerequisite for all other Notification Hubs tutor
 
 > [AZURE.IMPORTANT] To complete this tutorial, you must have an active Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A9C9624B5&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fpartner-xamarin-notification-hubs-android-get-started%2F).
 
-##<a name="register"></a>Enable Google Cloud Messaging
+##Enable Google Cloud Messaging
 
 [AZURE.INCLUDE [mobile-services-enable-Google-cloud-messaging](../../includes/mobile-services-enable-google-cloud-messaging.md)]
 
@@ -49,9 +49,9 @@ Completing this tutorial is a prerequisite for all other Notification Hubs tutor
 
 [AZURE.INCLUDE [notification-hubs-android-configure-push](../../includes/notification-hubs-android-configure-push.md)]
 
-##<a name="connecting-app"></a>Connect your app to the notification hub
+##Connect your app to the notification hub
 
-### Create a new project
+###Create a new project
 
 1. In Xamarin Studio (or Visual Studio), click **File** and **New**, click **Android Application** in the **New Solution** dialog, and finally click **OK**.
 
@@ -71,7 +71,7 @@ Completing this tutorial is a prerequisite for all other Notification Hubs tutor
 
 	> [AZURE.IMPORTANT] The first letter of the package name must be lowercase. Otherwise, you will receive application manifest errors when you register your **BroadcastReceiver** and **IntentFilter** for push notifications below.
 
-### Add the required components to your project
+###Add the required components to your project
 
 The Google Cloud Messaging Client available on the Xamarin Component Store simplifies the process of supporting push notifications in Xamarin.Android.
 
@@ -82,7 +82,7 @@ The Google Cloud Messaging Client available on the Xamarin Component Store simpl
 3. Search for the **Google Cloud Messaging Client** component and add it to the project.
 
 
-### Set up notification hubs in your project
+###Set up notification hubs in your project
 
 1. Gather the following information for your Android app and notification hub:
 
@@ -324,7 +324,7 @@ The Google Cloud Messaging Client available on the Xamarin Component Store simpl
 		}
 
 
-##<a name="run-app"></a>Run your app in the emulator
+##Run your app in the emulator
 
 If you run this app in the emulator, make sure that you use an Android Virtual Device (AVD) that supports Google APIs.
 
@@ -364,26 +364,31 @@ Here is a list of some other tutorials that you may want to review for sending n
 
 In the next subsections of the tutorial, you send notifications by using a .NET console app, and by using a mobile service through a node script.
 
-###Send notifications by using a .NET app
+####(Optional) Send notifications by using a .NET app
 
-
-Microsoft provides the Azure Service Bus SDK for sending notifications on the .NET platform. In this section, you will create a .NET console application with Visual Studio to use the Azure Service Bus SDK to send a notification.
+In this section, we will send notifications by using a .NET console app
 
 1. Create a new Visual C# console application:
 
    	![][20]
 
-2. Add a reference to the Azure Service Bus SDK by using the <a href="http://nuget.org/packages/WindowsAzure.ServiceBus/">WindowsAzure.ServiceBus NuGet package</a>. In the Visual Studio main menu, click **Tools**, click **Library Package Manager**, and then click **Package Manager Console**. Then, in the console window, type:
+2. In Visual Studio, click **Tools**, click **NuGet Package Manager**, and then click **Package Manager Console**.
 
-        Install-Package WindowsAzure.ServiceBus
+	This displays the Package Manager Console in Visual Studio.
 
-    and press Enter.
+3. In the Package Manager Console window, set the **Default project** to your new console application project, and then in the console window, execute the following command:
 
-2. Open the file Program.cs and add the following using statement:
+        Install-Package Microsoft.Azure.NotificationHubs
 
-        using Microsoft.ServiceBus.Notifications;
+	This adds a reference to the Azure Notification Hubs SDK using the <a href="http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/">Microsoft.Azure.Notification Hubs NuGet package</a>.
 
-3. In your `Program` class, add the following method. Update the placeholder text with your *DefaultFullSharedAccessSignature* connection string and hub name from the Azure portal.
+	![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-package-manager.png)
+
+4. Open the Program.cs file and add the following `using` statement:
+
+        using Microsoft.Azure.NotificationHubs;
+
+5. In your `Program` class, add the following method. Update the placeholder text with your *DefaultFullSharedAccessSignature* connection string and hub name from the Azure portal.
 
         private static async void SendNotificationAsync()
         {
@@ -391,16 +396,16 @@ Microsoft provides the Azure Service Bus SDK for sending notifications on the .N
             await hub.SendGcmNativeNotificationAsync("{ \"data\" : {\"message\":\"Hello from Azure!\"}}");
         }
 
-4. Add the following lines in your **Main** method:
+6. Add the following lines in your **Main** method:
 
          SendNotificationAsync();
 		 Console.ReadLine();
 
-5. Press the F5 key to run the app. You should receive a notification in the app.
+7. Press the F5 key to run the app. You should receive a notification in the app.
 
    	![][21]
 
-###Send notifications by using a mobile service
+####(Optional) Send notifications by using a mobile service
 
 1. Follow [Get started with Mobile Services].
 
@@ -435,7 +440,7 @@ Microsoft provides the Azure Service Bus SDK for sending notifications on the .N
 
 6. Click **Run Once** on the bottom bar. You should receive a toast notification.
 
-## <a name="next-steps"> </a>Next steps
+##Next steps
 
 In this simple example, you broadcasted notifications to all your Android devices. In order to target specific users, refer to the tutorial [Use Notification Hubs to push notifications to users]. If you want to segment your users by interest groups, you can read [Use Notification Hubs to send breaking news]. Learn more about how to use Notification Hubs in [Notification Hubs Guidance] and in the [Notification Hubs How-To for Android].
 
