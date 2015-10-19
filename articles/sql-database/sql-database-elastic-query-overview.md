@@ -23,7 +23,7 @@ To begin building an elastic database query application, see [Getting started wi
 ## What’s new in elastic database query
 
 * Cross-database querying scenarios with single remote databases can now be defined completely in T-SQL. This allows for read-only querying of remote databases. This provides an option for current on-premises SQL Server customers to migrate applications using three- and four-part names or linked server to SQL DB. 
-* Elastic query is now supported on the Standard performance tier in addition to the Premium performance tier. Please see Section 7 on performance limitations for lower performance tiers.
+* Elastic query is now supported on the Standard performance tier in addition to the Premium performance tier. Please see the section on Preview Limitations below on performance limitations for lower performance tiers.
 * Elastic queries can now push SQL parameters to the remote databases for execution.
 * Remote stored procedure calls or remote functions invocations that use sp_execute_fanout can now use parameters similar to [sp_executesql](https://msdn.microsoft.com/library/ms188001.aspx).
 * Performance for retrieving large result sets from remote database has been improved.
@@ -34,11 +34,12 @@ To begin building an elastic database query application, see [Getting started wi
 The goal is to facilitate querying scenarios where multiple databases contribute rows into a single overall result. The query can either be composed by the user or application directly, or indirectly through tools that are connected to the database. This is especially useful when creating reports, using commercial BI or data integration tools—or any application that cannot be changed. With an elastic query, you can query across several databases using the familiar SQL Server connectivity experience in tools such as Excel, PowerBI, Tableau, or Cognos.
 An elastic query allows easy access to an entire collection of databases through queries issued by SQL Server Management Studio or Visual Studio, and facilitates cross-database querying from Entity Framework or other ORM environments. Figure 1 shows a scenario where an existing cloud application (which uses the [elastic database client library](sql-database-elastic-database-client-library.md) builds on a scaled-out data tier, and an elastic query is used for cross-database reporting.
 
-**Figure 1**
+**Figure 1** Elastic database query used on scaled-out data tier
 
 ![Elastic database query used on scaled-out data tier][1]
 
 Customer scenarios for elastic query are characterized by the following topologies:
+
 * **Vertical partitioning – Cross-database queries** (Topology 1): The data is partitioned vertically between a number of databases in a data tier. Typically, different sets of tables reside on different databases. That means that the schema is different on different databases. For instance, all tables for inventory are on one database while all accounting-related tables are on a second database. Common use cases with this topology require one to query across or to compile reports across tables in several databases.
 * **Horizontal Partitioning – Sharding** (Topology 2): Data is partitioned horizontally to distribute rows across a scaled out data tier. With this approach, the schema is identical on all participating databases. This approach is also called “sharding”. Sharding can be performed and managed using (1) the elastic database tools libraries or (2) self-sharding. An elastic query is used to query or compile reports across many shards. 
 
@@ -55,13 +56,13 @@ An elastic query can be used to make data located in a SQLDB database available 
 
 **Reference data**: Topology 1 is used for reference data management. In the figure below, two tables (T1 and T2) with reference data are kept on a dedicated database. Using an elastic query, you can now access tables T1 and T2 remotely from other databases, as shown in the figure. Use topology 1 if reference tables are small or remote queries into reference table have selective predicates.
 
-**Figure 2**
+**Figure 2** Vertical partitioning - Using elastic query to query reference data
 
 ![Vertical partitioning - Using elastic query to query reference data][3]
 
 **Cross-database querying**: Elastic queries enable use cases that require querying across several SQLDB databases. Figure 3 shows four different databases: CRM, Inventory, HR and Products. Queries performed in one of the databases also need access to one or all the other databases. Using an elastic query, you can configure your database for this case by running a few simple DDL statements on each of the four databases. After this one-time configuration, access to a remote table is as simple as referring to a local table from your T-SQL queries or from your BI tools. This approach is recommended if the remote queries do not return large results.
 
-**Figure 3**
+**Figure 3** Vertical partitioning - Using elastic query to query across various databases
 
 ![Vertical partitioning - Using elastic query to query across various databases][4]
 
@@ -69,7 +70,7 @@ An elastic query can be used to make data located in a SQLDB database available 
 
 Using elastic query to perform reporting tasks over a sharded, i.e., horizontally partitioned, data tier requires an [elastic database shard map](sql-database-elastic-scale-shard-map-management.md) to represent the databases of the data tier . Typically, only a single shard map is used in this scenario and a dedicated database with elastic query capabilities serves as the entry point for reporting queries. Only this dedicated database needs access to the shard map. Figure 2 illustrates this topology and its configuration with the elastic query database and shard map. Note that only the elastic query database needs to be a Azure SQL Database v12 database. The databases in the data tier can be of any Azure SQL Database version or edition. For more information about the elastic database client library and creating shard maps, see [Shard map management](sql-database-elastic-scale-shard-map-management.md).
 
-**Figure 4**
+**Figure 4** Horizontal partitioning - Using elastic query for reporting over sharded data tiers
 
 ![Horizontal partitioning - Using elastic query for reporting over sharded data tiers][5]
 
@@ -136,6 +137,7 @@ You can find more information on the cross-database querying and vertical partit
 
 
 More information on horizontal partitioning and sharding scenarios is available here:
+
 * [Horizontal partitioning and sharding overview](sql-database-elastic-query-horizontal-partitioning.md) 
 * Try our step-by-step tutorial to have a full working example running in minutes: [Getting started with Elastic Database query](sql-database-elastic-query-getting-started.md).
 

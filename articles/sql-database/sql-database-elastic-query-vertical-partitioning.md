@@ -17,7 +17,7 @@
 
 # Elastic database query for vertical partitioning
 
-This document explains how to setup elastic query for cross-database querying scenarios (vertical partitioning) and how to perform your queries. For a definition of the vertical partitioning topology, see [Azure SQL Database elastic database query overview (preview)](sql-database-elastic-query-overview.md).
+This document explains how to setup elastic query for cross-database querying scenarios (vertical partitioning) and how to perform your queries. For a definition of the vertical partitioning scenario, see [Azure SQL Database elastic database query overview (preview)](sql-database-elastic-query-overview.md).
 
 ## Creating database objects
 
@@ -43,7 +43,9 @@ A credential represents the user ID and password that elastic query will use to 
     CREATE DATABASE SCOPED CREDENTIAL <credential_name>  WITH IDENTITY = ‘<username>’,  
     SECRET = ‘<password>’
     [;]
-    -- to drop:
+    
+or to drop:
+    
     DROP DATABASE SCOPED CREDENTIAL <credential_name>;  
     DROP MASTER KEY;   
 
@@ -125,13 +127,13 @@ The following DDL statement drops an existing external table definition from the
  **Example**: The following example illustrates how to create an external table:  
 
 	CREATE EXTERNAL TABLE [dbo].[customer]( 
-	 [c_id] [int] NOT NULL, 
-	 [c_firstname] [nvarchar(256)] NULL, 
-	 [c_lastname] [nvarchar(256)] NOT NULL, 
-	 [street] [nvarchar(256)] NOT NULL, 
-	 [city] [nvarchar(256)] NOT NULL, 
-	 [state] [nvarchar(20)] NULL, 
-	 [country] [nvarchar(50)] NOT NULL, 
+		[c_id] int NOT NULL, 
+		[c_firstname] nvarchar(256) NULL, 
+		[c_lastname] nvarchar(256) NOT NULL, 
+		[street] nvarchar(256) NOT NULL, 
+		[city] nvarchar(256) NOT NULL, 
+		[state] nvarchar(20) NULL, 
+		[country] nvarchar(50) NOT NULL, 
 	) 
 	WITH 
 	( 
@@ -148,21 +150,21 @@ The following example shows how to retrieve the list of external tables from the
 
 Once you have defined your external data source and your external tables, you can now use full T-SQL over your external tables. 
 
-**Example for Vertical Partitioning**: The following query performs a three-way join between the two local tables for orders and order lines and the remote table for customers. This is an example of the reference data use case for elastic query: 
+**Example for vertical partitioning**: The following query performs a three-way join between the two local tables for orders and order lines and the remote table for customers. This is an example of the reference data use case for elastic query: 
 
-	select  	
+	SELECT  	
 	 c_id as customer,
 	 c_lastname as customer_name,
 	 count(*) as cnt_orderline, 
 	 max(ol_quantity) as max_quantity,
 	 avg(ol_amount) as avg_amount,
 	 min(ol_delivery_d) as min_deliv_date
-	from customer 
-	join orders 
-	on c_id = o_c_id
-	join order_line 
-	on o_id = ol_o_id and o_c_id = ol_c_id
-	where c_id = 100
+	FROM customer 
+	JOIN orders 
+	ON c_id = o_c_id
+	JOIN  order_line 
+	ON o_id = ol_o_id and o_c_id = ol_c_id
+	WHERE c_id = 100
 
   
 ## Connectivity for tools
@@ -173,9 +175,7 @@ You can use regular SQL Server connection strings to connect your BI and data in
  
 * Make sure that the elastic query endpoint database has been given access to the remote database by enabling access for Azure Services in its SQL DB firewall configuration. Also ensure that the credential provided in the external data source definition can successfully log into the remote database and has the permissions to access the remote table.  
 
-* Elastic query works best for queries where most of the computation can be done on the remote databases. You typically get the best query performance with selective filter predicates that can 
-
-be evaluated on the remote databases or joins that can be performed completely on the remote database. Other query patterns may need to load large amounts of data from the remote database and may perform poorly. 
+* Elastic query works best for queries where most of the computation can be done on the remote databases. You typically get the best query performance with selective filter predicates that can be evaluated on the remote databases or joins that can be performed completely on the remote database. Other query patterns may need to load large amounts of data from the remote database and may perform poorly. 
 
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
