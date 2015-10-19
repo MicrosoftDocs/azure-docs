@@ -64,7 +64,7 @@ Other things you might want to play with include:
 
 Feel free to play with this JSFiddle page to try different types of queries.  If you would like to learn more about how this index was created, please continue reading.  Feel free also to reach out to me directly at my twitter account [@liamca](https://twitter.com/liamca).
 
-##How was this Azure Search Index Created?
+## How was this Azure Search Index created?
 
 Brent did a lot of the hard work already by showing how to stage the data into a SQL database.  If you want to walk through this process of staging the data yourself, please check out his [tutorial here](http://www.brentozar.com/archive/2014/01/how-to-query-the-stackexchange-databases/).  Otherwise, you can either simply leverage the Azure SQL database I already pre-populated with some data from Oct 15, 2015, or you can try the Azure Search index I created.  The details of this are outlined below in the “Importing Data from Staged Azure SQL Database” section.  
 The only thing I did beyond what Brent outlined was to create a View in my Azure SQL database which will be used by the [Azure Search Indexer](https://msdn.microsoft.com/library/azure/dn946891.aspx) to crawl and ingest data from a group of tables that I am interested in using.  Here is how this View is defined.
