@@ -47,21 +47,34 @@ Once you've deployed your web service, you can follow the steps below to use the
 
 1. In Machine Learning Studio, open the **Web Services** tab and then open the web service you want to access. Copy the key listed under **API key** and save it.
 
+	![API Key][image3]
+
 2. Open the **REQUEST/RESPONSE** API Help Page. At the top of the help page, under **Request**, copy the **Request URI** value and save it. This value will look like this:
 
 		https://ussouthcentral.services.azureml.net/workspaces/<workspace-id>/services/<service-id>/execute?api-version=2.0&details=true
 
+	![Request URI][image4]
+
 3. Go to [Azure ML Request-Response Service Web App](https://azure.microsoft.com/marketplace/partners/microsoft/azuremlaspnettemplateforrrs/) and click **Create Web App**. The template takes you to the Microsoft Azure Portal where the new web app is created.
 
-	a. Give your web app a unique name. The URL of the web app will be this name followed by `.azurewebsites.net.` For example, `http://mytestapp.azurewebsites.net.`
+	- Give your web app a unique name. The URL of the web app will be this name followed by `.azurewebsites.net.` For example, `http://mytestapp.azurewebsites.net.`
 
-	b. Select the Azure subscription and services under which your web service is running.
+	- Select the Azure subscription and services under which your web service is running.
 
-	c. Click **Create**.
+	- Click **Create**.
+
+	![Create web app][image5]
 
 4. When Azure has finished deploying the web app, click the **URL** on the web app settings page in Azure, or enter the URL in a web browser. For example, `http://mytestapp.azurewebsites.net.`
 
-5. When the web app first runs it will ask you for the **API Post URL** and **API Key**. Enter the values you saved earlier and click **Submit**.
+5. When the web app first runs it will ask you for the **API Post URL** and **API Key**.
+Enter the values you saved earlier:
+	- **Request URI** from the API Help Page for **API Post URL**
+	- **API Key** from the web service dashboard for the **API Key**.
+
+	Click **Submit**.
+
+	![Enter Post URI and API Key][image6]
 
 6. The web app displays its **Web App Configuration** page with the current web service settings. Here you can make changes to the settings used by the web app.
 
@@ -79,20 +92,21 @@ You can stop, restart, or delete the web app in the Azure Portal like any other 
 
 You can use the BES web app template in the same way as the RRS template, except that the web app that's created will allow you to submit multiple rows of data and receive multiple results.
 
-To do this, you'll need an Azure storage container to hold the results returned by the web app.
-You'll also need to set up your input data either in a local file or in an Azure storage container.
+The results from a batch execution web service are stored in an Azure storage container; the input values can come from Azure storage or a local file.
+So, you'll need an Azure storage container to hold the results returned by the web app, and you'll need to get your input data ready.
+
 ![Process to use BES web template][image2]
 
-1. Follow the same procedure to create the web app as for the RRS template, except:
-	- Get the **Request URI** from the **BATCH EXECUTION** API Help Page.
-	- Go to [Azure ML Request-Response Service Web App](https://azure.microsoft.com/marketplace/partners/microsoft/azuremlbeswebapptemplate/) to reach the BES template from Azure Marketplace and click **Create Web App**.
+1. Follow the same procedure to create the BES web app as for the RRS template, except:
+	- Get the **Request URI** from the **BATCH EXECUTION** API Help Page for the web service.
+	- Go to [Azure ML Batch Execution Service Web App Template](https://azure.microsoft.com/marketplace/partners/microsoft/azuremlbeswebapptemplate/) to open the BES template on Azure Marketplace and click **Create Web App**.
 
-2. From the web app home page, enter the destination container name, along with the associated account name and key, where you want the results stored.
+2. To specify where you want the results stored, enter the destination container information on the web app home page. Also specify where the web app can get the input values, either in a local file or an Azure storage container.
+Click **Submit**.
 
-3. Specify the file that contains the input values. This can be a local file or it can be in the same container you're using for the results.
+	![Storage information][image7]
 
-4. Click **Submit**. The web app will display a page with job status.
-
+The web app will display a page with job status.
 When the job has completed you'll be given the location of the results in Azure blob storage. You also have the option of downloading the results to a local file.
 
 ## For more information
@@ -108,3 +122,8 @@ To learn more about...
 
 [image1]: media\machine-learning-consume-web-service-with-web-app-template\rrs-web-template-flow.png
 [image2]: media\machine-learning-consume-web-service-with-web-app-template\bes-web-template-flow.png
+[image3]: media\machine-learning-consume-web-service-with-web-app-template\api-key.png
+[image4]: media\machine-learning-consume-web-service-with-web-app-template\post-uri.png
+[image5]: media\machine-learning-consume-web-service-with-web-app-template\create-web-app.png
+[image6]: media\machine-learning-consume-web-service-with-web-app-template\web-service-info.png
+[image7]: media\machine-learning-consume-web-service-with-web-app-template\storage.png
