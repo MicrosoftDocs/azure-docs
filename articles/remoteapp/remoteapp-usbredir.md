@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="10/09/2015" 
+    ms.date="10/19/2015" 
     ms.author="elizapo" />
 
 
@@ -38,7 +38,7 @@ Azure RemoteApp uses very similar mechanisms for redirecting USB devices as the 
 ## Redirecting a USB device by using the device class GUID
 There are two ways to find the device class GUID that can be used for redirection. 
 
-The first option is to use the [System-Defined Device Setup Classes Available to Vendors](https://msdn.microsoft.com/library/windows/hardware/ff553426(v=vs.85).aspx). Pick the class that most closely matches the device attached to the local computer. For digital cameras this could be an Imaging Device class or Video Capture Device class. You'll need to do some experimentation with the device classes to find the correct class GUID that works with the locally attached USB device (in our case the web camera).
+The first option is to use the [System-Defined Device Setup Classes Available to Vendors](https://msdn.microsoft.com/library/windows/hardware/ff553426.aspx). Pick the class that most closely matches the device attached to the local computer. For digital cameras this could be an Imaging Device class or Video Capture Device class. You'll need to do some experimentation with the device classes to find the correct class GUID that works with the locally attached USB device (in our case the web camera).
 
 A better way, or the second option, is to follow these steps to find the specific device class GUID:
 
@@ -64,7 +64,7 @@ If you want more fine-grained control and want to control redirection per device
 
 The hardest part of this method is finding the USB device instance ID. You'll need access to the computer and the specific USB device. Then follow these steps:
 
-1. Enable the device redirection in Remote Desktop Session as described in [How can I use my devices and resources in a Remote Desktop session?](http://windows.microsoft.com/windows7/How-can-I-use-my-devices-and-resources-in-a-Remote-Desktop-session)
+1. Enable the device redirection in Remote Desktop Session as described in [How can I use my devices and resources in a Remote Desktop session?](http://windows.microsoft.com/en-us/windows7/How-can-I-use-my-devices-and-resources-in-a-Remote-Desktop-session)
 2. Open a Remote Desktop Connection and click **Show Options**.
 3. Click **Save as** to save the current connection settings to an RDP file.
 ![Save the settings as an RDP file](./media/remoteapp-usbredir/ra-saveasrdp.png)
