@@ -3,7 +3,7 @@
 	description="FAQs on designing/implementing solutions on Notification Hubs"
 	services="notification-hubs"
 	documentationCenter="mobile"
-	authors="wesmc"
+	authors="wesmc7777"
 	manager="dwrede"
 	editor="" />
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="08/18/2015" 
+	ms.date="10/19/2015" 
 	ms.author="wesmc" />
 
 #Azure Notification Hubs - Frequently Asked Questions (FAQs)
