@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/07/2015"
+   ms.date="10/15/2015"
    ms.author="sethm" />
 
 # Using Service Bus from .NET with AMQP 1.0
@@ -168,10 +168,6 @@ The .NET APIs expose several settings to control the behavior of the AMQP protoc
 Ready to learn more? Visit the following links:
 
 - [Service Bus AMQP overview]
-- [Using Service Bus from Java with AMQP]
-- [Using Service Bus from Python with AMQP]
-- [Using Service Bus from PHP with AMQP]
-- [Installing Apache Qpid Proton-C on an Azure Linux VM]
 - [AMQP in Service Bus for Windows Server]
 
   [How to Use Service Bus Queues]: service-bus-dotnet-how-to-use-queues.md
@@ -203,8 +199,4 @@ Ready to learn more? Visit the following links:
 [NuGet]: http://nuget.org/packages/WindowsAzure.ServiceBus/
 
 [Service Bus AMQP overview]: service-bus-amqp-overview.md
-[Using Service Bus from Java with AMQP]: service-bus-amqp-java.md
-[Using Service Bus from Python with AMQP]: service-bus-amqp-python.md
-[Using Service Bus from PHP with AMQP]: service-bus-amqp-php.md
-[Installing Apache Qpid Proton-C on an Azure Linux VM]: service-bus-amqp-apache.md
 [AMQP in Service Bus for Windows Server]: https://msdn.microsoft.com/library/dn574799.aspx

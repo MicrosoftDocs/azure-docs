@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Azure AD Connect Sync: Understanding Users and Contacts"
+	pageTitle="Azure AD Connect Sync: Understanding Users and Contacts | Microsoft Azure"
 	description="Explains users and contacts in Azure AD Connect Sync."
 	services="active-directory"
 	documentationCenter=""
 	authors="markusvi"
-	manager="swadhwa"
+	manager="stevenpo"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/27/2015"
+	ms.date="10/13/2015"
 	ms.author="markusvi"/>
 
 
@@ -41,7 +41,7 @@ There are a few general rules the configuration assumes:
 
 Having contacts representing a user in a different forest is common after a merger & acquisition where a GALSync solution is bridging two or more Exchange forests. The contact object is always joining from the connector space to the metaverse using the mail attribute. If there is already a contact object or user object with the same mail address, the objects are joined together. This is configured in the rule **In from AD – Contact Join**. There is also a rule named **In from AD – Contact Common** with an attribute flow to the metaverse attribute **sourceObjectType** with the constant **Contact**. This rule has very low precedence so if any user object is joined to the same metaverse object, then the rule In from AD – User Common will contribute the value User to this attribute. With this rule, this attribute will have the value Contact if no user has been joined and the value User if at least one user has been found.
 
-For provisioning an object to Azure AD, the outbound rule **Out to AAD – Contact Join** will create a contact object if the metaverse attribute **sourceObjectType** is set to **Contact**. If this attribute is set to **User**, then the rule **Out to AAD – User Join** will create a user object instead. 
+For provisioning an object to Azure AD, the outbound rule **Out to AAD – Contact Join** will create a contact object if the metaverse attribute **sourceObjectType** is set to **Contact**. If this attribute is set to **User**, then the rule **Out to AAD – User Join** will create a user object instead.
 It is possible that an object is promoted from Contact to User when more source Active Directories are imported and synchronized.
 
 For example, in a GALSync topology we will find contact objects for everyone in the second forest when we import the first forest. This will stage new contact objects in the AAD Connector. When we later import and synchronize the second forest, we will find the real users and join them to the existing metaverse objects. We will then delete the contact object in AAD and create a new user object instead.
@@ -73,5 +73,5 @@ When an object has been exported to Azure AD then it is not allowed to change th
 * [Azure AD Connect Sync: Customizing Synchronization options](active-directory-aadconnectsync-whatis.md)
 * [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md)
 
- 
+
 <!--Image references-->

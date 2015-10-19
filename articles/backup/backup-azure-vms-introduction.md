@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/24/2015"
+	ms.date="10/07/2015"
 	ms.author="trinadhk";"aashishr";"jimpark"/>
 
 # Azure virtual machine backup
@@ -98,7 +98,7 @@ The image below shows the relationships between the various Azure Backup entitie
 It can take a while for the backup vault to be created. Monitor the status notifications at the bottom of the portal.
 ![Create vault toast notification](./media/backup-azure-vms-introduction/creating-vault.png)
 
-6. A message confirms that the vault has been successfully created and it will be listed in the Recovery Services page as Active. Ensure that the appropriate storage redundancy option is chosen right after the vault has been created. Read more about [setting the storage redundancy option in the backup vault](../backup-azure-backup-create-vault.md#storage-redundancy-options).
+6. A message confirms that the vault has been successfully created and it will be listed in the Recovery Services page as Active. Ensure that the appropriate storage redundancy option is chosen right after the vault has been created. Read more about [setting the storage redundancy option in the backup vault](backup-configure-vault.md#azure-backup---storage-redundancy-options).
 ![List of backup vaults](./media/backup-azure-vms-introduction/backup_vaultslist.png)
 
 7. Clicking on the backup vault goes to the **Quick Start** page, where the instructions for backup of Azure virtual machines are shown.
@@ -117,7 +117,8 @@ Learn about the [VM Agent](https://go.microsoft.com/fwLink/?LinkID=390493&clcid=
 - Backup of virtual machines using Premium storage is not supported.
 - Backup of virtual machines with multiple reserved IPs is not supported.
 - Backup of virtual machines with a reserved IP and no end-point defined is not supported.
-- Backup of virtual machines using multiple NICs or in a load-balanced configuration is not supported.
+- Backup of virtual machines using multiple NICs is not supported.
+- Backup of virtual machines in a load-balanced configuration (internal and internet-facing) is not supported.
 - Replacing an existing virtual machine during restore is not supported. First delete the existing virtual machine and any associated disks, and then restore the data from backup.
 - Cross-region backup and restore is not supported.
 - Virtual machine backup using the Azure Backup service is supported in all public regions of Azure. Here is a [checklist](http://azure.microsoft.com/regions/#services) of supported regions. If the region you are looking for is unsupported today, it will not appear in the dropdown list during vault creation.

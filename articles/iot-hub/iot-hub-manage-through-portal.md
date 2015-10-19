@@ -1,18 +1,18 @@
 <properties
- pageTitle="Manage Azure IoT Hubs through Azure portal | Microsoft Azure"
- description="An overview of how to create and manage Azure IoT Hubs through the Azure Portal"
+ pageTitle="Use the Azure portal to manage IoT Hubs | Microsoft Azure"
+ description="An overview of how to create and manage Azure IoT hubs through the Azure Portal"
  services="iot-hub"
- documentationCenter=".net"
+ documentationCenter=""
  authors="nasing"
  manager="timlt"
  editor=""/>
 
 <tags
- ms.service="azure-iot"
+ ms.service="iot-hub"
  ms.devlang="na"
  ms.topic="article"
  ms.tgt_pltfrm="na"
- ms.workload="tbd"
+ ms.workload="na"
  ms.date="09/29/2015"
  ms.author="nasing"/>
 
@@ -36,43 +36,43 @@ You can create an Azure IoT hub through the methods listed in the previous secti
 
 1. Creating an IoT hub through the **+ New** option leads to the final blade shown below. The steps for creating the IoT hub through this method as well as through the marketplace are identical.
 
-2. Creating an IoT hub through the Marketplace: Clicking **Create** opens a blade that is identical to the previous blade for the **+New** experience. There are several steps involved in creating an IoT hub that are listed in the next sections: 
+2. Creating an IoT hub through the Marketplace: Clicking **Create** opens a blade that is identical to the previous blade for the **+New** experience. There are several steps involved in creating an IoT hub that are listed in the next sections:
 
 ### Choose the name of the IoT hub
 
 In order to create an IoT hub, the user must name the hub. Please note this name has to be unique across the hubs. No duplication of hubs is allowed on the backend, so it is recommended that this hub be named as uniquely as possible.
 
-### Choose the pricing tier 
+### Choose the pricing tier
 
-The customer can choose from 3 tiers: **Free**, **Standard 1** and **Standard 2**. The free tier allows only 10 devices to be connected to the IoT hub. 
+The customer can choose from 3 tiers: **Free**, **Standard 1** and **Standard 2**. The free tier allows only 10 devices to be connected to the IoT hub.
 
 **S1 (Low Frequency)**: IoT Hubs S1 (Low Frequency) edition is designed for IoT solutions that have a large number of devices generating relatively small amounts of data per device. Each unit of the S1 (Low Frequency) edition allows connectivity of up to 500 devices or up to 50,000 messages per day across all connected devices.
 
 **S2 (High Frequency)**: IoT Hub S2 (High Frequency) edition is designed for IoT solutions in which devices generate large amounts of data. Each unit of the S2 (High Frequency) edition allows connectivity of up to 500 devices or up to 1.5 million messages per day across all connected devices.  
- 
+
 ![][4]
 
 > [AZURE.NOTE] IoT Hub only allows one free hub per subscription.
 
-### IoT hub units 
+### IoT hub units
 
 An IoT unit includes 500 devices, so choosing the number of IoT units means that the total number of devices supported for this hub is the number of units multiplied by 500. For example, if you want the IoT hub to support 1000 devices, you choose 2 units.
 
-### Device to cloud partitions and resource group 
+### Device to cloud partitions and resource group
 
 You can change the number of partitions for an IoT Hub. Default partitions are set to 4; however, you can choose a different number of partitions from a drop-down list.
 
-For resource groups, you do not need to explicitly create an empty resource group. When creating a new resource, you can choose to either create a new resource group or use an existing resource group. 
+For resource groups, you do not need to explicitly create an empty resource group. When creating a new resource, you can choose to either create a new resource group or use an existing resource group.
 
 ![][5]
 
-### Choose subscriptions 
+### Choose subscriptions
 
 Azure IoT Hub automatically shows the list of subscriptions to which the user account is linked. You can choose one of the options here to associate the IoT hub with that subscription.
 
 ### Choose the location
 
-The location option provides a list of the regions in which IoT Hub is offered. For the public preview release, the hub is offered in only 3 locations: US East, Europe North, and East Asia. 
+The location option provides a list of the regions in which IoT Hub is offered. For the public preview release, the hub is offered in only 3 locations: US East, Europe North, and East Asia.
 
 ### Create the IoT hub
 
@@ -89,23 +89,23 @@ You can change the settings of an existing IoT hub after it is created. Clicking
 **Shared Access Policies**: These are the policies that define the permissions for devices and services to connect to IoT Hub. You can access these policies by clicking on **Shared Access Policies** under **Settings**. In this blade you can either modify existing policies or add a new policy.
 
 ### Create a new policy
- 
+
 - Click the **Add** button to open a blade in which you can enter the new policy name and the permissions that you want to associate with this policy, as shown in the next figure.
- 
+
 	There are a number of permissions that can be associated with these shared policies. The first two policies, **Registry Read** and **Registry Write**, are for granting read and write access rights to the device identity store or the identity registry. Please note that choosing the write option will automatically choose the read option.
 
- 	The service connect policy grants permission to the consumer group for services connecting to the IoT Hub, while the device connect grants permissions for device side of the IoT hub. 
-     
+ 	The service connect policy grants permission to the consumer group for services connecting to the IoT Hub, while the device connect grants permissions for device side of the IoT hub.
+
 - Click the create policy to add this newly created policy to the existing list.
 
 ![][10]
 
-## Messaging 
+## Messaging
 
 Click the **Messaging** policies to display a list of messaging properties for the IoT hub that is being modified. There are two main types of properties that can be modified or copied: **Cloud to Device** and **Device to Cloud**.
 
 - **Cloud to Device settings**: This has 2 sub-settings: **Cloud to Device TTL** (Time to Live) and **Retention time** for the messages. When the IoT hub is first created, both these settings are created with a default value of 1 hour. However, you can customize these using the sliders or just typing in the values.
- 
+
 - **Device to Cloud Settings**: This has several sub-settings, some of which are named/assigned when the IoT hub is created and can only be copied to other sub-settings that are customizable. All of these are listed in the next section.
 
 **Partitions**: This value is set when the IoT hub is created and can be changed through this setting.
@@ -135,7 +135,7 @@ Moving from a high tier (S2) to low tier (S1) is allowed only when the number of
 
 You can browse to the IoT hub you want to delete by clicking **Browse**, and then choosing the appropriate hub to delete. Clicking the **Delete** button below the hub name deletes the hub.
 
-  
+
   [4]: ./media/iot-hub-manage-through-portal/create-iothub.png
   [5]: ./media/iot-hub-manage-through-portal/location1.png
   [8]: ./media/iot-hub-manage-through-portal/portal-settings.png

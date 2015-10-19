@@ -20,6 +20,12 @@
 
 #<a name="_Toc395809351"></a>Web application development with ASP.NET MVC using DocumentDB
 
+> [AZURE.SELECTOR]
+- [.NET](documentdb-dotnet-application.md)
+- [Node.js](documentdb-nodejs-application.md)
+- [Java](documentdb-java-application.md)
+- [Python](documentdb-python-application.md) 
+
 To highlight how you can efficiently leverage Azure DocumentDB to store and query JSON documents, this article provides an end-to-end walk-through showing you how to build a todo list web application using Azure DocumentDB. The tasks will be stored as JSON documents in Azure DocumentDB.
 
 ![Screen shot of the todo list web application created by this tutorial](./media/documentdb-dotnet-application/image1.png)
@@ -536,19 +542,6 @@ There is one last thing for us to do, and that is to add the ability to edit **I
 
 2. Add the following to the **ItemController** class.
 
-    	[HttpPost]
-   		[ValidateAntiForgeryToken]
-    	public async Task<ActionResult> Edit([Bind(Include = "Id,Name,Description,Completed")] Item item)
-    	{
-     	   if (ModelState.IsValid)
-    	    {
-    	        await DocumentDBRepository<Item>.UpdateItemAsync(item.Id, item);
-    	        return RedirectToAction("Index");
-    	    }
-
-  	      return View(item);
- 	   	}
-		
 		public ActionResult Edit(string id)
 		{
 		    if (string.IsNullOrEmpty(id))
@@ -565,6 +558,19 @@ There is one last thing for us to do, and that is to add the ability to edit **I
 		 	
 		    return View(item);
 		}
+		
+    	[HttpPost]
+   		[ValidateAntiForgeryToken]
+    	public async Task<ActionResult> Edit([Bind(Include = "Id,Name,Description,Completed")] Item item)
+    	{
+     	   if (ModelState.IsValid)
+    	    {
+    	        await DocumentDBRepository<Item>.UpdateItemAsync(item.Id, item);
+    	        return RedirectToAction("Index");
+    	    }
+
+  	      return View(item);
+ 	   	}
 		
 	
 	The first method handles the Http GET that happens when the user clicks on the **Edit** link from the **Index** view. This method fetches a [**Document**](http://msdn.microsoft.com/library/azure/microsoft.azure.documents.document.aspx) from DocumentDB and passes it to the **Edit** view.

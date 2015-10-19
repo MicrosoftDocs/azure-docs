@@ -1,8 +1,7 @@
 <properties 
-	pageTitle="Customize Hadoop clusters for Advanced Analytics Process and Technology | Microsoft Azure" 
+	pageTitle="Customize Hadoop clusters for the Cortana Analytics Process | Microsoft Azure" 
 	description="Popular Python modules made available in custom Azure HDInsight Hadoop clusters."
 	services="machine-learning" 
-	solutions="" 
 	documentationCenter="" 
 	authors="hangzh-msft" 
 	manager="paulettm" 
@@ -14,12 +13,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/01/2015" 
+	ms.date="10/13/2015" 
 	ms.author="hangzh;bradsev" />
 
-# Customize Azure HDInsight Hadoop clusters for Advanced Analytics Process and Technology
+# Customize Azure HDInsight Hadoop clusters for the Cortana Analytics Process 
 
-This article describes how to customize an HDInsight Hadoop cluster by installing 64-bit Anaconda (Python 2.7) on each node when the cluster is being provisioned in HDInsight service. This customization prepares the cluster for use with the Advanced Analytics Process and Technology (ADAPT) used in Azure Machine Learning. It also shows how to access the headnode to submit custom jobs to the cluster.
+This menu links to topics that describe how to set up the various data science environments used by the Cortana Analytics Process (CAPS).
+
+[AZURE.INCLUDE [data-science-environment-setup](../../includes/cap-setup-environments.md)]
+
+This article describes how to customize an HDInsight Hadoop cluster by installing 64-bit Anaconda (Python 2.7) on each node when the cluster is being provisioned in HDInsight service. This customization prepares the cluster for use with the Cortana Analytics Process. It also shows how to access the headnode to submit custom jobs to the cluster.
 
 This customization makes many popular Python modules that are included in Anaconda conveniently available for use in user defined functions (UDFs) that are designed to process Hive records in the cluster. For instructions on the procedures used in this scenario, see [Submit Hive Queries to HDInsight Hadoop clusters in the advanced analytics process](machine-learning-data-science-hive-queries.md).
 

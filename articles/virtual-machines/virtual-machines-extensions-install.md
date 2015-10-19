@@ -16,9 +16,10 @@
  ms.date="08/25/2015"
  ms.author="rasquill"/>
 #Manage virtual machine extensions
+
 Describes how to find, add, modify, or remove VM Extensions with either Windows or Linux Virtual Machines on Azure.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)] This article covers managing extensions using the classic deployment model.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Resource Manager mode
 
 
 ##Using VM Extensions

@@ -1,10 +1,10 @@
 <properties
-   pageTitle="Choosing a framework"
-   description="Service Fabric offers two high-level frameworks for building services: the actor framework and the services framework. Understanding the value of each will help you make the right architectural decisions for your application."
+   pageTitle="Service Fabric programming models | Microsoft Azure"
+   description="Service Fabric offers two frameworks for building services: the actor framework and the services framework. They offer distinct trade-offs in simplicity and control."
    services="service-fabric"
    documentationCenter=".net"
    authors="seanmck"
-   manager="timlt"
+   manager="coreysa"
    editor=""/>
 
 <tags
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/09/2015"
+   ms.date="10/15/2015"
    ms.author="seanmck"/>
 
-# Choosing a framework for your service
+# Choose a framework for your service
 
 Service Fabric offers two high-level frameworks for building services: the Reliable Actors APIs and the Reliable Services APIs. While both are built on the same Service Fabric core, they make different tradeoffs between simplicity and flexibility in terms of concurrency, partitioning, and communication. It is useful to understand both models so that you can choose the appropriate framework for a particular service within your application.
 
