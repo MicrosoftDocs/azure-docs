@@ -51,9 +51,9 @@ To set up Active Directory authentication for Data Lake Store, you must perform 
 
 ### Create a self-signed certificate
 
-Make sure you [Windows SDK](https://dev.windows.com/en-us/downloads) installed before proceeding with the steps in this section. You must have also created a directory, such as **C:\mycertdir**, where the certificate will be created. 
+Make sure you [Windows SDK](https://dev.windows.com/en-us/downloads) is installed before proceeding with the steps in this section. You must have also created a directory, such as **C:\mycertdir**, where the certificate will be created.
 
-1. Make sure Windows SDK is added to the PATH variable. Look for the following in the PATH variable definition. [ TBD: Link to adding to PATH ]
+1. Make sure Windows SDK is added to the PATH variable. Look for the following in the PATH variable definition.
 
 		C:\Program Files (x86)\Windows Kits\10\bin\x86
 
@@ -87,7 +87,7 @@ In this section, you perform the steps to create a service principal for an Azur
 		Get-AzureRmSubscription
 		
 		# Select a subscription 
-		Set-AzureRmContext -SubscriptionName <subscription name>
+		Set-AzureRMContext -SubscriptionName <subscription name>
 
 2. Paste the following cmdlets in the PowerShell console window. Make sure the value you specify for the **-DisplayName** property is unique. Also, the values for **-HomePage** and **-IdentiferUris** are placeholder values and are not verified. 
 
