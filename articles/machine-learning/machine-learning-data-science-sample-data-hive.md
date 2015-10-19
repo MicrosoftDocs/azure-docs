@@ -2,7 +2,6 @@
 	pageTitle="Sample data in Azure HDInsight Hive tables | Microsoft Azure"
 	description="Down sampling data in Azure HDInsight Hive Tables"
 	services="machine-learning,hdinsight"
-	solutions=""
 	documentationCenter=""
 	authors="hangzh-msft"
 	manager="paulettm" 

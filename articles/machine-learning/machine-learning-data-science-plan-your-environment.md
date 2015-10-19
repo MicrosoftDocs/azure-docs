@@ -2,7 +2,6 @@
 	pageTitle="Plan a Machine Learning advanced analytics environment | Microsoft Azure" 
 	description="Plan your advanced analytics environment by considering key questions." 
 	services="machine-learning" 
-	solutions="" 
 	documentationCenter="" 
 	authors="bradsev"
 	manager="paulettm" 

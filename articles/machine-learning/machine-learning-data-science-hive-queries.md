@@ -2,7 +2,6 @@
 	pageTitle="Submit Hive Queries to Hadoop clusters in the Cortana Analytics Process  | Microsoft Azure" 
 	description="Process Data from Hive Tables" 
 	services="machine-learning" 
-	solutions="" 
 	documentationCenter="" 
 	authors="hangzh-msft" 
 	manager="paulettm" 

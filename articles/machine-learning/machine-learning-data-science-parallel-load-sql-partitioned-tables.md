@@ -2,7 +2,6 @@
 	pageTitle="Parallel Bulk Data Import Using SQL Partition Tables | Microsoft Azure" 
 	description="Parallel Bulk Data Import Using SQL Partition Tables" 
 	services="machine-learning" 
-	solutions="" 
 	documentationCenter="" 
 	authors="bradsev"
 	manager="paulettm" 
