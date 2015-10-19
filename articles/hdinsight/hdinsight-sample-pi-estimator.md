@@ -14,29 +14,36 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/09/2015"
+	ms.date="10/15/2015"
 	ms.author="jgao"/>
 
-# The pi estimator Hadoop sample in HDInsight
+# Run pi estimator MapReduce program on Hadoop cluster in HDInsight
 
-This topic shows how to run a Hadoop MapReduce program in Azure HDInsight that estimates the value of the mathematical constant pi by using Azure PowerShell. It also provides the Java code used in the MapReduce program used to estimate the value of pi for inspection.
+HDInsight clusters come with a jar file with several MarReduce samples. This article shows you how to run the pi estimator sample using Azure PowerShell. the pi estimator sample estimates the value of the mathematical constant pi 
 
 > [AZURE.NOTE] The steps in this document require a Windows-based HDInsight cluster. For information on running this and other samples with Linux-based clusters, see [Run the Hadoop samples in HDInsight](hdinsight-hadoop-run-samples-linux.md)
 
 The program uses a statistical (quasi-Monte Carlo) method to estimate the value of pi. Points placed at random inside of a unit square also fall within a circle inscribed within that square with a probability equal to the area of the circle, pi/4. The value of pi can be estimated from the value of 4R, where R is the ratio of the number of points that are inside the circle to the total number of points that are within the square. The larger the sample of points used, the better the estimate is.
 
-The pi estimator Java code that contains the mapper and reducer functions is available for inspection below. The mapper program generates a specified number of points placed at random inside of a unit square and then counts the number of those points that are inside the circle. The reducer program accumulates points counted by the mappers and then estimates the value of pi from the formula 4R, where R is the ratio of the number of points counted inside the circle to the total number of points that are within the square.
-
 The script provided for this sample submits a Hadoop jar job and is set up to run with a value 16 maps, each of which is required to compute 10 million sample points by the parameter values. These parameter values can be changed to improve the estimated value of pi. For reference, the first 10 decimal places of pi are 3.1415926535.
-
-The .jar file that contains the files needed by Hadoop on Azure to deploy the application is a .zip file and is available for download. You can unzip it with various compression utilities and then explore the files at your convenience.
 
 The other samples that are available to help you get up to speed in using HDInsight to run MapReduce jobs are listed on [Running the HDInsight Samples][hdinsight-samples], along with links to instructions on how to run them.
 
-**You will learn:**
 
-* How to use Azure PowerShell to run the pi estimator MapReduce program on Azure HDInsight.
-* What a MapReduce program written in Java looks like.
+**Other related articles:**
+
+* [Get Started with Azure HDInsight][hdinsight-get-started]
+* [Develop Java MapReduce programs for Hadoop in HDInsight](hdinsight-develop-deploy-java-mapreduce.md)
+* [Submit Hadoop jobs in HDInsight](hdinsight-submit-hadoop-jobs-programmatically.md)
+* [Sample: 10GB GraySort][hdinsight-sample-10gb-graysort]
+* [Sample: Wordcount][hdinsight-sample-wordcount]
+* [Sample: C# Steaming][hdinsight-sample-cs-streaming]
+
+
+
+
+
+
 
 **Prerequisites**:
 
@@ -46,7 +53,7 @@ The other samples that are available to help you get up to speed in using HDInsi
 
 
 
-## <a id="run-sample"></a>Run the sample with Azure PowerShell
+## Run the sample with Azure PowerShell
 
 **To submit the MapReduce job**s
 
@@ -80,8 +87,9 @@ The other samples that are available to help you get up to speed in using HDInsi
 	For comparison, the first 10 decimal places of pi are 3.1415926535.
 
 
-## <a id="java-code"></a>The Java code for the pi estimator MapReduce program
+## The MapReduce Java source code
 
+The pi estimator Java code that contains the mapper and reducer functions is available for inspection below. The mapper program generates a specified number of points placed at random inside of a unit square and then counts the number of those points that are inside the circle. The reducer program accumulates points counted by the mappers and then estimates the value of pi from the formula 4R, where R is the ratio of the number of points counted inside the circle to the total number of points that are within the square.
 
 
  	/**
