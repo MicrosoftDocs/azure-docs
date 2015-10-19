@@ -159,11 +159,37 @@ If you are analyzing an on-premises SQL Server workload, modify the query to foc
 
 Again, these queries return a point-in-time count, so collecting multiple samples over time gives you the best understanding of your session usage. 
 
-For SQL Database analysis, you can also query **sys.resource_stats** and **sys.dm_db_resource_stats** to get historical statistics on sessions using the **active_session_count** column. Move information is provided on these views in the following section.
+For SQL Database analysis, you can also query **sys.resource_stats** to get historical statistics on sessions using the **active_session_count** column. Move information is provided on using this view in the following monitoring section.
 
-## Monitoring resource use with sys.resource_stats
+## Monitoring resource use
+There are two views that enable you to monitor resource usage for a SQL database relative to its service tier:
 
-The **sys.resource_stats** view in the **master** database provides additional information for monitoring the performance use of your SQL database within its specific service tier and performance level.
+- [sys.dm_db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx)
+- [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx)
+
+>[AZURE.NOTE] It is also possible to use the Azure Management Portal to view resource utilization. For an example, see [Service tiers - Monitoring performance](sql-database-service-tiers.md#monitoring-performance).
+
+### Using sys.dm_db_resource_stats
+The [sys.dm_db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx) view exists in each SQL database and supplies recent resource utilization data relative to the service tier. Average percentages for CPU, data IO, log writes, and memory are recorded every 15 seconds and are maintained for one hour. 
+
+Because this view provides a more granular look at resource utilization, you should first use **sys.dm_db_resource_stats ** for any current-state analysis or troubleshooting. For example, the following query show the average and maximum resource utilization for the current database over the last hour:
+
+	SELECT  
+	    AVG(avg_cpu_percent) AS 'Average CPU Utilization In Percent', 
+	    MAX(avg_cpu_percent) AS 'Maximum CPU Utilization In Percent', 
+	    AVG(avg_data_io_percent) AS 'Average Data IO In Percent', 
+	    MAX(avg_data_io_percent) AS 'Maximum Data IO In Percent', 
+	    AVG(avg_log_write_percent) AS 'Average Log Write Utilization In Percent', 
+	    MAX(avg_log_write_percent) AS 'Maximum Log Write Utilization In Percent', 
+	    AVG(avg_memory_usage_percent) AS 'Average Memory Usage In Percent', 
+	    MAX(avg_memory_usage_percent) AS 'Maximum Memory Usage In Percent' 
+	FROM sys.dm_db_resource_stats;  
+
+For other queries, see the examples in [sys.dm_db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx).
+
+### Using sys.resource_stats
+
+The [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx) view in the **master** database provides additional information for monitoring the performance use of your SQL database within its specific service tier and performance level. The data is collected every five minutes and maintained for approximately 14 days. This view is more useful for longer-term historical analysis of your SQL database resource utilization.
 
 The following graph shows the CPU resource utilization for Premium database with P2 performance level for each hour in a week. This particular graph starts on a Monday, showing 5 work days and then a weekend where much less happens on the application.
 
