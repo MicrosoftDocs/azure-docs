@@ -2,9 +2,8 @@
 	pageTitle="Plan a Machine Learning advanced analytics environment | Microsoft Azure" 
 	description="Plan your advanced analytics environment by considering key questions." 
 	services="machine-learning" 
-	solutions="" 
 	documentationCenter="" 
-	authors="msolhab"
+	authors="bradsev"
 	manager="paulettm" 
 	editor="cgronlun" />
 
@@ -14,15 +13,15 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/22/2015" 
-	ms.author="mohabib;bradsev" /> 
+	ms.date="10/18/2015" 
+	ms.author="bradsev" /> 
 
 
-# Plan your Azure Machine Learning advanced analytics environment
+# Plan your environment for the Cortana Analytics Process
 
-What scenario matches your analytics problem when you are getting ready to set up an environment to do advanced analytics with Azure Machine Learning?  The choices you make regarding the resources that are needed are based on the type, size, and source location of your data and the target destination for this data. This article discusses those questions that will help you identify your scenario.
+What scenario matches your analytics problem when you are getting ready to set up an environment to do advanced analytics processing?  The choices you make regarding the resources that are needed are based on the type, size, and source location of your data and the target destination for this data. This article discusses those questions that will help you identify your scenario.
 
-Once you have identified the relevant scenario, the Advanced Analytics Process and Technology (ADAPT) workflow that is presented in the [Learning Path: Build advanced analytics solutions in Azure](machine-learning-data-science-how-to-create-machine-learning-service.md).
+Once you have identified the relevant scenario, the Cortana Analytics Process workflow that is presented in the [Learning Path: Build advanced analytics solutions in Azure](machine-learning-data-science-how-to-create-machine-learning-service.md).
 steps your through a series of tasks, from obtaining a dataset through the creation and publishing of a model as an Azure web service that applications can consume.
 
 This topic also enumerates some of the resources and tools that are used by this advanced analytics process.
