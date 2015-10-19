@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Availability of Hadoop clusters in HDInsight | Microsoft Azure"
-	description="Linux-based HDInsight clusters improve reliability and availability by using an additional head node."
+	pageTitle="High availability features of Linux-based HDInsight (Hadoop) | Microsoft Azure"
+	description="Learn how Linux-based HDInsight clusters improve reliability and availability by using an additional head node. You will learn how this impacts Hadoop services such as Ambari and Hive, as well as how to individually connect to each head node using SSH."
 	services="hdinsight"
 	editor="cgronlun"
 	manager="paulettm"
