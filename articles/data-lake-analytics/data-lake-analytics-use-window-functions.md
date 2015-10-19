@@ -25,12 +25,11 @@ Window functions are used to do computation within sets of rows called *windows*
 
 This tutorial/learning guide uses two sample datasets to walk you through some sample scenario where you can apply window functions. For more information, see [U-SQL reference]().
 
-
-The winding function can be catagorized into: [jgao: add links]
+The window functions are catagorized into: [jgao: add links]
 
 - **Reporting aggregate functions**, such as SUM or AVG
 - **Ranking functions**, such as DENSE_RANK, ROW_NUMBER, NTILE, and RANK
-- **Analytic functions**,  such as cumulative distribution, or accesses data from a previous row in the same result set without the use of a self-join
+- **Analytic functions**,  such as cumulative distribution, percentiles, or accesses data from a previous row in the same result set without the use of a self-join
 - **Cumulative aggregate functions** 
 - **Moving aggregate functions**
 
@@ -172,9 +171,10 @@ In both these cases the number of there are fewer output rows than input rows:
 - Without GROUP BY, the aggregation collapses all the rows into a single row. 
 - With GROUP BY,  there are N output rows where N is the number of distinct values that appear in the data, In this case, you will get 4 rows in the output.
 
-###  Use window function
+###  Use a window function
 
-The OVER clause in the following sample is empty. This means it defines the "window" to include all rows. The SUM in this example is applied to the OVER clause that it precedes.
+The OVER clause in the following sample is empty. This defines the "window" to include all rows. The SUM in this example is applied to the OVER clause that it precedes.
+
 You could read this query as: “The sum of Salary across the window of all rows”.
 
     @result=
@@ -198,9 +198,9 @@ Unlike GROUP BY, there are as many output rows as input rows:
     |Ethan|165000
 
 
-The value of 165000 (the total of all salaries) is placed in each output row, even though the window of every row was used to calculate the value.
+The value of 165000 (the total of all salaries) is placed in each output row. That total comes from the "window" of all rows, so it includes all the salaries. 
 
-The next example demonstratees how to use window function to list all the employees, the deparment, and the total salary for the department. PARTITION BY is added to the OVER clouse.
+The next example demonstratees how to refine the "window" to list all the employees, the deparment, and the total salary for the department. PARTITION BY is added to the OVER clouse.
 
     @result=
     SELECT
@@ -245,15 +245,12 @@ The syntax:
 
 Note: 
 
-- All aggregate functions are deterministic. [jgao: what does it mean?]
-- Aggregate functions, except COUNT, ignore null values.
-- When aggregate functions are specify along with the OVER clause, the ORDER BY clause is not allowed in the OVER clause.
-
-
+- By defalt, aggregate functions, except COUNT, ignore null values.
+- When aggregate functions are specified along with the OVER clause, the ORDER BY clause is not allowed in the OVER clause.
 
 ### Use SUM
 
-The following example adds a totale salery by department to each input row:
+The following example adds a totale salary by department to each input row:
  
     @result=
         SELECT 
@@ -277,7 +274,7 @@ Here is the output:
 
 ### Use COUNT
 
-The following example adds an extra field to each row to show the department headcount.
+The following example adds an extra field to each row to show the total number employees in each department.
 
     @result =
         SELECT *, 
@@ -301,7 +298,7 @@ The result:
 
 ### Use MIN and MAX
 
-The following example adds an extra field to each row to show the lowest salery of each department:
+The following example adds an extra field to each row to show the lowest salary of each department:
 
     @result =
         SELECT 
@@ -345,7 +342,6 @@ The following are supported ranking functions:
 	        [ORDER BY <identifier, > …[n] [ASC|DESC]] 
 	) AS <alias>
 
-- The PARTITION BY clause is optional for ranking functions. If PARITION BY is omitted, all rows in the rowset are included in a single partition.
 - The ORDER BY clause is optional for ranking functions. If ORDERY BY is specified then it determines the order of the ranking. If ORDER BY is not specified then U-SQL assigns values based on the order it reads record. Thus resulting into non deterministic value of row number, rank or dense rank in the case were order by clause is not specified.
 - NTILE requires an expression that evaluates to a positive integer. This number specifies the number of groups into which each partition must be divided. This identifier is used only with the NTILE ranking function. 
 
@@ -387,13 +383,13 @@ Different from ROW_NUMBER(), RANK() takes into account the value of the Latency 
 
 RANK starts with (1,1,3) because the first two values for Latency are the same. Then the next value is 3 because the Latency value has moved on to 500. 
 The key point being that even though duplicate values are given the same rank, the RANK number will “skip” to the next ROW_NUMBER value. 
-You can see this pattern repeat with the sequence (2,2,4) in the Web Vertical.
+You can see this pattern repeat with the sequence (2,2,4) in the Web vertical.
 
 ![U-SQL window function RANK](./media/data-lake-analytics-use-windowing-functions/u-sql-windowing-function-rank-result.png)
 
 ### DENSE_RANK
 	
-DENSE_RANK is just like RANK except it doesn’t “skip” to the next ROW_NUMBER instead it goes to the next number in the sequence. Notice the sequences (1,1,2) and (2,2,3) in the sample.
+DENSE_RANK is just like RANK except it doesn’t “skip” to the next ROW_NUMBER, instead it goes to the next number in the sequence. Notice the sequences (1,1,2) and (2,2,3) in the sample.
 
 ![U-SQL window function DENSE_RANK](./media/data-lake-analytics-use-windowing-functions/u-sql-windowing-function-dense-rank-result.png)
 
@@ -414,6 +410,7 @@ NTILE distributes the rows in an ordered partition into a specified number of gr
 The following example splits the set of rows in each partition (vertical) into 4 groups in the order of the query latency, and returns the group number for each row. 
 
 The Image vertical has 3 rows, thus it has 3 groups. 
+
 The Web vertical has 6 rows, the two extra rows are distributed to the first two groups. That's why there are 2 rows in group 1 and group 2, and only 1 row in group 3 and group 4.  
 
     @result =
@@ -451,7 +448,7 @@ For example:
 
 Many users want to select only TOP n rows per group. This is not possible with the traditional GROUP BY. 
 
-It'll be helpful to look at to compare them all together. You have seen the following example at the beginning of the Ranking functions section. It doesn't show top N records for each partition:
+You have seen the following example at the beginning of the Ranking functions section. It doesn't show top N records for each partition:
 
     @result =
     SELECT 

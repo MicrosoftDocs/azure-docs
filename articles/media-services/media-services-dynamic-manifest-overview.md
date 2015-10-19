@@ -3,7 +3,7 @@
 	description="This topic describes how to create filters so your client can use them to stream specific sections of a stream. Media Services creates dynamic manifests to achive this selective streaming." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="Juliako" 
+	authors="cenkdin,Juliako" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="09/07/2015" 
+	ms.date="10/15/2015" 
 	ms.author="juliako"/>
 
 #Filters and Dynamic Manifests
@@ -192,6 +192,9 @@ To combine filters, you need to set the filter names to the manifest/playlist UR
 
 You can combine up to 3 filters. 
 
+For more information see [this](http://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support) blog.
+
+
 ##Know issues and limitations
 
 - Dynamic manifest operates in GOP boundaries (Key Frames) hence trimming has GOP accuracy. 
@@ -205,6 +208,7 @@ You can view AMS learning paths here:
 
 - [AMS Live Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
 - [AMS on Demand Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
 
 ##See Also
 

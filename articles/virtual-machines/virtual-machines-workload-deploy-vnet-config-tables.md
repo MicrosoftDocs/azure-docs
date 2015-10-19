@@ -19,7 +19,8 @@
 
 # Create a cross-premises virtual network by using configuration tables
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)] This article covers creating a resource with the classic deployment model. 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Resource Manager model.
+ 
 
 This topic steps you through the creation of a cross-premises virtual network by using settings previously specified in the following set of configuration tables:
 

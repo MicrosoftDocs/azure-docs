@@ -3,17 +3,17 @@
 	description="This tutorial walks you through the steps of implementing a basic Media Services live streaming application where a channel receives a multi-bitrate live stream from an on-premises live encoder."
 	services="media-services"
 	documentationCenter=""
-	authors="Juliako"
-	manager="dwrede"
+	authors="Juliako,cenkdin" 
+	manager="dwrede" 
 	editor=""/>
 
-<tags
-	ms.service="media-services"
-	ms.workload="media"
-	ms.tgt_pltfrm="na"
-	ms.devlang="ne"
-	ms.topic="get-started-article"
-	ms.date="09/07/2015"  
+<tags 
+	ms.service="media-services" 
+	ms.workload="media" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="ne" 
+	ms.topic="article" 
+	ms.date="10/15/2015"  
 	ms.author="juliako"/>
 
 
@@ -191,12 +191,19 @@ If you are done streaming events and want to clean up the resources provisioned 
 - You can stop your streaming endpoint, unless you want to continue to provide the archive of your live event as an on-demand stream. If the channel is in a stopped state, it will not incur any charges.
 
 
-##Media Services learning paths
+##Next Steps
+
+###Media Services learning paths
 
 You can view AMS learning paths here:
 
 - [AMS Live Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
 - [AMS on Demand Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
+### Looking for something else?
+
+If this topic didn't contain what you were expecting, is missing something, or in some other way didn't meet your needs, please provide us with you feedback using the Disqus thread below.
+
 
 ## Additional resources
 - [Getting Started with Live Streaming Using the Azure Management Portal](http://azure.microsoft.com/blog/getting-started-with-live-streaming-using-the-azure-management-portal/)

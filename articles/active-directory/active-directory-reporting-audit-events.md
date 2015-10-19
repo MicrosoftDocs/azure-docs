@@ -44,11 +44,11 @@ Delete User                          | Deleted a user from the directory.
 Set license properties               | Set the license properties for a user in the directory.
 Reset user password                  | Reset the password for a user in the directory.
 Change user password                 | Changed the password for a user in the directory.
-Change user license                  | Changed the license assigned to a user in the directory.
-Update user                          | Updated a user in the directory.
+Change user license                  | Changed the license assigned to a user in the directory. To see what licenses were updated, look at the "Update user" event immediately before or after this event.
+Update user                          | Updated a user in the directory. [See below](#quotupdate-userquot-attributes) for attributes that can be updated.
 Set force change user password       | Set the property that forces a user to change their password on login.
 **Group events**                     |
-Create group                         | Created a group in the directory.
+Add group                            | Created a group in the directory.
 Update group                         | Updated a group in the directory.
 Delete group                         | Deleted a group from the directory.
 Add member to group                  | Added a member to a group in the directory.
@@ -58,9 +58,9 @@ Add service principal                | Added a service principal to the director
 Remove service principal             | Removed a service principal from the directory.
 Add service principal credentials    | Added credentials to a service principal.
 Remove service principal credentials | Removed credentials from a service principal.
-Add delegation entry                 | Added a delegation entry to the directory.
-Set delegation entry                 | Update a delegation entry in the directory.
-Remove delegation entry              | Removed a delegation entry from the directory.
+Add delegation entry                 | Created an [OAuth2PermissionGrant](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#OAuth2PermissionGrantEntity) in the directory.
+Set delegation entry                 | Updated an [OAuth2PermissionGrant](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#OAuth2PermissionGrantEntity) in the directory.
+Remove delegation entry              | Deleted an [OAuth2PermissionGrant](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#OAuth2PermissionGrantEntity) in the directory.
 **Role events**                      |
 Add role member to Role              | Added a user to a directory role.
 Remove role member from Role         | Removed a user from a directory role.
@@ -89,7 +89,7 @@ Promote tenant to partner
 
 --->
 
-### User attributes included in the Update User audit event
+## "Update User" attributes
 The "Update user" audit event includes additional information about what user attributes were updated. For each attribute, both the previous value and the new value is included.
 
 Attribute                       | Description

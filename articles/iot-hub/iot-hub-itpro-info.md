@@ -2,7 +2,7 @@
  pageTitle="Azure IoT Hub information for IT Pros | Microsoft Azure"
  description="Information to help IT Pros work with Azure IoT Hub such as port requirements and security background."
  services="iot-hub"
- documentationCenter=".net"
+ documentationCenter=""
  authors="dominicbetts"
  manager="timlt"
  editor=""/>
@@ -12,8 +12,8 @@
  ms.devlang="na"
  ms.topic="article"
  ms.tgt_pltfrm="na"
- ms.workload="tbd"
- ms.date="09/04/2015"
+ ms.workload="na"
+ ms.date="09/28/2015"
  ms.author="dobett"/>
 
 # Configuring and managing access to IoT Hub

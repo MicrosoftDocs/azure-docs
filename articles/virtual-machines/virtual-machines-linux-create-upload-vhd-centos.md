@@ -14,12 +14,11 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/15/2015"
+	ms.date="10/05/2015"
 	ms.author="szarkos"/>
 
 # Prepare a CentOS-Based Virtual Machine for Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
 
 - [Prepare a CentOS 6.x Virtual Machine for Azure](#centos6)
 - [Prepare a CentOS 7.0+ Virtual Machine for Azure](#centos7)

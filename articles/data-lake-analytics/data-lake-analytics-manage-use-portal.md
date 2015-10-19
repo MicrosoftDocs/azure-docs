@@ -96,11 +96,11 @@ running a job.  You only pay for the time when it is running a job.  For more in
 
 1. Sign on to the new [Azure portal](https://portal.azure.com/signin/index/?Microsoft_Azure_Kona=true&Microsoft_Azure_DataLake=true&hubsExtension_ItemHideKey=AzureDataLake_BigStorage%2cAzureKona_BigCompute).
 2. Click **Browse** on the left menu, and then click **Data Lake Analytics**.
-3. Click the Analytics account that you want to delete. It will open the account in a new blade.
+3. Click the ADL Analytics account that you want to access. It will open the account in a new blade.
 
 **To delete a Data Lake Analytics account**
 
-1. Open the Analytics account that you want to delete. For instructions see [Access Data Lake Analytics accounts](#access-adla-account).
+1. Open the ADL Analytics account that you want to delete. For instructions see [Access Data Lake Analytics accounts](#access-adla-account).
 2. Click **Delete** from the button menu on the top of the blade.
 3. Type the account name, and then click **Delete**.
 
@@ -117,26 +117,26 @@ Data Lake Analytics currently supports the following data sources:
 - [Azure Data Lake Storage](data-lake-storage-overview.md)
 - [Azure Storage](storage-introduction.md)
 
-When you create an Analytics account, you must designate an Azure Data Lake Storage account to be the default 
-storage account. The default ADL storage account is used to store job metadata and job audit logs. After you have 
-created an Analytics account, you can add additional Data Lake Storage accounts and/or Azure Storage account. 
+When you create an ADL Analytics account, you must designate an Azure Data Lake Store account to be the default 
+storage account. The default ADL Store account is used to store job metadata and job audit logs. After you have 
+created an ADL Analytics account, you can add additional ADL Store accounts and/or Azure Storage account. 
 
 <a name="default-adl-account"></a>**To find the default ADL storage account**
 
-- Open the Analytics account that you want to manage. For instructions see [Access Data Lake Analytics accounts](#access-adla-account). The default Data Lake store is shown in **Essential**:
+- Open the ADL Analytics account that you want to manage. For instructions see [Access Data Lake Analytics accounts](#access-adla-account). The default Data Lake store is shown in **Essential**:
 
 	![Azure Data Lake Analytics add data source](./media/data-lake-analytics-manage-use-portal/data-lake-analytics-default-adl-storage-account.png)
 
 **To add additional data sources**
 
-1. Open the Analytics account that you want to manage. For instructions see [Access Data Lake Analytics accounts](#access-adla-account).
+1. Open the ADL Analytics account that you want to manage. For instructions see [Access Data Lake Analytics accounts](#access-adla-account).
 2. Click **Settings** and then click **Data Sources**. You shall see the default Data Lake Storage account listed
 there. 
 3. Click **Add Data Source**.
 
 	![Azure Data Lake Analytics add data source](./media/data-lake-analytics-manage-use-portal/data-lake-analytics-add-data-source.png)
 
-	To add a Azure Data Lake Storage account, you need the account name.
+	To add a Azure Data Lake Store account, you need the account name.
 	To add a Azure Blob storage, you need the storage account and the account key.
 
 <a name="explore-data-sources"></a>**To explore data sources**	
@@ -200,11 +200,7 @@ For information on creating Azure Active Directory users and security groups, Se
 3. From the **User** blade, click **Add**.
 4. Select a role and add a users, and then click **OK**.
 
-**To configure job access**
-
-1. Sign on to the new [Azure portal](https://portal.azure.com/signin/index/?Microsoft_Azure_Kona=true&Microsoft_Azure_DataLake=true&hubsExtension_ItemHideKey=AzureDataLake_BigStorage%2cAzureKona_BigCompute).
-2. Click **BROWSE ALL** on the left menu, click **Big Data Services**, and the click the account you want to configure the user roles.
-3. Click **Access**.
+**Note: If this user or security group needs to submit jobs, they will need to be given permission on the ADL Store as well. For more details, see [Nitin's article]()**
 
 
 
@@ -233,7 +229,7 @@ You must have a Data Lake Analytics account before you can create a job.  For mo
 	|Name|Description|
 	|----|-----------|
 	|Job Name|Enter the name of the job.|
-	|Priority|Lower number is higher priority.|
+	|Priority|Lower number is higher priority. If two jobs are both queued, the one with lower priority will be run first|
 	|BDU|Max number of compute processes that can happen at the same time. Increasing this number can improve performance but can also increase cost.|
 	|Script|Enter the U-SQL script for the job.|
 

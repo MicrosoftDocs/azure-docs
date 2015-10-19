@@ -1,18 +1,18 @@
 <properties
-	pageTitle="Azure IoT device SDK for C - More about Serializer | Microsoft Azure"
-	description="Additional detail on the Serializer library in the Azure IoT device SDK for C"
+	pageTitle="Azure IoT device SDK for C - Serializer | Microsoft Azure"
+	description="Learn more about using the Serializer library in the Azure IoT device SDK for C"
 	services="iot-hub"
 	documentationCenter=""
 	authors="MichelBarnett"
-	manager="andrewmc"
+	manager="timlt"
 	editor=""/>
 
 <tags
      ms.service="iot-hub"
-     ms.devlang="na"
+     ms.devlang="cpp"
      ms.topic="article"
      ms.tgt_pltfrm="na"
-     ms.workload="na"
+     ms.workload="nana"
      ms.date="09/29/2015"
      ms.author="michelb"/>
 
@@ -52,7 +52,7 @@ Models contain a definition of the events you can ingress to IoT Hub (the *data*
 
 What’s not demonstrated in this sample are additional data types that are supported by the SDK. We'll cover that next.
 
-> Note that IoT Hub refers to the data a device sends to it as *events* while the modeling language refers to it as *data* (defined using **WITH_DATA**).  Likewise, IoT Hub refers to the data you send to devices as *messages* while the modeling language refers to it as *actions* (defined using **WITH_ACTION**). Just be aware that these terms may be used interchangeably in this article. 
+> Note that IoT Hub refers to the data a device sends to it as *events* while the modeling language refers to it as *data* (defined using **WITH_DATA**).  Likewise, IoT Hub refers to the data you send to devices as *messages* while the modeling language refers to it as *actions* (defined using **WITH_ACTION**). Just be aware that these terms may be used interchangeably in this article.
 
 ### Supported Data Types
 
@@ -140,7 +140,7 @@ void SendAsync(IOTHUB_CLIENT_LL_HANDLE iotHubClientHandle, const void *dataEvent
 {
 	unsigned char* destination;
 	size_t destinationSize;
-	if (SERIALIZE(&destination, &destinationSize, *(const unsigned char*)dataEvent) == 
+	if (SERIALIZE(&destination, &destinationSize, *(const unsigned char*)dataEvent) ==
 	{
 		// null terminate the string
 		char* destinationAsString = (char*)malloc(destinationSize + 1);
@@ -151,7 +151,7 @@ void SendAsync(IOTHUB_CLIENT_LL_HANDLE iotHubClientHandle, const void *dataEvent
 			IOTHUB_MESSAGE_HANDLE messageHandle = IoTHubMessage_CreateFromString(destinationAsString);
 			if (messageHandle != NULL)
 			{
-				IoTHubClient_SendEventAsync(iotHubClientHandle, messageHandle, sendCallback, (void*)0);	
+				IoTHubClient_SendEventAsync(iotHubClientHandle, messageHandle, sendCallback, (void*)0);
 
 				IoTHubMessage_Destroy(messageHandle);
 			}
@@ -293,7 +293,7 @@ And the serialized form that’s sent to IoT Hub looks like this:
 
 Again, this is as expected.
 
-With the model above you can imagine how additional events could easily be added— you just define more structures using **DECLARE\_STRUCT**, and include the corresponding event in the model using **WITH\_DATA**. 
+With the model above you can imagine how additional events could easily be added— you just define more structures using **DECLARE\_STRUCT**, and include the corresponding event in the model using **WITH\_DATA**.
 
 But now let’s modify the model so that it includes the same data but with a different structure.
 
@@ -572,7 +572,7 @@ If you want to change these parameters, then modify the values in the macro\_uti
 
 The main thing to be aware of is that increasing these values high enough may exceed compiler limits. On this point the **nMacroParameters** is the main parameter to be concerned with. The C99 spec specifies that a minimum of 127 parameters are allowed in a macro definition. The Microsoft compiler happens to follow the spec exactly (and has a limit of 127) so you won’t be able to increase **nMacroParameters** beyond the default. But other compilers may allow you to do so (for example, the GNU compiler supports a higher limit).
 
-So far we've covered just about everything you need to know about how to write code with the **serializer** library. Before wrapping up let's revisit some topics from previous articles that you may be wondering about. 
+So far we've covered just about everything you need to know about how to write code with the **serializer** library. Before wrapping up let's revisit some topics from previous articles that you may be wondering about.
 
 ## The Lower Level APIs
 
@@ -588,7 +588,7 @@ As described in a [previous article](iot-hub-device-sdk-c-iothubclient.md) there
 
 -   IoTHubClient\_Destroy
 
-These APIs are demonstrated in **simplesample\_amqp**. 
+These APIs are demonstrated in **simplesample\_amqp**.
 
 But there are an analogous set of lower level APIs.
 

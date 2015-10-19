@@ -62,8 +62,9 @@ In this step, you use the Azure PowerShell to create an Azure data factory named
 
 		New-AzureDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name ADFTutorialDataFactoryPSH –Location "West US"
 
+	The name of the Azure data factory must be globally unique. If you receive the error: **Data factory name “ADFTutorialDataFactoryPSH” is not available**, change the name (for example, yournameADFTutorialDataFactoryPSH). Use this name in place of ADFTutorialFactoryPSH while performing steps in this tutorial. See [Data Factory - Naming Rules](data-factory-naming-rules.md) topic for naming rules for Data Factory artifacts.
 
-	The name of the Azure data factory must be globally unique. If you receive the error: **Data factory name “ADFTutorialDataFactoryPSH” is not available**, change the name (for example, yournameADFTutorialDataFactoryPSH). Use this name in place of ADFTutorialFactoryPSH while performing steps in this tutorial.
+	> [AZURE.NOTE] The name of the data factory may be registered as a DNS name in the future and hence become publically visible.
 
 ## <a name="CreateLinkedServices"></a>Step 2: Create linked services
 Linked services link data stores or compute services to an Azure data factory. A data store can be an Azure Storage, Azure SQL Database or an on-premises SQL Server database that contains input data or stores output data for a Data Factory pipeline. A compute service is the service that processes  input data and produces output data. 
@@ -73,15 +74,15 @@ In this step, you will create two linked services: **StorageLinkedService** and 
 ### Create a linked service for an Azure storage account
 1.	Create a JSON file named **StorageLinkedService.json** in the **C:\ADFGetStartedPSH** with the following content. Create the folder ADFGetStartedPSH if it does not already exist.
 
-		{
-		  "name": "StorageLinkedService",
-		  "properties": {
-		    "type": "AzureStorage",
-		    "typeProperties": {
-		      "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
-		    }
-		  }
-		}
+			{
+		  		"name": "StorageLinkedService",
+		  		"properties": {
+	    			"type": "AzureStorage",
+		    		"typeProperties": {
+		      			"connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
+		    		}
+		  		}
+			}
 
 	Replace **accountname** with the name of your storage account and **accountkey** with the key for your Azure storage account.
 2.	In the **Azure PowerShell**, switch to the **ADFGetStartedPSH** folder. 
@@ -102,15 +103,15 @@ In this step, you will create two linked services: **StorageLinkedService** and 
 ### Create a linked service for an Azure SQL Database
 1.	Create a JSON file named AzureSqlLinkedService.json with the following content.
 
-		{
-		  "name": "AzureSqlLinkedService",
-		  "properties": {
-		    "type": "AzureSqlDatabase",
-		    "typeProperties": {
-		      "connectionString": "Server=tcp:<server>.database.windows.net,1433;Database=<databasename>;User ID=user@server;Password=<password>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
-		    }
-		  }
-		}
+			{
+				"name": "AzureSqlLinkedService",
+				"properties": {
+					"type": "AzureSqlDatabase",
+					"typeProperties": {
+				      	"connectionString": "Server=tcp:<server>.database.windows.net,1433;Database=<databasename>;User ID=user@server;Password=<password>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
+					}
+		  		}
+			}
 
 	Replace **servername**, **databasename**, **username@servername**, and **password** with names of your Azure SQL server, database, user account, and  password.
 
@@ -173,35 +174,35 @@ A table is a rectangular dataset and has a schema. In this step, you will create
 
 1.	Create a JSON file named **EmpBlobTable.json** in the **C:\ADFGetStartedPSH** folder with the following content:
 
-		{
-		  "name": "EmpTableFromBlob",
-		  "properties": {
-		    "structure": [
-		      {
-		        "name": "FirstName",
-		        "type": "String"
-		      },
-		      {
-		        "name": "LastName",
-		        "type": "String"
-		      }
-		    ],
-		    "type": "AzureBlob",
-		    "linkedServiceName": "AzureStorageLinkedService1",
-		    "typeProperties": {
-		      "folderPath": "adftutorial/",
-		      "format": {
-		        "type": "TextFormat",
-		        "columnDelimiter": ","
-		      }
-		    },
-		    "external": true,
-		    "availability": {
-		      "frequency": "Hour",
-		      "interval": 1
-		    }
-		  }
-		}
+			{
+			  "name": "EmpTableFromBlob",
+			  "properties": {
+			    "structure": [
+			      {
+			        "name": "FirstName",
+			        "type": "String"
+			      },
+			      {
+			        "name": "LastName",
+			        "type": "String"
+			      }
+			    ],
+			    "type": "AzureBlob",
+			    "linkedServiceName": "AzureStorageLinkedService1",
+			    "typeProperties": {
+			      "folderPath": "adftutorial/",
+			      "format": {
+			        "type": "TextFormat",
+			        "columnDelimiter": ","
+			      }
+			    },
+			    "external": true,
+			    "availability": {
+			      "frequency": "Hour",
+			      "interval": 1
+			    }
+			  }
+			}
 	
 	Note the following: 
 	
@@ -218,51 +219,51 @@ A table is a rectangular dataset and has a schema. In this step, you will create
 
 	To set **folderPath** and **fileName** dynamically based on the **SliceStart** time, use the **partitionedBy** property. In the following example, folderPath uses Year, Month, and Day from from the SliceStart (start time of the slice being processed) and fileName uses Hour from the SliceStart. For example, if a slice is being produced for 2014-10-20T08:00:00, the folderName is set to wikidatagateway/wikisampledataout/2014/10/20 and the fileName is set to 08.csv. 
 
-	  	"folderPath": "wikidatagateway/wikisampledataout/{Year}/{Month}/{Day}",
-        "fileName": "{Hour}.csv",
-        "partitionedBy": 
-        [
-        	{ "name": "Year", "value": { "type": "DateTime", "date": "SliceStart", "format": "yyyy" } },
-            { "name": "Month", "value": { "type": "DateTime", "date": "SliceStart", "format": "MM" } }, 
-            { "name": "Day", "value": { "type": "DateTime", "date": "SliceStart", "format": "dd" } }, 
-            { "name": "Hour", "value": { "type": "DateTime", "date": "SliceStart", "format": "hh" } } 
-        ],
+			"folderPath": "wikidatagateway/wikisampledataout/{Year}/{Month}/{Day}",
+	        "fileName": "{Hour}.csv",
+	        "partitionedBy": 
+	        [
+	        	{ "name": "Year", "value": { "type": "DateTime", "date": "SliceStart", "format": "yyyy" } },
+	            { "name": "Month", "value": { "type": "DateTime", "date": "SliceStart", "format": "MM" } }, 
+	            { "name": "Day", "value": { "type": "DateTime", "date": "SliceStart", "format": "dd" } }, 
+	            { "name": "Hour", "value": { "type": "DateTime", "date": "SliceStart", "format": "hh" } } 
+	        ],
 
 	See [JSON Scripting Reference](http://go.microsoft.com/fwlink/?LinkId=516971) for details about JSON properties.
 
-2.	Run the following command to create the Data Factory table.
+2.	Run the following command to create the Data Factory dataset.
 
-		New-AzureDataFactoryTable $df -File .\EmpBlobTable.json
+		New-AzureDataFactoryDataset $df -File .\EmpBlobTable.json
 
 ### Create output table
 In this part of the step, you will create an output table named **EmpSQLTable** that points to a SQL table (**emp**) in the Azure SQL database that is represented by the **AzureSqlLinkedService** linked service. The pipeline copies data from the input blob to the **emp** table. 
 
 1.	Create a JSON file named **EmpSQLTable.json** in the **C:\ADFGetStartedPSH** folder with the following content.
 		
-		{
-		  "name": "EmpSQLTable",
-		  "properties": {
-		    "structure": [
-		      {
-		        "name": "FirstName",
-		        "type": "String"
-		      },
-		      {
-		        "name": "LastName",
-		        "type": "String"
-		      }
-		    ],
-		    "type": "AzureSqlTable",
-		    "linkedServiceName": "AzureSqlLinkedService1",
-		    "typeProperties": {
-		      "tableName": "emp"
-		    },
-		    "availability": {
-		      "frequency": "Hour",
-		      "interval": 1
-		    }
-		  }
-		}
+			{
+			  "name": "EmpSQLTable",
+			  "properties": {
+			    "structure": [
+			      {
+			        "name": "FirstName",
+			        "type": "String"
+			      },
+			      {
+			        "name": "LastName",
+			        "type": "String"
+			      }
+			    ],
+			    "type": "AzureSqlTable",
+			    "linkedServiceName": "AzureSqlLinkedService1",
+			    "typeProperties": {
+			      "tableName": "emp"
+			    },
+			    "availability": {
+			      "frequency": "Hour",
+			      "interval": 1
+			    }
+			  }
+			}
 
      Note the following: 
 	
@@ -272,9 +273,9 @@ In this part of the step, you will create an output table named **EmpSQLTable** 
 	* There are three columns – **ID**, **FirstName**, and **LastName** – in the emp table in the database, but ID is an identity column, so you need to specify only **FirstName** and **LastName** here.
 	* The **availability** is set to **hourly** (**frequency** set to **hour** and **interval** set to **1**).  The Data Factory service will generate an output data slice every hour in the **emp** table in the Azure SQL database.
 
-2.	Run the following command to create the Data Factory table. 
+2.	Run the following command to create the Data Factory dataset. 
 	
-		New-AzureDataFactoryTable $df -File .\EmpSQLTable.json
+		New-AzureDataFactoryDataset $df -File .\EmpSQLTable.json
 
 
 ## <a name="CreateAndRunAPipeline"></a>Step 4: Create and run a pipeline
@@ -282,49 +283,49 @@ In this step, you create a pipeline with a **Copy Activity** that uses **EmpTabl
 
 1.	Create a JSON file named **ADFTutorialPipeline.json** in the **C:\ADFGetStartedPSH** folder with the following content: 
 	
-		 {
-		  "name": "ADFTutorialPipeline",
-		  "properties": {
-		    "description": "Copy data from a blob to Azure SQL table",
-		    "activities": [
-		      {
-		        "name": "CopyFromBlobToSQL",
-		        "description": "Push Regional Effectiveness Campaign data to Azure SQL database",
-		        "type": "Copy",
-		        "inputs": [
-		          {
-		            "name": "EmpTableFromBlob"
-		          }
-		        ],
-		        "outputs": [
-		          {
-		            "name": "EmpSQLTable"
-		          }
-		        ],
-		        "typeProperties": {
-		          "source": {
-		            "type": "BlobSource"
-		          },
-		          "sink": {
-		            "type": "SqlSink",
-		            "writeBatchSize": 10000,
-		            "writeBatchTimeout": "00:60:00"
-		          }
-		        },
-		        "Policy": {
-		          "concurrency": 1,
-		          "executionPriorityOrder": "NewestFirst",
-		          "style": "StartOfInterval",
-		          "retry": 0,
-		          "timeout": "01:00:00"
-		        }
-		      }
-		    ],
-		    "start": "2015-07-12T00:00:00Z",
-		    "end": "2015-07-13T00:00:00Z",
-		    "isPaused": false
-		  }
-		}
+			 {
+			  "name": "ADFTutorialPipeline",
+			  "properties": {
+			    "description": "Copy data from a blob to Azure SQL table",
+			    "activities": [
+			      {
+			        "name": "CopyFromBlobToSQL",
+			        "description": "Push Regional Effectiveness Campaign data to Azure SQL database",
+			        "type": "Copy",
+			        "inputs": [
+			          {
+			            "name": "EmpTableFromBlob"
+			          }
+			        ],
+			        "outputs": [
+			          {
+			            "name": "EmpSQLTable"
+			          }
+			        ],
+			        "typeProperties": {
+			          "source": {
+			            "type": "BlobSource"
+			          },
+			          "sink": {
+			            "type": "SqlSink",
+			            "writeBatchSize": 10000,
+			            "writeBatchTimeout": "00:60:00"
+			          }
+			        },
+			        "Policy": {
+			          "concurrency": 1,
+			          "executionPriorityOrder": "NewestFirst",
+			          "style": "StartOfInterval",
+			          "retry": 0,
+			          "timeout": "01:00:00"
+			        }
+			      }
+			    ],
+			    "start": "2015-07-12T00:00:00Z",
+			    "end": "2015-07-13T00:00:00Z",
+			    "isPaused": false
+			  }
+			}
 
 	Note the following:
 

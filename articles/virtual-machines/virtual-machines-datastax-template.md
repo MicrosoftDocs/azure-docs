@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="scoriani"
 	manager="timlt"
-	editor="tysonn"/>
+	tags="azure-resource-manager"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -17,6 +17,9 @@
 	ms.author="scoriani"/>
 
 # DataStax on Ubuntu with a Resource Manager template
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] classic deployment model.
+
 
 DataStax is a recognized industry leader in developing and delivering solutions based on Apache Cassandra--the commercially supported, enterprise-ready NoSQL distributed database technology that is widely acknowledged as agile, always on, and predictably scalable to any size. DataStax offers both the Enterprise (DSE) and Community (DSC) flavors. It also provides capabilities like in-memory computing, enterprise-level security, fast and powerful integrated analytics, and enterprise search.
 
