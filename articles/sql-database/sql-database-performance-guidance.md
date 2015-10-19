@@ -122,12 +122,12 @@ For more information, see the [Business Continuity Overview](sql-database-busine
 
 **Max concurrent requests** is the maximum number of concurrent user/application requests executing at the same time in the database. To see the number of concurrent requests, run the following Transact-SQL query on your SQL database:
 
-	SELECT COUNT(*) AS [Concurrent requests] 
+	SELECT COUNT(*) AS [Concurrent_Requests] 
 	FROM sys.dm_exec_requests R
 
 If you are analyzing the workload of an on-premises SQL Server database, you should modify this query to filter on the specific database you are analyzing. For example, if you have an on-premises database named MyDatabase, the following Transact-SQL query will return the count of concurrent requests in that database.
 
-	SELECT COUNT(*) AS [Concurrent requests] 
+	SELECT COUNT(*) AS [Concurrent_Requests] 
 	FROM sys.dm_exec_requests R
 	INNER JOIN sys.databases D ON D.database_id = R.database_id
 	AND D.name = 'MyDatabase'
