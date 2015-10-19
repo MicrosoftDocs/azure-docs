@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Advanced Analytics Process and Technology in Action: Use Hadoop clusters | Microsoft Azure"
+	pageTitle="The Cortana Analytics Process in action: Use Hadoop clusters | Microsoft Azure"
 	description="Using the Advanced Analytics Process and Technology (ADAPT) for an end-to-end scenario employing an HDInsight Hadoop cluster to build and deploy a model using a publicly available dataset."
 	services="machine-learning,hdinsight"
 	documentationCenter=""
@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/28/2015"
+	ms.date="10/18/2015"
 	ms.author="hangzh;bradsev" />
 
 
-# Advanced Analytics Process and Technology in Action: using HDInsight Hadoop clusters
+# The Cortana Analytics Process in action: using HDInsight Hadoop clusters
 
 In this walkthrough, you use the Cortana Analytics Process in an end-to-end scenario using an [Azure HDInsight Hadoop cluster](http://azure.microsoft.com/services/hdinsight/) to store, explore and feature engineer data from the publicly available [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) dataset, and to down sample the data. Models of the data are built with Azure Machine Learning to handle binary and multiclass classification and regression predictive tasks.
 
