@@ -25,7 +25,7 @@ Before you get started, make sure to install the App-V 5.1 client with the lates
 
 It’s easy to use your existing App-V infrastructure with Azure RemoteApp. Since a hybrid collection is deployed into an Azure VNET that has access to your domain controller and the VMs are domain joined, you can leverage your existing App-v infrastructure and deployment methods to easyily host App-V application in Azure RemoteApp. Here are some considerations that you should be aware of based on the type of App-V deployment you currently have:
 
- | Configuration options |                       | Positive                                                               | Negative                                                                         |
+| Configuration options |                       | Positive                                                               | Negative                                                                         |
 |-----------------------|-----------------------|------------------------------------------------------------------------|----------------------------------------------------------------------------------|
 | Delivery method       | Streaming (on-demand) | App is always the latest and fresh                                     | First time latency                                                               |
 |                       | Mounted               | Fastest; app is already present on the VM                              | Bloat - takes up image space (127 GB limit)                                      |
