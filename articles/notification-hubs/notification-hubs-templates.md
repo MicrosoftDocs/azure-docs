@@ -122,6 +122,7 @@ Templates cannot contain strings. They are limited to XML or JSON documents. Als
 The following table shows the language allowed in templates:
 
 | Expression | Description |
+|------------|-------------|
 | $(prop) | Reference to an event property with the given name. Property names are not case-sensitive. This expression resolves into the property’s text value or into an empty string if the property is not present. |
 | $(prop, n) | As above, but the text is explicitly clipped at n characters, for example $(title, 20) clips the contents of the title property at 20 characters. |
 | .(prop, n) | As above, but the text is suffixed with three dots as it is clipped. The total size of the clipped string and the suffix does not exceed n characters. .(title, 20) with an input property of “This is the title line” results in **This is the title...** |
