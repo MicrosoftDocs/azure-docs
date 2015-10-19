@@ -44,15 +44,15 @@ This topic shows how to create indexing jobs to **Index an asset** and **Index m
 
 For the latest Azure Media Indexer updates, see [Media Services blogs](http://azure.microsoft.com/blog/topics/media-services/).
 
-##Using configuration and manifest files for indexing tasks
+## Using configuration and manifest files for indexing tasks
 
-You can specify more details for your indexing tasks by using a task configuration. For example, you can specify which metadata to use for your media file. This metadata is used by the language engine to expand its vocabulary, and greatly improves the speech recognition accuracy.
+You can specify more details for your indexing tasks by using a task configuration. For example, you can specify which metadata to use for your media file. This metadata is used by the language engine to expand its vocabulary, and greatly improves the speech recognition accuracy.  You are also able to specify your desired output files.
 
 You can also process multiple media files at once by using a manifest file.
 
 For more information, see [Task Preset for Azure Media Indexer](https://msdn.microsoft.com/library/azure/dn783454.aspx).
 
-##Index an asset
+## Index an asset
 
 The following method uploads a media file as an asset and creates a job to index the asset.
 
@@ -145,9 +145,9 @@ Note that if no configuration file is specified, the media file will be indexed 
 	    return processor;
 	}
 
-###<a id="output_files"></a>Output files
+### <a id="output_files"></a>Output files
 
-The indexing job generates the following output files. The files will be stored in the first output asset.
+By default, an indexing job generates the following output files. The files will be stored in the first output asset.
 
 
 <table border="1">
@@ -162,23 +162,28 @@ It requires the installation of the Indexer SQL add-on on a machine running Micr
 To download the add-on, click <a href="http://aka.ms/indexersql">Azure Media Indexer SQL Add-on</a>.
 <br/><br/>
 It is also possible to utilize other search engines such as Apache Lucene/Solr to simply index the video based on the closed caption and keyword XML files, but this will result in less accurate search results.</td></tr>
-<tr><td>InputFileName.smi<br/>InputFileName.ttml</td>
+<tr><td>InputFileName.smi<br/>InputFileName.ttml<br/>InputFileName.vtt</td>
 <td>Closed Caption (CC) files in SAMI, TTML, and WebVTT formats.
 <br/><br/>
 They can be used to make audio and video files accessible to people with hearing disability.
 <br/><br/>
 Closed Caption files include a tag called <b>Recognizability</b> which scores an indexing job based on how recognizable the speech in the source video is.  You can use the value of <b>Recognizability</b> to screen output files for usability. A low score would mean poor indexing results due to audio quality.</td></tr>
-<tr><td>InputFileName.kw.xml</td>
-<td>Keyword file.
+<tr><td>InputFileName.kw.xml
+<br/>
+InputFileName.info
+</td>
+<td>Keyword and info files.
 <br/><br/>
 Keyword file is an XML file that contains keywords extracted from the speech content, with frequency and offset information.
 <br/><br/>
-The file can be used for a number of purposes, such as, to perform speech analytics, or exposed to search engines such as Bing, Google or Microsoft SharePoint to make the media files more discoverable, or used to deliver more relevant ads.</td></tr>
+Info file is a plain-text file which contains granular information about each term recognized.  The first line is speical and contains the Recognizability score.  Each subsequent line is a tab-separated lits of the following data: start time, end time, word/phrase, confidence.  The times are given in seconds and the confidence is given as a number from 0-1.  <br/><br/>Example line: "1.20 &nbsp;&nbsp;&nbsp;1.45 &nbsp;&nbsp;&nbsp;word &nbsp;&nbsp;&nbsp;0.67"
+<br/><br/>
+These files can be used for a number of purposes, such as, to perform speech analytics, or exposed to search engines such as Bing, Google or Microsoft SharePoint to make the media files more discoverable, or even used to deliver more relevant ads.</td></tr>
 </table>
 
 If not all input media files are indexed successfully, the indexing job will fail with error code 4000. For more information, see [Error codes](#error_codes).
 
-##Index multiple files
+## Index multiple files
 
 The following method uploads multiple media files as an asset, and creates a job to index all these files in a batch.
 
@@ -258,9 +263,9 @@ A manifest file with the .lst extension is created and uploading into the asset.
 	}
 
 
-###Output files
+### Output files
 
-When there are more than one input media files, WAMI will generate a manifest file for the job outputs, named ‘JobResult.txt’. For each input media file, the resulting AIB, SAMI, TTML, WebVTT, and keyword files, are sequentially numbered, as listed below.
+When there is more than one input media file, Indexer will generate a manifest file for the job outputs, named ‘JobResult.txt’. For each input media file, the resulting AIB, SAMI, TTML, WebVTT, and keyword files, are sequentially numbered, as listed below.
 
 For descriptions of output files, see [Output files](#output_files).
 
@@ -300,7 +305,7 @@ Error: indicates whether this media file is indexed successfully. 0 for succeede
 
 If not all input media files are indexed successfully, the indexing job will fail with error code 4000. For more information, see [Error codes](#error_codes).
 
-###Partially Succeeded Job
+### Partially Succeeded Job
 
 If not all input media files are indexed successfully, the indexing job will fail with error code 4000. For more information, see [Error codes](#error_codes).
 

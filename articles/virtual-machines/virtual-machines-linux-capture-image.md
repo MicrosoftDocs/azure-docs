@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/16/2015"
+	ms.date="10/14/2015"
 	ms.author="dkshir"/>
 
 
@@ -95,7 +95,7 @@ The image is ready to be used as a template to create virtual machines. You can 
 
 [Management Portal]: http://manage.windowsazure.com
 [How to Log on to a Virtual Machine Running Linux]: virtual-machines-linux-how-to-log-on.md
-[About Virtual Machine Images in Azure]: http://msdn.microsoft.com/library/azure/dn790290.aspx
-[How to Create a Custom Virtual Machine]: virtual-machines-create-custom.md
+[About Virtual Machine Images in Azure]: virtual-machines-images.md
+[How to Create a Custom Virtual Machine]: virtual-machines-linux-create-custom.md
 [How to Attach a Data Disk to a Virtual Machine]: storage-windows-attach-disk.md
 [How to Create a Virtual Machine Running Linux]: virtual-machines-linux-tutorial.md

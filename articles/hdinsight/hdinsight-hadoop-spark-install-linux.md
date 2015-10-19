@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Use Script Action to install Spark on Hadoop cluster | Microsoft Azure" 
-	description="Learn how to customize an HDInsight cluster with Spark. You'll use a Script Action configuration option to use a script to install Spark." 
+	pageTitle="Use Script Action to install Apache Spark on Linux-based HDInsight (Hadoop) | Microsoft Azure" 
+	description="Learn how to install Spark on a Linux-based HDInsight cluster using Script Actions. Script Actions allow you to customize the cluster during creation, by changing cluster configuration or installing services and utilities." 
 	services="hdinsight" 
 	documentationCenter="" 
 	authors="Blackmist" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/01/2015" 
+	ms.date="10/19/2015" 
 	ms.author="larryfr"/>
 
 # Install and use Spark on HDInsight Hadoop clusters
@@ -53,9 +53,11 @@ A sample script to install Spark on an HDInsight cluster is available from a rea
 	* __NAME__: Enter a friendly name for the script action.
 	* __SCRIPT URI__: https://hdiconfigactions.blob.core.windows.net/linuxsparkconfigactionv02/spark-installer-v02.sh
 	* __HEAD__: Check this option
-	* __WORKER__: Check this option
-	* __ZOOKEEPER__: Check this option to install on the Zookeeper node.
+	* __WORKER__: Uncheck this option
+	* __ZOOKEEPER__: Uncheck this option
 	* __PARAMETERS__: Leave this field blank
+    
+    > [AZURE.NOTE] The example Spark script only installs components on the head nodes, so the other node types can be unchecked.
 
 3. At the bottom of the **Script Actions**, use the **Select** button to save the configuration. Finally, use the **Select** button at the bottom of the **Optional Configuration** blade to save the optional configuration information.
 
