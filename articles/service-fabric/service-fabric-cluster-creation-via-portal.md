@@ -74,7 +74,7 @@ Note - once you add a name value pair, clicking on **...** will open up another 
 ![SecurityConfigs][SecurityConfigs]
 10. **Diagonstics Configurations** (*optional *) 
 	-  Navigate to the Diagnostics Configurations blade
-	-  Default is "On". This will enable Windows Azure Diagnostics (WAD) extension in your VM, with default parameters.
+	-  Default is "On". This will enable Azure Diagnostics (WAD) extension in your VM, with default parameters.
 	-  If you change the value to "Off", then the WAD will not be enabled for your VM.
 
 10. After you have provided the mandatory settings, the create button will be enabled and you can start the cluster creation process.
