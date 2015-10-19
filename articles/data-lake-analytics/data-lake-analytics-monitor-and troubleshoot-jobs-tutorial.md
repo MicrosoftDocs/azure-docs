@@ -111,6 +111,7 @@ In the last section, you have submitted a job, and the job failed.
 
     It tells you the source folder doesn't exist.
     
+    Notice the **Duplicate Script** button. This will launch an editable version of the script so you can fix any script errors. 
 In the next section, you will fix the problem.  After you fix the problem, you can use the same procedure shown in the section to resubmit the job.
 
 ##Upload the source files
