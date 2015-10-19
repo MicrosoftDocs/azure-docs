@@ -230,7 +230,7 @@ This article from the Microsoft Cloud and Enterprise Content Services group was 
 
 Thank you all for bringing this article to life!
 
-##<a name="resources"></a>Additional Resources 
+##<a name="resources"></a>Additional resources 
 
 <table cellspacing="0" border="1">
 <tr>
