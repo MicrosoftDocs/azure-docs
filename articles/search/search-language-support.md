@@ -57,9 +57,9 @@ Many web and mobile applications serve users around the globe using different la
 ![][3]
 *Index definition with a description field for each language supported*
 
-If the language of the agent issuing a query is known, a search request can be scoped to a specific field using the searchFields query parameter. The following query will be issued only against the description in French:
+If the language of the agent issuing a query is known, a search request can be scoped to a specific field using the searchFields query parameter. The following query will be issued only against the description in Polish:
 
-`https://[service name].search.windows.net/indexes/[index name]/docs?search=bonjour&searchFields=French_ProdName&api-version=2015-02-28`
+`https://[service name].search.windows.net/indexes/[index name]/docs?search=darmowy&searchFields=description_pl&api-version=2015-02-28`
 
 Sometimes the language of the agent issuing a query is not known, in which case the query can be issued against all fields simultaneously. If needed, preference for results in a certain language can be defined using [scoring profiles](https://msdn.microsoft.com/library/azure/dn798928.aspx). In the example below, matches found in the description in English will be scored higher relative to matches in Polish and French:
 
