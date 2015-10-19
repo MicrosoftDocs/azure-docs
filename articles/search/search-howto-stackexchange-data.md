@@ -1,5 +1,5 @@
 <properties
-	pageTitle="How to Search StackExchange Data using Azure Search"
+	pageTitle="How to search StackExchange data using Azure Search"
 	description="Learn how to perform REST searches using Azure Search."
 	services="search"
 	documentationCenter=""
@@ -16,11 +16,11 @@
 	ms.date="10/15/2015"
 	ms.author="liamca"/>
 
-#How to Search StackExchange Data using Azure Search
+# How to search StackExchange data using Azure Search
 
 This article is a walkthrough that highlights some of the core full-text search capabilities that can done with [Azure Search](https://azure.microsoft.com/en-us/services/search/).  It leverages data that Stack Exchange made [available](https://archive.org/details/stackexchange) for Creative Commons usage with the following [attribution](http://blog.stackoverflow.com/2009/06/attribution-required/).
 
-##Getting Started
+## Getting started
 
 To highlight some of these capabilities, I have created an Azure Search index for you to play with that contains data from Programmer StackExchange as of Oct 14, 2015. NOTE: I will also show how to create your own Azure Search index with this data later on.  
 
