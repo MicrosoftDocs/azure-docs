@@ -97,7 +97,6 @@ The template for the one-day forecast with Celsius temperatures is as follows:
 
 The message sent to the Notification Hub contains all the following properties:
 
-| Images     | Celsius    | Fahrenheit |
 |:----------:|:----------:|:----------:|
 | day1_image | day1_tempC | day1_tempF |
 | day2_image | day2_tempC | day2_tempF |
@@ -127,11 +126,7 @@ The following table shows the language allowed in templates:
 | $(prop, n) | As above, but the text is explicitly clipped at n characters, for example $(title, 20) clips the contents of the title property at 20 characters. |
 | .(prop, n) | As above, but the text is suffixed with three dots as it is clipped. The total size of the clipped string and the suffix does not exceed n characters. .(title, 20) with an input property of “This is the title line” results in **This is the title...** |
 | %(prop) | Similar to $(name) except that the output is URI-encoded. |
-| #(prop) | Used in JSON templates (for example, for iOS and Android templates).
-
-This function works exactly the same as $(prop) previously specified, except when used in JSON templates (for example, Apple templates). In this case, if this function is not surrounded by “{‘,’}” (for example, ‘myJsonProperty’ : ‘#(name)’), and it evaluates to a number in Javascript format, for example, regexp: (0&#124;(&#91;1-9&#93;&#91;0-9&#93;*))(\.&#91;0-9&#93;+)?((e&#124;E)(+&#124;-)?&#91;0-9&#93;+)?, then the output JSON is a number.
-
-For example, ‘badge : ‘#(name)’ becomes ‘badge’ : 40 (and not ‘40‘). |
+| #(prop) | Used in JSON templates (for example, for iOS and Android templates).<br><br>This function works exactly the same as $(prop) previously specified, except when used in JSON templates (for example, Apple templates). In this case, if this function is not surrounded by “{‘,’}” (for example, ‘myJsonProperty’ : ‘#(name)’), and it evaluates to a number in Javascript format, for example, regexp: (0&#124;(&#91;1-9&#93;&#91;0-9&#93;*))(\.&#91;0-9&#93;+)?((e&#124;E)(+&#124;-)?&#91;0-9&#93;+)?, then the output JSON is a number.<br><br>For example, ‘badge : ‘#(name)’ becomes ‘badge’ : 40 (and not ‘40‘). |
 | ‘text’ or “text” | A literal. Literals contain arbitrary text enclosed in single or double quotes. |
 | expr1 + expr2 | The concatenation operator joining two expressions into a single string.
 
