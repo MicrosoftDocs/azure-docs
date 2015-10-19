@@ -20,7 +20,7 @@
 
 > [AZURE.SELECTOR]
 - [Portal](search-language-analyzer.md)
-- [REST](https://msdn.microsoft.com/en-us/library/azure/dn879793.aspx)
+- [REST](https://msdn.microsoft.com/library/azure/dn879793.aspx)
 - [.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.search.models.analyzername.aspx)
 
 Learn the best practices of working with content in different languages in Azure Search to support all your Web and mobile search applications that have a global reach.
