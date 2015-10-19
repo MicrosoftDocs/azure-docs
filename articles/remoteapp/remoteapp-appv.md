@@ -30,11 +30,9 @@ It’s easy to use your existing App-V infrastructure with Azure RemoteApp. Sinc
 | Delivery method       | Streaming (on-demand) | App is always the latest and fresh                                     | First time latency                                                                                    |
 |                       | Mounted               | Fastest; app is already present on the VM                              | Bloat - takes up image space (127 GB limit)                                                           |
 | App location storage  | Shared content        | App runs in memory of Azure RemoteApp instance                         | Eats memory and good connection to streaming (file) server where the app resides                      |
-|                       | Disk (Cached)         | - Fast execution 
-- App not dependent on availability of Content Source | Bloat - takes up image space (127 GB limit)                                                           |
+|                       | Disk (Cached)         | Fast execution. App not dependent on availability of Content Source | Bloat - takes up image space (127 GB limit)                                                           |
 | Targeting             | User                  | Requires full standalone App-V infrastructure                          |                                                                                                       |
-|                       | Global (machine)      |  Pre-publish or target using Publishing server                         | - Need to update your Azure image if you want to update the app (huge) 
-- Takes up some space on image |
+|                       | Global (machine)      |  Pre-publish or target using Publishing server                         |  Need to update your Azure image if you want to update the app (huge). Takes up some space on image. |
 
  After you create your custom image and your hybrid collection, publish your application, assign users and enjoy your existing App-V applications hosted in Azure RemoteApp delivered to any device anywhere. 
 
