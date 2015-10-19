@@ -19,7 +19,8 @@
 
 # Deploy Azure resources using .NET libraries and a template
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)] This article covers creating a resource with the Resource Manager deployment model.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] classic deployment model.
+
 
 By using resource groups and templates, you're able to manage all of the resources that support your application together. This tutorial shows you how to use some of the available clients in the Azure Resource Management Library and how to build a template to deploy a virtual machine, virtual network, and storage account.
 
@@ -30,7 +31,8 @@ To complete this tutorial you also need:
 - [Visual Studio](http://msdn.microsoft.com/library/dd831853.aspx)
 - [Azure storage account](../storage-create-storage-account.md)
 - [Windows Management Framework 3.0](http://www.microsoft.com/en-us/download/details.aspx?id=34595) or [Windows Management Framework 4.0](http://www.microsoft.com/en-us/download/details.aspx?id=40855)
-- [Azure PowerShell](../powershell-install-configure.md)
+
+[AZURE.INCLUDE [powershell-preview](../../includes/powershell-preview-inline-include.md)]
 
 It takes about 30 minutes to do these steps.
 
@@ -38,31 +40,23 @@ It takes about 30 minutes to do these steps.
 
 To use Azure AD to authenticate requests to Azure Resource Manager, an application must be added to the Default Directory. Do the following to add an application:
 
-1. Open an Azure PowerShell command prompt, and then run this command:
+1. Open an Azure PowerShell command prompt, and then run this command and enter the credentials for your subscription when prompted:
 
-        Switch-AzureMode –Name AzureResourceManager
+	    Login-AzureRmAccount
 
-2. Set the Azure account that you want to use for this tutorial. Run this command and enter the credentials for your subscription when prompted:
+2. Replace {password} in the following command with the one that you want to use and then run it to create the application:
 
-	    Add-AzureAccount
+	    New-AzureRmADApplication -DisplayName "My AD Application 1" -HomePage "https://myapp1.com" -IdentifierUris "https://myapp1.com"  -Password "{password}"
 
-3. Replace {password} in the following command with the one that you want to use and then run it to create the application:
+	>[AZURE.NOTE] Take note of the application identifer that is returned after the application is created because you'll need it for the next step. You can also find the application identifier in the client id field of the application in the Active Directory section of the portal.
 
-	    New-AzureADApplication -DisplayName "My AD Application 1" -HomePage "https://myapp1.com" -IdentifierUris "https://myapp1.com"  -Password "{password}"
+3. Replace {application-id} with the identifier that you just recorded and then create the service principal for the application:
 
-4. Record the value the ApplicationId value in the response from the previous step. You will need it later in this tutorial:
+        New-AzureRmADServicePrincipal -ApplicationId {application-id}
 
-	![Create an AD application](./media/arm-template-deployment/azureapplicationid.png)
+4. Set the permission to use the application:
 
-	>[AZURE.NOTE] You can also find the application identifier in the client id field of the application in the Management Portal.
-
-5. Replace {application-id} with the identifier that you just recorded and then create the service principal for the application:
-
-        New-AzureADServicePrincipal -ApplicationId {application-id}
-
-6. Set the permission to use the application:
-
-	    New-AzureRoleAssignment -RoleDefinitionName Owner -ServicePrincipalName "https://myapp1.com"
+	    New-AzureRmRoleAssignment -RoleDefinitionName Owner -ServicePrincipalName "https://myapp1.com"
 
 ## Step 2: Create the Visual Studio project, the template file, and the parameters file
 

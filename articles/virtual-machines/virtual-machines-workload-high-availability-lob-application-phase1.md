@@ -19,7 +19,8 @@
 
 # Line of Business Application Workload Phase 1: Configure Azure
  
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)] This article covers creating resources with the Resource Manager deployment model.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] classic deployment model.
+
  
 In this phase of deploying an intranet-only, high-availability line of business application in Azure infrastructure services, you build out the Azure networking and storage infrastructure. You must complete this phase before moving on to [Phase 2](virtual-machines-workload-high-availability-LOB-application-phase2.md). See [Deploy a High-Availability Line of Business Application in Azure](virtual-machines-workload-high-availability-LOB-application-overview.md) for all of the phases.
 
@@ -86,11 +87,9 @@ Item | Local network address space
 
 **Table L: Address prefixes for the local network**
 
-Next, you need to have Azure PowerShell version 0.9.5 or later installed. To check your version of Azure PowerShell, run this command.
+> [AZURE.NOTE] This article contains commands for versions of Azure PowerShell from 0.9.5 and up *but not including* versions 1.0.0 and later. You can check your version of Azure PowerShell with the **Get-Module azure | format-table version** command. The Azure PowerShell command blocks in this article are in the process of being tested and updated to support the new cmdlets in Azure PowerShell versions 1.0.0 and later. Thank you for your patience.
 
-	Get-Module azure | format-table version
-
-If you need to install the latest version of Azure PowerShell, use **Control Panel-Programs and Features** to remove the current version. Then, use the instructions in [How to install and configure Azure PowerShell](../install-configure-powershell.md) to install Azure PowerShell on your local computer. Open an Azure PowerShell prompt.
+Open an Azure PowerShell prompt.
 
 First, select the correct Azure subscription with these commands. Replace everything within the quotes, including the < and > characters, with the correct names.
 

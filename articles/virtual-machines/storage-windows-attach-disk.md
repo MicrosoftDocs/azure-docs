@@ -19,11 +19,11 @@
 
 # Attach a data disk to a Windows virtual machine created with the classic deployment model
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)] This article covers creating resources with the classic deployment model. You can also create resources with the [Resource Manager deployment model](virtual-machines-attach-disk-preview.md).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model](virtual-machines-attach-disk-preview.md).
 
 You can attach empty disks and disks with data. In both cases, the disks are actually .vhd files that reside in an Azure storage account. Also in both cases, after you attach the disk, you'll need to initialize it so it's ready for use.
 
-> [AZURE.NOTE] It's a best practice to use one or more separate disks to store a virtual machine's data. When you create an Azure virtual machine, it has a disk for the operating system mapped to drive C and a temporary disk mapped to drive D. **Do not use drive D to store data.** As the name implies, drive D provides temporary storage only. It offers no redundancy or backup because it doesn't reside in Azure Storage.
+It's a best practice to use one or more separate disks to store a virtual machine's data. When you create an Azure virtual machine, it has a disk for the operating system mapped to drive C and a temporary disk mapped to drive D. **Do not use drive D to store data.** As the name implies, drive D provides temporary storage only. It offers no redundancy or backup because it doesn't reside in Azure Storage.
 
 ## Video walkthrough
 

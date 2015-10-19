@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Create and upload a Windows Server VHD to Azure using Powershell"
+	pageTitle="Create and upload a Windows Server VHD using Powershell | Microsoft Azure"
 	description="Learn to create and upload a Windows Server based virtual hard disk (VHD)  using the classic deployment model and Azure Powershell."
 	services="virtual-machines"
 	documentationCenter=""
@@ -17,11 +17,16 @@
 	ms.date="09/10/2015"
 	ms.author="cynthn"/>
 
-# Create and upload a Windows Server VHD to Azure#
+# Create and upload a Windows Server VHD to Azure
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Resource Manager model.
+
 
 This article shows you how to upload a virtual hard disk (VHD) with an operating system so you can use it as an image to create virtual machines based on that image. For more details about disks and VHDs in Microsoft Azure, see [About Disks and VHDs for Virtual Machines](virtual-machines-disks-vhds.md).
 
-## Prerequisites##
+
+
+## Prerequisites
 
 This article assumes you have:
 
@@ -33,7 +38,7 @@ This article assumes you have:
 
 > [AZURE.IMPORTANT] The VHDX format is not supported in Microsoft Azure. You can convert the disk to VHD format using Hyper-V Manager or the [Convert-VHD cmdlet](http://technet.microsoft.com/library/hh848454.aspx). For details, see this [blogpost](http://blogs.msdn.com/b/virtual_pc_guy/archive/2012/10/03/using-powershell-to-convert-a-vhd-to-a-vhdx.aspx).
 
-## Step 1: Prep the VHD ##
+## Step 1: Prep the VHD 
 
 Before you upload the VHD to Azure, it needs to be generalized by using the Sysprep tool. This prepares the VHD to be used as an image. For details about Sysprep, see [How to Use Sysprep: An Introduction](http://technet.microsoft.com/library/bb457073.aspx).
 
@@ -55,7 +60,7 @@ From the virtual machine that the operating system was installed to, complete th
 
 6.  Click **OK**.
 
-## Step 2: Create or get info from your Azure storage account##
+## Step 2: Create or get info from your Azure storage account
 
 You need a storage account in Azure so you have a place to upload the .vhd file. This step shows you how to create an account, or get the info you need from an existing account.
 

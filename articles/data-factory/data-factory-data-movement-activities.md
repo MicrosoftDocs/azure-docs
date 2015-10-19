@@ -13,14 +13,17 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/29/2015" 
+	ms.date="10/12/2015" 
 	ms.author="spelluru"/>
 
 # Data movement activities
 Data factory has a [globally available service](#global) to support data movement with [Copy activity](#copyactivity) across a variety of data stores listed below. Data factory also has built-in support for [securely moving data between on-premises locations and cloud](#moveonpremtocloud) using the data management gateway.
 
+For a quick tutorial on using the Copy Activity, please see [Tutorial: Use Copy Activity in an Azure Data Factory Pipeline](data-factory-get-started.md).  In the tutorial, you will use the Copy Activity to copy data from an Azure blob storage to an Azure SQL database. The following section lists all the sources and sinks supported by the Copy Activity. 
+
+
 ## Supported data stores for copy activity
-Copy activity copies data from a **source** data store to a **sink** data store. Data factory supports the following data stores and source, sink combinations. Click on a data store to learn how to copy data from/to that store.
+Copy activity copies data from a **source** data store to a **sink** data store. Data factory supports the following data stores and source, sink combinations. Click on a data store to learn how to copy data from/to that store. 
 
 | **Source** | **Sink** |
 | ------ | ---- |
@@ -87,8 +90,8 @@ Different data stores have different native type systems. Copy activity performs
 You can find the mapping for a given native type system to .NET for the data store in the respective data store connector articles. You can use these mappings to determine appropriate types while creating your tables so that right conversions are performed during Copy activity.
 
 ### Working with different file formats
-For file based sources Copy activity supports variety of file format including binary, text and Avro formats. 
-You can use the copy activity to convert from one format to another. Example: text (CSV) to Avro.  
+Copy activity supports a variety of file formats including binary, text and Avro formats for file based stores. 
+One can use the copy activity to convert data from one format to another. Example: text (CSV) to Avro.  
 
 ### Copy activity properties
 Properties like name, description, input and output tables, various policies etc are available for all types of activities. Properties available in the **typeProperties** section of the activity on the other hand vary with each activity type. 
@@ -96,5 +99,5 @@ Properties like name, description, input and output tables, various policies etc
 In case of Copy activity the **typeProperties** section varies depending on the types of sources and sinks. Each of the data store specific page listed above documents these properties specific to the data store type.
 
 
-## Send Feedback
+## Send feedback
 We would really appreciate your feedback on this article. Please take a few minutes to submit your feedback via [email](mailto:adfdocfeedback@microsoft.com?subject=data-factory-data-movement-activities.md). 
