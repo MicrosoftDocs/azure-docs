@@ -17,13 +17,13 @@
 	ms.date="08/18/2015"
 	ms.author="heidist"/>
 
-#Service limits in Azure Search
+# Service limits in Azure Search
 
 Maximum limits on storage, workloads, and quantities of indexes, documents, and other objects depend on how you subscribe to Azure Search. The free service is intended for evaluation and proof-of-concept testing, with lower limits on all objects and workloads so that resources can be shared more equitably.
 
 Standard runs on dedicated machines that are used only by your service. Sole use of a dedicated service gives you the ability to scale up or down, with more storage and processing capacity at every level, including the minimum configuration.
 
-##Maximum limits for a free (shared) Search service
+## Maximum limits for a free (shared) Search service
 
 Azure subscribers can use the shared (multi-tenant) Search service for development or very small search applications. The shared service comes with your Azure subscription. It's a no-cost option that allows you to experiment with the service before signing up. It provides:
 
@@ -42,7 +42,7 @@ Maximum number of indexed documents per indexer invocation|10,000
 
 Notice that there are no quotas or maximum limits associated with queries. Queries-per-second (QPS) are variable, depending on available bandwidth and competition for system resources. The Azure compute and storage resources backing your shared service are shared by multiple subscribers, so QPS for your solution will vary depending on how many other workloads are running at the same time.
 
-##Maximum limits for a standard (dedicated) Search service
+## Maximum limits for a standard (dedicated) Search service
 
 Under the Standard pricing tier, a dedicated Search service stores only your data, and runs only your workloads. Unlike the shared service, the resource allocation for a dedicated Search service is adjustable, scaling to whatever level you need. You can independently set the resource levels for partitions (to scale up storage) and replicas (to provide high availability and scale up QPS and indexing performance). See [Manage your search solution](search-manage.md) for insights into different resource configurations.
 
@@ -64,7 +64,7 @@ Maximum number of indexed documents per indexer invocation|Unlimited
 
 Capacity in Azure Search can be purchased in increments called search units. The Standard pricing tier allows for up to 36 search units per Search service. This limit overrides the individual limits on partitions and replicas. For example, you can't scale your service up to 12 partitions and 6 replicas, because doing so would require 72 search units (12 x 6), exceeding the limit of 36 search units per service.
 
-##About partitions and replicas
+## About partitions and replicas
 
 **Partitions** provide storage and IO. A single Search service can have a maximum of 12 partitions. Each partition comes with a hard limit of 15 million documents or 25 GB of storage, whichever comes first. If you add partitions, your Search service can load more documents. For example, a service with a single partition that initially stores up to 25 GB of data can store 50 GB when you add a second partition to the service.
 
@@ -75,7 +75,7 @@ A copy of each index runs on each replica. As you add replicas, additional copie
 Note that we provide no hard estimates on queries per second (QPS), as query execution can vary a lot depending on the complexity of the query and competing workloads. On average, a replica can service about 15 QPS, but your throughput will be somewhat higher or lower depending on query complexity (faceted queries are more complex) and network latency. Also, it's important to recognize that while adding replicas will definitely add scale and performance, the end result is not strictly linear: adding 3 replicas does not guarantee triple throughput. Query latency is an indicator that additional replicas might be needed.
 
 <a id="chart"></a>
-##Supported combinations of partitions and replicas
+## Supported combinations of partitions and replicas
 
 As noted earlier, the effective limit on partitions and replicas is based on the combination of resources you select, while staying within the boundary of 36 search units per service. Resources are allocated in terms of search units (SU). A dedicated Search service starts with one replica and one partition, as one search unit.
 
@@ -112,14 +112,14 @@ Currently, there is no built-in mechanism for disaster recovery. Adding partitio
 
 > [AZURE.NOTE] Recall that service level agreements and scalability are features of the standard service. The free service is offered at a fixed resource level, with replicas and partitions shared by multiple subscribers. If you started with the free service and now want to upgrade, you will need to create a new Azure Search service at the standard level and then reload indexes and data to the new service. See [Create an Azure Search service in the portal](search-create-portal.md) for instructions on service provisioning.
 
-##API-key limits
+## API-key limits
 
 Api-keys are used for service authentication. There are two types. Admin keys are specified in the request header. Query keys are specified on the URL. See [Manage your search service on Microsoft Azure](search-manage.md) for details about key management.
 
 - Maximum of 2 admin keys per service
 - Maximum of 50 query keys per service
 
-##Request limits
+## Request limits
 
 - Maximum of 16 MB per request
 - Maximum 8 KB URL length
@@ -127,7 +127,7 @@ Api-keys are used for service authentication. There are two types. Admin keys ar
 - Maximum 32 fields in $orderby clause
 - Maximum search term size is 32766 bytes (32 KB minus 2 bytes) of UTF-8 encoded text
 
-##Response limits
+## Response limits
 
 - Maximum 1000 documents returned per page of search results
 - Maximum 100 suggestions returned per Suggest API request
