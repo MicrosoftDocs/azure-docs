@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Creating Filters with Media Services REST API" 
-	description="This topic describes how to create filters so your client can use them to stream specific sections of a stream. Media Services creates dynamic manifests to achieve this selective streaming." 
+	pageTitle="Creating Filters with Azure Media Services REST API" 
+	description="This topic describes how to create filters so your client can use them to stream specific sections of a stream. Media Services creates dynamic manifests to achieve this selective streaming.
 	services="media-services" 
 	documentationCenter="" 
 	authors="Juliako,cenkdin" 
@@ -13,17 +13,17 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="10/15/2015"  
+	ms.date="10/18/2015"  
 	ms.author="juliako"/>
 
-#Creating Filters with Media Services REST API
+#Creating Filters with Azure Media Services REST API
 
 > [AZURE.SELECTOR]
 - [.NET](media-services-dotnet-dynamic-manifest.md)
 - [REST](media-services-rest-dynamic-manifest.md)
 
 
-Starting with 2.11 release, Media Services enables you to define filters for your assets. These filters are server side rules that will allow your customers to choose to do things like: playback only a section of a video (instead of playing the whole video), or specify only a subset of audio and video renditions that your customer's device can handle (instead of all the renditions that are associated with the asset). This filtering of your assets is achieved through **Dynamic Manifest**s that are created upon your customer's request to stream a video based on specified filter(s).
+Starting with 2.11 release, Media Services enables you to define filters for your assets. These filters are server side rules that will allow your customers to choose to do things like: playback only a section of a video (instead of playing the whole video), or specify only a subset of audio and video renditions that your customer's device can handle (instead of all the renditions that are associated with the asset). This filtering of your assets is archived through **Dynamic Manifest**s that are created upon your customer's request to stream a video based on specified filter(s).
 
 For more detailed information related to filters and Dynamic Manifest, see [Dynamic manifests overview](media-services-dynamic-manifest-overview.md).
 
