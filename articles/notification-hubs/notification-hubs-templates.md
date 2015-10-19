@@ -97,12 +97,13 @@ The template for the one-day forecast with Celsius temperatures is as follows:
 
 The message sent to the Notification Hub contains all the following properties:
 
-|:----------:|:----------:|:----------:|
-| day1_image | day1_tempC | day1_tempF |
-| day2_image | day2_tempC | day2_tempF |
-| day3_image | day3_tempC | day3_tempF |
-| day4_image | day4_tempC | day4_tempF |
-| day5_image | day5_tempC | day5_tempF |
+
+<table border="1">
+<tr><td>day1_image</td><td>day2_image</td><td>day3_image</td><td>day4_image</td><td>day5_image</td></tr>
+<tr><td>day1_tempC</td><td>day2_tempC</td><td>day3_tempC</td><td>day4_tempC</td><td>day5_tempC</td></tr>
+<tr><td>day1_tempF</td><td>day2_tempF</td><td>day3_tempF</td><td>day4_tempF</td><td>day5_tempF</td></tr>
+</table><br/>
+
 
 By using this pattern, the backend only sends a single message without having to store specific personalization options for the app users. The following picture illustrates this scenario:
 
@@ -114,7 +115,7 @@ For more information about how to register for templates, see [Registration Mana
 
 ##Template expression language
 
-Templates cannot contain strings. They are limited to XML or JSON documents. Also, you can only place expressions in particular places; for example, node attributes or values for XML, string property values for JSON.
+Templates are limited to XML or JSON document formats. Also, you can only place expressions in particular places; for example, node attributes or values for XML, string property values for JSON.
 
 
 
