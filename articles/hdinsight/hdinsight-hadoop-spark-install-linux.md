@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/01/2015" 
+	ms.date="10/19/2015" 
 	ms.author="larryfr"/>
 
 # Install and use Spark on HDInsight Hadoop clusters
@@ -39,6 +39,8 @@ You can modify this script or create your own script to install other versions o
 ## What the script does
 
 This script installs Spark version 1.5.1 into `/usr/hdp/current/spark`.
+
+> [AZURE.WARNING] You may discover that some Spark 1.3.1 binaries are installed by default on your HDInsight cluster. These should not be used, and will be removed from the HDInsight cluster image in a future update.
 
 ## <a name="install"></a>Install Spark using Script Actions
 
