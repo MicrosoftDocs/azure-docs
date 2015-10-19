@@ -82,7 +82,9 @@ account
 
 ##See also
 
-- [Get started with Data Lake Analytics using PowerShell](data-lake-analytics-get-started-powershell.md)
-- [Get started with Data Lake Analytics using the Azure portal](data-lake-analytics-get-started-portal.md)
-- [Develop U-SQL scripts using Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md) 
-- [Manage Azure Data Lake Analytics using portal](data-lake-analytics-manage-use-portal.md)
+- [Overview of Microsoft Azure Data Lake Analytics](data-lake-analytics-overview.md)
+
+- [Get started with Data Lake Analytics using Azure Preview Portal](data-lake-analytics-get-started-portal.md)
+- [Get started with Data Lake Analytics using Azure PowerShell](data-lake-analytics-get-started-powershell.md)
+- [Develop U-SQL scripts using Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
+- [Analyze Website logs using Azure Data Lake Analytics](data-lake-analytics-analyze-weblogs.md)

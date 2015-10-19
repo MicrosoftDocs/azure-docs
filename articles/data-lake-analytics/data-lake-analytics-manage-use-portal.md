@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="10/14/2015"
+   ms.date="10/19/2015"
    ms.author="jgao"/>
 
 # Manage Azure Data Lake Analytics using Azure Preview portal
@@ -280,5 +280,8 @@ See [Monitor Data Lake Analytics jobs](#monitor-jobs).
 
 ##See also 
 
-- [Manage Azure Data Lake Analytics using Azure PowerShell](data-lake-analytics-manage-use-powershell.md)
-- [Manage Azure Data Lake Analytics using .NET SDK](data-lake-analytics-manage-use-dotnet-sdk.md)
+- [Overview of Microsoft Azure Data Lake Analytics](data-lake-analytics-overview.md)
+- [Get started with Data Lake Analytics using Azure Preview Portal](data-lake-analytics-get-started-portal.md)
+- [Manage Azure Data Lake Analytics using Azure PowerShell](data-lake-analytics-use-powershell.md)
+- [Monitor and troubleshoot Azure Data Lake Analytics jobs using Azure Preview Portal](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
+

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="10/14/2015"
+   ms.date="10/19/2015"
    ms.author="jgao"/>
 
 # Manage Azure Data Lake Analytics using Azure PowerShell
@@ -364,36 +364,8 @@ You must have an Data Lake Analytics account before you can create a job.  For m
 
 ##See also 
 
-- bla
-- bla
-
-## Manage Kona users using PowerShell 
-
-[**jgao:** If this is not needed to go through the tutorial, then we shall separated it into a management topic]
-[saveenr - sounds good - talk to mahi about the correct way to do user management]
-
-To add a user to your Kona Account:
-
-
-	New-KonaUser –UserEmail user1@aadtenant.onmicrosoft.com –UserRole User 
-
-
-To list the existing Kona users:
-
-	Get-KonaUser 
-
-The following is a sample output:
-
-	CreationTime                LastModifiedTime            Name                        Roles                      
-	------------                ----------------            ----                        -----                      
-	Mon, 13 Oct 2014 18:42:3... Mon, 13 Oct 2014 18:42:3... KiwiPublicTest@JianywKiw... {Admin}                    
-	Tue, 14 Oct 2014 02:24:3... Tue, 14 Oct 2014 02:24:3... konauser2@test              {Admin}                    
-	Tue, 14 Oct 2014 02:26:0... Tue, 14 Oct 2014 02:26:0... konauser1@onboardflow.on... {Admin}                    
-	Wed, 15 Oct 2014 00:14:1... Wed, 15 Oct 2014 00:14:1... This Obviously Isn't a user {ReadOnly}  
-	               
-
-To remove a Kona user account:
-
-	Remove-KonaUser –UserEmail user1@aadtenant.onmicrosoft.com 
-
+- [Overview of Microsoft Azure Data Lake Analytics](data-lake-analytics-overview.md)
+- [Get started with Data Lake Analytics using Azure Preview Portal](data-lake-analytics-get-started-portal.md)
+- [Manage Azure Data Lake Analytics using Azure Preview portal](data-lake-analytics-use-portal.md)
+- [Monitor and troubleshoot Azure Data Lake Analytics jobs using Azure Preview Portal](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
 

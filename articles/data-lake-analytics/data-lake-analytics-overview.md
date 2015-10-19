@@ -1,14 +1,14 @@
 <properties 
    pageTitle="Overview of Microsoft Azure Data Lake Analytics | Azure" 
    description="Data Lake Analytics is an Azure Big Data computation service that lets you use data to drive your business using the insights gained from your data in the cloud, regardless of where it is and regardless of its size. Data Lake Analytics enables this in the simplest, most scalable, and most economical way possible. " 
-   services="big-analytics" 
+   services="data-lake-analytics" 
    documentationCenter="" 
    authors="mumian" 
    manager="paulettm" 
    editor="cgronlun"/>
  
 <tags
-   ms.service="big-analytics"
+   ms.service="data-lake-analytics"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
@@ -50,6 +50,26 @@ Data Lake Analytics is a cost-effective solution for running big data workloads.
 Data Lake Analytics can work with a number of Azure data sources: Azure Storage Blobs, Azure SQL DB, Azure SQL DB, and of course Data Lake Analytics is specially optimized to work with Azure Data Lake Store - providing the highest level of performance, throughput, and parallelization for you big data workloads.
 
 
-### See also
+## See also
 
-- [Get started with Azure Data Lake Analytics using Preview Portal][data-lake-analytics-get-started-portal.md]
+- Get started
+    - [Get started with Data Lake Analytics using Azure Preview Portal](data-lake-analytics-get-started-portal.md)
+    - [Get started with Data Lake Analytics using Azure PowerShell](data-lake-analytics-get-started-powershell.md)
+    - [Develop U-SQL scripts using Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
+    - [Use Azure Data Lake Analytics interactive tutorials](data-lake-analytics-use-interactive-tutorials.md)
+    - [Analyze Website logs using Azure Data Lake Analytics](data-lake-analytics-analyze-weblogs.md)
+    - [Get started with Azure Data Lake Analytics U-SQL language](data-lake-analytics-u-sql-get-started.md)
+    
+- U-SQL & development
+    - [Get started with Azure Data Lake Analytics U-SQL language](data-lake-analytics-u-sql-get-started.md)
+    - [Using U-SQL window functions for Azure Data Lake Aanlytics jobs](data-lake-analytics-use-window-functions.md)
+
+- Management
+    - [Manage Azure Data Lake Analytics using Azure Preview portal](data-lake-analytics-use-portal.md)
+    - [Manage Azure Data Lake Analytics using Azure PowerShell](data-lake-analytics-use-powershell.md)
+    - [Monitor and troubleshoot Azure Data Lake Analytics jobs using Azure Preview Portal](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
+
+
+
+
+
