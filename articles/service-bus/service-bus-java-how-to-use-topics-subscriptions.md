@@ -18,6 +18,8 @@
 
 # How to use Service Bus topics and subscriptions
 
+[AZURE.INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
+
 This guide describes how to use Service Bus topics and subscriptions. The samples are written in Java and use the [Azure SDK for Java][]. The scenarios covered include **creating topics and subscriptions**, **creating subscription filters**, **sending messages to a topic**, **receiving messages from a subscription**, and
 **deleting topics and subscriptions**.
 
