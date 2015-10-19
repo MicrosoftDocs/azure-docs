@@ -26,7 +26,7 @@ This article describes how to get started with Azure IoT Hub through the Azure p
 
 There are a number of places in which you can find IoT hubs.
 
-1. **+ New** : Azure IoT Hub is an IoT service, and can be found in the category **Internet of Things**, under **+ New**, similar to other services.
+1. **+ New** : **Azure IoT Hub** is an IoT service, and can be found in the category **Internet of Things**, under **+ New**, similar to other services.
 
 2. IoT hubs can also be accessed through the Marketplace as the hero service under **Internet of Things**.
 
@@ -40,7 +40,7 @@ You can create an IoT hub using the following methods.
 
 ### Choose the name of the IoT hub
 
-In order to create an IoT hub, you must name the hub. Note that this name must be unique across the hubs. No duplication of hubs is allowed on the backend, so it is recommended that this hub be named as uniquely as possible.
+In order to create an IoT hub, you must name the hub. Note that this name must be unique across the hubs. No duplication of hubs is allowed on the back end, so it is recommended that this hub be named as uniquely as possible.
 
 ### Choose the pricing tier
 
@@ -72,7 +72,7 @@ Azure IoT Hub automatically shows the list of subscriptions to which the user ac
 
 ### Choose the location
 
-The location option provides a list of the regions in which IoT Hub is offered. For the public preview release, IoT Hub is offered in only 3 locations: US East, Europe North, and East Asia.
+The location option provides a list of the regions in which IoT Hub is offered. For this preview release, IoT Hub is offered in only 3 locations: US East, Europe North, and East Asia.
 
 ### Create the IoT hub
 
