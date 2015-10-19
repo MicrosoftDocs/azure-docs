@@ -1,7 +1,6 @@
 <properties
 	pageTitle="Getting started with cross-database query(Vertical Partitioning) | Microsoft Azure"	
 	description="how to use elastic database query with vertically partitioned databases"
-	metaKeywords="azure sql database elastic queries vertical partitions"
 	services="sql-database"
 	documentationCenter=""  
 	manager="jeffreyg"

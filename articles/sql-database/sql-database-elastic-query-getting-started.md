@@ -1,7 +1,6 @@
 <properties
 	pageTitle="Getting started with elastic database query | Microsoft Azure"
 	description="how to use cross database database queries"
-	metaKeywords="azure sql database elastic queries"
 	services="sql-database"
 	documentationCenter=""  
 	manager="jeffreyg"
