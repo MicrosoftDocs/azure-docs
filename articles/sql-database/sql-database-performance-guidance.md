@@ -104,7 +104,7 @@ The following sections provide more information on each area in the previous tab
 
 ### DTUs
 
-**DTUs** refers to Database Transaction Units. It is the unit of measure in SQL Database that represents the relative power of databases based on a real-world measure: the database transaction. This consists of a set of operations that are typical for an online transaction processing (OLTP) request, measured by how many transactions could be completed per second under fully loaded conditions. To get more information about DTUs, see [Understanding DTUs](sql-database-technical-overview#understand-dtus). For more information on how DTUs were measured, see [Benchmark overview](sql-database-benchmark-overview.md).
+**DTUs** refers to Database Transaction Units. It is the unit of measure in SQL Database that represents the relative power of databases based on a real-world measure: the database transaction. This consists of a set of operations that are typical for an online transaction processing (OLTP) request, measured by how many transactions could be completed per second under fully loaded conditions. To get more information about DTUs, see [Understand DTUs](sql-database-technical-overview#understand-dtus). For more information on how DTUs were measured, see [Benchmark overview](sql-database-benchmark-overview.md).
 
 ### Point-in-time restore
 
