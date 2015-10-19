@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Advanced Analytics Process and Technology in Action: using SQL Server | Microsoft Azure"
+	pageTitle="The Cortana Analytics Process and Technology in action: using SQL Server | Microsoft Azure"
 	description="Advanced Analytics Process and Technology in Action"  
 	services="machine-learning"
 	solutions=""
@@ -18,7 +18,7 @@
 	ms.author="mohabib;fashah;bradsev"/>
 
 
-# Advanced Analytics Process and Technology in Action: using SQL Server
+# The Cortana Analytics Process and Technology in action: using SQL Server
 
 In this tutorial, you walkthrough building and deploying a model using a publicly available dataset -- the [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) dataset. The procedure follows the Azure Advanced Analytics Process and Technology (ADAPT) guide.
 

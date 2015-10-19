@@ -305,8 +305,8 @@ The following diagram summarizes the scenarios described above and the Advanced 
 For end-to-end Azure Machine Learning walkthroughs that employ the Advanced Analytics Process and Technology using public datasets, see:
 
 
-* [Advanced Analytics Process and Technology in Action: using SQL Server](machine-learning/machine-learning-data-science-process-sql-walkthrough.md).
-* [Advanced Analytics Process and Technology in action: using HDInsight Hadoop clusters](machine-learning/machine-learning-data-science-process-hive-walkthrough.md).
+* [Cortana Analytics Process in action: using SQL Server](machine-learning/machine-learning-data-science-process-sql-walkthrough.md).
+* [Cortana Analytics Process in action: using HDInsight Hadoop clusters](machine-learning/machine-learning-data-science-process-hive-walkthrough.md).
 
 
 [1]: ./media/machine-learning-data-science-plan-sample-scenarios/dsp-plan-small-in-aml.png

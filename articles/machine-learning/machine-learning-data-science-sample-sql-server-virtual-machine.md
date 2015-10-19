@@ -108,7 +108,7 @@ You can use the following sample code to save the down-sampled data to a file an
 
 ## The Cortana Analytics Process in Action example
 
-For an end-to-end walkthrough example of the Cortana Analytics Process a using a public dataset, see [Azure Advanced Analytics Process and Technology in Action: using SQL Sever](machine-learning-data-science-process-sql-walkthrough.md).
+For an end-to-end walkthrough example of the Cortana Analytics Process a using a public dataset, see [Cortana Analytics Process in Action: using SQL Sever](machine-learning-data-science-process-sql-walkthrough.md).
 
 [1]: ./media/machine-learning-data-science-sample-sql-server-virtual-machine/reader_database.png
 [2]: ./media/machine-learning-data-science-sample-sql-server-virtual-machine/reader_blob.png
