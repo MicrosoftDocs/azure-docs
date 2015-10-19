@@ -1,7 +1,6 @@
 <properties
-	title="Getting started with elastic database query"
-	pageTitle="Getting started with elastic database query"
-	description="how to use elastic database query"
+	pageTitle="Getting started with elastic database query | Microsoft Azure"
+	description="how to use cross database database queries"
 	metaKeywords="azure sql database elastic queries"
 	services="sql-database"
 	documentationCenter=""  
@@ -14,10 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/23/2015"
-	ms.author="sidneyh" />
+	ms.date="10/15/2015"
+	ms.author="SilviaDoomra" />
 
-# Getting started with Elastic Database query
+# Getting started with cross-database query
 
 Elastic Database query (preview) for Azure SQL Database allows you to run T-SQL queries that span multiple databases using a single connection point. For more information about the Elastic Database query feature, please see the [feature overview page](sql-database-elastic-query-overview.md).
 

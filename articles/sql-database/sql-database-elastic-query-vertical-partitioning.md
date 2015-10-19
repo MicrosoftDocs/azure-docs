@@ -12,8 +12,8 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="10/15/2015"
-    ms.author="sidneyh;torsteng" />
+    ms.date="10/19/2015"
+    ms.author="torsteng" />
 
 # Elastic database query for vertical partitioning
 
