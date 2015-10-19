@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="How to Scale Encoding Reserved Units" 
+	pageTitle="How to Scale Encoding Reserved Units using the Azure Portal" 
 	description="Learn how to scale Media Services by specifying the number of On-Demand Streaming Reserved Units and Encoding Reserved Units that you would like your account to be provisioned with." 
 	services="media-services" 
 	documentationCenter="" 
@@ -17,7 +17,7 @@
 	ms.author="juliako"/>
 
 
-#How to Scale Encoding
+#How to Scale Encoding using the Azure Portal
 
 > [AZURE.SELECTOR]
 - [.NET](media-services-dotnet-encoding-units.md)
