@@ -276,7 +276,7 @@ See [Monitor Data Lake Analytics jobs](#monitor-jobs).
 ##Manage the catalog
 
 [jgao: do we need this section in this article?]
-
+[Alan: users can only view the catalog from the portal.]
 	- tables
 	- table valued functions
 	- assemblies
