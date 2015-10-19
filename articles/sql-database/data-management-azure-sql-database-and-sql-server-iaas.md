@@ -34,7 +34,7 @@ Microsoft Azure provides you two options for hosting SQL Server: [Azure SQL Data
 - [Additional Resources](#resources)	
 
 
-##<a name="platform"></a>Microsoft's Data Platform
+##<a name="platform"></a>Microsoft's data platform
 
 One of the first things to understand in any discussion of Azure versus on-premises SQL Server databases is that you can use it all. Microsoft’s Data Platform leverages SQL Server technology and makes it available across physical on-premises machines, private cloud environments, third-party hosted private cloud environments, and public cloud. This enables you to meet unique and diverse business needs through a combination of on-premises and cloud-hosted deployments, while using the same set of server products, development tools, and expertise across these environments.
 
@@ -51,7 +51,7 @@ When designing an application, four basic options are available for hosting the 
 
 In the following sections, we will learn about the last two: Azure SQL Database and SQL Server in Azure VMs. In addition, we will explore common business motivators for determining which option works best for your application.
 
-##<a name="close"></a>A Closer Look at Azure SQL Database and SQL Server in Azure VM
+##<a name="close"></a>A closer look at Azure SQL Database and SQL Server in Azure VM
 
 **Microsoft Azure SQL Database (Azure SQL Database)** is a relational database-as-a-service, which falls into the industry category *Platform as a Service (PaaS)*. Azure SQL Database is built on standardized hardware and software that is owned, hosted, and maintained by Microsoft. With SQL Database, you can develop directly on the service using built-in features and functionality. When using SQL Database, you pay-as-you-go with options to scale up or out for greater power.
 
