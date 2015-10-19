@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="09/29/2015"
+   ms.date="10/19/2015"
    ms.author="jgao"/>
 
 # Use Azure Data Lake Analytics U-SQL catalog

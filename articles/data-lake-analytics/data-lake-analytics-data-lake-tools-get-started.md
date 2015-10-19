@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="10/27/2015"
+   ms.date="10/19/2015"
    ms.author="jgao"/>
 
 # Tutorial: Develop U-SQL scripts using Data Lake Tools for Visual Studio
@@ -55,7 +55,7 @@ Once Data Lake Tools for Visual Studio is installed, you will see a U-SQL menu i
 **To browse your Data Lake Analytics accounts**
 
 1. From Visual Studio, open **Server Explorer** by press **CTRL+ALT+S**.
-2. From **Server Explorer**, expand **Azure**, and then expand **Data Lake Analytics**. You shall see a list of your Data Lake Analytics accounts if there are any. You cannot create Big Analystics accounts from the studio. To create an account, see [Get Started with Azure Data Lake Analytics using Azure Preview Portal](data-lake-analytics-get-started-portal.md) or [Get Started with Azure Data Lake Analytics using Azure PowerShell](knoa-get-started-powershell.md).
+2. From **Server Explorer**, expand **Azure**, and then expand **Data Lake Analytics**. You shall see a list of your Data Lake Analytics accounts if there are any. You cannot create Data Lake Analystics accounts from the studio. To create an account, see [Get Started with Azure Data Lake Analytics using Azure Preview Portal](data-lake-analytics-get-started-portal.md) or [Get Started with Azure Data Lake Analytics using Azure PowerShell](knoa-get-started-powershell.md).
 
 ## Upload source data files
 
@@ -195,6 +195,7 @@ Data Lake Tools for Visual Studio provides user-selectable color-overlays on job
 
 ##See also
 
-- [Get started with Data Lake Analytics using PowerShell](data-lake-analytics-get-started-powershell.md)
-- [Get started with Data Lake Analytics using the Azure portal](data-lake-analytics-get-started-portal.md)
-- [Define U-SQL user defined operators for Data Lake Analytics](data-lake-analytics-u-sql-develop-user-defined-operators.md)
+- [Get started with Data Lake Analytics using Azure PowerShell](data-lake-analytics-get-started-powershell.md)
+- [Get started with Data Lake Analytics using Azure Preview portal](data-lake-analytics-get-started-portal.md)
+- [Get started with Azure Data Lake Analytics U-SQL language](data-lake-analytics-u-sql-get-started.md)
+- [Using U-SQL window functions for Azure Data Lake Aanlytics jobs](data-lake-analytics-use-window-functions.md)

@@ -1,3 +1,22 @@
+<properties 
+   pageTitle="Using U-SQL window functions for Azure Data Lake Aanlytics jobs | Azure" 
+   description="Learn how to use U-SQL window functions. " 
+   services="data-lake-analytics" 
+   documentationCenter="" 
+   authors="mumian" 
+   manager="paulettm" 
+   editor="cgronlun"/>
+ 
+<tags
+   ms.service="data-lake-analytics"
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="big-data" 
+   ms.date="10/19/2015"
+   ms.author="jgao"/>
+
+
 # Using U-SQL window functions for Azure Data Lake Aanlytics jobs  
 
 Window functions were introduced to the ISO/ANSI SQL Standard in 2003. U-SQL adopts a subset of window functions as defined by the ANSI SQL Standard.
@@ -833,3 +852,15 @@ SCOPE:  SELECT FIRST(x) OVER (ORDER BY Y ROWS BETWEEN 1 PRECEDING AND 1 PRECEDIN
 SCOPE:  SELECT MIN(x) OVER (ORDER BY Y ROWS BETWEEN 1 PRECEDING AND 1 PRECEDING) AS z // if MIN is supported on typeof(x)
 ```
 
+## See also
+
+- [Overview of Microsoft Azure Data Lake Analytics](data-lake-analytics-overview.md)
+- [Get started with Data Lake Analytics using Azure Preview Portal](data-lake-analytics-get-started-portal.md)
+- [Get started with Data Lake Analytics using Azure PowerShell](data-lake-analytics-get-started-powershell.md)
+- [Develop U-SQL scripts using Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
+- [Use Azure Data Lake Analytics interactive tutorials](data-lake-analytics-use-interactive-tutorials.md)
+- [Analyze Website logs using Azure Data Lake Analytics](data-lake-analytics-analyze-weblogs.md)
+- [Get started with Azure Data Lake Analytics U-SQL language](data-lake-analytics-u-sql-get-started.md)
+- [Manage Azure Data Lake Analytics using Azure Preview portal](data-lake-analytics-use-portal.md)
+- [Manage Azure Data Lake Analytics using Azure PowerShell](data-lake-analytics-use-powershell.md)
+- [Monitor and troubleshoot Azure Data Lake Analytics jobs using Azure Preview Portal](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="09/29/2015"
+   ms.date="10/19/2015"
    ms.author="jgao"/>
 
 
@@ -35,8 +35,8 @@ Learn how to develop user defined operators to be used and reused in Data Lake A
 - Microsoft Azure SDK for .NET version 2.5 or above.  Install it using the Web platform installer.
 - A Data Lake Analytics account.  See [Get Started with Azure Data Lake Analytics using Azure Preview Portal](data-lake-analytics-get-started-portal.md).
 - Go through the [Get started with Azure Data Lake Analytics U-SQL Studio](data-lake-analytics-u-sql-studio-get-started.md) tutorial.
-- Connect to Azure, see [Get started with Azure Big Analtyics U-SQL Studio](data-lake-analytics-u-sql-studio-get-started.md#connect-to-azure). 
-- Upload the source data, see [Get started with Azure Big Analtyics U-SQL Studio](data-lake-analytics-u-sql-studio-get-started.md#upload-source-data-files). 
+- Connect to Azure, see [Get started with Azure Data Lake Analytics U-SQL Studio](data-lake-analytics-u-sql-studio-get-started.md#connect-to-azure). 
+- Upload the source data, see [Get started with Azure Data Lake Analytics U-SQL Studio](data-lake-analytics-u-sql-studio-get-started.md#upload-source-data-files). 
 
 ## Define and call a user defined operator in SQLIP
 
