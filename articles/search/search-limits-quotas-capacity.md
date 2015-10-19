@@ -12,14 +12,14 @@
 	ms.service="search"
 	ms.devlang="NA"
 	ms.workload="search"
-	ms.topic="article" 
+	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.date="08/18/2015"
 	ms.author="heidist"/>
 
 #Service limits in Azure Search
 
-Maximum limits on storage, workloads, and quantities of indexes, documents, and other objects depend on how you subscribe to Azure Search. The free service is intended for evaluation and proof-of-concept testing, with lower limits on all objects and workloads so that resources can be shared more equitably. 
+Maximum limits on storage, workloads, and quantities of indexes, documents, and other objects depend on how you subscribe to Azure Search. The free service is intended for evaluation and proof-of-concept testing, with lower limits on all objects and workloads so that resources can be shared more equitably.
 
 Standard runs on dedicated machines that are used only by your service. Sole use of a dedicated service gives you the ability to scale up or down, with more storage and processing capacity at every level, including the minimum configuration.
 
@@ -57,6 +57,7 @@ Maximum storage size|25 GB per partition
 Maximum partitions|12 per Search service
 Maximum replicas|6 per Search service
 Maximum search units|36 per Search service
+Maximum search services|12 per Azure subscription
 Maximum number of indexers|50 per Search service
 Maximum number of Indexer data sources|50 per Search service
 Maximum number of indexed documents per indexer invocation|Unlimited
@@ -89,7 +90,7 @@ The following table is a chart that lists replicas on the vertical axis, and par
 <tr><td><b>3 replicas</b></td><td>3 SU</td><td>6 SU</td><td>9 SU</td><td>12 SU</td><td>18 SU</td><td>36 SU</td></tr>
 <tr><td><b>2 replicas</b></td><td>2 SU</td><td>4 SU</td><td>6 SU</td><td>8 SU</td><td>12 SU</td><td>24 SU</td></tr>
 <tr><td><b>1 replica</b></td><td>1 SU</td><td>2 SU</td><td>3 SU</td><td>4 SU</td><td>6 SU</td><td>12 SU</td></tr>
-<tr><td>N/A</td><td><b>1 Partition</b></td><td><b>2 Partitions</b></td><td><b>3 Partitions</b></td><td><b>4 Partitions</b></td><td><b>6 Partitions</b></td><td><b>12 Partitions</b></td></tr> 
+<tr><td>N/A</td><td><b>1 Partition</b></td><td><b>2 Partitions</b></td><td><b>3 Partitions</b></td><td><b>4 Partitions</b></td><td><b>6 Partitions</b></td><td><b>12 Partitions</b></td></tr>
 </table>
 
 Search units, pricing, and capacity are explained in detail on the Azure web site. See [Pricing Details](http://azure.microsoft.com/pricing/details/search/) for more information.
@@ -98,9 +99,9 @@ Search units, pricing, and capacity are explained in detail on the Azure web sit
 
 ##Choose a combination of partitions and replicas for high availability
 
-Because it's easy and relatively fast to scale up, we generally recommend that you start with one partition and one or two replicas, and then scale up as query volumes build. For many deployments,  one partition provides sufficient storage and IO (at 15 million documents per partition). 
+Because it's easy and relatively fast to scale up, we generally recommend that you start with one partition and one or two replicas, and then scale up as query volumes build. For many deployments,  one partition provides sufficient storage and IO (at 15 million documents per partition).
 
-Query workloads, however, rely on replicas. You could require additional replicas if you need more throughput or high availability. 
+Query workloads, however, rely on replicas. You could require additional replicas if you need more throughput or high availability.
 
 General recommendations for high availability are:
 
@@ -121,7 +122,7 @@ Api-keys are used for service authentication. There are two types. Admin keys ar
 ##Request limits
 
 - Maximum of 16 MB per request
-- Maximum 8 KB URL length 
+- Maximum 8 KB URL length
 - Maximum 1000 documents per batch of index uploads, merges, or deletes
 - Maximum 32 fields in $orderby clause
 - Maximum search term size is 32766 bytes (32 KB minus 2 bytes) of UTF-8 encoded text
@@ -130,5 +131,3 @@ Api-keys are used for service authentication. There are two types. Admin keys ar
 
 - Maximum 1000 documents returned per page of search results
 - Maximum 100 suggestions returned per Suggest API request
-
-
