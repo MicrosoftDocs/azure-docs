@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="tbd"
-	ms.date="09/09/2015" 
+	ms.date="10/19/2015"
 	ms.author="bradsev" />
 
 
@@ -33,6 +33,8 @@ This means the services can be consumed from web applications, mobile applicatio
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]  
 
 An Azure Machine Learning web service can be consumed in two different ways, either as a request-response service or as a batch execution service. In each scenario the functionality is provided through the RESTFul web service that is made available for consumption once the experiment has been deployed. Deploying a Machine Learning web service in Azure with an Azure web service end-point, where the service is automatically scaled based on usage, you can avoid upfront and ongoing costs for hardware resources.
+
+> [AZURE.TIP] For a simple way to create a web app to access your predictive web service, see [Consume an Azure Machine Learning web service with a web app template](machine-learning-consume-web-service-with-web-app-template.md).
 
 <!-- When this article gets published, fix the link and uncomment
 For more information on how to manage Azure Machine Learning web service endpoints using the REST API, see **Azure machine learning web service endpoints**.

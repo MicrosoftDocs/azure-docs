@@ -65,7 +65,7 @@ Once you've deployed your web service, you can follow the steps below to use the
 
 	![Create web app][image5]
 
-4. When Azure has finished deploying the web app, click the **URL** on the web app settings page in Azure, or enter the URL in a web browser. For example, `http://mytestapp.azurewebsites.net.`
+4. When Azure has finished deploying the web app, click the **URL** on the web app settings page in Azure, or enter the URL in a web browser. For example, `http://carprediction.azurewebsites.net.`
 
 5. When the web app first runs it will ask you for the **API Post URL** and **API Key**.
 Enter the values you saved earlier:
@@ -78,13 +78,13 @@ Enter the values you saved earlier:
 
 6. The web app displays its **Web App Configuration** page with the current web service settings. Here you can make changes to the settings used by the web app.
 
-	> [AZURE.NOTE] Note that changing the settings here only changes them for this web app. It doesn't change the default settings of your web service. For example, if you change the **Description** here it doesn't change the description shown on the web service dashboard in Machine Learning Studio.
+	> [AZURE.NOTE] Changing the settings here only changes them for this web app. It doesn't change the default settings of your web service. For example, if you change the **Description** here it doesn't change the description shown on the web service dashboard in Machine Learning Studio.
 
 	When you're done, click **Save changes**, and then click **Go to Home Page**.
 
 7. From the home page you can enter values to send to your web service, click **Submit**, and the result will be returned.
 
-If you want to return to the **Configuration** page, go to the `setting.aspx` page of the web app. For example: `http://mytestapp.azurewebsites.net/setting.aspx.`
+If you want to return to the **Configuration** page, go to the `setting.aspx` page of the web app. For example: `http://carprediction.azurewebsites.net/setting.aspx.` You will be prompted to enter the API key again - you need that to access the page and update the settings.
 
 You can stop, restart, or delete the web app in the Azure Portal like any other web app. As long as it is running you can browse to the home web address and enter new values.
 
