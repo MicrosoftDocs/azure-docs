@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/16/2015"
+	ms.date="10/19/2015"
 	ms.author="garye;raymondl"/>
 
 # Consume an Azure Machine Learning web service with a web app template
@@ -32,7 +32,7 @@ The web app templates available in the Azure Marketplace can build a custom web 
 
 Two templates are available:
 
-- [Azure ML Request-Response Service Web App](https://azure.microsoft.com/marketplace/partners/microsoft/azuremlaspnettemplateforrrs/)
+- [Azure ML Request-Response Service Web App Template](https://azure.microsoft.com/marketplace/partners/microsoft/azuremlaspnettemplateforrrs/)
 - [Azure ML Batch Execution Service Web App Template](https://azure.microsoft.com/marketplace/partners/microsoft/azuremlbeswebapptemplate/)
 
 Each template creates a sample ASP.NET application, using the API URI and Key for your web service, and deploys it as a web site to Azure. The Request-Response Service (RRS) template creates a web app that allows you to send a single row of data to the web service to get a single result. The Batch Execution Service (BES) template creates a web app that allows you to send many rows of data to get multiple results.
@@ -57,7 +57,7 @@ Once you've deployed your web service, you can follow the steps below to use the
 
 3. Go to [Azure ML Request-Response Service Web App](https://azure.microsoft.com/marketplace/partners/microsoft/azuremlaspnettemplateforrrs/) and click **Create Web App**. The template takes you to the Microsoft Azure Portal where the new web app is created.
 
-	- Give your web app a unique name. The URL of the web app will be this name followed by `.azurewebsites.net.` For example, `http://mytestapp.azurewebsites.net.`
+	- Give your web app a unique name. The URL of the web app will be this name followed by `.azurewebsites.net.` For example, `http://carprediction.azurewebsites.net.`
 
 	- Select the Azure subscription and services under which your web service is running.
 
@@ -78,7 +78,7 @@ Enter the values you saved earlier:
 
 6. The web app displays its **Web App Configuration** page with the current web service settings. Here you can make changes to the settings used by the web app.
 
-	[AZURE.NOTE] Note that changing the settings here only changes them for this web app. It doesn't change the default settings of your web service. For example, if you change the **Description** here it doesn't change the description shown on the web service dashboard in Machine Learning Studio.
+	> [AZURE.NOTE] Note that changing the settings here only changes them for this web app. It doesn't change the default settings of your web service. For example, if you change the **Description** here it doesn't change the description shown on the web service dashboard in Machine Learning Studio.
 
 	When you're done, click **Save changes**, and then click **Go to Home Page**.
 
