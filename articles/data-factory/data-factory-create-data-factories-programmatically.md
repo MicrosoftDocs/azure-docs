@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/06/2015" 
+	ms.date="10/06/2015" 
 	ms.author="spelluru"/>
 
 # Create, monitor, and manage Azure data factories using Data Factory .NET SDK
@@ -56,8 +56,8 @@ You can create, monitor, and manage Azure data factories programmatically using 
 		    <add key="AdfClientId" value="1950a258-227b-4e31-a9cf-717495945fc2" />
 		    <add key="RedirectUri" value="urn:ietf:wg:oauth:2.0:oob" />
 		    <!--Make sure to write your own tenenat id and subscription ID here-->
-		    <add key="SubscriptionId" value="<subscription ID>" />
-    		<add key="ActiveDirectoryTenantId" value="<tenant ID" />
+		    <add key="SubscriptionId" value="your subscription ID" />
+    		<add key="ActiveDirectoryTenantId" value="your tenant ID" />
 		</appSettings>
 6. Add the following **using** statements to the source file (Program.cs) in the project.
 
@@ -71,7 +71,7 @@ You can create, monitor, and manage Azure data factories programmatically using 
 		
 		using Microsoft.IdentityModel.Clients.ActiveDirectory;
 		using Microsoft.Azure;
-6. Add the following code that creates an instance of  **DataPipelineManagementClient** class to the **Main** method. You will use this object to create a data factory, a linked service, input and output tables, and a pipeline. You will also this object to monitor slices of a table at runtime.    
+6. Add the following code that creates an instance of  **DataPipelineManagementClient** class to the **Main** method. You will use this object to create a data factory, a linked service, input and output datasets, and a pipeline. You will also this object to monitor slices of a dataset at runtime.    
 
         // create data factory management client
         string resourceGroupName = "resourcegroupname";
@@ -105,6 +105,7 @@ You can create, monitor, and manage Azure data factories programmatically using 
         );
 
 8. Add the following code that creates a **linked service** to the **Main** method. 
+
 	> [AZURE.NOTE] Use **account name** and **account key** of your Azure storage account for the **ConnectionString**. 
 
         // create a linked service
@@ -117,30 +118,30 @@ You can create, monitor, and manage Azure data factories programmatically using 
                     Name = "LinkedService-AzureStorage",
                     Properties = new LinkedServiceProperties
                     (
-                        new AzureStorageLinkedService("DefaultEndpointsProtocol=https;AccountName=spestore;AccountKey=4VwviDOId32nYKABQy9NHsMG0vC/CXx9iuR02HJdGL+0kieqHqbT3ap+bM/c+aGnGoA7SqkwNFq90hqV1bmV0w==")
+                        new AzureStorageLinkedService("DefaultEndpointsProtocol=https;AccountName=<account name>;AccountKey=<account key>")
                     )
                 }
             }
         );
-9. Add the following code that creates **input and output tables** to the **Main** method. 
+9. Add the following code that creates **input and output datasets** to the **Main** method. 
 
 	Note that the **FolderPath** for the input blob is set to **adftutorial/** where **adftutorial** is the  name of the container in your blob storage. If this container does not exist in your Azure blob storage, create a container with this name: **adftutorial** and upload a text file to the container.
 	
 	Note that the FolderPath for the output blob is set to: **adftutorial/apifactoryoutput/{Slice}** where **Slice** is dynamically calculated based on the value of **SliceStart** (start date-time of each slice.)  
 
  
-        // create input and output tables
-        Console.WriteLine("Creating input and output tables");
-        string Table_Source = "TableBlobSource";
-        string Table_Destination = "TableBlobDestination";
+        // create input and output datasets
+        Console.WriteLine("Creating input and output datasets");
+        string Dataset_Source = "DatasetBlobSource";
+        string Dataset_Destination = "DatasetBlobDestination";
 
-        client.Tables.CreateOrUpdate(resourceGroupName, dataFactoryName,
-            new TableCreateOrUpdateParameters()
+        client.Datasets.CreateOrUpdate(resourceGroupName, dataFactoryName,
+            new DatasetCreateOrUpdateParameters()
             {
-                Table = new Table()
+                Dataset = new Dataset()
                 {
-                    Name = Table_Source,
-                    Properties = new TableProperties()
+                    Name = Dataset_Source,
+                    Properties = new DatasetProperties()
                     {
                         LinkedServiceName = "LinkedService-AzureStorage",
                         TypeProperties = new AzureBlobDataset()
@@ -166,13 +167,13 @@ You can create, monitor, and manage Azure data factories programmatically using 
                 }
             });
 
-        client.Tables.CreateOrUpdate(resourceGroupName, dataFactoryName,
-            new TableCreateOrUpdateParameters()
+        client.Datasets.CreateOrUpdate(resourceGroupName, dataFactoryName,
+            new DatasetCreateOrUpdateParameters()
             {
-                Table = new Table()
+                Dataset = new Dataset()
                 {
-                    Name = Table_Destination,
-                    Properties = new TableProperties()
+                    Name = Dataset_Destination,
+                    Properties = new DatasetProperties()
                     {
 
                         LinkedServiceName = "LinkedService-AzureStorage",
@@ -232,14 +233,14 @@ You can create, monitor, and manage Azure data factories programmatically using 
                                 Inputs = new List<ActivityInput>()
                                 {
                                     new ActivityInput() {
-                                        Name = Table_Source
+                                        Name = Dataset_Source
                                     }
                                 },
                                 Outputs = new List<ActivityOutput>()
                                 {
                                     new ActivityOutput()
                                     {
-                                        Name = Table_Destination
+                                        Name = Dataset_Destination
                                     }
                                 },
                                 TypeProperties = new CopyActivity()
@@ -296,7 +297,7 @@ You can create, monitor, and manage Azure data factories programmatically using 
             throw new InvalidOperationException("Failed to acquire token");
         }  
  
-13. Add the following code to the **Main** method to get the status of a data slice of the output table. There is only slice expected in this sample.   
+13. Add the following code to the **Main** method to get the status of a data slice of the output dataset. There is only slice expected in this sample.   
  
         // Pulling status within a timeout threshold
         DateTime start = DateTime.Now;
@@ -308,7 +309,7 @@ You can create, monitor, and manage Azure data factories programmatically using 
             // wait before the next status check
             Thread.Sleep(1000 * 12);
 
-            var datalistResponse = client.DataSlices.List(resourceGroupName, dataFactoryName, Table_Destination,
+            var datalistResponse = client.DataSlices.List(resourceGroupName, dataFactoryName, Dataset_Destination,
                 new DataSliceListParameters()
                 {
                     DataSliceRangeStartTime = PipelineActivePeriodStartTime.ConvertToISO8601DateTimeString(),
@@ -335,12 +336,13 @@ You can create, monitor, and manage Azure data factories programmatically using 
         Console.WriteLine("Getting run details of a data slice");
 
 		// give it a few minutes for the output slice to be ready
+        Console.WriteLine("\nGive it a few minutes for the output slice to be ready and press any key.");
         Console.ReadKey();
 
         var datasliceRunListResponse = client.DataSliceRuns.List(
                 resourceGroupName,
                 dataFactoryName,
-                Table_Destination,
+                Dataset_Destination,
                 new DataSliceRunListParameters()
                 {
                     DataSliceStartTime = PipelineActivePeriodStartTime.ConvertToISO8601DateTimeString()
@@ -361,7 +363,8 @@ You can create, monitor, and manage Azure data factories programmatically using 
         Console.WriteLine("\nPress any key to exit.");
         Console.ReadKey();
 
-15. Build the console application. Click **Build** on the menu and click **Build Solution**. If you get an error about **ConfigurationManager** class, add a reference to the **System.Configuration** assembly and try to build again. 
+15. In the Solution Explorer, expand the project (**DataFactoryAPITestApp**), right-click **References**, and click **Add Reference**. Select check box for **System.Configuration** assembly and click **OK**. 
+16. Build the console application. Click **Build** on the menu and click **Build Solution**. 
 16. Confirm that there is at least one file in the adftutorial container in your Azure blob storage. If not, create Emp.txt file in Notepad with the following content and upload it to the adftutorial container.
 
         John, Doe
@@ -370,7 +373,7 @@ You can create, monitor, and manage Azure data factories programmatically using 
 17. Run the sample by clicking **Debug** -> **Start Debugging** on the menu. When you see the **Getting run details of a data slice**, wait for a few minutes, and press **ENTER**. 
 18. Use the Azure Preview Portal to verify that the data factory: **APITutorialFactory** is created with the following artifacts: 
 	- Linked service: **LinkedService_AzureStorage** 
-	- Tables: **TableBlobSource** and **TableBlobDestination**.
+	- Dataset: **DatasetBlobSource** and **DatasetBlobDestination**.
 	- Pipeline: **PipelineBlobSample** 
 18. Verify that an output file is created in the **apifactoryoutput** folder in the **adftutorial** container.
 
@@ -384,7 +387,6 @@ Article | Description
 
 [data-factory-introduction]: data-factory-introduction.md
 [adf-getstarted]: data-factory-get-started.md
-[use-onpremises-datasources]: data-factory-use-onpremises-datasources.md
 [adf-tutorial]: data-factory-tutorial.md
 [use-custom-activities]: data-factory-use-custom-activities.md
 [developer-reference]: http://go.microsoft.com/fwlink/?LinkId=516908

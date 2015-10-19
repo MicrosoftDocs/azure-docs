@@ -1,11 +1,12 @@
 <properties 
-   pageTitle="High Availability and Disaster Recovery for SQL Server in Azure Virtual Machines"
-   description="Discusses the various types of HADR strategies for SQL Server running in Azure Virtual Machines."
+   pageTitle="High Availability and Disaster Recovery for SQL Server | Microsoft Azure"
+   description="This tutorial uses resources created with the classic deployment model, and discusses the various types of HADR strategies for SQL Server running in Azure Virtual Machines."
    services="virtual-machines"
    documentationCenter="na"
    authors="rothja"
    manager="jeffreyg"
-   editor="monicar" />
+   editor="monicar" 
+   tags="azure-service-management"/>
 <tags 
    ms.service="virtual-machines"
    ms.devlang="na"
@@ -20,6 +21,9 @@
 ## Overview
 
 Microsoft Azure virtual machines (VMs) with SQL Server can help lower the cost of a high availability and disaster recovery (HADR) database solution. Most SQL Server HADR solutions are supported in Azure virtual machines, both as  Azure-only  and as hybrid solutions. In an Azure-only solution, the entire HADR system runs in  Azure. In a hybrid configuration, part of the solution runs in Azure and the other part runs on-premises in your organization. The flexibility of the Azure environment enables you to move partially or completely to  Azure to satisfy the budget and HADR requirements of your SQL Server database systems.
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Resource Manager model.
+
 
 ## Understanding the need for an HADR solution
 
@@ -134,7 +138,7 @@ Geo-replication in Azure disks does not support the data file and log file of th
 
 If you need to create an Azure virtual machine with SQL Server, see [Provisioning a SQL Server Virtual Machine on Azure](virtual-machines-provision-sql-server.md).
 
-To get the best performance from SQL Server running on an Azure VM, see the guidance in [Performance Best Practices for SQL Server in Azure Virtual Machines](https://msdn.microsoft.com/library/azure/dn133149.aspx).
+To get the best performance from SQL Server running on an Azure VM, see the guidance in [Performance Best Practices for SQL Server in Azure Virtual Machines](virtual-machines-sql-server-performance-best-practices.md).
 
 For other topics related to running SQL Server in Azure VMs, see [SQL Server on Azure Virtual Machines](virtual-machines-sql-server-infrastructure-services.md).
 

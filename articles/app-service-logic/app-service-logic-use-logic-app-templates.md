@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/24/2015"
+	ms.date="09/15/2015"
 	ms.author="klam"/>
 
 # Use Logic App templates
@@ -21,7 +21,7 @@
 Logic App Templates are a set of curated pre-built Logic Apps to help you quickly get started building your own integration application.
 
 These templates show how to use some of the many connectors available in the marketplace as well as being a good way to discover various patterns that can be built using Logic Apps.  You can either use these as is or modify and them to fit your scenario.
-To get started using a Logic App Template go to the Marketplace and select Logic Apps.  Choose one of the Logic App Templates from the curated list.
+To get started using a Logic App Template either go to the Marketplace and search for "Logic App Template" and choose one of the Logic App templates from the curated list or when a new logic app is created select "Triggers and actions" and pick from the set of Logic App Templates on the designer.
 
 ### SaaS and Cloud Templates
 Examples of how to integrate across different SaaS connectors.  Here you can find various examples integrating Salesforce, Box, SharePoint and other services.

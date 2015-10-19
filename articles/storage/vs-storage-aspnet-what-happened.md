@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Getting started with Azure storage"
-	description="Describes what happened when creating Azure Storage in a Visual Studio ASP.NET project"
+	pageTitle="What happened to my ASP.NET project? | Microsoft Azure | Visual Studio connected services"
+	description="Describes what happens after adding Azure Storage to a ASP.NET project using Visual Studio connected services"
 	services="storage"
 	documentationCenter=""
 	authors="patshea123"
@@ -13,32 +13,30 @@
 	ms.tgt_pltfrm="vs-what-happened"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/22/2015"
+	ms.date="09/03/2015"
 	ms.author="patshea"/>
 
-# What happened to my project?
+# What happened to my ASP.NET project (Visual Studio Azure Storage connected service)?
 
 > [AZURE.SELECTOR]
 > - [Getting started](vs-storage-aspnet-getting-started-blobs.md)
 > - [What happened](vs-storage-aspnet-what-happened.md)
 
-###What happened to my project?
-
-##### References added
+## References added
 
 The Azure Storage NuGet package was added to your Visual Studio project.  
 This package adds the following .NET references:
 
-- `Microsoft.Data.Edm`
-- `Microsoft.Data.OData`
-- `Microsoft.Data.Services.Client`
-- `Microsoft.WindowsAzure.Configuration`
-- `Microsoft.WindowsAzure.Storage`
-- `Newtonsoft.Json`
-- `System.Data`
-- `System.Spatial`
+- **Microsoft.Data.Edm**
+- **Microsoft.Data.OData**
+- **Microsoft.Data.Services.Client**
+- **Microsoft.WindowsAzure.Configuration**
+- **Microsoft.WindowsAzure.Storage**
+- **Newtonsoft.Json**
+- **System.Data**
+- **System.Spatial**
 
-#####Connection string for Azure Storage added
+##Connection string for Azure Storage added
 In the web.config file of your project, an element was created with the selected storage account's connection string and key.
 
 For more information, see [ASP.NET](http://www.asp.net).

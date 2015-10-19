@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Create a SharePoint Connector to use in your logic app"
-   description="Create a SharePoint Connector; Using the SharePoint Connector in your logic app"
+   pageTitle="Using the SharePoint Connector in Logic Apps | Microsoft Azure App Service"
+   description="How to create and configure the SharePoint Connector or API app and use it in a logic app in Azure App Service"
    services="app-service\logic"
    documentationCenter=".net,nodejs,java"
    authors="anuragdalmia"
@@ -13,14 +13,15 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="08/19/2015"
+   ms.date="08/23/2015"
    ms.author="sameerch"/>
 
-# Using the SharePoint Connector in your logic app
-
-Logic apps can trigger based on a variety of data sources and offer connectors to get and process data as a part of the flow. Microsoft SharePoint connector lets you connect to Microsoft SharePoint Server or SharePoint Online and manage documents and list items. You can perform various actions such as create, update, get, and delete on documents and list items. When using on-premises SharePoint server, you enter the Service Bus Connection String as part of connector configuration and install the on-premises listener agent to connect to the server.
+# Get started with the SharePoint Connector and add it to your Logic App
+Connect SharePoint Server or SharePoint Online to manage documents and list items. You can perform various actions such as create, update, get, and delete on documents and list items. When using on-premises SharePoint server, you enter the Service Bus Connection String as part of connector configuration and install the on-premises listener agent to connect to the server.
 
 The SharePoint Online Connector and SharePoint Server Connector gallery app provides you Trigger and Actions as mechanisms to interact with SharePoint.
+
+Logic apps can trigger based on a variety of data sources and offer connectors to get and process data as a part of the flow. You can add the SharePoint Connector to your business workflow and process data as part of this workflow within a Logic App. 
 
 ## Create a SharePoint Online Connector
 
@@ -36,8 +37,7 @@ A connector can be created within a logic app or be created directly from the Az
 Site URL | Yes | Enter the complete URL of the SharePoint web site. For example, enter: *https://microsoft.sharepoint.com/teams/wabstest*.
 Document Library / List Relative URLs | Yes | Enter the document libraries/lists URLs, relative to the SharePoint site URL, that are allowed to be modified by the connector. For example, enter: *Lists/Task, Shared Documents*.
 
-5. When complete, the Package Settings look similar to the following:
-<br/>
+5. When complete, the Package Settings look similar to the following:  
 ![][1]
 
 Once that’s done, you can now create a logic App in the same resource group to use the SharePoint Online Connector.
@@ -464,6 +464,8 @@ See [Using the Hybrid Connection Manager](app-service-logic-hybrid-connection-ma
 
 ## Do more with your Connector
 Now that the connector is created, you can add it to a business workflow using a Logic App. See [What are Logic Apps?](app-service-logic-what-are-logic-apps.md).
+
+>[AZURE.NOTE] If you want to get started with Azure Logic Apps before signing up for an Azure account, go to [Try Logic App](https://tryappservice.azure.com/?appservice=logic), where you can immediately create a short-lived starter logic app in App Service. No credit cards required; no commitments.
 
 View the Swagger REST API reference at [Connectors and API Apps Reference](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 

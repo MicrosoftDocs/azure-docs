@@ -4,7 +4,7 @@
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
-	manager="keboyd"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/02/2015" 
+	ms.date="09/08/2015" 
 	ms.author="awills"/>
  
 # Monitor performance in web applications
@@ -22,23 +22,29 @@
 
 Make sure your application is performing well, and find out quickly about any failures. [Application Insights][start] will tell you about any performance issues and exceptions, and help you find and diagnose the root causes.
 
-Application Insights can monitor ASP.NET web applications and WCF services, hosted on-premise or on virtual machines, as well as Microsoft Azure websites. 
+Application Insights can monitor both Java and ASP.NET web applications and services, WCF services. They can be hosted on-premise, on virtual machines, or as Microsoft Azure websites. 
+
+On the client side, Application Insights can take telemetry from web pages and a wide variety of devices including iOS, Android and Windows Store apps.
 
 
 ## <a name="setup"></a>Set up performance monitoring
 
 If you haven't yet added Application Insights to your project (that is, if it doesn't have ApplicationInsights.config), choose one of these ways to get started:
 
-* [Add Application Insights to your project in Visual Studio][greenbrown] - Recommended. As well as passive performance monitoring, you can insert diagnostic logging and track usage.
-* [Monitor performance of a live website now][redfield] - This way, you don't need to update the application project or redeploy the website.
-* [For a Microsoft Azure website](../insights-how-to-customize-monitoring.md)  you can already see metrics on the website's Monitoring lens. 
+* [ASP.NET web apps](app-insights-asp-net.md)
+ * [Add exception monitoring](app-insights-asp-net-exceptions.md)
+ * [Add dependency monitoring](app-insights-monitor-performance-live-website-now.md)
+* [J2EE web apps](app-insights-java-get-started.md)
+ * [Add dependency monitoring](app-insights-java-agent.md)
 
-Using either of these methods, you'll quickly see data on the overview blade in Application Insights.
+
+## <a name="view"></a>Exploring performance metrics
+
+In [the Azure portal](https://portal.azure.com), browse to the Application Insights resource that you set up for your application. The overview blade shows basic performance data:
 
 
-## <a name="view"></a>Exploring metrics
 
-Click any  to see more detail, and to see results for a longer period. For example, click the Requests tile and then select a time range:
+Click any chart to see more detail, and to see results for a longer period. For example, click the Requests tile and then select a time range:
 
 
 ![Click through to more data and select a time range](./media/app-insights-web-monitor-performance/appinsights-48metrics.png)
@@ -135,7 +141,12 @@ If you prefer, you can write code to have the same effect:
     perfCollector.Initialize(TelemetryConfiguration.Active);
     TelemetryConfiguration.Active.TelemetryModules.Add(perfCollector);
 
+### Exception counts
 
+*What's the difference between the Exception rate and Exceptions metrics?*
+
+* *Exception rate* is a system performance counter. The CLR counts all the handled and unhandled exceptions that are thrown, and divides the total in a sampling interval by the length of the interval. The Application Insights SDK collects this result and sends it to the portal.
+* *Exceptions* is a count of the TrackException reports received by the portal in the sampling interval of the chart. It includes only the handled exceptions where you have written TrackException calls in your code, and doesn't include all [unhandled exceptions](app-insights-asp-net-exceptions.md). 
 
 ## Set alerts
 
@@ -178,7 +189,7 @@ Here are a few tips for finding and diagnosing performance issues:
 [greenbrown]: app-insights-start-monitoring-app-health-usage.md
 [qna]: app-insights-troubleshoot-faq.md
 [redfield]: app-insights-monitor-performance-live-website-now.md
-[start]: app-insights-get-started.md
+[start]: app-insights-overview.md
 [usage]: app-insights-web-track-usage.md
 
  

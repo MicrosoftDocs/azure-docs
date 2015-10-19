@@ -20,7 +20,7 @@
 
 # Install a new Active Directory forest on an Azure virtual network
 
-This topic shows how to create a new Windows Server Active Directory environment on an Azure virtual network on a virtual machine (VM) on an [Azure virtual network](https://msdn.microsoft.com/library/azure/jj156007.aspx). In this case, the Azure virtual network is not connected to an on-premises network. 
+This topic shows how to create a new Windows Server Active Directory environment on an Azure virtual network on a virtual machine (VM) on an [Azure virtual network](../virtual-network/virtual-networks-overview.md). In this case, the Azure virtual network is not connected to an on-premises network. 
 
 You might also be interested in these related topics:
 
@@ -33,7 +33,7 @@ You might also be interested in these related topics:
 In this scenario, external users need to access applications that run on domain-joined servers. The VMs that run the application servers and the VMs that run domain controllers are installed installed in their own cloud service in an Azure virtual network. They are also included within an availability set for improved fault tolerance.
 
 ![][1]
-
+7
 ## How does this differ from on-premises?
 
 There is not much difference between installing a domain controller on Azure versus on-premises. The main differences are listed in the following table. 
@@ -125,7 +125,7 @@ For more information about using Windows PowerShell, see [Get Started with Azure
 -  [Install a Replica Active Directory Domain Controller in an Azure virtual network](../virtual-networks-install-replica-active-directory-domain-controller.md)
 -  [Microsoft Azure IT Pro IaaS: (01) Virtual Machine Fundamentals](http://channel9.msdn.com/Series/Windows-Azure-IT-Pro-IaaS/01)
 -  [Microsoft Azure IT Pro IaaS: (05) Creating Virtual Networks and Cross-Premises Connectivity](http://channel9.msdn.com/Series/Windows-Azure-IT-Pro-IaaS/05)
--  [Virtual Network Overview](https://msdn.microsoft.com/library/azure/jj156007.aspx)
+-  [Virtual Network Overview](../virtual-network/virtual-networks-overview.md)
 -  [How to install and configure Azure PowerShell](../powershell-install-configure.md)
 -  [Azure PowerShell](https://msdn.microsoft.com/library/azure/jj156055.aspx)
 -  [Azure Cmdlet Reference](https://msdn.microsoft.com/library/azure/jj554330.aspx)

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/20/2015"
+	ms.date="09/07/2015"
 	ms.author="juliako"/>
 
 
@@ -101,13 +101,13 @@ This section describes the steps you can take to encode your content with Azure 
 
 1.  Select the file that you would like to encode.
 	If encoding is supported for this file type, the PROCESS button will be enabled on the bottom of the CONTENT page.
-4. In the **Process** dialog, select the** Azure Media Encoder **processor.
+4. In the **Process** dialog, select the **Azure Media Encoder** processor.
 5. Choose from one of the **encoding configurations**.
 
 	![Process2][process2]
 
 		
-	The [Task Preset Strings for Azure Media Encoder](https://msdn.microsoft.com/library/azure/dn619392.aspx) topic explains what each preset in **Presets for Adaptive Streaming (dynamic packaging)**, **Presets for Progressive Download**, **Legacy Prests for Adaptive Streaming**  categories means.  
+	The [Task Preset Strings for Azure Media Encoder](https://msdn.microsoft.com/library/azure/dn619392.aspx) topic explains what each preset in **Presets for Adaptive Streaming (dynamic packaging)**, **Presets for Progressive Download**, **Legacy Presets for Adaptive Streaming**  categories means.  
 
 
 	The **Other** configurations are described below:
@@ -207,6 +207,14 @@ Some considerations apply:
 - Make sure the video has been published.
 - The **MEDIA SERVICES CONTENT PLAYER** plays from the default streaming endpoint. If you want to play from a non-default streaming endpoint, use another player. For example, [Azure Media Services Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html).
  
+
+##Media Services learning paths
+
+You can view AMS learning paths here:
+
+- [AMS Live Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [AMS on Demand Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
 
 ![AMSPlayer][AMSPlayer]
 

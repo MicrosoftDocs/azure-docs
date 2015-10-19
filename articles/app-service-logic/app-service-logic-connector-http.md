@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Http Listener and Connector"
-   description="Using the HTTP listener and HTTP action in your Logic App"
+   pageTitle="Using the HTTP Listener and Connector in Logic Apps | Microsoft Azure App Service "
+   description="How to create and configure the HTTP listener and HTTP action Connector or API app and use it in a logic app in Azure App Service"
    services="app-service\logic"
    documentationCenter=".net,nodejs,java"
    authors="anuragdalmia"
@@ -13,23 +13,23 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="08/19/2015"
+   ms.date="08/23/2015"
    ms.author="prkumar"/>
 
 
-#Using the HTTP listener and HTTP action in your Logic App#
-
-Logic apps can trigger based on a variety of data sources and offer connectors to get and process data as a part of the flow. However, there are some scenarios where you may need to work with direct HTTP connections, including:
+# Get started with the HTTP listener and HTTP action and add it to your Logic App
+Connect directly to HTTP resources to listen for HTTP requests and configure HTTP web requests. There are some scenarios where you may need to work with direct HTTP connections, including:
 
 1.	To develop a logic App that supports a web or mobile user interactive front end.
 2.	To get and process data from a web service that doesn’t have an out of box connector.
 3.	To perform actions that are already exposed as a web service, but not available as an API app.
 
-
-For these scenarios, the gallery provides two options:
+For these scenarios, there are two options:
 
 1. **HTTP listener**: This connector acts as a trigger and listens for HTTP requests on a configured endpoint. When a call is received on the configured endpoint, it triggers a new instance of the flow and passes the data received in the request to the flow for processing. It can also be configured to automatically respond to the incoming request when the flow has started, or let you construct a response based on the flow execution and send a response to the caller.
 2. **HTTP action**: This lets you configure a web request to any endpoint available on the internet, gets back a response, and makes it available for additional actions in the flow to consume.
+
+Logic apps can trigger based on a variety of data sources and offer connectors to get and process data as a part of the flow. You can add the HTTP connector to your business workflow and process data as part of this workflow within a Logic App. 
 
 ## Creating an HTTP listener for your Logic App
 A connector can be created within a logic app or be created directly from the Azure Marketplace. To create a connector from the Marketplace:  
@@ -82,6 +82,8 @@ Now that the connector is created, you can add it to a business workflow using a
 View the Swagger REST API reference at [Connectors and API Apps Reference](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 
 You can also review performance statistics and control security to the connector. See [Manage and Monitor your built-in API Apps and Connectors](app-service-logic-monitor-your-connectors.md).
+
+> [AZURE.NOTE] If you want to get started with Azure Logic Apps before signing up for an Azure account, go to [Try Logic App](https://tryappservice.azure.com/?appservice=logic), where you can immediately create a short-lived starter logic app in App Service. No credit cards required; no commitments.
 
 <!--Image references-->
 [1]: ./media/app-service-logic-connector-http/1.png

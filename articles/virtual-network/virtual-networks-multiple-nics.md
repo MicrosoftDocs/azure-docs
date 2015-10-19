@@ -118,7 +118,7 @@ The instructions below will help you create a multi NIC VM containing 3 NICs: a 
 You need the following prerequisites before trying to run the PowerShell commands in the example.
 
 - An Azure subscription.
-- A configured virtual network. See [Virtual Network Overview](https://msdn.microsoft.com/library/azure/jj156007.aspx) for more information about VNets.
+- A configured virtual network. See [Virtual Network Overview](virtual-networks-overview.md) for more information about VNets.
 - The latest version of Azure PowerShell downloaded and installed. See [How to install and configure Azure PowerShell](../install-configure-powershell).
 
 To create a VM with multiple NICs, follow the steps below:

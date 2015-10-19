@@ -19,6 +19,8 @@
 # Create Predictive Pipelines using Azure Data Factory and Azure Machine Learning 
 ## Overview
 
+> [AZURE.NOTE] See [Create predictive pipelines using Azure Machine Learning Batch Execution activity](data-factory-azure-ml-batch-execution-activity.md) article to learn about the new Machine Learning Batch Execution activity, which provides more flexibility than the Batch Scoring activity covered by this article.  
+
 Azure Data Factory enables you to easily create pipelines that leverages a published [Azure Machine Learning][azure-machine-learning] web service for predictive analytics. This enables you to use Azure Data Factory to orchestrate  data movement and processing, and then perform batch scoring using Azure Machine Learning. To achieve this, you will need to do the following:
 
 1. Use the **AzureMLBatchScoring** activity.
@@ -38,7 +40,7 @@ A **predictive pipeline** has these parts:
 ## Example
 This example uses Azure Storage to hold both the input and output data. You can also use Azure SQL Database instead of using Azure Storage. 
 
-We recommend that you go through the [Get started with Azure Data Factory][adf-getstarted] tutorial prior to going through this example and use the Data Factory Editor to create Data Factory artifacts (linked services, tables, pipeline) in this example.   
+We recommend that you go through the [Build your first pipeline with Data Factory][adf-build-1st-pipeline] tutorial prior to going through this example and use the Data Factory Editor to create Data Factory artifacts (linked services, tables, pipeline) in this example.   
  
 
 1. Create a **linked service** for your **Azure Storage**. If the scoring input and output files will be in different storage accounts, you will need two linked services. Here is a JSON example:
@@ -306,21 +308,8 @@ In the above JSON example:
 
 
 
-## See Also
 
-Article | Description
------- | ---------------
-[Azure Data Factory Developer Reference][developer-reference] | The Developer Reference has the comprehensive reference content for cmdlets, JSON script, .NET class library, functions, etc… 
-
-[adf-introduction]: data-factory-introduction.md
-[adf-getstarted]: data-factory-get-started.md
-[use-onpremises-datasources]: data-factory-use-onpremises-datasources.md
-[use-pig-and-hive-with-data-factory]: data-factory-pig-hive-activities.md
-[adf-tutorial]: data-factory-tutorial.md
-[use-custom-activities]: data-factory-use-custom-activities.md
-[troubleshoot]: data-factory-troubleshoot.md
-[data-factory-introduction]: data-factory-introduction.md  
-[developer-reference]: http://go.microsoft.com/fwlink/p/?LinkId=516908
+[adf-build-1st-pipeline]: data-factory-build-your-first-pipeline.md
 
 [azure-machine-learning]: http://azure.microsoft.com/services/machine-learning/
 [machine-learning-dashboard]: ./media/data-factory-create-predictive-pipelines/AzureMLDashboard.png

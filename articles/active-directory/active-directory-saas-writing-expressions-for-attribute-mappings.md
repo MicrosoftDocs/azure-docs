@@ -52,8 +52,7 @@ The syntax for Expressions for Attribute Mappings is reminiscent of Visual Basic
 
 ## List of Functions
 
-[Append](#append) &nbsp;&nbsp;&nbsp;&nbsp; [Coalesce](#coalesce) &nbsp;&nbsp;&nbsp;&nbsp; [FormatDateTime](#formatdatetime) &nbsp;&nbsp;&nbsp;&nbsp; [Join](#join) &nbsp;&nbsp;&nbsp;&nbsp; [MatchRegex](#matchregex)
-&nbsp;&nbsp;&nbsp;&nbsp; [Mid](#mid) &nbsp;&nbsp;&nbsp;&nbsp; [Not](#not) &nbsp;&nbsp;&nbsp;&nbsp; [ObsoleteReplace](#obsoletereplace) &nbsp;&nbsp;&nbsp;&nbsp; [Replace](#replace) &nbsp;&nbsp;&nbsp;&nbsp; [ReplaceRegex](#replaceregex)  &nbsp;&nbsp;&nbsp;&nbsp; [StripSpaces](#stripspaces) &nbsp;&nbsp;&nbsp;&nbsp; [Switch](#switch)
+[Append](#append) &nbsp;&nbsp;&nbsp;&nbsp; [FormatDateTime](#formatdatetime) &nbsp;&nbsp;&nbsp;&nbsp; [Join](#join) &nbsp;&nbsp;&nbsp;&nbsp; [Mid](#mid) &nbsp;&nbsp;&nbsp;&nbsp; [Not](#not) &nbsp;&nbsp;&nbsp;&nbsp; [Replace](#replace) &nbsp;&nbsp;&nbsp;&nbsp; [StripSpaces](#stripspaces) &nbsp;&nbsp;&nbsp;&nbsp; [Switch](#switch)
 
 
 
@@ -74,23 +73,6 @@ Takes a source string value and appends the suffix to the end of it.
 |--- | ---                 | ---  | ---   |
 | **source** | Required | String | Usually name of the attribute from the source object |
 | **suffix** | Required | String | The string that you want to append to the end of the source value. |
-
-
-----------
-### Coalesce
-
-**Function:**<br> 
-Coalesce(source1, source2, …)
-
-**Description:**<br> 
-Returns first non-empty value from the list of source parameters.
- 
-**Parameters:**<br> 
-
-|Name| Required/ Repeating | Type | Notes |
-|--- | ---                 | ---  | ---   |
-| **source1 .. sourceN ** | Required, variable number of times | String | **source** values to choose from |
-
 
 
 ----------
@@ -130,29 +112,6 @@ If one of the source values is a multi-value attribute, then every value in that
 |--- | ---                 | ---  | ---   |
 | **separator** | Required | String | String used to separate source values when they are concatenated into one string. Can be "" if no separator is required. |
 | **source1  … sourceN ** | Required, variable-number of times | String | String values to be joined together. |
-
-
-
-
-
-----------
-### MatchRegex
-
-**Function:**<br> 
-MatchRegex(source, find, group)
-
-**Description:**<br> 
-Returns substring inside source value which matches regular expression pattern specified in find parameter. 
- If group is specified, returns only the value of that RegEx group
-
-
-**Parameters:**<br> 
-
-|Name| Required/ Repeating | Type | Notes |
-|--- | ---                 | ---  | ---   |
-| **source** | Required | String | **Source** value to search in. |
-| **find** | Required | String | Regular expression to match inside **source** value. |
-| **group** | Optional | String | Name of the group inside regular expression match whose value we want to use. |
 
 
 
@@ -196,14 +155,12 @@ Flips the boolean value of the **source**. If **source** value is "*True*", retu
 
 
 ----------
-### ObsoleteReplace
+### Replace
 
 **Function:**<br> 
 ObsoleteReplace(source, oldValue, regexPattern, regexGroupName, replacementValue, replacementAttributeName, template)
 
-**Description:**<br> 
-> [AZURE.NOTE]This function will be deprecated in near future and replaced with simpler versions
-
+**Description:**<br>
 Replaces values within a string. It works differently depending on the parameters provided:
 
 - When **oldValue** and **replacementValue** are provided:
@@ -222,7 +179,7 @@ Replaces values within a string. It works differently depending on the parameter
 
    - If **source** has value, **source** is returned
 
-- If **source** has no value, uses **oldValueRegexPattern** and **oldValueRegexGroupName** to extract replacement value from the property with **replacementPropertyName**. Replacement value is returned as the result
+   - If **source** has no value, uses **oldValueRegexPattern** and **oldValueRegexGroupName** to extract replacement value from the property with **replacementPropertyName**. Replacement value is returned as the result
 
 
 **Parameters:**<br> 
@@ -236,46 +193,6 @@ Replaces values within a string. It works differently depending on the parameter
 | **replacementValue** | Optional | String | New value to replace old one with. |
 | **replacementAttributeName** | Optional | String | Name of the attribute to be used for replacement value, when source has no value. |
 | **template** | Optional | String | When **template** value is provided, we will look for **oldValue** inside the template and replace it with source value. |
-
-
-
-----------
-### Replace
-
-**Function:**<br> 
-Replace(source, find, replace)
-
-**Description:**<br> 
-Replaces all occurrences of **find** value in the **source** string with the value of the **replace** parameter.
-
-**Parameters:**<br> 
-
-|Name| Required/ Repeating | Type | Notes |
-|--- | ---                 | ---  | ---   |
-| **source** | Required | String | **Source** value to search in. |
-| **find** | Required | String | Value to search for. |
-| **replace** | Required | String | Value to replace with. |
-
-
-
-----------
-### ReplaceRegex
-
-**Function:**<br> 
-ReplaceRegex(source, find, replace, group)
-
-**Description:**<br> 
-Inside the **source** string, replaces all substrings matching the **find** regular expression with the **replace** value.  If a **group** is specified, it replaces only the value of that RegEx group.
-
-**Parameters:**<br> 
-
-|Name| Required/ Repeating | Type | Notes |
-|--- | ---                 | ---  | ---   |
-| **source** | Required | String | **Source** value to search in. |
-| **find** | Required | String | Regular expression to match inside **source** value. |
-| **replace** | Required | String | Value to replace with. |
-| **group** | Optional | String | Name of the group inside regular expression match whose value we want to use. |
-
 
 
 
@@ -325,14 +242,13 @@ For example, if the domain is "contoso.com", then you could use the following ex
 
 
 **Expression:** <br>
-`Replace([mail], "@contoso.com", "")`
+`Replace([mail], "@contoso.com", , ,"", ,)`
 
 **Sample input / output:** <br>
 
 - **INPUT** (mail): "john.doe@contoso.com"
 
 - **OUTPUT**:  "john.doe"
-
 
 
 ### Append constant suffix to user name

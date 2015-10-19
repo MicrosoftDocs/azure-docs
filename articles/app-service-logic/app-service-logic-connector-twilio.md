@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Twilio Connector API App"
-   description="How to use the TwilioConnector"
+   pageTitle="Using the Twilio Connector in Logic Apps | Microsoft Azure App Service"
+   description="How to create and configure the Twilio Connector or API app and use it in a logic app in Azure App Service"
    services="app-service\logic"
    documentationCenter=".net,nodejs,java"
    authors="anuragdalmia"
@@ -13,24 +13,20 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="08/19/2015"
+   ms.date="08/23/2015"
    ms.author="sameerch"/>
 
 
-# Using the Twilio connector in your logic app #
-
-Logic apps can trigger based on a variety of data sources and offer connectors to get and process data as a part of the flow.
-
-Twilio connector lets you send and receive SMSes from your Twilio account. It also lets you retrieve phone numbers, and usage data.
+# Get started with the Twilio Connector and add it to your Logic App
+Connect to your Twilio account to send and receive SMS messages. You can also retrieve phone numbers and usage data. Logic apps can trigger based on a variety of data sources and offer connectors to get and process data as a part of the flow. You can add the Twilio Connector to your business workflow and process data as part of this workflow within a Logic App. 
 
 ## Creating an Twilio connector for your Logic App ##
-To use the Twilio connector, you need to first create an instance of the Twilio connector API app. This can be done as follows:
+A connector can be created within a logic app or be created directly from the Azure Marketplace. To create a connector from the Marketplace:  
 
-1.	Open the Azure Marketplace using the + NEW option at the bottom left of the Azure Portal.
-2.	Browse to “API Apps” and search for “Twilio connector”.
-3.	Configure the Twilio connector as follows:
-
-	![][1]
+1. In the Azure startboard, select **Marketplace**.
+2. Search for “Twilio Connector”, select it, and select **Create**.
+3. Configure the Twilio connector as follows:  
+![][1]  
 	- **Location** - choose the geographic location where you would like the connector to be deployed
 	- **Subscription** - choose a subscription you want this connector to be created in
 	- **Resource group** - select or create a resource group where the connector should reside
@@ -42,21 +38,18 @@ To use the Twilio connector, you need to first create an instance of the Twilio 
 		- **Auth Token** - Authorization token associated with the account. Authorization Token for your account can be retrieved from <https://www.twilio.com/user/account/settings>
 
 
-4.	Click on Create. A new Twilio Connector will be created.
-5.	Once the API app instance is created, you can create a logic App in the same resource group to use the Twilio connector.
+4.	Click on Create. A new Twilio Connector is created.
+5.	Once the API app instance is created, you can create a logic App to use the Twilio connector.
 
 ## Using the Twilio Connector in your Logic App ##
 Once your API app is created, you can now use the Twilio connector as an action for your Logic App. To do this, you need to:
 
-1.	Create a new Logic App and choose the same resource group which has the Twilio Connector.
-
-	![][2]
-2.	Open “Triggers and Actions” to open the Logic Apps Designer and configure your flow.
-
-	![][3]
-3.	The Twilio connector would appear in the “API Apps in this resource group” section in the gallery on the right hand side.
-
-	![][4]
+1.	Create a new Logic App and choose the same resource group which has the Twilio Connector:  
+![][2]
+2.	Open “Triggers and Actions” to open the Logic Apps Designer and configure your flow:  
+![][3]
+3.	The Twilio connector would appear in the “API Apps in this resource group” section in the gallery on the right hand side:  
+![][4]
 4. You can drop the Twilio Connector API app into the editor by clicking on the “Twilio Connector”.
 
 5.	You can now use Twilio connector in the flow. You can use the "Send Message" action in the flow to send a message. Configure the input properties for "Send Message" action as follows:
@@ -64,11 +57,13 @@ Once your API app is created, you can now use the Twilio connector as an action 
 	- **To Phone Number** - The destination phone number. The format accepted is: +, followed by the country code, then the phone number. For example, +16175551212. If you omit the +, Twilio will use the country code you entered in the 'From' number.
 	- **Text** - The text of the message you want to send.
 
-	![][5]
+	![][5]  
 	![][6]
 
 ## Do more with your Connector
 Now that the connector is created, you can add it to a business workflow using a Logic App. See [What are Logic Apps?](app-service-logic-what-are-logic-apps.md).
+
+>[AZURE.NOTE] If you want to get started with Azure Logic Apps before signing up for an Azure account, go to [Try Logic App](https://tryappservice.azure.com/?appservice=logic), where you can immediately create a short-lived starter logic app in App Service. No credit cards required; no commitments.
 
 View the Swagger REST API reference at [Connectors and API Apps Reference](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 

@@ -1,6 +1,6 @@
 <properties
-   pageTitle="HDInsight Connector"
-   description="Using the the HDInsight Connector in Azure App Service"
+   pageTitle="Using the HDInsight connector in Logic Apps | Microsoft Azure App Service"
+   description="How to create and configure the HDInsight Connector or API app and use it in a logic app in Azure App Service"
    services="app-service\logic"
    documentationCenter=".net,nodejs,java"
    authors="anuragdalmia"
@@ -13,13 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="08/19/2015"
+   ms.date="08/23/2015"
    ms.author="sameerch"/>
 
 
-# Microsoft HDInsight Connector #
+# Get started with the HDInsight Connector and add it to your Logic App
+HDInsight Connector lets you create a Hadoop clusters on Azure and submit various Hadoop jobs such as Hive, Pig, MapReduce and Streaming MapReduce jobs. Azure HDInsight service deploys and provisions Apache Hadoop clusters in the cloud, providing a software framework designed to manage, analyze, and report on big data. The Hadoop core provides reliable data storage with the Hadoop Distributed File System (HDFS), and a simple MapReduce programming model to process and analyze, in parallel, the data stored in this distributed system. Using HDInsight connector, you can create or delete a cluster, submit a job and wait for it to complete.
 
-Connectors can be used in Logic apps to fetch, process or push data as a part of a flow. HDInsight Connector lets you create a Hadoop clusters on Azure and submit various Hadoop jobs such as Hive, Pig, MapReduce and Streaming MapReduce jobs. Azure HDInsight service deploys and provisions Apache Hadoop clusters in the cloud, providing a software framework designed to manage, analyze, and report on big data. The Hadoop core provides reliable data storage with the Hadoop Distributed File System (HDFS), and a simple MapReduce programming model to process and analyze, in parallel, the data stored in this distributed system. Using HDInsight connector, you can create or delete a cluster, submit a job and wait for it to complete.
+Connectors can be used in Logic apps to fetch, process or push data as a part of a flow. You can add the HDInsight connector to your business workflow and process data as part of this workflow within a Logic App. 
 
 ### Basic Actions
 
@@ -95,6 +96,8 @@ To test the scenario, select **Run Now** to start the logic app manually.
 
 ## Do more with your Connector
 Now that the connector is created, you can add it to a business workflow using a Logic App. See [What are Logic Apps?](app-service-logic-what-are-logic-apps.md).
+
+>[AZURE.NOTE] If you want to get started with Azure Logic Apps before signing up for an Azure account, go to [Try Logic App](https://tryappservice.azure.com/?appservice=logic), where you can immediately create a short-lived starter logic app in App Service. No credit cards required; no commitments.
 
 View the Swagger REST API reference at [Connectors and API Apps Reference](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 

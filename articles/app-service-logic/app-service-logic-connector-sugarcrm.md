@@ -1,6 +1,6 @@
 <properties
-   pageTitle="SugarCRM Connector"
-   description="How to use the SugarCRM Connector"
+   pageTitle="Using the SugarCRM Connector in Logic Apps | Microsoft Azure App Service"
+   description="How to create and configure the SugarCRM Connector or API app and use it in a logic app in Azure App Service"
    services="app-service\logic"
    documentationCenter=".net,nodejs,java"
    authors="anuragdalmia"
@@ -13,25 +13,25 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="08/19/2015"
+   ms.date="08/23/2015"
    ms.author="sameerch"/>
 
 
-# Using the SugarCRM Connector in your Logic App
-
-Logic apps can trigger based on a variety of data sources and offer connectors to get and process data as a part of the flow. SugarCRM connector lets you create and modify different entities such as Accounts, Leads, Contacts etc. Following are the typical integration scenarios that involve SugarCRM.
+# Get started with the SugarCRM Connector and add it to your Logic App
+SugarCRM connector lets you create and modify different entities such as Accounts, Leads, Contacts, and so on. Following are the typical integration scenarios that involve SugarCRM:
 
 - Account Synchronization between SugarCRM and ERP systems such as SAP
-
 - Account, Contacts and Leads synchronization between Marketo and SugarCRM
-
 - Order to Cash flow from SugarCRM to ERP systems
 
+As part of Connector package settings, you can choose entities the connector can manage and the actions, input and output parameters are dynamically populated.
 
-As part of Connector package settings, the user can specify entities the connector can manage and the actions, input and output parameters are dynamically populated.
+Logic apps can trigger based on a variety of data sources and offer connectors to get and process data as a part of the flow. You can add the SugarCRM Connector to your business workflow and process data as part of this workflow within a Logic App. 
+
+
 
 ## SugarCRM Connector Actions
-Following are the different actions available in SugarCRM connector.
+Following are the different actions available in SugarCRM connector:
 
 - Create Module - Use this action to create a new record for SugarCRM module such as Accounts, Leads, Contacts.
 
@@ -71,52 +71,44 @@ Module Names | Yes | Enter the SugarCRM modules (such as Accounts, Contacts, Pro
 ## Create a Logic App
 Let us create a simple logic app that creates an account in SugarCRM and updates billing address details of the same account.
 
-1.	Login to Azure Portal and click on ‘New -> Web + mobile -> Logic App’
+1.	Login to Azure Portal and click on ‘New -> Web + mobile -> Logic App’:  
+![][1]
 
-	![][1]
-
-2.	In the ‘Create logic app’ page, provide the required details such as name, app service plan and location.
-
-	![][2]
+2.	In the ‘Create logic app’ page, provide the required details such as name, app service plan and location:  
+![][2]
 
 3.	Click on ‘Triggers and Actions’ and the Logic App editor screen comes up. Select ‘Run this logic manually’ which means that this logic app can be invoked only manually.
 
+4.	Expand ‘API Apps in this resource group’ in Gallery to see all the available API Apps. Select ‘SugarCRM’ from the gallery and the ‘SugarCRM connector’ gets added to the flow:  
+![][3]
 
-5.	Expand ‘API Apps in this resource group’ in Gallery to see all the available API Apps. Select ‘SugarCRM’ from the gallery and the ‘SugarCRM connector’ gets added to the flow.
+5.	Select ‘Create Account’ action and the input parameters are displayed:  
+![][4]
 
+6.	Provide name as 'Microsoft Account' and click ✓:  
+![][5]
 
-	![][3]
+7.	Select ‘SugarCRM Connector’ from the ‘Recently Used’ section in the gallery and a new SugarCRM action gets added.
 
-6.	Select ‘Create Account’ action and the input parameters are displayed.
+8.	Select ‘Update Account’ (this will be under advanced actions '...') from the list of actions and the input parameters of ‘Update Account’ action are displayed:  
+![][6]
 
-	![][4]
+9.	Click on ‘...’ next to ‘Record Id’ to pick the "id" value from the output of ‘Create Account’ action:  
+![][7]
 
-12.	Provide name as 'Microsoft Account' and click ✓.
+10.	Provide values for billing address information and click ✓:  
+![][8]
 
-	![][5]
+11. Click on OK on Logic app editor screen and then click 'Create'. It will take approximately 30 seconds for the creation to complete.
 
-13.	Select ‘SugarCRM Connector’ from the ‘Recently Used’ section in the gallery and a new SugarCRM action gets added.
+12. Browse the newly created Logic App and click on 'Run Now' to initiate a run.
 
-14.	Select ‘Update Account’ (this will be under advanced actions '...') from the list of actions and the input parameters of ‘Update Account’ action are displayed.
-
-	![][6]
-
-15.	Click on ‘...’ next to ‘Record Id’ to pick the "id" value from the output of ‘Create Account’ action.
-
-	![][7]
-
-16.	Provide values for billing address information and click ✓.
-
-	![][8]
-
-17. Click on OK on Logic app editor screen and then click 'Create'. It will take approximately 30 seconds for the creation to complete.
-
-18. Browse the newly created Logic App and click on 'Run Now' to initiate a run.
-
-19. You can check that a new account by name 'Microsoft Account' gets created in your SugarCRM account and the same account is also updated with billing address information.
+13. You can check that a new account by name 'Microsoft Account' gets created in your SugarCRM account and the same account is also updated with billing address information.
 
 ## Do more with your Connector
 Now that the connector is created, you can add it to a business workflow using a Logic App. See [What are Logic Apps?](app-service-logic-what-are-logic-apps.md).
+
+>[AZURE.NOTE] If you want to get started with Azure Logic Apps before signing up for an Azure account, go to [Try Logic App](https://tryappservice.azure.com/?appservice=logic), where you can immediately create a short-lived starter logic app in App Service. No credit cards required; no commitments.
 
 View the Swagger REST API reference at [Connectors and API Apps Reference](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 

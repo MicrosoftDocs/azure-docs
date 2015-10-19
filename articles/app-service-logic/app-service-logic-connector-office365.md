@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Office 365 Connector"
-   description="How to use the Office 365 Connector"
+   pageTitle="Using the Office 365 Connector in Logic Apps | Microsoft Azure App Service"
+   description="How to create and configure the Office 365 Connector or API app and use it in a logic app in Azure App Service"
    services="app-service\logic"
    documentationCenter=".net,nodejs,java"
    authors="anuragdalmia"
@@ -13,13 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="08/19/2015"
+   ms.date="08/23/2015"
    ms.author="sameerch"/>
 
 
-#Using the Office 365 Connector in your Logic App#
+# Get started with the Office 365 Connector and add it to your Logic App
+Connect to your Office 365 account to send and receive emails, and manage your calendar and contacts. You can perform various actions such as send, receive and get emails, create and delete events in your calendar and create, update, get and delete your contacts.
 
-Logic apps can trigger based on a variety of data sources and offer connectors to get and process data as a part of the flow. Office 365 Connector lets you send and receive emails, manage calendar and contacts in your Office 365 account. You can perform various actions such as send, receive and get emails, create and delete events in your calendar and create, update, get and delete your contacts.
+Logic apps can trigger based on a variety of data sources and offer connectors to get and process data as a part of the flow. You can add the Office 365 connector to your business workflow and process data as part of this workflow within a Logic App. 
 
 **Basic Actions**
 
@@ -117,6 +118,8 @@ Let us create a simple logic app that gets triggered when an email is received (
 
 ## Do more with your Connector
 Now that the connector is created, you can add it to a business workflow using a Logic App. See [What are Logic Apps?](app-service-logic-what-are-logic-apps.md).
+
+> [AZURE.NOTE] If you want to get started with Azure Logic Apps before signing up for an Azure account, go to [Try Logic App](https://tryappservice.azure.com/?appservice=logic), where you can immediately create a short-lived starter logic app in App Service. No credit cards required; no commitments.
 
 View the Swagger REST API reference at [Connectors and API Apps Reference](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 

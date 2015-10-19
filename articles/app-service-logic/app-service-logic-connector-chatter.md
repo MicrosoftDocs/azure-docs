@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Chatter Connector API App"
-   description="How to use the Chatter Connector"
+   pageTitle="Using the Chatter Connector in Logic Apps | Microsoft Azure App Service"
+   description="How to create and configure the Chatter Connector or API app and use it in a logic app in Azure App Service"
    services="app-service\logic"
    documentationCenter=".net,nodejs,java"
    authors="anuragdalmia"
@@ -13,15 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="08/19/2015"
+   ms.date="08/23/2015"
    ms.author="sameerch"/>
 
 
-# Using the Chatter connector in your logic app
+# Get started with the Chatter Connector and add it to your Logic App 
+Connect to Chatter and post a message or search a feed. For example, you can search a Chatter feed and when you find something specific, you can post that Chatter message to a Sales group.
 
-Chatter Connector lets you connect to Chatter and perform common tasks, like post a message. For example, you can search a Chatter feed and when you find something specific, you can post that Chatter message to a Sales group.
-
-You can add the Chatter connector to your business workflow and process data as part of this workflow. 
+You can add the Chatter connector to your business workflow and process data as part of this workflow within a Logic App. 
 
 ## Triggers and Actions
 
@@ -85,6 +84,8 @@ In the similar way you can use the Chatter action in the flow to post a message 
 
 ## Do more with your Connector
 Now that the connector is created, you can add it to a business workflow using a Logic App. See [What are Logic Apps?](app-service-logic-what-are-logic-apps.md).
+
+>[AZURE.NOTE] If you want to get started with Azure Logic Apps before signing up for an Azure account, go to [Try Logic App](https://tryappservice.azure.com/?appservice=logic), where you can immediately create a short-lived starter logic app in App Service. No credit cards required; no commitments.
 
 View the Swagger REST API reference at [Connectors and API Apps Reference](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 

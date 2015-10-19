@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Technical specifications and compliance for the StorSimple device | Microsoft Azure"
-   description="Describes the technical specifications and regulatory standardscompliance information for the StorSimple device."
+   pageTitle="StorSimple technical specifications | Microsoft Azure"
+   description="Describes the technical specifications and regulatory standards compliance information for the StorSimple hardware components."
    services="storsimple"
    documentationCenter="NA"
    authors="alkohli"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/17/2015"
+   ms.date="08/26/2015"
    ms.author="alkohli" />
 
 # Technical specifications and compliance for the StorSimple device

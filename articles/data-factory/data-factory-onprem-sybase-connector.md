@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Sybase Connector - Move data from Sybase" 
-	description="Learn about Sybase Connector for the Data Factory service that lets you move data from Sybase Database" 
+	pageTitle="Move data from Sybase | Azure Data Factory" 
+	description="Learn about how to move data from Sybase Database using Azure Data Factory." 
 	services="data-factory" 
 	documentationCenter="" 
 	authors="spelluru" 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/27/2015" 
+	ms.date="08/26/2015" 
 	ms.author="spelluru"/>
 
-# Sybase Connector - Move data from Sybase 
+# Move data from Sybase using Azure Data Factory 
 
 This article outlines how you can use the Copy Activity in an Azure data factory to move data from Sybase to another data store. This article builds on the [data movement activities](data-factory-data-movement-activities.md) article which presents a general overview of data movement with copy activity and supported data store combinations.
 
@@ -34,11 +34,11 @@ For Data Management Gateway to connect to the Sybase Database, you need to insta
 
 The sample below shows:
 
-1.	A linked service of type OnPremisesSybase.
-2.	A liked service of type AzureStorage.
-3.	An input dataset of type RelationalTable.
-4.	An output dataset of type AzureBlob.
-4.	The pipeline with Copy Activity that uses RelationalSource and BlobSink.
+1.	A linked service of type [OnPremisesSybase](data-factory-onprem-sybase-connector.md#sybase-linked-service-properties).
+2.	A liked service of type [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties).
+3.	An input [dataset](data-factory-create-datasets.md) of type [RelationalTable](data-factory-onprem-sybase-connector.md#sybase-dataset-type-properties).
+4.	An output [dataset](data-factory-create-datasets.md) of type [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
+4.	The [pipeline](data-factory-create-pipelines.md) with Copy Activity that uses [RelationalSource](data-factory-onprem-sybase-connector.md#sybase-copy-activity-type-properties) and [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties).
 
 The sample copies data from a query result in Sybase database to a blob every hour. The JSON properties used in these samples are described in sections following the samples. 
 
@@ -224,6 +224,8 @@ authenticationType | Type of authentication used to connect to the Sybase databa
 username | Specify user name if you are using Basic or Windows authentication. | No
 password | Specify password for the user account you specified for the username. |  No
 gatewayName | Name of the gateway that the Data Factory service should use to connect to the on-premises Sybase database. | Yes 
+
+See [Setting Credentials and Security](data-factory-move-data-between-onprem-and-cloud.md#setting-credentials-and-security) for details about setting credentials for an on-premises Sybase data source.
 
 ## Sybase Dataset type properties
 

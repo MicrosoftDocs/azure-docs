@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Using the Facebook connector in your logic app in Azure App Service"
-   description="How to use the Facebook Connector in a logic app"
+   pageTitle="Using the Facebook Connector in Logic Apps | Microsoft Azure App Service"
+   description="How to create and configure the Facebook Connector or API app and use it in a logic app in Azure App Service"
    services="app-service\logic"
    documentationCenter=".net,nodejs,java"
    authors="anuragdalmia"
@@ -13,16 +13,19 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="08/19/2015"
+   ms.date="08/23/2015"
    ms.author="andalmia"/>
 
 
-# Facebook Connector
+# Get started with the Facebook Connector and add it to your Logic App
+Connect to Facebook account to post a message or publish a photo. Logic apps can trigger based on a variety of data sources and offer connectors to get and process data as a part of the flow. 
 
-Logic apps can trigger based on a variety of data sources and offer connectors to get and process data as a part of the flow.
+With the Facebook Connector, you can:
 
-- Facebook connector trigger will retrieve “New Post on User Timeline” or “New Post on Page”. When a new tweet is retrieved, it triggers a new instance of the flow and passes the data received in the request to the flow for processing.
-- Facebook connector actions lets you “Publish Post”, “Publish Photo” and so on. These actions gets back a response and makes it available for the actions in the flow to consume.
+- Use triggers to retrieve “New Post on User Timeline” or “New Post on Page”. When a new post is retrieved, it triggers a new instance of the flow and passes the data received in the request to the flow for processing.
+- Use actions that let you “Publish Post”, “Publish Photo”, and so on. These actions gets back a response and makes it available for the actions in the flow to consume.
+
+You can add the Facebook Connector to your business workflow and process data as part of this workflow within a Logic App. 
 
 ## Triggers and Actions
 
@@ -33,7 +36,7 @@ Triggers | Actions
 
 
 ## Create the Facebook connector for your Logic App
-To use the Facebook connector, you need to first create an instance of the Facebook connector API app. This can be done as follows:
+A connector can be created within a logic app or be created directly from the Azure Marketplace. To create a connector from the Marketplace:  
 
 1. In the Azure startboard, select **Marketplace**.
 2. Search for “Facebook Connector”, select it, and select **Create**.
@@ -67,6 +70,8 @@ In the similar way you can create flows by using Facebook connector actions. The
 
 ## Do more with your Connector
 Now that the connector is created, you can add it to a business workflow using a Logic App. See [What are Logic Apps?](app-service-logic-what-are-logic-apps.md).
+
+>[AZURE.NOTE] If you want to get started with Azure Logic Apps before signing up for an Azure account, go to [Try Logic App](https://tryappservice.azure.com/?appservice=logic), where you can immediately create a short-lived starter logic app in App Service. No credit cards required; no commitments.
 
 View the Swagger REST API reference at [Connectors and API Apps Reference](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 

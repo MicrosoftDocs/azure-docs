@@ -1,9 +1,9 @@
 <properties
-	pageTitle="Create and manage a Windows virtual machine in Service Management with Azure PowerShell."
-	description="Use Azure PowerShell to quickly create a new Windows-based virtual machine in Service Management and perform management functions."
+	pageTitle="Create and manage a Windows VM using Azure PowerShell | Microsoft Azure"
+	description="Create and manage a Windows virtual machine with Azure Powershell using the classic deployment model."
 	services="virtual-machines"
 	documentationCenter=""
-	authors="KBDAzure"
+	authors="cynthn"
 	manager="timlt"
 	editor=""
 	tags="azure-service-management"/>
@@ -15,15 +15,15 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/09/2015"
-	ms.author="kathydav"/>
+	ms.author="cynthn"/>
 
-# Create and manage a Windows-based virtual machine in Service Management by using Azure PowerShell
+# Create and manage a Windows virtual machine using Azure PowerShell
 
-This article describes how to create and manage Windows-based Azure virtual machines in Service Management by using Azure PowerShell.
+This article describes how to create and manage Windows virtual machines using Azure PowerShell.
 
-[AZURE.INCLUDE [service-management-pointer-to-resource-manager](../../includes/service-management-pointer-to-resource-manager.md)]
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model](virtual-machines-deploy-rmtemplates-powershell.md).
 
-- [Deploy and manage virtual machines using Azure Resource Manager templates and PowerShell](virtual-machines-deploy-rmtemplates-powershell.md)
+
 
 ## Set up Azure PowerShell
 

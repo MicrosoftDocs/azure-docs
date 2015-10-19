@@ -14,7 +14,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="big-data"
- ms.date="06/05/2015"
+ ms.date="09/02/2015"
  ms.author="larryfr"/>
 
 # Correlate events over time with Storm and HBase on HDInsight
@@ -22,6 +22,8 @@
 By using a persistent data store with Apache Storm, you can correlate data entries that arrive at different times. For example, linking login and logout events for a user session to calculate how long the session lasted.
 
 In this document, you will learn how to create a basic C# Storm topology that tracks login and logout events for user sessions, and calculates the duration of the session. The topology uses HBase as a persistent data store. HBase also allows you to perform batch queries on the historical data to produce additional insights, such as how many user sessions were started or ended during a specific time period.
+
+[AZURE.INCLUDE [windows-only](../../includes/hdinsight-windows-only.md)]
 
 ## Prerequisites
 

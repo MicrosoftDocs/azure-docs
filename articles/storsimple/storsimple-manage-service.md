@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/18/2015"
+   ms.date="09/14/2015"
    ms.author="v-sharos" />
 
 # Deploy the StorSimple Manager service
@@ -107,8 +107,10 @@ Perform the following steps to regenerate a service registration key.
 
 ## Next steps
 
-[Learn more about the StorSimple deployment process](storsimple-deployment-walkthrough.md).
+- Learn more about the [StorSimple deployment process](storsimple-deployment-walkthrough.md).
 
-[Learn more about managing your StorSimple storage account](storsimple-manage-storage-accounts.md).
+- Learn more about [managing your StorSimple storage account](storsimple-manage-storage-accounts.md).
+
+- Learn more about how to [use the StorSimple Manager service to administer your StorSimple device](storsimple-manager-service-administration.md).
 
  

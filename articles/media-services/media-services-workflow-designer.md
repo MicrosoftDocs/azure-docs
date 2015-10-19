@@ -3,7 +3,7 @@
 	description="Learn about how to create advanced encoding workflows with Workflow Designer." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="juliako" 
+	authors="juliako,johndeu,anilmur" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -13,14 +13,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/11/2015"
+	ms.date="10/15/2015"  
 	ms.author="juliako"/>
 
 
 #Create Advanced Encoding Workflows with Workflow Designer
 
 ##Overview
-The **Workflow Designer** is a standalone tool that is used to create workflows/graphs for encoding with **Media Encoder Premium Workflow**.
+
+The **Workflow Designer** is a Windows desktop tool that is used to design and build custom workflows for encoding with **Media Encoder Premium Workflow**.
+
 
 This tool can also be used to modify [existing workflows](media-services-workflow-designer.md#existing_workflows). 
 
@@ -64,6 +66,16 @@ Day 3 video covers:
 - Q&A
  
 > [AZURE.VIDEO azure-premium-encoder-workflow-designer-training-videos-day-3]
+
+
+
+##Media Services learning paths
+
+You can view AMS learning paths here:
+
+- [AMS Live Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [AMS on Demand Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
 
 ##See Also
 

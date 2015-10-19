@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="BizTalk Edifact Connector" 
-   description="BizTalk Edifact Connector" 
+   pageTitle="Using the BizTalk Edifact Connector in Logic Apps | Microsoft Azure App Service" 
+   description="How to create and configure the BizTalk Edifact Connector or API app and use it in a logic app in Azure App Service" 
    services="app-service\logic" 
    documentationCenter=".net,nodejs,java" 
    authors="rajeshramabathiran" 
@@ -13,13 +13,15 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="08/19/2015"
+   ms.date="08/23/2015"
    ms.author="rajram"/>
 
-# BizTalk Edifact Connector
-Microsoft Azure Edifact Service lets one receive and send messages as per Edifact protocol in business to business communications. Edifact is also commonly referred to as ASC Edifact or Accredited Standards Committee Edifact. It is widely used across industries.
+# Get started with the BizTalk Edifact Connector and add it to your Logic App  
+Use the Edifact service to receive and send messages over the Edifact protocol in business to business communications. Edifact is also commonly referred to as ASC Edifact or Accredited Standards Committee Edifact and is widely used across industries.
 
-## Pre-requisites
+You can add the BizTalk Edifact connector to your business workflow and process data as part of this workflow within a Logic App. 
+
+## Prerequisites
 - TPM API App: Before creating a Edifact connector, you have to create a [BizTalk Trading Partner Management Connector][1].
 - SQL Azure database: Each of the B2B API Apps requires its own Azure SQL Database.
 - Azure Service Bus: This is optional, and used only in the case of batching.
@@ -75,6 +77,8 @@ The action returns an object containing the EDIFACT payload on successful comple
 
 ## Do more with your Connector
 Now that the connector is created, you can add it to a business flow using a Logic App. See [What are Logic Apps?](app-service-logic-what-are-logic-apps.md).
+
+>[AZURE.NOTE] If you want to get started with Azure Logic Apps before signing up for an Azure account, go to [Try Logic App](https://tryappservice.azure.com/?appservice=logic), where you can immediately create a short-lived starter logic app in App Service. No credit cards required; no commitments.
 
 View the Swagger REST API reference at [Connectors and API Apps Reference](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 

@@ -1,27 +1,30 @@
 <properties
-   pageTitle="Azure Compute, Network & Storage Providers under Azure Resource Manager"
-   description="Conceptual overview of the Compute, Network & Storage Resource Providers (CRP, NRP, and SRP)"
+   pageTitle="Compute, Network, and Storage providers | Microsoft Azure"
+   description="Conceptual overview of the Compute, Network, and Storage Resource Providers (CRP, NRP, and SRP) in Azure Resource Manager"
    services="virtual-machines"
-   documentationCenter="dev-center-name"
+   documentationCenter=""
    authors="mahthi"
-   manager="coreysa"
+   manager="timlt"
    editor=""
-	tags="azure-resource-manager,azure-service-management"/>
+   tags="azure-resource-manager,azure-service-management"/>
 
 <tags
    ms.service="virtual-machines"
    ms.devlang="na"
    ms.topic="article"
-   ms.tgt_pltfrm="na"
+   ms.tgt_pltfrm="vm-multiple"
    ms.workload="infrastructure-services"
    ms.date="04/29/2015"
    ms.author="mahthi"/>
 
-# Azure Compute, Network & Storage Providers under the Azure Resource Manager
+# Azure Compute, Network, and Storage Providers under the Azure Resource Manager
 
 The inclusion of Compute, Network & Storage capabilities with the Azure Resource Manager will fundamentally simplify the deployment and management of complex applications running on IaaS. Many applications require a combination of resources, including a Virtual Network, Storage Account, Virtual Machine, and a Network Interface. The Azure Resource Manager offers the ability to construct a JSON template to deploy and manage all these resources together as a single application.
 
-## Advantages of integrating Compute, Network & Storage under the Azure Resource Manager
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
+
+
+## Advantages of integrating Compute, Network, and Storage under the Azure Resource Manager
 
 The Azure Resource Manager offers the ability to easily leverage pre-built application templates or construct an application template to deploy and manage compute, network, and storage resources on Azure. In this section, we’ll walk through the advantages of deploying resources through the Azure Resource Manager.
 
@@ -33,7 +36,7 @@ The Azure Resource Manager offers the ability to easily leverage pre-built appli
 -	Simplified Upgrade/Update story by modifying the original template and then redeploying it
 
 
-## Advancements of the Compute, Network & Storage APIs under Azure Resource Manager
+## Advancements of the Compute, Network, and Storage APIs under Azure Resource Manager
 
 In addition to the advantages mentioned above, there are some significant performance advancements in the APIs released.
 
@@ -108,4 +111,7 @@ All the automation and scripts that you’ve built will continue to work for the
 **Can the Virtual Networks created using the new Azure Resource Manager APIs be connected to my Express Route circuit?**
 
 This is not supported at the moment. You cannot connect the Virtual Networks created using the new Azure Resource Manager APIs with an Express Route Circuit. This will be supported in the future.
- 
+
+**Where can I find examples of Azure Resource Manager templates?**
+
+A comprehensive set of starter templates can be found on [Azure Resource Manager QuickStart Templates](http://azure.microsoft.com/documentation/templates/).

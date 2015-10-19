@@ -1,32 +1,37 @@
-<properties 
- pageTitle="Manage virtual machine extensions | Microsoft Azure" 
- description="Describes how to add, find, update, and remove extensions." 
- services="virtual-machines" 
- documentationCenter="" 
- authors="squillace" 
- manager="timlt" 
- editor=""/>
-<tags 
- ms.service="virtual-machines" 
- ms.devlang="na" 
- ms.topic="article" 
- ms.tgt_pltfrm="vm-multiple" 
+<properties
+ pageTitle="Manage virtual machine extensions | Microsoft Azure"
+ description="Describes how to add, find, update, and remove extensions for Azure virtual machines, in the classic deployment model."
+ services="virtual-machines"
+ documentationCenter=""
+ authors="squillace"
+ manager="timlt"
+ editor=""
+ tags="azure-service-management"/>
+<tags
+ ms.service="virtual-machines"
+ ms.devlang="na"
+ ms.topic="article"
+ ms.tgt_pltfrm="vm-multiple"
  ms.workload="infrastructure-services"
- ms.date="03/10/2015" 
+ ms.date="08/25/2015"
  ms.author="rasquill"/>
 #Manage virtual machine extensions
+
 Describes how to find, add, modify, or remove VM Extensions with either Windows or Linux Virtual Machines on Azure.
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Resource Manager mode
+
 
 ##Using VM Extensions
 
-Azure VM Extensions implement behaviors or features that either help other programs work on Azure VMs (for example, the **WebDeployForVSDevTest** extension allows Visual Studio to Web Deploy solutions on your Azure VM) or provide the ability for you to interact with the VM to support some other behavior (for example, you can use the VM Access extensions from Powershell, the xplat-cli, and REST clients to reset or modify remote access values on your Azure VM).
+Azure VM Extensions implement behaviors or features that either help other programs work on Azure VMs (for example, the **WebDeployForVSDevTest** extension allows Visual Studio to Web Deploy solutions on your Azure VM) or provide the ability for you to interact with the VM to support some other behavior (for example, you can use the VM Access extensions from Powershell, the Azure CLI, and REST clients to reset or modify remote access values on your Azure VM).
 
 >[AZURE.IMPORTANT] For a complete list of extensions by the features they support, see [Azure VM Extensions and Features](https://msdn.microsoft.com/library/dn606311.aspx). Because each VM extension supports a specific feature, exactly what you can and cannot do with an extension depends on the extension. Therefore, before modifying your VM, make sure you have read the documentation for the VM Extension you want to use. Removing some VM Extensions is not supported; others have properties that can be set that change VM behavior radically.
 
 The most common tasks are:
 
 1.  Finding Available Extensions
-    
+
 2.  Updating Loaded Extensions
 
 3.  Adding Extensions
@@ -38,7 +43,7 @@ The most common tasks are:
 Azure VM Extensions are (For a complete list of extensions by the features they support, see [Azure VM Extensions and Features](https://msdn.microsoft.com/library/dn606311.aspx).) You can locate the extension and extended information using:
 
 -   PowerShell
--   Azure Cross-Platform Interface (xplat-cli)
+-   Azure Cross-Platform Interface (Azure CLI)
 -   Service Management REST API
 
 either [Azure PowerShell](https://msdn.microsoft.com/library/azure/dn495240.aspx) cmdlets or the [Service Management REST APIs](https://msdn.microsoft.com/library/ee460799.aspx) to find information about available extensions.
@@ -55,7 +60,7 @@ You can use the following cmdlets to obtain information about available extensio
 
      For example, the following code example shows how to list the
     information for the **IaaSDiagnostics** extension using PowerShell.
-    
+
         PS C:\PowerShell> Get-AzureVMAvailableExtension -ExtensionName IaaSDiagnostics
         VERBOSE: 5:09:01 PM - Begin Operation: Get-AzureVMAvailableExtension
         VERBOSE: 5:09:06 PM - Completed Operation: Get-AzureVMAvailableExtension
@@ -80,13 +85,13 @@ You can use the following cmdlets to obtain information about available extensio
         CompanyName                 :
 
 
-###Azure Command Line Interface (xplat-cli)
+###Azure Command Line Interface (Azure CLI)
 
-Some extensions have xplat-cli commands that are specific to them (the Docker VM Extension is one example), which may make their configuration easier; but the following commands work for all VM extensions.
+Some extensions have Azure CLI commands that are specific to them (the Docker VM Extension is one example), which may make their configuration easier; but the following commands work for all VM extensions.
 
 You can use the **azure vm extension list** command to obtain information about available extensions, and use the **–-json** option to display all available information about one or more extensions. If you do not use an extension name, the command returns a json description of all available extensions.
 
-For example, the following code example shows how to list the information for the **IaaSDiagnostics** extension using the xplat-cli **azure vm extension list** command and uses the **–-json** option to return complete information.
+For example, the following code example shows how to list the information for the **IaaSDiagnostics** extension using the Azure CLI **azure vm extension list** command and uses the **–-json** option to return complete information.
 
 
     $ azure vm extension list -n IaaSDiagnostics --json
