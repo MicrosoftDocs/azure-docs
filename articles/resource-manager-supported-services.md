@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/15/2015"
+   ms.date="10/19/2015"
    ms.author="tomfitz"/>
 
 # Resource Manager support for services, regions, and API versions
@@ -35,7 +35,7 @@ new resource group and a new subscription. The column titled **Preview Portal** 
 | Virtual Machines | Yes | Yes | No       | [Create VM](https://msdn.microsoft.com/library/azure/mt163591.aspx) | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Compute.json) |
 | Batch   | Yes     | No |               | [Batch REST](https://msdn.microsoft.com/library/azure/dn820158.aspx) |        |
 | Dynamics Lifecycle Services | Yes | No |    |      |        |
-| Virtual Machines (classic) | Limited | No | Partial (see below) | - | - |
+| Virtual Machines (classic) | Limited | Yes | Partial (see below) | - | - |
 | Remote App | No   | - | -              | -        | -      |
 | Service Fabric | No | - | -           | -        | -      |
 
@@ -96,7 +96,7 @@ When working with web apps, you cannot move only an App Service plan. To move we
 | Load Balancer | Yes |    |          | [Create Load Balancer](https://msdn.microsoft.com/library/azure/mt163574.aspx) | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Network.json) |
 | Virtual Networks | Yes | Yes | No        | [Create Virtual Network](https://msdn.microsoft.com/library/azure/mt163661.aspx) | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Network.json) |
 | Traffic Manager | Yes | No |           | [Create Traffic Manager profile](https://msdn.microsoft.com/library/azure/mt163581.aspx) |        |
-| Express Route | No | No | -             | -        | -      |
+| Express Route | Yes | No | -             | -        | -      |
 
 ## Media & CDN
 
