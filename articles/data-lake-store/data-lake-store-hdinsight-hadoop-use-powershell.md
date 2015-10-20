@@ -1,18 +1,18 @@
-<properties 
-   pageTitle="Configure HDInsight clusters with Azure Data Lake using PowerShell | Azure" 
-   description="Use Azure PowerShell to configure and use HDInsight Hadoop clusters with Azure Data Lake" 
-   services="data-lake" 
-   documentationCenter="" 
-   authors="nitinme" 
-   manager="paulettm" 
+<properties
+   pageTitle="Configure HDInsight clusters with Azure Data Lake using PowerShell | Azure"
+   description="Use Azure PowerShell to configure and use HDInsight Hadoop clusters with Azure Data Lake"
+   services="data-lake"
+   documentationCenter=""
+   authors="nitinme"
+   manager="paulettm"
    editor="cgronlun"/>
- 
+
 <tags
    ms.service="data-lake"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="big-data" 
+   ms.workload="big-data"
    ms.date="10/27/2015"
    ms.author="nitinme"/>
 
@@ -25,7 +25,7 @@
 
 Learn how to use Azure PowerShell to configure an HDInsight cluster (Hadoop, HBase, or Storm) to work with an Azure Data Lake Store. Some important considerations for this release:
 * For Hadoop and Storm clusters, the Data Lake Store can only be used as an additional storage account. The default storage account for the such clusters will still be Azure Storage Blobs (WASB).
-* For HBase clusters, the Data Lake Store can be used as a default storage or additional storage. 
+* For HBase clusters, the Data Lake Store can be used as a default storage or additional storage.
 
 Configuring HDInsight to work with Azure Data Lake using PowerShell involves the following steps:
 
@@ -40,7 +40,7 @@ Before you begin this tutorial, you must have the following:
 
 - **An Azure subscription**. See [Get Azure free trial](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 - **Azure PowerShell**. See [Install and configure Azure PowerShell](../install-configure-powershell.md) for instructions.
-- **Windows SDK**. You can install it from [here](https://dev.windows.com/en-us/downloads). You use this to create a security certificate. 
+- **Windows SDK**. You can install it from [here](https://dev.windows.com/en-us/downloads). You use this to create a security certificate.
 
 
 ## Create an Azure Data Lake Store
@@ -51,11 +51,11 @@ Follow these steps to create a Data Lake Store.
 
         # Log in to your Azure account
 		Login-AzureRmAccount
-        
+
 		# List all the subscriptions associated to your account
 		Get-AzureRmSubscription
-		
-		# Select a subscription 
+
+		# Select a subscription
 		Set-AzureRMContext -SubscriptionName <subscription name>
 
 		# Register for Data Lake Store
@@ -83,7 +83,7 @@ Follow these steps to create a Data Lake Store.
 
 4. Upload some sample data to Azure Data Lake. We'll use this data later in this article to verify that the data is accessible from an HDInsight cluster. You can download a sample data file (OlympicAthletes.tsv) from [AzureDataLake Git Repository](https://github.com/MicrosoftBigData/AzureDataLake/raw/master/Samples/SampleData/OlympicAthletes.tsv).
 
-		
+
 		$myrootdir = "/"
 		Import-AzureRmDataLakeStoreItem -AccountName $dataLakeStoreName -Path "C:\<path to data>\OlympicAthletes.tsv" -Destination $myrootdir\OlympicAthletes.tsv
 
@@ -99,7 +99,7 @@ To set up Active Directory authentication for Azure Data Lake, you must perform 
 
 ### Create a self-signed certificate
 
-Make sure you [Windows SDK](https://dev.windows.com/en-us/downloads) installed before proceeding with the steps in this section. You must have also created a directory, such as **C:\mycertdir**, where the certificate will be created. 
+Make sure you [Windows SDK](https://dev.windows.com/en-us/downloads) installed before proceeding with the steps in this section. You must have also created a directory, such as **C:\mycertdir**, where the certificate will be created.
 
 1. Make sure Windows SDK is added to the PATH variable. Look for the following in the PATH variable definition. [ TBD: Link to adding to PATH ]
 
@@ -124,22 +124,22 @@ Make sure you [Windows SDK](https://dev.windows.com/en-us/downloads) installed b
 
 ###  Create an Azure Active Directory and a service principal
 
-In this section, you perform the steps to create a service principal for an Azure Active Directory application, assign a role to the service principal, and authenticate as the service principal by providing a certificate. Run the following commands to create an application in Azure Active Directory. 
+In this section, you perform the steps to create a service principal for an Azure Active Directory application, assign a role to the service principal, and authenticate as the service principal by providing a certificate. Run the following commands to create an application in Azure Active Directory.
 
-1. Paste the following cmdlets in the PowerShell console window. Make sure the value you specify for the **-DisplayName** property is unique. Also, the values for **-HomePage** and **-IdentiferUris** are placeholder values and are not verified. 
+1. Paste the following cmdlets in the PowerShell console window. Make sure the value you specify for the **-DisplayName** property is unique. Also, the values for **-HomePage** and **-IdentiferUris** are placeholder values and are not verified.
 
 		$certificateFilePath = "$certificateFileDir\CertFile.pfx"
-		
+
 		$password = Read-Host –Prompt "Enter the password" –AsSecureString  # This is the password you specified for the .pfx file (e.g. "myPassword")
-		
+
 		$certificatePFX = New-Object System.Security.Cryptography.X509Certificates.X509Certificate2($certificateFilePath, $password)
-		
+
 		$rawCertificateData = $certificatePFX.GetRawCertData()
-		
+
 		$credential = [System.Convert]::ToBase64String($rawCertificateData)
 
 		$application = New-AzureRmADApplication `
-					-DisplayName "HDIADL" ` 
+					-DisplayName "HDIADL" `
 					-HomePage "https://contoso.com" `
 					-IdentifierUris "https://mycontoso.com" `
 					-KeyValue $credential  `
@@ -153,11 +153,11 @@ In this section, you perform the steps to create a service principal for an Azur
 2. Create a service principal using the application ID.
 
 		$servicePrincipal = New-AzureRmADServicePrincipal -ApplicationId $applicationId
-		
+
 		$objectId = $servicePrincipal.Id
 
 3. Grant the service principal access to the Data Lake Store you created earlier.
-		
+
 		Set-AzureRmDataLakeStoreItemAclEntry -AccountName $dataLakeStoreName -Path / -AceType User -Id $objectId -Permissions All
 
 	At the prompt, enter **Y** to confirm.
@@ -175,9 +175,9 @@ In this section, we create an HDInsight Hadoop cluster. For this release, the HD
 		# Create an Azure storage account
 		$location = "East US 2"
 		$storageAccountName = "<StorageAcccountName>"   # Provide a Storage account name
-		
+
 		New-AzureRmStorageAccount -ResourceGroupName $resourceGroupName -StorageAccountName $storageAccountName -Location $location -Type Standard_GRS
- 
+
 		# Create an Azure Blob Storage container
 		$containerName = "<ContainerName>"              # Provide a container name
 		$storageAccountKey = Get-AzureRmStorageAccountKey -Name $storageAccountName -ResourceGroupName $resourceGroupName | %{ $_.Key1 }
@@ -191,7 +191,7 @@ In this section, we create an HDInsight Hadoop cluster. For this release, the HD
 		$clusterNodes = <ClusterSizeInNodes>            # The number of nodes in the HDInsight cluster
 		$httpcredentials = Get-Credential
 		$rdpCredentials = Get-Credential
-		
+
 		New-AzureRmHDInsightCluster -ClusterName $clusterName -ResourceGroupName $resourceGroupName -HttpCredential $httpCredentials -Location $location -DefaultStorageAccountName "$storageAccountName.blob.core.windows.net" -DefaultStorageAccountKey $storageAccountKey -DefaultStorageContainer $containerName  -ClusterSizeInNodes $clusterNodes -ClusterType Hadoop -Version "3.2" -RdpCredential $rdpCredentials -RdpAccessExpiry (Get-Date).AddDays(14) -ObjectID $objectId -AadTenantId $tenantID -CertificateFilePath $certificateFilePath -CertificatePassword $password
 
 	After the cmdlet successfully completes, you should see an output like this:
@@ -204,7 +204,7 @@ In this section, we create an HDInsight Hadoop cluster. For this release, the HD
 		ClusterState        : Running
 		ClusterType         : Hadoop
 		CoresUsed           : 16
-		HttpEndpoint        : hdiadlcluster.azurehdinsight.net 
+		HttpEndpoint        : hdiadlcluster.azurehdinsight.net
 
 ## Run test jobs on the HDInsight cluster to use the Azure Data Lake account
 
@@ -232,9 +232,9 @@ Once you have configured the HDInsight cluster to use Data Lake storage, you can
 
 3. In the cluster blade, click **Remote Desktop**, and then in the **Remote Desktop** blade, click **Connect**.
 
-	![Remote into HDI cluster](./media/azure-data-lake-hdinsight-hadoop-use-powershell/ADL.HDI.PS.Remote.Desktop.png "Create an Azure Resource Group")
+	![Remote into HDI cluster](./media/data-lake-hdinsight-hadoop-use-powershell/ADL.HDI.PS.Remote.Desktop.png "Create an Azure Resource Group")
 
-	When prompted, enter the credentials you provided for the remote desktop user. 
+	When prompted, enter the credentials you provided for the remote desktop user.
 
 4. In the remote session, start Windows PowerShell, and use the HDFS filesystem commands to list the files in the Azure Data Lake.
 
