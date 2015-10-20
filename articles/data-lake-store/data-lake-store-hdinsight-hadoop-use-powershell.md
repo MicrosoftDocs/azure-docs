@@ -232,7 +232,7 @@ Once you have configured the HDInsight cluster to use Data Lake storage, you can
 
 3. In the cluster blade, click **Remote Desktop**, and then in the **Remote Desktop** blade, click **Connect**.
 
-	![Remote into HDI cluster](./media/data-lake-hdinsight-hadoop-use-powershell/ADL.HDI.PS.Remote.Desktop.png "Create an Azure Resource Group")
+	![Remote into HDI cluster](./media/data-lake-store-hdinsight-hadoop-use-powershell/ADL.HDI.PS.Remote.Desktop.png "Create an Azure Resource Group")
 
 	When prompted, enter the credentials you provided for the remote desktop user.
 
