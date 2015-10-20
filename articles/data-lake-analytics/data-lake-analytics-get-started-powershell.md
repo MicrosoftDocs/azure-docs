@@ -33,7 +33,7 @@ Before you begin this tutorial, you must have the following:
 
 You must have a Data Lake Analytics account before you can run jobs. To create a Data Lake Analytics account, you must specify the following:
 
-- **Azure Resource Group**: A Data Lake Analytics account must be created within a Azure Resource group. [Azure Resource Manager](https://azure.microsoft.com/en-us/documentation/articles/resource-group-overview/) enables you to work with the resources in your application as a group. You can deploy, update or delete all of the resources for your application in a single, coordinated operation.  
+- **Azure Resource Group**: A Data Lake Analytics account must be created within a Azure Resource group. [Azure Resource Manager](resource-group-overview.md) enables you to work with the resources in your application as a group. You can deploy, update or delete all of the resources for your application in a single, coordinated operation.  
 
 	To enumerate the resource groups in your subscription:
     
@@ -202,7 +202,7 @@ After the job is completed, you can use the following cmdlets to list the file, 
 	Export-AzureRmDataLakeStoreItem -AccountName $dataLakeStoreName -Path "/Output/SearchLog-from-Data-Lake.csv" -Destination $destFile
 
 
-#See also
+##See also
 
 - [Azure Data Lake Analytics overview](data-lake-analytics-overview.md)
 - [Get started with Azure Data Lake Analytics using Azure Preview Portal](data-lake-analytics-get-started-portal.md)
