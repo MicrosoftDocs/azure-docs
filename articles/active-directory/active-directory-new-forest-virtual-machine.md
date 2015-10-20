@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Install an Active Directory forest on an Azure virtual network" 
+	pageTitle="Install an Active Directory forest on an Azure virtual network | Microsoft Azure" 
 	description="A tutorial that explains how to create a new Active Directory forest on a virtual machine (VM) on an Azure Virtual Network." 
 	services="active-directory, virtual-network" 
 	documentationCenter="" 
