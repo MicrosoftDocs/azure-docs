@@ -32,6 +32,19 @@ See [Get started with Application Insights for .NET](app-insights-start-monitori
 * Compare ApplicationInsights.config with the old copy. Most of the changes you'll see are because we removed some modules and made others parameterizable. Reinstate any customizations you made to the old file.
 * Rebuild your solution.
 
+## Version 2.0.0-beta2
+ - Fix UI thread locking when initializing InMemoryChannel (default channel) from UI thread.
+ - Added support for ITelemetryProcessor and ability to construct chain of TelemetryProcessors via code or config.
+ - Version of Microsoft.ApplicationInsights.dll for the framework 4.6 is now part of the package.
+ - IContextInitializer interface is not supported any longer. ContextInitializers collection was removed from TelemetryConfiguraiton object.
+ - The max length limit for the Name property of EventTelemetry was set to 512.
+ - Property Name of OperationContext was renamed to RootName
+ - Property Id of RequestTelemetry was removed.
+ - Property Id and Context.Operation.Id of RequestTelemetry would not be initialized when creating new RequestTelemetry.
+ - New properties of OperationContext: CorrelationVector, ParentId and RootId to support end-to-end telemetry items correlation.
+ - RequestTelemetry.Name is not initialized any longer. RequestTelemetry.Context.Operation.Name will be used instead.
+ - Response code 401 is part of the normal authentication handshake and will result in a succesfull request.
+ 
 ## Version 2.0.0-beta1
 - TrackDependency will produce valid JSON when not all required fields were specified.
 - Redundant property ```RequestTelemetry.ID``` is now just a proxy for ```RequestTelemetry.Operation.Id```.
