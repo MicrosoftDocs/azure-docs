@@ -43,6 +43,7 @@ Released: 2015 August
 - DirSync cannot be upgraded if dn is used in attribute filtering.
 
 **Removed preview features:**
+
 - The preview feature [User writeback](active-directory-aadconnect-feature-preview.md#user-writeback) was temporarily removed based on feedback from our preview customers. It will be re-added later when we have addressed the provided feedback.
 
 ## 1.0.8641.0
@@ -53,13 +54,15 @@ Released: 2015 June
 Changed name from Azure AD Sync to Azure AD Connect.
 
 **New features:**
+
 - [Express settings](active-directory-aadconnect-get-started-express.md) installation
-- Can [configure ADFS](active-directory-aadconnect-get-started-custom.md#configuring-federation-with-ad-fs)
+- Can [configure ADFS](active-directory-aadconnect-get-started-custom.md#configuring-federation-with-ad-fs).
 - Can [upgrade from DirSync](active-directory-aadconnect-dirsync-upgrade-get-started.md)
 - [Prevent accidental deletes](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md)
 - Introduced [staging mode](active-directory-aadconnectsync-operations.md#staging-mode)
 
 **New preview features:**
+
 - [User writeback](active-directory-aadconnect-feature-preview.md#user-writeback)
 - [Group writeback](active-directory-aadconnect-feature-preview.md#group-writeback)
 - [Device writeback](active-directory-aadconnect-get-started-custom-device-writeback.md)
