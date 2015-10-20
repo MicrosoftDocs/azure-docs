@@ -26,17 +26,15 @@
 	- [Get started with Data Lake Analytics using Azure Preview Portal](data-lake-analytics-get-started-portal.md)
 	- [Get started with Data Lake Analytics using Azure PowerShell](data-lake-analytics-get-started-powershell.md)
 	- [Develop U-SQL scripts using Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
-
 - Scenario tutorial
 
 	- [Use Azure Data Lake Analytics interactive tutorials](data-lake-analytics-use-interactive-tutorials.md)
 	- [Analyze Website logs using Azure Data Lake Analytics](data-lake-analytics-analyze-weblogs.md)
-
 - U-SQL/Development
 
 	- [Get started with Azure Data Lake Analytics U-SQL language](data-lake-analytics-u-sql-get-started.md)
-	- [Using U-SQL window functions for Azure Data Lake Aanlytics jobs](data-lake-analytics-use-window-functions.md)
-
+	- [Use U-SQL window functions for Azure Data Lake Aanlytics jobs](data-lake-analytics-use-window-functions.md)
+    - [Develop U-SQL user defined operators](data-lake-analytics-u-sql-develop-user-defined-operators.md)
 - Management and monitoring
 
 	- [Manage Azure Data Lake Analytics using Azure Preview portal](data-lake-analytics-use-portal.md)
