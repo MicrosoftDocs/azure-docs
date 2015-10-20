@@ -107,7 +107,7 @@ The basic steps are outlined below.
 
 The following tutorials will help you:
 
-[ExpressRoute workflows for circuit provisioning and circuit states](https://azure.microsoft.com/en-us/documentation/articles/expressroute-workflows/)
+[ExpressRoute workflows for circuit provisioning and circuit states](expressroute-workflows.md)
 
 ### Are there connectivity boundaries for my ExpressRoute circuit?
 Yes. [ExpressRoute partners and locations](expressroute-locations.md) page provides an overview of the connectivity boundaries for an ExpressRoute circuit. Connectivity for an ExpressRoute circuit is limited to a single geopolitical region. Connectivity can be expanded to cross geopolitical regions by enabling the ExpressRoute premium feature.
