@@ -170,6 +170,8 @@ Use Visual Studio Enterprise or Ultimate to record a web session.
 
     ![Select multi-step webtest.](./media/app-insights-monitor-web-app-availability/appinsights-71webtestUpload.png)
 
+    Set the test locations, frequency, and alert parameters in the same way as for ping tests.
+
 View your test results and any failures in the same way as for single-url tests.
 
 A common reason for failure is that the test runs too long. It mustn't run longer than two minutes.
