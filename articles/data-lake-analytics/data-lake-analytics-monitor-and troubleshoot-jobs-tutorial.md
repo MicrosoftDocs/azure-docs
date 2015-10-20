@@ -133,7 +133,7 @@ Jobs**.
 
 Go through the procedure in [Monitor and troubleshoot the job](#monitor-and-troubleshoot-the-job) to resubmit the job.
 
-#See also
+##See also
 
 - [Azure Data Lake Analytics overview](data-lake-analytics-overview.md)
 - [Get started with Azure Data Lake Analytics using Azure PowerShell](data-lake-analytics-get-started-powershell.md)

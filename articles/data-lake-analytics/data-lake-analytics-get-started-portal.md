@@ -178,7 +178,7 @@ If the account is not pinned there, see
 3. Click the **Job Management** tile to see the jobs. The jobs are categorized in **Running**, **Queued**, and **Ended**
 4. Scroll to the bottom of the blade, and then double-click one of the jobs.  You can identify a job by its name. From here, you can view U-SQL script, cancel the job and resubmit the job. 
 
-#See also
+##See also
 
 - [Azure Data Lake Analytics overview](data-lake-analytics-overview.md)
 - [Get started with Azure Data Lake Analytics using Azure PowerShell](data-lake-analytics-get-started-powershell.md)
