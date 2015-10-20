@@ -62,6 +62,8 @@ When you [configure the web pages for Application Insights](app-insights-javascr
 
 Make sure that you provide the same sampling percentage in the JavaScript as you did in the server side.
 
+[Learn more about the API](app-insights-api-custom-events-metrics.md)
+
 
 ## When  to use sampling?
 
