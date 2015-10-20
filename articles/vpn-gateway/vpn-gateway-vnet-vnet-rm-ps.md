@@ -115,10 +115,7 @@ Values for VNet2:
 
 ## 2. Connect to your subscription 
 
-Open your PowerShell console and connect to your account. The instructions below use Azure PowerShell version 0.9.8. 
-You can download and install this version from the Windows PowerShell section of the [Download page](http://azure.microsoft.com/downloads/).
-
-Use the following sample to help you connect:
+Open your PowerShell console and connect to your account. Use the following sample to help you connect:
 
 		Add-AzureAccount
 
