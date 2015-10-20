@@ -68,7 +68,7 @@ The [Azure portal](https://manage.windowsazure.com) Web app **Configure** tab al
 * **Blob storage** - stores the application diagnostics information in the specified Azure Storage Account and blob container.
 * **Retention period** - by default, logs are not automatically deleted from **blob storage**. Select **set retention** and enter the number of days to keep logs if you wish to automatically delete logs.
 
->[AZURE.NOTE] If you [regenerate your storage account's access keys](storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys), you must reset the reset the respective logging configuration to use the updated keys. To do this:
+>[AZURE.NOTE] If you [regenerate your storage account's access keys](storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys), you must reset the respective logging configuration to use the updated keys. To do this:
 >
 > 1. In the **Configure** tab, set the respective logging feature to **Off**. Save your setting.
 > 2. Enable logging to the storage account blob or table again. Save your setting.
