@@ -552,7 +552,7 @@ Note that the function is asynchronous for in-memory channels, but synchronous i
 
 You can write and configure plug-ins for the Application Insights SDK to customize how telemetry is captured and processed before it is sent to the Application Insights service. 
 
-[Learn more](app=insights-telemetry-processors.md)
+[Learn more](app-insights-telemetry-processors.md)
 
 
 ## Disable standard telemetry
