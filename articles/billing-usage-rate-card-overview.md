@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Gain insights into your Microsoft Azure resource consumption"
+   pageTitle="Gain insights into your Microsoft Azure resource consumption | Microsoft Azure"
    description="Provides a conceptual overview of the Azure Billing Usage and RateCard APIs, which are used to provide insights into Azure resource consumption and trends."
    services="billing"
    documentationCenter=""
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="billing"
-   ms.date="07/07/2015"
+   ms.date="10/20/2015"
    ms.author="mobandyo;bryanla"/>
 
 # Gain insights into your Microsoft Azure resource consumption 

@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Cloud Cruiser and Microsoft Azure Billing API Integration"
+   pageTitle="Cloud Cruiser and Microsoft Azure Billing API Integration | Microsoft Azure"
    description="Provides a unique perspective from Microsoft Azure Billing partner Cloud Cruiser, on their experiences integrating the Azure Billing APIs into their product.  This is especially useful for Azure and Cloud Cruiser customers that are interested in using/trying Cloud Cruiser for Microsoft Azure Pack."
    services="billing"
    documentationCenter=""
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="billing"
-   ms.date="08/10/2015"
+   ms.date="10/20/2015"
    ms.author="mobandyo;sirishap;bryanla"/>
 
 # Cloud Cruiser and Microsoft Azure Billing API Integration
