@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Compiling Configurations in Azure Automation DSC | Microsoft Azure" 
+   pageTitle="Compiling configurations in Azure Automation DSC | Microsoft Azure" 
    description="Overview of two ways to compile Desired State Configuration (DSC) configurations: In the Azure portal, and with Windows PowerShell. " 
    services="automation" 
    documentationCenter="dev-center-name" 
@@ -16,45 +16,24 @@
    ms.date="10/15/2015"
    ms.author="coreyp"/>
    
-#Compiling Configurations in Azure Automation DSC#
+#Compiling configurations in Azure Automation DSC#
 
 You can compile Desired State Configuration (DSC) configurations in two ways with Azure Automation: In the Azure portal, and with Windows PowerShell. The following table will help you determine when to use which method based on the characteristics of each: 
 
-<table>
- <tr>
-  <td>METHOD</td>
-  <td>CHARACTERISTICS</td>
- </tr>
- <tr>           
-  <td>Azure portal</a></td>
-  <td>
-   <ul>
-    <li>Simplest method with interactive user interface.</li>
-    <li>Form to provide simple parameter values.</li>
-    <li>Easily track job state.</li>
-    <li>Access authenticated with Azure logon.</li>
-   </ul>
-  </td>
- </tr>
- <tr>
-  <td>Windows PowerShell</a></td>
-  <td>
-   <ul>
-     <li>Call from command line with Windows PowerShell cmdlets.</li>
-     <li>Can be included in automated solution with multiple steps.</li>
-     <li>Request is authenticated with certificate or OAuth user principal / service  principal.</li>
-     <li>Provide simple and complex parameter values.</li>
-     <li>Track job state.</li>
-     <li>Client required to support PowerShell cmdlets.</li>
-   </ul>
-  </td>
- </tr>
+###Azure preview portal###
+- Simplest method with interactive user interface
+- Form to provide simple parameter values
+- Easily track job state
+- Access authenticated with Azure logon
 
-   </ul>
-  </td>
- </tr>
-</table>
-<br>
+###Windows PowerShell###
+- Call from command line with Windows PowerShell cmdlets
+- Can be included in automated solution with multiple steps
+- Provide simple and complex parameter values
+- Track job state
+- Client required to support PowerShell cmdlets
+- Pass ConfigurationData
+- Compile configurations that use credentials
 
 Once you have decided on a compilation method, you can follow the respective procedures below to start compiling.
 
@@ -76,7 +55,8 @@ You can use [`Start-AzureRmAutomationDscCompilationJob`](https://msdn.microsoft.
     
     $CompilationJob = Start-AzureRmAutomationDscCompilationJob -ResourceGroupName "MyResourceGroup" -AutomationAccountName "MyAutomationAccount" -ConfigurationName "SampleConfig"
     
-    while($CompilationJob.EndTime –eq $null -and $CompilationJob.Exception –eq $null)       	{$CompilationJob = $CompilationJob | Get-AzureRmAutomationDscCompilationJob
+    while($CompilationJob.EndTime –eq $null -and $CompilationJob.Exception –eq $null)       	
+    {$CompilationJob = $CompilationJob | Get-AzureRmAutomationDscCompilationJob
     	Start-Sleep -Seconds 3
     
     }
@@ -92,12 +72,12 @@ The following example uses two parameters called **FeatureName** and **IsPresent
 
     Configuration ParametersExample {
     	param(
-    		[Parameter(Mandatory=$true)]
+    	[Parameter(Mandatory=$true)]
     
-    		[string] $FeatureName,
+    	[string] $FeatureName,
     
-    		[Parameter(Mandatory=$true)]
-    		[boolean] $IsPresent
+    	[Parameter(Mandatory=$true)]
+    	[boolean] $IsPresent
     
     )
     
@@ -113,9 +93,7 @@ The following example uses two parameters called **FeatureName** and **IsPresent
     		Ensure = $EnsureString
     		Name = $FeatureName
     		}
-    
     	}
-    
     }
 
 You can compile DSC Configurations that use basic parameters in the Azure Automation DSC portal, or Azure PowerShell:
@@ -141,17 +119,16 @@ PowerShell requires parameters in a [hashtable](http://technet.microsoft.com/lib
 
 For information about passing PSCredentials as parameters, see <a href="#credential-assets">**Credential Assets**</a> below.
 
-###ConfigurationData###
+##ConfigurationData##
 
 **ConfigurationData** allows you to separate structural configuration from any environment specific configuration while using PowerShell DSC. See [Separating "What" from "Where" in PowerShell DSC](http://blogs.msdn.com/b/powershell/archive/2014/01/09/continuous-deployment-using-dsc-with-minimal-change.aspx) to learn more about **ConfigurationData**.
 
 >[AZURE.NOTE] You can use **ConfigurationData** when compiling in Azure Automation DSC using Azure PowerShell, but not in the Azure portal.
 
-The following example DSC configuration uses **ConfigurationData** via the **$ConfigurationData** and **$AllNodes** keywords. You'll also need the [**xWebAdministration** module](https://www.powershellgallery.com/packages/xWebAdministration/)
+The following example DSC configuration uses **ConfigurationData** via the **$ConfigurationData** and **$AllNodes** keywords. You'll also need the [**xWebAdministration** module](https://www.powershellgallery.com/packages/xWebAdministration/) for this example:
 
      Configuration ConfigurationDataSample {
-    	Import-DscResource -ModuleName xWebAdministration 
-     -Name MSFT_xWebsite
+    	Import-DscResource -ModuleName xWebAdministration -Name MSFT_xWebsite
     
     	Write-Verbose $ConfigurationData.NonNodeData.SomeMessage 
     
@@ -209,7 +186,7 @@ Asset references are the same in Azure Automation DSC configurations and runbook
 - [Credentials](automation-credentials.md)
 - [Variables](automation-variables.md)
 
-##Credential Assets##
+###Credential Assets###
 While DSC Configurations in Azure Automation can reference credential assets using **Get-AutomationPSCredential**, credential assets can also be passed in via parameters, if desired. If a configuration takes a parameter of **PSCredential** type, then you need to pass the string name of a Azure Automation credential asset as that parameter’s value, rather than a PSCredential object. Behind the scenes, the Azure Automation credential asset with that name will be retrieved and passed to the configuration.
 
 Keeping credentials secure in node configurations (MOF configuration documents) requires encrypting the credentials in the node configuration MOF file. Azure Automation takes this one step further and encrypts the entire MOF file. However, currently you must tell PowerShell DSC it is okay for credentials to be outputted in plain text during node configuration MOF generation, because PowerShell DSC doesn’t know that Azure Automation will be encrypting the entire MOF file after its generation via a compilation job.
@@ -258,11 +235,3 @@ You can compile the DSC configuration above with PowerShell, which adds two node
     
     
     Start-AzureRmAutomationDscCompilationJob -ResourceGroupName "MyResourceGroup" -AutomationAccountName "MyAutomationAccount" -ConfigurationName "CredentialSample" -ConfigurationData $ConfigData
-
-
-##Related Articles##
-
-- [Azure Automation DSC overview](automation-dsc-overview/.md)
-- [Azure Automation DSC cmdlets](https://msdn.microsoft.com/library/mt244122.aspx)
-- [Azure Automation Runbook parameters](automation-starting-a-runbook.md)
-- [ConfigurationData in PowerShell Desired State Configuration](http://blogs.msdn.com/b/powershell/archive/2014/01/09/continuous-deployment-using-dsc-with-minimal-change.aspx)
