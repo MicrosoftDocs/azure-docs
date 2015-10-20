@@ -13,12 +13,12 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="10/28/2015" 
+	ms.date="10/22/2015" 
 	ms.author="jeffstok"/>
 
 #Microsoft Stream Analytic release notes
 
-## Notes for 10/28/2015 release of Stream Analytics ##
+## Notes for 10/22/2015 release of Stream Analytics ##
 
 This release contains the following updates.
 
