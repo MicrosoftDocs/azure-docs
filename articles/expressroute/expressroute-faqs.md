@@ -223,7 +223,7 @@ Yes. ExpressRoute premium charges apply on top of ExpressRoute circuit charges a
 2. Review the list of service providers and locations at [ExpressRoute partners and locations](expressroute-locations.md) to ensure that your connectivity needs are met.
 3. Plan your capacity requirements by reviewing [Network planning and performance tuning for Office 365](http://aka.ms/tune/).
 4. Follow the steps listed in the workflows below to setup connectivity.
-	[ExpressRoute workflows for circuit provisioning and circuit states](https://azure.microsoft.com/en-us/documentation/articles/expressroute-workflows/)
+	[ExpressRoute workflows for circuit provisioning and circuit states](expressroute-workflows.md)
 
 ### Can my existing ExpressRoute circuits support connectivity to Office 365 services?
 Yes. Your existing ExpressRoute circuit can be configured to support connectivity to Office 365 services. Ensure that you have sufficient capacity to connect to Office 365 services. [Network planning and performance tuning for Office 365](http://aka.ms/tune/) will help you plan your connectivity needs.
