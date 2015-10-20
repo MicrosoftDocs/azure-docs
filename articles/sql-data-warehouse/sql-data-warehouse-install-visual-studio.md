@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Install Visual Studio and SSDT development tools for SQL Data Warehouse | Microsoft Azure"
+   pageTitle="Install Visual Studio and SSDT for SQL Data Warehouse | Microsoft Azure"
    description="Install Visual Studio and SSDT development tools for Azure SQL Data Warehouse"
    services="sql-data-warehouse"
    documentationCenter="NA"
@@ -16,11 +16,11 @@
    ms.date="10/20/2015"
    ms.author="twounder"/>
 
-# Install Visual Studio 2015 and SSDT development tools for SQL Data Warehouse
+# Install Visual Studio 2015 and SSDT for SQL Data Warehouse
 
-To develop queries and work with SQL Data Warehouse, we recommend using Visual Studio 2013 or later in combination with SQL Server Data Tools (SSDT). These steps show you how to install both Visual Studio and SSDT. When you are finished, you will be able to connect to your SQL Data Warehouse database.
+To develop queries for SQL Data Warehouse, we recommend using Visual Studio 2013 or later in combination with SQL Server Data Tools (SSDT). These steps show you how to install both Visual Studio and SSDT. When you are finished, you will be ready to connect and query your SQL Data Warehouse database.
  
-## Download and Install Visual Studio 2015
+## Download and Install Visual Studio
 
 You can use either Visual Studio 2013 or Visual Studio 2015 with SQL Data Warehouse. If you already have Visual Studio 2013 installed, just skip to the next step. 
 
