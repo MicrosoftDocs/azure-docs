@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="hero-article"
-	ms.date="10/16/2015"
+	ms.date="10/20/2015"
 	ms.author="robmcm"/>
 
 # Create a Java web app in Azure App Service
@@ -81,7 +81,7 @@ This section shows how to use the Azure Marketplace to create a Java web app.
 
 	![](./media/web-sites-java-get-started/jettyurl.png)
 
-	IF you chose Tomcat, you see a page similar to the following example.
+	If you chose Tomcat, you see a page similar to the following example.
 
 <<<<<<< HEAD
 1. Sign in to the [Azure portal](http://go.microsoft.com/fwlink/?LinkId=529715).
