@@ -548,6 +548,8 @@ Normally the SDK sends data at times chosen to minimize impact on the user. Howe
 
 Note that the function is asynchronous for in-memory channels, but synchronous if you choose to use the [persistent channel](app-insights-windows-desktop.md#persistence-channel).
 
+
+
 ## Telemetry initializers and processors
 
 You can write and configure plug-ins for the Application Insights SDK to customize how telemetry is captured and processed before it is sent to the Application Insights service. 
