@@ -24,8 +24,8 @@ This release contains the following updates.
 
 Title | Description
 ---|---
-Additional Query Language features | Stream Analytics has expanded the Query Language by including the following features: [ABS](https://msdn.microsoft.com/library/azure/mt574054.aspx), [CEILING](https://msdn.microsoft.com/library/azure/mt605286.aspx), [EXP](https://msdn.microsoft.com/library/azure/mt605289.aspx), [FLOOR](https://msdn.microsoft.com/library/azure/mt605240.aspx), OFFSET, [POWER](https://msdn.microsoft.com/library/azure/mt605287.aspx), [SIGN](https://msdn.microsoft.com/library/azure/mt605290.aspx), [SQUARE](https://msdn.microsoft.com/library/azure/mt605288.aspx), and [SQRT](https://msdn.microsoft.com/library/azure/mt605238.aspx).
-Removed aggregate limitations  | This release removes the limitation of 15 aggregates in a query. There is now no limitation of this nature in the query language.
+Additional query language features | Stream Analytics has expanded the query language by including the following features: [ABS](https://msdn.microsoft.com/library/azure/mt574054.aspx), [CEILING](https://msdn.microsoft.com/library/azure/mt605286.aspx), [EXP](https://msdn.microsoft.com/library/azure/mt605289.aspx), [FLOOR](https://msdn.microsoft.com/library/azure/mt605240.aspx), OFFSET, [POWER](https://msdn.microsoft.com/library/azure/mt605287.aspx), [SIGN](https://msdn.microsoft.com/library/azure/mt605290.aspx), [SQUARE](https://msdn.microsoft.com/library/azure/mt605288.aspx), and [SQRT](https://msdn.microsoft.com/library/azure/mt605238.aspx).
+Removed aggregate limitations  | This release removes the limitation of 15 aggregates in a query. There is now no limit to the number of aggregates per query.
 Added GROUP BY System.Timestamp feature | ???
 Added OFFSET for Tumbling and Hopping windows | ???
 
