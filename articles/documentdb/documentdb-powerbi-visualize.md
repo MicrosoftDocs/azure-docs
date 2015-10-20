@@ -1,8 +1,8 @@
 <properties 
-	pageTitle="Visualizing DocumentDB Data with Power BI" 
-	description="Learn how to use Power BI Desktop to create insightful reports with data from DocumentDB ." 
+	pageTitle="Visualizing DocumentDB Data with Power BI | Microsoft Azure" 
+	description="Learn how to use Power BI Desktop to create insightful reports with JSON data from DocumentDB, a fully-managed NoSQL document database." 
 	services="documentdb" 
-	authors="hawong" 
+	authors="h0n" 
 	manager="jhubbard" 
 	editor="mimig" 
 	documentationCenter=""/>
@@ -16,7 +16,7 @@
 	ms.date="10/22/2015" 
 	ms.author="hawong"/>
 
-# Visualizing DocumentDB Data with Power BI#
+# Visualizing DocumentDB data with Power BI#
 [PowerBI.com](https://powerbi.microsoft.com/) is an online service where you can create and share dashboards and reports with data that's important to you and your organization.  Power BI Desktop is a dedicated report authoring tool that enables you to retrieve data from various datasources, merge and transform the data, create powerful reports and visualizations, and publish the reports to Power BI.  With Power latest version of Power BI Desktop, you can now connect to your DocumentDB account via the DocumentDB connector for Power BI.   
 
 In this tutorial, we will walk through the steps to connect to a DocumentDB account in Power BI Desktop, navigate to a collection where we want to extract the data using the Navigator, transform JSON data into tabular format using Power BI Desktop Query Editor, and build and publish a report to PowerBI.com. 
