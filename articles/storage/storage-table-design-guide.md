@@ -3,7 +3,7 @@
    description="Design Scalable and Performant Tables in Azure Table Storage"
    services="storage"
    documentationCenter="na"
-   authors="jahogg" 
+   authors="jasonnewyork" 
    manager="tadb"
    editor=""/>
 

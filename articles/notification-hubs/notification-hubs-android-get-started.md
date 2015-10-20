@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="hero-article"
-	ms.date="10/15/2015"
+	ms.date="10/19/2015"
 	ms.author="wesmc"/>
 
 # Get started with Notification Hubs for Android apps
