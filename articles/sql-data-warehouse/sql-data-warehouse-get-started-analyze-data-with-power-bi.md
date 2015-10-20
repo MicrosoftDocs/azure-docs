@@ -10,10 +10,10 @@
 <tags
     ms.service="sql-data-warehouse"
     ms.devlang="NA"
-    ms.topic="article"
+    ms.topic="get-started-article"
     ms.tgt_pltfrm="NA"
     ms.workload="data-services"
-    ms.date="10/07/2015"
+    ms.date="10/20/2015"
     ms.author="lodipalm"/>
 
 # Analyze data with Power BI
