@@ -18,7 +18,7 @@ ms.service="virtual-machines"
 
 # Submit HPC jobs from an on-premises computer to an HPC Pack cluster in Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)] This article applies to managing a resource created with the Resource Manager deployment model or the classic deployment model.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
 This article shows you how to configure an on-premises client computer running Windows to
 run HPC Pack job submission tools that communicate with an HPC Pack

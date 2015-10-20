@@ -4,19 +4,19 @@
 	services="iot-hub"
 	documentationCenter=".net"
 	authors="fsautomata"
-	manager="kevinmil"
+	manager="timlt"
 	editor=""/>
 
 <tags
      ms.service="iot-hub"
-     ms.devlang="csharp"
+     ms.devlang="dotnet"
      ms.topic="article"
      ms.tgt_pltfrm="na"
-     ms.workload="tbd"
+     ms.workload="na"
      ms.date="09/29/2015"
      ms.author="elioda"/>
 
-# Upload files from devices to the cloud with IoT Hub
+# Tutorial: How to upload files from devices to the cloud with IoT Hub
 
 ## Introduction
 

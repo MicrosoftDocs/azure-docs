@@ -21,7 +21,7 @@
 
 This topic describes [CoreOS] and shows how to create a cluster of three CoreOS virtual machines on Azure as a quick start to understanding this operating system. It uses the very basic elements of CoreOS deployments and examples from [CoreOS with Azure], [Tim Park's CoreOS Tutorial], and [Patrick Chanezon's CoreOS Tutorial] to demonstrate the absolute minimum requirements to both understand the basic structure of a CoreOS deployment and get a cluster of three virtual machines running successfully.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)] This article covers using Azure CLI to create the CoreOS VMs with the classic deployment model. You can also create CoreOS VMs using templates in the [Resource Manager deployment model](https://azure.microsoft.com/documentation/templates/coreos-with-fleet-multivm/).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager deployment model](https://azure.microsoft.com/documentation/templates/coreos-with-fleet-multivm/).
 
 
 ## <a id='intro'>CoreOS, clusters, and Linux containers</a>
