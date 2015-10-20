@@ -152,7 +152,7 @@ The indexing storage overhead will be proportionate to the number of properties.
 
 **How do I query my existing data in DocumentDB using Order By?**
 
-In order to sort query results using Order By, you must modify the indexing policy of the collection to use a Range index type against the property used to sort. See [Modifying Indexing Policy](documentdb-indexing-policies/#modifying-the-indexing-policy-of-a-collection). 
+In order to sort query results using Order By, you must modify the indexing policy of the collection to use a Range index type against the property used to sort. See [Modifying Indexing Policy](documentdb-indexing-policies.md#modifying-the-indexing-policy-of-a-collection). 
 
 **What are the current limitations of Order By?**
 
