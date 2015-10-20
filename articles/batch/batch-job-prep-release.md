@@ -56,7 +56,7 @@ Specifying a job preparation task is done by creating and configuring a [JobPrep
 In this code snippet, `myBatchClient` is a fully initialized instance of [BatchClient][net_batch_client], and `myPool` is an existing pool within the Batch account.
 
 		// Create the CloudJob for CloudPool "myPool"
-		CloudJob myJob = myBatchClient.JobOperations.C	reateJob("JobPrepReleaseSampleJob",
+		CloudJob myJob = myBatchClient.JobOperations.CreateJob("JobPrepReleaseSampleJob",
 															   new PoolInformation() { PoolId = "myPool" });
 
 		// Specify the command lines for the job preparation and release tasks
