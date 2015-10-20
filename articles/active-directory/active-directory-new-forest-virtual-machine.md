@@ -5,7 +5,7 @@
 	documentationCenter="" 
 	authors="markusvi" 
 	manager="stevenpo" 
-	tags="azure-classic-portal"/>
+	tags=""/>
 
 <tags 
 	ms.service="active-directory" 
