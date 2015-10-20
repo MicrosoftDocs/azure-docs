@@ -18,7 +18,7 @@
 
 # Install Visual Studio 2015 and SSDT development tools for SQL Data Warehouse
 
-To develop queries and work with SQL Data Warehouse, we recommend using Visual Studio 2013 or later in combination with SQL Server Data Tools (SSDT). These steps show you how to install both Visual Studio and then SSDT. When you are finished, you will be able to connect to your SQL Data Warehouse database.
+To develop queries and work with SQL Data Warehouse, we recommend using Visual Studio 2013 or later in combination with SQL Server Data Tools (SSDT). These steps show you how to install both Visual Studio and SSDT. When you are finished, you will be able to connect to your SQL Data Warehouse database.
  
 ## Download and Install Visual Studio 2015
 
