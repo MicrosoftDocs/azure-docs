@@ -17,13 +17,14 @@
    ms.author="bscholl"/>
 
 
-# Deploy a Node.js app using MongoDB
+# Deploy mulitple existing applications
 
 The main purpose of this tutorial is to show how to package and deploy multiple applications to Service Fabric. For our walkthrough we use a Node.js frontend that uses MongoDB as the data store.   
 
 ## Package the Node.js application
 
 Let's assume that our Node.js application is using Express and Jade and that Node.js is not installed on the nodes in the Service fabric cluster. As a consequence we need to add node.exe to the root directory of MyNodeApplication as well. The directory structure of the Node.js application would now look similar to the one below:
+
 ```
 |-- MyNodeApplication
 	|-- bin
@@ -50,16 +51,18 @@ Let's assume that our Node.js application is using Express and Jade and that Nod
     |-- node.exe
 ```
 
-
 As a next step we create an application package for our Node.js application. The easiest way to create an application package is using the Service Fabric packaging tool that ships as part of the SDK. The packaging tool is located in the Tools folder of the Service Fabric SDK installation path. The default installation location is C:\Program Files\Microsoft SDKs\Service Fabric\Tools. Let's go ahead an browse to the tools folder using command line or PowerShell.
 
-As opposed to [deploying a simple existing applications to Service Fabric ](https://azure.microsoft.com/en-us/documentation/articles/service-fabric-deploy-existing-app/) where we just need to launch an .exe we need to execute something like
+As opposed to [deploying a simple existing applications to Service Fabric ](service-fabric-custom-application-orchestration.md) where we just need to launch an .exe we need to execute something like
 
-    node.exe bin/www
-
+```
+node.exe bin/www
+```
 to launch the web server. We can do that by using an argument parameter /ma when running the packaging tool. The code below creates a Service Fabric application package that contains our Node.js application.
 
-    .\ServiceFabricAppPackageUtil.exe /source:'[yourdirectory]\MyNodeApplication' /target:'[yourtargetdirectory] /appname:NodeService /exe:'node.exe' /ma:'bin/www' /AppType:ToDoList
+```
+.\ServiceFabricAppPackageUtil.exe /source:'[yourdirectory]\MyNodeApplication' /target:'[yourtargetdirectory] /appname:NodeService /exe:'node.exe' /ma:'bin/www' /AppType:NodeAppType
+```
 
 Before we look at the package itself we should look closer at the parameters that we were using:
 
@@ -71,6 +74,7 @@ Before we look at the package itself we should look closer at the parameters tha
 - **/AppType**: Defines Service Fabric application type name.
 
 If we browse to the directory that we specified in the /target parameter we can see that the tool has created a fully functioning Service Fabric package as shown below:
+
 ```
 |--[yourtargetdirectory]
     |-- MyNodeApplication
@@ -102,42 +106,101 @@ The generated ServiceManifest.xml now has a section that describes how the Node.
     </EntryPoint>
 </CodePackage>
 ```
-
-As our Node.js application is a web application we need to add
+In our case the Node.js web server listens to port 3000, so we need to update the endpoint information in the ServiceManifest.xml as shown below.   
 
 ```xml
 <Resources>
       <Endpoints>
-     	<Endpoint Name="WebServerTypeEndpoint" Protocol="http" Port="8080" Type="Input" />
+     	<Endpoint Name="NodeServiceEndpoint" Protocol="http" Port="3000" Type="Input" />
       </Endpoints>
 </Resources>
 ```
- The last step is to publish the application to the local Service Fabric cluster using the PowerShell scripts below:
+Now that we have packaged our Node.js application we can go ahead and package MongoDB. The steps we will go through now are not specific to Node.js and MongoDB, in fact they apply to all applications that are meant to be packaged together as one Service Fabric application.  
+Before we package MongoDB let's have a look at the directory structure.
 
-    Connect-ServiceFabricCluster localhost:19000
+```
+|-- MyNodeApplication
+	|-- bin
+        |-- mongod.exe
+        |-- mongo.exe
+        |-- etc.
+```
+In order to start MongoDB we need to execute a command similar to the one below:
 
-    Write-Host 'Copying application package...'
-    Copy-ServiceFabricApplicationPackage -ApplicationPackagePath 'D:\Dev\WebServerPackage' -ImageStoreConnectionString 'file:C:\SfDevCluster\Data\ImageStore' -ApplicationPackagePathInImageStore 'Store\WebServer'
+```
+mongod.exe --dbpath [path to data]
+```
+> [AZURE.NOTE] The data is not being preserved in the case of a node failure in case you put the MongoDB data directory on the local directory of the node. You should either use durable storage or implement a MongoDB ReplicaSet in order to prevent data loss.  
 
-    Write-Host 'Registering application type...'
-    Register-ServiceFabricApplicationType -ApplicationPathInImageStore 'Store\WebServer'
+To package MongoDB we run a similar command to what we have executed to package the Node.js app.
+In PowerShell or Command Shell we run the packaging tool with the following parameters:
 
-    New-ServiceFabricApplication -ApplicationName 'fabric:/WebServer' -ApplicationTypeName 'WebServerType' -ApplicationTypeVersion 1.0  
+```
+.\ServiceFabricAppPackageUtil.exe /source: [yourdirectory]\MongoDB' /target:'[yourtargetdirectory]' /appname:MongoDB /exe:'bin\mongod.exe' /ma:'--dbpath [path to data]' /AppType:NodeAppType
+```
 
+In order to add MongoDB to our Service Fabric application package we need to make sure that the /target parameter points to the same directory that already contains the application manifest and the Node.js application and that we are using the same ApplicationType name.
 
-Once the application is successfully published to the local cluster we can access the web server through http://localhost:8080.
-This is a good opportunity to check on one of the advantages of running an application in Service Fabric. Let's test what happens if we reboot the node on which our web server runs, we can use Service Fabric Explorer to restart nodes. Figure 1 shows that our web server runs on Node1 and that we are about to restart the node in Service Fabric Explorer.
+Let's browse to the directory and examine what the tool has created.
 
-![RestartNode](./media/service-fabric-custom-application-orchestration/restartnode.png)
+```
+|--[yourtargetdirectory]
+    |-- MyNodeApplication
+    |-- MongoDB
+        |-- C
+            |--bin
+                |-- mongod.exe
+                |-- mongo.exe
+                |-- etc.
+        |-- config
+		    |--Settings.xml
+	    |-- ServiceManifest.xml
+    |-- ApplicationManifest.xml
+```
+As we can see the tool added a new folder MongoDB to the directory that contains the MongoDB binaries. If we open the ApplicationManifest.xml file we can see that our Service Fabric now contains both our Node.js application and MongoDB. The code below shows the content of the applcation manifest.
 
-If we check back after a short while we can see that Service Fabric started our web server on another node. Figure 2 shows our web server running on Node 3 after the failover.
+```xml
+<ApplicationManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="MyNodeApp" ApplicationTypeVersion="1.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
+   <ServiceManifestImport>
+      <ServiceManifestRef ServiceManifestName="MongoDB" ServiceManifestVersion="1.0" />
+   </ServiceManifestImport>
+   <ServiceManifestImport>
+      <ServiceManifestRef ServiceManifestName="NodeService" ServiceManifestVersion="1.0" />
+   </ServiceManifestImport>
+   <DefaultServices>
+      <Service Name="MongoDBService">
+         <StatelessService ServiceTypeName="MongoDB">
+            <SingletonPartition />
+         </StatelessService>
+      </Service>
+      <Service Name="NodeServiceService">
+         <StatelessService ServiceTypeName="NodeService">
+            <SingletonPartition />
+         </StatelessService>
+      </Service>
+   </DefaultServices>
+</ApplicationManifest>  
+```
 
-![New Node](./media/service-fabric-custom-application-orchestration/newnode.png)
+The last step is to publish the application to the local Service Fabric cluster using the PowerShell scripts below:
 
-In this little tutorial we have seen how to easily package and deploy an existing application to Service Fabric so that it can benefit from some of the Service Fabric features such as high availability and heath system integration.
+```
+Connect-ServiceFabricCluster localhost:19000
 
-For more information see the following topics
+Write-Host 'Copying application package...'
+Copy-ServiceFabricApplicationPackage -ApplicationPackagePath '[yourtargetdirectory]' -ImageStoreConnectionString 'file:C:\SfDevCluster\Data\ImageStore' -ApplicationPackagePathInImageStore 'Store\NodeAppType'
 
-[Service Fabric Packaging format ](https://azure.microsoft.com/en-us/documentation/articles/service-fabric-deploy-existing-app/)
+Write-Host 'Registering application type...'
+Register-ServiceFabricApplicationType -ApplicationPathInImageStore 'Store\NodeAppType'
 
-[Deploy multiple exsiting applications to Service Fabric ](https://azure.microsoft.com/en-us/documentation/articles/service-fabric-deploy-existing-app/)
+New-ServiceFabricApplication -ApplicationName 'fabric:/NodeApp' -ApplicationTypeName 'NodeAppType' -ApplicationTypeVersion 1.0  
+```
+
+Once the application is successfully published to the local cluster we can access the Node.js application on the port we have entered in the service manifest of the Node.js application, for example http://localhost:3000.
+
+In this little tutorial we have seen how to easily package two existing application as one Service Fabric application and deploy it to Service Fabric so that it can benefit from some of the Service Fabric features such as high availability and heath system integration.
+
+For more information see the following topics:
+
+[Service Fabric Packaging format ](service-fabric-deploy-existing-app.md)
+[Deploy multiple exsiting applications to Service Fabric ](service-fabric-custom-application-orchestration.md)
