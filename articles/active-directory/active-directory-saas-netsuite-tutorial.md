@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="07/15/2015"
+   ms.date="10/20/2015"
    ms.author="liviodlc"/>
 
 #Tutorial: How to integrate NetSuite with Azure Active Directory
@@ -66,13 +66,13 @@ This tutorial will show you how to connect your NetSuite environment to your Azu
 
 	> [AZURE.NOTE] To learn more about about the different single sign-on options, [click here](../active-directory-appssoaccess-whatis/#how-does-single-sign-on-with-azure-active-directory-work)
 
-3. On the **Configure App Settings** page, for the **Sign On URL** field, type in your NetSuite tenant URL using one of the following formats:
-	- `https://<tenant-name>.netsuite.com`
-	- `https://<tenant-name>.na1.netsuite.com`
-	- `https://<tenant-name>.na2.netsuite.com`
-	- `https://<tenant-name>.sandbox.netsuite.com`
-	- `https://<tenant-name>.na1.sandbox.netsuite.com`
-	- `https://<tenant-name>.na2.sandbox.netsuite.com`
+3. On the **Configure App Settings** page, for the **Reply URL** field, type in your NetSuite tenant URL using one of the following formats:
+	- `https://<tenant-name>.netsuite.com/saml2/acs`
+	- `https://<tenant-name>.na1.netsuite.com/saml2/acs`
+	- `https://<tenant-name>.na2.netsuite.com/saml2/acs`
+	- `https://<tenant-name>.sandbox.netsuite.com/saml2/acs`
+	- `https://<tenant-name>.na1.sandbox.netsuite.com/saml2/acs`
+	- `https://<tenant-name>.na2.sandbox.netsuite.com/saml2/acs`
 
 	![Type in your tenant URL][8]
 
@@ -199,6 +199,8 @@ This tutorial will show you how to connect your NetSuite environment to your Azu
 	![Confirm.][30]
 
 4. Click **Complete** to close the dialog.
+
+	> [AZURE.NOTE] By default, your provisioned users will be added to the root subsidiary of your NetSuite environment.
 
 ##Step 4: Assign Users to NetSuite
 
