@@ -20,7 +20,7 @@
 *Application Insights is in preview.*
 
 
-Sampling  is a feature of Application Insights that allows you to collect and store a reduced set of telemetry while maintaining a statistically correct analysis of application data. You'd typically use it to reduce traffic and keep the volume of telemetry within quota boundaries, or to prevent loss of telemetry when Application Insights services begins dropping ("throttling") telemetry due to the high volume of data. The data collection is filtered in such a way that related items are allowed through, so that you can perform diagnostic investigations with a reduced set of data. Client and server side automatically coordinate to filter related items. When metric counts are presented to you in the portal, they are renormalized to take account of the sampling, to minimize any effect on the statistics. 
+Sampling  is an option in Application Insights that allows you to collect and store a reduced set of telemetry while maintaining a statistically correct analysis of application data. You'd typically use it to reduce traffic and avoid [throttling](app-insights-pricing.md#data-rate). The data is filtered in such a way that related items are allowed through, so that you can perform diagnostic investigations with a reduced set of data. Client and server side automatically coordinate to filter related items. When metric counts are presented to you in the portal, they are renormalized to take account of the sampling, to minimize any effect on the statistics. 
 
 
 Sampling is currently in Beta, and may change in the future.
@@ -45,7 +45,7 @@ To configure sampling in your application, insert the following code snippet int
 
 You can configure web pages for sampling from any server. For ASP.NET servers, configure both client and server sides. 
 
-When you [configure the web pages for Application Insights](app-insights-javascript.md), modify the snippet that you get from the Application Insights portal. Insert a line like `samplingPercentage: 10,` before the instrumentation key:
+When you [configure the web pages for Application Insights](app-insights-javascript.md), modify the snippet that you get from the Application Insights portal. (In ASP.NET, you'll find it in _Layout.cshtml.)  Insert a line like `samplingPercentage: 10,` before the instrumentation key:
 
     <script>
 	var appInsights= ... 
@@ -124,7 +124,7 @@ The client-side (JavaScript) SDK participates in sampling in conjunction with se
 
 *On what platforms can I use sampling?*
 
-* Currently sampling is available only for .NET web applications. Both the client and server side are sampled.
+* Currently sampling is available for any web pages, and for both client and server sides of .NET web applications.
 
 *Can I use sampling with device apps (Windows Phone, iOS, Android, or desktop apps)?*
 
