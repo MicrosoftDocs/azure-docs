@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/13/2015"
+	ms.date="10/16/2015"
 	ms.author="markusvi"/>
 
 
@@ -70,8 +70,8 @@ To configure the integration of QuickHelp into Azure AD, you need to add QuickHe
 ![Applications][4]<br>
 6. In the search box, type **QuickHelp**.<br><br>
 ![Applications][5]<br>
-7. In the results pane, select **QuickHelp**, and then click **Complete** to add the application.<br>
-
+7. In the results pane, select **QuickHelp**, and then click **Complete** to add the application.
+<br><br>![Applications][500]<br>
 
 
 ##  Configuring and testing Azure AD single sign-on
@@ -277,6 +277,8 @@ When you click the QuickHelp tile in the Access Panel, you should get automatica
 [3]: ./media/active-directory-saas-quickhelp-tutorial/tutorial_general_03.png
 [4]: ./media/active-directory-saas-quickhelp-tutorial/tutorial_general_04.png
 [5]: ./media/active-directory-saas-quickhelp-tutorial/tutorial_quickhelp_01.png
+[500]: ./media/active-directory-saas-quickhelp-tutorial/tutorial_quickhelp_14.png
+
 
 [6]: ./media/active-directory-saas-quickhelp-tutorial/tutorial_general_05.png
 [7]: ./media/active-directory-saas-quickhelp-tutorial/tutorial_quickhelp_02.png

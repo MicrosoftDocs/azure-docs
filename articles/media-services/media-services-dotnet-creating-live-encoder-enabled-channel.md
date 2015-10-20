@@ -1,9 +1,9 @@
 <properties 
-	pageTitle="Use .NET SDK to Create Channels that Perform Live Encoding from a Single-bitrate to Multi-bitrate Stream" 
-	description="This tutorial walks you through the steps of creating a Channel that receives a single-bitrate live stream and encodes it to multi-bitrate stream." 
+	pageTitle="Create Channels that Perform Live Encoding from a Single-bitrate to Multi-bitrate Stream using .NET SDK" 
+	description="This tutorial walks you through the steps of creating a Channel that receives a single-bitrate live stream and encodes it to multi-bitrate stream using .NET SDK." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="Juliako" 
+	authors="juliako,anilmur" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -11,13 +11,13 @@
 	ms.service="media-services" 
 	ms.workload="media" 
 	ms.tgt_pltfrm="na" 
-	ms.devlang="ne" 
+	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/14/2015"
+	ms.date="10/18/2015"  
 	ms.author="juliako"/>
 
 
-#Use .NET SDK to Create Channels that Perform Live Encoding from a Single-bitrate to Multi-bitrate Stream
+#Create Channels that Perform Live Encoding from a Single-bitrate to Multi-bitrate Stream using .NET SDK
 
 > [AZURE.SELECTOR]
 - [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
