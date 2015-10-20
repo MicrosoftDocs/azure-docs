@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="10/19/2015"
+   ms.date="10/20/2015"
    ms.author="twounder"/>
 
 # Install Visual Studio 2015 and SSDT development tools for SQL Data Warehouse
@@ -22,7 +22,7 @@ To develop queries and work with SQL Data Warehouse, we recommend using Visual S
  
 ## Download and Install Visual Studio 2015
 
-If you already have Visual Studio 2013 installed, you can skip to the next step. 
+You can use either Visual Studio 2013 or Visual Studio 2015 with SQL Data Warehouse. If you already have Visual Studio 2013 installed, just skip to the next step. 
 
 To install Visual Studio 2015:
 
@@ -31,7 +31,7 @@ To install Visual Studio 2015:
 
 ## Download and Install SQL Server Data Tools (SSDT) Preview
 
-SQL Data Warehouse requires the latest preview version of SQL Server Data Tools (SSDT).
+Regardless of the version of Visual Studio that you have installed, you need the latest preview version of SQL Server Data Tools (SSDT) in order to interact with your SQL Data Warehouse database.
 
 To install SQL Server Data Tools, latest preview version:
 
