@@ -1,9 +1,9 @@
 <properties 
 	pageTitle="Filters and Dynamic Manifests" 
-	description="This topic describes how to create filters so your client can use them to stream specific sections of a stream. Media Services creates dynamic manifests to achive this selective streaming." 
+	description="This topic describes how to create filters so your client can use them to stream specific sections of a stream. Media Services creates dynamic manifests to archive this selective streaming." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="Juliako" 
+	authors="cenkdin,Juliako" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="09/07/2015" 
+	ms.date="10/18/2015" 
 	ms.author="juliako"/>
 
 #Filters and Dynamic Manifests
 
-Starting with 2.11 release, Media Services enables you to define filters for your assets. These filters are server side rules that will allow your customers to choose to do things like: playback only a section of a video (instead of playing the whole video), or specify only a subset of audio and video renditions that your customer's device can handle (instead of all the renditions that are associated with the asset). This filtering of your assets is achieved through **Dynamic Manifest**s that are created upon your customer's request to stream a video based on specified filter(s).
+Starting with 2.11 release, Media Services enables you to define filters for your assets. These filters are server side rules that will allow your customers to choose to do things like: playback only a section of a video (instead of playing the whole video), or specify only a subset of audio and video renditions that your customer's device can handle (instead of all the renditions that are associated with the asset). This filtering of your assets is archived through **Dynamic Manifest**s that are created upon your customer's request to stream a video based on specified filter(s).
 
 This topics discusses common scenarios in which using filters would be very beneficial to your customers and links to topics that demonstrate how to create filters programmatically (currently, you can create filters with REST APIs only).
 
@@ -208,6 +208,7 @@ You can view AMS learning paths here:
 
 - [AMS Live Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
 - [AMS on Demand Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
 
 ##See Also
 

@@ -120,6 +120,6 @@ Up to 500 events per second from each application. Events are retained for seven
 [exceptions]: app-insights-web-failures-exceptions.md
 [portal]: http://portal.azure.com/
 [qna]: app-insights-troubleshoot-faq.md
-[start]: app-insights-get-started.md
+[start]: app-insights-overview.md
 
  

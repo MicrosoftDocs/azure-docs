@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Use Script Action to install Spark on Hadoop cluster | Microsoft Azure" 
-	description="Learn how to customize an HDInsight cluster with Spark. You'll use a Script Action configuration option to use a script to install Spark." 
+	pageTitle="Use Script Action to install Apache Spark on Linux-based HDInsight (Hadoop) | Microsoft Azure" 
+	description="Learn how to install Spark on a Linux-based HDInsight cluster using Script Actions. Script Actions allow you to customize the cluster during creation, by changing cluster configuration or installing services and utilities." 
 	services="hdinsight" 
 	documentationCenter="" 
 	authors="Blackmist" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/01/2015" 
+	ms.date="10/19/2015" 
 	ms.author="larryfr"/>
 
 # Install and use Spark on HDInsight Hadoop clusters
@@ -40,6 +40,8 @@ You can modify this script or create your own script to install other versions o
 
 This script installs Spark version 1.5.1 into `/usr/hdp/current/spark`.
 
+> [AZURE.WARNING] You may discover that some Spark 1.3.1 binaries are installed by default on your HDInsight cluster. These should not be used, and will be removed from the HDInsight cluster image in a future update.
+
 ## <a name="install"></a>Install Spark using Script Actions
 
 A sample script to install Spark on an HDInsight cluster is available from a read-only Azure storage blob at [https://hdiconfigactions.blob.core.windows.net/linuxsparkconfigactionv02/spark-installer-v02.sh](https://hdiconfigactions.blob.core.windows.net/linuxsparkconfigactionv02/spark-installer-v02.sh). This section provides instructions on how to use the sample script while creating the cluster by using the Azure portal. 
@@ -53,9 +55,11 @@ A sample script to install Spark on an HDInsight cluster is available from a rea
 	* __NAME__: Enter a friendly name for the script action.
 	* __SCRIPT URI__: https://hdiconfigactions.blob.core.windows.net/linuxsparkconfigactionv02/spark-installer-v02.sh
 	* __HEAD__: Check this option
-	* __WORKER__: Check this option
-	* __ZOOKEEPER__: Check this option to install on the Zookeeper node.
+	* __WORKER__: Uncheck this option
+	* __ZOOKEEPER__: Uncheck this option
 	* __PARAMETERS__: Leave this field blank
+    
+    > [AZURE.NOTE] The example Spark script only installs components on the head nodes, so the other node types can be unchecked.
 
 3. At the bottom of the **Script Actions**, use the **Select** button to save the configuration. Finally, use the **Select** button at the bottom of the **Optional Configuration** blade to save the optional configuration information.
 
@@ -208,7 +212,7 @@ In this section, you will create a Scala application that counts the number of l
 6. Use the following command to run the SimpleApp.scala program:
 
 
-		/usr/hdp/current/spark/bin/spark-submit --class "SimpleApp" --master local target/scala-2.10/simpleapp_2.10-1.0.jar
+		/usr/hdp/current/spark/bin/spark-submit --class "SimpleApp" --master yarn target/scala-2.10/simpleapp_2.10-1.0.jar
 
 4. When the program finishes running, the output is displayed on the console.
 

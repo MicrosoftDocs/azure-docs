@@ -18,7 +18,8 @@ ms.service="virtual-machines"
 
 # Automatically scale Azure compute resources up and down in an HPC Pack cluster according to the cluster workload
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)] This article applies to managing a resource created with the classic deployment model.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Resource Manager model.
+
 
 If you deploy Azure “burst” nodes in your HPC Pack cluster, or you
 create an HPC Pack cluster in Azure VMs, you may want a way to

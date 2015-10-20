@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="09/23/2015"
+   ms.date="10/20/2015"
    ms.author="larryfr"/>
 
 #Manage HDInsight clusters by using Ambari (preview)
@@ -28,6 +28,10 @@ Learn how to use Ambari to manage and monitor Linux-based Azure HDInsight cluste
 <a href="http://ambari.apache.org" target="_blank">Apache Ambari</a> makes Hadoop management simpler by providing an easy-to-use web UI that can be used to provision, manage, and monitor Hadoop clusters. Developers can integrate these capabilities into their applications by using the <a href="https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md" target="_blank">Ambari REST APIs</a>.
 
 Ambari is provided by default with Linux-based HDInsight clusters. Windows-based HDInsight clusters provide monitoring functionality through the Ambari REST APIs.
+
+##Connectivity
+
+Connecting to Ambari on your HDInsight cluster requires the use of HTTPS. You must also authenticate to Ambari using the admin account name (the default is __admin__,) and password you provided when the cluster was created.
 
 ##SSH proxy
 

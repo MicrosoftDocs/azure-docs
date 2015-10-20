@@ -13,20 +13,18 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/01/2015" 
+	ms.date="10/12/2015" 
 	ms.author="bradsev;sunliangms;sachouks;mohabib" />
 
 # Move Data to and from Azure Blob Storage
 
-[AZURE.INCLUDE [blob-storage-tool-selector](../../includes/machine-learning-blob-storage-tool-selector.md)]
+[AZURE.INCLUDE [cap-ingest-data-selector](../../includes/cap-ingest-data-selector.md)]
 
 ## Introduction
 
-This topic describes three methods to move data to and from Azure Blob storage:
+This topic describes the use of three technologies to move data to and from Azure Blob storage:
 
-- Using Azure Storage Explorer
-- Using AzCopy Command line utility
-- Using Azure SDK in Python
+[AZURE.INCLUDE [blob-storage-tool-selector](../../includes/machine-learning-blob-storage-tool-selector.md)]
 
 Which method is best for you will depend on your scenario. The [Scenarios for the Advanced Analytics Process and Technology (ADAPT) in Azure Machine Learning](../machine-learning-data-science-plan-sample-scenarios.md) article helps you determine the resources you need for a variety of data science workflows used in the advanced analytics process.
 

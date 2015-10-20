@@ -246,7 +246,7 @@ will become visible again.
 
 You can get an estimate of the number of messages in a queue. The
 **FetchAttributes** method asks the Queue service to
-retrieve the queue attributes, including the message count. The **ApproximateMethodCount**
+retrieve the queue attributes, including the message count. The **ApproximateMessageCount**
 property returns the last value retrieved by the
 **FetchAttributes** method, without calling the Queue service.
 

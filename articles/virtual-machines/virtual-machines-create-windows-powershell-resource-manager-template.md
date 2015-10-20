@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Create a VM with ARM template | Microsoft Azure"
-	description="Use a Resource Manager template to easily create a new Windows virtual machine with PowerShell or the Azure CLI."
+	pageTitle="Create a VM with a template | Microsoft Azure"
+	description="Use a Resource Manager template to easily create a new Windows virtual machine with PowerShell."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="davidmu1"
@@ -14,22 +14,18 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/28/2015"
+	ms.date="10/08/2015"
 	ms.author="davidmu"/>
 
 # Create a Windows virtual machine with a Resource Manager template
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] classic deployment model. You can't create this resource with the classic deployment model.
 
-You can easily create a new Windows-based Azure virtual machine by using a Resource Manager template with Azure PowerShell or the Azure CLI. This template creates a single virtual machine running Windows in a new virtual network with a single subnet in a new resource group.
+You can easily create a new Windows-based Azure virtual machine by using a Resource Manager template with Azure PowerShell. This template creates a single virtual machine running Windows in a new virtual network with a single subnet in a new resource group.
 
 ![](./media/virtual-machines-create-windows-powershell-resource-manager-template/windowsvm.png)
 
-Before you dive in, make sure you have Azure, PowerShell, and Azure CLI configured and ready to go.
-
-[AZURE.INCLUDE [arm-getting-setup-powershell](../../includes/arm-getting-setup-powershell.md)]
-
-[AZURE.INCLUDE [xplat-getting-set-up-arm](../../includes/xplat-getting-set-up-arm.md)]
+[AZURE.INCLUDE [powershell-preview](../../includes/powershell-preview-inline-include.md)]
 
 ## Create a Windows virtual machine with a Resource Manager template using Azure PowerShell
 
@@ -224,10 +220,10 @@ Fill in an Azure deployment name, resource group name, and Azure datacenter loca
 	$RGName="<resource group name>"
 	$locName="<Azure location, such as West US>"
 	$templateURI="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-simple-windows-vm/azuredeploy.json"
-	New-AzureResourceGroup –Name $RGName –Location $locName
-	New-AzureResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateUri $templateURI
+	New-AzureRmResourceGroup –Name $RGName –Location $locName
+	New-AzureRmResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateUri $templateURI
 
-When you run the **New-AzureResourceGroupDeployment** command, you will be prompted to supply the values of parameters in the "parameters" section of the JSON file. When you have specified all the parameter values, the command creates the resource group and the virtual machine.
+When you run the **New-AzureRmResourceGroupDeployment** command, you will be prompted to supply the values of parameters in the "parameters" section of the JSON file. When you have specified all the parameter values, the command creates the resource group and the virtual machine.
 
 Here is an example.
 
@@ -235,12 +231,12 @@ Here is an example.
 	$RGName="TestRG"
 	$locname="West US"
 	$templateURI="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-simple-windows-vm/azuredeploy.json"
-	New-AzureResourceGroup –Name $RGName –Location $locName
-	New-AzureResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateUri $templateURI
+	New-AzureRmResourceGroup –Name $RGName –Location $locName
+	New-AzureRmResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateUri $templateURI
 
 You will see something like this:
 
-	cmdlet New-AzureResourceGroupDeployment at command pipeline position 1
+	cmdlet New-AzureRmResourceGroupDeployment at command pipeline position 1
 	Supply values for the following parameters:
 	(Type !? for Help.)
 	newStorageAccountName: newsaacct
@@ -277,49 +273,6 @@ You will see something like this:
 	Outputs           :
 
 You now have a new Windows virtual machine named MyWindowsVM in your new resource group.
-
-## Create a Windows virtual machine with a Resource Manager template using Azure CLI
-
-Follow these steps to create a Windows virtual machine by using a Resource Manager template in the Github template repository with Azure CLI commands.
-
-Fill in a resource group name and Azure location (such as westus for West US), remove the brackets), and then run these commands.
-
-	azure group create [resource group] [location]
-	azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-simple-windows-vm/azuredeploy.json [resource group] firstdeployment
-
-Here is an example of the Azure CLI command set for the template.
-
-	azure group create testrg westus
-	azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-simple-windows-vm/azuredeploy.json testrg firstdeployment
-
-You would see something like this:
-
-	azure group create testrg westus
-	info:    Executing command group create
-	+ Getting resource group testrg
-	+ Creating resource group testrg
-	info:    Created resource group testrg
-	data:    Id:                  /subscriptions/2c73c582-4b11-4800-96f9-a9bd790a861c/resourceGroups/testrg
-	data:    Name:                testrg
-	data:    Location:            westus
-	data:    Provisioning State:  Succeeded
-	data:    Tags:
-	data:
-	info:    group create command OK
-
-	azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-simple-windows-vm/azuredeploy.json testrg firstdeployment
-	info:    Executing command group deployment create
-	info:    Supply values for the following parameters
-	newStorageAccountName: newstorage
-	adminUsername: ops
-	adminPassword: Pa$$W0rd1
-	dnsNameForPublicIP: contoso
-	windowsOSVersion: 2012-R2-Datacenter
-	+ Initializing template configurations and parameters
-	+ Creating a deployment
-	info:    Created template deployment "firstdeployment"
-	+ Registering providers
-
 
 ## Additional resources
 

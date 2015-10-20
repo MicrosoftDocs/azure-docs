@@ -1,6 +1,6 @@
 <properties
- pageTitle="Azure IoT Hub developer guide | Microsoft Azure"
- description="Azure IoT Hub developer guide covering IoT Hub endpoints, security, device identity registry, and messaging"
+ pageTitle="Developer guide topics for IoT Hub | Microsoft Azure"
+ description="Azure IoT Hub developer guide that includes IoT Hub endpoints, security, device identity registry, and messaging"
  services="iot-hub"
  documentationCenter=".net"
  authors="fsautomata"
@@ -9,10 +9,10 @@
 
 <tags
  ms.service="iot-hub"
- ms.devlang="na"
+ ms.devlang="multiple"
  ms.topic="article"
  ms.tgt_pltfrm="na"
- ms.workload="tbd"
+ ms.workload="na"
  ms.date="09/29/2015"
  ms.author="elioda"/>
 
@@ -488,6 +488,7 @@ Now that you've seen an overview of developing for IoT Hub, follow these links t
 
 - [Get started with IoT Hubs (tutorial)][lnk-get-started]
 - [OS Platforms and hardware compatibility][lnk-compatibility]
+- [Azure IoT Developer Center][lnk-iotdev]
 - [Plan your IoT implementation][lnk-guidance]
 
 [Event Hubs - Event Processor Host]: http://blogs.msdn.com/b/servicebus/archive/2015/01/16/event-processor-host-best-practices-part-1.aspx
@@ -531,3 +532,4 @@ Now that you've seen an overview of developing for IoT Hub, follow these links t
 [lnk-sasl-plain]: http://tools.ietf.org/html/rfc4616
 [lnk-servicebus]: http://azure.microsoft.com/services/service-bus/
 [lnk-tls]: https://tools.ietf.org/html/rfc5246
+[lnk-iotdev]: https://azure.microsoft.com/develop/iot/

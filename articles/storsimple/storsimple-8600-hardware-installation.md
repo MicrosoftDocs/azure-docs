@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/23/2015"
+   ms.date="10/13/2015"
    ms.author="alkohli" />
 
 # Unpack, rack-mount, and cable your StorSimple 8600 device
@@ -22,26 +22,25 @@ Your Microsoft Azure StorSimple 8600 is a dual enclosure device and consists of 
 
 ## Unpack your StorSimple 8600 device
 
-The following steps provide clear, detailed instructions on how to unpack your StorSimple 8600 storage device. This device is shipped in two separate boxes, one for the primary enclosure and another for the EBOD enclosure.
+The following steps provide clear, detailed instructions on how to unpack your StorSimple 8600 storage device. This device is shipped in two boxes, one for the primary enclosure and another for the EBOD enclosure. These two boxes are then placed in a single box.
 
 ### Prepare to unpack your device
 
 Before you unpack your device, review the following information.
 
->[AZURE.WARNING]
-> ![heavy weight icon](./media/storsimple-8600-hardware-installation/HCS_HeavyWeight_Icon.png)
->
-> 1. Make sure that you have two people available to manage the weight of the device if you are handling it manually. A fully configured device can weigh up to 32 kg (70 lbs.).
->
-> 2. Place the box on a flat, level surface.
+
+![Warning Icon](./media/storsimple-safety/IC740879.png)![heavy weight icon](./media/storsimple-8600-hardware-installation/HCS_HeavyWeight_Icon.png) **WARNING!**
+
+1. Make sure that you have two people available to manage the weight of the device if you are handling it manually. A fully configured enclosure can weigh up to 32 kg (70 lbs.).
+1. Place the box on a flat, level surface.
 
 Next, complete the following steps to unpack your device.
 
 #### To unpack your device
 
-1. Inspect the boxes and the packaging foam for crushes, cuts, water damage, or any other obvious damage. If the box or packaging is severely damaged, do not open the box. Please contact Microsoft Support to help you assess whether the device is in good working order.
+1. Inspect the box and the packaging foam for crushes, cuts, water damage, or any other obvious damage. If the box or packaging is severely damaged, do not open the box. Please [contact Microsoft Support](storsimple-contact-microsoft-support.md) to help you assess whether the device is in good working order.
 
-2. Open the two boxes and unpack the primary and EBOD enclosures. The following figure shows the unpacked view of your storage device.
+2. Open the outer box and then take out the two boxes corresponding to primary and EBOD enclosures. You can now unpack the primary and EBOD enclosures. The following figure shows the unpacked view of one of the enclosures.
 
     ![Unpack your storage device](./media/storsimple-8600-hardware-installation/HCSUnpackyour4Udevice.png) 
  
@@ -65,11 +64,11 @@ Next, complete the following steps to unpack your device.
   - 1 crossover Ethernet cable
   - 2 serial console cables
   - 1 serial-USB converter for serial access
-  - 4 single QSFP-to-SFP+ adapters for use with 10 GbE network interfaces
+  - 4 QSFP-to-SFP+ adapters for use with 10 GbE network interfaces
   - 2 rack mount kits (4 side rails with mounting hardware, 2 each for the primary enclosure and EBOD enclosure), 1 in each box
   - Getting started documentation
 
-    If you did not receive any of the items listed above, contact Microsoft Support. 
+    If you did not receive any of the items listed above, [contact Microsoft Support](storsimple-contact-microsoft-support.md).  
 
 The next step is to rack-mount your device. 
 
@@ -91,10 +90,9 @@ The enclosures must be installed in a standard 19-inch rack that has both front 
 
 3. Make sure that one 4U (2 X 2U) slot is available on the rack in which you intend to mount the enclosures. 
 
->[AZURE.WARNING]
-> ![heavy weight icon](./media/storsimple-8600-hardware-installation/HCS_HeavyWeight_Icon.png)
-> 
-> Make sure that you have two people available to manage the weight if you are handling the device setup manually. A fully configured enclosure can weigh up to 32 kg (70 lbs.).
+![Warning Icon](./media/storsimple-safety/IC740879.png)![heavy weight icon](./media/storsimple-8600-hardware-installation/HCS_HeavyWeight_Icon.png) **WARNING!**
+
+ Make sure that you have two people available to manage the weight if you are handling the device setup manually. A fully configured enclosure can weigh up to 32 kg (70 lbs.).
 
 ### Rack prerequisites
 
@@ -110,9 +108,7 @@ A set of mounting rails will be provided for use with the 19-inch rack cabinet. 
 
 #### To install the EBOD enclosure on the rails
 
-1. With the enclosure on the work surface, remove the left and right front flange caps by pulling the caps free. The flange caps simply snap onto the flanges.
-
-2. Typically, these rails are installed at the factory. If they are not, then install the left-rail and right-rail slides to the sides of the enclosure chassis. They attach using six metric screws on each side. To help with orientation, the rail slides are marked **LH – Front** and **RH – Front**, and the end that is affixed towards the rear of the enclosure has a tapered end.
+2. Perform this step only if inner rails are not installed on your device. Typically, the inner rails are installed at the factory. If rails are not installed, then install the left-rail and right-rail slides to the sides of the enclosure chassis. They attach using six metric screws on each side. To help with orientation, the rail slides are marked **LH – Front** and **RH – Front**, and the end that is affixed towards the rear of the enclosure has a tapered end.
 
     ![Attaching rail slides to enclosure chassis](./media/storsimple-8600-hardware-installation/HCSAttachingRailSlidestoEnclosureChassis.png) 
 
@@ -139,9 +135,9 @@ A set of mounting rails will be provided for use with the 19-inch rack cabinet. 
      ----- | -----------
      1     | Clamping screw
      2     | Square-hole front rack post screw
-     3     | Left front-rail location pins
+     3     | Left front rail location pins
      4     | Clamping screw
-     5     | Right front-rail location pins
+     5     | Left rear rail location pins
 
 ### Mounting the EBOD enclosure in the rack 
 
@@ -157,7 +153,9 @@ Using the rack rails that were just installed, perform the following steps to mo
 
     **Mounting the enclosure in the rack**
 
-3. Secure the enclosure into the rack by installing one provided Phillips-head screw through each flange, left and right.
+3. Remove the left and right front flange caps by pulling the caps free. The flange caps simply snap onto the flanges.
+
+4. Secure the enclosure into the rack by installing one provided Phillips-head screw through each flange, left and right.
 
 4. Install the flange caps by pressing them into position and snapping them into place.
 
@@ -197,7 +195,7 @@ Before you begin to cable your device, you will need:
 - Network cables
 - Provided serial cables
 - Serial-USB converter with the appropriate driver installed on your PC (if needed)
-- Provided single QSFP-to-SFP+ adapters for use with 10 GbE network interfaces
+- Provided 4 QSFP-to-SFP+ adapters for use with 10 GbE network interfaces
 - [Supported hardware for 10 GbE network interfaces on your StorSimple device](storsimple-supported-hardware-for-10-gbe-network-interfaces.md) 
 
 ### SAS and Power cabling
@@ -230,16 +228,9 @@ To support this redundant controller failover, you need to cable your device net
      2,3     | 10 GbE network interfaces
      6       | Serial ports
 
-2. For high availability, the device requires a minimum of two connections for each controller.
-    1. The DATA 0 port is automatically enabled and configured via the serial console of the device. Apart from DATA 0, another data port also needs to be configured through the Management Portal.
-    2. Identify identical network interfaces on each controller. For instance, if you choose to connect DATA 0 and DATA 3 for one of the controllers, you need to connect the corresponding DATA 0 and DATA 3 on the other controller. 
 
-3. For high availability, ensure that you connect:
-   1. Identical interfaces on each controller to the relevant network to ensure availability through a controller failure.
-   2. Interfaces from each controller to at least two different switches to ensure availability through a switch failure.
-   3. DATA 0 port to the primary LAN (network with Internet access). The other data ports can be connected to SAN/iSCSI LAN (VLAN) segment of the network, depending on the intended role.
 
-At a minimum, configure one network interface for cloud access and one for iSCSI. For high availability and performance, configure two pairs of network interfaces on each controller. See the following diagram for network cabling. (The minimum network configuration is shown by solid blue lines. For high availability and performance, additional configuration required is shown by dotted lines.)
+1. See the following diagram for network cabling. (The minimum network configuration is shown by solid blue lines. For high availability and performance, additional configuration required is shown by dotted lines.)
 
 ![Cable your 4U device for network](./media/storsimple-8600-hardware-installation/HCSCableYour4UDeviceforNetwork.png)
 
@@ -258,6 +249,22 @@ H,I  | Hosts (for example, file servers)
 0-5  | Network interfaces
 6    | Primary enclosure
 7    | EBOD enclosure
+
+When cabling the device, the minimum configuration requires:
+
+
+- At least two network interfaces connected on each controller with one for cloud access and one for iSCSI. The DATA 0 port is automatically enabled and configured via the serial console of the device. Apart from DATA 0, another data port also needs to be configured through the Management Portal. In this case, connect DATA 0 port to the primary LAN (network with Internet access). The other data ports can be connected to SAN/iSCSI LAN (VLAN) segment of the network, depending on the intended role.
+
+- Identical interfaces on each controller connected to the same network to ensure availability if a controller failover occurs. For instance, if you choose to connect DATA 0 and DATA 3 for one of the controllers, you need to connect the corresponding DATA 0 and DATA 3 on the other controller.
+	
+Keep in mind for high availability and performance:
+
+
+- When possible, configure a pair of network interface for cloud access (1 GbE) and another pair for iSCSI (10 GbE recommended) on each controller. 
+
+- When possible, connect network interfaces from each controller to two different switches to ensure availability against a switch failure. The figure illustrates the two 10 GbE network interfaces, DATA 2 and DATA 3, from each controller connected to two different switches. For more information, refer to the **Network interfaces** under the [High availability requirements for your StorSimple device](storsimple-system-requirements/#high-availability-requirements-for-storsimple.md).
+
+>[AZURE.NOTE] If using SFP+ transceivers with your 10 GbE network interfaces, use the provided QSFP-SFP+ adapters. More information on [Supported hardware for 10 GbE network interfaces on your StorSimple device](storsimple-supported-hardware-for-10-gbe-network-interfaces.md)
 
 ### Serial port cabling
 

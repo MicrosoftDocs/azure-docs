@@ -13,11 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/29/2015" 
+	ms.date="10/07/2015" 
 	ms.author="tamram"/>
 
 
 # Client-Side Encryption and Azure Key Vault for Microsoft Azure Storage
+
+[AZURE.INCLUDE [storage-selector-client-side-encryption-include](../../includes/storage-selector-client-side-encryption-include.md)]
 
 ## Overview
 
