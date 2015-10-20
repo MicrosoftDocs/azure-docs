@@ -39,6 +39,8 @@ The recovery operation impacts the application. It requires changing the SQL con
 In the event of an outage on the primary database, you can failover to a secondary database to restore availability. To do this you will need to force terminate the continuous copy relationship. For a full description of terminating continuous copy relationships go [here](https://msdn.microsoft.com/library/azure/dn741323.aspx). 
 
 ###Azure Portal
+Use the Azure Portal to terminate the continuous copy relationship with the Geo-Replicated secondary database.
+
 1. Log in to the [Azure Portal](https://portal.Azure.com)
 2. On the left side of the screen select **BROWSE** and then select **SQL Databases**
 3. Navigate to your database and select it. 
@@ -48,20 +50,18 @@ In the event of an outage on the primary database, you can failover to a seconda
 After the continuous copy relationship is terminated, you can configure your recovered database to be used by following the [Finalize a Recovered Database](sql-database-recovered-finalize.md) guide.
 
 ###PowerShell
-Use PowerShell to programmatically perform database recovery.
-
-To terminate the relationship from the secondary database, use the [Stop-AzureSqlDatabaseCopy](https://msdn.microsoft.com/library/dn720223) cmdlet.
+Use PowerShell to terminate the continuous copy relationship with the Geo-Replicated secondary database by using the [Stop-AzureSqlDatabaseCopy](https://msdn.microsoft.com/library/dn720223) cmdlet.
 		
 		$myDbCopy = Get-AzureSqlDatabaseCopy -ServerName "SecondaryServerName" -DatabaseName "SecondaryDatabaseName"
 		$myDbCopy | Stop-AzureSqlDatabaseCopy -ServerName "SecondaryServerName" -ForcedTermination
 		 
 After the continuous copy relationship is terminated, you can configure your recovered database to be used by following the [Finalize a Recovered Database](sql-database-recovered-finalize.md) guide.
+
 ###REST API 
-Use REST to programmatically perform database recovery.
+Use REST to programmatically stop the continuous copy relationship with the Geo-Replicated secondary database.
 
 1. Get the database continuous copy using the [Get Database Copy](https://msdn.microsoft.com/library/azure/dn509570.aspx) operation.
-2. Stop the database continuous copy using the [Stop Database Copy](https://msdn.microsoft.com/library/azure/dn509573.aspx) operation.
-Use the secondary server name and database name in the Stop Database Copy request URI
+2. Stop the database continuous copy using the [Stop Database Copy](https://msdn.microsoft.com/library/azure/dn509573.aspx) operation. Use the secondary server name and database name in the Stop Database Copy request URI
 
  After the continuous copy relationship is terminated, you can configure your recovered database to be used by following the [Finalize a Recovered Database](sql-database-recovered-finalize.md) guide.
 
