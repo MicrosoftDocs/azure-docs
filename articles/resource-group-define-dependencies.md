@@ -52,6 +52,8 @@ option to use a reference vs. dependsOn, the guidance is to use the reference fu
 that are known to be required as they're referenced within the template. By their presence, they are relevant, avoiding again optimizing for performance and to avoid the potential risk of 
 distracting the deployment engine from avoiding parallelism unnecessarily.
 
+If you need to define a dependency between a resource and resources that are created through a copy loop, you can set the dependsOn element to name of the loop. For an example, see [Create multiple instances of resources in Azure Resource Manager](resource-group-create-multiple.md).
+
 ## resources
 
 The resources property allows you to specify child resources that are related to the resource being defined. Child resources can only be defined 5 levels deep. It is important to note that an implicit dependency is not created between a child resource and the parent resource. If you need the child resource to be deployed after the parent resource, you must explicitly state that dependency with the dependsOn property. 
