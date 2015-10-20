@@ -258,6 +258,8 @@ The following is the output from controller 1 (the active controller). Only the 
 
 You can use the `Test-Connection` cmdlet to determine whether your StorSimple device can connect to the outside network. If all the networking parameters, including the DNS, are configured correctly in the setup wizard, you can use the `Test-Connection` cmdlet to ping a known address outside of the network, such as outlook.com. 
 
+You will need to enable ping to troubleshoot connectivity issues with this cmdlet if ping is blocked by your firewall.
+
 See the following samples of output from the `Test-Connection` cmdlet. 
 
 > [AZURE.NOTE] In the first sample, the device is configured with an incorrect DNS. In the second sample, the DNS is correct.
