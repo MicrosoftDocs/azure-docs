@@ -10,7 +10,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="10/13/2015"
+	ms.date="10/20/2015"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -90,6 +90,10 @@ Running the **Get-Credential** cmdlet opens a window asking for your username an
 
 
 ## Export your database
+
+
+> [AZURE.IMPORTANT] To guarantee a transactionally consistent BACPAC file you should first [create a copy of your database](sql-database-copy-powershell.md) and then export the database copy. 
+
 
 This command submits an export database request to the service. Depending on the size of your database the export operation may take some time to complete.
 
