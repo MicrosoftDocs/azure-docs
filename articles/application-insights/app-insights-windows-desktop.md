@@ -62,11 +62,11 @@ The core SDK just provides an API: unlike the Web or device SDKs, it doesn't inc
 
     * If you only installed the core API package Microsoft.ApplicationInsights, you must set the key in code, for example in main(): 
 
-     `TelemetryConfiguration.Active.InstrumentationKey = "`*your key*`";`
+    `TelemetryConfiguration.Active.InstrumentationKey = "`*your key*`";`
 
     * If you installed one of the other packages, you can either set the key using code, or set it in ApplicationInsights.config:
  
-     `<InstrumentationKey>`*your key*`</InstrumentationKey>`
+    `<InstrumentationKey>`*your key*`</InstrumentationKey>`
 
 
 
