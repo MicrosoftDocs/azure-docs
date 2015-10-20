@@ -28,7 +28,6 @@ Additional Query Language features | Stream Analytics has expanded the Query Lan
 Removal of aggregate limitation from query language | Stream Analytics has removed the limitation of 15 aggregates in a query. There is now no limitation of this nature in the query language.
 Added GROUP BY System.Timestamp feature | ???
 Added OFFSET for Tumbling and Hopping windows | ???
-Added Grouped Streams functionality | ???
 
 
 ## Notes for 09/29/2015 release of Stream Analytics ##
