@@ -105,7 +105,7 @@ The basic steps are outlined below.
 - You or the provider must configure the BGP peering(s).
 - You must link the virtual network to the ExpressRoute circuit.
 
-The following tutorials will help you:
+The following article will help you:
 
 [ExpressRoute workflows for circuit provisioning and circuit states](expressroute-workflows.md)
 
@@ -228,10 +228,8 @@ Yes. ExpressRoute premium charges apply on top of ExpressRoute circuit charges a
 ### Can my existing ExpressRoute circuits support connectivity to Office 365 services?
 Yes. Your existing ExpressRoute circuit can be configured to support connectivity to Office 365 services. Ensure that you have sufficient capacity to connect to Office 365 services. [Network planning and performance tuning for Office 365](http://aka.ms/tune/) will help you plan your connectivity needs.
 
-The following tutorials will help you:
-
-- [Configure an ExpressRoute connection through a network service provider](expressroute-configuring-nsps.md)
-- [Configure an ExpressRoute connection through an exchange provider](expressroute-configuring-exps.md)
+The following article will help you:
+[Create and modify an ExpressRoute circuit](expressroute-howto-circuit-classic.md)
 
 ### What Office 365 services can be accessed over an ExpressRoute connection?
 
