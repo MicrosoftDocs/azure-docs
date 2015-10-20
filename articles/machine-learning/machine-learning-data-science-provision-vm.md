@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Data Science Virtual Machine | Microsoft Azure" 
+	pageTitle="Provision a Data Science Virtual Machine | Microsoft Azure" 
 	description="Configure and create a Data Science Virtual Machine on Azure to do analytics and machine learning." 
 	services="machine-learning" 
 	documentationCenter="" 
@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/17/2015" 
+	ms.date="10/20/2015" 
 	ms.author="bradsev" />
 
 
-# Data Science Virtual Machine
+# Provision a Data Science Virtual Machine
 
 ## Introduction
 
@@ -27,7 +27,7 @@ The Data Science Virtual Machine is an Azure virtual machine (VM) image pre-inst
 - Anaconda Python distribution
 - Visual Studio Community Edition
 - Power BI desktop
-- SQL Server Express edition running on a Windows Server 2012 R2 Datacenter. 
+- SQL Server Express edition
 
 
 Doing Data Science involves iterating on a sequence of tasks: finding, loading, and pre-processing data, building and testing models, and deploying the models for consumption in intelligent applications. It is not uncommon for data scientists to use a variety of tools to to complete these tasks. It can be quite time consuming to find the right versions of the software, and then download and install them. The Data Science virtual machine can ease away much of that burden. 
@@ -43,20 +43,18 @@ Before you can create an Azure VM, you must have the following:
 *   **An Azure storage account**: See [Create an Azure storage account](storage-whatis-account.md) The storage account can be created as part of the process of creating the VM if you do not want to use an existing account.
 
 
-## Configure your data science VM instance
+## Create your data science VM
 
 The steps involved in creating your instance of the data science VM are as follows:
 
 1.	Login to Azure portal
 2.	Navigate to **New** -> **Compute** -> **Marketplace** and search for *Data Science Virtual Machine*. Select the one VM titled “**Data Science Virtual Machine**” published by Microsoft to see a panel describing the Data Science Virtual Machine
-4.	Click on the **Create** button at the bottom to be taken into a wizard. 
-
-	vm-image1-screenshot-TBD
-
-5.	The following sections provide the inputs for each step in the wizard used to create the Data Science VM.
+3.	Click on the **Create** button at the bottom to be taken into a wizard.
+![provision-data-science-vm](./media/machine-learning-data-science-provision-vm/provision-data-science-virtual-machine.png)
+4.	 The following sections provide the inputs for each step in the wizard used to create the Data Science VM
 
 
-**Basics**: 
+ **1. Basics**: 
 
 - **Name**: Name of your data science server you are creating.
 - **User Name**: Admin account login id
@@ -65,36 +63,36 @@ The steps involved in creating your instance of the data science VM are as follo
 - **Resource Group**: You can create a new one or use an existing group
 - **Location**: Select the data center that is most appropriate. Usually it is the data center that has most of your data or is closest to your physical location for fastest network access
 
-**Size**: 
+ **2. Size**: 
 
 - Select one of the server types that meets your functional requirement and cost constraints. You can get more choices of VM sizes by selecting “View All”
 
-**Settings**
+ **3. Settings**
 
-- **Disk Type**: Choose Premium if you prefer SSD else choose “Standard”
-- **Storage Account**: You can create a new Azure storage account in your subscription or use an existing one in the same Location that was chosen on the Basics step of the wizard.
-- In most cases you will just use the default for rest of the parameters. You can hover over the informational link for help on the specific field in case you want to use non-default
+ **4. Disk Type**: 
 
-**Summary**: Verify that all information you entered is correct
+- Choose Premium if you prefer SSD else choose “Standard”
+
+ **5. Storage Account**: 
 
 
-## Create your data science VM instance
-
-Click on **Buy** to start the provisioning. A link is provided to the terms of the transaction. The VM does not have any additional charges beyond the compute for the server size you chose in the **Size** step. 
+- You can create a new Azure storage account in your subscription or use an existing one in the same Location that was chosen on the Basics step of the wizard.
+- In most cases you will just use the default for rest of the parameters. You can hover over the informational link for help on the specific field in case you want to use non-default.
+- Verify that all information you entered is correct.
+- Click on **Buy** to start the provisioning. A link is provided to the terms of the transaction. The VM does not have any additional charges beyond the compute for the server size you chose in the **Size** step. 
 
 The provisioning should take about 10-20 minutes. The status of the provisioning is displayed on the Azure Portal.
 
+## How to access the Data Science VM
 
-## Using the Data Science VM
-
-Once the VM is created you can login to it using remote desktop with the Admin account credentials you created in step 5. 
+Once the VM is created you can login to it using remote desktop with the Admin account credentials you created in the BAsics section of step 4. 
 
 Once your VM is created and provisioned, you are ready to start using the tools that are installed and configured on it. There are desktop icons and start menu tiles for many of the tools. 
 
-## Details for the tools installed on the VM
+## Tools installed on the Data Science VM
 
 ### R
-If you wish to use R for your analytics, the VM has Revolution R Open (RRO) installed. This is an Open source distribution of R and it is completely compatible with CRAN-R. It contains the latest open source R engine along with the Intel Math Kernel Library. An IDE called “RRO RGui” is also packaged in the VM. You are free to download and use other IDEs as well such as [RStudio](www.rstudio.com). 
+If you wish to use R for your analytics, the VM has Revolution R Open (RRO) installed. This is an Open source distribution of R and it is completely compatible with CRAN-R. It contains the latest open source R engine along with the Intel Math Kernel Library. An IDE called “RRO RGui” is also packaged in the VM. You are free to download and use other IDEs as well such as [RStudio](http://www.rstudio.com). 
 
 ### Python
 For development using Python, Anaconda Python distribution 2.7 has been installed. This distribution contains the base Python along with about 300 of the most popular math, engineering and data analytics packages. You can use IDEs bundled with Anaconda like IDLE or Spyder. You can launch one of these by searching on the search bar (**Win** + **S** key). 
@@ -123,8 +121,8 @@ To help you build dashboards and great visualizations, the **Power BI Desktop** 
 
 Note: You will need an Office 365 account to access Power BI. 
 
-### Additional Microsoft development tools
-The **Microsoft Web Platform Installer** can be used to discover and download other Microsoft development tools. There is a shortcut to the tool on the VM desktop.  
+## Additional Microsoft development tools
+The [**Microsoft Web Platform Installer**](https://www.microsoft.com/web/downloads/platform.aspx) can be used to discover and download other Microsoft development tools. There is also a shortcut to the tool provided on the VM desktop.  
 
 
 
