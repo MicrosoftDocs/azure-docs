@@ -188,6 +188,14 @@ This tutorial focused on adding a web front-end that communicated with a statefu
 
 When you create an actor project, Visual Studio automatically generates an interface project for you. You can use that interface to generate an actor proxy in the web project to communicate with the actor. The communication channel is provided automatically so you do not need to do anything equivalent to establishing a `ServiceCommunicationListener` as you did for the stateful service in this tutorial.
 
+## Running web services on a local cluster
+
+In general, you can deploy exactly the same Service Fabric application to a multi-machine cluster that you deployed on your local cluster and be highly confident that it will work as you expect, since your local cluster is simply a five node configuration collapsed to a single machine.
+
+When it comes to web services, however, there is one key nuance. When your cluster sits behind a load balancer, as it does in Azure, you must ensure that your web services are deployed on every machine since the load balancer will simply round-robin traffic across the machines. This can be done by setting the `InstanceCount` for the service to the special value of -1. By contrast, when running locally you need to ensure that only one instance of the service is running; otherwise you will run into conflicts from multiple processes listening on the same path and port. As a result, the web service instance count should be set to 1 for local deployments.
+
+To learn how to configure different values for different environment, see [Managing application parameters for multiple environments](service-fabric-manage-multiple-environment-app-configuration.md).
+
 ## Next steps
 
 - [Create a cluster in Azure deploying your application to the cloud](service-fabric-cluster-creation-via-portal.md)
