@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/15/2015"
+   ms.date="10/20/2015"
    ms.author="mmercuri"/>
 
 # Defining dependencies in Azure Resource Manager templates
