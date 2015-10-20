@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Pre-process and Clean Data | Microsoft Azure"
-	description="Pre-process and Clean Data"
+	pageTitle="Tasks to prepare data for effective machine learning | Microsoft Azure"
+	description="Pre-process and clean data to prepare it for machine learning."
 	services="machine-learning"
 	documentationCenter=""
 	authors="bradsev"
@@ -13,19 +13,19 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/01/2015"
-	ms.author="msolhab;bradsev" />
+	ms.date="10/20/2015"
+	ms.author="bradsev" />
 
 
-# Prepare data for machine learning
+# Tasks to prepare data for effective machine learning
 
-Pre-processing and cleaning data are important tasks that typically must be conducted before using a dataset effectively for machine learning. This task is part of the Advanced Analytics Process and Technology (ADAPT) provided by Azure Machine Learning. Raw data is often noisy and unreliable, and may be missing values. Using such data for modeling can produce misleading results.  
+Pre-processing and cleaning data are important tasks that typically must be conducted before a dataset can be used effectively for machine learning. These tasks are part of the Cortana Analytics Process. Raw data is often noisy and unreliable, and may be missing values. Using such data for modeling can produce misleading results.  
 
-This article introduces various data processing concepts and tasks that can be taken before ingesting data into Azure Machine Learning. For more detailed instructions on this process, see the [Learning Guide: Advanced data processing in Azure](machine-learning-data-science-advanced-data-processing.md)
+This article introduces various data processing concepts and tasks that can be taken before ingesting data into Azure Machine Learning. For more detailed instructions on this process, see the [Learning Guide: Advanced data processing in Azure](cortana-analytics-process.md)
 
 ----------------
 
-## Why pre-process and clean data?##
+## Why pre-process and clean data?
 
 Real world data is gathered from various sources and processes and it may contain irregularities or corrupt data compromising the quality of the dataset. The typical data quality issues that arise are:
 
@@ -35,22 +35,25 @@ Real world data is gathered from various sources and processes and it may contai
 
 Quality data is a prerequisite for quality predictive models. To avoid "garbage in, garbage out" and improve data quality and therefore model performance, it is imperative to conduct a data health screen to spot data issues early and decide on the corresponding data processing and cleaning steps.
 
-## What are some typical data health screens that are employed? ##
+## What are some typical data health screens that are employed?
 
 We can check the general quality of data by checking:
 
-* The number of records.
-* The number of attributes (or features).
-* The attribute data types (nominal, ordinal, or continuous).
-* The number of missing values.
-* Well-formedness of the data. If the data is in tsv or csv, questions whether the column separators and line separators always correctly separate columns and lines. If the data is in HTML or XML format, check whether the data is well formed based on the respective standards. Parsing may also be necessary in order to extract structured information from semi-structured or unstructured data.
-* Inconsistent data records. e.g. If the data contains student GPA, check if the GPA is in the designated range, say 0~4.
+* The number of **records**.
+* The number of **attributes** (or **features**).
+* The attribute **data types** (nominal, ordinal, or continuous).
+* The number of **missing values**.
+* **Well-formedness** of the data. 
+	* If the data is in TSV or CSV, check that the column separators and line separators always correctly separate columns and lines. 
+	* If the data is in HTML or XML format, check whether the data is well formed based on their respective standards. 
+	* Parsing may also be necessary in order to extract structured information from semi-structured or unstructured data.
+* **Inconsistent data records**. Check the range of values are allowed. e.g. If the data contains student GPA, check if the GPA is in the designated range, say 0~4.
 
-When you find issues with data, processing steps are necessary which often involves cleaning missing values, data normalization, discretization, text processing to remove and/or replace embedded characters which may affect data alignment, mixed data types in common fields, and others.
+When you find issues with data, **processing steps** are necessary which often involves cleaning missing values, data normalization, discretization, text processing to remove and/or replace embedded characters which may affect data alignment, mixed data types in common fields, and others.
 
-Azure Machine Learning consumes well-formed tabular data.  If the data is already in tabular form, data pre-processing can be performed directly with Azure Machine Learning in the ML Studio.  If data is not in tabular form, say XML, parsing may be required in order to convert the data to tabular form.  
+**Azure Machine Learning consumes well-formed tabular data**.  If the data is already in tabular form, data pre-processing can be performed directly with Azure Machine Learning in the ML Studio.  If data is not in tabular form, say it is in XML, parsing may be required in order to convert the data to tabular form.  
 
-## What are some of the major tasks in data pre-processing? ##
+## What are some of the major tasks in data pre-processing?
 
 * **Data cleaning**:  Fill in or missing values, detect and remove noisy data and outliers.
 * **Data transformation**:  Normalize data to reduce dimensions and noise.
@@ -60,7 +63,7 @@ Azure Machine Learning consumes well-formed tabular data.  If the data is alread
 
 The sections below detail some of these data processing steps.
 
-## How to deal with missing values? ##
+## How to deal with missing values?
 
 To deal with missing values, it is best to first identify the reason for the missing values to better handle the problem. Typical missing value handling methods are:
 
@@ -70,7 +73,7 @@ To deal with missing values, it is best to first identify the reason for the mis
 * **Frequent substitution**: If the missing data is categorical, replace the missing values with the most frequent item
 * **Regression substitution**: Use a regression method to replace missing values with regressed values.  
 
-## How to normalize data? ##
+## How to normalize data?
 
 Data normalization re-scales numerical values to a specified range. Popular data normalization methods include:
 
@@ -78,14 +81,14 @@ Data normalization re-scales numerical values to a specified range. Popular data
 * **Z-score Normalization**: Scale data based on mean and standard deviation: divide the difference between the data and the mean by the standard deviation.
 * **Decimal scaling**: Scale the data by moving the decimal point of the attribute value.  
 
-## How to discretize data? ##
+## How to discretize data?
 
 Data can be discretized by converting continuous values to nominal attributes or intervals. Some ways of doing this are:
 
 * **Equal-Width Binning**: Divide the range of all possible values of an attribute into N groups of the same size, and assign the values that fall in a bin with the bin number.
 * **Equal-Height Binning**: Divide the range of all possible values of an attribute into N groups, each containing the same number of instances, then assign the values that fall in a bin with the bin number.  
 
-## How to reduce data?  ## 
+## How to reduce data? 
 
 There are various methods to reduce data size for easier data handling. Depending on data size and the domain, the following methods can be applied:
 
@@ -93,13 +96,13 @@ There are various methods to reduce data size for easier data handling. Dependin
 * **Attribute Sampling**: Select only a subset of the most important attributes from the data.  
 * **Aggregation**: Divide the data into groups and store the numbers for each group. For example, the daily revenue numbers of a restaurant chain over the past 20 years can be aggregated to monthly revenue to reduce the size of the data.  
 
-## How to clean text data? ##
+## How to clean text data?
 
 **Text fields in tabular data** may include characters which affect columns alignment and/or record boundaries. For e.g., embedded tabs in a tab-separated file cause column misalignment, and embedded new line characters break record lines. Improper text encoding handling while writing/reading text leads to information loss, inadvertent introduction of unreadable characters, e.g., nulls, and may also affect text parsing. Careful parsing and editing may be required in order to clean text fields for proper alignment and/or to extract structured data from unstructured or semi-structured text data.
 
 **Data exploration** offers an early view into the data. A number of data issues can be uncovered during this step and  corresponding methods can be applied to address those issues.  It is important to ask questions such as what is the source of the issue and how the issue may have been introduced. This also helps you decide on the data processing steps that need to be taken to resolve them. The kind of insights one intends to derive from the data can also be used to prioritize the data processing effort.
 
-## Reference ##
+## References
 
->_Data Mining: Concepts and Techniques_, Third Edition, Morgan Kaufmann, 2011, Jiawei Han, Micheline Kamber, and Jian Pei
+>*Data Mining: Concepts and Techniques*, Third Edition, Morgan Kaufmann, 2011, Jiawei Han, Micheline Kamber, and Jian Pei
  

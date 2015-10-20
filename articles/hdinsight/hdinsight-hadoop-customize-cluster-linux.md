@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/19/2015"
+	ms.date="10/20/2015"
 	ms.author="larryfr"/>
 
 # Customize HDInsight clusters using Script Action (Linux)
@@ -502,6 +502,8 @@ The HDInsight service provides several ways to use custom components. Regardless
 You can use Ambari web UI to view information logged by scripts during cluster creation.
 
 1. In your browser, navigate to https://CLUSTERNAME.azurehdinsight.net. Replace CLUSTERNAME with the name of your HDInsight cluster.
+
+    > [AZURE.IMPORTANT] You must use HTTPS when connecting to the Ambari web UI.
 
 	When prompted, enter the admin account name (admin) and password for the cluster. You may have to re-enter the admin credentials in a web form.
 
