@@ -132,14 +132,13 @@ Please share feedback on your experience with elastic queries with us on Disqus 
 You can find more information on the cross-database querying and vertical partitioning scenarios in the following documents:
 
 * [Cross-database querying and vertical partitioning overview](sql-database-elastic-query-vertical-partitioning.md)
-* A step-by-step tutorial to have a full working example running in minutes: [Getting started with cross-database query](sql-database-elastic-query-getting-started.md).
-* * [Getting started with cross-database query (vertical partitioning)](sql-database-elastic-query-getting-started-vertical.md).
+* Try our step-by-step tutorial to have a full working example running in minutes: [Getting started with cross-database query (vertical partitioning)](sql-database-elastic-query-getting-started-vertical.md).
 
 
 More information on horizontal partitioning and sharding scenarios is available here:
 
 * [Horizontal partitioning and sharding overview](sql-database-elastic-query-horizontal-partitioning.md) 
-* Try our step-by-step tutorial to have a full working example running in minutes: [Getting started with Elastic Database query](sql-database-elastic-query-getting-started.md).
+* Try our step-by-step tutorial to have a full working example running in minutes: [Getting started with elastic database query for horizontal partitioning (sharding)](sql-database-elastic-query-getting-started.md).
 
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
