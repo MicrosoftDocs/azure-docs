@@ -19,6 +19,10 @@
 
 # Architecture of a predictive maintenance solution using Microsoft Cortana Analytics
 
+This article is part of a series of articles that discuss this solution:
+- [Overview of a predictive maintenance solution using Microsoft Cortana Analytics](cortana-analytics-predictive-maintenance-overview.md)
+- **Architecture of a predictive maintenance solution using Microsoft Cortana Analytics**
+
 ## Predictive Maintenance in IoT
 The impact of unscheduled equipment downtime can be extremely
 destructive for businesses. It is critical to keep field equipment

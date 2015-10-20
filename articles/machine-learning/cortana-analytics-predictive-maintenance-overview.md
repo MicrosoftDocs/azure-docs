@@ -19,6 +19,10 @@
 
 # Overview of a predictive maintenance solution using Microsoft Cortana Analytics
 
+This article is part of a series of articles that discuss this solution:
+- **Overview of a predictive maintenance solution using Microsoft Cortana Analytics**
+- [Architecture of a predictive maintenance solution using Microsoft Cortana Analytics](cortana-analytics-predictive-maintenance-architecture.md)
+
 ## Executive Summary  
 Predictive maintenance is one of the most demanded applications of
 predictive analytics with unarguable benefits including tremendous
