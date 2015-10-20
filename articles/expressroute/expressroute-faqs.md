@@ -105,9 +105,7 @@ The basic steps are outlined below.
 - You or the provider must configure the BGP peering(s).
 - You must link the virtual network to the ExpressRoute circuit.
 
-The following article will help you:
-
-[ExpressRoute workflows for circuit provisioning and circuit states](expressroute-workflows.md)
+See [ExpressRoute workflows for circuit provisioning and circuit states](expressroute-workflows.md) for more information.
 
 ### Are there connectivity boundaries for my ExpressRoute circuit?
 Yes. [ExpressRoute partners and locations](expressroute-locations.md) page provides an overview of the connectivity boundaries for an ExpressRoute circuit. Connectivity for an ExpressRoute circuit is limited to a single geopolitical region. Connectivity can be expanded to cross geopolitical regions by enabling the ExpressRoute premium feature.
