@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/19/2015" 
+	ms.date="10/20/2015" 
 	ms.author="bradsev" />
 
 
@@ -50,11 +50,11 @@ The steps involved in creating your instance of the data science VM are as follo
 1.	Login to Azure portal
 2.	Navigate to **New** -> **Compute** -> **Marketplace** and search for *Data Science Virtual Machine*. Select the one VM titled “**Data Science Virtual Machine**” published by Microsoft to see a panel describing the Data Science Virtual Machine
 3.	Click on the **Create** button at the bottom to be taken into a wizard.
-![provision-data-science-vm](./media/machine-learning-data-science-provision-vm/provision-data-science-vm.png)
+![provision-data-science-vm](./media/machine-learning-data-science-provision-vm/provision-data-science-virtual-machine.png)
 4.	 The following sections provide the inputs for each step in the wizard used to create the Data Science VM
 
 
- **Basics**: 
+ **1. Basics**: 
 
 - **Name**: Name of your data science server you are creating.
 - **User Name**: Admin account login id
@@ -63,17 +63,23 @@ The steps involved in creating your instance of the data science VM are as follo
 - **Resource Group**: You can create a new one or use an existing group
 - **Location**: Select the data center that is most appropriate. Usually it is the data center that has most of your data or is closest to your physical location for fastest network access
 
- **Size**: 
+ **2. Size**: 
 
 - Select one of the server types that meets your functional requirement and cost constraints. You can get more choices of VM sizes by selecting “View All”
 
- **Settings**
+ **3. Settings**
 
-- **Disk Type**: Choose Premium if you prefer SSD else choose “Standard”
-- **Storage Account**: You can create a new Azure storage account in your subscription or use an existing one in the same Location that was chosen on the Basics step of the wizard.
-- In most cases you will just use the default for rest of the parameters. You can hover over the informational link for help on the specific field in case you want to use non-default
+ **4. Disk Type**: 
 
-Verify that all information you entered is correct and click on **Buy** to start the provisioning. A link is provided to the terms of the transaction. The VM does not have any additional charges beyond the compute for the server size you chose in the **Size** step. 
+- Choose Premium if you prefer SSD else choose “Standard”
+
+ **5. Storage Account**: 
+
+
+- You can create a new Azure storage account in your subscription or use an existing one in the same Location that was chosen on the Basics step of the wizard.
+- In most cases you will just use the default for rest of the parameters. You can hover over the informational link for help on the specific field in case you want to use non-default.
+- Verify that all information you entered is correct.
+- Click on **Buy** to start the provisioning. A link is provided to the terms of the transaction. The VM does not have any additional charges beyond the compute for the server size you chose in the **Size** step. 
 
 The provisioning should take about 10-20 minutes. The status of the provisioning is displayed on the Azure Portal.
 
