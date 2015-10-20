@@ -91,11 +91,10 @@ Running the **Get-Credential** cmdlet opens a window asking for your username an
 
 ## Export your database
 
+This command submits an export database request to the service. Depending on the size of your database the export operation may take some time to complete.
 
 > [AZURE.IMPORTANT] To guarantee a transactionally consistent BACPAC file you should first [create a copy of your database](sql-database-copy-powershell.md) and then export the database copy. 
 
-
-This command submits an export database request to the service. Depending on the size of your database the export operation may take some time to complete.
 
     $exportRequest = Start-AzureSqlDatabaseExport -SqlConnectionContext $SqlCtx -StorageContainer $Container -DatabaseName $DatabaseName -BlobName $BlobName
     
