@@ -13,10 +13,23 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="09/29/2015" 
+	ms.date="10/28/2015" 
 	ms.author="jeffstok"/>
 
 #Microsoft Stream Analytic release notes
+
+## Notes for 10/28/2015 release of Stream Analytics ##
+
+This release contains the following updates.
+
+Title | Description
+---|---
+Additional Query Language features | Stream Analytics has expanded the Query Language by including the following features: CEILING, FLOOR, EXP, POWER, SIGN, SQUARE, SQRT, ABS, OFFSET.
+Removal of aggregate limitation from query language | Stream Analytics has removed the limitation of 15 aggregates in a query. There is now no limitation of this nature in the query language.
+Added GROUP BY System.Timestamp feature | ???
+Added OFFSET for Tumbling and Hopping windows | ???
+Added Grouped Streams functionality | ???
+
 
 ## Notes for 09/29/2015 release of Stream Analytics ##
 
