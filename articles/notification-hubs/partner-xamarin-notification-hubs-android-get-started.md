@@ -53,23 +53,32 @@ Completing this tutorial is a prerequisite for all other Notification Hubs tutor
 
 ###Create a new project
 
-1. In Xamarin Studio (or Visual Studio), click **File** and **New**, click **Android Application** in the **New Solution** dialog, and finally click **OK**.
+1. In Xamarin Studio, click **New Solution**, click **Android App**, and click **Next**.
 
-   	![][14]
+   	![](./media/partner-xamarin-notification-hubs-android-get-started/notification-hub-create-xamarin-android-project1.png)
+
+2. Enter your **App Name** and **Identifier**. Click the **Target Plaforms** you want to support and then click **Next** and **Create**.
+
+   	![](./media/partner-xamarin-notification-hubs-android-get-started/notification-hub-create-xamarin-android-project2.png)
+
 
 	This creates a new Android project.
 
 2. Open the project properties by right-clicking your new project in the Solution view and choosing **Options**. Select the **Android Application** item in the **Build** section.
 
-   	![][15]
-
-3. Set the **Minimum Android version** to API Level 8.
-
-4. Set the **Target Android version** to the API version that you want to target (must be API level 8 or higher).
-
-5. Ensure that the first letter of your **Package name** is lowercase.
+	Ensure that the first letter of your **Package name** is lowercase.
 
 	> [AZURE.IMPORTANT] The first letter of the package name must be lowercase. Otherwise, you will receive application manifest errors when you register your **BroadcastReceiver** and **IntentFilter** for push notifications below.
+
+   	![](./media/partner-xamarin-notification-hubs-android-get-started/notification-hub--xamarin-android-app-options.png)
+
+
+3. Optionally, set the **Minimum Android version** to another API Level.
+
+4. Optionally, set the **Target Android version** to the another API version that you want to target (must be API level 8 or higher).
+
+Click **OK** and close the Project Options dialog.
+
 
 ###Add the required components to your project
 
@@ -92,9 +101,12 @@ The Google Cloud Messaging Client available on the Xamarin Component Store simpl
 
 	Create a **Constants.cs** class for your Xamarin project and define the following constant values in the class. Replace the placeholders with your values.
 
-		public const string SenderID = "<GoogleProjectNumber>"; // Google API Project Number
-		public const string ListenConnectionString = "<Listen connection string>";
-		public const string NotificationHubName = "<hub name>";
+		public static class Constants
+		{
+			public const string SenderID = "<GoogleProjectNumber>"; // Google API Project Number
+			public const string ListenConnectionString = "<Listen connection string>";
+			public const string NotificationHubName = "<hub name>";
+		}
 
 2. Add the following using statements to **MainActivity.cs**:
 
@@ -119,7 +131,7 @@ The Google Cloud Messaging Client available on the Xamarin Component Store simpl
 			GcmClient.Register(this, Constants.SenderID);
 		}
 
-4. Add a call to `RegisterWithGCM` in the `OnCreate` method of **MainActivity.cs**:
+4. In the `OnCreate` method of **MainActivity.cs**, initialize the `instance` variable and add a call to `RegisterWithGCM`:
 
 		protected override void OnCreate (Bundle bundle)
 		{
@@ -152,7 +164,7 @@ The Google Cloud Messaging Client available on the Xamarin Component Store simpl
 		using Gcm.Client;
 		using WindowsAzure.Messaging;
 
-5. Add the following permission requests between the **using** statements and the **namespace** declaration:
+5. In **MyBroadcastReceiver.cs**, add the following permission requests between the **using** statements and the **namespace** declaration:
 
 		[assembly: Permission(Name = "@PACKAGE_NAME@.permission.C2D_MESSAGE")]
 		[assembly: UsesPermission(Name = "@PACKAGE_NAME@.permission.C2D_MESSAGE")]
@@ -194,7 +206,7 @@ The Google Cloud Messaging Client available on the Xamarin Component Store simpl
     	}
 
 
-8. **GcmServiceBase** implements methods **OnRegistered()**, **OnUnRegistered()**, **OnMessage()**, **OnRecoverableError()**, and **OnError()**. Our implementation class **PushHandlerService** must override these methods, and these methods will fire in response to interacting with the notification hub.
+8. **GcmServiceBase** implements methods **OnRegistered()**, **OnUnRegistered()**, **OnMessage()**, **OnRecoverableError()**, and **OnError()**. Our **PushHandlerService** implementation class must override these methods, and these methods will fire in response to interacting with the notification hub.
 
 
 9. Override the **OnRegistered()** method in **PushHandlerService** by using the following code:
@@ -330,7 +342,7 @@ If you run this app in the emulator, make sure that you use an Android Virtual D
 
 > [AZURE.IMPORTANT] In order to receive push notifications, you must set up a Google account on your Android Virtual Device. (In the emulator, navigate to **Settings** and click **Add Account**.) Also, make sure that the emulator is connected to the Internet.
 
->[AZURE.NOTE] Notification design in Android version 5.0 and later represents a significant departure from that of previous versions. If you test this on Android 5.0 or later, the app will need to be running to receive the notification. For more information, see [Android Notifications](http://go.microsoft.com/fwlink/?LinkId=615880).
+>[AZURE.NOTE] Notification design in Android version 5.0 and later represents a significant departure from that of previous versions. For more information, see [Android Notifications](http://go.microsoft.com/fwlink/?LinkId=615880).
 
 
 1. From **Tools**, click **Open Android Emulator Manager**, select your device, and then click **Edit**.
@@ -466,7 +478,6 @@ In this simple example, you broadcasted notifications to all your Android device
 [12]: ./media/partner-xamarin-notification-hubs-android-get-started/notification-hub-connection-strings.png
 
 [13]: ./media/partner-xamarin-notification-hubs-android-get-started/notification-hub-create-xamarin-android-app1.png
-[14]: ./media/partner-xamarin-notification-hubs-android-get-started/notification-hub-create-xamarin-android-app2.png
 [15]: ./media/partner-xamarin-notification-hubs-android-get-started/notification-hub-create-xamarin-android-app3.png
 
 [18]: ./media/partner-xamarin-notification-hubs-android-get-started/notification-hub-create-android-app7.png
