@@ -35,14 +35,14 @@ Verify that you have the following items before beginning configuration.
 
 - An externally-facing public IP address for your VPN device. This IP address cannot be located behind a NAT.
 
->[AZURE.IMPORTANT] If you aren't familiar with configuring your VPN device, or are unfamiliar with the IP address ranges located on your on-premises network configuration, you will need to coordinate with someone who can provide those details for you.
+	**Important** If you aren't familiar with configuring your VPN device, or are unfamiliar with the IP address ranges located on your on-premises network configuration, you will need to coordinate with someone who can provide those details for you.
 	
 - An Azure subscription. If you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or sign up for a [free trial](http://azure.microsoft.com/pricing/free-trial/).
 
-- This article is written for Azure PowerShell *0.9.8*. You can download and install this version from the Windows PowerShell section of the [Download page](http://azure.microsoft.com/downloads/). 
+- Azure PowerShell *0.9.8* cmdlets. You can download and install this version from the Windows PowerShell section of the [Download page](http://azure.microsoft.com/downloads/). This article was written for 0.9.8, although it's possible to use these steps running the 1.0 Preview.
 
 	[AZURE.INCLUDE [powershell-preview-include](../../includes/powershell-preview-include.md)] 
-	For information about the Azure PowerShell 1.0 Preview, please see this [blog post](https://azure.microsoft.com/blog/azps-1-0-pre/). For more information about the Azure PowerShell 1.0 Preview cmdlets, see [Azure Resource Manager Cmdlets](https://msdn.microsoft.com/library/mt125356.aspx).
+	
 
 
 ## 1. Connect to your subscription 
