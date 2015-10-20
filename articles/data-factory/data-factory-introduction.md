@@ -57,5 +57,4 @@ Linked services define the information needed for Data Factory to connect to ext
 
 With the four simple concepts of datasets, activities, pipelines and linked services, you are ready to get started!  You can [build your first pipeline](data-factory-build-your-first-pipeline.md)  from the ground up, or deploy a ready-made sample by following the instructions in our [Data Factory Samples](data-factory-samples.md) article. 
 
-## Videos
-- [Azure Data Factory Overview](https://azure.microsoft.com/documentation/videos/azure-data-factory-overview/)  
+
