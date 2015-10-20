@@ -41,7 +41,7 @@ Verify that you have the following items before beginning configuration.
 
 - This article is written for Azure PowerShell *0.9.8*. You can download and install this version from the Windows PowerShell section of the [Download page](http://azure.microsoft.com/downloads/). 
 
-	[AZURE.INCLUDE [powershell-preview-include](../includes/powershell-preview-include.md)] 
+	[AZURE.INCLUDE [powershell-preview-include](../../includes/powershell-preview-include.md)] 
 	For information about the Azure PowerShell 1.0 Preview, please see this [blog post](https://azure.microsoft.com/blog/azps-1-0-pre/). For more information about the Azure PowerShell 1.0 Preview cmdlets, see [Azure Resource Manager Cmdlets](https://msdn.microsoft.com/library/mt125356.aspx).
 
 
