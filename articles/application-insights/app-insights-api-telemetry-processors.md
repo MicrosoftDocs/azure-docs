@@ -21,8 +21,8 @@
 
 You can write and configure plug-ins for the Application Insights SDK to customize how telemetry is captured and processed before it is sent to the Application Insights service. 
 
-* [Sampling](app-insights-sampling.md) reduces the volume of telemetry without skewing statistics, and keeping together related data points to make searching easy.
-* [Telemetry processors](#telemetry-processors) initialize, filter and sample data in the SDK before it is sent to the server. For example, you could reduce the volume of telemetry by excluding successful dependency calls or requests from robots. However, you must be aware that this method can skew the statistical charts that you see on the portal - for example by showing only failed requests. It can also lead to cases in which you can't find other data points related to a failed request.
+* [Sampling](#sampling) reduces the volume of telemetry without skewing statistics. It keeps together related data points to make searching easy.
+* [Telemetry processors](#telemetry-processors) initialize, filter and sample data in the SDK before it is sent to the server. For example, you could add calculated properties to some telemetry, or reduce the volume of telemetry by excluding requests from robots. 
 * [Telemetry initializers](#telemetry-initializers) add  default properties to all the telemetry that is sent, and can override some behavior of the standard telemetry modules. The properties are evaluated for each tracking call, so you can vary these values.
 * [Context initializers](#context-initializers) also set global properties. The properties are set once, at startup time, and can't be changed later. Although this saves some CPU time (by contrast with telemetry initializers) they're also very inflexible.
 * [The SDK API](app-insights-api-custom-events-metrics.md) is used to send custom events and metrics.
@@ -53,7 +53,7 @@ For ASP.NET servers, insert this in a suitable initialization location such as A
 
 ```
 
-For web pages, modify the snippet you inserted (typically in a master page such as _Layout.cshtml):
+For web pages, put an extra line in the [Application Insights snippet](app-insights-javascript.md) that you inserted (typically in a master page such as _Layout.cshtml):
 
 *JavaScript*
 
