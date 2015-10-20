@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Configure HDInsight Hadoop clusters with Azure Data Lake Store using the portal | Azure" 
+   pageTitle="Provision HDInsight Hadoop clusters with Azure Data Lake Store using the portal | Azure" 
    description="Use Azure Preview portal to configure and use HDInsight Hadoop clusters with Azure Data Lake Store" 
    services="data-lake-store" 
    documentationCenter="" 
@@ -16,7 +16,7 @@
    ms.date="10/27/2015"
    ms.author="nitinme"/>
 
-# Configure an HDInsight Hadoop cluster with Azure Data Lake Store using Azure preview portal
+# Provision an HDInsight cluster with Data Lake Store using Azure preview portal
 
 > [AZURE.SELECTOR]
 - [Portal](data-lake-store-hdinsight-hadoop-use-portal.md)

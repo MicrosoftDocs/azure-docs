@@ -16,7 +16,7 @@
    ms.date="10/27/2015"
    ms.author="nitinme"/>
 
-# Configure an HDInsight cluster with Azure Data Lake using Azure PowerShell
+# Provision an HDInsight cluster with Data Lake Store using Azure PowerShell
 
 > [AZURE.SELECTOR]
 - [Portal](data-lake-store-hdinsight-hadoop-use-portal.md)
