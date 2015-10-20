@@ -351,7 +351,7 @@ Retry logic for handling transient faults is one area in which EntLib60 can assi
 
 
 A short C# code sample that uses EntLib60 in its retry logic is available at:
-- [Code sample: Retry logic from Enterprise Library 6, in C# for connecting to SQL Database](https://azure.microsoft.com/en-us/documentation/articles/sql-database-develop-entlib-csharp-retry-windows/)
+- [Code sample: Retry logic from Enterprise Library 6, in C# for connecting to SQL Database](sql-database-develop-entlib-csharp-retry-windows.md)
 
 
 ### EntLib60 classes for transient faults and retry
