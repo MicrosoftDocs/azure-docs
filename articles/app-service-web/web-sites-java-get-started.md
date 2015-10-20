@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="hero-article"
-	ms.date="08/31/2015"
+	ms.date="10/16/2015"
 	ms.author="robmcm"/>
 
 # Create a Java web app in Azure App Service
@@ -49,13 +49,14 @@ The following shows how a web app that's built via Jetty from the Azure Marketpl
 2. Click **New** in the bottom left of the page.
 3. Click the **Web + Mobile** blade.
 4. Click **Azure Marketplace** at the bottom of the **Web + Mobile** blade.
-5. Click **Web**.
-6. The top of the **Web** page contains a search text box. In this text box, type the desired Java application server, such as **Apache Tomcat** or **Jetty**.
+5. Click **Web + Mobile**.
+6. The top of the **Web + Mobile** page contains a search text box. In this text box, type the desired Java application server, such as **Apache Tomcat** or **Jetty**.
 4. Click the desired Java application server.
 5. Click **Create**.
-6. Specify the URL name.
-6. Select a region. For example, select **West US**.
-7. Click **Create**.
+6. Specify the Web app name.
+7. Select a subscription
+8. Select a region. For example, select **West US**.
+9. Click **Create**.
 
 Within a few moments, your web app will be created. To view the web app, within the Azure portal, in the **Web Apps** blade, click the web app, and then click the URL for it.
 
@@ -69,7 +70,7 @@ This information shows how to use the Azure configuration UI to select a Java ap
 2. Click **New** in the bottom left of the page.
 3. Click the **Web + Mobile** blade.
 4. Click **Azure Marketplace** at the bottom of the **Web + Mobile** blade.
-5. Click **Web**.
+5. Click **Web + Mobile**.
 6. Click **Web App**.
 7. Click **Create**.
 8. Specify the URL name.
