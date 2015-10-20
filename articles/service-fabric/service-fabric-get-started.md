@@ -1,10 +1,10 @@
 <properties
-   pageTitle="Set up your Service Fabric development environment | Microsoft Azure"
-   description="Install the Service Fabric runtime, SDK, and tools and create a local development cluster."
+   pageTitle="Set up your development environment | Microsoft Azure"
+   description="Install the runtime, SDK, and tools and create a local development cluster. After completing this setup, you will be ready to build applications."
    services="service-fabric"
    documentationCenter=".net"
    authors="seanmck"
-   manager="samgeo"
+   manager="coreysa"
    editor=""/>
 
 <tags
@@ -13,13 +13,13 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="10/07/2015"
+   ms.date="10/15/2015"
    ms.author="seanmck"/>
 
-# Set up your Service Fabric development environment
- This article covers everything you need to start building [Service Fabric][1] apps, including installing the runtime, SDK, tools, and setting up a local cluster.
+# Prepare your development environment
+ In order to build and run [Service Fabric applications][1] on your development machine, you need to install the runtime, SDK, tools, and set up a local cluster.
 
- > [AZURE.NOTE] These instructions are intended for setting up new PCs. If you have installed a previous version of Service Fabric on your PC, please follow the [instructions to update your development environment](service-fabric-update-your-development-environment.md).
+ > [AZURE.NOTE] These instructions are intended for setting up new machines. If you have installed a previous version of Service Fabric, please follow the [instructions to update your development environment](service-fabric-update-your-development-environment.md).
 
 ## Prerequisites
 ### Supported Operating System versions
@@ -33,7 +33,7 @@ The following operating system versions are supported:
 
 The tools for Service Fabric depend on Visual Studio 2015, which you can find [here][2].
 
-> [AZURE.NOTE] If you aren't running one of the supported OS versions or would prefer not to install Visual Studio 2015 on your PC, you can set up an Azure virtual machine with Windows Server 2012 R2 and Visual Studio 2015 pre-installed using an image from the VM Gallery.
+> [AZURE.NOTE] If you aren't running one of the supported OS versions or would prefer not to install Visual Studio 2015 on your PC, you can set up an Azure virtual machine with Windows Server 2012 R2 and Visual Studio 2015 pre-installed using an image from the Azure virtual machine gallery.
 
 ## Install the runtime, SDK, and tools
 

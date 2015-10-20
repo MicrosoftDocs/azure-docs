@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/12/2015"
+	ms.date="10/16/2015"
 	ms.author="maheshu"/>
 
 # Azure AD Domain Services *(Preview)* - Getting started
@@ -54,6 +54,18 @@ You will need to install the GA release of Azure AD Connect on a domain joined c
 
 Installation instructions for Azure AD Connect are available in the following article - [Getting started with Azure AD Connect](../active-directory/active-directory-aadconnect.md)
 
+
+#### Enable synchronization of legacy credentials to Azure AD
+
+Enable synchronization of legacy credentials required for NTLM authentication in Azure AD Domain Services. You can do this by creating the following registry key on the machine where Azure AD Connect was installed.
+
+Create the following DWORD registry key and set it to 1.
+
+```
+HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\MSOLCoExistence\PasswordSync\EnableWindowsLegacyCredentialsSync
+
+Set its value to 1.
+```
 
 #### Force full password synchronization to Azure AD
 
