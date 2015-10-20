@@ -56,7 +56,7 @@ Changed name from Azure AD Sync to Azure AD Connect.
 **New features:**
 
 - [Express settings](active-directory-aadconnect-get-started-express.md) installation
-- Can [configure ADFS](active-directory-aadconnect-get-started-custom.md#configuring-federation-with-ad-fs).
+- Can [configure ADFS](active-directory-aadconnect-get-started-custom.md#configuring-federation-with-ad-fs)
 - Can [upgrade from DirSync](active-directory-aadconnect-dirsync-upgrade-get-started.md)
 - [Prevent accidental deletes](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md)
 - Introduced [staging mode](active-directory-aadconnectsync-operations.md#staging-mode)
