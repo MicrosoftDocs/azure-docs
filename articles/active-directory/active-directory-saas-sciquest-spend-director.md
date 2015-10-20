@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Tutorial: Azure Active Directory integration with SciQuest Spend Director"
+	pageTitle="Tutorial: Azure Active Directory integration with SciQuest Spend Director | Microsoft Azure"
 	description="Learn how to configure single sign-on between Azure Active Directory and SciQuest Spend Director."
 	services="active-directory"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/30/2015"
+	ms.date="10/20/2015"
 	ms.author="markusvi"/>
 
 
