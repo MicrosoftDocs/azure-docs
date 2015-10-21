@@ -36,7 +36,7 @@ Regardless of the version of Visual Studio that you have installed, you need the
 
 To install SQL Server Data Tools, latest preview version:
 
-1. [Download SQL Server Data Tools Preview](https://msdn.microsoft.com/mt429383.aspx) for either Visual Studio 2013 or 2015.
+1. [Download SQL Server Data Tools Preview](https://msdn.microsoft.com/library/mt204009.aspx) for either Visual Studio 2013 or 2015.
 2. Install by following the installation instructions on the download site.
 
 ## Next steps
