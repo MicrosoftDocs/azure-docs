@@ -73,7 +73,7 @@ If database incompatibilities are detected, you must fix these incompatibilities
 
 	![Export a data-tier application from the Tasks menu](./media/sql-database-cloud-migrate/TestForCompatibilityUsingSSMS01.png)
 
-4. In the export wizard, on the **Settings** tab, configure the export to save the BACPAC file to either a local disk location or to an Azure blob. A BACPAC file will only be saved if you have no database compatibility issues. If there are compatibility issues, they will be displayed on the console.
+4. In the export wizard, click **Next**, and then on the **Settings** tab, configure the export to save the BACPAC file to either a local disk location or to an Azure blob. A BACPAC file will only be saved if you have no database compatibility issues. If there are compatibility issues, they will be displayed on the console.
 
 	![Export settings](./media/sql-database-cloud-migrate/TestForCompatibilityUsingSSMS02.png)
 
@@ -89,7 +89,7 @@ If database incompatibilities are detected, you must fix these incompatibilities
 
 	![Export settings](./media/sql-database-cloud-migrate/TestForCompatibilityUsingSSMS05.png)
 
-8.	If the BACPAC file is successfully generated, then your database is compatible with SQL Database, and you are ready to migrate.
+8.	If the *.BACPAC file is successfully generated, then your database is compatible with SQL Database, and you are ready to migrate.
 
 ## Options to migrate a compatible database to Azure SQL Database
 
@@ -130,7 +130,11 @@ The Deploy Database to Microsoft Azure Database wizard in SQL Server Management 
 
 	![Deploy to Azure from Tasks menu](./media/sql-database-cloud-migrate/MigrateUsingDeploymentWizard01.png)
 
-4.	In the deployment wizard, configure the connection to your Azure SQL Database server.
+4.	In the deployment wizard, click **Next**, and then click **Connect** to configure the connection to your Azure SQL Database server.
+
+	![Deploy to Azure from Tasks menu](./media/sql-database-cloud-migrate/MigrateUsingDeploymentWizard002.png)
+
+5. In the Connect to Server dialog box, enter your connection information to connect to your Azure SQL Database server.
 
 	![Deploy to Azure from Tasks menu](./media/sql-database-cloud-migrate/MigrateUsingDeploymentWizard00.png)
 
