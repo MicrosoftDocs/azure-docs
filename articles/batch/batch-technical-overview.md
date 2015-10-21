@@ -56,7 +56,7 @@ See [API basics for Azure Batch](batch-api-basics.md) for more about the Batch c
 
 + **Batch account** - You use the name and URL of a Batch account and an access key as credentials when you make Batch API calls. One way to create a Batch account and manage access keys for the account is to use the [Azure preview portal](batch-account-create-portal.md).
 
-+ **Storage account** - For most Batch scenarios you'll need an Azure storage account to store your data inputs and outputs and the scripts or executables that run on the compute nodes. To create a storage acccount, see [About Azure storage accounts](../storage/storage-create-storage-account.md).
++ **Storage account** - For most Batch scenarios you'll need an Azure storage account to store your data inputs and outputs and the scripts or executables that run on the compute nodes. To create a storage account, see [About Azure storage accounts](../storage/storage-create-storage-account.md).
 
 ### Batch development libraries and tools
 
