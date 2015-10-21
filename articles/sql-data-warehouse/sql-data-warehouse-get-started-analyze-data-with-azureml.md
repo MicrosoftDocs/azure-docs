@@ -108,21 +108,6 @@ To learn more, refer to [Introduction to Machine Learning on Azure][].
 
 
 
-<!--Image references-->
-[1]:./media/sql-data-warehouse-get-started-analyze-data-with-azureml/img1_reader.png
-[2]:./media/sql-data-warehouse-get-started-analyze-data-with-azureml/img2_visualize.png
-[3]:./media/sql-data-warehouse-get-started-analyze-data-with-azureml/img3_readerdata.png
-[4]:./media/sql-data-warehouse-get-started-analyze-data-with-azureml/img4_projectcolumns.png
-[5]:./media/sql-data-warehouse-get-started-analyze-data-with-azureml/img5_columnselector.png
-[6]:./media/sql-data-warehouse-get-started-analyze-data-with-azureml/img6_split.png
-[7]:./media/sql-data-warehouse-get-started-analyze-data-with-azureml/img7_train.png
-[8]:./media/sql-data-warehouse-get-started-analyze-data-with-azureml/img8_traincolumnselector.png
-[9]:./media/sql-data-warehouse-get-started-analyze-data-with-azureml/img9_score.png
-[10]:./media/sql-data-warehouse-get-started-analyze-data-with-azureml/img10_evaluate.png
-[11]:./media/sql-data-warehouse-get-started-analyze-data-with-azureml/img11_evalresults.png
-[12]:./media/sql-data-warehouse-get-started-analyze-data-with-azureml/img12_scoreresults.png
-
-
 <!--Article references-->
 [Azure Machine Learning studio]:https://studio.azureml.net/
 [Introduction to Machine Learning on Azure]:https://azure.microsoft.com/documentation/articles/machine-learning-what-is-machine-learning/
