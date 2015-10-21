@@ -38,11 +38,7 @@ Before following the instructions in this article, ensure that you have the foll
 	- The demo account is populated with the volcano data shown in this tutorial. This demo account is not bound by any SLAs and is meant for demostration purposes only.  We reserve the right to make modifications to this demo account including but not limited to, terminating the account, changing the key, restricting access, changing and delete the data, at any time without advance notice or reason. 
 		- URL:   https://analytics.documents.azure.com
 		- Read-only key: MSr6kt7Gn0YRQbjd6RbTnTt7VHc5ohaAFu7osF0HdyQmfR+YhwCH2D2jcczVIR1LNK3nMPNBD31losN7lQ/fkw==
-	
-	Or
-
-	- To create your own account, see [Create a DocumentDB database account using the Azure preview portal](https://azure.microsoft.com/documentation/articles/documentdb-create-account/). 
-	- To get sample volcano data that's similar to what's used in this tutorial (but does not contain the GeoJSON blocks), see the [NOAA site](https://www.ngdc.noaa.gov/nndc/struts/form?t=102557&s=5&d=5) and then import the data using the [DocumentDB data migration tool](https://azure.microsoft.com/documentation/articles/documentdb-import-data/).
+	- Or, to create your own account, see [Create a DocumentDB database account using the Azure preview portal](https://azure.microsoft.com/documentation/articles/documentdb-create-account/). Then, to get sample volcano data that's similar to what's used in this tutorial (but does not contain the GeoJSON blocks), see the [NOAA site](https://www.ngdc.noaa.gov/nndc/struts/form?t=102557&s=5&d=5) and then import the data using the [DocumentDB data migration tool](https://azure.microsoft.com/documentation/articles/documentdb-import-data/).
 
 
 To share your reports in PowerBI.com, you must have an account in PowerBI.com.  To learn more about Power BI for Free and Power BI Pro, please visit [https://powerbi.microsoft.com/pricing](https://powerbi.microsoft.com/pricing).
@@ -77,25 +73,30 @@ Ready to give it a try? Let's get started.
 
 1. Run Power BI Desktop on your workstation.
 2. Once Power BI Desktop is launched, a *Welcome* screen is displayed.
-![Power BI Desktop Welcome screen](./media/documentdb-powerbi-visualize/welcomescreen.png)
+
+	![Power BI Desktop Welcome screen](./media/documentdb-powerbi-visualize/welcomescreen.png)
 
 3. You can **Get Data**, see **Recent Sources**, or **Open Other Reports** directly from the *Welcome* screen.  Click the X at the top right corner to close the screen. The **Report** view of Power BI Desktop is displayed.
-![Power BI Desktop Report View](./media/documentdb-powerbi-visualize/pbireportview.png)
+
+	![Power BI Desktop Report View](./media/documentdb-powerbi-visualize/pbireportview.png)
 
 4. Select the **Home** ribbon, then click on **Get Data**.  The **Get Data** window should appear.
 
 5. Click on **Azure**, select **Microsoft Azure DocumentDB (Beta)**, and then click **Connect**.  The **Microsoft Azure DocumentDB Connect** window should appear.
-![Power BI Desktop Get Data](./media/documentdb-powerbi-visualize/pbigetdata.png)
+
+	![Power BI Desktop Get Data](./media/documentdb-powerbi-visualize/pbigetdata.png)
 
 6. Specify the DocumentDB account endpoint URL you would like to retrieve the data from as shown below, and then click **OK**. You can retrieve the URL from the URI box in the **Keys** blade of the Azure preview portal or you can use the demo account information provided above. For more information, see [Keys](documentdb-manage-account.md#keys).
 
 
 	*Note.  In this tutorial, we will not specify the Database name, Collection name, or a SQL statement as these fields are optional.  Instead, we will use the Navigator to select the Database and Collection to identify where the data comes from.*
+
     ![Power BI Desktop Connect Window](./media/documentdb-powerbi-visualize/pbiconnectwindow.png)
 
 7. If you are connecting to this endpoint for the first time, you will be prompted for the account key. Enter the account key and click **Connect**. 
 	
 	*Note. We recommend that you use the read-only key when building reports.  This will prevent unnecessary exposure of the master key to potential security risks. The read-only key is available from the Read-Only Keys blade of the Azure preview portal or you can use the demo account information provided above.* 
+
     ![Power BI Desktop Account Key](./media/documentdb-powerbi-visualize/pbidocumentdbkey.png)
 
 8. When the account is successfully connected, the **Navigator** will appear.  The **Navigator** will show a list of databases under the account.
@@ -118,7 +119,8 @@ Ready to give it a try? Let's get started.
 	![Power BI Desktop Expand Documents](./media/documentdb-powerbi-visualize/pbiqueryeditorexpander.png)
 
 3. The center pane will display a preview of the result with the fields selected.
-![Power BI Desktop Flatten Result](./media/documentdb-powerbi-visualize/pbiresultflatten.png)
+
+	![Power BI Desktop Flatten Result](./media/documentdb-powerbi-visualize/pbiresultflatten.png)
 
 4. In our example, the Location property is a GeoJSON block in a document.  As you can see, Location is represented as a **Record** type in Power BI Desktop.  
 5. Click on the expander at the right side of the Location column header.  The context menu with type and coordinates fields will appear.  Let's select the coordinates field and click **OK**.
@@ -141,7 +143,8 @@ Ready to give it a try? Let's get started.
     ![Power BI Desktop Custom Column](./media/documentdb-powerbi-visualize/pbicustomlatlong.png)
 
 10. Now, the center pane will show the new LatLong column populated with the Latitude and Longitude values separated by a comma.
-![Power BI Desktop Custom LatLong](./media/documentdb-powerbi-visualize/pbicolumnlatlong.png)
+
+	![Power BI Desktop Custom LatLong](./media/documentdb-powerbi-visualize/pbicolumnlatlong.png)
 
 11. We have now completed flattening the data into tabular format.  You can leverage all of the features available in the Query Editor to shape and transform data in DocumentDB.  For instance, you can change the data type for Elevation to **Decimal Number** by changing the **Data Type** on the **Home** ribbon.
 
