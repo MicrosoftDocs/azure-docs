@@ -27,7 +27,7 @@ If errors occur in accessing a published application or in publishing applicatio
 
 - Open the Windows Services console and verify that the “Microsoft AAD Application Proxy Connector” service is enabled and running. You may also want to look at the Application Proxy service properties page, as shown in the following image:
 
-![Microsoft AAD Application Proxy Connector Properties screenshot][./media/active-directory-application-proxy-troubleshoot/connectorproperties.png]
+![](./media/active-directory-application-proxy-troubleshoot/connectorproperties.png)
 
 - Open Event Viewer and look for events related to the Application Proxy connector located under **Applications and Services Logs** > **Microsoft** > **AadApplicationProxy** > **Connector** > **Admin**.
 - If needed, more detailed logs are available by turning on analytics and debugging logs and turning on the Application Proxy connector session log.
