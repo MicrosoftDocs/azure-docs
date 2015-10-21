@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="10/27/2015"
+   ms.date="10/28/2015"
    ms.author="nitinme"/>
 
 # Open Source Big Data applications interoperable with Azure Data Lake Store
@@ -24,7 +24,6 @@ This article lists the open source big data applications that are interoperable 
 | Open Source Software | Version | Distribution					   |
 |----------------------|---------|---------------------------------|
 | Sqoop                | 1.4.5   | HDInsight 3.2                   |
-| Flume                | -       | HDInsight 3.2                   |
 | MapReduce            | -       | HDInsight 3.2                   |
 | Storm                | 0.9.3   | HDInsight 3.2		           |
 | Hive                 | 0.14.0  | HDInsight 3.2                   |

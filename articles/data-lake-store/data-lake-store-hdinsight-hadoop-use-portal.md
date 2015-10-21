@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="10/27/2015"
+   ms.date="10/28/2015"
    ms.author="nitinme"/>
 
 # Provision an HDInsight cluster with Data Lake Store using Azure preview portal
@@ -23,12 +23,16 @@
 - [PowerShell](data-lake-store-hdinsight-hadoop-use-powershell.md)
 
 
-Learn how to use Azure PowerShell to configure an HDInsight Hadoop cluster to work with an Azure Data Lake Store. In this release, the Azure Data Lake Store can only be used as an additional storage account. The default storage account for the cluster will still be Azure Storage Blobs (WASB). 
+Learn how to use Azure Preview Portal to configure an HDInsight cluster (Hadoop, HBase, or Storm) to work with an Azure Data Lake Store. Some important considerations for this release:
+* **For Hadoop and Storm clusters (Windows and Linux)**, the Data Lake Store can only be used as an additional storage account. The default storage account for the such clusters will still be Azure Storage Blobs (WASB).
+* **For HBase clusters (Windows and Linux)**, the Data Lake Store can be used as a default storage or additional storage.
+
+In this article, we provision a Hadoop cluster with Data Lake Store as additional storage.
 
 Configuring HDInsight to work with Azure Data Lake Store using the Azure Preview Portal involves the following steps:
 
-* Set up authentication for role-based access to Azure Data Lake Store
-* Create HDInsight cluster with authentication to Azure Data Lake Store
+* Create an HDInsight cluster with authentication to an Azure Active Directory Service Principal
+* Configure Data Lake Store access using the same Service Principal
 * Run a test job on the cluster
 
 ## Prerequisites
@@ -36,92 +40,48 @@ Configuring HDInsight to work with Azure Data Lake Store using the Azure Preview
 Before you begin this tutorial, you must have the following:
 
 - **An Azure subscription**. See [Get Azure free trial](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+- **Enable your Azure subscription** for Data Lake Store public preview. See [instructions](data-lake-store-get-started-portal.md#signup).
 - **Azure PowerShell**. See [Install and configure Azure PowerShell](../install-configure-powershell.md) for instructions.
 - **Windows SDK**. You can install it from [here](https://dev.windows.com/en-us/downloads). You use this to create a security certificate. 
 
-## Set up authentication for role-based access to Data Lake Store
+## Create an HDInsight cluster with authentication to Azure Active Directory Service Principal
 
-Every Azure subscription is associated with an Azure Active Directory. Users and services that access resources of the subscription using the Azure portal or Azure Resource Manager API must first authenticate with that Azure Active Directory. Access is granted to Azure subscriptions and services by assigning them the appropriate role on an Azure resource.  For services, a service principal identifies the service in the Azure Active Directory (AAD). This section illustrates how to grant an application service, like HDInsgiht, access to an Azure resource (the Azure Data Lake account you created earlier) by creating a service principal for the application and assigning roles to that via Azure PowerShell.
+In this section, you create an HDInsight cluster that uses the Data Lake Store as an additional storage. For this release, the HDInsight cluster and the Data Lake Store must be in the same location (East US 2). Also, for this release, the Data Lake Store can only be used as an additional storage account. The default storage account for the cluster will still be Azure Storage Blobs (WASB).
 
-To set up Active Directory authentication for Data Lake Store, you must perform the following tasks.
+1. Sign on to the new [Azure preview portal](https://portal.azure.com).
 
-* Create a self-signed certificate
-* Create an application in Azure Active Directory and a Service Principal
-* Create an Azure Data Lake Store and assign the Service Principal
+2. Follow the steps at [Create Hadoop clusters in HDInsight](../hdinsight/hdinsight-provision-clusters.md#create-using-the-preview-portal) to start provisioning an HDInsight cluster.
+ 
+3. On the **Optional Configuration** blade, click **Data Source**. In the **Data Source** blade, specify the details for the storage account and storage container, specify **Location** as **East US 2**, and then click **Cluster AAD Identity**.
 
-### Create a self-signed certificate
+	![Add service principal to HDInsight cluster](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.1.png "Add service principal to HDInsight cluster")
 
-Make sure you [Windows SDK](https://dev.windows.com/en-us/downloads) is installed before proceeding with the steps in this section. You must have also created a directory, such as **C:\mycertdir**, where the certificate will be created.
+4. On the **Cluster AAD Identity** blade, you can choose to select an existing Service Principal or create a new one. 
+	
+	* **Create a new Service Principal**. In the **Cluster AAD Identity** blade, click **Create new**. Click **Service Principal**, and then in the **Create a Service Principal** blade, provide values to create a new service principal. As part of that, a certificate and an Azure Active Directory application is also created. Click **Create**.
 
-1. Make sure Windows SDK is added to the PATH variable. Look for the following in the PATH variable definition.
+		![Add service principal to HDInsight cluster](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.4.png "Add service principal to HDInsight cluster")
 
-		C:\Program Files (x86)\Windows Kits\10\bin\x86
+		On the **Cluster AAD Identity** blade, click **Select** to proceed with the service principal that will be created.
 
-2. Use the [MakeCert][makecert] utility to create a self-signed certificate and a private key. Use the following commands.
+		![Add service principal to HDInsight cluster](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.5.png "Add service principal to HDInsight cluster")
 
-		$certificateFileDir = "<my certificate directory>"
-		cd $certificateFileDir
-		$startDate = (Get-Date).ToString('MM/dd/yyyy')
-		$endDate = (Get-Date).AddDays(365).ToString('MM/dd/yyyy')
 
-		makecert -sv mykey.pvk -n "cn=HDI-ADL" CertFile.cer -b $startDate -e $endDate -r -len 2048
+	* **Choose an existing Service Principal**. In the **Cluster AAD Identity** blade, click **Use existing**. Click **Service Principal**, and then in the **Select a Service Principal** blade, search for an existing service principal. Click a service principal name and then click **Select**.
 
-	You will be prompted to enter the private key password. After the command successfully executes, you should see a **CertFile.cer** and **mykey.pvk** in the certificate directory you specified.
+		![Add service principal to HDInsight cluster](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.2.png "Add service principal to HDInsight cluster")
 
-4. Use the [Pvk2Pfx][pvk2pfx] utility to convert the .pvk and .cer files that MakeCert created to a .pfx file. Run the following command.
+		On the **Cluster AAD Identity** blade, upload the certificate (.pfx) you created earlier and provide the password you used to create the certificate. Click **Select**. This completes the Azure Active Directory configuration for HDInsight cluster.
 
-		pvk2pfx -pvk mykey.pvk -spc CertFile.cer -pfx CertFile.pfx -po myPassword
+		![Add service principal to HDInsight cluster](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.3.png "Add service principal to HDInsight cluster")
 
-	When prompted enter the private key password you specified earlier. The value you specify for the **-po** parameter is the password that is associated with the .pfx file. After the command successfully completes, you should also see a CertFile.pfx in the certificate directory you specified.
+6. Click **Select** on the **Data Source** blade and continue with cluster provisioning as described at [Create Hadoop clusters in HDInsight](../hdinsight/hdinsight-provision-clusters.md#create-using-the-preview-portal).
 
-###  Create an Azure Active Directory application and a service principal
+7. Once the cluster is provisioned, you can verify that the Service Principal is associated with the HDInsight cluster. To do so, from the cluster blade, click **Settings**, click **Cluster AAD Identity**, and you should see the associated Service Principal.
 
-In this section, you perform the steps to create a service principal for an Azure Active Directory application, assign a role to the service principal, and authenticate as the service principal by providing a certificate. Run the following commands to create an application in Azure Active Directory. 
+	![Add service principal to HDInsight cluster](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.6.png "Add service principal to HDInsight cluster")
 
-1. From your desktop, open a new Azure PowerShell window, and enter the following snippet. When prompted to log in, make sure you log in as one of the subscription admininistrators/owner:
-
-        # Log in to your Azure account
-		Login-AzureRmAccount
-        
-		# List all the subscriptions associated to your account
-		Get-AzureRmSubscription
-		
-		# Select a subscription 
-		Set-AzureRMContext -SubscriptionName <subscription name>
-
-2. Paste the following cmdlets in the PowerShell console window. Make sure the value you specify for the **-DisplayName** property is unique. Also, the values for **-HomePage** and **-IdentiferUris** are placeholder values and are not verified. 
-
-		$certificateFilePath = "$certificateFileDir\CertFile.pfx"
-		
-		$password = Read-Host –Prompt "Enter the password" –AsSecureString  # This is the password you specified for the .pfx file (e.g. "myPassword")
-		
-		$certificatePFX = New-Object System.Security.Cryptography.X509Certificates.X509Certificate2($certificateFilePath, $password)
-		
-		$rawCertificateData = $certificatePFX.GetRawCertData()
-		
-		$credential = [System.Convert]::ToBase64String($rawCertificateData)
-
-		$application = New-AzureRmADApplication `
-					-DisplayName "HDIADL" ` 
-					-HomePage "https://contoso.com" `
-					-IdentifierUris "https://mycontoso.com" `
-					-KeyValue $credential  `
-					-KeyType "AsymmetricX509Cert"  `
-					-KeyUsage "Verify"  `
-					-StartDate $startDate  `
-					-EndDate $endDate
-
-		$applicationId = $application.ApplicationId
-
-2. Create a service principal using the application ID.
-
-		$servicePrincipal = New-AzureRmADServicePrincipal -ApplicationId $applicationId
-		
-		$objectId = $servicePrincipal.Id
-
-	You have now created a service principal, but the service does not have any permissions or scope assigned. You should now use this service principal to grant access to Data Lake Store. 
-
-### Configure service principal to access Data Lake Store
+## Configure service principal to access Data Lake Store
 
 1. Sign on to the new [Azure preview portal](https://portal.azure.com).
 
@@ -162,27 +122,7 @@ In this section, you perform the steps to create a service principal for an Azur
 
 7. If required, you can also modify the access permissions after you have added the service principal. Clear or select the check box for each permission type (Read, Write, Execute) based on whether you want to remove or assign that permission. Click **Save** to save the changes, or **Discard** to undo the changes.
 
-## Create an HDInsight cluster with access to Azure Data Lake Store
 
-In this section, you create an HDInsight cluster that uses the Data Lake Store as an additional storage. For this release, the HDInsight cluster and the Data Lake Store must be in the same location (East US 2). Also, for this release, the Data Lake Store can only be used as an additional storage account. The default storage account for the cluster will still be Azure Storage Blobs (WASB).
-
-1. Sign on to the new [Azure preview portal](https://portal.azure.com).
-
-2. Follow the steps at [Create Hadoop clusters in HDInsight](../hdinsight/hdinsight-provision-clusters.md#create-using-the-preview-portal) to start provisioning an HDInsight cluster.
- 
-3. On the **Optional Configuration** blade, click **Data Source**. In the **Data Source** blade, specify the details for the storage account and storage container, specify **Location** as **East US 2**, and then click **Cluster AAD Identity**.
-
-	![Add service principal to HDInsight cluster](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.1.png "Add service principal to HDInsight cluster")
-
-4. On the **Cluster AAD Identity** blade, click **Service Principal**, and then in the **Select a Service Principal** blade, search for the service principal you created earlier in Azure Active Directory. The name of service principal you created earlier is **HDIADL**. Click the service principal name and then click **Select**.
-
-	![Add service principal to HDInsight cluster](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.2.png "Add service principal to HDInsight cluster")
-
-5. On the **Cluster AAD Identity** blade, upload the certificate (.pfx) you created earlier and provide the password you used to create the certificate. Click **Select**. This completes the Azure Active Directory configuration for HDInsight cluster.
-
-	![Add service principal to HDInsight cluster](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.3.png "Add service principal to HDInsight cluster")
-
-6. Click Select on the **Data Source** blade and continue with cluster provisioning as described at [Create Hadoop clusters in HDInsight](../hdinsight/hdinsight-provision-clusters.md#create-using-the-preview-portal).
 
 ## Run test jobs on the HDInsight cluster to use the Azure Data Lake Store
 
@@ -251,7 +191,7 @@ Once you have configured the HDInsight cluster to use Data Lake storage, you can
 
 ## See Also
 
-* [PowerShell: Create an HDInsight cluster to use Data Lake Store]([PowerShell](data-lake-store-hdinsight-hadoop-use-powershell.md))
+* [PowerShell: Create an HDInsight cluster to use Data Lake Store](data-lake-store-hdinsight-hadoop-use-powershell.md)
 
 [makecert]: https://msdn.microsoft.com/en-us/library/windows/desktop/ff548309(v=vs.85).aspx
 [pvk2pfx]: https://msdn.microsoft.com/en-us/library/windows/desktop/ff550672(v=vs.85).aspx
