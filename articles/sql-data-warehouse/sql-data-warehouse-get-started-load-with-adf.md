@@ -166,12 +166,12 @@ In the 'Author and Deploy' section now click 'More Commands' and then 'New Pipel
 				},
 				"inputs": [
 					{
-						"name": "StorageDataset"
+						"name": "<Storage Dataset>"
 					}
 				],
 				"outputs": [
 					{
-						"name": "DWDataset"
+						"name": "<Data Warehouse Dataset>"
 					}
 				],
 				"policy": {
