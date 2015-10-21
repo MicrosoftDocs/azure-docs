@@ -17,7 +17,7 @@
    ms.author="ronitr; ronmat; v-romcal; sstein"/>
 
 
-# Get started with SQL Database Dynamic Data Masking (Azure portal)
+# Get started with SQL Database Dynamic Data Masking (Azure Preview portal)
 
 > [AZURE.SELECTOR]
 - [Dynamic Data Masking - Azure portal](sql-database-dynamic-data-masking-get-started-portal.md)
