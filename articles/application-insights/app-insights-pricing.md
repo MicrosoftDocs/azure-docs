@@ -88,7 +88,7 @@ There are three buckets which are counted separately:
 * [Exceptions](app-insights-api-custom-events-metrics.md#track-exception), limited to 50 points/s.
 * All other telemetry (page views, sessions, requests, dependencies, metrics, custom events, web test results).
 
-If your app sends more than the limit, some of the data is dropped. You'll see a notification warning that this has happened.
+If your app sends more than the limit for several minutes, some of the data may be dropped. You'll see a notification warning that this has happened.
 
 ### Tips for reducing your data rate
 
