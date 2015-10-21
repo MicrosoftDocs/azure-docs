@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/16/2015" 
+	ms.date="10/21/2015" 
 	ms.author="ccompy"/>
 
 # Scaling web apps in an App Service Environment #
@@ -39,9 +39,7 @@ Changing either item is done through the appropriate UI shown with your App Serv
 
 ![][1]
 
-### Scaling the number of instances ###
-
-When you first create your web app in an App Service Environment you should scale it up to at least 2 instances to provide fault tolerance.   
+### Manually Scaling the number of instances ###
 
 If your ASE has enough capacity then this is pretty simple.  You go to your App Service Plan that holds the sites you want to scale up and select Scale.  This opens the UI where you simply slide the instance indicator up to the desired value and save.  
 
@@ -49,7 +47,6 @@ If your ASE has enough capacity then this is pretty simple.  You go to your App 
 
 You won't be able to scale up your App Service Plan beyond the number of available compute resources in the worker pool that your App Service Plan is in.  If you need more you need to get your ASE administrator to add more compute resources to the worker pool that you need them in.  For information around re-configuring your ASE read the information here: [How to Configure an App Service environment][HowtoConfigureASE] 
  
-
 ### Worker Pool selection ###
 
 The worker pool selection is accessed from the App Service Plan UI.  Open the App Service Plan that you want to scale and select worker pool.  You will see all of the worker pools which you have configured in your App Service Environment.  If you have only one worker pool then you will only see the one pool listed.  To change what worker pool your App Service Plan is in, you simply select the worker pool you want your App Service Plan to move to.  
@@ -58,11 +55,20 @@ The worker pool selection is accessed from the App Service Plan UI.  Open the Ap
 
 Before doing this it is important to make sure you will have adequate capacity for your App Service Plan.  In the list of worker pools, not only is the worker pool name listed but you can also see how many workers are available in that worker pool.  Make sure that there are enough instances available to contain your App Service Plan.  If you need more compute resources in the worker pool you wish to move to, then get your ASE administrator to add them.  
 
-Moving a web app from one worker pool will cause a restart of your web apps.  This can cause a small amount of downtime for your app depending on how long it takes to restart.  
+Moving a web app from one worker pool to another worker pool will cause a restart of your web apps as they are moved.  This may cause a perceived performance delay for customers depending on how long an app needs during a cold restart.
+
+### Using Auto-Scale with App Service Environments  ###
+Auto-scaling is available in App Service Environments as well.  Auto-scale rules can be defined for all three worker pools, the front-end pool, as well as apps and app service plans running in an App Service Environment.  
+
+Auto-scaling worker pools affects the number of compute resources available for consumption by the auto-scale rules setup for apps and app service plans.  Some planning is recommended when configuring auto-scale rules for worker pools.  
+
+For detailed guidance on auto-scaling in App Service Environments see [Auto scaling an App Service Environment](../app-service/app-service-environment-auto-scale.md).
 
 ## Getting started
 
 To get started with App Service Environments, see [How To Create An App Service Environment][HowtoCreateASE]
+
+For a detailed walkthrough of configuring auto-scale with App Service Environments see the article on [Auto scaling an App Service Environment](../app-service/app-service-environment-auto-scale.md)
 
 For more information about the Azure App Service platform, see [Azure App Service][AzureAppService].
 
