@@ -41,7 +41,7 @@ To open Power BI and connect to your AdventureWorksDW database:
 
     ![Power BI connection][3]
 
-6. Enter your SQL server admin password and you will be fully connected to your SQL Data Warehouse database. 
+6. Enter your Azure SQL server username and password and you will be fully connected to your SQL Data Warehouse database. 
 
     ![Power BI sign in][4]
 
