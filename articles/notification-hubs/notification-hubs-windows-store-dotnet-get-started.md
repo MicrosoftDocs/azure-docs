@@ -219,11 +219,11 @@ To send notifications by using a .NET console application follow these steps.
 
 	This adds a new Visual C# console application to the solution. You can also do this in a separate solution.
 
-4. In Visual Studio, click **Tools**, click **NuGet Package Manager**, and then click **Package Manager Console**.
+2. In Visual Studio, click **Tools**, click **NuGet Package Manager**, and then click **Package Manager Console**.
 
 	This displays the Package Manager Console in Visual Studio.
 
-6. In the Package Manager Console window, set the **Default project** to your new console application project, and then in the console window, execute the following command:
+3. In the Package Manager Console window, set the **Default project** to your new console application project, and then in the console window, execute the following command:
 
         Install-Package Microsoft.Azure.NotificationHubs
 
@@ -232,11 +232,11 @@ To send notifications by using a .NET console application follow these steps.
 	![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-package-manager.png)
 
 
-5. Open the Program.cs file and add the following `using` statement:
+4. Open the Program.cs file and add the following `using` statement:
 
         using Microsoft.Azure.NotificationHubs;
 
-6. In the **Program** class, add the following method:
+5. In the **Program** class, add the following method:
 
         private static async void SendNotificationAsync()
         {
@@ -250,12 +250,12 @@ To send notifications by using a .NET console application follow these steps.
 
 	>[AZURE.NOTE]Make sure that you use the connection string that has **Full** access, not **Listen** access. The listen-access string does not have permissions to send notifications.
 
-7. Add the following lines in the **Main** method:
+6. Add the following lines in the **Main** method:
 
          SendNotificationAsync();
 		 Console.ReadLine();
 
-8. Right-click the console application project in Visual Studio, and click **Set as StartUp Project** to set it as the startup project. Then press the **F5** key to run the application.
+7. Right-click the console application project in Visual Studio, and click **Set as StartUp Project** to set it as the startup project. Then press the **F5** key to run the application.
 
    	![][14]
 

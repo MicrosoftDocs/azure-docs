@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Troubleshoot Application Insights in a Java web project" 
-	description="Troubleshooting guide and question and answer." 
+	description="Troubleshooting guide - monitoring live Java apps with Application Insights." 
 	services="application-insights" 
     documentationCenter="java"
 	authors="alancameronwills" 

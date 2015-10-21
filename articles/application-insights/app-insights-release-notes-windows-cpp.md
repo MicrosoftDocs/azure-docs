@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Release notes for Application Insights C++ SDK" 
-	description="The latest updates." 
+	description="The latest updates for C++ SDK." 
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 

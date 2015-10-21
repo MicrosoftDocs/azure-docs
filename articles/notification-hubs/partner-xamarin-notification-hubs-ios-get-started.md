@@ -46,7 +46,7 @@ Completing this tutorial is a prerequisite for all other Notification Hubs tutor
 The Apple Push Notification Service uses certificates to authenticate your mobile service. Follow these instructions to create the necessary certificates and upload them to your mobile service. For the official APNs feature documentation, see [Apple Push Notification Service].
 
 
-##<a name="certificates"></a>Generate the Certificate Signing Request file
+##Generate the Certificate Signing Request file
 
 First you must generate the Certificate Signing Request (CSR) file, which is used by Apple to generate a signed certificate.
 
@@ -68,7 +68,7 @@ First you must generate the Certificate Signing Request (CSR) file, which is use
 
 Next, register your app with Apple, enable push notifications, and upload this exported CSR to create a push certificate.
 
-##<a name="register"></a>Register your app for push notifications
+##Register your app for push notifications
 
 To be able to send push notifications to an iOS app from Mobile Services, you must register your application with Apple and also register for push notifications.  
 
@@ -142,7 +142,7 @@ To be able to send push notifications to an iOS app from Mobile Services, you mu
 
 	Later, you will use this certificate to generate a .p12 file and upload it to your notification hub to enable push notifications through APNs.
 
-##<a name="profile"></a>Create a provisioning profile for the app
+##Create a provisioning profile for the app
 
 1. Back in the <a href="http://go.microsoft.com/fwlink/p/?LinkId=272456" target="_blank">iOS Provisioning Portal</a>, select **Provisioning Profiles**, select **All**, and then click the **+** button to create a new profile. This displays the **Add iOS Provisioning Profile** wizard.
 
@@ -184,7 +184,7 @@ To be able to send push notifications to an iOS app from Mobile Services, you mu
 
 This ensures that the Xcode project uses the new profile for code signing. Next, you must upload the certificate to your notification hub.
 
-##<a name="configure-hub"></a>Configure your notification hub
+##Configure your notification hub
 
 1. Sign in to the [Azure portal], and click **+NEW** at the bottom of the screen.
 
@@ -214,9 +214,9 @@ This ensures that the Xcode project uses the new profile for code signing. Next,
 
 Your notification hub is now configured to work with APNs, and you have the connection strings to register your app and send notifications.
 
-##<a name="connecting-app"></a>Connect your app to the notification hub
+##Connect your app to the notification hub
 
-### Create a new project
+#### Create a new project
 
 1. In Xamarin Studio, create a new iOS project and select the **Unified API** > **Single View Application** template.
 
@@ -319,23 +319,53 @@ Your notification hub is now configured to work with APNs, and you have the conn
 
 10. Run the app on your device.
 
-##<a name="send"></a>Send notifications from your backend
 
-You can send notifications by using Notification Hubs from any backend via our <a href="http://msdn.microsoft.com/library/windowsazure/dn223264.aspx">REST interface</a>. In this tutorial, we will send notifications by using a .NET console app and by using a mobile service through a node script.
+## Sending Notifications
 
-To send notifications by using a .NET app:
+
+You can test receiving notifications in your app by sending notifications in the Azure portal via the debug tab on the notification hub, as shown in the screen below.
+
+![](./media/notification-hubs-ios-get-started/notification-hubs-debug-hub-ios.png)
+
+Push notifications are normally sent in a back-end service like Mobile Services or ASP.NET using a compatible library. You can also use the REST API directly to send notification messages if a library is not available for your back-end. 
+
+In this tutorial, we will keep it simple and just demonstrate testing your client app by sending notifications using the .NET SDK for notification hubs in a console application instead of a backend service. We recommend the [Use Notification Hubs to push notifications to users](notification-hubs-aspnet-backend-ios-notify-users.md) tutorial as the next step for sending notifications from an ASP.NET backend. However, the following approaches can be used for sending notifications:
+
+* **REST Interface**:  You can support notification on any backend platform using  the [REST interface](http://msdn.microsoft.com/library/windowsazure/dn223264.aspx).
+
+* **Microsoft Azure Notification Hubs .NET SDK**: In the Nuget Package Manager for Visual Studio, run [Install-Package Microsoft.Azure.NotificationHubs](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
+
+* **Node.js** : [How to use Notification Hubs from Node.js](notification-hubs-nodejs-how-to-use-notification-hubs.md).
+
+* **Azure Mobile Services**: For an example of how to send notifications from an Azure Mobile Services backend that's integrated with Notification Hubs, see "Get started with push notifications in Mobile Services" ([.NET backend](../mobile-services/mobile-services-javascript-backend-windows-store-dotnet-get-started-push.md) | [JavaScript backend](../mobile-services/mobile-services-javascript-backend-windows-store-dotnet-get-started-push.md)).
+
+* **Java / PHP**: For an example of how to send notifications by using the REST APIs, see "How to use Notification Hubs from Java/PHP" ([Java](notification-hubs-java-backend-how-to.md) | [PHP](notification-hubs-php-backend-how-to.md)).
+
+
+####(Optional) Send notifications from a .NET console app
+
+In this section, we will send notifications by using a .NET console app
 
 1. Create a new Visual C# console application:
 
    	![][213]
 
-2. Add a reference to the Azure Service Bus SDK by using the <a href="http://nuget.org/packages/WindowsAzure.ServiceBus/">WindowsAzure.ServiceBus NuGet package</a>. In the Visual Studio main menu, click **Tools**, click **Library Package Manager**, and then click **Package Manager Console**. Then, in the console window, type the following and press Enter:
+2. In Visual Studio, click **Tools**, click **NuGet Package Manager**, and then click **Package Manager Console**.
 
-        Install-Package WindowsAzure.ServiceBus
+	This displays the Package Manager Console in Visual Studio.
 
-2. Open the Program.cs file and add the following using statement:
+3. In the Package Manager Console window, set the **Default project** to your new console application project, and then in the console window, execute the following command:
 
-        using Microsoft.ServiceBus.Notifications;
+        Install-Package Microsoft.Azure.NotificationHubs
+
+	This adds a reference to the Azure Notification Hubs SDK using the <a href="http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/">Microsoft.Azure.Notification Hubs NuGet package</a>.
+
+	![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-package-manager.png)
+
+
+4. Open the Program.cs file and add the following `using` statement:
+
+        using Microsoft.Azure.NotificationHubs;
 
 3. In your `Program` class, add the following method:
 
@@ -354,6 +384,11 @@ To send notifications by using a .NET app:
 5. Press the F5 key to run the app. You should receive an alert on your device. If you are using Wi-Fi, make sure that your connection is working.
 
 You can find all the possible payloads in the Apple [Local and Push Notification Programming Guide].
+
+
+####(Optional) Send notifications from a Mobile Service
+
+In this section, we will send notifications using a mobile service through a node script.
 
 To send a notification by using a mobile service, follow [Get started with Mobile Services], and then:
 
@@ -391,18 +426,10 @@ To send a notification by using a mobile service, follow [Get started with Mobil
 
 6. Click **Run Once** on the bottom bar. You should receive an alert on your device.
 
-## <a name="next-steps"> </a>Next steps
+##Next steps
 
 In this simple example, you broadcasted notifications to all your iOS devices. In order to target specific users, refer to the tutorial [Use Notification Hubs to push notifications to users]. If you want to segment your users by interest groups, you can read [Use Notification Hubs to send breaking news]. Learn more about how to use Notification Hubs in [Notification Hubs Guidance] and in the [Notification Hubs How-To for iOS].
 
-<!-- Anchors. -->
-[Generate the certificate signing request]: #certificates
-[Register your app and enable push notifications]: #register
-[Create a provisioning profile for the app]: #profile
-[Configure your Notification Hub]: #configure-hub
-[Connecting your app to the Notification Hub]: #connecting-app
-[Send notifications from your back-end]: #send
-[Next Steps]:#next-steps
 
 <!-- Images. -->
 [5]: ./media/partner-xamarin-notification-hubs-ios-get-started/mobile-services-ios-push-step5.png
