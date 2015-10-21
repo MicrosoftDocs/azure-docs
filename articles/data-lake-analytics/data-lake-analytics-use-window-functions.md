@@ -17,7 +17,7 @@
    ms.author="jgao"/>
 
 
-# Using U-SQL window functions for Azure Data Lake Aanlytics jobs  
+# Using U-SQL window functions for Azure Data Lake Analytics jobs  
 
 Window functions were introduced to the ISO/ANSI SQL Standard in 2003. U-SQL adopts a subset of window functions as defined by the ANSI SQL Standard.
 
@@ -69,7 +69,7 @@ This tutorial uses two datasets:
                 ("Durian"  , 500, "Web"   ) )
             AS T(Query,Latency,Vertical);
     
-    In practice, the data is most likely stored in a data file. You would construt the dataset using the following statements:
+    In practice, the data is most likely stored in a data file. You would access that data inside of a tab-delimited file using the following code: 
     
         @querylog = 
         EXTRACT 
@@ -175,7 +175,7 @@ In both these cases the number of there are fewer output rows than input rows:
 
 The OVER clause in the following sample is empty. This defines the "window" to include all rows. The SUM in this example is applied to the OVER clause that it precedes.
 
-You could read this query as: “The sum of Salary across the window of all rows”.
+You could read this query as: “The sum of Salary over a window of all rows”.
 
     @result=
         SELECT
@@ -229,7 +229,7 @@ Again, there are the same number of input rows as output rows. However each row 
 
 ## Reporting aggration functions
 
-window functions also support the following aggregates:
+Window functions also support the following aggregates:
 
 - COUNT
 - SUM
