@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="10/08/2015"
+   ms.date="10/20/2015"
    ms.author="lodipalm"/>
 
 # Create a SQL Data Warehouse database by using Transact-SQL (TSQL)
