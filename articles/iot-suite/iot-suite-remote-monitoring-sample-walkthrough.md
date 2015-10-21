@@ -33,14 +33,16 @@ The following diagram outlines the logical components of the preconfigured solut
 
 In the preconfigured solution, the simulated device represents a cooling device (such as a building air conditioner or facility air handling unit). Each simulated device sends the following telemetry messages to IoT Hub:
 
-| Message  | Description |                                                  
-|----------|------------------------------------------------------------------|
+
+| Message  | Description |
+|----------|-------------|
 | Startup  | When the device starts, it sends a **device-info** message containing information about itself such as its device id, device metadata, a list of commands the device supports, and the current configuration of the device. |
+
 
 The simulated devices send the following device properties as metadata:
 
-| Property               |  Purpose                                            |
-|------------------------|-----------------------------------------------------|
+| Property               |  Purpose |
+|------------------------|--------- |
 | Device ID              | Id that is either provided or assigned when a device is created in the solution. |
 | Manufacturer           | Device manufacturer |
 | Model Number           | Model number of the device |
@@ -107,28 +109,37 @@ This web app enables you to:
 
 ### Observing the behavior of the cloud solution
 You can view your provisioned resources by going to [Azure Management Portal](https://portal.azure.com) and navigating to the resource group with the solution name you specified.
+
 ![](media/iot-suite-remote-monitoring-sample-walkthrough/azureportal_01.png)
 
 When you first run the sample, there are four preconfigured, simulated devices:
+
 ![](media/iot-suite-remote-monitoring-sample-walkthrough/solutionportal_01.png)
 
 You can use the Device Administration portal to add a new simulated device:
+
 ![](media/iot-suite-remote-monitoring-sample-walkthrough/solutionportal_02.png)
 
 Initially, the status of the new device in the Device Administration portal is **Pending**:
+
 ![](media/iot-suite-remote-monitoring-sample-walkthrough/solutionportal_03.png)
 
 When the app has finished deploying the simulated device, you will see the status of the device change to **Running** in the Device Administration portal as shown in the following screenshot. The **DeviceInfo** Stream Analytics job sends device status information from the device to the Device Administration portal.
+
 ![](media/iot-suite-remote-monitoring-sample-walkthrough/solutionportal_04.png)
 
-Using the solution portal you can send commands such as **ChangeSetPointTemp** to the device :
+Using the solution portal you can send commands such as **ChangeSetPointTemp** to the device:
+
 ![](media/iot-suite-remote-monitoring-sample-walkthrough/solutionportal_05.png)
 
 When the device reports that it has executed the command successfully, the status changes to **Success**:
+
 ![](media/iot-suite-remote-monitoring-sample-walkthrough/solutionportal_06.png)
 
 Using the solution portal you can search for devices with specific characteristics such as a model number:
+
 ![](media/iot-suite-remote-monitoring-sample-walkthrough/solutionportal_07.png)
 
 You can disable a device, and after it is disabled you can remove it:
+
 ![](media/iot-suite-remote-monitoring-sample-walkthrough/solutionportal_08.png)
