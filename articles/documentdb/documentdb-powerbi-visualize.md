@@ -81,20 +81,23 @@ Ready to give it a try? Let's get started.
 ![Power BI Desktop Get Data](./media/documentdb-powerbi-visualize/pbigetdata.png)
 
 6. Specify the DocumentDB account endpoint URL you would like to retrieve the data from as shown below, and then click **OK**. You can retrieve the URL from the URI box in the **Keys** blade of the Azure preview portal. For more information, see [Keys](documentdb-manage-account.md#keys).
-*Note.  In this tutorial, we will not specify the Database name, Collection name, or a SQL statement as these fields are optional.  Instead, we will use the Navigator to select the Database and Collection to identify where the data comes from.*
 
+
+	*Note.  In this tutorial, we will not specify the Database name, Collection name, or a SQL statement as these fields are optional.  Instead, we will use the Navigator to select the Database and Collection to identify where the data comes from.*
     ![Power BI Desktop Connect Window](./media/documentdb-powerbi-visualize/pbiconnectwindow.png)
 
 7. If you are connecting to this endpoint for the first time, you will be prompted for the account key. Enter the account key and click **Connect**. 
-*Note. We recommend that you use the read-only key when building reports.  This will prevent unnecessary exposure of the master key to potential security risks. The read-only key is available from the Read-Only Keys blade of the Azure preview portal.* 
+	
+	*Note. We recommend that you use the read-only key when building reports.  This will prevent unnecessary exposure of the master key to potential security risks. The read-only key is available from the Read-Only Keys blade of the Azure preview portal.* 
     ![Power BI Desktop Account Key](./media/documentdb-powerbi-visualize/pbidocumentdbkey.png)
 
 8. When the account is successfully connected, the **Navigator** will appear.  The **Navigator** will show a list of databases under the account.
 9. Click and expand on the database where the data for the report will come from.  A list of collections under the database will display.  
 
 10. Now, select a collection that you will retrieve the data from, e.g. volcano1.
-*Note. The Preview pane shows a list of **Record** items.  A Document is represented as a **Record** type in Power BI. Similarly, a nested JSON block inside a document is also a **Record**.*
-  
+
+	*Note. The Preview pane shows a list of **Record** items.  A Document is represented as a **Record** type in Power BI. Similarly, a nested JSON block inside a document is also a **Record**.*
+
     ![Power BI Desktop Navigator](./media/documentdb-powerbi-visualize/pbinavigator.png)
 
 11. Click **Edit** to launch the Query Editor so we can transform the data.
@@ -116,23 +119,25 @@ Ready to give it a try? Let's get started.
     ![Power BI Desktop Location Record](./media/documentdb-powerbi-visualize/pbilocationrecord.png)
 
 6. The center pane now shows a coordinates column of **List** type.  As shown at the beginning of the tutorial, the GeoJSON data in this tutorial is of Point type with Latitude and Longitude values recorded in the coordinates array.
-*Note.  the coordinates[0] element represents Longitude while coordinates[1] represents Latitude.*
-![Power BI Desktop Coordinates List](./media/documentdb-powerbi-visualize/pbiresultflattenlist.png)
+
+	*Note.  the coordinates[0] element represents Longitude while coordinates[1] represents Latitude.*
+	![Power BI Desktop Coordinates List](./media/documentdb-powerbi-visualize/pbiresultflattenlist.png)
 
 7. To flatten the coordinates array, we will create a **Custom Column** called LatLong.  Select the **Add Column** ribbon and click on **Add Custom Column**.  The **Add Custom Column** window should appear.
 
 8. Provide a name for the new column, e.g. LatLong.
 
 9. Next, specify the custom formula for the new column.  For our example, we will concatenate the Latitude and Longitude values separated by a comma as shown below using the following forumula: Text.From([coordinates]{1})&","&Text.From([coordinates]{0}). Click **OK**.
-*Note. For more information on Data Analysis Expressions(DAX) including DAX functions, please visit [DAX Basic in Power BI Desktop](https://support.powerbi.com/knowledgebase/articles/554619-dax-basics-in-power-bi-desktop).*
-
+	
+	*Note. For more information on Data Analysis Expressions(DAX) including DAX functions, please visit [DAX Basic in Power BI Desktop](https://support.powerbi.com/knowledgebase/articles/554619-dax-basics-in-power-bi-desktop).*
     ![Power BI Desktop Custom Column](./media/documentdb-powerbi-visualize/pbicustomlatlong.png)
 
 10. Now, the center pane will show the new LatLong column populated with the Latitude and Longitude values separated by a comma.
 ![Power BI Desktop Custom LatLong](./media/documentdb-powerbi-visualize/pbicolumnlatlong.png)
 
-11. We have now completed flattening the data into tabular format.  You can leverage all of the features available in the Query Editor to shape and transform data in DocumentDB.  For instance, you can change the data type for Elevation to **Decimal Number** by changing the **Data Type** on the **Home **ribbon.
-![Power BI Desktop Change Type](./media/documentdb-powerbi-visualize/pbichangetype.png)
+11. We have now completed flattening the data into tabular format.  You can leverage all of the features available in the Query Editor to shape and transform data in DocumentDB.  For instance, you can change the data type for Elevation to **Decimal Number** by changing the **Data Type** on the **Home** ribbon.
+
+    ![Power BI Desktop Change Type](./media/documentdb-powerbi-visualize/pbichangetype.png)
 
 12. Click **Close and Apply** to save the data model.
     
