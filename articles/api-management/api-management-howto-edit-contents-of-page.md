@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/16/2015" 
+	ms.date="09/10/2015" 
 	ms.author="sdanie"/>
 
 # How to edit the contents of a page in Azure API Management

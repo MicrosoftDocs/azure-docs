@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Troubleshoot Application Insights in a Java web project" 
-	description="Troubleshooting guide and question and answer." 
+	description="Troubleshooting guide - monitoring live Java apps with Application Insights." 
 	services="application-insights" 
     documentationCenter="java"
 	authors="alancameronwills" 
@@ -133,7 +133,7 @@ See [Data retention and privacy][data].
 [java]: app-insights-java-get-started.md
 [javalogs]: app-insights-java-trace-logs.md
 [platforms]: app-insights-platforms.md
-[track]: app-insights-custom-events-metrics-api.md
+[track]: app-insights-api-custom-events-metrics.md
 [usage]: app-insights-web-track-usage.md
 
  

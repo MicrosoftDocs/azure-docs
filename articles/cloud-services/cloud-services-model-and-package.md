@@ -1,21 +1,21 @@
-<properties 
-    pageTitle="What is a Cloud Service Model and Package in Azure" 
-    description="Describes the cloud service model (.csdef, .cscfg) and package (.cspkg) in Azure" 
-    services="cloud-services" 
-    documentationCenter="" 
-    authors="Thraka" 
-    manager="timlt" 
+<properties
+    pageTitle="What is a Cloud Service model and package | Microsoft Azure"
+    description="Describes the cloud service model (.csdef, .cscfg) and package (.cspkg) in Azure"
+    services="cloud-services"
+    documentationCenter=""
+    authors="Thraka"
+    manager="timlt"
     editor=""/>
-<tags 
-    ms.service="cloud-services" 
-    ms.workload="tbd" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="07/06/2015" 
+<tags
+    ms.service="cloud-services"
+    ms.workload="tbd"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/09/2015"
     ms.author="adegeo"/>
 
-# What is the Cloud Service Model and how do I package it?
+# What is the Cloud Service model and how do I package it?
 A cloud service is created from three components, the service definition _(.csdef)_, the service config _(.cscfg)_, and a service package _(.cspkg)_. Both the **ServiceDefinition.csdef** and **ServiceConfig.cscfg** files are XML-based and describe the structure of the cloud service and how it's configured; collectively called the model. The **ServicePackage.cspkg** is a zip file that is generated from the **ServiceDefinition.csdef** and among other things, contains all of the required binary-based dependencies. Azure creates a cloud service from both the **ServicePackage.cspkg** and the **ServiceConfig.cscfg**.
 
 Once the cloud service is running in Azure, you can reconfigure it through the **ServiceConfig.cscfg** file, but you cannot alter the definition.
@@ -24,7 +24,7 @@ Once the cloud service is running in Azure, you can reconfigure it through the *
 
 * I want to know more about the [ServiceDefinition.csdef](#csdef) and [ServiceConfig.cscfg](#cscfg) files.
 * I already know about that, give me [some examples](#next-steps) on what I can configure.
-* I want to create the [ServicePackage.cspkg](#cspkg). 
+* I want to create the [ServicePackage.cspkg](#cspkg).
 * I am using Visual Studio and I want to...
     * [Create a new cloud service][vs_create]
     * [Reconfigure an existing cloud service][vs_reconfigure]
@@ -139,7 +139,7 @@ The service configuration file is not packaged with the application, but is uplo
 You can refer to the [Service Configuration Schema](https://msdn.microsoft.com/library/azure/ee758710.aspx) for better understanding the XML schema used here, however, here is a quick explanation of the elements:
 
 >**Instances**  
->Configures the number of running instances for the role. To prevent your cloud service from potentially becoming unavailable during upgrades, it is recommend that you deploy more than one instance of your web-facing roles. By doing this, you are adhering to the guidelines in the [Azure Compute Service Level Agreement (SLA)](http://azure.microsoft.com/support/legal/sla/), which guarantees 99.95% external connectivity for Internet-facing roles when two or more role instances are deployed for a service. 
+>Configures the number of running instances for the role. To prevent your cloud service from potentially becoming unavailable during upgrades, it is recommend that you deploy more than one instance of your web-facing roles. By doing this, you are adhering to the guidelines in the [Azure Compute Service Level Agreement (SLA)](http://azure.microsoft.com/support/legal/sla/), which guarantees 99.95% external connectivity for Internet-facing roles when two or more role instances are deployed for a service.
 
 >**ConfigurationSettings**  
 >Configures the settings for the running instances for a role. The name of the `<Setting>` elements must match the setting definitions in the service definition file.
@@ -215,7 +215,7 @@ Occurs after the configuration change is applied to a specified instance of a ro
 
 <a name="cspkg"></a>
 ## ServicePackage.cspkg
-To deploy an application as a cloud service in Azure, you must first package the application in the appropriate format. You can use the **CSPack** command-line tool (installed with the [Azure SDK](http://azure.microsoft.com/downloads/)) to create the package file as an alternative to Visual Studio. 
+To deploy an application as a cloud service in Azure, you must first package the application in the appropriate format. You can use the **CSPack** command-line tool (installed with the [Azure SDK](http://azure.microsoft.com/downloads/)) to create the package file as an alternative to Visual Studio.
 
 **CSPack** uses the contents of the service definition file and service configuration file to define the contents of the package. **CSPack** generates an application package file (.cspkg) that you can upload to Azure by using the [Azure Management Portal](cloud-services-how-to-create-deploy/#how-to-deploy-a-cloud-service). By default, the package is named `[ServiceDefinitionFileName].cspkg`, but you can specify a different name by using the `/out` option of **CSPack**.
 
@@ -269,11 +269,7 @@ Where the variables are defined as follows:
 
 I'm creating a cloud service package and I want to...
 
-<!--
-* [Configure Sizes for Cloud Services](!!!!!https://msdn.microsoft.com/library/azure/ee814754.aspx)  
-* [Configure Local Storage Resources](!!!!!https://msdn.microsoft.com/library/azure/ee758708.aspx)
--->
-
+* [Configure Local Storage Resources](cloud-services-configure-local-storage-resources.md)
 * [Setup remote desktop for a cloud service instance][remotedesktop]
 * [Deploy a Cloud Service project][deploy]
 
@@ -287,7 +283,7 @@ I am using Visual Studio and I want to...
 
 [deploy]: cloud-services-how-to-create-deploy-portal.md
 [remotedesktop]: cloud-services-role-enable-remote-desktop.md
-[vs_remote]: https://msdn.microsoft.com/en-us/library/gg443832.aspx
-[vs_deploy]: https://msdn.microsoft.com/en-us/library/ee460772.aspx
+[vs_remote]: https://msdn.microsoft.com/library/gg443832.aspx
+[vs_deploy]: https://msdn.microsoft.com/library/ee460772.aspx
 [vs_reconfigure]: https://msdn.microsoft.com/library/ee405486.aspx
-[vs_create]: https://msdn.microsoft.com/en-us/library/ee405487.aspx
+[vs_create]: https://msdn.microsoft.com/library/ee405487.aspx

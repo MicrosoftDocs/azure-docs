@@ -4,9 +4,8 @@
 	services="virtual-network"
 	documentationCenter=""
 	authors="curtand"
-	manager="swadwha"
-	editor=""
-	tags="azure-classic-portal"/>
+	manager="stevenpo"
+	editor=""/>
 
 <tags
 	ms.service="virtual-network"
@@ -14,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/28/2015"
+	ms.date="09/21/2015"
 	ms.author="curtand"/>
 
 
@@ -52,12 +51,12 @@ It’s a good idea to create a site in Active Directory that represents the netw
     On this wizard page…  | Specify these values
 	------------- | -------------
 	**Virtual Network Details**  | <p>Name: Type a name for the virtual network, such as WestUSVNet.</p><p>Region: Choose the closest region.</p>
-	**DNS and VPN connectivity**  | <p>DNS Servers: Specify the name and IP address of one or more on-premises DNS servers.</p><p>Connectivity: Select **Configure a site-to-site VPN**.</p><p>Local network: Specify a new local network.</p><p>If you are using ExpressRoute instead of a VPN, see [Configure an ExpressRoute Connection through an Exchange Provider](https://msdn.microsoft.com/library/azure/dn606306.aspx).</p>
+	**DNS and VPN connectivity**  | <p>DNS Servers: Specify the name and IP address of one or more on-premises DNS servers.</p><p>Connectivity: Select **Configure a site-to-site VPN**.</p><p>Local network: Specify a new local network.</p><p>If you are using ExpressRoute instead of a VPN, see [Configure an ExpressRoute Connection through an Exchange Provider](../expressroute/expressroute-configuring-exps.md).</p>
 	**Site-to-site connectivity**  | <p>Name: Type a name for the on-premises network.</p><p>VPN Device IP address: Specify the public IP address of the device that will connect to the virtual network. The VPN device cannot be located behind a NAT.</p><p>Address: Specify the address ranges for your on-premises network (such as 192.168.0.0/16 in the scenario diagram).</p>
 	**Virtual network address spaces**  | <p>Address Space: Specify the IP address range for VMs that you want to run in the Azure virtual network (such as 10.1.0.0/16 in the scenario diagram). This address range cannot overlap with the address ranges of the on-premises network.</p><p>Subnets: Specify a name and address for a subnet for the application servers (such as Frontend, 10.1.1.0/24) and for the DCs (such as Backend, 10.1.2.0/24).</p><p>Click **add gateway subnet**.</p>
 
-2. Next, you'll configure the virtual network gateway to create a secure site-to-site VPN connection. See [Configure a Virtual Network Gateway](https://msdn.microsoft.com/library/azure/jj156210.aspx) for the instructions.
-3. Create the site-to-site VPN connection between the new virtual network and an on-premises VPN device. See [Configure a Virtual Network Gateway](https://msdn.microsoft.com/library/azure/jj156210.aspx) for the instructions.
+2. Next, you'll configure the virtual network gateway to create a secure site-to-site VPN connection. See [Configure a Virtual Network Gateway](../vpn-gateway/vpn-gateway-configure-vpn-gateway-mp.md) for the instructions.
+3. Create the site-to-site VPN connection between the new virtual network and an on-premises VPN device. See [Configure a Virtual Network Gateway](../vpn-gateway/vpn-gateway-configure-vpn-gateway-mp.md) for the instructions.
 
 
 
@@ -88,7 +87,7 @@ Sign in to a VM and verify that you have connectivity across the site-to-site VP
 
 ## Reconfigure DNS server for the virtual network
 
-1. In the Azure classic portal, click the name of the virtual network, and then click the **Configure** tab to [reconfigure the DNS server IP addresses for your virtual network](https://msdn.microsoft.com/library/azure/dn275925.aspx) to use the static IP addresses assigned to the replica DCs instead of the IP addresses of an on-premises DNS servers.
+1. In the Azure classic portal, click the name of the virtual network, and then click the **Configure** tab to [reconfigure the DNS server IP addresses for your virtual network](virtual-networks-manage-dns-in-vnet.md) to use the static IP addresses assigned to the replica DCs instead of the IP addresses of an on-premises DNS servers.
 
 2. To ensure that all the replica DC VMs on the virtual network are configured with to use DNS servers on the virtual network, click **Virtual Machines**, click the status column for each VM, and then click **Restart**. Wait until the VM shows **Running** state before you try to sign into it.
 
@@ -115,7 +114,7 @@ For more information about using Windows PowerShell, see [Get Started with Azure
 -  [Guidelines for Deploying Windows Server Active Directory on Azure Virtual Machines](https://msdn.microsoft.com/library/azure/jj156090.aspx)
 -  [How to upload existing on-premises Hyper-V domain controllers to Azure by using Azure PowerShell](http://support.microsoft.com/kb/2904015)
 -  [Install a new Active Directory forest on an Azure virtual network](../active-directory-new-forest-virtual-machine.md)
--  [Azure Virtual Network](https://msdn.microsoft.com/library/azure/jj156007.aspx)
+-  [Azure Virtual Network](../virtual-network/virtual-networks-overview.md)
 -  [Microsoft Azure IT Pro IaaS: (01) Virtual Machine Fundamentals](http://channel9.msdn.com/Series/Windows-Azure-IT-Pro-IaaS/01)
 -  [Microsoft Azure IT Pro IaaS: (05) Creating Virtual Networks and Cross-Premises Connectivity](http://channel9.msdn.com/Series/Windows-Azure-IT-Pro-IaaS/05)
 -  [Azure PowerShell](https://msdn.microsoft.com/library/azure/jj156055.aspx)

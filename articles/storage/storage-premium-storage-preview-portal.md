@@ -21,11 +21,11 @@
 
 ## Overview
 
-Welcome to **Azure Premium Storage Disks** for faster Virtual Machines!
+Welcome to **Azure Premium Storage Disks** for faster Azure virtual machines.
 
-With the introduction of new Premium Storage, Microsoft Azure now offers two types of durable storage: **Premium Storage** and **Standard Storage**. Premium Storage stores data on the latest technology Solid State Drives (SSDs) whereas Standard Storage stores data on Hard Disk Drives (HDDs).
+With the introduction of Premium Storage, Microsoft Azure now offers two types of durable storage: **Premium Storage** and **Standard Storage**. Premium Storage stores data on the latest technology Solid State Drives (SSDs) whereas Standard Storage stores data on Hard Disk Drives (HDDs).
 
-Premium Storage delivers high-performance, low-latency disk support for I/O intensive workloads running on Azure Virtual Machines. You can attach several Premium Storage disks to a virtual machine (VM). With Premium Storage, your applications can have up to 32 TB of storage per VM and achieve 64,000 IOPS (input/output operations per second) per VM with extremely low latencies for read operations.
+Premium Storage delivers high-performance, low-latency disk support for I/O intensive workloads running on Azure Virtual Machines. You can attach several Premium Storage disks to a virtual machine (VM). With Premium Storage, your applications can have up to 64 TB of storage per VM and achieve 80,000 IOPS (input/output operations per second) per VM and 2000 MB per second disk throughput per VM with extremely low latencies for read operations.
 
 To get started with Azure Premium Storage, visit [Get started for free](http://azure.microsoft.com/pricing/free-trial/) page.
 
@@ -45,7 +45,7 @@ The following is a list of important things to consider before or when using Pre
 
 - A Premium Storage account is locally redundant (LRS) and keeps three copies of the data within a single region.  For considerations regarding geo replication when using Premium Storage, see the [Snapshots and Copy Blob when using Premium Storage](#snapshots-and-copy-blob-when-using-premium-storage) section in this article.
 
-- If you want to use a Premium Storage account for your VM disks, you need to use the DS-series of VMs. You can use both Standard and Premium storage disks with DS-series of VMs. But you cannot use Premium Storage disks with non-DS-series of VMs. For information on available Azure VM disk types and sizes, see [Virtual Machine and Cloud Service Sizes for Azure](http://msdn.microsoft.com/library/azure/dn197896.aspx).
+- If you want to use a Premium Storage account for your VM disks, you need to use the DS-series or GS-series of VMs. You can use both Standard and Premium storage disks with DS-series or GS-series of VMs. But you cannot use Premium Storage disks with non-DS-series or non-GS-series of VMs. For information on available Azure VM disk types and sizes, see [Virtual Machine and Cloud Service Sizes for Azure](http://msdn.microsoft.com/library/azure/dn197896.aspx).
 
 - The process for setting up Premium Storage disks for a VM is similar to Standard Storage disks. You need to choose the most appropriate Premium Storage option for your Azure disks and VM. The VM size should be suitable for your workload based on the performance characteristics of the Premium offerings. For more information, see [Scalability and Performance Targets when using Premium Storage](#scalability-and-performance-targets-when-using-premium-storage).
 
@@ -57,9 +57,9 @@ The following is a list of important things to consider before or when using Pre
 You can use Premium Storage for Disks in one of two ways:
 
 - Create a new premium storage account first and then use it when creating the VM.
-- Create a new DS-series VM. While creating the VM, you can select a previously created Premium Storage account, create a new one, or let the Azure Portal to create a default premium account.
+- Create a new DS-series or GS-series VM. While creating the VM, you can select a previously created Premium Storage account, create a new one, or let the Azure Portal to create a default premium account.
 
-Azure uses the storage account as a container for your operating system (OS) and data disks. In other words, if you create an Azure DS-series VM and select an Azure Premium Storage account, your operating system and data disks are stored in that storage account.
+Azure uses the storage account as a container for your operating system (OS) and data disks. In other words, if you create an Azure DS-series or GS-series VM and select an Azure Premium Storage account, your operating system and data disks are stored in that storage account.
 
 To leverage the benefits of Premium Storage, create a Premium Storage account using an account type of *Premium_LRS* first. To do this, you can use the [Microsoft Azure Preview Portal](https://portal.azure.com/), [Azure PowerShell](../install-configure-powershell.md), or the [Service Management REST API](http://msdn.microsoft.com/library/azure/ee460799.aspx). For step-by-step instructions, see [Creating and using Premium Storage Account for Disks](#create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk).
 
@@ -67,78 +67,19 @@ To leverage the benefits of Premium Storage, create a Premium Storage account us
 
 - For details about the capacity and bandwidth limits for Premium Storage accounts, see the [Scalability and Performance Targets when using Premium Storage](#scalability-and-performance-targets-when-using-premium-storage) section. If the needs of your application exceed the scalability targets of a single storage account, build your application to use multiple storage accounts, and partition your data across those storage accounts. For example, if you want to attach 51 terabytes (TB) disks across a number of VMs, spread them across two storage accounts since 35 TB is the limit for a single Premium storage account. Make sure that a single Premium Storage account has never more than 35 TB of provisioned disks.
 - By default, disk caching policy is "Read-Only" for all the Premium data disks, and "Read-Write" for the Premium operating system disk attached to the VM. This configuration setting is recommended to achieve the optimal performance for your application’s I/Os. For write-heavy or write-only data disks (such as SQL Server log files), disable disk caching so that you can achieve better application performance.
-- Make sure that there is sufficient bandwidth available on your VM to drive the disk traffic. For example, a STANDARD_DS1 VM has 32 MB per second dedicated bandwidth available for Premium Storage disk traffic. That means, a P10 Premium Storage disk attached to this VM can only go up to 32 MB per second but not up to 100 MB per second that the P10 disk can provide. Similarly, a STANDARD_DS13 VM can go up to 256 MB per second across all disks. Currently, the largest VM on DS-series is STANDARD_DS14 and it can provide up to 512 MB per second across all disks.
+- Make sure that there is sufficient bandwidth available on your VM to drive the disk traffic. For example, a STANDARD_DS1 VM has 32 MB per second dedicated bandwidth available for Premium Storage disk traffic. That means, a P10 Premium Storage disk attached to this VM can only go up to 32 MB per second but not up to 100 MB per second that the P10 disk can provide. Similarly, a STANDARD_DS13 VM can go up to 256 MB per second across all disks. Currently, the largest VM on DS-series is STANDARD_DS14 and it can provide up to 512 MB per second across all disks. The largest VM on GS-series is STANDARD_GS5 and it can give up to 2000 MB per second across all disks.
 
-	Note that these limits are for disk traffic alone, not including cache-hits and network traffic. There is a separate bandwidth available for VM network traffic, which is different from the dedicated bandwidth for Premium Storage disks. The following table lists the current maximum IOPS and throughput (bandwidth) values per DS-series VM across all the disks attached to the VM:
+	Note that these limits are for disk traffic alone, not including cache-hits and network traffic. There is a separate bandwidth available for VM network traffic, which is different from the dedicated bandwidth for Premium Storage disks. 
+	
+	For the most up-to-date information on maximum IOPS and throughput (bandwidth) for DS-series and GS-series VMs, see [Virtual Machine and Cloud Service Sizes for Azure](http://msdn.microsoft.com/library/azure/dn197896.aspx). To learn about the Premium storage disks and their IOPs and throughput limits, see the table in the [Scalability and Performance Targets when using Premium Storage](#scalability-and-performance-targets-when-using-premium-storage) section in this article.
 
-	<table border="1" cellspacing="0" cellpadding="5" style="border: 1px solid #000000;">
-<tbody>
-<tr>
-	<td><strong>VM Size</strong></td>
-	<td><strong>CPU cores</strong></td>
-	<td><strong>Max. IOPS</strong></td>
-	<td><strong>Max. Disk Bandwidth</strong></td>
-</tr>
-<tr>
-	<td><strong>STANDARD_DS1</strong></td>
-	<td>1</td>
-	<td>3,200</td>
-	<td>32 MB per second</td>
-</tr>
-<tr>
-	<td><strong>STANDARD_DS2</strong></td>
-	<td>2</td>
-	<td>6,400</td>
-	<td>64 MB per second</td>
-</tr>
-<tr>
-	<td><strong>STANDARD_DS3</strong></td>
-	<td>4</td>
-	<td>12,800</td>
-	<td>128 MB per second</td>
-</tr>
-<tr>
-	<td><strong>STANDARD_DS4</strong></td>
-	<td>8</td>
-	<td>25,600</td>
-	<td>256 MB per second</td>
-</tr>
-<tr>
-	<td><strong>STANDARD_DS11</strong></td>
-	<td>2</td>
-	<td>6,400</td>
-	<td>64 MB per second</td>
-</tr>
-<tr>
-	<td><strong>STANDARD_DS12</strong></td>
-	<td>4</td>
-	<td>12,800</td>
-	<td>128 MB per second</td>
-</tr>
-<tr>
-	<td><strong>STANDARD_DS13</strong></td>
-	<td>8</td>
-	<td>25,600</td>
-	<td>256 MB per second</td>
-</tr>
-<tr>
-	<td><strong>STANDARD_DS14</strong></td>
-	<td>16</td>
-	<td>50,000</td>
-	<td>512 MB per second</td>
-</tr>
-</tbody>
-</table>
+> [AZURE.NOTE] Cache-hits are not limited by the allocated IOPS/Throughput of the disk. That is, when you use a data disk with ReadOnly cache setting on a DS-series VM or GS-series VM, Reads that are served from the cache are not subject to Premium Storage disk limits. Hence you could get very high throughput from a disk if the workload is predominantly Reads. Note that, cache is subject to separate IOPS / Throughput limits at VM level based on the VM size. DS-series VMs have roughly 4000 IOPS and 33 MB/sec per core for cache and local SSD IOs.
 
-	For the most up-to-date information, see [Virtual Machine and Cloud Service Sizes for Azure](http://msdn.microsoft.com/library/azure/dn197896.aspx). To learn about the Premium storage disks and their IOPs and throughput limits, see the table in the [Scalability and Performance Targets when using Premium Storage](#scalability-and-performance-targets-when-using-premium-storage) section in this article.
-
-> [AZURE.NOTE] Cache-hits are not limited by the allocated IOPS/Throughput of the disk. That is, when you use a data disk with ReadOnly cache setting on a DS-series VM, Reads that are served from the cache are not subject to Premium Storage disk limits. Hence you could get very high throughput from a disk if the workload is predominantly Reads. Note that, cache is subject to separate IOPS / Throughput limits at VM level based on the VM size. DS-series VMs have roughly 4000 IOPS and 33 MB/sec per core for cache and local SSD IOs.
-
-- You can use both Premium and Standard storage disks in the same DS-series VM.
+- You can use both Premium and Standard storage disks in the same DS-series VM or GS-series VM.
 - With Premium Storage, you can provision a DS-series VM and attach several persistent data disks to a VM. If needed, you can stripe across the disks to increase the capacity and performance of the volume. If you stripe Premium Storage data disks using [Storage Spaces](http://technet.microsoft.com/library/hh831739.aspx), you should configure it with one column for each disk that is used. Otherwise, overall performance of the striped volume may be lower than expected due to uneven distribution of traffic across the disks. By default, the Server Manager user interface (UI) allows you to setup columns up to 8 disks. But if you have more than 8 disks, you need to use PowerShell to create the volume and also specify the number of columns manually. Otherwise, the Server Manager UI continues to use 8 columns even though you have more disks. For example, if you have 32 disks in a single stripe set, you should specify 32 columns. You can use the *NumberOfColumns* parameter of the [New-VirtualDisk](http://technet.microsoft.com/library/hh848643.aspx) PowerShell cmdlet to specify the number of columns used by the virtual disk. For more information, see [Storage Spaces Overview](http://technet.microsoft.com/library/jj822938.aspx) and [Storage Spaces Frequently Asked Questions](http://social.technet.microsoft.com/wiki/contents/articles/11382.storage-spaces-frequently-asked-questions-faq.aspx).
-- Avoid adding DS-series VMs to an existing cloud service that includes non-DS-series VMs. A possible workaround is to migrate your existing VHDs to a new cloud service running only DS-series VMs.  If you want to retain the same virtual IP address (VIP) for the new cloud service that hosts your DS-series VMs, use the [Reserved IP Addresses](virtual-networks-configure-vnet-to-vnet-connection.md) feature.
+- Avoid adding DS-series VMs to an existing cloud service that includes non-DS-series VMs. A possible workaround is to migrate your existing VHDs to a new cloud service running only DS-series VMs.  If you want to retain the same virtual IP address (VIP) for the new cloud service that hosts your DS-series VMs, use the [Reserved IP Addresses](virtual-networks-configure-vnet-to-vnet-connection.md) feature. GS-series VMs can be added to an existing cloud service running only G-series VMs.
 - The DS-series of Azure virtual machines can be configured to use an operating system (OS) disk hosted either on a Standard Storage account or on a Premium Storage account. If you use the OS disk only for booting, you may consider using a Standard Storage based OS disk. This provides cost benefits and similar performance results similar to the Premium Storage after booting up. If you perform any additional tasks on the OS disk other than booting, use Premium Storage as it provides better performance results. For example, if your application reads/writes from/to the OS disk, using Premium Storage based OS disk provides better performance for your VM.
-- You can use [Azure Command-Line Interface (Azure CLI)](../xplat-cli.md) with Premium Storage. To change the cache policy on one of your disks using Azure CLI, run the following command:
+- You can use [Azure Command-Line Interface (Azure CLI)](../xplat-cli-install.md) with Premium Storage. To change the cache policy on one of your disks using Azure CLI, run the following command:
 
 	`$ azure vm disk attach -h ReadOnly <VM-Name> <Disk-Name>`
 
@@ -247,8 +188,8 @@ If a disk is attached to a VM, certain API operations are not permitted on the p
 ### Important Notes:
 
 - The number of snapshots for a single blob is limited to 100. A snapshot can be taken every 10 minutes at most.
-- 10 TB is the maximum capacity for snapshots per Premium Storage account. Note that the snapshot capacity is the unique data that exists in the snapshots. In other words, the snapshot capacity does not include the base blob size.
-- To keep geo-redundant copies of your snapshots, you can copy snapshots from a premium storage account to a geo-redundant standard storage account by using AzCopy or Copy Blob. For more information, see [How to use AzCopy with Microsoft Azure Storage](storage-use-azcopy.md) and [Copy Blob](http://msdn.microsoft.com/library/azure/dd894037.aspx).
+- The maximum capacity for snapshots per Premium Storage account is 10 TB. Note that snapshot capacity refers to the total amount of data in snapshots only, and does not include data in the base blob.
+- To maintain geo-redundant copies of your snapshots, you can copy snapshots from a premium storage account to a geo-redundant standard storage account by using AzCopy or Copy Blob. For more information, see [How to use AzCopy with Microsoft Azure Storage](storage-use-azcopy.md) and [Copy Blob](http://msdn.microsoft.com/library/azure/dd894037.aspx).
 - For detailed information on performing REST operations against page blobs in Premium Storage accounts, see [Using Blob Service Operations with Azure Premium Storage](http://go.microsoft.com/fwlink/?LinkId=521969) in the MSDN library.
 
 ## Using Linux VMs with Premium Storage
@@ -260,6 +201,7 @@ Please refer to important instructions below for configuring your Linux VMs on P
 	- If you use **XFS**, disable barriers using the mount option “nobarrier” (For enabling barriers, use the option “barrier”)
 
 - For Premium Storage disks with cache setting “ReadWrite”, barriers should be enabled for durability of writes.
+- For the volume labels to persist after VM reboot, you must update /etc/fstab with the UUID references to the disks. Also refer to [How to Attach a Data Disk to a Linux Virtual Machine.](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-how-to-attach-disk)
 
 Following are the Linux Distributions that we validated with Premium Storage. We recommend that you upgrade your VMs to at least one of these versions (or later) for better performance and stability with Premium Storage. Also, some of the versions require the latest LIS (Linux Integration Services v4.0 for Microsoft Azure). Please follow the link provided below for download and installation. We will continue to add more images to the list as we complete additional validations. Please note, our validations showed that performance varies for these images, and it also depends on workload characteristics and settings on the images. Different images are tuned for different kinds of workload.
 <table border="1" cellspacing="0" cellpadding="5" style="border: 1px solid #000000;">
@@ -305,7 +247,7 @@ Following are the Linux Distributions that we validated with Premium Storage. We
 </tr>
 <tr>
 	<td rowspan="2"><strong>CentOS</strong></td>
-	<td>6.5, 6.6, 7.0</td>
+	<td>6.5, 6.6, 6.7, 7.0</td>
 	<td></td>
 	<td>
 		<a href="http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409"> LIS 4.0 Required </a> </br>
@@ -340,6 +282,7 @@ Following are the Linux Distributions that we validated with Premium Storage. We
 
 Customers running OpenLogic CentOS VMs should run the following command to install the latest drivers:
 
+	sudo rpm -e hypervkvpd  ## (may return error if not installed, that's OK)
 	sudo yum install microsoft-hyper-v
 
 A reboot will then be required to activate the new drivers.
@@ -353,7 +296,7 @@ When using Premium Storage, the following billing considerations apply:
 - Snapshots on Premium Storage are billed for the additional capacity used by the snapshots. For information on snapshots, see [Creating a Snapshot of a Blob](http://msdn.microsoft.com/library/azure/hh488361.aspx).
 - [Outbound data transfers](http://azure.microsoft.com/pricing/details/data-transfers/) (data going out of Azure data centers) incur billing for bandwidth usage.
 
-For detailed information on pricing for Premium Storage and DS-series VMs, see:
+For detailed information on pricing for Premium Storage,  DS-series VMs and GS-series VMs, see:
 
 - [Azure Storage Pricing](http://azure.microsoft.com/pricing/details/storage/)
 - [Virtual Machines Pricing](http://azure.microsoft.com/pricing/details/virtual-machines/)
@@ -393,7 +336,7 @@ This PowerShell example shows how to create a new Premium Storage account and at
 
 		New-AzureStorageAccount -StorageAccountName "yourpremiumaccount" -Location "West US" -Type "Premium_LRS"
 
-3. Next, create a new DS-Series VM and specify that you want Premium Storage by running the following PowerShell cmdlets in the console window:
+3. Next, create a new DS-Series VM and specify that you want Premium Storage by running the following PowerShell cmdlets in the console window. You can create a GS-series VM using the same steps. Specify the appropriate VM size in the commands. For e.g. Standard_GS2:
 
     	$storageAccount = "yourpremiumaccount"
     	$adminName = "youradmin"
@@ -407,7 +350,7 @@ This PowerShell example shows how to create a new Premium Storage account and at
     	Add-AzureProvisioningConfig -Windows -VM $vm -AdminUsername $adminName -Password $adminPassword
     	New-AzureVM -ServiceName $vmName -VMs $VM -Location $location
 
-4. If you want more disk space for your VM, attach a new data disk to an existing DS-series VM after it is created by running the following PowerShell cmdlets in the console window:
+4. If you want more disk space for your VM, attach a new data disk to an existing DS-series VM or GS-series VM after it is created by running the following PowerShell cmdlets in the console window:
 
     	$storageAccount = "yourpremiumaccount"
     	$vmName ="yourVM"
@@ -419,7 +362,7 @@ This PowerShell example shows how to create a new Premium Storage account and at
 
 ### Create an Azure virtual machine using Premium Storage via the Azure Command-Line Interface
 
-The [Azure Commnand-Line Interface](../xplat-cli.md)(Azure CLI) provides a provides a set of open source, cross-platform commands for working with the Azure Platform. The following examples show how to use Azure CLI (version 0.8.14 and later) to create a premium storage account, a new virtual machine, and attach a new data disk from a Premium Storage account.
+The [Azure Commnand-Line Interface](../xplat-cli-install.md)(Azure CLI) provides a provides a set of open source, cross-platform commands for working with the Azure Platform. The following examples show how to use Azure CLI (version 0.8.14 and later) to create a premium storage account, a new virtual machine, and attach a new data disk from a Premium Storage account.
 
 #### Create a premium storage account
 

@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Move and process log files using Azure Data Factory" 
-	description="This advanced tutorial describes a near real-world scenario and implements the scenario using Azure Data Factory service and Data Factory Editor." 
+	pageTitle="Move and process log files using Azure Data Factory (Azure Portal)" 
+	description="This advanced tutorial describes a near real-world scenario and implements the scenario using Azure Data Factory service and Data Factory Editor in the Azure Portal." 
 	services="data-factory" 
 	documentationCenter="" 
 	authors="spelluru" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/04/2015" 
+	ms.date="08/25/2015" 
 	ms.author="spelluru"/>
 
 # Tutorial: Measuring effectiveness of a marketing campaign  
@@ -418,6 +418,8 @@ In order to copy the marketing campaign effectiveness data from Azure Blob to on
 
 Practice the [Walkthrough: Using on-premises data source][tutorial-onpremises] to learn how to create a pipeline to copy marketing campaign effectiveness data to an on-premises SQL Server database.
 
+## Send Feedback
+We would really appreciate your feedback on this article. Please take a few minutes to submit your feedback via [email](mailto:adfdocfeedback@microsoft.com?subject=data-factory-tutorial.md).
 
 [monitor-manage-using-powershell]: data-factory-monitor-manage-using-powershell.md
 [use-custom-activities]: data-factory-use-custom-activities.md
@@ -429,8 +431,7 @@ Practice the [Walkthrough: Using on-premises data source][tutorial-onpremises] t
 [adfgetstarted]: data-factory-get-started.md
 [adftutorial-using-powershell]: data-factory-tutorial-using-powershell.md
 [adfintroduction]: data-factory-introduction.md
-[useonpremisesdatasources]: data-factory-use-onpremises-datasources.md
-[usepigandhive]: data-factory-pig-hive-activities.md
+[usepigandhive]: data-factory-data-transformation-activities.md
 [tutorial-onpremises]: data-factory-tutorial-extend-onpremises.md
 [download-azure-powershell]: ../powershell-install-configure.md
 
@@ -440,7 +441,7 @@ Practice the [Walkthrough: Using on-premises data source][tutorial-onpremises] t
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 
 [sqlcmd-install]: http://www.microsoft.com/download/details.aspx?id=35580
-[azure-sql-firewall]: http://msdn.microsoft.com/library/azure/jj553530.aspx
+[azure-sql-firewall]: https://azure.microsoft.com/documentation/articles/sql-database-configure-firewall-settings/
 
 
 [adfwalkthrough-download]: http://go.microsoft.com/fwlink/?LinkId=517495

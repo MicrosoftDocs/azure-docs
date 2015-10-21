@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="mobile-xamarin-android"
     ms.devlang="dotnet"
     ms.topic="article"
-	ms.date="08/11/2015"
+	ms.date="08/22/2015"
     ms.author="wesmc"/>
 
 # Enable offline sync for your Xamarin.Android mobile app
@@ -26,7 +26,7 @@
 
 This tutorial introduces the offline sync feature of Azure Mobile Apps for Xamarin.Android. Offline sync allows end-users to interact with a mobile app--viewing, adding, or modifying data--even when there is no network connection. Changes are stored in a local database; once the device is back online, these changes are synced with the remote service.
 
-In this tutorial, you will update the client project from the tutorial [Create a Xamarin Android app] to support the offline features of Azure Mobile Apps. 
+In this tutorial, you will update the client project from the tutorial [Create a Xamarin Android app] to support the offline features of Azure Mobile Apps. If you do not use the downloaded quick start server project, you must add the data access extension packages to your project. For more information about server extension packages, see [Work with the .NET backend server SDK for Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md). 
 
 To learn more about the offline sync feature, see the topic [Offline Data Sync in Azure Mobile Apps].
 
@@ -35,10 +35,6 @@ To learn more about the offline sync feature, see the topic [Offline Data Sync i
 * Visual Studio 2013
 * Visual Studio [Xamarin extension] **or** [Xamarin Studio]
 * Completion of the tutorial [Create a Xamarin Android app]. This tutorial uses the completed app covered in that tutorial.
-
-##<a name="review"></a>Review your server project configuration (optional)
-
-[AZURE.INCLUDE [app-service-mobile-dotnet-backend-enable-offline-preview](../../includes/app-service-mobile-dotnet-backend-enable-offline-preview.md)] 
 
 ## Review the client sync code
 

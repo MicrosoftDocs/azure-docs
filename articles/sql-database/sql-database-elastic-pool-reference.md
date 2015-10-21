@@ -10,7 +10,7 @@
 <tags 
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="08/13/2015" 
+	ms.date="10/08/2015" 
 	ms.author="sstein" 
 	ms.workload="data-management" 
 	ms.topic="article" 
@@ -33,7 +33,9 @@ An elastic database pool is a collection of elastic database throughput units (e
 
 
 - Elastic database pools are only available in Azure SQL Database V12 servers.   
-- Creating and managing elastic database pools is supported using the [preview portal](https://portal.azure.com), PowerShell, and a .NET Client Library (wrapper for REST APIs) for Azure Resource Manager only; the [portal](https://manage.windowsazure.com/) and service management commands are not supported. 
+- Creating and managing elastic database pools is supported using the [preview portal](https://portal.azure.com), PowerShell, and a .NET Client Library (wrapper for REST APIs) for Azure Resource Manager only; the [portal](https://manage.windowsazure.com/) and service management commands are not supported.
+- Additionally, creating new elastic databases, and moving existing databases in and out of elastic database pools is supported using Transact-SQL.
+
 
 
 ## Current preview considerations
@@ -143,32 +145,31 @@ Azure SQL Database V12 servers are located in resource groups.
 
 
 
-## Elastic database pool PowerShell cmdlets and REST API commands (Azure Resource Manager only)
+## PowerShell, REST API, and the .NET Client Library
 
-The following PowerShell cmdlets and REST API commands are available for creating and managing elastic pools:
+Several PowerShell cmdlets and REST API commands are available for creating and managing elastic pools. For details and code examples, see [Create and manage a SQL Database elastic database pool using PowerShell](sql-database-elastic-pool-powershell.md), and [Create and manage SQL Database with C#](sql-database-client-library.md).
 
-| [PowerShell cmdlets](https://msdn.microsoft.com/library/mt125356.aspx) | [REST API commands](https://msdn.microsoft.com/library/azure/mt163571.aspx) |
+> [AZURE.IMPORTANT] Starting with the release of Azure PowerShell 1.0 Preview, the Switch-AzureMode cmdlet is no longer available, and cmdlets that were in the Azure ResourceManger module have been renamed. For detailed information, see [Deprecation of Switch-AzureMode in Azure PowerShell](https://github.com/Azure/azure-powershell/wiki/Deprecation-of-Switch-AzureMode-in-Azure-PowerShell).
+
+| [PowerShell cmdlets](https://msdn.microsoft.com/library/mt163521.aspx) | [REST API commands](https://msdn.microsoft.com/library/mt163571.aspx) |
 | :-- | :-- |
-| Get-AzureSqlDatabase | Get Azure SQL database |
-| Get-AzureSqLElasticPool | Get Azure SQL Database elastic database pool |
-| Get-AzureSqlElasticPoolActivity | Get Azure SQL Database elastic database pool operations |
-| Get-AzureSqlElasticPoolDatabase | Get Azure SQL Database elastic database |
-| Get-AzureSqlElasticPoolDatabaseActivity | Get Azure SQL Database elastic database operations |
-| Get-AzureSqlServer | Get Azure SQL Database server |
-| Get-AzureSqlServerFirewallRule | Get Azure SQL Database server firewall rule |
-| Get-AzureSqlServerServiceObjective | Get Azure SQL Database server service objective |
-| New-AzureSqlDatabase | Create Azure SQL database |
-| New-AzureSqlElasticPool | Create Azure SQL Database elastic database pool |
-| New-AzureSqlServer | Create Azure SQL Database server |
-| New-AzureSqlServerFirewallRule | Create Azure SQL Database server firewall rule) |
-| Remove-AzureSqlDatabase | Remove Azure SQL database |
-| Remove-AzureSqlElasticPool | Remove Azure SQL Database elastic database pool |
-| Remove-AzureSqlServer | Remove Azure SQL Database server |
-| Set-AzureSqlDatabase | Set Azure SQL database |
-| Set-AzureSqlElasticPool | Set Azure SQL Database elastic database pool |
-| Set-AzureSqlServer | Set Azure SQL Database server |
-| Set-AzureSqlServerFirewallRule | Set Azure SQL Database server firewall rule |
-| Get-Metrics | Get Metrics |
+| [New-AzureRMSqlElasticPool](https://msdn.microsoft.com/library/azure/mt619378.aspx) | [Create an elastic database pool](https://msdn.microsoft.com/library/mt163596.aspx) |
+| [Set-AzureRMSqlElasticPool](https://msdn.microsoft.com/library/azure/mt603511.aspx) | [Set Performance Settings of an Elastic Database Pool](https://msdn.microsoft.com/library/mt163641.aspx) |
+| [Remove-AzureRMSqlElasticPool](https://msdn.microsoft.com/library/azure/mt619355.aspx) | [Delete an elastic database pool](https://msdn.microsoft.com/library/mt163672.aspx) |
+| [Get-AzureRMSqlElasticPool](https://msdn.microsoft.com/library/azure/mt603517.aspx) | [Gets elastic  database pools and their property values](https://msdn.microsoft.com/en-us/library/mt163646.aspx) |
+| [Get-AzureRMSqlElasticPoolActivity](https://msdn.microsoft.com/library/azure/mt603812.aspx) | [Get Status of Elastic Database Pool Operations](https://msdn.microsoft.com/library/mt163669.aspx) |
+| [Get-AzureRMSqlElasticPoolDatabase](https://msdn.microsoft.com/library/azure/mt619484.aspx) | [Get Databases in an Elastic Database Pool](https://msdn.microsoft.com/library/mt163646.aspx) |
+| [Get-AzureRMSqlElasticPoolDatabaseActivity]() | [Gets the status of moving databases in and out of a pool](https://msdn.microsoft.com/library/mt163669.aspx) |
+
+## Transact-SQL
+
+You can use Transact-SQL to do the following elastic database management tasks:
+
+| Task | Details |
+| :-- | :-- |
+| Create a new elastic database (directly in a pool) | [CREATE DATABASE (Azure SQL Database)](https://msdn.microsoft.com/library/dn268335.aspx) |
+| Move existing databases in and out of a pool | [ALTER DATABASE (Transact-SQL)](https://msdn.microsoft.com/library/ms174269.aspx) |
+| Get a pool's resource usage statistics | [sys.elastic_pool_resource_stats (Azure SQL Database)](https://msdn.microsoft.com/library/mt280062.aspx) |
 
 
 ## Billing and pricing information
@@ -176,12 +177,12 @@ The following PowerShell cmdlets and REST API commands are available for creatin
 Elastic database pools are billed per the following characteristics:
 
 - An elastic pool is billed upon its creation, even when there are no databases in the pool. 
-- An elastic pool is billed hourly. This is the same metering frequency as for performance levels of standalone databases. 
-- If an elastic pool is resized to a new amount of eDTUs, then the pool is not billed according to the new amount of eDTUS until the resizing operation completes.  This follows the same pattern as changing the performance level of standalone databases. 
+- An elastic pool is billed hourly. This is the same metering frequency as for performance levels of single databases. 
+- If an elastic pool is resized to a new amount of eDTUs, then the pool is not billed according to the new amount of eDTUS until the resizing operation completes. This follows the same pattern as changing the performance level of standalone databases. 
 
 
-- The price of an elastic pool is based on the number of eDTUs of the pool, and the number of databases in the pool. 
-- Price is computed by (number of pool eDTUs)x(unit price per eDTU) + (number of databases)x(unit price per database)
+- The price of an elastic pool is based on the number of eDTUs of the pool. The price of an elastic pool is independent of the utilization of the elastic databases within it.
+- Price is computed by (number of pool eDTUs)x(unit price per eDTU).
 
 The unit eDTU price for an elastic pool is higher than the unit DTU price for a standalone database in the same service tier. For details, see [SQL Database pricing](http://azure.microsoft.com/pricing/details/sql-database/).  
 

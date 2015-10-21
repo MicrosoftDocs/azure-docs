@@ -13,8 +13,9 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/23/2015"
-   ms.author="barbkess;JRJ@BigBangData.co.uk"/>
+   ms.date="09/22/2015"
+   ms.author="barbkess;twounder;JRJ@BigBangData.co.uk"/>
+
 
 # Data warehouse workload
 A data warehouse workload refers to all of the operations that transpire against a data warehouse. The data warehouse workload encompasses the entire process of loading data into the warehouse, performing analysis and reporting on the data warehouse, managing data in the data warehouse, and exporting data from the data warehouse. The depth and breadth of these components are often commensurate with the maturity level of the data warehouse.
@@ -37,7 +38,7 @@ Data loading is a big part of the data warehouse workload. Businesses usually ha
 
 - Traditionally, the process of loading is called ETL for Extract, Transform, and Load. Data usually needs to be transformed so it is consistent with other data in the data warehouse. Previously, businesses used dedicated ETL servers to perform the transformations. Now, with such fast massively parallel processing you can load data into SQL Data Warehouse first, and then perform the transformations. This process is called Extract, Load, and Transform (ELT), and is becoming a new standard for the data warehouse workload.
 
-> [AZURE NOTE] With SQL Server CTP2, you can now perform analytics in real-time on an OLTP table. This does not replace the need for a data warehouse to store and analyze data, but it does provide a way to perform analysis in real-time.
+> [AZURE.NOTE] With SQL Server CTP2, you can now perform analytics in real-time on an OLTP table. This does not replace the need for a data warehouse to store and analyze data, but it does provide a way to perform analysis in real-time.
  
 ### Reporting and analysis queries
 Reporting and analysis queries are often categorized into small, medium and large based on a number of criteria, but usually it is based on time. In most data warehouses, there is a mixed workload of fast-running versus long-running queries. In each case, it is important to determine this mix and to determine its frequency (hourly, daily, month-end, quarter-end, and so on). It is important to understand that the mixed query workload, coupled with concurrency, lead to proper capacity planning for a data warehouse.
@@ -60,10 +61,13 @@ One way to make data available for reports and analysis is to send data from the
 ## Next steps
 To start developing your data warehouse, see [development overview][].
 
+## Books
+[Big Data Warehousing](https://www.manning.com/books/big-data-warehousing) by Karthik Ramachandran, Istvan Szededi, and Richard L. Saltzer (Manning Publications). [Chapter 1](https://manning-content.s3.amazonaws.com/download/e/3d94acd-9512-46c8-b0b0-8c9c3c6a303b/BDW_MEAP_ch1.pdf)
+
 <!--Image references-->
 
 <!--Article references-->
-[development overview]: sql-data-warehouse-overview-development.md
+[development overview]: sql-data-warehouse-overview-develop.md
 
 <!--MSDN references-->
 

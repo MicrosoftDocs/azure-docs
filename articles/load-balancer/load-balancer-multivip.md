@@ -150,7 +150,7 @@ You can also update your load balancer to use a different VIP. For instance, if 
 
 [Get started on Internet facing load balancer](load-balancer-internet-getstarted.md)
 
-[Virtual Network Overview](https://msdn.microsoft.com/library/azure/jj156007.aspx)
+[Virtual Network Overview](../virtual-network/virtual-networks-overview.md)
 
 [Reserved IP REST APIs](https://msdn.microsoft.com/library/azure/dn722420.aspx)
  

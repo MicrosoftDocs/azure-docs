@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Generate recommendations using Mahout and Hadoop | Microsoft Azure"
+	pageTitle="Generate recommendations using Mahout and Linux-based HDInsight | Microsoft Azure"
 	description="Learn how to use the Apache Mahout machine learning library to generate movie recommendations with Linux-based HDInsight (Hadoop)."
 	services="hdinsight"
 	documentationCenter=""
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/16/2015"
+	ms.date="09/22/2015"
 	ms.author="larryfr"/>
 
 #Generate movie recommendations by using Apache Mahout with Linux-based Hadoop in HDInsight (preview)
@@ -30,6 +30,14 @@ Mahout is a [machine learning][ml] library for Apache Hadoop. Mahout contains al
 ##Prerequisites
 
 * A Linux-based Hadoop on HDInsight cluster. For information about creating one, see [Get started using Linux-based Hadoop in HDInsight][getstarted]
+
+##Mahout versioning
+
+For more information about the version of Mahout included with your HDInsight cluster, see [HDInsight versions and Hadoop components](hdinsight-component-versioning.md).
+
+> [AZURE.WARNING] While it is possible to upload a different version of Mahout to the HDInsight cluster, only components provided with the HDInsight cluster are fully supported and Microsoft Support will help to isolate and resolve issues related to these components.
+>
+> Custom components receive commercially reasonable support to help you to further troubleshoot the issue. This might result in resolving the issue OR asking you to engage available channels for the open source technologies where deep expertise for that technology is found. For example, there are many community sites that can be used, like: [MSDN forum for HDInsight](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight), [http://stackoverflow.com](http://stackoverflow.com). Also Apache projects have project sites on [http://apache.org](http://apache.org), for example: [Hadoop](http://hadoop.apache.org/), [Spark](http://spark.apache.org/).
 
 ##<a name="recommendations"></a>Understanding recommendations
 

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="07/21/2015" 
+	ms.date="10/05/2015" 
 	ms.author="sethm"/>
 
 
@@ -77,23 +77,30 @@ At this time the following client libraries are known to work with Service Bus:
 | C        | Apache Qpid Proton-C                                                          |
 | PHP      | Apache Qpid Proton-PHP                                                        |
 | Python   | Apache Qpid Proton-Python                                                     |
-
+| C#   	   | AMQP .Net Lite                                                                |
 
 **Figure 2: Table of AMQP 1.0 client libraries**
-
-For more information about how to obtain and use these libraries with Service Bus, see the [Service Bus AMQP Developer's Guide][]. See the "References" section below for further information.
 
 ## Summary
 
 *    AMQP 1.0 is an open, reliable messaging protocol that you can use to build cross-platform, hybrid applications. AMQP 1.0 is an OASIS standard.
 *    AMQP 1.0 support is now available in Azure Service Bus as well as Service Bus for Windows Server (Service Bus 1.1). Pricing is the same as for the existing protocols.
 
-## References
+## Next steps
 
-*    [How to use AMQP 1.0 with the Service Bus .NET API](http://aka.ms/lym3vk)
-*    [How to use the Java Message Service (JMS) API with Service Bus & AMQP 1.0](http://aka.ms/ll1fm3)
-*    [Service Bus AMQP Developer's Guide](http://msdn.microsoft.com/library/jj841071.aspx)
-*    [OASIS Advanced Message Queuing Protocol (AMQP) Version 1.0 specification](http://docs.oasis-open.org/amqp/core/v1.0/os/amqp-core-complete-v1.0-os.pdf)
+Ready to learn more? Visit the following links:
 
-[0]: ./media/service-bus-amqp-overview/Example1.png
-[Service Bus AMQP Developer's Guide]: http://msdn.microsoft.com/library/jj841071.aspx
+- [Using Service Bus from .NET with AMQP]
+- [Using Service Bus from Java with AMQP]
+- [Using Service Bus from Python with AMQP]
+- [Using Service Bus from PHP with AMQP]
+- [Installing Apache Qpid Proton-C on an Azure Linux VM]
+- [AMQP in Service Bus for Windows Server]
+
+[0]: ./media/service-bus-amqp-overview/service-bus-amqp-1.png
+[Using Service Bus from .NET with AMQP]: service-bus-amqp-dotnet.md
+[Using Service Bus from Java with AMQP]: service-bus-amqp-java.md
+[Using Service Bus from Python with AMQP]: service-bus-amqp-python.md
+[Using Service Bus from PHP with AMQP]: service-bus-amqp-php.md
+[Installing Apache Qpid Proton-C on an Azure Linux VM]: service-bus-amqp-apache.md
+[AMQP in Service Bus for Windows Server]: https://msdn.microsoft.com/library/dn574799.aspx

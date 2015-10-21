@@ -1,140 +1,59 @@
-## How to create a VNet using PowerShell
+## Download and understand the ARM template
 
-To create a VNet by using PowerShell, follow the steps below.
+You can download the existing ARM template for creating a VNet and two subnets from github, make any changes you might want, and reuse it. To do so, follow the steps below.
 
-1. If you have never used Azure PowerShell, see [How to Install and Configure Azure PowerShell](powershell-install-configure.md) and follow the instructions all the way to the end to sign into Azure and select your subscription.
-2. From an Azure PowerShell prompt, run the  **Switch-AzureMode** cmdlet to switch to Resource Manager mode, as shown below.
+1. Navigate to https://github.com/Azure/azure-quickstart-templates/tree/master/101-two-subnets.
+2. Click **azuredeploy.json**, and then click **RAW**.
+3. Save the file to a a local folder on your computer.
+4. If you are familiar with ARM templates, skip to step 7.
+5. Open the file you just saved and look at the contents under **parameters** in line 5. ARM template parameters provide a placeholder for values that can be filled out during deployment.
 
-	Switch-AzureMode AzureResourceManager
+	| Parameter | Description |
+	|---|---|
+	| **location** | Azure region where the VNet will be created |
+	| **vnetName** | Name for the new VNet |
+	| **addressPrefix** | Address space for the VNet, in CIDR format |
+	| **subnet1Name** | Name for the first VNet |
+	| **subnet1Prefix** | CIDR block for the first subnet |
+	| **subnet2Name** | Name for the second VNet |
+	| **subnet2Prefix** | CIDR block for the second subnet |
 
-	WARNING: The Switch-AzureMode cmdlet is deprecated and will be removed in a future release.
-
-	>[AZURE.WARNING] The Switch-AzureMode cmdlet will be deprecated soon. When that happens, all Resource Manager cmdlets will be renamed.
+	>[AZURE.IMPORTANT] ARM templates maintained in github can change over time. Make sure you check the template before using it.
 	
-3. If necessary, run the **New-AzureResourceGroup** cmdlet to create a new resource group, as shown below. For our scenario, create a resource group named *RG1*.
+6. Check the content under **resources** and notice the following:
 
-	New-AzureResourceGroup -Name RG1 -Location centralus
+	- **type**. Type of resource being created by the template. In this case, **Microsoft.Network/virtualNetworks**, which represent a VNet.
+	- **name**. Name for the resource. Notice the use of **[parameters('vnetName')]**, which means the name will provided as input by the user or a parameter file during deployment.
+	- **properties**. List of properties for the resource. This template uses the address space and subnet properties during VNet creation.
 
-	ResourceGroupName : RG1
-	Location          : centralus
-	ProvisioningState : Succeeded
-	Tags              :
-	Permissions       :
-	                    Actions  NotActions
-	                    =======  ==========
-	                    *
-	
-	ResourceId        : /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/RG1	
+7. Navigate back to https://github.com/Azure/azure-quickstart-templates/tree/master/101-two-subnets.
+8. Click **azuredeploy-paremeters.json**, and then click **RAW**.
+9. Save the file to a a local folder on your computer.
+10. Open the file you just saved and edit the values for the parameters. Use the values below to deploy the VNet described in our scenario.
 
-4. Run the **New-AzureVirtualNetwork** cmdlet to create a new VNet, as shown below.
+		{
+		  "location": {
+		    "value": "Central US"
+		  },
+		  "vnetName": {
+		      "value": "TestVNet"
+		  },
+		  "addressPrefix": {
+		      "value": "192.168.0.0/16"
+		  },
+		  "subnet1Name": {
+		      "value": "FrontEnd"
+		  },
+		  "subnet1Prefix": {
+		    "value": "192.168.1.0/24"
+		  },
+		  "subnet2Name": {
+		      "value": "BackEnd"
+		  },
+		  "subnet2Prefix": {
+		      "value": "192.168.2.0/24"
+		  }
+		}
 
-	New-AzureVirtualNetwork -ResourceGroupName RG1 -Name TestVNet `
-		-AddressPrefix 192.168.0.0/16 -Location centralus	
-	
-	Name              : TestVNet
-	ResourceGroupName : RG1
-	Location          : centralus
-	Id                : /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/RG1/providers/Microsoft.Network/virtualNetworks/TestVNet
-	Etag              : W/"5b89894f-db7f-4634-9870-f9b97e209510"
-	ProvisioningState : Succeeded
-	Tags              :
-	AddressSpace      : {
-	                      "AddressPrefixes": [
-	                        "192.168.0.0/16"
-	                      ]
-	                    }
-	DhcpOptions       : {
-	                      "DnsServers": null
-	                    }
-	NetworkInterfaces : null
-	Subnets           : []
-
-5. Run the **Get-AzureVirtualNetwork** cmdlet to store the virtual network object in a variable, as shown below.
-
-	$vnet = Get-AzureVirtualNetwork -ResourceGroupName RG1 -Name TestVNet
-
-	>[AZURE.TIP] You can combine steps 4 and 5 by running **$vnet = New-AzureVirtualNetwork -ResourceGroupName RG1 -Name TestVNet -AddressPrefix 192.168.0.0/16 -Location centralus**.
-
-6. Run the **Add-AzureVirtualNetworkSubnetConfig** cmdlet to add a subnet to the new VNet, as shown below.
-
-	Add-AzureVirtualNetworkSubnetConfig -Name FrontEnd `
-		-VirtualNetwork $vnet -AddressPrefix 192.168.1.0/24
-	
-	Name              : TestVNet
-	ResourceGroupName : RG1
-	Location          : centralus
-	Id                : /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/RG1/providers/Microsoft.Network/virtualNetworks/TestVNet
-	Etag              : W/"5b89894f-db7f-4634-9870-f9b97e209510"
-	ProvisioningState : Succeeded
-	Tags              :
-	AddressSpace      : {
-	                      "AddressPrefixes": [
-	                        "192.168.0.0/16"
-	                      ]
-	                    }
-	DhcpOptions       : {
-	                      "DnsServers": null
-	                    }
-	NetworkInterfaces : null
-	Subnets           : [
-	                      {
-	                        "Name": "FrontEnd",
-	                        "Etag": null,
-	                        "Id": null,
-	                        "AddressPrefix": "192.168.1.0/24",
-	                        "IpConfigurations": null,
-	                        "NetworkSecurityGroup": null,
-	                        "RouteTable": null,
-	                        "ProvisioningState": null
-	                      }
-	                    ]
-
-7. Repeat step 6 above for each subnet you want to create. The command below creates the *BackEnd* subnet for our scenario.
-
-	Add-AzureVirtualNetworkSubnetConfig -Name BackEnd `
-		-VirtualNetwork $vnet -AddressPrefix 192.168.2.0/24
-
-8. Although you create subnets, they currently only exist in the local variable used to retrieve the VNet you create in step 4 above. To save the changes to Azure, run the **Set-AzureVirtualNetwork** cmdlet, as shown below.
-
-	Set-AzureVirtualNetwork -VirtualNetwork $vnet	
-	
-	Name              : TestVNet
-	ResourceGroupName : RG1
-	Location          : centralus
-	Id                : /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/RG1/providers/Microsoft.Network/virtualNetworks/TestVNet
-	Etag              : W/"2d3496d8-2b85-4238-bde2-377fe660aa4a"
-	ProvisioningState : Succeeded
-	Tags              :
-	AddressSpace      : {
-	                      "AddressPrefixes": [
-	                        "192.168.0.0/16"
-	                      ]
-	                    }
-	DhcpOptions       : {
-	                      "DnsServers": []
-	                    }
-	NetworkInterfaces : null
-	Subnets           : [
-	                      {
-	                        "Name": "FrontEnd",
-	                        "Etag": "W/\"2d3496d8-2b85-4238-bde2-377fe660aa4a\"",
-	                        "Id": "/subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/RG1/providers/Micro
-	                    soft.Network/virtualNetworks/TestVNet/subnets/FrontEnd",
-	                        "AddressPrefix": "192.168.1.0/24",
-	                        "IpConfigurations": [],
-	                        "NetworkSecurityGroup": null,
-	                        "RouteTable": null,
-	                        "ProvisioningState": "Succeeded"
-	                      },
-	                      {
-	                        "Name": "BackEnd",
-	                        "Etag": "W/\"2d3496d8-2b85-4238-bde2-377fe660aa4a\"",
-	                        "Id": "/subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/RG1/providers/Micro
-	                    soft.Network/virtualNetworks/TestVNet/subnets/BackEnd",
-	                        "AddressPrefix": "192.168.2.0/24",
-	                        "IpConfigurations": [],
-	                        "NetworkSecurityGroup": null,
-	                        "RouteTable": null,
-	                        "ProvisioningState": "Succeeded"
-	                      }
-	                    ]
+11. Save the file.
+  

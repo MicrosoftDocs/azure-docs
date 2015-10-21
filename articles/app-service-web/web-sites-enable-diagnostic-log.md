@@ -1,19 +1,19 @@
 <properties
 	pageTitle="Enable diagnostics logging for web apps in Azure App Service"
 	description="Learn how to enable diagnostic logging and add instrumentation to your application, as well as how to access the information logged by Azure."
-	services="app-service\web"
+	services="app-service"
 	documentationCenter=".net"
 	authors="cephalin"
 	manager="wpickett"
-	editor=""/>
+	editor="jimbe"/>
 
 <tags
-	ms.service="app-service-web"
-	ms.workload="web"
+	ms.service="app-service"
+	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/02/2015"
+	ms.date="09/16/2015"
 	ms.author="cephalin"/>
 
 # Enable diagnostics logging for web apps in Azure App Service
@@ -22,7 +22,9 @@
 
 Azure provides built-in diagnostics to assist with debugging an [App Service web app](http://go.microsoft.com/fwlink/?LinkId=529714). In this article you'll learn how to enable diagnostic logging and add instrumentation to your application, as well as how to access the information logged by Azure.
 
-> [AZURE.NOTE] This article uses the [Azure preview portal](http://go.microsoft.com/fwlink/?LinkId=529715), Azure PowerShell, and the Azure Command-Line Interface (Azure CLI) to work with diagnostic logs. For information on working with diagnostic logs using Visual Studio, see [Troubleshooting Azure in Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md).
+This article uses the [Azure preview portal](http://go.microsoft.com/fwlink/?LinkId=529715), Azure PowerShell, and the Azure Command-Line Interface (Azure CLI) to work with diagnostic logs. For information on working with diagnostic logs using Visual Studio, see [Troubleshooting Azure in Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md).
+
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 ## <a name="whatisdiag"></a>Web server diagnostics and application diagnostics
 
@@ -114,7 +116,7 @@ To download the log files using the Azure Command Line Interface, open a new com
 
 This will save the logs for the web app named 'webappname' to a file named **diagnostics.zip** in the current directory.
 
-> [AZURE.NOTE] If you have not installed the Azure Command-Line Interface (Azure CLI), or have not configured it to use your Azure Subscription, see [How to Use Azure CLI](../xplat-cli.md).
+> [AZURE.NOTE] If you have not installed the Azure Command-Line Interface (Azure CLI), or have not configured it to use your Azure Subscription, see [How to Use Azure CLI](../xplat-cli-install.md).
 
 ## How to: View logs in Application Insights
 
@@ -173,7 +175,7 @@ To filter specific log types, such as HTTP, use the **--Path** parameter. For ex
 
 	azure site log tail webappname --path http
 
-> [AZURE.NOTE] If you have not installed the Azure Command-Line Interface, or have not configured it to use your Azure Subscription, see [How to Use Azure Command-Line Interface](../xplat-cli.md).
+> [AZURE.NOTE] If you have not installed the Azure Command-Line Interface, or have not configured it to use your Azure Subscription, see [How to Use Azure Command-Line Interface](../xplat-cli-install.md).
 
 ##<a name="understandlogs"></a> How to: Understand diagnostics logs
 
@@ -253,7 +255,7 @@ The web server logs are formatted using the [W3C extended log file format](http:
 ##<a name="nextsteps"></a> Next steps
 
 - [How to Monitor Web Apps](/en-us/manage/services/web-sites/how-to-monitor-websites/)
-- [Troubleshooting Azure Web Apps in Visual Studio](/en-us/develop/net/tutorials/troubleshoot-web-sites-in-visual-studio/)
+- [Troubleshooting Azure web apps in Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md)
 - [Analyze web app Logs in HDInsight](http://gallery.technet.microsoft.com/scriptcenter/Analyses-Windows-Azure-web-0b27d413)
 
 > [AZURE.NOTE] If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.

@@ -3,7 +3,7 @@
 	description="Learn how to create an Azure virtual machine running Windows, using the Azure Marketplace in the Azure preview portal"
 	services="virtual-machines"
 	documentationCenter=""
-	authors="KBDAzure"
+	authors="cynthn"
 	manager="timlt"
 	editor=""
 	tags="azure-resource-manager"/>
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="hero-article"
 	ms.date="08/14/2015"
-	ms.author="kathydav"/>
+	ms.author="cynthn"/>
 
 # Create a virtual machine running Windows in the Azure preview portal#
 
@@ -31,6 +31,12 @@ You can also create virtual machines using your own images, with Resource Manage
 This tutorial uses the Resource Manager deployment model to create the virtual machine. This is recommended instead of the classic deployment model, which is based on Service Management APIs. For details about Resource Manager, see [Azure Resource Manager Overview](resource-group-overview.md). To learn about the benefits of using Resource Manager for virtual machines, see [Azure Compute, Network & Storage Providers under Azure Resource Manager](virtual-machines-azurerm-versus-azuresm.md).
 
 [AZURE.INCLUDE [free-trial-note](../../includes/free-trial-note.md)]
+
+## Video walkthrough
+
+Here's a walkthrough of this tutorial.
+
+[AZURE.VIDEO create-a-virtual-machine-running-windows-in-the-azure-preview-portal]
 
 ## Select the image
 

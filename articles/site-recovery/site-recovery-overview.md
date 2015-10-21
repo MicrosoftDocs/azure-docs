@@ -23,10 +23,10 @@ The Site Recovery service contributes to a robust business continuity and disast
 - **Simplify**-Site Recovery helps simplify your BCDR strategy by making it easy to configure replication, and run failover and recovery for your on-premises workloads and applications.
 - **Replication**-You can replicate on-premises workloads to Azure storage, or to a secondary datacenter. 
 - **Vault**-To manage replication you set up a Site Recovery vault in an Azure region you select. All metadata remains within that region.
-- **Metadata**-No application data is send to Azure. Site Recovery only needs metadata such as virtual machine and VMM cloud names, in order to orchestrate replication and failover. 
+- **Metadata**-No application data is sent to Azure. Site Recovery only needs metadata such as virtual machine and VMM cloud names, in order to orchestrate replication and failover. 
 - **Connection to Azure**-Management servers communicate with Azure depending on your deployment scenario. For example if you're replicating virtual machines located in an on-premises VMM cloud, the VMM server communicates with Site Recovery over an encrypted outbound HTTPS connection. No connection is required from the virtual machines or Hyper-V hosts.
 - **Hyper-V Replica**-Azure Site Recovery leverages Hyper-V Replica for the replication process, and can also use SAN replication if you're replicating between two on-premises VMM sites. Site Recovery uses smart replication, replicating only data blocks and not the entire VHD for the initial replication. For ongoing replication only delta changes are replicated. Site Recovery supports offline data transfer and works with WAN optimizers.
-- **Pricing**-You can [Read more](pricing/details/site-recovery) about Site Recovery pricing.
+- **Pricing**-You can [Read more](http://azure.microsoft.com/pricing/details/site-recovery/) about Site Recovery pricing.
 
 
 ## Deployment scenarios
@@ -46,22 +46,7 @@ Secondary datacenter | Single VMM server | Replicate virtual machines on on-prem
 
 ## Workload Guidance
 
-ASR replication technologies are compatible with any application running in a virtual machine. We have conducted additional testing in partnership with application product teams to further support each application.
-
-**Workload** | <p>**Replicate Hyper-V virtual machines**</p> <p>**(to secondary site)**</p> | <p>**Replicate Hyper-V virtual machines**</p> <p>**(to Azure)**</p> | <p>**Replicate VMware virtual machines**</p> <p>**(to secondary site)**</p> | <p>**Replicate VMware virtual machines**</p><p>**(to Azure)**</p>
----|---|---|---|---
-Active Directory, DNS | Y | Y | Y | Coming soon 
-Web apps (IIS, SQL) | Y | Y | Y | Coming soon
-SCOM | Y | Y | Y | Coming soon
-Sharepoint | Y | Y | Y | Coming soon
-<p>SAP</p><p>Replicate SAP site to Azure for non cluster</p> | Y (tested by Microsoft) | Y (tested by Microsoft) | Y (tested by Microsoft) | Coming soon
-Exchange (non-DAG) | Y | Coming soon | Y | Coming soon
-Remote Desktop/VDI | Y | Y | Y | Coming soon 
-<p>Linux</p> <p>(operating system and apps)</p> | Y (tested by Microsoft) | Y (tested by Microsoft) | Y (tested by Microsoft) | Coming soon 
-Dynamics AX | Y | Y | Y | Coming soon
-Dynamics CRM | Coming soon | Coming soon | Y | Coming soon
-Oracle | Coming soon | Coming soon | Y (tested by Microsoft) | Coming soon
-
+Refer to [this document](site-recovery-workload.md) for guidance about using Azure Site Recovery for different workloads.
 
 ## Features and requirements 
 

@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="07/06/2015"
+   ms.date="09/23/2015"
    ms.author="larryfr"/>
 
 #Run MapReduce jobs with Hadoop on HDInsight using Curl
@@ -87,7 +87,7 @@ To complete the steps in this article, you will need the following:
 
 4. When the state of the job has changed to **SUCCEEDED**, you can retrieve the results of the job from Azure Blob storage. The `statusdir` parameter that is passed with the query contains the location of the output file; in this case, **wasb:///example/curl**. This address stores the output of the job in the **example/curl** directory in the default storage container used by your HDInsight cluster.
 
-You can list and download these files by using the [Azure CLI for Mac, Linux and Windows](../xplat-cli.md). For example, to list files in the **example/curl**, use the following command:
+You can list and download these files by using the [Azure CLI for Mac, Linux and Windows](../xplat-cli-install.md). For example, to list files in the **example/curl**, use the following command:
 
 	azure storage blob list <container-name> example/curl
 

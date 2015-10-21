@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Connection assets in Azure Automation"
+   pageTitle="Connection assets in Azure Automation | Microsoft Azure"
    description="Connection assets in Azure Automation contain the information required to connect to an external service or application from a runbook.  This article explains the details of connections and how to work with them in both textual and graphical authoring."
    services="automation"
    documentationCenter=""
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/21/2015"
+   ms.date="08/18/2015"
    ms.author="bwren" />
 
 # Connection assets in Azure Automation

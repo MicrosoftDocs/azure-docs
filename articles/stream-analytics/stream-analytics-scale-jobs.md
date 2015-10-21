@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="08/04/2015"
+	ms.date="09/29/2015"
 	ms.author="jeffstok"/>
 
 # Scale Azure Stream Analytics jobs to increase throughput #
@@ -154,6 +154,9 @@ This query can be scaled to 24 streaming units.
 
 ![Azure Stream Analytics Stream Units Scale][img.stream.analytics.streaming.units.scale]
 
+In the Azure preview portal, Scale settings can be accessed under Settings:
+
+![Azure Preview Portal Stream Analytics job configuration][img.stream.analytics.preview.portal.settings.scale]
 
 ## Monitor job performance ##
 
@@ -247,6 +250,7 @@ For further assistance, try our [Azure Stream Analytics forum](https://social.ms
 [img.stream.analytics.configure.scale]: ./media/stream-analytics-scale-jobs/StreamAnalytics.configure.scale.png
 [img.stream.analytics.perfgraph]: ./media/stream-analytics-scale-jobs/perf.png
 [img.stream.analytics.streaming.units.scale]: ./media/stream-analytics-scale-jobs/StreamAnalyticsStreamingUnitsExample.jpg
+[img.stream.analytics.preview.portal.settings.scale]: ./media/stream-analytics-scale-jobs/StreamAnalyticsPreviewPortalJobSettings.png
 
 <!--Link references-->
 

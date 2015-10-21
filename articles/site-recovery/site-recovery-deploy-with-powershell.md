@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/05/2015"
+	ms.date="10/07/2015"
 	ms.author="lauraa"/>
 
 #  Deploy Azure Site Recovery using PowerShell
@@ -45,7 +45,7 @@ Make sure you have these prerequisites in place:
 - You'll need at least one cloud on the VMM server you want to protect. The cloud should contain:
 	- One or more VMM host groups.
 	- One or more Hyper-V host servers or clusters in each host group .
-	- One or more virtual machines on the source Hyper-V server. The virtual machines should be generation 1.
+	- One or more virtual machines on the source Hyper-V server.
 - Learn more about setting up VMM clouds:
 	- Read more about private VMM clouds in [What’s New in Private Cloud with System Center 2012 R2 VMM](http://go.microsoft.com/fwlink/?LinkId=324952) and in [VMM 2012 and the clouds](http://go.microsoft.com/fwlink/?LinkId=324956).
 	- Learn about [Configuring the VMM cloud fabric](https://msdn.microsoft.com/library/azure/dn469075.aspx#BKMK_Fabric)

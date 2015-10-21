@@ -14,7 +14,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="big-data"
- ms.date="07/17/2015"
+ ms.date="09/23/2015"
  ms.author="larryfr"/>
 
 #Connect to Hive on Azure HDInsight using the Hive JDBC driver

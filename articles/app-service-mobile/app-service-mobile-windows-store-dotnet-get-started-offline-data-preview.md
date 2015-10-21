@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="08/11/2015"
+	ms.date="08/27/2015"
 	ms.author="wesmc"/>
 
 # Enable offline sync for your Windows app
@@ -26,7 +26,7 @@
 
 This tutorial shows you how to add offline support to a Windows 8.1 Store or Phone app using an Azure Mobile App backend. Offline sync allows end-users to interact with a mobile app--viewing, adding, or modifying data--even when there is no network connection. Changes are stored in a local database; once the device is back online, these changes are synced with the remote backend.
 
-In this tutorial, you will update the Windows 8.1 app project from the tutorial [Create a Windows app] to support the offline features of Azure Mobile Apps. 
+In this tutorial, you will update the Windows 8.1 app project from the tutorial [Create a Windows app] to support the offline features of Azure Mobile Apps. If you do not use the downloaded quick start server project, you must add the data access extension packages to your project. For more information about server extension packages, see [Work with the .NET backend server SDK for Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md). 
 
 To learn more about the offline sync feature, see the topic [Offline Data Sync in Azure Mobile Apps].
 
@@ -38,12 +38,6 @@ This tutorial requires the following:
 * Completion of [Create a Windows app][create a windows app].
 * [Azure Mobile Services SQLite Store version 2.0.0-beta][sqlite store nuget]
 * [SQLite for Windows 8.1](http://www.sqlite.org/downloads)
-
->[AZURE.NOTE] To complete this tutorial, you need a Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Azure Free Trial</a>.
-
-## Review your server project configuration (optional)
-
-[AZURE.INCLUDE [app-service-mobile-dotnet-backend-enable-offline-preview](../../includes/app-service-mobile-dotnet-backend-enable-offline-preview.md)] 
 
 ## Update the client app to support offline features
 

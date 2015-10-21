@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Getting started with Azure Blob storage and Visual Studio connected services"
-	description="How to get started using Azure Blob storage in an ASP.NET project in Visual Studio"
+	pageTitle="Get started with blob storage and Visual Studio connected services (ASP.NET) | Microsoft Azure"
+	description="How to get started using Azure Blob storage in an ASP.NET project in Visual Studio after connecting to a storage account using Visual Studio connected services"
 	services="storage"
 	documentationCenter=""
 	authors="patshea123"
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="vs-getting-started"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/04/2015"
-	ms.author="patshea123"/>
+	ms.date="09/03/2015"
+	ms.author="patshea"/>
 
-# Getting started with Azure Blob storage and Visual Studio connected services
+# Get started with blob storage and Visual Studio connected services (ASP.NET)
 
 > [AZURE.SELECTOR]
 > - [Getting started](vs-storage-aspnet-getting-started-blobs.md)
@@ -30,9 +30,9 @@
 ## Overview
 
 This article describes how to get started using Azure Blob storage after you have created or referenced an Azure storage account in an ASP.NET app by using the  Visual Studio **Add Connected Services** dialog box. The article shows you how to create blob containers and perform other common tasks such as uploading, listing, downloading, and deleting blobs. The samples are written in C\# and
-use the [Azure Storage Client Library for .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx). 
+use the [Azure Storage Client Library for .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx).
 
- - For more general information about using Azure Blob storage, see [How to use Blob storage from .NET](storage-dotnet-how-to-use-blobs.md). 
+ - For more general information about using Azure Blob storage, see [How to use Blob storage from .NET](storage-dotnet-how-to-use-blobs.md).
  - For more information about ASP.NET projects, see [ASP.NET](http://www.asp.net).
 
 
@@ -43,7 +43,7 @@ Just as files live in folders, storage blobs live in containers. After you have 
 
 
 
-##Access blob containers in code
+## Access blob containers in code
 
 To programmatically access blobs in ASP.NET projects, you need to add the following items, if they're not already present.
 
@@ -55,14 +55,14 @@ To programmatically access blobs in ASP.NET projects, you need to add the follow
 		using Microsoft.WindowsAzure.Storage.Blob;
 
 
-2. Get a `CloudStorageAccount` object that represents your storage account information. Use the following code to get the your storage connection string and storage account information from the Azure service configuration.
+2. Get a **CloudStorageAccount** object that represents your storage account information. Use the following code to get the your storage connection string and storage account information from the Azure service configuration.
 
 		CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
 		   CloudConfigurationManager.GetSetting("<storage-account-name>_AzureStorageConnectionString"));
 
     > [AZURE.NOTE] Use all of the previous code in front of the code in the following sections.
 
-3. Get a `CloudBlobClient` object to reference an existing container in your storage account.
+3. Get a **CloudBlobClient** object to reference an existing container in your storage account.
 
 		// Create a blob client.
 		CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
@@ -75,7 +75,7 @@ To programmatically access blobs in ASP.NET projects, you need to add the follow
 
 ## Create a blob container in code
 
-You can also use the `CloudBlobClient` object to create a container in your storage account. All you need to do is add a call to `CreateIfNotExistsAsync` to the above code as shown in the following example.
+You can also use the **CloudBlobClient** object to create a container in your storage account. All you need to do is add a call to **CreateIfNotExistsAsync** to the above code as shown in the following example.
 
     // If “mycontainer” doesn’t exist, create it.
     await container.CreateIfNotExistsAsync();
@@ -86,7 +86,7 @@ Azure Blob storage supports block blobs and page blobs.  In the majority of case
 
 To upload a file to a block blob, get a container reference and use it to get
 a block blob reference. Once you have a blob reference, you can upload any
-stream of data to it by calling the `UploadFromStream` method. This operation will create the blob if it didn't previously exist,
+stream of data to it by calling the **UploadFromStream** method. This operation will create the blob if it didn't previously exist,
 or overwrite it if it does exist. The following example shows how to upload a blob into a container and assumes that the container was already created.
 
     // Get a CloudBlobContainer named 'container' as described in "Access blob containers in code."
@@ -99,13 +99,13 @@ or overwrite it if it does exist. The following example shows how to upload a bl
 
 ## List the blobs in a container
 
-To list the blobs in a container, use the `ListBlobs` method to retrieve the blobs and/or directories
+To list the blobs in a container, use the **ListBlobs** method to retrieve the blobs and/or directories
 within it. To access the rich set of properties and methods for a
-returned `IListBlobItem`, you must cast it to a `CloudBlockBlob`,
-`CloudPageBlob`, or `CloudBlobDirectory` object.  If the type is unknown, you can use a
+returned **IListBlobItem**, you must cast it to a **CloudBlockBlob**,
+**CloudPageBlob**, or **CloudBlobDirectory** object.  If the type is unknown, you can use a
 type check to determine which to cast it to.  The following code
 demonstrates how to retrieve and output the URI of each item in
-the `photos` container.
+the **photos** container.
 
     // Get a CloudBlobContainer named 'container' as described in "Access blob containers in code."
 
@@ -137,7 +137,7 @@ the `photos` container.
 As shown in the previous example, the blob service has the concept of directories within containers, as
 well. This is so that you can organize your blobs in a more folder-like
 structure. For example, consider the following set of block blobs in a container
-named `photos`.
+named **photos**.
 
 	photo1.jpg
 	2010/architecture/description.txt
@@ -148,8 +148,8 @@ named `photos`.
 	2011/architecture/description.txt
 	2011/photo7.jpg
 
-When you call `ListBlobs` on the 'photos' container (as shown in the previous example), the collection returned
-will contain `CloudBlobDirectory` and `CloudBlockBlob` objects
+When you call **ListBlobs** on the 'photos' container (as shown in the previous example), the collection returned
+will contain **CloudBlobDirectory** and **CloudBlockBlob** objects
 representing the directories and blobs contained at the top level. The following example shows the resulting output.
 
 	Directory: https://<accountname>.blob.core.windows.net/photos/2010/
@@ -157,8 +157,8 @@ representing the directories and blobs contained at the top level. The following
 	Block blob of length 505623: https://<accountname>.blob.core.windows.net/photos/photo1.jpg
 
 
-Optionally, you can set the `UseFlatBlobListing` parameter of of the `ListBlobs` method to
-`true`. This would result in every blob being returned as a `CloudBlockBlob`, regardless of directory.  The following example shows the call to `ListBlobs`.
+Optionally, you can set the **UseFlatBlobListing** parameter of of the **ListBlobs** method to
+**true**. This would result in every blob being returned as a **CloudBlockBlob**, regardless of directory.  The following example shows the call to **ListBlobs**.
 
     // Loop over items within the container and output the length and URI.
 	foreach (IListBlobItem item in container.ListBlobs(null, true))
@@ -181,8 +181,8 @@ And the next example shows the results.
 
 ## Download blobs
 
-To download blobs, use the `DownloadToStream` method. The following
-example uses the `DownloadToStream` method to transfer the blob
+To download blobs, use the **DownloadToStream** method. The following
+example uses the **DownloadToStream** method to transfer the blob
 contents to a stream object that you can then persist to a local file.
 
     // Get a CloudBlobContainer named 'container' as described in "Access blob containers in code"
@@ -196,7 +196,7 @@ contents to a stream object that you can then persist to a local file.
         blockBlob.DownloadToStream(fileStream);
     }
 
-You can also use the `DownloadToStream` method to download the contents of a blob as a text string.
+You can also use the **DownloadToStream** method to download the contents of a blob as a text string.
 
     // Get a CloudBlobContainer named 'container' as described in "Access blob containers in code"
 
@@ -212,7 +212,7 @@ You can also use the `DownloadToStream` method to download the contents of a blo
 
 ## Delete blobs
 
-To delete a blob, use the `Delete` method.
+To delete a blob, use the **Delete** method.
 
     // Get a CloudBlobContainer named 'container' as described in "Access blob containers in code"
 
@@ -227,9 +227,9 @@ To delete a blob, use the `Delete` method.
 
 If you are listing a large number of blobs, or you want to control the number of results you return in one listing operation, you can list blobs in pages of results. The following example shows how to return results in pages asynchronously, so that execution is not blocked while waiting to return a large set of results.
 
-This example shows a flat blob listing, but you can also perform a hierarchical listing, by setting the `useFlatBlobListing` parameter of the `ListBlobsSegmentedAsync` method to `false`.
+This example shows a flat blob listing, but you can also perform a hierarchical listing, by setting the **useFlatBlobListing** parameter of the **ListBlobsSegmentedAsync** method to **false**.
 
-Because the sample method calls an asynchronous method, it must be prefaced with the `async` keyword, and it must return a `Task` object. The await keyword specified for the `ListBlobsSegmentedAsync` method suspends execution of the sample method until the listing task is complete.
+Because the sample method calls an asynchronous method, it must be prefaced with the **async** keyword, and it must return a **Task** object. The await keyword specified for the **ListBlobsSegmentedAsync** method suspends execution of the sample method until the listing task is complete.
 
     async public static Task ListBlobsSegmentedInFlatListing(CloudBlobContainer container)
     {
@@ -263,4 +263,3 @@ Because the sample method calls an asynchronous method, it must be prefaced with
 ## Next steps
 
 [AZURE.INCLUDE [vs-storage-dotnet-blobs-next-steps](../../includes/vs-storage-dotnet-blobs-next-steps.md)]
-

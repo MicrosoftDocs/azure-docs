@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/22/2015"
+   ms.date="10/15/2015"
    ms.author="sahajs"/>
 
 # Secure a database in SQL Data Warehouse
@@ -33,10 +33,23 @@ Authentication refers to how you prove your identity when connecting to the data
 
 When you created the logical server for your database, you specified a "server admin" login with a username and password. Using these credentials, you can authenticate to any database on that server as the database owner, or "dbo."
 
-However, as a best practice your organization’s users should use a different account to authenticate -- this way you can limit the permissions granted to the application and reduce the risks of malicious activity in case your application code is vulnerable to a SQL injection attack. The recommended approach is to create a contained database user, which allows your app to authenticate directly to a single database with a username and password. You can create a contained database user by executing the following T-SQL while connected to your user database with your server admin login:
+However, as a best practice your organization’s users should use a different account to authenticate. This way you can limit the permissions granted to the application and reduce the risks of malicious activity in case your application code is vulnerable to a SQL injection attack. To create a database user based on server login:
+
+First, connect to the master database on your server with your server admin login and create a new server login. 
 
 ```
-CREATE USER ApplicationUser WITH PASSWORD = 'strong_password';
+-- Connect to master database and create a login
+CREATE LOGIN ApplicationLogin WITH PASSWORD = 'strong_password';
+
+```
+
+Then, connect to your SQL Data Warhouse database with your server admin login and create a database user based on the server login you just created.
+
+```
+
+-- Connect to SQL DW database and create a database user
+CREATE USER ApplicationUser FOR LOGIN ApplicationLogin;
+
 ```
 
 For more information on authenticating to a SQL Database, see [Managing databases and logins in Azure SQL Database][].
@@ -47,18 +60,41 @@ For more information on authenticating to a SQL Database, see [Managing database
 Authorization refers to what you can do within an Azure SQL Data Warehouse database, and this is controlled by your user account's role memberships and permissions. As a best practice, you should grant users the least privileges necessary. Azure SQL Data Warehouse makes this easy to manage with roles in T-SQL:
 
 ```
-ALTER ROLE db_datareader ADD MEMBER ApplicationUser; -- allows ApplicationUser to read data
-ALTER ROLE db_datawriter ADD MEMBER ApplicationUser; -- allows ApplicationUser to write data
+EXEC sp_addrolemember 'db_datareader', 'ApplicationUser'; -- allows ApplicationUser to read data
+EXEC sp_addrolemember 'db_datawriter', 'ApplicationUser'; -- allows ApplicationUser to write data
 ```
 
 The server admin account you are connecting with is a member of db_owner, which has authority to do anything within the database. Save this account for deploying schema upgrades and other management operations. Use the "ApplicationUser" account with more limited permissions to connect from your application to the database with the least privileges needed by your application.
 
 There are ways to further limit what a user can do with Azure SQL Database:
+
 - [Database roles][] other than db_datareader and db_datawriter can be used to create more powerful application user accounts or less powerful management accounts.
 - Granular [Permissions][] let you control which operations you can do on individual columns, tables, views, procedures, and other objects in the database.
 - [Stored procedures][] can be used to limit the actions that can be taken on the database.
 
 Managing databases and logical servers from the Azure Management Portal or using the Azure Resource Manager API is controlled by your portal user account's role assignments. For more information on this topic, see [Role-based access control in Azure preview portal][].
+
+
+
+## Encryption
+
+Azure SQL Data Warehouse can help protect your data by encrypting your data when it is "at rest," or stored in database files and backups, using [Transparent Data Encryption][]. To encrypt your database, connect to the master database on your server and execute:
+
+
+```
+
+ALTER DATABASE [AdventureWorks] SET ENCRYPTION ON;
+
+```
+
+You can also enable Transparent Data Encryption from database settings in the [Azure Portal][].
+
+
+
+## Auditing
+
+Auditing and tracking database events can help you maintain regulatory compliance and identify suspicious activity. SQL Data Warehouse Auditing allows you to record events in your database to an audit log in your Azure Storage account. SQL Data Warehouse Auditing also integrates with Microsoft Power BI to facilitate drill-down reports and analyses. For more information, see [Get started with SQL Database Auditing][].
+
 
 
 ## Next steps
@@ -76,7 +112,9 @@ For more development tips, see [development overview][].
 [Managing databases and logins in Azure SQL Database]: https://msdn.microsoft.com/library/ee336235.aspx
 [Permissions]: https://msdn.microsoft.com/library/ms191291.aspx
 [Stored procedures]: https://msdn.microsoft.com/library/ms190782.aspx 
-[Transparent Data Encryption]: http://go.microsoft.com/fwlink/?linkid=526242&clcid=0x409
+[Transparent Data Encryption]: http://go.microsoft.com/fwlink/?LinkId=526242
+[Get started with SQL Database Auditing]: sql-database-auditing-get-started.md
+[Azure Portal]: https://portal.azure.com/
 
 <!--Other Web references-->
 [Role-based access control in Azure preview portal]: http://azure.microsoft.com/en-us/documentation/articles/role-based-access-control-configure.aspx

@@ -1,22 +1,22 @@
 <properties 
-	pageTitle="DocumentDB Connector - Move data to and from DocumentDB" 
-	description="Learn about Azure DocumentDB Connector for the Data Factory service that lets you move data to/from Azure DocumentDB collection" 
-	services="data-factory" 
+	pageTitle="Move data to and from DocumentDB | Azure Data Factory" 
+	description="Learn how move data to/from Azure DocumentDB collection using Azure Data Factory" 
+	services="data-factory, documentdb" 
 	documentationCenter="" 
 	authors="spelluru" 
 	manager="jhubbard" 
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory" 
+	ms.service="multiple" 
 	ms.workload="data-services" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/29/2015" 
+	ms.date="10/15/2015" 
 	ms.author="spelluru"/>
 
-# DocumentDB Connector - Move data to and from DocumentDB
+# Move data to and from DocumentDB using Azure Data Factory
 
 This article outlines how you can use the Copy Activity in an Azure data factory to move data to Azure DocumentDB from another data store and move data from another data store to DocumentDB. This article builds on the [data movement activities](data-factory-data-movement-activities.md) article which presents a general overview of data movement with copy activity and supported data store combinations.
 
@@ -24,11 +24,11 @@ This article outlines how you can use the Copy Activity in an Azure data factory
 
 The sample below shows:
 
-1. A linked service of type DocumentDb.
-2. A linked service of type AzureStorage. 
-3. An input dataset of type DocumentDbCollection. 
-4. An output dataset of type AzureBlob.
-4. A pipeline with Copy Activity that uses DocumentDbCollectionSource and BlobSink.
+1. A linked service of type [DocumentDb](#azure-documentdb-linked-service-properties).
+2. A linked service of type [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties). 
+3. An input [dataset](data-factory-create-datasets.md) of type [DocumentDbCollection](#azure-documentdb-dataset-type-properties). 
+4. An output [dataset](data-factory-create-datasets.md) of type [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
+4. A [pipeline](data-factory-create-pipelines.md) with Copy Activity that uses [DocumentDbCollectionSource](#azure-documentdb-copy-activity-type-properties) and [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties).
 
 The sample copies data in Azure DocumentDB to Azure Blob. The JSON properties used in these samples are described in sections following the samples.
 
@@ -165,11 +165,12 @@ The following pipeline copies data from the Person collection in the DocumentDB 
 
 The sample below shows:
 
-1. A linked service of type DocumentDb.
-2. A linked service of type AzureStorage.
-3. An input dataset of type AzureBlob.
-4. An output dataset of type DocumentDbCollection. 
-4. A pipeline with Copy Activity that uses BlobSource and DocumentDbCollectionSink.
+1. A linked service of type [DocumentDb](#azure-documentdb-linked-service-properties).
+2. A linked service of type [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties).
+3. An input [dataset](data-factory-create-datasets.md) of type [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
+4. An output [dataset](data-factory-create-datasets.md) of type [DocumentDbCollection](#azure-documentdb-dataset-type-properties). 
+4. A [pipeline](data-factory-create-pipelines.md) with Copy Activity that uses [BlobSource](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties) and [DocumentDbCollectionSink](#azure-documentdb-copy-activity-type-properties).
+
 
 The sample copies data from Azure blob to Azure DocumentDB. The JSON properties used in these samples are described in sections following the samples.
 
@@ -400,4 +401,27 @@ the following properties are available in **typeProperties** section:
 | writeBatchSize | Number of parallel requests to DocumentDB service to create documents.<p>You can fine tune the performance when copying data to/from DocumentDB by using this property. You can expect a better performance when you increase writeBatchSize because more parallel requests to DocumentDB are sent. However you’ll need to avoid throttling that can throw the error message: "Request rate is large".</p><p>Throttling is decided by a number of factors, including size of documents, number of terms in documents, indexing policy of target collection, etc. For copy operations, you can use a better collection (e.g. S3) to have the most throughput available (2,500 request units/second).</p> | Integer Value | No |
 | writeBatchTimeout | Wait time for the operation to complete before it times out. | (Unit = timespan) Example: “00:30:00” (30 minutes). | No |
  
+## Appendix
+1. **Question:** 
+	Does the Copy Activity support update of existing records?
+
+	**Answer:** 
+	No.
+
+2. **Question:** 
+	How does a retry of a copy to DocumentDB deal with already copied records?
+
+	**Answer:** 
+	If records have an "ID" field and the copy operation tries to insert a record with the same ID, the copy operation throws an error.  
  
+3. **Question:**
+	Does Data Factory support [range or hash-based data partitioning](https://azure.microsoft.com/documentation/articles/documentdb-partition-data/)? 
+
+	**Answer:**
+	No. 
+4. **Question:**
+	Can I specify more than one DocumentDB collection for a table?
+	
+	**Answer:**
+	No. Only one collection can be specified at this time.
+     

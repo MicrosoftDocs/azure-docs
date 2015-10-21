@@ -13,14 +13,16 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/04/2015" 
+	ms.date="09/01/2015" 
 	ms.author="erikre"/>
 
 # Create an ASP.NET 5 API app in Visual Studio Code
 
 > [AZURE.SELECTOR]
-- [Visual Studio 2015 or 2013](app-service-dotnet-create-api-app.md)
-- [Visual Studio Code](app-service-create-aspnet-api-app-using-vscode.md)
+- [.NET - Visual Studio 2015](app-service-dotnet-create-api-app.md)
+- [.NET - Visual Studio Code](app-service-create-aspnet-api-app-using-vscode.md)
+- [Node.js](app-service-api-nodejs-api-app.md)
+- [Java](app-service-api-java-api-app.md)
 
 ## Overview
 
@@ -411,8 +413,7 @@ In this section you create a local Git repository and push from that repository 
 
 	![Initialize Git](./media/app-service-create-aspnet-api-app-using-vscode/19-initgit.png)
 
-5. 
-6. Add a commit message and select the **Commit All** check.
+5. Add a commit message and select the **Commit All** check.
 
 	![Git Commit All](./media/app-service-create-aspnet-api-app-using-vscode/20-git-commit.png)
 
@@ -423,13 +424,13 @@ In this section you create a local Git repository and push from that repository 
 	cd c:\VSCodeProjects\ContactsList
 	</pre>
 
-7. Create a remote reference for pushing updates to the web app (API app host) you created previously, using the Git URL (ending in ".git") that you copied earlier:
+8. Create a remote reference for pushing updates to the web app (API app host) you created previously, using the Git URL (ending in ".git") that you copied earlier:
 
 	<pre class="prettyprint">
 	git remote add azure [URL for remote repository]
 	</pre>
 
-8. Push your changes to Azure by entering the following command:
+9. Push your changes to Azure by entering the following command:
 
 	<pre class="prettyprint">
 	git push azure master

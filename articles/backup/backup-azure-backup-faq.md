@@ -13,8 +13,8 @@
 	 ms.tgt_pltfrm="na"
 	 ms.devlang="na"
 	 ms.topic="article"
-	 ms.date="08/07/2015"
-	 ms.author="arunak"; "jimpark"; "aashishr"/>
+	 ms.date="10/07/2015"
+	 ms.author="trinadhk";"giridham"; "arunak"; "jimpark"; "aashishr"/>
 
 # Azure Backup - FAQ
 The following is a list of commonly asked questions about Azure Backup. If you have any additional questions about Azure Backup, please go to the the [discussion forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup) and post your questions. Someone from our community will help you get your answers. If a question is commonly asked, we will add it to this article so that it can be found quickly and easily.
@@ -29,6 +29,7 @@ A1. The following list of operating systems is supported by Azure Backup
 | Windows 8 and latest SPs      | 64 bit | Enterprise, Pro |
 | Windows 7 and latest SPs      | 64 bit | Ultimate, Enterprise, Professional, Home Premium, Home Basic, Starter |
 | Windows 8.1 and latest SPs | 64 bit      |    Enterprise, Pro |
+| Windows 10      | 64 bit | Enterprise, Pro, Home |
 |Windows Server 2012 R2 and latest SPs|	64 bit|	Standard, Datacenter, Foundation|
 |Windows Server 2012 and latest SPs|	64 bit|	Datacenter, Foundation, Standard|
 |Windows Storage Server 2012 R2 and latest SPs	|64 bit|	Standard, Workgroup|
@@ -53,7 +54,7 @@ A5. Yes. As of July 2015, you can create 25 vaults per subscription. If you need
 A6. Though it is possible to get a detailed bill for each vault, we highly recommend that you consider an Azure subscription as a billing entity. It is consistent across all services and is easier to manage.
 
 **Q7. Are there any limits on the number of servers/machines that can be registered against each vault?** <br/>
-A7. Yes, you can register upto 50 machines per vault. If you need to register more machines, create a new vault.
+A7. Yes, you can register upto 50 machines per vault. For Azure IaaS virtual machines, limit is 100 VMs per vault. If you need to register more machines, create a new vault.
 
 **Q8. Are there any limits on the amount of data that can be backed up from a Windows server/client or SCDPM server?** <br/>
 A8. No.
@@ -62,7 +63,7 @@ A8. No.
 A9. In general the backup data is sent to the datacenter of the Backup Service to which it is registered. The easiest way to change the datacenter is to uninstall the agent and reinstall the agent and register to a new datacenter.
 
 **Q10. What happens if I rename a Windows server that is backing up data to Azure?** <br/>
-A10. Any currently configured backups will be stopped. You will need to reregister the server with the backup vault and it will be considered a new server by Recovery Services, so the first backup operation that occurs after registration will be a full backup of all of the data included in the backup instead of just the changes since the last backup occurred. However, if you need to perform a recovery operation you can recover the data that has been backed up using Recover from another server recovery option. For more information, see Rename a server.
+A10. Any currently configured backups will be stopped. You will need to reregister the server with the backup vault and it will be considered a new server by Recovery Services, so the first backup operation that occurs after registration will be a full backup of all of the data included in the backup, instead of just the changes since the last backup occurred. However, if you need to perform a recovery operation you can recover the data that has been backed up using Recover from another server recovery option.
 
 **Q11. What types of drives can I backup files and folders from?** <br/>
 A11. The following set of drives/volumes can't be backup:
@@ -121,16 +122,28 @@ A20. Ensure firewall rules enable communication with URLs below for seamless bac
 
 ## Backup & Retention
 **Q1. Is there a limit on the size of each data source being backed up?** <br/>
-A1. As of July 2015, each data source should be less than or equal to 1.7 TB. A data source is either
+A1. As of August 2015, The maximum size of data source is as mentioned below for various operating systems
 
-- File/Folder volume
-- SQL DB
-- Sharepoint farm
-- Exchange server
-- Hyper-V VM
+|S.No |	Operating system |	Maximum size of data source |
+| :-------------: |:-------------| :-----|
+|1| Windows Server 2012 or above| 54400 GB|
+|2| Windows 8 or above| 54400 GB|
+|3| Windows Server 2008, Windows Server 2008 R2 | 1700 GB|
+|4| Windows 7 | 1700 GB|
+
+The datasource size is measured as mentioned below
+
+|	Datasource  |	Details |
+| :-------------: |:-------------|
+|Volume |The amount of data being backed up from single volume of a machine. This is applicable for the volumes being protected on both server and client machines.|
+|Hyper-V virtual machine|Sum of data of all the VHDs of the virtual machine being backed up|
+|Microsoft SQL Server database|Size of single SQL database size being backed up |
+|Microsoft SharePoint|Sum of the content and config databases within a SharePoint farm being backed up|
+|Microsoft Exchange|Sum of all Exchange databases in an Exchange server being backed up|
+|BMR/System State|Each individual copy of BMR or system state of the machine being backed up|
 
 **Q2. Is there are limit on the number of times backup can be scheduled per day?**<br/>
-A2. Yes, Azure Backup enables 3 backup copies per day through Windows Server/Client and 2 backup copies per day through SCDPM.
+A2. Yes, Azure Backup enables 3 backup copies per day through Windows Server/Client, 2 backup copies per day through SCDPM and once a day backup for IaaS VMs.
 
 **Q3. Is there a difference between DPM’s and Azure Backup’s (i.e on Windows Server without DPM) backup scheduling policy?** <br/>
 A3. Yes. Using DPM, you can specify daily, weekly, monthly, yearly scheduling while from a Windows Server (without DPM), you can specify only daily, weekly schedules.
@@ -139,7 +152,7 @@ A3. Yes. Using DPM, you can specify daily, weekly, monthly, yearly scheduling wh
 A4. No, you have the same capabilities. You can specify daily, weekly, monthly and yearly retention policies.
 
 **Q5. Can I configure my retention policies selectively – i.e. configure weekly and daily but not yearly and monthly?**<br/>
-A5. You have the full set of knobs to come up with policies which best define your compliance/retention requirements.
+A5. Yes, the Azure Backup retention structure allows you to have full flexibility in defining the retention policy as per your requirements.
 
 **Q6. Can I “schedule a backup” at 6pm and specify “retention policies” at a different time?**<br/>
 A6. No. Retention policies can only be applied on backup points. In the below image, the retention policy is being specified on backups taken at 12am and 6pm. <br/>
@@ -157,15 +170,10 @@ A8. No – the time taken to recovery the oldest or the latest point is one and 
 A9.  Typical long term retention point products store backup data as full points. However, these are storage inefficient but are easier and faster to restore. Incremental copies are storage efficient but require you to restore a chain of data which impacts your recovery time. Azure Backup’s unique storage architecture gives you the best of both worlds by optimally storing data for fast restores and incurring low storage costs. This approach ensures that your (ingress and egress) bandwidth is efficiently used, storage is kept to the minimum and the time taken to recover is kept to the minimum.
 
 **Q10. Is there a limit on the number of recovery points that can be created?**<br/>
-A10. As of April 2015, you can have upto 366 recovery points. You can use any permutation to arrive at a number which is less than 366. Eg – the retention points in the below picture add to 354. <br/>
+A10. No. We have eliminated limits on recovery points. You can create as many recovery points as you desire.
 
-![Retention screen](./media/backup-azure-backup-faq/RetentionScreen1.png)
-
-**Q11. Once Microsoft improves the limit from 366, will I need to upgrade the agent or reseed the initial backup?** <br/>
-A11. No. Once we make the change in our service, you will be notified through our social media outlets (blogs, Azure announcements, portal etc). Based on your needs, you would then be required to only change the retention policy.
-
-**Q12. Why is the amount of data transferred in backup not equal to the amount of data I backed up?**<br/>
-A12. All the data that is backed up is compressed and encrypted before being transferred. You can expect 30-40% compression benefits depending on the type of data being backed up.
+**Q11. Why is the amount of data transferred in backup not equal to the amount of data I backed up?**<br/>
+A11. All the data that is backed up is compressed and encrypted before being transferred. You can expect 30-40% compression benefits depending on the type of data being backed up.
 
 ## Recovery
 **Q1. How many recoveries can I perform on the data that is backed up to Azure?**<br/>
@@ -203,8 +211,8 @@ A4. The key used to encrypt the backup data is present only on the customer prem
 
 	| Registry path | Registry Key | Value |
 	| ------ | ------- | ------ |
-	| HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config |  ScratchLocation | <i>New cache folder location</i> |
-	| HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider | ScratchLocation | <i>New cache folder location</i> |
+	| `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config` |  ScratchLocation | <i>New cache folder location</i> |
+	| `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider` | ScratchLocation | <i>New cache folder location</i> |
 
 
 + Start the OBEngine by executing the below command in an elevated command prompt:

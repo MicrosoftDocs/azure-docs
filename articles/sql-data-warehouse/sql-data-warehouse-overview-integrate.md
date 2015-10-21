@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/22/2015"
+   ms.date="09/22/2015"
    ms.author="lodipalm"/>
 
-#Integrate Services with SQL Data Warehouse
+#Leverage other services with SQL Data Warehouse
 In addition to its core functionality, SQL Data Warehouse enables users to leverage many of the other services in Azure alongside it.  Specifically, we have currently taken steps to deeply integrate with the following:
 
 + Power BI
@@ -24,20 +24,19 @@ In addition to its core functionality, SQL Data Warehouse enables users to lever
 + Azure Machine Learning
 + Azure Stream Analytics
 
-In addition to these, we are in the process of working to more deeply partner with a number of other services across the Azure ecosystem.
+We are working to connect with more services across the Azure ecosystem.
 
 ##Power BI
-Power BI integration allows users to heavily leverage the compute power of SQL Data Warehouse with the dynamic reporting and visualization of Power BI. The integration with Power BI corrently includes: 
+Power BI integration allows you to leverage the compute power of SQL Data Warehouse with the dynamic reporting and visualization of Power BI. Power BI integration currently includes: 
 
-+ **Direct Connect**: A more advanced connection with logical pushdown against SQL Data Warehouse.  This allow for quicker analysis at a larger scale.
++ **Direct Connect**: A more advanced connection with logical pushdown against SQL Data Warehouse.  This provides faster analysis on a larger scale.
 + **Open in Power BI**: The 'Open in Power BI' button passes instance information to Power BI, allowing for a more seamless connection. 
 
 See [Integrate with Power BI](../sql-data-warehouse-integrate-power-bi.md) or the [Power BI documentation](http://blogs.msdn.com/b/powerbi/archive/2015/06/24/exploring-azure-sql-data-warehouse-with-power-bi.aspx) for more information.
 
 ##Azure Data Factory
-Azure Data Factory gives users a managed platform to create complex Extract-Transform-Load pipelines.  SQL Data Warehouse's integration with Azure Data Factory includes the following:
+Azure Data Factory gives users a managed platform to create complex Extract-Load pipelines.  SQL Data Warehouse's integration with Azure Data Factory includes the following:
 
-+ **Data Movement**: Schedule data transfer across a number of on-premise and azure services.
 + **Stored Procedures**: Orchestrate the execution of stored procedures on SQL Data Warehouse.
 
 See [Integrate with Azure Data Factory](../sql-data-warehouse-integrate-azure-data-factory.md) or the [Azure Data Factory documentation](https://azure.microsoft.com/documentation/services/data-factory/) for more information.

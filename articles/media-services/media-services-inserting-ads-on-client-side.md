@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/11/2015"  
+	ms.date="09/07/2015" 
 	ms.author="juliako"/>
 
 
@@ -356,9 +356,7 @@ An executable ad can be initialized using the <AdParameters> element within the 
 
 ##Implementing a Windows or Windows Phone 8 Player with Ad Support
 
-The Microsoft Media Platform: Player Framework for Windows 8 and Windows Phone 8 contains a collection of sample applications that show you how to implement a video player application using the framework. You can download the Player Framework and the samples from [Player Framework for Windows 8 and Windows Phone 8](https://playerframework.codeplex.com/releases/view/105214).
-
-For more information about inserting ads, see [Inserting Ads into your Media](media-services-inserting-ads-on-client-side.md#insert_ads_into_media).
+The Microsoft Media Platform: Player Framework for Windows 8 and Windows Phone 8 contains a collection of sample applications that show you how to implement a video player application using the framework. You can download the Player Framework and the samples from [Player Framework for Windows 8 and Windows Phone 8](https://playerframework.codeplex.com).
 
 When you open the Microsoft.PlayerFramework.Xaml.Samples solution you will see a number of folders within the project. The Advertising folder contains the sample code relevant to creating a video player with ad support. Inside the Advertising folder is a number of XAML/cs files each of which show how to insert ads in a different way. The following list describes each:
 
@@ -573,7 +571,6 @@ This samples uses the VmapSchedulerPlugin to schedule ads using a VMAP file. The
 
 The Microsoft Media Platform: Player Framework for iOS contains a collection of sample applications that show you how to implement a video player application using the framework. You can download the Player Framework and the samples from [Azure Media Player Framework](https://github.com/Azure/azure-media-player-framework). The github page has a link to a Wiki that contains additional information on the player framework and an introduction to the player sample: [Azure Media Player Wiki](https://github.com/Azure/azure-media-player-framework/wiki/How-to-use-Azure-media-player-framework).
 
-For more information about inserting ads, see [Inserting Ads into your Media](media-services-inserting-ads-on-client-side.md#insert_ads_into_media).
 
 ###Scheduling Ads with VMAP
 
@@ -809,8 +806,16 @@ The following sample shows how to schedule a mid-roll overlay ad.
 	{
 	    [self logFrameworkError];
 	}
+
+
+##Media Services learning paths
+
+You can view AMS learning paths here:
+
+- [AMS Live Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [AMS on Demand Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
  
 ##See Also
 
 [Develop video player applications](media-services-develop-video-players.md)
-[Introduction to the Azure Media Player Framework for iOS](https://channel9.msdn.com/Series/Windows-Azure-Media-Services-Tutorials/An-introduction-to-Azure-Media-Player-Framework-for-IOS)

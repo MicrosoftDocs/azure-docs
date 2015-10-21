@@ -1,38 +1,40 @@
 <properties 
 	pageTitle="How to Configure an App Service Environment" 
 	description="Configuration, management and monitoring of App Service Environments" 
-	services="app-service\web" 
+	services="app-service" 
 	documentationCenter="" 
 	authors="ccompy" 
 	manager="stefsch" 
 	editor=""/>
 
 <tags 
-	ms.service="app-service-web" 
-	ms.workload="web" 
+	ms.service="app-service" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/27/2015" 
+	ms.date="09/11/2015" 
 	ms.author="ccompy"/>
 
 # Configuring an App Service Environment #
 
 ## Overview ##
 
-App Service Environments is a new Premium Tier capability that is being offered in Preview.  It offers new scaling and network access capabilities.  This new scale capability allows you to place an instance of the Azure App Service into your VNET.  If you are unfamiliar with the App Service Environment (ASE) capability then read the document here [What is an App Service Environment]/app-service-app-service-environment-intro.md). For information on how to create an ASE read the document here [How to Create an App Service Environment](app-service-web-how-to-create-an-app-service-environment.md). 
+App Service Environments is a new Premium Tier capability in the Azure App Service that offers new scaling and network access capabilities.  This new scale capability allows you to place an instance of the Azure App Service into your VNET.  If you are unfamiliar with the App Service Environment (ASE) capability then read the document here [What is an App Service Environment](app-service-app-service-environment-intro.md). For information on how to create an ASE read the document here [How to Create an App Service Environment](app-service-web-how-to-create-an-app-service-environment.md). 
 
 At a high level an App Service Environment consists of several major components:
 
 - Compute resources running in the Azure App Environment Hosted Service
 - Storage
 - Database
-- Virtual Network with at least one subnet
+- A classic "v1" Virtual Network with at least one subnet
 - subnet with the Azure App Environment hosted service running in it
 
 To help manage and monitor your App Service Environments you can access UI for that purpose from Browse -> App Service Environments in the Azure preview portal. The initial release does have what you need to manage the system and will continue to improve with additional capabilities in coming weeks.  
 
 ![][1]
+
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)] 
 
 ## Monitoring ##
 
@@ -90,8 +92,8 @@ This is much less disruptive to running apps than changing the compute resource 
 
 The [Virtual Network][virtualnetwork] and subnet are all under user control.  App Service Environments does have a few network requirements but the rest is up to the user to control.  Those ASE requirements are:
 
-- a VNET with at least 512 addresses
-- a subnet with at least 256 addresses 
+- a classic "v1" VNET with at least 512 addresses
+- a subnet with at least 8 addresses 
 - the VNET must be a regional VNET  
  
 Administering your VNET is done through the normal Virtual Network UI.
@@ -126,7 +128,7 @@ For more information about the Azure App Service platform, see [Azure App Servic
 [HowtoCreateASE]: http://azure.microsoft.com/documentation/articles/app-service-web-how-to-create-an-app-service-environment/
 [HowtoScale]: http://azure.microsoft.com/documentation/articles/app-service-web-scale-a-web-app-in-an-app-service-environment/
 [ControlInbound]: http://azure.microsoft.com/documentation/articles/app-service-app-service-environment-control-inbound-traffic/
-[virtualnetwork]: https://msdn.microsoft.com/library/azure/dn133803.aspx
+[virtualnetwork]: https://azure.microsoft.com/documentation/articles/virtual-networks-faq/
 [AppServicePricing]: http://azure.microsoft.com/pricing/details/app-service/ 
 [AzureAppService]: http://azure.microsoft.com/documentation/articles/app-service-value-prop-what-is/
  

@@ -1,25 +1,25 @@
 <properties 
-   pageTitle="StorSimple hardware components and status"
+   pageTitle="StorSimple hardware components and status | Microsoft Azure"
    description="Learn how to monitor the hardware components of your StorSimple device through the StorSimple Manager service."
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
    manager="carolz"
-   editor="tysonn" />
+   editor="" />
 <tags 
    ms.service="storsimple"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/31/2015"
+   ms.date="09/15/2015"
    ms.author="alkohli" />
 
-# StorSimple hardware components and status
+# Use the StorSimple Manager service to monitor hardware components and status
 
 ## Overview
 
-This article describes the various physical and logical components in your on-premises StorSimple device. It also explains how to monitor the device component status using the **Maintenance** page in the StorSimple Manager service. 
+This article describes the various physical and logical components in your on-premises StorSimple device. It also explains how to monitor the device component status by using the **Maintenance** page in the StorSimple Manager service. 
 
 The **Maintenance** page shows the hardware status of all the StorSimple device components. Under the list of components for 8100, there are three sections that describe:
 
@@ -45,14 +45,14 @@ An 8600 device has additional components that correspond to the Extended Bunch o
 Perform the following steps to view the hardware status of a device component:
 
 1. Navigate to **Devices**, select a specific StorSimple device. Click to go into the device-level menu and then click the **Maintenance** tab. 
-2. Locate the **Hardware Status** section and choose from the available components (as described above). Simply click an arrow preceding the component label to expand the list and view the status of the various device components. See the [detailed component list for primary enclosure](Component-list-for-primary-enclosure) and the [detailed component list for EBOD enclosure](Component-list-for-EBOD-enclosure).
+2. Locate the **Hardware Status** section and choose from the available components (as described above). Simply click an arrow preceding the component label to expand the list and view the status of the various device components. See the [detailed component list for the primary enclosure](#component-list-for-primary-enclosure-of-storsimple-device) and the [detailed component list for the EBOD enclosure](#component-list-for-ebod-enclosure-of-storsimple-device).
 2. Use the following color coding scheme to interpret the  component status:
 	-  **Green check** – Denotes a **Healthy** or **OK** component.
 	-  **Yellow** – Denotes a component in **Warning** state.
 	-  **Red exclamation** – Denotes a component that has a **Failure** or **Needs Attention** status.
 	-  **White with black text** – Denotes a component that is not present.
 
-3. If you encounter a component that is not in a **Healthy** state, please contact Microsoft Support. If alerts are enabled on your device, you will receive an email alert. If you need to replace a failed hardware component, see the [Hardware Component Replacement Guide](https://msdn.microsoft.com/library/azure/dn757736.aspx).
+3. If you encounter a component that is not in a **Healthy** state, please contact Microsoft Support. If alerts are enabled on your device, you will receive an email alert. If you need to replace a failed hardware component, see [StorSimple hardware component replacement](storsimple-hardware-component-replacement.md).
 
 
 ## Component list for primary enclosure of StorSimple device
@@ -125,9 +125,11 @@ The following table outlines the physical and logical components contained in th
 |Connection to device controller|I/O|Physical|Controller|No|Indicates the state of the connection between the EBOD I/O module and the device controller.|
 
 ## Next steps
-If you need to troubleshoot a device component that has a degraded or failed status, refer to 
-[Troubleshoot with monitoring indicators](storsimple-monitoring-indicators). 
+- To learn more about using the StorSimple Manager service, go to [use the StorSimple Manager service to administer your StorSimple device](storsimple-manager-service-administration.md).
+ 
+- If you need to troubleshoot a device component that has a degraded or failed status, refer to 
+[StorSimple monitoring indicators](storsimple-monitoring-indicators.md). 
 
-To replace a failed hardware component, see the [Hardware Component Replacement Guide](https://msdn.microsoft.com/library/azure/dn757736.aspx).
+- To replace a failed hardware component, see [StorSimple hardware component replacement](storsimple-hardware-component-replacement.md).
 
-If you continue to experience device issues, [Contact Microsoft Support](storsimple-contact-microsoft-support.md).
+- If you continue to experience device issues, [contact Microsoft Support](storsimple-contact-microsoft-support.md).

@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="07/24/2015"
+   ms.date="10/20/2015"
    ms.author="larryfr"/>
 
 #Manage HDInsight clusters by using Ambari (preview)
@@ -29,15 +29,15 @@ Learn how to use Ambari to manage and monitor Linux-based Azure HDInsight cluste
 
 Ambari is provided by default with Linux-based HDInsight clusters. Windows-based HDInsight clusters provide monitoring functionality through the Ambari REST APIs.
 
+##Connectivity
+
+Connecting to Ambari on your HDInsight cluster requires the use of HTTPS. You must also authenticate to Ambari using the admin account name (the default is __admin__,) and password you provided when the cluster was created.
+
 ##SSH proxy
 
 > [AZURE.NOTE] While Ambari for your cluster is accessible directly over the Internet, some links from the Ambari Web UI (such as to the JobTracker,) are not exposed on the internet. So you will receive "server not found" errors when trying to access these features unless you use a Secure Shell (SSH) tunnel to proxy web traffic to the cluster head node.
 
-Use the following articles to create an SSH tunnel from a port on your local machine to the cluster:
-
-* <a href="../hdinsight-hadoop-linux-use-ssh-unix/#tunnel" target="_blank">Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X</a> - Steps on creating an SSH tunnel by using the `ssh` command.
-
-* <a href="../hdinsight-hadoop-linux-use-ssh-windows/#tunnel" target="_blank">Use SSH with Linux-based Hadoop on HDInsight from Windows</a> - Steps on using PuTTY to create an SSH tunnel.
+For information on creating an SSH tunnel to work with Ambari, see [Use SSH Tunneling to access Ambari web UI, ResourceManager, JobHistory, NameNode, Oozie, and other web UI's](hdinsight-linux-ambari-ssh-tunnel.md).
 
 ##Ambari web UI
 
@@ -69,7 +69,7 @@ When the page opens, note the bar at the top. This contains the following inform
 
 * **Alerts** - A log of information, warnings, and critical alerts.
 
-* **Admin** - Software stack/services that are installed or can be added to the cluster, service account information, and Kerberos security.
+* **Admin** - Software stack/services that are installed on the cluster, service account information, and Kerberos security.
 
 * **Admin button** - Ambari management, user settings, and logout.
 
@@ -141,11 +141,7 @@ Selecting any of these links will open a new tab in your browser, which will dis
 
 > [AZURE.NOTE] Selecting a **Quick Links** link for any service will result in a "server not found" error unless you are using a Secure Sockets Layer (SSL) tunnel to proxy web traffic to the cluster. This is because the web applications used to display this information are not exposed on the internet.
 >
-> For information on using an SSL tunnel with HDInsight, see one of the following:
->
-> * <a href="../hdinsight-hadoop-linux-use-ssh-unix/#tunnel" target="_blank">Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X</a> - Steps on creating an SSH tunnel by using the `ssh` command.
->
->* <a href="../hdinsight-hadoop-linux-use-ssh-windows/#tunnel" target="_blank">Use SSH with Linux-based Hadoop on HDInsight from Windows</a> - Steps on using PuTTY to create an SSH tunnel.
+> For information on using an SSL tunnel with HDInsight, see [Use SSH Tunneling to access Ambari web UI, ResourceManager, JobHistory, NameNode, Oozie, and other web UI's](hdinsight-linux-ambari-ssh-tunnel.md)
 
 ##Management
 
@@ -191,27 +187,12 @@ The **Hosts** page lists all hosts in the cluster. To manage hosts, follow these
 
 ###<a id="service"></a>Services
 
-From the **Dashboard** or **Services** page, use the **Actions** button at the bottom of the list of services to add new services, or to stop and start all services.
+From the **Dashboard** or **Services** page, use the **Actions** button at the bottom of the list of services to stop and start all services.
 
 ![service actions](./media/hdinsight-hadoop-manage-ambari/service-actions.png)
 
-The following are the general steps to add a service:
+> [AZURE.WARNING] While __Add Service__ is listed in this menu, it should not be used to add services to the HDInsight cluster. New services should be added using a Script Action during cluster provisioning. For more information on using Script Actions, see [Customize HDInsight clusters using Script Actions](hdinsight-hadoop-customize-cluster-linux.md).
 
-1. From the **Dashboard** or **Services** page, use the **Actions** button and select **Add Service**.
-
-2. From the **Add Service Wizard**, select the service to add, and then click **Next**.
-
-	![add service](./media/hdinsight-hadoop-manage-ambari/add-service.png)
-
-3. Continue through the wizard, providing configuration information for the service. Consult the documentation on the specific service you are adding for more information on configuration requirements.
-
-4. From the **Review** page, you can **Print** the configuration information, or **Deploy** the service to the cluster.
-
-5. Once the service has been deployed, the **Install, Start and Test** page will display progress information as the service is installed and tested. Once the **Status** is green, select **Next**.
-
-	![image of install, start, and test page](./media/hdinsight-hadoop-manage-ambari/install-start-test.png)
-
-6. The **Summary** page displays a summary of the install process, as well as any possible actions you need to take; for example, restarting other services. Select **Complete** to exit the wizard.
 
 While the **Actions** button can restart all services, often you want to start, stop, or restart a specific service. Use the following steps to perform actions on an individual service:
 
@@ -247,6 +228,6 @@ Ambari Web relies on an underlying REST API, which you can leverage to create yo
 
 * **IP Addresses** - The address returned for hosts within a cluster are not accessible from outside the cluster, unless the cluster is a member of an Azure virtual network. Then the IP address will be accessible by other members of the virtual network, but not from outside the network.
 
-* **Some functionality is not enabled** - Some Ambari functionality is disabled, as it is managed by the HDInsight cloud service; for example, adding or removing hosts from the cluster. Other functionality may not be fully implemented during the preview of Linux-based HDInsight.
+* **Some functionality is not enabled** - Some Ambari functionality is disabled, as it is managed by the HDInsight cloud service; for example, adding or removing hosts from the cluster or adding new services. Other functionality may not be fully implemented during the preview of Linux-based HDInsight.
 
 For a complete reference of the REST API, see [Ambari API Reference V1](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).

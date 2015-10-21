@@ -8,12 +8,12 @@
 	editor=""/>
 
 <tags
-	ms.service="app-service"
+	ms.service="app-service-mobile"
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="08/03/2015"
+	ms.date="08/22/2015"
 	ms.author="glenga"/>
 
 # Add authentication to your Windows app
@@ -24,11 +24,7 @@
 
 This topic shows you how to authenticate users of an App Service Mobile App from your client application. In this tutorial, you add authentication to the quickstart project using an identity provider that is supported by App Service. After being successfully authenticated and authorized by your Mobile App, the user ID value is displayed.
 
-This tutorial is based on the Mobile App quickstart. You must first complete the tutorial [Get started with your mobile app].
-
-##<a name="review"></a>Review your server project configuration (optional)
-
-[AZURE.INCLUDE [app-service-mobile-dotnet-backend-enable-auth-preview](../../includes/app-service-mobile-dotnet-backend-enable-auth-preview.md)] 
+This tutorial is based on the Mobile App quickstart. You must first complete the tutorial [Get started with your mobile app]. http://acom-sandbox.azurewebsites.net/documentation/articles/app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-push-preview/?rnd=1
 
 ##<a name="create-gateway"></a>Create an App Service Gateway
 

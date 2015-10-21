@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/21/2015" 
+	ms.date="08/18/2015" 
 	ms.author="awills"/>
 
 #  Application Insights: Proactive Anomaly Detection
@@ -68,7 +68,10 @@ Modify the time range and filters to explore the telemetry.
  * No. Our bot periodically surveys the data from all Application Insights users, and sends notifications if it detects problems.
 * *Can I unsubscribe or get the notifications sent to my colleagues instead?*
  * Click the link in the alert or email. Open anomaly settings.
-![](./media/app-insights-anomaly/01.png) Currently they're sent to those who have [write access to the Application Insights resource](app-insights-resources-roles-access-control.md).
+ 
+    ![](./media/app-insights-anomaly/01.png)
+
+    Currently they're sent to those who have [write access to the Application Insights resource](app-insights-resources-roles-access-control.md).
 * *I don't want to be flooded with these messages.*
  * They are limited to three per day. You won't get repeats of any message.
 * *If I don't do anything, will I get a reminder?*

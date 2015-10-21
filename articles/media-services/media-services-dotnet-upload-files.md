@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/11/2015" 
+	ms.date="10/17/2015" 
 	ms.author="juliako"/>
 
 
@@ -112,53 +112,53 @@ The code does the following:
 >[AZURE.NOTE] Use the UploadAsync method to ensure that the calls are not blocking and the files are uploaded in parallel.
  	
  	
-	static public IAsset CreateAssetAndUploadMultipleFiles(AssetCreationOptions assetCreationOptions, string folderPath)
-	{
-	    var assetName = "UploadMultipleFiles_" + DateTime.UtcNow.ToString();
-	
-	    var asset = CreateEmptyAsset(assetName, assetCreationOptions);
-	
-	    var accessPolicy = _context.AccessPolicies.Create(assetName, TimeSpan.FromDays(30),
-	                                                        AccessPermissions.Write | AccessPermissions.List);
+        static public IAsset CreateAssetAndUploadMultipleFiles(AssetCreationOptions assetCreationOptions, string folderPath)
+        {
+            var assetName = "UploadMultipleFiles_" + DateTime.UtcNow.ToString();
 
-	    var locator = _context.Locators.CreateLocator(LocatorType.Sas, asset, accessPolicy);
-	
-	    var blobTransferClient = new BlobTransferClient();
-		blobTransferClient.NumberOfConcurrentTransfers = 20;
-	    blobTransferClient.ParallelTransferThreadCount = 20;
-	
-	    blobTransferClient.TransferProgressChanged += blobTransferClient_TransferProgressChanged;
-	
-	    var filePaths = Directory.EnumerateFiles(folderPath);
-	
-	    Console.WriteLine("There are {0} files in {1}", filePaths.Count(), folderPath);
-	
-	    if (!filePaths.Any())
-	    {
-	        throw new FileNotFoundException(String.Format("No files in directory, check folderPath: {0}", folderPath));
-	    }
-	
-	    var uploadTasks = new List&lt;Task&gt;();
-	    foreach (var filePath in filePaths)
-	    {
-	        var assetFile = asset.AssetFiles.Create(Path.GetFileName(filePath));
-	        Console.WriteLine("Created assetFile {0}", assetFile.Name);
-	                
-	        // It is recommended to validate AccestFiles before upload. 
-	        Console.WriteLine("Start uploading of {0}", assetFile.Name);
-	        uploadTasks.Add(assetFile.UploadAsync(filePath, blobTransferClient, locator, CancellationToken.None));
-	    }
-	
-	    Task.WaitAll(uploadTasks.ToArray());
-	    Console.WriteLine("Done uploading the files");
-	
-	    blobTransferClient.TransferProgressChanged -= blobTransferClient_TransferProgressChanged;
-	
-	    locator.Delete();
-	    accessPolicy.Delete();
-	
-	    return asset;
-	}
+            IAsset asset = _context.Assets.Create(assetName, assetCreationOptions);
+
+            var accessPolicy = _context.AccessPolicies.Create(assetName, TimeSpan.FromDays(30),
+                                                                AccessPermissions.Write | AccessPermissions.List);
+
+            var locator = _context.Locators.CreateLocator(LocatorType.Sas, asset, accessPolicy);
+
+            var blobTransferClient = new BlobTransferClient();
+            blobTransferClient.NumberOfConcurrentTransfers = 20;
+            blobTransferClient.ParallelTransferThreadCount = 20;
+
+            blobTransferClient.TransferProgressChanged += blobTransferClient_TransferProgressChanged;
+
+            var filePaths = Directory.EnumerateFiles(folderPath);
+
+            Console.WriteLine("There are {0} files in {1}", filePaths.Count(), folderPath);
+
+            if (!filePaths.Any())
+            {
+                throw new FileNotFoundException(String.Format("No files in directory, check folderPath: {0}", folderPath));
+            }
+
+            var uploadTasks = new List<Task>();
+            foreach (var filePath in filePaths)
+            {
+                var assetFile = asset.AssetFiles.Create(Path.GetFileName(filePath));
+                Console.WriteLine("Created assetFile {0}", assetFile.Name);
+
+                // It is recommended to validate AccestFiles before upload. 
+                Console.WriteLine("Start uploading of {0}", assetFile.Name);
+                uploadTasks.Add(assetFile.UploadAsync(filePath, blobTransferClient, locator, CancellationToken.None));
+            }
+
+            Task.WaitAll(uploadTasks.ToArray());
+            Console.WriteLine("Done uploading the files");
+
+            blobTransferClient.TransferProgressChanged -= blobTransferClient_TransferProgressChanged;
+
+            locator.Delete();
+            accessPolicy.Delete();
+
+            return asset;
+        }
 	
 	static void  blobTransferClient_TransferProgressChanged(object sender, BlobTransferProgressChangedEventArgs e)
 	{
@@ -299,6 +299,15 @@ The following example calls UploadFile function and specifies storage encryption
 
 
 	var asset = UploadFile(@"C:\VideoFiles\BigBuckBunny.mp4", AssetCreationOptions.StorageEncrypted);
+
+
+##Media Services learning paths
+
+You can view AMS learning paths here:
+
+- [AMS Live Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [AMS on Demand Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
 
 
 ##Next Steps

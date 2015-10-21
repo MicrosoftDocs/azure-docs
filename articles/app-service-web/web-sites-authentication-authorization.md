@@ -1,19 +1,19 @@
 <properties 
 	pageTitle="Use Active Directory for authentication in Azure App Service" 
 	description="Learn the different authentication and authorization options for line-of-business applications that are deployed to Azure App Service Web Apps" 
-	services="app-service\web" 
+	services="app-service" 
 	documentationCenter="" 
 	authors="cephalin" 
 	manager="wpickett" 
 	editor="jimbe"/>
 
 <tags 
-	ms.service="app-service-web" 
+	ms.service="app-service" 
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="web" 
-	ms.date="07/02/2015" 
+	ms.date="09/29/2015" 
 	ms.author="cephalin"/>
 
 # Use Active Directory for authentication in Azure App Service #

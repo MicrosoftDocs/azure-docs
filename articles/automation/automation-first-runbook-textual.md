@@ -1,6 +1,6 @@
 <properties
-	pageTitle="My first textual runbook in Azure Automation"
-	description="Tutorial that walks you through the creation, testing, and publishing of a simple textual runbook using PowerShell Workflow.  Several concepts are covered such as authenticating to Azure resources and input parameters."
+	pageTitle="My first PowerShell Workflow runbook in Azure Automation | Microsoft Azure"
+	description="Tutorial that walks you through the creation, testing, and publishing of a simple text runbook using PowerShell Workflow.  Several concepts are covered such as authenticating to Azure resources and input parameters."
 	services="automation"
 	documentationCenter=""
 	authors="bwren"
@@ -13,17 +13,17 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="08/13/2015"
+	ms.date="09/17/2015"
 	ms.author="bwren"/>
 
 
-# My first textual runbook
+# My first PowerShell Workflow runbook
 
 > [AZURE.SELECTOR]
 - [Graphical](automation-first-runbook-graphical.md)
-- [Textual](automation-first-runbook-textual.md)
+- [PowerShell Workflow](automation-first-runbook-textual.md)
 
-This tutorial walks you through the creation of a [textual runbook](automation-powershell-workflow.md) in Azure Automation.  We'll start with a simple runbook that we'll test and publish while we explain how to track the status of the runbook job.  Then we'll modify the runbook to actually manage Azure resources, in this case starting an Azure virtual machine.  We'll then make the runbook more robust by adding runbook parameters.  
+This tutorial walks you through the creation of a [PowerShell Workflow runbook](automation-runbook-types.md#powerShell-workflow-runbooks) in Azure Automation.  We'll start with a simple runbook that we'll test and publish while we explain how to track the status of the runbook job.  Then we'll modify the runbook to actually manage Azure resources, in this case starting an Azure virtual machine.  We'll then make the runbook more robust by adding runbook parameters.  
 
 ## Prerequisites
 
@@ -43,8 +43,8 @@ The Automation account page gives you a quick view of the resources in this acco
 2. Click on the **Runbooks** tile to open the list of runbooks.<br>
 ![Runbooks control](media/automation-first-runbook-textual/runbooks-control.png)
 2. Create a new runbook by clicking on the **Add a runbook** button and then **Create a new runbook**.
-3. Give the runbook the name *MyFirstRunbook-Textual*.
-4. In this case, we're going to create a [textual runbook](automation-powershell-workflow.md) based on PowerShell Workflow so select **Powershell Workflow** for **Runbook type**.<br>
+3. Give the runbook the name *MyFirstRunbook-Workflow*.
+4. In this case, we're going to create a [PowerShell Workflow runbook](automation-runbook-types.md#powerShell-workflow-runbooks) so select **Powershell Workflow** for **Runbook type**.<br>
 ![New runbook](media/automation-first-runbook-textual/new-runbook.png)
 5. Click **Create** to create the runbook and open the textual editor.
 
@@ -79,14 +79,14 @@ The runbook that we just created is still in Draft mode. We need to publish it b
 1. Click **Publish** to publish the runbook and then **Yes** when prompted.<br>
 ![Publish](media/automation-first-runbook-textual/runbook-edit-toolbar-publish.png)
 2. If you scroll left to view the runbook in the **Runbooks** pane now, it will show an **Authoring Status** of **Published**.
-3. Scroll back to the right to view the pane for **MyFirstRunbook-Textual**.  
+3. Scroll back to the right to view the pane for **MyFirstRunbook-Workflow**.  
 The options across the top allow us to start the runbook, schedule it to start at some time in the future, or create a [webhook](automation-webhooks.md) so it can be started through an HTTP call. 
 4. We just want to start the runbook so click **Start** and then **Yes** when prompted.<br>
 ![Start runbook](media/automation-first-runbook-textual/runbook-toolbar-start.png)
 5. A job pane is opened for the runbook job that we just created.  We can close this pane, but in this case we'll leave it open so we can watch the job's progress.
 6.  The job status is shown in **Job Summary** and matches the statuses that we saw when we tested the runbook.<br>
 ![Job Summary](media/automation-first-runbook-textual/job-pane-summary.png)
-7.  Once the runbook status shows *Completed*, click **Output**.  The **Output** pane is opened, and we can see our *Hello World*.<br>
+7.  Once the runbook status shows *Completed*, click **Output**.  The Output pane is opened, and we can see our *Hello World*.<br>
 ![Job Summary](media/automation-first-runbook-textual/job-pane-output.png)  
 8.  Close the Output pane.
 9.  Click **Streams** to open the Streams pane for the runbook job.  We should only see *Hello World* in the output stream, but this can show other streams for a runbook job such as Verbose and Error if the runbook writes to them.<br>
@@ -98,15 +98,15 @@ The options across the top allow us to start the runbook, schedule it to start a
 
 ## Step 5 - Add authentication to manage Azure resources
 
-We've tested and published our runbook, but so far it doesn't do anything useful.  We want to have it manage Azure resources.  It won't be able to do that though unless we have it authenticate using the credentials that are referred to in the [prerequisites](#prerequisites).  We do that with the **Set-AzureAccount** cmdlet.
+We've tested and published our runbook, but so far it doesn't do anything useful.  We want to have it manage Azure resources.  It won't be able to do that though unless we have it authenticate using the credentials that are referred to in the [prerequisites](#prerequisites).  We do that with the **Add-AzureAccount** cmdlet.
 
-1.  Open the textual editor by clicking **Edit** on the MyFirstRunbook-Textual pane.<br>
+1.  Open the textual editor by clicking **Edit** on the MyFirstRunbook-Workflow pane.<br>
 ![Edit runbook](media/automation-first-runbook-textual/runbook-toolbar-edit.png) 
 2.  We don't need the **Write-Output** line anymore, so go ahead and delete it.
 3.  Position the cursor on a blank line between the braces.
 3.  In the Library control, expand **Assets** and then **Credentials**.
-4.  Right click your credential and click **Add to canvas**.  This adds a **Get-AutomationCredential** activity for your credential.
-5.  In front of **Get-AutomationCredential**, type *$Credential =* to assign the credential to a variable. 
+4.  Right click your credential and click **Add to canvas**.  This adds a **Get-AutomationPSCredential** activity for your credential.
+5.  In front of **Get-AutomationPSCredential**, type *$Credential =* to assign the credential to a variable. 
 3.  On the next line, type *Add-AzureAccount -Credential $Credential*. <br>
 ![Authenticate](media/automation-first-runbook-textual/authentication.png) 
 3. Click **Test pane** so that we can test the runbook.

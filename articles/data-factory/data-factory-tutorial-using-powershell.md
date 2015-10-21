@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Move and process log files using Azure Data Factory" 
-	description="This advanced tutorial describes a near real-world scenario and implements the scenario using Azure Data Factory service." 
+	pageTitle="Move and process log files using Azure Data Factory (Azure PowerShell)" 
+	description="This advanced tutorial describes a near real-world scenario and implements the scenario using Azure Data Factory service and Azure PowerShell." 
 	services="data-factory" 
 	documentationCenter="" 
 	authors="spelluru" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/04/2015" 
+	ms.date="08/25/2015" 
 	ms.author="spelluru"/>
 
 # Tutorial: Move and process log files using Data Factory [PowerShell]
@@ -298,26 +298,26 @@ The Azure Portal does not support creating data sets/tables yet, so you will nee
 ### To create the tables
 
 1.	In the Azure PowerShell, navigate to the **Tables** folder (**C:\ADFWalkthrough\Tables\**) from the location where you have extracted the samples. 
-2.	Use the cmdlet **New-AzureDataFactoryTable** to create the Tables as follows for **RawGameEventsTable**.json	
+2.	Use the cmdlet **New-AzureDataFactoryDataset** to create the datasets as follows for **RawGameEventsTable**.json	
 
 
-		New-AzureDataFactoryTable -ResourceGroupName ADF -DataFactoryName $df –File .\RawGameEventsTable.json
+		New-AzureDataFactoryDataset -ResourceGroupName ADF -DataFactoryName $df –File .\RawGameEventsTable.json
 
 	If you are using a different name for ResourceGroupName and DataFactoryName, refer them in the above cmdlet. Also, provide the full file path of the Table JSON file if the file cannot be found by the cmdlet.
 
 3. Repeat the previous step to create the following tables:	
 		
-		New-AzureDataFactoryTable -ResourceGroupName ADF -DataFactoryName $df –File .\PartitionedGameEventsTable.json
+		New-AzureDataFactoryDataset -ResourceGroupName ADF -DataFactoryName $df –File .\PartitionedGameEventsTable.json
 		
-		New-AzureDataFactoryTable -ResourceGroupName ADF -DataFactoryName $df –File .\RefGeoCodeDictionaryTable.json
+		New-AzureDataFactoryDataset -ResourceGroupName ADF -DataFactoryName $df –File .\RefGeoCodeDictionaryTable.json
 			
-		New-AzureDataFactoryTable -ResourceGroupName ADF -DataFactoryName $df –File .\RefMarketingCampaignTable.json
+		New-AzureDataFactoryDataset -ResourceGroupName ADF -DataFactoryName $df –File .\RefMarketingCampaignTable.json
 			
-		New-AzureDataFactoryTable -ResourceGroupName ADF -DataFactoryName $df –File .\EnrichedGameEventsTable.json
+		New-AzureDataFactoryDataset -ResourceGroupName ADF -DataFactoryName $df –File .\EnrichedGameEventsTable.json
 			
-		New-AzureDataFactoryTable -ResourceGroupName ADF -DataFactoryName $df –File .\MarketingCampaignEffectivenessSQLTable.json
+		New-AzureDataFactoryDataset -ResourceGroupName ADF -DataFactoryName $df –File .\MarketingCampaignEffectivenessSQLTable.json
 			
-		New-AzureDataFactoryTable -ResourceGroupName ADF -DataFactoryName $df –File .\MarketingCampaignEffectivenessBlobTable.json
+		New-AzureDataFactoryDataset -ResourceGroupName ADF -DataFactoryName $df –File .\MarketingCampaignEffectivenessBlobTable.json
 
 
 
@@ -327,7 +327,7 @@ The Azure Portal does not support creating data sets/tables yet, so you will nee
 
 	You can also use the following command from Azure PowerShell:
 			
-		Get-AzureDataFactoryTable –ResourceGroupName ADF –DataFactoryName $df
+		Get-AzureDataFactoryDataset –ResourceGroupName ADF –DataFactoryName $df
 
 	
 
@@ -467,8 +467,7 @@ Practice the [Walkthrough: Using on-premises data source][tutorial-onpremises-us
 
 [adfgetstarted]: data-factory-get-started.md
 [adfintroduction]: data-factory-introduction.md
-[useonpremisesdatasources]: data-factory-use-onpremises-datasources.md
-[usepigandhive]: data-factory-pig-hive-activities.md
+[usepigandhive]: data-factory-data-transformation-activities.md
 [tutorial-onpremises-using-powershell]: data-factory-tutorial-extend-onpremises-using-powershell.md
 [download-azure-powershell]: ../powershell-install-configure.md
 

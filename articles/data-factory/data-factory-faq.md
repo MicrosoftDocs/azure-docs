@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/16/2015" 
+	ms.date="09/08/2015" 
 	ms.author="spelluru"/>
 
 # Azure Data Factory - Frequently Asked Questions
@@ -90,17 +90,6 @@ See [Data Movement Activities](data-factory-data-movement-activities.md) and [Da
 The **availability** configuration setting in the output data table determines when the activity is run. The activity checks whether all the input data dependencies are satisfied (i.e., **Ready** state) before it starts running.
 
 ## Copy Activity - FAQ
-### What regions are supported by the Copy Activity ?
-
-The Copy Activity supports copying data into the following regions: East US, East US 2, West US, Central US, North Central US, South Central US, North Europe, West Europe, South East Asia, Japan East, and Brazil South.
-
-Copying data into other regions is also supported, by using one of the regions above for routing the data.  Copy operation is metered based on the region where data is routed through.
-
-Region of copy destination | Region used for routing
--------------------------- | -----------------------
-East Asia | South East Asia
-Japan West | Japan East
- 
 ### Is it better to have a pipeline with multiple activities or a separate pipeline for each activity? 
 Pipelines are supposed to bundle related activities.  Logically, you can keep the activities in one pipeline if the tables that connect them are not consumed by any other activity outside the pipeline. This way, you would not need to chain pipeline active periods so that they align with each other. Also, the data integrity in the tables internal to the pipeline will be better preserved when updating the pipeline. Pipeline update essentially stops all the activities within the pipeline, removes them, and creates them again. From authoring perspective, it might also be easier to see the flow of data within the related activities in one JSON file for the pipeline. 
 

@@ -351,6 +351,6 @@ And here's how you can modify an existing collection to take advantage of spatia
 Now that you've learnt about how to get started with geospatial support in DocumentDB, you can:
 
 - Start coding with the [Geospatial .NET code samples on Github](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples/Queries.Spatial)
-- Get hands on with geospatial querying at the [DocumentDB Query Playground](www.documentdb.com/sql/demo)
+- Get hands on with geospatial querying at the [DocumentDB Query Playground](http://www.documentdb.com/sql/demo#geospatial)
 - Learn more about [DocumentDB Query](documentdb-sql-query.md)
 - Learn more about [DocumentDB Indexing Policies](documentdb-indexing-policies.md)

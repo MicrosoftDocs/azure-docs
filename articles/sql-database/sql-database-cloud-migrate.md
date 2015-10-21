@@ -1,83 +1,225 @@
-<properties 
-   pageTitle="Migrating a Database to Azure SQL Database" 
-   description="Microsoft Azure SQL Database, database deploy, database migration, import database, export database, migration wizard" 
-   services="sql-database" 
-   documentationCenter="" 
-   authors="pehteh" 
-   manager="jeffreyg" 
-   editor="monicar"/>
+<properties
+   pageTitle="Migrating a SQL Server database to Azure SQL Database"
+   description="Microsoft Azure SQL Database, database deploy, database migration, import database, export database, migration wizard"
+   services="sql-database"
+   documentationCenter=""
+   authors="carlrabeler"
+   manager="jeffreyg"
+   editor=""/>
 
 <tags
    ms.service="sql-database"
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
-   ms.workload="data-management" 
-   ms.date="07/17/2015"
-   ms.author="pehteh"/>
+   ms.workload="data-management"
+   ms.date="10/12/2015"
+   ms.author="carlrab"/>
 
-# Migrating a Database to Azure SQL Database
+# Migrating a SQL Server database to Azure SQL Database
 
-Azure SQL Database V12 brings near-complete engine compatibility with SQL Server 2014. As such, it dramatically simplifies the task of migrating most databases from SQL Server to Azure SQL Database. Migration for many databases is a straightforward movement operation requiring few if any changes to the schema and little or no re-engineering of applications. And where databases need to be changed, the scope of these changes is more confined. 
+Azure SQL Database V12 brings near-complete engine compatibility with SQL Server 2014 and SQL Server 2016. For compatible databases, migration to Azure SQL Database is a straightforward schema and data movement operation requiring few, if any, changes to the schema and little or no re-engineering of applications. Where databases need to be changed, the scope of these changes is more confined than with Azure SQL Database V11.
 
-By design, server-scoped features of SQL Server are not supported by SQL Database, so databases and applications that rely on these will continue to need some re-engineering before they can be migrated. While SQL Database V12 improves compatibility with SQL Server, migration still needs to be planned and executed carefully, particularly for larger, more complex databases. 
+By design, server-scoped features of SQL Server are not supported by Azure SQL Database V12. Databases and applications that rely on these features will need some re-engineering before they can be migrated.
 
-## At a Glance
-There are different approaches for migrating a SQL Server database to Azure, each using one or more tools. Some approaches are quick and easy, while others take longer to prepare. Please be aware that migrating a large, complex database may take several hours. 
+>[AZURE.NOTE] To migrate other types of databases, including Microsoft Access, Sybase, MySQL Oracle, and DB2 to Azure SQL Database, see [SQL Server Migration Assistant](http://blogs.msdn.com/b/ssma/).
 
-### Option #1
-***Migrate a compatible database using SQL Server Management Studio (SSMS)***
+The workflow for migrating a SQL Server database to Azure SQL Database are:
 
-The database is deployed to Azure SQL Database using SSMS. The database can be deployed directly or exported to a BACPAC which is then imported to create a new Azure SQL database.  Use this method when the source database is fully compatible with Azure SQL Database.
+ 1. [Determine if your database is compatible](#determine-if-your-database-is-compatible)
+ 2. [If not compatible, fix database compatibility issues](#fix-database-compatibility-issues)
+ 3. [Migrate a compatible database](#options-to-migrate-a-compatible-database-to-azure-sql-database)
 
-### Option #2
-***Migrate a near-compatible database using SQL Azure Migration Wizard (SAMW)***
+## Determine if your database is compatible
+There are two primary methods to use to determine if your source database is compatible.
+- Export Data Tier Application: This method uses a wizard in Management Studio and displays error messages on the console.
+- SQLPackage.exe: [sqlpackage.exe](https://msdn.microsoft.com/library/hh550080.aspx) is a command-line utility that ships with Visual Studio and SQL Server. This method will generate a report.
 
-The database is processed using the SAMW to generate a migration script containing schema or schema plus data in BCP format. Use this method when the database schema requires upgrade and the changes can be handled by the wizard. 
+> [AZURE.NOTE] There is a third method, that will also use trace files to test for compatibility. This is [SQL Azure Migration wizard](http://sqlazuremw.codeplex.com/), a free tool on Codeplex. However, this tool currently may find compatibility errors that were issues for Azure SQL Database V11 that are not issues for Azure SQL Database V12.
 
-### Option #3
-***Update the database schema off-line using Visual Studio (VS) and SAMW, and then deploy with SSMS***
+If database incompatibilities are detected, you will need to fix these incompatibilities before you can migrate your database to Azure SQL Database. For guidance on how to fix database compatibility issues, go to [fix database compatibility issues](#fix-database-compatibility-issues).
 
-The source database is imported into a Visual Studio database project for processing offline. SAMW is then run across all the scripts in the project to apply a series of transformations and corrections. The project is targeted at SQL Database V12 and built, and any remaining errors are reported. These errors are then resolved manually using SQL Server Data Tools (SSDT) in Visual Studio. Once the project builds successfully, it is published back to a copy of the source database. This updated database is then deployed to Azure SQL Database using option #1. If schema-only migration is required, the schema can be publish directly from Visual Studio directly to Azure SQL Database. Use this method when the database schema requires more changes than can be handled by the migration wizard alone. 
+> [AZURE.IMPORTANT] These options do not catch all of the compatibility issues between different levels of SQL Server databases (i.e. level 90, 100, and 110). If you are migrating from an older database (level 80, 90, 100, and 110), you should go through the upgrade process first (at least in the dev environment) and once on SQL Server 2014 or later, then migrate to Azure SQL Database.
 
-## Deciding options to use
-- If you anticipate that a database can be migrated without change you should use option #1, which is quick and easy.  If you are uncertain, start by exporting a schema-only BACPAC from the database as described in option #1. If the export succeeds with no errors, you can use option #1 to migrate the database with its data.  
-- If you encounter errors during the export of option#1 use the SQL Azure migration wizard to process the database in schema-only mode as described in option #2.  If the migration wizard reports no errors, use option #2. 
-- If SAMW reports that the schema needs additional work then, unless it needs only simple fixes, it is best to use option #3 and correct the database schema offline in Visual Studio using a combination of the migration wizard and manually applied schema changes. A copy of the source database is then updated in situ and then migrated to Azure using option #1.
+## Determine if your database is compatible using sqlpackage.exe
 
-## Migration tools
-Tools used include SQL Server Management Studio (SSMS), the SQL Server tooling in Visual Studio (VS, SSDT), and the SQL Azure Migration Wizard (SAMW), as well the Azure portal. 
+1. Open a command prompt and change a directory containing the newest version of sqlpackage.exe. This utility ships with both Visual Studio and SQL Server.
+2. Execute the following command, substituting for the following arguments: < server_name >, < database_name >, < target_file >, < schema_name.table_name > and < output_file >. The reason for the /p:TableName argument is that we only want to test for database compability for export to Azure SQL DB V12 rather than export the data from all tables. Unfortunately, the export argument for sqlpackage.exe does not support extracting no tables, so you will need to specify a single small table. The < output_file > will contain the report of any errors.
 
-> Be sure to install the latest versions of the client tools as earlier versions are not compatible with the SQL Database v12.
+	'sqlpackage.exe /Action:Export /ssn:< server_name > /sdn:< database_name > /tf:< target_file > /p:TableData=< schema_name.table_name > > < output_file > 2>&1'
 
-### SQL Server Management Studio (SSMS)
-SSMS can be used to deploy a compatible database directly to Azure SQL Database or to export a logical backup of the database as a BACPAC, which can then be imported, still using SSMS, to create a new Azure SQL Database.  
+	![Export a data-tier application from the Tasks menu](./media/sql-database-cloud-migrate/TestForCompatibilityUsingSQLPackage01.png)
 
-[Download the latest version of SSMS](https://msdn.microsoft.com/library/mt238290.aspx) or be sure to use CU6 in SQL Server 2013 or later.  
+3. Open the output file and review the compatibility errors, if any. For guidance on how to fix database compatibility issues, go to [fix database compatibility issues](#fix-database-compatibility-issues).
 
-### SQL Azure Migration Wizard (SAMW)
-SAMW can be used to analyze the schema of an existing database for compatibility with Azure SQL Database, and in many cases can be used to generate and then deploy a Transact-SQL script containing schema and data. The wizard will report errors during the transformation if it encounters schema content that it cannot transform. If this occurs, the generated script will require further editing before it can be deployed successfully. SAMW will process the body of functions or stored procedures which is normally excluded from validation performed by the SQL Server tooling in Visual Studio (see below) so may find issues that might not otherwise be reported by validation in Visual Studio alone. Combining use of SAMW with the SQL Server tooling in Visual Studio can substantially reduce the amount of work required to migrate a complex schema.
+	![Export a data-tier application from the Tasks menu](./media/sql-database-cloud-migrate/TestForCompatibilityUsingSQLPackage02.png)
 
-Be sure to use the latest version of the [SQL Azure Migration Wizard](http://sqlazuremw.codeplex.com/) from CodePlex . 
+## Determine if your database is compatible using Export Data Tier Application
 
-### SQL Server tooling in Visual Studio (VS, SSDT)
-The SQL Server tooling in Visual Studio can be used to create and manage a database project comprising a set of Tranact-SQL files for each object in the schema. The project can be imported from a database or from a script file. Once created, the project can be to Azure SQL Database v12; building the project then validates schema compatibility. Clicking on an error opens the corresponding Transact-SQL file allowing it to be edited and the error corrected. Once all the errors are fixed the project can be published, either directly to SQL Database to create an empty database or back to (a copy of) the original SQL Server database to update its schema, which allows the database to be deployed with its data using SSMS as above. 
+1. Verify that you have version 13.0.600.65 or later of SQL Server Management Studio. New versions of Management Studio are updated monthly to remain in sync with updates to the Azure portal.
 
-Use the [lastest SQL Server Data Tools for Visual Studio](https://msdn.microsoft.com/library/mt204009.aspx) with Visual Studio 2013 Update 4 or later.
+ 	 > [AZURE.IMPORTANT] Download the [latest](https://msdn.microsoft.com/library/mt238290.aspx) version of SQL Server Management Studio. It is recommended that you always use the latest version of Management Studio.
 
-## Comparisons
-| Option #1 | Option #2 | Option #3 |
-| ------------ | ------------ | ------------ |
-| Deploy a compatible database to Azure SQL Database |   Generate a migration script with changes and execute on Azure SQL Database | Update database in-place then deploy to Azure SQL Database |
-|![SSMS](./media/sql-database-cloud-migrate/01SSMSDiagram.png)| ![SAMW](./media/sql-database-cloud-migrate/02SAMWDiagram.png) | ![Offline Edit](./media/sql-database-cloud-migrate/03VSSSDTDiagram.png) |
-| Uses SSMS | Uses SAMW | Uses SAMW, VS, SSMS |
-|Simple process requires that schema is compatible. Schema is migrated unchanged. | Transact-SQL script is generated by SAMW includes changes required to ensure compatibility. Some unsupported features will be dropped from the schema, most are flagged as errors. | Schema is imported into a database project in Visual Studio and (optionally) transformed with SAMW. Additional updates are made using SSDT in Visual Studio and final schema used to update the database in situ. |
-| If exporting a BACPAC then can choose to migrate schema only.   | Can configure the wizard to script schema or schema plus data. | Can publish schema only directly to Azure from Visual Studio. Database is updated with any required changes in situ to allow schema and data to be deployed/exported. |
-| Always deploys or exports the entire database. | Can choose to exclude specific objects from the migration. | Full control of the objects that are included in the migration. |
-| No provision for changing the output if there are errors, the source schema must be compatible. | Single monolithic generated script can be awkward to edit if required. The script can be opened and edited in SSMS or Visual Studio with SSDT. All errors must be fixed before the script can be deployed to Azure SQL Database.| Full features of SSDT in Visual Studio available. Schema is changed offline. |
-| Application validation occurs in Azure. Should be minimal as schema is migrated without change. | Application validation occurs in Azure after migration. Generated script could also be installed on-premises for initial application validation. | Application validation can be done in SQL Server before the database is deployed to Azure. |
-| Microsoft supported tool. | Community supported tool downloaded from CodePlex. | Microsoft supported tools with optional use of community supported tool downloaded from CodePlex. |
-| Simple, easily configured one- or two-step process. | Schema transformation, generation, and deployment to the cloud are orchestrated from a single easy to use wizard. | More complex multi-step process (easier if only deploying schema). |
+2. Open Management Studio and connect to your source database in Object Explorer.
+3. Right-click the source database in the Object Explorer, point to **Tasks**, and click **Export Data-Tier Application…**
+
+	![Export a data-tier application from the Tasks menu](./media/sql-database-cloud-migrate/TestForCompatibilityUsingSSMS01.png)
+
+4. In the export wizard, on the **Settings** tab, configure the export to save the BACPAC file to either a local disk location or to an Azure blob. A BACPAC file will only be saved if you have no database compatibility issues. If there are compatibility issues, they will be displayed on the console.
+
+	![Export settings](./media/sql-database-cloud-migrate/TestForCompatibilityUsingSSMS02.png)
+
+5. Click the **Advanced tab** and clear the **Select All** checkbox to skip exporting data. Our goal at this point is only to test for compatibility.
+
+	![Export settings](./media/sql-database-cloud-migrate/TestForCompatibilityUsingSSMS03.png)
+
+6. Click **Next** and then click **Finish**. Database compatibility issues, if any, will appear after the wizard validates the schema.
+
+	![Export settings](./media/sql-database-cloud-migrate/TestForCompatibilityUsingSSMS04.png)
+
+7. If no errors appear, your database is compatible and you are ready to migrate. If you have errors, you will need to fix them. To see the errors, click **Error** for **Validating schema**. For how to fix these errors, go to [fix database compatibility issues](#fix-database-compatibility-issues).
+
+	![Export settings](./media/sql-database-cloud-migrate/TestForCompatibilityUsingSSMS05.png)
+
+## Options to migrate a compatible database to Azure SQL Database
+
+- For small to medium databases, migrating a [compatible](#determine-if-your-database-is-compatible) SQL Server 2005 or later database is as simple as running the [Deploy Database to Microsoft Azure Database Wizard](#use-the-deploy-database-to-microsoft-azure-database-wizard) in SQL Server Management Studio. If you have connectivity challenges (no connectivity, low bandwidth, or timeout issues), you can [use a BACPAC to migrate](#use-a-bacpac-to-migrate-a-database-to-azure-sql-database) a SQL Server database to Azure SQL Database.
+- For medium to large databases or when you have connectivity challenges, [use a BACPAC to migrate](#use-a-bacpac-to-migrate-a-database-to-azure-sql-database) a SQL Server database to Azure SQL Database. With this method, you use SQL Server Management Studio to export the data and schema to a [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4) file (stored locally or in an Azure blob) and then import the BACPAC file into your Azure SQL instance. If you store the BACPAC in an Azure blob, you can also import the BACPAC file from within the [Azure portal](sql-database-import.md) or [using PowerShell](sql-database-import-powershell.md).
+- For larger databases, you will achieve the best performance by migrating the schema and the data separately. With this method, you script the schema using SQL Server Management Studio or create a database project in Visual Studio and then deploy the schema to Azure SQL Database. After the schema has been imported into Azure SQL Database, you then use [BCP](https://msdn.microsoft.com/library/ms162802.aspx) to extract the data into flat files and then import these files into Azure SQL Database.
+
+ ![SSMS migration diagram](./media/sql-database-migrate-ssms/01SSMSDiagram.png)
+
+## Use Deploy Database to Microsoft Azure Database Wizard
+
+The Deploy Database to Microsoft Azure Database wizard in SQL Server Management Studio migrates a migrating a [compatible](#determine-if-your-database-is-compatible) SQL Server 2005 or later database directly to your Azure SQL logical server instance.
+
+> [AZURE.NOTE] The steps below assume that you have already provisioned your Azure SQL logical instance and have the connection information on hand.
+
+1. Verify that you have version 13.0.600.65 or later of SQL Server Management Studio. New versions of Management Studio are updated monthly to remain in sync with updates to the Azure portal.
+
+	 > [AZURE.IMPORTANT] Download the [latest](https://msdn.microsoft.com/library/mt238290.aspx) version of SQL Server Management Studio. It is recommended that you always use the latest version of Management Studio.
+
+2. Open Management Studio and connect to your source database in Object Explorer.
+3. Right-click the source database in the Object Explorer, point to **Tasks**, and click **Deploy Database to Microsoft Azure SQL Database…**
+
+	![Deploy to Azure from Tasks menu](./media/sql-database-cloud-migrate/MigrateUsingDeploymentWizard01.png)
+
+4.	In the deployment wizard, configure the connection to your Azure SQL Database server.
+5.	Provide the **New database name** for the database on Azure SQL DB, set the **Edition of Microsoft Azure SQL Database** (service tier), **Maximum database size**, **Service Objective** (performance level), and **Temporary file name** for the BACPAC file that this wizard creates during the migration process. See [Azure SQL Database service tiers](sql-database-service-tiers.md) for more information on service tiers and performance levels.
+
+	![Export settings](./media/sql-database-cloud-migrate/MigrateUsingDeploymentWizard02.png)
+
+6.	Complete the wizard to migrate the database. Depending on the size and complexity of the database, deployment may take from a few minutes to many hours.
+7.	Using Object Explorer, connect to your migrated database in your Azure SQL Database server.
+8.	Using the Azure Portal, view your database and its properties.
+
+## Use a BACPAC to Migrate a SQL Server Database to Azure SQL Database
+
+For medium to large databases or when you have connectivity challenges, you can separate the migration process into two discrete steps. You can export of the schema and its data into a [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4) file using one or two methods.
+
+- [Export to a BACPAC file using SQL Server Management Studio](#export-a-compatible-sql-server-database-to-a-bacpac-file-using-sql-server-management-studio)
+- [Export to a BACPAC using SqlPackage](#export-a-compatible-sql-server-database-to-a-bacpac-file-using-sqlpackage)
+
+You can store this BACPAC locally or in an Azure blob. You can then import this BACPAC file into Azure SQL Database using one of several methods.
+
+- [Import from a BACPAC file into Azure SQL Database using SQL Server Management Studio](#import-from-a-bacpac-file-into-azure-sql-database-using-sql-server-management-studio)
+- [Import from a BACPAC file into Azure SQL Database using SqlPackage](#import-from-a-bacpac-file-into-azure-sql-database-using-sqlpackage)
+- [Import from a BACPAC file into Azure SQL Database using the Azure portal](sql-database-import.md)
+- [Import from a BACPAC file into Azure SQL Database using or PowerShell](sql-database-import-powershell.md)
+
+## Export a compatible SQL Server database to a BACPAC file using SQL Server Management Studio
+
+Use the steps below to use Management Studio to export a migrating a [compatible](#determine-if-your-database-is-compatible) SQL Server database to a BACPAC file.
+
+1. Verify that you have version 13.0.600.65 or later of SQL Server Management Studio. New versions of Management Studio are updated monthly to remain in sync with updates to the Azure portal.
+
+	 > [AZURE.IMPORTANT] Download the [latest](https://msdn.microsoft.com/library/mt238290.aspx) version of SQL Server Management Studio. It is recommended that you always use the latest version of Management Studio.
+
+2. Open Management Studio and connect to your source database in Object Explorer.
+
+	![Export a data-tier application from the Tasks menu](./media/sql-database-cloud-migrate/MigrateUsingBACPAC01.png)
+
+3. Right-click the source database in the Object Explorer, point to **Tasks**, and click **Export Data-Tier Application…**
+
+	![Export a data-tier application from the Tasks menu](./media/sql-database-cloud-migrate/TestForCompatibilityUsingSSMS01.png)
+
+4. In the export wizard, configure the export to save the BACPAC file to either a local disk location or to an Azure blob. The exported BACPAC always includes the complete database schema and, by default, data from all the tables. Use the Advanced tab if you want to exclude data from some or all of the tables. You might, for example, choose to export only the data for reference tables rather than from all tables.
+
+	![Export settings](./media/sql-database-cloud-migrate/MigrateUsingBACPAC02.png)
+
+## Export a compatible SQL Server database to a BACPAC file using SqlPackage
+
+Use the steps below to use the [SqlPackage.exe](https://msdn.microsoft.com/library/hh550080.aspx) command line utility to export a migrating a [compatible](#determine-if-your-database-is-compatible) database to a BACPAC file.
+
+> [AZURE.NOTE] The steps below assume that you have already provisioned an Azure SQL Database server, have the connection information on hand, and have verified that your source database is compatible.
+
+1. Open a command prompt and change a directory containing the sqlpackage.exe command line utility - this utility ships with both Visual Studio and SQL Server.
+2. Execute the following command, substituting for the following arguments: < server_name >, < database_name >, and < target_file >.
+
+	'sqlpackage.exe /Action:Export /ssn:< server_name > /sdn:< database_name > /tf:< target_file >
+
+	![Export a data-tier application from the Tasks menu](./media/sql-database-cloud-migrate/TestForCompatibilityUsingSQLPackage01b.png)
+
+## Import from a BACPAC file into Azure SQL Database using SQL Server Management Studio
+
+Use the steps below to import from a BACPAC file into Azure SQL Database.
+
+> [AZURE.NOTE] The steps below assume that you have already provisioned your Azure SQL logical instance and have the connection information on hand.
+
+1. Verify that you have version 13.0.600.65 or later of SQL Server Management Studio. New versions of Management Studio are updated monthly to remain in sync with updates to the Azure portal.
+
+	 > [AZURE.IMPORTANT] Download the [latest](https://msdn.microsoft.com/library/mt238290.aspx) version of SQL Server Management Studio. It is recommended that you always use the latest version of Management Studio.
+
+2. Open Management Studio and connect to your source database in Object Explorer.
+
+	![Export a data-tier application from the Tasks menu](./media/sql-database-cloud-migrate/MigrateUsingBACPAC01.png)
+
+    Once the BACPAC has been created, connect to your Azure SQL Database server, right-click the **Databases** folder and click **Import Data-tier Application...**
+
+    ![Import data-tier application menu item](./media/sql-database-cloud-migrate/MigrateUsingBACPAC03.png)
+
+3.	In the import wizard, choose the BACPAC file you just exported to create the new database in Azure SQL Database.
+
+    ![Import settings](./media/sql-database-cloud-migrate/MigrateUsingBACPAC04.png)
+
+4.	Provide the **New database name** for the database on Azure SQL DB, set the **Edition of Microsoft Azure SQL Database** (service tier), **Maximum database size** and **Service Objective** (performance level).
+
+    ![Database settings](./media/sql-database-cloud-migrate/MigrateUsingBACPAC05.png)
+
+5.	Click **Next** and then click **Finish** to import the BACPAC file into a new database in the Azure SQL Database server.
+
+6. Using Object Explorer, connect to your migrated database in your Azure SQL Database server.
+
+7.	Using the Azure Portal, view your database and its properties.
+
+## Import from a BACPAC file into Azure SQL Database using SqlPackage
+
+Use the steps below to use the [SqlPackage.exe](https://msdn.microsoft.com/library/hh550080.aspx) command line utility to import a compatible SQL Server database (or Azure SQL database) from a BACPAC file.
+
+> [AZURE.NOTE] The steps below assume that you have already provisioned an Azure SQL Database server and have the connection information on hand.
+
+1. Open a command prompt and change a directory containing the sqlpackage.exe command line utility - this utility ships with both Visual Studio and SQL Server.
+2. Execute the following command, substituting for the following arguments: < server_name >, < database_name >, < user_name >, < password > , and < source_file >.
+
+	'sqlpackage.exe /Action:Import /tsn:< server_name > /tdn:< database_name > /tu:< user_name > /tp:< password > /sf:< target_file >
+
+	![Export a data-tier application from the Tasks menu](./media/sql-database-cloud-migrate/TestForCompatibilityUsingSQLPackage01c.png)
 
 
- 
+## Fix database compatibility issues
+
+If you determine that your source SQL Server database is not compatible, you have a number of options to fix the database compatibility issues that you [identified previously](#determine-if-your-database-is-compatible).
+
+- Use the [SQL Azure Migration wizard](http://sqlazuremw.codeplex.com/). You can use this Codeplex tool to generate a T-SQL script from an incompatible source database that is then transformed by the wizard to make it compatible with the SQL Database and then connect to Azure SQL Database to execute the script. This tool will also analyze trace files to determine compatiblity issues. The script can be generated with schema only or can include data in BCP format. Additional documentation, including step-by-step guidance is available on Codeplex at [SQL Azure Migration wizard](http://sqlazuremw.codeplex.com/).  
+
+ ![SAMW migration diagram](./media/sql-database-cloud-migrate/02SAMWDiagram.png)
+
+ > [AZURE.NOTE] Note that not all incompatible schema that can be detected by the wizard can be processed by its built-in transformations. Incompatible script that cannot be addressed will be reported as errors, with comments injected into the generated script. If many errors are detected, use either Visual Studio or SQL Server Management Studio to step through and fix each error that could not be fixed using the SQL Server Migration Wizard.
+
+- Use Visual Studio. You can use Visual Studio to import the database schema into a Visual Studio database project for analysis. To analyze, you specify the target platform for the project as SQL Database V12 and then build the project. If the build is successful, the database is compatible. If the build fails, you can resolve the errors in SQL Server Data Tools for Visual Studio ("SSDT"). Once the project builds successfully, you can publish it back as a copy of the source database and then use the data compare feature in SSDT to copy the data from the source database to the Azure SQL V12 compatible database. This updated database is then deployed to Azure SQL Database using the options [discussed previously](#options-to-migrate-a-compatible-database-to-azure-sql-database).
+
+ ![VSSSDT migration diagram](./media/sql-database-cloud-migrate/03VSSSDTDiagram.png)
+
+ > [AZURE.NOTE] If schema-only migration is required, the schema can be published directly from Visual Studio directly to Azure SQL Database. Use this method when the database schema requires more changes than can be handled by the migration wizard alone.
+
+- SQL Server Management Studio. You can fix the issues in Management Studio using various Transact-SQL commands, such as **ALTER DATABASE**.

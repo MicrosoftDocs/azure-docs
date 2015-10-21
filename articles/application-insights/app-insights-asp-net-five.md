@@ -54,7 +54,7 @@ In your ASP.NET 5 project, paste it into `config.json`:
       }
     }
 
-Or if you’d prefer the configuration to be dynamic, you can add this code to the application’s Startup class:
+Or if you'd prefer the configuration to be dynamic, you can add this code to the application's Startup class:
 
     configuration.AddApplicationInsightsSettings(
       instrumentationKey: "11111111-2222-3333-4444-555555555555");
@@ -90,16 +90,20 @@ In `startup.cs`:
 
 In the `Startup` method:
 
-    // Setup configuration sources.
-    var configuration = new Configuration()
-       .AddJsonFile("config.json")
-       .AddJsonFile($"config.{env.EnvironmentName}.json", optional: true);
-    configuration.AddEnvironmentVariables();
-    Configuration = configuration;
-
-    if (env.IsEnvironment("Development"))
+    public Startup(IHostingEnvironment env, IApplicationEnvironment appEnv)
     {
-      configuration.AddApplicationInsightsSettings(developerMode: true);
+    	// Setup configuration sources.
+    	var builder = new ConfigurationBuilder(appEnv.ApplicationBasePath)
+	   		.AddJsonFile("config.json")
+	   		.AddJsonFile($"config.{env.EnvironmentName}.json", optional: true);
+    	builder.AddEnvironmentVariables();
+
+    	if (env.IsEnvironment("Development"))
+    	{
+	    	builder.AddApplicationInsightsSettings(developerMode: true);
+    	}
+    
+    	Configuration = builder.build();
     }
 
 In the `ConfigurationServices` method:
@@ -168,5 +172,5 @@ Return to the [Azure portal][portal] and browse to your Application Insights res
 [portal]: http://portal.azure.com/
 [qna]: app-insights-troubleshoot-faq.md
 [roles]: app-insights-resources-roles-access-control.md
-[start]: app-insights-get-started.md
+[start]: app-insights-overview.md
 [usage]: app-insights-web-track-usage.md 

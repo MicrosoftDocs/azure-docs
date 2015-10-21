@@ -1,20 +1,20 @@
-<properties 
-        pageTitle="Authenticate users of your iOS app with Azure Active Directory Single Sign-On" 
-        description="Learn how to log users into your iOS application with the Active Directory Authentication Library." 
-        documentationCenter="Mobile" 
-        authors="mattchenderson" 
-        services="app-service\mobile" 
+<properties
+        pageTitle="Authenticate users of your iOS app with Azure Active Directory Sign-On"
+        description="Learn how to log users into your iOS application with the Active Directory Authentication Library."
+        documentationCenter="Mobile"
+        authors="mattchenderson"
+        services="app-service\mobile"
         manager="dwrede" />
 
-<tags ms.service="app-service"
+<tags ms.service="app-service-mobile"
 ms.workload="mobile"
-ms.tgt_pltfrm="mobile-ios" 
-ms.devlang="objective-c" 
-ms.topic="article" 
-ms.date="05/19/2015" 
+ms.tgt_pltfrm="mobile-ios"
+ms.devlang="objective-c"
+ms.topic="article"
+ms.date="09/14/2015"
 ms.author="mahender" />
 
-# Add Azure Active Directory single sign-on to your iOS app
+# Add Azure Active Directory sign-on to your iOS app
 
 [AZURE.INCLUDE [app-service-mobile-selector-aad-sso](../../includes/app-service-mobile-selector-aad-sso.md)]
 
@@ -33,7 +33,7 @@ This tutorial requires the following:
 
 ##<a name="review"></a>Review your server project configuration (optional)
 
-[AZURE.INCLUDE [app-service-mobile-dotnet-backend-enable-auth-preview](../../includes/app-service-mobile-dotnet-backend-enable-auth-preview.md)] 
+[AZURE.INCLUDE [app-service-mobile-dotnet-backend-enable-auth-preview](../../includes/app-service-mobile-dotnet-backend-enable-auth-preview.md)]
 
 ## <a name="register-application"></a>Register your application with the Azure Active Directory
 
@@ -41,7 +41,7 @@ This tutorial requires the following:
 
 ## <a name="require-authentication"></a>Configure the application to require authentication
 
-[AZURE.INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)] 
+[AZURE.INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
 
 ## <a name="add-adal"></a>Add a reference to the Active Directory Authentication Library
 

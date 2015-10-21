@@ -1,6 +1,6 @@
 <properties
    pageTitle="Azure Data Catalog developer concepts"
-   description="Developer concepts in Azure Data Catalog: Catalog, users, assets, crowdsourcing."
+   description="Introduction to the key concepts in Azure Data Catalog conceptual model, as exposed through the Catalog REST API."
    services="data-catalog"
    documentationCenter=""
    authors="dvana"
@@ -46,19 +46,19 @@ Azure Data Catalog uses Azure Active Directory for identity and access managemen
 
 ### Assets
 
-A **Catalog** contains data assets. **Assets** are the unit of item managed by the catalog.
+A **Catalog** contains data assets. **Assets** are the unit of granularity managed by the catalog.
 
-The granularity of an asset varies by data source. For SQL Server or Oracle Database an asset can be a Table or a View. For SQL Server Analysis Services an asset can be a Measures, a Dimensions, or a Key Performance Indicator (KPI). For SQL Server Reporting Services an asset can be a Report.
+The granularity of an asset varies by data source. For SQL Server or Oracle Database an asset can be a Table or a View. For SQL Server Analysis Services an asset can be a Measure, a Dimension, or a Key Performance Indicator (KPI). For SQL Server Reporting Services an asset is a Report.
 
-An **Asset** is the item you add or remove from a Catalog. It is the unit of result you get back from **Search**.
+An **Asset** is the thing you add or remove from a Catalog. It is the unit of result you get back from **Search**.
 
-An **Asset** is made up from the core information, its location and its type as well as annotations that further describe it.
+An **Asset** is made up from its name, location and type as well as annotations that further describe it.
 
 ### Annotations
 
 Annotations are items that represent metadata about Assets.
 
-Examples of annotations are Description, tags, schema, documentation, etc… A full list of the asset types and annotation types are in the Asset Object model section.
+Examples of annotations are description, tags, schema, documentation, etc… A full list of the asset types and annotation types are in the Asset Object model section.
 
 ## Crowdsourcing annotations and user perspective (multiplicity of opinion)
 
@@ -80,21 +80,7 @@ The UX can then choose how to display the combination. There are three different
 
 -	The simplest pattern is “Show All”. In this pattern all the objects are shown in some sort of list view. This is what the Azure Data Catalog portal UX does for description.
 -	Another pattern is “Merge”. In this pattern all the values from the different users are merged together, with duplicate removed. Examples of this pattern in the Azure Data Catalog portal UX are the tags and experts properties.
--	A third pattern is “last writer wins”. In this pattern only the most recent value typed in is shown. friendlyName is an example of this pattern. Some types are not allowed to have multiple instances.
-
-Below is a list of types that are allowed and not allowed to have multiple instances:
-
-The following types are allowed to have multiple instances:
-
-- Description
-- Experts
-- Schema Description
-
-The following types are **not** allowed to have multiple instances:
-
-- Root types
-- Schema
-- Preview
+-	A third pattern is “last writer wins”. In this pattern only the most recent value typed in is shown. friendlyName is an example of this pattern.
 
 ## Asset object model
 
@@ -129,13 +115,40 @@ Annotation types represent types of metadata that can be assigned to other types
 <tr><td></td><td>mimeType</td><td>string</td><td>The mime type of the content.</td></tr>
 <tr><td></td><td>content</td><td>string</td><td>The instructions for how to get access to this data asset. This could be an URL, an email address, or a set of instructions.</td></tr>
 
+<tr><td>TableDataProfile</td><td></td><td></td><td></td></tr>
+<tr><td></td><td>numberOfRows</td></td><td>int</td><td>The number of rows in the data set</td></tr>
+<tr><td></td><td>size</td><td>long</td><td>The size in bytes of the data set.  </td></tr>
+<tr><td></td><td>schemaModifiedTime</td><td>string</td><td>The last time the schema was modified</td></tr>
+<tr><td></td><td>dataModifiedTime</td><td>string</td><td>The last time the data set was modified (data was added, modified or delete)</td></tr>
+
+<tr><td>ColumnsDataProfile</td><td></td><td></td><td></td></tr>
+<tr><td></td><td>columns</td></td><td>ColumnDataProfile[]</td><td>The number of rows in the data set</td></tr>
+
+
 </table>
 
 ### Common types
 
 Common types can be used as the types for properties, but are not Items.
 
-<table><tr><td><b>Common Type</b></td><td><b>Properties</b></td><td><b>Data Type</b></td><td><b>Comments</b></td></tr><tr><td>DataSourceInfo</td><td></td><td></td><td></td></tr><tr><td></td><td>sourceType</td><td>string</td><td>Describes the type of data source.  i.e. SQL Server, Oracle Database, etc…  </td></tr><tr><td></td><td>objectType</td><td>string</td><td>Describes the type of object in the data source. i.e. Table, View for SQL Server.</td></tr><tr><td></td><td>formatType</td><td>string</td><td>Describes the structure of the data.  Current values are structured or unstructured.</td></tr><tr><td>SecurityPrincipal</td><td></td><td></td><td></td></tr><tr><td></td><td>upn</td><td>string</td><td>Unique email address of user.</td></tr><tr><td></td><td>firstName</td><td>string</td><td>First name of user (for display purposes).</td></tr><tr><td></td><td>lastName</td><td>string</td><td>Last name of user (for display purposes).</td></tr><tr><td>Column</td><td></td><td></td><td></td></tr><tr><td></td><td>name</td><td>string</td><td>Name of the column or attribute.</td></tr><tr><td></td><td>type</td><td>string</td><td>data type of the column or attribute. The Allowable types will depend on data sourceType of the asset.  Only a subset of types are supported.</td></tr><tr><td></td><td>maxLength</td><td>int</td><td>The maximum length allowed for the column or attribute. Derived from data source. Only applicable to some source types.</td></tr><tr><td></td><td>Precision</td><td>byte</td><td>The precision for the column or attribute. Derived from data source. Only applicable to some source types.</td></tr><tr><td></td><td>isNullable</td><td>Boolean</td><td>Whether the column is allowed to have a null value or not. Derived from data source. Only applicable to some source types.</td></tr><tr><td></td><td>expression</td><td>string</td><td>If the value is a calculated column this field contains the expression that expresses the value. Derived from data source. Only applicable to some source types.</td></tr><tr><td></td><td>defaultValue</td><td>object</td><td>The default value inserted if not specified in the insert statement for the object.  Derived from data source. Only applicable to some source types.</td></tr><tr><td>ColumnDescription</td><td></td><td></td><td></td></tr><tr><td></td><td>tags</td><td>string[]</td><td>An array of tags describing the column.</td></tr><tr><td></td><td>description</td><td>string</td><td>A description describing the column.</td></tr><tr><td></td><td>columnName</td><td>string</td><td>The name of the column this information refers to.</td></tr>
+<table><tr><td><b>Common Type</b></td><td><b>Properties</b></td><td><b>Data Type</b></td><td><b>Comments</b></td></tr><tr><td>DataSourceInfo</td><td></td><td></td><td></td></tr><tr><td></td><td>sourceType</td><td>string</td><td>Describes the type of data source.  i.e. SQL Server, Oracle Database, etc…  </td></tr><tr><td></td><td>objectType</td><td>string</td><td>Describes the type of object in the data source. i.e. Table, View for SQL Server.</td></tr><tr><td></td><td>formatType</td><td>string</td><td>Describes the structure of the data.  Current values are structured or unstructured.</td></tr><tr><td>SecurityPrincipal</td><td></td><td></td><td></td></tr><tr><td></td><td>upn</td><td>string</td><td>Unique email address of user.</td></tr><tr><td></td><td>firstName</td><td>string</td><td>First name of user (for display purposes).</td></tr><tr><td></td><td>lastName</td><td>string</td><td>Last name of user (for display purposes).</td></tr><tr><td>Column</td><td></td><td></td><td></td></tr><tr><td></td><td>name</td><td>string</td><td>Name of the column or attribute.</td></tr><tr><td></td><td>type</td><td>string</td><td>data type of the column or attribute. The Allowable types will depend on data sourceType of the asset.  Only a subset of types are supported.</td></tr><tr><td></td><td>maxLength</td><td>int</td><td>The maximum length allowed for the column or attribute. Derived from data source. Only applicable to some source types.</td></tr><tr><td></td><td>Precision</td><td>byte</td><td>The precision for the column or attribute. Derived from data source. Only applicable to some source types.</td></tr><tr><td></td><td>isNullable</td><td>Boolean</td><td>Whether the column is allowed to have a null value or not. Derived from data source. Only applicable to some source types.</td></tr><tr><td></td><td>expression</td><td>string</td><td>If the value is a calculated column this field contains the expression that expresses the value. Derived from data source. Only applicable to some source types.</td></tr><tr><td></td><td>defaultValue</td><td>object</td><td>The default value inserted if not specified in the insert statement for the object.  Derived from data source. Only applicable to some source types.</td>
+
+</tr><tr><td>ColumnDescription</td><td></td><td></td><td></td></tr>
+<tr><td></td><td>tags</td><td>string[]</td><td>An array of tags describing the column.</td></tr>
+<tr><td></td><td>description</td><td>string</td><td>A description describing the column.</td></tr><tr><td></td><td>columnName</td><td>string</td><td>The name of the column this information refers to.</td></tr>
+
+</tr><tr><td>ColumnDataProfile</td><td></td><td></td><td></td></tr>
+<tr><td></td><td>columnName </td><td>string</td><td>The name of the column</td></tr>
+<tr><td></td><td>type </td><td>string</td><td>The type of the column</td></tr>
+<tr><td></td><td>min </td><td>string</td><td>The minimum value in the data set</td></tr>
+<tr><td></td><td>max </td><td>string</td><td>The maximum value in the data set</td></tr>
+<tr><td></td><td>avg </td><td>double</td><td>The average value in the data set</td></tr>
+<tr><td></td><td>stdev </td><td>double</td><td>The standard deviation for the data set</td></tr>
+<tr><td></td><td>nullCount </td><td>int</td><td>The count of null values in the data set</td></tr>
+<tr><td></td><td>distinctCount  </td><td>int</td><td>The count of distinct values in the data set</td></tr>
+
+
+
 </table>
 
 ## Roles and authorization
@@ -263,4 +276,4 @@ Special security principal <Everyone> has objectId "00000000-0000-0000-0000-0000
 > [AZURE.NOTE] In PUT it’s not required to specify an item payload in the body: PUT can be used to update just roles and/or permissions.
 
 <!--Image references-->
-[1]: ./media/data-catalog-developer-concepts/concept.png
+[1]: ./media/data-catalog-developer-concepts/concept2.png

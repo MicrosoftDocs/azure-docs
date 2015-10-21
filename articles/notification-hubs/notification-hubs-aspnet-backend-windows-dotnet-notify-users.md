@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Azure Notification Hubs Notify Users" 
-	description="Learn how to send secure push notifications in Azure. Code samples written in C# using the .NET API." 
-	documentationCenter="windows" 
-	authors="wesmc7777" 
-	manager="dwrede" 
-	services="notification-hubs" 
+<properties
+	pageTitle="Azure Notification Hubs Notify Users"
+	description="Learn how to send secure push notifications in Azure. Code samples written in C# using the .NET API."
+	documentationCenter="windows"
+	authors="wesmc7777"
+	manager="dwrede"
+	services="notification-hubs"
 	editor=""/>
 
-<tags 
-	ms.service="notification-hubs" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="05/31/2015" 
+<tags
+	ms.service="notification-hubs"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-windows"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="10/15/2015"
 	ms.author="wesmc"/>
 
 #Azure Notification Hubs Notify Users
@@ -25,10 +25,21 @@
 
 Push notification support in Azure enables you to access an easy-to-use, multiplatform, and scaled-out push infrastructure, which greatly simplifies the implementation of push notifications for both consumer and enterprise applications for mobile platforms. This tutorial shows you how to use Azure Notification Hubs to send push notifications to a specific app user on a specific device. An ASP.NET WebAPI backend is used to authenticate clients. Using the authenticated client user, and tag will be automatically added by the backend to notification registration. This tag will be used to send by the backend to generate notifications for a specific user. For more information on registering for notifications using an app backend, see the guidance topic [Registering from your app backend](http://msdn.microsoft.com/library/dn743807.aspx). This tutorial builds on the notification hub and project that you created in the [Get started with Notification Hubs] tutorial.
 
-This tutorial is also the prerequisite to the [Secure Push] tutorial. After you have completed the steps in this tutorial, you can proceed to the [Secure Push] tutorial, which shows how to modify the code in this tutorial to send a push notification securely. 
+This tutorial is also the prerequisite to the [Secure Push] tutorial. After you have completed the steps in this tutorial, you can proceed to the [Secure Push] tutorial, which shows how to modify the code in this tutorial to send a push notification securely.
 
 
-##Prerequisites 
+
+
+
+## Before you begin
+
+We do take your feedback seriously. If you have any difficulties completing this topic, or recommendations for improving this content, we would appreciate your feedback at the bottom of the page.
+
+The completed code for this tutorial can be found on GitHub [here](https://github.com/Azure/azure-notificationhubs-samples/tree/master/dotnet/NotifyUsers). 
+
+
+
+##Prerequisites
 
 Before you start this tutorial, you must have already completed these Mobile Services tutorials:
 
@@ -100,7 +111,7 @@ In this section, you update the code in the project you completed for the [Get s
                     <TextBlock Grid.Row="2" Grid.ColumnSpan="3" Text="Password" FontSize="24" Margin="20,0,20,0" />
                     <PasswordBox Name="PasswordTextBox" Grid.Row="3" Grid.ColumnSpan="3" Margin="20,0,20,0"/>
 
-                    <Button Grid.Row="4" Grid.ColumnSpan="3" HorizontalAlignment="Center" VerticalAlignment="Center" 
+                    <Button Grid.Row="4" Grid.ColumnSpan="3" HorizontalAlignment="Center" VerticalAlignment="Center"
                                 Content="1. Login and register" Click="LoginAndRegisterClick" Margin="0,0,0,20"/>
 
                     <ToggleButton Name="toggleWNS" Grid.Row="5" Grid.Column="0" HorizontalAlignment="Right" Content="WNS" IsChecked="True" />
@@ -111,7 +122,7 @@ In this section, you update the code in the project you completed for the [Get s
                     <TextBox Name="ToUserTagTextBox" Grid.Row="7" Grid.ColumnSpan="3" Margin="20,0,20,0" TextWrapping="Wrap" />
                     <TextBlock Grid.Row="8" Grid.ColumnSpan="3" Text="Enter Notification Message" FontSize="24" Margin="20,0,20,0"/>
                     <TextBox Name="NotificationMessageTextBox" Grid.Row="9" Grid.ColumnSpan="3" Margin="20,0,20,0" TextWrapping="Wrap" />
-                    <Button Grid.Row="10" Grid.ColumnSpan="3" HorizontalAlignment="Center" Content="2. Send push" Click="PushClick" />
+                    <Button Grid.Row="10" Grid.ColumnSpan="3" HorizontalAlignment="Center" Content="2. Send push" Click="PushClick" Name="SendPushButton" />
                 </Grid>
             </StackPanel>
         </Grid>
@@ -136,12 +147,12 @@ In this section, you update the code in the project you completed for the [Get s
 
 
 
-13. Add the code below to the MainPage class in **MainPage.xaml.cs** for the **(Windows 8.1)** and **(Windows Phone 8.1)** projects. 
- 
-	The `PushClick` method is the click handler for the **Send Push** button. It calls the backend to trigger a notification to all devices with a username tag that matches the `to_tag` parameter. The notification message is sent as JSON content in the request body. 
+13. Add the code below to the MainPage class in **MainPage.xaml.cs** for the **(Windows 8.1)** and **(Windows Phone 8.1)** projects.
+
+	The `PushClick` method is the click handler for the **Send Push** button. It calls the backend to trigger a notification to all devices with a username tag that matches the `to_tag` parameter. The notification message is sent as JSON content in the request body.
 
 	The `LoginAndRegisterClick` method is the click handler for the **Log in and register** button. It stores the basic authentication token in local storage (note that this represents any token your authentication scheme uses), then uses `RegisterClient` to register for notifications using the backend.
-	
+
 
         private async void PushClick(object sender, RoutedEventArgs e)
         {
@@ -226,8 +237,8 @@ In this section, you update the code in the project you completed for the [Get s
             //InitNotificationsAsync();
 
 
-15. In Solution Explorer, right-click the **Shared** project, then click **Add**, and then click **Class**. Name the class **RegisterClient.cs**, then click **OK** to generate the class. 
-	
+15. In Solution Explorer, right-click the **Shared** project, then click **Add**, and then click **Class**. Name the class **RegisterClient.cs**, then click **OK** to generate the class.
+
 	This class will wrap the REST calls required to contact the app backend, in order to register for push notifications. It also locally stores the *registrationIds* created by the Notification Hub as detailed in [Registering from your app backend](http://msdn.microsoft.com/library/dn743807.aspx). Note that it uses an authorization token stored in local storage when you click the **Log in and register** button.
 
 
@@ -254,7 +265,7 @@ In this section, you update the code in the project you completed for the [Get s
 
         public RegisterClient(string backendEndpoint)
         {
-            PostURL = backendEndpoint + "/api/register";
+            POST_URL = backendEndpoint + "/api/register";
         }
 
         public async Task RegisterAsync(string handle, IEnumerable<string> tags)
@@ -327,7 +338,7 @@ In this section, you update the code in the project you completed for the [Get s
         }
 
 18. Save all your changes.
-		
+
 
 ## Testing the Application
 
@@ -336,22 +347,22 @@ In this section, you update the code in the project you completed for the [Get s
 2. In the Windows 8.1 instance of the app, enter a **Username** and **Password** as shown in the screen below. It should differ from the user name and password you enter on Windows Phone.
 
 
-3. Click **Log in and register** and verify a dialog shows that you have logged in. This will also enable the **Send Push** button. 
+3. Click **Log in and register** and verify a dialog shows that you have logged in. This will also enable the **Send Push** button.
 
     ![][14]
 
-4. On the Windows Phone 8.1 instance, enter a user name string in both the **Username** and **Password** fields then click **Login and register**. 
-5. Then in the **Recipient Username Tag** field, enter the user name registered on Windows 8.1. Enter a notification message and click **Send Push**. 
+4. On the Windows Phone 8.1 instance, enter a user name string in both the **Username** and **Password** fields then click **Login and register**.
+5. Then in the **Recipient Username Tag** field, enter the user name registered on Windows 8.1. Enter a notification message and click **Send Push**.
 
     ![][16]
 
 6. Only the devices that have registered with the matching username tag receive the notification message.
-	
-	![][15] 
- 
+
+	![][15]
+
 ## Next Steps
 
-* If you want to segment your users by interest groups, see [Use Notification Hubs to send breaking news]. 
+* If you want to segment your users by interest groups, see [Use Notification Hubs to send breaking news].
 * To learn more about how to use Notification Hubs, see [Notification Hubs Guidance].
 
 
@@ -371,4 +382,4 @@ In this section, you update the code in the project you completed for the [Get s
 [Get started with Notification Hubs]: notification-hubs-windows-store-dotnet-get-started.md
 [Secure Push]: notification-hubs-aspnet-backend-windows-dotnet-secure-push.md
 [Use Notification Hubs to send breaking news]: notification-hubs-windows-store-dotnet-send-breaking-news.md
-[Notification Hubs Guidance]: http://msdn.microsoft.com/library/jj927170.aspx 
+[Notification Hubs Guidance]: http://msdn.microsoft.com/library/jj927170.aspx

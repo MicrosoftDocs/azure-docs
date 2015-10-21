@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/06/2015"
+   ms.date="09/04/2015"
    ms.author="alkohli" />
 
 # Turn your StorSimple device on or off 
@@ -28,7 +28,7 @@ The following table lists various scenarios for turning on and shutting down you
 |Turn on a new device|[Turn on a new device](#turn-on-a-new-device)<ul><li>[New device with primary enclosure only](#new-device-with-primary-enclosure-only)</li><li>[New device with EBOD enclosure](#new-device-with-ebod-enclosure)</li></ul>|
 |Turn on a device after shutdown|[Turn on a device after shutdown](#turn-on-a-device-after-shutdown)<ul><li>[Device with primary enclosure only](#device-with-primary-enclosure-only)</li><li>[Device with EBOD enclosure](#device-with-ebod-enclosure)</li></ul>|
 |Turn on a device after a power loss|[Turn on a device after a power loss](#turn-on-a-device-after-a-power-loss)<ul><li>[Device with primary enclosure only](#8100)</li><li>[Device with EBOD enclosure](#8600)</li></ul>|
-|Turn on a device after the primary enclosure and EBOD connection is lost|[Turn on a device after the primary and EBOD enclosure connection is lost](turn-on-a-device-after-the-primary-and-EBOD-enclosure-connection-is-lost)|
+|Turn on a device after the primary enclosure and EBOD connection is lost|[Turn on a device after the primary and EBOD enclosure connection is lost](#turn-on-a-device-after-the-primary-and-EBOD-enclosure-connection-is-lost)|
 |Shut down a running device|[Turn off a running device](#turn-off-a-running-device)<ul><li>[Device with primary enclosure only](#8100a)</li><li>[Device with EBOD enclosure](#8600a)</li></ul>|
 
 ## Turn on a new device
@@ -37,7 +37,7 @@ The steps for turning on a Microsoft Azure StorSimple device for the first time 
 
 - [New device with primary enclosure only](#new-device-with-primary-enclosure-only)
 
-- [New device with EBOD enclosure](#new-device-with-EBOD-enclosure)
+- [New device with EBOD enclosure](#new-device-with-ebod-enclosure)
 
 ### New device with primary enclosure only
 

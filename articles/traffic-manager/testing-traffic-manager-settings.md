@@ -12,8 +12,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/27/2015"
-   ms.author="joaoma;cherylmc" />
+   ms.date="08/19/2015"
+   ms.author="joaoma" />
 
 # Testing Traffic Manager Settings
 
@@ -70,7 +70,6 @@ There are free web-based DNS lookup and dig services available. Some of these gi
 
 ## See Also
 
-[About Traffic Manager Load Balancing Methods](../about-traffic-manager-balancing-methods.md)
-[Traffic Manager Configuration Tasks](https://msdn.microsoft.com/library/azure/hh744830.aspx)
+[About Traffic Manager traffic routing methods](../about-traffic-manager-balancing-methods.md)
 [Traffic Manager](../traffic-manager.md)
  

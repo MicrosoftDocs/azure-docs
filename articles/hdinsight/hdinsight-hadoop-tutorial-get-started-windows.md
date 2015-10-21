@@ -15,7 +15,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="08/07/2015"
+   ms.date="09/03/2015"
    ms.author="nitinme"/>
 
 
@@ -145,10 +145,11 @@ Now that you have provisioned an HDInsight cluster, the next step is to run a Hi
 
 **To run a Hive job from the cluster dashboard**
 
-1. Sign in to the [Azure Portal][azure-management-portal].
-2. Click **HDINSIGHT** from the left pane. You will see a list of clusters, including the cluster you just created in the previous section.
-3. Click the name of the cluster that you want to use to run the Hive job, and then click **QUERY CONSOLE** at the bottom of the page.
-4. A webpage opens in a different browser tab. Enter the Hadoop user account and password. The default user name is **admin**; the password is what you entered while provisioning the cluster. The dashboard looks like this:
+1. Sign in to the [Azure Preview Portal](https://ms.portal.azure.com/).
+2. Click **BROWSE ALL** and then click **HDInsight Clusters** to see a list of clusters, including the cluster you just created in the previous section.
+3. Click the name of the cluster that you want to use to run the Hive job, and then click **Dashboard** at the top of the blade.
+4. A webpage opens in a different browser tab. Enter the Hadoop user account and password. The default user name is **admin**; the password is what you entered while provisioning the cluster.
+5. From the dashboard, click the **Hive Editor** tab. The following web page opens.
 
 	![Hive Editor tab in the HDInsight cluster dashboard.][img-hdi-dashboard]
 

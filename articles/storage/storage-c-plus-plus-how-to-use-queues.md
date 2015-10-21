@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-	ms.date="07/19/2015" 
+	ms.date="09/23/2015" 
     ms.author="tamram"/>
 
 # How to use Queue Storage from C++  
@@ -233,8 +233,7 @@ Now that you've learned the basics of Queue storage, follow these links to learn
 -	[How to use Blob Storage from C++](storage-c-plus-plus-how-to-use-blobs.md)
 -	[How to use Table Storage from C++](storage-c-plus-plus-how-to-use-tables.md)
 -	[List Azure Storage Resources in C++](storage-c-plus-plus-enumeration.md)
--	[Storage Client Library for C++](https://msdn.microsoft.com/library/azure/gg433040.aspx) 
--	[Azure Storage MSDN Reference](https://msdn.microsoft.com/library/azure/gg433040.aspx)
+-	[Storage Client Library for C++ Reference](http://azure.github.io/azure-storage-cpp)
 -	[Azure Storage Documentation](http://azure.microsoft.com/documentation/services/storage/)
 
  

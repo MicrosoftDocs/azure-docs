@@ -1,19 +1,19 @@
 <properties 
-    pageTitle="StorSimple 8000 Series Update 0.3 release notes - February 2015"
-    description="Describes the new features, issues, and workarounds for the February 2015 StorSimple release."
-    services="storsimple"
-    documentationCenter="NA"
-    authors="SharS"
-    manager="adinah"
-    editor="tysonn" />
+   pageTitle="StorSimple 8000 Update 0.3 release notes | Microsoft Azure"
+   description="Describes the new features and fixes, open issues, and available workarounds for the February 2015 Microsoft Azure StorSimple release (Update 0.3)."
+   services="storsimple"
+   documentationCenter="NA"
+   authors="SharS"
+   manager="carolz"
+   editor="" />
  <tags 
-    ms.service="storsimple"
-    ms.devlang="NA"
-    ms.topic="article"
-    ms.tgt_pltfrm="NA"
-    ms.workload="TBD"
-    ms.date="05/27/2015"
-    ms.author="v-sharos" />
+   ms.service="storsimple"
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD"
+   ms.date="10/20/2015"
+   ms.author="v-sharos" />
 
 # StorSimple 8000 Series Update 0.3 release notes - February 2015
 
@@ -23,7 +23,7 @@ The following release notes identify the critical open issues for  StorSimple 80
   
 This update does not change the device software version from the January update. It continues to be version 6.3.9600.17312. You can confirm that the update has been installed by checking the **Last Updated** date. If the date is 2/10/2015 or later, then the update has been installed successfully.  
 
-We recommend that you scan for and apply any available updates immediately after you install your StorSimple device. You can also turn on automatic updates to download and install high-priority updates from Microsoft as soon as they are released. For more information, see how to install [Updates](https://msdn.microsoft.com/library/azure/1a2cd7de-706b-4d3c-8efb-02e322d3ae73#BKMK_Updates).  
+We recommend that you scan for and apply any available updates immediately after you install your StorSimple device. You can also turn on automatic updates to download and install high-priority updates from Microsoft as soon as they are released. For more information, see [Update your StorSimple device](storsimple-update-device.md).  
 
 Please review the information contained in the release notes before you deploy the update in your StorSimple solution.  
 
@@ -37,7 +37,7 @@ Make sure that the following prerequisites are met prior to updating your StorSi
 
 - Ensure that both device controllers are running before you scan for updates. If either controller is not running, the scan will fail. To verify that the controllers are in a healthy state, navigate to **Hardware Status** under the **Maintenance** page. If there are components that **Need attention**, contact Microsoft Support before proceeding any further.
 - Ensure that fixed IPs for both controller 0 and controller 1 are routable and can connect to the Internet as these are used for servicing the updates to the device. You can use the [Test-Connection cmdlet](https://technet.microsoft.com/library/hh849808.aspx) to ping a known address outside of the network, such as outlook.com, to verify that the controller has connectivity to the outside network.
-- Ensure that ports 80 and 443 are available on your StorSimple device for outbound communication. For more information, see the [Networking requirements for StorSimple device](https://msdn.microsoft.com/library/azure/dn772371.aspx).
+- Ensure that ports 80 and 443 are available on your StorSimple device for outbound communication. For more information, see the [Networking requirements for your StorSimple device](storsimple-system-requirements.md#networking-requirements-for-your-storsimple-device).
 - If the device software version is older than 6.3.9600.17312 (October 2014 update), disable the Data 2 and Data 3 ports, if enabled, before starting the update. Leaving the Data 2 or Data 3 ports enabled when you apply the update might cause your device controller to go into recovery mode. Please note that when you disable the network interfaces, all the associated volumes will be taken offline and the I/Os will be disrupted for the duration of the update.  
   
 ## What's new in the February release
@@ -67,9 +67,9 @@ The following table provides a summary of known issues in this release.
 | 4 | Incorrect controller ID | When a controller replacement is performed, controller 0 may show up as controller 1. During controller replacement, when the image is loaded from the peer node, the controller ID can show up initially as the peer controller’s ID. In rare instances, this behavior may also be seen after a system reboot. | No user action is required. This situation will resolve itself after the controller replacement is complete. | Yes | No |
 | 5 | Device monitoring charts | In the StorSimple Manager service, the device monitoring charts do not work when Basic or NTLM authentication is enabled in the proxy server configuration for the device. | Modify the web proxy configuration for the device registered with your StorSimple Manager service so that authentication is set to NONE. To do this, run the the Windows PowerShell for StorSimple Set-HcsWebProxy cmdlet. | Yes | Yes |
 | 6 | Storage accounts | Using the Storage service to delete the storage account is an unsupported scenario. This will lead to a situation in which user data cannot be retrieved. |  | Yes | Yes |
-| 7 | Device failover | Multiple failovers of a volume container from the same source device to different target devices is not supported.	Failover from a single dead device to multiple devices will make the volume containers on the first failed over device lose data ownership. After such a failover, these volume containers will appear or behave differently when you view them in the Management Portal. | Yes | No |
+| 7 | Device failover | Multiple failovers of a volume container from the same source device to different target devices is not supported.	Failover from a single dead device to multiple devices will make the volume containers on the first failed over device lose data ownership. After such a failover, these volume containers will appear or behave differently when you view them in the Management Portal. |   | Yes | No |
 | 8 | Installation | During StorSimple Adapter for SharePoint installation, you need to provide a device IP in order for the install to finish successfully. |  | Yes | No |
-| 9 | Web proxy | If your web proxy configuration has HTTPS as the specified protocol, then your device-to-service communication will be affected and the device will go offline. Support packages will also be generated in the process, consuming significant resources on your device. | Make sure that the web proxy URL has HTTP as the specified protocol. More information on how to [Configure web proxy for your device](https://msdn.microsoft.com/library/azure/dn764937.aspx). | Yes | No |
+| 9 | Web proxy | If your web proxy configuration has HTTPS as the specified protocol, then your device-to-service communication will be affected and the device will go offline. Support packages will also be generated in the process, consuming significant resources on your device. | Make sure that the web proxy URL has HTTP as the specified protocol. More information on how to [Configure web proxy for your device](storsimple-configure-web-proxy.md). | Yes | No |
 | 10 | Web proxy | If you configure and enable web proxy on a registered device, then you will need to restart the active controller on your device. |  | Yes | No |
 | 11 | High cloud latency and high I/O workload | When your StorSimple device encounters a combination of very high cloud latencies (order of seconds) and high I/O workload, the device volumes go into a degraded state and the I/Os may fail with a "device not ready" error. | You will need to manually reboot the device controllers or perform a device failover to recover from this situation. | Yes | No |
 

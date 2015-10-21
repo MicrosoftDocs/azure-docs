@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-android" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="06/19/2015" 
+	ms.date="09/16/2015" 
 	ms.author="glenga"/>
 
 # Add push notifications to your Mobile Services app
@@ -28,11 +28,11 @@ This tutorial requires the following:
 + An active Google account.
 + [Google Cloud Messaging Client Component]. You will add this component during the tutorial.
 
-You should already have the [Xamarin.Android] and the [Azure Mobile Services Component] installed in your project from when you completed either [Get started with Mobile Services] or [Add Mobile Services to an existing app].
+You should already have the [Xamarin.Android] and the [Azure Mobile Services Component] installed in your project from when you completed either [Get started with Mobile Services].
 
 ##<a id="register"></a>Enable Google Cloud Messaging
 
-[AZURE.INCLUDE [mobile-services-enable-Google-cloud-messaging](../../includes/mobile-services-enable-Google-cloud-messaging.md)]
+[AZURE.INCLUDE [mobile-services-enable-Google-cloud-messaging](../../includes/mobile-services-enable-google-cloud-messaging.md)]
 
 ##<a id="configure"></a>Configure your mobile service to send push requests
 
@@ -65,9 +65,6 @@ You have successfully completed this tutorial.
 
 Learn more about Mobile Services and Notification Hubs in the following topics:
 
-* [Add Mobile Services to an existing app]
-  <br/>Learn more about storing and querying data using mobile services.
-
 * [Get started with authentication](mobile-services-android-get-started-users.md)
   <br/>Learn how to authenticate users of your app with different account types using mobile services.
 
@@ -85,7 +82,6 @@ Learn more about Mobile Services and Notification Hubs in the following topics:
 
 <!-- URLs. -->
 [Get started with Mobile Services]: mobile-services-ios-get-started.md
-[Add Mobile Services to an existing app]: mobile-services-android-get-started-data.md
 
 [Google Cloud Messaging Client Component]: http://components.xamarin.com/view/GCMClient/
 [Xamarin.Android]: http://xamarin.com/download/

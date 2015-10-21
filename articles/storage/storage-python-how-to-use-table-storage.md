@@ -3,7 +3,7 @@
 	description="Learn how you can use the Table service from Python to create and delete a table, and to insert and query a table."
 	services="storage"
 	documentationCenter="python"
-	authors="huguesv"
+	authors="emgerner-msft"
 	manager="wpickett"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="python"
 	ms.topic="article"
-	ms.date="03/11/2015"
-	ms.author="huvalo"/>
+	ms.date="08/25/2015"
+	ms.author="emgerner"/>
 
 
 # How to use Table storage from Python
@@ -23,7 +23,7 @@
 
 ## Overview
 
-This guide shows you how to perform common scenarios by using the Azure Table storage service. The samples are written in Python and use the [Python Azure package][]. The covered scenarios include creating and deleting a
+This guide shows you how to perform common scenarios by using the Azure Table storage service. The samples are written in Python and use the [Python Azure Storage package][]. The covered scenarios include creating and deleting a
 table, in addition to inserting and querying entities in a table.
 
 [AZURE.INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
@@ -39,7 +39,7 @@ The **TableService** object lets you work with table services. The
 following code creates a **TableService** object. Add the code near
 the top of any Python file in which you wish to programmatically access Azure Storage:
 
-	from azure.storage import TableService, Entity
+	from azure.storage.table import TableService, Entity
 
 The following code creates a **TableService** object by using the storage account name and account key.  Replace 'myaccount' and 'mykey' with the real account and key.
 
@@ -164,6 +164,10 @@ to learn about more complex storage tasks:
 -   See the MSDN reference [Azure Storage][].
 -   Visit the [Azure Storage Team blog][].
 
+For more information, see also the [Python Developer Center](/develop/python/).
+
+
 [Azure Storage]: http://msdn.microsoft.com/library/azure/gg433040.aspx
 [Azure Storage Team blog]: http://blogs.msdn.com/b/windowsazurestorage/
-[Python Azure package]: https://pypi.python.org/pypi/azure  
+[Python Azure package]: https://pypi.python.org/pypi/azure
+[Python Azure Storage package]: https://pypi.python.org/pypi/azure-storage

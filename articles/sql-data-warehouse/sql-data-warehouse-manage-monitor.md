@@ -13,27 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="08/06/2015"
+   ms.date="09/22/2015"
    ms.author="sahajs"/>
 
 # Monitor your workload using DMVs
 
 This article describes how to use Dynamic Management Views (DMVs) to monitor your workload and investigate query execution in Azure SQL Data Warehouse.
-
-
-
-
-## Permissions
-
-In SQL Data Warehouse, querying a dynamic management view requires **VIEW DATABASE STATE** permissions. The **VIEW DATABASE STATE** permission returns information about all objects within the current database.
-To grant the **VIEW DATABASE STATE** permission to a specific database user, run the following query:
-
-```
-
-GRANT VIEW DATABASE STATE TO database_user;
-
-```
-
 
 
 
@@ -137,8 +122,10 @@ ORDER BY step_index;
 Save the Step Index of the long-running step.
 
 Check the *operation_type* column of the long-running query step:
-- Proceed with Step 4a for **SQL operations**: OnOperation, RemoteOperation, ReturnOperation
-- Proceed with Step 4b for **Data Movement operations**: ShuffleMoveOperation, BroadcastMoveOperation, TrimMoveOperation, PartitionMoveOperation, MoveOperation, CopyOperation
+
+- Proceed with Step 4a for **SQL operations**: OnOperation, RemoteOperation, ReturnOperation.
+- Proceed with Step 4b for **Data Movement operations**: ShuffleMoveOperation, BroadcastMoveOperation, TrimMoveOperation, PartitionMoveOperation, MoveOperation, CopyOperation.
+
 
 
 
