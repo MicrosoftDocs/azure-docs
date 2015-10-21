@@ -158,9 +158,7 @@ These options can be seen on this screen:
 8. On the **Ready to configure** page, leave the **Start the synchronization process as soon as the configuration completes** checked.
 9. Click **Install**.
 
->[AZURE.NOTE] Synchronization between Windows Server Active Directory and Azure Active Directory will begin, but no changes will be exported to Azure AD.  Only one synchronization tool can be actively exporting changes at a time. This is called [staging mode](active-directory-aadconnectsync-operations.md#staging-mode).
-
->[AZURE.NOTE] We uncheck the start synchronization checkbox in order to ensure that DirSync, which is still installed and running, and Azure AD Connect do not attempt to write to Azure AD at the same time.
+>[AZURE.NOTE] <LI>Synchronization between Windows Server Active Directory and Azure Active Directory will begin, but no changes will be exported to Azure AD.  Only one synchronization tool can be actively exporting changes at a time. This is called [staging mode](active-directory-aadconnectsync-operations.md#staging-mode). </LI> <LI>We uncheck the start synchronization checkbox in order to ensure that DirSync, which is still installed and running, and Azure AD Connect do not attempt to write to Azure AD at the same time.</LI>
 
 ### Check that Azure AD Connect is ready to begin synchronization
 
