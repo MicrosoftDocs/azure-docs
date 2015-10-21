@@ -18,7 +18,7 @@
 
 #Load sample data into SQL Data Warehouse
 
-While you are creating your SQL Data Warehouse instance, you can also easily load some sample data into it.  If you missed this step during provisioning, you can also [load sample data manually][]. 
+While you are creating your SQL Data Warehouse instance, you can easily load some sample data into it.  If you missed this step during provisioning, you can also [load sample data manually][]. 
 
 The following will give you a brief view of how AdventureWorksDW can be loaded in your database.  This dataset models out a sample data warehouse structure for a fictional company called AdventureWorks with data representing sales and customers for the company. 
 
