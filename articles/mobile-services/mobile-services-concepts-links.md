@@ -18,9 +18,10 @@
 
 # Mobile Services concepts
 
-These topics provide information about specific behaviors of Microsoft Azure Mobile Services. These same topics are available as help in the Microsoft Azure Management Portal. 
+The topics linked below provide information about specific behaviors of Microsoft Azure Mobile Services. These same topics are available as help in the Microsoft Azure Management Portal. 
 
-##Overview 
+[AZURE.INCLUDE [mobile-services-concepts](../../includes/mobile-services-concepts.md)]
+
 The [overview topic](https://msdn.microsoft.com/en-us/library/azure/jj193167.aspx) describes the benefits of using Mobile Services and what tasks can be performed in the Management Portal. For more general information about Mobile Services and examples of how to use Mobile Services in your apps, see [Mobile Services Tutorials and Resources](https://azure.microsoft.com/en-us/documentation/services/mobile-services/). 
 
 ##Configuration
