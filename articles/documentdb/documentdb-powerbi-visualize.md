@@ -36,7 +36,7 @@ Before following the instructions in this article, ensure that you have the foll
 - [The latest version of Power BI Desktop](https://powerbi.microsoft.com/desktop).
 - Data in your Azure DocumentDB account. 
 	- To create an account, see [Create a DocumentDB database account using the Azure preview portal](https://azure.microsoft.com/documentation/articles/documentdb-create-account/). 
-	- To add the sample Volcano data that's used in this tutorial to your account, you can get the csv data from the [NOAA site](https://www.ngdc.noaa.gov/nndc/struts/form?t=102557&s=5&d=5) and then import the csv file using the [DocumentDB data migration tool](https://azure.microsoft.com/documentation/articles/documentdb-import-data/).
+	- To get sample volcano data that's similar to what's used in this tutorial, see the [NOAA site](https://www.ngdc.noaa.gov/nndc/struts/form?t=102557&s=5&d=5) and then import the data using the [DocumentDB data migration tool](https://azure.microsoft.com/documentation/articles/documentdb-import-data/).
 
 To share your reports in PowerBI.com, you must have an account in PowerBI.com.  To learn more about Power BI for Free and Power BI Pro, please visit [https://powerbi.microsoft.com/pricing](https://powerbi.microsoft.com/pricing).
 
