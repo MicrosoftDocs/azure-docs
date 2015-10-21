@@ -37,6 +37,9 @@ Before following the instructions in this article, ensure that you have the foll
 - Data in your Azure DocumentDB account. 
 	- To create an account, see [Create a DocumentDB database account using the Azure preview portal](https://azure.microsoft.com/documentation/articles/documentdb-create-account/). 
 	- To get sample volcano data that's similar to what's used in this tutorial, see the [NOAA site](https://www.ngdc.noaa.gov/nndc/struts/form?t=102557&s=5&d=5) and then import the data using the [DocumentDB data migration tool](https://azure.microsoft.com/documentation/articles/documentdb-import-data/).
+	- Here is a demo account that you can use to try out the tutorial.  This demo account is not bound by any SLAs and is meant for demostration purposes only.  We reserve the right to make modifications to this demo account including but not limited to, terminating the account, changing the key, restricting access, changing and delete the data, at any time without advance notice or reason. 
+		- URL:   https://analytics.documents.azure.com
+		- Read-only key: MSr6kt7Gn0YRQbjd6RbTnTt7VHc5ohaAFu7osF0HdyQmfR+YhwCH2D2jcczVIR1LNK3nMPNBD31losN7lQ/fkw==
 
 To share your reports in PowerBI.com, you must have an account in PowerBI.com.  To learn more about Power BI for Free and Power BI Pro, please visit [https://powerbi.microsoft.com/pricing](https://powerbi.microsoft.com/pricing).
 
