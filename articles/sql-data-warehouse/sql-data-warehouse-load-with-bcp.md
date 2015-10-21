@@ -5,7 +5,7 @@
    documentationCenter="NA"
    authors="TwoUnder"
    manager="barbkess"
-   editor="JRJ@BigBangData.co.uk"/>
+   editor=""/>
 
 <tags
    ms.service="sql-data-warehouse"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/22/2015"
+   ms.date="10/21/2015"
    ms.author="mausher;barbkess"/>
 
 
@@ -23,15 +23,18 @@
 bcp is a quick and easy way to move smaller data sets into and out of a SQL Data Warehouse database. The exact amount of data that is recommended to load/extract via bcp will depend on you network connection to the Azure data center. Generally, dimension tables can be loaded and extracted but fairly large fact tables may take a significant amount of time to load or extract from. 
 
 With bcp you can:
+
 - Use a simple command-line utility to load data into SQL Data Warehouse.
 - Use a simple command-line utility to extract data from SQL Data Warehouse.
 
-This tutorial will show you how to: 
+This tutorial will show you how to:
+ 
 - Import data into a table using the bcp in command
 - Export data from a table uisng the bcp out command
 
 ## Prerequisites
 To step through this tutorial, you need:
+
 - A SQL Data Warehouse database
 - The bcp command line utility installed
 - The SQLCMD command ine utility installed

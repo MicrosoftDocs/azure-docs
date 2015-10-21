@@ -1,5 +1,5 @@
 <properties
-    pageTitle="Elastic database query for vertical partitioning | Microsoft Azure"
+    pageTitle="Elastic database query for cross-database queries (vertical partitioning) | Microsoft Azure"
     description="how to set up cross-database queries over vertical partitions"    
     services="sql-database"
     documentationCenter=""  
@@ -15,7 +15,7 @@
     ms.date="10/19/2015"
     ms.author="torsteng" />
 
-# Elastic database query for vertical partitioning
+# Elastic database query for cross-database queries (vertical partitioning)
 
 This document explains how to setup elastic query for cross-database querying scenarios (vertical partitioning) and how to perform your queries. For a definition of the vertical partitioning scenario, see [Azure SQL Database elastic database query overview (preview)](sql-database-elastic-query-overview.md).
 
