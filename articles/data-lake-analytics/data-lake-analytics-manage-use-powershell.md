@@ -18,29 +18,18 @@
 
 # Manage Azure Data Lake Analytics using Azure PowerShell
 
-[I will copy the text from the manage use portal article]
+[AZURE.INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
+
 Learn how to manage Azure Data Lake Analytics accounts, data sources, users, and jobs using the Azure PowerShell.
 
 **Prerequisites**
 
 Before you begin this tutorial, you must have the following:
 
-- **An Azure subscription**. See [Get Azure free trial](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-
-This article includes:
-
-- Use ARM
-- Manage accounts
-- Manage data sources
-- Manage users
-- Manage jobs
-- Monitor account usage
-- Manage catalog
-	- tables
-	- table valued functions
-	- assemblies
+- **An Azure subscription**. See [Get Azure free trial]https://azure.microsoft.com/en-us/pricing/free-trial/).
+- **Azure PowerShell**. See [Install and configure Azure PowerShell](powershell-install-configure.md).
 	
-To list the cmdlets:
+**To list the cmdlets**:
 
 	Get-Command *Azure*DataLakeAnalytics*
 

@@ -13,23 +13,22 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="10/19/2015"
+   ms.date="10/21/2015"
    ms.author="jgao"/>
 
 # Manage Azure Data Lake Analytics using Azure Preview portal
 
+[AZURE.INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
+
 Learn how to manage Azure Data Lake Analytics accounts, data sources, users, and jobs using the Azure Preview portal.
 
-Other management articles include:
-
-- [Manage Azure Data Lake Analytics using Azure PowerShell](data-lake-analytics-manage-use-powershell.md)
-- [Manage Azure Data Lake Analytics using .NET SDK](data-lake-analytics-manage-use-dotnet-sdk.md)
+To see Data Lake Analytics management using other tools, click the tab on top of this section.
 
 **Prerequisites**
 
 Before you begin this tutorial, you must have the following:
 
-- **An Azure subscription**. See [Get Azure free trial](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+- **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/en-us/pricing/free-trial/).
 
 
 <!-- ################################ -->
@@ -49,8 +48,8 @@ Resource Manager Overview](resource-group-overview.md).
 A Data Lake Analytics service can include the following components:
 
 - Azure Data Lake Analytics account
-- Required default Azure Data Lake Storage account
-- Additional Azure Data Lake Storage accounts
+- Required default Azure Data Lake Store account
+- Additional Azure Data Lake Store accounts
 - Additional Azure Storage accounts
 
 You can create all these components under one ARM group to make them easier to manage.
@@ -72,20 +71,16 @@ running a job.  You only pay for the time when it is running a job.  For more in
 
 **To create a Data Lake Analytics accounts**
 
-1. Sign on to the new [Azure portal](https://portal.azure.com/signin/index/?Microsoft_Azure_Kona=true&Microsoft_Azure_DataLake=true&hubsExtension_ItemHideKey=AzureDataLake_BigStorage%2cAzureKona_BigCompute).
-2. Click **Microsoft Azure** in the upper left corner to open the home screen.
-3. Click the **Marketplace** tile.  
-3. Type **Azure Data Lake Analytics** in the search box on the **Everything** blade, and the press **ENTER**. You shall see **Azure Data Lake Analytics** in the list.
-4. Click **Azure Data Lake Analytics** from the list.
-5. Click **Create** on the bottom of the blade.
+1. Sign on to the new [Azure portal](https://portal.azure.com).
+2. Click **New**, click **Data + Analytics**, and then click **Data Lake Analytics**.
 6. Type or select the following:
 
 	![Azure Data Lake Analytics portal blade](./media/data-lake-analytics-get-started-portal/data-lake-analytics-portal-create-adla.png)
 
 	- **Name**: Name the Analytics account.
-	- **Data Lake Store**: Each Data Lake Analytics account has a dependent Azure Data Lake storage account. The Data Lake Analytics account and the dependent Data Lake storage account must be located in the same Azure data center. Follow the instruction to create a new Data Lake storage account, or select an existing one.
+	- **Data Lake Store**: Each Data Lake Analytics account has a dependent Azure Data Lake Store account. The Data Lake Analytics account and the dependent Data Lake Store account must be located in the same Azure data center. Follow the instruction to create a new Data Lake Store account, or select an existing one.
 	- **Subscription**: Choose the Azure subscription used for the Analytics account.
-	- **Resource Group**. Select an existing Azure Resource Group or create a new one. Applications are typically made up of many components, for example a web app, database, database server, storage, and 3rd party services. Azure Resource Manager (ARM) enables you to work with the resources in your application as a group, referred to as an Azure Resource Group. You can deploy, update, monitor or delete all of the resources for your application in a single, coordinated operation. You use a template for deployment and that template can work for different environments such as testing, staging and production. You can clarify billing for your organization by viewing the rolled-up costs for the entire group. For more information, see [Azure Resource Manager Overview](resource-group-overview.md). 
+	- **Resource Group**. Select an existing Azure Resource Group or create a new one. Azure Resource Manager (ARM) enables you to work with the resources in your application as a group. For more information, see [Azure Resource Manager Overview](resource-group-overview.md). 
 	- **Location**. Select an Azure data center for the Data Lake Analytics account. 
 
 8. Click **Create**. It takes you to the portal home screen. A new tile is added to the StartBoard with the label showing "Deploying Azure Data Lake Analytics". It takes a few moments to create a Data Lake Analytics account. When the account is created, the portal opens the account on a new blade.
@@ -94,7 +89,7 @@ running a job.  You only pay for the time when it is running a job.  For more in
 
 <a name="access-adla-account"></a> **To access/open a Data Lake Analytics account**
 
-1. Sign on to the new [Azure portal](https://portal.azure.com/signin/index/?Microsoft_Azure_Kona=true&Microsoft_Azure_DataLake=true&hubsExtension_ItemHideKey=AzureDataLake_BigStorage%2cAzureKona_BigCompute).
+1. Sign on to the new [Azure portal](https://portal.azure.com/).
 2. Click **Browse** on the left menu, and then click **Data Lake Analytics**.
 3. Click the ADL Analytics account that you want to access. It will open the account in a new blade.
 
@@ -104,8 +99,34 @@ running a job.  You only pay for the time when it is running a job.  For more in
 2. Click **Delete** from the button menu on the top of the blade.
 3. Type the account name, and then click **Delete**.
 
-Delete a Analytics account will not delete the dependent Data Lake Storage account. For instructions of deleting
-ADL Storage accounts, see [nitin's article]().
+Delete a Analytics account will not delete the dependent Data Lake Store account. For instructions of deleting
+ADL Storage accounts, see [Delete Data Lake Store account](data-lake-store-get-started-portal.md#delete-azure-data-lake-store-account).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 <!-- ################################ -->
@@ -114,7 +135,7 @@ ADL Storage accounts, see [nitin's article]().
 
 Data Lake Analytics currently supports the following data sources:
 
-- [Azure Data Lake Storage](data-lake-storage-overview.md)
+- [Azure Data Lake Store](data-lake-store-overview.md)
 - [Azure Storage](storage-introduction.md)
 
 When you create an ADL Analytics account, you must designate an Azure Data Lake Store account to be the default 
@@ -130,7 +151,7 @@ created an ADL Analytics account, you can add additional ADL Store accounts and/
 **To add additional data sources**
 
 1. Open the ADL Analytics account that you want to manage. For instructions see [Access Data Lake Analytics accounts](#access-adla-account).
-2. Click **Settings** and then click **Data Sources**. You shall see the default Data Lake Storage account listed
+2. Click **Settings** and then click **Data Sources**. You shall see the default Data Lake Store account listed
 there. 
 3. Click **Add Data Source**.
 
@@ -146,11 +167,11 @@ there.
  
 	![Azure Data Lake Analytics data explorer](./media/data-lake-analytics-manage-use-portal/data-lake-analytics-data-explorer.png)
 	
-3. Click a Data Lake Storage account to open it.
+3. Click a Data Lake Store account to open it.
 
 	![Azure Data Lake Analytics data explorer storage account](./media/data-lake-analytics-manage-use-portal/data-lake-analytics-explore-adls.png)
 	
-	For each Data Lake Storage account, you can
+	For each Data Lake Store account, you can
 	
 	- **New Folder**: Add new folder.
 	- **Upload**: Upload files to the Storage account from your workstation.
@@ -159,20 +180,20 @@ there.
 	- **Folder properties**: Show file or folder properties, such as WASB path, WEBHDFS path, last modified time and so on.
 	- **Delete Folder**: Delete a folder.
 
-<a name="upload-data-to-adls"></a> **To upload files to Data Lake Storage account**
+<a name="upload-data-to-adls"></a> **To upload files to Data Lake Store account**
 
 1. From the preview portal, click **Browse ** from the left menu, and then click **Data Lake Store**.
-2. Click the Data Lake storage account that you want to upload data to. To find the default ADL Storage account, see [here](#default-adl-account)
+2. Click the Data Lake Store account that you want to upload data to. To find the default ADL Storage account, see [here](#default-adl-account).
 3. Click **Data Explorer** from the top menu.
 4. Click **New Directory** to create a new folder, or click a folder name to change folder.
 6. Click **Upload** from the top menu to upload file.
 
-See [nitin's article]().
+See [Upload data to Data Lake Store account](data-lake-store-get-started-portal.md#uploaddata).
 
 
 <a name="upload-data-to-wasb"></a> **To upload files to Azure Blob storage account**
 
-See []().
+See [Uplaod data for hadoop jobs in HDInsight](hdinsight-upload-data.md).  The information applies to Data Laka Analtyics.
 
 
 ## Manage users
@@ -184,7 +205,7 @@ the following roles:
 |Role|Description|
 |----|-----------|
 |Owner|Lets you manage everything, including access to resources.|
-|Contributor|Access the portal; submit and monitor jobs. To be able to submit jobs, a contributor also need the read or write permission to the Data Lake storage accounts.|
+|Contributor|Access the portal; submit and monitor jobs. To be able to submit jobs, a contributor also need the read or write permission to the Data Lake Store accounts.|
 |Reader|Lets you view everything, but not make any changes.|  
 |DevTest Lab User|Lets you view everything, and connect, start, restart, and shutdown virtual machines[jgao: I never seen discussion related to ABA and VM]|  
 |User Access Administrator|Lets you manage user access to Azure resources.|  
@@ -200,7 +221,7 @@ For information on creating Azure Active Directory users and security groups, Se
 3. From the **User** blade, click **Add**.
 4. Select a role and add a users, and then click **OK**.
 
-**Note: If this user or security group needs to submit jobs, they will need to be given permission on the ADL Store as well. For more details, see [Nitin's article]()**
+**Note: If this user or security group needs to submit jobs, they will need to be given permission on the ADL Store as well. For more details, see [Secure data stored in Data Lake Store](data-lake-store-secure-data.md).**
 
 
 
