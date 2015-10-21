@@ -22,7 +22,7 @@ The topics linked below provide information about specific behaviors of Microsof
 
 [AZURE.INCLUDE [mobile-services-concepts](../../includes/mobile-services-concepts.md)]
 
-The [overview topic](https://msdn.microsoft.com/en-us/library/azure/jj193167.aspx) describes the benefits of using Mobile Services and what tasks can be performed in the Management Portal. For more general information about Mobile Services and examples of how to use Mobile Services in your apps, see [Mobile Services Tutorials and Resources](https://azure.microsoft.com/en-us/documentation/services/mobile-services/). 
+The [overview topic](https://msdn.microsoft.com/library/azure/jj193167.aspx) describes the benefits of using Mobile Services and what tasks can be performed in the Management Portal. For more general information about Mobile Services and examples of how to use Mobile Services in your apps, see [Mobile Services Tutorials and Resources](https://azure.microsoft.com/documentation/services/mobile-services/). 
 
 ##Configuration
 The following topics provide information about creating, deleting and configuring Mobile Services:
@@ -38,20 +38,20 @@ The following topics provide information about creating, deleting and configurin
 The following topics provide information about accessing and changing app data stored in Mobile Services:
 
 - [Work with data](https://msdn.microsoft.com/library/azure/jj631634.aspx) 
-- [Create a table](https://msdn.microsoft.com/en-us/library/azure/jj193162.aspx) 
-- [Permissions](https://msdn.microsoft.com/en-us/library/azure/jj193161.aspx) 
-- [Dynamic schema](https://msdn.microsoft.com/en-us/library/azure/jj193175.aspx) 
-- [Browse records](https://msdn.microsoft.com/en-us/library/azure/jj193171.aspx) 
-- [Delete data](https://msdn.microsoft.com/en-us/library/azure/jj908633.aspx) 
-- [Manage columns](https://msdn.microsoft.com/en-us/library/azure/jj193177.aspx) 
-- [System columns](https://msdn.microsoft.com/en-us/library/azure/dn518225.aspx) 
+- [Create a table](https://msdn.microsoft.com/library/azure/jj193162.aspx) 
+- [Permissions](https://msdn.microsoft.com/library/azure/jj193161.aspx) 
+- [Dynamic schema](https://msdn.microsoft.com/library/azure/jj193175.aspx) 
+- [Browse records](https://msdn.microsoft.com/library/azure/jj193171.aspx) 
+- [Delete data](https://msdn.microsoft.com/library/azure/jj908633.aspx) 
+- [Manage columns](https://msdn.microsoft.com/library/azure/jj193177.aspx) 
+- [System columns](https://msdn.microsoft.com/library/azure/dn518225.aspx) 
 
 ##Push notifications
 The following topics provide information about configuring push notifications in Mobile Services:
 
-- [Configure push notifications](https://msdn.microsoft.com/en-us/library/azure/jj591526.aspx)
-- [Register endpoint](https://msdn.microsoft.com/en-us/library/azure/dn771685.aspx) 
-- [Send push notifications](https://msdn.microsoft.com/en-us/library/azure/jj631630.aspx)
+- [Configure push notifications](https://msdn.microsoft.com/library/azure/jj591526.aspx)
+- [Register endpoint](https://msdn.microsoft.com/library/azure/dn771685.aspx) 
+- [Send push notifications](https://msdn.microsoft.com/library/azure/jj631630.aspx)
 
 ##Scheduled jobs
 The following topics provide information about working with scheduled jobs:
