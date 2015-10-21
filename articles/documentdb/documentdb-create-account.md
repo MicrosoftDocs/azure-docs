@@ -41,7 +41,7 @@ After you have documents in a collection, you can use [DocumentDB SQL](documentd
 
 To learn more about DocumentDB, explore these resources:
 
--	[Learning map for DocumentDB](documentdb-learning-map.md)
+-	[Learning path for DocumentDB](https://azure.microsoft.com/documentation/learning-paths/documentdb/)
 -	[DocumentDB resource model and concepts](documentdb-resources.md)
 
  

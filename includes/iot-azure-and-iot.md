@@ -28,7 +28,7 @@ IoT solutions can include automatic feedback loops. For example, a machine learn
 
 Many IoT solutions enable users to view and analyze the data collected from their devices. These views can take the form of dashboards or BI reports.
 
-[img-solution-architecture]: media/iot-azure-and-iot/iot-reference-architecture.png
+[img-solution-architecture]: ./media/iot-azure-and-iot/iot-reference-architecture.png
 
 [lnk-machinelearning]: http://azure.microsoft.com/services/machine-learning/
 [Azure IoT Suite]: http://azure.microsoft.com/solutions/iot

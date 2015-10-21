@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/12/2015"
+   ms.date="10/20/2015"
    ms.author="cherylmc"/>
 
 # Configure a VNet-to-VNet connection using Azure Resource Manager and PowerShell
@@ -33,7 +33,6 @@ Connecting a virtual network to another virtual network (VNet-to-VNet) is very s
 ![VNet to VNet Connectivity Diagram](./media/virtual-networks-configure-vnet-to-vnet-connection/IC727360.png)
 
  
-
 ## Why connect virtual networks?
 
 You may want to connect virtual networks for the following reasons:
@@ -51,7 +50,6 @@ This article will walk you through connecting two virtual networks, VNet1 and VN
 
 
 ![Connecting VNet to VNet](./media/virtual-networks-configure-vnet-to-vnet-connection/IC727361.png)
-
 
 
 - The virtual networks can be in the same or different Azure regions (locations).
@@ -78,11 +76,13 @@ This article will walk you through connecting two virtual networks, VNet1 and VN
 
 Before you begin, verify that you have the following:
 
-- Version 0.9.8 of the Azure PowerShell cmdlets. You can download and install this version from the Windows PowerShell section of the [Download page](http://azure.microsoft.com/downloads/). 
 - An Azure subscription. If you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or sign up for a [free trial](http://azure.microsoft.com/pricing/free-trial/).
-- If you already have created your virtual networks, see [Connecting existing VNets](#connecting-existing-vnets) in this article.
-	
-There are multiple steps to creating and configuring a VNet-to-VNet connection. Configure each section in the order listed below. 
+
+- Azure PowerShell 0.9.8 cmdlets. You can download and install this version from the Windows PowerShell section of the [Download page](http://azure.microsoft.com/downloads/). This article was written for 0.9.8, although it's possible to use these steps (with slight modifications to the cmdlets) with the PowerShell 1.0 Preview.
+
+**About using these steps with Azure PowerShell 1.0 Preview**
+
+	[AZURE.INCLUDE [powershell-preview-inline-include](../../includes/powershell-preview-inline-include.md)] 
 
 
 ## 1. Plan your IP address ranges
@@ -115,10 +115,7 @@ Values for VNet2:
 
 ## 2. Connect to your subscription 
 
-Open your PowerShell console and connect to your account. The instructions below use Azure PowerShell version 0.9.8. 
-You can download and install this version from the Windows PowerShell section of the [Download page](http://azure.microsoft.com/downloads/).
-
-Use the following sample to help you connect:
+Open your PowerShell console and connect to your account. Use the following sample to help you connect:
 
 		Add-AzureAccount
 

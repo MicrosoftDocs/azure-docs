@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Working with Custom Domains in Azure AD Application Proxy"
+	pageTitle="Working with Custom Domains in Azure AD Application Proxy | Microsoft Azure"
 	description="Covers how work with custom domains in Azure AD Application Proxy."
 	services="active-directory"
 	documentationCenter=""
 	authors="rkarlin"
-	manager="msStevenPo"
+	manager="StevenPo"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/09/2015"
+	ms.date="10/19/2015"
 	ms.author="rkarlin"/>
 
 # Working with custom domains in Azure AD Application Proxy
@@ -72,7 +72,20 @@ A: This is not supported in the current version.<br>
 
 
 
+## See also
+There's a lot more you can do with Application Proxy:
+
+- [Publish applications with Application Proxy](active-directory-application-proxy-publish.md)
+- [Enable single-sign on](active-directory-application-proxy-sso-using-kcd.md)
+- [Enable conditional access](active-directory-application-proxy-conditional-access.md)
+- [Working with claims aware applications](active-directory-application-proxy-claims-aware-apps.md)- [Troubleshoot issues you're having with Application Proxy](active-directory-application-proxy-troubleshoot.md)
+
+## Learn more about Application Proxy
+- [Take a look here at our online help](active-directory-application-proxy-enable.md)
+- [Check out the Application Proxy blog](http://blogs.technet.com/b/applicationproxyblog/)
+- [Watch our videos on Channel 9!](http://channel9.msdn.com/events/Ignite/2015/BRK3864)
+
 ## Additional Resources
 
-* [Sign up for Azure as an organization](..sign-up-organization.md)
-* [Azure Identity](..fundamentals-identity.md)
+* [Sign up for Azure as an organization](sign-up-organization.md)
+* [Azure Identity](fundamentals-identity.md)

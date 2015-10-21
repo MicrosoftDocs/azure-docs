@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Release notes for Application Insights for .NET" 
-	description="The latest updates." 
+	description="The latest updates for .NET SDK." 
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
