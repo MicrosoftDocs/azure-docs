@@ -41,7 +41,7 @@ Verify that you have the following items before beginning configuration.
 
 - Azure PowerShell 0.9.8 cmdlets. You can download and install this version from the Windows PowerShell section of the [Download page](http://azure.microsoft.com/downloads/). This article was written for 0.9.8, although it's possible to use these steps (with slight modifications to the cmdlets) with the PowerShell 1.0 Preview.
 
-**About using these steps with PowerShell 1.0 Preview**
+**About using these steps with Azure PowerShell 1.0 Preview**
 
 	[AZURE.INCLUDE [powershell-preview-inline-include](../../includes/powershell-preview-inline-include.md)] 
 	
