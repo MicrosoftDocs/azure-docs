@@ -17,7 +17,7 @@
 	ms.author="zhangya;bradsev" />
 
 
-# Feature engineering in the Cortana Analytics Process
+# Feature engineering in the Cortana Analytics Process 
 
 This **menu** links to topics that describe how to create features for data in various environments. This task is a step in the Cortana Analytics Process (CAP).
 
