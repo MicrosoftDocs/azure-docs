@@ -56,10 +56,8 @@ SELECT [CustomerKey]
   FROM [dbo].[vTargetMail]
 ```
 7. Run the experiment by clicking **Run** under the experiment canvas.
-![Run the experiment][1]
 8. Click the output port at the bottom of the Reader module and select **Visualize** to see the imported data.
 
-![View imported data][3]
 
 
 ## Step 2: Clean Data
@@ -67,11 +65,8 @@ We will drop some columns that are not relevant for the model.
 
 1. Drag the **Project Columns** module into the canvas.
 2. Click **Launch column selector** in the Properties pane to specify which columns you wish to drop.
-![Project Columns][4]
-
 3. Exclude two columns: CustomerAlternateKey and GeographyKey.
 
-![Remove unnecessary columns][5]
 
 
 ## Step 3: Build Model
@@ -79,14 +74,11 @@ We will split the data 80-20: 80% to train a machine learning model and 20% to t
 
 1. Drag the **Split** module into the canvas.
 2. Enter 0.8 for Fraction of rows in the first output dataset in the Properties pane.
-![Split data into training and test set][6]
 3. Drag the **Two-Class Boosted Decision Tree** module into the canvas.
 4. Drag the **Train Model** module into the canvas and specify:
     First input: ML algorithm.
     Second input: Data to train the algorithm on.
-![Connect the Train Model module][7]
 5. Click **Launch column selector** in the Properties pane to specify which column the model is supposed to predict: BikeBuyer.
-![Select Column to predict][8]
 
 
 ## Step 4: Score Model
@@ -95,19 +87,15 @@ Now, we will test how the model performs on test data. We will compare the algor
 1. Drag **Score Model** module into the canvas.
     First input: Trained model
     Second input: Test data
-![Score the model][9]
 2. Drag the **Two-Class Bayes Point Machine** into the experiment canvas. We will compare how this algorithm performs in comparison to the Two-Class Boosted Decision Tree.
 3. Copy and Paste the modules Train Model and Score Model in the canvas.
 4. Drag the **Evaluate Model** module into the canvas to compare the two algorithms.
 5. **Run** the experiment.
-![Run the experiment][10]
 6. Click the output port at the bottom of the Evaluate Model module and click Visualize.
 
-![Visualize evaluation results][11]
 
 The metrics provided are the ROC curve, precision-recall diagram and lift curve. Looking at these metrics, we can see that the first model performed better than the second one. To look at the what the first model predicted, click on output port of the Score Model and click Visualize.
 
-![Visualize score results][11]
 
 You will see two more columns added to your test dataset.
 
