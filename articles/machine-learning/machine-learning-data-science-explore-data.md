@@ -22,8 +22,10 @@ This **menu** links to topics that describe how to use tools to explore data fro
 
 [AZURE.INCLUDE [cap-explore-data-selector](../../includes/cap-explore-data-selector.md)]
 
-This document covers how to explore data that is stored three locations typically used in the Cortana Analytics Process:
+This document covers how to explore data in four different environments typically used in the Cortana Analytics Process:
 
-- **Azure blob container data** is explored using the [Pandas](http://pandas.pydata.org/) Python package.
-- **SQL Server data** is explored by using SQL and by using a programming language like Python.
-- **Hive table data** is explored using Hive queries.
+- **Azure blob container** data is explored using the [Pandas](http://pandas.pydata.org/) Python package.
+- **SQL Server data** data is explored by using SQL and by using a programming language like Python.
+- **Hive table** data is explored using Hive queries.
+- Azure Machine Learning Studio 
+- **Azure Machine Learning (AML) Studio** data is explored using AML modules.
