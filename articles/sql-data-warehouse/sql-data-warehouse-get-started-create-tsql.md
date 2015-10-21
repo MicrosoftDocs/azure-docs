@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="10/07/2015"
+   ms.date="10/20/2015"
    ms.author="lodipalm"/>
 
 #Create SQL Data Warehouse with TSQL 
