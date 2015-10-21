@@ -104,7 +104,7 @@ The following list discusses the options for migrating a compatible database to 
 - For medium to large databases or when you have connectivity challenges, [use a BACPAC to migrate](#use-a-bacpac-to-migrate-a-database-to-azure-sql-database) a SQL Server database to Azure SQL Database. With this method, you use SQL Server Management Studio to export the data and schema to a [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4) file (stored locally or in an Azure blob) and then import the BACPAC file into your Azure SQL instance. If you store the BACPAC in an Azure blob, you can also import the BACPAC file from within the [Azure portal](sql-database-import.md) or [using PowerShell](sql-database-import-powershell.md).
 - For larger databases, you will achieve the best performance by migrating the schema and the data separately. With this method, create a [BACPAC file with no data](#use-a-bacpac-to-migrate-a-database-to-azure-sql-database) and import this BACPAC into Azure SQL Database. After the schema has been imported into Azure SQL Database, you then use [BCP](https://msdn.microsoft.com/library/ms162802.aspx) to extract the data into flat files and then import these files into Azure SQL Database.
 
-	 ![SSMS migration diagram](./media/sql-database-cloud-migrate/01SSMSDiagram_New.png)
+	 ![SSMS migration diagram](./media/sql-database-cloud-migrate/01SSMSDiagram_new.png)
 
 ### Migrating a compatible database with no downtime
 
