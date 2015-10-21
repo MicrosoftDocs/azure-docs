@@ -16,7 +16,7 @@
    ms.date="10/17/2015"
    ms.author="seanmck"/>
 
-# Build a web service front-end for your Application
+# Build a web service front-end for your application
 
 By default, Service Fabric services do not provide a public interface to the web. To expose your application's functionality to HTTP clients, you will need to create a web project to act as entry point and then communicate from there to your individual services.
 
@@ -192,7 +192,7 @@ When you create an actor project, Visual Studio automatically generates an inter
 
 In general, you can deploy exactly the same Service Fabric application to a multi-machine cluster that you deployed on your local cluster and be highly confident that it will work as you expect, since your local cluster is simply a five node configuration collapsed to a single machine.
 
-When it comes to web services, however, there is one key nuance. When your cluster sits behind a load balancer, as it does in Azure, you must ensure that your web services are deployed on every machine since the load balancer will simply round-robin traffic across the machines. This can be done by setting the `InstanceCount` for the service to the special value of -1. By contrast, when running locally you need to ensure that only one instance of the service is running; otherwise you will run into conflicts from multiple processes listening on the same path and port. As a result, the web service instance count should be set to 1 for local deployments.
+When it comes to web services, however, there is one key nuance. When your cluster sits behind a load balancer, as it does in Azure, you must ensure that your web services are deployed on every machine since the load balancer will simply round-robin traffic across the machines. This can be done by setting the `InstanceCount` for the service to the special value of -1. By contrast, when running locally you need to ensure that only one instance of the service is running; otherwise you will run into conflicts from multiple processes listening on the same path and port. As a result, the web service instance count should be set to 1 for local deployments.git
 
 To learn how to configure different values for different environment, see [Managing application parameters for multiple environments](service-fabric-manage-multiple-environment-app-configuration.md).
 
