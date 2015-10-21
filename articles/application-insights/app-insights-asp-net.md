@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Application Insights for ASP.NET" 
-	description="Analyze usage, availability and performance of your on-premises or Microsoft Azure web application with Application Insights." 
+	description="Analyze performance, availability and usage patterns of your on-premises or Microsoft Azure web application by using Application Insights." 
 	services="application-insights" 
     documentationCenter=".net"
 	authors="alancameronwills" 
