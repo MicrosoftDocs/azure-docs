@@ -27,11 +27,11 @@
 ## Resources
 For this tutorial, you will need the following resources:
 
-   + **Azure Storage Blob**:  Your Azure Storage Blob will be the source of data for the pipeline.  You can use an existing blob or [provision a new one](https://azure.microsoft.com/en-us/documentation/articles/storage-create-storage-account/).
+   + **Azure Storage Blob**:  Your Azure Storage Blob will be the source of data for the pipeline.  You can use an existing blob or [provision a new one](../storage/storage-create-storage-account/).
 
-   + **SQL Data Warehouse**: In this tutorial you will be moving data to SQL Data Warehouse.  If you do not already have an instance set-up, you can learn how  [here](https://azure.microsoft.com/en-us/documentation/articles/sql-data-warehouse-get-started-provision/).  In addition, your instance will need to be set-up with our AdventureWorks DW dataset.  If you didn't provision your data warehouse with the sample data, you can [load it manually](https://azure.microsoft.com/en-us/documentation/articles/sql-data-warehouse-get-started-manually-load-samples/).
+   + **SQL Data Warehouse**: In this tutorial you will be moving data to SQL Data Warehouse.  If you do not already have an instance set-up, you can learn how  [here](sql-data-warehouse-get-started-provision.md).  In addition, your instance will need to be set-up with our AdventureWorks DW dataset.  If you didn't provision your data warehouse with the sample data, you can [load it manually](sql-data-warehouse-get-started-manually-load-samples.md).
 
-   + **Azure Data Factory**: Azure Data Factory will complete the actual load and if you need more information on setting Azure Data Factory or creating pipelines then you can see that [here](https://azure.microsoft.com/en-us/documentation/articles/data-factory-build-your-first-pipeline-using-editor/).
+   + **Azure Data Factory**: Azure Data Factory will complete the actual load and if you need more information on setting Azure Data Factory or creating pipelines then you can see that [here](../data-factory/data-factory-build-your-first-pipeline-using-editor/).
 
 Once you have all of the pieces ready you can move on to preparing your data and creating your Azure Data Factory pipeline.
 
@@ -44,7 +44,7 @@ In addition to the different pieces of the pipeline, we will also need some samp
 
         AzCopy /Source:<Sample Data Location>  /Dest:https://<storage account>.blob.core.windows.net/<container name> /DestKey:<storage key> /Pattern:FactInternetSales.csv
 
-	See the [AZCopy documentation](https://azure.microsoft.com/en-us/documentation/articles/storage-use-azcopy/) for additional information on how to install and work with AZCopy.
+	See the [AZCopy documentation](../storage/storage-use-azcopy/) for additional information on how to install and work with AZCopy.
 
 Now that we have our data in place we can move to your data factory to create the pipeline that will move data from your storage account to your SQL Data Warehouse.  
 
@@ -142,7 +142,7 @@ After creating the linked services, we will have to define the data sets.  Here 
 		}
 
 ### Setting up your pipeline
-Finally, we will set-up and run the pipeline in Azure Data Factory.  This is the operation that will complete the actual data movement.  You can find a full view of the operations that you can complete with SQL Data Warehouse and Azure Data Factory [here](https://azure.microsoft.com/en-us/documentation/articles/data-factory-azure-sql-data-warehouse-connector/).
+Finally, we will set-up and run the pipeline in Azure Data Factory.  This is the operation that will complete the actual data movement.  You can find a full view of the operations that you can complete with SQL Data Warehouse and Azure Data Factory [here](../data-factory/data-factory-azure-sql-data-warehouse-connector/).
 
 In the 'Author and Deploy' section now click 'More Commands' and then 'New Pipeline'.  After you create the pipeline, you can use the below code to transfer the data to your data warehouse:
 
