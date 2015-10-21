@@ -1,0 +1,91 @@
+<properties
+  pageTitle="Store and View Diagnostic Data in Azure Storage | Microsoft Azure"
+  description="Get Azure diagnostics data into Azure Storage and view it"
+  services="cloud-services"
+  documentationCenter=".net"
+  authors="rboucher"
+  manager="jwhit"
+  editor="tysonn" />
+<tags
+  ms.service="cloud-services"
+  ms.devlang="na"
+  ms.topic="article"
+  ms.tgt_pltfrm="na"
+  ms.workload="na"
+  ms.date="10/21/2015"
+  ms.author="robb" />
+
+# Store and View Diagnostic Data in Azure Storage
+
+Diagnostic data is not permanently stored unless you transfer it to the Microsoft Azure storage emulator or to Azure storage. Once in storage, it can be viewed with one of several available tools.
+
+## Specify a storage account
+
+You specify the storage account that you want to use in the ServiceConfiguration.cscfg file. The account information is defined as a connection string in a configuration setting. The following example shows the default connection string that is created when the Azure Diagnostics module is imported:
+
+
+```
+	<ConfigurationSettings>
+	   <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="UseDevelopmentStorage=true" />
+	</ConfigurationSettings>
+```
+
+You can change this connection string to provide account information for an Azure storage account.
+
+Depending on the type of diagnostic data that is being collected, Azure Diagnostics uses either the Blob service or the Table service. The following table shows the data sources that are persisted and their format.
+
+|Data source|Storage format|
+|---|---|
+|Azure logs|Table|
+|IIS 7.0 logs|Blob|
+|Azure Diagnostics infrastructure logs|Table|
+|Failed Request Trace logs|Blob|
+|Windows Event logs|Table|
+|Performance counters|Table|
+|Crash dumps|Blob|
+|Custom error logs|Blob|
+
+## Transfer diagnostic data
+
+The request to transfer diagnostic data can occur either directly in the role (programmatically or through the configuration file) or through remote configuration. You can transfer diagnostic data at scheduled intervals or you can transfer data on-demand.
+
+>[AZURE.IMPORTANT] When you transfer diagnostic data to an Azure storage account, you incur costs for the storage resources that your diagnostic data uses.
+
+## Store diagnostic data
+
+Log data is stored in either Blob or Table storage with the following names:
+
+**Tables**
+
+- **WadLogsTable** - Logs written in code using the trace listener.
+
+- **WADDiagnosticInfrastructureLogsTable** - Diagnostic monitor and configuration changes.
+
+- **WADDirectoriesTable** – Directories that the diagnostic monitor is monitoring.  This includes IIS logs, IIS failed request logs, and custom directories.  The location of the blob log file is specified in the Container field and the name of the blob is in the RelativePath field.  The AbsolutePath field indicates the location and name of the file as it existed on the Azure virtual machine.
+
+- **WADPerformanceCountersTable** – Performance counters.
+
+- **WADWindowsEventLogsTable** – Windows Event logs.
+
+**Blobs**
+
+- **wad-control-container** – Contains the XML configuration files that controls the Azure diagnostics.
+
+- **wad-iis-failedreqlogfiles** – Contains information from IIS Failed Request logs.
+
+- **wad-iis-logfiles** – Contains information about IIS logs.
+
+- **"custom"** – A custom container based on configuring directories that are monitored by the diagnostic monitor.  The name of this blob container will be specified in WADDirectoriesTable.
+
+## Tools to view diagnostic data
+Several tools are available to view the data after it is transferred to storage. For example:
+
+- **Server Explorer in Visual Studio** - If you have installed the Azure Tools for Microsoft Visual Studio, you can use the Azure Storage node in Server Explorer to view read-only blob and table data from your Azure storage accounts. You can display data from your local storage emulator account and also from storage accounts you have created for Azure. For more information, see [Browsing Storage Resources with Server Explorer](https://msdn.microsoft.com/library/ff683677.aspx).
+
+- **Azure Storage Explorer by Neudesic** - [Azure Storage Explorer](http://azurestorageexplorer.codeplex.com/) is a useful graphical user interface tool for inspecting and altering the data in your Azure storage projects including the logs of your Azure applications. To download the tool, see [Azure Storage Explorer](http://azurestorageexplorer.codeplex.com/).
+
+- Azure Diagnostics Manager by Cerebrata - [Azure Diagnostics Manager](http://www.cerebrata.com/Products/AzureDiagnosticsManager/Default.aspx) is a Windows (WPF) based client for managing Azure Diagnostics. It lets you view, download, and manage the diagnostics data collected by the applications running in Azure. To download the tool, see [Azure Diagnostics Manager](http://www.cerebrata.com/Products/AzureDiagnosticsManager/Default.aspx).
+
+## See Also
+
+[Perform an On-Demand Transfer](https://msdn.microsoft.com/en-us/library/azure/gg433075.aspx)
