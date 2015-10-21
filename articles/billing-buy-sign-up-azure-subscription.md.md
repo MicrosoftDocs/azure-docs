@@ -1,22 +1,24 @@
 <properties
-	pageTitle="How to buy or sign up for an Azure subscription"
+	pageTitle= "How to buy or sign up for an Azure subscription | Microsoft Azure"
 	description="Describes How to buy or sign up for an Azure subscription"
 	services="billing"
 	documentationCenter=""
-	authors="genli"
+	authors="genlin"
 	manager="jarrettr"
-	editor="curtand"/>
+	editor="curtand"
+	tags="billing"
+	/>
 
 <tags
 	ms.service="billing"
-	ms.workload="/"
+	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="billing"
-	ms.date="08/13/2015"
+	ms.date="10/20/2015"
 	ms.author="genli"/>
+
 #How to buy or sign up for an Azure subscription
-## Content:
 
 This topic will help you with the following tasks:
 
