@@ -81,9 +81,6 @@ You are now ready to use Power BI to analyze your AdventureWorksDW sample data. 
 
 You can save your progress at any time by clicking **File** and selecting **Save**.
 
-    ![Power BI save report][12]
-
-
 ## Next steps
 Now that we've given you some time to warm up with the sample data, see how to [develop][], [load][], or [migrate][].
 
