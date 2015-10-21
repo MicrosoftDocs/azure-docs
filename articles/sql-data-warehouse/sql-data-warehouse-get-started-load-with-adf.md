@@ -51,8 +51,6 @@ Now that we have our data in place we can move to your data factory to create th
 ## Using Azure Data Factory
 Now that we've set up all the pieces, we can start to set-up the pipeline by navigating to your Azure Data Factory instance in the Azure Preview Portal.  This can be done by going to the [Azure Portal](portal.azure.com) and selecting your data factory from the left-hand menu.
 
-![Finding ADF][1]
-
 From here there will be three steps to setting up a Azure Data Factory pipeline to transfer data to your data warehouse: linking your services, defining your datasets, and creating your pipeline.
 
 ### Creating linked services
@@ -60,11 +58,7 @@ The first step is to link your Azure storage account and SQL Data Warehouse to y
 
 1. First, begin the registration process by clicking the 'Linked Services' section of your data factory and then clicking 'New data store.' Then choose a name to register your azure storage under, select Azure Storage as your type, and enter your Account Name and Account Key.
 
-![Find new store][2]
-
 2. To register SQL Data Warehouse you will need to navigate to the 'Author and Deploy' section, then select 'New Data Store' and then 'Azure SQL Data Warehouse'. You will then need to fill in the below template:
-
-![author and deploy][3]
 
 		{
 		    "name": "<Linked Service Name>",
@@ -152,8 +146,6 @@ Finally, we will set-up and run the pipeline in Azure Data Factory.  This is the
 
 In the 'Author and Deploy' section now click 'More Commands' and then 'New Pipeline'.  After you create the pipeline, you can use the below code to transfer the data to your data warehouse:
 
-![new pipeline][4]
-
 	{
 	"name": "<Pipeline Name>",
 	"properties": {
@@ -200,8 +192,3 @@ In the 'Author and Deploy' section now click 'More Commands' and then 'New Pipel
 	}
 	}
 	
-<!--Image references-->
-[1]:./media/sql-data-warehouse-get-started-analyze-data-with-power-bi/finding_adf.png
-[2]:./media/sql-data-warehouse-get-started-analyze-data-with-power-bi/finding_new_store.png
-[3]:./media/sql-data-warehouse-get-started-analyze-data-with-power-bi/author_deploy.png
-[4]:./media/sql-data-warehouse-get-started-analyze-data-with-power-bi/create_pipeline.png
