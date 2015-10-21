@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="Windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/11/2015" 
+	ms.date="10/20/2015" 
 	ms.author="josephd"/>
 
 # Line of Business Application Workload Phase 3: Configure SQL Server infrastructure
@@ -40,8 +40,6 @@ Use the following block of PowerShell commands to create the virtual machines fo
 - Table A, for your availability sets
 
 Recall that you defined Table M in [Phase 2](virtual-machines-workload-high-availability-LOB-application-phase2.md) and Tables V, S, ST, and A in [Phase 1](virtual-machines-workload-high-availability-LOB-application-phase1.md).
-
-> [AZURE.NOTE] This article contains commands for versions of Azure PowerShell up to *but not including* versions 1.0.0 and later. You can check your version of Azure PowerShell with the **Get-Module azure | format-table version** command. The Azure PowerShell command blocks in this article are in the process of being tested and updated to support the new cmdlets in Azure PowerShell versions 1.0.0 and later. Thank you for your patience.
 
 When you have supplied all the proper values, run the resulting block at the Azure PowerShell prompt.
 
@@ -204,7 +202,7 @@ SQL Server AlwaysOn Availability Groups rely on the Windows Server Failover Clus
 - The secondary virtual machine running SQL Server
 - The cluster majority node
 
-The failover cluster requires at least three virtual machines. Two machines host SQL Server, in which the secondary virtual machine is a synchronous secondary replica, ensuring zero data loss if the primary machine fails. The third virtual machine does not need to host SQL Server. The cluster majority node functions as a quorum witness in the WSFC. Because the WSFC cluster relies on a quorum to monitor health, there must always be a majority to ensure that the WSFC cluster is online. If only two machines are in a cluster, and one fails, there can be no majority when only one out of two fails. For more information, see [WSFC Quorum Modes and Voting Configuration (SQL Server)](http://msdn.microsoft.com/library/hh270280.aspx).
+The failover cluster requires at least three virtual machines. Two machines host SQL Server, in which the secondary virtual machine is a synchronous secondary replica, ensuring zero data loss if the primary machine fails. The third virtual machine does not need to host SQL Server. The cluster majority node functions provides a quorum in the WSFC. Because the WSFC cluster relies on a quorum to monitor health, there must always be a majority to ensure that the WSFC cluster is online. If only two machines are in a cluster, and one fails, there can be no majority when only one out of two fails. For more information, see [WSFC Quorum Modes and Voting Configuration (SQL Server)](http://msdn.microsoft.com/library/hh270280.aspx).
 
 For both SQL Server virtual machines and for the cluster majority node, run the following command at an administrator-level Windows PowerShell prompt:
 

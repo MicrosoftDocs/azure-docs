@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="Windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/11/2015" 
+	ms.date="10/20/2015" 
 	ms.author="josephd"/>
 
 # Line of Business Application Workload Phase 2: Configure domain controllers
@@ -35,7 +35,7 @@ Item | Virtual machine name | Gallery image | Minimum size
 2. | ______________ (second domain controller, example DC2) | Windows Server 2012 R2 Datacenter | Standard_D1
 3. | ______________ (primary database server, example SQL1) | Microsoft SQL Server 2014 Enterprise – Windows Server 2012 R2 | 	Standard_DS4
 4. | ______________ (secondary database server, example SQL2) | Microsoft SQL Server 2014 Enterprise – Windows Server 2012 R2 | 	Standard_DS4
-5. | ______________ (majority node witness for the cluster, example MN1) | Windows Server 2012 R2 Datacenter | Standard_D1
+5. | ______________ (majority node for the cluster, example MN1) | Windows Server 2012 R2 Datacenter | Standard_D1
 6. | ______________ (first web server, example WEB1) | Windows Server 2012 R2 Datacenter | Standard_D3
 7. | ______________ (second web server, example WEB2) | Windows Server 2012 R2 Datacenter | Standard_D3
 

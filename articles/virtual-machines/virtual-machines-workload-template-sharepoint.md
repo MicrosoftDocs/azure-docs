@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows-sharepoint"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="10/13/2015"
+	ms.date="10/20/2015"
 	ms.author="josephd"/>
 
 # Deploy SharePoint farms with Azure Resource Manager templates

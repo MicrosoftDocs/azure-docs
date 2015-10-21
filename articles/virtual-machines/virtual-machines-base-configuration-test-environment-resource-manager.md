@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/13/2015"
+	ms.date="10/20/2015"
 	ms.author="josephd"/>
 
 # Base Configuration test environment with Azure Resource Manager

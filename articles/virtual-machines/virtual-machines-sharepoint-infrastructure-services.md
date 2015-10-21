@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="index-page"
-	ms.date="10/13/2015"
+	ms.date="10/20/2015"
 	ms.author="josephd"/>
 
 # SharePoint farms hosted in Azure infrastructure services
