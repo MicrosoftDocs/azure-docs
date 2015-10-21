@@ -1,3 +1,21 @@
+<properties
+ pageTitle="Remote Monitoring preconfigured solution walkthrough | Microsoft Azure"
+ description="A description of the Azure IoT preconfigured solution remote monitoring and its architecture."
+ services=""
+ documentationCenter=""
+ authors="stevehob"
+ manager="timlt"
+ editor=""/>
+
+<tags
+ ms.service="na"
+ ms.devlang="na"
+ ms.topic="article"
+ ms.tgt_pltfrm="na"
+ ms.workload="na"
+ ms.date="10/21/2015"
+ ms.author="stevehob"/>
+
 # Remote monitoring preconfigured solution walkthrough
 
 ## Introduction
@@ -70,11 +88,10 @@ The **Event Processor** handles device information messages and command response
 - Device information messages to update the device registry (stored in the DocumentDB database) with the current device information.
 - Command response messages to update the device command history (stored in the DocumentDB database).
 
-## Let’s start walking
+## Let's start walking
 
 This section walks you through the components of the solution, describes the intended use case, and provides examples.
 
-#EDIT FROM HERE
 ### Remote Monitoring Dashboard
 This page in the web application uses PowerBI javascript controls (See [PowerBI-visuals repo](https://www.github.com/Microsoft/PowerBI-visuals)) to visualize the output data from the Stream Analytics jobs in blob storage.
 
@@ -88,30 +105,30 @@ This web app enables you to:
 - Send commands to a device.
 - View the command history for a device.
 
-#### Observing the behavior of the cloud solution
+### Observing the behavior of the cloud solution
 You can view your provisioned resources by going to [Azure Management Portal](https://portal.azure.com) and navigating to the resource group with the solution name you specified.
-![](media/iot-suite-remote-monitoring-sample-walkthrough/AzurePortal_01.png)
+![](media/iot-suite-remote-monitoring-sample-walkthrough/azureportal_01.png)
 
 When you first run the sample, there are four preconfigured, simulated devices:
-![](media/iot-suite-remote-monitoring-sample-walkthrough/SolutionPortal_01.png)
+![](media/iot-suite-remote-monitoring-sample-walkthrough/solutionportal_01.png)
 
 You can use the Device Administration portal to add a new simulated device:
-![](media/iot-suite-remote-monitoring-sample-walkthrough/SolutionPortal_02.png)
+![](media/iot-suite-remote-monitoring-sample-walkthrough/solutionportal_02.png)
 
 Initially, the status of the new device in the Device Administration portal is **Pending**:
-![](media/iot-suite-remote-monitoring-sample-walkthrough/SolutionPortal_03.png)
+![](media/iot-suite-remote-monitoring-sample-walkthrough/solutionportal_03.png)
 
 When the app has finished deploying the simulated device, you will see the status of the device change to **Running** in the Device Administration portal as shown in the following screenshot. The **DeviceInfo** Stream Analytics job sends device status information from the device to the Device Administration portal.
-![](media/iot-suite-remote-monitoring-sample-walkthrough/SolutionPortal_04.png)
+![](media/iot-suite-remote-monitoring-sample-walkthrough/solutionportal_04.png)
 
 Using the solution portal you can send commands such as **ChangeSetPointTemp** to the device :
-![](media/iot-suite-remote-monitoring-sample-walkthrough/SolutionPortal_05.png)
+![](media/iot-suite-remote-monitoring-sample-walkthrough/solutionportal_05.png)
 
 When the device reports that it has executed the command successfully, the status changes to **Success**:
-![](media/iot-suite-remote-monitoring-sample-walkthrough/SolutionPortal_06.png)
+![](media/iot-suite-remote-monitoring-sample-walkthrough/solutionportal_06.png)
 
 Using the solution portal you can search for devices with specific characteristics such as a model number:
-![](media/iot-suite-remote-monitoring-sample-walkthrough/SolutionPortal_07.png)
+![](media/iot-suite-remote-monitoring-sample-walkthrough/solutionportal_07.png)
 
 You can disable a device, and after it is disabled you can remove it:
-![](media/iot-suite-remote-monitoring-sample-walkthrough/SolutionPortal_08.png)
+![](media/iot-suite-remote-monitoring-sample-walkthrough/solutionportal_08.png)
