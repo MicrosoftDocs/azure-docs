@@ -44,10 +44,10 @@ The tags section uses the following syntax:
 
 ![](./media/article-metadata/checkmark-small.png)**pageTitle**: Required; important to SEO. The text for this attribute appears in the browser tab and as the title in a search result. Use 55-60 characters including spaces and including the site identifier *| Microsoft Azure* (typed as: space pipe space Microsoft Azure).  The pageTitle should be different from the H1.
 
-![](./media/article-metadata/checkmark-small.png)**description**: Required; important for SEO (relevance) and site functionality - the text is displayed in [the article index results](https://azure.microsoft.com/documentation/articles/). The description should be at least 125 characters long to 155 characters maximum including spaces. Describe the purpose of your content so customers will know whether to choose it from a list of search results. The value is:
+![](./media/article-metadata/checkmark-small.png)**description**: Required; important for SEO (relevance) and site functionality. The description should be at least 125 characters long to 155 characters maximum including spaces. Describe the purpose of your content so customers will know whether to choose it from a list of search results. The value is:
 
-- Usually displayed as the description or abstract paragraph in search results
-- Will soon be displayed automatically on documentation landing pages as the description that appears when you click "More". It may appear in other contexts on azure.microsoft.com.
+- This text may be displayed as the description or abstract paragraph in search results on Google.
+- This text is displayed in [the article index results](https://azure.microsoft.com/documentation/articles/).
 
 ![](./media/article-metadata/checkmark-small.png)**services**: Required for articles that deal with a service. List all the applicable services, separated by commas. The first service that you list will drive the navigational breadcrumbs for the page. In articles that specify both a services value and a documentationCenter value, the services value will drive the breadcrumb. Additional values that you list will appear as tags in the published article. Values:
 
