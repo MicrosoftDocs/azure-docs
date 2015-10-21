@@ -22,13 +22,14 @@ This tutorial will show you how to build a predictive machine learning model wit
 
 ## Prerequisites
 To step through this tutorial, you need
--	SQL Data Warehouse with AdventureWorksDW sample database.
 
-[Create a SQL Data Warehouse][] shows you how to create one. If you already have a SQL Data Warehouse database but do not have sample data, you can [load sample data manually][]
+- SQL Data Warehouse with AdventureWorksDW sample database.
+
+[Create a SQL Data Warehouse][] shows you how to provision a database with sample data. If you already have a SQL Data Warehouse database but do not have sample data, you can [load sample data manually][]
 
 
 ## Step 1: Get Data 
-We will read the data from dbo.vTargetMail view in the AdventureWorks database.
+We will read the data from dbo.vTargetMail view in the AdventureWorksDW database.
 
 1. Sign into [Azure Machine Learning studio][] and click on my experiments.
 2. Click **+NEW** and select **Blank Experiment**.
@@ -36,6 +37,7 @@ We will read the data from dbo.vTargetMail view in the AdventureWorks database.
 4. Drag the **Reader** module from the modules pane into the canvas.
 5. Specify the details of your SQL Data Warehouse database in the Properties pane. 
 6. Specify the database query to read the data of interest.
+
 ```
 SELECT [CustomerKey]
       ,[GeographyKey]
@@ -100,7 +102,7 @@ The metrics provided are the ROC curve, precision-recall diagram and lift curve.
 You will see two more columns added to your test dataset.
 
 - Scored Probabilities: the likelihood that a customer is a bike buyer.
-- Scored Labels: the classification done by the model – bike buyer (1) or not (0). This probability threshold for labeling is set to 50% and can be adjusted.
+- Scored Labels: the classification done by the model – bike buyer (1) or not (0). The probability threshold for labeling is set to 50% and can be adjusted.
 
 Comparing the column BikeBuyer (actual) with the Scored Labels (prediction), you can see how well the model has performed. As next steps, you can use this model to make predictions for new customers and publish this model as a web service or write results back to SQL Data Warehouse. 
 
