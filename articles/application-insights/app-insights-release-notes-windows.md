@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Release notes for Application Insights for Windows" 
-	description="The latest updates." 
+	description="The latest updates for Windows Store SDK." 
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
