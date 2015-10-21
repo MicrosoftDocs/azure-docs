@@ -40,8 +40,8 @@ Before following the instructions in this article, ensure that you have the foll
 
 To share your reports in PowerBI.com, you must have an account in PowerBI.com.  To learn more about Power BI for Free and Power BI Pro, please visit [https://powerbi.microsoft.com/pricing](https://powerbi.microsoft.com/pricing).
 
-###Let's get started
-In this tutorial, let's imagine that you are a geologist studying volcanoes around the world.  The volcano data is stored in a DocumentDB account and the JSON document looks like the one below.
+### Let's get started
+In this tutorial, let's imagine that you are a geologist studying volcanoes around the world.  The volcano data is stored in a DocumentDB account and the JSON documents look like the one below.
 
 	{
     	"Volcano Name": "Rainier",
@@ -60,7 +60,7 @@ In this tutorial, let's imagine that you are a geologist studying volcanoes arou
   		"Last Known Eruption": "Last known eruption from 1800-1899, inclusive"
 	}	
 
-You want to extract the volcano data from DocumentDB and produce an interactive Power BI report like the one below.
+You want to retrieve the volcano data from the DocumentDB account and produce an interactive Power BI report like the one below.
 
 ![Power BI Desktop Volcano Report](./media/documentdb-powerbi-visualize/pbireportfinal.png)
 
@@ -80,8 +80,8 @@ Ready to give it a try? Let's get started.
 5. Click on **Azure**, select **Microsoft Azure DocumentDB (Beta)**, and then click **Connect**.  The **Microsoft Azure DocumentDB Connect** window should appear.
 ![Power BI Desktop Get Data](./media/documentdb-powerbi-visualize/pbigetdata.png)
 
-6. Specify the DocumentDB account endpoint URL you would like to retrieve the data from as shown below,and then click **OK**. You can retrieve the URL from the URI box in the **Keys** blade of the Azure preview portal. For more information, see [Keys](documentdb-manage-account.md#keys).
-*Note.  For this tutorial, we will not provide the Database name, Collection name, or a SQL statement as these fields are optional.  We will use the Navigator to select the Database and Collection to identify where the data comes from.*
+6. Specify the DocumentDB account endpoint URL you would like to retrieve the data from as shown below, and then click **OK**. You can retrieve the URL from the URI box in the **Keys** blade of the Azure preview portal. For more information, see [Keys](documentdb-manage-account.md#keys).
+*Note.  In this tutorial, we will not specify the Database name, Collection name, or a SQL statement as these fields are optional.  Instead, we will use the Navigator to select the Database and Collection to identify where the data comes from.*
 
     ![Power BI Desktop Connect Window](./media/documentdb-powerbi-visualize/pbiconnectwindow.png)
 
@@ -91,8 +91,9 @@ Ready to give it a try? Let's get started.
 
 8. When the account is successfully connected, the **Navigator** will appear.  The **Navigator** will show a list of databases under the account.
 9. Click and expand on the database where the data for the report will come from.  A list of collections under the database will display.  
-10. Now, select the collection that you will retrieve the data from, e.g. volcano1.
-*Note. The Preview pane shows a list of **Record** items.  A Document is represented as a **Record** type in Power BI. Similarly, a nested JSON block inside a Document is a **Record**.*
+
+10. Now, select a collection that you will retrieve the data from, e.g. volcano1.
+*Note. The Preview pane shows a list of **Record** items.  A Document is represented as a **Record** type in Power BI. Similarly, a nested JSON block inside a document is also a **Record**.
   
     ![Power BI Desktop Navigator](./media/documentdb-powerbi-visualize/pbinavigator.png)
 
@@ -106,7 +107,7 @@ Ready to give it a try? Let's get started.
     
 	![Power BI Desktop Expand Documents](./media/documentdb-powerbi-visualize/pbiqueryeditorexpander.png)
 
-3. The center pane will display a result preview of the fields you have selected.
+3. The center pane will display a preview of the result with the fields selected.
 ![Power BI Desktop Flatten Result](./media/documentdb-powerbi-visualize/pbiresultflatten.png)
 
 4. In our example, the Location property is a GeoJSON block in a document.  As you can see, Location is represented as a **Record** type in Power BI Desktop.  
@@ -114,22 +115,22 @@ Ready to give it a try? Let's get started.
 
     ![Power BI Desktop Location Record](./media/documentdb-powerbi-visualize/pbilocationrecord.png)
 
-6. The center pane now shows a coordinates column of **List** type.  As shown at the beginning of the tutorial, the GeoJSON data in this tutorial is of Point type with Latitude and Longitude noted in the coordinates array.
+6. The center pane now shows a coordinates column of **List** type.  As shown at the beginning of the tutorial, the GeoJSON data in this tutorial is of Point type with Latitude and Longitude values recorded in the coordinates array.
 *Note.  the coordinates[0] element represents Longitude while coordinates[1] represents Latitude.*
 ![Power BI Desktop Coordinates List](./media/documentdb-powerbi-visualize/pbiresultflattenlist.png)
 
 7. To flatten the coordinates array, we will create a **Custom Column** called LatLong.  Select the **Add Column** ribbon and click on **Add Custom Column**.  The **Add Custom Column** window should appear.
 
-8. Provide a name for the new column, e.g. "LatLong".
+8. Provide a name for the new column, e.g. LatLong.
 
 9. Next, specify the custom formula for the new column.  For our example, we will concatenate the Latitude and Longitude values separated by a comma as shown below.  Click **OK**.
 *Note. For more information on Data Analysis Expressions(DAX) including DAX functions, please visit [DAX Basic in Power BI Desktop](https://support.powerbi.com/knowledgebase/articles/554619-dax-basics-in-power-bi-desktop).*
 ![Power BI Desktop Custom Column](./media/documentdb-powerbi-visualize/pbicustomlatlong.png)
 
-10. Now, the center pane will show the new LatLong column populated with Latitude and Longitude values separated by a comma.
+10. Now, the center pane will show the new LatLong column populated with the Latitude and Longitude values separated by a comma.
 ![Power BI Desktop Custom LatLong](./media/documentdb-powerbi-visualize/pbicolumnlatlong.png)
 
-11. We have now completed flattening the data into tabular format.  You can leverage all of the features available in the Query Editor to shape and transform data in DocumentDB.  For instance, changing the type for Elevation to **Decimal Number**.
+11. We have now completed flattening the data into tabular format.  You can leverage all of the features available in the Query Editor to shape and transform data in DocumentDB.  For instance, changing the data type for Elevation to **Decimal Number**.
 ![Power BI Desktop Change Type](./media/documentdb-powerbi-visualize/pbichangetype.png)
 
 12. Click **Close and Apply** to save the data model.
@@ -137,7 +138,7 @@ Ready to give it a try? Let's get started.
     ![Power BI Desktop Close Apply](./media/documentdb-powerbi-visualize/pbicloseapply.png)
 
 ### Build the Reports
-Power BI Desktop Report view is where you can start creating reports.  You can create reports by dragging and dropping fields into the **Report** view.
+Power BI Desktop Report view is where you can start creating reports.  You can create reports by dragging and dropping fields into the **Report** canvas.
 
 ![Power BI Desktop Report View](./media/documentdb-powerbi-visualize/pbireportview2.png)
  
@@ -153,7 +154,7 @@ In the Report view, you should find:
 
 The following shows the basic steps of creating a simple interactive Map view report.
 
-1. For our example, we will create a map view showing the location for each volcano.  In the **Visualizations** pane,  select **Map** visual type.  You should see the Map visual type on the canvas.  The **Visualization** pane should also display a set of properties for the Map visual type.
+1. For our example, we will create a map view showing the location of each volcano.  In the **Visualizations** pane,  click on the Map visual type.  You should see the Map visual type painted on the **Report** canvas.  The **Visualization** pane should also display a set of properties related to the Map visual type.
 
 2. Now, drag and drop the LatLong field from the **Fields** pane to the **Location** property in **Visualizations** pane.
 3. Next, drag and drop the Volcano Name field to the **Legend** property.  
@@ -166,7 +167,7 @@ The following shows the basic steps of creating a simple interactive Map view re
 
     ![Power BI Desktop Report Final](./media/documentdb-powerbi-visualize/pbireportfinal.png)
 
-###Publish and Share Your Report###
+### Publish and Share Your Report
 To share your report, you must have an account in PowerBI.com.
 
 1. In the Power BI Desktop,  click on the **Home** ribbon.
