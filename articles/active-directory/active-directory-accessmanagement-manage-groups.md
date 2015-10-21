@@ -5,7 +5,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="femila"
-	manager="swadhwa"
+	manager="stevenpo"
 	editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/13/2015" 
+	ms.date="10/21/2015" 
 	ms.author="femila"/>
 
 
@@ -25,7 +25,7 @@
 
 **To create a group from the Azure Management Portal**
 
-1. In the Management Portal, click Active Directory, and then click on the name of your organization’s directory.
+1. In the Management Portal, click **Active Director**y, and then click on the name of your organization’s directory.
 2. Click the **Groups** tab.
 3. On the Groups page, click **Add Group**.
 4. In the **Add Group** window, specify the name and the description of a group.
