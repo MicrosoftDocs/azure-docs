@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Azure AD Connect Health AD FS Agent installation | Microsoft Azure"
-	description="This is the Azure AD Connect Health page that describes the Active Directory Federation Services (AD FS) agent installation."
+	pageTitle="Azure AD Connect Health Agent installation | Microsoft Azure"
+	description="This is the Azure AD Connect Health page that describes the agent installation for AD FS and Sync Services."
 	services="active-directory"
 	documentationCenter=""
 	authors="billmath"
@@ -21,14 +21,14 @@
 
 
 
-# Azure AD Connect Health Agent Installation for AD FS
+# Azure AD Connect Health Agent Installation 
 
-This document will walk you through installing and configuring the Azure AD Connect Health Agent for AD FS on your servers.
+This document will walk you through installing and configuring the Azure AD Connect Health Agent for AD FS and Sync Services.
 
->[AZURE.NOTE]Remember that before you see any data in your instance of Azure AD Connect Health, you will need to install the Azure AD Connect Health Agent on your targeted servers.  Be sure to complete the requirements [here](active-directory-aadconnect-health.md#requirements) prior to installing the agent.  You can download the agent [here](http://go.microsoft.com/fwlink/?LinkID=518973).
+>[AZURE.NOTE]Remember that before you see any AD FS data in your instance of Azure AD Connect Health, you will need to install the Azure AD Connect Health Agent on your targeted servers.  Be sure to complete the requirements [here](active-directory-aadconnect-health.md#requirements) prior to installing the agent.  You can download the agent [here](http://go.microsoft.com/fwlink/?LinkID=518973).
 
 
-## Agent installation
+## Installing the  Azure AD Connect Health Agent for AD FS
 To start the agent installation, double-click on the .exe file that you downloaded. On the first screen, click Install.
 
 ![Verify Azure AD Connect Health](./media/active-directory-aadconnect-health-requirements/install1.png)
@@ -56,7 +56,18 @@ To verify the agent has been installed, open services and look for the following
 
 ![Verify Azure AD Connect Health](./media/active-directory-aadconnect-health-requirements/install5.png)
 
+## Installing the Azure AD Connect Health for Synch Services
+The Azure AD Connect Health Agent for Sync Services is installed automatically in the latest build of Azure AD Connect.  To use Azure AD Connect for Sync Services you will need to download the latest version of Azure AD Connect and install it.  You can download the latest version [here](http://www.microsoft.com/download/details.aspx?id=47594).
 
+To verify the agent has been installed, open services and look for the following. These services should be running if you completed the configuration. Otherwise, they will not start until the configuration is complete.
+
+- Azure AD Connect Health AadSync Insights Service
+- Azure AD Connect Health AadSync Monitoring Service
+ 
+![Verify Azure AD Connect Health for Sync](./media/active-directory-aadconnect-health-sync/services.png)
+
+>[Azure.NOTE} Remember that using Azure AD Connect Health requires Azure AD Premium.  If you do not have Azure AD Premium you will not be able to complete the configuration in the Azure portal.  For more information see the requirements [here](active-directory-aadconnect-health.md#requirements). 
+>
 ## Agent installation on Windows Server 2008 R2 Servers
 
 For Windows Server 2008 R2 servers do the following:

@@ -113,8 +113,7 @@ To get started using Azure AD Connect Health you can download the latest version
 
 ## Related links
 
-* [Azure AD Connect Health Agent Installation for AD FS](active-directory-aadconnect-health-agent-install-adfs.md)
-* [Azure AD Connect Health Agent Installation for Sync Services](active-directory-aadconnect-health-install-sync.md)
+* [Azure AD Connect Health Agent Installation](active-directory-aadconnect-health-agent-install.md)
 * [Azure AD Connect Health Operations](active-directory-aadconnect-health-operations.md)
 * [Using Azure AD Connect Health with AD FS](active-directory-aadconnect-health-adfs.md)
 * [Using Azure AD Connect Health for Sync](active-directory-aadconnect-health-sync.md)
