@@ -32,12 +32,12 @@ new resource group and a new subscription. The column titled **Preview Portal** 
 
 | Service | Resource Manager Enabled | Preview Portal | Move Resources | REST API | Schema |
 | ------- | ------------------------ | -------------- | -------------- |-------- | ------ |
-| [Virtual Machines](https://azure.microsoft.com/documentation/services/virtual-machines/) | Yes | Yes, many options | No       | [Create VM](https://msdn.microsoft.com/library/azure/mt163591.aspx) | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Compute.json) |
-| [Batch](https://azure.microsoft.com/documentation/services/batch/)   | Yes     | [Create (classic only)](https://portal.azure.com/#create/Microsoft.BatchAccount) |               | [Batch REST](https://msdn.microsoft.com/library/azure/dn820158.aspx) |        |
+| Virtual Machines | Yes | Yes, many options | No       | [Create VM](https://msdn.microsoft.com/library/azure/mt163591.aspx) | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Compute.json) |
+| Batch   | Yes     | [Create (classic only)](https://portal.azure.com/#create/Microsoft.BatchAccount) |               | [Batch REST](https://msdn.microsoft.com/library/azure/dn820158.aspx) |        |
 | Dynamics Lifecycle Services | Yes | No |    |      |        |
-| [Virtual Machines (classic)]((https://azure.microsoft.com/documentation/services/virtual-machines/)) | Limited | Yes, many options | Partial (see below) | - | - |
-| [Remote App](https://azure.microsoft.com/documentation/services/remoteapp/) | No   | No | -              | -        | -      |
-| [Service Fabric](https://azure.microsoft.com/documentation/services/service-fabric/) | No | No | -           | -        | -      |
+| Virtual Machines (classic) | Limited | Yes, many options | Partial (see below) | - | - |
+| Remote App | No   | No | -              | -        | -      |
+| Service Fabric | No | No | -           | -        | -      |
 
 Virtual Machines (classic) refers to resources that were deployed through the classic deployment model, instead of through the Resource Manager deployment model. In general, these resources do not support Resource Manager operations, but there 
 are some operations that have been enabled. For more information about these deployment models, see [Understanding Resource Manager deployment and classic deployment](resource-manager-deployment-model.md). 
@@ -48,12 +48,12 @@ Virtual Machines (classic) resources can be moved to new resource group, but not
 
 | Service | Resource Manager Enabled | Preview Portal | Move Resources | REST API | Schema |
 | ------- | ------- | -------- | -------------- | -------- | ------ |
-| [API Management](https://azure.microsoft.com/documentation/services/api-management/) | Yes | No | Yes  | [Create API](https://msdn.microsoft.com/library/azure/dn781423.aspx#CreateAPI) |        |
-| [API Apps](https://azure.microsoft.com/documentation/services/app-service/api/) | Yes | [Create](https://portal.azure.com/#create/microsoft_com.ApiApp.0.2.0-preview) |   |   | [2015-03-01-preview](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-03-01-preview/Microsoft.AppService.json) |
-| [Web Apps](https://azure.microsoft.com/documentation/services/app-service/web/) | Yes | [Create](https://portal.azure.com/#create/Microsoft.WebSite)  | Yes, with limitations (see below) |          | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Web.json) |
-| [Notification Hubs](https://azure.microsoft.com/documentation/services/notification-hubs/) | Yes | [Create](https://portal.azure.com/#create/Microsoft.NotificationHub) |         | [Create Notification Hub](https://msdn.microsoft.com/library/azure/dn223269.aspx) | [2015-04-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-04-01/Microsoft.NotificationHubs.json) |
-| [Logic Apps](https://azure.microsoft.com/documentation/services/app-service/logic/) | Yes  | [Create](https://portal.azure.com/#create/Microsoft.EmptyWorkflow.0.2.0-preview) |       |          |        |
-| [Mobile Engagements](https://azure.microsoft.com/documentation/articles/mobile-engagement-overview/) | Yes | No |  Yes  |          |        |
+| API Management | Yes | No | Yes  | [Create API](https://msdn.microsoft.com/library/azure/dn781423.aspx#CreateAPI) |        |
+| API Apps | Yes | [Create](https://portal.azure.com/#create/microsoft_com.ApiApp.0.2.0-preview) |   |   | [2015-03-01-preview](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-03-01-preview/Microsoft.AppService.json) |
+| Web Apps | Yes | [Create](https://portal.azure.com/#create/Microsoft.WebSite)  | Yes, with limitations (see below) |          | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Web.json) |
+| Notification Hubs | Yes | [Create](https://portal.azure.com/#create/Microsoft.NotificationHub) |         | [Create Notification Hub](https://msdn.microsoft.com/library/azure/dn223269.aspx) | [2015-04-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-04-01/Microsoft.NotificationHubs.json) |
+| Logic Apps | Yes  | [Create](https://portal.azure.com/#create/Microsoft.EmptyWorkflow.0.2.0-preview) |       |          |        |
+| Mobile Engagements | Yes | No |  Yes  |          |        |
 
 When working with web apps, you cannot move only an App Service plan. To move web apps, your options are:
 
@@ -65,78 +65,78 @@ When working with web apps, you cannot move only an App Service plan. To move we
 
 | Service | Resource Manager Enabled | Preview Portal | Move Resources | REST API | Schema |
 | ------- | ------- | ------- | -------------- | -------- | ------ |
-| [DocumentDB](https://azure.microsoft.com/documentation/services/documentdb/) | Yes  | [Create](https://portal.azure.com/#create/Microsoft.DocumentDB) | Yes  | [DocumentDB REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) |   |
-| [Storage](https://azure.microsoft.com/documentation/services/storage/) | Yes     | [Create](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM) |         | [Create Storage](https://msdn.microsoft.com/library/azure/mt163564.aspx) | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Storage.json) |
-| [Redis Cache](https://azure.microsoft.com/documentation/services/redis-cache/) | Yes | [Create](https://portal.azure.com/#create/Microsoft.Cache.1.0.4) | Yes |   | [2014-04-01-preview](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01-preview/Microsoft.Cache.json) |
-| [SQL Database](https://azure.microsoft.com/documentation/services/sql-database/) | Yes | [Create](https://portal.azure.com/#create/Microsoft.SQLDatabase.0.5.7-preview) | Yes  | [Create Database](https://msdn.microsoft.com/library/azure/mt163685.aspx) | [2014-04-01-preview](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01-preview/Microsoft.Sql.json) |
-| [Search](https://azure.microsoft.com/documentation/services/search/) | Yes  | Yes | Yes   | [Search REST](https://msdn.microsoft.com/library/azure/dn798935.aspx) |  |
-| [SQL Data Warehouse](https://azure.microsoft.com/documentation/services/sql-data-warehouse/) | Yes | [Create](https://portal.azure.com/#create/Microsoft.SQLDataWarehouse.0.1.12-preview) |   |   |      |
-| [StorSimple](https://azure.microsoft.com/documentation/services/storsimple/) | No   | No | -  | -        | -       |
+| DocumentDB | Yes  | [Create](https://portal.azure.com/#create/Microsoft.DocumentDB) | Yes  | [DocumentDB REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) |   |
+| Storage | Yes     | [Create](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM) |         | [Create Storage](https://msdn.microsoft.com/library/azure/mt163564.aspx) | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Storage.json) |
+| Redis Cache | Yes | [Create](https://portal.azure.com/#create/Microsoft.Cache.1.0.4) | Yes |   | [2014-04-01-preview](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01-preview/Microsoft.Cache.json) |
+| SQL Database | Yes | [Create](https://portal.azure.com/#create/Microsoft.SQLDatabase.0.5.7-preview) | Yes  | [Create Database](https://msdn.microsoft.com/library/azure/mt163685.aspx) | [2014-04-01-preview](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01-preview/Microsoft.Sql.json) |
+| Search | Yes  | Yes | Yes   | [Search REST](https://msdn.microsoft.com/library/azure/dn798935.aspx) |  |
+| SQL Data Warehouse | Yes | [Create](https://portal.azure.com/#create/Microsoft.SQLDataWarehouse.0.1.12-preview) |   |   |      |
+| StorSimple | No   | No | -  | -        | -       |
 | Managed cache | No | No | -             | -        | -       |
 
 ## Analytics
 
 | Service | Resource Manager Enabled | Preview Portal | Move Resources | REST API | Schema |
 | ------- | ------- | --------- | -------------- | -------- | ------ |
-| [Event Hub](https://azure.microsoft.com/documentation/services/event-hubs/) | Yes   | No |         | [Create Event Hub](https://msdn.microsoft.com/library/azure/dn790676.aspx) |        |
-| [Stream Analytics](https://azure.microsoft.com/documentation/services/stream-analytics/) | Yes | [Create](https://portal.azure.com/#create/Microsoft.StreamAnalyticsJob) |        |          |        |
-| [HDInsights](https://azure.microsoft.com/documentation/services/hdinsight/) | Yes  | [Create](https://portal.azure.com/#create/Microsoft.HDInsightCluster) |            |          |        |
-| [Data Factory](https://azure.microsoft.com/documentation/services/data-factory/) | Yes | [Create](https://portal.azure.com/#create/Microsoft.DataFactory) | Yes | [Create Data Factory](https://msdn.microsoft.com/library/azure/dn906717.aspx) |    |
-| [Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning/) | No | No | -          | -        | -      |
-| [Data Catalog](https://azure.microsoft.com/documentation/services/data-catalog/) | No | No |  -             | -        | -       |
+| Event Hub | Yes   | No |         | [Create Event Hub](https://msdn.microsoft.com/library/azure/dn790676.aspx) |        |
+| Stream Analytics | Yes | [Create](https://portal.azure.com/#create/Microsoft.StreamAnalyticsJob) |        |          |        |
+| HDInsights | Yes  | [Create](https://portal.azure.com/#create/Microsoft.HDInsightCluster) |            |          |        |
+| Data Factory | Yes | [Create](https://portal.azure.com/#create/Microsoft.DataFactory) | Yes | [Create Data Factory](https://msdn.microsoft.com/library/azure/dn906717.aspx) |    |
+| Machine Learning | No | No | -          | -        | -      |
+| Data Catalog | No | No |  -             | -        | -       |
 
 ## Networking
 
 | Service | Resource Manager Enabled | Preview Portal | Move Resources | REST API | Schema |
 | ------- | ------- | -------- | -------------- | -------- | ------ |
-| [Application Gateway](https://azure.microsoft.com/documentation/services/application-gateway/) | Yes |  |      |          |        |
-| [DNS](https://azure.microsoft.com/documentation/services/dns/)     | Yes     |  |               | [Create DNS Zone](https://msdn.microsoft.com/library/azure/mt130622.aspx)         | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Network.json) |
-| [Load Balancer](https://azure.microsoft.com/documentation/services/load-balancer/) | Yes |    |          | [Create Load Balancer](https://msdn.microsoft.com/library/azure/mt163574.aspx) | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Network.json) |
-| [Virtual Networks](https://azure.microsoft.com/documentation/services/virtual-network/) | Yes | [Create](https://portal.azure.com/#create/Microsoft.VirtualNetwork-ARM) | No        | [Create Virtual Network](https://msdn.microsoft.com/library/azure/mt163661.aspx) | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Network.json) |
-| [Traffic Manager](https://azure.microsoft.com/documentation/services/traffic-manager/) | Yes | No |           | [Create Traffic Manager profile](https://msdn.microsoft.com/library/azure/mt163581.aspx) |        |
-| [ExpressRoute](https://azure.microsoft.com/documentation/services/expressroute/) | Yes | No | No             | [ExpressRoute REST](https://msdn.microsoft.com/library/azure/mt586720.aspx)  |       |
+| Application Gateway | Yes |  |      |          |        |
+| DNS     | Yes     |  |               | [Create DNS Zone](https://msdn.microsoft.com/library/azure/mt130622.aspx)         | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Network.json) |
+| Load Balancer | Yes |    |          | [Create Load Balancer](https://msdn.microsoft.com/library/azure/mt163574.aspx) | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Network.json) |
+| Virtual Networks | Yes | [Create](https://portal.azure.com/#create/Microsoft.VirtualNetwork-ARM) | No        | [Create Virtual Network](https://msdn.microsoft.com/library/azure/mt163661.aspx) | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Network.json) |
+| Traffic Manager | Yes | No |           | [Create Traffic Manager profile](https://msdn.microsoft.com/library/azure/mt163581.aspx) |        |
+| ExpressRoute | Yes | No | No             | [ExpressRoute REST](https://msdn.microsoft.com/library/azure/mt586720.aspx)  |       |
 
 ## Media & CDN
 
 | Service | Resource Manager Enabled | Preview Portal | Move Resources | REST API | Schema |
 | ------- | ------- | -------- | -------------- | -------- | ------ |
-| [Media Service](https://azure.microsoft.com/documentation/services/media-services/) | No | No |  |  |  |
-| [CDN](https://azure.microsoft.com/documentation/services/cdn/) | No | No |  |  |  |
+| Media Service | No | No |  |  |  |
+| CDN | No | No |  |  |  |
 
 ## Hybrid Integration
 
 | Service | Resource Manager Enabled | Preview Portal | Move Resources | REST API | Schema |
 | ------- | ------- | -------------- | -------------- | -------- | ------ |
-| [BizTalk Services](https://azure.microsoft.com/documentation/services/biztalk-services/) | Yes | No |        |          | [2014-04-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01/Microsoft.BizTalkServices.json) |
-| [Service Bus](https://azure.microsoft.com/documentation/services/service-bus/) | Yes | No |     | [Service Bus REST](https://msdn.microsoft.com/library/azure/hh780717.aspx) |        |
-| [Backup](https://azure.microsoft.com/documentation/services/backup/) | No | No | -              | -        | -       |
-| [Site Recovery](https://azure.microsoft.com/documentation/services/site-recovery/) | No | No | -             | -        | -       |
+| BizTalk Services | Yes | No |        |          | [2014-04-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01/Microsoft.BizTalkServices.json) |
+| Service Bus | Yes | No |     | [Service Bus REST](https://msdn.microsoft.com/library/azure/hh780717.aspx) |        |
+| Backup | No | No | -              | -        | -       |
+| Site Recovery | No | No | -             | -        | -       |
 
 ## Identity & Access Management 
 
 | Service | Resource Manager Enabled | Preview Portal | Move Resources | REST API | Schema |
 | ------- | ------- | -------------- | -------------- | -------- | ------ |
-| [Azure Active Directory](https://azure.microsoft.com/documentation/services/active-directory/) | No | No | -  | - | - |
-| [Azure Actice Directory B2C](https://azure.microsoft.com/documentation/services/active-directory-b2c/) | No | No | - | - | - |
-| [Multi-Factor Authentication](https://azure.microsoft.com/documentation/services/multi-factor-authentication/) | No | No | - | - | - |
+| Azure Active Directory | No | No | -  | - | - |
+| Azure Actice Directory B2C | No | No | - | - | - |
+| Multi-Factor Authentication | No | No | - | - | - |
 
 ## Developer Services 
 
 | Service | Resource Manager Enabled | Preview Portal | Move Resources | REST API | Schema |
 | ------- | ------- | ---------- | -------------- | -------- | ------ |
-| [Application Insights](https://azure.microsoft.com/documentation/services/application-insights/) | Yes | [Create](https://portal.azure.com/#create/Microsoft.AppInsights.0.2.3-preview) |       |          | [2014-04-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01/Microsoft.Insights.json) |
-| [Bing Maps](https://msdn.microsoft.com/library/dd877180.aspx) | Yes   | [Create](https://portal.azure.com/#create/bingmaps.mapapis.1.0.4) |         |          |        |
-| [Visual Studio account](https://www.visualstudio.com/get-started/overview-of-get-started-tasks-vs) | Yes |  |      |          | [2014-02-26](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-02-26/microsoft.visualstudio.json) |
+| Application Insights | Yes | [Create](https://portal.azure.com/#create/Microsoft.AppInsights.0.2.3-preview) |       |          | [2014-04-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01/Microsoft.Insights.json) |
+| Bing Maps | Yes   | [Create](https://portal.azure.com/#create/bingmaps.mapapis.1.0.4) |         |          |        |
+| Visual Studio account | Yes |  |      |          | [2014-02-26](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-02-26/microsoft.visualstudio.json) |
 
 ## Management 
 
 | Service | Resource Manager Enabled | Preview Portal | Move Resources | REST API | Schema |
 | ------- | ------- | --------- | -------------- | -------- | ------ |
-| [Automation](https://azure.microsoft.com/documentation/services/automation/) | Yes  | [Create](https://portal.azure.com/#create/Microsoft.AutomationAccount.1.0.2-preview) |       |          |        |
-| [Key Vault](https://azure.microsoft.com/documentation/services/key-vault/) | Yes    | No | Yes            | [Key Vault REST](https://msdn.microsoft.com/library/azure/dn903609.aspx) |        |
-| [Scheduler](https://azure.microsoft.com/documentation/services/scheduler/) | Yes   | No |        |          | [2014-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-08-01/Microsoft.Scheduler.json) |
-| [Operational Insights](https://azure.microsoft.com/documentation/services/operational-insights/) | Yes | No | Yes   |          |        |
-| [IoTHubs](https://azure.microsoft.com/documentation/services/iot-hub/) | Yes     | [Create](https://portal.azure.com/#create/Microsoft.IotHub) |               |          |        |
+| Automation | Yes  | [Create](https://portal.azure.com/#create/Microsoft.AutomationAccount.1.0.2-preview) |       |          |        |
+| Key Vault | Yes    | No | Yes            | [Key Vault REST](https://msdn.microsoft.com/library/azure/dn903609.aspx) |        |
+| Scheduler | Yes   | No |        |          | [2014-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-08-01/Microsoft.Scheduler.json) |
+| Operational Insights | Yes | No | Yes   |          |        |
+| IoTHubs | Yes     | [Create](https://portal.azure.com/#create/Microsoft.IotHub) |               |          |        |
 
 
 ## Supported regions
