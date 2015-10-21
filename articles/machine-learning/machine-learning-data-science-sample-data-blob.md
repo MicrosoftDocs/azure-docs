@@ -1,9 +1,9 @@
 <properties 
-	pageTitle="Sample data in Azure Blob Storage| Microsoft Azure" 
+	pageTitle="Sample data in Azure blob storage| Microsoft Azure" 
 	description="Sample data in Azure Blob Storage" 
 	services="machine-learning,storage" 
 	documentationCenter="" 
-	authors="msolhab" 
+	authors="bradsev" 
 	manager="paulettm" 
 	editor="cgronlun" />
 
@@ -13,12 +13,18 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/01/2015" 
-	ms.author="sunliangms;fashah;msolhab;garye;bradsev" /> 
+	ms.date="10/20/2015" 
+	ms.author="sunliangms;fashah;garye;bradsev" /> 
 
-#<a name="heading"></a>Sample Data in Azure Blob Storage
+#<a name="heading"></a>Sample data in Azure blob storage
 
-This document covers sampling data stored in Azure Blob Storage by downloading it programmatically and then sampling it with sample Python code. The steps to do so are as follows:
+This **menu** links to topics that describe how to sample data from various storage environments. This task is a step in the Cortana Analytics Process (CAP).
+
+[AZURE.INCLUDE [cap-sample-data-selector](../../includes/cap-sample-data-selector.md)]
+
+## Introduction
+
+This document covers sampling data stored in Azure blob storage by downloading it programmatically and then sampling it with sample Python code. The steps to do so are as follows:
 
 ## Download and down-sample data
 1. Download the data from Azure blob storage using the blob service from the following sample Python code: 
