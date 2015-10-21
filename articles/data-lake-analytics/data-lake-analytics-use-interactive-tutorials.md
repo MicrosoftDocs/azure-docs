@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="10/19/2015"
+   ms.date="10/21/2015"
    ms.author="jgao"/>
 
 
@@ -21,12 +21,18 @@
 
 The Azure preview portal provides an interactive tutorial for you to get started with Data Lake Analytics. This articles shows you how to go through the tutorial for analyzing website logs.
 
->[AZURE.NOTE] More interactive tutorials to be added.
+
+>[AZURE.NOTE] If you want to go through the same tutorial using Visual Studio, see [Analyze website logs using Data Lake Analytics](data-lake-analytics-analyze-weblogs.md).
+
+>More interactive tutorials to be added to the portal.
+
 
 For other tutorials, see:
 
 - [Get started with Data Lake Analytics using Azure Preview portal](data-lake-analytics-get-started-portal.md)
 - [Get started with Data Lake Analytics using Azure PowerShell](data-lake-analytics-get-started-powershell.md)
+- [Get started with Data Lake Analytics using .NET SDK](data-lake-analytics-get-started-net-sdk.md)
+- [Get started with Data Lake Analytics using Azure CLI](data-lake-analytics-get-started-cli.md)
 - [Develop U-SQL scripts using Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md) 
 
 **Prerequisites**
