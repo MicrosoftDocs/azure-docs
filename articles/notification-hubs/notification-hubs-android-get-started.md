@@ -58,9 +58,9 @@ Completing this tutorial is a prerequisite for all other Notification Hubs tutor
 
 <ol start="7">
 <li><p>Click the <b>Configure</b> tab at the top, enter the <b>API Key</b> value you obtained in the previous section, and then click <b>Save</b>.</p>
-<img src="./media/notification-hubs-android-get-started/notification-hub-configure-android.png">
 </li>
 </ol>
+&emsp;&emsp;![](./media/notification-hubs-android-get-started/notification-hub-configure-android.png)
 
 Your notification hub is now configured to work with GCM, and you have the connection strings to both register your app to receive notifications and to send push notifications.
 

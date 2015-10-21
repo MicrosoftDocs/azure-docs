@@ -45,10 +45,10 @@ Completing this tutorial is a prerequisite for all other Notification Hubs tutor
 
 <ol start="7">
 <li><p>Click the <b>Configure</b> tab, and then click the <b>Enable unauthenticated push notifications</b> check box in the <b>Windows Phone notification settings</b> section.</p>
-<img src="./media/notification-hubs-windows-phone-get-started/notification-hub-pushauth.png">
 </li>
 </ol>
 
+&emsp;&emsp;![](./media/notification-hubs-windows-phone-get-started/notification-hub-pushauth.png)
 
 Your hub is now created and configured to send unauthenticated notification for Windows Phone.
 

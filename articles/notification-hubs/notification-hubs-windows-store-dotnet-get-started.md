@@ -96,10 +96,10 @@ To send push notifications to Windows Store apps, you must associate your app to
 
 <ol start="7">
 <li><p>Select the <b>Configure</b> tab at the top, enter the <b>Client secret</b> and <b>Package SID</b> values that you obtained from WNS in the previous section, and then click <b>Save</b>.</p>
-<img src="./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-configure-wns.png">
 </li>
 </ol>
 
+&emsp;&emsp;![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-configure-wns.png)
 
 Your notification hub is now configured to work with WNS, and you have the connection strings to register your app and send notifications.
 
