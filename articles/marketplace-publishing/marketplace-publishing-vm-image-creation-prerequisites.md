@@ -24,7 +24,7 @@ You should have the following items ready before beginning the process:
 
 - Depending on which operating system you are targeting, install the Azure PowerShell cmdlets or Linux command-line interface tool from the Azure Downloads page.
 - Install Azure Storage Explorer from CodePlex.
-- Download and install Certification Test Tool for Azure Certified:
+- Download and install the Certification Test Tool for Azure Certified:
   - [http://go.microsoft.com/fwlink/?LinkID=526913](http://go.microsoft.com/fwlink/?LinkID=526913). You need a Windows-based computer to run the certification tool. If you do not have a Windows-based computer available, you can run the tool using a Windows-based virtual machine in Azure.
 
 ## Platforms supported
@@ -47,7 +47,7 @@ You can develop Azure VHDs in the cloud or on-premises:
 Now that you reviewed the prerequisites and completed the necessary tasks, you can move forward with creating your virtual machine image offer as detailed in the [Virtual machine image publishing guide](marketplace-publishing-vm-image-creation.md).
 
 ## See also
-- [Get started: How to publish an offer to the Azure Marketplace](marketplace-publishing-getting-started.md)
+- [Getting started: How to publish an offer to the Azure Marketplace](marketplace-publishing-getting-started.md)
 - [Create a virtual machine running Windows in the Azure preview portal](../virtual-machines/virtual-machines-windows-tutorial/)
 
 

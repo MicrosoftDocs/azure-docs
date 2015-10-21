@@ -37,8 +37,8 @@ Regardless of which operating system you use, add only the minimum number of dat
 ### 1.1 Add an offer
 
 1. Sign in to the [Publishing Portal][link-pubportal] by using your seller account.
-2. Click the **Virtual Machines** tab of the Publishing Portal. In the prompted entry field, enter your offer name. The offer name is typically the name of the product or service that you plan to sell in the Azure Marketplace.
-3. Click **Create**.
+2. Select the **Virtual Machines** tab of the Publishing Portal. In the prompted entry field, enter your offer name. The offer name is typically the name of the product or service that you plan to sell in the Azure Marketplace.
+3. Select **Create**.
 
 ### 1.2 Define a SKU
 After you have added an offer, you need to define and identify your SKUs. You can have multiple offers, and each offer can have multiple SKUs under it. When an offer is pushed to staging, it is pushed along with all of its SKUs.
@@ -47,7 +47,7 @@ After you have added an offer, you need to define and identify your SKUs. You ca
 
 > [AZURE.NOTE] The offer and SKU identifiers are displayed in the offer URL in the Marketplace.
 
-2. **Add a summary description for your SKU.** Summary descriptions are visible to customers, so you should make them easily readable. This information does not need to be locked until the "Push to Staging" stage. Until then, you are free to edit it.
+2. **Add a summary description for your SKU.** Summary descriptions are visible to customers, so you should make them easily readable. This information does not need to be locked until the "Push to Staging" phase. Until then, you are free to edit it.
 3. If you are using Windows-based SKUs, follow the suggested links to acquire the approved versions of Windows Server.
 
 ## 2. Create an Azure-compatible VHD (Linux-based)
@@ -64,7 +64,7 @@ Published SKUs (virtual machine images) should be designed to work with all virt
 ### 2.2 Ensure that the latest Azure Linux Agent is installed
 When preparing the operating system VHD, make sure that the latest [Azure Linux Agent][link-azure-vm-2] is installed. Using the RPM or Deb packages. The package is often named walinuxagent or WALinuxAgent, but check with your distribution to be certain. The agent provides key functions for deploying Linux IaaS deployments in Azure, such as virtual machine provisioning and networking capabilities.  
 
-Although the agent can be configured in a variety of ways, we recommend that you use a generic agent configuration to maximize compatibility. You can install the agent manually, but we strongly recommended that you use the preconfigured packages from your distribution if available.
+Although the agent can be configured in a variety of ways, we recommend that you use a generic agent configuration to maximize compatibility. You can install the agent manually, but we strongly recommend that you use the preconfigured packages from your distribution if available.
 
 If you do choose to install the agent manually from the [GitHub repository][link-github-waagent], first copy the Waagent file to /usr/sbin and run the following commands at the root directory.
 
@@ -93,7 +93,7 @@ The following parameters also need to be added to the Kernel boot line.
 This ensures that Azure Support can provide customers with serial console output when needed. It also provides an adequate time-out for operating system disk mounting from cloud storage. Even if your SKU blocks customers from directly SSHing into the virtual machine, serial console output must be enabled.
 
 ### 2.6 Include SSH Server by default
-We strongly recommend enabling SSH for the customer. If SSH Server is enabled, add the SSH keep alive to sshd config with the following option: ClientAliveInterval 180. Although 180 is recommended, the acceptable range is 30 through 235. Not all applications want to give customers direct SSH access to the virtual machine. If SSH is explicitly blocked, the ClientAliveInterval option does not need to be set.
+We strongly recommend enabling SSH for the customer. If SSH Server is enabled, add the SSH keep alive to sshd config with the following option: **ClientAliveInterval 180**. Although 180 is recommended, the acceptable range is 30 through 235. Not all applications want to give customers direct SSH access to the virtual machine. If SSH is explicitly blocked, the **ClientAliveInterval** option does not need to be set.
 
 ### 2.7 Meet networking requirements
 The following are networking requirements for an Azure-compatible Linux virtual machine image:
@@ -156,7 +156,7 @@ These links can also be found in the Publishing Portal under the SKU page.
 ### 3.2 Create your Windows virtual machine
 From the Microsoft Azure portal, you can create your virtual machine based on an approved base image in just a few simple steps. The following is an overview of the process:
 
-1. From the base image page, click **Create Virtual Machine** to be directed to the new [Microsoft Azure portal][link-azure-portal].
+1. From the base image page, select **Create Virtual Machine** to be directed to the new [Microsoft Azure portal][link-azure-portal].
 
     ![drawing][img-acom-1]
 
@@ -193,14 +193,14 @@ From the Microsoft Azure portal, you can create your virtual machine based on an
 7. Click **Create**. The virtual machine starts to deploy. Within minutes, you will have a successful deployment and can begin to create the image for your SKU.
 
 ### 3.3 Develop your VHD in the cloud
-We strongly recommended that you develop your VHD in the cloud by using Remote Desktop Protocol (RDP). You connect to RDP with the user name and password specified during provisioning.
+We strongly recommend that you develop your VHD in the cloud by using Remote Desktop Protocol (RDP). You connect to RDP with the user name and password specified during provisioning.
 
 > [AZURE.IMPORTANT] If you develop your VHD on-premises (which is not recommended), see [Creating a virtual machine image on-premises](marketplace-publishing-vm-image-creation-on-premise.md). Downloading your VHD is not necessary if you are developing in the cloud.
 
 
 **Connect via RDP using the [Microsoft Azure portal][link-azure-portal]**
 
-1. Click **Browse**, and then click **VMs**.
+1. Select **Browse** > **VMs**.
 2. The Virtual machines blade opens. Ensure that the virtual machine that you want to connect with is running, and then select it from the list of deployed virtual machines.
 3. A blade opens that describes the selected virtual machine. At the top, click **Connect**.
 4. You are prompted to enter the user name and password that you specified during provisioning.
@@ -209,7 +209,7 @@ We strongly recommended that you develop your VHD in the cloud by using Remote D
 
 To download a remote desktop file to a local machine, use the [Get-AzureRemoteDesktopFile cmdlet][link-technet-2]. In order to use this cmdlet, you need to know the name of the service and name of the virtual machine. If you created the virtual machine from the [Microsoft Azure portal][link-azure-portal], you can find this information under virtual machine properties:
 
-1. In the Microsoft Azure portal, click **Browse**, and then click **VMs**.
+1. In the Microsoft Azure portal, select **Browse** > **VMs**.
 2. The Virtual machines blade opens. Select the virtual machine that you deployed.
 3. A blade opens that describes the selected virtual machine.
 4. Click **Properties**.
@@ -255,7 +255,7 @@ All images in the Azure Marketplace must be reusable in a generic fashion. In ot
   Guidance on how to sysprep the operating system is provided in Step of the following MSDN article: [Create and upload a Windows Server VHD to Azure](../virtual-machines/virtual-machines-create-upload-vhd-windows-server/).
 
 ## 4. Deploy a virtual machine from your VHDs
-After you have uploaded your VHDs (the generalized operating system VHD and zero or more data disk VHDs) to an Azure storage account, you can test them by registering them as a user virtual machine image. Note, because your operating system VHD is generalized, you cannot directly deploy the virtual machine by providing the VHD URL.
+After you have uploaded your VHDs (the generalized operating system VHD and zero or more data disk VHDs) to an Azure storage account, you can register them as a user virtual machine image. Then you can test that image. Note that because your operating system VHD is generalized, you cannot directly deploy the virtual machine by providing the VHD URL.
 
 To learn more about virtual machine images, review the following blog posts:
 
@@ -433,11 +433,11 @@ To deploy a virtual machine from a user virtual machine image, you can use the c
 
 **Deploy a virtual machine from the current Azure portal**
 
-1. Go to **New > Compute > Virtual machine > From gallery**.
+1. Go to **New** > **Compute** > **Virtual machine** > **From gallery**.
 
     ![drawing][img-manage-vm-new]
 
-2. Click **My images**, and then click the virtual machine image from which to deploy a virtual machine:
+2. Go to **My images**, and then select the virtual machine image from which to deploy a virtual machine:
   1. Pay close attention to which image you select, because the **My images** view lists both operating system images and virtual machine images.
   2. Looking at the number of disks can help determine what type of image you are deploying, because the majority of virtual machine images have more than one disk. However, it is still possible to have a virtual machine image with only a single operating system disk, which would then have **Number of disks** set to 1.
 
@@ -460,8 +460,8 @@ The next step in preparing your virtual machine image for the Azure Marketplace 
 
 This process includes running a special certification tool, uploading the verification results to the Azure container where your VHDs reside, adding an offer, defining your SKU, and submitting your virtual machine image for certification.
 
-### 5.1 Download and run the Microsoft Azure Certification tool
-The Microsoft Azure Certification tool runs on a running virtual machine, provisioned from your user virtual machine image, to ensure that the virtual machine image is compatible with Microsoft Azure. It will verify that the guidance and requirements about preparing your VHD have been met. The output of the tool is a compatibility report, which should be uploaded on the Publishing Portal while requesting certification.
+### 5.1 Download and run the Certification Test Tool for Azure Certified
+The certification tool runs on a running virtual machine, provisioned from your user virtual machine image, to ensure that the virtual machine image is compatible with Microsoft Azure. It will verify that the guidance and requirements about preparing your VHD have been met. The output of the tool is a compatibility report, which should be uploaded on the Publishing Portal while requesting certification.
 
 The certification tool can be used with both Windows and Linux virtual machines. It connects to Windows virtual machines via PowerShell and connects to Linux virtual machines via SSH.Net:
 
@@ -488,8 +488,8 @@ options.
 
   ![Password authentication of Windows VM Image][img-cert-vm-pswd-win]
 
-After you have selected the correct options for your Linux or Windows virtual machine image, click **Test Connection** to ensure
-that SSH.Net or PowerShell has a valid connection for testing purposes. After a connection is established, click **Next** to start the test.
+After you have selected the correct options for your Linux or Windows virtual machine image, select **Test Connection** to ensure
+that SSH.Net or PowerShell has a valid connection for testing purposes. After a connection is established, select **Next** to start the test.
 
 When the test is complete, you will receive the results (Pass/Fail/Warning) for each test element.
 
@@ -499,7 +499,7 @@ When the test is complete, you will receive the results (Pass/Fail/Warning) for 
 
 If any of the tests fail, your image will not be certified. If this occurs, review the requirements and make any necessary changes.
 
-After the automated test, you are asked to provide additional input on your virtual machine image via a questionnaire screen.  Complete the questions, and then click **Next**.
+After the automated test, you are asked to provide additional input on your virtual machine image via a questionnaire screen.  Complete the questions, and then select **Next**.
 
 ![Certification Tool Questionnaire][img-cert-vm-questionnaire]
 
@@ -580,7 +580,7 @@ Instead of generating a shared access key by using code, you can also use storag
 After you have created your offer and SKU, you should enter the image details associated with that SKU:
 
 1. Go to the [Publishing Portal][link-pubportal], and then sign in with your seller account.
-2. Click the **VM images** tab.
+2. Select the **VM images** tab.
 3. The identifier listed at the top of the page is actually the offer identifier and not the SKU identifier.
 4. Fill out the properties under the **SKUs** section.
 
