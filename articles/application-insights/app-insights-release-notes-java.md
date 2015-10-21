@@ -37,6 +37,11 @@ After you upgrade, you'll need to merge back any customizations you made to Appl
  
 Compare the old and new ApplicationInsights.xml. Many of the changes you see are because we added and removed modules. Reinstate any customizations that you made.
 
+## Version 1.0.2
+- Prevent from overriding the instrumentation key using the one specified in the config when it's provided explicitly in code.
+- Handle all successfull HTTP status codes and report the relevant HTTP Requests as successful.
+- Handle all exceptions thrown by the ConfigurationFileLocator .
+
 ## Version 1.0.1
 - The [Java agent](app-insights-java-agent.md) collects dependency information about the following:
 	- HTTP calls made via HttpClient, OkHttp and RestTemplate (Spring).
