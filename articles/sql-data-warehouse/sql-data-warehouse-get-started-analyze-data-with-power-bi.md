@@ -24,7 +24,7 @@ This tutorial shows you how to use Power BI to connect to SQL Data Warehouse and
 > If you already have a SQL Data Warehouse database but do not have sample data, you can [load sample data manually][].
 
 
-## Connect to the SQL Data Warehouse database
+## Connect to AdventureWorksDW
 
 To open Power BI and connect to your AdventureWorksDW database:
 
@@ -37,26 +37,52 @@ To open Power BI and connect to your AdventureWorksDW database:
 
     ![Power BI button][2]
 
-4. You should now see the SQL Data Warehouse connection page displaying your database information. Enter your password and you will be fully connected to your SQL Data Warehouse database. 
+4. You should now see the SQL Data Warehouse connection page displaying your database web address. Click next.
+
+    ![Power BI connection][3]
+
+6. Enter your SQL server admin password and you will be fully connected to your SQL Data Warehouse database. 
+
+    ![Power BI sign in][4]
+
+1. Once you have signed into Power BI, click the AdventureWorksDW dataset on the left blade. This will open the database. 
+
+    ![Power BI open AdventureWorksDW][5]
 
 
-## Analyze data with Power BI
+
+## Create a Power BI report to analyze the sample data
 
 You are now ready to use Power BI to analyze your AdventureWorksDW sample data. To perform the analysis, AdventureWorksDW has a view called AggregateSales. This view contains a few of the key metrics for analyzing the sales of the company. 
 
-1. To create a map of sales amount according to postal code, click the AggregateSales view to expand it, and then click the PostalCode and SalesAmount columns. Power BI automatically recognizes this is geographic data and put it in a map for you.
+1. To create a map of sales amount according to postal code, in the right-hand fields pane, click the AggregateSales view to expand it. Click the PostalCode and SalesAmount columns to select them. 
 
-    ![Power BI map][3]
+    ![Power BI select AggregateSales][6] 
 
-2. To create a bar graph of sales, just click the SalesAmount column. To add details, drag the CustomerIncome chart to the Axis field to the left of AggregateSale' to show sales by customer income.
+    Power BI automatically recognizes this is geographic data and put it in a map for you.
 
-    ![Power BI bar][4]
+    ![Power BI map][7]
 
-3. To create a timeline of sales, click SalesAmount, OrderDate, and Line Chart, which is the first icon in the second line under Visualizations.
+2. This step creates a bar graph that shows amount of sales per customer income. To create this go to the expanded AggregateSales view. Click the SalesAmount field. Drag the Customer Income field to the left and drop it into Axis.
+    
+    ![Power BI select axis][8]
 
-    ![Power BI line][5]
+    We moved the bar chart over the left.
 
-You can save your progress at any time by clicking the **SAVE** button in the upper left-hand corner and saving your visualizations as a report.
+    ![Power BI bar][9]
+
+3. This step creates a line chart that shows sales amount per order date. To create this go to the expanded AggregateSales view. Click SalesAmount and OrderDate. In the Visualizations column click the Line Chart icon; this is the first icon in the second line under visualizations.
+
+	![Power BI select line chart][10]
+
+    You now have a report that shows three different visualizations of the data.
+
+    ![Power BI line][11]
+
+You can save your progress at any time by clicking **File** and selecting **Save**.
+
+    ![Power BI save report][12]
+
 
 ## Next steps
 Now that we've given you some time to warm up with the sample data, see how to [develop][], [load][], or [migrate][].
@@ -64,9 +90,16 @@ Now that we've given you some time to warm up with the sample data, see how to [
 <!--Image references-->
 [1]:./media/sql-data-warehouse-get-started-analyze-data-with-power-bi/pbi-find-database.png
 [2]:./media/sql-data-warehouse-get-started-analyze-data-with-power-bi/pbi-button.png
-[3]:./media/sql-data-warehouse-get-started-analyze-data-with-power-bi/pbi-map.png
-[4]:./media/sql-data-warehouse-get-started-analyze-data-with-power-bi/pbi-bar.png
-[5]:./media/sql-data-warehouse-get-started-analyze-data-with-power-bi/pbi-line.png
+[3]:./media/sql-data-warehouse-get-started-analyze-data-with-power-bi/pbi-connect-to-azure.png
+[4]:./media/sql-data-warehouse-get-started-analyze-data-with-power-bi/pbi-sign-in.png
+[5]:./media/sql-data-warehouse-get-started-analyze-data-with-power-bi/pbi-open-adventureworks.png
+[6]:./media/sql-data-warehouse-get-started-analyze-data-with-power-bi/pbi-aggregatesales.png
+[7]:./media/sql-data-warehouse-get-started-analyze-data-with-power-bi/pbi-map.png
+[8]:./media/sql-data-warehouse-get-started-analyze-data-with-power-bi/pbi-chooseaxis.png
+[9]:./media/sql-data-warehouse-get-started-analyze-data-with-power-bi/pbi-bar.png
+[10]:./media/sql-data-warehouse-get-started-analyze-data-with-power-bi/pbi-prepare-line.png
+[11]:./media/sql-data-warehouse-get-started-analyze-data-with-power-bi/pbi-line.png
+[12]:./media/sql-data-warehouse-get-started-analyze-data-with-power-bi/pbi-save.png
 
 <!--Article references-->
 [migrate]: sql-data-warehouse-overview-migrate.md
