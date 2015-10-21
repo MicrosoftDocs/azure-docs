@@ -56,31 +56,31 @@ The following topics provide information about configuring push notifications in
 ##Scheduled jobs
 The following topics provide information about working with scheduled jobs:
 
-- [Schedule jobs]() 
-- [Configure jobs]() 
-- [Register job scripts]()
+- [Schedule jobs](https://msdn.microsoft.com/library/azure/jj860528.aspx) 
+- [Configure jobs](https://msdn.microsoft.com/library/azure/jj899833.aspx) 
+- [Register job scripts](https://msdn.microsoft.com/library/azure/jj899832.aspx)
 
 ##Custom APIs
 The following topics provide information about defining custom HTTP endpoints in Mobile Services:
 
-- [Custom API]() 
-- [Content types and headers]()
+- [Custom API](https://msdn.microsoft.com/library/azure/dn280974.aspx) 
+- [Content types and headers](https://msdn.microsoft.com/library/azure/dn303369.aspx)
 
 ##JavaScript backend server scripts
 The following topics provide examples of how to perform tasks using server scripts in a JavaScript backend mobile services:
 
-- [Using scripts]()
-- [Script debugging]()
-- [Read and write data]() 
-- [Modify the request]() 
-- [Modify the response]() 
-- [Validate data]() 
-- [Send push notification]()  
-- [Send HTTP request]() 
-- [Authorize user]() 
-- [Restrict access to admins]() 
-- [Error handling]() 
-- [Shortcut keys]() 
+- [Using scripts](https://msdn.microsoft.com/library/azure/jj193174.aspx)
+- [Script debugging](https://msdn.microsoft.com/library/azure/jj631636.aspx)
+- [Read and write data](https://msdn.microsoft.com/library/azure/jj631640.aspx) 
+- [Modify the request](https://msdn.microsoft.com/library/azure/jj631635.aspx) 
+- [Modify the response](https://msdn.microsoft.com/library/azure/jj631631.aspx) 
+- [Validate data](https://msdn.microsoft.com/library/azure/jj631638.aspx) 
+- [Send push notification](https://msdn.microsoft.com/library/azure/jj631630.aspx)  
+- [Send HTTP request](https://msdn.microsoft.com/library/azure/jj631641.aspx) 
+- [Authorize user](https://msdn.microsoft.com/library/azure/jj631637.aspx) 
+- [Restrict access to admins](https://msdn.microsoft.com/library/azure/jj712649.aspx) 
+- [Error handling](https://msdn.microsoft.com/library/azure/jj631632.aspx) 
+- [Shortcut keys](https://msdn.microsoft.com/library/azure/jj552469.aspx) 
 
 
 
