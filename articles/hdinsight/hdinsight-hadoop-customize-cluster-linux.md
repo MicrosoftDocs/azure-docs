@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Customize HDInsight Clusters using script actions | Microsoft Azure"
-	description="Learn how to customize HDInsight clusters using Script Action."
+	description="Learn how to add custom components to Linux-based HDInsight clusters using Script Actions. Script Actions are Bash scripts that run during cluster creation, and can be used to customize the cluster configuration or add additional services and utilities like Hue, Solr, or R."
 	services="hdinsight"
 	documentationCenter=""
 	authors="Blackmist"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/02/2015"
+	ms.date="10/20/2015"
 	ms.author="larryfr"/>
 
 # Customize HDInsight clusters using Script Action (Linux)
@@ -35,7 +35,10 @@ The script is ran while HDInsight is being configured. At this stage, the script
 
 Each cluster can accept multiple script actions that are invoked in the order in which they are specified. A script can be ran on the head nodes, the worker nodes, or both.
 
-> [AZURE.IMPORTANT] Script actions must complete within 15 minutes, or they will timeout.
+> [AZURE.IMPORTANT] Script actions must complete within 15 minutes, or they will timeout. During node provisioning, the script is ran concurrently with other setup and configuration processes. Competition for resources such as CPU time or network bandwidth may cause the script to take longer to finish than it does in your development environment.
+> 
+> To minimize the time it takes to run the script, avoid tasks such as downloading and compiling applications from source. Instead, pre-compile the application and store the binary in Azure Blob storage so that it can quickly be downloaded to the cluster.
+
 
 ## Example Script Action scripts
 
@@ -472,6 +475,49 @@ The HDInsight .NET SDK provides client libraries that makes it easier to work wi
 7. Press **F5** to run the application. A console window should open and display the status of the application. You will also be prompted to enter your Azure account credentials. It can take several minutes to create an HDInsight cluster.
 
 
+## Troubleshooting
+
+You can use Ambari web UI to view information logged by scripts during cluster creation. However, if the cluster creation failed due to an error in the script, the logs are also available in the default storage account associated with the cluster. This section provides information on how to retrieve the logs using both these options.
+
+### Using the Ambari Web UI
+
+1. In your browser, navigate to https://CLUSTERNAME.azurehdinsight.net. Replace CLUSTERNAME with the name of your HDInsight cluster.
+
+	When prompted, enter the admin account name (admin) and password for the cluster. You may have to re-enter the admin credentials in a web form.
+
+2. From the bar at the top of the page, select the __ops__ entry. This will show a list of current and previous operations performed on the cluster through Ambari.
+
+	![Ambari web UI bar with ops selected](./media/hdinsight-hadoop-customize-cluster-linux/ambari-nav.png)
+
+3. Find the entries that have __run\_customscriptaction__ in the __Operations__ column. These are created when the Script Actions are ran.
+
+	![Screenshot of operations](./media/hdinsight-hadoop-customize-cluster-linux/ambariscriptaction.png)
+
+	Select this entry, and drill down through the links to view the STDOUT and STDERR output generated when the script was ran on the cluster.
+
+### Access logs from the default storage account
+
+If the cluster creation failed due to an error in script action, the script action logs can still be accessed directly from the default storage account associated with the cluster.
+
+* The storage logs are available at `\STORAGE_ACOCUNT_NAME\DEFAULT_CONTAINER_NAME\custom-scriptaction-logs\CLUSTER_NAME\DATE`. Under this, the logs are organized separately for headnode, workdernode, and zookeeper nodes. Some examples are:
+	* Headnode - `myclusterabd338e6210f476a9d1ae67b64fb855dAmbariDb-headnode0.mycluster-ssh.d4.internal.cloudapp.net`
+	* Worker node - `myclusterabd338e6210f476a9d1ae67b64fb855dAmbariDb-workernode0.mycluster-63d9e66a-a8e2-4022-85aa-a484e7700b5c.d4.internal.cloudapp.net`
+	* Zookeeper node - `myclusterabd338e6210f476a9d1ae67b64fb855dAmbariDb-zookeepernode0.mycluster-4965986e-3636-4a8b-ae1d-f2dfd898c8d7.d4.internal.cloudapp.net`
+* All stdout and stderr of the corresponding host is uploaded to the storage account. There is one **output-\*.txt** and **errors-\*.txt** for each script action. The output-*.txt file contains information about the URI of the script that got run on the host. For example
+
+		'Start downloading script locally: ', u'https://hdiconfigactions.blob.core.windows.net/linuxrconfigactionv01/r-installer-v01.sh'
+
+* It's possible that you repeatedly create a script action cluster with the same name. In such case, you can distinguish the relevant logs based on the DATE folder name. For example, the folder structure for a cluster (mycluster) created on different dates will be:
+	* `\STORAGE_ACOCUNT_NAME\DEFAULT_CONTAINER_NAME\custom-scriptaction-logs\mycluster\2015-10-04`
+	* `\STORAGE_ACOCUNT_NAME\DEFAULT_CONTAINER_NAME\custom-scriptaction-logs\mycluster\2015-10-05`
+
+* If you create a script action cluster with the same name on the same day, you can use the unique prefix to identify the relevant log files.
+
+* If you create a cluster at the end of the day, it's possible that the log files span across two days. In such cases, you will see two different date folders for the same cluster.
+
+* Uploading log files to the default container can take up to 5 mins, especially for large clusters. So, if you want to access the logs, you should not immediately delete the cluster if a script action fails.
+
+
 ## Support for open-source software used on HDInsight clusters
 
 The Microsoft Azure HDInsight service is a flexible platform that enables you to build big-data applications in the cloud by using an ecosystem of open-source technologies formed around Hadoop. Microsoft Azure provides a general level of support for open-source technologies, as discussed in the **Support Scope** section of the [Azure Support FAQ website](http://azure.microsoft.com/support/faq/). The HDInsight service provides an additional level of support for some of the components, as described below.
@@ -493,24 +539,6 @@ The HDInsight service provides several ways to use custom components. Regardless
 2. Cluster customization - During cluster creation, you can specify additional settings and custom components that will be installed on the cluster nodes.
 
 3. Samples - For popular custom components, Microsoft and others may provide samples of how these components can be used on the HDInsight clusters. These samples are provided without support.
-
-## Troubleshooting
-
-You can use Ambari web UI to view information logged by scripts during cluster creation.
-
-1. In your browser, navigate to https://CLUSTERNAME.azurehdinsight.net. Replace CLUSTERNAME with the name of your HDInsight cluster.
-
-	When prompted, enter the admin account name (admin) and password for the cluster. You may have to re-enter the admin credentials in a web form.
-
-2. From the bar at the top of the page, select the __ops__ entry. This will show a list of current and previous operations performed on the cluster through Ambari.
-
-	![Ambari web UI bar with ops selected](./media/hdinsight-hadoop-customize-cluster-linux/ambari-nav.png)
-
-3. Find the entries that have __run\_customscriptaction__ in the __Operations__ column. These are created when the Script Actions are ran.
-
-	![Screenshot of operations](./media/hdinsight-hadoop-customize-cluster-linux/ambariscriptaction.png)
-
-	Select this entry, and drill down through the links to view the STDOUT and STDERR output generated when the script was ran on the cluster.
 
 ## Next steps
 
