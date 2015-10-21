@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/22/2015"
+   ms.date="10/21/2015"
    ms.author="joaoma" />
 
 # Get started configuring internal load balancer using Azure Resource Manager
@@ -30,6 +30,7 @@ We will cover in this page the sequence of individual tasks it has to be done to
 
 ## What is required to create an internal load balancer?
 
+
 The following items need to be configured before creating an internal load balancer:
 
 - Front end IP configuration - will configure the private IP address for incoming network traffic 
@@ -44,10 +45,10 @@ The following items need to be configured before creating an internal load balan
 
 You can get more information about load balancer components with Azure resource manager at [Azure Resource Manager support for load balancer](load-balancer-arm.md).
 
-The following steps will show how to configure a load balancer to be load balanced between 2 virtual machines.
+The following steps will show you how to configure a load balancer between 2 virtual machines.
 
 
-## Step by Step using powershell
+## Step by Step using PowerShell
 
 
 ### Create Resource Group for load balancer
@@ -235,7 +236,8 @@ PS C:\> $backendnic1
 
 Use the command Add-AzureVMNetworkInterface to assign the NIC to a virtual Machine.
 
-You can find the step by step to create a virtual machine and assign to a NIC following the documentation [Create and preconfigure a Windows Virtual Machine with Resource Manager and Azure PowerShell](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md#Example)
+You can find the step by step to create a virtual machine and assign to a NIC following the documentation [Create and preconfigure a Windows Virtual Machine with Resource Manager and Azure PowerShell](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md#Example).
+
 
 
 ## See Also
