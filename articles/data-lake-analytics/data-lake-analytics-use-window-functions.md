@@ -17,7 +17,7 @@
    ms.author="jgao"/>
 
 
-# Using U-SQL window functions for Azure Data Lake Aanlytics jobs  
+# Using U-SQL window functions for Azure Data Lake Analytics jobs  
 
 Window functions were introduced to the ISO/ANSI SQL Standard in 2003. U-SQL adopts a subset of window functions as defined by the ANSI SQL Standard.
 
