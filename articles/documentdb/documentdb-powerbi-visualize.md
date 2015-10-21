@@ -93,7 +93,7 @@ Ready to give it a try? Let's get started.
 9. Click and expand on the database where the data for the report will come from.  A list of collections under the database will display.  
 
 10. Now, select a collection that you will retrieve the data from, e.g. volcano1.
-*Note. The Preview pane shows a list of **Record** items.  A Document is represented as a **Record** type in Power BI. Similarly, a nested JSON block inside a document is also a **Record**.
+*Note. The Preview pane shows a list of **Record** items.  A Document is represented as a **Record** type in Power BI. Similarly, a nested JSON block inside a document is also a **Record**.*
   
     ![Power BI Desktop Navigator](./media/documentdb-powerbi-visualize/pbinavigator.png)
 
@@ -123,7 +123,7 @@ Ready to give it a try? Let's get started.
 
 8. Provide a name for the new column, e.g. LatLong.
 
-9. Next, specify the custom formula for the new column.  For our example, we will concatenate the Latitude and Longitude values separated by a comma as shown below.  Click **OK**.
+9. Next, specify the custom formula for the new column.  For our example, we will concatenate the Latitude and Longitude values separated by a comma as shown below using the following forumula: Text.From([coordinates]{1})&","&Text.From([coordinates]{0}). Click **OK**.
 *Note. For more information on Data Analysis Expressions(DAX) including DAX functions, please visit [DAX Basic in Power BI Desktop](https://support.powerbi.com/knowledgebase/articles/554619-dax-basics-in-power-bi-desktop).*
 
     ![Power BI Desktop Custom Column](./media/documentdb-powerbi-visualize/pbicustomlatlong.png)
@@ -131,7 +131,7 @@ Ready to give it a try? Let's get started.
 10. Now, the center pane will show the new LatLong column populated with the Latitude and Longitude values separated by a comma.
 ![Power BI Desktop Custom LatLong](./media/documentdb-powerbi-visualize/pbicolumnlatlong.png)
 
-11. We have now completed flattening the data into tabular format.  You can leverage all of the features available in the Query Editor to shape and transform data in DocumentDB.  For instance, changing the data type for Elevation to **Decimal Number**.
+11. We have now completed flattening the data into tabular format.  You can leverage all of the features available in the Query Editor to shape and transform data in DocumentDB.  For instance, you can change the data type for Elevation to **Decimal Number** by changing the **Data Type** on the **Home **ribbon.
 ![Power BI Desktop Change Type](./media/documentdb-powerbi-visualize/pbichangetype.png)
 
 12. Click **Close and Apply** to save the data model.
@@ -155,7 +155,7 @@ In the Report view, you should find:
 
 The following shows the basic steps of creating a simple interactive Map view report.
 
-1. For our example, we will create a map view showing the location of each volcano.  In the **Visualizations** pane,  click on the Map visual type.  You should see the Map visual type painted on the **Report** canvas.  The **Visualization** pane should also display a set of properties related to the Map visual type.
+1. For our example, we will create a map view showing the location of each volcano.  In the **Visualizations** pane,  click on the Map visual type as highlighed in the screenshot above.  You should see the Map visual type painted on the **Report** canvas.  The **Visualization** pane should also display a set of properties related to the Map visual type.
 
 2. Now, drag and drop the LatLong field from the **Fields** pane to the **Location** property in **Visualizations** pane.
 3. Next, drag and drop the Volcano Name field to the **Legend** property.  
