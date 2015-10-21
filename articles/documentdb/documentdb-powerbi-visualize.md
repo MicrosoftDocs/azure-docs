@@ -36,11 +36,11 @@ Before following the instructions in this article, ensure that you have the foll
 - [The latest version of Power BI Desktop](https://powerbi.microsoft.com/desktop).
 - Data in your Azure DocumentDB account. 
 	- To create an account, see [Create a DocumentDB database account using the Azure preview portal](https://azure.microsoft.com/documentation/articles/documentdb-create-account/). 
-	- To add the sample Volcano data used in this tutorial, you can get the csv data from the [NOAA site](https://www.ngdc.noaa.gov/nndc/struts/form?t=102557&s=5&d=5) and then import the csv file using the [DocumentDB data migration tool](https://azure.microsoft.com/documentation/articles/documentdb-import-data/).
+	- To add the sample Volcano data that's used in this tutorial to your account, you can get the csv data from the [NOAA site](https://www.ngdc.noaa.gov/nndc/struts/form?t=102557&s=5&d=5) and then import the csv file using the [DocumentDB data migration tool](https://azure.microsoft.com/documentation/articles/documentdb-import-data/).
 
 To share your reports in PowerBI.com, you must have an account in PowerBI.com.  To learn more about Power BI for Free and Power BI Pro, please visit [https://powerbi.microsoft.com/pricing](https://powerbi.microsoft.com/pricing).
 
-### Let's get started
+## Let's get started
 In this tutorial, let's imagine that you are a geologist studying volcanoes around the world.  The volcano data is stored in a DocumentDB account and the JSON documents look like the one below.
 
 	{
@@ -66,7 +66,7 @@ You want to retrieve the volcano data from the DocumentDB account and produce an
 
 Ready to give it a try? Let's get started.
 
-### Connecting to a DocumentDB account
+## Connecting to a DocumentDB account
 
 1. Run Power BI Desktop on your workstation.
 2. Once Power BI Desktop is launched, a *Welcome* screen is displayed.
@@ -99,7 +99,7 @@ Ready to give it a try? Let's get started.
 
 11. Click **Edit** to launch the Query Editor so we can transform the data.
 
-### Flattening and Transforming JSON Documents
+## Flattening and transforming JSON documents
 1. In the Power BI Query Editor, you should see a **Document** column in the center pane.
 ![Power BI Desktop Query Editor](./media/documentdb-powerbi-visualize/pbiqueryeditor.png)
 
@@ -125,7 +125,8 @@ Ready to give it a try? Let's get started.
 
 9. Next, specify the custom formula for the new column.  For our example, we will concatenate the Latitude and Longitude values separated by a comma as shown below.  Click **OK**.
 *Note. For more information on Data Analysis Expressions(DAX) including DAX functions, please visit [DAX Basic in Power BI Desktop](https://support.powerbi.com/knowledgebase/articles/554619-dax-basics-in-power-bi-desktop).*
-![Power BI Desktop Custom Column](./media/documentdb-powerbi-visualize/pbicustomlatlong.png)
+
+    ![Power BI Desktop Custom Column](./media/documentdb-powerbi-visualize/pbicustomlatlong.png)
 
 10. Now, the center pane will show the new LatLong column populated with the Latitude and Longitude values separated by a comma.
 ![Power BI Desktop Custom LatLong](./media/documentdb-powerbi-visualize/pbicolumnlatlong.png)
@@ -137,7 +138,7 @@ Ready to give it a try? Let's get started.
     
     ![Power BI Desktop Close Apply](./media/documentdb-powerbi-visualize/pbicloseapply.png)
 
-### Build the Reports
+## Build the reports
 Power BI Desktop Report view is where you can start creating reports.  You can create reports by dragging and dropping fields into the **Report** canvas.
 
 ![Power BI Desktop Report View](./media/documentdb-powerbi-visualize/pbireportview2.png)
@@ -167,7 +168,7 @@ The following shows the basic steps of creating a simple interactive Map view re
 
     ![Power BI Desktop Report Final](./media/documentdb-powerbi-visualize/pbireportfinal.png)
 
-### Publish and Share Your Report
+## Publish and share your report
 To share your report, you must have an account in PowerBI.com.
 
 1. In the Power BI Desktop,  click on the **Home** ribbon.
