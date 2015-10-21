@@ -52,46 +52,19 @@ Completing this tutorial is a prerequisite for all other Notification Hubs tutor
 
 ##Configure your notification hub
 
-This section walks you through creating and configuring a new notification hub by using the push certificate that you created. If you want to use a notification hub that you have already created, you can skip steps 2–5.
+This section walks you through creating a new notification hub and configuring authentication with APNS using the **.p12** push certificate that you created. If you want to use a notification hub that you have already created, you can skip to step 5.
 
+[AZURE.INCLUDE [notification-hubs-portal-create-new-hub](../../includes/notification-hubs-portal-create-new-hub.md)]
 
-1. In Keychain Access, right-click the new push certificate that you created in the **Certificates** category. Click **Export**, name the file, select the **.p12** format, and then click **Save**.
+<ol start="7">
+<li>
+<p>Click the <b>Configure</b> tab at the top, and then click the <b>Upload</b> button in the Apple notification settings to upload the certificate thumbprint. Then select the <b>.p12</b> certificate that you exported earlier, and the password for the certificate.</p>
+<p>Make sure to select <b>Sandbox</b> mode since this is for development. Only use the <b>Production</b> if you want to send push notifications to users who purchased your app from the store.</p>
+<img src="./media/notification-hubs-ios-get-started/notification-hubs-configure-ios.png">
+</li>
+</ol>
 
-    ![][1]
-
-	Make a note of the file name and location of the exported certificate.
-
-	>[AZURE.NOTE] This tutorial creates a QuickStart.p12 file. Your file name and location might be different.
-
-2. Sign in to the [Azure portal], and click **+NEW** at the bottom of the screen.
-
-3. Click **App Services**, click **Service Bus**, click **Notification Hub**, and then click **Quick Create**.
-
-   	![][2]
-
-4. Type a name for your notification hub, select your desired region, and then click **Create a new Notification Hub**.
-
-   	![][3]
-
-5. Click the namespace that you just created (usually ***notification hub name*-ns**) to open its dashboard.
-
-   	![][4]
-
-6. Click the **Notification Hubs** tab at the top, and then click the notification hub that you just created.
-
-   	![][5]
-
-7. Click the **Configure** tab at the top, and then click the **Upload** button in the Apple notification settings to upload the certificate thumbprint. Then select the **.p12** certificate that you exported earlier, and the password for the certificate. 
- 
-	Make sure to select **Sandbox** mode since this is for development. Only use the **Production** if you want to send push notifications to users who purchased your app from the store.
-
-   	![](./media/notification-hubs-ios-get-started/notification-hubs-configure-ios.png)
-
-8. Click the **Dashboard** tab at the top, and then click **View Connection String**. Take note of the two connection strings. You will use the connection strings in the coding section below.
-
-   	![][7]
-
-Your notification hub is now configured to work with APNs, and you have the connection strings to register your app and send notifications.
+Your notification hub is now configured to work with APNS, and you have the connection strings to register your app and send notifications.
 
 ##Connect your app to the notification hub
 
@@ -492,13 +465,7 @@ For more general information about Notification Hubs, see [Notification Hubs Gui
 
 <!-- Images. -->
 
-[1]: ./media/notification-hubs-ios-get-started/notification-hubs-export-cert-p12.png
-[2]: ./media/notification-hubs-ios-get-started/notification-hubs-create-from-portal.png
-[3]: ./media/notification-hubs-ios-get-started/notification-hubs-create-from-portal2.png
-[4]: ./media/notification-hubs-ios-get-started/notification-hubs-select-from-portal.png
-[5]: ./media/notification-hubs-ios-get-started/notification-hubs-select-from-portal2.png
 [6]: ./media/notification-hubs-ios-get-started/notification-hubs-configure-ios.png
-[7]: ./media/notification-hubs-ios-get-started/notification-hubs-connection-strings.png
 [8]: ./media/notification-hubs-ios-get-started/notification-hubs-create-ios-app.png
 [9]: ./media/notification-hubs-ios-get-started/notification-hubs-create-ios-app2.png
 [10]: ./media/notification-hubs-ios-get-started/notification-hubs-create-ios-app3.png

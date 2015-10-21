@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-android"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="10/19/2015"
+	ms.date="10/21/2015"
 	ms.author="wesmc"/>
 
 # Get started with Notification Hubs
@@ -45,9 +45,18 @@ Completing this tutorial is a prerequisite for all other Notification Hubs tutor
 
 [AZURE.INCLUDE [mobile-services-enable-Google-cloud-messaging](../../includes/mobile-services-enable-google-cloud-messaging.md)]
 
-##<a name="configure-hub"></a>Configure your notification hub
+##Configure your notification hub
 
-[AZURE.INCLUDE [notification-hubs-android-configure-push](../../includes/notification-hubs-android-configure-push.md)]
+[AZURE.INCLUDE [notification-hubs-portal-create-new-hub](../../includes/notification-hubs-portal-create-new-hub.md)]
+
+
+<ol start="7">
+<li><p>Click the <b>Configure</b> tab at the top, enter the <b>API Key</b> value you obtained in the previous section, and then click <b>Save</b>.</p>
+<img src="./media/notification-hubs-android-get-started/notification-hub-configure-android.png">
+</li>
+</ol>
+
+Your notification hub is now configured to work with GCM, and you have the connection strings to both register your app to receive notifications and to send push notifications.
 
 ##Connect your app to the notification hub
 
@@ -465,17 +474,8 @@ In this simple example, you broadcasted notifications to all your Android device
 [Next steps]:#next-steps
 
 <!-- Images. -->
-[1]: ./media/partner-xamarin-notification-hubs-android-get-started/mobile-services-google-developers.png
-[2]: ./media/partner-xamarin-notification-hubs-android-get-started/mobile-services-google-create-server.png
-[3]: ./media/partner-xamarin-notification-hubs-android-get-started/mobile-services-google-create-server2.png
-[4]: ./media/partner-xamarin-notification-hubs-android-get-started/mobile-services-google-create-server3.png
 
-[7]: ./media/partner-xamarin-notification-hubs-android-get-started/notification-hub-create-from-portal.png
-[8]: ./media/partner-xamarin-notification-hubs-android-get-started/notification-hub-create-from-portal2.png
-[9]: ./media/partner-xamarin-notification-hubs-android-get-started/notification-hub-select-from-portal.png
-[10]: ./media/partner-xamarin-notification-hubs-android-get-started/notification-hub-select-from-portal2.png
 [11]: ./media/partner-xamarin-notification-hubs-android-get-started/notification-hub-configure-android.png
-[12]: ./media/partner-xamarin-notification-hubs-android-get-started/notification-hub-connection-strings.png
 
 [13]: ./media/partner-xamarin-notification-hubs-android-get-started/notification-hub-create-xamarin-android-app1.png
 [15]: ./media/partner-xamarin-notification-hubs-android-get-started/notification-hub-create-xamarin-android-app3.png
