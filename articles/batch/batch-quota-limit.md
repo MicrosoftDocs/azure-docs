@@ -31,7 +31,7 @@ Resource|Default Limit|Maximum Limit
 ---|---|---
 Batch accounts per region per subscription|1|20
 
-## Service quotas
+## Batch account quotas
 [AZURE.INCLUDE [azure-batch-limits](../../includes/azure-batch-limits.md)]
 
 ## Other limits

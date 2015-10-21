@@ -1,6 +1,6 @@
 Resource|Default Limit|Maximum Limit
 ---|---|---
-Cores per [Batch](https://azure.microsoft.com/services/batch/) account|20|N/A<sup>1</sup>
+Cores per Batch account|20|N/A<sup>1</sup>
 Jobs and job schedules<sup>2</sup> per Batch account|20|10,000
 Pools per Batch account|20|5000
 
