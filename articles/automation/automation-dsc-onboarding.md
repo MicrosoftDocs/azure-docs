@@ -33,7 +33,7 @@ The following sections outline how you can onboard each type of machine to Azure
 
 ## Azure virtual machines (classic)
 
-With Azure Automation DSC, you can easily onboard Azure virtual machines (classic) for configuration management using either the Azure portal, or PowerShell. Under the hood, and without an administrator having to remote into the VM, the Azure VM Desired State Configuration extension registers the VM with Azure Automation DSC. Since the Azure VM Desired State Configuration extension runs asynchronously, steps to track its progress or troubleshoot it are provided in the <a href="#Troubleshooting-Azure-virtual-machine-onboarding">**Troubleshooting Azure virtual machine onboarding**</a> section below.
+With Azure Automation DSC, you can easily onboard Azure virtual machines (classic) for configuration management using either the Azure portal, or PowerShell. Under the hood, and without an administrator having to remote into the VM, the Azure VM Desired State Configuration extension registers the VM with Azure Automation DSC. Since the Azure VM Desired State Configuration extension runs asynchronously, steps to track its progress or troubleshoot it are provided in the <a href="#troubleshooting-azure-virtual-machine-onboarding">**Troubleshooting Azure virtual machine onboarding**</a> section below.
 
 
 ### Azure virtual machines
@@ -43,7 +43,7 @@ In the [Azure preview portal](http://portal.azure.com/), click **Browse** -> **V
 ![](./media/automation-dsc-onboarding/DSC_Onboarding_1.png)
 
 
-To find the registration URL and key for the Automation account to onboard the machine to, see the <a href="#Secure-registration">**Secure registration**</a> section below.
+To find the registration URL and key for the Automation account to onboard the machine to, see the <a href="#secure-registration">**Secure registration**</a> section below.
 
 ### PowerShell
 
@@ -109,7 +109,7 @@ To find the registration URL and key for the Automation account to onboard the m
 
 ## Azure virtual machines
 
-Azure Automation DSC lets you easily onboard Azure virtual machines for configuration management, using either the Azure portal, Azure Resource Manager templates, or PowerShell. Under the hood, and without an administrator having to remote into the VM, the Azure VM Desired State Configuration extension registers the VM with Azure Automation DSC. Since the Azure VM Desired State Configuration extension runs asynchronously, steps to track its progress or troubleshoot it are provided in the <a href="#Troubleshooting-Azure-virtual-machine-onboarding">**Troubleshooting Azure virtual machine onboarding**</a> section below.
+Azure Automation DSC lets you easily onboard Azure virtual machines for configuration management, using either the Azure portal, Azure Resource Manager templates, or PowerShell. Under the hood, and without an administrator having to remote into the VM, the Azure VM Desired State Configuration extension registers the VM with Azure Automation DSC. Since the Azure VM Desired State Configuration extension runs asynchronously, steps to track its progress or troubleshoot it are provided in the <a href="#troubleshooting-azure-virtual-machine-onboarding">**Troubleshooting Azure virtual machine onboarding**</a> section below.
 
 
 ### Azure portal
@@ -128,7 +128,7 @@ Under **Configure registration data**, enter the [PowerShell DSC Local Configura
  
 ### Azure Resource Manager templates
 
-Azure virtual machines can be deployed and onboarded to Azure Automation DSC via Azure Resource Manager templates. See [Configure a VM via DSC extension and Azure Automation DSC](http://azure.microsoft.com/documentation/templates/dsc-extension-azure-automation-pullserver/) for an example template that onboards an existing VM to Azure Automation DSC. To find the registration key and registration URL taken as input in this template, see the <a href="#Secure-registration">**Secure registration**</a> section below.
+Azure virtual machines can be deployed and onboarded to Azure Automation DSC via Azure Resource Manager templates. See [Configure a VM via DSC extension and Azure Automation DSC](http://azure.microsoft.com/documentation/templates/dsc-extension-azure-automation-pullserver/) for an example template that onboards an existing VM to Azure Automation DSC. To find the registration key and registration URL taken as input in this template, see the <a href="#secure-registration">**Secure registration**</a> section below.
 
 ### PowerShell
 
@@ -171,7 +171,7 @@ On-premises Linux machines, Linux machines in Azure, and Linux machines in non-A
 
 		`/opt/microsoft/dsc/Scripts/Register.py <Automation account registration key> <Automation account registration URL>`
 
-	*    To find the registration key and registration URL for your Automation account, see the <a href="#Secure-registration">**Secure registration**</a> section below.
+	*    To find the registration key and registration URL for your Automation account, see the <a href="#secure-registration">**Secure registration**</a> section below.
 
 	If the PowerShell DSC Local Configuration Manager defaults **do** **not** match your use case, follow steps 3 - 9. Otherwise, proceed directly to step 9.
 
@@ -205,7 +205,7 @@ On-premises Linux machines, Linux machines in Azure, and Linux machines in non-A
 
 9.  Using the Azure portal or cmdlets, check that the machines to onboard now show up as DSC nodes registered in your Azure Automation account.
 
-## Secure registration
+##Secure registration
 
 Machines can securely onboard to an Azure Automation account through the WMF 5 DSC registration protocol, which allows a DSC node to authenticate to a PowerShell DSC V2 Pull or Reporting server (including Azure Automation DSC). The node registers to the server at a **Registration URL**, authenticating using a **Registration key**. During registration, the DSC node and DSC Pull/Reporting server negotiate a unique certificate for this node to use for authentication to the server post-registration. This process prevents onboarded nodes from impersonating one another, such as if a node is compromised and behaving maliciously. After registration, the Registration key is not used for authentication again, and is deleted from the node.
 
@@ -218,7 +218,7 @@ You can get the information required for the DSC registration protocol from the 
 
 For added security, the primary and secondary access keys of an Automation account can be regenerated at any time (on the **Manage Keys** blade) to prevent future node registrations using previous keys.
 
-## Troubleshooting Azure virtual machine onboarding
+##Troubleshooting Azure virtual machine onboarding
 
 Azure Automation DSC lets you easily onboard Azure Windows VMs for configuration management. Under the hood, the Azure VM Desired State Configuration extension is used to register the VM with Azure Automation DSC. Since the Azure VM Desired State Configuration extension runs asynchronously, tracking its progress and troubleshooting its execution may be important. 
 
