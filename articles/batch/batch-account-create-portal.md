@@ -22,7 +22,7 @@
 
 This article shows you how to use the [Azure preview portal](https://portal.azure.com) to create and manage an Azure Batch account and settings such as account keys. You need a Batch account URL and an associated access key to authenticate all Batch API requests. And you associate all the Batch resources (such as pools, jobs, and tasks) for your Batch workload with a specific Batch account.  
 
->[AZURE.NOTE] Currently the preview portal supports features for Batch account management and some monitoring. Most Batch features are available only to developers through the Batch APIs.
+>[AZURE.NOTE] Currently the preview portal supports features for Batch account management and some monitoring. However, most Batch features are available only to developers through the Batch APIs.
 
 ## Create a Batch account
 
@@ -74,7 +74,7 @@ To see and manage the access keys, click the key icon.
 
 * See [API basics for Azure Batch](batch-api-basics.md) to learn more about the Batch concepts.
 
-* Get started developing your first application with the [Batch client library for .NET](batch-dotnet-get-started.md).
+* Get started developing your first application with the [Batch .NET client library](batch-dotnet-get-started.md).
 
 [marketplace_portal]: ./media/batch-account-create-portal/marketplace_batch.PNG
 [account_portal]: ./media/batch-account-create-portal/batch_acct_portal.png

@@ -18,16 +18,20 @@
 
 
 
-# Quotas, limits, and constraints for the Azure Batch service
+# Quotas and limits for the Azure Batch service
 
-This article lists the default and maximum limits of certain resources you can use with the Azure Batch service. If you plan to run large-scale Batch workloads, you might need to increase one or more of the limits above the default value. If you want to raise a limit, [open an online customer support request at no charge](http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/).
+This article lists the default and maximum limits of certain resources you can use with the Azure Batch service. Most of these limits are quotas that Azure applies to your subscription or Batch accounts.
 
-## Subscription limits
+If you plan to run production Batch workloads, you might need to increase one or more of the quotas above the default value. If you want to raise a quota, [open an online customer support request at no charge](http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/).
+
+>[AZURE.NOTE] A quota is a credit limit, not a capacity guarantee. If you have large-scale capacity needs, please contact Azure support.
+
+## Subscription quotas
 Resource|Default Limit|Maximum Limit
 ---|---|---
 Batch accounts per region per subscription|1|20
 
-## Service limits
+## Service quotas
 [AZURE.INCLUDE [azure-batch-limits](../../includes/azure-batch-limits.md)]
 
 ## Other limits
@@ -46,10 +50,10 @@ Monitor your Batch account quota usage in the [Azure preview portal](https://por
 
 3. On the **Properties** blade, review quotas that currently apply to the Batch account.
 
-## Next steps
+## Related topics
 
-* See [API basics for Azure Batch](batch-api-basics.md) toarn more about the Batch concepts.
+* [Create and manage an Azure Batch account](batch-account-create-portal.md)
 
-* Get started developing your first application with the [Batch client library for .NET](batch-dotnet-get-started.md).
+* [API basics for Azure Batch](batch-api-basics.md)
 
 [account_quotas]: ./media/batch-quota-limit/accountquota_portal.PNG
