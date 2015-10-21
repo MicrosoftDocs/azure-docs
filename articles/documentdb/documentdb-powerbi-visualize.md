@@ -127,7 +127,7 @@ Ready to give it a try? Let's get started.
 
 8. Provide a name for the new column, e.g. LatLong.
 
-9. Next, specify the custom formula for the new column.  For our example, we will concatenate the Latitude and Longitude values separated by a comma as shown below using the following forumula: Text.From([coordinates]{1})&","&Text.From([coordinates]{0}). Click **OK**.
+9. Next, specify the custom formula for the new column.  For our example, we will concatenate the Latitude and Longitude values separated by a comma as shown below using the following formula: Text.From([coordinates]{1})&","&Text.From([coordinates]{0}). Click **OK**.
 	
     *Note. For more information on Data Analysis Expressions(DAX) including DAX functions, please visit [DAX Basic in Power BI Desktop](https://support.powerbi.com/knowledgebase/articles/554619-dax-basics-in-power-bi-desktop).*
 
