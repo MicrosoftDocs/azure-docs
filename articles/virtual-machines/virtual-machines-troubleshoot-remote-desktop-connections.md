@@ -17,7 +17,7 @@
 	ms.date="09/16/2015"
 	ms.author="dkshir"/>
 
-# Troubleshoot Remote Desktop connections to an Azure Virtual Machine running Windows
+# Troubleshoot Remote Desktop connections to an Azure virtual machine running Windows
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)] This article covers troubleshooting a virtual machine created with the classic deployment model or the Resource Manager deployment model.
 
