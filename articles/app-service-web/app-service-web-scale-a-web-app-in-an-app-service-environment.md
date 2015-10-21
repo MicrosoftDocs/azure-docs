@@ -51,7 +51,7 @@ You won't be able to scale up your App Service Plan beyond the number of availab
 
 The worker pool selection is accessed from the App Service Plan UI.  Open the App Service Plan that you want to scale and select worker pool.  You will see all of the worker pools which you have configured in your App Service Environment.  If you have only one worker pool then you will only see the one pool listed.  To change what worker pool your App Service Plan is in, you simply select the worker pool you want your App Service Plan to move to.  
 
-![][3]
+![][3] 
 
 Before doing this it is important to make sure you will have adequate capacity for your App Service Plan.  In the list of worker pools, not only is the worker pool name listed but you can also see how many workers are available in that worker pool.  Make sure that there are enough instances available to contain your App Service Plan.  If you need more compute resources in the worker pool you wish to move to, then get your ASE administrator to add them.  
 
