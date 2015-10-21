@@ -4,7 +4,7 @@
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
-	manager="keboyd"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/26/2015" 
+	ms.date="10/21/2015" 
 	ms.author="awills"/>
  
 # Track HTTP requests in a Java web application
@@ -36,7 +36,7 @@ Then refresh the project dependencies, to get the binaries downloaded.
       <dependency>
         <groupId>com.microsoft.azure</groupId>
         <artifactId>applicationinsights-web</artifactId>
-        <version>[0.9,)</version>
+        <version>[1.0,)</version>
       </dependency>
     </dependencies>
 
@@ -47,7 +47,7 @@ If your project is already set up to use Gradle for build, merge the following s
 Then refresh the project dependencies, to get the binaries downloaded.
 
     dependencies {
-      compile group: 'com.microsoft.azure', name: 'applicationinsights-web', version: '0.9.+'
+      compile group: 'com.microsoft.azure', name: 'applicationinsights-web', version: '1.0.+'
     }
 
 ## Add the Application Insights HTTP filter to your project
