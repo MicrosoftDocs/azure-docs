@@ -40,7 +40,7 @@ Azure AD Connect supports all flavors of Microsoft SQL Server from SQL Server 20
 **Accounts**
 
 - An Azure AD Global Administrator account for the Azure AD directory you wish to integrate with.
-- An Enterprise Administrator account for your local Active Directory if you use express settings.
+- An Enterprise Administrator account for your local Active Directory if you use express settings or upgrade from DirSync.
 - [Accounts is Active Directory](active-directory-aadconnect-accounts-permissions.md) if you use the custom settings installation path.
 
 **Connectivity**
