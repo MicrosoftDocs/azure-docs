@@ -86,7 +86,7 @@ Ready to give it a try? Let's get started.
     ![Power BI Desktop Connect Window](./media/documentdb-powerbi-visualize/pbiconnectwindow.png)
 
 7. If you are connecting to this endpoint for the first time, you will be prompted for the account key. Enter the account key and click **Connect**. 
-*Note. We recommend that you use the read-only key when building reports.  This will prevent unnecessary exposure of the master key to potential security risks. The read-only key is also available from the Keys blade of the Azure preview portal.* 
+*Note. We recommend that you use the read-only key when building reports.  This will prevent unnecessary exposure of the master key to potential security risks. The read-only key is available from the Read-Only Keys blade of the Azure preview portal.* 
     ![Power BI Desktop Account Key](./media/documentdb-powerbi-visualize/pbidocumentdbkey.png)
 
 8. When the account is successfully connected, the **Navigator** will appear.  The **Navigator** will show a list of databases under the account.
