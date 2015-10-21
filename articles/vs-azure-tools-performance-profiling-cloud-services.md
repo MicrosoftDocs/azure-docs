@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Testing the performance of a cloud service"
+   pageTitle="Testing the performance of a cloud service | Microsoft Azure"
    description="Test the performance of a cloud service using the Visual Studio profiler"
    services="visual-studio-online"
    documentationCenter="n/a"
@@ -10,10 +10,11 @@
    ms.service="visual-studio-online"
    ms.devlang="multiple"
    ms.topic="article"
+   ms.tgt_pltfrm="multiple"
    ms.workload="na"
-   ms.tgt_pltfrm="na"
-   ms.date="08/12/2015"
+   ms.date="08/14/2015"
    ms.author="patshea" />
+
 
 # Testing the performance of a cloud service 
 
@@ -81,7 +82,8 @@ To understand more about performance profiling in Visual Studio, see [Beginners 
 
 >[AZURE.NOTE] You can enable either IntelliTrace or profiling when you publish your cloud service. You can't enable both.
 
-###Profiler collection methods###
+###Profiler collection methods
+
 You can use different collection methods for profiling, based on your performance issues:
 
 - **CPU sampling** - This method collects application statistics that are useful for initial analysis of CPU utilization issues. CPU sampling is the suggested method for starting most performance investigations. There is a low impact on the application that you are profiling when you collect CPU sampling data.
@@ -100,6 +102,7 @@ The following illustration shows how to configure your profiling settings from t
 
 ![Configure Profiling Settings](./media/vs-azure-tools-performance-profiling-cloud-services/IC526984.png)
 
+>[AZURE.NOTE] To enable the **Enable profiling** check box, you must have the profiler installed on the local computer that you are using to publish your cloud service. By default, the profiler is installed when you install Visual Studio.
 
 ### To configure profiling settings
 
@@ -115,15 +118,15 @@ The following illustration shows how to configure your profiling settings from t
 
 1. To collect the tier interaction profiling data, select the **Enable Tier Interaction Profiling** check box.
 
-1. To save the settings, choose the **OK** button.When you publish this application, these settings are used to create the profiling session for each role.
+1. To save the settings, choose the **OK** button.
 
-## Viewing profiling reports
+    When you publish this application, these settings are used to create the profiling session for each role.
+
+## Viewing Profiling Reports
 
 A profiling session is created for each instance of a role in your cloud service. To view your profiling reports of each session from Visual Studio, you can view the Server Explorer window and then choose the Azure Compute node to select an instance of a role. You can then view the profiling report as shown in the following illustration.
 
 ![View Profiling Report from Azure](./media/vs-azure-tools-performance-profiling-cloud-services/IC748914.png)
-
-
 
 ### To view profiling reports
 
@@ -131,13 +134,15 @@ A profiling session is created for each instance of a role in your cloud service
 
 1. Choose the Azure Compute node, and then choose the Azure deployment node for the cloud service that you selected to profile when you published from Visual Studio.
 
-1. To view profiling reports for an instance, choose the role in the service, open the shortcut menu for a specific instance, and then choose View Profiling Report.The report, a .vsp file, is now downloaded from Azure, and the status of the download appears in the  Azure Activity Log. When the download completes, the profiling report appears in a tab in the editor for Visual Studio named <Role name>_<Instance Number>_<identifier>.vsp. Summary data for the report appears.
+1. To view profiling reports for an instance, choose the role in the service, open the shortcut menu for a specific instance, and then choose **View Profiling Report**.
 
-1. To display different views of the report, in the Current View list, choose the type of view that you want. For more information, see [Profiling Tools Report Views](https://msdn.microsoft.com/library/bb385755.aspx).
+    The report, a .vsp file, is now downloaded from Azure, and the status of the download appears in the  Azure Activity Log. When the download completes, the profiling report appears in a tab in the editor for Visual Studio named <Role name>_<Instance Number>_<identifier>.vsp. Summary data for the report appears.
+
+1. To display different views of the report, in the Current View list, choose the type of view that you want. For more information, see [Profiling Tools Report Views](https://msdn.microsoft.com/library/azure/bb385755.aspx).
 
 ## Next steps
 
-[Debugging Cloud Services](http://go.microsoft.com/fwlink//p/?LinkID=62304)
+[Debugging Cloud Services](https://msdn.microsoft.com/library/azure/ee405479.aspx)
 
-[Publishing to an Azure Cloud Service from Visual Studio](http://go.microsoft.com/fwlink//p/?LinkID=623012)
+[Publishing to an Azure Cloud Service from Visual Studio](https://msdn.microsoft.com/library/azure/ee460772.aspx)
 

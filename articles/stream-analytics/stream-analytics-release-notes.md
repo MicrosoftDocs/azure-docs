@@ -13,10 +13,40 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="08/10/2015" 
+	ms.date="09/29/2015" 
 	ms.author="jeffstok"/>
 
 #Microsoft Stream Analytic release notes
+
+## Notes for 09/29/2015 release of Stream Analytics ##
+
+This release contains the following updates.
+
+Title | Description
+---|---
+Azure IoT Suite Public Preview | Stream Analytics is included in the Public Preview of the Azure IoT Suite.
+Azure Preview portal integration | In addition to continued presence in the Azure Management portal, Stream Analytics is now integrated in the [Azure Preview portal](http://azure.microsoft.com/overview/preview-portal/). Note that Stream Analytics functionality in the Preview portal is currently a subset of the functionality offered in the Azure Management portal, without support for in-browser query testing, Power BI output configuration, and browsing to or creating new input and output resources in subscriptions you have access to.
+Support for DocumentDB output | Stream Analytics jobs can now output to [DocumentDB](http://azure.microsoft.com/services/documentdb/).
+Support for IoT Hub input | Stream Analytics jobs can now ingest data from IoT Hubs.
+TIMESTAMP BY for heterogeneous events | When a single data stream contains multiple event types having timestamps in different fields, you can now use [TIMESTAMP BY](http://msdn.microsoft.com/library/mt573293.aspx) with expressions to specify different timestamp fields for each case.
+
+## Notes for 09/10/2015 release of Stream Analytics ##
+
+This release contains the following updates.
+
+Title|Description
+---|---
+Support for PowerBI groups|To enable sharing data with other Power BI users, Stream Analytics jobs can now write to [PowerBI groups](stream-analytics-define-outputs.md#power-bi) inside your Power BI account.
+
+## Notes for 08/20/2015 release of Stream Analytics ##
+
+This release contains the following updates.
+
+Title|Description
+---|---
+Added LAST function |The [LAST](http://msdn.microsoft.com/library/mt421186.aspx) function is now available in Stream Analytics jobs, enabling you to retrieve the most recent event in an event stream within a given timeframe.
+New Array functions|Array functions [GetArrayElement](http://msdn.microsoft.com/library/mt270218.aspx), [GetArrayElements](http://msdn.microsoft.com/library/mt298451.aspx) and [GetArrayLength](http://msdn.microsoft.com/library/mt270226.aspx) are now available.
+New Record functions|Record functions [GetRecordProperties](http://msdn.microsoft.com/library/mt270221.aspx) and [GetRecordPropertyValue](http://msdn.microsoft.com/library/mt270220.aspx) are now available.
 
 ## Notes for 07/30/2015 release of Stream Analytics ##
 

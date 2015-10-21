@@ -3,7 +3,7 @@
 	description="Learn how to deploy and manage Azure Backup for Data Protection Manager (DPM) using PowerShell"
 	services="backup"
 	documentationCenter=""
-	authors="Jim-Parker"
+	authors="AnuragMehrotra"
 	manager="jwhit"
 	editor=""/>
 
@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/11/2015"
-	ms.author="jimpark"; "aashishr"/>
+	ms.date="10/01/2015"
+	ms.author="jimpark"; "aashishr"; "sammehta"; "anuragm"/>
 
 
-# Deploy and manage back up to Azure for Data Protection Manager (DPM) servers using PowerShell
+# Deploy and manage backup to Azure for Data Protection Manager (DPM) servers using PowerShell
 This article shows you how to use PowerShell to setup Azure Backup on a DPM server, and to manage backup and recovery.
 
 ## Setting up the PowerShell environment
@@ -28,25 +28,44 @@ PS C:> & "C:\Program Files\Microsoft System Center 2012 R2\DPM\DPM\bin\DpmCliIni
 
 Welcome to the DPM Management Shell!
 
-Full list of cmdlets: Get-Command 
-Only DPM cmdlets: Get-DPMCommand 
-Get general help: help 
-Get help for a cmdlet: help <cmdlet-name> or <cmdlet-name> -? 
-Get definition of a cmdlet: Get-Command <cmdlet-name> -Syntax 
+Full list of cmdlets: Get-Command
+Only DPM cmdlets: Get-DPMCommand
+Get general help: help
+Get help for a cmdlet: help <cmdlet-name> or <cmdlet-name> -?
+Get definition of a cmdlet: Get-Command <cmdlet-name> -Syntax
 Sample DPM scripts: Get-DPMSampleScript
 ```
 
 ## Setup and Registration
+To begin:
+
+1. [Download latest PowerShell](https://github.com/Azure/azure-powershell/releases) (minimum version required is : 1.0.0)
+2. Enable the Azure Backup commandlets by switching to *AzureResourceManager* mode by using the **Switch-AzureMode** commandlet:
+
+```
+PS C:\> Switch-AzureMode AzureResourceManager
+```
+
+The following setup and registration tasks can be automated with PowerShell:
+
+- Create a backup vault
+- Installing the Azure Backup agent
+- Registering with the Azure Backup service
+- Networking settings
+- Encryption settings
 
 ### Create a backup vault
-You can create a new backup vault using the **New-AzureBackupVault** commandlet. The backup vault is an ARM resource, so you need to place it within a Resource Group. In an elevated Azure PowerShell console, run the following commands:
+
+> [AZURE.WARNING] For customers using Azure Backup for the first time, you need to register the Azure Backup provider to be used with your subscription. This can be done by running the following command: Register-AzureProvider -ProviderNamespace "Microsoft.Backup"
+
+You can create a new backup vault using the **New-AzureRMBackupVault** commandlet. The backup vault is an ARM resource, so you need to place it within a Resource Group. In an elevated Azure PowerShell console, run the following commands:
 
 ```
-PS C:\> New-AzureResourceGroup –Name “test-rg” –Region “West US”
-PS C:\> $backupvault = New-AzureBackupVault –ResourceGroupName “test-rg” –Name “test-vault” –Region “West US” –Storage GRS
+PS C:\> New-AzureResourceGroup –Name “test-rg” -Region “West US”
+PS C:\> $backupvault = New-AzureRMBackupVault –ResourceGroupName “test-rg” –Name “test-vault” –Region “West US” –Storage GRS
 ```
 
-You can get a list of all the backup vaults in a given subscription using the **Get-AzureBackupVault** commandlet.
+You can get a list of all the backup vaults in a given subscription using the **Get-AzureRMBackupVault** commandlet.
 
 
 ### Installing the Azure Backup agent on a DPM Server
@@ -96,7 +115,7 @@ To download the vault credentials, run the **Get-AzureBackupVaultCredentials** c
 
 ```
 PS C:\> $credspath = "C:\"
-PS C:\> $credsfilename = Get-AzureBackupVaultCredentials -Vault $backupvault -TargetLocation $credspath
+PS C:\> $credsfilename = Get-AzureRMBackupVaultCredentials -Vault $backupvault -TargetLocation $credspath
 PS C:\> $credsfilename
 f5303a0b-fae4-4cdb-b44d-0e4c032dde26_backuprg_backuprn_2015-08-11--06-22-35.VaultCredentials
 ```
@@ -104,7 +123,7 @@ f5303a0b-fae4-4cdb-b44d-0e4c032dde26_backuprg_backuprn_2015-08-11--06-22-35.Vaul
 Registering the machine with the vault is done using the [Start-DPMCloudRegistration](https://technet.microsoft.com/library/jj612787) cmdlet:
 
 ```
-PS C:\> $cred = $credspath + $credsfilename 
+PS C:\> $cred = $credspath + $credsfilename
 PS C:\> Start-DPMCloudRegistration -DPMServerName "TestingServer" -VaultCredentialsFilePath $cred
 ```
 
@@ -213,10 +232,11 @@ PS C:\> Add-DPMChildDatasource -ProtectionGroup $MPG -ChildDatasource $DS
 Repeat this step as many times as required, until you have added all the chosen datasources to the protection group. You can also start with just one datasource, and complete the workflow for creating the Protection Group, and at a later point add more datasources to the Protection Group.
 
 ### Selecting the data protection method
-Once the datasources have been added to the Protection Group, the next step is to specify the protection method using the [Set-DPMProtectionType](https://technet.microsoft.com/library/hh881725) cmdlet. In this example, the Protection Group will be setup for local disk and cloud backup.
+Once the datasources have been added to the Protection Group, the next step is to specify the protection method using the [Set-DPMProtectionType](https://technet.microsoft.com/library/hh881725) cmdlet. In this example, the Protection Group will be setup for local disk and cloud backup. You also need to specify the datasource that you want to protect to cloud using the [Add-DPMChildDatasource](https://technet.microsoft.com/en-us/library/hh881732.aspx) cmdlet with -Online flag.
 
 ```
 PS C:\> Set-DPMProtectionType -ProtectionGroup $MPG -ShortTerm Disk –LongTerm Online
+PS C:\> Add-DPMChildDatasource -ProtectionGroup $MPG -ChildDatasource $DS –Online
 ```
 
 ### Setting the retention range
@@ -266,6 +286,10 @@ When backing up a datasource for the first time, DPM needs to create an initial 
 ```
 PS C:\> Set-DPMReplicaCreationMethod -ProtectionGroup $MPG -NOW
 ```
+### Changing the size of DPM Replica & recovery point volume
+You can also change the size of DPM Replica volume as well as Shadow Copy volume using [Set-DPMDatasourceDiskAllocation](https://technet.microsoft.com/en-us/library/hh881618(v=sc.20).aspx) cmdlet as in the below example:
+Get-DatasourceDiskAllocation -Datasource $DS
+Set-DatasourceDiskAllocation -Datasource $DS -ProtectionGroup $MPG -manual -ReplicaArea (2gb) -ShadowCopyArea (2gb)
 
 ### Committing the changes to the Protection Group
 Finally, the changes need to be committed before DPM can take the backup per the new Protection Group configuration. This is done using the [Set-DPMProtectionGroup](https://technet.microsoft.com/library/hh881758) cmdlet.
@@ -273,7 +297,6 @@ Finally, the changes need to be committed before DPM can take the backup per the
 ```
 PS C:\> Set-DPMProtectionGroup -ProtectionGroup $MPG
 ```
-
 ## View the backup points
 You can use the [Get-DPMRecoveryPoint](https://technet.microsoft.com/library/hh881746) cmdlet to get a list of all recovery points for a datasource. In this example, we will:
 - fetch all the PGs on the DPM server which will be stored in an array ```$PG```
@@ -308,4 +331,4 @@ PS C:\> Restore-DPMRecoverableItem -RecoverableItem $RecoveryPoints[0] -Recovery
 The commands can easily be extended for any datasource type.
 
 ## Next steps
-For more information about Azure Backup for DPM see [Introduction to Azure DPM Backup](backup-azure-dpm-introduction.md)
+For more information about Azure Backup for DPM see [Introduction to DPM Backup](backup-azure-dpm-introduction.md)

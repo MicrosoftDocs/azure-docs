@@ -1,11 +1,12 @@
 <properties 
-	pageTitle="Use SSH to connect to Linux virtual machines in Azure" 
+	pageTitle="Use SSH to connect to Linux virtual machines | Microsoft Azure" 
 	description="Learn how to generate and use SSH keys with a Linux virtual machine on Azure." 
 	services="virtual-machines" 
 	documentationCenter="" 
 	authors="szarkos" 
 	manager="timlt" 
-	editor=""/>
+	editor=""
+	tags="azure-service-management,azure-resource-manager" />
 
 <tags 
 	ms.service="virtual-machines" 
@@ -13,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/15/2015" 
+	ms.date="10/05/2015" 
 	ms.author="szark"/>
 
 #How to Use SSH with Linux on Azure

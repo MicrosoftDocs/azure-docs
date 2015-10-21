@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/15/2015"
+   ms.date="09/04/2015"
    ms.author="tomfitz"/>
 
 # Using linked templates with Azure Resource Manager
@@ -48,6 +48,14 @@ linking to a parameter file. The following example uses the **parameters** prope
       } 
     ] 
 
+The Resource Manager service must be able to access the linked template, which means you cannot specify a local file or a file that is only available on your local network for the linked template. You can only provide a URI value that includes either **http** or **https**. One option is to place your linked template in a storage account, and use the URI for that item, such as shown below.
+
+    "templateLink": {
+        "uri": "http://mystorageaccount.blob.core.windows.net/templates/template.json",
+        "contentVersion": "1.0.0.0",
+    }
+
+
 ## Linking to a parameter file
 
 The next example uses the **parametersLink** property to link to a parameter file.
@@ -70,6 +78,8 @@ The next example uses the **parametersLink** property to link to a parameter fil
          } 
       } 
     ] 
+
+The the URI value for the linked parameter file cannot be a local file, and must include either **http** or **https**.
 
 ## Using variables to link templates
 

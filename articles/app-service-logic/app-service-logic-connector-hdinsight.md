@@ -1,6 +1,6 @@
 <properties
-   pageTitle="HDInsight Connector"
-   description="How to use the HDInsight Connector"
+   pageTitle="Using the HDInsight connector in Logic Apps | Microsoft Azure App Service"
+   description="How to create and configure the HDInsight Connector or API app and use it in a logic app in Azure App Service"
    services="app-service\logic"
    documentationCenter=".net,nodejs,java"
    authors="anuragdalmia"
@@ -13,15 +13,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="07/02/2015"
+   ms.date="08/23/2015"
    ms.author="sameerch"/>
 
 
-# Microsoft HDInsight Connector #
+# Get started with the HDInsight Connector and add it to your Logic App
+HDInsight Connector lets you create a Hadoop clusters on Azure and submit various Hadoop jobs such as Hive, Pig, MapReduce and Streaming MapReduce jobs. Azure HDInsight service deploys and provisions Apache Hadoop clusters in the cloud, providing a software framework designed to manage, analyze, and report on big data. The Hadoop core provides reliable data storage with the Hadoop Distributed File System (HDFS), and a simple MapReduce programming model to process and analyze, in parallel, the data stored in this distributed system. Using HDInsight connector, you can create or delete a cluster, submit a job and wait for it to complete.
 
-Connectors can be used in Logic apps to fetch, process or push data as a part of a flow. HDInsight Connector lets you create a Hadoop clusters on Azure and submit various Hadoop jobs such as Hive, Pig, MapReduce and Streaming MapReduce jobs. Azure HDInsight service deploys and provisions Apache Hadoop clusters in the cloud, providing a software framework designed to manage, analyze, and report on big data. The Hadoop core provides reliable data storage with the Hadoop Distributed File System (HDFS), and a simple MapReduce programming model to process and analyze, in parallel, the data stored in this distributed system. Using HDInsight connector, you can create or delete a cluster, submit a job and wait for it to complete.
+Connectors can be used in Logic apps to fetch, process or push data as a part of a flow. You can add the HDInsight connector to your business workflow and process data as part of this workflow within a Logic App. 
 
-###Basic Actions
+### Basic Actions
 
 - Create Cluster
 - Wait For Cluster Creation
@@ -32,87 +33,76 @@ Connectors can be used in Logic apps to fetch, process or push data as a part of
 - Delete Cluster
 
 
-## Create an instance of the HDInsight Connector API App ##
+## Create the HDInsight Connector API App ##
 
-To use the HDInsight Connector, you need to create an instance of the HDInsight Connector API App. The can be done as follows:
+A connector can be created within a logic app or be created directly from the Azure Marketplace. To create a connector from the Marketplace: 
 
-1. Open the Azure Marketplace using the '+ NEW' option on the left side of the Azure Portal and select 'Marketplace'.
-2. Browse to 'API Apps' and search for “HDInsight Connector”, select it and click 'Create'.
-3. Provide the common details such as Name, App service plan, and so on in the first blade.
-4. As part of Package settings, provide the HDInsight cluster user name and password and click 'OK'.
-5. Click 'Create'.
-
-
- ![][1]  
+1. In the Azure startboard, select **Marketplace**.
+2. Search for “HDInsight Connector”, select it, and select **Create**.
+3. Enter the Name, App Service Plan, and other properties.
+4. In the Package settings, enter the HDInsight cluster user name and password. Select **OK**.
+5. Select **Create**:  
+![][1]  
 
 ## Certificate Configuration (Optional) ##
 
-Note: This step is required only if you want to perform management operations (create and delete of clusters) in logic app.
+> [AZURE.NOTE] This step is required only if you want to perform management operations (create and delete of clusters) in logic app.
 
-Browse to the just created HDInsight Connector API App and you will see that the 'Security' component shows 0 - meaning that there is no management certificate uploaded.
-
+Browse to the just created HDInsight Connector API App and you will see that the 'Security' component shows 0 - meaning that there is no management certificate uploaded:  
 ![][2]
 
-To upload the management certificate to your API App, you need to do the following
-1. Click on the 'Security' component.
-2. In the 'Security' blade, click 'UPLOAD CERTIFICATE'.
+To upload the management certificate to your API App:
+
+1. Select the 'Security' component.
+2. In the 'Security' blade, select **UPLOAD CERTIFICATE**.
 3. Browse and select the certificate file in the next blade.
-4. Once the certificate is selected, click OK.
+4. Once the certificate is selected, select **OK**.
 
-Once the certificate is successfully uploaded, the certificate details are shown.
-
+Once the certificate is successfully uploaded, the certificate details are shown:  
 ![][3]
 
-Note: In case you want to change the certificate, you can upload another certificate which will replace the existing one.
+> [AZURE.NOTE] If you want to change the certificate, you can upload another certificate ; which replaces the existing certificate.
 
-## Usage in a Logic App ##
+## Using the connector in a Logic App ##
 
 HDInsight Connector can be used only as an action in logic app. Let us take a simple logic app which creates a cluster, runs a 'Hive' job and deletes the cluster at the end of job completion.
 
 
-- In the 'Start logic' card, click 'Run this logic manually'.
-- Select the HDInsight Connector API App created from the gallery and it shows all the actions available.
-
+1. In the 'Start logic' card, click 'Run this logic manually'.
+2. Select the HDInsight Connector API App created from the gallery. The available actions are listed:  
 ![][5]
 
-
-- Select 'Create Cluster', provide all the required cluster parameters and click on the ✓.
-
+3. Select 'Create Cluster', enter all the required cluster parameters, and select the ✓:   
 ![][6]
 
-
-
-- The action will now appear as configured in the logic app. The output(s) of the action will be shown and can be used inputs in a subsequent actions.
-
+4. The action now appears as configured in the logic app. The output(s) of the action are shown and can be used inputs in any subsequent actions:  
 ![][7]
 
-
-
-- Select the same HDInsight connector from gallery as an action. Select 'Wait For Cluster Creation' action, provide all the required parameters and click on ✓.
-
+5. Select the same HDInsight connector from gallery as an action. Select 'Wait For Cluster Creation' action, enter all the required parameters, and select the ✓:  
 ![][8]
 
-
-
-- Select the same HDInsight connector from gallery as an action. Select 'Submit Hive Job' action, provide all the required parameters and click on ✓.
-
+6. Select the same HDInsight connector from gallery as an action. Select 'Submit Hive Job' action, enter all the required parameters, and select the ✓:  
 ![][9]
 
-
-
-- Select the same HDInsight connector from gallery as an action. Select 'Wait For Job Completion' action, provide all the required parameters and click on ✓.
-
+7. Select the same HDInsight connector from gallery as an action. Select 'Wait For Job Completion' action, enter all the required parameters, and select the ✓:  
 ![][10]
 
-
-
-- Select the same HDInsight connector from gallery as an action. Select 'Delete Cluster' action, provide all the required parameters and click on ✓.
-
+8. Select the same HDInsight connector from gallery as an action. Select 'Delete Cluster' action, enter all the required parameters, and select the ✓:  
 ![][11]
 
-- Save the logic app using the save command at the top of the designer surface.
+9. Save the logic app using the save command at the top of the designer.
 
-You can click on 'Run Now' to start the logic app manually to test the scenario.
+To test the scenario, select **Run Now** to start the logic app manually.
+
+## Do more with your Connector
+Now that the connector is created, you can add it to a business workflow using a Logic App. See [What are Logic Apps?](app-service-logic-what-are-logic-apps.md).
+
+>[AZURE.NOTE] If you want to get started with Azure Logic Apps before signing up for an Azure account, go to [Try Logic App](https://tryappservice.azure.com/?appservice=logic), where you can immediately create a short-lived starter logic app in App Service. No credit cards required; no commitments.
+
+View the Swagger REST API reference at [Connectors and API Apps Reference](http://go.microsoft.com/fwlink/p/?LinkId=529766).
+
+You can also review performance statistics and control security to the connector. See [Manage and Monitor your built-in API Apps and Connectors](app-service-logic-monitor-your-connectors.md).
+
 
 <!--Image references-->
 [1]: ./media/app-service-logic-connector-hdinsight/Create.jpg

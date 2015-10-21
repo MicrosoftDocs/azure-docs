@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/13/2015" 
+	ms.date="09/23/2015" 
 	ms.author="awills"/>
  
 # Export telemetry from Application Insights
@@ -22,6 +22,19 @@ Want to do some customised analysis on your telemetry? Or maybe you'd like an em
 Continuous Export is available in the free trial period and on the [Standard and Premium pricing plans](http://azure.microsoft.com/pricing/details/application-insights/).
 
 (If you just want to do a [one-off export](app-insights-metrics-explorer.md#export-to-excel) of what you see on a metrics or search blade, click Export at the top of the blade.)
+
+## Create a storage account
+
+If you don't already have a "classic" storage account, create one now.
+
+
+1. Create a "classic" storage account in your subscription in the [Azure portal](https://portal.azure.com).
+
+    ![In Azure portal, choose New, Data, Storage](./media/app-insights-export-telemetry/030.png)
+
+2. Create a container.
+
+    ![In the new storage, select Containers, click the Containers tile, and then Add](./media/app-insights-export-telemetry/040.png)
 
 ## <a name="setup"></a> Set up Continuous Export
 
@@ -38,8 +51,9 @@ Choose the event types you'd like to export:
 ![Click Choose event types](./media/app-insights-export-telemetry/03-types.png)
 
 
-Once you've created your export, it starts going. (You only get data that arrives after you create the export.)
+Once you've created your export, it starts going. (You only get data that arrives after you create the export.) 
 
+There can be a delay of about an hour before data appears in the blob.
 
 If you want to change the event types later, just edit the export:
 
@@ -55,27 +69,29 @@ To stop the stream permanently, delete the export. Doing so doesn't delete your 
 
 ## <a name="analyze"></a> What events do you get?
 
-The exported data is the raw telemetry we receive from your application, except: 
+The exported data is the raw telemetry we receive from your application, except that we add location data which we calculate from the client IP address. 
 
-* Web test results aren't currently included. 
-* We add location data which we calculate from the client IP address.  
+Other calculated metrics are not included. For example, we don't export average CPU utilisation, but we do export the raw telemetry from which the average is computed.
 
-Calculated metrics are not included. For example, we don't export average CPU utilisation, but we do export the raw telemetry from which the average is computed.
+The data also includes the results of any [availability web tests](app-insights-monitor-web-app-availability.md) you have set up. 
 
 ## <a name="get"></a> Inspect the data
 
-When you open your blob store with a tool such as [Server Explorer](http://msdn.microsoft.com/library/azure/ff683677.aspx), you'll see a container with a set of blob files. The URI of each file is application-id/telemetry-type/date/time. 
+You can inspect the storage directly in the portal. Click **Browse**, select your storage account, and then open **Containers**.
+
+To inspect Azure storage in Visual Studio, open **View**, **Cloud Explorer**. (If you don't have that menu command, you need to install the Azure SDK: Open the **New Project** dialog, expand Visual C#/Cloud and choose **Get Microsoft Azure SDK for .NET**.)
+
+When you open your blob store, you'll see a container with a set of blob files. The URI of each file derived from your Application Insights resource name, its instrumentation key, telemetry-type/date/time. (The resource name is all lowercase, and the instrumentation key omits dashes.)
 
 ![Inspect the blob store with a suitable tool](./media/app-insights-export-telemetry/04-data.png)
 
 The date and time are UTC and are when the telemetry was deposited in the store - not the time it was generated. So if you write code to download the data, it can move linearly through the data.
 
 
-
 ## <a name="format"></a> Data format
 
 * Each blob is a text file that contains multiple '\n'-separated rows.
-* Each row is an unformatted JSON document. If you want to sit and stare at it, try a viewer such as Notepad++ with the JSON plug-in:
+* Each row is an unformatted JSON document. If you want to sit and stare at it, open it in Visual Studio and choose Edit, Advanced, Format File:
 
 ![View the telemetry with a suitable tool](./media/app-insights-export-telemetry/06-json.png)
 

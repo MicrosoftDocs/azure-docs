@@ -1,6 +1,6 @@
 <properties
-   pageTitle="BizTalk JSON Encoder"
-   description="BizTalk JSON Encoder"
+   pageTitle="Using the BizTalk JSON Encoder connector in Logic Apps | Microsoft Azure App Service "
+   description="How to create and configure the BizTalk JSON Encoder Connector or API app and use it in a logic app in Azure App Service"
    services="app-service\logic"
    documentationCenter=".net,nodejs,java"
    authors="rajeshramabathiran"
@@ -13,19 +13,21 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="06/14/2015"
+   ms.date="08/23/2015"
    ms.author="rajram"/>
 
-#BizTalk JSON Encoder
+# Get started with the BizTalk JSON Encoder and add it to your Logic App 
 BizTalk JSON Encode Decode connector helps your app interop between JSON and XML data. It can convert a given JSON instance to XML and vice versa.
 
-##Using BizTalk JSON Encoder
+You can add the BizTalk JSON Encoder to your business workflow and process data as part of this workflow within a Logic App. 
+
+## Using BizTalk JSON Encoder
 To use the BizTalk JSON Encoder, you need to first create an instance of the BizTalk JSON Encoder API app. This can be done either inline while creating a logic app or by selecting the BizTalk JSON Encoder API app from the Azure Marketplace.
 
-##Using BizTalk JSON Encoder in Logic Apps designer surface
+## Using BizTalk JSON Encoder in Logic Apps designer surface
 Follow steps for [Creating a Logic App]. BizTalk JSON Encoder can be used as an action. It does not have any triggers.
 
-###Action
+### Action
 - Click on BizTalk JSON Encoder from the right pane
 
 	![Action settings][3]
@@ -48,6 +50,10 @@ The action returns a json representation of the input content.
 
 ## Do more with your Connector
 Now that the connector is created, you can add it to a business flow using a Logic App. See [What are Logic Apps?](app-service-logic-what-are-logic-apps.md).
+
+>[AZURE.NOTE] If you want to get started with Azure Logic Apps before signing up for an Azure account, go to [Try Logic App](https://tryappservice.azure.com/?appservice=logic), where you can immediately create a short-lived starter logic app in App Service. No credit cards required; no commitments.
+
+View the Swagger REST API reference at [Connectors and API Apps Reference](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 
 You can also review performance statistics and control security to the connector. See [Manage  and Monitor API apps and connector](../app-service-api/app-service-api-manage-in-portal.md).
 

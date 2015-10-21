@@ -32,12 +32,10 @@ To prevent IP addresses from changing, you can reserve an IP address. Reserved I
   - At this time, all Azure subscriptions are authorized to use 20 reserved IPs. However, you can request additional reserved IPs. See the [Subscription and Service Limits](../azure-subscription-service-limits/) page for more information.
 1. Is there a charge for reserved IPs? 
   - See [Reserved IP Address Pricing Details](http://go.microsoft.com/fwlink/?LinkID=398482) for pricing information.
-1. How many reserved IPs can I assign to a cloud service? 
-  - Only one IP address is allowed is per endpoint in a cloud service, whether or not that IP address is reserved. Reserving an IP address does not allow you to add additional IP addresses to a cloud service.
 1. How do I reserve an IP address? 
   - You can use PowerShell or the [Azure Management REST API](https://msdn.microsoft.com/library/azure/dn722420.aspx) to request a reserved IP from a particular region. Azure will reserve an IP address from that region and correlate it to your subscription. You can then use the reserved IP in that region. You cannot reserve an IP address by using the Management Portal.
 1. Can I use this with affinity group based VNets? 
-  - Reserved IPs are only supported in regional VNets. It is not supported for VNets that are associated with affinity groups. For more information about associating a VNet with a region or an affinity group, see [About Regional VNets and Affinity Groups](https://msdn.microsoft.com/library/azure/jj156085.aspx). 
+  - Reserved IPs are only supported in regional VNets. It is not supported for VNets that are associated with affinity groups. For more information about associating a VNet with a region or an affinity group, see [About Regional VNets and Affinity Groups](virtual-networks-migrate-to-regional-vnet.md). 
 
 ## How to manage reserved VIPs
 
@@ -94,7 +92,7 @@ The script below creates a new cloud service named *TestService2* with a new VM 
 	Set-AzureReservedIPAssociation -ReservedIPName MyReservedIP -ServiceName TestService2
 
 ## How to associate a reserved IP to a cloud service by using a service configuration file
-You can also associate a reserved IP to a cloud service by sing a service configuration (CSCFG) file. The sample xml below shows how to configure a cloud service to use a reserved VIP named *MyReservedIP*: 
+You can also associate a reserved IP to a cloud service by using a service configuration (CSCFG) file. The sample xml below shows how to configure a cloud service to use a reserved VIP named *MyReservedIP*: 
 	
 	<?xml version="1.0" encoding="utf-8"?>
 	<ServiceConfiguration serviceName="ReservedIPSample" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceConfiguration" osFamily="4" osVersion="*" schemaVersion="2014-01.2.3">

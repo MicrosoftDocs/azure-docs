@@ -1,6 +1,6 @@
 <properties
- pageTitle="What is Scheduler?"
- description=""
+ pageTitle="What is Azure Scheduler? | Microsoft Azure"
+ description="Azure Scheduler allows you to declaratively describe actions to run in the cloud. It then schedules and runs those actions automatically."
  services="scheduler"
  documentationCenter=".NET"
  authors="krisragh"
@@ -11,42 +11,41 @@
  ms.workload="infrastructure-services"
  ms.tgt_pltfrm="na"
  ms.devlang="dotnet"
- ms.topic="get-started-article" 
+ ms.topic="get-started-article"
  ms.date="08/04/2015"
  ms.author="krisragh"/>
 
-# What is Scheduler?
+# What is Azure Scheduler?
 
-Azure Scheduler allows you to declaratively describe actions to run in the cloud. It then schedules and runs those actions automatically. Azure Scheduler does this using [the Azure portal](scheduler-get-started-portal.md), code, [REST API](https://msdn.microsoft.com/library/dn528946), or PowerShell.
+Azure Scheduler allows you to declaratively describe actions to run in the cloud. It then schedules and runs those actions automatically.  Scheduler does this by using [the Azure portal](scheduler-get-started-portal.md), code, [REST API](https://msdn.microsoft.com/library/dn528946), or Azure PowerShell.
 
-Azure Scheduler maintains, manages, schedules, and invokes scheduled work. Azure Scheduler does not host any workloads or run any code. It only _invokes_ code hosted elsewhere; this code may be hosted in Azure, on-premises, or with another provider. It invokes via HTTP, HTTPS, or a storage queue.
+Scheduler creates, maintains, and invokes scheduled work.  Scheduler does not host any workloads or run any code. It only _invokes_ code hosted elsewhere—in Azure, on-premises, or with another provider. It invokes via HTTP, HTTPS, or a storage queue.
 
-Azure Scheduler schedules jobs, keeps a history of job execution results that one can interrogate, and deterministically and reliability schedules workloads to be run. Azure Mobile Services Scheduled Scripts, Azure Web Apps WebJobs, and other Azure scheduling capabilities use Azure Scheduler behind the scenes. The [Scheduler REST API](https://msdn.microsoft.com/library/dn528946) helps manage the communication for these actions. As such, Scheduler supports [complex schedules and advanced recurrence easily](scheduler-advanced-complexity.md).
+Scheduler schedules [jobs](scheduler-concepts-terms.md), keeps a history of job execution results that one can review, and deterministically and reliably schedules workloads to be run. Azure WebJobs (part of the Web Apps feature in Azure App Service) and other Azure scheduling capabilities use Scheduler in the background. The [Scheduler REST API](https://msdn.microsoft.com/library/dn528946) helps manage the communication for these actions. As such, Scheduler supports [complex schedules and advanced recurrence](scheduler-advanced-complexity.md) easily.
 
-There are several scenarios that lend themselves to the usage of Azure Scheduler. For example:
+There are several scenarios that lend themselves to the usage of Scheduler. For example:
 
-+ _Recurring application actions_: Periodically gathering data from Twitter and gather the data into  feed.
-+ _Daily maintenance_: Daily pruning of logs, performing backups, and other maintenance tasks.For example, an administrator may choose to backup her database at 1AM every day for the next 9 months.
++ _Recurring application actions:_ Periodically gathering data from Twitter into a feed.
++ _Daily maintenance:_ Daily pruning of logs, performing backups, and other maintenance tasks. For example, an administrator may choose to back up the database at 1:00 A.M. every day for the next nine months.
 
-Scheduler allows you to create, update, delete, view, and manage [“job collections” and “jobs”](scheduler-concepts-terms.md) programmatically, using scripts, and in the portal.
+Scheduler allows you to create, update, delete, view, and manage jobs and [job collections](scheduler-concepts-terms.md) programmatically, by using scripts, and in the portal.
 
-## See Also
+## See also
 
- [Scheduler Concepts, Terminology, and Entity Hierarchy](scheduler-concepts-terms.md)
+ [Azure Scheduler concepts, terminology, and entity hierarchy](scheduler-concepts-terms.md)
 
- [Get Started Using Scheduler in the Management Portal](scheduler-get-started-portal.md)
+ [Get started using Azure Scheduler in the Azure portal](scheduler-get-started-portal.md)
 
- [Plans and Billing in Azure Scheduler](scheduler-plans-billing.md)
+ [Plans and billing in Azure Scheduler](scheduler-plans-billing.md)
 
- [How to Build Complex Schedules and Advanced Recurrence with Azure Scheduler](scheduler-advanced-complexity.md)
+ [How to build complex schedules and advanced recurrence with Azure Scheduler](scheduler-advanced-complexity.md)
 
- [Scheduler REST API Reference](https://msdn.microsoft.com/library/dn528946)
+ [Azure Scheduler REST API reference](https://msdn.microsoft.com/library/dn528946)
 
- [Scheduler PowerShell Cmdlets Reference](scheduler-powershell-reference.md)
+ [Azure Scheduler PowerShell cmdlets reference](scheduler-powershell-reference.md)
 
- [Scheduler High-Availability and Reliability](scheduler-high-availability-reliability.md)
+ [Azure Scheduler high-availability and reliability](scheduler-high-availability-reliability.md)
 
- [Scheduler Limits, Defaults, and Error Codes](scheduler-limits-defaults-errors.md)
+ [Azure Scheduler limits, defaults, and error codes](scheduler-limits-defaults-errors.md)
 
- [Scheduler Outbound Authentication](scheduler-outbound-authentication.md)
- 
+ [Azure Scheduler outbound authentication](scheduler-outbound-authentication.md)

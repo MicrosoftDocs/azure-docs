@@ -1,6 +1,25 @@
-<properties title="Configuring Oracle GoldenGate for Azure" pageTitle="Configuring Oracle GoldenGate for Azure" description="Step through a tutorial for setting up and implementing Oracle GoldenGate on Azure Virtual Machines for high availability and disaster recovery." services="virtual-machines" authors="bbenz" documentationCenter=""/>
-<tags ms.service="virtual-machines" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="infrastructure-services" ms.date="06/22/2015" ms.author="bbenz" />
+<properties
+	pageTitle="Configuring Oracle GoldenGate in VMs | Microsoft Azure"
+	description="Step through a tutorial for setting up and implementing Oracle GoldenGate on Azure Windows Server VMs for high availability and disaster recovery."
+	services="virtual-machines"
+	authors="bbenz"
+	documentationCenter=""
+	tags="azure-service-management"/>
+<tags
+	ms.service="virtual-machines"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="vm-windows"
+	ms.workload="infrastructure-services"
+	ms.date="06/22/2015"
+	ms.author="bbenz" />
+
+	
 #Configuring Oracle GoldenGate for Azure
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Resource Manager model.
+
+
 This tutorial demonstrates how to setup Oracle GoldenGate for Azure Virtual Machines environment for high availability and disaster recovery. The tutorial focuses on [bi-directional replication](http://docs.oracle.com/goldengate/1212/gg-winux/GWUAD/wu_about_gg.htm) for non-RAC Oracle databases and requires that both sites are active.
 
 Oracle GoldenGate supports data distribution and data integration. It enables you to set up a data distribution and data synchronization solution through the Oracle-Oracle replication configuration, and provides a flexible high availability solution. Oracle GoldenGate supplements Oracle Data Guard with its replication capabilities to enable enterprise-wide information distribution and zero-downtime upgrades and migrations. For detailed information, see [Using Oracle GoldenGate with Oracle Data Guard](http://docs.oracle.com/cd/E11882_01/server.112/e17157/unplanned.htm).
@@ -28,7 +47,7 @@ In this tutorial, you will:
 1. Setup database on Site A and Site B  
 
 	1. Perform initial data load
-	
+
 2. Prepare Site A and Site B for database replication
 
 3. Create all necessary objects to support DDL Replication
@@ -102,7 +121,7 @@ Open up SQL\*Plus command window on Site A and Site B with database administrato
 
 And run:
 
-	SQL> create tablespace ggs_data   datafile 'c:\OracleDatabase\oradata\<DBNAME>\<DBNAME>ggs_data01.dbf' size 200m; 
+	SQL> create tablespace ggs_data   datafile 'c:\OracleDatabase\oradata\<DBNAME>\<DBNAME>ggs_data01.dbf' size 200m;
 	SQL> create user ggate identified by ggate default tablespace ggs_data  temporary tablespace temp;
 	      grant connect, resource to ggate;
 	      grant select any dictionary, select any table to ggate;
@@ -130,7 +149,7 @@ You can perform the initial data load in the database by following several metho
 To demonstrate the Oracle GoldenGate replication process, this tutorial demonstrates creating a table on both Site A and site B by using the following commands.
 
 First, open up SQL\*Plus command window and run the following command to create an inventory table on Site A and Site B databases:
-	
+
 	create table scott.inventory
 	(prod_id number,
 	prod_category varchar2(20),
@@ -158,17 +177,17 @@ Next, create and enable a database trigger, INVENTORY_CDR_TRG, on the newly crea
 	:NEW.LAST_DML := SYSTIMESTAMP;
 	END IF;
 	END;
-	/ 
+	/
 
 
 ##2. Prepare Site A and Site B for database replication
 This section explains how to prepare Site A and Site B for database replication. You must perform all the steps of this section on both sites: Site A and Site B.
 
-First, remote desktop to Site A and Site B via the Azure Portal. Switch the database to archivelog mode using the SQL*Plus command window: 
-	
-	sql>shutdown immediate 
-	sql>startup mount 
-	sql>alter database archivelog; 
+First, remote desktop to Site A and Site B via the Azure Portal. Switch the database to archivelog mode using the SQL*Plus command window:
+
+	sql>shutdown immediate
+	sql>startup mount
+	sql>alter database archivelog;
 	sql>alter database open;
 
 
@@ -182,7 +201,7 @@ Next, prepare the database to support DDL (data definition language) replication
 
 Then, shutdown and restart the database:
 
-	sql>shutdown immediate 
+	sql>shutdown immediate
 	sql>startup
 
 
@@ -192,12 +211,12 @@ This section lists the scripts that you need to use to create all necessary obje
 Open up a Windows command prompt and navigate to the Oracle GoldenGate folder, such as C:\\OracleGG. Start SQL\*Plus command prompt with database administrator privileges, such as using **SYSDBA** on Site A and Site B.
 
 Then, run the following scripts:
-	
+
 	SQL> @marker_setup.sql  
 	Enter GoldenGate schema name: ggate
 	SQL> @ddl_setup.sql  
 	Enter GoldenGate schema name: ggate
-	SQL> @role_setup.sql 
+	SQL> @role_setup.sql
 	Enter GoldenGate schema name: ggate
 	SQL> grant ggs_ggsuser_role to ggate;
 	 Grant succeeded.
@@ -266,7 +285,7 @@ Start the manager process:
 
 ###Create Extract and Data Pump processes on Site A
 
-You need to create the Extract and Data Pump processes on Site A and Site B. 
+You need to create the Extract and Data Pump processes on Site A and Site B.
 Remote desktop to Site A and Site B via the Management Portal. Open up GGSCI command interpreter window. Run the following commands on Site A:
 
 	GGSCI (MachineGG1) 14> add extract ext1 tranlog begin now
@@ -308,7 +327,7 @@ Next, you need to add a checkpoint table on Site B. To do this, you need to open
 	Successfully logged into database.
 
 And then, add the checkpoint table to the database, where ggate is the owner:
-	
+
 	GGSCI (MachineGG2) 2> ADD CHECKPOINTTABLE ggate.checkpointtable
 	Successfully created checkpoint table ggate.checkpointtable.
 
@@ -326,7 +345,7 @@ As a final step, save and close the GLOBALS parameter file.
 
 ###Add REPLICAT on Site B
 This section describes how to add a REPLICAT process “REP2” on Site B.
- 
+
 Use ADD REPLICAT command to create a Replicat group on Site B:
 
 	GGSCI (MachineGG2) 37> add replicat rep2 exttrail C:\OracleGG\dirdatab, checkpointtable ggate.checkpointtable
@@ -386,7 +405,7 @@ Open up Oracle GoldenGate command interpreter window and create a checkpoint tab
 
 	Successfully created checkpoint table ggate.checkpointtable.
 
-You also need to add the name of the check point table to the GLOBALS file on Site A. 
+You also need to add the name of the check point table to the GLOBALS file on Site A.
 
 Open up Oracle GoldenGate command interpreter window and edit the GLOBALS file on Site A:
 
@@ -399,7 +418,7 @@ Save and close the GLOBALS parameter file.
 
 ###Add REPLICAT on Site A
 
-This section describes how to add a REPLICAT process “REP1” on Site A. 
+This section describes how to add a REPLICAT process “REP1” on Site A.
 
 The following command creates a Replicat group rep1 with the name of a trail, and the associated checkpointtable.
 
@@ -427,7 +446,7 @@ Remote desktop to MachineGG1, open up Oracle GoldenGate command interpreter, and
 	GGSCI (MachineGG1) 13> info trandata scott.inventory
 	Logging of supplemental redo log data is enabled for table SCOTT.INVENTORY.
 	Columns supplementally logged for table SCOTT.INVENTORY: PROD_ID, PROD_CATEGORY, QTY_IN_STOCK, LAST_DML.
-		
+
 Remote desktop to MachineGG2, open up Oracle GoldenGate command interpreter, and run:
 
 	GGSCI (MachineGG2) 18> dblogin userid ggate password ggate
@@ -443,7 +462,7 @@ Display information about the state of table-level supplemental logging:
 
 ###Add trandata on Site A and Site B
 
-Enable supplemental logging at the table level by using the ADD TRANDATA command. Open up Oracle GoldenGate Command interpreter window, login to database, and then run the ADD TRANDATA command. 
+Enable supplemental logging at the table level by using the ADD TRANDATA command. Open up Oracle GoldenGate Command interpreter window, login to database, and then run the ADD TRANDATA command.
 
 Remote desktop to MachineGG1, open up Oracle GoldenGate command interpreter, and run:
 
@@ -490,7 +509,7 @@ Display the status and lag (where relevant) for all Manager, Extract, and Replic
 
 	GGSCI (MachineGG1) 16> info all
 	Program     Status      Group       Lag at Chkpt  Time Since Chkpt
-	
+
 	MANAGER     RUNNING
 	EXTRACT     RUNNING     DPUMP1      00:00:00      00:46:33
 	EXTRACT     RUNNING     EXT1        00:00:00      00:00:04
@@ -513,14 +532,14 @@ Display the status and lag (where relevant) for all Manager, Extract, and Replic
 
 	GGSCI (ActiveGG2orcldb) 6> info all
 	Program     Status      Group       Lag at Chkpt  Time Since Chkpt
-	
+
 	MANAGER     RUNNING
 	EXTRACT     RUNNING     DPUMP2      00:00:00      136:13:33
 	EXTRACT     RUNNING     EXT2        00:00:00      00:00:04
 
 ### Start REPLICAT process on Site A
 
-This section describes how to start the REPLICAT process “REP1” on Site A. 
+This section describes how to start the REPLICAT process “REP1” on Site A.
 
 Start the Replicat process on Site A:
 
@@ -535,7 +554,7 @@ Display the status of a Replicat group:
 
 ###Start REPLICAT process on Site B
 
-This section describes how to start the REPLICAT process “REP2” on Site B. 
+This section describes how to start the REPLICAT process “REP2” on Site B.
 
 Start the Replicat process on Site B:
 
@@ -550,32 +569,32 @@ Display the status of a Replicat group:
 
 ##6. Verify the bi-directional replication process
 
-To verify the Oracle GoldenGate configuration, insert a row into the database at Site A. 
+To verify the Oracle GoldenGate configuration, insert a row into the database at Site A.
 Remote Desktop to Site A. Open up SQL*Plus command window and run:
 	SQL> select name from v$database;
-	
+
 	NAME
 	———
 	TESTGG
-	
+
 	SQL> insert into inventory values  (100,’TV’,100,sysdate);
-	
+
 	1 row created.
-	
+
 	SQL> commit;
-	
+
 	Commit complete.
 
 Then, check if that row is replicated on Site B. To do this, remote desktop to Site B. Open up SQL Plus window and run:
 
 	SQL> select name from v$database;
-	
+
 	NAME
 	———
 	TESTGG
-	
+
 	SQL> select * from inventory;
-	
+
 	PROD_ID PROD_CATEGORY QTY_IN_STOCK LAST_DML
 	———- ——————– ———— ———
 	100 TV 100 22-MAR-13
@@ -584,15 +603,15 @@ Insert a new record at Site B:
 
 	SQL> insert into inventory  values  (101,’DVD’,10,sysdate);
 	1 row created.
-	
+
 	SQL> commit;
-	
+
 	Commit complete.
 
 Remote desktop to Site A and check if the replication has taken place:
 
 	SQL> select * from inventory;
-	
+
 	PROD_ID PROD_CATEGORY QTY_IN_STOCK LAST_DML
 	———- ——————– ———— ———
 	100 TV 100 22-MAR-13

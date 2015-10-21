@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/22/2015"
+   ms.date="09/28/2015"
    ms.author="JRJ@BigBangData.co.uk;barbkess"/>
 
 # Table partitions in SQL Data Warehouse
@@ -24,9 +24,16 @@ To migrate SQL Server partition definitions to SQL Data Warehouse:
 - Define the partitions when you create the table. Simply specify partition boundary points and whether you want the boundary point to be effective `RANGE RIGHT` or `RANGE LEFT`.
 
 ### Partition sizing
-Partition sizing is an important consideration for SQL Data Warehouse. Typically data management operations and data loading routines target individual partitions rather than tackling the whole table all at once. This is particularly relevant to clustered columnstores (CCI). CCI's can consume significant amounts of memory. Therefore, whilst we may want to revise the granularity of the partitioning plan we do not want to size the partitions to such a size that we run into memory pressure when trying to perform management tasks.
+SQL DW offers a DBA several choices for table types: heap, clustered index (CI), and clustered column-store index (CCI).   For each of these table types, the DBA can also partition the table, which means dividing it into multiple sections to improve performance.  However, creating a table with too many partitions can actually cause performance degradations or query failures under some circumstances.  These concerns are especially true for CCI tables.  For partitioning to be helpful, it is important for a DBA to understand when to use partitioning and the number of partitions to create.  These guidelines are intended to help DBAs make the best choices for their scenarios. 
 
-When deciding the granularity of the partitions it is important to remember that SQL Data Warehouse will automatically distribute the data into distributions. Consequently, data that would have normally existed in one table in one partition in an SQL Server database now exists in one partition across many tables in a SQL Data Warehouse database. To maintain a meaningful number of rows in each partition one typically changes the partition boundary size. For example, if you have used day level partitioning for your data warehouse you may want to consider something less granular such as month or quarter.
+Normally table partitions are useful in two primary ways: 
+
+1. Using partition switching to quickly truncate a section of a table.  A commonly used design is for a fact table to contain rows only for some predetermined finite period.  For example, a sales fact table might contain data only for the past 36 months.  At the end of every month, the oldest month of sales data is deleted from the table.  This could be accomplished by simply deleting all of the rows for the oldest month, but deleting a large amount of data row-by-row can take a very long time.  To optimize for this scenario, SQL DW supports partition swapping, which enables the entire set of rows in a partition to be dropped in a single fast operation.   
+
+2. Partitioning enables queries to easily exclude processing a large set of rows (i.e. a partition) if queries place a predicate on the partitioning column.  For example, if the sales fact table is partitioned into 36 months using the sales date field, then queries that filter on the sale date can skip processing partitions that don’t match the filter.   In effect, partitioning used in this way is a coarse grained index. 
+
+When creating clustered column-store indexes in SQL DW, a DBA needs to consider an additional factor: number of row.   CCI tables can achieve a high degree of compression and helps SQL DW accelerate query performance.  Due to how compression works internally in SQL DW, each partition in a CCI table needs to have a fairly large number of rows before data is compressed. In addition, SQL DW spreads data across a large number of distributions, and each distribution is further divided by partitions.  For optimal compression and performance, a minimum of 100,000 rows per distribution & partition is needed.  Using the example above, if the sales fact table contained 36 monthly partitions, and given that SQL DW has 60 distributions, then the sales fact table should contain 6 million rows per month, or 216 million rows when all months are populated.  If a table contains significantly less rows than the recommended minimum, then the DBA should consider creating the table with fewer partitions in order to make the number of rows per distribution larger.  
+
 
 To size your current database at the partition level use a query like the one below:
 
@@ -99,6 +106,7 @@ FROM    sys.dm_pdw_nodes_resource_governor_workload_groups	wg
 JOIN    sys.dm_pdw_nodes_resource_governor_resource_pools	rp ON wg.[pool_id] = rp.[pool_id]
 WHERE   wg.[name] like 'SloDWGroup%'
 AND     rp.[name]    = 'SloDWPool'
+;
 ```
 
 > [AZURE.NOTE] Try to avoid sizing your partitions beyond the memory grant provided by the extra large resource class. If your partitions grow beyond this figure you run the risk of memory pressure which in turn leads to less optimal compression.
@@ -109,7 +117,7 @@ To switch partitions between two tables you must ensure that the partitions alig
 ### How to split a partition that contains data
 The most efficient method to split a partition that already contains data is to use a `CTAS` statement. If the partitioned table is a clustered columnstore then the table partition must be empty before it can be split.
 
-Below is a sample partitioned columnstore table containing one row in the final partition:
+Below is a sample partitioned columnstore table containing one row in each partition:
 
 ```
 CREATE TABLE [dbo].[FactInternetSales]
@@ -134,9 +142,12 @@ WITH
 ;
 
 INSERT INTO dbo.FactInternetSales
-VALUES (1,20010101,1,1,1,1,1,1)
+VALUES (1,19990101,1,1,1,1,1,1);
+INSERT INTO dbo.FactInternetSales
+VALUES (1,20000101,1,1,1,1,1,1);
 
-CREATE STATISTICS Stat_dbo_FactInternetSales_OrderDateKey ON dbo.FactInternetSales(OrderDateKey)
+
+CREATE STATISTICS Stat_dbo_FactInternetSales_OrderDateKey ON dbo.FactInternetSales(OrderDateKey);
 ```
 
 > [AZURE.NOTE] By Creating the statistic object we ensure that table metadata is more accurate. If we omit creating statistics then SQL Data Warehouse will use default values. For details on statistics please review [statistics][].
@@ -155,12 +166,13 @@ JOIN    sys.schemas    s    ON    t.[schema_id]   = s.[schema_id]
 JOIN    sys.indexes    i    ON    p.[object_id]   = i.[object_Id]
                             AND   p.[index_Id]    = i.[index_Id]
 WHERE t.[name] = 'FactInternetSales'
+;
 ```
 
 If we try to split this table we will get an error:
 
 ```
-ALTER TABLE FactInternetSales SPLIT RANGE (20020101)
+ALTER TABLE FactInternetSales SPLIT RANGE (20010101);
 ```
 
 Msg 35346, Level 15, State 1, Line 44
@@ -169,52 +181,54 @@ SPLIT clause of ALTER PARTITION statement failed because the partition is not em
 However we can use `CTAS` to create a new table to hold our data.
 
 ```
-CREATE TABLE dbo.FactInternetSales_20010101
+CREATE TABLE dbo.FactInternetSales_20000101
     WITH    (   DISTRIBUTION = HASH(ProductKey)
             ,   CLUSTERED COLUMNSTORE INDEX
             ,   PARTITION   (   [OrderDateKey] RANGE RIGHT FOR VALUES
-                                (20010101
+                                (20000101
                                 )
                             )
             )
 AS
 SELECT *
-FROM	FactInternetSales
-WHERE	1=2
+FROM    FactInternetSales
+WHERE   1=2
+;
 ```
 
 As the partition boundaries are aligned a switch is permitted. This will leave the source table with an empty partition that we can subsequently split.
 
 ```
-ALTER TABLE FactInternetSales SWITCH PARTITION 2 TO  FactInternetSales_20010101 PARTITION 2
+ALTER TABLE FactInternetSales SWITCH PARTITION 2 TO  FactInternetSales_20000101 PARTITION 2;
 
-ALTER TABLE FactInternetSales SPLIT RANGE (20020101)
+ALTER TABLE FactInternetSales SPLIT RANGE (20010101);
 ```
 
 All that is left to do is to align our data to the new partition boundaries using `CTAS` and switch our data back in to the main table
 
 ```
-CREATE TABLE [dbo].[FactInternetSales_20010101_20020101]
+CREATE TABLE [dbo].[FactInternetSales_20000101_20010101]
     WITH    (   DISTRIBUTION = HASH([ProductKey])
             ,   CLUSTERED COLUMNSTORE INDEX
             ,   PARTITION   (   [OrderDateKey] RANGE RIGHT FOR VALUES
-                                (20010101,20020101
+                                (20000101,20010101
                                 )
                             )
             )
 AS
 SELECT  *
-FROM	[dbo].[FactInternetSales_20010101]
-WHERE	[OrderDateKey] >= 20010101
-AND     [OrderDateKey] <  20020101
+FROM    [dbo].[FactInternetSales_20000101]
+WHERE   [OrderDateKey] >= 20000101
+AND     [OrderDateKey] <  20010101
+;
 
-ALTER TABLE FactInternetSales_20010101_20020101 SWITCH PARTITION 3 TO  FactInternetSales PARTITION 3
+ALTER TABLE dbo.FactInternetSales_20000101_20010101 SWITCH PARTITION 2 TO dbo.FactInternetSales PARTITION 2;
 ```
 
 Once you have completed the movement of the data it is a good idea to refresh the statistics on the target table to ensure they accurately reflect the new distribution of the data in their respective partitions:
 
 ```
-UPDATE STATISTICS [dbo].[FactInternetSales]
+UPDATE STATISTICS [dbo].[FactInternetSales];
 ```
 
 ### Table partitioning source control
@@ -274,11 +288,11 @@ FROM    (
 -- Iterate over the partition boundaries and split the table
 
 DECLARE @c INT = (SELECT COUNT(*) FROM #partitions)
-,       @i INT = 1                     --iterator for while loop
-,       @q NVARCHAR(4000)              --query
-,       @p NVARCHAR(20)     = N''      --partition_number
-,       @s NVARCHAR(128)    = N'dbo'   --schema
-,       @t NVARCHAR(128)    = N'table' --table
+,       @i INT = 1                                 --iterator for while loop
+,       @q NVARCHAR(4000)                          --query
+,       @p NVARCHAR(20)     = N''                  --partition_number
+,       @s NVARCHAR(128)    = N'dbo'               --schema
+,       @t NVARCHAR(128)    = N'FactInternetSales' --table
 ;
 
 WHILE @i <= @c

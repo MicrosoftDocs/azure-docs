@@ -1,5 +1,5 @@
 <properties
-	pageTitle="How to use Service Bus queues (Java) | Microsoft Azure"
+	pageTitle="How to use Service Bus queues with Java | Microsoft Azure"
 	description="Learn how to use Service Bus queues in Azure. Code samples written in Java."
 	services="service-bus"
 	documentationCenter="java"
@@ -13,12 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="06/19/2015"
+	ms.date="10/07/2015"
 	ms.author="sethm"/>
 
 # How to use Service Bus queues
 
-This guide describes how to use Service Bus queues. The samples are
+[AZURE.INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
+
+This article describes how to use Service Bus queues. The samples are
 written in Java and use the [Azure SDK for Java][]. The
 scenarios covered include **creating queues**, **sending and receiving
 messages**, and **deleting queues**.
@@ -26,18 +28,22 @@ messages**, and **deleting queues**.
 [AZURE.INCLUDE [service-bus-java-how-to-create-queue](../../includes/service-bus-java-how-to-create-queue.md)]
 
 ## Configure your application to use Service Bus
+
 Make sure you have installed the [Azure SDK for Java][] before building this sample. If you are using Eclipse, you can install the [Azure Toolkit for Eclipse][] that includes the Azure SDK for Java. You can then add the **Microsoft Azure Libraries for Java** to your project:
+
 ![](media/service-bus-java-how-to-use-queues/eclipselibs.png)
 
-Add the following import statements to the top of the Java file:
+Add the following `import` statements to the top of the Java file:
 
-	// Include the following imports to use Service Bus APIs
-	import com.microsoft.windowsazure.services.servicebus.*;
-	import com.microsoft.windowsazure.services.servicebus.models.*;
-	import com.microsoft.windowsazure.core.*;
-	import javax.xml.datatype.*;
+```
+// Include the following imports to use Service Bus APIs
+import com.microsoft.windowsazure.services.servicebus.*;
+import com.microsoft.windowsazure.services.servicebus.models.*;
+import com.microsoft.windowsazure.core.*;
+import javax.xml.datatype.*;
+```
 
-## How to create a queue
+## Create a queue
 
 Management operations for Service Bus queues can be performed via the
 **ServiceBusContract** class. A **ServiceBusContract** object is
@@ -70,10 +76,10 @@ can be used to create a queue named "TestQueue", with a namespace named "HowToSa
         System.exit(-1);
     }
 
-There are methods on QueueInfo that allow properties of the queue to be
-tuned (for example: to set the default "time-to-live" value to be
+There are methods on **QueueInfo** that allow properties of the queue to be
+tuned (for example: to set the default time-to-live (TTL) value to be
 applied to messages sent to the queue). The following example shows how
-to create a queue named "TestQueue" with a maximum size of 5GB:
+to create a queue named `TestQueue` with a maximum size of 5GB:
 
     long maxSizeInMegabytes = 5120;
     QueueInfo queueInfo = new QueueInfo("TestQueue");
@@ -84,12 +90,11 @@ Note that you can use the **listQueues** method on **ServiceBusContract**
 objects to check if a queue with a specified name already exists within
 a service namespace.
 
-## How to send messages to a queue
+## Send messages to a queue
 
-To send a message to a Service Bus Queue, your application will obtain a
-**ServiceBusContract** object. The below code demonstrates how to send a
-message for the "TestQueue" queue we created above within our
-"HowToSample" service namespace:
+To send a message to a Service Bus queue, your application obtains a
+**ServiceBusContract** object. The following code shows how to send a
+message for the `TestQueue` queue previously created in the `HowToSample` namespace:
 
     try
     {
@@ -103,19 +108,11 @@ message for the "TestQueue" queue we created above within our
         System.exit(-1);
     }
 
-Messages sent to (and received from ) Service Bus queues are instances
-of the **BrokeredMessage** class. **BrokeredMessage** objects have a set
-of standard methods (such as **getLabel**, **getTimeToLive**,
-**setLabel**, and **setTimeToLive**), a dictionary that is used to hold
-custom application specific properties, and a body of arbitrary
-application data. An application can set the body of the message by
-passing any serializable object into the constructor of the
-**BrokeredMessage**, and the appropriate serializer will then be used to
-serialize the object. Alternatively, a **java.IO.InputStream** can be
-provided.
+Messages sent to, and received from Service Bus queues are instances of the [BrokeredMessage][] class. [BrokeredMessage][] objects have a set of standard properties (such as [Label](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.label.aspx) and [TimeToLive](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.timetolive.aspx)), a dictionary
+that is used to hold custom application specific properties, and a body of arbitrary application data. An application can set the body of the message by passing any serializable object into the constructor of the [BrokeredMessage][], and the appropriate serializer will then be used to serialize the object. Alternatively, you can provide a **java.IO.InputStream** object.
 
 The following example demonstrates how to send five test messages to the
-"TestQueue" **MessageSender** we obtained in the code snippet above:
+`TestQueue` **MessageSender** we obtained in the previous code snippet:
 
     for (int i=0; i<5; i++)
     {
@@ -134,7 +131,7 @@ held in a queue but there is a cap on the total size of the messages
 held by a queue. This queue size is defined at creation time, with an
 upper limit of 5 GB.
 
-## How to receive messages from a queue
+## Receive messages from a queue
 
 The primary way to receive messages from a queue is to use a
 **ServiceBusContract** object. Received messages can work in two
@@ -162,7 +159,7 @@ completes the second stage of the receive process by calling **Delete**
 on the received message. When Service Bus sees the **Delete** call, it
 will mark the message as being consumed and remove it from the queue.
 
-The example below demonstrates how messages can be received and
+The following example demonstrates how messages can be received and
 processed using **PeekLock** mode (not the default mode). The example
 below does an infinite loop and processes messages as they arrive into
 our "TestQueue":
@@ -248,20 +245,13 @@ constant across delivery attempts.
 
 ## Next Steps
 
-Now that you've learned the basics of Service Bus queues, see the MSDN
-topic [Queues, Topics, and Subscriptions][] for more information.
+Now that you've learned the basics of Service Bus queues, see [Queues, topics, and subscriptions][] for more information.
+
+For more information, see the [Java Developer Center](/develop/java/).
+
 
   [Azure SDK for Java]: http://azure.microsoft.com/develop/java/
-  [Azure Toolkit for Eclipse]: https://msdn.microsoft.com/en-us/library/azure/hh694271.aspx
-  [What are Service Bus Queues?]: #what-are-service-bus-queues
-  [Create a Service Namespace]: #create-a-service-namespace
-  [Obtain the Default Management Credentials for the Namespace]: #obtain-default-credentials
-  [Configure Your Application to Use Service Bus]: #bkmk_ConfigApp
-  [How to: Create a Security Token Provider]: #bkmk_HowToCreateQueue
-  [How to: Send Messages to a Queue]: #bkmk_HowToSendMsgs
-  [How to: Receive Messages from a Queue]: #bkmk_HowToReceiveMsgs
-  [How to: Handle Application Crashes and Unreadable Messages]: #bkmk_HowToHandleAppCrashes
-  [Next Steps]: #bkmk_NextSteps
+  [Azure Toolkit for Eclipse]: https://msdn.microsoft.com/library/azure/hh694271.aspx
   [Azure Management Portal]: http://manage.windowsazure.com/
-  [Queues, Topics, and Subscriptions]: http://msdn.microsoft.com/library/windowsazure/hh367516.aspx
- 
+  [Queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
+  [BrokeredMessage]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx

@@ -3,7 +3,7 @@
 	description="This topic describes how to set up a Channel that receives a single bitrate live stream from an on-premises encoder and then performs live encoding to adaptive bitrate stream with Media Services. The stream can then be delivered to client playback applications through one or more Streaming Endpoints, using one of the following adaptive streaming protocols: HLS, Smooth Stream, MPEG DASH, HDS." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="Juliako" 
+	authors="juliako,anilmur" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -11,12 +11,12 @@
 	ms.service="media-services" 
 	ms.workload="media" 
 	ms.tgt_pltfrm="na" 
-	ms.devlang="ne" 
+	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/11/2015" 
+	ms.date="10/15/2015"  
 	ms.author="juliako"/>
 
-#Working with Channels that are Enabled to Perform Live Encoding with Azure Media Services (Preview)
+#Working with Channels that are Enabled to Perform Live Encoding with Azure Media Services
 
 ##Overview
 
@@ -25,15 +25,11 @@ In Azure Media Services, a **Channel** represents a pipeline for processing live
 - An on-premises live encoder sends multi-bitrate **RTMP** or **Smooth Streaming** (Fragmented MP4) to the Channel. You can use the following live encoders that output multi-bitrate Smooth Streaming: Elemental, Envivio, Cisco.  The following live encoders output RTMP: Adobe Flash Live, Telestream Wirecast, and Tricaster transcoders. The ingested streams pass through **Channel**s without any further processing. When requested, Media Services delivers the stream to customers.
 - A single bitrate stream (in one of the following formats: **RTP** (MPEG-TS)), **RTMP**, or **Smooth Streaming** (Fragmented MP4)) is sent to the **Channel** that is enabled to perform live encoding with Media Services. The **Channel** then performs live encoding of the incoming single bitrate stream to a multi-bitrate (adaptive) video stream. When requested, Media Services delivers the stream to customers. 
 
-	Encoding a live stream with Media Services is currently in **Preview**.
-
 Starting with the Media Services 2.10 release, when you create a Channel, you can specify in which way you want for your channel to receive the input stream and whether or not you want for the channel to perform live encoding of your stream. You have two options:    
 
 - **None** – Specify this value, if you plan to use an on-premises live encoder which will output multi-bitrate stream. In this case, the incoming stream passed through to the output without any encoding. This is the behavior of a Channel prior to 2.10 release.  For more detailed information about working with channels of this type, see [Working with Channels that Receive Multi-bitrate Live Stream from On-premises Encoders](media-services-manage-channels-overview.md).
 
-- **Standard** (Preview) – Choose this value, if you plan to use Media Services to encode your single bitrate live stream to multi-bitrate stream. 
-
-	Encoding a live stream with Media Services is currently in Preview.
+- **Standard** – Choose this value, if you plan to use Media Services to encode your single bitrate live stream to multi-bitrate stream. 
 
 >[AZURE.NOTE]This topic discusses attributes of channels that are enabled to perform live encoding (**Standard** encoding type). For information about working with channels that are not enabled to perform live encoding, see [Working with Channels that Receive Multi-bitrate Live Stream from On-premises Encoders](media-services-manage-channels-overview.md).
 
@@ -41,26 +37,19 @@ The following diagram represents a live streaming workflow where a channel recei
 
 ![Live workflow][live-overview]
 
->[AZURE.NOTE]Not all data centers support Live Encoding with Azure Media Services. 
->
->If you are using Azure Management Portal to create Channels, you will have two Channel encoding type options available: **None** and **Standard**. If you only see the **None** option, it means your data center does not support Live Encoding with AMS.
->
->If you are using .NET SDK or REST API, do the following to check:
->
->1. Try to create a Channel with encoding type set to Standard. 
->2. If the returned result HTTP Error Code 412 (Precondition Failed) with the following message: *"Live encoding is not supported in this region; EncodingType must be set to 'None'."*, your data center does not support Live Encoding.
-
 
 ##In this topic
 
 - Overview of a [common live streaming scenario](media-services-manage-live-encoder-enabled-channels.md#scenario)
 - [Description of a Channel and its related components](media-services-manage-live-encoder-enabled-channels.md#channel)
-- [Considerations](media-services-manage-live-encoder-enabled-channels.md#considerations)
-- [Tasks related to Live Streaming](media-services-manage-live-encoder-enabled-channels.md#tasks)
+- [Considerations](media-services-manage-live-encoder-enabled-channels.md#Considerations)
+
 
 ##<a id="scenario"></a>Common Live Streaming Scenario
 
 The following are general steps involved in creating common live streaming applications.
+
+>[AZURE.NOTE] Currently, the max recommended duration of a live event is 8 hours. Please contact amslived at Microsoft dot com if you need to run a Channel for longer periods of time.
 
 1. Connect a video camera to a computer. Launch and configure an on-premises live encoder that can output a **single** bitrate stream in one of the following protocols: RTMP, Smooth Streaming, or RTP (MPEG-TS). For more information, see [Azure Media Services RTMP Support and Live Encoders](http://go.microsoft.com/fwlink/?LinkId=532824).
 	
@@ -273,6 +262,8 @@ There can be up to 8 audio stream sets specified if the input to the Channel is 
 
 Specifies the preset to be used by the live encoder within this Channel. Currently, the only allowed value is **Default720p** (default).
 
+Note that if you need custom presets, you should contact amslived at Microsoft dot com.
+
 **Default720p** will encode the video into the following 7 layers.
 
 
@@ -280,13 +271,13 @@ Specifies the preset to be used by the live encoder within this Channel. Current
 
 BitRate|Width|Height|MaxFPS|Profile|Output Stream Name
 ---|---|---|---|---|---
-3500|1280|720|30|High|Video_1280x720_30fps_3500kbps
-2200|960|540|30|Main|Video_960x540_30fps_2200kbps
-1350|704|396|30|Main|Video_704x396_30fps_1350kbps
-850|512|288|30|Main|Video_512x288_30fps_850kbps
-550|384|216|30|Main|Video_384x216_30fps_550kbps
-350|340|192|30|Baseline|Video_340x192_30fps_350kbps
-200|340|192|30|Baseline|Video_340x192_30fps_200kbps
+3500|1280|720|30|High|Video_1280x720_3500kbps
+2200|960|540|30|Main|Video_960x540_2200kbps
+1350|704|396|30|Main|Video_704x396_1350kbps
+850|512|288|30|Main|Video_512x288_850kbps
+550|384|216|30|Main|Video_384x216_550kbps
+350|340|192|30|Baseline|Video_340x192_350kbps
+200|340|192|30|Baseline|Video_340x192_200kbps
 
 
 ####Output Audio Stream
@@ -393,17 +384,20 @@ Stopping|Stopping|No (transient state)
 Stopped|Stopped|No
 
 
->[AZURE.NOTE] Currently in Preview, the Channel start can take up to 20+ minutes. Channel reset can take up to 5 minutes.
+>[AZURE.NOTE] Currently, the Channel start can take up to 20+ minutes. Channel reset can take up to 5 minutes.
 
 
 ##<a id="Considerations"></a>Considerations
 
+- When a Channel of **Standard** encoding type experiences a loss of input source/contribution feed, it compensates for it by replacing the source video/audio with an error slate and silence. The Channel will continue to emit a slate until the input/contribution feed resumes. We recommend that a live channel not be left in such a state for longer than 2 hours. Beyond that point, the behavior of the Channel on input reconnection is not guaranteed, neither is its behavior in response to a Reset command. You will have to stop the Channel, delete it and create a new one.
 - You cannot change the input protocol while the Channel or its associated programs are running. If you require different protocols, you should create separate channels for each input protocol. 
 - Every time you reconfigure the live encoder, call the **Reset** method on the channel. Before you reset the channel, you have to stop the program. After you reset the channel, restart the program. 
 - A channel can be stopped only when it is in the Running state, and all programs on the channel have been stopped.
 - By default you can only add 5 channels to your Media Services account. This is a soft quota on all new accounts. For more information, see [Quotas and Limitations](media-services-quotas-and-limitations.md).
 - You cannot change the input protocol while the Channel or its associated programs are running. If you require different protocols, you should create separate channels for each input protocol.
 - You are only billed when your Channel is in the **Running** state. For more information, refer to [this](media-services-manage-live-encoder-enabled-channels.md#states) section.
+- Currently, the max recommended duration of a live event is 8 hours. Please contact amslived at Microsoft dot com if you need to run a Channel for longer periods of time.
+- Make sure to have at least one streaming reserved unit on the streaming endpoint from which you want to stream content.
 
 ##Known Issues
 
@@ -411,30 +405,7 @@ Stopped|Stopped|No
 - RTP support is catered towards professional broadcasters. Please review the notes on RTP in [this](http://azure.microsoft.com/blog/2015/04/13/an-introduction-to-live-encoding-with-azure-media-services/) blog.
 - Slate images should conform to restrictions described [here](media-services-manage-live-encoder-enabled-channels.md#default_slate). If you attempt create a Channel with a default slate that is larger than 1920x1080, the request will eventually error out.
 
-
-##<a id="tasks"></a>Tasks related to Live Streaming
-
-###Creating a Media Services account
-
-[Create Azure Media Services Account](media-services-create-account.md).
-
-###Configuring streaming endpoints
-
-For an overview about streaming endpoints and information on how to manage them, see [How to Manage Streaming Endpoints in a Media Services Account](media-services-manage-origins.md)
-
-###Setting up development environment  
-
-Choose **.NET** or **REST API** for your development environment.
-
-[AZURE.INCLUDE [media-services-selector-setup](../../includes/media-services-selector-setup.md)]
-
-###Connecting programmatically  
-
-Choose **.NET** or **REST API** to programmatically connect to Azure Media Services.
-
-[AZURE.INCLUDE [media-services-selector-connect](../../includes/media-services-selector-connect.md)]
-
-###Creating Channels that perform live encoding from a singe bitrate to adaptive bitrate stream 
+###How to create channels that perform live encoding from a singe bitrate to adaptive bitrate stream 
 
 Choose **Portal**, **.NET**, **REST API** to see how to create and manage channels and programs.
 
@@ -443,57 +414,13 @@ Choose **Portal**, **.NET**, **REST API** to see how to create and manage channe
 - [.NET SDK](media-services-dotnet-creating-live-encoder-enabled-channel.md)
 - [REST API](https://msdn.microsoft.com/library/azure/dn783458.aspx)
 
-###Protecting assets
 
-**Overview**: 
+##Media Services learning paths
 
-[Content Protection Overview](media-services-content-protection-overview.md)
+You can view AMS learning paths here:
 
-If you want to encrypt an asset associate with a program with Advanced Encryption Standard (AES) (using 128-bit encryption keys) or PlayReady DRM, you need to create a content key.
-
-Use **.NET** or **REST API** to create keys.
-
-[AZURE.INCLUDE [media-services-selector-create-contentkey](../../includes/media-services-selector-create-contentkey.md)]
-
-Once you create the content key, you can configure key authorization policy using **.NET** or **REST API**.
-
-[AZURE.INCLUDE [media-services-selector-content-key-auth-policy](../../includes/media-services-selector-content-key-auth-policy.md)]
-
-####Integrating with partners
-
-[Using castLabs to deliver DRM licenses to Azure Media Services](media-services-castlabs-integration.md)
-
-
-###Publishing and delivering assets
-
-**Overview**: 
-
-- [Dynamic Packaging Overview](../media-services-dynamic-overview.md)
-
-
-Configure asset delivery policy using **.NET** or **REST API**.
-
-[AZURE.INCLUDE [media-services-selector-asset-delivery-policy](../../includes/media-services-selector-asset-delivery-policy.md)]
-
-Publish assets (by creating Locators) using **Azure Management Portal** or **.NET**.
-
-[AZURE.INCLUDE [media-services-selector-publish](../../includes/media-services-selector-publish.md)]
-
-
-Deliver Content 
-
-> [AZURE.SELECTOR]
-- [Overview](media-services-deliver-content-overview.md)
-
-###Enabling Azure CDN
-
-Media Services supports integration with Azure CDN. For information on how to enable Azure CDN, see [How to Manage Streaming Endpoints in a Media Services Account](media-services-manage-origins.md#enable_cdn).
-
-###Scaling a Media Services account
-
-You can scale **Media Services** by specifying the number of **Streaming Reserved Units** you would like your account to be provisioned with. 
-
-For information about scaling streaming units, see: [How to scale streaming units](media-services-manage-origins.md#scale_streaming_endpoints.md).
+- [AMS Live Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [AMS on Demand Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
 ##Related topics
 

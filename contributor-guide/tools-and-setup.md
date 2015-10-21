@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 pageTitle="Install and set up tools for authoring in GitHub" 
 description="Tools and steps to get set up for authoring Azure content in GitHub." 
 services="contributor-guide" 
@@ -154,7 +154,7 @@ If you use Atom, you'll need to set a few things up.
 
 2. Copy the Personal Access Token that you got from [https://github.com/settings/applications#personal-access-tokens](https://github.com/settings/applications#personal-access-tokens). You can accept the default permissions for the token.  Save the Personal Access Token in a text file for later reuse.
 
-3. Next, copy the repository to your computer with your credentials embedded in the command string.  To do this, open GitBash.  At the command prompt, enter the following command.  This command creates a azure-content(-pr) drectory on your computer.  If you're using the default location, it will be at c:\users<your Windows user name>\azure-content(-pr).
+3. Next, copy the repository to your computer with your credentials embedded in the command string.  To do this, open Git Bash and run it as an administrator. At the command prompt, enter the following command.  This command creates a azure-content(-pr) drectory on your computer.  If you're using the default location, it will be at c:\users<your Windows user name>\azure-content(-pr).
 
 Public repo:
 

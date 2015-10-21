@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Release notes for Application Insights" 
+	pageTitle="Release notes for Application Insights for Windows" 
 	description="The latest updates." 
 	services="application-insights" 
     documentationCenter=""
@@ -11,7 +11,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/18/2015" 
+	ms.date="09/18/2015" 
 	ms.author="sergkanz"/>
  
 # Release Notes for Application Insights SDK for Windows Phone and Store
@@ -31,6 +31,23 @@ See [Get started with Application Insights for Windows Phone and Store apps](app
 * Select the installed Application Insights packages and choose Upgrade.
 * Compare the old and new versions of ApplicationInsights.config. Merge back any customizations you made to the old version.
 * Rebuild your solution.
+
+## Version 1.2
+
+### Windows App SDK
+
+- Fix a FileNotFound exception that was preventing persisted telemetries from being sent after the app is re-opened.
+
+### Core SDK
+
+- First version of Application Insights SDK shipped from [github](http://github.com/microsoft/ApplicationInsights-dotnet)
+
+## Version 1.1
+
+### Core SDK
+
+- SDK now introduces new telemetry type ```DependencyTelemetry``` which contains information about dependency call from application
+- New method ```TelemetryClient.TrackDependency``` allows to send information about dependency calls from application
 
 ## Version 1.0.0
 

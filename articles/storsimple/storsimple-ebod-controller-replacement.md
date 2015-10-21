@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Replace an EBOD controller on your StorSimple device | Microsoft Azure"
+   pageTitle="Replace a StorSimple EBOD controller | Microsoft Azure"
    description="Explains how to remove and replace one or both EBOD controllers on a StorSimple 8600 device."
    services="storsimple"
    documentationCenter=""

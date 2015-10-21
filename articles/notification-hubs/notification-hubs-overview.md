@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Azure Notification Hubs" 
-	description="Learn how to use push notifications in Azure. Code samples written in C# using the .NET API." 
-	authors="wesmc7777" 
-	manager="dwrede" 
-	editor="" 
-	services="notification-hubs" 
+<properties
+	pageTitle="Azure Notification Hubs"
+	description="Learn how to use push notifications in Azure. Code samples written in C# using the .NET API."
+	authors="wesmc7777"
+	manager="dwrede"
+	editor=""
+	services="notification-hubs"
 	documentationCenter=""/>
 
-<tags 
-	ms.service="notification-hubs" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="multiple" 
-	ms.devlang="multiple" 
-	ms.topic="article" 
-	ms.date="06/02/2015" 
+<tags
+	ms.service="notification-hubs"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="multiple"
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.date="09/24/2015"
 	ms.author="wesmc"/>
 
 
@@ -40,13 +40,13 @@ You can use Notification Hubs for both enterprise and consumer scenarios. For ex
 
 ##What are Push Notifications?
 
-Smartphones and tablets have the ability to "notify" users when an event has occurred. These notifications can take many forms. 
+Smartphones and tablets have the ability to "notify" users when an event has occurred. These notifications can take many forms.
 
-In Windows Store and Windows Phone applications, the notification can be in the form of a _toast_: a modeless window appears, with a sound, to signal a new notification. Other notification types are supports including _tile_, _raw_, and _badge_ notifications. For more information on the types of notifications supported on Windows devices see, [Tiles, Badges, and Notifications](http://msdn.microsoft.com/library/windows/apps/hh779725.aspx). 
+In Windows Store and Windows Phone applications, the notification can be in the form of a _toast_: a modeless window appears, with a sound, to signal a new notification. Other notification types are supports including _tile_, _raw_, and _badge_ notifications. For more information on the types of notifications supported on Windows devices see, [Tiles, Badges, and Notifications](http://msdn.microsoft.com/library/windows/apps/hh779725.aspx).
 
 On Apple iOS devices, the push similarly notifies the user with a dialog box, requesting the user to view or close the notification. Clicking **View** opens the application that is receiving the message. For more information on iOS Notifications see, [iOS Notifications](http://go.microsoft.com/fwlink/?LinkId=615245).
 
-Push notifications help mobile devices display fresh information while remaining energy-efficient. Notifications can be sent by backend systems to mobile devices even when corresponding apps on a device are not active. Push notifications are a vital component for consumer apps, where they are used to increase app engagement and usage. Notifications are also useful to enterprises, when up-to-date information increases employee responsiveness to business events. 
+Push notifications help mobile devices display fresh information while remaining energy-efficient. Notifications can be sent by backend systems to mobile devices even when corresponding apps on a device are not active. Push notifications are a vital component for consumer apps, where they are used to increase app engagement and usage. Notifications are also useful to enterprises, when up-to-date information increases employee responsiveness to business events.
 
 Some specific examples of mobile engagement scenarios are:
 
@@ -94,7 +94,7 @@ Notification Hubs eliminate complexity: you do not have to manage the challenges
 
 Notification hubs provide a ready-to-use push notification infrastructure with the following advantages:
 
-- **Multiple platforms.**   
+- **Multiple platforms.**
 	+  Support for all major mobile platforms. Notification hubs can send push notifications to Windows Store, iOS, Android, and Windows Phone apps.
 
 
@@ -107,13 +107,13 @@ Notification hubs provide a ready-to-use push notification infrastructure with t
 - **Scale.** Notification hubs scale to millions of devices without the need to re-architect or shard.
 
 
-- **Rich set of delivery patterns**: 
+- **Rich set of delivery patterns**:
 
 	- *Broadcast*: allows for near-simultaneous broadcast to millions of devices with a single API call.
 
 	- *Unicast/Multicast*: Push to tags representing individual users, including all of their devices; or wider group; for example, separate form factors (tablet vs. phone).
 
-	- *Segmentation*: Push to complex segment defined by tag expressions (for example, devices in New York following the Yankees). 
+	- *Segmentation*: Push to complex segment defined by tag expressions (for example, devices in New York following the Yankees).
 
 	Each device, when sending its handle to a notification hub, can specify one or more _tags_. For more information about [tags](http://msdn.microsoft.com/library/azure/dn530749.aspx). Tags do not have to be pre-provisioned or disposed. Tags provide a simple way to send notifications to users or interest groups. Since tags can contain any app-specific identifier (such as user or group IDs), their use frees the app back-end from the burden of having to store and manage device handles.
 
@@ -133,14 +133,14 @@ You can find out more about Notification Hubs in these topics:
 
 + **[How customers are using Notification Hubs]**
 
-+ **[Notification Hubs tutorials and guides]** 
++ **[Notification Hubs tutorials and guides]**
 
 + **Notification Hubs Getting Started tutorials** ([iOS], [Android], [Windows Universal], [Windows Phone], [Kindle], [Xamarin.iOS], [Xamarin.Android])
 
 The relevant .NET managed API references for push notifications are located here:
 
 + [Microsoft.WindowsAzure.Messaging.NotificationHub]
-+ [Microsoft.ServiceBus.Notifications] 
++ [Microsoft.ServiceBus.Notifications]
 
 
   [0]: ./media/notification-hubs-overview/registration-diagram.png
@@ -156,6 +156,3 @@ The relevant .NET managed API references for push notifications are located here
   [Xamarin.Android]: http://azure.microsoft.com/documentation/articles/partner-xamarin-notification-hubs-android-get-started
   [Microsoft.WindowsAzure.Messaging.NotificationHub]: http://msdn.microsoft.com/library/microsoft.windowsazure.messaging.notificationhub.aspx
   [Microsoft.ServiceBus.Notifications]: http://msdn.microsoft.com/library/microsoft.servicebus.notifications.aspx
-  
-
- 

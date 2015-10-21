@@ -93,11 +93,11 @@ In the example above we created a resource group called "NRP-RG" and location "W
 
 ### Step 1
 
-Create a virtual network:
+Creates a subnet for the virtual network and assigns to variable $backendSubnet
 
 	$backendSubnet = New-AzureVirtualNetworkSubnetConfig -Name LB-Subnet-BE -AddressPrefix 10.0.2.0/24
 
-Creates a subnet for the virtual network and assigns to variable $backendSubnet
+Create a virtual network:
 
 	$vnet= New-AzurevirtualNetwork -Name NRPVNet -ResourceGroupName NRP-RG -Location "West US" -AddressPrefix 10.0.0.0/16 -Subnet $backendSubnet
 
@@ -111,7 +111,7 @@ Setting up a front end IP pool for the incoming load balancer network traffic an
 
 ### Step 1 
 
-Create a front end IP pool using the private IP address 10.0.2.6 for the subnet 10.0.2.0/24 which will be the incoming network traffic endpoint.
+Create a front end IP pool using the private IP address 10.0.2.5 for the subnet 10.0.2.0/24 which will be the incoming network traffic endpoint.
 
 	$frontendIP = New-AzureLoadBalancerFrontendIpConfig -Name LB-Frontend -PrivateIpAddress 10.0.2.5 -SubnetId $backendSubnet.Id
 

@@ -24,7 +24,7 @@ This tutorial walks you through the steps to create an example cross-premises vi
 
 If you want to create a cloud-only virtual network, see [Tutorial: Create a Cloud-Only Virtual Network in Azure](../virtual-machines/create-virtual-network.md). If you want to create a point-to-site VPN by using certificates and a VPN client, see [Configure a Point-to-Site VPN in the Management Portal](http://go.microsoft.com/fwlink/p/?LinkId=296653).
 
-This tutorial assumes you have no prior experience using Azure. It's meant to help you become familiar with the steps required to create an example cross-premises virtual network. If you're looking for design scenarios and advanced information about Virtual Network, see the [Azure Virtual Network Overview](http://msdn.microsoft.com/library/windowsazure/jj156007.aspx).
+This tutorial assumes you have no prior experience using Azure. It's meant to help you become familiar with the steps required to create an example cross-premises virtual network. If you're looking for design scenarios and advanced information about Virtual Network, see the [Azure Virtual Network Overview](../virtual-network/virtual-networks-overview.md).
 
 After completing this tutorial, you will have an example cross-premises virtual network. The following figure shows the details, based on the example settings in this tutorial.
 
@@ -253,9 +253,9 @@ If you want to export your virtual network settings to a network configuration f
 
 ## See Also
 
--  [Azure Virtual Network Technical Overview](http://msdn.microsoft.com/library/windowsazure/jj156007.aspx)
+-  [Azure Virtual Network Technical Overview](../virtual-network/virtual-networks-overview.md)
 
--  [Virtual Network FAQ](http://msdn.microsoft.com/library/windowsazure/dn133803.aspx)
+-  [Virtual Network FAQ](virtual-networks-faq.md)
 
 -  [Configuring a Virtual Network Using Network Configuration Files](virtual-networks-using-network-configuration-file.md)
 

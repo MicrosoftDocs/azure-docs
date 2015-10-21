@@ -1,5 +1,5 @@
 <properties
-   pageTitle="How to use Azure Redis Cache with Java"
+   pageTitle="How to use Azure Redis Cache with Java | Microsoft Azure"
 	description="Get started with Azure Redis Cache using Java"
 	services="redis-cache"
 	documentationCenter=""
@@ -13,14 +13,14 @@
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="cache-redis"
 	ms.workload="tbd"
-	ms.date="08/17/2015"
+	ms.date="10/05/2015"
 	ms.author="sdanie"/>
 
 # How to use Azure Redis Cache with Java
 
-Azure Redis Cache gives you access to a secure, dedicated Redis cache, managed by Microsoft. Your cache is accessible from any application within Microsoft Azure.
+Azure Redis Cache gives you access to a dedicated Redis cache, managed by Microsoft. Your cache is accessible from any application within Microsoft Azure.
 
-This topic shows how to get started with Azure Redis Cache using Java.
+This topic shows you how to get started with Azure Redis Cache using Java.
 
 
 ## Prerequisites
@@ -32,7 +32,7 @@ This tutorial uses Jedis, but you can use any Java client listed at [http://redi
 
 ## Create a Redis cache on Azure
 
-In the [Azure Management Portal Preview](http://go.microsoft.com/fwlink/?LinkId=398536), click **New**, **Data + Storage**, and select **Redis Cache**.
+In the [Azure preview portal](http://go.microsoft.com/fwlink/?LinkId=398536), click **New**, **Data + Storage**, and select **Redis Cache**.
 
   ![][1]
 
@@ -41,7 +41,7 @@ Enter a DNS hostname. It will have the form `<name>.redis.cache.windows.net`. Cl
   ![][2]
 
 
-Once the cache is created, click on it in the portal to view the cache settings. Click the link under **Keys** and copy the primary key. You will need this to authenticate requests.
+Once you create the cache, click on it in the preview portal to view the cache settings. Click the link under **Keys** and copy the primary key. You need this to authenticate requests.
 
   ![][4]
 
@@ -49,7 +49,7 @@ Once the cache is created, click on it in the portal to view the cache settings.
 ## Enable the non-SSL endpoint
 
 
-Click the link under **Ports**, and click **No** for "Allow access only via SSL". This will enable the non-SSL port for the cache. The Jedis client currently does not support SSL.
+Click the link under **Ports**, and click **No** for "Allow access only via SSL". This enables the non-SSL port for the cache. The Jedis client currently does not support SSL.
 
   ![][3]
 
@@ -60,7 +60,7 @@ Click the link under **Ports**, and click **No** for "Allow access only via SSL"
 	import redis.clients.jedis.Jedis;
 	import redis.clients.jedis.JedisShardInfo;
 
-	/* Make sure your turn on non SSL port in Azure Redis using the Configuration section in the Azure portal */
+	/* Make sure you turn on non-SSL port in Azure Redis using the Configuration section in the preview portal */
 	public class App
 	{
 	  public static void main( String[] args )
