@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="10/27/2015"
+   ms.date="10/28/2015"
    ms.author="nitinme"/>
 
 # Integrating Data Lake Store with other Azure Services

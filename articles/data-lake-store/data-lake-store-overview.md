@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="10/27/2015"
+   ms.date="10/28/2015"
    ms.author="nitinme"/>
 
 # Overview of Azure Data Lake Store
@@ -78,7 +78,7 @@ Data Lake Store can also be accessed via the new filesystem, the AzureDataLakeFi
 
 ## How do I start using Azure Data Lake Store?
 
-See [Get Started with Data Lake Store using the Azure Preview Porta](data-lake-store-get-started-portal.md), on how to provision an Azure Data Lake account using the Azure Preview portal. Once you have provisioned Azure Data Lake, you can learn how to use big data offerings such as Azure Data Lake Analytics or Azure HDInsight with Data Lake Store. You can also create a .NET application to create an Azure Data Lake Store account and perform operations such as upload data, download data, etc.
+See [Get Started with Data Lake Store using the Azure Preview Portal](data-lake-store-get-started-portal.md), on how to provision an Azure Data Lake account using the Azure Preview portal. Once you have provisioned Azure Data Lake, you can learn how to use big data offerings such as Azure Data Lake Analytics or Azure HDInsight with Data Lake Store. You can also create a .NET application to create an Azure Data Lake Store account and perform operations such as upload data, download data, etc.
 
 - [Get Started with Azure Data Lake Analytics](data-lake-analytics/data-lake-analytics-get-started-portal.md)
 - [Use Azure HDInsight with Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)

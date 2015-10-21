@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="10/27/2015"
+   ms.date="10/28/2015"
    ms.author="nitinme"/>
 
 # Securing data stored in Azure Data Lake Store
