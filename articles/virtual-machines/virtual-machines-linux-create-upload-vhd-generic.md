@@ -76,7 +76,7 @@ VHD images on Azure must have a virtual size aligned to 1MB.  Typically, VHDs cr
 
 To remedy this you can resize the VM using either the Hyper-V Manager console or the [Resize-VHD](http://technet.microsoft.com/library/hh848535.aspx) Powershell cmdlet.  If you are not running in a Windows environment then it is recommended to use qemu-img to convert (if needed) and resize the VHD.
 
-> [AZURE.WARNING] There is a known bug in qemu-img versions >=2.2.1 that results in an improperly formatted VHD. The issue will be fixed in an upcoming release of qemu-img.  For now it is recommended to use qemu-img version 2.2.0 or lower. Reference: https://bugs.launchpad.net/qemu/+bug/1490611
+> [AZURE.NOTE] There is a known bug in qemu-img versions >=2.2.1 that results in an improperly formatted VHD. The issue will be fixed in an upcoming release of qemu-img.  For now it is recommended to use qemu-img version 2.2.0 or lower. Reference: https://bugs.launchpad.net/qemu/+bug/1490611
 
 
  1. Resizing the VHD directly using tools such as `qemu-img` or `vbox-manage` may result in an unbootable VHD.  So it is recommended to first convert the VHD to a RAW disk image.  If the VM image was already created as RAW disk image (the default for some Hypervisors such as KVM) then you may skip this step:
