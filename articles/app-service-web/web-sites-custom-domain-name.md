@@ -3,7 +3,7 @@
 	description="Learn how to use a custom domain name with a web app in Azure App Service."
 	services="app-service"
 	documentationCenter=""
-	authors="MikeWasson"
+	authors="cephalin"
 	manager="wpickett"
 	editor="jimbe"/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/16/2015"
-	ms.author="mwasson"/>
+	ms.date="10/22/2015"
+	ms.author="cephalin"/>
 
 # Configure a custom domain name in Azure App Service
 
@@ -26,15 +26,15 @@
 
 When you create a web app, Azure assigns it to a subdomain of azurewebsites.net. For example, if your web app is named **contoso**, the URL is **contoso.azurewebsites.net**. Azure also assigns a virtual IP address.
 
-For a production web app, you probably want users to see a custom domain name. This article explains how to reserve or configure a custom domain with [App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714). 
-
-[AZURE.INCLUDE [websites-cloud-services-css-guided-walkthrough](../../includes/websites-cloud-services-css-guided-walkthrough.md)]
+For a production web app, you may want users to see a custom domain name. This article explains how to configure a custom domain with [App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714).
 
 [AZURE.INCLUDE [introfooter](../../includes/custom-dns-web-site-intro-notes.md)]
 
 ## Overview
 
-If you have a domain name already, or you want reserve domain from other domain registrars, here are the general steps to bring a custom domain name for web app:
+If you haven't already registered for an external domain name (i.e. not *.azurewebsites.net) already, the easiest way to set up a custom domain is to buy one directly in the [Azure preview portal](https://portal.azure.com). The process enables you to manage your web app's domain name directly in the portal instead of going to a third-party site like GoDaddy to manage it. Likewise, configuring the domain name in your web app is greatly simplified, whether your web app uses [Azure Traffic Manager](web-sites-traffic-manager-custom-domain-name.md) or not. For more information, see [Buy and Configure a custom domain name in Azure App Service](custom-dns-web-site-buydomains-web-app.md).
+
+If you have a domain name already, or you want reserve domain from other domain registrars, here are the general steps to bring a custom domain name for web app (see [specific instructions for GoDaddy.com](web-sites-godaddy-custom-domain-name.md)):
 
 1. Reserve your domain name. This article does not cover that process. There are many domain registrars to choose from. When you sign up, their site will walk you through the process.
 1. Create DNS records that map the domain to your Azure web app.
@@ -70,7 +70,7 @@ Skip this step if you are creating a CNAME record. To create an A record, you ne
 3.	Click the **Web Apps** blade.
 4.	Click the name of your web app.
 5.	In the **Essentials** page, click **All settings**.
-6.	Click **Custom domains and SSL**. 
+6.	Click **Custom domains and SSL**.
 7.	In the **Custom domains and SSL** blade, click **Bring External Domains"**. The IP address is located at the bottom of this part.
 
 ## Create the DNS records
@@ -95,7 +95,7 @@ In many registrar tools, you will just type the subdomain portion of your domain
   <tr>
     <td>@</td>
     <td>A (address)</td>
-    <td>127.0.0.1</td>
+    <td>168.62.48.183</td>
   </tr>
   <tr>
     <td>www</td>
@@ -106,10 +106,10 @@ In many registrar tools, you will just type the subdomain portion of your domain
 
 Assuming the custom domain name is ‘contoso.com’, this would create the following records:
 
-- **contoso.com** mapped to 127.0.0.1.
+- **contoso.com** mapped to 168.62.48.183.
 - **www.contoso.com** mapped to **contoso.azurewebsites.net**.
 
->[AZURE.NOTE] You can use Azure DNS to host the necessary domain records for your web app. To configure your custom domain, and create your records, in Azure DNS, see [Create custom DNS records for a web app](../dns-web-sites-custom-domain). 
+>[AZURE.NOTE] You can use Azure DNS to host the necessary domain records for your web app. To configure your custom domain, and create your records, in Azure DNS, see [Create custom DNS records for a web app](../dns-web-sites-custom-domain).
 
 <a name="awverify" />
 ## Create an awverify record (A records only)
@@ -127,10 +127,17 @@ Visitors to your web app will not see the awverify subdomain; it’s only for Az
 
 >[AZURE.NOTE] If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
 
+## Verify DNS propagation
+
+After you finish the configuration steps, it can take some time for the changes to propagate, depending on your DNS provider. You can verify that the DNS propagation is working as expected by using [http://digwebinterface.com/](http://digwebinterface.com/). After you browse to the site, specify the hostnames in the textbox and click **Dig**. Verify the results to confirm if the recent changes have taken effect.  
+
+![](./media/web-sites-custom-domain-name/1-digwebinterface.png)
+
+> [AZURE.NOTE] The propagation of the DNS entries takes up to 48 hours (sometimes longer). If you have configured everything correctly, you still need to wait for the propagation to succeed.
 
 ## Next steps
 
-For more information please see: [Get started with Azure DNS](../dns/dns-getstarted-create-dnszone.md) and [Delegate Domain to Azure DNS](../dns/dns-domain-delegation.md) 
+For more information please see: [Get started with Azure DNS](../dns/dns-getstarted-create-dnszone.md) and [Delegate Domain to Azure DNS](../dns/dns-domain-delegation.md)
 
 ## What's changed
 * For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)
@@ -145,4 +152,3 @@ For more information please see: [Get started with Azure DNS](../dns/dns-getstar
 
 <!-- Images -->
 [subdomain]: media/web-sites-custom-domain-name/azurewebsites-subdomain.png
- 
