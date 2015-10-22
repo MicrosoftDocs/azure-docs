@@ -234,7 +234,6 @@ When you click the 23 Video tile in the Access Panel, you should get automatical
 
 
 <!--Image references-->
-
 [1]: ./media/active-directory-saas-23video-tutorial/tutorial_general_01.png
 [2]: ./media/active-directory-saas-23video-tutorial/tutorial_general_02.png
 [3]: ./media/active-directory-saas-23video-tutorial/tutorial_general_03.png
@@ -255,7 +254,6 @@ When you click the 23 Video tile in the Access Panel, you should get automatical
 [203]: ./media/active-directory-saas-23video-tutorial/tutorial_general_203.png
 [204]: ./media/active-directory-saas-23video-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-23video-tutorial/tutorial_general_205.png
-
 
 [400]: ./media/active-directory-saas-23video-tutorial/tutorial_23video_10.png
 [401]: ./media/active-directory-saas-23video-tutorial/tutorial_23video_11.png
