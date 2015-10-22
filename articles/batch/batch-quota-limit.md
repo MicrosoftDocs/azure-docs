@@ -90,4 +90,6 @@ Azure support will contact you when the request is complete. This can take up to
 
 * [API basics for Azure Batch](batch-api-basics.md)
 
+* [Azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md)
+
 [account_quotas]: ./media/batch-quota-limit/accountquota_portal.PNG
