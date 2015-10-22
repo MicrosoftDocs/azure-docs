@@ -20,10 +20,10 @@
 
 ##Overview
 
-Azure Active Directory can automatically provision users and groups to any application or identity store that is fronted by a Web service with the interface defined in the SCIM protocol specification. Azure Active Directory can send requests to create, modify and delete assigned users and groups to this Web service, which can then translate those requests into operations upon the target identity store. 
+Azure Active Directory can automatically provision users and groups to any application or identity store that is fronted by a Web service with the interface defined in the [SCIM protocol specification](https://tools.ietf.org/html/draft-ietf-scim-api-19). Azure Active Directory can send requests to create, modify and delete assigned users and groups to this Web service, which can then translate those requests into operations upon the target identity store. 
 
 ![][1]
-Figure: Provisioning from Azure Active Directory to an arbitrary identity store via a Web service
+*Figure: Provisioning from Azure Active Directory to an arbitrary identity store via a Web service*
 
 This capability can be used in conjunction with the “bring your own app” capability in Azure AD to enable single sign-on and automatic user provisioning for virtually any application that provides a user provisioning API.
 
@@ -40,10 +40,10 @@ To make this process easier, a set of code samples are provided that create a SC
 
 ###Prerequisites
 * Visual Studio 2013 or later
-* Azure SDK for .NET
+* [Azure SDK for .NET](https://azure.microsoft.com/en-us/downloads/)
 * Windows machine that supports the ASP.NET framework 4.5 to be used as the SCIM endpoint. This machine must be accessible from the cloud
-* An Azure subscription with a trial or licensed version of Azure AD Premium
-* The Amazon AWS sample requires libraries from the AWS Toolkit for Visual Studio
+* [An Azure subscription with a trial or licensed version of Azure AD Premium](https://azure.microsoft.com/en-us/services/active-directory/)
+* The Amazon AWS sample requires libraries from the [AWS Toolkit for Visual Studio](http://docs.aws.amazon.com/AWSToolkitVS/latest/UserGuide/tkv_setup.html)
 
 ##Getting Started
 
@@ -65,7 +65,7 @@ The easiest way to implement a SCIM endpoint that can accept provisioning reques
 6.	Launch the Command Prompt application in Windows (as an Administrator), and use the **cd** command to change the directory to your **\AzureAD-BYOA-Provisioning-Samples\ProvisioningAgent\bin\Debug** folder.
 7.	Run the command below, replacing <ip-address> with the IP or domain name of the Windows Machine.
 
-    .\FileAgnt.exe http://<ip-address>:9000 TargetFile.csv
+    FileAgnt.exe http://<ip-address>:9000 TargetFile.csv
 
 8.	In Windows under **Windows Settings > Network & Internet Settings**, select the **Windows Firewall > Advanced Settings**, and create an **Inbound Rule** that allows inbound access to port 9000.
 9.	If the Windows machine is behind a router, the router will need to be configured to perform Network Access Translation between its port 9000 that is exposed to the internet, and port 9000 on the Windows machine. This is required for Azure AD to be able to access this endpoint in the cloud.
@@ -96,11 +96,11 @@ The final step in verifying the sample is to open the TargetFile.csv file in the
 
 To develop your own Web service that conforms to the SCIM specification, first familiarize yourself with the following libraries provided by Microsoft to help accelerate the development process: 
 
-1.	Common Language Infrastructure libraries are offered for use with languages based on that infrastructure, such as C#.  One of those libraries, [Microsoft.SystemForCrossDomainIdentityManagement.Service](https://www.nuget.org/packages/Microsoft.SystemForCrossDomainIdentityManagement/), declares an interface, Microsoft.SystemForCrossDomainIdentityManagement.IProvider, shown in the figure below.  A developer using the libraries would implement that interface with a class that may be referred to, generically, as a provider.  The libraries enable the developer to easily deploy a Web service that conforms to the SCIM specification, either hosted within Internet Information Services, or any executable Common Language Infrastructure assembly.  Requests to that Web service will be translated into calls to the provider’s methods, which would be programmed by the developer to operate on some identity store.    
+1. Common Language Infrastructure libraries are offered for use with languages based on that infrastructure, such as C#.  One of those libraries, [Microsoft.SystemForCrossDomainIdentityManagement.Service](https://www.nuget.org/packages/Microsoft.SystemForCrossDomainIdentityManagement/), declares an interface, Microsoft.SystemForCrossDomainIdentityManagement.IProvider, shown in the figure below.  A developer using the libraries would implement that interface with a class that may be referred to, generically, as a provider.  The libraries enable the developer to easily deploy a Web service that conforms to the SCIM specification, either hosted within Internet Information Services, or any executable Common Language Infrastructure assembly.  Requests to that Web service will be translated into calls to the provider’s methods, which would be programmed by the developer to operate on some identity store.    
 
 ![][3]
 
-2.	[Express route handlers](http://expressjs.com/guide/routing.html) are available for parsing node.js request objects representing calls (as defined by the SCIM specification), made to a node.js Web service.   
+2. [Express route handlers](http://expressjs.com/guide/routing.html) are available for parsing node.js request objects representing calls (as defined by the SCIM specification), made to a node.js Web service.   
 
 ##Building a Custom SCIM Endpoint
 
@@ -231,7 +231,7 @@ Developers using the Common Language Infrastructure libraries provided by Micros
 
 1. In a provider, implement the Microsoft.SystemForCrossDomainIdentityManagement.IProvider.StartupBehavior property by having it return a method to be called whenever the service is started: 
 
-    public override Action<Owin.IAppBuilder, System.Web.Http.HttpConfiguration.HttpConfiguration> StartupBehavior
+    public override Action\<Owin.IAppBuilder, System.Web.Http.HttpConfiguration.HttpConfiguration\> StartupBehavior
     {
       get
       {
@@ -387,7 +387,7 @@ In the case of the foregoing sample of a query for a user with a given value for
 * parameters.AlternateFilter.ElementAt(0).ComparisonValue: "jyoung"
 * correlationIdentifier: System.Net.Http.HttpRequestMessage.GetOwinEnvironment["owin.RequestId"] 
 
-2.	If the response to a query to the service for a user with an externalId attribute value matching the mailNickname attribute value of a user in Azure Active Directory does not return any users, then Azure Active Directory will request that the service provision a user corresponding to the one in Azure Active Directory.  Here is an example of such a request: 
+2. If the response to a query to the service for a user with an externalId attribute value matching the mailNickname attribute value of a user in Azure Active Directory does not return any users, then Azure Active Directory will request that the service provision a user corresponding to the one in Azure Active Directory.  Here is an example of such a request: 
 
     POST https://.../scim/Users HTTP/1.1
     Authorization: Bearer ...
@@ -637,7 +637,7 @@ Figure: User provisioning and de-provisioning sequence
 	
 <!--Image references-->
 [1]: ./media/active-directory-scim-provisioning/scim-figure-1.PNG
-[3]: ./media/active-directory-scim-provisioning/scim-figure-2.PNG
-[4]: ./media/active-directory-scim-provisioning/scim-figure-3.PNG
-[5]: ./media/active-directory-scim-provisioning/scim-figure-4.PNG
-[6]: ./media/active-directory-scim-provisioning/scim-figure-5.PNG
+[2]: ./media/active-directory-scim-provisioning/scim-figure-2.PNG
+[3]: ./media/active-directory-scim-provisioning/scim-figure-3.PNG
+[4]: ./media/active-directory-scim-provisioning/scim-figure-4.PNG
+[5]: ./media/active-directory-scim-provisioning/scim-figure-5.PNG
