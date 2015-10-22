@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="10/27/2015"
+	ms.date="10/22/2015"
 	ms.author="awills"/>
 
 # Get started with Application Insights in a Java web project
