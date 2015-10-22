@@ -44,9 +44,9 @@ You can include Emoji emoticons in you push notification in a few easy steps:
 
 <!-- Images. -->
 [1]: ./media/mobile-engagement-use-emoji-with-push/notification_input.png
-[3]: ./media/mobile-engagement-use-emoji-with-push/iOS_emoji.png
-[4]: ./media/mobile-engagement-use-emoji-with-push/Android_emoji.png
-[5]: ./media/mobile-engagement-use-emoji-with-push/WindowsPhone_emoji.png
+[3]: ./media/mobile-engagement-use-emoji-with-push/iOS_Emoji.png
+[4]: ./media/mobile-engagement-use-emoji-with-push/Android_Emoji.png
+[5]: ./media/mobile-engagement-use-emoji-with-push/WindowsPhone_Emoji.png
 [6]: ./media/mobile-engagement-use-emoji-with-push/Mac_SelectEmoji.png
 [7]: ./media/mobile-engagement-use-emoji-with-push/Windows_SelectEmoji.png
 

@@ -28,7 +28,7 @@ In general, you should always ensure the following:
 1. Ensure that you have gone through all the steps required for integration as described in our [Getting Started tutorials](mobile-engagement-windows-store-dotnet-get-started.md)
 2. You are using the latest version of the platform SDKs. 
 3. Test on both an actual device and an emulator because some issues are specific to emulator only. 
-3. You are not hitting any limits/throttles from Mobile Engagement which are documented [here](https://azure.microsoft.com/en-us/documentation/articles/azure-subscription-service-limits/#mobile-engagement-limits)
+3. You are not hitting any limits/throttles from Mobile Engagement which are documented [here](azure-subscription-service-limits.md/#mobile-engagement-limits)
 4. If you are not able to connect to the Mobile Engagement service backend or seeing data not being loaded continuously then ensure that there are no ongoing service incidents by checking [here](https://azure.microsoft.com/en-us/status/)
 
 ## 'Monitor' issues
@@ -44,7 +44,7 @@ If you are not seeing your device on the Monitor tab then it is likely an SDK in
 4. Ensure you are sending at least one screen/activity by overriding the page with EngagementActivity depending on the platform you are working as described in the [Getting Started tutorials](mobile-engagement-windows-store-dotnet-get-started.md).
 
 ### I am seeing the Monitor tab showing a session even when I have disconnected or closed my app/ emulator. 
-If you are the only one connected to the platform at this point and you are using an emulator to open the app then this is likely due to emulator quirks. In general, you need to ensure that you come back to the Home screen on the emulator for the app session to disconnect successfully. Additionally, on Windows platform, while debugging with Visual Studio, you may need to ensure that in Visual Studio, you go to the **Lifecycle Events** menu bar and click on **Suspend** to really close the session. See [Windows tutorial](https://azure.microsoft.com/en-us/documentation/articles/mobile-engagement-windows-store-dotnet-get-started/) for details. 
+If you are the only one connected to the platform at this point and you are using an emulator to open the app then this is likely due to emulator quirks. In general, you need to ensure that you come back to the Home screen on the emulator for the app session to disconnect successfully. Additionally, on Windows platform, while debugging with Visual Studio, you may need to ensure that in Visual Studio, you go to the **Lifecycle Events** menu bar and click on **Suspend** to really close the session. See [Windows tutorial](mobile-engagement-windows-store-dotnet-get-started.md) for details. 
 
 ## 'Analytics' issues
 
@@ -88,7 +88,7 @@ More platform specific troubleshooting instructions below:
 	    	<meta-data android:name="engagement:gcm:sender" android:value="************\n" />
 	    
 	- Ensure that you are not missing or mis-configured any permissions in the Android Manifest file. 
-	- If you are receiving system notifications but not in-app then review the [Specify an icon for notifications section](https://azure.microsoft.com/en-us/documentation/articles/mobile-engagement-android-get-started/) as likely you are not specifying the correct icon in the Android Manifest file. 
+	- If you are receiving system notifications but not in-app then review the [Specify an icon for notifications section](mobile-engagement-android-get-started.md) as likely you are not specifying the correct icon in the Android Manifest file. 
 	- If you are sending a BigPicture notification, then ensure that if you have external image servers then they need to be able to support HTTP "GET" and "HEAD".
 
 3. **Windows**
