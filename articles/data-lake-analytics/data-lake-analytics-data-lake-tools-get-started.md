@@ -28,23 +28,20 @@ U-SQL is a hyper-scalable, highly extensible language for preparing, transformin
 
 **Prerequisites**
 
-- Visual Studio 2015, Visual Studio 2013 update 4, or Visual Studio 2012 with Visual C++ Installed 
-- Microsoft Azure SDK for .NET version 2.5 or above.  Install it using the [Web platform installer](http://www.microsoft.com/web/downloads/platform.aspx).
-- Go through the following two sections in [Get Started with Azure Data Lake Analytics using Azure Preview Portal](data-lake-analytics-get-started-portal.md).
+- **Visual Studio 2015, Visual Studio 2013 update 4, or Visual Studio 2012 with Visual C++ Installed** 
+- **Microsoft Azure SDK for .NET version 2.5 or above**.  Install it using the [Web platform installer](http://www.microsoft.com/web/downloads/platform.aspx).
+- **Data Lake Tools for Visual Studio**. Install it using the [Web platform installer](http://www.microsoft.com/web/downloads/platform.aspx).
+
+    Once Data Lake Tools for Visual Studio is installed, you will see a U-SQL menu in Visual Studio:
+    
+    ![U-SQL Visual Studio menu](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-menu.png)
+
+- **Go through the following two sections in [Get Started with Azure Data Lake Analytics using Azure Preview Portal](data-lake-analytics-get-started-portal.md)**.
 
 	- [Create an Azure Data Lake Analytics account](data-lake-analytics-get-started-portal.md#create_adl_analytics_account).
 	- [Upload SearchLog.tsv to the default Data Lake Storage account](data-lake-analytics-get-started-portal.md#update-data-to-the-default-adl-storage-account).
 
 	The Data Lake Tools doesn't support creating Data Lake Analytics accounts.  So you have to create it using the Azure Preview Portal, Azure PowerShell, .NET SDK or Azure CLI. To run an Data Lake Analytics job, you will need some data. Even though the Data Lake Tools supports uploading data, you will use the portal to upload the sample data to make this tutorial easier to follow. 
-	
-## Install Data Lake Tools for Visual Studio
-
-Before the product release, download the package from [https://microsoft.sharepoint.com/teams/ProjectKona/Documents/Microsoft.SqlIPStudio.zip](https://microsoft.sharepoint.com/teams/ProjectKona/Documents/Microsoft.SqlIPStudio.zip).
-[jgao: The package date is 9/28/2015 when this article was last tested.]
- 
-Once Data Lake Tools for Visual Studio is installed, you will see a U-SQL menu in Visual Studio:
-
-![U-SQL Visual Studio menu](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-menu.png)
 
 ## Connect to Azure
 
@@ -201,7 +198,17 @@ Data Lake Tools for Visual Studio provides user-selectable color-overlays on job
 
 ##See also
 
+To get started with Data Lake Analytics using different tools, see:
+
+- [Get started with Data Lake Analytics using Azure Preview Portal](data-lake-analytics-get-started-portal.md)
 - [Get started with Data Lake Analytics using Azure PowerShell](data-lake-analytics-get-started-powershell.md)
-- [Get started with Data Lake Analytics using Azure Preview portal](data-lake-analytics-get-started-portal.md)
+- [Get started with Data Lake Analytics using .NET SDK](data-lake-analytics-get-started-net-sdk.md)
+- [Get started with Data Lake Analytics using Azure CLI](data-lake-analytics-get-started-cli.md)
+
+To see more development topics: 
+
+- [Analyze weblogs using Data Lake Analytics](data-lake-analytics-analyze-weblogs.md)
+- [Develop U-SQL scripts using Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
 - [Get started with Azure Data Lake Analytics U-SQL language](data-lake-analytics-u-sql-get-started.md)
-- [Using U-SQL window functions for Azure Data Lake Aanlytics jobs](data-lake-analytics-use-window-functions.md)
+- [Develop U-SQL user defined operators for Data Lake Analytics jobs](data-lake-analytics-u-sql-user-defined-operators.md)
+

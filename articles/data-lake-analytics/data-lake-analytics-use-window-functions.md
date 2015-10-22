@@ -25,13 +25,13 @@ Window functions are used to do computation within sets of rows called *windows*
 
 This tutorial/learning guide uses two sample datasets to walk you through some sample scenario where you can apply window functions. For more information, see [U-SQL reference]().
 
-The window functions are catagorized into: [jgao: add links]
+The window functions are catagorized into: 
 
-- **Reporting aggregate functions**, such as SUM or AVG
-- **Ranking functions**, such as DENSE_RANK, ROW_NUMBER, NTILE, and RANK
-- **Analytic functions**,  such as cumulative distribution, percentiles, or accesses data from a previous row in the same result set without the use of a self-join
-- **Cumulative aggregate functions** 
-- **Moving aggregate functions**
+- [Reporting aggregation functions](#reporting-aggregation-functions), such as SUM or AVG
+- [Ranking functions](#ranking-functions), such as DENSE_RANK, ROW_NUMBER, NTILE, and RANK
+- [Analytic functions](#analytic-functions),  such as cumulative distribution, percentiles, or accesses data from a previous row in the same result set without the use of a self-join
+- [Cumulative aggregation functions](#cumulative-and-moving-aggregate-functions) 
+- [Moving aggregate functions](#cumulative-and-moving-aggregate-functions)
 
 **Prerequisites:**
 

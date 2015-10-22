@@ -40,7 +40,7 @@ Before you begin this tutorial, you must have the following:
 
 - **A Data Lake Analytics account**.  See [Get Started with Azure Data Lake Analytics using Azure Preview Portal](data-lake-analytics-get-started-portal.md).
 
-##Create a Data Lake Analytics account [jgao: copied from the hero tutorial to make this tutorial complete.]
+##Create Data Lake Analytics account 
 
 You must have a Data Lake Analytics account before you can run any jobs.
 
@@ -71,7 +71,7 @@ account
 
 	![Azure Data Lake Analytics portal blade](./media/data-lake-analytics-get-started-portal/data-lake-analytics-portal-blade.png)
 
-##Run the Website Log Analysis interactive tutorial
+##Run Website Log Analysis interactive tutorial
 
 **To open the Website Log Analytics interactive tutorial**
 
@@ -88,7 +88,6 @@ account
 ##See also
 
 - [Overview of Microsoft Azure Data Lake Analytics](data-lake-analytics-overview.md)
-
 - [Get started with Data Lake Analytics using Azure Preview Portal](data-lake-analytics-get-started-portal.md)
 - [Get started with Data Lake Analytics using Azure PowerShell](data-lake-analytics-get-started-powershell.md)
 - [Develop U-SQL scripts using Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)

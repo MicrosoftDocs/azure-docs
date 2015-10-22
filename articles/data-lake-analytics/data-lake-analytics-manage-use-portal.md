@@ -20,9 +20,7 @@
 
 [AZURE.INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
 
-Learn how to manage Azure Data Lake Analytics accounts, data sources, users, and jobs using the Azure Preview portal.
-
-To see Data Lake Analytics management using other tools, click the tab on top of this section.
+Learn how to manage Azure Data Lake Analytics accounts, data sources, users, and jobs using the Azure Preview portal. To see management topics using other tools, click the tab selector above.
 
 **Prerequisites**
 
@@ -35,7 +33,7 @@ Before you begin this tutorial, you must have the following:
 <!-- ################################ -->
 ## Use Azure Resource Manager groups
 
-[jgao: is ADL-Analytics a good usage case of ARM? If no, I can remove this section]
+[jgao: is Data Lake-Analytics a good usage case of ARM? If no, I can remove this section]
 
 Applications are typically made up of many components, for example a web app, database, database server, storage,
 and 3rd party services. Azure Resource Manager (ARM) enables you to work with the resources in your application 
@@ -91,16 +89,16 @@ running a job.  You only pay for the time when it is running a job.  For more in
 
 1. Sign on to the new [Azure portal](https://portal.azure.com/).
 2. Click **Browse** on the left menu, and then click **Data Lake Analytics**.
-3. Click the ADL Analytics account that you want to access. It will open the account in a new blade.
+3. Click the Data Lake Analytics account that you want to access. It will open the account in a new blade.
 
 **To delete a Data Lake Analytics account**
 
-1. Open the ADL Analytics account that you want to delete. For instructions see [Access Data Lake Analytics accounts](#access-adla-account).
+1. Open the Data Lake Analytics account that you want to delete. For instructions see [Access Data Lake Analytics accounts](#access-adla-account).
 2. Click **Delete** from the button menu on the top of the blade.
 3. Type the account name, and then click **Delete**.
 
 Delete a Analytics account will not delete the dependent Data Lake Store account. For instructions of deleting
-ADL Storage accounts, see [Delete Data Lake Store account](data-lake-store-get-started-portal.md#delete-azure-data-lake-store-account).
+Data Lake Storage accounts, see [Delete Data Lake Store account](data-lake-store-get-started-portal.md#delete-azure-data-lake-store-account).
 
 
 
@@ -136,21 +134,21 @@ ADL Storage accounts, see [Delete Data Lake Store account](data-lake-store-get-s
 Data Lake Analytics currently supports the following data sources:
 
 - [Azure Data Lake Store](data-lake-store-overview.md)
-- [Azure Storage](storage-introduction.md)
+- [Azure Blob storage](storage-introduction.md)
 
-When you create an ADL Analytics account, you must designate an Azure Data Lake Store account to be the default 
-storage account. The default ADL Store account is used to store job metadata and job audit logs. After you have 
-created an ADL Analytics account, you can add additional ADL Store accounts and/or Azure Storage account. 
+When you create a Data Lake Analytics account, you must designate an Azure Data Lake Store account to be the default 
+storage account. The default Data Lake Store account is used to store job metadata and job audit logs. After you have 
+created a Data Lake Analytics account, you can add additional Data Lake Store accounts and/or Azure Storage account. 
 
-<a name="default-adl-account"></a>**To find the default ADL storage account**
+<a name="default-adl-account"></a>**To find the default Data Lake storage account**
 
-- Open the ADL Analytics account that you want to manage. For instructions see [Access Data Lake Analytics accounts](#access-adla-account). The default Data Lake store is shown in **Essential**:
+- Open the Data Lake Analytics account that you want to manage. For instructions see [Access Data Lake Analytics accounts](#access-adla-account). The default Data Lake store is shown in **Essential**:
 
 	![Azure Data Lake Analytics add data source](./media/data-lake-analytics-manage-use-portal/data-lake-analytics-default-adl-storage-account.png)
 
 **To add additional data sources**
 
-1. Open the ADL Analytics account that you want to manage. For instructions see [Access Data Lake Analytics accounts](#access-adla-account).
+1. Open the Data Lake Analytics account that you want to manage. For instructions see [Access Data Lake Analytics accounts](#access-adla-account).
 2. Click **Settings** and then click **Data Sources**. You shall see the default Data Lake Store account listed
 there. 
 3. Click **Add Data Source**.
@@ -183,7 +181,7 @@ there.
 <a name="upload-data-to-adls"></a> **To upload files to Data Lake Store account**
 
 1. From the preview portal, click **Browse ** from the left menu, and then click **Data Lake Store**.
-2. Click the Data Lake Store account that you want to upload data to. To find the default ADL Storage account, see [here](#default-adl-account).
+2. Click the Data Lake Store account that you want to upload data to. To find the default Data Lake Storage account, see [here](#default-adl-account).
 3. Click **Data Explorer** from the top menu.
 4. Click **New Directory** to create a new folder, or click a folder name to change folder.
 6. Click **Upload** from the top menu to upload file.
@@ -198,7 +196,7 @@ See [Uplaod data for hadoop jobs in HDInsight](hdinsight-upload-data.md).  The i
 
 ## Manage users
 
-ADL Analytics uses role-based access control with Azure active directory. When you create a Data Lake Analytics 
+Data Lake Analytics uses role-based access control with Azure active directory. When you create a Data Lake Analytics 
 account, a "Subscription admins" is added to the account. You can add additional users and security groups with 
 the following roles:
 
@@ -221,7 +219,7 @@ For information on creating Azure Active Directory users and security groups, Se
 3. From the **User** blade, click **Add**.
 4. Select a role and add a users, and then click **OK**.
 
-**Note: If this user or security group needs to submit jobs, they will need to be given permission on the ADL Store as well. For more details, see [Secure data stored in Data Lake Store](data-lake-store-secure-data.md).**
+**Note: If this user or security group needs to submit jobs, they will need to be given permission on the Data Lake Store as well. For more details, see [Secure data stored in Data Lake Store](data-lake-store-secure-data.md).**
 
 
 
@@ -231,7 +229,7 @@ For information on creating Azure Active Directory users and security groups, Se
 <!-- ################################ -->
 ## Manage jobs
 
-You must have a Data Lake Analytics account before you can create a job.  For more information, see [Manage Data Lake Analytics accounts](#manage-data-lake-analytics-accounts).
+You must have a Data Lake Analytics account before you can ran any jobs.  For more information, see [Manage Data Lake Analytics accounts](#manage-data-lake-analytics-accounts).
 
 <a name="create-job"></a>**To create a job**
 
@@ -257,7 +255,7 @@ You must have a Data Lake Analytics account before you can create a job.  For mo
 	Using the same interface, you can also explore the link data sources, and add addtional files to the linked data sources. 
 3. Click **Submit Job** if you want to submit the job.
 
-** To submit a job**
+**To submit a job**
 
 See [Create Data Lake Analytics jobs](#create-job).
 
@@ -276,7 +274,7 @@ information:
 4. Click a job from on of the lists.
 5. Click **Resubmit** if you want to resubmit the job.
 
-**To resubmit a job **
+**To resubmit a job**
 
 See [Monitor Data Lake Analytics jobs](#monitor-jobs).
 
@@ -285,6 +283,7 @@ See [Monitor Data Lake Analytics jobs](#monitor-jobs).
 [introduction - we need to explain the terms, and connect the pieces. ]
 
 **To monitor account usage**
+
 1. Open the Analytics account that you want to manage. For instructions see 
 [Access Data Lake Analytics accounts](#access-adla-account). The Usage panel shows the usage:
 
@@ -293,7 +292,7 @@ See [Monitor Data Lake Analytics jobs](#monitor-jobs).
 ##Manage the catalog
 
 [jgao: do we need this section in this article?]
-[Alan: users can only view the catalog from the portal.]
+[Alan Tan says users can only view the catalog from the portal.]
 	- tables
 	- table valued functions
 	- assemblies

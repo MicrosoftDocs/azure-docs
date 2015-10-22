@@ -20,7 +20,7 @@
 
 [AZURE.INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
 
-Learn how to manage Azure Data Lake Analytics accounts, data sources, users, and jobs using the Azure PowerShell.
+Learn how to manage Azure Data Lake Analytics accounts, data sources, users, and jobs using the Azure PowerShell. To see management topics using other tools, click the tab select above.
 
 **Prerequisites**
 
@@ -37,7 +37,7 @@ Before you begin this tutorial, you must have the following:
 <!-- ################################ -->
 ## Use Azure Resource Manager groups
 
-[jgao: is ADL-Analytics a good usage case of ARM? If no, I can remove this section]
+[jgao: is Data Lake Analytics a good usage case of ARM? If no, I can remove this section]
 
 Applications are typically made up of many components, for example a web app, database, database server, storage,
 and 3rd party services. Azure Resource Manager (ARM) enables you to work with the resources in your application 
@@ -71,7 +71,7 @@ Managed cluster (Previously known as Azure HDInsight), you don't pay for an Anal
 running a job.  You only pay for the time when it is running a job.  For more informaiton, see 
 [Azure Data Lake Analytics Overview](data-lake-analytics-overview.md).  
 
-###Create accounts**
+###Create accounts
 
 	$resourceGroupName = "<ResourceGroupName>"
 	$dataLakeStoreName = "<DataLakeAccountName>"
@@ -146,10 +146,10 @@ Data Lake Analytics currently supports the following data sources:
 - [Azure Storage](storage-introduction.md)
 
 When you create an Analytics account, you must designate an Azure Data Lake Storage account to be the default 
-storage account. The default ADL storage account is used to store job metadata and job audit logs. After you have 
+storage account. The default Data Lake Store account is used to store job metadata and job audit logs. After you have 
 created an Analytics account, you can add additional Data Lake Storage accounts and/or Azure Storage account. 
 
-### Find the default ADL storage account
+### Find the default Data Lake Store account
 
 	$resourceGroupName = "<ResourceGroupName>"
 	$dataLakeAnalyticsName = "<DataLakeAnalyticsAccountName>"
@@ -182,38 +182,6 @@ created an Analytics account, you can add additional Data Lake Storage accounts 
 	(Get-AzureRmDataLakeAnalyticsAccount -ResourceGroupName $resourceGroupName -Name $dataLakeAnalyticName).Properties.DataLakeStoreAccounts
 	(Get-AzureRmDataLakeAnalyticsAccount -ResourceGroupName $resourceGroupName -Name $dataLakeAnalyticName).Properties.StorageAccounts
 	
-
-## Manage users
-
-ADL Analtyics uses role-based access control with Azure active directory. When you create a Data Lake Analytics 
-account, a "Subscription admins" is added to the account. You can add additional users and security groups with 
-the following roles:
-
-|Role|Description|
-|----|-----------|
-|Owner|Lets you manage everything, including access to resources.|
-|Contributor|Access the portal; submit and monitor jobs. To be able to submit jobs, a contributor also need the read or write permission to the Data Lake storage accounts.|
-|Reader|Lets you view everything, but not make any changes.|  
-|DevTest Lab User|Lets you view everything, and connect, start, restart, and shutdown virtual machines[jgao: I never seen discussion related to ABA and VM]|  
-|User Access Administrator|Lets you manage user acess to Azure resources.|  
-
-For information on creating Azure Active Directory users and security groups, See [What is Azure Active Directory](active-directory-whatis.md).
-
-**To add users or security groups to an Analytics account**
-
-1. Open the Analtyics account that you want to manage. For instructions see [Access Data Lake Analytics accounts](#access-adla-account).
-2. Click **Settings**, and then click **Users**. You can also click **Access** on the **Essentials** title bar as shown in the following screenshot:
-
-	![Azure Data Lake Analytics account add users](./media/data-lake-analytics-manage-use-portal/data-lake-analytics-access-button.png)
-3. From the **User** blade, click **Add**.
-4. Select a role and add a users, and then click **OK**.
-
-**To configure job access**
-
-1. Sign on to the new [Azure portal](https://portal.azure.com/signin/index/?Microsoft_Azure_Kona=true&Microsoft_Azure_DataLake=true&hubsExtension_ItemHideKey=AzureDataLake_BigStorage%2cAzureKona_BigCompute).
-2. Click **BROWSE ALL** on the left menu, click **Big Data Services**, and the click the account you want to configure the user roles.
-3. Click **Access**.
-
 
 
 <!-- ################################ -->
@@ -260,9 +228,6 @@ You must have an Data Lake Analytics account before you can create a job.  For m
 	
 ### Submit jobs
 
-> [AZURE.NOTE] The default priority of a job is 1000, and the default degree of parallelism for a job is 1.
-
-
 	$dataLakeAnalyticsName = "<DataLakeAnalyticsAccountName>"
 
 	#Pass script via path
@@ -276,6 +241,9 @@ You must have an Data Lake Analytics account before you can create a job.  For m
 	Submit-AzureRmDataLakeAnalyticsJob -AccountName $dataLakeAnalyticName `
 		-Name $jobName `
 		-Script $scriptContents
+
+> [AZURE.NOTE] The default priority of a job is 1000, and the default degree of parallelism for a job is 1.
+
 
 ### Cancel jobs
 
