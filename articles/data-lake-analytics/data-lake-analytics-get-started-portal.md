@@ -25,14 +25,14 @@ jobs in [U-SQL](data-lake-analytics-u-sql-get-started.md), and submit jobs to Da
 information about Data Lake Analytics, see [Azure Data Lake Analytics overview](data-lake-analytics-overview.md).
 
 In this tutorial, you will develop a job that reads a tab separated values (TSV) file and converts it into a comma 
-separated values (CSV) file. To go through the same tutorial using other supported tools, click the tabs on the top of this section.
+separated values (CSV) file. To go through the same tutorial using other supported tools, click the tabs on the top of this section. Once your first job succeeds, you can start to write more complex data transformations with U-SQL.
 
 **The basic Data Lake Analytics process:**
 
 ![Azure Data Lake Analytics process flow diagram](./media/data-lake-analytics-get-started-portal/data-lake-analytics-process.png)
 
 1. Create a Data Lake Analytics account.
-2. Prepare the source data. Data Lake Analytic jobs can read data from either Azure Data Lake Store accounts or Azure Blob storage accounts.   
+2. Prepare the source data. Data Lake Analytic jobs can read data from either Azure Data Lake Store accounts or Azure Blob storage accounts. In this example, we will read from Azure Data Lake Store.  
 3. Develop a U-SQL script.
 4. Submit a job (U-SQL script) to the Data Lake Analytics account. The job reads from the source data, process the data as instructed 
 in the U-SQL script, and then save the output to either a Data Lake Store account or a Blob storage account.
@@ -141,17 +141,12 @@ After you have prepared the source data, you can start developing a U-SQL script
 
 	This U-SQL script reads the source data file using **Extractors.Tsv()**, and then creates a csv file using **Outputters.Csv()**. 
     
-    Don't modify the two paths unless you copy the source file into a different location.  Data Lake Analytics will create the output folder if it doesn't exist.
+    Don't modify the two paths unless you copy the source file into a different location.  Data Lake Analytics will create the output folder if it doesn't exist.  In this case, we are using simple, relative paths.  
 	
 	It is simpler to use relative paths for files stored in default data Lake accounts. You can also use absolute paths.  For example 
     
         adl://<Data LakeStorageAccountName>.azuredatalakestore.net:443/Samples/Data/SearchLog.tsv
-        
-    You must use absolute paths to access  files in  linked Storage accounts.  The syntax for files stored in linked Azure Storage account is:
-    
-        wasb://<BlobContainerName>@<StorageAccountName>.blob.core.windows.net/Samples/Data/SearchLog.tsv
-
-    >[AZURE.NOTE] Azure Blob container with public blobs or public containers access permissions are not currently supported.    
+      
 
     For more about U-SQL, see [Get started with Azure Data Lake Analytics U-SQL language](data-lake-analytics-u-sql-get-started.md) and [U-SQL language reference](http://go.microsoft.com/fwlink/?LinkId=691348).
      
@@ -173,9 +168,9 @@ After you have prepared the source data, you can start developing a U-SQL script
 
 ##See also
 
-- To see the same tutorial using other tools, click the tab selectors on the top of the page.
-- To see a more complexed query, see [Analyze Website logs using Azure Data Lake Analytics](data-lake-analytics-analyze-weblogs.md).
+- To see a more complex query, see [Analyze Website logs using Azure Data Lake Analytics](data-lake-analytics-analyze-weblogs.md).
 - To get started developing U-SQL applications, see [Develop U-SQL scripts using Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md).
 - To learn U-SQL, see [Get started with Azure Data Lake Analytics U-SQL language](data-lake-analytics-u-sql-get-started.md).
 - For management tasks, see [Manage Azure Data Lake Analytics using Azure Preview Portal](data-lake-analytics-manage-use-portal.md).
 - To get an overview of Data Lake Analytics, see [Azure Data Lake Analytics overview](data-lake-analytics-overview.md).
+- To see the same tutorial using other tools, click the tab selectors on the top of the page.
