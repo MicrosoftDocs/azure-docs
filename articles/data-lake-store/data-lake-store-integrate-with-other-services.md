@@ -24,6 +24,7 @@ Azure Data Lake Store can be used in conjunction with other Azure services to en
 You can provision an [Azure HDInsight](https://azure.microsoft.com/en-us/documentation/learning-paths/hdinsight-self-guided-hadoop-training/) cluster that uses Data Lake Store as the HDFS-compliant storage. For this release, for Hadoop and Storm clusters on Windows and Linux, you can use Data Lake Store only as an additional storage. Such clusters still use Azure Storage (WASB) as the default storage. However, for HBase clusters on Windows and Linux, you can use Data Lake Store as the default storage, or additional storage, or both.
 
 For instructions on how to provision an HDInsight cluster with Data Lake Store, see:
+
 * [Provision an HDInsight cluster with Data Lake Store using Azure preview portal](data-lake-store-hdinsight-hadoop-use-portal.md)
 * [Provision an HDInsight cluster with Data Lake Store using Azure PowerShell](data-lake-store-hdinsight-hadoop-use-powershell.md)
 

@@ -19,8 +19,8 @@
 # Provision an HDInsight cluster with Data Lake Store using Azure PowerShell
 
 > [AZURE.SELECTOR]
-- [Portal](data-lake-store-hdinsight-hadoop-use-portal.md)
-- [PowerShell](data-lake-store-hdinsight-hadoop-use-powershell.md)
+- [Using Portal](data-lake-store-hdinsight-hadoop-use-portal.md)
+- [Using PowerShell](data-lake-store-hdinsight-hadoop-use-powershell.md)
 
 
 Learn how to use Azure PowerShell to configure an HDInsight cluster (Hadoop, HBase, or Storm) to work with an Azure Data Lake Store. Some important considerations for this release:
@@ -40,7 +40,7 @@ Configuring HDInsight to work with Azure Data Lake using PowerShell involves the
 
 Before you begin this tutorial, you must have the following:
 
-- **An Azure subscription**. See [Get Azure free trial](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+- **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/en-us/pricing/free-trial/).
 - **Enable your Azure subscription** for Data Lake Store public preview. See [instructions](data-lake-store-get-started-portal.md#signup).
 - **Azure PowerShell**. See [Install and configure Azure PowerShell](../install-configure-powershell.md) for instructions.
 - **Windows SDK**. You can install it from [here](https://dev.windows.com/en-us/downloads). You use this to create a security certificate. 

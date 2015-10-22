@@ -18,22 +18,22 @@
 
 # Open Source Big Data applications interoperable with Azure Data Lake Store
 
-This article lists the open source big data applications that are interoperable with Azure Data Lake Store. For the applications in the table below, only the versions available with the listed distributions are supported.
+This article lists the open source big data applications that are interoperable with Azure Data Lake Store. For the applications in the table below, only the versions available with the listed distribution are supported.
 
 
 | Open Source Software | Version | Distribution					   |
 |----------------------|---------|---------------------------------|
-| Sqoop                | 1.4.5   | HDInsight 3.2                   |
-| MapReduce            | -       | HDInsight 3.2                   |
-| Storm                | 0.9.3   | HDInsight 3.2		           |
-| Hive                 | 0.14.0  | HDInsight 3.2                   |
-| HCatalog             | 0.14.0  | HDInsight 3.2                   |
-| Mahout               | 0.9.0   | HDInsight 3.2                   |
-| Pig/Pig Latin        | 0.14.0  | HDInsight 3.2                   |
-| Oozie                | 4.1.0   | HDInsight 3.2                   |
-| Zookeeper            | 3.4.6   | HDInsight 3.2                   |
-| HBase                | 0.98.4  | HDInsight 3.2                   |
-| Tez                  | 0.5.2   | HDInsight 3.2	  			   |
+| [Apache Sqoop](http://sqoop.apache.org/)                | 1.4.5   | HDInsight 3.2                   |
+| [MapReduce](http://hadoop.apache.org/docs/r1.0.4/mapred_tutorial.html)            | Same as the version of Hadoop on the cluster       | HDInsight 3.2                   |
+| [Apache Storm](https://storm.apache.org/)                | 0.9.3   | HDInsight 3.2		           |
+| [Apache Hive](http://hive.apache.org/)                 | 0.14.0  | HDInsight 3.2                   |
+| [HCatalog](https://cwiki.apache.org/confluence/display/Hive/HCatalog)             | 0.14.0  | HDInsight 3.2                   |
+| [Apache Mahout](http://mahout.apache.org/)               | 0.9.0   | HDInsight 3.2                   |
+| [Apache Pig/Pig Latin](http://pig.apache.org/)        | 0.14.0  | HDInsight 3.2                   |
+| [Apache Oozie](http://oozie.apache.org/)                | 4.1.0   | HDInsight 3.2                   |
+| [Apache Zookeeper](http://zookeeper.apache.org/)            | 3.4.6   | HDInsight 3.2                   |
+| [Apache HBase](http://hbase.apache.org/)                | 0.98.4  | HDInsight 3.2                   |
+| [Apache Tez](http://tez.apache.org/)                  | 0.5.2   | HDInsight 3.2	  			   |
 
 
 ## See also
