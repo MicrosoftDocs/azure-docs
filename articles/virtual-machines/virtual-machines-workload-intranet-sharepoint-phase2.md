@@ -14,13 +14,12 @@
 	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/21/2015"
+	ms.date="10/20/2015"
 	ms.author="josephd"/>
 
 # SharePoint Intranet Farm Workload Phase 2: Configure domain controllers
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Resource Manager model.
-
+[AZURE.INCLUDE [learn-about-deployment-models-classic-include](../../includes/learn-about-deployment-models-classic-include.md)] Resource Manager deployment model.
 
 In this phase of deploying an intranet-only SharePoint 2013 farm with SQL Server AlwaysOn Availability Groups in Azure infrastructure services, you configure two domain controllers in the Azure virtual network in Service Management. Client web requests for SharePoint farm resources can then be authenticated in the Azure virtual network, rather than sending that authentication traffic across the VPN or Azure ExpressRoute connection to your on-premises network.
 
@@ -36,7 +35,7 @@ Item | Virtual machine name | Gallery image | Minimum size
 2. | ______________ (second domain controller, example DC2) | Windows Server 2012 R2 Datacenter | A2 (Medium)
 3. | ______________ (first SQL Server computer, example SQL1) | Microsoft SQL Server 2014 Enterprise – Windows Server 2012 R2 | 	A7
 4. | ______________ (second SQL Server computer, example SQL2) | Microsoft SQL Server 2014 Enterprise – Windows Server 2012 R2 | 	A7
-5. | ______________ (majority node witness for the cluster, example MN1) | Windows Server 2012 R2 Datacenter | A1 (Small)
+5. | ______________ (majority node for the cluster, example MN1) | Windows Server 2012 R2 Datacenter | A1 (Small)
 6. | ______________ (first SharePoint application server, example APP1) | Microsoft SharePoint Server 2013 Trial – Windows Server 2012 R2 | A4 (ExtraLarge)
 7. | ______________ (second SharePoint application server, example APP2) | Microsoft SharePoint Server 2013 Trial – Windows Server 2012 R2 | A4 (ExtraLarge)
 8. | ______________ (first SharePoint web server, example WEB1) | Microsoft SharePoint Server 2013 Trial – Windows Server 2012 R2 | A4 (ExtraLarge)
@@ -186,7 +185,7 @@ Next, log on to any computer with a domain administrator account for the domain 
 
 	New-ADUser -SamAccountName sp_install -AccountPassword (read-host "Set user password" -assecurestring) -name "sp_install" -enabled $true -PasswordNeverExpires $true -ChangePasswordAtLogon $false
 
-	New-	ADUser -SamAccountName sqlservice -AccountPassword (read-host "Set user password" -assecurestring) -name "sqlservice" -enabled $true -PasswordNeverExpires $true -ChangePasswordAtLogon $false
+	New-ADUser -SamAccountName sqlservice -AccountPassword (read-host "Set user password" -assecurestring) -name "sqlservice" -enabled $true -PasswordNeverExpires $true -ChangePasswordAtLogon $false
 
 For each command, you will be prompted to enter a password. Record these account names and passwords and store them in a secure location.
 
