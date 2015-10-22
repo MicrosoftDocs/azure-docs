@@ -26,9 +26,12 @@ Please note that up to 24 hours of latent usage from your prior billing period c
 
 For more information about consumption and rate plans, see the [Microsoft Azure Purchase Options page](http://azure.microsoft.com/pricing/purchase-options/).
 
-The below files cover a complete list of all Microsoft Azure services. The file ending in _csv1 refers to the column header names for csv version 1 and the file ending in _csv2 refers to the new column header names for csv version 2.  These files are updated monthly.
--    https://azurepricing.blob.core.windows.net/supplemental/MOSPServices_csv1.xlsx
--  https://azurepricing.blob.core.windows.net/supplemental/MOSPServices_csv2.xlsx
+The below links cover a complete list of all Microsoft Azure services.
+
+- [Service Details list (csv1)](https://azurepricing.blob.core.windows.net/supplemental/MOSPServices_csv1.xlsx)
+- [Service Details list (csv2)](https://azurepricing.blob.core.windows.net/supplemental/MOSPServices_csv2.xlsx)
+
+*NOTE: The **csv1** link refers to the column header names for csv version 1 and **csv2** link refers to the new column header names for csv version 2.  These files are updated monthly.*
 
 
 ## Content:
