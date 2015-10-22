@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd" 
-   ms.date="10/15/2015"
+   ms.date="10/23/2015"
    ms.author="yuemlu"/>
 
 # Azure Guest OS Releases and SDK Compatibility Matrix
@@ -28,6 +28,27 @@ Provides you with up-to-date information about the latest Azure Guest OS release
 
 
 ## News Updates
+
+###### **October 23 2015**
+On August 7, 2014, Microsoft announced that support will end for .NET Framework 4, 4.5, and 4.5.1 on January 12, 2016. It is recommended to customers and developers to complete the in-place update to .NET Framework 4.5.2 by January 12, 2016 to continue receiving technical support and security updates. Visit [Microsoft .NET Framework Support Lifecycle Policy] for more details.
+
+To ensure that your cloud services continue to be secure and protected, Azure will update the .NET Framework in Windows Azure Guest operating system (Guest OS) family 3.x and 4.x to .NET Framework 4.5.2 in November Guest OS Release. Cloud services running on Guest OS family 3.x and 4.x with automatic updates enabled will be updated to the November Guest OS with .NET Framework 4.5.2. There will be no .NET upgrade applied to Guest OS Family 2.x. Guest OS Family 2.x will continue to be supported on Azure. There will be no technical support and security updates for .NET 4.0 on Guest OS Family 2.x after January 12, 2016.
+
+There will be two OS versions released per OS Family for OS Family 3.x and 4.x in November. The first set of November OS Versions: WA-GUEST-OS-4.26_201511-01, WA-GUEST-OS-3.33_201511-01 will include the November MSRC and October Windows Rollups. The second set of November Versions: WA-GUEST-OS-4.26_201511-02, WA-GUEST-OS-3.33_201511-02 will include the November MSRC, October Windows Rollups with .NET Framework upgrade to .NET 4.5.2. The second set of November Versions will be the default OSes for automatic update on OS Family 3.x and 4.x. The following table captures the changes which will be applied in November Guest OS release. 
+
+| Guest OS Family | Installed .NET Framework prior to Guest OS 201511-02 Release | Installed .NET Framework after Guest OS 201511-02 Release | 
+| --------------- | ----------------------------------- | ----------------------------------- | 
+| OS Family 2.x based on Windows Server 2008 R2 | .NET 3.5, .NET 4.0 | .NET 3.5, .NET 4.0 | 
+| OS Family 3.x based on Windows Server 2012	   | .NET 4.5           | .NET 4.5.2         | 
+| OS Family 4.x based on Windows Server 2012 R2 | .NET 4.5.1         | .NET 4.5.2         | 
+
+If you have concerns of possible application compatibility issues of upgrading to .NET 4.5.2, we would suggest you to validate your cloud service with .NET 4.5.2. Here are some of the options:
+
+1.	Install .NET 4.5.2 on your test cloud service role and conduct application compatibility validation
+   
+   Visit [Install .NET on a Cloud Service Role] for instructions.
+
+2.	Conduct application compatibility validation on a standalone VM either on premise or on Azure with .NET 4.5.2 installed
 
 ###### **October 15 2015**
 October Guest OS rollout is starting today October 15 2015, and projected to be released on November 13 2015.
@@ -331,7 +352,8 @@ Because of the partial rollout of the last two releases, people on auto update o
 | 2.19 rel3 | WA-GUEST-OS-2.19_201309-03 | Oct 9 2013 | N/A | May 14 2014 |
 | 2.19 rel1 | WA-GUEST-OS-2.19_201309-01 | Sept 23 2013 | N/A | May 14 2014 |
 
-
+[Install .NET on a Cloud Service Role]:https://azure.microsoft.com/en-us/documentation/articles/cloud-services-dotnet-install-dotnet/
+[Microsoft .NET Framework Support Lifecycle Policy]:https://support.microsoft.com/en-us/gp/framework_faq
 [Azure Guest OS Update Settings]: https://msdn.microsoft.com/library/azure/ff729420.aspx
 [rss]: http://sxp.microsoft.com/feeds/3.0/msdntn/WindowsAzureOSUpdates
 [ssl3 announcement]: http://azure.microsoft.com/blog/2014/12/09/azure-security-ssl-3-0-update/
