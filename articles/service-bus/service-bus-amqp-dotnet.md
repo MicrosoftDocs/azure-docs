@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/07/2015"
+   ms.date="10/15/2015"
    ms.author="sethm" />
 
 # Using Service Bus from .NET with AMQP 1.0
