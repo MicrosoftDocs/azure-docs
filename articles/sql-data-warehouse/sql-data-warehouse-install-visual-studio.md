@@ -43,7 +43,7 @@ To install the latest version of SSDT:
 
 ## Next steps
 
-Now that you have the lastest version of SSDT, you are ready to [connect and query](./sql-data-warehouse-get-started-connect-query.md).
+Now that you have the lastest version of SSDT, you are ready to [connect](./sql-data-warehouse-get-started-connect.md) to your database.
 
 <!--Anchors-->
 
