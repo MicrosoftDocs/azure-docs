@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="hero-article"
 	ms.date="10/22/2015"
-	ms.author="trinadhk; aashishr; jimpark' markgal"/>
+	ms.author="trinadhk; aashishr; jimpark; markgal"/>
 
 
 # Backing up Azure virtual machines
