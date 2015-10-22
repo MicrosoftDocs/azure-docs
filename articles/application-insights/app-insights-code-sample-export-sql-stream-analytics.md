@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Walkthrough: export telemetry to SQL Database from Application Insights" 
-	description="Code your own analysis of telemetry in Application Insights by using the continuous export feature." 
+	description="Continuously export Application Insights data to SQL using Stream Analytics." 
 	services="application-insights" 
     documentationCenter=""
 	authors="noamben" 

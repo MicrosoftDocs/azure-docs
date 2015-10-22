@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Code sample: Parse data exported from Application Insights" 
-	description="Code your own analysis of telemetry in Application Insights by using the continuous export feature." 
+	description="Code your own analysis of telemetry in Application Insights by using the continuous export feature. Save data to SQL." 
 	services="application-insights" 
     documentationCenter=""
 	authors="mazharmicrosoft" 
