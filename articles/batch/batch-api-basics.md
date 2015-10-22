@@ -1,43 +1,54 @@
-<properties 
-	pageTitle="API basics for Azure Batch" 
-	description="Concepts to introduce developers to the Azure Batch APIs and Batch service" 
-	services="batch" 
-	documentationCenter=".net" 
-	authors="yidingzhou" 
-	manager="timlt" 
+<properties
+	pageTitle="API basics for Azure Batch"
+	description="Learn the basic concepts of the Batch service and its APIs from a developer's standpoint."
+	services="batch"
+	documentationCenter=".net"
+	authors="yidingzhou"
+	manager="timlt"
 	editor=""/>
 
-<tags 
-	ms.service="batch" 
-	ms.devlang="multiple" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="na" 
-	ms.workload="big-compute" 
-	ms.date="07/14/2015" 
-	ms.author="yidingz"/>
+<tags
+	ms.service="batch"
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="big-compute"
+	ms.date="10/15/2015"
+	ms.author="yidingz;v-marsma"/>
 
-<!--The next line, with one pound sign at the beginning, is the page title--> 
 # API basics for Azure Batch
 
-The Azure Batch service provides a job scheduling framework for scalable and distributed computation. The Batch service maintains a set of virtual machines that are located across different clusters and data centers in Azure. The Batch service accomplishes distributed computation by running one or more programs either on-demand or scheduled to run at a specific time on a specified collection of these nodes. The Batch service manages these nodes to run your computation tasks according to the resource requirements, specifications, and constraints provided by you.
+This article provides a basic overview of the core API features of the Azure Batch service. Whether developing a distributed computational solution using the [Batch REST][batch_rest_api] or [Batch .NET][batch_net_api] APIs, you will use many of the entities and features discussed below.
 
-By using the Batch service, you can eliminate the need to write code for queuing, scheduling, allocating, and managing compute resources. This enables you to focus on the specific application and not have to worry about the complexity of job scheduling and resource management in the underlying platform. This also enables the Batch service to optimize the location of these jobs as well as their access to the data they need to process.
+> [AZURE.TIP] For a higher level technical overview of Batch, please see the [Azure Batch technical overview](batch-technical-overview.md).
 
-The following are some of the scenarios that you can enable by using the Batch service:
+## <a name="workflow"></a>Workflow of the Batch service
 
-- Computationally intensive parallel processing
+The following high-level workflow is typical of that used by nearly all distributed computational scenarios developed within the Batch service:
 
-- Daily cleanup of files
+1. Upload the *data files* that you want to use in your distributed computational scenario to an [Azure Storage][azure_storage] account. These files must be in the Storage account so that the Batch service can access them. Tasks will download these files to [compute nodes](#computenode) when they are run.
 
-- Batch processing
+2. Upload the dependent *binary files* to your Storage account. These binary files include the program to be run by the tasks, and any of its dependent assemblies. These files must also be accessed from your Storage account so they can be downloaded to the compute nodes by the tasks.
+
+3. Create a [Pool](#pool) of compute nodes. You specify the [size of the compute nodes][cloud_service_sizes] to use when the pool is created, and when a task runs, it is assigned a node in this pool.
+
+4. Create a [Job](#job). A job enables you to manage a collection tasks.
+
+5. Add [Tasks](#task) to the job. Each task uses the program that you uploaded to process information in the data file(s) that you uploaded to your Storage account.
+
+6. Monitor job progress and retrieve the results.
+
+> [AZURE.NOTE] You will need a [Batch account](batch-account-create-portal.md) to use the Batch service, and nearly all solutions will use an [Azure Storage][azure_storage] account for file storage and retrieval.
+
+In the sections below, you'll learn about each of the resources mentioned in the above workflow, as well as many other features of Batch that will enable your distributed computational scenario.
 
 ## <a name="resource"></a> Resources of the Batch service
 
-When you use the Batch service, you take advantage of the following resources:
+When you use the Azure Batch service, you will take advantage of the following resources:
 
 - [Account](#account)
 
-- [Compute Node](#computenode)
+- [Compute node](#computenode)
 
 - [Pool](#pool)
 
@@ -46,342 +57,298 @@ When you use the Batch service, you take advantage of the following resources:
 - [Task](#task)
 
 	- [Start Task](#starttask)
-	
+
 	- [Job ManagerTask](#jobmanagertask)
 
 - [JobSchedule](#jobschedule)
 
 ### <a name="account"></a>Account
 
-A Batch account is a uniquely identified entity within the Batch service. All processing is done through a Batch account. When you perform operations with the Batch service, you need the name of the account and the key for the account. To create a batch account, refer to Batch account section of [Azure Batch overview][].
+A Batch account is a uniquely identified entity within the Batch service. All processing is associated with a Batch account. When you perform operations with the Batch service, you need both the account name and the account key. To create a batch account, check out [Create and manage an Azure Batch account in the Azure preview portal](batch-account-create-portal.md).
 
+### <a name="computenode"></a>Compute node
 
-### <a name="computenode"></a>Compute Node
+A compute node is an Azure virtual machine that is dedicated to a specific workload for your application. The size of a node determines the number of CPU cores, the memory capacity, and the local file system size that is allocated to the node. A node can be any of the [cloud service node sizes][cloud_service_sizes], except for A0.
 
-A compute node (Node) is an Azure node that is dedicated to a specific workload for your application. The size of a Node determines the number of CPU cores, the memory capacity, and the local file system size that is allocated to the Node. A Node can be a small, large, or extralarge virtual machine as described in [Virtual Machine and Cloud Service Sizes for Azure](http://msdn.microsoft.com/library/dn197896.aspx).
+Nodes can run executables and scripts, including executables (.exe), command (.cmd) files, batch (.bat) files, and PowerShell scripts. A node also has the following attributes:
 
-The types of programs that a Node can run include executable files (.exe), command files (.cmd), batch files (.bat), and script files. A Node also has the following attributes:
-
-- File system folders that are both task-specific and shared. A folder structure and environment variables are created on each pool node. The following folder structure is created with a “shared” folder for applications and data shared between tasks, plus a folder for each task.
-
-<pre><code> ─ %AZ_BATCH_NODE_ROOT_DIR%
-   ├─shared
-   ├─startup
-   └─&lt;JOB_ID&gt;
-     ├─&lt;TASK_ID_1&gt;
-     │ └─wd
-     └─&lt;TASK_ID_2&gt;
-       └─wd
-</code></pre>
-
-
-- Stdout.txt and stderr.txt files that are written to a task-specific folder
-
-- Environment variables for processing
-
-- Firewall settings that are configured to control access
-
->Node Access
->
->If access to a node is required, for debugging for example, the RDP file can be obtained which can then be used to access the node via remote desktop.
-
+- A standard **folder structure** and associated **environment variables** detailing their paths are created on each compute node. See [Files and directories](#files) below for more information.
+- **Environment variables** available for reference by tasks.
+- **Firewall** settings that are configured to control access.
+- If **remote access** to a compute node is required (for debugging, for example), an RDP file can be obtained which may then be used to access the node via *Remote Desktop*.
 
 ### <a name="pool"></a>Pool
 
-A pool is a collection of Nodes on which your application runs. The pool can be created by you, or the Batch service automatically creates the pool when you specify the work to be accomplished. You can create and manage a pool that meets the needs of your application. A pool can only be used by the Batch account in which it was created. A Batch account can have more than one pool.
+A pool is a collection of nodes on which your application runs. The pool can be created manually by you, or by the Batch service automatically when you specify the work to be done. You can create and manage a pool that meets the needs of your application, and pools may be used only by the Batch account in which it was created. A Batch account can have more than one pool.
 
-Azure Batch pools build on top of the core Azure compute platform; Batch pools provide large-scale allocation, application & data installation, data movement, health monitoring, and flexible scaling of nodes.
+Azure Batch pools build on top of the core Azure compute platform: Batch pools provide large-scale allocation, application installation, data distribution, and health monitoring, as well as the flexible adjustment of the number of compute nodes within a pool (scaling).
 
-Every Node that is added to a pool is assigned a unique name and an associated IP address. When a Node is removed from a pool, it loses the changes that were made to the operating system, all of its local files, its name, and its IP address. When a Node leaves a pool, its lifetime is over.
+Every node that is added to a pool is assigned a unique name and IP address. When a node is removed from a pool, any changes made to the operating system or files are lost, and its name and IP address are released for future use. When a node leaves a pool, its lifetime is over.
 
-You can configure a pool to allow communication between Nodes within it. If intra-pool communication is requested for a pool, the Batch service enables ports greater than 1100 on each Node in the pool. Each Node in the pool is configured to allow and restrict incoming connections to just this port range and only from other Nodes in the pool. If your application does not require communication between Nodes, the Batch service can potentially allocate a large number of Nodes across different clusters or data centers to the pool to enable more parallel processing.
+You can configure a pool to allow communication between the nodes within it. If intra-pool communication is requested for a pool, the Batch service enables ports greater than 1100 on each node in the pool. Each node in the pool is configured to allow incoming connections to this port range only, and only from other nodes within the pool. If your application does not require communication between nodes, the Batch service can allocate a potentially large number of nodes to the pool from many different clusters and data centers to enable increased parallel processing power.
 
 When you create a pool, you can specify the following attributes:
 
-- The **size of nodes** in the pool.
-	- The appropriate node size needs to be chosen, depending on the characteristics and requirements of the application or applications that are going to be used on the node. Normally the node size will be picked assuming one task will be run at once on the node; for example, whether the application is multi threaded and how much memory it requires will determine the most suitable and cost-effective node size.  It is possible to have multiple tasks assigned and multiple application instances being run in parallel, in which case a larger node will usually be chosen – see below on “maximum tasks per node”. 
-	- All the nodes in a pool have to be the same size. If different applications are to be run with different system requirements and/or with different load then separate pools should be created.
-	- All cloud service node sizes can be configured for a pool, except for A0.
+- **Size of the nodes** in the pool
+	- An appropriate node size should be chosen, taking into account the characteristics and requirements of the application or applications that are going to be run on the nodes. The node size is typically selected assuming one task will run on the node at a time. Considering aspects such as whether the application is multi-threaded and how much memory it consumes will help determine the most suitable and cost-effective node size. It is possible to have multiple tasks assigned and multiple application instances run in parallel, in which case a larger node is typically chosen - see "Task scheduling policy" below for more information.
+	- All of the nodes in a pool must be the same size. If different applications are to be run with differing system requirements and/or load levels, separate pools should be created.
+	- All [cloud service node sizes][cloud_service_sizes] can be configured for a pool, except for A0.
 
-- The operating system family and version that runs on the nodes.
-	- As with worker roles, the OS Family and OS Version can be configured.
+- **Operating system family** and **version** that runs on the nodes
+	- As with worker roles within Cloud Services, the *OS Family* and *OS Version* can be specified (for more information on worker roles, see the [Tell me about cloud services][about_cloud_services] section in *Compute Hosting Options Provided by Azure*).
 	- The OS Family also determines which versions of .NET are installed with the OS.
-	- As with worker roles, for the OS Version it is recommended that “*” be used so that the nodes are automatically upgraded and there is no work required to cater for new versions.  The main use case for picking a specific OS version is to ensure application compatibility is maintained, by allowing backward compatibility testing to be performed before allowing the version to be updated.  Once validated, the OS version for the pool can be updated and the new OS image installed – any running task will be interrupted and re-queued.
+	- As with worker roles, it is recommended that `*` be specified for the OS Version so that the nodes are automatically upgraded, and there is no work required to cater to newly released versions. The primary use case for picking a specific OS version is to ensure that application compatibility is maintained, allowing backward compatibility testing to be performed before allowing the version to be updated. Once validated, the OS version for the pool can be updated and the new OS image installed–any running task will be interrupted and re-queued.
 
-- The target number of nodes that should be available for the pool.
+- **Target number of nodes** that should be available for the pool
 
-- The scaling policy for the pool. Besides number of nodes, you can also specify a auto-scaling formula for each pool. Batch service will execute the formula to adjust number of node based on pool and workitem statistics.
+- **Scaling policy** for the pool
+	- In addition to the number of nodes, you can also specify an [auto-scaling formula](batch-automatic-scaling.md) for a pool. The Batch service will execute the formula and adjust the number of nodes within the pool based on various pool, job, and task parameters that you can specify.
 
-- Scheduling configuration
-	- The default configuration is for one task to be run at any time on a pool node, but there are scenarios where it is beneficial to have more than one task be able to run at the same time on a node.  One example is to increase node utilization if an application has to wait for I/O; having more than one application execute will increase CPU utilization.  Another example is to reduce the number of nodes in the pool; this could reduce the amount of data copies required for large reference data sets.  If an A1 would the correct size for the application, then an A4 could be chosen and the configuration set to run up to 8 tasks at once, each consuming a core.
-	- The “max tasks per node” configuration determines the maximum number of tasks that can be run in parallel.
-	- A “fill policy” can also be specified which determines whether Batch fills nodes first or whether tasks are spread out over all the nodes.
- 
-- The communication status of the nodes in the pool.
- 	- In a large proportion of scenarios tasks operate independently and do not need to communicate with other tasks, but there are some applications where tasks will communicate (e.g. applications using MPI).
-	- There is configuration that controls whether the nodes will be able to communicate, which is used to configure the underlying network infrastructure and impacts placement of the nodes.
+- **Task scheduling** policy
+	- The [max tasks per node](batch-parallel-node-tasks.md) configuration option determines the maximum number of tasks that can be run in parallel on each node within the pool.
+	- The default configuration is for one task to be run on a compute node at a time, but there are scenarios where it is beneficial to have more than one task executed on a node at the same time. One example is to increase node utilization if an application has to wait for I/O. Having more than one application executed concurrently will increase CPU utilization. Another example is to reduce the number of nodes in the pool. This could reduce the amount of data transfer required for large reference data sets - if an A1 node size is sufficient for an application, then the A4 node size could instead be chosen and the pool configured for 8 parallel tasks, each using a core.
+	- A "fill type" can also be specified which determines whether Batch spreads the tasks evenly across all nodes, or packs each node with the maximum number of tasks before assigning tasks to another node in the pool.
 
-- The start task for Nodes in the pool.
+- **Communication status** of the nodes in the pool
+	- A pool may be configured to allow communication between the nodes in the pool which determines its underlying network infrastructure. Note that this also impacts placement of the nodes within clusters.
+	- In most scenarios, tasks operate independently and do not need to communicate with one another, but there may be some applications in which tasks must communicate.
 
-When you create a pool, you can specify the storage account with which the pool should be associated. The Batch service allocates Nodes from the data centers with better network connectivity and bandwidth capacity to the specified storage account. This enabled workloads to access data more effectively.
+- **Start task** for nodes in the pool
+	- A *start task* may be specified which is executed each time a compute node joins the pool, and when a node is restarted. This is often used to install an application to be used by the tasks running on the node.
 
 ### <a name="job"></a>Job
 
-A job is a collection of tasks. It also specifies how computation is performed on compute nodes in a pool.
+A job is a collection of tasks, and specifies how computation is performed on compute nodes in a pool.
 
-- The job specifies the pool on which the work will be run.  The pool can be an existing, already created pool that is used by many jobs, but a pool can alternatively be created for each job associated with a job schedule or for all jobs associated with a job schedule.
-- An optional priority can be specified.  When a job is submitted with a higher-priority than other jobs still in progress, then the higher priority job tasks get inserted into the queue ahead of the lower priority job tasks.  Lower-priority tasks that are already running will not be pre-empted.
-- Constraints.
-	- A maximum wallclock time can be set for the jobs.  If the jobs runs for longer than the maximum wallclock time specified, then the job and all associated tasks will be ended.
-	- Azure Batch can detect tasks that fail and retry the tasks.  The default maximum number of task retries can be specified as a constraint, including specifying that a task is always retried or never retried.  Retrying a tasks means that the task is re-queued and will be run again.
-- Tasks to be executed for the job can be added by the client to the job, but a Job Manager task can alternatively be specified. A job manager task uses the Batch API and contains the code to create the required tasks for a job with the task being run on one of the pool nodes.  The job manager tasks is handled specifically by Batch – it is queued as soon as the job is created and is restarted if it fails for any reason.  A Job Manager is required for job created by job schedule as it is the only way to define the tasks before job is instantiated.
+- The job specifies the **pool** in which the work will be run. The pool can be an existing pool, previously created for use by many jobs, or created on-demand for each job associated with a job schedule, or for all jobs associated with a job schedule.
+- An optional **job priority** can be specified. When a job is submitted with a higher priority than jobs currently in progress, the higher priority job's tasks are inserted into the queue ahead of the lower priority job tasks. Lower priority tasks that are already running will not be pre-empted.
+- Job **constraints** specify certain limits for your jobs.
+	- A **maximum wallclock time** can be set for jobs. If the jobs runs for longer than the maximum wallclock time specified, then the job and all associated tasks will be ended.
+	- Azure Batch can detect tasks that fail and retry the tasks. The **maximum number of task retries** can be specified as a constraint, including whether a task is always or never retried. Retrying a task means that the task is re-queued to be run again.
+- Tasks can be added to the job by your client application, or a [Job Manager task](#jobmanagertask) may be specified. A job manager task uses the Batch API and contains the information necessary to create the required tasks for a job, with the task being run on one of the compute nodes within the pool. The job manager task is handled specifically by Batch–it is queued as soon as the job is created, and restarted if it fails. A Job Manager task is required for jobs created by a job schedule as it is the only way to define the tasks before the job is instantiated. More information on job manager tasks appears below.
 
 
 ### <a name="task"></a>Task
 
-A task is a unit of computation that is associated with a job and runs on a Node. Tasks are assigned to a node for execution or are queued until a node becomes free. A task uses the following resources:
+A task is a unit of computation that is associated with a job and runs on a node. Tasks are assigned to a node for execution, or are queued until a node becomes free. A task uses the following resources:
 
-- The program that was specified in the workitem.
+- The application specified in the **command line** of the task.
 
-- The resource files that contain the data to be processed. These files are automatically copied to the Node from blob storage. For more information, see Files and directories.
+- **Resource files** that contain the data to be processed. These files are automatically copied to the node from blob storage in an Azure Storage account. For more information, see [Files and directories](#files) below.
 
-- The environment settings that are needed by the program. For more information, see Environment settings for tasks.
+- The **environment variables** that are required by the application. For more information, see [Environment settings for tasks](#environment) below.
 
-- The constraints in which the computation should occur. For example, the maximum time in which the task is allowed to run, the maximum number of times that a task should be tried again if it fails to run, and the maximum time that files in the working directory are retained.
+- The **constraints** under which the computation should occur. For example, the maximum time in which the task is allowed to run, the maximum number of times that a task should be retried if it fails, and the maximum time that files in the working directory are retained.
 
-In addition to tasks that you can define to perform computation on a Node, you can use the following special tasks provided by the Batch service:
+In addition to tasks that you define to perform computation on a node, the following special tasks are also provided by the Batch service:
 
 - [Start task](#starttask)
 
 - [Job manager task](#jobmanagertask)
 
+- [Job preparation and release tasks](#jobmanagertask)
+
 #### <a name="starttask"></a>Start task
 
-You can configure the operating system of nodes in a pool by associating a start task with the pool. Installing software and starting background processes are some of the actions that a start task can perform. The start task runs every time a node starts for as long as it remains in the pool.
+By associating a **start task** with a pool, you can configure the operating environment of its nodes, performing actions such as installing software or starting background processes. The start task runs every time a node starts for as long as it remains in the pool, including when the node is first added to the pool. A primary benefit of the start task is that it contains all of the information necessary to configure compute nodes and install applications necessary for job task execution. Thus, increasing the number of nodes in a pool is as simple as specifying the new target node count - Batch already has all of the information needed to configure the new nodes and get them ready for accepting tasks.
 
-As with any Batch task a list of files in Azure storage can be specified in addition to a command line that is executed by Batch.  Azure Batch will first copy the files from Azure Storage and then run the command line.
-For a pool start task, the file list usually contains the applications files or package, but it could also include reference data that will be used by all tasks running on the pool nodes.  The command line could perform any PowerShell script or robocopy, for example, to copy application files to the “shared” folder; it could also run an MSI.
+As with any Batch task, a list of **resource files** in [Azure Storage][azure_storage] can be specified, in addition to a **command line** to be executed. Azure Batch will first copy the files from Azure Storage, then run the command line. For a pool start task, the file list usually contains the application package or files, but it could also include reference data to be used by all tasks running on the compute nodes. The start task's command line could execute a PowerShell script or perform a `robocopy` operation, for example, to copy application files to the "shared" folder, then subsequently run an MSI or `setup.exe`.
 
-Normally it is desirable for Batch to wait for the start task to complete and then consider the node ready to be assigned tasks, but this is configurable.
+It is typically desirable for the Batch service to wait for the start task to complete before considering the node ready to be assigned tasks, but this is configurable.
 
-If a start task fails for a pool node, then the state of the node is updated to reflect the failure and the node will not be available for tasks to be assigned.  A start task can fail if there is an issue copying the files specified for the start task or the start task process returns non-zero.
-
-The fact that all the information necessary to configure the nodes and install the applications is declared means that increasing the number of nodes in a pool is as simple as specifying the new required number; Batch has all the information required to configure the nodes and get them ready to accept tasks.
-
-A start task is defined by adding an JSON section to the request body for the Add Pool operation. The following example shows a basic definition of a start task:
-
-	{
-		“commandLine”:”mypoolsetup.exe”,
-		“resourceFiles”:
-		[
-			{
-				“blobSource”:”http://account.blob.core.windows.net/container/myapp1.exe?st=2013-08-09T08%3a49%3a37.0000000Z&se=2013-08-10T08%3a49%3a37.0000000Z&sr=c&sp=d&si=YWJjZGTVMZw%3d%3d&sig= %2bSzBm0wi8xECuGkKw97wnkSZ%2f62sxU%2b6Hq6a7qojIVE%3d”,
-				“filePath”:”mypoolsetup.exe”
-			},
-			{
-				“blobSource”:”http://account.blob.core.windows.net/container/myapp2.exe?st=2013-08-09T08%3a49%3a37.0000000Z&se=2013-08-10T08%3a49%3a37.0000000Z&sr=c&sp=d&si=YWJjZGTVMZw%3d%3d&sig= %2bSzBm0wi8xECuGkKw97wnkSZ%2f62sxU%2b6Hq6a7qojIVE%3d”,
-				“filePath”:”myapp2.exe”
-			}
-		],
-		“maxTaskRetryCount”:0
-	}
-
-A C# interface looks like this:
-
-	CloudPool pool = pm.CreatePool(poolId, targetDedicated: 3, virtualMachineSize: "small", osFamily: "3");
-	pool.StartTask = new StartTask();
-	pool.StartTask.CommandLine = "mypoolsetup.exe";
-	pool.StartTask.ResourceFiles = new List<IResourceFile>();
-	pool.StartTask.ResourceFiles.Add(new ResourceFile("http://account.blob.core.windows.net/container/myapp1.exe?st=2013-08-09T08%3a49%3a37.0000000Z&se=2013-08-10T08%3a49%3a37.0000000Z&sr=c&sp=d&si=YWJjZGTVMZw%3d%3d&sig= %2bSzBm0wi8xECuGkKw97wnkSZ%2f62sxU%2b6Hq6a7qojIVE%3d", "mypoolsetup.exe"));
-	pool.Commit();
-
+If a start task fails on a compute node, then the state of the node is updated to reflect the failure, and the node will not be available for tasks to be assigned. A start task can fail if there is an issue copying its resource files from storage, or if the process executed by its command line returns a non-zero exit code.
 
 #### <a name="jobmanagertask"></a>Job manager task
 
-A job manager task is started before all other tasks. The job manager task provides the following benefits:
+A **Job Manager task** is typically used in controlling and/or monitoring job execution. For example, creating and submitting the tasks for a job, determining additional tasks to run, and determining when work is complete. A Job Manager task is not restricted to these activities, however - it is a fully fledged task that can perform any actions required for the job. For example, a Job Manager task might download a file specified as a parameter, analyze the contents of that file, and submit additional tasks based on those contents.
 
-- It is automatically created by the Batch service when the job is created.
+A job manager task is started before all other tasks and provides the following features:
 
-- It is scheduled before other tasks in the job.
+- It is automatically submitted as a task by the Batch service when the job is created.
 
-- Its associated Node is the last to be removed from a pool when the pool is being downsized.
+- It is scheduled to execute before the other tasks in a job.
 
-- It is given the highest priority when it needs to be restarted. If an idle Node is not available, the Batch service may terminate one of the running tasks in the pool to make room for it to run.
+- Its associated node is the last to be removed from a pool when the pool is being downsized.
 
 - Its termination can be tied to the termination of all tasks in the job.
 
-A job manager task in a job does not have priority over tasks in other jobs. Across jobs, only job level priorities are observed. A job manager task is defined by adding an XML section to the request body for the Add Workitem operation. The following example shows a basic definition of a job manager task:
+- The job manager task is given the highest priority when it needs to be restarted. If an idle node is not available, the Batch service may terminate one of the other running tasks in the pool to make room for the job manager task to run.
 
-	{
-		“name”:”jmTask”,
-		“commandLine”:”myapp1.exe”,
-		“resourceFiles”:
-		[
-			{
-				“blobSource”:”http://account.blob.core.windows.net/container/myapp1.exe?st=2013-08-09T08%3a49%3a37.0000000Z&se=2013-08-10T08%3a49%3a37.0000000Z&sr=c&sp=d&si=YWJjZGTVMZw%3d%3d&sig= %2bSzBm0wi8xECuGkKw97wnkSZ%2f62sxU%2b6Hq6a7qojIVE%3d”,
-				“filePath”:”myapp1.exe”
-			},
-			{
-				“blobSource”:”http://account.blob.core.windows.net/container/myapp2.exe?st=2013-08-09T08%3a49%3a37.0000000Z&se=2013-08-10T08%3a49%3a37.0000000Z&sr=c&sp=d&si=YWJjZGTVMZw%3d%3d&sig= %2bSzBm0wi8xECuGkKw97wnkSZ%2f62sxU%2b6Hq6a7qojIVE%3d”,
-				“filePath”:”myapp2.exe”
-			}
-		],
-		“taskConstraints”:
-		{
-			“maxWallClockTime”:”PT1H”,
-			“maxTaskRetryCount”:0,
-			“retentionTime”:”PT1H”
-		},
-		“killJobOnCompletion”:true,
-		“runElevated”:false,
-		“runExclusive”:true
-	}
+- A job manager task in one job does not have priority over the tasks of other jobs. Across jobs, only job-level priorities are observed.
 
+#### <a name="jobpreprelease"></a>Job preparation and release tasks
 
-### <a name="jobschedule"></a>Job Schedule
+Batch provides the job preparation task for pre-job execution setup, and the job release task for post-job maintenance or cleanup.
 
-Job schedule is a way to create multiple jobs with a schedule. When a job schedule is created, one job is created for each occurrence of the schedule. 
+- **Job preparation task** - The job preparation task runs on all compute nodes scheduled to run tasks, before any of the other job tasks are executed. Use the job preparation task to copy data shared by all tasks, but unique to the job, for example.
+- **Job release task** - When a job has completed, the job release task runs on each node in the pool that executed at least one task. Use the job release task to delete data copied by the job preparation task, or compress and upload diagnostic log data, for example.
 
-## <a name="workflow"></a>Workflow of the Batch service
+Both job preparation and release tasks allow you to specify a command line to run when the task is invoked, and offer features such as file download, elevated execution, custom environment variables, maximum execution duration, retry count, and file retention time.
 
-You need a Batch account to use the Batch service and you use multiple resources of the service to schedule computation. You use the following basic workflow when you create a distributed computational scenario with the Batch service:
+For more information on job preparation and release tasks, see [Run job preparation and completion tasks on Azure Batch compute nodes](batch-job-prep-release.md).
 
-1.Upload the files that you want to use in your distributed computational scenario to an Azure storage account. These files must be in the storage account so that the Batch service can access them. The Batch service loads them onto a Node when the task runs.
+### <a name="jobschedule"></a>Scheduled jobs
 
-2.Upload the dependent binary files to the storage account. The binary files include the program that is run by the task and the dependent assemblies. These files must also be accessed from storage and are loaded onto the Node.
-
-3.Create a pool of Nodes. You can assign the size of the task virtual machine to use when the pool is created. When a task runs, it is assigned a Node from this pool.
-
-4.Create a workitem. A job is automatically created when you create a workitem. A workitem enables you to manage a job of tasks.
-
-5.Add tasks to the workitem. Each task uses the program that you uploaded to process information from a file that you uploaded.
-
-6.Monitor the results of the output.
+Job schedules enable you to create recurring jobs within the Batch service. A job schedule specifies when to run jobs and includes the specifications for the jobs to be run. A job schedule allows for the specification of the duration of the schedule - how long and when the schedule is in effect - and how often during that time period jobs should be created.
 
 ## <a name="files"></a>Files and directories
 
-Each task has a working directory under which it creates zero or more directories and files for storing the program that is run by a task, the data that is processed by a task, and the output of the processing performed by a task. These directories and files are then available for use by other tasks during the running of a job. All tasks, files, and directories on a Node are owned by a single user account.
+Each task has a working directory under which it creates zero or more files and directories for storing the program that is run by the task, the data that it processes, and the output of the processing performed by the task. These files and directories are then available for use by other tasks during the running of a job. All tasks, files, and directories on a node are owned by a single user account.
 
-The Batch service exposes a portion of the file system on a Node as the root directory. The root directory of the Node is available to a task through the AZ\_BATCH\_NODE\_ROOT\_DIR environment variable. For more information about using environment variables, see Environment settings for tasks.
+The Batch service exposes a portion of the file system on a node as the "root directory." The root directory is available to a task by accessing the `%AZ_BATCH_NODE_ROOT_DIR%` environment variable. For more information about using environment variables, see [Environment settings for tasks](#environment).
 
-The root directory contains the following sub-directories:
+![Compute node directory structure][1]
 
-- **Tasks** – This location is where all of the files are stored that belong to tasks that run on the Node. For each task, the Batch service creates a working directory with the unique path in the form of %AZ\_BATCH\_TASK\_ROOT\_DIR%. This directory provides Read/Write access to the task. The task can create, read, update, and delete files under this directory, and this directory is retained based on the RetentionTime constraint specified for the task.
+The root directory contains the following directory structure:
 
-- **Shared** – This location is a shared directory for all of the tasks under the account. On the Node, the shared directory is at %AZ\_BATCH\_NODE\_SHARED\_DIR%. This directory provides Read/Write access to the task. The task can create, read, update, and delete files under this directory.
+- **Shared** – This location is a shared directory for all tasks that run on a node, regardless of job. On the node, the shared directory is accessed via  `%AZ_BATCH_NODE_SHARED_DIR%`. This directory provides read/write access to all tasks that execute on the node. Tasks can create, read, update, and delete files in this directory.
 
-- **Start** – This location is used by a start task as its working directory. All of the files that are downloaded by the Batch service to launch the start task are also stored under this directory. On the Node, the start directory is at %AZ\_BATCH\_NODE\_START\_DIR%. The task can create, read, update, and delete files under this directory, and this directory can be used by start tasks to configure the operating system.
+- **Startup** – This location is used by a start task as its working directory. All of the files that are downloaded by the Batch service to launch the start task are also stored under this directory. On the node, the start directory is available via the `%AZ_BATCH_NODE_START_DIR%` environment variable. The start task can create, read, update, and delete files under this directory, and this directory can be used by start tasks to configure the operating system.
 
-When a Node is removed from the pool, all of the files that are stored on the Node are removed.
+- **Tasks** - A directory is created for each task that runs on the node, accessed via `%AZ_BATCH_TASK_DIR%`. Within each task directory, the Batch service creates a working directory (`wd`) whose unique path is specified by the `%AZ_BATCH_TASK_WORKING_DIR%` environment variable. This directory provides read/write access to the task. The task can create, read, update, and delete files under this directory, and this directory is retained based on the *RetentionTime* constraint specified for the task.
+  - `stdout.txt` and `stderr.txt` - These files are written to the task folder during the execution of the task.
 
-## <a name="lifetime"></a>Pool and Node Lifetime
+When a node is removed from the pool, all of the files that are stored on the node are removed.
 
-A fundamental design decision is when pools are created and how long nodes are kept available. 
+## <a name="lifetime"></a>Pool and compute node lifetime
 
-At one extreme a pool could be created for each job when the job is submitted and the nodes removed as tasks finish execution.  This will maximize utilization as the nodes are only allocated when absolutely needed and shutdown as soon as they become idle.  It does mean that the job must wait for the nodes to be allocated, although it is important to note that tasks will be scheduled to nodes as soon as they are individually available, allocated and the start task has completed; i.e. Batch does NOT wait until all nodes in a pool are available as that would lead to poor utilization.
+When designing your Azure Batch solution, a design decision must be made with regard to how and when pools are created, and how long compute nodes within those pools are kept available.
 
-If having jobs start executing immediately is the priority then a pool should be created and nodes available before the job is submitted.  The tasks can start immediately, but nodes could be idle waiting for job tasks, depending on load.
+On one end of the spectrum, a pool could be created for each job when the job is submitted, and its nodes removed as soon as tasks finish execution. This will maximize utilization as the nodes are only allocated when absolutely needed, and shutdown as soon as they become idle. While this means that the job must wait for the nodes to be allocated, it is important to note that tasks will be scheduled to nodes as soon as they are individually available, allocated, and the start task has completed. Batch does *not* wait until all nodes within a pool are available before assigning tasks, thus ensuring maximum utilization of all available nodes.
 
-One common pattern for when there is a variable amount of ongoing load is to have a pool to which multiple jobs are submitted, but scale up or down the number of nodes according to load; this could be done reactively or pro-actively if load can be predicted.
+At the other end of the spectrum, if having jobs start immediately is the highest priority, a pool may be created ahead of time and its nodes made available before jobs are submitted. In this scenario, job tasks can start immediately, but nodes may sit idle while waiting for tasks to be assigned.
+
+A combined approach, typically used for handling variable but ongoing load, is to have a pool to which multiple jobs are submitted, but scale the number of nodes up or down according to the job load (see *Scaling applications* below). This can be done reactively, based on current load, or proactively if load can be predicted.
 
 ## <a name="scaling"></a>Scaling applications
 
-Your application can easily be automatically scaled up or down to accommodate the computation that you need. You can dynamically adjust the number of Nodes in a pool according to current work load and resource usage statistics. You can also optimize the overall cost of running your application by configuring it to be automatically scaled. You can specify the scaling settings for a pool when it is created and you can update the configuration at any time.
+With [automatic scaling](batch-automatic-scaling.md), your application can easily be scaled up or down automatically to accommodate the computation that you need. You can dynamically adjust the number of nodes in a pool according to the current workload and resource usage statistics, allowing you to lower the overall cost of running your application by using only those resources needed. You can specify the scaling settings for a pool when it is created, and you can update this configuration at any time.
 
-For a decrease in the number of nodes, there could be tasks running on nodes which need to be considered.  A de-allocation policy is specified which determines whether running tasks are stopped to remove the node immediately or whether tasks are allowed to finish before the nodes are removed.  Setting the target number of nodes down to zero at the end of a job, but allowing running tasks to finish, will maximize utilization.
+When automatically decreasing the number of nodes, currently running tasks must be considered. A de-allocation policy is specified which determines whether running tasks are stopped to remove the node immediately, or whether tasks are allowed to finish before the nodes are removed. Setting the target number of nodes to zero at the end of a job, but allowing running tasks to finish, will maximize utilization.
 
-You specify automatic scaling of an application by using a set of scaling formulas. The formulas that can be used to determine the number of Nodes that are in the pool for the next scaling interval. For example, you need to submit a large number of tasks to be scheduled on a pool. You can assign a scaling formula to the pool that specifies the size of the pool based on the current number of pending tasks and the completion rate of the tasks. The Batch service periodically evaluates the formula and resizes the pool based on workload.
+The automatic scaling of an application is done by specifying a set of scaling formulas. These formulas are used to determine the target number of nodes in the pool for the next scaling interval. For example, perhaps a job requires that you submit a large number of tasks to be scheduled for execution. You can assign a scaling formula to the pool that adjusts size of the pool (the number of nodes) based on the current number of pending tasks, and the completion rate of those tasks. The Batch service periodically evaluates the formula, resizing the pool based on workload.
 
-A formula can be based on the following metrics:
+A scaling formula can be based on the following metrics:
 
 - **Time metrics** – Based on statistics collected every five minutes in the specified number of hours.
 
-- **Resource metrics** – Based on CPU usage, bandwidth usage, memory usage, and number of Nodes.
+- **Resource metrics** – Based on CPU usage, bandwidth usage, memory usage, and number of nodes.
 
 - **Task metrics** – Based on the status of tasks, such as Active, Pending, and Completed.
 
-For more information about automatically scaling an application, see Configure Autoscaling of Task Virtual Machines.
+For more information about automatically scaling an application, see [Automatically scale compute nodes in an Azure Batch pool](batch-automatic-scaling.md).
 
->Delete nodes
->
->It is not often required, but it is possible to specify individual nodes to remove from a pool.  If there’s a node that is suspected of being less reliable it could be removed, for example.
+> [AZURE.TIP]
+ While not often required, it is possible to specify individual nodes to be removed from a pool. If a node is suspected of being less reliable, for example, it could be removed from the pool to prevent additional tasks from being assigned.
 
-## <a name="cert"></a>Certificates for applications
+## <a name="cert"></a>Security with certificates
 
-You typically need to use certificates when you encrypt secret information. Certificates can be installed on Nodes. The encrypted secrets are passed to tasks in command-line parameters or embedded in one of the resources and installed certificates can be used to decrypt them. An example of the secret information is the key for a storage account.
+You typically need to use certificates when encrypting or decrypting sensitive information for tasks, such as the key for an [Azure Storage account][azure_storage]. To support this, certificates can be installed on nodes. Encrypted secrets are passed to tasks via command-line parameters or embedded in one of the task resources, and the installed certificates can be used to decrypt them.
 
-You use the Add Certificate operation to add a certificate to a Batch account. You can then associate the certificate to a new or existing pool. When a certificate is associated with a pool, the Batch service installs the certificate on each Node in the pool. The Batch service installs the appropriate certificates when the Node starts up, before it launches any tasks, which includes start tasks and job manager tasks.
+You use the [Add certificate][rest_add_cert] operation (Batch REST API) or [CertificateOperations.CreateCertificate][net_create_cert] method (Batch .NET API) to add a certificate to a Batch account. You can then associate the certificate to a new or existing pool. When a certificate is associated with a pool, the Batch service installs the certificate on each node in the pool. The Batch service installs the appropriate certificates when the node starts up, before launching any tasks including start and job manager tasks.
 
-## <a name="scheduling"></a>Scheduling Priority
+## <a name="scheduling"></a>Scheduling priority
 
-When you create a workitem, you can assign a priority to it. Each job under the workitem is created with this priority. The Batch service uses the priority values of the job to determine the order of job scheduling within an account. The priority values can range from -1000 to 1000, with -1000 being the lowest priority and 1000 being the highest priority. You can update the priority of a job by using the UpdateJob operation.
+You can assign a priority to jobs you create in Batch. The Batch service uses the priority value of the job to determine the order of job scheduling within an account. The priority values range from -1000 to 1000, with -1000 being the lowest priority and 1000 being the highest. You can update the priority of a job by using the [Update the properties of a job][rest_update_job] operation (Batch REST API) or by modifying the [CloudJob.Priority][net_cloudjob_priority] property (Batch .NET API).
 
 Within the same account, higher priority jobs have scheduling precedence over lower priority jobs. A job with a higher priority value in one account does not have scheduling precedence over another job with a lower priority value in a different account.
 
-Job scheduling on different pools are independent. Across different pools, it is not guaranteed that a higher priority job is scheduled first, if its associated pool is short of idle Nodes. On the same pool, jobs with the same priority level have an equal chance of being scheduled.
+Job scheduling across pools is independent. Between different pools, it is not guaranteed that a higher priority job will be scheduled first if its associated pool is short of idle nodes. In the same pool, jobs with the same priority level have an equal chance of being scheduled.
 
 ## <a name="environment"></a>Environment settings for tasks
 
-You can specify environment settings that can be used in the context of a task. Environment settings for a start task and tasks running under a job are defined by adding an XML section to the request body of the Add Task or Update Task operations.
+Each task that executes within a Batch job has access to environment variables set both by the Batch service (system-defined, see table below) as well as user-defined environment variables. Applications and scripts run by tasks on compute nodes have access to these environment variables during execution on the node.
 
-The following example shows the definition of an environment setting:
+Set user-defined environment variables when using the [Add a task to a job][rest_add_task] operation (Batch REST API) or by modifying the [CloudTask.EnvironmentSettings][net_cloudtask_env] property (Batch .NET API) when adding tasks to a job.
 
-For every task that is scheduled under a job, a specific set of environment variables are set by the Batch service. The following table lists the environment variables that are set by the Batch service for all tasks.
+Get a task's environment variables, both system- and user-defined, by using the [Get information about a task][rest_get_task_info] operation (Batch REST API) or by accessing the [CloudTask.EnvironmentSettings][net_cloudtask_env] property (Batch .NET API). As mentioned, processes executing on a compute node can also access all environment variables, for example by using the familiar `%VARIABLE_NAME%` syntax.
 
-| Environment Variable Name          | Description                                                              |
-|------------------------------------|--------------------------------------------------------------------------|
-| AZ_BATCH_ACCOUNT_NAME              | The name of the account to which the task belongs.                       |
-| AZ_BATCH_JOB_ID                    | The name of the job to which the task belongs.                           |
-| AZ_BATCH_TASK_ID                   | The name of the current task.                                            |
-| AZ_BATCH_POOL_ID                   | The name of the pool on which the task is running.                       |
-| AZ_BATCH_NODE_ID                   | The name of the Node on which the task is running.                       |
-| AZ_BATCH_NODE_ROOT_DIR             | The full path of the root directory on the node.                         |
-| AZ_BATCH_NODE_SHARED_DIR           | The full path of the shared directory on the node.                       |
-| AZ_BATCH_NODE_STARTUP_DIR          | The full path of the pool node startup task directory on the node.       |
-| AZ_BATCH_NODE_TASK_DIR             | The full path of the task directory on the node.                         |
-| AZ_BATCH_NODE_TASK_WORKING_DIR     | The full path of the task working directory on the node.                 |
-| AZ_BATCH_NODE_JOB_PREP_DIR         | The full path of the job preparation task directory on the node.         |
-| AZ_BATCH_NODE_JOB_PREP_WORKING_DIR | The full path of the job preparation task working directory on the node. |
+For every task that is scheduled within a job, the following set of system-defined environment variables is set by the Batch service:
 
-**Note** 
+| Environment Variable Name       | Description                                                              |
+|---------------------------------|--------------------------------------------------------------------------|
+| `AZ_BATCH_ACCOUNT_NAME`         | The name of the account to which the task belongs.                       |
+| `AZ_BATCH_JOB_ID`               | The ID of the job to which the task belongs.                             |
+| `AZ_BATCH_JOB_PREP_DIR`         | The full path of the job preparation task directory on the node.         |
+| `AZ_BATCH_JOB_PREP_WORKING_DIR` | The full path of the job preparation task working directory on the node. |
+| `AZ_BATCH_NODE_ID`              | The ID of the node on which the task is running.                         |
+| `AZ_BATCH_NODE_ROOT_DIR`        | The full path of the root directory on the node.                         |
+| `AZ_BATCH_NODE_SHARED_DIR`      | The full path of the shared directory on the node.                       |
+| `AZ_BATCH_NODE_STARTUP_DIR`     | The full path of the compute node startup task directory on the node.    |
+| `AZ_BATCH_POOL_ID`              | The ID of the pool on which the task is running.                         |
+| `AZ_BATCH_TASK_DIR`             | The full path of the task directory on the node.                         |
+| `AZ_BATCH_TASK_ID`              | The ID of the current task.                                              |
+| `AZ_BATCH_TASK_WORKING_DIR`     | The full path of the task working directory on the node.                 |
 
-You cannot overwrite these system-defined variables.
+>[AZURE.NOTE] You cannot overwrite any of the above system-defined variables - they are read-only.
 
-You can retrieve the value of environment settings by using the Get Task operation.
+## <a name="errorhandling"></a>Error handling
 
-## <a name="errorhandling"></a>Error Handling
+You may find it necessary to handle both task and application failures within your Batch solution.
 
-###Task Failure Handling
-Task failures fall into the following categories:
+### Task failure handling
+Task failures fall into these categories:
 
-- Scheduling Failures:
-	- If files are specified for the task, then the copy of one or more of the files could fail.  This could be because the files have moved, the storage account is no longer available, etc.
-	- A “scheduling error” is set for the task in this case.
-- Application Failures:
-	- The task process specified by the command line can also fail.  The process is deemed to have failed when a non-zero exit code is returned.
-	- For application failures it is possible to configure Batch to automatically retry the task up to a specified number of times. 
-- Constraint Failures:
-	- A constraint can be specified for the maximum amount of time a job or task can run for.  The can be useful to terminate a task that has hung.
-	- When the maximum amount of time has been exceeded then the task is marked as completed but the exit code will marked as `0xC000013A` and schedulingError field will be marked as `{ category:“ServerError”, code=“TaskEnded”}`.
+- **Scheduling failures**
+	- If the transfer of files specified for a task fails for any reason, a "scheduling error" is set for the task.
+	- Causes of scheduling errors could be because the files have moved, the Storage account is no longer available, or another issue was encountered that prevented the successful copying of files to the node.
+- **Application failures**
+	- The process specified by the task's command line can also fail. The process is deemed to have failed when a non-zero exit code is returned by the process executed by the task.
+	- For application failures, it is possible to configure Batch to automatically retry the task up to a specified number of times.
+- **Constraint failures**
+	- A constraint can be set that specifies the maximum execution duration for a job or task, the *maxWallClockTime*. This can be useful for terminating "hung" tasks.
+	- When the maximum amount of time has been exceeded, the task is marked as *completed* but the exit code is set to `0xC000013A`, and the *schedulingError* field will be marked as `{ category:"ServerError", code="TaskEnded"}`.
 
-###Debugging Application Failures
+### Debugging application failures
 
-An application may produce diagnostics which can be used to troubleshoot issues. Often applications will write information to stdout and stderr files or output to custom files. In these cases an API is provided to get files, by specifying either the task or node.
+During execution, an application may produce diagnostic output which can be used to troubleshoot issues. As mentioned in [Files and directories](#files) above, the Batch service sends stdout and stderr output to `stdout.txt` and `stderr.txt` files located in the task directory on the compute node. By using [ComputeNode.GetNodeFile][net_getfile_node] and [CloudTask.GetNodeFile][net_getfile_task] in the Batch .NET API, you can retrieve these and other files for troubleshooting purposes.
 
-It is also possible to login into pool nodes. An API returns the RDP file for a node, which can then be used to login to the node.
+Even more extensive debugging can be performed by logging in to a compute node using *Remote Desktop*. You can [get a remote desktop protocol file from a node][rest_rdp] (Batch REST API) or the use the [ComputeNode.GetRDPFile][net_rdp] method (Batch .NET API) for remote login.
 
-###Catering for Task Failures and Issues
+>[AZURE.NOTE] To connect to a node via RDP, you must first create a user on the node. [Add a user account to a node][rest_create_user] in the Batch REST API or the use the [ComputeNode.CreateComputeNodeUser][net_create_user] method in Batch .NET.
 
-Tasks can fail or be interrupted for a few reasons.  The task application itself may fail, the node on which the task is running gets rebooted, or the node is removed by a pool resize with the de-allocation policy set to remove the node immediately without waiting for the task to finish.  In all cases the task can be automatically re-queued by Batch and execute on another node.
+### Accounting for task failures or interruptions
 
-It is also possible for an intermittent issue to cause a task to hang or take too long to execute.  The maximum execution time can be set for a task and if exceeded Batch will interrupt the task application.  Currently, automatic re-queuing is not possible for this case, but the case can be detected by the client which can submit a new task.
+Tasks may occasionally fail or be interrupted. The task application itself may fail, the node on which the task is running could be rebooted, or the node might be removed from the pool during a resize operation if the pool's de-allocation policy is set to remove nodes immediately without waiting for tasks to finish. In all cases, the task can be automatically re-queued by Batch for execution on another node.
 
-###Catering for “Bad” Nodes
+It is also possible for an intermittent issue to cause a task to hang or take too long to execute. The maximum execution time can be set for a task, and if exceeded, Batch will interrupt the task application.
 
-Each node in a pool is given a unique name and the node on which a task runs included in the task meta-data.  In the case where there is a node that for some reason is causing tasks to fail, then this can be determined by the client and the suspect node deleted from the pool. If a task was running on the node that was deleted, then it will be automatically re-queued and executed on another node.
+### Accounting for "bad" nodes
 
+Each node in a pool is given a unique ID, and the node on which a task runs is included in the task meta-data. In situations where tasks are failing on a particular node, this can be determined by your Batch client application and the suspect node can be removed from the pool. If any tasks are running on a  node when it is deleted, they will be automatically re-queued for execution on other nodes.
 
-<!--Image references-->
-[1]: ./media/batch-api-basics/batch-api-basics-01.png
+## Next steps
 
-[Azure Batch overview]: batch-technical-overview.md
+- Create your first Batch application by following the steps in [Get started with the Azure Batch Library for .NET](batch-dotnet-get-started.md)
+- Download and build the [Batch Explorer][batch_explorer_project] sample project for use while you develop your Batch solutions. Using the Batch Explorer, you can perform the following and more:
+  - Monitor and manipulate pools, jobs, and tasks within your Batch account
+  - Download `stdout.txt`, `stderr.txt`, and other files from nodes
+  - Create users on nodes and download RDP files for remote login
+
+[1]: ./media/batch-api-basics/node-folder-structure.png
+
+[about_cloud_services]: https://azure.microsoft.com/documentation/articles/fundamentals-application-models/#tell-me-about-cloud-services
+[azure_storage]: https://azure.microsoft.com/services/storage/
+[batch_explorer_project]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer
+[cloud_service_sizes]: https://azure.microsoft.com/documentation/articles/cloud-services-sizes-specs/
+
+[batch_net_api]: https://msdn.microsoft.com/library/azure/mt348682.aspx
+[net_cloudjob_jobmanagertask]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudjob.jobmanagertask.aspx
+[net_cloudjob_priority]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudjob.priority.aspx
+[net_cloudpool_starttask]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.starttask.aspx
+[net_cloudtask_env]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudtask.environmentsettings.aspx
+[net_create_cert]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.certificateoperations.createcertificate.aspx
+[net_create_user]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.computenode.createcomputenodeuser.aspx
+[net_getfile_node]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.computenode.getnodefile.aspx
+[net_getfile_task]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudtask.getnodefile.aspx
+[net_rdp]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.computenode.getrdpfile.aspx
+
+[batch_rest_api]: https://msdn.microsoft.com/library/azure/Dn820158.aspx
+[rest_add_job]: https://msdn.microsoft.com/library/azure/mt282178.aspx
+[rest_add_pool]: https://msdn.microsoft.com/library/azure/dn820174.aspx
+[rest_add_cert]: https://msdn.microsoft.com/library/azure/dn820169.aspx
+[rest_add_task]: https://msdn.microsoft.com/library/azure/dn820105.aspx
+[rest_create_user]: https://msdn.microsoft.com/library/azure/dn820137.aspx
+[rest_get_task_info]: https://msdn.microsoft.com/library/azure/dn820133.aspx
+[rest_update_job]: https://msdn.microsoft.com/library/azure/dn820162.aspx
+[rest_rdp]: https://msdn.microsoft.com/library/azure/dn820120.aspx
