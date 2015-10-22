@@ -167,7 +167,7 @@ Within the path, you may choose to specify one or more instances of the followin
 </tbody>
 </table>
 
-When your data is coming from a Blob storage source, you can access to few metadata fields in your Stream Analytics query. The table below lists the fields and their description.
+When your data is coming from a Blob storage source, you can access a few metadata fields in your Stream Analytics query. The table below lists the fields and their description.
 
 | PROPERTY | DESCRIPTION |
 |------|------|
