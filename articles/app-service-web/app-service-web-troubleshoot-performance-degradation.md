@@ -34,10 +34,11 @@ This problem is often caused by application level issues, such as:
 
 [App Service Web Apps](/services/app-service/web/) gives you various options to find out more details about the problem. The available options are divided into 3 categories
 
-1.	Observe and monitor application behavior
-2.	Use tools for data collection
-3.	Mitigate the issue
+1.	[Observe and monitor application behavior](#observe)
+2.	[Collect data](#collect)
+3.	[Mitigate the issue](#mitigate)
 
+<a name="observe" />
 ### Observe and monitor application behavior
 
 #### 1.	Track Service health
@@ -87,7 +88,8 @@ To use Application Insights, see [Monitor performance in web applications](app-i
 
 To use New Relic, see [New Relic Application Performance Management on Azure](store-new-relic-cloud-services-dotnet-application-performance-management.md).
 
-### Data Collection
+<a name="collect" />
+### Collect data
 
 #### 1.	Enable diagnostics logging for your web app
 
@@ -151,7 +153,8 @@ Another useful feature of Kudu is that, in case your application is throwing fir
 For more information on features available in Kudu, see
 [Windows Azure Websites online tools you should know about](/blog/windows-azure-websites-online-tools-you-should-know-about/).
 
-### Mitigation
+<a name="mitigate" />
+### Mitigate the issue
 
 #### 1.	Scale the web app
 

@@ -34,10 +34,11 @@
 
 	[App Service Web Apps](/services/app-service/web/) gives you various options to find out more details about the problem. The available options are divided into 3 categories
 
-	1.	Observe and monitor application behavior
-	2.	Use tools for data collection
-	3.	Mitigate the issue
+	1.	[Observe and monitor application behavior](#observe)
+	2.	[Collect data](#collect)
+	3.	[Mitigate the issue](#mitigate)
 
+<a name="observe" />
 	### Observe and monitor application behavior
 
 	#### 1.	Track Service health
@@ -63,7 +64,8 @@
 	-	[Monitor Web Apps in Azure App Service](web-sites-monitor.md)
 	-	[Receive alert notifications](insights-receive-alert-notifications.md)
 
-	### Data Collection
+<a name="collect" />
+	### Collect data
 
 	#### 1.	Use the Azure App Service Support Portal
 
@@ -102,7 +104,8 @@
 	For more information on features available in Kudu, see
 	[Windows Azure Websites online tools you should know about](/blog/windows-azure-websites-online-tools-you-should-know-about/).
 
-	### Mitigation
+<a name="mitigate" />
+	### Mitigate the issue
 
 	#### 1.	Scale the web app
 
