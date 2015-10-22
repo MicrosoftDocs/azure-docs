@@ -23,7 +23,6 @@ The Azure preview portal provides an interactive tutorial for you to get started
 
 
 >[AZURE.NOTE] If you want to go through the same tutorial using Visual Studio, see [Analyze website logs using Data Lake Analytics](data-lake-analytics-analyze-weblogs.md).
-
 >More interactive tutorials to be added to the portal.
 
 

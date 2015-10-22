@@ -20,7 +20,7 @@
 
 [AZURE.INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
 
->[AZURE.NOTE] This article is still under development.
+>[AZURE.NOTE] This article is still under development. The UE team ran into a bug that Ben Smith and Matthew Hicks are investigating.
 
 Learn how to manage Azure Data Lake Analytics accounts, data sources, users, and jobs using the Azure PowerShell.
 
@@ -31,8 +31,6 @@ Before you begin this tutorial, you must have the following:
 - **An Azure subscription**. See [Get Azure free trial]https://azure.microsoft.com/en-us/pricing/free-trial/).
 - **Visual Studio**. 
 	
-
-
 
 <!-- ################################ -->
 <!-- ################################ -->

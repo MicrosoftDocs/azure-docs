@@ -13,30 +13,30 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="10/21/2015"
+   ms.date="10/22/2015"
    ms.author="jgao"/>
 
-# Tutorial: Get Started with Azure Data Lake Analytics using Azure PowerShell
+# Tutorial: get started with Azure Data Lake Analytics using Azure PowerShell
 
 [AZURE.INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
 
-Learn how to use Azure PowerShell to create an Azure Data Lake Analytics account, define a Data Lake Analytics
-job in [U-SQL](data-lake-analytics-u-sql-get-started.md), and submit the job. This job reads a tab separated values (TSV) file and convert it into a comma 
-separated values (CSV) file. For more information about Data Lake Analytics, see 
-[Azure Data Lake Analytics overview](data-lake-analytics-overview.md).
+Learn how to use the Azure PowerShell to create Azure Data Lake Analytics accounts, define Data Lake Analytics
+jobs in [U-SQL](data-lake-analytics-u-sql-get-started.md), and submit jobs to Data Lake Analtyic accounts. For more 
+information about Data Lake Analytics, see [Azure Data Lake Analytics overview](data-lake-analytics-overview.md).
 
-To go through the same tutorial using other supported tools, click the tabs on the top of this section.
+In this tutorial, you will develop a job that reads a tab separated values (TSV) file and converts it into a comma 
+separated values (CSV) file. To go through the same tutorial using other supported tools, click the tabs on the top of this section.
 
-**Basic Data Lake Analytics process:**
+**The basic Data Lake Analytics process:**
 
 ![Azure Data Lake Analytics process flow diagram](./media/data-lake-analytics-get-started-portal/data-lake-analytics-process.png)
 
 1. Create a Data Lake Analytics account.
-2. Prepare/upload the source data.
+2. Prepare the source data. Data Lake Analytic jobs can read data from either Azure Data Lake Store accounts or Azure Blob storage accounts.   
 3. Develop a U-SQL script.
-4. Submit a job (U-SQL script) to the Data Lake Analytics account. The job reads the data from Data Lake Store accounts and/or Azure Blob 
-storage accounts, process the data as instructed in the U-SQL script, and save the output to a Data Lake Store 
-account or an Azure Blob storage account.
+4. Submit a job (U-SQL script) to the Data Lake Analytics account. The job reads from the source data, process the data as instructed 
+in the U-SQL script, and then save the output to either a Data Lake Store account or a Blob storage account.
+
 
 **Prerequisites**
 
@@ -109,17 +109,13 @@ You must have a Data Lake Analytics account before you can run any jobs. To crea
 			-ResourceGroupName $resourceGroupName `
 			-Name $dataLakeAnalyticsName  
 
-
-	> [AZURE.NOTE] The Data Lake Analytics account name must only contain lowercase letters and numbers.
-
-
 ##Upload data to Data Lake
 
 In this tutorial, you will process some search logs.  The search log can be stored in either Data Lake store or Azure Blob storage. 
 
-A sample search log has been copied to a public Azure Blob container. Use the following PowerShell script to download the file to your workstation, and then upload the file to your default Data Lake Store account.
+A sample search log file has been copied to a public Azure Blob container. Use the following PowerShell script to download the file to your workstation, and then upload the file to the default Data Lake Store account of your Data Lake Analytics account.
 
-	$adlStore = "<The default Data Lake Store account name"
+	$dataLakeStoreName = "<The default Data Lake Store account name>"
 	
 	$localFolder = "C:\Tutorials\Downloads\" # A temp location for the file. 
 	$storageAccount = "adltutorials"  # Don't modify this value.
@@ -134,13 +130,22 @@ A sample search log has been copied to a public Azure Blob container. Use the fo
 	$blobs | Get-AzureStorageBlobContent -Context $context -Destination $localFolder
 
 	# Upload the file to the default Data Lake Store account	
-	Import-AzureRmDataLakeStoreItem -AccountName $adlStore -Path $localFolder"SearchLog.tsv" -Destination "/Samples/Data/SearchLog.tsv"
+	Import-AzureRmDataLakeStoreItem -AccountName $dataLakeStoreName -Path $localFolder"SearchLog.tsv" -Destination "/Samples/Data/SearchLog.tsv"
+
+The following PowerShell script shows you how to get the default Data Lake Store name for a Data Lake Analytics account:
+
+
+	$resourceGroupName = "<ResourceGroupName>"
+	$dataLakeAnalyticsName = "<DataLakeAnalyticsAccountName>"
+	$dataLakeStoreName = (Get-AzureRmDataLakeAnalyticsAccount -ResourceGroupName $resourceGroupName -Name $dataLakeAnalyticName).Properties.DefaultDataLakeAccount
 
 >[AZURE.NOTE] The Azure Preview portal provides an user interface to copy the sample data files to the default Data Lake Store account. For instructions, see [Get Started with Azure Data Lake Analytics using Azure Preview Portal](data-lake-analytics-get-started-portal.md#upload-data-to-the-default-data-lake-store-account).
 
 Data Lake Analytics can also access Azure Blob storage.  For uploading data to Azure Blob storage, see [Using Azure PowerShell with Azure Storage](storage-powershell-guide-full.md).
 
 ##Submit Data Lake Analytics jobs
+
+The Data Lake Analtyics jobs are written in the U-SQL language. To learn more about U-SQL, see [Get started with U-SQL language](data-lake-analytics-u-sql-get-started.md) and [U-SQL language reference](http://go.microsoft.com/fwlink/?LinkId=691348).
 
 **To create a Data Lake Analytics job script**
 
@@ -161,20 +166,20 @@ Data Lake Analytics can also access Azure Blob storage.  For uploading data to A
             TO "/Output/SearchLog-from-Data-Lake.csv"
         USING Outputters.Csv();
 
-	This U-SQL script reads the input data file using **Extractors.Tsv()**, and then creates a csv file using
-    **Outputters.Csv()*. 
+	This U-SQL script reads the source data file using **Extractors.Tsv()**, and then creates a csv file using **Outputters.Csv()**. 
     
-    Notice the paths are relative paths, because it is simpler to use relative paths for the files stored in the default data Lake account. You can also use absolute path.  For example 
+    Don't modify the two paths unless you copy the source file into a different location.  Data Lake Analytics will create the output folder if it doesn't exist.
+	
+	It is simpler to use relative paths for files stored in default data Lake accounts. You can also use absolute paths.  For example 
     
-        adl://<Data LakeStorageAccountName>.azuredatalake.net/Samples/Data/SearchLog.tsv
+        adl://<Data LakeStorageAccountName>.azuredatalakestore.net:443/Samples/Data/SearchLog.tsv
         
-    You must use absolute path to access the files in the linked Storage accounts.  The syntax for files stored in linked Azure Storage account is:
+    You must use absolute paths to access  files in  linked Storage accounts.  The syntax for files stored in linked Azure Storage account is:
     
         wasb://<BlobContainerName>@<StorageAccountName>.blob.core.windows.net/Samples/Data/SearchLog.tsv
 
     >[AZURE.NOTE] Azure Blob container with public blobs or public containers access permissions are not currently supported.    
-
-    For more about U-SQL, see [U-SQL language reference](http://go.microsoft.com/fwlink/?LinkId=690701).
+    
 	
 **To submit the job**
 
