@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-phone"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="09/08/2015"
+	ms.date="10/21/2015"
 	ms.author="wesmc"/>
 
 # Get started with Notification Hubs for Windows Phone
@@ -41,33 +41,16 @@ Completing this tutorial is a prerequisite for all other Notification Hubs tutor
 
 ##Create your notification hub
 
-1. Sign in to the [Azure portal], and then click **+NEW** at the bottom of the screen.
+[AZURE.INCLUDE [notification-hubs-portal-create-new-hub](../../includes/notification-hubs-portal-create-new-hub.md)]
 
-2. Click **App Services**, click **Service Bus**, click **Notification Hub**, and then click **Quick Create**.
+<ol start="7">
+<li><p>Click the <b>Configure</b> tab, and then click the <b>Enable unauthenticated push notifications</b> check box in the <b>Windows Phone notification settings</b> section.</p>
+</li>
+</ol>
 
-   	![][7]
+&emsp;&emsp;![](./media/notification-hubs-windows-phone-get-started/notification-hub-pushauth.png)
 
-3. Type a name for your notification hub, select your desired region, and then click **Create a New Notification Hub**.
-
-   	![][8]
-
-4. Click the namespace that you just created (usually ***notification hub name*-ns**), and then click the **Configure** tab at the top.
-
-   	![][9]
-
-5. Click the **Notification Hubs** tab at the top, and then click the notification hub that you just created.
-
-   	![][10]
-
-6. Click **Connection Information** at the bottom. Take note of the two connection strings.
-
-   	![][12]
-
-7. Click the **Configure** tab, and then click the **Enable unauthenticated push notifications** check box in the **Windows Phone notification settings** section.
-
-   	![][15]
-
-You now have the connection strings that are required to register your Windows Phone 8 app and send notifications.
+Your hub is now created and configured to send unauthenticated notification for Windows Phone.
 
 > [AZURE.NOTE] This tutorial uses MPNS in unauthenticated mode. MPNS unauthenticated mode comes with restrictions on notifications that you can send to each channel. Notification Hubs supports [MPNS authenticated mode](http://msdn.microsoft.com/library/windowsphone/develop/ff941099.aspx) by allowing you to upload your certificate.
 
