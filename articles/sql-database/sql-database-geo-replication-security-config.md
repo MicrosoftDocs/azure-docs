@@ -22,17 +22,17 @@
 ## Overview
 This topic describes the authentication requirements to configure and control [Standard and Active Geo-Replication](sql-database-geo-replication-overview.md) and the steps required to set up user access to the secondary database. For more information on using Geo-Replication, see [Recover an Azure SQL Database from an outage](sql-database-disaster-recovery.md).
 
-## Using Contained Users
+## Using contained users
 With the [V12 version of Azure SQL Database](sql-database-v12-whats-new.md), SQL Database now supports contained users. Unlike traditional users, which must be mapped to logins in the master database, a contained user is managed completely by the database itself. This has two benefits. In the geo-replication scenario, the users can continue to connect to the secondary database without any additional configuration, because the database manages the users. There are also potential scalability and performance benefits from this configuration from a login perspective. For more information, see [Contained Database Users - Making Your Database Portable](https://msdn.microsoft.com/library/ff929188.aspx). 
 
 With contained users, if you have multiple databases that use the same login, you must manage that user separately for each database (for example for a password change), rather than managing the login at the server level.
 
 >[AZURE.NOTE] If you want to change the read access of the primary and secondary independently, then you must use traditional logins and users. Contained users  cannot be managed on the secondary independently from the primary.
 
-## Using Traditional Logins and Users
+## Using traditional logins and users
 If you are using traditional logins and users (rather than contained users), you must make take extra steps to insure that the same logins exist on the secondary database server. The following sections outline the steps involved and additional considerations.
 
-### Set Up User Access for the Online Secondary
+### Set up user access for the online secondary
 In order for the secondary database to be usable as a read-only database (online secondary) or a viable database copy in a failover situation, the secondary database must have the appropriate security configuration in place.
 
 Only the server admin can successfully complete all of the steps described later in the topic. The specific permissions for each step are described later in this topic.
@@ -43,7 +43,7 @@ Preparing user access to an Active Geo-Replication Online secondary can be perfo
 2. Find the SID for these logins on the source server.
 3. Generate the logins on the target server with the matching SID from the source server.
 
-#### 1. Determine Logins with access to the primary database:
+#### 1. Determine logins with access to the primary database:
 The first step of the process is to determine which logins must be duplicated on the target server. This is accomplished with a pair of SELECT statements, one in the logical master database on the source server and one in the primary database itself.
 
 Only the server admin or a member of the **LoginManager** server role can determine the logins on the source server with the following SELECT statement. 
@@ -58,7 +58,7 @@ Only a member of the db_owner database role, the dbo user, or server admin, can 
 	FROM [sys].[database_principals]
 	WHERE [type_desc] = 'SQL_USER'
 
-#### 2. Find the SID For the Logins Identified in Step 1:
+#### 2. Find the SID for the logins identified in step 1:
 By comparing the output of the queries from the previous section and matching the SIDs, you can map the server login to database user. Logins that have a database user with a matching SID have user access to that database as that database user principal. 
 
 The following query can be used to see all of the user principals and their SIDs in a database. Only a member of the db_owner database role or server admin can run this query.
@@ -82,7 +82,7 @@ The last step is to go to the target server, or servers, and generate the logins
 >
 >DISABLE doesn’t change the password, so you can always enable it if needed.
 
-## Set Up User Access Upon Termination of a Continuous Copy Relationship
+## Set up user access upon termination of a continuous copy relationship
 In the event of failover, the continuous copy relationship must be stopped between the primary and the secondaries. For information on this process, see [Recover an Azure SQL Database from an outage](sql-database-disaster-recovery.md).
 
 In the case of Standard Geo-Replication the user cannot access the offline secondary, so the changes to the user accounts must be made upon termination of the continuous copy relationship.
@@ -95,5 +95,5 @@ The user account and the associated login that was used to initiate the terminat
 
 For more information on the steps needed after failover, see [Finalize your recovered Azure SQL Database](sql-database-recovered-finalize.md).
 
-## Next Steps
+## Next steps
 For more information on Geo-Replication and additional business continuity features of SQL Database, see [Business Continuity Overview](sql-database-business-continuity.md).
