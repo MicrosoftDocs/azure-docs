@@ -77,16 +77,15 @@ The **myCert.pem** file is the public key that may then be used to provision a L
 
 There are a number of utilities that include a `openssl` for Windows. A few examples are listed below -
 
-### Use Msysgit ###
+### Use Git for Windows ###
 
-1.	Download and install msysgit from the following location: [http://msysgit.github.com/](http://msysgit.github.com/)
-2.	Run `msys` from the installed directory (example: c:\msysgit\msys.exe)
+1.	Download and install Git for Windows from the following location: [http://git-for-windows.github.io/](http://git-for-windows.github.io/)
+2.	Run Git Bash from the Start Menu > All Programs > Git
 3.	Change to the `bin` directory by typing in `cd bin`
 
+### Use GitHub Desktop ###
 
-### Use GitHub for Windows ###
-
-1.	Download and install GitHub for Windows from the following location: [http://windows.github.com/](http://windows.github.com/)
+1.	Download and install GitHub Desktop from the following location: [http://desktop.github.com/](http://desktop.github.com/)
 2.	Run Git Shell from the Start Menu > All Programs > GitHub, Inc
 
 	**Note:** You may encounter the following error when running the `openssl` commands above:
