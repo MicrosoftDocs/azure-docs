@@ -18,5 +18,5 @@ This article is part of a series on how to manage SaaS applications with Azure A
 	- [How to integrate Box](https://msdn.microsoft.com/library/azure/dn308589.aspx)
 	- [How to integrate ServiceNow](https://msdn.microsoft.com/library/azure/dn510971.aspx)
 	- [How to integrate Dropbox for Business](https://msdn.microsoft.com/library/azure/dn510978.aspx)
-	- [How to integrate Workday](https://msdn.microsoft.com/library/azure/dn510972.aspx) 
+	- [How to integrate Workday](http://go.microsoft.com/fwlink/?LinkId=690250) 
 	- [More SaaS App Tutorials...](active-directory-saas-tutorial-list.md)

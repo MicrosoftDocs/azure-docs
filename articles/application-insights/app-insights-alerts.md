@@ -106,14 +106,22 @@ For most purposes, it's sufficient to set alerts manually. But if you want to cr
 
 If you haven't used PowerShell with your Azure subscription before:
 
-1. Install the Azure Powershell module on the machine where you want to run the scripts. 
+Install the Azure Powershell module on the machine where you want to run the scripts. 
+
  * Install [Microsoft Web Platform Installer (v5 or higher)](http://www.microsoft.com/web/downloads/platform.aspx).
  * Use it to install Microsoft Azure Powershell
-2. Start Azure PowerShell and [connect to your subscription](powershell-install-configure.md):
 
-    ```
+
+#### Connect to Azure
+
+Start Azure PowerShell and [connect to your subscription](powershell-install-configure.md):
+
+```PowerShell
+
     Add-AzureAccount
-    ```
+    Switch-AzureMode AzureResourceManager
+```
+
 
 #### Get alerts
 
@@ -213,6 +221,6 @@ request,<br/>requestFailed|[Server request](app-insights-configuration-with-appl
 [client]: app-insights-javascript.md
 [platforms]: app-insights-platforms.md
 [roles]: app-insights-resources-roles-access-control.md
-[start]: app-insights-get-started.md
+[start]: app-insights-overview.md
 
  

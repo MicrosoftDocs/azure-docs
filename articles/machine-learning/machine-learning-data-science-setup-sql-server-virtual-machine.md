@@ -2,8 +2,8 @@
 	pageTitle="Set up a SQL Server virtual machine as an IPython Notebook server | Microsoft Azure"
 	description="Set up a Data Science Virtual Machine with SQL Server and IPython Server."
 	services="machine-learning"
-	solutions="" documentationCenter=""
-	authors="msolhab" 
+	documentationCenter=""
+	authors="bradsev" 
 	manager="paulettm"
 	editor="cgronlun" />
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/01/2015"
+	ms.date="10/13/2015"
 	ms.author="mohabib;xibingao;bradsev" />
 
 # Set up an Azure SQL Server virtual machine as an IPython Notebook server for advanced analytics
@@ -389,7 +389,7 @@ The virtual machine will be deallocated but not deleted. You may restart your vi
 
 ## Your Azure SQL Server VM is ready to use: what's next?
 
-Your virtual machine is now ready to use in your data science exercises. The virtual machine is also ready for use as an IPython Notebook server for the exploration and processing of data, and other tasks in conjunction with Azure Machine Learning and the Advanced Analytics Process and Technology (ADAPT).
+Your virtual machine is now ready to use in your data science exercises. The virtual machine is also ready for use as an IPython Notebook server for the exploration and processing of data, and other tasks in conjunction with Azure Machine Learning and the Cortana Analytics Process (CAP).
 
 The next steps in the data science process are mapped in the [Learning Guide: Advanced data processing in Azure](machine-learning-data-science-advanced-data-processing.md) and may include steps that move data into HDInsight, process and sample it there in preparation for learning from the data with Azure Machine Learning.
 

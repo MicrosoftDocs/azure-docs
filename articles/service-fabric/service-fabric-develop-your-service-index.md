@@ -83,10 +83,6 @@ Communicating with Reliable Services and the abstractions which clients can use 
 - [WCF based communication stack for Reliable Services](service-fabric-reliable-services-communication-wcf.md)
 - [Getting Started with Microsoft Azure Service Fabric Web API services with OWIN self-host (VS 2015 RC)](service-fabric-reliable-services-communication-webapi.md)
 
-Reliable Services allows you to back up your data to an external store, described in:
-
--[Backup and Restore Reliable Services](service-fabric-reliable-services-backup-restore.md)
-
 Reliable Services emit events and performance counters, which can be used to diagnose and monitor your service:
 
 - [Stateful Reliable Service Diagnostics](service-fabric-reliable-services-diagnostics.md)
