@@ -45,6 +45,7 @@ For Azure CLI, see:
 For Azure PowerShell, see:
 
 - [Create a Windows VM with Resource Manager and PowerShell][]
+- [Create and preconfigure a Windows virtual machine with Resource Manager and Azure PowerShell][]
 - [Deploy and manage virtual machines using Azure Resource Manager templates and PowerShell][]
 - [Create a Windows virtual machine with a Resource Manager template and PowerShell][]
 
