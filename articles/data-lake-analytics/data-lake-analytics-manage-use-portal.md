@@ -155,8 +155,8 @@ there.
 
 	![Azure Data Lake Analytics add data source](./media/data-lake-analytics-manage-use-portal/data-lake-analytics-add-data-source.png)
 
-	To add a Azure Data Lake Store account, you need the account name.
-	To add a Azure Blob storage, you need the storage account and the account key.
+	To add a Azure Data Lake Store account, you need the account name, and access to the account to be able query it.
+	To add a Azure Blob storage, you need the storage account and the account key, which can be found by navigating to the storage account in the portal.
 
 <a name="explore-data-sources"></a>**To explore data sources**	
 
@@ -191,19 +191,20 @@ See [Upload data to Data Lake Store account](data-lake-store-get-started-portal.
 
 <a name="upload-data-to-wasb"></a> **To upload files to Azure Blob storage account**
 
-See [Uplaod data for hadoop jobs in HDInsight](hdinsight-upload-data.md).  The information applies to Data Laka Analtyics.
+See [Upload data for Hadoop jobs in HDInsight](hdinsight-upload-data.md).  The information applies to Data Laka Analtyics.
 
 
 ## Manage users
 
-Data Lake Analytics uses role-based access control with Azure active directory. When you create a Data Lake Analytics 
-account, a "Subscription admins" is added to the account. You can add additional users and security groups with 
+Data Lake Analytics uses role-based access control with Azure Active Directory. When you create a Data Lake Analytics 
+account, a "Subscription Admins" role is added to the account. You can add additional users and security groups with 
 the following roles:
 
 |Role|Description|
 |----|-----------|
 |Owner|Lets you manage everything, including access to resources.|
 |Contributor|Access the portal; submit and monitor jobs. To be able to submit jobs, a contributor also need the read or write permission to the Data Lake Store accounts.|
+|DataLakeAnalyticsDeveloper | User can submit jobs, monitor all jobs, but can only cancel their own jobs. They cannot manage their own account, for instance, add users, change permissions or delete the account. To be able to run jobs, they need read or write access to the Data Lake Store accounts     | 
 |Reader|Lets you view everything, but not make any changes.|  
 |DevTest Lab User|Lets you view everything, and connect, start, restart, and shutdown virtual machines[jgao: I never seen discussion related to ABA and VM]|  
 |User Access Administrator|Lets you manage user access to Azure resources.|  
@@ -249,7 +250,7 @@ You must have a Data Lake Analytics account before you can ran any jobs.  For mo
 	|----|-----------|
 	|Job Name|Enter the name of the job.|
 	|Priority|Lower number is higher priority. If two jobs are both queued, the one with lower priority will be run first|
-	|BDU|Max number of compute processes that can happen at the same time. Increasing this number can improve performance but can also increase cost.|
+	|Parallelism |Max number of compute processes that can happen at the same time. Increasing this number can improve performance but can also increase cost.|
 	|Script|Enter the U-SQL script for the job.|
 
 	Using the same interface, you can also explore the link data sources, and add addtional files to the linked data sources. 
