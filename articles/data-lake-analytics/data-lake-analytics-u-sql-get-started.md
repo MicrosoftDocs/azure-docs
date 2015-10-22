@@ -109,7 +109,7 @@ The main purpose of this section is to understand the process of writing and tes
 5. From **Solution Explorer**, right click **Script.usql**, and then click **Build Script**. Verify the result in the Output pane.
 6. From **Solution Explorer**, right click **Script.usql**, and then click **Submit Script**.
 7. Verify the **Analytics Account**, and then click **Submit**. Submission results and job link are available in the Data Lake Tools for Visual Studio Results window when the submission is completed.
-8. You can click the **Refresh** button to see the latest job status and refresh the screen. Wait until the job is completed successfully.  If the job failed, it is most likely missing the input file.  Please see the Prerequisite section of this tutorial. For additional troubleshooting information, see [Monitor and troubleshoot Azure Data Lake Analytics jobs](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md).
+8. You can click the **Refresh** button to see the latest job status and refresh the screen. Wait until the job is completed successfully.  If the job failed, it is most likely missing the source file.  Please see the Prerequisite section of this tutorial. For additional troubleshooting information, see [Monitor and troubleshoot Azure Data Lake Analytics jobs](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md).
 
 	
 **To see the job output**
@@ -137,7 +137,7 @@ Let's take a closer look of the script you wrote in the last section:
             TO "/output/SearchLog-first-usql.csv"
         USING Outputters.Csv();
 
-This script doesn't have any transformation steps. It reads from the input file called **SearchLog.tsv**, schematizes it, and outputs the rowset back into a file called **SearchLog-from-adltools.csv**. 
+This script doesn't have any transformation steps. It reads from the source file called **SearchLog.tsv**, schematizes it, and outputs the rowset back into a file called **SearchLog-from-adltools.csv**. 
 
 Notice the question mark next to the data type of the Duration field. That means the Duration field could be null.
 
@@ -316,7 +316,7 @@ Every U-SQL script runs with a default database (master) and default schema (dbo
 
 ### Create a table-valued function (TVF)
 
-In the previous U-SQL script, you repeated using EXTRACT reading from the same input file. U-SQL table-valued function enables you to encapsulate the data for future reuse.   
+In the previous U-SQL script, you repeated using EXTRACT reading from the same source file. U-SQL table-valued function enables you to encapsulate the data for future reuse.   
 
 The following script creates a TVF called *Searchlog()* in the default database and schema:
 

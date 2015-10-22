@@ -20,6 +20,7 @@
 
 [AZURE.INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
 
+[AZURE.IMPORTANT] The UE team hasn't been able to successfully install CLI.  Matthew Hicks and Ben Goldsmith are investigating.
 
 Learn how to manage Azure Data Lake Analytics accounts, data sources, users, and jobs using the Azure .
 

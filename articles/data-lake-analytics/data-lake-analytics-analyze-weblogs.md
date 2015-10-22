@@ -13,24 +13,21 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="10/21/2015"
+   ms.date="10/22/2015"
    ms.author="jgao"/>
 
 # Tutorial: Analyze Website logs using Azure Data Lake Analytics
 
 Learn how to analyze website logs using Data Lake Analytics, especially on finding out which referrers ran into errors when they tried to visit the website.
 
->[AZURE.NOTE] If you just want to see the application working, it saves time to go through [Use Azure Data Lake Analytics interactive tutorials](data-lake-analytics-use-interactive-tutorials.md). This tutorial is based on the same scenario and the same code. The purpose of this tutorial is to give developers the experience of creating and running a Data Lake Analytics application from the beginning to the end.
+>[AZURE.NOTE] If you just want to see the application working, it saves time to go through [Use Azure Data Lake Analytics interactive tutorials](data-lake-analytics-use-interactive-tutorials.md). This tutorial is based on the same scenario and the same code. The purpose of this tutorial is to give developers the experience of creating and running a Data Lake Analytics application from end to end.
 
 **Prerequisites:**
 
-- Visual Studio 2015, Visual Studio 2013 update 4, or Visual Studio 2012 with Visual C++ Installed 
-- Microsoft Azure SDK for .NET version 2.5 or above.  Install it using the [Web platform installer](http://www.microsoft.com/web/downloads/platform.aspx).
-- Data Lake Tools for Visual Studio
+- **Visual Studio 2015, Visual Studio 2013 update 4, or Visual Studio 2012 with Visual C++ Installed**. 
+- **Microsoft Azure SDK for .NET version 2.5 or above**.  Install it using the [Web platform installer](http://www.microsoft.com/web/downloads/platform.aspx).
+- **Data Lake Tools for Visual Studio**. Install it using the [Web platform installer](http://www.microsoft.com/web/downloads/platform.aspx).
 
-	Before the product release, download the package from [https://microsoft.sharepoint.com/teams/ProjectKona/Documents/Microsoft.SqlIPStudio.zip](https://microsoft.sharepoint.com/teams/ProjectKona/Documents/Microsoft.SqlIPStudio.zip).
-	[jgao: The package date is 9/22/2015 when this article is written.]
-	
 	Once Data Lake Tools for Visual Studio is installed, you will see a **Data Lake** menu in Visual Studio:
 	
 	![U-SQL Visual Studio menu](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-menu.png)
@@ -158,16 +155,17 @@ Before you can build and test any U-SQL scripts, you must first connect to Azure
             WHERE sc_status >=400 AND sc_status < 500;
         
         OUTPUT @content
-        TO @"/Samples/Outputs/UnsuccessfulResponsesJGao.log"
+        TO @"/Samples/Outputs/UnsuccessfulResponses.log"
         USING Outputters.Tsv();
 
-    The next section in this article will explain the script in details.  You just need to focus on understanding the development and testing process in this section.
+    The next section in this article will explain the script in details. Right now, you just need to focus on understanding the development and testing process in this section.
 
 5. Next to the **Submit** button, specify your Analytics account.
 5. From **Solution Explorer**, right click **Script.usql**, and then click **Build Script**. Verify the results in the Output pane.
 6. From **Solution Explorer**, right click **Script.usql**, and then click **Submit Script**.
-7. Verify the **Analytics Account**, and then click **Submit**. Submission results and job link are available in the Data Lake Tools for Visual Studio Results window when the submission is completed.
-8. You can click the **Refresh** button to see the latest job status and refresh the screen. Wait until the job is completed successfully.  If the job failed, it is most likely missing the input file.  Please see the Prerequisite section of this tutorial. For additional troubleshooting information, see [Monitor and troubleshoot Azure Data Lake Analytics jobs](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md).
+7. Verify the **Analytics Account** is the one where you want to run the job, and then click **Submit**. Submission results and job link are available in the Data Lake Tools for Visual Studio Results window when the submission is completed.
+8. Wait until the job is completed successfully.  If the job failed, it is most likely missing the source file.  Please see the Prerequisite section of this tutorial. For additional troubleshooting information, see [Monitor and troubleshoot Azure Data Lake Analytics jobs](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md).
+
     When the job is completed, you shall see the following screen:
     
     ![data lake analytics analyze weblogs website logs](./media/data-lake-analytics-analyze-weblogs/data-lake-analytics-analyze-weblogs-job-completed.png)
@@ -176,7 +174,7 @@ Before you can build and test any U-SQL scripts, you must first connect to Azure
 
 1. From **Server Explorer**, expand **Azure**, expand **Data Lake Analytics**, expand your Data Lake Analytics account, expand **Storage Accounts**, right-click the default Data Lake Storage account, and then click **Explorer**. 
 2.  Double-click **Samples** to open the folder, and then double-click **Outputs**.
-3.  Double-click **UnsuccessfulResponseesJGao.log**.
+3.  Double-click **UnsuccessfulResponsees.log**.
 
 ## See also
 

@@ -1,9 +1,9 @@
 <properties 
    pageTitle="Get started with Azure Data Lake Analytics using .NET SDK | Azure" 
-   description="Learn how to use the .NET SDK to create a Data Lake Store account, create a Data Lake Analytics job using U-SQL, and submit the job. " 
+   description="Learn how to use the .NET SDK to create Data Lake Store accounts, create Data Lake Analytics jobs, and submit jobs written in U-SQL. " 
    services="data-lake-analytics" 
    documentationCenter="" 
-   authors="" 
+   authors="edmacauley" 
    manager="paulettm" 
    editor="cgronlun"/>
  
@@ -16,29 +16,26 @@
    ms.date="10/21/2015"
    ms.author="edmaca"/>
 
-# Tutorial: Get Started with Azure Data Lake Analytics using .NET SDK
+# Tutorial: get started with Azure Data Lake Analytics using .NET SDK
 
 [AZURE.INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
 
-Learn how to use Microsoft .NET SDK to create an Azure Data Lake Analytics account, define a Data Lake Analytics
-job in [U-SQL](data-lake-analytics-u-sql-get-started.md), and submit the job. This job reads a tab separated values (TSV) file and convert it into a comma 
-separated values (CSV) file. For more information about Data Lake Analytics, see 
-[Azure Data Lake Analytics overview](data-lake-analytics-overview.md).
+Learn how to use the Azure .NET SDK to create Azure Data Lake Analytics accounts, define Data Lake Analytics
+jobs in [U-SQL](data-lake-analytics-u-sql-get-started.md), and submit jobs to Data Lake Analtyic accounts. For more 
+information about Data Lake Analytics, see [Azure Data Lake Analytics overview](data-lake-analytics-overview.md).
 
-To go through the same tutorial using other supported tools, click the tabs on the top of this section.
+In this tutorial, you will develop a C# console application which contains a U-SQL script that reads a tab separated values (TSV) file and converts it into a comma 
+separated values (CSV) file. To go through the same tutorial using other supported tools, click the tabs on the top of this section.
 
-**Basic Data Lake Analytics process:**
+**The basic Data Lake Analytics process:**
 
 ![Azure Data Lake Analytics process flow diagram](./media/data-lake-analytics-get-started-portal/data-lake-analytics-process.png)
 
 1. Create a Data Lake Analytics account.
-2. Prepare/upload the source data.
+2. Prepare the source data. Data Lake Analytic jobs can read data from either Azure Data Lake Store accounts or Azure Blob storage accounts.   
 3. Develop a U-SQL script.
-4. Submit a job (U-SQL script) to the Data Lake Analytics account. The job reads the data from Data Lake Store accounts and/or Azure Blob 
-storage accounts, process the data as instructed in the U-SQL script, and save the output to a Data Lake Store 
-account or an Azure Blob storage account.
-
-In this tutorial, you will develop a C# console application to perform these steps.
+4. Submit a job (U-SQL script) to the Data Lake Analytics account. The job reads from the source data, process the data as instructed 
+in the U-SQL script, and then save the output to either a Data Lake Store account or a Blob storage account.
 
 **Prerequisites**
 
@@ -68,7 +65,7 @@ A sample search log has been copied to a public Azure Blob container. In the app
         Install-Package Microsoft.Azure.Management.DataLake.StoreUploader -Pre
         Install-Package WindowsAzure.Storage
 
-4. Add a new file to the project called **SampleUSQLScript.txt**, and then paste the following U-SQL script:
+4. Add a new file to the project called **SampleUSQLScript.txt**, and then paste the following U-SQL script. The Data Lake Analtyics jobs are written in the U-SQL language. To learn more about U-SQL, see [Get started with U-SQL language](data-lake-analytics-u-sql-get-started.md) and [U-SQL language reference](http://go.microsoft.com/fwlink/?LinkId=691348).
 
         @searchlog =
             EXTRACT UserId          int,
@@ -85,17 +82,20 @@ A sample search log has been copied to a public Azure Blob container. In the app
             TO "/Output/SearchLog-from-Data-Lake.csv"
         USING Outputters.Csv();
 
-    This U-SQL script reads the input data file using **Extractors.Tsv()**, and then creates a csv file using **Outputters.Csv()*. 
+	This U-SQL script reads the source data file using **Extractors.Tsv()**, and then creates a csv file using **Outputters.Csv()**. 
     
-    Notice the paths are relative paths, because it is simpler to use relative paths for the files stored in the default data Lake account. You can also use absolute path.  For example 
+    In the C# program, you will need to prepare the **/Samples/Data/SearchLog.tsv** file, and the **/Output/** folder.    
+	
+	It is simpler to use relative paths for files stored in default data Lake accounts. You can also use absolute paths.  For example 
     
         adl://<Data LakeStorageAccountName>.azuredatalakestore.net:443/Samples/Data/SearchLog.tsv
         
-    You must use absolute path to access the files in the linked Storage accounts.  The syntax for files stored in linked Azure Storage account is:
+    You must use absolute paths to access  files in  linked Storage accounts.  The syntax for files stored in linked Azure Storage account is:
     
         wasb://<BlobContainerName>@<StorageAccountName>.blob.core.windows.net/Samples/Data/SearchLog.tsv
 
-    In the C# program, you will need to prepare the **/Samples/Data/SearchLog.tsv** file, and the **/Output/** folder.    
+    >[AZURE.NOTE] Azure Blob container with public blobs or public containers access permissions are not currently supported.    
+       
        
 5. In Program.cs, paste the following code:
 

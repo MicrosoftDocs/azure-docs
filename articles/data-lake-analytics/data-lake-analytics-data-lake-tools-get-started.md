@@ -16,7 +16,10 @@
    ms.date="10/21/2015"
    ms.author="jgao"/>
 
-# Tutorial: Develop U-SQL scripts using Data Lake Tools for Visual Studio
+# Tutorial: develop U-SQL scripts using Data Lake Tools for Visual Studio
+
+[AZURE.INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
+
 
 Learn how to install Data Lake Tools for Visual Studio, and use Data Lake Tools for Visual Studio to write and test U-SQL scripts.
 
@@ -80,6 +83,8 @@ In case you want to use your own data, here are the procedures for uploading dat
 
 ## Develop and test U-SQL scripts 
 
+The Data Lake Analtyics jobs are written in the U-SQL language. To learn more about U-SQL, see [Get started with U-SQL language](data-lake-analytics-u-sql-get-started.md) and [U-SQL language reference](http://go.microsoft.com/fwlink/?LinkId=691348).
+
 **To create and submit an Data Lake Analytics job** 
 
 1. From the **File** menu, click **New**, and then click **Project**.
@@ -102,17 +107,18 @@ In case you want to use your own data, here are the procedures for uploading dat
             USING Extractors.Tsv();
         
         OUTPUT @searchlog   
-            TO "/output/SearchLog-from-adltools.csv"
+            TO "/Output/SearchLog-from-Data-Lake.csv"
         USING Outputters.Csv();
 
-	This U-SQL script reads the input data file using the Extractors.tsv(), and then creates a csv file using
-    theOutputters.csv(). 
+	This U-SQL script reads the source data file using **Extractors.Tsv()**, and then creates a csv file using **Outputters.Csv()**. 
     
-    Notice the path is a relative path. You can also use absolute path.  For example 
+    Don't modify the two paths unless you copied the source file into a different location.  Data Lake Analytics will create the output folder if it doesn't exist.
+	
+	It is simpler to use relative paths for files stored in default data Lake accounts. You can also use absolute paths.  For example 
     
-        adl://<DataLakeStorageAccountName>.azuredatalakestore.net:443/Samples/Data/SearchLog.tsv
+        adl://<Data LakeStorageAccountName>.azuredatalakestore.net:443/Samples/Data/SearchLog.tsv
         
-    You must use absolute path to access the files in the linked Storage accounts.  The syntax for files stored in linked Azure Storage account is:
+    You must use absolute paths to access  files in  linked Storage accounts.  The syntax for files stored in linked Azure Storage account is:
     
         wasb://<BlobContainerName>@<StorageAccountName>.blob.core.windows.net/Samples/Data/SearchLog.tsv
 
