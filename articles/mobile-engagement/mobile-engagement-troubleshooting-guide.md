@@ -21,15 +21,15 @@
 ## Introduction
 The following troubleshooting guide will help you understand root causes of some commonly seen issues and will enable you to troubleshoot on your own. 
 
-
 ## General
 
 In general, you should always ensure the following:
+
 1. Ensure that you have gone through all the steps required for integration as described in our [Getting Started tutorials](mobile-engagement-windows-store-dotnet-get-started.md)
 2. You are using the latest version of the platform SDKs. 
 3. Test on both an actual device and an emulator because some issues are specific to emulator only. 
-3. You are not hitting any limits/throttles from Mobile Engagement which are documented [here](azure-subscription-service-limits.md/#mobile-engagement-limits)
-4. If you are not able to connect to the Mobile Engagement service backend or seeing data not being loaded continuously then ensure that there are no ongoing service incidents by checking [here](https://azure.microsoft.com/en-us/status/)
+4. You are not hitting any limits/throttles from Mobile Engagement which are documented [here](azure-subscription-service-limits.md/#mobile-engagement-limits)
+5. If you are not able to connect to the Mobile Engagement service backend or seeing data not being loaded continuously then ensure that there are no ongoing service incidents by checking [here](https://azure.microsoft.com/en-us/status/)
 
 ## 'Monitor' issues
 
