@@ -18,7 +18,7 @@
 
 # Visualize data with Power BI
 
-    > [AZURE.VIDEO azure-sql-data-warehouse-sample-data-and-powerbi]
+> [AZURE.VIDEO azure-sql-data-warehouse-sample-data-and-powerbi]
 
 This tutorial shows you how to use Power BI to connect to SQL Data Warehouse and create a few basic visualizations.
 

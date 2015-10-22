@@ -18,7 +18,7 @@
 
 # Load Data with Azure Data Factory
 
-    > [AZURE.VIDEO loading-azure-sql-data-warehouse-with-azure-data-factory]
+>[AZURE.VIDEO loading-azure-sql-data-warehouse-with-azure-data-factory]
 
  Following this tutorial will show you how to create a pipeline in Azure Data Factory that will move data from Azure Storage Blobs to a SQL Data Warehouse. With the following steps you will:
 
