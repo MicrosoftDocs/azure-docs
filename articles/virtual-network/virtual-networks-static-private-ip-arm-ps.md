@@ -4,7 +4,7 @@
    services="virtual-network"
    documentationCenter="na"
    authors="telmosampaio"
-   manager="carolz"
+   manager="carmonm"
    editor="tysonn"
    tags="azure-resource-manager"
 />
@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/08/2015"
+   ms.date="10/21/2015"
    ms.author="telmos" />
 
 # How to set a static private IP address in PowerShell
@@ -32,6 +32,8 @@ The sample PowerShell commands below expect a simple environment already created
 ## How to specify a static private IP address when creating a VM
 To create a VM named *DNS01* in the *FrontEnd* subnet of a VNet named *TestVNet* with a static private IP of *192.168.1.101*, follow the steps below:
 
+[AZURE.INCLUDE [powershell-preview-include.md](../../includes/powershell-preview-include.md)]
+
 1. Set variables for the storage account, location, resource group, and credentials to be used. You will need to enter a user name and password for the VM. The storage account and resource group must already exist.
 
 		$stName = "vnetstorage"
@@ -41,26 +43,26 @@ To create a VM named *DNS01* in the *FrontEnd* subnet of a VNet named *TestVNet*
 
 3. Retrieve the virtual network and subnet you want to create the VM in.
 
-	    $vnet = Get-AzureRMVirtualNetwork -ResourceGroupName TestRG -Name TestVNet	
+	    $vnet = Get-AzureVirtualNetwork -ResourceGroupName TestRG -Name TestVNet	
 	    $subnet = $vnet.Subnets[0].Id
 
 4. If necessary, create a public IP address to access the VM from the Internet.
 
-		$pip = New-AzureRMPublicIpAddress -Name TestPIP -ResourceGroupName $rgName -Location $locName -AllocationMethod Dynamic
+		$pip = New-AzurePublicIpAddress -Name TestPIP -ResourceGroupName $rgName -Location $locName -AllocationMethod Dynamic
 
 5. Create a NIC using the static private IP address you want to assign to the VM. Make sure the IP is from the subnet range you are adding the VM to. This is the main step for this article, where you set the private IP to be static.
 
-		$nic = New-AzureRMNetworkInterface -Name TestNIC -ResourceGroupName $rgName -Location $locName -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id -PrivateIpAddress 192.168.1.101
+		$nic = New-AzureNetworkInterface -Name TestNIC -ResourceGroupName $rgName -Location $locName -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id -PrivateIpAddress 192.168.1.101
 
 6. Create the VM using the NIC created above.
 
-		$vm = New-AzureRMVMConfig -VMName DNS01 -VMSize "Standard_A1"
-		$vm = Set-AzureRMVMOperatingSystem -VM $vm -Windows -ComputerName DNS01  -Credential $cred -ProvisionVMAgent -EnableAutoUpdate
-		$vm = Set-AzureRMVMSourceImage -VM $vm -PublisherName MicrosoftWindowsServer -Offer WindowsServer -Skus 2012-R2-Datacenter -Version "latest"
-		$vm = Add-AzureRMVMNetworkInterface -VM $vm -Id $nic.Id
+		$vm = New-AzureVMConfig -VMName DNS01 -VMSize "Standard_A1"
+		$vm = Set-AzureVMOperatingSystem -VM $vm -Windows -ComputerName DNS01  -Credential $cred -ProvisionVMAgent -EnableAutoUpdate
+		$vm = Set-AzureVMSourceImage -VM $vm -PublisherName MicrosoftWindowsServer -Offer WindowsServer -Skus 2012-R2-Datacenter -Version "latest"
+		$vm = Add-AzureVMNetworkInterface -VM $vm -Id $nic.Id
 		$osDiskUri = $storageAcc.PrimaryEndpoints.Blob.ToString() + "vhds/WindowsVMosDisk.vhd"
-		$vm = Set-AzureRMVMOSDisk -VM $vm -Name "windowsvmosdisk" -VhdUri $osDiskUri -CreateOption fromImage
-		New-AzureRMVM -ResourceGroupName $rgName -Location $locName -VM $vm 
+		$vm = Set-AzureVMOSDisk -VM $vm -Name "windowsvmosdisk" -VhdUri $osDiskUri -CreateOption fromImage
+		New-AzureVM -ResourceGroupName $rgName -Location $locName -VM $vm 
 
 	Expected output:
 
@@ -77,7 +79,7 @@ To create a VM named *DNS01* in the *FrontEnd* subnet of a VNet named *TestVNet*
 ## How to retrieve static private IP address information for a VM
 To view the static private IP address information for the VM created with the script above, run the following PowerShell command and observe the values for *PrivateIpAddress* and *PrivateIpAllocationMethod*:
 
-	Get-AzureRMNetworkInterface -Name TestNIC -ResourceGroupName TestRG
+	Get-AzureNetworkInterface -Name TestNIC -ResourceGroupName TestRG
 
 Expected output:
 
@@ -127,9 +129,9 @@ Expected output:
 ## How to remove a static private IP address from a VM
 To remove the static private IP address added to the VM in the script above, run the following PowerShell commands:
 	
-	$nic=Get-AzureRMNetworkInterface -Name TestNIC -ResourceGroupName TestRG
+	$nic=Get-AzureNetworkInterface -Name TestNIC -ResourceGroupName TestRG
 	$nic.IpConfigurations[0].PrivateIpAllocationMethod = "Dynamic"
-	Set-AzureRMNetworkInterface -NetworkInterface $nic
+	Set-AzureNetworkInterface -NetworkInterface $nic
 
 Expected output:
 
@@ -179,10 +181,10 @@ Expected output:
 ## How to add a static private IP address to an existing VM
 To add a static private IP address to the VM created using the script above, runt he following command:
 
-	$nic=Get-AzureRMNetworkInterface -Name TestNIC -ResourceGroupName TestRG
+	$nic=Get-AzureNetworkInterface -Name TestNIC -ResourceGroupName TestRG
 	$nic.IpConfigurations[0].PrivateIpAllocationMethod = "Static"
 	$nic.IpConfigurations[0].PrivateIpAddress = "192.168.1.101"
-	Set-AzureRMNetworkInterface -NetworkInterface $nic
+	Set-AzureNetworkInterface -NetworkInterface $nic
 
 ## Next steps
 
