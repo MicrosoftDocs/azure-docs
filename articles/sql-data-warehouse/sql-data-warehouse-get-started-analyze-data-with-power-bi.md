@@ -88,18 +88,18 @@ You can save your progress at any time by clicking **File** and selecting **Save
 Now that we've given you some time to warm up with the sample data, see how to [develop][], [load][], or [migrate][].
 
 <!--Image references-->
-[1]:./media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-find-database.png
-[2]:./media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-button.png
-[3]:./media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-connect-to-azure.png
-[4]:./media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-sign-in.png
-[5]:./media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-open-adventureworks.png
-[6]:./media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-aggregatesales.png
-[7]:./media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-map.png
-[8]:./media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-chooseaxis.png
-[9]:./media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-bar.png
-[10]:./media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-prepare-line.png
-[11]:./media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-line.png
-[12]:./media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-save.png
+[1]:./media/sql-data-warehouse-get-started-analyze-data-with-power-bi/pbi-find-database.png
+[2]:./media/sql-data-warehouse-get-started-analyze-data-with-power-bi/pbi-button.png
+[3]:./media/sql-data-warehouse-get-started-analyze-data-with-power-bi/pbi-connect-to-azure.png
+[4]:./media/sql-data-warehouse-get-started-analyze-data-with-power-bi/pbi-sign-in.png
+[5]:./media/sql-data-warehouse-get-started-analyze-data-with-power-bi/pbi-open-adventureworks.png
+[6]:./media/sql-data-warehouse-get-started-analyze-data-with-power-bi/pbi-aggregatesales.png
+[7]:./media/sql-data-warehouse-get-started-analyze-data-with-power-bi/pbi-map.png
+[8]:./media/sql-data-warehouse-get-started-analyze-data-with-power-bi/pbi-chooseaxis.png
+[9]:./media/sql-data-warehouse-get-started-analyze-data-with-power-bi/pbi-bar.png
+[10]:./media/sql-data-warehouse-get-started-analyze-data-with-power-bi/pbi-prepare-line.png
+[11]:./media/sql-data-warehouse-get-started-analyze-data-with-power-bi/pbi-line.png
+[12]:./media/sql-data-warehouse-get-started-analyze-data-with-power-bi/pbi-save.png
 
 <!--Article references-->
 [migrate]: ./sql-data-warehouse-overview-migrate.md
