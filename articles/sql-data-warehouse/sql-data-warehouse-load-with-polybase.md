@@ -246,12 +246,10 @@ FROM   [ext].[CarSensor_Data]
 See [CREATE TABLE AS SELECT (Transact-SQL)][].
 
 
-## Export data to Azure Storage
-This section shows how to export data from SQL Data Warehouse to Azure blob storage.
+## Export data to Azure blob storage
+This section shows how to export data from SQL Data Warehouse to Azure blob storage. This example uses CREATE EXTERNAL TABLE AS SELECT which is a highly performant Transact-SQL statement to export the data in parallel from all the compute nodes. 
 
-This example uses CREATE EXTERNAL TABLE AS SELECT which is a highly performant Transact-SQL statement to export the data in parallel from all the compute nodes. 
-
-The following example creates an external table Weblogs2014 using column definitions and data from dbo.Weblogs table. The external table definition is stored in SQL Data Warehouse and the results of the SELECT statement are exported to the "/archive/log2014/" directory under the blob container specified by the data source. The data is exported in text file format. 
+The following example creates an external table Weblogs2014 using column definitions and data from dbo.Weblogs table. The external table definition is stored in SQL Data Warehouse and the results of the SELECT statement are exported to the "/archive/log2014/" directory under the blob container specified by the data source. The data is exported in text file format. You can choose to specify a file name for your exported data with the location attribute '/archive/log2014/myfilename.txt'. If a file name is not specified, PolyBase will name the files external_table_name.ID where ID is an incremental identifier. 
 
 ```
 CREATE EXTERNAL TABLE Weblogs2014 WITH
@@ -271,8 +269,6 @@ WHERE
     AND DateRequested > '12/31/2013'
     AND DateRequested < '01/01/2015';
 ```
-
-You can choose to specify a file name for your exported data with the location attribute '/archive/log2014/myfilename.txt'. If a file name is not specified, PolyBase will name the files <external_table_name>.ID where ID is an incremental identifier. In this example, the external table name is Weblogs2014 and the file created on Azure Storage is Weblogs2014.1.txt. If you delete the external table Weblogs2014, the Weblogs.1.txt file remains in Azure Storage. If you run CETAS again to create Weblogs2014, this time the exported file is called Weblogs.2.txt.
 
 
 
