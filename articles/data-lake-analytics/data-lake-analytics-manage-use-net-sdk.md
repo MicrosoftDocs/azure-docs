@@ -20,17 +20,19 @@
 
 [AZURE.INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
 
->[AZURE.NOTE] This article is still under development. The UE team ran into a bug that Ben Smith and Matthew Hicks are investigating.
+Learn how to manage Azure Data Lake Analytics accounts, data sources, users, and jobs using the Azure PowerShell. To see  management topic using other tools, click the tab select above.
 
-Learn how to manage Azure Data Lake Analytics accounts, data sources, users, and jobs using the Azure PowerShell.
+>[AZURE.IMPORTANT] This article is still under development. The UE team ran into a bug that Ben Smith and Matthew Hicks are investigating.
+
 
 **Prerequisites**
 
 Before you begin this tutorial, you must have the following:
 
 - **An Azure subscription**. See [Get Azure free trial]https://azure.microsoft.com/en-us/pricing/free-trial/).
-- **Visual Studio**. 
-	
+- **Visual Studio 2015, Visual Studio 2013 update 4, or Visual Studio 2012 with Visual C++ Installed**.
+- **Microsoft Azure SDK for .NET version 2.5 or above**.  Install it using the [Web platform installer](http://www.microsoft.com/web/downloads/platform.aspx).
+- **Data Lake Tools for Visual Studio**. Install it using the [Web platform installer](http://www.microsoft.com/web/downloads/platform.aspx).
 
 <!-- ################################ -->
 <!-- ################################ -->
@@ -56,7 +58,7 @@ Before you begin this tutorial, you must have the following:
 
 
 
-## Enumerate catalog
+## Manage catalogs
 
 
 

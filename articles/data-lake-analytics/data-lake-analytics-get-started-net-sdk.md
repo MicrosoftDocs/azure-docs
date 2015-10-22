@@ -20,9 +20,13 @@
 
 [AZURE.INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
 
+
 Learn how to use the Azure .NET SDK to create Azure Data Lake Analytics accounts, define Data Lake Analytics
 jobs in [U-SQL](data-lake-analytics-u-sql-get-started.md), and submit jobs to Data Lake Analtyic accounts. For more 
 information about Data Lake Analytics, see [Azure Data Lake Analytics overview](data-lake-analytics-overview.md).
+
+>[AZURE.IMPORTANT] This article is still under development. The UE team ran into a bug that Ben Smith and Matthew Hicks are investigating.
+
 
 In this tutorial, you will develop a C# console application which contains a U-SQL script that reads a tab separated values (TSV) file and converts it into a comma 
 separated values (CSV) file. To go through the same tutorial using other supported tools, click the tabs on the top of this section.
@@ -37,14 +41,18 @@ separated values (CSV) file. To go through the same tutorial using other support
 4. Submit a job (U-SQL script) to the Data Lake Analytics account. The job reads from the source data, process the data as instructed 
 in the U-SQL script, and then save the output to either a Data Lake Store account or a Blob storage account.
 
-**Prerequisites**
+##Prerequisites
 
 Before you begin this tutorial, you must have the following:
 
-- **An Azure subscription**. See [Get Azure free trial]https://azure.microsoft.com/en-us/pricing/free-trial/).
-- **Visual Studio**. 
+- **Visual Studio 2015, Visual Studio 2013 update 4, or Visual Studio 2012 with Visual C++ Installed**.
+- **Microsoft Azure SDK for .NET version 2.5 or above**.  Install it using the [Web platform installer](http://www.microsoft.com/web/downloads/platform.aspx).
+- **Data Lake Tools for Visual Studio**. Install it using the [Web platform installer](http://www.microsoft.com/web/downloads/platform.aspx).
+- **A Data Lake Analytics account**.  See [Create an Azure Data Lake Analytics account](data-lake-analytics-get-started-portal.md#create_adl_analytics_account).
 
-##Create a C# console application
+	The Data Lake Tools doesn't support creating Data Lake Analytics accounts.  So you have to create it using the Azure Preview Portal, Azure PowerShell, .NET SDK or Azure CLI. 
+
+##Create console application
 
 In this tutorial, you will process some search logs.  The search log can be stored in either Data Lake store or Azure Blob storage. 
 
@@ -162,7 +170,7 @@ A sample search log has been copied to a public Azure Blob container. In the app
                     _dataLakeStoreClient.DataLakeStoreAccount.Create(ResourceGroupName, storeAccountParameters);
         
                     //=========================
-                    Console.WriteLine("Preparing the source data file and output folder ...");
+                    Console.WriteLine("Preparing the source data file ...");
         
                     // Download the source file from a public Azure Blob container.
                     CloudBlockBlob blob = new CloudBlockBlob(new Uri("https://adltutorials.blob.core.windows.net/adls-sample-data/SearchLog.tsv"));
@@ -170,9 +178,6 @@ A sample search log has been copied to a public Azure Blob container. In the app
         
                     // Create a folder in the default Data Lake Store account.
                     _dataLakeStoreFileSystemClient.FileSystem.Mkdirs("/Samples/Data/", DataLakeStoreAccountName, "777");
-        
-                    // Create the output folder in the default Data Lake Store account
-                    _dataLakeStoreFileSystemClient.FileSystem.Mkdirs("/Output/", DataLakeStoreAccountName, "777");
         
                     // Upload the source file to the default Data Lake Store account
                     var uploadParameters = new UploadParameters(LocalFolder + "SearchLog.tsv", "/Samples/Data/SearchLog.tsv", DataLakeStoreAccountName, isOverwrite: true);
@@ -247,6 +252,8 @@ A sample search log has been copied to a public Azure Blob container. In the app
         }
 
 7. Press **F5** to run the application.
+
+[jgao: add a screenshot of the end results.]
 
 ## See also
 

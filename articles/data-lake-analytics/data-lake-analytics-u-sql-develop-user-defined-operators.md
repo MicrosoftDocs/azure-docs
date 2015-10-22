@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="10/20/2015"
+   ms.date="10/22/2015"
    ms.author="jgao"/>
 
 
@@ -21,7 +21,7 @@
 
 Learn how to develop user defined operators to be used and reused in Data Lake Analytics jobs. You will develop a custom operator to convert country names.
 
-**Prerequisites**
+##Prerequisites
 
 - Visual Studio 2015, Visual Studio 2013 update 4, or Visual Studio 2012 with Visual C++ Installed 
 - Microsoft Azure SDK for .NET version 2.5 or above.  Install it using the Web platform installer.
@@ -30,9 +30,9 @@ Learn how to develop user defined operators to be used and reused in Data Lake A
 - Connect to Azure, see [Get started with Azure Data Lake Analytics U-SQL Studio](data-lake-analytics-u-sql-studio-get-started.md#connect-to-azure). 
 - Upload the source data, see [Get started with Azure Data Lake Analytics U-SQL Studio](data-lake-analytics-u-sql-studio-get-started.md#upload-source-data-files). 
 
-## Define and call a user defined operator in SQLIP
+## Define and use user defined operator in U-SQL
 
-**To create and submit a SQLIP job** 
+**To create and submit a U-SQL job** 
 
 1. From the **File** menu, click **New**, and then click **Project**.
 2. Select the **U-SQL Project** type.
@@ -132,7 +132,7 @@ Learn how to develop user defined operators to be used and reused in Data Lake A
 6. From **Solution Explorer**, right click **Script.usql**, and then click **Build Script**.
 6. From **Solution Explorer**, right click **Script.usql**, and then click **Submit Script**.
 7. If you haven't connect to your Azure subscription, you will be prompt to enter your Azure account credentials.
-7. Click **Submit**. Submission results and job link are available in the SqlipStudio Results window when the submission is completed.
+7. Click **Submit**. Submission results and job link are available in the Results window when the submission is completed.
 8. You must click the Refresh button to see the latest job status and refresh the screen.
 
 **To see the job output**
@@ -145,4 +145,4 @@ Learn how to develop user defined operators to be used and reused in Data Lake A
 
 - [Get started with Data Lake Analytics using PowerShell](data-lake-analytics-get-started-powershell.md)
 - [Get started with Data Lake Analytics using the Azure portal](data-lake-analytics-get-started-portal.md)
-- [Get started using Data Lake Analytics SQLIP Studio](data-lake-analytics-u-sql-studio-get-started.md)
+- [Use Data Lake Tools for Visual Studio for developing U-SQL applications](data-lake-analytics-data-lake-tools-get-started.md)

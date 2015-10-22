@@ -20,9 +20,10 @@
 
 [AZURE.INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
 
-[AZURE.IMPORTANT] The UE team hasn't been able to successfully install CLI.  Matthew Hicks and Ben Goldsmith are investigating.
+Learn how to manage Azure Data Lake Analytics accounts, data sources, users, and jobs using the Azure. To see management topic using other tools, click the tab select above.
 
-Learn how to manage Azure Data Lake Analytics accounts, data sources, users, and jobs using the Azure .
+>[AZURE.IMPORTANT] The UE team hasn't been able to successfully install CLI.  Matthew Hicks and Ben Goldsmith are investigating.
+
 
 **Prerequisites**
 
@@ -38,20 +39,8 @@ Before you begin this tutorial, you must have the following:
 
 		azure config mode arm
 
-This article includes:
 
-- Use ARM
-- Manage accounts
-- Manage data sources
-- Manage users
-- Manage jobs
-- Monitor account usage
-- Manage catalog
-	- tables
-	- table valued functions
-	- assemblies
-	
-To list the Data Lake Store and Data Lake Analytics commands:
+**To list the Data Lake Store and Data Lake Analytics commands:**
 
 	azure datalake store
 	azure datalake analytics
@@ -60,7 +49,7 @@ To list the Data Lake Store and Data Lake Analytics commands:
 <!-- ################################ -->
 ## Use Azure Resource Manager groups
 
-[jgao: is ADL-Analytics a good usage case of ARM? If no, I can remove this section]
+[jgao: is ADL-Analytics a good usage case of ARM? If no, I will remove this section]
 
 Applications are typically made up of many components, for example a web app, database, database server, storage,
 and 3rd party services. Azure Resource Manager (ARM) enables you to work with the resources in your application 
@@ -94,7 +83,7 @@ Managed cluster (Previously known as Azure HDInsight), you don't pay for an Anal
 running a job.  You only pay for the time when it is running a job.  For more informaiton, see 
 [Azure Data Lake Analytics Overview](data-lake-analytics-overview.md).  
 
-###Create accounts**
+###Create accounts
 
   datalake analytics account create [options] <dataLakeAnalyticsAccountName> <location> <resourceGroup> <defaultDataLake>
   datalake analytics account set [options] <dataLakeAnalyticsAccountName>
@@ -195,7 +184,7 @@ You must have an Data Lake Analytics account before you can create a job.  For m
 
   	azure datalake analytics job cancel [options] <dataLakeAnalyticsAccountName> <jobId>
 
-## Enumerate catalog
+## Manage catalog
 
 
 

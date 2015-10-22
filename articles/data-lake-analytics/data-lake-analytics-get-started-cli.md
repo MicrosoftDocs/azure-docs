@@ -20,11 +20,13 @@
 
 [AZURE.INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
 
-[AZURE.IMPORTANT] The UE team hasn't been able to successfully install CLI.  Matthew Hicks and Ben Goldsmith are investigating.
 
 Learn how to use Azure CLI to create Azure Data Lake Analytics accounts, define Data Lake Analytics
 jobs in [U-SQL](data-lake-analytics-u-sql-get-started.md), and submit jobs to Data Lake Analtyic accounts. For more 
 information about Data Lake Analytics, see [Azure Data Lake Analytics overview](data-lake-analytics-overview.md).
+
+>[AZURE.IMPORTANT] The UE team hasn't been able to successfully install CLI.  Matthew Hicks and Ben Goldsmith are investigating.
+
 
 In this tutorial, you will develop a job that reads a tab separated values (TSV) file and converts it into a comma 
 separated values (CSV) file. To go through the same tutorial using other supported tools, click the tabs on the top of this section.
@@ -90,16 +92,16 @@ You must have a Data Lake Analytics account before you can run any jobs. To crea
 		azure datalake analytics account list [options]
 		azure datalake analytics account show [options] <dataLakeAnalyticsAccountName>				
 
-	> [AZURE.NOTE] The Data Lake Analytics account name must only contain lowercase letters and numbers.
+> [AZURE.NOTE] The Data Lake Analytics account name must only contain lowercase letters and numbers.
 
 
-##Upload data to Data Lake
+##Upload data to Data Lake Store
 
 In this tutorial, you will process some search logs.  The search log can be stored in either Data Lake store or Azure Blob storage. 
 
-A sample search log has been copied to a public Azure Blob container. Use the following CLI script to download the file to your workstation, and then upload the file to your default Data Lake Store account.
+A sample search log has been copied to a public Azure Blob container. Use the following CLI script to download the file to your workstation, and then upload the file to your default Data Lake Store account of the Analytics account.
+For more information on CLI operations on Azure storage, see [Using the Azure CLI with Azure Storage](storage-azure-cli.md).
 
-See [Using the Azure CLI with Azure Storage](storage-azure-cli.md).
 
 	#!/bin/bash
 	# A simple Azure storage example
@@ -128,8 +130,9 @@ See [Using the Azure CLI with Azure Storage](storage-azure-cli.md).
 
 
 =======================
-  azre datalake store filesystem import [options] <dataLakeStoreAccountName> <path> <destination>
-  azure datalake store filesystem list [options] <dataLakeStoreAccountName> <path>
+
+  	azre datalake store filesystem import [options] <dataLakeStoreAccountName> <path> <destination>
+  	azure datalake store filesystem list [options] <dataLakeStoreAccountName> <path>
 
 
 >[AZURE.NOTE] The Azure Preview portal provides an user interface to copy the sample data files to the default Data Lake Store account. For instructions, see [Get Started with Azure Data Lake Analytics using Azure Preview Portal](data-lake-analytics-get-started-portal.md#upload-data-to-the-default-data-lake-store-account).
@@ -197,7 +200,6 @@ After the job is completed, you can use the following cmdlets to list the file, 
 	azure datalake store filesystem addcontent [options] <dataLakeStoreAccountName> <path> <value>
 	azure datalake store filesystem export [options] <dataLakeStoreAccountName> <path> <destination>
 	azure datalake store filesystem read [options] <dataLakeStoreAccountName> <path>
-
 
 ## See also
 

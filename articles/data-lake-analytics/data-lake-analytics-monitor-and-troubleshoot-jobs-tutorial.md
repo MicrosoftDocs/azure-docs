@@ -26,8 +26,8 @@ In this tutorial, you will setup a missing source file problem, and use the Azur
 
 Before you begin this tutorial, you must have the following:
 
-- Basic understanding of Data Lake Analytics job process. See [Get started with Azure Data Lake Analytics using Azure Preview Portal](data-lake-analytics-get-started-use-portal.md).
-- A Data Lake Analytics account. See [Get started with Azure Data Lake Analytics using Azure Preview Portal](data-lake-analytics-get-started-use-portal.md#create-adl-analytics-account).
+- **Basic knowledge of Data Lake Analytics job process**. See [Get started with Azure Data Lake Analytics using Azure Preview Portal](data-lake-analytics-get-started-use-portal.md).
+- **A Data Lake Analytics account**. See [Get started with Azure Data Lake Analytics using Azure Preview Portal](data-lake-analytics-get-started-use-portal.md#create-adl-analytics-account).
 
 >[AZURE.NOTE] Don't upload the sample data files. If you have uploaded the file, [find the default Storage account](data-lake-analytics-manage-use-portal.md#default-adl-account), and the [delete the files]((data-lake-analytics-manage-use-portal.md#explore-data-sources)).
 

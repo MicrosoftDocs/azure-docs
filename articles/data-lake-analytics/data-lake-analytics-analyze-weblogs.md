@@ -22,7 +22,7 @@ Learn how to analyze website logs using Data Lake Analytics, especially on findi
 
 >[AZURE.NOTE] If you just want to see the application working, it saves time to go through [Use Azure Data Lake Analytics interactive tutorials](data-lake-analytics-use-interactive-tutorials.md). This tutorial is based on the same scenario and the same code. The purpose of this tutorial is to give developers the experience of creating and running a Data Lake Analytics application from end to end.
 
-**Prerequisites:**
+## Prerequisites:
 
 - **Visual Studio 2015, Visual Studio 2013 update 4, or Visual Studio 2012 with Visual C++ Installed**. 
 - **Microsoft Azure SDK for .NET version 2.5 or above**.  Install it using the [Web platform installer](http://www.microsoft.com/web/downloads/platform.aspx).
@@ -32,19 +32,19 @@ Learn how to analyze website logs using Data Lake Analytics, especially on findi
 	
 	![U-SQL Visual Studio menu](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-menu.png)
 
-- Basic knowledge of Data Lake Analytics and the Data Lake Tools for Visual Studio. To get started, see:
+- **Basic knowledge of Data Lake Analytics and the Data Lake Tools for Visual Studio**. To get started, see:
  
 	- [Get Started with Azure Data Lake Analytics using Azure Preview Portal](data-lake-analytics-get-started-portal.md).
 	- [Develop U-SQL script using Data Lake tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md).
 
-- A Data Lake Analytics account.  See [Create an Azure Data Lake Analytics account](data-lake-analytics-get-started-portal.md#create_adl_analytics_account).
-
-- Upload the sample data to the Data Lake Analytics account. See [Upload SearchLog.tsv to the default Data Lake Storage account](data-lake-analytics-get-started-portal.md#update-data-to-the-default-adl-storage-account).
+- **A Data Lake Analytics account**.  See [Create an Azure Data Lake Analytics account](data-lake-analytics-get-started-portal.md#create_adl_analytics_account).
 
 	The Data Lake Tools doesn't support creating Data Lake Analytics accounts.  So you have to create it using the Azure Preview Portal, Azure PowerShell, .NET SDK or Azure CLI. 
+- **Upload the sample data to the Data Lake Analytics account. See [Upload SearchLog.tsv to the default Data Lake Storage account](data-lake-analytics-get-started-portal.md#update-data-to-the-default-adl-storage-account).
+
     To run a Data Lake Analytics job, you will need some data. Even though the Data Lake Tools supports uploading data, you will use the portal to upload the sample data to make this tutorial easier to follow. 
  
-## Connect to Azure from Visual Studio
+## Connect to Azure 
 
 Before you can build and test any U-SQL scripts, you must first connect to Azure.
 
@@ -60,7 +60,11 @@ Before you can build and test any U-SQL scripts, you must first connect to Azure
 1. From Visual Studio, open **Server Explorer** by press **CTRL+ALT+S**.
 2. From **Server Explorer**, expand **Azure**, and then expand **Data Lake Analytics**. You shall see a list of your Data Lake Analytics accounts if there are any. You cannot create Data Lake Analytics accounts from the studio. To create an account, see [Get Started with Azure Data Lake Analytics using Azure Preview Portal](data-lake-analytics-get-started-portal.md) or [Get Started with Azure Data Lake Analytics using Azure PowerShell](data-lake-get-started-powershell.md).
 
-## Develop a U-SQL application 
+## Develop U-SQL application 
+
+A U-SQL application is mostly a U-SQL script. To learn more about U-SQL, see [Get started with U-SQL](data-lake-analytics-u-sql-get-started.md).
+
+You can add addition user-defined operators to the application.  For more information, see [Develop U-SQL user defined operators for Data Lake Analytics jobs](data-lake-analytics-u-sql-user-defined-operators.md).
  
 **To create and submit a Data Lake Analytics job** 
 
@@ -71,7 +75,6 @@ Before you can build and test any U-SQL scripts, you must first connect to Azure
 	
 3. Click **OK**. Visual studio creates a solution with a Script.usql file.
 4. Enter the following script into the Script.usql file:
-
 
         // Create a database for easy reuse, so you don't need to read from a file every time.
         CREATE DATABASE IF NOT EXISTS SampleDBTutorials;
@@ -157,9 +160,9 @@ Before you can build and test any U-SQL scripts, you must first connect to Azure
         OUTPUT @content
         TO @"/Samples/Outputs/UnsuccessfulResponses.log"
         USING Outputters.Tsv();
-
-    The next section in this article will explain the script in details. Right now, you just need to focus on understanding the development and testing process in this section.
-
+    
+    [jgao: are the comments in the script enough for customers to understand it?]
+   
 5. Next to the **Submit** button, specify your Analytics account.
 5. From **Solution Explorer**, right click **Script.usql**, and then click **Build Script**. Verify the results in the Output pane.
 6. From **Solution Explorer**, right click **Script.usql**, and then click **Submit Script**.
@@ -176,9 +179,19 @@ Before you can build and test any U-SQL scripts, you must first connect to Azure
 2.  Double-click **Samples** to open the folder, and then double-click **Outputs**.
 3.  Double-click **UnsuccessfulResponsees.log**.
 
+    [jgao: include a screenshot of the end results.]
+        
 ## See also
+
+To get started with Data Lake Analytics using different tools, see:
 
 - [Get started with Data Lake Analytics using Azure Preview Portal](data-lake-analytics-get-started-portal.md)
 - [Get started with Data Lake Analytics using Azure PowerShell](data-lake-analytics-get-started-powershell.md)
+- [Get started with Data Lake Analytics using .NET SDK](data-lake-analytics-get-started-net-sdk.md)
+- [Get started with Data Lake Analytics using Azure CLI](data-lake-analytics-get-started-cli.md)
+
+To see more development topics: 
+
 - [Develop U-SQL scripts using Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
 - [Get started with Azure Data Lake Analytics U-SQL language](data-lake-analytics-u-sql-get-started.md)
+- [Develop U-SQL user defined operators for Data Lake Analytics jobs](data-lake-analytics-u-sql-user-defined-operators.md)
