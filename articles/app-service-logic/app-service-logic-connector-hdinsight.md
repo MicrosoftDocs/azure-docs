@@ -69,7 +69,7 @@ HDInsight Connector can be used only as an action in a logic app. Let us take a 
 
 
 1. In the 'Start logic' card, click 'Run this logic manually'.
-2. Select the HDInsight Connector API App created from the gallery. The available actions are listed:  
+2. Select the HDInsight Connector API App you created earlier in the gallery (You will find the HDInsight connector you created in the API Apps list on the right of your screen.). Select the black right arrow. The available actions are presented:  
 ![][12]
 
 3. Select 'Create Cluster', enter all the required cluster parameters, and select the ✓:   
