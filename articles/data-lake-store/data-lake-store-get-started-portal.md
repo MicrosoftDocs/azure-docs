@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="10/27/2015"
+   ms.date="10/28/2015"
    ms.author="nitinme"/>
 
 # Get started with Azure Data Lake Store using the Azure preview portal
@@ -22,6 +22,7 @@
 - [Portal](data-lake-store-get-started-portal.md)
 - [PowerShell](data-lake-store-get-started-powershell.md)
 - [.NET SDK](data-lake-store-get-started-net-sdk.md)
+- [Azure CLI](data-lake-store-get-started-cli.md)
 
 Learn how to use the Azure Preview Portal to create an Azure Data Lake Store account and perform basic operations such as create folders, upload and download data files, delete your account, etc. For more information about Data Lake Store, see [Overview of Azure Data Lake Store](data-lake-store-overview.md).
 
@@ -31,11 +32,21 @@ Before you begin this tutorial, you must have the following:
 
 - **An Azure subscription**. See [Get Azure free trial](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
+## <a name="signup"></a>Enable your Azure subscription for Data Lake Store Public Preview
+
+You must first request your Azure subscription to be enabled for Data Lake Store Public Preview. Follow the steps below.
+
+1. Sign on to the new [Azure preview portal](https://portal.azure.com).
+2. Click **NEW**, click **Data + Storage**, and then click **Azure Data Lake Store**.
+3. In the **New Data Lake Store** blade, click **Sign up to preview**. Read the information and then click **OK**. You will receive an e-mail once your subscription has been enabled for the Public Preview.
+
+	![Sign up for Public Preview](./media/data-lake-store-get-started-portal/preview-signup.png "Create a new Azure Data Lake account")
+
 ## Create an Azure Data Lake Store account
 
 1. Sign on to the new [Azure preview portal](https://portal.azure.com).
 
-2. Click **NEW**, click **Marketplace**, search for **Data Lake**, and from the results click **Azure Data Lake Store**. Read the information in the **Azure Data Lake Store** blade, and then click **Create** in the bottom left corner of the blade.
+2. Click **NEW**, click **Data + Storage**, and then click **Azure Data Lake Store**. Read the information in the **Azure Data Lake Store** blade, and then click **Create** in the bottom left corner of the blade.
 
 3. In the **New Data Lake Store** blade, provide the values as shown in the screen capture below:
 

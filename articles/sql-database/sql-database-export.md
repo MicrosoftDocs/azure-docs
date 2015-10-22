@@ -10,7 +10,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="10/13/2015"
+	ms.date="10/20/2015"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -43,7 +43,9 @@ To complete this article you need the following:
 
 ## Export your database
 
-Open the SQL Database blade for the database you want to export as a .bacpac file:
+Open the SQL Database blade for the database you want to export as a .bacpac file.
+
+> [AZURE.IMPORTANT] To guarantee a transactionally consistent BACPAC file you should first [create a copy of your database](sql-database-copy.md) and then export the database copy. 
 
 1.	Go to the [Azure Preview Portal](https://portal.azure.com).
 2.	Click **BROWSE ALL**.

@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="10/27/2015"
+   ms.date="10/28/2015"
    ms.author="nitinme"/>
 
-# Configure an HDInsight cluster with Azure Data Lake using Azure PowerShell
+# Provision an HDInsight cluster with Data Lake Store using Azure PowerShell
 
 > [AZURE.SELECTOR]
 - [Portal](data-lake-store-hdinsight-hadoop-use-portal.md)
@@ -24,8 +24,10 @@
 
 
 Learn how to use Azure PowerShell to configure an HDInsight cluster (Hadoop, HBase, or Storm) to work with an Azure Data Lake Store. Some important considerations for this release:
-* For Hadoop and Storm clusters, the Data Lake Store can only be used as an additional storage account. The default storage account for the such clusters will still be Azure Storage Blobs (WASB).
-* For HBase clusters, the Data Lake Store can be used as a default storage or additional storage. 
+* **For Hadoop and Storm clusters (Windows and Linux)**, the Data Lake Store can only be used as an additional storage account. The default storage account for the such clusters will still be Azure Storage Blobs (WASB).
+* **For HBase clusters (Windows and Linux)**, the Data Lake Store can be used as a default storage or additional storage.
+
+In this article, we provision a Hadoop cluster with Data Lake Store as additional storage.
 
 Configuring HDInsight to work with Azure Data Lake using PowerShell involves the following steps:
 
@@ -39,6 +41,7 @@ Configuring HDInsight to work with Azure Data Lake using PowerShell involves the
 Before you begin this tutorial, you must have the following:
 
 - **An Azure subscription**. See [Get Azure free trial](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+- **Enable your Azure subscription** for Data Lake Store public preview. See [instructions](data-lake-store-get-started-portal.md#signup).
 - **Azure PowerShell**. See [Install and configure Azure PowerShell](../install-configure-powershell.md) for instructions.
 - **Windows SDK**. You can install it from [here](https://dev.windows.com/en-us/downloads). You use this to create a security certificate. 
 
@@ -81,7 +84,7 @@ Follow these steps to create a Data Lake Store.
 
 	The output for this should be **True**.
 
-4. Upload some sample data to Azure Data Lake. We'll use this data later in this article to verify that the data is accessible from an HDInsight cluster. You can download a sample data file (OlympicAthletes.tsv) from [AzureDataLake Git Repository](https://github.com/MicrosoftBigData/AzureDataLake/raw/master/Samples/SampleData/OlympicAthletes.tsv).
+4. Upload some sample data to Azure Data Lake. We'll use this later in this article to verify that the data is accessible from an HDInsight cluster. You can download a sample data file (OlympicAthletes.tsv) from [AzureDataLake Git Repository](https://github.com/MicrosoftBigData/AzureDataLake/raw/master/Samples/SampleData/OlympicAthletes.tsv).
 
 		
 		$myrootdir = "/"
@@ -101,7 +104,7 @@ To set up Active Directory authentication for Azure Data Lake, you must perform 
 
 Make sure you [Windows SDK](https://dev.windows.com/en-us/downloads) installed before proceeding with the steps in this section. You must have also created a directory, such as **C:\mycertdir**, where the certificate will be created. 
 
-1. Make sure Windows SDK is added to the PATH variable. Look for the following in the PATH variable definition. [ TBD: Link to adding to PATH ]
+1. Make sure Windows SDK is added to the PATH variable. Look for the following in the PATH variable definition.
 
 		C:\Program Files (x86)\Windows Kits\10\bin\x86
 
@@ -168,7 +171,7 @@ In this section, we create an HDInsight Hadoop cluster. For this release, the HD
 
 1. Start with retrieving the subscription tenant ID. You will need that later.
 
-		$tenantID = (Get-AzureSubscription -Current).TenantId
+		$tenantID = (Get-AzureRmContext).Tenant.TenantId
 
 2. For this release, for a Hadoop cluster, Data Lake Store can only be used as an additional storage for the cluster. The default storage will still be the Azure storage blobs (WASB). So, we'll first create the storage account and storage containers required for the cluster.
 
@@ -189,38 +192,74 @@ In this section, we create an HDInsight Hadoop cluster. For this release, the HD
 		# Set these variables
 		$clusterName = $containerName                   # As a best practice, have the same name for the cluster and container
 		$clusterNodes = <ClusterSizeInNodes>            # The number of nodes in the HDInsight cluster
-		$httpcredentials = Get-Credential
+		$httpCredentials = Get-Credential
 		$rdpCredentials = Get-Credential
 		
 		New-AzureRmHDInsightCluster -ClusterName $clusterName -ResourceGroupName $resourceGroupName -HttpCredential $httpCredentials -Location $location -DefaultStorageAccountName "$storageAccountName.blob.core.windows.net" -DefaultStorageAccountKey $storageAccountKey -DefaultStorageContainer $containerName  -ClusterSizeInNodes $clusterNodes -ClusterType Hadoop -Version "3.2" -RdpCredential $rdpCredentials -RdpAccessExpiry (Get-Date).AddDays(14) -ObjectID $objectId -AadTenantId $tenantID -CertificateFilePath $certificateFilePath -CertificatePassword $password
 
 	After the cmdlet successfully completes, you should see an output like this:
 
-		Name                : hdiadlcluster
-		Id                  : /subscriptions/<subscription ID>/resourceGroups/hdiadlresgroup/providers/Microsoft.HDInsight/clusters/hdiadlcluster
-		Location            : East US 2
-		ClusterVersion      : 3.2.6.681
-		OperatingSystemType : Windows
-		ClusterState        : Running
-		ClusterType         : Hadoop
-		CoresUsed           : 16
-		HttpEndpoint        : hdiadlcluster.azurehdinsight.net 
+		Name                      : hdiadlcluster
+		Id                        : /subscriptions/65a1016d-0f67-45d2-b838-b8f373d6d52e/resourceGroups/hdiadlgroup/providers/Mi
+		                            crosoft.HDInsight/clusters/hdiadlcluster
+		Location                  : East US 2
+		ClusterVersion            : 3.2.7.707
+		OperatingSystemType       : Windows
+		ClusterState              : Running
+		ClusterType               : Hadoop
+		CoresUsed                 : 16
+		HttpEndpoint              : hdiadlcluster.azurehdinsight.net
+		Error                     :
+		DefaultStorageAccount     :
+		DefaultStorageContainer   :
+		ResourceGroup             : hdiadlgroup
+		AdditionalStorageAccounts : 
 
 ## Run test jobs on the HDInsight cluster to use the Azure Data Lake account
 
-After you have configured an HDInsight cluster, you can run test jobs on the cluster to test that the HDInsight cluster can access and store data in Azure Data Lake. To do so, we will use example jar applications available by default on an HDInsight cluster.
+After you have configured an HDInsight cluster, you can run test jobs on the cluster to test that the HDInsight cluster can access data Data Lake Store. To do so, we will run a sample Hive job that creates a table using the sample data (OlympicAthletes.tsv) that you uploaded earlier to your Data Lake Store.
 
-Note that, in this release, the default storage for the cluster is still an Azure Storage Blob (WASB). So, the sample jar file, hadoop-mapreduce-examples.jar, is available under the storage container at /example/jars. We also have some sample data at example/data/gutenberg. In this job, we use the jar file to run a wordcount on sample data files, and store the output to Azure Data Lake account. Use the following cmdlet:
+Use the following cmdlets to run the Hive query. In this query we create a table from the data in the Data Lake Store and then run a select query on the created table.
 
-	New-AzureHDInsightMapReduceJobDefinition `
-    -JarFile "wasb:///example/jars/hadoop-mapreduce-examples.jar" -ClassName "wordcount" `
-    -Arguments "wasb:///example/data/gutenberg/davinci.txt", "swebhdfs://$dataLakeAccountName.azuredatalake.net:443/wordcountoutput.txt" `
-	| Start-AzureHDInsightJob -ResourceGroupName $resourceGroupName -ClusterName $clusterName -ClusterCredential $httpCredentials `
-	| Wait-AzureHDInsightJob -ResourceGroupName $resourceGroupName -ClusterName $clusterName -ClusterCredential $httpCredentials
+	$queryString = "DROP TABLE athletes;" + "CREATE EXTERNAL TABLE athletes (str string) LOCATION 'adl://$dataLakeStoreName.azuredatalake.net:443/';" + "SELECT * FROM athletes LIMIT 10;"
+	
+	$hiveJobDefinition = New-AzureRmHDInsightHiveJobDefinition -Query $queryString
 
-Run the following PowerShell cmdlet to list the files in the Azure Data Lake account. You should see a wordcountoutput.txt there.
+	$hiveJob = Start-AzureRmHDInsightJob -ResourceGroupName $resourceGroupName -ClusterName $clusterName -JobDefinition $hiveJobDefinition -ClusterCredential $httpCredentials
 
-	Get-AzureDataLakeChildItem -AccountName $dataLakeAccountName -Path $myrootdir
+	Wait-AzureRmHDInsightJob -ResourceGroupName $resourceGroupName -ClusterName $clusterName -JobId $hiveJob.JobId -ClusterCredential $httpCredentials
+
+This will have the following output. **ExitValue** of 0 in the output suggests that the job completed successfully.
+
+	Cluster         : hdiadlcluster.
+	HttpEndpoint    : hdiadlcluster.azurehdinsight.net
+	State           : SUCCEEDED
+	JobId           : job_1445386885331_0012
+	ParentId        :
+	PercentComplete :
+	ExitValue       : 0
+	User            : admin
+	Callback        :
+	Completed       : done
+
+Retrieve the output from the job by using the following cmdlet:	
+
+	Get-AzureRmHDInsightJobOutput -ClusterName $clusterName -JobId $hiveJob.JobId -DefaultContainer $containerName -DefaultStorageAccountName $storageAccountName -DefaultStorageAccountKey $storageAccountKey -ClusterCredential $httpCredentials
+
+The job output resembles the following:
+
+	Michael Phelps  	23      United States   2008    8/24/2008       Swimming        8       0       0   8
+	Michael Phelps  	19      United States   2004    8/29/2004       Swimming        6       0       2   8
+	Michael Phelps  	27      United States   2012    8/12/2012       Swimming        4       2       0   6
+	Natalie Coughlin    25      United States   2008    8/24/2008       Swimming        1       2   	3   6
+	Aleksey Nemov   	24      Russia  		2000    10/1/2000       Gymnastics      2       1       3   6
+	Alicia Coutts   	24      Australia       2012    8/12/2012       Swimming        1       3       1   5
+	Missy Franklin  	17      United States   2012    8/12/2012       Swimming        4       0       1   5
+	Ryan Lochte     	27      United States   2012    8/12/2012       Swimming        2       2       1   5
+	Allison Schmitt 	22      United States   2012    8/12/2012       Swimming        3       1       1   5
+	Natalie Coughlin    21      United States   2004    8/29/2004       Swimming        2       2   	1   5
+
+	
 
 ## Access Data Lake storage using HDFS commands
 
@@ -232,25 +271,25 @@ Once you have configured the HDInsight cluster to use Data Lake storage, you can
 
 3. In the cluster blade, click **Remote Desktop**, and then in the **Remote Desktop** blade, click **Connect**.
 
-	![Remote into HDI cluster](./media/azure-data-lake-hdinsight-hadoop-use-powershell/ADL.HDI.PS.Remote.Desktop.png "Create an Azure Resource Group")
+	![Remote into HDI cluster](./media/data-lake-store-hdinsight-hadoop-use-powershell/ADL.HDI.PS.Remote.Desktop.png "Create an Azure Resource Group")
 
 	When prompted, enter the credentials you provided for the remote desktop user. 
 
 4. In the remote session, start Windows PowerShell, and use the HDFS filesystem commands to list the files in the Azure Data Lake.
 
-	 	hdfs dfs -ls swebhdfs://<Data Lake account name>.azuredatalake.net:443/
+	 	hdfs dfs -ls adl://<Data Lake account name>.azuredatalake.net:443/
 
 	This should list the file that you uploaded earlier to the Azure Data Lake account.
 
 		15/09/17 21:41:15 INFO web.CaboWebHdfsFileSystem: Replacing original urlConnectionFactory with org.apache.hadoop.hdfs.web.URLConnectionFactory@21a728d6
 		Found 1 items
-		-rwxrwxrwx   0 NotSupportYet NotSupportYet     671388 2015-09-16 22:16 swebhdfs://hdiadlaccount.azuredatalake.net:443/tweets.txt
+		-rwxrwxrwx   0 NotSupportYet NotSupportYet     671388 2015-09-16 22:16 adl://mydatalakeaccount.azuredatalake.net:443/OlympicAthletes.tsv
 
 	You can also use the `hdfs dfs -put` command to upload some files to the Azure Data Lake, and then use `hdfs dfs -ls` to verify whether the files were successfully uploaded.
 
 ## See Also
 
-[ TBD: Add links ]
+* [Portal: Create an HDInsight cluster to use Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)
 
 [makecert]: https://msdn.microsoft.com/en-us/library/windows/desktop/ff548309(v=vs.85).aspx
 [pvk2pfx]: https://msdn.microsoft.com/en-us/library/windows/desktop/ff550672(v=vs.85).aspx

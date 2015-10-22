@@ -13,12 +13,23 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd" 
-   ms.date="09/14/2015"
+   ms.date="10/18/2015"
    ms.author="yuemlu"/>
 
 # Azure Guest OS 
 
 The following tables show the Microsoft Security Response Center (MSRC) updates applied to the Azure Guest OS. Search this article to determine if a particular update applies to the Guest OS you are using. Updates always carry forward for the particular [family][family-explain] they were introduced in. 
+
+## October Guest OS
+
+| Bulletin ID | Parent KB Article   | Vulnerability Description                                                   | Guest OS         | Date First Introduced |
+| ----------- | ------------------- | --------------------------------------------------------------------------- | ---------------- | --------------------- |
+| MS15-106     | [3096441] | Cumulative Security Update for Internet Explorer  | 4.25, 3.32, 2.44 | October 13, 2015 |
+| MS15-108     | [3089659] | Security Update for JScript and VBScript to Address Potential Remote Code Execution  | 2.44 | October 13, 2015 |
+| MS15-109     | [3096443] | Security Update for Windows Shell to Address Remote Code Execution  | 4.25, 3.32, 2.44 | October 13, 2015 |
+| MS15-111     | [3096447] | Security Update for Windows Kernel to Address Elevation of Privilege  | 4.25, 3.32, 2.44 | October 13, 2015 |
+| Microsoft Security Advisory | [3092627] | September 2015 update to fix Windows or application freezes after you install security update 3076895 | 4.25, 3.32, 2.44 | October 13, 2015 |
+
 
 ## September Guest OS
 
@@ -171,6 +182,12 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | N/A         | [2999802][2999802]  | Solid lines instead of dotted lines are printed in Windows | 4.15, 3.22, 2.34 | Jan 13 2015 |
 | N/A         | [2896881][2896881]  | Long logon time when you use the AddPrinterConnection VBScript command to map printers for users during logon process in Windows | 4.15, 3.22, 2.34 | Jan 13 2015 |
 
+
+[3096441]: http://support.microsoft.com/kb/3096441
+[3089659]: http://support.microsoft.com/kb/3089659
+[3096443]: http://support.microsoft.com/kb/3096443
+[3096447]: http://support.microsoft.com/kb/3096447
+[3092627]: http://support.microsoft.com/kb/3092627
 
 [3088903]: http://support.microsoft.com/kb/3088903
 [3089548]: http://support.microsoft.com/kb/3089548

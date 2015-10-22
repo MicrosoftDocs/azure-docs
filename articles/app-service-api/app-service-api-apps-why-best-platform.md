@@ -18,7 +18,7 @@
 
 # What are API Apps?
 
-API Apps provides a rich platform and ecosystem for building, hosting, and consuming APIs in the cloud and on-premises. Deploy your API as an API app and benefit from enterprise grade security, simple access control, hybrid and SaaS connectivity. automatic SDK generation, and seamless integration with [Logic Apps](../app-service-logic/app-service-logic-what-are-logic-apps.md).
+API Apps provides a rich platform for building, hosting, and consuming APIs in the cloud and on-premises. Deploy your API as an API app and benefit from enterprise grade security, simple access control, hybrid and SaaS connectivity. automatic SDK generation, and seamless integration with [Logic Apps](../app-service-logic/app-service-logic-what-are-logic-apps.md).
 
 API Apps is part of [Azure App Service](../app-service/app-service-value-prop-what-is.md), which also includes Web Apps, Mobile Apps, and Logic Apps. 
 

@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Troubleshoot Application Insights in a Windows devices" 
-	description="Troubleshooting guide and question and answer." 
+	pageTitle="Troubleshoot Application Insights in Windows devices" 
+	description="Troubleshooting guide and question and answer for Application Insights in Windows devices." 
 	services="application-insights" 
     documentationCenter="windows"
 	authors="alancameronwills" 

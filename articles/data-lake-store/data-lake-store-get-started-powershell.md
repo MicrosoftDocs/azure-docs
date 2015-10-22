@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="10/27/2015"
+   ms.date="10/28/2015"
    ms.author="nitinme"/>
 
 # Get started with Azure Data Lake Store using Azure PowerShell
@@ -22,6 +22,7 @@
 - [Portal](data-lake-store-get-started-portal.md)
 - [PowerShell](data-lake-store-get-started-powershell.md)
 - [.NET SDK](data-lake-store-get-started-net-sdk.md)
+- [Azure CLI](data-lake-store-get-started-cli.md)
 
 Learn how to use Azure PowerShell to create an Azure Data Lake Store account and perform basic operations such as create folders, upload and download data files, delete your account, etc. For more information about Data Lake Store, see [Overview of Data Lake Store](data-lake-store-overview.md).
 
@@ -30,6 +31,7 @@ Learn how to use Azure PowerShell to create an Azure Data Lake Store account and
 Before you begin this tutorial, you must have the following:
 
 - **An Azure subscription**. See [Get Azure free trial](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+- **Enable your Azure subscription** for Data Lake Store public preview. See [instructions](data-lake-store-get-started-portal.md#signup).
 - **Azure PowerShell**. See [Install and configure Azure PowerShell](../install-configure-powershell.md) for instructions.
 
 ## Create an Azure Data Lake Store account
@@ -128,4 +130,5 @@ When prompted, enter **Y** to delete the account.
 	
 ## See Also
 
-[ TBD: Add links ]
+- [Get Started with Data Lake Store using Portal](data-lake-store-get-started-portal.md)
+- [Get Started with Data Lake Store using .NET SDK](data-lake-store-get-started-net-sdk.md)

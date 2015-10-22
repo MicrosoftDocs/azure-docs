@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="10/27/2015"
+   ms.date="10/28/2015"
    ms.author="nitinme"/>
 
 # Overview of Azure Data Lake Store
@@ -21,7 +21,7 @@
 Azure Data Lake Store is an enterprise-wide hyper-scale repository for big data analytic workloads that stores every type of data regardless of its size, structure, or how fast it is ingested. Azure Data Lake Store can be accessed using the WebHDFS-compatible APIs. It is specifically designed to enable analytics on the stored data. Out of the box, it includes all the enterprise-grade capabilities—security, performance, throughput, manageability, scalability, reliability, availability—essential for real-world enterprise use.
 
 
-![Ambari web UI bar with ops selected](./media/data-lake-store-overview/data-lake-store-concept.png)
+![Azure Data Lake](./media/data-lake-store-overview/data-lake-store-concept.png)
 
 Some of the key capabilities of the Azure Data Lake include the following.
 
@@ -78,8 +78,8 @@ Data Lake Store can also be accessed via the new filesystem, the AzureDataLakeFi
 
 ## How do I start using Azure Data Lake Store?
 
-See [Get Started with Data Lake Store using the Azure Preview Porta](data-lake-store-get-started-portal.md), on how to provision an Azure Data Lake account using the Azure Preview portal. Once you have provisioned Azure Data Lake, you can learn how to use big data offerings such as Azure Data Lake Analytics or Azure HDInsight with Data Lake Store. You can also create a .NET application to create an Azure Data Lake Store account and perform operations such as upload data, download data, etc.
+See [Get Started with Data Lake Store using the Azure Preview Portal](data-lake-store-get-started-portal.md), on how to provision an Azure Data Lake account using the Azure Preview portal. Once you have provisioned Azure Data Lake, you can learn how to use big data offerings such as Azure Data Lake Analytics or Azure HDInsight with Data Lake Store. You can also create a .NET application to create an Azure Data Lake Store account and perform operations such as upload data, download data, etc.
 
-- [Get Started with Azure Data Lake Analytics](data-lake-analytics-get-started-portal.md)
+- [Get Started with Azure Data Lake Analytics](data-lake-analytics/data-lake-analytics-get-started-portal.md)
 - [Use Azure HDInsight with Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)
-- [Get started with Data Lake Store using .NET SDK](data-lake-store-get-started-net-sdk.md)  
+  
