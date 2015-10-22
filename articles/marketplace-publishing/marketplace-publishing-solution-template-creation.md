@@ -34,10 +34,10 @@ Go to  [https://publish.windowsazure.com](http://publish.windowsazure.com). When
 A solution template is a "parent" to all of its topologies. You can define multiple topologies in one offer/solution template. When an offer is pushed to staging, it is pushed with all of its topologies. Follow the steps below to define your offer:     
 - Create a Topology: “Topology Identifier” is typically the name of the topology for the solution template. The topology identifier is used in the URL as shown below:
 
-  Azure Marketplace :
+  Azure Marketplace:
 http://azure.microsoft.com/marketplace/partners/{PublisherNamespace}/{OfferIdentifier}{TopologyIdentifier}
 
-  Azure preview portal :
+  Azure preview portal:
 https://ms.portal.azure.com/#gallery/{PublisherNamespace}.{OfferIdentifier}{TopologyIdentifier}
 
 - Add a new version.
