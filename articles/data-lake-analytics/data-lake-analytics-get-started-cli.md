@@ -163,7 +163,7 @@ Data Lake Analytics can also access Azure Blob storage.  For uploading data to A
     
     Notice the paths are relative paths, because it is simpler to use relative paths for the files stored in the default data Lake account. You can also use absolute path.  For example 
     
-        adl://<Data LakeStorageAccountName>.azuredatalake.net/Samples/Data/SearchLog.tsv
+        adl://<Data LakeStorageAccountName>.azuredatalakestore.net:443/Samples/Data/SearchLog.tsv
         
     You must use absolute path to access the files in the linked Storage accounts.  The syntax for files stored in linked Azure Storage account is:
     

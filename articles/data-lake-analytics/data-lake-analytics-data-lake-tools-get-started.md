@@ -110,7 +110,7 @@ In case you want to use your own data, here are the procedures for uploading dat
     
     Notice the path is a relative path. You can also use absolute path.  For example 
     
-        adl://<DataLakeStorageAccountName>.azuredatalake.net/Samples/Data/SearchLog.tsv
+        adl://<DataLakeStorageAccountName>.azuredatalakestore.net:443/Samples/Data/SearchLog.tsv
         
     You must use absolute path to access the files in the linked Storage accounts.  The syntax for files stored in linked Azure Storage account is:
     

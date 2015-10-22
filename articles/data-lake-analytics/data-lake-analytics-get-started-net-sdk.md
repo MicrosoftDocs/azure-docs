@@ -3,7 +3,7 @@
    description="Learn how to use the .NET SDK to create a Data Lake Store account, create a Data Lake Analytics job using U-SQL, and submit the job. " 
    services="data-lake-analytics" 
    documentationCenter="" 
-   authors="mumian" 
+   authors="" 
    manager="paulettm" 
    editor="cgronlun"/>
  
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
    ms.date="10/21/2015"
-   ms.author="jgao"/>
+   ms.author="edmaca"/>
 
 # Tutorial: Get Started with Azure Data Lake Analytics using .NET SDK
 

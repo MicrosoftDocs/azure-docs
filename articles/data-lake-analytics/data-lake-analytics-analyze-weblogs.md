@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="10/19/2015"
+   ms.date="10/21/2015"
    ms.author="jgao"/>
 
 # Tutorial: Analyze Website logs using Azure Data Lake Analytics
@@ -40,7 +40,7 @@ Learn how to analyze website logs using Data Lake Analytics, especially on findi
 	- [Get Started with Azure Data Lake Analytics using Azure Preview Portal](data-lake-analytics-get-started-portal.md).
 	- [Develop U-SQL script using Data Lake tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md).
 
-- A Data Lake Analytics account.  See [Create an Azure Data Lake (ADL) Analytics account](data-lake-analytics-get-started-portal.md#create_adl_analytics_account).
+- A Data Lake Analytics account.  See [Create an Azure Data Lake Analytics account](data-lake-analytics-get-started-portal.md#create_adl_analytics_account).
 
 - Upload the sample data to the Data Lake Analytics account. See [Upload SearchLog.tsv to the default Data Lake Storage account](data-lake-analytics-get-started-portal.md#update-data-to-the-default-adl-storage-account).
 

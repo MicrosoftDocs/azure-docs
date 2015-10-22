@@ -149,7 +149,7 @@ Some concepts and keywords found in the script:
 - **OUTPUT** takes a rowset and serializes it. The Outputters.Csv() output a comma-separated file into the specified location. You can also develop custom Outputters.
 - Notice the two paths are relative paths. You can also use absolute paths.  For example 
     
-        adl://<ADLStorageAccountName>.azuredatalake.net/Samples/Data/SearchLog.tsv
+        adl://<ADLStorageAccountName>.azuredatalakestore.net:443/Samples/Data/SearchLog.tsv
         
     You must use absolute path to access the files in the linked Storage accounts.  The syntax for files stored in linked Azure Storage account is:
     
