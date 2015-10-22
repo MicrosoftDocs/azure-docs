@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="08/01/2015" 
+    ms.date="10/22/2015" 
     ms.author="markvi" />
 
 #Tutorial: Azure Active Directory integration with e-Builder
