@@ -25,7 +25,7 @@ Azure Data Lake Analytics is a new service, built to make big data analytics eas
 
 ## Key capabilities of Data Lake Analytics
 
-- **Dynamically scales** 
+- **Dynamic scaling** 
 
     Data Lake Analytics is architected from the ground up for cloud scale and performance.  It dynamically provisions resources and lets you do analytics on terabytes or even exabytes of data. When the job completes, it winds down resources automatically, and you pay only for the processing power used. As you increase or decrease the size of data stored or the amount of compute used, you don’t have to rewrite code. This lets you focus on your business logic only and not on how you process and store large datasets. 
 
@@ -75,6 +75,9 @@ Azure Data Lake Analytics is a new service, built to make big data analytics eas
     - [Use Azure Data Lake Analytics interactive tutorials](data-lake-analytics-use-interactive-tutorials.md)
     - [Analyze Website logs using Azure Data Lake Analytics](data-lake-analytics-analyze-weblogs.md)
 
-
+- Let us know what you think
+    - [Comment on our documentation backlog](data-lake-analytics-documentation-backlog.md)
+    - [Submit a feature request](http://aka.ms/adlafeedback)
+    - [Get help in the forums](http://aka.ms/adlaforums)
 
 
