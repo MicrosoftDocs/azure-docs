@@ -43,6 +43,8 @@ You'll learn:
 
 This is a quick and simple tutorial that doesn't show how to customize the web project that you create. For an introduction to ASP.NET MVC 5 web application development, see [Getting Started with ASP.NET MVC 5](http://www.asp.net/mvc/overview/getting-started/introduction/getting-started) on the [ASP.NET](http://asp.net/) site. For links to other articles that go into more depth about web applications in Azure App Service, see the [Next steps](#next-steps) section.
 
+> [AZURE.NOTE] Help us shape the scope and approach of this tutorial -- is the present content of the tutorial too limited? Are there other topics you'd like to see covered in a getting-started tutorial? Do you prefer tutorials with multiple chapters like the ASP.NET ones that the preceding paragraph links to? Or for your first .NET/Azure tutorial is it best to have something that just gets a very simple application up and running in Azure, after which you can go elsewhere to learn topics of interest? Please leave feedback in a [Disqus comment](#comments) at the end of the tutorial.
+
 ##<a name="video"></a>Sign up for Microsoft Azure
 
 You need an Azure account to complete this tutorial. You can:
