@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/16/2015"
+   ms.date="10/22/2015"
    ms.author="kareni"/>
 
 
@@ -24,7 +24,12 @@ The charges for Microsoft Azure subscriptions vary by rate plan. Some rate plans
 
 Please note that up to 24 hours of latent usage from your prior billing period can be reported in your current billing period.
 
-For more information about consumption, usage, and rate plans, see the [Microsoft Azure Purchase Options page](http://azure.microsoft.com/pricing/purchase-options/).
+For more information about consumption and rate plans, see the [Microsoft Azure Purchase Options page](http://azure.microsoft.com/pricing/purchase-options/).
+
+The below files cover a complete list of all Microsoft Azure services. The file ending in _csv1 refers to the column header names for csv version 1 and the file ending in _csv2 refers to the new column header names for csv version 2.  These files are updated monthly.
+-    https://azurepricing.blob.core.windows.net/supplemental/MOSPServices_csv1.xlsx
+-  https://azurepricing.blob.core.windows.net/supplemental/MOSPServices_csv2.xlsx
+
 
 ## Content:
 
@@ -237,15 +242,6 @@ In addition to some new fields and name changes to csv Version 2, there will be 
 
 ![tags](./media/billing-understand-your-bill/tags.png)
 
-
-Please see these additional sources for more details on each service. These files are updated on a monthly basis, published on the 25th for the coming month, and are available from **May 2015** onwards for .csv Version 1, and from **June 2015** onward for .csv Version 2. Below is the base file URL for the Service Download Fields:
-
->>  https://azurepricing.blob.core.windows.net/supplemental/MOSPServices_v1_MMYYYY.xlsx
->>  https://azurepricing.blob.core.windows.net/supplemental/MOSPServices_v2_MMYYYY.xlsx
-
-
-
-To find the most current version, enter in the Year and Month (looking for May 2015 file, enter in **052015** into the section _**“MMYYYY”**_ in the above URL).  This spreadsheet provides a listing of all possible combinations of the service related fields in the **Usage Download Report**.
 
 ## More Resources
 Navigate to the section, **Manage Accounts, Subscriptions, and Admin Roles**, under [Manage your services](https://msdn.microsoft.com/library/azure/dn578292.aspx) for some very helpful links:
