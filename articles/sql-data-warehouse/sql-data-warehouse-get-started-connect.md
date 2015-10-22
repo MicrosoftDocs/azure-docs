@@ -19,8 +19,8 @@
 # Connect and query with Visual Studio
 
 > [AZURE.SELECTOR]
-- [Visual Studio](sql-data-warehouse-get-started-connect-query.md)
-- [SQLCMD](sql-data-warehouse-get-started-connect-query-sqlcmd.md)
+- [Visual Studio](sql-data-warehouse-get-started-connect.md)
+- [SQLCMD](sql-data-warehouse-get-started-connect-sqlcmd.md)
 
 This walkthrough shows you how to connect and query an Azure SQL Data Warehouse database in just a few minutes by using Visual Studio. In this walkthrough, you will:
 
@@ -86,7 +86,7 @@ Now that you can connect and query, try [connecting with PowerBI][].
 
 <!--Image references-->
 
-[1]: ./media/sql-data-warehouse-get-started-connect-query/get-server-name.png
-[2]: ./media/sql-data-warehouse-get-started-connect-query/open-ssdt.png
-[3]: ./media/sql-data-warehouse-get-started-connect-query/connection-dialog.png
-[4]: ./media/sql-data-warehouse-get-started-connect-query/new-query.png
+[1]: ./media/sql-data-warehouse-get-started-connect/get-server-name.png
+[2]: ./media/sql-data-warehouse-get-started-connect/open-ssdt.png
+[3]: ./media/sql-data-warehouse-get-started-connect/connection-dialog.png
+[4]: ./media/sql-data-warehouse-get-started-connect/new-query.png

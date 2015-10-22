@@ -111,8 +111,8 @@ To learn more, refer to [Introduction to Machine Learning on Azure][].
 
 
 <!--Article references-->
-[Azure Machine Learning studio]:https://studio.azureml.net/
-[Introduction to Machine Learning on Azure]:https://azure.microsoft.com/documentation/articles/machine-learning-what-is-machine-learning/
-[load sample data manually]: sql-data-warehouse-get-started-manually-load-samples.md
-[Create a SQL Data Warehouse]: sql-data-warehouse-get-started-provision.md
+[Azure Machine Learning studio]: https://studio.azureml.net/
+[Introduction to Machine Learning on Azure]: ../machine-learning/machine-learning-what-is-machine-learning.md
+[load sample data manually]: ./sql-data-warehouse-get-started-manually-load-samples.md
+[Create a SQL Data Warehouse]: ./sql-data-warehouse-get-started-provision.md
 
