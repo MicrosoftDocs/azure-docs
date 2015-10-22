@@ -59,7 +59,6 @@ We will read the data from dbo.vTargetMail view in the AdventureWorksDW database
 7. Run the experiment by clicking **Run** under the experiment canvas.
 ![Run the experiment][1]
 8. Click the output port at the bottom of the Reader module and select **Visualize** to see the imported data.
-
 ![View imported data][3]
 
 
@@ -71,7 +70,6 @@ We will drop some columns that are not relevant for the model.
 ![Project Columns][4]
 
 3. Exclude two columns: CustomerAlternateKey and GeographyKey.
-
 ![Remove unnecessary columns][5]
 
 
@@ -103,11 +101,11 @@ Now, we will test how the model performs on test data. We will compare the algor
 5. **Run** the experiment.
 ![Run the experiment][10]
 6. Click the output port at the bottom of the Evaluate Model module and click Visualize.
-
 ![Visualize evaluation results][11]
 
-The metrics provided are the ROC curve, precision-recall diagram and lift curve. Looking at these metrics, we can see that the first model performed better than the second one. To look at the what the first model predicted, click on output port of the Score Model and click Visualize.
 
+
+The metrics provided are the ROC curve, precision-recall diagram and lift curve. Looking at these metrics, we can see that the first model performed better than the second one. To look at the what the first model predicted, click on output port of the Score Model and click Visualize.
 ![Visualize score results][12]
 
 You will see two more columns added to your test dataset.
