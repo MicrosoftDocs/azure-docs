@@ -23,6 +23,8 @@
 - [Prepare a SLES 11 SP3 Virtual Machine for Azure](#sles11)
 - [Prepare a openSUSE 13.1+ Virtual Machine for Azure](#osuse)
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
+
 ##Prerequisites##
 
 This article assumes that you have already installed a SUSE or openSUSE Linux operating system to a virtual hard disk. Multiple tools exist to create .vhd files, for example a virtualization solution such as Hyper-V. For instructions, see [Install the Hyper-V Role and Configure a Virtual Machine](http://technet.microsoft.com/library/hh846766.aspx).
