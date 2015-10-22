@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="10/19/2015"
+   ms.date="10/22/2015"
    ms.author="jgao"/>
 
 # Azure Data Lake Analytics documents | Azure
@@ -25,6 +25,8 @@
  
 	- [Get started with Data Lake Analytics using Azure Preview Portal](data-lake-analytics-get-started-portal.md)
 	- [Get started with Data Lake Analytics using Azure PowerShell](data-lake-analytics-get-started-powershell.md)
+	- [Get started with Data Lake Analytics using Azure .NET SDK](data-lake-analytics-get-started-net-sdk.md)
+	- [Get started with Data Lake Analytics using Azure CLI](data-lake-analytics-get-started-cli.md)
 	- [Develop U-SQL scripts using Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
 - Scenario tutorial
 
@@ -39,5 +41,7 @@
 
 	- [Manage Azure Data Lake Analytics using Azure Preview portal](data-lake-analytics-use-portal.md)
 	- [Manage Azure Data Lake Analytics using Azure PowerShell](data-lake-analytics-use-powershell.md)
+	- [Manage Azure Data Lake Analytics using Azure .NET SDK](data-lake-analytics-use-net-sdk.md)
+	- [Manage Azure Data Lake Analytics using Azure CLI](data-lake-analytics-use-cli.md)
 	- [Monitor and troubleshoot Azure Data Lake Analytics jobs using Azure Preview Portal](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
 
