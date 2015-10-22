@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Analyze SQL Data Warehouse data with Power BI | Microsoft Azure"
-    description="Analyze SQL Data Warehouse data with Power BI"
+    pageTitle="Visualize SQL Data Warehouse data with Power BI | Microsoft Azure"
+    description="Visualize SQL Data Warehouse data with Power BI"
     services="sql-data-warehouse"
     documentationCenter="NA"
     authors="lodipalm"
@@ -13,10 +13,10 @@
     ms.topic="get-started-article"
     ms.tgt_pltfrm="NA"
     ms.workload="data-services"
-    ms.date="10/20/2015"
+    ms.date="10/21/2015"
     ms.author="lodipalm"/>
 
-# Analyze data with Power BI
+# Visualize data with Power BI
 This tutorial shows you how to use Power BI to connect to SQL Data Warehouse and create a few basic visualizations.
 
 > [AZURE.NOTE] To complete this tutorial, you need a SQL Data Warehouse database that is pre-loaded with the AdventureWorksDW sample database. [Create a SQL Data Warehouse](sql-data-warehouse-get-started-provision.md) shows you how to create one. 
@@ -85,25 +85,25 @@ You can save your progress at any time by clicking **File** and selecting **Save
 Now that we've given you some time to warm up with the sample data, see how to [develop][], [load][], or [migrate][].
 
 <!--Image references-->
-[1]:./media/sql-data-warehouse-get-started-analyze-data-with-power-bi/pbi-find-database.png
-[2]:./media/sql-data-warehouse-get-started-analyze-data-with-power-bi/pbi-button.png
-[3]:./media/sql-data-warehouse-get-started-analyze-data-with-power-bi/pbi-connect-to-azure.png
-[4]:./media/sql-data-warehouse-get-started-analyze-data-with-power-bi/pbi-sign-in.png
-[5]:./media/sql-data-warehouse-get-started-analyze-data-with-power-bi/pbi-open-adventureworks.png
-[6]:./media/sql-data-warehouse-get-started-analyze-data-with-power-bi/pbi-aggregatesales.png
-[7]:./media/sql-data-warehouse-get-started-analyze-data-with-power-bi/pbi-map.png
-[8]:./media/sql-data-warehouse-get-started-analyze-data-with-power-bi/pbi-chooseaxis.png
-[9]:./media/sql-data-warehouse-get-started-analyze-data-with-power-bi/pbi-bar.png
-[10]:./media/sql-data-warehouse-get-started-analyze-data-with-power-bi/pbi-prepare-line.png
-[11]:./media/sql-data-warehouse-get-started-analyze-data-with-power-bi/pbi-line.png
-[12]:./media/sql-data-warehouse-get-started-analyze-data-with-power-bi/pbi-save.png
+[1]:./media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-find-database.png
+[2]:./media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-button.png
+[3]:./media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-connect-to-azure.png
+[4]:./media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-sign-in.png
+[5]:./media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-open-adventureworks.png
+[6]:./media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-aggregatesales.png
+[7]:./media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-map.png
+[8]:./media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-chooseaxis.png
+[9]:./media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-bar.png
+[10]:./media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-prepare-line.png
+[11]:./media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-line.png
+[12]:./media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-save.png
 
 <!--Article references-->
-[migrate]: sql-data-warehouse-overview-migrate.md
-[develop]: sql-data-warehouse-overview-develop.md
-[load]: sql-data-warehouse-overview-load.md
-[load sample data manually]: sql-data-warehouse-get-started-manually-load-samples.md
+[migrate]: ./sql-data-warehouse-overview-migrate.md
+[develop]: ./sql-data-warehouse-overview-develop.md
+[load]: ./sql-data-warehouse-overview-load.md
+[load sample data manually]: ./sql-data-warehouse-get-started-manually-load-samples.md
 [Azure preview portal]: https://portal.azure.com/
 [Power BI]: http://www.powerbi.com/
-[connecting to SQL Data Warehouse]: sql-data-warehouse-integrate-power-bi.md
-[Create a SQL Data Warehouse]: sql-data-warehouse-get-started-provision.md
+[connecting to SQL Data Warehouse]: ./sql-data-warehouse-integrate-power-bi.md
+[Create a SQL Data Warehouse]: ./sql-data-warehouse-get-started-provision.md
