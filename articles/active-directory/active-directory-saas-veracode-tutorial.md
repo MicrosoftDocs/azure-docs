@@ -1,6 +1,6 @@
 <properties 
     pageTitle="Tutorial: Azure Active Directory integration with Veracode | Microsoft Azure" 
-    description="Learn how to use Veracode with Azure Active Directory to enable single sign-on, automated provisioning, and more!." 
+    description="Learn how to use Veracode with Azure Active Directory to enable single sign-on, automated provisioning, and more!" 
     services="active-directory" 
     authors="markusvi"  
     documentationCenter="na" 
@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="08/01/2015" 
+    ms.date="10/22/2015" 
     ms.author="markvi" />
 
 #Tutorial: Azure Active Directory integration with Veracode
