@@ -19,10 +19,10 @@
 # Get started with Azure Data Lake Store using Azure Command Line
 
 > [AZURE.SELECTOR]
-- [Portal](data-lake-store-get-started-portal.md)
-- [PowerShell](data-lake-store-get-started-powershell.md)
-- [.NET SDK](data-lake-store-get-started-net-sdk.md)
-- [Azure CLI](data-lake-store-get-started-cli.md)
+- [Using Portal](data-lake-store-get-started-portal.md)
+- [Using PowerShell](data-lake-store-get-started-powershell.md)
+- [Using .NET SDK](data-lake-store-get-started-net-sdk.md)
+- [Using Azure CLI](data-lake-store-get-started-cli.md)
 
 Learn how to use Azure command line interface to create an Azure Data Lake Store account and perform basic operations such as create folders, upload and download data files, delete your account, etc. For more information about Data Lake Store, see [Overview of Data Lake Store](data-lake-store-overview.md).
 
@@ -33,7 +33,7 @@ The Azure CLI is implemented in Node.js. It can be used on any platform that sup
 
 Before you begin this article, you must have the following:
 
-- **An Azure subscription**. See [Get Azure free trial](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+- **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/en-us/pricing/free-trial/).
 - **Enable your Azure subscription** for Data Lake Store public preview. See [instructions](data-lake-store-get-started-portal.md#signup). 
 - **Azure CLI** - See [Install and configure the Azure CLI](../xplat-cli-install.md) for installation and configuration information.
 
@@ -50,7 +50,7 @@ Open a command prompt, shell, or a terminal session and run the following comman
 
 		azure login
 
-	You will be prompted to provide your name and password. 
+	You will be prompted to open a web page and enter an authentication code. Follow the instructions on the page to log in to your Azure subscription. 
 
 2. List the Azure subscriptions for your account.
 
@@ -61,7 +61,7 @@ Open a command prompt, shell, or a terminal session and run the following comman
 
 		azure account set <subscriptionname>
 
-4. Create a new resource group. In the following command, replace RESOURCEGROUPNAME with the name you wish to use for this group. Replace LOCATION with the data center that you want to create your Data Lake Store in.
+4. Create a new resource group. In the following command, provide the parameter values you want to use.
 
 		azure group create <resourceGroup> <location>
 

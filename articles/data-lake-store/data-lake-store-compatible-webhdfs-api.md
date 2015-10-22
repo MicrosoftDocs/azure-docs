@@ -18,7 +18,8 @@
 
 # WebHDFS APIs compatible with Azure Data Lake Store
 
-[ TBD: Add some blurb on swebhdfs and webhdfs and how it's implemented for ADL ]
+The Azure Data Lake Store is a Apache Hadoop file system that is compatible with Hadoop Distributed File System (HDFS) and works with the Hadoop ecosystem.  Your existing applications or services that use the WebHDFS API can easily integrate with ADLS. This article lists the WebHDFS APIs that can be used with Data Lake Store. Wherever applicable, the table also lists deviation from the standard WebHDFS APIs, such as if some parameters are not supported, or when some parameters are supported differently.
+
 
 | Standard HDFS API            | WebHDFS API with Data Lake Store | Request/Response | Important considerations |
 |------------------------------|----------------------------|------------------|----|
@@ -29,9 +30,9 @@
 | FileSystem.mkdirs            | MKDIRS                     | See [here](http://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html#Make_a_Directory) | The following request parameters are supported differently: <ul><li><b>permission</b> - This can be set only at the root level of the folder structure.</li></ul>|
 | FileSystem.rename            | RENAME                     | See [here](http://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html#Rename_a_FileDirectory)| - |
 | FileSystem.delete            | DELETE                     | See [here](http://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html#Delete_a_FileDirectory)         | - |
-| FileSystem.getFileStatus     | GETFILESTATUS              | See [here](http://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html#Status_of_a_FileDirectory)         | The following response parameters are not supported: <ul><li><b>fileId</b> - This is not supported</li></ul>The following request parameters are supported differently:<ul><li><b>permission</b> - This can be set only at the root level of the folder structure.</li></ul>|
+| FileSystem.getFileStatus     | GETFILESTATUS              | See [here](http://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html#Status_of_a_FileDirectory)         | The following response parameters are not supported: <ul><li><b>fileId</b> - This is not supported</li></ul>The following request parameters are supported differently:<ul><li><b>permission</b> - This can be set only at the root level of the folder structure.</li><li><b>group</b> - This can be set only at the root level.</li><li><b>type</b> - SYMLINK is not supported but FILE and DIRECTORY are.</li></ul>|
 | FileSystem.listStatus        | LISTSTATUS                 | See [here](http://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html#List_a_Directory)         | The following response parameters are not supported: <ul><li><b>fileId</b> - This is not supported</li></ul>The following request parameters are supported differently:<ul><li><b>permission</b> - This can be set only at the root level of the folder structure.</li></ul>|
-|                              | GET_BLOCK_LOCATION         |                  |
+|                              | GET_BLOCK_LOCATION         |                  | Builds block location information from stream information |
 | FileSystem.getContentSummary | GETCONTENTSUMMARY          | See [here](http://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html#Get_Content_Summary_of_a_Directory)         | The following response parameters are not supported: <ul><li><b>quota</b> - This is not supported because this cannot be set on a secure store.</li><li><b>spaceQuota</b> - This is not supported because this cannot be set on a secure store.</li></ul>|
 | FileSystem.getHomeDirectory  | GETHOMEDIRECTORY           | See [here](http://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html#Get_Home_Directory)         | - |
 | FileSystem.setPermission     | SETPERMISSION              | See [here](http://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html#Set_Permission)| The following request parameters are supported differently: <ul><li><b>permission</b> - This can be set only at the root level of the folder structure.</li></ul>|

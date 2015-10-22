@@ -19,10 +19,10 @@
 # Get started with Azure Data Lake Store using the Azure preview portal
 
 > [AZURE.SELECTOR]
-- [Portal](data-lake-store-get-started-portal.md)
-- [PowerShell](data-lake-store-get-started-powershell.md)
-- [.NET SDK](data-lake-store-get-started-net-sdk.md)
-- [Azure CLI](data-lake-store-get-started-cli.md)
+- [Using Portal](data-lake-store-get-started-portal.md)
+- [Using PowerShell](data-lake-store-get-started-powershell.md)
+- [Using .NET SDK](data-lake-store-get-started-net-sdk.md)
+- [Using Azure CLI](data-lake-store-get-started-cli.md)
 
 Learn how to use the Azure Preview Portal to create an Azure Data Lake Store account and perform basic operations such as create folders, upload and download data files, delete your account, etc. For more information about Data Lake Store, see [Overview of Azure Data Lake Store](data-lake-store-overview.md).
 
@@ -30,7 +30,7 @@ Learn how to use the Azure Preview Portal to create an Azure Data Lake Store acc
 
 Before you begin this tutorial, you must have the following:
 
-- **An Azure subscription**. See [Get Azure free trial](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+- **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/en-us/pricing/free-trial/).
 
 ## <a name="signup"></a>Enable your Azure subscription for Data Lake Store Public Preview
 
@@ -64,28 +64,30 @@ You must first request your Azure subscription to be enabled for Data Lake Store
 
 	![Your Azure Data Lake Store account](./media/data-lake-store-get-started-portal/ADL.Account.QuickStart.png "Your Azure Data Lake account")
 
-## <a name="createfolder"></a>Create directory structures in Azure Data Lake Store account
+## <a name="createfolder"></a>Create folders in Azure Data Lake Store account
 
-You can create directories under your Data Lake Store account to manage and store data.
+You can create folders under your Data Lake Store account to manage and store data.
 
-1. Open the Data Lake Store account that you just created. From the left pane, click **Browse**, click **Data Lake Store**, and then from the Data Lake Store blade, click the account name under which you want to create directories. If you pinned the account to the startboard, click that account tile.
+1. Open the Data Lake Store account that you just created. From the left pane, click **Browse**, click **Data Lake Store**, and then from the Data Lake Store blade, click the account name under which you want to create folders. If you pinned the account to the startboard, click that account tile.
 
 2. In your Data Lake Store account blade, click **Data Explorer**.
 
-	![Create directories in Data Lake Store account](./media/data-lake-store-get-started-portal/ADL.Create.Folder.png "Create directories in Data Lake Store account")
+	![Create folders in Data Lake Store account](./media/data-lake-store-get-started-portal/ADL.Create.Folder.png "Create folders in Data Lake Store account")
 
 3. In your Data Lake Store account blade, click **New Folder**, enter a name for the new folder, and then click **OK**.
 	
 	![Create folders in Data Lake Store account](./media/data-lake-store-get-started-portal/ADL.Folder.Name.png "Create folders in Data Lake Store account")
 	
-	The newly created directory will be listed in the **Data Explorer** blade. You can create nested directories upto any level.
+	The newly created folder will be listed in the **Data Explorer** blade. You can create nested folders upto any level.
 
 	![Create folders in Data Lake account](./media/data-lake-store-get-started-portal/ADL.New.Directory.png "Create folders in Data Lake account")
 
 
 ## <a name="uploaddata"></a>Upload data to Azure Data Lake Store account
 
-You can upload your data to an Azure Data Lake Store account directly at the root level or to a directory that you created within the account. In the screen capture below, follow the steps to upload a file to a sub-directory from the **Data Explorer** blade. In this screen capture, the file is uploaded to a sub-directory shown in the breadcrumbs (marked in a red box).
+You can upload your data to an Azure Data Lake Store account directly at the root level or to a folder that you created within the account. In the screen capture below, follow the steps to upload a file to a sub-folder from the **Data Explorer** blade. In this screen capture, the file is uploaded to a sub-folder shown in the breadcrumbs (marked in a red box).
+
+If you are looking for some sample data to upload, you can get the **OlympicAthletes.tsv** file from the [AzureDataLake Git Repository](https://github.com/MicrosoftBigData/AzureDataLake/raw/master/Samples/SampleData/OlympicAthletes.tsv).
 
 ![Upload data](./media/data-lake-store-get-started-portal/ADL.New.Upload.File.png "Upload data")
 
@@ -120,7 +122,7 @@ To delete an Azure Data Lake Store account, from your Data Lake Store blade, cli
 
 ## See Also
 
-- [Use Azure Data Lake Analytics with Data Lake Store](data-lake-analytics-get-started-portal.md)
-- [Use Azure HDInsight with Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)
 - [Get Started with Data Lake Store using PowerShell](data-lake-store-get-started-powershell.md)
 - [Get Started with Data Lake Store using .NET SDK](data-lake-store-get-started-net-sdk.md)
+- [Use Azure Data Lake Analytics with Data Lake Store](data-lake-analytics-get-started-portal.md)
+- [Use Azure HDInsight with Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)
