@@ -13,6 +13,7 @@
     ms.workload="identity" 
     ms.date="10/22/2015" 
     ms.author="markvi" />
+
 #Tutorial: Azure Active Directory integration with Zscaler
   
 The objective of this tutorial is to show the integration of Azure and Zscaler. The scenario outlined in this tutorial assumes that you already have the following items:

@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="22/10/2015" 
+    ms.date="10/22/2015" 
     ms.author="markvi" />
 
 #Tutorial: Azure Active Directory integration with Work.com
