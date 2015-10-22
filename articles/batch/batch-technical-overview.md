@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="10/20/2015"
+	ms.date="10/22/2015"
 	ms.author="danlep"/>
 
 
@@ -46,7 +46,7 @@ For a comparison of Batch with other HPC solution options in Azure, see [Batch a
 
 ## Developing with Batch
 
-Develop with the Batch APIs to create and manage pools of compute nodes and to schedule the jobs and tasks that run on them. Write client apps or front-ends to run jobs and tasks on demand, on a schedule, or as part of a larger workflow managed by tools such as [Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/).
+Develop with the Batch APIs to create and manage pools of compute nodes and to schedule the jobs and tasks that run on them. Write client applications or front-ends to run jobs and tasks on demand, on a schedule, or as part of a larger workflow managed by tools such as [Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/).
 
 See [API basics for Azure Batch](batch-api-basics.md) for more about the Batch concepts.
 
@@ -64,7 +64,7 @@ Use these .NET libraries and tools with Visual Studio to develop and manage Azur
 
 + [Batch .NET client library](http://www.nuget.org/packages/Azure.Batch/) (NuGet) – Develop client applications to run jobs with the Batch service
 + [Batch .NET management library](http://www.nuget.org/packages/Microsoft.Azure.Management.Batch/) (NuGet) – Manage Batch accounts
-+ [Batch Explorer](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer) (GitHub) - GUI application and sample to browse, access, and update major elements within a Batch account, including jobs and tasks, compute nodes and pools, and files on a compute node. See the [blog post](http://blogs.technet.com/b/windowshpc/archive/2015/01/20/azure-batch-explorer-sample-walkthrough.aspx).
++ [Batch Explorer](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer) (GitHub) - GUI application and code sample to browse, access, and update major elements within a Batch account, including jobs and tasks, compute nodes and pools, and files on a compute node. See the [blog post](http://blogs.technet.com/b/windowshpc/archive/2015/01/20/azure-batch-explorer-sample-walkthrough.aspx).
 
 
 ## Scenario: Scale out a parallel workload
