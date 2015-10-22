@@ -21,13 +21,11 @@
 
 To list an application that supports single sign-on with Azure Active Directory in the [Azure AD gallery](http://azure.microsoft.com/marketplace/active-directory/all/) and in the Azure Marketplace, the Azure AD team will need to verify your integration. This requires that you send the following information to <waadpartners@microsoft.com>:
 
-- The username and password of a test user account in a test instance of Azure Active Directory that is able to sign into your application
-- URL and/or instructions on how this test user should sign into the application
 - Provide a brief description of how your customers create the connection between your application and Azure AD. This could be:
-  - Built into the application using the Azure AD consent framework
-  - By  configuring Azure AD as an identity provider (SAML 2.0, WS-Federation, or OpenID Connect) using an you application’s administrative portal
+  - Built into the application using the [Azure AD consent framework](https://msdn.microsoft.com/library/azure/b08d91fa-6a64-4deb-92f4-f5857add9ed8#BKMK_Consent)
+  - By configuring Azure AD as an identity provider (SAML 2.0, WS-Federation, or OpenID Connect) using an you application’s administrative portal
   - By contacting someone in your organization to manually create the connection
-- If your application supports configuring Azure AD as an identity provider through a self-service administrative portal, then please also provide a test admin account for verification.
+- Provide access to an instance of your application that is or can be configured to connect to Azure Active Directory, including any user accounts required and instructions on how this test the integration
 
 After testing is completed, then the application can be listed in the Azure Active Directory application gallery and in the Azure Marketplace. Complete the questions below and send to <waadpartners@microsoft.com>.
 
@@ -45,7 +43,7 @@ After testing is completed, then the application can be listed in the Azure Acti
 >
 > Have you integrated your application with Azure AD and tested it (see [Azure Active Directory authentication scenarios](active-directory-authentication-scenarios.md))?
 >
-> Client ID of the application, as shown in the application details at https://manage.windowsazure.com:
+> If yes to the above, provide the Client ID of the application, as shown in the application details at https://manage.windowsazure.com:
 >
 > Application Sign-Up URL where customers go to sign up for and /or purchase the application:
 >
@@ -56,4 +54,3 @@ After testing is completed, then the application can be listed in the Azure Acti
 > Attach Application Large Icon (PNG file, 215px by 215px, solid background color):
 >
 > Attach Application Logo (PNG file, 150px by 122px, transparent background color):
- 
