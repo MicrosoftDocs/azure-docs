@@ -17,7 +17,11 @@
    ms.date="09/01/2015"
    ms.author="kundanap"/>
 
-# Azure Windows VM Extension Configuration Samples.
+# Azure Windows VM Extension Configuration Samples
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Resource Manager model.
+
+
 
 This article provides sample configuration for configuring Azure VM Extensions for Windows VMs.
 
