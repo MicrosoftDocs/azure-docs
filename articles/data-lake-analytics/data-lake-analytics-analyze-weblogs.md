@@ -37,10 +37,10 @@ Learn how to analyze website logs using Data Lake Analytics, especially on findi
 	- [Get Started with Azure Data Lake Analytics using Azure Preview Portal](data-lake-analytics-get-started-portal.md).
 	- [Develop U-SQL script using Data Lake tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md).
 
-- **A Data Lake Analytics account**.  See [Create an Azure Data Lake Analytics account](data-lake-analytics-get-started-portal.md#create_adl_analytics_account).
+- **A Data Lake Analytics account.**  See [Create an Azure Data Lake Analytics account](data-lake-analytics-get-started-portal.md#create_adl_analytics_account).
 
 	The Data Lake Tools doesn't support creating Data Lake Analytics accounts.  So you have to create it using the Azure Preview Portal, Azure PowerShell, .NET SDK or Azure CLI. 
-- **Upload the sample data to the Data Lake Analytics account. See [Upload SearchLog.tsv to the default Data Lake Storage account](data-lake-analytics-get-started-portal.md#update-data-to-the-default-adl-storage-account).
+- **Upload the sample data to the Data Lake Analytics account.** See [Upload SearchLog.tsv to the default Data Lake Storage account](data-lake-analytics-get-started-portal.md#update-data-to-the-default-adl-storage-account).
 
     To run a Data Lake Analytics job, you will need some data. Even though the Data Lake Tools supports uploading data, you will use the portal to upload the sample data to make this tutorial easier to follow. 
  
@@ -178,6 +178,7 @@ You can add addition user-defined operators to the application.  For more inform
 1. From **Server Explorer**, expand **Azure**, expand **Data Lake Analytics**, expand your Data Lake Analytics account, expand **Storage Accounts**, right-click the default Data Lake Storage account, and then click **Explorer**. 
 2.  Double-click **Samples** to open the folder, and then double-click **Outputs**.
 3.  Double-click **UnsuccessfulResponsees.log**.
+4.  You can also double-click the output file inside the graph view of the job in order to navigate directly to the output.
 
     [jgao: include a screenshot of the end results.]
         
