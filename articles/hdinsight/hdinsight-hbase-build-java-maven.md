@@ -466,94 +466,96 @@ Learn how to create and build an [Apache HBase](http://hbase.apache.org/) applic
         #>
         
         function Add-HDInsightFile {
-        [CmdletBinding(SupportsShouldProcess = $true)]
-        param(
-        #The path to the local file.
-        [Parameter(Mandatory = $true)]
-        [String]$localPath,
-        
-        #The destination path and file name, relative to the root of the container.
-        [Parameter(Mandatory = $true)]
-        [String]$destinationPath,
-        
-        #The name of the HDInsight cluster
-        [Parameter(Mandatory = $true)]
-        [String]$clusterName,
-        
-        #If specified, overwrites existing files without prompting
-        [Parameter(Mandatory = $false)]
-        [Switch]$force
-        )
-        
-        Set-StrictMode -Version 3
-        
-        # Is the Azure module installed?
-        FindAzure
-        
-        # Get authentication for the cluster
-        $creds=Get-Credential
-        
-        # Does the local path exist?
-        if (-not (Test-Path $localPath))
-        {
-        throw "Source path '$localPath' does not exist."
-        }
-        
-        # Get the primary storage container
-        $storage = GetStorage -clusterName $clusterName
-        
-        # Upload file to storage, overwriting existing files if -force was used.
-        Set-AzureStorageBlobContent -File $localPath -Blob $destinationPath -force:$force `
-        -Container $storage.container `
-        -Context $storage.context
+            [CmdletBinding(SupportsShouldProcess = $true)]
+            param(
+                #The path to the local file.
+                [Parameter(Mandatory = $true)]
+                [String]$localPath,
+                
+                #The destination path and file name, relative to the root of the container.
+                [Parameter(Mandatory = $true)]
+                [String]$destinationPath,
+                
+                #The name of the HDInsight cluster
+                [Parameter(Mandatory = $true)]
+                [String]$clusterName,
+                
+                #If specified, overwrites existing files without prompting
+                [Parameter(Mandatory = $false)]
+                [Switch]$force
+            )
+            
+            Set-StrictMode -Version 3
+            
+            # Is the Azure module installed?
+            FindAzure
+            
+            # Get authentication for the cluster
+            $creds=Get-Credential
+            
+            # Does the local path exist?
+            if (-not (Test-Path $localPath))
+            {
+                throw "Source path '$localPath' does not exist."
+            }
+            
+            # Get the primary storage container
+            $storage = GetStorage -clusterName $clusterName
+            
+            # Upload file to storage, overwriting existing files if -force was used.
+            Set-AzureStorageBlobContent -File $localPath `
+                -Blob $destinationPath `
+                -force:$force `
+                -Container $storage.container `
+                -Context $storage.context
         }
         
         function FindAzure {
-        # Is there an active Azure subscription?
-        $sub = Get-AzureRmSubscription -ErrorAction SilentlyContinue
-        if(-not($sub))
-        {
-        throw "No active Azure subscription found! If you have a subscription, use the Login-AzureRmAccount cmdlet to login to your subscription."
-        }
+            # Is there an active Azure subscription?
+            $sub = Get-AzureRmSubscription -ErrorAction SilentlyContinue
+            if(-not($sub))
+            {
+                throw "No active Azure subscription found! If you have a subscription, use the Login-AzureRmAccount cmdlet to login to your subscription."
+            }
         }
         
         function GetStorage {
-        param(
-        [Parameter(Mandatory = $true)]
-        [String]$clusterName
-        )
-        $hdi = Get-AzureRmHDInsightCluster -ClusterName $clusterName
-        # Does the cluster exist?
-        if (!$hdi)
-        {
-        throw "HDInsight cluster '$clusterName' does not exist."
-        }
-        # Create a return object for context & container
-        $return = @{}
-        $storageAccounts = @{}
-        
-        # Get storage information
-        $resourceGroup = $hdi.ResourceGroup
-        $storageAccountName=$hdi.DefaultStorageAccount.split('.')[0]
-        $container=$hdi.DefaultStorageContainer
-        $storageAccountKey=Get-AzureRmStorageAccountKey `
-            -Name $storageAccountName `
-            -ResourceGroupName $resourceGroup `
-            | %{ $_.Key1 }
-        # Get the resource group, in case we need that
-        $return.resourceGroup = $resourceGroup
-        # Get the storage context, as we can't depend
-        # on using the default storage context
-        $return.context = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey
-        # Get the container, so we know where to
-        # find/store blobs
-        $return.container = $container
-        # Return storage accounts to support finding all accounts for
-        # a cluster
-        $return.storageAccount = $storageAccountName
-        $return.storageAccountKey = $storageAccountKey
-        
-        return $return
+            param(
+                [Parameter(Mandatory = $true)]
+                [String]$clusterName
+            )
+            $hdi = Get-AzureRmHDInsightCluster -ClusterName $clusterName
+            # Does the cluster exist?
+            if (!$hdi)
+            {
+                throw "HDInsight cluster '$clusterName' does not exist."
+            }
+            # Create a return object for context & container
+            $return = @{}
+            $storageAccounts = @{}
+            
+            # Get storage information
+            $resourceGroup = $hdi.ResourceGroup
+            $storageAccountName=$hdi.DefaultStorageAccount.split('.')[0]
+            $container=$hdi.DefaultStorageContainer
+            $storageAccountKey=Get-AzureRmStorageAccountKey `
+                -Name $storageAccountName `
+                -ResourceGroupName $resourceGroup `
+                | %{ $_.Key1 }
+            # Get the resource group, in case we need that
+            $return.resourceGroup = $resourceGroup
+            # Get the storage context, as we can't depend
+            # on using the default storage context
+            $return.context = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey
+            # Get the container, so we know where to
+            # find/store blobs
+            $return.container = $container
+            # Return storage accounts to support finding all accounts for
+            # a cluster
+            $return.storageAccount = $storageAccountName
+            $return.storageAccountKey = $storageAccountKey
+            
+            return $return
         }
         # Only export the verb-phrase things
         export-modulemember *-*
