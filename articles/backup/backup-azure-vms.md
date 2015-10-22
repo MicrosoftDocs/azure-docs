@@ -24,11 +24,11 @@ There are a few things you need to take care of before you can back up an Azure 
 
 If you are looking for information about [planning your VM backup infrastructure in Azure](backup-azure-vms-introduction.md), or [Azure virtual machines](https://azure.microsoft.com/documentation/services/virtual-machines/) you can follow these links for the information you need.
 
->[AZURE.NOTE] Virtual machine backup is local. You cannot back up virtual machines from one region to a backup vault in another region. So, for every Azure region that has VMs that need backup, at least 1 backup vault must be created in that region.
-
 Backing up Azure virtual machines involves three key steps:
 
 ![Three steps to back up an Azure virtual machine](./media/backup-azure-vms/3-steps-for-backup.png)
+
+>[AZURE.NOTE] Virtual machine backup is local. You cannot back up virtual machines from one region to a backup vault in another region. So, for every Azure region that has VMs that need backup, at least 1 backup vault must be created in that region.
 
 ## Step 1 - Discover Azure virtual machines
 The discovery process should always be run as the first step to ensure that any new virtual machines added to the subscription are identified. The process queries Azure for the list of virtual machines in the subscription, along with additional information like the Cloud Service name and the region.
