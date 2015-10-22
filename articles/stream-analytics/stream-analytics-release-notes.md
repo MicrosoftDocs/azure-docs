@@ -26,8 +26,8 @@ Title | Description
 ---|---
 Additional query language features | Stream Analytics has expanded the query language by including the following features: [ABS](https://msdn.microsoft.com/library/azure/mt574054.aspx), [CEILING](https://msdn.microsoft.com/library/azure/mt605286.aspx), [EXP](https://msdn.microsoft.com/library/azure/mt605289.aspx), [FLOOR](https://msdn.microsoft.com/library/azure/mt605240.aspx), [POWER](https://msdn.microsoft.com/library/azure/mt605287.aspx), [SIGN](https://msdn.microsoft.com/library/azure/mt605290.aspx), [SQUARE](https://msdn.microsoft.com/library/azure/mt605288.aspx), and [SQRT](https://msdn.microsoft.com/library/azure/mt605238.aspx).
 Removed aggregate limitations  | This release removes the limitation of 15 aggregates in a query. There is now no limit to the number of aggregates per query.
-Added GROUP BY System.Timestamp feature | ???
-Added OFFSET for Tumbling and Hopping windows | ???
+Added GROUP BY System.Timestamp feature | The [GROUP BY](https://msdn.microsoft.com/library/azure/dn835023.aspx) function now allows for either window_type or [System.Timestamp](https://msdn.microsoft.com/library/azure/mt598501.aspx).
+Added OFFSET for Tumbling and Hopping windows | By default, [Tumbling](https://msdn.microsoft.com/library/azure/dn835055.aspx) and [Hopping](https://msdn.microsoft.com/library/azure/dn835041.aspx) windows are aligned against zero time (1/1/0001 12:00:00 AM UTC). The new (optional) parameter ‘offsetsize’ allows specifying a custom offset (or alignment).
 
 
 ## Notes for 09/29/2015 release of Stream Analytics ##
