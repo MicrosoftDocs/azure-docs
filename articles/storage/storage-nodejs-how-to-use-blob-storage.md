@@ -201,7 +201,7 @@ The `result` contains an `entries` collection, which is an array of objects that
 
 To download data from a blob, use the following:
 
-* **getBlobToFile** - writes the blob contents to file
+* **getBlobToLocalFile** - writes the blob contents to file
 
 * **getBlobToStream** - writes the blob contents to a stream
 

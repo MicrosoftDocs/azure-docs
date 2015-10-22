@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/08/2015" 
+	ms.date="10/08/2015" 
 	ms.author="asteen"/>
 
 # Customizing Password Management to fit your organization's needs
@@ -332,7 +332,7 @@ The following table describes how each control affects the experience for users 
             </tr>
             <tr>
               <td>
-                <p>Number of question required to register</p>
+                <p>Number of questions required to register</p>
               </td>
               <td>
                 <p>Determines the minimum number of questions a user must answer when registering for the security questions option.</p>
@@ -361,7 +361,7 @@ The following table describes how each control affects the experience for users 
             </tr>
             <tr>
               <td>
-                <p>Number of question required to reset </p>
+                <p>Number of questions required to reset </p>
               </td>
               <td>
                 <p>Determines the minimum number of questions a user must answer when resetting a password.</p>
@@ -393,7 +393,56 @@ The following table describes how each control affects the experience for users 
             </tr>
             <tr>
               <td>
-                <p>Security question</p>
+                <p>Knowledge based security questions</p>
+              </td>
+              <td>
+                <p>Defines the pre-canned security questions your users may choose from when registering for password reset and when resetting their passwords.</p>
+                <p>
+                  
+                </p>
+                <p>(Only visible if the <strong>Security Questions</strong> checkbox is enabled).</p>
+              </td>
+              <td>
+                <p>
+                  <strong>Note:</strong>
+                </p>
+                <ul>
+                  <li class="unordered">
+												All knowledge-based questions will be localized into the full set of O365 languages based off of the user's browser locale.<br><br></li>
+                  <li class="unordered">
+												Up to 20 total questions can be defined (the sum of your custom and knowledge-based questions).<br><br></li>
+                 <li class="unordered">
+												Min answer character limit is 3 characters.<br><br></li>
+                  <li class="unordered">
+												Max answer character limit is 40 characters.<br><br></li>
+                  <li class="unordered">
+												Users may not answer the same question twice.<br><br></li>
+                  <li class="unordered">
+												Users may not provide the same answer to two different questions twice.<br><br></li>
+                  <li class="unordered">
+												Any character set may be used to define answers (including Unicode characters).<br><br></li>
+                  <li class="unordered">
+												The number of questions defined must be greater than or equal to the number of questions required to register.<br><br></li>
+                </ul>
+                <p>
+                  <strong>Registration portal:</strong>
+                </p>
+                <ul>
+                  <li class="unordered">
+												Determines which questions a user is able to provide answers for when registering for password reset.<br><br></li>
+                </ul>
+                <p>
+                  <strong>Password reset portal:</strong>
+                </p>
+                <ul>
+                  <li class="unordered">
+												Determines which questions a user is able to use to reset a password.<br><br></li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <p>Custom Security questions</p>
               </td>
               <td>
                 <p>Defines the security questions your users may choose from when registering for password reset and when resetting their passwords.</p>
@@ -408,7 +457,7 @@ The following table describes how each control affects the experience for users 
                 </p>
                 <ul>
                   <li class="unordered">
-												Up to 20 questions can be defined.<br><br></li>
+												Up to 20 total questions can be defined (the sum of your custom and knowledge-based questions).<br><br></li>
                   <li class="unordered">
 												Max question character limit is 200 characters.<br><br></li>
                   <li class="unordered">
@@ -420,11 +469,11 @@ The following table describes how each control affects the experience for users 
                   <li class="unordered">
 												Users may not provide the same answer to two different questions twice.<br><br></li>
                   <li class="unordered">
-												Any character set may be used to define questions and answer (including Unicode characters).<br><br></li>
+												Any character set may be used to define questions and answers (including Unicode characters).<br><br></li>
                   <li class="unordered">
 												The number of questions defined must be greater than or equal to the number of questions required to register.<br><br></li>
                   <li class="unordered">
-												Defining different questions for different locales is not yet supported, but will be in the future.<br><br></li>
+												Defining different questions for different locales is not supported for custom questions.  All custom questions will be displayed in the language in which you enter them in the administrative UI, even if the user's browser locale is different.  If you need these questions to be localized, please use the "knowledge based" questions instead.<br><br></li>
                 </ul>
                 <p>
                   <strong>Registration portal:</strong>
@@ -729,4 +778,4 @@ The following table describes how each control affects the experience for users 
 * [Password Management FAQ](active-directory-passwords-faq.md)
 * [Troubleshoot Password Management](active-directory-passwords-troubleshoot.md)
 * [Learn More](active-directory-passwords-learn-more.md)
-* [Password Management on MSDN](https://msdn.microsoft.com/library/azure/dn510386.aspx) 
+* [Password Management on MSDN](https://msdn.microsoft.com/library/azure/dn510386.aspx)
