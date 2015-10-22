@@ -70,6 +70,7 @@ To configure the integration of SilkRoad Life Suite into Azure AD, you need to a
 6. In the search box, type **SilkRoad Life Suite**.<br><br>
 ![Applications][5]<br>
 7. In the results pane, select **SilkRoad Life Suite**, and then click **Complete** to add the application.
+<br><br>![Applications][50]<br>
 
 
 ##  Configuring and testing Azure AD single sign-on
@@ -82,7 +83,7 @@ To configure and test Azure AD single sign-on with SilkRoad Life Suite, you need
 
 1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-single-sign-on)** - to enable your users to use this feature.
 2. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-4. **[Creating a SilkRoad Life Suite test user](#creating-a-halogen-software-test-user)** - to have a counterpart of Britta Simon in SilkRoad Life Suite that is linked to the Azure AD representation of her.
+4. **[Creating a SilkRoad Life Suite test user](#creating-a-silkroad-life-suite-test-user)** - to have a counterpart of Britta Simon in SilkRoad Life Suite that is linked to the Azure AD representation of her.
 5. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
 5. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
 
@@ -265,6 +266,7 @@ When you click the SilkRoad Life Suite tile in the Access Panel, you should get 
 [3]: ./media/active-directory-saas-silkroad-life-suite-tutorial/tutorial_general_03.png
 [4]: ./media/active-directory-saas-silkroad-life-suite-tutorial/tutorial_general_04.png
 [5]: ./media/active-directory-saas-silkroad-life-suite-tutorial/tutorial_silkroad_01.png
+[50]: ./media/active-directory-saas-silkroad-life-suite-tutorial/tutorial_silkroad_02.png
 
 [6]: ./media/active-directory-saas-silkroad-life-suite-tutorial/tutorial_general_05.png
 [7]: ./media/active-directory-saas-silkroad-life-suite-tutorial/tutorial_silkroad_03.png
