@@ -16,7 +16,7 @@
 	ms.date="10/23/2015" 
 	ms.author="patshea"/>
 
-# Securely add a user to your Azure DevTest Lab.
+# Securely add a user to your Azure DevTest Lab
 
 ## Overview
 
