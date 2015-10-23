@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/22/2015"
+	ms.date="10/23/2015"
 	ms.author="erikre"/>
 
 # Configure a custom domain name in Azure App Service (Purchased directly from GoDaddy)

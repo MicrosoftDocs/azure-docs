@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/22/2015"
+	ms.date="10/23/2015"
 	ms.author="cephalin"/>
 
 # Troubleshoot: performance degradation in a web app
@@ -158,7 +158,7 @@ Some of the things that Kudu provides are:
 Another useful feature of Kudu is that, in case your application is throwing first-chance exceptions, you can use Kudu and the SysInternals tool Procdump to create memory dumps. These memory dumps are snapshots of the process and can often help you troubleshoot more complicated issues with your web app.
 
 For more information on features available in Kudu, see
-[Windows Azure Websites online tools you should know about](/blog/windows-azure-websites-online-tools-you-should-know-about/).
+[Azure Websites online tools you should know about](/blog/windows-azure-websites-online-tools-you-should-know-about/).
 
 <a name="mitigate" />
 ### 3. Mitigate the issue
@@ -177,7 +177,7 @@ You can set the scaling to be Manual or Automatic.
 
 AutoHeal recycles the worker process for your app based on settings you choose (like configuration changes, requests, memory-based limits, or the time needed to execute a request). Most of the time, recycle the process is the fastest way to recover from a problem. Though you can always restart the web app from directly within the Azure preview portal, AutoHeal will do it automatically for you. All you need to do is add some triggers in the root web.config for your web app. Note that these settings would work in the same way even if your application is not a .Net one.
 
-For more information, see [Auto-Healing Windows Azure Web Sites](/blog/auto-healing-windows-azure-web-sites/).
+For more information, see [Auto-Healing Azure Web Sites](/blog/auto-healing-windows-azure-web-sites/).
 
 ####	Restart the web app
 
