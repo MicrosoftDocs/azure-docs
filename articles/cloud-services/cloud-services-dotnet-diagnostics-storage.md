@@ -21,7 +21,7 @@ Diagnostic data is not permanently stored unless you transfer it to the Microsof
 
 ## Specify a storage account
 
-You specify the storage account that you want to use in the ServiceConfiguration.cscfg file. The account information is defined as a connection string in a configuration setting. The following example shows the default connection string that is created when the Azure Diagnostics module is imported:
+You specify the storage account that you want to use in the ServiceConfiguration.cscfg file. The account information is defined as a connection string in a configuration setting. The following example shows the default connection string created for a new Cloud Service project in  Visual Studio:
 
 
 ```
@@ -72,7 +72,7 @@ Log data is stored in either Blob or Table storage with the following names:
 
 **Blobs**
 
-- **wad-control-container** – Contains the XML configuration files that controls the Azure diagnostics.
+- **wad-control-container** – (Only for SDK 2.4 and previous) Contains the XML configuration files that controls the Azure diagnostics .
 
 - **wad-iis-failedreqlogfiles** – Contains information from IIS Failed Request logs.
 
