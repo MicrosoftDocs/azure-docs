@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity"
-    ms.date="10/16/2015"
+    ms.date="10/23/2015"
     ms.author="markvi"/>
 
 #List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory
@@ -26,10 +26,11 @@ For the comprehensive list of SaaS apps that have been pre-integrated into Azure
 
 | Logo| App Name |
 | --- | --- |
+| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_AtTask.jpg)| [@Task](https://go.microsoft.com/fwLink/?LinkID=522550&clcid=0x409)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_15five.jpg)| [15Five](https://go.microsoft.com/fwLink/?LinkID=510255&clcid=0x409)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_AbaSainsbury.jpg)| [ABa Sainsburys Connect](https://go.microsoft.com/fwLink/?LinkID=530227&clcid=0x409)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Abintegro.jpg)| [Abintegro](https://go.microsoft.com/fwLink/?LinkID=512738&clcid=0x409)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_AdaptiveSuite.jpg)| [Adaptive Suite](https://go.microsoft.com/fwLink/?LinkID=512738&clcid=0x409)|
+| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_AdaptiveSuite.jpg)| [Adaptive Suite](https://go.microsoft.com/fwLink/?LinkID=512724&clcid=0x409)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_AdobeEchoSign.jpg)| [Adobe EchoSign](https://go.microsoft.com/fwLink/?LinkID=403262&clcid=0x409)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Aha.jpg)| [Aha!](https://go.microsoft.com/fwLink/?LinkID=530230&clcid=0x409)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Airwatch.jpg)| [AirWatch](https://go.microsoft.com/fwLink/?LinkID=522560&clcid=0x409)|
