@@ -22,8 +22,8 @@ As an IT admin, you can configure your Windows 7 domain joined devices to automa
 
 ##Installing the device registration software package on Windows 7 domain joined devices
 
-Device registration for Windows 7 is available as a downloadable MSI package. The package must be installed on Windows 7 machines that are joined to an Active Directory Domain. You should deploy the package using a software distribution system such as System Center Configuration Manager. The MSI package supports the standard silent install options using the /quiet parameter.
-The software package is available for download at the Microsoft Connect website. Here you can select and then download Workplace Join for Windows 7.
+Device registration for Windows 7 is available as a [downloadable MSI package](https://connect.microsoft.com/site1164). The package must be installed on Windows 7 machines that are joined to an Active Directory Domain. You should deploy the package using a software distribution system such as System Center Configuration Manager. The MSI package supports the standard silent install options using the /quiet parameter.
+The software package is available for download at the [Microsoft Connect website](https://connect.microsoft.com/site1164). Here you can select and then download Workplace Join for Windows 7.
 
 ![](./media/active-directory-conditional-access/device-registration-process-windows7.gif)
 
