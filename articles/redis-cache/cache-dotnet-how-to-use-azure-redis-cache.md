@@ -205,7 +205,7 @@ One simple way to serialize objects is to use the JsonConvert serialization meth
     // Retrieve from cache
     Employee e25 = JsonConvert.DeserializeObject<Employee>(cache.StringGet("e25"));
 
-Another way to serialize object to and from the cache is to use the [BinaryFormatter](https://msdn.microsoft.com/en-us/library/azure/system.runtime.serialization.formatters.binary.binaryformatter.aspx) class.In the following example, an extension class to the `StackExchange.Redis.IDatabase` type is defined that uses the `BinaryFormatter` to simplify the serialization of objects before they are cached.
+Another way to serialize object to and from the cache is to use the [BinaryFormatter](https://msdn.microsoft.com/library/azure/system.runtime.serialization.formatters.binary.binaryformatter.aspx) class.In the following example, an extension class to the `StackExchange.Redis.IDatabase` type is defined that uses the `BinaryFormatter` to simplify the serialization of objects before they are cached.
 
 	public static class SampleStackExchangeRedisExtensions
 	{
