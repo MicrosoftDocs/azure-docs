@@ -134,7 +134,7 @@ In this step, you use the Azure Management Portal to create an Azure Data Factor
 
 	You can also download and install gateway manually by using the links in this blade and register it using the key shown in the **REGISTER WITH KEY** text box.
 	
-	See [Data Management Gateway](#DMG) section for details about the gateway including best practices and important considerations.
+	See the sections at the beginning of this article for details about the gateway including best practices and important considerations.
 
 	>[AZURE.NOTE] You must be an administrator on the local computer to install and configure the Data Management Gateway successfully. You can add additional users to the Data Management Gateway Users local Windows group. The members of this group will be able to use the Data Management Gateway Configuration Manager tool to configure the gateway. 
 
@@ -156,7 +156,7 @@ In this step, you use the Azure Management Portal to create an Azure Data Factor
 6. You should see **adftutorialgateway** under **Data Gateways** in the tree view on the left.  If you click on it, you should see the associated JSON. 
 	
 
-### Step 2: Create linked services 
+### Step 3: Create linked services 
 In this step, you will create two linked services: **StorageLinkedService** and **SqlServerLinkedService**. The **SqlServerLinkedService** links an on-premises SQL Server database and the **StorageLinkedService** linked service links an Azure blob store to the data factory. You will create a pipeline later in this walkthrough that copies data from the on-premises SQL Server database to the Azure blob store. 
 
 #### Add a linked service to an on-premises SQL Server database
@@ -199,7 +199,7 @@ In this step, you will create two linked services: **StorageLinkedService** and 
 4. Click **Deploy** to deploy the **StorageLinkedService**.
    
  
-### Step 3: Create input and output datasets
+### Step 4: Create input and output datasets
 In this step, you will create input and output datasets that represent input and output data for the copy operation (On-premises SQL Server database => Azure blob storage). Before creating datasets or tables (rectangular datasets), you need to do the following (detailed steps follows the list):
 
 - Create a table named **emp** in the SQL Server Database you added as a linked service to the data factory and insert couple of sample entries into the table.
@@ -322,7 +322,7 @@ In this step, you will create input and output datasets that represent input and
 2.	Click **Deploy** on the command bar to deploy the dataset (table is a rectangular dataset). Confirm that you see a message on the title bar that says **TABLE DEPLOYED SUCCESSFULLY**.
   
 
-### Step 4: Create and run a pipeline
+### Step 5: Create and run a pipeline
 In this step, you create a **pipeline** with one **Copy Activity** that uses **EmpOnPremSQLTable** as input and **OutputBlobTable** as output.
 
 1.	In the **DATA FACTORY** blade, click **Author and deploy** tile to launch the **Editor** for the data factory.
@@ -407,7 +407,7 @@ In this step, you create a **pipeline** with one **Copy Activity** that uses **E
 
 	You can zoom in, zoom out, zoom to 100%, zoom to fit, automatically position pipelines and tables, and show lineage information (highlights upstream and downstream items of selected items).  You can double-blick on an object (input/output table or pipeline) to see properties for it. 
 
-### Step 5: Monitor the datasets and pipelines
+### Step 6: Monitor the datasets and pipelines
 In this step, you will use the Azure Portal to monitor what’s going on in an Azure data factory. You can also use PowerShell cmdlets to monitor datasets and pipelines. For details about monitoring, see [Monitor and Manage Pipelines](monitor-manage-pipelines.md).
 
 1. Navigate to **Azure Preview Portal** (if you have closed it)
@@ -454,6 +454,36 @@ In this step, you will use the Azure Portal to monitor what’s going on in an A
 
 	![Azure Storage Explorer](./media/data-factory-move-data-between-onprem-and-cloud/OnPremAzureStorageExplorer.png)
 
+## Moving gateway from a machine to another
+
+
+2. In the portal, navigate to the Data Factory home page, and click the **Linked Services** tile. 
+	![Data Gateways Link](./media/data-factory-move-data-between-onprem-and-cloud/DataGatewaysLink.png) 
+3. Select your gateway in the **DATA GATEWAYS** section of the **Linked Services** blade.
+	
+	![Linked Services blade with gateway selected](./media/data-factory-move-data-between-onprem-and-cloud/LinkedServiceBladeWithGateway.png)
+4. In the **Data gateway** blade, click **Download and install data gateway**.
+	
+	![Download gateway link](./media/data-factory-move-data-between-onprem-and-cloud/DownloadGatewayLink.png) 
+5. In the **Configure** blade, click **Download and install data gateway** and follow instructions to install the data gateway on the machine. 
+
+	![Configure blade](./media/data-factory-move-data-between-onprem-and-cloud/ConfigureBlade.png)
+6. Keep the Microsoft Data Management Gateway Configuration Manager open. 
+ 
+	![Configuration Manager](./media/data-factory-move-data-between-onprem-and-cloud/ConfigurationManager.png)	
+7. In the **Configure** blade, click **Recreate key** on the command bar and click **Yes** on the warning message. Click **copy button** next to key text to copy the key to the clipboard.
+	
+	![Recreate key](./media/data-factory-move-data-between-onprem-and-cloud/RecreateKey.png)
+8. Paste the **key** into text box in the **Register Gateway** page of the **Data Management Gateway Configuration Manager**. (optional) Click **Show gateway key** check box to see the key text. 
+ 
+	![Copy key and Register](./media/data-factory-move-data-between-onprem-and-cloud/CopyKeyAndRegister.png)
+9. Click **Register** to register the gateway with the cloud service.
+10. In the **Specify certificate** page, click **Browse** to select the same certificate that was used with the old gateway, enter the **password**, and click **Finish**. 
+ 
+	![Specify Certificate](./media/data-factory-move-data-between-onprem-and-cloud/SpecifyCertificate.png)
+
+	You can export a certificate from the old gateway by doing the following: launch Data Management Gateway Configuration Manager on the old machine, switch to the **Certifcate** tab, click **Export** button and follow the instructions. 
+10. After successful registration of the gateway, you should see the **Registration** set to **Registered** and **Status** set to **Started** on the Home page of the Gateway Configuration Manager. 
 
 ## Setting Credentials and Security
 
