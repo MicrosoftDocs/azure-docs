@@ -5,7 +5,8 @@
 	documentationCenter=""
 	authors="cephalin"
 	manager="wpickett"
-	editor=""/>
+	editor=""
+	tags="top-support-issue"/>
 
 <tags
 	ms.service="app-service-web"
@@ -20,32 +21,38 @@
 
 This article helps you troubleshoot performance issues in your web app hosted in [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714).
 
+If you need more help at any point in this article, you can contact the Azure experts on [the MSDN Azure and the Stack Overflow forums](http://azure.microsoft.com/support/forums/). Alternatively, you can also file an Azure support incident. Go to the [Azure Support site](http://azure.microsoft.com/support/options/) and click on **Get Support**.
+
 ## Symptom
 
 When you browse the web app, the pages load slowly and sometimes timeout.
 
-## Troubleshooting steps
+## Cause
 
 This problem is often caused by application level issues, such as:
 
 -	requests taking a long time
--	 application using high memory/CPU
+-	application using high memory/CPU
 -	application crashing due to an exception.
 
-[App Service Web Apps](/services/app-service/web/) gives you various options to find out more details about the problem. The available options are divided into 3 categories
+## Troubleshooting steps
+
+Troubleshooting can be divided into three distinct tasks, in sequential order:
 
 1.	[Observe and monitor application behavior](#observe)
 2.	[Collect data](#collect)
 3.	[Mitigate the issue](#mitigate)
 
-<a name="observe" />
-### Observe and monitor application behavior
+[App Service Web Apps](/services/app-service/web/) gives you various options at each step.
 
-#### 1.	Track Service health
+<a name="observe" />
+### 1. Observe and monitor application behavior
+
+#### Track Service health
 
 Microsoft Azure publicizes each time there is a service interruption or performance degradation. You can track the health of the service on the [Azure preview portal](https://portal.azure.com/). For more information, see [Track service health](insights-service-health.md).
 
-#### 2.	Monitor your web app
+#### Monitor your web app
 
 This option enables you to find out if your application is having any issues. In your web app’s blade, click the **Requests and errors** tile. The **Metric** blade will show you all the metrics you can add.
 
@@ -64,7 +71,7 @@ For more information, see:
 -	[Monitor Web Apps in Azure App Service](web-sites-monitor.md)
 -	[Receive alert notifications](insights-receive-alert-notifications.md)
 
-#### 3.	Monitor web endpoint status
+#### Monitor web endpoint status
 
 If you are running your web app in the **Standard** pricing tier, Web Apps lets you monitor 2 endpoints from 3 geographic locations.
 
@@ -76,7 +83,7 @@ To set it up, see [How to: Monitor web endpoint status](web-sites-monitor.md#web
 
 Also, see [Keeping Azure Web Sites up plus Endpoint Monitoring - with Stefan Schackow](/documentation/videos/azure-web-sites-endpoint-monitoring-and-staying-up/) for a video on endpoint monitoring.
 
-#### 4.	Application performance monitoring using Extensions
+#### Application performance monitoring using Extensions
 
 You can also monitor your application performance by leveraging _site extensions_.
 
@@ -89,9 +96,9 @@ To use Application Insights, see [Monitor performance in web applications](app-i
 To use New Relic, see [New Relic Application Performance Management on Azure](store-new-relic-cloud-services-dotnet-application-performance-management.md).
 
 <a name="collect" />
-### Collect data
+### 2. Collect data
 
-#### 1.	Enable diagnostics logging for your web app
+####	Enable diagnostics logging for your web app
 
 The Web Apps environment provides diagnostic functionality for logging information from both the web server and the web application. These are logically separated into web server diagnostics and application diagnostics.
 
@@ -109,14 +116,14 @@ Application diagnostics enables you to capture information produced by a web app
 
 For detailed instructions on how to configure your application for logging, see [Enable diagnostics logging for web apps in Azure App Service](web-sites-enable-diagnostic-log.md).
 
-#### 2.	Use Remote Profiling
+#### Use Remote Profiling
 
 In Azure App Service, Web Apps, API Apps, and WebJobs can be remotely profiled. If your process is running slower than expected, or the latency of HTTP requests are higher than normal and the CPU usage of the process is also high, you can remotely profile your process and get the CPU sampling call stacks to analyze the process activity and code hot paths.
 
 For more information on, see [Remote Profiling support in Azure App Service](/blog/remote-profiling-support-in-azure-app-service).
 
 
-#### 3.	Use the Azure App Service Support Portal
+#### Use the Azure App Service Support Portal
 
 Web Apps provides you with the ability to troubleshoot issues related to your web app by looking at HTTP logs, event logs, process dumps, and more. You can access all this information using our Support portal at **http://&lt;your app name>.scm.azurewebsites.net/Support**
 
@@ -134,7 +141,7 @@ In case you want to download the data, by default, it would be stored in the D:\
 
 For more information on the Azure App Service Support portal, see [New Updates to Support Site Extension for Azure Websites](/blog/new-updates-to-support-site-extension-for-azure-websites).
 
-#### 4.	Use the Kudu Debug Console
+#### Use the Kudu Debug Console
 
 Web Apps comes with a debug console that you can use for debugging, exploring, uploading files, as well as JSON endpoints for getting information about your environment. This is called the _Kudu Console_ or the _SCM Dashboard_ for your web app.
 
@@ -154,9 +161,9 @@ For more information on features available in Kudu, see
 [Windows Azure Websites online tools you should know about](/blog/windows-azure-websites-online-tools-you-should-know-about/).
 
 <a name="mitigate" />
-### Mitigate the issue
+### 3. Mitigate the issue
 
-#### 1.	Scale the web app
+####	Scale the web app
 
 In Azure App Service, for increased performance and throughput,  you can adjust the scale at which you are running your application. Scaling up a web app involves two related actions: changing your App Service plan to a higher pricing tier, and configuring certain settings after you have switched to the higher pricing tier.
 
@@ -166,13 +173,13 @@ Additionally, you can choose to run your application on more than one instance .
 
 You can set the scaling to be Manual or Automatic.
 
-#### 2.	Use AutoHeal
+####	Use AutoHeal
 
 AutoHeal recycles the worker process for your app based on settings you choose (like configuration changes, requests, memory-based limits, or the time needed to execute a request). Most of the time, recycle the process is the fastest way to recover from a problem. Though you can always restart the web app from directly within the Azure preview portal, AutoHeal will do it automatically for you. All you need to do is add some triggers in the root web.config for your web app. Note that these settings would work in the same way even if your application is not a .Net one.
 
 For more information, see [Auto-Healing Windows Azure Web Sites](/blog/auto-healing-windows-azure-web-sites/).
 
-#### 3.	Restart the web app
+####	Restart the web app
 
 This is often the simplest way to recover from one-time issues. On the [Azure preview portal](https://portal.azure.com), on your web app’s blade, you have the options to stop or restart your app.
 
