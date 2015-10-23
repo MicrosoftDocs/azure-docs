@@ -12,7 +12,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/02/2015"
+   ms.date="10/20/2015"
    ms.author="cherylmc"/>
 
 # ExpressRoute FAQ
@@ -25,13 +25,13 @@ ExpressRoute is an Azure service that lets you create private connections betwee
 ExpressRoute connections do not go over the public Internet, and offer higher security, reliability and speeds with lower and consistent latencies than typical connections over the Internet. In some cases, using ExpressRoute connections to transfer data between on-premises devices and Azure can yield significant cost benefits.
 
 ### What Microsoft cloud services are supported over ExpressRoute?
-ExpressRoute supports most Microsoft Azure services today. We are announcing support for Office 365 services over ExpressRoute. Look for updates on general availability soon.
+ExpressRoute supports most Microsoft Azure services today including Office 365.  Look for updates on general availability soon.
 
 ### Where is the service available?
 See this page for service location and availability: [ExpressRoute partners and locations](expressroute-locations.md).
 
 ### How can I use ExpressRoute to connect to Microsoft if I don’t have partnerships with one of the ExpressRoute-carrier partners?
-You can select a regional carrier and land Ethernet connections to one of the supported exchange provider locations. You can then peer with Microsoft at the EXP location. Check the last section of [ExpressRoute partners and locations](expressroute-locations.md) to see if your network provider is present in any of the Exchange locations. You can then order an ExpressRoute circuit through the Exchange provider to connect to Azure.
+You can select a regional carrier and land Ethernet connections to one of the supported exchange provider locations. You can then peer with Microsoft at the provider location. Check the last section of [ExpressRoute partners and locations](expressroute-locations.md) to see if your service provider is present in any of the Exchange locations. You can then order an ExpressRoute circuit through the service provider to connect to Azure.
 
 ### How much does ExpressRoute cost?
 Check [pricing details](http://azure.microsoft.com/pricing/details/expressroute/) for pricing information.
@@ -53,6 +53,7 @@ Most Azure services are supported over ExpressRoute.
 
 - Connectivity to virtual machines and cloud services deployed in virtual networks are supported over the private peering path.
 - Azure Websites are supported over the public peering path.
+- Office 365 is supported over the Microsoft peering path.
 - All other services are accessible over the public peering path. The exceptions are as follows.
 
 	**The following services are not supported:**
@@ -69,10 +70,7 @@ We do not set a limit on the amount of data transfer. Refer to [pricing details]
 ### What connection speeds are supported by ExpressRoute?
 Supported bandwidth offers:
 
-|**Provider**|**Bandwidth**|
-|---|---|
-|**Network providers**|10 Mbps, 50 Mbps, 100 Mbps, 500 Mbps, 1 Gbps|
-|**Exchange providers**|200 Mbps, 500 Mbps, 1Gbps, 10Gbps|
+|50 Mbps, 100 Mbps, 200 Mbps, 500 Mbps, 1Gbps, 2 Gbps,  5 Gbps, 10Gbps|
 
 ### Which service providers are available?
 See [ExpressRoute partners and locations](expressroute-locations.md) for the list of service providers and locations.
@@ -89,7 +87,7 @@ Yes. Each Express Route circuit has a redundant pair of cross connections config
 You will not lose connectivity if one of the cross connections fails. A redundant connection is available to support the load of your network. You can additionally create multiple circuits in a different peering location to achieve failure resilience.
 
 ### Do I have to configure both links to get the service to work?
-If you are connecting through a NSP, the NSP takes care of configuring redundant links on your behalf. If you are already co-located at an EXP, you must configure two LAN links to the EXP cloud exchange platform. If you connect to an EXP through a single WAN link from your private datacenter, you need to terminate the WAN link on your own router at the EXP, and then configure two LAN links to the EXP cloud exchange platform.  
+If you are connecting through a partner that provides layer 3 services, the partner takes care of configuring redundant links on your behalf. However, if you are already co-located at a cloud exchange provider, you must configure two LAN links to the cloud exchange platform. If you connect to the cloud provider through a single WAN link from your private datacenter, you need to terminate the WAN link on your own router and then configure two LAN links to the cloud exchange platform.  
 
 ### Can I extend one of my VLANs to Azure using ExpressRoute?
 No. We do not support layer 2 connectivity extensions into Azure.
@@ -104,14 +102,10 @@ Yes. You can have ExpressRoute circuits with many service providers. Each Expres
 The basic steps are outlined below.
 
 - You must establish an ExpressRoute circuit and have the service provider enable it.
-- You must configure the BGP for private peering (if you are using an Exchange provider).
+- You or the provider must configure the BGP peering(s).
 - You must link the virtual network to the ExpressRoute circuit.
 
-The following tutorials will help you:
-
-- [Configure an ExpressRoute connection through a network service provider](expressroute-configuring-nsps.md)
-- [Configure an ExpressRoute connection through an exchange provider](expressroute-configuring-exps.md)
-- [Configure a virtual network and gateway for ExpressRoute](expressroute-configuring-vnet-gateway.md)
+See [ExpressRoute workflows for circuit provisioning and circuit states](expressroute-workflows.md) for more information.
 
 ### Are there connectivity boundaries for my ExpressRoute circuit?
 Yes. [ExpressRoute partners and locations](expressroute-locations.md) page provides an overview of the connectivity boundaries for an ExpressRoute circuit. Connectivity for an ExpressRoute circuit is limited to a single geopolitical region. Connectivity can be expanded to cross geopolitical regions by enabling the ExpressRoute premium feature.
@@ -189,26 +183,18 @@ ExpressRoute premium is a collection of features listed below.
 ### How many VNets can I link to an ExpressRoute circuit if I enabled ExpressRoute premium?
 The table below provides the increased limits for the number of VNets you can link to an ExpressRoute circuit. Default limit is 10.
 
-**Limits for circuits created through NSPs**
+**Limits for circuits**
 
 | **Circuit Size** | **Number of VNet links for default setup** | **Number of VNet Links with ExpressRoute Premium** |
 |--------------|----------------------------------------|-----------------------------------------------|
-| 10 Mbps      | 10                                     | Not Supported                                 |
-| 50 Mbps      | 10                                     | 20                                            |
-| 100 Mbps     | 10                                     | 25                                            |
+| 50 Mbps      | 10                                     | Not Supported                                 |
+| 100 Mbps     | 10                                     | 20                                            |
+| 200 Mbps     | 10                                     | 25                                            |
 | 500 Mbps     | 10                                     | 40                                            |
-| 1Gbps         | 10                                     | 50
-|
-
-
-**Limits for circuits created through EXPs**
-
-| **Circuit Size** | **Number of VNet links for default setup** | **Number of VNet links with ExpressRoute Premium** |
-|--------------|-----------------------------------|------------------------------------------------|
-| 200 Mbps     | 10                                | 25                                             |
-| 500 Mbps     | 10                                | 40                                             |
-| 1 Gbps       | 10                                | 50                                             |
-| 10 Gbps      | 10                                |  100                                              |
+| 1 Gbps       | 10                                     | 50											|
+| 2 Gbps	   | 10										| 60											|
+| 5 Gbps       | 10                                		| 75											|
+| 10 Gbps      | 10                                		|  100                                          |
 
 
 
@@ -227,10 +213,6 @@ Refer to [pricing details](http://azure.microsoft.com/pricing/details/expressrou
 ### Do I pay for ExpressRoute premium in addition to standard ExpressRoute charges?
 Yes. ExpressRoute premium charges apply on top of ExpressRoute circuit charges and charges required by the connectivity provider.
 
-### Does ExpressRoute premium work with both EXP and NSP models?
-Yes. ExpressRoute premium is supported cor ExpressRoute circuits connected through EXPs and NSPs.
-
-
 ## ExpressRoute and Office 365
 
 ### How do I create an ExpressRoute circuit to connect to Office 365 services?
@@ -239,17 +221,10 @@ Yes. ExpressRoute premium is supported cor ExpressRoute circuits connected throu
 2. Review the list of service providers and locations at [ExpressRoute partners and locations](expressroute-locations.md) to ensure that your connectivity needs are met.
 3. Plan your capacity requirements by reviewing [Network planning and performance tuning for Office 365](http://aka.ms/tune/).
 4. Follow the steps listed in the workflows below to setup connectivity.
-
-	- [Configure an ExpressRoute connection through a network service provider](expressroute-configuring-nsps.md)
-	- [Configure an ExpressRoute connection through an exchange provider](expressroute-configuring-exps.md)
+	[ExpressRoute workflows for circuit provisioning and circuit states](expressroute-workflows.md).
 
 ### Can my existing ExpressRoute circuits support connectivity to Office 365 services?
-Yes. Your existing ExpressRoute circuit can be configured to support connectivity to Office 365 services. Ensure that you have sufficient capacity to connect to Office 365 services. [Network planning and performance tuning for Office 365](http://aka.ms/tune/) will help you plan your connectivity needs.
-
-The following tutorials will help you:
-
-- [Configure an ExpressRoute connection through a network service provider](expressroute-configuring-nsps.md)
-- [Configure an ExpressRoute connection through an exchange provider](expressroute-configuring-exps.md)
+Yes. Your existing ExpressRoute circuit can be configured to support connectivity to Office 365 services. Ensure that you have sufficient capacity to connect to Office 365 services. [Network planning and performance tuning for Office 365](http://aka.ms/tune/) will help you plan your connectivity needs. Also, see [Create and modify an ExpressRoute circuit](expressroute-howto-circuit-classic.md).
 
 ### What Office 365 services can be accessed over an ExpressRoute connection?
 
@@ -279,9 +254,6 @@ There is no additional cost for connecting to Office 365 over ExpressRoute.  The
 
 ### What regions is ExpressRoute for Office 365 supported in?
 Refer to [ExpressRoute partners and locations](expressroute-locations.md) for more information on the list of partners and locations where ExpressRoute is supported.
-
-### Can I use NSPs and EXPs to connect to Office 365 services?
-We support connectivity to Office 365 services through both NSPs and EXPs. Refer to [ExpressRoute partners and locations](expressroute-locations.md) for more information on the list of supported partners and locations.
 
 ### Can I access Office 365 over the internet even if ExpressRoute was configured for my organization?
 Yes. Office 365 service endpoints are reachable through the internet even though ExpressRoute has been configured for your network. If you are in a location that is configured to connect to Office 365 services through ExpressRoute, you will connect through ExpressRoute.
