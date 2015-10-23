@@ -47,7 +47,10 @@ Depending on the type of diagnostic data that is being collected, Azure Diagnost
 
 ## Transfer diagnostic data
 
-The request to transfer diagnostic data can occur either directly in the role (programmatically or through the configuration file) or through remote configuration. You can transfer diagnostic data at scheduled intervals or you can transfer data on-demand.
+For SDK 2.5 and later, the request to transfer diagnostic data can occur through the configuration file. You can transfer diagnostic data at scheduled intervals as specified in the configuration.
+
+For SDK 2.4 and previous you can request to transfer the diagnostic data through the configuration file as well as programmatically. The programmatic approach also allows you to do on-demand transfers.
+
 
 >[AZURE.IMPORTANT] When you transfer diagnostic data to an Azure storage account, you incur costs for the storage resources that your diagnostic data uses.
 
@@ -86,6 +89,6 @@ Several tools are available to view the data after it is transferred to storage.
 
 - Azure Diagnostics Manager by Cerebrata - [Azure Diagnostics Manager](http://www.cerebrata.com/Products/AzureDiagnosticsManager/Default.aspx) is a Windows (WPF) based client for managing Azure Diagnostics. It lets you view, download, and manage the diagnostics data collected by the applications running in Azure. To download the tool, see [Azure Diagnostics Manager](http://www.cerebrata.com/Products/AzureDiagnosticsManager/Default.aspx).
 
-## See Also
+## Next Steps
 
-[Perform an On-Demand Transfer](https://msdn.microsoft.com/en-us/library/azure/gg433075.aspx)
+[Trace the flow in a Cloud Services application with Azure Diagnostics](cloud-services-dotnet-diagnostics-trace-flow.md)
