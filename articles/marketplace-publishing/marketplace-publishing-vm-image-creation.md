@@ -153,7 +153,7 @@ These links can also be found in the Publishing Portal under the SKU page.
 > [AZURE.TIP] If you are using the current Azure portal or PowerShell, Windows Server images published on September 8, 2014 and later are approved.
 
 
-### 3.2 Create your Windows virtual machine
+### 3.2 Create your Windows-based virtual machine
 From the Microsoft Azure portal, you can create your virtual machine based on an approved base image in just a few simple steps. The following is an overview of the process:
 
 1. From the base image page, select **Create Virtual Machine** to be directed to the new [Microsoft Azure portal][link-azure-portal].
@@ -463,7 +463,7 @@ This process includes running a special certification tool, uploading the verifi
 ### 5.1 Download and run the Certification Test Tool for Azure Certified
 The certification tool runs on a running virtual machine, provisioned from your user virtual machine image, to ensure that the virtual machine image is compatible with Microsoft Azure. It will verify that the guidance and requirements about preparing your VHD have been met. The output of the tool is a compatibility report, which should be uploaded on the Publishing Portal while requesting certification.
 
-The certification tool can be used with both Windows and Linux virtual machines. It connects to Windows virtual machines via PowerShell and connects to Linux virtual machines via SSH.Net:
+The certification tool can be used with both Windows and Linux virtual machines. It connects to Windows-based virtual machines via PowerShell and connects to Linux virtual machines via SSH.Net:
 
 1. First, download the certification tool at the [Microsoft download site][link-msft-download].
 2. Open the certification tool, and then click the **Start New Test** button.
@@ -481,14 +481,14 @@ options.
 
   ![Key file authentication of Linux VM Image][img-cert-vm-key-lnx]
 
-### **Connect the certification tool to a Windows virtual machine image**
+### **Connect the certification tool to a Windows-based virtual machine image**
 
 1. Enter the fully qualified virtual machine DNS name (for example, MyVMName.Cloudapp.net).
 2. Enter the user name and password.
 
   ![Password authentication of Windows VM Image][img-cert-vm-pswd-win]
 
-After you have selected the correct options for your Linux or Windows virtual machine image, select **Test Connection** to ensure
+After you have selected the correct options for your Linux or Windows-based virtual machine image, select **Test Connection** to ensure
 that SSH.Net or PowerShell has a valid connection for testing purposes. After a connection is established, select **Next** to start the test.
 
 When the test is complete, you will receive the results (Pass/Fail/Warning) for each test element.
