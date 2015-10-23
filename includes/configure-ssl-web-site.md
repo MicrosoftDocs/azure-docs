@@ -11,6 +11,7 @@ The rest of this document provides details on enabling HTTPS for custom domains,
 To enable HTTPS for a custom domain, such as **contoso.com**, you must first [configure a custom domain name in Azure App Service](../articles/app-service-web/web-sites-custom-domain-name.md). Then, you do the following:
 
 1. [Get an SSL certificate](#bkmk_getcert)
+2. [Configure Standard pricing tier](#bkmk_standardmode)
 2. [Configure SSL in your app](#bkmk_configuressl)
 3. [Enforce SSL on your app](#bkmk_enforce) (Optional)
 
@@ -382,7 +383,8 @@ You can create a test certificate from a Windows system that has Visual Studio i
 
 	The **myserver.pfx** produced by this command can be used to secure your app for testing purposes.
 
-<a name="bkmk_standardmode"></a><h2>Configure Standard mode</h2>
+<a name="bkmk_standardmode"></a>
+## 2. Configure Standard pricing tier
 
 Enabling HTTPS for a custom domain is only available for the **Standard** tier in Azure App Service. Use the following steps to switch your App Service plan to **Standard** tier.
 
@@ -401,7 +403,7 @@ Enabling HTTPS for a custom domain is only available for the **Standard** tier i
 	> [AZURE.NOTE] If you receive a "Configuring scale for web app '&lt;app name&gt;' failed" error you can use the details button to get more information. You may receive a "Not enough available standard instance servers to satisfy this request." error. If you receive this error, please contact [Azure support](/support/options/).
 
 <a name="bkmk_configuressl"></a>
-## 2. Configure SSL in your app
+## 3. Configure SSL in your app
 
 Before performing the steps in this section, you must have associated a custom domain name with your app. For more information, see [Configuring a custom domain name for a web app][customdomain].
 
@@ -439,7 +441,7 @@ Before performing the steps in this section, you must have associated a custom d
 At this point, you should be able to visit your app using `HTTPS://` instead of `HTTP://` to verify that the certificate has been configured correctly.
 
 <a name="bkmk_enforce"></a>
-## Enforce HTTPS on your app
+## 4. Enforce HTTPS on your app
 
 Azure App Service do *not* enforce HTTPS. Visitors may still access your app using HTTP, which may compromise your app's security. If you want to enforce HTTPS for your app, you can use the **URL Rewrite** module. The URL Rewrite module is included with Azure App Service, and enables you to define rules that are applied to incoming requests before the requests are handed to your application. **It can be used for applications written in any programming language supported by Azure .**
 
