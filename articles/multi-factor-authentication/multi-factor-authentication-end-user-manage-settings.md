@@ -26,7 +26,7 @@ The following information is provided to help you with some of the common issues
 - [I am not receiving a code on my phone](#i-am-not-receiving-a-code-on-my-phone)
 - [App passwords are not working](#app-passwords-are-not-working)
 - [Why is the Azure Authenticator app published by PhoneFactor?](#why-is-the-azure-authenticator-app-published-by-phonefactor)
-- [How do I clean up Azure Authenticator from my old device and move to a new one?](how-do-i-clean-up-azure-authenticator-from-my-old-device-and-move-to-a-new-one)
+- [How do I clean up Azure Authenticator from my old device and move to a new one?](#how-do-i-clean-up-azure-authenticator-from-my-old-device-and-move-to-a-new-one)
 
 ## I have lost my phone or it was stolen?
 If your phone was lost or stolen, it is recommended that you have your administrator reset your [app passwords](multi-factor-authentication-manage-users-and-devices.md#delete-users-existing-app-passwords) and clear any [remembered devices](multi-factor-authentication-manage-users-and-devices.md#restore-mfa-on-all-suspended-devices-for-a-user).
