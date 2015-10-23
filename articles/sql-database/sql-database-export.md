@@ -10,7 +10,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="10/20/2015"
+	ms.date="10/23/2015"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -27,9 +27,9 @@
 
 This article provides directions for exporting a BACPAC of your Azure SQL database with the [Azure preview portal](https://portal.azure.com).
 
-A BACPAC is a .bacpac file that contains a database schema and data. For details, see Backup Package (.bacpac) in [Data-tier Applications](https://msdn.microsoft.com/library/ee210546.aspx).
+A [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx) is a .bacpac file that contains a database schema and data. The primary use case for a BACPAC is to move a database from one server to another, to [migrate a local server to the cloud](sql-database-cloud-migrate.md), and for archiving an existing database in an open format.
 
-> [AZURE.NOTE] Azure SQL Database automatically creates backups for every user database. For details, see [Business Continuity Overview](sql-database-business-continuity.md).
+> [AZURE.NOTE] BACPACs are not intended to be used for backup and restore operations. Azure SQL Database automatically creates backups for every user database. For details, see [Business Continuity Overview](sql-database-business-continuity.md).
 
 
 The BACPAC is exported into an Azure storage blob container that you can download once the operation successfully completes.
@@ -38,12 +38,12 @@ To complete this article you need the following:
 
 - An Azure subscription. If you need an Azure subscription simply click **FREE TRIAL** at the top of this page, and then come back to finish this article.
 - An Azure SQL Database. If you do not have a SQL database, create one following the steps in this article: [Create your first Azure SQL Database](sql-database-get-started.md).
-- An [Azure Storage account](storage-create-storage-account.md) with a blob container to store the database backup. Currently the storage account must use the classic deployment model so choose **Classic** when creating a storage account. 
+- An [Azure Storage account](storage-create-storage-account.md) with a blob container to store the BACPAC. Currently the storage account must use the classic deployment model so choose **Classic** when creating a storage account. 
 
 
 ## Export your database
 
-Open the SQL Database blade for the database you want to export as a .bacpac file.
+Open the SQL Database blade for the database you want to export.
 
 > [AZURE.IMPORTANT] To guarantee a transactionally consistent BACPAC file you should first [create a copy of your database](sql-database-copy.md) and then export the database copy. 
 
@@ -59,7 +59,7 @@ Open the SQL Database blade for the database you want to export as a .bacpac fil
 
     ![export database][2]
 
-1.  Enter the **Server admin login** and **Password** for the Azure SQL server containing the database you are backing up.
+1.  Enter the **Server admin login** and **Password** for the Azure SQL server containing the database you are exporting.
 1.  Click **Create** to export the database.
 
 Clicking **Create** creates an export database request and submits it to the service. Depending on the size of your database the export operation may take some time to complete.
@@ -79,7 +79,7 @@ Clicking **Create** creates an export database request and submits it to the ser
 2.	Click **BROWSE ALL**.
 3.	Click **Storage accounts (classic)**.
 2.	Click the storage account where you stored the BACPAC.
-3.	Click **Containers** and select the container you exported the database into for details of the backup (you can download and save the BACPAC from here).
+3.	Click **Containers** and select the container you exported the database into for details (you can download and save the BACPAC from here).
 
     ![.bacpac file details][5]	
 
