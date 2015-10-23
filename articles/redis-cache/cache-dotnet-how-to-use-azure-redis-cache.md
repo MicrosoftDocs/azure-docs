@@ -197,7 +197,7 @@ To specify the expiration of an item in the cache, use the `TimeSpan` parameter 
 
 Azure Redis Cache can cache .NET objects as well as primitive data types, but before a .NET object can be cached it must be serialized. This is the responsibility of the application developer, and gives the developer flexibility in the choice of the serializer.
 
-One simple way to serialize objects is to use the JsonConvert serialization methods in [Newtonsoft.Json.NET](https://www.nuget.org/packages/Newtonsoft.Json/8.0.1-beta1) and serialize to and from JSON. The following example shows a get and set using a `Employee` object instance.
+One simple way to serialize objects is to use the `JsonConvert` serialization methods in [Newtonsoft.Json.NET](https://www.nuget.org/packages/Newtonsoft.Json/8.0.1-beta1) and serialize to and from JSON. The following example shows a get and set using an `Employee` object instance.
 
     // Store to cache
     cache.StringSet("e25", JsonConvert.SerializeObject(new Employee(25, "Clayton Gragg")));
@@ -205,7 +205,7 @@ One simple way to serialize objects is to use the JsonConvert serialization meth
     // Retrieve from cache
     Employee e25 = JsonConvert.DeserializeObject<Employee>(cache.StringGet("e25"));
 
-Another way to serialize object to and from the cache is to use the [BinaryFormatter](https://msdn.microsoft.com/library/azure/system.runtime.serialization.formatters.binary.binaryformatter.aspx) class.In the following example, an extension class to the `StackExchange.Redis.IDatabase` type is defined that uses the `BinaryFormatter` to simplify the serialization of objects before they are cached.
+Another way to serialize objects to and from the cache is to use the [BinaryFormatter](https://msdn.microsoft.com/library/azure/system.runtime.serialization.formatters.binary.binaryformatter.aspx) class. In the following example, [extension methods](https://msdn.microsoft.com/library/bb383977.aspx) to the `StackExchange.Redis.IDatabase` type are defined that use the `BinaryFormatter` to simplify the serialization of objects when they are cached.
 
 	public static class SampleStackExchangeRedisExtensions
 	{
