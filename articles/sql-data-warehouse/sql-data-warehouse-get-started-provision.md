@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="10/08/2015"
+   ms.date="10/21/2015"
    ms.author="lodipalm;barbkess"/>
 
 # Create a SQL Data Warehouse by using the Azure preview portal#
@@ -126,7 +126,7 @@ Now that you have configured the firewall you will be able to make connections f
 
 ## Next steps
 
-Now that you have created a sample database for SQL Data Warehouse, learn about how to use SQL Data Warehouse in [Connect and query](./sql-data-warehouse-get-started-connect-query.md).
+Now that you have created a sample database for SQL Data Warehouse, you are ready to [Connect](./sql-data-warehouse-get-started-connect.md) to your database.
 
 
 
