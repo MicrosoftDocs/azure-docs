@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="23/10/2015" 
+	ms.date="10/23/2015" 
 	ms.author="awills"/>
  
 # SDK Release Notes - Application Insights

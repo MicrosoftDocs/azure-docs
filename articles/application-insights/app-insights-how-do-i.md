@@ -215,7 +215,7 @@ To **dynamically stop and start** the collection and transmission of telemetry:
     TelemetryConfiguration.Active.DisableTelemetry = true;
 ```
 
-To **disable selected standard collectors** - for example, performance counters, HTTP requests, or dependencies - delete or comment out the relevant lines in [ApplicationInsights.config][config]. You could do this, for example, if you want to send your own TrackRequest data.
+To **disable selected standard collectors** - for example, performance counters, HTTP requests, or dependencies - delete or comment out the relevant lines in [ApplicationInsights.config](app-insights-api-custom-events-metrics.md). You could do this, for example, if you want to send your own TrackRequest data.
 
 
 
