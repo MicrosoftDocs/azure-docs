@@ -28,7 +28,7 @@
 
 This article provides directions for exporting a BACPAC of your Azure SQL database with PowerShell.
 
-A [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx) is a .bacpac file that contains a database schema and data. The primary use case for a BACPAC is to move a database from one server to another, to [migrate a local server to the cloud](sql-database-cloud-migrate.md), and for archiving an existing database in an open format.
+A [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4) is a .bacpac file that contains a database schema and data. The primary use case for a BACPAC is to move a database from one server to another, to [migrate a local server to the cloud](sql-database-cloud-migrate.md), and for archiving an existing database in an open format.
 
 > [AZURE.NOTE] BACPACs are not intended to be used for backup and restore operations. Azure SQL Database automatically creates backups for every user database. For details, see [Business Continuity Overview](sql-database-business-continuity.md).
 
