@@ -15,6 +15,8 @@ To enable HTTPS for a custom domain, such as **contoso.com**, you must first [co
 2. [Configure SSL in your app](#bkmk_configuressl)
 3. [Enforce SSL on your app](#bkmk_enforce) (Optional)
 
+If you need more help at any point in this article, you can contact the Azure experts on [the MSDN Azure and the Stack Overflow forums](http://azure.microsoft.com/support/forums/). Alternatively, you can also file an Azure support incident. Go to the [Azure Support site](http://azure.microsoft.com/support/options/) and click on **Get Support**.
+
 <a name="bkmk_getcert"></a>
 ## 1. Get an SSL certificate
 

@@ -5,7 +5,8 @@
 	documentationCenter=".net"
 	authors="cephalin"
 	manager="wpickett"
-	editor="jimbe"/>
+	editor="jimbe"
+	tags="top-support-issue"/>
 
 <tags
 	ms.service="app-service"
@@ -13,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/23/2015" 
+	ms.date="10/23/2015"
 	ms.author="cephalin"/>
 
 
