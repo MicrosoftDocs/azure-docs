@@ -101,6 +101,31 @@ running a job.  You only pay for the time when it is running a job.  For more in
 		-ResourceGroupName $resourceGroupName `
 		-Name $dataLakeAnalyticsName  
 
+You can also use an Azure Resource Group template. A tempalte for creating a Data Lake Analytics account and the dependent Data Lake Store account is in [Appendix A](#appendix-a). Save the template into a file with .json template, and then use the following PowerShell script to call it:
+
+
+	$AzureSubscriptionID = "<Your Azure Subscription ID>"
+	
+	$ResourceGroupName = "<New Azure Resource Group Name>"
+	$Location = "EAST US 2"
+	$DefaultDataLakeStoreAccountName = "<New Data Lake Store Account Name>"
+	$DataLakeAnalyticsAccountName = "<New Data Lake Analytics Account Name>"
+	
+	$DeploymentName = "MyDataLakeAnalyticsDeployment"
+	$ARMTemplateFile = "E:\Tutorials\ADL\ARMTemplate\azuredeploy.json"  # update the Json template path 
+	
+	Login-AzureRmAccount
+	
+	Select-AzureRmSubscription -SubscriptionId $AzureSubscriptionID
+	
+	# Create the resource group
+	New-AzureRmResourceGroup -Name $ResourceGroupName -Location $Location
+	
+	# Create the Data Lake Analytics account with the default Data Lake Store account.
+	$parameters = @{"adlAnalyticsName"=$DataLakeAnalyticsAccountName; "adlStoreName"=$DefaultDataLakeStoreAccountName}
+	New-AzureRmResourceGroupDeployment -Name $DeploymentName -ResourceGroupName $ResourceGroupName -TemplateFile $ARMTemplateFile -TemplateParameterObject $parameters 
+
+ 
 ###List account
 
 List Data Lake Analytics accounts within the current subscription
@@ -316,9 +341,6 @@ You must have an Data Lake Analytics account before you can create a job.  For m
 			-DatabaseName "master"
 
 
-
-
-
 ##See also 
 
 - [Overview of Microsoft Azure Data Lake Analytics](data-lake-analytics-overview.md)
@@ -326,3 +348,60 @@ You must have an Data Lake Analytics account before you can create a job.  For m
 - [Manage Azure Data Lake Analytics using Azure Preview portal](data-lake-analytics-use-portal.md)
 - [Monitor and troubleshoot Azure Data Lake Analytics jobs using Azure Preview Portal](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
 
+##Apendix A - Data Lake Analytics ARM template
+
+The following ARM template can be used to deploy a Data Lake Analytics account and its dependent Data Lake Store account.  Save it as a json file, and then use PowerShell script to call the template. For more information, see
+[Deploy an application with Azure Resource Manager template](resource-group-template-deploy.md#deploy-with-powershell) and [Authoring Azure Resource Manager templates](resource-group-authoring-templates.md).
+
+	{
+		"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+		"contentVersion": "1.0.0.0",
+		"parameters": {
+			"adlAnalyticsName": {
+				"type": "string",
+				"metadata": {
+					"description": "The name of the Data Lake Analytics account to create."
+				}
+			},
+			"adlStoreName": {
+				"type": "string",
+				"metadata": {
+					"description": "The name of the Data Lake Store account to create."
+				}
+			}
+		},
+		"resources": [{
+			"name": "[parameters('adlAnalyticsName')]",
+			"type": "Microsoft.DataLakeAnalytics/accounts",
+			"location": "East US 2",
+			"apiVersion": "2015-10-01-preview",
+			"dependsOn": ["[concat('Microsoft.DataLakeStore/accounts/',parameters('adlStoreName'))]"],
+			"tags": {
+				
+			},
+			"properties": {
+				"defaultDataLakeAccount": "[parameters('adlStoreName')]"
+				}
+			}
+		},
+		{
+			"name": "[parameters('adlName')]",
+			"type": "Microsoft.DataLakeStore/accounts",
+			"location": "East US 2",
+			"apiVersion": "2015-10-01-preview",
+			"dependsOn": [],
+			"tags": {
+				
+			}
+		}],
+		"outputs": {
+			"adlAnalyticsAccount": {
+				"type": "object",
+				"value": "[reference(resourceId('Microsoft.DataLakeAnalytics/accounts',parameters('adlAnalyticsName')))]"
+			},
+			"adlStoreAccount": {
+				"type": "object",
+				"value": "[reference(resourceId('Microsoft.DataLakeStore/accounts',parameters('adlStoreName')))]"
+			}
+		}
+	}

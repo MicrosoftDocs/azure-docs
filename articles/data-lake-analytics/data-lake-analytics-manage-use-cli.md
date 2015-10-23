@@ -85,10 +85,10 @@ running a job.  You only pay for the time when it is running a job.  For more in
 
 ###Create accounts
 
-  datalake analytics account create [options] <dataLakeAnalyticsAccountName> <location> <resourceGroup> <defaultDataLake>
-  datalake analytics account set [options] <dataLakeAnalyticsAccountName>
+  	azure datalake analytics account create [options] <dataLakeAnalyticsAccountName> <location> <resourceGroup> <defaultDataLake>
+  	azure datalake analytics account set [options] <dataLakeAnalyticsAccountName>
 
-
+	[jgao: add ARM template here]	  
 
 
 ###List account
