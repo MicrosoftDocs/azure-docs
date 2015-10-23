@@ -28,7 +28,7 @@
 
 ## Overview
 
-This tutorial shows how to create an ASP.NET web application and deploy it to a [web app in Azure App Service](app-service-web-overview.md) by using Visual Studio 2015 or Visual Studio 2013. The tutorial assumes that you have no prior experience with using Azure or ASP.NET. On completing the tutorial, you'll have a simple web application up and running in the cloud.
+This tutorial shows how to deploy an ASP.NET web application to a [web app in Azure App Service](app-service-web-overview.md) by using Visual Studio 2015 or Visual Studio 2013. The tutorial assumes that you are an ASP.NET developer who has no prior experience with using Azure. On completing the tutorial, you'll have a simple web application up and running in the cloud.
 
 The following illustration shows the completed application:
 
@@ -39,9 +39,12 @@ You'll learn:
 * How to prepare your machine for Azure development by installing the [Azure SDK for .NET](../dotnet-sdk/).
 * How to set up Visual Studio to create a new App Service web app while it creates an ASP.NET MVC 5 web project.
 * How to deploy a web project to an App Service web app by using Visual Studio.
+* How to use Visual Studio **Server Explorer** to open remote files and start a remote debug session. 
 * How to use the [Azure portal](/overview/preview-portal/) to monitor and manage your web app.
 
-This is a quick and simple tutorial that doesn't show how to customize the web project that you create. For an introduction to ASP.NET MVC 5 web application development, see [Getting Started with ASP.NET MVC 5](http://www.asp.net/mvc/overview/getting-started/introduction/getting-started) on the [ASP.NET](http://asp.net/) site. For links to other articles that go into more depth about web applications in Azure App Service, see the [Next steps](#next-steps) section.
+> [AZURE.NOTE] This tutorial is about using ASP.NET with Azure App Service; it doesn't teach how to develop an ASP.NET web application. For an introduction to ASP.NET MVC 5, see [Getting Started with ASP.NET MVC 5](http://www.asp.net/mvc/overview/getting-started/introduction/getting-started) on the [ASP.NET](http://asp.net/) site. For links to other articles that go into more depth about how to use Azure App Service, see the [Next steps](#next-steps) section.
+> 
+> Help us shape the scope and approach of this tutorial -- if there are other topics you'd like to see covered here in a getting-started tutorial leave feedback in a [Disqus comment](#comments) at the end of the tutorial.
 
 ##<a name="video"></a>Sign up for Microsoft Azure
 
@@ -50,9 +53,9 @@ You need an Azure account to complete this tutorial. You can:
 * [Open an Azure account for free](/pricing/free-trial/?WT.mc_id=A261C142F). You get credits you that can use to try out paid Azure services. Even after the credits are used up, you can keep the account and use free Azure services and features, such as the Web Apps feature in Azure App Service.
 * [Activate MSDN subscriber benefits](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F). Your MSDN subscription gives you credits every month that you can use for paid Azure services.
 
-> [AZURE.NOTE] If you want to get started with Azure App Service before you sign up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751). There, you can immediately create a short-lived starter web app in App Service—no credit card required, and no commitments.
+If you want to get started with Azure App Service before you sign up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751). There, you can immediately create a short-lived starter web app in App Service—no credit card required, and no commitments.
 
-In this video, Scott Hanselman shows how easy it is to sign up for a free trial of Microsoft Azure. (Duration: 1:58)
+In the following video, Scott Hanselman shows how easy it is to sign up for a free trial of Microsoft Azure. (Duration: 1:58)
 
 > [AZURE.VIDEO sign-up-for-microsoft-azure]
 
@@ -194,11 +197,39 @@ In this section you deploy web project to the web app, as illustrated in step 2 
 
 	![Web app running in Azure](./media/web-sites-dotnet-get-started/GS13deployedsite.png)
 
-13. Close the browser.
+13. Keep this browser window open for use in the next section.
 
 **Tip:** You can enable the **Web One Click Publish** toolbar for quick deployment. Click **View > Toolbars**, and then select **Web One Click Publish**. You can use the toolbar to select a profile, click a button to publish, or click a button to open the **Publish Web** wizard.
 
 ![Web One Click Publish Toolbar](./media/web-sites-dotnet-get-started/weboneclickpublish.png)
+
+## Open remote files in Server Explorer
+
+When you're testing and debugging a web app, you can do quick temporary changes on the remote site by opening and editing files in **Server Explorer**.
+
+1.  In **Server Explorer**, navigate to **Azure > App Service > MyExampleGroup**, and then expand the node for your web app.
+
+2. Expand **Files > Views > Home**, and then double-click the *Index.cshtml* file.
+
+	![](./media/web-sites-dotnet-get-started/indexfileinse.png)
+
+3. Change `<h1>ASP.NET</h1>` to `<h1>Azure App Service</h1>`.
+
+4. Save the file.
+
+5. Refresh the browser window that has the site running in Azure. 
+
+	![](./media/web-sites-dotnet-get-started/afterindexedit.png)
+
+This change is now in the deployed site but not the local project. If you redeploy the project, the site will revert to the way it was before you made this change.
+
+This feature is handy for [temporarily turning off customErrors in the Web.config file in order to get a detailed error message](web-sites-dotnet-troubleshoot-visual-studio.md).
+
+In **Server Explorer** you can also right-click the web app node and get access to web app settings in a Visual Studio window, start a remote debugging session, and view application logs in real time as the application writes them.
+
+![](./media/web-sites-dotnet-get-started/sewebappmenu.png)
+
+For more information, see [Troubleshooting Azure web apps in Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md).
 
 ## Monitor and manage the web app in the Azure portal
 
