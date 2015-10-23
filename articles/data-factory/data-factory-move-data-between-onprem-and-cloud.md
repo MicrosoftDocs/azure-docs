@@ -472,11 +472,10 @@ This section provides steps for moving gateway client from one machine to anothe
 6. Keep the **Microsoft Data Management Gateway Configuration Manager** open. 
  
 	![Configuration Manager](./media/data-factory-move-data-between-onprem-and-cloud/ConfigurationManager.png)	
-7. In the **Configure** blade in the portal, click **Recreate key** on the command bar and click **Yes** for the warning message. Click **copy button** next to key text to copy the key to the clipboard. 
+7. In the **Configure** blade in the portal, click **Recreate key** on the command bar and click **Yes** for the warning message. Click **copy button** next to key text to copy the key to the clipboard. Note that the gateway on the old machine will stop functioning as soon you recreate the key.  
 	
 	![Recreate key](./media/data-factory-move-data-between-onprem-and-cloud/RecreateKey.png)
-
-	Note that the gateway on the old machine will stop functioning as soon you recreate the key. 
+	 
 8. Paste the **key** into text box in the **Register Gateway** page of the **Data Management Gateway Configuration Manager** on your machine. (optional) Click **Show gateway key** check box to see the key text. 
  
 	![Copy key and Register](./media/data-factory-move-data-between-onprem-and-cloud/CopyKeyAndRegister.png)
