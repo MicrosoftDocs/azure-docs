@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="09/24/2015"
+   ms.date="10/22/2015"
    ms.author="alkohli"/>
 
 # StorSimple software, high availability, and networking requirements
@@ -163,6 +163,8 @@ Your StorSimple device is a locked-down device. However, ports need to be opened
 
 <sup>3</sup> The controller fixed IPs on your StorSimple device must be routable and able to connect to the Internet. The fixed IP addresses are used for servicing the updates to the device. If the device controllers cannot connect to the Internet via the fixed IPs, you will not be able to update your StorSimple device.
 
+> [AZURE.IMPORTANT] Ensure that the firewall does not modify or decrypt any SSL traffic between StorSimple device and Azure.
+<br></br>
 ### Port routing
 
 Port routing is different depending on the software version running on your StorSimple device.
