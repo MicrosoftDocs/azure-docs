@@ -60,6 +60,8 @@ When you use the Azure Batch service, you will take advantage of the following r
 
 	- [Job ManagerTask](#jobmanagertask)
 
+	- [Job preparation and release tasks](#jobpreprelease)
+
 - [JobSchedule](#jobschedule)
 
 ### <a name="account"></a>Account
