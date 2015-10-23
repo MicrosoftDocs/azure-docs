@@ -40,7 +40,7 @@ To monitor your application, you add an Application Insights SDK to your applica
 
 **Keep the code page open** while you do the next step in another browser window. You'll need the code soon. 
 
-### Create a JavaScript web resource in Microsoft CRM
+### Create a JavaScript web resource in Microsoft Dynamics CRM
 
 1. Open your CRM Online instance and login with administrator privileges.
 2. Open Microsoft Dynamics CRM Settings, Customizations, Customize the System
@@ -149,9 +149,9 @@ Click the chart to get more detail:
 
 You can do even deeper analysis if you [export the data to Microsoft Power BI](app-insights-export-power-bi.md).
 
-## Sample Dynamics CRM Solution
+## Sample Microsoft Dynamics CRM Solution
 
-[Here is the sample solution implemented in Dynamics CRM] (https://dynamicsandappinsights.codeplex.com/).
+[Here is the sample solution implemented in Microsoft Dynamics CRM] (https://dynamicsandappinsights.codeplex.com/).
 
 ## Learn more
 
