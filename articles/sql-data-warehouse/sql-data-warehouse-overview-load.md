@@ -5,7 +5,7 @@
    documentationCenter="NA"
    authors="lodipalm"
    manager="barbkess"
-   editor=""/>
+   editor="jrowlandjones"/>
 
 <tags
    ms.service="sql-data-warehouse"
@@ -13,19 +13,19 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/21/2015"
+   ms.date="09/22/2015"
    ms.author="lodipalm;barbkess"/>
 
 # Load data into SQL Data Warehouse
 SQL Data Warehouse presents numerous options for loading data including:
 
+- PolyBase
 - Azure Data Factory
 - BCP command-line utility
-- PolyBase
 - SQL Server Integration Services (SSIS)
 - 3rd party data loading tools
 
-While all of the above methods can be used with SQL Data Warehouse.  Many of our users are looking at initial loads in the 100s of Gigabytes to the 10s of Terabytes.  In the below sections, we provide some guidance on initial data loading.  
+While all of the above methods can be used with SQL Data Warehouse, PolyBase's ability to transparently parallelize loads from Azure Blob Storage will make it the fastest tool for loading data.  Check out more about how to [load with PolyBase][].  In addition, as many of our users are looking at initial loads in the 100s of Gigabytes to the 10s of Terabytes from on-premise sources, in the below sections we provide some guidance on initial data loading.  
 
 ## Initial Loading into SQL Data Warehouse from SQL Server 
 When loading into SQL Data Warehouse from an on-premise SQL Server instance, we recommend the following steps:
@@ -43,16 +43,19 @@ In the following sections we will take a look at each step in great depth and pr
 
 In order to prep your files for movement to Azure, you will need to export them to flat files.  This is best done using the BCP Command-line Utility.  If you do not have the utility yet, it can be downloaded with the [Microsoft Command Line Utilities for SQL Server][].  A sample BCP command might look like the following:
 
-	bcp "<Directory>\<File>" -c -T -S <Server Name> -d <Database Name>
+```
+bcp "<Directory>\<File>" -c -T -S <Server Name> -d <Database Name>
+```
 
 This command will take the results of a query and export them to a file in the directory of your choice. You can parallelize the process by running multiple BCP commands for separate tables at once  This will enable you to run up to one BCP process per core of your server, our advice is try a few smaller operations at different configurations to see what works best for your environment.
 
 In addition, as we will be loading using PolyBase, please note that PolyBase does not yet support UTF-16, and all files must be in UTF-8.  This can easily be accomplished by including the '-c' flag in your BCP command or you can also convert flat files from UTF-16 to UTF-8 with the below code:
 
-		Get-Content <input_file_name> -Encoding Unicode | Set-Content <output_file_name> -Encoding utf8
+```
+Get-Content <input_file_name> -Encoding Unicode | Set-Content <output_file_name> -Encoding utf8
+```
  
 Once you have successfully exported your data to files, it is time to move them to Azure.  This can be accomplished with AZCopy or with the Import/Export service as described in the next section.  
-
 
 ## Loading into Azure with AZCopy or Import/Export
 If you are moving data in the 5-10 terabyte range or above, we recommend that you use our disk shipping service [Import/Export][] in order to accomplish the move.  However, in our studies, we have been able to move data in the single digit TB range comfortably using public internet with AZCopy.  This process can also be sped up or extended with ExpressRoute.
@@ -63,7 +66,9 @@ The following steps will detail out how to move data from on-premise into an Azu
 
 Now, given a set of files that have created using BCP, AzCopy can simply be run from the Azure powershell or by running a powershell script.  At a high level, the prompt needed to run AZCopy will take the form:
 
-	 AZCopy /Source:<File Location> /Dest:<Storage Container Location> /destkey:<Storage Key> /Pattern:<File Name> /NC:256
+```
+AZCopy /Source:<File Location> /Dest:<Storage Container Location> /destkey:<Storage Key> /Pattern:<File Name> /NC:256
+```
 
 In addition to the basic, we recommend the following best practices for loading with AZCopy:
 
@@ -85,33 +90,40 @@ Now that your data resides in Azure storage blobs, we will import it into your S
 
 3. **Create an external file format.**  External file formats are reusable as well, you will only need to create one if you are uploading a new type of file. 
 
-4. **Create an external data source.**  When pointing at a storage account, an external data source can be used when loading from the same container. For your 'LOCATION' parameter, use a location of the format: 'wasbs://mycontainer@ test.blob.core.windows.net/path’.
+4. **Create an external data source.**  When pointing at a storage account, an external data source can be used when loading from the same container. For your 'LOCATION' parameter, use a location of the format: 'wasbs://mycontainer@ test.blob.core.windows.net/path'.
 
-		-- Creating master key
-		CREATE MASTER KEY;
+```
+-- Creating master key
+CREATE MASTER KEY;
 
-		-- Creating a database scoped credential
-		CREATE DATABASE SCOPED CREDENTIAL <Credential Name> WITH IDENTITY = '<User Name>', 
-    	Secret = '<Azure Storage Key>';
+-- Creating a database scoped credential
+CREATE DATABASE SCOPED CREDENTIAL <Credential Name> 
+WITH 
+    IDENTITY = '<User Name>'
+,   Secret = '<Azure Storage Key>'
+;
 
-		-- Creating external file format (delimited text file)
-		CREATE EXTERNAL FILE FORMAT text_file_format 
-		WITH (
-		    FORMAT_TYPE = DELIMITEDTEXT, 
-		    FORMAT_OPTIONS (
-		        FIELD_TERMINATOR ='|', 
-		        USE_TYPE_DEFAULT = TRUE
-		    )
-		);
+-- Creating external file format (delimited text file)
+CREATE EXTERNAL FILE FORMAT text_file_format 
+WITH 
+(
+    FORMAT_TYPE = DELIMITEDTEXT 
+,   FORMAT_OPTIONS  (
+                        FIELD_TERMINATOR ='|' 
+                    ,   USE_TYPE_DEFAULT = TRUE
+                    )
+);
 
-		--Creating an external data source
-		CREATE EXTERNAL DATA SOURCE azure_storage 
-		WITH (
-	    	TYPE = HADOOP, 
-	        LOCATION ='wasbs://<Container>@<Blob Path>’,
-	        CREDENTIAL = <Credential Name>
-		;
-
+--Creating an external data source
+CREATE EXTERNAL DATA SOURCE azure_storage 
+WITH 
+(
+    TYPE = HADOOP 
+,   LOCATION ='wasbs://<Container>@<Blob Path>'
+,   CREDENTIAL = <Credential Name>
+)
+;
+```
 
 Now that your storage account is properly configured to you can proceed to loading your data into SQL Data Warehouse.  
 
@@ -120,26 +132,36 @@ After configuring PolyBase, you can load data directly into your SQL Data Wareho
 
 1. Use the 'CREATE EXTERNAL TABLE' command to define the structure of your data.  To make sure you capture the state of your data quickly and efficiently, we recommend scripting out the SQL Server table in SSMS, and then adjusting by hand to account for the external table differences. After creating an external table in Azure it will continue to point to the same location, even if data is updated or additional data is added.  
 
-		-- Creating external table pointing to file stored in Azure Storage
-		CREATE EXTERNAL TABLE <External Table Name> (
-		    <Column name>, <Column type>, <NULL/NOT NULL>
-		)
-		WITH (LOCATION='<Folder Path>',
-		      DATA_SOURCE = <Data Source>,
-		      FILE_FORMAT = <File Format>,      
-		);
+```
+-- Creating external table pointing to file stored in Azure Storage
+CREATE EXTERNAL TABLE <External Table Name> 
+(
+    <Column name>, <Column type>, <NULL/NOT NULL>
+)
+WITH 
+(   LOCATION='<Folder Path>'
+,   DATA_SOURCE = <Data Source>
+,   FILE_FORMAT = <File Format>      
+);
+```
 
 2. Load data with a 'CREATE TABLE...AS SELECT' statement. 
 
-		CREATE TABLE <Table Name> 
-		WITH (
-    		CLUSTERED COLUMNSTORE INDEX
-    		)
-		AS SELECT * from <External Table Name>;
+```
+CREATE TABLE <Table Name> 
+WITH 
+(
+	CLUSTERED COLUMNSTORE INDEX
+)
+AS 
+SELECT  * 
+FROM    <External Table Name>
+;
+```
 
-	Note that you can also load a subsection of the rows from a table using a more detailed SELECT statement.  However, as PolyBase does not push additional compute to storage accounts at this time, if you load a subsection with a SELECT statement this will not be faster than loading the entire dataset. 
+Note that you can also load a subsection of the rows from a table using a more detailed SELECT statement.  However, as PolyBase does not push additional compute to storage accounts at this time, if you load a subsection with a SELECT statement this will not be faster than loading the entire dataset. 
 
-In addition to the 'CREATE TABLE...AS SELECT' statement, you can also load data from external tables into preexisting tables with a 'INSERT...INTO' statement.
+In addition to the `CREATE TABLE...AS SELECT` statement, you can also load data from external tables into pre-existing tables with a 'INSERT...INTO' statement.
 
 ## Next steps
 For more development tips, see the [development overview][].

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="05/01/2015"
+   ms.date="08/12/2015"
    ms.author="joaoma"/>
 
 # Azure DNS Overview
@@ -32,7 +32,7 @@ Azure DNS does not currently support purchasing of domain names.  To purchase do
 
 [Get started creating DNS zones](dns-getstarted-create-dnszone.md)
 
-[Automate Azure Operations with .NET SDK](../dns-sdk)
+[Automate Azure Operations with .NET SDK](dns-sdk.md)
 
 [Azure DNS REST API Reference](https://msdn.microsoft.com/library/azure/mt163862.aspx)
 

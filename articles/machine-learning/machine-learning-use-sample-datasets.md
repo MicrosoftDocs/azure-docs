@@ -1,20 +1,19 @@
-<properties 
-	pageTitle="Use the sample data sets in Machine Learning Studio | Microsoft Azure" 
-	description="Descriptions of the data sets used in sample models included in ML Studio. You can use these sample data sets for your experiments." 
-	keywords="data sets,datasets,ml studio,sample data sets"
-	services="machine-learning" 
-	documentationCenter="" 
-	authors="garyericson" 
-	manager="paulettm" 
+<properties
+	pageTitle="Use the sample data sets in Machine Learning Studio | Microsoft Azure"
+	description="Descriptions of the data sets used in sample models included in ML Studio. You can use these sample data sets for your experiments."
+	services="machine-learning"
+	documentationCenter=""
+	authors="garyericson"
+	manager="paulettm"
 	editor="cgronlun"/>
 
-<tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/10/2015" 
+<tags
+	ms.service="machine-learning"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/28/2015"
 	ms.author="garye"/>
 
 
@@ -22,7 +21,7 @@
 
 [top]: #machine-learning-sample-datasets
 
-When you create a new workspace in Azure Machine Learning, a number of sample data sets and experiments are included by default. Many of these sample data sets are used by the sample models in the [Azure Machine Learning Gallery](http://azure.microsoft.com/documentation/services/machine-learning/models/), and others are included as examples of various types of data typically used in machine learning. 
+When you create a new workspace in Azure Machine Learning, a number of sample data sets and experiments are included by default. Many of these sample data sets are used by the sample models in the [Azure Cortana Analytics Gallery](http://gallery.azureml.net/), and others are included as examples of various types of data typically used in machine learning.
 
 Some of these data sets are available in Azure Blob storage. For these data sets the table below provides a direct link. You can use these data sets in your experiments by using the [Reader][reader] module.
 
@@ -317,4 +316,3 @@ For a list of sample experiments available in ML Studio, see [Machine Learning S
 
 <!-- Module References -->
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
- 

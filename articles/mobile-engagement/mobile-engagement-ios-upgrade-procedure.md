@@ -23,11 +23,13 @@ If you already have integrated an older version of Engagement into your applicat
 For each new version of the SDK you must first replace (remove and re-import in xcode) the EngagementSDK and EngagementReach folders.
 
 ##From 2.0.0 to 3.0.0
+Dropped support for iOS 4.X. Starting from this version the deployment target of your application must be at least iOS 6.
+
 If you are using Reach in your application, you must add `remote-notification` value to the `UIBackgroundModes` array in your Info.plist file in order to receive remote notifications.
 
-The method `application:applicationDidReceiveRemoteNotification:` needs to be replaced by `application:applicationDidReceiveRemoteNotification:fetchCompletionHandler:` in your application delegate.
+The method `application:didReceiveRemoteNotification:` needs to be replaced by `application:didReceiveRemoteNotification:fetchCompletionHandler:` in your application delegate.
 
-The following delegate methods has been deprecated and you need to removed them from your application delegate:
+"AEPushDelegate.h" is deprecated interface and you need to remove all references. This includes removing `[[EngagementAgent shared] setPushDelegate:self]` and the delegate methods from your application delegate:
 
 	-(void)willRetrieveLaunchMessage;
 	-(void)didFailToRetrieveLaunchMessage;

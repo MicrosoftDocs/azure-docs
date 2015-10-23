@@ -1,10 +1,10 @@
 <properties 
-   pageTitle="Failover and disaster recovery for your StorSimple device | Microsoft Azure"
+   pageTitle="StorSimple failover and disaster recovery | Microsoft Azure"
    description="Learn how to fail over your StorSimple device to itself, another physical device, or a virtual device."
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
-   manager="adinah"
+   manager="carolz"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/23/2015"
+   ms.date="09/14/2015"
    ms.author="alkohli" />
 
 # Failover and disaster recovery for your StorSimple device
@@ -78,7 +78,7 @@ Perform the following steps if you only have a single device and need to perform
 
 1. Take cloud snapshots of all the volumes in your device.
 
-1. Reset your device to factory defaults. Follow the detailed instructions in [how to reset a StorSimple device to factory default settings](https://msdn.microsoft.com/library/dn772373.aspx).
+1. Reset your device to factory defaults. Follow the detailed instructions in [how to reset a StorSimple device to factory default settings](storsimple-manage-device-controller.md#reset-the-device-to-factory-default-settings).
 
 1. Configure your device and register it again with your StorSimple Manager service.
 
@@ -130,11 +130,16 @@ Perform the following steps to restore the device to a target StorSimple virtual
 	
 	b. 	Go to the **Volume Containers** page. All the volume containers, along with the volumes from the old device should now be listed.
 
+![Video available](./media/storsimple-device-failover-disaster-recovery/Video_icon.png) **Video available**
+
+To watch a video that demonstrates how you can restore a failed over physical device to a virtual device in the cloud, click [here](http://azure.microsoft.com/documentation/videos/storsimple-and-disaster-recovery/).
+
 ## Business continuity disaster recovery (BCDR)
 
 A business continuity disaster recovery (BCDR) scenario occurs when the entire Azure datacenter stops functioning. This can affect your StorSimple Manager service and the associated StorSimple devices.
 
 If there are StorSimple devices that were registered just before a disaster occurred, then these StorSimple devices may need to undergo a factory reset. After the disaster, the StorSimple device will be shown as offline. The StorSimple device must be deleted from the portal, and a factory reset should be done, followed by a fresh registration.
+
 
 ## Next steps
 
@@ -143,8 +148,5 @@ After you have performed a failover, you may need to:
 - [Deactivate your StorSimple device](storsimple-deactivate-and-delete-device.md#deactivate-a-device)
 - [Delete your StorSimple device](storsimple-deactivate-and-delete-device.md#delete-a-device)
 
-For information on how to manage your device using the StorSimple Manager service, see:
-
-- [Administrator's Guide](https://msdn.microsoft.com/library/dn772401.aspx)
-
+For information about how to use the StorSimple Manager service, go to [Use the StorSimple Manager service to administer your StorSimple device](storsimple-manager-service-administration.md).
  

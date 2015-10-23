@@ -1,6 +1,6 @@
 <properties
-	pageTitle="How to install and configure Symantec Endpoint Protection on an Azure VM"
-	description="Describes installing and configuring the Symantec Endpoint Protection security extension on a new or existing VM in Azure"
+	pageTitle="Install Symantec Endpoint Protection on a VM | Microsoft Azure"
+	description="Learn how to install and configure the Symantec Endpoint Protection security extension on a new or existing Azure VM created with the classic deployment model."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="dsk-2015"
@@ -14,10 +14,13 @@
 	ms.tgt_pltfrm="vm-multiple"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/14/2015"
+	ms.date="10/14/2015"
 	ms.author="dkshir"/>
 
-# How to install and configure Symantec Endpoint Protection on an Azure VM
+# How to install and configure Symantec Endpoint Protection on a Windows VM
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Resource Manager model.
+
 
 This article shows you how to install and configure the Symantec Endpoint Protection client on a new or existing virtual machine (VM) running Windows Server. This is the full client, which includes services such as virus and spyware protection, firewall, and intrusion prevention.
 
@@ -85,7 +88,7 @@ To verify that the Symantec security extension has been installed and is up-to-d
 
 [Portal]: http://manage.windowsazure.com
 
-[Create]: virtual-machines-windows-tutorial.md
+[Create]: virtual-machines-windows-tutorial-classic-portal.md
 
 [PS]: ../powershell-install-configure.md
 

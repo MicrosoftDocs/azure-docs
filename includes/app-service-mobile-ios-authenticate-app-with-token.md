@@ -1,11 +1,11 @@
 
-The previous example shows a standard sign-in, which requires the client to contact both the identity provider and the App Service every time the app starts. This method is inefficient, and it would be better to cache the authorization token returned by App Service and try to use this first before using a provider-based sign-in.
+The previous example contacts both the identity provider and the mobile service every time the app starts. Instead, you can cache the authorization token and try to use it first.
 
-1. The recommended way to encrypt and store authentication tokens on an iOS client is use the iOS Keychain. This tutorial uses [SSKeychain](https://github.com/soffes/sskeychain) -- a simple wrapper around the iOS Keychain. Follow the instructions on the SSKeychain page and add it to your project. Verify that the **Enable Modules** setting is enabled in the project's **Build Settings** (section **Apple LLVM - Languages - Modules**.)
+* The recommended way to encrypt and store authentication tokens on an iOS client is use the iOS Keychain. We'll use [SSKeychain](https://github.com/soffes/sskeychain) -- a simple wrapper around the iOS Keychain. Follow the instructions on the SSKeychain page and add it to your project. Verify that the **Enable Modules** setting is enabled in the project's **Build Settings** (section **Apple LLVM - Languages - Modules**.)
 
-2. Open **QSTodoListViewController.m** and add the following code:
+* Open **QSTodoListViewController.m** and add the following code:
 
-
+```
 		- (void) saveAuthInfo {
 				[SSKeychain setPassword:self.todoService.client.currentUser.mobileServiceAuthenticationToken forService:@"AzureMobileServiceTutorial" account:self.todoService.client.currentUser.userId]
 		}
@@ -20,11 +20,16 @@ The previous example shows a standard sign-in, which requires the client to cont
 
 		    }
 		}
+```
 
-3. In the `loginAndGetData` method, modify the `loginWithProvider:controller:animated:completion:` call's completion block by adding a call to `saveAuthInfo` right before the line `[self refresh]`. With this call, we simply store the user ID and token properties:
+* In `loginAndGetData`, modify  `loginWithProvider:controller:animated:completion:`'s completion block. Add the following line right before `[self refresh]` to store the user ID and token properties:
 
+```
 				[self saveAuthInfo];
+```
 
-4. Let's also load the user ID and token when the app starts. In the `viewDidLoad` method in **QSTodoListViewController.m**, add a call to loadAuthInfo right after `self.todoService` has been initialized.
+* Let's load the user ID and token when the app starts. In the `viewDidLoad` in **QSTodoListViewController.m**, add this right after`self.todoService` is initialized.
 
+```
 				[self loadAuthInfo];
+```

@@ -13,150 +13,135 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="08/05/2015" 
+	ms.date="10/05/2015" 
 	ms.author="jeffstok"/>
 
 # Create Stream Analytics inputs
 
 ## Understanding Stream Analytics inputs
 ---
-Stream Analytics inputs are defined as a connection to a data source. As data is sent to that data source, it is consumed by the Stream Analytics job and processed in real time. Inputs are divided into two distinct groups, data stream inputs and reference data inputs.  Stream Analytics has first-class integration with input sources Event Hub and Blob storage from within and outside of the job subscription. The supported data formats are Avro, CSV and JSON.
+Stream Analytics inputs are defined as a connection to a data source. Stream Analytics has first class integration with the Azure sources Event Hub and Blob storage from within and outside of the job subscription. As data is sent to that data source, it is consumed by the Stream Analytics job and processed in real time. Inputs are divided into two distinct types: data stream inputs and reference data inputs.
 
 ## Data stream inputs
 ---
-At a basic level, Stream Analytics job definitions must include at least one data stream input source to be consumed and transformed by the job. Azure Blob storage and Azure Event Hubs are supported as data stream input sources. Azure Event Hubs input sources are used to collect event streams from multiple devices and services. Examples of data streams may be things such as social media activity feeds, stock trade information or data from sensors. 
-
-Alternately, Azure Blob storage can be used as an input source for ingesting bulk data. It is important to note that when using Azure Blobs the data is at rest and therefore Stream Analytics will interpret all data contained in a blob as having the timestamp of the creation timestamp of the blob itself. That is, unless the records in the blob contain timestamps and the TIMESTAMP BY keyword is used.
+Stream Analytics jobs must include at least one data stream input to be consumed and transformed by the job. Azure Blob storage and Azure Event Hubs are supported as data stream input sources. Azure Event Hubs are used to collect event streams from multiple devices and services, such as social media activity feeds, stock trade information or data from sensors.
+Alternately, Azure Blob storage can be used as an input source for ingesting bulk data.
 
 ## Reference data inputs
 ---
-Stream Analytics also supports a second type of input source known as reference data. This is auxiliary data which is typically used for performing correlation and look-ups, and the data here is usually static or infrequently changed. Azure Blob storage is currently the only supported input source for reference data. Reference data source blobs are limited to 50MB in size.
-
-Support for refreshing reference data can be enabled by specifying a path pattern in the input configuration uses the {date} and {time} tokens. The job will load the corresponding blob based on the date and time encoded in the blob names using UTC time zone. This sequence of reference data blobs with encoded date and time is needed to guarantee consistency of results. For example if there is a delay in processing and we have to reload a blob file, we expect the file to exist in the same location without being modified, else we might see a different output. The only supported scenario is to add new blobs with future date and time encoded in the path pattern. 
-
-For example if the job has a reference input configured in the portal with the path pattern such as: /sample/{date}/{time}/products.csv where the date format is “YYYY-MM-DD” and the time format is “HH:mm” then the job will pick up a file named /sample/2015-04-16/17:30/products.csv at 5:30 PM on April 16th 2015 UTC time zone .
-
-
-> [AZURE.NOTE]Currently Stream Analytics jobs look for reference blob refresh data only when the time coincides with the time encoded in the blob name:
-e.g. jobs look for /sample/2015-04-16/17:30/products.csv between 5:30 PM and 5:30:59.999999999PM on April 16th 2015 UTC time zone. When the clock strikes 5:31PM it stops looking for /sample/2015-04-16/17:30/products.csv and starts looking for /sample/2015-04-16/17:31/products.csv.
-
-The only time previous reference data blobs are considered is when the job starts. At that time the job is looking for the blob which has a latest date/time encoded in its name with a value before than the job start time (the newest reference data blob from before the job start time). This is done to ensure there is a non-empty reference data set at the start of the job. If one cannot be found, the job will fail and display a diagnostic notice to the user:
-
-    “Initializing input without a valid reference data blob for UTC time <job start time>.”
-
- 
-## Creating a data stream input
----
-To create a data stream input, go to the **Inputs** tab of the Stream Analytics job and click **Add Input** at the bottom of the page.
-
-![image1](./media/stream-analytics-connect-data-event-inputs/01-stream-analytics-create-inputs.png)
-
- Creating a data stream input will present the user with two choices, [**Event Hub**](Creating-an-Event-hub-input-data-stream) or [**Blob storage**](Creating-a Blob-storage-input-data-stream). Select the appropriate for the type of stream to be processed.
-
-![image2](./media/stream-analytics-connect-data-event-inputs/02-stream-analytics-create-inputs.png)
+Stream Analytics supports a second type of input known as reference data. This is auxiliary data which is typically used for performing correlation and look-ups, and the data here is usually static or infrequently changed. Azure Blob storage is currently the only supported input source for reference data. Reference data source blobs are limited to 50MB in size.
 
 ## Creating an Event Hub data input stream
 ---
 ### Overview of Event Hubs
-Event Hubs are a highly scalable event ingestor, and typically are the most common way for Stream Analytics data ingress. They're designed to collect event streams from a number of different devices and services. Event Hubs and Stream Analytics together provide customers an end to end solution for real time analytics -- Event Hubs allow customers to feed events into Azure in real time, and Stream Analytics jobs can process them in real time.  For example, customers can send web clicks, sensor readings, online log events to Event Hubs, and create Stream Analytics jobs to use Event Hubs as the input data streams for real time filtering, aggregating and joining. Event Hubs can be used for data egress also.  A potential use of Event Hubs as output is when the output of a Stream Analytics job will be the input of another streaming job. For further details on Event Hubs see the [Event Hubs](https://azure.microsoft.com/services/event-hubs/ "Event Hubs") documentation.
+Event Hubs are a highly scalable event ingestor, and are the most common method of data ingestion to a Stream Analytics job. Event Hubs and Stream Analytics together provide customers an end to end solution for real time analytics -- Event Hubs allow customers to feed events into Azure in real time, and Stream Analytics jobs can process them in real time. For example, customers can send web clicks, sensor readings, online log events to Event Hubs, and create Stream Analytics jobs to use Event Hubs as the input data streams for real time filtering, aggregating and joining. Event Hubs can be used for data egress also. For further details on Event Hubs see the [Event Hubs](https://azure.microsoft.com/services/event-hubs/ "Event Hubs") documentation.
 
 ### Consumer groups
-Each Stream Analytics job input should be configured to have its own Event Hub consumer group. When a job contains self-join or multiple inputs, some input may be read by more than one reader downstream, which causes the total number of readers in a single consumer group to exceed the Event Hub’s limit of 5 readers per consumer group. In this case, the query will need to be broken down into multiple queries and intermediate results routed through additional Event Hubs. Note that there is also a limit of 20 consumer groups per Event Hub. For details, see the [Event Hubs Programming Guide](https://msdn.microsoft.com/library/azure/dn789972.aspx "Event Hubs Programming Guide").
+Each Stream Analytics Event Hub input should be configured to have its own consumer group. When a job contains a self-join or multiple inputs, some input may be read by more than one reader downstream, which impacts the number of readers in a single consumer group.  To avoid exceeding Event Hub limit of 5 readers per consumer group per partition, it is a best practice to designate a consumer group for each Stream Analytics job. Note that there is also a limit of 20 consumer groups per Event Hub. For details, see the [Event Hubs Programming Guide](https://msdn.microsoft.com/library/azure/dn789972.aspx "Event Hubs Programming Guide").
 
-## Example of creating an Event Hub input in the Azure Portal
+## Creating an Event Hub input data stream
 ---
-Below is a walk-through to configure an Event Hub as an input. To start using an Event Hub input, the user should have the following information collected about the Event Hub:
+### Adding an Event Hub as a data stream input  ###
 
-1. Input Alias – A friendly-named input alias that is will be referred to in the job query.
-2. The name of the Service Bus Namespace. 
-3. The name of the Event Hub.
-3. The Event hub Policy Name.
-4. Optional: Event Hub Consumer Group name.
-	- The Consumer Group to ingest data from the Event Hub. If not specified, Stream Analytics jobs will use the Default Consumer Group to ingest data from the Event Hub. It is recommended to use a distinct consumer Group for each Stream Analytics job.
-5. The serialization format is utilized for the data stream (Avro, CSV, JSON).
+1. On the inputs tab of the Stream Analytics job, click **ADD INPUT** and then select the default option, **Data stream**, and click the right button.
 
-First select **ADD INPUT** from the Inputs page of the Stream Analytics job.
+    ![image1](./media/stream-analytics-connect-data-event-inputs/01-stream-analytics-create-inputs.png)  
 
-![image1](./media/stream-analytics-connect-data-event-inputs/01-stream-analytics-create-inputs.png)
+2. Next select **Event Hub**.
 
-Then select the Event Hub as the input.
+    ![image6](./media/stream-analytics-connect-data-event-inputs/06-stream-analytics-create-inputs.png)  
 
-![image6](./media/stream-analytics-connect-data-event-inputs/06-stream-analytics-create-inputs.png)
+3. Type or select the following fields and click the right button:
 
-Next, input the information into the fields as shown below for the Event Hub.
+    - **Input Alias**: A friendly name that will be used in the job query to reference this input  
+    - **Service Bus Namespace**: A Service Bus namespace is a container for a set of messaging entities. When you created a new Event Hub, you also created a Service Bus namespace.  
+    - **Event Hub**: The name of your Event Hub input  
+    - **Event Hub Policy Name**: The shared access policy, which can be created on the Event Hub Configure tab. Each shared access policy will have a name, permissions that you set, and access keys.  
+    - **Event Hub Consumer Group** (Optional): The Consumer Group to ingest data from the Event Hub. If not specified, Stream Analytics jobs will use the Default Consumer Group to ingest data from the Event Hub. It is recommended to use a distinct consumer Group for each Stream Analytics job.  
 
-![image7](./media/stream-analytics-connect-data-event-inputs/07-stream-analytics-create-inputs.png)
+    ![image7](./media/stream-analytics-connect-data-event-inputs/07-stream-analytics-create-inputs.png)  
 
-Then validate the event serialization format is correct for the data stream.
+4. Specify the following settings:
 
-![image8](./media/stream-analytics-connect-data-event-inputs/08-stream-analytics-create-inputs.png)
+    - **Event Serialization Format**: To make sure your queries work the way you expect, Stream Analytics needs to know which serialization format (JSON, CSV, or Avro) you're using for incoming data streams.  
+    - **Encoding**: UTF-8 is the only supported encoding format at this time.  
 
-Then select **Complete** and the Event Hub data stream input is now created.
+    ![image8](./media/stream-analytics-connect-data-event-inputs/08-stream-analytics-create-inputs.png)  
 
-## Creating a Blob storage input data stream
+5. Click the check button to complete the wizard and verify that Stream Analytics can successfully connect to the Event Hub.
+
+## Creating a Blob storage data stream input
 ---
-For scenarios with large amounts of unstructured data to store in the cloud, Blob storage offers a cost-effective and scalable solution. This data is generally considered data 'at rest'. One scenario where a Blob might be useful for a data stream input would be log analysis where logs are already captured from systems and need to be parsed and meaningful data extracted from them. Another might be analysis of data warehousing data at rest. For further information on Blob storage see the [Blob storage](http://azure.microsoft.com/services/storage/blobs/) documentation.
+For scenarios with large amounts of unstructured data to store in the cloud, Blob storage offers a cost-effective and scalable solution. Data in Blob storage is generally considered data “at rest” but it can be processed as a data stream by Stream Analytics. One common scenario for Blob storage inputs with Stream Analytics is log processing, where telemetry is captured from a system and needs to be parsed and processed to extract meaningful data. 
+It is important to note that the default timestamp of Blob storage events in Stream Analytics is the timestamp that the blob was created. To process the data as a stream using a timestamp in the event payload, the [TIMESTAMP BY](https://msdn.microsoft.com/library/azure/dn834998.aspx) keyword must be used.
+For further information on Blob storage see the [Blob storage](http://azure.microsoft.com/services/storage/blobs/) documentation.
 
-Below is a walk-through to configure Blob storage as an input. To start using an Azure Blob storage input, the following information is required:
+### Adding Blob storage as a data stream input  ###
 
-1. Input Alias – A friendly-named input alias that is will be referred to in the job query.
-2. If the storage account is in a different subscription than the streaming job the Storage Account Name and Storage Account Key will be required.
-3. The container name.
-4. The file name prefix.
-5. What serialization format is utilized for the data (Avro, CSV, JSON).
+1. On the inputs tab of the Stream Analytics job, click **ADD INPUT** and then select the default option, **Data stream**, and click the right button.
 
-On the inputs tab of the Stream Analytics job, click **ADD INPUT** and then select the default option, **Data stream**.
-![image1](./media/stream-analytics-connect-data-event-inputs/01-stream-analytics-create-inputs.png)
+    ![image1](./media/stream-analytics-connect-data-event-inputs/01-stream-analytics-create-inputs.png)  
 
-Next select **Blob storage**
+2. Select **Blob storage** and click the right button.
 
-![image2](./media/stream-analytics-connect-data-event-inputs/02-stream-analytics-create-inputs.png)
+    ![image2](./media/stream-analytics-connect-data-event-inputs/02-stream-analytics-create-inputs.png)  
 
-Then input the information into the fields as shown below for the storage account.
+3. Type or select the following fields:
 
-![image3](./media/stream-analytics-connect-data-event-inputs/03-stream-analytics-create-inputs.png)
+    - **Input Alias**: A friendly name that  will be used in the job query to reference this input  
+    - **Storage Account**: If the storage account is in a different subscription than the streaming job the Storage Account Name and Storage Account Key will be required.  
+    - **Storage Container**: Containers provide a logical grouping for blobs stored in the Microsoft Azure Blob service. When you upload a blob to the Blob service, you must specify a container for that blob.  
 
-> [AZURE.NOTE]Clicking the Configure Advanced Settings box allows an option to specify the Path Prefix Pattern for readings blobs in a customized path.  If this field is not specified, Stream Analytics will read all blobs in the container. 
+    ![image3](./media/stream-analytics-connect-data-event-inputs/03-stream-analytics-create-inputs.png)  
 
-![image4](./media/stream-analytics-connect-data-event-inputs/04-stream-analytics-create-inputs.png)  
+4. Click the **Configure Advanced Settings** box for the option to configure the Path Prefix Pattern for readings blobs in a customized path. If this field is not specified, Stream Analytics will read all blobs in the container.
 
-Next choose the correct serialization setting for the data. The options are JSON, CSV, and Avro.
+    ![image4](./media/stream-analytics-connect-data-event-inputs/04-stream-analytics-create-inputs.png)  
 
-![image5](./media/stream-analytics-connect-data-event-inputs/05-stream-analytics-create-inputs.png)
+5. Choose the following settings:
 
-Then select **Complete** and the Blob storage data stream input is now created.
+    - **Event Serialization Format**: To make sure your queries work the way you expect, Stream Analytics needs to know which serialization format (JSON, CSV, or Avro) you're using for incoming data streams.  
+    - **Encoding**: UTF-8 is the only supported encoding format at this time.  
 
-## Creating a Blob storage reference data input
+
+    ![image5](./media/stream-analytics-connect-data-event-inputs/05-stream-analytics-create-inputs.png)  
+
+6. Click the check button to complete the wizard and verify that Stream Analytics can successfully connect to the Blob storage account.
+
+## Creating a Blob storage reference data
 ---
-To utilize reference data capabilities Blob storage can be leveraged.
+Blob storage can be used to define reference data for a Stream Analytics job.  This is static or slow-changing data that is used for performing lookups or correlating data.
+Support for refreshing reference data can be enabled by specifying a path pattern in the input configuration using the {date} and {time} tokens. Stream Analytics will update reference data definitions based on this path pattern. For example, a pattern of `"/sample/{date}/{time}/products.csv"` with a date format of “YYYY-MM-DD” and a time format of “HH:mm” tells Stream Analytics to pick up the updated blob `"/sample/2015-04-16/17:30/products.csv"` at 5:30 PM on April 16th 2015 UTC time zone .
 
-Below is a walk-through to configure Blob storage as a reference data input. To start, the following information is required:
+> [AZURE.NOTE] Currently Stream Analytics jobs look for reference blob refresh data only when the time coincides with the time encoded in the blob name: e.g. jobs look for /sample/2015-04-16/17:30/products.csv between 5:30 PM and 5:30:59.999999999PM on April 16th 2015 UTC time zone. When the clock strikes 5:31PM it stops looking for /sample/2015-04-16/17:30/products.csv and starts looking for /sample/2015-04-16/17:31/products.csv.
 
-1. Input Alias – A friendly-named input alias that is will be referred to in the job query.
-2. If the storage account is in a different subscription than the streaming job the Storage Account Name and Storage Account Key will be required.
-3. The container name.
-4. The file name prefix.
-5. What serialization format is utilized for the data (CSV, JSON).
-6. The Path Pattern. The file path used to locate your blobs within the specified container. Within the path, you may choose to specify one or more instances of the following 2 variables: {date} and {time}.
+The only time previous reference data blobs are considered is when the job starts. At that time the job is looking for the blob which has a latest date/time encoded in its name with a value before than the job start time (the newest reference data blob from before the job start time). This is done to ensure there is a non-empty reference data set at the start of the job. If one cannot be found, the job will fail and display a diagnostic notice to the user:
 
+### Adding Blob storage as reference data  ###
 
-On the inputs tab of the Stream Analytics job, click **ADD INPUT** and then select the default option, **Reference data**.
+1. On the inputs tab of the Stream Analytics job, click **ADD INPUT** and then select **Reference data** and click the right button.
 
-![image9](./media/stream-analytics-connect-data-event-inputs/09-stream-analytics-create-inputs.png)
+    ![image9](./media/stream-analytics-connect-data-event-inputs/09-stream-analytics-create-inputs.png)  
 
-Then input the information into the fields as shown below for the Blob storage and storage account.
+2.	Type or select the following fields:
 
-![image10](./media/stream-analytics-connect-data-event-inputs/10-stream-analytics-create-inputs.png)
+    - **Input Alias**: A friendly name that  will be used in the job query to reference this input  
+    - **Storage Account**: If the storage account is in a different subscription than the streaming job the Storage Account Name and Storage Account Key will be required.  
+    - **Storage Container**: Containers provide a logical grouping for blobs stored in the Microsoft Azure Blob service. When you upload a blob to the Blob service, you must specify a container for that blob.  
+    - **Path Pattern**: The file path used to locate your blobs within the specified container. Within the path, you may choose to specify one or more instances of the following 2 variables: {date}, {time}  
 
-Making sure to scroll down to specify the prefix pattern for path hierarchy that contains the blob as well as the format of the date and time fields.
+    ![image10](./media/stream-analytics-connect-data-event-inputs/10-stream-analytics-create-inputs.png)  
 
-![image12](./media/stream-analytics-connect-data-event-inputs/12-stream-analytics-create-inputs.png)
+3. Choose the following settings:
 
-Now choose the correct serialization setting for the data. The options are JSON, CSV, and Avro.
+    - **Event Serialization Format**: To make sure your queries work the way you expect, Stream Analytics needs to know which serialization format (JSON, CSV, or Avro) you're using for incoming data streams.  
+    - **Encoding**: UTF-8 is the only supported encoding format at this time.  
 
-![image11](./media/stream-analytics-connect-data-event-inputs/11-stream-analytics-create-inputs.png)
+    ![image12](./media/stream-analytics-connect-data-event-inputs/12-stream-analytics-create-inputs.png)  
 
-Then select **Complete** and the Blob storage reference data input is now created.
+4.	Click the check button to complete the wizard and verify that Stream Analytics can successfully connect to the Blob storage account.
+
+    ![image11](./media/stream-analytics-connect-data-event-inputs/11-stream-analytics-create-inputs.png)  
 
 
 ## Get help

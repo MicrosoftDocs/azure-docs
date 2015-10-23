@@ -3,17 +3,17 @@
 	description="Learn how App Service plans for Azure App Service work, and how they benefit your management experience." 
 	services="app-service" 
 	documentationCenter="" 
-	authors="cephalin" 
+	authors="btardif" 
 	manager="wpickett" 
 	editor=""/>
 
 <tags 
 	ms.service="app-service" 
-	ms.workload="web" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/24/2015" 
+	ms.date="09/07/2015" 
 	ms.author="byvinyal"/>
 
 #Azure App Service plans in-depth overview#
@@ -50,17 +50,12 @@ Finally, if you want to create a new app in a different region, and that region 
 
 You can't create an empty App Service plan. However, you can explicitly create a new plan during app creation.
 
-To do this in the [Azure Portal](http://go.microsoft.com/fwlink/?LinkId=529715), click **NEW**, then select **Web + mobile**, then select **Web Apps**, **Mobile Apps**, **Logic Apps** or **API Apps**. You can then select or create the App Service plan for the new app.
- 
-![App Service Plan F.A.Q.](./media/azure-web-sites-web-hosting-plans-in-depth-overview/azure-web-sites-web-hosting-plans-in-depth-overview01.png)
+To do this in the [Azure Portal](http://go.microsoft.com/fwlink/?LinkId=529715), click **NEW**, then select **Web + mobile**, then select **Web Apps**, **Mobile Apps**, **Logic Apps** or **API Apps**. 
+![][createWebApp]
 
-##Assign an app to an App Service plan
-
-Apps can be assigned to an existing plan during the creation process.
-
-To do this in the [Azure Portal](http://portal.azure.com), click **NEW**, then select **Web + mobile**, then select **Web Apps**, **Mobile Apps**, **Logic Apps** or **API Apps**. You can then select or create the App Service plan for the new app. Clicking **Or select existing** will give you the list of existing plan you can choose from.
-
-![App Service Plan F.A.Q.](./media/azure-web-sites-web-hosting-plans-in-depth-overview/azure-web-sites-web-hosting-plans-in-depth-overview02.png)
+You can then select or create the App Service plan for the new app.
+  
+ ![][createASP]
  
 ## Move an app to a different App Service plan
 
@@ -70,7 +65,7 @@ To move an app to another plan, navigate to the app you want to move, then click
  
 This will open the App Service Plan blade. At this point, you can either pick an existing plan, or create a new one. Plans in a different geographical location are grayed out and cannot be selected.
 
-![App Service Plan F.A.Q.](./media/azure-web-sites-web-hosting-plans-in-depth-overview/azure-web-sites-web-hosting-plans-in-depth-overview03.png)
+![][change]
 
 Note that each plan has its own pricing tier. When you move a site from a **Free** tier to a **Standard** tier, your app will be able to leverage all the features and resources of the **Standard** tier.
 
@@ -84,7 +79,7 @@ There are three ways to scale a plan:
 
 In the image below you can see the **App Service Plan** blade as well as the **Pricing Tier** blade. Clicking on the **Pricing Tier** part in the **App Service Plan** blade expands the **Pricing Tier** blade, where you can change the pricing tier and instance size for the plan.
  
-![App Service Plan F.A.Q.](./media/azure-web-sites-web-hosting-plans-in-depth-overview/azure-web-sites-web-hosting-plans-in-depth-overview04.png)
+ ![][pricingtier]
 
 ##Summary
 
@@ -95,3 +90,11 @@ App Service plans represent a set of features and capacity that you can share ac
 * For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)
 * For a guide to the change of the old portal to the new portal see: [Reference for navigating the preview portal](http://go.microsoft.com/fwlink/?LinkId=529715)
  
+ 
+ 
+ <!-- Images. -->
+[pricingtier]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/appserviceplan-pricingtier.png
+[assign]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/assing-appserviceplan.png
+[change]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/change-appserviceplan.png
+[createASP]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/create-appserviceplan.png
+[createWebApp]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/create-web-app.png

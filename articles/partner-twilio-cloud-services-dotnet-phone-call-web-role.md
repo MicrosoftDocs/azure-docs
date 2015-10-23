@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="How to make a phone call from Twilio (.NET) - Azure" 
+	pageTitle="How to make a phone call from Twilio (.NET) | Microsoft Azure" 
 	description="Learn how to make a phone call and send a SMS message with the Twilio API service on Azure. Code samples written in .NET." 
 	services="" 
 	documentationCenter=".net" 

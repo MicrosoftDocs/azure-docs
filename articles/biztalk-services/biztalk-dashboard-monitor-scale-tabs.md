@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Dashboard, Monitor, Scale, Configure, and Hybrid Connections in BizTalk Services | Azure" 
+	pageTitle="Dashboard, Monitor, Scale, Configure, and Hybrid Connections in BizTalk Services | Microsoft Azure" 
 	description="Learn about the controls and monitor performance on the Management Portal tabs for BizTalk Services: Dashboard, Monitor, Scale, Configure, and Hybrid Connections. MABS, WABS" 
 	services="biztalk-services" 
 	documentationCenter="" 
@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/07/2015" 
+	ms.date="08/26/2015" 
 	ms.author="mandia"/>
 
 
 
 
-# BizTalk Services: Dashboard, Monitor, Scale, Configure, and Hybrid Connection tabs
+# Review the Dashboard, Monitor, Scale, Configure, and Hybrid Connection tabs
 
 After you create your BizTalk Service and deploy your application, you can change some of the BizTalk Service settings and monitor the application performance. 
 
@@ -236,19 +236,16 @@ You can also choose the **Relative** or **Absolute** values and the time range *
 
 ##### To remove or display metrics in the graph:
 1. Select the **Monitor** tab.
-2. Select **Add Metrics** in the task bar:
-<br/>
+2. Select **Add Metrics** in the task bar:  
 ![Select Add Metrics][AddMetrics]
 3. Check the performance metrics you want to display.
 4. Select the checkmark to return to the **Monitor** tab.
-5. Select the circle next to the metric to display that metric's value in the graph.
-<br/>
-For example, the **CPU Usage** metric is grayed out; its output is not displayed in the graph:
-<br/>
-![CPU Usage metric is grayed out][GrayedMetric]
-<br/>
-Select the grayed out circle to enable the **CPU Usage** metric to display its output in the graph:
-<br/>
+5. Select the circle next to the metric to display that metric's value in the graph.  
+
+	For example, the **CPU Usage** metric is grayed out; its output is not displayed in the graph:  
+![CPU Usage metric is grayed out][GrayedMetric]  
+
+	Select the grayed out circle to enable the **CPU Usage** metric to display its output in the graph:  
 ![CPU Usage metric is enabled][EnabledMetric]
 
 6. To remove a metric from the display graph and the list, select **Delete Metric** in the task bar. To add the metric back to the list, select **Add Metrics** in the task bar, check the metric, and select the checkmark to return to the **Monitor** tab. Select the grayed out circle to enable the metric.
@@ -322,11 +319,11 @@ In a Request-Reply scenario, the metric is incremented when the route destinatio
 ## Scale
 In the Scale tab, you can add or subtract the number of units used by your BizTalk Service. By default, there is one Unit configured. Additional Units can be added to scale your BizTalk Service. When you increase the scale, you are increasing throughput. The amount of resources also increases, including deployed bridges, agreements, LOB connections, and processing power. For example, you increase the scale from 1 Unit to 2 Units. In this situation, you can deploy double the number of bridges, double the agreements, double the LOB connections, and double the processing power.
 
-Some BizTalk editions do not offer a scale option. In this situation, one Unit is permitted. To determine how many units your edition can be scaled, refer to [BizTalk Services: Editions Chart](http://go.microsoft.com/fwlink/p/?LinkID=302279).
+Some BizTalk editions do not offer a scale option. In this situation, one Unit is permitted. To determine how many units your edition can be scaled, refer to [BizTalk Services: Editions Chart](biztalk-editions-feature-chart.md).
 
 Increasing the number of units may impact pricing. If you increase the Units, selecting **Save** displays a message that tells you if billing is impacted. You then choose to continue. When you increase the number of Units, the BizTalk Service status changes from Active to Updating. In the Updating state, your BizTalk Service continues to run.
 
-[BizTalk Services: Editions Chart](http://go.microsoft.com/fwlink/p/?LinkID=302279) defines a "Unit".
+[BizTalk Services: Editions Chart](biztalk-editions-feature-chart.md) defines a "Unit".
 
 
 ## Configure
@@ -334,7 +331,7 @@ Does not apply to Hybrid Connections.
 
 Sets the Backup Status to None or Automatic. When set to None, no backups are automatically created. When set to Automatic, you configure the backup location, the frequency of the backup, and how long to keep the backup files. 
 
-[BizTalk Services: Backup and Restore](http://go.microsoft.com/fwlink/p/?LinkID=329873) provides the details. 
+[BizTalk Services: Backup and Restore](biztalk-backup-restore.md) provides the details. 
 
 
 ## <a name="HybridConnections"></a>Hybrid Connections
@@ -344,22 +341,22 @@ To create Hybrid Connections in Azure Websites, see [Hybrid Connection: Connect 
 
 To use Hybrid Connections in Azure Mobile Services, see [Azure Mobile Services and Hybrid Connections](../mobile-services-dotnet-backend-hybrid-connections-get-started.md).
 
-To create or manage Hybrid Connections in Azure BizTalk Services, see [Hybrid Connections](http://go.microsoft.com/fwlink/p/?LinkID=397274).
+To create or manage Hybrid Connections in Azure BizTalk Services, see [Hybrid Connections](integration-hybrid-connection-overview.md).
 
 
 
 ## Next
 Now that you're familiar with the different tabs, you can learn more about the Azure BizTalk Services features:
 
-- [BizTalk Services: Throttling](http://go.microsoft.com/fwlink/p/?LinkID=302282)<br/>
-- [BizTalk Services: Issuer Name and Issuer Key](http://go.microsoft.com/fwlink/p/?LinkID=303941)
-- [BizTalk Services: Backup and Restore](http://go.microsoft.com/fwlink/p/?LinkID=329873)<br/>
+- [BizTalk Services: Throttling](biztalk-throttling-thresholds.md)  
+- [BizTalk Services: Issuer Name and Issuer Key](biztalk-issuer-name-issuer-key.md)  
+- [BizTalk Services: Backup and Restore](biztalk-backup-restore.md)
 
 ## See Also
-- [Hybrid Connections](http://go.microsoft.com/fwlink/p/?LinkID=397274)
-- [BizTalk Services: Developer, Basic, Standard and Premium Editions Chart](http://go.microsoft.com/fwlink/p/?LinkID=302279)<br/>
-- [BizTalk Services: Provisioning Using Azure Management Portal](http://go.microsoft.com/fwlink/p/?LinkID=302280)<br/>
-- [BizTalk Services: BizTalk Service State Chart](http://go.microsoft.com/fwlink/p/?LinkID=329870)<br/>
+- [Hybrid Connections](integration-hybrid-connection-overview.md)  
+- [BizTalk Services: Developer, Basic, Standard and Premium Editions Chart](biztalk-editions-feature-chart.md)  
+- [BizTalk Services: Provisioning Using Azure Management Portal](biztalk-provision-services.md)  
+- [BizTalk Services: BizTalk Service State Chart](biztalk-service-state-chart.md)  
 - [How do I Start Using the Azure BizTalk Services SDK](http://go.microsoft.com/fwlink/p/?LinkID=302335)
 
 [QuickStart]: ./media/biztalk-dashboard-monitor-scale-tabs/QuickStartIcon.png

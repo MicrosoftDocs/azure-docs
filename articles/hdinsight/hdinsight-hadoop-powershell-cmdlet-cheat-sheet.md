@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="HDInsight Hadoop PowerShell Cmdlet Cheat Sheet | Azure" 
+	pageTitle="HDInsight Hadoop PowerShell Cmdlet Cheat Sheet | Microsoft Azure" 
 	description="A downloadable HDInsight Hadoop powershell cmdlet cheat sheet that can help you perform standard Hadoop tasks in Azure HDInsight."
 	services="hdinsight" 
 	documentationCenter="" 
@@ -21,6 +21,7 @@
 
 Microsoft Azure HDInsight provides PowerShell cmdlets to perform Hadoop tasks on a cluster. The **Microsoft Azure HDInsight PowerShell Cmdlet Cheat Sheet** is designed to provide you with PowerShell cmdlets for the most common Hadoop tasks such as create a cluster, run jobs, delete a cluster, etc. The cheat sheet also provides a list of all the PowerShell cmdlets available for Microsoft Azure HDInsight.
 
+## HDInsight cheat sheet: Service Management model
 
 **Download the cheat sheet here: [Microsoft Azure HDInsight PowerShell Cmdlet Cheat Sheet](http://download.microsoft.com/download/B/7/D/B7DBB509-164D-4343-9894-12D1FB053776/HDI_PowerShell_Cmdlet_CheatSheet.pdf)**
 
@@ -32,9 +33,3 @@ Microsoft Azure HDInsight provides PowerShell cmdlets to perform Hadoop tasks on
 ## See also
 
 * [Learning path for HDInsight](http://azure.microsoft.com/documentation/learning-paths/hdinsight-self-guided-hadoop-training/)
-
-
-
-
-
-

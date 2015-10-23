@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="Walkthrough: Monitor Microsoft CRM with Application Insights" 
-	description="Get telemetry from Microsoft CRM Online using Application Insights. Walkthrough of setup, getting data, visualization and export." 
+	pageTitle="Walkthrough: Monitor Microsoft Dynamics CRM with Application Insights" 
+	description="Get telemetry from Microsoft Dynamics CRM Online using Application Insights. Walkthrough of setup, getting data, visualization and export." 
 	services="application-insights" 
     documentationCenter=""
 	authors="mazharmicrosoft" 
-	manager="klin"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -15,11 +15,11 @@
 	ms.date="08/04/2015" 
 	ms.author="awills"/>
  
-# Walkthrough: Enabling Telemetry for Microsoft CRM Online using Application Insights
+# Walkthrough: Enabling Telemetry for Microsoft Dynamics CRM Online using Application Insights
 
-This article shows you how to get telemetry data from [Microsoft CRM Online](https://www.dynamics.com/) using [Visual Studio Application Insights](https://azure.microsoft.com/services/application-insights/). We’ll walk through the complete process of adding Application Insights script to your application, capturing data, and data visualization.
+This article shows you how to get telemetry data from [Microsoft Dynamics CRM Online](https://www.dynamics.com/) using [Visual Studio Application Insights](https://azure.microsoft.com/services/application-insights/). We’ll walk through the complete process of adding Application Insights script to your application, capturing data, and data visualization.
 
->[AZURE.NOTE] [Browse the sample code](https://dynamicsandappinsights.codeplex.com/).
+>[AZURE.NOTE] [Browse the sample solution](https://dynamicsandappinsights.codeplex.com/).
 
 ## Add Application Insights to new or existing CRM Online instance 
 
@@ -60,7 +60,7 @@ To monitor your application, you add an Application Insights SDK to your applica
 
     ![](./media/app-insights-sample-mscrm/08.png)
     
-4. Copy the code from Application Insights.
+4. Copy the code from Application Insights. While copying make sure to ignore <script> tags. Refer below screenshot:
 
     ![](./media/app-insights-sample-mscrm/09.png)
 
@@ -149,9 +149,9 @@ Click the chart to get more detail:
 
 You can do even deeper analysis if you [export the data to Microsoft Power BI](app-insights-export-power-bi.md).
 
-## Sample CRM Solution
+## Sample Dynamics CRM Solution
 
-Here is the sample solution implemeted in CRM for starting to capture Telemetry. https://dynamicsandappinsights.codeplex.com/ 
+[Here is the sample solution implemented in Dynamics CRM] (https://dynamicsandappinsights.codeplex.com/).
 
 ## Learn more
 

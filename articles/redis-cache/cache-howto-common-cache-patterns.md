@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="cache-redis"
    ms.workload="tbd" 
-   ms.date="05/21/2015"
+   ms.date="08/11/2015"
    ms.author="riande"/>
 
 # Common cache patterns with Azure Redis Cache

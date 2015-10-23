@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-ios"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="05/14/2015"
+	ms.date="08/18/2015"
 	ms.author="donnam"/>
 
 # Add authentication to your Mobile Services app
@@ -149,4 +149,3 @@ In the next tutorial, [Authorize users with scripts], you will take the user ID 
 [Azure Management Portal]: https://manage.windowsazure.com/
 [completed example project]: http://go.microsoft.com/fwlink/p/?LinkId=331328
 [Xamarin.iOS]: http://xamarin.com/download
- 

@@ -116,9 +116,13 @@ Finally, you have to inform the Engagement SDK when your application receives a 
 		[[EngagementAgent shared] applicationDidReceiveRemoteNotification:userInfo fetchCompletionHandler:handler];
 	}
 
-> [AZURE.NOTE] The method above is introduced in iOS 7. If you are targeting iOS <7, make sure to implement method `application:applicationDidReceiveRemoteNotification:` in your application delegate and call `applicationDidReceiveRemoteNotification` on the EngagementAgent by passing nil instead of the `handler` argument:
+> [AZURE.NOTE] The method above is introduced in iOS 7. If you are targeting iOS <7, make sure to implement method `application:didReceiveRemoteNotification:` in your application delegate and call `applicationDidReceiveRemoteNotification` on the EngagementAgent by passing nil instead of the `handler` argument:
 
-	[[EngagementAgent shared] applicationDidReceiveRemoteNotification:userInfo fetchCompletionHandler:nil];
+	- (void)application:(UIApplication*)application
+	didReceiveRemoteNotification:(NSDictionary*)userInfo
+	{
+		[[EngagementAgent shared] applicationDidReceiveRemoteNotification:userInfo fetchCompletionHandler:nil];
+	}
 
 > [AZURE.IMPORTANT] By default, Engagement Reach controls the completionHandler. If you want to manually respond to the `handler` block in your code, you can pass nil for the `handler` argument and control the completion block yourself. See the `UIBackgroundFetchResult` type for a list of possible values.
 

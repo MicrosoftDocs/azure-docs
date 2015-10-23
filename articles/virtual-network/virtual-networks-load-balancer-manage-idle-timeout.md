@@ -10,7 +10,7 @@
 
 <tags
    ms.author="danecke"
-   ms.date="05/27/2015"
+   ms.date="09/01/2015"
    ms.devlang="na"
    ms.service="virtual-network"
    ms.topic="article"
@@ -34,8 +34,8 @@ To support mobile device scenarios, the Azure load balancer supports a configura
 
 TCP idle timeout can be configured for: 
 
-* [Instance-Level Public IPs](http://msdn.microsoft.com/library/azure/dn690118.aspx)
-* [Load-Balanced endpoint sets](http://msdn.microsoft.com/library/azure/dn655055.aspx)
+* [Instance-Level Public IPs](virtual-networks-instance-level-public-ip.md)
+* [Load-Balanced endpoint sets](../load-balancer/load-balancer-overview.md)
 * [Virtual Machine endpoints](../virtual-machines/virtual-machines-set-up-endpoints.md)
 * [Web roles](http://msdn.microsoft.com/library/windowsazure/ee758711.aspx)
 * [Worker roles](http://msdn.microsoft.com/library/windowsazure/ee758711.aspx)

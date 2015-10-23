@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Get started with Azure DNS | Microsoft Azure"
-   description="Learn how to create DNS zones for Azure DNS .This is a Step by step to get your first DNS zone created to start hosting your DNS domain using PowerShell or CLI"
+   pageTitle="Get started with Azure DNS using CLI| Microsoft Azure"
+   description="Learn how to create DNS zones for Azure DNS step-by-step to start hosting your DNS domain using CLI"
    services="dns"
    documentationCenter="na"
    authors="joaoma"
@@ -13,14 +13,21 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/28/2015"
+   ms.date="09/22/2015"
    ms.author="joaoma"/>
 
-# Get started with Azure DNS
+# Get started with Azure DNS using CLI
 
-The domain ‘contoso.com’ may contain a number of DNS records, such as ‘mail.contoso.com’ (for a mail server) and ‘www.contoso.com’ (for a web site). A DNS zone is used to host the DNS records for a particular domain.
 
-To start hosting your domain we need to first create a DNS zone. Any DNS record created for a particular domain will be inside a DNS zone for the domain.
+
+> [AZURE.SELECTOR]
+- [Azure CLI](dns-getstarted-create-dnszone-cli.md)
+- [Azure Powershell steps](dns-getstarted-create-dnszone.md)
+
+
+The domain ‘contoso.com’ can contain a number of DNS records, such as ‘mail.contoso.com’ (for a mail server) and ‘www.contoso.com’ (for a website). A DNS zone is used to host the DNS records for a particular domain.
+
+To start hosting your domain, you first need to create a DNS zone. Any DNS record created for a particular domain will be inside a DNS zone for the domain.
 
 These instructions use Microsoft Azure CLI. Be sure to update to the latest Azure CLI to use the Azure DNS commands.
 
@@ -28,26 +35,29 @@ These instructions use Microsoft Azure CLI. Be sure to update to the latest Azur
 
 ### Step 1
 
-Install Azure CLI. You can install Azure CLI for Windows, Linux or MAC. The following steps need to be completed before you can manage Azure DNS using Azure CLI. More info is available at [Install the Azure CLI](xplat-cli-install.md). All the network provider commands on CLI can be found using the following command:
+Install Azure CLI. You can install Azure CLI for Windows, Linux, or MAC. The following steps need to be completed before you can manage Azure DNS using Azure CLI. More information is available at [Install the Azure CLI](../xplat-cli-install.md). All the network provider commands on CLI can be found using the following command:
 
-	Azure network 
+	Azure network
 
+
+>[AZURE.IMPORTANT] The DNS commands require Azure CLI version 0.9.8 or above. Type `azure -v`to check which Azure CLI version is currently installed in your machine.
+ 
 ### Step 2
 
-Azure DNS uses Azure Resource Manager (ARM). Make sure you switch CLI to use ARM commands and DNS.
+Azure DNS uses Azure Resource Manager. Make sure you switch CLI to use arm commands and DNS.
 
 	Azure config mode arm
 
 ### Step 3
 
-Log in to your Azure account.
+Sign in to your Azure account.
 
     Azure login -u "username"
 
-You will be prompted to Authenticate with your credentials. Keep in mind you can only use ORGID accounts.
+You will be prompted to authenticate with your credentials. Keep in mind that you can only use ORGID accounts.
 
 ### Step 4
-Choose which of your Azure subscriptions to use. 
+Choose which of your Azure subscriptions to use.
 
     Azure account set "subscription name"
 
@@ -59,39 +69,45 @@ Create a new resource group (skip this step if using an existing resource group)
 
     Azure group create -n myresourcegroup --location "West US"
 
-Azure Resource Manager requires that all resource groups specify a location. This is used as the default location for resources in that resource group. However, since all DNS resources are global, not regional, the choice of resource group location has no impact on Azure DNS.
+Azure Resource Manager requires that all resource groups specify a location. This is used as the default location for resources in that resource group. However, because all DNS resources are global, not regional, the choice of resource group location has no impact on Azure DNS.
 
 ### Step 6
 
-The Azure DNS service is managed by the Microsoft.Network resource provider. Your Azure subscription needs to be registered to use this resource provider before you can use Azure DNS. This is a one time operation for each subscription.
+The Azure DNS service is managed by the Microsoft.Network resource provider. Your Azure subscription needs to be registered to use this resource provider before you can use Azure DNS. This is a one-time operation for each subscription.
 
 	Azure provider register --namespace Microsoft.Network
 
 ## Tags
 
-Tags are different from Etags. Tags are a list of name-value pairs, and are used by Azure Resource Manager to label resources for billing or grouping purposes. For more information about Tags see using tags to organize your Azure resources. Azure DNS CLI supports tags on both zones and record sets specified using the options ‘-Tag’ parameter. The following example shows how to create a DNS zone with two tags, ‘project = demo’ and ‘env = test’:
+Tags are different from Etags. Tags are a list of name-value pairs, and are used by Azure Resource Manager to label resources for billing or grouping purposes. For more information about tags, see [Using tags to organize your Azure resources](resource-group-using-tags.md). Azure DNS CLI supports tags on both zones and record sets specified by using the options ‘-Tag’ parameter. The following example shows how to create a DNS zone with two tags, ‘project = demo’ and ‘env = test’:
 
-	Azure network dns-zone create -n contoso.com -g myresourcegroup -t "project=demo";"env=test"
+	Azure network dns zone create -n contoso.com -g myresourcegroup -t "project=demo";"env=test"
 
 ## Create a DNS zone
 
-A DNS zone is created using the "azure network dns-zone create" command. In the example below we will create a DNS zone called 'contoso.com' in the resource group called 'MyResourceGroup':
+A DNS zone is created using the `azure network dns zone create` command. In the example below, you create a DNS zone called 'contoso.com' in the resource group called 'MyResourceGroup':
 
-    Azure network dns-zone create -n contoso.com -g myresourcegroup
+    Azure network dns zone create -n contoso.com -g myresourcegroup
 
 
->[AZURE.NOTE] In Azure DNS, zone names should be specified without a terminating ‘.’. For example, as ‘contoso.com’ rather than ‘contoso.com.’.
+>[AZURE.NOTE] In Azure DNS, zone names should be specified without a terminating ‘.’, for example, as ‘contoso.com’ rather than ‘contoso.com.’.
 
 
 Your DNS zone has now been created in Azure DNS. Creating a DNS zone also creates the following DNS records:
 
--The ‘Start of Authority’ (SOA) record. This is present at the root of every DNS zone.
--The authoritative name server (NS) records. These show which name servers are hosting the zone. Azure DNS uses a pool of name servers, and so different name servers may be assigned to different zones in Azure DNS. See delegate a domain to Azure DNS for more information.
+- The ‘Start of Authority’ (SOA) record. This is present at the root of every DNS zone.
+- The authoritative name server (NS) records. These show which name servers are hosting the zone. Azure DNS uses a pool of name servers, and so different name servers can be assigned to different zones in Azure DNS. See [Delegate a domain to Azure DNS](dns-domain-delegation.md) for more information.
+
 To view these records, use "azure network dns-record-set show":
-   
-	azure network dns-record-set show -g myresourcegroup --dns-zone "contoso.com" -n "@" --type SOA
+
+	Usage: network dns record-set show <resource-group> <dns-zone-name> <name> <type>
+
+
+In the example below, running the command with resource group "myresourcegroup", record set name "@" (for a root record) and type "SOA" will yield the following output:
+ 
+
+	azure network dns record-set show myresourcegroup "contoso.com" "@" SOA
 	info:    Executing command network dns-record-set show
-	DNS zone name: contoso.com
 	+ Looking up the DNS record set "@"
 	data:    Id                              : /subscriptions/#######################/resourceGroups/myresourcegroup/providers/Microsoft.Network/dnszones/contoso.com/SOA/@
 	data:    Name                            : @
@@ -109,9 +125,8 @@ To view these records, use "azure network dns-record-set show":
 <BR>
 To view the NS records created, use the following command:
 
-	azure network dns-record-set show -g myresourcegroup --dns-zone "contoso.com" -n "@" --type NS
+	azure network dns record-set show myresourcegroup "contoso.com" "@" NS
 	info:    Executing command network dns-record-set show
-	DNS zone name: contoso.com
 	+ Looking up the DNS record set "@"
 	data:    Id                              : /subscriptions/#######################/resourceGroups/myresourcegroup/providers/Microsoft.Network/dnszones/contoso.com/NS/@
 	data:    Name                            : @
@@ -126,12 +141,12 @@ To view the NS records created, use the following command:
 	data:
 	info:    network dns-record-set show command OK
 
->[AZURE.NOTE] Record sets at the root (or ‘apex’) of a DNS Zone use "@" as the record set name.
+>[AZURE.NOTE] Record sets at the root (or ‘apex’) of a DNS zone use "@" as the record set name.
 
-Having created your first DNS zone, you can test it using DNS tools such as nslookup, dig, or theResolve-DnsName PowerShell cmdlet.
-If you haven’t yet delegated your domain to use the new zone in Azure DNS, you will need to direct the DNS query directly to one of the name servers for your zone. The name servers for your zone are given in the NS records, as listed by "azure network dns-record-set show" above. Be sure the substitute the correct values for your zone into the command below.
+Having created your first DNS zone, you can test it by using DNS tools such as nslookup, DIG, or the **Resolve-DnsName** PowerShell cmdlet.
+If you haven’t yet delegated your domain to use the new zone in Azure DNS, you need to direct the DNS query directly to one of the name servers for your zone. The name servers for your zone are given in the NS records, as listed by "azure network dns-record-set show" above. Be sure the substitute the correct values for your zone in the command below.
 
-The following example uses dig to query the domain contoso.com using the name servers assigned for the DNS zone. The query has to point to an name server which we used `@<name server for the zone>` and zone name using DIG.
+The following example uses DIG to query the domain contoso.com using the name servers assigned for the DNS zone. The query has to point to a name server for which we used `@<name server for the zone>` and zone name using DIG.
 
 	 <<>> DiG 9.10.2-P2 <<>> @ns1-05.azure-dns.com contoso.com
 	(1 server found)
@@ -147,13 +162,19 @@ The following example uses dig to query the domain contoso.com using the name se
 	contoso.com.                        IN      A
 
  	AUTHORITY SECTION:
-	contoso.com.         300     IN      SOA     edge1.azuredns-cloud.net. 
+	contoso.com.         300     IN      SOA     edge1.azuredns-cloud.net.
 	msnhst.microsoft.com. 6 900 300 604800 300
 
 	Query time: 93 msec
 	SERVER: 208.76.47.5#53(208.76.47.5)
 	WHEN: Tue Jul 21 16:04:51 Pacific Daylight Time 2015
 	MSG SIZE  rcvd: 120
-	
+
 ## Next Steps
 
+
+[Get started creating record sets and records](dns-getstarted-create-recordset-cli.md)<BR>
+[How to manage DNS zones](dns-operations-dnszones-cli.md)<BR>
+[How to manage DNS records](dns-operations-recordsets-cli.md)<BR>
+[Automate Azure operations with .NET SDK](dns-sdk.md)<BR>
+[Azure DNS REST API Reference](https://msdn.microsoft.com/library/azure/mt163862.aspx)

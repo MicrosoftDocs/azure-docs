@@ -1,12 +1,12 @@
 <properties
-	pageTitle="Troubleshoot Access to an Application Running on an Azure Virtual Machine"
+	pageTitle="Troubleshoot application access on a VM | Microsoft Azure"
 	description="If you can't access an application running on an Azure virtual machine, use these steps to isolate the source of the problem."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="dsk-2015"
 	manager="timlt"
 	editor=""
-	tags="azure-service-management,azure-resource-manager"/>
+	tags="top-support-issue,azure-service-management,azure-resource-manager"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -14,10 +14,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/01/2015"
+	ms.date="10/05/2015"
 	ms.author="dkshir"/>
 
 # Troubleshoot Access to an Application Running on an Azure Virtual Machine
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
+
 
 If you can't access an application running on an Azure virtual machine, this article describes a methodical approach for isolating the source of the problem and correcting it.
 
@@ -29,7 +32,7 @@ There are four main areas to troubleshoot the access of an application that is r
 
 1.	The application running on the Azure virtual machine.
 2.	The Azure virtual machine.
-3.	Azure endpoints for the cloud service that contains the virtual machine (for virtual machines created in Service Management), inbound NAT rules (for virtual machines created in Resource Manager), and Network Security Groups.
+3.	Azure endpoints for the cloud service that contains the virtual machine (for virtual machines created using the Service Management API), inbound NAT rules (for virtual machines created in Resource Manager), and Network Security Groups.
 4.	Your Internet edge device.
 
 For client computers that are accessing the application over a site-to-site VPN or ExpressRoute connection, the main areas that can cause problems are the application and the Azure virtual machine.
@@ -54,7 +57,7 @@ On both Windows and Linux-based virtual machines, use the **netstat -a** command
 
 ## <a id="step2"></a>Step 2: Can you access the application from another virtual machine in the same virtual network?
 
-Try to access the application from a different virtual machine in the same virtual network as the virtual machine on which the application is running using the virtual machine's host name or its Azure-assigned public, private, or provider IP address. For virtual machines created in Service Management, do not use the public IP address of the cloud service.
+Try to access the application from a different virtual machine in the same virtual network as the virtual machine on which the application is running using the virtual machine's host name or its Azure-assigned public, private, or provider IP address. For virtual machines created using the Service Management API, do not use the public IP address of the cloud service.
 
 ![](./media/virtual-machines-troubleshoot-access-application/tshoot_app_access3.png)
 
@@ -81,9 +84,9 @@ For example, if the application is a web server, try to access the web page from
 
 If you cannot access the application, verify the following:
 
-- For virtual machines created in Service Management, that the endpoint configuration for the virtual machine is allowing the incoming traffic, especially the protocol (TCP or UDP) and the public and private port numbers. For more information, see [How to Set Up Endpoints to a Virtual Machine]( virtual-machines-set-up-endpoints.md).
-- For virtual machines created in Service Management, that access control lists (ACLs) on the endpoint are not preventing incoming traffic from the Internet. For more information, see [How to Set Up Endpoints to a Virtual Machine]( virtual-machines-set-up-endpoints.md).
-- For virtual machines created in Resource Manager, that the inbound NAT rule configuration for the virtual machine is allowing the incoming traffic, especially the protocol (TCP or UDP) and the public and private port numbers. 
+- For virtual machines created using the Service Management API, that the endpoint configuration for the virtual machine is allowing the incoming traffic, especially the protocol (TCP or UDP) and the public and private port numbers. For more information, see [How to Set Up Endpoints to a Virtual Machine]( virtual-machines-set-up-endpoints.md).
+- For virtual machines created using the Service Management API, that access control lists (ACLs) on the endpoint are not preventing incoming traffic from the Internet. For more information, see [How to Set Up Endpoints to a Virtual Machine]( virtual-machines-set-up-endpoints.md).
+- For virtual machines created in Resource Manager, that the inbound NAT rule configuration for the virtual machine is allowing the incoming traffic, especially the protocol (TCP or UDP) and the public and private port numbers.
 - That Network Security Groups are allowing the inbound request and outbound response traffic. For more information, see [What is a Network Security Group (NSG)?](virtual-networks-nsg.md).
 
 If the virtual machine or endpoint is a member of a load-balanced set:

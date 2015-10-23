@@ -4,7 +4,7 @@
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
-	manager="ronmart"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/11/2015" 
+	ms.date="08/11/2015" 
 	ms.author="awills"/>
 
 # Data collection, retention and storage in Application Insights 
@@ -36,14 +36,28 @@ Application Insights SDKs and agents that you combine with your application send
 
 **Per second**: Up to 500 data points per second per instrumentation key (that is, per application). For the free [pricing tier][pricing], the limit is 100 dp/s.
 
+There are three buckets which are counted separately:
+
+* [TrackTrace calls](app-insights-api-custom-events-metrics.md#track-trace) and [captured logs](app-insights-asp-net-trace-logs.md)
+* [Exceptions](app-insights-api-custom-events-metrics.md#track-exception), subject to a lower limit of 50/s.
+* All other telemetry (page views, requests, dependencies, metrics, custom events and web test results).
+
 **Monthly**: Between 5 and 15 million data points in each calendar month, depending on your [pricing plan](http://azure.microsoft.com/pricing/details/application-insights/). Except for the free [pricing tier][pricing], you can buy additional capacity if you hit the limit.
 
 
-A *data point* is an item of telemetry, such as:
+A *data point* is an item of telemetry sent to the Azure portal about your app. It can be sent by:
 
-* API `Track...` calls such as `TrackEvent` or `trackPageView`.
-* Telemetry items sent by SDK modules, for example to report a request or crash.
-* Performance counter data - one point for each measurement.
+* [SDK modules](app-insights-configuration-with-applicationinsights-config.md) that automatically collect data, for example to report a request or crash, or to measure performance.
+* [API](app-insights-api-custom-events-metrics.md) `Track...` calls that you have written, such as `TrackEvent` or `trackPageView`.
+* [Availability web tests](app-insights-monitor-web-app-availability.md) that you have set up.
+
+Telemetry data include:
+
+* Each row in [diagnostic search](app-insights-diagnostic-search.md)
+* The raw data from which charts in [metric explorer](app-insights-metrics-explorer.md) are aggregated. Metric data such as performance counter data don't usually appear as individual points in metric explorer.
+* Each web test result in an [availability](app-insights-monitor-web-app-availability.md) report.
+
+User and session counts aren't included in the quota for pricing purposes.
 
 *How do I know how many data points my app is sending?*
 
@@ -63,7 +77,7 @@ Aggregated data (that is, counts, averages and other statistical data that you s
 
 1.	Maximum of 200 unique metric names and 200 unique property names for your application. Metrics include data send via TrackMetric as well as measurements on other  data types such as Events.  [Metrics and property names][api] are global per instrumentation key not scoped to data type.
 2.	[Properties][apiproperties] can be used for filtering and group by only while they have less than 100 unique values for each property. After the unique values exceed 100, the property can still be used for search and filtering but no longer for filters.
-3.	Standard properties such as Request Name and Page URL are limited to 1000 unique values per week. After 1000 unique values, additional values are marked as “Other values”. The original value can still be used for full text search and filtering.
+3.	Standard properties such as Request Name and Page URL are limited to 1000 unique values per week. After 1000 unique values, additional values are marked as "Other values". The original value can still be used for full text search and filtering.
 
 
 ## Access
@@ -196,7 +210,7 @@ Dependencies|Type(SQL, HTTP, ...), connection string or URI, sync/async, duratio
 Crashes | Process id, parent process id, crash thread id; application patch, id, build;  exception type, address, reason; obfuscated symbols and registers, binary start and end addresses, binary name and path, cpu type
 Trace | **Message** and severity level
 Perf counters | Processor time, available memory, request rate, exception rate, process private bytes, IO rate, request duration, request queue length
-Availability | Web test response code, duration of each test step
+Availability | Web test response code, duration of each test step, test name, timestamp, success, response time, test location
 SDK diagnostics | Trace message or Exception 
 
 You can [switch off some of the data by editing ApplicationInsights.config][config]
@@ -231,7 +245,7 @@ This product includes GeoLite2 data created by MaxMind, available from [http://w
 [platforms]: app-insights-platforms.md
 [pricing]: http://azure.microsoft.com/pricing/details/application-insights/
 [redfield]: app-insights-monitor-performance-live-website-now.md
-[start]: app-insights-get-started.md
+[start]: app-insights-overview.md
 [windows]: app-insights-windows-get-started.md
 
  

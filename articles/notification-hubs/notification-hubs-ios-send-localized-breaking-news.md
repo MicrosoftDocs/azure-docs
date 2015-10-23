@@ -1,20 +1,21 @@
-<properties 
-	pageTitle="Notification Hubs Localized Breaking News Tutorial for iOS" 
-	description="Learn how to use Azure Service Bus Notification Hubs to send localized breaking news notifications (iOS)." 
-	services="notification-hubs" 
-	documentationCenter="ios" 
-	authors="wesmc7777" 
-	manager="dwrede" 
+<properties
+	pageTitle="Notification Hubs Localized Breaking News Tutorial for iOS"
+	description="Learn how to use Azure Service Bus Notification Hubs to send localized breaking news notifications (iOS)."
+	services="notification-hubs"
+	documentationCenter="ios"
+	authors="wesmc7777"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="notification-hubs" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="ios" 
-	ms.devlang="objective-c" 
-	ms.topic="article" 
-	ms.date="06/02/2015" 
+<tags
+	ms.service="notification-hubs"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="ios"
+	ms.devlang="objective-c"
+	ms.topic="article"
+	ms.date="09/24/2015"
 	ms.author="wesmc"/>
+
 # Use Notification Hubs to send localized breaking news to iOS devices
 
 > [AZURE.SELECTOR]
@@ -221,4 +222,3 @@ A reference for the template expression language is in [Notification Hubs How-To
 [wns object]: http://go.microsoft.com/fwlink/p/?LinkId=260591
 [Notification Hubs Guidance]: http://msdn.microsoft.com/library/jj927170.aspx
 [Notification Hubs How-To for iOS]: http://msdn.microsoft.com/library/jj927168.aspx
- 

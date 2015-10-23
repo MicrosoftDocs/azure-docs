@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="How to use Service Bus queues (Node.js) - Azure" 
+	pageTitle="How to use Service Bus queues in Node.js | Microsoft Azure" 
 	description="Learn how to use Service Bus queues in Azure from a Node.js app." 
 	services="service-bus" 
 	documentationCenter="nodejs" 
-	authors="MikeWasson" 
-	manager="wpickett" 
+	authors="sethmanheim" 
+	manager="timlt" 
 	editor=""/>
 
 <tags 
@@ -13,30 +13,33 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="07/06/2015" 
-	ms.author="mwasson"/>
+	ms.date="10/06/2015" 
+	ms.author="sethm"/>
 
 # How to use Service Bus queues
 
-This guide describes how to use Service Bus queues. The samples are written in JavaScript and use the Node.js Azure module. The scenarios covered include **creating queues, sending and receiving messages**, and **deleting queues**. For more information on queues, see the [Next steps] section.
+[AZURE.INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
+
+This article describes how to use Service Bus queues. The samples are written in JavaScript and use the Node.js Azure module. The scenarios covered include **creating queues**, **sending and receiving messages**, and **deleting queues**. For more information on queues, see the [Next steps][] section.
 
 [AZURE.INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
 
 ## Create a Node.js application
 
-Create a blank Node.js application. For instructions on creating a Node.js application, see [Create and deploy a Node.js application to an Azure Web Site], [Node.js Cloud Service][Node.js Cloud Service] (using Windows PowerShell), or [Web Site with WebMatrix].
+Create a blank Node.js application. For instructions on how to create a Node.js application, see [Create and deploy a Node.js application to an Azure Website][], or [Node.js Cloud Service][] (using Windows PowerShell).
 
 ## Configure your application to use Service Bus
 
-To use Azure Service Bus, download and use the Node.js azure package. This includes a set of libraries that communicate with the Service Bus REST services.
+To use Azure Service Bus, download and use the Node.js Azure package. This package includes a set of libraries that communicate with the Service Bus REST services.
 
 ### Use Node Package Manager (NPM) to obtain the package
 
-1.  Use the **Windows PowerShell for Node.js** command window to navigate to the **c:\\node\\sbqueues\\WebRole1** folder in which you created your sample application.
+1. Use the **Windows PowerShell for Node.js** command window to navigate to the **c:\\node\\sbqueues\\WebRole1** folder in which you created your sample application.
 
-2.  Type **npm install azure** in the command window, which should result in output similar to the following:
+2. Type **npm install azure** in the command window, which should result in output similar to the following:
 
-        azure@0.7.5 node_modules\azure
+	```
+	azure@0.7.5 node_modules\azure
 		├── dateformat@1.0.2-1.2.3
 		├── xmlbuilder@0.4.2
 		├── node-uuid@1.2.0
@@ -47,87 +50,104 @@ To use Azure Service Bus, download and use the Node.js azure package. This inclu
 		├── wns@0.5.3
 		├── xml2js@0.2.7 (sax@0.5.2)
 		└── request@2.21.0 (json-stringify-safe@4.0.0, forever-agent@0.5.0, aws-sign@0.3.0, tunnel-agent@0.3.0, oauth-sign@0.3.0, qs@0.6.5, cookie-jar@0.3.0, node-uuid@1.4.0, http-signature@0.9.11, form-data@0.0.8, hawk@0.13.1)
+	```
 
-3.  You can manually run the **ls** command to verify that a **node\_modules** folder was created. Inside that folder find the **azure** package, which contains the libraries you need to access Service Bus queues.
+3. You can manually run the **ls** command to verify that a **node\_modules** folder was created. Inside that folder find the **azure** package, which contains the libraries you need to access Service Bus queues.
 
 ### Import the module
 
 Using Notepad or another text editor, add the following to the top of the **server.js** file of the application:
 
-    var azure = require('azure');
+```
+var azure = require('azure');
+```
 
 ### Set up an Azure Service Bus connection
 
 The Azure module reads the environment variables AZURE\_SERVICEBUS\_NAMESPACE and AZURE\_SERVICEBUS\_ACCESS\_KEY to obtain information required to connect to Service Bus. If these environment variables are not set, you must specify the account information when calling **createServiceBusService**.
 
-For an example of setting the environment variables in a configuration file for an Azure Cloud Service, see [Node.js Cloud Service with Storage].
+For an example of setting the environment variables in a configuration file for an Azure Cloud Service, see [Node.js Cloud Service with Storage][].
 
-For an example of setting the environment variables in the management portal for an Azure Website, see [Node.js Web Application with Storage]
+For an example of setting the environment variables in the Azure portal for an Azure Website, see [Node.js Web Application with Storage][].
 
-## How to create a queue
+## Create a queue
 
-The **ServiceBusService** object enables you to work with queues. The following code creates a **ServiceBusService** object. Add it near the top of the **server.js** file, after the statement to import the Azure module:
+The **ServiceBusService** object enables you to work with Service Bus queues. The following code creates a **ServiceBusService** object. Add it near the top of the **server.js** file, after the statement to import the Azure module:
 
-    var serviceBusService = azure.createServiceBusService();
+```
+var serviceBusService = azure.createServiceBusService();
+```
 
-By calling **createQueueIfNotExists** on the **ServiceBusService** object, the specified queue will be returned (if it exists,) or a new queue with the specified name will be created. The following code uses **createQueueIfNotExists** to create or connect to the queue named 'myqueue':
+By calling **createQueueIfNotExists** on the **ServiceBusService** object, the specified queue is returned (if it exists), or a new queue with the specified name is created. The following code uses **createQueueIfNotExists** to create or connect to the queue named `myqueue`:
 
-    serviceBusService.createQueueIfNotExists('myqueue', function(error){
-        if(!error){
-            // Queue exists
-        }
-    });
+```
+serviceBusService.createQueueIfNotExists('myqueue', function(error){
+    if(!error){
+        // Queue exists
+    }
+});
+```
 
-**createServiceBusService** also supports additional options, which enable you to override default queue settings such as message time to live or maximum queue size. The following example sets the maximum queue size to 5 GB, and a time to live value of 1 minute:
+**createServiceBusService** also supports additional options, which enable you to override default queue settings such as message time to live or maximum queue size. The following example sets the maximum queue size to 5 GB, and a time to live (TTL) value of 1 minute:
 
-    var queueOptions = {
-          MaxSizeInMegabytes: '5120',
-          DefaultMessageTimeToLive: 'PT1M'
-        };
+```
+var queueOptions = {
+      MaxSizeInMegabytes: '5120',
+      DefaultMessageTimeToLive: 'PT1M'
+    };
 
-    serviceBusService.createQueueIfNotExists('myqueue', queueOptions, function(error){
-        if(!error){
-            // Queue exists
-        }
-    });
+serviceBusService.createQueueIfNotExists('myqueue', queueOptions, function(error){
+    if(!error){
+        // Queue exists
+    }
+});
+```
 
 ### Filters
 
 Optional filtering operations can be applied to operations performed using **ServiceBusService**. Filtering operations can include logging, automatically retrying, etc. Filters are objects that implement a method with the signature:
 
-		function handle (requestOptions, next)
+```
+function handle (requestOptions, next)
+```
 
 After doing its pre-processing on the request options, the method must call `next`, passing a callback with the following signature:
 
-		function (returnObject, finalCallback, next)
+```
+function (returnObject, finalCallback, next)
+```
 
 In this callback, and after processing the **returnObject** (the response from the request to the server), the callback must either invoke `next` if it exists to continue processing other filters, or simply invoke `finalCallback`, which ends the service invocation.
 
 Two filters that implement retry logic are included with the Azure SDK for Node.js, **ExponentialRetryPolicyFilter** and **LinearRetryPolicyFilter**. The following creates a **ServiceBusService** object that uses the **ExponentialRetryPolicyFilter**:
 
-	var retryOperations = new azure.ExponentialRetryPolicyFilter();
-	var serviceBusService = azure.createServiceBusService().withFilter(retryOperations);
+```
+var retryOperations = new azure.ExponentialRetryPolicyFilter();
+var serviceBusService = azure.createServiceBusService().withFilter(retryOperations);
+```
 
-## How to send messages to a queue
+## Send messages to a queue
 
 To send a message to a Service Bus queue, your application calls the **sendQueueMessage** method on the **ServiceBusService** object. Messages sent to (and received from) Service Bus queues are **BrokeredMessage** objects, and have a set of standard properties (such as **Label** and **TimeToLive**), a dictionary that is used to hold custom application specific properties, and a body of arbitrary application data. An application can set the body of the message by passing a string as the message. Any required standard properties are populated with default values.
 
 The following example demonstrates how to send a test message to the queue named `myqueue` using **sendQueueMessage**:
 
-    var message = {
-        body: 'Test message',
-        customProperties: {
-            testproperty: 'TestValue'
-        }};
-    serviceBusService.sendQueueMessage('myqueue', message, function(error){
-        if(!error){
-            // message sent
-        }
-    });
+```
+var message = {
+    body: 'Test message',
+    customProperties: {
+        testproperty: 'TestValue'
+    }};
+serviceBusService.sendQueueMessage('myqueue', message, function(error){
+    if(!error){
+        // message sent
+    }
+});
+```
 
-Service Bus queues support a maximum message size of 256 KB (the header, which includes the standard and custom application properties, can have a maximum size of 64 KB). There is no limit on the number of messages held in a queue but there is a cap on the total size of the messages held by a queue. This queue size is defined at creation time, with an upper limit of 5 GB.
+Service Bus queues support a maximum message size of 256 KB (the header, which includes the standard and custom application properties, can have a maximum size of 64 KB). There is no limit on the number of messages held in a queue but there is a cap on the total size of the messages held by a queue. This queue size is defined at creation time, with an upper limit of 5 GB. For more information about quotas, see [Azure Queues and Service Bus queues][].
 
-## How to receive messages from a queue
+## Receive messages from a queue
 
 Messages are received from a queue using the **receiveQueueMessage** method on the **ServiceBusService** object. By default, messages are deleted from the queue as they are read; however, you can read (peek) and lock the message without deleting it from the queue by setting the optional parameter **isPeekLock** to **true**.
 
@@ -137,21 +157,23 @@ If the **isPeekLock** parameter is set to **true**, the receive becomes a two st
 
 The following example demonstrates how to receive and process messages using **receiveQueueMessage**. The example first receives and deletes a message, and then receives a message using **isPeekLock** set to **true**, then deletes the message using **deleteMessage**:
 
-    serviceBusService.receiveQueueMessage('myqueue', function(error, receivedMessage){
-        if(!error){
-            // Message received and deleted
-        }
-    });
-    serviceBusService.receiveQueueMessage('myqueue', { isPeekLock: true }, function(error, lockedMessage){
-        if(!error){
-            // Message received and locked
-            serviceBusService.deleteMessage(lockedMessage, function (deleteError){
-                if(!deleteError){
-                    // Message deleted
-                }
-            });
-        }
-    });
+```
+serviceBusService.receiveQueueMessage('myqueue', function(error, receivedMessage){
+    if(!error){
+        // Message received and deleted
+    }
+});
+serviceBusService.receiveQueueMessage('myqueue', { isPeekLock: true }, function(error, lockedMessage){
+    if(!error){
+        // Message received and locked
+        serviceBusService.deleteMessage(lockedMessage, function (deleteError){
+            if(!deleteError){
+                // Message deleted
+            }
+        });
+    }
+});
+```
 
 ## How to handle application crashes and unreadable messages
 
@@ -164,29 +186,19 @@ In the event that the application crashes after processing the message but befor
 
 ## Next steps
 
-Now that you've learned the basics of Service Bus queues, follow these links to learn more.
+To learn more, see the following resources.
 
--   See the MSDN Reference: [Queues, Topics, and Subscriptions.][]
--   Visit the [Azure SDK for Node] repository on GitHub.
+-   [Queues, topics, and subscriptions][]
+-   [Azure SDK for Node][] repository on GitHub
+-   [Node.js Developer Center](/develop/nodejs/)
 
   [Azure SDK for Node]: https://github.com/Azure/azure-sdk-for-node
-  [Next steps]: #next-steps
-  [What are Service Bus Queues?]: #what-are-service-bus-queues
-  [Create a Service Namespace]: #create-a-service-namespace
-  [Obtain the Default Management Credentials for the Namespace]: #obtain-default-credentials
-  [Create a Node.js Application]: #create-app
-  [Configure Your Application to Use Service Bus]: #configure-app
-  [How to: Create a Queue]: #create-queue
-  [How to: Send Messages to a Queue]: #send-messages
-  [How to: Receive Messages from a Queue]: #receive-messages
-  [How to: Handle Application Crashes and Unreadable Messages]: #handle-crashes
-  [Queue Concepts]: ../../dotNet/Media/sb-queues-08.png
-  [Azure Management Portal]: http://manage.windowsazure.com
+  [Azure portal]: http://manage.windowsazure.com
   
   [Node.js Cloud Service]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
-  [Queues, Topics, and Subscriptions.]: http://msdn.microsoft.com/library/azure/hh367516.aspx
-  [Web Site with WebMatrix]: ../app-service-web/web-sites-dotnet-using-webmatrix.md
-  [Create and deploy a Node.js application to an Azure Web Site]: ../app-service-web/web-sites-nodejs-develop-deploy-mac.md
+  [Queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
+  [Create and deploy a Node.js application to an Azure Website]: ../app-service-web/web-sites-nodejs-develop-deploy-mac.md
   [Node.js Cloud Service with Storage]: ../cloud-services/storage-nodejs-use-table-storage-cloud-service-app.md
   [Node.js Web Application with Storage]: ../storage/storage-nodejs-how-to-use-table-storage.md
+  [Azure Queues and Service Bus queues]: service-bus-azure-and-service-bus-queues-compared-contrasted.md#capacity-and-quotas
  

@@ -1,22 +1,26 @@
 <properties
-   pageTitle="Create a multi-VM deployment using the Azure CLI | Azure"
-   description="Learn how to create a multi VM deployment using the Azure CLI"
+   pageTitle="Create a multi-VM deployment with the Azure CLI | Microsoft Azure"
+   description="Learn how to create a multi-VM deployment using the classic deployment model and the Azure CLI."
    services="virtual-machines"
    documentationCenter="nodejs"
    authors="AlanSt"
    manager="timlt"
-   editor=""/>
+   editor=""
+   tags="azure-service-management"/>
 
    <tags
    ms.service="virtual-machines"
    ms.devlang="nodejs"
    ms.topic="article"
-   ms.tgt_pltfrm="vm-linux"
+   ms.tgt_pltfrm="Linux"
    ms.workload="infrastructure-services"
    ms.date="02/20/2015"
-   ms.author="alanst;kasing"/>
+   ms.author="alanst"/>
 
-# Create a multi-VM deployment using the Azure CLI
+# Create a multi-VM deployment with the Azure CLI
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Resource Manager model.
+ 
 
 The following script will show you how to configure a multi-VM multi-cloud service deployment in a VNET using Azure Command-Line Interface (Azure CLI).
 

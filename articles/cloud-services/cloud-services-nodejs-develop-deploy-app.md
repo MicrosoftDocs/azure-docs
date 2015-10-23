@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Node.js Getting Started Guide - Azure Tutorial"
+	pageTitle="Node.js Getting Started Guide | Microsoft Azure"
 	description="Learn how to create a simple Node.js web application and deploy it to an Azure cloud service."
 	services="cloud-services"
 	documentationCenter="nodejs"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs"
 	ms.topic="hero-article"
-	ms.date="06/01/2015"
+	ms.date="08/31/2015"
 	ms.author="mwasson"/>
 
 
@@ -47,7 +47,7 @@ The application is a simple "hello world" application:
 > [AZURE.NOTE] This tutorial uses Azure PowerShell, which requires Windows.
 
 - Install and configure [Azure Powershell](../install-configure-powershell.md).
-- Download and install the [Azure SDK for .NET 2.5](http://go.microsoft.com/fwlink/?linkid=518091). In the install setup, select:
+- Download and install the [Azure SDK for .NET 2.7](http://www.microsoft.com/en-us/download/details.aspx?id=48178). In the install setup, select:
     - MicrosoftAzureAuthoringTools
     - MicrosoftAzureComputeEmulator
 
@@ -59,7 +59,8 @@ Perform the following tasks to create a new Azure Cloud Service project, along w
 
 1. Run **Azure PowerShell** as Administrator. (From the **Start Menu** or **Start Screen**, search for **Azure PowerShell**.)
 
-2.  Enter the following PowerShell cmdlet to create to create the project:
+2.  [Connect PowerShell](powershell-install-configure.md#how-to-connect-to-your-subscription) to your subscription.
+3.  Enter the following PowerShell cmdlet to create to create the project:
 
         New-AzureServiceProject helloworld
 
@@ -127,11 +128,12 @@ To deploy your application to Azure, you must first download the publishing sett
 
 ### Publish the application
 
-To publish, run the **Publish-AzureServiceProject** cmdlet as follows:
+To publish, run the following commands:
 
-    Publish-AzureServiceProject -ServiceName NodeHelloWorld -Location "East US" -Launch
+  	$ServiceName = "NodeHelloWorld" + $(Get-Date -Format ('ddhhmm'))   
+	Publish-AzureServiceProject -ServiceName $ServiceName  -Location "East US" -Launch
 
-- **-ServiceName** specifies the name for the deployment. This must be a unique name, otherwise the publish process will fail.
+- **-ServiceName** specifies the name for the deployment. This must be a unique name, otherwise the publish process will fail. The **Get-Date** command tacks on a date/time string that should make the name unique.
 
 - **-Location** specifies the datacenter that the application will be hosted in. To see a list of available datacenters, use the **Get-AzureLocation** cmdlet.
 
@@ -187,6 +189,9 @@ After deploying your application, you may want to disable it so you can avoid ex
 
 	> [AZURE.NOTE] Deleting the service does not delete the storage account that was created when the service was initially published, and you will continue to be billed for storage used. For more information on deleting a storage account, see [How to Delete a Storage Account from an Azure Subscription](http://msdn.microsoft.com/library/windowsazure/hh531562.aspx).
 
+## Next steps
+
+For more information, see the [Node.js Developer Center](/develop/nodejs/).
 
 [The Windows Start menu with the Azure SDK Node.js entry expanded]: ./media/cloud-services-nodejs-develop-deploy-app/azure-powershell-menu.png
 [mkdir]: ./media/cloud-services-nodejs-develop-deploy-app/getting-started-6.png

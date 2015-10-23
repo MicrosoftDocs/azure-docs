@@ -1,11 +1,12 @@
 <properties
-	pageTitle="Using load-balanced sets to clusterize MySQL on Linux"
-	description="An article that illustrates patterns to setup a load-balanced, high availability Linux cluster on Azure using MySQL as an example"
+	pageTitle="Clusterize MySQL with load-balanced sets | Microsoft Azure"
+	description="Setup a load-balanced, high availability Linux MySQL cluster created with the classic deployment model on Azure"
 	services="virtual-machines"
 	documentationCenter=""
 	authors="bureado"
 	manager="timlt"
-	editor=""/>
+	editor=""
+	tags="azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -18,16 +19,8 @@
 
 # Using load-balanced sets to clusterize MySQL on Linux
 
-* [Getting ready](#getting-ready)
-* [Setting up the cluster](#setting-up-the-cluster)
-* [Setting up MySQL](#setting-up-mysql)
-* [Setting up Corosync](#setting-up-corosync)
-* [Setting up Pacemaker](#setting-up-pacemaker)
-* [Testing](#testing)
-* [STONITH](#stonith)
-* [Limitations](#limitations)
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Resource Manager model.
 
-## Introduction
 
 The purpose of this article is to explore and illustrate the different approaches available to deploy highly available Linux-based services on Microsoft Azure, exploring MySQL Server high availability as a primer. A video illustrating this approach is available on [Channel 9](http://channel9.msdn.com/Blogs/Open/Load-balancing-highly-available-Linux-services-on-Windows-Azure-OpenLDAP-and-MySQL).
 
@@ -346,4 +339,3 @@ The following limitations apply:
 - Load balancer needs at least 5 seconds to respond, so applications should be cluster aware and be more tolerant of timeout; other architectures can also help, for example in-app queues, query middlewares, etc.
 - MySQL tuning is necessary to ensure writing is done at a sane pace and caches are flushed to disk as frequently as possible to minimize memory loss
 - Write performance will be dependent in VM interconnect in the virtual switch as this is the mechanism used by DRBD to replicate the device
- 

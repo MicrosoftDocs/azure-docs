@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="What are the StorSimple components?" 
-   description="Describes the StorSimple device, services, and management technologies." 
+   pageTitle="What are the StorSimple components? | Microsoft Azure" 
+   description="Describes the StorSimple device, virtual device, services, and management technologies, and defines key terms used in the solution." 
    services="storsimple" 
    documentationCenter="NA" 
    authors="SharS" 
@@ -13,13 +13,15 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="08/03/2015"
+   ms.date="08/26/2015"
    ms.author="v-sharos"/>
 
 
-# What are the StorSimple components? 
+# What are the StorSimple components and how do they work? 
 
-Welcome to Microsoft Azure StorSimple, an integrated storage solution that manages storage tasks between on-premises devices and Microsoft Azure cloud storage.  StorSimple is designed to reduce storage costs, simplify storage management, improve disaster recovery capability and efficiency, and provide data mobility.
+## Overview
+
+Welcome to Microsoft Azure StorSimple, an integrated storage solution that manages storage tasks between on-premises devices and Microsoft Azure cloud storage. StorSimple is designed to reduce storage costs, simplify storage management, improve disaster recovery capability and efficiency, and provide data mobility.
 
 The following sections describe the Microsoft Azure StorSimple components, and explain how the solution arranges data, allocates storage, and facilitates storage management and data protection. The last section provides definitions of some of the important terminology related to StorSimple components and their management.
 
@@ -51,9 +53,9 @@ The StorSimple virtual device (also known as the StorSimple Virtual Appliance) r
 - The virtual device has only one interface, whereas the physical device has six network interfaces. 
 - You register the virtual device during device configuration, rather than as a separate task.
 - You cannot regenerate the service data encryption key from a virtual device. During key rollover, you regenerate the key on the physical device, and then update the virtual device with the new key.
-- If you need to apply updates to the virtual device, you will experience some down time. This does not occur with a physical StorSimple device.
+- Currently, applying updates to the virtual device is diabled. If you need a virtual device with the latest version, you can create a new one and failover volume containers to the new virtual device.
 
-We recommend that you use the StorSimple virtual device for disaster recovery scenarios in which a physical device is not available, such as cloud development an test scenarios.
+We recommend that you use the StorSimple virtual device for disaster recovery scenarios in which a physical device is not available, such as cloud development and test scenarios.
 
 For more information, see [StorSimple virtual device](storsimple-virtual-device.md).
 
@@ -68,11 +70,9 @@ In addition to the dedicated StorSimple device and virtual device, Microsoft Azu
 
 ### Automatic storage tiering
 
-Microsoft Azure StorSimple automatically arranges data in logical tiers based on current usage, age, and relationship to other data. Data that is most active is stored locally, while less active and inactive data is automatically migrated to the cloud. Figure 1 illustrates this storage approach.
+Microsoft Azure StorSimple automatically arranges data in logical tiers based on current usage, age, and relationship to other data. Data that is most active is stored locally, while less active and inactive data is automatically migrated to the cloud. The following diagram illustrates this storage approach.
  
 ![StorSimple storage tiers](./media/storsimple-components/hcs-data-services-storsimple-components-tiers.png)
-
-**Figure 1: StorSimple storage**
 
 To enable quick access, StorSimple stores very active data (hot data) on SSDs in the StorSimple device. It stores data that is used occasionally (warm data) on HDDs in the device or on servers at the datacenter. It moves inactive data, backup data, and data retained for archival or compliance purposes to the cloud. 
 
@@ -110,7 +110,11 @@ Windows PowerShell for StorSimple provides a command-line interface that you can
 
 You can access Windows PowerShell for StorSimple from a serial console (on a host computer connected directly to the device) or remotely by using Windows PowerShell remoting. Note that some Windows PowerShell for StorSimple tasks, such as initial device registration, can only be done on the serial console. 
 
-For more information, see [Windows PowerShell for StorSimple](https://msdn.microsoft.com/library/azure/dn772425.aspx).
+For more information, see [Use Windows PowerShell for StorSimple to administer your device](storsimple-windows-powershell-administration.md).
+
+## Azure PowerShell StorSimple cmdlets
+
+The Azure PowerShell StorSimple cmdlets are a collection of Windows PowerShell cmdlets that allow you to automate service-level and migration tasks from the command line. For more information about the Azure PowerShell cmdlets for StorSimple, go to the [cmdlet reference](https://msdn.microsoft.com/library/dn920427.aspx).
 
 ## StorSimple Manager service
 
@@ -142,7 +146,7 @@ Backups are captured as snapshots, which record only the changes since the last 
 
 If a disaster occurs or if you need to restore data for another reason, StorSimple Snapshot Manager restores it incrementally as it is needed. Data restoration does not require that you shut down the entire system while you restore a file, replace equipment, or move operations to another site.
 
-For more information, see [What is StorSimple Snapshot Manager](storsimple-what-is-snapshot-manager.md).
+For more information, see [What is StorSimple Snapshot Manager?](storsimple-what-is-snapshot-manager.md)
 
 ## StorSimple Adapter for SharePoint
 
@@ -164,7 +168,7 @@ Before deploying your Microsoft Azure StorSimple solution, we recommend that you
 | access control record (ACR)    | A record associated with a volume on your Microsoft Azure StorSimple device that determines which hosts can connect to it. The determination is based on the iSCSI Qualified Name (IQN) of the hosts (contained in the ACR) that are connecting to your StorSimple device.|
 | AES-256                        | A 256-bit Advanced Encryption Standard (AES) algorithm for encrypting data as it moves to and from the cloud. |
 | allocation unit size (AUS)     | The smallest amount of disk space that can be allocated to hold a file in your Windows file systems. If a file size is not an even multiple of the cluster size, extra space must be used to hold the file (up to the next multiple of the cluster size) resulting in lost space and fragmentation of the hard disk. <br>The recommended AUS for Azure StorSimple volumes is 64 KB because it works well with the deduplication algorithms.|
-| automated storage tiering      | Automatically moving less active data to a tier in the cloud, and then enabling management of all storage from a central user interface.|
+| automated storage tiering      | Automatically moving less active data from SSDs to HDDs and then to a tier in the cloud, and then enabling management of all storage from a central user interface.|
 | backup catalog | A collection of backups, usually related by the application type that was used. This collection is displayed in the Backup Catalog page of the StorSimple Manager service UI.|
 | backup catalog file             | A file containing a list of available snapshots currently stored in the backup database of StorSimple Snapshot Manager. |
 | backup policy                   | A selection of volumes, type of backup, and a timetable that allows you to create backups on a predefined schedule.|
@@ -215,7 +219,7 @@ Before deploying your Microsoft Azure StorSimple solution, we recommend that you
 
 ## Next steps
 
-Review the [StorSimple release notes](https://msdn.microsoft.com/library/azure/dn772367.aspx)
+Learn about [StorSimple security](storsimple-security.md).
 
 
 

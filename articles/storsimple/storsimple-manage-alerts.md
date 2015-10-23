@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="View and manage StorSimple alerts"
-   description="Describes StorSimple alerts and how to use the StorSimple Manager service to view and clear them."
+   pageTitle="View and manage StorSimple alerts | Microsoft Azure"
+   description="Describes StorSimple alert conditions and severity, how to configure alert notifications, and how to use the StorSimple Manager service to manage alerts."
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
@@ -12,10 +12,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="07/30/2015"
+   ms.date="09/15/2015"
    ms.author="v-sharos" />
 
-# View and manage StorSimple alerts
+# Use the StorSimple Manager service to view and manage StorSimple alerts
 
 ## Overview
 
@@ -137,8 +137,24 @@ The following tables list some of the Microsoft Azure StorSimple alerts that you
 
 |Alert text|Event|More information / recommended actions|
 |:---|:---|:---|
-|Connectivity to <*cloud credential name*> cannot be established.|Cannot connect to the storage account.|It looks like there might be a connectivity issue with your device. Please run the **Test-HcsmConnection** cmdlet from the Windows PowerShell Interface for StorSimple on your device to identify and fix the issue. If the settings are correct, the issue might be with the credentials of the storage account for which the alert was raised. In this case, use the **Test-HcsStorageAccountCredential** cmdlet to determine if there are issues that you can resolve.<ul><li>Check your network settings.</li><li>Check your storage account credentials.</li></ul>|
-|We have not received a heartbeat from your device for the last <*number*> minutes.|Cannot connect to device.|It looks like there is a connectivity issue with your device. Please use the **Test-HcsmConnection** cmdlet from the Windows PowerShell Interface for StorSimple on your device to identify and fix the issue or contact your network administrator.|
+|Connectivity to <*cloud credential name*> cannot be established.|Cannot connect to the storage account.|It looks like there might be a connectivity issue with your device. Please run the `Test-HcsmConnection` cmdlet from the Windows PowerShell Interface for StorSimple on your device to identify and fix the issue. If the settings are correct, the issue might be with the credentials of the storage account for which the alert was raised. In this case, use the `Test-HcsStorageAccountCredential` cmdlet to determine if there are issues that you can resolve.<ul><li>Check your network settings.</li><li>Check your storage account credentials.</li></ul>|
+|We have not received a heartbeat from your device for the last <*number*> minutes.|Cannot connect to device.|It looks like there is a connectivity issue with your device. Please use the `Test-HcsmConnection` cmdlet from the Windows PowerShell Interface for StorSimple on your device to identify and fix the issue or contact your network administrator.|
+
+### StorSimple behavior when cloud connectivity fails
+
+What happens if cloud connectivity fails for my StorSimple device running in production?
+
+If cloud connectivity fails on your StorSimple production device, then depending on the state of your device, the following can occur: 
+
+- **For the local data on your device**: There will be no disruption and reads will continue to be served. However, as the number of outstanding IOs increases and exceeds a limit, the reads could start to fail. 
+
+	Depending on the amount of data on the local tiers of your device, the writes will also continue to occur for the first few hours after the disruption in the cloud connectivity. The writes will then slow down and eventually start to fail if the cloud connectivity is disrupted for several hours. 
+
+ 
+- **For the data in the cloud**: For most cloud connectivity errors, an error is returned. Once the connectivity is restored, the IOs are resumed without the user having to bring the volume online. In rare instances, user intervention may be required to bring back the volume online from the Azure Portal. 
+ 
+- **For cloud snapshots in progress**: The operation is retried a few times within 4-5 hours and if the connectivity is not restored, the cloud snapshots will fail.
+
 
 ### Cluster alerts
 
@@ -155,8 +171,8 @@ The following tables list some of the Microsoft Azure StorSimple alerts that you
 
 |Alert text|Event|More information / recommended actions|
 |:---|:---|:---|
-|Recovery operations could not restore all of the settings for this service. Device configuration data is in an inconsistent state for some devices.|Data inconsistency detected after disaster recovery.|Encrypted data on the service is not synchronized with that on the device. Authorize the device <*device name*> from StorSimple Manager to start the synchronization process. Use the Windows PowerShell Interface for StorSimple to run the **Restore-HcsmEncryptedServiceData on device <*device name*>** cmdlet, providing the old password as an input to this cmdlet to restore the security profile. Then run the **Invoke-HcsmServiceDataEncryptionKeyChange** cmdlet to update the service data encryption key. After you have taken appropriate action, please clear this alert from the alerts page.|
-|The service has failed over to a secondary data center due to an unexpected failure.|Other/unknown cause.|You need to verify your configuration settings in StorSimple Manager to continue. After you have taken appropriate action, please clear this alert from the alerts page. For more information about StorSimple Manager see the [StorSimple Manager Administrator's Guide](https://msdn.microsoft.com/library/azure/dn772401.aspx).|
+|Recovery operations could not restore all of the settings for this service. Device configuration data is in an inconsistent state for some devices.|Data inconsistency detected after disaster recovery.|Encrypted data on the service is not synchronized with that on the device. Authorize the device <*device name*> from StorSimple Manager to start the synchronization process. Use the Windows PowerShell Interface for StorSimple to run the `Restore-HcsmEncryptedServiceData` on device <*device name*> cmdlet, providing the old password as an input to this cmdlet to restore the security profile. Then run the `Invoke-HcsmServiceDataEncryptionKeyChange` cmdlet to update the service data encryption key. After you have taken appropriate action, please clear this alert from the alerts page.|
+|The service has failed over to a secondary data center due to an unexpected failure.|Other/unknown cause.|You need to verify your configuration settings in StorSimple Manager to continue. After you have taken appropriate action, please clear this alert from the alerts page. For more information about StorSimple Manager see the [Use StorSimple Manager service to administer your StorSimple device](storsimple-manager-service-administration.md).|
 
 ### Hardware alerts
 
@@ -187,7 +203,7 @@ The following tables list some of the Microsoft Azure StorSimple alerts that you
 |Password for <*element*> will expire in <*length of time*>.||Change your password before it expires.|
 |Security configuration information missing for <*element ID*>.||The volumes associated with this volume container cannot be used to replicate your StorSimple configuration. To ensure that your data is safely stored, we recommend that you delete the volume container and any volumes associated with the volume container. After you have taken appropriate action, please clear this alert from the alerts page.|
 |<*number*> login attempts failed for <*element ID*>.|Multiple failed logon attempts.|Your device might be under attack or an authorized user is attempting to connect with an incorrect password.<ul><li>Contact your authorized users and verify that these attempts were from a legitimate source. If you continue to see large numbers of failed login attempts, consider disabling remote management and contacting your network administrator. After you have taken appropriate action, please clear this alert from the alerts page.</li><li>Check that your Snapshot Manager instances are configured with the correct password. After you have taken appropriate action, please clear this alert from the alerts page.</li></ul>|
-|One or more failures occurred while changing the service data encryption key.||There were errors encountered while changing the service data encryption key. After you have addressed the error conditions, run the **Invoke-HcsmServiceDataEncryptionKeyChange** cmdlet from the Windows PowerShell Interface for StorSimple on your device to update the service. If this issue persists, please contact Microsoft support. After you resolve the issue, please clear this alert from the alerts page.|
+|One or more failures occurred while changing the service data encryption key.||There were errors encountered while changing the service data encryption key. After you have addressed the error conditions, run the `Invoke-HcsmServiceDataEncryptionKeyChange` cmdlet from the Windows PowerShell Interface for StorSimple on your device to update the service. If this issue persists, please contact Microsoft support. After you resolve the issue, please clear this alert from the alerts page.|
 
 ### Support package alerts
 
@@ -215,4 +231,5 @@ The following tables list some of the Microsoft Azure StorSimple alerts that you
 
 ## Next steps
 
-[Learn more about StorSimple errors](storsimple-troubleshoot-operational-device.md)
+- Learn more about [StorSimple errors](storsimple-troubleshoot-operational-device.md).
+- Learn more about [using the StorSimple Manager service to administer your StorSimple device](storsimple-manager-service-administration.md).

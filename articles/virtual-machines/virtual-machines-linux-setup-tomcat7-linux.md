@@ -1,24 +1,28 @@
-<properties 
-	pageTitle="How to Set Up Tomcat7 on a Linux Virtual Machine with Microsoft Azure" 
-	description="Learn how to set up Tomcat7 with Microsoft Azure using an Azure virtual machine (VM) running Linux." 
-	services="virtual-machines" 
-	documentationCenter="" 
-	authors="NingKuang" 
-	manager="timlt" 
-	editor="tysonn"/>
+<properties
+	pageTitle="Set Up Apache Tomcat on a Linux VM | Microsoft Azure"
+	description="Learn how to set up Apache Tomcat7 using an Azure virtual machine (VM) running Linux."
+	services="virtual-machines"
+	documentationCenter=""
+	authors="NingKuang"
+	manager="timlt"
+	editor=""
+	tags="azure-service-management"/>
 
-<tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="vm-linux" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/21/2015" 
+<tags
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="vm-linux"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="05/21/2015"
 	ms.author="ningk"/>
 
-#How to Set Up Tomcat7 on a Linux Virtual Machine with Microsoft Azure 
+#How to Set Up Tomcat7 on a Linux Virtual Machine with Microsoft Azure
 
 Apache Tomcat (or simply Tomcat, formerly also Jakarta Tomcat) is an open source web server and servlet container developed by the Apache Software Foundation (ASF). Tomcat implements the Java Servlet and the JavaServer Pages (JSP) specifications from Sun Microsystems, and provides a pure Java HTTP web server environment in which to run Java code. In the simplest configuration, Tomcat runs in a single operating system process. This process runs a Java virtual machine (JVM). Every HTTP request from a browser to Tomcat is processed as a separate thread in the Tomcat process.  
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Resource Manager model.
+
 
 In this guide, you will install tomcat7 on a Linux image and deploy it in Microsoft Azure.  
 
@@ -38,32 +42,32 @@ In this phase, you will create a virtual machine using a Linux image in Azure.
 ###Step 1: Generate an SSH Authentication Key
 SSH is an important tool for system administrators. However, configuring access security based on a human-determined password is not a best practice. Malicious users can break into your system based on a user name and a weak password.
 
-The good news is that there is a way to leave remote access open and have not to worry about passwords. The method consists of authentication with asymmetric cryptography. The user’s private key is the one that grants the authentication. You can even lock the user’s account to disallow password authentication completely. 
+The good news is that there is a way to leave remote access open and have not to worry about passwords. The method consists of authentication with asymmetric cryptography. The user’s private key is the one that grants the authentication. You can even lock the user’s account to disallow password authentication completely.
 
-Another advantage of this method is that you do not need different passwords to log on to different servers. You can authenticate using the personal private key on all servers, which prevents you from having to remember several passwords. 
+Another advantage of this method is that you do not need different passwords to log on to different servers. You can authenticate using the personal private key on all servers, which prevents you from having to remember several passwords.
 
 It is also possible to login with requiring a password with this method.
 
 Follow these steps to generate the SSH authentication key.
 
-1.	Download and install puttygen from the following location: [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html) 
+1.	Download and install puttygen from the following location: [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)
 2.	Run PUTTYGEN.EXE.
 3.	Click **Generate** to generate the keys. In the process you can increase randomness by moving the mouse over the blank area in the window.  
 ![][1]
 4.	After the generate process, Puttygen.exe will show your generated key. For example:  
 ![][2]
 5.	Select and copy the public key in **Key** and save it in a file named publicKey.pem. Don’t click **Save public key**, because the saved public key’s file format is different from the public key we want.
-6.	Click **Save private key** and save it in a file named privateKey.ppk. 
+6.	Click **Save private key** and save it in a file named privateKey.ppk.
 
 ###Step 2: Create the image in the Azure Preview Portal.
-In the [Azure Preview Portal](https://portal.azure.com/), click **New** in the task bar to create an image, choosing the Linux image based on your needs. The following example uses the Ubuntu 14.04 image. 
+In the [Azure Preview Portal](https://portal.azure.com/), click **New** in the task bar to create an image, choosing the Linux image based on your needs. The following example uses the Ubuntu 14.04 image.
 ![][3]
- 
+
 For **Host Name** specify the name for the URL that you and Internet clients will use to access this virtual machine. Define the last part of the DNS name, for example tomcatdemo, and Azure will generate the URL as tomcatdemo.cloudapp.net.  
 
 For **SSH Authentication Key**, copy the key value from the **publicKey.pem** file, which contains the public key generated by puttygen.  
 ![][4]
-  
+
 Configure other settings as needed, and then click Create.  
 
 ##Phase 2: Prepare your virtual machine for Tomcat7
@@ -76,16 +80,16 @@ TCP port 8080 is the default port number on which tomcat listens. Opening this p
 1.	In the Azure Preview Portal, click **Browse** -> **Virtual Machine**, and then click the virtual machine that you created.  
 ![][5]
 2.	To add an endpoint to your virtual machine, click the **Endpoints** box.
-![][6] 
+![][6]
 3.	Click **Add**.  
 	1.	For the **endpoint**, type a name for the endpoint in Endpoint, and then type 80 in **Public Port**.  
-	  
+
 		If you set it to 80, don’t need to include the port number in the URL that allows you to access tomcat. For example, http://tomcatdemo.cloudapp.net.    
 
 		If you set it to another value, such as 81, you need to add the port number to the URL to access tomcat. For example,  http://tomcatdemo.cloudapp.net:81/.
 	2.	Type 8080 in Private Port. By default, tomcat listens on TCP port 8080. If you changed the default listen port of tomcat, you should update Private Port to be the same as the tomcat listen port.  
 	![][7]
- 
+
 4.	Click **OK** to add the endpoint to your virtual machine.
 
 
@@ -97,15 +101,15 @@ First, get the DNS name of your virtual machine from the Azure Preview Portal. *
 
 Get the port number for SSH connections from the **SSH** field. Here is an example.  
 ![][8]
- 
+
 Download Putty from [here](http://www.putty.org/) .  
 
 After downloading, click the executable file PUTTY.EXE. Configure the basic options with the host name and port number obtained from the properties of your virtual machine. Here is an example:  
 ![][9]
- 
+
 In the left pane, click **Connection** -> **SSH** -> **Auth** and then click **Browse** to specify the location of the **privateKey.ppk** file, which contains the private key generated by puttygen in Phase 1: Create an Image. Here is an example:  
 ![][10]
- 
+
 Click **Open**. You might be alerted by a message box. If you have configured the DNS name and port number correctly, click **Yes**.
 ![][11]  
 
@@ -114,7 +118,7 @@ You should see the following:
 ![][12]
 
 Enter the user name specified when you created the virtual machine in Phase 1: Create an Image. You will see something like the following:  
-![][13] 
+![][13]
 
 
 
@@ -126,7 +130,7 @@ In this phase, you install the Java runtime environment, tomcat, and other tomca
 ###Java runtime environment
 Tomcat is written in Java. There are two kinds of Java Development Kits (JDKs) (OpenJDK and Oracle JDK), and you can choose the one you want.  
 
->AZURE.NOTE: Both JDKs have almost the same code for the classes in the Java API, but the code for the virtual machine is actually different. When it comes to libraries, OpenJDK tends to use open libraries while Oracle tends to use closed ones. But Oracle JDK has more classes and some fixed bugs, and Oracle JDK is more stable than OpenJDK. 
+>AZURE.NOTE: Both JDKs have almost the same code for the classes in the Java API, but the code for the virtual machine is actually different. When it comes to libraries, OpenJDK tends to use open libraries while Oracle tends to use closed ones. But Oracle JDK has more classes and some fixed bugs, and Oracle JDK is more stable than OpenJDK.
 
 The following commands download the different JDKs.  
 
@@ -160,10 +164,10 @@ You can use a command like the following to test if the Java runtime environment
 	java -version  
 
 If you installed open-jdk, you should see a message like the following:
-![][14] 
+![][14]
 
 If you installed oracle-jdk, you should see a message like the following:
-![][15] 
+![][15]
 
 ###Tomcat7
 Using the following command to install tomcat7:  
@@ -175,7 +179,7 @@ If you are not using tomcat7, use the appropriate variation of this command.
 ####Test:
 
 To check if tomcat7 is successfully installed, browse to your tomcat server’s DNS name (http://tomcatexample.cloudapp.net/ is the example URL in this article). If you see a page like the following, you have tomcat7 installed correct.
-![][16] 
+![][16]
 
 
 ###Install other Tomcat components
@@ -195,7 +199,7 @@ The tomcat7 server will automatically start when you install it. You can also st
 
 To stop tomcat7：  
 
-	sudo /etc/init.d/tomcat7 stop 
+	sudo /etc/init.d/tomcat7 stop
 
 To view the status of tomcat7：  
 
@@ -223,7 +227,7 @@ Open your browser, and enter the URL **http://<your tomcat server DNS name>/mana
 
 After connecting, you should see something similar to the following:  
 ![][18]
- 
+
 ##Common issues
 
 ###Can't access the virtual machine with Tomcat and Moodle from the Internet
@@ -232,7 +236,7 @@ After connecting, you should see something similar to the following:
 Tomcat is running but you can’t see the Tomcat default page with your browser.
 -	**Possible root case**   
 	1.	The tomcat listen port is not same as the Private Port of your virtual machine's endpoint for tomcat traffic.  
-	
+
 		Check your Public Port and Private Port endpoint settings and make sure the Private Port is same as the tomcat listen port. See Phase 1: Create an Image for instructions on configuring endpoints for your virtual machine.  
 
 		To determine the tomcat listen port, open /etc/httpd/conf/httpd.conf (Red Hat release) or /etc/tomcat7/server.xml (Debian release). By default, the tomcat listen port is 8080. Here is an example:  
@@ -254,11 +258,11 @@ Tomcat is running but you can’t see the Tomcat default page with your browser.
 			sudo yum  install w3m w3m-img
 			w3m http://localhost:8080  
 
--	**Solution** 
+-	**Solution**
 	1. If the tomcat listen port is not same as the Private Port of the endpoint for traffic to the virtual machine, you need change the Private Port to be the same as the tomcat listen port.   
-	
+
 	2.	If the issue is caused by the firewall/iptables, add the following lines to /etc/sysconfig/iptables:  
-	
+
 			-A INPUT -p tcp -m tcp --dport 80 -j ACCEPT
 			-A INPUT -p tcp -m tcp --dport 443 -j ACCEPT  
 
@@ -284,7 +288,7 @@ When you use any SFTP client (such as FileZilla) to connect to your virtual mach
 		Error:	/var/lib/tomcat7/webapps/info.jsp: open for write: permission denied
 		Error:	File transfer failed
 
--	**Possible root case** 
+-	**Possible root case**
 You have no permissions to access the /var/lib/tomcat7/webapps folder.  
 -	**Solution**  
 You need get permission from the root account. You can change the ownership of that folder from root to the username you used when provisioning the machine. Here is an example with the azureuser account name:  
@@ -323,4 +327,3 @@ You need get permission from the root account. You can change the ownership of t
 [16]: ./media/virtual-machines-linux-setup-tomcat7-linux/virtual-machines-linux-setup-tomcat7-linux-16.png
 [17]: ./media/virtual-machines-linux-setup-tomcat7-linux/virtual-machines-linux-setup-tomcat7-linux-17.png
 [18]: ./media/virtual-machines-linux-setup-tomcat7-linux/virtual-machines-linux-setup-tomcat7-linux-18.png
- 

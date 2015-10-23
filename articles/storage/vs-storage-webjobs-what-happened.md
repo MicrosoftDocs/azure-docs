@@ -1,44 +1,43 @@
-<properties 
-	pageTitle="Getting Started with Azure Storage" 
-	description="Describes what happened when creating an Azure storage in a Visual Studio Azure WebJob project" 
-	services="storage" 
-	documentationCenter="" 
-	authors="patshea123" 
-	manager="douge" 
+<properties
+	pageTitle="What happened to my WebJob project (Visual Studio Azure Storage connected service)? | Microsoft Azure"
+	description="Describes what happened in a Azure WebJob project after connecting to a storage account using Visual Studio connected services" 
+	services="storage"
+	documentationCenter=""
+	authors="patshea123"
+	manager="douge"
 	editor="tglee"/>
 
-<tags 
-	ms.service="storage" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="vs-what-happened" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/13/2015" 
-	ms.author="patshea123"/>
+<tags
+	ms.service="storage"
+	ms.workload="web"
+	ms.tgt_pltfrm="vs-what-happened"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/03/2015"
+	ms.author="patshea"/>
 
-# What happened to my project?
+# What happened to my WebJob project (Visual Studio Azure Storage connected service)?
 
 > [AZURE.SELECTOR]
 > - [Getting Started](vs-storage-webjobs-getting-started-blobs.md)
 > - [What Happened](vs-storage-webjobs-what-happened.md)
 
-###<span id="whathappened">What happened to my project?</span>
 
-##### References Added
+## References Added
 
 The Azure Storage NuGet package was added to or updated in your Visual Studio project.  
 This package adds the following .NET references:
 
-- `Microsoft.Data.Edm`
-- `Microsoft.Data.OData`
-- `Microsoft.Data.Services.Client`
-- `Microsoft.WindowsAzure.ConfigurationManager`
-- `Microsoft.WindowsAzure.Storage`
-- `Newtonsoft.Json`
-- `System.Data`
-- `System.Spatial`
+- **Microsoft.Data.Edm**
+- **Microsoft.Data.OData**
+- **Microsoft.Data.Services.Client**
+- **Microsoft.WindowsAzure.ConfigurationManager**
+- **Microsoft.WindowsAzure.Storage**
+- **Newtonsoft.Json**
+- **System.Data**
+- **System.Spatial**
 
-#####Connection string for Azure Storage added 
-In the App.config file of your project, the `AzureWebJobsStorage` and `AzureWebJobsDashboard` were updated with the selected storage account's connection string and key. 
+## Connection string for Azure Storage added
+In the App.config file of your project, the **AzureWebJobsStorage** and **AzureWebJobsDashboard** entries were updated with the selected storage account's connection string and key.
 
-For more information, see [Azure WebJobs Recommended Resources](http://go.microsoft.com/fwlink/?linkid=390226). 
+For more information, see [Azure WebJobs Recommended Resources](http://go.microsoft.com/fwlink/?linkid=390226).

@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Cloud Platform Integration Framework - Azure Architecture Patterns" 
+   pageTitle="Cloud Platform Integration Framework | Microsoft Azure" 
    description="The Cloud Platform Integration Framework provides workload integration guidance for onboarding applications into a Microsoft Cloud Solution consisting of architectural patterns for Microsoft Azure" 
    services="" 
    documentationCenter="" 
@@ -8,7 +8,7 @@
    editor=""/>
 
 <tags
-   ms.service="cloud-services"
+   ms.service="multiple"
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"

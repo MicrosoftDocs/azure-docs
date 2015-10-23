@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Stream Analytics Release Notes | Azure" 
+	pageTitle="Stream Analytics Release Notes | Microsoft Azure" 
 	description="Stream Analytics GA Release Notes" 
 	services="stream-analytics" 
 	documentationCenter="" 
@@ -13,10 +13,52 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="08/05/2015" 
+	ms.date="10/22/2015" 
 	ms.author="jeffstok"/>
 
 #Microsoft Stream Analytic release notes
+
+## Notes for 10/22/2015 release of Stream Analytics ##
+
+This release contains the following updates.
+
+Title | Description
+---|---
+Additional query language features | Stream Analytics has expanded the query language by including the following features: [ABS](https://msdn.microsoft.com/library/azure/mt574054.aspx), [CEILING](https://msdn.microsoft.com/library/azure/mt605286.aspx), [EXP](https://msdn.microsoft.com/library/azure/mt605289.aspx), [FLOOR](https://msdn.microsoft.com/library/azure/mt605240.aspx), [POWER](https://msdn.microsoft.com/library/azure/mt605287.aspx), [SIGN](https://msdn.microsoft.com/library/azure/mt605290.aspx), [SQUARE](https://msdn.microsoft.com/library/azure/mt605288.aspx), and [SQRT](https://msdn.microsoft.com/library/azure/mt605238.aspx).
+Removed aggregate limitations  | This release removes the limitation of 15 aggregates in a query. There is now no limit to the number of aggregates per query.
+Added GROUP BY System.Timestamp feature | The [GROUP BY](https://msdn.microsoft.com/library/azure/dn835023.aspx) function now allows for either window_type or [System.Timestamp](https://msdn.microsoft.com/library/azure/mt598501.aspx).
+Added OFFSET for Tumbling and Hopping windows | By default, [Tumbling](https://msdn.microsoft.com/library/azure/dn835055.aspx) and [Hopping](https://msdn.microsoft.com/library/azure/dn835041.aspx) windows are aligned against zero time (1/1/0001 12:00:00 AM UTC). The new (optional) parameter ‘offsetsize’ allows specifying a custom offset (or alignment).
+
+
+## Notes for 09/29/2015 release of Stream Analytics ##
+
+This release contains the following updates.
+
+Title | Description
+---|---
+Azure IoT Suite Public Preview | Stream Analytics is included in the Public Preview of the Azure IoT Suite.
+Azure Preview portal integration | In addition to continued presence in the Azure Management portal, Stream Analytics is now integrated in the [Azure Preview portal](http://azure.microsoft.com/overview/preview-portal/). Note that Stream Analytics functionality in the Preview portal is currently a subset of the functionality offered in the Azure Management portal, without support for in-browser query testing, Power BI output configuration, and browsing to or creating new input and output resources in subscriptions you have access to.
+Support for DocumentDB output | Stream Analytics jobs can now output to [DocumentDB](http://azure.microsoft.com/services/documentdb/).
+Support for IoT Hub input | Stream Analytics jobs can now ingest data from IoT Hubs.
+TIMESTAMP BY for heterogeneous events | When a single data stream contains multiple event types having timestamps in different fields, you can now use [TIMESTAMP BY](http://msdn.microsoft.com/library/mt573293.aspx) with expressions to specify different timestamp fields for each case.
+
+## Notes for 09/10/2015 release of Stream Analytics ##
+
+This release contains the following updates.
+
+Title|Description
+---|---
+Support for PowerBI groups|To enable sharing data with other Power BI users, Stream Analytics jobs can now write to [PowerBI groups](stream-analytics-define-outputs.md#power-bi) inside your Power BI account.
+
+## Notes for 08/20/2015 release of Stream Analytics ##
+
+This release contains the following updates.
+
+Title|Description
+---|---
+Added LAST function |The [LAST](http://msdn.microsoft.com/library/mt421186.aspx) function is now available in Stream Analytics jobs, enabling you to retrieve the most recent event in an event stream within a given timeframe.
+New Array functions|Array functions [GetArrayElement](http://msdn.microsoft.com/library/mt270218.aspx), [GetArrayElements](http://msdn.microsoft.com/library/mt298451.aspx) and [GetArrayLength](http://msdn.microsoft.com/library/mt270226.aspx) are now available.
+New Record functions|Record functions [GetRecordProperties](http://msdn.microsoft.com/library/mt270221.aspx) and [GetRecordPropertyValue](http://msdn.microsoft.com/library/mt270220.aspx) are now available.
 
 ## Notes for 07/30/2015 release of Stream Analytics ##
 
@@ -27,8 +69,6 @@ Title|Description
 Power BI Org Id decoupled from Azure Id|This feature enables [Power BI output](stream-analytics-power-bi-dashboard.md) for ASA jobs under any Azure account type (Live Id or Org Id). Additionally, you can have one Org Id for your Azure account and use a different one for authorizing Power BI output.
 Support for Service Bus Queues output|[Service Bus Queues](stream-analytics-connect-data-event-outputs.md#service-bus-queues) outputs are now available in Stream Analytics jobs.
 Support for Service Bus Topics output|[Service Bus Topics](stream-analytics-connect-data-event-outputs.md#service-bus-topics) outputs are now available in Stream Analytics jobs.
-New Array functions|Added the Array functions GetArrayElement, GetArrayElements, GetArrayLength
-New Record functions|Added the Record functions GetRecordProperties and GetRecordPropertyValue
 
 ## Notes for 07/09/2015 release of Stream Analytics ##
 

@@ -3,7 +3,7 @@
     pageTitle="Upload a custom image for Azure RemoteApp"
     description="Learn how to upload a custom image for Azure RemoteApp" 
     services="remoteapp" 
-    solutions="" documentationCenter="" 
+    documentationCenter="" 
     authors="ericorman" 
     manager="mbaldwin" />
 
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="05/28/2015" 
+    ms.date="08/12/2015" 
     ms.author="ericor" />
 
 
@@ -35,7 +35,7 @@ Now that you have created your custom template image or have updated it with cha
 4.      Enter a friendly name for your image and specify the storage account location. Ensure the location is the same location as your RemoteApp collection or a location where you want to create one. 
 5.      When prompted, download the script to your local PC.
 6.      Copy the command parameters in the text box to your clipboard.
-7.      Open an elevated Windows PowerShell window  
+7.      Open an elevated Windows PowerShell window.
 8.      From the elevated Windows PowerShell window, navigate to the same directory where you downloaded the script.
 9.      Paste the copied command and press **Enter**.
 
@@ -47,7 +47,7 @@ Now that you have created your custom template image or have updated it with cha
 
 ## Common problems
 
-- Make sure you use Windows PowerShell, not Azure PowerShell.  You need to install the Azure PowerShell module because certain modules are needed during the upload process. 
+- Make sure you use Windows PowerShell, not Azure PowerShell. You need to install the Azure PowerShell module because certain modules are needed during the upload process. 
 - Never alter the script, validations are there for your convenience.
 - If the vhd file gets locked out during upload, copy the file or move it to a new location and attempt upload again. There might be some Windows process that is preventing upload.  
  

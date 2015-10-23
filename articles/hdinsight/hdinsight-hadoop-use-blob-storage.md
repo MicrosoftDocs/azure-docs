@@ -1,9 +1,10 @@
 <properties
 	pageTitle="Query data from HDFS-compatible Blob storage | Microsoft Azure"
-	description="HDInsight uses Blob storage as the big data store for HDFS. Learn how to query data from Blob storage and store results of your analysis."
+	description="HDInsight uses Azure Blob storage as the big data store for HDFS. Learn how to query data from Blob storage and store results of your analysis."
 	keywords="blob storage,hdfs,structured data,unstructured data"
 	services="hdinsight,storage"
 	documentationCenter=""
+	tags="azure-portal"
 	authors="mumian"
 	manager="paulettm"
 	editor="cgronlun"/>
@@ -13,14 +14,14 @@
 	ms.workload="big-data"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="06/10/2015"
+	ms.topic="article"
+	ms.date="10/23/2015"
 	ms.author="jgao"/>
 
 
-#Use HDFS-compatible Azure Blob storage with Hadoop in HDInsight
+# Use HDFS-compatible Azure Blob storage with Hadoop in HDInsight
 
-In this tutorial, learn how to use low-cost Azure Blob storage with HDInsight, create Azure storage account and Blob storage container, and then address the data inside.
+Learn how to use low-cost Azure Blob storage with HDInsight, create Azure storage account and Blob storage container, and then address the data inside.
 
 Azure Blob storage is a robust, general-purpose storage solution that integrates seamlessly with HDInsight. Through a Hadoop distributed file system (HDFS) interface, the full set of components in HDInsight can operate directly on structured or unstructured data in Blob storage.
 
@@ -35,7 +36,7 @@ Storing data in Blob storage enables you to safely delete the HDInsight clusters
 For information about provisioning an HDInsight cluster, see [Get Started with HDInsight][hdinsight-get-started] or [Provision HDInsight clusters][hdinsight-provision].
 
 
-##<a id="architecture"></a>HDInsight storage architecture
+## HDInsight storage architecture
 The following diagram provides an abstract view of the HDInsight storage architecture:
 
 ![Hadoop clusters use the HDFS API to access and store structured and unstructured data in Blob storage.](./media/hdinsight-hadoop-use-blob-storage/HDI.WASB.Arch.png "HDInsight Storage Architecture")
@@ -60,7 +61,7 @@ In addition to this storage account, you can add additional storage accounts fro
 	> [AZURE.NOTE]
         > Public containers allow you to get a list of all blobs that are available in that container and get container metadata. Public blobs allow you to access the blobs only if you know the exact URL. For more information, see <a href="http://msdn.microsoft.com/library/windowsazure/dd179354.aspx">Restrict access to containers and blobs</a>.
 
-- **Private containers in storage accounts that are NOT connected to a cluster:** You cannot access the blobs in the containers unless you define the storage account when you submit the WebHCat jobs. This is explained later in this article.
+- **Private containers in storage accounts that are NOT connected to a cluster:** You can't access the blobs in the containers unless you define the storage account when you submit the WebHCat jobs. This is explained later in this article.
 
 
 The storage accounts that are defined in the provisioning process and their keys are stored in %HADOOP_HOME%/conf/core-site.xml on the cluster nodes. The default behavior of HDInsight is to use the storage accounts defined in the core-site.xml file. It is not recommended to edit the core-site.xml file because the cluster head node(master) may be reimaged or migrated at any time, and any changes to those files will be lost.
@@ -78,42 +79,31 @@ There are several benefits associated with storing the data in Azure Blob storag
 * **Data archiving:** Storing data in Azure Blob storage enables the HDInsight clusters used for computation to be safely deleted without losing user data.
 * **Data storage cost:** Storing data in DFS for the long term is more costly than storing the data in Azure Blob storage because the cost of a compute cluster is higher than the cost of an Azure Blob storage container. In addition, because the data does not have to be reloaded for every compute cluster generation, you are also saving data loading costs.
 * **Elastic scale-out:** Although HDFS provides you with a scaled-out file system, the scale is determined by the number of nodes that you provision for your cluster. Changing the scale can become a more complicated process than relying on the elastic scaling capabilities that you get automatically in Azure  Blob storage.
-* **Geo-replication:** Your Azure Blob storage containers can be georeplicated through the Azure portal. Although this gives you geographic recovery and data redundancy, a failover to the georeplicated location severely impacts your performance, and it may incur additional costs. So our recommendation is to choose the georeplication wisely and only if the value of the data is worth the additional cost.
+* **Geo-replication:** Your Azure Blob storage containers can be geo-replicated. Although this gives you geographic recovery and data redundancy, a failover to the geo-replicated location severely impacts your performance, and it may incur additional costs. So our recommendation is to choose the geo-replication wisely and only if the value of the data is worth the additional cost.
 
 Certain MapReduce jobs and packages may create intermediate results that you don't really want to store in Azure Blob storage. In that case, you can elect to store the data in the local HDFS. In fact, HDInsight uses DFS for several of these intermediate results in Hive jobs and other processes.
 
 
 
-##<a id="preparingblobstorage"></a>Create a blob container
+## Create Blob containers
 
 To use blobs, you first create an [Azure Storage account][azure-storage-create]. As part of this, you specify an Azure datacenter that will store the objects you create using this account. The cluster and the storage account must be hosted in the same datacenter. The Hive metastore SQL Server database and Oozie metastore SQL Server database must also be located in the same datacenter.
 
 Wherever it lives, each blob you create belongs to a container in your Azure Storage account. This container may be an existing blob that was created outside of HDInsight, or it may be a container that is created for an HDInsight cluster.
 
-Don't share a default storage container with multiple HDInsight clusters. If you need to use a shared container to provide access to data for multiple HDInsight clusters then you should add it as an additional storage account in the cluster configuration. For more information, see [Provision HDInsight clusters][hdinsight-provision]. However you can reuse a default storage container after the original HDInsight cluster has been deleted. For HBase clusters, you can actually retain the HBase table schema and data by provision a new HBase cluster using the default blob storage container that is used by an HBase cluster that has been deleted.
+
+The default Blob container stores cluster specific information such as job history and logs. Don't share a default Blob container with multiple HDInsight clusters. This might corrupt job history, and the cluster will misbehave. It is recommended to use a different container for each cluster and put shared data on a linked storage account specified in deployment of all relevant clusters rather than the default storage account. For more information on configuring linked storage accounts, see [Provision HDInsight clusters][hdinsight-provision]. However you can reuse a default storage container after the original HDInsight cluster has been deleted. For HBase clusters, you can actually retain the HBase table schema and data by provision a new HBase cluster using the default blob storage container that is used by an HBase cluster that has been deleted.
 
 
-###Using the Azure portal
+### Using the Azure preview portal
 
-When provisioning an HDInsight cluster from the Azure portal, there are two options: **Quick Create** and **Custom Create**. The Quick Create option requires that the Azure Storage account is created beforehand. For instructions, see [How to Create a Storage Account][azure-storage-create].
+When provisioning an HDInsight cluster from the preview portal, you have the options to use an existing storage account or create a new storage account:
 
-By using the Quick Create option, you can choose an existing storage account. The provision process creates a new container with the same name as the HDInsight cluster name. If a container with the same name already exists, <clusterName>-<x> will be used. For example, *myHDIcluster-1*. This container is used as the default file system.
-
-![Using Quick Create for a new Hadoop cluster in HDInsight in the Azure portal.][img-hdi-quick-create]
-
-By using Custom Create, you have one of the following options for the default storage account:
-
-- Use existing storage
-- Create new storage
-- Use storage from another subscription
-
-You also have the option to create your own container or use an existing one.
-
-![Option to use an existing storage account for your HDInsight cluster.][img-hdi-custom-create-storage-account]
+![hdinsight hadoop provision data source](./media/hdinsight-hadoop-use-blob-storage/hdinsight.provision.data.source.png)
 
 ###Using Azure CLI
 
-If you have [installed and configured the Azure CLI](../xplat-cli.md), the following command can be used to a storage account and container.
+If you have [installed and configured the Azure CLI](../xplat-cli-install.md), the following command can be used to a storage account and container.
 
 	azure storage account create <storageaccountname> --type LRS
 
@@ -121,7 +111,7 @@ If you have [installed and configured the Azure CLI](../xplat-cli.md), the follo
 
 You will be prompted to specify the geographic region that the storage account will be located in. You should create the storage account in the same region that you plan on creating your HDInsight cluster.
 
-Once the storage account has been created, use the following command to retrieve the storage account keys:
+Once the storage account is created, use the following command to retrieve the storage account keys:
 
 	azure storage account keys list <storageaccountname>
 
@@ -129,9 +119,9 @@ To create a container, use the following command:
 
 	azure storage container create <containername> --account-name <storageaccountname> --account-key <storageaccountkey>
 
-###Using Azure PowerShell
+### Using Azure PowerShell
 
-If you have [installed and configured Azure PowerShell][powershell-install], you can use the following from the Azure PowerShell prompt to create a storage account and container:
+If you [installed and configured Azure PowerShell][powershell-install], you can use the following from the Azure PowerShell prompt to create a storage account and container:
 
 	$subscriptionName = "<SubscriptionName>"	# Azure subscription name
 	$storageAccountName = "<AzureStorageAccountName>" # The storage account that you will create
@@ -149,7 +139,7 @@ If you have [installed and configured Azure PowerShell][powershell-install], you
 	New-AzureStorageContainer -Name $containerName -Context $destContext
 
 
-##<a id="addressing"></a>Address files in Blob storage
+## Address files in Blob storage
 
 The URI scheme for accessing files in Blob storage from HDInsight is:
 
@@ -180,7 +170,7 @@ The &lt;path&gt; is the file or directory HDFS path name. Because containers in 
 
 > [AZURE.NOTE] When working with blobs outside of HDInsight, most utilities do not recognize the WASB format and instead expect a basic path format, such as `example/jars/hadoop-mapreduce-examples.jar`.
 
-##<a id="azurecli"></a>Access blobs with Azure CLI
+## Access blobs using Azure CLI
 
 Use the following command to list the blob-related commands:
 
@@ -202,7 +192,7 @@ Use the following command to list the blob-related commands:
 
 	azure storage blob list <containername> <blobname|prefix> --account-name <storageaccountname> --account-key <storageaccountkey>
 
-##<a id="powershell"></a>Access blobs with Azure PowerShell
+## Access blobs using Azure PowerShell
 
 > [AZURE.NOTE] The commands in this section provide a basic example of using PowerShell to access data stored in blobs. For a more full-featured example that is customized for working with HDInsight, see the [HDInsight Tools](https://github.com/Blackmist/hdinsight-tools).
 
@@ -305,11 +295,11 @@ This example shows how to list a folder from storage account that is not defined
 
 	Invoke-Hive -Defines $defines -Query "dfs -ls wasb://$undefinedContainer@$undefinedStorageAccount.blob.core.windows.net/;"
 
-##<a id="nextsteps"></a>Next steps
+## Next steps
 
 In this article, you learned how to use HDFS-compatible Azure Blob storage with HDInsight, and you learned that Azure Blob storage is a fundamental component of HDInsight. This allows you to build scalable, long-term, archiving data acquisition solutions with Azure Blob storage and use HDInsight to unlock the information inside the stored  structured and unstructured data.
 
-To learn more, see the following articles:
+For more information, see:
 
 * [Get Started with Azure HDInsight][hdinsight-get-started]
 * [Upload data to HDInsight][hdinsight-upload-data]
@@ -329,4 +319,3 @@ To learn more, see the following articles:
 [img-hdi-powershell-blobcommands]: ./media/hdinsight-hadoop-use-blob-storage/HDI.PowerShell.BlobCommands.png
 [img-hdi-quick-create]: ./media/hdinsight-hadoop-use-blob-storage/HDI.QuickCreateCluster.png
 [img-hdi-custom-create-storage-account]: ./media/hdinsight-hadoop-use-blob-storage/HDI.CustomCreateStorageAccount.png  
- 

@@ -73,7 +73,6 @@ You'll build an Orchard CMS web app that uses a default template. [Orchard](http
 
 ## Next steps
 
-* [Develop and deploy a web app with Microsoft WebMatrix](web-sites-dotnet-using-webmatrix.md) -- Learn how to edit an App Service web app in WebMatrix. 
 * [Create an ASP.NET MVC app with auth and SQL DB and deploy to Azure App Service](web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md)-- Learn how to create a new web app in Azure App Service from Visual Studio.
 
 ## What's changed

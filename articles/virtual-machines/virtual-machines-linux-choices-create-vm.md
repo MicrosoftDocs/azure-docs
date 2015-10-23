@@ -1,22 +1,25 @@
 <properties
-	pageTitle="Different ways to create a Linux virtual machine"
-	description="Lists the different ways to create a Linux virtual machine and gives links to instructions."
+	pageTitle="Different ways to create a Linux VM | Microsoft Azure"
+	description="Lists the different ways to create a Linux virtual machine on Azure and gives links to further instructions."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="dsk-2015"
 	manager="timlt"
-	editor=""/>
+	editor=""
+	tags="azure-service-management,azure-resource-manager"/>
 
 <tags
-ms.service="virtual-machines"
+	ms.service="virtual-machines"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-linux"
 	ms.workload="infrastructure-services"
-	ms.date="07/20/2015"
+	ms.date="08/12/2015"
 	ms.author="dkshir"/>
 
 # Different Ways to Create a Linux Virtual Machine
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
 Azure offers different ways to create a VM because VMs are suited for different users and purposes. This means you'll need to make some choices about the VM and how you'll create it. This article gives you a summary of these choices and links to instructions.
 
@@ -26,7 +29,7 @@ Azure Resource Manager templates were recently introduced as a way to create and
 
 ### GUI: The Azure Portal or Preview Portal
 
-The graphical user interface of the Azure portal is an easy way to try out a virtual machine, especially if you're just starting out with Azure. Use either the Azure portal or the Azure preview portal to create the VM. For general instructions, see [Create a Custom Virtual Machine][] and select any Linux image from the **Gallery**.
+The graphical user interface of the Azure portal is an easy way to try out a virtual machine, especially if you're just starting out with Azure. Use either the [Azure portal](http://manage.windowsazure.com) or the [Azure preview portal](http://portal.azure.com) to create the VM. For general instructions, see [Create a Custom Virtual Machine][] and select any Linux image from the **Gallery**. Note that the [Azure portal](http://manage.windowsazure.com) creates virtual machines using only the classic deployment model.
 
 ### Command Shell: Azure CLI or Azure PowerShell
 
@@ -64,7 +67,6 @@ Use an image based on an existing Azure virtual machine by *capturing* that VM, 
 [Attach a Data Disk][]
 
 ## Additional resources
-[About Azure VM configuration settings][]
 
 [Base Configuration Test Environment][]
 
@@ -95,7 +97,6 @@ Use an image based on an existing Azure virtual machine by *capturing* that VM, 
 
 [Attach a Data Disk]: virtual-machines-linux-how-to-attach-disk.md
 
-[About Azure VM configuration settings]: http://msdn.microsoft.com/library/azure/dn763935.aspx
 [Base Configuration Test Environment]: virtual-machines-base-configuration-test-environment.md
 [Azure hybrid cloud test environments]: virtual-machines-hybrid-cloud-test-environments.md
 

@@ -1,11 +1,12 @@
 <properties
-   pageTitle="Manage your Azure VMs using the Azure CLI for Mac, Linux, and Windows | Microsoft Azure"
-   description="Describes how to create, manage, and delete your Azure VMs using the Azure CLI for Mac, Linux, and Windows."
+   pageTitle="Manage virtual machines with the CLI | Microsoft Azure"
+   description="Automate the management of your Azure Resource Manager VMs by using the Azure Command-Line Interface (CLI)."
    services="virtual-machines"
-   documentationCenter="virtual-machines"
+   documentationCenter=""
    authors="dlepow"
    manager="timlt"
-   editor=""/>
+   editor=""
+   tags="azure-resource-manager"/>
 
    <tags
    ms.service="virtual-machines"
@@ -13,14 +14,17 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure-services"
-   ms.date="06/09/2015"
+   ms.date="10/07/2015"
    ms.author="danlep"/>
 
-# Manage your Virtual Machines using the Azure CLI for Mac, Linux, and Windows
+# Manage your Resource Manager virtual machines by using the Azure CLI for Mac, Linux, and Windows
 
-Many tasks you do each day to manage your VMs can by automated by using the Azure CLI. This article gives you example commands for simpler tasks, and links to articles that show the commands for more complex tasks.
 
->[AZURE.NOTE] If you haven't installed and configured the Azure CLI yet, you can get instructions [here](../xplat-cli-install.md). If you want a quickstart for the same tasks in PowerShell, see [Manage your VMs using Azure PowerShell](virtual-machines-manage-vms-powershell.md).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager deployment model](virtual-machines-how-to-automate-azure-resource-manager.md).
+
+Many tasks you do each day to manage your VMs can by automated by using the Azure Command-Line Interface (CLI) for Mac, Linux, and Windows. This article gives you example commands for simpler tasks, and links to articles that show the commands for more complex tasks.
+
+>[AZURE.NOTE] If you haven't installed the Azure CLI yet, you can get instructions [here](../xplat-cli-install.md) and learn how to connect to your subscription [here](../xplat-cli-connect.md). You also need to configure the CLI in Azure Resource Manager (arm) mode.
 
 ## How to Use the Example Commands
 You'll need to replace some of the text in the commands with text that's appropriate for your environment. The < and > symbols indicate text you need to replace. When you replace the text, remove the symbols but leave the quote marks in place.
@@ -81,5 +85,6 @@ Of course, if you already have those values you can find the proper switches to 
 
 ## Next steps
 
-For far more examples of Azure CLI usage with the **arm** mode, see [Using the Microsoft Azure CLI for Mac, Linux, and Windows with Azure Resource Management](../xplat-cli-resource-manager.md). To learn more about Azure resources and their concepts, see [Azure Resource Manager Overview](../resource-group-overview.md).
- 
+* For more examples of Azure CLI usage with the Azure Resource Manager mode, see [Using the Microsoft Azure CLI for Mac, Linux, and Windows with Azure Resource Management](xplat-cli-azure-resource-manager.md).
+
+* To learn more about Azure resources and their concepts, see [Azure Resource Manager Overview](../resource-group-overview.md).

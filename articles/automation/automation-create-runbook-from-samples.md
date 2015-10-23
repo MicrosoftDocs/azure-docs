@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Get Started with Azure Automation"
+	pageTitle="Get Started with Azure Automation | Microsoft Azure"
 	description="Learn how to import and run an automation job in Azure."
 	services="automation"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article" 
-	ms.date="05/19/2015"
+	ms.date="09/08/2015"
 	ms.author="bwren"/>
 
 
@@ -21,7 +21,7 @@
 
 ## What is Azure Automation?
 
-Microsoft Azure Automation provides a way for users to automate the manual, long-running, error-prone, and frequently repeated tasks that are commonly performed in a cloud environment. You can create, monitor, manage, and deploy resources in your Azure environment using runbooks, which are based on Windows PowerShell workflows. In this guide, you will go through a tutorial for running a simple example runbook. You will then find resources for exploring more advanced capabilities of the service.
+Microsoft Azure Automation provides a way for users to automate the manual, long-running, error-prone, and frequently repeated tasks that are commonly performed in a cloud environment. You can create, monitor, manage, and deploy resources in your Azure environment using runbooks, which are based on Windows PowerShell workflows. In this article, you will go through a tutorial for running a simple example runbook. You will then find resources for exploring more advanced capabilities of the service.
 
 ## Tutorial
 This tutorial walks you through creating an automation account, importing a sample "Hello World" runbook into Azure Automation, executing that runbook, and then viewing its output.
@@ -30,13 +30,19 @@ To complete this tutorial, you will need an Azure subscription. If you don't hav
 
 [AZURE.INCLUDE [automation-note-authentication](../../includes/automation-note-authentication.md)]
 
-## <a name="automationaccount"></a>Create an Automation Account
+## Video walkthrough
 
-An Automation Account is a container for your Azure Automation resources: it provides a way to separate your environments or further organize your workflows. For more information, see [Automation Accounts](http://aka.ms/runbookauthor/azure/automationaccounts) in the Automation Library.  If you've already created an automation account, you can skip this step.
+Here's a walkthrough of this tutorial.
 
-1.	Log in to the [Azure Management Portal](http://manage.windowsazure.com).
+[AZURE.VIDEO get-started-with-azure-automation]
 
-2.	In the Management Portal, click **Create an Automation Account**.  
+## <a name="automationaccount"></a>Create an automation account
+
+An automation account is a container for your Azure Automation resources. It provides a way to separate your environments or further organize your workflows. For more information, see [Automation accounts](http://aka.ms/runbookauthor/azure/automationaccounts) in the Automation Library.  If you've already created an automation account, you can skip this step.
+
+1.	Log in to the [Azure portal](http://manage.windowsazure.com).
+
+2.	In the Azure portal, click **Create an Automation Account**.  
 
 	![Create Account](./media/automation-create-runbook-from-samples/automation_01_CreateAccount.png)
 
@@ -44,7 +50,7 @@ An Automation Account is a container for your Azure Automation resources: it pro
 
 	![Add New Account](./media/automation-create-runbook-from-samples/automation_02_addnewautoacct.png)
 
-## <a name="importrunbook"></a>Import Runbook from Runbook Gallery
+## <a name="importrunbook"></a>Import runbook from Runbook Gallery
 
 The [Runbook Gallery](http://aka.ms/runbookgallery) includes sample runbooks that you can import directly into an Azure Automation account, allowing you to leverage the work of other Azure Automation and PowerShell users. In this step, you will use the gallery to import the "Hello World" sample runbook.
 
@@ -72,7 +78,7 @@ The [Runbook Gallery](http://aka.ms/runbookgallery) includes sample runbooks tha
 
 	![Runbook Details](./media/automation-create-runbook-from-samples/automation_08_RunbookDetails.png)
 
-## <a name="publishrunbook"></a>Publish Runbook
+## <a name="publishrunbook"></a>Publish runbook
 
 The runbook is first imported in Draft mode. This means you can continue to do work on it before authorizing it as a new version that can be run. Since this sample runbook requires no additional configuration, you will now publish it as-is.  For more information, see [Publishing a Runbook](http://aka.ms/runbookauthor/azure/publishrunbook).
 
@@ -94,7 +100,7 @@ The runbook is first imported in Draft mode. This means you can continue to do w
 
 	![Save and Pub prompt](./media/automation-create-runbook-from-samples/automation_09_SavePubPrompt.png)
 
-## <a name="startrunbook"></a>Start Runbook
+## <a name="startrunbook"></a>Start runbook
 
 With the runbook imported and published, you can now run it and then inspect the output.  For more information, see [Starting a Runbook](http://aka.ms/runbookauthor/azure/startrunbook) and [Runbook Output and Messages](http://aka.ms/runbookauthor/azure/runbookoutput).
 
@@ -116,8 +122,8 @@ With the runbook imported and published, you can now run it and then inspect the
 
 Congratulations! You have finished the tutorial.
 
-## <a name="nextsteps"></a>Next Steps
-1. The simple runbook in this tutorial **does not manage Azure services**. Most runbooks will use the [Azure cmdlets](http://msdn.microsoft.com/library/jj156055.aspx) to do so, which require authentication to your Azure subscription. Follow the instructions at [Configuring Azure for Management by Runbooks](http://aka.ms/azureautomationauthentication) to configure your Azure subscription to work with these cmdlets.  
+## <a name="nextsteps"></a>Next steps
+1. The simple runbook in this tutorial *does not manage Azure services*. Most runbooks will use the [Azure cmdlets](http://msdn.microsoft.com/library/jj156055.aspx) to do so, which require authentication to your Azure subscription. Follow the instructions at [Configuring Azure for Management by Runbooks](http://aka.ms/azureautomationauthentication) to configure your Azure subscription to work with these cmdlets.  
 2. Refer to the [Resources](#resources) listed below for more information about Azure Automation's capabilities.
 3. Subscribe to the [Azure Automation Blog](http://azure.microsoft.com/blog/tag/azure-automation) to stay up-to-date with the latest from the Azure Automation team.
 
@@ -133,10 +139,9 @@ A variety of other resources are available for you to learn more about Azure Aut
 
 ## Samples and utility runbooks
 
-Microsoft and the Azure Automation community provide sample runbooks, which can help you get started creating your own solutions, and utility runbooks, which you can use as building blocks for larger automation tasks. You can either download these runbooks from [Script Center](http://go.microsoft.com/fwlink/p/?LinkId=393029) or import them directly into Azure Automation using the [Runbook Gallery](http://aka.ms/runbookgallery).
+Microsoft and the Azure Automation community provide sample runbooks, which can help you get started creating your own solutions, and utility runbooks, which you can use as building blocks for larger automation tasks. You can either download these runbooks from the [Script Center](http://azure.microsoft.com/documentation/scripts/) or import them directly into Azure Automation using the [Runbook Gallery](http://aka.ms/runbookgallery).
 
 
 ## Feedback
 
 **Give us feedback!**  If you are looking for an Azure Automation runbook solution or an integration module, post a Script Request on Script Center. If you have feedback or feature requests for Azure Automation, post them on [User Voice](http://feedback.windowsazure.com/forums/34192--general-feedback). Thanks!
- 

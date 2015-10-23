@@ -12,16 +12,16 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/04/2015" 
+	ms.date="08/19/2015" 
 	ms.author="awills"/>
  
 # Explore .NET trace logs in Application Insights  
 
 If you use NLog, log4Net or System.Diagnostics.Trace for diagnostic tracing in your ASP.NET application, you can have your logs sent to [Visual Studio Application Insights][start], where you can explore and search them. Your logs will be merged with the other telemetry coming from your application, so that you can identify the traces associated with servicing each user request, and correlate them with other events and exception reports.
 
-You can also write log traces, event and exception reports using the Application Insights SDK.
+> [AZURE.NOTE] Do you need the log capture module? It's a useful adapter for 3rd-party loggers, but if you aren't already using NLog, log4Net or System.Diagnostics.Trace, consider just calling [Application Insights TrackTrace()](app-insights-api-custom-events-metrics.md#track-trace) directly.
 
-If you haven't yet [set up Application Insights for your project][start], do that now.
+If you haven't yet [set up Application Insights for your project][start], do that now. Your project should have the file `ApplicationInsights.config` and the NuGet package `Microsoft.ApplicationInsights.Web`.
 
 
 ##  Install an adapter for your logging framework
@@ -30,7 +30,7 @@ If you use a logging framework - log4Net, NLog or System.Diagnostics.Trace - you
 
 1. If you plan to use log4Net or NLog, install it in your project. 
 2. In Solution Explorer, right-click your project and choose **Manage NuGet Packages**.
-3. Select Online > All, select **Include Prerelease** and search for "Microsoft.ApplicationInsights"
+3. Search for "Application Insights"
 
     ![Get the prerelease version of the appropriate adapter](./media/app-insights-asp-net-trace-logs/appinsights-36nuget.png)
 
@@ -120,6 +120,6 @@ Up to 500 events per second from each application. Events are retained for seven
 [exceptions]: app-insights-web-failures-exceptions.md
 [portal]: http://portal.azure.com/
 [qna]: app-insights-troubleshoot-faq.md
-[start]: app-insights-get-started.md
+[start]: app-insights-overview.md
 
  

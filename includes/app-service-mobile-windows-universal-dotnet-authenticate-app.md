@@ -1,9 +1,5 @@
 
-1. Open the shared project file MainPage.cs and add the following using statement:
-
-        using Windows.UI.Popups;
-
-2. Add the following code snippet to the MainPage class:
+1. Open the shared project file MainPage.cs and add the following code snippet to the MainPage class:
 	
 		// Define a member variable for storing the signed-in user. 
         private MobileServiceUser user;
@@ -35,13 +31,11 @@
             }
         }
 
-    This user is authenticated by using a Facebook login. If you are using an identity provider other than Facebook, change the value of **MobileServiceAuthenticationProvider** above to the value for your provider.
+    This code authenticates the user with a Facebook login. If you are using an identity provider other than Facebook, change the value of **MobileServiceAuthenticationProvider** above to the value for your provider.
 
 3. Comment-out or delete the call to the **RefreshTodoItems** method in the existing **OnNavigatedTo** method override.
 
-	This prevents the data from being loaded before the user is authenticated.
-
-	>[AZURE.NOTE]To successfully authenticate from a Windows Phone Store 8.1 app, you must call LoginAsync after the **OnNavigated** method has been called and after the page's **Loaded** event has been raised. In this tutorial, this is done by adding a **Sign in** button to the app.
+	This prevents the data from being loaded before the user is authenticated. Next, you will add a **Sign in** button to the app that triggers authentication.
 
 4. Add the following code snippet to the MainPage class:
 
@@ -60,16 +54,12 @@
 		<Button Name="ButtonLogin" Click="ButtonLogin_Click" 
                         Visibility="Visible">Sign in</Button>
 
-6. In the Windows Phone Store app project, add the following **Button** element in the **ContentPanel**, after the **TextBlock** element:
+6. In the Windows Phone Store app project, add the following **Button** element in the **ContentPanel**, after the **TextBox** element:
 
         <Button Grid.Row ="1" Grid.Column="1" Name="ButtonLogin" Click="ButtonLogin_Click" 
         	Margin="10, 0, 0, 0" Visibility="Visible">Sign in</Button>
 
-7. Open the shared App.xaml.cs project file and add the following using statement, if it doesn't already exist:
-
-        using Microsoft.WindowsAzure.MobileServices;  
- 
-8. In the App.xaml.cs project file, add the following code:
+8. Open the shared App.xaml.cs project file and add the following code:
 
         protected override void OnActivated(IActivatedEventArgs args)
         {

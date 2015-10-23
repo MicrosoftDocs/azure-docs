@@ -1,11 +1,12 @@
 <properties
-	pageTitle="Attach a disk to a virtual machine running Linux in Azure"
-	description="Learn how to attach a data disk to an Azure virtual machine and initialize it so it's ready for use."
+	pageTitle="Attach a disk to a Linux VM | Microsoft Azure"
+	description="Learn how to attach a data disk to an Azure virtual machine running Linux and initialize it so it's ready for use."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="dsk-2015"
 	manager="timlt"
-	editor="tysonn"/>
+	editor="tysonn"
+	tags="azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -13,17 +14,20 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/29/2015"
+	ms.date="08/11/2015"
 	ms.author="dkshir"/>
 
 # How to Attach a Data Disk to a Linux Virtual Machine
 
-You can attach both empty disks and disks that contain data. In both cases, the disks are actually .vhd files that reside in an Azure storage account. Also in both cases, after you attach the disk, you'll need to initialize it so it's ready for use.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Resource Manager model.
+
+
+You can attach both empty disks and disks that contain data. In both cases, the disks are actually .vhd files that reside in an Azure storage account. Also in both cases, after you attach the disk, you'll need to initialize it so it's ready for use. This article refers to virtual machines created using the classic deployment model.
 
 > [AZURE.NOTE] It's a best practice to use one or more separate disks to store a virtual machine's data. When you create an Azure virtual machine, it has an operating system disk and a temporary disk. **Do not use the temporary disk to store data.** As the name implies, it provides temporary storage only. It offers no redundancy or backup because it doesn't reside in Azure storage.
-> The temporary disk is typically managed by the Azure Linux Agent and automatically mounted to **/mnt/resource** (or **/mnt** on Ubuntu images). On the other hand, on Linux the data disk might be named by the kernel as `/dev/sdc`. If that's the case, you'll need to partition, format, and mount that resource. See the [Azure Linux Agent User Guide][Agent] for details.
+> The temporary disk is typically managed by the Azure Linux Agent and automatically mounted to **/mnt/resource** (or **/mnt** on Ubuntu images). On the other hand, a data disk might be named by the Linux kernel something like `/dev/sdc`, and you'll need to partition, format, and mount this resource. See the [Azure Linux Agent User Guide][Agent] for details.
 
-[AZURE.INCLUDE [howto-attach-disk-windows-linux](../../includes/howto-attach-disk-windows-linux.md)]
+[AZURE.INCLUDE [howto-attach-disk-windows-linux](../../includes/howto-attach-disk-linux.md)]
 
 ## How to: Initialize a new data disk in Linux
 
@@ -31,33 +35,59 @@ You can attach both empty disks and disks that contain data. In both cases, the 
 
 
 
-2. In the SSH window, type the following command, and then enter the password for the account that you created to manage the virtual machine:
+2. Next you need to find the device identifier for the data disk to initialize. There are two ways to do that:
 
-		# sudo grep SCSI /var/log/messages
+	a) In the SSH window, type the following command, and then enter the password for the account that you created to manage the virtual machine:
 
-	>[AZURE.NOTE] For recent Ubuntu distributions, you may need to use `sudo grep SCSI /var/log/syslog` because logging to `/var/log/messages` might be disabled by default.
+			$sudo grep SCSI /var/log/messages
+
+	For recent Ubuntu distributions, you may need to use `sudo grep SCSI /var/log/syslog` because logging to `/var/log/messages` might be disabled by default.
 
 	You can find the identifier of the last data disk that was added in the messages that are displayed.
 
-
-
 	![Get the disk messages](./media/virtual-machines-linux-how-to-attach-disk/DiskMessages.png)
 
+	OR
 
+	b) Use the `lsscsi` command to find out the device id. `lsscsi` can be installed by either `yum install lsscsi` (on Red Hat based distributions) or `apt-get install lsscsi` (on Debian based distributions). You can find the disk you are looking for by its _lun_ or **logical unit number**. For example, the _lun_ for the disks you attached can be easily seen from `azure vm disk list <virtual-machine>` as:
+
+			~$ azure vm disk list ubuntuVMasm
+			info:    Executing command vm disk list
+			+ Fetching disk images
+			+ Getting virtual machines
+			+ Getting VM disks
+			data:    Lun  Size(GB)  Blob-Name                         OS
+			data:    ---  --------  --------------------------------  -----
+			data:         30        ubuntuVMasm-2645b8030676c8f8.vhd  Linux
+			data:    1    10        test.VHD
+			data:    2    30        ubuntuVMasm-76f7ee1ef0f6dddc.vhd
+			info:    vm disk list command OK
+
+	Compare this with the output of `lsscsi` for the same sample virtual machine:
+
+			adminuser@ubuntuVMasm:~$ lsscsi
+			[1:0:0:0]    cd/dvd  Msft     Virtual CD/ROM   1.0   /dev/sr0
+			[2:0:0:0]    disk    Msft     Virtual Disk     1.0   /dev/sda
+			[3:0:1:0]    disk    Msft     Virtual Disk     1.0   /dev/sdb
+			[5:0:0:0]    disk    Msft     Virtual Disk     1.0   /dev/sdc
+			[5:0:0:1]    disk    Msft     Virtual Disk     1.0   /dev/sdd
+			[5:0:0:2]    disk    Msft     Virtual Disk     1.0   /dev/sde
+
+	The last number in the tuple in each row is the _lun_. See `man lsscsi` for more information.
 
 3. In the SSH window, type the following command to create a new device, and then enter the account password:
 
-		# sudo fdisk /dev/sdc
+		$sudo fdisk /dev/sdc
 
 	>[AZURE.NOTE] In this example you may need to use `sudo -i` on some distributions if /sbin or /usr/sbin are not in your `$PATH`.
 
 
-4. Type **n** to create a new partition.
+4. When prompted, type **n** to create a new partition.
 
 
 	![Create new device](./media/virtual-machines-linux-how-to-attach-disk/DiskPartition.png)
 
-5. Type **p** to make the partition the primary partition, type **1** to make it the first partition, and then type enter to accept the default value for the cylinder.
+5. When prompted, type **p** to make the partition the primary partition, type **1** to make it the first partition, and then type enter to accept the default value for the cylinder.
 
 
 	![Create partition](./media/virtual-machines-linux-how-to-attach-disk/DiskCylinder.png)
@@ -122,7 +152,7 @@ You can attach both empty disks and disks that contain data. In both cases, the 
 
 	Or, on systems based on SUSE Linux you may need to use a slightly different format:
 
-		/dev/disk/by-uuid/33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /   ext3   defaults   1   2
+		/dev/disk/by-uuid/33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext3   defaults   1   2
 
 	You can now test that the file system is mounted properly by simply unmounting and then re-mounting the file system, i.e. using the example mount point `/datadrive` created in the earlier steps:
 
@@ -137,6 +167,9 @@ You can attach both empty disks and disks that contain data. In both cases, the 
 ## Additional Resources
 [How to log on to a virtual machine running Linux][Logon]
 
+[How to detach a disk from a Linux virtual machine ](virtual-machines-linux-how-to-detach-disk.md)
+
+[Using the Azure CLI with the Service Management API](virtual-machines-command-line-tools.md)
 
 <!--Link references-->
 [Agent]: virtual-machines-linux-agent-user-guide.md

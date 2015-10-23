@@ -1,19 +1,19 @@
 <properties 
-    pageTitle="Technical specifications and compliance for the StorSimple device"
-    description="Describes the technical specifications and regulatory standards compliance information for the StorSimple device."
-    services="storsimple"
-    documentationCenter="NA"
-    authors="alkohli"
-    manager="adinah"
-    editor="tysonn" />
+   pageTitle="StorSimple technical specifications | Microsoft Azure"
+   description="Describes the technical specifications and regulatory standards compliance information for the StorSimple hardware components."
+   services="storsimple"
+   documentationCenter="NA"
+   authors="alkohli"
+   manager="carolz"
+   editor="" />
  <tags 
-    ms.service="storsimple"
-    ms.devlang="NA"
-    ms.topic="article"
-    ms.tgt_pltfrm="NA"
-    ms.workload="TBD"
-    ms.date="06/15/2015"
-    ms.author="alkohli" />
+   ms.service="storsimple"
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD"
+   ms.date="08/26/2015"
+   ms.author="alkohli" />
 
 # Technical specifications and compliance for the StorSimple device
 
@@ -168,6 +168,6 @@ The plug and the complete power cord assembly must meet the standards appropriat
 
 ## Supported network cables  
 
-For the 10 GbE network interfaces, DATA 2 and DATA 3, refer to the [list of supported network cables and modules](https://msdn.microsoft.com/library/dn891474.aspx).
+For the 10 GbE network interfaces, DATA 2 and DATA 3, refer to the [list of supported network cables and modules](storsimple-supported-hardware-for-10-gbe-network-interfaces.md).
 
  

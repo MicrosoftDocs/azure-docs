@@ -3,7 +3,7 @@
    description="An overview of the role of Node Buffer Percentage in the Resource Balancer"
    services="service-fabric"
    documentationCenter=".net"
-   authors="abhic"
+   authors="GaugeField"
    manager="timlt"
    editor=""/>
 
@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/27/2015"
-   ms.author="abhic"/>
+   ms.date="09/03/2015"
+   ms.author="masnider"/>
 
 # Node Buffer Percentage Overview
 
 Currently, customer can specify node capacity limit as a constraint that Resource Balancer respects based on constraint priority. If capacity constraint priority is high (node capacity cannot be breached) and if cluster nodes are highly utilized, it could happen that failover is not immediate or that node capacity is breached.
 
-Problem scan happen if nodes with secondary replicas are near node capacity when a node with the primary replica goes down. In that case, if primary load is greater than secondary load, secondary replica cannot be immediately promoted without having node overcommit or replica copy.
+Problems can happen if nodes with secondary replicas are near node capacity when a node with the primary replica goes down. In that case, if primary load is greater than secondary load, secondary replica cannot be immediately promoted without having node overcommit or replica copy.
 
 Having proactive packing logic running, higher number of cluster nodes will be near node capacity limit. Node Buffer Percentage is a feature that prevents increased failover time or node overcommit during failover, by providing customers possibility to specify percentage of the node that should be kept free. Replicas of the new services should not be added to the node buffer space but Resource Balancer should be able to use total node capacity (accounting buffer space) for failovers and adding missing replicas.
 

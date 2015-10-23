@@ -1,18 +1,18 @@
-<properties 
-	pageTitle="Application Insights for Windows Phone and Store apps" 
-	description="Analyze usage and performance of your Windows device app with Application Insights." 
-	services="application-insights" 
+<properties
+	pageTitle="Application Insights for Windows Phone and Store apps | Microsoft Azure"
+	description="Analyze usage and performance of your Windows device app with Application Insights."
+	services="application-insights"
     documentationCenter="windows"
-	authors="alancameronwills" 
+	authors="alancameronwills"
 	manager="douge"/>
 
-<tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="06/16/2015" 
+<tags
+	ms.service="application-insights"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="ibiza"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="10/16/2015"
 	ms.author="awills"/>
 
 # Application Insights for Windows Phone and Store apps
@@ -23,8 +23,8 @@
 
 Visual Studio Application Insights lets you monitor your published application for:
 
-* [**Usage**][windowsUsage] - Learn how many users you have and what they are doing with your app.
-* [**Crashes**][windowsCrash] - Get diagnostic reports of crashes and understand their impact on users.
+* [**Usage**][windowsUsage]&#151;Learn how many users you have and what they are doing with your app.
+* [**Crashes**][windowsCrash]&#151;Get diagnostic reports of crashes and understand their impact on users.
 
 ![](./media/app-insights-windows-get-started/appinsights-d018-oview.png)
 
@@ -35,7 +35,7 @@ You'll need:
 * A subscription to [Microsoft Azure][azure].
 * Visual Studio 2013 or later.
 
-## 1. Create an Application Insights resource 
+## 1. Create an Application Insights resource
 
 In the [Azure portal][portal], create a new Application Insights resource.
 
@@ -45,7 +45,7 @@ A [resource][roles] in Azure is an instance of a service. This resource is where
 
 #### Copy the Instrumentation Key
 
-The key identifies the resource. You'll need it soon, to configure the SDK to send the data to the resource.
+The key identifies the resource. You'll need it to configure the SDK to send the data to the resource.
 
 ![Open the Essentials drop-down drawer and select the instrumentation key](./media/app-insights-windows-get-started/02-props.png)
 
@@ -64,29 +64,34 @@ If it's a Windows Universal app, repeat the steps for both the Windows Phone pro
 
     ![](./media/app-insights-windows-get-started/04-ai-nuget.png)
 
-3. Pick **Application Insights for Windows Applications**
+3. Choose **Application Insights for Windows Applications**
 
-4. Add an ApplicationInsights.config file to the root of your project and insert the instrumentation key copied from the portal. A sample xml for this config file is shown below. 
+4. Add an ApplicationInsights.config file to the root of your project and insert the instrumentation key copied from the portal. A sample xml for this config file is shown below.
 
 	```xml
+
 		<?xml version="1.0" encoding="utf-8" ?>
-		<ApplicationInsights>
+		<ApplicationInsights xmlns="http://schemas.microsoft.com/ApplicationInsights/2013/Settings>
 			<InstrumentationKey>YOUR COPIED INSTRUMENTATION KEY</InstrumentationKey>
 		</ApplicationInsights>
 	```
 
     Set the properties of the ApplicationInsights.config file: **Build Action** == **Content** and **Copy to Output Directory** == **Copy always**.
-	
+
 	![](./media/app-insights-windows-get-started/AIConfigFileSettings.png)
 
 5. Add the following initialization code. It is best to add this code to the `App()` constructor. If you do it somewhere else, you might miss auto collection of the first pageviews.  
 
 ```C#
+
+    using Microsoft.ApplicationInsights;
+    ...
+
 	public App()
 	{
-	   // Add this initilization line. 
+	   // Add this initilization line.
 	   WindowsAppInitializer.InitializeAsync();
-	
+
 	   this.InitializeComponent();
 	   this.Suspending += OnSuspending;
 	}  
@@ -96,11 +101,11 @@ If it's a Windows Universal app, repeat the steps for both the Windows Phone pro
 
 ## <a name="network"></a>3. Enable network access for your app
 
-If your app doesn't already [request outgoing network access](https://msdn.microsoft.com/library/windows/apps/hh452752.aspx), you'll have to add that to its manifest as a [required capability](https://msdn.microsoft.com/library/windows/apps/br211477.aspx).
+If your app doesn't already [request internet access](https://msdn.microsoft.com/library/windows/apps/hh452752.aspx), you'll have to add that to its manifest as a [required capability](https://msdn.microsoft.com/library/windows/apps/br211477.aspx).
 
 ## <a name="run"></a>4. Run your project
 
-[Run your application with F5](http://msdn.microsoft.com/library/windows/apps/bg161304.aspx) and use it, so as to generate some telemetry. 
+[Run your application with F5](http://msdn.microsoft.com/library/windows/apps/bg161304.aspx) and use it, so as to generate some telemetry.
 
 In Visual Studio, you'll see a count of the events that have been received.
 
@@ -111,18 +116,15 @@ In debug mode, telemetry is sent as soon as it's generated. In release mode, tel
 
 ## <a name="monitor"></a>5. See monitor data
 
-Open Application Insights from your project.
-
-![Right-click your project and open the Azure portal](./media/app-insights-windows-get-started/appinsights-04-openPortal.png)
-
+In the [Azure portal](https://portal.azure.com), open the Application Insights resource that you created earlier.
 
 At first, you'll just see one or two points. For example:
 
 ![Click through to more data](./media/app-insights-windows-get-started/appinsights-26-devices-01.png)
 
-Click Refresh after a few seconds if you're expecting more data.
+Click **Refresh** after a few seconds if you're expecting more data.
 
-Click any chart to see more detail. 
+Click any chart to see more detail.
 
 
 ## <a name="deploy"></a>5. Publish your application to Store
@@ -131,14 +133,14 @@ Click any chart to see more detail.
 
 ## Customize your telemetry
 
-#### Choosing the collectors
+#### Choose the collectors
 
 Application Insights SDK Includes several collectors, which collect different types of data from your app automatically. By default, they are all active. But you can choose which collectors to initialize in the app constructor:
 
     WindowsAppInitializer.InitializeAsync( "00000000-0000-0000-0000-000000000000",
        WindowsCollectors.Metadata
        | WindowsCollectors.PageView
-       | WindowsCollectors.Session 
+       | WindowsCollectors.Session
        | WindowsCollectors.UnhandledException);
 
 #### Send your own telemetry data
@@ -165,7 +167,7 @@ Use the [API][api] to send events, metrics and diagnostic data to Application In
 
 ```
 
-For more detail, see [Custom Events and Metrics][api].
+For more details, see [API overview: Custom Events and Metrics][api].
 
 ## What's next?
 
@@ -178,27 +180,28 @@ For more detail, see [Custom Events and Metrics][api].
 
 If you prefer to let Visual Studio perform the setup steps, you can do that with Windows Phone, Windows Store, and many other types of apps.
 
-###<a name="new"></a> If you're creating a new Windows app project ...
+### <a name="new"></a>If you're creating a new Windows app project ...
 
-Select Application Insights in the New Project dialog. 
+Select **Application Insights** in the **New Project** dialog.
 
-If you're asked to sign in, use the credentials for your Azure account (which is separate from your Visual Studio Online account).
+If you're asked to sign in, use the credentials for your Azure account.
 
 ![](./media/app-insights-windows-get-started/appinsights-d21-new.png)
 
 
-###<a name="existing"></a> Or if it's an existing project ...
+### <a name="existing"></a>Or if it's an existing project ...
 
 Add Application Insights from Solution Explorer.
 
 
 ![](./media/app-insights-windows-get-started/appinsights-d22-add.png)
 
-## To upgrade to a new release of the SDK
+## Upgrade to a new release of the SDK
 
 When a [new SDK version is released](app-insights-release-notes-windows.md):
-* Right-click your project and choose Manage NuGet Packages. 
-* Select the installed Application Insights packages and choose Action: Upgrade.
+
+* Right-click your project and choose Manage NuGet Packages.
+* Select the installed Application Insights packages and choose **Action: Upgrade**.
 
 
 ## <a name="usage"></a>Next Steps
@@ -228,5 +231,3 @@ When a [new SDK version is released](app-insights-release-notes-windows.md):
 [roles]: app-insights-resources-roles-access-control.md
 [windowsCrash]: app-insights-windows-crashes.md
 [windowsUsage]: app-insights-windows-usage.md
-
- 

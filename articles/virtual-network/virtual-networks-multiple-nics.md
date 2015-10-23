@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Create a VM with Multiple NICs"
+   pageTitle="Create a VM with multiple NICs"
    description="Learn how to create and configure vms with multiple nics"
    services="virtual-network, virtual-machines"
    documentationCenter="na"
@@ -12,31 +12,31 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/02/2015"
+   ms.date="08/10/2015"
    ms.author="telmos" />
 
-# Create a VM with Multiple NICs
+# Create a VM with multiple NICs
 
-The Multi-NIC feature lets you create and manage multiple virtual network interface cards (NICs) on your Azure virtual machines (VMs). Multi-NIC is a requirement for many network virtual appliances, such as application delivery and WAN optimization solutions. Multi-NIC also provides more network traffic management functionality, including isolation of traffic between a frontend NIC and backend NIC(s), or separation of data plane traffic from management plane traffic. 
+The multi NIC feature lets you create and manage multiple virtual network interface cards (NICs) on your Azure virtual machines (VMs). Multi NIC is a requirement for many network virtual appliances, such as application delivery and WAN optimization solutions. Multi NIC also provides more network traffic management functionality, including isolation of traffic between a frontend NIC and backend NIC(s), or separation of data plane traffic from management plane traffic. 
 
-![Multi-NIC for VM](./media/virtual-networks-multiple-nics/IC757773.png)
+![Multi NIC for VM](./media/virtual-networks-multiple-nics/IC757773.png)
 
 The figure above shows a VM with three NICs, each connected to a different subnet.
 
 ## Requirements and constraints
 
-At this time, Multi-NIC has the following requirements and constraints: 
+At this time, multi NIC has the following requirements and constraints: 
 
-- Multi-NIC VMs must be created in Azure virtual networks (VNets). Non-VNet VMs are not supported. 
+- Multi NIC VMs must be created in Azure virtual networks (VNets). Non-VNet VMs are not supported. 
 - Within a single cloud service, only the following settings are allowed: 
-	- All VMs in that cloud service must be Multi-NIC enabled, or 
+	- All VMs in that cloud service must be multi NIC enabled, or 
 	- All VMs in that cloud service must each have a single NIC 
 
->[AZURE.IMPORTANT] If you try to add a Multi-NIC VM to a deployment (cloud service) that already contains a single-NIC VM (or vice-versa), you will receive the following error: 
+>[AZURE.IMPORTANT] If you try to add a multi NIC VM to a deployment (cloud service) that already contains a single NIC VM (or vice-versa), you will receive the following error: 
 Virtual machines with secondary network interfaces and virtual machines with no secondary network interfaces are not supported in the same deployment, also a virtual machine having no secondary network interfaces cannot be updated to have secondary network interfaces and vice-versa.
  
 - Internet-facing VIP is only supported on the “default” NIC. There is only one VIP to the IP of the default NIC. 
-- At this time, Instance-Level Public IP addresses are not supported for Multi-NIC VMs. 
+- At this time, Instance Level Public IP (LPIP) addresses are not supported for multi NIC VMs. 
 - The order of the NICs from inside the VM will be random, and could also change across Azure infrastructure updates. However, the IP addresses, and the corresponding ethernet MAC addresses will remain the same. For example, assume **Eth1** has IP address 10.1.0.100 and MAC address 00-0D-3A-B0-39-0D; after an Azure infrastructure update and reboot, it could be changed to Eth2, but the IP and MAC pairing will remain the same. When a restart is customer-initiated, the NIC order will remain the same. 
 - The address for each NIC on each VM must be located in a subnet, multiple NICs on a single VM can each be assigned addresses that are in the same subnet. 
 - The VM size determines the number of NICS that you can create for a VM. The table below lists the numbers of NICs corresponding to the size of the VMs: 
@@ -79,8 +79,8 @@ Virtual machines with secondary network interfaces and virtual machines with no 
 |G5|16|
 |All Other Sizes|1|
 
-## Network Security Groups
-Any NIC on a VM may be associated with a Network Security Group (NSG), including any NICs on a VM that has Multi-NIC enabled. If a NIC is assigned an address within a subnet where the subnet is associated with an NSG, then the rules in the subnet’s NSG also apply to that NIC. In addition to associating subnets with NSGs, you can also associate a NIC with an NSG. 
+## Network Security Groups (NSGs)
+Any NIC on a VM may be associated with a Network Security Group (NSG), including any NICs on a VM that has multiple NICs enabled. If a NIC is assigned an address within a subnet where the subnet is associated with an NSG, then the rules in the subnet’s NSG also apply to that NIC. In addition to associating subnets with NSGs, you can also associate a NIC with an NSG. 
 
 If a subnet is associated with an NSG, and a NIC within that subnet is individually associated with an NSG, the associated NSG rules are applied in “**flow order**” according to the direction of the traffic being passed into or out of the NIC: 
 
@@ -89,9 +89,9 @@ If a subnet is associated with an NSG, and a NIC within that subnet is individua
 
 The figure above represents how NSG rules application is done based on traffice flow (from VM to subnet, or from subnet to VM).
 
-## How to Configure a Multi-NIC VM
+## How to Configure a multi NIC VM
 
-The instructions below will help you create a Multi-NIC VM containing 3 NICs: a default NIC and two additional NICs. The configuration steps will create a VM that will be configured according to the service configuration file fragment below:
+The instructions below will help you create a multi NIC VM containing 3 NICs: a default NIC and two additional NICs. The configuration steps will create a VM that will be configured according to the service configuration file fragment below:
 
 	<VirtualNetworkSite name="MultiNIC-VNet" Location="North Europe">
 	<AddressSpace>
@@ -118,7 +118,7 @@ The instructions below will help you create a Multi-NIC VM containing 3 NICs: a 
 You need the following prerequisites before trying to run the PowerShell commands in the example.
 
 - An Azure subscription.
-- A configured virtual network. See [Virtual Network Overview](https://msdn.microsoft.com/library/azure/jj156007.aspx) for more information about VNets.
+- A configured virtual network. See [Virtual Network Overview](virtual-networks-overview.md) for more information about VNets.
 - The latest version of Azure PowerShell downloaded and installed. See [How to install and configure Azure PowerShell](../install-configure-powershell).
 
 To create a VM with multiple NICs, follow the steps below:

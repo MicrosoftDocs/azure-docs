@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Learn about Throttling in BizTalk Services | Azure" 
+	pageTitle="Learn about Throttling in BizTalk Services | Microsoft Azure" 
 	description="Learn about throttling thresholds and resulting runtime behaviors for BizTalk Services. Throttling is based on memory usage and number of messages. MABS, WABS" 
 	services="biztalk-services" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/07/2015" 
+	ms.date="08/26/2015" 
 	ms.author="mandia"/>
 
 

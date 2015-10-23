@@ -1,5 +1,5 @@
 <properties
-	pageTitle="How to create and deploy a cloud service - Azure"
+	pageTitle="How to create and deploy a cloud service | Microsoft Azure"
 	description="Learn how to create and deploy a cloud service using the Quick Create method in Azure."
 	services="cloud-services"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/30/2015"
+	ms.date="09/22/2015"
 	ms.author="adegeo"/>
 
 
@@ -149,3 +149,9 @@ Three cloud service features require special configurations before you export a 
 
 [TFSTutorialForCloudService]: http://go.microsoft.com/fwlink/?LinkID=251796&clcid=0x409
  
+## Next steps
+
+* [General configuration of your cloud service](cloud-services-how-to-configure.md).
+* Configure a [custom domain name](cloud-services-custom-domain-name.md).
+* [Manage your cloud service](cloud-services-how-to-manage.md).
+* Configure [ssl certificates](cloud-services-configure-ssl-certificate.md).

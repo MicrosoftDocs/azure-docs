@@ -1,11 +1,12 @@
 <properties
-	pageTitle="Planned maintenance for Azure virtual machines"
+	pageTitle="Planned maintenance for Azure VMs | Microsoft Azure"
 	description="Understand what Azure planned maintenance is and how it affects your virtual machines running in Azure."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="kenazk"
 	manager="timlt"
-	editor=""/>
+	editor=""
+	tags="azure-service-management,azure-resource-manager"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -19,14 +20,18 @@
 
 # Planned maintenance for Azure virtual machines
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
+
 ## Why Azure performs planned maintenance
-<p> Microsoft Azure periodically performs updates across the globe to improve the reliability, performance, and security of the host infrastructure that underlies virtual machines. Many of these updates are performed without any impact to your virtual machines or Cloud Services, including memory-preserving updates.
+
+Microsoft Azure periodically performs updates across the globe to improve the reliability, performance, and security of the host infrastructure that underlies virtual machines. Many of these updates are performed without any impact to your virtual machines or Cloud Services, including memory-preserving updates.
 
 However, some updates do require a reboot to your virtual machines to apply the required updates to the infrastructure. The virtual machines are shut down while we patch the infrastructure, and then the virtual machines are restarted.
 
 Please note that there are two types of maintenance that can impact the availability of your virtual machines: planned and unplanned. This page describes how Microsoft Azure performs planned maintenance. For more information about unplanned maintenance, see [Understand planned versus unplanned maintenance](virtual-machines-manage-availability.md).
 
 ## Memory-preserving updates
+
 For a class of updates in Microsoft Azure, customers will not see any impact to their running virtual machines. Many of these updates are to components or services that can be updated without interfering with the running instance. Some of these updates are platform infrastructure updates on the host operating system that can be applied without requiring a full reboot of the virtual machines.
 
 These updates are accomplished with technology that enables live migration (a “memory-preserving” update). When updating, the virtual machine is placed into a “paused” state, preserving the memory in RAM, while the underlying host operating system receives the necessary updates and patches. The virtual machine is resumed within 30 seconds of being paused. After resuming, the clock of the virtual machine is automatically synchronized.
@@ -36,6 +41,7 @@ Not all updates can be deployed by using this mechanism, but given the short pau
 Multi-instance updates (for virtual machines in an availability set) are applied one update domain at a time.  
 
 ## Virtual machine configurations
+
 There are two kinds of virtual machine configurations: multi-instance and single-instance. In a multi-instance configuration, similar virtual machines are placed in an availability set.
 
 The multi-instance configuration provides redundancy, and it is recommended to ensure the availability of your application. All virtual machines in the availability set should be nearly identical and serve the same purpose to your application.
@@ -48,6 +54,7 @@ For more information about SLAs, refer to the "Cloud Services, Virtual Machines 
 
 
 ## Multi-instance configuration updates
+
 During planned maintenance, the Azure platform first updates the set of virtual machines that are hosted in a multi-instance configuration. This causes a reboot to these virtual machines.
 
 In a multi-instance configuration update, virtual machines are updated in way that preserves availability throughout the process, assuming that each virtual machine serves a similar function as the others in the set.
@@ -66,6 +73,7 @@ After a virtual machine is restored, here is an example of what your Windows Eve
 ![][image2]
 
 ## Single-instance configuration updates
+
 After the multi-instance configuration updates are complete, Azure will perform single-instance configuration updates. This update also causes a reboot to your virtual machines that are not running in availability sets.
 
 Please note that even if you have only one instance running in an availability set, the Azure platform treats it as a multi-instance configuration update.
@@ -75,12 +83,14 @@ For virtual machines in a single-instance configuration, virtual machines are up
 This planned maintenance event will impact the availability of your application for this type of virtual machine configuration. Azure offers a 1-week advanced notification for planned maintenance of  virtual machines in the single-instance configuration.
 
 ### Email notification
-For single-instance and multi-instance virtual machine configurations only, Azure sends email communication in advance to alert you of the upcoming planned maintenance (1-week in advance for single-instance and 48-hours in advance for multi-instance). This email will be sent to the primary email account provided by the subscription. Here is an example of this type of email:
+
+For single-instance and multi-instance virtual machine configurations only, Azure sends email communication in advance to alert you of the upcoming planned maintenance (1-week in advance for single-instance and 48-hours in advance for multi-instance). This email will be sent to the account administrator and co-administrator email accounts provided in the subscription. Here is an example of this type of email:
 
 <!--Image reference-->
 ![][image1]
 
 ## Region pairs
+
 Azure organizes a set of region pairs. Azure will not roll out an update on paired regions simultaneously during a planned maintenance of virtual machines with single-instance configurations.
 
 Please refer to the following table for information regarding current region pairs:

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Manage and Monitor your Connectors and API Apps in Azure App Service" 
+	pageTitle="Manage and Monitor your Connectors and API Apps in App Service | Microsoft Azure" 
 	description="View performance of your Connectors and API Apps in Azure App Service; microservices architecture" 
 	services="app-service\logic" 
 	documentationCenter=".net,nodejs,java"
@@ -13,20 +13,18 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/08/2015" 
+	ms.date="09/29/2015" 
 	ms.author="mandia"/>
 
 # Manage and Monitor your built-in API Apps and Connectors
 
 You created a built-in API App. Now what? 
 
-In Azure, every API App is a separate web site hosted on Azure. As a result, you can easily see how many requests are made, and see how much data is being used by the connector.
-
-You can also backup your API App, create alerts, enable Tinfoil Security, and add users and roles.
+In Azure, every API App is a separate web site hosted on Azure. As a result, you can easily see how many requests are made, and see how much data is being used by the connector. You can also backup your API App, create alerts, enable Tinfoil Security, and add users and roles.
 
 This topic describes some of the different options to manage your API App. 
 
-To see these built-in features, open your API App in the preview [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040). If the API App is on your startboard, select it to open the properties. You can also select **Browse**, select **API Apps**, and then select your API App:
+To see these built-in features, open your API App in the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040). If the API App is on your startboard, select it to open the properties. You can also select **Browse**, select **API Apps**, and then select your API App:
 
 ![][browse]
 
@@ -51,31 +49,29 @@ After you configured or created your built-connector, you can change the values 
 Steps include:
 
 1. Open your connector or API App. When you do, the API App blade opens.
-2. In Essentials, click the hyperlink under the Host property. The hyperlink is named something like *slackconnector* or *microsoftsqlconnector123*:
+2. In **Essentials**, click the hyperlink under the Host property. The hyperlink is named something like *slackconnector* or *microsoftsqlconnector123*:
 
 	![][apiapphost]
 
-3. In the API App Host blade, select **Settings**.
-4. In the Settings blade, select **Application Settings**.
-5. Your configuration values are listed under **App Settings**: 
+3. In the API App Host blade, select **Settings**. In the Settings blade, select **Application Settings**. Your configuration values are listed under **App Settings**: 
 	
 	![][hostsettings]
 
-6. Click the setting you want to change, enter the new value, and **Save** your changes. 
+4. Click the setting you want to change, enter the new value, and **Save** your changes. 
 
 
 ## Install the Hybrid Connection Manager - Optional
 
 ![][hcsetup]
 
-The Hybrid Connection Manager gives you the ability to connect to an on-premises system, like SQL Server or SAP. This hybrid connectivity uses Azure Service Bus to connect and control the security between your Azure resources and your on-premises resources.
+The Hybrid Connection Manager gives you the ability to connect to an on-premises system, like SQL Server or SAP. This hybrid connectivity uses Azure Service Bus to connect and to control the security between your Azure resources and your on-premises resources.
 
 See [Using the Hybrid Connection Manager in Azure App Service](app-service-logic-hybrid-connection-manager.md). 
 
 > [AZURE.NOTE] Hybrid Connection Manager is required only if you are connecting to an on-premises resource behind your firewall. If you are not connecting to an on-premises system,  the Hybrid Connection Manager may not be listed in your connector blade.
 
 ## Monitor the performance
-Performance metrics are built-in features and included with every API App you create. These metrics are specific to your API App hosted in Azure: 
+Performance metrics are built-in features and included with every API App you create. These metrics are specific to your API App hosted in Azure. Sample metrics:
 
 ![][monitoring]
 
@@ -110,13 +106,16 @@ You can easily add users and assign them specific roles to your API App. The por
 
 ## More Good Stuff
 - Select **API definition** to open the automatically-created Swagger file for your specific API app.
-- Select **Dependencies** to view the files required by your API App. For example, if you're using the SAP connector, you install some additional files on the on-premises Hybrid Connection Manager. These dependencies are shows in your API app blade. 
+- Select **Dependencies** to view the files required by your API App. For example, if you're using the SAP connector, you install some additional files on the on-premises Hybrid Connection Manager. These dependencies are shown in your API app blade. 
 
 > [AZURE.IMPORTANT] When you open your API app properties and look under **Essentials**, there are **Host** and **Gateway** links that open new blades:
 > 
 > ![][host]
 > 
 > These properties are specific to the website that hosts your API App. When using a built-in API App or connector, most of these properties don't really apply and we recommend that you  don't update these properties. If you created your own API App in Visual Studio and deployed it to your Azure subscription, then you can use the Host and Gateway blades. [Manage API apps](../app-service-api/app-service-api-manage-in-portal.md) provides more information on what you can do in these blades with your custom-created API app. 
+
+
+>[AZURE.NOTE] If you want to get started with Azure Logic Apps before signing up for an Azure account, go to [Try Logic App](https://tryappservice.azure.com/?appservice=logic), where you can immediately create a short-lived starter logic app in App Service. No credit cards required and no commitments.
 
 ## Read More
 

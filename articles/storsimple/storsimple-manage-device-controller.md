@@ -1,23 +1,24 @@
 <properties 
-   pageTitle="Manage your StorSimple device controllers | Microsoft Azure"
-   description="Learn how to stop, restart, shut down or reset your StorSimple device controllers."
+   pageTitle="Manage StorSimple device controllers | Microsoft Azure"
+   description="Learn how to stop, restart, shut down, or reset your StorSimple device controllers."
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
    manager="carolz"
-   editor="tysonn" />
+   editor="" />
 <tags 
    ms.service="storsimple"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/23/2015"
+   ms.date="09/15/2015"
    ms.author="alkohli" />
 
-# Manage StorSimple device controllers
+# Manage your StorSimple device controllers
 
 ## Overview
+
 This tutorial describes the different operations that can be performed on your StorSimple device controllers. The controllers in your StorSimple device are redundant (peer) controllers in an active-passive configuration. At a given time, only one controller is active, and is processing all the disk and network operations. The other controller is in a passive mode. If the active controller fails, the passive controller becomes active automatically.
 
 This tutorial includes step-by-step instructions to manage the device controllers by using the:
@@ -25,7 +26,7 @@ This tutorial includes step-by-step instructions to manage the device controller
 - **Controllers** section of the **Maintenance** page in the StorSimple Manager service
 - Windows PowerShell for StorSimple. 
 
-We recommend that the user manage the device controllers via the StorSimple Manager service. If an action can only be performed using the Windows PowerShell for StorSimple, the tutorial makes a note of it.
+We recommend that you manage the device controllers via the StorSimple Manager service. If an action can only be performed by using Windows PowerShell for StorSimple, the tutorial makes a note of it.
 
 After reading this tutorial, you will be able to:
 
@@ -59,26 +60,26 @@ To manage your device controllers from the Management Portal, perform the follow
 
 1. Go to **Hardware Status** and verify that the status of both the controllers on your device is **Healthy**.
 
-	![Verify StorSimple Device Controllers Are Healthy](./media/storsimple-manage-device-controller/IC766017.png)
+	![Verify StorSimple device controllers are healthy](./media/storsimple-manage-device-controller/IC766017.png)
 
 1. From the bottom of the **Maintenance** page, click **Manage Controllers**.
 
-	![Manage StorSimple Device Controllers](./media/storsimple-manage-device-controller/IC766018.png)</br>
+	![Manage StorSimple device controllers](./media/storsimple-manage-device-controller/IC766018.png)</br>
 
-	> [AZURE.NOTE] If you cannot see Manage Controllers, you need to install updates. For more information, see [Update your device](storsimple-update-device.md).
+	>[AZURE.NOTE] If you cannot see **Manage Controllers**, then you need to install updates. For more information, see [Update your StorSimple device](storsimple-update-device.md).
 
 1. In the **Change Controller Settings** dialog box, do the following:
 
 
 	- From the **Select Controller** drop-down list, select the controller that you want to manage. The options are Controller 0 and Controller 1. These controllers are also identified as active or passive.
 
-		> [AZURE.NOTE] A controller cannot be managed if it is unavailable or turned off, and it will not appear in the drop-down list.
+		>[AZURE.NOTE] A controller cannot be managed if it is unavailable or turned off, and it will not appear in the drop-down list.
 	
 
 
 	- From the **Select Action** drop-down list, choose **Restart controller** or **Shut down controller**.
 	
-		![Restart StorSimple Device Passive Controller](./media/storsimple-manage-device-controller/IC766020.png)
+		![Restart StorSimple device passive controller](./media/storsimple-manage-device-controller/IC766020.png)
  
 
 	- Click the check icon ![Check Icon](./media/storsimple-manage-device-controller/IC740895.png).
@@ -98,7 +99,7 @@ This will restart or shut down the controller. The table below summarizes the de
 Perform the following steps to shut down or restart a single controller on your StorSimple device from the Management Portal. 
 
 
-1. Access the device by using the serial console or a telnet session from a remote computer. Connect to Controller 0 or Controller 1 by following the steps in [Use PuTTY to connect to the device serial console](storsimple-deployment-walkthrough.md#step-3-configure-and-register-the-device-through-windows-powershell-for-storsimple).
+1. Access the device by using the serial console or a telnet session from a remote computer. Connect to Controller 0 or Controller 1 by following the steps in [Use PuTTY to connect to the device serial console](storsimple-deployment-walkthrough.md#use-putty-to-connect-to-the-device-serial-console).
 
 1. In the serial console menu, choose option 1, **Log in with full access**.
 
@@ -134,7 +135,7 @@ This section explains how to shut down a running or a failed StorSimple device f
 
 <!--#### To shut down a StorSimple device in Windows PowerShell for StorSimple
 
-1. Connect to the serial console of the StorSimple device by following the steps in [Use PuTTY to connect to the device serial console](storsimple-deployment-walkthrough.md#step-3-configure-and-register-the-device-through-windows-powershell-for-storsimple).
+1. Connect to the serial console of the StorSimple device by following the steps in [Use PuTTY to connect to the device serial console](storsimple-deployment-walkthrough.md#use-putty-to-connect-to-the-serial-console).
 
 1. In the serial console menu, verify from the banner message that the controller you are connected to is the passive controller. If you are connected to the active controller, disconnect from this controller and connect to the other controller.
 
@@ -170,9 +171,9 @@ Perform the following steps to reset your Microsoft Azure StorSimple device to f
 
 	> [AZURE.TIP] 
 	
-	> - Use the `Reset-HcsFactoryDefault –SkipFirmwareVersionCheck` command to skip the firmware version check if the factory reset cmdlet (as used above) reports a firmware mismatch error: Factory reset cannot continue due to a mismatch in the firmware versions. You must skip the firmware check (by using `–SkipFirmwareCheck` option) when performing a factory reset on a device that was previously updated using Microsoft Update or a hotfix mechanism.
+	> - Use the `Reset-HcsFactoryDefault –SkipFirmwareVersionCheck` command to skip the firmware version check if the factory reset cmdlet (as used above) reports the firmware mismatch error: Factory reset cannot continue due to a mismatch in the firmware versions. You must skip the firmware check (by using the `–SkipFirmwareCheck` option) when performing a factory reset on a device that was previously updated using Microsoft Update or a hotfix mechanism.
 	
-	> - For more information on how to use this cmdlet, go to the [cmdlet reference for Windows PowerShell for StorSimple](https://technet.microsoft.com/en-us/library/dn688168.aspx).
+	> - For more information on how to use this cmdlet, go to the [cmdlet reference for Windows PowerShell for StorSimple](https://technet.microsoft.com/library/dn688168.aspx).
 
 
 ## Questions and answers about managing device controllers
@@ -213,10 +214,12 @@ In this section, we have summarized some of the frequently asked questions regar
 
 **A.** The TCP connections between initiators and active controller will be reset as a result of controller failover, but will be reestablished when the passive controller assumes operation. There may be a temporary (less than 30 second) pause in I/O activity between initiators and the device during the course of this operation.
 
-**Q.** How do I return my controller to service after it has been shut down and removed from service?
+**Q.** How do I return my controller to service after it has been shut down and removed?
 
-**A.** To return a controller to service, you must insert it into the chassis as described in [Hardware Component Replacement Guide](https://msdn.microsoft.com/library/azure/dn757736.aspx).
+**A.** To return a controller to service, you must insert it into the chassis as described in [Replace a controller module on your StorSimple device](storsimple-controller-replacement.md).
 
 ## Next steps
 
-If you encounter any issues with your StorSimple device controllers that you cannot resolve by using the procedures listed in this tutorial, [Contact Microsoft Support](https://msdn.microsoft.com/library/azure/dn757750.aspx).
+- If you encounter any issues with your StorSimple device controllers that you cannot resolve by using the procedures listed in this tutorial, [contact Microsoft Support](storsimple-contact-microsoft-support.md).
+
+- To learn more about using the StorSimple Manager service, go to [Use the StorSimple Manager service to administer your StorSimple device](storsimple-manager-service-administration.md).

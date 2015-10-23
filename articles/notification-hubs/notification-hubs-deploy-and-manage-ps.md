@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="powershell" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/18/2015" 
+	ms.date="09/24/2015" 
 	ms.author="wesmc"/>
 
 # Deploy and Manage Notification Hubs using PowerShell
