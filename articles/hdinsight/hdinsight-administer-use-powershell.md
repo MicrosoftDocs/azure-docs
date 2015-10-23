@@ -60,7 +60,7 @@ HDInsight cluster requires an Azure Resource group and an Blob container on an A
 
 	New-AzureRmStorageAccount -ResourceGroupName <AzureResourceGroupName> -Name <AzureStorageAccountName> -Location <AzureDataCneter> -Type <AccountType> # account type example: Standard_ZRS for zero redundancy storage
 
-For a full list of the storage account types, see [https://msdn.microsoft.com/en-us/library/azure/hh264518.aspx](https://msdn.microsoft.com/en-us/library/azure/hh264518.aspx).
+For a full list of the storage account types, see [https://msdn.microsoft.com/library/azure/hh264518.aspx](https://msdn.microsoft.com/library/azure/hh264518.aspx).
 
 [AZURE.INCLUDE [data center list](../../includes/hdinsight-pricing-data-centers-clusters.md)]
 
