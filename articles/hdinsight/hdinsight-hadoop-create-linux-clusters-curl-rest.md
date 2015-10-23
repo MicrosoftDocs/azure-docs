@@ -25,7 +25,7 @@ The Azure REST API allows you to perform management operations on services hoste
 
 > [AZURE.IMPORTANT] The steps in this document use the default number of worker nodes (4) for an HDInsight cluster. If you plan on more than 32 worker nodes, either at cluster creation or by scaling the cluster after creation, then you must select a head node size with at least 8 cores and 14GB ram.
 >
-> For more information on node sizes and associated costs, see [HDInsight pricing](https://azure.microsoft.com/en-us/pricing/details/hdinsight/).
+> For more information on node sizes and associated costs, see [HDInsight pricing](https://azure.microsoft.com/pricing/details/hdinsight/).
 
 ##Prerequisites
 

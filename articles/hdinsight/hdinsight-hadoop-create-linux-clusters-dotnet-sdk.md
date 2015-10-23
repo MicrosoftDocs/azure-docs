@@ -25,7 +25,7 @@ The HDInsight .NET SDK provides .NET client libraries that make it easier to wor
 
 > [AZURE.IMPORTANT] The steps in this document create a cluster with one worker node. If you plan on more than 32 worker nodes, either at cluster creation or by scaling the cluster after creation, then you must select a head node size with at least 8 cores and 14GB ram.
 >
-> For more information on node sizes and associated costs, see [HDInsight pricing](https://azure.microsoft.com/en-us/pricing/details/hdinsight/).
+> For more information on node sizes and associated costs, see [HDInsight pricing](https://azure.microsoft.com/pricing/details/hdinsight/).
 
 ##Prerequisites
 
