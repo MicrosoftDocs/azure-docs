@@ -46,13 +46,13 @@ The following tables describe the values you need to set in the schema.
 | ---- | ---- | -------- | ---------------- | ----------- |
 | type | enum | Yes | **Microsoft.Authorization/locks** | The resource type to create. |
 | apiVersion | enum | Yes | **2015-01-01** | The API version to use for creating the resource. |  
-| name | string | Yes | 64 characters<br />It cannot contain <, > %, &, ?, or any control characters | The name of the lock to create. |
+| name | string | Yes | 64 characters<br />It cannot contain <, > %, &, ?, or any control characters. | The name of the lock to create. |
 | dependsOn | array | No |  | The collection of resources this lock depends on. Each value is a string containing either the resource name or resource unique identifier. You must specify the parent resource. | 
 | properties | object | Yes |  | An object that identifies the type of lock, and notes about the lock (values shown below). |  
 
 ### properties object
 
-| Element | Type | Required | Permitted Values | Description |
+| Name | Type | Required | Permitted Values | Description |
 | ------- | ---- | ---------------- | -------- | ----------- |
 | level   | enum | Yes | **"CannotDelete"** <br /> **"ReadOnly"**  | The type of lock to apply to the scope. CanNotDelete allows modification but prevents deletion, ReadOnly prevents modification or deletion. |
 | notes   | string | No | 512 characters | Description of the lock. |
