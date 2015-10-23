@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Create an Azure virtual machine running Linux in the Azure Portal"
+	pageTitle="Create an Azure virtual machine running Linux in the Azure Portal | Microsoft Azure"
 	description="Use the Azure Portal to create an Azure virtual machine (VM) running Linux with the Azure resource groups."
 	services="virtual-machines"
 	documentationCenter=""
