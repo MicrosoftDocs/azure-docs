@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="dotnet" 
 	ms.topic="hero-article" 
-	ms.date="10/13/2015" 
+	ms.date="10/23/2015" 
 	ms.author="sdanie"/>
 
 # How to Use Azure Redis Cache
@@ -111,6 +111,7 @@ The steps in this section describe how to perform common tasks with Cache.
 
 -	[Connect to the cache][]
 -   [Add and retrieve objects from the cache][]
+-   [Work with .NET objects in the cache](#work-with-net-objects-in-the-cache)
 -   [Store ASP.NET session state in the cache][]
 
 <a name="connect-to-cache"></a>
@@ -188,14 +189,106 @@ When calling `StringGet`, if the object exists, it is returned, and if it does n
         cache.StringSet("key1", value);
     }
 
->[AZURE.NOTE] Azure Redis Cache can cache .NET objects as well as primitive data types, but before a .NET object can be cached it must be serialized. This is the responsibility of the application developer, and gives the developer flexibility in the choice of the serializer. For more information, see [Work with .NET objects in the cache][].
-
-<a name="specify-expiration"></a>
-## Specify the expiration of an item in the cache
-
 To specify the expiration of an item in the cache, use the `TimeSpan` parameter of `StringSet`.
 
 	cache.StringSet("key1", "value1", TimeSpan.FromMinutes(90));
+
+## Work with .NET objects in the cache
+
+Azure Redis Cache can cache .NET objects as well as primitive data types, but before a .NET object can be cached it must be serialized. This is the responsibility of the application developer, and gives the developer flexibility in the choice of the serializer.
+
+One simple way to serialize objects is to use the `JsonConvert` serialization methods in [Newtonsoft.Json.NET](https://www.nuget.org/packages/Newtonsoft.Json/8.0.1-beta1) and serialize to and from JSON. The following example shows a get and set using an `Employee` object instance.
+
+    // Store to cache
+    cache.StringSet("e25", JsonConvert.SerializeObject(new Employee(25, "Clayton Gragg")));
+
+    // Retrieve from cache
+    Employee e25 = JsonConvert.DeserializeObject<Employee>(cache.StringGet("e25"));
+
+Another way to serialize objects to and from the cache is to use the [BinaryFormatter](https://msdn.microsoft.com/library/azure/system.runtime.serialization.formatters.binary.binaryformatter.aspx) class. In the following example, [extension methods](https://msdn.microsoft.com/library/bb383977.aspx) to the `StackExchange.Redis.IDatabase` type are defined that use the `BinaryFormatter` to simplify the serialization of objects when they are cached.
+
+	public static class SampleStackExchangeRedisExtensions
+	{
+	    public static T Get<T>(this IDatabase cache, string key)
+	    {
+	        return Deserialize<T>(cache.StringGet(key));
+	    }
+	
+	    public static object Get(this IDatabase cache, string key)
+	    {
+	        return Deserialize<object>(cache.StringGet(key));
+	    }
+	
+	    public static void Set(this IDatabase cache, string key, object value)
+	    {
+	        cache.StringSet(key, Serialize(value));
+	    }
+	
+	    static byte[] Serialize(object o)
+	    {
+	        if(o == null)
+	        {
+	            return null;
+	        }
+	
+	        BinaryFormatter binaryFormatter = new BinaryFormatter();
+	        using (MemoryStream memoryStream = new MemoryStream())
+	        {
+	            binaryFormatter.Serialize(memoryStream, o);
+	            byte[] objectDataAsStream = memoryStream.ToArray();
+	            return objectDataAsStream;
+	        }
+	    }
+	
+	    static T Deserialize<T>(byte[] stream)
+	    {
+	        if(stream == null)
+	        {
+	            return default(T);
+	        }
+	
+	        BinaryFormatter binaryFormatter = new BinaryFormatter();
+	        using (MemoryStream memoryStream = new MemoryStream(stream))
+	        {
+	            T result = (T)binaryFormatter.Deserialize(memoryStream);
+	            return result;
+	        }
+	    }
+	}
+
+The `RedisValue` type can work directly with byte arrays, so when the `Get` helper method is called, it serializes the object into a byte stream, which is then cached. When the item is retrieved, it is serialized back into an object, and returned to the caller.
+
+In the following example, an instance of an `Employee` object is stored and retrieved from the cache.
+
+	[Serializable]
+	class Employee
+	{
+	    public int Id { get; set; }
+	    public string Name { get; set; }
+	
+	    public Employee(int EmployeeId, string Name)
+	    {
+	        this.Id = EmployeeId;
+	        this.Name = Name;
+	    }
+	}
+
+	IDatabase cache = Connection.GetDatabase();
+	
+	// Put an Employee object into the cache
+	cache.Set("Employee25", new Employee(25, "Clayton Gragg"));
+	
+	// Retrieve it
+	Employee e2 = cache.Get<Employee>("Employee25");
+	
+	// Retrieve it as an object
+	Employee e3 = (Employee)cache.Get("Employee25");
+
+>[AZURE.NOTE] If your object is not serializable you will receive an exception similar to the following when you try to serialize it.
+>
+>`Type 'SampleApplication.Employee' in Assembly SampleApplication, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null' is not marked as serializable.`
+
+
 
 
 <a name="store-session"></a>
@@ -267,7 +360,7 @@ Be sure to comment out the standard **InProc** session state provider.
       </providers>
     </sessionState> -->
 
-For more information about configuring these settings and using the Azure Redis Session State Provider, see [Azure Redis Session State Provider][].
+For more information about configuring these settings and using the Azure Redis Session State Provider, see [Azure Redis Session State Provider](cache-asp.net-session-state-provider.md).
 
 <a name="next-steps"></a>
 ## Next Steps
