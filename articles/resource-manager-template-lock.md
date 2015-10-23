@@ -16,9 +16,9 @@
    ms.date="10/23/2015"
    ms.author="tomfitz"/>
 
-# Microsoft.Authorization/locks
+# Resource locks - template schema
 
-Creates a new management lock.
+Creates a new lock on a resource.
 
 This resource is used as a child resource to lock the parent resource.
 
@@ -38,44 +38,22 @@ This resource is used as a child resource to lock the parent resource.
 
 
 
-## Properties
+## Values
 
-### type
+| Name | Type | Required | Permitted values | Description |
+| ---- | ---- | -------- | ---------------- | ----------- |
+| type | enum | Yes | **Microsoft.Authorization/locks** | The resource type to create. |
+| apiVersion | enum | Yes | **2015-01-01** | The API version to use for creating the resource. |  
+| name | string | Yes | 64 characters | The name of the lock to create. |
+| dependsOn | array | No |  | The collection of resources this lock depends on. Each value is a string containing either the resource name or resource unique identifier.  
+| properties | object | Yes |  | An object that identifies the type of lock, and notes about the lock. |  
 
-The resource type to create.  
-Type: enum  
-Permitted values: **Microsoft.Authorization/locks**  
-Required: Yes  
-
-### apiVersion
-
-The API version to use for creating the resource.  
-Type: enum  
-Permitted values: **2015-01-01**  
-Required: Yes  
-
-### name
-
-The name of the lock to create.  
-Type: string  
-Max length: 64 characters.  
-Required: Yes
-
-### dependsOn
-
-The collection of resources this lock depends on.  
-Type: array of strings containing resource names or resource unique identifiers.  
-Required: No
-
-### properties
-An object that identifies the type of lock, and notes about the lock.  
-Type: object  
-Required: Yes
+### properties object
 
 | Element | Type | Permitted Values | Required | Description |
 | ------- | ---- | ---------------- | -------- | ----------- |
-| level   | enum | "CannotDelete" or "ReadOnly" | Yes | The type of lock to apply to the scope.  CanNotDelete allows modification but prevents deletion, ReadOnly prevents modification or deletion. |
-| notes   | string | max length: 512 characters | No | Description of the lock. |
+| level   | enum | **"CannotDelete"** <br /> **"ReadOnly"** | Yes | The type of lock to apply to the scope. CanNotDelete allows modification but prevents deletion, ReadOnly prevents modification or deletion. |
+| notes   | string | 512 characters | No | Description of the lock. |
 
 
 ## Examples
