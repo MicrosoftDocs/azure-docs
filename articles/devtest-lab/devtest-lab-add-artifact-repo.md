@@ -1,11 +1,11 @@
     <properties 
-	pageTitle="Add a Git artifact repo to your DevTest Lab | Microsoft Azure" 
+	pageTitle="Add a Git artifact repository to your DevTest Lab | Microsoft Azure" 
 	description="Add a Github or Visual Studio Online Git repository for your custom artifacts to your lab" 
 	services="devtest-lab,virtual-machines,visual-studio-online" 
 	documentationCenter="na" 
 	authors="patshea123" 
 	manager="douge" 
-	editor="tglee"/>
+	editor=""/>
   
 <tags 
 	ms.service="devtest-lab" 
@@ -13,130 +13,124 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/07/2015" 
+	ms.date="10/23/2015" 
 	ms.author="patshea"/>
-
-
 
 # Add a Git artifact repository to your DevTest Lab
 
 ## Overview
 
-By default, a **DevTest Lab** includes artifacts from the official Azure DevTest Lab artifact repository. You can add a Git artifact repository (repo) to your lab to include the artifacts that your team creates. The repository can be hosted on [Github](https://github.com) or on [Visual Studio Online (VSO)](https://visualstudio.com).
+By default, a **DevTest Lab** includes artifacts from the official Azure DevTest Lab artifact repository. You can add a Git artifact repository to your lab to include the artifacts that your team creates. The repository can be hosted on [Github](https://github.com) or on [Visual Studio Online (VSO)](https://visualstudio.com).
 
 - To learn how to create a Github repository, see [Github Bootcamp](https://help.github.com/categories/bootcamp/).
 - To learn how to create a VSO project with a Git Repository, see [Set up Visual Studio](https://www.visualstudio.com/get-started/setup/set-up-vs).
 
-The repository must contain a top-level folder named **Artifacts**. The files for each artifact are contained in an **Artifacts** subfolder.
+The repository must contain a top-level directory named **Artifacts**. The files for each artifact are then contained in a subdirectory of **Artifacts** directory.
 
-Here's how a repo might look in Github:  
+The following screen shot shows an example of how a repository containing artifacts might look in Github:  
 ![ContosoWebTeam Github](./media/devtest-lab-add-artifact-repo/devtestlab-github-artifact-repo-home.png)
 
-## Adding a Github artifacts repository to your lab
+## Add a Github artifacts repository to your lab
 
-To add a Github artifacts repository to your lab, you first get the HTTPS clone url and Personal Access Token from the artifacts repo, then you enter that information in your lab
+To add a Github artifacts repository to your lab, you first get the HTTPS clone url and Personal Access Token from the artifacts repository, then you enter that information in your lab
 
-### In the Github artifacts repository
+### Get the Github repository clone URL and personal access token
 
-1. On the home page of the Github repo that contains the team artifacts, copy and then save the **HTTPS** clone url. For example, you can save the url to a temporary Notepad file
+1. On the home page of the Github repository that contains the team artifacts, save the **HTTPS clone url** for later use. 
 
-    ![](./media/devtest-lab-add-artifact-repo/devtestlab-copy-github-artifact-clone-url.png)  
-1. On the home page of the Github repo:
-    1. Open the user menu in the upper-right corner.
-    1. Choose the **Settings** item.
+1. Tap the profile image in the upper-right corner, and select **Settings**.
 
-    ![](./media/devtest-lab-add-artifact-repo/devtestlab-github-artifact-open-settings.png)
-1. In the **Personal Settings** list on the **Your Profile** page, choose **Personal access tokens**.
-1. On the **Personal access tokens** page, choose **Generate new token**.
+1. In the **Personal settings** menu on the left, tap **Personal access tokens**.
+
+1. Tap **Generate new token**.
+
 1. On the **New personal access token** page, enter a **Token description**, accept the default items in the **Select scopes**, and then choose **Generate Token**.
-1. On the **Personal access tokens** page, copy and then save the generated token:  
-    ![](./media/devtest-lab-add-artifact-repo/devtestlab-add-artifacts-repo-copy-personal-access-token.png)
 
-### In the DevTest Lab
+1. Save the generated token as you'll need it later.
 
-1. On the home blade of your lab, choose **Settings**
+1. You can close GitHub now.   
+   
+###Connect your lab to the GitHub repository
 
-    ![Choose Settings](./media/devtest-lab-add-artifact-repo/devtestlab-add-artifacts-repo-open-dtl-settings.png)
+1. Sign in to the [Azure preview portal](http://portal.azure.com).
 
-1. On the **Settings** blade, choose **Artifacts Repository**
+1. Tap **Browse**, and then tap **DevTest Labs** from the list.
 
-    ![](./media/devtest-lab-add-artifact-repo/devtestlab-add-artifacts-repo-choose-dtl-settings-artifact-repo.png)
+1. From the list of labs, tap the desired lab.   
 
-1. On the **Artifacts Repository** blade
+1. On the lab's blade, tap **Settings**.
 
-    1. Enter a display **Name** for the repo.
+1. On the lab's **Settings** blade, tap **Artifacts Repository**.
+
+1. On the **Artifacts Repository** blade:
+
+    1. Enter a **Name** for the repository.
     1. Enter the saved **Git Clone Url**.
-    2. Enter the **Folder Path** in the artifacts repo that contains the artifacts.
-    3. Enter the saved **Personal Access Token** to the artifacts repo.
-    4. Choose **Save**.
-
-    ![Artifacts Repository blade](./media/devtest-lab-add-artifact-repo/devtestlab-add-artifacts-repo-dtl-artifact-repo-blade.png)
+    2. Enter the **Folder Path** in the artifacts repository that contains the artifacts.
+    3. Enter the saved **Personal Access Token** to the artifacts repository.
+    4. Tap **Save**.
 
 The artifacts in your repository are now listed on the **Add Artifacts** blade.
 
 ## Adding a Visual Studio Git artifact repository to your lab
     
-To add a Visual Studio Git artifact repository to your lab, you first get the HTTPS clone url and Personal Access Token from the artifacts repo, then you enter that information in your lab.
+To add a Visual Studio Git artifact repository to your lab, you first get the HTTPS clone url and Personal Access Token from the artifacts repository, then you enter that information in your lab.
 
 ### On the Visual Studio web page of your artifact project
 
-1. Open the home page of your team collection (for example, `https://contoso-web-team.visualstudio.com`), and then choose the artifact project.
-
+1. Open the home page of your team collection (for example, `https://contoso-web-team.visualstudio.com`), and then tap the artifact project.
     ![Choose the artifact project](./media/devtest-lab-add-artifact-repo/devtest-lab-vso-open-artifact-project.png)
 
-2. On the project home page, choose the **Code** link.
+2. On the project home page, tap **Code**.
 
-    ![Choose Code link](./media/devtest-lab-add-artifact-repo/devtest-lab-vso-choose-code-on-project-page.png)
-
-1. To view the clone url, on the project **Code** page, choose the **Clone** link.
+1. To view the clone URL, on the project **Code** page, tap **Clone**.
 
     ![Choose the Clone link](./media/devtest-lab-add-artifact-repo/devtest-lab-vso-choose-clone-on-project-code-page.png)
 
-1. Copy and save the url that's displayed. For example, save it to a temporary Notepad file.
+1. Save the URL as you'll need it later in this tutorial.
 
     ![Copy the clone url](./media/devtest-lab-add-artifact-repo/devtest-lab-vso-copy-clone-url.png)
 
-1. To create a Personal Access Token, choose **My profile** from the user account drop-down menu.
+1. To create a Personal Access Token, tap **My profile** from the user account drop-down menu.
 
     ![Choose My profile](./media/devtest-lab-add-artifact-repo/devtest-lab-vso-open-my-profile.png)
 
-1. On the profile information page choose the **Security** tab.
+1. On the profile information page tap the **Security**.
 
     ![Choose the Security link](./media/devtest-lab-add-artifact-repo/devtest-lab-vso-choose-security-on-profile-info-page.png)
 
-1. On the **Security** tab, choose the **Add** link.
+1. On the **Security** tab, tap **Add**.
 
     ![Choose Add link](./media/devtest-lab-add-artifact-repo/devtest-lab-vso-add-personal-access-token.png)
 
-1. In **Create a personal access token**
+1. In the **Create a personal access token** page:
 
     1. Enter a **Description** for the token.
     2. Select **180 days** from the **Expires In** list.
     3. Choose **All accessible accounts** from the **Accounts** list.
     4. Choose the **All scopes** option.
-    5. Choose **Create Token**
+    5. Choose **Create Token**.
 
     ![Create a personal access token](./media/devtest-lab-add-artifact-repo/devtest-lab-vso-create-personal-access-token.png)
 
-1. The new token appears in the **Personal Access Tokens** list.  
-     Choose the **Copy Token** and then save the token value.
+1. When finished, the new token will appear in the **Personal Access Tokens** list. Tap **Copy Token** and then save the token value as it will be used shortly.
 
 ### In the DevTest Lab
 
-1. On the home blade of your lab, choose **Settings**
+1. On the your lab's blade, tap **Settings**.
 
     ![Choose Settings](./media/devtest-lab-add-artifact-repo/devtestlab-add-artifacts-repo-open-dtl-settings.png)
 
-1. On the **Settings** blade, choose **Artifacts Repository**
+1. On the **Settings** blade, tap **Artifacts Repository**.
 
     ![](./media/devtest-lab-add-artifact-repo/devtestlab-add-artifacts-repo-choose-dtl-settings-artifact-repo.png)
 
 1. On the **Artifacts Repository** blade
 
-    1. Enter a display **Name** for the repo.
+    1. Enter a display **Name** for the repository.
     1. Enter the saved **Git Clone Url**.
-    2. Enter the **Folder Path** in the artifacts repo that contains the artifacts.
-    3. Enter the saved **Personal Access Token** to the artifacts repo.
-    4. Choose **Save**.
+    2. Enter the **Folder Path** in the artifacts repository that contains the artifacts.
+    3. Enter the saved **Personal Access Token** to the artifacts repository.
+    4. Tap **Save**.
 
     ![Artifacts Repository blade](./media/devtest-lab-add-artifact-repo/devtestlab-vso-add-artifacts-repo-dtl-artifact-repo-blade.png)

@@ -5,7 +5,7 @@
 	documentationCenter="na" 
 	authors="patshea123" 
 	manager="douge" 
-	editor="tglee"/>
+	editor=""/>
   
 <tags 
 	ms.service="devtest-lab" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="10/07/2015" 
+	ms.date="10/23/2015" 
 	ms.author="patshea"/>
 
 # Create an Azure DevTest Lab
@@ -28,19 +28,21 @@ To create a DevTest Lab, you will need:
 
 ## Create a lab
 
-1. On the Azure preview portal [Startboard](http://portal.azure.com), choose the **Marketplace** tile.
+1. Sign in to the [Azure preview portal](http://portal.azure.com).
+
+3. Tap the **Marketplace** tile.
 
     ![Marketplace tile](./media/devtest-lab-create-lab/start-marketplace-tile.png)   
 
-2. On the **Marketplace** blade, select **Everything** and enter **devtest lab** in the search box.
+2. On the **Marketplace** blade, tap **Everything**, enter **devtest labs** in the search box, and press the **Enter** key.
 
     ![Search the Marketplace for DevTest Lab](./media/devtest-lab-create-lab/search-marketplace-everything-for-devtestlab.png)
 
-3. Choose the **DevTest Lab** item to display the **DevTest Lab** blade.
+3. Tap the **DevTest Labs** item.
 
     ![Choose DevTest Lab](./media/devtest-lab-create-lab/choose-devtestlab-after-search.png)
 
-4. On the **DevTest Lab** blade, choose **Create**.
+4. On the **DevTest Lab** blade, tap **Create**.
 
     ![Choose Create](./media/devtest-lab-create-lab/devtestlab-blade-create-button.png)
 
@@ -48,9 +50,9 @@ To create a DevTest Lab, you will need:
 
     1. Enter a **Lab Name** for the new lab.
     1. Select the **Subscription** to associate with the lab.
-    1. Choose the **Resource Group** to contain the lab.
-    1. Choose a **Location** to store the lab.
-    1. Click **Create**.
+    1. Select the **Resource Group** to contain the lab.
+    1. Select a **Location** in which to store the lab.
+    1. Tap **Create**.
 
     ![Create a DevTest Lab blade](./media/devtest-lab-create-lab/create-devtestlab-blade.png)
 

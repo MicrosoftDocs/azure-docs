@@ -5,7 +5,7 @@
 	documentationCenter="na" 
 	authors="patshea123" 
 	manager="douge" 
-	editor="tglee"/>
+	editor=""/>
   
 <tags 
 	ms.service="devtest-lab" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/07/2015" 
+	ms.date="10/23/2015" 
 	ms.author="patshea"/>
 
 # Securely add a user to your Azure DevTest Lab.
@@ -37,25 +37,26 @@ You grant access to your **DevTest-Lab** through two roles:
 
 ## Add a DevTest Lab User to your lab 
 
- 1. Open the lab home blade in the Azure portal.
- 2. Choose the **Access** link.
-     ![Choose the Access link](./media/devtest-lab-add-devtest-user/devtest-lab-home-blade.png)
- 1. On the **Users** blade, choose **Add** to display the **Add access** blade.
-     ![Choose the Access link](./media/devtest-lab-add-devtest-user/devtest-users-blade.png)
- 2. In step **1**, choose **DevTest Lab User** on the **Select a role** blade.
- 
-    ![Select a role](./media/devtest-lab-add-devtest-user/devtest-lab-select-a-role-blade.png)
+1. Sign in to the [Azure preview portal](http://portal.azure.com).
 
- 1. In step **2** on the **Add access** blade:
-    
-    ![Choose the Access link](./media/devtest-lab-add-devtest-user/devtest-add-users-blade.png)
+1. Tap **Browse**, and then tap **DevTest Labs** from the list.
 
-    1. Enter the email account in the **Users** box and press **Enter**. An error message is displayed if the account does not exist.
-    
-    1. Select the verified account.
+1. From the list of labs, tap the desired lab.   
 
-    3. Choose **Select**.
+1. Tap the **Access** icon.
+ ![Choose the Access link](./media/devtest-lab-add-devtest-user/devtest-lab-home-blade.png)
 
-## Next steps
+1. On the **Users** blade, tap **Add** to display the **Add access** blade.
+ ![Choose the Access link](./media/devtest-lab-add-devtest-user/devtest-users-blade.png)
 
-TBD
+2. In the **Select a role** blade, tap **DevTest Lab User**.
+
+1. In the **Add users** blade:
+
+	1. Enter the email account in the **Users** text box and press **Enter**. An error message is displayed if the account does not exist.
+
+	1. Tap the verified account.
+
+	3. Tap **Select**.
+
+	![Choose the Access link](./media/devtest-lab-add-devtest-user/devtest-add-users-blade.png)
