@@ -3,8 +3,8 @@
 	description="Use features such as storage analytics, client-side logging, and other third-party tools to identify, diagnose, and troubleshoot Azure Storage-related issues."
 	services="storage"
 	documentationCenter=""
-	authors="dominicbetts"
-	manager="adinah"
+	authors="jahogg"
+	manager="tadb"
 	editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/03/2015"
-	ms.author="v-dobett"/>
+	ms.author="jahogg"/>
 
 # Monitor, diagnose, and troubleshoot Microsoft Azure Storage
 
