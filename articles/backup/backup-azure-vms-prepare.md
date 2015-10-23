@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/22/2015"
+	ms.date="10/23/2015"
 	ms.author="trinadhk; aashishr; jimpark; markgal"/>
 
 # Preparing your environment to back up Azure virtual machines
-Before you back up an Azure virtual machine, you need to have the following prerequisites in place. If you've already done this, you can start [backing up your VMs](backup-azure-vms.md), otherwise, continue through the steps below to make sure your environment is ready.
+Before you back up an Azure virtual machine, you need to complete these prerequisites to prepare your environment. If you've already done this, you can start [backing up your VMs](backup-azure-vms.md), otherwise, continue through the steps below to make sure your environment is ready.
 
 ## 1. Backup vault
 To start backing up your Azure virtual machines, you first need to create a backup vault. A vault is an entity that stores all the backups and recovery points that have been created over time. The vault also contains the backup policies that will be applied to the virtual machines being backed up.
@@ -33,20 +33,19 @@ To create a backup vault:
 
 3. In **Name**, enter a friendly name to identify the vault. This needs to be unique for each subscription.
 
-4. In **Region**, select the geographic region for the vault. The vault must be in the same region as the virtual machines you want to protect. If you have virtual machines in different regions create a vault in each one. There is no need to specify storage accounts to store the backup data – the backup vault and the Azure Backup service will handle this automatically.
+4. In **Region**, select the geographic region for the vault. The vault must be in the same region as the virtual machines you want to protect. If you have virtual machines in different regions create a vault in each one. There is no need to specify storage accounts to store the backup data – the backup vault and the Azure Backup service handle this automatically.
 
     ![Create backup vault](./media/backup-azure-vms-prepare/backup_vaultcreate.png)
 
-5. Click **Create Vault**.
-    It can take a while for the backup vault to be created. Monitor the status notifications at the bottom of the portal.
+5. Click **Create Vault**. It can take a while for the backup vault to be created. Monitor the status notifications at the bottom of the portal.
 
     ![Create vault toast notification](./media/backup-azure-vms-prepare/creating-vault.png)
 
-6. A message confirms that the vault has been successfully created and it will be listed in the Recovery Services page as Active. Ensure that the appropriate storage redundancy option is chosen right after the vault has been created. Read more about [setting the storage redundancy option in the backup vault](backup-configure-vault.md#azure-backup---storage-redundancy-options).
+6. A message confirms that the vault has been successfully created and it will be listed in the Recovery Services page as Active. Make sure that the appropriate storage redundancy option is chosen right after the vault has been created. Read more about [setting the storage redundancy option in the backup vault](backup-configure-vault.md#azure-backup---storage-redundancy-options).
 
     ![List of backup vaults](./media/backup-azure-vms-prepare/backup_vaultslist.png)
 
-7. Click the backup vault to go to the **Quick Start** page, where the instructions for back up of Azure virtual machines are shown.
+7. Click the backup vault to go to the **Quick Start** page, where the instructions for backing up Azure virtual machines are shown.
 
     ![Virtual machine backup instructions in the Dashboard page](./media/backup-azure-vms-prepare/vmbackup-instructions.png)
 

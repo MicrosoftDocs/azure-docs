@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/22/2015"
+	ms.date="10/23/2015"
 	ms.author="trinadhk; aashishr; jimpark; markgal"/>
 
 # Planning your VM backup infrastructure in Azure
-This article covers the key considerations you need to keep in mind when planning your VM backup infrastructure. If you've [prepared your environment](backup-azure-vms-prepare.md) this is the next step before you begin [backing up your VMs](backup-azure-vms.md). If you need more information about Azure virtual machines, see the [Virtual Machine documentation](https://azure.microsoft.com/documentation/services/virtual-machines/).
+This article covers the key considerations you should keep in mind when planning your VM backup infrastructure. If you've [prepared your environment](backup-azure-vms-prepare.md) this is the next step before you begin [backing up your VMs](backup-azure-vms.md). If you need more information about Azure virtual machines, see the [Virtual Machine documentation](https://azure.microsoft.com/documentation/services/virtual-machines/).
 
 ## How does Azure back up virtual machines?
 When the Azure Backup service initiates a backup job at the scheduled time, it triggers the backup extension to take a point-in-time snapshot. This snapshot is taken in coordination with the Volume Shadowing Service (VSS) to get a consistent snapshot of the disks in the virtual machine without having to shut it down.
@@ -28,7 +28,7 @@ After the snapshot is taken, the data is transferred by the Azure Backup service
 
 When the data transfer is complete, the snapshot is removed and a recovery point is created.
 
-### How does Azure Backup ensure data consistency?
+### Data consistency
 Backing up and restoring business critical data is complicated by the fact that it needs to be backed up while the applications that produce the data are running. To address this, Azure Backup provides application-consistent backup for Microsoft workloads by using the Volume Snapshot Service (VSS) to ensure that data is written correctly to storage.
 
 >[AZURE.NOTE] For Linux virtual machines, only file-consistent back up is possible, since Linux does not have an equivalent platform to VSS.
@@ -42,8 +42,8 @@ This table explains the types of consistency and the conditions they occur under
 | Crash consistency | No | This situation is equivalent to a machine experiencing a "crash" (through either a soft or hard reset). This typically happens when the Azure virtual machine is shut down at the time of back up. For Azure virtual machine back up, getting a crash-consistent recovery point means that Azure Backup gives no guarantees around the consistency of the data on the storage medium - either from the perspective of the operating system or from the perspective of the application. Only data that already exists on the disk at the time of back up is what gets captured and backed up. <br/> <br/> While there are no guarantees, in most cases the OS will boot. This is typically followed by a disk checking procedure like chkdsk to fix any corruption errors. Any in-memory data or writes that have not been completely flushed to the disk will be lost. The application typically follows with its own verification mechanism in case data rollback needs to be done. For Azure VM back up, getting a crash consistent recovery point means that Azure Backup gives no guarantees around the consistency of the data on the storage - either from the OS perspective or the application's perspective. This typically happens when the Azure VM is shut down at the time of back up.<br><br>As an example, if the transaction log has entries that are not present in the database, then the database software does a rollback till the data is consistent. When dealing with data spread across multiple virtual disks (like spanned volumes), a crash-consistent recovery point provides no guarantees for the correctness of the data.|
 
 
-## What you need to know about performance and resource utilization
-Like backup software that is deployed on-premises, back up of VMs in Azure also needs to be planned for capacity and resource utilization. The [Azure Storage limits](azure-subscription-service-limits.md#storage-limits) will define how to structure VM deployments to get maximum performance with minimum impact to running workloads.
+## Performance and resource utilization
+Like backup software that is deployed on-premises, back up of VMs in Azure also needs to be planned for capacity and resource utilization. The [Azure Storage limits](azure-subscription-service-limits.md#storage-limits) define how to structure VM deployments to get maximum performance with minimum impact to running workloads.
 
 There are two main Azure Storage limits that impact backup performance:
 
@@ -63,23 +63,21 @@ An additional factor that impacts performance is the **backup schedule**. If you
 Putting all these factors together means that storage account usage needs to be planned properly. Download the [VM backup capacity planning excel sheet](https://gallery.technet.microsoft.com/Azure-Backup-Storage-a46d7e33) to see the impact of your disk and backup schedule choices.
 
 ### Backup throughput
-For each disk being backed up, Azure Backup reads the blocks on the disk and stores only the changed data (incremental backup). This table shows the average throughput values you can expect from Azure Backup:
+For each disk being backed up, Azure Backup reads the blocks on the disk and stores only the changed data (incremental backup). This table shows the average throughput values you can expect from Azure Backup. Using this, you can estimate the amount of time that it will take to back up a disk of a given size.
 
 | Backup operation | Best-case Throughput |
 | ---------------- | ---------- |
 | Initial back up | 160 Mbps |
 | Incremental back up (DR) | 640 Mbps <br><br> This throughput can drop significantly if there is a lot of dispersed churn on the disk that needs to be backed up |
 
-Using this, you can estimate the amount of time that it will take to back up a disk of a given size.
-
 ### Total VM back up time
 While a majority of the time is spent in reading and copying data, there are other operations that contribute to the total time taken to back up a VM:
 
-- Time taken to [install or update the backup extension](backup-azure-vms.md#offline-vms)
-- Queue wait time: Since the backup service is processing backups from multiple customers, your backup operation might not start immediately. In times of peak load, the wait times can stretch up to 8 hours due to the number of backups being processed. However, the total VM back up time will be less than 24 hours for daily backup policies.
+- Time needed to [install or update the backup extension](backup-azure-vms.md#offline-vms)
+- Queue wait time - Since the backup service is processing backups from multiple customers, your backup operation might not start immediately. In times of peak load, the wait times can stretch up to 8 hours due to the number of backups being processed. However, the total VM back up time will be less than 24 hours for daily backup policies.
 
 ## How are protected instances calculated?
-Azure virtual machines that are backed up using Azure Backup will be subject to [Azure Backup pricing](http://azure.microsoft.com/pricing/details/backup/). The Protected Instances calculation is based on the *actual* size of the virtual machine, which is the sum of all the data in the virtual machine – excluding the “resource disk”. You are *not* billed based on the maximum size supported for each data disk attached to the virtual machine, but on the actual data stored in the data disk. Similarly, the backup storage bill is based on the amount of data stored with Azure Backup, which is the sum of the actual data in each recovery point.
+Azure virtual machines that are backed up using Azure Backup are subject to [Azure Backup pricing](http://azure.microsoft.com/pricing/details/backup/). The Protected Instances calculation is based on the *actual* size of the virtual machine, which is the sum of all the data in the virtual machine – excluding the “resource disk”. You are *not* billed based on the maximum size supported for each data disk attached to the virtual machine, but on the actual data stored in the data disk. Similarly, the backup storage bill is based on the amount of data stored with Azure Backup, which is the sum of the actual data in each recovery point.
 
 For example, take an A2-Standard sized virtual machine that has two additional data disks with a maximum size of 1TB each. The table below gives the actual data stored on each of these disks:
 
