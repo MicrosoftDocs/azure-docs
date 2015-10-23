@@ -40,6 +40,8 @@ API Apps provides the following features available today in public preview:
 
 These are just a few highlights. For more features that API Apps can take advantage of, see the [Web Apps overview](../app-service-web/app-service-web-overview.md).
 
+As an alternative to API Apps, you can use [Web Apps](../app-service-web/app-service-web-overview.md) or [Mobile Apps](../app-service-mobile/app-service-mobile-value-prop-preview.md) to host APIs. If you need offline sync or push notifications, use Mobile Apps.  If you don't need those features and don't need Swagger support with client code generation, use Web Apps.
+
 >[AZURE.NOTE] You can use [Azure API Management](../api-management/api-management-key-concepts.md) to control client access to APIs that are hosted by App Service API Apps. While API Apps provides authentication services, there are other access management features it does not offer which API Management does offer, such as endpoint consolidation and throttling.
 >
 >API Apps is currently in public preview. [App Service Web Apps](../app-service-web/app-service-web-overview.md) is a Generally Available (GA) service designed for building and hosting secure mission-critical applications at global scale. If you are looking for a GA service for building your API today, Web Apps is a great option. When API Apps goes GA, we'll provide a path for taking existing web apps and leveraging the additional features of API Apps.
