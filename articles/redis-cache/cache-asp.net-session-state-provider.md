@@ -19,7 +19,7 @@
 
 Azure Redis Cache provides a session state provider that you can use to store your session state in a cache rather than in-memory or in a SQL Server database. To use the caching session state provider, first configure your cache, and then configure your ASP.NET application for cache using the Redis Cache Session State NuGet package.
 
-It's often not practical in a real-world cloud app to avoid storing some form of state for a user session, but some approaches impact performance and scalability more than others. If you have to store state, the best solution is to keep the amount of state small and store it in cookies. If that isn't feasible, the next best solution is to use ASP.NET session state with a provider for distributed, in-memory cache. The worst solution from a performance and scalability standpoint is to use a database backed session state provider. This topic provides guidance on using the ASP.NET Session State Provider for Azure Redis Cache. For information on other session state options, see [ASP.NET Session State options](#SessionStorageOptions).
+It's often not practical in a real-world cloud app to avoid storing some form of state for a user session, but some approaches impact performance and scalability more than others. If you have to store state, the best solution is to keep the amount of state small and store it in cookies. If that isn't feasible, the next best solution is to use ASP.NET session state with a provider for distributed, in-memory cache. The worst solution from a performance and scalability standpoint is to use a database backed session state provider. This topic provides guidance on using the ASP.NET Session State Provider for Azure Redis Cache. For information on other session state options, see [ASP.NET Session State options](#ASPNET-Session-State-options).
 
 ## Store ASP.NET session state in the cache
 
@@ -40,18 +40,18 @@ The NuGet package downloads and adds the required assembly references and adds t
     <sessionStatemode="Custom" customProvider="MySessionStateStore">
         <providers>
         <!--
-            <add name="MySessionStateStore" 
-                host = "127.0.0.1" [String]
-                port = "" [number]
-                accessKey = "" [String]
-                ssl = "false" [true|false]
-                throwOnError = "true" [true|false]
-                retryTimeoutInMilliseconds = "0" [number]
-                databaseId = "0" [number]
-                applicationName = "" [String]
-                connectionTimeoutInMilliseconds = "5000" [number]
-                operationTimeoutInMilliseconds = "5000" [number]
-            />
+		<add name="MySessionStateStore"
+     	  	host = "127.0.0.1" [String]
+    		port = "" [number]
+    		accessKey = "" [String]
+    		ssl = "false" [true|false]
+    		throwOnError = "true" [true|false]
+    		retryTimeoutInMilliseconds = "0" [number]
+    		databaseId = "0" [number]
+    		applicationName = "" [String]
+    		connectionTimeoutInMilliseconds = "5000" [number]
+    		operationTimeoutInMilliseconds = "5000" [number]
+		/>
         -->
 		<add name="MySessionStateStore"type="Microsoft.Web.Redis.RedisSessionStateProvider"host="127.0.0.1"accessKey="" ssl="false"/>
         </providers>

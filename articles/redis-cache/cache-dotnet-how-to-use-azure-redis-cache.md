@@ -111,7 +111,7 @@ The steps in this section describe how to perform common tasks with Cache.
 
 -	[Connect to the cache][]
 -   [Add and retrieve objects from the cache][]
--   [Work with .NET objects in the cache](#work-with-.net-objects-in-the-cache)
+-   [Work with .NET objects in the cache](#work-with-net-objects-in-the-cache)
 -   [Store ASP.NET session state in the cache][]
 
 <a name="connect-to-cache"></a>
@@ -360,7 +360,7 @@ Be sure to comment out the standard **InProc** session state provider.
       </providers>
     </sessionState> -->
 
-For more information about configuring these settings and using the Azure Redis Session State Provider, see [Azure Redis Session State Provider][].
+For more information about configuring these settings and using the Azure Redis Session State Provider, see [Azure Redis Session State Provider](cache-asp.net-session-state-provider.md).
 
 <a name="next-steps"></a>
 ## Next Steps
