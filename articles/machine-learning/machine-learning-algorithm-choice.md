@@ -14,7 +14,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="08/10/2015"
+	ms.date="10/13/2015"
 	ms.author="brohrer;garye" />
 
 # How to choose algorithms for Microsoft Azure Machine Learning
@@ -42,11 +42,12 @@ rule-of-thumb recommendations, so don't worry about it being exact.
 Several data scientists I talked with said that the only sure way to
 find the very best algorithm is to try all of them.
 
-Here's an example from the [Azure Machine Learning
-Gallery](http://gallery.azureml.net/) of an experiment that tries
+Here's an example from the [Cortana Analytics Gallery](http://gallery.azureml.net/) of an experiment that tries
 several algorithms against the same data and compares the results:
 [Compare Multi-class Classifiers: Letter
 recognition](http://gallery.azureml.net/Details/a635502fc98b402a890efe21cec65b92).
+
+>[AZURE.TIP] To download and print a diagram that gives an overview of the capabilities of Machine Learning Studio, see [Overview diagram of Azure Machine Learning Studio capabilities](machine-learning-studio-overview-diagram.md).
 
 ## Flavors of machine learning
 

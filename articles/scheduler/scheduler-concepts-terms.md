@@ -1,6 +1,6 @@
 <properties
- pageTitle="Scheduler Concepts, Terminology, and Entity Hierarchy"
- description=""
+ pageTitle="Scheduler concepts, terms, and entities | Microsoft Azure"
+ description="Azure Scheduler concepts, terminology, and entity hierarchy, including jobs and job collections.  Shows a comprehensive example of a scheduled job."
  services="scheduler"
  documentationCenter=".NET"
  authors="krisragh"
@@ -11,53 +11,53 @@
  ms.workload="infrastructure-services"
  ms.tgt_pltfrm="na"
  ms.devlang="dotnet"
- ms.topic="get-started-article" 
+ ms.topic="get-started-article"
  ms.date="08/04/2015"
  ms.author="krisragh"/>
 
-# Scheduler Concepts, Terminology, and Entity Hierarchy
+# Scheduler concepts, terminology, + entity hierarchy
 
-## Scheduler Entity Hierarchy
+## Scheduler entity hierarchy
 
 The following table describes the main resources exposed or used by the Scheduler API:
 
 |Resource | Description |
 |---|---|
 |**Cloud service**|Conceptually, a cloud service represents an application. A subscription may have several cloud services.|
-|**Job collection**|A job collection contains a group of jobs, and maintains settings, quotas and throttles that are shared by jobs within the collection. A job collection is created by a subscription owner, and groups jobs together based on usage or application boundaries. It’s constrained to one region. It also allows the enforcement of quotas to constrain the usage of all jobs in that collection; the quotas include MaxJobs and MaxRecurrence.|
+|**Job collection**|A job collection contains a group of jobs and maintains settings, quotas, and throttles that are shared by jobs within the collection. A job collection is created by a subscription owner and groups jobs together based on usage or application boundaries. It’s constrained to one region. It also allows the enforcement of quotas to constrain the usage of all jobs in that collection. The quotas include MaxJobs and MaxRecurrence.|
 |**Job**|A job defines a single recurrent action, with simple or complex strategies for execution. Actions may include HTTP requests or storage queue requests.|
 |**Job history**|A job history represents details for an execution of a job. It contains success vs. failure, as well as any response details.|
 
-## Scheduler Entity Management
+## Scheduler entity management
 
 At a high level, the scheduler and the service management API expose the following operations on the resources:
 
-|Capability|Description and URI Address|
+|Capability|Description and URI address|
 |---|---|
 |**Cloud service management**|GET, PUT, and DELETE support for creating and modifying cloud services <p>`https://management.core.windows.net/{subscriptionId}/cloudservices/{cloudServiceName}`</p>|
-|**Job collection management**|GET, PUT, and DELETE support for creating and modifying job collections and the jobs contained therein. A job collection is a container for jobs, and maps to quotas and shared settings. Examples of quotas, described later, are maximum # of jobs and smallest recurrence interval <p>PUT & DELETE: `https://management.core.windows.net/{subscriptionId}/cloudservices/{cloudServiceName}/resources/scheduler/jobcollections/{jobCollectionName}`</p><p>GET: `https://management.core.windows.net/{subscriptionId}/cloudservices/{cloudServiceName}/resources/scheduler/~/jobcollections/{jobCollectionName}`</p>
-|**Job management**|GET, PUT, POST, PATCH, and DELETE support for creating and modifying jobs. All jobs must belong to a job collection that already exists, so there is no implicit creation <p>`https://management.core.windows.net/{subscriptionId}/cloudservices/{cloudServiceName}/resources/scheduler/~/jobcollections/{jobCollectionName}/jobs/{jobId}`</p>|
-|**Job history management**|GET support for fetching 60 days of job execution history, such as job elapsed time and job execution results. Adds query string parameter support for filtering based on state and status <P>`https://management.core.windows.net/{subscriptionId}/cloudservices/{cloudServiceName}/resources/scheduler/~/jobcollections/{jobCollectionName}/jobs/{jobId}/history`</p>|
+|**Job collection management**|GET, PUT, and DELETE support for creating and modifying job collections and the jobs contained therein. A job collection is a container for jobs and maps to quotas and shared settings. Examples of quotas, described later, are maximum number of jobs and smallest recurrence interval. <p>PUT and DELETE: `https://management.core.windows.net/{subscriptionId}/cloudservices/{cloudServiceName}/resources/scheduler/jobcollections/{jobCollectionName}`</p><p>GET: `https://management.core.windows.net/{subscriptionId}/cloudservices/{cloudServiceName}/resources/scheduler/~/jobcollections/{jobCollectionName}`</p>
+|**Job management**|GET, PUT, POST, PATCH, and DELETE support for creating and modifying jobs. All jobs must belong to a job collection that already exists, so there is no implicit creation. <p>`https://management.core.windows.net/{subscriptionId}/cloudservices/{cloudServiceName}/resources/scheduler/~/jobcollections/{jobCollectionName}/jobs/{jobId}`</p>|
+|**Job history management**|GET support for fetching 60 days of job execution history, such as job elapsed time and job execution results. Adds query string parameter support for filtering based on state and status. <P>`https://management.core.windows.net/{subscriptionId}/cloudservices/{cloudServiceName}/resources/scheduler/~/jobcollections/{jobCollectionName}/jobs/{jobId}/history`</p>|
 
-## Job Types
+## Job types
 
-There are two types of jobs: HTTP jobs (including HTTPS jobs that support SSL) and storage queue jobs. HTTP jobs are ideal if you have an endpoint of an existing workload or service. Storage queue jobs allow you to post messages to storage queues, so those jobs are ideal for workloads that use storage queues.
+There are two types of jobs: HTTP jobs (including HTTPS jobs that support SSL) and storage queue jobs. HTTP jobs are ideal if you have an endpoint of an existing workload or service. You can use storage queue jobs to post messages to storage queues, so those jobs are ideal for workloads that use storage queues.
 
-## The “Job” Entity in Detail
+## The "job" entity in detail
 
 At a basic level, a scheduled job has several parts:
 
-1.  The action to perform when the job timer fires  
+- The action to perform when the job timer fires  
 
-2.  (Optional) The time to run the job  
+- (Optional) The time to run the job  
 
-3.  (Optional) When and how often to repeat the job  
+- (Optional) When and how often to repeat the job  
 
-4.  (Optional) An action to fire if the primary action fails  
+- (Optional) An action to fire if the primary action fails  
 
 Internally, a scheduled job also contains system-provided data such as the next scheduled execution time.
 
-A comprehensive example scheduler job with is as follows. Details are provided in subsequent sections.
+The following code provides a comprehensive example of a scheduled job. Details are provided in subsequent sections.
 
 	{
 		"startTime": "2012-08-04T00:00Z",               // optional
@@ -109,31 +109,31 @@ A comprehensive example scheduler job with is as follows. Details are provided i
 		},
 	}
 
-As seen in the sample scheduler job above, a job definition has several parts:
+As seen in the sample scheduled job above, a job definition has several parts:
 
-1.  Start time (“startTime”)  
+- Start time (“startTime”)  
 
-2.  Action (“action”), which includes error action (“errorAction”)
+- Action (“action”), which includes error action (“errorAction”)
 
-3.  Recurrence (“recurrence”)  
+- Recurrence (“recurrence”)  
 
-4.  State (“state”)  
+- State (“state”)  
 
-5.  Status (“status”)  
+- Status (“status”)  
 
-6.  Retry policy (“retryPolicy”)  
+- Retry policy (“retryPolicy”)  
 
 Let’s examine each of these in detail:
 
 ## startTime
 
-“startTime” is the start time and allows the caller to specify a time zone offset on the wire in [ISO-8601 format](http://en.wikipedia.org/wiki/ISO_8601).
+The "startTime” is the start time and allows the caller to specify a time zone offset on the wire in [ISO-8601 format](http://en.wikipedia.org/wiki/ISO_8601).
 
 ## action and errorAction
 
-The “action” is the action invoked on each occurrence, and describes a type of service invocation. The Action is what will be executed on the provided schedule. Currently Scheduler supports HTTP and Storage Queue actions.
+The “action” is the action invoked on each occurrence and describes a type of service invocation. The action is what will be executed on the provided schedule. Scheduler supports HTTP and storage queue actions.
 
-The action in the example above is an http action. Below is an example of a storage queue action:
+The action in the example above is an HTTP action. Below is an example of a storage queue action:
 
 	{
 			"type": "storageQueue",
@@ -147,21 +147,21 @@ The action in the example above is an http action. Below is an example of a stor
 			},
 	}
 
-The “errorAction” is the error handler, the action invoked when the primary action fails. You can use this variable to call an error handling endpoint or send a user notification. This can be used for reaching a secondary endpoint in the case that the primary is not available (e.g. in the case of a disaster at the endpoint’s site) or can be used for notifying an error handling endpoint. Just like the primary action, the error action can be simple or composite logic based on other actions. To learn how to create a SAS token, refer to [Create and Use a Shared Access Signature](https://msdn.microsoft.com/library/azure/jj721951.aspx).
+The “errorAction” is the error handler, the action invoked when the primary action fails. You can use this variable to call an error-handling endpoint or send a user notification. This can be used for reaching a secondary endpoint in the case that the primary is not available (e.g., in the case of a disaster at the endpoint’s site) or can be used for notifying an error handling endpoint. Just like the primary action, the error action can be simple or composite logic based on other actions. To learn how to create a SAS token, refer to [Create and Use a Shared Access Signature](https://msdn.microsoft.com/library/azure/jj721951.aspx).
 
 ## recurrence
 
 Recurrence has several parts:
 
-1.  Frequency: One of minute, hour, day, week, month, year  
+- Frequency: One of minute, hour, day, week, month, year  
 
-2.  Interval: Interval at the given frequency for the recurrence  
+- Interval: Interval at the given frequency for the recurrence  
 
-3.  Prescribed schedule: Specify minutes, hours, weekdays, months, and monthdays of the recurrence  
+- Prescribed schedule: Specify minutes, hours, weekdays, months, and monthdays of the recurrence  
 
-4.  Count: Count of occurrences  
+- Count: Count of occurrences  
 
-5.  End time: No jobs will execute after the specified end time  
+- End time: No jobs will execute after the specified end time  
 
 A job is recurring if it has a recurring object specified in its JSON definition. If both count and endTime are specified, the completion rule that occurs first is honored.
 
@@ -175,35 +175,34 @@ Completed and faulted jobs are deleted after 60 days.
 
 ## status
 
-Once a Scheduler job has started, information will be returned about the current status of the job. This object is not settable by the user – it’s set by the system. However, it is included in the job object (rather than a separate linked resource) so that one can obtain the status of a job easily.
+Once a Scheduler job has started, information will be returned about the current status of the job. This object is not settable by the user—it’s set by the system. However, it is included in the job object (rather than a separate linked resource) so that one can obtain the status of a job easily.
 
 Job status includes the time of the previous execution (if any), the time of the next scheduled execution (for in-progress jobs), and the execution count of the job.
 
 ## retryPolicy
 
-If a Scheduler job fails, it is possible to specify a retry policy to determine whether and how the action is retried. This is determined by the **retryType** object – it is set to **none** if there is no retry policy, as shown above. Set it to **fixed** if there is a retry policy.
+If a Scheduler job fails, it is possible to specify a retry policy to determine whether and how the action is retried. This is determined by the **retryType** object—it is set to **none** if there is no retry policy, as shown above. Set it to **fixed** if there is a retry policy.
 
-To set a retry policy, two values additional settings may be specified: a retry interval (**retryInterval**) and the number of retries (**retryCount**).
+To set a retry policy, two additional settings may be specified: a retry interval (**retryInterval**) and the number of retries (**retryCount**).
 
-Retry interval, specified with the **retryInterval** object, is the interval between retries. Its default value is 1 minute, its minimum value is 1 minute, and its maximum value is 18 months. It is defined in the ISO 8601 format. Similarly, the value of the number of retries is specified with the **retryCount** object; it is the number of times a retry is attempted. Its default value is 5 and its maximum value is 20\. Both **retryInterval** and **retryCount** are optional – they are given their default values if **retryType** is set to **fixed** and no values are specified explicitly.
+The retry interval, specified with the **retryInterval** object, is the interval between retries. Its default value is 1 minute, its minimum value is 1 minute, and its maximum value is 18 months. It is defined in the ISO 8601 format. Similarly, the value of the number of retries is specified with the **retryCount** object; it is the number of times a retry is attempted. Its default value is 5, and its maximum value is 20\. Both **retryInterval** and **retryCount** are optional. They are given their default values if **retryType** is set to **fixed** and no values are specified explicitly.
 
-## See Also
+## See also
 
  [What is Scheduler?](scheduler-intro.md)
 
- [Get Started Using Scheduler in the Management Portal](scheduler-get-started-portal.md)
+ [Get started using Azure Scheduler in the Azure portal](scheduler-get-started-portal.md)
 
- [Plans and Billing in Azure Scheduler](scheduler-plans-billing.md)
+ [Plans and billing in Azure Scheduler](scheduler-plans-billing.md)
 
- [How to Build Complex Schedules and Advanced Recurrence with Azure Scheduler](scheduler-advanced-complexity.md)
+ [How to build complex schedules and advanced recurrence with Azure Scheduler](scheduler-advanced-complexity.md)
 
- [Scheduler REST API Reference](https://msdn.microsoft.com/library/dn528946)
+ [Azure Scheduler REST API reference](https://msdn.microsoft.com/library/dn528946)
 
- [Scheduler PowerShell Cmdlets Reference](scheduler-powershell-reference.md)
+ [Azure Scheduler PowerShell cmdlets reference](scheduler-powershell-reference.md)
 
- [Scheduler High-Availability and Reliability](scheduler-high-availability-reliability.md)
+ [Azure Scheduler high-availability and reliability](scheduler-high-availability-reliability.md)
 
- [Scheduler Limits, Defaults, and Error Codes](scheduler-limits-defaults-errors.md)
+ [Azure Scheduler limits, defaults, and error codes](scheduler-limits-defaults-errors.md)
 
- [Scheduler Outbound Authentication](scheduler-outbound-authentication.md)
- 
+ [Azure Scheduler outbound authentication](scheduler-outbound-authentication.md)

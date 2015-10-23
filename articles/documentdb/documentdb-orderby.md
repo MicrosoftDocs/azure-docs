@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/19/2015" 
+	ms.date="10/20/2015" 
 	ms.author="arramac"/>
 
 # Sorting DocumentDB data using Order By
@@ -125,7 +125,7 @@ Here's how you can create a collection with indexing for Order By against just t
         });
 
 ## Samples
-Take a look at this [Github samples project](https://github.com/Azure/azure-documentdb-net/tree/master/samples/orderby) that demonstrates how to use Order By, including creating indexing policies and paging using Order By. The samples are open source and we encourage you to submit pull requests with contributions that could benefit other DocumentDB developers. Please refer to the [Contribution guidelines](https://github.com/Azure/azure-documentdb-net/blob/master/Contributing.md) for guidance on how to contribute.  
+Take a look at this [Github samples project](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples/Queries.OrderBy) that demonstrates how to use Order By, including creating indexing policies and paging using Order By. The samples are open source and we encourage you to submit pull requests with contributions that could benefit other DocumentDB developers. Please refer to the [Contribution guidelines](https://github.com/Azure/azure-documentdb-net/blob/master/Contributing.md) for guidance on how to contribute.  
 
 ## What's coming next?
 
@@ -152,7 +152,7 @@ The indexing storage overhead will be proportionate to the number of properties.
 
 **How do I query my existing data in DocumentDB using Order By?**
 
-This will be supported with the availability of the  Dynamic Indexing Policies improvement mentioned in the [What's Coming Next](what's-coming-next) section. In order to do this today, you have to export your data and re-import into a new DocumentDB collection created with a Range/Order By Index. The DocumentDB Import Tool can be used to migrate your data between collections. 
+In order to sort query results using Order By, you must modify the indexing policy of the collection to use a Range index type against the property used to sort. See [Modifying Indexing Policy](documentdb-indexing-policies.md#modifying-the-indexing-policy-of-a-collection). 
 
 **What are the current limitations of Order By?**
 
@@ -168,12 +168,12 @@ You cannot perform the following:
 
 ## Next steps
 
-Fork the [Github samples project](https://github.com/Azure/azure-documentdb-net/tree/master/samples/orderby) and start ordering your data! 
+Fork the [Github samples project](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples/Queries.OrderBy) and start ordering your data! 
 
 ## References
 * [DocumentDB Query Reference](documentdb-sql-query.md)
 * [DocumentDB Indexing Policy Reference](documentdb-indexing-policies.md)
 * [DocumentDB SQL Reference](https://msdn.microsoft.com/library/azure/dn782250.aspx)
-* [DocumentDB Order By Samples](https://github.com/Azure/azure-documentdb-net/tree/master/samples/orderby)
+* [DocumentDB Order By Samples](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples/Queries.OrderBy)
  
 

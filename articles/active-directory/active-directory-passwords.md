@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/08/2015" 
+	ms.date="10/08/2015" 
 	ms.author="asteen"/>
 
 # Manage your passwords from anywhere
@@ -51,7 +51,36 @@ Here are some of the reasons you should use Azure AD's password management capab
 - **Lower helpdesk volumes** - password management is the single largest helpdesk driver for most organizations
 - **Enable mobility** - users can reset their passwords from wherever they are
 
-## Recent updates
+## Recent service updates
+
+**Usability updates to Registration Page** - October 2015
+
+- Now, when a user has data already registered, he or she can just click "looks good" to update the data without needing to re-send the email or phone call.
+
+**Improved Reliability of Password Writeback** - September 2015
+
+- As of the September release of Azure AD Connect, the password writeback agent will now more agressively retry connections and additional, more robust, failover capabilities.
+
+**API for Retrieving Password Reset Reporting Data** - August 2015
+
+- Now, the data behind the password reset reports can be retrieved directly from the [Azure AD Reports and Events API](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprActivityEvent).
+
+**Support for Azure AD Password Reset During Cloud Domain Join** - August 2015
+
+- Now, any cloud user can reset his or her password right from the Windows 10 sign in screen during the cloud domain join onboarding experience.  Note, this is not yet exposed on the Windows 10 sign in screen.
+
+**Enforce Password Reset Registration at Sign-In to Azure and Federated Apps** - July 2015
+
+- In addition to enforcing registration when signing into myapps.microsoft.com, we now support enforcing registration during  sign ins to the Azure Management Portal and any of your federated single-sign on applications
+
+**Security Question Localization Support** - May 2015
+
+- Now, you have the option to select pre-defined security questions which are localized in the full O365 language set when configuring Security Questions for password reset.
+
+**Account Unlock Support during Password Reset** - June 2015
+
+- If you're using password writeback and you reset your password when your account is locked, we'll automatically unlock your Active Directory account!
+
 **Branded SSPR Registration** - April 2015
 
 - The password reset reigstration page is now branded with your company logo!
@@ -63,6 +92,22 @@ Here are some of the reasons you should use Azure AD's password management capab
 **Account Unlock** - March 2015
 
 - Now users can unlock their accounts when password reset occurs
+
+## Coming soon
+
+Below are some of the cool features we're working on right now!
+
+**Support for Unlocking Active Directory Accounts without Resetting a Password** - Coming soon!
+
+- Many folks have requested the ability to unlock AD accounts separately from password reset.  We're happy to announce that we are putting the finishing touches on this feature right now, and it will soon be released to anyone using password writeback!
+
+**Support for Reminding Users to Update their Registered Data During Sign-in** - Work in progress
+
+- Today, we support reminding users to update their registered data when accessing myapps.microsoft.com, but we're working on the ability to do so for all sign ins.
+
+**Enforce Password Reset Registration at Sign-In to Office 365 Apps** - Work in progress
+
+- More and more office apps are coming on board to the latest and greatest Azure AD sign in experience.  When they do, they'll automatically be supported for SSPR enforced registration!
 
 <br/>
 <br/>
@@ -79,4 +124,4 @@ Here are some of the reasons you should use Azure AD's password management capab
 * [Password Management FAQ](active-directory-passwords-faq.md)
 * [Troubleshoot Password Management](active-directory-passwords-troubleshoot.md)
 * [Learn More](active-directory-passwords-learn-more.md)
-* [Password Management on MSDN](https://msdn.microsoft.com/library/azure/dn510386.aspx) 
+* [Password Management on MSDN](https://msdn.microsoft.com/library/azure/dn510386.aspx)

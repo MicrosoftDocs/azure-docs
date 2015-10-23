@@ -1,11 +1,12 @@
 <properties 
-	pageTitle="Use ReportViewer in a Web Site Hosted in Azure"
+	pageTitle="Use ReportViewer in a Web Site | Microsoft Azure"
 	description="This topic describes how to build a Microsoft Azure Web site with the Visual Studio ReportViewer control that displays a report stored on an Microsoft Azure Virtual Machine."
 	services="virtual-machines"
 	documentationCenter="na"
 	authors="rothja"
 	manager="jeffreyg"
-	editor="monicar" />
+	editor="monicar" 
+	tags="azure-service-management" />
 <tags 
 	ms.service="virtual-machines"
 	ms.devlang="na"
@@ -16,6 +17,9 @@
 	ms.author="jroth" />
 
 # Use ReportViewer in a Web Site Hosted in Azure
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Resource Manager model.
+
 
 You can build a Microsoft Azure Web site with the Visual Studio ReportViewer control that displays a report stored on an Microsoft Azure Virtual Machine. The ReportViewer control is in a Web application that you build using the ASP.NET Web application template.
 
@@ -31,7 +35,7 @@ To incorporate ReportViewer into your Microsoft Azure Web site, you need to comp
 
 ## Prerequisites
 
-Review the “General recommendation and best practices” section in [SQL Server Business Intelligence in Azure Virtual Machines](https://msdn.microsoft.com/library/azure/jj992719.aspx).
+Review the “General recommendation and best practices” section in [SQL Server Business Intelligence in Azure Virtual Machines](virtual-machines-sql-server-business-intelligence.md).
 
 >[AZURE.NOTE] ReportViewer controls are shipped with Visual Studio, Standard Edition or above. If you are using the Web Developer Express Edition, you must install the [MICROSOFT REPORT VIEWER 2012 RUNTIME](https://www.microsoft.com/download/details.aspx?id=35747) to use the ReportViewer runtime features.
 >

@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Configure MPIO for your StorSimple device | Microsoft Azure"
-   description="Configure MPIO for your StorSimple device connected to a host running Windows Server 2012 R2"
+   description="Describes how to configure Multipath I/O (MPIO) for your StorSimple device connected to a host running Windows Server 2012 R2."
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
@@ -12,10 +12,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/11/2015"
+   ms.date="08/31/2015"
    ms.author="alkohli" />
 
-# Configure MPIO for your StorSimple device
+# Configure Multipath I/O for your StorSimple device
 
 Microsoft built support for the Multipath I/O (MPIO) feature in Windows Server to help build highly available, fault-tolerant SAN configurations. MPIO uses redundant physical path components — adapters, cables, and switches — to create logical paths between the server and the storage device. If there is a component failure, causing a logical path to fail, multipathing logic uses an alternate path for I/O so that applications can still access their data. Additionally depending on your configuration, MPIO can also improve performance by re-balancing the load across all these paths. For more information, see [MPIO overview](https://technet.microsoft.com/library/cc725907.aspx "MPIO overview and features").  
 

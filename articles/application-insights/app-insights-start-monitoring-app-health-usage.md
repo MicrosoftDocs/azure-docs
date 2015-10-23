@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="08/05/2015"
+	ms.date="10/04/2015"
 	ms.author="awills"/>
 
 
@@ -54,7 +54,7 @@ A [resource][roles] in Azure is an instance of a service. This resource is where
 
 The choice of application type sets the default content of the resource blades and the properties visible in [Metrics Explorer][metrics].
 
-#### Copy of the Instrumentation Key
+#### Copy the Instrumentation Key
 
 The key identifies the resource, and you'll install it soon in the SDK to direct data to the resource.
 
@@ -66,14 +66,13 @@ The steps you've just done to create a new resource are a good way to start moni
 
 Installing and configuring the Application Insights SDK varies depending on the platform you're working on. For ASP.NET apps, it's easy.
 
-1. In Visual Studio, edit the NuGet packages of your desktop app project.
+1. In Visual Studio, edit the NuGet packages of your web app project.
 
     ![Right-click the project and select Manage Nuget Packages](./media/app-insights-start-monitoring-app-health-usage/03-nuget.png)
 
 2. Install Application Insights SDK for Web Apps.
 
     ![Search for "Application Insights"](./media/app-insights-start-monitoring-app-health-usage/04-ai-nuget.png)
-
 
 3. Edit ApplicationInsights.config (which was added by the NuGet install). Insert this just before the closing tag:
 
@@ -109,49 +108,68 @@ Look for data in the Overview charts. At first, you'll just see one or two point
 
 Click through any chart to see more detailed metrics. [Learn more about metrics.][perf]
 
-Now deploy your application and watch the data accumulate.
-
-
-When you run in debug mode, telemetry is expedited through the pipeline, so that you should see data appearing within seconds. When you deploy your app, data accumulates more slowly.
-
 #### No data?
 
-* Open the [Search][diagnostic] tile, to see individual events.
 * Use the application, opening different pages so that it generates some telemetry.
+* Open the [Search][diagnostic] tile, to see individual events. Sometimes it takes events a little while longer to get through the metrics pipeline.
 * Wait a few seconds and click **Refresh**. Charts refresh themselves periodically, but you can refresh manually if you're waiting for some data to show up.
 * See [Troubleshooting][qna].
+
+## Publish your app
+
+Now deploy your application to IIS or to Azure and watch the data accumulate.
+
+![Use Visual Studio to publish your app](./media/app-insights-start-monitoring-app-health-usage/15-publish.png)
+
+When you run in debug mode, telemetry is expedited through the pipeline, so that you should see data appearing within seconds. When you deploy your app in Release configuration, data accumulates more slowly.
+
+#### No data after you publish to your server?
+
+Open these ports for outgoing traffic in your server's firewall:
+
++ `dc.services.visualstudio.com:443`
++ `f5.services.visualstudio.com:443`
+
 
 #### Trouble on your build server?
 
 Please see [this Troubleshooting item](app-insights-troubleshoot-faq.md#NuGetBuild).
 
-## 5. Add dependency tracking
+
+
+## 5. Add dependency tracking (and IIS perf counters)
 
 The SDK needs a little help to get access to some data. In particular, you'll need this additional step in order to automatically measure calls from your app to databases, REST APIs, and other external components. These dependency metrics can be invaluable to help you diagnose performance issues.
+
+If you're running on your own IIS server, this step will also allow system performance counters to show up in [metrics explorer](app-insights-metrics-explorer.md).
 
 #### If your app runs in your IIS server
 
 Sign in to your server with admin rights, and install [Application Insights Status Monitor](http://go.microsoft.com/fwlink/?LinkId=506648).
 
-(You can also use Status Monitor to [instrument an app that's already running](app-insights-monitor-performance-live-website-now.md), even if it hasn't been built with the SDK.)
+You might need to [open additional outgoing ports in your firewall](app-insights-monitor-performance-live-website-now.md#troubleshooting).
+
+This step also enables [reporting of performance counters](app-insights-web-monitor-performance.md#system-performance-counters) such as CPU, memory, network occupancy.
 
 #### If your app is an Azure Web App
 
 In the control panel of your Azure Web App, add the Application Insights extension.
 
-![In your web app, Tools, Performance Monitoring, Add, Application Insights](./media/app-insights-start-monitoring-app-health-usage/05-extend.png)
+![In your web app, Settings, Extensions, Add, Application Insights](./media/app-insights-start-monitoring-app-health-usage/05-extend.png)
 
-(The extension only assists an app that has been built with the SDK. Unlike Status Monitor, it can't instrument an existing app.)
+
+#### If it's an Azure cloud services project
+
+[Add scripts to web and worker roles](app-insights-cloudservices.md).
+
+
 
 ## 6. Add client-side monitoring
 
-You've installed the SDK that sends telemetry data from the server (back end) of your application. Now you can add client-side monitoring. This provides you with data on users, sessions, page views, and any exceptions or crashes that occur in the client. 
+You've installed the SDK that sends telemetry data from the server (back end) of your application. Now you can add client-side monitoring. This provides you with data on users, sessions, page views, and any exceptions or crashes that occur in the browser. You'll also be able to write your own code to track how your users work with your app, right down to the detailed level of clicks and keystrokes.
 
-You'll also be able to write your own code to track how your users work with your app, right down to the detailed level of clicks and keystrokes.
 
-#### If your clients are web browsers
-
-If your app displays web pages, add a JavaScript snippet to every page. Get the code from your Application Insights resource:
+Add a JavaScript snippet to every page. Get the code from your Application Insights resource:
 
 ![In your web app, open Quick Start and click 'Get code to monitor my web pages'](./media/app-insights-start-monitoring-app-health-usage/02-monitor-web-page.png)
 
@@ -159,12 +177,21 @@ Notice that the code contains the instrumentation key that identifies your appli
 
 [Learn more about web page tracking.](app-insights-web-track-usage.md)
 
-#### If your clients are device apps
 
-If your application is serving clients such as phones or other devices, add the [appropriate SDK](app-insights-platforms.md) to your device app.
+## Track Application version
 
-If you configure the client SDK with the same instrumentation key as the server SDK, the two streams will be integrated so that you can see them together.
+Make sure `buildinfo.config` is generated by your MSBuild process. In your .csproj file, add:  
 
+```XML
+
+    <PropertyGroup>
+      <GenerateBuildInfoConfigFile>true</GenerateBuildInfoConfigFile>    <IncludeServerNameInBuildInfo>true</IncludeServerNameInBuildInfo>
+    </PropertyGroup> 
+```
+
+When it has the build info, the Application Insights web module automatically adds **Application version** as a property to every item of telemetry. That allows you to filter by version when performing [diagnostic searches][diagnostic] or when [exploring metrics][metrics]. 
+
+However, notice that the build version number is generated only by MS Build, not by the developer build in Visual Studio.
 
 ## 7. Complete your installation
 
@@ -203,13 +230,13 @@ In this case, it doesn't add the [JavaScript SDK][client] to your web pages - we
 
 #### Setup options
 
-If this is your first time, you'll be asked sign in or sign up to Microsoft Azure Preview. (It's separate from your Visual Studio Online account.)
+If this is your first time, you'll be asked sign in or sign up to Microsoft Azure Preview. 
 
 If this app is part of a bigger application, you might want to use **Configure settings** to put it in the same resource group as the other components.
 
-*No Application Insights option? Check you're using Visual Studio 2013 Update 3 or later, that Application Insights Tools are enabled in Extensions and Updates.*
+*No Application Insights option? Check that you're using Visual Studio 2013 Update 3 or later and that Application Insights Tools are enabled in Extensions and Updates.*
 
-#### Open Application Insights from your project.
+#### Open Application Insights from your project
 
 ![Right-click your project and open the Azure portal](./media/app-insights-start-monitoring-app-health-usage/appinsights-04-openPortal.png)
 
@@ -239,4 +266,4 @@ If this app is part of a bigger application, you might want to use **Configure s
 [qna]: app-insights-troubleshoot-faq.md
 [redfield]: app-insights-monitor-performance-live-website-now.md
 [roles]: app-insights-resources-roles-access-control.md
-[start]: app-insights-get-started.md
+[start]: app-insights-overview.md

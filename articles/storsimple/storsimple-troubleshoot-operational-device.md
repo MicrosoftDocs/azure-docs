@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Troubleshoot an operational StorSimple device | Microsoft Azure"
-   description="Describes how to diagnose and fix errors that occur on a StorSimple device that is operational."
+   pageTitle="Troubleshoot a deployed StorSimple device | Microsoft Azure"
+   description="Describes how to diagnose and fix errors that occur on a StorSimple device that is currently deployed and operational."
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
@@ -12,14 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/19/2015"
+   ms.date="08/31/2015"
    ms.author="v-sharos" />
 
 # Troubleshoot an operational StorSimple device
 
 ## Overview
 
-This article provides helpful troubleshooting guidance for resolving configuration issues that you might encounter after your StorSimple device is deployed and operational. It describes common issues, possible causes, and recommended steps to help you resolve problems that you might experience when you run StorSimple. This information applies to both the StorSimple on-premises physical device and the StorSimple virtual device.
+This article provides helpful troubleshooting guidance for resolving configuration issues that you might encounter after your StorSimple device is deployed and operational. It describes common issues, possible causes, and recommended steps to help you resolve problems that you might experience when you run Microsoft Azure StorSimple. This information applies to both the StorSimple on-premises physical device and the StorSimple virtual device.
 
 At the end of this article you can find a list of error codes that you might encounter during Microsoft Azure StorSimple operation, as well as steps you can take to resolve the errors. 
 

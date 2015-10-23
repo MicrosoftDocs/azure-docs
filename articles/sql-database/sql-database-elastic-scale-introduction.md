@@ -1,10 +1,10 @@
 <properties
     pageTitle="Azure SQL Database - elastic database tools"
-    description="Easily scale database resources in the cloud using elastic database tools."
+    description="Software as a Service (SaaS) developers can easily create elastic, scalable databases in the cloud using these tools"
     services="sql-database"
     documentationCenter=""
     manager="jeffreyg"
-    authors="sidneyh"
+    authors="ddove"
     editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="08/03/2015"
+    ms.date="08/27/2015"
     ms.author="sidneyh"/>
 
 # Elastic Database features overview
@@ -28,6 +28,8 @@
 The graphic below shows an architecture that includes the **Elastic Database features** in relation to a collection of databases. 
 
 ![Elastic Database tools][1]
+
+For a printable version of this graphic, go to [Elastic database overview download](http://aka.ms/axmybc).
 
 In this graphic, colors of the database represent schemas. Databases with the same color share the same schemas.
 
@@ -55,11 +57,11 @@ The figure below shows the horizontal and vertical dimensions of scaling, which 
 
 Horizontal scaling refers to adding or removing databases in order to adjust capacity or overall performance. This is also called “scaling out”. Sharding, in which data is partitioned across a collection of identically structured databases, is a common way to implement horizontal scaling.  
 
-Vertical scaling refers to increasing or decreasing the performance level of an individual database—this is also known as “scaling up”.
+Vertical scaling refers to increasing or decreasing the performance level of an individual database—this is also known as “scaling up.”
 
 Most cloud-scale database applications will use a combination of these two strategies. For example, a Software as a Service application may use horizontal scaling to provision new end-customers and vertical scaling to allow each end-customer’s database to grow or shrink resources as needed by the workload.
 
-* Horizontal scaling is managed using the [Elastic Database client library](sql-database-elastic-client-overview.md).
+* Horizontal scaling is managed using the [Elastic Database client library](sql-database-elastic-database-client-library.md).
 
 * Vertical scaling is accomplished using Azure PowerShell cmdlets to change the service tier, or by placing databases in an Elastic Database pool.
 
@@ -83,17 +85,21 @@ Some applications use the simplest approach of creating a separate database for 
 Others scenarios pack multiple tenants together into databases, rather than isolating them into separate databases. This is a typical **multi-tenant sharding pattern** – and it may be driven by the fact that an application manages large numbers of very small tenants. In multi-tenant sharding, the rows in the database tables are all designed to carry a key identifying the tenant ID or sharding key. Again, the application tier is responsible for routing a tenant’s request to the appropriate database, and this can be supported by the elastic database client library. In addition, row-level security can be used to filter which rows each tenant can access – for details, see [Multi-tenant applications with elastic database tools and row-level security](sql-database-elastic-tools-multi-tenant-row-level-security.md). Redistributing data among databases may be needed with the multi-tenant sharding pattern, and this is facilitated by the elastic database split-merge tool.
 
 ### Move data from multiple to single-tenancy databases
-When creating a SaaS application, it is typical to offer prospective customers a trial version of the software. In this case, it is cost-effective to use a multi-tenant database for the data. However, when a prospect becomes a customer, a single-tenant database is better since it provides better performance. If the customer had created data during the trial period, use the [split-merge tool](sql-database-elastic-scale-overview-split-and-merge) to move the data from the multi-tenant to the new single-tenant database.
+When creating a SaaS application, it is typical to offer prospective customers a trial version of the software. In this case, it is cost-effective to use a multi-tenant database for the data. However, when a prospect becomes a customer, a single-tenant database is better since it provides better performance. If the customer had created data during the trial period, use the [split-merge tool](sql-database-elastic-scale-overview-split-and-merge.md) to move the data from the multi-tenant to the new single-tenant database.
 
 ## Next steps
 
 For a sample app that demonstrates the client library, see [Get started with Elastic Datbabase tools](sql-database-elastic-scale-get-started.md).
 
-To use the split-merge tool, you must [configure security](sql-database-elastic-scale-split-merge-security-configuration,md). 
+To use the split-merge tool, you must [configure security](sql-database-elastic-scale-split-merge-security-configuration.md). 
 
 To see the specifics of the Elastic Database pool, see [Price and performance considerations for an elastic database pool](sql-database-elastic-pool-guidance.md), or create a new pool with the [tutorial](sql-database-elastic-pool-portal.md).  
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
+
+### Feedback please!
+What can we do better? Does this topic explain the feature clearly? Or are you puzzled by any bit of it? We aim to please, so use the voting buttons, and tell us how we failed (or succeeded). And if you want us to contact you, include your email in your feedback.
+
 
 <!--Anchors-->
 <!--Image references-->

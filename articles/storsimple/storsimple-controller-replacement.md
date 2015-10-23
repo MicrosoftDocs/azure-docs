@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Replace a controller module on your StorSimple device | Microsoft Azure"
+   pageTitle="Replace a StorSimple device controller | Microsoft Azure"
    description="Explains how to remove and replace one or both controller modules on your StorSimple device."
    services="storsimple"
    documentationCenter=""
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/12/2015"
+   ms.date="09/10/2015"
    ms.author="alkohli" />
 
 # Replace a controller module on your StorSimple device
@@ -32,14 +32,14 @@ The following table shows the supported controller replacement scenarios.
 
 |Case|Replacement scenario|Applicable procedure|
 |:---|:-------------------|:-------------------|
-|1|One controller is in a failed state, the other controller is healthy and active.|[Single controller replacement](#replace-a-single-controller)|
-|2|Both the controllers have failed and require replacement. The chassis, disks, and.disk enclosure are healthy.|[Dual controller replacement](#replace-both-controllers)|
+|1|One controller is in a failed state, the other controller is healthy and active.|[Single controller replacement](#replace-a-single-controller), which describes the [logic behind a single controller replacement](#single-controller-replacement-logic), as well as the [replacement steps](#single-controller-replacement-steps).|
+|2|Both the controllers have failed and require replacement. The chassis, disks, and.disk enclosure are healthy.|[Dual controller replacement](#replace-both-controllers), which describes the [logic behind a dual controller replacement](#dual-controller-replacement-logic), as well as the [replacement steps](#dual-controller-replacement-steps). |
 |3|Controllers from the same device or from different devices are swapped. The chassis, disks, and disk enclosures are healthy.|A slot mismatch alert message will appear.|
-|4|One controller is missing and the other controller fails.|[Dual controller replacement](#replace-both-controllers)|
+|4|One controller is missing and the other controller fails.|[Dual controller replacement](#replace-both-controllers), which describes the [logic behind a dual controller replacement](#dual-controller-replacement-logic), as well as the [replacement steps](#dual-controller-replacement-steps).|
 |5|One or both controllers have failed. You cannot access the device through the serial console or Windows PowerShell remoting.|[Contact Microsoft Support](storsimple-contact-microsoft-support.md) for a manual controller replacement procedure.|
 |6|The controllers have a different build version, which may be due to:<ul><li>Controllers have a different software version.</li><li>Controllers have a different firmware version.</li></ul>|If the controller software versions are different, the replacement logic detects that and updates the software version on the replacement controller.<br><br>If the controller firmware versions are different and the old firmware version is **not** automatically upgradeable, an alert message will appear in Management Portal. You should scan for updates and install the firmware updates.</br></br>If the controller firmware versions are different and the old firmware version is automatically upgradeable, the controller replacement logic will detect this, and after the controller starts, the firmware will be automatically updated.|
 
-You need to remove a controller module if it has failed. One or both the controller modules can fail, which can result in a single controller replacement or dual controller replacement. For replacement procedures, see the following:
+You need to remove a controller module if it has failed. One or both the controller modules can fail, which can result in a single controller replacement or dual controller replacement. For replacement procedures and the logic behind them, see the following:
 
 - [Replace a single controller](#replace-a-single-controller)
 - [Replace both controllers](#replace-both-controllers)
@@ -194,7 +194,7 @@ Use the following procedure to remove a faulty controller module from your StorS
 
 Use the following procedure to install a factory-supplied controller module after you remove a faulty module from your StorSimple device.
 
-### To install a controller module
+#### To install a controller module
 
 1. Check to see if there is any damage to the interface connectors. Do not install the module if any of the connector pins are damaged or bent.
 

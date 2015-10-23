@@ -1,8 +1,8 @@
 <properties pageTitle="Azure Search Service REST API Version 2014-10-20-Preview" description="Azure Search Service REST API Version 2014-10-20-Preview" services="search" solutions="" documentationCenter="" authors="HeidiSteen" manager="mblythe" editor="" />
 
-<tags ms.service="search" ms.devlang="rest-api" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="na" ms.date="07/22/2015" ms.author="heidist" />
+<tags ms.service="search" ms.devlang="rest-api" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="na" ms.date="08/25/2015" ms.author="heidist" />
 
-# Azure Search Service REST API: Version 2014-10-20-Preview #
+#Azure Search Service REST API: Version 2014-10-20-Preview
 
 This document describes the pre-release **2014-10-20-Preview** version of the Azure Search Service REST API, released as an update to the first Azure Search Public Preview. Because this version will be phased out soon, we strongly recommend that you use the version associated with the generally available release instead. For guidance on code migration, see [Transition from preview to the generally available API version](search-transition-from-preview.md).
 
@@ -12,7 +12,7 @@ Other API content related to the **2014-10-20-Preview** version includes the fol
 
 Documentation for the current, generally available version of the Azure Search REST API can be found on MSDN. See [Azure Search Service REST API](http://msdn.microsoft.com/library/azure/dn798935.aspx) for more information.
 
-##About the Service REST API##
+##About the Service REST API
 
 Azure Search is a cloud-based service that you can use to build custom search applications.
 Azure Search has the concepts of *search services* and *indexes*, where a search service contains one or more indexes. Your search service is uniquely identified by a fully-qualified domain name (for example: `mysearchservice.search.windows.net`). An api-key is generated when the service is provisioned, and is used to authenticate requests to your Azure Search service.
@@ -127,7 +127,7 @@ The following example provides an illustration of a schema used for searching on
       {"name": "hotelId", "type": "Edm.String", "key": true, "searchable": false},
       {"name": "baseRate", "type": "Edm.Double"},
       {"name": "description", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false},
-	  {"name": "description_fr", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false, analyzer: "fr.lucene"},
+	  {"name": "description_fr", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false, "analyzer": "fr.lucene"},
       {"name": "hotelName", "type": "Edm.String"},
       {"name": "category", "type": "Edm.String"},
       {"name": "tags", "type": "Collection(Edm.String)"},
@@ -655,7 +655,7 @@ You can currently only have one suggester in the suggesters collections in the c
         {"name": "hotelId", "type": "Edm.String", "key": true, "searchable": false},
         {"name": "baseRate", "type": "Edm.Double"},
         {"name": "description", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false},
-	    {"name": "description_fr", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false, analyzer="fr.lucene"},
+	    {"name": "description_fr", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false, "analyzer"="fr.lucene"},
         {"name": "hotelName", "type": "Edm.String"},
         {"name": "category", "type": "Edm.String"},
         {"name": "tags", "type": "Collection(Edm.String)"},

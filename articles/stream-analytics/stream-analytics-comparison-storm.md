@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="08/19/2015"
+	ms.date="10/13/2015"
 	ms.author="jeffstok"/>
 
 # Comparison of Apache Storm and Azure Stream Analytics #
@@ -578,7 +578,7 @@ While both provide benefits of a PaaS solution, there are a few major distinguis
             </td>
             <td width="204" valign="top">
                 <p>
-                    Yes, by configuring published Azure Machine Learning models as functions during ASA job creation.
+                    By configuring published Azure Machine Learning models as functions during ASA job creation <a href="http://blogs.msdn.com/b/streamanalytics/archive/2015/05/24/real-time-scoring-of-streaming-data-using-machine-learning-models.aspx">(private preview)</a>.
                 </p>
             </td>
             <td width="246" valign="top">

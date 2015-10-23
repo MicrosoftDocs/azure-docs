@@ -34,14 +34,14 @@ As part of Connector package settings, the user can specify entities the connect
 Logic apps can trigger based on a variety of data sources and offer connectors to get and process data as a part of the flow. You can add the Salesforce Connector to your business workflow and process data as part of this workflow within a Logic App. 
 
 
-## Create a SalesForce Connector API App
+## Create a Salesforce Connector API App
 1.	Open the Azure Marketplace using the + NEW option at the bottom right of the Azure Portal.
-2.	Browse to “Web and Mobile > API apps” and search for “SalesForce”.
-3.	Configure the SalesForce Connector by providing the details for Hosting Plan, the resource group and selecting the name of the API App:  
+2.	Browse to “Web and Mobile > API apps” and search for “Salesforce”.
+3.	Configure the Salesforce Connector by providing the details for Hosting Plan, the resource group and selecting the name of the API App:  
 ![][15]
-4. Configure the SalesForce Entities you are interested in reading/writing in the 'Package Settings'.
+4. Configure the Salesforce Entities you are interested in reading/writing in the 'Package Settings'.
 
-With this, you can now create a SalesForce Conenctor API App.
+With this, you can now create a Salesforce Conenctor API App.
 
 
 ## Create a Logic App
@@ -62,7 +62,7 @@ Let us create a simple logic app that creates an account in Salesforce and updat
 5.	Expand ‘API Apps in this resource group’ in Gallery to see all the available API Apps. Select ‘Salesforce’ from the gallery and the ‘Salesforce connector’ gets added to the flow:  
 ![][5]
 
-8.	To authorize your Logic App to access your SalesForce account, click on ‘Authorize’ to provide Salesforce login credentials:  
+8.	To authorize your Logic App to access your Salesforce account, click on ‘Authorize’ to provide Salesforce login credentials:  
 ![][6]
 
 9.	You are redirected to Salesforce login page and you can authenticate with your Salesforce credentials:  
@@ -97,6 +97,8 @@ Let us create a simple logic app that creates an account in Salesforce and updat
 
 ## Do more with your Connector
 Now that the connector is created, you can add it to a business workflow using a Logic App. See [What are Logic Apps?](app-service-logic-what-are-logic-apps.md).
+
+>[AZURE.NOTE] If you want to get started with Azure Logic Apps before signing up for an Azure account, go to [Try Logic App](https://tryappservice.azure.com/?appservice=logic), where you can immediately create a short-lived starter logic app in App Service. No credit cards required; no commitments.
 
 View the Swagger REST API reference at [Connectors and API Apps Reference](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 

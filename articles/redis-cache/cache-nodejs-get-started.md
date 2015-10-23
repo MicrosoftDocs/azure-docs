@@ -13,7 +13,7 @@
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="cache-redis"
 	ms.workload="tbd"
-	ms.date="08/17/2015"
+	ms.date="10/05/2015"
 	ms.author="sdanie"/>
 
 # How to use Azure Redis Cache with Node.js
@@ -33,7 +33,7 @@ This tutorial uses [node_redis](https://github.com/mranney/node_redis), but you 
 
 ## Create a Redis cache on Azure
 
-In the [Azure Management Portal Preview](http://go.microsoft.com/fwlink/?LinkId=398536), click **New**, **Data + Storage**, and select **Redis Cache**.
+In the [Azure preview portal](http://go.microsoft.com/fwlink/?LinkId=398536), click **New**, **Data + Storage**, and select **Redis Cache**.
 
   ![][1]
 
@@ -42,7 +42,7 @@ Enter a DNS hostname. It will have the form `<name>.redis.cache.windows.net`. Cl
   ![][2]
 
 
-Once you create the cache, click on it in the Azure portal to view the cache settings. Click the link under **Keys** and copy the primary key. You need this to authenticate requests.
+Once you create the cache, click on it in the preview portal to view the cache settings. Click the link under **Keys** and copy the primary key. You need this to authenticate requests.
 
   ![][4]
 

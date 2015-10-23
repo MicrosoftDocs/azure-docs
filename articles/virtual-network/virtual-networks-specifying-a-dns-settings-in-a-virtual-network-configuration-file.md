@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Specifying a DNS Settings in a Virtual Network Configuration File"
-   description="Description"
+   pageTitle="Specifying a DNS Settings in a Virtual Network Configuration File | Microsoft Azure"
+   description="How to change DNS server settings in a virtual network using a virtual network configuration file"
    services="virtual-network"
    documentationCenter="na"
    authors="joaoma"
@@ -12,10 +12,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/28/2015"
+   ms.date="08/25/2015"
    ms.author="joaoma" />
 
-# Specifying a DNS Settings in a Virtual Network Configuration File
+# Specifying DNS settings in a virtual network configuration file
 
 A network configuration file has two elements that you can use to specify Domain Name System (DNS) settings: **DnsServers** and **DnsServerRef**. You can add a list of DNS servers by specifying their IP addresses and reference names to the **DnsServers** element. You can then use a **DnsServerRef** element to specify which DNS server entries from the DnsServers element are used for different network sites within your virtual network.
 
@@ -45,9 +45,9 @@ The network configuration file may contain the following elements. The title of 
 
 >[AZURE.NOTE] In order to specify this setting for the Virtual Network Sites element, it must be previously defined in the DNS element. The DnsServerRef *name* in the Virtual Network Sites element must refer to a name value specified in the DNS element for DnsServer *name*.
 
-## See Also
+## Next steps
 
-[Configure a Virtual Network Using Network Configuration Files](http://go.microsoft.com/fwlink/?LinkId=248094)
+[Configure a virtual network using Network configuration files](virtual-networks-using-network-configuration-file.md)
 
 [Azure Virtual Network Configuration Schema](http://go.microsoft.com/fwlink/?LinkId=248093)
 

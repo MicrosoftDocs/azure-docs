@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Create and manage a support package | Microsoft Azure"
-   description="Learn how to create, decrypt and edit a support package for your StorSimple device."
+   pageTitle="Create a StorSimple support package | Microsoft Azure"
+   description="Learn how to create, decrypt, and edit a support package for your StorSimple device."
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
@@ -12,11 +12,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/12/2015"
+   ms.date="09/15/2015"
    ms.author="alkohli" />
 
 
-# Create and manage a support package
+# Create and manage a StorSimple support package
 
 ## Overview
 
@@ -196,6 +196,7 @@ An example demonstrating how to decrypt, edit and re-encrypt a support package i
 
 ## Next steps
 
-Learn how to [use support packages and device logs to troubleshoot your device deployment](storsimple-troubleshoot-deployment.md#support-packages-and-device-logs-available-for-troubleshooting). 
+- Learn how to [use support packages and device logs to troubleshoot your device deployment](storsimple-troubleshoot-deployment.md#support-packages-and-device-logs-available-for-troubleshooting). 
+- Learn how to [use the StorSimple Manager service to administer your StorSimple device](storsimple-manager-service-administration.md).
 
 

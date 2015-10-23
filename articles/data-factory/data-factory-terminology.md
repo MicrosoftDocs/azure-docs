@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/07/2015" 
+	ms.date="08/25/2015" 
 	ms.author="spelluru"/>
 
 #Azure Data Factory - Terminology
@@ -47,7 +47,7 @@ A data processing step in a pipeline that takes one or more input datasets and p
 Azure Data Factory service supports the following activities in a pipeline: 
 
 - **Copy Activity** copies the data from a data store to another data store.  
-- **HDInsight Activity** processes data by running Hive/Pig scripts or MapReduce programs on an HDInsight cluster. See [Use Pig and Hive with Data Factory][use-pig-hive] and [Invoke MapReduce Programs from Data Factory][run-map-reduce] for details. 
+- **HDInsight Activity** processes data by running Hive/Pig scripts or MapReduce programs on an HDInsight cluster.  
 - **Azure Machine Learning Batch Scoring Activity** invokes the Azure Machine Learning batch scoring API. See [Create Predictive Pipelines using Azure Data Factory and Azure Machine Learning][azure-ml-adf] for details. 
 - **Stored Procedure Activity** invokes a stored procedure in an Azure SQL Database. See the [Stored Procedure Activity][msdn-stored-procedure-activity] on MSDN Library for details.   
 
@@ -82,8 +82,6 @@ An important characteristic of Hub is that a pipeline runs on a single hub. This
 
 [adf-faq]: data-factory-faq.md
 [adf-intro]: data-factory-introduction.md
-[use-pig-hive]: data-factory-pig-hive-activities.md
-[run-map-reduce]: data-factory-map-reduce.md
 [azure-ml-adf]: data-factory-create-predictive-pipelines.md
 [adf-common-scenarios]: data-factory-common-scenarios.md
 [create-factory-using-dotnet-sdk]: data-factory-create-data-factories-programmatically.md

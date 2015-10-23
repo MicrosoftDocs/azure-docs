@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Best practices for changing the default configuration"
-	description="Provides best practices for changing the default configuration of Azure AD Coenncet Sync."
+	pageTitle="Best practices for changing the default configuration | Microsoft Azure | Microsoft Azure"
+	description="Provides best practices for changing the default configuration of Azure AD Connect sync."
 	services="active-directory"
 	documentationCenter=""
 	authors="markusvi"
-	manager="swadhwa"
+	manager="stevenpo"
 	editor=""/>
 
 <tags
@@ -13,16 +13,30 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/27/2015"
-	ms.author="markusvi"/>
+	ms.date="10/13/2015"
+	ms.author="markusvi;andkjell"/>
 
 
-# Azure AD Connect Sync: Best practices for changing the default configuration
+# Azure AD Connect sync: Best practices for changing the default configuration
 
-The configuration created by Azure AD Connect works “as is” for the majority of environments that synchronize on-premises Active Directory with Azure AD.<br> 
-However, in some cases, it is necessary to apply some changes to a configuration to satisfy a particular need or requirement.
+The purpose of this topic is to describe supported and unsupported changes to Azure AD Connect sync.
 
-While it is supported to apply changes to your Azure AD configuration, you should apply them with care because Azure AD is supposed to be as close as possible an appliance.
+The configuration created by Azure AD Connect works “as is” for the majority of environments that synchronize on-premises Active Directory with Azure AD. However, in some cases, it is necessary to apply some changes to a configuration to satisfy a particular need or requirement.
+
+## Changes to the service account
+Azure AD Connect sync is running under a service account created by the installation wizard. This service account holds the encryption keys to the database used by sync. It is created with a 127 characters long password and the password is set to not expire.
+
+- It is **unsupported** to change or reset the password of the service account. Doing so will destroy the encryption keys and the service will not be able to access the database and be able to start.
+
+## Changes to the scheduler
+Azure AD Connect sync is set to synchronize identity data every 3 hours. During installation a scheduled task is created running under a service account with permissions to operate the sync server.
+
+- It is **unsupported** to make changes to the scheduled task. The password for the service account is not known. See [changes to the service account](#changes-to-the-service-account)
+- It is **unsupported** to synchronize more frequently than the default 3 hours.
+
+## Changes to Synchronization Rules
+
+While it is supported to apply changes to your Azure AD Connect sync configuration, you should apply them with care because Azure AD Connect sync is supposed to be as close as possible an appliance.
 
 The following is a list of expected behaviors:
 
@@ -41,17 +55,9 @@ When you need to change the default configuration, do the following:
 
 
 
-**Other important notes:**
+## Next steps
+Learn more about the [Azure AD Connect sync](active-directory-aadconnectsync-whatis.md) configuration.
 
-- If you have attribute based filtering and password synchronization configured, make sure that only objects that are synchronized to Azure AD are in the scope of password synchronization. 
+Learn more about [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md).
 
-
-
-
-
-## Additional Resources
-
-* [Azure AD Connect Sync: Customizing Synchronization options](active-directory-aadconnectsync-whatis.md)
-* [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md)
- 
 <!--Image references-->

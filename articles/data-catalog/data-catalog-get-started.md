@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="07/13/2015"
+   ms.date="09/11/2015"
    ms.author="derrickv"/>
 
 # Get started with Azure Data Catalog
@@ -151,9 +151,16 @@ In this exercise you will work with another user to add metadata to data assets 
 
 Ask a colleague to repeat the **Annotating Registered Data Sources** exercise above. After your colleague adds a description to a data asset, such as ProductPhoto, you will see multiple annotations.
 
+
+![crowdsource][13]
+
 In this exercise you explored Azure Data Catalog’s capabilities for crowdsourced metadata, where any catalog user can annotate the data assets he discovers.
-Exercise: Connecting to Data Sources
+
+
+## Exercise 6: Connecting to data sources
+
 In this exercise you will use the **Azure Data Catalog** portal to connect to data sources using Microsoft Excel.
+
 
 > [AZURE.NOTE] It’s important to remember that **Azure Data Catalog** doesn’t give users access to the actual data source – it simply makes it easier for users to discover and understand them. When users connect to a data source, the client application they choose will use their Windows credentials or will prompt them for credentials as necessary. If the user has not previously been granted access to the data source, he will need to be granted access before he can connect.
 
@@ -173,7 +180,7 @@ In this exercise you will use the **Azure Data Catalog** portal to connect to da
 
 In this exercise you connected to data sources discovered using Azure Data Catalog. The **Azure Data Catalog** portal allows users to connect directly using the client applications integrated into its **Open in…** menu, and allows users to connect using any application they choose using the connection location information included in the asset metadata.
 
-## Exercise 6: Removing data source metadata
+## Exercise 7: Removing data source metadata
 
 In this exercise you will use the **Azure Data Catalog** portal to remove preview data from registered data assets, and to delete data assets from the catalog.
 
@@ -190,7 +197,7 @@ In **Azure Data Catalog**, you can remove preview from delete individual asset o
 
 In this exercise you removed registered data assets from the catalog.
 
-## Exercise 7: Managing registered data sources
+## Exercise 8: Managing registered data sources
 
 In this exercise you will use the management capabilities of the **Azure Data Catalog** to take ownership of data assets and to control what users can discover and manage those assets.
 
@@ -227,3 +234,4 @@ In this tutorial you explored essential capabilities of the **Azure Data Catalog
 [10]: ./media/data-catalog-get-started/connect1.png
 [11]: ./media/data-catalog-get-started/connect2.png
 [12]: ./media/data-catalog-get-started/ownership.png
+[13]: ./media/data-catalog-get-started/crowdsource.png

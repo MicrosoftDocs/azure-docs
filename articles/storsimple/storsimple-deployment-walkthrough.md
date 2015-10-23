@@ -1,18 +1,18 @@
 <properties
-   pageTitle="Deploy your on-premises StorSimple device | Microsoft Azure"
-   description="Steps and best practices for deploying the StorSimple device and service."
+   pageTitle="Deploy an on-premises StorSimple device | Microsoft Azure"
+   description="Describes the steps and best practices for deploying the StorSimple device and service. (Applies to Microsoft Azure StorSimple version .3 and earlier.)"
    services="storsimple"
    documentationCenter="NA"
    authors="alkohli"
    manager="adinah"
-   editor="tysonn" />
+   editor="" />
 <tags
    ms.service="storsimple"
    ms.devlang="NA"
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/14/2015"
+   ms.date="09/17/2015"
    ms.author="alkohli" />
 
 # Deploy your on-premises StorSimple device
@@ -51,7 +51,7 @@ Perform these required steps to configure your StorSimple device and connect it 
 | Step 4: Complete minimum device setup</br>Optional: Update your StorSimple device.      | Use the management service to complete the device setup and enable it to provide storage.                                                                      |
 | Step 5: Create a volume container.                                                      | Create a container to provision volumes. A volume container has storage   account, bandwidth, and encryption settings for all the volumes contained in it.    |
 | Step 6: Create a volume.                                                                | Provision storage volume(s) on the StorSimple device for your servers.                                                                                        |
-| Step 7: Mount, initialize, and format a volume.</br>Optional: Configure MPIO.            | Connect your servers to the iSCSI storage provided by the device. Optionally configure MPIO to ensure that your servers can tolerate link, network and itnerface failure.                                                                                                                                                              |
+| Step 7: Mount, initialize, and format a volume.</br>Optional: Configure MPIO.            | Connect your servers to the iSCSI storage provided by the device. Optionally configure MPIO to ensure that your servers can tolerate link, network, and interface failure.                                                                                                                                                              |
 | Step 8: Take a backup.                                                                  | Set up your backup policy to protect your data                                                                                                                 |
 |                                                                                        |                                                                                                                                                               |
 | **OTHER PROCEDURES**                                                                   | You may need to refer to these procedures as you deploy your solution.                                                                                     	 |

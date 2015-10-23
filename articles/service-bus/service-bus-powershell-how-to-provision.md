@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Manage Service Bus with PowerShell"
+	pageTitle="Manage Service Bus with PowerShell | Microsoft Azure"
 	description="Manage Service Bus with PowerShell scripts instead of .NET"
 	services="service-bus"
 	documentationCenter=".net"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/18/2015"
+	ms.date="10/07/2015"
 	ms.author="sethm"/>
 
 # Manage Service Bus with PowerShell
@@ -49,8 +49,7 @@ First, make sure that the script can locate the **Microsoft.ServiceBus.dll** ass
 
 Here's how these steps are implemented in a PowerShell script:
 
-```powershell
-
+```
 try
 {
     # WARNING: Make sure to reference the latest version of Microsoft.ServiceBus.dll
@@ -67,12 +66,11 @@ catch [System.Exception]
 {
     Write-Error("Could not add the Microsoft.ServiceBus.dll assembly to the script. Make sure you build the solution before running the provisioning script.")
 }
-
 ```
 
 ## Provision a Service Bus namespace
 
-Two PowerShell cmdlets support Service Bus namespace operations. Instead of the .NET SDK APIs, you can use [Get-AzureSBNamespace] and [New-AzureSBNamespace].
+Two PowerShell cmdlets support Service Bus namespace operations. Instead of the .NET SDK APIs, you can use [Get-AzureSBNamespace][] and [New-AzureSBNamespace][].
 
 This example creates a few local variables in the script; `$Namespace` and `$Location`.
 
@@ -88,8 +86,7 @@ This part of the script does the following:
 2. If the namespace is found, it reports what was found.
 3. If the namespace is not found, it creates the namespace and then retrieves the newly created namespace.
 
-	``` powershell
-	
+	```
 	$Namespace = "MyServiceBusNS"
 	$Location = "West US"
 	
@@ -109,11 +106,10 @@ This part of the script does the following:
 	    $CurrentNamespace = Get-AzureSBNamespace -Name $Namespace
 	    Write-Host "The [$Namespace] namespace in the [$Location] region has been successfully created."
 	}
-
 	```
 
-To provision other Service Bus entities, create an instance of the `NamespaceManager` class from the SDK.
-You can use the [Get-AzureSBAuthorizationRule] cmdlet to retrieve an authorization rule that's used to provide a connection string. We'll store a reference to the `NamespaceManager` instance in the `$NamespaceManager` variable. We will use `$NamespaceManager` later in the script to provision other entities.
+To provision other Service Bus entities, create an instance of the [NamespaceManager][] class from the SDK.
+You can use the [Get-AzureSBAuthorizationRule][] cmdlet to retrieve an authorization rule that's used to provide a connection string. We'll store a reference to the `NamespaceManager` instance in the `$NamespaceManager` variable. We will use `$NamespaceManager` later in the script to provision other entities.
 
 ``` powershell
 $sbr = Get-AzureSBAuthorizationRule -Namespace $Namespace
@@ -125,7 +121,7 @@ Write-Output "NamespaceManager object for the [$Namespace] namespace has been su
 
 ## Provisioning other Service Bus entities
 
-In order to provision other entities, such as queues, topics, and Event Hubs, use the [.NET API for Service Bus]. This article focuses only on Event Hubs, but the steps for other entities are similar. In addition, more detailed examples, including other entities, are referenced at the end of this article.
+In order to provision other entities, such as queues, topics, and Event Hubs, use the [.NET API for Service Bus][]. This article focuses only on Event Hubs, but the steps for other entities are similar. In addition, more detailed examples, including other entities, are referenced at the end of this article.
 
 This part of the script creates four more local variables. These variables are used to instantiate an `EventHubDescription` object. The script does the following:
 
@@ -133,8 +129,7 @@ This part of the script creates four more local variables. These variables are u
 2. If it does not exist, create an `EventHubDescription` and pass that to the `NamespaceManager` class `CreateEventHubIfNotExists` method.
 3. After determining that the Event Hub is available, create a consumer group using `ConsumerGroupDescription` and `NamespaceManager`.
 
-	``` powershell
-		
+	```
 	$Path  = "MyEventHub"
 	$PartitionCount = 12
 	$MessageRetentionInDays = 7
@@ -176,7 +171,7 @@ There are more detailed examples available on these blogs posts:
 - [How to create a Service Bus Namespace and an Event Hub using a PowerShell script](http://blogs.msdn.com/b/paolos/archive/2014/12/01/how-to-create-a-service-bus-namespace-and-an-event-hub-using-a-powershell-script.aspx)
 
 Some ready-made scripts are also available for download:
-- [Service Bus PowerShell Scripts](https://code.msdn.microsoft.com/windowsazure/Service-Bus-PowerShell-a46b7059)
+- [Service Bus PowerShell Scripts](https://code.msdn.microsoft.com/Service-Bus-PowerShell-a46b7059)
 
 <!--Link references-->
 [Purchase Options]: http://azure.microsoft.com/pricing/purchase-options/
@@ -187,5 +182,5 @@ Some ready-made scripts are also available for download:
 [Get-AzureSBNamespace]: https://msdn.microsoft.com/library/azure/dn495122.aspx
 [New-AzureSBNamespace]: https://msdn.microsoft.com/library/azure/dn495165.aspx
 [Get-AzureSBAuthorizationRule]: https://msdn.microsoft.com/library/azure/dn495113.aspx
-[.NET API for Service Bus]: https://msdn.microsoft.com/library/microsoft.servicebus.aspx
- 
+[.NET API for Service Bus]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.aspx
+[NamespaceManager]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx

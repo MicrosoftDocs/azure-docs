@@ -683,6 +683,18 @@ view, request, and so on.
 * 
      A unique identifer that defines an account within the app.  This is developer provided. 
 
+### Custom metrics
+
+    context.custom.metrics.<metric-name>
+
+      double value
+      double count
+      double min
+      double max
+      double stdDev
+      double sampledValue
+      double sum
+
 
 ## remotedependency
 

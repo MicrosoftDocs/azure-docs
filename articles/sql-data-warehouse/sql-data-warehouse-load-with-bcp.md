@@ -5,7 +5,7 @@
    documentationCenter="NA"
    authors="TwoUnder"
    manager="barbkess"
-   editor="JRJ@BigBangData.co.uk"/>
+   editor=""/>
 
 <tags
    ms.service="sql-data-warehouse"
@@ -13,35 +13,44 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/23/2015"
+   ms.date="10/21/2015"
    ms.author="mausher;barbkess"/>
 
 
 # Load data with bcp
+
 **[bcp][]** is a command-line bulk load utility that allows you to copy data between SQL Server, data files, and SQL Data Warehouse. Use bcp to import large numbers of rows into SQL Data Warehouse tables or to export data from SQL Server tables into data files. Except when used with the queryout option, bcp requires no knowledge of Transact-SQL. 
 
 bcp is a quick and easy way to move smaller data sets into and out of a SQL Data Warehouse database. The exact amount of data that is recommended to load/extract via bcp will depend on you network connection to the Azure data center. Generally, dimension tables can be loaded and extracted but fairly large fact tables may take a significant amount of time to load or extract from. 
 
 With bcp you can:
+
 - Use a simple command-line utility to load data into SQL Data Warehouse.
 - Use a simple command-line utility to extract data from SQL Data Warehouse.
 
-This tutorial will show you how to: 
+This tutorial will show you how to:
+ 
 - Import data into a table using the bcp in command
 - Export data from a table uisng the bcp out command
 
+>[AZURE.VIDEO loading-data-into-azure-sql-data-warehouse-with-bcp]
+
 ## Prerequisites
+
 To step through this tutorial, you need:
+
 - A SQL Data Warehouse database
 - The bcp command line utility installed
 - The SQLCMD command ine utility installed
 
 >[AZURE.NOTE] You can download the bcp and sqlcmd utilities from the [Microsoft Download Center][].
 
-##Import data into SQL Data Warehouse
+## Import data into SQL Data Warehouse
+
 In this tutorial, you will create a table in Azure SQL Data Warehouse and import data into the table.
 
 ### Step 1: Create a table in Azure SQL Data Warehouse
+
 From a command prompt, connect to your instance using the following command replacing the values as appropriate:
 
 ```

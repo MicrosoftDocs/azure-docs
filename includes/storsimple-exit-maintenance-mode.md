@@ -1,19 +1,4 @@
-<properties
-   pageTitle="Exit maintenance mode"
-   description="Explains how to exit StorSimple Maintenance mode, which returns your device to Normal mode."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="adinah"
-   editor="tysonn" />
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="04/27/2015"
-   ms.author="v-sharos" />
+<!--author=SharS last changed: 9/17/15-->
 
 #### To exit Maintenance mode
 

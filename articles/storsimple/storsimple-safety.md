@@ -1,21 +1,21 @@
 <properties 
-   pageTitle="Safety for your StorSimple device"
-   description="Review Safety guidelines for deploying and operating your StorSimple device"
+   pageTitle="Safety for your StorSimple device | Microsoft Azure"
+   description="Describes safety conventions, guidelines, and considerations, and explains how to safely install and operate your StorSimple device."
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
    manager="carolz"
-   editor="tysonn" />
+   editor="" />
 <tags 
    ms.service="storsimple"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/14/2015"
+   ms.date="08/26/2015"
    ms.author="alkohli" />
 
-# Safety of your device
+# Safely install and operate your StorSimple device
 
 ![Warning Icon](./media/storsimple-safety/IC740879.png)
 ![Read Safety Notice Icon](./media/storsimple-safety/IC740885.png) **READ SAFETY AND HEALTH INFORMATION**

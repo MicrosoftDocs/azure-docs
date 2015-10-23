@@ -1,6 +1,6 @@
 <properties
    pageTitle="Azure Search Service REST API Version 2015-02-28-Preview | Microsoft Azure"
-   description="Azure Search Service REST API Version 2015-02-28-Preview includes experimental features such as Natural Language Analyzers and moreLikeThis searches."
+   description="Azure Search Service REST API Version 2015-02-28-Preview includes experimental features such as Lucene Query Syntax and moreLikeThis searches."
    services="search"
    documentationCenter="na"
    authors="HeidiSteen"
@@ -13,16 +13,15 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="search"
-   ms.date="07/22/2015"
+   ms.date="10/01/2015"
    ms.author="heidist"/>
 
 # Azure Search Service REST API: Version 2015-02-28-Preview
 
 This article is the reference documentation for `api-version=2015-02-28-Preview`. This preview extends the current generally available version, [api-version=2015-02-28](https://msdn.microsoft.com/library/dn798935.aspx), by providing the following experimental features:
 
-- [Natural language processors](#LanguageSupport) from Microsoft (the same ones used by Office and Bing) offer greater precision over query results and more languages.
-- `moreLikeThis` is a a query parameter used in [Search operations](#SearchDocs) that finds other documents that are relevant to another specific document.
-- A POST alternative to the GET syntax for both the [Search](#SearchDocs) and [Suggestions](#Suggestions) API, useful when the overall URL length would otherwise exceed 8KB.
+- [Lucene Query Syntax](https://msdn.microsoft.com/library/azure/mt589323.aspx) is an implementation of the [Lucene Query Parser](https://lucene.apache.org/core/4_10_0/queryparser/org/apache/lucene/queryparser/classic/package-summary.html), which you can specify using queryType parameter in [Search operations](#SearchDocs).
+- `moreLikeThis` is a a query queparameter used in [Search operations](#SearchDocs) that finds other documents that are relevant to another specific document.
 
 A few additional features in `2015-02-28-Preview` are documented separately. These include:
 
@@ -33,7 +32,7 @@ Azure Search service is available in multiple versions. Please refer to [Search 
 
 ##APIs in this document
 
-The Azure Search Service API supports two syntaxes for entity lookup: [simple](https://msdn.microsoft.com/library/dn798920.aspx) and alternate OData syntax (see [Support for OData (Azure Search API)](http://msdn.microsoft.com/library/azure/dn798932.aspx) for details). The following list shows the simple syntax.
+Azure Search service API supports two URL syntaxes for API operations: simple and OData (see [Support for OData (Azure Search API)](http://msdn.microsoft.com/library/azure/dn798932.aspx) for details). The following list shows the simple syntax.
 
 [Create Index](#CreateIndex)
 
@@ -95,7 +94,7 @@ The following example provides an illustration of a schema used for searching on
       {"name": "hotelId", "type": "Edm.String", "key": true, "searchable": false},
       {"name": "baseRate", "type": "Edm.Double"},
       {"name": "description", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false},
-	  {"name": "description_fr", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false, analyzer: "fr.lucene"},
+	  {"name": "description_fr", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false, "analyzer": "fr.lucene"},
       {"name": "hotelName", "type": "Edm.String"},
       {"name": "category", "type": "Edm.String"},
       {"name": "tags", "type": "Collection(Edm.String)"},
@@ -263,7 +262,7 @@ The following attributes can be set when creating an index. For details about sc
 
   - **Note**: If a field has none of the above attributes set to `true` (`searchable`, `filterable`, `sortable`,  or`facetable`) the field is effectively excluded from the inverted index. This option is useful for fields that are not used in queries, but are needed in search results. Excluding such fields from the index improves performance.
 
-  - `suggestions` - Previous versions of the API included a `suggestions` property. This boolean property is now deprecated and no longer available in either `2015-02-28` or `2015-02-28-Preview`. Please use the [Suggesters API](#Suggesters) instead. In the `2014-07-31` version, the `suggestions` property was used to specify whether the field could be used for auto-complete for type ahead, for fields of type `Edm.String` or `Collection(Edm.String)`. The `suggestions` was `false` by default because it required extra space in your index, but if you enabled it, see [Transition from Preview to General Release in Azure Search](search-transition-from-preview.md) for instructions on how to transition to the new API.
+`suggestions` - Previous versions of the API included a `suggestions` property. This boolean property is now deprecated and no longer available in either `2015-02-28` or `2015-02-28-Preview`. Please use the [Suggesters API](#Suggesters) instead. In the `2014-07-31` version, the `suggestions` property was used to specify whether the field could be used for auto-complete for type ahead, for fields of type `Edm.String` or `Collection(Edm.String)`. The `suggestions` was `false` by default because it required extra space in your index, but if you enabled it, see [Transition from Preview to General Release in Azure Search](search-transition-from-preview.md) for instructions on how to transition to the new API.
 
 `key` - Marks the field as containing unique identifiers for documents within the index. Exactly one field must be chosen as the `key` field and it must be of type `Edm.String`. Key fields can be used to look up documents directly via the [Lookup API](#LookupAPI).
 
@@ -271,7 +270,7 @@ The following attributes can be set when creating an index. For details about sc
 
 `analyzer` - Sets the name of the text analyzer to use for the field. For the allowed set of values see [Language Support](#LanguageSupport). This option can be used only with `searchable` fields. Once the analyzer is chosen, it cannot be changed for the field.
 
-`sugggesters` - Sets the search mode and fields that are the source of the content for suggestions. See [Suggesters](#Suggesters) for details.
+`suggesters` - Sets the search mode and fields that are the source of the content for suggestions. See [Suggesters](#Suggesters) for details.
 
 `scoringProfiles` - Defines custom scoring behaviors that let you influence which items appear higher in search results. Scoring profiles are made up of field weights and functions. See [Add scoring Profiles](https://msdn.microsoft.com/library/azure/dn798928.aspx) for more information about the attributes used in a scoring profile.
 
@@ -281,894 +280,317 @@ The following attributes can be set when creating an index. For details about sc
 
 Searchable fields undergo analysis that most frequently involves word-breaking, text normalization, and filtering out terms. By default, searchable fields in Azure Search are analyzed with the [Apache Lucene Standard analyzer](http://lucene.apache.org/core/4_9_0/analyzers-common/index.html) which breaks text into elements following the["Unicode Text Segmentation"](http://unicode.org/reports/tr29/) rules. Additionally, the standard analyzer converts all characters to their lower case form. Both indexed documents and search terms go through the analysis during indexing and query processing.
 
-Azure Search supports indexing fields in a variety of languages. Each language requires a non-standard text analyzer which accounts for characteristics of a given language. Azure Search offers two types of analyzers:
+Azure Search supports a variety of languages. Each language requires a non-standard text analyzer which accounts for characteristics of a given language. Azure Search offers two types of analyzers:
 
-- 28 analyzers backed by Lucene.
+- 35 analyzers backed by Lucene.
 - 50 analyzers backed by proprietary Microsoft natural language processing technology used in Office and Bing.
 
-Some developers might prefer the more familiar, simple, open-source solution of Lucene. Lucene is faster, but the Microsoft analyzers have advanced capabilities, such as lemmatization. If possible, you should run comparisons of both the Microsoft and Lucene analyzers to decide which one is a better fit.
+Some developers might prefer the more familiar, simple, open-source solution of Lucene. Lucene analyzers are faster, but the Microsoft analyzers have advanced capabilities, such as lemmatization, word decompounding (in languages like German, Danish, Dutch, Swedish, Norwegian, Estonian, Finish, Hungarian, Slovak) and entity recognition (URLs, emails, dates, numbers). If possible, you should run comparisons of both the Microsoft and Lucene analyzers to decide which one is a better fit.
 
 ***How they compare***
 
-The Lucene analyzer for English extends the standard analyzer. It removes possessives (trailing 's) from words, applies stemming as per [Porter Stemming algorithm](http://tartarus.org/~martin/PorterStemmer/), and removes English [stop words](http://en.wikipedia.org/wiki/Stop_words). Querying and indexing with Lucene analyzers is very fast.
+The Lucene analyzer for English extends the standard analyzer. It removes possessives (trailing 's) from words, applies stemming as per [Porter Stemming algorithm](http://tartarus.org/~martin/PorterStemmer/), and removes English [stop words](http://en.wikipedia.org/wiki/Stop_words).
 
-In comparison, the Microsoft analyzer implements an expansive stemmer that generates at query time all possible word forms of each query term, resulting in higher results precision, but also more latency. Decreased query performance is common for expansive stemmers. Indexing with Microsoft analyzers is on average three times slower than their Lucene equivalents.
+In comparison, the Microsoft analyzer performs lemmatization instead of stemming. It means it can handle inflected and irregular word forms much better what results in more relevant search results (watch module 7 of [Azure Search MVA presentation](http://www.microsoftvirtualacademy.com/training-courses/adding-microsoft-azure-search-to-your-websites-and-apps) for more details).
+
+Indexing with Microsoft analyzers is on average two to three times slower than their Lucene equivalents, depending on the language. Search performance should not be significantly affected for average size queries.
 
 ***Configuration***
 
-For each field in the index definition, you can set the `analyzer` property to an analyzer name that specifies which language and vendor. For example, you can have separate fields for English, French, and Spanish hotel descriptions that exist side-by-side in the same index. The query specifies which language-specific field to return in your search queries. You can review query examples that include the `analyzer` property in [Search Documents](#SearchDocs).
+For each field in the index definition, you can set the `analyzer` property to an analyzer name that specifies which language and vendor. The same analyzer will be applied when indexing and searching for that field.
+For example, you can have separate fields for English, French, and Spanish hotel descriptions that exist side-by-side in the same index. Use the ['searchFields' query parameter](#SearchQueryParameters) to specify which language-specific field to search against in your queries. You can review query examples that include the `analyzer` property in [Search Documents](#SearchDocs). 
 
 ***Analyzer list***
 
-Below is the list of supported analyzers together with a short description of their features:
+Below is the list of supported languages together with Lucene and Microsoft analyzer names.
 
 <table style="font-size:12">
     <tr>
 		<th>Language</th>
-		<th>Analyzer name</th>
-		<th>Description</th>
-	</tr>
-    <tr>
-		<td>Arabic</td>
-		<td>ar.lucene</td>
-		<td>
-		<ul>
-			<li>Implements Arabic orthographic normalization</li>
-			<li>Applies light algorithmic stemming</li>
-			<li>Filters out Arabic stop words</li>
-		</ul>
-		</td>
+		<th>Microsoft analyzer name</th>
+		<th>Lucene analyzer name</th>
 	</tr>
     <tr>
 		<td>Arabic</td>
 		<td>ar.microsoft</td>
-		<td>
-		<ul>
-			<li>Reductive stemmer</li>
-			<li>Filters out Arabic stop words</li>
-		</ul>
-		</td>
+		<td>ar.lucene</td>		
 	</tr>
     <tr>
     	<td>Armenian</td>
+		<td></td>
     	<td>hy.lucene</td>
-    	<td>
-    	<ul>
-      		<li>Applies light algorithmic stemming</li>
-    		<li>Filters out Armenian stop words</li>
-	    </ul>
-    	</td>
   	</tr>
     <tr>
 		<td>Bangla</td>
-		<td>bg.microsoft</td>
-		<td>
-		<ul>
-			<li>Expansive stemmer (lemmatization)</li>
-		</ul>
-		</td>
+		<td>bn.microsoft</td>
+		<td></td>
 	</tr>
   	<tr>
     	<td>Basque</td>
+		<td></td>
     	<td>eu.lucene</td>
-    	<td>
-    	<ul>
-      		<li>Applies light algorithmic stemming</li>
-    		<li>Filters out Basque stop words</li>
-	    </ul>
-    	</td>
     </tr>
   	<tr>
- 	   <td>Bulgarian</td>
+ 		<td>Bulgarian</td>
+		<td>bg.microsoft</td>
     	<td>bg.lucene</td>
-    	<td>
-    	<ul>
-      		<li>Applies light algorithmic stemming</li>
-    		<li>Filters out Bulgarian stop words</li>
-	    </ul>
-    	</td>
   	</tr>
-    <tr>
-		<td>Bulgarian</td>
-		<td>bn.microsoft</td>
-		<td>
-		<ul>
-			<li>Expansive stemmer (lemmatization)</li>
-		</ul>
-		</td>
-	</tr>
   	<tr>
     	<td>Catalan</td>
-    	<td>ca.lucene</td>
-    	<td>
-    	<ul>
-      		<li>Applies light algorithmic stemming</li>
-      		<li>Filters out Catalan stop words</li>
-      		<li>Removes ellisions</li>
-   		</ul>
-    	</td>
+    	<td>ca.microsoft</td>
+		<td>ca.lucene</td>  		
   	</tr>
-    <tr>
-		<td>Catalan</td>
-		<td>ca.microsoft</td>
-		<td>
-		<ul>
-			<li>Expansive stemmer (lemmatization)</li>
-			<li>Removes diacritics</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>Chinese Simplified</td>
-		<td>zh-Hans.lucene</td>
-		<td>
-		<ul>
-			<li>Uses probabilistic knowledge models to find the optimal word segmentation</li>
-			<li>Filters out Chinese stop words</li>
-		</ul>
-		</td>
-	</tr>
     <tr>
 		<td>Chinese Simplified</td>
 		<td>zh-Hans.microsoft</td>
-		<td>
-		<ul>
-			<li>Uses probabilistic knowledge models to find the optimal word segmentation</li>
-		</ul>
-		</td>
+		<td>zh-Hans.lucene</td>		
 	</tr>
     <tr>
 		<td>Chinese Traditional</td>
-		<td>zh-Hant.lucene</td>
-		<td>
-		<ul>
-			<li>Indexes bigrams (overlapping groups of two adjacent Chinese characters)</li>
-			<li>Normalizes character width differences</li>
-		</ul>
-		</td>
-	<tr>
-    <tr>
-		<td>Chinese Traditional</td>
 		<td>zh-Hant.microsoft</td>
-		<td>
-		<ul>
-			<li>Uses probabilistic knowledge models to find the optimal word segmentation</li>
-		</ul>
-		</td>
+		<td>zh-Hant.lucene</td>		
 	<tr>
     <tr>
 		<td>Croatian</td>
 		<td>hr.microsoft</td>
-		<td>
-		<ul>
-			<li>Expansive stemmer (lemmatization)</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>Czech</td>
-		<td>cs.lucene</td>
-		<td>
-		<ul>
-			<li>Applies light stemming</li>
-			<li>Filters out Czech stop words</li>
-		</ul>
-		</td>
+		<td/></td>
 	</tr>
     <tr>
 		<td>Czech</td>
 		<td>cs.microsoft</td>
-		<td>
-		<ul>
-			<li>Expansive stemmer (lemmatization)</li>
-			<li>Filters out Czech stop words</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>Danish</td>
-		<td>da.lucene</td>
-		<td>
-		<ul>
-			<li>Applies light stemming</li>
-			<li>Filters out Danish stop words</li>
-		</ul>
-		</td>
-	</tr>
+		<td>cs.lucene</td>		
+	</tr>    
     <tr>
 		<td>Danish</td>
 		<td>da.microsoft</td>
-		<td>
-		<ul>
-			<li>Expansive stemmer (lemmatization)</li>
-			<li>Filters out Danish stop words</li>
-			<li>Decompounding</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>Dutch</td>
-		<td>nl.lucene</td>
-		<td>
-		<ul>
-			<li>Applies light stemming</li>
-			<li>Filters out Dutch stop words</li>
-		</ul>
-		</td>
-	</tr>
+		<td>da.lucene</td>		
+	</tr>    
     <tr>
 		<td>Dutch</td>
 		<td>nl.microsoft</td>
-		<td>
-		<ul>
-			<li>Expansive stemmer (lemmatization)</li>
-			<li>Filters out Dutch stop words</li>
-			<li>Decompounding</li>
-			<li>Removes diacritics</li>
-		</ul>
-		</td>
-	</tr>
+		<td>nl.lucene</td>	
+	</tr>    
     <tr>
-		<td>English</td>
-		<td>en.lucene</td>
-		<td>
-		<ul>
-			<li>Applies light stemming</li>
-			<li>Filters out English stop words</li>
-			<li>Removes possessives</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>English</td>
+		<td>English</td>		
 		<td>en.microsoft</td>
-		<td>
-		<ul>
-			<li>Expansive stemmer (lemmatization)</li>
-			<li>Filters out English stop words</li>
-			<li>Removes possessives and diacritics</li>
-		</ul>
-		</td>
+		<td>en.lucene</td>		
 	</tr>
     <tr>
 		<td>Estonian</td>
 		<td>et.microsoft</td>
-		<td>
-		<ul>
-			<li>Reductive stemmer</li>
-			<li>Decompounding</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>Finnish</td>
-		<td>fi.lucene</td>
-		<td>
-		<ul>
-			<li>Applies light stemming</li>
-			<li>Filters out Finnish stop words</li>
-		</ul>
-		</td>
+		<td></td>
 	</tr>
     <tr>
 		<td>Finnish</td>
 		<td>fi.microsoft</td>
-		<td>
-		<ul>
-			<li>Reductive stemmer</li>
-			<li>Filters out Finnish stop words</li>
-			<li>Decompounding</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>French</td>
-		<td>fr.lucene</td>
-		<td>
-		<ul>
-			<li>Applies light stemming</li>
-			<li>Filters out French stop words</li>
-			<li>Removes ellisions</li>
-		</ul>
-		</td>
-	</tr>
+		<td>fi.lucene</td>		
+	</tr>    
     <tr>
 		<td>French</td>
 		<td>fr.microsoft</td>
-		<td>
-		<ul>
-			<li>Expansive stemmer (lemmatization)</li>
-			<li>Filters out French stop words</li>
-			<li>Removes diacritics</li>
-		</ul>
-		</td>
+		<td>fr.lucene</td>		
 	</tr>
     <tr>
     	<td>Galician</td>
-	    <td>gl.lucene</td>
-    	<td>
-    	<ul>
-    		<li>Applies light stemming</li>
-      		<li>Filters out Galician stop words</li>
-    	</ul>
-    	</td>
+	    <td></td>
+		<td>gl.lucene</td>    	
   	</tr>
     <tr>
 		<td>German</td>
-		<td>de.lucene</td>
-		<td>
-		<ul>
-			<li>Applies light stemming</li>
-			<li>Filters out German stop words</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>German</td>
 		<td>de.microsoft</td>
-		<td>
-		<ul>
-			<li>Expansive stemmer (lemmatization)</li>
-			<li>Filters out German stop words</li>
-			<li>Decompounding</li>
-			<li>Removes diacritics</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>Greek</td>
-		<td>el.lucene</td>
-		<td>
-		<ul>
-			<li>Applies light stemming</li>
-			<li>Filters out Greek stop words</li>
-		</ul>
-		</td>
+		<td>de.lucene</td>		
 	</tr>
     <tr>
 		<td>Greek</td>
 		<td>el.microsoft</td>
-		<td>
-		<ul>
-			<li>Expansive stemmer (lemmatization)</li>
-			<li>Filters out Greek stop words</li>
-		</ul>
-		</td>
+		<td>el.lucene</td>		
 	</tr>
     <tr>
 		<td>Gujarati</td>
 		<td>gu.microsoft</td>
-		<td>
-		<ul>
-			<li>Expansive stemmer (lemmatization)</li>
-		</ul>
-		</td>
+		<td></td>
 	</tr>
     <tr>
 		<td>Hebrew</td>
 		<td>he.microsoft</td>
-		<td>
-		<ul>
-			<li>Reductive stemmer</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>Hindi</td>
-		<td>hi.lucene</td>
-		<td>
-		<ul>
-			<li>Applies light stemming</li>
-			<li>Filters out Hindi stop words</li>
-			<li>Removes some differences in spelling variations</li>
-			<li>Normalizes the Unicode representation of text in Indian languages.</li>
-		</ul>
-		</td>
+		<td></td>
 	</tr>
     <tr>
 		<td>Hindi</td>
 		<td>hi.microsoft</td>
-		<td>
-		<ul>
-			<li>Expansive stemmer (lemmatization)</li>
-			<li>Filters out Hindi stop words</li>
-		</ul>
-		</td>
+		<td>hi.lucene</td>		
 	</tr>
     <tr>
-		<td>Hungarian</td>
-		<td>hu.lucene</td>
-		<td>
-		<ul>
-			<li>Applies light stemming</li>
-			<li>Filters out Hungarian stop words</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>Hungarian</td>
+		<td>Hungarian</td>		
 		<td>hu.microsoft</td>
-		<td>
-		<ul>
-			<li>Reductive stemmer</li>
-			<li>Filters out Hungarian stop words</li>
-			<li>Decompounding</li>
-		</ul>
-		</td>
+		<td>hu.lucene</td>
 	</tr>
     <tr>
 		<td>Icelandic</td>
 		<td>is.microsoft</td>
-		<td>
-		<ul>
-			<li>Expansive stemmer (lemmatization)</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>Indonesian (Bahasa)</td>
-		<td>id.lucene</td>
-		<td>
-		<ul>
-			<li>Applies light stemming</li>
-			<li>Filters out Indonesian stop words</li>
-		</ul>
-		</td>
+		<td></td>
 	</tr>
     <tr>
 		<td>Indonesian (Bahasa)</td>
 		<td>id.microsoft</td>
-		<td>
-		<ul>
-			<li>Expansive stemmer (lemmatization)</li>
-			<li>Filters out Indonesian stop words</li>
-		</ul>
-		</td>
+		<td>id.lucene</td>		
 	</tr>
     <tr>
     	<td>Irish</td>
+		<td></td>
       	<td>ga.lucene</td>
-      	<td>
-      	<ul>
-        	<li>Applies light stemming</li>
-        	<li>Filters out Irish stop words</li>
-      	</ul>
-      	</td>
     </tr>
     <tr>
 		<td>Italian</td>
-		<td>it.lucene</td>
-		<td>
-		<ul>
-			<li>Applies light stemming</li>
-			<li>Filters out Italian stop words</li>
-			<li>Removes ellisions</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>Italian</td>
 		<td>it.microsoft</td>
-		<td>
-		<ul>
-			<li>Expansive stemmer (lemmatization)</li>
-			<li>Filters out Italian stop words</li>
-			<li>Removes diacritics</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>Japanese</td>
-		<td>ja.lucene</td>
-		<td>
-		<ul>
-			<li>Uses morphological analysis</li>
-			<li>Normalizes common katakana spelling variations</li>
-			<li>Light stopwords/stoptags removal</li>
-			<li>Character width-normalization</li>
-			<li>Lemmatization - reduces inflected adjectives and verbs to their base form</li>
-		</ul>
-		</td>
+		<td>it.lucene</td>		
 	</tr>
     <tr>
 		<td>Japanese</td>
 		<td>ja.microsoft</td>
-		<td>
-		<ul>
-			<li>Uses morphological analysis</li>
-		</ul>
-		</td>
+		<td>ja.lucene</td>
+		
 	</tr>
     <tr>
 		<td>Kannada</td>
 		<td>ka.microsoft</td>
-		<td>
-		<ul>
-			<li>Expansive stemmer (lemmatization)</li>
-		</ul>
-		</td>
+		<td></td>
 	</tr>
     <tr>
 		<td>Korean</td>
+		<td></td>
 		<td>ko.lucene</td>
-		<td>
-		<ul>
-			<li>Indexes bigrams (overlapping groups of two adjacent Hangul characters)</li>
-			<li>Normalizes character width differences</li>
-		</ul>
-		</td>
-	</tr>
-  	<tr>
-		<td>Korean</td>
-		<td>ko.microsoft</td>
-		<td>
-		<ul>
-			<li>Reductive stemmer (lemmatization)</li>
-		</ul>
-		</td>
 	</tr>
     <tr>
-		<td>Latvian</td>
-		<td>lv.lucene</td>
-		<td>
-		<ul>
-			<li>Applies light stemming</li>
-			<li>Filters out Latvian stop words</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>Latvian</td>
+		<td>Latvian</td>		
 		<td>lv.microsoft</td>
-		<td>
-		<ul>
-			<li>Reductive stemmer</li>
-			<li>Filters out Latvian stop words</li>
-		</ul>
-		</td>
+		<td>lv.lucene</td>	
 	</tr>
     <tr>
 		<td>Lithuanian</td>
 		<td>lt.microsoft</td>
-		<td>
-		<ul>
-			<li>Reductive stemmer</li>
-		</ul>
-		</td>
+		<td></td>
 	</tr>
     <tr>
 		<td>Malayalam</td>
 		<td>ml.microsoft</td>
-		<td>
-		<ul>
-			<li>Expansive stemmer (lemmatization)</li>
-		</ul>
-		</td>
+		<td></td>
 	</tr>
     <tr>
 		<td>Malay (Latin)</td>
 		<td>ms.microsoft</td>
-		<td>
-		<ul>
-			<li>Expansive stemmer (lemmatization)</li>
-		</ul>
-		</td>
+		<td></td>
 	</tr>
     <tr>
 		<td>Marathi</td>
 		<td>mr.microsoft</td>
-		<td>
-		<ul>
-			<li>Expansive stemmer (lemmatization)</li>
-		</ul>
-		</td>
+		<td></td>
 	</tr>
     <tr>
 		<td>Norwegian</td>
-		<td>no.lucene</td>
-		<td>
-		<ul>
-			<li>Applies light stemming</li>
-			<li>Filters out Norwegian stop words</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>Norwegian</td>
-		<td>no.microsoft</td>
-		<td>
-		<ul>
-			<li>Expansive stemmer (lemmatization)</li>
-			<li>Filters out Norwegian stop words</li>
-			<li>Decompounding</li>
-		</ul>
-		</td>
+		<td>nb.microsoft</td>
+		<td>no.lucene</td>		
 	</tr>
   	<tr>
     	<td>Persian</td>
-		<td>fa.lucene</td>
-    	<td>
-    	<ul>
-      		<li>Applies algorithmic stemming</li>
-      		<li>Filters out Persian stop words</li>
-      		<li>Implements Arabic and Persian orthographic normalization</li>
-    	</ul>
-    	</td>
+		<td></td>
+		<td>fa.lucene</td>    	
   	</tr>
     <tr>
 		<td>Polish</td>
-		<td>pl.lucene</td>
-		<td>
-		<ul>
-			<li>Applies algorithmic stemming (Stempel)</li>
-			<li>Filters out Polish stop words</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>Polish</td>
 		<td>pl.microsoft</td>
-		<td>
-		<ul>
-			<li>Expansive stemmer (lemmatization)</li>
-			<li>Filters out Polish stop words</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>Portuguese (Brazil)</td>
-		<td>pt-Br.lucene</td>
-		<td>
-		<ul>
-			<li>Applies light stemming</li>
-			<li>Filters out Brazilian stop words</li>
-		</ul>
-		</td>
+		<td>pl.lucene</td>		
 	</tr>
     <tr>
 		<td>Portuguese (Brazil)</td>
 		<td>pt-Br.microsoft</td>
-		<td>
-		<ul>
-			<li>Expansive stemmer (lemmatization)</li>
-			<li>Filters out Brazilian stop words</li>
-		</ul>
-		</td>
+		<td>pt-Br.lucene</td>		
 	</tr>
     <tr>
 		<td>Portuguese (Portugal)</td>
+		<td>pt-Pt.microsoft</td>		
 		<td>pt-Pt.lucene</td>
-		<td>
-		<ul>
-			<li>Applies light stemming</li>
-			<li>Filters out Portuguese stop words</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>Portuguese (Portugal)</td>
-		<td>pt-Pt.microsoft</td>
-		<td>
-		<ul>
-			<li>Expansive stemmer (lemmatization)</li>
-			<li>Filters out Portuguese stop words</li>
-			<li>Removes diacritics</li>
-		</ul>
-		</td>
 	</tr>
     <tr>
 		<td>Punjabi</td>
 		<td>pa.microsoft</td>
-		<td>
-		<ul>
-			<li>Expansive stemmer (lemmatization)</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>Romanian</td>
-		<td>ro.lucene</td>
-		<td>
-		<ul>
-			<li>Applies light stemming</li>
-			<li>Filters out Romanian stop words</li>
-		</ul>
-		</td>
+		<td></td>
 	</tr>
     <tr>
 		<td>Romanian</td>
 		<td>ro.microsoft</td>
-		<td>
-		<ul>
-			<li>Expansive stemmer (lemmatization)</li>
-			<li>Filters out Romanian stop words</li>
-			<li>Removes diacritics</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>Russian</td>
-		<td>ru.lucene</td>
-		<td>
-		<ul>
-			<li>Applies light stemming</li>
-			<li>Filters out Russian stop words</li>
-		</ul>
-		</td>
+		<td>ro.lucene</td>
 	</tr>
     <tr>
 		<td>Russian</td>
 		<td>ru.microsoft</td>
-		<td>
-		<ul>
-			<li>Expansive stemmer (lemmatization)</li>
-			<li>Filters out Russian stop words</li>
-		</ul>
-		</td>
+		<td>ru.lucene</td>	
 	</tr>
     <tr>
 		<td>Serbian (Cyrillic)</td>
 		<td>sr-cyrillic.microsoft</td>
-		<td>
-		<ul>
-			<li>Expansive stemmer (lemmatization)</li>
-		</ul>
-		</td>
+		<td></td>
 	</tr>
     <tr>
 		<td>Serbian (Latin)</td>
 		<td>sr-latin.microsoft</td>
-		<td>
-		<ul>
-			<li>Expansive stemmer (lemmatization)</li>
-		</ul>
-		</td>
+		<td></td>
 	</tr>
     <tr>
 		<td>Slovak</td>
 		<td>sk.microsoft</td>
-		<td>
-		<ul>
-			<li>Reductive stemmer</li>
-			<li>Decompounding</li>
-		</ul>
-		</td>
+		<td></td>
 	</tr>
     <tr>
 		<td>Slovenian</td>
-		<td>sk.microsoft</td>
-		<td>
-		<ul>
-			<li>Expansive stemmer (lemmatization)</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>Spanish</td>
-		<td>es.lucene</td>
-		<td>
-		<ul>
-			<li>Applies light stemming</li>
-			<li>Filters out Spanish stop words</li>
-		</ul>
-		</td>
+		<td>sl.microsoft</td>
+		<td></td>
 	</tr>
     <tr>
 		<td>Spanish</td>
 		<td>es.microsoft</td>
-		<td>
-		<ul>
-			<li>Expansive stemmer (lemmatization)</li>
-			<li>Filters out Spanish stop words</li>
-			<li>Removes diacritics</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>Swedish</td>
-		<td>sv.lucene</td>
-		<td>
-		<ul>
-			<li>Applies light stemming</li>
-			<li>Filters out Swedish stop words</li>
-		</ul>
-		</td>
+		<td>es.lucene</td>
 	</tr>
     <tr>
 		<td>Swedish</td>
 		<td>sv.microsoft</td>
-		<td>
-		<ul>
-			<li>Expansive stemmer (lemmatization)</li>
-			<li>Filters out Swedish stop words</li>
-			<li>Decompounding</li>
-		</ul>
-		</td>
+		<td>sv.lucene</td>
 	</tr>
+
     <tr>
 		<td>Tamil</td>
 		<td>ta.microsoft</td>
-		<td>
-		<ul>
-			<li>Expansive stemmer (lemmatization)</li>
-		</ul>
-		</td>
+		<td></td>
 	</tr>
     <tr>
 		<td>Telugu</td>
 		<td>te.microsoft</td>
-		<td>
-		<ul>
-			<li>Expansive stemmer (lemmatization)</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>Thai</td>
-		<td>th.lucene</td>
-		<td>
-		<ul>
-			<li>Applies light stemming</li>
-			<li>Filters out Thai stop words</li>
-		</ul>
-		</td>
+		<td></td>
 	</tr>
     <tr>
 		<td>Thai</td>
 		<td>th.microsoft</td>
-		<td>
-		<ul>
-			<li>Filters out Thai stop words</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>Turkish</td>
-		<td>tr.lucene</td>
-		<td>
-		<ul>
-			<li>Strips all characters after an apostrophe (including the apostrophe itself)</li>
-			<li>Applies light stemming</li>
-			<li>Filters out Turkish stop words</li>
-		</ul>
-		</td>
+		<td>th.lucene</td>
 	</tr>
     <tr>
 		<td>Turkish</td>
 		<td>tr.microsoft</td>
-		<td>
-		<ul>
-			<li>Reductive stemmer</li>
-			<li>Filters out Turkish stop words</li>
-		</ul>
-		</td>
+		<td>tr.lucene</td>		
 	</tr>
     <tr>
 		<td>Ukrainian</td>
 		<td>uk.microsoft</td>
-		<td>
-		<ul>
-		<li>Expansive stemmer (lemmatization)</li>
-		</ul>
-		</td>
+		<td></td>
 	</tr>
     <tr>
 		<td>Urdu</td>
 		<td>ur.microsoft</td>
-		<td>
-		<ul>
-		<li>Expansive stemmer (lemmatization)</li>
-		</ul>
-		</td>
+		<td></td>
 	</tr>
     <tr>
 		<td>Vietnamese</td>
 		<td>vi.microsoft</td>
-		<td>
-		<ul>
-
-		</ul>
-		</td>
+		<td></td>
 	</tr>
 	<td colspan="3">Additionally Azure Search provides language-agnostic analyzer configurations</td>
     <tr>
@@ -1568,7 +990,7 @@ The response body is in the following format:
 
 ________________________________________
 <a name="DocOps"></a>
-## Document Operations #
+## Document Operations
 
 In Azure Search, an index is stored in the cloud and populated using JSON documents that you upload to the service. All the documents that you upload comprise the corpus of your search data. Documents contain fields, some of which are tokenized into search terms as they are uploaded. The `/docs` URL segment in the Azure Search API represents the collection of documents in an index. All operations performed on the collection such as uploading, merging, deleting, or querying documents take place in the context of a single index, so the URLs for these operations will always start with `/indexes/[index name]/docs` for a given index name.
 
@@ -1744,6 +1166,7 @@ URL encoding is only recommended on the above query parameters. If you inadverte
 
 Also, URL encoding is only necessary when calling the REST API directly using GET. No URL encoding is necessary when calling **Search** using POST, or when using the [.NET client library](https://msdn.microsoft.com/library/dn951165.aspx), which handles URL encoding for you.
 
+<a name="SearchQueryParameters"></a>
 **Query Parameters**
 
 **Search** accepts several parameters that provide query criteria and also specify search behavior. You provide these parameters in the URL query string when calling **Search** via GET, and as JSON properties in the request body when calling **Search** via POST. The syntax for some parameters is slightly different between GET and POST. These differences are noted as applicable below:
@@ -1755,6 +1178,10 @@ Also, URL encoding is only necessary when calling the REST API directly using GE
 `searchMode=any|all` (optional, defaults to `any`) - whether any or all of the search terms must be matched in order to count the document as a match.
 
 `searchFields=[string]` (optional) - The list of comma-separated field names to search for the specified text. Target fields must be marked as `searchable`.
+
+`queryType=simple|full` (optional, defaults to `simple`) - when set to "simple" search text is interpreted using a simple query language that allows for symbols such as +, * and "". Queries are evaluated across all searchable fields (or fields indicated in `searchFields`) in each document by default. When the query type is set to `full` search text is interpreted using the Lucene query language which allows field-specific and weighted searches. See [Simple Query Syntax](https://msdn.microsoft.com/library/dn798920.aspx) and [Lucene Query Syntax](https://msdn.microsoft.com/library/azure/mt589323.aspx) for specifics on the search syntaxes. 
+ 
+> [AZURE.NOTE] Range search in the Lucene query language is not supported in favor of $filter which offers similar functionality.
 
 `moreLikeThis=[key]` (optional) **Important:** This feature is only available in `2015-02-28-Preview`. This option cannot be used in a query that contains the text search parameter, `search=[string]`. The `moreLikeThis` parameter finds documents that are similar to the document specified by the document key. When a search request is made with `moreLikeThis`, a list of search terms is generated based on the frequency and rarity of terms in the source document. Those terms are then used to make the request. By default, the contents of all `searchable` fields are considered unless `searchFields` is used to restrict which fields are searched.  
 
@@ -2065,6 +1492,16 @@ Note that you can only query one index at a time. Do not create multiple indexes
 
 Note the use of `searchMode=all` above. Including this parameter overrides the default of `searchMode=any`, ensuring that `-motel` means "AND NOT" instead of "OR NOT". Without `searchMode=all`, you get "OR NOT" which expands rather than restricts search results, and this can be counter-intuitive to some users.
 
+15) Find documents in the index using [lucene query syntax](http://lucene.apache.org/core/4_10_4/queryparser/org/apache/lucene/queryparser/classic/package-summary.html#Overview). This query returns hotels where the category field contains the term "budget" and all searchable fields containing the phrase "recently renovated". Documents containing the phrase "recently renovated" are ranked higher as a result of the term boost value (3)
+
+    GET /indexes/hotels/docs?search=category:budget AND \"recently renovated\"^3&searchMode=all&api-version=2015-02-28-Preview&querytype=full
+
+    POST /indexes/hotels/docs/search?api-version=2015-02-28-Preview
+    {
+      "search": "category:budget AND \"recently renovated\"^3",
+      "queryType": "full",
+      "searchMode": "all"
+    }
 
 <a name="LookupAPI"></a>
 ##Lookup Document
@@ -2148,7 +1585,7 @@ The following list describes the required and optional request headers.
 - `Accept`: This value must be set to `text/plain`.
 - `api-key`: The `api-key` is used to authenticate the request to your Search service. It is a string value, unique to your service URL. The **Count Documents** request can specify either an admin key or query key for `api-key`.
 
-You will also need the service name to construct the request URL. You can get both the service name and `api-key` from your service dashboard in the Azure Portal. See [Create an Azure Search service in the portal](search-create-service-portal.md) for page navigation help.
+You will also need the service name to construct the request URL. You can get the service name and `api-key` from your service dashboard in the Azure Portal. See [Create an Azure Search service in the portal](search-create-service-portal.md) for page navigation help.
 
 **Request Body**
 
@@ -2247,7 +1684,7 @@ The following list describes the required and optional request headers
 
 - `api-key`: The `api-key` is used to authenticate the request to your Search service. It is a string value, unique to your service URL. The **Suggestions** request can specify either an admin key or query key as the `api-key`.
 
-You will also need the service name to construct the request URL. You can get both the service name and `api-key` from your service dashboard in the Azure Portal. See [Create an Azure Search service in the portal](search-create-service-portal.md) for page navigation help.
+You will also need the service name to construct the request URL. You can get the service name and `api-key` from your service dashboard in the Azure Portal. See [Create an Azure Search service in the portal](search-create-service-portal.md) for page navigation help.
 
 **Request Body**
 

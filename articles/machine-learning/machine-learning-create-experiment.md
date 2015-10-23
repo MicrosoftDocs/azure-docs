@@ -14,10 +14,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="07/09/2015"
+	ms.date="10/13/2015"
 	ms.author="garye"/>
 
-#Machine learning tutorial: Create your first experiment in Azure Machine Learning Studio
+# Machine learning tutorial: Create your first experiment in Azure Machine Learning Studio
 
 In this first machine learning tutorial, we'll create a linear regression model that predicts the price of an automobile based on different variables such as make and technical specifications. To do this, we'll use Azure Machine Learning Studio to develop and iterate on a simple predictive analytics experiment.
 
@@ -27,10 +27,12 @@ A Machine Learning Studio experiment consists of dragging components to a canvas
 
 Enter Machine Learning Studio: [https://studio.azureml.net](https://studio.azureml.net), and click the **Get started** button. You can choose either the Guest Access or sign in with your Microsoft account.
 
-And for more general information about Machine Learning Studio, see [What is Machine Learning Studio?](machine-learning-what-is-ml-studio.md).
+For more general information about Machine Learning Studio, see [What is Machine Learning Studio?](machine-learning-what-is-ml-studio.md).
+
+>[AZURE.TIP] To download and print a diagram that gives an overview of the capabilities of Machine Learning Studio, see [Overview diagram of Azure Machine Learning Studio capabilities](machine-learning-studio-overview-diagram.md).
 
 
-##Five steps to create an experiment
+## Five steps to create an experiment
 
 In this machine learning tutorial, you'll follow five basic steps to build an experiment in Machine Learning Studio in order to create, train, and score your model:
 
@@ -199,11 +201,11 @@ Now that you've completed a first machine learning tutorial and have your experi
 
 [runhistory]: machine-learning-manage-experiment-iterations.md
 
-When you're satisfied with your model, you can publish it as a web service to be used to predict automobile prices by using new data. See [Publish an Azure Machine Learning web service][publish] for more details.
+When you're satisfied with your model, you can deploy it as a web service to be used to predict automobile prices by using new data. See [Deploy an Azure Machine Learning web service][publish] for more details.
 
 [publish]: machine-learning-publish-a-machine-learning-web-service.md
 
-For a more extensive and detailed walkthrough of predictive modeling techniques for creating, training, scoring, and publishing a model, see [Develop a predictive solution by using Azure Machine Learning][walkthrough].
+For a more extensive and detailed walkthrough of predictive modeling techniques for creating, training, scoring, and deploying a model, see [Develop a predictive solution by using Azure Machine Learning][walkthrough].
 
 [walkthrough]: machine-learning-walkthrough-develop-predictive-solution.md
 

@@ -3,7 +3,7 @@
 	description="This topic shows how to use .NET to perform live encoding with on-premises encoders." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="juliako" 
+	authors="Juliako,cenkdin" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -11,9 +11,9 @@
 	ms.service="media-services" 
 	ms.workload="media" 
 	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
+	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="08/24/2015"  
+	ms.date="10/15/2015"  
 	ms.author="juliako"/>
 
 #How to perform live encoding with on-premises encoders
@@ -374,3 +374,11 @@ For information on how to configure a live encoder, see [Azure Media Services RT
 		        }
 		    }
 		}
+
+
+##Media Services learning paths
+
+You can view AMS learning paths here:
+
+- [AMS Live Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [AMS on Demand Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
