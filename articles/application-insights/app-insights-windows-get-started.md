@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="06/16/2015"
+	ms.date="10/16/2015"
 	ms.author="awills"/>
 
 # Application Insights for Windows Phone and Store apps
@@ -71,7 +71,7 @@ If it's a Windows Universal app, repeat the steps for both the Windows Phone pro
 	```xml
 
 		<?xml version="1.0" encoding="utf-8" ?>
-		<ApplicationInsights>
+		<ApplicationInsights xmlns="http://schemas.microsoft.com/ApplicationInsights/2013/Settings>
 			<InstrumentationKey>YOUR COPIED INSTRUMENTATION KEY</InstrumentationKey>
 		</ApplicationInsights>
 	```

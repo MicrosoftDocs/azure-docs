@@ -53,7 +53,7 @@ In the bottom left portion of the picture, there is an Azure Resource Manager (A
 
 Presumably you’re already doing the bit at the top, or most of it.  Creating the nuspec, compiling and storing it in a NuGet server is a small thing.  And you’re already managing VMs.  Taking the next step to continuous deployment requires setting up the pull server (once), registering your nodes with it (once), and creating and storing the configuration there (initially).  Then as packages are upgraded and deployed to the repository, refresh the Configuration and Node Configuration in the pull server (repeat as needed).
 
-If you’re not starting with an ARM template, that’s also OK.  There are PowerShell cmdlets designed to help you register your VMs with the pull server and all of the rest. For more details, see this article: [Onboarding machines for management by Azure Automation DSC](automation-dsc-onboarding)
+If you’re not starting with an ARM template, that’s also OK.  There are PowerShell cmdlets designed to help you register your VMs with the pull server and all of the rest. For more details, see this article: [Onboarding machines for management by Azure Automation DSC](automation-dsc-onboarding.md)
 
 
 ## Step 1: Setting up the pull server and automation account
@@ -184,6 +184,6 @@ Full source for this usage example is in [this Visual Studio project](https://gi
 
 ##Related Articles##
 
-- [Azure Automation DSC Overview] (automation-dsc-overview)
+- [Azure Automation DSC Overview] (automation-dsc-overview.md)
 - [Azure Automation DSC cmdlets] (https://msdn.microsoft.com/library/mt244122.aspx)
-- [Onboarding machines for management by Azure Automation DSC] (automation-dsc-onboarding)
+- [Onboarding machines for management by Azure Automation DSC] (automation-dsc-onboarding.md)

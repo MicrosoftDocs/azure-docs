@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Working with Custom Domains in Azure AD Application Proxy"
+	pageTitle="Working with Custom Domains in Azure AD Application Proxy | Microsoft Azure"
 	description="Covers how work with custom domains in Azure AD Application Proxy."
 	services="active-directory"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/07/2015"
+	ms.date="10/19/2015"
 	ms.author="rkarlin"/>
 
 # Working with custom domains in Azure AD Application Proxy
@@ -87,5 +87,5 @@ There's a lot more you can do with Application Proxy:
 
 ## Additional Resources
 
-* [Sign up for Azure as an organization](..sign-up-organization.md)
-* [Azure Identity](..fundamentals-identity.md)
+* [Sign up for Azure as an organization](sign-up-organization.md)
+* [Azure Identity](fundamentals-identity.md)
