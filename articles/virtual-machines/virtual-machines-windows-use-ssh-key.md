@@ -69,20 +69,21 @@ Here are the deployment scenarios, and the types of files you use in each:
 2.	Run Git Shell from the Start Menu > All Programs > GitHub, Inc
 
 > [AZURE.NOTE] You may encounter the following error when running the `openssl` commands above:
+
 			Unable to load config info from /usr/local/ssl/openssl.cnf
-	
+	<!-- -->
 		The easiest way to resolve this is to set the `OPENSSL_CONF` environment variable. The process for setting this variable will vary depending on the shell that you have configured in Github:
-	
+	<!-- -->
 		**Powershell:**
-	
+	<!-- -->
 			$Env:OPENSSL_CONF="$Env:GITHUB_GIT\ssl\openssl.cnf"
-	
+	<!-- -->
 		**CMD:**
-	
+	<!-- -->
 			set OPENSSL_CONF=%GITHUB_GIT%\ssl\openssl.cnf
-	
+	<!-- -->
 		**Git Bash:**
-	
+	<!-- -->
 			export OPENSSL_CONF=$GITHUB_GIT/ssl/openssl.cnf
 	
 
