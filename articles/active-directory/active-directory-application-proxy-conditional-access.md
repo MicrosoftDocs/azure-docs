@@ -20,12 +20,14 @@
 > [AZURE.NOTE] Application Proxy is a feature that is available only if you upgraded to the Premium or Basic edition of Azure Active Directory. For more information, see [Azure Active Directory editions](active-directory-editions.md).
 
 You can now enable access rules to grant conditional access to users and groups accessing applications published using Application Proxy. This enables you to:
+
 - Require mutli-factor authentication per application
 - Require multi-factor authentication only when users are not at work
 - Block users from accessing the application when they are not at work
 
 These rules can be applied to all users and groups or only to specific users and groups.
 By default the rule will apply to all users who have access to the application. However the rule can also be restricted to users that are members of the specified security groups.  
+
 Access rules are evaluated when a user accesses a federated application that uses OAuth 2.0, OpenID Connect, SAML or WS-Federation. In addition, access rules are evaluated when the OAuth 2.0 and OpenID Connect when a refresh token is used to acquire an access token. 
 
 ## Conditional access prerequisites
@@ -68,5 +70,5 @@ There's a lot more you can do with Application Proxy:
 
 ## Additional Resources
 
-* [Sign up for Azure as an organization](..sign-up-organization.md)
-* [Azure Identity](..fundamentals-identity.md)
+* [Sign up for Azure as an organization](sign-up-organization.md)
+* [Azure Identity](fundamentals-identity.md)
