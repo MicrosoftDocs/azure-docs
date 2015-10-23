@@ -19,6 +19,8 @@
 
 Automation Schedules are used to schedule runbooks to run automatically.  This could be either a single date and time for the runbook to run once.  Or it could be a recurring schedule to start the runbook multiple times.  Schedules are typically not accessed from runbooks.
 
+>[AZURE.NOTE]  Schedules do not currently support Azure Automation DSC configurations.
+
 ## Windows PowerShell Cmdlets
 
 The cmdlets in the following table are used to create and manage variables with Windows PowerShell in Azure Automation. They ship as part of the [Azure PowerShell module](../powershell-install-configure.md).

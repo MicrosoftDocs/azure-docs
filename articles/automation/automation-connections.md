@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Connection assets in Azure Automation | Microsoft Azure"
-   description="Connection assets in Azure Automation contain the information required to connect to an external service or application from a runbook.  This article explains the details of connections and how to work with them in both textual and graphical authoring."
+   description="Connection assets in Azure Automation contain the information required to connect to an external service or application from a runbook or DSC configuration. This article explains the details of connections and how to work with them in both textual and graphical authoring."
    services="automation"
    documentationCenter=""
    authors="bwren"
@@ -12,12 +12,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/18/2015"
+   ms.date="10/23/2015"
    ms.author="bwren" />
 
-# Connection assets in Azure Automation
+# Connection assets in Azure Automation runbooks and DSC configurations
 
-An Automation connection asset contains the information required to connect to an external service or application from a runbook.  This may include information required for authentication such as a username and password in addition to connection information such as a URL or a port. The value of a connection is keeping all of the properties for connecting to a particular application in one asset as opposed to creating multiple variables. The user can edit the values for a connection in one place, and you can pass the name of a connection to a runbook in a single parameter. The properties for a connection can be accessed in the runbook with the **Get-AutomationConnection** activity.
+An Automation connection asset contains the information required to connect to an external service or application from a runbook or DSC configuration. This may include information required for authentication such as a username and password in addition to connection information such as a URL or a port. The value of a connection is keeping all of the properties for connecting to a particular application in one asset as opposed to creating multiple variables. The user can edit the values for a connection in one place, and you can pass the name of a connection to a runbook or DSC configuration in a single parameter. The properties for a connection can be accessed in the runbook or DSC configuration with the **Get-AutomationConnection** activity.
 
 When you create a connection, you must specify a *connection type*. The connection type is a template that defines a set of properties. The connection defines values for each property defined in its connection type. Connection types are added to Azure Automation in integration modules or created with the [Azure Automation API](http://msdn.microsoft.com/library/azure/mt163818.aspx). The only connection types that are available when you create a connection are those installed in your automation account.
 
@@ -25,7 +25,7 @@ When you create a connection, you must specify a *connection type*. The connecti
 
 ## Windows PowerShell Cmdlets
 
-The cmdlets in the following table are used to create and manage Automation connections with Windows PowerShell They ship as part of the [Azure PowerShell module](../powershell-install-configure.md) which is available for use in Automation runbooks.
+The cmdlets in the following table are used to create and manage Automation connections with Windows PowerShell They ship as part of the [Azure PowerShell module](../powershell-install-configure.md) which is available for use in Automation runbooks and DSC configurations.
 
 |Cmdlet|Description|
 |:---|:---|
@@ -36,13 +36,13 @@ The cmdlets in the following table are used to create and manage Automation conn
 
 ## Runbook Activities
 
-The activities in the following table are used to access connections in a runbook.
+The activities in the following table are used to access connections in a runbook or DSC configuration.
 
 |Activities|Description|
 |---|---|
-|Get-AutomationConnection|Gets a connection to use in a runbook. Returns a hashtable with the properties of the connection.|
+|Get-AutomationConnection|Gets a connection to use. Returns a hashtable with the properties of the connection.|
 
->[AZURE.NOTE] You should avoid using variables in the –Name parameter of **Get- AutomationConnection** since this can complicate discovering dependencies between runbooks and connection assets at design time.
+>[AZURE.NOTE] You should avoid using variables in the –Name parameter of **Get- AutomationConnection** since this can complicate discovering dependencies between runbooks or DSC configurations, and connection assets at design time.
 
 ## Creating a New Connection
 
@@ -79,9 +79,9 @@ The following sample commands create a new connection for [Twilio](http://www.tw
 	New-AzureAutomationConnection -AutomationAccountName "MyAutomationAccount" -Name "TwilioConnection" -ConnectionTypeName "Twilio" -ConnectionFieldValues $FieldValues
 
 
-## Using a connection in a runbook
+## Using a connection in a runbook or DSC configuration
 
-You retrieve a connection in a runbook with the **Get-AutomationConnection** cmdlet.  This activity retrieves the values of the different fields in the connection and returns them as a [hash table](http://go.microsoft.com/fwlink/?LinkID=324844) which can then be used with the appropriate commands in the runbook.
+You retrieve a connection in a runbook or DSC configuration with the **Get-AutomationConnection** cmdlet.  This activity retrieves the values of the different fields in the connection and returns them as a [hash table](http://go.microsoft.com/fwlink/?LinkID=324844) which can then be used with the appropriate commands in the runbook or DSC configuration.
 
 ### Textual runbook sample
 The following sample commands show how to use the Twilio connection in the previous example to send a text message from a runbook.  The Send-TwilioSMS activity used here has two parameter sets that each use a different method for authenticating to the Twilio service.  One uses a connection object and another uses individual parameters for the Account SID and Authorization Token.  Both methods are shown in this sample.
