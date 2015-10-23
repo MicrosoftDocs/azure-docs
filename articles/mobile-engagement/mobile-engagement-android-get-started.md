@@ -140,9 +140,9 @@ Go to **MainActivity.java** and add the following to replace the base class of *
 
 	public class MainActivity extends EngagementActivity {
 
-You should comment the following line for this simple sample scenario:
+You should comment out (exclude) the following line for this simple sample scenario:
 
-    setSupportActionBar(toolbar);
+    // setSupportActionBar(toolbar);
 
 If you want to keep this around then you should check out the "Basic Reporting" scenario in our [Advanced Android Integration]
 
