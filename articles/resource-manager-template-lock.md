@@ -48,7 +48,7 @@ The following tables describe the values you need to set in the schema.
 | apiVersion | enum | Yes | **2015-01-01** | The API version to use for creating the resource. |  
 | name | string | Yes | 64 characters<br />It cannot contain <, > %, &, ?, or any control characters. | The name of the lock to create. |
 | dependsOn | array | No |  | The collection of resources this lock depends on. Each value is a string containing either the resource name or resource unique identifier. You must specify the parent resource. | 
-| properties | object | Yes |  | An object that identifies the type of lock, and notes about the lock (values shown below). |  
+| properties | object | Yes | (shown below)  | An object that identifies the type of lock, and notes about the lock. |  
 
 ### properties object
 

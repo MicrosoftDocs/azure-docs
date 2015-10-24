@@ -16,7 +16,7 @@
    ms.date="10/23/2015"
    ms.author="tomfitz"/>
 
-# Storage - template schema
+# Storage account - template schema
 
 Creates a storage account.
 
@@ -44,8 +44,9 @@ The following tables describe the values you need to set in the schema.
 | type | enum | Yes | **Microsoft.Storage/storageAccounts** | The resource type to create. |
 | apiVersion | enum | Yes | **2015-06-15** <br /> **2015-05-01-preview** | The API version to use for creating the resource. | 
 | name | string | Yes | Between 3 and 24 characters, only numbers and lower-case letters  | The name of the storage account to create. The name must be unique across all of Azure. Consider using the uniqueString function with your naming convention. |
-| properties | object | Yes |  | An object that specifies the type of storage account to create.
+| properties | object | Yes | (shown below) | An object that specifies the type of storage account to create.
 
+### properties object
 
 | Name | Type | Required | Permitted values | Description |
 | ---- | ---- | -------- | ---------------- | ----------- |
