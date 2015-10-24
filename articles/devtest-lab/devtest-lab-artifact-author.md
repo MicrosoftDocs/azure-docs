@@ -113,8 +113,8 @@ Create your custom artifact by following steps below:
 	1. Store the artifact definition file (artifactfile.json) in the directory you created.
 	1. Store the scripts that are referenced from the artifact install command.
 
-Here is an example of how an artifact folder might look:
+	Here is an example of how an artifact folder might look:
 
-![Artifact git repo example](./media/devtest-lab-artifact-author/git-repo.png)
+	![Artifact git repo example](./media/devtest-lab-artifact-author/git-repo.png)
 
-
+1. Add the artifacts repository to the lab - Refer to the article, [Add a Git artifact repository to your DevTest Lab](devtest-lab-add-artifact-repo.md).
