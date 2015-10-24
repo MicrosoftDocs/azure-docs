@@ -18,7 +18,7 @@
 
 #Authoring Artifacts
 
-**Artifacts** are used to deploy and configure your application after a VM is provisioned. An artifact consists of an artifact definition file and other script files that are stored in a folder in a git repository. Artifact definition file consists of JSON and expressions which you can use to specify what you want to install on a machine. For example, you can define the name of artifact, command to run and parameters that are made available when the command is run. You can refer to other script files within artifact definition file using their name. 
+**Artifacts** are used to deploy and configure your application after a VM is provisioned. An artifact consists of an artifact definition file and other script files that are stored in a folder in a git repository. Artifact definition files consist of JSON and expressions that you can use to specify what you want to install on a VM. For example, you can define the name of artifact, command to run, and parameters that are made available when the command is run. You can refer to other script files within the artifact definition file by name. 
 
 ##Artifact definition file format
 The following example shows the sections that make up the basic structure of a definition file.
