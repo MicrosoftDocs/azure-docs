@@ -44,6 +44,32 @@ The following example shows the sections that make up the basic structure of a d
 	}
 
 | Element name | Required? | Description
-| ------------ | :-------: | -----------
+| ------------ | --------- | -----------
 | $schema      | No        | Location of the JSON schema file that helps in testing the validity of the definition file.
-| title        | Yes       | Name of the artifact that is displayed in lab.
+| title        | Yes       | Name of the artifact that is displayed in the lab.
+| description  | Yes 	   | Description of the artifact that is displayed in the lab.
+| iconUri	   | No	       | Uri of the icon that will be displayed in the lab.
+| targetOsType | Yes       | Operating system of the machine where artifact will be installed. Supported options are: Windows and Linux.
+| parameters   | No        | Values that are provided when artifact install command is run on a machine. This helps in customizing your artifact.
+| runCommand   | Yes       | Artifact install command that is executed on a machine.
+
+###Parameters
+
+In the parameters section of the definition file, you specify which values a user can input when installing an artifact. You can refer to these values in the artifact install command. 
+
+You define parameters will the following structure.
+
+	"parameters": {
+	    "<parameterName>": {
+	      "type": "<type-of-parameter-value>",
+	      "displayName": "<display-name-of-parameter>",
+	      "description": "<description-of-parameter>"
+	    }
+	  }
+
+| Element name | Required? | Description
+| ------------ | --------- | -----------
+| type         | Yes       | Type of parameter value. See the list below for the allowed types:
+                             A second line
+| displayName    Yes       | Name of the parameter that is displayed to a user in the lab. 
+| description  | Yes 	   | Description of the parameter that is displayed in the lab.
