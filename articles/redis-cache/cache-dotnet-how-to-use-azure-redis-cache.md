@@ -18,15 +18,13 @@
 
 # How to Use Azure Redis Cache
 
-This guide shows you how to get started using 
-**Azure Redis Cache**. The samples are written in C\# code and
-use the [StackExchange.Redis][] client. The scenarios covered include **creating and configuring a cache**, **configuring cache clients**, **adding and removing objects from the cache**, and **storing ASP.NET session state in the cache**. For more
-information on using Azure Redis Cache, refer to the [Next Steps][] section.
+> [AZURE.SELECTOR]
+- [.Net](cache-dotnet-how-to-use-azure-redis-cache.md)
+- [Node.js](cache-nodejs-get-started.md)
+- [Java](cache-java-get-started.md)
+- [Python](cache-python-get-started.md)
 
-<a name="what-is"></a>
-## What is Azure Redis Cache?
-
-Microsoft Azure Redis Cache is based on the popular open source Redis Cache. It gives you access to a secure, dedicated Redis cache, managed by Microsoft. A cache created using Azure Redis Cache is accessible from any application within Microsoft Azure.
+This guide shows you how to get started using **Azure Redis Cache**. Microsoft Azure Redis Cache is based on the popular open source Redis Cache. It gives you access to a secure, dedicated Redis cache, managed by Microsoft. A cache created using Azure Redis Cache is accessible from any application within Microsoft Azure.
 
 Microsoft Azure Redis Cache is available in the following tiers:
 
@@ -34,9 +32,9 @@ Microsoft Azure Redis Cache is available in the following tiers:
 -	**Standard** – Two-node Primary/Replica. Multiple sizes up to 53 GB. 99.9% SLA.
 -	**Premium** – Currently in preview. Two-node Primary/Replica with up to 10 shards. Multiple sizes from 6 GB to 530 GB (contact us for more). All Standard tier features and more including support for [Redis cluster](cache-how-to-premium-clustering.md), [Redis persistence](cache-how-to-premium-persistence.md), and [Azure Virtual Network](cache-how-to-premium-vnet.md). No SLA during the preview period.
 
-Each tier differs in terms of features and pricing. The features are covered later in this guide, and for more information on pricing, see [Cache Pricing Details][].
+Each tier differs in terms of features and pricing. For information on pricing, see [Cache Pricing Details][].
 
-This guide provides an overview of getting started with Azure Redis Cache. For more detailed information on these features that are beyond the scope of this getting started guide, see [Overview of Azure Redis Cache][].
+This guide shows you how to use the [StackExchange.Redis][] client using C\# code. The scenarios covered include **creating and configuring a cache**, **configuring cache clients**, and **adding and removing objects from the cache**. For more information on using Azure Redis Cache, refer to the [Next Steps][] section.
 
 <a name="getting-started-cache-service"></a>
 ## Get Started with Azure Redis Cache
@@ -288,92 +286,20 @@ In the following example, an instance of an `Employee` object is stored and retr
 >
 >`Type 'SampleApplication.Employee' in Assembly SampleApplication, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null' is not marked as serializable.`
 
-
-
-
-<a name="store-session"></a>
-## Store ASP.NET session state in the cache
-
-Azure Redis Cache provides a session state provider that you can use to store your session state in a cache rather than in-memory or in a SQL Server database. To use the caching session
-state provider, first configure your cache, and then configure your ASP.NET application for cache using the Redis Cache Session State NuGet package.
-
-To configure a client application in Visual Studio using the Redis Cache Session State NuGet package, right-click the project in **Solution Explorer** and choose **Manage NuGet Packages**. 
-
-![Manage NuGet packages][NuGetMenu]
-
-Type **RedisSessionStateProvider** into the **Search Online** text box, select it from the results, and click **Install**.
-
-![Redis Cache Session State NuGet Package][SessionStateNuGet]
-
-The NuGet package downloads and adds the required assembly references and adds the following section into your web.config file that contains the required configuration for your ASP.NET application to use the Redis Cache Session State Provider.
-
-    <sessionState mode="Custom" customProvider="MySessionStateStore">
-      <providers>
-        <!--
-          <add name="MySessionStateStore" 
-            host = "127.0.0.1" [String]
-            port = "" [number]
-            accessKey = "" [String]
-            ssl = "false" [true|false]
-            throwOnError = "true" [true|false]
-            retryTimeoutInMilliseconds = "0" [number]
-            databaseId = "0" [number]
-            applicationName = "" [String]
-            connectionTimeoutInMilliseconds = "5000" [number]
-            operationTimeoutInMilliseconds = "5000" [number]
-          />
-        -->
-        <add name="MySessionStateStore" type="Microsoft.Web.Redis.RedisSessionStateProvider" host="127.0.0.1" accessKey="" ssl="false" />
-      </providers>
-    </sessionState>
-
-The commented section provides an example of the attributes and sample settings for them.
-
-Configure the attributes with the values from your cache blade on the preview portal, and configure the other values as desired.
-
-	<sessionState mode="Custom" customProvider="MySessionStateStore">
-      <providers>
-        <!--
-          <add name="MySessionStateStore" 
-            host = "127.0.0.1" [String]
-            port = "" [number]
-            accessKey = "" [String]
-            ssl = "false" [true|false]
-            throwOnError = "true" [true|false]
-            retryTimeoutInMilliseconds = "0" [number]
-            databaseId = "0" [number]
-            applicationName = "" [String]
-            connectionTimeoutInMilliseconds = "5000" [number]
-            operationTimeoutInMilliseconds = "5000" [number]
-          />
-        -->
-        <add name="MySessionStateStore" type="Microsoft.Web.Redis.RedisSessionStateProvider" host="contoso5.redis.cache.windows.net" 
-		accessKey="..." ssl="true" />
-      </providers>
-    </sessionState>
-
-Be sure to comment out the standard **InProc** session state provider.
-
-    <!-- <sessionState mode="InProc" customProvider="DefaultSessionProvider">
-      <providers>
-        <add name="DefaultSessionProvider" type="System.Web.Providers.DefaultSessionStateProvider, System.Web.Providers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" connectionStringName="DefaultConnection" />
-      </providers>
-    </sessionState> -->
-
-For more information about configuring these settings and using the Azure Redis Session State Provider, see [Azure Redis Session State Provider](cache-asp.net-session-state-provider.md).
-
 <a name="next-steps"></a>
 ## Next Steps
 
-Now that you've learned the basics of Azure Redis Cache,
-follow these links to learn how to do more complex caching tasks.
+Now that you've learned the basics, follow these links to learn more about Azure Redis Cache.
 
+-	Check out the ASP.NET providers for Azure Redis Cache.
+	-	[Azure Redis Session State Provider](cache-asp.net-session-state-provider.md)
+	-	[Azure Redis Cache ASP.NET Output Cache Provider](cache-asp.net-output-cache-provider.md)
 -	[Enable cache diagnostics](cache-how-to-monitor.md#enable-cache-diagnostics) so you can [cache-how-to-monitor.md) the health of your cache. You can view the metrics in the preview portal and you can also [download and review](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring) them using the tools of your choice.
 -	Check out the [StackExchange.Redis cache client documentation][].
 	-	Azure Redis Cache can be accessed from many Redis clients and development languages. For more information, see [http://redis.io/clients][] and [Develop in other languages for Azure Redis Cache][].
 	-	Azure Redis Cache can also be used with services such as Redsmin. For more information, see  [How to retrieve an Azure Redis connection string and use it with Redsmin][].
 -	See the [redis][] documentation and read about [redis data types][] and [a fifteen minute introduction to Redis data types][].
--   See the MSDN Reference for [Azure Redis Cache][]. 
+
 
 
 <!-- INTRA-TOPIC LINKS -->
