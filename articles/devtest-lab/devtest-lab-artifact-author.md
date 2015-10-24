@@ -70,6 +70,6 @@ You define parameters will the following structure.
 | Element name | Required? | Description
 | ------------ | --------- | -----------
 | type         | Yes       | Type of parameter value. See the list below for the allowed types:
-                             A second line
+|              |           | A second line
 | displayName    Yes       | Name of the parameter that is displayed to a user in the lab. 
 | description  | Yes 	   | Description of the parameter that is displayed in the lab.
