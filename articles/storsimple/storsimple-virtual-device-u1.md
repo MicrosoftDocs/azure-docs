@@ -131,9 +131,7 @@ Perform the following steps to create the StorSimple virtual device.
 	2. **Version** - Choose the version of the virtual device. This option will be absent if you only have Update 1 (or above) physical devices registered with this service. This field is presented only if you have a combination of pre-update 1 and post-update 1 physical devices registered with the service. Given the version of the virtual device will determine which physical device you can failover or clone from, it is important that you create an appropriate version of the virtual device. Select:
 
 	   - Version Update 0.3 if you will fail over or clone from a physical device with GA Release or Updates 0.1 to 0.3. 
-	   - Version Update 1 if you will fail over or clone from a physical device with Update 1 (or above). 
-
-Choosing Update 1 in the dropdown will actually provision a Update 1.1 virtual device.
+	   - Version Update 1 if you will fail over or clone from a physical device with Update 1 (or above). Choosing Update 1 in the dropdown will actually provision a Update 1.1 virtual device.
  
 	3. **Virtual Network** – The name of the virtual network that you want to use with this virtual device.
 
