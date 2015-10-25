@@ -62,19 +62,8 @@ To complete this tutorial, you need the following:
 
 
 <!-- Images. -->
-[0]: ./media/mobile-services-dotnet-backend-ios-get-started/mobile-quickstart-completed-ios.png
-[1]: ./media/mobile-services-dotnet-backend-ios-get-started/mobile-quickstart-steps-vs.png
 
-[6]: ./media/app-service-mobile-dotnet-backend-ios-get-started-preview/ios-quickstart.png
-
-[7]: ./media/mobile-services-dotnet-backend-ios-get-started/mobile-quickstart-steps-ios.png
-[8]: ./media/mobile-services-dotnet-backend-ios-get-started/mobile-xcode-project.png
-
-[10]: ./media/mobile-services-dotnet-backend-ios-get-started/mobile-quickstart-startup-ios.png
-[11]: ./media/mobile-services-dotnet-backend-ios-get-started/mobile-data-tab.png
-[12]: ./media/mobile-services-dotnet-backend-ios-get-started/mobile-data-browse.png
-
+<!-- URLs -->
 [Azure portal]: https://portal.azure.com/
 [Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
-
 [Visual Studio Community 2013]: https://go.microsoft.com/fwLink/p/?LinkID=534203
