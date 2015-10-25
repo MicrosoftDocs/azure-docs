@@ -29,7 +29,7 @@ This topic will help you with the following tasks:
 ## Sign up for an Azure Free Trial subscription
 To sign up for an Azure Free Trial subscription, you must provide a phone number, a credit card, and a [Microsoft Account](https://www.microsoft.com/en-us/account/faq.aspx) (formerly Windows Live ID) or a School/Work account (aka Organizations ID). Your phone number and credit card are used only to verify your identity, and your credit card will not be billed**
 
-[AZURE.NOTE] We will place $1 in the United States or something similar for the currency in your region authorization hold on your payment card to make sure it is a valid card, and this will be released within 3-5 days, based on your financial institution’s policies. Your card will not be charged.
+>[AZURE.NOTE] We will place $1 in the United States or something similar for the currency in your region authorization hold on your payment card to make sure it is a valid card, and this will be released within 3-5 days, based on your financial institution’s policies. Your card will not be charged.
 
 To sign up for an Azure Free Trial subscription:
 
