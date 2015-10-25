@@ -39,9 +39,8 @@ To sign up for an Azure Free Trial subscription:
 
 3. In the **About you** section, type your personal information. Note that Country cannot be changed once it is specified. ![The screenshow of personal information](./media/billing-buy-sign-up-azure-subscription/AboutYou.png)
 
-4. Verification by phone involves a code being sent to your phone using your preferred method: phone call or SMS. When you enter the code you receive, it helps us verify your identity. </br></br> In the **Verification by phone** section, select the international dialing code for your country, type your phone number (Do not type the internal dialing code) and then select **Send text message** or **Call me**. After you receive a verification code, enter it in the **Verify code** box, and then select the **Verify code** button to verify your phone number. </br>
+4. Verification by phone involves a code being sent to your phone using your preferred method: phone call or SMS. When you enter the code you receive, it helps us verify your identity. </br></br> In the **Verification by phone** section, select the international dialing code for your country, type your phone number (Do not type the internal dialing code) and then select **Send text message** or **Call me**. After you receive a verification code, enter it in the **Verify code** box, and then select the **Verify code** button to verify your phone number. You cannot use a VOIP phone number for phone verification.</br>
 
->[AZURE.NOTE] A VOIP phone number cannot be used for phone verification.
 ![the screenshot about phone verification](./media/billing-buy-sign-up-azure-subscription/PhoneVerify.png)</br>
 
 If you do not receive a text message or a call back, try using a different phone number or contact [Microsoft Support](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) for help.
