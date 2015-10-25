@@ -174,7 +174,7 @@ public class Job : IComparable<Job>
 }
 ```
 
-Finally, we implement the IJobQueue interface in the grain. Note that we omitted the implementation details of the priority queue here for clarity. A sample implementation can be found in the accompanying samples.
+Finally, we implement the IJobQueue interface in the actor. Note that we omitted the implementation details of the priority queue here for clarity. A sample implementation can be found in the accompanying samples.
 
 ## Smart Cache code sample – Job Queue
 
@@ -246,9 +246,9 @@ In the samples above, Leaderboard and JobQueue, we used two different techniques
 
 * On the other hand, in the JobQueue sample we implemented the actor as a priority queue itself rather than referencing another object defined elsewhere.
 
-Actors provide flexibility for the developer to define rich object structures as part the actors or reference object graphs outside of the actors.
+Actors provide flexibility for the developer to define rich object structures as part of the actors or reference object graphs outside of the actors.
 In caching terms actors can write-behind or write-through, or we can use different techniques at a member variable granularity. In other words, we have full control over what to persist and when to persist. We don’t have to persist transient state or state that we can build from saved state.
-And how about populating these actors caches then? There are number of ways to achieve this. Actors provide virtual methods called OnActivateAsync() and OnDectivateAsync() to let us know when an instance of the actor is activated and deactivated. Note that the actor is activated on demand when a first request is sent to it.
+And how about populating these actors caches then? There are number of ways to achieve this. Actors provide virtual methods called OnActivateAsync() and OnDeactivateAsync() to let us know when an instance of the actor is activated and deactivated. Note that the actor is activated on demand when a first request is sent to it.
 We can use OnActivateAsync() to populate state on-demand as in read-through, perhaps from an external stable store. Or we can populate state on a timer, say an Exchange Rate actor that provides the conversion function based on the latest currency rates. This actor can populate its state from an external service periodically, say every 5 seconds, and use the state for the conversion function. See the example below:
 
 ## Smart Cache code sample – Rate Converter
