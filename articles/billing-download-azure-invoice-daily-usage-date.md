@@ -24,8 +24,8 @@ As the Azure Account Administrator, you can view the current bill at the Azure A
 
 1. Sign into the [Usage and Billing Portal](https://account.windowsazure.com/subscriptions) using your Microsoft Account ID, Work Account ID or School Account ID.
 2. Select the subscription for which you want the invoice and usage information.
-3. Select **BILLING HISTORY**. </br>![billinghistory](./Media/Billinghisotry.png)
-4. You can see your statements for the last six billing periods as well as the current unbilled period. </br>![billingsum](/Media/billingSum.png)</br>
-5. Select **View Current Statement** to see an estimate of your charges at the time the estimate was generated. This information is only updated daily and may not include all of your usage. Your monthly bill may differ from this estimate.</br>![billingsum2](./Media/billingSum2.png)</br>![billingsum3](./Media/billingSum3.png)</br>
-6. Select **Download Invoice** to see a copy of your last bill. </br>![DLInvoice](./Media/DLInvoice1.png)
-7. Select **Download Usage** to download the daily usage data as a CSV file.</br>![DLusage](./Media/DLusage.png)
+3. Select **BILLING HISTORY**. </br>![billinghistory](./media/billing-download-azure-invoice-daily-usage-date/Billinghisotry.png)
+4. You can see your statements for the last six billing periods as well as the current unbilled period. </br>![billingsum](./media/billing-download-azure-invoice-daily-usage-date/billingSum.png)</br>
+5. Select **View Current Statement** to see an estimate of your charges at the time the estimate was generated. This information is only updated daily and may not include all of your usage. Your monthly bill may differ from this estimate.</br>![billingsum2](./media/billing-download-azure-invoice-daily-usage-date/billingSum2.png)</br>![billingsum3](./Media/billingSum3.png)</br>
+6. Select **Download Invoice** to see a copy of your last bill. </br>![DLInvoice](./media/billing-download-azure-invoice-daily-usage-date/DLInvoice1.png)
+7. Select **Download Usage** to download the daily usage data as a CSV file.</br>![DLusage](./media/billing-download-azure-invoice-daily-usage-date/DLusage.png)
