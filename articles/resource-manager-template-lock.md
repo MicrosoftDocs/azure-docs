@@ -13,22 +13,22 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/23/2015"
+   ms.date="10/25/2015"
    ms.author="tomfitz"/>
 
 # Resource locks - template schema
 
 Creates a new lock on a resource.
 
-## Schema
+## Schema format
 
 To create a lock, add the following schema to the resources section of your template.
     
     {
-        "type": "Microsoft.Authorization/locks",
+        "type": string,
         "apiVersion": "2015-01-01",
         "name": string,
-        "dependsOn": array,
+        "dependsOn": [ array values ],
         "properties":
         {
             "level": enum,
@@ -44,21 +44,21 @@ The following tables describe the values you need to set in the schema.
 
 | Name | Type | Required | Permitted values | Description |
 | ---- | ---- | -------- | ---------------- | ----------- |
-| type | enum | Yes | **Microsoft.Authorization/locks** | The resource type to create. |
+| type | enum | Yes | **{scope}/providers/locks**<br />**Microsoft.Authorization/locks** | The resource type to create. To lock a resource and all resources below it, use the format {provider-namespace}/{resource-type}/providers/locks. To lock the entire resource group and all of its resources, use Microsoft.Authorization/locks. |
 | apiVersion | enum | Yes | **2015-01-01** | The API version to use for creating the resource. |  
 | name | string | Yes | 64 characters<br />It cannot contain <, > %, &, ?, or any control characters. | The name of the lock to create. |
-| dependsOn | array | No |  | The collection of resources this lock depends on. Each value is a string containing either the resource name or resource unique identifier. You must specify the parent resource. | 
+| dependsOn | array | No |  | The collection of resources this lock depends on. Each value is a string containing either the resource name or resource unique identifier. If the resource you are locking is being deployed in the same template, specify that resource in this element. | 
 | properties | object | Yes | (shown below)  | An object that identifies the type of lock, and notes about the lock. |  
 
 ### properties object
 
 | Name | Type | Required | Permitted Values | Description |
 | ------- | ---- | ---------------- | -------- | ----------- |
-| level   | enum | Yes | **"CannotDelete"** <br /> **"ReadOnly"**  | The type of lock to apply to the scope. CanNotDelete allows modification but prevents deletion, ReadOnly prevents modification or deletion. |
+| level   | enum | Yes | **CannotDelete** <br /> **ReadOnly**  | The type of lock to apply to the scope. CanNotDelete allows modification but prevents deletion, ReadOnly prevents modification or deletion. |
 | notes   | string | No | 512 characters | Description of the lock. |
 
 
-## How to use this resource
+## How to use the lock resource
 
 You add this resource to your template to apply a lock to the parent resource.
 
