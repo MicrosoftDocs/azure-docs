@@ -21,9 +21,7 @@
 
 Web service endpoints in Azure Machine Learning have selectable throttle levels to match the rate at which the endpoint will be consumed.
 
-There are two factors which control the amount of throttling done on an endpoint:
-- Throttle Level: Low or High. Only paying customers are allowed to set throttle level to High
-- Max Concurrent Calls : 4 for throttle level Low; 20-200 for throttle level High
+To control the amount of throttling on the endpoint, use the slider on Azure Management Portal to set the max concurrent calls between 20-200 
 
 
 The synchronous APIs are typically used in situations where a low latency is desired. Latency here implies the time it takes for the API to complete one request, and doesn't account for any network delays. Let's say you have an API with a 50ms latency. To fully consume the available capacity with throttle level High and Max Concurrent Calls = 20, you need to call this API 20 * 1000 / 50 = 400 times per second. Extending this further, a Max Concurrent Calls of 200 will allow you to call the API 4000 times per second, assuming a 50ms latency.
@@ -34,7 +32,7 @@ Keep in mind that using a very high concurrency count can be detrimental if you'
 
 Note that tweaking throttle settings only influences the behavior of the Synchronous API (RRS). You should tweak these settings if you see frequent 503 Service Unavailable responses on the Synchronous API.
 
-The management UI allows toggling the throttle level. To have a custom concurrency number to go with Throttle Level High, please use the Patch Endpoint API.
+The management UI allows to provide a custom concurrency number for scaling the endpoint beyond default concurrency of 20.
 
 - Open up manage.windowsazure.com
 - Navigate to the Machine Learning tab
@@ -43,10 +41,10 @@ The management UI allows toggling the throttle level. To have a custom concurren
 ![Navigate to web service](./media/machine-learning-scaling-endpoints/figure-1.png)
 
 - Click on the endpoint, and then click on the Configure tab
-![Navigate to endpoint configuration](./media/machine-learning-scaling-endpoints/figure-2.png)
+![Navigate to endpoint configuration](http://neerajkh.blob.core.windows.net/images/ConfigureEndpointCapture.png)
 
 
-- Change the throttle level to High and click on Save.
+- Change the slider to increase the level of concurrency and click on Save.
 
 
  
