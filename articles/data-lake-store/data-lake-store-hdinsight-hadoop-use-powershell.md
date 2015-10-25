@@ -84,11 +84,11 @@ Follow these steps to create a Data Lake Store.
 
 	The output for this should be **True**.
 
-4. Upload some sample data to Azure Data Lake. We'll use this later in this article to verify that the data is accessible from an HDInsight cluster. You can download a sample data file (OlympicAthletes.tsv) from [AzureDataLake Git Repository](https://github.com/MicrosoftBigData/AzureDataLake/raw/master/Samples/SampleData/OlympicAthletes.tsv).
+4. Upload some sample data to Azure Data Lake. We'll use this later in this article to verify that the data is accessible from an HDInsight cluster. If you are looking for some sample data to upload, you can get the **Ambulance Data** folder from the [Azure Data Lake Git Repository](https://github.com/MicrosoftBigData/ProjectKona/tree/master/SQLIPSamples/SampleData/AmbulanceData).
 
 		
 		$myrootdir = "/"
-		Import-AzureRmDataLakeStoreItem -AccountName $dataLakeStoreName -Path "C:\<path to data>\OlympicAthletes.tsv" -Destination $myrootdir\OlympicAthletes.tsv
+		Import-AzureRmDataLakeStoreItem -AccountName $dataLakeStoreName -Path "C:\<path to data>\vehicle1_09142014.csv" -Destination $myrootdir\vehicle1_09142014.csv
 
 
 ## Set up authentication for role-based access to ADL
@@ -217,11 +217,11 @@ In this section, we create an HDInsight Hadoop cluster. For this release, the HD
 
 ## Run test jobs on the HDInsight cluster to use the Azure Data Lake account
 
-After you have configured an HDInsight cluster, you can run test jobs on the cluster to test that the HDInsight cluster can access data Data Lake Store. To do so, we will run a sample Hive job that creates a table using the sample data (OlympicAthletes.tsv) that you uploaded earlier to your Data Lake Store.
+After you have configured an HDInsight cluster, you can run test jobs on the cluster to test that the HDInsight cluster can access data Data Lake Store. To do so, we will run a sample Hive job that creates a table using the sample data that you uploaded earlier to your Data Lake Store.
 
 Use the following cmdlets to run the Hive query. In this query we create a table from the data in the Data Lake Store and then run a select query on the created table.
 
-	$queryString = "DROP TABLE athletes;" + "CREATE EXTERNAL TABLE athletes (str string) LOCATION 'adl://$dataLakeStoreName.azuredatalake.net:443/';" + "SELECT * FROM athletes LIMIT 10;"
+	$queryString = "DROP TABLE vehicles;" + "CREATE EXTERNAL TABLE vehicles (str string) LOCATION 'adl://$dataLakeStoreName.azuredatalakestore.net:443/';" + "SELECT * FROM vehicles LIMIT 10;"
 	
 	$hiveJobDefinition = New-AzureRmHDInsightHiveJobDefinition -Query $queryString
 
@@ -248,16 +248,17 @@ Retrieve the output from the job by using the following cmdlet:
 
 The job output resembles the following:
 
-	Michael Phelps  	23      United States   2008    8/24/2008       Swimming        8       0       0   8
-	Michael Phelps  	19      United States   2004    8/29/2004       Swimming        6       0       2   8
-	Michael Phelps  	27      United States   2012    8/12/2012       Swimming        4       2       0   6
-	Natalie Coughlin    25      United States   2008    8/24/2008       Swimming        1       2   	3   6
-	Aleksey Nemov   	24      Russia  		2000    10/1/2000       Gymnastics      2       1       3   6
-	Alicia Coutts   	24      Australia       2012    8/12/2012       Swimming        1       3       1   5
-	Missy Franklin  	17      United States   2012    8/12/2012       Swimming        4       0       1   5
-	Ryan Lochte     	27      United States   2012    8/12/2012       Swimming        2       2       1   5
-	Allison Schmitt 	22      United States   2012    8/12/2012       Swimming        3       1       1   5
-	Natalie Coughlin    21      United States   2004    8/29/2004       Swimming        2       2   	1   5
+	1,1,2014-09-14 00:00:03,46.81006,-92.08174,51,S,1
+	1,2,2014-09-14 00:00:06,46.81006,-92.08174,13,NE,1
+	1,3,2014-09-14 00:00:09,46.81006,-92.08174,48,NE,1
+	1,4,2014-09-14 00:00:12,46.81006,-92.08174,30,W,1
+	1,5,2014-09-14 00:00:15,46.81006,-92.08174,47,S,1
+	1,6,2014-09-14 00:00:18,46.81006,-92.08174,9,S,1
+	1,7,2014-09-14 00:00:21,46.81006,-92.08174,53,N,1
+	1,8,2014-09-14 00:00:24,46.81006,-92.08174,63,SW,1
+	1,9,2014-09-14 00:00:27,46.81006,-92.08174,4,NE,1
+	1,10,2014-09-14 00:00:30,46.81006,-92.08174,31,N,1
+
 
 	
 
@@ -277,13 +278,13 @@ Once you have configured the HDInsight cluster to use Data Lake storage, you can
 
 4. In the remote session, start Windows PowerShell, and use the HDFS filesystem commands to list the files in the Azure Data Lake.
 
-	 	hdfs dfs -ls adl://<Data Lake account name>.azuredatalake.net:443/
+	 	hdfs dfs -ls adl://<Data Lake account name>.azuredatalakestore.net:443/
 
 	This should list the file that you uploaded earlier to the Azure Data Lake account.
 
 		15/09/17 21:41:15 INFO web.CaboWebHdfsFileSystem: Replacing original urlConnectionFactory with org.apache.hadoop.hdfs.web.URLConnectionFactory@21a728d6
 		Found 1 items
-		-rwxrwxrwx   0 NotSupportYet NotSupportYet     671388 2015-09-16 22:16 adl://mydatalakeaccount.azuredatalake.net:443/OlympicAthletes.tsv
+		-rwxrwxrwx   0 NotSupportYet NotSupportYet     671388 2015-09-16 22:16 adl://mydatalakestore.azuredatalakestore.net:443/vehicle1_09142014.csv
 
 	You can also use the `hdfs dfs -put` command to upload some files to the Azure Data Lake, and then use `hdfs dfs -ls` to verify whether the files were successfully uploaded.
 

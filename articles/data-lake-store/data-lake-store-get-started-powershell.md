@@ -96,28 +96,28 @@ You can create directories under your Azure Data Lake Store account to manage an
 
 You can upload your data to Data Lake Store directly at the root level or to a directory that you created within the account. The snippets below demonstrate how to upload some sample data to the directory (**mynewdirectory**) you created in the previous section.
 
-If you are looking for some sample data to upload, you can get the **OlympicAthletes.tsv** file from the [AzureDataLake Git Repository](https://github.com/MicrosoftBigData/AzureDataLake/raw/master/Samples/SampleData/OlympicAthletes.tsv). Download the file and store it in a local directory on your computer, such as  C:\sampledata\.
+If you are looking for some sample data to upload, you can get the **Ambulance Data** folder from the [Azure Data Lake Git Repository](https://github.com/MicrosoftBigData/ProjectKona/tree/master/SQLIPSamples/SampleData/AmbulanceData). Download the file and store it in a local directory on your computer, such as  C:\sampledata\.
 
-	Import-AzureRmDataLakeStoreItem -AccountName $dataLakeStoreName -Path "C:\sampledata\OlympicAthletes.tsv" -Destination $myrootdir\mynewdirectory\OlympicAthletes.tsv
+	Import-AzureRmDataLakeStoreItem -AccountName $dataLakeStoreName -Path "C:\sampledata\vehicle1_09142014.csv" -Destination $myrootdir\mynewdirectory\vehicle1_09142014.csv
 
 
 ## Rename, download, and delete data from your Data Lake Store
 
 To rename a file, use the following command:
 
-    Move-AzureRmDataLakeStoreItem -AccountName $dataLakeStoreName -Path $myrootdir\mynewdirectory\OlympicAthletes.tsv -Destination $myrootdir\mynewdirectory\OlympicAthletes_Copy.tsv
+    Move-AzureRmDataLakeStoreItem -AccountName $dataLakeStoreName -Path $myrootdir\mynewdirectory\vehicle1_09142014.csv -Destination $myrootdir\mynewdirectory\vehicle1_09142014_Copy.csv
 
 To download a file, use the following command:
 
-	Export-AzureRmDataLakeStoreItem -AccountName $dataLakeStoreName -Path $myrootdir\mynewdirectory\OlympicAthletes_Copy.tsv -Destination "C:\sampledata\OlympicAthletes_Copy.tsv"
+	Export-AzureRmDataLakeStoreItem -AccountName $dataLakeStoreName -Path $myrootdir\mynewdirectory\vehicle1_09142014_Copy.csv -Destination "C:\sampledata\vehicle1_09142014_Copy.csv"
 
 To delete a file, use the following command:
 
-	Remove-AzureRmDataLakeStoreItem -AccountName $dataLakeStoreName -Paths $myrootdir\mynewdirectory\OlympicAthletes_Copy.tsv 
+	Remove-AzureRmDataLakeStoreItem -AccountName $dataLakeStoreName -Paths $myrootdir\mynewdirectory\vehicle1_09142014_Copy.csv 
 	
 When prompted, enter **Y** to delete the item. If you have more than one file to delete, you can provide all the paths separated by comma.
 
-	Remove-AzureRmDataLakeStoreItem -AccountName $dataLakeStoreName -Paths $myrootdir\mynewdirectory\OlympicAthletes.tsv, $myrootdir\mynewdirectory\OlympicAthletes_Copy.tsv
+	Remove-AzureRmDataLakeStoreItem -AccountName $dataLakeStoreName -Paths $myrootdir\mynewdirectory\vehicle1_09142014.csv, $myrootdir\mynewdirectoryvehicle1_09142014_Copy.csv
 
 ## Delete your Azure Data Lake Store account
 
