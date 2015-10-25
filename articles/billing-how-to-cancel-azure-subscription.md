@@ -14,7 +14,7 @@
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="billing"
+	ms.topic="article"
 	ms.date="10/21/2015"
 	ms.author="genli"/>
 
