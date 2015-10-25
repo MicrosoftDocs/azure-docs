@@ -43,14 +43,14 @@ The following tables describe the values you need to set in the schema.
 | ---- | ---- | -------- | ---------------- | ----------- |
 | type | enum | Yes | **Microsoft.Storage/storageAccounts** | The resource type to create. |
 | apiVersion | enum | Yes | **2015-06-15** <br /> **2015-05-01-preview** | The API version to use for creating the resource. | 
-| name | string | Yes | Between 3 and 24 characters, only numbers and lower-case letters  | The name of the storage account to create. The name must be unique across all of Azure. Consider using the uniqueString function with your naming convention as shown in the example below. |
+| name | string | Yes | Between 3 and 24 characters, only numbers and lower-case letters  | The name of the storage account to create. The name must be unique across all of Azure. Consider using the [uniqueString](../resource-group-template-functions/#uniquestring) function with your naming convention as shown in the example below. |
 | properties | object | Yes | (shown below) | An object that specifies the type of storage account to create.
 
 ### properties object
 
 | Name | Type | Required | Permitted values | Description |
 | ---- | ---- | -------- | ---------------- | ----------- |
-| accountType | string | Yes | **Standard_LRS**<br />**Standard_ZRS**<br />**Standard_GRS**<br />**Standard_RAGRS**<br />**Premium_LRS** | The type of storage account. The permitted values correspond to Standard Locally Redundant, Standard Zone Redundant, Standard Geo-Redundant, Standard Read-Access Geo-Redundant, and Premium Locally Redundant. |
+| accountType | string | Yes | **Standard_LRS**<br />**Standard_ZRS**<br />**Standard_GRS**<br />**Standard_RAGRS**<br />**Premium_LRS** | The type of storage account. The permitted values correspond to Standard Locally Redundant, Standard Zone Redundant, Standard Geo-Redundant, Standard Read-Access Geo-Redundant, and Premium Locally Redundant. For information about these account types, see [Azure Storage replication](./storage/storage-redundancy.md ). |
 
 	
 ## Examples
