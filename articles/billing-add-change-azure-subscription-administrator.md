@@ -21,7 +21,7 @@
 # How to add or change Azure Co-Administrator, Service Administrator and Account Administrator
 ## Administrator roles
 
-There are three kinds of administrator roles in Windows Azure:
+There are three kinds of administrator roles in Microsoft Azure:
 
 | Administrative role   | Limit  | Description
 | ------------- | ------------- |---------------|
@@ -64,4 +64,4 @@ Only the Account Administrator can change the Service Administrator for a subscr
 
 ## Change the Account Administrator (transfer ownership of the Azure account to another account)
 
-To transfer ownership of the Azure account to another. Account, see [Transferring an Azure subscription](https://azure.microsoft.com/en-us/documentation/articles/billing-subscription-transfer/).
+To transfer ownership of the Azure account to another. Account, see [Transferring an Azure subscription](../billing-subscription-transfer.md).
