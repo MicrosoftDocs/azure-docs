@@ -44,9 +44,9 @@ The following tables describe the values you need to set in the schema.
 
 | Name | Type | Required | Permitted values | Description |
 | ---- | ---- | -------- | ---------------- | ----------- |
-| type | enum | Yes | **{provider-namespace}/{resource-type}/providers/locks** or<br />**Microsoft.Authorization/locks** | The resource type to create.<br />To create a lock for a resource and all resources below it, use the format: {provider-namespace}/{resource-type}/providers/locks.<br />To create a lock for the entire resource group and all of its resources, use: Microsoft.Authorization/locks. |
+| type | enum | Yes | **{providernamespace}/{resourcetype}/providers/locks**<br />or<br />**Microsoft.Authorization/locks** | The resource type to create.<br /><br />To create a lock for a resource, use: {providernamespace}/{resourcetype}/providers/locks.<br /><br />To create a lock for the entire resource group, use: Microsoft.Authorization/locks. |
 | apiVersion | enum | Yes | **2015-01-01** | The API version to use for creating the resource. |  
-| name | string | Yes | 64 characters<br />It cannot contain <, > %, &, ?, or any control characters. | The name of the lock to create. |
+| name | string | Yes | {resoucetolock}/Microsoft.Authorization/{lockname}<br />up to 64 characters<br />It cannot contain <, > %, &, ?, or any control characters. | A value that defines the resource to lock and a name for the lock.<br /><br />The format of the name must include the name of the resource to lock. If you are locking the resource group, you can just provide a friendly name for the lock.  |
 | dependsOn | array | No |  | The collection of resources this lock depends on. Each value is a string containing either the resource name or resource unique identifier. If the resource you are locking is being deployed in the same template, you must specify that the lock is dependent on that resource; otherwise, your deployment will fail if the lock is created before the resource to be locked is created. | 
 | properties | object | Yes | (shown below)  | An object that identifies the type of lock, and notes about the lock. |  
 
@@ -73,27 +73,41 @@ parent level (such as the resource group) and CanNotDelete on a resource within 
 The following example applies a read-only lock to a web app.
 
     {
-        "apiVersion": "2015-08-01",
-        "name": "[variables('siteName')]",
-        "type": "Microsoft.Web/sites",
-        "location": "[resourceGroup().location]",
-        "dependsOn": [ "[resourceId('Microsoft.Web/serverfarms', parameters('hostingPlanName'))]" ],
-        "properties": {
-            "serverFarmId": "[parameters('hostingPlanName')]"
+        "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+        "contentVersion": "1.0.0.0",
+        "parameters": {
+            "hostingPlanName": {
+      			"type": "string"
+            }
+        },
+        "variables": {
+            "siteName": "[concat('site',uniqueString(resourceGroup().id))]"
         },
         "resources": [
             {
-                "type": "Microsoft.Authorization/locks",
-                "apiVersion": "2015-01-01",
-                "name": "SiteLock",
-                "dependsOn": [ "[resourceId('Microsoft.Web/sites', variables('siteName'))]" ],
+                "apiVersion": "2015-08-01",
+                "name": "[variables('siteName')]",
+                "type": "Microsoft.Web/sites",
+                "location": "[resourceGroup().location]",
                 "properties": {
-                    "level": "ReadOnly",
-                    "notes": "Web site cannot be modified during this time."
-                }
-            }
-        ]
+                    "serverFarmId": "[parameters('hostingPlanName')]"
+                },
+            },
+            {
+                "type": "Microsoft.Web/sites/providers/locks",
+    			    "apiVersion": "2015-01-01",
+    			    "name": "[concat(variables('siteName'),'/Microsoft.Authorization/ExampleLock')]",
+    			    "dependsOn": [ "[variables('siteName')]" ],
+    			    "properties":
+    			    {
+        			    "level": "ReadOnly",
+        			    "notes": "my notes"
+    			    }
+             }
+        ],
+        "outputs": {}
     }
+
 
 ## Next steps
 
