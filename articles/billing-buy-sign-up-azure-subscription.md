@@ -1,5 +1,5 @@
 <properties
-	pageTitle= "How to buy or sign up for an Azure subscription | Microsoft Azure"
+	pageTitle="How to buy or sign up for an Azure subscription | Microsoft Azure"
 	description="Describes How to buy or sign up for an Azure subscription"
 	services="billing"
 	documentationCenter=""

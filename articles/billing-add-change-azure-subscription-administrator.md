@@ -1,5 +1,5 @@
 <properties
-	pageTitle= "How to add or change Azure Co-Administrator, Service Administrator and Account Administrator | Microsoft Azure"
+	pageTitle="How to add or change Azure Co-Administrator, Service Administrator and Account Administrator | Microsoft Azure"
 	description="Describes how to add or change Azure Co-Administrator, Service Administrator and Account Administrator"
 	services="billing"
 	documentationCenter=""

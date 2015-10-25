@@ -1,5 +1,5 @@
 <properties
-	pageTitle= "How to cancel your Azure subscription | Microsoft Azure"
+	pageTitle="How to cancel your Azure subscription | Microsoft Azure"
 	description="Describes how to cancel your Azure subscriptio"
 	services="billing"
 	documentationCenter=""

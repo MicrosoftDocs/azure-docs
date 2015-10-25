@@ -1,5 +1,5 @@
 <properties
-	pageTitle= "Where can I find the Benefits & Pricing information for Azure Services | Microsoft Azure"
+	pageTitle="Where can I find the Benefits & Pricing information for Azure Services | Microsoft Azure"
 	description="Describes the Benefits & Pricing information for Azure Services"
 	services="billing"
 	documentationCenter=""
