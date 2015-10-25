@@ -18,7 +18,7 @@
 
 # Resource locks - template schema
 
-Creates a new lock on a resource.
+Creates a new lock on a resource and its child resources.
 
 ## Schema format
 
@@ -44,10 +44,10 @@ The following tables describe the values you need to set in the schema.
 
 | Name | Type | Required | Permitted values | Description |
 | ---- | ---- | -------- | ---------------- | ----------- |
-| type | enum | Yes | **{scope}/providers/locks**<br />**Microsoft.Authorization/locks** | The resource type to create. To lock a resource and all resources below it, use the format {provider-namespace}/{resource-type}/providers/locks. To lock the entire resource group and all of its resources, use Microsoft.Authorization/locks. |
+| type | enum | Yes | **{provider-namespace}/{resource-type}/providers/locks** or<br />**Microsoft.Authorization/locks** | The resource type to create.<br />To create a lock for a resource and all resources below it, use the format: {provider-namespace}/{resource-type}/providers/locks.<br />To create a lock for the entire resource group and all of its resources, use: Microsoft.Authorization/locks. |
 | apiVersion | enum | Yes | **2015-01-01** | The API version to use for creating the resource. |  
 | name | string | Yes | 64 characters<br />It cannot contain <, > %, &, ?, or any control characters. | The name of the lock to create. |
-| dependsOn | array | No |  | The collection of resources this lock depends on. Each value is a string containing either the resource name or resource unique identifier. If the resource you are locking is being deployed in the same template, specify that resource in this element. | 
+| dependsOn | array | No |  | The collection of resources this lock depends on. Each value is a string containing either the resource name or resource unique identifier. If the resource you are locking is being deployed in the same template, you must specify that the lock is dependent on that resource; otherwise, your deployment will fail if the lock is created before the resource to be locked is created. | 
 | properties | object | Yes | (shown below)  | An object that identifies the type of lock, and notes about the lock. |  
 
 ### properties object
@@ -60,7 +60,7 @@ The following tables describe the values you need to set in the schema.
 
 ## How to use the lock resource
 
-You add this resource to your template to apply a lock to the parent resource.
+You add this resource to your template to prevent specified actions on a resource. The lock applies to all users and groups. Typically, you apply a lock for only a limited duration, such as, when a process is running and you want to make sure someone in your organization doesn't inadvertently modify or delete a resource.
 
 To create or delete management locks, you must have access to **Microsoft.Authorization/*** or **Microsoft.Authorization/locks/*** actions. Of the built-in roles, only **Owner** and **User Access Administrator** are 
 granted those actions.
@@ -94,3 +94,8 @@ The following example applies a read-only lock to a web app.
             }
         ]
     }
+
+## Next steps
+
+- For information about the template structure, see [Authoring Azure Resource Manager templates](resource-group-authoring-templates.md).
+- For more information about locks, see [Lock resources with Azure Resource Manager](resource-group-lock-resources.md).
