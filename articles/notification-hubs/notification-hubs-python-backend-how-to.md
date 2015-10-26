@@ -3,7 +3,7 @@
 	description="Learn how to use Azure Notification Hubs from a Python back-end." 
 	services="notification-hubs" 
 	documentationCenter="" 
-	authors="ysxu" 
+	authors="wesmc7777"
 	manager="dwrede" 
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="python" 
 	ms.devlang="php" 
 	ms.topic="article" 
-	ms.date="07/17/2015" 
-	ms.author="yuaxu"/>
+	ms.date="10/26/2015" 
+	ms.author="wesmc"/>
 
 # How to use Notification Hubs from Python
 [AZURE.INCLUDE [notification-hubs-backend-how-to-selector](../../includes/notification-hubs-backend-how-to-selector.md)]
@@ -42,6 +42,7 @@ You can find all the code available in the [Python REST wrapper sample].
 
 For example, to create a client:
 
+	isDebug = True
 	hub = NotificationHub("myConnectionString", "myNotificationHubName", isDebug)
 	
 To send a Windows toast notification:
