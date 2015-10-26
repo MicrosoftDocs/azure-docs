@@ -323,7 +323,7 @@ Refer to samples in [Routing configuration samples ](expressroute-config-samples
 	            }
 	        }
 	    }
-	    External_ExpressRoute {
+	    External-ExpressRoute {
 	        instance-type virtual-router;
 	        interface reth1.100;
 	        routing-options {
