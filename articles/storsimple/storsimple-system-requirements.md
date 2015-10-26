@@ -54,8 +54,6 @@ The following software requirements are for the optional StorSimple components (
 
 Your StorSimple device is a locked-down device. However, ports need to be opened in your firewall to allow for iSCSI, cloud, or management traffic. The following table lists the ports that need to be opened in your firewall. In this table, *in* or *inbound* refers to the direction from which incoming client requests access your device. *Out* or *outbound* refers to the direction in which your StorSimple device sends data externally, beyond the deployment: for example, outbound to the Internet.
 
->[AZURE.NOTE] No inbound ports need to be opened.
-
 | Port No.<sup>1,2</sup> | In or out | Port scope | Required | Notes |
 |------------------------|-----------|------------|----------|-------| 
 |TCP 80 (HTTP)<sup>3</sup>|  Out |  WAN | No |<ul><li>Outbound port is used for Internet access to retrieve updates.</li><li>The outbound web proxy is user configurable.</li><li>To allow system updates, this port must also be open for the controller fixed IPs.</li></ul> |
@@ -87,7 +85,7 @@ Port routing is different depending on the software version running on your Stor
 
      DATA 0 > Last configured 10 GbE network interface > Other 10 GbE network interface > Last configured 1 GbE network interface > Other 1 GbE network interface
 
-    In Update 1, the routing metric of DATA 0 is made the lowest; therefore, all the cloud-traffic is routed through DATA 0. Make a note of this if there are more than one cloud-enabled network interfaces on your StorSimple device.
+    In Update 1, the routing metric of DATA 0 is made the lowest; therefore, all the cloud-traffic is routed through DATA 0. Make a note of this if there are more than one cloud-enabled network interface on your StorSimple device.
 
 ### Networking best practices
 
@@ -100,11 +98,13 @@ In addition to the above networking requirements, for the optimal performance of
 - Isolate the iSCSI and cloud traffic by having dedicated network interfaces on your device for iSCSI and cloud access. For more information, see how to [modify network interfaces](storsimple-modify-device-config.md#modify-network-interfaces) on your StorSimple device.
 
 - Do not use a Link Aggregation Protocol (LACP) configuration for your network interfaces. This is an unsupported configuration.
+
+
 ## High availability requirements for StorSimple
 
 The hardware platform that is included with the StorSimple solution has availability and reliability features that provide a foundation for a highly available, fault-tolerant storage infrastructure in your datacenter. However, there are requirements and best practices that you should comply with to help ensure the availability of your Azure StorSimple solution. Before you deploy Azure StorSimple, carefully review the following requirements and best practices for the StorSimple device and connected host computers.
 
->[AZURE.NOTE] For more information about monitoring and maintaining the hardware components of your StorSimple device, go to [Use the StorSimple Manager service to monitor hardware components and status](storsimple-monitor-hardware-status.md) and [StorSimple hardware component replacement](storsimple-hardware-component-replacement.md).
+For more information about monitoring and maintaining the hardware components of your StorSimple device, go to [Use the StorSimple Manager service to monitor hardware components and status](storsimple-monitor-hardware-status.md) and [StorSimple hardware component replacement](storsimple-hardware-component-replacement.md).
 
 ### High availability requirements and procedures for your StorSimple device
 
@@ -117,7 +117,7 @@ StorSimple devices include redundant, hot-swappable power and cooling modules (P
 - Connect your PCMs to different power sources to provide availability if a power source fails.
 - If a PCM fails, request a replacement immediately.
 - Remove a failed PCM only when you have the replacement and are ready to install it.
-- Do not remove both PCMs concurrently. The PCM module includes the backup battery module. Removing both of the PCMs will result in a shutdown without battery protection, and the device state will not be saved. For more information about the battery and its purpose, go to [Maintain the backup battery module](storsimple-battery-replacement.md#maintain-the-backup-battery-module).
+- Do not remove both PCMs concurrently. The PCM module includes the backup battery module. Removing both of the PCMs will result in a shutdown without battery protection, and the device state will not be saved. For more information about the battery, go to [Maintain the backup battery module](storsimple-battery-replacement.md#maintain-the-backup-battery-module).
 
 #### Controller modules
 
