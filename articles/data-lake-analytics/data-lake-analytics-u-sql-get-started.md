@@ -20,16 +20,14 @@
 
 Learn how to develop U-SQL scripts.
 
-U-SQL is a hyper-scalable, highly extensible language for preparing, transforming and analyzing all data in the data lake and beyond. 
-It combines SQL-like declarative language with the extensibility and programmability provided by C# types and the C# expression language. 
-It also includes "schema on reads", custom processors, reducers and other big data processing concepts.
+U-SQL is a language that unifies the benefits of SQL with the expressive power of your own code to process all data at any scale. U-SQL’s scalable distributed query capability enables you to efficiently analyze data in the store and across relational stores such as Azure SQL Database.  It enables you to process unstructured data by applying schema on read, insert custom logic and UDF's, and includes extensibility to enable fine grained control over how to execute at scale. To learn more about the design philosophy behind U-SQL, please refer to this [Visual Studio blog post](http://blogs.msdn.com/b/visualstudio/archive/2015/09/28/introducing-u-sql.aspx).
 
 There are some differences from ANSI SQL or T-SQL. For example, its keywords such as SELECT have to be in UPPERCASE. 
 
 [jgao: check with Michael on the meaning of the following sentence.]
 
 It’s type system and expression language inside select clauses, where predicates etc are in C#. 
-This means the data types are the C# types and the data types use C# NULL semantics, and the comparison operations inside a predicate follow C# syntax (e.g., a == "foo").
+This means the data types are the C# types and the data types use C# NULL semantics, and the comparison operations inside a predicate follow C# syntax (e.g., a == "foo").  This also means, that the values are full .NET objects, allowing you to easily use any method to operate on the object (eg "f o o o".Split(' ')  ). 
 
 For more information, see [U-SQL Reference]().
 
@@ -106,10 +104,10 @@ The main purpose of this section is to understand the process of writing and tes
 
 		The next section in this article will explain the script in details.  You just need to focus on understanding the development and testing process in this section.
 5. Next to the **Submit** button, specify the Analytics account.
-5. From **Solution Explorer**, right click **Script.usql**, and then click **Build Script**. Verify the result in the Output pane.
+5. From **Solution Explorer**, right click **Script.usql**, and then click **Build Script**. Verify the result in the Output pane.  If you have an error in your script, you will see an error output here. 
 6. From **Solution Explorer**, right click **Script.usql**, and then click **Submit Script**.
 7. Verify the **Analytics Account**, and then click **Submit**. Submission results and job link are available in the Data Lake Tools for Visual Studio Results window when the submission is completed.
-8. You can click the **Refresh** button to see the latest job status and refresh the screen. Wait until the job is completed successfully.  If the job failed, it is most likely missing the source file.  Please see the Prerequisite section of this tutorial. For additional troubleshooting information, see [Monitor and troubleshoot Azure Data Lake Analytics jobs](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md).
+8. You can click the **Refresh** button to see the latest job status and refresh the screen. Wait until the job is completed successfully.  If the job failed, it is most likely missing the source file.  You can use the "error" tab in the tool to see the error returned from the service. Please see the Prerequisite section of this tutorial. For additional troubleshooting information, see [Monitor and troubleshoot Azure Data Lake Analytics jobs](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md).
 
 	
 **To see the job output**
@@ -117,6 +115,7 @@ The main purpose of this section is to understand the process of writing and tes
 1. From **Server Explorer**, expand **Azure**, expand **Data Lake Analytics**, expand your Data Lake Analytics account, expand **Storage Accounts**, right-click the default Data Lake Storage account, and then click **Explorer**. 
 2.  Double-click **output** to open the folder
 3.  Double-click **SearchLog-frist-u-sql.csv**.
+4.  You can also double-click on the output file in the job graph view in order to navigate directly to the output file.
 
 ## Understanding the first U-SQL script
 
@@ -501,6 +500,12 @@ What is covered in the tutorial is only a small part of U-SQL. Because of the sc
 - [Develop U-SQL scripts using Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
 - [Using U-SQL window functions for Azure Data Lake Aanlytics jobs](data-lake-analytics-use-window-functions.md)
 - [Monitor and troubleshoot Azure Data Lake Analytics jobs using Azure Preview Portal](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
+
+## Let us know what you think
++    - [Suggest new documentation backlog](data-lake-analytics-documentation-backlog.md)
++    - [Submit a feature request](http://aka.ms/adlafeedback)
++    - [Get help in the forums](http://aka.ms/adlaforums)
++    - [Provide feedback on U-SQL](http://aka.ms/usqldiscuss)
 
 
 
