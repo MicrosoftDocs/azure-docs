@@ -42,6 +42,7 @@ The numbers below are an approximation.
 - CPU consumption: ~1% increase
 - Memory consumption: Up to 10 % of the total system memory
 - Network Bandwidth Usage: ~1 MB / 1000 ADFS requests
+
 >[AZURE.NOTE]In the event of the agent being unable to communicate to Azure, the agent will store the data locally, up to a defined maximum limit. Once the agent reaches the limit, if the agent has not been able to upload the data to the service, the new ADFS transactions will overwrite any “cached” transactions on a “least recently serviced” basis.
 
 - Local buffer storage for AD Health Agent: ~20 MB
