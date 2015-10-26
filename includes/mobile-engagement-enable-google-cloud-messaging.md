@@ -14,7 +14,7 @@
 
 4. In the left column, expand **APIs & auth**, click **APIs** then scroll down and click **Cloud Messaging for Android**. Then on the next page click **Enable API** and accept the terms of service. 
 
-	![](./media/mobile-engagement-enable-google-cloud-messaging/enable-gcm.png)
+	![](./media/mobile-engagement-enable-google-cloud-messaging/enable-GCM.png)
 
 	![](./media/mobile-engagement-enable-google-cloud-messaging/enable-gcm-2.png)
 
