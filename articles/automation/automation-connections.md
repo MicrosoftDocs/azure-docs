@@ -34,7 +34,7 @@ The cmdlets in the following table are used to create and manage Automation conn
 |[Remove-AzureAutomationConnection](http://msdn.microsoft.com/library/dn921827.aspx)|Remove an existing connection.|
 |[Set-AzureAutomationConnectionFieldValue](http://msdn.microsoft.com/library/dn921826.aspx)|Sets the value of a particular field for an existing connection.|
 
-## Runbook Activities
+## Activities
 
 The activities in the following table are used to access connections in a runbook or DSC configuration.
 
