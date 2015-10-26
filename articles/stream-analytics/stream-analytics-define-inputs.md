@@ -142,7 +142,7 @@ The table below explains each property in the Blob storage input tab with its de
 <tr>
 <td>Path Prefix Pattern [optional]</td>
 <td>The file path used to locate your blobs within the specified container.
-Within the path, you may choose to specify one or more instances of the following 3 variables:<BR>{date}, {time},<BR>{partition}<BR>Example 1: cluster1/logs/{date}/{time}/{partition}<BR>Example 2: cluster1/logs/{date}<P>Note that "*" is not an allowed value for pathprefix. Only valid [Azure blob characters](https://msdn.microsoft.com/library/azure/dd135715.aspx) are allowed.</td>
+Within the path, you may choose to specify one or more instances of the following 3 variables:<BR>{date}, {time},<BR>{partition}<BR>Example 1: cluster1/logs/{date}/{time}/{partition}<BR>Example 2: cluster1/logs/{date}<P>Note that "*" is not an allowed value for pathprefix. Only valid <a HREF="https://msdn.microsoft.com/library/azure/dd135715.aspx">Azure blob characters</a> are allowed.</td>
 </tr>
 <tr>
 <td>Date Format [optional]</td>
