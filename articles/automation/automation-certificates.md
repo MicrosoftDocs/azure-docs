@@ -77,7 +77,7 @@ The following sample commands show how to create a new automation certificate an
 	
 	New-AzureAutomationCertificate -AutomationAccountName "MyAutomationAccount" -Name $certName -Path $certPath –Password $certPwd -Exportable
 
-## Using a certificate in a runbook
+## Using a certificate
 
 You must use the **Get-AutomationCertificate** activity to use a certificate. You cannot use the [Get-AzureAutomationCertificate](http://msdn.microsoft.com/library/dn913765.aspx) cmdlet since it returns information about the certificate asset but not the certificate itself.
 
