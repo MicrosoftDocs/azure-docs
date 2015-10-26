@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Credential assets in Azure Automation | Microsoft Azure"
-   description="Credential assets in Azure Automation contain security credentials that can be used to authenticate to resources accessed by the runbook. This article describes how to create credential assets and use them in a runbook."
+   description="Credential assets in Azure Automation contain security credentials that can be used to authenticate to resources accessed by the runbook or DSC configuration. This article describes how to create credential assets and use them in a runbook or DSC configuration."
    services="automation"
    documentationCenter=""
    authors="bwren"
@@ -40,7 +40,7 @@ The activities in the following table are used to access credentials in a runboo
 |:---|:---|
 |Get-AutomationPSCredential|Gets a credential to use in a runbook or DSC configuration. Returns a [System.Management.Automation.PSCredential](http://msdn.microsoft.com/library/system.management.automation.pscredential) object.|
 
->[AZURE.NOTE] You should avoid using variables in the –Name parameter of Get-AutomationPSCredential since this can complicate discovering dependencies between runbooks or configurations, and credential assets at design time.
+>[AZURE.NOTE] You should avoid using variables in the –Name parameter of Get-AutomationPSCredential since this can complicate discovering dependencies between runbooks or DSC configurations, and credential assets at design time.
 
 ## Creating a new credential
 
@@ -71,7 +71,7 @@ The following sample commands show how to create a new automation credential. A 
 	$cred = New-Object –TypeName System.Management.Automation.PSCredential –ArgumentList $user, $pw
 	New-AzureAutomationCredential -AutomationAccountName "MyAutomationAccount" -Name "MyCredential" -Value $cred
 
-## Using a PowerShell credential in a runbook
+## Using a PowerShell credential
 
 You retrieve a credential asset in a runbook or DSC configuration with the **Get-AutomationPSCredential** activity. This returns a [PSCredential object](http://msdn.microsoft.com/library/system.management.automation.pscredential.aspx) that you can use with an activity or cmdlet that requires a PSCredential parameter. You can also retrieve the properties of the credential object to use individually. The object has a property for the username and the secure password, or you can use the **GetNetworkCredential** method to return a [NetworkCredential](http://msdn.microsoft.com/library/system.net.networkcredential.aspx) object that will provide an unsecured version of the password.
 
