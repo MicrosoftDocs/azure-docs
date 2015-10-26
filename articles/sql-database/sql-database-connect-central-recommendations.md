@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/15/2015" 
+	ms.date="10/26/2015" 
 	ms.author="genemi"/>
 
 
@@ -63,7 +63,7 @@ The contained user approach has advantages and disadvantages:
  - A person who is a contained user in several databases might have more passwords to remember or update.
 
 
-Further information is given in - [Contained Databases](http://msdn.microsoft.com/library/ff929071.aspx).
+Further information is given in - [Contained Database Users - Making Your Database Portable](http://msdn.microsoft.com/library/ff929188.aspx).
 
 
 ## Connection recommendations
@@ -73,8 +73,7 @@ Further information is given in - [Contained Databases](http://msdn.microsoft.co
  - The default of 15 seconds is too short for connections that depend on the internet.
 
 
-- Ensure that your [Azure SQL Database firewall](sql-database-firewall-configure.md) allows outgoing TCP communication on port 1433.
- - You can configure the firewall settings on an SQL Database server or to an individual database.
+- On the computer that hosts your client program, ensure the firewall allows outgoing TCP communication on port 1433.
 
 
 - If your client program connects to SQL Database V12 while your client runs on an Azure virtual machine (VM), you must open the port ranges 11000-11999 and 14000-14999 on the VM. Click [here](sql-database-develop-direct-route-ports-adonet-v12.md) for details.
