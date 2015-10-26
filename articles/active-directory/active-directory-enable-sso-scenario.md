@@ -1,100 +1,125 @@
-<properties 
-    pageTitle="I can rely on Azure AD to enable single sign-on (SSO) to all of my applications | Microsoft Azure" 
-    description="Learn how Azure Active Directory helps you to extend the scope of an identity and the management of them." 
-    services="active-directory" 
-    authors="markusvi"  
-    documentationCenter="na" 
-    manager="stevenpo"/>
+<properties
+   pageTitle="Managing Applications with Azure Active Directory | Microsoft Azure"
+   description="This article the benefits of integrating Azure Active Directory with your on-premises, cloud and SaaS applications."
+   services="active-directory"
+   documentationCenter=""
+   authors="ihenkel"
+   manager="stevenpo"
+   editor=""/>
 
-<tags 
-    ms.service="active-directory" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.tgt_pltfrm="na" 
-    ms.workload="identity" 
-    ms.date="10/12/2015" 
-    ms.author="markvi" />
+   <tags
+      ms.service="active-directory"
+      ms.devlang="na"
+      ms.topic="article"
+      ms.tgt_pltfrm="na"
+      ms.workload="identity"
+      ms.date="10/16/2015"
+      ms.author="inhenk"/>
 
+# Managing Applications with Azure Active Directory (AD)
 
-# I can rely on Azure AD to enable single sign-on (SSO) to all of my applications
-This article is intended for IT decision makes that want to learn about the business value Azure Active Directory provides for applications your organization is using. 
+## Overview
 
-## Running apps in a cloud-based environment  
+Beyond the actual workflow or content, businesses have two basic requirements for all applications:
 
-Today, in a cloud-based world, you can find thousands of apps to get any job done. IT departments often don’t even know all the SaaS apps that are used in their organizations. In many cases use of the app is known but getting any level of governance and security is expensive and time consuming. Many of the applications don’t support integration with enterprise identity systems, in other cases one-off integrations are avoided due to cost and complexity.  
+1. To increase productivity, applications should be easy to discover and access
 
-As a consequence of this, 
+2. To enable security and governance, the organization needs control and oversight on who can and actually is accessing each application
 
-- Many organizations have concerns about unauthorized access to corporate data, possible data leakage and other security risks inherent in the application introduced by unmanaged applications. Because they don’t even know how many apps or which apps are being used, even getting started building a plan to deal with these risks seems daunting..
-- Administrators need to individually manage all IAM service providers that are introduced by the managed apps in your environment. This includes tasks such as creating and deleting users and groups as well as grating or revoking access to these apps.
-- Your users need to memorize various credentials to access the apps they need to work with. Forgotten passwords represent a huge hit on the operational costs of many organizations. What all these issues have in common is that they have a negative impact on your users’ productivity and your operational costs.  
- 
-## How does Azure Active Directory help?
-Azure Active Directory helps you to address these issues by enabling you to easily extend your existing identity infrastructure to the cloud and through that:
+In the word of cloud applications this can best be achieved using identity to control “*WHO is allowed to do WHAT*”.
 
-- Extend the reach of your mobile users to any app 
-- Extend the reach of access management to any cloud app 
-- Detect the apps used accessed by your users
+In computing terminology:
 
+- *Who* is known as *identity* - a data store that consists of users and groups
 
-### Extending the reach of your identity to any app 
+- *What* is known as *access management* – management of access to protected resources
 
-By design, Azure Active Directory provides you with SSO to cloud apps that are hosted on Azure and other Microsoft online services like Office 365, CRM Online and Intune.
+Both components together is known as *Identity and Access Management (IAM)*, which is defined by the [Gartner](http://www.gartner.com/it-glossary/identity-and-access-management-iam) group as “*the security discipline that enables the right individuals to access the right resources at the right times for the right reasons*”.
 
-In addition to this, it can be your identity broker for single sign-on to apps in any other public cloud such as Google, Amazon, IBM and others. <br>
-If an app is broadly known or popular, we are pre-integrating it into Azure Active Directory’s app gallery. Today, you can find around 2500 pre-integrated apps in the app gallery and the number is growing on ongoing basis. <br>
-Configuring SSO for any of the pre-integrated apps in the app gallery is just a matter of a few clicks.   
-What if my app is not listed in the app gallery yet? You can integrate any public app into your Azure Active Directory using a wizard and enable that way SSO for them. For more details, see [Deploying single sign-on using Azure Active Directory for newly acquired SaaS apps](active-directory-single-sign-on-newly-acquired-saas-apps.md)  and [Integrate Azure Active Directory SSO with existing apps](active-directory-sso-integrate-existing-apps.md)<br>
-What about apps developed by your organization? We provide you with the related documentation that enables your developers to easily integrate apps developed by your organization into Azure Active Directory. If you want to know more about this, see [Azure AD and Applications: Guiding Developers](active-directory-applications-guiding-developers-for-lob-applications.md).
+Okay, so what’s the problem? If IAM is *not managed* in one place with an integrated solution:
 
-Providing you with support for the pre-integrated apps, public apps that are not in the app gallery and the apps your organization has developed, Azure Active Directory enables to provide SSO for all your cloud apps.
+- Identity administrators have to individually create and update user accounts in all applications separately, a redundant and time consuming activity.
 
-The value of Azure Active Directory goes beyond “just” cloud apps. With Azure Active Directory, you can also extend the reach of Azure identities by providing secure remote access to on-premises apps via SSO. This means, remote access that doesn’t require technologies such as VPNs or other traditional remote access infrastructures to access on-premises web apps. Azure Active Directory offers this functionality through app proxy capabilities. 
+- Users have to memorize multiple credentials to access the applications they need to work with, especially since they are encouraged not to use the same password for every application for security reasons. As a result, users tend to write down their passwords or use other password management solutions which introduces other data security risks.
 
-The traditional SSO model is a based on a mapping of two individual accounts in two identity repositories. With Azure Active Directory, you can even map an individual account with a shared corporate account such as your corporate Twitter account. By implementing SSO for your corporate shared accounts, there is no need to actually share the account credentials with your users, which significantly improves the protection of these accounts.
-I you want to know more about this, see [Sharing accounts with Azure AD](active-directory-sharing-accounts.md)
+- Redundant, time consuming activities reduce the amount of time users and administrators are working on business activities that increase your business’s bottom line.
 
-By extending the reach of your identities, one password provides you with access to thousand apps.
+So, what generally prevents organizations from adopting integrated IAM solutions?
 
+- Most technical solutions are based on software platforms that need to be deployed and adapted by each organization for their own applications.
 
+- Cloud applications are often adopted at a higher rate than IT organization can integrate with existing IAM solutions.
 
-### Extending the reach of access management to any cloud app
+- Security and monitoring tooling require additional customization and integration to achieve comprehensive E2E scenarios.
 
-Managing access to your cloud apps is expensive if you have to do this manually on a per app basis. With Azure Active Directory, you can manage the access to your cloud apps based on groups from a central point - the Azure portal. You can assign access to individual users or even to groups. For more details, see [Managing access to apps](active-directory-managing-access-to-apps.md).
+## Azure Active Directory (AD) integrated with applications
 
-Some apps such as Salesforce, Box, Google Apps and Concur provide automation interfaces for creation and removal (or deactivation) of accounts. If a provider offers such an interface, it is leveraged by Azure Active Directory. In other words, Azure Active Directory provides support for automated user provisioning for apps that offer a related automation interface. 
+Azure Active Directory (AD) is Microsoft’s comprehensive Identity as a Service (IDaaS) solution enabling IAM as a cloud service and providing built in access management, single-sign on (SSO), and reporting [pre-integrated with thousands of applications](https://azure.microsoft.com/marketplace/active-directory/), including Salesforce, Google Apps, Box, Concur, and lots more. With Azure AD applications you publish for your partners and customers (business or consumer) will have the same identity and access management capabilities freeing you to focus on you main business.
 
-With automated user provisioning:
+The value of Azure AD goes beyond “just” cloud applications. You can also use it with on-premises applications by providing secure remote access, avoiding the need for VPNs or other traditional remote access management system.
 
-- When a user that has been granted access to a related app, Azure Active Directory automatically provisions the required SSO account to the app.
-- When a user’s account in Azure Active Directory has been deleted, the account in the app is either deactivated or deleted.
-Configuring automated user provisioning providers and provides you with the following benefits:
-- 	It reduces your operational costs because it automates administrative tasks that would have to be performed by your IT staff.
-- It improves the security of your environment because it decreases the chance that access to apps exists that is not needed.
+What if you need to implement an application that is not yet listed in the application gallery? While this is a bit more time-consuming than configuring SSO for applications from the application gallery, Azure AD provides you with a wizard that helps you with the configuration.
 
-For more details about automated user provisioning, see [Automate User Provisioning and Deprovisioning to SaaS Apps with Azure Active Directory](active-directory-saas-app-provisioning.md).
+By providing central access management and single sign on (SSO) for all your applications, Azure AD provides the solution to data security and productivity problems.
 
+- Users can access multiple applications with one sign on giving more time to income generating or business operations activities done.
 
-### Detecting the apps used accessed by your users
+- Identity administrators can manage access to applications in one place.
 
-With SSO and account provisioning, Azure Active Directory provides you with powerful mechanisms to improve how your users and your administrators can work with the apps in your environment you are aware of. However, in modern enterprises, IT departments are often not aware of all the cloud apps that are used. With Cloud App Discovery, Azure Active Directory provides you also with a solution to detect these apps. 
-With Cloud App Discovery, you can:
+The benefit for the user and for your company is obvious. Let’s take a closer look at the benefits for an identity administrator and the organization.
 
-- Discover apps in use and measure usage by number of users, volume of traffic or number of web requests to the app.
-- Identify the users that are using an app.
-- Export data for addition offline analysis.
-- Prioritize apps to bring under IT control and integrate apps easily to enable Single Sign-on and user management.
+## Integrated application benefits
 
-For more details about Cloud App Discovery, see [How can I discover unsanctioned cloud apps that are used within my organization](active-directory-cloudappdiscovery-whatis.md).
+The SSO process has two steps:
 
+- Authentication, the process of validating the user’s identity.
 
-## How can I get started?
+- Authorization, the decision to enable or block access to a resource with an access policy.
 
-First, if you aren't already using Azure AD and you are an IT admin:
+When using Azure AD to manage applications and enable SSO:
 
-- [Try it out](https://azure.microsoft.com/trial/get-started-active-directory)! - you can sign up for a free 30 trial today and deploy your first cloud solution in under 5 minutes using this link
+- Authentication is done on the user’s on-premises (e.g. AD) or Azure AD account.
 
+- Authorization executes on the Azure AD assignment and protection policy ensuring consistent end user experience and enabling you to add assignment, locations, and MFA conditions on any application, regardless of its internal capabilities.
 
+It important to understand that the way the authorization is enacted on the target application varies depending on how the application was integrated with Azure AD.
 
+- **Applications pre-integrated by service provider** Like Office 365 and Azure, these are applications built directly on Azure AD and relying on it for their comprehensive identity and access management capabilities. Access to these applications is enabled through directory information and token issuance.
 
+- **Applications pre-integrated by Microsoft and custom applications** These are independent cloud applications that rely on an internal application directory and can operate independently of Azure AD. Access to these applications is enabled by issuing an application specific credential mapped to an application account. Depending on the application capabilities, the credential may be a federation token or user-name and password for an account that was previously provisioned in the application.
 
+- **On-premises applications** Applications published through the Azure AD application proxy primarily enabling access to on-premises applications. These applications rely on a central on premise directory like Windows Server Active Directory. Access to these applications is enabled by triggering the proxy to deliver the application content to the end user while honoring the on-premises sign-on requirement.
+
+For example, if a user joins your organization, you need to create an account for the user in Azure AD for the primary sign-on operations. If this user requires access to a managed application such as Salesforce, you also need to create an account for this user in Salesforce and link it to the Azure account to make SSO work. When the user leaves your organization, it is advisable to delete the Azure AD account and all counterpart accounts in the IAM stores of the applications the user had access to.
+
+## Access detection
+
+In modern enterprises, IT departments are often not aware of all the cloud applications that are being used. In conjunction with Cloud App Discovery, Azure AD provides you with a solution to detect these applications.
+
+## Account management
+
+Traditionally, managing accounts in the various applications is a manual process performed by IT or support personal in the organization. Azure AD fully automated account management across all service provider integrated applications and those applications pre-integrated by Microsoft supporting automated user provisioning or SAML JIT.
+
+## Automated user provisioning
+
+Some applications provide automation interfaces for creation and removal (or deactivation) of accounts. If a provider offers such an interface, it is leveraged by Azure AD. This reduces your operational costs because administrative tasks happen automatically, and improves the security of your environment because it decreases the chance of unauthorized access.
+
+## Access management
+
+Using Azure AD you can manage access to applications using individual or rule driven assignments. You can also delegate access management to the right people in the organization ensuring the best oversight and reducing the burden on helpdesk.
+
+## On-premises applications
+
+The built in application proxy enables you to publish your on-premises applications to your users resulting in both consistent access experience with modern cloud application and the benefits from Azure AD monitoring, reporting, and security capabilities.
+
+## Reporting and monitoring
+
+Azure AD provides you with pre-integrated reporting and monitoring capabilities that enable you to know who has access to applications and when they actually used them.
+
+## Related capabilities
+
+With Azure AD you can secure your applications with granular access policies and pre-integrated MFA. To learn more about Azure MFA see [Azure MFA](https://azure.microsoft.com/services/multi-factor-authentication/).
+
+## Getting started
+
+To get started integrating applications with Azure AD, take a look at the [Integrating Azure Active Directory with applications getting started guide](active-directory-integrating-applications-getting-started.md).

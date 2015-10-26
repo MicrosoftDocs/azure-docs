@@ -65,7 +65,7 @@ Save the subscription ID, as it will be used later.
 
 	<table>
 	<tr>
-	<th>Propety</th>
+	<th>Property</th>
 	<th>Value</th>
 	</tr>
 	<tr>

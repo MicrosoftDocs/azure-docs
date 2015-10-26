@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/12/2015"
+	ms.date="10/16/2015"
 	ms.author="maheshu"/>
 
 # Azure AD Domain Services *(Preview)* - Getting started
@@ -43,11 +43,16 @@ In this step you can enable Azure AD Domain Services for your directory. Perform
 
 7. Specify the **DNS domain name of domain services**.
    - The default domain name of the directory (i.e. ending with the **.onmicrosoft.com** domain suffix) will be selected by default.
-   - The drop-down lists all domains that have been configured for your Azure AD directory – including verified as well as unverified domains that you configure in the ‘Domains’ tab.
-   - Additionally, you can also specify a custom domain name in this editable drop-down by typing it in.
+   - The list contains all domains that have been configured for your Azure AD directory – including verified as well as unverified domains that you configure in the ‘Domains’ tab.
+   - Additionally, you can also add a custom domain name to this list by typing it in.
+
+     > [AZURE.WARNING] Ensure that the domain prefix of the domain name you specify (eg. 'contoso' in the 'contoso.local' domain name) is less than 15 characters. You cannot create an Azure AD Domain Services domain with a domain prefix longer than 15 characters.
 
 8. The next step is to select a virtual network in which you'd like Azure AD Domain Services to be available. Select the virtual network you just created in the drop-down titled **Connect domain services to this virtual network**.
-9. When you are done selecting the above options, click ‘Save’ from the task pane at the bottom of the page to enable Azure AD Domain Services.
+   - Ensure that the virtual network you have specified belongs to an Azure region supported by Azure AD Domain Services.
+   - Refer to the [regions page](active-directory-ds-regions.md) to see the list of supported Azure regions.
+
+9. When you are done selecting the above options, click **Save** from the task pane at the bottom of the page to enable Azure AD Domain Services.
 10. The page will display a ‘Pending …’ state, while Azure AD Domain Services is being enabled for your directory.
 
     ![Enable Domain Services - pending state](./media/active-directory-domain-services-getting-started/enable-domain-services-pendingstate.png)
@@ -62,7 +67,7 @@ In this step you can enable Azure AD Domain Services for your directory. Perform
 
     ![Domain Services enabled - both IPs provisioned](./media/active-directory-domain-services-getting-started/domain-services-enabled-bothdcs-available.png)
 
-  > [AZURE.NOTE] Depending on the size of your Azure AD directory (number of users, groups etc.), it will take a while for the contents of the directory to be available in Azure AD Domain Services. This synchronization process happens in the background. For large directories with tens of thousands of objects, it may take a day or two for all users, group memberships and credentials to be synchronized and available in Azure AD Domain Services.
+> [AZURE.NOTE] Depending on the size of your Azure AD directory (number of users, groups etc.), it will take a while for the contents of the directory to be available in Azure AD Domain Services. This synchronization process happens in the background. For large directories with tens of thousands of objects, it may take a day or two for all users, group memberships and credentials to be synchronized and available in Azure AD Domain Services.
 
 
 ---

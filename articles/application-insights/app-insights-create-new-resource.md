@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Create a new Application Insights resource" 
-	description="Set up for a new application and get a new instrumentation key. Application Insights monitors the performance and usage of live applications." 
+	description="Set up Application Insights monitoring for a new live application. Web-based approach." 
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
@@ -90,6 +90,6 @@ You can write a [PowerShell script](app-insights-powershell-script-create-resour
 [api]: app-insights-api-custom-events-metrics.md
 [diagnostic]: app-insights-diagnostic-search.md
 [metrics]: app-insights-metrics-explorer.md
-[start]: app-insights-get-started.md
+[start]: app-insights-overview.md
 
  

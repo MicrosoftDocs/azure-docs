@@ -13,13 +13,13 @@
   ms.tgt_pltfrm="na"
   ms.devlang="na"
   ms.topic="article"
-  ms.date="10/12/2015"
+  ms.date="10/16/2015"
   ms.author="stevenpo"/>
 
 
 # Managing access to apps
 
-Ongoing access management, usage evaluation, and reporting continue to be a challenge after an app is integrated into your organization's identity system. In many cases, your IT Administrator or helpdesk has to take an ongoing active role in managing access to your apps. Sometimes, assignment is performed by a general or divisional IT team. In many cases, the assignment decision is intended to be deleted to the business decision maker, requiring their approval before IT makes the assignment.  Other organizations invest in integration with an existing automated identity and access management system, like Role-Based Access Control (RBAC) or Attribute-Based Access Control (ABAC). Both the integration and rule development tend to be specialized and expensive. Monitoring or reporting on either management approach is its own separate, costly, and complex investment.
+Ongoing access management, usage evaluation, and reporting continue to be a challenge after an app is integrated into your organization's identity system. In many cases, your IT Administrator or helpdesk has to take an ongoing active role in managing access to your apps. Sometimes, assignment is performed by a general or divisional IT team. Often, the assignment decision is intended to be delegated to the business decision maker, requiring their approval before IT makes the assignment.  Other organizations invest in integration with an existing automated identity and access management system, like Role-Based Access Control (RBAC) or Attribute-Based Access Control (ABAC). Both the integration and rule development tend to be specialized and expensive. Monitoring or reporting on either management approach is its own separate, costly, and complex investment.
 
 ## How does Azure Active Directory help?
 
@@ -29,10 +29,11 @@ Ongoing access management, usage evaluation, and reporting continue to be a chal
  - [Adding existing applications](active-directory-sso-integrate-existing-apps)
 
  Azure AD's application assignment focuses on two primary assignment modes:
-- Individual assignment - an IT admin with global, user, or AU privileges can select individual user accounts and grant them access to the application.
-- Group-based assignment (paid Azure AD only) - an IT admin with global, user, or AU privileges can assign a group to the application. A specific users' access is determined by whether they are members of the group at the time they attempt to access the application. In this mode, an administrator can effectively create an assignment rule stating "any current member of the assigned group has access to the application". With this assignment option, administrators can benefit from any of Azure AD group management options, including attribute-based dynamic groups, external system groups (e.g. AD on premises or Workday), Administrator or self-service managed groups. A single group can be easily assigned to multiple apps, ensuring that applications with assignment affinity can share assignment rules, reducing the overall management complexity.
 
-Using these two assignment modes administrators can achieve any desirable assignment management approach.
+- **Individual assignment** An IT admin with global, user, or AU privileges can select individual user accounts and grant them access to the application.
+- **Group-based assignment (paid Azure AD only)** An IT admin with global, user, or AU privileges can assign a group to the application. A specific users' access is determined by whether they are members of the group at the time they attempt to access the application. In this mode, an administrator can effectively create an assignment rule stating "any current member of the assigned group has access to the application". With this assignment option, administrators can benefit from any of Azure AD group management options, including attribute-based dynamic groups, external system groups (e.g. AD on premises or Workday), Administrator or self-service managed groups. A single group can be easily assigned to multiple apps, ensuring that applications with assignment affinity can share assignment rules, reducing the overall management complexity.
+
+Using these two assignment modes, administrators can achieve any desirable assignment management approach.
 
 With Azure AD, usage and assignment reporting is fully integrated, enabling administrators to easily report on assignment state, assignment errors, and even usage.
 
@@ -50,7 +51,6 @@ With Azure AD, applications like Salesforce can be pre-configured for single sig
 In this case, all assigned users would be automatically provisioned to salesforce, as they are added to different groups their role assignment would be updated in salesforce. Users would be able to discover and access Salesforce through the Microsoft application access panel, Office web clients, or even by navigating to their organizational Salesforce login page. Administrators would be able to easily view usage and assignment status using Azure AD reporting.
 
  Administrators can employ [Azure AD conditional access](active-directory-conditional-access.md) to set access policies for specific roles. These policies can include whether access is permitted outside the corporate environment and even Multi-Factor Authentication or device requirements to achieve access in various cases.
-
 
 ## How can I get started?
 

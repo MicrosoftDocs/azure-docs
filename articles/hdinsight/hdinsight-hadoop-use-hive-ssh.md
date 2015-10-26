@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Use Hadoop Hive and SSH in HDInsight | Microsoft Azure"
-   description="Learn how to use SSH to connect to a Hadoop cluster in HDInsight, and then interactively submit Hive queries by using the Hive command-line interface."
+   pageTitle="Use the Hive shell in HDInsight (Hadoop) | Microsoft Azure"
+   description="Learn how to use the Hive shell with a Linux-based HDInsight cluster. You will learn how to connect to the HDInsight cluster using SSh, then use the Hive Shell to interactively run queries."
    services="hdinsight"
    documentationCenter=""
    authors="Blackmist"

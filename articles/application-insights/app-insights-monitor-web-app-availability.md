@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="10/13/2015"
+	ms.date="10/21/2015"
 	ms.author="awills"/>
 
 # Monitor availability and responsiveness of any web site
@@ -21,7 +21,7 @@ After you've deployed your web application, you can set up web tests to monitor 
 
 ![Web test example](./media/app-insights-monitor-web-app-availability/appinsights-10webtestresult.png)
 
-You can set up web tests for any HTTP endpoint that is accessible from the public internet.
+You can set up web tests for any HTTP or HTTPS endpoint that is accessible from the public internet.
 
 There are two types of web test:
 
@@ -170,6 +170,8 @@ Use Visual Studio Enterprise or Ultimate to record a web session.
 
     ![Select multi-step webtest.](./media/app-insights-monitor-web-app-availability/appinsights-71webtestUpload.png)
 
+    Set the test locations, frequency, and alert parameters in the same way as for ping tests.
+
 View your test results and any failures in the same way as for single-url tests.
 
 A common reason for failure is that the test runs too long. It mustn't run longer than two minutes.
@@ -242,4 +244,4 @@ You might want to disable web tests while you are performing maintenance on your
 [azure-availability]: ../insights-create-web-tests.md
 [diagnostic]: app-insights-diagnostic-search.md
 [qna]: app-insights-troubleshoot-faq.md
-[start]: app-insights-get-started.md
+[start]: app-insights-overview.md

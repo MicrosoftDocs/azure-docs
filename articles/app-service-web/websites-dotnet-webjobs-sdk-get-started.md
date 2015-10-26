@@ -1,19 +1,19 @@
 <properties
 	pageTitle="Create a .NET WebJob in Azure App Service | Microsoft Azure"
 	description="Create a multi-tier app using ASP.NET MVC and Azure. The front end runs in a web app in Azure App Service, and the backend runs as a WebJob. The app uses Entity Framework, SQL Database, and Azure storage queues and blobs."
-	services="app-service\web"
+	services="app-service"
 	documentationCenter=".net"
 	authors="tdykstra"
 	manager="wpickett"
 	editor="mollybos"/>
 
 <tags
-	ms.service="app-service-web"
+	ms.service="app-service"
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="10/09/2015"
+	ms.date="10/22/2015"
 	ms.author="tdykstra"/>
 
 # Create a .NET WebJob in Azure App Service
@@ -783,7 +783,7 @@ For more information about how to write functions that use  WebJobs SDK attribut
 
 ## Next steps
 
-In this tutorial you've seen a simple multi-tier application that uses the WebJobs SDK for backend processing. This sections offers some suggestions for learning more about ASP.NET multi-tier applications and WebJobs.
+In this tutorial you've seen a simple multi-tier application that uses the WebJobs SDK for backend processing. This section offers some suggestions for learning more about ASP.NET multi-tier applications and WebJobs.
 
 ### Missing features
 
