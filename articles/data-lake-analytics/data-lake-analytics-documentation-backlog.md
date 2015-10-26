@@ -35,7 +35,7 @@ U-SQL | Grammar Railroad Diagrams |  1 | in progress, using [this](http://bottle
 Service | Securing Jobs, Data and Tables in Data Lake Analytics |  || 
 Service | Moving job output to SQL Data Warehouse using Data Factory | | |
 Service | Coordinating deployment of Data Lake Analytics with other Azure services using ARM templates | | |
-
+Tools  | Using the Diagnostics Tooling | 1 | | |
 
 
 
