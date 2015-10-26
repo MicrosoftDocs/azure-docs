@@ -176,7 +176,7 @@ Beeline can also be used to run a file that contains HiveQL statements. Use the 
     
 3. To save the file, use __Ctrl__+___X__, then enter __Y__, and finally __Enter__.
 
-4. Use the following to run the file using Beeline. Replease __HOSTNAME__ with the name obtained earlier for the head node, and __PASSWORD__ with the password for your cluster:
+4. Use the following to run the file using Beeline. Replease __HOSTNAME__ with the name obtained earlier for the head node, and __PASSWORD__ with the password for the admin account:
 
         beeline -u 'jdbc:hive2://HOSTNAME:10001/;transportMode=http' -n admin -p PASSWORD -f query.hql
 
