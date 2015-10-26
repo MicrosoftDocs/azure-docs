@@ -19,9 +19,12 @@
 
 # Hyperlapse Media Files with Azure Media Hyperlapse
 
-Azure Media Hyperlapse creates smooth time-lapsed videos from first-person or action-camera content.  Related to [Microsoft Research's Hyperlapse Pro and Hyperlapse Mobile](http://aka.ms/hyperlapse), Microsoft Hyperlapse for Azure Media Services utilizes the ultrascale of the Azure Media Services Media Processing platform to horizontally scale out Hyperlapse processing.
+Azure Media Hyperlapse is a Media Processor (MP) that creates smooth time-lapsed videos from first-person or action-camera content.  The cloud-based sibling to [Microsoft Research's desktop Hyperlapse Pro and phone-based Hyperlapse Mobile](http://aka.ms/hyperlapse), Microsoft Hyperlapse for Azure Media Services utilizes the massive scale of the Azure Media Services Media Processing platform to horizontally scale and parallelize bulk Hyperlapse processing.
 
->[AZURE.IMPORTANT] Microsoft Hyperlapse is designed to work on first-person content with a moving camera.  The performance and quality of the Azure Media Hyperlapse Media Processor cannot be guaranteed for other types of content.  To learn more about Microsoft Hyperlapse for Azure Media Services and see some example videos, check out the [introductory blog post](http://aka.ms/azurehyperlapseblog) from the public preview.
+>[AZURE.IMPORTANT] Microsoft Hyperlapse for Azure Media Services is in a free public preview state.  Jobs are limited to the first 10,000 frames of the input asset.
+
+
+>[AZURE.IMPORTANT] Microsoft Hyperlapse is designed to work best on first-person content with a moving camera.  Although still-camera footage can still work, the performance and quality of the Azure Media Hyperlapse Media Processor cannot be guaranteed for other types of content.  To learn more about Microsoft Hyperlapse for Azure Media Services and see some example videos, check out the [introductory blog post](http://aka.ms/azurehyperlapseblog) from the public preview.
 
 An Azure Media Hyperlapse job takes as input an MP4, MOV, or WMV asset file along with a configuration file that specifies which frames of video should be time-lapsed and to what speed (e.g. first 10,000 frames at 2x).  The output is a stabilized and time-lapsed rendition of the input video.
 
@@ -31,7 +34,7 @@ For the latest Azure Media Hyperlapse updates, see [Media Services blogs](http:/
 
 First you will need to upload your desired input file to Azure Media Services.  To learn more about the concepts involved with uploading and managing content, read the [content management article](media-services-manage-content.md#upload).
 
-### Configuration Preset for Hyperlapse
+###  <a id="configuration"></a>Configuration Preset for Hyperlapse
 
 Once your content is in your Media Services account, you will need to construct your configuration preset.  The following table explains the user-specified fields:
 
@@ -84,7 +87,7 @@ The following is an example of a conformant configuration file in XML and JSON:
 		}
 	}
 
-### Microsoft Hyperlapse with the AMS .NET SDK
+###  <a id="sample_code"></a> Microsoft Hyperlapse with the AMS .NET SDK
 
 The following method uploads a media file as an asset and creates a job with the Azure Media Hyperlapse Media Processor.  
 >Note: you should already have a CloudMediaContext in scope with the name "context" for this code to work.  To learn more about this, read the [content management article](media-services-manage-content.md).
@@ -204,30 +207,16 @@ The following method uploads a media file as an asset and creates a job with the
 	    return processor;
 	}
 
-### <a id="error_codes"></a>Error codes
+### <a id="file_types"></a>Supported File types
+
+- MP4
+- MOV
+- WMV
 
 
-<table border="1">
-<tr><th>Code</th><th>Name</th><th>Possible reasons</th></tr>
-<tr><td>2000</td><td>Invalid configuration</td><td>Invalid configuration</td></tr>
-<tr><td>2001</td><td>Invalid input assets</td><td>Missing input assets or empty asset.</td></tr>
-<tr><td>2002</td><td>Invalid manifest</td><td>Manifest is empty or manifest contains invalid items.</td></tr>
-<tr><td>2003</td><td>Failed to download media file</td><td>Invalid URL in manifest file.</td></tr>
-<tr><td>2004</td><td>Unsupported protocol</td><td>Protocol of media URL is not supported.</td></tr>
-<tr><td>2005</td><td>Unsupported file type</td><td>Input media file type is not supported.</td></tr>
-<tr><td>2006</td><td>Too many input files</td><td>There are more than 10 files in the input manifest. </td></tr>
-<tr><td>3000</td><td>Failed to decode media file</td>
-<td>Unsupported media codec.
-<br/>or<br/>
-Corrupted media file.
-<br/>or<br/>
-No audio stream in input media.</td></tr>
-<tr><td>4000</td><td>Batch indexing partially succeeded</td><td>Some of the input media files are failed to be indexed. For more information, see <a href="output_files">Output files</a>.</td></tr>
-<tr><td>other</td><td>Internal errors</td><td>Please contact support team.</td></tr>
-</table>
 
 
-##Media Services learning paths
+## Media Services learning paths
 
 You can view AMS learning paths here:
 
@@ -235,9 +224,7 @@ You can view AMS learning paths here:
 - [AMS on Demand Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
 
-##Related links
 
-[Using AIB Files with Azure Media Indexer and SQL Server](http://azure.microsoft.com/blog/2014/11/03/using-aib-files-with-azure-media-indexer-and-sql-server/)
 
 <!-- Anchors. -->
 
