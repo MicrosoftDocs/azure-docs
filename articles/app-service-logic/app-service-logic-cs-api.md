@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="07/16/2015"
+   ms.date="10/17/2015"
    ms.author="jehollan"/>
 
 #C\# API App
-The C# API App gives you an easy way to run simple C# expressions *while your Logic App executes*.
+The C# API app gives you an easy way to run simple C# expressions *while your Logic app executes*.
 
 ##When should you use this API app?
-The key scenario for this API app is when you want the lifecycle of the code that you write to be the same as the Logic App, and you do *not* want the code to be called in any other scenarios.
+The key scenario for this API app is when you want the lifecycle of the code that you write to be the same as the Logic app, and you do *not* want the code to be called in any other scenarios.
 
 On the other hand, if you want a reusable snippet of code that has a lifecycle independent of the Logic app, then you should use the WebJobs API app to create simple code expressions and call them from your Logic app.
 
@@ -29,11 +29,11 @@ Finally, if you want to include any additional packages, you would need to pass 
 Use the [JavaScript API App](app-service-logic-javascript-api.md) if you would prefer to write your expressions in JS.
 
 ##Creating a C\# API App
-To use the C# API App, you need to first create an instance of the C# API app. This can be done either inline while creating a logic app or by selecting the C# API app from the Azure Marketplace.
+To use the C# API app, you need to first create an instance of the C# API app. This can be done either inline while creating a Logic app or by selecting the C# API app from the Azure Marketplace.
 
 ##Using C\# API App in Logic Apps designer surface
 ###Trigger
-You can create a trigger that the Logic App service will poll (on an interval you define), and, if it returns anything other than `false`, the Logic App will run, otherwise, it will wait until the next polling interval to check again.
+You can create a trigger that the Logic app service will poll (on an interval you define), and, if it returns anything other than `false`, the Logic app will run, otherwise, it will wait until the next polling interval to check again.
 
 The inputs to the trigger are:
 - **C# Expression**  - An expression that will be evaluated. It will be invoked inside a function and must return `false` when you do not want the Logic app to run, and can return anything else when you want the Logic app to run. You will be able to use the content of the response in the actions of the Logic app.
@@ -100,7 +100,7 @@ return YammerAttachments;
 The action returns the object that you returned from your function in a results object. Thus, in the Yammer API app you can reference `@body('csapi').results` for the **Attachments** property.
 
 ## Do more with your Connector
-Now that the connector is created, you can add it to a business flow using a Logic App. See [What are Logic Apps?](app-service-logic-what-are-logic-apps.md).
+Now that the connector is created, you can add it to a business flow using a Logic app. See [What are Logic Apps?](app-service-logic-what-are-logic-apps.md).
 
 You can also review performance statistics and control security to the connector. See [Manage  and Monitor API apps and connector](../app-service-api/app-service-api-manage-in-portal.md).
 

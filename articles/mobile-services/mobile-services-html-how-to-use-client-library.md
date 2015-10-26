@@ -1,5 +1,5 @@
 <properties
-	pageTitle="How to use an HTML client | Microsoft Azure"
+	pageTitle="How to use an HTML client with Azure Mobile Services | Microsoft Azure"
 	description="Learn how to use an HTML client for Azure Mobile Services."
 	services="mobile-services"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-html"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="09/24/2015"
+	ms.date="10/23/2015"
 	ms.author="glenga"/>
 
 # How to use an HTML/JavaScript client for Azure Mobile Services
@@ -508,7 +508,7 @@ The following example shows how to use the Live SDK with WinJS APIs to provide a
 	authenticate();
 
 This initializes the Live Connect client, sends a new login request to Microsoft account, sends the returned authentication token to Mobile Services, and then displays information about the signed-in user. The app does not start until authentication succeeds.
-
+<!--- //this guidance may be bad from an XSS vulnerability standpoint. We need to find better guidance for this
 ###Caching the authentication token
 In some cases, the call to the login method can be avoided after the first time the user authenticates. We can use [sessionStorage] or [localStorage] to cache the current user identity the first time they log in and every subsequent time we check whether we already have the user identity in our cache. If the cache is empty or calls fail (meaning the current login session has expired), we still need to go through the login process.
 
@@ -525,6 +525,7 @@ In some cases, the call to the login method can be avoided after the first time 
      // Log out
     client.logout();
     sessionStorage.loggedInUser = null;
+-->
 
 ##<a name="push-notifications"></a>How to: Register for push notifications
 
