@@ -46,8 +46,8 @@ The following tables describe the values you need to set in the schema.
 | ---- | ---- | -------- | ---------------- | ----------- |
 | type | enum | Yes | For resources: <br />**{namespace}/{type}/providers/locks**<br /><br />For resource groups:<br />**Microsoft.Authorization/locks** | The resource type to create. |
 | apiVersion | enum | Yes | **2015-01-01** | The API version to use for creating the resource. |  
-| name | string | Yes | **{resouce}/Microsoft.Authorization/{lock}**<br /><br />up to 64 characters<br />It cannot contain <, > %, &, ?, or any control characters. | A value that defines the resource to lock and a name for the lock.<br /><br />The format of the name must include the name of the resource to lock. If you are locking the resource group, you can just provide a name for the lock.  |
-| dependsOn | array | No |  | The collection of resources this lock depends on. If the resource you are locking is deployed in the same template, you must specify that the lock is dependent on the resource to ensure the resource is deployed first. | 
+| name | string | Yes | For resources:<br />**{resouce}/Microsoft.Authorization/{lockname}**<br /><br />For resource groups:<br />{lockname}<br /><br />up to 64 characters<br />It cannot contain <, > %, &, ?, or any control characters. | A value that specifes both the resource to lock and a name for the lock. |
+| dependsOn | array | No |  A comma-separated list of a resource names or resource unique identifiers. | The collection of resources this lock depends on. If the resource you are locking is deployed in the same template, you must specify that the lock is dependent on the resource to ensure the resource is deployed first. | 
 | properties | object | Yes | (shown below)  | An object that identifies the type of lock, and notes about the lock. |  
 
 ### properties object
