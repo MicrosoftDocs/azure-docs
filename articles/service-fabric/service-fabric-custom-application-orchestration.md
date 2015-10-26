@@ -23,7 +23,7 @@ Azure Service Fabric can be used to run existing applications such as Node.js, J
 
 ## Benefits of running an existing application in Service Fabric
 
-As valid question is why we should use Service Fabric to host an application? There are a couple of advantages that come with running the application in Service Fabric Cluster:
+A valid question is why we should use Service Fabric to host an application? There are a couple of advantages that come with running the application in Service Fabric Cluster:
 
 - High availability: Applications that are run in Service Fabric are highly available out of the box. Service Fabric makes sure that always one instance of an application is up and running
 - Health monitoring: Out of the box Service Fabric health monitoring detects if the application is up and running and provides diagnostics information the case of a failure   
@@ -34,7 +34,10 @@ In this article we cover the basic steps to package an existing application and 
 
 ## Package and deploy a single application
 
-Let's have a quick look at the application we want to package and publish to Service Fabric first. The application consists of a single executable, SimpleWebServer.exe, which listens to port 8080 and returns the machine name. In reality it could be any .exe file. SimpleWebServer.exe lives on the D: drive in the WebServer folder.
+Let's have a quick look at the application we want to package and publish to Service Fabric first. The application consists of a single executable, SimpleWebServer.exe, which listens to port 8080 and returns the machine name. In reality it could be any .exe file. You can download the sample application from [GitHub ](https://github.com/bmscholl/servicefabric-samples/tree/comingsoon/samples/RealWorld/Hosting/SimpleApplication).
+
+The image below shows the running application and accessing it through the browser.
+![RunningApp](./media/service-fabric-custom-application-orchestration/runningapp.png)
 
 The first step is to create a Service Fabric application package. Service Fabric expects an application package that contains the definition of the application as well the binaries and all other files that are needed for the application, so that Service Fabric knows what to execute and how to execute it.
 
@@ -43,7 +46,7 @@ Please read [Service Fabric Packaging format ](service-fabric-deploy-existing-ap
 The easiest way to create an application package is using the Service Fabric packaging tool that ships as part of the SDK. The packaging tool is located in the Tools folder of the Service Fabric SDK installation path. The default installation location is C:\Program Files\Microsoft SDKs\Service Fabric\Tools. Let's go ahead an browse to the tools folder using command line or PowerShell and execute the following command:
 
 ```
-.\ServiceFabricAppPackageUtil.exe /source:'D:\Dev\WebServer' /target:'D:\Dev\WebServerPackage' /appname:WebServer /exe:'SimpleWebServer.exe'
+ServiceFabricAppPackageUtil.exe /source:[directory of SimpleWebServer.exe] /target:[directory that will contain the package] /appname:WebServer /exe:SimpleWebServer.exe
 ```
 This will create a Service Fabric application package that contains the SimpleWebServer executable. Before we look at the package we should look at the parameters we used:
 
@@ -83,7 +86,7 @@ Before we can test our WebServer on the local Service Fabric cluster we need to 
 </Resources>
 ```
 
- The last step is to publish the application to the local Service Fabric cluster using the PowerShell scripts below:
+The last step is to publish the application to the local Service Fabric cluster using the PowerShell scripts below:
 
 ```
 Connect-ServiceFabricCluster localhost:19000
@@ -102,11 +105,11 @@ This is a good opportunity to check on one of the advantages of running an appli
 
 ![RestartNode](./media/service-fabric-custom-application-orchestration/restartnode.png)
 
-If we check back after a short while we can see that Service Fabric started our web server on another node. Figure 2 shows our web server running on Node 3 after the failover.
+Service Fabric will immediately failover and start the application on another node. If we now look at the Service Fabric explorer again we can see that Service Fabric started our web server on another node. Figure 2 shows our web server running on Node 3 after the failover.
 
 ![New Node](./media/service-fabric-custom-application-orchestration/new-node.png)
 
-In this little tutorial we have seen how to easily package and deploy an existing application to Service Fabric so that it can benefit from some of the Service Fabric features such as high availability and heath system integration.
+In this topic we have seen how to package and deploy an existing application so that it can benefit from some of the Service Fabric features such as high availability and heath system integration.
 
 For more information see the following topics
 
