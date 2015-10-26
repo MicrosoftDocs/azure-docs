@@ -19,6 +19,8 @@ ms.service="virtual-machines"
 
 # Sizes for virtual machines
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
+
 ## Overview
 
 This article describes the available sizes and options for the virtual machine-based compute resources you can use to run your apps and workloads.  It also provides deployment considerations to be aware of when you're planning to use these resources.

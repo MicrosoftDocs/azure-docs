@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Query data from HDFS-compatible Blob storage | Microsoft Azure"
-	description="HDInsight uses Blob storage as the big data store for HDFS. Learn how to query data from Blob storage and store results of your analysis."
+	description="HDInsight uses Azure Blob storage as the big data store for HDFS. Learn how to query data from Blob storage and store results of your analysis."
 	keywords="blob storage,hdfs,structured data,unstructured data"
 	services="hdinsight,storage"
 	documentationCenter=""
@@ -15,13 +15,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/28/2015"
+	ms.date="10/23/2015"
 	ms.author="jgao"/>
 
 
 # Use HDFS-compatible Azure Blob storage with Hadoop in HDInsight
 
-In this tutorial, learn how to use low-cost Azure Blob storage with HDInsight, create Azure storage account and Blob storage container, and then address the data inside.
+Learn how to use low-cost Azure Blob storage with HDInsight, create Azure storage account and Blob storage container, and then address the data inside.
 
 Azure Blob storage is a robust, general-purpose storage solution that integrates seamlessly with HDInsight. Through a Hadoop distributed file system (HDFS) interface, the full set of components in HDInsight can operate directly on structured or unstructured data in Blob storage.
 
@@ -36,7 +36,7 @@ Storing data in Blob storage enables you to safely delete the HDInsight clusters
 For information about provisioning an HDInsight cluster, see [Get Started with HDInsight][hdinsight-get-started] or [Provision HDInsight clusters][hdinsight-provision].
 
 
-## <a id="architecture"></a>HDInsight storage architecture
+## HDInsight storage architecture
 The following diagram provides an abstract view of the HDInsight storage architecture:
 
 ![Hadoop clusters use the HDFS API to access and store structured and unstructured data in Blob storage.](./media/hdinsight-hadoop-use-blob-storage/HDI.WASB.Arch.png "HDInsight Storage Architecture")
@@ -85,13 +85,14 @@ Certain MapReduce jobs and packages may create intermediate results that you don
 
 
 
-## <a id="preparingblobstorage"></a>Create a blob container
+## Create Blob containers
 
 To use blobs, you first create an [Azure Storage account][azure-storage-create]. As part of this, you specify an Azure datacenter that will store the objects you create using this account. The cluster and the storage account must be hosted in the same datacenter. The Hive metastore SQL Server database and Oozie metastore SQL Server database must also be located in the same datacenter.
 
 Wherever it lives, each blob you create belongs to a container in your Azure Storage account. This container may be an existing blob that was created outside of HDInsight, or it may be a container that is created for an HDInsight cluster.
 
-Don't share a default storage container with multiple HDInsight clusters. If you need to use a shared container to provide access to data for multiple HDInsight clusters then you should add it as an additional storage account in the cluster configuration. For more information, see [Provision HDInsight clusters][hdinsight-provision]. However you can reuse a default storage container after the original HDInsight cluster has been deleted. For HBase clusters, you can actually retain the HBase table schema and data by provision a new HBase cluster using the default blob storage container that is used by an HBase cluster that has been deleted.
+
+The default Blob container stores cluster specific information such as job history and logs. Don't share a default Blob container with multiple HDInsight clusters. This might corrupt job history, and the cluster will misbehave. It is recommended to use a different container for each cluster and put shared data on a linked storage account specified in deployment of all relevant clusters rather than the default storage account. For more information on configuring linked storage accounts, see [Provision HDInsight clusters][hdinsight-provision]. However you can reuse a default storage container after the original HDInsight cluster has been deleted. For HBase clusters, you can actually retain the HBase table schema and data by provision a new HBase cluster using the default blob storage container that is used by an HBase cluster that has been deleted.
 
 
 ### Using the Azure preview portal
@@ -138,7 +139,7 @@ If you [installed and configured Azure PowerShell][powershell-install], you can 
 	New-AzureStorageContainer -Name $containerName -Context $destContext
 
 
-## <a id="addressing"></a>Address files in Blob storage
+## Address files in Blob storage
 
 The URI scheme for accessing files in Blob storage from HDInsight is:
 
@@ -169,7 +170,7 @@ The &lt;path&gt; is the file or directory HDFS path name. Because containers in 
 
 > [AZURE.NOTE] When working with blobs outside of HDInsight, most utilities do not recognize the WASB format and instead expect a basic path format, such as `example/jars/hadoop-mapreduce-examples.jar`.
 
-## <a id="azurecli"></a>Access blobs with Azure CLI
+## Access blobs using Azure CLI
 
 Use the following command to list the blob-related commands:
 
@@ -191,7 +192,7 @@ Use the following command to list the blob-related commands:
 
 	azure storage blob list <containername> <blobname|prefix> --account-name <storageaccountname> --account-key <storageaccountkey>
 
-## <a id="powershell"></a>Access blobs with Azure PowerShell
+## Access blobs using Azure PowerShell
 
 > [AZURE.NOTE] The commands in this section provide a basic example of using PowerShell to access data stored in blobs. For a more full-featured example that is customized for working with HDInsight, see the [HDInsight Tools](https://github.com/Blackmist/hdinsight-tools).
 
@@ -294,7 +295,7 @@ This example shows how to list a folder from storage account that is not defined
 
 	Invoke-Hive -Defines $defines -Query "dfs -ls wasb://$undefinedContainer@$undefinedStorageAccount.blob.core.windows.net/;"
 
-## <a id="nextsteps"></a>Next steps
+## Next steps
 
 In this article, you learned how to use HDFS-compatible Azure Blob storage with HDInsight, and you learned that Azure Blob storage is a fundamental component of HDInsight. This allows you to build scalable, long-term, archiving data acquisition solutions with Azure Blob storage and use HDInsight to unlock the information inside the stored  structured and unstructured data.
 
