@@ -95,7 +95,7 @@ In case of an outage in one of the secondary regions traffic manager will automa
 
 ![Figure 6](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/pattern2-3.png)
 
-The key **advantage** of this this design pattern is that you can scale the application workload across multiple secondaries to achieve the optimal end user performance. The **tradeoffs** of this option are:
+The key **advantage** of this design pattern is that you can scale the application workload across multiple secondaries to achieve the optimal end user performance. The **tradeoffs** of this option are:
 
 + read-write connections between the application instances and database have varying latency and cost
 + application performance is impacted during the outage

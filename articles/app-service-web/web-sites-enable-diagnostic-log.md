@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/16/2015"
+	ms.date="10/20/2015"
 	ms.author="cephalin"/>
 
 # Enable diagnostics logging for web apps in Azure App Service
@@ -67,6 +67,11 @@ The [Azure portal](https://manage.windowsazure.com) Web app **Configure** tab al
 * **Table storage** - stores the application diagnostics information in the specified Azure Storage Account and table name.
 * **Blob storage** - stores the application diagnostics information in the specified Azure Storage Account and blob container.
 * **Retention period** - by default, logs are not automatically deleted from **blob storage**. Select **set retention** and enter the number of days to keep logs if you wish to automatically delete logs.
+
+>[AZURE.NOTE] If you [regenerate your storage account's access keys](storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys), you must reset the respective logging configuration to use the updated keys. To do this:
+>
+> 1. In the **Configure** tab, set the respective logging feature to **Off**. Save your setting.
+> 2. Enable logging to the storage account blob or table again. Save your setting.
 
 Any combination of file system, table storage, or blob storage can be enabled at the same time, and have individual log level configurations. For example, you may wish to log errors and warnings to blob storage as a long-term logging solution, while enabling file system logging with a level of verbose.
 

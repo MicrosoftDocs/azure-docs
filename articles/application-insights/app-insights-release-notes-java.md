@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Release notes for Application Insights for Java" 
-	description="The latest updates." 
+	description="The latest updates for Java SDK." 
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
