@@ -23,46 +23,46 @@ The HDInsight Streaming Activity in a Data Factory [pipeline](data-factory-creat
 
 ## Example
 
-{
-    "name": "HadoopStreamingPipeline",
-    "properties":
-    {
-        "description" : "Hadoop Streaming Demo",
-        "activities":
-        [
-           {
-               "name": "RunHadoopStreamingJob",
-               "description": "Run a Hadoop streaming job",
-               "type": "HDInsightStreaming",
-               "getDebugInfo": "Failure",
-               "inputs": [ ],
-               "outputs": [ {"name": "OutputTable"} ],
-               "linkedServiceName": "HDInsightLinkedService",
-               "typeProperties":
-               {
-                   "mapper": "cat.exe",
-                   "reducer": "wc.exe",
-                   "input":  "wasb://adfsample@<account name>.blob.core.windows.net/example/data/gutenberg/davinci.txt",
-                   "output": " wasb://adfsample@<account name>.blob.core.windows.net/example/data/StreamingOutput/wc.txt",
-                   "filePaths": [ 
-                       "adfsample/example/apps/wc.exe" , 
-                       "adfsample/example/apps/cat.exe" 
-                   ],
-                   "fileLinkedService" : "StorageLinkedService",
-                   "arguments":[
-                   ]
-               },
-               "policy":
-               {
-                   "concurrency": 1,
-                   "executionPriorityOrder": "NewestFirst",
-                   "retry": 1,
-                   "timeout": "01:00:00"
-               }
-            }
-        ]
-    }
-}
+	{
+	    "name": "HadoopStreamingPipeline",
+	    "properties":
+	    {
+	        "description" : "Hadoop Streaming Demo",
+	        "activities":
+	        [
+	           {
+	               "name": "RunHadoopStreamingJob",
+	               "description": "Run a Hadoop streaming job",
+	               "type": "HDInsightStreaming",
+	               "getDebugInfo": "Failure",
+	               "inputs": [ ],
+	               "outputs": [ {"name": "OutputTable"} ],
+	               "linkedServiceName": "HDInsightLinkedService",
+	               "typeProperties":
+	               {
+	                   "mapper": "cat.exe",
+	                   "reducer": "wc.exe",
+	                   "input":  "wasb://adfsample@<account name>.blob.core.windows.net/example/data/gutenberg/davinci.txt",
+	                   "output": " wasb://adfsample@<account name>.blob.core.windows.net/example/data/StreamingOutput/wc.txt",
+	                   "filePaths": [ 
+	                       "adfsample/example/apps/wc.exe" , 
+	                       "adfsample/example/apps/cat.exe" 
+	                   ],
+	                   "fileLinkedService" : "StorageLinkedService",
+	                   "arguments":[
+	                   ]
+	               },
+	               "policy":
+	               {
+	                   "concurrency": 1,
+	                   "executionPriorityOrder": "NewestFirst",
+	                   "retry": 1,
+	                   "timeout": "01:00:00"
+	               }
+	            }
+	        ]
+	    }
+	}
 
 Note the following:
 
