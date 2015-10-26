@@ -90,9 +90,9 @@ Additional steps are required when:
 4. When the analysis completes, we will make recommendations on how to proceed.  
     - If you use SQL Server Express and have less than 50,000 objects, the following screen is shown:
 ![Analysis completed ready to upgrade from DirSync](./media/active-directory-aadconnect-dirsync-upgrade-get-started/AnalysisReady.png)
-    - If you use a full SQL server for DirSync you will see this page instead:
+    - If you use a full SQL Server for DirSync you will see this page instead:
 ![Analysis completed ready to upgrade from DirSync](./media/active-directory-aadconnect-dirsync-upgrade-get-started/AnalysisReadyFullSQL.png)<BR/>
-The information regarding the existing SQL Server database server being used by DirSync is displayed to you.  Make the appropriate adjustments if needed.  Click **Next** to continue the installation.
+The information regarding the existing SQL Server database server being used by DirSync is displayed. Make appropriate adjustments if needed. Click **Next** to continue the installation.
     - If you have more than 50,000 objects you will see this screen instead:
 ![Analysis completed ready to upgrade from DirSync](./media/active-directory-aadconnect-dirsync-upgrade-get-started/AnalysisRecommendParallel.png)<BR/>
 To proceed with an in-place upgrade, click the checkbox next to this message: **Continue upgrading DirSync on this computer.**
@@ -101,7 +101,7 @@ To do a [parallel deployment](#parallel-deployment) instead you will export the 
 ![Enter your Azure AD credentials](./media/active-directory-aadconnect-dirsync-upgrade-get-started/ConnectToAzureAD.png)
 6. Provide an enterprise admin account for Active Directory.
 ![Enter your ADDS credentials](./media/active-directory-aadconnect-dirsync-upgrade-get-started/ConnectToADDS.png)
-7. You're now ready to configure.  When you click **Next**, DirSync will be uninstalled and Azure AD Connect will be configured and begin synchronizing.
+7. You're now ready to configure.  When you click **Upgrade**, DirSync will be uninstalled and Azure AD Connect will be configured and begin synchronizing.
 ![Ready to configure](./media/active-directory-aadconnect-dirsync-upgrade-get-started/ReadyToConfigure.png)
 
 
@@ -159,7 +159,7 @@ These options can be seen on this screen:
 8. On the **Ready to configure** page, leave the **Start the synchronization process as soon as the configuration completes** checked. The server will be in [staging mode](active-directory-aadconnectsync-operations.md#staging-mode) so changes will not be exported to Azure AD at this time.
 9. Click **Install**.
 
->[AZURE.NOTE] <LI>Synchronization between Windows Server Active Directory and Azure Active Directory will begin, but no changes will be exported to Azure AD.  Only one synchronization tool can be actively exporting changes at a time. This is called [staging mode](active-directory-aadconnectsync-operations.md#staging-mode). </LI> <LI>We uncheck the start synchronization checkbox in order to ensure that DirSync, which is still installed and running, and Azure AD Connect do not attempt to write to Azure AD at the same time.</LI>
+>[AZURE.NOTE] Synchronization between Windows Server Active Directory and Azure Active Directory will begin, but no changes will be exported to Azure AD.  Only one synchronization tool can be actively exporting changes at a time. This is called [staging mode](active-directory-aadconnectsync-operations.md#staging-mode).
 
 ### Verify that Azure AD Connect is ready to begin synchronization
 
@@ -176,23 +176,24 @@ Review the result from these operations and ensure there are no errors.
 
 If you want to see and inspect which changes are about to be exported to Azure AD, then read how to verify the configuration under [staging mode](active-directory-aadconnectsync-operations.md#staging-mode). Make required configuration changes until you do not see anything unexpected.
 
-Once these 4 operations have been completed, there are no errors, and you are satisfied with the changes which are about to be exported, you are ready to uninstall DirSync and enable Azure AD Connect synchronization.
+Once these 4 operations have been completed, there are no errors, and you are satisfied with the changes which are about to be exported, you are ready to uninstall DirSync and enable Azure AD Connect synchronization. Complete the next two steps to complete the migration.
 
-### Uninstall DirSync (old Server)
+### Uninstall DirSync (old server)
 
-- From **Add or remove programs** locate **Windows Azure Active Directory sync tool**
+- From **Programs and features** locate **Windows Azure Active Directory sync tool**
 - Uninstall **Windows Azure Active Directory sync tool**
+- Note that the uninstallation might take up to 15 minutes to complete.
 
 With DirSync uninstalled, there is no active server exporting to Azure AD. The next step must be completed before any changes in your on-premises Active Directory will continue to be synchronized to Azure AD.
 
-### Enable Azure AD Connect (new Server)
+### Enable Azure AD Connect (new server)
 After installation, re-opening Azure AD connect will allow you to make additional configuration changes. Start **Azure AD Connect** from the start menu or from the shortcut on the desktop. Make sure you do not try to run the installation MSI again.
 
 You should see the following:
 
 ![Additional tasks](./media/active-directory-aadconnect-dirsync-upgrade-get-started/AdditionalTasks.png)
 
-- Select **Configure staging mode**. Upgrading from DirSync using exported settings automatically puts Azure AD Connect in [staging mode](active-directory-aadconnectsync-operations.md#staging-mode).  Staging mode basically means that synchronization will occur within Azure AD connect, but changes will not be exported to Azure AD or AD.
+- Select **Configure staging mode**.
 - Turn off staging by unchecking the **Enabled staging mode** checkbox.
 
 ![Enter your Azure AD credentials](./media/active-directory-aadconnect-dirsync-upgrade-get-started/configurestaging.png)
