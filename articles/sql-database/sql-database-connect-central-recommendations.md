@@ -24,6 +24,8 @@
 This topic is a good place to get started with client connectivity to Azure SQL Database. It provides links to code samples for various technologies that you can use to connect to and interact with SQL Database. The technologies include Enterprise Library, JDBC, PHP, and several more. The information provided applies regardless of which specific technology you use to connect to SQL Database.
 
 
+<a id="a-tech-independent-recommend" name="a-tech-independent-recommend"></a>
+
 ## Technology-independent recommendations
 
 
@@ -35,6 +37,8 @@ This topic is a good place to get started with client connectivity to Azure SQL 
  - Enforcement of limits
  - Throttling
 
+
+<a id="b-authentication-recommend" name="b-authentication-recommend"></a>
 
 ## Authentication recommendations
 
@@ -65,6 +69,8 @@ The contained user approach has advantages and disadvantages:
 
 Further information is given in - [Contained Database Users - Making Your Database Portable](http://msdn.microsoft.com/library/ff929188.aspx).
 
+
+<a id="c-connection-recommend" name="c-connection-recommend"></a>
 
 ## Connection recommendations
 
@@ -147,6 +153,8 @@ For further information see:
 - [Azure SQL Database Development: How-to Topics](http://msdn.microsoft.com/library/azure/ee621787.aspx)
 - [Troubleshoot connection problems to Azure SQL Database](http://support.microsoft.com/kb/2980233/)
 
+
+<a id="e-technologies" name="e-technologies"></a>
 
 ## Technologies
 
