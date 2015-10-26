@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Tasks to prepare data for effective machine learning | Microsoft Azure"
+	pageTitle="Tasks to prepare data for enhanced machine learning | Microsoft Azure"
 	description="Pre-process and clean data to prepare it for machine learning."
 	services="machine-learning"
 	documentationCenter=""
@@ -17,13 +17,17 @@
 	ms.author="bradsev" />
 
 
-# Tasks to prepare data for effective machine learning
+# Tasks to prepare data for enhanced machine learning
 
-Pre-processing and cleaning data are important tasks that typically must be conducted before a dataset can be used effectively for machine learning. These tasks are part of the Cortana Analytics Process. Raw data is often noisy and unreliable, and may be missing values. Using such data for modeling can produce misleading results.  
+## Introduction
+Pre-processing and cleaning data are important tasks that typically must be conducted before dataset can be used effectively for machine learning. Raw data is often noisy and unreliable, and may be missing values. Using such data for modeling can produce misleading results. These tasks are part of the Cortana Analytics Process (CAP) and typically follow an initial exploration of a dataset used to discover and plan the pre-processing required. For more detailed instructions on the CAP process, see the steps outlined in the [Cortana Analytics Process](cortana-analytics-process.md).
 
-This article introduces various data processing concepts and tasks that can be taken before ingesting data into Azure Machine Learning. For more detailed instructions on this process, see the [Learning Guide: Advanced data processing in Azure](cortana-analytics-process.md)
+Pre-processing and cleaning tasks, like the data exploration task, can be carried out in a wide variety of environments, such as SQL or Hive or Azure Machine Learning Studio, and with various tools and languages, such as R or Python, depending where your data is stored and how it is formatted. Since CAP is iterative in nature, these tasks can take place at various steps in the  workflow of the process.
 
-----------------
+This article introduces various data processing concepts and tasks that can be undertaken either before or after ingesting data into Azure Machine Learning. 
+
+For an example of data exploration and pre-processing done inside Azure Machine Learning studio, see the [Pre-processing data in Azure ML Studio](http://azure.microsoft.com/documentation/videos/preprocessing-data-in-azure-ml-studio/) video.
+
 
 ## Why pre-process and clean data?
 
