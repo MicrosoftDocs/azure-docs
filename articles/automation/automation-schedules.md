@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/18/2015"
+   ms.date="10/26/2015"
    ms.author="bwren" />
 
 # Schedules in Azure Automation
