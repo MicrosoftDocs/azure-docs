@@ -78,7 +78,7 @@ Specify the request body using the following template.
 
 When you make the request, if the logger is created a status code of `201 Created` is returned. 
 
->[AZURE.NOTE] For other possible return codes and their reasons, see [Create a Logger](https://msdn.microsoft.com/library/azure/mt592020.aspx#PUT). To see how perform other operations such as list, update, and delete, see the [Logger](https://msdn.microsoft.com/en-us/library/azure/mt592020.aspx) entity documentation.
+>[AZURE.NOTE] For other possible return codes and their reasons, see [Create a Logger](https://msdn.microsoft.com/library/azure/mt592020.aspx#PUT). To see how perform other operations such as list, update, and delete, see the [Logger](https://msdn.microsoft.com/library/azure/mt592020.aspx) entity documentation.
 
 ## Configure log-to-eventhubs policies
 
