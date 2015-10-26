@@ -42,7 +42,7 @@ An indexing job can generate the following outputs:
 
 This topic shows how to create indexing jobs to **Index an asset** and **Index multiple files**.
 
-For the latest Azure Media Indexer updates, see [Media Services blogs](http://azure.microsoft.com/blog/topics/media-services/).
+For the latest Azure Media Indexer updates, see [Media Services blogs](#preset).
 
 ## Using configuration and manifest files for indexing tasks
 
@@ -50,7 +50,7 @@ You can specify more details for your indexing tasks by using a task configurati
 
 You can also process multiple media files at once by using a manifest file.
 
-For more information, see [Task Preset for Azure Media Indexer](https://msdn.microsoft.com/library/azure/dn783454.aspx).
+For more information, see [Task Preset for Azure Media Indexer](#).
 
 ## Index an asset
 
@@ -312,6 +312,90 @@ If not all input media files are indexed successfully, the indexing job will fai
 
 The same outputs (as succeeded jobs) are generated. You can refer to the output manifest file to find out which input files are failed, according to the Error column values. For input files that failed, the resulting AIB, SAMI, TTML, WebVTT and keyword files will NOT be generated.
 
+### <a id="preset"></a> Task Preset for Azure Media Indexer
+
+<table>
+	<tr>
+		<th>Name</th>
+		<th>Require</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td>**Input**</td>
+		<td>true</td>
+		<td><p>Asset file(s) that you want to index.</p><p>Azure Media Indexer supports the following media file formats: MP4, WMV, MP3, M4A, WMA, AAC, WAV.</p><p>You can specify the file name (s) in the **name** or **list** attribute of the **input** element (as shown below).If you do not specify which asset file to index, the primary file is picked. If no primary asset file is set, the first file in the input asset is indexed.</p><p>To explicitly specify the asset file name, do:</p>
+
+			`<input name="TestFile.wmv">`<br /><br />
+
+
+
+			<p>You can also index multiple asset files at once (up to 10 files). To do this:</p>
+			<ol class="ordered">
+				<li><p>Create a text file (manifest file) and give it an .lst extension. </p></li>
+				<li><p>Add a list of all the asset file names in your input asset to this manifest file. </p></li>
+				<li><p>Add (upload) thanifest file to the asset.  </p></li>
+				<li><p>Specify the name of the manifest file in the input’s list attribute.</p>
+				`<input list="input.lst">`</li>
+			</ol>
+			<p>Note: If you add more than 10 files to the manifest file, the indexing job will fail with the 2006 error code. </p>
+
+		</td>
+	</tr>
+	<tr>
+		<td><p><strong>metadata</strong></p></td>
+		<td><p>false</p></td>
+		<td><p>Metadata for the specified asset file(s).</p>
+			`<metadata key="..." value="..."` <br /><br />
+			<p>You can supply <strong>value</strong>s for predefined <strong>key</strong>s. Currently the following keys are supported:</p><p>**“title” and “description”** -  used for vocabulary adaptation to tweak the language model for your job and improve speech recognition accuracy.</p>
+
+			`<metadata key="title" value="[Title of the media file]" />`<br />
+			`<metadata key="description" value="[Description of the media file] />"` <br /> <br />
+
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<p><strong>features</strong></p>
+			<p>Added in version 1.2. Currently, the only supported feature is speech recognition ("ASR").</p>
+		</td>
+		<td><p>False</p></td>
+		<td><p>The Speech Recognition feature has the following settings keys:</p>
+		<table>
+			<tr>
+				<th><p>Key</p></th>
+				<th><p>Description</p></th>
+				<th><p>Example value</p></th>
+			</tr>
+			<tr>
+				<td><p>Language</p></td>
+				<td><p>The natural language to be recognized in the multimedia file.</p></td>
+				<td><p>English, Spanish</p></td>
+			</tr>
+			<tr>
+				<td><p>CaptionFormats</p></td>
+				<td><p>a semicolon-separated list of the desired output caption formats (if any)</p></td>
+				<td><p>ttml;sami;webvtt</p></td>
+			</tr>
+			<tr>
+				<td><p>GenerateAIB</p></td>
+				<td><p>A boolean flag specifying whether or not an AIB file is required (for use with SQL Server and the customer Indexer IFilter).  For more information, see <a href="http://azure.microsoft.com/blog/2014/11/03/using-aib-files-with-azure-media-indexer-and-sql-server/">Using AIB Files with Azure Media Indexer and SQL Server</a>.</p></td>
+				<td><p>True; False</p></td>
+			</tr>
+			<tr>
+				<td><p>GenerateKeywords</p></td>
+				<td><p>A boolean flag specifying whether or not a keyword XML file is required.</p></td>
+				<td><p>True; False. </p></td>
+			</tr>
+			<tr>
+				<td><p>ForceFullCaption</p></td>
+				<td><p>A boolean flag specifying whether or not to force full captions (regardless of confidence level).  </p>
+				<p>Default is false, in which case words and phrases which have a less than 50% confidence level are omitted from the final caption outputs and replaced by ellipses ("...").  The ellipses are useful for caption quality control and auditing.</p></td>
+				<td><p>True; False. </p></td>
+			</tr>
+		</table>
+		</td>
+	</tr>
+</table>
 
 ### <a id="error_codes"></a>Error codes
 
