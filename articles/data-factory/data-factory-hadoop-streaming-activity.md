@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/26/2015" 
+	ms.date="10/25/2015" 
 	ms.author="spelluru"/>
 
 # Hadoop Streaming Activity
