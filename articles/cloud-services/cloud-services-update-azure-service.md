@@ -1,9 +1,9 @@
 ﻿<properties
-pageTitle="Update an Azure Cloud Service"
-description="Understand how to update an Azure Cloud Service."
+pageTitle="How to update a cloud service | Microsoft Azure"
+description="Learn how to update cloud services in Azure. Learn how an update on a cloud service proceeds to ensure availability."
 services="cloud-services"
 documentationCenter=""
-authors="Thraka"
+authors="kenazk"
 manager="timlt"
 editor=""/>
 <tags
@@ -12,7 +12,7 @@ ms.workload="tbd"
 ms.tgt_pltfrm="na"
 ms.devlang="na"
 ms.topic="article"
-ms.date="09/29/2015"
+ms.date="10/26/2015"
 ms.author="kenazk"/>
 
 # Overview
@@ -33,11 +33,11 @@ Your service must define at least two instances of a role for that role to be up
 
 This topic covers the following information about Azure updates:
 
--   [Allowed service changes during an update](https://msdn.microsoft.com/library/azure/Hh472157.aspx#AllowedChanges)
--   [Rollback of an update](https://msdn.microsoft.com/library/azure/Hh472157.aspx#RollbackofanUpdate)
--   [Initiating multiple mutating operations on an ongoing deployment](https://msdn.microsoft.com/library/azure/Hh472157.aspx#multiplemutatingoperations)
--   [Distribution of roles across upgrade domains](https://msdn.microsoft.com/library/azure/Hh472157.aspx#distributiondfroles)
--   [How an upgrade proceeds](https://msdn.microsoft.com/library/azure/Hh472157.aspx#howanupgradeproceeds)
+-   [Allowed service changes during an update](#AllowedChanges)
+-   [Rollback of an update](#RollbackofanUpdate)
+-   [Initiating multiple mutating operations on an ongoing deployment](#multiplemutatingoperations)
+-   [Distribution of roles across upgrade domains](#distributiondfroles)
+-   [How an upgrade proceeds](#howanupgradeproceeds)
 
 ## Allowed service changes during an update
 The following table shows the allowed changes to a service during an update:
@@ -63,7 +63,7 @@ The following items are not supported during an update:
 -   Changing of the Upgrade Domain count.
 -   Decreasing the size of the local resources.
 
-If you are making other updates to your service's definition, such as decreasing the size of local resource, you must perform a VIP swap update instead. For more information, see [Manage Upgrades to the Azure Guest Operating System (Guest OS)](https://msdn.microsoft.com/library/azure/ff729422.aspx).
+If you are making other updates to your service's definition, such as decreasing the size of local resource, you must perform a VIP swap update instead. For more information, see [Swap Deployment](https://msdn.microsoft.com/en-us/library/azure/ee460814.aspx).
 
 ## How an upgrade proceeds
 You can decide whether you want to update all of the roles in your service or a single role in the service. In either case, all instances of each role that is being upgraded and belong to the first upgrade domain are stopped, upgraded, and brought back online. Once they are back online, the instances in the second upgrade domain are stopped, upgraded, and brought back online. A cloud service can have at most one upgrade active at a time. The upgrade is always performed against the latest version of the cloud service.
@@ -170,5 +170,6 @@ The following diagram illustrates how a service than contains two roles are dist
 > [AZURE.NOTE] Note that Azure controls how instances are allocated across upgrade domains. It's not possible to specify which instances are allocated to which domain.
 
 ## Next steps
-[How to Manage Cloud Services](./cloud-services-how-to-manage)
-[How to Monitor Cloud Services](./cloud-services-how-to-monitor)
+[How to Manage Cloud Services](cloud-services-how-to-manage.md)
+[How to Monitor Cloud Services](cloud-services-how-to-monitor.md)
+[How to Configure Cloud Services](cloud-services-how-to-cofigure.md)
