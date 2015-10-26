@@ -70,7 +70,7 @@ The token service pattern is the recommended way to implement a custom identity 
 
 Follow these links to learn more about Azure IoT Hub:
 
-- [Get started with IoT Hubs (Tutorial)][lnk-get-started]
+- [Get started with IoT Hub (Tutorial)][lnk-get-started]
 - [What is Azure IoT Hub?][]
 
 [img-tokenservice]: ./media/iot-hub-guidance/tokenservice.png

@@ -63,6 +63,9 @@ The navigational hierarchy for the StorSimple Manager service UI is shown in the
 ||Jobs|Configure (Device)|
 ||Alerts|Maintenance|
 
+![Video available](./media/storsimple-manager-service-administration/Video_icon.png) **Video available**
+
+To watch a video that walks you through the StorSimple Manager service user interface, click [here](http://azure.microsoft.com/documentation/videos/storsimple-manager-service-overview/).
 
 ## Administer StorSimple device using StorSimple Manager service
 
@@ -102,9 +105,6 @@ For more information about each workflow, click the appropriate procedure in the
 |Create a support package|StorSimple Manager service → Devices → Maintenance|[Create and manage a Support package](storsimple-create-manage-support-package.md)|
 |Install software updates|StorSimple Manager service → Devices → Maintenance|[Update your device](storsimple-update-device.md)|
 
-![Video available](./media/storsimple-manager-service-administration/Video_icon.png) **Video available**
-
-To watch a video that walks you through the StorSimple Manager service user interface, click [here](http://azure.microsoft.com/documentation/videos/storsimple-manager-service-overview/).
 
 ##Next steps
 If you experience any issues with the day-to-day operation of your StorSimple device or with any of its hardware components, refer to:

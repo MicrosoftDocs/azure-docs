@@ -3,7 +3,7 @@
 	description="This article describes how you can use Azure Media Services (AMS) to deliver a stream that is dynamically encrypted by AMS with both PlayReady and Widevine DRMs. The PlayReady license comes from Media Services PlayReady license server and Widevine license is delivered by Axinom license server." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="willzhan,Juliako" 
+	authors="willzhan,Mingfeiy,rajputam,Juliako" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/14/2015"  
+	ms.date="10/15/2015"  
 	ms.author="juliako"/>
 
 #Using Axinom to deliver Widevine licenses to Azure Media Services  
@@ -198,9 +198,6 @@ Key seed|Must be used to generate content key with any given content key ID (see
 Widevine License acquisition URL|Must be used in configuring asset delivery policy for DASH streaming (see  [this](media-services-axinom-integration.md#content-protection) section ).
 Content Key ID|Must be included as part of the value of Entitlement Message claim of JWT token (see [this](media-services-axinom-integration.md#jwt-token-generation) section). 
 
-
-
-
 ##Media Services learning paths
 
 You can view AMS learning paths here:
@@ -208,3 +205,6 @@ You can view AMS learning paths here:
 - [AMS Live Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
 - [AMS on Demand Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
+###Acknowledgments 
+
+We would like to acknowledge the following people who contributed towards creating this document: Kristjan Jõgi of Axinom, Mingfei Yan, and Amit Rajput.

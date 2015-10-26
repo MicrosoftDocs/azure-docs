@@ -4,7 +4,7 @@
 	keywords="Azure preview portal, documentdb, azure, Microsoft azure"
 	services="documentdb" 
 	documentationCenter="" 
-	authors="stephbaron" 
+	authors="AndrewHoh" 
 	manager="jhubbard" 
 	editor="cgronlun"/>
 
@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/28/2015" 
-	ms.author="stbaro"/>
+	ms.date="10/22/2015" 
+	ms.author="anhoh"/>
 
 # How to manage a DocumentDB account in the Azure preview portal
 
@@ -65,7 +65,7 @@ your keys. The following steps outline the process involved in rolling your keys
 secondary access key of the DocumentDB account.
 
 2.      Regenerate the primary access key for your DocumentDB account.
-In the  [Azure Preview portal](https://portal.azure.com/),
+In the [Azure Preview portal](https://portal.azure.com/),
 access your DocumentDB account.
 
 3.      In the Summary lens, click **Keys**.
@@ -92,7 +92,7 @@ return the value that was last written.
 
 - **Bounded Staleness** consistency guarantees that reads are
 not too out-of-date. It specifically guarantees that the reads are no
-more than K versions older than the last written version. 
+more than *K* versions older than the last written version. 
 
 - **Session** consistency guarantees monotonic reads (you never
 read old data, then new, then old again), monotonic writes (writes are
@@ -125,7 +125,7 @@ level you want for your DocumentDB account.
 5.      The progress of the operation may be monitored via the Azure Preview portal Notifications hub.
 
 *Note that it can take several minutes before a change to the default
-consistency setting takes affect across your DocumentDB account.*
+consistency setting takes effect across your DocumentDB account.*
 
 ## <a id="delete"></a> How to: Delete a DocumentDB account in the Azure preview portal
 To remove a DocumentDB account from the Azure preview portal that you are no longer using, use the
