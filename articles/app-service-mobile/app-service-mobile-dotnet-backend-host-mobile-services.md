@@ -50,7 +50,7 @@ If moving over an existing Mobile Services Application, both the master key and 
 
 ## <a name="client-sdk"></a>How to: Modify the client SDK
 
-On the client device, modify the constructor of the MobileServiceClient to accept the app URL (e.g., contoso.azurewebsites.net) and the application key configured earlier.
+In the client app project, modify the constructor of the Mobile Services client object to accept the app URL (e.g., contoso.azurewebsites.net) and the application key configured earlier. The client SDK version should be a Mobile Services version and shoud **not** be upgraded. For iOS and Android clients, use 2.x versions, and for Windows/Xamarin, use 1.3.2. Javascript clients should be using 1.2.7.
 
 ## <a name="data"></a>How to: Enable data features
 
@@ -58,7 +58,7 @@ In order to work with the default Entity Framework classes in Mobile Services, t
  
 Conenection strings are stored in the "Connection strings" section of the Application Settings blade, just below the "App settings" section. The connection string for your database should be set under the **MS_TableConnectionString** key. For moving over an existing Mobile Services application, navigate to the "Connection Strings" section of the Mobile Services portal's Configure tab. Click "Show Connection Strings" and copy out the value.
  
-Back under "App settings," set **MS_TableSchema** to be the name of the schema to be used. If you are moving over an existing Mobile Services application, a schema was already created - this is the name of the Mobile Service, not the App Service instance that will be hosting the code now.
+By default, the schema to be used is **MS_MobileServiceName**, but this can be overwritten with the **MS_TableSchema** setting. Back under "App settings," set **MS_TableSchema** to be the name of the schema to be used. If you are moving over an existing Mobile Services application, a schema was already created using Entity Framework - this is the name of the Mobile Service, not the App Service instance that will be hosting the code now.
 
 ## <a name="push"></a>How to: Enable push features
 
@@ -70,7 +70,7 @@ The **MS_NotificationHubName** app setting should be set to the name of the hub.
  
 ## <a name="auth"></a>How to: Enable auth features
 
-The identity features, too, have app setting requirements for the individual providers. If moving from an existing Mobile Services app, each of the fields in the Identity tab of the Mobile Services portal has a corresponding app setting.
+The identity features also have app setting requirements for the individual providers. If moving from an existing Mobile Services app, each of the fields in the Identity tab of the Mobile Services portal has a corresponding app setting.
  
 Microsoft Account:
 * **MS_MicrosoftClientID**
@@ -91,9 +91,7 @@ Google
  
 AAD
 * **MS_AadClientID**
-* **MS_AadTenants**
- 
-It should be noted that **MS_AadTenants** is stored as a comma-separated list of tenant domains (the "Allowed Tenants" fields in the Mobile Services portal).
+* **MS_AadTenants** - Note: **MS_AadTenants** is stored as a comma-separated list of tenant domains (the "Allowed Tenants" fields in the Mobile Services portal).
 
 ## <a name="publish"></a>How to: Publish the Mobile Services project
 
