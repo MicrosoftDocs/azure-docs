@@ -46,8 +46,8 @@ The following tables describe the values you need to set in the schema.
 | ---- | ---- | -------- | ---------------- | ----------- |
 | type | enum | Yes | For resources: <br />**{namespace}/{type}/providers/locks**<br /><br />For resource groups:<br />**Microsoft.Authorization/locks** | The resource type to create. |
 | apiVersion | enum | Yes | **2015-01-01** | The API version to use for creating the resource. |  
-| name | string | Yes | For resources:<br />**{resouce}/Microsoft.Authorization/{lockname}**<br /><br />For resource groups:<br />{lockname}<br /><br />up to 64 characters<br />It cannot contain <, > %, &, ?, or any control characters. | A value that specifes both the resource to lock and a name for the lock. |
-| dependsOn | array | No |  A comma-separated list of a resource names or resource unique identifiers. | The collection of resources this lock depends on. If the resource you are locking is deployed in the same template, you must specify that the lock is dependent on the resource to ensure the resource is deployed first. | 
+| name | string | Yes | For resources:<br />**{resouce}/Microsoft.Authorization/{lockname}**<br /><br />For resource groups:<br />**{lockname}**<br /><br />up to 64 characters<br />It cannot contain <, > %, &, ?, or any control characters. | A value that specifes both the resource to lock and a name for the lock. |
+| dependsOn | array | No |  A comma-separated list of a resource names or resource unique identifiers. | The collection of resources this lock depends on. If the resource you are locking is deployed in the same template, include that resource name in this element to ensure the resource is deployed first. | 
 | properties | object | Yes | (shown below)  | An object that identifies the type of lock, and notes about the lock. |  
 
 ### properties object
@@ -63,7 +63,7 @@ The following tables describe the values you need to set in the schema.
 You add this resource to your template to prevent specified actions on a resource. The lock applies to all users and groups. Typically, you apply a lock for only a limited duration, such as, when a process is running and you want to make sure someone in your organization doesn't inadvertently modify or delete a resource.
 
 To create or delete management locks, you must have access to **Microsoft.Authorization/*** or **Microsoft.Authorization/locks/*** actions. Of the built-in roles, only **Owner** and **User Access Administrator** are 
-granted those actions.
+granted those actions. For information about role-based access control, see [Managing access to resources](./azure-portal/resource-group-rbac.md).
 
 The lock is applied to the specified resource and any child resources. If you apply more than one lock to a resource, the most restrictive lock takes precedence. For example, if you apply ReadOnly at the 
 parent level (such as the resource group) and CanNotDelete on a resource within that group, the more restrictive lock (ReadOnly) from the parent takes precedence. 
