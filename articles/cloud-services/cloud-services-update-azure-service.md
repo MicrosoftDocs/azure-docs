@@ -47,7 +47,7 @@ The following table shows the allowed changes to a service during an update:
 |Operating system version|Yes|Yes|Yes
 |.NET trust level|Yes|Yes|Yes|
 |Virtual machine size|Yes*|Yes|Yes|
-|Local storage settings|Yes, Increase only*|Yes|Yes|
+|Local storage settings|Increase only*|Yes|Yes|
 |Add or remove roles in a service|Yes|Yes|Yes|
 |Number of instances of a particular role|Yes|Yes|Yes|
 |Number or type of endpoints for a service|Yes*|No|Yes|
@@ -57,7 +57,7 @@ The following table shows the allowed changes to a service during an update:
 |Change existing certificates|Yes|Yes|Yes|
 |Deploy new code|Yes|Yes|Yes|
 > [AZURE.WARNING] Changing the virtual machine size will destroy local data.
-> [AZURE.NOTE] *Requires Azure SDK 1.5 or later versions.*
+> [AZURE.NOTE] \*Requires Azure SDK 1.5 or later versions.
 
 The following items are not supported during an update:
 
