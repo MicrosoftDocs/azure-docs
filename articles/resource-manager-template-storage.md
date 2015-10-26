@@ -1,7 +1,7 @@
 <properties
    pageTitle="Resource Manager template for storage | Microsoft Azure"
    description="Shows the resource manager schema for storage accounts."
-   services="azure-resource-manager"
+   services="azure-resource-manager,storage"
    documentationCenter="na"
    authors="tfitzmac"
    manager="wpickett"
@@ -66,7 +66,7 @@ The following example deploys a Standard Locally Redundant storage account with 
             {
                 "type": "Microsoft.Storage/storageAccounts",
                 "apiVersion": "2015-06-15",
-                "name": "[concat('ExampleStorage', uniqueString(resourceGroup().id))]",
+                "name": "[concat('storage', uniqueString(resourceGroup().id))]",
 		         "location": "[resourceGroup().location]",
         	     "properties": 
         	     {
