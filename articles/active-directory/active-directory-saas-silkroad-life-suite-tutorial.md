@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/22/2015"
+	ms.date="10/23/2015"
 	ms.author="markusvi"/>
 
 
@@ -93,7 +93,20 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
 
 **To configure Azure AD single sign-on with SilkRoad Life Suite, perform the following steps:**
 
-1. In the Azure AD portal, on the **SilkRoad Life Suite** application integration page, click **Configure single sign-on** to open the **Configure Single Sign-On**  dialog.
+5. Sign-on to your SilkRoad company site as administrator. 
+
+
+    > [AZURE.NOTE] To obtain access to the SilkRoad Life Suite Authentication application for configuring federation with Microsoft Azure AD, please contact SilkRoad Support or your SilkRoad Services representative.
+
+
+6. Go to **Service Provider**, and then clcik **Federation Details**. 
+<br><br>![Azure AD Single Sign-On][10] <br>
+
+
+1. Click **Download Federation Metadata**, and then save the metadata file on your computer.
+<br><br>![Azure AD Single Sign-On][11] <br>
+
+3. In the Azure AD portal, on the **SilkRoad Life Suite** application integration page, click **Configure single sign-on** to open the **Configure Single Sign-On**  dialog.
 <br><br> ![Configure Single Sign-On][6] <br>
 
 2. On the **How would you like users to sign on to SilkRoad Life Suite** page, select **Azure AD Single Sign-On**, and then click **Next**.
@@ -102,11 +115,16 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
 3. On the **Configure App Settings** dialog page, perform the following steps:
 <br><br>![Azure AD Single Sign-On][8] <br>
  
-     a. In the **Sign On URL** textbox, type the URL used by your users to sign-on to your SilkRoad Life Suite site (e.g.: *https://defcompanytest-test-redcarpet.silkroad-eng.com/Authentication/*).
+    a. In the **Sign On URL** textbox, type the URL used by your users to sign-on to your SilkRoad Life Suite site (e.g.: *https://defcompanytest-test-redcarpet.silkroad-eng.com/Authentication/*).
 
-     b. In the **Reply URL** textbox, type the URL used by your users to sign-on to your SilkRoad Life Suite site (e.g.: *https://defcompanytest-test-redcarpet.silkroad-eng.com/Authentication/*).
+    b. Open the downloaded **Silkroad** metadata file.
 
-     c. Click **Next**.
+    c. Locate the **AssertionConsumerService** tag, and then copy the **Location** attribute.         
+    <br><br>![Azure AD Single Sign-On][21] <br>
+   
+    d. Paste the value into the **Reply URL** textbox.
+ 
+    e. Click **Next**.
  
 4. On the **Configure single sign-on at SilkRoad Life Suite** page, perform the following steps:
 <br><br>![Azure AD Single Sign-On][9] <br>
@@ -117,20 +135,8 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
 
 
 
-5. Sign-on to your SilkRoad company site as administrator. 
 
-
-    > [AZURE.NOTE] To obtain access to the SilkRoad Life Suite Authentication application for configuring federation with Microsoft Azure AD, please contact SilkRoad Support or your SilkRoad Services representative.
-
-
-
-
-
-6. Go to **Service Provider**, and then clcik **Federation Details**. 
-<br><br>![Azure AD Single Sign-On][10] <br>
-
-
-1. Click **Authentication Sources**.
+1. In your **SilkRoad** application, click **Authentication Sources**.
 <br><br>![Azure AD Single Sign-On][12] <br>
 
 
@@ -227,7 +233,12 @@ In the Users list, select **Britta Simon**.<br><br>![Create Azure AD User][20]<b
  
 ### Creating a SilkRoad Life Suite test user
 
-The objective of this section is to create a user called Britta Simon in SilkRoad Life Suite.    Britta's must have an SSO ID (sometimes referred to as an *AuthParam*) that matches Britta's **emailaddress** in Azure AD.
+The objective of this section is to create a user called Britta Simon in SilkRoad Life Suite. Britta's must have an SSO ID (sometimes referred to as an *AuthParam*) that matches Britta's **emailaddress** in Azure AD.
+
+**To create a user called Britta Simon in SilkRoad Life Suite, perform the following steps:**
+
+1. Ask your SilkRoad Life Suite support team to create a user that has as **SSO ID** attribute the same value as the **emailaddress** of Britta Simon in Azure AD.
+
 
 
 ### Assigning the Azure AD test user
@@ -288,6 +299,8 @@ When you click the SilkRoad Life Suite tile in the Access Panel, you should get 
 
 
 [20]: ./media/active-directory-saas-silkroad-life-suite-tutorial/tutorial_general_100.png
+[21]: ./media/active-directory-saas-silkroad-life-suite-tutorial/tutorial_silkroad_15.png
+
 
 [200]: ./media/active-directory-saas-silkroad-life-suite-tutorial/tutorial_general_200.png
 [201]: ./media/active-directory-saas-silkroad-life-suite-tutorial/tutorial_general_201.png
