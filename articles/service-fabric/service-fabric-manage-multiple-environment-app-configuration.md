@@ -118,7 +118,7 @@ The `DeployCreate-FabricApplication.ps1` PowerShell script accepts an parameters
 
     ./DeployCreate-FabricApplication -ApplicationPackagePath <app_package_path> -ApplicationDefinitionFilePath <app_instance_definition_path>
 
-# Next Steps
+## Next Steps
 
 To learn more about some of the core concepts discussed in this topic, see the [Service Fabric Technial Overview](service-fabric-technical-overview.md). For information about other app management capabilities available in Visual Studio, see [Managing your Service Fabric applications in Visual Studio](service-fabric-manage-application-in-visual-studio.md).
 
