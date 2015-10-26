@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Usage analysis for web applications with Application Insights" 
-	description="Overview of usage analytics with Application Insights" 
+	description="Overview of usage analytics for web apps with Application Insights" 
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
