@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="07/15/2015"
+   ms.date="10/20/2015"
    ms.author="liviodlc"/>
 
 #Tutorial: How to integrate NetSuite with Azure Active Directory
@@ -66,13 +66,13 @@ This tutorial will show you how to connect your NetSuite environment to your Azu
 
 	> [AZURE.NOTE] To learn more about about the different single sign-on options, [click here](../active-directory-appssoaccess-whatis/#how-does-single-sign-on-with-azure-active-directory-work)
 
-3. On the **Configure App Settings** page, for the **Sign On URL** field, type in your NetSuite tenant URL using one of the following formats:
-	- `https://<tenant-name>.netsuite.com`
-	- `https://<tenant-name>.na1.netsuite.com`
-	- `https://<tenant-name>.na2.netsuite.com`
-	- `https://<tenant-name>.sandbox.netsuite.com`
-	- `https://<tenant-name>.na1.sandbox.netsuite.com`
-	- `https://<tenant-name>.na2.sandbox.netsuite.com`
+3. On the **Configure App Settings** page, for the **Reply URL** field, type in your NetSuite tenant URL using one of the following formats:
+	- `https://<tenant-name>.netsuite.com/saml2/acs`
+	- `https://<tenant-name>.na1.netsuite.com/saml2/acs`
+	- `https://<tenant-name>.na2.netsuite.com/saml2/acs`
+	- `https://<tenant-name>.sandbox.netsuite.com/saml2/acs`
+	- `https://<tenant-name>.na1.sandbox.netsuite.com/saml2/acs`
+	- `https://<tenant-name>.na2.sandbox.netsuite.com/saml2/acs`
 
 	![Type in your tenant URL][8]
 
@@ -142,23 +142,23 @@ This tutorial will show you how to connect your NetSuite environment to your Azu
 
 	- On the top navigation menu, click **Setup**, then click **Setup Manager**.
 
-	![Go to Setup Manager][10]
+		![Go to Setup Manager][10]
 
 	- On the left navigation menu, select **Users/Roles**, then click **Manage Roles**.
 
-	![Go to Manage Roles][22]
+		![Go to Manage Roles][22]
 
 	- Click **New Role**.
 
 	- Type in a **Name** for you new role, and select the **Single Sign-On Only** checkbox.
 
-	![Name the new role.][23]
+		![Name the new role.][23]
 
 	- Click **Save**.
 
 	- In the menu on the top, click **Permissions**. Then click **Setup**.
 
-	![Go to Permissions][24]
+		![Go to Permissions][24]
 
 	- Select **Set Up SAM Single Sign-on**, and then click **Add**.
 
@@ -166,25 +166,27 @@ This tutorial will show you how to connect your NetSuite environment to your Azu
 
 	- On the top navigation menu, click **Setup**, then click **Setup Manager**.
 
-	![Go to Setup Manager][10]
+		![Go to Setup Manager][10]
 
 	- On the left navigation menu, select **Users/Roles**, then click **Manage Users**.
 
-	![Go to Manage Users][25]
+		![Go to Manage Users][25]
 
 	- Select a test user. Then click **Edit**.
 
-	![Go to Manage Users][26]
+		![Go to Manage Users][26]
 
 	- On the Roles dialog, select the role that you have created and click **Add**.
 
-	![Go to Manage Users][27]
+		![Go to Manage Users][27]
 
 	- Click **Save**.
 
 19. To test your configuration, see the section below titled [Assign Users to NetSuite](#step-4-assign-users-to-netsuite).
 
 ##Step 3: Enable Automated User Provisioning
+
+> [AZURE.NOTE] By default, your provisioned users will be added to the root subsidiary of your NetSuite environment.
 
 1. In Azure Active Directory, on the Quick Start page for NetSuite, click on **Configure user provisioning**.
 
