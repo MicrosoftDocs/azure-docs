@@ -15,7 +15,7 @@
    ms.date="10/23/2015"
    ms.author="bwren" />
 
-# Variable assets in Azure Automation runbooks and DSC configurations
+# Variable assets in Azure Automation
 
 Variable assets are values that are available to all runbooks and DSC configurations in your automation account. They can be created, modified, and retrieved from the Azure portal, Windows PowerShell, and from within a runbook or DSC configuration. Automation variables are useful for the following scenarios:
 
