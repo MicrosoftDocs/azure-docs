@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/20/2015"
+	ms.date="10/26/2015"
 	ms.author="larryfr"/>
 
 # Install and use R on HDInsight Hadoop clusters
@@ -91,7 +91,7 @@ After the cluster has finished provisioning, use the following steps to use R to
 
 	* [Use SSH with Linux-based Hadoop on HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
 
-2. From the `username@headnode1:~$` prompt, enter the following command to start an interactive R session:
+2. From the `username@hn0-CLUSTERNAME:~$` prompt, enter the following command to start an interactive R session:
 
 		R
 
