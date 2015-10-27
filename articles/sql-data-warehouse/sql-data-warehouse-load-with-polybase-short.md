@@ -18,6 +18,12 @@
 
 
 # Load data with PolyBase
+
+> [AZURE.SELECTOR]
+- [Data Factory](sql-data-warehouse-get-started-load-with-azure-data-factory.md)
+- [PolyBase](sql-data-warehouse-load-with-polybase-short.md)
+- [BCP](sql-data-warehouse-load-with-bcp.md)
+
 This tutorial will show you how to load  data into your Azure SQL Data Warehouse using PolyBase.
 
 
