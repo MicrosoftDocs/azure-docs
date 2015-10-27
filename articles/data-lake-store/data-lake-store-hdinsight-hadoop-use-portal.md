@@ -78,7 +78,7 @@ In this section, you create an HDInsight Hadoop cluster that uses the Data Lake 
 
 	![Add service principal to HDInsight cluster](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.6.png "Add service principal to HDInsight cluster")
 
-## Configure service principal to access Data Lake Store file system
+## <a name="acl"></a>Configure service principal to access Data Lake Store file system
 
 1. Sign on to the new [Azure preview portal](https://portal.azure.com).
 
@@ -185,6 +185,17 @@ Once you have configured the HDInsight cluster to use Data Lake Store, you can u
 		-rwxrwxrwx   0 NotSupportYet NotSupportYet     671388 2015-09-16 22:16 adl://mydatalakestore.azuredatalakestore.net:443/mynewfolder
 
 	You can also use the `hdfs dfs -put` command to upload some files to the Data Lake Store, and then use `hdfs dfs -ls` to verify whether the files were successfully uploaded.
+
+## Considerations for provisioning HBase cluster that use Data Lake Store as default storage
+
+For HBase clusters, you can use Data Lake Store accounts as default storage. If you choose to do so, to provision a cluster successfully, the service principal associated with the cluster **must** have access to the Data Lake Store account. You can ensure that in two ways:
+
+* **If you use an existing service principal**, you must ensure that the service principal is added to the ACL at the root-level of the Data Lake Store file system before you start provisioning the cluster.
+* **If you opt to create a new service principal** as part of cluster provisioning, as soon as the cluster starts provisioning, you must add the newly created service principal to the root-level of the Data Lake Store file system. If you fail to do so, the cluster will be provisioned but the HBase services will fail to start. To workaround this issue, you must then add the service principal to the ACL of the Data Lake Store account and then restart the HBase services using Ambari Web UI.
+
+For instructions on how to add a service principal to a Data Lake Store file system, see [Configure service principal to access Data Lake Store file system](#acl).
+
+
 
 ## See Also
 

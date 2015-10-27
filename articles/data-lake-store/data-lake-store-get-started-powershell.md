@@ -31,11 +31,11 @@ Before you begin this tutorial, you must have the following:
 
 - **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/en-us/pricing/free-trial/).
 - **Enable your Azure subscription** for Data Lake Store public preview. See [instructions](data-lake-store-get-started-portal.md#signup).
-- **Azure PowerShell**. See [Install and configure Azure PowerShell](../install-configure-powershell.md) for instructions. After you have installed Azure PowerShell, you should run the following cmdlet to import the Azure Data Lake Store module.
+- **Azure PowerShell 1.0 or above**. See [Install and configure Azure PowerShell](../install-configure-powershell.md) for instructions. After you have installed Azure PowerShell 1.0 or above, you should run the following cmdlet to install the Azure Data Lake Store module.
 
 		Install-Module AzureRM.DataLakeStore
 
-	For more information, see [Azure Data Lake Store PowerShell Gallery](http://www.powershellgallery.com/packages/AzureRM.DataLakeStore).
+	For more information on the **AzureRM.DataLakeStore** module, see [PowerShell Gallery](http://www.powershellgallery.com/packages/AzureRM.DataLakeStore).
 
 ## Create an Azure Data Lake Store account
 
@@ -48,10 +48,10 @@ Before you begin this tutorial, you must have the following:
 		Get-AzureRmSubscription
 		
 		# Select a subscription 
-		Set-AzureRMContext -SubscriptionName <subscription name>
+		Set-AzureRmContext -SubscriptionId <subscription ID>
         
 		# Register for Azure Data Lake Store
-		Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.DataLake" 
+		Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.DataLakeStore" 
 
 
 2. An Azure Data Lake Store account is associated with an Azure Resource Group. Start by creating an Azure Resource Group.
@@ -126,7 +126,7 @@ When prompted, enter **Y** to delete the item. If you have more than one file to
 
 Use the following command to delete your Data Lake Store account.
 
-	Remove-AzureRmDataLakeAccount -Name $dataLakeStoreName
+	Remove-AzureRmDataLakeStoreAccount -Name $dataLakeStoreName
 
 When prompted, enter **Y** to delete the account.
 

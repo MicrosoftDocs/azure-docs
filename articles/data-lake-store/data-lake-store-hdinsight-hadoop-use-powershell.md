@@ -43,11 +43,11 @@ Before you begin this tutorial, you must have the following:
 - **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/en-us/pricing/free-trial/).
 - **Enable your Azure subscription** for Data Lake Store public preview. See [instructions](data-lake-store-get-started-portal.md#signup).
 - **Windows SDK**. You can install it from [here](https://dev.windows.com/en-us/downloads). You use this to create a security certificate.
-- **Azure PowerShell**. See [Install and configure Azure PowerShell](../install-configure-powershell.md) for instructions. After you have installed Azure PowerShell, you should run the following cmdlet to import the Azure Data Lake Store module.
+- **Azure PowerShell 1.0 or above**. See [Install and configure Azure PowerShell](../install-configure-powershell.md) for instructions. After you have installed Azure PowerShell 1.0 or above, you should run the following cmdlet to install the Azure Data Lake Store module.
 
 		Install-Module AzureRM.DataLakeStore
 
-	For more information, see [Azure Data Lake Store PowerShell Gallery](http://www.powershellgallery.com/packages/AzureRM.DataLakeStore).
+	For more information on the **AzureRM.DataLakeStore** module, see [PowerShell Gallery](http://www.powershellgallery.com/packages/AzureRM.DataLakeStore).
  
 
 ## Create an Azure Data Lake Store
@@ -63,10 +63,10 @@ Follow these steps to create a Data Lake Store.
 		Get-AzureRmSubscription
 		
 		# Select a subscription 
-		Set-AzureRMContext -SubscriptionName <subscription name>
+		Set-AzureRmContext -SubscriptionId <subscription ID>
 
 		# Register for Data Lake Store
-		Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.DataLake"
+		Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.DataLakeStore"
 
 3. An Azure Data Lake Store account is associated with an Azure Resource Group. Start by creating an Azure Resource Group.
 

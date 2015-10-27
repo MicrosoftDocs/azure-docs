@@ -39,11 +39,11 @@ Before you begin this tutorial, you must have the following:
 
 For instructions on how to create AAD security groups and how to add users to the group, see [Managing security groups in Azure Active Directory](active-directory-accessmanagement-manage-groups.md).
 
-## Assign the security group to Azure Data Lake Store accounts
+## Assign users or security groups to Azure Data Lake Store accounts
 
-When you assign security groups to Azure Data Lake Store accounts, you control the management operations on the account using the Azure portal and Azure Resource Manager APIs. 
+When you assign users or security groups to Azure Data Lake Store accounts, you control access to the management operations on the account using the Azure portal and Azure Resource Manager APIs. 
 
-1. Open an Azure Data Lake Store account. From the left pane, click **Browse**, click **Data Lake Store**, and then from the Data Lake Store blade, click the account name to which you want to assign a security group.
+1. Open an Azure Data Lake Store account. From the left pane, click **Browse**, click **Data Lake Store**, and then from the Data Lake Store blade, click the account name to which you want to assign a user or security group.
 
 2. In your Data Lake Store account blade, click the user icon.
 
@@ -55,12 +55,12 @@ When you assign security groups to Azure Data Lake Store accounts, you control t
  
 	There are two ways to add a group and assign relevant roles.
 
-	* Add a group to the account and then assign a role, or
-	* Add a role and then assign groups to role.
+	* Add a user/group to the account and then assign a role, or
+	* Add a role and then assign users/groups to role.
 
 	In this section, we look at the first approach, adding a group and then assigning roles. You can perform similar steps to first select a role and then assign groups to that role.
 	
-4. In the **Users** blade, click **Add** to open the **Add access** blade. In the **Add access** blade, click **Select a role**, and then select a role for the user group.
+4. In the **Users** blade, click **Add** to open the **Add access** blade. In the **Add access** blade, click **Select a role**, and then select a role for the user/group.
 
 	 ![Add a role for the user](./media/data-lake-store-secure-data/adl.add.user.1.png "Add a role for the user")
 
@@ -80,11 +80,11 @@ When you assign security groups to Azure Data Lake Store accounts, you control t
 
 	![Security group added](./media/data-lake-store-secure-data/adl.add.user.3.png "Security group added")
 
-7. Your security group now has access to the Azure Data Lake Store account. If you want to provide access to specific users, you can add them to the security group. Similarly, if you want to revoke access for a user, you can remove them from the security group. You can also assign multiple security groups to an account. 
+7. Your user/security group now has access to the Azure Data Lake Store account. If you want to provide access to specific users, you can add them to the security group. Similarly, if you want to revoke access for a user, you can remove them from the security group. You can also assign multiple security groups to an account. 
 
-## <a name="filepermissions"></a>Assign security group as ACLs to the Azure Data Lake Store file system
+## <a name="filepermissions"></a>Assign users or security group as ACLs to the Azure Data Lake Store file system
 
-By assigning security groups to the Azure Data Lake file system, you set access control on the data stored in Azure Data Lake Store. In the current release, you can set ACLs only at the root node of your file system.
+By assigning user/security groups to the Azure Data Lake file system, you set access control on the data stored in Azure Data Lake Store. In the current release, you can set ACLs only at the root node of your file system.
 
 1. In your Data Lake Store account blade, click **Data Explorer**.
 
@@ -118,6 +118,8 @@ By assigning security groups to the Azure Data Lake file system, you set access 
 6. In the **Add Custom Access** blade, click **OK**. The newly added group, with the associated permissions, will now be listed in the **Access** blade.
 
 	![Assign permissions to group](./media/data-lake-store-secure-data/adl.acl.5.png "Assign permissions to group")
+
+	> [AZURE.IMPORTANT] In the current release, you can only have 12 entries under **Custom Access**. If you want to add more than 12 users, you should create security groups, add users to security groups, add provide access to those security groups for the Data Lake Store account.
 
 7. If required, you can also modify the access permissions after you have added the group. Clear or select the check box for each permission type (Read, Write, Execute) based on whether you want to remove or assign that permission to the security group. Click **Save** to save the changes, or **Discard** to undo the changes.
 

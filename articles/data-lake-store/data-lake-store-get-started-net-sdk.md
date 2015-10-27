@@ -147,7 +147,7 @@ Learn how to use the Azure Data Lake Store .NET SDK to create an Azure Data Lake
 		            Console.WriteLine("Files downloaded. Press ENTER to continue...");
 		            Console.ReadLine();
 		
-		            // Delete the ADL Store account
+		            // Delete the Data Lake Store account
 		            Console.WriteLine("Azure Data Lake Store account will be deleted. Press ENTER to continue...");
 		            _dataLakeStoreClient.DataLakeStoreAccount.Delete(ResourceGroupName, dataLakeAccountName);
 		            Console.ReadLine();
