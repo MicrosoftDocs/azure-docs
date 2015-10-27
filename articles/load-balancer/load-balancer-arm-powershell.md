@@ -44,7 +44,7 @@ The following items need to be configured before creating a load balancer:
 
 You can get more information about load balancer components with Azure resource manager at [Azure Resource Manager support for load balancer](load-balancer-arm.md).
 
-The following steps will show how to configure a load balancer to be load balanced between 2 virtual machines.
+The following steps will show how to configure a load balancer between 2 virtual machines.
 
 
 ## Step by Step using powershell
