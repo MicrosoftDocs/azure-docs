@@ -3,7 +3,7 @@
    description="Compare performance and business continuity features of Azure SQL Database service tiers to find the right balance of cost and capability as you scale on demand with no downtime."
    services="sql-database"
    documentationCenter=""
-   authors="shontnew"
+   authors="rothja"
    manager="jeffreyg"
    editor="monicar"/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="10/13/2015"
-   ms.author="shkurhek"/>
+   ms.date="10/27/2015"
+   ms.author="jroth"/>
 
 # SQL Database service tiers
 
@@ -39,6 +39,8 @@ Performance characteristics listed here apply to databases created using [SQL Da
 
 [AZURE.INCLUDE [SQL DB service tiers table](../../includes/sql-database-service-tiers-table.md)]
 
+For a better understanding of DTUs, see the [DTU section](#understanding-dtus) in this topic. For a detailed explanation of the other rows in this service tiers table, see [Service tier capabilities and limits](sql-database-performance-guidance.md#service-tier-capabilities-and-limits).
+
 ### Service tiers for elastic database pools
 In addition to creating and scaling a single database, you also have the option of managing multiple databases within an [elastic database pool](sql-database-elastic-pool.md). All of the databases in an elastic database pool share a common set of resources. The performance characteristics are measured by *elastic Database Transaction Units* (eDTUs). As with single databases, elastic database pools come in three performance tiers: **Basic**, **Standard**, and **Premium**. For elastic databases these three service tiers still define the overall performance limits and several features.  
 
@@ -48,9 +50,9 @@ The following table describes the characteristics of the elastic database pool s
 
 [AZURE.INCLUDE [SQL DB service tiers table for elastic databases](../../includes/sql-database-service-tiers-table-elastic-db-pools.md)]
 
->[AZURE.NOTE] Each database within a pool also adheres to the single-database characteristics for that tier. For example, the Basic pool has a limit for max sessions per pool of 2400 – 28800, but an individual database within that pool has a database limit of 300 sessions (the limit for a single Basic database as specified in the previous section).
+Each database within a pool also adheres to the single-database characteristics for that tier. For example, the Basic pool has a limit for max sessions per pool of 2400 - 28800, but an individual database within that pool has a database limit of 300 sessions (the limit for a single Basic database as specified in the previous section).
 
-## Understanding DTUs
+### Understanding DTUs
 
 [AZURE.INCLUDE [SQL DB DTU description](../../includes/sql-database-understanding-dtus.md)]
 
@@ -78,7 +80,7 @@ For example, if you expect the workload on your database to grow, you can choose
 
 The performance metrics can also help you determine if you are able to downgrade to a lower performance level. Assume you are using a Standard S2 database and all performance metrics show that the database on average does not use more than 10% at any given time. It is likely that the database will work well in Standard S1. However, be aware of workloads that spike or fluctuate before making the decision to move to a lower performance level. 
 
-The same metrics that are exposed in the portal are also available through system views: [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx) in the logical master database of your server, and [sys.dm_db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx) in the user database (**sys.dm_db_resource_stats** is created in each Basic, Standard, and Premium user database. Web and Business edition databases return an empty result set). Use **sys.resource_stats** if you need to monitor less granular data across a longer period of time. Use **sys.dm_db_resource_stats** if you need to monitor more granular data within a smaller timeframe. For more information, see [Azure SQL Database Performance Guidance](https://msdn.microsoft.com/library/azure/dn369873.aspx).
+The same metrics that are exposed in the portal are also available through system views: [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx) in the logical **master** database of your server, and [sys.dm_db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx) in the user database (**sys.dm_db_resource_stats** is created in each Basic, Standard, and Premium user database. Web and Business edition databases return an empty result set). Use **sys.resource_stats** if you need to monitor less granular data across a longer period of time. Use **sys.dm_db_resource_stats** if you need to monitor more granular data within a smaller time frame. For more information, see [Azure SQL Database Performance Guidance](sql-database-performance-guidance.md#monitoring-resource-use-with-sysresourcestats).
 
 For elastic database pools, you can monitor individual databases in the pool with the techniques described in this section. But you can also monitor the pool as a whole. For information, see [Monitor and manage an elastic database pool](sql-database-elastic-pool-portal.md#monitor-and-manage-an-elastic-database-pool).
 

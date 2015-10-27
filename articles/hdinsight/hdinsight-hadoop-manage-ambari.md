@@ -230,4 +230,26 @@ Ambari Web relies on an underlying REST API, which you can leverage to create yo
 
 * **Some functionality is not enabled** - Some Ambari functionality is disabled, as it is managed by the HDInsight cloud service; for example, adding or removing hosts from the cluster or adding new services. Other functionality may not be fully implemented during the preview of Linux-based HDInsight.
 
+###Examples
+
+The following examples show how to retrieve information from Ambari using [cURL](http://curl.haxx.se/). Since the API returns JSON documents, [jq](https://stedolan.github.io/jq/) is also used to parse the return information.
+
+__Get the fully qualified domain names of the head nodes__
+
+    curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/HDFS/components/NAMENODE" | jq '.host_components[].HostRoles.host_name'
+    
+This command will retrieve head nodes of the cluster. Jq is used to retrieve the value of the `host_name` elements in the JSON document that is returned by this request.
+
+__Get the fully qualified domain names of the worker nodes__
+
+    curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/HDFS/components/DATANODE" | jq '.host_components[].HostRoles.host_name'
+    
+This command will retrieve the worker nodes of the cluster. 
+
+__Get the fully qualified domain names of the zookeeper nodes__
+
+    curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER" | jq '.host_components[].HostRoles.host_name'
+
+This command will retrieve the zookeeper nodes of the cluster. 
+
 For a complete reference of the REST API, see [Ambari API Reference V1](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/15/2015"
+	ms.date="10/19/2015"
 	ms.author="billmath"/>
 
 # Azure AD Connect Health Operations
@@ -96,7 +96,7 @@ All other roles (such as ‘User Access Administrators’ or ‘DevTest Lab User
 
 Azure AD Connect supports managing access at two levels:
 
-- ***Directory***: This is the recommended path for most customers and controls access for all service instances (e.g. an ADFS farm) across all role types that are being monitored by Azure AD Connect Health.
+- ***All service instances***: This is the recommended path for most customers and controls access for all service instances (e.g. an ADFS farm) across all role types that are being monitored by Azure AD Connect Health.
 
 - ***Service Instance***: In some cases, you may need to segregate access based on role types or by a service instance. In this case, you can manage access at the service instance level.  
 
@@ -105,19 +105,19 @@ Permission is granted if an end user has access either at the Directory or Servi
 
 ### How to allow users or groups access to Azure AD Connect Health
 #### Steps 1: Select the appropriate access scope
-To allow a user access at the *directory* level within Azure AD Connect Health, open the main blade in Azure AD Connect Health.<br>
-[//]: # (RBAC_MainBladeSS)
+To allow a user access at the *all service instances* level within Azure AD Connect Health, open the main blade in Azure AD Connect Health.<br>
 #### Step 2: Add users, groups and assign roles
 1. Click on the "Users" part from the Configure section.<br>
-[//]: # (RBAC_MainBladeUserPart)
+![Azure AD Connect Health RBAC Main Blade](./media/active-directory-aadconnect-health/RBAC_main_blade.png)
 2. Select "Add"
-3. Select the "Role"<br>
-[//]: # (RBAC_AddRole)
-4. Type the name or identifier of the targeted user or group. You can select one or more users or groups at the same time.
+3. Select the "Role" such as "Owner"<br>
+![Azure AD Connect Health RBAC Add User ](./media/active-directory-aadconnect-health/RBAC_add.png)
+4. Type the name or identifier of the targeted user or group. You can select one or more users or groups at the same time. Click "select".
+![Azure AD Connect Health RBAC Select User](./media/active-directory-aadconnect-health/RBAC_select_users.png)
 5. Select "Ok".<br>
-[//]: # (RBAC_LastStep)
+
 6. Once the role assignment is complete, the users and/or groups will appear in the list.<br>
-[//]: # (RBAC_ListofUsersAndGroups)
+![Azure AD Connect Health RBAC User List](./media/active-directory-aadconnect-health/RBAC_user_list.png)
 
 These steps will allow the listed users and group access as per their assigned roles.
 >[AZURE.NOTE]
@@ -127,13 +127,14 @@ These steps will allow the listed users and group access as per their assigned r
 #### Step 3: Share the blade location with users or groups
 1. After assigning permissions, a user can access Azure AD Connect Health by going to [http://aka.ms/aadconnecthealth](http://aka.ms/aadconnecthealth).
 2. Once on the blade, the user can pin the blade or different parts to the dashboard by simply clicking "Pin to dashboard"<br>
-[//]: # (RBAC_PinBlade)
+![Azure AD Connect Health RBAC pin blade](./media/active-directory-aadconnect-health/RBAC_pin_blade.png)
+
 
 >[AZURE.NOTE] A user with the "Reader" role assigned will not be able to perform the "create" operation to get Azure AD Connect Health extension from the Azure Marketplace. This user can still get to the blade by going to the above link. For subsequent usage, the user can pin the blade to the dashboard.
 
 ### Remove users and/or groups
 You can remove a user or a group added to Azure AD Connect Health Role Based Access Control part by right clicking and selecting remove.<br>
-[//]: # (RBAC_RemoveUser)
+![Azure AD Connect Health RBAC Remove User](./media/active-directory-aadconnect-health/RBAC_remove.png)
 
 [//]: # (End of RBAC section)
 

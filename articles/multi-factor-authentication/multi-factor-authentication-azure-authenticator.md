@@ -128,7 +128,9 @@ If you want to add an account manually, you can do it by doing the following:
 If you want to add an non-Azure account manually, for example, your Microsoft account, you can do it by doing the following:  
 
 
-- First, you will need to obtain the secret key from the site the account is associated with.  For example, in Outlook.com you go to your account settings, your security settings, and select setup an authentication app.  You need to select I cannot scan the barcode to get the secret key.
+- Adding a non-Azure account manually can be done either by scanning the QR code or by entering the secret key.
+- If you are going to enter the secret key manually, obtain the secret key from the site the account is associated with.  For example, in Outlook.com you go to your account settings, your security settings, and select setup an authentication app.  You need to select I cannot scan the barcode to get the secret key.
+- 
 
 ![Add Account](./media/multi-factor-authentication-azure-authenticator/secretkey.png)
 
@@ -136,11 +138,11 @@ If you want to add an non-Azure account manually, for example, your Microsoft ac
 
 ![Add Account](./media/multi-factor-authentication-azure-authenticator/addaccount3.png)
 
-- Click the Enter Manually button at the bottom.
+- Either scan the QR code or click the Enter Manually button at the bottom.  If you scan the QR code skip the next step, as activation will begin immediately.
 
 ![Add Account](./media/multi-factor-authentication-azure-authenticator/scan.png)
 
-- Enter the accpount name and the Secret Key that is provided on the same page that shows you the barcode.  This goes in the code and url boxes on the mobile app.  This will begin the activation.
+- If entering the secret key manually, enter the account name and the Secret Key that is provided on the same page that shows you the barcode.  This goes in the code and url boxes on the mobile app.  This will begin the activation.
 
 ![Add Account](./media/multi-factor-authentication-azure-authenticator/manual.png)
 

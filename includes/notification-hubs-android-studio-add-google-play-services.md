@@ -11,15 +11,19 @@
 
 	![](./media/notification-hubs-android-studio-add-google-play-services/notification-hubs-android-studio-add-google-play-dependency.png)
 
-4. Add this line under *dependencies*: 
+4. Add this line under *android*
+
+		useLibrary 'org.apache.http.legacy'
+
+5. Add this line under *dependencies*: 
 
    		compile 'com.google.android.gms:play-services-base:6.5.87'
 
-5. Under *defaultConfig*, change *minSdkVersion* to 9.
+7. Under *defaultConfig*, change *minSdkVersion* to 9.
  
-6. Click the **Sync Project with Gradle Files** icon in the tool bar.
+8. Click the **Sync Project with Gradle Files** icon in the tool bar.
 
-7. Open **AndroidManifest.xml** and add this tag to the *application* tag.
+9. Open **AndroidManifest.xml** and add this tag to the *application* tag.
 
         <meta-data android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
