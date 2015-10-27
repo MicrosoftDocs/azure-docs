@@ -21,8 +21,6 @@
 
 The hardware components of your Microsoft Azure StorSimple device adhere to the technical specifications and regulatory standards outlined in this article. The technical specifications describe the Power and Cooling Modules (PCMs), disk drives, and enclosures. The compliance information covers such things as international standards, safety and emissions, and cabling. 
 
-> [AZURE.NOTE] For more information about the StorSimple device, download the [StorSimple 8000 Series Datasheet](http://download.microsoft.com/download/E/2/1/E21B7C16-6D43-4E4A-B2EC-EEB284047F87/StorSimple_8000_Series_Datasheet.pdf).  
-
 ## Power and Cooling Module specifications  
 
 The StorSimple device has two 100-240V dual fan, SBB-compliant Power Cooling Modules (PCMs). This provides a redundant power configuration. If a PCM fails, the device continues to operate normally on the other PCM until the failed module is replaced.  
@@ -170,4 +168,6 @@ The plug and the complete power cord assembly must meet the standards appropriat
 
 For the 10 GbE network interfaces, DATA 2 and DATA 3, refer to the [list of supported network cables and modules](storsimple-supported-hardware-for-10-gbe-network-interfaces.md).
 
- 
+## Next steps
+
+For more information about the StorSimple device specifications, download the [StorSimple 8000 Series Specifications](http://storsimple.seagate.com/Specifications-8000).  
