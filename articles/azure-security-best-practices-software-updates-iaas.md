@@ -33,7 +33,7 @@ These same principles apply in a hybrid scenario where your company is using Azu
 
 ## Initial assessment
 
-Even if your company is already using an update management system and you already have software update policies in place, it is important to frequently revisit previous policy assessments and update them based on your current requirements. This means that you need to be familiar with the current state of the resources in your company. To reach this state, you need to know:
+Even if your company is already using an update management system and you already have software update policies in place, it is important to frequently revisit previous policy assessments and update them based on your current requirements. This means that you need to be familiar with the current state of the resources in your company. To reach this state, you have to know:
 
 -   The physical and virtual computers in your enterprise.
 
@@ -103,7 +103,7 @@ Some backup options for Azure IaaS include:
 
 ### Monitoring
 
-You should run regular reports to monitor the number of missing or installed updates, or updates with incomplete status, for each software update that is authorized. Similarly, reporting for software updates that are not yet authorized can facilitate easier deployment decisions. 
+You should run regular reports to monitor the number of missing or installed updates, or updates with incomplete status, for each software update that is authorized. Similarly, reporting for software updates that are not yet authorized can facilitate easier deployment decisions.
 
 You should also consider the following tasks:
 
