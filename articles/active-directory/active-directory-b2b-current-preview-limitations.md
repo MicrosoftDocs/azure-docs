@@ -1,7 +1,7 @@
 <properties
    pageTitle="Current preview limitations for Azure Active Directory B2B collaboration | Microsoft Azure"
    description="Azure Active Directory B2B supports your cross-company relationships by enabling business partners to selectively access your corporate applications"
-   services="active-directory-b2b, active-directory"
+   services="active-directory"
    authors="viv-liu"
    manager="cliffdi"
    editor=""
@@ -27,7 +27,7 @@
 - Invitations to DLs are not supported.
 - Maximum of 2,000 records can be uploaded via CSV.
 
-## Next steps
+## Related articles
 Browse our other articles on Azure B2B collaboration
 
 - [What is Azure AD B2B collaboration?](active-directory-b2b-what-is-azure-ad-b2b.md)

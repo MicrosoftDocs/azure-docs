@@ -1,7 +1,7 @@
 <properties
    pageTitle="Azure AD B2B collaboration preview: How it works | Microsoft Azure"
    description="Describes how Azure Active Directory B2B collaboration supports your cross-company relationships by enabling business partners to selectively access your corporate applications"
-   services="active-directory-b2b, active-directory"
+   services="active-directory"
    authors="viv-liu"
    manager="cliffdi"
    editor=""
@@ -32,7 +32,7 @@ While a paid Azure AD subscription (Basic or Premium) is not necessary to use Az
  - Admins can assign groups to apps, providing for simpler management of invited user access.
  - Admin tenant branding is used to brand the invitation emails and redemption experience, providing more context to invited partner users.
 
- ## Next steps
+## Related articles
  Browse our other articles on Azure B2B collaboration
 
  - [What is Azure AD B2B collaboration?](active-directory-b2b-what-is-azure-ad-b2b.md)

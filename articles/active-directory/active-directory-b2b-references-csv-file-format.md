@@ -1,7 +1,7 @@
 <properties
    pageTitle="CSV file format for Azure Active Directory B2B collaboration preview | Microsoft Azure"
    description="Azure Active Directory B2B supports your cross-company relationships by enabling business partners to selectively access your corporate applications"
-   services="active-directory-b2b, active-directory"
+   services="active-directory"
    authors="viv-liu"
    manager="cliffdi"
    editor=""
@@ -58,7 +58,7 @@ jsmith@contoso.com,Jeff Smith,cd3ed3de-93ee-400b-8b19-b61ef44a0f29,http://azure.
 bsmith@contoso.com,Ben Smith,cd3ed3de-93ee-400b-8b19-b61ef44a0f29,http://azure.microsoft.com/services/active-directory/,,,http://azure.microsoft.com/services/active-directory/
 ```
 
-## Next steps
+## Related articles
 Browse our other articles on Azure B2B collaboration
 
 - [What is Azure AD B2B collaboration?](active-directory-b2b-what-is-azure-ad-b2b.md)

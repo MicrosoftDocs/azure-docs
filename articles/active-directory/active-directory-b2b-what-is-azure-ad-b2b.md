@@ -1,7 +1,7 @@
 <properties
    pageTitle="Azure Active Directory B2B collaboration preview: Simple, secure cloud partner integration | Microsoft Azure"
    description="Azure Active Directory B2B collaboration supports your cross-company relationships by enabling business partners to selectively access your corporate applications"
-   services="active-directory-b2b, active-directory"
+   services="active-directory"
    authors="viv-liu"
    manager="cliffdi@exchange.microsoft.com"
    editor=""
@@ -28,7 +28,7 @@ As companies focus more on their core business, the need to partner with other b
 
 Check out [the blog post announcing public preview](http://blogs.technet.com/b/ad/archive/2015/09/15/learn-all-about-the-azure-ad-b2b-collaboration-preview.aspx) and [the deep dive video](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Azure-Active-Directory-B2B-collaboration-demo) walking through Azure AD B2B collaboration.
 
-## Next steps
+## Related articles
 Browse our other articles on Azure B2B collaboration
 
 - [How it works](active-directory-b2b-how-it-works.md)

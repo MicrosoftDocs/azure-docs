@@ -1,7 +1,7 @@
 <properties
    pageTitle="External user token format for Azure Active Directory B2B collaboration preview | Microsoft Azure"
    description="Azure Active Directory B2B supports your cross-company relationships by enabling business partners to selectively access your corporate applications"
-   services="active-directory-b2b, active-directory"
+   services="active-directory"
    authors="viv-liu"
    manager="cliffdi"
    editor=""
@@ -26,7 +26,7 @@ The claims that are different for an authenticated external user are as follows:
 - **IDP**: this is the home tenant of the user<br/>
 - **AltSecId**: this is the alternative security ID, which is opaque to you<br/>
 
-## Next steps
+## Related articles
 Browse our other articles on Azure B2B collaboration
 
 - [What is Azure AD B2B collaboration?](active-directory-b2b-what-is-azure-ad-b2b.md)
