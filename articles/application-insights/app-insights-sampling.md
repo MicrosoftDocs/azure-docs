@@ -40,14 +40,15 @@ Sampling is currently available for the ASP.NET SDK or [any   web page](#other-w
     <TelemetryProcessors>
      <Add Type="Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.SamplingTelemetryProcessor, Microsoft.AI.ServerTelemetryChannel">
 
-     <!-- Sampling at 10 percent -->
+     <!-- Set a percentage close to 100/N where N is an integer. -->
+     <!-- E.g. 50 (=100/2), 33.33 (=100/3), 25 (=100/4), 20, 1 (=100/100), 0.1 (=100/1000) -->
      <SamplingPercentage>10</SamplingPercentage>
      </Add>
    </TelemetryProcessors>
 
 ```
 
-> [AZURE.NOTE] For the sampling percentage, choose a percentage that is close to 100/N where N is an integer. So for example, valid values include 50 (=1/2), 33.33 (= 1/3), 25 (=1/4), 20 (=1/5) and so on. Currently sampling doesn't support other values.
+> [AZURE.NOTE] For the sampling percentage, choose a percentage that is close to 100/N where N is an integer.  Currently sampling doesn't support other values.
 
 ### Web pages with JavaScript
 
