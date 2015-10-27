@@ -50,9 +50,9 @@ These basic steps can help resolve most of the common Remote Desktop connection 
 
 ## Basic steps - Resource Manager deployment model
 
-	These basic steps can help resolve most of the common Remote Desktop connection failures in virtual machines created using the Resource Manager deployment model. After performing each step, try reconnecting to the VM.
+These basic steps can help resolve most of the common Remote Desktop connection failures in virtual machines created using the Resource Manager deployment model. After performing each step, try reconnecting to the VM.
 
-	- Reset Remote Access using Powershell
+- Reset Remote Access using Powershell
 	a. If you haven't already, [install Azure PowerShell and connect to your Azure subscription](../powershell-install-configure.md) using the Azure AD method.
 
 	b. Switch to the Resource Manager mode.
@@ -66,14 +66,14 @@ These basic steps can help resolve most of the common Remote Desktop connection 
 	Set-AzureVMExtension -ResourceGroupName "myRG" -VMName "myVM" -Name "myVMAccessExtension" -ExtensionType "VMAccessAgent" -Publisher "Microsoft.Compute" -typeHandlerVersion "2.0" -Location Westus
 	```
 
-	- Restart the Virtual Machine to address other startup issues.<br>
-		Click Browse all > Virtual Machines > your Windows virtual machine > **Restart**.
+- Restart the Virtual Machine to address other startup issues.<br>
+	Click Browse all > Virtual Machines > your Windows virtual machine > **Restart**.
 
-	- Resize the VM to fix any host issues.<br>
-		Click Browse all > Virtual machines > your Windows virtual machine > Settings > **Size**.
+- Resize the VM to fix any host issues.<br>
+	Click Browse all > Virtual machines > your Windows virtual machine > Settings > **Size**.
 
-	- Review your VM's console log or screenshot to correct boot problems.
-		Click Browse all > Virtual machines > your Windows virtual machine > **Boot diagnostics**
+- Review your VM's console log or screenshot to correct boot problems.
+	Click Browse all > Virtual machines > your Windows virtual machine > **Boot diagnostics**
 
 
 ## Troubleshoot Common RDP errors
