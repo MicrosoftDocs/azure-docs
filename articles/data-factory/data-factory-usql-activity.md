@@ -125,8 +125,6 @@ script | Specifiy inline script instread of specifying scriptPath and scriptLink
 degreeOfParallelism | The maximum number of nodes that will be used simultaneously to run the job. | No
 priority | Determines which jobs out of all that are queued should be selected to run first. The lower the number, the higher the priority. | No 
 parameters | Parameters for the U-SQL script | No 
-runtimeVersion | Runtime version of U-SQL engine to use. | No
-compilationMode | Compilation mode of U-SQL. Must be one of the following values: <ul><li>**Semantic** - perform semantic checks and necessary sanity checks only.</li><li>**Full** - Perform the full compilation, including syntax check, optimization, code-gen, etc.</li><li>**SingleBox** - Perform the full compilation.</li></ul> | No
 
 
 ### Sample input and output datasets
