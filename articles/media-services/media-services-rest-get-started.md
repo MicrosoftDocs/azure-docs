@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Getting Started with Delivering Video on Demand (VoD) using REST APIs" 
-	description="This tutorial walks you through the steps of implementing a Video-on-Demand (VoD) content delivery application with Azure Media Services using REST APIs" 
+	pageTitle="Get started with delivering content on demand using REST API" 
+	description="This tutorial walks you through the steps of implementing an on demand content delivery application with Azure Media Services using REST API." 
 	services="media-services" 
 	documentationCenter="" 
 	authors="Juliako" 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/14/2015" 
+	ms.date="09/18/2015" 
 	ms.author="juliako"/>
 
-#Getting Started with Delivering Video on Demand (VoD) using REST APIs 
+#Get started with delivering content on demand using REST API
 
 [AZURE.INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
 
@@ -1189,6 +1189,19 @@ To stream you video, use [Azure Media Services Player](http://amsplayer.azureweb
 
 To test progressive download, paste a URL into a browser (for example, IE, Chrome, Safari).
 
+
+##Next Steps
+
+###Media Services learning paths
+
+You can view AMS learning paths here:
+
+- [AMS Live Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [AMS on Demand Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
+### Looking for something else?
+
+If this topic didn't contain what you were expecting, is missing something, or in some other way didn't meet your needs, please provide us with you feedback using the Disqus thread below.
 
 ##Additional Resources
 - <a href="http://channel9.msdn.com/Shows/Azure-Friday/Azure-Media-Services-101-Get-your-video-online-now-">Azure Media Services 101 - Get your video online now!</a>

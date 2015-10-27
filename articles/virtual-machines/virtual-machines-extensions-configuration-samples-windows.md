@@ -1,25 +1,36 @@
 <properties
-   pageTitle="Sample Configuration for Azure VM Extensions | Microsoft Azure"
-   description="Sample Configuration for authoring Templates with Extensions"
+   pageTitle="Sample configuration for Windows VM extensions | Microsoft Azure"
+   description="Sample configuration for authoring templates with extensions"
    services="virtual-machines"
    documentationCenter=""
    authors="kundanap"
    manager="timlt"
-   editor=""/>
+   editor=""
+   tags="azure-resource-manager"/>
 
 <tags
    ms.service="virtual-machines"
    ms.devlang="na"
    ms.topic="article"
-   ms.tgt_pltfrm="na"
+   ms.tgt_pltfrm="vm-windows"
    ms.workload="infrastructure-services"
    ms.date="09/01/2015"
    ms.author="kundanap"/>
 
-# Azure Windows VM Extension Configuration Samples.
+# Azure Windows VM Extension Configuration Samples
 
-This article provides sample configuration for configuring Azure VM Extensions for Azure IaaS Windows VMs.
-To learn more about these extensions click <a href="https://msdn.microsoft.com/en-us/library/azure/dn606311.aspx" target="_blank">here</a>.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] classic deployment model.
+
+
+
+This article provides sample configuration for configuring Azure VM Extensions for Windows VMs.
+
+
+To learn more about these extensions click here : [Azure VM Extensions Overview.](https://msdn.microsoft.com/library/azure/dn606311.aspx)
+
+To learn more about authoring extension templates click here : [Authoring Extension Templates.](virtual-machines-extensions-authoring-templates.md)
+
+This article lists expected configuration values for some of the Windows Extensions.
 
 ## Sample template snippet for VM Extensions.
 The template snippet for Deploying extensions looks as following:
@@ -157,8 +168,11 @@ Before deploying the extension please check the latest extension version and rep
               "type": "MicrosoftMonitoringAgent",
               "typeHandlerVersion": "1.0",
               "settings": {
-                "workspace_name" : "Workspace Name : The Workspace ID is available from within the Direct Agent Configuration section of the Azure Operational Insights portal",
-                "workspace_key"  : "The Workspace Key is a string that is available from within the Direct Agent Configuration section of the Azure Operational Insights portal"
+                "workspaceId" : "The Workspace ID is available from within the Direct Agent Configuration section of the Azure Operational Insights portal"
+              }
+              "protectedSettings": {
+                "workspaceKey"  : "The Workspace Key is a string that is available from within the Direct Agent Configuration section of the Azure Operational Insights portal"
+              }
               }
             }
 
@@ -269,4 +283,27 @@ Before deploying the extension please check the latest extension version and rep
             }
           }
 
+### Azure Diagnostics
+
+Click here for an overview of [Azure Diagnostics Extension](https://msdn.microsoft.com/library/azure/dn782207.aspx/)
+
+          {
+            "publisher": "Microsoft.Azure.Diagnostics",
+            "type": "IaaSDiagnostics",
+            "typeHandlerVersion": "1.4",
+            "settings": {
+              "xmlCfg": "[base64(variables('wadcfgx'))]",
+              "storageAccount": "[parameters('diagnosticsStorageAccount')]"
+            },
+            "protectedSettings": {
+            "storageAccountName": "[parameters('diagnosticsStorageAccount')]",
+            "storageAccountKey": "[listkeys(variables('accountid'), '2015-05-01-preview').key1]",
+            "storageAccountEndPoint": "https://core.windows.net"
+          }
+          }
+
 In the examples above, replace the version number with the latest version number.
+
+Here is an example of a full VM template with Custom Script Extension.
+
+[Custom Script Extension on a Windows VM](https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/201-list-storage-keys-windows-vm/azuredeploy.json/)

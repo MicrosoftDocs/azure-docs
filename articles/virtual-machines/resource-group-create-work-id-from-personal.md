@@ -1,11 +1,12 @@
 <properties
-   pageTitle="Creating a Work or School identity in Azure Active Directory"
-   description="Describes how to create a work or school identity from your personal identity to use with resource group templates or role-based access, among other features."
+   pageTitle="Create a Work or School identity in AAD | Microsoft Azure"
+   description="Learn how to create a work or school identity in Azure Active Directory to use with Resource Manager and classic deployment models."
    services="virtual-machines"
    documentationCenter=""
    authors="squillace"
    manager="timlt"
-   editor=""/>
+   editor=""
+   tags="azure-service-management,azure-resource-manager"/>
 
 <tags
    ms.service="virtual-machines"
@@ -18,7 +19,10 @@
 
 # Creating a Work or School identity in Azure Active Directory
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
+
 If you created a personal Azure account or have a personal MSDN subscription and created the Azure account to take advantage of the MSDN Azure credits -- you used a *Microsoft account* identity to create it. Many great features of Azure -- [resource group templates](../resource-group-overview.md) is one example -- require a work or school account (an identity managed by Azure Active Directory) to work.
+
 
 Fortunately, one of the best things about your personal Azure account is that it comes with a default Azure Active Directory domain that you can use to create a new work or school account that you can use with Azure features that require it.
 

@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Connecting to SQL Database: Links, Best Practices and Design Guidelines" 
-	description="A starting point topic that gathers together links and recommendations for client programs that connect to Azure SQL Database from technologies such as ADO.NET and PHP." 
+	pageTitle="Connect to SQL Database: Best Practices | Microsoft Azure" 
+	description="A starting point topic that gathers together links and best practice recommendations for client programs that connect to Azure SQL Database from technologies such as ADO.NET and PHP." 
 	services="sql-database" 
 	documentationCenter="" 
 	authors="MightyPen" 
@@ -14,15 +14,17 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/02/2015" 
+	ms.date="10/26/2015" 
 	ms.author="genemi"/>
 
 
-# Connecting to SQL Database: Links, Best Practices and Design Guidelines
+# Connecting to SQL Database: Best Practices and Design Guidelines
 
 
 This topic is a good place to get started with client connectivity to Azure SQL Database. It provides links to code samples for various technologies that you can use to connect to and interact with SQL Database. The technologies include Enterprise Library, JDBC, PHP, and several more. The information provided applies regardless of which specific technology you use to connect to SQL Database.
 
+
+<a id="a-tech-independent-recommend" name="a-tech-independent-recommend"></a>
 
 ## Technology-independent recommendations
 
@@ -35,6 +37,8 @@ This topic is a good place to get started with client connectivity to Azure SQL 
  - Enforcement of limits
  - Throttling
 
+
+<a id="b-authentication-recommend" name="b-authentication-recommend"></a>
 
 ## Authentication recommendations
 
@@ -63,8 +67,10 @@ The contained user approach has advantages and disadvantages:
  - A person who is a contained user in several databases might have more passwords to remember or update.
 
 
-Further information is given in - [Contained Databases](http://msdn.microsoft.com/library/ff929071.aspx).
+Further information is given in - [Contained Database Users - Making Your Database Portable](http://msdn.microsoft.com/library/ff929188.aspx).
 
+
+<a id="c-connection-recommend" name="c-connection-recommend"></a>
 
 ## Connection recommendations
 
@@ -73,8 +79,10 @@ Further information is given in - [Contained Databases](http://msdn.microsoft.co
  - The default of 15 seconds is too short for connections that depend on the internet.
 
 
-- Ensure that your [Azure SQL Database firewall](sql-database-firewall-configure.md) allows outgoing TCP communication on port 1433.
- - You can configure the firewall settings on an SQL Database server or to an individual database.
+- On the computer that hosts your client program, ensure the firewall allows outgoing TCP communication on port 1433.
+
+
+- If your client program connects to SQL Database V12 while your client runs on an Azure virtual machine (VM), you must open the port ranges 11000-11999 and 14000-14999 on the VM. Click [here](sql-database-develop-direct-route-ports-adonet-v12.md) for details.
 
 
 - To handle *transient faults*, add [*retry* logic](#TransientFaultsAndRetryLogicGm) to your client programs that interact with Azure SQL Database.
@@ -145,6 +153,8 @@ For further information see:
 - [Azure SQL Database Development: How-to Topics](http://msdn.microsoft.com/library/azure/ee621787.aspx)
 - [Troubleshoot connection problems to Azure SQL Database](http://support.microsoft.com/kb/2980233/)
 
+
+<a id="e-technologies" name="e-technologies"></a>
 
 ## Technologies
 

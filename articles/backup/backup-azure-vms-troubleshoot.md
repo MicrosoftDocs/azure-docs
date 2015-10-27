@@ -3,7 +3,7 @@
 	description="Find information to troubleshoot backup and restore of Azure virtual machine"
 	services="backup"
 	documentationCenter=""
-	authors="aashishr"
+	authors="trinadhk"
 	manager="shreeshd"
 	editor=""/>
 
@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/01/2015"
-	ms.author="aashishr"/>
+	ms.date="10/07/2015"
+	ms.author="trinadhk";"aashishr"/>
 
 
-# Troubleshooting errors
+# Troubleshoot Azure virtual machine backup
 You can troubleshoot errors encountered while using Azure Backup with information listed in the table below.
 
 ## Discovery
@@ -30,9 +30,8 @@ You can troubleshoot errors encountered while using Azure Backup with informatio
 ## Register
 | Backup operation | Error details | Workaround |
 | -------- | -------- | -------|
-| Register | Azure VM role is not in a state to install extension – Please check if the VM is in the Running state. Azure Recovery Services extension requires the VM to be Running. | Start the virtual machine and when it is in the Running state, retry the register operation.|
 | Register | Number of data disks attached to the virtual machine exceeded the supported limit - Please detach some data disks on this virtual machine and retry the operation. Azure backup supports up to 16 data disks attached to an Azure virtual machine for backup | None |
-| Register | Microsoft Azure Backup encountered an internal error - Wait for a few minutes and then try the operation again. If the issue persists, contact Microsoft Support. | You can get this error due to one of the following unsupported configurations: <ol><li>Premium LRS <li>Multi NIC <li>Load balancer </ol> |
+| Register | Microsoft Azure Backup encountered an internal error - Wait for a few minutes and then try the operation again. If the issue persists, contact Microsoft Support. | You can get this error due to one of the following unsupported configurations: <ol><li>Premium LRS <li>Multi NIC <li>Load balancer (internal and internet-facing)</ol> |
 | Register | Registration failed with Install Agent operation timeout | Check if the OS version of the virtual machine is supported. |
 | Register | Command execution failed - Another operation is in progress on this item. Please wait until the previous operation is completed | None |
 | Register | Virtual machines having virtual hard disks stored on Premium storage are not supported for backup | None |
@@ -50,7 +49,7 @@ You can troubleshoot errors encountered while using Azure Backup with informatio
 | Backup | Extension installation failed with the error "COM+ was unable to talk to the Microsoft Distributed Transaction Coordinator | This usually means that the COM+ service is not running. Contact Microsoft support for help on fixing this issue. |
 | Backup | Snapshot operation failed with the VSS operation error "This drive is locked by BitLocker Drive Encryption. You must unlock this drive from Control Panel. | Turn off BitLocker for all drives on the VM and observe if the VSS issue is resolved |
 | Backup | Virtual machines having virtual hard disks stored on Premium storage are not supported for backup | None |
-| Backup | Backup of a virtual machine with a load balancer configuration is not supported. | None |
+| Backup | Backup of a virtual machine with a load balancer configuration is not supported. | None <br><br>This applies to internal load balancers and internet-facing load balancers.|
 | Backup | Backup of a virtual machine with more than one NIC is not supported. | None |
 | Backup | Azure Virtual Machine Not Found. | This happens when the primary VM is deleted but the backup policy continues to look for a VM to perform backup. To fix this error: <ol><li>Recreate the virtual machine with the same name and same resource group name [cloud service name], <br>(OR) <li> Disable protection for this VM so that backup jobs will not be created </ol> |
 | Backup | Virtual machine agent is not present on the virtual machine - Please install the required pre-requisite, VM agent and restart the operation. | [Read more](#vm-agent) about VM agent installation, and how to validate the VM agent installation. |
@@ -95,9 +94,20 @@ For Windows VMs:
 - Download and install the [agent MSI](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). You will need Administrator privileges to complete the installation.
 - [Update the VM property](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) to indicate that the agent is installed.
 
+For Linux VMs:
+
+- Install latest [Linux agent](https://github.com/Azure/WALinuxAgent) from github.
+- [Update the VM property](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) to indicate that the agent is installed.
+
 
 ### Updating the VM Agent
-Updating the VM Agent is as simple as reinstalling the [VM Agent binaries](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). However, you need to ensure that no backup operation is running while the VM Agent is being updated.
+For Windows VMs:
+
+- Updating the VM Agent is as simple as reinstalling the [VM Agent binaries](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). However, you need to ensure that no backup operation is running while the VM Agent is being updated.
+
+For Linux VMs:
+
+- Follow the instructions on [Updating Linux VM Agent ](../virtual-machines-linux-update-agent.md).
 
 
 ### Validating VM Agent installation

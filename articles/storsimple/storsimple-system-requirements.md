@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="08/26/2015"
+   ms.date="10/22/2015"
    ms.author="alkohli"/>
 
 # StorSimple software, high availability, and networking requirements
@@ -152,9 +152,10 @@ Your StorSimple device is a locked-down device. However, ports need to be opened
 |TCP 443 (HTTPS)<sup>3</sup>| Out | WAN | Yes |<ul><li>Outbound port is used for accessing data in the cloud.</li><li>The outbound web proxy is user configurable.</li><li>To allow system updates, this port must also be open for the controller fixed IPs.</li></ul>|
 |UDP 53 (DNS) | Out | WAN | In some cases; see notes. |This port is required only if you are using an Internet-based DNS server. |
 | UDP 123 (NTP) | Out | WAN | In some cases; see notes. |This port is required only if you are using an Internet-based NTP server. |
-| TCP 9354 | Out | WAN | In some cases; see notes. |The outbound port is used by the StorSimple Manager service to communicate with the device. This port is required if your current network does not support using HTTP 1.1 to connect to the Internet; for instance if you are using an HTTP 1.0-based proxy server.<br> If connecting via a proxy server, refer to [service bus requirements](https://msdn.microsoft.com/library/azure/ee706729.aspx) for detailed information. |
+| TCP 9354 | Out | WAN | In some cases; see notes. |The outbound port is used by the StorSimple device to communicate with the StorSimple Manager service. This port is required if your current network does not support using HTTP 1.1 to connect to the Internet; for instance if you are using an HTTP 1.0-based proxy server.<br> If connecting via a proxy server, refer to [service bus requirements](https://msdn.microsoft.com/library/azure/ee706729.aspx) for detailed information. |
 | 3260 (iSCSI) | In | LAN | No | This port is used to access data over iSCSI.|
-| 5985 | In | LAN | No | Inbound port is used by StorSimple Snapshot Manager to communicate with the StorSimple device.<br>This port is also used when you remotely connect to Windows PowerShell for StorSimple over HTTP or HTTPS. |
+| 5985 | In | LAN | No | Inbound port is used by StorSimple Snapshot Manager to communicate with the StorSimple device.<br>This port is also used when you remotely connect to Windows PowerShell for StorSimple over HTTP. |
+| 5986 | In | LAN | No | This port is used when you remotely connect to Windows PowerShell for StorSimple over HTTPS. |
 
 <sup>1</sup> No inbound ports need to be opened on the public Internet.
 
@@ -162,6 +163,9 @@ Your StorSimple device is a locked-down device. However, ports need to be opened
 
 <sup>3</sup> The controller fixed IPs on your StorSimple device must be routable and able to connect to the Internet. The fixed IP addresses are used for servicing the updates to the device. If the device controllers cannot connect to the Internet via the fixed IPs, you will not be able to update your StorSimple device.
 
+> [AZURE.IMPORTANT] Ensure that the firewall does not modify or decrypt any SSL traffic between StorSimple device and Azure.
+
+<br></br>
 ### Port routing
 
 Port routing is different depending on the software version running on your StorSimple device.
@@ -185,6 +189,8 @@ In addition to the above networking requirements, for the optimal performance of
 - Ensure network connectivity to the Internet is available at all times. Sporadic or unreliable Internet connections to the devices, including no Internet connectivity whatsoever, will result in an unsupported configuration.
 
 - Isolate the iSCSI and cloud traffic by having dedicated network interfaces on your device for iSCSI and cloud access. For more information, see how to [modify network interfaces](storsimple-modify-device-config.md#modify-network-interfaces) on your StorSimple device.
+
+- Do not use a Link Aggregation Protocol (LACP) configuration for your network interfaces. This is an unsupported configuration.
 
 ## Next steps
 

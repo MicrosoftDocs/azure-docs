@@ -1,38 +1,40 @@
 <properties 
 	pageTitle="How to Configure an App Service Environment" 
 	description="Configuration, management and monitoring of App Service Environments" 
-	services="app-service\web" 
+	services="app-service" 
 	documentationCenter="" 
 	authors="ccompy" 
 	manager="stefsch" 
 	editor=""/>
 
 <tags 
-	ms.service="app-service-web" 
-	ms.workload="web" 
+	ms.service="app-service" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/27/2015" 
+	ms.date="09/11/2015" 
 	ms.author="ccompy"/>
 
 # Configuring an App Service Environment #
 
 ## Overview ##
 
-App Service Environments is a new Premium Tier capability that is being offered in Preview.  It offers new scaling and network access capabilities.  This new scale capability allows you to place an instance of the Azure App Service into your VNET.  If you are unfamiliar with the App Service Environment (ASE) capability then read the document here [What is an App Service Environment]/app-service-app-service-environment-intro.md). For information on how to create an ASE read the document here [How to Create an App Service Environment](app-service-web-how-to-create-an-app-service-environment.md). 
+App Service Environments is a new Premium Tier capability in the Azure App Service that offers new scaling and network access capabilities.  This new scale capability allows you to place an instance of the Azure App Service into your VNET.  If you are unfamiliar with the App Service Environment (ASE) capability then read the document here [What is an App Service Environment](app-service-app-service-environment-intro.md). For information on how to create an ASE read the document here [How to Create an App Service Environment](app-service-web-how-to-create-an-app-service-environment.md). 
 
 At a high level an App Service Environment consists of several major components:
 
 - Compute resources running in the Azure App Environment Hosted Service
 - Storage
 - Database
-- Virtual Network with at least one subnet
+- A classic "v1" Virtual Network with at least one subnet
 - subnet with the Azure App Environment hosted service running in it
 
 To help manage and monitor your App Service Environments you can access UI for that purpose from Browse -> App Service Environments in the Azure preview portal. The initial release does have what you need to manage the system and will continue to improve with additional capabilities in coming weeks.  
 
 ![][1]
+
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)] 
 
 ## Monitoring ##
 
@@ -75,9 +77,9 @@ To control these things select the Scale configuration item at the top.
 
 The quantity of compute resources in each pool and their size can be adjusted here.  Before making any changes though it is important to note a few things:
 
-- changes made can take hours to complete depending on how large is the change requested
+- changes made can take two to three hours to complete depending on how large is the change requested
 - when there is already a App Service Environment configuration change in work, you cannot start another change
-- if you change the size of the compute resources used in a worker pool you can cause outages for the web apps running in that worker pool
+- if you change the size of the compute resources used in a worker pool your web app instances will restart as they are migrated to the use the new worker sizes.  
 
 Adding additional instances to a worker pool is a benign operation and does not incur a system impact.  Changing the size of the compute resource used in a worker pool is another story though.  To avoid any app down time during a size change to a worker pool it is best to:
 
@@ -90,8 +92,8 @@ This is much less disruptive to running apps than changing the compute resource 
 
 The [Virtual Network][virtualnetwork] and subnet are all under user control.  App Service Environments does have a few network requirements but the rest is up to the user to control.  Those ASE requirements are:
 
-- a VNET with at least 512 addresses
-- a subnet with at least 256 addresses 
+- a classic "v1" VNET with at least 512 addresses
+- a subnet with at least 8 addresses 
 - the VNET must be a regional VNET  
  
 Administering your VNET is done through the normal Virtual Network UI.

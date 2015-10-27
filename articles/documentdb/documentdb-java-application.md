@@ -1,6 +1,7 @@
 <properties 
-	pageTitle="Build a Java web application using DocumentDB | Microsoft Azure" 
-	description="This tutorial shows you how to use the Azure DocumentDB service to store and access data from a Java application hosted on Azure Websites." 
+	pageTitle="Java application development tutorial using DocumentDB | Microsoft Azure"
+	description="This Java web application tutorial shows you how to use the Azure DocumentDB service to store and access data from a Java application hosted on Azure Websites."
+	keywords="Application development, database tutorial, java application, java web application tutorial, documentdb, azure, Microsoft azure"
 	services="documentdb" 
 	documentationCenter="java" 
 	authors="aliuy" 
@@ -13,24 +14,30 @@
 	ms.topic="hero-article" 
 	ms.tgt_pltfrm="NA" 
 	ms.workload="data-services" 
-	ms.date="07/21/2015" 
+	ms.date="10/20/2015" 
 	ms.author="andrl"/>
 
-# Build a Java web application using DocumentDB #
+# Build a Java web application using DocumentDB
 
-This tutorial shows you how to use the [Microsoft Azure DocumentDB](https://portal.azure.com/#gallery/Microsoft.DocumentDB) service to store and access data from a Java application hosted on Azure Websites. In this topic, you will learn:
+> [AZURE.SELECTOR]
+- [.NET](documentdb-dotnet-application.md)
+- [Node.js](documentdb-nodejs-application.md)
+- [Java](documentdb-java-application.md)
+- [Python](documentdb-python-application.md)
+
+This Java web application tutorial shows you how to use the [Microsoft Azure DocumentDB](https://portal.azure.com/#gallery/Microsoft.DocumentDB) service to store and access data from a Java application hosted on Azure Websites. In this topic, you will learn:
 
 - How to build a basic JSP application in Eclipse.
 - How to work with the Azure DocumentDB service using the [DocumentDB Java SDK](https://github.com/Azure/azure-documentdb-java).
 
-This tutorial shows you how to create a web-based task-management application that enables you to create, retrieve, and mark tasks as complete, as shown in the following image. Each of the tasks in the ToDo list are stored as JSON documents in Azure DocumentDB.
+This Java application tutorial shows you how to create a web-based task-management application that enables you to create, retrieve, and mark tasks as complete, as shown in the following image. Each of the tasks in the ToDo list are stored as JSON documents in Azure DocumentDB.
 
-![My ToDo List application](./media/documentdb-java-application/image1.png)
+![My ToDo List Java application](./media/documentdb-java-application/image1.png)
 
-> [AZURE.TIP] This tutorial assumes that you have prior experience using Java. If you are new to Java or the [prerequisite tools](#Prerequisites), we recommend downloading the complete [todo](https://github.com/Azure/azure-documentdb-java/tree/master/tutorial/todo) project from [GitHub](https://github.com/Azure/azure-documentdb-java) and building it using [the instructions at the end of this article](#GetProject). Once you have it built, you can review the article to gain insight on the code in the context of the project.  
+> [AZURE.TIP] This application development tutorial assumes that you have prior experience using Java. If you are new to Java or the [prerequisite tools](#Prerequisites), we recommend downloading the complete [todo](https://github.com/Azure-Samples/documentdb-java-todo-app) project from GitHub and building it using [the instructions at the end of this article](#GetProject). Once you have it built, you can review the article to gain insight on the code in the context of the project.  
 
-##<a id="Prerequisites"></a>Prerequisites ##
-Before you begin this tutorial, you must have the following:
+##<a id="Prerequisites"></a>Prerequisites for this Java web application tutorial
+Before you begin this application development tutorial, you must have the following:
 
 - An active Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](../../pricing/free-trial/).
 - [Java Development Kit (JDK) 7+](http://www.oracle.com/technetwork/java/javase/downloads/index.html).
@@ -39,28 +46,28 @@ Before you begin this tutorial, you must have the following:
 
 If you're installing these tools for the first time, coreservlets.com provides a walk-through of the installation process in the Quick Start section of their [Tutorial: Installing TomCat7 and Using it with Eclipse](http://www.coreservlets.com/Apache-Tomcat-Tutorial/tomcat-7-with-eclipse.html) article. 
 
-##<a id="CreateDB"></a>Step 1: Create a DocumentDB database account ##
+##<a id="CreateDB"></a>Step 1: Create a DocumentDB database account
 To provision a DocumentDB database account in Azure:
 
 1. If you don't already have a database account, create one by following the instructions in [Create a database account](documentdb-create-account.md). If you already have an account, proceed to step 2.
 2. Using the **Keys** blade shown in the following illustration, copy your endpoint **URI** and the **PRIMARY KEY** to your clipboard and keep them handy as we will use these values in the web application we create next.
 
-![Screen shot of the Azure Preview portal, showing a DocumentDB account, with the ACTIVE hub highlighted, the Keys button highlighted on the DocumentDB account blade, and the URI, PRIMARY KEY and SECONDARY KEY values highlighted on the Keys blade][1]
+![Create a DocumentDB Account – Database Tutorial. Screen shot of the Azure Preview portal, showing a DocumentDB account, with the ACTIVE hub highlighted, the Keys button highlighted on the DocumentDB account blade, and the URI, PRIMARY KEY and SECONDARY KEY values highlighted on the Keys blade][1]
 
 
-##<a id="CreateJSP"></a>Step 2: Create the JSP application ##
+##<a id="CreateJSP"></a>Step 2: Create the Java JSP application
 
 To create the JSP application: 
 
 1. First, we’ll start off by creating a Java project. Start Eclipse, then click **File**, click **New**, and then click **Dynamic Web Project**. If you don’t see **Dynamic Web Project** listed as an available project, do the following: click **File**, click **New**, click **Project**…, expand **Web**, click **Dynamic Web Project**, and click **Next**. 
 
-	![](./media/documentdb-java-application/image10.png)
+	![JSP Java Application Development](./media/documentdb-java-application/image10.png)
 
 2. Enter a project name in the **Project name** box, and in the **Target Runtime** drop-down menu, optionally select a value (e.g. Apache Tomcat v7.0), and then click **Finish**. Selecting a target runtime enables you to run your project locally through Eclipse.
 3. In Eclipse, in the Project Explorer view, expand your project. Right-click **WebContent**, click **New**, and then click **JSP File**.
 4. In the **New JSP File** dialog box, name the file **index.jsp**. Keep the parent folder as **WebContent**, as shown in the following illustration, and then click **Next**.
 
-	![](./media/documentdb-java-application/image11.png)
+	![Make a New JSP File - Java Web Application Tutorial](./media/documentdb-java-application/image11.png)
 
 5. In the **Select JSP Template** dialog box, for the purpose of this tutorial select **New JSP File (html)**, and then click **Finish**.
 
@@ -73,7 +80,7 @@ To create the JSP application:
 8. Save the index.jsp file. 
 9. If you set a target runtime in step 2, you can click **Project** and then **Run** to run your JSP application locally:
 
-	![](./media/documentdb-java-application/image12.png)
+	![Hello World – Java Application Tutorial](./media/documentdb-java-application/image12.png)
 
 ##<a id="InstallSDK"></a>Step 3: Install the DocumentDB Java SDK ##
 
@@ -88,22 +95,22 @@ To do this, you will need to convert your project to a maven project by completi
 4. In the **Select Dependency** window, do the following:
  - In the **GroupId** box, enter com.microsoft.azure.
  - In the **Artifact Id** box enter azure-documentdb.
- - In the **Version** box enter 1.1.0.
+ - In the **Version** box enter 1.4.0.
 
-	![](./media/documentdb-java-application/image13.png)
+	![Install DocumentDB Java Application SDK](./media/documentdb-java-application/image13.png)
 
 	Or add the dependency XML for GroupId and ArtifactId directly to the pom.xml via a text editor:
 
 	    <dependency>
 		    <groupId>com.microsoft.azure</groupId>
 		    <artifactId>azure-documentdb</artifactId>
-		    <version>1.1.0</version>
+		    <version>1.4.0</version>
 	    </dependency>
 
 5. Click **Ok** and Maven will install the DocumentDB Java SDK.
 6. Save the pom.xml file.
 
-##<a id="UseService"></a>Step 4: Using the DocumentDB service in a Java application ##
+##<a id="UseService"></a>Step 4: Using the DocumentDB service in a Java application 
 
 1. First, let's define the TodoItem object:
 
@@ -357,7 +364,7 @@ To do this, you will need to convert your project to a maven project by completi
 	    }
 
 
-##<a id="Wire"></a> Step 5: Wiring the rest of the of application together ##
+##<a id="Wire"></a>Step 5: Wiring the rest of the of Java application development project together
 
 Now that we've finished the fun bits - all that left is to build a quick user interface and wire it up to our DAO.
 
@@ -734,7 +741,7 @@ Now that we've finished the fun bits - all that left is to build a quick user in
 
 6. Once the item appears, you can update whether it's complete by toggling the checkbox and clicking **Update Tasks**.
 
-##<a id="Deploy"></a>Step 6: Deploy your application to Azure Websites ##
+##<a id="Deploy"></a>Step 6: Deploy your Java application to Azure Websites
 
 Azure Websites makes deploying Java Applications as simple as exporting your application as a WAR file and either uploading it via source control (e.g. GIT) or FTP.
 
@@ -749,16 +756,16 @@ Azure Websites makes deploying Java Applications as simple as exporting your app
 	Once the WAR file is uploaded to the webapps directory, the runtime environment will detect that you've added it and will automatically load it.
 4. To view your finished product, navigate to http://YOUR\_SITE\_NAME.azurewebsites.net/azure-documentdb-java-sample/ and start adding your tasks!
 
-##<a id="GetProject"></a>Get the project from GitHub##
+##<a id="GetProject"></a>Get the project from GitHub
 
-All the samples in this tutorial are included in the [todo](https://github.com/Azure/azure-documentdb-java/tree/master/tutorial/todo) project on GitHub, which is part of the [azure-documentdb-java](https://github.com/Azure/azure-documentdb-java) repository. To import the todo project into Eclipse, ensure you have the software and resources listed in the [Prerequisites](#Prerequisites) section, then do the following:
+All the samples in this tutorial are included in the [todo](https://github.com/Azure-Samples/documentdb-java-todo-app) project on GitHub. To import the todo project into Eclipse, ensure you have the software and resources listed in the [Prerequisites](#Prerequisites) section, then do the following:
 
 1. Install [Project Lombok](http://projectlombok.org/). Lombok is used to generate constructors, getters, setters in the project. Once you have downloaded the lombok.jar file, double-click it to install it or install it from the command line. 
 2. If Eclipse is open, close it and restart it to load Lombok.
 3. In Eclipse, on the **File** menu, click **Import**.
 4. In the **Import** window, click **Git**, click **Projects from Git**, and then click **Next**. 
 5. On the **Select Repository Source** screen, click **Clone URI**.
-6. On the **Source Git Repository** screen, in the **URI** box, enter https://github.com/Azure/azure-documentdb-java.git, and then click **Next**.
+6. On the **Source Git Repository** screen, in the **URI** box, enter https://github.com/Azure-Samples/documentdb-java-todo-app.git, and then click **Next**.
 7. On the **Branch Selection** screen, ensure that **master** is selected, and then click **Next**.
 8. On the **Local Destination** screen, click **Browse** to select a folder where the repository can be copied, and then click **Next**.
 9. On the **Select a wizard to use for importing projects** screen, ensure that **Import existing projects** is selected, and then click **Next**.

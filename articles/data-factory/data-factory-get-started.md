@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article" 
-	ms.date="07/27/2015"
+	ms.date="10/12/2015"
 	ms.author="spelluru"/>
 
 # Tutorial: Copy data from an Azure blob to Azure SQL

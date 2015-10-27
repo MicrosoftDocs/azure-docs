@@ -9,7 +9,7 @@
 
 <tags
 	ms.service="app-service-api"
-	ms.workload="web"
+	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="get-started-article"
@@ -17,6 +17,12 @@
 	ms.author="pakefali"/>
 
 # Build and deploy a Node.js API app in Azure App Service
+
+> [AZURE.SELECTOR]
+- [.NET - Visual Studio 2015](app-service-dotnet-create-api-app.md)
+- [.NET - Visual Studio Code](app-service-create-aspnet-api-app-using-vscode.md)
+- [Node.js](app-service-api-nodejs-api-app.md)
+- [Java](app-service-api-java-api-app.md)
 
 This tutorial shows how to create a [Node.js](http://nodejs.org) application and deploy it to Azure App Service API Apps using [Git](http://git-scm.com). The instructions in this tutorial can be followed on any operating system that is capable of running Node.
 
@@ -166,7 +172,7 @@ In this section you run the application locally to verify it works prior to depl
 
 In this section you create a local Git repository and push from that repository to Azure in order to deploy your sample application to the API app running in Azure App Service.
 
-1. If Git is not installed, install it from [the Git download page](http://git-scm.com/download%20target="_blank").
+1. If Git is not installed, install it from [the Git download page](http://git-scm.com/download).
 
 1. From the command-line, change directories to the sample application directory and enter the following commands to initialize a local Git repository.
 

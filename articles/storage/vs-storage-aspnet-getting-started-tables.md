@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Get started with Azure Table storage and Visual Studio connected services | Microsoft Azure"
-	description="How to get started using Azure Table storage in an ASP.NET project in Visual Studio"
+	pageTitle="Get started with table storage and Visual Studio connected services (ASP.NET) | Microsoft Azure"
+	description="How to get started using Azure Table storage in an ASP.NET project in Visual Studio after connecting to a storage account using Visual Studio connected services"
 	services="storage"
 	documentationCenter=""
 	authors="patshea123"
@@ -13,11 +13,10 @@
 	ms.tgt_pltfrm="vs-getting-started"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/04/2015"
-	ms.author="patshea123"/>
+	ms.date="09/03/2015"
+	ms.author="patshea"/>
 
-# Get started with Azure Table storage and Visual Studio connected services
-
+# Get started with table storage and Visual Studio connected services (ASP.NET)
 > [AZURE.SELECTOR]
 > - [Getting Started](vs-storage-aspnet-getting-started-tables.md)
 > - [What Happened](vs-storage-aspnet-what-happened.md)
@@ -36,33 +35,33 @@ Azure Table storage enables you to store large amounts of structured data. The s
 
 ## Access tables in code
 
-1. Make sure the namespace declarations at the top of the C# file include these `using` statements.
+1. Make sure the namespace declarations at the top of the C# file include these **using** statements.
 
 		 using Microsoft.Azure;
 		 using Microsoft.WindowsAzure.Storage;
 		 using Microsoft.WindowsAzure.Storage.Auth;
 		 using Microsoft.WindowsAzure.Storage.Table;
 
-2. Get a `CloudStorageAccount` object that represents your storage account information. Use the following code to get the your storage connection string and storage account information from the Azure service configuration.
+2. Get a **CloudStorageAccount** object that represents your storage account information. Use the following code to get the your storage connection string and storage account information from the Azure service configuration.
 
 		 CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
 		   CloudConfigurationManager.GetSetting("<storage-account-name>_AzureStorageConnectionString"));
 
     **NOTE** - Use all of the above code in front of the code in the following samples.
 
-3. Get a `CloudTableClient` object to reference the table objects in your storage account.  
+3. Get a **CloudTableClient** object to reference the table objects in your storage account.  
 
 	    // Create the table client.
     	CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
 
-4. Get a `CloudTable` reference object to reference a specific table and entities.
+4. Get a **CloudTable** reference object to reference a specific table and entities.
 
     	// Get a reference to a table named "peopleTable"
 	    CloudTable table = tableClient.GetTableReference("peopleTable");
 
 ## Create a table in code
 
-To create the Azure table, just add a call to `CreateIfNotExistsAsync()` to the previous code.
+To create the Azure table, just add a call to **CreateIfNotExistsAsync()** to the previous code.
 
 	// Create the CloudTable if it does not exist
 	await table.CreateIfNotExistsAsync();
@@ -70,7 +69,7 @@ To create the Azure table, just add a call to `CreateIfNotExistsAsync()` to the 
 
 ## Insert a batch of entities
 
-You can insert multiple entities into a table in a single write operation. The following code example creates two entity objects ("Jeff Smith" and "Ben Smith"), adds them to a `TableBatchOperation` object using the Insert method, and then starts the operation by calling `CloudTable.ExecuteBatchAsync`.
+You can insert multiple entities into a table in a single write operation. The following code example creates two entity objects ("Jeff Smith" and "Ben Smith"), adds them to a **TableBatchOperation** object using the Insert method, and then starts the operation by calling **CloudTable.ExecuteBatchAsync**.
 
 	// Get a reference to a CloudTable object named 'peopleTable' as described in "Access a table in code"
 
@@ -95,7 +94,7 @@ You can insert multiple entities into a table in a single write operation. The f
 	await peopleTable.ExecuteBatchAsync(batchOperation);
 
 ## Get all of the entities in a partition
-To query a table for all of the entities in a partition, use a `TableQuery` object. The following code example specifies a filter for entities where 'Smith' is the partition key. This example prints the fields of each entity in the query results to the console.
+To query a table for all of the entities in a partition, use a **TableQuery** object. The following code example specifies a filter for entities where 'Smith' is the partition key. This example prints the fields of each entity in the query results to the console.
 
 	// Get a reference to a CloudTable object named 'peopleTable' as described in "Access a table in code"
 
@@ -121,7 +120,7 @@ To query a table for all of the entities in a partition, use a `TableQuery` obje
 
 
 ## Get a single entity
-You can write a query to get a single, specific entity. The following code uses a `TableOperation` object to specify a customer named 'Ben Smith'. This method returns just one entity, rather than a collection, and the returned value in `TableResult.Result` is a `CustomerEntity` object. Specifying both partition and row keys in a query is the fastest way to retrieve a single entity from the table service.
+You can write a query to get a single, specific entity. The following code uses a **TableOperation** object to specify a customer named 'Ben Smith'. This method returns just one entity, rather than a collection, and the returned value in **TableResult.Result** is a **CustomerEntity** object. Specifying both partition and row keys in a query is the fastest way to retrieve a single entity from the table service.
 
         // Get a reference to a CloudTable object named 'peopleTable' as described in "Access a table in code"
 

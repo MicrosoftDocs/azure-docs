@@ -1,10 +1,10 @@
-<properties 
-	pageTitle="Use Hue with Hadoop on HDInsight Linux clusters | Microsoft Azure" 
-	description="Learn how to install and use Hue with Hadoop clusters on HDInsight Linux." 
-	services="hdinsight" 
-	documentationCenter="" 
-	authors="nitinme" 
-	manager="paulettm" 
+<properties
+	pageTitle="Use Hue with Hadoop on HDInsight Linux clusters | Microsoft Azure"
+	description="Learn how to install and use Hue with Hadoop clusters on HDInsight Linux."
+	services="hdinsight"
+	documentationCenter=""
+	authors="nitinme"
+	manager="paulettm"
 	editor="cgronlun"/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/21/2015" 
+	ms.date="10/26/2015" 
 	ms.author="nitinme"/>
 
 # Install and use Hue on HDInsight Hadoop clusters
@@ -38,7 +38,9 @@ The [https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv01/inst
 
 > [AZURE.NOTE] You can also use Azure PowerShell or the HDInsight .NET SDK to create a cluster using this script. For more information on using these methods, see [Customize HDInsight clusters with Script Actions](hdinsight-hadoop-customize-cluster-linux.md).
 
-1. Start provisioning a cluster by using the steps in [Provision HDInsight clusters on Linux](hdinsight-provision-linux-clusters.md#portal), but do not complete provisioning.
+1. Start provisioning a cluster by using the steps in [Provision HDInsight clusters on Linux](hdinsight-hadoop-provision-linux-clusters.md#portal), but do not complete provisioning.
+
+	> [AZURE.NOTE] To install Hue on HDInsight clusters, the recommended headnode size is at least A4 (8 cores, 14 GB memory).
 
 2. On the **Optional Configuration** blade, select **Script Actions**, and provide the information below:
 
@@ -47,27 +49,31 @@ The [https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv01/inst
 	* __HEAD__: Check this option
 	* __WORKER__: Leave this blank.
 	* __ZOOKEEPER__: Leave this blank.
-	* __PARAMETERS__: The script expects the cluster admin password as a parameter. Specify the password within single quotes.
-
+	* __PARAMETERS__: The script expects the **cluster admin password** as a parameter. This is the password you specified while provisioning the cluster. Important considerations while providing the password:
+		* If the cluster username is "admin", you only need to specify the password within single quotes.
+		* If the cluster username is anything other than "admin", you must specify the paramter as `-u [username] [password in single quotes]`
 
 3. At the bottom of the **Script Actions**, use the **Select** button to save the configuration. Finally, use the **Select** button at the bottom of the **Optional Configuration** blade to save the optional configuration information.
 
-4. Continue provisining the cluster as described in [Provision HDInsight clusters on Linux](hdinsight-provision-linux-clusters.md#portal).
+4. Continue provisioning the cluster as described in [Provision HDInsight clusters on Linux](hdinsight-hadoop-provision-linux-clusters.md#portal).
 
 ## Use Hue with HDInsight clusters
 
 SSH Tunneling is the only way to access Hue on the cluster once it is running. Tunneling via SSH allows the traffic to go directly to the headnode of the cluster where Hue is running. After the cluster has finished provisioning, use the following steps to use Hue on an HDInsight Linux cluster.
 
-> [AZURE.NOTE] The instructions below assume that you have a Firefox Web browser with [FoxyProxy](https://addons.mozilla.org/en-US/firefox/addon/foxyproxy-standard/) extension installed.
+1. Use the information in [Use SSH Tunneling to access Ambari web UI, ResourceManager, JobHistory, NameNode, Oozie, and other web UI's](hdinsight-linux-ambari-ssh-tunnel.md) to create an SSH tunnel from your client system to the HDInsight cluster, and then configure your Web browser to use the SSH tunnel as a proxy.
 
-1. Enable SSH tunneling from your desktop computer and configure your Firefox Web browser to use the SSH tunnel. While configuring tunneling, use a port other than port 8888.
+2. Once you have created an SSH tunnel and configured your browser to proxy traffic through it, you must find the host name of the head node. Use the following steps to get this information from Ambari:
 
-	* For instructions on enabling SSH tunneling from a Linux computer, see [Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X](hdinsight-linux-ambari-ssh-tunnel.md#usessh).
-	* For instructions on enabling SSH tunneling from a Windows computer, see [Use SSH with Linux-based Hadoop on HDInsight from Windows](hdinsight-linux-ambari-ssh-tunnel.md#useputty).
+    1. In a browser, go to https://CLUSTERNAME.azurehdinsight.net. When prompted, use the Admin username and password to authenticate to the site.
+    
+    2. From the menu at the top of the page, select __Hosts__.
+    
+    3. Select the entry that begins with __hn0__. When the page opens, the host name will be displayed at the top. The format of the host name is __hn0-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net__. This is the host name you must use when connecting to Hue.
 
-	Keep the PuTTY session running.
- 
-2. From your computer, use the Firefox Web browser with FoxyProxy configured to launch the Hue portal at http://headnode0:8888. When you log in for the first time, you are prompted to create an account to log into the Hue portal. The credentials you specify here will be limited to the portal and are not related to the admin or SSH user credentials you specified while provision the cluster.
+2. Once you have created an SSH tunnel and configured your browser to proxy traffic through it, use the browser to open the Hue portal at http://HOSTNAME:8888. Replace HOSTNAME with the name you obtained from Ambari in the previous step.
+
+    > [AZURE.NOTE] When you log in for the first time, you will be prompted to create an account to log into the Hue portal. The credentials you specify here will be limited to the portal and are not related to the admin or SSH user credentials you specified while provision the cluster.
 
 	![Login to the Hue portal](./media/hdinsight-hadoop-hue-linux/HDI.Hue.Portal.Login.png "Specify credentials for Hue portal")
 
@@ -91,26 +97,25 @@ SSH Tunneling is the only way to access Hue on the cluster once it is running. T
 
 	![Use file browser](./media/hdinsight-hadoop-hue-linux/HDI.Hue.Portal.File.Browser.png "Use file browser")
 
-3. Right-click on a file or folder to see the available operations. Use the **Upload** button in the right corner to upload files to the current directory. Use the **New** button to create new files or directories. 
+3. Right-click on a file or folder to see the available operations. Use the **Upload** button in the right corner to upload files to the current directory. Use the **New** button to create new files or directories.
 
-> [AZURE.NOTE] The Hue file browser can only show the contents of the default container associated with the HDInsight cluster. Any additional storage accounts/containers that you might have associated with the cluster will not be accessible using the file browser. However, the additional containers associated with the cluster will always be accessible for the Hive jobs. For example, if you enter the command `dfs -ls wasb://newcontainer@mystore.blob.core.windows.net` in the Hive editor, you can see the contents of additional containers as well. In this command, **newcontainer** is not the default container associated with a cluster. 
-
+> [AZURE.NOTE] The Hue file browser can only show the contents of the default container associated with the HDInsight cluster. Any additional storage accounts/containers that you might have associated with the cluster will not be accessible using the file browser. However, the additional containers associated with the cluster will always be accessible for the Hive jobs. For example, if you enter the command `dfs -ls wasb://newcontainer@mystore.blob.core.windows.net` in the Hive editor, you can see the contents of additional containers as well. In this command, **newcontainer** is not the default container associated with a cluster.
 
 ## Important considerations
 
-1. The script used to install Hue installs it only on HEADNODE0 of the cluster.
+1. The script used to install Hue installs it only on Head node 0 of the cluster.
 
 2. During installation, multiple Hadoop services (HDFS, YARN, MR2, Oozie) are restarted for updating the configuration. After the script finishes installing Hue, it might take some time for other Hadoop services to start up. This might affect Hue's performance initially. Once all services start up, Hue will be fully functional.
 
-3.	Hue does not understand Tez jobs, which is the current default for Hive. If you want to use MapReduce as the Hive execution engine, update the script to use the following command in your script: 
+3.	Hue does not understand Tez jobs, which is the current default for Hive. If you want to use MapReduce as the Hive execution engine, update the script to use the following command in your script:
 
 		set hive.execution.engine=mr;
 
-4.	With Linux clusters, you can have a scenario where your services are running on HEADNODE0 while the Resource Manager could be running on HEADNODE1. Such a scenario might result in errors (shown below) when using Hue to view details of RUNNING jobs on the cluster. However, you can view the job details when the job has completed.
+4.	With Linux clusters, you can have a scenario where your services are running on head node 0 while the Resource Manager could be running on head node 1. Such a scenario might result in errors (shown below) when using Hue to view details of RUNNING jobs on the cluster. However, you can view the job details when the job has completed.
 
 	![Hue portal error](./media/hdinsight-hadoop-hue-linux/HDI.Hue.Portal.Error.png "Hue portal error")
 
-	This is due to a known issue. As a workaround, modify Ambari so that the active Resource Manager also runs on HEADNODE0.
+	This is due to a known issue. As a workaround, modify Ambari so that the active Resource Manager also runs on head node 0.
 
 5.	Hue understands WebHDFS while HDInsight clusters use Azure Storage using `wasb://`. So, the custom script used with script action installs WebWasb, which is a WebHDFS-compatible service for talking to WASB. So, even though the Hue portal says HDFS in places (like when you move your mouse over the **File Browser**), it should be interpreted as WASB.
 
@@ -129,4 +134,3 @@ SSH Tunneling is the only way to access Hue on the cluster once it is running. T
 [hdinsight-provision]: hdinsight-provision-clusters-linux.md
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster-linux.md
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install-linux.md
- 

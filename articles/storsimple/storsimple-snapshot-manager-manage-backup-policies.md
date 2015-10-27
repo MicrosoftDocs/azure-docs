@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Use StorSimple Snapshot Manager to create and manage backup policies | Microsoft Azure"
+   pageTitle="StorSimple Snapshot Manager backup policies | Microsoft Azure"
    description="Describes how to use the StorSimple Snapshot Manager MMC snap-in to create and manage the backup policies that control scheduled backups."
    services="storsimple"
    documentationCenter="NA"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/17/2015"
+   ms.date="09/15/2015"
    ms.author="v-sharos" />
 
 # Use StorSimple Snapshot Manager to create and manage backup policies
@@ -117,4 +117,5 @@ e
 
 ## Next steps
 
-[Use StorSimple Snapshot Manager to view and manage backup jobs](storsimple-snapshot-manager-manage-backup-jobs.md).
+- Learn how to [use StorSimple Snapshot Manager to administer your StorSimple solution](storsimple-snapshot-manager-admin.md).
+- Learn how to [use StorSimple Snapshot Manager to view and manage backup jobs](storsimple-snapshot-manager-manage-backup-jobs.md).

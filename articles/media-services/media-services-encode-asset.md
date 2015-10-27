@@ -3,7 +3,7 @@
 	description="This topic gives an overview and gives a comparison of Azire On Demand Media encoders." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="juliako" 
+	authors="juliako,anilmur" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -13,18 +13,17 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/24/2015"  
+	ms.date="10/15/2015"  
 	ms.author="juliako"/>
 
 #Overview and Comparison of Azure On Demand Media Encoders
 
 ##Encoding overview
 
-Encoders compress digital media using codecs. Encoders typically have various settings that allow you to specify properties of the media generated for example, the codecs used, file format, resolution, and bitrate. File formats are containers that hold the compressed video as well as information about what codecs were used to compress the video. 
+Azure Media Services provides multiple options for the encoding of media in the cloud. 
 
-Codecs have two components: one to compress digital media files for transmission and the other to decompress digital media files for playback. There are audio codecs that compress and decompress audio and video codecs that compress and decompress video. Codecs can use lossless or lossy compression. Lossless codecs preserve all of the information when compression occurs. When the file is decompressed, the result is a file that is identical to the input media, making lossless codecs well suited to archiving and storage. Lossy codecs lose some of the information when encoding and produce smaller files (than the original) at the cost of video quality and are well suited to streaming over the internet. 
-
-It is important to understand the difference between codecs and file formats. Codecs are the software that implements the compression/decompression algorithms whereas file formats are containers that hold the compressed video. For more information, see [Encoding versus Packaging](http://blog-ndrouin.azurewebsites.net/streaming-media-terminology-explained/).
+When starting out with Media Services, it is important to understand the difference between codecs and file formats. 
+Codecs are the software that implements the compression/decompression algorithms whereas file formats are containers that hold the compressed video.
 
 Media Services provides dynamic packaging which allows you to deliver your adaptive bitrate MP4 or Smooth Streaming encoded content in streaming formats supported by Media Services (MPEG DASH, HLS, Smooth Streaming, HDS) without you having to re-package into these streaming formats. 
 
@@ -70,13 +69,13 @@ Media Encoder Standard is configured using one of the encoder presets described 
 
 ###Input and output metadata
 
-The encoders input metadata is described [here](http://msdn.microsoft.com/library/azure/dn783120.aspx) (same as Azure Media Encoder).
+The encoders input metadata is described [here](http://msdn.microsoft.com/library/azure/dn783120.aspx).
 
-The encoders output metadata is described [here](http://msdn.microsoft.com/library/azure/dn783217.aspx) (same as Azure Media Encoder).
+The encoders output metadata is described [here](http://msdn.microsoft.com/library/azure/dn783217.aspx).
 
 ###Thumbnail
 
-Currently, not supported.
+For information on how to generate thumbnails, see [How to generate thumbnails using Media Encoder Standard](media-services-dotnet-generate-thumbnail-with-mes.md).
 
 ###Audio and/or video overlays
 
@@ -112,7 +111,7 @@ The encoders output metadata is described [here](http://msdn.microsoft.com/libra
 
 ###Thumbnail
 
-[Creating a thumbnail](https://msdn.microsoft.com/library/azure/Dn673581.aspx)
+[Creating a thumbnail](https://msdn.microsoft.com/library/hh973624.aspx)
 
 ###Audio and/or video overlays
 
@@ -127,14 +126,16 @@ The encoders output metadata is described [here](http://msdn.microsoft.com/libra
 [Encoding your media with Dolby Digital Plus](media-services-encode-with-dolby-digital-plus.md)
 
 ##Media Encoder Premium Workflow
-	
+
+###Overview
+
+[Introducing Premium Encoding in Azure Media Services](http://azure.microsoft.com/blog/2015/03/05/introducing-premium-encoding-in-azure-media-services)
+
+###How to use
+
 Media Encoder Premium Workflow is configured using complex workflows. Workflow files could be created and updated using the [Workflow Designer](media-services-workflow-designer.md) tool.
 
-For more information, see:
-
-- [Introducing Premium Encoding in Azure Media Services](http://azure.microsoft.com/blog/2015/03/05/introducing-premium-encoding-in-azure-media-services)
-- [How to Use Premium Encoding in Azure Media Services](http://azure.microsoft.com/blog/2015/03/06/how-to-use-premium-encoding-in-azure-media-services)
-
+[How to Use Premium Encoding in Azure Media Services](http://azure.microsoft.com/blog/2015/03/06/how-to-use-premium-encoding-in-azure-media-services)
 
 ##<a id="compare_encoders"></a>Compare Encoders
 
@@ -237,6 +238,14 @@ AAC (AAC-LC, AAC-HE, and AAC-HEv2; up to 5.1)|Yes|Yes|Yes
 MPEG Layer 2|No|No|Yes
 MP3 (MPEG-1 Audio Layer 3)|No|No|Yes
 Windows Media Audio|No|Yes|Yes
+
+
+##Media Services learning paths
+
+You can view AMS learning paths here:
+
+- [AMS Live Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [AMS on Demand Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
 ##Related articles
 

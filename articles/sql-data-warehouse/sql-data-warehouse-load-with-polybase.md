@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/09/2015"
+   ms.date="09/22/2015"
    ms.author="sahajs;barbkess"/>
 
 
@@ -27,6 +27,7 @@ Warehouse database with the following steps:
 - Create PolyBase objects: external data source, external file format, and external table. 
 - Query data stored in Azure blob storage.
 - Load data from Azure blob storage into SQL Data Warehouse.
+- Export data from SQL Data Warehouse to Azure blob storage.
 
 
 ## Prerequisites
@@ -36,6 +37,15 @@ To step through this tutorial, you need:
 - Your data stored in Azure blob storage as delimited text files
 
 First, you will create the objects that PolyBase requires for connecting to and querying data in Azure blob storage.
+
+> [AZURE.IMPORTANT] The Azure Storage account types supported by PolyBase are:
+> 
+> + Standard Locally Redundant Storage (Standard-LRS)
+> + Standard Geo-Redundant Storage (Standard-GRS)
+> + Standard Read-Access Geo-Redundant Storage (Standard-RAGRS)
+>
+> Standard Zone Redundant Storage (Standard-ZRS) and Premium Locally Redundant Storage (Premium-LRS) account types are NOT supported by PolyBase. If you are creating a new Azure Storage account, make sure you select a PolyBase-supported storage account type from the Pricing Tier.
+
 
 ## Create database master key
 Connect to user database on your server to create a database master key. This key is used to encrypt your credential secret in the next step. 
@@ -84,7 +94,7 @@ CREATE EXTERNAL DATA SOURCE azure_storage
 WITH
 (
     TYPE = HADOOP
-,   LOCATION ='wasbs://mycontainer@ test.blob.core.windows.net/path'
+,   LOCATION ='wasbs://mycontainer@test.blob.core.windows.net'
 ,   CREDENTIAL = ASBSecret
 )
 ;
@@ -126,7 +136,7 @@ Reference topic: [CREATE EXTERNAL FILE FORMAT (Transact-SQL)][].
 To drop an external file format the syntax is as follows:
 
 ```
--- Dropping external file format...
+-- Dropping external file format
 DROP EXTERNAL FILE FORMAT text_file_format
 ;
 ```
@@ -137,6 +147,8 @@ Reference topic: [DROP EXTERNAL FILE FORMAT (Transact-SQL)][].
 The external table definition is similar to a relational table definition. The key difference is the location and the format of the data. The external table definition is stored in the SQL Data Warehouse database. The data is stored in the location specified by the data source.
 
 The LOCATION option specifies the path to the data from the root of the data source. In this example, the data is located at 'wasbs://mycontainer@ test.blob.core.windows.net/path/Demo/'. All the files for the same table need to be under the same logical folder in Azure BLOB.
+
+Optionally, you can also specify reject options (REJECT_TYPE, REJECT_VALUE, REJECT_SAMPLE_VALUE) that determine how PolyBase will handle dirty records it receives from the external data source.
 
 ```
 -- Creating external table pointing to file stored in Azure Storage
@@ -157,8 +169,6 @@ WITH
 ;
 ```
 
-> [AZURE.NOTE] Please note that you cannot create statistics on an external table at this time.
-
 Reference topic: [CREATE EXTERNAL TABLE (Transact-SQL)][].
 
 The objects you just created are stored in SQL Data Warehouse database. You can view them in the SQL Server Data Tools (SSDT) Object Explorer. 
@@ -171,7 +181,7 @@ DROP EXTERNAL TABLE [ext].[CarSensor_Data]
 ;
 ```
 
-> [AZURE.NOTE] When dropping an external table you must use `DROP EXTERNAL TABLE` you **cannot** use `DROP TABLE`. 
+> [AZURE.NOTE] When dropping an external table you must use `DROP EXTERNAL TABLE`. You **cannot** use `DROP TABLE`. 
 
 Reference topic: [DROP EXTERNAL TABLE (Transact-SQL)][].
 
@@ -198,21 +208,17 @@ When you have migrated all your external tables to the new external data source 
 ## Query Azure blob storage data
 Queries against external tables simply use the table name as though it was a relational table. 
 
-This is an ad-hoc query that joins insurance customer data stored in SQL Data Warehouse, with automobile sensor data stored in Azure storage blob. The result shows the drivers that drive faster than others.
 
 ```
--- Join SQL Data Warehouse relational data with Azure storage data. 
-SELECT 
-      [Insured_Customers].[FirstName]
-,     [Insured_Customers].[LastName]
-,     [Insured_Customers].[YearlyIncome]
-,     [CarSensor_Data].[Speed]
-FROM  [dbo].[Insured_Customers] 
-JOIN  [ext].[CarSensor_Data]         ON [Insured_Customers].[CustomerKey] = [CarSensor_Data].[CustomerKey]
-WHERE [CarSensor_Data].[Speed] > 60 
-ORDER BY [CarSensor_Data].[Speed] DESC
+
+-- Query Azure storage resident data via external table. 
+SELECT * FROM [ext].[CarSensor_Data]
 ;
+
 ```
+
+> [AZURE.NOTE] A query on an external table can fail with the error *"Query aborted-- the maximum reject threshold was reached while reading from an external source"*. This indicates that your external data contains *dirty* records. A data record is considered 'dirty' if the actual data types/number of columns do not match the column definitions of the external table or if the data doesn't conform to the specified external file format. To fix this, ensure that your external table and external file format definitions are correct and your external data conforms to these definitions. In case a subset of external data records are dirty, you can choose to reject these records for your queries by using the reject options in CREATE EXTERNAL TABLE DDL.
+
 
 ## Load data from Azure blob storage
 This example loads data from Azure blob storage to SQL Data Warehouse database.
@@ -221,7 +227,7 @@ Storing data directly removes the data transfer time for queries. Storing data w
 
 This example uses the CREATE TABLE AS SELECT statement to load data. The new table inherits the columns named in the query. It inherits the data types of those columns from the external table definition. 
 
-CREATE TABLE AS SELECT is a highly performant Transact-SQL statement  that replaces INSERT...SELECT.  It was originally developed for  the massively parallel processing (MPP) engine in Analytics Platform System and is now in SQL Data Warehouse.
+CREATE TABLE AS SELECT is a highly performant Transact-SQL statement that loads the data in parallel to all the compute nodes of your SQL Data Warehouse.  It was originally developed for  the massively parallel processing (MPP) engine in Analytics Platform System and is now in SQL Data Warehouse.
 
 ```
 -- Load data from Azure blob storage to SQL Data Warehouse 
@@ -239,6 +245,33 @@ FROM   [ext].[CarSensor_Data]
 ```
 
 See [CREATE TABLE AS SELECT (Transact-SQL)][].
+
+
+## Export data to Azure blob storage
+This section shows how to export data from SQL Data Warehouse to Azure blob storage. This example uses CREATE EXTERNAL TABLE AS SELECT which is a highly performant Transact-SQL statement to export the data in parallel from all the compute nodes. 
+
+The following example creates an external table Weblogs2014 using column definitions and data from dbo.Weblogs table. The external table definition is stored in SQL Data Warehouse and the results of the SELECT statement are exported to the "/archive/log2014/" directory under the blob container specified by the data source. The data is exported in the specified text file format. 
+
+```
+CREATE EXTERNAL TABLE Weblogs2014 WITH
+(
+    LOCATION='/archive/log2014/',
+    DATA_SOURCE=azure_storage,
+    FILE_FORMAT=text_file_format
+)
+AS
+SELECT
+    Uri,
+    DateRequested
+FROM
+    dbo.Weblogs
+WHERE
+    1=1
+    AND DateRequested > '12/31/2013'
+    AND DateRequested < '01/01/2015';
+```
+
+
 
 
 ## Working around the PolyBase UTF-8 requirement

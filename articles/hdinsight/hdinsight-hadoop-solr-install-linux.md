@@ -1,34 +1,33 @@
-<properties 
-	pageTitle="Use Script Action to install Solr on Hadoop cluster | Microsoft Azure" 
-	description="Learn how to customize HDInsight cluster with Solr. You'll use a Script Action configuration option to use a script to install Solr." 
-	services="hdinsight" 
-	documentationCenter="" 
-	authors="Blackmist" 
-	manager="paulettm" 
+<properties
+	pageTitle="Use Script Action to install Solr on Linux-based HDInsight | Microsoft Azure"
+	description="Learn how to install Solr on Linux-based HDInsight Hadoop clusters using Script Actions."
+	services="hdinsight"
+	documentationCenter=""
+	authors="Blackmist"
+	manager="paulettm"
 	editor="cgronlun"
 	tags="azure-portal"/>
 
-<tags 
-	ms.service="hdinsight" 
-	ms.workload="big-data" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/20/2015" 
+<tags
+	ms.service="hdinsight"
+	ms.workload="big-data"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="10/26/2015"
 	ms.author="larryfr"/>
 
 # Install and use Solr on HDInsight Hadoop clusters
 
-
 In this topic, you will learn how to install Solr on Azure HDInsight by using Script Action. Solr is a powerful search platform and provides enterprise-level search capabilities on data managed by Hadoop. Once you have installed Solr on HDInsight cluster, you'll also learn how to search data by using Solr.
 
-> [AZURE.NOTE] The steps in this document require a Linux-based HDInsight cluster. For information on using Solr with a Windows-based cluster, see [Install and use R on HDinsight Hadoop clusters (Windows)](hdinsight-hadoop-solr-install.md)
+> [AZURE.NOTE] The steps in this document require a Linux-based HDInsight cluster. For information on using Solr with a Windows-based cluster, see [Install and use Solr on HDinsight Hadoop clusters (Windows)](hdinsight-hadoop-solr-install.md)
 
 The sample script used in this topic creates a Solr cluster with a specific configuration. If you want to configure the Solr cluster with different collections, shards, schemas, replicas, etc., you must modify the script and Solr binaries accordingly.
 
 ## <a name="whatis"></a>What is Solr?
 
-[Apache Solr](http://lucene.apache.org/solr/features.html) is an enterprise search platform that enables powerful full-text search on data. While Hadoop enables storing and managing vast amounts of data, Apache Solr provides the search capabilities to quickly retrieve the data. This topic provides instructions on how to customize an HDInsight cluster to install Solr.   
+[Apache Solr](http://lucene.apache.org/solr/features.html) is an enterprise search platform that enables powerful full-text search on data. While Hadoop enables storing and managing vast amounts of data, Apache Solr provides the search capabilities to quickly retrieve the data. This topic provides instructions on how to customize an HDInsight cluster to install Solr.
 
 ## What the script does
 
@@ -41,7 +40,7 @@ This script makes the following changes to the HDInsight cluster:
 
 ## <a name="install"></a>Install Solr using Script Actions
 
-A sample script to install Solr on an HDInsight cluster is available from a read-only Azure storage blob at [https://hdiconfigactions.blob.core.windows.net/linuxsolrconfigactionv01/solr-installer-v01.sh](https://hdiconfigactions.blob.core.windows.net/linuxsolrconfigactionv01/solr-installer-v01.sh). This section provides instructions on how to use the sample script while provisioning the cluster by using the Azure portal. 
+A sample script to install Solr on an HDInsight cluster is available from a read-only Azure storage blob at [https://hdiconfigactions.blob.core.windows.net/linuxsolrconfigactionv01/solr-installer-v01.sh](https://hdiconfigactions.blob.core.windows.net/linuxsolrconfigactionv01/solr-installer-v01.sh). This section provides instructions on how to use the sample script while provisioning the cluster by using the Azure portal.
 
 > [AZURE.NOTE] You can also use Azure PowerShell or the HDInsight .NET SDK to create a cluster using this script. For more information on using these methods, see [Customize HDInsight clusters with Script Actions](hdinsight-hadoop-customize-cluster-linux.md).
 
@@ -58,29 +57,29 @@ A sample script to install Solr on an HDInsight cluster is available from a read
 
 3. At the bottom of the **Script Actions**, use the **Select** button to save the configuration. Finally, use the **Select** button at the bottom of the **Optional Configuration** blade to save the optional configuration information.
 
-4. Continue provisining the cluster as described in [Provision Linux-based HDInsight clusters](hdinsight-provision-linux-clusters.md#portal).
+4. Continue provisioning the cluster as described in [Provision Linux-based HDInsight clusters](hdinsight-provision-linux-clusters.md#portal).
 
 ## <a name="usesolr"></a>How do I use Solr in HDInsight?
 
-###Indexing data
+### Indexing data
 
 You must start with indexing Solr with some data files. You can then use Solr to run search queries on the indexed data. Use the following steps to add some example data to Solr, and then query it:
 
 1. Connect to the HDInsight cluster using SSH:
 
 		ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
-		
+
 	For more information on using SSH with HDInsight, see the following:
-	
+
 	* [Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
-	
+
 	* [Use SSH with Linux-based Hadoop on HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
-	
+
 	> [AZURE.IMPORTANT] Steps later in this document make use of an SSL tunnel to connect to the Solr web UI. In order to use these steps, you must establish an SSL tunnel and then configure your browser to use it.
-	> 
+	>
 	> For more information, see [Use SSH Tunneling to access Ambari web UI, ResourceManager, JobHistory, NameNode, Oozie, and other web UI's](hdinsight-linux-ambari-ssh-tunnel.md)
 
-2. Use the following commands to have Solr index sample data: 
+2. Use the following commands to have Solr index sample data:
 
 		cd /usr/hdp/current/solr/example/exampledocs
 		java -jar post.jar solr.xml monitor.xml
@@ -94,13 +93,13 @@ You must start with indexing Solr with some data files. You can then use Solr to
 		Time spent: 0:00:01.624
 
 	The post.jar utility indexes Solr with two sample documents, **solr.xml** and **monitor.xml**. These will be stored in __collection1__ within Solr.
-	
+
 3. Use the following to query the REST API exposed by Solr:
 
 		curl "http://localhost:8983/solr/collection1/select?q=*%3A*&wt=json&indent=true"
-		
+
 	This issues a query against __collection1__ for any documents matching __\*:\*__ (encoded as \*%3A\* in the query string,) and that the response should be returned as JSON. The response should appear similar to the following:
-	
+
 			"response": {
 			    "numFound": 2,
 			    "start": 0,
@@ -153,13 +152,23 @@ You must start with indexing Solr with some data files. You can then use Solr to
 			    ]
 			  }
 
-###Using the Solr dashboard
+### Using the Solr dashboard
 
-The Solr dashbaord is a web UI that allows you to work with Solr through your web browser. The Solr dashboard is not exposed directly on the Internet from your HDInsight cluster, but must be accessed using an SSH tunnel. For more information on using an SSH tunnel, see [Use SSH Tunneling to access Ambari web UI, ResourceManager, JobHistory, NameNode, Oozie, and other web UI's](hdinsight-linux-ambari-ssh-tunnel.md)
-	
+The Solr dashboard is a web UI that allows you to work with Solr through your web browser. The Solr dashboard is not exposed directly on the Internet from your HDInsight cluster, but must be accessed using an SSH tunnel. For more information on using an SSH tunnel, see [Use SSH Tunneling to access Ambari web UI, ResourceManager, JobHistory, NameNode, Oozie, and other web UI's](hdinsight-linux-ambari-ssh-tunnel.md)
+
 Once you have established an SSH tunnel, use the following steps to use the Solr dashboard:
 
-1. In your browser, connect to __http://headnode0:8983/solr/#/__. This traffic should be routed through the SSH tunnel to headnode0 for your HDInsight cluster. You should see a page similar to the following:
+1. Determine the host name for the head node:
+
+    1. In a browser, go to https://CLUSTERNAME.azurehdinsight.net. When prompted, use the Admin username and password to authenticate to the site.
+    
+    2. From the menu at the top of the page, select __Hosts__.
+    
+    3. Select the entry that begins with __hn0__. When the page opens, the host name will be displayed at the top. The format of the host name is __hn0-PARTOFCLUSTERNAME.randomcharacters.cx.internal.cloudapp.net__. This is the host name you must use when connecting to the Solr dashboard.
+    
+1. In your browser, connect to __http://HOSTNAME:8983/solr/#/__, where __HOSTNAME__ is the name you determined in the previous steps. 
+
+    The request should be routed through the SSH tunnel to the head node for your HDInsight cluster. You should see a page similar to the following:
 
 	![Image of Solr dashboard](./media/hdinsight-hadoop-solr-install-linux/solrdashboard.png)
 
@@ -168,13 +177,13 @@ Once you have established an SSH tunnel, use the following steps to use the Solr
 3. From the entries below __collection1__, select __Query__. Use the following values to populate the search page:
 
 	* In the **q** text box, enter **\*:**\*. This will return all the documents that are indexed in Solr. If you want to search for a specific string within the documents, you can enter that string here.
-	
-	* In the **wt** text box, select the output format. Default is **json**. 
-	
+
+	* In the **wt** text box, select the output format. Default is **json**.
+
 	Finally, select the **Execute Query** button at the bottom of the search pate.
 
 	![Use Script Action to customize a cluster](./media/hdinsight-hadoop-solr-install-linux/hdi-solr-dashboard-query.png)
-	
+
 	The output returns the two docs that we used for indexing Solr. The output resembles the following:
 
 			"response": {
@@ -229,22 +238,25 @@ Once you have established an SSH tunnel, use the following steps to use the Solr
 			    ]
 			  }
 
-###Starting and stopping Solr
+### Starting and stopping Solr
 
 If you need to manually stop or start Solar, use the following commands:
 
 	sudo stop solr
 
 	sudo start solr
-	
-   
-##Backup indexed data
+
+## Backup indexed data
 
 As a good practice, you should back up the indexed data from the Solr cluster nodes onto Azure Blob storage. Perform the following steps to do so:
 
-1. Connect to the cluster using SSH, then use the following command to create a snapshot of the indexed data:
+1. Connect to the cluster using SSH, then use the following command to get the host name for the head node:
 
-		curl http://headnode0:8983/solr/replication?command=backup
+        hostname -f
+        
+2. Use the following to create a snapshot of the indexed data. Replace __HOSTNAME__ with the name returned from the previous command:
+
+		curl http://HOSTNAME:8983/solr/replication?command=backup
 
 	You should see a response like this:
 
@@ -260,23 +272,23 @@ As a good practice, you should back up the indexed data from the Solr cluster no
 2. Next, change directories to __/usr/hdp/current/solr/example/solr__. There will be a subdirectory here for each collection. Each collection directory contains a __data__ directory, which is where the snapshot for that collection is located.
 
 	For example, if you used the steps earlier to index the sample documents, the __/usr/hdp/current/solr/example/solr/collection1/data__ directory should now contain a directory named __snapshot.###########__ where the #'s are the date and time of the snapshot.
-	
+
 3. Create a compressed archive of the snapshot folder using a command similar to the following:
 
 		tar -zcf snapshot.20150806185338855.tgz snapshot.20150806185338855
 
 	This will create a new archive named __snapshot.20150806185338855.tgz__, which contains the contents of the __snapshot.20150806185338855__ directory.
-	
+
 3. You can then store the archive to the cluster's primary storage using the following command:
 
 	hadoop fs -copyFromLocal snapshot.20150806185338855.tgz /example/data
-	
+
 	> [AZURE.NOTE] You may want to create a dedicated directory for storing Solr snapshots. For example, `hadoop fs -mkdir /solrbackup`.
 
 For more information on working with Solr backup and restores, see [Making and restoring backups of SolrCores](https://cwiki.apache.org/confluence/display/solr/Making+and+Restoring+Backups+of+SolrCores).
 
 
-## See also##
+## See also
 
 - [Install and use Hue on HDInsight clusters](hdinsight-hadoop-hue-linux.md). Hue is a web UI that makes it easy to create, run and save Pig and Hive jobs, as well as browse the default storage for your HDInsight cluster.
 
@@ -291,10 +303,7 @@ For more information on working with Solr backup and restores, see [Making and r
 
 
 
-
-
 [hdinsight-provision]: hdinsight-provision-clusters-linux.md
 [hdinsight-install-r]: hdinsight-hadoop-r-scripts-linux.md
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install-linux.md
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster-linux.md
- 

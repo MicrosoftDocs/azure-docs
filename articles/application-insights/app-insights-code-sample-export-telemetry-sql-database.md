@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Code sample: export to SQL from Application Insights using a worker role" 
-	description="Code your own analysis of telemetry in Application Insights by using the continuous export feature." 
+	pageTitle="Code sample: Parse data exported from Application Insights" 
+	description="Code your own analysis of telemetry in Application Insights by using the continuous export feature. Save data to SQL." 
 	services="application-insights" 
     documentationCenter=""
 	authors="mazharmicrosoft" 
@@ -12,16 +12,16 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/04/2015" 
+	ms.date="09/28/2015" 
 	ms.author="awills"/>
  
-# Code sample: export to SQL from Application Insights using a worker role
+# Code sample: Parse data exported from Application Insights
 
-This article shows how to move your telemetry data from [Visual Studio Application Insights][start] into an Azure SQL database by using [Continuous Export][export] and a small amount of code. 
+This article shows how to process JSON data exported from Application Insights. As an example, we'll write code to move your telemetry data from [Visual Studio Application Insights][start] into an Azure SQL database by using [Continuous Export][export]. (You can also achieve this [by using Stream Analytics](app-insights-code-sample-export-sql-stream-analytics.md), but our aim here is to show you some code.) 
 
 Continuous export moves your telemetry into Azure Storage in JSON format, so we'll write some code to parse the JSON objects and create rows in a database table.
 
-(More generally, Continuous Export is the way to do your own analysis of the telemetry your apps send to Application Insights. You could adapt this code sample to do other things with the exported telemetry.)
+More generally, Continuous Export is the way to do your own analysis of the telemetry your apps send to Application Insights. You could adapt this code sample to do other things with the exported telemetry.
 
 We'll start with the assumption that you already have the app you want to monitor.
 
@@ -51,13 +51,15 @@ To get started:
 
 ## Create storage in Azure
 
-1. Create a storage account in your subscription in the [Azure portal][portal].
+Data from Application Insights is always exported to an Azure Storage account in JSON format. It's from this storage that your code will read the data.
+
+1. Create a "classic" storage account in your subscription in the [Azure portal][portal].
 
     ![In Azure portal, choose New, Data, Storage](./media/app-insights-code-sample-export-telemetry-sql-database/040-store.png)
 
 2. Create a container
 
-    ![In the new storage, select Containers and then Add](./media/app-insights-code-sample-export-telemetry-sql-database/050-container.png)
+    ![In the new storage, select Containers, click the Containers tile, and then Add](./media/app-insights-code-sample-export-telemetry-sql-database/050-container.png)
 
 
 ## Start continuous export to Azure storage
@@ -93,6 +95,8 @@ The events are written to blob files in JSON format. Each file may contain one o
 
 ## Create an Azure SQL Database
 
+For this example, we'll write code to push the data into a database.
+
 Once again starting from your subscription in [Azure portal][portal], create the database (and a new server, unless you've already got one) to which you'll write the data.
 
 ![New, Data, SQL](./media/app-insights-code-sample-export-telemetry-sql-database/090-sql.png)
@@ -106,7 +110,7 @@ Make sure that the database server allows access to Azure services:
 
 ## Create a worker role 
 
-Now we can write [some code](https://sesitai.codeplex.com/) to parse the JSON in the exported blobs, and create records in the database. Since the export store and the database are both in Azure, we'll run the code in an Azure worker role.
+Now at last we can write [some code](https://sesitai.codeplex.com/) to parse the JSON in the exported blobs, and create records in the database. Since the export store and the database are both in Azure, we'll run the code in an Azure worker role.
 
 This code automatically extracts whatever properties are present in the JSON. For descriptions of the properties, see [Export data model](app-insights-export-data-model.md).
 
@@ -536,6 +540,6 @@ To see this example in action, [download](https://sesitai.codeplex.com/) the com
 [export]: app-insights-export-telemetry.md
 [metrics]: app-insights-metrics-explorer.md
 [portal]: http://portal.azure.com/
-[start]: app-insights-get-started.md
+[start]: app-insights-overview.md
 
  

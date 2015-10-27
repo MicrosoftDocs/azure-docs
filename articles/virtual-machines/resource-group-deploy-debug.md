@@ -1,57 +1,185 @@
 <properties
-   pageTitle="Troubleshooting resource group deployments in Azure"
-   description="Describes common problems deploying resources in Azure, and shows how to use the Azure portal, the Azure Command-Line Interface for Mac, Linux, and Windows (Azure CLI), and PowerShell to examine deployments and detect issues."
-   services="virtual-machines"
+   pageTitle="Troubleshooting resource group deployments | Microsoft Azure"
+   description="Describes common problems deploying resources created using Resource Manager deployment model, and shows how to detect and fix these issues."
+   services="azure-resource-manager,virtual-machines"
    documentationCenter=""
-   authors="squillace"
-   manager="timlt"
+   authors="tfitzmac"
+   manager="wpickett"
    editor=""/>
 
 <tags
-   ms.service="virtual-machines"
+   ms.service="azure-resource-manager"
    ms.devlang="na"
    ms.topic="article"
-   ms.tgt_pltfrm="command-line-interface"
+   ms.tgt_pltfrm="vm-multiple"
    ms.workload="infrastructure"
-   ms.date="08/26/2015"
-   ms.author="rasquill"/>
+   ms.date="10/14/2015"
+   ms.author="tomfitz;rasquill"/>
 
 # Troubleshooting resource group deployments in Azure
 
-Deployments can fail for any number of reasons. It is far better to prevent deployment errors by checking a few things in advance. This document describes tools and operations to prevent simple mistakes, to download template files, and to examine deployment logs. It also discusses the main areas to think about when examining deployment logs for failures.
+When you encounter a problem during deployment, you need to discover what went wrong. Resource Manager provides two ways for you to find out what happened and why it happened. You can use deployment commands to retrieve information about 
+particular deployments for a resource group. Or, you can use the audit logs to retrieve information about all operations performed on a resource group.  With this information, you can fix the 
+issue and resume operations in your solution.
 
-## Useful tools to interact with Azure
-When you work with your Azure resources from the command-line, you will collect tools that help you do your work. Azure resource group templates are JSON documents, and the Azure Resource Manager API accepts and returns JSON, so JSON parsing tools are some of the first things you will use to help you navigate information about your resources and to design or interact with templates and template parameter files.
+This topic focuses primarily on using deployment commands to troubleshoot deployments. For information about using the audit logs to track all operations on your resources, see [Audit operations with Resource Manager](../resource-group-audit.md).
 
-### Mac, Linux, and Windows tools
-If you use the Azure Command-Line Interface for Mac, Linux, and Windows, you are probably familiar with standard download tools such as **[curl](http://curl.haxx.se/)** and **[wget](https://www.gnu.org/software/wget/)**, or **[Resty](https://github.com/beders/Resty)**, and JSON utilities such as **[jq](http://stedolan.github.io/jq/download/)**, **[jsawk](https://github.com/micha/jsawk)**, and language libraries that handle JSON well. (Many of these tools also have ports for Windows, such as [wget](http://gnuwin32.sourceforge.net/packages/wget.htm); in fact, there are several ways to get Linux and other open-source software tools running on Windows as well.)
+This topic shows how to retrieve troubleshooting information through Azure PowerShell, Azure CLI and REST API. For information about using the preview portal to troubleshoot deployments, see [Using the Azure Preview Portal to manage your Azure resources](../azure-portal/resource-group-portal.md).
 
-This topic includes some Azure CLI commands that you can use with **jq** to obtain precisely the information that you want more efficiently. You should choose the toolset that you are comfortable with to help you understand your Azure resource usage.
+Solutions to common errors that users encounter are also described in this topic.
 
-### Windows PowerShell
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] classic deployment model. You can't create resource groups with the classic deployment model.
 
-Windows PowerShell has several basic commands to perform the same procedures.
 
-- Use the **[Invoke-WebRequest](https://technet.microsoft.com/library/hh849901%28v=wps.640%29)** cmdlet to download files such as resource group templates or parameters JSON files.
-- Use the **[ConvertFrom-Json](https://technet.microsoft.com/library/hh849898%28v=wps.640%29.aspx)** cmdlet to convert a JSON string to a custom object ([PSCustomObject](https://msdn.microsoft.com/library/windows/desktop/system.management.automation.pscustomobject%28v=vs.85%29.aspx)) that has a property for each field in the JSON string.
+## Troubleshoot with PowerShell
 
-## Preventing errors in the Azure CLI for Mac, Linux, and Windows
+[AZURE.INCLUDE [powershell-preview-inline-include](../../includes/powershell-preview-inline-include.md)]
 
-The Azure CLI has several commands to help prevent errors and detect what went wrong when errors occur.
+You can get the overall status of a deployment with the **Get-AzureRmResourceGroupDeployment** command. In the example below the deployment has failed.
 
-- **azure location list**. This command gets the locations that support each type of resource, such as the provider for virtual machines. Before you enter a location for a resource, use this command to verify that the location supports the resource type.
+    PS C:\> Get-AzureRmResourceGroupDeployment -ResourceGroupName ExampleGroup -DeploymentName ExampleDeployment
 
-    Because the list of locations can be long, and there are many providers, you can use tools to examine providers and locations before you use a location that isn't available yet. The following script uses **jq** to discover the locations where the resource provider for Azure virtual machines is available.
+    DeploymentName    : ExampleDeployment
+    ResourceGroupName : ExampleGroup
+    ProvisioningState : Failed
+    Timestamp         : 8/27/2015 8:03:34 PM
+    Mode              : Incremental
+    TemplateLink      :
+    Parameters        :
+                    Name             Type                       Value
+                    ===============  =========================  ==========
+                    siteName         String                     ExampleSite
+                    hostingPlanName  String                     ExamplePlan
+                    siteLocation     String                     West US
+                    sku              String                     Free
+                    workerSize       String                     0
 
-        azure location list --json | jq '.[] | select(.name == "Microsoft.Compute/virtualMachines")'
-        {
-          "name": "Microsoft.Compute/virtualMachines",
-          "location": "East US,West US,West Europe,East Asia,Southeast Asia,North Europe"
-        }
+    Outputs           :
 
-- **azure group template validate <resource group>**. This command validates your templates and template parameters before you use them. Enter a custom or gallery template and the template parameter values that  you plan to use.
+Each deployment is usually made up of multiple operations, with each operation representing a step in the deployment process. To discover what went wrong with a deployment, you usually need to see details about the deployment operations. You can see the status of the operations with **Get-AzureRmResourceGroupDeploymentOperation**.
 
-    The following example shows how to validate a template and any required parameters. The Azure CLI prompts you for parameter values that are required.
+    PS C:\> Get-AzureRmResourceGroupDeploymentOperation -DeploymentName ExampleDeployment -ResourceGroupName ExampleGroup
+    Id                        OperationId          Properties         
+    -----------               ----------           -------------
+    /subscriptions/xxxxx...   347A111792B648D8     @{ProvisioningState=Failed; Timestam...
+    /subscriptions/xxxxx...   699776735EFC3D15     @{ProvisioningState=Succeeded; Times...
+
+It shows two operations in the deployment. One has a provisioning state of Failed and the other of Succeeded. 
+
+You can retrieve the status message with the following command:
+
+    PS C:\> (Get-AzureRmResourceGroupDeploymentOperation -DeploymentName ExampleDeployment -ResourceGroupName ExampleGroup).Properties.StatusMessage
+
+    Code       : Conflict
+    Message    : Website with given name mysite already exists.
+    Target     :
+    Details    : {@{Message=Website with given name mysite already exists.}, @{Code=Conflict}, @{ErrorEntity=}}
+    Innererror :
+
+## Troubleshoot with Azure CLI
+
+You can get the overall status of a deployment with the **azure group deployment show** command. In the example below the deployment has failed.
+
+    azure group deployment show ExampleGroup ExampleDeployment
+
+    info:    Executing command group deployment show
+    + Getting deployments
+    data:    DeploymentName     : ExampleDeployment
+    data:    ResourceGroupName  : ExampleGroup
+    data:    ProvisioningState  : Failed
+    data:    Timestamp          : 2015-08-27T20:03:34.9178576Z
+    data:    Mode               : Incremental
+    data:    Name             Type    Value
+    data:    ---------------  ------  ------------
+    data:    siteName         String  ExampleSite
+    data:    hostingPlanName  String  ExamplePlan
+    data:    siteLocation     String  West US
+    data:    sku              String  Free
+    data:    workerSize       String  0
+    info:    group deployment show command OK
+
+
+You can find out more information about why the deployment failed in the audit logs. To see the audit logs, run the **azure group log show** command. You can include the **--last-deployment** option to retrieve only the log for the most recent deployment. 
+
+    azure group log show ExampleGroup --last-deployment
+
+The **azure group log show** command can return a lot of information. For troubleshooting, you usually want to focus on operations that failed. The following script uses the **--json** option and **jq** to search the log for deployment failures. To learn about tools like **jq**, see [Useful tools to interact with Azure](#useful-tools-to-interact-with-azure)
+
+    azure group log show ExampleGroup --json | jq '.[] | select(.status.value == "Failed")'
+
+    {
+      "claims": {
+        "aud": "https://management.core.windows.net/",
+        "iss": "https://sts.windows.net/<guid>/",
+        "iat": "1442510510",
+        "nbf": "1442510510",
+        "exp": "1442514410",
+        "ver": "1.0",
+        "http://schemas.microsoft.com/identity/claims/tenantid": "<guid>",
+        "http://schemas.microsoft.com/identity/claims/objectidentifier": "<guid>",
+        "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress": "someone@example.com",
+        "puid": "XXXXXXXXXXXXXXXX",
+        "http://schemas.microsoft.com/identity/claims/identityprovider": "example.com",
+
+        "altsecid": "1:example.com:XXXXXXXXXXX",
+        "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier": "<hash string>",
+        "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname": "Tom",
+        "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname": "FitzMacken",
+        "name": "Tom FitzMacken",
+        "http://schemas.microsoft.com/claims/authnmethodsreferences": "pwd",
+        "groups": "<guid>",
+        "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name": "example.com#someone@example.com",
+        "wids": "<guid>",
+        "appid": "<guid>",
+        "appidacr": "0",
+        "http://schemas.microsoft.com/identity/claims/scope": "user_impersonation",
+        "http://schemas.microsoft.com/claims/authnclassreference": "1",
+        "ipaddr": "000.000.000.000"
+      },
+      "properties": {
+        "statusCode": "Conflict",
+        "statusMessage": "{\"Code\":\"Conflict\",\"Message\":\"Website with given name mysite already exists.\",\"Target\":null,\"Details\":[{\"Message\":\"Website with given name 
+          mysite already exists.\"},{\"Code\":\"Conflict\"},{\"ErrorEntity\":{\"Code\":\"Conflict\",\"Message\":\"Website with given name mysite already exists.\",\"ExtendedCode\":
+          \"54001\",\"MessageTemplate\":\"Website with given name {0} already exists.\",\"Parameters\":[\"mysite\"],\"InnerErrors\":null}}],\"Innererror\":null}"
+      },
+    ...
+
+You can see **properties** includes information in json about the failed operation.
+
+You can use the **--verbose** and **-vv** options to see more information from the logs.  Use the **--verbose** option to display the steps the operations go through on `stdout`. For a complete request history, use the **-vv** option. The messages often provide vital clues about the cause of any failures.
+
+## Troubleshoot with REST API
+
+The Resource Manager REST API provides URIs for retrieving information about a deployment, the operations for deployment, and details about a particular operation. For full descriptions of these commands see:
+
+- [Get information about a template deployment](https://msdn.microsoft.com/library/azure/dn790565.aspx)
+- [List all template deployment operations](https://msdn.microsoft.com/library/azure/dn790518.aspx)
+- [Get information about a template deployment operation](https://msdn.microsoft.com/library/azure/dn790519.aspx)
+
+
+## Refreshing expired credentials
+
+Your deployment will fail if your Azure credentials have expired or if you have not signed into your Azure account. Your credentials can expire if your session is open too long. You can refresh your credentials with the following options:
+
+- For PowerShell, use the **Login-AzureRmAccount** cmdlet (or **Add-AzureAccount** for versions of PowerShell prior to 1.0 Preview). The credentials in a publish settings file are not sufficient for the cmdlets in the AzureResourceManager module.
+- For Azure CLI, use **azure login**. For help with authentication errors, make sure that you have [configured the Azure CLI correctly](../xplat-cli-connect.md).
+
+## Checking the format of templates and parameters
+
+If your template or parameter file is not in the correct format, your deployment will fail. Prior to executing a deployment, you can test the validity of your template and parameters.
+
+### PowerShell
+
+For PowerShell, use **Test-AzureRmResourceGroupDeployment** (or **Test-AzureResourceGroupTemplate** for versions of PowerShell prior to 1.0 Preview).
+
+    PS C:\> Test-AzureRmResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateFile c:\Azure\Templates\azuredeploy.json -TemplateParameterFile c:\Azure\Templates\azuredeploy.parameters.json
+    VERBOSE: 12:55:32 PM - Template is valid.
+
+### Azure CLI
+
+For Azure CLI, use **azure group template validate <resource group>**
+
+The following example shows how to validate a template and any required parameters. The Azure CLI prompts you for parameter values that are required.
 
         azure group template validate \
         > --template-uri "https://contoso.com/templates/azuredeploy.json" \
@@ -64,150 +192,85 @@ The Azure CLI has several commands to help prevent errors and detect what went w
         + Validating the template
         info:    group template validate command OK
 
-## Getting information to fix deployment issues with the Azure CLI
+### REST API
 
-- **azure group log show <resource group>**: This command gets the entries in the log for each deployment of the resource group. If something goes wrong, begin by examining the deployment logs.
+For REST API, see [Validate a template deployment](https://msdn.microsoft.com/library/azure/dn790547.aspx).
 
-        info:    Executing command group log show
-        info:    Getting group logs
-        data:    ----------
-        data:    EventId:              <guid>
-        data:    Authorization:
-        data:                          action: Microsoft.Network/networkInterfaces/write
-        data:                          role:   Subscription Admin
-        data:                          scope:  /subscriptions/xxxxxxxxxxx/resourcegroups/templates/
-                                               providers/Microsoft.Network/
-                                               networkInterfaces/myNic
-        data:    ResourceUri:          /subscriptions/xxxxxxxxxxxx/resourcegroups/templates/providers/
-                                       Microsoft.Network/networkInterfaces/myNic
-        data:    SubscriptionId:       <guid>
-        data:    EventTimestamp (UTC): Wed Apr 22 2015 05:53:31 GMT+0000 (UTC)
-        data:    OperationName:        Microsoft.Network/networkInterfaces/write
-        data:    OperationId:          <guid>
-        data:    Status:               Started
-        data:    SubStatus:
-        data:    Caller:
-        data:    CorrelationId:        <guid>
-        data:    Description:
-        data:    HttpRequest:          clientRequestId: <guid>
-                                       clientIpAddress: 000.000.00.000
-                                       method:          PUT
+## Checking which locations support the resource
 
-        data:    Level:                Informational
-        data:    ResourceGroup:        templates
-        data:    ResourceProvider:     Microsoft.Network
-        data:    EventSource:          Microsoft Resources
-        data:    Properties:           requestbody: {"location":"West US","properties
-                                       ":{"ipConfigurations":[{"
-                                       name":"ipconfig1","properties":{"
-                                       privateIPAllocationMethod
+When specifying a location for a resource, you must use one of the locations that supports the resource. Before you enter a location for a resource, use one of the following commands to verify that the location supports the resource type.
 
-                                       ":"Dynamic","publicIPAddress":{"id":"/
-                                       subscriptions/
-                                       <guid>/
-                                       resourceGroups/
-                                       templates/providers/Microsoft.Network/
-                                       publicIPAddresses/
-                                       myPublicIP"},"subnet":{"idThe AzureResourceManager module includes cmdlets that ":"/subscriptions/
-                                       <guid>/resourceGroups/templates/
-                                       providers/
-                                       Microsoft.Network/virtualNetworks/myVNET/subnets/
-                                       Subnet-1
-                                       "}}}]}}
+### PowerShell
 
-Use the **--last-deployment** option to retrieve only the log for the most recent deployment. The following script uses the **--json** option and **jq** to search the log for deployment failures.
+For versions of PowerShell prior to 1.0 Preview, you can see the full list of resources and locations with the **Get-AzureLocation** command.
 
-        azure group log show templates --json | jq '.[] | select(.status.value == "Failed")'
+    PS C:\> Get-AzureLocation
 
-        {
-          "claims": {
-            "aud": "https://management.core.windows.net/",
-            "iss": "https://sts.windows.net/<guid>/",
-            "iat": "1429678549",
-            "nbf": "1429678549",
-            "exp": "1429682449",
-            "ver": "1.0",
-            "http://schemas.microsoft.com/identity/claims/tenantid": "<guid>",
-            "http://schemas.microsoft.com/identity/claims/objectidentifier": "<guid>",
-            "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn": "ahmet@contoso.onmicrosoft.com",
-            "puid": "XXXXXXXXXXXXXX",
-            "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier": "<hash string>",
-            "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname": "ahmet",
-            "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname": "",
-            "name": "Friendly Name",
-            "http://schemas.microsoft.com/claims/authnmethodsreferences": "pwd",
-            "groups": "<guid>",
-            "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name": "ahmet@contoso.onmicrosoft.com",
-            "appid": "<guid>",
-            "appidacr": "0",
-            "http://schemas.microsoft.com/identity/claims/scope": "user_impersonation",
-            "http://schemas.microsoft.com/claims/authnclassreference": "1"
-          },
-          "properties": {},
-          "authorization": {
-            "action": "Microsoft.Resources/subscriptions/resourcegroups/deployments/write",
-            "role": "Subscription Admin",
-            "scope": "/subscriptions/<guid>/resourcegroups/templates/deployments/basic-vm-version-0.1"
-          },
-          "eventChannels": "Operation",
-          "eventDataId": "<guid>",
-          "correlationId": "<guid>",
-          "eventName": {
-            "value": "EndRequest",
-            "localizedValue": "End request"
-          },
-          "eventSource": {
-            "value": "Microsoft.Resources",
-            "localizedValue": "Microsoft Resources"
-          },
-          "level": "Error",
-          "resourceGroupName": "templates",
-          "resourceProviderName": {
-            "value": "Microsoft.Resources",
-            "localizedValue": "Microsoft Resources"
-          },
-          "resourceUri": "/subscriptions/<guid>/resourcegroups/templates/deployments/basic-vm-version-0.1",
-          "operationId": "<guid>",
-          "operationName": {
-            "value": "Microsoft.Resources/subscriptions/resourcegroups/deployments/write",
-            "localizedValue": "Update deployment"
-          },
-          "status": {
-            "value": "Failed",
-            "localizedValue": "Failed"
-          },
-          "subStatus": {},
-          "eventTimestamp": "2015-04-22T05:53:40.8150293Z",
-          "submissionTimestamp": "2015-04-22T05:54:00.6728843Z",10037FFE8E80BB65
-          "subscriptionId": "<guid>"
-        }
+    Name                                    Locations                               LocationsString
+    ----                                    ---------                               ---------------
+    ResourceGroup                           {East Asia, South East Asia, East US... East Asia, South East Asia, East US,...
+    Microsoft.ApiManagement/service         {Central US, East US, East US 2, Nor... Central US, East US, East US 2, Nort...
+    Microsoft.AppService/apiapps            {East US, West US, South Central US,... East US, West US, South Central US, ...
+    ...
 
+You can specify a particular type of resource with:
 
-- **--verbose and -vv options**:  Use the **--verbose** option to set the mode to verbose, to display the steps the operations go through on `stdout`. For a complete request history, include the steps that **--verbose** enables, use the **-vv** option. The messages often provide vital clues about the cause of any failures.
+    PS C:\> Get-AzureLocation | Where-Object Name -eq "Microsoft.Compute/virtualMachines" | Format-Table Name, LocationsString -Wrap
 
-- **Your Azure credentials have not been set up or have expired**:  To refresh the credentials in your Azure CLI session, just type `azure login`. For help with authentication errors, make sure that you have [configured the Azure CLI correctly](../xplat-cli-connect.md).
+    Name                                                        LocationsString
+    ----                                                        ---------------
+    Microsoft.Compute/virtualMachines                           East US, East US 2, West US, Central US, South Central US,
+                                                                North Europe, West Europe, East Asia, Southeast Asia,
+                                                                Japan East, Japan West
 
-## Preventing errors in Windows PowerShell
+For PowerShell 1.0 Preview, use **Get-AzureRmResourceProvider** to get supported locations.
 
-The AzureResourceManager module includes cmdlets that help you to prevent errors.
+    PS C:\> Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web
 
+    ProviderNamespace RegistrationState ResourceTypes               Locations
+    ----------------- ----------------- -------------               ---------
+    Microsoft.Web     Registered        {sites/extensions}          {Brazil South, ...
+    Microsoft.Web     Registered        {sites/slots/extensions}    {Brazil South, ...
+    Microsoft.Web     Registered        {sites/instances}           {Brazil South, ...
+    ...
 
-- **Get-AzureLocation**: This cmdlet gets the locations that support each type of resource. Before you enter a location for a resource, use this cmdlet to verify that the location supports the resource type.
+You can specify a particular type of resource with:
 
+    PS C:\> ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).Locations
 
-- **Test-AzureResourceGroupTemplate**: Test your template and template parameter before you use them. Enter a custom or gallery template and the template parameter values that you plan to use. This cmdlet tests whether the template is internally consistent and whether your parameter value set matches the template.
+    Brazil South
+    East Asia
+    East US
+    Japan East
+    Japan West
+    North Central US
+    North Europe
+    South Central US
+    West Europe
+    West US
+    Southeast Asia
 
-## Getting information to fix deployment issues in Windows PowerShell
+### Azure CLI
 
-- **Get-AzureResourceGroupLog**: This cmdlet gets the entries in the log for each  deployment of the resource group. If something goes wrong, begin by examining the deployment logs.
+For Azure CLI, you can use **azure location list**. Because the list of locations can be long, and there are many providers, you can use tools to examine providers and locations before you use a location that isn't available yet. The following script uses **jq** to discover the locations where the resource provider for Azure virtual machines is available.
 
-- **Verbose and Debug**:  The cmdlets in the AzureResourceManager module call REST APIs that do the actual work. To see the messages that the APIs return, set the $DebugPreference variable to "Continue" and use the Verbose common parameter in your commands. The messages often provide vital clues about the cause of any failures.
+    azure location list --json | jq '.[] | select(.name == "Microsoft.Compute/virtualMachines")'
+    {
+      "name": "Microsoft.Compute/virtualMachines",
+      "location": "East US,East US 2,West US,Central US,South Central US,North Europe,West Europe,East Asia,Southeast Asia,Japan East,Japan West"
+    }
 
-- **Your Azure credentials have not been set up or have expired**:  To refresh the credentials in your Windows PowerShell session, use the **Add-AzureAccount** cmdlet. The credentials in a publish settings file are not sufficient for the cmdlets in the AzureResourceManager module.
+### REST API
+        
+For REST API, see [Get information about a resource provider](https://msdn.microsoft.com/library/azure/dn790534.aspx).
+
+## Creating unique resource names
+
+For some resources, most notably Storage accounts, database servers, and web sites, you must provide a name for the resource that is unique across all of Azure. Currently, there is no way to test whether a name is unique. We suggest using a naming convention that is unlikely to be used by other organizations.
 
 ## Authentication, subscription, role, and quota issues
 
-There can be one or more of several issues preventing successful deployment involving authentication and authorization and Azure Active Directory. Regardless how you manage your Azure resource groups, the identity you use to sign in to your account must be either Azure Active Directory objects or Service Principals, which are also called work or school accounts, or organizational Ids.
+There can be one or more of several issues preventing successful deployment involving authentication and authorization and Azure Active Directory. Regardless how you manage your Azure resource groups, the identity you use to sign in to your account must be an Azure Active Directory object. This identity can be a work or school account that you created or was assigned to you, or you can create a Service Principal for applications.
 
 But Azure Active Directory enables you or your administrator to control which identities can access what resources with a great degree of precision. If your deployments are failing, examine the requests themselves for signs of authentication or authorization issues, and examine the deployment logs for your resource group. You might find that while you have permissions for some resources, you do not have permissions for others. Using the Azure CLI, you can examine Azure Active Directory tenants and users using the `azure ad` commands. (For a complete list of Azure CLI commands, see [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Manager](azure-cli-arm-commands.md).)
 
@@ -252,13 +315,38 @@ To be specific about cores, for example, you can check the regions for which you
         }
 
 
-## Azure CLI and PowerShell mode issues
-
-You might have the experience that Azure resources deployed using the service management API or using the portal are not visible using the Resource Manager API or the Azure portal. It is important to manage resources using the same Resource Manager API or portal that you used to create them. If a resource has disappeared, check to see if it is available using the other management API or portal.
-
-## Azure resource provider registration issues
+## Checking resource provider registration
 
 Resources are managed by resource providers, and an account or subscription might be enabled to use a particular provider. If you are enabled to use a provider, it must also be registered for use. Most providers are registered automatically by the Azure portal or the command-line interface you are using, but not all.
+
+### PowerShell
+
+To get a list of resource providers and your registration status, use **Get-AzureProvider** for versions of PowerShell prior to 1.0 Preview.
+
+    PS C:\> Get-AzureProvider
+
+    ProviderNamespace                       RegistrationState                       ResourceTypes
+    -----------------                       -----------------                       -------------
+    Microsoft.AppService                    Registered                              {apiapps, appIdentities, gateways, d...
+    Microsoft.Batch                         Registered                              {batchAccounts}
+    microsoft.cache                         Registered                              {Redis, checkNameAvailability, opera...
+    ...
+
+To register a provider, use **Register-AzureProvider**.
+
+For Powershell 1.0 Preview, use **Get-AzureRmResourceProvider**.
+
+    PS C:\> Get-AzureRmResourceProvider -ListAvailable
+
+    ProviderNamespace               RegistrationState ResourceTypes
+    -----------------               ----------------- -------------
+    Microsoft.ApiManagement         Unregistered      {service, validateServiceName, checkServiceNameAvailability}
+    Microsoft.AppService            Registered        {apiapps, appIdentities, gateways, deploymenttemplates...}
+    Microsoft.Batch                 Registered        {batchAccounts}
+
+To register a provider, use **Register-AzureRmResourceProvider**.
+
+### Azure CLI
 
 To see whether the provider is registered for use using the Azure CLI, use the `azure provider list` command (the following is a truncated example of the output).
 
@@ -307,8 +395,14 @@ Again, if you want more information about providers, including their regional av
           "registrationState": "Registered"
         }
 
-
 If a provider requires registration, use the `azure provider register <namespace>` command, where the *namespace* value comes from the preceding list.
+
+### REST API
+
+To get registration status, see [Get information about a resource provider](https://msdn.microsoft.com/library/azure/dn790534.aspx).
+
+To register a provider, see [Register a subscription with a resource provider](https://msdn.microsoft.com/library/azure/dn790548.aspx).
+
 
 ## Understanding when a deployment succeeds for custom templates
 
@@ -318,76 +412,21 @@ Note however, that this does not necessarily mean that your resource group is "a
 
 You can prevent Azure from reporting deployment success, however, by creating a custom script for your custom template -- using the [CustomScriptExtension](http://azure.microsoft.com/blog/2014/08/20/automate-linux-vm-customization-tasks-using-customscript-extension/) for example -- that knows how to monitor the entire deployment for system-wide readiness and returns successfully only when users can interact with the entire deployment. If you want to ensure that your extension is the last to run, use the **dependsOn** property in your template. An example can be seen [here](https://msdn.microsoft.com/library/azure/dn790564.aspx).
 
-## Merging templates
+## Useful tools to interact with Azure
+When you work with your Azure resources from the command-line, you will collect tools that help you do your work. Azure resource group templates are JSON documents, and the Azure Resource Manager API accepts and returns JSON, so JSON parsing tools are some of the first things you will use to help you navigate information about your resources and to design or interact with templates and template parameter files.
 
-At times you might need to merge two templates together, or you might need to launch a child template from a parent. This can be accomplished through the use of a deployment resource within the master template to deploy a child template.
+### Mac, Linux, and Windows tools
+If you use the Azure Command-Line Interface for Mac, Linux, and Windows, you are probably familiar with standard download tools such as **[curl](http://curl.haxx.se/)** and **[wget](https://www.gnu.org/software/wget/)**, or **[Resty](https://github.com/beders/Resty)**, and JSON utilities such as **[jq](http://stedolan.github.io/jq/download/)**, **[jsawk](https://github.com/micha/jsawk)**, and language libraries that handle JSON well. (Many of these tools also have ports for Windows, such as [wget](http://gnuwin32.sourceforge.net/packages/wget.htm); in fact, there are several ways to get Linux and other open-source software tools running on Windows as well.)
 
+This topic includes some Azure CLI commands that you can use with **jq** to obtain precisely the information that you want more efficiently. You should choose the toolset that you are comfortable with to help you understand your Azure resource usage.
 
-    {
-            "name": "instance01",
-            "type": "Microsoft.Resources/deployments",
-            "apiVersion": "2015-01-01",
-            "properties": {
-                "mode": "Incremental",
-                "templateLink": {
-                    "uri": "https://mystore.blob.windows.net/azurermtemplates/my-child-template.json",
-                    "contentVersion": "1.0.0.0"
-                },
-                "parameters": {
-                    "storageAccountName": { "value": "[variables('stgAcctName1')]" },
-                    "adminUsername": { "value": "[parameters('adminUsername')]" },
-                    "adminPassword": { "value": "[parameters('adminPassword')]" }
-                }
-            }
-    }
+### PowerShell
 
+PowerShell has several basic commands to perform the same procedures.
 
-## Crossing resource groups
+- Use the **[Invoke-WebRequest](https://technet.microsoft.com/library/hh849901%28v=wps.640%29)** cmdlet to download files such as resource group templates or parameters JSON files.
+- Use the **[ConvertFrom-Json](https://technet.microsoft.com/library/hh849898%28v=wps.640%29.aspx)** cmdlet to convert a JSON string to a custom object ([PSCustomObject](https://msdn.microsoft.com/library/windows/desktop/system.management.automation.pscustomobject%28v=vs.85%29.aspx)) that has a property for each field in the JSON string.
 
-Often you might want to use a resource from outside of the current resource group where a template is getting deployed. The most common case for this behavior is using a Storage account or virtual network in an alternate resource group. This is often needed so that the deletion of the resource group which contains the virtual machines will not result in the deletion of the VHD blobs or a VNet that is used by multiple resource groups. The following example shows how a resource from an external resource group can be used:
-
-
-    {
-      "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json",
-      "contentVersion": "1.0.0.0",
-      "parameters": {
-          "virtualNetworkName": {
-              "type": "string"
-          },
-          "virtualNetworkResourceGroup": {
-              "type": "string"
-          },
-          "subnet1Name": {
-              "type": "string"
-          },
-          "nicName": {
-              "type": "string"
-          }
-      },
-      "variables": {
-          "vnetID": "[resourceId(parameters('virtualNetworkResourceGroup'), 'Microsoft.Network/virtualNetworks', parameters('virtualNetworkName'))]",
-          "subnet1Ref": "[concat(variables('vnetID'),'/subnets/', parameters('subnet1Name'))]"
-      },
-      "resources": [
-      {
-          "apiVersion": "2015-05-01-preview",
-          "type": "Microsoft.Network/networkInterfaces",
-          "name": "[parameters('nicName')]",
-          "location": "[parameters('location')]",
-          "properties": {
-              "ipConfigurations": [{
-                  "name": "ipconfig1",
-                  "properties": {
-                      "privateIPAllocationMethod": "Dynamic",
-                      "subnet": {
-                          "id": "[variables('subnet1Ref')]"
-                      }
-                  }
-              }]
-           }
-      }]
-
-    }
 
 ## Next steps
 
@@ -396,3 +435,4 @@ To master the creation of templates, read through the [Authoring Azure Resource 
 <!--Image references-->
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
+

@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Get started with Azure Queue storage and Visual Studio connected services | Microsoft Azure"
-	description="How to get started using Azure Queue storage in an ASP.NET project in Visual Studio"
+	pageTitle="Get started with queue storage and Visual Studio connected services (ASP.NET) | Microsoft Azure"
+	description="How to get started using Azure Queue storage in an ASP.NET project in Visual Studio after connecting to a storage account using Visual Studio connected services"
 	services="storage"
 	documentationCenter=""
 	authors="patshea123"
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="vs-getting-started"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/04/2015"
-	ms.author="patshea123"/>
+	ms.date="09/03/2015"
+	ms.author="patshea"/>
 
 # Get started with Azure Queue storage and Visual Studio connected services
 
@@ -39,23 +39,23 @@ Azure Queue storage is a service for storing large numbers of messages that can 
 
 To access queues in ASP.NET projects, you need to include the following items to any C# source file that access Azure Queue storage.
 
-1. Make sure the namespace declarations at the top of the C# file include these `using` statements.
+1. Make sure the namespace declarations at the top of the C# file include these **using** statements.
 
 		using Microsoft.Framework.Configuration;
 		using Microsoft.WindowsAzure.Storage;
 		using Microsoft.WindowsAzure.Storage.Queue;
 
-2. Get a `CloudStorageAccount` object that represents your storage account information. Use the following code to get the your storage connection string and storage account information from the Azure service configuration.
+2. Get a **CloudStorageAccount** object that represents your storage account information. Use the following code to get the your storage connection string and storage account information from the Azure service configuration.
 
 		 CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
 		   CloudConfigurationManager.GetSetting("<storage-account-name>_AzureStorageConnectionString"));
 
-3. Get a `CloudQueueClient` object to reference the queueobjects in your storage account.  
+3. Get a **CloudQueueClient** object to reference the queueobjects in your storage account.  
 
 	    // Create the queueclient.
     	CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
 
-4. Get a `CloudQueue` object to reference a specific queue.
+4. Get a **CloudQueue** object to reference a specific queue.
 
     	// Get a reference to a queue named "messageQueue"
 	    CloudQueue messageQueue = queueClient.GetQueueReference("messageQueue");
@@ -65,16 +65,16 @@ To access queues in ASP.NET projects, you need to include the following items to
 
 ## Create a queue in code
 
-To create an Azure queue in code, just add a call to `CreateIfNotExists` to the code above.
+To create an Azure queue in code, just add a call to **CreateIfNotExists** to the code above.
 
 	// Create the CloudQuecClient  if it does not exist
 	messageQueue.CreateIfNotExists();
 
 ## Add a message to a queue
 
-To insert a message into an existing queue, create a new `CloudQueueMessage` object, then call the `AddMessage` method.
+To insert a message into an existing queue, create a new **CloudQueueMessage** object, then call the **AddMessage** method.
 
-A `CloudQueueMessage` object can be created from either a string (in UTF-8 format) or a byte array.
+A **CloudQueueMessage** object can be created from either a string (in UTF-8 format) or a byte array.
 
 Here is an example which inserts the message 'Hello, World'.
 
@@ -97,9 +97,9 @@ You can peek at the message in the front of a queue without removing it from the
 
 Your code can remove (de-queue) a message from a queue in two steps.
 1. Call GetMessage() to get the next message in a queue. A message returned from GetMessage() becomes invisible to any other code reading messages from this queue. By default, this message stays invisible for 30 seconds.
-2.	To finish removing the message from the queue, call `DeleteMessage`.
+2.	To finish removing the message from the queue, call **DeleteMessage**.
 
-This two-step process of removing a message assures that if your code fails to process a message due to hardware or software failure, another instance of your code can get the same message and try again. The following code calls `DeleteMessage` right after the message has been processed.
+This two-step process of removing a message assures that if your code fails to process a message due to hardware or software failure, another instance of your code can get the same message and try again. The following code calls **DeleteMessage** right after the message has been processed.
 
 	// Get a reference to the CloudQueue object named 'messageQueue' as described in "Access a queue in code"
 
@@ -118,11 +118,11 @@ There are two ways you can customize message retrieval from a queue.
 First, you can get a batch of messages (up to 32). Second, you can set a
 longer or shorter invisibility timeout, allowing your code more or less
 time to fully process each message. The following code example uses the
-`GetMessages` method to get 20 messages in one call. Then it processes
-each message using a `foreach` loop. It also sets the invisibility
+**GetMessages** method to get 20 messages in one call. Then it processes
+each message using a **foreach** loop. It also sets the invisibility
 timeout to five minutes for each message. Note that the 5 minutes starts
 for all messages at the same time, so after 5 minutes have passed since
-the call to `GetMessages`, any messages which have not been deleted
+the call to **GetMessages**, any messages which have not been deleted
 will become visible again.
 
     // Get a reference to the CloudQueue object named 'messageQueue' as described in "Access a queue in code"
@@ -142,10 +142,10 @@ will become visible again.
 ## Get the queue length
 
 You can get an estimate of the number of messages in a queue. The
-`FetchAttributes` method asks the queueservice to
-retrieve the queue attributes, including the message count. The `ApproximateMethodCount`
+**FetchAttributes** method asks the queueservice to
+retrieve the queue attributes, including the message count. The **ApproximateMethodCount**
 property returns the last value retrieved by the
-`FetchAttributes` method, without calling the queueservice.
+**FetchAttributes** method, without calling the queueservice.
 
     // Get a reference to the CloudQueue object named 'messageQueue' as described in "Access a queue in code"
 
@@ -182,7 +182,7 @@ This example shows how to use the Async-Await pattern with common queueAPIs. The
 ## Delete a queue
 
 To delete a queue and all the messages contained in it, call the
-`Delete` method on the queue object.
+**Delete** method on the queue object.
 
     // Get a reference to the CloudQueue object named 'messageQueue' as described in "Access a queue in code"
 

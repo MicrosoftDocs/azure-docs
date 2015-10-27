@@ -1,23 +1,26 @@
 <properties
-	pageTitle="Migrate a database to SQL Server on an Azure virtual machine"
+	pageTitle="Migrate a database to SQL Server on a VM | Mirosoft Azure"
 	description="Learn about how to migrate an on-premises user database to SQL Server in an Azure virtual machine."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="carlrabeler"
 	manager="jeffreyg"
-	editor=""/>
-
+	editor=""
+	tags="azure-service-management" />
 <tags
 	ms.service="virtual-machines"
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/16/2015"
+	ms.date="10/02/2015"
 	ms.author="carlrab"/>
 
 
 # Migrate a database to SQL Server on an Azure VM
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Resource Manager model.
+
 
 There are a number of methods for migrating an on-premises SQL Server user database to SQL Server in an Azure VM. This article will briefly discuss various methods, recommend the best method for various scenarios, and include a [tutorial](#azure-vm-deployment-wizard-tutorial) to guide you through the use of the **Deploy a SQL Server Database to a Microsoft Azure VM** wizard.
 
@@ -49,7 +52,7 @@ The following table lists each of the primary migration methods and discusses wh
 | [Use the Deploy a SQL Server Database to a Microsoft Azure VM wizard](#azure-vm-deployment-wizard-tutorial) | SQL Server 2005 or greater | SQL Server 2014 or greater | > 1 TB  | Fastest and simplest method, use whenever possible to migrate to a new or existing SQL Server instance in an Azure virtual machine |
 | [Perform on-premises backup using compression and manually copy the backup file into the Azure virtual machine](#backup-to-file-and-copy-to-vm-and-restore) | SQL Server 2005 or greater | SQL Server 2005 or greater | [Azure VM storage limit](https://azure.microsoft.com/en-us/documentation/articles/azure-subscription-service-limits/) | Use only when you cannot use the wizard, such as when the destination database version is less than SQL Server 2012 SP1 CU2 or the database backup size is larger than 1 TB (12.8 TB with SQL Server 2016) |
 | [Perform a backup to URL and restore into the Azure virtual machine from the URL](#backup-to-url-and-restore) | SQL Server 2012 SP1 CU2 or greater | SQL Server 2012 SP1 CU2 or greater | > 1 TB (For SQL Server 2016, < 12.8 TB) | Generally using [backup to URL](https://msdn.microsoft.com/library/dn435916.aspx) is equivalent in performance to using the wizard and not quite as easy |
-| [Detach and then copy the data and log files to Azure blob storage and then attach to SQL Server in Azure virtual machine from URL](#detach-and-copy-to-url-and-attach-from-url) | SQL Server 2005 or greater | SQL Server 2014 or greater | [Azure VM storage limit](https://azure.microsoft.com/en-us/documentation/articles/azure-subscription-service-limits/) | Use when attaching database files to SQL Server in an Azure VM [storing these files using the Azure Blob storage service](https://msdn.microsoft.com/library/dn385720.aspx), particularly with very large databases |
+| [Detach and then copy the data and log files to Azure blob storage and then attach to SQL Server in Azure virtual machine from URL](#detach-and-copy-to-url-and-attach-from-url) | SQL Server 2005 or greater | SQL Server 2014 or greater | [Azure VM storage limit](https://azure.microsoft.com/en-us/documentation/articles/azure-subscription-service-limits/) | Use this method when you plan to [store these files using the Azure Blob storage service](https://msdn.microsoft.com/library/dn385720.aspx) and attach them to SQL Server running in an Azure VM, particularly with very large databases |
 | [Convert on-premises machine to Hyper-V VHDs, upload to Azure Blob storage, and then deploy a new virtual machine using uploaded VHD](#convert-to-vm-and-upload-to-url-and-deploy-as-new-vm) | SQL Server 2005 or greater | SQL Server 2005 or greater | [Azure VM storage limit](https://azure.microsoft.com/en-us/documentation/articles/azure-subscription-service-limits/) | Use when [bringing your own SQL Server license](../data-management-azure-sql-database-and-sql-server-iaas/), when migrating a database that you will run on an older version of SQL Server, or when migrating system and user databases together as part of the migration of database dependent on other user databases and/or system databases. |
 | [Ship hard drive using Windows Import/Export Service](#ship-hard-drive) | SQL Server 2005 or greater | SQL Server 2005 or greater | [Azure VM storage limit](https://azure.microsoft.com/en-us/documentation/articles/azure-subscription-service-limits/) | Use the [Windows Import/Export Service](../storage-import-export-service/) when manual copy method is too slow, such as with very large databases |
 

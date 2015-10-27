@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/21/2015" 
+	ms.date="10/16/2015" 
 	ms.author="johnmac"/>
 
 #Performance levels in DocumentDB
@@ -29,7 +29,7 @@ After reading this article, you'll be able to answer the following questions:
 
 ##Introduction to performance levels
 
-Each DocumentDB collection created under a Standard account is provisioned with an associated performance level. Performance levels are designated as S1, S2 or S3 ranging from lowest to highest in performance. The collection’s performance level determines the amount of service resources reserved for your application. Each collection in a database can have a different performance level allowing you to designate more throughput for frequently accessed collections and less throughput for infrequently accessed collections. 
+Each DocumentDB collection created under a Standard account is provisioned with an associated performance level. Performance levels are designated as S1, S2 or S3 ranging from lowest to highest in performance. The collection’s performance level determines the amount of request processing resources reserved for your application. Each collection in a database can have a different performance level allowing you to designate more throughput for frequently accessed collections and less throughput for infrequently accessed collections. The minimum performance level for any collection is S1.
 
 Each performance level has an associated request unit (RU) rate limit. This is the throughput that will be reserved for a collection based on its performance level, and is available for use by that collection exclusively. Collections can be created through the [Azure portal](http://portal.azure.com) or any of the [DocumentDB SDKs](https://msdn.microsoft.com/library/azure/dn781482.aspx). The DocumentDB APIs allow you to specify the performance level of a collection. 
 

@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Getting started with Azure table storage and Visual Studio connected services"
-	description="How to get started using Azure table storage in a cloud service project in Visual Studio."
+    pageTitle="Get started with table storage and Visual Studio connected services (cloud services) | Microsoft Azure"
+	description="How to get started using Azure Table storage in a cloud service project in Visual Studio after connecting to a storage account using Visual Studio connected services"
 	services="storage"
 	documentationCenter=""
 	authors="patshea123"
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="vs-getting-started"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/22/2015"
-	ms.author="patshea123"/>
+	ms.date="09/03/2015"
+	ms.author="patshea"/>
 
-# Getting started with Azure table storage and Visual Studio connected services
+# Getting started with Azure table storage and Visual Studio connected services (cloud services projects)
 
 > [AZURE.SELECTOR]
 > - [Getting started](vs-storage-cloud-services-getting-started-tables.md)
@@ -42,11 +42,11 @@ To get started, you first need to create a table in your storage account. We'll 
 - See [Cloud Services documentation](http://azure.microsoft.com/documentation/services/cloud-services/) for general information about Azure cloud services.
 - See [ASP.NET](http://www.asp.net) for more information about programming ASP.NET applications.
 
-##Access tables in code
+## Access tables in code
 
 To access tables in cloud service projects, you need to include the following items to any C# source files that access Azure table storage.
 
-1. Make sure the namespace declarations at the top of the C# file include these `using` statements.
+1. Make sure the namespace declarations at the top of the C# file include these **using** statements.
 
 		using Microsoft.Framework.Configuration;
 		using Microsoft.WindowsAzure.Storage;
@@ -71,14 +71,14 @@ To access tables in cloud service projects, you need to include the following it
     	// Get a reference to a table named "peopleTable".
 	    CloudTable table = tableClient.GetTableReference("peopleTable");
 
-##Create a table in code
+## Create a table in code
 
-To create the Azure table, just add a call to `CreateIfNotExistsAsync` to the after you get a `CloudTable` object as described in the "Access tables in code" section.
+To create the Azure table, just add a call to **CreateIfNotExistsAsync** to the after you get a **CloudTable** object as described in the "Access tables in code" section.
 
 	// Create the CloudTable if it does not exist.
 	await table.CreateIfNotExistsAsync();
 
-##Add an entity to a table
+## Add an entity to a table
 
 To add an entity to a table, create a class that defines the properties of your entity. The following code defines an entity class called **CustomerEntity** that uses the customer's first name as the row key and the last name as the partition key.
 
@@ -112,7 +112,7 @@ Table operations involving entities are done using the **CloudTable** object tha
 	// Execute the insert operation.
 	await peopleTable.ExecuteAsync(insertOperation);
 
-##Insert a batch of entities
+## Insert a batch of entities
 
 You can insert multiple entities into a table in a single write operation. The following code example creates two entity objects ("Jeff Smith" and "Ben Smith"), adds them to a **TableBatchOperation** object using the Insert method, and then starts the operation by calling **CloudTable.ExecuteBatchAsync**.
 
@@ -141,9 +141,9 @@ You can insert multiple entities into a table in a single write operation. The f
     // Create the CloudTable if it does not exist
     await table.CreateIfNotExistsAsync();
 
-##Add an entity to a table
+## Add an entity to a table
 
-To add an entity to a table you create a class that defines the properties of your entity. The following code defines an entity class called `CustomerEntity` that uses the customer's first name as the row key and last name as the partition key.
+To add an entity to a table you create a class that defines the properties of your entity. The following code defines an entity class called **CustomerEntity** that uses the customer's first name as the row key and last name as the partition key.
 
     public class CustomerEntity : TableEntity
     {
@@ -160,7 +160,7 @@ To add an entity to a table you create a class that defines the properties of yo
          public string PhoneNumber { get; set; }
     }
 
-Table operations involving entities are done using the `CloudTable` object you created earlier in "Access tables in code." The `TableOperation` object represents the operation to be done. The following code example shows how to create a `CloudTable` object and a `CustomerEntity` object. To prepare the operation, a `TableOperation` is created to insert the customer entity into the table. Finally, the operation is executed by calling CloudTable.ExecuteAsync.
+Table operations involving entities are done using the **CloudTable** object you created earlier in "Access tables in code." The **TableOperation** object represents the operation to be done. The following code example shows how to create a **CloudTable** object and a **CustomerEntity** object. To prepare the operation, a **TableOperation** is created to insert the customer entity into the table. Finally, the operation is executed by calling CloudTable.ExecuteAsync.
 
     // Get a reference to the CloudTable object named 'peopleTable' as described in "Access a table in code".
 
@@ -175,9 +175,9 @@ Table operations involving entities are done using the `CloudTable` object you c
     // Execute the insert operation.
     await peopleTable.ExecuteAsync(insertOperation);
 
-##Insert a batch of entities
+## Insert a batch of entities
 
-You can insert multiple entities into a table in a single write operation. The following code example creates two entity objects ("Jeff Smith" and "Ben Smith"), adds them to a `TableBatchOperation` object using the Insert method, and then starts the operation by calling `CloudTable.ExecuteBatchAsync`.
+You can insert multiple entities into a table in a single write operation. The following code example creates two entity objects ("Jeff Smith" and "Ben Smith"), adds them to a **TableBatchOperation** object using the Insert method, and then starts the operation by calling **CloudTable.ExecuteBatchAsync**.
 
     // Get a reference to a CloudTable object named 'peopleTable' as described in "Access a table in code".
 
@@ -201,9 +201,9 @@ You can insert multiple entities into a table in a single write operation. The f
     // Execute the batch operation.
     await peopleTable.ExecuteBatchAsync(batchOperation);
 
-##Get all of the entities in a partition
+## Get all of the entities in a partition
 
-To query a table for all of the entities in a partition, use a `TableQuery` object. The following code example specifies a filter for entities where 'Smith' is the partition key. This example prints the fields of each entity in the query results to the console.
+To query a table for all of the entities in a partition, use a **TableQuery** object. The following code example specifies a filter for entities where 'Smith' is the partition key. This example prints the fields of each entity in the query results to the console.
 
     // Get a reference to a CloudTable object named 'peopleTable' as described in "Access a table in code".
 
@@ -228,7 +228,7 @@ To query a table for all of the entities in a partition, use a `TableQuery` obje
     return View();
 
 
-##Get a single entity
+## Get a single entity
 
 You can write a query to get a single, specific entity. The following code uses a **TableOperation** object to specify a customer named 'Ben Smith'. This method returns just one entity, rather than a collection, and the returned value in **TableResult.Result** is a **CustomerEntity** object. Specifying both partition and row keys in a query is the fastest way to retrieve a single entity from the **Table** service.
 
@@ -246,7 +246,7 @@ You can write a query to get a single, specific entity. The following code uses 
 	else
 	   Console.WriteLine("The phone number could not be retrieved.");
 
-##Delete an entity
+## Delete an entity
 You can delete an entity after you find it. The following code looks for a customer entity named "Ben Smith", and if it finds it, it deletes it.
 
 	// Get a reference to a **CloudTable** object named 'peopleTable' as described in "Access a table in code".
@@ -274,6 +274,6 @@ You can delete an entity after you find it. The following code looks for a custo
 	else
 	   Console.WriteLine("Couldn't delete the entity.");
 
-##Next steps
+## Next steps
 
 [AZURE.INCLUDE [vs-storage-dotnet-blobs-next-steps](../../includes/vs-storage-dotnet-blobs-next-steps.md)]

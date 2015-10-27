@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Use StorSimple Snapshot Manager to view and manage volumes | Microsoft Azure"
-   description="Describes how to use the StorSimple Snapshot Manager MMC snap-in to view and manage volumes."
+   pageTitle="StorSimple Snapshot Manager and volumes | Microsoft Azure"
+   description="Describes how to use the StorSimple Snapshot Manager MMC snap-in to view and manage volumes and to configure backups."
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/17/2015"
+   ms.date="10/15/2015"
    ms.author="v-sharos" />
 
 # Use StorSimple Snapshot Manager to view and manage volumes
@@ -24,8 +24,6 @@ You can use the StorSimple Snapshot Manager **Volumes** node (on the **Scope** p
 For more information about supported volumes, go to [Support for multiple volume types](storsimple-what-is-snapshot-manager.md#support-for-multiple-volume-types).
 
 ![Volume list in Results pane](./media/storsimple-snapshot-manager-manage-volumes/HCS_SSM_Volume_node.png)
-
-**Figure 1: StorSimple Snapshot Manager Volumes node** 
 
 The **Volumes** node also lets you rescan or delete volumes after StorSimple Snapshot Manager discovers them. 
 
@@ -41,7 +39,7 @@ This tutorial explains how you can mount, initialize, and format volumes and the
  
 ## Mount volumes
 
-Use the following procedure to mount, initialize, and format Azure StorSimple volumes.
+Use the following procedure to mount, initialize, and format Azure StorSimple volumes. This procedure uses Disk Management, a system utility for managing hard disks and the volumes or partitions that they contain. For more information about Disk Management, go to [Disk Management](https://technet.microsoft.com/library/cc770943.aspx) on the Microsoft TechNet website.
 
 #### To mount volumes
 
@@ -49,7 +47,7 @@ Use the following procedure to mount, initialize, and format Azure StorSimple vo
 
 2. Supply one of the interface IP addresses as the target portal or discovery IP address, and connect to the device. After the device is connected, the volumes will be accessible to your Windows system. For more information about using the Microsoft iSCSI initiator, go to the section “Connecting to an iSCSI target device” in [Installing and Configuring Microsoft iSCSI Initiator][1].
 
-3. Use any of the following options to start the Disk Management snap-in:
+3. Use any of the following options to start Disk Management:
 
     - Type Diskmgmt.msc in the **Run** box.
 
@@ -113,7 +111,8 @@ Use the following procedure to view information about local and Azure StorSimple
 Use the following procedure to delete a volume from StorSimple Snapshot Manager.
 
 >[AZURE.NOTE] You cannot delete a volume if it is part of any volume group. (The delete option is not available for volumes that are members of a volume group.) You must delete the entire volume group to delete the volume.
-<br>
+
+
 #### To delete a volume
 
 1. Click the desktop icon to start StorSimple Snapshot Manager.
@@ -186,11 +185,11 @@ Before you begin:
 
 ## Configure and back up a dynamic mirrored volume
 
-Complete the following steps to configure backup for a dynamic mirrored volume:
+Complete the following steps to configure backup of a dynamic mirrored volume:
 
-- Step 1: Use Disk Management to create a dynamic mirrored volume 
+- Step 1: Use Disk Management to create a dynamic mirrored volume. 
 
-- Step 2: Use StorSimple Snapshot Manager to configure backup 
+- Step 2: Use StorSimple Snapshot Manager to configure backup.
 
 ### Prerequisites
 
@@ -266,7 +265,8 @@ Use the following procedure to configure a dynamic mirrored volume, and then eit
 
 ## Next steps
 
-[Use StorSimple Snapshot Manager to create and manage volume groups](storsimple-snapshot-manager-manage-volume-groups.md).
+- Learn how to [use StorSimple Snapshot Manager to administer your StorSimple solution](storsimple-snapshot-manager-admin.md).
+- Learn how to [use StorSimple Snapshot Manager to create and manage volume groups](storsimple-snapshot-manager-manage-volume-groups.md).
 
 <!--Reference links-->
 [1]: https://msdn.microsoft.com/library/ee338480(v=ws.10).aspx

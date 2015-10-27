@@ -1,11 +1,12 @@
 <properties 
-	pageTitle="SQL Server Business Intelligence in Azure Virtual Machines"
-	description="This topic describes the Business Intelligence (BI) features available for SQL Server running on Azure Virtual Machines (VMs)."
+	pageTitle="SQL Server Business Intelligence | Microsoft Azure"
+	description="This topic uses resources created with the classic deployment model, and describes the Business Intelligence (BI) features available for SQL Server running on Azure Virtual Machines (VMs)."
 	services="virtual-machines"
 	documentationCenter="na"
 	authors="rothja"
 	manager="jeffreyg"
-	editor="monicar" />
+	editor="monicar" 
+	tags="azure-service-management"/>
 <tags 
 	ms.service="virtual-machines"
 	ms.devlang="na"
@@ -16,6 +17,9 @@
 	ms.author="jroth" />
 
 # SQL Server Business Intelligence in Azure Virtual Machines
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Resource Manager model.
+ 
  
 The Microsoft Azure Virtual Machine gallery includes images that contain SQL Server installations. The SQL Server editions supported in the gallery images are the same installation files you can install to on-premises computers and virtual machines. This topic summarizes the SQL Server Business Intelligence (BI) Features installed on the images and configuration steps required after a virtual machine is provisioned. This topic also describes supported deployment topologies for BI features and best practices.
 

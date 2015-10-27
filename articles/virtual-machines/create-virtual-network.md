@@ -1,11 +1,12 @@
 <properties 
-	pageTitle="Tutorial: Create a cloud-only virtual network" 
+	pageTitle="Create a cloud-only virtual network | Microsoft Azure" 
 	description="Learn how to create an example cloud-only Azure Virtual Network in this tutorial." 
 	services="virtual-machines, virtual-network" 
 	documentationCenter="" 
 	authors="cherylmc" 
 	manager="adinah" 
-	editor=""/>
+	editor=""
+	tags="azure-resource-manager"/>
 
 <tags 
 	ms.service="virtual-network" 
@@ -17,6 +18,10 @@
 	ms.author="cherylmc"/>
 
 # Tutorial: Create a Cloud-Only Virtual Network in Azure
+
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] classic deployment model.
+
 
 This tutorial walks you through the steps in the Azure Management Portal to create an example cloud-only Azure Virtual Network that contains two subnets. The resulting virtual network will look like the following:
 

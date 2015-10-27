@@ -1,10 +1,10 @@
 <properties
-   pageTitle="Azure portal keyboard shortcuts"
+   pageTitle="Azure portal keyboard shortcuts | Microsoft Azure"
    description="This article will always be an up-to-date listing of the keyboard shortcuts that work throughout the Azure portal. Individual services might have their own specialized keyboard shortcuts."
    services="cloud-services"
-   documentationCenter="dev-center-name"
+   documentationCenter=""
    authors="curtand"
-   manager="terrylan"
+   manager="msStevenPo"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="na"
-   ms.date="05/28/2015"
+   ms.date="09/10/2015"
    ms.author="curtand"/>
 
 # Azure portal keyboard shortcuts
@@ -49,4 +49,3 @@
 ## Next steps
 
 Get to know the Azure Portal better: http://azure.microsoft.com.
- 

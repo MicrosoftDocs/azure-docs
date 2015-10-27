@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/20/2015"
+   ms.date="09/18/2015"
    ms.author="tomfitz"/>
 
 # Authoring Azure Resource Manager templates
@@ -104,7 +104,11 @@ You define parameters with the following structure:
        "<parameterName>" : {
          "type" : "<type-of-parameter-value>",
          "defaultValue": "<optional-default-value-of-parameter>",
-         "allowedValues": [ "<optional-array-of-allowed-values>" ]
+         "allowedValues": [ "<optional-array-of-allowed-values>" ],
+         "minValue": <optional-minimum-value-for-int-parameters>,
+         "maxValue": <optional-maximum-value-for-int-parameters>,
+         "minLength": <optional-minimum-length-for-string-secureString-array-parameters>,
+         "maxLength": <optional-maximum-length-for-string-secureString-array-parameters>
        }
     }
 
@@ -114,6 +118,10 @@ You define parameters with the following structure:
 | type           |   Yes    | Type of the parameter value. See the list below of allowed types.
 | defaultValue   |   No     | Default value for the parameter, if no value is provided for the parameter.
 | allowedValues  |   No     | Array of allowed values for the parameter to make sure that the right value is provided.
+| minValue       |   No     | The minimum value for int type parameters, this value is inclusive.
+| maxValue       |   No     | The maximum value for int type parameters, this value is inclusive.
+| minLength      |   No     | The minimum length for string, secureString and array type parameters, this value is inclusive.
+| maxLength      |   No     | The maximum length for string, secureString and array type parameters, this value is inclusive.
 
 The allowed types and values are:
 
@@ -123,6 +131,7 @@ The allowed types and values are:
 - object or secureObject - any valid JSON object
 - array - any valid JSON array
 
+To specify a parameter as optional, set its defaultValue to an empty string.
 
 >[AZURE.NOTE] All passwords, keys, and other secrets should use the **secureString** type. Template parameters with the secureString type cannot be read after resource deployment. 
 
@@ -130,10 +139,13 @@ The following example shows how to define parameters:
 
     "parameters": {
        "siteName": {
-          "type": "string"
+          "type": "string",
+          "minLength": 2,
+          "maxLength": 60
        },
        "siteLocation": {
-          "type": "string"
+          "type": "string",
+          "minLength": 2
        },
        "hostingPlanName": {
           "type": "string"
@@ -148,6 +160,14 @@ The following example shows how to define parameters:
             "Premium"
           ],
           "defaultValue": "Free"
+       },
+       "instancesCount": {
+          "type": "int",
+          "maxValue": 10
+       },
+       "numberOfWorkers": {
+          "type": "int",
+          "minValue": 1
        }
     }
 
@@ -231,6 +251,8 @@ You define resources with the following structure:
 | resources                |   No     | Child resources that depend on the resource being defined.
 
 If the resource name is not unique, you can use the **resourceId** helper function (described below) to get the unique identifier for any resource.
+
+The values for the **properties** element are exactly the same as the values you provide in the request body for the REST API operation (PUT method) to create the resource. See [Azure reference](https://msdn.microsoft.com/library/azure/mt420159.aspx) for the REST API operations for the resource you wish to deploy.
 
 The following example shows a **Microsoft.Web/serverfarms** resource and a **Microsoft.Web/sites** resource with a nested **Extensions** resource:
 

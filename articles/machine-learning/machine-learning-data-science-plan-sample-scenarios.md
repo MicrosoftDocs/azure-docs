@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/22/2015"
+	ms.date="10/18/2015"
 	ms.author="msolhab;bradsev" />
 
 
 # Scenarios for advanced analytics in Azure Machine Learning
 
-This article outlines the variety of sample data sources and target scenarios that can be handled with the Advanced Analytics Process and Technology (ADAPT) in Azure Machine Learning. It illustrates options available in the processing sequences that depend on the data characteristics, source locations, and target repositories in Azure.
+This article outlines the variety of sample data sources and target scenarios that can be handled by the Cortana Analytics Process (CAP). It illustrates options available in the processing sequences that depend on the data characteristics, source locations, and target repositories in Azure.
 
 The **decision tree** for selecting the sample scenarios that is appropriate for your data and objective is presented in the last section.
 
@@ -32,8 +32,6 @@ Each of the following sections presents a sample scenario. For each scenario, a 
 
 *   [Create a storage account](storage-whatis-account.md)
 *   [Create an Azure ML workspace](machine-learning/machine-learning-create-workspace.md)
-
-
 
 
 ## <a name="smalllocal"></a>Scenario \#1: Small to medium tabular dataset in a local files
@@ -307,8 +305,8 @@ The following diagram summarizes the scenarios described above and the Advanced 
 For end-to-end Azure Machine Learning walkthroughs that employ the Advanced Analytics Process and Technology using public datasets, see:
 
 
-* [Advanced Analytics Process and Technology in Action: using SQL Server](machine-learning/machine-learning-data-science-process-sql-walkthrough.md).
-* [Advanced Analytics Process and Technology in action: using HDInsight Hadoop clusters](machine-learning/machine-learning-data-science-process-hive-walkthrough.md).
+* [Cortana Analytics Process in action: using SQL Server](machine-learning/machine-learning-data-science-process-sql-walkthrough.md).
+* [Cortana Analytics Process in action: using HDInsight Hadoop clusters](machine-learning/machine-learning-data-science-process-hive-walkthrough.md).
 
 
 [1]: ./media/machine-learning-data-science-plan-sample-scenarios/dsp-plan-small-in-aml.png
