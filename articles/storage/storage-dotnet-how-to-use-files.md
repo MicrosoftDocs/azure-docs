@@ -12,10 +12,12 @@
       ms.tgt_pltfrm="na"
       ms.devlang="dotnet"
       ms.topic="hero-article"
-      ms.date="09/28/2015"
+      ms.date="10/26/2015"
       ms.author="tamram" />
 
 # How to use Azure File storage with Windows
+
+[AZURE.INCLUDE [storage-selector-file-include](../../includes/storage-selector-file-include.md)]
 
 ## Overview
 
@@ -34,6 +36,12 @@ For information on scalability targets for File storage, see [Azure Storage Scal
 [AZURE.INCLUDE [storage-dotnet-client-library-version-include](../../includes/storage-dotnet-client-library-version-include.md)]
 
 [AZURE.INCLUDE [storage-file-concepts-include](../../includes/storage-file-concepts-include.md)]
+
+## Video: Using Azure File storage with Windows
+
+Here's a video that demonstrates how to create and use Azure File shares on Windows.
+
+> [AZURE.VIDEO 45f60e08-42c6-402b-b325-a5210125212b]
 
 ## About this tutorial
 
@@ -519,8 +527,9 @@ You can enable metrics for File storage from the Azure portal. You can also enab
 
 See these links for more information about Azure File storage.
 
-### Conceptual articles
+### Conceptual articles and videos
 
+- [Azure Files Storage: a frictionless cloud SMB file system for Windows and Linux](https://azure.microsoft.com/documentation/videos/azurecon-2015-azure-files-storage-a-frictionless-cloud-smb-file-system-for-windows-and-linux/)
 - [How to use Azure File Storage with Linux](storage-how-to-use-files-linux.md)
 
 ### Tooling support for File storage
