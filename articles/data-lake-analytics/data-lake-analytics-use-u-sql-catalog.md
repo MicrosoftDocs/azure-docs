@@ -49,7 +49,7 @@ You can use Data Lake Tools for Visual Studio to manage the catalog.  For more i
 1. Open **Server Explorer** by press **CTRL+ALT+S**.
 2. From **Server Explorer**, expand **Azure**, expand **Data Lake Analytics**, expand your Data Lake Analytics account, expand **Databases**, and then expand **master**
 
-	![browse U-SQL Visual Studio catalogs](./media/data-lake-analytics-use-u-sql-catalog/data-lake-analytics-browse-catalogs.png)
+
 
     - To add a new Database, right-click **Database**, and then click **Create Database**.
     - To add a new assembly, right-click **Assemblies**, and then click **Register Assembly**.
@@ -57,7 +57,7 @@ You can use Data Lake Tools for Visual Studio to manage the catalog.  For more i
     - To add a new table, right-click **Tables**, and then click ""Create Table**.
     - To add a new table valued function, see [Davelop U-SQL user defined operators for Data Lake Analytics jobs](data-lake-analytics-u-sql-develop-user-defined-operators.md).
 
-
+![browse U-SQL Visual Studio catalogs](./media/data-lake-analytics-use-u-sql-catalog/data-lake-analytics-browse-catalogs.png)
 
 
 ## See also
