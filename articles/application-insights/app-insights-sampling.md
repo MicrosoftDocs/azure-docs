@@ -30,13 +30,21 @@ Sampling is currently in Beta, and may change in the future.
 Sampling is currently available for the ASP.NET SDK or [any   web page](#other-web-pages). 
 
 ### ASP.NET server
-To configure sampling in your application, insert the following code snippet into the `Application_Start()` method in Global.asax.cs:
 
-```C#
+1. Update your project's NuGet packages to the latest *pre-release* version of Application Insights. Right-click the project in Solution Explorer, choose Manage NuGet Packages, check **Include prerelease** and search for Microsoft.ApplicationInsights.Web. 
 
-    using Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel;
-    // This configures sampling percentage at 10%:
-    TelemetryConfiguration.Active.TelemetryChannel = new TelemetryChannelBuilder().UseSampling(10.0).Build();
+2. Add this snippet to ApplicationInsights.config
+
+```XML
+
+    <TelemetryProcessors>
+     <Add Type="Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.SamplingTelemetryProcessor, Microsoft.AI.ServerTelemetryChannel">
+
+     <!-- Sampling at 10 percent -->
+     <SamplingPercentage>10</SamplingPercentage>
+     </Add>
+   </TelemetryProcessors>
+
 ```
 
 > [AZURE.NOTE] For the sampling percentage, choose a percentage that is close to 100/N where N is an integer. So for example, valid values include 50 (=1/2), 33.33 (= 1/3), 25 (=1/4), 20 (=1/5) and so on. Currently sampling doesn't support other values.
@@ -63,6 +71,26 @@ When you [configure the web pages for Application Insights](app-insights-javascr
 Make sure that you provide the same sampling percentage in the JavaScript as you did in the server side.
 
 [Learn more about the API](app-insights-api-custom-events-metrics.md)
+
+
+### Alternative: set sampling in server code
+
+
+Instead of setting the sampling parameter in the .config file, you can use code. This would allow you to switch sampling on or off.
+
+*C#*
+
+```C#
+
+    using Microsoft.ApplicationInsights.Extensibility;
+    using Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel;
+
+    // It's recommended to set SamplingPercentage in the .config file instead.
+
+    // This configures sampling percentage at 10%:
+    TelemetryConfiguration.Active.TelemetryChannel = new TelemetryChannelBuilder().UseSampling(10.0).Build();
+
+```
 
 
 ## When  to use sampling?
