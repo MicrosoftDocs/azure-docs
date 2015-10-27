@@ -22,7 +22,7 @@
 
 By default, only the owner of the storage account may access storage resources within that account. For Blob storage only, you can set a container's permissions to permit anonymous read access to the container and its blobs, so that you can grant access to those resources without sharing your account key.
 
-Anonymous access is best for scenarios where you want certain blobs to always be available for anonymous read access. For finer-grained control, you can create a shared access signature, which enables you to delegate restricted access using different permissions and over a specified time interval. For more information about creating shared access signatures, see [Shared Access Signatures: Understanding the SAS Model](https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/).
+Anonymous access is best for scenarios where you want certain blobs to always be available for anonymous read access. For finer-grained control, you can create a shared access signature, which enables you to delegate restricted access using different permissions and over a specified time interval. For more information about creating shared access signatures, see [Shared Access Signatures: Understanding the SAS Model](storage-dotnet-shared-access-signature-part-1.md).
 
 ## Grant anonymous users permissions to containers and blobs
 
