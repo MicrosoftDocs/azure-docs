@@ -235,8 +235,7 @@ apiKey | The published workspace model’s API. | Yes
 
 
 ## Azure Data Lake Analytics Linked Service
-## Azure Data Lake Analytics Linked Service
-You create an **Azure Data Lake Analytics** linked service to link an Azure Data Lake Analytics compute service to an Azure data factory before using the Data Lake Analytics U-SQL activity in a pipeline. 
+You create an **Azure Data Lake Analytics** linked service to link an Azure Data Lake Analytics compute service to an Azure data factory before using the [Data Lake Analytics U-SQL activity](data-factory-usql-activity.md) in a pipeline. 
 
 The following example provides JSON definition for an Azure Data Lake Analytics linked service. 
 
@@ -268,7 +267,6 @@ subscriptionId | Azure subscription id | No (If not specified, subscription of t
 resourceGroupName | Azure resource group name |  No (If not specified, resource group of the data factory is used).
 sessionId | session id from the OAuth authorization session. Each session id is unique and may only be used once. This is auto-generated in the Data Factory Editor. | Yes
 
-See [Invoke U-SQL script from Data Factory](data-factory-usql-activity.md)
 
 ## Azure SQL Linked Service
 
