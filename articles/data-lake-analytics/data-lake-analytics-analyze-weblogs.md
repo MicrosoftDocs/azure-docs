@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="10/22/2015"
+   ms.date="10/27/2015"
    ms.author="jgao"/>
 
 # Tutorial: Analyze Website logs using Azure Data Lake Analytics
@@ -160,9 +160,9 @@ You can add addition user-defined operators to the application.  For more inform
         OUTPUT @content
         TO @"/Samples/Outputs/UnsuccessfulResponses.log"
         USING Outputters.Tsv();
-    
-    [jgao: are the comments in the script enough for customers to understand it?]
-   
+
+    To understand the U-SQL, see [Get started with Data Lake Analytics U-SQL language](data-lake-analytics-u-sql-get-started.md).    
+       
 5. Next to the **Submit** button, specify your Analytics account.
 5. From **Solution Explorer**, right click **Script.usql**, and then click **Build Script**. Verify the results in the Output pane.
 6. From **Solution Explorer**, right click **Script.usql**, and then click **Submit Script**.
@@ -179,8 +179,6 @@ You can add addition user-defined operators to the application.  For more inform
 2.  Double-click **Samples** to open the folder, and then double-click **Outputs**.
 3.  Double-click **UnsuccessfulResponsees.log**.
 4.  You can also double-click the output file inside the graph view of the job in order to navigate directly to the output.
-
-    [jgao: include a screenshot of the end results.]
         
 ## See also
 

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="10/19/2015"
+   ms.date="10/26/2015"
    ms.author="jgao"/>
 
 
@@ -142,9 +142,9 @@ The following query uses an aggregation to calculate the total salary for all em
 
 The result is a single row with a single column. The $165000 is the sum of of the Salary value from the whole table. 
 
-    |TotalSalary
-    |-----------
-    |165000
+|TotalSalary
+|-----------
+|165000
 
 >[AZURE.NOTE] If you are new to windows functions, it is helpful to remember the numbers in the outputs.  
 
@@ -157,12 +157,12 @@ The following statement use the GROUP BY clause to calculate the total salery fo
 
 The results are :
 
-    |DeptName|SalaryByDept
-    |--------|------------
-    |Engineering|60000
-    |HR|30000
-    |Executive|50000
-    |Marketing|25000
+|DeptName|SalaryByDept
+|--------|------------
+|Engineering|60000
+|HR|30000
+|Executive|50000
+|Marketing|25000
 
 The sum of the SalaryByDept column is $165000, which matches the amount in the last script.
  
@@ -185,17 +185,17 @@ You could read this query as: “The sum of Salary over a window of all rows”.
 
 Unlike GROUP BY, there are as many output rows as input rows: 
 
-    |EmpName|TotalAllDepts
-    |-------|--------------------
-    |Noah|165000
-    |Sophia|165000
-    |Liam|165000
-    |Emma|165000
-    |Jacob|165000
-    |Olivia|165000
-    |Mason|165000
-    |Ava|165000
-    |Ethan|165000
+|EmpName|TotalAllDepts
+|-------|--------------------
+|Noah|165000
+|Sophia|165000
+|Liam|165000
+|Emma|165000
+|Jacob|165000
+|Olivia|165000
+|Mason|165000
+|Ava|165000
+|Ethan|165000
 
 
 The value of 165000 (the total of all salaries) is placed in each output row. That total comes from the "window" of all rows, so it includes all the salaries. 
@@ -210,17 +210,17 @@ The next example demonstratees how to refine the "window" to list all the employ
 
 The results are:
 
-    |EmpName|DeptName|SalaryByDep
-    |-------|--------|-------------------
-    |Noah|Engineering|60000
-    |Sophia|Engineering|60000
-    |Liam|Engineering|60000
-    |Mason|Executive|50000
-    |Emma|HR|30000
-    |Jacob|HR|30000
-    |Olivia|HR|30000
-    |Ava|Marketing|25000
-    |Ethan|Marketing|25000
+|EmpName|DeptName|SalaryByDep
+|-------|--------|-------------------
+|Noah|Engineering|60000
+|Sophia|Engineering|60000
+|Liam|Engineering|60000
+|Mason|Executive|50000
+|Emma|HR|30000
+|Jacob|HR|30000
+|Olivia|HR|30000
+|Ava|Marketing|25000
+|Ethan|Marketing|25000
 
 Again, there are the same number of input rows as output rows. However each row has a total salary for the corresponding department.
 
@@ -260,17 +260,17 @@ The following example adds a totale salary by department to each input row:
 
 Here is the output:
 
-    |EmpID|EmpName|DeptName|DeptID|Salary|TotalByDept
-    |-----|-------|--------|------|------|-----------
-    |1|Noah|Engineering|100|10000|60000
-    |2|Sophia|Engineering|100|20000|60000
-    |3|Liam|Engineering|100|30000|60000
-    |7|Mason|Executive|300|50000|50000
-    |4|Emma|HR|200|10000|30000
-    |5|Jacob|HR|200|10000|30000
-    |6|Olivia|HR|200|10000|30000
-    |8|Ava|Marketing|400|15000|25000
-    |9|Ethan|Marketing|400|10000|25000
+|EmpID|EmpName|DeptName|DeptID|Salary|TotalByDept
+|-----|-------|--------|------|------|-----------
+|1|Noah|Engineering|100|10000|60000
+|2|Sophia|Engineering|100|20000|60000
+|3|Liam|Engineering|100|30000|60000
+|7|Mason|Executive|300|50000|50000
+|4|Emma|HR|200|10000|30000
+|5|Jacob|HR|200|10000|30000
+|6|Olivia|HR|200|10000|30000
+|8|Ava|Marketing|400|15000|25000
+|9|Ethan|Marketing|400|10000|25000
 
 ### Use COUNT
 
@@ -283,17 +283,17 @@ The following example adds an extra field to each row to show the total number e
 
 The result:
 
-    |EmpID|EmpName|DeptName|DeptID|Salary|CountByDept
-    |-----|-------|--------|------|------|-----------
-    |1|Noah|Engineering|100|10000|3
-    |2|Sophia|Engineering|100|20000|3
-    |3|Liam|Engineering|100|30000|3
-    |7|Mason|Executive|300|50000|1
-    |4|Emma|HR|200|10000|3
-    |5|Jacob|HR|200|10000|3
-    |6|Olivia|HR|200|10000|3
-    |8|Ava|Marketing|400|15000|2
-    |9|Ethan|Marketing|400|10000|2
+|EmpID|EmpName|DeptName|DeptID|Salary|CountByDept
+|-----|-------|--------|------|------|-----------
+|1|Noah|Engineering|100|10000|3
+|2|Sophia|Engineering|100|20000|3
+|3|Liam|Engineering|100|30000|3
+|7|Mason|Executive|300|50000|1
+|4|Emma|HR|200|10000|3
+|5|Jacob|HR|200|10000|3
+|6|Olivia|HR|200|10000|3
+|8|Ava|Marketing|400|15000|2
+|9|Ethan|Marketing|400|10000|2
 
 
 ### Use MIN and MAX
@@ -308,17 +308,17 @@ The following example adds an extra field to each row to show the lowest salary 
 
 The results:
 
-    |EmpID|EmpName|DeptName|DeptID|Salary|MinSalary
-    |-----|-------|--------|------|-------------|----------------
-    |1|Noah|Engineering|100|10000|10000
-    |2|Sophia|Engineering|100|20000|10000
-    |3|Liam|Engineering|100|30000|10000
-    |7|Mason|Executive|300|50000|50000
-    |4|Emma|HR|200|10000|10000
-    |5|Jacob|HR|200|10000|10000
-    |6|Olivia|HR|200|10000|10000
-    |8|Ava|Marketing|400|15000|10000
-    |9|Ethan|Marketing|400|10000|10000
+|EmpID|EmpName|DeptName|DeptID|Salary|MinSalary
+|-----|-------|--------|------|-------------|----------------
+|1|Noah|Engineering|100|10000|10000
+|2|Sophia|Engineering|100|20000|10000
+|3|Liam|Engineering|100|30000|10000
+|7|Mason|Executive|300|50000|50000
+|4|Emma|HR|200|10000|10000
+|5|Jacob|HR|200|10000|10000
+|6|Olivia|HR|200|10000|10000
+|8|Ava|Marketing|400|15000|10000
+|9|Ethan|Marketing|400|10000|10000
 
 Replace MIN with MAX and then give it a try.
 
@@ -359,17 +359,17 @@ ROW_NUMBER, RANK, and DENSE_RANK all assign numbers to rows in a window. Rather 
         
 Note the OVER clauses are identical. The result:
 
-    |Query|Latency:int|Vertical|RowNumber|Rank|DenseRank
-    |-----|-----------|--------|--------------|---------|--------------
-    |Banana|300|Image|1|1|1
-    |Cherry|300|Image|2|1|1
-    |Durian|500|Image|3|3|2
-    |Apple|100|Web|1|1|1
-    |Fig|200|Web|2|2|2
-    |Papaya|200|Web|3|2|2
-    |Fig|300|Web|4|4|3
-    |Cherry|400|Web|5|5|4
-    |Durian|500|Web|6|6|5
+|Query|Latency:int|Vertical|RowNumber|Rank|DenseRank
+|-----|-----------|--------|--------------|---------|--------------
+|Banana|300|Image|1|1|1
+|Cherry|300|Image|2|1|1
+|Durian|500|Image|3|3|2
+|Apple|100|Web|1|1|1
+|Fig|200|Web|2|2|2
+|Papaya|200|Web|3|2|2
+|Fig|300|Web|4|4|3
+|Cherry|400|Web|5|5|4
+|Durian|500|Web|6|6|5
 
 ### ROW_NUMBER
 
@@ -421,17 +421,17 @@ The Web vertical has 6 rows, the two extra rows are distributed to the first two
 		
 The results:
 
-    |Query|Latency|Vertical|Quartile
-    |-----|-----------|--------|-------------
-    |Banana|300|Image|1
-    |Cherry|300|Image|2
-    |Durian|500|Image|3
-    |Apple|100|Web|1
-    |Fig|200|Web|1
-    |Papaya|200|Web|2
-    |Fig|300|Web|2
-    |Cherry|400|Web|3
-    |Durian|500|Web|4
+|Query|Latency|Vertical|Quartile
+|-----|-----------|--------|-------------
+|Banana|300|Image|1
+|Cherry|300|Image|2
+|Durian|500|Image|3
+|Apple|100|Web|1
+|Fig|200|Web|1
+|Papaya|200|Web|2
+|Fig|300|Web|2
+|Cherry|400|Web|3
+|Durian|500|Web|4
 
 NTILE takes a parameter ("numgroups"). Numgroups is a positive int or long constant expression that specifies the number of groups into which each partition must be divided. 
 
@@ -460,17 +460,17 @@ You have seen the following example at the beginning of the Ranking functions se
 
 The results:
 
-    |Query|Latency|Vertical|Rank|DenseRank|RowNumber
-    |-----|-----------|--------|---------|--------------|--------------
-    |Banana|300|Image|1|1|1
-    |Cherry|300|Image|1|1|2
-    |Durian|500|Image|3|2|3
-    |Apple|100|Web|1|1|1
-    |Fig|200|Web|2|2|2
-    |Papaya|200|Web|2|2|3
-    |Fig|300|Web|4|3|4
-    |Cherry|400|Web|5|4|5
-    |Durian|500|Web|6|5|6
+|Query|Latency|Vertical|Rank|DenseRank|RowNumber
+|-----|-----------|--------|---------|--------------|--------------
+|Banana|300|Image|1|1|1
+|Cherry|300|Image|1|1|2
+|Durian|500|Image|3|2|3
+|Apple|100|Web|1|1|1
+|Fig|200|Web|2|2|2
+|Papaya|200|Web|2|2|3
+|Fig|300|Web|4|3|4
+|Cherry|400|Web|5|4|5
+|Durian|500|Web|6|5|6
 
 ### TOP N with DENSE RANK
 
@@ -489,15 +489,15 @@ The following example returns the top 3 records from each group with no gaps in 
 
 The results:
 
-    |Query|Latency|Vertical|DenseRank
-    |-----|-----------|--------|--------------
-    |Banana|300|Image|1
-    |Cherry|300|Image|1
-    |Durian|500|Image|2
-    |Apple|100|Web|1
-    |Fig|200|Web|2
-    |Papaya|200|Web|2
-    |Fig|300|Web|3
+|Query|Latency|Vertical|DenseRank
+|-----|-----------|--------|--------------
+|Banana|300|Image|1
+|Cherry|300|Image|1
+|Durian|500|Image|2
+|Apple|100|Web|1
+|Fig|200|Web|2
+|Papaya|200|Web|2
+|Fig|300|Web|3
 
 ### TOP N with RANK
 
@@ -514,14 +514,14 @@ The results:
 
 The results:	
 
-    |Query|Latency|Vertical|Rank
-    |-----|-----------|--------|---------
-    |Banana|300|Image|1
-    |Cherry|300|Image|1
-    |Durian|500|Image|3
-    |Apple|100|Web|1
-    |Fig|200|Web|2
-    |Papaya|200|Web|2
+|Query|Latency|Vertical|Rank
+|-----|-----------|--------|---------
+|Banana|300|Image|1
+|Cherry|300|Image|1
+|Durian|500|Image|3
+|Apple|100|Web|1
+|Fig|200|Web|2
+|Papaya|200|Web|2
 
 
 ### TOP N with ROW_NUMBER
@@ -539,14 +539,14 @@ The results:
 
 The results:   
     
-    |Query|Latency|Vertical|RowNumber
-    |-----|-----------|--------|--------------
-    |Banana|300|Image|1
-    |Cherry|300|Image|2
-    |Durian|500|Image|3
-    |Apple|100|Web|1
-    |Fig|200|Web|2
-    |Papaya|200|Web|3
+|Query|Latency|Vertical|RowNumber
+|-----|-----------|--------|--------------
+|Banana|300|Image|1
+|Cherry|300|Image|2
+|Durian|500|Image|3
+|Apple|100|Web|1
+|Fig|200|Web|2
+|Papaya|200|Web|3
 
 ### Assign Globally Unique Row Number
 
@@ -594,17 +594,17 @@ The following example uses the CUME_DIST function to compute the latency percent
 
 The results:
     
-    |Query|Latency|Vertical|CumeDist
-    |-----|-----------|--------|---------------
-    |Durian|500|Image|1
-    |Banana|300|Image|0.666666666666667
-    |Cherry|300|Image|0.666666666666667
-    |Durian|500|Web|1
-    |Cherry|400|Web|0.833333333333333
-    |Fig|300|Web|0.666666666666667
-    |Fig|200|Web|0.5
-    |Papaya|200|Web|0.5
-    |Apple|100|Web|0.166666666666667
+|Query|Latency|Vertical|CumeDist
+|-----|-----------|--------|---------------
+|Durian|500|Image|1
+|Banana|300|Image|0.666666666666667
+|Cherry|300|Image|0.666666666666667
+|Durian|500|Web|1
+|Cherry|400|Web|0.833333333333333
+|Fig|300|Web|0.666666666666667
+|Fig|200|Web|0.5
+|Papaya|200|Web|0.5
+|Apple|100|Web|0.166666666666667
 
 There are 6 rows in the partition where partition key is “Web” (4th row and down):
 
@@ -660,17 +660,17 @@ The value returned by the PERCENT_RANK function represents the rank of the queri
 
 The results:
 
-    |Query|Latency:int|Vertical|PercentRank
-    |-----|-----------|--------|------------------
-    |Banana|300|Image|0
-    |Cherry|300|Image|0
-    |Durian|500|Image|1
-    |Apple|100|Web|0
-    |Fig|200|Web|0.2
-    |Papaya|200|Web|0.2
-    |Fig|300|Web|0.6
-    |Cherry|400|Web|0.8
-    |Durian|500|Web|1
+|Query|Latency:int|Vertical|PercentRank
+|-----|-----------|--------|------------------
+|Banana|300|Image|0
+|Cherry|300|Image|0
+|Durian|500|Image|1
+|Apple|100|Web|0
+|Fig|200|Web|0.2
+|Papaya|200|Web|0.2
+|Fig|300|Web|0.6
+|Cherry|400|Web|0.8
+|Durian|500|Web|1
 
 ### PERCENTILE_CONT & PERCENTILE_DISC
 
@@ -710,17 +710,17 @@ You can see how both work in the example below which tries to find the median (p
 
 The results:
 
-    |Query|Latency:int|Vertical|PercentileCont50|PercentilDisc50
-    |-----|-----------|--------|-------------------|----------------
-    |Banana|300|Image|300|300
-    |Cherry|300|Image|300|300
-    |Durian|500|Image|300|300
-    |Apple|100|Web|250|200
-    |Fig|200|Web|250|200
-    |Papaya|200|Web|250|200
-    |Fig|300|Web|250|200
-    |Cherry|400|Web|250|200
-    |Durian|500|Web|250|200
+|Query|Latency:int|Vertical|PercentileCont50|PercentilDisc50
+|-----|-----------|--------|-------------------|----------------
+|Banana|300|Image|300|300
+|Cherry|300|Image|300|300
+|Durian|500|Image|300|300
+|Apple|100|Web|250|200
+|Fig|200|Web|250|200
+|Papaya|200|Web|250|200
+|Fig|300|Web|250|200
+|Cherry|400|Web|250|200
+|Durian|500|Web|250|200
 
 
 For PERCENTILE_CONT because values can be interpolated, the median for web is 250 even though no query in the web vertical had a latency of 250. 
@@ -762,38 +762,33 @@ PERCENTILE_DISC does not interpolate values, so the median for Web is 200 - whic
 	<window function> - This is a built-in aggregate function, without DISTINCT.
 
 
-### ROWS 
+- ROWS 
 
-This clause allows to define window at rows level by specifying start and end points within the partition. Similar to SQL Server, user can specify a range of rows with respect to the current row using ROWS clause. The ROWS clause limits the rows within a partition by specifying a fixed number of rows preceding or following the current row. Preceding and following rows are selected based on the ordering in the ORDER BY clause. 
+    This clause allows to define window at rows level by specifying start and end points within the partition. Similar to SQL Server, user can specify a range of rows with respect to the current row using ROWS clause. The ROWS clause limits the rows within a partition by specifying a fixed number of rows preceding or following the current row. Preceding and following rows are selected based on the ordering in the ORDER BY clause. 
+- UNBOUNDED PRECEDING
 
-### UNBOUNDED PRECEDING
+    Specifies that the window starts at the first row of the partition. Note that UNBOUNDED PRECEDING can only be specified as window start point of window definition.
+- positive value
 
-Specifies that the window starts at the first row of the partition. Note that UNBOUNDED PRECEDING can only be specified as window start point of window definition.
+    Is a positive integer literal (including 0) that specifies the number of rows or values to precede or follow the current row. This specification is valid only for ROWS.
 
-### positive value
+    When used with PRECEDING clause, <positive value> indicate the number of rows or values to precede the current row. This specification is allowed for ROWS statement. Similarly when used with FOLLOWING clause
+    <positive value> indicate the number of rows or values to follow the current row. When <positive value> FOLLOWING is specified as the window starting point, the ending point must be <positive value> FOLLOWING. For example, ROWS BETWEEN 5 FOLLOWING AND 8 FOLLOWING defines a window that starts with the fifth row that follows the current row and ends with the eight row that follows the current row. This specification is only allowed with ROWS clause and not with the RANGE clause.
+- CURRENT ROW
 
-Is a positive integer literal (including 0) that specifies the number of rows or values to precede or follow the current row. This specification is valid only for ROWS.
+    Specifies that the window starts or ends at the current row when used with ROWS . CURRENT ROW can be specified as both a start and end point of <window definition>.
 
-When used with PRECEDING clause, <positive value> indicate the number of rows or values to precede the current row. This specification is allowed for ROWS statement. Similarly when used with FOLLOWING clause
-<positive value> indicate the number of rows or values to follow the current row. When <positive value> FOLLOWING is specified as the window starting point, the ending point must be <positive value> FOLLOWING. For example, ROWS BETWEEN 5 FOLLOWING AND 8 FOLLOWING defines a window that starts with the fifth row that follows the current row and ends with the eight row that follows the current row. This specification is only allowed with ROWS clause and not with the RANGE clause.
+- BETWEEN &lt;window definition&gt; AND &lt;window definition&gt;
 
-### CURRENT ROW
+    BETWEEN clauses is used to specify the start and end boundary points of the window. It is used with either ROWS or RANGE clause.  <window definition> defines both starting and end point. End point cannot be smaller than start point.
 
-Specifies that the window starts or ends at the current row when used with ROWS . CURRENT ROW can be specified as both a start and end point of <window definition>.
+- UNBOUNDED FOLLOWING
 
-### BETWEEN &lt;window definition&gt; AND &lt;window definition&gt;
+    Specifies that the window ends at the last row of the partition. UNBOUNDED FOLLOWING can only be specified as a window end point. For example RANGE BETWEEN CURRENT ROW AND UNBOUNDED 
 
-BETWEEN clauses is used to specify the start and end boundary points of the window. It is used with either ROWS or RANGE clause.  <window definition> defines both starting and end point. End point cannot be smaller than start point.
+- FOLLOWING
 
-### UNBOUNDED FOLLOWING
-
-Specifies that the window ends at the last row of the partition. UNBOUNDED FOLLOWING can only be specified as a window end point. For example RANGE BETWEEN CURRENT ROW AND UNBOUNDED 
-
-###FOLLOWING
-
-defines a window that starts with the current row and ends with the last row of the partition.
-&lt;postive value&gt; FOLLOWING
-
+    Defines a window that starts with the current row and ends with the last row of the partition.
 
 ## Expressing LAG and LEAD
 
@@ -841,13 +836,11 @@ In this example, offset defaults to 1.
 
 Here are three of the equivalent forms
 
-```
-SQL:  SELECT LAG(x,1) OVER (ORDER BY Y) AS z 
-<=>
-SCOPE:  SELECT LAST(x) OVER (ORDER BY Y ROWS BETWEEN UNBOUNDED PRECEDING AND 1 PRECEDING) AS z
-SCOPE:  SELECT FIRST(x) OVER (ORDER BY Y ROWS BETWEEN 1 PRECEDING AND 1 PRECEDING) AS z
-SCOPE:  SELECT MIN(x) OVER (ORDER BY Y ROWS BETWEEN 1 PRECEDING AND 1 PRECEDING) AS z // if MIN is supported on typeof(x)
-```
+    SQL:  SELECT LAG(x,1) OVER (ORDER BY Y) AS z 
+    <=>
+    SCOPE:  SELECT LAST(x) OVER (ORDER BY Y ROWS BETWEEN UNBOUNDED PRECEDING AND 1 PRECEDING) AS z
+    SCOPE:  SELECT FIRST(x) OVER (ORDER BY Y ROWS BETWEEN 1 PRECEDING AND 1 PRECEDING) AS z
+    SCOPE:  SELECT MIN(x) OVER (ORDER BY Y ROWS BETWEEN 1 PRECEDING AND 1 PRECEDING) AS z // if MIN is supported on typeof(x)
 
 ## See also
 

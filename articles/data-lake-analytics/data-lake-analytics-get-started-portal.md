@@ -21,7 +21,7 @@
 [AZURE.INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
 
 Learn how to use the Azure Preview portal to create Azure Data Lake Analytics accounts, define Data Lake Analytics
-jobs in [U-SQL](data-lake-analytics-u-sql-get-started.md), and submit jobs to Data Lake Analtyic accounts. For more 
+jobs in [U-SQL](data-lake-analytics-u-sql-get-started.md), and submit jobs to Data Lake Analytics accounts. For more 
 information about Data Lake Analytics, see [Azure Data Lake Analytics overview](data-lake-analytics-overview.md).
 
 In this tutorial, you will develop a job that reads a tab separated values (TSV) file and converts it into a comma 
@@ -32,7 +32,7 @@ separated values (CSV) file. To go through the same tutorial using other support
 ![Azure Data Lake Analytics process flow diagram](./media/data-lake-analytics-get-started-portal/data-lake-analytics-process.png)
 
 1. Create a Data Lake Analytics account.
-2. Prepare the source data. Data Lake Analytic jobs can read data from either Azure Data Lake Store accounts or Azure Blob storage accounts. In this example, we will read from Azure Data Lake Store.  
+2. Prepare the source data. Data Lake Analytics jobs can read data from either Azure Data Lake Store accounts or Azure Blob storage accounts. In this example, we will read from Azure Data Lake Store.  
 3. Develop a U-SQL script.
 4. Submit a job (U-SQL script) to the Data Lake Analytics account. The job reads from the source data, process the data as instructed 
 in the U-SQL script, and then save the output to either a Data Lake Store account or a Blob storage account.
@@ -45,11 +45,11 @@ Before you begin this tutorial, you must have the following:
 
 ##Create Data Lake Analytics account
 
-You must have a Data Lake Analytic account before you can run any jobs.
+You must have a Data Lake Analytics account before you can run any jobs.
 
 Each Data Lake Analytics account has an [Azure Data Lake Store]() account dependency.  This account is referred
 as the default Data Lake Store account.  You can create the Data Lake Store account beforehand or when you create 
-your Data Lake Analytics account. In this tutorial, you will create the Data Lake Store account with the Analytics 
+your Data Lake Analytics account. In this tutorial, you will create the Data Lake Store account with the Data Lake Analytics 
 account.
 
 **To create a Data Lake Analytics account**
@@ -71,21 +71,21 @@ account.
 	![Azure Data Lake Analytics portal blade](./media/data-lake-analytics-get-started-portal/data-lake-analytics-portal-blade.png)
 
 
-After an Analytics account is created, you can add additional Data Lake Store accounts and Azure Storage 
+After a Data Lake Analytics account is created, you can add additional Data Lake Store accounts and Azure Storage 
 accounts. For instructions, see [Manage Data lake Analytics account data sources](data-lake-analytics-manage-use-portal.md#manage-account-data-sources).
 
 ##Prepare source data
 
 In this tutorial, you will process some search logs.  The search log can be stored in either Data Lake store or Azure Blob storage. 
 
-The Azure Preview portal provides an user interface for copying some sample data files to the default Data Lake account, which include a search log file.
+The Azure Preview portal provides a user interface for copying some sample data files to the default Data Lake account, which include a search log file.
 
 **To copy sample data files**
 
 1. From the Azure preview portal, click **Microsoft Azure** in the upper left corner.
 2. Click the tile with your Data Lake Analytics account name.  It was pinned here when the account was created.
 If the account is not pinned there, see 
-[Open an Analytics account from portal](data-lake-analytics-manage-use-portal.md#access-adla-account) to open the
+[Open a Data Lake  Analytics account from portal](data-lake-analytics-manage-use-portal.md#access-adla-account) to open the
 account.
 3. Expand the **Essentials** pane, and then click **Explore sample jobs**. It opens another blade called **Sample
 Jobs**.
@@ -95,7 +95,7 @@ Jobs**.
 
 	![Azure Data Lake Analytics data explorer button](./media/data-lake-analytics-get-started-portal/data-lake-analytics-data-explorer-button.png)
 
-    It opens two blades. One is **Data Explorer**, and the other is the Default Data Lake Store account.
+    It opens two blades. One is **Data Explorer**, and the other is the default Data Lake Store account.
 8. In the default Data Lake Store account blade, click **Samples** to expand the folder, and the click **Data** to expand the folder. You shall see the following files and folders:
 
     - AmbulanceData/
@@ -119,7 +119,7 @@ After you have prepared the source data, you can start developing a U-SQL script
 
 	![Azure Data Lake Analytics new job button](./media/data-lake-analytics-get-started-portal/data-lake-analytics-new-job-button.png)
 
-    If you don't see the blade, see [Open an Analytics account from portal](data-lake-analytics-manage-use-portal.md#access-adla-account).
+    If you don't see the blade, see [Open a Data Lake Analytics account from portal](data-lake-analytics-manage-use-portal.md#access-adla-account).
 4. Enter **Job Name**, and the following U-SQL script:
 
 	![create Azure Data Lake Analytics U-SQL jobs](./media/data-lake-analytics-get-started-portal/data-lake-analytics-new-job.png)
@@ -143,7 +143,7 @@ After you have prepared the source data, you can start developing a U-SQL script
     
     Don't modify the two paths unless you copy the source file into a different location.  Data Lake Analytics will create the output folder if it doesn't exist.  In this case, we are using simple, relative paths.  
 	
-	It is simpler to use relative paths for files stored in default data Lake accounts. You can also use absolute paths.  For example 
+	It is simpler to use relative paths for files stored in default Data Lake accounts. You can also use absolute paths.  For example 
     
         adl://<Data LakeStorageAccountName>.azuredatalakestore.net:443/Samples/Data/SearchLog.tsv
       
