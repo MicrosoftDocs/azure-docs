@@ -196,7 +196,7 @@ It is worth noting that other application types may interpret the same graph dif
 Azure SQL Database exposes consumed resource information for each active database in the **sys.resource_stats** view of the **master** database in each server. The data in the table is aggregated for 5 minute intervals. With the Basic, Standard, and Premium service tiers, the data can take greater than 5 minutes to appear in the table, meaning this data is better for historical rather than near-real-time analysis. Querying the **sys.resource_stats** view shows the recent history of a database to validate whether the reservation picked delivered the desired performance when needed. 
 
 >[AZURE.NOTE] You must be connected to the **master** database of your logical SQL Database server in order to query **sys.resource_stats** in the following examples.
->
+
 The following example demonstrates how the data in this view is exposed:
 
 	SELECT TOP 10 * 
@@ -208,7 +208,7 @@ The following example demonstrates how the data in this view is exposed:
 
 The following example demonstrate different ways that you can understand the resource utilization of your SQL database by using the **sys.resource_stats** catalog view.
 
->[AZURE.NOTE] Some of the columns of sys.resourcestats have changed in current V12 databases, so the sample queries in the following examples might generate errors. Future updates to this topic will provide new versions of the queries that addresses this issue.
+>[AZURE.NOTE] Some of the columns of **sys.resource_stats** have changed in current V12 databases, so the sample queries in the following examples might generate errors. Future updates to this topic will provide new versions of the queries that addresses this issue.
 
 1. For example, to look at past week’s resource usage for database, "userdb1", you can run following query.
 	
