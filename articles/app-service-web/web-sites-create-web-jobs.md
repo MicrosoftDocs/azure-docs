@@ -76,13 +76,13 @@ The following file types are accepted:
 
 ## <a name="CreateScheduledCRON"></a>Create a scheduled WebJob using a CRON expression
 
-This technique is available to Web Apps running in Standard/Premium mode, and requires the Always On setting to be enabled on the app.
+This technique is available to Web Apps running in Standard/Premium mode, and requires the **Always On** setting to be enabled on the app.
 
-To turn an On Demand WebJob into a scheduled WebJob, simply include a `settings.job` file alongside your WebJob. The file should contain a [CRON expression](https://en.wikipedia.org/wiki/Cron).
+To turn an On Demand WebJob into a scheduled WebJob, simply include a `settings.job` file alongside your WebJob. This JSON file should include a `schedule` property with a [CRON expression](https://en.wikipedia.org/wiki/Cron), per example below.
 
 The CRON expression is composed of 6 fields: `{second} {minute} {hour} {day} {month} {day of the week}`.
 
-e.g. to trigger your WebJob every 10 minutes, your `settings.job` would have:
+e.g. to trigger your WebJob every 15 minutes, your `settings.job` would have:
 
 ```json
 {
