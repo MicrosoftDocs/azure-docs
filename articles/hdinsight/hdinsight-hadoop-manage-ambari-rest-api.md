@@ -21,15 +21,7 @@
 
 [AZURE.INCLUDE [ambari-selector](../../includes/hdinsight-ambari-selector.md)]
 
-Apache Ambari simplifies the management and monitoring of a Hadoop cluster by providing an easy to use web UI and REST API. Ambari is included on Linux-based HDInsight clusters, and is used to monitor the cluster and make configuration changes.
-
-In this document, you will learn the basics of using the Ambari REST API with an HDInsight cluster. Examples for the following core use cases are provided
-
-| Use case | Example |
-| ======== | ======= |
-| Retrieving cluster information | [How to retrieve the fully qualified domain name for cluster nodes][] |
-| Retrieving service information | [How to retrieve the ?????][] |
-| Change cluster configuration | [How to  ????][] |
+Apache Ambari simplifies the management and monitoring of a Hadoop cluster by providing an easy to use web UI and REST API. Ambari is included on Linux-based HDInsight clusters, and is used to monitor the cluster and make configuration changes. In this document, you will learn the basics of working with the Ambari REST API by performing common tasks such as finding the fully qualified domain name of the cluster nodes or finding the default storage account used by the cluster.
 
 > [AZURE.NOTE] The information in this article applies only to Linux-based HDInsight clusters. For Windows-based HDInsight clusters, only a sub-set of monitoring functionality is available through the Ambari REST API. See [Monitor Windows-based Hadoop on HDInsight using the Ambari API](hdinsight-monitor-use-ambari-api.md).
 
@@ -115,19 +107,19 @@ This will return a value similar to the following, where __CONTAINER__ is the de
 
 You can then use this information with the [Azure CLI](../xplat-cli-install.md) to upload or download data from the container. For example:
 
-1. Get the resource group for the Storage Account:
+1. Get the resource group for the Storage Account. Replace __ACCOUNTNAME__ with the Storage Account name retrieved from Ambari:
 
-        azure storage account list
+        azure storage account list --json | jq '.[] | select(.name=="ACCOUNTNAME").resourceGroup'
     
-    From the list, find the Storage Account name used by the cluster, then find the Resource Group for this entry.
+    This will return the resource group name for the account.
     
 2. Get the key for the Storage account. Replace __GROUPNAME__ with the Resource Group from the previous step. Replace __ACCOUNTNAME__ with the Storage Account name:
 
-        azure storage account keys list -g GROUPNAME ACCOUNTNAME
+        azure storage account keys list -g GROUPNAME ACCOUNTNAME --json | jq '.storageAccountKeys.key1'
 
-    This will return the primary and secondary keys for the account. Save one of the keys.
+    This will return the primary key for the account.
     
-3. Use the upload command to work with files stored in the container:
+3. Use the upload command to store a file in the container:
 
         azure storage blob upload -a ACCOUNTNAME -k ACCOUNTKEY -f FILEPATH --container __CONTAINER__ -b BLOBPATH
         
