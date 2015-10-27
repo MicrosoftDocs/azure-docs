@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/20/2015"
+	ms.date="10/26/2015"
 	ms.author="danlep"/>
 
 
@@ -39,8 +39,9 @@ Resource|Maximum Limit
 ---|---
 Tasks per compute node|4 x number of node cores
 
-## Quota monitoring
-Monitor your Batch account quota usage in the [Azure preview portal](https://portal.azure.com).
+## View Batch quotas
+
+View your Batch account quotas in the [Azure preview portal](https://portal.azure.com).
 
 1. In the preview portal, click **Batch accounts** and then the name of your Batch account.
 
@@ -74,7 +75,7 @@ Use the following steps to request a quota increase in the Azure preview portal 
 
 	a. In **Problem type**, select **Batch**.
 
-	b. In **Details**, list the quota you want to change and the new limit you want.
+	b. In **Details**, list the quota or quotas you want to change in a particular account and the new limits you want.
 
 	Click **Next**.
 
@@ -82,7 +83,7 @@ Use the following steps to request a quota increase in the Azure preview portal 
 
 6. Click **Create** to submit the new support request.
 
-Azure support will contact you when the request is complete. This can take up to 1 business day.
+Azure support will contact you. Completing the request can take up to 2 business days.
 
 ## Related topics
 

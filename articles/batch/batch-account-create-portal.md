@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/22/2015"
+	ms.date="10/26/2015"
 	ms.author="danlep"/>
 
 
@@ -22,7 +22,7 @@
 
 This article shows you how to use the [Azure preview portal](https://portal.azure.com) to create and manage an Azure Batch account and settings such as account keys. You need a Batch account URL and an associated access key to authenticate all Batch API requests. And you associate all the Batch resources (such as pools, jobs, and tasks) for your Batch workload with a specific Batch account.  
 
->[AZURE.NOTE] Currently the preview portal supports features for Batch account management and some monitoring. However, most Batch features are available only to developers through the Batch APIs.
+>[AZURE.NOTE] Currently the preview portal supports features for Batch account management and viewing some account resources. The full Batch features are available to developers through the Batch APIs.
 
 ## Create a Batch account
 
@@ -61,7 +61,7 @@ To see and manage the access keys, click the key icon.
 
 ## Additional things to know about the Batch account
 
-* Other ways to create and manage Batch accounts include the [Batch PowerShell cmdlets](batch-powershell-cmdlets-get-started.md) and the [Batch management .NET library](http://www.nuget.org/packages/Microsoft.Azure.Management.Batch/).
+* Other ways to create and manage Batch accounts include the [Batch PowerShell cmdlets](batch-powershell-cmdlets-get-started.md) and the [Batch Management .NET library](http://www.nuget.org/packages/Microsoft.Azure.Management.Batch/).
 
 
 * Azure doesn't charge you to have a Batch account. You only get charged for your use of Azure compute resources and other services when your workloads run (see [Batch pricing](https://azure.microsoft.com/pricing/details/batch/)).
