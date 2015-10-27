@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="10/09/2015"
+	ms.date="10/22/2015"
 	ms.author="tdykstra"/>
 
 # Create a .NET WebJob in Azure App Service
@@ -783,7 +783,7 @@ For more information about how to write functions that use  WebJobs SDK attribut
 
 ## Next steps
 
-In this tutorial you've seen a simple multi-tier application that uses the WebJobs SDK for backend processing. This sections offers some suggestions for learning more about ASP.NET multi-tier applications and WebJobs.
+In this tutorial you've seen a simple multi-tier application that uses the WebJobs SDK for backend processing. This section offers some suggestions for learning more about ASP.NET multi-tier applications and WebJobs.
 
 ### Missing features
 
