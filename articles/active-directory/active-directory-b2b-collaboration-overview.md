@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="09/17/2015"
+   ms.date="10/27/2015"
    ms.author="curtand"/>
 
 # Azure Active Directory B2B collaboration
@@ -67,3 +67,13 @@ wharp@contoso.com,Walter Harp,cd3ed3de-93ee-400b-8b19-b61ef44a0f29,http://azure.
 jsmith@contoso.com,Jeff Smith,cd3ed3de-93ee-400b-8b19-b61ef44a0f29,http://azure.microsoft.com/services/active-directory/,,,http://azure.microsoft.com/services/active-directory/
 bsmith@contoso.com,Ben Smith,cd3ed3de-93ee-400b-8b19-b61ef44a0f29,http://azure.microsoft.com/services/active-directory/,,,http://azure.microsoft.com/services/active-directory/
 ```
+## Next steps
+Browse our other articles on Azure B2B collaboration
+
+- [What is Azure AD B2B collaboration?](active-directory-b2b-what-is-azure-ad-b2b.md)
+- [How it works](active-directory-b2b-how-it-works.md)
+- [Detailed walkthrough](active-directory-b2b-detailed-walkthrough.md)
+- [CSV file format reference](active-directory-b2b-references-csv-file-format.md)
+- [External user token format](active-directory-b2b-references-external-user-token-format.md)
+- [External user object attribute changes](active-directory-b2b-references-external-user-object-attribute-changes.md)
+- [Current preview limitations](active-directory-b2b-current-preview-limitations.md)
