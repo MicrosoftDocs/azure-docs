@@ -66,5 +66,5 @@ With *Azure App Service* you can now create multiple private testing and staging
 
 
 
-By the time *Azure App Service Mobile App* feature becomes Generally Available, we will provide seamless migration experience for your existing Mobile Services to App Service should you choose to migrate. In the meantime, you can start exploring *App Service* and take advantage of *App Service* for your existing Mobile Service by following this [tutorial](app-service-mobile-dotnet-backend-migrating-from-mobile-services-preview.md).
+By the time *Azure App Service Mobile App* feature becomes Generally Available, we will provide seamless migration experience for your existing Mobile Services to App Service should you choose to migrate. In the meantime, you can start exploring *App Service* and take advantage of *App Service* for your existing Mobile Service by following this [tutorial](app-service-mobile-dotnet-backend-migrating-from-mobile-services.md).
  

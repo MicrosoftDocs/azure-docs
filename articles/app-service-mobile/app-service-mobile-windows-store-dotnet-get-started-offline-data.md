@@ -18,9 +18,9 @@
 
 # Enable offline sync for your Windows app
 
-[AZURE.INCLUDE [app-service-mobile-selector-offline-preview](../../includes/app-service-mobile-selector-offline-preview.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
 &nbsp;  
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services-preview](../../includes/app-service-mobile-note-mobile-services-preview.md)]
+[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 ## Overview
 
@@ -264,14 +264,14 @@ When we want to synchronize the local store with the server, we used the `IMobil
 [Next Steps]:#next-steps
 
 <!-- Images -->
-[1]: ./media/app-service-mobile-windows-store-dotnet-get-started-offline-data-preview/app-service-mobile-add-reference-sqlite-dialog.png
-[11]: ./media/app-service-mobile-windows-store-dotnet-get-started-offline-data-preview/app-service-mobile-add-wp81-reference-sqlite-dialog.png
-[13]: ./media/app-service-mobile-windows-store-dotnet-get-started-offline-data-preview/cpu-architecture.png
+[1]: ./media/app-service-mobile-windows-store-dotnet-get-started-offline-data/app-service-mobile-add-reference-sqlite-dialog.png
+[11]: ./media/app-service-mobile-windows-store-dotnet-get-started-offline-data/app-service-mobile-add-wp81-reference-sqlite-dialog.png
+[13]: ./media/app-service-mobile-windows-store-dotnet-get-started-offline-data/cpu-architecture.png
 
 
 <!-- URLs. -->
-[Offline Data Sync in Azure Mobile Apps]: ../app-service-mobile-offline-data-sync-preview.md
-[create a windows app]: ../app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-preview.md
+[Offline Data Sync in Azure Mobile Apps]: ../app-service-mobile-offline-data-sync.md
+[create a windows app]: ../app-service-mobile-windows-store-dotnet-get-started.md
 [sqlite for windows 8.1]: http://go.microsoft.com/fwlink/?LinkId=394776
 [sqlite for windows phone 8.1]: http://go.microsoft.com/fwlink/?LinkId=397953
 

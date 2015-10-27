@@ -18,7 +18,7 @@
 
 # How to configure your application to use Google login
 
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services-preview](../../includes/app-service-mobile-note-mobile-services-preview.md)]
+[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 This topic shows you how to configure Mobile Apps to use Google as an authentication provider.
 
@@ -57,8 +57,8 @@ You are now ready to use Google for authentication in your app.
 
 <!-- Images. -->
 
-[0]: ./media/app-service-mobile-how-to-configure-google-authentication-preview/mobile-app-google-redirect.png
-[1]: ./media/app-service-mobile-how-to-configure-google-authentication-preview/mobile-app-google-settings.png
+[0]: ./media/app-service-mobile-how-to-configure-google-authentication/mobile-app-google-redirect.png
+[1]: ./media/app-service-mobile-how-to-configure-google-authentication/mobile-app-google-settings.png
 
 <!-- URLs. -->
 

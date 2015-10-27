@@ -20,15 +20,15 @@
 
 [AZURE.INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
 &nbsp;  
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services-preview](../../includes/app-service-mobile-note-mobile-services-preview.md)]
+[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 This topic shows you how to authenticate users of an App Service Mobile App from your client application. In this tutorial, you add authentication to the quickstart project using an identity provider that is supported by App Service. After being successfully authenticated and authorized by your Mobile App, the user ID value is displayed.
 
-This tutorial is based on the Mobile App quickstart. You must first complete the tutorial [Get started with your mobile app]. http://acom-sandbox.azurewebsites.net/documentation/articles/app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-push-preview/?rnd=1
+This tutorial is based on the Mobile App quickstart. You must first complete the tutorial [Get started with your mobile app]. 
 
 ##<a name="create-gateway"></a>Create an App Service Gateway
 
-[AZURE.INCLUDE [app-service-mobile-dotnet-backend-create-gateway-preview](../../includes/app-service-mobile-dotnet-backend-create-gateway-preview.md)] 
+[AZURE.INCLUDE [app-service-mobile-dotnet-backend-create-gateway](../../includes/app-service-mobile-dotnet-backend-create-gateway.md)] 
 
 ##<a name="register"></a>Register your app for authentication and configure the App Service
 
@@ -59,5 +59,5 @@ Next, you will update the app to authenticate users before requesting resources 
 
 
 <!-- URLs. -->
-[Get started with your mobile app]: app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-preview.md
+[Get started with your mobile app]: app-service-mobile-windows-store-dotnet-get-started.md
  

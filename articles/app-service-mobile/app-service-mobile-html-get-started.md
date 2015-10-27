@@ -19,9 +19,9 @@
 
 #Create an HTML app
 
-[AZURE.INCLUDE [app-service-mobile-selector-get-started-preview](../../includes/app-service-mobile-selector-get-started-preview.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
 &nbsp;  
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services-preview](../../includes/app-service-mobile-note-mobile-services-preview.md)]
+[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 ##Overview
 
@@ -29,7 +29,7 @@ This tutorial shows you how to add a cloud-based backend service to an HTML5/Jav
 
 A screenshot from the completed app is below:
 
-![Screenshot of completed app](./media/app-service-mobile-dotnet-backend-html-get-started-preview/mobile-quickstart-completed-html.png)
+![Screenshot of completed app](./media/app-service-mobile-html-get-started/mobile-quickstart-completed-html.png)
 
 Completing this tutorial is a prerequisite for all other Mobile Apps tutorials for HTML apps. 
 
@@ -45,7 +45,7 @@ To complete this tutorial, you need the following:
 
 ##Create a new Mobile App backend
 
-[AZURE.INCLUDE [app-service-mobile-dotnet-backend-create-new-service-preview](../../includes/app-service-mobile-dotnet-backend-create-new-service-preview.md)]
+[AZURE.INCLUDE [app-service-mobile-dotnet-backend-create-new-service](../../includes/app-service-mobile-dotnet-backend-create-new-service.md)]
 
 ## Download the server project
 
@@ -83,7 +83,7 @@ Next, you will deploy your CORS-enabled project to Azure.
 
 ##Publish the server project to Azure
 
-[AZURE.INCLUDE [app-service-mobile-dotnet-backend-publish-service-preview](../../includes/app-service-mobile-dotnet-backend-publish-service-preview.md)]
+[AZURE.INCLUDE [app-service-mobile-dotnet-backend-publish-service](../../includes/app-service-mobile-dotnet-backend-publish-service.md)]
 
 ##Download and run the client project
 
@@ -105,7 +105,7 @@ Next, you will deploy your CORS-enabled project to Azure.
 
 5. In the app, type meaningful text, such as _Complete the tutorial_, in **Enter new task**, and then click **Add**.
 
-   	![Running the app](./media/app-service-mobile-dotnet-backend-html-get-started-preview/mobile-quickstart-startup-html.png)
+   	![Running the app](./media/app-service-mobile-html-get-started/mobile-quickstart-startup-html.png)
 
    	This sends a POST request to the new Mobile App backend hosted in Azure. Data from the request is inserted into the TodoItem table in the Mobile App schema. Items stored in the table are returned by the service, and the data is displayed in the second column in the app.
 
@@ -114,7 +114,7 @@ Next, you will deploy your CORS-enabled project to Azure.
 <!-- Anchors. -->
 <!-- Images. -->
 <!-- URLs. -->
-[Get started with authentication]: app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-users-preview.md
+[Get started with authentication]: app-service-mobile-windows-store-dotnet-get-started-users.md
 [Mobile App SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
 [Azure Portal]: https://portal.azure.com/
 

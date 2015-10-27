@@ -134,13 +134,13 @@ Once your customers have had a chance to receive these updates, you can delete t
 
 [Preview Azure Management Portal]: https://portal.azure.com/
 [Azure Management Portal]: https://manage.windowsazure.com/
-[What are Mobile Apps?]: app-service-mobile-value-prop-preview.md
-[I already use web sites and mobile services – how does App Service help me?]: /en-us/documentation/articles/app-service-mobile-value-prop-migration-from-mobile-services-preview
+[What are Mobile Apps?]: app-service-mobile-value-prop.md
+[I already use web sites and mobile services – how does App Service help me?]: /en-us/documentation/articles/app-service-mobile-value-prop-migration-from-mobile-services
 [Mobile App Server SDK]: http://www.nuget.org/packages/microsoft.azure.mobile.server
-[Create a Mobile App]: app-service-mobile-dotnet-backend-xamarin-ios-get-started-preview.md
-[Add push notifications to your mobile app]: app-service-mobile-dotnet-backend-xamarin-ios-get-started-push-preview.md
-[Add authentication to your mobile app]: app-service-mobile-dotnet-backend-xamarin-ios-get-started-users-preview.md
+[Create a Mobile App]: app-service-mobile-xamarin-ios-get-started.md
+[Add push notifications to your mobile app]: app-service-mobile-xamarin-ios-get-started-push.md
+[Add authentication to your mobile app]: app-service-mobile-xamarin-ios-get-started-users.md
 [Azure Scheduler]: /en-us/documentation/services/scheduler/
 [Web Job]: ../app-service-web/websites-webjobs-resources.md
-[Send cross-platform push notifications]: app-service-mobile-dotnet-backend-xamarin-ios-push-notifications-to-user-preview.md 
+[Send cross-platform push notifications]: app-service-mobile-xamarin-ios-push-notifications-to-user.md 
 [How to use the .NET server SDK]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md

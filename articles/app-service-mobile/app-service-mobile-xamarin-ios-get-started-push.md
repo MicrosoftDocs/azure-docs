@@ -18,9 +18,9 @@
 
 # Add push notifications to your Xamarin.iOS App
 
-[AZURE.INCLUDE [app-service-mobile-selector-get-started-push-preview](../../includes/app-service-mobile-selector-get-started-push-preview.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
 &nbsp;  
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services-preview](../../includes/app-service-mobile-note-mobile-services-preview.md)]
+[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 ##Overview
 
@@ -40,7 +40,7 @@ Note that it's easier to run your Xamarin.iOS app on a Mac by using Xamarin Stud
 
 * A physical iOS device.
 
-* Complete the [quickstart tutorial](../app-service-mobile-dotnet-backend-xamarin-ios-get-started-preview.md).
+* Complete the [quickstart tutorial](../app-service-mobile-xamarin-ios-get-started.md).
 
 ## <a id="register"></a>Register app for push notifications
 
@@ -48,19 +48,19 @@ Note that it's easier to run your Xamarin.iOS app on a Mac by using Xamarin Stud
 
 ## Configure Azure to send push notifications
 
-[AZURE.INCLUDE [app-service-mobile-apns-configure-push-preview](../../includes/app-service-mobile-apns-configure-push-preview.md)]
+[AZURE.INCLUDE [app-service-mobile-apns-configure-push](../../includes/app-service-mobile-apns-configure-push.md)]
 
 ##<a id="update-server"></a>Update the server project to send push notifications
 
-[AZURE.INCLUDE [app-service-mobile-apns-configure-push-preview](../../includes/app-service-mobile-dotnet-backend-configure-push-apns.md)]
+[AZURE.INCLUDE [app-service-mobile-apns-configure-push](../../includes/app-service-mobile-dotnet-backend-configure-push-apns.md)]
 
 ## <a name="publish-the-service"></a>Deploy server project to Azure
 
-[AZURE.INCLUDE [app-service-mobile-dotnet-backend-publish-service-preview](../../includes/app-service-mobile-dotnet-backend-publish-service-preview.md)]
+[AZURE.INCLUDE [app-service-mobile-dotnet-backend-publish-service](../../includes/app-service-mobile-dotnet-backend-publish-service.md)]
 
 ## <a name="configure-app"></a>Configure your Xamarin.iOS project
 
-[AZURE.INCLUDE [app-service-mobile-dotnet-backend-publish-service-preview](../../includes/app-service-mobile-xamarin-ios-configure-project.md)]
+[AZURE.INCLUDE [app-service-mobile-xamarin-ios-configure-project](../../includes/app-service-mobile-xamarin-ios-configure-project.md)]
 
 ## <a name="add-push"></a>Add push notifications to your app
 

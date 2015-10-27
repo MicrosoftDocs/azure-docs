@@ -18,9 +18,9 @@
 
 #Create a Xamarin.Forms app
 
-[AZURE.INCLUDE [app-service-mobile-selector-get-started-preview](../../includes/app-service-mobile-selector-get-started-preview.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
 &nbsp;  
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services-preview](../../includes/app-service-mobile-note-mobile-services-preview.md)]
+[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 ##Overview
 
@@ -44,7 +44,7 @@ To complete this tutorial, you need the following:
 
 ## Create a new Azure Mobile App backend
 
-[AZURE.INCLUDE [app-service-mobile-dotnet-backend-create-new-service-preview](../../includes/app-service-mobile-dotnet-backend-create-new-service-preview.md)]
+[AZURE.INCLUDE [app-service-mobile-dotnet-backend-create-new-service](../../includes/app-service-mobile-dotnet-backend-create-new-service.md)]
 
 ## Download the server project
 
@@ -56,11 +56,11 @@ To complete this tutorial, you need the following:
  
 ## Test your backend project locally
 
-[AZURE.INCLUDE [app-service-mobile-dotnet-backend-test-local-service-preview](../../includes/app-service-mobile-dotnet-backend-test-local-service-preview.md)]
+[AZURE.INCLUDE [app-service-mobile-dotnet-backend-test-local-service](../../includes/app-service-mobile-dotnet-backend-test-local-service.md)]
 
 ## Publish server project to Azure
 
-[AZURE.INCLUDE [app-service-mobile-dotnet-backend-publish-service-preview](../../includes/app-service-mobile-dotnet-backend-publish-service-preview.md)]
+[AZURE.INCLUDE [app-service-mobile-dotnet-backend-publish-service](../../includes/app-service-mobile-dotnet-backend-publish-service.md)]
 
 ##Download and run the Xamarin.Forms solution
 
@@ -152,24 +152,18 @@ This sends a POST request to the new mobile app backend hosted in Azure. Data fr
 
 
 <!-- Images. -->
-[6]: ./media/app-service-mobile-dotnet-backend-xamarin-forms-get-started-preview/xamarin-forms-quickstart.png
-[8]: ./media/app-service-mobile-dotnet-backend-xamarin-forms-get-started-preview/xamarin-forms-quickstart-vs.png
-[9]: ./media/app-service-mobile-dotnet-backend-xamarin-forms-get-started-preview/xamarin-forms-quickstart-xs.png
-[10]: ./media/app-service-mobile-dotnet-backend-xamarin-forms-get-started-preview/mobile-quickstart-startup-ios.png
-[11]: ./media/app-service-mobile-dotnet-backend-xamarin-forms-get-started-preview/mobile-quickstart-startup-android.png
-[12]: ./media/app-service-mobile-dotnet-backend-xamarin-forms-get-started-preview/mobile-quickstart-startup-windows.png
+[6]: ./media/app-service-mobile-dotnet-backend-xamarin-forms-get-started/xamarin-forms-quickstart.png
+[8]: ./media/app-service-mobile-dotnet-backend-xamarin-forms-get-started/xamarin-forms-quickstart-vs.png
+[9]: ./media/app-service-mobile-dotnet-backend-xamarin-forms-get-started/xamarin-forms-quickstart-xs.png
+[10]: ./media/app-service-mobile-dotnet-backend-xamarin-forms-get-started/mobile-quickstart-startup-ios.png
+[11]: ./media/app-service-mobile-dotnet-backend-xamarin-forms-get-started/mobile-quickstart-startup-android.png
+[12]: ./media/app-service-mobile-dotnet-backend-xamarin-forms-get-started/mobile-quickstart-startup-windows.png
 
 
 <!-- URLs. -->
-[Get started with offline data sync]: app-service-mobile-xamarin-ios-get-started-offline-data-preview.md
-[Get started with authentication]: ../app-service-mobile-dotnet-backend-xamarin-ios-get-started-preview-users.md
-[Get started with push notifications]: ../app-service-mobile-dotnet-backend-xamarin-ios-get-started-preview-push.md
 [Visual Studio Professional 2013]: https://go.microsoft.com/fwLink/p/?LinkID=257546
 [Mobile app SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
 [Azure Portal]: https://portal.azure.com/
-[JavaScript backend version]: ../partner-xamarin-mobile-services-ios-get-started.md
-[Get started with data in app services using Visual Studio 2012]: ../app-service-mobile-windows-store-dotnet-get-started-data-vs2012-preview.md
-[Troubleshoot a mobile app .NET backend]: ../app-service-mobile-dotnet-backend-how-to-troubleshoot-preview.md
 
 
 [Xamarin Studio]: http://xamarin.com/download

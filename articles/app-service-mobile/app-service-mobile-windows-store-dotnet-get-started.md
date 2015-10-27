@@ -18,15 +18,15 @@
 
 #Create a Windows app
 
-[AZURE.INCLUDE [app-service-mobile-selector-get-started-preview](../../includes/app-service-mobile-selector-get-started-preview.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
 &nbsp;
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services-preview](../../includes/app-service-mobile-note-mobile-services-preview.md)]
+[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 ##Overview
 
 This tutorial shows you how to add a cloud-based backend service to a Windows Runtime 8.1 universal app by using an Azure mobile app backend. Universal Windows app solutions include projects for both Windows Store 8.1 and Windows Phone Store 8.1 apps, in addition to a common shared project.
 
-[AZURE.INCLUDE [app-service-mobile-windows-universal-get-started-preview](../../includes/app-service-mobile-windows-universal-get-started-preview.md)]
+[AZURE.INCLUDE [app-service-mobile-windows-universal-get-started](../../includes/app-service-mobile-windows-universal-get-started.md)]
 
 ##Prerequisites
 
@@ -40,7 +40,7 @@ To complete this tutorial, you need the following:
 
 ##Create a new Azure mobile app backend
 
-[AZURE.INCLUDE [app-service-mobile-dotnet-backend-create-new-service-preview](../../includes/app-service-mobile-dotnet-backend-create-new-service-preview.md)]
+[AZURE.INCLUDE [app-service-mobile-dotnet-backend-create-new-service](../../includes/app-service-mobile-dotnet-backend-create-new-service.md)]
 
 ## Download the server project
 
@@ -54,7 +54,7 @@ To complete this tutorial, you need the following:
 
 ##Publish the server project to Azure
 
-[AZURE.INCLUDE [app-service-mobile-dotnet-backend-publish-service-preview](../../includes/app-service-mobile-dotnet-backend-publish-service-preview.md)]
+[AZURE.INCLUDE [app-service-mobile-dotnet-backend-publish-service](../../includes/app-service-mobile-dotnet-backend-publish-service.md)]
 
 ##Download and run the client project
 
@@ -72,28 +72,27 @@ In this section, you download a universal Windows app template project that is c
 
 5. In the app, type meaningful text, such as *Complete the tutorial*, in the **Insert a TodoItem** text box, and then click **Save**.
 
-	![](./media/app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-preview/mobile-quickstart-startup.png)
+	![](./media/app-service-mobile-dotnet-backend-windows-store-dotnet-get-started/mobile-quickstart-startup.png)
 
 	This sends a POST request to the new mobile app backend that's hosted in Azure.
 
 6. Stop debugging, right-click the `<your app name>.WindowsPhone` project, click **Set as StartUp Project**, and then press F5 again.
 
-	![](./media/app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-preview/mobile-quickstart-completed-wp8.png)
+	![](./media/app-service-mobile-dotnet-backend-windows-store-dotnet-get-started/mobile-quickstart-completed-wp8.png)
 
 	Notice that data saved from the previous step is loaded from the mobile app after the Windows app starts.
 
 ##Next steps
 
-* [Add authentication to your app ](app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-users-preview.md)
+* [Add authentication to your app ](app-service-mobile-windows-store-dotnet-get-started-users.md)
   <br/>Learn how to authenticate users of your app with an identity provider.
 
-* [Add push notifications to your app](app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-push-preview.md)
+* [Add push notifications to your app](app-service-mobile-windows-store-dotnet-get-started-push.md)
   <br/>Learn how to send a very basic push notification to your app.
 
 <!-- Anchors. -->
 <!-- Images. -->
 <!-- URLs. -->
-[Get started with authentication]: app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-users-preview.md
 [Mobile App SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
 [Azure portal]: https://portal.azure.com/
 [Visual Studio Community 2013]: https://go.microsoft.com/fwLink/p/?LinkID=534203

@@ -19,9 +19,9 @@
 
 # Add Push Notifications to your iOS App
 
-[AZURE.INCLUDE [app-service-mobile-selector-get-started-push-preview](../../includes/app-service-mobile-selector-get-started-push-preview.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
 &nbsp;  
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services-preview](../../includes/app-service-mobile-note-mobile-services-preview.md)]
+[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 In this tutorial, you add push notifications to the [iOS quick start] project so that every time a record is inserted, a push notification is sent. This tutorial is based on the [iOS quick start] tutorial, which you must complete first. If you do not use the downloaded quick start server project, you must add the push notification extension package to your project. For more information about server extension packages, see [Work with the .NET backend server SDK for Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md). 
 
@@ -33,7 +33,7 @@ The [iOS simulator does not support push notifications](https://developer.apple.
 
 ## Configure Azure to send push notifications
 
-[AZURE.INCLUDE [app-service-mobile-apns-configure-push-preview](../../includes/app-service-mobile-apns-configure-push-preview.md)]
+[AZURE.INCLUDE [app-service-mobile-apns-configure-push](../../includes/app-service-mobile-apns-configure-push.md)]
 
 ##<a id="update-server"></a>Update server project to send push notifications
 
@@ -41,7 +41,7 @@ The [iOS simulator does not support push notifications](https://developer.apple.
 
 ## <a name="publish-the-service"></a>Deploy server project to Azure
 
-[AZURE.INCLUDE [app-service-mobile-dotnet-backend-publish-service-preview](../../includes/app-service-mobile-dotnet-backend-publish-service-preview.md)]
+[AZURE.INCLUDE [app-service-mobile-dotnet-backend-publish-service](../../includes/app-service-mobile-dotnet-backend-publish-service.md)]
 
 ## <a id="add-push"></a>Add push notifications to app
 
@@ -64,4 +64,4 @@ The [iOS simulator does not support push notifications](https://developer.apple.
 <!-- Images. -->
 
 <!-- URLs. -->
-[iOS quick start]: app-service-mobile-dotnet-backend-ios-get-started-preview.md
+[iOS quick start]: app-service-mobile-ios-get-started.md

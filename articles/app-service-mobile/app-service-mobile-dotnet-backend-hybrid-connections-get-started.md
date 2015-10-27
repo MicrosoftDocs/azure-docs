@@ -29,7 +29,7 @@ In this tutorial, you'll learn how to modify a Mobile App .NET backend to use a 
 
 This tutorial requires you to have the following:
 
-- **An existing Mobile App backend** <br/>Follow the [quickstart tutorial](app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-preview.md) to create and download a new .NET backend Mobile App from the [Azure Portal].
+- **An existing Mobile App backend** <br/>Follow the [quickstart tutorial](app-service-mobile-windows-store-dotnet-get-started.md) to create and download a new .NET backend Mobile App from the [Azure Portal].
 
 [AZURE.INCLUDE [hybrid-connections-prerequisites](../../includes/hybrid-connections-prerequisites.md)]
 
@@ -43,19 +43,19 @@ You need to create a new Hybrid Connection and BizTalk service for the code port
 
 1. In the [Azure Portal], browse to your Mobile App and click **Networking** in settings.
 
-	![Navigate to web app](./media/app-service-mobile-dotnet-backend-hybrid-connections-get-started-preview/mobile-app-link-to-web-app-backend.png)
+	![Navigate to web app](./media/app-service-mobile-dotnet-backend-hybrid-connections-get-started/mobile-app-link-to-web-app-backend.png)
 
 	
 
 2. Click **Configure your hybrid connection endpoints** in the **Hybrid connections** section.
 
-	![Hybrid connections](./media/app-service-mobile-dotnet-backend-hybrid-connections-get-started-preview/start-hybrid-connection.png)
+	![Hybrid connections](./media/app-service-mobile-dotnet-backend-hybrid-connections-get-started/start-hybrid-connection.png)
 
 2. On the Hybrid connections blade, click **Add** then **New hybrid connection**.
 
 3. On the **Create hybrid connection blade**, provide a **Name** and **Host Name** for your hybrid connection and set **Port** to `1433`.
 
-	![Create a hybrid connection](./media/app-service-mobile-dotnet-backend-hybrid-connections-get-started-preview/create-hybrid-connection.png)
+	![Create a hybrid connection](./media/app-service-mobile-dotnet-backend-hybrid-connections-get-started/create-hybrid-connection.png)
 
 4. Click **Biz Talk Service** and enter a name for the BizTalk service and click **OK** twice.
 
@@ -63,7 +63,7 @@ You need to create a new Hybrid Connection and BizTalk service for the code port
 
 	After the process completes, the **Notifications** area flashes a green **SUCCESS** and the **Hybrid connection** blade shows the new hybrid connection with the status as **Not connected**.
 
-	![One hybrid connection created](./media/app-service-mobile-dotnet-backend-hybrid-connections-get-started-preview/hybrid-connection-created.png)
+	![One hybrid connection created](./media/app-service-mobile-dotnet-backend-hybrid-connections-get-started/hybrid-connection-created.png)
 
 At this point, you've completed an important part of the cloud hybrid connection infrastructure. Next, you'll create a corresponding on-premises piece.
 
@@ -77,7 +77,7 @@ In this step, you define a connection string for the on-premises database and mo
 
 1. In Visual Studio 2013, open the project that defines your Mobile App backend.
 
-	To learn how to download your .NET backend project, see [quickstart tutorial](app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-preview.md).
+	To learn how to download your .NET backend project, see [quickstart tutorial](app-service-mobile-windows-store-dotnet-get-started.md).
 
 2. In Solution Explorer, open the Web.config file, locate the **connectionStrings** section, add a new SqlClient entry like the following, which points to the on-premises SQL Server database:
 
@@ -119,7 +119,7 @@ Next, you need to add an app setting for this new connection string so that it c
 
 	Replace `<**secure_password**>` with the secure password for your on-premises database.
 
-	![Connection string for on-premises database](./media/app-service-mobile-dotnet-backend-hybrid-connections-get-started-preview/set-sql-server-database-connection.png)
+	![Connection string for on-premises database](./media/app-service-mobile-dotnet-backend-hybrid-connections-get-started/set-sql-server-database-connection.png)
 
 2. Press **Save** to save the hybrid connection and connection string you just created.
 
@@ -162,4 +162,4 @@ Finally, you need to publish the Mobile App backend to Azure and verify that it 
 <!-- Links -->
 [Azure Portal]: https://portal.azure.com/
 [Azure Management Portal]: http://go.microsoft.com/fwlink/p/?linkid=213885
-[Get started with Mobile Services]: ../mobile-services-dotnet-backend-windows-store-dotnet-get-started.md
+[Get started with Mobile Services]: ../mobile-services-windows-store-dotnet-get-started.md

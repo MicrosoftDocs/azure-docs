@@ -18,9 +18,9 @@
 
 # Send cross-platform notifications to a specific user
 
-[AZURE.INCLUDE [app-service-mobile-selector-push-users-preview](../../includes/app-service-mobile-selector-push-users-preview.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-push-users](../../includes/app-service-mobile-selector-push-users.md)]
 &nbsp;  
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services-preview](../../includes/app-service-mobile-note-mobile-services-preview.md)]
+[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 This topic shows you how to send notifications to all registered devices of a specific user from your mobile backend. It introduced the concept of [templates], which gives client applications the freedom of specifying payload formats and variable placeholders at registration. Send then hits every platform with these placeholders, enabling cross-platform notifications.
 
@@ -104,7 +104,7 @@ Your app is now set up to register user device with the user login information.
 Re-publish your mobile backend project and run any of the client apps you have set up. On item insertion, the backend will send notifications to all client apps where the user is logged in.
 
 <!-- URLs. -->
-[Get started with authentication]: app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-users-preview.md
-[Get started with push notifications]: app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-push-preview.md
+[Get started with authentication]: app-service-mobile-windows-store-dotnet-get-started-users.md
+[Get started with push notifications]: app-service-mobile-windows-store-dotnet-get-started-push.md
 [templates]: https://msdn.microsoft.com/en-us/library/dn530748.aspx
  
