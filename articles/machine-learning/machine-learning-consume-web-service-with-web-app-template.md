@@ -14,12 +14,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/19/2015"
+	ms.date="10/26/2015"
 	ms.author="garye;raymondl"/>
 
 # Consume an Azure Machine Learning web service with a web app template
 
-Now that you've created and deployed a predictive web service from your experiment in Machine Learning Studio, you can access the predictive model using a REST API.
+Once you've developed your predictive model and deployed it as an Azure web service using Machine Learning Studio, or using tools such as R or Python,
+you can access the operationalized model using a REST API.
+
 There are a number of ways to consume the REST API and access the web service. For example, you can write an application in C#, R, or Python using the sample code generated for you when you deployed the web service (available on the API Help Page in the web service dashboard in Machine Learning Studio). Or you can use the sample Microsoft Excel workbook created for you (also available in the web service dashboard in Studio).
 
 But the quickest and easiest way to access your web service is through the Web App Templates available in the [Azure Web App Marketplace](https://azure.microsoft.com/marketplace/web-applications/all/).
