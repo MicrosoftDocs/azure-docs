@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="10/19/2015"
+   ms.date="10/26/2015"
    ms.author="jgao"/>
 
 # Tutorial: Get started with Azure Data Lake Analytics U-SQL language

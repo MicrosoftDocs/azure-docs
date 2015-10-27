@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="10/21/2015"
+   ms.date="10/26/2015"
    ms.author="jgao"/>
 
 # Tutorial: develop U-SQL scripts using Data Lake Tools for Visual Studio
@@ -32,7 +32,7 @@ U-SQL is a hyper-scalable, highly extensible language for preparing, transformin
 - **Microsoft Azure SDK for .NET version 2.5 or above**.  Install it using the [Web platform installer](http://www.microsoft.com/web/downloads/platform.aspx).
 - **Data Lake Tools for Visual Studio**. Install it using the [Web platform installer](http://www.microsoft.com/web/downloads/platform.aspx).
 
-    Once Data Lake Tools for Visual Studio is installed, you will see a U-SQL menu in Visual Studio:
+    Once Data Lake Tools for Visual Studio is installed, you will see a Data Lake menu in Visual Studio:
     
     ![U-SQL Visual Studio menu](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-menu.png)
 
@@ -41,7 +41,7 @@ U-SQL is a hyper-scalable, highly extensible language for preparing, transformin
 	- [Create an Azure Data Lake Analytics account](data-lake-analytics-get-started-portal.md#create_adl_analytics_account).
 	- [Upload SearchLog.tsv to the default Data Lake Storage account](data-lake-analytics-get-started-portal.md#update-data-to-the-default-adl-storage-account).
 
-	The Data Lake Tools doesn't support creating Data Lake Analytics accounts.  So you have to create it using the Azure Preview Portal, Azure PowerShell, .NET SDK or Azure CLI. To run an Data Lake Analytics job, you will need some data. Even though the Data Lake Tools supports uploading data, you will use the portal to upload the sample data to make this tutorial easier to follow. 
+	The Data Lake Tools doesn't support creating Data Lake Analytics accounts.  So you have to create it using the Azure Preview Portal, Azure PowerShell, .NET SDK or Azure CLI. To run a Data Lake Analytics job, you will need some data. Even though the Data Lake Tools supports uploading data, you will use the portal to upload the sample data to make this tutorial easier to follow. 
 
 ## Connect to Azure
 
@@ -55,7 +55,7 @@ U-SQL is a hyper-scalable, highly extensible language for preparing, transformin
 **To browse your Data Lake Analytics accounts**
 
 1. From Visual Studio, open **Server Explorer** by press **CTRL+ALT+S**.
-2. From **Server Explorer**, expand **Azure**, and then expand **Data Lake Analytics**. You shall see a list of your Data Lake Analytics accounts if there are any. You cannot create Data Lake Analystics accounts from the studio. To create an account, see [Get Started with Azure Data Lake Analytics using Azure Preview Portal](data-lake-analytics-get-started-portal.md) or [Get Started with Azure Data Lake Analytics using Azure PowerShell](knoa-get-started-powershell.md).
+2. From **Server Explorer**, expand **Azure**, and then expand **Data Lake Analytics**. You shall see a list of your Data Lake Analytics accounts if there are any. You cannot create Data Lake Analytics accounts from Visual Studio. To create an account, see [Get Started with Azure Data Lake Analytics using Azure Preview Portal](data-lake-analytics-get-started-portal.md) or [Get Started with Azure Data Lake Analytics using Azure PowerShell](knoa-get-started-powershell.md).
 
 ## Upload source data files
 
@@ -68,7 +68,9 @@ In case you want to use your own data, here are the procedures for uploading dat
 1. From **Server Explorer**, expand **Azure**, expand **Data Lake Analytics**, expand your Data Lake Analytics account, expand **Storage Accounts**. You shall see the default Data Lake Storage account, and the linked Data Lake Storage accounts, and the linked Azure Storage accounts. The default Data Lake account has a label "Default Storage Account).
 2. Right-click the default Data Lake Storage account, and then click **Explorer**.  It opens the Data Lake Tools for Visual Studio Explorer pane.  In the left, it shows a tree view, the content view is on the right.
 3. Browse to the folder where you want to upload files, 
-4. Right-click any blank space, and then click **Upload** 
+4. Right-click any blank space, and then click **Upload**. 
+
+	![U-SQL Visual Studio project U-SQL](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-upload-files.png)
 
 **To upload the file to a Azure Blob storage account**
 
@@ -76,21 +78,21 @@ In case you want to use your own data, here are the procedures for uploading dat
 2. Expand the Azure Storage Account.
 3. Right-click the container where you want to upload files, and then click **Explorer**.
 4. Browse to the folder where you want to upload files, 
-5. Right-click any blank space, and then click **Upload** 
+5. Right-click any blank space, and then click **Upload**. 
 
 ## Develop and test U-SQL scripts 
 
 The Data Lake Analtyics jobs are written in the U-SQL language. To learn more about U-SQL, see [Get started with U-SQL language](data-lake-analytics-u-sql-get-started.md) and [U-SQL language reference](http://go.microsoft.com/fwlink/?LinkId=691348).
 
-**To create and submit an Data Lake Analytics job** 
+**To create and submit a Data Lake Analytics job** 
 
 1. From the **File** menu, click **New**, and then click **Project**.
-2. Select the U-SQL Project type.
+2. Select the **U-SQL Project** type.
 
 	![new U-SQL Visual Studio project](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-new-project.png)
 
-3. Click **OK**. Visual studio creates a solution with a Script.usql file.
-4. Enter the following script into the Script.usql file:
+3. Click **OK**. Visual studio creates a solution with a **Script.usql** file.
+4. Enter the following script into **Script.usql**:
 
         @searchlog =
             EXTRACT UserId          int,
@@ -149,18 +151,26 @@ The Data Lake Analtyics jobs are written in the U-SQL language. To learn more ab
 		
 		Rather than remembering Azure file path and type it manually when writing script, Data Lake Tools for Visual Studio provides an easy way: right click in the editor, click Insert Azure Path. Navigate to the file in the Azure Blob Browser dialog. Click OK button the file path will be inserted to your code. 
 
-5. Next to the **Submit** button, specify the Analytics account.
+5. Specify the Data Lake Analytics account, Database, and Schema:
+
+	![Submit U-SQL Visual Studio project](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-submit-job.png)
+
+    For more information, see [Use U-SQL catalog](data-lake-analytics-use-u-sql-catalog.md).
+
 5. From **Solution Explorer**, right click **Script.usql**, and then click **Build Script**. Verify the result in the Output pane.
-6. From **Solution Explorer**, right click **Script.usql**, and then click **Submit Script**.
-7. Verify the **Analytics Account**, and then click **Submit**. Submission results and job link are available in the Data Lake Tools for Visual Studio Results window when the submission is completed.
+6. From **Solution Explorer**, right click **Script.usql**, and then click **Submit Script**. Optionally, you can also click **Submit** from Script.usql pane.  See the previous screenshot.  Click the down arrow next to the Submit button to submit using the advance options:
+7. Specify **Job Name**, verify the **Analytics Account**, and then click **Submit**. Submission results and job link are available in the Data Lake Tools for Visual Studio Results window when the submission is completed.
+
+	![Submit U-SQL Visual Studio project](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-submit-job-advanced.png)
+
 8. You must click the Refresh button to see the latest job status and refresh the screen. When the job successes, it will show you the **Job Graph**, **Meta Data Operations**, **State History**, **Diagnostics**:
 
 	![U-SQL Visual Studio Data Lake Analytics job performance graph](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-performance-graph.png)
 
 	* Job Summary. Show the summary information of current job, e.g.: State, Progress, Execution Time, Runtime Name, Submitter etc.   
 	* Job Details. Detailed information on this job is provided, including script, resource, Vertex Execution View.
-	* Job Graph. Four graphs are provided to visualize the job’s information:  Progress, Data Read, Data Written, Excurtion Time, Average Execution Time Per Node, Input Throughput, Output Throughput.
-	* MetaData Operations. 
+	* Job Graph. Four graphs are provided to visualize the job’s information:  Progress, Data Read, Data Written, Excution Time, Average Execution Time Per Node, Input Throughput, Output Throughput.
+	* MetaData Operations. It shows all the metadata operations.
 	* State History. 
 	* Diagnostics. Data Lake Tools for Visual Studio will diagnose job execution automatically. You will receive alerts when there are some errors or performance issues in their jobs. See Job Diagnostics (link TBD) part for more information. 
 	
@@ -179,7 +189,6 @@ The Data Lake Analtyics jobs are written in the U-SQL language. To learn more ab
 
 ###Job Playback 
 
-[jgao: needs Xiaoyong's help.  This has changed in the latest build.]
 Job playback enables you to watch job execution progress and visually detect out performance anomalies and bottlenecks. This feature can be used before the job completes execution (i.e. during the time the job is actively running) as well as after the execution has completed. Doing playback during job execution will allow the user to play back the progress up to the current time. 
 
 **To view job execution progress**  
@@ -193,7 +202,6 @@ Job playback enables you to watch job execution progress and visually detect out
 
 Data Lake Tools for Visual Studio provides user-selectable color-overlays on job view to indicate progress, data I/O, execution time, I/O throughput of each stage. Through this, users can figure out potential issues and distribution of job properties directly and intuitively. You can choose a data source to display from the drop-down list.  
 
-[jgao: information to be provided by xiaoyong]
 
 
 ##See also

@@ -78,8 +78,7 @@ The ARM group however can be located in a different data center.
 <!-- ################################ -->
 ## Manage accounts
 
-Before running any Data Lake Analytics jobs, you must have a Data Lake Analytics account. Unlike Azure Data Lake
-Managed cluster (Previously known as Azure HDInsight), you don't pay for an Analytics account when it is not 
+Before running any Data Lake Analytics jobs, you must have a Data Lake Analytics account. Unlike Azure HDInsight, you don't pay for an Analytics account when it is not 
 running a job.  You only pay for the time when it is running a job.  For more informaiton, see 
 [Azure Data Lake Analytics Overview](data-lake-analytics-overview.md).  
 

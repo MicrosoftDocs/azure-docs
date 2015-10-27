@@ -37,8 +37,6 @@ Before you begin this tutorial, you must have the following:
 <!-- ################################ -->
 ## Use Azure Resource Manager groups
 
-[jgao: is Data Lake Analytics a good usage case of ARM? If no, I can remove this section]
-
 Applications are typically made up of many components, for example a web app, database, database server, storage,
 and 3rd party services. Azure Resource Manager (ARM) enables you to work with the resources in your application 
 as a group, referred to as an Azure Resource Group. You can deploy, update, monitor or delete all of the 
@@ -66,8 +64,7 @@ The ARM group however can be located in a different data center.
 <!-- ################################ -->
 ## Manage accounts
 
-Before running any Data Lake Analytics jobs, you must have a Data Lake Analytics account. Unlike Azure Data Lake
-Managed cluster (Previously known as Azure HDInsight), you don't pay for an Analytics account when it is not 
+Before running any Data Lake Analytics jobs, you must have a Data Lake Analytics account. Unlike Azure HDInsight, you don't pay for an Analytics account when it is not 
 running a job.  You only pay for the time when it is running a job.  For more informaiton, see 
 [Azure Data Lake Analytics Overview](data-lake-analytics-overview.md).  
 
