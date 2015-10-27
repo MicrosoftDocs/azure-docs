@@ -72,13 +72,13 @@ In this section, you download a universal Windows app template project that is c
 
 5. In the app, type meaningful text, such as *Complete the tutorial*, in the **Insert a TodoItem** text box, and then click **Save**.
 
-	![](./media/app-service-mobile-dotnet-backend-windows-store-dotnet-get-started/mobile-quickstart-startup.png)
+	![](./media/app-service-mobile-windows-store-dotnet-get-started/mobile-quickstart-startup.png)
 
 	This sends a POST request to the new mobile app backend that's hosted in Azure.
 
 6. Stop debugging, right-click the `<your app name>.WindowsPhone` project, click **Set as StartUp Project**, and then press F5 again.
 
-	![](./media/app-service-mobile-dotnet-backend-windows-store-dotnet-get-started/mobile-quickstart-completed-wp8.png)
+	![](./media/app-service-mobile-windows-store-dotnet-get-started/mobile-quickstart-completed-wp8.png)
 
 	Notice that data saved from the previous step is loaded from the mobile app after the Windows app starts.
 

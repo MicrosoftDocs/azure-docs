@@ -20,7 +20,7 @@ Follow these steps to create a new Mobile App backend.
 
 8. Click **Server**.  In the **New server** blade, enter a unique server name in the **Server name** field, and provide a suitable **Server admin login** and **Password**.  Ensure **Allow azure services to access server** is checked.  Click on **OK**.
 
-    ![](./media/app-service-mobile-create-new-service/dotnet-backend-create-db.png)
+    ![](./media/app-service-mobile-dotnet-backend-create-new-service/dotnet-backend-create-db.png)
 
 9. On the **New database** blade, click on **OK**.
 

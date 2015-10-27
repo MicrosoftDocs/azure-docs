@@ -36,9 +36,7 @@ To complete this tutorial, you need the following:
  
 * [Visual Studio Community 2013] or later.  If you install Visual Studio Community 2013, install [Xamarin] separately.  You can install the Xamarin tools when you install Visual Studio 2015.
 
-* A Mac with [Xcode] v7.0 or later and [Xamarin Studio] installed.
- 
-     >[AZURE.NOTE]If you plan to build your app on a Windows computer by using Visual Studio, you'll still need access to a networked Mac to do it.
+* A Mac with [Xcode] v7.0 or later and [Xamarin Studio] installed. If you plan to build your app on a Windows computer by using Visual Studio, you'll still need access to a networked Mac to do it.
  
 >[AZURE.NOTE] If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751&appServiceName=mobile), where you can immediately create a short-lived starter Mobile App in App Service. No credit cards required; no commitments.
 
@@ -152,12 +150,12 @@ This sends a POST request to the new mobile app backend hosted in Azure. Data fr
 
 
 <!-- Images. -->
-[6]: ./media/app-service-mobile-dotnet-backend-xamarin-forms-get-started/xamarin-forms-quickstart.png
-[8]: ./media/app-service-mobile-dotnet-backend-xamarin-forms-get-started/xamarin-forms-quickstart-vs.png
-[9]: ./media/app-service-mobile-dotnet-backend-xamarin-forms-get-started/xamarin-forms-quickstart-xs.png
-[10]: ./media/app-service-mobile-dotnet-backend-xamarin-forms-get-started/mobile-quickstart-startup-ios.png
-[11]: ./media/app-service-mobile-dotnet-backend-xamarin-forms-get-started/mobile-quickstart-startup-android.png
-[12]: ./media/app-service-mobile-dotnet-backend-xamarin-forms-get-started/mobile-quickstart-startup-windows.png
+[6]: ./media/app-service-mobile-xamarin-forms-get-started/xamarin-forms-quickstart.png
+[8]: ./media/app-service-mobile-xamarin-forms-get-started/xamarin-forms-quickstart-vs.png
+[9]: ./media/app-service-mobile-xamarin-forms-get-started/xamarin-forms-quickstart-xs.png
+[10]: ./media/app-service-mobile-xamarin-forms-get-started/mobile-quickstart-startup-ios.png
+[11]: ./media/app-service-mobile-xamarin-forms-get-started/mobile-quickstart-startup-android.png
+[12]: ./media/app-service-mobile-xamarin-forms-get-started/mobile-quickstart-startup-windows.png
 
 
 <!-- URLs. -->
