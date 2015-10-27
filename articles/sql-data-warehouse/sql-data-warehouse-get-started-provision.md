@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="10/20/2015"
+   ms.date="10/21/2015"
    ms.author="lodipalm;barbkess"/>
 
 # Create a SQL Data Warehouse by using the Azure preview portal#
@@ -38,7 +38,7 @@ In this tutorial you will:
 
 2. Click **New** > **Data + Storage** > **SQL Data Warehouse**.
 
-	![Create a data warehouse](./media/sql-data-warehouse-get-started-provision/new-data-warehouse.png)
+    ![Create](./media/sql-data-warehouse-get-started-provision/create-sample.gif)
 
 1. Enter a name for your database in the SQL Data Warehouse blade. In this example, we name the database AdventureWorksDW.
 
@@ -126,7 +126,7 @@ Now that you have configured the firewall you will be able to make connections f
 
 ## Next steps
 
-Now that you have created a sample database for SQL Data Warehouse, learn about how to use SQL Data Warehouse in [Connect and query](./sql-data-warehouse-get-started-connect-query.md).
+Now that you have created a sample database for SQL Data Warehouse, you are ready to [Connect](./sql-data-warehouse-get-started-connect.md) to your database.
 
 
 
