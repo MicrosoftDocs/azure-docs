@@ -10,6 +10,7 @@
    />
 <tags
    ms.service="machine-learning"
+   ms.devlang="NA"
    ms.workload="data-services"
    ms.tgt_pltfrm="na"
    ms.topic="article"
