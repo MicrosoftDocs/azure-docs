@@ -69,7 +69,7 @@ By selecting the Filter option at the top of the blade, you can filter by server
 ## Related links
 
 * [Azure AD Connect Health](active-directory-aadconnect-health.md)
-* [Azure AD Connect Health Agent Installation](active-directory-aadconnect-health-install.md)
+* [Azure AD Connect Health Agent Installation](active-directory-aadconnect-health-agent-install.md)
 * [Azure AD Connect Health Operations](active-directory-aadconnect-health-operations.md)
 * [Using Azure AD Connect Health for Sync](active-directory-aadconnect-health-sync.md)
 * [Azure AD Connect Health FAQ](active-directory-aadconnect-health-faq.md)
