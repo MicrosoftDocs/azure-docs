@@ -1,5 +1,5 @@
 <properties
-	pageTitle="API basics for Azure Batch"
+	pageTitle="API basics for Azure Batch | Microsoft Azure"
 	description="Learn the basic concepts of the Batch service and its APIs from a developer's standpoint."
 	services="batch"
 	documentationCenter=".net"
