@@ -68,7 +68,7 @@ A resource group is a logical grouping of network, storage, and other resources.
 
 	azure group create -n "testRG" -l "West US"
 
-You can start adding resources to this group after this, and use it to configure a resource such as a new virtual machine.
+You start adding resources to this group after this, and use it to configure a resource such as a new virtual machine.
 
 
 ## Use resource group templates
