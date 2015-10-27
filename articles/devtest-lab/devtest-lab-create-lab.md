@@ -44,13 +44,10 @@ To create a DevTest Lab, you will need:
 
 4. On the **DevTest Lab** blade, tap **Create**.
 
-    ![Choose Create](./media/devtest-lab-create-lab/devtestlab-blade-create-button.png)
-
 5. On the **Create a DevTest Lab** blade:
 
     1. Enter a **Lab Name** for the new lab.
     1. Select the **Subscription** to associate with the lab.
-    1. Select the **Resource Group** to contain the lab.
     1. Select a **Location** in which to store the lab.
     1. Tap **Create**.
 
