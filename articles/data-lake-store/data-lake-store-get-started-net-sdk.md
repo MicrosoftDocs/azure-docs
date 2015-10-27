@@ -65,7 +65,7 @@ Learn how to use the Azure Data Lake Store .NET SDK to create an Azure Data Lake
 
 7. Open **Program.cs** and replace the existing code block with the following code. Also, provide the values for parameters in the code snippet. 
 
-	This code goes through the process of creating a Data Lake Store, creating folders in the store, uploading files, downloading files, and finally deleting the account. If you are looking for some sample data to upload, you can get the **OlympicAthletes.tsv** file from the [AzureDataLake Git Repository](https://github.com/MicrosoftBigData/AzureDataLake/raw/master/Samples/SampleData/OlympicAthletes.tsv).
+	This code goes through the process of creating a Data Lake Store, creating folders in the store, uploading files, downloading files, and finally deleting the account. If you are looking for some sample data to upload, you can get the **Ambulance Data** folder from the [Azure Data Lake Git Repository](https://github.com/MicrosoftBigData/ProjectKona/tree/master/SQLIPSamples/SampleData/AmbulanceData).
 	
 		using System;
 		using System.Collections.Generic;
@@ -126,7 +126,7 @@ Learn how to use the Azure Data Lake Store .NET SDK to create an Azure Data Lake
 		            // Upload a file under MYTEMPDIR
 		            Console.WriteLine("Uploading a file to the Azure Data Lake Store account");
 		            bool force = false; //Set this to true if you want to overwrite existing data
-		            UploadFile(_dataLakeStoreFileSystemClient, dataLakeAccountName, "C:\\users\\nitinme\\desktop\\OlympicAthletes.tsv", "/mytempdir/OlympicAthletes.tsv", force);
+		            UploadFile(_dataLakeStoreFileSystemClient, dataLakeAccountName, "C:\\users\\nitinme\\desktop\\vehicle1_09142014.csv", "/mytempdir/vehicle1_09142014.csv", force);
 		            Console.WriteLine("File uploaded. Press ENTER to continue...");
 		            Console.ReadLine();
 		
@@ -144,7 +144,7 @@ Learn how to use the Azure Data Lake Store .NET SDK to create an Azure Data Lake
 		
 		            // Download the files from the Data Lake Store
 		            Console.WriteLine("Downloading files from an Azure Data Lake Store account");
-		            DownloadFile(_dataLakeStoreFileSystemClient, dataLakeAccountName, "/mytempdir/OlympicAthletes.tsv", "C:\\users\\nitinme\\desktop\\OlympicAthletes_copy.tsv", force);
+		            DownloadFile(_dataLakeStoreFileSystemClient, dataLakeAccountName, "/mytempdir/vehicle1_09142014.csv", "C:\\users\\nitinme\\desktop\\vehicle1_09142014_copy.csv", force);
 		            Console.WriteLine("Files downloaded. Press ENTER to continue...");
 		            Console.ReadLine();
 		
