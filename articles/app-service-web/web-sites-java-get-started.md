@@ -39,15 +39,15 @@ There are several ways you can set up a Java web container in an App Service web
 
 	The Azure Marketplace includes templates that automatically create and configure Java web apps with Tomcat or Jetty web containers. The web containers that the templates set up are configurable. For more information, see the [Use a Java template from the Azure Marketplace](#marketplace) section of this tutorial.
  
-1. Create a web app and then configure **Application Settings**.
+1. Create a web app and then configure **Application settings**.
 
-	App Service provides several Tomcat and Jetty versions, with default configuration. If the application that you will be hosting will work with one of the built-in versions, this method of setting up a web container offers the best performance. For this method, you create a web app in the portal, and then go to the web app's **Application Settings** blade to choose your Java web container. When you use this method the web container runs from the local hard drive of the Virtual Machine host for a web app, which is very fast. However, you don't have access to edit files in this part of the file system, which means you can't configure *server.xml*.  For more information, see the [Create and configure a Java web app](#appsettings) section later in this tutorial.  
+	App Service provides several Tomcat and Jetty versions, with default configuration. If the application that you will be hosting will work with one of the built-in versions, this method of setting up a web container offers the best performance. For this method, you create a web app in the portal, and then go to the web app's **Application settings** blade to choose your Java web container. When you use this method the web container runs from the local hard drive of the Virtual Machine host for a web app, which is very fast. However, you don't have access to edit files in this part of the file system, which means you can't configure *server.xml*.  For more information, see the [Create and configure a Java web app](#appsettings) section later in this tutorial.  
   
 3. Create a web app and then manually copy and edit configuration files 
 
 	You might want to host a Java application that requires a version of Tomcat or Jetty that isn't directly supported by App Service or provided by a template. Or you might want to configure the web container from scratch yourself. In this case, you can create a web app using the portal, and then provide the appropriate runtime files manually. In this case the files will reside in a part of the VM's file system that you do have access to, but this part of the VM's file system resides in Azure storage, which is slightly slower than a local hard drive. For more information, see [Upload a custom Java web app to Azure](https://acom-sandbox.azurewebsites.net/en-us/documentation/articles/web-sites-java-custom-upload/).
 
-## <a name="marketplace"></a> Choose a template from the Azure Marketplace
+## <a name="marketplace"></a> Use a Java template from the Azure Marketplace
 
 This section shows how to use the Azure Marketplace to create a Java web app.
 
@@ -105,9 +105,9 @@ This section shows how to use the Azure Marketplace to create a Java web app.
 
 Now that you've created the web app with an app container, see the [Next steps](#next-steps) section for information about how to  upload your application to the web app.
 
-## <a name="portal"></a> Create a web app and then configure Application Settings
+## <a name="portal"></a> Create and configure a Java web app
 
-This section shows how to create a web app and configure it manually for Java.
+This section shows how to create a web app and configure it for Java using the **Application settings** blade of the portal.
 
 1. Sign in to the [Azure preview portal](https://portal.azure.com/).
 
