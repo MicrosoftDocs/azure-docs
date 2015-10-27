@@ -1,9 +1,22 @@
-<properties pageTitle="Tutorial: Azure Active Directory integration with ThousandEyes | Microsoft Azure" description="Learn how to use ThousandEyes with Azure Active Directory to enable single sign-on, automated provisioning, and more!." services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
+<properties 
+    pageTitle="Tutorial: Azure Active Directory integration with ThousandEyes | Microsoft Azure" 
+    description="Learn how to use ThousandEyes with Azure Active Directory to enable single sign-on, automated provisioning, and more!" 
+    services="active-directory" 
+    authors="markusvi"  
+    documentationCenter="na" 
+    manager="stevenpo"/>
+<tags 
+    ms.service="active-directory" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="identity" 
+    ms.date="10/22/2015" 
+    ms.author="markvi" />
+
 #Tutorial: Azure Active Directory integration with ThousandEyes
->[AZURE.TIP]For feedback, click [here](http://go.microsoft.com/fwlink/?LinkId=529081).
   
-The objective of this tutorial is to show how to set up single sign-on between Azure Active Directory (AAD) and ThousandEyes.
+The objective of this tutorial is to show how to set up single sign-on between Azure Active Directory (Azure AD) and ThousandEyes.
   
 The scenario outlined in this tutorial assumes that you already have the following items:
 
@@ -13,7 +26,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 After completing this tutorial, the AAD users to whom you have assign ThousandEyes access will be able to single sign into the application at your ThousandEyes company site (service provider initiated sign on), or using the AAD Access Panel .
 
 1.  Enabling the application integration for ThousandEyes
-2.  [Configuring Single Sign-On](https://msdn.microsoft.com/library/eae8a61c-8e48-4f15-974d-867adbaf40ca#configuresso)
+2.  Configuring Single Sign-On
 3.  Configuring user provisioning
 4.  Assigning users
 
@@ -150,4 +163,4 @@ To test your configuration, you need to grant the Azure AD users you want to all
 
     ![Yes](./media/active-directory-saas-thousandeyes-tutorial/IC767830.png "Yes")
   
-If you want to test your single sign-on settings, open the Access Panel. For more details about the Access Panel, see [Introduction to the Access Panel](https://msdn.microsoft.com/library/dn308586).
+If you want to test your single sign-on settings, open the Access Panel. For more details about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
