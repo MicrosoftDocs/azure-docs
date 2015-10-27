@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="07/13/2015"
-   ms.author="derrickv"/>  
+   ms.date="10/27/2015"
+   ms.author="rick.negrin@microsoft.com"/>  
 
 # Azure Data Catalog developer concepts
 
