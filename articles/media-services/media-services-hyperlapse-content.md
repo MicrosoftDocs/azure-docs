@@ -3,7 +3,7 @@
 	description="Azure Media Hyperlapse creates smooth time-lapsed videos from first-person or action-camera content. This topic shows how to use Media Indexer."
 	services="media-services"
 	documentationCenter=""
-	authors="adsolank"
+	authors="asolanki"
 	manager="johndeu"
 	editor=""/>
 
