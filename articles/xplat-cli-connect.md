@@ -35,6 +35,9 @@ For more information about authentication and subscription management, see [What
 
 If you don't have an Azure account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial][free-trial].
 
+> [AZURE.NOTE] If you are using a version of the Azure CLI that is prior to version 0.9.9, you can use the `azure login` command only with work or school account identities; Microsoft account identities do not work. You can, however, use any identity to log on to your account with the interactive `azure login` command with Azure CLI versions 0.9.9 and above.
+
+
 
 ## Use the interactive log in method
 
@@ -61,7 +64,8 @@ Copy the code offered to you, above, and open a browser to http://aka.ms/devicel
 
 ## Using non-interactive log in with a work or school account
 
-The non-interactive log in method only works with a work or school account, also called an *organizational account*. This account is managed by your organization, and defined in your organization's Azure Active Directory. You can [create an orgnizational account](#create-an-organizational-account) if you don't have one, or you can [a work or school ID from your Microsoft account id](./virtual-machines/resource-group-create-work-id-from-personal.md). This requires you to specify either a username or a username and a password to the `azure login` command, like so:
+
+The non-interactive log in method only works with a work or school account, also called an *organizational account*. This account is managed by your organization, and defined in your organization's Azure Active Directory. You can [create an orgnizational account](#create-an-organizational-account) if you don't have one, or you can [create a work or school ID from your Microsoft account id](./virtual-machines/resource-group-create-work-id-from-personal.md). This requires you to specify either a username or a username and a password to the `azure login` command, like so:
 
 	azure login -u ahmet@contoso.onmicrosoft.com
 	info:    Executing command login
