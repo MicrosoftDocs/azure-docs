@@ -267,7 +267,7 @@ Use the command Remove-AzureLoadBalancer to delete a previously created load bal
 
 	Remove-AzureLoadBalancer -Name NRPLB -ResourceGroupName NRP-RG
 
-[AZURE.NOTE] You can use the optional switch -Force to avoid the prompt for deletion.
+>[AZURE.NOTE] You can use the optional switch -Force to avoid the prompt for deletion.
 
 
 

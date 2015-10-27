@@ -109,7 +109,7 @@ Create a public IP address to be used by frontend IP pool:
 
 	$publicIP = New-AzurePublicIpAddress -Name PublicIp -ResourceGroupName NRP-RG -Location "West US" –AllocationMethod Dynamic -DomainNameLabel lbip 
 
-[AZURE.NOTE]The public IP address domain name label property will be the FQDN for the load balancer. 
+>[AZURE.NOTE]The public IP address domain name label property will be the FQDN for the load balancer. 
 
 ## Create Front end IP pool and backend address pool
 
@@ -272,7 +272,7 @@ Use the command Remove-AzureLoadBalancer to delete a previously created load bal
 
 	Remove-AzureLoadBalancer -Name NRP-LB -ResourceGroupName NRP-RG
 
-[AZURE.NOTE] You can use the optional switch -Force to avoid the prompt for deletion.
+>[AZURE.NOTE] You can use the optional switch -Force to avoid the prompt for deletion.
 
 
 ## See Also
