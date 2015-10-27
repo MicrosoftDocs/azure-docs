@@ -46,7 +46,7 @@ The following table describes some of the key benefits that Microsoft Azure Stor
 |Availability in the Azure Government Portal | StorSimple is now available in the Azure Government Portal. For more information, see [Deploy your on-premises StorSimple device in the Government Portal](storsimple-deployment-walkthrough-gov.md).|
 |Support for Zone Redundant Storage | With the upgrade to the latest version of the Storage APIs, the StorSimple 8000 series will support Zone Redundant Storage (ZRS), in addition to Locally Redundant Storage (LRS) and Geo-redundant storage (GRS). Refer to [this article on Azure Storage redundancy options](https://azure.microsoft.com/documentation/articles/storage-redundancy/) for ZRS details.
 
-![video icon](./media/storsimple-overview/video_icon.png) Watch [this video](http://azure.microsoft.com/en-us/documentation/videos/guru-pangals-welcome-to-wpc--july-2015) for an introduction to the StorSimple 8000 series features and benefits.
+![video icon](./media/storsimple-overview/video_icon.png) Watch [this video](http://azure.microsoft.com/documentation/videos/guru-pangals-welcome-to-wpc--july-2015) for an introduction to the StorSimple 8000 series features and benefits.
 
 ## StorSimple components
 
