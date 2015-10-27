@@ -22,7 +22,6 @@
 - [Using Portal](data-lake-store-get-started-portal.md)
 - [Using PowerShell](data-lake-store-get-started-powershell.md)
 - [Using .NET SDK](data-lake-store-get-started-net-sdk.md)
-- [Using Azure CLI](data-lake-store-get-started-cli.md)
 
 Learn how to use the Azure Data Lake Store .NET SDK to create an Azure Data Lake account and perform basic operations such as create folders, upload and download data files, delete your account, etc. For more information about Data Lake, see [Azure Data Lake Store](data-lake-store-overview.md).
 
@@ -209,11 +208,16 @@ Learn how to use the Azure Data Lake Store .NET SDK to create an Azure Data Lake
 
 
 8. Build and run the application. Follow the prompts to run and complete the application.
- 
-## See also
+
+## Other ways of creating a Data Lake Store account
 
 - [Get Started with Data Lake Store using Portal](data-lake-store-get-started-portal.md)
 - [Get Started with Data Lake Store using PowerShell](data-lake-store-get-started-powershell.md) 
+
+
+## Next steps
+
+- [Secure data in Data Lake Store](data-lake-store-secure-data.md)
 - [Use Azure Data Lake Analytics with Data Lake Store](data-lake-analytics-get-started-portal.md)
 - [Use Azure HDInsight with Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)
 

@@ -22,7 +22,6 @@
 - [Using Portal](data-lake-store-get-started-portal.md)
 - [Using PowerShell](data-lake-store-get-started-powershell.md)
 - [Using .NET SDK](data-lake-store-get-started-net-sdk.md)
-- [Using Azure CLI](data-lake-store-get-started-cli.md)
 
 Learn how to use the Azure Preview Portal to create an Azure Data Lake Store account and perform basic operations such as create folders, upload and download data files, delete your account, etc. For more information about Data Lake Store, see [Overview of Azure Data Lake Store](data-lake-store-overview.md).
 
@@ -120,9 +119,14 @@ To delete an Azure Data Lake Store account, from your Data Lake Store blade, cli
 
 ![Delete Data Lake account](./media/data-lake-store-get-started-portal/ADL.Delete.Account.png "Delete Data Lake account")
 
-## See Also
+## Other ways of creating a Data Lake Store account
 
 - [Get Started with Data Lake Store using PowerShell](data-lake-store-get-started-powershell.md)
 - [Get Started with Data Lake Store using .NET SDK](data-lake-store-get-started-net-sdk.md)
+
+
+## Next steps
+
+- [Secure data in Data Lake Store](data-lake-store-secure-data.md)
 - [Use Azure Data Lake Analytics with Data Lake Store](data-lake-analytics-get-started-portal.md)
 - [Use Azure HDInsight with Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)
