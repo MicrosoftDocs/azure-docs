@@ -18,18 +18,9 @@
 
 # Use U-SQL catalog
 
+The U-SQL catalog is used to structure data and code so they can be shared by U-SQL scripts. The catalog enables the highest performance possible with data in Azure Data Lake.
 
-The U-SQL catalog is used to structure data and code so they can be shared by U-SQL script. It enables the highest performance possible with data in Azure Data Lake.
-
-Each Azure Data Lake Analytics account has a default Azure Data Lake Store account associated with it. This Data Lake Store account is referred as the default Data Lake Store account. U-SQL catalog is stored in the default Data Lake Store account under the /catalog folder. Do not delete any files in the /catalog folder.
-
->[AZURE.NOTE] Currently U-SQL Catalogs cannot be shared between ADLS. This is something that will work in the future.
-
-##Catalogs
-
-Each Azure Data Lake Analytics account has exactly one U-SQL Catalog associated with it. You cannot delete the U-SQL Catalog.
-
-##Databases
+Each Azure Data Lake Analytics account has exactly one U-SQL Catalog associated with it. You cannot delete the U-SQL Catalog. Currently U-SQL Catalogs cannot be shared between Data Lake Store accounts.
 
 Each U-SQL Catalog contains a database called **Master**. The Master Database cannot be deleted.  Each U-SQL Catalog can contain more additional databases.
 
@@ -40,29 +31,31 @@ U-SQL database contain:
 - Tables – share data among U-SQL scripts.
 - Schemas - share table schemas among U-SQL scripts.
  
+## Manage catalogs
+Each Azure Data Lake Analytics account has a default Azure Data Lake Store account associated with it. This Data Lake Store account is referred as the default Data Lake Store account. U-SQL catalog is stored in the default Data Lake Store account under the /catalog folder. Do not delete any files in the /catalog folder.
+
+### Use Azure Preview Portal
+
+See [Manage Data Lake Analytics using portal](data-lake-analytics-use-portal.md#view-u-sql-catalog)
 
 
-[jgao: show how to view the components using Data Lake Tools for Visual Studio]
+### Use Data Lake Tools for Visual Studio.
 
-[jgao: create additional database from the tools]
+You can use Data Lake Tools for Visual Studio to manage the catalog.  For more information about the tools, see [Using Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md).
 
+**To manage the catalog**
 
+1. Open Visual Studio, and connect to azure. For the instructions, see [Connect to Azure](data-lake-analytics-data-lake-tools-get-started.md#connect-to-azure).
+1. Open **Server Explorer** by press **CTRL+ALT+S**.
+2. From **Server Explorer**, expand **Azure**, expand **Data Lake Analytics**, expand your Data Lake Analytics account, expand **Databases**, and then expand **master**
 
+	![browse U-SQL Visual Studio catalogs](./media/data-lake-analytics-use-u-sql-catalog/data-lake-analytics-browse-catalogs.png)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    - To add a new Database, right-click **Database**, and then click **Create Database**.
+    - To add a new assembly, right-click **Assemblies**, and then click **Register Assembly**.
+    - To add a new schema, right-click **Schemas**, and then click "Create Schema**.
+    - To add a new table, right-click **Tables**, and then click ""Create Table**.
+    - To add a new table valued function, see [Davelop U-SQL user defined operators for Data Lake Analytics jobs](data-lake-analytics-u-sql-develop-user-defined-operators.md).
 
 
 

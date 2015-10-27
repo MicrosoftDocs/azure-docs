@@ -24,21 +24,16 @@ U-SQL is a language that unifies the benefits of SQL with the expressive power o
 
 There are some differences from ANSI SQL or T-SQL. For example, its keywords such as SELECT have to be in UPPERCASE. 
 
-[jgao: check with Michael on the meaning of the following sentence.]
-
 It’s type system and expression language inside select clauses, where predicates etc are in C#. 
 This means the data types are the C# types and the data types use C# NULL semantics, and the comparison operations inside a predicate follow C# syntax (e.g., a == "foo").  This also means, that the values are full .NET objects, allowing you to easily use any method to operate on the object (eg "f o o o".Split(' ')  ). 
 
-For more information, see [U-SQL Reference]().
+For more information, see [U-SQL Reference](http://go.microsoft.com/fwlink/p/?LinkId=691348).
 
 **Prerequisites**
 
 - Visual Studio 2015, Visual Studio 2013 update 4, or Visual Studio 2012 with Visual C++ Installed 
 - Microsoft Azure SDK for .NET version 2.5 or above.  Install it using the [Web platform installer](http://www.microsoft.com/web/downloads/platform.aspx).
-- Data Lake Tools for Visual Studio
-
-	Before the product release, download the package from [https://microsoft.sharepoint.com/teams/ProjectKona/Documents/Microsoft.SqlIPStudio.zip](https://microsoft.sharepoint.com/teams/ProjectKona/Documents/Microsoft.SqlIPStudio.zip).
-	[jgao: The package date is 9/22/2015 when this article is written.]
+- Data Lake Tools for Visual Studio. Install it using the [Web platform installer](http://www.microsoft.com/web/downloads/platform.aspx).
 	
 	Once Data Lake Tools for Visual Studio is installed, you will see a **Data Lake** menu in Visual Studio:
 	
@@ -305,6 +300,35 @@ U-SQL HAVING clause can be used to restrict the output to groups that satisfy th
         TO "/output/Searchlog-having.csv"
         ORDER BY TotalDuration DESC
         USING Outputters.Csv();
+
+
+## Join data
+
+U-SQL provides common join operators such as INNER JOIN, LEFT/RIGHT/FULL OUTER JOIN, SEMI JOIN, to join not only tables but any rowsets (even those produced from files).
+
+The following script joins the searchlog with an advertisement impression log and gives us the advertisements for the query string for a given date.
+
+    @adlog =
+        EXTRACT UserId int,
+                Ad string,
+                Clicked int
+        FROM "/Samples/Data/AdsLog.tsv"
+        USING Extractors.Tsv();
+    
+    @join =
+        SELECT a.Ad, s.Query, s.Start AS Date
+        FROM @adlog AS a JOIN <insert your DB name>.dbo.SearchLog1 AS s 
+                        ON a.UserId == s.UserId
+        WHERE a.Clicked == 1;
+    
+    OUTPUT @join   
+        TO "/output/Searchlog-join.csv"
+        USING Outputters.Csv();
+
+
+U-SQL only supports the ANSI compliant join syntax: Rowset1 JOIN Rowset2 ON predicate. The old syntax of FROM Rowset1, Rowset2 WHERE predicate is NOT supported.
+The predicate in a JOIN has to be an equality join and no expression. If you want to use an expression, add it to a previous rowset's select clause. If you want to do a different comparison, you can move it into the WHERE clause.
+
         
 ## Create databases, table-valued functions, views, and tables
 
@@ -455,32 +479,6 @@ The transform script you used previously is modified to read from the tables:
 
 Note that you currently cannot run a SELECT on a table in the same script as the script where you create that table.
 
-## Join data
-
-U-SQL provides common join operators such as INNER JOIN, LEFT/RIGHT/FULL OUTER JOIN, SEMI JOIN, to join not only tables but any rowsets (even those produced from files).
-
-The following script joins the searchlog with an advertisement impression log and gives us the advertisements for the query string for a given date.
-
-    @adlog =
-        EXTRACT UserId int,
-                Ad string,
-                Clicked int
-        FROM "/Samples/Data/AdsLog.tsv"
-        USING Extractors.Tsv();
-    
-    @join =
-        SELECT a.Ad, s.Query, s.Start AS Date
-        FROM @adlog AS a JOIN <insert your DB name>.dbo.SearchLog1 AS s 
-                        ON a.UserId == s.UserId
-        WHERE a.Clicked == 1;
-    
-    OUTPUT @join   
-        TO "/output/Searchlog-join.csv"
-        USING Outputters.Csv();
-
-
-U-SQL only supports the ANSI compliant join syntax: Rowset1 JOIN Rowset2 ON predicate. The old syntax of FROM Rowset1, Rowset2 WHERE predicate is NOT supported.
-The predicate in a JOIN has to be an equality join and no expression. If you want to use an expression, add it to a previous rowset's select clause. If you want to do a different comparison, you can move it into the WHERE clause.
 
 ##Conclusion
 
@@ -502,10 +500,11 @@ What is covered in the tutorial is only a small part of U-SQL. Because of the sc
 - [Monitor and troubleshoot Azure Data Lake Analytics jobs using Azure Preview Portal](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
 
 ## Let us know what you think
-+    - [Suggest new documentation backlog](data-lake-analytics-documentation-backlog.md)
-+    - [Submit a feature request](http://aka.ms/adlafeedback)
-+    - [Get help in the forums](http://aka.ms/adlaforums)
-+    - [Provide feedback on U-SQL](http://aka.ms/usqldiscuss)
+
+- [Suggest new documentation backlog](data-lake-analytics-documentation-backlog.md)
+- [Submit a feature request](http://aka.ms/adlafeedback)
+- [Get help in the forums](http://aka.ms/adlaforums)
+- [Provide feedback on U-SQL](http://aka.ms/usqldiscuss)
 
 
 

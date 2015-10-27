@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="10/19/2015"
+   ms.date="10/27/2015"
    ms.author="jgao"/>
 
 # Overview of Microsoft Azure Data Lake Analytics

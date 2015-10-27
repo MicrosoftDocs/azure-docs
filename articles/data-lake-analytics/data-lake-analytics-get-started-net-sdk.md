@@ -253,8 +253,6 @@ A sample search log has been copied to a public Azure Blob container. In the app
 
 7. Press **F5** to run the application.
 
-[jgao: add a screenshot of the end results.]
-
 ## See also
 
 - To see the same tutorial using other tools, click the tab selectors on the top of the page.
