@@ -13,12 +13,51 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="09/11/2015"
+   ms.date="10/23/2015"
    ms.author="maroche"/>
 
 # What's new in Azure Data Catalog
 
 Updates to **Azure Data Catalog** are released on a regular basis. Not every release will include new user-facing features, as some releases are focused on back-end service capabilities. This page will highlight new user-facing capabilities added to the **Azure Data Catalog** service.
+
+## What's new for the week of October 23, 2015 release
+
+As of the week of October 23, 2015, the following capabilities have been added to **Azure Data Catalog**:
+
+- Support for Teradata data sources. Users can now register and discover Teradata tables and views.
+
+> [AZURE.NOTE] For the current release, only Teradata TD2 authentication is supported. Additional authentication mechanisms will be supported in future releases.
+
+## What's new for the week of October 16, 2015 release
+
+As of the week of October 16, 2015, the following capabilities have been added to **Azure Data Catalog**:
+
+- Support for on-premises Hive data sources. Users can now register and discover Hive tables for Apache Hive in Hadoop on-premises data sources.
+- Support for saved searches in the **Azure Data Catalog** portal. Users can save search terms and filter selections to easily repeat previous searches and define useful views of the Catalog's contents. User can also mark a saved search as their default search. When a user clicks the "magnifying glass" search icon from the **Azure Data Catalog** portal home page or from the "getting started" page, the user will be taken directly to the saved search flagged as default.
+
+
+## What's new for the week of October 9, 2015 release
+
+As of the week of October 9, 2015, the following capabilities have been added to **Azure Data Catalog**:
+
+- Support for rich text documentation for registered data assets and containers in the Azure Data Catalog portal. Users can now provide documentation for data assets such as tables, views, and reports, and for containers such as databases and models, for scenarios where tags and descriptions are not sufficient.
+
+## What's new for the week of October 2, 2015 release
+
+As of the week of October 2, 2015, the following capabilities have been added to **Azure Data Catalog**:
+
+- Support for manually registering known data source types. Users can manually enter data source information using the **Azure Data Catalog** portal for all data source types supported by **Azure Data Catalog**.
+- Support for authorizing Azure Active Directory security groups. Catalog administrators can enable catalog access to security groups as well as to user accounts, making it easier to manage access to **Azure Data Catalog**.
+- Support for opening Hive data sources in Excel from the **Azure Data Catalog** portal.
+
+> [AZURE.NOTE] To use the "Open in Excel" feature for Hive data sources, users must have installed the ODBC driver for Hive.
+
+## What's new for the week of September 25, 2015 release
+
+As of the week of September 25, 2015, the following capabilities have been added to **Azure Data Catalog**:
+
+- Support for including data profiles when registering Hive data sources.
+- Support for programmatically discovering the Catalog API, making it easier for applications to integrate with **Azure Data Catalog**.
 
 ## What's new for the week of September 18, 2015 release
 

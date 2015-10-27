@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/14/2015" 
+	ms.date="10/08/2015" 
 	ms.author="tdykstra"/>
 
 # Debug an API App in Azure App Service
 
 ## Overview
 
-In this tutorial, you'll learn how to debug ASP.NET Web API code that is configured to run in an [API app](app-service-api-apps-why-best-platform.md) in [Azure App Service](../app-service/app-service-value-prop-what-is.md). You’ll debug both locally and remotely (while it runs in Azure). 
+In this tutorial, you debug ASP.NET Web API code that is configured to run in an [API app](app-service-api-apps-why-best-platform.md) in [Azure App Service](../app-service/app-service-value-prop-what-is.md). You debug the code while it is running locally and while it runs remotely in Azure. 
 
 The tutorial works with the API app that you [create](app-service-dotnet-create-api-app.md) and [deploy](app-service-dotnet-deploy-api-app.md) in the previous tutorials in this series.
 
@@ -132,6 +132,6 @@ There may be times when you want to debug your API app locally; for example, if 
 
 ## Next steps
 
-In this tutorial, you've seen how to debug API Apps. For more troubleshooting information, see [Troubleshoot a web app in Azure App Service using Visual Studio](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md). Because API apps are web apps that have additional features for hosting web services, you can use the same debugging and troubleshooting tools for API apps that you use for web apps.    
+In this tutorial, you've seen how to debug API Apps. 
 
- 
+For more troubleshooting information, see [Troubleshoot a web app in Azure App Service using Visual Studio](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md). Because API apps are web apps that have additional features for hosting web services, you can use the same debugging and troubleshooting tools for API apps that you use for web apps.    

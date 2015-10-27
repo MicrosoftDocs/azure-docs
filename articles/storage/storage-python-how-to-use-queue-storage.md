@@ -136,6 +136,8 @@ to learn about more complex storage tasks.
 -   See the MSDN Reference: [Storing and Accessing Data in Azure][]
 -   Visit the [Azure Storage Team Blog][]
 
+For more information, see also the [Python Developer Center](/develop/python/).
+
 [Storing and Accessing Data in Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
 [Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
 [Python Azure package]: https://pypi.python.org/pypi/azure

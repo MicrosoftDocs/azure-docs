@@ -47,7 +47,7 @@ The .NET API is a set of wrappers that allows implementation through the C# prog
 
 ### Node.js
 
-The Node.js API is a set of wrappers that allows implementation through the JavaScript programming model without needing to interact directly with the REST endpoint.  Here you can find the [Microsoft Azure SDK for Node.js - Key Vault Management](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest/).
+The Node.js API is a set of wrappers that allows implementation through the node.js programming model without needing to interact directly with the REST endpoint.  Here you can find the [Microsoft Azure SDK for Node.js - Key Vault Management](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest/).
 
 ## Managing Key Vaults
 
@@ -63,6 +63,6 @@ The following articles provide task specific guidance:
 
 - [How to Generate and Transfer HSM-Protected Keys for Azure Key Vault](key-vault-hsm-protected-keys.md)
 
-## See also
+## Examples
 
-- [Azure Key Vault code samples](http://www.microsoft.com/download/details.aspx?id=45343)
+- This download contains both the sample application HelloKeyVault and an Azure web service example. [Azure Key Vault code samples](http://www.microsoft.com/download/details.aspx?id=45343)

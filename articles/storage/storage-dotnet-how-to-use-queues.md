@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article" 
-	ms.date="08/04/2015"
+	ms.date="10/21/2015"
 	ms.author="tamram"/>
 
 # How to use Queue storage from .NET
@@ -150,9 +150,9 @@ that triggers an application error each time it is processed.
 
 	// Get the message from the queue and update the message contents.
     CloudQueueMessage message = queue.GetMessage();
-    message.SetMessageContent("Updated contents.") ;
+    message.SetMessageContent("Updated contents.");
     queue.UpdateMessage(message,
-        TimeSpan.FromSeconds(0.0),  // Make it visible immediately.
+        TimeSpan.FromSeconds(60.0),  // Make it visible for another 60 seconds.
         MessageUpdateFields.Content | MessageUpdateFields.Visibility);
 
 ## De-queue the next message
@@ -246,7 +246,7 @@ will become visible again.
 
 You can get an estimate of the number of messages in a queue. The
 **FetchAttributes** method asks the Queue service to
-retrieve the queue attributes, including the message count. The **ApproximateMethodCount**
+retrieve the queue attributes, including the message count. The **ApproximateMessageCount**
 property returns the last value retrieved by the
 **FetchAttributes** method, without calling the Queue service.
 

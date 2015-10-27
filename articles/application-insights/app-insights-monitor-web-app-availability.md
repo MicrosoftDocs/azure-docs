@@ -12,18 +12,16 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="09/08/2015"
+	ms.date="10/21/2015"
 	ms.author="awills"/>
 
 # Monitor availability and responsiveness of any web site
-
-[AZURE.INCLUDE [app-insights-selector-get-started](../../includes/app-insights-selector-get-started.md)]
 
 After you've deployed your web application, you can set up web tests to monitor its availability and responsiveness. Application Insights will send web requests at regular intervals from points around the world, and can alert you if your application responds slowly or not at all.
 
 ![Web test example](./media/app-insights-monitor-web-app-availability/appinsights-10webtestresult.png)
 
-You can set up web tests for any HTTP endpoint that is accessible from the public internet.
+You can set up web tests for any HTTP or HTTPS endpoint that is accessible from the public internet.
 
 There are two types of web test:
 
@@ -51,19 +49,21 @@ In your Application Insights resource, look for the Availability tile. Click it 
 ![Fill at least the URL of your website](./media/app-insights-monitor-web-app-availability/13-availability.png)
 
 - **The URL** must be visible from the public internet. It can include a query string&#151;so, for example, you can exercise your database a little. If the URL resolves to a redirect, we will follow it up to 10 redirects.
-
-- If **Enable retries** is selected, then when the test fails, it is retried after a short interval. A failure is reported only if three successive attempts fail. Subsequent tests are then performed at the usual interval. Retry is temporarily suspended until the next success. This rule is applied independently at each test location.
-
+- **Parse dependent requests**: Images, scripts, style files, and other resources of the page are requested as part of the test. The test will fail if all these resources cannot be successfully downloaded within the timeout for the whole test.
+- **Enable retries**:  When the test fails, it is retried after a short interval. A failure is reported only if three successive attempts fail. Subsequent tests are then performed at the usual test frequency. Retry is temporarily suspended until the next success. This rule is applied independently at each test location. (We recommend this setting. On average, about 80% of failures disappear on retry.)
+- **Test frequency**: Sets how often the test is run from each test location. With a frequency of 5 minutes and five test locations, your site will be tested on average every minute.
 - **Test locations** are the places from where our servers send web requests to your URL. Choose more than one so that you can distinguish problems in your website from network issues. You can select up to 16 locations.
 
 - **Success criteria**:
 
-    **HTTP status code**: 200 is usual.
+    **Test timeout**: Decrease this to be alerted about slow responses. The test is counted as a failure if the responses from your site have not been received within this period. If you selected **Parse dependent requests**, then all the images, style files, scripts and other dependent resources must have been received within this period.
+
+    **HTTP response**: The returned status code that is counted as a success. 200 is the code that indicates that a normal web page has been returned.
 
     **Content match**: a string, like "Welcome!" We'll test that it occurs in every response. It must be a plain string, without wildcards. Don't forget that if your page content changes you might have to update it.
 
 
-- **Alerts** are, by default, sent to you if there are repeated failures over 15 minutes. But you can change it to be more or less sensitive, and you can also change the notified email addresses.
+- **Alerts** are, by default, sent to you if there are failures in three locations over five minutes. A failure in one location is likely to be a network problem, and not a problem with your site. But you can change the threshold to be more or less sensitive, and you can also change who the emails should be sent to.
 
 #### Test more URLs
 
@@ -170,6 +170,8 @@ Use Visual Studio Enterprise or Ultimate to record a web session.
 
     ![Select multi-step webtest.](./media/app-insights-monitor-web-app-availability/appinsights-71webtestUpload.png)
 
+    Set the test locations, frequency, and alert parameters in the same way as for ping tests.
+
 View your test results and any failures in the same way as for single-url tests.
 
 A common reason for failure is that the test runs too long. It mustn't run longer than two minutes.
@@ -242,4 +244,4 @@ You might want to disable web tests while you are performing maintenance on your
 [azure-availability]: ../insights-create-web-tests.md
 [diagnostic]: app-insights-diagnostic-search.md
 [qna]: app-insights-troubleshoot-faq.md
-[start]: app-insights-get-started.md
+[start]: app-insights-overview.md

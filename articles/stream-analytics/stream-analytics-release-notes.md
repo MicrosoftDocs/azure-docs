@@ -13,10 +13,34 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="09/16/2015" 
+	ms.date="10/22/2015" 
 	ms.author="jeffstok"/>
 
 #Microsoft Stream Analytic release notes
+
+## Notes for 10/22/2015 release of Stream Analytics ##
+
+This release contains the following updates.
+
+Title | Description
+---|---
+Additional query language features | Stream Analytics has expanded the query language by including the following features: [ABS](https://msdn.microsoft.com/library/azure/mt574054.aspx), [CEILING](https://msdn.microsoft.com/library/azure/mt605286.aspx), [EXP](https://msdn.microsoft.com/library/azure/mt605289.aspx), [FLOOR](https://msdn.microsoft.com/library/azure/mt605240.aspx), [POWER](https://msdn.microsoft.com/library/azure/mt605287.aspx), [SIGN](https://msdn.microsoft.com/library/azure/mt605290.aspx), [SQUARE](https://msdn.microsoft.com/library/azure/mt605288.aspx), and [SQRT](https://msdn.microsoft.com/library/azure/mt605238.aspx).
+Removed aggregate limitations  | This release removes the limitation of 15 aggregates in a query. There is now no limit to the number of aggregates per query.
+Added GROUP BY System.Timestamp feature | The [GROUP BY](https://msdn.microsoft.com/library/azure/dn835023.aspx) function now allows for either window_type or [System.Timestamp](https://msdn.microsoft.com/library/azure/mt598501.aspx).
+Added OFFSET for Tumbling and Hopping windows | By default, [Tumbling](https://msdn.microsoft.com/library/azure/dn835055.aspx) and [Hopping](https://msdn.microsoft.com/library/azure/dn835041.aspx) windows are aligned against zero time (1/1/0001 12:00:00 AM UTC). The new (optional) parameter ‘offsetsize’ allows specifying a custom offset (or alignment).
+
+
+## Notes for 09/29/2015 release of Stream Analytics ##
+
+This release contains the following updates.
+
+Title | Description
+---|---
+Azure IoT Suite Public Preview | Stream Analytics is included in the Public Preview of the Azure IoT Suite.
+Azure Preview portal integration | In addition to continued presence in the Azure Management portal, Stream Analytics is now integrated in the [Azure Preview portal](http://azure.microsoft.com/overview/preview-portal/). Note that Stream Analytics functionality in the Preview portal is currently a subset of the functionality offered in the Azure Management portal, without support for in-browser query testing, Power BI output configuration, and browsing to or creating new input and output resources in subscriptions you have access to.
+Support for DocumentDB output | Stream Analytics jobs can now output to [DocumentDB](http://azure.microsoft.com/services/documentdb/).
+Support for IoT Hub input | Stream Analytics jobs can now ingest data from IoT Hubs.
+TIMESTAMP BY for heterogeneous events | When a single data stream contains multiple event types having timestamps in different fields, you can now use [TIMESTAMP BY](http://msdn.microsoft.com/library/mt573293.aspx) with expressions to specify different timestamp fields for each case.
 
 ## Notes for 09/10/2015 release of Stream Analytics ##
 

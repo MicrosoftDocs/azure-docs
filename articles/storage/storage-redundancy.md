@@ -14,7 +14,7 @@
   ms.tgt_pltfrm="na" 
   ms.devlang="na" 
   ms.topic="article" 
-  ms.date="09/01/2015" 
+  ms.date="10/20/2015" 
   ms.author="tamram"/>
 
 # Azure Storage replication
@@ -56,7 +56,7 @@ While geo-redundant storage (GRS) is recommended for most applications, locally 
 Zone-redundant storage (ZRS) replicates your data across two to three facilities, either within a single region or across two regions, providing higher durability than LRS. If your storage account has ZRS enabled, then your data is durable even in the case of failure at one of the facilities.
 
 
->[AZURE.NOTE]  ZRS is currently available only for block blobs. Note that once you have created your storage account and selected zone-redundant replication, you cannot convert it to use any other type of replication, or vice versa.
+>[AZURE.NOTE]  ZRS is currently available only for block blobs, and is supported only in versions 2014-02-14 and later. Note that once you have created your storage account and selected zone-redundant replication, you cannot convert it to use any other type of replication, or vice versa.
 
 
 ## Geo-redundant storage
@@ -88,8 +88,10 @@ When you create a storage account, you select the primary region for the account
 |Japan West         |Japan East
 |Brazil South       |South Central US
 |Australia East     |Australia Southeast
-|Australia Southeast|Australia East  
-
+|Australia Southeast|Australia East
+|India South        |India Central
+|India Central      |India South
+  
 
 ## Read-access geo-redundant storage
 

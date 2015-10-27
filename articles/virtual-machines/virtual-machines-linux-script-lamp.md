@@ -19,7 +19,8 @@
 
 #Deploy a LAMP app using the Azure CustomScript Extension for Linux#
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)] This article covers troubleshooting application access on a virtual machine created with the classic deployment model.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Resource Manager model.
+
 
 The Microsoft Azure CustomScript Extension for Linux provides a way to customize your virtual machines (VMs) by running arbitrary code written in any scripting language supported by the VM (for example, Python, and Bash). This provides a very flexible way to automate application deployment to multiple machines.
 
@@ -37,7 +38,7 @@ If you need help creating Linux VMs on Azure refer to [Create a Virtual Machine 
 
 The install commands assume Ubuntu, but you can adapt the installation for any supported Linux distro.
 
-The script-vm VM needs to have Azure CLI installed, with a working connection to Azure. For help with this refer to [Install and Configure the Azure Command-Line Interface](../xplat-cli.md).
+The script-vm VM needs to have Azure CLI installed, with a working connection to Azure. For help with this refer to [Install and Configure the Azure Command-Line Interface](../xplat-cli-install.md).
 
 ## Upload a script
 

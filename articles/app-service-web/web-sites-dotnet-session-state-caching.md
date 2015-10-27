@@ -8,8 +8,8 @@
 	editor="jimbe"/>
 
 <tags 
-	ms.service="app-service" 
-	ms.workload="web" 
+	ms.service="app-service-web" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 

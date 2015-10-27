@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="How to Configure an App Service Environment" 
 	description="Configuration, management and monitoring of App Service Environments" 
-	services="app-service\web" 
+	services="app-service" 
 	documentationCenter="" 
 	authors="ccompy" 
 	manager="stefsch" 
@@ -9,7 +9,7 @@
 
 <tags 
 	ms.service="app-service" 
-	ms.workload="web" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
@@ -20,7 +20,7 @@
 
 ## Overview ##
 
-App Service Environments is a new Premium Tier capability that is being offered in Preview.  It offers new scaling and network access capabilities.  This new scale capability allows you to place an instance of the Azure App Service into your VNET.  If you are unfamiliar with the App Service Environment (ASE) capability then read the document here [What is an App Service Environment]/app-service-app-service-environment-intro.md). For information on how to create an ASE read the document here [How to Create an App Service Environment](app-service-web-how-to-create-an-app-service-environment.md). 
+App Service Environments is a new Premium Tier capability in the Azure App Service that offers new scaling and network access capabilities.  This new scale capability allows you to place an instance of the Azure App Service into your VNET.  If you are unfamiliar with the App Service Environment (ASE) capability then read the document here [What is an App Service Environment](app-service-app-service-environment-intro.md). For information on how to create an ASE read the document here [How to Create an App Service Environment](app-service-web-how-to-create-an-app-service-environment.md). 
 
 At a high level an App Service Environment consists of several major components:
 
@@ -77,9 +77,9 @@ To control these things select the Scale configuration item at the top.
 
 The quantity of compute resources in each pool and their size can be adjusted here.  Before making any changes though it is important to note a few things:
 
-- changes made can take hours to complete depending on how large is the change requested
+- changes made can take two to three hours to complete depending on how large is the change requested
 - when there is already a App Service Environment configuration change in work, you cannot start another change
-- if you change the size of the compute resources used in a worker pool you can cause outages for the web apps running in that worker pool
+- if you change the size of the compute resources used in a worker pool your web app instances will restart as they are migrated to the use the new worker sizes.  
 
 Adding additional instances to a worker pool is a benign operation and does not incur a system impact.  Changing the size of the compute resource used in a worker pool is another story though.  To avoid any app down time during a size change to a worker pool it is best to:
 
