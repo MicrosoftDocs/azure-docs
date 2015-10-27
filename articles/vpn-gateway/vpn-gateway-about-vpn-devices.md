@@ -15,7 +15,7 @@
    ms.date="10/27/2015"
    ms.author="cherylmc" />
 
-# About VPN devices for site-to-site virtual network connections 
+# About VPN devices for site-to-site virtual network connections
 
 A VPN device is required in order to configure a site-to-site VPN connection. Site-to-site connections can be used to create a hybrid cloud solution, or whenever you want a secure connection between your on-premises network and your virtual network. This article discusses compatible VPN devices and configuration parameters. 
 
