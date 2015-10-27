@@ -21,13 +21,13 @@ Go back to Visual Studio and select the Shared Code Client App project (it is na
 
 2. In the app, type meaningful text, such as *Complete the tutorial*, in the **Insert a TodoItem** textbox, and then click **Save**.
 
-	![](./media/app-service-mobile-windows-universal-test-app-preview/mobile-quickstart-startup.png)
+	![](./media/app-service-mobile-windows-universal-test-app/mobile-quickstart-startup.png)
 
 	This sends a POST request to the new mobile app backend hosted in Azure.
 
 3. Stop debugging and change the default start up project in the universal Windows solution to the Windows Phone Store app (right click the `<your app name>.WindowsPhone` project and click **Set as StartUp Project**) and press F5 again.
 
-	![](./media/app-service-mobile-windows-universal-test-app-preview/mobile-quickstart-completed-wp8.png)
+	![](./media/app-service-mobile-windows-universal-test-app/mobile-quickstart-completed-wp8.png)
 
 	Notice that data saved from the previous step is loaded from the mobile app after the Windows app starts.
 

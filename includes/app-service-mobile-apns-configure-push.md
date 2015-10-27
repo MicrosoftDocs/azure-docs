@@ -10,4 +10,4 @@
     Before you proceed to the next step, click **Notifications**, to ensure that your notification hub setup is complete. 
 4. In the Azure portal, click **Browse All** > **Mobile Apps** > your backend > **Settings** > **Mobile App** > **Push** > **Apple Push Notification Services** > **Upload Certificate**. Upload the .p12 file, selecting the correct **Mode** (corresponding to whether the client SSL certificate you generated earlier was Development or Distribution.) Your service is now configured to work with push notifications on iOS!
 
-[1]: ./media/app-service-mobile-apns-configure-push-preview/mobile-push-notification-hub.png
+[1]: ./media/app-service-mobile-apns-configure-push/mobile-push-notification-hub.png

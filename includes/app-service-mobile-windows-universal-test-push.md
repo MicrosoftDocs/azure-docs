@@ -11,5 +11,5 @@
 
    	Note that after the insert completes, both the Windows Store and the Windows Phone apps receive a push notification from WNS. The notification is displayed on Windows Phone even when the app isn't running.
 
-   	![](./media/app-service-mobile-windows-universal-test-push-preview/mobile-quickstart-push5-wp8.png)
+   	![](./media/app-service-mobile-windows-universal-test-push/mobile-quickstart-push5-wp8.png)
 
