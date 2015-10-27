@@ -52,7 +52,7 @@ These basic steps can help resolve most of the common Remote Desktop connection 
 
 These basic steps can help resolve most of the common Remote Desktop connection failures in virtual machines created using the Resource Manager deployment model. After performing each step, try reconnecting to the VM.
 
-- Reset Remote Access using Powershell
+- Reset Remote Access using Powershell<br>
 	a. If you haven't already, [install Azure PowerShell and connect to your Azure subscription](../powershell-install-configure.md) using the Azure AD method.
 
 	b. Switch to the Resource Manager mode.
