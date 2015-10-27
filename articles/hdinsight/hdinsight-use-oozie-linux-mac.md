@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/09/2015"
+	ms.date="10/26/2015"
 	ms.author="larryfr"/>
 
 
@@ -292,9 +292,9 @@ The job definition describes where to find the workflow.xml, as well as other fi
 
 	This will return information similar to the following:
 
-		headnode0.CLUSTERNAME-ssh.j7.internal.cloudapp.net
+		hn0-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net
 
-	The port used for the JobTracker is 8050, so the full address to use for the JobTracker will be **headnode0.CLUSTERNAME-ssh.j7.internal.cloudapp.net:8050**.
+	The port used for the JobTracker is 8050, so the full address to use for the JobTracker will be **hn0-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:8050**.
 
 1. Use the following to create the Oozie job definition configuration:
 
@@ -390,13 +390,13 @@ The following steps use the Oozie command to submit and manage Oozie workflows o
 	This will return a value similar to the following:
 
 		<name>oozie.base.url</name>
-		<value>http://headnode0.CLUSTERNAME-ssh.j7.internal.cloudapp.net:11000/oozie</value>
+		<value>http://hn0-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:11000/oozie</value>
 
-	The **http://headnode0.CLUSTERNAME-ssh.j7.internal.cloudapp.net:11000/oozie** portion is the URL to use with the Oozie command.
+	The **http://hn0-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:11000/oozie** portion is the URL to use with the Oozie command.
 
 2. Use the following to create an environment variable for the URL, so you don't have to type it for every command:
 
-		export OOZIE_URL=http://headnode0.CLUSTERNAME-ssh.j7.internal.cloudapp.net:11000/oozie
+		export OOZIE_URL=http://HOSTNAMEt:11000/oozie
 
 	Replace the URL with the one you received earlier.
 
