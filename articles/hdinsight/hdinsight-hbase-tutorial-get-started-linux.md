@@ -91,7 +91,7 @@ It will make more sense after you finish the next procedure.
 4. From the Basic options for your PuTTY session screen, enter the following values:
 
 	- Host Name: the SSH address of your HDInsight server in the Host name (or IP address) field. The SSH address is your cluster name, then **-ssh.azurehdinsight.net**. For example, *mycluster-ssh.azurehdinsight.net*.
-	- Port: 22. The ssh port on the headnode0 is 22.  See [Information about using HDInsight on Linux (preview)](hdinsight-hadoop-linux-information.md#remote-access-to-services).
+	- Port: 22. The ssh port on the head node 0 is 22.  See [Information about using HDInsight on Linux (preview)](hdinsight-hadoop-linux-information.md#remote-access-to-services).
 4. Click **Open** to connect to the cluster.
 5. When prompted, enter the user that you entered when you created the cluster. If you provided a password for the user, you will be prompted to enter it also.
 6. Run the following command:
@@ -236,7 +236,7 @@ SSH can also be used to tunnel local requests, such as web requests, to the HDIn
 4. From the Basic options for your PuTTY session screen, enter the following values:
 
 	- **Host Name**: the SSH address of your HDInsight server in the Host name (or IP address) field. The SSH address is your cluster name, then **-ssh.azurehdinsight.net**. For example, *mycluster-ssh.azurehdinsight.net*.
-	- **Port**: 22. The ssh port on the headnode0 is 22.  
+	- **Port**: 22. The ssh port on the head node 0 is 22.  
 5. In the **Category** section to the left of the dialog, expand **Connection**, expand **SSH**, and then click **Tunnels**.
 6. Provide the following information on the Options controlling SSH port forwarding form:
 
@@ -252,7 +252,7 @@ SSH can also be used to tunnel local requests, such as web requests, to the HDIn
 2. Enter your cluster user account credentials twice.
 3. From the left menu, click **zookeeper**.
 4. Click one of the three **ZooKeeper Server** links from the Summary list.
-5. Copy **Hostname**. For example, zookeepernode0.zookeepernode-0-xxxxxxxxxxxxxxxxxxxx.c7.internal.cloudapp.net.
+5. Copy **Hostname**. For example, zk0-CLUSTERNAME.xxxxxxxxxxxxxxxxxxxx.cx.internal.cloudapp.net.
 
 **To configure a client program (Firefox) and check cluster status**
 
