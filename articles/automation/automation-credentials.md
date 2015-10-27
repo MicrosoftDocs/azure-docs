@@ -15,7 +15,7 @@
    ms.date="10/23/2015"
    ms.author="bwren" />
 
-# Credential assets for runbooks and DSC configurations in Azure Automation
+# Credential assets in Azure Automation
 
 An Automation credential asset holds a [PSCredential](http://msdn.microsoft.com/library/system.management.automation.pscredential)  object which contains security credentials such as a username and password. Runbooks and DSC configurations may use cmdlets that accept a PSCredential object for authentication, or they may extract the username and password of the PSCredential object to provide to some application or service requiring authentication. The properties for a credential are stored securely in Azure Automation and can be accessed in the runbook or DSC configuration with the [Get-AutomationPSCredential](http://msdn.microsoft.com/library/system.management.automation.pscredential.aspx) activity.
 
@@ -97,54 +97,7 @@ The following image shows an example of using a credential in a graphical runboo
 ![Add credential to canvas](media/automation-credentials/get-credential.png)
 
 ## Using a PowerShell credential in DSC
-While DSC Configurations in Azure Automation can reference credential assets using **Get-AutomationPSCredential**, credential assets can also be passed in via parameters, if desired. If a configuration takes a parameter of **PSCredential** type, then you need to pass the string name of a Azure Automation credential asset as that parameter’s value, rather than a PSCredential object. Behind the scenes, the Azure Automation credential asset with that name will be retrieved and passed to the configuration.
-
-Keeping credentials secure in node configurations (MOF configuration documents) requires encrypting the credentials in the node configuration MOF file. Azure Automation takes this one step further and encrypts the entire MOF file. However, currently you must tell PowerShell DSC it is okay for credentials to be outputted in plain text during node configuration MOF generation, because PowerShell DSC doesn’t know that Azure Automation will be encrypting the entire MOF file after its generation via a compilation job.
-
-You can tell PowerShell DSC that it is okay for credentials to be outputted in plain text in the generated node configuration MOFs using <a href="#configurationdata">**ConfigurationData**</a>. You should pass `PSDscAllowPlainTextPassword = $true` via **ConfigurationData** for each node block’s name that appears in the DSC Configuration and uses credentials.
-
-The following example shows a DSC configuration that uses an Automation credential asset.
-
-    Configuration CredentialSample {
-    
-       $Cred = Get-AutomationPSCredential -Name "SomeCredentialAsset"
-    
-    	Node $AllNodes.NodeName { 
-    
-    		File ExampleFile { 
-    			SourcePath = "\\Server\share\path\file.ext" 
-    			DestinationPath = "C:\destinationPath" 
-    			Credential = $Cred 
-    
-       		}
-    
-    	}
-    
-    }
-
-You can compile the DSC configuration above with PowerShell, which adds two node configurations to the Azure Automation DSC Pull Server:  **CredentialSample.MyVM1** and **CredentialSample.MyVM2**.
-
-
-    $ConfigData = @{
-    	AllNodes = @(
-    		 @{
-    			NodeName = "*"
-    			PSDscAllowPlainTextPassword = $True
-    		},
-    
-    		@{
-    			NodeName = "MyVM1"
-    		},
-    
-    		@{
-    			NodeName = "MyVM2"
-    		}
-    	)
-    } 
-    
-    
-    
-    Start-AzureRmAutomationDscCompilationJob -ResourceGroupName "MyResourceGroup" -AutomationAccountName "MyAutomationAccount" -ConfigurationName "CredentialSample" -ConfigurationData $ConfigData
+While DSC Configurations in Azure Automation can reference credential assets using **Get-AutomationPSCredential**, credential assets can also be passed in via parameters, if desired. For more information, see [Compiling configurations in Azure Automation DSC](automation-dsc-compile.md#credential-assets)
 
 ## Related articles
 
