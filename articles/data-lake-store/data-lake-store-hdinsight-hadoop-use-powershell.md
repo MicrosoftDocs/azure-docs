@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Configure HDInsight clusters with Azure Data Lake using PowerShell | Azure" 
+   pageTitle="Configure HDInsight clusters with Azure Data Lake Store using PowerShell | Azure" 
    description="Use Azure PowerShell to configure and use HDInsight Hadoop clusters with Azure Data Lake" 
    services="data-lake" 
    documentationCenter="" 
@@ -29,7 +29,7 @@ Learn how to use Azure PowerShell to configure an HDInsight cluster (Hadoop, HBa
 
 In this article, we provision a Hadoop cluster with Data Lake Store as additional storage.
 
-Configuring HDInsight to work with Azure Data Lake using PowerShell involves the following steps:
+Configuring HDInsight to work with Data Lake Store using PowerShell involves the following steps:
 
 * Create an Azure Data Lake Store
 * Set up authentication for role-based access to Data Lake Store
@@ -42,9 +42,13 @@ Before you begin this tutorial, you must have the following:
 
 - **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/en-us/pricing/free-trial/).
 - **Enable your Azure subscription** for Data Lake Store public preview. See [instructions](data-lake-store-get-started-portal.md#signup).
-- **Azure PowerShell**. See [Install and configure Azure PowerShell](../install-configure-powershell.md) for instructions.
-- **Windows SDK**. You can install it from [here](https://dev.windows.com/en-us/downloads). You use this to create a security certificate. 
+- **Windows SDK**. You can install it from [here](https://dev.windows.com/en-us/downloads). You use this to create a security certificate.
+- **Azure PowerShell**. See [Install and configure Azure PowerShell](../install-configure-powershell.md) for instructions. After you have installed Azure PowerShell, you should run the following cmdlet to import the Azure Data Lake Store module.
 
+		Install-Module AzureRM.DataLakeStore
+
+	For more information, see [Azure Data Lake Store PowerShell Gallery](http://www.powershellgallery.com/packages/AzureRM.DataLakeStore).
+ 
 
 ## Create an Azure Data Lake Store
 
@@ -64,14 +68,14 @@ Follow these steps to create a Data Lake Store.
 		# Register for Data Lake Store
 		Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.DataLake"
 
-3. An Azure Data Lake account is associated with an Azure Resource Group. Start by creating an Azure Resource Group.
+3. An Azure Data Lake Store account is associated with an Azure Resource Group. Start by creating an Azure Resource Group.
 
 		$resourceGroupName = "<your new resource group name>"
     	New-AzureRmResourceGroup -Name $resourceGroupName -Location "East US 2"
 
 	![Create an Azure Resource Group](./media/data-lake-store-hdinsight-hadoop-use-powershell/ADL.PS.CreateResourceGroup.png "Create an Azure Resource Group")
 
-2. Create an Azure Data Lake account. The account name you specify must only contain lowercase letters and numbers.
+2. Create an Azure Data Lake Store account. The account name you specify must only contain lowercase letters and numbers.
 
 		$dataLakeStoreName = "<your new Data Lake Store name>"
     	New-AzureRmDataLakeStoreAccount -ResourceGroupName $resourceGroupName -Name $dataLakeStoreName -Location "East US 2"
@@ -91,9 +95,9 @@ Follow these steps to create a Data Lake Store.
 		Import-AzureRmDataLakeStoreItem -AccountName $dataLakeStoreName -Path "C:\<path to data>\vehicle1_09142014.csv" -Destination $myrootdir\vehicle1_09142014.csv
 
 
-## Set up authentication for role-based access to ADL
+## Set up authentication for role-based access to Data Lake Store
 
-Every Azure subscription is associated with an Azure Active Directory. Users and services that access resources of the subscription using the Azure portal or Azure Resource Manager API must first authenticate with that Azure Active Directory. Access is granted to Azure subscriptions and services by assigning them the appropriate role on an Azure resource.  For services, a service principal identifies the service in the Azure Active Directory (AAD). This section illustrates how to grant an application service, like HDInsgiht, access to an Azure resource (the Azure Data Lake account you created earlier) by creating a service principal for the application and assigning roles to that via Azure PowerShell.
+Every Azure subscription is associated with an Azure Active Directory. Users and services that access resources of the subscription using the Azure portal or Azure Resource Manager API must first authenticate with that Azure Active Directory. Access is granted to Azure subscriptions and services by assigning them the appropriate role on an Azure resource.  For services, a service principal identifies the service in the Azure Active Directory (AAD). This section illustrates how to grant an application service, like HDInsight, access to an Azure resource (the Azure Data Lake Store account you created earlier) by creating a service principal for the application and assigning roles to that via Azure PowerShell.
 
 To set up Active Directory authentication for Azure Data Lake, you must perform the following tasks.
 
@@ -102,13 +106,9 @@ To set up Active Directory authentication for Azure Data Lake, you must perform 
 
 ### Create a self-signed certificate
 
-Make sure you [Windows SDK](https://dev.windows.com/en-us/downloads) installed before proceeding with the steps in this section. You must have also created a directory, such as **C:\mycertdir**, where the certificate will be created. 
+Make sure you have [Windows SDK](https://dev.windows.com/en-us/downloads) installed before proceeding with the steps in this section. You must have also created a directory, such as **C:\mycertdir**, where the certificate will be created.
 
-1. Make sure Windows SDK is added to the PATH variable. Look for the following in the PATH variable definition.
-
-		C:\Program Files (x86)\Windows Kits\10\bin\x86
-
-2. Use the [MakeCert][makecert] utility to create a self-signed certificate and a private key. Use the following commands.
+1. From the PowerShell window, navigate to the location where you installed Windows SDK (typically, `C:\Program Files (x86)\Windows Kits\10\bin\x86` and use the [MakeCert][makecert] utility to create a self-signed certificate and a private key. Use the following commands.
 
 		$certificateFileDir = "<my certificate directory>"
 		cd $certificateFileDir
@@ -215,9 +215,9 @@ In this section, we create an HDInsight Hadoop cluster. For this release, the HD
 		ResourceGroup             : hdiadlgroup
 		AdditionalStorageAccounts : 
 
-## Run test jobs on the HDInsight cluster to use the Azure Data Lake account
+## Run test jobs on the HDInsight cluster to use the Data Lake Store
 
-After you have configured an HDInsight cluster, you can run test jobs on the cluster to test that the HDInsight cluster can access data Data Lake Store. To do so, we will run a sample Hive job that creates a table using the sample data that you uploaded earlier to your Data Lake Store.
+After you have configured an HDInsight cluster, you can run test jobs on the cluster to test that the HDInsight cluster can access Data Lake Store. To do so, we will run a sample Hive job that creates a table using the sample data that you uploaded earlier to your Data Lake Store.
 
 Use the following cmdlets to run the Hive query. In this query we create a table from the data in the Data Lake Store and then run a select query on the created table.
 
@@ -262,9 +262,9 @@ The job output resembles the following:
 
 	
 
-## Access Data Lake storage using HDFS commands
+## Access Data Lake Store using HDFS commands
 
-Once you have configured the HDInsight cluster to use Data Lake storage, you can use the HDFS shell commands to access the Data Lake storage.
+Once you have configured the HDInsight cluster to use Data Lake Store, you can use the HDFS shell commands to access the store.
 
 1. Sign on to the new [Azure preview portal](https://portal.azure.com).
 
@@ -278,9 +278,9 @@ Once you have configured the HDInsight cluster to use Data Lake storage, you can
 
 4. In the remote session, start Windows PowerShell, and use the HDFS filesystem commands to list the files in the Azure Data Lake.
 
-	 	hdfs dfs -ls adl://<Data Lake account name>.azuredatalakestore.net:443/
+	 	hdfs dfs -ls adl://<Data Lake Store account name>.azuredatalakestore.net:443/
 
-	This should list the file that you uploaded earlier to the Azure Data Lake account.
+	This should list the file that you uploaded earlier to the Data Lake Store.
 
 		15/09/17 21:41:15 INFO web.CaboWebHdfsFileSystem: Replacing original urlConnectionFactory with org.apache.hadoop.hdfs.web.URLConnectionFactory@21a728d6
 		Found 1 items

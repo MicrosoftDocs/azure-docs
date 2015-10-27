@@ -16,9 +16,9 @@
    ms.date="10/28/2015"
    ms.author="nitinme"/>
 
-# Open Source Big Data applications interoperable with Azure Data Lake Store
+# Open Source Big Data applications that work with Azure Data Lake Store
 
-This article lists the open source big data applications that are interoperable with Azure Data Lake Store. For the applications in the table below, only the versions available with the listed distribution are supported. For information on what versions of these applications are available with HDInsight, see [HDInsight component versioning](/hdinsight/hdinsight-component-versioning.md).
+This article lists the open source big data applications that work with Azure Data Lake Store. For the applications in the table below, only the versions available with the listed distribution are supported. For information on what versions of these applications are available with HDInsight, see [HDInsight component versioning](/hdinsight/hdinsight-component-versioning.md).
 
 
 | Open Source Software | Distribution					   |
