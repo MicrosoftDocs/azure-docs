@@ -13,16 +13,21 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/02/2015" 
+	ms.date="10/27/2015" 
 	ms.author="spelluru"/>
 
 # Invoke U-SQL script from Data Factory
-A pipeline in an Azure data factory processes data in linked storage services by using linked compute services. It contains a sequence of activities where each activity performs a specific processing operation. This article describes the **U-SQL Activity** that runs a **U-SQL** script on an **Azure Data Lake Analytics** compute linked service. 
+A pipeline in an Azure data factory processes data in linked storage services by using linked compute services. It contains a sequence of activities where each activity performs a specific processing operation. This article describes the **Data Lake Analytics U-SQL Activity** that runs a  **U-SQL** script on an **Azure Data Lake Analytics** compute linked service. 
+
+> [AZURE.NOTE] 
+> You must create an Azure Data Lake Analytics account before creating a pipeline with a Data Lake Analytics U-SQL Activity. To learn about Azure Data Lake Analytics, please see [Get started with Azure Data Lake Analytics](../data-lake-analytics/data-lake-analytics-get-started-portal.md).
+>  
+> Please review the [Build your first pipeline tutorial](data-factory-build-your-first-pipeline.md) for detailed steps to create a data factory, linked services, datasets, and a pipeline. Use the JSON snippets with Data Factory Editor or Visual Studio or Azure PowerShell to create the Data Factory entities.
 
 ## Azure Data Lake Analytics Linked Service
-You create an **Azure Data Lake Analytics** linked service to link an Azure Data Lake Analytics compute service to an Azure data factory.
+You create an **Azure Data Lake Analytics** linked service to link an Azure Data Lake Analytics compute service to an Azure data factory before using the Data Lake Analytics U-SQL activity in a pipeline. 
 
-### Example
+The following example provides JSON definition for an Azure Data Lake Analytics linked service. 
 
 	{
 	    "name": "AzureDataLakeAnalyticsLinkedService",
@@ -40,25 +45,24 @@ You create an **Azure Data Lake Analytics** linked service to link an Azure Data
 	}
 
 
-### Properties
+The following table provides descriptions for the properties used in the JSON definition. 
 
 Property | Description | Required
 -------- | ----------- | --------
 Type | The type property should be set to: **AzureDataLakeAnalytics**. | Yes
 accountName | Azure Data Lake Analytics Account Name. | Yes
 dataLakeAnalyticsUri | Azure Data Lake Analytics URI. |  No 
-authorization | Authorization code is automatically retrieved after clicking ‘**Authorize**’ button in the Data Factory Editor and completing the OAuth login. | Yes 
+authorization | Authorization code is automatically retrieved after clicking **Authorize** button in the Data Factory Editor and completing the OAuth login. | Yes 
 subscriptionId | Azure subscription id | No (If not specified, subscription of the data factory is used). 
 resourceGroupName | Azure resource group name |  No (If not specified, resource group of the data factory is used).
-sessionId | OAuth session id from the oauth authorization session. Each session id is unique and may only be used once. This is auto-generated in the Data Factory Editor. | Yes
+sessionId | session id from the OAuth authorization session. Each session id is unique and may only be used once. This is auto-generated in the Data Factory Editor. | Yes
 
    
  
-## JSON for U-SQL Activity 
+## Data Lake Analytics U-SQL Activity 
 
-The following JSON snippet defines a pipeline with a U-SQL Activity.  
- 
- 
+The following JSON snippet defines a pipeline with a Data Lake Analytics U-SQL Activity. The activity definition has a reference to the Azure Data Lake Analytics linked service you created earlier.   
+  
 
 	{
     	"name": "ComputeEventsByRegionPipeline",
@@ -112,14 +116,17 @@ The following JSON snippet defines a pipeline with a U-SQL Activity.
 
 The following table describes names and descriptions of properties that are specific to this activity. 
 
-Property | Description
--------- | -----------
-type | The type property must be set to **DataLakeAnalyticsU-SQL**.
-scriptPath | Path to folder that contains the U-SQL script. 
-scriptLinkedService | Linked service that links the storage that contains the script to the data factory
-degreeOfParallelism | The maximum number of nodes that will be used simultaneously to run the job.
-priority | Determines which jobs out of all that are queued should be selected to run first. The lower the number, the higher the priority.
-parameters | Parameters for the U-SQL script 
+Property | Description | Required
+:-------- | :----------- | :--------
+type | The type property must be set to **DataLakeAnalyticsU-SQL**. | Yes
+scriptPath | Path to folder that contains the U-SQL script. | No (if you use script)
+scriptLinkedService | Linked service that links the storage that contains the script to the data factory | No (if you use script)
+script | Specifiy inline script instread of specifying scriptPath and scriptLinkedService. For example: "script" : "CREATE DATABASE test". | No (if you use scriptPath and scriptLinkedService)
+degreeOfParallelism | The maximum number of nodes that will be used simultaneously to run the job. | No
+priority | Determines which jobs out of all that are queued should be selected to run first. The lower the number, the higher the priority. | No 
+parameters | Parameters for the U-SQL script | No 
+runtimeVersion | Runtime version of U-SQL engine to use. | No
+compilationMode | Compilation mode of U-SQL. Must be one of the following values: <ul><li>**Semantic** - perform semantic checks and necessary sanity checks only.</li><li>**Full** - Perform the full compilation, including syntax check, optimization, code-gen, etc.</li><li>**SingleBox** - Perform the full compilation.</li></ul> | No
 
 
 ### Sample input and output datasets
@@ -181,4 +188,4 @@ Here is the definition of the sample Azure Data Lake Store linked service used b
 	    }
 	}
 
-See [Move data to and from Azure Data Lake Store](data-factory-azure-datalake-connector.md) for descriptions of JSON properties in the above JSON snippets. 
+See [Move data to and from Azure Data Lake Store](data-factory-azure-datalake-connector.md) for descriptions of JSON properties in the above Azure Data Lake Store linked service and data set JSON snippets. 

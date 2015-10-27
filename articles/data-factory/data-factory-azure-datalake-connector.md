@@ -19,7 +19,10 @@
 # Move data to and from Azure Data Lake Store using Azure Data Factory
 This article outlines how you can use the Copy Activity in an Azure data factory to move data to Azure Data Lake Store from another data store and move data from another data store to Azure Data Lake Store. This article builds on the [data movement activities](data-factory-data-movement-activities.md) article which presents a general overview of data movement with the copy activity and the supported data store combinations.
 
-> [AZURE.NOTE] Please review the [Build your first pipeline tutorial](data-factory-build-your-first-pipeline.md) for detailed steps to create a data factory, linked services, datasets, and a pipeline. Use the JSON snippets with Data Factory Editor or Visual Studio or Azure PowerShell to create the Data Factory entities.
+> [AZURE.NOTE]
+> You must create an Azure Data Lake Store account before creating a pipeline with a Copy Activity to move data to/from an Azure Data Lake store. To learn about Azure Data Lake Store, please see [Get started with Azure Data Lake Store](../data-lake-store/data-lake-store-get-started-portal.md).
+>  
+> Please review the [Build your first pipeline tutorial](data-factory-build-your-first-pipeline.md) for detailed steps to create a data factory, linked services, datasets, and a pipeline. Use the JSON snippets with Data Factory Editor or Visual Studio or Azure PowerShell to create the Data Factory entities.
 
 ## Sample: Copy data from Azure Blob to Azure Data Lake Store
 The sample below shows:
