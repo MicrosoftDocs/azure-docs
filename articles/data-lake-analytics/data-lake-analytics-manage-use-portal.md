@@ -33,8 +33,6 @@ Before you begin this tutorial, you must have the following:
 <!-- ################################ -->
 ## Use Azure Resource Manager groups
 
-[jgao: is Data Lake-Analytics a good usage case of ARM? If no, I can remove this section]
-
 Applications are typically made up of many components, for example a web app, database, database server, storage,
 and 3rd party services. Azure Resource Manager (ARM) enables you to work with the resources in your application 
 as a group, referred to as an Azure Resource Group. You can deploy, update, monitor or delete all of the 
@@ -62,8 +60,7 @@ The ARM group however can be located in a different data center.
 <!-- ################################ -->
 ## Manage accounts
 
-Before running any Data Lake Analytics jobs, you must have a Data Lake Analytics account. Unlike Azure Data Lake
-Managed cluster (Previously known as Azure HDInsight), you don't pay for an Analytics account when it is not 
+Before running any Data Lake Analytics jobs, you must have a Data Lake Analytics account. Unlike Azure HDInsight, you don't pay for an Analytics account when it is not 
 running a job.  You only pay for the time when it is running a job.  For more information, see 
 [Azure Data Lake Analytics Overview](data-lake-analytics-overview.md).  
 
@@ -186,12 +183,10 @@ there.
 4. Click **New Directory** to create a new folder, or click a folder name to change folder.
 6. Click **Upload** from the top menu to upload file.
 
-See [Upload data to Data Lake Store account](data-lake-store-get-started-portal.md#uploaddata).
-
 
 <a name="upload-data-to-wasb"></a> **To upload files to Azure Blob storage account**
 
-See [Upload data for Hadoop jobs in HDInsight](hdinsight-upload-data.md).  The information applies to Data Laka Analtyics.
+See [Upload data for Hadoop jobs in HDInsight](hdinsight-upload-data.md).  The information applies to Data Lake Analytics.
 
 
 ## Manage users
@@ -202,11 +197,11 @@ the following roles:
 
 |Role|Description|
 |----|-----------|
-|Owner|Lets you manage everything, including access to resources.|
+|Owner|Let you manage everything, including access to resources.|
 |Contributor|Access the portal; submit and monitor jobs. To be able to submit jobs, a contributor also need the read or write permission to the Data Lake Store accounts.|
 |DataLakeAnalyticsDeveloper | User can submit jobs, monitor all jobs, but can only cancel their own jobs. They cannot manage their own account, for instance, add users, change permissions or delete the account. To be able to run jobs, they need read or write access to the Data Lake Store accounts     | 
 |Reader|Lets you view everything, but not make any changes.|  
-|DevTest Lab User|Lets you view everything, and connect, start, restart, and shutdown virtual machines[jgao: I never seen discussion related to ABA and VM]|  
+|DevTest Lab User|Lets you view everything, and connect, start, restart, and shutdown virtual machines.|  
 |User Access Administrator|Lets you manage user access to Azure resources.|  
 
 For information on creating Azure Active Directory users and security groups, See [What is Azure Active Directory](active-directory-whatis.md).
@@ -218,7 +213,7 @@ For information on creating Azure Active Directory users and security groups, Se
 
 	![Azure Data Lake Analytics account add users](./media/data-lake-analytics-manage-use-portal/data-lake-analytics-access-button.png)
 3. From the **User** blade, click **Add**.
-4. Select a role and add a users, and then click **OK**.
+4. Select a role and add a user, and then click **OK**.
 
 **Note: If this user or security group needs to submit jobs, they will need to be given permission on the Data Lake Store as well. For more details, see [Secure data stored in Data Lake Store](data-lake-store-secure-data.md).**
 
@@ -272,7 +267,7 @@ information:
 
 	![manage Azure Data Lake Analytics U-SQL jobs](./media/data-lake-analytics-manage-use-portal/data-lake-analytics-manage-jobs-details.png)
 
-4. Click a job from on of the lists.
+4. Click a job from the lists.
 5. Click **Resubmit** if you want to resubmit the job.
 
 **To resubmit a job**
@@ -290,14 +285,20 @@ See [Monitor Data Lake Analytics jobs](#monitor-jobs).
 
 	![monitor Azure Data Lake Analytics usage](./media/data-lake-analytics-manage-use-portal/data-lake-analytics-monitor-usage.png)
 
-##Manage the catalog
+2. Double-click the pane to see more details.
 
-[jgao: do we need this section in this article?]
-[Alan Tan says users can only view the catalog from the portal.]
-	- tables
-	- table valued functions
-	- assemblies
+##View U-SQL catalog
 
+From the Azure Preview Portal, you are able to view [U-SQL catalog](data-lake-analytics-u-sql-catalog.md).
+
+**To browse U-SQL catalog**
+
+1. Open the Analytics account that you want to manage. For instructions see 
+[Access Data Lake Analytics accounts](#access-adla-account).
+2. Click **Data Explorer** from the top menu.
+3. Expand **Catalog**, exapnd **master**, expand **Tables, or **Table Valued Functions**, or **Assemblies**. The following screenshot shows one table valued function.
+
+	![Azure Data Lake Analytics data explorer storage account](./media/data-lake-analytics-manage-use-portal/data-lake-analytics-explore-catalog.png)
 
 ##See also 
 

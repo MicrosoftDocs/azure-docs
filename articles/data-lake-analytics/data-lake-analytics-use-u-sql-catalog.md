@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Overview of Microsoft Azure Data Lake Analytics | Azure" 
-   description="Data Lake Analytics is an Azure Big Data computation service that lets you use data to drive your business using the insights gained from your data in the cloud, regardless of where it is and regardless of its size. Data Lake Analytics enables this in the simplest, most scalable, and most economical way possible. " 
+   pageTitle="Introduce Azure Data Lake Analytics U-SQL catalog | Azure" 
+   description="Introduce Azure Data Lake Analytics U-SQL catalog"
    services="data-lake-analytics" 
    documentationCenter="" 
    authors="mumian" 
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="10/19/2015"
+   ms.date="10/26/2015"
    ms.author="jgao"/>
 
 # Use U-SQL catalog
@@ -44,7 +44,7 @@ U-SQL database contain:
 
 [jgao: show how to view the components using Data Lake Tools for Visual Studio]
 
-
+[jgao: create additional database from the tools]
 
 
 
