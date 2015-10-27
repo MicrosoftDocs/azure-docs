@@ -34,7 +34,7 @@ Note that since the Linux SMB client doesn’t yet support encryption, mounting 
 
 Here's a video that demonstrates how to create and use Azure File shares on Linux.
 
-> [AZURE.VIDEO 4172a378-564c-4f10-8213-a5210141c7d4]
+> [AZURE.VIDEO azure-file-storage-with-linux]
 
 ## Choose a Linux distribution to use ##
 
