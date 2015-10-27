@@ -97,7 +97,7 @@ The following image shows an example of using a credential in a graphical runboo
 ![Add credential to canvas](media/automation-credentials/get-credential.png)
 
 ## Using a PowerShell credential in DSC
-While DSC Configurations in Azure Automation can reference credential assets using **Get-AutomationPSCredential**, credential assets can also be passed in via parameters, if desired. For more information, see [Compiling configurations in Azure Automation DSC](automation-dsc-compile.md#credential-assets)
+While DSC Configurations in Azure Automation can reference credential assets using **Get-AutomationPSCredential**, credential assets can also be passed in via parameters, if desired. For more information, see [Compiling configurations in Azure Automation DSC](automation-dsc-compile.md#credential-assets).
 
 ## Related articles
 
