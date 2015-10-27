@@ -17,7 +17,7 @@
    ms.author="jroth"/>
 
 # SQL Database service tiers
-
+ 
 ## Overview
 [Azure SQL Database](sql-database-technical-overview.md) provides multiple service tiers to handle different types of workloads. You have the option of [creating a single database](sql-database-get-started.md) with defined characteristics and pricing. Or you can manage multiple databases by [creating an elastic database pool](sql-database-elastic-pool-portal.md). In both cases, the tiers include **Basic**, **Standard**, and **Premium**. But the characteristics of these tiers vary based on whether you are creating an individual database or a database within an elastic database pool. This article provides an overview of service tiers in both contexts.
 

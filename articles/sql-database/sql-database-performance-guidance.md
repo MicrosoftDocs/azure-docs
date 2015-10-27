@@ -114,6 +114,11 @@ Standard and Active Geo-Replication provides similar disaster recovery features 
 
 For more information, see the [Business Continuity Overview](sql-database-business-continuity.md).
 
+### Max In-Memory storage
+Max In-Memory storage refers to the maximum amount of storage available to the In-Memory OLTP Preview for Premium databases. For more information on using SQL In-Memory technologies with SQL DB, please see [Get started with In-Memory OLTP](sql-database-in-memory.md).
+
+>[AZURE.NOTE] The In-Memory OLTP Preview is currently only supported for single databases and not for databases in elastic database pools.
+
 ### Max concurrent requests
 
 **Max concurrent requests** is the maximum number of concurrent user/application requests executing at the same time in the database. To see the number of concurrent requests, run the following Transact-SQL query on your SQL database:
