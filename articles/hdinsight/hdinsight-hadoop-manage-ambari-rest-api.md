@@ -81,7 +81,7 @@ When working with HDInsight, you may need to know the fully qualified domain nam
 | --------------------------- | ----------- |
 | Head nodes                  | `curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/HDFS/components/NAMENODE" | jq '.host_components[].HostRoles.host_name'` |
 | Worker nodes                | `curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/HDFS/components/DATANODE" | jq '.host_components[].HostRoles.host_name'` |
-| Zookeeper nodes             | `curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER" | jq '.host_components[].HostRoles.host_name'` |
+| Zookeeper nodes             | `curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER" | jq '.host_components[].HostRoles.host_name'` | 
 
 Note that each of these follow the same pattern of querying a component that we know runs on those nodes, then retrieving the `host_name` elements, which contain the FQDN for these nodes.
 
