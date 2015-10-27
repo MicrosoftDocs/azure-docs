@@ -1,11 +1,11 @@
 <properties
-   pageTitle="Set up continuous integration for a Service Fabric application using Visual Studio Online"
+   pageTitle="Continuous integration for Service Fabric | Microsoft Azure"
    description="Get an overview of how to set up continuous integration for a Service Fabric application by using Visual Studio Online (VSO)."
-   services="visual-studio-online"
+   services="service-fabric"
    documentationCenter="na"
    authors="cawa"
    manager="paulyuk"
-   editor="tglee" />
+   editor="" />
 <tags
    ms.service="multiple"
    ms.devlang="dotnet"
@@ -17,11 +17,12 @@
 
 # Set up continuous integration for a Service Fabric application using Visual Studio Online (VSO)
 
-This article takes you through setting up continuous integration (CI) for a Service Fabric application using Visual Studio Online (VSO) so that your application can be built, packaged, and deployed in an automated fashion. Note that this document reflects the current experience and is expected to change as development progresses. Also, these instructions re-create the cluster from scratch every time - guidance on how to automate upgrading an application from version to version will be published soon.
+This article takes you through setting up continuous integration (CI) for a Service Fabric application using Visual Studio Online (VSO) so that your application can be built, packaged, and deployed in an automated fashion. Note that this document reflects the current experience and is expected to change as development progresses. Also, these instructions re-create the cluster from scratch every time.
 
 ## Prerequisites
 
 To get started, set up your project on Visual Studio Online.
+
 1. If you haven't already, create a VSO account using your [Microsoft account](http://www.microsoft.com/account).
 2. Create a new project on VSO using the Microsoft account.
 3. Push the source for your new or existing Service Fabric app to this project.
@@ -41,7 +42,7 @@ Before you can set up the build machine, you need to create a "Service Principal
     >[AZURE.NOTE] You can skip this step if you are running Windows 10 with the latest updates.
 
 1.	Install and update the AzureRM module.
-    1.	Launch a PowerShell command prompt.
+    1.  Launch a PowerShell command prompt.
     1.	Install the "AzureRM" module using the command `Install-Module AzureRM`.
     1.	Update the AzureRM module using the command `Update-AzureRM`.
 1.	Disable (or enable) Azure data collection.
