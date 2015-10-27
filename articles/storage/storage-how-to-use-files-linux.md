@@ -18,8 +18,6 @@
 
 # How to use Azure File Storage with Linux 
 
-[AZURE.INCLUDE [storage-selector-file-include](../../includes/storage-selector-file-include.md)]
-
 ## Overview
 
 Azure File Storage offers file shares in the cloud using the standard SMB protocol. File storage is now generally available and supports both SMB 3.0 and SMB 2.1.
