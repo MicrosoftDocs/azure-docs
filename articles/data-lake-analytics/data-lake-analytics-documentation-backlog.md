@@ -23,8 +23,19 @@ This page captures the set of documents which have yet to be written for Azure D
 ## Documentation Backlog
 Area   |Topic | Priority | Status | Assigned To
 ------------- | ------------- | -------------- | -------------- | --------------
-U-SQL   | Distributed Query		 | 1 |  pending, due 11/3 | mrys
+U-SQL   | Distributed Query		 | 1 |  pending, Working on getting proper firewall guidance | ed
 U-SQL  | Processing JSON 		| 2 |  
+Service | Interacting with Curl | | | | 
+U-SQL | Partitioned Tables | | |
+U-SQL | Performance Tuning | | | 
+U-SQL | Programmer's Guide | | | 
+U-SQL | Getting started with U-SQL from a T-SQL background | | |
+U-SQL | Getting started with U-SQL from a Hive background | | |
+U-SQL | Grammar Railroad Diagrams |  1 | in progress, using [this](http://bottlecaps.de/rr/ui)  | mwinkle  
+Service | Securing Jobs, Data and Tables in Data Lake Analytics |  || 
+Service | Moving job output to SQL Data Warehouse using Data Factory | | |
+Service | Coordinating deployment of Data Lake Analytics with other Azure services using ARM templates | | |
+Tools  | Using the Diagnostics Tooling | 1 | | |
 
 
 
