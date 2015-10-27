@@ -27,9 +27,7 @@ Learn how to use Azure Preview Portal to configure an HDInsight cluster (Hadoop,
 * **For Hadoop and Storm clusters (Windows and Linux)**, the Data Lake Store can only be used as an additional storage account. The default storage account for the such clusters will still be Azure Storage Blobs (WASB).
 * **For HBase clusters (Windows and Linux)**, the Data Lake Store can be used as a default storage or additional storage.
 
-In this article, we provision a Hadoop cluster with Data Lake Store as additional storage.
-
-Configuring HDInsight to work with Azure Data Lake Store using the Azure Preview Portal involves the following steps:
+In this article, we provision a Hadoop cluster with Data Lake Store as additional storage. Configuring HDInsight to work with Data Lake Store using the Azure Preview Portal involves the following steps:
 
 * Create an HDInsight cluster with authentication to an Azure Active Directory Service Principal
 * Configure Data Lake Store access using the same Service Principal
@@ -41,12 +39,11 @@ Before you begin this tutorial, you must have the following:
 
 - **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/en-us/pricing/free-trial/).
 - **Enable your Azure subscription** for Data Lake Store Public Preview. See [instructions](data-lake-store-get-started-portal.md#signup).
-- **Azure PowerShell**. See [Install and configure Azure PowerShell](../install-configure-powershell.md) for instructions.
-- **Windows SDK**. You can install it from [here](https://dev.windows.com/en-us/downloads). You use this to create a security certificate. 
+
 
 ## Create an HDInsight cluster with authentication to Azure Active Directory Service Principal
 
-In this section, you create an HDInsight cluster that uses the Data Lake Store as an additional storage. For this release, the HDInsight cluster and the Data Lake Store must be in the same location (East US 2). Also, for this release, the Data Lake Store can only be used as an additional storage account. The default storage account for the cluster will still be Azure Storage Blobs (WASB).
+In this section, you create an HDInsight Hadoop cluster that uses the Data Lake Store as an additional storage. In this release, for a Hadoop cluster, Data Lake Store can only be used as an additional storage for the cluster. The default storage will still be the Azure storage blobs (WASB). So, we'll first create the storage account and storage containers required for the cluster.
 
 1. Sign on to the new [Azure preview portal](https://portal.azure.com).
 
@@ -81,7 +78,7 @@ In this section, you create an HDInsight cluster that uses the Data Lake Store a
 
 	![Add service principal to HDInsight cluster](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.6.png "Add service principal to HDInsight cluster")
 
-## Configure service principal to access Data Lake Store
+## Configure service principal to access Data Lake Store file system
 
 1. Sign on to the new [Azure preview portal](https://portal.azure.com).
 
@@ -163,9 +160,9 @@ After you have configured an HDInsight cluster, you can run test jobs on the clu
 
 		SELECT * FROM vehicles LIMIT 5;
 
-## Access Data Lake storage using HDFS commands
+## Access Data Lake Store using HDFS commands
 
-Once you have configured the HDInsight cluster to use Data Lake storage, you can use the HDFS shell commands to access the Data Lake storage.
+Once you have configured the HDInsight cluster to use Data Lake Store, you can use the HDFS shell commands to access the store.
 
 1. Sign on to the new [Azure preview portal](https://portal.azure.com).
 
@@ -177,17 +174,17 @@ Once you have configured the HDInsight cluster to use Data Lake storage, you can
 
 	When prompted, enter the credentials you provided for the remote desktop user. 
 
-4. In the remote session, start Windows PowerShell, and use the HDFS filesystem commands to list the files in the Azure Data Lake.
+4. In the remote session, start Windows PowerShell, and use the HDFS filesystem commands to list the files in the Azure Data Lake Store.
 
-	 	hdfs dfs -ls adl://<Data Lake account name>.azuredatalakestore.net:443/
+	 	hdfs dfs -ls adl://<Data Lake Store account name>.azuredatalakestore.net:443/
 
-	This should list the file that you uploaded earlier to the Azure Data Lake account.
+	This should list the file that you uploaded earlier to the Data Lake Store.
 
 		15/09/17 21:41:15 INFO web.CaboWebHdfsFileSystem: Replacing original urlConnectionFactory with org.apache.hadoop.hdfs.web.URLConnectionFactory@21a728d6
 		Found 1 items
 		-rwxrwxrwx   0 NotSupportYet NotSupportYet     671388 2015-09-16 22:16 adl://mydatalakestore.azuredatalakestore.net:443/mynewfolder
 
-	You can also use the `hdfs dfs -put` command to upload some files to the Azure Data Lake, and then use `hdfs dfs -ls` to verify whether the files were successfully uploaded.
+	You can also use the `hdfs dfs -put` command to upload some files to the Data Lake Store, and then use `hdfs dfs -ls` to verify whether the files were successfully uploaded.
 
 ## See Also
 
