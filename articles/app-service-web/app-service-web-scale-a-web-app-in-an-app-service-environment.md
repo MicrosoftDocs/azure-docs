@@ -58,7 +58,7 @@ As noted earlier, the worker pool selection is accessed from the ASP UI.  Open t
 
 Before moving your ASP from one worker pool to another it is important to make sure you will have adequate capacity for your ASP.  In the list of worker pools, not only is the worker pool name listed but you can also see how many workers are available in that worker pool.  Make sure that there are enough instances available to contain your App Service Plan.  If you need more compute resources in the worker pool you wish to move to, then get your ASE administrator to add them.  
 
-NOTE: Moving an ASP from one worker pool will cause a restart of the apps in that ASP.  This can cause a small amount of downtime for your app depending on how long it takes your apps to restart.  
+> [AZURE.NOTE] Moving an ASP from one worker pool will cause a restart of the apps in that ASP.  This can cause a small amount of downtime for your app depending on how long it takes your apps to restart.  
 
 ## Getting started
 
