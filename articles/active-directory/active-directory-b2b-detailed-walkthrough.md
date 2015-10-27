@@ -17,7 +17,7 @@
    ms.author="viviali"/>
 
 # Detailed walkthrough of using the Azure Active Directory B2B collaboration preview
-This walkthrough outlines how to use 😋 (Azure AD) B2B collaboration. As the IT admin of Contoso, we want to share applications with employees from 3 partner companies. None of these partner companies need to have Azure AD.
+This walkthrough outlines how to use (Azure AD) B2B collaboration. As the IT admin of Contoso, we want to share applications with employees from 3 partner companies. None of these partner companies need to have Azure AD.
 
 - Alice, from Simple Partner Org.
 - Bob, from Medium Partner Org. needs access to a set of apps
