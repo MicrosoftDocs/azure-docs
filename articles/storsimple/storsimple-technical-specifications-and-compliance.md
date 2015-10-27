@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/26/2015"
+   ms.date="10/27/2015"
    ms.author="alkohli" />
 
 # Technical specifications and compliance for the StorSimple device
@@ -21,7 +21,7 @@
 
 The hardware components of your Microsoft Azure StorSimple device adhere to the technical specifications and regulatory standards outlined in this article. The technical specifications describe the Power and Cooling Modules (PCMs), disk drives, and enclosures. The compliance information covers such things as international standards, safety and emissions, and cabling. 
 
-> [AZURE.NOTE] For more information about the StorSimple device, download the [StorSimple 8000 Series Datasheet](http://www.microsoft.com/server-cloud/products/storsimple/resources.aspx).  
+> [AZURE.NOTE] For more information about the StorSimple device, download the [StorSimple 8000 Series Datasheet](http://download.microsoft.com/download/E/2/1/E21B7C16-6D43-4E4A-B2EC-EEB284047F87/StorSimple_8000_Series_Datasheet.pdf).  
 
 ## Power and Cooling Module specifications  
 
