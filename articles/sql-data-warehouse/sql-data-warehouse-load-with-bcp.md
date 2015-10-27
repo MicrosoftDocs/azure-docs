@@ -19,7 +19,10 @@
 
 # Load data with bcp
 
->[AZURE.VIDEO loading-data-into-azure-sql-data-warehouse-with-bcp]
+> [AZURE.SELECTOR]
+- [Data Factory](sql-data-warehouse-get-started-load-with-azure-data-factory.md)
+- [PolyBase](sql-data-warehouse-load-with-polybase-short.md)
+- [BCP](sql-data-warehouse-load-with-bcp.md)
 
 **[bcp][]** is a command-line bulk load utility that allows you to copy data between SQL Server, data files, and SQL Data Warehouse. Use bcp to import large numbers of rows into SQL Data Warehouse tables or to export data from SQL Server tables into data files. Except when used with the queryout option, bcp requires no knowledge of Transact-SQL. 
 
@@ -34,6 +37,8 @@ This tutorial will show you how to:
  
 - Import data into a table using the bcp in command
 - Export data from a table uisng the bcp out command
+
+>[AZURE.VIDEO loading-data-into-azure-sql-data-warehouse-with-bcp]
 
 ## Prerequisites
 

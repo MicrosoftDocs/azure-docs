@@ -29,7 +29,7 @@ You will have access to Azure services across all regions within a geopolitical 
 
 |**Geopolitical region**|**Azure regions**|**ExpressRoute locations**|
 |---|---|---|
-|**US**|All US Regions - East US, West US, East US 2, Central US, South Central US, North Central US|Atlanta, Chicago, Dallas, Los Angeles, New York, Seattle, Silicon Valley, Washington DC|
+|**North America**|All US Regions - East US, West US, East US 2, Central US, South Central US, North Central US|Atlanta, Chicago, Dallas, Los Angeles, New York, Seattle, Silicon Valley, Washington DC|
 |**South America**|Brazil South|Sao Paulo|
 |**Europe**|North Europe, West Europe|Amsterdam, Dublin+, London|
 |**Asia**|East Asia, Southeast Asia|Hong Kong, Singapore|
@@ -64,7 +64,7 @@ Connectivity across geopolitical regions is not supported on the standard Expres
 | **CoreSite** | Supported | Not Supported | Los Angeles | 
 | **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** | Supported | Supported | Amsterdam, Atlanta, Chicago, Dallas, Hong Kong, London, Los Angeles, Melbourne, New York, Osaka, Sao Paulo, Seattle, Silicon Valley, Singapore, Sydney, Tokyo, Washington DC |
 | **[Internet Initiative Japan Inc. - IIJ](http://www.iij.ad.jp/en/news/pressrelease/2013/pdf/Azure_E.pdf)** |  Supported | Not Supported | Tokyo |
-| **[InterCloud]( https://www.intercloud.com/)** | Supported | Not Supported | Amsterdam, London, Singapore, Washington DC |
+| **[InterCloud]( https://www.intercloud.com/)** | Supported | Supported | Amsterdam, London, Singapore, Washington DC |
 | **Internet Solutions - Cloud Connect** | Supported | Not Supported | Amsterdam, London |
 | **Interxion** | Supported | Not Supported | Amsterdam |
 | **[Level 3 Communications]( http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** | Supported | Not Supported | Amsterdam, Chicago, Dallas, London, Seattle, Silicon Valley, Washington DC |
@@ -91,9 +91,9 @@ Connectivity across geopolitical regions is not supported on the standard Expres
 | **Service provider**  |**Microsoft Azure** | **Office 365** | **Locations** |
 |-----------------------|--------------------|----------------|---------------|
 | **[AT&T NetBond]( https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** | Coming Soon | Not Supported | Chicago+, Washington DC+ |
-| **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** | Coming Soon | Not Supported | Chicago,  Washington DC |
-| **[Level 3 Communications - IPVPN]( http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** | Coming Soon | Not Supported | Chicago, Washington DC |
-| **[Verizon](http://news.verizonenterprise.com/2014/04/secure-cloud-interconnect-solutions-enterprise/)** | Supported | Not Supported | Chicago, Washington DC |
+| **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** | Coming Soon | Not Supported | Chicago+,  Washington DC+ |
+| **[Level 3 Communications - IPVPN]( http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** | Coming Soon | Not Supported | Chicago+, Washington DC |
+| **[Verizon](http://news.verizonenterprise.com/2014/04/secure-cloud-interconnect-solutions-enterprise/)** | Supported | Not Supported | Chicago+, Washington DC |
 
 ## Connectivity through service providers not listed
 
