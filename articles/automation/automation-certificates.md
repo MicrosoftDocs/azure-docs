@@ -15,7 +15,7 @@
    ms.date="10/23/2015"
    ms.author="bwren" />
 
-# Certificate assets in Azure Automation runbooks and DSC configurations
+# Certificate assets in Azure Automation
 
 Certificates can be stored securely in Azure Automation so they can be accessed by runbooks or DSC configurations using the **Get-AutomationCertificate** activity. This allows you to create runbooks and DSC configurations that use certificates for authentication or adds them to Azure or third party resources.
 
