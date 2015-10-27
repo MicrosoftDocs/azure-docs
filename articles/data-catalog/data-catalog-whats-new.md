@@ -13,12 +13,20 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="10/16/2015"
+   ms.date="10/23/2015"
    ms.author="maroche"/>
 
 # What's new in Azure Data Catalog
 
 Updates to **Azure Data Catalog** are released on a regular basis. Not every release will include new user-facing features, as some releases are focused on back-end service capabilities. This page will highlight new user-facing capabilities added to the **Azure Data Catalog** service.
+
+## What's new for the week of October 23, 2015 release
+
+As of the week of October 23, 2015, the following capabilities have been added to **Azure Data Catalog**:
+
+- Support for Teradata data sources. Users can now register and discover Teradata tables and views.
+
+> [AZURE.NOTE] For the current release, only Teradata TD2 authentication is supported. Additional authentication mechanisms will be supported in future releases.
 
 ## What's new for the week of October 16, 2015 release
 

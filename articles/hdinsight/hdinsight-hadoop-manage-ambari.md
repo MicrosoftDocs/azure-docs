@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="09/23/2015"
+   ms.date="10/20/2015"
    ms.author="larryfr"/>
 
 #Manage HDInsight clusters by using Ambari (preview)
@@ -28,6 +28,10 @@ Learn how to use Ambari to manage and monitor Linux-based Azure HDInsight cluste
 <a href="http://ambari.apache.org" target="_blank">Apache Ambari</a> makes Hadoop management simpler by providing an easy-to-use web UI that can be used to provision, manage, and monitor Hadoop clusters. Developers can integrate these capabilities into their applications by using the <a href="https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md" target="_blank">Ambari REST APIs</a>.
 
 Ambari is provided by default with Linux-based HDInsight clusters. Windows-based HDInsight clusters provide monitoring functionality through the Ambari REST APIs.
+
+##Connectivity
+
+Connecting to Ambari on your HDInsight cluster requires the use of HTTPS. You must also authenticate to Ambari using the admin account name (the default is __admin__,) and password you provided when the cluster was created.
 
 ##SSH proxy
 
@@ -225,5 +229,27 @@ Ambari Web relies on an underlying REST API, which you can leverage to create yo
 * **IP Addresses** - The address returned for hosts within a cluster are not accessible from outside the cluster, unless the cluster is a member of an Azure virtual network. Then the IP address will be accessible by other members of the virtual network, but not from outside the network.
 
 * **Some functionality is not enabled** - Some Ambari functionality is disabled, as it is managed by the HDInsight cloud service; for example, adding or removing hosts from the cluster or adding new services. Other functionality may not be fully implemented during the preview of Linux-based HDInsight.
+
+###Examples
+
+The following examples show how to retrieve information from Ambari using [cURL](http://curl.haxx.se/). Since the API returns JSON documents, [jq](https://stedolan.github.io/jq/) is also used to parse the return information.
+
+__Get the fully qualified domain names of the head nodes__
+
+    curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/HDFS/components/NAMENODE" | jq '.host_components[].HostRoles.host_name'
+    
+This command will retrieve head nodes of the cluster. Jq is used to retrieve the value of the `host_name` elements in the JSON document that is returned by this request.
+
+__Get the fully qualified domain names of the worker nodes__
+
+    curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/HDFS/components/DATANODE" | jq '.host_components[].HostRoles.host_name'
+    
+This command will retrieve the worker nodes of the cluster. 
+
+__Get the fully qualified domain names of the zookeeper nodes__
+
+    curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER" | jq '.host_components[].HostRoles.host_name'
+
+This command will retrieve the zookeeper nodes of the cluster. 
 
 For a complete reference of the REST API, see [Ambari API Reference V1](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).
