@@ -1,7 +1,20 @@
-<properties pageTitle="Tutorial: Azure Active Directory integration with Directions on Microsoft | Microsoft Azure" description="Learn how to use Directions on Microsoft with Azure Active Directory to enable single sign-on, automated provisioning, and more!." services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
+<properties 
+    pageTitle="Tutorial: Azure Active Directory integration with Directions on Microsoft | Microsoft Azure" 
+    description="Learn how to use Directions on Microsoft with Azure Active Directory to enable single sign-on, automated provisioning, and more!" 
+    services="active-directory" 
+    authors="markusvi"  
+    documentationCenter="na" 
+    manager="stevenpo"/>
+<tags 
+    ms.service="active-directory" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="identity" 
+    ms.date="10/22/2015" 
+    ms.author="markvi" />
+
 #Tutorial: Azure Active Directory integration with Directions on Microsoft
->[AZURE.TIP]For feedback, click [here](http://go.microsoft.com/fwlink/?LinkId=533728).
 
 The objective of this tutorial is to show the integration of Azure Active Directory and Directions on Microsoft.  
 The scenario outlined in this tutorial assumes that you already have the following items:

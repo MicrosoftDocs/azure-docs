@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/09/2015"
+	ms.date="10/26/2015"
 	ms.author="larryfr"/>
 
 
@@ -79,7 +79,7 @@ Linux-based HDInsight clusters provide a set of MapReduce samples that can be us
 
     - [Use SSH with Linux-based Hadoop on HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
 
-2. From the `username@headnode0:~$` prompt, use the following command to list the samples:
+2. From the `username@#######:~$` prompt, use the following command to list the samples:
 
         hadoop jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar
 

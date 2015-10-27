@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Cache ASP.NET Session State Provider"
-   description="Cache"
+   description="Learn how to store ASP.NET Session State using Azure Redis Cache"
    services="redis-cache"
    documentationCenter="na"
    authors="steved0x"
