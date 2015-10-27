@@ -235,9 +235,10 @@ apiKey | The published workspace model’s API. | Yes
 
 
 ## Azure Data Lake Analytics Linked Service
-You create an **Azure Data Lake Analytics** linked service to link an Azure Data Lake Analytics compute service to an Azure data factory.
+## Azure Data Lake Analytics Linked Service
+You create an **Azure Data Lake Analytics** linked service to link an Azure Data Lake Analytics compute service to an Azure data factory before using the Data Lake Analytics U-SQL activity in a pipeline. 
 
-### Example
+The following example provides JSON definition for an Azure Data Lake Analytics linked service. 
 
 	{
 	    "name": "AzureDataLakeAnalyticsLinkedService",
@@ -247,7 +248,7 @@ You create an **Azure Data Lake Analytics** linked service to link an Azure Data
 	            "accountName": "adftestaccount",
 	            "dataLakeAnalyticsUri": "datalakeanalyticscompute.net",
 	            "authorization": "<authcode>",
-				"sessionId": "<session ID> 
+				"sessionId": "<session ID>", 
 	            "subscriptionId": "<subscription id>",
 	            "resourceGroupName": "<resource group name>"
 	        }
@@ -255,17 +256,19 @@ You create an **Azure Data Lake Analytics** linked service to link an Azure Data
 	}
 
 
-### Properties
+The following table provides descriptions for the properties used in the JSON definition. 
 
 Property | Description | Required
 -------- | ----------- | --------
 Type | The type property should be set to: **AzureDataLakeAnalytics**. | Yes
 accountName | Azure Data Lake Analytics Account Name. | Yes
 dataLakeAnalyticsUri | Azure Data Lake Analytics URI. |  No 
-authorization | Authorization code is automatically retrieved after clicking ‘**Authorize**’ button in the Data Factory Editor and completing the OAuth login. | Yes 
+authorization | Authorization code is automatically retrieved after clicking **Authorize** button in the Data Factory Editor and completing the OAuth login. | Yes 
 subscriptionId | Azure subscription id | No (If not specified, subscription of the data factory is used). 
 resourceGroupName | Azure resource group name |  No (If not specified, resource group of the data factory is used).
-sessionId | OAuth session id from the oauth authorization session. Each session id is unique and may only be used once. This is auto-generated in the Data Factory Editor. | Yes
+sessionId | session id from the OAuth authorization session. Each session id is unique and may only be used once. This is auto-generated in the Data Factory Editor. | Yes
+
+See [Invoke U-SQL script from Data Factory](data-factory-usql-activity.md)
 
 ## Azure SQL Linked Service
 

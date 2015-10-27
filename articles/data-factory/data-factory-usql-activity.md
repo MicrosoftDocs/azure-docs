@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Run U-SQL script from Azure Data Factory" 
+	pageTitle="Run U-SQL script on Azure Data Lake Analytics from Azure Data Factory" 
 	description="Learn how to process data by running U-SQL scripts on Azure Data Lake Analytics compute service." 
 	services="data-factory" 
 	documentationCenter="" 
@@ -16,7 +16,7 @@
 	ms.date="10/27/2015" 
 	ms.author="spelluru"/>
 
-# Invoke U-SQL script from Data Factory
+# Run U-SQL script on Azure Data Lake Analytics from Azure Data Factory 
 A pipeline in an Azure data factory processes data in linked storage services by using linked compute services. It contains a sequence of activities where each activity performs a specific processing operation. This article describes the **Data Lake Analytics U-SQL Activity** that runs a  **U-SQL** script on an **Azure Data Lake Analytics** compute linked service. 
 
 > [AZURE.NOTE] 
