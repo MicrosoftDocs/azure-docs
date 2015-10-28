@@ -19,7 +19,7 @@
 
 # Deploy an existing application to Service Fabric
 
-Azure Service Fabric can be used to run existing applications such as Node.js, Java or native applications. Service Fabric treats those applications like stateless services and places them on nodes in a cluster based on availability and other metrics. This article describes how to package and deploy an existing application to a Service Fabric cluster.
+You can run any type of existing application, such as Node.js, Java or native applications in Service Fabric. Service Fabric treats those applications like stateless services and places them on nodes in a cluster based on availability and other metrics. This article describes how to package and deploy an existing application to a Service Fabric cluster.
 
 ## Benefits of running an existing application in Service Fabric
 
@@ -59,11 +59,11 @@ Mandatory parameters:
 
 - **/source**: Points to the directory of the application that should be packaged.
 
->[AZURE.NOTE]:Make sure that this directory includes all the files/dependencies that the application needs. Service Fabric will copy the content of the application package on all nodes in the cluster where the application's services are going to be deployed. The package should contain all the code that the application needs in order to run. It is not recommended to assume that the dependencies are already installed.
+>[AZURE.NOTE]:Make sure that this directory includes all the files/dependencies that the application needs. Service Fabric will copy the content of the application package on all nodes in the cluster where the application's services are going to be deployed. It is not recommended to assume that the dependencies are already installed, instead you may want to distribute the dependencies as part of the package.
 
 - **/target**: Defines the directory in which the package should be created.
 
->[AZURE.NOTE]:The target directory cannot be part of the source directory.
+>[AZURE.NOTE]:The target directory cannot be a child of the source directory.
 
 - **/appname**: Defines the application name of the application that will be packaged.
 - **/exe**: Defines the executable that Service Fabric is supposed to launch. It does not need to be an .exe file. It could also be a batch file or a script.
@@ -97,8 +97,8 @@ The sample below shows the package structure of the ([SimpleWebServer sample](ht
 
 The root contains the `ApplicationManifest.xml` file that defines the application. A subdirectory for each service (remember that Service Fabric executes an existing application as a stateless service) included in the application is used to contain all the artifacts that the service requires: The `ServiceManifest.xml` and, typically 2 directories:
 
-- *code*: contains the existing application and its dependencies.
-- *config*: contains a settings.xml file (and other files if necessary) that the service can access at runtime to retrieve specific configuration settings.
+- *C*: contains the existing application and its dependencies.
+- *config*: contains a settings.xml file (and other files if necessary) that the application can access at runtime to retrieve specific configuration settings.
 
 ### Make necessary changes to the manifest files
 The packaging tool provides parameters for the most common settings in the manifest files. However there are some occasions where you need to make some changes for your application to work. The most common ones are adding a port to an endpoint and adding logging capabilities. Both settings need to be added in the `ServiceManifest.xml`.
@@ -131,8 +131,7 @@ The sample below shows how to add `ConsoleRedirection` element to the `ServiceMa
 
 The script below demonstrates how to use PowerShell to deploy the application package to a local development cluster.
 
->[AZURE.NOTE]:If you want to use the script to deploy to a Service Fabric cluster in Azure you need to change the -ImageStoreConnectionString parameter to 'fabric:imagestore'.
-
+>[AZURE.NOTE]:If you want to use the script to deploy to a Service Fabric cluster in Azure you need to change the -ImageStoreConnectionString parameter to 'fabric:imagestore' and the -ApplicationPackagePathInImageStore parameter must not contain 'Store\'.
 
 ```
 Connect-ServiceFabricCluster localhost:19000
@@ -149,15 +148,23 @@ New-ServiceFabricApplication -ApplicationName 'fabric:/WebServer' -ApplicationTy
 ### Testing the application
 
 Once the application is successfully published to the local cluster you can test it through accessing its endpoint, for example through a browser in case it offers a web endpoint.
-This is a good opportunity to check on one of the advantages of running an application in Service Fabric. Let's test what happens if we reboot the node on which our web server runs, we can use Service Fabric Explorer to restart nodes. Figure 1 shows that our web server runs on Node1 and that we are about to restart the node in Service Fabric Explorer.
 
-![RestartNode](./media/service-fabric-custom-application-orchestration/restartnode.png)
+#### Test failover
+This is also a good opportunity to check on one of the advantages of running an application in Service Fabric. You can test what happens if you reboot the node on which you application runs, you can use Service Fabric Explorer to do that. Figure 1 shows that the application fabric:/WebServer runs on Node1 and  how to restart the node in Service Fabric Explorer.
 
-Service Fabric will immediately failover and start the application on another node. If we now look at the Service Fabric explorer again we can see that Service Fabric started our web server on another node. Figure 2 shows our web server running on Node 3 after the failover.
+![RestartNode](./media/service-fabric-custom-application-orchestration/sfx-restart.png)
 
-![New Node](./media/service-fabric-custom-application-orchestration/new-node.png)
+Service Fabric will immediately failover and start the application on another node. If you now look at the Service Fabric Explorer again, you can see that Service Fabric started the application on another node. Figure 2 shows fabric:/WebServer running on Node 2 after the failover.
 
-In this topic we have seen how to package and deploy an existing application so that it can benefit from some of the Service Fabric features such as high availability and heath system integration.
+![New Node](./media/service-fabric-custom-application-orchestration/sfx-runningnewnode.png)
+
+#### Check application logs
+In case the application is not starting or is not showing the desired behavior you can check the logs that were written to the logs directory (assuming you added the `ConsoleRedirection` to the `ServiceManifest.xml`). The log files are saved on one of the service's working directories `Logs`. In order to determine where the files are located, you need to use the Service Fabric Explorer to determine in which node the service is running and which is the working directory that is currently used. The image below shows how to find the working directory.
+
+![Working directory](./media/service-fabric-custom-application-orchestration/findlogdirectory.png)
+
+### Summary
+In this topic you have learned how to package and deploy an existing application so that it can benefit from some of the Service Fabric features such as high availability and heath system integration.
 
 For more information see the following topics
 
