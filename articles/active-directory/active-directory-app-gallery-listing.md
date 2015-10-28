@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="identity"
    ms.date="10/22/2015"
-   ms.author="asmalser-msft"/>
+   ms.author="asmalser"/>
 
 
 # Listing your application in the Azure Active Directory application gallery
@@ -29,7 +29,7 @@ Listing requirements for each mode are below.
 
 ##OpenID Connect Integration
 
-To integrate your application with Azure AD, following the [developer instructions](http://go.microsoft.com/fwlink/?LinkId=327879). Then complete the questions below and send to waadpartners@microsoft.com.
+To integrate your application with Azure AD, following the [developer instructions](active-directory-authentication-scenarios.md). Then complete the questions below and send to waadpartners@microsoft.com.
 
 * Provide credentials for a test tenant or account with your application that can be used by the Azure AD team to test the integration.  
 
@@ -89,7 +89,7 @@ Any app that supports SAML 2.0 can be integrated directly with an Azure AD tenan
 > 
 > Application Sign-Up URL where customers go to sign up for and /or purchase the application:
 > 
-> Choose up to three categories for your application to be listed under (for available categories see the [Azure Active Directory Marketplace](http://go.microsoft.com/fwlink/?LinkId=327881))):
+> Choose up to three categories for your application to be listed under (for available categories see the [Azure Active Directory Marketplace](https://azure.microsoft.com/en-us/marketplace/active-directory/))):
 > 
 > Attach Application Small Icon (PNG file, 45px by 45px, solid background color):
 > 
