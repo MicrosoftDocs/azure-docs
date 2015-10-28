@@ -50,6 +50,7 @@ Sampling is currently available for the ASP.NET SDK or [any   web page](#other-w
 
 > [AZURE.NOTE] For the sampling percentage, choose a percentage that is close to 100/N where N is an integer.  Currently sampling doesn't support other values.
 
+<a name="other-web-pages"></a>
 ### Web pages with JavaScript
 
 You can configure web pages for sampling from any server. For ASP.NET servers, configure both client and server sides. 

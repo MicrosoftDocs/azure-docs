@@ -30,19 +30,19 @@ Currently these features are available for the ASP.NET SDK.
 
 Before you start:
 
-* Install the [Application Insights SDK](app-insights-asp-net.md) in your app. Telemetry Processors need the 
+* Install the [Application Insights SDK](app-insights-start-monitoring-app-health-usage.md) in your app. Install the NuGet packages manually and select the latest *prerelease* version.
 * Try the [Application Insights API](app-insights-api-custom-events-metrics.md). 
 
 
 ## Sampling
 
-*This feature is in beta. You need the latest prerelease SDK version.*
+*This feature is in beta.*
 
 The recommended way to reduce traffic while preserving accurate statistics. The filter selects items that are related so that you can navigate between items in diagnosis. Event counts are adjusted in metric explorer to compensate for the filtered items.
 
 1. Update your project's NuGet packages to the latest *pre-release* version of Application Insights. Right-click the project in Solution Explorer, choose Manage NuGet Packages, check **Include prerelease** and search for Microsoft.ApplicationInsights.Web. 
 
-2. Add this snippet to ApplicationInsights.config
+2. Add this snippet to ApplicationInsights.config:
 
 ```XML
 
