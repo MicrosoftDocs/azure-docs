@@ -211,7 +211,6 @@ To get started with Data Lake Analytics using different tools, see:
 - [Get started with Data Lake Analytics using Azure Preview Portal](data-lake-analytics-get-started-portal.md)
 - [Get started with Data Lake Analytics using Azure PowerShell](data-lake-analytics-get-started-powershell.md)
 - [Get started with Data Lake Analytics using .NET SDK](data-lake-analytics-get-started-net-sdk.md)
-- [Get started with Data Lake Analytics using Azure CLI](data-lake-analytics-get-started-cli.md)
 
 To see more development topics: 
 
