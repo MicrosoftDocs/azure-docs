@@ -16,11 +16,11 @@
    ms.date="10/27/2015"
    ms.author="viviali"/>
 
-# CSV file format for Azure Active Directory B2B collaboration preview
+# CSV file format for Azure Active Directory (Azure AD) B2B collaboration preview
 
 The preview version of Azure AD B2B collaboration requires a CSV file specifying partner user information to be uploaded through the Azure AD portal. The CSV file should contain the required labels below, and optional fields as necessary. Modify the sample CSV file (below) without changing the spelling of the labels in the first row or reordering the columns.
 
-[AZURE.NOTE] The first row of labels (such as Email, DisplayName...) is necessary for the CSV file to be parsed successfully. The spelling must match the fields specified below. These labels identify the content beneath them. For optional fields that aren't needed, their labels can be removed from the CSV file. The entire column can be left empty.
+>[AZURE.NOTE] The first row of labels (such as Email, DisplayName...) is necessary for the CSV file to be parsed successfully. The spelling must match the fields specified below. These labels identify the content beneath them. For optional fields that aren't needed, their labels can be removed from the CSV file. The entire column can be left empty.
 
 ## Required fields: <br/>
 **Email:** Email address of invited user. <br/>
@@ -32,7 +32,7 @@ The preview version of Azure AD B2B collaboration requires a CSV file specifying
 **InviteAppResources:** AppIDs to corporate applications to assign users. AppIDs are retrievable in PowerShell by calling `Get-MsolServicePrincipal | fl DisplayName, AppPrincipalId`<br/>
 **InviteGroupResources:** ObjectIDs for groups to add user to. ObjectIDs are retrievable in PowerShell by calling `Get-MsolGroup | fl DisplayName, ObjectId`<br/>
 **InviteReplyURL:** URL to direct an invited user after invite acceptance. This should be a company-specific URL (such as [*contoso.my.salesforce.com*](http://contoso.my.salesforce.com/)). If this optional field is not specified, the invited user is directed to the App Access Panel where they can navigate to your chosen corporate apps. The App Access Panel URL is of the form  `https://account.activedirectory.windowsazure.com/applications/default.aspx?tenantId=<TenantID>`.<br/>
-**Language:** Language for invitation email and redemption experience, with English as the default when unspecified. 10 supported language codes are:<br/>
+**Language:** Language for invitation email and redemption experience, with English as the default when unspecified. The other 10 supported language codes are:<br/>
 1. de: German<br/>
 2. es: Spanish<br/>
 3. fr: French<br/>
@@ -47,9 +47,9 @@ The preview version of Azure AD B2B collaboration requires a CSV file specifying
 ## Sample CSV file
 Here is a sample CSV you can modify.
 
-[AZURE.NOTE] Copy and paste this into Notepad, and save it with a '.csv' file extension. Then edit this in Excel. It will be structured into a table with labels in the first row.
+>[AZURE.NOTE] Copy and paste this into Notepad, and save it with a '.csv' file extension. Then edit this in Excel. It will be structured into a table with labels in the first row.
 
-[AZURE.NOTE] Add more optional fields in Excel by specifying the label and populating the column beneath it.
+>[AZURE.NOTE] Add more optional fields in Excel by specifying the label and populating the column beneath it.
 
 ```
 Email,DisplayName,InviteAppID,InviteReplyUrl,InviteAppResources,InviteGroupResources,InviteContactUsUrl
