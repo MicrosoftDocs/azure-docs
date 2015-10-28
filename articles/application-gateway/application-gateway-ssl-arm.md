@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Configure an Application Gateway for SSL offload using Azure Resource Manager | Microsoft Azure"
-   description="This page provides instructions to create, configure, start, and delete an Azure Application Gateway using Azure Resource Manager"
+   description="This page provides instructions to create an Application Gateway with SSL offload using Azure Resource Manager "
    documentationCenter="na"
    services="application-gateway"
    authors="joaoma"
@@ -14,10 +14,11 @@
    ms.workload="infrastructure-services" 
    ms.date="10/28/2015"
    ms.author="joaoma"/>
+
 # Configure an Application Gateway for SSL offload using Azure Resource Manager
 
 
-Application Gateway can be configured to terminate the SSL session at the gateway, which can avoid costly SSL decryption on the web farm. SSL offload also simplifies the front end server setup and management of the application.
+ Application Gateway can be configured to terminate the SSL session at the gateway to avoid costly SSL decryption task to happen at the web farm. SSL offload also simplifies the front end server setup and management of the web application.
 
 
 >[AZURE.IMPORTANT] Before you work with Azure resources, it's important to understand that Azure currently has two deployment models: Resource Manager, and classic. Make sure you understand [deployment models and tools](azure-classic-rm.md) before working with any Azure resource. You can view the documentation for different tools by clicking the tabs at the top of this article.This document will cover creating an Application Gateway using Azure Resource Manager. To use the classic version, go to [Configure Application gateway SSL offload using PowerShell (classic)](application-gateway-ssl.md).
@@ -36,7 +37,7 @@ Application Gateway can be configured to terminate the SSL session at the gatewa
 - **Back end server pool:** The list of IP addresses of the back end servers. The IP addresses listed should either belong to the virtual network subnet, or should be a public IP/VIP. 
 - **Back end server pool settings:** Every pool has settings like port, protocol, and cookie based affinity. These settings are tied to a pool and are applied to all servers within the pool.
 - **Front end Port:** This port is the public port opened on the application gateway. Traffic hits this port, and then gets redirected to one of the back end servers.
-- **Listener:** The listener has a frontend port, a protocol (Http or Https, these are case-sensitive), and the SSL certificate name (if configuring SSL offload). 
+- **Listener:** The listener has a front end port, a protocol (Http or Https, these are case-sensitive), and the SSL certificate name (if configuring SSL offload). 
 - **Rule:** The rule binds the listener and the back end server pool and defines which back end server pool the traffic should be directed to when it hits a particular listener. Currently, only the *basic* rule is supported. The *basic* rule is round-robin load distribution.
 
 **Additional configuration notes:**
