@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Azure SQL Database General Limitations and Guidelines"
-   description="This page describes some general limtations for Azure SQL Database as well as areas of interoperability and support."
+   description="This page describes some general limitations for Azure SQL Database as well as areas of interoperability and support."
    services="sql-database"
    documentationCenter="na"
    authors="rothja"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="09/29/2015"
+   ms.date="10/28/2015"
    ms.author="jroth" />
 
 # Azure SQL Database General Limitations and Guidelines
@@ -21,7 +21,7 @@ This topic provides general limitations and guidelines for Azure SQL Database. F
 
 ## Connectivity
 
- - Windows Authentication is not supported. See [Managing Databases and Logins in Azure SQL Database](https://msdn.microsoft.com/library/azure/ee336235.aspx). 
+ - Windows Authentication is not supported. See [Managing Databases and Logins in Azure SQL Database](sql-database-manage-logins.md). 
 
  - Microsoft Azure SQL Database supports tabular data stream (TDS) protocol client version 7.3 or later. 
 
@@ -55,16 +55,18 @@ Certain user names are not allowed for security reasons. You cannot use the foll
  - **root** 
  - **sa** 
 
-Names for all new objects must comply with the SQL Server rules for identifiers. For more information, see [Identifiers]().
+Names for all new objects must comply with the SQL Server rules for identifiers. For more information, see [Identifiers](https://msdn.microsoft.com/library/ms175874.aspx).
 
 Additionally, login and user names cannot contain the \ character (Windows Authentication is not supported).
 
 ## Additional Guidelines
 
- - In addition to the general limitations outlined in this article, SQL Database has specific resource quotas and limitations based on your service tier. To better understand this important concept, please see [Azure SQL Database Resource Limits](sql-database-limits.md).
+- In addition to the general limitations outlined in this article, SQL Database has specific resource quotas and limitations based on your [service tier](sql-database-service-tiers.md). For detailed description of service tier limits, see [Service tier capabilities and limits](sql-database-performance-guidance.md#service-tier-capabilities-and-limits).
 
- - For security related guidelines, see [Azure SQL Database Security Guidelines and Limitations](sql-database-security-guidelines.md).
+- For other SQL Database limits, see [Azure SQL Database Resource Limits](sql-database-limits.md).
 
- - Another related area surrounds the compatibility that Azure SQL Database has with on-premises versions of SQL Server, such as SQL Server 2014. The latest V12 version of Azure SQL Database has made many improvements in this area. For more details, see [What's new in SQL Database V12](sql-database-v12-whats-new.md).
+- For security related guidelines, see [Azure SQL Database Security Guidelines and Limitations](sql-database-security-guidelines.md).
 
- - For information on driver availability and support for SQL Database, see [Connection Libraries for SQL Database and SQL Server](sql-database-libraries.md).
+- Another related area surrounds the compatibility that Azure SQL Database has with on-premises versions of SQL Server, such as SQL Server 2014. The latest V12 version of Azure SQL Database has made many improvements in this area. For more details, see [What's new in SQL Database V12](sql-database-v12-whats-new.md).
+
+- For information on driver availability and support for SQL Database, see [Connection Libraries for SQL Database and SQL Server](sql-database-libraries.md).
