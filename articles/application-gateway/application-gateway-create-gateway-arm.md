@@ -120,7 +120,11 @@ Assigns the Address range 10.0.0.0/24 to subnet variable to be used to create a 
 	$vnet = New-AzurevirtualNetwork -Name appgwvnet -ResourceGroupName appgw-rg -Location "West US" -AddressPrefix 10.0.0.0/16 -Subnet $subnet
 
 Creates a virtual network named "appgwvnet" in resource group "appw-rg" for the West US region using the prefix 10.0.0.0/16 with subnet 10.0.0.0/24	
+
+### Step 3
 	
+	$subnet=$vnet.Subnets[0]
+
 ## Create public IP address for front end configuration
 
 	$publicip = New-AzurePublicIpAddress -ResourceGroupName appgw-rg -name publicIP01 -location "West US" -AllocationMethod Dynamic

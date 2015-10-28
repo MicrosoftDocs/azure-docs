@@ -360,7 +360,7 @@ This sample shows an application gateway that is up, running, and is ready to ta
                                     ]
 	ResourceGroupName                 : appgw-rg
 	Location                          : westus
-		Tag                               : {}
+	Tag                               : {}
 	TagsTable                         : 
 	Name                              : appgwtest
 	Etag                              : W/"ddb0408e-a54c-4501-a7f8-8487c3530bd7"
