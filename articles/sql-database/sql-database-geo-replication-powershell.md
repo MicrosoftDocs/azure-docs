@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="powershell"
     ms.workload="data-management" 
-    ms.date="09/25/2015"
+    ms.date="10/21/2015"
     ms.author="sstein"/>
 
 # Geo-Replication for Azure SQL Database using PowerShell
@@ -38,7 +38,11 @@ To configure Geo-Replication you need the following:
 - An Azure subscription. If you need an Azure subscription simply click **FREE TRIAL** at the top of this page, and then come back to finish this article.
 - A logical Azure SQL Database server and a SQL database - The primary database that you want to replicate to a different geographical region.
 - A logical Azure SQL Database server - The logical server into which you will create a geo-replication secondary database.
-- Azure PowerShell. You can download and install the Azure PowerShell modules by running the [Microsoft Web Platform Installer](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409). For detailed information, see [How to install and configure Azure PowerShell](powershell-install-configure.md).
+- Azure PowerShell 1.0 Preview. You can download and install the Azure PowerShell modules by following [How to install and configure Azure PowerShell](powershell-install-configure.md).
+
+> [AZURE.IMPORTANT] Starting with the release of Azure PowerShell 1.0 Preview, the Switch-AzureMode cmdlet is no longer available, and cmdlets that were in the Azure ResourceManger module have been renamed. The examples in this article use the new PowerShell 1.0 Preview naming convention. For detailed information, see [Deprecation of Switch-AzureMode in Azure PowerShell](https://github.com/Azure/azure-powershell/wiki/Deprecation-of-Switch-AzureMode-in-Azure-PowerShell).
+
+
 
 
 
@@ -47,7 +51,7 @@ To configure Geo-Replication you need the following:
 First you must establish access to your Azure account so start PowerShell and then run the following cmdlet. In the login screen enter the same email and password that you use to sign in to the Azure portal.
 
 
-	Add-AzureAccount
+	Login-AzureRMAccount
 
 After successfully signing in you will see some information on screen that includes the Id you signed in with and the Azure subscriptions you have access to.
 
@@ -56,20 +60,16 @@ After successfully signing in you will see some information on screen that inclu
 
 To select the subscription you need your subscription Id. You can copy the subscription Id from the information displayed from the previous step, or if you have multiple subscriptions and need more details you can run the **Get-AzureSubscription** cmdlet and copy the desired subscription information from the resultset. The following cmdlet uses the subscription Id to set the current subscription:
 
-	Select-AzureSubscription -SubscriptionId 4cac86b0-1e56-bbbb-aaaa-000000000000
+	Select-AzureRMSubscription -SubscriptionId 4cac86b0-1e56-bbbb-aaaa-000000000000
 
-After successfully running **Select-AzureSubscription** you are returned to the PowerShell prompt. If you have more than one subscription you can run **Get-AzureSubscription** and verify the subscription you selected shows **IsCurrent : True**.
+After successfully running **Select-AzureRMSubscription** you are returned to the PowerShell prompt.
 
 
 
 ## Add secondary database
 
 
-The command serves to make the local database into a Geo-Replication primary (assuming that it is not already) and begin replicating data from it to a secondary database with the same name on another "partner" server.  
-
-NOTE: If the partner database exists (for example as a result of termination of a previous geo-replication relationship) the command will fail.
-
-
+The following commands make the local database into a Geo-Replication primary (assuming that it is not already) and begins replicating data from it to a secondary database with the same name on another "partner" server.  
 
 To enable a secondary you must be the subscription owner or co-owner. 
 
@@ -77,14 +77,14 @@ You can use the **New-AzureRMSqlDatabaseSecondary** cmdlet to add a secondary da
 
 This cmdlet replaces **Start-AzureRMSqlDatabaseCopy** with the **–IsContinuous** parameter.  It will output an **AzureRMSqlDatabaseSecondary** object that can be used by other cmdlets to clearly identify a specific replication link. This cmdlet will return when the secondary database is created and fully seeded. Depending on the size of the database it may take from minutes to hours.
 
-The replicated database on the secondary server will have the same name as the database on the primary server and will, by default, have the same service level. The secondary database can be readable or non-readable, and can be a single database or an elastic database. For more information, see [New-AzureRMSqlDatabaseSecondary](https://msdn.microsoft.com/library/mt163521.aspx) and [Service Tiers](sql-database-service-tiers.md).
+The replicated database on the secondary server will have the same name as the database on the primary server and will, by default, have the same service level. The secondary database can be readable or non-readable, and can be a single database or an elastic database. For more information, see [New-AzureRMSqlDatabaseSecondary](https://msdn.microsoft.com/library/mt603689.aspx) and [Service Tiers](sql-database-service-tiers.md).
 After the secondary is created and seeded, data will begin replicating from the primary database to the new secondary database. The steps below describe how to accomplish this task using PowerShell to create non-readable and readable secondaries, either with a single database or an elastic database.
 
-> [AZURE.NOTE] If the secondary database exists on the specified partner server (for example, because a relationship already exists as a result of termination of a previous geo-replication relationship) the command will fail.
+> [AZURE.NOTE] If the partner database already exists (for example - as a result of terminating a previous geo-replication relationship) the command will fail.
 
 
 
-### Add non-readable secondary (single database)
+### Add a non-readable secondary (single database)
 
 The following command creates a non-readable secondary of database "mydb" of server "srv2" in resource group "rg2":
 
@@ -124,7 +124,7 @@ The following command creates a readable secondary of database "mydb" in the ela
 
 ## Remove secondary database
 
-Use the **Remove-AzureRMSqlDatabaseSecondary** cmdlet to permanently terminate the replication partnership between a secondary database and its primary. After the relationship termination, the secondary database becomes a regular read-write database. If the connectivity to secondary database is broken the command succeeds but the secondary will become read-write after connectivity is restored. For more information, see [Remove-AzureRMSqlDatabaseSecondary](https://msdn.microsoft.com/library/mt163521.aspx) and [Service Tiers](https://azure.microsoft.com/documentation/articles/sql-database-service-tiers/).
+Use the **Remove-AzureRMSqlDatabaseSecondary** cmdlet to permanently terminate the replication partnership between a secondary database and its primary. After the relationship termination, the secondary database becomes a regular read-write database. If the connectivity to secondary database is broken the command succeeds but the secondary will become read-write after connectivity is restored. For more information, see [Remove-AzureRMSqlDatabaseSecondary](https://msdn.microsoft.com/library/mt603457.aspx) and [Service Tiers](https://azure.microsoft.com/documentation/articles/sql-database-service-tiers/).
 
 This cmdlet replaces Stop-AzureRMSqlDatabaseCopy for replication. 
 
@@ -152,7 +152,7 @@ The command performs the following workflow:
 
 2. Switch the roles of the two databases in the geo-replication partnership.  
 
-This sequence guarantees that no data loss will occur. There is a short period during which both databases are unavailable (on the order of 0 to 25 seconds) while the roles are switched. The entire operation should take less than a minute to complete under normal circumstances. For more information, see [Set-AzureRMSqlDatabaseSecondary](https://msdn.microsoft.com/library/mt163521.aspx).
+This sequence guarantees that no data loss will occur. There is a short period during which both databases are unavailable (on the order of 0 to 25 seconds) while the roles are switched. The entire operation should take less than a minute to complete under normal circumstances. For more information, see [Set-AzureRMSqlDatabaseSecondary](https://msdn.microsoft.com/library/mt619393.aspx).
 
 
 > [AZURE.NOTE]:  If the primary database is unavailable when the command is issued it will fail with an error message indicating that the primary server is not available. In rare cases it is possible that the operation cannot complete and may appear stuck. In this case the user can call the force failover command (unplanned failover) and accept data loss.
@@ -194,7 +194,7 @@ The following command switches the roles of the database named "mydb” to prima
 
 Monitoring tasks include monitoring of the geo-replication configuration and monitoring data replication health.  
 
-The cmdlet Get-AzureRMSqlDatabaseReplicationLink can be used to retrieve the information about the forward replication links visible in the sys.geo_replication_links catalog view.
+[Get-AzureRMSqlDatabaseReplicationLink](https://msdn.microsoft.com/library/mt619330.aspx) can be used to retrieve the information about the forward replication links visible in the sys.geo_replication_links catalog view.
 
 The following command retrieves status of the replication link between the primary database "mydb” and the secondary on server "srv2” of the resource group "rg2”.
 
@@ -232,22 +232,10 @@ The following command creates a database named "db2” in the elastic pool "MyPo
 
 Since the database copy process is asynchronous the user can monitor the copy state transitions and the completion time.  
 
-As the copy is created with a synchronous cmdlet New-AzureRMSqlDatabaseCopy no monitoring cmdlet is provided. To monitor the database copy with Transact-SQL, see [Monitor a database copy using Transact-SQL](sql-database-geo-replication-transact-sql.md#monitor-a-database-copy).
+The copy is created with [New-AzureRMSqlDatabaseCopy](https://msdns.microsoft.com/library/mt603644.aspx) and no monitoring cmdlet is provided. To monitor the database copy with Transact-SQL, see [Monitor a database copy using Transact-SQL](sql-database-geo-replication-transact-sql.md#monitor-a-database-copy).
 
 
-
-
-## Setup Geo-Replication PowerShell script
-
-
-    Add-AzureAccount
-    Select-AzureSubscription -SubscriptionId "4cac86b0-1e56-bbbb-aaaa-000000000000"
-    
-    $ServerName = "servername"
-    $DatabaseName = "nameofnewdatabase"
-
-
-    
+   
 
 ## Next steps
 
@@ -258,5 +246,6 @@ As the copy is created with a synchronous cmdlet New-AzureRMSqlDatabaseCopy no m
 
 ## Additional resources
 
+- [Designing cloud applications for business continuity using Geo-Replication](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
 - [Business Continuity Overview](sql-database-business-continuity.md)
 - [SQL Database documentation](https://azure.microsoft.com/documentation/services/sql-database/)

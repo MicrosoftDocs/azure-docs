@@ -18,7 +18,7 @@
 
 # Geo-Replication for Azure SQL Database using Transact-SQL
 
-**Single database**
+
 
 > [AZURE.SELECTOR]
 - [Azure Preview Portal](sql-database-geo-replication-portal.md)
@@ -311,5 +311,6 @@ Use the following steps to monitor a database copy operation.
 
 ## Additional resources
 
+- [Designing cloud applications for business continuity using Geo-Replication](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
 - [Business Continuity Overview](sql-database-business-continuity.md)
 - [SQL Database documentation](https://azure.microsoft.com/documentation/services/sql-database/)
