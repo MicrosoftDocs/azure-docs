@@ -22,21 +22,21 @@
 
 By default, a **DevTest Lab** includes artifacts from the official Azure DevTest Lab artifact repository. You can add a Git artifact repository to your lab to include the artifacts that your team creates. The repository can be hosted on [GitHub](https://github.com) or on [Visual Studio Online (VSO)](https://visualstudio.com).
 
-- To learn how to create a Github repository, see [Github Bootcamp](https://help.github.com/categories/bootcamp/).
+- To learn how to create a GitHub repository, see [GitHub Bootcamp](https://help.github.com/categories/bootcamp/).
 - To learn how to create a VSO project with a Git Repository, see [Set up Visual Studio](https://www.visualstudio.com/get-started/setup/set-up-vs).
 
 The repository must contain a top-level directory named **Artifacts**. The files for each artifact are then contained in a subdirectory of **Artifacts** directory.
 
-The following screen shot shows an example of how a repository containing artifacts might look in Github:  
-![ContosoWebTeam Github](./media/devtest-lab-add-artifact-repo/devtestlab-github-artifact-repo-home.png)
+The following screen shot shows an example of how a repository containing artifacts might look in GitHub:  
+![ContosoWebTeam GitHub](./media/devtest-lab-add-artifact-repo/devtestlab-github-artifact-repo-home.png)
 
-## Add a Github artifacts repository to your lab
+## Add a GitHub artifacts repository to your lab
 
-To add a Github artifacts repository to your lab, you first get the HTTPS clone url and Personal Access Token from the artifacts repository, then you enter that information in your lab
+To add a GitHub artifacts repository to your lab, you first get the HTTPS clone URL and Personal Access Token from the artifacts repository, then you enter that information in your lab
 
-### Get the Github repository clone URL and personal access token
+### Get the GitHub repository clone URL and personal access token
 
-1. On the home page of the Github repository that contains the team artifacts, save the **HTTPS clone url** for later use. 
+1. On the home page of the GitHub repository that contains the team artifacts, save the **HTTPS clone url** for later use. 
 
 1. Tap the profile image in the upper-right corner, and select **Settings**.
 
