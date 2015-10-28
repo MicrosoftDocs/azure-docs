@@ -265,7 +265,7 @@ When you click the Promapp tile in the Access Panel, you should get automaticall
 
 [200]: ./media/active-directory-saas-promapp-tutorial/tutorial_general_200.png
 [201]: ./media/active-directory-saas-promapp-tutorial/tutorial_general_201.png
-[202]: ./media/active-directory-saas-promapp-tutorial/tutorial_promapp_071.png
+[202]: ./media/active-directory-saas-promapp-tutorial/tutorial_promapp_10.png
 [203]: ./media/active-directory-saas-promapp-tutorial/tutorial_general_203.png
 [204]: ./media/active-directory-saas-promapp-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-promapp-tutorial/tutorial_general_205.png
