@@ -44,8 +44,12 @@ To perform the tasks described in this article, you must have an Azure subscript
 
 To use the **SSIS connectors** you must download:
 
-- **SQL Server 2014 Express**: This can be downloaded from the [Microsoft® SQL Server® 2014 Express](http://www.microsoft.com/download/details.aspx?id=42299) page. Choose the version appropriate for your machine.
-- **SQL Server Integration Service**: To download this, please see [](https://msdn.microsoft.com/library/ms141026.aspx).
+- **SQL Server 2014 or 2016 Standard (or above)**: Install includes includes SQL Server Integration Services.
+- **Microsoft SQL Server 2016 Integration Services Feature Pack for Azure**: This can be downloaded from the [SQL Server Integration Services](https://www.microsoft.com/download/details.aspx?id=49492) page.
+
+> [AZURE.NOTE] SSIS is installed with SQL Server, but is not included in the Express version. For information on what applications are included in various editions of SQL Server, see [SQL Server Editions](http://www.microsoft.com/en-us/server-cloud/products/sql-server-editions/)
+
+For training materials on SSIS, see [Hands On Training for SSIS](http://www.microsoft.com/download/details.aspx?id=20766)
 
 For information on how to get up-and-running using SISS to build simple extraction, transformation, and load (ETL) packages, see [SSIS Tutorial: Creating a Simple ETL Package](https://msdn.microsoft.com/library/ms169917.aspx).
 
