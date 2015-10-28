@@ -77,7 +77,7 @@ You start adding resources to this group after this, and use it to configure a r
 
 When working with templates, you can either [create your own](resource-group-authoring-templates.md), or use one of the templates from the [Template Gallery](https://azure.microsoft.com/documentation/templates/), which are also available on [GitHub](https://github.com/Azure/azure-quickstart-templates).
 
-Creating a new template is beyond the scope of this article, so to start with let's use the _101-simple-vm-from-image_ template available from [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/101-simple-linux-vm). By default, this creates a single Ubuntu 4.04.2-LTS virtual machine in a new virtual network with a single subnet in the West US region. You only need to specify the following few parameters to use this template:
+Creating a new template is beyond the scope of this article, so to start with let's use the _101-simple-vm-from-image_ template from [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/101-simple-linux-vm). By default, this creates a single Ubuntu 4.04.2-LTS virtual machine in a new virtual network with a single subnet in the West US region. You only need to specify the following few parameters to use this template:
 
 * A unique storage account name
 * An admin user name for the VM
@@ -89,29 +89,29 @@ Creating a new template is beyond the scope of this article, so to start with le
 1. Download the files azuredeploy.json and azuredeploy.parameters.json from [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/101-simple-linux-vm) to a working folder on your local computer.
 
 2. Open the azuredeploy.parameters.json file in a text editor and enter parameter values suitable for your environment (leaving the **ubuntuOSVersion** value unchanged).
-```
-	{
-	  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-	  "contentVersion": "1.0.0.0",
-	  "parameters": {
-	    "newStorageAccountName": {
-	      "value": "MyStorageAccount"
-	    },
-	    "adminUsername": {
-	      "value": "MyUserName"
-	    },
-	    "adminPassword": {
-	      "value": "MyPassword"
-	    },
-	    "dnsNameForPublicIP": {
-	      "value": "MyDomainName"
-	    },
-	    "ubuntuOSVersion": {
-	      "value": "14.04.2-LTS"
-	    }
-	  }
-	}
-```
+
+		{
+		  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+		  "contentVersion": "1.0.0.0",
+		  "parameters": {
+		    "newStorageAccountName": {
+		      "value": "MyStorageAccount"
+		    },
+		    "adminUsername": {
+		      "value": "MyUserName"
+		    },
+		    "adminPassword": {
+		      "value": "MyPassword"
+		    },
+		    "dnsNameForPublicIP": {
+		      "value": "MyDomainName"
+		    },
+		    "ubuntuOSVersion": {
+		      "value": "14.04.2-LTS"
+		    }
+		  }
+		}
+
 3. After saving the azuredeploy.parameters.json file, use the following command to create a new resource group based on the template. The `-e` option specifies the azuredeploy.parameters.json file that you modified in the previous step. Replace the *testRG* with the group name you wish to use, and *testDeploy* with a deployment name of your choice. The location should be same as the one specified in your template parameter file.
 
 		azure group create "testRG" "West US" -f azuredeploy.json -d "testDeploy" -e azuredeploy.parameters.json
