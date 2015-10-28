@@ -18,7 +18,7 @@
 
 # Geo-Replication for Azure SQL Database using PowerShell
 
-**Single database**
+
 
 > [AZURE.SELECTOR]
 - [Azure Preview Portal](sql-database-geo-replication-portal.md)

@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="NA"
     ms.workload="data-management"
-    ms.date="09/19/2015"
+    ms.date="10/21/2015"
     ms.author="carlrab"/>
 
 # Geo-Replication for Azure SQL Database using Transact-SQL
@@ -164,7 +164,7 @@ Use the following steps to create a readable secondary as an elastic database.
 
 You can use the **ALTER DATABASE** statement to permanently terminate the replication partnership between a secondary database and its primary. This statement is executed on the master database on which the primary database resides. After the relationship termination, the secondary database becomes a regular read-write database. If the connectivity to secondary database is broken the command succeeds but the secondary will become read-write after connectivity is restored. For more information, see [ALTER DATABASE (Transact-SQL)](https://msdn.microsoft.com/library/mt574871.aspx) and [Service Tiers](https://azure.microsoft.com/documentation/articles/sql-database-service-tiers/).
 
-Use the following steps to remove geo-replicated secondary from a geo-repliocation partnership.
+Use the following steps to remove geo-replicated secondary from a geo-replication partnership.
 
 1. In Management Studio, connect to your Azure SQL Database logical server.
 
@@ -220,7 +220,7 @@ However, because Point In Time Restore is not supported on the secondary databas
 
 If the primary database has multiple secondary databases, the command will succeed only on the secondary server on which the command was executed. However, the other secondaries will not know that the forced failover occurred. The user will have to manually repair this configuration using a “remove secondary” API and then reconfigure geo-replication on these additional secondaries.
 
-Use the following steps to forcibly remove geo-replicated secondary from a geo-repliocation partnership.
+Use the following steps to forcibly remove geo-replicated secondary from a geo-replication partnership.
 
 1. In Management Studio, connect to the Azure SQL Database logical server in which a geo-replicated secondary database resides.
 
@@ -236,7 +236,7 @@ Use the following steps to forcibly remove geo-replicated secondary from a geo-r
 
 Monitoring tasks include monitoring of the geo-replication configuration and monitoring data replication health.  You can use the **sys.dm_geo_replication_links** dynamic management view in the master database to return information about all exiting replication links for each database on the Azure SQL Database logical server. This view contains a row for each of the replication link between primary and secondary databases. You can use the **sys.dm_replication_status** dynamic management view to return a row for each Azure SQL Database that is currently engaged in a replication replication link. This includes both primary and secondary databases. If more than one continuous replication link exists for a given primary database, this table contains a row for each of the relationships. The view is created in all databases, including the logical master. However, querying this view in the logical master returns an empty set. You can use the **sys.dm_operation_status** dynamic management view to show the status for all database operations including the status of the replication links. For more information, see [sys.dm_geo_replication_links (Azure SQL Database)](https://msdn.microsoft.com/library/mt575501.aspx), [sys.dm_geo_replication_link_status (Azure SQL Database)](https://msdn.microsoft.com/library/mt575504.aspx), and [sys.dm_operation_status (Azure SQL Database)](https://msdn.microsoft.com/library/dn270022.aspx).
 
-Use the following steps to monitor a geo-repliocation partnership.
+Use the following steps to monitor a geo-replication partnership.
 
 1. In Management Studio, connect to your Azure SQL Database logical server.
 
@@ -259,47 +259,6 @@ Use the following steps to monitor a geo-repliocation partnership.
         ORDER BY start_time DESC
 
 9. Click **Execute** to run the query.
-
-## Copy a database
-
-A new database is created in the same or different logical server using a default or user selected service objective, including a named elastic pool. You can use the **CREATE DATABASE**. This statement is executed on the master database for the server on which the copy will be created. The copied database on the specified server will, by default, have the same service level as the source database. The copied database will be a standard read-write database, and can be a single database or an elastic databbase. For more information, see [CREATE DATABASE (Transact-SQL)](https://msdn.microsoft.com/library/dn268335.aspx) and [Service Tiers](https://azure.microsoft.com/documentation/articles/sql-database-service-tiers/) and [sys.dm_operation_status (Azure SQL Database)](https://msdn.microsoft.com/library/dn270022.aspx).
-
-Use the following steps to copy a database to another Azure SQL Database logical server.
-
-1. In Management Studio, connect to another Azure SQL Database logical server.
-
-2. Open the Databases folder, expand the **System Databases** folder, right-click on **master**, and then click **New Query**.
-
-3. Use the following statement to show all databases with geo-replication links.
-
-        CREATE DATABASE 'MyCopiedDB (SERVICE_OBJECTIVE = ELASTIC_POOL (name = 'MyElasticPool5))
-            AS A COPY OF MyLocalServer.MyDB;
-
-4. Click **Execute** to run the query.
-
-
-## Monitor a database copy
-
-Since the database copy process is asynchronous the user can monitor the copy state transitions and the completion time. You can use the **sys.dm_database_copy_links** dynamic management view to return information about all existing database copy links for each database on the Azure SQL Database logical server. This statement is executed on the master database for the server from which the copy is being made. You can use the **sys.dm_operation_status** dynamic management view to show the status for all database operations including the status of the replication links. For more information, see [sys.dm_database_copy_links (Azure SQL Database)](https://msdn.microsoft.com/library/mt576403.aspx)
-
-Use the following steps to monitor a database copy operation.
-
-1. In Management Studio, connect to your Azure SQL Database logical server.
-
-2. Open the Databases folder, expand the **System Databases** folder, right-click on **master**, and then click **New Query**.
-
-3. Use the following statement to show all databases copies originating from the current server.
-
-        SELECT * FROM sys.dm_database_copy_links;
-
-4. Click **Execute** to run the query.
-
-5. Use the following statement to show most recent database copy operations associated with database 'MyDB'
-
-        SELECT * FROM sys.dm_ operation_status
-            WHERE major_resource_is = 'MyDB'
-                AND operation='CREATE DATABASE COPY'
-            ORDER BY start_time DESC
 
 
 ## Next steps
