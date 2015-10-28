@@ -28,7 +28,7 @@ The [SQL Server Integration Services Feature Pack for Azure](https://msdn.micros
 
 Once customers have moved on-premises data into the cloud, they can access it from any Azure service to leverage the full power of the suite of Azure technologies. It may be used, for example, in Azure Machine Learning or on an HDInsight cluster. 
 
-This will typically be the first step for the [SQL](https://azure.microsoft.com/en-us/documentation/articles/machine-learning-data-science-process-sql-walkthrough/) and [HDInsight](https://azure.microsoft.com/documentation/articles/machine-learning-data-science-process-hive-walkthrough/) walkthroughs.
+This will typically be the first step for the [SQL](https://azure.microsoft.com/documentation/articles/machine-learning-data-science-process-sql-walkthrough/) and [HDInsight](https://azure.microsoft.com/documentation/articles/machine-learning-data-science-process-hive-walkthrough/) walkthroughs.
 
 For a discussion of canonical scenarios that use SSIS to accomplish business needs common in hybrid data integration scenarios, see [Doing more with SQL Server Integration Services Feature Pack for Azure](http://blogs.msdn.com/b/ssis/archive/2015/06/25/doing-more-with-sql-server-integration-services-feature-pack-for-azure.aspx) blog.
 
@@ -38,13 +38,13 @@ For a discussion of canonical scenarios that use SSIS to accomplish business nee
 
 To perform the tasks described in this article, you must have an Azure subscription and an Azure storage account  set up. You must know your Azure storage account name and account key in order to upload or download data. 
 
-- To set up an **Azure subscription**, see [Free one-month trial](https://azure.microsoft.com/en-us/pricing/free-trial/).
+- To set up an **Azure subscription**, see [Free one-month trial](https://azure.microsoft.com/pricing/free-trial/).
 - For instructions on creating a **storage account** and for getting account and key information, see [About Azure storage accounts](../storage-create-storage-account.md).
 
 
 To use the **SSIS connectors** you must download:
 
-- **SQL Server 2014 Express**: This can be downloaded from the [Microsoft® SQL Server® 2014 Express](http://www.microsoft.com/en-us/download/details.aspx?id=42299) page. Choose the version appropriate for your machine.
+- **SQL Server 2014 Express**: This can be downloaded from the [Microsoft® SQL Server® 2014 Express](http://www.microsoft.com/download/details.aspx?id=42299) page. Choose the version appropriate for your machine.
 - **SQL Server Integration Service**: To download this, please see [](https://msdn.microsoft.com/library/ms141026.aspx).
 
 For information on how to get up-and-running using SISS to build simple extraction, transformation, and load (ETL) packages, see [SSIS Tutorial: Creating a Simple ETL Package](https://msdn.microsoft.com/library/ms169917.aspx).
