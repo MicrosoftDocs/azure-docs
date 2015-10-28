@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="09/09/2015"
+    ms.date="10/10/2015"
     ms.author="elizapo" />
 
 
@@ -28,11 +28,10 @@ In this topic, we'll review the clients currently supported and how to download 
 
 You can access RemoteApp using the steps below if your device is running one of these operating systems:
 
- - Windows 10 preview
+ - Windows 10 
  - Windows 8.1
  - Windows 8
  - Windows 7 Service Pack 1
- - Windows RT
  - Windows Phone 8.1
  - iOS
  - Mac OS X

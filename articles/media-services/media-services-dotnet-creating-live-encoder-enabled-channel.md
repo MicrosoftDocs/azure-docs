@@ -1,9 +1,9 @@
 <properties 
-	pageTitle="Use .NET SDK to Create Channels that Perform Live Encoding from a Single-bitrate to Multi-bitrate Stream" 
-	description="This tutorial walks you through the steps of creating a Channel that receives a single-bitrate live stream and encodes it to multi-bitrate stream." 
+	pageTitle="Create Channels that Perform Live Encoding from a Single-bitrate to Multi-bitrate Stream using .NET SDK" 
+	description="This tutorial walks you through the steps of creating a Channel that receives a single-bitrate live stream and encodes it to multi-bitrate stream using .NET SDK." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="Juliako" 
+	authors="juliako,anilmur" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -11,13 +11,13 @@
 	ms.service="media-services" 
 	ms.workload="media" 
 	ms.tgt_pltfrm="na" 
-	ms.devlang="ne" 
+	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/14/2015"
+	ms.date="10/26/2015"  
 	ms.author="juliako"/>
 
 
-#Use .NET SDK to Create Channels that Perform Live Encoding from a Single-bitrate to Multi-bitrate Stream
+#Create Channels that Perform Live Encoding from a Single-bitrate to Multi-bitrate Stream using .NET SDK
 
 > [AZURE.SELECTOR]
 - [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
@@ -127,14 +127,10 @@ Add the appSettings section to the app.config file, and set the values for your 
 	using System.IO;
 	using System.Linq;
 	using System.Net;
-	using System.Security.Cryptography;
-	using System.Text;
-	using System.Threading.Tasks;
 	using Microsoft.WindowsAzure.MediaServices.Client;
-	using Newtonsoft.Json.Linq;
 	using Microsoft.WindowsAzure.MediaServices.Client.DynamicEncryption;
 	
-	namespace ConsoleApplication1
+	namespace EncodeLiveStreamWithAmsClear
 	{
 	    class Program
 	    {
@@ -176,10 +172,9 @@ Add the appSettings section to the app.config file, and set the values for your 
 	
 	            Console.WriteLine("Preview URL: {0}", previewEndpoint);
 	
-	            // Get a thumbnail preview of a live feed.
 	            // When Live Encoding is enabled, you can now get a preview of the live feed as it reaches the Channel. 
 	            // This can be a valuable tool to check whether your live feed is actually reaching the Channel. 
-	
+	            // The thumbnail is exposed via the same end-point as the Channel Preview URL.
 	            string thumbnailUri = new UriBuilder
 	            {
 	                Scheme = Uri.UriSchemeHttps,
@@ -207,13 +202,18 @@ Add the appSettings section to the app.config file, and set the values for your 
 	
 	        public static IChannel CreateAndStartChannel()
 	        {
+	            var channelInput = CreateChannelInput();
+	            var channePreview = CreateChannelPreview();
+	            var channelEncoding = CreateChannelEncoding();
+	
+	
 	            ChannelCreationOptions options = new ChannelCreationOptions
 	            {
 	                EncodingType = ChannelEncodingType.Standard,
 	                Name = ChannelName,
-	                Input = CreateChannelInput(),
-	                Preview = CreateChannelPreview(),
-	                Encoding = CreateChannelEncoding()
+	                Input = channelInput,
+	                Preview = channePreview,
+	                Encoding = channelEncoding
 	            };
 	
 	            Log("Creating channel");
@@ -358,13 +358,16 @@ Add the appSettings section to the app.config file, and set the values for your 
 	        /// <param name="channel"></param>
 	        public static void StartStopAdsSlates(IChannel channel)
 	        {
+	            int cueId = new Random().Next(int.MaxValue);
+	            var path = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\\..\\SlateJPG\\DefaultAzurePortalSlate.jpg"));
+	
 	            Log("Creating asset");
 	            var slateAsset = _context.Assets.Create("Slate test asset " + DateTime.Now.ToString("yyyy-MM-dd HH-mm"), AssetCreationOptions.None);
 	            Log("Slate asset created", slateAsset.Id);
 	
 	            Log("Uploading file");
-	            var assetFile = slateAsset.AssetFiles.Create("SlateTest.jpg");
-	            assetFile.Upload("SlateTest.jpg");
+	            var assetFile = slateAsset.AssetFiles.Create("DefaultAzurePortalSlate.jpg");
+	            assetFile.Upload(path);
 	            assetFile.IsPrimary = true;
 	            assetFile.Update();
 	
@@ -377,11 +380,11 @@ Add the appSettings section to the app.config file, and set the values for your 
 	            TrackOperation(hideSlateOperation, "Hide slate");
 	
 	            Log("Starting ad");
-	            var startAdOperation = channel.SendStartAdvertisementOperation(TimeSpan.FromMinutes(1), 0, false);
+	            var startAdOperation = channel.SendStartAdvertisementOperation(TimeSpan.FromMinutes(1), cueId, false);
 	            TrackOperation(startAdOperation, "Start ad");
 	
 	            Log("Ending ad");
-	            var endAdOperation = channel.SendEndAdvertisementOperation();
+	            var endAdOperation = channel.SendEndAdvertisementOperation(cueId);
 	            TrackOperation(endAdOperation, "End ad");
 	
 	            Log("Deleting slate asset");
@@ -501,8 +504,7 @@ Add the appSettings section to the app.config file, and set the values for your 
 	                operationId ?? string.Empty);
 	        }
 	    }
-	}
-	
+	}	
 
 
 ##Next Steps

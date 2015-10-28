@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Provision a Redis Cache" 
 	description="Use Azure Resource Manager template to deploy an Azure Redis Cache." 
-	services="redis-cache" 
+	services="app-service" 
 	documentationCenter="" 
 	authors="tfitzmac" 
 	manager="wpickett" 

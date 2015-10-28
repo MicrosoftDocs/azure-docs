@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Managing Azure Automation data"
+   pageTitle="Managing Azure Automation data | Microsoft Azure"
    description="This article contains multiple topics for managing an Azure Automation environment.  Currently includes Data Retention and Backing up Azure Automation Disaster Recovery in Azure Automation."
    services="automation"
    documentationCenter=""
@@ -62,14 +62,9 @@ You cannot export certificates from Azure Automation.  You must ensure that any 
 
 ##Geo-replication in Azure Automation
 
-Azure Automation supports geo-replication. With geo-replication, Azure Automation keeps your data durable in two regions. While creating an Automation Account in the Azure portal, you choose a region where it should be created which is the primary region. The region where your data is geo-replicated is referred to as the secondary region. Primary and secondary regions talk to each other to geo-replicate the updates made to the Automation Account. As secondary region stores a copy of information, if there is a failover of an Automation Account from primary region to the secondary, all your Automation Account information would still be available in the secondary region.
+Geo-replication, standard in Azure Automation accounts, backs up account data to a different geographical region for redundancy. You can choose a primary region when setting up your account, and then a secondary region is assigned to it automatically. The secondary data, copied from the primary region, is continuously updated in case of data loss.  
 
-Geo-replication is built in to Automation Accounts and offered at no additional cost. You don’t have control to choose the secondary region, it’s automatically determined based on where you choose your primary region.
-
- 
-###Location of Geo-Replicas
-
-Currently Automation Accounts can be created in below five regions and support for more regions will be added in future. The following table shows the primary and secondary region pairings.
+The following table shows the available primary and secondary region pairings.
 
 |Primary            |Secondary
 | ---------------   |----------------
@@ -79,7 +74,5 @@ Currently Automation Accounts can be created in below five regions and support f
 |South East Asia    |East Asia
 |Japan East         |Japan West
 
+In the unlikely event that a primary region data is lost, Microsoft attempts to recover it. If the primary data cannot be recovered, then geo-failover is performed and the affected customers will be notified about this through their subscription.
 
-###Disaster Recovery in Azure Automation
-
-When a major disaster affects the primary region, firstly the Automation team tries to restore the primary region. In some instances, when it’s not possible to restore the primary region, then geo-failover is performed and the affected customers will be notified about this through their subscription.

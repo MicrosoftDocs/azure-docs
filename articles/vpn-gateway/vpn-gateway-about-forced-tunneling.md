@@ -5,17 +5,24 @@
    documentationCenter="na"
    authors="cherylmc"
    manager="carolz"
-   editor="" />
+   editor=""
+   tags="azure-service-management"/>
 <tags 
    ms.service="vpn-gateway"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/20/2015"
+   ms.date="10/21/2015"
    ms.author="cherylmc" />
 
 # Configure forced tunneling
+
+This article applies to VNets and VPN Gateways created using the classic deployment model. When instructions are available for configuring forced tunneling for VNets and VPN Gateways created using the Resource Manager model, we will add a link to the top of this page.
+
+>[AZURE.NOTE] It's important to know that Azure currently works with two deployment models: Resource Manager, and classic. Before you begin your configuration, make sure that you understand the deployment models and tools. For information about the deployment models, see [Azure deployment models](../azure-classic-rm.md). 
+
+## About forced tunneling
 
 Forced tunneling lets you redirect or "force" all Internet-bound traffic back to your on-premises location via a site-to-site VPN tunnel for inspection and auditing. This is a critical security requirement for most enterprise IT policies. Without forced tunneling, Internet-bound traffic from your VMs in Azure will always traverse from Azure network infrastructure directly out to the Internet, without the option to allow you to inspect or audit the traffic. Unauthorized Internet access can potentially lead to information disclosure or other types of security breaches.
 
@@ -154,7 +161,11 @@ Below are some additional PowerShell cmdlets that you may find helpful when work
 
 	Remove-AzureVnetGatewayDefaultSites -VNetName <virtualNetworkName>
 
-## Next Steps
+## Next steps
 
-For information about securing your network traffic. See [What is a Network Security Group](../virtual-network/virtual-networks-nsg.md).
+
+For information about User Defined Routes, see [User Defined Routes and IP Forwarding](../virtual-network/virtual-networks-udr-overview.md).
+
+For information about securing your network traffic, see [What is a Network Security Group](../virtual-network/virtual-networks-nsg.md). Note that you should never apply a Network Security Group to an Azure VNet gateway subnet.
+
 

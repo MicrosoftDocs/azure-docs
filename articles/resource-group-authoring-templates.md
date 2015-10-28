@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/18/2015"
+   ms.date="10/27/2015"
    ms.author="tomfitz"/>
 
 # Authoring Azure Resource Manager templates
@@ -104,7 +104,11 @@ You define parameters with the following structure:
        "<parameterName>" : {
          "type" : "<type-of-parameter-value>",
          "defaultValue": "<optional-default-value-of-parameter>",
-         "allowedValues": [ "<optional-array-of-allowed-values>" ]
+         "allowedValues": [ "<optional-array-of-allowed-values>" ],
+         "minValue": <optional-minimum-value-for-int-parameters>,
+         "maxValue": <optional-maximum-value-for-int-parameters>,
+         "minLength": <optional-minimum-length-for-string-secureString-array-parameters>,
+         "maxLength": <optional-maximum-length-for-string-secureString-array-parameters>
        }
     }
 
@@ -114,6 +118,10 @@ You define parameters with the following structure:
 | type           |   Yes    | Type of the parameter value. See the list below of allowed types.
 | defaultValue   |   No     | Default value for the parameter, if no value is provided for the parameter.
 | allowedValues  |   No     | Array of allowed values for the parameter to make sure that the right value is provided.
+| minValue       |   No     | The minimum value for int type parameters, this value is inclusive.
+| maxValue       |   No     | The maximum value for int type parameters, this value is inclusive.
+| minLength      |   No     | The minimum length for string, secureString and array type parameters, this value is inclusive.
+| maxLength      |   No     | The maximum length for string, secureString and array type parameters, this value is inclusive.
 
 The allowed types and values are:
 
@@ -131,10 +139,13 @@ The following example shows how to define parameters:
 
     "parameters": {
        "siteName": {
-          "type": "string"
+          "type": "string",
+          "minLength": 2,
+          "maxLength": 60
        },
        "siteLocation": {
-          "type": "string"
+          "type": "string",
+          "minLength": 2
        },
        "hostingPlanName": {
           "type": "string"
@@ -149,12 +160,29 @@ The following example shows how to define parameters:
             "Premium"
           ],
           "defaultValue": "Free"
+       },
+       "instancesCount": {
+          "type": "int",
+          "maxValue": 10
+       },
+       "numberOfWorkers": {
+          "type": "int",
+          "minValue": 1
        }
     }
 
 ## Variables
 
 In the variables section, you construct values that can be used to simplify template language expressions. Typically, these variables will be based on values provided from the parameters.
+
+You define variables with the following structure:
+
+    "variables": {
+       "<variable-name>": "<variable-value>",
+       "<variable-name>": { 
+           <variable-complex-type-value> 
+       }
+    }
 
 The following example shows how to define a variable that is constructed from two parameter values:
 
@@ -210,6 +238,7 @@ You define resources with the following structure:
          "name": "<name-of-the-resource>",
          "location": "<location-of-resource>",
          "tags": "<name-value-pairs-for-resource-tagging>",
+         "comments": "<your-reference-notes>",
          "dependsOn": [
            "<array-of-related-resource-names>"
          ],
@@ -227,6 +256,7 @@ You define resources with the following structure:
 | name                     |   Yes    | Name of the resource. The name must follow URI component restrictions defined in RFC3986.
 | location                 |   No     | Supported geo-locations of the provided resource.
 | tags                     |   No     | Tags that are associated with the resource.
+| comments                 |   No     | Your notes for documenting the resources in your template
 | dependsOn                |   No     | Resources that the resource being defined depends on. The dependencies between resources are evaluated and resources are deployed in their dependent order. When resources are not dependent on each other, they are attempted to be deployed in parallel. The value can be a comma separated list of a resource names or resource unique identifiers.
 | properties               |   No     | Resource specific configuration settings.
 | resources                |   No     | Child resources that depend on the resource being defined.

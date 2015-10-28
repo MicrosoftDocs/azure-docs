@@ -2,7 +2,6 @@
 	pageTitle="Process Data from SQL Azure | Microsoft Azure" 
 	description="Process Data from SQL Azure" 
 	services="machine-learning" 
-	solutions="" 
 	documentationCenter="" 
 	authors="fashah" 
 	manager="paulettm" 
@@ -127,7 +126,7 @@ The newly generated feature can be added as a column to an existing table or sto
 
 ##<a name="python"></a>Using a programming language like Python
 
-Using Python to explore data and generate features when the data is in SQL Server is similar to processing data in Azure blob using Python as documented [here](machine-learning-data-science-process-data-blob.md). The data needs to be loaded from the database into a pandas data frame and then can be processed further. We document the process of connecting to the database and loading the data into the data frame in this section.
+Using Python to explore data and generate features when the data is in SQL Server is similar to processing data in Azure blob using Python as documented in [Process Azure Blob data in you data science environment](machine-learning-data-science-process-data-blob.md). The data needs to be loaded from the database into a pandas data frame and then can be processed further. We document the process of connecting to the database and loading the data into the data frame in this section.
 
 The following connection string format can be used to connect to a SQL Server database from Python using pyodbc (replace servername, dbname, username and password with your specific values):
 
