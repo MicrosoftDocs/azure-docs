@@ -99,22 +99,21 @@ Service Management|management.core.windows.net|management.core.usgovcloudapi.net
 SQL Database|*.database.windows.net|*.database.usgovcloudapi.net
 ARM Load balanced* Endpoint|https://management.windows.net|https://management.usgovcloudapi.net  
 
-* For ARM authentication via Azure AD, please reference <A href="https://msdn.microsoft.com/en-us/library/azure/dn790557.aspx">Authenticating Azure Resource Manager Requests</A>
-
+* For ARM authentication via Azure AD, please reference [Authenticating Azure Resource Manager Requests](https://msdn.microsoft.com/en-us/library/azure/dn790557.aspx)
 
 ## <a name="next"></a>Next steps
 
 If you are interested in learning more and about Azure Government please leverage some of the links below.
 
-- **<A href="https://azuregov.microsoft.com/trial/azuregovtrial">Sign up for a trial</a>**
+- **[Sign up for a trial]https://azuregov.microsoft.com/trial/azuregovtrial)**
 
-- **<A href="http://azure.com/gov">Acquiring and accessing Azure Government</a>**
+- **[Acquiring and accessing Azure Government](http://azure.com/gov)**
 
-- **<A href="/azure-government-overview">Azure Government Overview</a>**
+- **[Azure Government Overview](/azure-government-overview)**
 
-- **<A href="http://blogs.msdn.com/b/azuregov/">Azure Government Blog</a>**
+- **[Azure Government Blog](http://blogs.msdn.com/b/azuregov/)**
 
-- **<A href="http://azure.microsoft.com/en-us/support/trust-center/compliance/">Azure Compliance</a>**
+- **[Azure Compliance](http://azure.microsoft.com/en-us/support/trust-center/compliance/)**
 
 <!--Anchors-->
 
