@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="DocumentDB Output Details | Microsoft Azure" 
 	description="DocumentDB as Azure Stream Analytics Output"
-    keywords="documentdb output,docdb output,stream analytics and documentdb"
+	keywords="documentdb output,docdb output,stream analytics and documentdb"
 	documentationCenter=""
 	services="stream-analytics"
 	authors="jeffstokes72" 
