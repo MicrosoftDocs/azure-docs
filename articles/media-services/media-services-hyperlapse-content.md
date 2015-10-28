@@ -77,9 +77,9 @@ The following is an example of a conformant configuration file in XML and JSON:
 ###  <a id="sample_code"></a> Microsoft Hyperlapse with the AMS .NET SDK
 
 The following method uploads a media file as an asset and creates a job with the Azure Media Hyperlapse Media Processor.  
->Note: you should already have a CloudMediaContext in scope with the name "context" for this code to work.  To learn more about this, read the [content management article](media-services-manage-content.md).
+> Note: you should already have a CloudMediaContext in scope with the name "context" for this code to work.  To learn more about this, read the [content management article](media-services-manage-content.md).
 
->Note: The string argument "hyperConfig" is expected to be a conformant configuration preset in either JSON or XML as described above.
+> Note: The string argument "hyperConfig" is expected to be a conformant configuration preset in either JSON or XML as described above.
 
 	static bool RunHyperlapseJob(string input, string output, string hyperConfig)
 	{

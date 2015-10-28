@@ -260,6 +260,8 @@ __features__ <br /><br /> Added in version 1.2. Currently, the only supported fe
 
 ### <a id="error_codes"></a>Error codes
 
+In the case of an error, Azure Media Indexer should report back one of the following error codes:
+
 Code | Name | Possible Reasons
 -----|------|------------------
 2000 | Invalid configuration | Invalid configuration
@@ -276,7 +278,7 @@ other | Internal errors | Please contact support team. indexer@microsoft.com
 
 ## <a id="supported_languages"></a>Supported Languages
 
-Currently, the English and Spanish languages are supported. For more information, see [Azure Media Indexer Spanish](http://azure.microsoft.com/blog/2015/04/13/azure-media-indexer-spanish-v1-2/).
+Currently, the English and Spanish languages are supported. For more information, see [the v1.2 release blog post](http://azure.microsoft.com/blog/2015/04/13/azure-media-indexer-spanish-v1-2/).
 
 
 ## Media Services learning paths
