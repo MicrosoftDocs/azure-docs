@@ -45,7 +45,9 @@ DocumentDB collections allow you to partition your data based on both the query 
 
 If you intend to increase the partition count in the future, you may need to stop your job, repartition the data from your existing collections into new collections and then restart the Stream Analytics job. More details on using PartitionResolver and re-partitioning along with sample code, will be included in a follow-up post. The article [partitioning in DocumentDB](../articles/documentdb-partition-data.md#developing-a-partitioned-application) also provides details on this.
 
-Here is a brief explanation of DocumentDB output settings in Stream Analytics:
+## DocumentDB Settings
+
+Creating DocumentDB as an output in Stream Analytics generates a prompt for information as seen below. This section provides an explanation of the properties definition.
   
 ![documentdb stream analytics output screen](media/stream-analytics-documentdb-output/stream-analytics-documentdb-output.png)  
 
