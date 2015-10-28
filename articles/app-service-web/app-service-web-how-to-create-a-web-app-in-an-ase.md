@@ -58,11 +58,11 @@ This tutorial assumes you have created an App Service Environment. If you haven'
 
 	The URL of a web app in an ASE is:
 
-		[sitename].[name of your App Service Environment].p.azurewebsites.net
+	[*sitename*].[*name of your App Service Environment*].p.azurewebsites.net
 
 	instead of
 
-		[sitename].azurewebsites.net
+	[*sitename*].azurewebsites.net
 
 ## <a name="createplan"></a> Create an App Service plan
 
