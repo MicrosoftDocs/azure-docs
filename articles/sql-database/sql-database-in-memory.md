@@ -48,12 +48,12 @@ You can create the AdventureWorksLT [V12] sample database by a few clicks in the
 
 
 1. In the [Azure preview portal](https://portal.azure.com/), create a Premium database on a V12 server. Set Source to the AdventureWorksLT[V12] sample database.
- a. For more detailed instructions for this step see [this article](sql-database-get-started.md).
+ - For more detailed instructions for this step see [this article](sql-database-get-started.md).
 
 2. Connect to the database with [SQL Server Management Studio (SSMS.exe)](https://msdn.microsoft.com/library/mt238290.aspx) or with a similar utility.
 
 3. Copy the [In-Memory OLTP script](https://raw.githubusercontent.com/Azure/azure-sql-database-samples/master/T-SQL/In-Memory/sql_in-memory_oltp_sample.sql) to your clipboard.
- a. The script creates the necessary In-Memory objects in the AdventureWorksLT sample database created in step 1.
+ - The script creates the necessary In-Memory objects in the AdventureWorksLT sample database created in step 1.
 
 4. Paste the Transact-SQL script into SSMS.exe, and the execute the script.
 
