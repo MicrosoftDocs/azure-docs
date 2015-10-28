@@ -1,7 +1,7 @@
 <properties
    pageTitle="Azure Data Lake Analytics Documentation Backlog | Microsoft Azure"
    description="Data Lake Analytics is an Azure Big Data computation service that lets you use data to drive your business using the insights gained from your data in the cloud, regardless of where it is and regardless of its size. Data Lake Analytics enables this in the simplest, most scalable, and most economical way possible. This page is the backlog for our documentation efforts "
-   documentationCenter=""
+   documentationCenter="na"
    services="data-lake-analytics"
    authors="mumian"
    manager="paulettm"
