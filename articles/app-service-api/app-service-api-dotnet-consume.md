@@ -51,7 +51,7 @@ In this section you create a console application project and add code to it that
 
 1. If you haven't already done so, follow the [Deploy an API app](app-service-dotnet-deploy-api-app.md) to deploy the ContactsList sample project to an API app in your Azure subscription.
 
-	That tutorial directs you to set the access level in the Visual Studio publish dialog to **Available to anyone**, which is the same as **Public (anonymous)** in the portal. However, if you did the [Protect an API app](../app-service-dotnet-add-authentication.md) tutorial after that, the access level has been set to **Public (authenticated)**, and in that case you need to change it as directed in the following step.
+	That tutorial directs you to set the access level in the Visual Studio publish dialog to **Available to anyone**, which is the same as **Public (anonymous)** in the portal. However, if you did the [Protect an API app](../app-service-api-dotnet-add-authentication.md) tutorial after that, the access level has been set to **Public (authenticated)**, and in that case you need to change it as directed in the following step.
 
 2. In the [Azure preview portal](https://portal.azure.com/), in the **API app** blade for the API app that you want to call, go to **Settings > Application Settings** and set **Access level** to **Public (anonymous)**.
 
