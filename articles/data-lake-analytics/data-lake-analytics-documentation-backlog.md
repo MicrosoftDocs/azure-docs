@@ -23,21 +23,25 @@ This page captures the set of documents which have yet to be written for Azure D
 ## Documentation Backlog
 Area   |Topic | Priority | Status | Assigned To
 ------------- | ------------- | -------------- | -------------- | --------------
-U-SQL   | Distributed Query		 | 1 | Pending, Working on getting proper firewall guidance | Ed
-U-SQL  | Processing JSON 		| 2 |  |Ed/jgao
+U-SQL   | Distributed Query		 | 1 | In progress, Working on getting proper firewall guidance | Ed
+U-SQL  | Processing JSON 		| 2 | Sample and doc [here](https://github.com/MicrosoftBigData/usql/tree/master/Examples/Microsoft.Analytics.Samples.Formats) |Ed/jgao
 Service | Interacting with Curl | |Pending RestFUL API |jgao | 
-U-SQL | Partitioned Tables |1 | |Ed/jgao
-U-SQL | Performance Tuning | | | Michael
-U-SQL | Programmer's Guide | | | Ed/Jonathan
-U-SQL | Getting started with U-SQL from a T-SQL background | | |Ed
-U-SQL | Getting started with U-SQL from a Hive background | | |jgao
+U-SQL | Partitioned Tables |3 | |Ed/jgao
+U-SQL | Performance Tuning | 2| | Michael
+U-SQL | Programmer's Guide | 3 | | Ed/Jonathan
+U-SQL | Getting started with U-SQL from a T-SQL background |3 | |Ed
+U-SQL | Getting started with U-SQL from a Hive background | 3| |jgao
 U-SQL | Grammar Railroad Diagrams |  1 | in progress, using [this](http://bottlecaps.de/rr/ui)  | mwinkle/Ed 
-Service | Securing Jobs, Data and Tables in Data Lake Analytics |1|I will work with Saveen on this| jgao 
-Service | Moving job output to SQL Data Warehouse using Data Factory |1 |I will work with Sreedhar on this | jgao
-Service | Coordinating deployment of Data Lake Analytics with other Azure services using ARM templates |1 |I have included an ARM template in the Management using PowerShell article. It will go live with the public preview. The management using CLI will have the same coverage |jgao
+Service | Securing Jobs, Data and Tables in Data Lake Analytics |1| in progress with Saveen | jgao 
+Service | Moving job output to SQL Data Warehouse using Data Factory |1 | in progress with Sreedar| jgao
+~~Service~~ | ~~Coordinating deployment of Data Lake Analytics with other Azure services using ARM templates~~ |~~1~~ |~~I have included an ARM template in the Management using PowerShell article. It will go live with the public preview. The management using CLI will have the same coverage~~ |~~jgao~~
 Tools  | Using the Diagnostics Tooling | 1 | |jgao|
 
+## Completed Docs from Backlog
 
+Area   |Topic | location
+------------- | ------------- | -------------- 
+Service | Coordinating deployment of Data Lake Analytics with other Azure services using ARM templates | [location](https://azure.microsoft.com/en-us/documentation/articles/data-lake-analytics-manage-use-powershell/)
 
 ## How to Give Feedback on the Backlog
 There are a few options to give feedback on the backlog:
