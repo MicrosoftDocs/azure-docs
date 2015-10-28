@@ -27,7 +27,7 @@ The Azure AD Connect Health Alerts for Synch Services section provides you the l
 
 By selecting an alert you will be provided with additional information as well as steps you can take to resolve the alert and links to additional documentation.
 
-![Azure AD Connect Health Portal](./media/active-directory-aadconnect-health-sync/alerts.png)
+![Azure AD Connect sync error](./media/active-directory-aadconnect-health-sync/alert.png)
 
 ## Related links
 
