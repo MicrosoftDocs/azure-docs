@@ -26,7 +26,7 @@ Learn how to analyze website logs using Data Lake Analytics, especially on findi
 
 - **Visual Studio 2015, Visual Studio 2013 update 4, or Visual Studio 2012 with Visual C++ Installed**. 
 - **Microsoft Azure SDK for .NET version 2.5 or above**.  Install it using the [Web platform installer](http://www.microsoft.com/web/downloads/platform.aspx).
-- **Data Lake Tools for Visual Studio**. Install it using the [Web platform installer](http://www.microsoft.com/web/downloads/platform.aspx).
+- **[Data Lake Tools for Visual Studio](http://aka.ms/adltoolsvs)**. 
 
 	Once Data Lake Tools for Visual Studio is installed, you will see a **Data Lake** menu in Visual Studio:
 	
