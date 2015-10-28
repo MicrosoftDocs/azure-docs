@@ -1,6 +1,6 @@
     <properties 
 	pageTitle="Add a Git artifact repository to your DevTest Lab | Microsoft Azure" 
-	description="Add a Github or Visual Studio Online Git repository for your custom artifacts to your lab" 
+	description="Add a GitHub or Visual Studio Online Git repository for your custom artifacts to your lab" 
 	services="devtest-lab,virtual-machines,visual-studio-online" 
 	documentationCenter="na" 
 	authors="patshea123" 
@@ -20,7 +20,7 @@
 
 ## Overview
 
-By default, a **DevTest Lab** includes artifacts from the official Azure DevTest Lab artifact repository. You can add a Git artifact repository to your lab to include the artifacts that your team creates. The repository can be hosted on [Github](https://github.com) or on [Visual Studio Online (VSO)](https://visualstudio.com).
+By default, a **DevTest Lab** includes artifacts from the official Azure DevTest Lab artifact repository. You can add a Git artifact repository to your lab to include the artifacts that your team creates. The repository can be hosted on [GitHub](https://github.com) or on [Visual Studio Online (VSO)](https://visualstudio.com).
 
 - To learn how to create a Github repository, see [Github Bootcamp](https://help.github.com/categories/bootcamp/).
 - To learn how to create a VSO project with a Git Repository, see [Set up Visual Studio](https://www.visualstudio.com/get-started/setup/set-up-vs).
@@ -79,29 +79,18 @@ To add a Visual Studio Git artifact repository to your lab, you first get the HT
 ### On the Visual Studio web page of your artifact project
 
 1. Open the home page of your team collection (for example, `https://contoso-web-team.visualstudio.com`), and then tap the artifact project.
-    ![Choose the artifact project](./media/devtest-lab-add-artifact-repo/devtest-lab-vso-open-artifact-project.png)
 
 2. On the project home page, tap **Code**.
 
 1. To view the clone URL, on the project **Code** page, tap **Clone**.
 
-    ![Choose the Clone link](./media/devtest-lab-add-artifact-repo/devtest-lab-vso-choose-clone-on-project-code-page.png)
-
 1. Save the URL as you'll need it later in this tutorial.
-
-    ![Copy the clone url](./media/devtest-lab-add-artifact-repo/devtest-lab-vso-copy-clone-url.png)
 
 1. To create a Personal Access Token, tap **My profile** from the user account drop-down menu.
 
-    ![Choose My profile](./media/devtest-lab-add-artifact-repo/devtest-lab-vso-open-my-profile.png)
-
 1. On the profile information page tap the **Security**.
 
-    ![Choose the Security link](./media/devtest-lab-add-artifact-repo/devtest-lab-vso-choose-security-on-profile-info-page.png)
-
 1. On the **Security** tab, tap **Add**.
-
-    ![Choose Add link](./media/devtest-lab-add-artifact-repo/devtest-lab-vso-add-personal-access-token.png)
 
 1. In the **Create a personal access token** page:
 
@@ -110,8 +99,6 @@ To add a Visual Studio Git artifact repository to your lab, you first get the HT
     3. Choose **All accessible accounts** from the **Accounts** list.
     4. Choose the **All scopes** option.
     5. Choose **Create Token**.
-
-    ![Create a personal access token](./media/devtest-lab-add-artifact-repo/devtest-lab-vso-create-personal-access-token.png)
 
 1. When finished, the new token will appear in the **Personal Access Tokens** list. Tap **Copy Token** and then save the token value as it will be used shortly.
 
@@ -123,8 +110,6 @@ To add a Visual Studio Git artifact repository to your lab, you first get the HT
 
 1. On the **Settings** blade, tap **Artifacts Repository**.
 
-    ![](./media/devtest-lab-add-artifact-repo/devtestlab-add-artifacts-repo-choose-dtl-settings-artifact-repo.png)
-
 1. On the **Artifacts Repository** blade
 
     1. Enter a display **Name** for the repository.
@@ -132,5 +117,3 @@ To add a Visual Studio Git artifact repository to your lab, you first get the HT
     2. Enter the **Folder Path** in the artifacts repository that contains the artifacts.
     3. Enter the saved **Personal Access Token** to the artifacts repository.
     4. Tap **Save**.
-
-    ![Artifacts Repository blade](./media/devtest-lab-add-artifact-repo/devtestlab-vso-add-artifacts-repo-dtl-artifact-repo-blade.png)

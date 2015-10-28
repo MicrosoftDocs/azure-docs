@@ -62,6 +62,6 @@ Artifacts are Azure Resource Manager (ARM) based JSON files that contain instruc
 
 **Policies** help in controlling cost in your lab. For example, you can create a policy to automatically shut down VMs based on a defined schedule.
 
-##Getting started
+##Next steps
 
 To get started with DevTest Lab, follow the [Create an Azure DevTest Lab](devtest-lab-create-lab.md) step-by-step tutorial.

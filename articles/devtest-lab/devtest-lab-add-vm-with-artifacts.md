@@ -61,7 +61,7 @@ This article shows you how create a VM in your lab using artifacts.
 
 ## Select and configure an artifact
 
-The **Add Artifacts** blade allows you to add and configure your VM's artifacts from from the official DevTest Lab repository (**Official Repo**) and artifacts from the team repository.
+While creating a VM, you can add artifacts by tapping **Artifacts** from the **Lab VM** blade. This will display the **Add Artifacts** blade that allows you to add and configure your VM's artifacts from the official DevTest Lab repository (**Official Repo**) and artifacts from the team repository.
 
 ![Add Artifacts blade](./media/devtest-lab-add-vm-with-artifacts/devtestlab-add-artifact-blade.png)
 
@@ -70,12 +70,10 @@ The **Add Artifacts** blade allows you to add and configure your VM's artifacts 
 Follow these steps for each artifact you want to add to your VM: 
 
 1. Tap the desired artifact in the **Add Artifacts** blade to view a blade that enables you to specify the artifact's parameters.  
-    ![Add Artifact blade](./media/devtest-lab-add-vm-with-artifacts/devtestlab-add-artifact-parameters-blade-base-empty.png)  
     
 2. Enter the required parameter values and any optional parameters that you need.  
-    ![Add Artifact blade](./media/devtest-lab-add-vm-with-artifacts/devtestlab-add-artifact-parameters-blade-base.png)
 
-3. Tap **Add**.
+3. Tap **Add** to add the artifact and return to the **Add Artifacts** blade.
 
 **Changing the order in which artifacts are run**
 
@@ -90,7 +88,6 @@ Follow these steps to view or modify the parameters of your selected artifacts:
     ![](./media/devtest-lab-add-vm-with-artifacts/devtestlab-add-artifacts-blade-selected-artifacts.png)
 
 1. To view or edit the parameters of a specific artifact, tap that artifact in the **Selected Artifacts** blade.  
-    ![Selected Artifacts blade](./media/devtest-lab-add-vm-with-artifacts/devtestlab-selected-artifacts-blade.png)  
     
 1. Make any needed changes, and tap **OK** to close the **Add Artifact** blade.
 

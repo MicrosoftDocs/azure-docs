@@ -44,10 +44,12 @@ You grant access to your **DevTest-Lab** through two roles:
 1. From the list of labs, tap the desired lab.   
 
 1. Tap the **Access** icon.
- ![Choose the Access link](./media/devtest-lab-add-devtest-user/devtest-lab-home-blade.png)
+	
+	![Choose the Access link](./media/devtest-lab-add-devtest-user/devtest-lab-home-blade.png)
 
 1. On the **Users** blade, tap **Add** to display the **Add access** blade.
- ![Choose the Access link](./media/devtest-lab-add-devtest-user/devtest-users-blade.png)
+
+	![Choose the Access link](./media/devtest-lab-add-devtest-user/devtest-users-blade.png)
 
 2. In the **Select a role** blade, tap **DevTest Lab User**.
 
@@ -58,5 +60,3 @@ You grant access to your **DevTest-Lab** through two roles:
 	1. Tap the verified account.
 
 	3. Tap **Select**.
-
-	![Choose the Access link](./media/devtest-lab-add-devtest-user/devtest-add-users-blade.png)
