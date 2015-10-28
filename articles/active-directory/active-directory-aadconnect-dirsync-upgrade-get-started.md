@@ -16,7 +16,7 @@
    ms.date="10/26/2015"
    ms.author="shoatman;billmath"/>
 
-# Upgrading Windows Azure Active Directory sync (DirSync) to Azure Active Directory Connect
+# Upgrading Windows Azure Active Directory sync (DirSync) to Azure Active Directory Connect (Azure AD Connect)
 
 The following documentation will help you upgrade your existing DirSync installation to Azure AD Connect.
 
@@ -27,7 +27,7 @@ If you did not read the documentation on [Integrating your on-premises identitie
 | --------- | --------- |
 | **Download Azure AD Connect** | [Download Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771) |
 | **Hardware and prerequisites** | [Azure AD Connect: Hardware and prerequisites](active-directory-aadconnect-prerequisites.md) |
-| Accounts used for installation | [More about Azure AD Connect accounts and permissions](active-directory-aadconnect-accounts-permissions.md) |
+| **Accounts used for installation** | [More about Azure AD Connect accounts and permissions](active-directory-aadconnect-accounts-permissions.md) |
 
 ## Upgrade from DirSync
 Depending on your current DirSync deployment there are different options for the upgrade. If the expected upgrade time is less than 3 hours then we recommend to do an in-place upgrade. If the expected upgrade time is more than 3 hours we recommend to do a parallel deployment on another server. It is estimated that if you have more than 50,000 objects it will take more than 3 hours to do the upgrade.
