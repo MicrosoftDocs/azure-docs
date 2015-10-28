@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="09/23/2015" 
+	ms.date="10/23/2015" 
 	ms.author="awills"/>
 
 # Application Insights API for custom events and metrics 
@@ -526,14 +526,6 @@ Individual telemetry calls can override the default values in their property dic
 **For JavaScript web clients**, [use JavaScript telemetry initializers](#js-initializer).
 
 
-## <a name="ikey"></a> Set the instrumentation key for selected custom telemetry
-
-*C#*
-    
-    var telemetry = new TelemetryClient();
-    telemetry.Context.InstrumentationKey = "---my key---";
-    // ...
-
 
 ## Flushing data
 
@@ -550,19 +542,33 @@ Note that the function is asynchronous for in-memory channels, but synchronous i
 
 
 
-## Telemetry initializers and processors
-
-You can write and configure plug-ins for the Application Insights SDK to customize how telemetry is captured and processed before it is sent to the Application Insights service. 
-
-[Learn more](app-insights-api-telemetry-processors.md)
 
 
-## Disable standard telemetry
+## Sampling, filtering and processing telemetry 
 
-You can [disable selected parts of the standard telemetry][config] by editing `ApplicationInsights.config`. You could do this, for example, if you want to send your own TrackRequest data. 
+You can write code to process your telemetry before it is sent from the SDK. The processing includes data sent from the standard telemetry modules such as HTTP request collection and dependency collection.
 
-[Learn more][config].
+* [Add properties](app-insights-api-filtering-sampling.md#add-properties) to telemetry - for example, version numbers, or values calculated from other properties.
+* [Sampling](app-insights-api-filtering-sampling.md#sampling) reduces the volume of data sent from your app to the portal, without affecting the displayed metrics, and without affecting your ability to diagnose problems by navigating between related items such as exceptions, requests and page views.
+* [Filtering](app-insights-api-filtering-sampling.md#filtering) also reduces volume. You control what is sent or discarded, but you have to take account of the effect on your metrics. Depending on how you discard items, you might lose the ability to navigate between related items.
 
+[Learn more](app-insights-api-filtering-sampling.md)
+
+
+## Disabling telemetry
+
+To **dynamically stop and start** the collection and transmission of telemetry:
+
+*C#*
+
+```C#
+
+    using  Microsoft.ApplicationInsights.Extensibility;
+
+    TelemetryConfiguration.Active.DisableTelemetry = true;
+```
+
+To **disable selected standard collectors** - for example, performance counters, HTTP requests, or dependencies - delete or comment out the relevant lines in [ApplicationInsights.config][config]. You could do this, for example, if you want to send your own TrackRequest data.
 
 ## <a name="debug"></a>Developer mode
 
@@ -576,6 +582,16 @@ During debugging, it's useful to have your telemetry expedited through the pipel
 *VB*
 
     TelemetryConfiguration.Active.TelemetryChannel.DeveloperMode = True
+
+
+## <a name="ikey"></a> Set the instrumentation key for selected custom telemetry
+
+*C#*
+    
+    var telemetry = new TelemetryClient();
+    telemetry.Context.InstrumentationKey = "---my key---";
+    // ...
+
 
 ## <a name="dynamic-ikey"></a> Dynamic instrumentation key
 
@@ -618,7 +634,7 @@ In web pages, you might want to set it from the web server's state, rather than 
 
 TelemetryClient has a Context property, which contains a number of values that are sent along with all telemetry data. They are normally set by the standard telemetry modules, but you can also set them yourself. For example:
 
-    telemetryClient.Context.Operation.Name = “MyOperationName”;
+    telemetryClient.Context.Operation.Name = "MyOperationName";
 
 If you set any of these values yourself, consider removing the relevant line from [ApplicationInsights.config][config], so that your values and the standard values don't get confused.
 
