@@ -93,7 +93,14 @@ To be able to send push notifications to an iOS app, you must register your appl
 
     > [AZURE.NOTE] The name in your certificate might be different, but it will be prefixed with **Apple Development iOS Push Services:**.
 
-Later, you will use this certificate to generate a .p12 file to enable authentication with APNS.
+8. In Keychain Access, right-click the new push certificate that you created in the **Certificates** category. Click **Export**, name the file, select the **.p12** format, and then click **Save**.
+
+	![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-export-cert-p12.png)
+
+	Make a note of the file name and location of the exported .p12 certificate. It will be used to enable authentication with APNS.
+
+	>[AZURE.NOTE] This tutorial creates a QuickStart.p12 file. Your file name and location might be different.
+
 
 ##Create a provisioning profile for the app
 

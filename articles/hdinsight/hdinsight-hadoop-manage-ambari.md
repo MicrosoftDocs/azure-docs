@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Manage HDInsight clusters using Ambari | Microsoft Azure"
-   description="Learn how to use Ambari to monitor and manage Linux-based HDInsight clusters."
+   pageTitle="Monitor and manage HDInsight clusters using the Apache Ambari Web UI | Microsoft Azure"
+   description="Learn how to use Ambari to monitor and manage Linux-based HDInsight clusters. In this document, you will learn how to use the Ambari Web UI included with HDInsight clusters."
    services="hdinsight"
    documentationCenter=""
    authors="Blackmist"
@@ -14,24 +14,30 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="10/20/2015"
+   ms.date="10/27/2015"
    ms.author="larryfr"/>
 
-#Manage HDInsight clusters by using Ambari (preview)
+#Manage HDInsight clusters by using the Ambari Web UI
 
-Learn how to use Ambari to manage and monitor Linux-based Azure HDInsight clusters.
+[AZURE.INCLUDE [ambari-selector](../../includes/hdinsight-ambari-selector.md)]
 
-> [AZURE.NOTE] Much of the information in this article applies only to Linux-based HDInsight clusters. For Windows-based HDInsight clusters, only monitoring through the Ambari REST API is available. See [Monitor Windows-based Hadoop on HDInsight using the Ambari API](hdinsight-monitor-use-ambari-api.md).
+Apache Ambari simplifies the management and monitoring of a Hadoop cluster by providing an easy to use web UI and REST API. Ambari is included on Linux-based HDInsight clusters, and is used to monitor the cluster and make configuration changes.
+
+In this document, you will learn how to use the Ambari Web UI with an HDInsight cluster.
+
+> [AZURE.NOTE] The information in this article applies only to Linux-based HDInsight clusters. For Windows-based HDInsight clusters, only monitoring through the Ambari REST API is available. See [Monitor Windows-based Hadoop on HDInsight using the Ambari API](hdinsight-monitor-use-ambari-api.md).
 
 ##<a id="whatis"></a>What is Ambari?
 
 <a href="http://ambari.apache.org" target="_blank">Apache Ambari</a> makes Hadoop management simpler by providing an easy-to-use web UI that can be used to provision, manage, and monitor Hadoop clusters. Developers can integrate these capabilities into their applications by using the <a href="https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md" target="_blank">Ambari REST APIs</a>.
 
-Ambari is provided by default with Linux-based HDInsight clusters. Windows-based HDInsight clusters provide monitoring functionality through the Ambari REST APIs.
+The Ambari Web UI is provided by default with Linux-based HDInsight clusters. 
 
 ##Connectivity
 
-Connecting to Ambari on your HDInsight cluster requires the use of HTTPS. You must also authenticate to Ambari using the admin account name (the default is __admin__,) and password you provided when the cluster was created.
+The Ambari Web UI is available on your HDInsight cluster at HTTPS://CLUSTERNAME.azurehdidnsight.net, where __CLUSTERNAME__ is the name of your cluster. 
+
+> [AZURE.IMPORTANT] Connecting to Ambari on HDInsight requires HTTPS. You must also authenticate to Ambari using the admin account name (the default is __admin__,) and password you provided when the cluster was created.
 
 ##SSH proxy
 
@@ -39,17 +45,9 @@ Connecting to Ambari on your HDInsight cluster requires the use of HTTPS. You mu
 
 For information on creating an SSH tunnel to work with Ambari, see [Use SSH Tunneling to access Ambari web UI, ResourceManager, JobHistory, NameNode, Oozie, and other web UI's](hdinsight-linux-ambari-ssh-tunnel.md).
 
-##Ambari web UI
+##Ambari Web UI
 
-The Ambari web UI is available on each Linux-based HDInsight cluster you create at **https://&lt;clustername>.azurehdinsight.net**.
-
-You will be prompted to authenticate to the page twice. The first prompt is to authenticate to the HDInsight cluster, while the second is to authenticate to Ambari.
-
-* **Cluster authentication** - Use the cluster admin user name (the default is **admin**) and password.
-
-* **Ambari authentication** - The default for both user name and password is **admin**.
-
-	> [AZURE.NOTE] If you have changed the password for the **admin** user, you must enter the new password.
+When connecting to the Ambari Web UI, you will be prompted to authenticate to the page. Use the cluster admin user (default Admin,) and password you used during cluster creation.
 
 When the page opens, note the bar at the top. This contains the following information and controls:
 
@@ -147,7 +145,7 @@ Selecting any of these links will open a new tab in your browser, which will dis
 
 ###Ambari users, groups, and permissions
 
-Managing users, groups, and permissions should not be used during the Linux-based HDInsight preview.
+Managing users, groups, and permissions should not be used with HDInsight clusters.
 
 ###Hosts
 
@@ -218,16 +216,3 @@ To configure a service, use the following steps:
 
 3. Use the fields displayed to modify the configuration, and then select **Save**. Or select a previous configuration and then select **Make current** to roll back to the previous settings.
 
-##REST API
-
-Ambari Web relies on an underlying REST API, which you can leverage to create your own management and monitoring tools. While the API is relatively straightforward to use, there are some Azure specifics to be aware of:
-
-* **Authentication** - The cluster administrator user name (default **admin**) and password should be used to authenticate to the service.
-
-* **Security** - Ambari uses basic authentication, so you should always use Secure HTTP (HTTPS) when communicating with the API.
-
-* **IP Addresses** - The address returned for hosts within a cluster are not accessible from outside the cluster, unless the cluster is a member of an Azure virtual network. Then the IP address will be accessible by other members of the virtual network, but not from outside the network.
-
-* **Some functionality is not enabled** - Some Ambari functionality is disabled, as it is managed by the HDInsight cloud service; for example, adding or removing hosts from the cluster or adding new services. Other functionality may not be fully implemented during the preview of Linux-based HDInsight.
-
-For a complete reference of the REST API, see [Ambari API Reference V1](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).
