@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Configure Application Gateway for SSL offload | Microsoft Azure"
+   pageTitle="Configure Application Gateway for SSL offload using classic deployment| Microsoft Azure"
    description="This article provides instructions to configure SSL offload on an Azure Application Gateway."
    documentationCenter="na"
    services="application-gateway"
@@ -12,12 +12,16 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="09/25/2015"
+   ms.date="10/28/2015"
    ms.author="joaoma"/>
 
-# Configure an Application Gateway for SSL offload
+# Configure an Application Gateway for SSL offload using classic deployment
 
 Application Gateway can be configured to terminate the SSL session at the gateway, which can avoid costly SSL decryption on the web farm. SSL offload also simplifies the frontend server setup and management of the application.
+
+
+>[AZURE.IMPORTANT] Before you work with Azure resources, it's important to understand that Azure currently has two deployment models: Resource Manager, and classic. Make sure you understand [deployment models and tools](azure-classic-rm.md) before working with any Azure resource. You can view the documentation for different tools by clicking the tabs at the top of this article.This document will cover creating an Application Gateway using Azure classic . To use the classic version, go to [Configure Application gateway SSL offload using Azure Resource Manager](application-gateway-ssl-arm.md).
+
 
 ## Before you begin
 
