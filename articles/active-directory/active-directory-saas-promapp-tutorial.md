@@ -130,13 +130,11 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
 4. On the **Security** dialog, perform the following steps:
 <br><br>![Azure AD Single Sign-On][14] <br>
 
-    a. In the Azure portal, on the **Configure single sign-on at Promapp** dialog, copy the **Remote Login URL**, and then paste it into the **SSO-Login URL** textbox.
+    a. In the Azure portal, on the **Configure single sign-on at Promapp** dialog, copy the **Remote Login URL**, paste it into the **SSO-Login URL** textbox, and then click **Save**.
 
-    b. As **SSO - Single Sign-on Mode**, select **Optional**.
+    b. As **SSO - Single Sign-on Mode**, select **Optional**, and then click **Save**.
 
-    c. Open the downloaded certificate in notepad, copy the certificate content without the first line (*-----BEGIN CERTIFICATE-----*) and the last line (*-----END CERTIFICATE-----*), and then paste it into the **SSO-x.509 Certificate** textbox.
-
-    b. Click **Save**.
+    c. Open the downloaded certificate in notepad, copy the certificate content without the first line (*-----BEGIN CERTIFICATE-----*) and the last line (*-----END CERTIFICATE-----*), paste it into the **SSO-x.509 Certificate** textbox, and then click **Save**.
 
 
 
