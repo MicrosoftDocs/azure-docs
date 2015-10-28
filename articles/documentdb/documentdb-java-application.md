@@ -14,10 +14,16 @@
 	ms.topic="hero-article" 
 	ms.tgt_pltfrm="NA" 
 	ms.workload="data-services" 
-	ms.date="07/21/2015" 
+	ms.date="10/20/2015" 
 	ms.author="andrl"/>
 
 # Build a Java web application using DocumentDB
+
+> [AZURE.SELECTOR]
+- [.NET](documentdb-dotnet-application.md)
+- [Node.js](documentdb-nodejs-application.md)
+- [Java](documentdb-java-application.md)
+- [Python](documentdb-python-application.md)
 
 This Java web application tutorial shows you how to use the [Microsoft Azure DocumentDB](https://portal.azure.com/#gallery/Microsoft.DocumentDB) service to store and access data from a Java application hosted on Azure Websites. In this topic, you will learn:
 
@@ -28,7 +34,7 @@ This Java application tutorial shows you how to create a web-based task-manageme
 
 ![My ToDo List Java application](./media/documentdb-java-application/image1.png)
 
-> [AZURE.TIP] This application development tutorial assumes that you have prior experience using Java. If you are new to Java or the [prerequisite tools](#Prerequisites), we recommend downloading the complete [todo](https://github.com/Azure/azure-documentdb-java/tree/master/tutorial/todo) project from [GitHub](https://github.com/Azure/azure-documentdb-java) and building it using [the instructions at the end of this article](#GetProject). Once you have it built, you can review the article to gain insight on the code in the context of the project.  
+> [AZURE.TIP] This application development tutorial assumes that you have prior experience using Java. If you are new to Java or the [prerequisite tools](#Prerequisites), we recommend downloading the complete [todo](https://github.com/Azure-Samples/documentdb-java-todo-app) project from GitHub and building it using [the instructions at the end of this article](#GetProject). Once you have it built, you can review the article to gain insight on the code in the context of the project.  
 
 ##<a id="Prerequisites"></a>Prerequisites for this Java web application tutorial
 Before you begin this application development tutorial, you must have the following:
@@ -89,7 +95,7 @@ To do this, you will need to convert your project to a maven project by completi
 4. In the **Select Dependency** window, do the following:
  - In the **GroupId** box, enter com.microsoft.azure.
  - In the **Artifact Id** box enter azure-documentdb.
- - In the **Version** box enter 1.1.0.
+ - In the **Version** box enter 1.4.0.
 
 	![Install DocumentDB Java Application SDK](./media/documentdb-java-application/image13.png)
 
@@ -98,7 +104,7 @@ To do this, you will need to convert your project to a maven project by completi
 	    <dependency>
 		    <groupId>com.microsoft.azure</groupId>
 		    <artifactId>azure-documentdb</artifactId>
-		    <version>1.1.0</version>
+		    <version>1.4.0</version>
 	    </dependency>
 
 5. Click **Ok** and Maven will install the DocumentDB Java SDK.
@@ -752,14 +758,14 @@ Azure Websites makes deploying Java Applications as simple as exporting your app
 
 ##<a id="GetProject"></a>Get the project from GitHub
 
-All the samples in this tutorial are included in the [todo](https://github.com/Azure/azure-documentdb-java/tree/master/tutorial/todo) project on GitHub, which is part of the [azure-documentdb-java](https://github.com/Azure/azure-documentdb-java) repository. To import the todo project into Eclipse, ensure you have the software and resources listed in the [Prerequisites](#Prerequisites) section, then do the following:
+All the samples in this tutorial are included in the [todo](https://github.com/Azure-Samples/documentdb-java-todo-app) project on GitHub. To import the todo project into Eclipse, ensure you have the software and resources listed in the [Prerequisites](#Prerequisites) section, then do the following:
 
 1. Install [Project Lombok](http://projectlombok.org/). Lombok is used to generate constructors, getters, setters in the project. Once you have downloaded the lombok.jar file, double-click it to install it or install it from the command line. 
 2. If Eclipse is open, close it and restart it to load Lombok.
 3. In Eclipse, on the **File** menu, click **Import**.
 4. In the **Import** window, click **Git**, click **Projects from Git**, and then click **Next**. 
 5. On the **Select Repository Source** screen, click **Clone URI**.
-6. On the **Source Git Repository** screen, in the **URI** box, enter https://github.com/Azure/azure-documentdb-java.git, and then click **Next**.
+6. On the **Source Git Repository** screen, in the **URI** box, enter https://github.com/Azure-Samples/documentdb-java-todo-app.git, and then click **Next**.
 7. On the **Branch Selection** screen, ensure that **master** is selected, and then click **Next**.
 8. On the **Local Destination** screen, click **Browse** to select a folder where the repository can be copied, and then click **Next**.
 9. On the **Select a wizard to use for importing projects** screen, ensure that **Import existing projects** is selected, and then click **Next**.

@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Access Hadoop YARN application logs programmatically | Microsoft Azure"
-	description="Access application logs programmatically on a Hadoop cluster in HDInsight."
+	pageTitle="Access Hadoop YARN application logs on Linux-based HDInsight | Microsoft Azure"
+	description="Learn how to access YARN application logs on a Linux-based HDInsight (Hadoop) cluster using both the command-line and a web browser."
 	services="hdinsight"
 	documentationCenter=""
 	tags="azure-portal"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/12/2015"
+	ms.date="10/19/2015"
 	ms.author="larryfr"/>
 
 # Access YARN application logs on Linux-based HDInsight

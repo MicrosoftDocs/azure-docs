@@ -61,7 +61,7 @@
             var usernameTag = "username:" + HttpContext.Current.User.Identity.Name;
 
             // windows
-            var rawNotificationToBeSent = new Microsoft.ServiceBus.Notifications.WindowsNotification(secureNotificationInTheBackend.Id.ToString(),
+            var rawNotificationToBeSent = new Microsoft.Azure.NotificationHubs.WindowsNotification(secureNotificationInTheBackend.Id.ToString(),
                             new Dictionary<string, string> {
                                 {"X-WNS-Type", "wns/raw"}
                             });

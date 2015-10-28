@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-management"
-	ms.date="09/11/2015"
+	ms.date="10/27/2015"
 	ms.author="jroth" />
 
 
@@ -53,11 +53,11 @@ For a single database, the limits of a database are defined by the database serv
 
 [AZURE.INCLUDE [SQL DB service tiers table for elastic databases](../../includes/sql-database-service-tiers-table-elastic-db-pools.md)]
 
-For a detailed discussion of service tiers, see [Azure SQL Database Service Tiers and Performance Levels](sql-database-service-tiers.md).
+For an expanded definition of each resource listed in the previous tables, see the descriptions in [Service tier capabilities and limits](sql-database-performance-guidance.md#service-tier-capabilities-and-limits). For an overview of service tiers, see [Azure SQL Database Service Tiers and Performance Levels](sql-database-service-tiers.md).
 
 ## DTU quota per server
 
-Azure SQL Database has a DTU quota per logical server of currently 2000 DTUs. This quota represents the DTUs a logical server can host, based on the sum of the DTUs if the performance level of each database on the server. For example, a server with 5 Basic databases (5 X 5 DTUs maximum), 2 Standard S1 databases (2 X 20 DTUs maximum), and 3 Premium P1 databases (3 X 100 DTUs maximum) has consumed 365 DTUs of its 2000 DTU quota.
+Azure SQL Database has a DTU quota per logical server of currently 15000 DTUs. This quota represents the DTUs a logical server can host, based on the sum of the DTUs if the performance level of each database on the server. For example, a server with 5 Basic databases (5 X 5 DTUs maximum), 2 Standard S1 databases (2 X 20 DTUs maximum), and 3 Premium P1 databases (3 X 100 DTUs maximum) has consumed 365 DTUs of its 15000 DTU quota.
 
 >[AZURE.NOTE] You can request an increase of this quota by [contacting support](http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/).
 

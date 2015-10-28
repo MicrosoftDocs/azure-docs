@@ -3,7 +3,7 @@
 	description="This topic gives an overview of Azure Media Services" 
 	services="media-services" 
 	documentationCenter="" 
-	authors="Juliako" 
+	authors="Juliako,anilmur" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/28/2015"
+	ms.date="10/15/2015"
 	ms.author="juliako"/>
 
 #Azure Media Services Overview and Common Scenarios
@@ -22,12 +22,9 @@ Microsoft Azure Media Services is an extensible cloud-based platform that enable
 
 You can build end-to-end workflows using entirely Media Services. You can also choose to use third-party components for some parts of your workflow. For example, encode using a third-party encoder. Then, upload, protect, package, deliver using Media Services.
 
-
-The following poster depicts Azure Media Services workflows, from media creation through consumption. You can download the poster from here: [Azure Media Services poster](http://www.microsoft.com/download/details.aspx?id=38195).
-
-![Overview][overview]
-
 You can choose to stream your content live or deliver content on demand. This topic shows common scenarios for delivering your content [live](media-services-overview.md#live_scenarios) or [on demand](media-services-overview.md#vod_scenarios). The topic also links to other relevant topics.
+
+## SDKs and tools 
 
 To build Media Services solutions, you can use:
 
@@ -43,6 +40,10 @@ You can view AMS learning paths here:
 - [AMS Live Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
 - [AMS on Demand Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
+##Poster
+
+
+[Here](http://azure.microsoft.com/documentation/infographics/media-services/) you can view the Azure Media Services  poster that depicts AMS workflows, from media creation through consumption. 
 
 ##Prerequisites
 
@@ -73,7 +74,7 @@ This section describes common scenarios and provides links to relevant topics. T
 	
 	It is recommended to apply storage encryption option to your asset in order to protect your content during upload and while at rest in storage.
  
-1. Encode to adaptive bitrate MP4 set. 
+1. Encode to a set of adaptive bitrate MP4 files. 
 
 	It is recommended to apply storage encryption option to the output asset in order to protect your content at rest.
 	
@@ -92,7 +93,7 @@ This section describes common scenarios and provides links to relevant topics. T
 To be able to use dynamic encryption, you must first get at least one streaming reserved unit on the streaming endpoint from which you want to stream encrypted content.
 
 1. Upload a high-quality mezzanine file into an asset. Apply storage encryption option to the asset.
-1. Encode to adaptive bitrate MP4 set. Apply storage encryption option to the output asset.
+1. Encode to a set of adaptive bitrate MP4 files. Apply storage encryption option to the output asset.
 1. Create encryption content key for the asset you want to be dynamically encrypted during playback.
 2. Configure content key authorization policy.
 1. Configure asset delivery policy (used by dynamic packaging and dynamic encryption).
@@ -112,7 +113,7 @@ To be able to use dynamic encryption, you must first get at least one streaming 
 ###Deliver progressive download 
 
 1. Upload a high-quality mezzanine file into an asset.
-1. Encode to adaptive bitrate MP4 set or a single MP4.
+1. Encode to a single MP4 file.
 1. Publish the asset by creating an OnDemand or SAS locator.
 
 	If using OnDemand locator, make sure to have at least one streaming reserved unit on the streaming endpoint from which you plan to progressively download content.

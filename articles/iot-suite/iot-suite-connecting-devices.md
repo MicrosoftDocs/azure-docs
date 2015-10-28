@@ -1,14 +1,14 @@
 <properties
-   pageTitle="Connecting your device to the the Azure IoT Suite preconfigured remote monitoring solution | Microsoft Azure"
-   description="Describes how to connect your device to the Azure IoT Suite preconfigured remote monitoring solution using an example involving temperature and humidity."
-   services="iot-hub"
+   pageTitle="Connect a device to a preconfigured solution | Microsoft Azure"
+   description="Describes how to connect a device to the Azure IoT Suite preconfigured remote monitoring solution using an example that uses temperature and humidity data."
+   services=""
    documentationCenter="na"
    authors="hegate"
-   manager="jamesosb"
+   manager="timlt"
    editor=""/>
 
 <tags
-   ms.service="iot-hub"
+   ms.service="na"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
@@ -28,7 +28,7 @@ In this example, we will have three simulated data sources:  external temperatur
 
 ### Provision your IoT Suite
 
-If you haven't provisioned your remote monitoring preconfigured solution yet, you can provision it [here](www.internetofyourthings.com).
+If you haven't provisioned your remote monitoring preconfigured solution yet, you can provision it [here](http://www.microsoft.com/en-us/server-cloud/internet-of-things/getting-started.aspx).
 
 
 ### Provision your device in the remote monitoring solution
@@ -64,7 +64,7 @@ Now choose which language would you like to use to continue your sample. In this
 
 ### Running your device on Linux
 
-1. Setup your environment: if you've never used our Device SDK before,  learn  how to set up your environment on Linux [here](https://github.com/azure/azure-iot-sdks/blob/develop/c/doc/devbox_setup.md#linux).
+1. Set up your environment: if you've never used our Device SDK before,  learn  how to set up your environment on Linux [here](https://github.com/azure/azure-iot-sdks/blob/develop/c/doc/devbox_setup.md#linux).
 
 1. Open the file **c/serializer/samples/serializer/remote_monitoring.c** in a text editor.
 
@@ -103,7 +103,7 @@ Visualize your registered device and the data
 ### Running your device on Windows
 
 
-1. Setup your environment: if you have never used our device SDK before, learn  how to set up your environment on Windows [here](https://github.com/azure/azure-iot-sdks/blob/develop/c/doc/devbox_setup.md#windows).
+1. Set up your environment: if you have never used our device SDK before, learn  how to set up your environment on Windows [here](https://github.com/azure/azure-iot-sdks/blob/develop/c/doc/devbox_setup.md#windows).
 
 1. Start a new instance of Visual Studio 2015. Open the **remote_monitoring.sln** solution in the **c\\serializer\\build\\windows** folder in your local copy of the repository.
 
@@ -156,9 +156,9 @@ Connect the device
 
 - Connect the board to your network using an Ethernet cable. This step is required, as the sample depends on internet access.
 
-- Plug the device into your computer using a micro-USB cable. Be sure to attach the cable to the correct USB port on the device, as pictured [here](https://developer.mbed.org/platforms/IBMEthernetKit/), in the "Getting started" section.
+- Plug the device into your computer using a micro-USB cable. Be sure to attach the cable to the correct USB port on the device, as pictured [here](https://developer.mbed.org/platforms/frdm-k64f/), in the "Getting started" section.
 
-- Follow the [instructions on the mbed handbook](https://developer.mbed.org/handbook/SerialPC) to setup the serial connection with your device from your development machine. If you are on Windows, install the Windows serial port drivers located [here](http://developer.mbed.org/handbook/Windows-serial-configuration#1-download-the-mbed-windows-serial-port).
+- Follow the [instructions on the mbed handbook](https://developer.mbed.org/handbook/SerialPC) to set up the serial connection with your device from your development machine. If you are on Windows, install the Windows serial port drivers located [here](http://developer.mbed.org/handbook/Windows-serial-configuration#1-download-the-mbed-windows-serial-port).
 
 Create mbed project and import the sample code
 
@@ -205,9 +205,8 @@ Build and run the program
 
 - If the build is successful, a .bin file with the name of your project is generated. Copy the .bin file to the device. Saving the .bin file to the device causes the current terminal session to the device to reset. When it reconnects, reset the terminal again manually, or start a new terminal. This enables the mbed device to reset and start executing the program.
 
-- Connect to the device using an SSH client application, such as PuTTY. You can determine which serial port your device uses by checking the Windows Device Manager:
+- Connect to the device using an SSH client application, such as PuTTY. You can determine which serial port your device uses by checking the Windows Device Manager.
 
-	![][10]
 
 - In PuTTY, click the **Serial** connection type. The device most likely connects at 115200, so enter that value in the **Speed** box. Then click **Open**:
 
@@ -245,10 +244,10 @@ To learn how to do command and control, please go to that section below in this 
 
 
    ```
-   static const char* deviceId = "[Device Id]";
-   static const char* deviceKey = "[Device Key]";
-   static const char* hubName = "[IoTHub Name]";
-   static const char* hubSuffix = "[IoTHub Suffix, i.e. azure-devices.net]";
+   var deviceID = "[DeviceID]";
+   var deviceKey = "[Device Key]";
+   var hubName = "[IoT Hub Name]";
+   var hubSuffix = "[IoT Hub Suffix i.e azure-devices.net]";
    ```
 
 -  Replace "[Device Id]", "[Device Key], with the data your device data.
@@ -259,10 +258,10 @@ To learn how to do command and control, please go to that section below in this 
 
 
    ```
-     static const char* deviceId = "mydevice";
-   static const char* deviceKey = "mykey";
-   static const char* hubName = "Contoso";
-   static const char* hubSuffix = "azure-devices.net";
+   var deviceID = "mydevice";
+   var deviceKey = "mykey";
+   var hubName = "Contoso";
+   var hubSuffix = "azure-devices.net";
    ```
 
 
@@ -304,7 +303,7 @@ Now that your device is connected and sending self-generated temperature data fr
 
 	![][14]
 - Go back to the dashboard and ensure that the updated data is coming through. You should see updated statistics on temperature and the new data being displayed in the telemetry history.
-	![][15]
+
 
 
 
@@ -316,6 +315,6 @@ Now that your device is connected and sending self-generated temperature data fr
 [18]: ./media/iot-suite-connecting-devices/suite10.png
 
 
-## Extending your solution
+## Next steps
 
-There are multiple ways to extend the functionality of this sample: connect real sensor to your device to send real date, implement command and control functionality, etc. Please use our guide on how to extend the remote monitoring solution to learn more about this.
+There are multiple ways to extend the functionality of this sample: connect real sensor to your device to send real date, implement command and control functionality,etc. Please use our [guide](articles/iot-suite/iot-suite-guidance-on-customizing-preconfigured-solutions.md) on how to extend the remote monitoring solution to learn more about this.

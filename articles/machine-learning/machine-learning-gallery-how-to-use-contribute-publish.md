@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/28/2015"
+	ms.date="10/01/2015"
 	ms.author="chhavib;cgronlun;garye"/>
 
 
@@ -37,7 +37,7 @@ Sign in using your Microsoft account to enjoy additional benefits, such as:
 - Contribute and showcase your predictive analytic experiments and collections
 
 ## Discover and learn
-Search and browse the different types solutions that have been contributed by Microsoft and the advanced analytics community. Use these to get a head start on solving your own data analysis problems.
+Search and browse the different types of solutions that have been contributed by Microsoft and the advanced analytics community. Use these to get a head start on solving your own data analysis problems.
 
 You can easily find recently published and popular solutions in the Gallery, or you can search by name, tags, algorithms, and other attributes.
 View contributions from a particular author by clicking the author name from within any of the tiles.
@@ -54,7 +54,10 @@ If you're not already signed in while browsing, you will be prompted to sign in 
 When you sign-in you become a member of the Gallery community, which allows you to contribute your own experiments and collections so that others can benefit from the solutions you've discovered.
 
 ### Contribute experiments
-Follow these steps to contribute an experiment:
+
+An *experiment* is a canvas in Machine Learning Studio that lets you construct a predictive analysis model by connecting together data with various analytical modules. You can try different ideas, do trial runs, and eventually publish your model as a web service in Azure. For an example of creating a simple experiment, see [Machine learning tutorial: Create your first experiment in Azure Machine Learning Studio](machine-learning-create-experiment.md). For a more complete walkthrough of creating a predictive analytics solution, see [Walkthrough: Develop a predictive analytics solution for credit risk assessment in Azure Machine Learning](machine-learning-walkthrough-develop-predictive-solution.md).
+
+Follow these steps to contribute an experiment to the Cortana Analytics Gallery:
 
 - Sign in to the Machine Learning Studio using your Microsoft account
 - Create your experiment and run it
@@ -62,7 +65,13 @@ Follow these steps to contribute an experiment:
 
 ### Contribute collections
 
-Follow these steps to create and contribute a collection:
+A *collection* is a list of related items from Cortana Analytics Gallery that are grouped together for later reference, use, or sharing.
+Your collection can contain items that you own or items that have been contributed by the community.
+
+For example, you can use a collection to group together items on a specific topic, or you can group together a multi-step experiment that solves a complex problem.
+The initial collections contributed by Microsoft consist of multi-step machine learning experiment templates for solving real world problems, such as online fraud detection, text classification, retail forecasting, and predictive maintenance.
+
+Follow these steps to create and contribute a collection to the Cortana Analytics Gallery:
 
 - Sign in to the Gallery using your Microsoft account
 - Click your image at the top of the window and click your name
@@ -73,7 +82,7 @@ Follow these steps to create and contribute a collection:
 
 Your collection is now part of the Cortana Analytics Gallery.
 
-You can add items to your collection by opening the collection, clicking **Edit**, then clicking **Add Item**. Or, if you find an item in the Gallery that you want to include, just open the item, click **Add to collection**, and specify the collection you want to add it to.
+You can add items to your collection by opening the collection, clicking **Edit**, and then clicking **Add Item**. Or, if you find an item while browsing through the Gallery that you want to include, just open the item, click **Add to collection**, and specify the collection you want to add it to.
 
 You can change the summary, description, or tags of your collection by opening the collection and clicking **Edit**.
 While you're editing your collection, you can also change the order of the items in the collection by using the arrow buttons next to an item to move it in the list. And you add notes to the items in your collection by clicking the upper-right corner of an item and selecting **Add/Edit note**.

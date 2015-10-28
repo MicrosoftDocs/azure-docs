@@ -1,20 +1,20 @@
 <properties 
 	pageTitle="Azure App Service API app triggers" 
 	description="This article demonstrates how to implement triggers in an API App" 
-	services="app-service" 
+	services="app-service\logic" 
 	documentationCenter=".net" 
 	authors="guangyang"
 	manager="wpickett" 
 	editor="jimbe"/>
 
 <tags 
-	ms.service="app-service" 
+	ms.service="app-service-logic" 
 	ms.workload="na" 
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/09/2015" 
-	ms.author="guayan;tarcher"/>
+	ms.date="10/15/2015" 
+	ms.author="guayan"/>
 
 # Azure App Service API app triggers
 

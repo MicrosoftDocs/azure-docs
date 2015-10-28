@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/16/2015"
+	ms.date="10/20/2015"
 	ms.author="cephalin"/>
 
 # Enable diagnostics logging for web apps in Azure App Service
@@ -68,6 +68,11 @@ The [Azure portal](https://manage.windowsazure.com) Web app **Configure** tab al
 * **Blob storage** - stores the application diagnostics information in the specified Azure Storage Account and blob container.
 * **Retention period** - by default, logs are not automatically deleted from **blob storage**. Select **set retention** and enter the number of days to keep logs if you wish to automatically delete logs.
 
+>[AZURE.NOTE] If you [regenerate your storage account's access keys](storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys), you must reset the respective logging configuration to use the updated keys. To do this:
+>
+> 1. In the **Configure** tab, set the respective logging feature to **Off**. Save your setting.
+> 2. Enable logging to the storage account blob or table again. Save your setting.
+
 Any combination of file system, table storage, or blob storage can be enabled at the same time, and have individual log level configurations. For example, you may wish to log errors and warnings to blob storage as a long-term logging solution, while enabling file system logging with a level of verbose.
 
 While all three storage locations provide the same basic information for logged events, **table storage** and **blob storage** log additional information such as the instance ID, thread ID, and a more granular timestamp (tick format) than logging to **file system**.
@@ -116,7 +121,7 @@ To download the log files using the Azure Command Line Interface, open a new com
 
 This will save the logs for the web app named 'webappname' to a file named **diagnostics.zip** in the current directory.
 
-> [AZURE.NOTE] If you have not installed the Azure Command-Line Interface (Azure CLI), or have not configured it to use your Azure Subscription, see [How to Use Azure CLI](../xplat-cli.md).
+> [AZURE.NOTE] If you have not installed the Azure Command-Line Interface (Azure CLI), or have not configured it to use your Azure Subscription, see [How to Use Azure CLI](../xplat-cli-install.md).
 
 ## How to: View logs in Application Insights
 
@@ -175,7 +180,7 @@ To filter specific log types, such as HTTP, use the **--Path** parameter. For ex
 
 	azure site log tail webappname --path http
 
-> [AZURE.NOTE] If you have not installed the Azure Command-Line Interface, or have not configured it to use your Azure Subscription, see [How to Use Azure Command-Line Interface](../xplat-cli.md).
+> [AZURE.NOTE] If you have not installed the Azure Command-Line Interface, or have not configured it to use your Azure Subscription, see [How to Use Azure Command-Line Interface](../xplat-cli-install.md).
 
 ##<a name="understandlogs"></a> How to: Understand diagnostics logs
 

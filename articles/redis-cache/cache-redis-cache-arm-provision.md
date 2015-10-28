@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Provision a Redis Cache" 
 	description="Use Azure Resource Manager template to deploy an Azure Redis Cache." 
-	services="redis-cache" 
+	services="app-service" 
 	documentationCenter="" 
 	authors="tfitzmac" 
 	manager="wpickett" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/15/2015" 
+	ms.date="10/02/2015" 
 	ms.author="tomfitz"/>
 
 # Create a Redis Cache using a template
@@ -27,13 +27,15 @@ For more information about creating templates, see [Authoring Azure Resource Man
 
 For the complete template, see [Redis Cache template](https://github.com/Azure/azure-quickstart-templates/blob/master/101-redis-cache/azuredeploy.json).
 
+>[AZURE.NOTE] ARM templates for the new [Premium tier](cache-premium-tier-intro.md) are coming soon. To check for the latest templates, see [Azure Quickstart Templates](https://azure.microsoft.com/documentation/templates/) and search for `Redis Cache`.
+
 ## What you will deploy
 
 In this template, you will deploy an Azure Redis Cache that uses an existing storage account for diagnostic data.
 
 To run the deployment automatically, click the following button:
 
-[![Deploy to Azure](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-redis-cache%2Fazuredeploy.json)
+[![Deploy to Azure](./media/cache-redis-cache-arm-provision/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-redis-cache%2Fazuredeploy.json)
 
 ## Parameters
 

@@ -4,7 +4,7 @@
    services="active-directory"
    documentationCenter=""
    authors="AndKjell"
-   manager="msStevenPo"
+   manager="StevenPo"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="09/09/2015"
+   ms.date="10/20/2015"
    ms.author="andkjell"/>
 
 # Prevent accidental deletes
@@ -39,10 +39,12 @@ If this was unexpected, then investigate and take corrective actions. To see whi
 
 If all the deletes are desired, then do the following:
 
-1. To temporarily disable this protection and let these deletes go through, run the PowerShell cmdlet: `Disable-ADSyncExportDeletionThreshold`
+1. To temporarily disable this protection and let these deletes go through, run the PowerShell cmdlet: `Disable-ADSyncExportDeletionThreshold`. When asked for credentials, provide an Azure AD Global Administrator account and password.
+![Credentials](./media/active-directory-aadconnectsync-feature-prevent-accidental-deletes/credentials.png)
 2. With the Azure Active Directory Connector still selected, select the action **Run** and select **Export**.
-3. To re-enable the protection run the PowerShell cmdlet: `Enable-ADSyncExportDeletionThreshold`
+3. To re-enable the protection run the PowerShell cmdlet: `Enable-ADSyncExportDeletionThreshold`.
 
 ## Next steps
+Learn more about the [Azure AD Connect sync](active-directory-aadconnectsync-whatis.md) configuration.
 
-To learn more on the configuration for Azure AD Connect sync, see [Azure AD Connect sync](active-directory-aadconnectsync-whatis.md).
+Learn more about [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md).
