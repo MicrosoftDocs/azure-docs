@@ -105,7 +105,7 @@ ARM Load balanced* Endpoint|https://management.windows.net|https://management.us
 
 If you are interested in learning more and about Azure Government please leverage some of the links below.
 
-- **[Sign up for a trial]https://azuregov.microsoft.com/trial/azuregovtrial)**
+- **[Sign up for a trial](https://azuregov.microsoft.com/trial/azuregovtrial)**
 
 - **[Acquiring and accessing Azure Government](http://azure.com/gov)**
 
