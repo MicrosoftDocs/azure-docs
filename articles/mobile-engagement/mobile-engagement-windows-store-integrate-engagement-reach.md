@@ -378,6 +378,35 @@ You can set the callback in your "Public App(){}" method of your `App.xaml.cs` f
 
 > [AZURE.TIP] Each handler is called by the UI Thread. You do not have to worry when using a MessageBox or something UI-related.
 
+## Push channel sharing
+
+If you are using push notifications for another purpose in your application then you have to use the push channel sharing feature of the Engagement SDK. This is to avoid missed push.
+
+- You can provide your own push channel to the Engagement Reach initialization. The SDK will use it instead of requesting a new one.
+
+Update every initialization of Engagement Reach with your push channel in your `App.xaml.cs`:
+    
+    /* Your own push channel logic... */
+    var pushChannel = await PushNotificationChannelManager.CreatePushNotificationChannelForApplicationAsync();
+    
+    /*...Engagement initialization */
+    EngagementAgent.Instance.Init(e);
+	EngagementReach.Instance.Init(e,pushChannel);
+
+- Alternatively, if you just want to consume the push channel after the Reach initialization then you can set a callback on Engagement Reach to get the push channel once it is created by the SDK.
+
+Set your callback at any place **after** the Reach initialization :
+
+    /* Set action on the SDK push channel. */
+    EngagementReach.Instance.SetActionOnPushChannel((PushNotificationChannel channel) => 
+    {
+      /* The forwarded channel can be null if its creation fails for any reason. */
+      if (channel != null)
+      {
+		/* Your own push channel logic... */
+      });
+	}
+
 ##Custom scheme tip
 
 We provide custom scheme use. You can send different type of URI from engagement frontend to be used in your engagement application. Default scheme like `http, ftp, ...` are manage by Windows, a window will prompt if they are no default application installed on device. Other scheme like application scheme can be used. Moreover, you can use a custom scheme for your application.

@@ -32,9 +32,9 @@ Click to see the [SDK Content](mobile-engagement-windows-store-sdk-content.md)
 
 ##Release notes
 
-###3.1.0 (05/21/2015)
+###3.2.0 TBA
 
--   The Mobile Engagement device id is now based on a GUID generated at installation time
+-   Adding push channel sharing feature to fix channel conflicts.
 
 For earlier version please see the [complete release notes](mobile-engagement-windows-store-release-notes.md)
 

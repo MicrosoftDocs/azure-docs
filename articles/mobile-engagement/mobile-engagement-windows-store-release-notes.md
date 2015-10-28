@@ -18,6 +18,10 @@
 
 #Windows Universal Apps SDK Release Notes
 
+##3.2.0 TBA
+
+-   Adding push channel sharing feature to fix channel conflicts.
+
 ##3.1.0 (05/21/2015)
 
 -   The Mobile Engagement device id is now based on a GUID generated at installation time
