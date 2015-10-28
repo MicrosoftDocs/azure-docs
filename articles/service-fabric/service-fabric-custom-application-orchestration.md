@@ -19,7 +19,7 @@
 
 # Deploy an existing application to Service Fabric
 
-Azure Service Fabric can be used to run existing applications such as Node.js, Java or native applications. Service Fabric treats those applications like stateless services and places them on nodes in a cluster based on availability and other metrics.
+Azure Service Fabric can be used to run existing applications such as Node.js, Java or native applications. Service Fabric treats those applications like stateless services and places them on nodes in a cluster based on availability and other metrics. This article describes how to package and deploy an existing application to a Service Fabric cluster.
 
 ## Benefits of running an existing application in Service Fabric
 
@@ -32,30 +32,43 @@ A valid question is why we should use Service Fabric to host an application? The
 
 In this article we cover the basic steps to package an existing application and deploy it to Service Fabric.  
 
-## Package and deploy a single application
+### Process of packaging and deploying and existing application
+At a high level you need to follow the steps below in order to deploy an existing application to Service Fabric:
 
-Let's have a quick look at the application we want to package and publish to Service Fabric first. The application consists of a single executable, SimpleWebServer.exe, which listens to port 8080 and returns the machine name. In reality it could be any .exe file. You can download the sample application from [GitHub ](https://github.com/bmscholl/servicefabric-samples/tree/comingsoon/samples/RealWorld/Hosting/SimpleApplication).
+1. Package the existing application
+2. Make necessary changes to the manifest files
+3. Deploy application to Service Fabric
+4. Test application   
 
-The image below shows the running application and accessing it through the browser.
-![RunningApp](./media/service-fabric-custom-application-orchestration/runningapp.png)
+### Package a single application
 
 The first step is to create a Service Fabric application package. Service Fabric expects an application package that contains the definition of the application as well the binaries and all other files that are needed for the application, so that Service Fabric knows what to execute and how to execute it.
 
 Please read [Service Fabric Packaging format ](service-fabric-deploy-existing-app.md) for more details of the Service Fabric packaging format.
 
-The easiest way to create an application package is using the Service Fabric packaging tool that ships as part of the SDK. The packaging tool is located in the Tools folder of the Service Fabric SDK installation path. The default installation location is C:\Program Files\Microsoft SDKs\Service Fabric\Tools. Let's go ahead an browse to the tools folder using command line or PowerShell and execute the following command:
+The easiest way to create an application package is using the Service Fabric packaging tool that ships as part of the Service Fabric SDK. The packaging tool is located in the Tools folder of the Service Fabric SDK installation path. The default installation location is C:\Program Files\Microsoft SDKs\Service Fabric\Tools.
+The sample below shows how to run the packaging tool to package a simple application. ([A complete sample application is available on Gihub](https://github.com/Azure/servicefabric-samples/tree/comingsoon/samples/RealWorld/Hosting/SimpleApplication)):
 
+Commandline:
 ```
-ServiceFabricAppPackageUtil.exe /source:[directory of SimpleWebServer.exe] /target:[directory that will contain the package] /appname:WebServer /exe:SimpleWebServer.exe
+ServiceFabricAppPackageUtil.exe /source:[directory of the application] /target:[directory that will contain the package] /appname:ApplicationName /exe:SimpleWebServer.exe
 ```
-This will create a Service Fabric application package that contains the SimpleWebServer executable. Before we look at the package we should look at the parameters we used:
+The tool supports the following parameters:
 
-- **/source**: Points to the directory of the application that should be packaged
-- **/target**: Defines the directory in which the package should be created
-- **/appname**: Defines the application name of the application that we want to package.
+Mandatory parameters:
+
+- **/source**: Points to the directory of the application that should be packaged.
+
+>[AZURE.NOTE]:Make sure that this directory includes all the files/dependencies that the application needs. Service Fabric will copy the content of the application package on all nodes in the cluster where the application's services are going to be deployed. The package should contain all the code that the application needs in order to run. It is not recommended to assume that the dependencies are already installed.
+
+- **/target**: Defines the directory in which the package should be created.
+
+>[AZURE.NOTE]:The target directory cannot be part of the source directory.
+
+- **/appname**: Defines the application name of the application that will be packaged.
 - **/exe**: Defines the executable that Service Fabric is supposed to launch. It does not need to be an .exe file. It could also be a batch file or a script.
 
-These four parameters are always needed. Below is the list of optional parameters:
+Optional parameters:
 
 - **/AppType**: Defines the application type name
 - **/ver**: Defines the application type version
@@ -63,9 +76,15 @@ These four parameters are always needed. Below is the list of optional parameter
 - **/setup**: Defines what should be executed at startup, for example a startup script or executable
 - **/sa**: Arguments for the start up script or executable
 - **/cv**: Version of the code package
-- **/count**: Instance count. The default setting is 1.
+- **/count**: Number of instances of the application
 
-If we browse to the directory that we specified in the /target parameter we can see that the tool has created a fully functioning Service Fabric package as shown below:
+    `InstanCount = "1" (Default setting)`: in this case only one instance of the service will be deployed on the cluster. Service Fabric's scheduler determines on which node the service is going to be deployed. A single instance count also makes sense for applications that require a different configuration if they run on multiple instances. In that case it is easier to define multiple services in the same application manifest file and use `InstanceCount = "1"`. So the end result will be to have multiple instances of the same service but each with a specific configuration. A value of `InstanceCount` greater than one makes sense only if the goal is to have multiple instance of the exact same configuration.
+
+    `InstanceCount ="-1"`: in this case one instance of the service will be deployed on every node in the Service Fabric cluster. The end result will be having one (and only one) instance of the service for each node in the cluster. This is a useful configuration for front-end applications (ex. a REST endpoint) because client applications just need to 'connect' to any of the node in the cluster in order to use the endpoint. This configuration can also be used when, for instance, all nodes of the Service Fabric cluster are connected to a load balancer so client traffic can be distributed across the service running on all nodes in the cluster.
+
+The output of the packaging tool is a Service Fabric package containing the application.
+The sample below shows the package structure of the ([SimpleWebServer sample](https://github.com/Azure/servicefabric-samples/tree/comingsoon/samples/RealWorld/Hosting/SimpleApplication)):
+
 ```
 |-- WebServer
 	|-- C
@@ -76,7 +95,14 @@ If we browse to the directory that we specified in the /target parameter we can 
 |-- ApplicationManifest.xml
 ```
 
-Before we can test our WebServer on the local Service Fabric cluster we need to define an endpoint on port 8080. To do this we need to update the ServiceManifest.xml EndPoint element as shown below.
+The root contains the `ApplicationManifest.xml` file that defines the application. A subdirectory for each service (remember that Service Fabric executes an existing application as a stateless service) included in the application is used to contain all the artifacts that the service requires: The `ServiceManifest.xml` and, typically 2 directories:
+
+- *code*: contains the existing application and its dependencies.
+- *config*: contains a settings.xml file (and other files if necessary) that the service can access at runtime to retrieve specific configuration settings.
+
+### Make necessary changes to the manifest files
+The packaging tool provides parameters for the most common settings in the manifest files. However there are some occasions where you need to make some changes for your application to work. The most common ones are adding a port to an endpoint and adding logging capabilities. Both settings need to be added in the `ServiceManifest.xml`.
+The sample below shows how to add port 8080 to the generated Endpoint element.
 
 ```xml
 <Resources>
@@ -85,14 +111,34 @@ Before we can test our WebServer on the local Service Fabric cluster we need to 
     </Endpoints>
 </Resources>
 ```
+The sample below shows how to add `ConsoleRedirection` element to the `ServiceManifest.xml`
 
-The last step is to publish the application to the local Service Fabric cluster using the PowerShell scripts below:
+```xml
+<EntryPoint>
+  <ExeHost>
+    <Program>SimpleWebServer.exe</Program>
+    <ConsoleRedirection FileRetentionCount="5" FileMaxSizeInKb="2048"/>
+  </ExeHost>
+</EntryPoint>
+```
+
+* `ConsoleRedirection` can be used to redirect console output (both stdout and stderr) to a working directory so they can be used to verify that there are no errors during the setup or execution of the application in the Service Fabric cluster.
+
+	* `FileRetentionCount` determines how many files are saved in the working directory. A value of, for instance, 5 means that the log files for the previous 5 executions are stored in the working directory.
+	* `FileMaxSizeInKb` specifies the max size of the log files.
+
+### Deploy application to Service Fabric
+
+The script below demonstrates how to use PowerShell to deploy the application package to a local development cluster.
+
+>[AZURE.NOTE]:If you want to use the script to deploy to a Service Fabric cluster in Azure you need to change the -ImageStoreConnectionString parameter to 'fabric:imagestore'.
+
 
 ```
 Connect-ServiceFabricCluster localhost:19000
 
 Write-Host 'Copying application package...'
-Copy-ServiceFabricApplicationPackage -ApplicationPackagePath 'D:\Dev\WebServerPackage' -ImageStoreConnectionString 'file:C:\SfDevCluster\Data\ImageStore' -ApplicationPackagePathInImageStore 'Store\WebServer'
+Copy-ServiceFabricApplicationPackage -ApplicationPackagePath '[Service Fabric package directory]' -ImageStoreConnectionString 'file:C:\SfDevCluster\Data\ImageStore' -ApplicationPackagePathInImageStore 'Store\WebServer'
 
 Write-Host 'Registering application type...'
 Register-ServiceFabricApplicationType -ApplicationPathInImageStore 'Store\WebServer'
@@ -100,7 +146,9 @@ Register-ServiceFabricApplicationType -ApplicationPathInImageStore 'Store\WebSer
 New-ServiceFabricApplication -ApplicationName 'fabric:/WebServer' -ApplicationTypeName 'WebServerType' -ApplicationTypeVersion 1.0  
 ```
 
-Once the application is successfully published to the local cluster we can access the web server through http://localhost:8080.
+### Testing the application
+
+Once the application is successfully published to the local cluster you can test it through accessing its endpoint, for example through a browser in case it offers a web endpoint.
 This is a good opportunity to check on one of the advantages of running an application in Service Fabric. Let's test what happens if we reboot the node on which our web server runs, we can use Service Fabric Explorer to restart nodes. Figure 1 shows that our web server runs on Node1 and that we are about to restart the node in Service Fabric Explorer.
 
 ![RestartNode](./media/service-fabric-custom-application-orchestration/restartnode.png)
