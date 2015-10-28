@@ -28,9 +28,11 @@ For more information about creating templates, see [Authoring Azure Resource Man
 For the complete template, see [Redis Cache template](https://github.com/Azure/azure-quickstart-templates/blob/master/101-redis-cache/azuredeploy.json).
 
 >[AZURE.NOTE] ARM templates for the new [Premium tier](cache-premium-tier-intro.md) are available. 
+>
 >-    [Create a Premium Redis Cache with clustering](https://azure.microsoft.com/en-us/documentation/templates/201-redis-premium-cluster-diagnostics/)
 >-    [Create Premium Redis Cache with data persistence](https://azure.microsoft.com/en-us/documentation/templates/201-redis-premium-persistence/)
 >-    [Create Premium Redis Cache with VNet and optional clustering](https://azure.microsoft.com/en-us/documentation/templates/201-redis-premium-vnet-cluster-diagnostics/)
+>
 >To check for the latest templates, see [Azure Quickstart Templates](https://azure.microsoft.com/documentation/templates/) and search for `Redis Cache`.
 
 ## What you will deploy
