@@ -92,39 +92,44 @@ Let us now use Business Rules to implement this business logic.
 ##Creation of Rules Api App
 
 
-1. Login to the Azure Portal and get to the home page.
-1. Click on New->Azure Marketplace->API Apps->Biz Talk Rules->Create
+1. Login to the Azure Portal
+2. Select New-> Marketplace then search for *BizTalk Rules*
+3. Select BizTalk Rules from the results list. The BizTalk Rules blade opens
+4. Select the *Create* button
 ![Alt text][3]
 1. In the new blade that opens, enter the following information:  
 	1. Name – give a name for your Rules API App
-	1. App Hosting Plan – select or create a web hosting plan
+	1. App Service Plan – select or create a new App Service Plan
 	1. Pricing Tier – Choose the pricing tier you want this App to reside in
 	1. Resource Group – Select or create Resource group where the App should reside in
+	2. Subscription - Select the Subscription you wish to use
 	1. Location – Choose the geographic location where you would like the App to be deployed.
-4.	Click on Create. Within a few minutes your BizTalk Rules API App would be created.
+4.	Select *Create*. Within a few minutes your BizTalk Rules API App would be created.
 
 ##Vocabulary Creation
-After creating a BizTalk Rules API App, the next step would be to create vocabularies. The expectation is that the developer is the more common persona to be doing this exercise. To do this follow the following steps:
+After creating a BizTalk Rules API App, the next step would be to create vocabularies. The expectation is that the developer is the more common persona to be doing this exercise. Here's how to get this done:
 
 
-1. Browse to the created API App by Browse->API Apps-><Your Rules API App>. This should get you to the Rules API App Dashboard similar to below:
+1. Launch your BizTalk Rules API App from the portal by going to Browse->API Apps-><Your Rules API App>. This will get you to the Rules API App Dashboard similar to below:
 
    ![Alt text][4]
 
-2.Next Click on “Vocabulary definitions”. This would show you the Vocabulary Authoring Screen. Click on “Add” to begin adding new vocabulary definitions.
+2.Select “Vocabulary definitions”. This would show you the Vocabulary Authoring Screen
+3.Select “Add” to begin adding new vocabulary definitions.
 There are 2 types of vocabulary definitions currently supported – Literal and XML.
 
 ##Literal Definition
 1.	After clicking on “Add”, a new “Add Definition” Blade Opens up. Enter the following values
   1.	Name – only alphanumeric characters are expected without any special characters. This should also be unique to your existing vocabulary definition list.
   2.	Description – optional field.
-  3.	Type – there are 2 types supported. Choose Literal in this example
-  4.	Input type – this allows users to select the data type of the definition. Currently 4 data types are selectable:
+  3.	Definition Type – there are 2 types supported. Choose Literal in this example
+  4.	Data type – this allows users to select the data type of the definition. Currently 4 data types are supported:
     i.	String – these values must be entered in double quotes (“Example String”)  
     ii.	Boolean – this can either be true or false  
     iii.	Number – can be any decimal number  
     iv.	DateTime – this means that the def is of type date type. Data must be entered using this format – mm/dd/yyyy hh:mm:ss AM\PM  
-    v.	Input – This is where you enter the value of your definition. The values entered here must conform to the chosen data type. User can either enter a single value, a set of values separated by commas, or a range of values using keyword to. For eg., user can enter unique value 1; a set 1, 2, 3; or a range 1 to 5. Note that range is only supported for number.
+  5. Input – This is where you enter the value of your definition. The values entered here must conform to the chosen data type. You can either enter a single value, a set of values separated by commas, or a range of values using the keyword *to*. For example, you can enter unique value 1; a set 1, 2, 3; or a range 1 to 5. Note that range is only supported for numbers.
+  6. Select *OK*.
 
 ![Alt text][5]
 ##XML Definition
@@ -137,8 +142,8 @@ If Vocabulary Type is chosen as XML, the following inputs needs to be specified
 
 ### Add Bulk
 The above steps have captured the experience for creating Vocabulary definitions. Once created, the created vocabulary definitions will appear in list form. There are requirements to be able to generate multiple definitions from the same schema instead of repeating the above steps every single time. This is where Add Bulk capability becomes very useful.
-Clicking on “Add Bulk” will take you to a new blade. The first step is to select the schema for which multiple definitions are to be created. Clicking on this will open a new blade allowing user to either choose from a list of already uploaded schemas or allowing to upload a new one.
-Now the XPATHS property gets unlocked. Clicking on this will open the Schema Viewer where multiple nodes can be selected.
+Selecting “Bulk Add” will take you to a new blade. The first step is to select the schema for which multiple definitions are to be created. Selecting this will open a new blade allowing you to either choose from a list of already uploaded schemas or allowing to upload a new one.
+Now the XPATHS property gets unlocked. Selecting this will open the Schema Viewer where multiple nodes can be selected.
 The names for the multiple definitions created will default to the name of the node selected. These can always be modified after creation.
 
 ![Alt text][7]
@@ -146,14 +151,14 @@ The names for the multiple definitions created will default to the name of the n
 ##Policy Creation
 Once the developer has created required vocabularies, the expectation is that the Business Analyst would be the one creating Business Policies via the Azure Portal.  
 	1.	On the Rules App created, there is a Policy lens clicking which the user will go into the Policy creation page.  
-	2.	This page will show the list of policies, this particular Rules App has. User can add a new Policy by simply typing a policy name and hitting tab. Multiple policies can reside in a single Rules API App.  
-	3.	Clicking on the created Policy will take the user to the Policy details page where one can see the rules that are in the policy.  
+	2.	This page will show the list of policies this particular Rules App has. The analyst can add a new Policy by simply typing a policy name and hitting tab twice. Multiple policies can reside in a single Rules API App.  
+	3.	Selecting the created Policy will take the user to the Policy details page where one can see the rules that are in the policy.  
 	![Alt text][8]
-	4.	Click on “Add New” to add a new rule. This will take you to a new blade.
+	4.	Select “Add” to add a new rule. This will take you to a new blade.
 
 ##Rule Creation
-A rule is collection of condition and action statements. The actions get executed if the condition evaluates to true. In the Create Rule blade, give a unique rule name (for that policy) and description (optional).
-The Condition box can be used to create complex conditional statements. Following are the keywords supported:  
+A rule is collection of condition and action statements. The actions are executed if the condition evaluates to true. In the Create Rule blade, give a unique rule name (for that policy) and description (optional).
+The Condition (IF) box can be used to create complex conditional statements. Following are the keywords supported:  
 1. 	And – conditional operator  
 2. 	Or – conditional operator  
 3. 	does\_not\_exist  
@@ -170,7 +175,7 @@ The Condition box can be used to create complex conditional statements. Followin
 14. mod  
 15. true  
 
-The Action(Then) box can contain multiple statements, one per line, to create actions that are to be executed. Following are the keywords supported:  
+The Action(THEN) box can contain multiple statements, one per line, to create actions that are to be executed. Following are the keywords supported:  
 1.	equals  
 2.	false  
 3.	true  
@@ -179,11 +184,11 @@ The Action(Then) box can contain multiple statements, one per line, to create ac
 6.	null  
 7.	update  
 
-Condition and action boxes provide Intellisense to help user author a rule quickly. This can be triggered by hitting ctrl+space or by just starting to type. Keywords matching typed characters will automatically be filtered down and shown. The intellisense window will show all keywords and vocabulary definitions.
+The condition and action boxes provide Intellisense to help you author a rule quickly. This can be triggered by hitting ctrl+space or by just starting to type. Keywords matching typed characters will automatically be filtered down and shown. The intellisense window will show all keywords and vocabulary definitions.
 ![Alt text][9]
 
 ##Explicit Forward Chaining
-BizTalk Rules supports explicit forward chaining. What this means is that if users would like to re-evaluate rules in response to certain actions, they can trigger this by using certain keywords. The following are the keywords supported:  
+BizTalk Rules supports explicit forward chaining so, if users would like to re-evaluate rules in response to certain actions, they can trigger this by using certain keywords. The following are the keywords supported:  
    1.	update <vocabulary definition> – this keyword re-evaluates all rules that use the specified vocabulary definition in its condition.  
    2.	Halt – this keyword stops all rule executions
 
@@ -194,13 +199,13 @@ Each rule in the policy can be enabled or disabled. By default all rules are ena
 All the rules of a policy are executed in order. The priority of execution is determined by the order in which they occur in the policy. This priority can be changed by simply dragging and dropping the rule.
 
 ##Test Policy
-After authoring your policy, before using it in production, there is provision for testing the policy. By using the “Test Policy” command, users can get into the Test Policy blade. In this blade you can see a list of vocabulary definitions that are used in the policy that require a user input. Users can manually add values for these inputs for their test scenario. Alternately, users can also choose to import test XMLs for inputs. Once all the inputs are in, the test can be run and the outputs for each vocabulary definition will be displayed in the output column for easy comparison. To view Business Analyst friendly logs, click on “View Logs” to view the execution logs. To save the logs, the “Save Output” option is available to store all test related data for independent analysis.
+You can test your policies by using the “Test Policy” command in the Test Policy blade. In this blade you can see a list of vocabulary definitions that are used in the policy that require a user input. Users can manually add values for these inputs for their test scenario. Alternately, users can also choose to import test XMLs for inputs. Once all the inputs are in, the test can be run and the outputs for each vocabulary definition will be displayed in the output column for easy comparison. To view Business Analyst friendly logs, click on “View Logs” to view the execution logs. To save the logs, the “Save Output” option is available to store all test related data for independent analysis.
 
 ## Using Rules in Logic Apps
-Once the policy has been authored and tested, it is now ready for consumption. Users can create a new Logic App by doing New->Logic App. In the designer, BizTalk Rules is  available in the gallery to the right. This can now be dragged and dropped onto the designer surface. Once this is done, there will be an option to choose which Rules API App(Action) to target. Actions include the list of policies that are to be executed. Choose a specific policy after which the inputs required for the policy needs to be input. Users can use the output from the Rules API App downstream for further decision making.
+Once the policy has been authored and tested, it is now ready for consumption. You can create a new Logic App by selecting Logic Apps from the left side of the portal's home page. Once your Logic App has been created, launch it then select *Triggers and Actions*. You can then select the *Create from Scratch* template. Follow the steps to add your BizTalk Rules API App to the Logic App. Once this is done, there will be an option to choose which Rules API App (Action) to target. Actions include the list of policies that are to be executed. Choose a specific policy after which the inputs required for the policy needs to be given. Users can use the output from the Rules API App downstream for further decision making.
 
 ## Using Rules via APIs
-The Rules API App can also be invoked using a rich set of APIs available. This way users aren’t restricted to just using flows and can use Rules in any application by making REST calls. The exact REST APIs available can be viewed by clicking on the "API Definiton" lens in the Rules dashboard.
+The Rules API App can also be invoked using a rich set of APIs. This way users aren’t restricted to just using Logic Apps and can use Rules in any application by making REST calls. The exact REST APIs available can be viewed by clicking on the "API Definiton" lens in the Rules dashboard.
 
 ![Alt text][10]
 
