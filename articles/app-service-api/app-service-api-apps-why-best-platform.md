@@ -28,7 +28,7 @@ API Apps provides a rich platform for building, hosting, and consuming APIs in t
 
 API Apps provides the following features available today in public preview:
 
-- **Easy consumption** - Integrated [Swagger](#concepts) support makes your APIs easily consumable by a variety of clients.  The App Service SDK can generate client code for your APIs in a variety of languages including C#, Java, and Javascript. And App Service makes it easy to configure [CORS](#concepts).
+- **Easy consumption** - Integrated [Swagger](#concepts) support makes your APIs easily consumable by a variety of clients.  Easily configure [CORS](#concepts), and automatically generate client code for your APIs in a variety of languages including C#, Java, and Javascript.
 
 - **Simple access control** - You can protect an API app from unauthenticated access with no changes to your code. Built-in authentication services secure APIs for access by clients representing users or by other services. Supported identity providers include Azure Active Directory and third-party providers such as Facebook and Twitter. Clients can use Active Directory Authentication Library (ADAL) or the Mobile Apps SDK. For more information, see [Authentication for API apps and mobile apps in Azure App Service](../app-service/app-service-authentication-overview.md).
 
