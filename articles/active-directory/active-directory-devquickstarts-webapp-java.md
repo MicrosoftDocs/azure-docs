@@ -29,11 +29,11 @@ Azure AD makes it simple and straightforward to outsource your web app's identit
 In order to do this, you'll need to:
 
 1. Register an application with Azure AD
-2. Set up your app to use the OWIN authentication pipeline.
-3. Use OWIN to issue sign-in and sign-out requests to Azure AD.
+2. Set up your app to use the ADAL4J library.
+3. Use the ADAL4J library to issue sign-in and sign-out requests to Azure AD.
 4. Print out data about the user.
 
-To get started, [download the app skeleton](https://github.com/AzureADQuickStarts/WebApp-OpenIdConnect-DotNet/archive/skeleton.zip) or [download the completed sample](https://github.com/AzureADQuickStarts/WebApp-OpenIdConnect-DotNet/archive/complete.zip).  You'll also need an Azure AD tenant in which to register your application.  If you don't have one already, [learn how to get one](active-directory-howto-tenant.md).
+To get started, [download the app skeleton](https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect.git/archive/skeleton.zip) or [download the completed sample](https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect.git/archive/complete.zip).  You'll also need an Azure AD tenant in which to register your application.  If you don't have one already, [learn how to get one](active-directory-howto-tenant.md).
 
 ## *1.  Register an Application with Azure AD*
 To enable your app to authenticate users, you'll first need to register a new application in your tenant.
@@ -44,12 +44,14 @@ To enable your app to authenticate users, you'll first need to register a new ap
 - Click the **Applications** tab, and click add in the bottom drawer.
 - Follow the prompts and create a new **Web Application and/or WebAPI**.
     - The **name** of the application will describe your application to end-users
-    - The **Sign-On URL** is the base URL of your app.  The skeleton's default is `https://localhost:44320/`.
+    - The **Sign-On URL** is the base URL of your app.  The skeleton's default is `https://localhost:3000/`.
     - The **App ID URI** is a unique identifier for your application.  The convention is to use `https://<tenant-domain>/<app-name>`, e.g. `https://contoso.onmicrosoft.com/my-first-aad-app`
 - Once you've completed registration, AAD will assign your app a unique client identifier.  You'll need this value in the next sections, so copy it from the Configure tab.
 
-## *2. Set up your app to use the OWIN authentication pipeline*
-Here, we'll configure the OWIN middleware to use the OpenID Connect authentication protocol.  OWIN will be used to issue sign-in and sign-out requests, manage the user's session, and get information about the user, amongst other things.
+## *2. Set up your app to use the ADAL4J library using Maven*
+Here, we'll configure ]ADAL4J to use the OpenID Connect authentication protocol.  ADAL4J will be used to issue sign-in and sign-out requests, manage the user's session, and get information about the user, amongst other things.
+
+
 
 ##Next Steps
 
