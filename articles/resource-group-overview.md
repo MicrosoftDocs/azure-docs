@@ -107,6 +107,10 @@ You can also explicitly lock critical resources to prevent users from deleting o
 
 For best practices, see [Security considerations for Azure Resource Manager](best-practices-resource-manager-security.md)
 
+## Manage resources with customized policies
+
+Resource Manager enables you to create customized policies for managing your resources. The types of policies you create can include scenarios as diverse as enforcing a naming convention on resources, limiting which regions can host a type of resource, or requiring a tag value on resources to organize billing by departments. For more information, see [Use Policy to manage resources and control access](resource-manager-policy.md).
+
 ## Consistent management layer
 
 Resource Manager provides completely compatible operations through Azure PowerShell, Azure CLI for Mac, Linux, and Windows, the Azure preview portal, or REST API. You can use the interface that works best for you, and move quickly between the interfaces without confusion. The portal even displays notification for actions taken outside of the portal.
