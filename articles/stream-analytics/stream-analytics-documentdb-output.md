@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="10/28/2015" 
+	ms.date="10/29/2015" 
 	ms.author="jeffstok"/>
 
 # DocumentDB as Azure Stream Analytics Output
@@ -59,4 +59,4 @@ Creating DocumentDB as an output in Stream Analytics generates a prompt for info
    1\) MyCollection – One collection named “MyCollection” must exist.  
    2\) MyCollection{partition} – Such collections must exist– "MyCollection0”, “MyCollection1”, “MyCollection2” and so on.  
 -   **Partition Key** – The name of the field in output events used to specify the key for partitioning output across collections. For single collection output, any arbitrary output column can be used e.g. PartitionId.  
--   **Document ID** – Optional. The *lowercase* name of the field in output events used to specify the primary key on which insert or update operations are based.  
+-   **Document ID** – Optional. The name of the field in output events used to specify the primary key on which insert or update operations are based.  
