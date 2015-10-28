@@ -18,7 +18,7 @@
 
 # Offline Data Sync in Azure Mobile Apps
 
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services-preview](../../includes/app-service-mobile-note-mobile-services-preview.md)]
+[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 ## What is offline data sync?
 
@@ -122,7 +122,7 @@ When using sync tables, your client code controls when local changes will be syn
 
 <!-- Links -->
 
-[iOS: Enable offline sync]: ../app-service-mobile-ios-get-started-offline-data-preview.md
-[Xamarin iOS: Enable offline sync]: ../app-service-mobile-xamarin-ios-get-started-offline-data-preview.md
-[Xamarin Android: Enable offline sync]: ../app-service-mobile-xamarin-ios-get-started-offline-data-preview.md
-[Windows 8.1: Enable offline sync]: ../app-service-mobile-windows-store-dotnet-get-started-offline-data-preview.md
+[iOS: Enable offline sync]: ../app-service-mobile-ios-get-started-offline-data.md
+[Xamarin iOS: Enable offline sync]: ../app-service-mobile-xamarin-ios-get-started-offline-data.md
+[Xamarin Android: Enable offline sync]: ../app-service-mobile-xamarin-ios-get-started-offline-data.md
+[Windows 8.1: Enable offline sync]: ../app-service-mobile-windows-store-dotnet-get-started-offline-data.md
