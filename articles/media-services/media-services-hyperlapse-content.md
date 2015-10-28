@@ -24,7 +24,7 @@ Azure Media Hyperlapse is a Media Processor (MP) that creates smooth time-lapsed
 >[AZURE.IMPORTANT] Microsoft Hyperlapse for Azure Media Services is in a free public preview state.  Jobs are limited to the first 10,000 frames of the input asset.
 
 
->[AZURE.IMPORTANT] Microsoft Hyperlapse is designed to work best on first-person content with a moving camera.  Although still-camera footage can still work, the performance and quality of the Azure Media Hyperlapse Media Processor cannot be guaranteed for other types of content.  To learn more about Microsoft Hyperlapse for Azure Media Services and see some example videos, check out the [introductory blog post](http://aka.ms/azurehyperlapseblog) from the public preview.
+> Microsoft Hyperlapse is designed to work best on first-person content with a moving camera.  Although still-camera footage can still work, the performance and quality of the Azure Media Hyperlapse Media Processor cannot be guaranteed for other types of content.  To learn more about Microsoft Hyperlapse for Azure Media Services and see some example videos, check out the [introductory blog post](http://aka.ms/azurehyperlapseblog) from the public preview.
 
 An Azure Media Hyperlapse job takes as input an MP4, MOV, or WMV asset file along with a configuration file that specifies which frames of video should be time-lapsed and to what speed (e.g. first 10,000 frames at 2x).  The output is a stabilized and time-lapsed rendition of the input video.
 
