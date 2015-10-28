@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="billing"
-   ms.date="10/20/2015"
+   ms.date="10/29/2015"
    ms.author="mobandyo;bryanla"/>
 
 # Gain insights into your Microsoft Azure resource consumption 
