@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="09/23/2015"
+   ms.date="10/27/2015"
    ms.author="larryfr"/>
 
 
@@ -22,8 +22,7 @@
 Azure Virtual Network allows you to extend your Hadoop solutions to incorporate on-premises resources such as SQL Server, or to create secure private networks between resources in the cloud.
 
 > [AZURE.NOTE] HDInsight does not support affinity-based Azure virtual networks. When using HDInsight, you must use location-based virtual networks.
->
-> Currently (8/25/2015,) you can only provision one Linux-based HDInsight cluster on an Azure Virtual Network.
+
 
 ##<a id="whatis"></a>What is Azure Virtual Network?
 
