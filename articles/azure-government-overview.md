@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="azure-government" 
-   ms.date="09/23/2015"
+   ms.date="10/28/2015"
    ms.author="jharve"/>
 
 # Microsoft Azure Government Overview 
@@ -90,7 +90,7 @@ Currently, US GOV Iowa and US GOV Virginia are the data centers supporting Azure
 
 If you are interested in learning more and about Azure Government please leverage some of the links below.
 
-- **[Sign up for a trial]https://azuregov.microsoft.com/trial/azuregovtrial)**
+- **[Sign up for a trial](https://azuregov.microsoft.com/trial/azuregovtrial)**
 
 - **[Acquiring and accessing Azure Government](http://azure.com/gov)**
 
@@ -99,7 +99,7 @@ If you are interested in learning more and about Azure Government please leverag
 - **[Azure Government Blog](http://blogs.msdn.com/b/azuregov/)**
 
 - **[Azure Compliance](http://azure.microsoft.com/en-us/support/trust-center/compliance/)**
-- 
+
 
 
 <!--- **<A href="/azure-government-service-description">Azure Government Service Descriptions</a>**-->
