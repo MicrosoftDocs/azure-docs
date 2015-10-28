@@ -25,9 +25,7 @@
 
 Azure Government is a government-community cloud (GCC) designed to support strategic government scenarios that require speed, scale, security, compliance and economics for U.S. government organizations.   It was developed based on Microsoft’s extensive experience delivering software, security, compliance, and controls in other Microsoft cloud offerings such as Azure public, Office 365, O365 GCC, Microsoft CRM Online etc. 
 
-In addition, Azure Government is designed to meet the higher level security and compliance needs for sensitive, dedicated, U.S. Public Sector workloads found in regulations such as United States Federal Risk and Authorization Management Program (FedRAMP), Department of Defense Enterprise Cloud Service Broker (ECSB), Criminal Justice Information Services (CJIS) Security Policy and Health Insurance Portability and Accountability Ac
-   ms.author="john.harvey@microsoft.com"/>
-t (HIPAA).     
+In addition, Azure Government is designed to meet the higher level security and compliance needs for sensitive, dedicated, U.S. Public Sector workloads found in regulations such as United States Federal Risk and Authorization Management Program (FedRAMP), Department of Defense Enterprise Cloud Service Broker (ECSB), Criminal Justice Information Services (CJIS) Security Policy and Health Insurance Portability and Accountability Act (HIPAA).     
 
 Below is a summary view of the Azure Government infrastructure, fabric, services and frameworks that are available to help government organizations build hybrid cloud solutions to meet their goals.  Please see the [regions page](http://azure.microsoft.com/regions/#services) as the most up to date services that are generally available are listed there.
 
@@ -92,15 +90,16 @@ Currently, US GOV Iowa and US GOV Virginia are the data centers supporting Azure
 
 If you are interested in learning more and about Azure Government please leverage some of the links below.
 
-- **<A href="https://azuregov.microsoft.com/trial/azuregovtrial">Sign up for a trial</a>**
+- **[Sign up for a trial]https://azuregov.microsoft.com/trial/azuregovtrial)**
 
-- **<A href="http://azure.com/gov">Acquiring and accessing Azure Government</a>**
+- **[Acquiring and accessing Azure Government](http://azure.com/gov)**
 
-- **<A href="/azure-government-developer-guide">Azure Government Developer Guide</a>**
+- **[Azure Government Developer Guide](/azureazure-government-developer-guide)**
 
-- **<A href="http://blogs.msdn.com/b/azuregov/">Azure Government Blog</a>**
+- **[Azure Government Blog](http://blogs.msdn.com/b/azuregov/)**
 
-- **<A href="http://azure.microsoft.com/en-us/support/trust-center/compliance/">Azure Compliance</a>**
+- **[Azure Compliance](http://azure.microsoft.com/en-us/support/trust-center/compliance/)**
+- 
 
 
 <!--- **<A href="/azure-government-service-description">Azure Government Service Descriptions</a>**-->
