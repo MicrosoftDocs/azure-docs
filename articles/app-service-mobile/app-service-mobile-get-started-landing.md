@@ -21,12 +21,12 @@ Use App Service Mobile Apps to easily build native and cross-platform apps, secu
 
 To get started, follow these tutorials to create a to-do app that connects to a mobile backend on App Service. Choose your client platform:
 
-  * [iOS](../app-service-mobile-dotnet-backend-ios-get-started-preview.md)
-  * [Xamarin.iOS](../app-service-mobile-dotnet-backend-xamarin-ios-get-started-preview.md)
-  * [Xamarin.Android](../app-service-mobile-dotnet-backend-xamarin-android-get-started-preview.md)
-  * [Xamarin.Forms](../app-service-mobile-dotnet-backend-xamarin-forms-get-started-preview.md)
-  * [Windows](../app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-preview.md)
-  * [HTML](../app-service-mobile-dotnet-backend-html-get-started-preview.md)
+  * [iOS](../app-service-mobile-ios-get-started.md)
+  * [Xamarin.iOS](../app-service-mobile-xamarin-ios-get-started.md)
+  * [Xamarin.Android](../app-service-mobile-xamarin-android-get-started.md)
+  * [Xamarin.Forms](../app-service-mobile-xamarin-forms-get-started.md)
+  * [Windows](../app-service-mobile-windows-store-dotnet-get-started.md)
+  * [HTML](../app-service-mobile-html-get-started.md)
 
 ##Videos
 
