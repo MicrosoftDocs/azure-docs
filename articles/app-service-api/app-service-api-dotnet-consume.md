@@ -102,7 +102,7 @@ In this section you create a Windows desktop application project and add code to
 
 ### Set up the API app and create the project
 
-1. Follow the [Protect an API app](../app-service-dotnet-add-authentication.md) tutorial to set up an API app with **Public (authenticated)** access level.
+1. Follow the [Protect an API app](../app-service-api-dotnet-add-authentication.md) tutorial to set up an API app with **Public (authenticated)** access level.
 
 1. In Visual Studio, create a Windows Forms desktop project.
 
