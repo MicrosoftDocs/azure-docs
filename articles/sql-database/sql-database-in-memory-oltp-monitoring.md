@@ -14,27 +14,25 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="10/27/2015"
+	ms.date="10/28/2015"
 	ms.author="jodebrui"/>
 
 
 # Monitor XTP In-Memory Storage
 
-When using [In-Memory OLTP](https://azure.microsoft.com/en-us/documentation/articles/sql-database-in-memory/), data in memory-optimized tables and table variables resides in XTP in-memory storage. Each Premium service tier has a maximum in-memory storage size. Once this limit is exceeded, insert and update operations may start failing (with error 41805). At that point you will need to either delete data to reclaim memory, or upgrade the performance tier of your database.
+Consult the [SQL Database Service Tiers article](sql-database-service-tiers.md) for service tier and storage information.
+
+When using [In-Memory](sql-database-in-memory.md), data in memory-optimized tables and table variables resides in XTP in-memory storage. Each Premium service tier has a maximum in-memory storage size. Once this limit is exceeded, insert and update operations may start failing (with error 41805). At that point you will need to either delete data to reclaim memory, or upgrade the performance tier of your database.
 
 ## Determine whether data will fit within the in-memory storage cap
 
-Estimating memory requirements for a memory-optimized table works the same way for SQL Server as it does in Azure SQL Database. Take a few minutes to review that topic on [MSDN](https://msdn.microsoft.com/library/dn282389.aspx#bkmk_memoryfortable).
+Estimating memory requirements for a memory-optimized table works the same way for SQL Server as it does in Azure SQL Database. Take a few minutes to review that topic on [MSDN](https://msdn.microsoft.com/library/dn282389.aspx).
 
 Note that the table and table variable rows, as well as indexes, count toward the max user data size. In addition, ALTER TABLE needs enough room to create a new version of the entire table and its indexes.
 
 ##### Max XTP in-memory storage size for Premium service tiers:
-| SERVICE TIER / PERFORMANCE LEVEL | MAX IN-MEMORY STORAGE SIZE (PREVIEW) |
-| Premium/P1                       | 1GB                                  |
-| Premium/P2                       | 2GB                                  |
-| Premium/P4                       | 3GB                                  |
-| Premium/P6                       | 8GB                                  |
-| Premium/P11                      | 10GB                                 |
+
+
 
 You can monitor in-memory storage use in the Azure [portal](http://portal.azure.com/): 
 
@@ -58,4 +56,4 @@ To resolve this error, either:
 - Upgrade the service tier to one with enough in-memory storage for the data you need to keep in memory-optimized tables.
 
 ## Next steps
-Learn more about about [Monitoring Azure SQL Database using dynamic management views](https://azure.microsoft.com/en-us/documentation/articles/sql-database-monitoring-with-dmvs/)
+Learn more about about [Monitoring Azure SQL Database using dynamic management views](sql-database-monitoring-with-dmvs.md)

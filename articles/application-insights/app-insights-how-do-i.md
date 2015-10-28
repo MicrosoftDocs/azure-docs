@@ -195,10 +195,29 @@ If you want a list of users with data such as what pages they look at or how oft
 
 ## Reduce traffic from my app to Application Insights
 
-* In [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md), disable any modules you don't need, such as performance counters.
+* In [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md), disable any modules you don't need, such the performance counter collector.
+* Use [Sampling and filtering](app-insights-api-filtering-sampling.md) at the SDK.
 * If you're using [TrackMetric](app-insights-api-custom-events-metrics.md#track-metric), compute the aggregate of batches of metric values before sending the result. There's an overload of TrackMetric() that provides for that.
 
+
 Learn more about [pricing and quotas](app-insights-pricing.md).
+
+## Disable telemetry
+
+To **dynamically stop and start** the collection and transmission of telemetry from the server:
+
+```
+
+    using  Microsoft.ApplicationInsights.Extensibility;
+
+    TelemetryConfiguration.Active.DisableTelemetry = true;
+```
+
+
+
+To **disable selected standard collectors** - for example, performance counters, HTTP requests, or dependencies - delete or comment out the relevant lines in [ApplicationInsights.config](app-insights-api-custom-events-metrics.md). You could do this, for example, if you want to send your own TrackRequest data.
+
+
 
 ## View system performance counters
 

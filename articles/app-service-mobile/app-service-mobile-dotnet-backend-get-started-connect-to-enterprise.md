@@ -184,5 +184,5 @@ To create a Word document, you'll use the OpenXML NuGet package. Install this pa
 
 [Azure Management Portal]: https://manage.windowsazure.com/
 [SharePoint Online]: http://office.microsoft.com/en-us/sharepoint/
-[Azure Active Directory Authentication Library Single Sign-On]: app-service-mobile-dotnet-backend-ios-aad-sso-preview.md
+[Azure Active Directory Authentication Library Single Sign-On]: app-service-mobile-ios-aad-sso.md
 [Mobile Apps .NET Backend App Service Extension]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.AppService/
