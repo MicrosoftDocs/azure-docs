@@ -41,7 +41,7 @@ Virtual networks are the recommended way to connect virtual machines in Azure. T
 
 To connect virtual machines in a virtual network:
 
-1.	Create the virtual network in the [Azure Portal](http://manage.windowsazure.com). For more information, see [Virtual Network Configuration Tasks](../documentation/services/virtual-machines/).
+1.	Create the virtual network in the [Azure Portal](http://manage.windowsazure.com). For more information, see [Create a virtual network (classic) by using the Azure portal](../virtual-network/virtual-networks-create-vnet-classic-portal.md).
 2.	Create the set of cloud services for your deployment to reflect your design for availability sets and load balancing. In the portal, click **New > Compute > Cloud Service > Custom Create** for each cloud service.
 3.	To create each new virtual machine, click **New > Compute > Virtual Machine > From Gallery**. Choose the correct cloud service and virtual network for the VM. If the cloud service is already joined to a virtual network, its name will already be selected for you.
 

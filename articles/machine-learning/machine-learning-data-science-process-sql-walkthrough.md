@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/18/2015" 
+	ms.date="10/27/2015" 
 	ms.author="mohabib;fashah;bradsev"/>
 
 
 # The Cortana Analytics Process in action: using SQL Server
 
-In this tutorial, you walkthrough building and deploying a model using a publicly available dataset -- the [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) dataset. The procedure follows the Azure Advanced Analytics Process and Technology (ADAPT) guide.
+In this tutorial, you walkthrough building and deploying a model using a publicly available dataset -- the [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) dataset. The procedure follows the Cortana Analytics Process (CAP) workflow.
 
 
 ## <a name="dataset"></a>NYC Taxi Trips Dataset Description
