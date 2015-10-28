@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-management"
-	ms.date="10/27/2015"
+	ms.date="10/28/2015"
 	ms.author="jroth" />
 
 # Azure SQL Database performance guidance for single databases
@@ -113,6 +113,11 @@ The following sections provide more information on each area in the previous tab
 Standard and Active Geo-Replication provides similar disaster recovery features but with a much lower Recovery Point Objective (RPO). For example, with Geo-restore, the RPO is less than one hour (in other words, the backup might be from up to one hour ago). But for Geo-replication, the RPO is less than 5 seconds.
 
 For more information, see the [Business Continuity Overview](sql-database-business-continuity.md).
+
+### Max XTP In-Memory storage
+**Max XTP In-Memory storage** refers to the maximum amount of storage available to the [In-Memory OLTP Preview](sql-database-in-memory.md) for Premium databases. You can use the Azure Portal or the **sys.dm_db_resource_stats** view to monitor your In-Memory storage use. For more information on monitoring, see [Monitor XTP In-Memory Storage](sql-database-in-memory-oltp-monitoring.md). 
+
+>[AZURE.NOTE] The In-Memory OLTP Preview is currently only supported for single databases and not for databases in elastic database pools.
 
 ### Max concurrent requests
 
