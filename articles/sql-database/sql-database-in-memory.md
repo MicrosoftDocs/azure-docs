@@ -254,5 +254,5 @@ More about In-Memory OLTP and Analytics:
 
 Try [Use In-Memory OLTP in an existing Azure SQL Application.](sql-database-in-memory-oltp-migration.md)
 
-[Monitor In-Memory Storage](sql-database-in-memory-monitoring.md) for In-Memory OLTP.
+[Monitor In-Memory Storage](sql-database-in-memory-oltp-monitoring.md) for In-Memory OLTP.
 
