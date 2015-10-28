@@ -18,7 +18,7 @@
 	ms.author="jodebrui"/>
 
 
-# Get started with In-Memory OLTP
+# Get started with In-Memory OLTP (Preview)
 
 
 SQL In-Memory technologies greatly improve the performance of transactional and analytics workloads. With In-Memory OLTP you can achieve up to 30 times gain in transaction throughput, and with In-Memory Analytics you can achieve up to 100 times improvement in query performance, depending on the workload.
@@ -30,8 +30,8 @@ In-Memory Analytics is currently generally available. In-Memory OLTP is in previ
 Try In-Memory OLTP for transactional workloads:
 
 - Install the [In-Memory OLTP sample database](# Install the In-Memory OLTP sample database).
-- [Use In-Memory OLTP in an existing Azure SQL Application.](https://azure.microsoft.com/en-us/documentation/articles/sql-database-in-memory-oltp-migration/)
-- [Monitor in-memory storage](https://azure.microsoft.com/en-us/documentation/articles/sql-database-in-memory-monitoring/).
+- [Use In-Memory OLTP in an existing Azure SQL Application.](sql-database-in-memory-oltp-migration.md)
+- [Monitor in-memory storage](sql-database-in-memory-monitoring.md).
 
 Try In-Memory Analytics for transactional workloads:
 
@@ -42,8 +42,8 @@ Try In-Memory Analytics for transactional workloads:
 
 The AdventureWorksLT-based In-Memory OLTP sample (available in the Azure preview portal) extends the AdventureWorksLT [V12] sample  with memory-optimized tables and natively compiled stored procedures to illustrate the In-Memory OLTP objects. It also comes with an INSERT workload to demonstrate the performance benefits of using memory-optimized tables, compared with disk-based tables.
 
-1.	In the preview [portal](https://portal.azure.com/) create a Premium database on a V12 server. Set Source to the AdventureWorksLT[V12] sample database. For more detailed instructions for this step see [this article](https://azure.microsoft.com/en-us/documentation/articles/sql-database-get-started/).
-2.	Connect to the database (for example, using [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/en-us/library/mt238290.aspx)).
+1.	In the preview [portal](https://portal.azure.com/) create a Premium database on a V12 server. Set Source to the AdventureWorksLT[V12] sample database. For more detailed instructions for this step see [this article](sql-database-get-started.md).
+2.	Connect to the database (for example, using [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx)).
 3.	Download and execute the [In-Memory OLTP script](https://github.com/Azure/azure-sql-database-samples/tree/master/T-SQL/In-Memory) that creates the necessary In-Memory objects in the AdventureWorksLT sample database created in step 1.
 
 The sample contains the following memory-optimized tables:
@@ -200,7 +200,7 @@ Some Transact-SQL features are not supported with In-Memory OLTP. For details se
 
 [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx) September 2015 Preview or later.
 
-[SQL Server Data Tools Preview (SSDT)](https://msdn.microsoft.com/en-us/library/mt204009.aspx) September 2015 Preview or later.
+[SQL Server Data Tools Preview (SSDT)](https://msdn.microsoft.com/library/mt204009.aspx) September 2015 Preview or later.
 
 ## Additional resources
 More about In-Memory OLTP and Analytics:
@@ -211,6 +211,6 @@ More about In-Memory OLTP and Analytics:
 [White paper on Common Workload Patterns and Migration Considerations](https://msdn.microsoft.com/library/dn673538.aspx) describes workload patterns where In-Memory OLTP commonly provides significant performance gains.
 
 ## Next steps
-Try [Use In-Memory OLTP in an existing Azure SQL Application.](https://azure.microsoft.com/en-us/documentation/articles/sql-database-in-memory-oltp-migration/)
+Try [Use In-Memory OLTP in an existing Azure SQL Application.](sql-database-in-memory-oltp-migration.md)
 
-[Monitor In-Memory Storage](https://azure.microsoft.com/en-us/documentation/articles/sql-database-in-memory-monitoring/) for In-Memory OLTP.
+[Monitor In-Memory Storage](sql-database-in-memory-monitoring.md) for In-Memory OLTP.
