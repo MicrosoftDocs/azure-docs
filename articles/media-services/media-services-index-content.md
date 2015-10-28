@@ -261,17 +261,17 @@ __features__ <br /><br /> Added in version 1.2. Currently, the only supported fe
 ### <a id="error_codes"></a>Error codes
 
 Code | Name | Possible Reasons
--|-|-
-2000|	Invalid configuration|	Invalid configuration
-2001|	Invalid input assets|	Missing input assets or empty asset.
-2002|	Invalid manifest|	Manifest is empty or manifest contains invalid items.
-2003|	Failed to download media file|	Invalid URL in manifest file.
-2004|	Unsupported protocol|	Protocol of media URL is not supported.
-2005|	Unsupported file type|	Input media file type is not supported.
-2006|	Too many input files|	There are more than 10 files in the input manifest.
-3000|	Failed to decode media file|	Unsupported media codec <br/>or<br/> Corrupted media file <br/>or<br/> No audio stream in input media.
-4000|	Batch indexing partially succeeded	|Some of the input media files are failed to be indexed. For more information, see <a href="output_files">Output files</a>.
-other|	Internal errors|	Please contact support team. indexer@microsoft.com
+-----|------|------------------
+2000 | Invalid configuration | Invalid configuration
+2001 | Invalid input assets | Missing input assets or empty asset.
+2002 | Invalid manifest | Manifest is empty or manifest contains invalid items.
+2003 | Failed to download media file | Invalid URL in manifest file.
+2004 | Unsupported protocol | Protocol of media URL is not supported.
+2005 | Unsupported file type | Input media file type is not supported.
+2006 | Too many input files | There are more than 10 files in the input manifest.
+3000 | Failed to decode media file | Unsupported media codec <br/>or<br/> Corrupted media file <br/>or<br/> No audio stream in input media.
+4000 | Batch indexing partially succeeded | Some of the input media files are failed to be indexed. For more information, see <a href="output_files">Output files</a>.
+other | Internal errors | Please contact support team. indexer@microsoft.com
 
 
 ## <a id="supported_languages"></a>Supported Languages
