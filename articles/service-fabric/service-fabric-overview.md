@@ -40,7 +40,7 @@ Why are stateful microservices important? Why not simply use stateless services 
 
 1) The ability to build high-throughput, low-latency, failure-tolerant OLTP services like interactive store fronts, search, Internet of Things (IoT) systems, trading systems, credit card processing and fraud detection systems, personal record management etc by keeping code and data close on the same machine.
 
-2) Application design simplification as stateful microservices remove the need for additional queues and caches that have traditionally been required to address the availability and latency requirements of a purely stateless application. Since stateful service are naturally highly-available and low-latency this means less moving parts to manage in your application as a whole. 
+2) Application design simplification as stateful microservices remove the need for additional queues and caches that have traditionally been required to address the availability and latency requirements of a purely stateless application. Since stateful service are naturally highly-available and low-latency this means fewer moving parts to manage in your application as a whole. 
 
 For more information on application patterns and design using Service Fabric see [Application Scenarios](service-fabric-application-scenarios.md)
 
@@ -82,7 +82,7 @@ By using Service Fabric, you can:
 
 - Monitor and diagnose the health of your applications and set policies to perform automatic repairs.
 
-- Scale-up or scale-down your Service Fabric cluster easily, knowing that the applications scales according to the available resources.
+- Scale-up or scale-down your Service Fabric cluster easily, knowing that the applications scale according to the available resources.
 
 - Watch the self healing resource balancer orchestrate the redistribution of applications across the Service Fabric cluster to recover from failures and to optimize the distribution of load based on available resources.
 
