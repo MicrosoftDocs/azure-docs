@@ -38,24 +38,11 @@ First you will need to upload your desired input file to Azure Media Services.  
 
 Once your content is in your Media Services account, you will need to construct your configuration preset.  The following table explains the user-specified fields:
 
-<table border="1">
-<tr>
-  <th>Field</th>
-  <th>Description</th>
-</tr>
-<tr>
-  <td>StartFrame </td>
-  <td>The frame upon which the Microsoft Hyperlapse processing should begin.</td>
-</tr>
-<tr>
-  <td>NumFrames</td>
-  <td>The number of frames to process with Microsoft Hyperlapse</td>
-</tr>
-<tr>
-  <td>Speed</td>
-  <td>The factor with which to speed up the input video.  Must be greater than 1.</td>
-</tr>
-</table>
+ Field | Description
+-------|-------------
+StartFrame|The frame upon which the Microsoft Hyperlapse processing should begin.
+NumFrames|The number of frames to process
+Speed|The factor with which to speed up the input video.
 
 The following is an example of a conformant configuration file in XML and JSON:
 
