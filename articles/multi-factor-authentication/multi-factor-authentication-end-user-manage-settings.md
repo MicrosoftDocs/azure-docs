@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Managing your Azure MFA settings" 
-	description="This document will provide users information on where they need to go to manage their Azure MFA settings." 
+	pageTitle="Having trouble with Azure Multi-Facto Authentication" 
+	description="This document will provide users information on what to do if they run into an issue with Azure Multi-Factor Authentication." 
 	services="multi-factor-authentication" 
 	documentationCenter="" 
 	authors="billmath" 
@@ -13,19 +13,38 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/22/2015" 
+	ms.date="10/29/2015" 
 	ms.author="billmath"/>
 
 # Having trouble with Azure Multi-Factor Authentication
 The following information is provided to help you with some of the common issues that you may experience.
 
 
-
+- [Correlation ID Errors](#correlation-id-errors)
 - [I have lost my phone or it was stolen](#i-have-lost-my-phone-or-it-was-stolen?)
 - [I want to change my phone number](#i-want-to-change-my-phone-number)
 - [I am not receiving a code on my phone](#i-am-not-receiving-a-code-on-my-phone)
 - [App passwords are not working](#app-passwords-are-not-working)
 - [How do I clean up Azure Authenticator from my old device and move to a new one?](#how-do-i-clean-up-azure-authenticator-from-my-old-device-and-move-to-a-new-one)
+
+##Correlation ID Errors
+If you've tried the troubleshooting steps below and are still running into problems, you can post a question on the [Azure AD Forums](https://social.msdn.microsoft.com/forums/azure/home?forum=WindowsAzureAD), [Search the Microsoft Knowledge Base (KB)](https://www.microsoft.com/en-us/Search/result.aspx?q=azure%20active%20directory%20connect&form=mssupport) or [contact support](https://support.microsoft.com/en-us) and we'll take a look at your problem as soon as we can.
+
+When you contact support, it is recommended to include the following information:
+
+ - **General description of the error** – what exact error message did the user see?  If there was no error message, describe the unexpected behavior you noticed, in detail.
+ - **Page** – what page were you on when you saw the error (include the URL)?
+ - **ErrorCode** - the specific error code you are receiving.
+ - **SessionId** - the specific session id you are receiving.
+ - **Correlation ID** – what was the correlation id code generated when the user saw the error.
+ - **Timestamp** – what was the precise date and time you saw the error (include the timezone)?
+ 
+![Correlation ID](./media/multi-factor-authentication-end-user-manage/correlation.png) 
+
+ - **User ID** – what was the ID of the user who saw the error (e.g. user@contoso.com)?
+ - **Information about the user** – was the user federated, password hash synced, cloud only?  Did the user have an Azure AD Premium, Enterprise Mobility, or Azure AD Basic license assigned?
+
+Including this information will help us to solve your problem as quickly as possible.
 
 ## I have lost my phone or it was stolen?
 If your phone was lost or stolen, it is recommended that you have your administrator reset your [app passwords](multi-factor-authentication-manage-users-and-devices.md#delete-users-existing-app-passwords) and clear any [remembered devices](multi-factor-authentication-manage-users-and-devices.md#restore-mfa-on-all-suspended-devices-for-a-user).
@@ -128,3 +147,4 @@ First, make sure that you have entered the app password correctly.  If it is sti
 
 ##How do I clean up Azure Authenticator from my old device and move to a new one?
 When you uninstall the app from your device or reflash the device, it does not remove the activation on the back end. You should use the steps outlined in [moving to a new device.](multi-factor-authentication-azure-authenticator.md#how-to-move-to-the-new-azure-authenticator-app).
+
