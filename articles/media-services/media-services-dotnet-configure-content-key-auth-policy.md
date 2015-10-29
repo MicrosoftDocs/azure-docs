@@ -1,9 +1,9 @@
 <properties 
-	pageTitle="Dynamic Encryption:  Configure Content Key Authorization Policy using .NET" 
-	description="Learn how to configure an authorization policy for a content key." 
+	pageTitle="Configure Content Key Authorization Policy using Media Services .NET SDK" 
+	description="Learn how to configure an authorization policy for a content key using Media Services .NET SDK." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="juliako" 
+	authors="juliako,Mingfeiy" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/16/2015"
+	ms.date="10/18/2015"
 	ms.author="juliako"/>
 
 

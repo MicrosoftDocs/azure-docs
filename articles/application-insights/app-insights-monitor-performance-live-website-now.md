@@ -174,6 +174,7 @@ This list may change from time to time.
   * On the server, if you see a message about "insufficient permissions", try the following:
     * In IIS Manager, select your application pool, open **Advanced Settings**, and under **Process Model** note the identity.
     * In Computer management control panel, add this identity to the Performance Monitor Users group.
+  * If you have MMA/SCOM installed on your server, some versions can conflict. Uninstall both SCOM and Status Monitor, and re-install the latest versions.
   * See [Troubleshooting][qna].
 
 ## System Requirements
