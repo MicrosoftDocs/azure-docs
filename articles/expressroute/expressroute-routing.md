@@ -143,7 +143,7 @@ Microsoft will tag prefixes advertised through public peering and Microsoft peer
 |    | India West | 12076:51018 |
 |    | India Central | 12076:51017 |
 | **Global** | **Only supported and published when premium add-on is enabled** | 12076:51000 |
-| **Anycast** |   | 12076:51250" |
+| **Anycast** |   | 12076:51250 |
 
 All routes advertised from Microsoft will be tagged with the appropriate community value. 
 
