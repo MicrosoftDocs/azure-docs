@@ -33,7 +33,7 @@ In this overview article on Azure security, we’ll look at:
 
 Controlling access to IT infrastructure, data, and applications is critical. In Microsoft Azure, these capabilities are delivered by services such as Azure Active Directory, Azure Storage, and support for numerous standards and APIs.
 
-[Azure Active Directory](active-directory-whatis.md) (Azure AD) is an identity repository and engine that provides authentication, authorization, and access control for an organizations’ users, groups, and objects. Azure AD also offers developers an effective way to integrate identity management in their applications. Industry standard protocols such as [SAML 2.0](https://en.wikipedia.org/wiki/SAML_2.0), [WS-Federation](https://msdn.microsoft.com/library/bb498017.aspx), and [OpenID Connect](http://openid.net/connect/) makes sign-in possible on a variety of platforms such as .NET, Java, Node.js, and PHP.
+[Azure Active Directory](active-directory-whatis.md) (Azure AD) is an identity repository and engine that provides authentication, authorization, and access control for an organization's users, groups, and objects. Azure AD also offers developers an effective way to integrate identity management in their applications. Industry standard protocols such as [SAML 2.0](https://en.wikipedia.org/wiki/SAML_2.0), [WS-Federation](https://msdn.microsoft.com/library/bb498017.aspx), and [OpenID Connect](http://openid.net/connect/) makes sign-in possible on a variety of platforms such as .NET, Java, Node.js, and PHP.
 
 The REST-based Graph API enables developers to read and write to the directory from any platform. Through support for [OAuth 2.0](http://oauth.net/2/), developers can build mobile and web applications that integrate with Microsoft and third party web APIs, and build their own secure web APIs. Open source client libraries are available for .Net, Windows Store, iOS and Android with additional libraries under development.
 
@@ -43,7 +43,7 @@ Azure AD can be used as a standalone cloud directory for your organization or as
 
 Some other capabilities for identity and access management include:
 
--   Azure AD enables [SSO](overview-of-single-sign-on.md) to SaaS applications, regardless of where they are hosted. Some applications are federated with Azure AD, and others use password SSO. Federated applications can also support user provisioning and password vaulting.
+-   Azure AD enables [SSO](https://azure.microsoft.com/documentation/videos/overview-of-single-sign-on/) to SaaS applications, regardless of where they are hosted. Some applications are federated with Azure AD, and others use password SSO. Federated applications can also support user provisioning and password vaulting.
 
 -   Access to data in [Azure Storage](https://azure.microsoft.com/en-us/services/storage/) is controlled via authentication. Each Storage Account has a primary key ([Storage Account Key](https://msdn.microsoft.com/library/azure/ee460785.aspx), or SAK) and secondary secret key (the [Shared Access Signature](storage-dotnet-shared-access-signature-part-1.md), or SAS).
 
@@ -73,7 +73,7 @@ Other capabilities in Azure that will assist you to keep your data secure includ
 
 - Client side encryption for Microsoft blob storage enable you to completely control the keys.  The storage service never sees the keys and is incapable of decrypting the data.
 
--   [Azure RMS](https://technet.microsoft.com/library/jj585026.aspx) (with the [RMS SDK](https://msdn.microsoft.com/library/dn758244(v=vs.85).aspx)) provides file and data-level encryption and data leak prevention through policy-based access management.
+-   [Azure RMS](https://technet.microsoft.com/library/jj585026.aspx) (with the [RMS SDK](https://msdn.microsoft.com/library/dn758244.aspx) provides file and data-level encryption and data leak prevention through policy-based access management.
 
 -   Azure supports [table-level and column-level encryption (TDE/CLE)](http://blogs.msdn.com/b/sqlsecurity/archive/2015/05/12/recommendations-for-using-cell-level-encryption-in-azure-sql-database.aspx) in SQL Server Virtual Machines, and supports third-party on-premises key management servers in customers’ datacenters.
 
