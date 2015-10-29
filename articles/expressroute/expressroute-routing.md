@@ -120,26 +120,34 @@ Microsoft will tag prefixes advertised through public peering and Microsoft peer
 
 | **Geopolitical Region** | **Microsoft Azure region (Same applies to Office 365)** | **BGP community value** |
 |---|---|---|
-| **US** |	East US | 12076:3004 |
-|    | East US 2 | 12076:3005 |
-|    | West US | 12076:3006 |
-|    | Central US | 12076:3009 |
-|    | North Central US | 12076:3007 |
-|    | South Central US | 12076:3008 |
-| **South America** | Brazil South | 12076:3014 |
-| **Europe** | North Europe | 12076:3003 |
-|    | West Europe | 12076:3002 |
-| **Asia Pacific** | East Asia | 12076:3010 |
-|    | Southeast Asia | 12076:3011 |
-| **Japan** | Japan East | 12076:3012 |
-|    | Japan West | 12076:3013 |
-| **Australia** | Australia East | 12076:3015 |
-|    | Australia Southeast | 12076:3016 |
-| **India** | India South | 12076:3019 |
-|    | India West | 12076:3018 |
-|    | India Central | 12076:3017 |
+| **North America** |    | 12076:51201 |
+|    | East US | 12076:51004 |
+|    | East US 2 | 12076:51005 |
+|    | West US | 12076:51006 |
+|    | North Central US | 12076:51007 |
+|    | South Central US | 12076:51008 |
+|    | Central US | 12076:51009 |
+| **South America** |  | 12076:51202 |
+|    | Brazil South | 12076:51014 |
+| **Europe** |    | 12076:51203 |
+|    | North Europe | 12076:51003 |
+|    | West Europe | 12076:51002 |
+| **Asia Pacific** |    | 12076:51204 |
+|    | East Asia | 12076:51010 |
+|    | Southeast Asia | 12076:51011 |
+| **Japan** | Japan East | 12076:51012 |
+|    | Japan West | 12076:51013 |
+| **Australia** | Australia East | 12076:51015 |
+|    | Australia Southeast | 12076:51016 |
+| **India** | India South | 12076:51019 |
+|    | India West | 12076:51018 |
+|    | India Central | 12076:51017 |
+| **Global** | **Only supported and published when premium add-on is enabled** | 12076:51000 |
+| **Anycast** |   | 12076:51250" |
 
 All routes advertised from Microsoft will be tagged with the appropriate community value. 
+
+>[AZURE.IMPORTANT] Global prefixes will be tagged with an appropriate community value and will be advertised only when ExpressRoute premium add-on is enabled.
 
 
 In addition to the above, Microsoft will also tag prefixes based on the service they belong to. This applies only to the Microsoft peering. The table below provides a mapping of service to BGP community value.
