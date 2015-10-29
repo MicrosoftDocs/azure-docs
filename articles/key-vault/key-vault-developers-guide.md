@@ -53,7 +53,7 @@ The Node.js API is a set of wrappers that allows implementation through the node
 
 Azure Key Vault containers (vaults) can be managed using REST, PowerShell or CLI, as described in the following articles:
 
-- [Create and Manage Key Vaults with REST](https://msdn.microsoft.com/en-us/library/azure/mt620024.aspx)
+- [Create and Manage Key Vaults with REST](https://msdn.microsoft.com/library/azure/mt620024.aspx)
 - [Create and Manage Key Vaults with PowerShell](key-vault-get-started.md)
 - [Create and Manage Key Vaults with CLI](key-vault-manage-with-cli.md)
 
