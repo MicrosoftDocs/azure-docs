@@ -477,7 +477,7 @@ The following is the list of enforced throttles. Values refer to an individual h
 | -------- | ------------- |
 | Identity registry operations (create, retrieve, list, update, delete), individual or bulk import/export | 100/min/unit, up to 5000/min |
 | Device connections | 100/sec/unit |
-| D2C sends | 2000/min/unit (for S2), 60/min/unit (for S1). Maximum of 100/sec. |
+| D2C sends | 2000/min/unit (for S2), 60/min/unit (for S1). Minimum of 100/sec. |
 | C2D operations (sends, receive, feedback) | 100/min/unit |
 
 **Note**. At any given time, it is possible to increase quotas or throttle limits by increasing the number of provisioned units in an IoT hub.
