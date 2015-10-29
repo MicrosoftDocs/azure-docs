@@ -18,7 +18,7 @@
 
 # How to host a .NET Mobile Services project in App Service
 
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services-preview](../../includes/app-service-mobile-note-mobile-services-preview.md)]
+[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 This topic shows you how to host a .NET Mobile Services project within Azure App Service. Apps run in this way get access to all App Service features and are billed according to [App Service pricing], not Mobile Services pricing.
 
