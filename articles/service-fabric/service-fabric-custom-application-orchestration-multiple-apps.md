@@ -29,9 +29,6 @@ Let's assume that our Node.js application is using Express and Jade and that Nod
 |-- MyNodeApplication
 	|-- bin
         |-- www
-	|-- data
-        |-- journal
-        |-- etc.
 	|-- node_modules
         |-- .bin
         |-- express
