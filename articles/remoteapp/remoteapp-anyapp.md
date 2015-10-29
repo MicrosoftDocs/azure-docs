@@ -18,7 +18,7 @@
 
 # Run any Windows app on any device with Azure RemoteApp
 
-You can run a Windows application anywhere on any device, right now, seriously - just by using Azure RemoteApp. Whether it's Internet Explorer 6, a custom application written 10 years ago, or an Office app, your users no longer have to be tied to a specific operating system (like Windows XP) for those few applications.
+You can run a Windows application anywhere on any device, right now, seriously - just by using Azure RemoteApp. Whether it's a custom application written 10 years ago, or an Office app, your users no longer have to be tied to a specific operating system (like Windows XP) for those few applications.
 
 With Azure RemoteApp, your users can also use their own Android or Apple devices and get the same experience they got on Windows (or on Windows Phones). This is accomplished by hosting your Windows application in a collection of Windows virtual machines on Azure - your users can access them from anywhere they have an internet connection. 
 
