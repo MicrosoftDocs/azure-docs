@@ -4,7 +4,7 @@
 	services="application-insights" 
     documentationCenter=".net"
 	authors="alancameronwills" 
-	manager="ronmart"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/27/2015" 
+	ms.date="10/23/2015" 
 	ms.author="awills"/>
 
 # Application Insights for ASP.NET 5
@@ -75,8 +75,8 @@ Open `project.json` and edit the `dependencies` section:
         "Microsoft.ApplicationInsights.AspNet": "0.*",
 
        // Add these if they aren't already there:
-       "Microsoft.Framework.ConfigurationModel.Interfaces": "1.0.0-beta4",
-       "Microsoft.Framework.ConfigurationModel.Json":  "1.0.0-beta4"
+       "Microsoft.Framework.ConfigurationModel.Interfaces": "1.0.0-beta7",
+       "Microsoft.Framework.ConfigurationModel.Json":  "1.0.0-beta7"
       }
     }
 

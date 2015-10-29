@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/20/2015"
+   ms.date="10/26/2015"
    ms.author="cherylmc" />
 
 # VPN Gateway FAQ
@@ -70,6 +70,10 @@ We have validated a set of standard site-to-site VPN devices in partnership with
 ### What do I do if I have a VPN device that isn't in the known compatible device list?
 
 If you do not see your device listed as a known compatible VPN device and want to use it for your VPN connection, you'll need to verify that it meets the supported IPsec/IKE configuration options and parameters listed [here](vpn-gateway-about-vpn-devices.md#devices-not-on-the-compatible-list). Devices meeting the minimum requirements should work well with VPN gateways. Please contact your device manufacturer for additional support and configuration instructions.
+
+### Why does my policy-based VPN tunnel go down when traffic is idle?
+
+This is expected behavior for policy-based (also known as static routing) VPN gateways. When the traffic over the tunnel is idle for more than 5 minutes, the tunnel will be torn down. But as soon as traffic starts flowing in either direction, the tunnel will be re-established immediately. If you have a route-based (also known as dynamic) VPN gateway, you will not experience this behavior.
 
 ### Can I use software VPNs to connect to Azure?
 

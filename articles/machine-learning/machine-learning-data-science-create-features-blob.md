@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Process Azure blob data with advanced analytics | Microsoft Azure" 
-	description="Process Data in Azure Blob storage." 
+	pageTitle="Create features for Azure blob storage data using Panda | Microsoft Azure" 
+	description="How to create features for data that is stored in Azure blob container with the Panda Python package." 
 	services="machine-learning,storage" 
 	documentationCenter="" 
 	authors="bradsev" 
@@ -14,11 +14,23 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="10/20/2015" 
-	ms.author="sunliangms;fashah;garye;bradsev" /> 
+	ms.author="fashah;garye;bradsev" /> 
 
-#<a name="heading"></a>Process Azure blob data with advanced analytics
+#Create features for Azure blob storage data using Panda
 
-This document covers exploring data and generating features from data stored in Azure Blob storage. 
+This **menu** links to topics that describe how to engineer features for data in various environments. This task is a step in the Cortana Analytics Process (CAP).
+
+[AZURE.INCLUDE [cap-create-features-data-selector](../../includes/cap-create-features-selector.md)]
+
+##Introduction
+
+This document covers how to create features for data that is stored in Azure blob container using [Pandas](http://pandas.pydata.org/) Python package. After outlining how to load into a Panda data frame, it shows how to generate categorical features with indicator values and binning features, both using Python scripts.
+
+## Prerequisites
+This article assumes that you have:
+
+* Created an Azure blob storage account and have stored your data there. If you need instructions to set up an account, see [Create an Azure Storage account](../hdinsight-get-started.md#storage)
+
 
 ## Load the data into a Pandas data frame
 In order to do explore and manipulate a dataset, it must be downloaded from the blob source to a local file which can then be loaded in a Pandas data frame. Here are the steps to follow for this procedure:
@@ -48,66 +60,10 @@ In order to do explore and manipulate a dataset, it must be downloaded from the 
     	dataframe_blobdata = pd.read_csv(LOCALFILE)
 
 Now you are ready to explore the data and generate features on this dataset.
-
-##<a name="blob-dataexploration"></a>Data Exploration
-
-Here are a few examples of ways to explore data using Pandas:
-
-1. Inspect the number of rows and columns 
-
-		print 'the size of the data is: %d rows and  %d columns' % dataframe_blobdata.shape
-
-2. Inspect the first or last few rows in the dataset as below:
-
-		dataframe_blobdata.head(10)
-		
-		dataframe_blobdata.tail(10)
-
-3. Check the data type each column was imported as using the following sample code
- 	
-		for col in dataframe_blobdata.columns:
-		    print dataframe_blobdata[col].name, ':\t', dataframe_blobdata[col].dtype
-
-4. Check the basic stats for the columns in the data set as follows
- 
-		dataframe_blobdata.describe()
-	
-5. Look at the number of entries for each column value as follows
-
-		dataframe_blobdata['<column_name>'].value_counts()
-
-6. Count missing values versus the actual number of entries in each column using the following sample code
-
-		miss_num = dataframe_blobdata.shape[0] - dataframe_blobdata.count()
-		print miss_num
-	 
-7.	If you have missing values for a specific column in the data, you can drop them as follows:
-
-		dataframe_blobdata_noNA = dataframe_blobdata.dropna()
-		dataframe_blobdata_noNA.shape
-
-	Another way to replace missing values is with the mode function:
-	
-		dataframe_blobdata_mode = dataframe_blobdata.fillna({'<column_name>':dataframe_blobdata['<column_name>'].mode()[0]})		
-
-8. Create a histogram plot using variable number of bins to plot the distribution of a variable	
-	
-		dataframe_blobdata['<column_name>'].value_counts().plot(kind='bar')
-		
-		np.log(dataframe_blobdata['<column_name>']+1).hist(bins=50)
-	
-9. Look at correlations between variables using a scatterplot or using the built-in correlation function
-
-		#relationship between column_a and column_b using scatter plot
-		plt.scatter(dataframe_blobdata['<column_a>'], dataframe_blobdata['<column_b>'])
-		
-		#correlation between column_a and column_b
-		dataframe_blobdata[['<column_a>', '<column_b>']].corr()
-	
 	
 ##<a name="blob-featuregen"></a>Feature Generation
 	
-We can generate features using Python as follows:
+The next two sections show how to generate categorical features with indicator values and binning features using Python scripts.
 
 ###<a name="blob-countfeature"></a>Indicator value based Feature Generation
 
@@ -179,13 +135,9 @@ Note that additional features can be created in the Azure Machine Learning Studi
 	    except:	        
 		    print ("Something went wrong with uploading blob:"+BLOBNAME)
 
-3. Now the data can be read from the blob using the Azure Machine Learning [Reader][reader] module as shown in the screen below:
+3. Now the data can be read from the blob using the Azure Machine Learning [Reader](https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/) module as shown in the screen below:
  
-![reader blob][1]
-
-[1]: ./media/machine-learning-data-science-process-data-blob/reader_blob.png
+![reader blob](./media/machine-learning-data-science-process-data-blob/reader_blob.png)
 
 
-<!-- Module References -->
-[reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
  
