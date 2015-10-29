@@ -83,7 +83,7 @@ Once we have a set of models that perform well, they can be **operationalized** 
 
 ## Summary and next steps
 
-The Cortana Analytics Process is modeled as a sequence of iterated steps that **provide guidance** on the tasks needed to use advanced analytics to build  an intelligent applications. Each step also provides details on how to use various Microsoft technologies to complete the tasks described. 
+The [Cortana Analytics Process](https://azure.microsoft.com/en-us/documentation/learning-paths/cortana-analytics-process/) is modeled as a sequence of iterated steps that **provide guidance** on the tasks needed to use advanced analytics to build  an intelligent applications. Each step also provides details on how to use various Microsoft technologies to complete the tasks described. 
 
 While CAP does not prescribe specific types of **documentation** artifacts, it is a best practice to document the results of the data exploration, modeling and evaluation, and to save the pertinent code so that the analysis can iterated when required. This also allows reuse of the analytics work when working on other applications involving similar data and prediction tasks.
 
