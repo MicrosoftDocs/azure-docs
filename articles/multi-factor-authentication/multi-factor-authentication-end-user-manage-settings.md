@@ -42,7 +42,7 @@ When you contact support, it is recommended to include the following information
 ![Correlation ID](./media/multi-factor-authentication-end-user-manage/correlation.png) 
 
  - **User ID** – what was the ID of the user who saw the error (e.g. user@contoso.com)?
- - **Information about the user** – was the user federated, password hash synced, cloud only?  Did the user have an Azure AD Premium, Enterprise Mobility, or Azure AD Basic license assigned?
+ - **Information about the user** – was the user federated, password hash synced, cloud only?  Did the user have an Azure AD Premium, Enterprise Mobility, or Azure AD Basic license assigned?  Is the user using Office 365? etc.
 
 Including this information will help us to solve your problem as quickly as possible.
 
