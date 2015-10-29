@@ -75,8 +75,8 @@ Example:
 
 
 ```
-SELECT name, object_id, type, type_desc, is_memory_optimized, durability, durability_desc
-	FROM sys.tables
+		SELECT name, object_id, type, type_desc, is_memory_optimized, durability, durability_desc
+		FROM sys.tables
 	WHERE is_memory_optimized=1;
 ```
 
@@ -87,8 +87,8 @@ Example:
 
 
 ```
-SELECT object_name(object_id), object_id, definition, uses_native_compilation
-	FROM sys.sql_modules
+		SELECT object_name(object_id), object_id, definition, uses_native_compilation
+		FROM sys.sql_modules
 	WHERE uses_native_compilation=1;
 ```
 
@@ -105,22 +105,22 @@ The following script inserts a sample sales order with five line items in the me
 
 
 ```
-DECLARE
-	@i int = 0,
-	@od SalesLT.SalesOrderDetailType_inmem,
-	@SalesOrderID int,
-	@DueDate datetime2 = sysdatetime(),
-	@CustomerID int = rand() * 8000,
-	@BillToAddressID int = rand() * 10000,
-	@ShipToAddressID int = rand() * 10000;
+		DECLARE
+			@i int = 0,
+			@od SalesLT.SalesOrderDetailType_inmem,
+			@SalesOrderID int,
+			@DueDate datetime2 = sysdatetime(),
+			@CustomerID int = rand() * 8000,
+			@BillToAddressID int = rand() * 10000,
+			@ShipToAddressID int = rand() * 10000;
 
-INSERT INTO @od
-	SELECT OrderQty, ProductID
+		INSERT INTO @od
+		SELECT OrderQty, ProductID
 		FROM Demo.DemoSalesOrderDetailSeed
 		WHERE OrderID= cast((rand()*60) as int);
 
 EXECUTE SalesLT.usp_InsertSalesOrder_inmem @SalesOrderID OUTPUT, @DueDate,
-	@CustomerID, @BillToAddressID, @ShipToAddressID, @od;
+			@CustomerID, @BillToAddressID, @ShipToAddressID, @od;
 ```
 
 
@@ -132,14 +132,14 @@ When run from the RML Cmd Prompt, the following command inserts one million sale
 
 
 ```
-ostress.exe –n100 –r500 –S<servername>.database.windows.net -U<login> -P<password>
-	 -d<database> -q -Q"DECLARE @i int = 0, @od SalesLT.SalesOrderDetailType_inmem,
-	@SalesOrderID int, @DueDate datetime2 = sysdatetime(), @CustomerID int = rand() *
-	8000, @BillToAddressID int = rand() * 10000, @ShipToAddressID int = rand()*  
-	10000; INSERT INTO @od SELECT OrderQty, ProductID FROM
-	Demo.DemoSalesOrderDetailSeed WHERE OrderID= cast((rand()*60) as int); while (@i <
-	 20) begin; EXEC SalesLT.usp_InsertSalesOrder_inmem @SalesOrderID OUTPUT, @DueDate,
-	 @CustomerID, @BillToAddressID, @ShipToAddressID, @od; set @i += 1 end"
+		ostress.exe –n100 –r500 –S<servername>.database.windows.net -U<login> -P<password>
+		 -d<database> -q -Q"DECLARE @i int = 0, @od SalesLT.SalesOrderDetailType_inmem,
+		@SalesOrderID int, @DueDate datetime2 = sysdatetime(), @CustomerID int = rand() *
+		8000, @BillToAddressID int = rand() * 10000, @ShipToAddressID int = rand()*  
+		10000; INSERT INTO @od SELECT OrderQty, ProductID FROM
+		Demo.DemoSalesOrderDetailSeed WHERE OrderID= cast((rand()*60) as int); while (@i <
+		 20) begin; EXEC SalesLT.usp_InsertSalesOrder_inmem @SalesOrderID OUTPUT, @DueDate,
+		 @CustomerID, @BillToAddressID, @ShipToAddressID, @od; set @i += 1 end"
 ```
 
 
@@ -149,15 +149,15 @@ To compare the insert performance of memory-optimized tables with traditional di
 
 
 ```
-ostress.exe –n100 –r500 –S<servername>.database.windows.net -U<login> -P<password>
-	-d<database> -q -Q"DECLARE @i int = 0, @od SalesLT.SalesOrderDetailType_ondisk,
-	@SalesOrderID int, @DueDate datetime2 = sysdatetime(), @CustomerID int = rand() *
-	8000, @BillToAddressID int = rand() * 10000, @ShipToAddressID int = rand() *
-	10000; INSERT INTO @od SELECT OrderQty, ProductID FROM
-	Demo.DemoSalesOrderDetailSeed with (snapshot) WHERE OrderID= cast((rand()*60) as
-	int); while (@i < 20) begin; EXEC SalesLT.usp_InsertSalesOrder_ondisk
-	@SalesOrderID OUTPUT, @DueDate, @CustomerID, @BillToAddressID, @ShipToAddressID,
-	@od; set @i += 1 end"
+		ostress.exe –n100 –r500 –S<servername>.database.windows.net -U<login> -P<password>
+		-d<database> -q -Q"DECLARE @i int = 0, @od SalesLT.SalesOrderDetailType_ondisk,
+		@SalesOrderID int, @DueDate datetime2 = sysdatetime(), @CustomerID int = rand() *
+		8000, @BillToAddressID int = rand() * 10000, @ShipToAddressID int = rand() *
+		10000; INSERT INTO @od SELECT OrderQty, ProductID FROM
+		Demo.DemoSalesOrderDetailSeed with (snapshot) WHERE OrderID= cast((rand()*60) as
+		int); while (@i < 20) begin; EXEC SalesLT.usp_InsertSalesOrder_ondisk
+		@SalesOrderID OUTPUT, @DueDate, @CustomerID, @BillToAddressID, @ShipToAddressID,
+		@od; set @i += 1 end"
 ```
 
 
@@ -254,5 +254,5 @@ More about In-Memory OLTP and Analytics:
 
 Try [Use In-Memory OLTP in an existing Azure SQL Application.](sql-database-in-memory-oltp-migration.md)
 
-[Monitor In-Memory Storage](sql-database-in-memory-monitoring.md) for In-Memory OLTP.
+[Monitor In-Memory Storage](sql-database-in-memory-oltp-monitoring.md) for In-Memory OLTP.
 
