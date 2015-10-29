@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Create AD application and service principal in portal"
-   description="Describes how to create a new Azure service principal that can be used with the role-based access control in Azure Resource Manager to manage access to resources."
+   pageTitle="Create AD application and service principal in portal | Microsoft Azure"
+   description="Describes how to create a new Active Directory application and service principal that can be used with the role-based access control in Azure Resource Manager to manage access to resources."
    services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
@@ -13,18 +13,15 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/28/2015"
+   ms.date="10/29/2015"
    ms.author="tomfitz"/>
 
-# Create Active Directory application and service principal using the Azure portal
+# Create Active Directory application and service principal using portal
 
 ## Overview
-When you have an application that needs to access or modify a resource in your subscription, you can create a a service principal and assign that service principal to a role with the correct permission.
-Using Azure Resource Manager, the application can perform the permitted management actions on resources that exist in the subscription or as a tenant. 
+When you have an application that needs to access or modify a resource in your subscription, you can use the portal to create an Active Directory application and assign it to a role with the correct permission. When you create an Active Directory application through the portal, it actually creates both the application and a service principal. You use the service principal when setting the permissions.
 
-This topic shows you how to create a new application and service principal using the Azure portal. Currently, you must use the Microsoft Azure portal to create a new service principal. This ability will be added to the Azure preview portal in a later release.
-
-When you create an Active Directory application through the portal, it creates both the application and the service principal.
+This topic shows you how to create a new application and service principal using the Azure portal. Currently, you must use the Microsoft Azure portal to create a new Active Directory application. This ability will be added to the Azure preview portal in a later release. You can use the preview portal to assign the application to a role.
 
 ## Concepts
 1. Azure Active Directory (AAD) - an identity and access management service build for the cloud. For more details see: [What is Azure active Directory](active-directory/active-directory-whatis.md)
@@ -72,7 +69,7 @@ For **APP ID URI**, provide the URI that identifies your application. The unique
 
      ![application properties][4]
 
-## Create an authentication key/password for your application
+## Create an authentication key for your application
 The portal should now have your application selected.
 
 1. Click on the **Configure** tab to configure your application's password.
@@ -100,6 +97,29 @@ Your application is now ready and the service principal created on your tenant. 
 
 * **CLIENT ID** - as your user name.
 * **KEY** - as your password.
+
+## Assigning the application to a role
+
+You can use the [preview portal](https://portal.azure.com) to assign the Active Directory application to a role that has access to the resource you need to access. For information about assigning the application to a role, see [Azure Active Directory Role-based Access Control](active-directory/role-based-access-control-configure.md).
+
+## Get access token in code
+
+If you are using .NET, you can retrieve the access token for your application with the following code:
+
+    public static string GetAccessToken()
+    {
+        var authenticationContext = new AuthenticationContext("https://login.windows.net/{tenantId or tenant name}");  
+        var credential = new ClientCredential(clientId: "{application id}", clientSecret: "{application password}");
+        var result = authenticationContext.AcquireToken(resource: "https://management.core.windows.net/", clientCredential:credential);
+
+        if (result == null) {
+            throw new InvalidOperationException("Failed to obtain the JWT token");
+        }
+
+        string token = result.AccessToken;
+
+        return token;
+    }
 
 ## Next Steps
 
