@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Listing your application in the Azure Active Directory application gallery | Microsoft Azure"
+   pageTitle="Listing your application in the Azure Active Directory application gallery"
    description="A comprehensive guide to developer-oriented resources for Azure Active Directory"
    services="active-directory"
    documentationCenter="dev-center-name"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="10/29/2015"
+   ms.date="09/17/2015"
    ms.author="mbaldwin"/>
 
 
