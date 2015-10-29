@@ -86,8 +86,6 @@ This page contains helpful links for the major features of single sign-on with A
 | How-to | [Enabling Azure AD Application Proxy](active-directory-application-proxy-enable.md) <br><br> [Publish applications using Azure AD Application Proxy](active-directory-application-proxy-publish.md) <br><br> [Working with conditional access](active-directory-application-proxy-conditional-access.md) <br><br> [Working with custom domains in Azure AD Application Proxy](active-directory-application-proxy-custom-domains.md) <br><br> [Working with claims aware apps in Application Proxy](active-directory-application-proxy-claims-aware-apps.md) <br><br> [Single sign-on with Application Proxy](active-directory-application-proxy-sso-using-kcd.md) |
 | Troubleshooting | [Troubleshoot Application Proxy](active-directory-application-proxy-troubleshoot.md) |
 
->>## Guiding developers
-
 ## App launching experience
 
 |   |   |
