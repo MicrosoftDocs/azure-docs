@@ -200,4 +200,3 @@ In this little tutorial we have seen how to easily package two existing applicat
 For more information see the following topics:
 
 [Service Fabric Packaging format ](service-fabric-deploy-existing-app.md)
-[Deploy multiple exsiting applications to Service Fabric ](service-fabric-custom-application-orchestration.md)
