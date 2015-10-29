@@ -1,10 +1,10 @@
 <properties
-   pageTitle="Update your Service Fabric development environment | Microsoft Azure"
+   pageTitle="Update your development environment | Microsoft Azure"
    description="Update your Service Fabric development environment to use the latest runtime, SDK, and tools."
    services="service-fabric"
    documentationCenter=".net"
    authors="seanmck"
-   manager="timlt"
+   manager="coreysa"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/29/2015"
+   ms.date="10/29/2015"
    ms.author="seanmck"/>
 
 # Update your Service Fabric development environment
