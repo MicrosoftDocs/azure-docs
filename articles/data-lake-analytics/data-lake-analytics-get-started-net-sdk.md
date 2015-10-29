@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <properties 
    pageTitle="Get started with Azure Data Lake Analytics using .NET SDK | Azure" 
    description="Learn how to use the .NET SDK to create Data Lake Store accounts, create Data Lake Analytics jobs, and submit jobs written in U-SQL. " 
