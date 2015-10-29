@@ -43,5 +43,5 @@ Tools  | Using the Diagnostics Tooling | 1 |
 There are a few options to give feedback on the backlog:
 
 * Add a comment below
-* Submit a pull request on this document in the Azure Content Repo
+* Submit a pull request on this document in the [Azure Content Repo](https://github.com/Azure/azure-content/blob/master/articles/data-lake-analytics/data-lake-analytics-documentation-backlog.md)
 * Send an email to [adlafeedback at microsoft.com](mailto:adlafeedback@microsoft.com?subject=DocBacklog)
