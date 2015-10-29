@@ -21,7 +21,7 @@
 Use the BizTalk Flat File Encoder connector to interop between flat file data (for example, an Excel or CSV file) and XML data. It can convert a given flat file instance to XML and vice versa.
 
 ##Using the BizTalk Flat File Encoder
-To use the BizTalk Flat File Encoder, you need to first create an instance of the BizTalk Flat File Encoder API app. This can be done either inline while creating a logic app or by selecting the BizTalk Flat File Encoder API app from the Azure Marketplace. Here are the steps to create a BizTalk Flat File Encoder API app from the Azure Marketplace:
+To use the BizTalk Flat File Encoder, you need to first create an instance of the BizTalk Flat File Encoder API app. This can be done either inline while creating a logic app or by selecting the BizTalk Flat File Encoder API app from the Azure Marketplace. Here are the steps to create a BizTalk Flat File Encoder API app from the Azure Marketplace:  
 1. Log into the Azure portal (http://portal.azure.com)  
 2. Select New > Marketplace > Everything  
 3. Search for "BizTalk Flat File Encoder" in the search box  
@@ -32,17 +32,17 @@ To use the BizTalk Flat File Encoder, you need to first create an instance of th
 ###Configure BizTalk Flat File Encoder
 After the API app has been created, you can launch it either directly from the Azure portal start page or from the designer's surface when creating a Logic app. 
 
-To launch it from the Azure start page you can search for it by typing the name you gave to the BizTalk Flat File Encoder when you created it. You do this by:
+To launch it from the Azure start page you can search for it by typing the name you gave to the BizTalk Flat File Encoder when you created it. You do this by:  
 1. Entering the name of your BizTalk Flat File Encoder in the search box on the Auzre portal and searching for it  
 2. Next, select your BizTalk Flat File Encoder from the list. This opens up the API App blade where you can configure your BizTalk Flat File Encoder API app.  
-To start the configuration, you'll want to add a schema by:
+To start the configuration, you'll want to add a schema by:  
 1. Selecting the "Schemas" component  
 ![BizTalk Flat File Encoder Schemas Part][2]  
 2. Then then selecting "Add New" on the Schemas blade that opens up  
 ![BizTalk Flat File Encoder List of actions][7]  
 3. Select one of the three options to provide your schema. The options are UPLOAD NEW SCHEMA, GENERATE FROM JSON AND GENERATE FROM FLAT FILE  
 ![BizTalk Flat File Encoder List of actions][8]  
-4.Follow the steps to provide your schema, based on your selection in the previous step. You'll then see the that the schema has been uploaded:  
+4. Follow the steps to provide your schema, based on your selection in the previous step. You'll then see the that the schema has been uploaded:  
 ![BizTalk Flat File Encoder List of actions][9]
 
 ###Using the BizTalk Flat File Encoder in design surface
