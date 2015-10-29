@@ -25,7 +25,7 @@ Do you:
 - Want to move your Azure subscription from one directory to another?
 - Have Azure and Office 365 in different tenants and want to consolidate?
 
-If your account is in the US, you can now do this easily in the Microsoft Azure Account Center- for Pay-As-You-Go subscriptions.  We’ve added the ability to transfer your subscription to another user. In other words, you can now change the account admin on any Pay-As-You-Go subscription that you own.
+You can now do this easily in the Microsoft Azure Account Center- for Pay-As-You-Go or MSDN subscriptions.  We’ve added the ability to transfer your subscription to another user. In other words, you can now change the account admin on any Pay-As-You-Go or MSDN subscription that you own, no matter which country you operate in.
 
 ## How to transfer an Azure subscription
 
