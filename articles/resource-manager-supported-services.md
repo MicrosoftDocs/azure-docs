@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/21/2015"
+   ms.date="10/29/2015"
    ms.author="tomfitz"/>
 
 # Resource Manager support for services, regions, and API versions
@@ -100,8 +100,9 @@ When working with web apps, you cannot move only an App Service plan. To move we
 
 | Service | Resource Manager Enabled | Preview Portal | Move Resources | REST API | Schema |
 | ------- | ------- | -------- | -------------- | -------- | ------ |
+| CDN | Yes (preview) | No |  |  |  |
 | Media Service | No | No |  |  |  |
-| CDN | No | No |  |  |  |
+
 
 ## Hybrid Integration
 
