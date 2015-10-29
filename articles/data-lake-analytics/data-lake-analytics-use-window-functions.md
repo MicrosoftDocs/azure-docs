@@ -33,7 +33,7 @@ The window functions are catagorized into:
 
 **Prerequisites:**
 
-- Go through the following two tutorials
+- Go through the following two tutorials:
 
     - [Get started using Azure Data Lake Tools for Visual Studio](data-lake-analytics-use-data-lake-tools.md).
     - [Get started using U-SQL for Azure Data Lake Analytics jobs](data-lake-analytics-u-sql-get-started.md).

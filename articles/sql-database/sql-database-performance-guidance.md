@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-management"
-	ms.date="10/27/2015"
+	ms.date="10/28/2015"
 	ms.author="jroth" />
 
 # Azure SQL Database performance guidance for single databases
@@ -114,8 +114,8 @@ Standard and Active Geo-Replication provides similar disaster recovery features 
 
 For more information, see the [Business Continuity Overview](sql-database-business-continuity.md).
 
-### Max In-Memory storage
-Max In-Memory storage refers to the maximum amount of storage available to the In-Memory OLTP Preview for Premium databases. For more information on using SQL In-Memory technologies with SQL DB, please see [Get started with In-Memory OLTP](sql-database-in-memory.md).
+### Max XTP In-Memory storage
+**Max XTP In-Memory storage** refers to the maximum amount of storage available to the [In-Memory OLTP Preview](sql-database-in-memory.md) for Premium databases. You can use the Azure Portal or the **sys.dm_db_resource_stats** view to monitor your In-Memory storage use. For more information on monitoring, see [Monitor XTP In-Memory Storage](sql-database-in-memory-oltp-monitoring.md). 
 
 >[AZURE.NOTE] The In-Memory OLTP Preview is currently only supported for single databases and not for databases in elastic database pools.
 
