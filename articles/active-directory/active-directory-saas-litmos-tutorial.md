@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/16/2015"
+	ms.date="10/29/2015"
 	ms.author="markusvi"/>
 
 
@@ -128,9 +128,11 @@ As part of the configuration, you need to customize the **SAML Token Attributes*
 3. In the Azure portal, on the **Configure App Settings** dialog page, perform the following steps:
 <br><br>![Azure AD Single Sign-On][8] <br>
  
-     a. In the **Reply URL** textbox, paste the value you have copied from the Litmos application in the previous step.
+    a. In the **Issuer** textbox, type the URL used by your users to sign-on to your Litmos application (e.g.: *https://azureapptest.litmos.com/account/Login*).
+     
+    b. In the **Reply URL** textbox, paste the value you have copied from the Litmos application in the previous step.
 
-     b. Click **Next**.
+    c. Click **Next**.
  
 4. On the **Configure single sign-on at Litmos** page, perform the following steps:
 <br><br>![Azure AD Single Sign-On][2] <br>
