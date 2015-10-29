@@ -47,7 +47,7 @@ Before you begin this tutorial, you must have the following:
 
 - **Visual Studio 2015, Visual Studio 2013 update 4, or Visual Studio 2012 with Visual C++ Installed**.
 - **Microsoft Azure SDK for .NET version 2.5 or above**.  Install it using the [Web platform installer](http://www.microsoft.com/web/downloads/platform.aspx).
-- **Data Lake Tools for Visual Studio**. Install it using the [Web platform installer](http://www.microsoft.com/web/downloads/platform.aspx).
+- **[Data Lake Tools for Visual Studio](http://aka.ms/adltoolsvs)**. 
 - **A Data Lake Analytics account**.  See [Create an Azure Data Lake Analytics account](data-lake-analytics-get-started-portal.md#create_adl_analytics_account).
 
 	The Data Lake Tools doesn't support creating Data Lake Analytics accounts.  So you have to create it using the Azure Preview Portal, Azure PowerShell, .NET SDK or Azure CLI. 
