@@ -23,21 +23,25 @@
 
 A set of samples are provided to help you get started running MapReduce jobs on Hadoop clusters using Azure HDInsight. These samples are made available on each of the HDInsight managed clusters that you create. Running these samples will familiarize you with using Azure PowerShell cmdlets to run jobs on Hadoop clusters.
 
-- [**Word count**][hdinsight-sample-wordcount]: Shows how to use an HDInsight cluster to run a MapReduce program that counts word occurrences in a text file.
-- [**C# streaming word count**][hdinsight-sample-csharp-streaming]: Shows how to use C# to write a MapReduce program that uses the Hadoop streaming interface.
-- [**Pi estimator**][hdinsight-sample-pi-estimator]: Shows how to run a MapReduce program with HDInsight that uses a statistical (quasi-Monte Carlo) method to estimate the value of pi.
-- [**10-GB Graysort**][hdinsight-sample-10gb-graysort]: Shows how to run a general purpose GraySort on a 10 GB file by using HDInsight. There are three jobs to run: Teragen to generate the data, Terasort to sort the data, and Teravalidate to confirm that the data has been properly sorted.
+- [**Word count**][hdinsight-sample-wordcount]: Counts word occurrences in a text file.
+- [**C# streaming word count**][hdinsight-sample-csharp-streaming]: Counts word occurrences in a text file using the Hadoop streaming interface.
+- [**Pi estimator**][hdinsight-sample-pi-estimator]: Uses a statistical (quasi-Monte Carlo) method to estimate the value of pi.
+- [**10-GB Graysort**][hdinsight-sample-10gb-graysort]: Run a general purpose GraySort on a 10 GB file by using HDInsight. There are three jobs to run: Teragen to generate the data, Terasort to sort the data, and Teravalidate to confirm that the data has been properly sorted.
 
-The souce code can be found in the Appendix. 
+>[AZURE.NOTE] The source code can be found in the Appendix. 
 
-MapReduce programs can also be run from an application by using the Microsoft .NET SDK for HDInsight. For more information about using the .NET SDK for job submission, see [Submit Hadoop Jobs in HDInsight] [hdinsight-submit-jobs].
+Much additional documentation exists on the web for Hadoop-related technologies, such as Java-based MapReduce programming and streaming, and documentation about the cmdlets that are used in Windows PowerShell scripting. For more information about these resources, see:
 
-- [Get Started with Azure HDInsight][hdinsight-get-started]
 - [Develop Java MapReduce programs for Hadoop in HDInsight](hdinsight-develop-deploy-java-mapreduce.md)
+- [Develop C# Hadoop streaming programs for HDInsight](hdinsight-hadoop-develop-deploy-streaming-jobs.md)
 - [Submit Hadoop jobs in HDInsight](hdinsight-submit-hadoop-jobs-programmatically.md)
+- [Introduction to Azure HDInsight][hdinsight-introduction]
 
-Much additional documentation exists on the web for Hadoop-related technologies, such as Java-based MapReduce programming and streaming, and documentation about the cmdlets that are used in Windows PowerShell scripting. For more information about these resources, see the final **Resources for HDInsight** section of [Introduction to Azure HDInsight][hdinsight-introduction].
+Nowadays, a lot of people choose Hive and Pig over MapReduce.  For more information, see :
 
+- [Use Hive in HDInsight](hdinsight-use-hive.md)
+- [Use Pig in HDInsight](hdinsight-use-pig.md)
+ 
 **Prerequisites**:
 
 - **An Azure subscription**. See [Get Azure free trial](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
@@ -994,3 +998,6 @@ The code for the TeraSort MapReduce program is presented for inspection in this 
 
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-pig]: hdinsight-use-pig.md
+
+[streamreader]: http://msdn.microsoft.com/library/system.io.streamreader.aspx
+[console-writeline]: http://msdn.microsoft.com/library/system.console.writeline
