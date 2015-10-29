@@ -3,7 +3,7 @@
 	description="Learn how to use the Azure Content Delivery Network (CDN) to deliver high-bandwidth content by caching blobs and static content." 
 	services="cdn" 
 	documentationCenter=".net" 
-	authors="zhangmanling" 
+	authors="camsoper" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/01/2015" 
-	ms.author="mazha"/>
+	ms.date="10/30/2015" 
+	ms.author="casoper"/>
 
 
 # Integrate a Storage Account with CDN
@@ -30,24 +30,23 @@ Azure storage services. The storage account represents the highest level
 of the namespace for accessing each of the Azure storage service
 components: Blob services, Queue services, and Table services. For more
 information about the Azure storage services, see [Using the
-Azure Storage Services](http://msdn.microsoft.com/library/azure/gg433040.aspx).
+Azure Storage Services]().
 
 To create a storage account, you must be either the service
 administrator or a co-administrator for the associated subscription.
 
-> [AZURE.NOTE] For information about performing this operation by using the
-Azure Service Management API, see the [Create Storage Account](http://msdn.microsoft.com/library/windowsazure/hh264518.aspx) reference topic.
+> [AZURE.NOTE] There are several methods you can use to create a storage account, including the Azure Management Portal and Powershell.  For this tutorial, we'll be using the Azure Management Portal Preview.  For more information, refer to the [Introduction to Microsoft Azure Storage](../storage-introduction.md).
 
 **To create a storage account for an Azure subscription**
 
-1.  Sign in to the [Azure Management Portal].
-2.  In the lower left corner, select **New**. In the **New** Dialog, select **Data Services**, then click **Storage**, then **Quick Create**.
+1.  Sign in to the [Azure Management Portal](https://portal.azure.com).
+2.  In the upper left corner, select **New**. In the **New** Dialog, select **Data  + Storage**, then click **Storage account**. Leave **Classic** selected as the deployment model, then click **Create**.
 
-    The **Create Storage Account** dialog appears.
+    The **Storage account** blade appears.
 
     ![Create Storage Account][create-new-storage-account]
 
-4. In the **URL** field, type a subdomain name. This entry can contain from 3-24 lowercase letters and numbers.
+4. In the **Storage** field, type a subdomain name. This entry can contain from 3-24 lowercase letters and numbers.
 
     This value becomes the host name within the URI that is used to
     address Blob, Queue, or Table resources for the subscription. To
@@ -63,13 +62,15 @@ Azure Service Management API, see the [Create Storage Account](http://msdn.micro
 
 	This value is also used as the name of this storage account in the portal, or when accessing this account programmatically.
 
-5.  From the **Region/Affinity Group** drop-down list, select a region or affinity group for the storage account. Select an affinity group instead of a region if you want your storage services to be in the same data center with other Microsoft Azure services that you are using. This can improve performance, and no charges are incurred for egress.  
+5.  Select a **Pricing tier** or use the default.  For more information on pricing tiers, see [Azure Storage Pricing](../../pricing/details/storage).
 
-    **Note:** To create an affinity group, open the **Settings** area of the Management Portal, click **Affinity Groups**, and then click either **Add an affinity group** or **Add**. You can also create and manage affinity groups using the Microsoft Azure Service Management API. For more information, see [Operations on Affinity Groups].
+6.  Select or create a **Resource Group**.  For more information on Resource Groups, see [Azure Resource Manager overview](resource-group-overview/#resource-groups). 
 
-6. From the **Subscription** drop-down list, select the subscription that the storage account will be used with.
-7.  Click **Create Storage Account**. The process of creating the storage account might take several minutes to complete.
-8.  To verify that the storage account was created successfully, verify that the account appears in the items listed for **Storage** with a status of **Online**.
+7. From the **Subscription** drop-down list, select the subscription that the storage account will be used with.
+
+8.  Click **Create**. The process of creating the storage account might take several minutes to complete.
+
+9.  To verify that the storage account was created successfully, verify that the account appears in the items listed for **Storage** with a status of **Online**.
 
 
 ## Step 2: Create a new CDN endpoint for your storage account
@@ -82,9 +83,9 @@ when the cached content time-to-live period expires.
 
 **To create a new CDN endpoint for your storage account**
 
-1. In the [Azure Management Portal], in the navigation pane, click **CDN**.
+1. In the [Azure Management Portal](https://portal.azure.com), in the upper left, click **New**.
 
-2. On the ribbon, click **New**. In the **New** dialog, select **App Services**, then **CDN**, then **Quick Create**.
+2. On the ribbon, click **New**. In the **New** blade, select **Media + CDN**, then **CDN**, then **Quick Create**.
 
 3. In the **Origin Domain** dropdown, select the storage account you created in the previous section from the list of your available storage accounts. 
 
