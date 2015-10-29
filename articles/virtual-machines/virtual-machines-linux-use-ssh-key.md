@@ -26,8 +26,7 @@
 This topic describes how to use **ssh-keygen** and **openssl** on Linux and Mac to create and use **ssh-rsa** format and **.pem** format files to secure communication with Azure VMs based on Linux. Creating Linux-based Azure Virtual Machines using the Resource Manager deployment model is recommended for new deployments and takes an *ssh-rsa* type public key file or string (depending on the deployment client). The [preview portal](https://portal.azure.com) currently accepts only the **ssh-rsa** format strings, whether for classic or Resource Manager deployments.
 
 > [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
-
-> [AZURE.NOTE] To create these types of files for use on a Windows computer to communicate securely with Linux VMs in Azure, see [Use SSH keys on Windows](virtual-machines-windows-use-ssh-key.md). 
+To create these types of files for use on a Windows computer to communicate securely with Linux VMs in Azure, see [Use SSH keys on Windows](virtual-machines-windows-use-ssh-key.md). 
 
 ## Which files do you need?
 
@@ -40,7 +39,7 @@ Here are the deployment scenarios, and the types of files you use in each:
 
 ## Create keys for use with SSH
 
-Azure requires ssh-rsa format key files of 2048 bits or the equivalent .pem files, depending upon your scenario. If you already have such files, pass the public key file when creating your Azure VM. 
+Azure requires **ssh-rsa** format key files of 2048 bits or the equivalent .pem files, depending upon your scenario. If you already have such files, pass the public key file when creating your Azure VM. 
 
 If you need to create the files:
 
@@ -76,7 +75,7 @@ If you need to create the files:
 
 > [AZURE.NOTE] If you plan to manage services deployed with the classic deployment model, you may also want to create a **.cer** format file to upload to the portal -- although this doesn't involve **ssh** or connecting to Linux VMS, which is the subject of this article. To create those files on Linux or Mac, type:
 <br />
-		openssl.exe  x509 -outform der -in myCert.pem -out myCert.cer
+			openssl.exe  x509 -outform der -in myCert.pem -out myCert.cer
 
 To convert your .pem file into a DER encoded X509 certificate file.
 
