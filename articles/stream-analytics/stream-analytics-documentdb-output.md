@@ -19,7 +19,7 @@
 
 # DocumentDB as Azure Stream Analytics Output
 
-Azure Stream Analytics now supports [Azure DocumentDB](http://azure.microsoft.com/services/documentdb/) as an output, enabling data archival and low-latency queries on unstructured JSON data. This document describes how to best implement this integration. For those who are unfamiliar with DocumentDB, take a look at [DocumentDB’s learning path](../articles/documentdb-get-started.md/) to get started.
+Azure Stream Analytics now supports [Azure DocumentDB](http://azure.microsoft.com/services/documentdb/) as an output, enabling data archival and low-latency queries on unstructured JSON data. This document describes how to best implement this integration. For those who are unfamiliar with DocumentDB, take a look at [DocumentDB’s learning path](https://azure.microsoft.com/documentation/learning-paths/documentdb/) to get started.
 
 The Azure DocumentDB output in Stream Analytics enables writing your stream processing results into your DocumentDB collection(s). Stream Analytics does not create collections in your database, instead requiring you to create them upfront. This is so that the billing costs of DocumentDB collections are transparent to you, and so that you can tune the performance, consistency and capacity of your collections directly using the [DocumentDB APIs](https://msdn.microsoft.com/library/azure/dn781481.aspx). We recommend using one DocumentDB Database per streaming job to logically separate your collections for a streaming job.
 
