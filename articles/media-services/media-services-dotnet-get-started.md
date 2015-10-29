@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="10/05/2015"
+	ms.date="10/28/2015"
 	ms.author="juliako"/>
 
 
@@ -119,15 +119,14 @@ To change the number of streaming reserved units, do the following:
 
 4. Open the App.config file (add the file to your project if it was not added by default) and add an *appSettings* section to the file. Set the values for your Azure Media Services account name and account key, as shown in the following example. To obtain the account name and key information, open the Azure portal, select your media services account, and then click the **MANAGE KEYS** button.
 
-	<configuration>
-	...
-	  <appSettings>
-	    <add key="MediaServicesAccountName" value="Media-Services-Account-Name" />
-	    <add key="MediaServicesAccountKey" value="Media-Services-Account-Key" />
-	  </appSettings>
-	  
-	</configuration>ion&gt;
-	</code></pre>
+		<configuration>
+		...
+		  <appSettings>
+		    <add key="MediaServicesAccountName" value="Media-Services-Account-Name" />
+		    <add key="MediaServicesAccountKey" value="Media-Services-Account-Key" />
+		  </appSettings>
+		  
+		</configuration>
 
 5. Overwrite the existing **using** statements at the beginning of the Program.cs file with the following code.
 
