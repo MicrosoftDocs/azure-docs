@@ -3,7 +3,7 @@
 	description="Securely add a user who is not in your subscription to your Azure DevTest Lab." 
 	services="devtest-lab,virtual-machines" 
 	documentationCenter="na" 
-	authors="patshea123" 
+	authors="tomarcher" 
 	manager="douge" 
 	editor=""/>
   
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/23/2015" 
-	ms.author="patshea"/>
+	ms.date="10/29/2015" 
+	ms.author="tarcher"/>
 
 # Securely add a user to your Azure DevTest Lab
 

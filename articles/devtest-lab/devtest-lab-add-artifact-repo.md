@@ -3,7 +3,7 @@
 	description="Add a GitHub or Visual Studio Online Git repository for your custom artifacts to your lab" 
 	services="devtest-lab,virtual-machines,visual-studio-online" 
 	documentationCenter="na" 
-	authors="patshea123" 
+	authors="tomarcher" 
 	manager="douge" 
 	editor=""/>
   
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/23/2015" 
-	ms.author="patshea"/>
+	ms.date="10/29/2015" 
+	ms.author="tarcher"/>
 
 # Add a Git artifact repository to your DevTest Lab
 

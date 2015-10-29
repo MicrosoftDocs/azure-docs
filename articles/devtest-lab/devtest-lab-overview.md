@@ -3,9 +3,9 @@
 	description="Learn how DevTest Lab can make it easy to create, manage, and monitor Azure virtual machines" 
 	services="devtest-lab,virtual-machines" 
 	documentationCenter="na" 
-	authors="patshea123" 
+	authors="tomarcher" 
 	manager="douge" 
-	editor="tglee"/>
+	editor=""/>
   
 <tags 
 	ms.service="devtest-lab" 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/23/2015" 
-	ms.author="patshea"/>
+	ms.date="10/29/2015" 
+	ms.author="tarcher"/>
 
 #What is DevTest Lab?
 

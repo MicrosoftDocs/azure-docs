@@ -3,7 +3,7 @@
 	description="Learn how to author your own artifacts for use with DevTest Labs" 
 	services="devtest-lab,virtual-machines" 
 	documentationCenter="na" 
-	authors="patshea123" 
+	authors="tomarcher" 
 	manager="douge" 
 	editor=""/>
   
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/24/2015" 
-	ms.author="patshea"/>
+	ms.date="10/29/2015" 
+	ms.author="tarcher"/>
 
 #Authoring artifacts for your DevTest Lab VM
 
@@ -118,3 +118,7 @@ Create your custom artifact by following steps below:
 	![Artifact git repo example](./media/devtest-lab-artifact-author/git-repo.png)
 
 1. Add the artifacts repository to the lab - Refer to the article, [Add a Git artifact repository to your DevTest Lab](devtest-lab-add-artifact-repo.md).
+
+## Next steps
+
+Learn how to [add a Git artifact repository to your DevTest Lab](devtest-lab-add-artifact-repo.md).
