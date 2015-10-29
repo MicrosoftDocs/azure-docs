@@ -24,9 +24,10 @@
 - [PolyBase](sql-data-warehouse-load-with-polybase-short.md)
 - [BCP](sql-data-warehouse-load-with-bcp.md)
 
-**[bcp][]** is a command-line bulk load utility that allows you to copy data between SQL Server, data files, and SQL Data Warehouse. Use bcp to import large numbers of rows into SQL Data Warehouse tables or to export data from SQL Server tables into data files. Except when used with the queryout option, bcp requires no knowledge of Transact-SQL. 
 
-bcp is a quick and easy way to move smaller data sets into and out of a SQL Data Warehouse database. The exact amount of data that is recommended to load/extract via bcp will depend on you network connection to the Azure data center. Generally, dimension tables can be loaded and extracted but fairly large fact tables may take a significant amount of time to load or extract from. 
+**[bcp][]** is a command-line bulk load utility that allows you to copy data between SQL Server, data files, and SQL Data Warehouse. Use bcp to import large numbers of rows into SQL Data Warehouse tables or to export data from SQL Server tables into data files. Except when used with the queryout option, bcp requires no knowledge of Transact-SQL.
+
+bcp is a quick and easy way to move smaller data sets into and out of a SQL Data Warehouse database. The exact amount of data that is recommended to load/extract via bcp will depend on you network connection to the Azure data center. Generally, dimension tables can be loaded and extracted but fairly large fact tables may take a significant amount of time to load or extract from.
 
 With bcp you can:
 
@@ -34,7 +35,7 @@ With bcp you can:
 - Use a simple command-line utility to extract data from SQL Data Warehouse.
 
 This tutorial will show you how to:
- 
+
 - Import data into a table using the bcp in command
 - Export data from a table uisng the bcp out command
 
@@ -128,7 +129,7 @@ DateId |CalendarQuarter |FiscalQuarter
 20151201 |4 |2
 
 ## Export data from SQL Data Warehouse
-In this tutorial, you will create a data file from a table in SQL Data Warehouse. We will export the data we created above to a new data file called DimDate2_export.txt. 
+In this tutorial, you will create a data file from a table in SQL Data Warehouse. We will export the data we created above to a new data file called DimDate2_export.txt.
 
 ### Step 1: Export the data
 
@@ -168,9 +169,8 @@ For more development tips, see [SQL Data Warehouse development overview][].
 [SQL Data Warehouse development overview]:  ./sql-data-warehouse-overview-develop/
 
 <!--MSDN references-->
-[bcp]: https://msdn.microsoft.com/library/ms162802.aspx 
+[bcp]: https://msdn.microsoft.com/library/ms162802.aspx
 
 
 <!--Other Web references-->
 [Microsoft Download Center]: http://www.microsoft.com/download/details.aspx?id=36433
-
