@@ -185,6 +185,7 @@ You should start your design by looking at the traffic rules for individual subn
 ### NSG for Front end subnet
 
 **Incoming rules**
+
 |Rule|Access|Priority|Source address range|Source port|Destination address range|Destination port|Protocol|
 |---|---|---|---|---|---|---|---|
 |allow HTTP|Allow|100|Internet|*|192.168.1.0/24|80|TCP|
@@ -192,6 +193,7 @@ You should start your design by looking at the traffic rules for individual subn
 |deny Internet|Deny|110|192.168.1.0/24|*|192.168.1.0/24|3389|TCP|
 
 **Outgoing rules - Front end subnet**
+
 |Rule|Access|Priority|Source address range|Source port|Destination address range|Destination port|Protocol|
 |---|---|---|---|---|---|---|---|
 |deny Internet|Deny|100|\*|\*|Internet|\*|\*|
@@ -199,11 +201,13 @@ You should start your design by looking at the traffic rules for individual subn
 ### NSG for Back end subnet NSG
 
 **Incoming rules**
+
 |Rule|Access|Priority|Source address range|Source port|Destination address range|Destination port|Protocol|
 |---|---|---|---|---|---|---|---|
 |deny Internet|Deny|110|192.168.1.0/24|*|192.168.1.0/24|3389|TCP|
 
 **Outgoing rules**
+
 |Rule|Access|Priority|Source address range|Source port|Destination address range|Destination port|Protocol|
 |---|---|---|---|---|---|---|---|
 |deny Internet|Deny|100|\*|\*|Internet|\*|\*|
@@ -211,6 +215,7 @@ You should start your design by looking at the traffic rules for individual subn
 ### NSG for single VM (NIC) in front end for RDP from Internet
 
 **Incoming rules**
+
 |Rule|Access|Priority|Source address range|Source port|Destination address range|Destination port|Protocol|
 |---|---|---|---|---|---|---|---|
 |allow RDP from Internet|Allow|100|Internet|*|\*|3389|TCP|
@@ -218,13 +223,17 @@ You should start your design by looking at the traffic rules for individual subn
 >[AZURE.NOTE] Notice how the source address range for this rule is **Internet**, and not the VIP for the load balancer; the source port is **\***, not 500001. Do not get confused between NAT rules/load balancing rules and NSG rules. The NSG rules are always related to the original source and final destination of traffic, **NOT** the load balancer between the two. 
 
 ### NSG for management NICs in back end
+
 **Incoming rules**
+
 |Rule|Access|Priority|Source address range|Source port|Destination address range|Destination port|Protocol|
 |---|---|---|---|---|---|---|---|
 |allow RDP from front end|Allow|100|192.168.1.0/24|*|\*|3389|TCP|
 
 ### NSG for database access NICs in back end
+
 **Incoming rules**
+
 |Rule|Access|Priority|Source address range|Source port|Destination address range|Destination port|Protocol|
 |---|---|---|---|---|---|---|---|
 |allow SQL from front end|Allow|100|192.168.1.0/24|*|\*|1433|TCP|
