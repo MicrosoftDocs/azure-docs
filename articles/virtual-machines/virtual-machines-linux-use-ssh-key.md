@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Use SSH on Linux and Mac | Microsoft Azure" 
-	description="Generate and use SSH keys on Linux and Mac for the Resource Manager deployment model on Azure." 
+	description="Generate and use SSH keys on Linux and Mac for the Resource Manager and classic deployment models on Azure." 
 	services="virtual-machines" 
 	documentationCenter="" 
 	authors="squillace" 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/10/2015" 
+	ms.date="10/28/2015" 
 	ms.author="rasquill"/>
 
 #How to Use SSH with Linux and Mac on Azure
@@ -27,7 +27,7 @@ This topic describes how to use **ssh-keygen** and **openssl** on Linux and Mac 
 
 > [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
-<!-- > [AZURE.NOTE] To create these types of files for use on a Windows computer to communicate securely with Linux VMs in Azure, see [Use SSH keys on Windows](virtual-machines-windows-use-ssh-key.md).  -->
+> [AZURE.NOTE] To create these types of files for use on a Windows computer to communicate securely with Linux VMs in Azure, see [Use SSH keys on Windows](virtual-machines-windows-use-ssh-key.md). 
 
 ## Which files do you need?
 
@@ -36,9 +36,7 @@ A basic ssh setup for Azure includes an **ssh-rsa** public and private key pair 
 Here are the deployment scenarios, and the types of files you use in each:
 
 1. **ssh-rsa** keys are required for any deployment using the [preview portal](https://portal.azure.com), regardless of the deployment model.
-2. .pem file are required to create VMs using the [classic portal](https://manage.windowsazure.com). .pem files are also supported in classic deployments that use the [Azure CLI](xplat-cli-install.md).
-
-> [AZURE.NOTE] If you plan to manage service deployed with the classic deployment model, you may also want to create a **.cer** format file to upload to the portal -- although this doesn't involve **ssh** or connecting to Linux VMS, which is the subject of this article. To create those files on Linux or Mac, type  
+2. .pem file are required to create VMs using the [classic portal](https://manage.windowsazure.com). .pem files are also supported in classic deployments that use the [Azure CLI](xplat-cli-install.md). 
 
 ## Create keys for use with SSH
 
@@ -75,6 +73,12 @@ If you need to create the files:
 		openssl req -x509 -key ~/.ssh/id_rsa -nodes -days 365 -newkey rsa:2048 -out myCert.pem
 
 	If you want to create a .pem file from a different private key file, modify the `-key` argument. 
+
+> [AZURE.NOTE] If you plan to manage services deployed with the classic deployment model, you may also want to create a **.cer** format file to upload to the portal -- although this doesn't involve **ssh** or connecting to Linux VMS, which is the subject of this article. To create those files on Linux or Mac, type:
+
+		openssl.exe  x509 -outform der -in myCert.pem -out myCert.cer
+
+To convert your .pem file into a DER encoded X509 certificate file.
 
 ## Use SSH keys you already have
 
