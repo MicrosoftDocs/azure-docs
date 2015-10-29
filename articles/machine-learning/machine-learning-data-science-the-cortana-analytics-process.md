@@ -27,7 +27,7 @@ Here are the steps in **Cortana Analytics Process**:
 
 The process is **iterative**: the understanding of new and existing or refinements in the model evolves and requires reworking steps previously completed in the sequence. Existing organizational development and project planning processes are **easily adapted** to work with the CAP-defined sequence of steps. 
 
-The steps in the process are described below.  
+The steps in the process are diagrammed and linked in the [CAP learning path](cortana-analytics-process.md) and described below.  
 
 ## Preparation Steps 
 
