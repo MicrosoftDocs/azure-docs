@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure AD Java Getting Started | Microsoft Azure| Microsoft Azure"
+	pageTitle="Azure AD Java Getting Started | Microsoft Azure"
 	description="How to build a Java web app that signs users in with a work or school account."
 	services="active-directory"
 	documentationCenter="java"
@@ -13,7 +13,7 @@
   ms.tgt_pltfrm="na"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="10/23/2015"
+	ms.date="10/29/2015"
 	ms.author="brandwe"/>
 
 
@@ -33,7 +33,7 @@ In order to do this, you'll need to:
 3. Use the ADAL4J library to issue sign-in and sign-out requests to Azure AD.
 4. Print out data about the user.
 
-To get started, [download the app skeleton](https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect.git/archive/skeleton.zip) or [download the completed sample](https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect.git/archive/complete.zip).  You'll also need an Azure AD tenant in which to register your application.  If you don't have one already, [learn how to get one](active-directory-howto-tenant.md).
+To get started, [download the app skeleton](https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect/archive/skeleton.zip) or [download the completed sample](https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect\/archive/complete.zip).  You'll also need an Azure AD tenant in which to register your application.  If you don't have one already, [learn how to get one](active-directory-howto-tenant.md).
 
 ## 1.  Register an Application with Azure AD
 To enable your app to authenticate users, you'll first need to register a new application in your tenant.
@@ -51,10 +51,10 @@ To enable your app to authenticate users, you'll first need to register a new ap
 Once in the portal for your app create an **Application Secret** for your application and copy it down.  You will need it shortly.
 
 
-## 2. Set up your app to use ADAL4J library and pre-requisities using Maven
+## 2. Set up your app to use ADAL4J library and prerequisities using Maven
 Here, we'll configure ADAL4J to use the OpenID Connect authentication protocol.  ADAL4J will be used to issue sign-in and sign-out requests, manage the user's session, and get information about the user, amongst other things.
 
--	In the root directory of your project, open/create `pom.xml` and locate the `// TODO: provide dependencios for Maven` and replace with the following:
+-	In the root directory of your project, open/create `pom.xml` and locate the `// TODO: provide dependencies for Maven` and replace with the following:
 
 ```Java
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -343,9 +343,9 @@ This simply redirects to a secure page that is protected by our filter.
 
 You see that this page will redirect to specific requests which our BasicFilter servlet will read and then execute on using the `ADAJ4J` library. Rather simple, huh?
 
-Of course, we need now need to set up our Java files so that the servlet can do it's work.
+Of course, we need now need to set up our Java files so that the servlet can do its work.
 
-## 5. Create some java helper files (for BasicFilter MVC)
+## 5. Create some Java helper files (for BasicFilter MVC)
 
 Our goal is to create some Java files that will:
 
@@ -357,11 +357,11 @@ In order to get data about the user, we need to use the Graph API from Azure Act
 
 Let's write some Java files to do this work for us:
 
-- 1. create a folder in your root directory called 'adal4jsample` to store all of our java files. 
+1. create a folder in your root directory called 'adal4jsample` to store all of our java files. 
 
 We will be using the namespace `com.microsoft.aad.adal4jsample` in our java files. Most IDEs create a nested folder structure for this (e.g. `/com/microsoft/aad/adal4jsample`). You are free to do this, but it is not necessary.
 
-- 2. Inside this folder, create a file called `JSONHelper.java` which we will use to help us parse from JSON data from our tokens. You can cut/paste this from below:
+2. Inside this folder, create a file called `JSONHelper.java` which we will use to help us parse from JSON data from our tokens. You can cut/paste this from below:
 
 ```Java
 
@@ -584,7 +584,7 @@ public class JSONHelper {
 
 ```
 
-- 3. Next, create a file called `HttpClientHelper.java` which we will use to help us parse from HTTP data from our AAD endpoint. You can cut/paste this from below:
+3. Next, create a file called `HttpClientHelper.java` which we will use to help us parse from HTTP data from our AAD endpoint. You can cut/paste this from below:
 
 ```Java
 
@@ -740,11 +740,11 @@ public class HttpClientHelper {
 
 ```
 
-## 5. Create the java Graph API Model files (for BasicFilter MVC)
+## 6. Create the java Graph API Model files (for BasicFilter MVC)
 
-As indicated above, we will be using the Graph API to get data about the logged in user. For this to be easy for us we should create both a file to represet a **Directory Object** and an individual file to represent the **User** so that the OO pattern of Java can be used.
+As indicated above, we will be using the Graph API to get data about the logged in user. For this to be easy for us we should create both a file to represent a **Directory Object** and an individual file to represent the **User** so that the OO pattern of Java can be used.
 
-- 1. Create a file called `DirectoryObject.java` which we will use to store basic data about any DirectoryObject (you can feel free to use this later for any other Graph Queries you may do). You can cut/paste this from below:
+1. Create a file called `DirectoryObject.java` which we will use to store basic data about any DirectoryObject (you can feel free to use this later for any other Graph Queries you may do). You can cut/paste this from below:
 
 ```Java
 
@@ -799,7 +799,7 @@ public abstract class DirectoryObject {
 
 ```
 
-- 2. Create a file called `User.java` which we will use to store basic data about any User from the directory. Again, this is pretty basic getters/setters for directory data so you can cut/paste this from below:
+2. Create a file called `User.java` which we will use to store basic data about any User from the directory. Again, this is pretty basic getters/setters for directory data so you can cut/paste this from below:
 
 ```Java
 
@@ -1317,11 +1317,11 @@ public class User extends DirectoryObject{
 
 ```
 
-## 6. Create the Authentication Model/Controller files (for BasicFilter)
+## 7. Create the Authentication Model/Controller files (for BasicFilter)
 
 Yes, Java is rather verbose, but we're almost done. Next to last, before we write the BasicFilter servlet to handle our requests, let's write some more helper files that the `ADAL4J` library needs. 
 
-- 1. Create a file called `AuthHelper.java` which will give us methods that we'll use to determien the state of the logged in use. These include:
+1. Create a file called `AuthHelper.java` which will give us methods that we'll use to determine the state of the logged in use. These include:
 
 - `isAuthenticated()` method which returns if the user is logged in or not
 - `containsAuthenticationData()` which will tell us if the token has data or not
@@ -1374,7 +1374,8 @@ public final class AuthHelper {
     }
 }
 ```
-- 2. Create a file called `AuthParameterNames.java` which will give us some immutable variables `ADAL4J` will require. Cut/pate the following:
+
+2. Create a file called `AuthParameterNames.java` which will give us some immutable variables `ADAL4J` will require. Cut/pate the following:
 
 ```Java
 package com.microsoft.aad.adal4jsample;
@@ -1392,7 +1393,7 @@ public final class AuthParameterNames {
 }
 ```
 
-- 3. Finally, create a file called `AadController.java` which is the Controller of our MVC pattern which will give us our JSP controller and expose the `secure/aad` URL endpoint for our app. In addition, we put the graph query in this file as well.
+3. Finally, create a file called `AadController.java` which is the Controller of our MVC pattern which will give us our JSP controller and expose the `secure/aad` URL endpoint for our app. In addition, we put the graph query in this file as well.
 
 Cut/paste the following:
 
@@ -1471,7 +1472,7 @@ public class AadController {
 
 ```
 
-## 7. Create the BasicFilter file (for BasicFilter MVC)
+## 8. Create the BasicFilter file (for BasicFilter MVC)
 
 We are finally ready to create the BasicFilter file to handle our requests from our View (JSP files).
 
@@ -1725,9 +1726,9 @@ This servlet exposes all of the methods that `ADAL4J` will expect from our appli
 - `createSessionPrincipal()` - creates a principal we use for Graph API access
 - `getRedirectUrl()` - gets the redirectURL to compare it with the value you entered in to the portal.
 
-##Complie and run the sample in Tomcat
+##Compile and run the sample in Tomcat
 
-Change back out to your root directory and run the following command to build the sample you just put together using `maven`. This will use the `pom.xml` file you wrote for dependenicies.
+Change back out to your root directory and run the following command to build the sample you just put together using `maven`. This will use the `pom.xml` file you wrote for dependencies.
 
 `$ mvn package`
 
