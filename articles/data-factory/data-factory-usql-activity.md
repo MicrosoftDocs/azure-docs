@@ -179,7 +179,7 @@ Here is the definition of the sample Azure Data Lake Store linked service used b
 	    "properties": {
 	        "type": "AzureDataLakeStore",
 	        "typeProperties": {
-	            "dataLakeUri": "https://<accountname>.azuredatalake.net/webhdfs/v1",
+	            "dataLakeUri": "https://<accountname>.azuredatalakestore.net/webhdfs/v1",
 				"sessionId": "<session ID>",
 	            "authorization": "<authorization URL>"
 	        }

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/13/2015"
+	ms.date="10/29/2015"
 	ms.author="spelluru"/>
 
 # Move data to and from Azure Data Lake Store using Azure Data Factory
@@ -55,7 +55,7 @@ The sample copies data belonging to a time series from an Azure Blob Storage to 
 	    "properties": {
 	        "type": "AzureDataLakeStore",
 	        "typeProperties": {
-	            "dataLakeUri": "https://<accountname>.azuredatalake.net/webhdfs/v1",
+	            "dataLakeUri": "https://<accountname>.azuredatalakestore.net/webhdfs/v1",
 				"sessionId": "<session ID>",
 	            "authorization": "<authorization URL>"
 	        }
@@ -228,7 +228,7 @@ The sample copies data belonging to a time series from an Azure Data Lake store 
 	    "properties": {
 	        "type": "AzureDataLakeStore",
 	        "typeProperties": {
-	            "dataLakeUri": "https://<accountname>.azuredatalake.net/webhdfs/v1",
+	            "dataLakeUri": "https://<accountname>.azuredatalakestore.net/webhdfs/v1",
 				"sessionId": "<session ID>",
 	            "authorization": "<authorization URL>"
 	        }
@@ -398,7 +398,7 @@ You can link an Azure storage account to an Azure data factory using an Azure St
 | Property | Description | Required |
 | -------- | ----------- | -------- |
 | type | The type property must be set to: **AzureDataLakeStore** | Yes |
-| dataLakeUri | Specify information about the Azure Data Lake Store account. It is in the following format: https://<Azure Data Lake account name>.azuredatalake.net/webhdfs/v1 | Yes |
+| dataLakeUri | Specify information about the Azure Data Lake Store account. It is in the following format: https://<Azure Data Lake account name>.azuredatalakestore.net/webhdfs/v1 | Yes |
 | authorization | Click **Authorize** button in the **Data Factory Editor** and enter your credentials, which assigns the auto-generated authorization URL to this property.  | Yes |
 | sessionId | OAuth session id from the oauth authorization session. Each session id is unique and may only be used once. This is automatically generated when you use Data Factory Editor. | Yes |  
 | accountName | Data lake account name | No |
