@@ -31,18 +31,18 @@ In-Memory Analytics is generally available. In-Memory OLTP is in preview, for Pr
 Try In-Memory OLTP for transactional workloads:
 
 
-- [Enrich an AdventureWorksLT database with In-Memory OLTP samples](#Enrich-an-AdventureWorksLT-database-with-In-Memory-OLTP-samples).
+- [Install the In-Memory OLTP sample](#Enrich-an-AdventureWorksLT-database-with-In-Memory-OLTP-samples).
 - [Use In-Memory OLTP in an existing Azure SQL Application.](sql-database-in-memory-oltp-migration.md)
 - [Monitor in-memory storage](sql-database-in-memory-oltp-monitoring.md).
 
 
 Try In-Memory Analytics for transactional workloads:
 
-- [Install the In-Memory Analytics](#Install-the-In-Memory-Analytics-sample).
+- [Install the In-Memory Analytics sample](#Install-the-In-Memory-Analytics-sample).
 - Learn more about [Columnstore Indexes](https://msdn.microsoft.com/library/gg492088.aspx) on MSDN.
 
 
-## Enrich an AdventureWorksLT database with In-Memory OLTP samples
+## Install the In-Memory OLTP sample
 
 You can create the AdventureWorksLT [V12] sample database by a few clicks in the Azure preview portal. Then the following steps explain how you can enrich your AdventureWorksLT database, with tables and natively compiled stored procedures, to illustrate the In-Memory OLTP objects.
 
