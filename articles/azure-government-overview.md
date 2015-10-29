@@ -98,7 +98,7 @@ If you are interested in learning more and about Azure Government please leverag
 
 - **[Azure Government Blog](http://blogs.msdn.com/b/azuregov/)**
 
-- **[Azure Compliance](http://azure.microsoft.com/en-us/support/trust-center/compliance/)**
+- **[Azure Compliance](http://azure.microsoft.com/support/trust-center/compliance/)**
 
 
 
