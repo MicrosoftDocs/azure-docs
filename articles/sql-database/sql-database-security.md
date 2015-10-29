@@ -12,8 +12,8 @@
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
-   ms.workload="data-services"
-   ms.date="10/13/2015"
+   ms.workload="data-management"
+   ms.date="10/21/2015"
    ms.author="thmullan;jackr"/>
 
 
