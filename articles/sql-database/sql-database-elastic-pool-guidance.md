@@ -40,7 +40,7 @@ Elastic database pools in Azure SQL Database enable SaaS ISVs to optimize the pr
 
 Elastic database pools are well suited for a large number of databases with specific utilization patterns. For a given database, this pattern is characterized by low average utilization with relatively infrequent utilization spikes.
 
-The more databases you can add to a pool the greater your savings become, but depending on your application utilization pattern, it is possible to see savings with as few as 2 S3 databases.  
+The more databases you can add to a pool the greater your savings become. Depending on your application utilization pattern, it is possible to see savings with as few as 2 S3 databases.  
 
 The following sections will help you understand how to assess if your specific collection of databases will benefit from using an elastic database pool. The examples use Standard elastic database pools but the same principles also apply to Basic and Premium pools.
 
