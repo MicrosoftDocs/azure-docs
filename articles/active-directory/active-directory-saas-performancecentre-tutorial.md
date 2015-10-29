@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/16/2015"
+	ms.date="10/29/2015"
 	ms.author="markusvi"/>
 
 
@@ -205,7 +205,10 @@ The objective of this section is to create a user called Britta Simon in Perform
 4. On the **Interrelate - Create Participant** dialog, perform the following steps:
 <br><br>![Create User][401]<br>
 
-    a. Type the **Email**, the **First Name** and the **Surname** of a valid Azure AD user you want to provision.
+    a. Type the required attributes for Britta Simon into related textboxes.
+    
+    > [AZURE.IMPORTANT] Britta's User Name attribute in PerformanceCentre must be the same as the User Name in Azure AD.
+
 
     b. Select **Client Administrator** as **Choose Role**. 
 
