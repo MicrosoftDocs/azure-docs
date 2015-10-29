@@ -195,7 +195,7 @@ StorSimple uses the following encryption algorithms to protect data stored in or
 | --------- | ---------- | ------------------------------- |
 | RSA       | 2048       | RSA PKCS 1 v1.5 is used by the Management Portal to encrypt configuration data that is sent to the device: for example, storage account credentials, StorSimple device configuration, and cloud storage encryption keys. |
 | AES       | 256        | AES with CBC is used to encrypt the public portion of the service data encryption key before it is sent to the Management Portal from the StorSimple device. It is also used by the StorSimple device to encrypt data before the data is sent to the cloud storage account. |
-<!---| RSA       | 2048       | RSA PKCS 1 v1.7 is used by the Management Portal to encrypt the public portion of the service data encryption key. |--->
+<!--- RSA       | 2048       | RSA PKCS 1 v1.7 is used by the Management Portal to encrypt the public portion of the service data encryption key. |--->
 
 ## StorSimple virtual device security
 
