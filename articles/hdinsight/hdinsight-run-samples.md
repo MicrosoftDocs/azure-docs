@@ -132,7 +132,7 @@ In the meantime, the reducer collects the line-oriented output from the [stdout]
 
 For more information about the Hadoop Streaming interface, see [Hadoop Streaming][hadoop-streaming].
 
-**To submit a C# streaming word count job **
+**To submit a C# streaming word count job**
 
 - Follow the procdure in [Word count - Java](#word-count-java), and replace the job definition with the following:
 
@@ -154,7 +154,7 @@ The pi estimator uses a statistical (quasi-Monte Carlo) method to estimate the v
 
 The script provided for this sample submits a Hadoop jar job and is set up to run with a value 16 maps, each of which is required to compute 10 million sample points by the parameter values. These parameter values can be changed to improve the estimated value of pi. For reference, the first 10 decimal places of pi are 3.1415926535.
 
-**To submit a pi estimator job **
+**To submit a pi estimator job**
 
 - Follow the procdure in [Word count - Java](#word-count-java), and replace the job definition with the following:
 
@@ -181,7 +181,9 @@ Three tasks are required by the sample, each corresponding to one of the MapRedu
 2. Sort the data by running the **TeraSort** MapReduce job.
 3. Confirm that the data has been correctly sorted by running the **TeraValidate** MapReduce job.
 
-The following are the job definitions:
+**To submit the jobs**
+
+- Follow the procdure in [Word count - Java](#word-count-java), and use the following job definitions:
 
 	$teragen = New-AzureRmHDInsightMapReduceJobDefinition `
 								-JarFile "/example/jars/hadoop-mapreduce-examples.jar" `
