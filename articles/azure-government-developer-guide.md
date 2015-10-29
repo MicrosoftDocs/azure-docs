@@ -4,7 +4,7 @@
 	services="" 
 	documentationCenter="" 
 	authors="Joharve2" 
-	manager="carolz" 
+	manager="Chrisnie" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="azure-government" 
-	ms.date="09/24/2014" 
+	ms.date="10/29/2015" 
 	ms.author="jharve"/>
 
 
@@ -99,7 +99,7 @@ Service Management|management.core.windows.net|management.core.usgovcloudapi.net
 SQL Database|*.database.windows.net|*.database.usgovcloudapi.net
 ARM Load balanced Endpoint|https://management.windows.net|https://management.usgovcloudapi.net  
 
-* For ARM authentication via Azure AD, please reference [Authenticating Azure Resource Manager Requests](https://msdn.microsoft.com/en-us/library/azure/dn790557.aspx)
+* For ARM authentication via Azure AD, please reference [Authenticating Azure Resource Manager Requests](https://msdn.microsoft.com/library/azure/dn790557.aspx)
 
 ## <a name="next"></a>Next steps
 
@@ -113,7 +113,7 @@ If you are interested in learning more and about Azure Government please leverag
 
 - **[Azure Government Blog](http://blogs.msdn.com/b/azuregov/)**
 
-- **[Azure Compliance](http://azure.microsoft.com/en-us/support/trust-center/compliance/)**
+- **[Azure Compliance](http://azure.microsoft.com/support/trust-center/compliance/)**
 
 <!--Anchors-->
 
