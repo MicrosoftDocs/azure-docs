@@ -34,20 +34,19 @@ After the API app has been created, you can launch it either directly from the A
 
 To launch it from the Azure start page you can search for it by typing the name you gave to the BizTalk Flat File Encoder when you created it. You do this by:
 1. Entering the name of your BizTalk Flat File Encoder in the search box on the Auzre portal and searching for it  
-2. Next, select your BizTalk Flat File Encoder from the list  
-
-This opens up the API App blade where you can configure your BizTalk Flat File Encoder API app. To start the configuration, you'll want to add a schema by:
+2. Next, select your BizTalk Flat File Encoder from the list. This opens up the API App blade where you can configure your BizTalk Flat File Encoder API app.  
+To start the configuration, you'll want to add a schema by:
 1. Selecting the "Schemas" component  
 ![BizTalk Flat File Encoder Schemas Part][2]  
 2. Then then selecting "Add New" on the Schemas blade that opens up  
-![BizTalk Flat File Encoder List of actions][7]
+![BizTalk Flat File Encoder List of actions][7]  
 3. Select one of the three options to provide your schema. The options are UPLOAD NEW SCHEMA, GENERATE FROM JSON AND GENERATE FROM FLAT FILE  
-![BizTalk Flat File Encoder List of actions][8]
+![BizTalk Flat File Encoder List of actions][8]  
 4.Follow the steps to provide your schema, based on your selection in the previous step. You'll then see the that the schema has been uploaded:  
 ![BizTalk Flat File Encoder List of actions][9]
 
 ###Using the BizTalk Flat File Encoder in design surface
-Now that you've configured the Biztalk Flat File Encoder, its time to use it in a Logic app. To get started, either create a new Logic app, our launch an existing one that you've created beforehand then follow these steps: 
+Now that you've configured the Biztalk Flat File Encoder, its time to use it in a Logic app. To get started, either create a new Logic app, our launch an existing one that you've created beforehand then follow these steps:  
 1. On the 'Start logic' card, click 'Run this logic manually'.  
 2. Select the BizTalk Flat File Encoder API App you created earlier in the gallery (You will find the BizTalk Flat File Encoder you created in the API Apps list on the right of your screen.).  
 3. Select the black right arrow. The two available actions (Flat File to Xml and Xml to Flat File) are presented:  
