@@ -1,9 +1,9 @@
 <properties
    pageTitle="Listing your application in the Azure Active Directory application gallery"
-   description="How to get your SAML-integrated or OpenID Connect -integrated app added to the Azure Active Directory application gallery"
+   description="A comprehensive guide to developer-oriented resources for Azure Active Directory"
    services="active-directory"
    documentationCenter="dev-center-name"
-   authors="asmalser-msft"
+   authors="msmbaldwin"
    manager="mbaldwin"
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="10/28/2015"
-   ms.author="asmalser"/>
+   ms.date="09/17/2015"
+   ms.author="mbaldwin"/>
 
 
 # Listing your application in the Azure Active Directory application gallery
