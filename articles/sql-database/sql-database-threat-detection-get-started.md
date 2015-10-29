@@ -3,7 +3,7 @@
    description="How to get started with SQL Database Threat Detection in the Azure Preview portal"
    services="sql-database"
    documentationCenter=""
-   authors="ronmat; ronitr"
+   authors="ronitr"
    manager="jeffreyg"
    editor="v-romcal"/>
 
