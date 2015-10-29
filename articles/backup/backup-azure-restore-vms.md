@@ -1,6 +1,6 @@
 
 <properties
-	pageTitle="Azure Backup - restore a virtual machine | Microsoft Azure"
+	pageTitle="Restore a virtual machines from backup | Microsoft Azure"
 	description="Learn how to restore an Azure virtual machine"
 	services="backup"
 	documentationCenter=""
@@ -14,10 +14,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/01/2015"
+	ms.date="10/29/2015"
 	ms.author="trinadhk"; "jimpark"/>
 
-# Restore an Azure virtual machine
+# Restore virtual machines in Azure
 You can restore a virtual machine to a new VM from the backups stored in Azure backup vault using restore action.
 
 ## Restore workflow
