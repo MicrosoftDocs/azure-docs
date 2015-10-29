@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="10/23/2015"
+   ms.date="10/29/2015"
    ms.author="v-sharos"/>
 
 # StorSimple security and data protection
@@ -60,7 +60,7 @@ After a device is registered, it uses tokens to communicate with Microsoft Azure
 
 ## Protect your StorSimple solution via passwords
 
-Passwords are an important aspect of computer security and are used extensively in the Microsoft Azure StorSimple solution to help ensure that your data is accessible to authorized users only. StorSimple allows you to configure the following passwords:
+Passwords are an important aspect of computer security and are used extensively in the StorSimple solution to help ensure that your data is accessible to authorized users only. StorSimple allows you to configure the following passwords:
 
 - StorSimple device administrator password
 - Challenge Handshake Authentication Protocol (CHAP) initiator and target passwords
@@ -111,7 +111,7 @@ For more information about StorSimple Snapshot Manager, go to [What is StorSimpl
 
 ### Password best practices
 
-We recommend that you use the following guidelines to help ensure that Azure StorSimple passwords are strong and well-protected:
+We recommend that you use the following guidelines to help ensure that StorSimple passwords are strong and well-protected:
 
 - Change your passwords every three months. Changing the passwords is enforced annually.
 - Use strong passwords. For more information, go to [Create stronger passwords and protect them](http://blogs.microsoft.com/cybertrust/2014/08/25/create-stronger-passwords-and-protect-them/).
@@ -123,9 +123,9 @@ We recommend that you use the following guidelines to help ensure that Azure Sto
 
 ## StorSimple data protection
 
-This section describes the Azure StorSimple security features that protect data in transit and stored data.
+This section describes the StorSimple security features that protect data in transit and stored data.
 
-As described in other sections, passwords are used to authorize and authenticate users before they can gain access to your Microsoft Azure StorSimple solution. Another security consideration is protecting data from unauthorized users while it is being transferred between storage systems and while it is being stored. The following sections describe the data protection features provided with Azure StorSimple.
+As described in other sections, passwords are used to authorize and authenticate users before they can gain access to your StorSimple solution. Another security consideration is protecting data from unauthorized users while it is being transferred between storage systems and while it is being stored. The following sections describe the data protection features provided with StorSimple.
 
 > [AZURE.NOTE] Deduplication provides additional protection for data stored on the StorSimple device and in Microsoft Azure storage. When data is deduplicated, the data objects are stored separately from the metadata used to map and access them: there is no available storage-level context to reconstruct the data based on volume structure, file system, or file name.
 
@@ -160,7 +160,7 @@ The StorSimple device manages data by storing it in tiers locally and in the clo
 
 ![Cloud storage encryption key](./media/storsimple-security/CloudStorageEncryption.png)
 
-To help ensure the security and integrity of data moved to the cloud, Azure StorSimple allows you to define cloud storage encryption keys as follows:
+To help ensure the security and integrity of data moved to the cloud, StorSimple allows you to define cloud storage encryption keys as follows:
 
 - You specify the cloud storage encryption key when you create a volume container. The key cannot be modified or added later. 
 - All volumes in a volume container share the same encryption key. If you want a different form of encryption for a specific volume, we recommend that you create a new volume container to host that volume.
@@ -195,7 +195,7 @@ StorSimple uses the following encryption algorithms to protect data stored in or
 | --------- | ---------- | ------------------------------- |
 | RSA       | 2048       | RSA PKCS 1 v1.5 is used by the Management Portal to encrypt configuration data that is sent to the device: for example, storage account credentials, StorSimple device configuration, and cloud storage encryption keys. |
 | AES       | 256        | AES with CBC is used to encrypt the public portion of the service data encryption key before it is sent to the Management Portal from the StorSimple device. It is also used by the StorSimple device to encrypt data before the data is sent to the cloud storage account. |
-<!--- RSA       | 2048       | RSA PKCS 1 v1.7 is used by the Management Portal to encrypt the public portion of the service data encryption key. |--->
+
 
 ## StorSimple virtual device security
 
