@@ -1,6 +1,6 @@
 
 <properties 
-    pageTitle="User Profile data in Azure RemoteApp"
+    pageTitle="User Profile data in Azure RemoteApp | Microsoft Azure"
 	description="Learn how user data is stored and accessed in Azure RemoteApp"
 	services="remoteapp"
 	documentationCenter="" 
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="08/12/2015" 
+    ms.date="10/28/2015" 
     ms.author="elizapo" />
 
 
@@ -31,12 +31,12 @@ Read on for specifics on user profile data.
 
 ## How can an admin get to the data?
 
-If you need to access the data for one of your users (for disaster recovery or if the user leaves the company), contact [Azure RemoteApp](mailto:remoteappforum@microsoft.com) and provide the subscription information for the collection and the user identity. The Azure RemoteApp team will provide you a URL where you can access the data - from there you can browse the location and retrieve any documents or files you need.
+If you need to access the data for one of your users (for disaster recovery or if the user leaves the company), contact [Azure RemoteApp](mailto:remoteappforum@microsoft.com) and provide the subscription information for the collection and the user identity. The Azure RemoteApp team will provide you a URL to the VHD. Download that VHD and retrieve any documents or files you need. Note that the VHD is 50GB, so it will take a bit to download it.
 
 
 ## Is the data backed up?
 
-Yes, we save a backup of the user data per geographic location. The data is read-only and can be accessed in the same way as the regular data would be (contact Azure RemoteApp to get), if the primary data center is down.
+Yes, we save a backup of the user data per geographic location. The data is read-only and can be accessed in the same way as the regular data would be (contact Azure RemoteApp to get it), if the primary data center is down. The data is copied real-time to the backup location and we do not keep copies of different versions. So, on data corruption, we will not be able to restore it to a previously known good version but if the primary data center is down, you will be able to get user data from the other location.
 
 ## How do users see the UPD on the server side?
 
@@ -55,7 +55,7 @@ Yes, Azure RemoteApp supports using shared data solutions - particularly OneDriv
 You can configure Azure RemoteApp to let users access local devices by setting up [redirection](remoteapp-redirection.md). Local devices will then be able to access the data on the UPD.
 
 ## Can I use my UPD as a network share?
-No, because the UPD is not persistent. A UPD is only available when the user is actively connected to Azure RemoteApp.
+No. UPDs cannot be used as a network share. A UPD is only available to the user when the user is actively connected to Azure RemoteApp.
 
 ## If I delete a user from a collection, is their UPD deleted?
 
@@ -70,6 +70,9 @@ Yes, if you contact [Azure RemoteApp](mailto:remoteappforum@microsoft.com), we c
 ## Are UPDs available offline?
 
 Right now we do not provide offline access to UPDs, beyond the 10 hour access window described above. This means that we do not currently have a way to provide you with access for long enough to complete more complicated tasks, like running anti-virus software on the UPDs or accessing data for an audit.
+
+## Do registry key settings persist?
+Yes, anything written to HKEY_Current_User is part of the UPD.
 
 ## Can I disable UPDs for a collection?
 

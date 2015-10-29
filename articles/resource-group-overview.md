@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/09/2015"
+   ms.date="10/27/2015"
    ms.author="tomfitz"/>
 
 # Azure Resource Manager overview
@@ -83,6 +83,8 @@ For information about using a template for deployment, see [Deploy an applicatio
 
 For guidance about how to structure your templates, see [Best practices for designing Azure Resource Manager templates](best-practices-resource-manager-design-templates.md).
 
+For guidance on deploying your solution to different environments, see [Development and test environments in Microsoft Azure](solution-dev-test-environments-preview-portal.md). 
+
 ## Tags
 
 Resource Manager provides a tagging feature that enables you to categorize resources according to your requirements for managing or billing. You might want to use tags when you have a complex collection of resource groups and resources, and need to visualize those assets in the way that makes the most sense to you. For example, you could tag resources that serve a similar role in your organization or belong to the same department.
@@ -95,15 +97,19 @@ For more information about tags, see [Using tags to organize your Azure resource
 
 Resource Manager enables you to control who has access to specific actions for your organization. It natively integrates OAuth and Role-Based Access Control (RBAC) into the management platform and applies that access control to all services in your resource group. You can add users to pre-defined platform and resource-specific roles and apply those roles to a subscription, resource group or resource to limit access. For example, you can take advantage of the pre-defined role called SQL DB Contributor that permits users to manage databases, but not database servers or security policies. You add users in your organization that need this type of access to the SQL DB Contributor role and apply the role to the subscription, resource group or resource.
 
-Resource Manager automatically logs user actions for auditing.
+Resource Manager automatically logs user actions for auditing. For informatin about working with the audit logs, see [Audit operations with Resource Manager](resource-group-audit.md).
 
 For more information about role-based access control, see [Role-based access control in the Microsoft Azure preview portal](role-based-access-control-configure.md). This topic contains a list of the built-in roles and the permitted actions. The built-in roles include general roles such as Owner, Reader, and Contributor; as well as, service-specific roles such as Virtual Machine Contributor, Virtual Network Contributor, and SQL Security Manager (to name just a few of the available roles).
 
-For examples of setting access policies, see [Managing and Auditing Access to Resources](azure-portal/resource-group-rbac.md).
+For examples of assigning roles, see [Managing access to resources](azure-portal/resource-group-rbac.md).
 
 You can also explicitly lock critical resources to prevent users from deleting or modifying them. For more information, see [Lock resources with Azure Resource Manager](resource-group-lock-resources.md).
 
 For best practices, see [Security considerations for Azure Resource Manager](best-practices-resource-manager-security.md)
+
+## Manage resources with customized policies
+
+Resource Manager enables you to create customized policies for managing your resources. The types of policies you create can include scenarios as diverse as enforcing a naming convention on resources, limiting which regions can host a type of resource, or requiring a tag value on resources to organize billing by departments. For more information, see [Use Policy to manage resources and control access](resource-manager-policy.md).
 
 ## Consistent management layer
 

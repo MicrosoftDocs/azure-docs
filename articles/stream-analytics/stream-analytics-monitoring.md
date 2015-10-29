@@ -14,18 +14,28 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="09/09/2015" 
+	ms.date="09/29/2015" 
 	ms.author="jeffstok"/>
 
 # Understanding Stream Analytics job monitoring
 
 ## Monitor page
 
-The Monitor page contains key performance metrics that can be used to monitor and troubleshoot your job. Click on the Monitor tab of a running Stream Analytics job to see these metrics. There is a delay of at the most 1 minute in the performance metrics showing up in the Monitor page. 
+The Azure Management portal and Azure preview portal both surface key performance metrics that can be used to monitor and troubleshoot your job.  
+
+In the Azure Management portal, click on the **Monitor** tab of a running Stream Analytics job to see these metrics. There is a delay of at the most 1 minute in the performance metrics showing up in the Monitor page.  
 
   ![Monitoring Dashboard](./media/stream-analytics-monitoring/01-stream-analytics-monitoring.png)  
 
-## Metrics available for Stream Analytics
+In the Azure preview portal, browse to the Stream Analytics job you are interested in seeing metrics for and view the **Monitoring** section.  
+
+  ![Azure preview portal Monitoring Dashboard](./media/stream-analytics-monitoring/06-stream-analytics-monitoring.png)  
+
+The first time a Stream Analytics job is created in a region, you will need to configure Diagnostics for that region. To do this, click anywhere in the **Monitoring** section and the **Diagnostics** blade will appear. Here you can enable diagnostics and specify a storage account for monitoring data.  
+
+  ![Azure preview portal Configure Diagnostics](./media/stream-analytics-monitoring/07-stream-analytics-monitoring.png)  
+
+## Metrics available for Stream Analytics  
 
 | Metric | Definition |
 |--------|-------------|
@@ -36,7 +46,9 @@ The Monitor page contains key performance metrics that can be used to monitor an
 | Out-of-Order Events | Number of events received out of order that were either dropped or given an adjusted timestamp, based on the Event Ordering Policy. This can be impacted by the configuration of the Out of Order Tolerance Window setting. |
 | Data Conversion Errors | Number of data conversion errors incurred by a Stream Analytics job. |
 | Late Input Events | Number of events arriving late from the source which have either been dropped or their timestamp has been adjusted, based on the Event Ordering Policy configuration of the Late Arrival Tolerance Window setting. |
-Up to 6 metrics can be displayed on a chart
+## Customizing Monitoring in the Azure Management portal ##
+
+Up to 6 metrics can be displayed on a chart.
 
 To switch between displaying relative values (final value only for each metric) and absolute values (Y axis displayed), select Relative or Absolute at the top of the chart.
 
@@ -49,6 +61,12 @@ To change the time range the metrics chart displays, select 1 hour, 24 hours, or
   ![Time Scale](./media/stream-analytics-monitoring/03-stream-analytics-monitoring.png)  
 
 You can set rules that can notify you by email in case the job crosses a defined threshold. 
+
+## Customizing Monitoring in the Azure Preview portal ##
+
+You can adjust the type of chart, metrics shown, and time range in the Edit Chart settings. For details, see [How to Customize Monitoring](./azure-portal/insights-how-to-customize-monitoring.md).
+
+  ![Azure preview portal Time Scale](./media/stream-analytics-monitoring/08-stream-analytics-monitoring.png)  
 
 ## Job status
 
@@ -67,7 +85,7 @@ The status of Stream Analytics jobs can be viewed in the Azure portal where you 
 
 ## Diagnosis
 
-The job dashboard provides information on where you need to look for the diagnosis, i.e. inputs, outputs and/or the operations log. You can click on the link to go the appropriate location to look at the diagnosis.
+In the Azure Management portal, the job dashboard provides information on where you need to look for the diagnosis, i.e. inputs, outputs and/or the operations log. You can click on the link to go the appropriate location to look at the diagnosis.
 
   ![Error](./media/stream-analytics-monitoring/04-stream-analytics-monitoring.png)  
 

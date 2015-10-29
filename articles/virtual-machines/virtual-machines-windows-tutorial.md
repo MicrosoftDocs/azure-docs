@@ -24,6 +24,11 @@
 - [PowerShell: Resource Manager deployment](virtual-machines-deploy-rmtemplates-powershell.md)
 - [PowerShell: Classic deployment](virtual-machines-ps-create-preconfigure-windows-vms.md)
 
+<br>
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] classic deployment model. 
+
+
+
 This tutorial shows you how easy it is to create an Azure virtual machine in just a few minutes in the preview portal. We'll use a Windows Server 2012 R2 Datacenter image as an example to create the virtual machine, but that's just one of the many images Azure offers. Your image choices depend on your subscription. For example, desktop images may be available to MSDN subscribers.
 
 You can also create virtual machines using your own images, with Resource Manager templates, or with automation tools. To learn about the different methods, see [Different Ways to Create a Windows Virtual Machine](virtual-machines-windows-choices-create-vm.md).

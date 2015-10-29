@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="08/10/2015"
+	ms.date="10/16/2015"
 	ms.author="tdykstra"/>
 
 # Create an ASP.NET web app in Azure App Service
@@ -28,7 +28,7 @@
 
 ## Overview
 
-This tutorial shows how to create an ASP.NET web application and deploy it to a [web app in Azure App Service](app-service-web-overview.md) by using Visual Studio 2015 or Visual Studio 2013. The tutorial assumes that you have no prior experience with using Azure or ASP.NET. On completing the tutorial, you'll have a simple web application up and running in the cloud.
+This tutorial shows how to deploy an ASP.NET web application to a [web app in Azure App Service](app-service-web-overview.md) by using Visual Studio 2015 or Visual Studio 2013. The tutorial assumes that you are an ASP.NET developer who has no prior experience with using Azure. On completing the tutorial, you'll have a simple web application up and running in the cloud.
 
 The following illustration shows the completed application:
 
@@ -36,21 +36,26 @@ The following illustration shows the completed application:
 
 You'll learn:
 
-* How to enable your machine for Azure development by installing the Azure SDK.
-* How to create a Visual Studio ASP.NET web project and deploy it to an Azure web app.
-* How to make a change to the web project and redeploy the application.
+* How to prepare your machine for Azure development by installing the [Azure SDK for .NET](../dotnet-sdk/).
+* How to set up Visual Studio to create a new App Service web app while it creates an ASP.NET MVC 5 web project.
+* How to deploy a web project to an App Service web app by using Visual Studio.
+* How to use Visual Studio **Server Explorer** to open remote files and start a remote debug session. 
 * How to use the [Azure portal](/overview/preview-portal/) to monitor and manage your web app.
+
+> [AZURE.NOTE] This tutorial is about using ASP.NET with Azure App Service; it doesn't teach how to develop an ASP.NET web application. For an introduction to ASP.NET MVC 5, see [Getting Started with ASP.NET MVC 5](http://www.asp.net/mvc/overview/getting-started/introduction/getting-started) on the [ASP.NET](http://asp.net/) site. For links to other articles that go into more depth about how to use Azure App Service, see the [Next steps](#next-steps) section.
+> 
+> Help us shape the scope and approach of this tutorial -- if there are other topics you'd like to see covered here in a getting-started tutorial leave feedback in a [Disqus comment](#comments) at the end of the tutorial.
 
 ##<a name="video"></a>Sign up for Microsoft Azure
 
 You need an Azure account to complete this tutorial. You can:
 
-* [Open an Azure account for free](/pricing/free-trial/?WT.mc_id=A261C142F). You get credits you that can use to try out paid Azure services. Even after the credits are used up, you can keep the account and use free Azure services and features, such as the Web Apps feature in Azure App Service.
+* [Open an Azure account for free](/pricing/free-trial/?WT.mc_id=A261C142F). You get credits that can be used to try out paid Azure services. Even after the credits are used up, you can keep the account and use free Azure services and features, such as the Web Apps feature in Azure App Service.
 * [Activate MSDN subscriber benefits](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F). Your MSDN subscription gives you credits every month that you can use for paid Azure services.
 
-> [AZURE.NOTE] If you want to get started with Azure App Service before you sign up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751). There, you can immediately create a short-lived starter web app in App Service—no credit card required, and no commitments.
+If you want to get started with Azure App Service before you sign up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751). There, you can immediately create a short-lived starter web app in App Service—no credit card required, and no commitments.
 
-In this video, Scott Hanselman shows how easy it is to sign up for a free trial of Microsoft Azure. (Duration: 1:58)
+In the following video, Scott Hanselman shows how easy it is to sign up for a free trial of Microsoft Azure. (Duration: 1:58)
 
 > [AZURE.VIDEO sign-up-for-microsoft-azure]
 
@@ -158,17 +163,13 @@ In this section you deploy web project to the web app, as illustrated in step 2 
 
 ![Create and deploy](./media/web-sites-dotnet-get-started/Create_App.png)
 
-7. In the **Azure App Service Activity** window, click **Publish MyExample to this Web App now**.
+1. In **Solution Explorer**, right-click the project, and choose **Publish**.
 
-	![Web app created](./media/web-sites-dotnet-get-started/GS13sitecreated.png)
+	![Choose Publish](./media/web-sites-dotnet-get-started/choosepublish.png)
 
-	In a few seconds, the **Publish Web** wizard appears.
-
-	Settings that Visual Studio needs to deploy your project to Azure have been saved in a *publish profile*. You can use the wizard to review and change those settings.
+	In a few seconds, the **Publish Web** wizard appears. The wizard opens to a *publish profile* that has settings for deploying the web project to the new web app. If you wanted to deploy to a different web app, you could click the **Profile** tab to create a different profile. For this tutorial, you'll accept the settings that deploy to the web app that you created earlier.
 
 8. On the **Connection** tab of the **Publish Web** wizard, click **Next**.
-
-	Visual Studio provides all the settings you need to deploy to your Azure web app.
 
 	![Successfully validated connection](./media/web-sites-dotnet-get-started/GS13ValidateConnection.png)
 
@@ -186,7 +187,7 @@ In this section you deploy web project to the web app, as illustrated in step 2 
 
 	![](./media/web-sites-dotnet-get-started/GS13previewoutput.png)
 
-	Visual Studio begins the process of copying the files to the Azure server.
+	When you click **Publish** Visual Studio begins the process of copying the files to the Azure server.
 
 	The **Output** and **Azure App Service Activity** windows show what deployment actions were taken and report successful completion of the deployment.
 
@@ -196,43 +197,39 @@ In this section you deploy web project to the web app, as illustrated in step 2 
 
 	![Web app running in Azure](./media/web-sites-dotnet-get-started/GS13deployedsite.png)
 
-13. Close the browser.
+13. Keep this browser window open for use in the next section.
 
-## Make a change and redeploy
-
-This section of the tutorial is optional. What you'll do is change the **h1** heading of the home page, run the project locally on your development computer to verify the change, and then deploy the change to Azure.
-
-2. Open the **Views/Home/Index.cshtml** or **.vbhtml** file in **Solution Explorer**, change the **h1** heading from "ASP.NET" to "ASP.NET and Azure", and save the file.
-
-	![MVC index.cshtml](./media/web-sites-dotnet-get-started/index.png)
-
-	![MVC h1 change](./media/web-sites-dotnet-get-started/mvcandazure.png)
-
-1. Press Ctrl+F5 to see the updated heading by running the web app on your local computer.
-
-	![Web app running locally](./media/web-sites-dotnet-get-started/localandazure.png)
-
-	The `localhost` URL shows that it's running on your local computer. By default it's running in IIS Express, which is a lightweight version of IIS that's designed for use during web application development.
-
-1. Close the browser.
-
-1. In **Solution Explorer**, right-click the project, and choose **Publish**.
-
-	![Choose Publish](./media/web-sites-dotnet-get-started/choosepublish.png)
-
-	The **Preview** tab of the **Publish Web** wizard appears. If you needed to change any publish settings, you could choose a different tab, but now all you want to do is redeploy with the same settings.
-
-2. In the **Publish Web** wizard, click **Publish**.
-
-	![Click Publish](./media/web-sites-dotnet-get-started/GS13previewoutput.png)
-
-	Visual Studio deploys the project to Azure and opens the web app in the default browser.
-
-	![Changed web app deployed](./media/web-sites-dotnet-get-started/deployedandazure.png)
-
-**Tip:** You can enable the **Web One Click Publish** toolbar for even quicker deployment. Click **View > Toolbars**, and then select **Web One Click Publish**. You can use the toolbar to select a profile, click a button to publish, or click a button to open the **Publish Web** wizard.
+**Tip:** You can enable the **Web One Click Publish** toolbar for quick deployment. Click **View > Toolbars**, and then select **Web One Click Publish**. You can use the toolbar to select a profile, click a button to publish, or click a button to open the **Publish Web** wizard.
 
 ![Web One Click Publish Toolbar](./media/web-sites-dotnet-get-started/weboneclickpublish.png)
+
+## Open remote files in Server Explorer
+
+When you're testing and debugging a web app, you can do quick temporary changes on the remote site by opening and editing files in **Server Explorer**.
+
+1.  In **Server Explorer**, navigate to **Azure > App Service > MyExampleGroup**, and then expand the node for your web app.
+
+2. Expand **Files > Views > Home**, and then double-click the *Index.cshtml* file.
+
+	![](./media/web-sites-dotnet-get-started/indexfileinse.png)
+
+3. Change `<h1>ASP.NET</h1>` to `<h1>Azure App Service</h1>`.
+
+4. Save the file.
+
+5. Refresh the browser window that has the site running in Azure. 
+
+	![](./media/web-sites-dotnet-get-started/afterindexedit.png)
+
+This change is now in the deployed site but not the local project. If you redeploy the project, the site will revert to the way it was before you made this change.
+
+This feature is handy for [temporarily turning off customErrors in the Web.config file in order to get a detailed error message](web-sites-dotnet-troubleshoot-visual-studio.md).
+
+In **Server Explorer** you can also right-click the web app node and get access to web app settings in a Visual Studio window, start a remote debugging session, and view application logs in real time as the application writes them.
+
+![](./media/web-sites-dotnet-get-started/sewebappmenu.png)
+
+For more information, see [Troubleshooting Azure web apps in Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md).
 
 ## Monitor and manage the web app in the Azure portal
 
@@ -240,7 +237,7 @@ The [Azure portal](/services/management-portal/) is a web interface that you can
 
 1. In your browser, go to [https://portal.azure.com](https://portal.azure.com), and sign in with your Azure credentials.
 
-2. Click **Browse All > Web Apps**, and then click the name of your web app.
+2. Click **Web Apps**, and then click the name of your web app.
 
 	The **Web app** blade displays an overview of settings and usage statistics for your web app.
 
@@ -249,6 +246,8 @@ The [Azure portal](/services/management-portal/) is a web interface that you can
 	At this point, your web app hasn't had much traffic and may not show anything in the graph. If you browse to your application, refresh the page a few times, and then refresh the portal page, you'll see some statistics show up.
 
 3. Click **Settings** to see more options for configuring your web app.
+
+	![Click Settings](./media/web-sites-dotnet-get-started/portaldashboard2.png)
 
 	You see a list of types of settings.
 
@@ -266,23 +265,19 @@ These are just a few of the portal's features. You can create new web apps, dele
 
 In this tutorial, you've seen how to create a simple web application and deploy it to an Azure web app. Here are some related topics and resources for learning more about web apps in Azure App Service:
 
+* How to add database and authorization functionality
+
+	For a tutorial that shows how to access a database and restrict some application functions to authorized users, see [Deploy a secure ASP.NET MVC app with membership, OAuth, and SQL Database to an Azure web app](/develop/net/tutorials/web-site-with-sql-database/). That tutorial assumes some knowledge of MVC 5; if you are new to MVC 5, see [Getting Started with ASP.NET MVC 5](http://www.asp.net/mvc/overview/getting-started/introduction/getting-started).
+
 * Other ways to deploy a web project
 
-	In this tutorial, you saw the quickest way to create a web app and deploy it all in one operation. For an overview of other ways to deploy, by using Visual Studio or by [automating deployment](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery) from a [source control system](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control), see [How to deploy an Azure web app](web-sites-deploy.md).
+	For information about other ways to deploy web projects to web apps, by using Visual Studio or by [automating deployment](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery) from a [source control system](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control), see [How to deploy an Azure web app](web-sites-deploy.md).
 
 	Visual Studio can also generate Windows PowerShell scripts that you can use to automate deployment. For more information, see [Automate Everything (Building Real-World Cloud Apps with Azure)](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/automate-everything).
-
-* How to manage a web app in Visual Studio
-
-	For information about web app management functions that you can do in **Server Explorer**, see [Troubleshooting Azure web apps in Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md).
 
 * How to troubleshoot a web app
 
 	Visual Studio provides features that make it easy to view Azure logs as they are generated in real time. You can also run in debug mode remotely in Azure. For more information, see [Troubleshooting Azure web apps in Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md).
-
-* How to add database and authorization functionality
-
-	For a tutorial that shows how to access a database and restrict some application functions to authorized users, see [Deploy a secure ASP.NET MVC app with membership, OAuth, and SQL Database to an Azure web app](/develop/net/tutorials/web-site-with-sql-database/).
 
 * How to add a custom domain name and SSL
 
@@ -290,10 +285,6 @@ In this tutorial, you've seen how to create a simple web application and deploy 
 
 	* [Configure a custom domain name in Azure App Service](web-sites-custom-domain-name.md)
 	* [Enable HTTPS for an Azure website](web-sites-configure-ssl-certificate.md)
-
-* How to avoid wake-up wait time after idle time-outs
-
-	By default, web apps are unloaded if they have been idle for some period of time. The first request after a web app has been unloaded has to wait for the web app to be reloaded. To avoid that wait time, you can  enable the Always On feature. For more information, see the configuration options in [How to configure web apps](web-sites-configure.md).
 
 * How to add real-time features such as chat
 
@@ -309,4 +300,4 @@ In this tutorial, you've seen how to create a simple web application and deploy 
 
 ## What's changed
 * For a guide to the change from Websites to App Service, see [Azure App Service and existing Azure services](http://go.microsoft.com/fwlink/?LinkId=529714).
-* For a guide to the change from the old portal to the new portal, see [Reference for navigating the Azure portal](http://go.microsoft.com/fwlink/?LinkId=529715).
+* For a guide to the change from the Azure portal to the preview portal, see [Reference for navigating the Azure portal](http://go.microsoft.com/fwlink/?LinkId=529715).

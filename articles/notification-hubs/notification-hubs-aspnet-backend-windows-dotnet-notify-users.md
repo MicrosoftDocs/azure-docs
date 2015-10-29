@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="06/16/2015"
+	ms.date="10/15/2015"
 	ms.author="wesmc"/>
 
 #Azure Notification Hubs Notify Users
@@ -26,6 +26,17 @@
 Push notification support in Azure enables you to access an easy-to-use, multiplatform, and scaled-out push infrastructure, which greatly simplifies the implementation of push notifications for both consumer and enterprise applications for mobile platforms. This tutorial shows you how to use Azure Notification Hubs to send push notifications to a specific app user on a specific device. An ASP.NET WebAPI backend is used to authenticate clients. Using the authenticated client user, and tag will be automatically added by the backend to notification registration. This tag will be used to send by the backend to generate notifications for a specific user. For more information on registering for notifications using an app backend, see the guidance topic [Registering from your app backend](http://msdn.microsoft.com/library/dn743807.aspx). This tutorial builds on the notification hub and project that you created in the [Get started with Notification Hubs] tutorial.
 
 This tutorial is also the prerequisite to the [Secure Push] tutorial. After you have completed the steps in this tutorial, you can proceed to the [Secure Push] tutorial, which shows how to modify the code in this tutorial to send a push notification securely.
+
+
+
+
+
+## Before you begin
+
+We do take your feedback seriously. If you have any difficulties completing this topic, or recommendations for improving this content, we would appreciate your feedback at the bottom of the page.
+
+The completed code for this tutorial can be found on GitHub [here](https://github.com/Azure/azure-notificationhubs-samples/tree/master/dotnet/NotifyUsers). 
+
 
 
 ##Prerequisites
@@ -111,7 +122,7 @@ In this section, you update the code in the project you completed for the [Get s
                     <TextBox Name="ToUserTagTextBox" Grid.Row="7" Grid.ColumnSpan="3" Margin="20,0,20,0" TextWrapping="Wrap" />
                     <TextBlock Grid.Row="8" Grid.ColumnSpan="3" Text="Enter Notification Message" FontSize="24" Margin="20,0,20,0"/>
                     <TextBox Name="NotificationMessageTextBox" Grid.Row="9" Grid.ColumnSpan="3" Margin="20,0,20,0" TextWrapping="Wrap" />
-                    <Button Grid.Row="10" Grid.ColumnSpan="3" HorizontalAlignment="Center" Content="2. Send push" Click="PushClick" />
+                    <Button Grid.Row="10" Grid.ColumnSpan="3" HorizontalAlignment="Center" Content="2. Send push" Click="PushClick" Name="SendPushButton" />
                 </Grid>
             </StackPanel>
         </Grid>
@@ -254,7 +265,7 @@ In this section, you update the code in the project you completed for the [Get s
 
         public RegisterClient(string backendEndpoint)
         {
-            PostURL = backendEndpoint + "/api/register";
+            POST_URL = backendEndpoint + "/api/register";
         }
 
         public async Task RegisterAsync(string handle, IEnumerable<string> tags)

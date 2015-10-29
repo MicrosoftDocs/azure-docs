@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/22/2015"
+   ms.date="09/28/2015"
    ms.author="JRJ@BigBangData.co.uk;barbkess"/>
 
  
@@ -30,7 +30,7 @@ The example below adds new date records to a date dimension. Note how a new obje
 
 ```
 CREATE TABLE dbo.DimDate_New
-WITH (DISTRIBUTION = REPLICATE
+WITH (DISTRIBUTION = ROUND_ROBIN
 , CLUSTERED INDEX (DateKey ASC)
 )
 AS 

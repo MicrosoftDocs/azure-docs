@@ -5,14 +5,14 @@
    documentationCenter="na"
    authors="cherylmc"
    manager="carolz"
-   editor="tysonn" />
+   editor="" />
 <tags 
    ms.service="vpn-gateway"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/07/2015"
+   ms.date="10/05/2015"
    ms.author="cherylmc" />
 
 # About secure cross-premises connectivity for virtual networks
@@ -65,8 +65,6 @@ A site-to-site VPN allows you to create a secure connection between your on-prem
 - The Gateway SKU will also impact aggregate throughput. See [Gateway SKUs](vpn-gateway-about-vpngateways.md#gateway-skus) for more information. 
 
 For information about configuring a site-to-site VPN gateway connection, see [Configure a virtual network with a site-to-site VPN connection](vpn-gateway-site-to-site-create.md). 
-
-If you want to create a site-to-site VPN gateway connection using RRAS, see [Configure a site-to-site VPN using Windows Server 2012 Routing and Remote Access Service (RRAS)](https://msdn.microsoft.com/library/dn636917.aspx).
 
 
 ## Point-to-site connections

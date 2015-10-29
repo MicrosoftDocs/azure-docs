@@ -3,7 +3,7 @@
    description="Service Fabric Reliable Actors are a good fit with parallel asynchronous messaging, easily managed distributed state, and parallel computation."
    services="service-fabric"
    documentationCenter=".net"
-   authors="jessebenson"
+   authors="vturecek"
    manager="timlt"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="09/08/2015"
-   ms.author="claudioc"/>
+   ms.author="vturecek"/>
 
 # Reliable Actors design pattern: distributed computation
 We owe this one in part to watching a real life customer whip out a financial calculation in Service Fabric Reliable Actors in an absurdly small amount of time—a Monte Carlo simulation for risk calculation to be exact.

@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="09/15/2015"
+   ms.date="10/26/2015"
    ms.author="larryfr"/>
 
 #Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X
@@ -35,7 +35,7 @@
 
 OR
 
-* [Azure CLI for Mac, Linux and Windows](../xplat-cli.md).
+* [Azure CLI for Mac, Linux and Windows](../xplat-cli-install.md).
 
 ##What is SSH?
 
@@ -136,7 +136,7 @@ If you used an SSH key that is secured with a passphrase, you will be prompted t
 >
 > `ssh -i ~/.ssh/id_rsa me@mycluster-ssh.azurehdinsight.net`
 
-If no port is specified, SSH will default to port 22, which will connect to headnode0 on the HDInsight cluster. If you use port 23, you will connect to headnode1. For more information on the head nodes, see [Availability and reliability of Hadoop clusters in HDInsight](hdinsight-high-availability-linux.md).
+If no port is specified, SSH will default to port 22, which will connect to head node 0 on the HDInsight cluster. If you use port 23, you will connect to head node 1. For more information on the head nodes, see [Availability and reliability of Hadoop clusters in HDInsight](hdinsight-high-availability-linux.md).
 
 ###Connect to worker nodes
 

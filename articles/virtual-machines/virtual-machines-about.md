@@ -1,6 +1,6 @@
 <properties
 	pageTitle="About Azure Virtual Machines | Microsoft Azure"
-	description="Learn about the basics of virtual machines in Azure."
+	description="Learn about the basics of virtual machines in Azure using both deployment models."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="cynthn"
@@ -14,16 +14,17 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/14/2015"
+	ms.date="10/23/2015"
 	ms.author="cynthn"/>
 
-#About Azure virtual machines created with both deployment models
+#About Azure virtual machines 
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)] This article covers resources created with both the Resource Manager deployment model and the classic deployment model.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
-Azure Virtual Machines is one of several types of on-demand, scalable computing resources that Azure offers. Typically, you'll choose a virtual machine instead of another option if you need more control over the computing environment than the other choices offer.
 
-Another approach is to use a virtual machine on your own hardware. Compared to that approach, an Azure virtual machine gives you the flexibility of virtualization without having to buy and maintain the physical hardware that runs the virtual machine. However, you do still need to maintain the virtual machine -- configuring, patching, and maintaining the operating system and any other software that runs on the virtual machine.
+Azure Virtual Machines is one of several types of on-demand, scalable computing resources that Azure offers. Typically, you'll choose a virtual machine if you need more control over the computing environment than the other choices offer.
+
+An Azure virtual machine gives you the flexibility of virtualization without having to buy and maintain the physical hardware that runs the virtual machine. However, you still need to maintain the virtual machine -- configuring, patching, and maintaining the operating system and any other software that runs on the virtual machine.
 
 This table helps you compare the choices offered by Azure.
 

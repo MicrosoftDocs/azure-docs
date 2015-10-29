@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="07/09/2015"
+   ms.date="10/15/2015"
    ms.author="jgao"/>
 
 #Connect Excel to Hadoop with the Microsoft Hive ODBC driver
@@ -31,21 +31,21 @@ It is also possible to connect the data associated with an HDInsight cluster and
 
 Before you begin this article, you must have the following:
 
-- **An HDInsight cluster**. To configure one, see [Get started with Azure HDInsight][hdinsight-get-started].
+- **An HDInsight cluster**. To create one, see [Get started with Azure HDInsight][hdinsight-get-started].
 - **A workstation** with Office 2013 Professional Plus, Office 365 Pro Plus, Excel 2013 Standalone, or Office 2010 Professional Plus.
 
 
-##<a id="InstallHiveODBCDriver"></a>Install the Microsoft Hive ODBC Driver
+##Install Microsoft Hive ODBC driver
 
 Download and install Microsoft Hive ODBC Driver from the [Download Center][hive-odbc-driver-download].
 
-This driver can be installed on 32-bit or 64-bit versions of Windows 7, Windows 8, Windows Server 2008 R2 and Windows Server 2012 and will allow connection to Azure HDInsight (version 1.6 and later) and Azure HDInsight Emulator (v.1.0.0.0 and later). You should install the version that matches the version of the application where you will be using the ODBC driver. For this tutorial, the driver will be used from Office Excel.
+This driver can be installed on 32-bit or 64-bit versions of Windows 7, Windows 8, Windows 10, Windows Server 2008 R2 and Windows Server 2012 and will allow connection to Azure HDInsight (version 1.6 and later) and Azure HDInsight Emulator (v.1.0.0.0 and later). You should install the version that matches the version of the application where you will be using the ODBC driver. For this tutorial, the driver will be used from Office Excel.
 
-##<a id="CreateHiveODBCDataSource"></a>Create a Hive ODBC Data Source
+##Create Hive ODBC data source
 
 The following steps show you how to create a Hive ODBC Data Source.
 
-1. From Windows 8, press the Windows key to open the Start screen, and then type **data sources**.
+1. From Windows 8 or Windows 10, press the Windows key to open the Start screen, and then type **data sources**.
 2. Click **Set up ODBC Data sources (32-bit)** or **Set up ODBC Data Sources (64-bit)** depending on your Office version. If you are using Windows 7, choose **ODBC Data Sources (32 bit)** or **ODBC Data Sources (64 bit)** from **Administrative Tools**. This will launch the **ODBC Data Source Administrator** dialog.
 
 	![OBDC data source administrator][img-hdi-simbahiveodbc-datasource-admin]
@@ -83,7 +83,7 @@ Default string column length, Binary column length, Decimal column scale|The dat
 7. Click **OK** to close the Test dialog. The new data source should now be listed on the **ODBC Data Source Administrator**.
 8. Click **OK** to exit the wizard.
 
-##<a id="ImportData"></a>Import data into Excel from an HDInsight cluster
+##Import data into Excel from an HDInsight cluster
 
 The steps below describe the way to import data from a hive table into an Excel workbook using the ODBC data source that you created in the steps above.
 
@@ -108,7 +108,7 @@ The steps below describe the way to import data from a hive table into an Excel 
 12. Click **OK** to close the **Import Data** dialog.  
 13. Re-enter the password, and then click **OK**. It takes a few seconds before data gets imported to Excel.
 
-##<a id="nextsteps"></a>Next steps
+##Next steps
 
 In this article you learned how to use the Microsoft Hive ODBC driver to retrieve data from the HDInsight Service into Excel. Similarly, you can retrieve data from the HDInsight Service into SQL Database. It is also possible to upload data into an HDInsight Service. To learn more, see:
 

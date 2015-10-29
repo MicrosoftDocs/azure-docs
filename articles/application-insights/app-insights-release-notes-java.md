@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Release notes for Application Insights for Java" 
-	description="The latest updates." 
+	description="The latest updates for Java SDK." 
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
@@ -11,7 +11,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/18/2015" 
+	ms.date="09/21/2015" 
 	ms.author="awills"/>
  
 # Release Notes for Application Insights SDK for Java
@@ -36,6 +36,11 @@ After you upgrade, you'll need to merge back any customizations you made to Appl
 * Download the latest version of [Azure Libraries for Java](http://dl.msopentech.com/lib/PackageForWindowsAzureLibrariesForJava.html) and replace the old ones. 
  
 Compare the old and new ApplicationInsights.xml. Many of the changes you see are because we added and removed modules. Reinstate any customizations that you made.
+
+## Version 1.0.2
+
+- Compatibility with Docker
+- Bug fixes - catch all exceptions, handle all successful status codes
 
 ## Version 1.0.1
 - The [Java agent](app-insights-java-agent.md) collects dependency information about the following:

@@ -62,13 +62,13 @@ The core SDK just provides an API: unlike the Web or device SDKs, it doesn't inc
 
     * If you only installed the core API package Microsoft.ApplicationInsights, you must set the key in code, for example in main(): 
 
-     `TelemetryConfiguration.Active.InstrumentationKey = "`*your key*`";`
+    `TelemetryConfiguration.Active.InstrumentationKey = "` *your key* `";` 
 
-    * If you installed one of the other packages, you can either set the key using code, or set it in ApplicationInsights.config:
+    If you installed one of the other packages, you can either set the key using code, or set it in ApplicationInsights.config:
  
-     `<InstrumentationKey>`*your key*`</InstrumentationKey>`
+    `<InstrumentationKey>`*your key*`</InstrumentationKey>` 
 
-
+    If you use ApplicationInsights.config, make sure its properties in Solution Explorer are set to **Build Action = Content, Copy to Output Directory = Copy**.
 
 ## <a name="telemetry"></a>Insert telemetry calls
 
@@ -199,6 +199,8 @@ By contrast, the persistence channel buffers telemetry in a file, before sending
     
     ``` 
 3. Use `telemetryClient.Flush()` before your app closes, to make sure data is either sent to the portal or saved to the file.
+
+    Note that Flush() is synchronous for the persistence channel, but asynchronous for other channels.
 
  
 The persistence channel is optimized for devices scenarios, where the number of events produced by application is relatively small and the connection is often unreliable. This channel will write events to the disk into reliable storage first and then attempt to send it. 

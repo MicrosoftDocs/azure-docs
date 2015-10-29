@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Apache Storm tutorial: Get started with Storm | Microsoft Azure"
-	description="Get started with big data analytics using Apache Storm and the Storm Starter samples on HDInsight. Learn how to use Storm to process data real-time."
+	pageTitle="Apache Storm tutorial: Get started with Linux-based Storm on HDInsight | Microsoft Azure"
+	description="Get started with big data analytics using Apache Storm and the Storm Starter samples on Linux-based HDInsight. Learn how to use Storm to process data real-time."
 	keywords="apache storm,apache storm tutorial,big data analytics,storm starter"
 	services="hdinsight"
 	documentationCenter=""
@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="08/18/2015"
+   ms.date="10/26/2015"
    ms.author="larryfr"/>
 
 
@@ -122,7 +122,7 @@ The [storm-starter](https://github.com/apache/storm/tree/master/examples/storm-s
 
 2. Use the following command to start an example topology:
 
-        storm jar storm jar /usr/hdp/current/storm-client/contrib/storm-starter/storm-starter-topologies-0.9.3.2.2.4.9-1.jar storm.starter.WordCountTopology wordcount
+        storm jar /usr/hdp/current/storm-client/contrib/storm-starter/storm-starter-topologies-0.9.3.2.2.4.9-1.jar storm.starter.WordCountTopology wordcount
 		
 	> [AZURE.NOTE] The `0.9.3.2.2.4.9-1` portion of the file name may change as HDinsight is updated with newer versions of Storm.
 

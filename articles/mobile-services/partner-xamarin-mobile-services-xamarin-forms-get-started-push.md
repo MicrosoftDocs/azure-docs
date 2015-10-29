@@ -13,8 +13,8 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="mobile-xamarin"
 	ms.workload="mobile"
-	ms.date="06/10/2015"
-	ms.author="normesta"/>
+	ms.date="10/05/2015"
+	ms.author="wesmc"/>
 
 # Add push notifications to your Xamarin.Forms app
 [AZURE.INCLUDE [mobile-services-selector-get-started-push](../../includes/mobile-services-selector-get-started-push.md)]

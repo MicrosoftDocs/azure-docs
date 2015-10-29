@@ -244,58 +244,9 @@ Determines the maximum size in MB that is allotted to the persistent storage on 
    </ApplicationInsights>
 ```
 
-## Custom Initializers
+## Telemetry Initializers
 
-
-If the standard initializers aren't suitable for your application, you can create your own.
-
-Use Context Initializers to set values that will be used to initialize every telemetry client. For example, if you have published more than one version of your app, you could make sure you can separate the data by filtering on a custom property:
-
-    plublic class MyContextInitializer: IContextInitializer
-    {
-        public void Initialize(TelemetryContext context)
-        {
-          context.Properties["AppVersion"] = "v2.1";
-        }
-    }
-
-Use Telemetry Initializers to add processing to each event. For example, the web SDK flags as failed any request with a response code >= 400. You could override that behavior:  
-
-    public class MyTelemetryInitializer : ITelemetryInitializer
-    {
-        public void Initialize(ITelemetry telemetry)
-        {
-            var requestTelemetry = telemetry as RequestTelemetry;
-            if (requestTelemetry == null) return;
-            int code;
-            bool parsed = Int32.TryParse(requestTelemetry.ResponseCode, out code);
-            if (!parsed) return;
-            if (code >= 400 && code < 500)
-            {
-                requestTelemetry.Success = true;
-                requestTelemetry.Context.Properties["Overridden400s"] = "true";
-            }            
-        }
-    }
- 
-To install your initializers, add lines in ApplicationInsights.config:
-
-    <TelemetryInitializers> <!-- or ContextInitializers -->
-    <Add Type="MyNamespace.MyTelemetryInitializer, MyAssemblyName" />
-
-
-Alternatively you can write code to install the initializer at an early point in execution of your application. For example: 
-
-
-    // In the app initializer such as Global.asax.cs:
-
-    protected void Application_Start()
-    {
-      TelemetryConfiguration.Active.TelemetryInitializers.Add(
-                new MyTelemetryInitializer());
-            ...
-
-
+You can write telemetry initializers that filter and modify the telemetry collected from your app. They can be initialized from the .config file along with the standard modules. [Learn more](app-insights-api-filtering-sampling.md)
 
 
 ## InstrumentationKey
@@ -342,5 +293,5 @@ To get a new key, [create a new resource in the Application Insights portal][new
 [netlogs]: app-insights-asp-net-trace-logs.md
 [new]: app-insights-create-new-resource.md
 [redfield]: app-insights-monitor-performance-live-website-now.md
-[start]: app-insights-get-started.md
+[start]: app-insights-overview.md
 

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="multiple"
    ms.workload="na"
-   ms.date="08/14/2015"
+   ms.date="10/28/2015"
    ms.author="patshea" />
 
 # Debugging an Azure cloud service or virtual machine in Visual Studio
@@ -42,7 +42,7 @@ The emulator simulates the Azure Compute service and runs in your local environm
     **Note:** When you stop running or debugging your service, the local compute emulator and storage emulator aren't stopped. You must stop them explicitly from the notification area.
 
 
-## Debugging a cloud service in Azure
+## Debug a cloud service in Azure
 
 To debug a cloud service from a remote machine, you must enable that functionality explicitly when you deploy your cloud service so that required services (msvsmon.exe, for example) are installed on the virtual machines that run your role instances. If you didn't enable remote debugging when you published the service, you have to republish the service with remote debugging enabled.
 
@@ -88,11 +88,11 @@ To detach the debugger from all processes in your instance or role, open the sho
 
 ## Limitations of remote debugging in Azure
 
-For Azure SDK 4.3, remote debugging has the following limitations.
+From Azure SDK 2.3, remote debugging has the following limitations.
 
 - With remote debugging enabled, you can't publish a cloud service in which any role has more than 25 instances.
 
-- The debugger uses ports 30400 to 30424 and 31400 to 31424. If you try to use any of these ports, you won't be able to publish your service, and one of the following error messages will appear in the activity log for Azure: 
+- The debugger uses ports 30400 to 30424, 31400 to 31424 and 32400 to 32424. If you try to use any of these ports, you won't be able to publish your service, and one of the following error messages will appear in the activity log for Azure: 
 
     - Error validating the .cscfg file against the .csdef file. 
     The reserved port range 'range' for endpoint Microsoft.WindowsAzure.Plugins.RemoteDebugger.Connector of role 'role' overlaps with an already defined port or range.

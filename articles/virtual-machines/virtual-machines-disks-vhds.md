@@ -19,7 +19,8 @@
 
 # About disks and VHDs for Azure virtual machines
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)] This article covers learning about resources created with both the Resource Manager deployment model and the classic deployment model.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
+
 
 All virtual machines in Azure are configured with at least two disks when you create the virtual machine – one is an operating system disk and the other is a temporary local disk, sometimes called a resource disk. The operating system disk is created from an image, and both the operating system disk and the image are actually virtual hard disks (VHDs) stored in an Azure storage account. Virtual machines also can have data disks, and they are also stored as VHDs.
 

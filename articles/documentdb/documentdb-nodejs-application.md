@@ -14,10 +14,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="hero-article" 
-	ms.date="07/24/2015" 
+	ms.date="10/20/2015" 
 	ms.author="ryancraw"/>
 
 # <a name="_Toc395783175"></a>Build a Node.js web application using DocumentDB
+
+> [AZURE.SELECTOR]
+- [.NET](documentdb-dotnet-application.md)
+- [Node.js](documentdb-nodejs-application.md)
+- [Java](documentdb-java-application.md)
+- [Python](documentdb-python-application.md)
 
 This Node.js tutorial shows you how to use the Azure DocumentDB service to store and access data from a Node.js Express application hosted on Azure Websites.
 

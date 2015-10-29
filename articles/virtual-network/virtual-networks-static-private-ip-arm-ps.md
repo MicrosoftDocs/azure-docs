@@ -4,7 +4,7 @@
    services="virtual-network"
    documentationCenter="na"
    authors="telmosampaio"
-   manager="carolz"
+   manager="carmonm"
    editor="tysonn"
    tags="azure-resource-manager"
 />
@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/08/2015"
+   ms.date="10/21/2015"
    ms.author="telmos" />
 
 # How to set a static private IP address in PowerShell
@@ -32,16 +32,8 @@ The sample PowerShell commands below expect a simple environment already created
 ## How to specify a static private IP address when creating a VM
 To create a VM named *DNS01* in the *FrontEnd* subnet of a VNet named *TestVNet* with a static private IP of *192.168.1.101*, follow the steps below:
 
-1. If you have never used Azure PowerShell, see [How to Install and Configure Azure PowerShell](powershell-install-configure.md) and follow the instructions all the way to the end to sign into Azure and select your subscription.
-2. From an Azure PowerShell prompt, run the  **Switch-AzureMode** cmdlet to switch to Resource Manager mode, as shown below.
+[AZURE.INCLUDE [powershell-preview-include.md](../../includes/powershell-preview-include.md)]
 
-		Switch-AzureMode AzureResourceManager
-	
-	Expected output:
-
-		WARNING: The Switch-AzureMode cmdlet is deprecated and will be removed in a future release.
-
-	>[AZURE.WARNING] The Switch-AzureMode cmdlet will be deprecated soon. When that happens, all Resource Manager cmdlets will be renamed.
 1. Set variables for the storage account, location, resource group, and credentials to be used. You will need to enter a user name and password for the VM. The storage account and resource group must already exist.
 
 		$stName = "vnetstorage"
@@ -79,8 +71,8 @@ To create a VM named *DNS01* in the *FrontEnd* subnet of a VNet named *TestVNet*
 		Output              : 
 		StartTime           : 9/8/2015 2:27:42 PM -07:00
 		Status              : Succeeded
-		TrackingOperationId : 249e4cc9-1257-42a7-a2fd-6962243c5b6d
-		RequestId           : 8dd60f6d-6453-49c4-8f6a-d3c6356dd2a4
+		TrackingOperationId : xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+		RequestId           : xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 		StatusCode          : OK 
 
 
@@ -94,29 +86,29 @@ Expected output:
 	Name                 : TestNIC
 	ResourceGroupName    : TestRG
 	Location             : centralus
-	Id                   : /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/providers/Microsoft.Network/networkInterfaces/Te
+	Id                   : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/networkInterfaces/Te
 	                       stNIC
-	Etag                 : W/"ee300945-3bb1-4eda-bc90-3a6d65fad60a"
+	Etag                 : W/"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 	ProvisioningState    : Succeeded
 	Tags                 : 
 	VirtualMachine       : {
-	                         "Id": "/subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/providers/Microsoft.Compute/virtualMach
+	                         "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Compute/virtualMach
 	                       ines/DNS01"
 	                       }
 	IpConfigurations     : [
 	                         {
 	                           "Name": "ipconfig1",
-	                           "Etag": "W/\"ee300945-3bb1-4eda-bc90-3a6d65fad60a\"",
-	                           "Id": "/subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/providers/Microsoft.Network/networkIn
+	                           "Etag": "W/\"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx\"",
+	                           "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/networkIn
 	                       terfaces/TestNIC/ipConfigurations/ipconfig1",
 	                           "PrivateIpAddress": "192.168.1.101",
 	                           "PrivateIpAllocationMethod": "Static",
 	                           "Subnet": {
-	                             "Id": "/subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/providers/Microsoft.Network/virtual
+	                             "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/virtual
 	                       Networks/TestVNet/subnets/FrontEnd"
 	                           },
 	                           "PublicIpAddress": {
-	                             "Id": "/subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/providers/Microsoft.Network/publicI
+	                             "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/publicI
 	                       PAddresses/TestPIP"
 	                           },
 	                           "LoadBalancerBackendAddressPools": [],
@@ -146,29 +138,29 @@ Expected output:
 	Name                 : TestNIC
 	ResourceGroupName    : TestRG
 	Location             : centralus
-	Id                   : /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/providers/Microsoft.Network/networkInterfaces/Te
+	Id                   : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/networkInterfaces/Te
 	                       stNIC
-	Etag                 : W/"45ccb5a5-934e-485f-b2fd-e4a014131032"
+	Etag                 : W/"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 	ProvisioningState    : Succeeded
 	Tags                 : 
 	VirtualMachine       : {
-	                         "Id": "/subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/providers/Microsoft.Compute/virtualMach
+	                         "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Compute/virtualMach
 	                       ines/WindowsVM"
 	                       }
 	IpConfigurations     : [
 	                         {
 	                           "Name": "ipconfig1",
-	                           "Etag": "W/\"45ccb5a5-934e-485f-b2fd-e4a014131032\"",
-	                           "Id": "/subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/providers/Microsoft.Network/networkIn
+	                           "Etag": "W/\"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx\"",
+	                           "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/networkIn
 	                       terfaces/TestNIC/ipConfigurations/ipconfig1",
 	                           "PrivateIpAddress": "192.168.1.101",
 	                           "PrivateIpAllocationMethod": "Dynamic",
 	                           "Subnet": {
-	                             "Id": "/subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/providers/Microsoft.Network/virtual
+	                             "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/virtual
 	                       Networks/TestVNet/subnets/FrontEnd"
 	                           },
 	                           "PublicIpAddress": {
-	                             "Id": "/subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/providers/Microsoft.Network/publicI
+	                             "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/publicI
 	                       PAddresses/TestPIP"
 	                           },
 	                           "LoadBalancerBackendAddressPools": [],

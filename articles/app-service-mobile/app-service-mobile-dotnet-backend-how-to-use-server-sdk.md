@@ -26,7 +26,7 @@ The SDK is available on [NuGet.org]. This package includes the base functionalit
 
 ###Install the SDK
 
-To install the SDK, right-click on the server project in Visual Studio, select **Manage NuGet Packages**, search for the [Microsoft.Azure.Mobile.Server](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server/) package, then click **Install**.
+To install the SDK, right-click on the server project in Visual Studio, select **Manage NuGet Packages**, search for the [Microsoft.Azure.Mobile.Server](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server/) package, then click **Install**.  
 
 ###Initialize the server project
 
@@ -80,7 +80,7 @@ The following NuGet-based extension packages provide various mobile features tha
 	 Supports the basic Mobile Apps setup. Added to the configuration by calling the **UseDefaultConfiguration** extension method during initialization. This extension includes following extensions: Notifications, Authentication, Entity, Tables, Crossdomain and Home packages. This is equivalent to the quickstart server project that you download from the Azure portal.
 
 - [Microsoft.Azure.Mobile.Server.Home](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Home/)   
-	Adds a simple home page to the web site root. Add to the configuration by calling the **AddMobileAppHomeController** extension method.
+	Implements the default *this mobile app is up and running page* for the web site root. Add to the configuration by calling the **AddMobileAppHomeController** extension method.
 
 - [Microsoft.Azure.Mobile.Server.Tables](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Tables/)  
 	includes classes for working with data and sets-up the data pipeline. Add to the configuration by calling the **AddTables** extension method.
@@ -159,7 +159,7 @@ You can add authentication to your server project by extending the **MobileAppCo
 
 3. Add the `[Authorize]` attribute to any controller or method that requires authentication. Users must now be authenticated to access that endpoint or those a specific APIs.
 
-To learn about how to authenticate clients to your Mobile Apps backend, see [Add authentication to your app](app-service-mobile-dotnet-backend-ios-get-started-users-preview.md).
+To learn about how to authenticate clients to your Mobile Apps backend, see [Add authentication to your app](app-service-mobile-dotnet-backend-ios-get-started-users.md).
 
 ## How to: Add push notifications to a server project
 
@@ -199,13 +199,13 @@ You can add push notifications to your server project by extending the **MobileA
         NotificationHubClient hub = NotificationHubClient
         .CreateClientFromConnectionString(notificationHubConnection, notificationHubName);
 
-At this point, you can use the Notification Hubs client to send push notifications to registered devices. For more information, see [Add push notifications to your app](app-service-mobile-dotnet-backend-ios-get-started-push-preview.md). To learn more about all that you can do with Notification Hubs, see [Notification Hubs Overview](../notification-hubs/notification-hubs-overview.md).
+At this point, you can use the Notification Hubs client to send push notifications to registered devices. For more information, see [Add push notifications to your app](app-service-mobile-ios-get-started-push.md). To learn more about all that you can do with Notification Hubs, see [Notification Hubs Overview](../notification-hubs/notification-hubs-overview.md).
 
 ## How to: Publishing the server project
 
 Use the following steps to publish your server project to Azure:
 
-[AZURE.INCLUDE [app-service-mobile-dotnet-backend-publish-service-preview](../../includes/app-service-mobile-dotnet-backend-publish-service-preview.md)]
+[AZURE.INCLUDE [app-service-mobile-dotnet-backend-publish-service](../../includes/app-service-mobile-dotnet-backend-publish-service.md)]
 
 
 [NuGet.org]: http://www.nuget.org/

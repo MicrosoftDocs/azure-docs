@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/25/2015" 
+	ms.date="09/25/2015" 
 	ms.author="mimig"/>
 
 # Using consistency levels to maximize availability and performance in DocumentDB
@@ -40,9 +40,9 @@ You can configure a default consistency level on your database account that appl
  
 Strong consistency provides absolute guarantees on data consistency, but offers the lowest level of read and write performance.  
 
-**Bounded staleness**: Bounded staleness consistency guarantees the total order of propagation of writes with the possibility that reads lag behind writes by at most K prefixes. The read is always acknowledged by a majority quorum of replicas. The response of a read request specifies its relative freshness (in terms of K).  
+**Bounded staleness**: Bounded staleness consistency guarantees the total order of propagation of writes with the possibility that reads lag behind writes by at most K prefixes. The read is always acknowledged by a majority quorum of replicas. The response of a read request specifies its relative freshness (in terms of K). With   bounded staleness you can set configurable threshold of staleness (as prefixes or time) for reads to tradeoff latency and consistency in steady state.
 
-Bounded staleness provides more predictable behavior for read consistency while offering the lowest latency writes. As reads are acknowledged by a majority quorum, read latency is not the lowest offered by the system.    
+Bounded staleness provides more predictable behavior for read consistency while offering the lowest latency writes. As reads are acknowledged by a majority quorum, read latency is not the lowest offered by the system. Bounded Staleness is an option for scenarios where you want strong consistency but where strong consistency is not practical. If you configure the “staleness interval” for Bounded Staleness consistency to be arbitrary large, it will still preserve the total global order of writes. This provides a stronger guarantee than Session or Eventual.    
 
 >[AZURE.NOTE] Bounded staleness guarantees monotonic reads only on explicit read requests. The echoed server response for write requests does not offer bounded staleness guarantees.
 
@@ -56,15 +56,13 @@ Eventual consistency provides the weakest read consistency but offers the lowest
 
 ### Changing the database consistency level
 
-1.  In the [Azure Preview portal](https://portal.azure.com/), click **Browse All**.
+1.  In the [Azure Preview portal](https://portal.azure.com/), in the Jumpbar, click **DocumentDB Accounts**.
 
-2.  In the **Browse All** blade, click **DocumentDB Accounts**.
+2. In the **DocumentDB Accounts** blade, select the database account to modify.
 
-3. In the **DocumentDB Accounts** blade, select the database account to modify.
+3. In the account blade, in the **Configuration** lens, click the **Default Consistency** tile.
 
-4. In the account blade, in the **Configuration** lens, click the **Default Consistency** tile.
-
-5. Select the new consistency level and click **Save**. 
+4. In the **Default Consistency** blade, select the new consistency level and click **Save**. 
 
 	![Screen shot highlighting the Default Consistency tile, the consistency settings and the Save button](./media/documentdb-consistency-levels/database-consistency-level.png)
 

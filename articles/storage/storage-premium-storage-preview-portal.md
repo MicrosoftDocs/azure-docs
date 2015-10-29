@@ -79,7 +79,7 @@ To leverage the benefits of Premium Storage, create a Premium Storage account us
 - With Premium Storage, you can provision a DS-series VM and attach several persistent data disks to a VM. If needed, you can stripe across the disks to increase the capacity and performance of the volume. If you stripe Premium Storage data disks using [Storage Spaces](http://technet.microsoft.com/library/hh831739.aspx), you should configure it with one column for each disk that is used. Otherwise, overall performance of the striped volume may be lower than expected due to uneven distribution of traffic across the disks. By default, the Server Manager user interface (UI) allows you to setup columns up to 8 disks. But if you have more than 8 disks, you need to use PowerShell to create the volume and also specify the number of columns manually. Otherwise, the Server Manager UI continues to use 8 columns even though you have more disks. For example, if you have 32 disks in a single stripe set, you should specify 32 columns. You can use the *NumberOfColumns* parameter of the [New-VirtualDisk](http://technet.microsoft.com/library/hh848643.aspx) PowerShell cmdlet to specify the number of columns used by the virtual disk. For more information, see [Storage Spaces Overview](http://technet.microsoft.com/library/jj822938.aspx) and [Storage Spaces Frequently Asked Questions](http://social.technet.microsoft.com/wiki/contents/articles/11382.storage-spaces-frequently-asked-questions-faq.aspx).
 - Avoid adding DS-series VMs to an existing cloud service that includes non-DS-series VMs. A possible workaround is to migrate your existing VHDs to a new cloud service running only DS-series VMs.  If you want to retain the same virtual IP address (VIP) for the new cloud service that hosts your DS-series VMs, use the [Reserved IP Addresses](virtual-networks-configure-vnet-to-vnet-connection.md) feature. GS-series VMs can be added to an existing cloud service running only G-series VMs.
 - The DS-series of Azure virtual machines can be configured to use an operating system (OS) disk hosted either on a Standard Storage account or on a Premium Storage account. If you use the OS disk only for booting, you may consider using a Standard Storage based OS disk. This provides cost benefits and similar performance results similar to the Premium Storage after booting up. If you perform any additional tasks on the OS disk other than booting, use Premium Storage as it provides better performance results. For example, if your application reads/writes from/to the OS disk, using Premium Storage based OS disk provides better performance for your VM.
-- You can use [Azure Command-Line Interface (Azure CLI)](../xplat-cli.md) with Premium Storage. To change the cache policy on one of your disks using Azure CLI, run the following command:
+- You can use [Azure Command-Line Interface (Azure CLI)](../xplat-cli-install.md) with Premium Storage. To change the cache policy on one of your disks using Azure CLI, run the following command:
 
 	`$ azure vm disk attach -h ReadOnly <VM-Name> <Disk-Name>`
 
@@ -201,6 +201,7 @@ Please refer to important instructions below for configuring your Linux VMs on P
 	- If you use **XFS**, disable barriers using the mount option “nobarrier” (For enabling barriers, use the option “barrier”)
 
 - For Premium Storage disks with cache setting “ReadWrite”, barriers should be enabled for durability of writes.
+- For the volume labels to persist after VM reboot, you must update /etc/fstab with the UUID references to the disks. Also refer to [How to Attach a Data Disk to a Linux Virtual Machine.](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-how-to-attach-disk)
 
 Following are the Linux Distributions that we validated with Premium Storage. We recommend that you upgrade your VMs to at least one of these versions (or later) for better performance and stability with Premium Storage. Also, some of the versions require the latest LIS (Linux Integration Services v4.0 for Microsoft Azure). Please follow the link provided below for download and installation. We will continue to add more images to the list as we complete additional validations. Please note, our validations showed that performance varies for these images, and it also depends on workload characteristics and settings on the images. Different images are tuned for different kinds of workload.
 <table border="1" cellspacing="0" cellpadding="5" style="border: 1px solid #000000;">
@@ -246,7 +247,7 @@ Following are the Linux Distributions that we validated with Premium Storage. We
 </tr>
 <tr>
 	<td rowspan="2"><strong>CentOS</strong></td>
-	<td>6.5, 6.6, 7.0</td>
+	<td>6.5, 6.6, 6.7, 7.0</td>
 	<td></td>
 	<td>
 		<a href="http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409"> LIS 4.0 Required </a> </br>
@@ -281,6 +282,7 @@ Following are the Linux Distributions that we validated with Premium Storage. We
 
 Customers running OpenLogic CentOS VMs should run the following command to install the latest drivers:
 
+	sudo rpm -e hypervkvpd  ## (may return error if not installed, that's OK)
 	sudo yum install microsoft-hyper-v
 
 A reboot will then be required to activate the new drivers.
@@ -360,7 +362,7 @@ This PowerShell example shows how to create a new Premium Storage account and at
 
 ### Create an Azure virtual machine using Premium Storage via the Azure Command-Line Interface
 
-The [Azure Commnand-Line Interface](../xplat-cli.md)(Azure CLI) provides a provides a set of open source, cross-platform commands for working with the Azure Platform. The following examples show how to use Azure CLI (version 0.8.14 and later) to create a premium storage account, a new virtual machine, and attach a new data disk from a Premium Storage account.
+The [Azure Commnand-Line Interface](../xplat-cli-install.md)(Azure CLI) provides a provides a set of open source, cross-platform commands for working with the Azure Platform. The following examples show how to use Azure CLI (version 0.8.14 and later) to create a premium storage account, a new virtual machine, and attach a new data disk from a Premium Storage account.
 
 #### Create a premium storage account
 

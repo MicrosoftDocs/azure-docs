@@ -4,7 +4,7 @@
 	services="application-insights" 
     documentationCenter=".net"
 	authors="alancameronwills" 
-	manager="ronmart"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/27/2015" 
+	ms.date="10/23/2015" 
 	ms.author="awills"/>
 
 # Application Insights for ASP.NET 5
@@ -54,7 +54,7 @@ In your ASP.NET 5 project, paste it into `config.json`:
       }
     }
 
-Or if you’d prefer the configuration to be dynamic, you can add this code to the application’s Startup class:
+Or if you'd prefer the configuration to be dynamic, you can add this code to the application's Startup class:
 
     configuration.AddApplicationInsightsSettings(
       instrumentationKey: "11111111-2222-3333-4444-555555555555");
@@ -75,8 +75,8 @@ Open `project.json` and edit the `dependencies` section:
         "Microsoft.ApplicationInsights.AspNet": "0.*",
 
        // Add these if they aren't already there:
-       "Microsoft.Framework.ConfigurationModel.Interfaces": "1.0.0-beta4",
-       "Microsoft.Framework.ConfigurationModel.Json":  "1.0.0-beta4"
+       "Microsoft.Framework.ConfigurationModel.Interfaces": "1.0.0-beta7",
+       "Microsoft.Framework.ConfigurationModel.Json":  "1.0.0-beta7"
       }
     }
 
@@ -172,5 +172,5 @@ Return to the [Azure portal][portal] and browse to your Application Insights res
 [portal]: http://portal.azure.com/
 [qna]: app-insights-troubleshoot-faq.md
 [roles]: app-insights-resources-roles-access-control.md
-[start]: app-insights-get-started.md
+[start]: app-insights-overview.md
 [usage]: app-insights-web-track-usage.md 

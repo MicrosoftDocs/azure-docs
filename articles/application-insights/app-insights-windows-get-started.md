@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="06/16/2015"
+	ms.date="10/16/2015"
 	ms.author="awills"/>
 
 # Application Insights for Windows Phone and Store apps
@@ -71,7 +71,7 @@ If it's a Windows Universal app, repeat the steps for both the Windows Phone pro
 	```xml
 
 		<?xml version="1.0" encoding="utf-8" ?>
-		<ApplicationInsights>
+		<ApplicationInsights xmlns="http://schemas.microsoft.com/ApplicationInsights/2013/Settings>
 			<InstrumentationKey>YOUR COPIED INSTRUMENTATION KEY</InstrumentationKey>
 		</ApplicationInsights>
 	```
@@ -184,7 +184,7 @@ If you prefer to let Visual Studio perform the setup steps, you can do that with
 
 Select **Application Insights** in the **New Project** dialog.
 
-If you're asked to sign in, use the credentials for your Azure account (which is separate from your Visual Studio Online account).
+If you're asked to sign in, use the credentials for your Azure account.
 
 ![](./media/app-insights-windows-get-started/appinsights-d21-new.png)
 
