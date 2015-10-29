@@ -104,7 +104,14 @@ You can use the [preview portal](https://portal.azure.com) to assign the Active 
 
 ## Get access token in code
 
-If you are using .NET, you can retrieve the access token for your application with the following code:
+If you are using .NET, you can retrieve the access token for your application with the following code.
+
+First, you must install the Active Directory Authentication Library into your Visual Studio project. The easiest way to do this is to use the NuGet package. Open the Package Manager Console, and type the following commands.
+
+    PM> Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 2.19.208020213
+    PM> Update-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Safe
+
+In your application, add a method like the following to retrieve the token.
 
     public static string GetAccessToken()
     {
@@ -125,8 +132,7 @@ If you are using .NET, you can retrieve the access token for your application wi
 
 - To learn about specifying security policies, see [Managing and Auditing Access to Resources](azure-portal/resource-group-rbac.md).  
 - For a video demonstration of these steps, see [Enabling Programmatic Management of an Azure Resource with Azure Active Directory](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Enabling-Programmatic-Management-of-an-Azure-Resource-with-Azure-Active-Directory).
-- For the steps to permit a service principal to access resources, see [Authenticating a Service Principal with Azure Resource Manager](./resource-group-authenticate-service-principal.md).  
-- For an overview of role-based access control, see [Role-based access control in the Microsoft Azure portal](role-based-access-control-configure.md).
+- To learn about using Azure PowerShell or Azure CLI to work with Active Directory applications and service principals, including how to use a certificate for authentication, see [Authenticating a Service Principal with Azure Resource Manager](./resource-group-authenticate-service-principal.md).
 - For guidance on implementing security with Azure Resource Manager, see [Security considerations for Azure Resource Manager](best-practices-resource-manager-security.md).
 
 
