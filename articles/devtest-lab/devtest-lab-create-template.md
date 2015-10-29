@@ -16,3 +16,4 @@
 	ms.date="10/29/2015" 
 	ms.author="tarcher"/>
 
+# Create VM templates
