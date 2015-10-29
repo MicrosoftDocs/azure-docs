@@ -75,7 +75,7 @@ If you need to create the files:
 	If you want to create a .pem file from a different private key file, modify the `-key` argument. 
 
 > [AZURE.NOTE] If you plan to manage services deployed with the classic deployment model, you may also want to create a **.cer** format file to upload to the portal -- although this doesn't involve **ssh** or connecting to Linux VMS, which is the subject of this article. To create those files on Linux or Mac, type:
-
+<br />
 		openssl.exe  x509 -outform der -in myCert.pem -out myCert.cer
 
 To convert your .pem file into a DER encoded X509 certificate file.
