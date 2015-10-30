@@ -40,6 +40,9 @@ The first part of the paper examines various batching techniques for .NET applic
 
 ## Batching Strategies
 
+### Note about timing results in this topic
+>[AZURE.NOTE] Results are not benchmarks but are meant to show **relative performance**. Timings are based on an average of at least 10 test runs. Operations are inserts into an empty table. These tests were measured pre-V12, and they do not necessarily correspond to throughput that you might experience in a V12 database using the new [service tiers](sql-database-service-tiers.md). The relative benefit of the batching technique should be similar.
+
 ### Transactions
 It seems strange to begin a review of batching by discussing transactions. But the use of client-side transactions has a subtle server-side batching effect that improves performance. And transactions can be added with only a few lines of code, so they provide a fast way to improve performance of sequential operations.
 
@@ -105,7 +108,7 @@ The following table shows some ad-hoc testing results. The tests performed the s
 | 100 | 2145 | 341 |
 | 1000 | 21479 | 2756 |
 
->[AZURE.NOTE] Results are not benchmarks but are meant to show **relative performance**. Timings are based on an average of at least 10 test runs. Operations are inserts into an empty table. These tests were measured pre-V12, and they do not necessarily correspond to throughput that you might experience in a V12 database using the new [service tiers](sql-database-service-tiers.md). The relative benefit of the batching technique should be similar.
+>[AZURE.NOTE] Results are not benchmarks. See the [note about timing results in this topic](#note-about-timing-results-in-this-topic).
 
 Based on the previous test results, wrapping a single operation in a transaction actually decreases performance. But as you increase the number of operations within a single transaction, the performance improvement becomes more marked. The performance difference is also more noticeable when all operations occur within the Microsoft Azure datacenter. The increased latency of using SQL Database from outside the Microsoft Azure datacenter overshadows the performance gain of using transactions.
 
@@ -184,7 +187,7 @@ The following table shows ad-hoc test results for the use of table-valued parame
 | 1000 | 2615 | 382 |
 | 10000 | 23830 | 3586 |
 
->[AZURE.NOTE] Results are not benchmarks but are meant to show **relative performance**. Timings are based on an average of at least 10 test runs. Operations are inserts into an empty table. These tests were measured pre-V12, and they do not necessarily correspond to throughput that you might experience in a V12 database using the new [service tiers](sql-database-service-tiers.md). The relative benefit of the batching technique should be similar.
+>[AZURE.NOTE] Results are not benchmarks. See the [note about timing results in this topic](#note-about-timing-results-in-this-topic).
 
 The performance gain from batching is immediately apparent. In the previous sequential test, 1000 operations took 129 seconds outside the datacenter and 21 seconds from within the datacenter. But with table-valued parameters, 1000 operations take only 2.6 seconds outside the datacenter and 0.4 seconds within the datacenter.
 
@@ -218,7 +221,7 @@ The following ad-hoc test results show the performance of batching with **SqlBul
 | 1000 | 2535 | 341 |
 | 10000 | 21605 | 2737 |
 
->[AZURE.NOTE] Results are not benchmarks but are meant to show **relative performance**. Timings are based on an average of at least 10 test runs. Operations are inserts into an empty table. These tests were measured pre-V12, and they do not necessarily correspond to throughput that you might experience in a V12 database using the new [service tiers](sql-database-service-tiers.md). The relative benefit of the batching technique should be similar.
+>[AZURE.NOTE] Results are not benchmarks. See the [note about timing results in this topic](#note-about-timing-results-in-this-topic).
 
 In smaller batch sizes, the use table-valued parameters outperformed the **SqlBulkCopy** class. However, **SqlBulkCopy** performed 12–31% faster than table-valued parameters for the tests of 1,000 and 10,000 rows. Like table-valued parameters, **SqlBulkCopy** is a good option for batched inserts, especially when compared to the performance of non-batched operations.
 
@@ -256,7 +259,7 @@ The following ad-hoc test results show the performance of this type of insert st
 | 10 | 30 | 25 |
 | 100 | 33 | 51 |
 
->[AZURE.NOTE] Results are not benchmarks but are meant to show **relative performance**. Timings are based on an average of at least 10 test runs. Operations are inserts into an empty table. These tests were measured pre-V12, and they do not necessarily correspond to throughput that you might experience in a V12 database using the new [service tiers](sql-database-service-tiers.md). The relative benefit of the batching technique should be similar.
+>[AZURE.NOTE] Results are not benchmarks. See the [note about timing results in this topic](#note-about-timing-results-in-this-topic).
 
 This approach can be slightly faster for batches that are less than 100 rows. Although the improvement is small, this technique is another option that might work well in your specific application scenario.
 
@@ -295,7 +298,7 @@ In our tests, there was typically no advantage to breaking large batches into sm
 | 100 | 10 | 465 |
 | 50 | 20 | 630 |
 
->[AZURE.NOTE] Results are not benchmarks but are meant to show **relative performance**. Timings are based on an average of at least 10 test runs. Operations are inserts into an empty table. These tests were measured pre-V12, and they do not necessarily correspond to throughput that you might experience in a V12 database using the new [service tiers](sql-database-service-tiers.md). The relative benefit of the batching technique should be similar.
+>[AZURE.NOTE] Results are not benchmarks. See the [note about timing results in this topic](#note-about-timing-results-in-this-topic).
 
 You can see that the best performance for 1000 rows is to submit them all at once. In other tests (not shown here) there was a small performance gain to break a 10000 row batch into two batches of 5000. But the table schema for these tests is relatively simple, so you should perform tests on your specific data and batch sizes to verify these findings.
 
@@ -313,7 +316,7 @@ What if you took the approach of reducing the batch size but used multiple threa
 | 250 [4] | 405 | 329 | 265 |
 | 100 [10] | 488 | 439 | 391 |
 
->[AZURE.NOTE] Results are not benchmarks but are meant to show **relative performance**. Timings are based on an average of at least 10 test runs. Operations are inserts into an empty table. These tests were measured pre-V12, and they do not necessarily correspond to throughput that you might experience in a V12 database using the new [service tiers](sql-database-service-tiers.md). The relative benefit of the batching technique should be similar.
+>[AZURE.NOTE] Results are not benchmarks. See the [note about timing results in this topic](#note-about-timing-results-in-this-topic).
 
 There are several potential reasons for the degradation in performance due to parallelism:
 
