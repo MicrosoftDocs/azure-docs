@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/21/2015"
+   ms.date="10/30/2015"
    ms.author="jesseb"/>
 
 # Visualizing your cluster using Service Fabric Explorer
@@ -22,7 +22,7 @@ Service Fabric Explorer is a web-based tool for inspecting and managing applicat
 
 ## Connecting to Service Fabric Explorer
 
-If you have followed the instructions to [prepare your development environment](service-fabric-get-started.md), you can launch Service Fabric Explorer on your local cluster by navigating to http://localhost:19007/Explorer.
+If you have followed the instructions to [prepare your development environment](service-fabric-get-started.md), you can launch Service Fabric Explorer on your local cluster by navigating to http://localhost:19080/Explorer.
 
 ## Understanding Service Fabric Explorer layout
 
