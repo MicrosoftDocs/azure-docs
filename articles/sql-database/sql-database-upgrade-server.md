@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/28/2015" 
+	ms.date="10/29/2015" 
 	ms.author="sstein"/>
 
 # Upgrade to SQL Database V12 using PowerShell
@@ -25,15 +25,21 @@
 
 
 
-SQL Database V12 is the latest version of SQL Database and has many [advantages over the previous version](sql-database-v12-whats-new.md). SQL Database V12 is recommended for all new development.
+SQL Database V12 is the latest version of SQL Database and has many [advantages over the previous version](sql-database-v12-whats-new.md) including:
 
-> [AZURE.IMPORTANT] All databases on the server will remain online and available throughout the upgrade operation. Upgrading to SQL Database V12 does not take any databases offline.
+- Increased compatibility with SQL Server.
+- Improved premium performance and new performance levels.
+- [Elastic database pools](sql-database-elastic-pool.md) for SaaS developers and application developers using multiple databases.
+
+Upgrading to SQL Database V12 is recommended.
+
+> [AZURE.IMPORTANT] All databases on the server will remain online and available throughout the upgrade operation regardless of moving to single or elastic databases. Upgrading to SQL Database V12 does not take any databases offline. (Although, some management functions may not be available until the upgrade completes.)
 
 During the process of upgrading to SQL Database V12 you must also update all Web and Business databases to a new service tier. 
 
-To assist you with upgrading, the SQL Database service recommends an appropriate service tier and performance level (pricing tier) for each database. The service recommends the best tier for running your existing database’s workload by analyzing the historical usage for your database. 
+For servers with 2 or more databases, migrating to an [elastic database pool](sql-database-elastic-pool.md) is likely to be more cost effective than upgrading to individual performance levels (pricing tiers) for single databases. Pools also simplify database management because you only need to manage the performance settings for the pool rather than separately managing the performance levels of individual databases. If you have databases on multiple servers consider moving them into the same server and taking advantage of putting them into a pool.
 
-For servers with 2 or more databases, migrating to an [elastic database pool](sql-database-elastic-pool.md) is likely to be more cost effective than upgrading to individual performance levels. You can easily migrate databases directly from V11 servers into elastic database pools using PowerShell (as shown in this article). You can also use the portal to migrate V11 databases into a pool but you must first [upgrade to a V12 server](sql-database-v12-upgrade.md) -- then [add a pool to the server](sql-database-elastic-pool-portal.md#step-1-add-a-pool-to-a-server) and put some or all of the databases in the pool.
+You can easily migrate databases directly from V11 servers into elastic database pools using PowerShell (following the directions in this article). You can also use the portal to migrate V11 databases into a pool but you must first [upgrade to a V12 server](sql-database-v12-upgrade.md) -- then [add a pool to the server](sql-database-elastic-pool-portal.md#step-1-add-a-pool-to-a-server) and put some or all of the databases in the pool.
 
 
 ## Prerequisites 
@@ -165,8 +171,6 @@ For more information, see [Azure SQL Database performance guidance for single da
 **Alerts:** Set up 'Alerts' in the Azure Portal to notify you when the DTU consumption for an upgraded database approaches certain high level. Database alerts can be setup in the Azure Portal for various performance metrics like DTU, CPU, IO, and Log. Browse to your database and select **Alert rules** in the **Settings** blade.
 
 For example, you can set up an email alert on “DTU Percentage” if the average DTU percentage value exceeds 75% over the last 5 minutes. Refer to [Receive alert notifications](insights-receive-alert-notifications.md) to learn more about how to configure alert notifications.
-
-
 
 
 

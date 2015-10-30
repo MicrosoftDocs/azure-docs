@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-management" 
-	ms.date="10/28/2015" 
+	ms.date="10/29/2015" 
 	ms.author="sstein"/>
 
 
@@ -31,9 +31,9 @@ SQL Database V12 is the latest version of SQL Database and has many [advantages 
 - Improved premium performance and new performance levels.
 - [Elastic database pools](sql-database-elastic-pool.md) for SaaS developers and application developers using multiple databases.
 
-SQL Database V12 is recommended for all new development.
+Upgrading to SQL Database V12 is recommended.
 
-> [AZURE.IMPORTANT] All databases on the server will remain online and available throughout the upgrade operation regardless of moving to single or elastic databases. Upgrading to SQL Database V12 does not take any databases offline. (Some server management functions may not be available until the upgrade completes.)
+> [AZURE.IMPORTANT] All databases on the server will remain online and available throughout the upgrade operation regardless of moving to single or elastic databases. Upgrading to SQL Database V12 does not take any databases offline. (Although, some management functions may not be available until the upgrade completes.)
 
 During the process of upgrading to SQL Database V12 you must also update all Web and Business databases to a new service tier. 
 
