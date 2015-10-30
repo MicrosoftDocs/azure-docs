@@ -14,7 +14,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="big-data"
- ms.date="09/02/2015"
+ ms.date="10/30/2015"
  ms.author="larryfr"/>
 
 #Understand and resolve errors received from WebHCat (Templeton,) on HDInsight
