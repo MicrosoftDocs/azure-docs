@@ -40,13 +40,8 @@ To complete this tutorial, you need the following:
 
 ##<a name="create-gateway"></a>Create a Notification Hub
 
-Follow these steps to create a new Notification Hub to handle push notifications. If you already have a hub in the same resource group, you do not need to complete this section.
+[AZURE.INCLUDE [app-service-mobile-create-notification-hub](../../includes/app-service-mobile-create-notification-hub.md)]
 
-1. Visit the [Azure Portal]. Click **Browse All** > **Mobile Apps** > the backend that you just created. Click **Settings** > **Mobile** > **Push**. 
-
-2. Follow the work flow to create a notification hub. You will need to create a new namespace if there is none in your current resource group. Click **Create** once you've configured all the settings.
-
-Next, you will use this notificaton hub to enable push for your app.
 
 ##Register your app for push notifications
 
