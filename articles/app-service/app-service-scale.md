@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/21/2015" 
+	ms.date="10/29/2015" 
 	ms.author="stepsic"/>
 
 # Scale pricing tier in Azure App Service
@@ -28,7 +28,7 @@ For information about App Service plans, see [What is an App Service Plan?](../w
 
 Finally, scaling works differently if you want to use a dedicated [App Service Environment](app-service-app-service-environment-intro.md). See [Scaling web apps in an App Service Environment](app-service-web-scale-a-web-app-in-an-app-service-environment.md) for more details.
 
-> [AZURE.NOTE] Before switching a from the **Free** mode to **Basic**, **Standard**, or **Premium** mode, you must first remove the spending caps in place for your Azure App Service subscription. To view or change options for your Microsoft Azure App Service subscription, see [Microsoft Azure Subscriptions][azuresubscriptions].
+> [AZURE.NOTE] Before switching from the **Free** mode to **Basic**, **Standard**, or **Premium** mode, you must first remove the spending caps in place for your Azure App Service subscription. To view or change options for your Microsoft Azure App Service subscription, see [Microsoft Azure Subscriptions][azuresubscriptions].
 
 <a name="scalingsharedorbasic"></a>
 <a name="scalingstandard"></a>

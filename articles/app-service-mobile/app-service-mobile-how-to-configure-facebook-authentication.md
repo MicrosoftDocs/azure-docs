@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="07/27/2015"
+	ms.date="10/29/2015"
 	ms.author="mahender"/>
 
 # How to configure your application to use Facebook login
@@ -28,7 +28,7 @@ To complete the procedure in this topic, you must have a Facebook account that h
 
 1. Log on to the [Azure Management Portal], and navigate to your Mobile App. Copy your **URL**. You will use this to configure your Facebook app.
  
-2. Click **Settings**, **User authentication**, and then **Facebook**. Then copy the **Redirect URI** from the Facebook blade. You will use this with your Facebook app.
+2. Click **Settings**, **Mobile authentication**, and then **Facebook**. Then copy the **Redirect URI** from the Facebook blade. You will use this with your Facebook app.
  
 3. In another browser window, navigate to the [Facebook Developers] website and sign-in with your Facebook account credentials.
 
@@ -55,7 +55,7 @@ To complete the procedure in this topic, you must have a Facebook account that h
 
 12. Click the **Advanced** tab and add your Mobile App **Redirect URI** that you copied earlier to **Valid OAuth redirect URIs**. Then click **Save Changes**. Your redirect URI is the URL of your Mobile App gateway appended with the path, _/signin-facebook_. For example, `https://contosogateway.azurewebsites.net/signin-facebook`. Make sure that you are using the HTTPS scheme.
 
-13. The Facebook account which was used to register the application is an administrator of the app. At this point, only administrators can sign into this application. To authenticate other Facebook accounts, click **Status & Review** in the left navigation bard. Then click **Yes** to enable general public access.
+13. The Facebook account which was used to register the application is an administrator of the app. At this point, only administrators can sign into this application. To authenticate other Facebook accounts, click **Status & Review** in the left navigation bar. Then click **Yes** to enable general public access.
 
 
 ## <a name="secrets"> </a>Add Facebook information to your Mobile App
