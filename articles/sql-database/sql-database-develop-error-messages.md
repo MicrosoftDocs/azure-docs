@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/15/2015" 
+	ms.date="10/26/2015" 
 	ms.author="genemi"/>
 
 
@@ -65,6 +65,8 @@ Transient errors are also called transient faults. When your program catches a `
 **Note:** Federation errors 10053 and 10054 might also deserve inclusion in your retry logic.
 
 
+<a id="bkmk_b_database_copy_errors" name="bkmk_b_database_copy_errors">&nbsp;</a>
+
 ## Database copy errors
 
 
@@ -87,6 +89,8 @@ The following table covers the various errors you can encounter while copying a 
 |40570|16|Database copy failed due to an internal error. Please drop target database and try again later.|
 |40571|16|Database copy failed due to an internal error. Please drop target database and try again later.|
 
+
+<a id="bkmk_c_resource_gov_errors" name="bkmk_c_resource_gov_errors">&nbsp;</a>
 
 ## Resource governance errors
 
@@ -123,6 +127,8 @@ For additional discussion of resource governance and associated errors, see:
 
 - [Azure SQL Database Resource Governance](http://msdn.microsoft.com/library/azure/dn338078.aspx).
 
+
+<a id="bkmk_d_federation_errors" name="bkmk_d_federation_errors">&nbsp;</a>
 
 ## Federation errors
 
@@ -163,6 +169,8 @@ The following table covers the errors that you might encounter while working wit
 |45022|16|<statement> operation failed. Specified boundary value already exists for federation key <distribution_name> and federation <federation_name>|Specify a value that is already a boundary value.|
 |45023|16|<statement> operation failed. Specified boundary value does not exists for federation key <distribution_name> and federation <federation_name>|Specify a value that is not already a boundary value.|
 
+
+<a id="bkmk_e_general_errors" name="bkmk_e_general_errors">&nbsp;</a>
 
 ## General errors
 

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="10/19/2015"
+	ms.date="10/26/2015"
 	ms.author="larryfr"/>
 
 #Availability and reliability of Hadoop clusters in HDInsight
@@ -37,7 +37,7 @@ HDInsight clusters provide a secondary head node, which allows master services a
 
 In general, all access to the cluster through the public gateways (Ambari web and REST APIs,) is not effected by having multiple head nodes. The request is routed to the active head node and serviced as appropriate.
 
-When accessing the cluster using SSH, connecting through port 22 (the default for SSH,) will connect to headnode0; connecting through port 23 will connect to headnode1.
+When accessing the cluster using SSH, connecting through port 22 (the default for SSH,) will connect to head node 0; connecting through port 23 will connect to head node 1.
 
 ### Internal fully qualified domain names (FQDN)
 
@@ -49,7 +49,7 @@ For example, the Oozie service can only run on one head node, and using the `ooz
 
 This will return a value similar to the following, which contains the internal URL to use with the `oozie` command:
 
-	"oozie.base.url": "http://headnode0.CLUSTERNAME-ssh.d9.internal.cloudapp.net:11000/oozie"
+	"oozie.base.url": "http://hn0-CLUSTERNAME-randomcharacters.cx.internal.cloudapp.net:11000/oozie"
 
 ## How to check on a service status
 
@@ -74,7 +74,7 @@ For example, to check the status of the **HDFS** service on a cluster named **my
 The response will be similar to the following:
 
 	{
-	  "href" : "http://headnode0.mycluster-ssh.j7.internal.cloudapp.net:8080/api/v1/clusters/mycluster/services/HDFS?fields=ServiceInfo/state",
+	  "href" : "http://hn0-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:8080/api/v1/clusters/mycluster/services/HDFS?fields=ServiceInfo/state",
 	  "ServiceInfo" : {
 	    "cluster_name" : "mycluster",
 	    "service_name" : "HDFS",
@@ -82,7 +82,7 @@ The response will be similar to the following:
 	  }
 	}
 
-The URL tells us that the service is currently running on **headnode0**.
+The URL tells us that the service is currently running on **head node 0**.
 
 The state tells us that the service is currently running, or **STARTED**.
 

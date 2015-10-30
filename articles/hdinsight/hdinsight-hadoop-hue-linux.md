@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/15/2015" 
+	ms.date="10/26/2015" 
 	ms.author="nitinme"/>
 
 # Install and use Hue on HDInsight Hadoop clusters
@@ -63,7 +63,15 @@ SSH Tunneling is the only way to access Hue on the cluster once it is running. T
 
 1. Use the information in [Use SSH Tunneling to access Ambari web UI, ResourceManager, JobHistory, NameNode, Oozie, and other web UI's](hdinsight-linux-ambari-ssh-tunnel.md) to create an SSH tunnel from your client system to the HDInsight cluster, and then configure your Web browser to use the SSH tunnel as a proxy.
 
-2. Once you have created an SSH tunnel and configured your browser to proxy traffic through it, use the browser to open the Hue portal at http://headnode0:8888.
+2. Once you have created an SSH tunnel and configured your browser to proxy traffic through it, you must find the host name of the head node. Use the following steps to get this information from Ambari:
+
+    1. In a browser, go to https://CLUSTERNAME.azurehdinsight.net. When prompted, use the Admin username and password to authenticate to the site.
+    
+    2. From the menu at the top of the page, select __Hosts__.
+    
+    3. Select the entry that begins with __hn0__. When the page opens, the host name will be displayed at the top. The format of the host name is __hn0-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net__. This is the host name you must use when connecting to Hue.
+
+2. Once you have created an SSH tunnel and configured your browser to proxy traffic through it, use the browser to open the Hue portal at http://HOSTNAME:8888. Replace HOSTNAME with the name you obtained from Ambari in the previous step.
 
     > [AZURE.NOTE] When you log in for the first time, you will be prompted to create an account to log into the Hue portal. The credentials you specify here will be limited to the portal and are not related to the admin or SSH user credentials you specified while provision the cluster.
 
@@ -95,7 +103,7 @@ SSH Tunneling is the only way to access Hue on the cluster once it is running. T
 
 ## Important considerations
 
-1. The script used to install Hue installs it only on HEADNODE0 of the cluster.
+1. The script used to install Hue installs it only on Head node 0 of the cluster.
 
 2. During installation, multiple Hadoop services (HDFS, YARN, MR2, Oozie) are restarted for updating the configuration. After the script finishes installing Hue, it might take some time for other Hadoop services to start up. This might affect Hue's performance initially. Once all services start up, Hue will be fully functional.
 
@@ -103,11 +111,11 @@ SSH Tunneling is the only way to access Hue on the cluster once it is running. T
 
 		set hive.execution.engine=mr;
 
-4.	With Linux clusters, you can have a scenario where your services are running on HEADNODE0 while the Resource Manager could be running on HEADNODE1. Such a scenario might result in errors (shown below) when using Hue to view details of RUNNING jobs on the cluster. However, you can view the job details when the job has completed.
+4.	With Linux clusters, you can have a scenario where your services are running on head node 0 while the Resource Manager could be running on head node 1. Such a scenario might result in errors (shown below) when using Hue to view details of RUNNING jobs on the cluster. However, you can view the job details when the job has completed.
 
 	![Hue portal error](./media/hdinsight-hadoop-hue-linux/HDI.Hue.Portal.Error.png "Hue portal error")
 
-	This is due to a known issue. As a workaround, modify Ambari so that the active Resource Manager also runs on HEADNODE0.
+	This is due to a known issue. As a workaround, modify Ambari so that the active Resource Manager also runs on head node 0.
 
 5.	Hue understands WebHDFS while HDInsight clusters use Azure Storage using `wasb://`. So, the custom script used with script action installs WebWasb, which is a WebHDFS-compatible service for talking to WASB. So, even though the Hue portal says HDFS in places (like when you move your mouse over the **File Browser**), it should be interpreted as WASB.
 
