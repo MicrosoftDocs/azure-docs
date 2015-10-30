@@ -24,14 +24,14 @@
 - [PowerShell](sql-database-upgrade-server.md)
 
 
-
-SQL Database V12 is the latest version of SQL Database and has many [advantages over the previous version](sql-database-v12-whats-new.md) including:
+SQL Database V12 is the latest version so upgrading to SQL Database V12 is recommended.
+SQL Database V12 has many [advantages over the previous version](sql-database-v12-whats-new.md) including:
 
 - Increased compatibility with SQL Server.
 - Improved premium performance and new performance levels.
-- [Elastic database pools](sql-database-elastic-pool.md) for SaaS developers and application developers using multiple databases.
+- [Elastic database pools](sql-database-elastic-pool.md) for application developers using more than 1 database.
 
-Upgrading to SQL Database V12 is recommended.
+
 
 > [AZURE.IMPORTANT] All databases on the server will remain online and available throughout the upgrade operation regardless of moving to single or elastic databases. Upgrading to SQL Database V12 does not take any databases offline. (Although, some management functions may not be available until the upgrade completes.)
 
@@ -40,6 +40,10 @@ During the process of upgrading to SQL Database V12 you must also update all Web
 For servers with 2 or more databases, migrating to an [elastic database pool](sql-database-elastic-pool.md) is likely to be more cost effective than upgrading to individual performance levels (pricing tiers) for single databases. Pools also simplify database management because you only need to manage the performance settings for the pool rather than separately managing the performance levels of individual databases. If you have databases on multiple servers consider moving them into the same server and taking advantage of putting them into a pool.
 
 You can easily migrate databases directly from V11 servers into elastic database pools using PowerShell (following the directions in this article). You can also use the portal to migrate V11 databases into a pool but you must first [upgrade to a V12 server](sql-database-v12-upgrade.md) -- then [add a pool to the server](sql-database-elastic-pool-portal.md#step-1-add-a-pool-to-a-server) and put some or all of the databases in the pool.
+
+
+
+Your databases will continue to work through the upgrade operation but at the time of the actual transition to the new performance level temporary dropping of the connections to the database can happen for a very small duration (typically measured in seconds). If your application has [transient fault handling for connection terminations](sql-database-connect-central-recommendations.md) then it is sufficient to protect against dropped connections at the end of the upgrade. 
 
 
 ## Prerequisites 
@@ -151,10 +155,12 @@ ElasticPoolCollection and DatabaseCollection parameters are optional:
 ## Monitor databases after upgrading to SQL Database V12
 
 
-After upgrading, it is recommended to monitor the database actively to ensure applications are running at the desired performance and optimize usage as needed. The following additional steps are recommended for monitoring the database.
+After upgrading, it is recommended to monitor the database actively to ensure applications are running at the desired performance and optimize usage as needed. 
+
+In addition to monitoring individual databases you can monitor elastic database pools [using the portal](sql-database-elastic-pool-portal.md#monitor-and-manage-an-elastic-database-pool) or with [PowerShell](sql-database-elastic-pool-powershell.md#monitoring-elastic-databases-and-elastic-database-pools) 
 
 
-**Resource consumption data:** For Basic, Standard, and Premium databases more granular resource consumption data is available through the [sys.dm_ db_ resource_stats](http://msdn.microsoft.com/library/azure/dn800981.aspx) DMV in the user database. This DMV provides near real time resource consumption information at 15 second granularity for the previous hour of operation. The DTU percentage consumption for an interval is computed as the maximum percentage consumption of the CPU, IO and log dimensions. Here is a query to compute the average DTU percentage consumption over the last hour:
+**Resource consumption data:** For Basic, Standard, and Premium databases resource consumption data is available through the [sys.dm_ db_ resource_stats](http://msdn.microsoft.com/library/azure/dn800981.aspx) DMV in the user database. This DMV provides near real time resource consumption information at 15 second granularity for the previous hour of operation. The DTU percentage consumption for an interval is computed as the maximum percentage consumption of the CPU, IO and log dimensions. Here is a query to compute the average DTU percentage consumption over the last hour:
 
     SELECT end_time
     	 , (SELECT Max(v)
@@ -165,7 +171,12 @@ After upgrading, it is recommended to monitor the database actively to ensure ap
     FROM sys.dm_db_resource_stats
     ORDER BY end_time DESC;
 
-For more information, see [Azure SQL Database performance guidance for single databases](http://msdn.microsoft.com/library/azure/dn369873.aspx) and [Price and performance considerations for an elastic database pool](sql-database=elastic-pool-guidance.md).
+Additional monitoring information:
+
+- [Azure SQL Database performance guidance for single databases](http://msdn.microsoft.com/library/azure/dn369873.aspx).
+- [Price and performance considerations for an elastic database pool](sql-database=elastic-pool-guidance.md).
+- [Monitoring Azure SQL Database using dynamic management views](sql-database-monitoring-with-dmvs.md)
+
 
 
 **Alerts:** Set up 'Alerts' in the Azure Portal to notify you when the DTU consumption for an upgraded database approaches certain high level. Database alerts can be setup in the Azure Portal for various performance metrics like DTU, CPU, IO, and Log. Browse to your database and select **Alert rules** in the **Settings** blade.
