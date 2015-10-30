@@ -25,11 +25,11 @@ When you create a VM, restart stopped (de-allocated) VMs, resize a VM, or when y
 
 ### Background – How allocation works
 The servers in Azure datacenters are partitioned into clusters. Normally, an allocation request is attempted in multiple clusters, but it's possible certain constraints from the allocation request force the Azure platform to attempt the request in only one cluster. In this article, we'll refer to this as "pinned to a cluster". Diagram 1 below illustrates the case of a normal allocation which is attempted in multiple clusters; Diagram 2 illustrates the case of an allocation that's pinned to Cluster 2 because that's where the existing Cloud Service CS_1 or Availability Set is hosted.
-![Allocation Diagram](./media/virual-machines-allocation-failure/Allocation1.png)
+![Allocation Diagram](./media/virtual-machines-allocation-failure/Allocation1.png)
 
 ### Why allocation failure happens
 When an allocation request is pinned to a cluster, there's a higher chance of failing to find free resources since the available resource pool is smaller. Furthermore, if your allocation request is pinned to a cluster but the type of resource you requested is not supported by that cluster, your request will fail even if the cluster has free resource. Diagram 3 below illustrates the case where a pinned allocation fails because the only candidate cluster does not have free resources. Diagram 4 illustrates the case where a pinned allocation fails because the only candidate cluster does not support the requested VM size, even though the cluster has free resources.
-![Pinned Allocation Failure](./media/virual-machines-allocation-failure/Allocation2.png)
+![Pinned Allocation Failure](./media/virtual-machines-allocation-failure/Allocation2.png)
 
 ## Troubleshooting Azure Resource Management
 Here are the common allocation scenarios that cause an allocation request to be pinned. We'll dive into each scenario later in this article.
@@ -98,7 +98,7 @@ In general, as long as the error does not indicate "the requested VM size is not
 Two common failure scenarios are related to Affinity Group. In the past, Affinity Group was used to provide close proximity to VMs/service instances, or it was used to enable the creation of Virtual Network (VNet). With the introduction of Regional Virtual Network, Affinity Group is no longer required to create a Virtual Network. With the reduction of network latency in Azure infrastructure, the recommendation of using Affinity Group for VM/service proximity has changed.
 
 Diagram 5 below presents the taxonomy of the (pinned) allocation scenarios.
-![Pinned Allocation Taxonomy](./media/virual-machines-allocation-failure/Allocation3.png)
+![Pinned Allocation Taxonomy](./media/virtual-machines-allocation-failure/Allocation3.png)
 
 > [AZURE.NOTE] The error listed in each allocation scenario is a short form. Refer to the [Appendix](#Appendix) for detailed error strings.
 
