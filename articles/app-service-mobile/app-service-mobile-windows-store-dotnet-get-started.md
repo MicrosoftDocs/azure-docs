@@ -5,7 +5,7 @@
 	documentationCenter="windows"
 	authors="ggailey777"
 	manager="dwrede"
-	editor=""/>
+	editor=""/> 
 
 <tags
 	ms.service="app-service-mobile"

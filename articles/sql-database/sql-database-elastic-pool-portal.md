@@ -10,10 +10,10 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="10/08/2015"
+	ms.date="10/29/2015"
 	ms.author="sstein"
 	ms.workload="data-management"
-	ms.topic="article"
+	ms.topic="get-started-article"
 	ms.tgt_pltfrm="NA"/>
 
 

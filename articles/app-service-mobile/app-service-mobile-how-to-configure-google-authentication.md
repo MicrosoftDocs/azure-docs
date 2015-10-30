@@ -18,6 +18,9 @@
 
 # How to configure your application to use Google login
 
+[AZURE.INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
+&nbsp;
+
 [AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 This topic shows you how to configure Mobile Apps to use Google as an authentication provider.

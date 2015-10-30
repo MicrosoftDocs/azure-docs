@@ -80,4 +80,3 @@ You are now ready to use Facebook for authentication in your app.
 [facebook.com]: http://go.microsoft.com/fwlink/p/?LinkId=268285
 [Get started with authentication]: /en-us/develop/mobile/tutorials/get-started-with-users-dotnet/
 [Azure Management Portal]: https://portal.azure.com/
- 
