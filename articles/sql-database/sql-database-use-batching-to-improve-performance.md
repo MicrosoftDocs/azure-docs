@@ -38,7 +38,7 @@ One of the benefits of using SQL Database is that you don’t have to manage the
 
 The first part of the paper examines various batching techniques for .NET applications that use SQL Database. The last two sections cover batching guidelines and scenarios.
 
-## Batching Strategies
+## Batching strategies
 
 ### Note about timing results in this topic
 >[AZURE.NOTE] Results are not benchmarks but are meant to show **relative performance**. Timings are based on an average of at least 10 test runs. Operations are inserts into an empty table. These tests were measured pre-V12, and they do not necessarily correspond to throughput that you might experience in a V12 database using the new [service tiers](sql-database-service-tiers.md). The relative benefit of the batching technique should be similar.
@@ -118,7 +118,7 @@ The previous example demonstrates that you can add a local transaction to any AD
 
 For more information about transactions in ADO.NET, see [Local Transactions in ADO.NET](https://msdn.microsoft.com/library/vstudio/2k2hy99x.aspx).
 
-### Table-Valued Parameters
+### Table-valued parameters
 Table-valued parameters support user-defined table types as parameters in Transact-SQL statements, stored procedures, and functions. This client-side batching technique allows you to send multiple rows of data within the table-valued parameter. To use table-valued parameters, first define a table type. The following Transact-SQL statement creates a table type named **MyTableType**.
 
 	CREATE TYPE MyTableType AS TABLE 
@@ -193,7 +193,7 @@ The performance gain from batching is immediately apparent. In the previous sequ
 
 For more information on table-valued parameters, see [Table-Valued Parameters](https://msdn.microsoft.com/library/bb510489.aspx).
 
-### SQL Bulk Copy
+### SQL bulk copy
 SQL bulk copy is another way to insert large amounts of data into a target database. .NET applications can use the **SqlBulkCopy** class to perform bulk insert operations. **SqlBulkCopy** is similar in function to the command-line tool, **Bcp.exe**, or the Transact-SQL statement, **BULK INSERT**. The following code example shows how to bulk copy the rows in the source **DataTable**, table, to the destination table in SQL Server, MyTable.
 
 	using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.GetSetting("Sql.ConnectionString")))
@@ -266,7 +266,7 @@ This approach can be slightly faster for batches that are less than 100 rows. Al
 ### DataAdapter
 The **DataAdapter** class allows you to modify a **DataSet** object and then submit the changes as INSERT, UPDATE, and DELETE operations. If you are using the **DataAdapter** in this manner, it is important to note that separate calls are made for each distinct operation. To improve performance, use the **UpdateBatchSize** property to the number of operations that should be batched at a time. For more information, see [Performing Batch Operations Using DataAdapters](https://msdn.microsoft.com/library/aadf8fk2.aspx).
 
-### Entity Framework
+### Entity framework
 Entity Framework does not currently support batching. Different developers in the community have attempted to demonstrate workarounds, such as override the **SaveChanges** method. But the solutions are typically complex and customized to the application and data model. The Entity Framework codeplex project currently has a discussion page on this feature request. To view this discussion, see [Design Meeting Notes – August 2, 2012](http://entityframework.codeplex.com/wikipage?title=Design%20Meeting%20Notes%20-%20August%202%2c%202012).
 
 ### XML
@@ -280,7 +280,7 @@ There are several disadvantages to this approach:
 
 For these reasons, the use of XML for batch queries is not recommended.
 
-## Batching Considerations
+## Batching considerations
 The following sections provide more guidance for the use of batching in SQL Database applications.
 
 ### Tradeoffs
@@ -288,7 +288,7 @@ Depending on your architecture, batching can involve a tradeoff between performa
 
 Because of this tradeoff, evaluate the type of operations that you batch. Batch more aggressively (larger batches and longer time windows) with data that is less critical.
 
-### Batch Size
+### Batch size
 In our tests, there was typically no advantage to breaking large batches into smaller chunks. In fact, this subdivision often resulted in slower performance than submitting a single large batch. For example, consider a scenario where you want to insert 1000 rows. The following table shows how long it takes to use table-valued parameters to insert 1000 rows when divided into smaller batches.
 
 | Batch size | Iterations | Table-valued parameters (ms) |
@@ -306,7 +306,7 @@ Another factor to consider is that if the total batch becomes too large, SQL Dat
 
 Finally, balance the size of the batch with the risks associated with batching. If there are transient errors or the role fails, consider the consequences of retrying the operation or of losing the data in the batch.
 
-### Parallel Processing
+### Parallel processing
 What if you took the approach of reducing the batch size but used multiple threads to execute the work? Again, our tests showed that several smaller multithreaded batches typically performed worse than a single larger batch. The following test attempts to insert 1000 rows in one or more parallel batches. This test shows how more simultaneous batches actually decreased performance.
 
 | Batch size [Iterations] | Two threads (ms) | Four threads (ms) | Six threads (ms) |
@@ -331,12 +331,12 @@ In some designs, parallel execution of smaller batches can result in improved th
 
 If you do use parallel execution, consider controlling the maximum number of worker threads. A smaller number might result in less contention and a faster execution time. Also, consider the additional load that this places on the target database both in connections and transactions.
 
-### Related Performance Factors
+### Related performance factors
 Typical guidance on database performance also affects batching. For example, insert performance is reduced for tables that have a large primary key or many nonclustered indexes.
 
 If table-valued parameters use a stored procedure, you can use the command **SET NOCOUNT ON** at the beginning of the procedure. This statement suppresses the return of the count of the affected rows in the procedure. However, in our tests, the use of **SET NOCOUNT ON** either had no effect or decreased performance. The test stored procedure was simple with a single **INSERT** command from the table-valued parameter. It is possible that more complex stored procedures would benefit from this statement. But don’t assume that adding **SET NOCOUNT ON** to your stored procedure automatically improves performance. To understand the effect, test your stored procedure with and without the **SET NOCOUNT ON** statement.
 
-## Batching Scenarios
+## Batching scenarios
 The following sections describe how to use table-valued parameters in three application scenarios. The first scenario shows how buffering and batching can work together. The second scenario improves performance by performing master-detail operations in a single stored procedure call. The final scenario shows how to use table-valued parameters in an “UPSERT” operation.
 
 ### Buffering
@@ -428,7 +428,7 @@ The handler converts all of the buffered items into a table-valued type and then
 
 To use this buffering class, the application creates a static NavHistoryDataMonitor object. Each time a user accesses a page, the application calls the NavHistoryDataMonitor.RecordUserNavigationEntry method. The buffering logic proceeds to take care of sending these entries to the database in batches.
 
-### Master Detail
+### Master detail
 Table-valued parameters are useful for simple INSERT scenarios. However, it can be more challenging to batch inserts that involve more than one table. The “master/detail” scenario is a good example. The master table identifies the primary entity. One or more detail tables store more data about the entity. In this scenario, foreign key relationships enforce the relationship of details to a unique master entity. Consider a simplified version of a PurchaseOrder table and its associated OrderDetail table. The following Transact-SQL creates the PurchaseOrder table with four columns: OrderID, OrderDate, CustomerID, and Status.
 
 	CREATE TABLE [dbo].[PurchaseOrder](
@@ -600,6 +600,6 @@ The following list provides a summary of the batching recommendations discussed 
 - Avoid parallel execution of batches that operate on a single table in one database. If you do choose to divide a single batch across multiple worker threads, run tests to determine the ideal number of threads. After an unspecified threshold, more threads will decrease performance rather than increase it.
 - Consider buffering on size and time as a way of implementing batching for more scenarios.
 
-## Next Steps
+## Next steps
 
 This article focused on how database design and coding techniques related to batching can improve your application performance and scalability. But this is just one factor in your overall strategy. For more ways to improve performance and scalability, see [Azure SQL Database performance guidance for single databases](sql-database-performance-guidance.md) and [Price and performance considerations for an elastic database pool](sql-database-elastic-pool-guidance.md).
