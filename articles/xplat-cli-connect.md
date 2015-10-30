@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="command-line-interface"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/27/2015"
+	ms.date="10/30/2015"
 	ms.author="danlep"/>
 
 # Connect to an Azure subscription from the Azure Command-Line Interface (Azure CLI)
@@ -27,15 +27,17 @@ The Azure CLI is a set of open-source, cross-platform commands for working with 
 
 There are two ways to connect to your subscription from the Azure CLI:
 
-* **Log in to Azure using a work or school account or a Microsoft account identity** - This uses either type of account identity to authenticate. Starting with CLI version 0.9.9, the CLI supports interactive authentication for accounts that have enabled multi-factor authentication. After logging in interactively, you can use either Resource Manager or classic (Service Management) commands.
+* **Log in to Azure using a work or school account or a Microsoft account identity** - This uses either type of account identity to authenticate. The current CLI also supports interactive authentication for accounts that have enabled multi-factor authentication. After logging in interactively, you can use either Resource Manager or classic (Service Management) commands.
 
-* **Download and use a publish settings file** - This installs a certificate that allows you to perform management tasks for as long as the subscription and the certificate are valid. This method only allows you to use classic (Service Management) commands.
+* **Download and use a publish settings file** - This installs a certificate on your local computer that allows you to perform management tasks for as long as the subscription and the certificate are valid. This method only allows you to use classic (Service Management) commands.
 
 For more information about authentication and subscription management, see [What's the difference between account-based authentication and certificate-based authentication][authandsub].
 
 If you don't have an Azure account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial][free-trial].
 
-> [AZURE.NOTE] If you are using a version of the Azure CLI that is prior to version 0.9.9, you can use the `azure login` command only with work or school account identities; Microsoft account identities do not work. You can, however, use any identity to log on to your account with the interactive `azure login` command with Azure CLI versions 0.9.9 and above.
+>[AZURE.NOTE] If you are using a version of the Azure CLI that is prior to version 0.9.10, you can use the `azure login` command only with work or school account identities; Microsoft account identities do not work. You can, however, use any identity to login to your account with the interactive `azure login` command with Azure CLI versions 0.9.10 and above.
+>
+CLI versions 0.9.9 and above support support multi-factor authentication.
 
 
 
@@ -46,23 +48,23 @@ Use the `azure login` command -- without any arguments -- to authenticate intera
 - a work or school account identity that requires multi-factor authentication, or
 - a Microsoft account identity when you want to access Resource Manager deployment mode functionality
 
-> [AZURE.NOTE]  In both cases, authentication and authorization is performed using Azure Active Directory, in the case of Microsoft accounts by accessing your Azure Active Directory default domain. (If you signed up for a free trial, you may not be aware that Azure Active Directory created a default domain for your account.)
+> [AZURE.NOTE]  In both cases, authentication and authorization are performed using Azure Active Directory. If you use a Microsoft account identity, the log in process accesses your Azure Active Directory default domain. (If you signed up for a free trial, you might not be aware that Azure Active Directory created a default domain for your account.)
 
-Interactively logging in is easy; type `azure login` and follow the prompts as shown below:
+Interactively logging in is easy: type `azure login` and follow the prompts as shown below:
 
 	azure login                                                                                                                                                                                         
 	info:    Executing command login
-	info:    To sign in, use a web browser to open the page http://aka.ms/devicelogin. Enter the code B4MGHQS7K to authenticate. If you're signing in as an Azure AD application, use the --username and --password parameters.
-	
-Copy the code offered to you, above, and open a browser to http://aka.ms/devicelogin. Enter the code, and you will be prompted to enter the username and password for the identity you want to use. When that process completes, the command shell will complete th log in process. It might look something like:
-	
+	info:    To sign in, use a web browser to open the page http://aka.ms/devicelogin. Enter the code XXXXXXXXX to authenticate. If you're signing in as an Azure AD application, use the --username and --password parameters.
+
+Copy the code offered to you, above, and open a browser to http://aka.ms/devicelogin. Enter the code, and then you are prompted to enter the username and password for the identity you want to use. When that process completes, the command shell completes the log in process. It might look something like:
+
 	info:    Added subscription Visual Studio Ultimate with MSDN
 	info:    Added subscription Azure Free Trial
 	info:    Setting subscription "Visual Studio Ultimate with MSDN" as default
 	+
 	info:    login command OK
 
-## Using non-interactive log in with a work or school account
+## Use non-interactive log in with a work or school account
 
 
 The non-interactive log in method only works with a work or school account, also called an *organizational account*. This account is managed by your organization, and defined in your organization's Azure Active Directory. You can [create an orgnizational account](#create-an-organizational-account) if you don't have one, or you can [create a work or school ID from your Microsoft account id](./virtual-machines/resource-group-create-work-id-from-personal.md). This requires you to specify either a username or a username and a password to the `azure login` command, like so:
@@ -73,7 +75,7 @@ The non-interactive log in method only works with a work or school account, also
 	|info:    Added subscription Visual Studio Ultimate with MSDN
 	+
 	info:    login command OK
-	
+
 Enter your password when prompted.
 
 	If this is your first time logging in with these credentials, you are asked to verify that you wish to cache an authentication token. This prompt also occurs if you have previously used the `azure logout` command (described below). To bypass this prompt for automation scenarios, run `azure login` with the `-q` parameter.
@@ -101,7 +103,7 @@ This opens your default browser and prompts you to sign in to the [Azure Portal]
 * **To import the publish settings file**, run the following command:
 
 		azure account import <path to your .publishsettings file>
-	
+
 	After importing your publish settings, you should delete the `.publishsettings` file, as it is no longer required by the Azure CLI and presents a security risk as it can be used to gain access to your subscription.
 
 
@@ -125,7 +127,7 @@ This changes the default subscription to Azure-sub-2.
 
 If you wish to use a non-default subscription with the Azure CLI, but don't want to change the current default, you can use the `--subscription` option for the command and provide the name of the subscription you wish to use for the operation.
 
-Once you are connected to your Azure subscription, you can start using the Azure CLI commands. For more information, see [How to use the Azure CLI](xplat-cli-install.md).
+Once you are connected to your Azure subscription, you can start using the Azure CLI commands.
 
 ## Storage of CLI settings
 
@@ -154,5 +156,4 @@ Whether you log in with a work or school account or import publish settings, you
 [portal]: https://manage.windowsazure.com
 [signuporg]: http://azure.microsoft.com/en-us/documentation/articles/sign-up-organization/
 [cliasm]: virtual-machines/virtual-machines-command-line-tools.md
-[cliarm]: virtual-machines/xplat-cli-azure-resource-manager.md
-
+[cliarm]: xplat-cli-azure-resource-manager.md

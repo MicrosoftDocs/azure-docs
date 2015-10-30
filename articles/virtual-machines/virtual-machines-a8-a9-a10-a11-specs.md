@@ -13,7 +13,7 @@ ms.service="virtual-machines"
  ms.topic="article"
  ms.tgt_pltfrm="vm-multiple"
  ms.workload="infrastructure-services"
- ms.date="09/29/2015"
+ ms.date="10/30/2015"
  ms.author="danlep"/>
 
 # About the A8, A9, A10, and A11 compute-intensive instances
@@ -29,7 +29,7 @@ This article provides background information and considerations for using the Az
 
 * **Support for Linux and Windows HPC clusters** – Deploy cluster management and job scheduling software on the A8, A9, A10, and A11 instances in Azure to create a stand-alone HPC cluster or to add capacity to an on-premises cluster. Like other Azure VM sizes, the A8, A9, A10, and A11 instances support standard or custom Windows Server and Linux operating system images or Azure Resource Manager templates in Azure VMs (IaaS), or Azure Guest OS releases in cloud services (PaaS, for Windows Server only).
 
->[AZURE.NOTE]A10 and A11 instances have the same performance optimizations and specifications as the A8 and A9 instances. However, they do not include access to the RDMA network in Azure. They are designed for HPC applications that do not require constant and low-latency communication between nodes, also known as parametric or embarrassingly parallel applications. And for running workloads other than MPI applications, the A8 and A9 instances do not access the RDMA network and are functionally equivalent to the A10 and A11 instances.
+>[AZURE.NOTE]A10 and A11 instances have the same performance optimizations and specifications as the A8 and A9 instances. However, they do not include access to the RDMA network in Azure. They are designed for HPC applications that do not require constant and low-latency communication between nodes, also known as parametric or embarrassingly parallel applications.
 
 
 ## Specs
@@ -61,17 +61,15 @@ Network | Description
 
 A10 and A11 instances have a single, 10-Gbps Ethernet network adapter that connects to Azure services and the Internet.
 
-## Considerations for the Azure subscription
+## Considerations for the subscription
 
 * **Azure account** – If you want to deploy more than a small number of compute-intensive instances, consider a pay-as-you-go subscription or other purchase options. You can also use your MSDN subscription. See [Azure benefit for MSDN subscribers](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). If you're using an [Azure free trial](http://azure.microsoft.com/pricing/free-trial/), you can use only a limited number of Azure compute cores.
 
-* **Cores quota** – You might need to increase the cores quota in your Azure subscription from the default of 20 cores, which is not enough for many scenarios with 8-core or 16-core instances. For initial tests, you might consider requesting a quota increase to 100 cores. To do this, open a free support ticket as shown in [Understanding Azure limits and increases](http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/).
+* **Cores quota** – You might need to increase the cores quota in your Azure subscription from the default of 20 cores per subscription (for Azure Service Management deployments) or 20 cores per region (for Azure Resource Manager deployments), which is not enough for many scenarios with 8-core or 16-core instances. For initial tests, you might consider requesting a quota increase to 100 cores. To do this, open a support ticket at no charge as shown in [Understanding Azure limits and increases](http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/).
 
     >[AZURE.NOTE]Azure quotas are credit limits, not capacity guarantees. You are charged only for cores that you use.
 
-* **Affinity group** – Currently, an affinity group is not recommended for most new deployments. However, note that if you're using an affinity group that contains instances of sizes other than A8–A11, you won't be able to use it for the A8–A11 instances, and vice versa.
-
-* **Virtual network** – An Azure virtual network is not required to use the compute-intensive instances. However, you may need at least a cloud-based Azure virtual network for many IaaS scenarios, or a site-to-site connection if you need to access on-premises resources such as an application license server. You will need to create a new (regional) virtual network before deploying the instances. Adding an A8, A9, A10, or A11 VM to a virtual network in an affinity group is not supported. For more information, see [How to create a virtual network (VNet)](../virtual-network/virtual-networks-create-vnet.md) and [Configure a virtual network with a site-to-site VPN connection](../vpn-gateway/vpn-gateway-site-to-site-create.md).
+* **Virtual network** – An Azure virtual network is not required to use the compute-intensive instances. However, you may need at least a cloud-based Azure virtual network for many IaaS scenarios, or a site-to-site connection if you need to access on-premises resources such as an application license server. You will need to create a new (regional) virtual network before deploying the instances. Adding an A8, A9, A10, or A11 VM to a virtual network in an affinity group is not supported. For more information, see the [virtual network documentation](https://azure.microsoft.com/documentation/services/virtual-network/).
 
 * **Cloud service or availability set** – To connect through the RDMA network, the A8 and A9 instances must be deployed in the same cloud service (for IaaS scenarios with Linux-based VMs or Windows-based VMs in Azure Service Management, or PaaS scenarios with Windows Server) or the same availability set (for Linux-based VMs or Windows-based VMs in Azure Resource Manager).
 
@@ -120,16 +118,14 @@ MPI | MS-MPI 2012 R2 or later, either stand-alone or installed via HPC Pack 2012
 
 ## Additional things to know
 
-* The A8–A11 VM sizes are available only in the Standard pricing tier.
+* **Pricing** - The A8–A11 VM sizes are available only in the Standard pricing tier.
 
-* You can't resize an existing Azure VM to the A8, A9, A10, or A11 size.
+* **Resizing** – You can't resize an instance of size other than A8–A11 to one of the compute-instensive instance sizes (A8-11), and you can’t resize a compute-intensive instance to a non-compute-intensive size. This is because of the the specialized hardware and the performance optimizations that are specific to compute-intensive instances.
 
-* A8, A9, A10, and A11 instances can't currently be deployed by using a cloud service that is part of an existing affinity group. Likewise, an affinity group with a cloud service that contains A8, A9, A10, and A11 instances can't be used for deployments of other instance sizes. If you attempt these deployments, you will see an error message similar to `Azure deployment failure (Compute.OverconstrainedAllocationRequest): The VM size (or combination of VM sizes) required by this deployment cannot be provisioned due to deployment request constraints.`
-
-* The RDMA network in Azure reserves the address space 172.16.0.0/12. If you plan to run MPI applications on A8 and A9 instances that are deployed in an Azure virtual network, make sure that the virtual network address space does not overlap the RDMA network.
+* **RDMA network address space** - The RDMA network in Azure reserves the address space 172.16.0.0/12. If you plan to run MPI applications on A8 and A9 instances in an Azure virtual network, make sure that the virtual network address space does not overlap the RDMA network.
 
 ## Next steps
 
-* For details about availability and pricing of the A8, A9, A10, and  A11 instances, see [Virtual Machines pricing](http://azure.microsoft.com/pricing/details/virtual-machines/) and [Cloud Services pricing](http://azure.microsoft.com/pricing/details/cloud-services/).
+* For details about availability and pricing of the A8, A9, A10, and A11 instances, see [Virtual Machines pricing](http://azure.microsoft.com/pricing/details/virtual-machines/) and [Cloud Services pricing](http://azure.microsoft.com/pricing/details/cloud-services/).
 * To deploy and configure a Linux-based cluster with A8 and A9 instances to access the Azure RDMA network, see [Set up a Linux RDMA cluster to run MPI applications](virtual-machines-linux-cluster-rdma.md).
 * To get started deploying and using A8 and A9 instances with HPC Pack on Windows, see [Set up a Windows RDMA cluster with HPC Pack to run MPI applications](virtual-machines-windows-hpcpack-cluster-rdma.md).
