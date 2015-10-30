@@ -247,7 +247,7 @@ Some Transact-SQL features are not supported with In-Memory OLTP. For details se
 
 [Learn about In-Memory Analytics (Columnstore) on MSDN](https://msdn.microsoft.com/library/gg492088.aspx)
 
-[Learn about Real-Time Operational Analytics on MSDN](https://msdn.microsoft.com/en-us/library/dn817827.aspx)
+[Learn about Real-Time Operational Analytics on MSDN](https://msdn.microsoft.com/library/dn817827.aspx)
 
 [White paper on Common Workload Patterns and Migration Considerations](https://msdn.microsoft.com/library/dn673538.aspx) describes workload patterns where In-Memory OLTP commonly provides significant performance gains.
 
