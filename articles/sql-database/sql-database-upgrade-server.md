@@ -42,7 +42,7 @@ To run PowerShell cmdlets, you need to have Azure PowerShell installed and runni
 
 To run PowerShell cmdlets against your Azure subscription you must first establish access to your Azure account. Run the following and you will be presented with a sign in screen to enter your credentials. Use the same email and password that you use to sign in to the Azure portal.
 
-	Add-AzureAccount
+	Add-AzureRmAccount
 
 After successfully signing in you should see some information on screen that includes the Id you signed in with and the Azure subscriptions you have access to.
 
@@ -50,7 +50,7 @@ To select the subscription you want to work with you need your subscription Id (
 
 Run the following cmdlet with your subscription information to set your current subscription:
 
-	Select-AzureSubscription -SubscriptionId 4cac86b0-1e56-bbbb-aaaa-000000000000
+	Select-AzureRmSubscription -SubscriptionId 4cac86b0-1e56-bbbb-aaaa-000000000000
 
 The following commands will be run against the subscription you just selected above.
 
@@ -58,7 +58,7 @@ The following commands will be run against the subscription you just selected ab
 
 To get the recommendation for the server upgrade run the following cmdlet: 
 
-    $hint = Get-AzureRMSqlServerUpgradeHint -ResourceGroupName “resourcegroup1” -ServerName “server1” 
+    $hint = Get-AzureRmSqlServerUpgradeHint -ResourceGroupName “resourcegroup1” -ServerName “server1” 
 
 For more information, see [Azure SQL Database elastic database pool recommendations](sql-database-elastic-pool-portal.md#elastic-database-pool-pricing-tier-recommendations) and [Azure SQL Database picing tier recommendations](sql-database-service-tier-advisor.md). 
 
@@ -68,7 +68,7 @@ For more information, see [Azure SQL Database elastic database pool recommendati
 
 To start the upgrade of the server run the following cmdlet: 
 
-    Start-AzureRMSqlServerUpgrade -ResourceGroupName “resourcegroup1” -ServerName “server1” -ServerVersion 12.0 -DatabaseCollection $hint.Databases -ElasticPoolCollection $hint.ElasticPools  
+    Start-AzureRmSqlServerUpgrade -ResourceGroupName “resourcegroup1” -ServerName “server1” -ServerVersion 12.0 -DatabaseCollection $hint.Databases -ElasticPoolCollection $hint.ElasticPools  
 
 
 When you run this command upgrade process will begin. You can customize the output of the recommendation and provide the edited recommendation to this cmdlet. 
@@ -79,7 +79,7 @@ When you run this command upgrade process will begin. You can customize the outp
 
     # Adding the account
     #
-    Add-AzureAccount
+    Add-AzureRmAccount
     
     # Setting the variables
     #
@@ -89,15 +89,15 @@ When you run this command upgrade process will begin. You can customize the outp
     
     # Selecting the right subscription 
     # 
-    Select-AzureSubscription -SubscriptionName $SubscriptionName 
+    Select-AzureRmSubscription -SubscriptionName $SubscriptionName 
     
     # Getting the upgrade recommendations 
     #
-    $hint = Get-AzureRMSqlServerUpgradeHint -ResourceGroupName $ResourceGroupName -ServerName $ServerName 
+    $hint = Get-AzureRmSqlServerUpgradeHint -ResourceGroupName $ResourceGroupName -ServerName $ServerName 
     
     # Starting the upgrade process 
     #
-    Start-AzureRMSqlServerUpgrade -ResourceGroupName $ResourceGroupName -ServerName $ServerName -ServerVersion 12.0 -DatabaseCollection $hint.Databases -ElasticPoolCollection $hint.ElasticPools  
+    Start-AzureRmSqlServerUpgrade -ResourceGroupName $ResourceGroupName -ServerName $ServerName -ServerVersion 12.0 -DatabaseCollection $hint.Databases -ElasticPoolCollection $hint.ElasticPools  
 
 
 ## Custom upgrade mapping
@@ -131,7 +131,7 @@ ElasticPoolCollection and DatabaseCollection parameters are optional:
      
     # Starting the upgrade
     #
-    Start-AzureRMSqlServerUpgrade –ResourceGroupName resourcegroup1 –ServerName server1 -Version 12.0 -DatabaseCollection @($databaseMap1, $databaseMap2) -ElasticPoolCollection @($elasticPool) 
+    Start-AzureRmSqlServerUpgrade –ResourceGroupName resourcegroup1 –ServerName server1 -Version 12.0 -DatabaseCollection @($databaseMap1, $databaseMap2) -ElasticPoolCollection @($elasticPool) 
 
     
 
@@ -140,7 +140,7 @@ ElasticPoolCollection and DatabaseCollection parameters are optional:
 
 ## Related Information
 
-- [Get-AzureRMSqlServerUpgrade](https://msdn.microsoft.com/library/azure/mt603582.aspx)
-- [Start-AzureRMSqlServerUpgrade](https://msdn.microsoft.com/library/azure/mt619403.aspx)
-- [Stop-AzureRMSqlServerUpgrade](https://msdn.microsoft.com/library/azure/mt603589.aspx)
+- [Get-AzureRmSqlServerUpgrade](https://msdn.microsoft.com/library/azure/mt603582.aspx)
+- [Start-AzureRmSqlServerUpgrade](https://msdn.microsoft.com/library/azure/mt619403.aspx)
+- [Stop-AzureRmSqlServerUpgrade](https://msdn.microsoft.com/library/azure/mt603589.aspx)
 
