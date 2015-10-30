@@ -159,7 +159,6 @@ In addition to the above, Microsoft will also tag prefixes based on the service 
 | **Skype For Business** | 12076:5030 |
 | **CRM Online** | 12076:5040 |
 | **Other Office 365 Services** | 12076:5100 |
-| **Global prefixes / Anycast** | 12076:5200 |
 
 
 ### Manipulating routing preferences
