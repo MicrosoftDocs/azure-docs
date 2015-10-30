@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/15/2015"
+	ms.date="10/29/2015"
 	ms.author="spelluru"/>
 
 # Build your first Azure Data Factory pipeline using Azure PowerShell
@@ -32,7 +32,12 @@ In this article, you will learn how to use Azure PowerShell to create your first
 
 This article does not provide a conceptual overview of the Azure Data Factory service. For a detailed overview of the service, see the [Introduction to Azure Data Factory](data-factory-introduction.md) article.
 
-> [AZURE.IMPORTANT] Please go through the [Tutorial Overview](data-factory-build-your-first-pipeline.md) article and complete the pre-requisite steps before performing this tutorial.   
+> [AZURE.IMPORTANT] 
+> Please go through the [Tutorial Overview](data-factory-build-your-first-pipeline.md) article and complete the pre-requisite steps before performing this tutorial.
+>   
+> This article does not cover all the Data Factory cmdlets. See [Data Factory Cmdlet Reference][cmdlet-reference] for comprehensive documentation on Data Factory cmdlets.
+>    
+> If you are using Azure PowerShell 1.0 Preview, You will need to use the cmdlets that are documented [here](https://msdn.microsoft.com/library/dn820234.aspx). For example, use New-AzureRMDataFactory instead of using New-AzureDataFactory.   
 
 ## Step 1: Creating the data factory
 
@@ -269,3 +274,5 @@ In this article, you have created a pipeline with a transformation activity (HDI
 
 ## Send Feedback
 We would really appreciate your feedback on this article. Please take a few minutes to submit your feedback via [email](mailto:adfdocfeedback@microsoft.com?subject=data-factory-build-your-first-pipeline-using-powershell.md). 
+
+[cmdlet-reference]: https://msdn.microsoft.com/library/azure/dn820234(v=azure.98).aspx
