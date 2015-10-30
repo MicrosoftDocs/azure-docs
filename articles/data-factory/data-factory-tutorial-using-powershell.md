@@ -13,11 +13,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/25/2015" 
+	ms.date="10/29/2015" 
 	ms.author="spelluru"/>
 
 # Tutorial: Move and process log files using Data Factory [PowerShell]
-This article provides an end-to-end walkthrough of a canonical scenario of log processing using Azure Data Factory to transform data from log files into insights. 
+This article provides an end-to-end walkthrough of a canonical scenario of log processing using Azure Data Factory to transform data from log files into insights.
+
+> [AZURE.IMPORTANT] 
+> This article does not cover all the Data Factory cmdlets. See [Data Factory Cmdlet Reference][cmdlet-reference] for comprehensive documentation on Data Factory cmdlets.
+>    
+> If you are using Azure PowerShell 1.0 Preview, You will need to use the cmdlets that are documented [here](https://msdn.microsoft.com/library/dn820234.aspx). For example, use New-AzureRMDataFactory instead of using New-AzureDataFactory.    
 
 ## Scenario
 Contoso is a gaming company that creates games for multiple platforms: game consoles, hand held devices, and personal computers (PCs). Each of these games produces tons of logs. Contoso’s goal is to collect and analyze the logs produced by these games to get usage information, identify up-sell and cross-sell opportunities, develop new compelling features etc. to improve business and provide better experience to customers.

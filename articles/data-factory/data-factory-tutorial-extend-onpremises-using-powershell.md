@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/25/2015" 
+	ms.date="10/29/2015" 
 	ms.author="spelluru"/>
 
 
@@ -23,6 +23,11 @@ In this walkthrough, you will learn how to set up the environment to enable the 
 In the last step of log processing scenario from the first walkthrough with Partition -> Enrich -> Analyze workflow, the marketing campaign effectiveness output was copied to an Azure SQL database. You could also move this data to on-premises SQL Server for analytics within your organization.
  
 In order to copy the marketing campaign effectiveness data from Azure Blob to on-premises SQL Server, you need to create additional on-premises Linked Service, Table and Pipeline using the same set of cmdlets introduced in the first walkthrough.
+
+> [AZURE.IMPORTANT] 
+> This article does not cover all the Data Factory cmdlets. See [Data Factory Cmdlet Reference][cmdlet-reference] for comprehensive documentation on Data Factory cmdlets.
+>    
+> If you are using Azure PowerShell 1.0 Preview, You will need to use the cmdlets that are documented [here](https://msdn.microsoft.com/library/dn820234.aspx). For example, use New-AzureRMDataFactory instead of using New-AzureDataFactory.  
 
 ## Pr-requisites
 
