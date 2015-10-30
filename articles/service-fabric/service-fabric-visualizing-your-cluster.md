@@ -13,55 +13,71 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/05/2015"
+   ms.date="10/21/2015"
    ms.author="jesseb"/>
 
 # Visualizing your cluster using Service Fabric Explorer
 
-Service Fabric Explorer is a visual tool for inspecting and managing cloud applications and nodes in a Microsoft Azure Service Fabric cluster. Service Fabric Explorer can connect to both local development clusters and Azure clusters. For information on the Service Fabric PowerShell cmdlets, see the **Next Steps**.
+Service Fabric Explorer is a web-based tool for inspecting and managing applications and nodes in a Service Fabric cluster. Service Fabric Explorer is hosted directly within the cluster so it is always available, regardless of where your cluster is running.
 
-> [AZURE.NOTE] Creation of Service Fabric clusters in Azure is not yet available.
+## Connecting to Service Fabric Explorer
 
-## Introduction to Service Fabric Explorer
+If you have followed the instructions to [prepare your development environment](service-fabric-get-started.md), you can launch Service Fabric Explorer on your local cluster by navigating to http://localhost:19007/Explorer.
 
-Ensure your local development environment is setup by following the instructions at [set up your Service Fabric development environment](service-fabric-get-started.md).
+## Understanding Service Fabric Explorer layout
 
-Run Service Fabric Explorer from your local installation path (%Program Files%\Microsoft SDKs\Service Fabric\Tools\ServiceFabricExplorer\ServiceFabricExplorer.exe). The tool will automatically connect to a local development cluster, if one exists.  It displays information on the cluster such as:
+You can navigate Service Fabric Explorer using the tree on the left. At the root of the tree, the cluster dashboard provides an overview of your cluster, including a summary of application and node health.
 
-- Applications running on the cluster
-- Information about the cluster's nodes
-- Health events from the applications and nodes
-- Load on the applications in the cluster
-- Monitoring for application upgrade status
+![Service Fabric Explorer cluster dashboard][sfx-cluster-dashboard]
 
-![Visual representation of the Service Fabric cluster and the deployed applications][servicefabricexplorer]
+The cluster contains two sub-trees: one for applications and another for nodes.
 
-One of the important visualizations is the cluster map, visible on the dashboard for the cluster (e.g. clicking on **Onebox/Local cluster**). The cluster map shows the set of upgrade domains and failure domains, and which nodes are mapped to which domains.  See the [technical overview of Service Fabric](service-fabric-technical-overview.md) to familiarize yourself with key Service Fabric concepts.
+### Viewing applications and services
 
-![Cluster map shows which upgrade domains and failure domains each node belongs to.][clustermap]
+The applications view allows you to navigate through Service Fabric's logical hierarchy: applications, services, partitions, and replicas.
 
+In the example below, the application **MyApp** is made up of two services, **MyStatefulService** and **WebSvcService**. Since **MyStatefulService** is stateful, it includes a partition with one primary and two secondary replicas. By contrast, the WebSvcService is stateless and contains a single instance.
 
-## Viewing applications and services
+![Service Fabric Explorer application view][sfx-application-tree]
 
-Service Fabric Explorer allows you to explore the applications running on your cluster.  Expand the **Application View** to view detailed information on your applications, services, partitions, and replicas.
+At each level of the tree, the main pane shows pertinent information about the item. For instance, you can see the health status and version for a particular service.
 
-The diagram below shows that the application named **"fabric:/Stateful1Application"** has one stateless service named **"fabric:/Stateful1Application/MyFrontEnd"** and one stateful service named **"fabric:/Stateful1Application/Stateful1"**. The stateless service has one partition with one replica running on **Node.4**. The stateful service has two partitions, each with 3 replicas, running on several different nodes.
+![Service Fabric Explorer essentials pane][sfx-service-essentials]
 
-![View of the applications running on the Service Fabric cluster][applicationview]
+### Viewing the cluster's nodes
 
-Clicking on an application, service, partition, or replica provides detailed information on that entity.  The diagram below shows the service replica health dashboard for one of the primary replicas of the stateful service.  This includes its role, the node it's running on, address it's listening on, the location of its files on disk, and health events.
+The Nodes view shows the physical layout of the cluster. For a given node, you can inspect which applications have code deployed on that node and more specicially, which replicas are currently running there.
 
-![Detailed information on a Service Fabric replica][replicadetails]
+## Taking actions using Service Fabric Explorer
+
+Service Fabric Explorer offers a quick way to invoke actions on nodes, applications, and services within your cluster.
+
+For instance, to delete an application instance, simply choose the application from the tree on the left, then choose Actions > Delete Application.
+
+![Deleting an application in Service Fabric Explorer][sfx-delete-application]
+
+Since many actions are destructive, you will be asked to confirm your intent before the action is completed.
+
+>[AZURE.NOTE] Every action that can be performed using Service Fabric Explorer can also be performed using PowerShell or a REST API, enabling automation.
+
 
 
 ## Connecting to a remote Service Fabric cluster
 
-To view a remote Service Fabric cluster, click on **Connect** to bring up the **Connect to Service Fabric Cluster** dialog.  Enter the **ServiceFabric endpoint** for your cluster and click **Connect**.  The Service Fabric endpoint is typically the public name of your cluster service listening on port 19000.
+Since Service Fabric Explorer is web-based and runs within the cluster, it is accessible from any browser, as long as you know the cluster's endpoint and have sufficient permissions to access it.
 
-![Setup a connection to your remote Service Fabric cluster][connecttocluster]
+### Discovering the Service Fabric Explorer endpoint for a remote Cluster
 
+You can discover your cluster endpoint from the Service Fabric portal. In order to reach Service Fabric Explorer for a given cluster, simply connect to that endpoint on port 19007:
 
-<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
+http://&lt;your-cluster-endpoint&gt;:19007
+
+### Connecting to a secure cluster
+
+You can control access to your Service Fabric cluster by requiring clients to present a certificate in order to connect to it.
+
+If you attempt to connect to Service Fabric Explorer on a secure cluster, your browser will ask to present a certificate in order to gain access.
+
 ## Next steps
 
 - [Testability overview](service-fabric-testability-overview.md).
@@ -74,3 +90,7 @@ To view a remote Service Fabric cluster, click on **Connect** to bring up the **
 [connecttocluster]: ./media/service-fabric-visualizing-your-cluster/connecttocluster.png
 [replicadetails]: ./media/service-fabric-visualizing-your-cluster/replicadetails.png
 [servicefabricexplorer]: ./media/service-fabric-visualizing-your-cluster/servicefabricexplorer.png
+[sfx-cluster-dashboard]: ./media/service-fabric-visualizing-your-cluster/SfxClusterDashboard.png
+[sfx-application-tree]: ./media/service-fabric-visualizing-your-cluster/SfxApplicationTree.png
+[sfx-service-essentials]: ./media/service-fabric-visualizing-your-cluster/SfxServiceEssentials.png
+[sfx-delete-application]: ./media/service-fabric-visualizing-your-cluster/SfxDeleteApplication.png
