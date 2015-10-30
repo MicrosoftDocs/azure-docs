@@ -120,7 +120,7 @@ MPI | MS-MPI 2012 R2 or later, either stand-alone or installed via HPC Pack 2012
 
 * **Pricing** - The A8–A11 VM sizes are available only in the Standard pricing tier.
 
-* **Resizing** – You can't resize an instance of size other than A8–A11 to one of the compute-instensive instance sizes (A8-11), and you can’t resize a compute-intensive instance to a non-compute-intensive size. This is because of the the specialized hardware and the performance optimizations that are specific to compute-intensive instances.
+* **Resizing** – You can't resize an instance of size other than A8–A11 to one of the compute-instensive instance sizes (A8-11), and you can’t resize a compute-intensive instance to a non-compute-intensive size. This is because of the specialized hardware and the performance optimizations that are specific to compute-intensive instances.
 
 * **RDMA network address space** - The RDMA network in Azure reserves the address space 172.16.0.0/12. If you plan to run MPI applications on A8 and A9 instances in an Azure virtual network, make sure that the virtual network address space does not overlap the RDMA network.
 
