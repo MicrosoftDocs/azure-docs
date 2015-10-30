@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Upgrade to SQL Database V12" 
-	description="Explains how to upgrade to Azure SQL Database V12, from an earlier version of Azure SQL Database." 
+	pageTitle="Upgrade to Azure SQL Database V12" 
+	description="Explains how to upgrade to Azure SQL Database V12 including how to upgrade Web and Business databases using the Azure Portal." 
 	services="sql-database" 
 	documentationCenter="" 
 	authors="stevestein" 

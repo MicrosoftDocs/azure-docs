@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Upgrade an Azure SQL server to V12 using PowerShell" 
-	description="Upgrade an Azure SQL server to V12 using PowerShell." 
+	pageTitle="Upgrade to Azure SQL Database V12 using PowerShell" 
+	description="Explains how to upgrade to Azure SQL Database V12 including how to upgrade Web and Business databases, and how to upgrade a V11 server migrating its databases directly into an elastic database pool using PowerShell." 
 	services="sql-database" 
 	documentationCenter="" 
 	authors="stevestein" 
