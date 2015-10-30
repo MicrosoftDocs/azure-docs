@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Visualizing your cluster using Service Fabric Explorer"
+   pageTitle="Visualizing your cluster using Service Fabric Explorer | Microsoft Azure"
    description="Service Fabric Explorer is a useful GUI tool for inspecting and managing cloud applications and nodes in a Microsoft Azure Service Fabric cluster."
    services="service-fabric"
    documentationCenter=".net"
