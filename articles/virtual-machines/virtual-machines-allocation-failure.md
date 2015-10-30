@@ -100,7 +100,7 @@ Two common failure scenarios are related to Affinity Group. In the past, Affinit
 Diagram 5 below presents the taxonomy of the (pinned) allocation scenarios.
 ![Pinned Allocation Taxonomy](./media/virtual-machines-allocation-failure/Allocation3.png)
 
-> [AZURE.NOTE] The error listed in each allocation scenario is a short form. Refer to the [Appendix](#Appendix) for detailed error strings.
+> [AZURE.NOTE] The error listed in each allocation scenario is a short form. Refer to the [Appendix](#appendix) for detailed error strings.
 
 ### Allocation scenario: resizing a VM, or adding additional VMs or role instances to an existing cloud service
 **Error**
@@ -179,7 +179,7 @@ New_General* or New_VMSizeNotSupported*
 
 **Cause of Cluster Pinning**
 
-Before Regional Virtual Network is announced, you were required to associate a Virtual Network with an Affinity Group. As a result, compute resources placed into the Affinity Group are bound by the same constraints as described in the [Allocation scenario: affinity Group - VM/Service Proximity](#Allocation scenario: affinity group - VM/service proximity) section above - the compute resources are tied to one cluster.
+Before Regional Virtual Network is announced, you were required to associate a Virtual Network with an Affinity Group. As a result, compute resources placed into the Affinity Group are bound by the same constraints as described in the "Allocation scenario: affinity Group - VM/Service Proximity" section above - the compute resources are tied to one cluster.
 
 **Workaround**
 
@@ -187,8 +187,7 @@ If you do not need the Affinity Group, create a new Regional Virtual Network for
 
 Alternatively, you can [migrate your Affinity-Group-based Virtual Network to Regional Virtual Network](http://azure.microsoft.com/blog/2014/11/26/migrating-existing-services-to-regional-scope/), and then try adding the desired resources again.
 
-## More information
-### Appendix
+## Appendix
 ### Error String Lookup
 **New_VMSizeNotSupported***
 
