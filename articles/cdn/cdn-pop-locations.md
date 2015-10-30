@@ -3,7 +3,7 @@
 	description="This topic lists Azure Content Delivery Network (CDN) POP locations." 
 	services="cdn" 
 	documentationCenter="" 
-	authors="Juliako" 
+	authors="camsoper" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="09/01/2015" 
-	ms.author="juliako"/>
+	ms.date="10/31/2015" 
+	ms.author="casoper"/>
 
 
 #Azure Content Delivery Network (CDN) POP Locations

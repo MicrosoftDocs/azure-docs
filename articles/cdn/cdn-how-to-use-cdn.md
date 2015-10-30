@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="09/01/2015" 
+	ms.date="10/31/2015" 
 	ms.author="casoper"/>
 
 

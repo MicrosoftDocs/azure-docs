@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/22/2015" 
+	ms.date="10/31/2015" 
 	ms.author="casoper"/>
 
 #Overview of the Azure Content Delivery Network (CDN)
@@ -114,10 +114,6 @@ Accessing CDN content using HTTPS has the following constraints:
 
 - You must use the certificate provided by the CDN. Third party certificates are not supported.
 - You must use the CDN domain to access content. HTTPS support is not available for custom domain names (CNAMEs) since the CDN does not support custom certificates at this time.
-
-
-
-Even when HTTPS is enabled, content from the CDN can be retrieved using both HTTP and HTTPS.
 
 For more information on enabling HTTPS for CDN content, see [How to Enable the Content Delivery Network (CDN) for Azure](cdn-create-new-endpoint.md).
 
